@@ -25,16 +25,6 @@ export default function Welcome() {
     }
   }, [user, isLoading]);
 
-  // TEMPORARY: Skip auth for testing mood cards
-  // Remove this after testing
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      console.log('Auto-redirecting to mood cards for testing...');
-      router.replace('/(tabs)');
-    }, 2000);
-    return () => clearTimeout(timer);
-  }, []);
-
   if (isLoading) {
     return <LoadingSpinner text="Loading..." />;
   }
