@@ -177,8 +177,8 @@ const moodCards: MoodCard[] = [
 ];
 
 export default function WorkoutsHome() {
+  const [greeting, setGreeting] = useState('');
   const insets = useSafeAreaInsets();
-    const [greeting, setGreeting] = useState('');
 
   useEffect(() => {
     const hour = new Date().getHours();
@@ -213,6 +213,7 @@ export default function WorkoutsHome() {
             </View>
           </TouchableOpacity>
         </View>
+
         {/* Mood Cards Column */}
         <View style={styles.moodCardsContainer}>
           <Text style={styles.sectionTitle}>Choose your mood</Text>
