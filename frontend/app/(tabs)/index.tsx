@@ -177,6 +177,7 @@ const moodCards: MoodCard[] = [
 ];
 
 export default function WorkoutsHome() {
+  const insets = useSafeAreaInsets();
   const [greeting, setGreeting] = useState('');
 
   useEffect(() => {
