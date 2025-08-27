@@ -90,18 +90,13 @@ const AnimatedMoodCard = ({ mood, index, onPress }: {
       >
         {/* Gold Neon Glow Effect */}
         <View style={styles.neonGlow}>
-          <LinearGradient
-            colors={mood.gradient}
-            style={styles.moodCard}
-            start={{ x: 0, y: 0 }}
-            end={{ x: 1, y: 1 }}
-          >
+          <View style={styles.moodCard}>
             <View style={styles.cardContent}>
               <View style={styles.iconContainer}>
                 <Ionicons 
                   name={mood.icon} 
                   size={40} 
-                  color="white" 
+                  color="#FFD700" 
                   style={styles.cardIcon}
                 />
               </View>
@@ -113,11 +108,11 @@ const AnimatedMoodCard = ({ mood, index, onPress }: {
                 <Ionicons 
                   name="chevron-forward" 
                   size={24} 
-                  color="rgba(255, 255, 255, 0.7)" 
+                  color="#FFD700" 
                 />
               </View>
             </View>
-          </LinearGradient>
+          </View>
         </View>
       </TouchableOpacity>
     </Animated.View>
