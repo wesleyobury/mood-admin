@@ -340,7 +340,7 @@ const styles = StyleSheet.create({
     borderColor: '#FFD700',
     shadowColor: '#FFD700',
     shadowOffset: { width: 0, height: 0 },
-    shadowOpacity: 0.8,
+    shadowOpacity: 1,
     shadowRadius: 20,
     elevation: 15,
   },
