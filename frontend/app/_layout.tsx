@@ -27,20 +27,18 @@ export default function RootLayout() {
 
   return (
     <GestureHandlerRootView style={{ flex: 1, backgroundColor: '#000000' }}>
-      <SafeAreaProvider style={{ backgroundColor: '#000000' }}>
-        <AuthProvider>
-          <StatusBar style="light" backgroundColor="#000000" translucent={false} />
-          <Stack screenOptions={{ headerShown: false }}>
-            <Stack.Screen name="index" options={{ headerShown: false, title: '' }} />
-            <Stack.Screen name="(tabs)" options={{ headerShown: false, title: '' }} />
-            <Stack.Screen name="auth/login" options={{ headerShown: false, title: '' }} />
-            <Stack.Screen name="auth/register" options={{ headerShown: false, title: '' }} />
-            <Stack.Screen name="workout/[id]" options={{ headerShown: false, title: '' }} />
-            <Stack.Screen name="profile/[id]" options={{ headerShown: false, title: '' }} />
-            <Stack.Screen name="post/[id]" options={{ headerShown: false, title: '' }} />
-          </Stack>
-        </AuthProvider>
-      </SafeAreaProvider>
+      <StatusBar style="light" backgroundColor="#000000" translucent={true} />
+      <AuthProvider>
+        <Stack screenOptions={{ headerShown: false, contentStyle: { backgroundColor: '#000000' } }}>
+          <Stack.Screen name="index" options={{ headerShown: false, title: '', contentStyle: { backgroundColor: '#000000' } }} />
+          <Stack.Screen name="(tabs)" options={{ headerShown: false, title: '', contentStyle: { backgroundColor: '#000000' } }} />
+          <Stack.Screen name="auth/login" options={{ headerShown: false, title: '', contentStyle: { backgroundColor: '#000000' } }} />
+          <Stack.Screen name="auth/register" options={{ headerShown: false, title: '', contentStyle: { backgroundColor: '#000000' } }} />
+          <Stack.Screen name="workout/[id]" options={{ headerShown: false, title: '', contentStyle: { backgroundColor: '#000000' } }} />
+          <Stack.Screen name="profile/[id]" options={{ headerShown: false, title: '', contentStyle: { backgroundColor: '#000000' } }} />
+          <Stack.Screen name="post/[id]" options={{ headerShown: false, title: '', contentStyle: { backgroundColor: '#000000' } }} />
+        </Stack>
+      </AuthProvider>
     </GestureHandlerRootView>
   );
 }
