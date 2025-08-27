@@ -25,6 +25,12 @@ export default function Welcome() {
     }
   }, [user, isLoading]);
 
+  // For demo purposes, allow access to mood cards without authentication
+  // You can remove this for production if you want to require auth
+  const handleDemoAccess = () => {
+    router.replace('/(tabs)');
+  };
+
   if (isLoading) {
     return <LoadingSpinner text="Loading..." />;
   }
