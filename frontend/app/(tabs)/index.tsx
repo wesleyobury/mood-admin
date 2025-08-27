@@ -241,7 +241,7 @@ export default function WorkoutsHome() {
             </View>
             <View style={styles.statItem}>
               <Text style={styles.statValue}>0</Text>
-              <Text style={styles.statLabel">Streak</Text>
+              <Text style={styles.statLabel}>Streak</Text>
             </View>
           </View>
         </View>
