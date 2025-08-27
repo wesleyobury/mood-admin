@@ -190,25 +190,26 @@ export default function WorkoutsHome() {
   };
 
   return (
-    <SafeAreaView style={styles.container}>
-      {/* Header with Gold Neon Accent */}
-      <View style={styles.header}>
-        <View style={styles.headerContent}>
-          <Text style={styles.greeting}>{greeting}</Text>
-          <Text style={styles.title}>How are you feeling today?</Text>
-        </View>
-        <TouchableOpacity style={styles.notificationBtn}>
-          <View style={styles.notificationGlow}>
-            <Ionicons name="notifications-outline" size={24} color="#FFD700" />
-          </View>
-        </TouchableOpacity>
-      </View>
-
+    <View style={styles.container}>
       <ScrollView 
-        style={styles.scrollView}
+        style={styles.fullScrollView}
         showsVerticalScrollIndicator={false}
-        contentContainerStyle={styles.scrollContent}
+        contentContainerStyle={styles.scrollContentContainer}
+        bounces={true}
+        scrollEventThrottle={16}
       >
+        {/* Header with Gold Neon Accent */}
+        <View style={styles.header}>
+          <View style={styles.headerContent}>
+            <Text style={styles.greeting}>{greeting}</Text>
+            <Text style={styles.title}>How are you feeling today?</Text>
+          </View>
+          <TouchableOpacity style={styles.notificationBtn}>
+            <View style={styles.notificationGlow}>
+              <Ionicons name="notifications-outline" size={24} color="#FFD700" />
+            </View>
+          </TouchableOpacity>
+        </View>
         {/* Mood Cards Column */}
         <View style={styles.moodCardsContainer}>
           <Text style={styles.sectionTitle}>Choose your mood</Text>
