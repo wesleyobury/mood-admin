@@ -193,7 +193,7 @@ export default function WorkoutsHome() {
   };
 
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, { paddingTop: insets.top, paddingBottom: insets.bottom }]}>
       <ScrollView 
         style={styles.fullScrollView}
         showsVerticalScrollIndicator={false}
