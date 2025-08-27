@@ -22,6 +22,106 @@ interface MoodCard {
   gradient: string[];
 }
 
+// Animated Mood Card Component
+const AnimatedMoodCard = ({ mood, index, onPress }: { 
+  mood: MoodCard; 
+  index: number; 
+  onPress: (mood: MoodCard) => void;
+}) => {
+  const scaleValue = new Animated.Value(1);
+  const opacityValue = new Animated.Value(0);
+
+  useEffect(() => {
+    // Stagger the card animations
+    Animated.sequence([
+      Animated.delay(index * 150),
+      Animated.parallel([
+        Animated.timing(opacityValue, {
+          toValue: 1,
+          duration: 600,
+          useNativeDriver: true,
+        }),
+        Animated.spring(scaleValue, {
+          toValue: 1,
+          tension: 100,
+          friction: 8,
+          useNativeDriver: true,
+        }),
+      ]),
+    ]).start();
+  }, []);
+
+  const handlePressIn = () => {
+    Animated.spring(scaleValue, {
+      toValue: 0.95,
+      tension: 150,
+      friction: 8,
+      useNativeDriver: true,
+    }).start();
+  };
+
+  const handlePressOut = () => {
+    Animated.spring(scaleValue, {
+      toValue: 1,
+      tension: 150,
+      friction: 8,
+      useNativeDriver: true,
+    }).start();
+    onPress(mood);
+  };
+
+  return (
+    <Animated.View
+      style={[
+        styles.animatedCardContainer,
+        {
+          opacity: opacityValue,
+          transform: [{ scale: scaleValue }],
+        },
+      ]}
+    >
+      <TouchableOpacity
+        activeOpacity={1}
+        onPressIn={handlePressIn}
+        onPressOut={handlePressOut}
+        style={styles.moodCardContainer}
+      >
+        {/* Gold Neon Glow Effect */}
+        <View style={styles.neonGlow}>
+          <LinearGradient
+            colors={mood.gradient}
+            style={styles.moodCard}
+            start={{ x: 0, y: 0 }}
+            end={{ x: 1, y: 1 }}
+          >
+            <View style={styles.cardContent}>
+              <View style={styles.iconContainer}>
+                <Ionicons 
+                  name={mood.icon} 
+                  size={40} 
+                  color="white" 
+                  style={styles.cardIcon}
+                />
+              </View>
+              <View style={styles.textContainer}>
+                <Text style={styles.cardTitle}>{mood.title}</Text>
+                <Text style={styles.cardSubtitle}>{mood.subtitle}</Text>
+              </View>
+              <View style={styles.arrowContainer}>
+                <Ionicons 
+                  name="chevron-forward" 
+                  size={24} 
+                  color="rgba(255, 255, 255, 0.7)" 
+                />
+              </View>
+            </View>
+          </LinearGradient>
+        </View>
+      </TouchableOpacity>
+    </Animated.View>
+  );
+};
+
 const moodCards: MoodCard[] = [
   {
     id: 'sweat',
