@@ -197,7 +197,7 @@ export default function WorkoutsHome() {
       <ScrollView 
         style={styles.fullScrollView}
         showsVerticalScrollIndicator={false}
-        contentContainerStyle={styles.scrollContentContainer}
+        contentContainerStyle={[styles.scrollContentContainer, { paddingBottom: Math.max(insets.bottom, 40) }]}
         bounces={true}
         scrollEventThrottle={16}
       >
