@@ -265,7 +265,9 @@ const styles = StyleSheet.create({
     backgroundColor: '#000000', // Pure black background
   },
   scrollContentContainer: {
-    
+    paddingBottom: 60, // Base bottom padding, will be enhanced with safe area
+    backgroundColor: '#000000', // Pure black background
+  },
     paddingBottom: 60, // Base bottom padding, will be enhanced with safe area
     backgroundColor: '#000000', // Pure black background
   },
