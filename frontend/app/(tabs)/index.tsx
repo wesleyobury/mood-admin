@@ -335,7 +335,7 @@ const styles = StyleSheet.create({
   neonGlow: {
     borderRadius: 24,
     padding: 3,
-    backgroundColor: 'transparent',
+    backgroundColor: 'rgba(255, 215, 0, 0.1)',
     borderWidth: 2,
     borderColor: '#FFD700',
     shadowColor: '#FFD700',
