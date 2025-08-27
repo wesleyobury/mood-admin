@@ -265,8 +265,8 @@ const styles = StyleSheet.create({
     backgroundColor: '#000000', // Pure black background
   },
   scrollContentContainer: {
-    paddingTop: 50, // Add top padding for status bar
-    paddingBottom: 100, // Extra bottom padding for better scroll experience
+    
+    paddingBottom: 60, // Base bottom padding, will be enhanced with safe area
     backgroundColor: '#000000', // Pure black background
   },
   header: {
