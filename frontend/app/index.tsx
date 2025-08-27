@@ -25,6 +25,14 @@ export default function Welcome() {
     }
   }, [user, isLoading]);
 
+  // Auto-redirect after 3 seconds to demo the mood cards
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      router.replace('/(tabs)');
+    }, 3000);
+    return () => clearTimeout(timer);
+  }, []);
+
   // For demo purposes, allow access to mood cards without authentication
   // You can remove this for production if you want to require auth
   const handleDemoAccess = () => {
