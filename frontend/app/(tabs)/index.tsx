@@ -191,11 +191,16 @@ export default function WorkoutsHome() {
 
   return (
     <SafeAreaView style={styles.container}>
+      {/* Header with Gold Neon Accent */}
       <View style={styles.header}>
-        <Text style={styles.greeting}>{greeting}</Text>
-        <Text style={styles.title}>How are you feeling today?</Text>
+        <View style={styles.headerContent}>
+          <Text style={styles.greeting}>{greeting}</Text>
+          <Text style={styles.title}>How are you feeling today?</Text>
+        </View>
         <TouchableOpacity style={styles.notificationBtn}>
-          <Ionicons name="notifications-outline" size={24} color="#FFD700" />
+          <View style={styles.notificationGlow}>
+            <Ionicons name="notifications-outline" size={24} color="#FFD700" />
+          </View>
         </TouchableOpacity>
       </View>
 
@@ -204,37 +209,27 @@ export default function WorkoutsHome() {
         showsVerticalScrollIndicator={false}
         contentContainerStyle={styles.scrollContent}
       >
-        <View style={styles.moodGrid}>
-          {moodCards.map((mood) => (
-            <TouchableOpacity
-              key={mood.id}
-              style={styles.moodCardContainer}
-              onPress={() => handleMoodSelect(mood)}
-              activeOpacity={0.8}
-            >
-              <LinearGradient
-                colors={mood.gradient}
-                style={styles.moodCard}
-                start={{ x: 0, y: 0 }}
-                end={{ x: 1, y: 1 }}
-              >
-                <View style={styles.cardContent}>
-                  <Ionicons 
-                    name={mood.icon} 
-                    size={32} 
-                    color="white" 
-                    style={styles.cardIcon}
-                  />
-                  <Text style={styles.cardTitle}>{mood.title}</Text>
-                  <Text style={styles.cardSubtitle}>{mood.subtitle}</Text>
-                </View>
-              </LinearGradient>
-            </TouchableOpacity>
-          ))}
+        {/* Mood Cards Column */}
+        <View style={styles.moodCardsContainer}>
+          <Text style={styles.sectionTitle}>Choose your mood</Text>
+          <View style={styles.moodColumn}>
+            {moodCards.map((mood, index) => (
+              <AnimatedMoodCard
+                key={mood.id}
+                mood={mood}
+                index={index}
+                onPress={handleMoodSelect}
+              />
+            ))}
+          </View>
         </View>
 
+        {/* Stats Section with Gold Accent */}
         <View style={styles.quickStats}>
-          <Text style={styles.sectionTitle}>Your Progress</Text>
+          <View style={styles.statsHeader}>
+            <Text style={styles.statsTitle}>Your Progress</Text>
+            <View style={styles.goldAccentLine} />
+          </View>
           <View style={styles.statsContainer}>
             <View style={styles.statItem}>
               <Text style={styles.statValue}>0</Text>
@@ -246,7 +241,7 @@ export default function WorkoutsHome() {
             </View>
             <View style={styles.statItem}>
               <Text style={styles.statValue}>0</Text>
-              <Text style={styles.statLabel}>Streak</Text>
+              <Text style={styles.statLabel">Streak</Text>
             </View>
           </View>
         </View>
