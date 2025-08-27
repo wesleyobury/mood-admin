@@ -26,17 +26,18 @@ export default function RootLayout() {
   }
 
   return (
-    <GestureHandlerRootView style={{ flex: 1 }}>
-      <SafeAreaProvider>
+    <GestureHandlerRootView style={{ flex: 1, backgroundColor: '#000000' }}>
+      <SafeAreaProvider style={{ backgroundColor: '#000000' }}>
         <AuthProvider>
-          <StatusBar style="light" backgroundColor="#0c0c0c" />
-          <Stack>
-            <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-            <Stack.Screen name="auth/login" options={{ headerShown: false }} />
-            <Stack.Screen name="auth/register" options={{ headerShown: false }} />
-            <Stack.Screen name="workout/[id]" options={{ headerShown: false }} />
-            <Stack.Screen name="profile/[id]" options={{ headerShown: false }} />
-            <Stack.Screen name="post/[id]" options={{ headerShown: false }} />
+          <StatusBar style="light" backgroundColor="#000000" translucent={false} />
+          <Stack screenOptions={{ headerShown: false }}>
+            <Stack.Screen name="index" options={{ headerShown: false, title: '' }} />
+            <Stack.Screen name="(tabs)" options={{ headerShown: false, title: '' }} />
+            <Stack.Screen name="auth/login" options={{ headerShown: false, title: '' }} />
+            <Stack.Screen name="auth/register" options={{ headerShown: false, title: '' }} />
+            <Stack.Screen name="workout/[id]" options={{ headerShown: false, title: '' }} />
+            <Stack.Screen name="profile/[id]" options={{ headerShown: false, title: '' }} />
+            <Stack.Screen name="post/[id]" options={{ headerShown: false, title: '' }} />
           </Stack>
         </AuthProvider>
       </SafeAreaProvider>
