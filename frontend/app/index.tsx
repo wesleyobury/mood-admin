@@ -131,6 +131,13 @@ export default function Welcome() {
             >
               <Text style={styles.secondaryButtonText}>Login</Text>
             </TouchableOpacity>
+
+            <TouchableOpacity 
+              style={styles.demoButton} 
+              onPress={handleDemoAccess}
+            >
+              <Text style={styles.demoButtonText}>Try Demo</Text>
+            </TouchableOpacity>
           </View>
         </View>
       </LinearGradient>
