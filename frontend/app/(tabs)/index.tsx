@@ -247,7 +247,7 @@ export default function WorkoutsHome() {
           </View>
         </View>
       </ScrollView>
-    </SafeAreaView>
+    </View>
   );
 }
 
