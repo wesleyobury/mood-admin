@@ -1,4 +1,5 @@
-from fastapi import FastAPI, APIRouter
+from fastapi import FastAPI, APIRouter, HTTPException, Depends
+from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
 from dotenv import load_dotenv
 from starlette.middleware.cors import CORSMiddleware
 from motor.motor_asyncio import AsyncIOMotorClient
@@ -6,10 +7,12 @@ import os
 import logging
 from pathlib import Path
 from pydantic import BaseModel, Field
-from typing import List
+from typing import List, Optional, Dict, Any
 import uuid
-from datetime import datetime
-
+from datetime import datetime, timezone
+from bson import ObjectId
+import jwt
+import bcrypt
 
 ROOT_DIR = Path(__file__).parent
 load_dotenv(ROOT_DIR / '.env')
@@ -19,42 +22,595 @@ mongo_url = os.environ['MONGO_URL']
 client = AsyncIOMotorClient(mongo_url)
 db = client[os.environ['DB_NAME']]
 
-# Create the main app without a prefix
-app = FastAPI()
+# JWT Configuration
+JWT_SECRET = os.environ.get('JWT_SECRET', 'mood-app-secret-key-2025')
+JWT_ALGORITHM = 'HS256'
 
-# Create a router with the /api prefix
+# Create the main app
+app = FastAPI()
 api_router = APIRouter(prefix="/api")
 
+# Security
+security = HTTPBearer()
 
-# Define Models
-class StatusCheck(BaseModel):
-    id: str = Field(default_factory=lambda: str(uuid.uuid4()))
-    client_name: str
-    timestamp: datetime = Field(default_factory=datetime.utcnow)
+# Helper functions
+def create_jwt_token(user_id: str) -> str:
+    payload = {
+        'user_id': user_id,
+        'exp': datetime.now(timezone.utc).timestamp() + (7 * 24 * 3600)  # 7 days
+    }
+    return jwt.encode(payload, JWT_SECRET, algorithm=JWT_ALGORITHM)
 
-class StatusCheckCreate(BaseModel):
-    client_name: str
+async def get_current_user(credentials: HTTPAuthorizationCredentials = Depends(security)) -> str:
+    try:
+        payload = jwt.decode(credentials.credentials, JWT_SECRET, algorithms=[JWT_ALGORITHM])
+        user_id = payload.get('user_id')
+        if not user_id:
+            raise HTTPException(status_code=401, detail="Invalid token")
+        
+        user = await db.users.find_one({"_id": ObjectId(user_id)})
+        if not user:
+            raise HTTPException(status_code=401, detail="User not found")
+        
+        return user_id
+    except jwt.InvalidTokenError:
+        raise HTTPException(status_code=401, detail="Invalid token")
 
-# Add your routes to the router instead of directly to app
+# Pydantic Models
+
+class UserCreate(BaseModel):
+    username: str
+    email: str
+    password: str
+    name: Optional[str] = None
+
+class UserLogin(BaseModel):
+    username: str
+    password: str
+
+class UserResponse(BaseModel):
+    id: str
+    username: str
+    email: str
+    name: Optional[str] = None
+    bio: Optional[str] = None
+    avatar: Optional[str] = None
+    followers_count: int = 0
+    following_count: int = 0
+    workouts_count: int = 0
+    current_streak: int = 0
+    created_at: datetime
+
+class WorkoutCreate(BaseModel):
+    title: str
+    mood_category: str  # One of the 7 mood types
+    exercises: List[Dict[str, Any]]
+    duration: int  # in minutes
+    difficulty: str  # beginner, intermediate, advanced
+    equipment: List[str] = []
+    calories_estimate: Optional[int] = None
+
+class WorkoutResponse(BaseModel):
+    id: str
+    title: str
+    mood_category: str
+    exercises: List[Dict[str, Any]]
+    duration: int
+    difficulty: str
+    equipment: List[str]
+    calories_estimate: Optional[int] = None
+    created_at: datetime
+
+class UserWorkoutCreate(BaseModel):
+    workout_id: str
+    completed_at: Optional[datetime] = None
+    duration_actual: Optional[int] = None  # actual duration completed
+    notes: Optional[str] = None
+    mood_before: Optional[str] = None
+    mood_after: Optional[str] = None
+
+class PostCreate(BaseModel):
+    workout_id: Optional[str] = None
+    caption: str
+    image: Optional[str] = None  # base64 encoded image
+
+class PostResponse(BaseModel):
+    id: str
+    author: UserResponse
+    workout: Optional[WorkoutResponse] = None
+    caption: str
+    image: Optional[str] = None
+    likes_count: int = 0
+    comments_count: int = 0
+    is_liked: bool = False
+    created_at: datetime
+
+class CommentCreate(BaseModel):
+    post_id: str
+    text: str
+
+class FollowResponse(BaseModel):
+    follower: UserResponse
+    following: UserResponse
+    created_at: datetime
+
+# Authentication Endpoints
+
+@api_router.post("/auth/register")
+async def register(user_data: UserCreate):
+    # Check if username or email already exists
+    existing_user = await db.users.find_one({
+        "$or": [
+            {"username": user_data.username},
+            {"email": user_data.email}
+        ]
+    })
+    
+    if existing_user:
+        raise HTTPException(status_code=400, detail="Username or email already exists")
+    
+    # Hash password
+    hashed_password = bcrypt.hashpw(user_data.password.encode(), bcrypt.gensalt()).decode()
+    
+    # Create user
+    user_doc = {
+        "username": user_data.username,
+        "email": user_data.email,
+        "password": hashed_password,
+        "name": user_data.name or user_data.username,
+        "bio": "",
+        "avatar": "",
+        "followers_count": 0,
+        "following_count": 0,
+        "workouts_count": 0,
+        "current_streak": 0,
+        "created_at": datetime.now(timezone.utc)
+    }
+    
+    result = await db.users.insert_one(user_doc)
+    
+    # Generate JWT token
+    token = create_jwt_token(str(result.inserted_id))
+    
+    return {
+        "message": "User created successfully",
+        "token": token,
+        "user_id": str(result.inserted_id)
+    }
+
+@api_router.post("/auth/login")
+async def login(login_data: UserLogin):
+    # Find user
+    user = await db.users.find_one({"username": login_data.username})
+    if not user:
+        raise HTTPException(status_code=401, detail="Invalid credentials")
+    
+    # Verify password
+    if not bcrypt.checkpw(login_data.password.encode(), user["password"].encode()):
+        raise HTTPException(status_code=401, detail="Invalid credentials")
+    
+    # Generate JWT token
+    token = create_jwt_token(str(user["_id"]))
+    
+    return {
+        "message": "Login successful",
+        "token": token,
+        "user_id": str(user["_id"])
+    }
+
+# User Endpoints
+
+@api_router.get("/users/me", response_model=UserResponse)
+async def get_current_user_info(current_user_id: str = Depends(get_current_user)):
+    user = await db.users.find_one({"_id": ObjectId(current_user_id)})
+    if not user:
+        raise HTTPException(status_code=404, detail="User not found")
+    
+    return UserResponse(
+        id=str(user["_id"]),
+        username=user["username"],
+        email=user["email"],
+        name=user.get("name"),
+        bio=user.get("bio", ""),
+        avatar=user.get("avatar", ""),
+        followers_count=user.get("followers_count", 0),
+        following_count=user.get("following_count", 0),
+        workouts_count=user.get("workouts_count", 0),
+        current_streak=user.get("current_streak", 0),
+        created_at=user["created_at"]
+    )
+
+@api_router.get("/users/{user_id}", response_model=UserResponse)
+async def get_user_by_id(user_id: str):
+    try:
+        user = await db.users.find_one({"_id": ObjectId(user_id)})
+        if not user:
+            raise HTTPException(status_code=404, detail="User not found")
+        
+        return UserResponse(
+            id=str(user["_id"]),
+            username=user["username"],
+            email=user["email"],
+            name=user.get("name"),
+            bio=user.get("bio", ""),
+            avatar=user.get("avatar", ""),
+            followers_count=user.get("followers_count", 0),
+            following_count=user.get("following_count", 0),
+            workouts_count=user.get("workouts_count", 0),
+            current_streak=user.get("current_streak", 0),
+            created_at=user["created_at"]
+        )
+    except:
+        raise HTTPException(status_code=404, detail="User not found")
+
+# Workout Endpoints
+
+@api_router.get("/workouts")
+async def get_workouts(mood: Optional[str] = None, difficulty: Optional[str] = None, limit: int = 20):
+    """Get workouts with optional filtering by mood and difficulty"""
+    filter_query = {}
+    if mood:
+        filter_query["mood_category"] = mood
+    if difficulty:
+        filter_query["difficulty"] = difficulty
+    
+    workouts_cursor = db.workouts.find(filter_query).limit(limit)
+    workouts = await workouts_cursor.to_list(length=limit)
+    
+    return [
+        WorkoutResponse(
+            id=str(workout["_id"]),
+            title=workout["title"],
+            mood_category=workout["mood_category"],
+            exercises=workout["exercises"],
+            duration=workout["duration"],
+            difficulty=workout["difficulty"],
+            equipment=workout.get("equipment", []),
+            calories_estimate=workout.get("calories_estimate"),
+            created_at=workout["created_at"]
+        )
+        for workout in workouts
+    ]
+
+@api_router.post("/workouts", response_model=WorkoutResponse)
+async def create_workout(workout_data: WorkoutCreate, current_user_id: str = Depends(get_current_user)):
+    """Create a new workout (admin feature for now)"""
+    workout_doc = {
+        **workout_data.dict(),
+        "created_by": current_user_id,
+        "created_at": datetime.now(timezone.utc)
+    }
+    
+    result = await db.workouts.insert_one(workout_doc)
+    
+    workout_doc["id"] = str(result.inserted_id)
+    return WorkoutResponse(**workout_doc)
+
+@api_router.get("/workouts/mood/{mood_category}")
+async def get_workouts_by_mood(mood_category: str, limit: int = 10):
+    """Get workouts filtered by mood category"""
+    valid_moods = [
+        "i want to sweat",
+        "i want to push and gain muscle", 
+        "i want to build explosiveness",
+        "i want a light sweat",
+        "im feeling lazy",
+        "i want to do calisthenics",
+        "i want to get outside"
+    ]
+    
+    if mood_category.lower() not in [mood.lower() for mood in valid_moods]:
+        raise HTTPException(status_code=400, detail="Invalid mood category")
+    
+    workouts_cursor = db.workouts.find({"mood_category": mood_category}).limit(limit)
+    workouts = await workouts_cursor.to_list(length=limit)
+    
+    return [
+        WorkoutResponse(
+            id=str(workout["_id"]),
+            title=workout["title"],
+            mood_category=workout["mood_category"],
+            exercises=workout["exercises"],
+            duration=workout["duration"],
+            difficulty=workout["difficulty"],
+            equipment=workout.get("equipment", []),
+            calories_estimate=workout.get("calories_estimate"),
+            created_at=workout["created_at"]
+        )
+        for workout in workouts
+    ]
+
+# User Workout History
+
+@api_router.post("/user-workouts")
+async def log_workout_completion(workout_data: UserWorkoutCreate, current_user_id: str = Depends(get_current_user)):
+    """Log a completed workout for the user"""
+    workout_log = {
+        **workout_data.dict(),
+        "user_id": current_user_id,
+        "completed_at": workout_data.completed_at or datetime.now(timezone.utc),
+        "created_at": datetime.now(timezone.utc)
+    }
+    
+    result = await db.user_workouts.insert_one(workout_log)
+    
+    # Update user's workout count
+    await db.users.update_one(
+        {"_id": ObjectId(current_user_id)},
+        {"$inc": {"workouts_count": 1}}
+    )
+    
+    return {"message": "Workout logged successfully", "id": str(result.inserted_id)}
+
+@api_router.get("/user-workouts")
+async def get_user_workouts(current_user_id: str = Depends(get_current_user), limit: int = 20):
+    """Get user's workout history"""
+    user_workouts_cursor = db.user_workouts.find({"user_id": current_user_id}).sort("completed_at", -1).limit(limit)
+    user_workouts = await user_workouts_cursor.to_list(length=limit)
+    
+    return user_workouts
+
+# Social Features - Posts
+
+@api_router.post("/posts")
+async def create_post(post_data: PostCreate, current_user_id: str = Depends(get_current_user)):
+    """Create a new social media post"""
+    post_doc = {
+        **post_data.dict(),
+        "author_id": current_user_id,
+        "likes_count": 0,
+        "comments_count": 0,
+        "created_at": datetime.now(timezone.utc)
+    }
+    
+    result = await db.posts.insert_one(post_doc)
+    return {"message": "Post created successfully", "id": str(result.inserted_id)}
+
+@api_router.get("/posts")
+async def get_posts(current_user_id: str = Depends(get_current_user), limit: int = 20, skip: int = 0):
+    """Get feed posts with user and workout information"""
+    # Get posts with author and workout details
+    pipeline = [
+        {"$sort": {"created_at": -1}},
+        {"$skip": skip},
+        {"$limit": limit},
+        {
+            "$lookup": {
+                "from": "users",
+                "localField": "author_id",
+                "foreignField": "_id",
+                "as": "author"
+            }
+        },
+        {"$unwind": "$author"},
+        {
+            "$lookup": {
+                "from": "workouts", 
+                "localField": "workout_id",
+                "foreignField": "_id", 
+                "as": "workout"
+            }
+        },
+        {
+            "$lookup": {
+                "from": "post_likes",
+                "let": {"post_id": "$_id", "user_id": ObjectId(current_user_id)},
+                "pipeline": [
+                    {"$match": {"$expr": {"$and": [
+                        {"$eq": ["$post_id", "$$post_id"]},
+                        {"$eq": ["$user_id", "$$user_id"]}
+                    ]}}}
+                ],
+                "as": "user_like"
+            }
+        }
+    ]
+    
+    posts = await db.posts.aggregate(pipeline).to_list(length=limit)
+    
+    result = []
+    for post in posts:
+        # Convert ObjectIds to strings
+        author_data = UserResponse(
+            id=str(post["author"]["_id"]),
+            username=post["author"]["username"],
+            email=post["author"]["email"],
+            name=post["author"].get("name"),
+            bio=post["author"].get("bio", ""),
+            avatar=post["author"].get("avatar", ""),
+            followers_count=post["author"].get("followers_count", 0),
+            following_count=post["author"].get("following_count", 0),
+            workouts_count=post["author"].get("workouts_count", 0),
+            current_streak=post["author"].get("current_streak", 0),
+            created_at=post["author"]["created_at"]
+        )
+        
+        workout_data = None
+        if post.get("workout") and len(post["workout"]) > 0:
+            workout = post["workout"][0]
+            workout_data = WorkoutResponse(
+                id=str(workout["_id"]),
+                title=workout["title"],
+                mood_category=workout["mood_category"],
+                exercises=workout["exercises"],
+                duration=workout["duration"],
+                difficulty=workout["difficulty"],
+                equipment=workout.get("equipment", []),
+                calories_estimate=workout.get("calories_estimate"),
+                created_at=workout["created_at"]
+            )
+        
+        result.append(PostResponse(
+            id=str(post["_id"]),
+            author=author_data,
+            workout=workout_data,
+            caption=post["caption"],
+            image=post.get("image"),
+            likes_count=post.get("likes_count", 0),
+            comments_count=post.get("comments_count", 0),
+            is_liked=len(post.get("user_like", [])) > 0,
+            created_at=post["created_at"]
+        ))
+    
+    return result
+
+# Social Features - Likes
+
+@api_router.post("/posts/{post_id}/like")
+async def like_post(post_id: str, current_user_id: str = Depends(get_current_user)):
+    """Like or unlike a post"""
+    try:
+        post_object_id = ObjectId(post_id)
+        user_object_id = ObjectId(current_user_id)
+        
+        # Check if already liked
+        existing_like = await db.post_likes.find_one({
+            "post_id": post_object_id,
+            "user_id": user_object_id
+        })
+        
+        if existing_like:
+            # Unlike
+            await db.post_likes.delete_one({"_id": existing_like["_id"]})
+            await db.posts.update_one(
+                {"_id": post_object_id},
+                {"$inc": {"likes_count": -1}}
+            )
+            return {"message": "Post unliked", "liked": False}
+        else:
+            # Like
+            await db.post_likes.insert_one({
+                "post_id": post_object_id,
+                "user_id": user_object_id,
+                "created_at": datetime.now(timezone.utc)
+            })
+            await db.posts.update_one(
+                {"_id": post_object_id},
+                {"$inc": {"likes_count": 1}}
+            )
+            return {"message": "Post liked", "liked": True}
+    
+    except:
+        raise HTTPException(status_code=404, detail="Post not found")
+
+# Social Features - Comments
+
+@api_router.post("/comments")
+async def create_comment(comment_data: CommentCreate, current_user_id: str = Depends(get_current_user)):
+    """Create a comment on a post"""
+    try:
+        comment_doc = {
+            **comment_data.dict(),
+            "author_id": current_user_id,
+            "created_at": datetime.now(timezone.utc)
+        }
+        
+        result = await db.comments.insert_one(comment_doc)
+        
+        # Update post comment count
+        await db.posts.update_one(
+            {"_id": ObjectId(comment_data.post_id)},
+            {"$inc": {"comments_count": 1}}
+        )
+        
+        return {"message": "Comment created successfully", "id": str(result.inserted_id)}
+    except:
+        raise HTTPException(status_code=404, detail="Post not found")
+
+@api_router.get("/posts/{post_id}/comments")
+async def get_post_comments(post_id: str, limit: int = 50):
+    """Get comments for a post"""
+    try:
+        # Get comments with author information
+        pipeline = [
+            {"$match": {"post_id": post_id}},
+            {"$sort": {"created_at": -1}},
+            {"$limit": limit},
+            {
+                "$lookup": {
+                    "from": "users",
+                    "localField": "author_id",
+                    "foreignField": "_id",
+                    "as": "author"
+                }
+            },
+            {"$unwind": "$author"}
+        ]
+        
+        comments = await db.comments.aggregate(pipeline).to_list(length=limit)
+        return comments
+    except:
+        raise HTTPException(status_code=404, detail="Post not found")
+
+# Social Features - Follow System
+
+@api_router.post("/users/{user_id}/follow")
+async def follow_user(user_id: str, current_user_id: str = Depends(get_current_user)):
+    """Follow or unfollow a user"""
+    if user_id == current_user_id:
+        raise HTTPException(status_code=400, detail="Cannot follow yourself")
+    
+    try:
+        following_object_id = ObjectId(user_id)
+        follower_object_id = ObjectId(current_user_id)
+        
+        # Check if already following
+        existing_follow = await db.follows.find_one({
+            "follower_id": follower_object_id,
+            "following_id": following_object_id
+        })
+        
+        if existing_follow:
+            # Unfollow
+            await db.follows.delete_one({"_id": existing_follow["_id"]})
+            
+            # Update counts
+            await db.users.update_one(
+                {"_id": follower_object_id},
+                {"$inc": {"following_count": -1}}
+            )
+            await db.users.update_one(
+                {"_id": following_object_id},
+                {"$inc": {"followers_count": -1}}
+            )
+            
+            return {"message": "User unfollowed", "following": False}
+        else:
+            # Follow
+            await db.follows.insert_one({
+                "follower_id": follower_object_id,
+                "following_id": following_object_id,
+                "created_at": datetime.now(timezone.utc)
+            })
+            
+            # Update counts
+            await db.users.update_one(
+                {"_id": follower_object_id},
+                {"$inc": {"following_count": 1}}
+            )
+            await db.users.update_one(
+                {"_id": following_object_id},
+                {"$inc": {"followers_count": 1}}
+            )
+            
+            return {"message": "User followed", "following": True}
+    
+    except:
+        raise HTTPException(status_code=404, detail="User not found")
+
+# Health Check
 @api_router.get("/")
 async def root():
-    return {"message": "Hello World"}
+    return {"message": "MOOD App API is running", "version": "1.0.0"}
 
-@api_router.post("/status", response_model=StatusCheck)
-async def create_status_check(input: StatusCheckCreate):
-    status_dict = input.dict()
-    status_obj = StatusCheck(**status_dict)
-    _ = await db.status_checks.insert_one(status_obj.dict())
-    return status_obj
+@api_router.get("/health")
+async def health_check():
+    return {"status": "healthy", "database": "connected"}
 
-@api_router.get("/status", response_model=List[StatusCheck])
-async def get_status_checks():
-    status_checks = await db.status_checks.find().to_list(1000)
-    return [StatusCheck(**status_check) for status_check in status_checks]
-
-# Include the router in the main app
+# Include router in main app
 app.include_router(api_router)
 
+# Middleware
 app.add_middleware(
     CORSMiddleware,
     allow_credentials=True,
