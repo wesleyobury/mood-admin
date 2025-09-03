@@ -363,6 +363,18 @@ const styles = StyleSheet.create({
   spacer: {
     height: 20,
   },
+  simpleQuestionContainer: {
+    paddingHorizontal: 20,
+    paddingVertical: 20,
+    alignItems: 'center',
+    backgroundColor: '#111111', // Slightly lighter than pure black
+  },
+  simpleQuestionText: {
+    fontSize: 22,
+    color: '#FFD700',
+    fontWeight: 'bold',
+    textAlign: 'center',
+  },
 
   centeredBrandingHeader: {
     alignItems: 'center',
