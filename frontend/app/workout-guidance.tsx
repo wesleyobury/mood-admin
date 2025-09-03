@@ -32,11 +32,11 @@ const formatTime = (seconds: number): string => {
 
 const getIntensityColor = (intensity: string): string => {
   switch (intensity) {
-    case 'easy': return '#4CAF50';
-    case 'moderate': return '#FF9800';
-    case 'hard': return '#F44336';
-    case 'sprint': return '#E91E63';
-    case 'rest': return '#2196F3';
+    case 'easy': return '#FFD700';      // Gold for easy
+    case 'moderate': return '#FFA500';  // Dark gold for moderate  
+    case 'hard': return '#B8860B';      // Dark golden rod for hard
+    case 'sprint': return '#DAA520';    // Golden rod for sprint
+    case 'rest': return '#F0E68C';      // Khaki (lighter gold) for rest
     default: return '#FFD700';
   }
 };
