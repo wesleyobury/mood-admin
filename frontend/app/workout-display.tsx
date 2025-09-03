@@ -1742,36 +1742,30 @@ export default function WorkoutDisplayScreen() {
   const handleStartWorkout = (workout: Workout, equipment: string, difficulty: string) => {
     try {
       console.log('🚀 Starting workout:', workout.name, 'on', equipment);
-      console.log('📝 Workout data:', JSON.stringify(workout, null, 2));
       
       // Validate required parameters
       if (!workout.name || !equipment || !difficulty) {
         console.error('❌ Missing required parameters for workout navigation');
-        console.log('Parameters:', { workoutName: workout.name, equipment, difficulty });
         return;
       }
       
-      const navigationParams = {
-        workoutName: workout.name,
-        equipment: equipment,
-        description: workout.description || '',
-        duration: workout.duration || '20 min',
-        difficulty: difficulty,
-        moodTips: encodeURIComponent(JSON.stringify(workout.moodTips || []))
-      };
-      
-      console.log('🔄 Navigation params:', navigationParams);
-      
-      // Navigate to workout guidance screen with workout data
+      // Use navigation state instead of URL parameters to avoid encoding issues
       router.push({
         pathname: '/workout-guidance',
-        params: navigationParams
+        params: {
+          workoutName: workout.name,
+          equipment: equipment,
+          description: workout.description || '',
+          duration: workout.duration || '20 min',
+          difficulty: difficulty,
+          // Store MOOD tips count instead of complex object
+          moodTipsCount: workout.moodTips?.length.toString() || '0'
+        }
       });
       
-      console.log('✅ Navigation attempted successfully');
+      console.log('✅ Navigation completed - using simplified parameters');
     } catch (error) {
       console.error('❌ Error starting workout:', error);
-      console.error('Stack trace:', error.stack);
     }
   };
 
