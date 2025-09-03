@@ -39,7 +39,7 @@ interface EquipmentWorkouts {
   };
 }
 
-// Complete workout database with MOOD tips for all workouts
+// Complete workout database with all 12 equipment types and MOOD tips
 const workoutDatabase: EquipmentWorkouts[] = [
   {
     equipment: 'Treadmill',
@@ -50,7 +50,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
           name: 'Walk & Jog Mixer',
           duration: '20 min',
           description: '3 min brisk walk (3.0 mph), 2 min power walk (4.0 mph, incline 2%), 1 min light jog (5.0 mph), repeat 3x, finish with 3 min walk (3.0 mph, incline 1%).',
-          imageUrl: 'https://images.unsplash.com/photo-1723117418780-1b74b25af9bc?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwzfHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MTc1Njg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHx0cmVhZG1pbGwlMjB3b3Jrb3V0fGVufDF8fHx8MTc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Perfect for beginners with alternating walking and light jogging to gradually build cardiovascular endurance.',
           moodTips: [
             {
@@ -149,7 +149,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
           name: 'Tempo & Hill Challenge',
           duration: '35 min',
           description: '5 min warm-up (jog), 10 min tempo run (7.0 mph, incline 2%), 5 x 1 min hill sprints (8.0 mph, incline 6%, 1 min walk between), 5 min cool-down.',
-          imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MTc1Njg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MTc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Extended tempo runs plus high-intensity hill sprints demand advanced cardiovascular fitness and mental toughness.',
           moodTips: [
             {
@@ -176,7 +176,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
           name: 'Resistance Rounds',
           duration: '20 min',
           description: '3 min easy (resistance 3), 2 min moderate (resistance 6), 1 min fast (resistance 4), repeat 4x, finish with 3 min easy (resistance 2).',
-          imageUrl: 'https://images.unsplash.com/photo-1723117418780-1b74b25af9bc?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwzfHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MTc1Njg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Low-impact movement with gentle resistance changes, ideal for building cardio base without joint stress.',
           moodTips: [
             {
@@ -361,7 +361,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
           name: 'Reverse & Forward',
           duration: '20 min',
           description: '2 min forward (resistance 5), 1 min reverse (resistance 3), 1 min sprint (forward, resistance 4), repeat 4x.',
-          imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MTc1Njg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MTc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Alternating directions engage different muscle groups while building intermediate cardiovascular capacity.',
           moodTips: [
             {
@@ -382,7 +382,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
           name: 'HIIT Sprints',
           duration: '20 min',
           description: '30 sec max effort (resistance 8), 1 min easy (resistance 3), repeat 10x, finish with 5 min moderate.',
-          imageUrl: 'https://images.unsplash.com/photo-1723117418780-1b74b25af9bc?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwzfHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MTc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxhcm0lMjBiaWN5Y2xlJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'High-intensity sprints demand maximum upper body power and anaerobic capacity.',
           moodTips: [
             {
@@ -413,6 +413,384 @@ const workoutDatabase: EquipmentWorkouts[] = [
               icon: 'repeat',
               title: 'Reverse Recovery',
               description: 'Use reverse section as active recovery while still engaging muscles - targets different fiber types.'
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    equipment: 'Stationary bike',
+    icon: 'bicycle',
+    workouts: {
+      beginner: [
+        {
+          name: 'Rolling Ride',
+          duration: '20 min',
+          description: '3 min easy (resistance 2), 2 min moderate (resistance 5), 1 min fast (resistance 3), repeat 4x.',
+          imageUrl: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxzdGF0aW9uYXJ5JTIwYmlrZSUyMHdvcmtvdXR8ZW58MXx8fHwxNzU2ODgzNjUyfDA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Gentle resistance changes help beginners build leg strength and cardiovascular base.',
+          moodTips: [
+            {
+              icon: 'bicycle',
+              title: 'Pedal Stroke Efficiency',
+              description: 'Focus on smooth, circular pedaling motion - push down and pull up for maximum power transfer.'
+            },
+            {
+              icon: 'settings',
+              title: 'Seat Position',
+              description: 'Adjust seat height so your leg is almost fully extended at the bottom of the pedal stroke for optimal efficiency.'
+            }
+          ]
+        },
+        {
+          name: 'Cadence Intervals',
+          duration: '18 min',
+          description: '2 min steady (70 RPM), 1 min fast (90 RPM), 2 min moderate (80 RPM), 1 min slow (60 RPM, resistance 6), repeat 3x.',
+          imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
+          intensityReason: 'RPM variations teach beginners pedaling rhythm while maintaining moderate intensity.',
+          moodTips: [
+            {
+              icon: 'speedometer',
+              title: 'Cadence Control',
+              description: 'Use the display to monitor your RPM and maintain steady cadence throughout each interval.'
+            },
+            {
+              icon: 'body',
+              title: 'Upper Body Relaxation',
+              description: 'Keep your shoulders and arms relaxed - tension in upper body wastes energy needed for pedaling.'
+            }
+          ]
+        }
+      ],
+      intermediate: [
+        {
+          name: 'Hill & Sprint',
+          duration: '25 min',
+          description: '2 min moderate (resistance 6), 1 min hill (resistance 10), 1 min sprint (resistance 4, 100+ RPM), repeat 5x.',
+          imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Alternates between strength-building hills and speed-focused sprints for balanced intermediate training.',
+          moodTips: [
+            {
+              icon: 'trending-up',
+              title: 'Hill Climbing Power',
+              description: 'During hill intervals, slow your cadence but increase power output - focus on strong pedal strokes.'
+            },
+            {
+              icon: 'flash',
+              title: 'Sprint Explosiveness',
+              description: 'For sprints, keep resistance lower and focus on quick leg turnover - aim for 100+ RPM.'
+            }
+          ]
+        },
+        {
+          name: 'Pyramid Ride',
+          duration: '30 min',
+          description: '3 min easy, 2 min moderate, 1 min hard, 2 min moderate, 3 min easy, repeat 3x.',
+          imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MTc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Progressive intensity pyramids challenge intermediate riders with sustained effort periods.',
+          moodTips: [
+            {
+              icon: 'timer',
+              title: 'Pacing Strategy',
+              description: 'Build intensity gradually through each pyramid - save your hardest effort for the 1-minute peak.'
+            },
+            {
+              icon: 'refresh',
+              title: 'Recovery Discipline',
+              description: 'Use easy periods for true recovery - resist the urge to maintain high intensity throughout.'
+            }
+          ]
+        }
+      ],
+      advanced: [
+        {
+          name: 'Tabata Bike',
+          duration: '24 min',
+          description: '8 rounds: 20 sec max effort (resistance 8), 10 sec easy (resistance 3), 2 min recovery, repeat for 3 cycles.',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxzdGF0aW9uYXJ5JTIwYmlrZSUyMHdvcmtvdXR8ZW58MXx8fHwxNzU2ODgzNjUyfDA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Tabata protocol pushes advanced cyclists to maximum anaerobic power and VO2 capacity.',
+          moodTips: [
+            {
+              icon: 'stopwatch',
+              title: 'Maximum Effort Protocol',
+              description: 'During 20-second intervals, give everything you have - this should feel impossible to maintain longer.'
+            },
+            {
+              icon: 'battery-charging',
+              title: 'Recovery Efficiency',
+              description: 'Use 10-second rest periods to prepare mentally for the next all-out effort while keeping legs moving.'
+            }
+          ]
+        },
+        {
+          name: 'Endurance & Power',
+          duration: '35 min',
+          description: '5 min easy, 10 min moderate (resistance 7), 5 min hard (resistance 10), 5 min fast (resistance 5, 100+ RPM), 5 min standing climb (resistance 8), 5 min cool-down.',
+          imageUrl: 'https://images.pexels.com/photos/2774172/pexels-photo-2774172.jpeg',
+          intensityReason: 'Extended workout with varied challenges tests advanced cardiovascular endurance and power.',
+          moodTips: [
+            {
+              icon: 'trophy',
+              title: 'Mental Toughness',
+              description: 'This workout tests your mental limits - break it into segments and focus on completing each phase.'
+            },
+            {
+              icon: 'body',
+              title: 'Standing Position',
+              description: 'During standing climbs, keep core engaged and avoid rocking side to side for maximum power efficiency.'
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    equipment: 'Assault bike',
+    icon: 'bicycle',
+    workouts: {
+      beginner: [
+        {
+          name: 'Intro Intervals',
+          duration: '12 min',
+          description: '1 min easy, 30 sec moderate, 1 min easy, 30 sec fast, repeat 4x.',
+          imageUrl: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxhc3NhdWx0JTIwYmlrZSUyMHdvcmtvdXR8ZW58MXx8fHwxNzU2ODgzNjUyfDA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Short intervals introduce beginners to assault bike intensity while allowing adequate recovery.',
+          moodTips: [
+            {
+              icon: 'sync',
+              title: 'Coordinate Arms & Legs',
+              description: 'Push and pull with your arms while pedaling - this full-body coordination maximizes calorie burn.'
+            },
+            {
+              icon: 'pulse',
+              title: 'Heart Rate Awareness',
+              description: 'Assault bikes raise heart rate quickly - start conservatively and build intensity gradually.'
+            }
+          ]
+        },
+        {
+          name: 'Resistance Play',
+          duration: '15 min',
+          description: '2 min easy, 1 min moderate (increase resistance), 1 min fast, repeat 3x, finish with 2 min easy.',
+          imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
+          intensityReason: 'Gradual resistance increases help beginners adapt to full-body assault bike movement.',
+          moodTips: [
+            {
+              icon: 'settings',
+              title: 'Resistance Control',
+              description: 'Learn to adjust resistance based on your effort level - more resistance for strength, less for speed.'
+            },
+            {
+              icon: 'body',
+              title: 'Posture Maintenance',
+              description: 'Keep your core stable and avoid excessive leaning forward or backward during intense intervals.'
+            }
+          ]
+        }
+      ],
+      intermediate: [
+        {
+          name: 'Sprint & Recover',
+          duration: '18 min',
+          description: '20 sec sprint, 40 sec easy, repeat 10x, 5 min moderate.',
+          imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmd8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Classic 1:2 work-to-rest ratio challenges intermediate full-body power and recovery.',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Sprint Intensity',
+              description: 'During 20-second sprints, coordinate explosive arm and leg movements for maximum power output.'
+            },
+            {
+              icon: 'refresh',
+              title: 'Active Recovery',
+              description: 'Keep moving during rest periods at a sustainable pace to maintain blood flow and prepare for next sprint.'
+            }
+          ]
+        },
+        {
+          name: 'Ladder Intervals',
+          duration: '20 min',
+          description: '30 sec sprint, 1 min easy, 45 sec sprint, 1 min easy, 1 min sprint, 1 min easy, repeat sequence.',
+          imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MTc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Progressive interval lengths challenge intermediate athletes with increasing demands.',
+          moodTips: [
+            {
+              icon: 'trending-up',
+              title: 'Progressive Challenge',
+              description: 'Each interval gets longer - pace yourself so you can maintain intensity throughout the progression.'
+            },
+            {
+              icon: 'timer',
+              title: 'Mental Preparation',
+              description: 'Use rest periods to mentally prepare for the next longer interval - visualization helps performance.'
+            }
+          ]
+        }
+      ],
+      advanced: [
+        {
+          name: 'Tabata Assault',
+          duration: '16 min',
+          description: '8 rounds: 20 sec max effort, 10 sec rest, 2 min easy, repeat for 2 cycles.',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxhc3NhdWx0JTIwYmlrZSUyMHdvcmtvdXR8ZW58MXx8fHwxNzU2ODgzNjUyfDA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Tabata on assault bike demands maximum full-body power and elite anaerobic capacity.',
+          moodTips: [
+            {
+              icon: 'flame',
+              title: 'All-Out Commitment',
+              description: 'Give absolute maximum effort for 20 seconds - this should feel unsustainable beyond the time limit.'
+            },
+            {
+              icon: 'stopwatch',
+              title: 'Rest Discipline',
+              description: 'Use 10-second rests to briefly recover while staying mentally focused for the next explosive effort.'
+            }
+          ]
+        },
+        {
+          name: 'EMOM Challenge',
+          duration: '20 min',
+          description: 'Every minute: 20 sec sprint, 40 sec moderate, repeat for 20 min.',
+          imageUrl: 'https://images.pexels.com/photos/2774172/pexels-photo-2774172.jpeg',
+          intensityReason: 'Extended EMOM format tests advanced endurance under consistent high-intensity demands.',
+          moodTips: [
+            {
+              icon: 'repeat',
+              title: 'Consistency Challenge',
+              description: 'Maintain the same effort level for all 20 minutes - resist the urge to go too hard early.'
+            },
+            {
+              icon: 'trophy',
+              title: 'Mental Endurance',
+              description: 'This tests mental toughness as much as physical - break into 5-minute segments to stay focused.'
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    equipment: 'Row machine',
+    icon: 'boat',
+    workouts: {
+      beginner: [
+        {
+          name: 'Row & Rest',
+          duration: '12 min',
+          description: '1 min easy, 30 sec moderate, 1 min easy, 30 sec fast, repeat 4x.',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxyb3dpbmclMjBtYWNoaW5lJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODM2NTJ8MA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Short intervals with rest periods make this ideal for beginners learning rowing technique and building base endurance.',
+          moodTips: [
+            {
+              icon: 'boat',
+              title: 'Proper Rowing Form',
+              description: 'Drive with your legs first, then engage your back and arms - this sequence maximizes power and prevents injury.'
+            },
+            {
+              icon: 'body',
+              title: 'Core Engagement',
+              description: 'Keep your core tight throughout the stroke to maintain proper posture and protect your lower back.'
+            }
+          ]
+        },
+        {
+          name: 'Stroke Play',
+          duration: '15 min',
+          description: '2 min steady (22 SPM), 1 min fast (28 SPM), 2 min slow (20 SPM), repeat 3x.',
+          imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
+          intensityReason: 'Varied stroke rates help beginners develop rhythm control while building steady cardiovascular base.',
+          moodTips: [
+            {
+              icon: 'speedometer',
+              title: 'Stroke Rate Control',
+              description: 'Monitor your strokes per minute (SPM) and focus on maintaining consistent rhythm for each interval.'
+            },
+            {
+              icon: 'refresh',
+              title: 'Recovery Phase',
+              description: 'Use the return phase of each stroke as active recovery - controlled and relaxed movement back to catch position.'
+            }
+          ]
+        }
+      ],
+      intermediate: [
+        {
+          name: 'Power Intervals',
+          duration: '20 min',
+          description: '1 min hard (28 SPM), 2 min moderate (24 SPM), 1 min slow (20 SPM), repeat 4x.',
+          imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmd8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Alternates between power strokes and recovery periods, perfect for building intermediate strength and endurance.',
+          moodTips: [
+            {
+              icon: 'barbell',
+              title: 'Power Development',
+              description: 'During hard intervals, focus on explosive leg drive and strong back engagement for maximum power output.'
+            },
+            {
+              icon: 'pulse',
+              title: 'Heart Rate Management',
+              description: 'Use moderate intervals to control heart rate while maintaining good rowing technique.'
+            }
+          ]
+        },
+        {
+          name: 'Pyramid Row',
+          duration: '25 min',
+          description: '1 min easy, 1 min hard, 2 min easy, 2 min hard, 3 min easy, 3 min hard, then back down.',
+          imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MTc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Progressive time intervals challenge intermediate rowers with increasing demands on both power and mental focus.',
+          moodTips: [
+            {
+              icon: 'trending-up',
+              title: 'Progressive Building',
+              description: 'Build intensity gradually through the pyramid - save your best effort for the 3-minute peak intervals.'
+            },
+            {
+              icon: 'timer',
+              title: 'Time Management',
+              description: 'Break longer intervals into smaller mental segments to maintain focus and technique throughout.'
+            }
+          ]
+        }
+      ],
+      advanced: [
+        {
+          name: 'Sprint & Recover',
+          duration: '20 min',
+          description: '30 sec sprint (32 SPM), 1 min moderate (24 SPM), repeat 10x.',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxyb3dpbmclMjBtYWNoaW5lJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODM2NTJ8MA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'High-intensity sprints at 32 SPM demand maximum power output and anaerobic capacity from advanced rowers.',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Sprint Technique',
+              description: 'During sprints, maintain form while maximizing stroke rate - power comes from technique, not just speed.'
+            },
+            {
+              icon: 'refresh',
+              title: 'Recovery Strategy',
+              description: 'Use moderate intervals for active recovery while maintaining good rowing rhythm and technique.'
+            }
+          ]
+        },
+        {
+          name: 'Endurance Builder',
+          duration: '30 min',
+          description: '5 min easy, 10 min moderate, 5 min hard, 5 min fast, 5 min cool-down.',
+          imageUrl: 'https://images.pexels.com/photos/2774172/pexels-photo-2774172.jpeg',
+          intensityReason: 'Extended duration with progressive intensity builds elite-level cardiovascular endurance and mental toughness.',
+          moodTips: [
+            {
+              icon: 'trophy',
+              title: 'Endurance Mindset',
+              description: 'This workout tests mental endurance - maintain consistent technique even as fatigue builds throughout.'
+            },
+            {
+              icon: 'time',
+              title: 'Pacing Strategy',
+              description: 'Each 5-minute segment has a purpose - respect the progression and don\'t go too hard too early.'
             }
           ]
         }
