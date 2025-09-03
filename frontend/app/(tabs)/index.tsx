@@ -174,7 +174,16 @@ export default function WorkoutsHome() {
         <View style={styles.parallaxContainer}>
           <Image 
             source={{ uri: 'https://customer-assets.emergentagent.com/job_mood-workout-app/artifacts/g5zte4vw_Screenshot%202025-09-03%20at%2012.19.19%E2%80%AFAM.png' }}
-            style={styles.parallaxImage}
+            style={[
+              styles.parallaxImage,
+              {
+                transform: [
+                  {
+                    translateY: scrollY * 0.5, // Parallax effect - image moves slower than scroll
+                  },
+                ],
+              },
+            ]}
             resizeMode="cover"
           />
           <View style={styles.parallaxOverlay} />
