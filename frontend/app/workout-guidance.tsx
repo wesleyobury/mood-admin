@@ -410,8 +410,11 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
   },
   extendedProgressContent: {
+    flexDirection: 'row',
     alignItems: 'center',
+    justifyContent: 'center',
     paddingHorizontal: 10,
+    flexWrap: 'nowrap',
   },
   progressStep: {
     alignItems: 'center',
