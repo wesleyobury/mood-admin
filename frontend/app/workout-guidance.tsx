@@ -359,6 +359,18 @@ export default function WorkoutGuidanceScreen() {
           </View>
         </View>
       </ScrollView>
+
+      {/* Completed Workout Button - Fixed at bottom */}
+      <View style={styles.completedButtonContainer}>
+        <TouchableOpacity 
+          style={styles.completedButton}
+          onPress={handleCompletedWorkout}
+          activeOpacity={0.8}
+        >
+          <Ionicons name="checkmark-circle" size={24} color="#000000" />
+          <Text style={styles.completedButtonText}>Completed Workout</Text>
+        </TouchableOpacity>
+      </View>
     </SafeAreaView>
   );
 }
