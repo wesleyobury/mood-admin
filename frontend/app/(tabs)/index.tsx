@@ -237,11 +237,9 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     paddingHorizontal: 24,
-    paddingTop: 20,
+    paddingTop: 15,
     paddingBottom: 25,
     marginBottom: 10,
-    borderBottomWidth: 1,
-    borderBottomColor: 'rgba(255, 215, 0, 0.1)',
   },
   headerContent: {
     flex: 1,
