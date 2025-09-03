@@ -44,19 +44,19 @@ const difficultyLevels: DifficultyLevel[] = [
     id: 'beginner',
     title: 'Beginner',
     subtitle: 'New to cardio workouts',
-    color: '#4CAF50',
+    color: '#FFD700',    // Gold for beginners
   },
   {
     id: 'intermediate',
     title: 'Intermediate',
     subtitle: 'Some cardio experience',
-    color: '#FF9800',
+    color: '#FFA500',    // Dark gold for intermediate
   },
   {
     id: 'advanced',
     title: 'Advanced',
     subtitle: 'Regular cardio enthusiast',
-    color: '#F44336',
+    color: '#B8860B',    // Dark golden rod for advanced
   },
 ];
 
