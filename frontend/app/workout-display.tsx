@@ -1734,20 +1734,30 @@ export default function WorkoutDisplayScreen() {
   };
 
   const handleStartWorkout = (workout: Workout, equipment: string, difficulty: string) => {
-    console.log('Starting workout:', workout.name, 'on', equipment);
-    
-    // Navigate to workout guidance screen with workout data
-    router.push({
-      pathname: '/workout-guidance',
-      params: {
-        workoutName: workout.name,
-        equipment: equipment,
-        description: workout.description,
-        duration: workout.duration,
-        difficulty: difficulty,
-        moodTips: encodeURIComponent(JSON.stringify(workout.moodTips || []))
+    try {
+      console.log('Starting workout:', workout.name, 'on', equipment);
+      
+      // Validate required parameters
+      if (!workout.name || !equipment || !difficulty) {
+        console.error('Missing required parameters for workout navigation');
+        return;
       }
-    });
+      
+      // Navigate to workout guidance screen with workout data
+      router.push({
+        pathname: '/workout-guidance',
+        params: {
+          workoutName: workout.name,
+          equipment: equipment,
+          description: workout.description || '',
+          duration: workout.duration || '20 min',
+          difficulty: difficulty,
+          moodTips: encodeURIComponent(JSON.stringify(workout.moodTips || []))
+        }
+      });
+    } catch (error) {
+      console.error('Error starting workout:', error);
+    }
   };
 
   return (
