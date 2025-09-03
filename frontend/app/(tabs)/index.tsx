@@ -176,9 +176,9 @@ export default function WorkoutsHome() {
           </View>
         </View>
 
-        {/* Main Header */}
-        <View style={styles.visibleQuestionHeader}>
-          <Text style={styles.visibleCenteredTitle}>
+        {/* Main Header - Ultra Visible */}
+        <View style={styles.ultraVisibleHeader}>
+          <Text style={styles.ultraVisibleText}>
             How are you feeling today?
           </Text>
         </View>
