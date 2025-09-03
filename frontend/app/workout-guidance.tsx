@@ -117,8 +117,8 @@ export default function WorkoutGuidanceScreen() {
   };
   
   const handleCompletedWorkout = () => {
-    // Navigate directly back to workout cards screen
-    router.push('/workout-display');
+    // Navigate back to the previous workout cards screen
+    router.back();
   };
   
   const handleGoBack = () => {
