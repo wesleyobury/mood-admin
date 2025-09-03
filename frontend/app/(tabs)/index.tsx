@@ -117,9 +117,9 @@ export default function WorkoutsHome() {
   const [greeting, setGreeting] = useState('');
   const insets = useSafeAreaInsets();
   
-  // Animation values
-  const fadeAnim = new Animated.Value(0);
-  const scaleAnim = new Animated.Value(0.8);
+  // Animation values using useRef for persistence
+  const fadeAnim = useRef(new Animated.Value(0)).current;
+  const scaleAnim = useRef(new Animated.Value(0.8)).current;
 
   useEffect(() => {
     const hour = new Date().getHours();
@@ -141,7 +141,7 @@ export default function WorkoutsHome() {
         useNativeDriver: true,
       }),
     ]).start();
-  }, []);
+  }, [fadeAnim, scaleAnim]);
 
   const handleMoodSelect = (mood: MoodCard) => {
     console.log('Selected mood:', mood.title);
