@@ -1656,13 +1656,7 @@ const WorkoutCard = ({ equipment, icon, workouts, difficulty, difficultyColor, o
         decelerationRate="fast"
         snapToInterval={width - 48}
         snapToAlignment="start"
-        onScroll={(event) => {
-          const scrollX = event.nativeEvent.contentOffset.x;
-          const itemWidth = width - 48;
-          const currentIndex = Math.round(scrollX / itemWidth);
-          console.log('Scroll detected, changing to workout index:', currentIndex);
-          setCurrentWorkoutIndex(currentIndex);
-        }}
+        onScroll={handleScroll}
         contentContainerStyle={{ alignItems: 'center' }}
       >
         {workouts.map((item, index) => (
