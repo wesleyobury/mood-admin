@@ -831,6 +831,7 @@ const styles = StyleSheet.create({
     color: '#FFD700',
     marginTop: 8,
     marginBottom: 4,
+    paddingHorizontal: 8,
     textAlign: 'center',
   },
   stepText: {
