@@ -292,7 +292,7 @@ const styles = StyleSheet.create({
     shadowRadius: 20,
     elevation: 12,
   },
-  cardContent: {  flexDirection: 'row',
+  cardContent: {
     alignItems: 'center',
     paddingHorizontal: 24,
     paddingVertical: 20,
