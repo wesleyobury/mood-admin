@@ -99,6 +99,14 @@ export default function Login() {
             <TouchableOpacity style={styles.loginButton} onPress={handleLogin}>
               <Text style={styles.loginButtonText}>Login</Text>
             </TouchableOpacity>
+
+            {/* Skip Login Option */}
+            <TouchableOpacity 
+              style={styles.skipButton} 
+              onPress={() => router.replace('/(tabs)')}
+            >
+              <Text style={styles.skipButtonText}>Skip login for now</Text>
+            </TouchableOpacity>
           </View>
 
           {/* Footer */}
