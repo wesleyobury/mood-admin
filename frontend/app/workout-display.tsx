@@ -51,14 +51,38 @@ const workoutDatabase: EquipmentWorkouts[] = [
           duration: '20 min',
           description: '3 min brisk walk (3.0 mph), 2 min power walk (4.0 mph, incline 2%), 1 min light jog (5.0 mph), repeat 3x, finish with 3 min walk (3.0 mph, incline 1%).',
           imageUrl: 'https://images.unsplash.com/photo-1723117418780-1b74b25af9bc?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwzfHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MTc1Njg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Perfect for beginners with alternating walking and light jogging to gradually build cardiovascular endurance.'
+          intensityReason: 'Perfect for beginners with alternating walking and light jogging to gradually build cardiovascular endurance.',
+          moodTips: [
+            {
+              icon: 'walk',
+              title: 'Heel-to-Toe Stride',
+              description: 'Land on your heel and roll through to your toes for optimal energy transfer and reduced impact on joints.'
+            },
+            {
+              icon: 'heart',
+              title: 'Maintain 70% Max Heart Rate',
+              description: 'Keep your heart rate at comfortable talking pace during walks, slightly breathless during jogs for maximum fat burn.'
+            }
+          ]
         },
         {
           name: 'Rolling Hills',
           duration: '20 min',
           description: '2 min walk (3.0 mph, incline 0%), 2 min walk (3.0 mph, incline 4%), 2 min walk (3.5 mph, incline 2%), 2 min jog (4.5 mph, incline 0%), repeat sequence, finish with 2 min walk (3.0 mph).',
           imageUrl: 'https://images.pexels.com/photos/2774172/pexels-photo-2774172.jpeg',
-          intensityReason: 'Uses gentle incline changes and moderate pace increases to build basic strength and endurance safely.'
+          intensityReason: 'Uses gentle incline changes and moderate pace increases to build basic strength and endurance safely.',
+          moodTips: [
+            {
+              icon: 'trending-up',
+              title: 'Lean Into Inclines',
+              description: 'Slightly lean forward on inclines and pump your arms more to engage core muscles and maintain momentum.'
+            },
+            {
+              icon: 'refresh',
+              title: 'Recovery Breathing',
+              description: 'Use flat sections for deep recovery breathing - inhale for 3 steps, exhale for 3 steps to optimize oxygen flow.'
+            }
+          ]
         }
       ],
       intermediate: [
