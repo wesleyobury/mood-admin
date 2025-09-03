@@ -1641,26 +1641,32 @@ const WorkoutCard = ({ equipment, icon, workouts, difficulty, difficultyColor, o
       </View>
 
       {/* Swipeable Workouts */}
-      <FlatList
-        ref={flatListRef}
-        data={workouts}
-        renderItem={renderWorkout}
-        keyExtractor={(item, index) => `workout-${index}-${item.name}`}
+      <ScrollView
+        ref={flatListRef as any}
         horizontal
         pagingEnabled
         showsHorizontalScrollIndicator={false}
-        onViewableItemsChanged={onViewableItemsChanged}
-        viewabilityConfig={{ 
-          itemVisiblePercentThreshold: 80,
-          minimumViewTime: 100
-        }}
         style={styles.workoutList}
         bounces={false}
         scrollEventThrottle={16}
         decelerationRate="fast"
         snapToInterval={width - 48}
         snapToAlignment="start"
-      />
+        onScroll={(event) => {
+          const scrollX = event.nativeEvent.contentOffset.x;
+          const itemWidth = width - 48;
+          const currentIndex = Math.round(scrollX / itemWidth);
+          console.log('Scroll detected, changing to workout index:', currentIndex);
+          setCurrentWorkoutIndex(currentIndex);
+        }}
+        contentContainerStyle={{ alignItems: 'center' }}
+      >
+        {workouts.map((item, index) => (
+          <View key={`workout-${index}-${item.name}`} style={{ width: width - 48 }}>
+            {renderWorkout({ item, index })}
+          </View>
+        ))}
+      </ScrollView>
 
       {/* Enhanced Dots Indicator */}
       <View style={styles.dotsContainer}>
