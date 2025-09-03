@@ -1695,8 +1695,8 @@ const WorkoutCard = ({ equipment, icon, workouts, difficulty, difficultyColor, o
                 currentWorkoutIndex === index && styles.activeDot
               ]}
               onPress={() => {
-                const scrollX = index * (width - 48);
-                flatListRef.current?.scrollTo({ x: scrollX, animated: true });
+                console.log('🔘 Dot clicked, changing to workout index:', index);
+                setCurrentWorkoutIndex(index);
               }}
             />
           ))}
