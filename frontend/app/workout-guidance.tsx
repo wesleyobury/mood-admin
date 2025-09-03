@@ -119,8 +119,22 @@ export default function WorkoutGuidanceScreen() {
       'Workout Complete! 🎉',
       'Great job completing your workout! Would you like to do another workout?',
       [
-        { text: 'Done for Now', style: 'cancel', onPress: () => router.back() },
-        { text: 'Another Workout', style: 'default', onPress: () => router.back() }
+        { 
+          text: 'Done for Now', 
+          style: 'cancel', 
+          onPress: () => {
+            // Navigate back to workout cards screen
+            router.back();
+          }
+        },
+        { 
+          text: 'Another Workout', 
+          style: 'default', 
+          onPress: () => {
+            // Navigate back to workout cards screen
+            router.back();
+          }
+        }
       ]
     );
   };
