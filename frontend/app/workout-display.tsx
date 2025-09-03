@@ -1758,9 +1758,7 @@ export default function WorkoutDisplayScreen() {
         description: workout.description || '',
         duration: workout.duration || '20 min',
         difficulty: difficulty,
-        moodTips: encodeURIComponent(JSON.stringify(workout.moodTips || [])).replace(/[!'()*]/g, function(c) {
-          return '%' + c.charCodeAt(0).toString(16);
-        })
+        moodTips: encodeURIComponent(JSON.stringify(workout.moodTips || []))
       };
       
       console.log('🔄 Navigation params:', navigationParams);
