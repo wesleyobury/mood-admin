@@ -24,6 +24,26 @@ const formatTime = (seconds: number): string => {
   return `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
 };
 
+const parseWorkoutDescription = (description: string): string[] => {
+  // Split the description into steps based on common patterns
+  const steps = description
+    .split(/,(?=\s*\d+\s*min)|repeat|finish with/i)
+    .map(step => step.trim())
+    .filter(step => step.length > 0)
+    .map(step => {
+      // Clean up step formatting
+      if (step.toLowerCase().startsWith('repeat')) {
+        return `Repeat the sequence ${step.substring(6).trim()}`;
+      }
+      if (step.toLowerCase().startsWith('finish with')) {
+        return `Finish with ${step.substring(11).trim()}`;
+      }
+      return step.charAt(0).toUpperCase() + step.slice(1);
+    });
+  
+  return steps.length > 1 ? steps : [description];
+};
+
 export default function WorkoutGuidanceScreen() {
   const router = useRouter();
   const params = useLocalSearchParams();
