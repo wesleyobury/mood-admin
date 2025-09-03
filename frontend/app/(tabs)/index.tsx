@@ -337,16 +337,22 @@ const styles = StyleSheet.create({
     letterSpacing: 1,
     lineHeight: 28,
   },
-  testVisibleText: {
+  questionSection: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingHorizontal: 24,
+    paddingVertical: 25,
+    marginBottom: 15,
+  },
+  questionText: {
     fontSize: 24,
-    color: '#FFD700',
+    color: '#ffffff',
     fontWeight: 'bold',
     textAlign: 'center',
-    marginBottom: 20,
-    paddingVertical: 15,
-    backgroundColor: 'rgba(255, 215, 0, 0.2)',
-    borderRadius: 10,
-    marginHorizontal: 20,
+    letterSpacing: 0.5,
+    textShadowColor: 'rgba(255, 215, 0, 0.4)',
+    textShadowOffset: { width: 0, height: 0 },
+    textShadowRadius: 8,
   },
 
   centeredBrandingHeader: {
