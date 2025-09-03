@@ -1651,8 +1651,7 @@ const WorkoutCard = ({ equipment, icon, workouts, difficulty, difficultyColor, o
         showsHorizontalScrollIndicator={false}
         onViewableItemsChanged={onViewableItemsChanged}
         viewabilityConfig={{ 
-          itemVisiblePercentThreshold: 80,
-          waitForInteraction: true 
+          itemVisiblePercentThreshold: 50
         }}
         style={styles.workoutList}
         bounces={false}
