@@ -305,6 +305,30 @@ test_plan:
           agent: "testing"
           comment: "Minor: MOOD Tips section not displaying on workout guidance screen. Tips are implemented in the code but not rendering in the UI. This is a minor display issue that doesn't affect core workout functionality. The workout guidance screen loads and functions properly otherwise."
 
+  - task: "Fix Start Workout Navigation URI Encoding"
+    implemented: false
+    working: false
+    file: "app/workout-display.tsx, app/workout-guidance.tsx"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: true
+    status_history:
+        - working: false
+          agent: "testing"
+          comment: "CRITICAL BUG: Start Workout navigation fails with 'URIError: URI malformed' when parsing MOOD tips parameter. Navigation attempt succeeds (console shows '✅ Navigation attempted successfully') but workout-guidance screen crashes due to decodeURIComponent error on moodTips parameter. Need to fix URL encoding/decoding of complex JSON objects in navigation parameters."
+
+  - task: "Fix Swipe Functionality FlatList Error"
+    implemented: false
+    working: false
+    file: "app/workout-display.tsx"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: true
+    status_history:
+        - working: false
+          agent: "testing"
+          comment: "CRITICAL BUG: Swipe functionality blocked by 'Invariant Violation: Changing onViewableItemsChanged on the fly is not supported' error in FlatList. Workout indicators show '1/2' correctly but swipe gestures don't work. FlatList configuration needs to be fixed to prevent dynamic changes to onViewableItemsChanged callback."
+
 agent_communication:
     - agent: "main"
       message: "MOOD app shell completed with full authentication system, social features, and mood-based workout UI. Ready for backend testing to verify API endpoints work correctly, then workout data import."
