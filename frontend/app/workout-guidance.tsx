@@ -115,11 +115,9 @@ export default function WorkoutGuidanceScreen() {
     ];
   }
   
-  const [currentStepIndex, setCurrentStepIndex] = useState(0);
-  const [timeRemaining, setTimeRemaining] = useState(0);
+  const [elapsedTime, setElapsedTime] = useState(0); // Timer starts from 0:00
   const [isRunning, setIsRunning] = useState(false);
   const [isPaused, setIsPaused] = useState(false);
-  const [showTips, setShowTips] = useState(true);
   
   const workoutSteps = parseWorkoutSteps(description);
   const currentStep = workoutSteps[currentStepIndex];
