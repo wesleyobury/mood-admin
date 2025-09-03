@@ -292,19 +292,6 @@ const styles = StyleSheet.create({
     shadowRadius: 20,
     elevation: 12,
   },
-  visibleMoodCard: {
-    borderRadius: 21,
-    padding: 0,
-    minHeight: 100,
-    justifyContent: 'center',
-    borderWidth: 3,
-    borderColor: '#FFD700',
-    backgroundColor: '#333333', // Even more visible background
-    shadowColor: '#FFD700',
-    shadowOffset: { width: 0, height: 0 },
-    shadowOpacity: 0.8,
-    shadowRadius: 20,
-    elevation: 12,
   },
   cardContent: {
     flexDirection: 'row',
