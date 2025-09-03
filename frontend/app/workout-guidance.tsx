@@ -149,13 +149,9 @@ export default function WorkoutGuidanceScreen() {
         <View style={styles.headerSpacer} />
       </View>
 
-      {/* Extended Progress Bar - Persistent */}
+      {/* Extended Progress Bar - Single Non-Scrolling Line */}
       <View style={styles.extendedProgressContainer}>
-        <ScrollView 
-          horizontal 
-          showsHorizontalScrollIndicator={false}
-          contentContainerStyle={styles.extendedProgressContent}
-        >
+        <View style={styles.extendedProgressContent}>
           <View style={styles.progressStep}>
             <View style={styles.progressStepActive}>
               <Ionicons name="flame" size={14} color="#000000" />
@@ -205,7 +201,7 @@ export default function WorkoutGuidanceScreen() {
             </View>
             <Text style={styles.progressStepText}>In Progress</Text>
           </View>
-        </ScrollView>
+        </View>
       </View>
 
       {/* Timer Section - Compact */}
