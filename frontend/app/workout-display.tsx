@@ -1635,7 +1635,7 @@ const WorkoutCard = ({ equipment, icon, workouts, difficulty, difficultyColor, o
         </View>
         <Text style={styles.equipmentName}>{equipment}</Text>
         <View style={styles.workoutIndicator}>
-          <Text style={styles.workoutCount}>{currentWorkoutIndex + 1}/2</Text>
+          <Text style={styles.workoutCount}>{currentWorkoutIndex + 1}/{workouts.length}</Text>
         </View>
       </View>
 
