@@ -5,16 +5,10 @@ import {
   StyleSheet,
   ScrollView,
   TouchableOpacity,
-  Dimensions,
-  Animated,
-  Platform,
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
-import { LinearGradient } from 'expo-linear-gradient';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
-
-const { width } = Dimensions.get('window');
 
 interface MoodCard {
   id: string;
@@ -24,103 +18,43 @@ interface MoodCard {
   gradient: string[];
 }
 
-// Animated Mood Card Component
+// Animated Mood Card Component - SIMPLIFIED FOR VISIBILITY
 const AnimatedMoodCard = ({ mood, index, onPress }: { 
   mood: MoodCard; 
   index: number; 
   onPress: (mood: MoodCard) => void;
 }) => {
-  const scaleValue = new Animated.Value(1);
-  const opacityValue = new Animated.Value(0);
-
-  useEffect(() => {
-    // Stagger the card animations
-    Animated.sequence([
-      Animated.delay(index * 150),
-      Animated.parallel([
-        Animated.timing(opacityValue, {
-          toValue: 1,
-          duration: 600,
-          useNativeDriver: true,
-        }),
-        Animated.spring(scaleValue, {
-          toValue: 1,
-          tension: 100,
-          friction: 8,
-          useNativeDriver: true,
-        }),
-      ]),
-    ]).start();
-  }, []);
-
-  const handlePressIn = () => {
-    Animated.spring(scaleValue, {
-      toValue: 0.95,
-      tension: 150,
-      friction: 8,
-      useNativeDriver: true,
-    }).start();
-  };
-
-  const handlePressOut = () => {
-    Animated.spring(scaleValue, {
-      toValue: 1,
-      tension: 150,
-      friction: 8,
-      useNativeDriver: true,
-    }).start();
-    onPress(mood);
-  };
-
   return (
-    <Animated.View
-      style={[
-        styles.animatedCardContainer,
-        {
-          opacity: opacityValue,
-          transform: [{ scale: scaleValue }],
-        },
-      ]}
+    <TouchableOpacity
+      style={styles.moodCardContainer}
+      onPress={() => onPress(mood)}
+      activeOpacity={0.8}
     >
-      <TouchableOpacity
-        activeOpacity={1}
-        onPressIn={handlePressIn}
-        onPressOut={handlePressOut}
-        style={styles.moodCardContainer}
-      >
-        {/* Gold Neon Glow Effect */}
-        <View style={styles.neonGlow}>
-          <LinearGradient
-            colors={mood.gradient}
-            style={styles.moodCard}
-            start={{ x: 0, y: 0 }}
-            end={{ x: 1, y: 1 }}
-          >
-            <View style={styles.cardContent}>
-              <View style={styles.iconContainer}>
-                <Ionicons 
-                  name={mood.icon} 
-                  size={40} 
-                  color="white" 
-                  style={styles.cardIcon}
-                />
-              </View>
-              <View style={styles.textContainer}>
-                <Text style={styles.cardTitle}>{mood.title}</Text>
-                <Text style={styles.cardSubtitle}>{mood.subtitle}</Text>
-              </View>
-              <View style={styles.arrowContainer}>
-                <Ionicons 
-                  name="chevron-forward" 
-                  size={24} 
-                  color="rgba(255, 255, 255, 0.7)" 
-                />
-              </View>
-            </View>
-          </LinearGradient>
+      {/* Highly Visible Card */}
+      <View style={styles.visibleMoodCard}>
+        <View style={styles.cardContent}>
+          <View style={styles.iconContainer}>
+            <Ionicons 
+              name={mood.icon} 
+              size={40} 
+              color="#FFD700" 
+              style={styles.cardIcon}
+            />
+          </View>
+          <View style={styles.textContainer}>
+            <Text style={styles.cardTitle}>{mood.title}</Text>
+            <Text style={styles.cardSubtitle}>{mood.subtitle}</Text>
+          </View>
+          <View style={styles.arrowContainer}>
+            <Ionicons 
+              name="chevron-forward" 
+              size={24} 
+              color="#FFD700" 
+            />
+          </View>
         </View>
-      </TouchableOpacity>
-    </Animated.View>
+      </View>
+    </TouchableOpacity>
   );
 };
 
@@ -335,27 +269,42 @@ const styles = StyleSheet.create({
   neonGlow: {
     borderRadius: 24,
     padding: 3,
-    backgroundColor: 'transparent',
+    backgroundColor: 'rgba(255, 215, 0, 0.1)',
     borderWidth: 2,
     borderColor: '#FFD700',
     shadowColor: '#FFD700',
     shadowOffset: { width: 0, height: 0 },
-    shadowOpacity: 0.8,
-    shadowRadius: 20,
-    elevation: 15,
+    shadowOpacity: 1,
+    shadowRadius: 25,
+    elevation: 20,
   },
   moodCard: {
     borderRadius: 21,
     padding: 0,
     minHeight: 100,
     justifyContent: 'center',
-    borderWidth: 1,
-    borderColor: 'rgba(255, 215, 0, 0.4)',
+    borderWidth: 2,
+    borderColor: '#FFD700',
+    backgroundColor: '#2a2a2a', // More visible gray background
     shadowColor: '#FFD700',
     shadowOffset: { width: 0, height: 0 },
-    shadowOpacity: 0.3,
-    shadowRadius: 10,
+    shadowOpacity: 0.5,
+    shadowRadius: 15,
     elevation: 8,
+  },
+  visibleMoodCard: {
+    borderRadius: 21,
+    padding: 0,
+    minHeight: 100,
+    justifyContent: 'center',
+    borderWidth: 3,
+    borderColor: '#FFD700',
+    backgroundColor: '#333333', // Even more visible background
+    shadowColor: '#FFD700',
+    shadowOffset: { width: 0, height: 0 },
+    shadowOpacity: 0.8,
+    shadowRadius: 20,
+    elevation: 12,
   },
   cardContent: {
     flexDirection: 'row',
@@ -371,7 +320,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     marginRight: 20,
-    borderWidth: 1,
+    borderWidth: 2,
     borderColor: 'rgba(255, 215, 0, 0.3)',
     shadowColor: '#FFD700',
     shadowOffset: { width: 0, height: 0 },
@@ -411,7 +360,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(255, 215, 0, 0.1)',
     justifyContent: 'center',
     alignItems: 'center',
-    borderWidth: 1,
+    borderWidth: 2,
     borderColor: 'rgba(255, 215, 0, 0.3)',
     shadowColor: '#FFD700',
     shadowOffset: { width: 0, height: 0 },
