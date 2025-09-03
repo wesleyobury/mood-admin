@@ -142,7 +142,7 @@ export default function WorkoutGuidanceScreen() {
 
   return (
     <SafeAreaView style={[styles.container, { paddingTop: insets.top }]}>
-      {/* Header with Progress Bar */}
+      {/* Header - Simple */}
       <View style={styles.header}>
         <TouchableOpacity 
           style={styles.backButton}
@@ -152,7 +152,6 @@ export default function WorkoutGuidanceScreen() {
         </TouchableOpacity>
         <View style={styles.headerTextContainer}>
           <Text style={styles.headerTitle}>Workout Guidance</Text>
-          <Text style={styles.headerSubtitle}>{workoutName}</Text>
         </View>
         <View style={styles.headerSpacer} />
       </View>
