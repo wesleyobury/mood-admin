@@ -165,15 +165,14 @@ export default function WorkoutsHome() {
           </View>
         </View>
 
-        {/* Enhanced Question Section */}
-        <View style={styles.enhancedQuestionSection}>
-          <View style={styles.questionBubble}>
-            <View style={styles.questionIconContainer}>
-              <Ionicons name="chatbubble-ellipses" size={24} color="#FFD700" />
-            </View>
-            <Text style={styles.enhancedQuestionText}>How are you feeling today?</Text>
-          </View>
-          <View style={styles.questionAccentLine} />
+        {/* Parallax Hero Image */}
+        <View style={styles.parallaxContainer}>
+          <Image 
+            source={{ uri: 'https://customer-assets.emergentagent.com/job_mood-workout-app/artifacts/g5zte4vw_Screenshot%202025-09-03%20at%2012.19.19%E2%80%AFAM.png' }}
+            style={styles.parallaxImage}
+            resizeMode="cover"
+          />
+          <View style={styles.parallaxOverlay} />
         </View>
 
         {/* Mood Selection Section */}
