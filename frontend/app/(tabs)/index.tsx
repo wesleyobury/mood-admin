@@ -293,6 +293,7 @@ const styles = StyleSheet.create({
     elevation: 12,
   },
   cardContent: {
+    flexDirection: 'row',
     alignItems: 'center',
     paddingHorizontal: 24,
     paddingVertical: 20,
