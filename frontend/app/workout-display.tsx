@@ -22,6 +22,11 @@ interface Workout {
   description: string;
   imageUrl: string;
   intensityReason: string;
+  moodTips: {
+    icon: keyof typeof Ionicons.glyphMap;
+    title: string;
+    description: string;
+  }[];
 }
 
 interface EquipmentWorkouts {
