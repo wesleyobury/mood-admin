@@ -29,6 +29,15 @@ export default function Welcome() {
     router.replace('/(tabs)');
   };
 
+  // Auto-redirect to home screen to immediately show parallax image
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      router.replace('/(tabs)');
+    }, 2000); // 2 second delay to see welcome screen briefly
+    
+    return () => clearTimeout(timer);
+  }, []);
+
   if (isLoading) {
     return <LoadingSpinner text="Loading..." />;
   }
