@@ -194,6 +194,68 @@ export default function CardioEquipmentScreen() {
         <View style={styles.headerSpacer} />
       </View>
 
+      {/* Progress Bar */}
+      <View style={styles.progressContainer}>
+        <ScrollView 
+          horizontal 
+          showsHorizontalScrollIndicator={false}
+          contentContainerStyle={styles.progressContent}
+        >
+          <View style={styles.progressStep}>
+            <View style={styles.progressStepActive}>
+              <Ionicons name="flame" size={14} color="#000000" />
+            </View>
+            <Text style={styles.progressStepText}>{moodTitle}</Text>
+          </View>
+          
+          <View style={styles.progressConnector} />
+          
+          <View style={styles.progressStep}>
+            <View style={styles.progressStepActive}>
+              <Ionicons name="heart" size={14} color="#000000" />
+            </View>
+            <Text style={styles.progressStepText}>{workoutType}</Text>
+          </View>
+          
+          <View style={styles.progressConnector} />
+          
+          <View style={styles.progressStep}>
+            <View style={[
+              styles.progressStepCircle,
+              selectedEquipment.length > 0 && styles.progressStepActive
+            ]}>
+              <Text style={[
+                styles.progressStepNumber,
+                selectedEquipment.length > 0 && styles.progressStepNumberActive
+              ]}>
+                {selectedEquipment.length}
+              </Text>
+            </View>
+            <Text style={styles.progressStepText}>
+              Equipment {selectedEquipment.length > 0 && `(${selectedEquipment.length})`}
+            </Text>
+          </View>
+          
+          <View style={styles.progressConnector} />
+          
+          <View style={styles.progressStep}>
+            <View style={[
+              styles.progressStepCircle,
+              selectedDifficulty && styles.progressStepActive
+            ]}>
+              {selectedDifficulty ? (
+                <Ionicons name="checkmark" size={14} color="#000000" />
+              ) : (
+                <Text style={styles.progressStepNumber}>4</Text>
+              )}
+            </View>
+            <Text style={styles.progressStepText}>
+              {selectedDifficulty ? selectedDifficulty.title : 'Difficulty'}
+            </Text>
+          </View>
+        </ScrollView>
+      </View>
+
       <ScrollView style={styles.scrollView} showsVerticalScrollIndicator={false}>
         {/* Equipment Selection */}
         <View style={styles.section}>
