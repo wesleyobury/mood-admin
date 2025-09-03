@@ -237,11 +237,8 @@ metadata:
 
 test_plan:
   current_focus:
-    - "Fix Start Workout Navigation URI Encoding"
-    - "Fix Swipe Functionality FlatList Error"
-  stuck_tasks:
-    - "Fix Start Workout Navigation URI Encoding"
-    - "Fix Swipe Functionality FlatList Error"
+    - "Complete MOOD Tips Database"
+  stuck_tasks: []
   test_all: false
   test_priority: "high_first"
 
