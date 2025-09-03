@@ -145,13 +145,11 @@ export default function WorkoutsHome() {
         bounces={true}
         scrollEventThrottle={16}
       >
-        {/* Header with MOOD Branding */}
-        <View style={styles.brandingHeader}>
-          <View style={styles.brandingContainer}>
-            <Text style={styles.brandTitle}>MOOD</Text>
-            <Text style={styles.brandSubtitle}>Your Personal Fitness Journey</Text>
-          </View>
-          <View style={styles.socialContainer}>
+        {/* Centered MOOD Branding */}
+        <View style={styles.centeredBrandingHeader}>
+          <Text style={styles.centeredBrandTitle}>MOOD</Text>
+          <Text style={styles.centeredBrandSubtitle}>Workouts based on your mood</Text>
+          <View style={styles.centeredSocialContainer}>
             <TouchableOpacity 
               style={styles.socialButton}
               onPress={() => handleSocialLink('https://www.instagram.com/officialmoodapp/', 'Instagram')}
@@ -169,9 +167,8 @@ export default function WorkoutsHome() {
 
         {/* Main Header */}
         <View style={styles.header}>
-          <View style={styles.headerContent}>
-            <Text style={styles.greeting}>{greeting}</Text>
-            <Text style={styles.title}>How are you feeling today?</Text>
+          <View style={styles.centeredHeaderContent}>
+            <Text style={styles.centeredTitle}>How are you feeling today?</Text>
           </View>
           <TouchableOpacity style={styles.notificationBtn}>
             <Ionicons name="notifications-outline" size={24} color="#FFD700" />
