@@ -263,6 +263,14 @@ const styles = StyleSheet.create({
     paddingBottom: 25,
     marginBottom: 10,
   },
+  centeredQuestionHeader: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingHorizontal: 24,
+    paddingTop: 15,
+    paddingBottom: 25,
+    marginBottom: 10,
+  },
   headerContent: {
     flex: 1,
   },
