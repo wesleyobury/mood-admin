@@ -1872,14 +1872,54 @@ export default function WorkoutDisplayScreen() {
         </ScrollView>
       </View>
 
-      {/* Workout Summary */}
-      <View style={styles.summaryContainer}>
-        <Text style={styles.summaryTitle}>
-          {uniqueUserWorkouts.length} Equipment • {uniqueUserWorkouts.length * 2} Workouts
-        </Text>
-        <Text style={styles.summarySubtitle}>
-          Swipe left/right on each card to see both workout options
-        </Text>
+      {/* Extended Progress Bar - Individual Equipment */}
+      <View style={styles.extendedProgressContainer}>
+        <ScrollView 
+          horizontal 
+          showsHorizontalScrollIndicator={false}
+          contentContainerStyle={styles.extendedProgressContent}
+        >
+          <View style={styles.progressStep}>
+            <View style={styles.progressStepActive}>
+              <Ionicons name="flame" size={14} color="#000000" />
+            </View>
+            <Text style={styles.progressStepText}>{moodTitle}</Text>
+          </View>
+          
+          <View style={styles.progressConnector} />
+          
+          <View style={styles.progressStep}>
+            <View style={styles.progressStepActive}>
+              <Ionicons name="heart" size={14} color="#000000" />
+            </View>
+            <Text style={styles.progressStepText}>Cardio Based</Text>
+          </View>
+          
+          <View style={styles.progressConnector} />
+          
+          {selectedEquipmentNames.map((equipment, index) => (
+            <React.Fragment key={equipment}>
+              <View style={styles.progressStep}>
+                <View style={styles.progressStepActive}>
+                  <Ionicons name="fitness" size={14} color="#000000" />
+                </View>
+                <Text style={styles.progressStepText}>{equipment}</Text>
+              </View>
+              {index < selectedEquipmentNames.length - 1 && <View style={styles.progressConnector} />}
+            </React.Fragment>
+          ))}
+          
+          <View style={styles.progressConnector} />
+          
+          <View style={styles.progressStep}>
+            <View style={styles.progressStepActive}>
+              <Ionicons name="checkmark" size={14} color="#000000" />
+            </View>
+            <Text style={styles.progressStepText}>
+              {difficulty.charAt(0).toUpperCase() + difficulty.slice(1)}
+            </Text>
+          </View>
+        </ScrollView>
       </View>
 
       {/* Workouts List */}
