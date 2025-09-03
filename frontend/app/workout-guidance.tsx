@@ -831,20 +831,26 @@ const styles = StyleSheet.create({
     paddingVertical: 8,
     paddingHorizontal: 4,
   },
-  stepNumber: {
-    width: 32,
-    height: 32,
-    borderRadius: 16,
-    backgroundColor: '#FFD700',
+  bulletPoint: {
+    width: 20,
+    height: 20,
     justifyContent: 'center',
     alignItems: 'center',
     marginRight: 12,
     marginTop: 2,
   },
-  stepNumberText: {
-    fontSize: 16,
+  bulletText: {
+    fontSize: 20,
     fontWeight: 'bold',
-    color: '#000000',
+    color: '#FFD700',
+  },
+  detailValueSmall: {
+    fontSize: 14,
+    fontWeight: 'bold',
+    color: '#FFD700',
+    marginTop: 8,
+    marginBottom: 4,
+    textAlign: 'center',
   },
   stepText: {
     fontSize: 16,
