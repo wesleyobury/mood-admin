@@ -2057,16 +2057,18 @@ const styles = StyleSheet.create({
     marginHorizontal: 8,
     marginTop: 16,
   },
-  progressScrollView: {
+  progressContainer: {
     backgroundColor: '#111111',
     borderBottomWidth: 1,
     borderBottomColor: 'rgba(255, 215, 0, 0.2)',
     paddingVertical: 16,
-    maxHeight: 80,
+    paddingHorizontal: 8,
   },
-  extendedProgressContent: {
+  progressContent: {
+    flexDirection: 'row',
     alignItems: 'center',
-    paddingHorizontal: 20,
+    justifyContent: 'center',
+    flexWrap: 'wrap',
   },
   scrollView: {
     flex: 1,
