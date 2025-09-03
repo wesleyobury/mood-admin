@@ -694,7 +694,7 @@ const styles = StyleSheet.create({
     left: 0,
     right: 0,
   },
-  performanceBlock: {
+  workoutDetailsBlock: {
     backgroundColor: '#111111',
     borderRadius: 20,
     padding: 20,
@@ -707,41 +707,72 @@ const styles = StyleSheet.create({
     shadowRadius: 8,
     elevation: 4,
   },
-  performanceHeader: {
+  detailsHeader: {
     flexDirection: 'row',
     alignItems: 'center',
     marginBottom: 16,
     gap: 12,
   },
-  performanceTitle: {
+  detailsTitle: {
     fontSize: 18,
     fontWeight: 'bold',
     color: '#FFD700',
   },
-  statsRow: {
+  detailsGrid: {
     flexDirection: 'row',
-    justifyContent: 'space-around',
-    alignItems: 'center',
+    justifyContent: 'space-between',
+    marginBottom: 20,
+    gap: 12,
   },
-  statItem: {
-    alignItems: 'center',
+  detailCard: {
     flex: 1,
+    backgroundColor: 'rgba(255, 215, 0, 0.1)',
+    borderRadius: 12,
+    padding: 16,
+    alignItems: 'center',
+    borderWidth: 1,
+    borderColor: 'rgba(255, 215, 0, 0.2)',
   },
-  statValue: {
-    fontSize: 28,
+  detailValue: {
+    fontSize: 16,
     fontWeight: 'bold',
     color: '#FFD700',
+    marginTop: 8,
     marginBottom: 4,
+    textAlign: 'center',
   },
-  statLabel: {
-    fontSize: 14,
+  detailLabel: {
+    fontSize: 12,
     color: 'rgba(255, 255, 255, 0.6)',
     fontWeight: '500',
+    textAlign: 'center',
   },
-  statDivider: {
-    width: 1,
-    height: 40,
-    backgroundColor: 'rgba(255, 215, 0, 0.3)',
-    marginHorizontal: 8,
+  preparationSection: {
+    marginTop: 16,
+  },
+  preparationHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 12,
+    gap: 8,
+  },
+  preparationTitle: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    color: '#FFD700',
+  },
+  preparationList: {
+    gap: 8,
+  },
+  preparationItem: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 12,
+    paddingVertical: 4,
+  },
+  preparationText: {
+    fontSize: 14,
+    color: 'rgba(255, 255, 255, 0.8)',
+    flex: 1,
   },
 });
