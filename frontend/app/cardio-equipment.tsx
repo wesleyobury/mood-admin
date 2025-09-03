@@ -169,7 +169,7 @@ export default function CardioEquipmentScreen() {
       console.log('Selected difficulty:', selectedDifficulty.title);
       
       // Navigate to workout display screen with selected equipment and difficulty
-      // Convert equipment array to comma-separated string to avoid JSON parsing issues
+      // Convert equipment array to comma-separated string and properly encode for URL
       const equipmentNames = selectedEquipment.map(eq => eq.name).join(',');
       
       router.push({
@@ -177,7 +177,7 @@ export default function CardioEquipmentScreen() {
         params: { 
           mood: moodTitle,
           workoutType: workoutType,
-          equipment: equipmentNames,
+          equipment: encodeURIComponent(equipmentNames), // Properly encode the parameter
           difficulty: selectedDifficulty.id
         }
       });
