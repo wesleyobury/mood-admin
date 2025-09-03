@@ -164,8 +164,8 @@ export default function CardioEquipmentScreen() {
   };
 
   const handleContinue = () => {
-    if (selectedEquipment && selectedDifficulty) {
-      console.log('Selected equipment:', selectedEquipment.name);
+    if (selectedEquipment.length > 0 && selectedDifficulty) {
+      console.log('Selected equipment:', selectedEquipment.map(eq => eq.name));
       console.log('Selected difficulty:', selectedDifficulty.title);
       // TODO: Navigate to workout generation or workout details screen
     }
@@ -175,7 +175,7 @@ export default function CardioEquipmentScreen() {
     router.back();
   };
 
-  const canContinue = selectedEquipment && selectedDifficulty;
+  const canContinue = selectedEquipment.length > 0 && selectedDifficulty;
 
   return (
     <SafeAreaView style={[styles.container, { paddingTop: insets.top }]}>
