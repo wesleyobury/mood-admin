@@ -19,6 +19,8 @@ interface Workout {
   name: string;
   duration: string;
   description: string;
+  imageUrl: string;
+  intensityReason: string;
 }
 
 interface EquipmentWorkouts {
