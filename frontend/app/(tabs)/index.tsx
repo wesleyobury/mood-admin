@@ -183,6 +183,7 @@ export default function WorkoutsHome() {
 
         {/* Mood Cards Column */}
         <View style={styles.moodCardsContainer}>
+          <Text style={styles.sectionTitle}>How are you feeling today?</Text>
           <Text style={styles.sectionTitle}>Choose your mood</Text>
           <View style={styles.moodColumn}>
             {moodCards.map((mood, index) => (
