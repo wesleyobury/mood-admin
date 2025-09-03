@@ -241,6 +241,11 @@ const styles = StyleSheet.create({
   headerContent: {
     flex: 1,
   },
+  centeredHeaderContent: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
   greeting: {
     fontSize: 16,
     color: '#888',
@@ -254,6 +259,15 @@ const styles = StyleSheet.create({
     color: '#ffffff',
     fontWeight: 'bold',
     marginTop: 4,
+    textShadowColor: 'rgba(255, 215, 0, 0.3)',
+    textShadowOffset: { width: 0, height: 0 },
+    textShadowRadius: 8,
+  },
+  centeredTitle: {
+    fontSize: 28,
+    color: '#ffffff',
+    fontWeight: 'bold',
+    textAlign: 'center',
     textShadowColor: 'rgba(255, 215, 0, 0.3)',
     textShadowOffset: { width: 0, height: 0 },
     textShadowRadius: 8,
