@@ -765,6 +765,16 @@ const WorkoutCard = ({ equipment, icon, workouts, difficulty, difficultyColor }:
         <ScrollView style={styles.workoutDescriptionContainer} showsVerticalScrollIndicator={false}>
           <Text style={styles.workoutDescription}>{item.description}</Text>
         </ScrollView>
+
+        {/* Start Workout Button */}
+        <TouchableOpacity 
+          style={styles.startWorkoutButton}
+          onPress={() => handleStartWorkout(item, equipment, difficulty)}
+          activeOpacity={0.8}
+        >
+          <Ionicons name="play" size={20} color="#000000" />
+          <Text style={styles.startWorkoutButtonText}>Start Workout</Text>
+        </TouchableOpacity>
       </View>
     </View>
   );
