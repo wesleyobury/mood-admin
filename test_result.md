@@ -237,8 +237,10 @@ metadata:
 
 test_plan:
   current_focus:
-    - "Authentication Context"
-    - "Full authentication flow testing"
+    - "Workout Card Rendering Bug Fix"
+    - "Start Workout Button Integration"
+    - "Off-Brand Color Fix"
+    - "Complete MOOD Tips Database"
   stuck_tasks: []
   test_all: false
   test_priority: "high_first"
