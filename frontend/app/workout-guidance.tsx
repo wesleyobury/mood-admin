@@ -114,6 +114,17 @@ export default function WorkoutGuidanceScreen() {
     setIsPaused(false);
   };
   
+  const handleCompletedWorkout = () => {
+    Alert.alert(
+      'Workout Complete! 🎉',
+      'Great job completing your workout! Would you like to do another workout?',
+      [
+        { text: 'Done for Now', style: 'cancel', onPress: () => router.back() },
+        { text: 'Another Workout', style: 'default', onPress: () => router.back() }
+      ]
+    );
+  };
+  
   const handleGoBack = () => {
     if (isRunning) {
       Alert.alert(
