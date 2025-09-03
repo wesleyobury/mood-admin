@@ -893,6 +893,23 @@ export default function WorkoutDisplayScreen() {
     router.back();
   };
 
+  const handleStartWorkout = (workout: Workout, equipment: string, difficulty: string) => {
+    console.log('Starting workout:', workout.name, 'on', equipment);
+    
+    // Navigate to workout guidance screen with workout data
+    router.push({
+      pathname: '/workout-guidance',
+      params: {
+        workoutName: workout.name,
+        equipment: equipment,
+        description: workout.description,
+        duration: workout.duration,
+        difficulty: difficulty,
+        moodTips: encodeURIComponent(JSON.stringify(workout.moodTips || []))
+      }
+    });
+  };
+
   return (
     <SafeAreaView style={[styles.container, { paddingTop: insets.top }]}>
       {/* Header */}
