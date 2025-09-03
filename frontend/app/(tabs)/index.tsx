@@ -357,6 +357,9 @@ const styles = StyleSheet.create({
     textShadowOffset: { width: 1, height: 1 },
     textShadowRadius: 3,
   },
+  spacer: {
+    height: 20,
+  },
 
   centeredBrandingHeader: {
     alignItems: 'center',
