@@ -146,6 +146,9 @@ export default function WorkoutsHome() {
         contentContainerStyle={[styles.scrollContentContainer, { paddingBottom: Math.max(insets.bottom, 40) }]}
         bounces={true}
         scrollEventThrottle={16}
+        onScroll={(event) => {
+          setScrollY(event.nativeEvent.contentOffset.y);
+        }}
       >
         {/* Centered MOOD Branding */}
         <View style={styles.centeredBrandingHeader}>
