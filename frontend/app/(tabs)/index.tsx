@@ -118,6 +118,7 @@ export default function WorkoutsHome() {
   const [greeting, setGreeting] = useState('');
   const [scrollY, setScrollY] = useState(0);
   const insets = useSafeAreaInsets();
+  const router = useRouter();
   
   useEffect(() => {
     const hour = new Date().getHours();
@@ -128,7 +129,17 @@ export default function WorkoutsHome() {
 
   const handleMoodSelect = (mood: MoodCard) => {
     console.log('Selected mood:', mood.title);
-    // TODO: Navigate to workout selection based on mood
+    
+    if (mood.id === 'sweat') {
+      // Navigate to workout type selection for "I want to sweat"
+      router.push({
+        pathname: '/workout-type',
+        params: { mood: mood.title }
+      });
+    } else {
+      // TODO: Navigate to workout selection based on other moods
+      console.log('Navigation for other moods will be implemented later');
+    }
   };
 
   const handleSocialLink = async (url: string, platform: string) => {
