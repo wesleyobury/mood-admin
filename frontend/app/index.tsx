@@ -16,11 +16,12 @@ import { LoadingSpinner } from '../components/LoadingSpinner';
 const { width, height } = Dimensions.get('window');
 
 export default function Welcome() {
-  const { user, isLoading } = useAuth();
+  // Completely removed auth checks to prevent auto-redirects
+  // const { user, isLoading } = useAuth();
+  const isLoading = false; // Force loading to false
+  const user = null; // Force user to null
 
-  // Removed all auto-redirects - users must manually navigate
-
-  // Removed auto-redirect - users must click "Get Started"
+  // No auto-redirects - users must manually navigate
 
   // For demo purposes, allow access to mood cards without authentication
   // You can remove this for production if you want to require auth
