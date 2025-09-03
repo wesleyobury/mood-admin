@@ -362,17 +362,55 @@ const styles = StyleSheet.create({
   spacer: {
     height: 20,
   },
-  simpleQuestionContainer: {
+  enhancedQuestionSection: {
     paddingHorizontal: 20,
-    paddingVertical: 20,
+    paddingVertical: 30,
     alignItems: 'center',
-    backgroundColor: '#111111', // Slightly lighter than pure black
+    marginVertical: 20,
   },
-  simpleQuestionText: {
-    fontSize: 22,
-    color: '#FFD700',
-    fontWeight: 'bold',
+  questionBubble: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: 'linear-gradient(135deg, rgba(255, 215, 0, 0.15), rgba(255, 165, 0, 0.1))',
+    backgroundColor: 'rgba(255, 215, 0, 0.12)',
+    paddingHorizontal: 25,
+    paddingVertical: 18,
+    borderRadius: 25,
+    borderWidth: 2,
+    borderColor: 'rgba(255, 215, 0, 0.4)',
+    shadowColor: '#FFD700',
+    shadowOffset: { width: 0, height: 0 },
+    shadowOpacity: 0.6,
+    shadowRadius: 15,
+    elevation: 8,
+    marginBottom: 15,
+  },
+  questionIconContainer: {
+    marginRight: 12,
+    padding: 8,
+    borderRadius: 20,
+    backgroundColor: 'rgba(255, 215, 0, 0.2)',
+  },
+  enhancedQuestionText: {
+    fontSize: 20,
+    color: '#FFFFFF',
+    fontWeight: '600',
     textAlign: 'center',
+    letterSpacing: 0.5,
+    textShadowColor: 'rgba(255, 215, 0, 0.8)',
+    textShadowOffset: { width: 0, height: 1 },
+    textShadowRadius: 4,
+  },
+  questionAccentLine: {
+    width: 60,
+    height: 3,
+    backgroundColor: '#FFD700',
+    borderRadius: 2,
+    shadowColor: '#FFD700',
+    shadowOffset: { width: 0, height: 0 },
+    shadowOpacity: 1,
+    shadowRadius: 8,
+    elevation: 4,
   },
 
   centeredBrandingHeader: {
