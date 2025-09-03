@@ -108,7 +108,7 @@ const moodCards: MoodCard[] = [
     id: 'outdoor',
     title: 'I want to get outside',
     subtitle: 'Fresh air workouts',
-    icon: 'trail-sign',
+    icon: 'bicycle',
     gradient: ['#56ab2f', '#a8e6cf'],
   },
 ];
