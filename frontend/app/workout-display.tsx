@@ -623,11 +623,22 @@ export default function WorkoutDisplayScreen() {
   const params = useLocalSearchParams();
   const insets = useSafeAreaInsets();
   
-  // Parse parameters
+  // Parse parameters with error handling
   const equipmentParam = params.equipment as string || '';
-  const selectedEquipmentNames = equipmentParam ? equipmentParam.split(',') : [];
+  let selectedEquipmentNames: string[] = [];
+  
+  try {
+    selectedEquipmentNames = equipmentParam ? equipmentParam.split(',').map(name => name.trim()) : [];
+  } catch (error) {
+    console.error('Error parsing equipment parameter:', error);
+    // Fallback to default equipment for testing
+    selectedEquipmentNames = ['Treadmill'];
+  }
+  
   const difficulty = (params.difficulty as string || 'beginner').toLowerCase();
   const moodTitle = params.mood as string || 'I want to sweat';
+  
+  console.log('Parsed parameters:', { selectedEquipmentNames, difficulty, moodTitle });
 
   // Get difficulty color
   const getDifficultyColor = (level: string) => {
