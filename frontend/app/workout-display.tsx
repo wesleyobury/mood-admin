@@ -1867,79 +1867,76 @@ export default function WorkoutDisplayScreen() {
         </ScrollView>
       </View>
 
-      {/* Extended Progress Bar - Correct Order and Scrollable */}
-      <ScrollView 
-        horizontal 
-        showsHorizontalScrollIndicator={false}
-        style={styles.progressScrollView}
-        contentContainerStyle={styles.extendedProgressContent}
-      >
-        {/* Step 1: Mood Selection */}
-        <View style={styles.progressStep}>
-          <View style={styles.progressStepActive}>
-            <Ionicons name="flame" size={14} color="#000000" />
+      {/* Progress Bar - Single Non-Scrolling Section */}
+      <View style={styles.progressContainer}>
+        <View style={styles.progressContent}>
+          {/* Step 1: Mood Selection */}
+          <View style={styles.progressStep}>
+            <View style={styles.progressStepActive}>
+              <Ionicons name="flame" size={12} color="#000000" />
+            </View>
+            <Text style={styles.progressStepText}>{moodTitle}</Text>
           </View>
-          <Text style={styles.progressStepText}>{moodTitle}</Text>
-        </View>
-        
-        <View style={styles.progressConnector} />
-        
-        {/* Step 2: Workout Type */}
-        <View style={styles.progressStep}>
-          <View style={styles.progressStepActive}>
-            <Ionicons name="heart" size={14} color="#000000" />
+          
+          <View style={styles.progressConnector} />
+          
+          {/* Step 2: Workout Type */}
+          <View style={styles.progressStep}>
+            <View style={styles.progressStepActive}>
+              <Ionicons name="heart" size={12} color="#000000" />
+            </View>
+            <Text style={styles.progressStepText}>Cardio</Text>
           </View>
-          <Text style={styles.progressStepText}>Cardio Based</Text>
-        </View>
-        
-        <View style={styles.progressConnector} />
-        
-        {/* Step 3: Intensity Level */}
-        <View style={styles.progressStep}>
-          <View style={styles.progressStepActive}>
-            <Ionicons name="speedometer" size={14} color="#000000" />
+          
+          <View style={styles.progressConnector} />
+          
+          {/* Step 3: Intensity Level */}
+          <View style={styles.progressStep}>
+            <View style={styles.progressStepActive}>
+              <Ionicons name="speedometer" size={12} color="#000000" />
+            </View>
+            <Text style={styles.progressStepText}>
+              {difficulty.charAt(0).toUpperCase() + difficulty.slice(1)}
+            </Text>
           </View>
-          <Text style={styles.progressStepText}>
-            {difficulty.charAt(0).toUpperCase() + difficulty.slice(1)}
-          </Text>
-        </View>
-        
-        <View style={styles.progressConnector} />
-        
-        {/* Steps 4+: Individual Equipment Items */}
-        {selectedEquipmentNames.map((equipment, index) => {
-          // Get appropriate icon for each equipment type
-          const getEquipmentIcon = (equipmentName: string) => {
-            const equipmentIconMap: { [key: string]: keyof typeof Ionicons.glyphMap } = {
-              'Treadmill': 'walk',
-              'Elliptical': 'ellipse',
-              'Arm bicycle': 'bicycle',
-              'Stationary bike': 'bicycle',
-              'Assault bike': 'bicycle',
-              'Row machine': 'boat',
-              'Stair master': 'trending-up',
-              'Ski machine': 'snow',
-              'Curve treadmill': 'walk',
-              'Punching bag': 'hand-left',
-              'Vertical Climber': 'triangle',
-              'Jump rope': 'git-compare'
+          
+          <View style={styles.progressConnector} />
+          
+          {/* Steps 4+: Individual Equipment Items */}
+          {selectedEquipmentNames.map((equipment, index) => {
+            // Get appropriate icon for each equipment type
+            const getEquipmentIcon = (equipmentName: string) => {
+              const equipmentIconMap: { [key: string]: keyof typeof Ionicons.glyphMap } = {
+                'Treadmill': 'walk',
+                'Elliptical': 'ellipse',
+                'Arm bicycle': 'bicycle',
+                'Stationary bike': 'bicycle',
+                'Assault bike': 'bicycle',
+                'Row machine': 'boat',
+                'Stair master': 'trending-up',
+                'Ski machine': 'snow',
+                'Curve treadmill': 'walk',
+                'Punching bag': 'hand-left',
+                'Vertical Climber': 'triangle',
+                'Jump rope': 'git-compare'
+              };
+              return equipmentIconMap[equipmentName] || 'fitness';
             };
-            return equipmentIconMap[equipmentName] || 'fitness';
-          };
 
-          return (
-            <React.Fragment key={equipment}>
-              <View style={styles.progressStep}>
-                <View style={styles.progressStepActive}>
-                  <Ionicons name={getEquipmentIcon(equipment)} size={14} color="#000000" />
+            return (
+              <React.Fragment key={equipment}>
+                <View style={styles.progressStep}>
+                  <View style={styles.progressStepActive}>
+                    <Ionicons name={getEquipmentIcon(equipment)} size={12} color="#000000" />
+                  </View>
+                  <Text style={styles.progressStepText}>{equipment}</Text>
                 </View>
-                <Text style={styles.progressStepText}>{equipment}</Text>
-              </View>
-              {index < selectedEquipmentNames.length - 1 && <View style={styles.progressConnector} />}
-            </React.Fragment>
-          );
-        })}
-      </ScrollView>
+                {index < selectedEquipmentNames.length - 1 && <View style={styles.progressConnector} />}
+              </React.Fragment>
+            );
+          })}
+        </View>
+      </View>
 
       {/* Workouts List */}
       <ScrollView 
