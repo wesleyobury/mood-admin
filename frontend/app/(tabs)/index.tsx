@@ -406,7 +406,7 @@ const styles = StyleSheet.create({
     right: 0,
     bottom: 0,
     backgroundColor: 'rgba(0, 0, 0, 0.3)', // Dark overlay for text readability
-    borderRadius: 20,
+    borderRadius: 0, // Straight edges to match container
   },
   debugIndicator: {
     position: 'absolute',
