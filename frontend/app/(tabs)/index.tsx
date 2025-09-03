@@ -362,55 +362,32 @@ const styles = StyleSheet.create({
   spacer: {
     height: 20,
   },
-  enhancedQuestionSection: {
-    paddingHorizontal: 20,
-    paddingVertical: 30,
-    alignItems: 'center',
+  parallaxContainer: {
+    height: 280,
     marginVertical: 20,
-  },
-  questionBubble: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    backgroundColor: 'linear-gradient(135deg, rgba(255, 215, 0, 0.15), rgba(255, 165, 0, 0.1))',
-    backgroundColor: 'rgba(255, 215, 0, 0.12)',
-    paddingHorizontal: 25,
-    paddingVertical: 18,
-    borderRadius: 25,
-    borderWidth: 2,
-    borderColor: 'rgba(255, 215, 0, 0.4)',
-    shadowColor: '#FFD700',
-    shadowOffset: { width: 0, height: 0 },
-    shadowOpacity: 0.6,
-    shadowRadius: 15,
-    elevation: 8,
-    marginBottom: 15,
-  },
-  questionIconContainer: {
-    marginRight: 12,
-    padding: 8,
+    marginHorizontal: 20,
     borderRadius: 20,
-    backgroundColor: 'rgba(255, 215, 0, 0.2)',
+    overflow: 'hidden',
+    elevation: 10,
+    shadowColor: '#000000',
+    shadowOffset: { width: 0, height: 5 },
+    shadowOpacity: 0.3,
+    shadowRadius: 10,
   },
-  enhancedQuestionText: {
-    fontSize: 20,
-    color: '#FFFFFF',
-    fontWeight: '600',
-    textAlign: 'center',
-    letterSpacing: 0.5,
-    textShadowColor: 'rgba(255, 215, 0, 0.8)',
-    textShadowOffset: { width: 0, height: 1 },
-    textShadowRadius: 4,
+  parallaxImage: {
+    width: '100%',
+    height: '120%', // Slightly larger for parallax effect
+    position: 'absolute',
+    top: -20, // Offset for parallax movement
   },
-  questionAccentLine: {
-    width: 60,
-    height: 3,
-    backgroundColor: '#FFD700',
-    borderRadius: 2,
-    shadowColor: '#FFD700',
-    shadowOffset: { width: 0, height: 0 },
-    shadowOpacity: 1,
-    shadowRadius: 8,
-    elevation: 4,
+  parallaxOverlay: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    backgroundColor: 'rgba(0, 0, 0, 0.3)', // Dark overlay for text readability
+    borderRadius: 20,
   },
 
   centeredBrandingHeader: {
