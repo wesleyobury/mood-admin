@@ -527,7 +527,8 @@ const styles = StyleSheet.create({
   },
   scrollContent: {
     padding: 24,
-    gap: 20,
+    gap: 30,
+    flexGrow: 1,
   },
   workoutCard: {
     backgroundColor: '#111111',
