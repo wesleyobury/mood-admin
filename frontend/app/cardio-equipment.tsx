@@ -167,7 +167,17 @@ export default function CardioEquipmentScreen() {
     if (selectedEquipment.length > 0 && selectedDifficulty) {
       console.log('Selected equipment:', selectedEquipment.map(eq => eq.name));
       console.log('Selected difficulty:', selectedDifficulty.title);
-      // TODO: Navigate to workout generation or workout details screen
+      
+      // Navigate to workout display screen with selected equipment and difficulty
+      router.push({
+        pathname: '/workout-display',
+        params: { 
+          mood: moodTitle,
+          workoutType: workoutType,
+          equipment: JSON.stringify(selectedEquipment.map(eq => eq.name)),
+          difficulty: selectedDifficulty.id
+        }
+      });
     }
   };
 
