@@ -1620,12 +1620,12 @@ const WorkoutCard = ({ equipment, icon, workouts, difficulty, difficultyColor, o
     </View>
   );
 
-  const onViewableItemsChanged = ({ viewableItems }: any) => {
+  const onViewableItemsChanged = useCallback(({ viewableItems }: any) => {
     if (viewableItems.length > 0 && viewableItems[0].index !== null) {
       console.log('Swipe detected, changing to workout index:', viewableItems[0].index);
       setCurrentWorkoutIndex(viewableItems[0].index);
     }
-  };
+  }, []);
 
   return (
     <View style={styles.workoutCard}>
