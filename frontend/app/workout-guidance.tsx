@@ -215,13 +215,11 @@ export default function WorkoutGuidanceScreen() {
         </ScrollView>
       </View>
 
-      {/* Timer Section */}
+      {/* Timer Section - Compact */}
       <View style={styles.timerContainer}>
-        <Text style={styles.timerLabel}>Workout Timer</Text>
-        <Text style={styles.timerDisplay}>{formatTime(elapsedTime)}</Text>
-        
-        {/* Timer Controls */}
-        <View style={styles.timerControls}>
+        <View style={styles.timerRow}>
+          <Text style={styles.timerLabel}>Timer:</Text>
+          <Text style={styles.timerDisplay}>{formatTime(elapsedTime)}</Text>
           <TouchableOpacity 
             style={[styles.timerButton, styles.primaryButton]}
             onPress={handleStartPauseTimer}
@@ -229,27 +227,22 @@ export default function WorkoutGuidanceScreen() {
           >
             <Ionicons 
               name={!isRunning ? "play" : isPaused ? "play" : "pause"} 
-              size={20} 
+              size={16} 
               color="#000000" 
             />
             <Text style={styles.primaryButtonText}>
               {!isRunning ? "Start" : isPaused ? "Resume" : "Pause"}
             </Text>
           </TouchableOpacity>
-          
           <TouchableOpacity 
             style={[styles.timerButton, styles.secondaryButton]}
             onPress={handleResetTimer}
             activeOpacity={0.8}
           >
-            <Ionicons name="refresh" size={20} color="#FFD700" />
+            <Ionicons name="refresh" size={16} color="#FFD700" />
             <Text style={styles.secondaryButtonText}>Reset</Text>
           </TouchableOpacity>
         </View>
-        
-        <Text style={styles.timerStatus}>
-          {isRunning ? (isPaused ? "Timer Paused" : "Timer Running") : "Timer Stopped"}
-        </Text>
       </View>
 
       {/* Main Content */}
