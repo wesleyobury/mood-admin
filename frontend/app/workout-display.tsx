@@ -1949,13 +1949,6 @@ const styles = StyleSheet.create({
   headerSpacer: {
     width: 40,
   },
-  progressContainer: {
-    backgroundColor: '#111111',
-    borderBottomWidth: 1,
-    borderBottomColor: 'rgba(255, 215, 0, 0.2)',
-    paddingVertical: 16,
-    paddingHorizontal: 20,
-  },
   progressContent: {
     alignItems: 'center',
     paddingHorizontal: 10,
