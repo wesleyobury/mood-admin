@@ -2041,24 +2041,16 @@ const styles = StyleSheet.create({
     marginHorizontal: 8,
     marginTop: 16,
   },
-  summaryContainer: {
-    paddingHorizontal: 24,
-    paddingVertical: 16,
+  extendedProgressContainer: {
     backgroundColor: '#111111',
     borderBottomWidth: 1,
     borderBottomColor: 'rgba(255, 215, 0, 0.2)',
+    paddingVertical: 16,
+    paddingHorizontal: 20,
   },
-  summaryTitle: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    color: '#ffffff',
-    textAlign: 'center',
-    marginBottom: 4,
-  },
-  summarySubtitle: {
-    fontSize: 14,
-    color: 'rgba(255, 255, 255, 0.6)',
-    textAlign: 'center',
+  extendedProgressContent: {
+    alignItems: 'center',
+    paddingHorizontal: 10,
   },
   scrollView: {
     flex: 1,
