@@ -285,7 +285,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     borderWidth: 3,
     borderColor: '#FFD700',
-    backgroundColor: '#2a2a2a', // More visible gray background
+    backgroundColor: '#333333', // Much more visible background
     shadowColor: '#FFD700',
     shadowOffset: { width: 0, height: 0 },
     shadowOpacity: 0.5,
