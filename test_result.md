@@ -237,10 +237,8 @@ metadata:
 
 test_plan:
   current_focus:
-    - "Workout Card Rendering Bug Fix"
-    - "Start Workout Button Integration"
-    - "Off-Brand Color Fix"
-    - "Complete MOOD Tips Database"
+    - "Fix Start Workout Navigation URI Encoding"
+    - "Fix Swipe Functionality FlatList Error"
   stuck_tasks: []
   test_all: false
   test_priority: "high_first"
