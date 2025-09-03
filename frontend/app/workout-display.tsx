@@ -849,13 +849,13 @@ export default function WorkoutDisplayScreen() {
   
   console.log('Parsed parameters:', { selectedEquipmentNames, difficulty, moodTitle });
 
-  // Get difficulty color
+  // Get difficulty color - using gold brand variations
   const getDifficultyColor = (level: string) => {
     switch (level) {
-      case 'beginner': return '#4CAF50';
-      case 'intermediate': return '#FF9800';
-      case 'advanced': return '#F44336';
-      default: return '#4CAF50';
+      case 'beginner': return '#FFD700';    // Gold for beginners
+      case 'intermediate': return '#FFA500'; // Dark gold for intermediate  
+      case 'advanced': return '#B8860B';     // Dark golden rod for advanced
+      default: return '#FFD700';
     }
   };
 
