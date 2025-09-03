@@ -1664,33 +1664,24 @@ const WorkoutCard = ({ equipment, icon, workouts, difficulty, difficultyColor, o
         </View>
       </View>
 
-      {/* Swipeable Workouts */}
-      <ScrollView
-        ref={flatListRef as any}
-        horizontal={true}
-        scrollEnabled={true}
-        pagingEnabled={true}
-        showsHorizontalScrollIndicator={false}
-        style={[styles.workoutList, { width: width - 48, height: 420 }]}
-        bounces={false}
-        scrollEventThrottle={16}
-        decelerationRate="fast"
-        snapToInterval={width - 48}
-        snapToAlignment="start"
-        onScroll={(event) => {
-          console.log('🔥 SCROLL EVENT TRIGGERED!', event.nativeEvent.contentOffset.x);
-          handleScroll(event);
-        }}
-        onScrollBeginDrag={() => console.log('📱 Scroll began')}
-        onScrollEndDrag={() => console.log('🛑 Scroll ended')}
-        contentContainerStyle={{ alignItems: 'center' }}
+      {/* Swipeable Workouts - PanGestureHandler Implementation */}
+      <PanGestureHandler
+        onGestureEvent={onGestureEvent}
+        onHandlerStateChange={onHandlerStateChange}
       >
-        {workouts.map((item, index) => (
-          <View key={`workout-${index}-${item.name}`} style={{ width: width - 48 }}>
-            {renderWorkout({ item, index })}
-          </View>
-        ))}
-      </ScrollView>
+        <Animated.View 
+          style={[
+            styles.workoutList, 
+            { 
+              width: width - 48, 
+              height: 420,
+              transform: [{ translateX }]
+            }
+          ]}
+        >
+          {renderWorkout({ item: workouts[currentWorkoutIndex], index: currentWorkoutIndex })}
+        </Animated.View>
+      </PanGestureHandler>
 
       {/* Enhanced Dots Indicator */}
       <View style={styles.dotsContainer}>
