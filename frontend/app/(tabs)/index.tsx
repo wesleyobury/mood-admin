@@ -176,11 +176,6 @@ export default function WorkoutsHome() {
           </View>
         </View>
 
-        {/* Centered Question Header */}
-        <View style={styles.questionSection}>
-          <Text style={styles.questionText}>How are you feeling today?</Text>
-        </View>
-
         {/* Mood Cards Column */}
         <View style={styles.moodCardsContainer}>
           <Text style={styles.sectionTitle}>How are you feeling today?</Text>
