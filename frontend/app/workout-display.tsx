@@ -1651,11 +1651,15 @@ const WorkoutCard = ({ equipment, icon, workouts, difficulty, difficultyColor, o
         showsHorizontalScrollIndicator={false}
         onViewableItemsChanged={onViewableItemsChanged}
         viewabilityConfig={{ 
-          itemVisiblePercentThreshold: 50
+          itemVisiblePercentThreshold: 80,
+          minimumViewTime: 100
         }}
         style={styles.workoutList}
         bounces={false}
         scrollEventThrottle={16}
+        decelerationRate="fast"
+        snapToInterval={width - 48}
+        snapToAlignment="start"
       />
 
       {/* Enhanced Dots Indicator */}
