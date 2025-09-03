@@ -132,14 +132,19 @@ export default function WorkoutGuidanceScreen() {
     return () => clearInterval(interval);
   }, [isRunning, isPaused]);
   
-  const handleStartWorkout = () => {
-    setShowTips(false);
-    setIsRunning(true);
-    setIsPaused(false);
+  const handleStartPauseTimer = () => {
+    if (!isRunning) {
+      setIsRunning(true);
+      setIsPaused(false);
+    } else {
+      setIsPaused(!isPaused);
+    }
   };
   
-  const handlePauseResume = () => {
-    setIsPaused(!isPaused);
+  const handleResetTimer = () => {
+    setElapsedTime(0);
+    setIsRunning(false);
+    setIsPaused(false);
   };
   
   const handleStop = () => {
