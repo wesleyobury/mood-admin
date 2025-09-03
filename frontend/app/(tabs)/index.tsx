@@ -128,6 +128,14 @@ export default function WorkoutsHome() {
     // TODO: Navigate to workout selection based on mood
   };
 
+  const handleSocialLink = async (url: string, platform: string) => {
+    try {
+      await WebBrowser.openBrowserAsync(url);
+    } catch (error) {
+      Alert.alert('Error', `Could not open ${platform}. Please try again.`);
+    }
+  };
+
   return (
     <View style={[styles.container, { paddingTop: insets.top, paddingBottom: insets.bottom }]}>
       <ScrollView 
