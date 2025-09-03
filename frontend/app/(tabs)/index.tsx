@@ -254,6 +254,14 @@ const styles = StyleSheet.create({
     paddingBottom: 25,
     marginBottom: 10,
   },
+  visibleQuestionHeader: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingHorizontal: 24,
+    paddingVertical: 30,
+    marginVertical: 20,
+    backgroundColor: 'rgba(255, 215, 0, 0.05)', // Slight background to ensure visibility
+  },
   headerContent: {
     flex: 1,
   },
