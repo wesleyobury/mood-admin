@@ -1675,24 +1675,18 @@ const WorkoutCard = ({ equipment, icon, workouts, difficulty, difficultyColor, o
         </View>
       </View>
 
-      {/* Swipeable Workouts - PanGestureHandler Implementation */}
-      <PanGestureHandler
-        onGestureEvent={onGestureEvent}
-        onHandlerStateChange={onHandlerStateChange}
+      {/* Swipeable Workouts - Touch-based Implementation */}
+      <View 
+        style={[styles.workoutList, { width: width - 48, height: 420 }]}
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
+        onMouseDown={handleTouchStart}
+        onMouseMove={handleTouchMove}
+        onMouseUp={handleTouchEnd}
       >
-        <Animated.View 
-          style={[
-            styles.workoutList, 
-            { 
-              width: width - 48, 
-              height: 420,
-              transform: [{ translateX }]
-            }
-          ]}
-        >
-          {renderWorkout({ item: workouts[currentWorkoutIndex], index: currentWorkoutIndex })}
-        </Animated.View>
-      </PanGestureHandler>
+        {renderWorkout({ item: workouts[currentWorkoutIndex], index: currentWorkoutIndex })}
+      </View>
 
       {/* Enhanced Dots Indicator */}
       <View style={styles.dotsContainer}>
