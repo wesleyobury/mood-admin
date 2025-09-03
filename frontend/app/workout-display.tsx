@@ -2065,16 +2065,16 @@ const styles = StyleSheet.create({
     marginHorizontal: 8,
     marginTop: 16,
   },
-  extendedProgressContainer: {
+  progressScrollView: {
     backgroundColor: '#111111',
     borderBottomWidth: 1,
     borderBottomColor: 'rgba(255, 215, 0, 0.2)',
     paddingVertical: 16,
-    paddingHorizontal: 20,
+    maxHeight: 80,
   },
   extendedProgressContent: {
     alignItems: 'center',
-    paddingHorizontal: 10,
+    paddingHorizontal: 20,
   },
   scrollView: {
     flex: 1,
