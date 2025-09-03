@@ -289,7 +289,7 @@ const styles = StyleSheet.create({
     shadowColor: '#FFD700',
     shadowOffset: { width: 0, height: 0 },
     shadowOpacity: 0.8,
-    shadowRadius: 15,
+    shadowRadius: 20,
     elevation: 8,
   },
   visibleMoodCard: {
