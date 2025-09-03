@@ -278,7 +278,7 @@ const styles = StyleSheet.create({
     shadowRadius: 25,
     elevation: 20,
   },
-  moodCard: {
+  visibleMoodCard: {
     borderRadius: 21,
     padding: 0,
     minHeight: 100,
