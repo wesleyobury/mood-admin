@@ -205,7 +205,7 @@ export default function CardioEquipmentScreen() {
               <EquipmentCard
                 key={equipment.id}
                 equipment={equipment}
-                isSelected={selectedEquipment?.id === equipment.id}
+                isSelected={selectedEquipment.some(item => item.id === equipment.id)}
                 onPress={handleEquipmentSelect}
               />
             ))}
