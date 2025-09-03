@@ -307,6 +307,18 @@ const styles = StyleSheet.create({
     letterSpacing: 0.5,
     paddingHorizontal: 20,
   },
+  visibleCenteredTitle: {
+    fontSize: 26,
+    color: '#FFD700', // Bright gold color for maximum visibility
+    fontWeight: 'bold',
+    textAlign: 'center',
+    textShadowColor: 'rgba(255, 255, 255, 0.5)',
+    textShadowOffset: { width: 0, height: 0 },
+    textShadowRadius: 10,
+    letterSpacing: 0.5,
+    paddingHorizontal: 20,
+    paddingVertical: 10,
+  },
 
   centeredBrandingHeader: {
     alignItems: 'center',
