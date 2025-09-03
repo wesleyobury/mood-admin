@@ -266,8 +266,8 @@ export default function WorkoutGuidanceScreen() {
               <View style={styles.stepsList}>
                 {parseWorkoutDescription(description).map((step, index) => (
                   <View key={index} style={styles.stepItem}>
-                    <View style={styles.stepNumber}>
-                      <Text style={styles.stepNumberText}>{index + 1}</Text>
+                    <View style={styles.bulletPoint}>
+                      <Text style={styles.bulletText}>•</Text>
                     </View>
                     <Text style={styles.stepText}>{step}</Text>
                   </View>
