@@ -119,47 +119,18 @@ export default function WorkoutGuidanceScreen() {
   const [isRunning, setIsRunning] = useState(false);
   const [isPaused, setIsPaused] = useState(false);
   
-  const workoutSteps = parseWorkoutSteps(description);
-  const currentStep = workoutSteps[currentStepIndex];
-  const totalDuration = workoutSteps.reduce((sum, step) => sum + step.duration, 0);
-  
-  useEffect(() => {
-    if (currentStep && timeRemaining === 0) {
-      setTimeRemaining(currentStep.duration);
-    }
-  }, [currentStep]);
-  
+  // Simple elapsed time timer
   useEffect(() => {
     let interval: NodeJS.Timeout;
     
-    if (isRunning && !isPaused && timeRemaining > 0) {
+    if (isRunning && !isPaused) {
       interval = setInterval(() => {
-        setTimeRemaining(prev => {
-          if (prev <= 1) {
-            // Move to next step
-            if (currentStepIndex < workoutSteps.length - 1) {
-              setCurrentStepIndex(currentStepIndex + 1);
-              return workoutSteps[currentStepIndex + 1]?.duration || 0;
-            } else {
-              // Workout complete
-              setIsRunning(false);
-              Alert.alert(
-                'Workout Complete! 🎉',
-                'Great job! You\'ve completed your workout.',
-                [
-                  { text: 'Done', onPress: () => router.back() }
-                ]
-              );
-              return 0;
-            }
-          }
-          return prev - 1;
-        });
+        setElapsedTime(prev => prev + 1);
       }, 1000);
     }
     
     return () => clearInterval(interval);
-  }, [isRunning, isPaused, timeRemaining, currentStepIndex, workoutSteps]);
+  }, [isRunning, isPaused]);
   
   const handleStartWorkout = () => {
     setShowTips(false);
