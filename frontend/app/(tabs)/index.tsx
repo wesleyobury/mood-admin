@@ -116,22 +116,12 @@ export default function WorkoutsHome() {
   const [greeting, setGreeting] = useState('');
   const insets = useSafeAreaInsets();
   
-  // Animation values using useRef for persistence
-  const fadeAnim = useRef(new Animated.Value(0)).current;
-
   useEffect(() => {
     const hour = new Date().getHours();
     if (hour < 12) setGreeting('Good morning');
     else if (hour < 18) setGreeting('Good afternoon');
     else setGreeting('Good evening');
-    
-    // Start simple fade animation when component mounts
-    Animated.timing(fadeAnim, {
-      toValue: 1,
-      duration: 1500,
-      useNativeDriver: true,
-    }).start();
-  }, [fadeAnim]);
+  }, []);
 
   const handleMoodSelect = (mood: MoodCard) => {
     console.log('Selected mood:', mood.title);
