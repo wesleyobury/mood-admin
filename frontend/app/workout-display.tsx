@@ -641,7 +641,7 @@ const styles = StyleSheet.create({
   },
   scrollContent: {
     padding: 24,
-    gap: 30,
+    paddingBottom: 100,
     flexGrow: 1,
   },
   workoutCard: {
@@ -655,9 +655,8 @@ const styles = StyleSheet.create({
     shadowRadius: 15,
     elevation: 8,
     overflow: 'hidden',
-    minHeight: 400,
-    marginBottom: 20,
-    flexShrink: 0,
+    marginBottom: 30,
+    width: '100%',
   },
   equipmentHeader: {
     flexDirection: 'row',
