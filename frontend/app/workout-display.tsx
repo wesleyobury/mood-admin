@@ -529,14 +529,19 @@ export default function WorkoutDisplayScreen() {
   const params = useLocalSearchParams();
   const insets = useSafeAreaInsets();
   
-  // Parse parameters with error handling
+  // Parse parameters with error handling and proper URL decoding
   const equipmentParam = params.equipment as string || '';
   let selectedEquipmentNames: string[] = [];
   
   try {
-    selectedEquipmentNames = equipmentParam ? equipmentParam.split(',').map(name => name.trim()) : [];
+    if (equipmentParam) {
+      // Decode URL-encoded parameter and split by comma
+      const decodedEquipment = decodeURIComponent(equipmentParam);
+      selectedEquipmentNames = decodedEquipment.split(',').map(name => name.trim());
+    }
   } catch (error) {
     console.error('Error parsing equipment parameter:', error);
+    // Fallback to default equipment for testing
     selectedEquipmentNames = ['Treadmill'];
   }
   
