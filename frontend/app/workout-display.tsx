@@ -721,6 +721,7 @@ interface WorkoutCardProps {
   workouts: Workout[];
   difficulty: string;
   difficultyColor: string;
+  onStartWorkout: (workout: Workout, equipment: string, difficulty: string) => void;
 }
 
 const WorkoutCard = ({ equipment, icon, workouts, difficulty, difficultyColor }: WorkoutCardProps) => {
