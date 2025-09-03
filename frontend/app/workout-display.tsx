@@ -1647,16 +1647,22 @@ const WorkoutCard = ({ equipment, icon, workouts, difficulty, difficultyColor, o
       {/* Swipeable Workouts */}
       <ScrollView
         ref={flatListRef as any}
-        horizontal
-        pagingEnabled
+        horizontal={true}
+        scrollEnabled={true}
+        pagingEnabled={true}
         showsHorizontalScrollIndicator={false}
-        style={styles.workoutList}
+        style={[styles.workoutList, { width: width - 48, height: 420 }]}
         bounces={false}
         scrollEventThrottle={16}
         decelerationRate="fast"
         snapToInterval={width - 48}
         snapToAlignment="start"
-        onScroll={handleScroll}
+        onScroll={(event) => {
+          console.log('🔥 SCROLL EVENT TRIGGERED!', event.nativeEvent.contentOffset.x);
+          handleScroll(event);
+        }}
+        onScrollBeginDrag={() => console.log('📱 Scroll began')}
+        onScrollEndDrag={() => console.log('🛑 Scroll ended')}
         contentContainerStyle={{ alignItems: 'center' }}
       >
         {workouts.map((item, index) => (
