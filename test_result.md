@@ -304,28 +304,34 @@ test_plan:
           comment: "Minor: MOOD Tips section not displaying on workout guidance screen. Tips are implemented in the code but not rendering in the UI. This is a minor display issue that doesn't affect core workout functionality. The workout guidance screen loads and functions properly otherwise."
 
   - task: "Fix Start Workout Navigation URI Encoding"
-    implemented: false
+    implemented: true
     working: false
     file: "app/workout-display.tsx, app/workout-guidance.tsx"
-    stuck_count: 0
+    stuck_count: 1
     priority: "high"
-    needs_retesting: true
+    needs_retesting: false
     status_history:
         - working: false
           agent: "testing"
           comment: "CRITICAL BUG: Start Workout navigation fails with 'URIError: URI malformed' when parsing MOOD tips parameter. Navigation attempt succeeds (console shows '✅ Navigation attempted successfully') but workout-guidance screen crashes due to decodeURIComponent error on moodTips parameter. Need to fix URL encoding/decoding of complex JSON objects in navigation parameters."
+        - working: false
+          agent: "testing"
+          comment: "PARTIAL FIX IMPLEMENTED: Enhanced encoding logic added in workout-display.tsx (lines 1761-1763) with special character handling. Navigation now successfully reaches workout-guidance screen and MOOD Tips section loads. However, URI malformed error still occurs during moodTips parameter parsing due to DOUBLE ENCODING issue. The encodeURIComponent + .replace() creates double-encoded parameters (%255B instead of %5B). Need to fix encoding logic to prevent double encoding."
 
   - task: "Fix Swipe Functionality FlatList Error"
-    implemented: false
+    implemented: true
     working: false
     file: "app/workout-display.tsx"
-    stuck_count: 0
+    stuck_count: 1
     priority: "high"
-    needs_retesting: true
+    needs_retesting: false
     status_history:
         - working: false
           agent: "testing"
           comment: "CRITICAL BUG: Swipe functionality blocked by 'Invariant Violation: Changing onViewableItemsChanged on the fly is not supported' error in FlatList. Workout indicators show '1/2' correctly but swipe gestures don't work. FlatList configuration needs to be fixed to prevent dynamic changes to onViewableItemsChanged callback."
+        - working: false
+          agent: "testing"
+          comment: "PARTIAL FIX IMPLEMENTED: useCallback wrapper added to onViewableItemsChanged (lines 1623-1628) which successfully eliminated 'Invariant Violation' FlatList errors. However, swipe functionality still not working - indicators remain at '1/2' after swipe gestures. The callback stabilization worked but swipe detection logic needs further investigation. No console errors but swipe events not triggering properly."
 
 agent_communication:
     - agent: "main"
