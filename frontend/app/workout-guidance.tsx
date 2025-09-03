@@ -224,25 +224,44 @@ export default function WorkoutGuidanceScreen() {
 
       {/* Main Content */}
       <ScrollView style={styles.scrollView} showsVerticalScrollIndicator={false}>
-        {/* Workout Instructions */}
+        {/* Workout Instructions - Enhanced */}
         <View style={styles.instructionsContainer}>
           <View style={styles.sectionHeader}>
-            <Ionicons name="list" size={20} color="#FFD700" />
+            <View style={styles.iconContainer}>
+              <Ionicons name="list" size={24} color="#FFD700" />
+            </View>
             <Text style={styles.sectionTitle}>Workout Instructions</Text>
+            <View style={styles.headerAccent} />
           </View>
           
           <View style={styles.workoutCard}>
             <View style={styles.workoutHeader}>
-              <Text style={styles.workoutTitle}>{workoutName}</Text>
+              <View style={styles.workoutTitleSection}>
+                <Text style={styles.workoutTitle}>{workoutName}</Text>
+                <View style={styles.equipmentTag}>
+                  <Ionicons name="fitness" size={16} color="#FFD700" />
+                  <Text style={styles.equipmentText}>{equipment}</Text>
+                </View>
+              </View>
               <View style={styles.workoutMeta}>
-                <Text style={styles.workoutDuration}>{duration}</Text>
+                <View style={styles.durationContainer}>
+                  <Ionicons name="time" size={16} color="#FFD700" />
+                  <Text style={styles.workoutDuration}>{duration}</Text>
+                </View>
                 <View style={[styles.difficultyBadge, { backgroundColor: getDifficultyColor(difficulty) }]}>
+                  <Ionicons name="speedometer" size={14} color="#000000" />
                   <Text style={styles.difficultyText}>{difficulty.toUpperCase()}</Text>
                 </View>
               </View>
             </View>
             
-            <Text style={styles.workoutDescription}>{description}</Text>
+            <View style={styles.descriptionContainer}>
+              <View style={styles.descriptionHeader}>
+                <Ionicons name="document-text" size={18} color="#FFD700" />
+                <Text style={styles.descriptionLabel}>Step-by-Step Instructions</Text>
+              </View>
+              <Text style={styles.workoutDescription}>{description}</Text>
+            </View>
           </View>
         </View>
 
