@@ -1,0 +1,39 @@
+// Animated Mood Card Component - SIMPLIFIED FOR VISIBILITY
+const AnimatedMoodCard = ({ mood, index, onPress }: { 
+  mood: MoodCard; 
+  index: number; 
+  onPress: (mood: MoodCard) => void;
+}) => {
+  return (
+    <TouchableOpacity
+      style={styles.moodCardContainer}
+      onPress={() => onPress(mood)}
+      activeOpacity={0.8}
+    >
+      {/* Highly Visible Card */}
+      <View style={styles.visibleMoodCard}>
+        <View style={styles.cardContent}>
+          <View style={styles.iconContainer}>
+            <Ionicons 
+              name={mood.icon} 
+              size={40} 
+              color="#FFD700" 
+              style={styles.cardIcon}
+            />
+          </View>
+          <View style={styles.textContainer}>
+            <Text style={styles.cardTitle}>{mood.title}</Text>
+            <Text style={styles.cardSubtitle}>{mood.subtitle}</Text>
+          </View>
+          <View style={styles.arrowContainer}>
+            <Ionicons 
+              name="chevron-forward" 
+              size={24} 
+              color="#FFD700" 
+            />
+          </View>
+        </View>
+      </View>
+    </TouchableOpacity>
+  );
+};
