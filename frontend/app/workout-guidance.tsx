@@ -115,28 +115,8 @@ export default function WorkoutGuidanceScreen() {
   };
   
   const handleCompletedWorkout = () => {
-    Alert.alert(
-      'Workout Complete! 🎉',
-      'Great job completing your workout! Would you like to do another workout?',
-      [
-        { 
-          text: 'Done for Now', 
-          style: 'cancel', 
-          onPress: () => {
-            // Navigate back to workout cards screen
-            router.back();
-          }
-        },
-        { 
-          text: 'Another Workout', 
-          style: 'default', 
-          onPress: () => {
-            // Navigate back to workout cards screen
-            router.back();
-          }
-        }
-      ]
-    );
+    // Navigate directly back to workout cards screen
+    router.push('/workout-display');
   };
   
   const handleGoBack = () => {
