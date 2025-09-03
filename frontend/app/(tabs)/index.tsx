@@ -189,10 +189,6 @@ export default function WorkoutsHome() {
             onError={(error) => console.log('Parallax image load error:', error.nativeEvent.error)}
           />
           <View style={styles.parallaxOverlay} />
-          {/* Debug indicator */}
-          <View style={styles.debugIndicator}>
-            <Text style={styles.debugText}>PARALLAX IMAGE</Text>
-          </View>
         </View>
 
         {/* Mood Selection Section */}
