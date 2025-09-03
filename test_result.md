@@ -239,7 +239,9 @@ test_plan:
   current_focus:
     - "Fix Start Workout Navigation URI Encoding"
     - "Fix Swipe Functionality FlatList Error"
-  stuck_tasks: []
+  stuck_tasks:
+    - "Fix Start Workout Navigation URI Encoding"
+    - "Fix Swipe Functionality FlatList Error"
   test_all: false
   test_priority: "high_first"
 
@@ -307,7 +309,7 @@ test_plan:
     implemented: true
     working: false
     file: "app/workout-display.tsx, app/workout-guidance.tsx"
-    stuck_count: 1
+    stuck_count: 2
     priority: "high"
     needs_retesting: false
     status_history:
@@ -317,12 +319,15 @@ test_plan:
         - working: false
           agent: "testing"
           comment: "PARTIAL FIX IMPLEMENTED: Enhanced encoding logic added in workout-display.tsx (lines 1761-1763) with special character handling. Navigation now successfully reaches workout-guidance screen and MOOD Tips section loads. However, URI malformed error still occurs during moodTips parameter parsing due to DOUBLE ENCODING issue. The encodeURIComponent + .replace() creates double-encoded parameters (%255B instead of %5B). Need to fix encoding logic to prevent double encoding."
+        - working: false
+          agent: "testing"
+          comment: "FINAL VERIFICATION FAILED: Despite main agent implementing simple encodeURIComponent(JSON.stringify()) fix, DOUBLE ENCODING still occurs. URL shows %255B%257B (double-encoded) instead of %5B%7B (single-encoded). Navigation works and MOOD Tips section displays (using fallback), but console still shows 'URIError: URI malformed' errors. The expo-router or browser is adding additional encoding layer. SOLUTION NEEDED: Either avoid encodeURIComponent entirely, use different parameter passing method, or handle double-decoding in workout-guidance.tsx."
 
   - task: "Fix Swipe Functionality FlatList Error"
     implemented: true
     working: false
     file: "app/workout-display.tsx"
-    stuck_count: 1
+    stuck_count: 2
     priority: "high"
     needs_retesting: false
     status_history:
@@ -332,6 +337,9 @@ test_plan:
         - working: false
           agent: "testing"
           comment: "PARTIAL FIX IMPLEMENTED: useCallback wrapper added to onViewableItemsChanged (lines 1623-1628) which successfully eliminated 'Invariant Violation' FlatList errors. However, swipe functionality still not working - indicators remain at '1/2' after swipe gestures. The callback stabilization worked but swipe detection logic needs further investigation. No console errors but swipe events not triggering properly."
+        - working: false
+          agent: "testing"
+          comment: "FINAL VERIFICATION FAILED: useCallback fix successfully eliminated FlatList 'Invariant Violation' errors, but swipe detection completely non-functional. Manual swipe gestures performed on workout cards show no response - indicators remain at '1/2', no 'Swipe detected' console messages appear. The FlatList onViewableItemsChanged callback is not triggering at all. SOLUTION NEEDED: Debug viewabilityConfig settings, check if FlatList is properly configured for horizontal scrolling, or investigate alternative swipe detection methods."
 
 agent_communication:
     - agent: "main"
@@ -354,3 +362,5 @@ agent_communication:
       message: "🔍 CRITICAL BUG VERIFICATION COMPLETED: Comprehensive testing of both critical bugs revealed mixed results. ✅ PARTIAL SUCCESS: Try Demo button works, complete navigation flow functional until Start Workout button, debug messages logging correctly (🚀 Starting workout, 📝 Workout data, 🔄 Navigation params, ✅ Navigation attempted successfully), workout cards rendering properly (2 equipment = 4 buttons as expected). ❌ CRITICAL ISSUES FOUND: 1) Start Workout Navigation: URI malformed error when parsing MOOD tips prevents workout-guidance screen from loading despite successful navigation attempt. 2) Swipe Functionality: FlatList 'Invariant Violation: Changing onViewableItemsChanged on the fly is not supported' error blocks swipe gestures. Both bugs require code fixes - navigation parameter encoding issue and FlatList configuration problem."
     - agent: "testing"
       message: "✅ CRITICAL BUG FIXES VERIFICATION COMPLETED: Both fixes partially implemented but still have issues. 🔧 URI ENCODING FIX: Enhanced encoding implemented in workout-display.tsx successfully enables navigation to workout-guidance screen with MOOD Tips section loading, but double encoding issue persists (encodeURIComponent + .replace() creates %255B instead of %5B). 🔧 FLATLIST FIX: useCallback wrapper successfully eliminated 'Invariant Violation' errors, but swipe detection still not working - indicators stay at '1/2' after gestures. RECOMMENDATION: Fix double encoding by removing redundant .replace() encoding, and investigate FlatList swipe detection logic."
+    - agent: "testing"
+      message: "❌ FINAL CRITICAL BUG VERIFICATION FAILED: Comprehensive testing reveals both critical bugs remain unresolved despite main agent's fixes. 🚨 URI ENCODING: Still getting 'URIError: URI malformed' due to persistent double encoding (%255B instead of %5B) - expo-router adding extra encoding layer. Navigation works but uses fallback MOOD tips. 🚨 SWIPE FUNCTIONALITY: useCallback eliminated FlatList errors but swipe detection completely broken - no response to gestures, no console messages, indicators stuck at '1/2'. URGENT: Both tasks now marked as stuck_tasks requiring alternative approaches or websearch for solutions."
