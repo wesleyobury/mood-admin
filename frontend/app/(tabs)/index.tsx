@@ -315,9 +315,7 @@ const styles = StyleSheet.create({
     textShadowRadius: 10,
     letterSpacing: 0.5,
   },
-  notificationBtn: {
-    padding: 12,
-  },
+
   centeredBrandingHeader: {
     alignItems: 'center',
     paddingHorizontal: 24,
