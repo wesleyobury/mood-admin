@@ -404,20 +404,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(0, 0, 0, 0.3)', // Dark overlay for text readability
     borderRadius: 0, // Straight edges to match container
   },
-  debugIndicator: {
-    position: 'absolute',
-    top: 10,
-    right: 10,
-    backgroundColor: 'rgba(255, 215, 0, 0.9)',
-    paddingHorizontal: 8,
-    paddingVertical: 4,
-    borderRadius: 4,
-  },
-  debugText: {
-    color: '#000000',
-    fontSize: 10,
-    fontWeight: 'bold',
-  },
+
 
   centeredBrandingHeader: {
     alignItems: 'center',
