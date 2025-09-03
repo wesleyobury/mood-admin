@@ -1620,14 +1620,34 @@ const WorkoutCard = ({ equipment, icon, workouts, difficulty, difficultyColor, o
     </View>
   );
 
-  // Scroll handler for ScrollView-based swipe detection
-  const handleScroll = (event: any) => {
-    const scrollX = event.nativeEvent.contentOffset.x;
-    const itemWidth = width - 48;
-    const currentIndex = Math.round(scrollX / itemWidth);
-    if (currentIndex !== currentWorkoutIndex && currentIndex >= 0 && currentIndex < workouts.length) {
-      console.log('Scroll detected, changing to workout index:', currentIndex);
-      setCurrentWorkoutIndex(currentIndex);
+  // PanGestureHandler events for web-compatible swipe detection
+  const onGestureEvent = Animated.event(
+    [{ nativeEvent: { translationX: translateX } }],
+    { useNativeDriver: true }
+  );
+
+  const onHandlerStateChange = (event: any) => {
+    if (event.nativeEvent.state === State.END) {
+      const translationX = event.nativeEvent.translationX;
+      console.log('🎯 Gesture detected, translationX:', translationX);
+      
+      if (translationX > 100) {
+        // Swiped right - go to previous workout
+        const newIndex = Math.max(0, currentWorkoutIndex - 1);
+        console.log('👈 Swiped right, changing to workout index:', newIndex);
+        setCurrentWorkoutIndex(newIndex);
+      } else if (translationX < -100) {
+        // Swiped left - go to next workout  
+        const newIndex = Math.min(workouts.length - 1, currentWorkoutIndex + 1);
+        console.log('👉 Swiped left, changing to workout index:', newIndex);
+        setCurrentWorkoutIndex(newIndex);
+      }
+
+      // Reset the animation
+      Animated.spring(translateX, {
+        toValue: 0,
+        useNativeDriver: true,
+      }).start();
     }
   };
 
