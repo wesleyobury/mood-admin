@@ -31,8 +31,24 @@ export default function Welcome() {
 
   // Auto-redirect to home screen to immediately show parallax image
   useEffect(() => {
-    // Immediate redirect to show parallax image
-    router.replace('/(tabs)');
+    const redirectTimer = setTimeout(() => {
+      console.log('Attempting redirect to tabs...');
+      router.replace('/(tabs)');
+    }, 1000);
+    
+    return () => clearTimeout(redirectTimer);
+  }, []);
+  
+  // Fallback redirect method
+  useEffect(() => {
+    const fallbackTimer = setTimeout(() => {
+      console.log('Fallback redirect via window location...');
+      if (typeof window !== 'undefined') {
+        window.location.href = 'https://mood-workout-app.preview.emergentagent.com/#/(tabs)';
+      }
+    }, 3000);
+    
+    return () => clearTimeout(fallbackTimer);
   }, []);
 
   if (isLoading) {
