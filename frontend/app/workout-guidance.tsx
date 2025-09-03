@@ -88,7 +88,7 @@ export default function WorkoutGuidanceScreen() {
   
   // Simple elapsed time timer
   useEffect(() => {
-    let interval: NodeJS.Timeout;
+    let interval: NodeJS.Timeout | null = null;
     
     if (isRunning && !isPaused) {
       interval = setInterval(() => {
@@ -96,7 +96,9 @@ export default function WorkoutGuidanceScreen() {
       }, 1000);
     }
     
-    return () => clearInterval(interval);
+    return () => {
+      if (interval) clearInterval(interval);
+    };
   }, [isRunning, isPaused]);
   
   const handleStartPauseTimer = () => {
