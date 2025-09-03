@@ -143,6 +143,114 @@ const workoutDatabase: EquipmentWorkouts[] = [
         }
       ]
     }
+  },
+  {
+    equipment: 'Row machine',
+    icon: 'boat',
+    workouts: {
+      beginner: [
+        {
+          name: 'Row & Rest',
+          duration: '12 min',
+          description: '1 min easy, 30 sec moderate, 1 min easy, 30 sec fast, repeat 4x.',
+          imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Short intervals with rest periods make this ideal for beginners learning rowing technique and building base endurance.'
+        },
+        {
+          name: 'Stroke Play',
+          duration: '15 min',
+          description: '2 min steady (22 SPM), 1 min fast (28 SPM), 2 min slow (20 SPM), repeat 3x.',
+          imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
+          intensityReason: 'Varied stroke rates help beginners develop rhythm control while building steady cardiovascular base.'
+        }
+      ],
+      intermediate: [
+        {
+          name: 'Power Intervals',
+          duration: '20 min',
+          description: '1 min hard (28 SPM), 2 min moderate (24 SPM), 1 min slow (20 SPM), repeat 4x.',
+          imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmd8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Alternates between power strokes and recovery periods, perfect for building intermediate strength and endurance.'
+        },
+        {
+          name: 'Pyramid Row',
+          duration: '25 min',
+          description: '1 min easy, 1 min hard, 2 min easy, 2 min hard, 3 min easy, 3 min hard, then back down.',
+          imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MTc1Njg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Progressive time intervals challenge intermediate rowers with increasing demands on both power and mental focus.'
+        }
+      ],
+      advanced: [
+        {
+          name: 'Sprint & Recover',
+          duration: '20 min',
+          description: '30 sec sprint (32 SPM), 1 min moderate (24 SPM), repeat 10x.',
+          imageUrl: 'https://images.unsplash.com/photo-1723117418780-1b74b25af9bc?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwzfHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MTc1Njg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'High-intensity sprints at 32 SPM demand maximum power output and anaerobic capacity from advanced rowers.'
+        },
+        {
+          name: 'Endurance Builder',
+          duration: '30 min',
+          description: '5 min easy, 10 min moderate, 5 min hard, 5 min fast, 5 min cool-down.',
+          imageUrl: 'https://images.pexels.com/photos/2774172/pexels-photo-2774172.jpeg',
+          intensityReason: 'Extended duration with progressive intensity builds elite-level cardiovascular endurance and mental toughness.'
+        }
+      ]
+    }
+  },
+  {
+    equipment: 'Stair master',
+    icon: 'trending-up',
+    workouts: {
+      beginner: [
+        {
+          name: 'Step & Recover',
+          duration: '12 min',
+          description: '1 min easy, 30 sec moderate, 1 min easy, 30 sec fast, repeat 4x.',
+          imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Gentle step intervals with recovery periods help beginners build leg strength and cardiovascular base safely.'
+        },
+        {
+          name: 'Pace Changer',
+          duration: '15 min',
+          description: '2 min steady, 1 min double step (skip a step), 2 min slow, repeat 3x.',
+          imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
+          intensityReason: 'Varied stepping patterns introduce beginners to different movement patterns while maintaining moderate intensity.'
+        }
+      ],
+      intermediate: [
+        {
+          name: 'Interval Climb',
+          duration: '20 min',
+          description: '1 min fast, 2 min moderate, 1 min side step (face sideways), repeat 4x.',
+          imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmd8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Mixed stepping patterns and intensities challenge intermediate users with both speed and coordination demands.'
+        },
+        {
+          name: 'Hill Climb',
+          duration: '25 min',
+          description: '2 min moderate, 1 min fast, 1 min slow, 1 min double step, repeat 5x.',
+          imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MTc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Continuous climbing with varied techniques builds intermediate-level lower body strength and endurance.'
+        }
+      ],
+      advanced: [
+        {
+          name: 'Speed & Endurance',
+          duration: '30 min',
+          description: '2 min fast, 1 min side step, 1 min double step, 2 min moderate, repeat 5x.',
+          imageUrl: 'https://images.unsplash.com/photo-1723117418780-1b74b25af9bc?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwzfHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MTc1Njg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'High-speed stepping with complex patterns demands advanced coordination, power, and cardiovascular fitness.'
+        },
+        {
+          name: 'HIIT Steps',
+          duration: '20 min',
+          description: '30 sec sprint, 1 min moderate, 30 sec skip steps, 1 min slow, repeat 5x.',
+          imageUrl: 'https://images.pexels.com/photos/2774172/pexels-photo-2774172.jpeg',
+          intensityReason: 'High-intensity intervals with skip steps push advanced users to maximum power and agility limits.'
+        }
+      ]
+    }
   }
 ];
 
