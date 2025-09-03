@@ -1565,7 +1565,6 @@ interface WorkoutCardProps {
 
 const WorkoutCard = ({ equipment, icon, workouts, difficulty, difficultyColor, onStartWorkout }: WorkoutCardProps) => {
   const [currentWorkoutIndex, setCurrentWorkoutIndex] = useState(0);
-  const translateX = useRef(new Animated.Value(0)).current;
 
   const renderWorkout = ({ item, index }: { item: Workout; index: number }) => (
     <View style={[styles.workoutSlide, { width: width - 48 }]}>
