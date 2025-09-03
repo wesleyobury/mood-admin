@@ -770,7 +770,7 @@ const WorkoutCard = ({ equipment, icon, workouts, difficulty, difficultyColor, o
         {/* Start Workout Button */}
         <TouchableOpacity 
           style={styles.startWorkoutButton}
-          onPress={() => handleStartWorkout(item, equipment, difficulty)}
+          onPress={() => onStartWorkout(item, equipment, difficulty)}
           activeOpacity={0.8}
         >
           <Ionicons name="play" size={20} color="#000000" />
