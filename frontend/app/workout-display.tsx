@@ -396,14 +396,24 @@ export default function WorkoutDisplayScreen() {
         {userWorkouts.map((equipmentData, index) => {
           console.log(`Rendering card ${index + 1}:`, equipmentData.equipment);
           return (
-            <WorkoutCard
-              key={equipmentData.equipment}
-              equipment={equipmentData.equipment}
-              icon={equipmentData.icon}
-              workouts={equipmentData.workouts[difficulty as keyof typeof equipmentData.workouts]}
-              difficulty={difficulty}
-              difficultyColor={difficultyColor}
-            />
+            <View key={`container-${equipmentData.equipment}`} style={{
+              // Temporary debug styling for the second card
+              ...(index === 1 && {
+                backgroundColor: 'red',
+                borderWidth: 5,
+                borderColor: 'yellow',
+                marginTop: 50,
+              })
+            }}>
+              <WorkoutCard
+                key={equipmentData.equipment}
+                equipment={equipmentData.equipment}
+                icon={equipmentData.icon}
+                workouts={equipmentData.workouts[difficulty as keyof typeof equipmentData.workouts]}
+                difficulty={difficulty}
+                difficultyColor={difficultyColor}
+              />
+            </View>
           );
         })}
       </ScrollView>
