@@ -340,6 +340,17 @@ const styles = StyleSheet.create({
     letterSpacing: 1,
     lineHeight: 28,
   },
+  testVisibleText: {
+    fontSize: 24,
+    color: '#FFD700',
+    fontWeight: 'bold',
+    textAlign: 'center',
+    marginBottom: 20,
+    paddingVertical: 15,
+    backgroundColor: 'rgba(255, 215, 0, 0.2)',
+    borderRadius: 10,
+    marginHorizontal: 20,
+  },
 
   centeredBrandingHeader: {
     alignItems: 'center',
