@@ -1644,12 +1644,18 @@ const WorkoutCard = ({ equipment, icon, workouts, difficulty, difficultyColor, o
         ref={flatListRef}
         data={workouts}
         renderItem={renderWorkout}
+        keyExtractor={(item, index) => `workout-${index}-${item.name}`}
         horizontal
         pagingEnabled
         showsHorizontalScrollIndicator={false}
         onViewableItemsChanged={onViewableItemsChanged}
-        viewabilityConfig={{ itemVisiblePercentThreshold: 50 }}
+        viewabilityConfig={{ 
+          itemVisiblePercentThreshold: 80,
+          waitForInteraction: true 
+        }}
         style={styles.workoutList}
+        bounces={false}
+        scrollEventThrottle={16}
       />
 
       {/* Enhanced Dots Indicator */}
