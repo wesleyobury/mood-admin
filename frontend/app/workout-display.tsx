@@ -540,6 +540,9 @@ const styles = StyleSheet.create({
     shadowRadius: 15,
     elevation: 8,
     overflow: 'hidden',
+    minHeight: 400,
+    marginBottom: 20,
+    flexShrink: 0,
   },
   equipmentHeader: {
     flexDirection: 'row',
