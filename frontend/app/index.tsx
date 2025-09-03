@@ -18,12 +18,7 @@ const { width, height } = Dimensions.get('window');
 export default function Welcome() {
   const { user, isLoading } = useAuth();
 
-  useEffect(() => {
-    if (!isLoading && user) {
-      // User is authenticated, redirect to main app
-      router.replace('/(tabs)');
-    }
-  }, [user, isLoading]);
+  // Removed all auto-redirects - users must manually navigate
 
   // Removed auto-redirect - users must click "Get Started"
 
