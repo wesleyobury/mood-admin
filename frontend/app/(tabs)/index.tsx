@@ -115,6 +115,7 @@ const moodCards: MoodCard[] = [
 
 export default function WorkoutsHome() {
   const [greeting, setGreeting] = useState('');
+  const [scrollY, setScrollY] = useState(0);
   const insets = useSafeAreaInsets();
   
   useEffect(() => {
