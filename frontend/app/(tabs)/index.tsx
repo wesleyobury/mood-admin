@@ -296,14 +296,15 @@ const styles = StyleSheet.create({
     textShadowRadius: 8,
   },
   animatedCenteredTitle: {
-    fontSize: 28,
+    fontSize: 24,
     color: '#ffffff',
     fontWeight: 'bold',
     textAlign: 'center',
-    textShadowColor: 'rgba(255, 215, 0, 0.4)',
+    textShadowColor: 'rgba(255, 215, 0, 0.6)',
     textShadowOffset: { width: 0, height: 0 },
-    textShadowRadius: 10,
+    textShadowRadius: 8,
     letterSpacing: 0.5,
+    paddingHorizontal: 20,
   },
 
   centeredBrandingHeader: {
