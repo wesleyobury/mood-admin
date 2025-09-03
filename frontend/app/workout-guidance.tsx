@@ -12,12 +12,6 @@ import { Ionicons } from '@expo/vector-icons';
 import { useRouter, useLocalSearchParams } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
-interface WorkoutStep {
-  duration: number; // in seconds
-  instruction: string;
-  intensity: 'easy' | 'moderate' | 'hard' | 'sprint' | 'rest';
-}
-
 interface MOODTip {
   icon: keyof typeof Ionicons.glyphMap;
   title: string;
@@ -28,58 +22,6 @@ const formatTime = (seconds: number): string => {
   const mins = Math.floor(seconds / 60);
   const secs = seconds % 60;
   return `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
-};
-
-const getIntensityColor = (intensity: string): string => {
-  switch (intensity) {
-    case 'easy': return '#FFD700';      // Gold for easy
-    case 'moderate': return '#FFA500';  // Dark gold for moderate  
-    case 'hard': return '#B8860B';      // Dark golden rod for hard
-    case 'sprint': return '#DAA520';    // Golden rod for sprint
-    case 'rest': return '#F0E68C';      // Khaki (lighter gold) for rest
-    default: return '#FFD700';
-  }
-};
-
-const parseWorkoutSteps = (description: string): WorkoutStep[] => {
-  // Parse workout description into structured steps
-  // This is a simplified parser - in production, you'd have structured workout data
-  const steps: WorkoutStep[] = [];
-  
-  // Extract time-based instructions
-  const timeMatches = description.match(/(\d+)\s*min\s+([^,]+)/g);
-  
-  if (timeMatches) {
-    timeMatches.forEach(match => {
-      const timeMatch = match.match(/(\d+)\s*min\s+(.+)/);
-      if (timeMatch) {
-        const duration = parseInt(timeMatch[1]) * 60; // convert to seconds
-        const instruction = timeMatch[2].trim();
-        
-        let intensity: WorkoutStep['intensity'] = 'moderate';
-        if (instruction.toLowerCase().includes('easy') || instruction.toLowerCase().includes('rest')) {
-          intensity = 'easy';
-        } else if (instruction.toLowerCase().includes('sprint') || instruction.toLowerCase().includes('fast')) {
-          intensity = 'sprint';
-        } else if (instruction.toLowerCase().includes('hard') || instruction.toLowerCase().includes('climb')) {
-          intensity = 'hard';
-        }
-        
-        steps.push({ duration, instruction, intensity });
-      }
-    });
-  }
-  
-  // If no structured steps found, create a single step
-  if (steps.length === 0) {
-    steps.push({
-      duration: 600, // 10 minutes default
-      instruction: description,
-      intensity: 'moderate'
-    });
-  }
-  
-  return steps;
 };
 
 export default function WorkoutGuidanceScreen() {
@@ -115,6 +57,11 @@ export default function WorkoutGuidanceScreen() {
     ];
   }
   
+  // Get selected equipment names from router state or parse from URL
+  // For demo purposes, we'll extract from the navigation path
+  const selectedEquipmentNames = [equipment]; // This should be passed from navigation
+  const moodTitle = 'I want to sweat'; // This should be passed from navigation
+  
   const [elapsedTime, setElapsedTime] = useState(0); // Timer starts from 0:00
   const [isRunning, setIsRunning] = useState(false);
   const [isPaused, setIsPaused] = useState(false);
@@ -147,17 +94,6 @@ export default function WorkoutGuidanceScreen() {
     setIsPaused(false);
   };
   
-  const handleStop = () => {
-    Alert.alert(
-      'Stop Workout?',
-      'Are you sure you want to stop this workout?',
-      [
-        { text: 'Cancel', style: 'cancel' },
-        { text: 'Stop', style: 'destructive', onPress: () => router.back() }
-      ]
-    );
-  };
-  
   const handleGoBack = () => {
     if (isRunning) {
       Alert.alert(
@@ -172,160 +108,176 @@ export default function WorkoutGuidanceScreen() {
       router.back();
     }
   };
-  
-  if (showTips) {
-    return (
-      <SafeAreaView style={[styles.container, { paddingTop: insets.top }]}>
-        {/* Header */}
-        <View style={styles.header}>
-          <TouchableOpacity style={styles.backButton} onPress={handleGoBack}>
-            <Ionicons name="chevron-back" size={24} color="#FFD700" />
-          </TouchableOpacity>
-          <View style={styles.headerTextContainer}>
-            <Text style={styles.headerTitle}>{workoutName}</Text>
-            <Text style={styles.headerSubtitle}>{equipment} • {difficulty}</Text>
-          </View>
-          <View style={styles.headerSpacer} />
-        </View>
 
-        {/* MOOD Tips */}
-        <ScrollView style={styles.scrollView} showsVerticalScrollIndicator={false}>
-          <View style={styles.tipsContainer}>
-            <View style={styles.tipsHeader}>
-              <Ionicons name="bulb" size={32} color="#FFD700" />
-              <Text style={styles.tipsTitle}>MOOD Tips</Text>
-              <Text style={styles.tipsSubtitle}>Maximize your workout efficiency</Text>
+  return (
+    <SafeAreaView style={[styles.container, { paddingTop: insets.top }]}>
+      {/* Header with Progress Bar */}
+      <View style={styles.header}>
+        <TouchableOpacity 
+          style={styles.backButton}
+          onPress={handleGoBack}
+        >
+          <Ionicons name="chevron-back" size={24} color="#FFD700" />
+        </TouchableOpacity>
+        <View style={styles.headerTextContainer}>
+          <Text style={styles.headerTitle}>Workout Guidance</Text>
+          <Text style={styles.headerSubtitle}>{workoutName}</Text>
+        </View>
+        <View style={styles.headerSpacer} />
+      </View>
+
+      {/* Extended Progress Bar - Persistent */}
+      <View style={styles.extendedProgressContainer}>
+        <ScrollView 
+          horizontal 
+          showsHorizontalScrollIndicator={false}
+          contentContainerStyle={styles.extendedProgressContent}
+        >
+          <View style={styles.progressStep}>
+            <View style={styles.progressStepActive}>
+              <Ionicons name="flame" size={14} color="#000000" />
+            </View>
+            <Text style={styles.progressStepText}>{moodTitle}</Text>
+          </View>
+          
+          <View style={styles.progressConnector} />
+          
+          <View style={styles.progressStep}>
+            <View style={styles.progressStepActive}>
+              <Ionicons name="heart" size={14} color="#000000" />
+            </View>
+            <Text style={styles.progressStepText}>Cardio Based</Text>
+          </View>
+          
+          <View style={styles.progressConnector} />
+          
+          {selectedEquipmentNames.map((equipmentName, index) => (
+            <React.Fragment key={equipmentName}>
+              <View style={styles.progressStep}>
+                <View style={styles.progressStepActive}>
+                  <Ionicons name="fitness" size={14} color="#000000" />
+                </View>
+                <Text style={styles.progressStepText}>{equipmentName}</Text>
+              </View>
+              {index < selectedEquipmentNames.length - 1 && <View style={styles.progressConnector} />}
+            </React.Fragment>
+          ))}
+          
+          <View style={styles.progressConnector} />
+          
+          <View style={styles.progressStep}>
+            <View style={styles.progressStepActive}>
+              <Ionicons name="checkmark" size={14} color="#000000" />
+            </View>
+            <Text style={styles.progressStepText}>
+              {difficulty.charAt(0).toUpperCase() + difficulty.slice(1)}
+            </Text>
+          </View>
+          
+          <View style={styles.progressConnector} />
+          
+          <View style={styles.progressStep}>
+            <View style={styles.progressStepActive}>
+              <Ionicons name="play" size={14} color="#000000" />
+            </View>
+            <Text style={styles.progressStepText}>In Progress</Text>
+          </View>
+        </ScrollView>
+      </View>
+
+      {/* Timer Section */}
+      <View style={styles.timerContainer}>
+        <Text style={styles.timerLabel}>Workout Timer</Text>
+        <Text style={styles.timerDisplay}>{formatTime(elapsedTime)}</Text>
+        
+        {/* Timer Controls */}
+        <View style={styles.timerControls}>
+          <TouchableOpacity 
+            style={[styles.timerButton, styles.primaryButton]}
+            onPress={handleStartPauseTimer}
+            activeOpacity={0.8}
+          >
+            <Ionicons 
+              name={!isRunning ? "play" : isPaused ? "play" : "pause"} 
+              size={20} 
+              color="#000000" 
+            />
+            <Text style={styles.primaryButtonText}>
+              {!isRunning ? "Start" : isPaused ? "Resume" : "Pause"}
+            </Text>
+          </TouchableOpacity>
+          
+          <TouchableOpacity 
+            style={[styles.timerButton, styles.secondaryButton]}
+            onPress={handleResetTimer}
+            activeOpacity={0.8}
+          >
+            <Ionicons name="refresh" size={20} color="#FFD700" />
+            <Text style={styles.secondaryButtonText}>Reset</Text>
+          </TouchableOpacity>
+        </View>
+        
+        <Text style={styles.timerStatus}>
+          {isRunning ? (isPaused ? "Timer Paused" : "Timer Running") : "Timer Stopped"}
+        </Text>
+      </View>
+
+      {/* Main Content */}
+      <ScrollView style={styles.scrollView} showsVerticalScrollIndicator={false}>
+        {/* Workout Instructions */}
+        <View style={styles.instructionsContainer}>
+          <View style={styles.sectionHeader}>
+            <Ionicons name="list" size={20} color="#FFD700" />
+            <Text style={styles.sectionTitle}>Workout Instructions</Text>
+          </View>
+          
+          <View style={styles.workoutCard}>
+            <View style={styles.workoutHeader}>
+              <Text style={styles.workoutTitle}>{workoutName}</Text>
+              <View style={styles.workoutMeta}>
+                <Text style={styles.workoutDuration}>{duration}</Text>
+                <View style={[styles.difficultyBadge, { backgroundColor: getDifficultyColor(difficulty) }]}>
+                  <Text style={styles.difficultyText}>{difficulty.toUpperCase()}</Text>
+                </View>
+              </View>
             </View>
             
-            {moodTips.map((tip, index) => (
-              <View key={index} style={styles.tipCard}>
+            <Text style={styles.workoutDescription}>{description}</Text>
+          </View>
+        </View>
+
+        {/* MOOD Tips Section - Integrated */}
+        <View style={styles.moodTipsContainer}>
+          <View style={styles.sectionHeader}>
+            <Ionicons name="bulb" size={20} color="#FFD700" />
+            <Text style={styles.sectionTitle}>MOOD Tips for Maximum Efficiency</Text>
+          </View>
+          
+          {moodTips.map((tip, index) => (
+            <View key={index} style={styles.tipCard}>
+              <View style={styles.tipHeader}>
                 <View style={styles.tipIconContainer}>
                   <Ionicons name={tip.icon} size={24} color="#FFD700" />
                 </View>
-                <View style={styles.tipContent}>
-                  <Text style={styles.tipTitle}>{tip.title}</Text>
-                  <Text style={styles.tipDescription}>{tip.description}</Text>
-                </View>
+                <Text style={styles.tipTitle}>{tip.title}</Text>
               </View>
-            ))}
-            
-            <View style={styles.workoutPreview}>
-              <Text style={styles.previewTitle}>Workout Overview</Text>
-              <Text style={styles.previewDuration}>Duration: {duration}</Text>
-              <Text style={styles.previewDescription}>{description}</Text>
+              <Text style={styles.tipDescription}>{tip.description}</Text>
             </View>
-          </View>
-        </ScrollView>
-
-        {/* Start Button */}
-        <View style={styles.footer}>
-          <TouchableOpacity style={styles.startButton} onPress={handleStartWorkout}>
-            <Ionicons name="play" size={24} color="#000000" />
-            <Text style={styles.startButtonText}>Start Workout</Text>
-          </TouchableOpacity>
+          ))}
         </View>
-      </SafeAreaView>
-    );
-  }
-  
-  return (
-    <SafeAreaView style={[styles.container, { paddingTop: insets.top }]}>
-      {/* Header with Timer */}
-      <View style={styles.workoutHeader}>
-        <TouchableOpacity style={styles.backButton} onPress={handleGoBack}>
-          <Ionicons name="chevron-back" size={24} color="#FFD700" />
-        </TouchableOpacity>
-        <View style={styles.timerContainer}>
-          <Text style={styles.timerText}>{formatTime(timeRemaining)}</Text>
-          <Text style={styles.timerLabel}>
-            Step {currentStepIndex + 1} of {workoutSteps.length}
-          </Text>
-        </View>
-        <TouchableOpacity style={styles.stopButton} onPress={handleStop}>
-          <Ionicons name="stop" size={24} color="#F44336" />
-        </TouchableOpacity>
-      </View>
-
-      {/* Current Step */}
-      <View style={styles.stepContainer}>
-        <View style={[
-          styles.intensityBadge,
-          { backgroundColor: getIntensityColor(currentStep?.intensity || 'moderate') }
-        ]}>
-          <Text style={styles.intensityText}>
-            {currentStep?.intensity.toUpperCase() || 'MODERATE'}
-          </Text>
-        </View>
-        <Text style={styles.stepInstruction}>
-          {currentStep?.instruction || 'Follow the workout instructions'}
-        </Text>
-      </View>
-
-      {/* Progress */}
-      <View style={styles.progressContainer}>
-        <View style={styles.progressBar}>
-          <View
-            style={[
-              styles.progressFill,
-              {
-                width: `${((totalDuration - timeRemaining) / totalDuration) * 100}%`
-              }
-            ]}
-          />
-        </View>
-        <Text style={styles.progressText}>
-          {Math.round(((totalDuration - timeRemaining) / totalDuration) * 100)}% Complete
-        </Text>
-      </View>
-
-      {/* Controls */}
-      <View style={styles.controls}>
-        <TouchableOpacity 
-          style={[styles.controlButton, styles.pauseButton]} 
-          onPress={handlePauseResume}
-        >
-          <Ionicons 
-            name={isPaused ? "play" : "pause"} 
-            size={32} 
-            color="#000000" 
-          />
-          <Text style={styles.controlButtonText}>
-            {isPaused ? 'Resume' : 'Pause'}
-          </Text>
-        </TouchableOpacity>
-      </View>
-
-      {/* Workout Steps Preview */}
-      <ScrollView style={styles.stepsPreview} showsVerticalScrollIndicator={false}>
-        <Text style={styles.stepsTitle}>Workout Steps</Text>
-        {workoutSteps.map((step, index) => (
-          <View 
-            key={index} 
-            style={[
-              styles.stepItem,
-              index === currentStepIndex && styles.activeStepItem
-            ]}
-          >
-            <View style={[
-              styles.stepNumber,
-              index === currentStepIndex && styles.activeStepNumber
-            ]}>
-              <Text style={styles.stepNumberText}>{index + 1}</Text>
-            </View>
-            <View style={styles.stepDetails}>
-              <Text style={styles.stepDuration}>
-                {formatTime(step.duration)}
-              </Text>
-              <Text style={styles.stepInstructionText}>
-                {step.instruction}
-              </Text>
-            </View>
-          </View>
-        ))}
       </ScrollView>
     </SafeAreaView>
   );
 }
+
+const getDifficultyColor = (level: string) => {
+  switch (level) {
+    case 'beginner': return '#FFD700';    // Gold for beginners
+    case 'intermediate': return '#FFA500'; // Dark gold for intermediate  
+    case 'advanced': return '#B8860B';     // Dark golden rod for advanced
+    default: return '#FFD700';
+  }
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -369,272 +321,209 @@ const styles = StyleSheet.create({
   headerSpacer: {
     width: 40,
   },
+  extendedProgressContainer: {
+    backgroundColor: '#111111',
+    borderBottomWidth: 1,
+    borderBottomColor: 'rgba(255, 215, 0, 0.2)',
+    paddingVertical: 16,
+    paddingHorizontal: 20,
+  },
+  extendedProgressContent: {
+    alignItems: 'center',
+    paddingHorizontal: 10,
+  },
+  progressStep: {
+    alignItems: 'center',
+    minWidth: 80,
+  },
+  progressStepActive: {
+    width: 32,
+    height: 32,
+    borderRadius: 16,
+    backgroundColor: '#FFD700',
+    borderWidth: 2,
+    borderColor: '#FFD700',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginBottom: 8,
+    shadowColor: '#FFD700',
+    shadowOffset: { width: 0, height: 0 },
+    shadowOpacity: 0.6,
+    shadowRadius: 8,
+    elevation: 6,
+  },
+  progressStepText: {
+    fontSize: 12,
+    color: 'rgba(255, 255, 255, 0.8)',
+    textAlign: 'center',
+    fontWeight: '500',
+    maxWidth: 80,
+  },
+  progressConnector: {
+    width: 30,
+    height: 2,
+    backgroundColor: 'rgba(255, 215, 0, 0.3)',
+    marginHorizontal: 8,
+    marginTop: 16,
+  },
+  timerContainer: {
+    backgroundColor: '#111111',
+    paddingHorizontal: 24,
+    paddingVertical: 20,
+    alignItems: 'center',
+    borderBottomWidth: 1,
+    borderBottomColor: 'rgba(255, 215, 0, 0.2)',
+  },
+  timerLabel: {
+    fontSize: 16,
+    color: 'rgba(255, 255, 255, 0.8)',
+    marginBottom: 8,
+  },
+  timerDisplay: {
+    fontSize: 48,
+    fontWeight: 'bold',
+    color: '#FFD700',
+    marginBottom: 16,
+    fontFamily: 'monospace',
+  },
+  timerControls: {
+    flexDirection: 'row',
+    gap: 16,
+    marginBottom: 12,
+  },
+  timerButton: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingHorizontal: 20,
+    paddingVertical: 12,
+    borderRadius: 12,
+    gap: 8,
+    minWidth: 100,
+    justifyContent: 'center',
+  },
+  primaryButton: {
+    backgroundColor: '#FFD700',
+  },
+  secondaryButton: {
+    backgroundColor: 'transparent',
+    borderWidth: 2,
+    borderColor: '#FFD700',
+  },
+  primaryButtonText: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    color: '#000000',
+  },
+  secondaryButtonText: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    color: '#FFD700',
+  },
+  timerStatus: {
+    fontSize: 14,
+    color: 'rgba(255, 255, 255, 0.6)',
+    fontStyle: 'italic',
+  },
   scrollView: {
     flex: 1,
   },
-  tipsContainer: {
+  instructionsContainer: {
     padding: 24,
   },
-  tipsHeader: {
+  sectionHeader: {
+    flexDirection: 'row',
     alignItems: 'center',
-    marginBottom: 32,
+    marginBottom: 16,
+    gap: 12,
   },
-  tipsTitle: {
-    fontSize: 28,
+  sectionTitle: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    color: '#ffffff',
+  },
+  workoutCard: {
+    backgroundColor: '#111111',
+    borderRadius: 16,
+    padding: 20,
+    borderWidth: 1,
+    borderColor: 'rgba(255, 215, 0, 0.3)',
+  },
+  workoutHeader: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'flex-start',
+    marginBottom: 16,
+  },
+  workoutTitle: {
+    fontSize: 20,
     fontWeight: 'bold',
     color: '#FFD700',
-    marginTop: 12,
-    textShadowColor: 'rgba(255, 215, 0, 0.3)',
-    textShadowOffset: { width: 0, height: 0 },
-    textShadowRadius: 10,
+    flex: 1,
   },
-  tipsSubtitle: {
+  workoutMeta: {
+    alignItems: 'flex-end',
+    gap: 8,
+  },
+  workoutDuration: {
     fontSize: 16,
-    color: 'rgba(255, 255, 255, 0.7)',
-    marginTop: 8,
-    textAlign: 'center',
+    fontWeight: 'bold',
+    color: '#FFD700',
+  },
+  difficultyBadge: {
+    paddingHorizontal: 12,
+    paddingVertical: 6,
+    borderRadius: 12,
+  },
+  difficultyText: {
+    fontSize: 12,
+    fontWeight: 'bold',
+    color: '#000000',
+  },
+  workoutDescription: {
+    fontSize: 16,
+    color: 'rgba(255, 255, 255, 0.8)',
+    lineHeight: 24,
+  },
+  moodTipsContainer: {
+    padding: 24,
+    paddingTop: 0,
   },
   tipCard: {
-    flexDirection: 'row',
     backgroundColor: '#111111',
     borderRadius: 16,
     padding: 20,
     marginBottom: 16,
-    borderWidth: 2,
+    borderWidth: 1,
     borderColor: 'rgba(255, 215, 0, 0.3)',
     shadowColor: '#FFD700',
     shadowOffset: { width: 0, height: 0 },
-    shadowOpacity: 0.3,
-    shadowRadius: 10,
-    elevation: 6,
+    shadowOpacity: 0.2,
+    shadowRadius: 8,
+    elevation: 4,
+  },
+  tipHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 12,
+    gap: 12,
   },
   tipIconContainer: {
-    width: 48,
-    height: 48,
-    borderRadius: 24,
-    backgroundColor: 'rgba(255, 215, 0, 0.15)',
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+    backgroundColor: 'rgba(255, 215, 0, 0.2)',
     justifyContent: 'center',
     alignItems: 'center',
-    marginRight: 16,
-    borderWidth: 2,
-    borderColor: 'rgba(255, 215, 0, 0.3)',
-  },
-  tipContent: {
-    flex: 1,
   },
   tipTitle: {
     fontSize: 18,
     fontWeight: 'bold',
-    color: '#ffffff',
-    marginBottom: 8,
+    color: '#FFD700',
+    flex: 1,
   },
   tipDescription: {
-    fontSize: 14,
-    color: 'rgba(255, 255, 255, 0.8)',
-    lineHeight: 20,
-  },
-  workoutPreview: {
-    backgroundColor: '#111111',
-    borderRadius: 16,
-    padding: 20,
-    marginTop: 16,
-    borderWidth: 2,
-    borderColor: 'rgba(255, 215, 0, 0.3)',
-  },
-  previewTitle: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    color: '#FFD700',
-    marginBottom: 12,
-  },
-  previewDuration: {
     fontSize: 16,
-    color: '#ffffff',
-    marginBottom: 8,
-  },
-  previewDescription: {
-    fontSize: 14,
     color: 'rgba(255, 255, 255, 0.8)',
-    lineHeight: 20,
-  },
-  footer: {
-    paddingHorizontal: 24,
-    paddingVertical: 20,
-    borderTopWidth: 1,
-    borderTopColor: 'rgba(255, 215, 0, 0.2)',
-  },
-  startButton: {
-    backgroundColor: '#FFD700',
-    borderRadius: 16,
-    paddingVertical: 16,
-    paddingHorizontal: 24,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    shadowColor: '#FFD700',
-    shadowOffset: { width: 0, height: 0 },
-    shadowOpacity: 0.6,
-    shadowRadius: 12,
-    elevation: 8,
-    gap: 12,
-  },
-  startButtonText: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    color: '#000000',
-  },
-  workoutHeader: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    paddingHorizontal: 24,
-    paddingVertical: 20,
-    borderBottomWidth: 1,
-    borderBottomColor: 'rgba(255, 215, 0, 0.2)',
-    backgroundColor: '#111111',
-  },
-  timerContainer: {
-    flex: 1,
-    alignItems: 'center',
-  },
-  timerText: {
-    fontSize: 36,
-    fontWeight: 'bold',
-    color: '#FFD700',
-    textShadowColor: 'rgba(255, 215, 0, 0.3)',
-    textShadowOffset: { width: 0, height: 0 },
-    textShadowRadius: 10,
-  },
-  timerLabel: {
-    fontSize: 14,
-    color: 'rgba(255, 255, 255, 0.7)',
-    marginTop: 4,
-  },
-  stopButton: {
-    width: 40,
-    height: 40,
-    borderRadius: 20,
-    backgroundColor: 'rgba(244, 67, 54, 0.1)',
-    justifyContent: 'center',
-    alignItems: 'center',
-    borderWidth: 2,
-    borderColor: 'rgba(244, 67, 54, 0.3)',
-  },
-  stepContainer: {
-    padding: 24,
-    alignItems: 'center',
-  },
-  intensityBadge: {
-    paddingHorizontal: 16,
-    paddingVertical: 8,
-    borderRadius: 20,
-    marginBottom: 16,
-  },
-  intensityText: {
-    fontSize: 14,
-    fontWeight: 'bold',
-    color: '#ffffff',
-  },
-  stepInstruction: {
-    fontSize: 18,
-    color: '#ffffff',
-    textAlign: 'center',
-    lineHeight: 26,
-  },
-  progressContainer: {
-    paddingHorizontal: 24,
-    marginBottom: 24,
-  },
-  progressBar: {
-    height: 8,
-    backgroundColor: 'rgba(255, 255, 255, 0.2)',
-    borderRadius: 4,
-    marginBottom: 8,
-  },
-  progressFill: {
-    height: '100%',
-    backgroundColor: '#FFD700',
-    borderRadius: 4,
-  },
-  progressText: {
-    fontSize: 14,
-    color: 'rgba(255, 255, 255, 0.7)',
-    textAlign: 'center',
-  },
-  controls: {
-    flexDirection: 'row',
-    justifyContent: 'center',
-    paddingHorizontal: 24,
-    marginBottom: 24,
-  },
-  controlButton: {
-    borderRadius: 16,
-    paddingVertical: 12,
-    paddingHorizontal: 24,
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 8,
-  },
-  pauseButton: {
-    backgroundColor: '#FFD700',
-  },
-  controlButtonText: {
-    fontSize: 16,
-    fontWeight: 'bold',
-    color: '#000000',
-  },
-  stepsPreview: {
-    flex: 1,
-    paddingHorizontal: 24,
-  },
-  stepsTitle: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    color: '#FFD700',
-    marginBottom: 16,
-  },
-  stepItem: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    paddingVertical: 12,
-    paddingHorizontal: 16,
-    backgroundColor: '#111111',
-    borderRadius: 12,
-    marginBottom: 8,
-    borderWidth: 1,
-    borderColor: 'rgba(255, 255, 255, 0.1)',
-  },
-  activeStepItem: {
-    borderColor: '#FFD700',
-    backgroundColor: 'rgba(255, 215, 0, 0.1)',
-  },
-  stepNumber: {
-    width: 32,
-    height: 32,
-    borderRadius: 16,
-    backgroundColor: 'rgba(255, 255, 255, 0.2)',
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginRight: 12,
-  },
-  activeStepNumber: {
-    backgroundColor: '#FFD700',
-  },
-  stepNumberText: {
-    fontSize: 14,
-    fontWeight: 'bold',
-    color: '#ffffff',
-  },
-  stepDetails: {
-    flex: 1,
-  },
-  stepDuration: {
-    fontSize: 14,
-    fontWeight: 'bold',
-    color: '#FFD700',
-  },
-  stepInstructionText: {
-    fontSize: 12,
-    color: 'rgba(255, 255, 255, 0.8)',
-    marginTop: 2,
+    lineHeight: 22,
   },
 });
