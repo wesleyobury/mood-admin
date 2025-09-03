@@ -147,7 +147,16 @@ export default function CardioEquipmentScreen() {
   const workoutType = params.workoutType as string || 'Cardio Based';
 
   const handleEquipmentSelect = (equipment: EquipmentOption) => {
-    setSelectedEquipment(equipment);
+    setSelectedEquipment(prev => {
+      const isAlreadySelected = prev.some(item => item.id === equipment.id);
+      if (isAlreadySelected) {
+        // Remove from selection
+        return prev.filter(item => item.id !== equipment.id);
+      } else {
+        // Add to selection
+        return [...prev, equipment];
+      }
+    });
   };
 
   const handleDifficultySelect = (level: DifficultyLevel) => {
