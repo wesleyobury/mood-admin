@@ -1678,7 +1678,8 @@ const WorkoutCard = ({ equipment, icon, workouts, difficulty, difficultyColor, o
                 currentWorkoutIndex === index && styles.activeDot
               ]}
               onPress={() => {
-                flatListRef.current?.scrollToIndex({ index, animated: true });
+                const scrollX = index * (width - 48);
+                flatListRef.current?.scrollTo({ x: scrollX, animated: true });
               }}
             />
           ))}
