@@ -177,17 +177,10 @@ export default function WorkoutsHome() {
         </View>
 
         {/* Main Header */}
-        <View style={styles.centeredQuestionHeader}>
-          <Animated.Text 
-            style={[
-              styles.animatedCenteredTitle,
-              {
-                opacity: fadeAnim,
-              }
-            ]}
-          >
+        <View style={styles.visibleQuestionHeader}>
+          <Text style={styles.visibleCenteredTitle}>
             How are you feeling today?
-          </Animated.Text>
+          </Text>
         </View>
 
         {/* Mood Cards Column */}
