@@ -843,7 +843,6 @@ const styles = StyleSheet.create({
     paddingVertical: 16,
     borderTopWidth: 1,
     borderTopColor: 'rgba(255, 215, 0, 0.2)',
-    marginTop: 20,
   },
   completedButton: {
     backgroundColor: '#FFD700',
