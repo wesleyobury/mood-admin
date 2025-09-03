@@ -311,7 +311,9 @@ export default function WorkoutGuidanceScreen() {
               
               <View style={styles.detailCard}>
                 <Ionicons name="speedometer" size={24} color="#FFD700" />
-                <Text style={styles.detailValue}>{difficulty.charAt(0).toUpperCase() + difficulty.slice(1)}</Text>
+                <Text style={styles.detailValue} numberOfLines={2} adjustsFontSizeToFit={true}>
+                  {difficulty.charAt(0).toUpperCase() + difficulty.slice(1)}
+                </Text>
                 <Text style={styles.detailLabel}>Intensity</Text>
               </View>
               
