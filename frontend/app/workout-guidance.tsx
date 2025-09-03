@@ -265,24 +265,57 @@ export default function WorkoutGuidanceScreen() {
           </View>
         </View>
 
-        {/* MOOD Tips Section - Integrated */}
+        {/* MOOD Tips Section - Enhanced */}
         <View style={styles.moodTipsContainer}>
           <View style={styles.sectionHeader}>
-            <Ionicons name="bulb" size={20} color="#FFD700" />
+            <View style={styles.iconContainer}>
+              <Ionicons name="bulb" size={24} color="#FFD700" />
+            </View>
             <Text style={styles.sectionTitle}>MOOD Tips for Maximum Efficiency</Text>
+            <View style={styles.headerAccent} />
           </View>
           
-          {moodTips.map((tip, index) => (
-            <View key={index} style={styles.tipCard}>
-              <View style={styles.tipHeader}>
-                <View style={styles.tipIconContainer}>
-                  <Ionicons name={tip.icon} size={24} color="#FFD700" />
+          <View style={styles.tipsGrid}>
+            {moodTips.map((tip, index) => (
+              <View key={index} style={styles.tipCard}>
+                <View style={styles.tipCardHeader}>
+                  <View style={styles.tipIconContainer}>
+                    <Ionicons name={tip.icon} size={28} color="#FFD700" />
+                  </View>
+                  <View style={styles.tipNumber}>
+                    <Text style={styles.tipNumberText}>{index + 1}</Text>
+                  </View>
                 </View>
                 <Text style={styles.tipTitle}>{tip.title}</Text>
+                <Text style={styles.tipDescription}>{tip.description}</Text>
+                <View style={styles.tipAccentLine} />
               </View>
-              <Text style={styles.tipDescription}>{tip.description}</Text>
+            ))}
+          </View>
+          
+          {/* Performance Stats Block */}
+          <View style={styles.performanceBlock}>
+            <View style={styles.performanceHeader}>
+              <Ionicons name="analytics" size={20} color="#FFD700" />
+              <Text style={styles.performanceTitle}>Performance Tracker</Text>
             </View>
-          ))}
+            <View style={styles.statsRow}>
+              <View style={styles.statItem}>
+                <Text style={styles.statValue}>0</Text>
+                <Text style={styles.statLabel}>Reps</Text>
+              </View>
+              <View style={styles.statDivider} />
+              <View style={styles.statItem}>
+                <Text style={styles.statValue}>0</Text>
+                <Text style={styles.statLabel}>Calories</Text>
+              </View>
+              <View style={styles.statDivider} />
+              <View style={styles.statItem}>
+                <Text style={styles.statValue}>0</Text>
+                <Text style={styles.statLabel}>Sets</Text>
+              </View>
+            </View>
+          </View>
         </View>
       </ScrollView>
     </SafeAreaView>
