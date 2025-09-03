@@ -853,15 +853,12 @@ const styles = StyleSheet.create({
   },
   // Completed workout button styles
   completedButtonContainer: {
-    position: 'absolute',
-    bottom: 0,
-    left: 0,
-    right: 0,
     backgroundColor: '#000000',
     paddingHorizontal: 24,
     paddingVertical: 16,
     borderTopWidth: 1,
     borderTopColor: 'rgba(255, 215, 0, 0.2)',
+    marginTop: 20,
   },
   completedButton: {
     backgroundColor: '#FFD700',
