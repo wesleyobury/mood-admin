@@ -319,6 +319,26 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     paddingVertical: 10,
   },
+  ultraVisibleHeader: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingHorizontal: 20,
+    paddingVertical: 30,
+    marginVertical: 20,
+    backgroundColor: 'rgba(255, 215, 0, 0.1)', // Gold background
+    borderWidth: 2,
+    borderColor: '#FFD700',
+    borderRadius: 15,
+    marginHorizontal: 20,
+  },
+  ultraVisibleText: {
+    fontSize: 22,
+    color: '#FFD700',
+    fontWeight: 'bold',
+    textAlign: 'center',
+    letterSpacing: 1,
+    lineHeight: 28,
+  },
 
   centeredBrandingHeader: {
     alignItems: 'center',
