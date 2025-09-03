@@ -119,7 +119,6 @@ export default function WorkoutsHome() {
   
   // Animation values using useRef for persistence
   const fadeAnim = useRef(new Animated.Value(0)).current;
-  const scaleAnim = useRef(new Animated.Value(0.8)).current;
 
   useEffect(() => {
     const hour = new Date().getHours();
@@ -127,21 +126,13 @@ export default function WorkoutsHome() {
     else if (hour < 18) setGreeting('Good afternoon');
     else setGreeting('Good evening');
     
-    // Start animation when component mounts
-    Animated.parallel([
-      Animated.timing(fadeAnim, {
-        toValue: 1,
-        duration: 1000,
-        useNativeDriver: true,
-      }),
-      Animated.spring(scaleAnim, {
-        toValue: 1,
-        tension: 50,
-        friction: 7,
-        useNativeDriver: true,
-      }),
-    ]).start();
-  }, [fadeAnim, scaleAnim]);
+    // Start simple fade animation when component mounts
+    Animated.timing(fadeAnim, {
+      toValue: 1,
+      duration: 1500,
+      useNativeDriver: true,
+    }).start();
+  }, [fadeAnim]);
 
   const handleMoodSelect = (mood: MoodCard) => {
     console.log('Selected mood:', mood.title);
