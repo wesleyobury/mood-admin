@@ -305,6 +305,16 @@ const styles = StyleSheet.create({
     textShadowOffset: { width: 0, height: 0 },
     textShadowRadius: 8,
   },
+  animatedCenteredTitle: {
+    fontSize: 28,
+    color: '#ffffff',
+    fontWeight: 'bold',
+    textAlign: 'center',
+    textShadowColor: 'rgba(255, 215, 0, 0.4)',
+    textShadowOffset: { width: 0, height: 0 },
+    textShadowRadius: 10,
+    letterSpacing: 0.5,
+  },
   notificationBtn: {
     padding: 12,
   },
