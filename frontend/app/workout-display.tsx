@@ -960,7 +960,6 @@ export default function WorkoutDisplayScreen() {
           );
         })}
       </ScrollView>
-      </ScrollView>
     </SafeAreaView>
   );
 }
