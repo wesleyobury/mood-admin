@@ -1621,35 +1621,45 @@ const WorkoutCard = ({ equipment, icon, workouts, difficulty, difficultyColor, o
     </View>
   );
 
-  // PanGestureHandler events for web-compatible swipe detection
-  const onGestureEvent = Animated.event(
-    [{ nativeEvent: { translationX: translateX } }],
-    { useNativeDriver: true }
-  );
+  // Simple touch-based swipe detection for reliable web compatibility
+  const [touchStart, setTouchStart] = useState<number | null>(null);
+  const [touchEnd, setTouchEnd] = useState<number | null>(null);
 
-  const onHandlerStateChange = (event: any) => {
-    if (event.nativeEvent.state === State.END) {
-      const translationX = event.nativeEvent.translationX;
-      console.log('🎯 Gesture detected, translationX:', translationX);
-      
-      if (translationX > 100) {
-        // Swiped right - go to previous workout
-        const newIndex = Math.max(0, currentWorkoutIndex - 1);
-        console.log('👈 Swiped right, changing to workout index:', newIndex);
-        setCurrentWorkoutIndex(newIndex);
-      } else if (translationX < -100) {
-        // Swiped left - go to next workout  
-        const newIndex = Math.min(workouts.length - 1, currentWorkoutIndex + 1);
-        console.log('👉 Swiped left, changing to workout index:', newIndex);
-        setCurrentWorkoutIndex(newIndex);
-      }
+  const handleTouchStart = (e: any) => {
+    const touch = e.nativeEvent.touches ? e.nativeEvent.touches[0] : e.nativeEvent;
+    setTouchEnd(null);
+    setTouchStart(touch.pageX || touch.clientX);
+    console.log('👆 Touch started at:', touch.pageX || touch.clientX);
+  };
 
-      // Reset the animation
-      Animated.spring(translateX, {
-        toValue: 0,
-        useNativeDriver: true,
-      }).start();
+  const handleTouchMove = (e: any) => {
+    const touch = e.nativeEvent.touches ? e.nativeEvent.touches[0] : e.nativeEvent;
+    setTouchEnd(touch.pageX || touch.clientX);
+  };
+
+  const handleTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > 50;
+    const isRightSwipe = distance < -50;
+    
+    console.log('🎯 Swipe detected! Distance:', distance);
+    
+    if (isLeftSwipe && currentWorkoutIndex < workouts.length - 1) {
+      const newIndex = currentWorkoutIndex + 1;
+      console.log('👉 Swiped left, changing to workout index:', newIndex);
+      setCurrentWorkoutIndex(newIndex);
     }
+    
+    if (isRightSwipe && currentWorkoutIndex > 0) {
+      const newIndex = currentWorkoutIndex - 1;
+      console.log('👈 Swiped right, changing to workout index:', newIndex);
+      setCurrentWorkoutIndex(newIndex);
+    }
+    
+    setTouchStart(null);
+    setTouchEnd(null);
   };
 
   return (
