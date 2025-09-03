@@ -166,13 +166,8 @@ export default function WorkoutsHome() {
         </View>
 
         {/* Main Header */}
-        <View style={styles.header}>
-          <View style={styles.centeredHeaderContent}>
-            <Text style={styles.centeredTitle}>How are you feeling today?</Text>
-          </View>
-          <TouchableOpacity style={styles.notificationBtn}>
-            <Ionicons name="notifications-outline" size={24} color="#FFD700" />
-          </TouchableOpacity>
+        <View style={styles.centeredQuestionHeader}>
+          <Text style={styles.animatedCenteredTitle}>How are you feeling today?</Text>
         </View>
 
         {/* Mood Cards Column */}
