@@ -1620,12 +1620,16 @@ const WorkoutCard = ({ equipment, icon, workouts, difficulty, difficultyColor, o
     </View>
   );
 
-  const onViewableItemsChanged = useCallback(({ viewableItems }: any) => {
-    if (viewableItems.length > 0 && viewableItems[0].index !== null) {
-      console.log('Swipe detected, changing to workout index:', viewableItems[0].index);
-      setCurrentWorkoutIndex(viewableItems[0].index);
+  // Scroll handler for ScrollView-based swipe detection
+  const handleScroll = (event: any) => {
+    const scrollX = event.nativeEvent.contentOffset.x;
+    const itemWidth = width - 48;
+    const currentIndex = Math.round(scrollX / itemWidth);
+    if (currentIndex !== currentWorkoutIndex && currentIndex >= 0 && currentIndex < workouts.length) {
+      console.log('Scroll detected, changing to workout index:', currentIndex);
+      setCurrentWorkoutIndex(currentIndex);
     }
-  }, []);
+  };
 
   return (
     <View style={styles.workoutCard}>
