@@ -293,26 +293,52 @@ export default function WorkoutGuidanceScreen() {
             ))}
           </View>
           
-          {/* Performance Stats Block */}
-          <View style={styles.performanceBlock}>
-            <View style={styles.performanceHeader}>
-              <Ionicons name="analytics" size={20} color="#FFD700" />
-              <Text style={styles.performanceTitle}>Performance Tracker</Text>
+          {/* Enhanced Workout Details */}
+          <View style={styles.workoutDetailsBlock}>
+            <View style={styles.detailsHeader}>
+              <Ionicons name="clipboard" size={20} color="#FFD700" />
+              <Text style={styles.detailsTitle}>Workout Details</Text>
             </View>
-            <View style={styles.statsRow}>
-              <View style={styles.statItem}>
-                <Text style={styles.statValue}>0</Text>
-                <Text style={styles.statLabel}>Reps</Text>
+            
+            <View style={styles.detailsGrid}>
+              <View style={styles.detailCard}>
+                <Ionicons name="time" size={24} color="#FFD700" />
+                <Text style={styles.detailValue}>{duration}</Text>
+                <Text style={styles.detailLabel}>Duration</Text>
               </View>
-              <View style={styles.statDivider} />
-              <View style={styles.statItem}>
-                <Text style={styles.statValue}>0</Text>
-                <Text style={styles.statLabel}>Calories</Text>
+              
+              <View style={styles.detailCard}>
+                <Ionicons name="speedometer" size={24} color="#FFD700" />
+                <Text style={styles.detailValue}>{difficulty.charAt(0).toUpperCase() + difficulty.slice(1)}</Text>
+                <Text style={styles.detailLabel}>Intensity</Text>
               </View>
-              <View style={styles.statDivider} />
-              <View style={styles.statItem}>
-                <Text style={styles.statValue}>0</Text>
-                <Text style={styles.statLabel}>Sets</Text>
+              
+              <View style={styles.detailCard}>
+                <Ionicons name="fitness" size={24} color="#FFD700" />
+                <Text style={styles.detailValue}>{equipment}</Text>
+                <Text style={styles.detailLabel}>Equipment</Text>
+              </View>
+            </View>
+            
+            {/* Workout Preparation Section */}
+            <View style={styles.preparationSection}>
+              <View style={styles.preparationHeader}>
+                <Ionicons name="checkmark-circle" size={18} color="#FFD700" />
+                <Text style={styles.preparationTitle}>Before You Begin</Text>
+              </View>
+              <View style={styles.preparationList}>
+                <View style={styles.preparationItem}>
+                  <Ionicons name="water" size={16} color="#FFD700" />
+                  <Text style={styles.preparationText}>Ensure you have water nearby for hydration</Text>
+                </View>
+                <View style={styles.preparationItem}>
+                  <Ionicons name="body" size={16} color="#FFD700" />
+                  <Text style={styles.preparationText}>Start with light warm-up movements</Text>
+                </View>
+                <View style={styles.preparationItem}>
+                  <Ionicons name="timer" size={16} color="#FFD700" />
+                  <Text style={styles.preparationText}>Focus on proper form over speed</Text>
+                </View>
               </View>
             </View>
           </View>
