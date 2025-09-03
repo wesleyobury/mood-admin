@@ -288,7 +288,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#333333', // Much more visible background
     shadowColor: '#FFD700',
     shadowOffset: { width: 0, height: 0 },
-    shadowOpacity: 0.5,
+    shadowOpacity: 0.8,
     shadowRadius: 15,
     elevation: 8,
   },
