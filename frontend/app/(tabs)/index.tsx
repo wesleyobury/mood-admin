@@ -384,8 +384,8 @@ const styles = StyleSheet.create({
   parallaxContainer: {
     height: 280,
     marginVertical: 20,
-    marginHorizontal: 20,
-    borderRadius: 20,
+    marginHorizontal: 0, // Edge-to-edge flow
+    borderRadius: 0, // Straight edges top and bottom
     overflow: 'hidden',
     elevation: 10,
     shadowColor: '#000000',
