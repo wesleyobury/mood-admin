@@ -173,7 +173,7 @@ export default function WorkoutsHome() {
         {/* Parallax Hero Image */}
         <View style={styles.parallaxContainer}>
           <Image 
-            source={{ uri: 'https://customer-assets.emergentagent.com/job_mood-workout-app/artifacts/g5zte4vw_Screenshot%202025-09-03%20at%2012.19.19%E2%80%AFAM.png' }}
+            source={{ uri: 'https://customer-assets.emergentagent.com/job_mood-workout-app/artifacts/kuk8f49i_download%20%282%29.webp' }}
             style={[
               styles.parallaxImage,
               {
