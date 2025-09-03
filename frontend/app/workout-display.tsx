@@ -402,9 +402,15 @@ export default function WorkoutDisplayScreen() {
 
   console.log('Debug info:', {
     selectedEquipmentNames,
+    workoutDatabaseEquipment: workoutDatabase.map(w => w.equipment),
     userWorkouts: userWorkouts.map(w => w.equipment),
     userWorkoutsLength: userWorkouts.length
   });
+
+  // Remove any potential duplicates
+  const uniqueUserWorkouts = userWorkouts.filter((workout, index, self) => 
+    index === self.findIndex(w => w.equipment === workout.equipment)
+  );
 
   const handleGoBack = () => {
     router.back();
