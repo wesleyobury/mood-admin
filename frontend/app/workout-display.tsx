@@ -1012,6 +1012,7 @@ export default function WorkoutDisplayScreen() {
                 workouts={equipmentData.workouts[difficulty as keyof typeof equipmentData.workouts]}
                 difficulty={difficulty}
                 difficultyColor={difficultyColor}
+                onStartWorkout={handleStartWorkout}
               />
             </View>
           );
