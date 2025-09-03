@@ -261,41 +261,40 @@ const styles = StyleSheet.create({
   notificationBtn: {
     padding: 12,
   },
-  brandingHeader: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
+  centeredBrandingHeader: {
     alignItems: 'center',
     paddingHorizontal: 24,
-    paddingTop: 10,
-    paddingBottom: 20,
+    paddingTop: 20,
+    paddingBottom: 30,
     borderBottomWidth: 1,
     borderBottomColor: 'rgba(255, 215, 0, 0.2)',
   },
-  brandingContainer: {
-    flex: 1,
-  },
-  brandTitle: {
-    fontSize: 32,
+  centeredBrandTitle: {
+    fontSize: 48,
     fontWeight: 'bold',
     color: '#FFD700',
-    letterSpacing: 3,
+    letterSpacing: 4,
     textShadowColor: 'rgba(255, 215, 0, 0.8)',
     textShadowOffset: { width: 0, height: 0 },
-    textShadowRadius: 15,
-    marginBottom: 2,
+    textShadowRadius: 20,
+    marginBottom: 8,
+    textAlign: 'center',
   },
-  brandSubtitle: {
-    fontSize: 12,
-    color: '#888',
+  centeredBrandSubtitle: {
+    fontSize: 16,
+    color: '#ffffff',
     fontWeight: '400',
     letterSpacing: 1,
-    textShadowColor: 'rgba(255, 215, 0, 0.2)',
+    textShadowColor: 'rgba(255, 215, 0, 0.3)',
     textShadowOffset: { width: 0, height: 0 },
-    textShadowRadius: 3,
+    textShadowRadius: 5,
+    marginBottom: 20,
+    textAlign: 'center',
   },
-  socialContainer: {
+  centeredSocialContainer: {
     flexDirection: 'row',
-    gap: 16,
+    gap: 20,
+    justifyContent: 'center',
   },
   socialButton: {
     width: 44,
