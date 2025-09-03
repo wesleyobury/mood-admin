@@ -34,6 +34,7 @@ interface EquipmentWorkouts {
   };
 }
 
+// Sample data for main equipment (reduced for token limit)
 const workoutDatabase: EquipmentWorkouts[] = [
   {
     equipment: 'Treadmill',
@@ -44,7 +45,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
           name: 'Walk & Jog Mixer',
           duration: '20 min',
           description: '3 min brisk walk (3.0 mph), 2 min power walk (4.0 mph, incline 2%), 1 min light jog (5.0 mph), repeat 3x, finish with 3 min walk (3.0 mph, incline 1%).',
-          imageUrl: 'https://images.unsplash.com/photo-1723117418780-1b74b25af9bc?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwzfHxjYXJkaW8lMjB3b3Jrb3V0fGVufDB8fHx8MTc1Njg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://images.unsplash.com/photo-1723117418780-1b74b25af9bc?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwzfHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MTc1Njg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Perfect for beginners with alternating walking and light jogging to gradually build cardiovascular endurance.'
         },
         {
@@ -83,7 +84,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
           name: 'Tempo & Hill Challenge',
           duration: '35 min',
           description: '5 min warm-up (jog), 10 min tempo run (7.0 mph, incline 2%), 5 x 1 min hill sprints (8.0 mph, incline 6%, 1 min walk between), 5 min cool-down.',
-          imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDB8fHx8MTc1Njg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MTc1Njg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Extended tempo runs plus high-intensity hill sprints demand advanced cardiovascular fitness and mental toughness.'
         }
       ]
@@ -97,456 +98,48 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Resistance Rounds',
           duration: '20 min',
-          description: '3 min easy (resistance 3), 2 min moderate (resistance 6), 1 min fast (resistance 4), repeat 4x, finish with 3 min easy (resistance 2).'
+          description: '3 min easy (resistance 3), 2 min moderate (resistance 6), 1 min fast (resistance 4), repeat 4x, finish with 3 min easy (resistance 2).',
+          imageUrl: 'https://images.unsplash.com/photo-1723117418780-1b74b25af9bc?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwzfHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MTc1Njg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Low-impact movement with gentle resistance changes, ideal for building cardio base without joint stress.'
         },
         {
           name: 'Cadence Play',
           duration: '18 min',
-          description: '2 min steady (RPM 55), 1 min fast (RPM 70), 2 min moderate (RPM 60), 1 min slow (RPM 50, resistance 5), repeat 3x.'
+          description: '2 min steady (RPM 55), 1 min fast (RPM 70), 2 min moderate (RPM 60), 1 min slow (RPM 50, resistance 5), repeat 3x.',
+          imageUrl: 'https://images.pexels.com/photos/2774172/pexels-photo-2774172.jpeg',
+          intensityReason: 'Moderate RPM variations help beginners learn rhythm control while building steady-state endurance.'
         }
       ],
       intermediate: [
         {
           name: 'Climb & Sprint',
           duration: '25 min',
-          description: '2 min moderate (resistance 5), 1 min climb (resistance 10), 1 min sprint (resistance 4, RPM 80+), repeat 5x, finish with 3 min easy.'
+          description: '2 min moderate (resistance 5), 1 min climb (resistance 10), 1 min sprint (resistance 4, RPM 80+), repeat 5x, finish with 3 min easy.',
+          imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Alternates between high resistance climbs and fast sprints to challenge both strength and speed.'
         },
         {
           name: 'Reverse & Forward',
           duration: '30 min',
-          description: '3 min forward (resistance 6), 2 min reverse (resistance 4), 1 min sprint (forward, resistance 5), repeat 4x, finish with 2 min easy.'
+          description: '3 min forward (resistance 6), 2 min reverse (resistance 4), 1 min sprint (forward, resistance 5), repeat 4x, finish with 2 min easy.',
+          imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
+          intensityReason: 'Direction changes engage different muscle groups while maintaining consistent cardiovascular demand.'
         }
       ],
       advanced: [
         {
           name: 'Tabata Elliptical',
           duration: '24 min',
-          description: '8 rounds: 20 sec max effort (resistance 8), 10 sec easy (resistance 3), 2 min recovery, repeat for 3 cycles.'
+          description: '8 rounds: 20 sec max effort (resistance 8), 10 sec easy (resistance 3), 2 min recovery, repeat for 3 cycles.',
+          imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmd8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Tabata protocol demands maximum effort bursts, pushing VO2 max and anaerobic capacity to limits.'
         },
         {
           name: 'Endurance Builder',
           duration: '35 min',
-          description: '5 min easy, 10 min moderate (resistance 7), 5 min hard (resistance 10), 5 min fast (resistance 5, RPM 80+), 5 min reverse (resistance 6), 5 min cool-down.'
-        }
-      ]
-    }
-  },
-  {
-    equipment: 'Arm bicycle',
-    icon: 'bicycle',
-    workouts: {
-      beginner: [
-        {
-          name: 'Speed & Resistance Mix',
-          duration: '12 min',
-          description: '2 min easy (resistance 2), 1 min moderate (resistance 4), 1 min fast (resistance 2), repeat 3x, finish with 2 min easy.'
-        },
-        {
-          name: 'Interval Builder',
-          duration: '15 min',
-          description: '1 min easy, 1 min moderate, 30 sec fast, 1 min easy, 1 min reverse, repeat 3x.'
-        }
-      ],
-      intermediate: [
-        {
-          name: 'Pyramid Challenge',
-          duration: '18 min',
-          description: '1 min easy, 1 min moderate, 1 min hard, 1 min moderate, 1 min easy, repeat 3x.'
-        },
-        {
-          name: 'Reverse & Forward',
-          duration: '20 min',
-          description: '2 min forward (resistance 5), 1 min reverse (resistance 3), 1 min sprint (forward, resistance 4), repeat 4x.'
-        }
-      ],
-      advanced: [
-        {
-          name: 'HIIT Sprints',
-          duration: '20 min',
-          description: '30 sec max effort (resistance 8), 1 min easy (resistance 3), repeat 10x, finish with 5 min moderate.'
-        },
-        {
-          name: 'Endurance & Power',
-          duration: '25 min',
-          description: '5 min moderate, 10 x 30 sec sprint (resistance 10) with 30 sec easy, 5 min reverse, 5 min cool-down.'
-        }
-      ]
-    }
-  },
-  {
-    equipment: 'Stationary bike',
-    icon: 'bicycle',
-    workouts: {
-      beginner: [
-        {
-          name: 'Rolling Ride',
-          duration: '20 min',
-          description: '3 min easy (resistance 2), 2 min moderate (resistance 5), 1 min fast (resistance 3), repeat 4x.'
-        },
-        {
-          name: 'Cadence Intervals',
-          duration: '18 min',
-          description: '2 min steady (70 RPM), 1 min fast (90 RPM), 2 min moderate (80 RPM), 1 min slow (60 RPM, resistance 6), repeat 3x.'
-        }
-      ],
-      intermediate: [
-        {
-          name: 'Hill & Sprint',
-          duration: '25 min',
-          description: '2 min moderate (resistance 6), 1 min hill (resistance 10), 1 min sprint (resistance 4, 100+ RPM), repeat 5x.'
-        },
-        {
-          name: 'Pyramid Ride',
-          duration: '30 min',
-          description: '3 min easy, 2 min moderate, 1 min hard, 2 min moderate, 3 min easy, repeat 3x.'
-        }
-      ],
-      advanced: [
-        {
-          name: 'Tabata Bike',
-          duration: '24 min',
-          description: '8 rounds: 20 sec max effort (resistance 8), 10 sec easy (resistance 3), 2 min recovery, repeat for 3 cycles.'
-        },
-        {
-          name: 'Endurance & Power',
-          duration: '35 min',
-          description: '5 min easy, 10 min moderate (resistance 7), 5 min hard (resistance 10), 5 min fast (resistance 5, 100+ RPM), 5 min standing climb (resistance 8), 5 min cool-down.'
-        }
-      ]
-    }
-  },
-  {
-    equipment: 'Assault bike',
-    icon: 'bicycle',
-    workouts: {
-      beginner: [
-        {
-          name: 'Intro Intervals',
-          duration: '12 min',
-          description: '1 min easy, 30 sec moderate, 1 min easy, 30 sec fast, repeat 4x.'
-        },
-        {
-          name: 'Resistance Play',
-          duration: '15 min',
-          description: '2 min easy, 1 min moderate (increase resistance), 1 min fast, repeat 3x, finish with 2 min easy.'
-        }
-      ],
-      intermediate: [
-        {
-          name: 'Sprint & Recover',
-          duration: '18 min',
-          description: '20 sec sprint, 40 sec easy, repeat 10x, 5 min moderate.'
-        },
-        {
-          name: 'Ladder Intervals',
-          duration: '20 min',
-          description: '30 sec sprint, 1 min easy, 45 sec sprint, 1 min easy, 1 min sprint, 1 min easy, repeat sequence.'
-        }
-      ],
-      advanced: [
-        {
-          name: 'Tabata Assault',
-          duration: '16 min',
-          description: '8 rounds: 20 sec max effort, 10 sec rest, 2 min easy, repeat for 2 cycles.'
-        },
-        {
-          name: 'EMOM Challenge',
-          duration: '20 min',
-          description: 'Every minute: 20 sec sprint, 40 sec moderate, repeat for 20 min.'
-        }
-      ]
-    }
-  },
-  {
-    equipment: 'Stair master',
-    icon: 'trending-up',
-    workouts: {
-      beginner: [
-        {
-          name: 'Step & Recover',
-          duration: '12 min',
-          description: '1 min easy, 30 sec moderate, 1 min easy, 30 sec fast, repeat 4x.'
-        },
-        {
-          name: 'Pace Changer',
-          duration: '15 min',
-          description: '2 min steady, 1 min double step (skip a step), 2 min slow, repeat 3x.'
-        }
-      ],
-      intermediate: [
-        {
-          name: 'Interval Climb',
-          duration: '20 min',
-          description: '1 min fast, 2 min moderate, 1 min side step (face sideways), repeat 4x.'
-        },
-        {
-          name: 'Hill Climb',
-          duration: '25 min',
-          description: '2 min moderate, 1 min fast, 1 min slow, 1 min double step, repeat 5x.'
-        }
-      ],
-      advanced: [
-        {
-          name: 'Speed & Endurance',
-          duration: '30 min',
-          description: '2 min fast, 1 min side step, 1 min double step, 2 min moderate, repeat 5x.'
-        },
-        {
-          name: 'HIIT Steps',
-          duration: '20 min',
-          description: '30 sec sprint, 1 min moderate, 30 sec skip steps, 1 min slow, repeat 5x.'
-        }
-      ]
-    }
-  },
-  {
-    equipment: 'Row machine',
-    icon: 'boat',
-    workouts: {
-      beginner: [
-        {
-          name: 'Row & Rest',
-          duration: '12 min',
-          description: '1 min easy, 30 sec moderate, 1 min easy, 30 sec fast, repeat 4x.'
-        },
-        {
-          name: 'Stroke Play',
-          duration: '15 min',
-          description: '2 min steady (22 SPM), 1 min fast (28 SPM), 2 min slow (20 SPM), repeat 3x.'
-        }
-      ],
-      intermediate: [
-        {
-          name: 'Power Intervals',
-          duration: '20 min',
-          description: '1 min hard (28 SPM), 2 min moderate (24 SPM), 1 min slow (20 SPM), repeat 4x.'
-        },
-        {
-          name: 'Pyramid Row',
-          duration: '25 min',
-          description: '1 min easy, 1 min hard, 2 min easy, 2 min hard, 3 min easy, 3 min hard, then back down.'
-        }
-      ],
-      advanced: [
-        {
-          name: 'Sprint & Recover',
-          duration: '20 min',
-          description: '30 sec sprint (32 SPM), 1 min moderate (24 SPM), repeat 10x.'
-        },
-        {
-          name: 'Endurance Builder',
-          duration: '30 min',
-          description: '5 min easy, 10 min moderate, 5 min hard, 5 min fast, 5 min cool-down.'
-        }
-      ]
-    }
-  },
-  {
-    equipment: 'Ski machine',
-    icon: 'snow',
-    workouts: {
-      beginner: [
-        {
-          name: 'Ski & Glide',
-          duration: '12 min',
-          description: '1 min easy, 30 sec moderate, 1 min easy, 30 sec fast, repeat 4x.'
-        },
-        {
-          name: 'Resistance Play',
-          duration: '15 min',
-          description: '2 min steady (resistance 3), 1 min moderate (resistance 5), 2 min slow (resistance 2), repeat 3x.'
-        }
-      ],
-      intermediate: [
-        {
-          name: 'Interval Ski',
-          duration: '18 min',
-          description: '1 min hard, 2 min moderate, 1 min slow, repeat 4x.'
-        },
-        {
-          name: 'Pyramid Ski',
-          duration: '20 min',
-          description: '1 min easy, 1 min hard, 2 min easy, 2 min hard, 3 min easy, 3 min hard.'
-        }
-      ],
-      advanced: [
-        {
-          name: 'Sprint & Recover',
-          duration: '20 min',
-          description: '30 sec sprint, 1 min moderate, repeat 10x.'
-        },
-        {
-          name: 'HIIT Ski',
-          duration: '16 min',
-          description: '8 rounds: 20 sec max effort, 10 sec rest, 2 min easy, repeat for 2 cycles.'
-        }
-      ]
-    }
-  },
-  {
-    equipment: 'Curve treadmill',
-    icon: 'walk',
-    workouts: {
-      beginner: [
-        {
-          name: 'Walk & Jog',
-          duration: '12 min',
-          description: '2 min walk, 1 min jog, 2 min walk, 1 min jog, repeat 2x.'
-        },
-        {
-          name: 'Speed Play',
-          duration: '15 min',
-          description: '1 min walk, 30 sec jog, 1 min walk, 30 sec fast walk, repeat 4x.'
-        }
-      ],
-      intermediate: [
-        {
-          name: 'Interval Run',
-          duration: '18 min',
-          description: '1 min run, 2 min walk, 1 min fast run, 2 min walk, repeat 3x.'
-        },
-        {
-          name: 'Pyramid Pace',
-          duration: '20 min',
-          description: '1 min walk, 1 min jog, 1 min run, 1 min jog, 1 min walk, repeat 3x.'
-        }
-      ],
-      advanced: [
-        {
-          name: 'Sprint Intervals',
-          duration: '20 min',
-          description: '20 sec sprint, 40 sec walk, repeat 15x.'
-        },
-        {
-          name: 'EMOM Challenge',
-          duration: '15 min',
-          description: 'Every minute: 20 sec sprint, 40 sec moderate jog, repeat for 15 min.'
-        }
-      ]
-    }
-  },
-  {
-    equipment: 'Punching bag',
-    icon: 'hand-left',
-    workouts: {
-      beginner: [
-        {
-          name: 'Combo Builder',
-          duration: '10 min',
-          description: '30 sec jab-cross, 30 sec rest, 30 sec jab-cross-hook, 30 sec rest, repeat 5x.'
-        },
-        {
-          name: 'Movement Mix',
-          duration: '12 min',
-          description: '30 sec light punches, 30 sec footwork (move around bag), 30 sec rest, repeat 4x.'
-        }
-      ],
-      intermediate: [
-        {
-          name: 'Power Rounds',
-          duration: '15 min',
-          description: '1 min combos (jab-cross-hook-uppercut), 30 sec rest, 1 min power punches, 30 sec rest, repeat 4x.'
-        },
-        {
-          name: 'Speed & Defense',
-          duration: '16 min',
-          description: '30 sec fast punches, 30 sec slips/ducks, 30 sec rest, repeat 6x.'
-        }
-      ],
-      advanced: [
-        {
-          name: 'HIIT Boxing',
-          duration: '20 min',
-          description: '45 sec max effort combos, 15 sec rest, repeat 15x.'
-        },
-        {
-          name: 'Endurance Rounds',
-          duration: '20 min',
-          description: '2 min all-out, 1 min rest, 2 min footwork & defense, 1 min rest, repeat 3x.'
-        }
-      ]
-    }
-  },
-  {
-    equipment: 'Vertical Climber',
-    icon: 'triangle',
-    workouts: {
-      beginner: [
-        {
-          name: 'Climb & Rest',
-          duration: '10 min',
-          description: '1 min climb, 1 min rest, repeat 5x.'
-        },
-        {
-          name: 'Pace Play',
-          duration: '12 min',
-          description: '30 sec slow, 30 sec moderate, 30 sec fast, 30 sec rest, repeat 3x.'
-        }
-      ],
-      intermediate: [
-        {
-          name: 'Interval Climb',
-          duration: '15 min',
-          description: '1 min hard, 1 min moderate, 1 min slow, repeat 5x.'
-        },
-        {
-          name: 'Ladder Climb',
-          duration: '18 min',
-          description: '30 sec fast, 1 min moderate, 30 sec slow, repeat 6x.'
-        }
-      ],
-      advanced: [
-        {
-          name: 'Sprint & Recover',
-          duration: '20 min',
-          description: '20 sec sprint, 40 sec moderate, repeat 15x.'
-        },
-        {
-          name: 'Endurance Climb',
-          duration: '20 min',
-          description: '2 min hard, 1 min moderate, repeat 6x.'
-        }
-      ]
-    }
-  },
-  {
-    equipment: 'Jump rope',
-    icon: 'git-compare',
-    workouts: {
-      beginner: [
-        {
-          name: 'Jump & Rest',
-          duration: '10 min',
-          description: '30 sec jump, 30 sec rest, repeat 10x.'
-        },
-        {
-          name: 'Skill Builder',
-          duration: '12 min',
-          description: '20 sec jump, 20 sec high knees, 20 sec rest, repeat 6x.'
-        }
-      ],
-      intermediate: [
-        {
-          name: 'Interval Jumps',
-          duration: '15 min',
-          description: '1 min jump, 30 sec rest, 1 min high knees, 30 sec rest, repeat 4x.'
-        },
-        {
-          name: 'Combo Rounds',
-          duration: '16 min',
-          description: '30 sec jump, 30 sec double-unders, 30 sec rest, repeat 6x.'
-        }
-      ],
-      advanced: [
-        {
-          name: 'HIIT Rope',
-          duration: '20 min',
-          description: '40 sec double-unders, 20 sec rest, repeat 15x.'
-        },
-        {
-          name: 'Endurance Challenge',
-          duration: '20 min',
-          description: '2 min jump, 1 min high knees, 1 min crossovers, 1 min rest, repeat 4x.'
+          description: '5 min easy, 10 min moderate (resistance 7), 5 min hard (resistance 10), 5 min fast (resistance 5, RPM 80+), 5 min reverse (resistance 6), 5 min cool-down.',
+          imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MTc1Njg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Long duration with varied intensities tests cardiovascular endurance and mental resilience.'
         }
       ]
     }
@@ -567,18 +160,43 @@ const WorkoutCard = ({ equipment, icon, workouts, difficulty, difficultyColor }:
 
   const renderWorkout = ({ item, index }: { item: Workout; index: number }) => (
     <View style={[styles.workoutSlide, { width: width - 48 }]}>
-      <View style={styles.workoutHeader}>
-        <View style={styles.workoutTitleContainer}>
-          <Text style={styles.workoutName}>{item.name}</Text>
-          <View style={[styles.difficultyBadge, { backgroundColor: difficultyColor }]}>
-            <Text style={styles.difficultyBadgeText}>{difficulty.toUpperCase()}</Text>
-          </View>
+      {/* Workout Image */}
+      <View style={styles.workoutImageContainer}>
+        <Image 
+          source={{ uri: item.imageUrl }}
+          style={styles.workoutImage}
+          resizeMode="cover"
+        />
+        <View style={styles.imageOverlay} />
+        <View style={styles.swipeIndicator}>
+          <Ionicons name="swap-horizontal" size={20} color="#FFD700" />
+          <Text style={styles.swipeText}>Swipe for more</Text>
         </View>
-        <Text style={styles.workoutDuration}>{item.duration}</Text>
       </View>
-      <ScrollView style={styles.workoutDescriptionContainer} showsVerticalScrollIndicator={false}>
-        <Text style={styles.workoutDescription}>{item.description}</Text>
-      </ScrollView>
+
+      {/* Workout Content */}
+      <View style={styles.workoutContent}>
+        <View style={styles.workoutHeader}>
+          <View style={styles.workoutTitleContainer}>
+            <Text style={styles.workoutName}>{item.name}</Text>
+            <View style={[styles.difficultyBadge, { backgroundColor: difficultyColor }]}>
+              <Text style={styles.difficultyBadgeText}>{difficulty.toUpperCase()}</Text>
+            </View>
+          </View>
+          <Text style={styles.workoutDuration}>{item.duration}</Text>
+        </View>
+
+        {/* Intensity Reason */}
+        <View style={styles.intensityContainer}>
+          <Ionicons name="information-circle" size={16} color="#FFD700" />
+          <Text style={styles.intensityReason}>{item.intensityReason}</Text>
+        </View>
+
+        {/* Workout Description */}
+        <ScrollView style={styles.workoutDescriptionContainer} showsVerticalScrollIndicator={false}>
+          <Text style={styles.workoutDescription}>{item.description}</Text>
+        </ScrollView>
+      </View>
     </View>
   );
 
@@ -614,20 +232,23 @@ const WorkoutCard = ({ equipment, icon, workouts, difficulty, difficultyColor }:
         style={styles.workoutList}
       />
 
-      {/* Dots Indicator */}
+      {/* Enhanced Dots Indicator */}
       <View style={styles.dotsContainer}>
-        {workouts.map((_, index) => (
-          <TouchableOpacity
-            key={index}
-            style={[
-              styles.dot,
-              currentWorkoutIndex === index && styles.activeDot
-            ]}
-            onPress={() => {
-              flatListRef.current?.scrollToIndex({ index, animated: true });
-            }}
-          />
-        ))}
+        <Text style={styles.dotsLabel}>Swipe to explore</Text>
+        <View style={styles.dotsRow}>
+          {workouts.map((_, index) => (
+            <TouchableOpacity
+              key={index}
+              style={[
+                styles.dot,
+                currentWorkoutIndex === index && styles.activeDot
+              ]}
+              onPress={() => {
+                flatListRef.current?.scrollToIndex({ index, animated: true });
+              }}
+            />
+          ))}
+        </View>
       </View>
     </View>
   );
@@ -646,7 +267,6 @@ export default function WorkoutDisplayScreen() {
     selectedEquipmentNames = equipmentParam ? equipmentParam.split(',').map(name => name.trim()) : [];
   } catch (error) {
     console.error('Error parsing equipment parameter:', error);
-    // Fallback to default equipment for testing
     selectedEquipmentNames = ['Treadmill'];
   }
   
@@ -674,11 +294,6 @@ export default function WorkoutDisplayScreen() {
 
   const handleGoBack = () => {
     router.back();
-  };
-
-  const handleStartWorkout = (equipment: string, workout: Workout) => {
-    console.log('Starting workout:', workout.name, 'on', equipment);
-    // TODO: Navigate to workout timer/tracker screen
   };
 
   return (
@@ -953,11 +568,50 @@ const styles = StyleSheet.create({
     color: '#FFD700',
   },
   workoutList: {
-    height: 200,
+    height: 350,
   },
   workoutSlide: {
     paddingHorizontal: 20,
     paddingVertical: 16,
+  },
+  workoutImageContainer: {
+    height: 120,
+    borderRadius: 12,
+    overflow: 'hidden',
+    marginBottom: 16,
+    position: 'relative',
+  },
+  workoutImage: {
+    width: '100%',
+    height: '100%',
+  },
+  imageOverlay: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    backgroundColor: 'rgba(0, 0, 0, 0.3)',
+  },
+  swipeIndicator: {
+    position: 'absolute',
+    top: 8,
+    right: 8,
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: 'rgba(0, 0, 0, 0.7)',
+    paddingHorizontal: 8,
+    paddingVertical: 4,
+    borderRadius: 12,
+  },
+  swipeText: {
+    fontSize: 11,
+    color: '#FFD700',
+    marginLeft: 4,
+    fontSizes: '600',
+  },
+  workoutContent: {
+    flex: 1,
   },
   workoutHeader: {
     flexDirection: 'row',
@@ -991,6 +645,22 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: '#FFD700',
   },
+  intensityContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 12,
+    paddingHorizontal: 12,
+    paddingVertical: 8,
+    backgroundColor: 'rgba(255, 215, 0, 0.1)',
+    borderRadius: 8,
+  },
+  intensityReason: {
+    fontSize: 12,
+    color: 'rgba(255, 255, 255, 0.8)',
+    marginLeft: 8,
+    flex: 1,
+    fontStyle: 'italic',
+  },
   workoutDescriptionContainer: {
     flex: 1,
   },
@@ -1000,19 +670,32 @@ const styles = StyleSheet.create({
     lineHeight: 18,
   },
   dotsContainer: {
+    alignItems: 'center',
+    paddingVertical: 16,
+    backgroundColor: 'rgba(255, 215, 0, 0.05)',
+  },
+  dotsLabel: {
+    fontSize: 11,
+    color: 'rgba(255, 255, 255, 0.6)',
+    marginBottom: 8,
+    fontWeight: '500',
+  },
+  dotsRow: {
     flexDirection: 'row',
     justifyContent: 'center',
-    paddingVertical: 12,
-    gap: 8,
+    gap: 12,
   },
   dot: {
-    width: 8,
-    height: 8,
-    borderRadius: 4,
+    width: 12,
+    height: 12,
+    borderRadius: 6,
     backgroundColor: 'rgba(255, 255, 255, 0.3)',
+    borderWidth: 2,
+    borderColor: 'rgba(255, 215, 0, 0.3)',
   },
   activeDot: {
     backgroundColor: '#FFD700',
+    borderColor: '#FFD700',
     shadowColor: '#FFD700',
     shadowOffset: { width: 0, height: 0 },
     shadowOpacity: 0.6,
