@@ -260,7 +260,7 @@ export default function CardioEquipmentScreen() {
         {/* Equipment Selection */}
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>Select Equipment</Text>
-          <Text style={styles.sectionSubtitle}>Choose your preferred cardio equipment</Text>
+          <Text style={styles.sectionSubtitle}>Choose one or multiple cardio equipment options</Text>
           
           <View style={styles.equipmentGrid}>
             {equipmentOptions.map((equipment) => (
