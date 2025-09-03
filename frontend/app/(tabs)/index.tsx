@@ -116,12 +116,31 @@ const moodCards: MoodCard[] = [
 export default function WorkoutsHome() {
   const [greeting, setGreeting] = useState('');
   const insets = useSafeAreaInsets();
+  
+  // Animation values
+  const fadeAnim = new Animated.Value(0);
+  const scaleAnim = new Animated.Value(0.8);
 
   useEffect(() => {
     const hour = new Date().getHours();
     if (hour < 12) setGreeting('Good morning');
     else if (hour < 18) setGreeting('Good afternoon');
     else setGreeting('Good evening');
+    
+    // Start animation when component mounts
+    Animated.parallel([
+      Animated.timing(fadeAnim, {
+        toValue: 1,
+        duration: 1000,
+        useNativeDriver: true,
+      }),
+      Animated.spring(scaleAnim, {
+        toValue: 1,
+        tension: 50,
+        friction: 7,
+        useNativeDriver: true,
+      }),
+    ]).start();
   }, []);
 
   const handleMoodSelect = (mood: MoodCard) => {
