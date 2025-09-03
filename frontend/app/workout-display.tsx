@@ -494,7 +494,7 @@ export default function WorkoutDisplayScreen() {
       {/* Workout Summary */}
       <View style={styles.summaryContainer}>
         <Text style={styles.summaryTitle}>
-          {userWorkouts.length} Equipment • {userWorkouts.length * 2} Workouts
+          {uniqueUserWorkouts.length} Equipment • {uniqueUserWorkouts.length * 2} Workouts
         </Text>
         <Text style={styles.summarySubtitle}>
           Swipe left/right on each card to see both workout options
@@ -507,7 +507,7 @@ export default function WorkoutDisplayScreen() {
         showsVerticalScrollIndicator={false}
         contentContainerStyle={styles.scrollContent}
       >
-        {userWorkouts.map((equipmentData, index) => {
+        {uniqueUserWorkouts.map((equipmentData, index) => {
           console.log(`Rendering card ${index + 1}:`, equipmentData.equipment);
           return (
             <WorkoutCard
