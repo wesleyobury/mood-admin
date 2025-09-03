@@ -82,8 +82,17 @@ export default function WorkoutTypeScreen() {
 
   const handleWorkoutTypeSelect = (option: WorkoutTypeOption) => {
     console.log('Selected workout type:', option.title, 'for mood:', moodTitle);
-    // TODO: Navigate to workout details or workout generation screen
-    // For now, just log the selection
+    
+    if (option.id === 'cardio') {
+      // Navigate to cardio equipment selection screen
+      router.push({
+        pathname: '/cardio-equipment',
+        params: { mood: moodTitle, workoutType: option.title }
+      });
+    } else {
+      // TODO: Navigate to weight-based workout selection screen
+      console.log('Weight-based selection will be implemented later');
+    }
   };
 
   const handleGoBack = () => {
