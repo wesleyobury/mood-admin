@@ -165,14 +165,24 @@ export default function WorkoutsHome() {
           </View>
         </View>
 
-        {/* Question Text - Static */}
-        <View style={styles.simpleQuestionContainer}>
-          <Text style={styles.simpleQuestionText}>How are you feeling today?</Text>
+        {/* Enhanced Question Section */}
+        <View style={styles.enhancedQuestionSection}>
+          <View style={styles.questionBubble}>
+            <View style={styles.questionIconContainer}>
+              <Ionicons name="chatbubble-ellipses" size={24} color="#FFD700" />
+            </View>
+            <Text style={styles.enhancedQuestionText}>How are you feeling today?</Text>
+          </View>
+          <View style={styles.questionAccentLine} />
         </View>
 
-        {/* Mood Cards Column */}
+        {/* Mood Selection Section */}
         <View style={styles.moodCardsContainer}>
-          <Text style={styles.sectionTitle}>Choose your mood</Text>
+          <View style={styles.sectionTitleContainer}>
+            <View style={styles.leftAccent} />
+            <Text style={styles.uniqueSectionTitle}>Choose your mood</Text>
+            <View style={styles.rightAccent} />
+          </View>
           <View style={styles.moodColumn}>
             {moodCards.map((mood, index) => (
               <AnimatedMoodCard
