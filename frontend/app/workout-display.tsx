@@ -292,6 +292,12 @@ export default function WorkoutDisplayScreen() {
     selectedEquipmentNames.includes(item.equipment)
   );
 
+  console.log('Debug info:', {
+    selectedEquipmentNames,
+    userWorkouts: userWorkouts.map(w => w.equipment),
+    userWorkoutsLength: userWorkouts.length
+  });
+
   const handleGoBack = () => {
     router.back();
   };
