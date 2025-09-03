@@ -624,7 +624,8 @@ export default function WorkoutDisplayScreen() {
   const insets = useSafeAreaInsets();
   
   // Parse parameters
-  const selectedEquipmentNames = JSON.parse(params.equipment as string || '[]');
+  const equipmentParam = params.equipment as string || '';
+  const selectedEquipmentNames = equipmentParam ? equipmentParam.split(',') : [];
   const difficulty = (params.difficulty as string || 'beginner').toLowerCase();
   const moodTitle = params.mood as string || 'I want to sweat';
 
