@@ -140,10 +140,11 @@ export default function CardioEquipmentScreen() {
   const params = useLocalSearchParams();
   const insets = useSafeAreaInsets();
   
-  const [selectedEquipment, setSelectedEquipment] = useState<EquipmentOption | null>(null);
+  const [selectedEquipment, setSelectedEquipment] = useState<EquipmentOption[]>([]);
   const [selectedDifficulty, setSelectedDifficulty] = useState<DifficultyLevel | null>(null);
   
   const moodTitle = params.mood as string || 'I want to sweat';
+  const workoutType = params.workoutType as string || 'Cardio Based';
 
   const handleEquipmentSelect = (equipment: EquipmentOption) => {
     setSelectedEquipment(equipment);
