@@ -25,23 +25,52 @@ const formatTime = (seconds: number): string => {
 };
 
 const parseWorkoutDescription = (description: string): string[] => {
-  // Split the description into steps based on common patterns
-  const steps = description
-    .split(/,(?=\s*\d+\s*min)|repeat|finish with/i)
+  // Clean up punctuation and extra spaces
+  let cleanedDescription = description
+    .replace(/\s+/g, ' ') // Replace multiple spaces with single space
+    .replace(/,\s*\./g, '.') // Remove comma before period
+    .replace(/\.\s*,/g, ',') // Remove period before comma
+    .replace(/,+/g, ',') // Replace multiple commas with single comma
+    .trim();
+
+  // Enhanced splitting patterns for better readability
+  const steps = cleanedDescription
+    .split(/(?:,\s*)?(?=\d+\s*(?:min|sec))|(?:,\s*)?(?=repeat)|(?:,\s*)?(?=finish with)|(?::\s*)|(?:,\s*(?=\d+\s*(?:rounds?|times?|cycles?|sets?)))/i)
     .map(step => step.trim())
     .filter(step => step.length > 0)
     .map(step => {
-      // Clean up step formatting
-      if (step.toLowerCase().startsWith('repeat')) {
-        return `Repeat the sequence ${step.substring(6).trim()}`;
+      // Remove leading/trailing punctuation and clean up
+      step = step.replace(/^[,.\s]+|[,.\s]+$/g, '').trim();
+      
+      // Handle specific patterns
+      if (step.toLowerCase().includes('repeat')) {
+        const repeatMatch = step.match(/repeat(?:\s+(?:for\s+)?(\d+\s*(?:x|times?|cycles?)))?/i);
+        if (repeatMatch && repeatMatch[1]) {
+          return `Repeat ${repeatMatch[1]}`;
+        }
+        return 'Repeat the sequence';
       }
+      
       if (step.toLowerCase().startsWith('finish with')) {
         return `Finish with ${step.substring(11).trim()}`;
       }
+      
+      // Handle rounds/cycles/sets patterns
+      if (/^\d+\s*(?:rounds?|cycles?|sets?)/.test(step)) {
+        return step.charAt(0).toUpperCase() + step.slice(1);
+      }
+      
+      // Handle time-based patterns (20 sec max effort, etc.)
+      if (/^\d+\s*(?:sec|min)/.test(step)) {
+        return step.charAt(0).toUpperCase() + step.slice(1);
+      }
+      
+      // Capitalize first letter
       return step.charAt(0).toUpperCase() + step.slice(1);
-    });
+    })
+    .filter(step => step.length > 0); // Remove any empty steps
   
-  return steps.length > 1 ? steps : [description];
+  return steps.length > 1 ? steps : [cleanedDescription];
 };
 
 export default function WorkoutGuidanceScreen() {
