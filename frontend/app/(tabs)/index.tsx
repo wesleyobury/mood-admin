@@ -176,16 +176,13 @@ export default function WorkoutsHome() {
           </View>
         </View>
 
-        {/* Main Header - Ultra Visible */}
-        <View style={styles.ultraVisibleHeader}>
-          <Text style={styles.ultraVisibleText}>
-            How are you feeling today?
-          </Text>
+        {/* Centered Question Header */}
+        <View style={styles.questionSection}>
+          <Text style={styles.questionText}>How are you feeling today?</Text>
         </View>
 
         {/* Mood Cards Column */}
         <View style={styles.moodCardsContainer}>
-          <Text style={styles.sectionTitle}>How are you feeling today?</Text>
           <Text style={styles.sectionTitle}>Choose your mood</Text>
           <View style={styles.moodColumn}>
             {moodCards.map((mood, index) => (
