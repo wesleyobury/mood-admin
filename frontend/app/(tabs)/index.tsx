@@ -5,15 +5,10 @@ import {
   StyleSheet,
   ScrollView,
   TouchableOpacity,
-  Dimensions,
-  Animated,
-  Platform,
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
-
-const { width } = Dimensions.get('window');
 
 interface MoodCard {
   id: string;
