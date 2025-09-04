@@ -110,7 +110,7 @@ export default function WorkoutGuidanceScreen() {
   
   // Simple elapsed time timer
   useEffect(() => {
-    let interval: NodeJS.Timeout | null = null;
+    let interval: number | null = null;
     
     if (isRunning && !isPaused) {
       interval = setInterval(() => {
