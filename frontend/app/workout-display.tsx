@@ -152,14 +152,14 @@ const workoutDatabase: EquipmentWorkouts[] = [
           intensityReason: 'Extended tempo runs plus high-intensity hill sprints demand advanced cardiovascular fitness and mental toughness.',
           moodTips: [
             {
-              icon: 'trophy',
-              title: 'Mental Focus',
-              description: 'Break the tempo run into 2-minute segments and focus on maintaining consistent form throughout.'
+              icon: 'trending-up',
+              title: 'Tempo Control',
+              description: '"Comfortably hard" tempo; set incline changes beforehand.'
             },
             {
-              icon: 'flame',
-              title: 'Hill Power',
-              description: 'Attack each hill sprint with explosive power - short steps, high knees, and aggressive arm drive.'
+              icon: 'refresh',
+              title: 'Breathing Technique',
+              description: 'Drive through glutes on hills; maintain steady, deep breathing.'
             }
           ]
         }
