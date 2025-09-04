@@ -113,13 +113,13 @@ const workoutDatabase: EquipmentWorkouts[] = [
           moodTips: [
             {
               icon: 'trending-up',
-              title: 'Power Through Hills',
-              description: 'Drive your arms and maintain quick cadence on inclines to maximize power output and calorie burn.'
+              title: 'Glute Drive',
+              description: 'Drive through glutes on inclines; keep upper body loose.'
             },
             {
-              icon: 'body',
-              title: 'Posture Check',
-              description: 'Keep your torso slightly forward on inclines but avoid leaning on the handrails to engage your core.'
+              icon: 'refresh',
+              title: 'Recovery Breathing',
+              description: 'Use walk intervals for deep, belly-focused recovery breaths.'
             }
           ]
         }
