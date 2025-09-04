@@ -99,7 +99,7 @@ export default function Welcome() {
             </TouchableOpacity>
           </View>
         </View>
-      </LinearGradient>
+      </View>
     </SafeAreaView>
   );
 }
@@ -108,8 +108,9 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
-  gradient: {
+  simplifiedGradient: {
     flex: 1,
+    backgroundColor: '#0c0c0c', // Use solid color instead of gradient for better performance
   },
   content: {
     flex: 1,
