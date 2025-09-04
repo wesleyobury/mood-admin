@@ -80,9 +80,13 @@ export default function WorkoutGuidanceScreen() {
   const moodTipsParam = params.moodTips as string || '[]';
   let moodTips: MOODTip[] = [];
   try {
+    console.log('🔍 Received moodTips param:', moodTipsParam);
     moodTips = JSON.parse(decodeURIComponent(moodTipsParam));
+    console.log('✅ Parsed MOOD tips:', moodTips.length, 'tips found');
+    console.log('📝 First tip:', moodTips[0]);
   } catch (error) {
-    console.error('Error parsing MOOD tips:', error);
+    console.error('❌ Error parsing MOOD tips:', error);
+    console.log('🔄 Using fallback tips');
     // Fallback tips
     moodTips = [
       {
