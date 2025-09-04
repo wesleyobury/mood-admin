@@ -450,14 +450,14 @@ const workoutDatabase: EquipmentWorkouts[] = [
           intensityReason: 'RPM variations teach beginners pedaling rhythm while maintaining moderate intensity.',
           moodTips: [
             {
-              icon: 'speedometer',
-              title: 'Cadence Control',
-              description: 'Use the display to monitor your RPM and maintain steady cadence throughout each interval.'
+              icon: 'bicycle',
+              title: 'Seat Height',
+              description: 'Adjust seat height so legs get nearly full extension'
             },
             {
               icon: 'body',
-              title: 'Upper Body Relaxation',
-              description: 'Keep your shoulders and arms relaxed - tension in upper body wastes energy needed for pedaling.'
+              title: 'Core Stability',
+              description: 'Engage core to prevent bouncing in saddle at high RPMs.'
             }
           ]
         }
