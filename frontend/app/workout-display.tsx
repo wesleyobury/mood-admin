@@ -1678,9 +1678,6 @@ const WorkoutCard = ({ equipment, icon, workouts, difficulty, difficultyColor, o
         onTouchStart={handleTouchStart}
         onTouchMove={handleTouchMove}
         onTouchEnd={handleTouchEnd}
-        onMouseDown={handleTouchStart}
-        onMouseMove={handleTouchMove}
-        onMouseUp={handleTouchEnd}
       >
         {renderWorkout({ item: workouts[currentWorkoutIndex], index: currentWorkoutIndex })}
       </View>
