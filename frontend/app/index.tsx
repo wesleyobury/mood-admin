@@ -14,26 +14,6 @@ import { LinearGradient } from 'expo-linear-gradient';
 const { width, height } = Dimensions.get('window');
 
 export default function Welcome() {
-  // Completely removed auth checks to prevent auto-redirects
-  // const { user, isLoading } = useAuth();
-  const isLoading = false; // Force loading to false
-  const user = null; // Force user to null
-
-  // No auto-redirects - users must manually navigate
-
-  // For demo purposes, allow access to mood cards without authentication
-  // You can remove this for production if you want to require auth
-  const handleDemoAccess = () => {
-    router.replace('/(tabs)');
-  };
-
-  // No automatic redirects - users must manually navigate
-
-  if (isLoading) {
-    return <LoadingSpinner text="Loading..." />;
-  }
-
-  // If user is not authenticated, show welcome screen
   return (
     <SafeAreaView style={styles.container}>
       <LinearGradient
