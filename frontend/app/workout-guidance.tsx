@@ -753,7 +753,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     marginBottom: 20,
-    gap: 16, // Increased from 12 to 16 for better spacing
+    gap: 8, // Reduced from 16 to 8 to prevent overflow
+    paddingHorizontal: 4, // Added small horizontal padding to container
   },
   detailCard: {
     flex: 1,
