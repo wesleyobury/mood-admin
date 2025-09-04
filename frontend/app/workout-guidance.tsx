@@ -266,7 +266,7 @@ export default function WorkoutGuidanceScreen() {
             
             {/* Step-by-Step Instructions - User Friendly Format */}
             <View style={styles.stepsContainer}>
-              <Text style={styles.stepsHeader}>Step-by-Step Instructions</Text>
+              <Text style={styles.stepsHeader}>Battle Plan</Text>
               <View style={styles.stepsList}>
                 {parseWorkoutDescription(description).map((step, index) => (
                   <View key={index} style={styles.stepItem}>
