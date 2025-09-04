@@ -16,12 +16,7 @@ const { width, height } = Dimensions.get('window');
 export default function Welcome() {
   return (
     <SafeAreaView style={styles.container}>
-      <LinearGradient
-        colors={['#0c0c0c', '#1a1a1a', '#0c0c0c']}
-        style={styles.gradient}
-        start={{ x: 0, y: 0 }}
-        end={{ x: 1, y: 1 }}
-      >
+      <View style={styles.simplifiedGradient}>
         <View style={styles.content}>
           {/* Hero Section */}
           <View style={styles.heroSection}>
