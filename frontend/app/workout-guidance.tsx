@@ -760,11 +760,12 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: 'rgba(255, 215, 0, 0.1)',
     borderRadius: 12,
-    padding: 18, // Increased from 16 to 18
+    padding: 14, // Reduced from 18 to 14 to prevent overflow
     alignItems: 'center',
     borderWidth: 1,
     borderColor: 'rgba(255, 215, 0, 0.2)',
-    minWidth: 100, // Ensure minimum width for longer text
+    minWidth: 90, // Reduced from 100 to 90
+    maxWidth: '32%', // Added max width constraint to prevent overflow
   },
   detailValue: {
     fontSize: 16,
