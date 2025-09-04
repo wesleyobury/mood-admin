@@ -1778,8 +1778,8 @@ export default function WorkoutDisplayScreen() {
           description: workout.description || '',
           duration: workout.duration || '20 min',
           difficulty: difficulty,
-          // Store MOOD tips count instead of complex object
-          moodTipsCount: workout.moodTips?.length.toString() || '0'
+          // Pass MOOD tips as JSON string so they can be displayed
+          moodTips: JSON.stringify(workout.moodTips || [])
         }
       });
       
