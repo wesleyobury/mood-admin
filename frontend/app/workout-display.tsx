@@ -305,14 +305,14 @@ const workoutDatabase: EquipmentWorkouts[] = [
           intensityReason: 'Short intervals with varied resistance help beginners build upper body endurance gradually.',
           moodTips: [
             {
-              icon: 'hand-right',
-              title: 'Grip Variation',
-              description: 'Alternate between overhand and underhand grips to engage different muscle groups and prevent fatigue.'
+              icon: 'body',
+              title: 'Wrist & Elbow',
+              description: 'Keep elbows soft, wrists neutral; avoid locking out.'
             },
             {
-              icon: 'body',
+              icon: 'fitness',
               title: 'Core Stability',
-              description: 'Keep your core engaged and avoid swaying - this maximizes upper body workout and protects your back.'
+              description: 'Engage core for stability; maintain even, smooth cadence.'
             }
           ]
         },
