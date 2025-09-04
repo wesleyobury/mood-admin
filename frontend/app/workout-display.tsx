@@ -324,14 +324,14 @@ const workoutDatabase: EquipmentWorkouts[] = [
           intensityReason: 'Basic interval structure with reverse motion introduces beginners to upper body cardio safely.',
           moodTips: [
             {
-              icon: 'repeat',
-              title: 'Reverse Benefits',
-              description: 'Reverse pedaling targets your triceps and back muscles more - feel the difference in muscle engagement.'
+              icon: 'refresh',
+              title: 'Pull Technique',
+              description: 'Pull, don\'t just push, in reverse sets.'
             },
             {
-              icon: 'pulse',
-              title: 'Heart Rate Focus',
-              description: 'Upper body cardio raises heart rate quickly - monitor your effort and breathe steadily throughout.'
+              icon: 'body',
+              title: 'Breathing Control',
+              description: 'Focus on controlled breathing to match effort.'
             }
           ]
         }
