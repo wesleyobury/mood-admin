@@ -39,7 +39,9 @@ export function AuthProvider({ children }: AuthProviderProps) {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    loadStoredAuth();
+    // Temporarily disable auto-loading stored auth to prevent flash
+    // loadStoredAuth();
+    setIsLoading(false); // Set loading to false immediately
   }, []);
 
   const loadStoredAuth = async () => {
