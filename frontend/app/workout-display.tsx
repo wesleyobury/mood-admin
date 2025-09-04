@@ -259,14 +259,14 @@ const workoutDatabase: EquipmentWorkouts[] = [
           intensityReason: 'Tabata protocol demands maximum effort bursts, pushing VO2 max and anaerobic capacity to limits.',
           moodTips: [
             {
-              icon: 'stopwatch',
-              title: 'All-Out Effort',
-              description: 'During 20-second intervals, give absolute maximum effort - this should feel unsustainable for more than 20 seconds.'
+              icon: 'flash',
+              title: 'Max Effort',
+              description: 'Explode into each 20-sec effort; no pacing.'
             },
             {
               icon: 'refresh',
-              title: 'Recovery Discipline',
-              description: 'Use 10-second rests to slow down but keep moving - complete rest will make the next interval harder.'
+              title: 'Recovery Form',
+              description: 'Stay loose in shoulders; use recovery for deep breaths.'
             }
           ]
         },
@@ -278,14 +278,14 @@ const workoutDatabase: EquipmentWorkouts[] = [
           intensityReason: 'Long duration with varied intensities tests cardiovascular endurance and mental resilience.',
           moodTips: [
             {
-              icon: 'time',
-              title: 'Mental Segmentation',
-              description: 'Break this long workout into 5-minute segments and focus on completing one segment at a time.'
+              icon: 'timer',
+              title: 'Energy Management',
+              description: 'Conserve energy early; focus on consistent effort.'
             },
             {
-              icon: 'trophy',
-              title: 'Endurance Mindset',
-              description: 'Final 10 minutes are mental - maintain form and breathing even as fatigue sets in for maximum adaptation.'
+              icon: 'refresh',
+              title: 'Reverse Control',
+              description: 'Control momentum in reverse for targeted muscle work.'
             }
           ]
         }
