@@ -855,9 +855,10 @@ const styles = StyleSheet.create({
     color: '#FFD700',
     marginTop: 8,
     marginBottom: 4,
-    paddingHorizontal: 16, // Increased from 12 to 16
+    paddingHorizontal: 12, // Reduced from 16 to 12 to fit within maxWidth constraint
     textAlign: 'center',
     lineHeight: 14, // Added line height for better spacing
+    flexShrink: 1, // Allow text to shrink if needed
   },
   stepText: {
     fontSize: 16,
