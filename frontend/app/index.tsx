@@ -231,32 +231,4 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: '#0c0c0c',
   },
-  secondaryButton: {
-    borderWidth: 1,
-    borderColor: '#FFD700',
-    borderRadius: 12,
-    paddingVertical: 16,
-    paddingHorizontal: 32,
-    alignItems: 'center',
-  },
-  secondaryButtonText: {
-    fontSize: 18,
-    fontWeight: '600',
-    color: '#FFD700',
-  },
-  demoButton: {
-    borderWidth: 1,
-    borderColor: 'rgba(255, 215, 0, 0.5)',
-    borderRadius: 12,
-    paddingVertical: 12,
-    paddingHorizontal: 32,
-    alignItems: 'center',
-    marginTop: 12,
-    backgroundColor: 'rgba(255, 215, 0, 0.1)',
-  },
-  demoButtonText: {
-    fontSize: 16,
-    fontWeight: '500',
-    color: 'rgba(255, 215, 0, 0.8)',
-  },
 });
