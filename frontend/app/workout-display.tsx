@@ -1946,10 +1946,6 @@ const styles = StyleSheet.create({
   headerSpacer: {
     width: 40,
   },
-  progressContent: {
-    alignItems: 'center',
-    paddingHorizontal: 10,
-  },
   progressStep: {
     alignItems: 'center',
     minWidth: 60,
