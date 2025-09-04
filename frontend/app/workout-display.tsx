@@ -198,14 +198,14 @@ const workoutDatabase: EquipmentWorkouts[] = [
           intensityReason: 'Moderate RPM variations help beginners learn rhythm control while building steady-state endurance.',
           moodTips: [
             {
-              icon: 'musical-notes',
-              title: 'Find Your Rhythm',
-              description: 'Match your movement to an internal beat or music to maintain consistent cadence throughout intervals.'
+              icon: 'refresh',
+              title: 'Breathing Rhythm',
+              description: 'Match breathing to RPM; smooth, circular motion.'
             },
             {
               icon: 'body',
-              title: 'Core Engagement',
-              description: 'Keep your core tight and avoid leaning heavily on handles to maximize calorie burn and stability.'
+              title: 'Chest Position',
+              description: 'Keep chest lifted; avoid folding forward.'
             }
           ]
         }
