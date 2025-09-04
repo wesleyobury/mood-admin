@@ -2100,7 +2100,7 @@ const styles = StyleSheet.create({
     fontSize: 11,
     color: '#FFD700',
     marginLeft: 4,
-    fontSizes: '600',
+    fontWeight: '600',
   },
   workoutContent: {
     flex: 1,
