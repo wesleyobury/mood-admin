@@ -134,13 +134,13 @@ const workoutDatabase: EquipmentWorkouts[] = [
           moodTips: [
             {
               icon: 'flash',
-              title: 'Sprint Mechanics',
-              description: 'Drive your knees high and pump arms vigorously during sprints for maximum power and efficiency.'
+              title: 'Explosive Technique',
+              description: 'Explode from balls of feet; quick, short steps for sprints.'
             },
             {
               icon: 'refresh',
               title: 'Active Recovery',
-              description: 'Use jog intervals for active recovery - keep moving but breathe deeply to clear lactate buildup.'
+              description: 'Jogs are active recovery; shake out limbs, control breathing.'
             }
           ]
         },
