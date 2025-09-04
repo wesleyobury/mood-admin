@@ -113,7 +113,7 @@ export default function Welcome() {
           <View style={styles.actionSection}>
             <TouchableOpacity 
               style={styles.primaryButton} 
-              onPress={() => router.push('/auth/register')}
+              onPress={() => router.push('/auth/login')}
             >
               <LinearGradient
                 colors={['#FFD700', '#FFA500']}
@@ -123,20 +123,6 @@ export default function Welcome() {
               >
                 <Text style={styles.primaryButtonText}>Get Started</Text>
               </LinearGradient>
-            </TouchableOpacity>
-
-            <TouchableOpacity 
-              style={styles.secondaryButton} 
-              onPress={() => router.push('/auth/login')}
-            >
-              <Text style={styles.secondaryButtonText}>Login</Text>
-            </TouchableOpacity>
-
-            <TouchableOpacity 
-              style={styles.demoButton} 
-              onPress={handleDemoAccess}
-            >
-              <Text style={styles.demoButtonText}>Try Demo</Text>
             </TouchableOpacity>
           </View>
         </View>
