@@ -753,7 +753,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     marginBottom: 20,
-    gap: 12,
+    gap: 16, // Increased from 12 to 16 for better spacing
   },
   detailCard: {
     flex: 1,
