@@ -289,7 +289,7 @@ export default function WorkoutGuidanceScreen() {
             <View style={styles.iconContainer}>
               <Ionicons name="bulb" size={24} color="#FFD700" />
             </View>
-            <Text style={styles.sectionTitle}>MOOD Tips for Maximum Efficiency</Text>
+            <Text style={styles.sectionTitle}>MOOD Tips</Text>
             <View style={styles.headerAccent} />
           </View>
           
