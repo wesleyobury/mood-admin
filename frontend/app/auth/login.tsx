@@ -105,7 +105,7 @@ export default function Login() {
               style={styles.skipButton} 
               onPress={() => router.replace('/(tabs)')}
             >
-              <Text style={styles.skipButtonText}>Skip login for now</Text>
+              <Text style={styles.skipButtonText}>Try Demo</Text>
             </TouchableOpacity>
           </View>
 
