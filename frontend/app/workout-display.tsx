@@ -219,14 +219,14 @@ const workoutDatabase: EquipmentWorkouts[] = [
           intensityReason: 'Alternates between high resistance climbs and fast sprints to challenge both strength and speed.',
           moodTips: [
             {
-              icon: 'barbell',
+              icon: 'trending-up',
               title: 'Climb Technique',
-              description: 'During high resistance phases, slow down RPM and focus on powerful leg drive for maximum strength gains.'
+              description: 'Push through heels on climbs; drive knees higher.'
             },
             {
               icon: 'flash',
-              title: 'Sprint Power',
-              description: 'For sprint intervals, reduce resistance and pump your arms rapidly to achieve maximum RPM and heart rate.'
+              title: 'Sprint Focus',
+              description: 'Sprints are for cadence, not just resistance; light grip.'
             }
           ]
         },
@@ -238,14 +238,14 @@ const workoutDatabase: EquipmentWorkouts[] = [
           intensityReason: 'Direction changes engage different muscle groups while maintaining consistent cardiovascular demand.',
           moodTips: [
             {
-              icon: 'repeat',
-              title: 'Direction Switch',
-              description: 'When reversing, engage your glutes and hamstrings more - feel the difference in muscle activation.'
+              icon: 'body',
+              title: 'Core Control',
+              description: 'Core tight, avoid knee overextension in reverse.'
             },
             {
-              icon: 'trending-up',
-              title: 'Progressive Challenge',
-              description: 'Each round should feel slightly more challenging - increase resistance by 1 level if feeling too easy.'
+              icon: 'refresh',
+              title: 'Direction Switch',
+              description: 'Exhale fully when switching direction to reset rhythm.'
             }
           ]
         }
