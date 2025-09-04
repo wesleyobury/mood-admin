@@ -1778,8 +1778,8 @@ export default function WorkoutDisplayScreen() {
           description: workout.description || '',
           duration: workout.duration || '20 min',
           difficulty: difficulty,
-          // Pass MOOD tips as JSON string so they can be displayed
-          moodTips: JSON.stringify(workout.moodTips || [])
+          // Pass MOOD tips as properly encoded JSON string
+          moodTips: encodeURIComponent(JSON.stringify(workout.moodTips || []))
         }
       });
       
