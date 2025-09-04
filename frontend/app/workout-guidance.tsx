@@ -33,10 +33,10 @@ const parseWorkoutDescription = (description: string): string[] => {
     .replace(/,+/g, ',') // Replace multiple commas with single comma
     .trim();
 
-  // Very conservative splitting - only split on major logical breaks
-  // Keep all time-based instructions together (e.g., "30 sec fast, 1 min moderate")
+  // Smart splitting on time units and logical breaks
+  // Split on: commas before time units, repeat statements, and finish statements
   const steps = cleanedDescription
-    .split(/(?:,\s*)?(?=repeat\s+\d+\s*(?:x|times?|cycles?|sets?))|(?:,\s*)?(?=finish\s+with)/i)
+    .split(/,\s*(?=\d+\s*(?:sec|min))|(?:,\s*)?(?=repeat\s+\d+\s*(?:x|times?|cycles?|sets?))|(?:,\s*)?(?=finish\s+with)/i)
     .map(step => step.trim())
     .filter(step => step.length > 0)
     .map(step => {
@@ -56,8 +56,7 @@ const parseWorkoutDescription = (description: string): string[] => {
         return `Finish with ${step.substring(11).trim()}`;
       }
       
-      // For everything else, just capitalize and return as-is
-      // This preserves complex time patterns like "30 sec fast, 1 min moderate, 30 sec slow"
+      // Capitalize first letter
       return step.charAt(0).toUpperCase() + step.slice(1);
     })
     .filter(step => step.length > 0); // Remove any empty steps
