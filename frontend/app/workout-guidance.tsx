@@ -33,9 +33,10 @@ const parseWorkoutDescription = (description: string): string[] => {
     .replace(/,+/g, ',') // Replace multiple commas with single comma
     .trim();
 
-  // More conservative splitting - keep related time-based instructions together
+  // Very conservative splitting - only split on major logical breaks
+  // Keep all time-based instructions together (e.g., "30 sec fast, 1 min moderate")
   const steps = cleanedDescription
-    .split(/(?:,\s*)?(?=repeat(?:\s+(?:for\s+)?\d+\s*(?:x|times?|cycles?|sets?))|finish with)/i)
+    .split(/(?:,\s*)?(?=repeat\s+\d+\s*(?:x|times?|cycles?|sets?))|(?:,\s*)?(?=finish\s+with)/i)
     .map(step => step.trim())
     .filter(step => step.length > 0)
     .map(step => {
@@ -43,8 +44,8 @@ const parseWorkoutDescription = (description: string): string[] => {
       step = step.replace(/^[,.\s]+|[,.\s]+$/g, '').trim();
       
       // Handle specific patterns
-      if (step.toLowerCase().includes('repeat')) {
-        const repeatMatch = step.match(/repeat(?:\s+(?:for\s+)?(\d+\s*(?:x|times?|cycles?)))?/i);
+      if (step.toLowerCase().match(/repeat\s+\d+\s*(?:x|times?|cycles?|sets?)/i)) {
+        const repeatMatch = step.match(/repeat\s+(\d+\s*(?:x|times?|cycles?|sets?))/i);
         if (repeatMatch && repeatMatch[1]) {
           return `Repeat ${repeatMatch[1]}`;
         }
@@ -55,11 +56,13 @@ const parseWorkoutDescription = (description: string): string[] => {
         return `Finish with ${step.substring(11).trim()}`;
       }
       
-      // Capitalize first letter
+      // For everything else, just capitalize and return as-is
+      // This preserves complex time patterns like "30 sec fast, 1 min moderate, 30 sec slow"
       return step.charAt(0).toUpperCase() + step.slice(1);
     })
     .filter(step => step.length > 0); // Remove any empty steps
   
+  // If we only have one step or no meaningful splits, return the original
   return steps.length > 1 ? steps : [cleanedDescription];
 };
 
