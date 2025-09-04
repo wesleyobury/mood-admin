@@ -48,38 +48,38 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Walk & Jog Mixer',
           duration: '20 min',
-          description: '3 min brisk walk (3.0 mph), 2 min power walk (4.0 mph, incline 2%), 1 min light jog (5.0 mph), repeat 3x, finish with 3 min walk (3.0 mph, incline 1%).',
-          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHx0cmVhZG1pbGwlMjB3b3Jrb3V0fGVufDF8fHx8MTc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Perfect for beginners with alternating walking and light jogging to gradually build cardiovascular endurance.',
+          description: '5 min walk (3.5 mph), 3 min jog (5 mph), 2 min walk (3 mph), 4 min jog (5.2 mph), 3 min walk (3.5 mph), 3 min jog (5 mph).',
+          imageUrl: 'https://images.unsplash.com/photo-1591291621164-2c6367723315?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8MTc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Perfect beginner introduction with walk-jog intervals that build endurance gradually without overwhelming new exercisers.',
           moodTips: [
             {
-              icon: 'walk',
-              title: 'Heel-to-Toe Stride',
-              description: 'Land on your heel and roll through to your toes for optimal energy transfer and reduced impact on joints.'
+              icon: 'body',
+              title: 'Posture & Form',
+              description: 'Stay tall, no rail-holding; land mid-foot to protect knees.'
             },
             {
-              icon: 'heart',
-              title: 'Maintain 70% Max Heart Rate',
-              description: 'Keep your heart rate at comfortable talking pace during walks, slightly breathless during jogs for maximum fat burn.'
+              icon: 'refresh',
+              title: 'Breathing Pattern',
+              description: 'Breathe rhythmically: 3 steps inhale, 2 steps exhale.'
             }
           ]
         },
         {
           name: 'Rolling Hills',
           duration: '20 min',
-          description: '2 min walk (3.0 mph, incline 0%), 2 min walk (3.0 mph, incline 4%), 2 min walk (3.5 mph, incline 2%), 2 min jog (4.5 mph, incline 0%), repeat sequence, finish with 2 min walk (3.0 mph).',
-          imageUrl: 'https://images.pexels.com/photos/2774172/pexels-photo-2774172.jpeg',
-          intensityReason: 'Uses gentle incline changes and moderate pace increases to build basic strength and endurance safely.',
+          description: '3 min walk (3.5 mph), 4 min incline walk (3.8 mph, 4% incline), 2 min walk (3.5 mph), 5 min incline walk (4 mph, 6% incline), 3 min walk (3.5 mph), 3 min incline walk (3.8 mph, 3% incline).',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHwxfHx3YWxraW5nJTIwdHJlYWRtaWxsfGVufDB8fHx8MTc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Gentle incline progression helps beginners build leg strength and cardiovascular endurance safely.',
           moodTips: [
             {
-              icon: 'trending-up',
-              title: 'Lean Into Inclines',
-              description: 'Slightly lean forward on inclines and pump your arms more to engage core muscles and maintain momentum.'
+              icon: 'walk',
+              title: 'Incline Technique',
+              description: 'Shorten stride, drive knees on inclines; avoid leaning.'
             },
             {
               icon: 'refresh',
-              title: 'Recovery Breathing',
-              description: 'Use flat sections for deep recovery breathing - inhale for 3 steps, exhale for 3 steps to optimize oxygen flow.'
+              title: 'Core Engagement',
+              description: 'Engage core for posture; use arms for momentum.'
             }
           ]
         }
