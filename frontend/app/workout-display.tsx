@@ -179,14 +179,14 @@ const workoutDatabase: EquipmentWorkouts[] = [
           intensityReason: 'Low-impact movement with gentle resistance changes, ideal for building cardio base without joint stress.',
           moodTips: [
             {
-              icon: 'sync',
-              title: 'Smooth Motion',
-              description: 'Focus on fluid, circular motion with your legs and coordinate your arms for full-body engagement.'
+              icon: 'body',
+              title: 'Heel Engagement',
+              description: 'Heels down throughout stride for glute engagement.'
             },
             {
-              icon: 'settings',
-              title: 'Resistance Strategy',
-              description: 'Use higher resistance during moderate phases to build strength, lower resistance for speed intervals.'
+              icon: 'fitness',
+              title: 'Posture & Power',
+              description: 'Upright posture; 70% power from legs, light grip on handles.'
             }
           ]
         },
