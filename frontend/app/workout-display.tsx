@@ -364,14 +364,14 @@ const workoutDatabase: EquipmentWorkouts[] = [
           intensityReason: 'Alternating directions engage different muscle groups while building intermediate cardiovascular capacity.',
           moodTips: [
             {
-              icon: 'swap-horizontal',
-              title: 'Direction Transition',
-              description: 'Smoothly transition between forward and reverse - avoid jerky movements to maintain rhythm and efficiency.'
+              icon: 'fitness',
+              title: 'Grip Variation',
+              description: 'Alternate hand grip to balance muscle use.'
             },
             {
-              icon: 'flame',
-              title: 'Sprint Technique',
-              description: 'During sprints, use quick, controlled movements rather than wild flailing for maximum power output.'
+              icon: 'body',
+              title: 'Smooth Transitions',
+              description: 'Stay braced in core; smooth transitions between directions.'
             }
           ]
         }
