@@ -386,13 +386,13 @@ const workoutDatabase: EquipmentWorkouts[] = [
           moodTips: [
             {
               icon: 'flash',
-              title: 'Max Effort Protocol',
-              description: 'During 30-second sprints, aim for RPM that you could not sustain for even 10 seconds longer.'
+              title: 'Shoulder Power',
+              description: 'Attack sprints from shoulders, not just arms.'
             },
             {
               icon: 'refresh',
-              title: 'Active Recovery',
-              description: 'Keep arms moving during rest periods - complete stop will make the next sprint much more difficult.'
+              title: 'Deep Recovery',
+              description: 'Use recovery for deep, diaphragmatic breathing.'
             }
           ]
         },
@@ -404,14 +404,14 @@ const workoutDatabase: EquipmentWorkouts[] = [
           intensityReason: 'Extended power intervals with reverse work test advanced upper body endurance and strength.',
           moodTips: [
             {
-              icon: 'barbell',
-              title: 'Power Endurance',
-              description: 'Maintain explosive power through all 10 sprints - this builds elite upper body anaerobic capacity.'
+              icon: 'flash',
+              title: 'Speed Focus',
+              description: 'Sprints: focus on speed turnover, not just resistance.'
             },
             {
-              icon: 'repeat',
-              title: 'Reverse Recovery',
-              description: 'Use reverse section as active recovery while still engaging muscles - targets different fiber types.'
+              icon: 'body',
+              title: 'Posture Control',
+              description: 'Reverse block improves posture; maintain control.'
             }
           ]
         }
