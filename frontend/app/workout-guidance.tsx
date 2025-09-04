@@ -759,10 +759,11 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: 'rgba(255, 215, 0, 0.1)',
     borderRadius: 12,
-    padding: 16,
+    padding: 18, // Increased from 16 to 18
     alignItems: 'center',
     borderWidth: 1,
     borderColor: 'rgba(255, 215, 0, 0.2)',
+    minWidth: 100, // Ensure minimum width for longer text
   },
   detailValue: {
     fontSize: 16,
