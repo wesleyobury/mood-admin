@@ -848,13 +848,14 @@ const styles = StyleSheet.create({
     color: '#FFD700',
   },
   detailValueSmall: {
-    fontSize: 14,
+    fontSize: 12, // Reduced from 14 to 12
     fontWeight: 'bold',
     color: '#FFD700',
     marginTop: 8,
     marginBottom: 4,
-    paddingHorizontal: 12,
+    paddingHorizontal: 16, // Increased from 12 to 16
     textAlign: 'center',
+    lineHeight: 14, // Added line height for better spacing
   },
   stepText: {
     fontSize: 16,
