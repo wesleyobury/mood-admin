@@ -33,9 +33,9 @@ const parseWorkoutDescription = (description: string): string[] => {
     .replace(/,+/g, ',') // Replace multiple commas with single comma
     .trim();
 
-  // Enhanced splitting patterns for better readability
+  // More conservative splitting - keep related time-based instructions together
   const steps = cleanedDescription
-    .split(/(?:,\s*)?(?=\d+\s*(?:min|sec))|(?:,\s*)?(?=repeat)|(?:,\s*)?(?=finish with)|(?::\s*)|(?:,\s*(?=\d+\s*(?:rounds?|times?|cycles?|sets?)))/i)
+    .split(/(?:,\s*)?(?=repeat(?:\s+(?:for\s+)?\d+\s*(?:x|times?|cycles?|sets?))|finish with)/i)
     .map(step => step.trim())
     .filter(step => step.length > 0)
     .map(step => {
@@ -53,16 +53,6 @@ const parseWorkoutDescription = (description: string): string[] => {
       
       if (step.toLowerCase().startsWith('finish with')) {
         return `Finish with ${step.substring(11).trim()}`;
-      }
-      
-      // Handle rounds/cycles/sets patterns
-      if (/^\d+\s*(?:rounds?|cycles?|sets?)/.test(step)) {
-        return step.charAt(0).toUpperCase() + step.slice(1);
-      }
-      
-      // Handle time-based patterns (20 sec max effort, etc.)
-      if (/^\d+\s*(?:sec|min)/.test(step)) {
-        return step.charAt(0).toUpperCase() + step.slice(1);
       }
       
       // Capitalize first letter
