@@ -345,14 +345,14 @@ const workoutDatabase: EquipmentWorkouts[] = [
           intensityReason: 'Progressive intensity pyramid challenges intermediate upper body strength and endurance.',
           moodTips: [
             {
-              icon: 'trending-up',
-              title: 'Pyramid Strategy',
-              description: 'Build intensity gradually to the peak, then actively recover on the way down for optimal training effect.'
+              icon: 'flash',
+              title: 'Speed Efficiency',
+              description: 'Shorten strokes at faster speeds for efficiency.'
             },
             {
-              icon: 'battery-charging',
-              title: 'Energy Management',
-              description: 'Save some energy during moderate phases to really push during the hard interval at each pyramid peak.'
+              icon: 'body',
+              title: 'Core Bracing',
+              description: 'Keep core braced; avoid leaning or rocking.'
             }
           ]
         },
