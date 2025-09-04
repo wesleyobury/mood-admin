@@ -94,13 +94,13 @@ const workoutDatabase: EquipmentWorkouts[] = [
           moodTips: [
             {
               icon: 'flash',
-              title: 'Quick Turnover',
-              description: 'Focus on quick, light steps rather than long strides to maintain speed and reduce fatigue.'
+              title: 'Cadence Focus',
+              description: 'Increase cadence, not stride length, for speed.'
             },
             {
-              icon: 'timer',
-              title: 'Pace Control',
-              description: 'Use the incline recovery periods to reset your breathing and prepare for the next speed increase.'
+              icon: 'eye',
+              title: 'Posture & Breathing',
+              description: 'Gaze forward, shoulders relaxed for open lungs.'
             }
           ]
         },
