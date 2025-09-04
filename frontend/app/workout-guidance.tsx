@@ -302,15 +302,13 @@ export default function WorkoutGuidanceScreen() {
               <View key={index} style={styles.tipCard}>
                 <View style={styles.tipCardHeader}>
                   <View style={styles.tipIconContainer}>
-                    <Ionicons name={(tip.icon as any) || 'fitness'} size={28} color="#FFD700" />
-                  </View>
-                  <View style={styles.tipNumber}>
-                    <Text style={styles.tipNumberText}>{index + 1}</Text>
+                    <Ionicons name={(tip.icon as any) || 'fitness'} size={20} color="#FFD700" />
                   </View>
                 </View>
-                <Text style={styles.tipTitle}>{tip.title}</Text>
-                <Text style={styles.tipDescription}>{tip.description}</Text>
-                <View style={styles.tipAccentLine} />
+                <View style={{ flex: 1 }}>
+                  <Text style={styles.tipTitle}>{tip.title}</Text>
+                  <Text style={styles.tipDescription}>{tip.description}</Text>
+                </View>
               </View>
             ))}
           </View>
