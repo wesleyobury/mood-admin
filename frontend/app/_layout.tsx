@@ -35,9 +35,6 @@ export default function RootLayout() {
             <Stack.Screen name="(tabs)" options={{ headerShown: false, title: '', contentStyle: { backgroundColor: '#000000' } }} />
             <Stack.Screen name="auth/login" options={{ headerShown: false, title: '', contentStyle: { backgroundColor: '#000000' } }} />
             <Stack.Screen name="auth/register" options={{ headerShown: false, title: '', contentStyle: { backgroundColor: '#000000' } }} />
-            <Stack.Screen name="workout/[id]" options={{ headerShown: false, title: '', contentStyle: { backgroundColor: '#000000' } }} />
-            <Stack.Screen name="profile/[id]" options={{ headerShown: false, title: '', contentStyle: { backgroundColor: '#000000' } }} />
-            <Stack.Screen name="post/[id]" options={{ headerShown: false, title: '', contentStyle: { backgroundColor: '#000000' } }} />
           </Stack>
         </AuthProvider>
       </SafeAreaProvider>
