@@ -432,13 +432,13 @@ const workoutDatabase: EquipmentWorkouts[] = [
           moodTips: [
             {
               icon: 'bicycle',
-              title: 'Pedal Stroke Efficiency',
-              description: 'Focus on smooth, circular pedaling motion - push down and pull up for maximum power transfer.'
+              title: 'Seat Height',
+              description: 'Adjust seat height so legs get nearly full extension'
             },
             {
               icon: 'settings',
-              title: 'Seat Position',
-              description: 'Adjust seat height so your leg is almost fully extended at the bottom of the pedal stroke for optimal efficiency.'
+              title: 'Glute Power',
+              description: 'Drive from glutes; maintain smooth, light cadence (70+ RPM).'
             }
           ]
         },
