@@ -1,0 +1,299 @@
+,
+  {
+    equipment: 'Barbells',
+    icon: 'barbell',
+    workouts: {
+      beginner: [
+        {
+          name: 'Barbell Metcon',
+          duration: '12 min',
+          description: '8 deadlifts → 8 front squats → 8 push presses → 1 min rest. Repeat 3x (light weight).',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxiYXJiZWxsJTIwd29ya291dHxlbnwwfHx8fDE3NTY4ODMyMzd8MA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Light barbell introduction focusing on proper movement patterns and form development.',
+          moodTips: [
+            {
+              icon: 'body',
+              title: 'Deadlift Form',
+              description: 'Deadlift—bar close, hips hinge, not squat.'
+            },
+            {
+              icon: 'fitness',
+              title: 'Front Squat Technique',
+              description: 'Front squat—elbows high; bar rests on shoulders.'
+            }
+          ]
+        },
+        {
+          name: 'Barbell Cardio Flow',
+          duration: '13 min',
+          description: '6 reps each: hang clean → push press → back squat → bent-over row. Rest 90 sec, repeat 3x.',
+          imageUrl: 'https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwyfHxiYXJiZWxsJTIwZmxvd3xlbnwwfHx8fDE3NTY4ODMyMzd8MA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Smooth barbell flow that teaches coordination between major compound movements.',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Clean Technique',
+              description: 'Cleans—triple extension, catch tall.'
+            },
+            {
+              icon: 'body',
+              title: 'Row Form',
+              description: 'Row—flat back, elbows drive to ribs.'
+            }
+          ]
+        }
+      ],
+      intermediate: [
+        {
+          name: 'Barbell Complex',
+          duration: '16 min',
+          description: '5 reps each, no rest: deadlift → hang power clean → front squat → push press → back squat → bent-over row. Rest 1 min, repeat 4x.',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwzfHxiYXJiZWxsJTIwY29tcGxleHxlbnwwfHx8fDE3NTY4ODMyMzd8MA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Challenging barbell complex requiring strength, endurance, and technical proficiency.',
+          moodTips: [
+            {
+              icon: 'hand-left',
+              title: 'Grip Efficiency',
+              description: 'Hook grip helps efficiency in long sets.'
+            },
+            {
+              icon: 'refresh',
+              title: 'Breathing Strategy',
+              description: 'Exhale on heavy presses/squats for bracing.'
+            }
+          ]
+        },
+        {
+          name: 'Barbell EMOM 12 min',
+          duration: '12 min',
+          description: 'Odd minutes: 8 thrusters. Even minutes: 10 sumo deadlift high pulls.',
+          imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxiYXJiZWxsJTIwZW1vbXxlbnwwfHx8fDE3NTY4ODMyMzd8MA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Time-constrained intervals building power endurance with two demanding barbell movements.',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Thruster Power',
+              description: 'Thrusters—ride bounce out of squat for press.'
+            },
+            {
+              icon: 'trending-up',
+              title: 'High Pull Technique',
+              description: 'High pulls—keep bar close, elbows higher than wrists.'
+            }
+          ]
+        }
+      ],
+      advanced: [
+        {
+          name: 'Barbell Ladder',
+          duration: '18 min',
+          description: '10-8-6-4-2 reps: power clean → push jerk → front squat → burpee over bar. Rest as needed.',
+          imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw1fHxiYXJiZWxsJTIwYWR2YW5jZWR8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Advanced ladder requiring explosive power, strength, and conditioning with complex movements.',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Power Clean Form',
+              description: 'Power clean—catch low, chest tall, core braced.'
+            },
+            {
+              icon: 'body',
+              title: 'Burpee Control',
+              description: 'Burpees—flat landings, avoid sloppy spring.'
+            }
+          ]
+        },
+        {
+          name: 'AMRAP 15 min',
+          duration: '15 min',
+          description: '6 deadlifts → 6 hang cleans → 6 push presses → 6 back squats → 6 bar-facing burpees.',
+          imageUrl: 'https://images.unsplash.com/photo-1517838277536-f5f99be501cd?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw2fHxiYXJiZWxsJTIwYW1yYXB8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'High-intensity AMRAP testing maximum work capacity with full-body barbell movements.',
+          moodTips: [
+            {
+              icon: 'refresh',
+              title: 'Barbell Efficiency',
+              description: 'Cycle barbell efficiently with minimal regrip.'
+            },
+            {
+              icon: 'flash',
+              title: 'Breathing Management',
+              description: 'Burpees—control breathing to avoid burnout.'
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    equipment: 'Med balls',
+    icon: 'basketball',
+    workouts: {
+      beginner: [
+        {
+          name: 'Cardio Circuit',
+          duration: '12 min',
+          description: '10 wall balls → 10 slams → 10 Russian twists (each side) → 1 min rest. Repeat 3x.',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxtZWRpY2luZSUyMGJhbGwlMjB3b3Jrb3V0fGVufDB8fHx8MTc1Njg4MzIzN3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Basic medicine ball movements introducing wall work and core engagement patterns.',
+          moodTips: [
+            {
+              icon: 'eye',
+              title: 'Wall Ball Accuracy',
+              description: 'Wall balls—aim eye-level, full squat range.'
+            },
+            {
+              icon: 'body',
+              title: 'Slam Technique',
+              description: 'Ball slams—hinge hips, flat back.'
+            }
+          ]
+        },
+        {
+          name: 'Flow',
+          duration: '12 min',
+          description: '8 chest passes (wall) → 8 overhead throws → 8 squat to press → 1 min rest. Repeat 3x.',
+          imageUrl: 'https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwyfHxtZWRpY2luZSUyMGJhbGwlMjBmbG93fGVufDB8fHx8MTc1Njg4MzIzN3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Movement flow building upper body power and coordination with medicine ball variations.',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Chest Pass Power',
+              description: 'Chest passes—drive with arms and chest together.'
+            },
+            {
+              icon: 'refresh',
+              title: 'Core Engagement',
+              description: 'Squat to press—tight abs, exhale on drive.'
+            }
+          ]
+        }
+      ],
+      intermediate: [
+        {
+          name: 'AMRAP 10 min',
+          duration: '10 min',
+          description: '10 wall balls → 10 slams → 10 alternating lunges (ball overhead).',
+          imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwzfHxtZWRpY2luZSUyMGJhbGwlMjBhbXJhcHxlbnwwfHx8fDE3NTY4ODMyMzd8MA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Continuous movement AMRAP challenging cardiovascular endurance with overhead stability.',
+          moodTips: [
+            {
+              icon: 'body',
+              title: 'Overhead Control',
+              description: 'Lock arms overhead during lunges.'
+            },
+            {
+              icon: 'refresh',
+              title: 'Slam Power',
+              description: 'Exhale strongly with every slam.'
+            }
+          ]
+        },
+        {
+          name: 'Tabata',
+          duration: '16 min',
+          description: '20 sec work, 10 sec rest: wall balls, slams, rotational throws, squat to press. 4 rounds each, 16 total.',
+          imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxtZWRpY2luZSUyMGJhbGwlMjB0YWJhdGF8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'High-intensity interval training pushing anaerobic capacity with varied medicine ball movements.',
+          moodTips: [
+            {
+              icon: 'eye',
+              title: 'Wall Ball Reset',
+              description: 'Wall ball—catch clean, reset tall chest.'
+            },
+            {
+              icon: 'refresh',
+              title: 'Rotation Safety',
+              description: 'Rotational throws—pivot feet, not knees.'
+            }
+          ]
+        }
+      ],
+      advanced: [
+        {
+          name: 'Med Ball Complex',
+          duration: '16 min',
+          description: '12 wall balls → 10 slams → 8 rotations → 6 burpee to slam. Rest 1 min, repeat 4x.',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw1fHxtZWRpY2luZSUyMGJhbGwlMjBhZHZhbmNlZHxlbnwwfHx8fDE3NTY4ODMyMzd8MA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Advanced complex combining power, core rotation, and explosive movements for maximum challenge.',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Rotation Power',
+              description: 'Rotations—big hip drive, protect knees.'
+            },
+            {
+              icon: 'body',
+              title: 'Burpee Form',
+              description: 'Burpees—keep spine straight on slam pickup.'
+            }
+          ]
+        },
+        {
+          name: 'Sprint Circuit',
+          duration: '20 min',
+          description: '10 wall balls → 20m sprint (with ball) → 10 slams → 20m sprint → 1 min rest. Repeat 5x.',
+          imageUrl: 'https://images.unsplash.com/photo-1517838277536-f5f99be501cd?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw2fHxtZWRpY2luZSUyMGJhbGwlMjBzcHJpbnR8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'High-intensity circuit combining medicine ball work with sprint conditioning for peak performance.',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Sprint Control',
+              description: 'Keep ball close and centered when sprinting.'
+            },
+            {
+              icon: 'refresh',
+              title: 'Transition Speed',
+              description: 'Explosive slams, reset quickly for transition.'
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    equipment: 'Slam balls',
+    icon: 'basketball',
+    workouts: {
+      beginner: [
+        {
+          name: 'Basics',
+          duration: '12 min',
+          description: '10 slams → 10 squat to press → 10 alternating lunges (ball at chest) → 1 min rest. Repeat 3x.',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxzbGFtJTIwYmFsbCUyMHdvcmtvdXR8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Introduction to slam ball fundamentals focusing on proper lifting mechanics and control.',
+          moodTips: [
+            {
+              icon: 'body',
+              title: 'Safe Pickup',
+              description: 'Pick up with squat, not waist bend.'
+            },
+            {
+              icon: 'fitness',
+              title: 'Lunge Position',
+              description: 'Lunges—ball close to chest; spine tall.'
+            }
+          ]
+        },
+        {
+          name: 'Flow',
+          duration: '12 min',
+          description: '8 slams → 8 OH throws → 8 Russian twists (each side) → 1 min rest. Repeat 3x.',
+          imageUrl: 'https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwyfHxzbGFtJTIwYmFsbCUyMGZsb3d8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Movement progression adding overhead power and core rotation to basic slam patterns.',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Overhead Safety',
+              description: 'Overhead throws—hips drive, protect back.'
+            },
+            {
+              icon: 'refresh',
+              title: 'Core Rotation',
+              description: 'Russian twists—rotate torso, not just arms.'
+            }
+          ]
+        }
+      ]
+    }
+  }
