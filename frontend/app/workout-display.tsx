@@ -531,13 +531,13 @@ const workoutDatabase: EquipmentWorkouts[] = [
           moodTips: [
             {
               icon: 'trophy',
-              title: 'Mental Toughness',
-              description: 'This workout tests your mental limits - break it into segments and focus on completing each phase.'
+              title: 'Effort Pacing',
+              description: 'Pace "hard" sections; drive through heels on standing climbs.'
             },
             {
-              icon: 'body',
-              title: 'Standing Position',
-              description: 'During standing climbs, keep core engaged and avoid rocking side to side for maximum power efficiency.'
+              icon: 'refresh',
+              title: 'Consistent Focus',
+              description: 'Focus on consistent effort and smooth transitions.'
             }
           ]
         }
