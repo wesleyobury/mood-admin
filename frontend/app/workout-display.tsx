@@ -1767,7 +1767,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Kettlebell Complex',
           duration: '20 min',
-          description: '6 reps each, no rest: swing → clean → front squat → push press → snatch (each side). Rest 1 min, repeat 5x.',
+          description: '6 reps each, no rest:\nswing\nclean\nfront squat\npush press\nsnatch (each side)\nRest 1 min, repeat 5x.',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw1fHxrZXR0bGViZWxsJTIwYWR2YW5jZWR8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Advanced complex demanding mastery of all major kettlebell movements with minimal rest.',
           moodTips: [
