@@ -1601,7 +1601,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Dumbbell Complex',
           duration: '16 min',
-          description: 'Complex Circuit: 6 reps each movement, no rest between exercises: deadlift → hang clean → front squat → push press → reverse lunge. Rest 1 min between rounds. Complete 4 total rounds.',
+          description: '6 reps deadlift, 6 reps hang clean, 6 reps front squat, 6 reps push press, 6 reps reverse lunge (no rest between exercises), 1 min rest between rounds, repeat 4 rounds.',
           imageUrl: 'https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwzfHxkdW1iYmVsbCUyMGNvbXBsZXh8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Challenging complex that combines multiple movement patterns for increased strength and conditioning.',
           moodTips: [
