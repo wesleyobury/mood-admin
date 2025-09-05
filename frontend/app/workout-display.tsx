@@ -1979,7 +1979,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'AMRAP 10 min',
           duration: '10 min',
-          description: '10 wall balls → 10 slams → 10 alternating lunges (ball overhead).',
+          description: '10 wall balls\n10 slams\n10 alternating lunges (ball overhead).',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwzfHxtZWRpY2luZSUyMGJhbGwlMjBhbXJhcHxlbnwwfHx8fDE3NTY4ODMyMzd8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Continuous movement AMRAP challenging cardiovascular endurance with overhead stability.',
           moodTips: [
