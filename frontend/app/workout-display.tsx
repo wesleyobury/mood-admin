@@ -1332,14 +1332,14 @@ const workoutDatabase: EquipmentWorkouts[] = [
           intensityReason: 'Varied pace work introduces beginners to different climbing intensities with adequate recovery.',
           moodTips: [
             {
-              icon: 'speedometer',
-              title: 'Pace Control',
-              description: 'Learn to control your climbing pace - faster isn\'t always better if it compromises form and coordination.'
+              icon: 'refresh',
+              title: 'Breathing Match',
+              description: 'Match breathing rhythm to pace changes.'
             },
             {
-              icon: 'refresh',
-              title: 'Recovery Importance',
-              description: 'Use rest periods to reset your form and breathing - this prevents fatigue from degrading technique.'
+              icon: 'fitness',
+              title: 'Push-Pull Sequence',
+              description: 'Push with legs, then pull with arms.'
             }
           ]
         }
