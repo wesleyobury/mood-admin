@@ -994,14 +994,14 @@ const workoutDatabase: EquipmentWorkouts[] = [
           intensityReason: 'Progressive time increases test intermediate endurance and mental focus during sustained efforts.',
           moodTips: [
             {
-              icon: 'timer',
-              title: 'Time Progression',
-              description: 'Build intensity gradually through the pyramid - the 3-minute hard intervals are the real test.'
+              icon: 'trending-up',
+              title: 'Output Building',
+              description: 'Build output slowly during longer "hard" sets.'
             },
             {
-              icon: 'trophy',
-              title: 'Mental Preparation',
-              description: 'Use easy intervals to mentally prepare for the next challenge - visualization improves performance.'
+              icon: 'timer',
+              title: 'Split Tracking',
+              description: 'Track split time to ensure consistent performance.'
             }
           ]
         }
