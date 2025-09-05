@@ -1227,14 +1227,14 @@ const workoutDatabase: EquipmentWorkouts[] = [
           intensityReason: 'Complex combinations and power work challenge intermediate coordination and cardiovascular fitness.',
           moodTips: [
             {
-              icon: 'flash',
-              title: 'Power Punch Technique',
-              description: 'For power punches, engage your whole body - drive from your legs, rotate your core, and snap your punches.'
+              icon: 'body',
+              title: 'Power Punches',
+              description: 'Sit into punches for power; brace core.'
             },
             {
-              icon: 'repeat',
-              title: 'Combination Flow',
-              description: 'Practice smooth transitions between punches in combinations - rhythm and flow increase effectiveness.'
+              icon: 'flash',
+              title: 'Clean Returns',
+              description: 'Focus on crisp, clean punch return.'
             }
           ]
         },
