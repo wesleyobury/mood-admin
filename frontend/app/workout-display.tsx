@@ -1601,7 +1601,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Dumbbell Complex',
           duration: '16 min',
-          description: '6 reps each, no rest between: deadlift → hang clean → front squat → push press → reverse lunge. Rest 1 min, repeat 4x.',
+          description: 'Complex Circuit: 6 reps each movement, no rest between exercises: deadlift → hang clean → front squat → push press → reverse lunge. Rest 1 min between rounds. Complete 4 total rounds.',
           imageUrl: 'https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwzfHxkdW1iYmVsbCUyMGNvbXBsZXh8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Challenging complex that combines multiple movement patterns for increased strength and conditioning.',
           moodTips: [
@@ -1620,7 +1620,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'EMOM 12 min',
           duration: '12 min',
-          description: 'Odd minutes: 10 dumbbell thrusters. Even minutes: 12 alternating renegade rows.',
+          description: 'Every Minute on the Minute: Odd minutes (1,3,5,7,9,11) - 10 dumbbell thrusters. Even minutes (2,4,6,8,10,12) - 12 alternating renegade rows.',
           imageUrl: 'https://images.unsplash.com/photo-1598971861713-54ad16c5b44b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxkdW1iYmVsbCUyMGNpcmN1aXR8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Time-based intervals challenge muscular endurance and cardiovascular capacity with precise rest periods.',
           moodTips: [
