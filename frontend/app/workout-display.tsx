@@ -1561,7 +1561,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Dumbbell Cardio Circuit',
           duration: '16 min',
-          description: 'Circuit Format: 30 sec goblet squat → 30 sec alternating reverse lunge → 30 sec push press → 30 sec rest. Complete 4 total rounds.',
+          description: '30 sec goblet squat, 30 sec alternating reverse lunge, 30 sec push press, 30 sec rest, repeat 4 rounds.',
           imageUrl: 'https://images.unsplash.com/photo-1571390263724-7e0bd2cb3b77?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxkdW1iYmVsbCUyMHdvcmtvdXR8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Perfect beginner circuit combining functional movements with rest periods for gradual strength building.',
           moodTips: [
