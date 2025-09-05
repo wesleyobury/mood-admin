@@ -558,13 +558,13 @@ const workoutDatabase: EquipmentWorkouts[] = [
           moodTips: [
             {
               icon: 'sync',
-              title: 'Coordinate Arms & Legs',
-              description: 'Push and pull with your arms while pedaling - this full-body coordination maximizes calorie burn.'
+              title: 'Arm-Leg Sync',
+              description: 'Push and pull equally on handles; synchronize.'
             },
             {
-              icon: 'pulse',
-              title: 'Heart Rate Awareness',
-              description: 'Assault bikes raise heart rate quickly - start conservatively and build intensity gradually.'
+              icon: 'settings',
+              title: 'Seat Height',
+              description: 'Adjust seat height so legs get nearly full extension'
             }
           ]
         },
