@@ -684,13 +684,13 @@ const workoutDatabase: EquipmentWorkouts[] = [
           moodTips: [
             {
               icon: 'boat',
-              title: 'Proper Rowing Form',
-              description: 'Drive with your legs first, then engage your back and arms - this sequence maximizes power and prevents injury.'
+              title: 'Sequence Form',
+              description: 'Legs, then hips, then arms; reverse for recovery.'
             },
             {
               icon: 'body',
-              title: 'Core Engagement',
-              description: 'Keep your core tight throughout the stroke to maintain proper posture and protect your lower back.'
+              title: 'Chain Position',
+              description: 'Keep chain at mid-chest; spine neutral, eyes forward.'
             }
           ]
         },
