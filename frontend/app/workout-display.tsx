@@ -1372,14 +1372,14 @@ const workoutDatabase: EquipmentWorkouts[] = [
           intensityReason: 'Variable interval lengths develop intermediate pacing skills during vertical climbing movement.',
           moodTips: [
             {
-              icon: 'timer',
-              title: 'Time Awareness',
-              description: 'Learn to pace yourself for different interval lengths - 30 seconds requires different strategy than 1 minute.'
+              icon: 'body',
+              title: 'Stride Adjustment',
+              description: 'Adjust stride length for different paces.'
             },
             {
-              icon: 'battery-charging',
-              title: 'Energy Management',
-              description: 'Use moderate phases to maintain movement while allowing partial recovery between intense efforts.'
+              icon: 'flash',
+              title: 'Steady Tension',
+              description: 'Keep tension steady; avoid wasted effort.'
             }
           ]
         }
