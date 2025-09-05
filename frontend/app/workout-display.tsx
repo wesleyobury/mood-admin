@@ -954,14 +954,14 @@ const workoutDatabase: EquipmentWorkouts[] = [
           intensityReason: 'Varied resistance levels introduce beginners to full-body ski motion gradually.',
           moodTips: [
             {
-              icon: 'settings',
-              title: 'Resistance Strategy',
-              description: 'Higher resistance builds strength, lower resistance allows for speed - learn to adjust based on your goals.'
+              icon: 'flash',
+              title: 'Pull Control',
+              description: 'Explosive pull, smooth recovery; control downstroke.'
             },
             {
-              icon: 'sync',
-              title: 'Rhythm Development',
-              description: 'Focus on finding a sustainable rhythm that you can maintain throughout longer intervals.'
+              icon: 'refresh',
+              title: 'Core Breathing',
+              description: 'Breathe out forcefully with each pull for core engagement.'
             }
           ]
         }
