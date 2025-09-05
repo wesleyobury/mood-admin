@@ -1551,8 +1551,260 @@ const workoutDatabase: EquipmentWorkouts[] = [
         }
       ]
     }
+  },
+  // Weight Equipment Workouts
+  {
+    equipment: 'Dumbbells',
+    icon: 'barbell',
+    workouts: {
+      beginner: [
+        {
+          name: 'Dumbbell Cardio Circuit',
+          duration: '16 min',
+          description: '30 sec goblet squat → 30 sec alternating reverse lunge → 30 sec push press → 30 sec rest. Repeat 4x.',
+          imageUrl: 'https://images.unsplash.com/photo-1571390263724-7e0bd2cb3b77?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxkdW1iYmVsbCUyMHdvcmtvdXR8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Perfect beginner circuit combining functional movements with rest periods for gradual strength building.',
+          moodTips: [
+            {
+              icon: 'body',
+              title: 'Form Focus',
+              description: 'Chest tall in squats/lunges; knees track toes.'
+            },
+            {
+              icon: 'refresh',
+              title: 'Core Stability',
+              description: 'Exhale hard on push press to stabilize core.'
+            }
+          ]
+        },
+        {
+          name: 'Dumbbell Flow',
+          duration: '12 min',
+          description: '8 reps squat to press → 8 reps alternating snatch (light) → 8 reps bent-over row → 1 min rest. Repeat 3x.',
+          imageUrl: 'https://images.unsplash.com/photo-1574680096145-d05b474e2155?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwyfHxkdW1iYmVsbCUyMHRyYWluaW5nfGVufDB8fHx8MTc1Njg4MzIzN3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Smooth movement flow that teaches basic dumbbell transitions and builds coordination.',
+          moodTips: [
+            {
+              icon: 'body',
+              title: 'Spine Alignment',
+              description: 'Neutral spine in rows; hinge at hips, not back.'
+            },
+            {
+              icon: 'flash',
+              title: 'Movement Flow',
+              description: 'Smooth transitions—don\'t drop dumbbells between moves.'
+            }
+          ]
+        }
+      ],
+      intermediate: [
+        {
+          name: 'Dumbbell Complex',
+          duration: '16 min',
+          description: '6 reps each, no rest between: deadlift → hang clean → front squat → push press → reverse lunge. Rest 1 min, repeat 4x.',
+          imageUrl: 'https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwzfHxkdW1iYmVsbCUyMGNvbXBsZXh8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Challenging complex that combines multiple movement patterns for increased strength and conditioning.',
+          moodTips: [
+            {
+              icon: 'body',
+              title: 'Grip Control',
+              description: 'Reset grip/stance each move; protect wrists.'
+            },
+            {
+              icon: 'refresh',
+              title: 'Power Breathing',
+              description: 'Exhale forcefully on press/lunge for power.'
+            }
+          ]
+        },
+        {
+          name: 'EMOM 12 min',
+          duration: '12 min',
+          description: 'Odd minutes: 10 dumbbell thrusters. Even minutes: 12 alternating renegade rows.',
+          imageUrl: 'https://images.unsplash.com/photo-1598971861713-54ad16c5b44b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxkdW1iYmVsbCUyMGNpcmN1aXR8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Time-based intervals challenge muscular endurance and cardiovascular capacity with precise rest periods.',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Hip Drive',
+              description: 'Thrusters—power from hips, not arms.'
+            },
+            {
+              icon: 'body',
+              title: 'Core Stability',
+              description: 'Renegade rows—keep hips steady; avoid twisting.'
+            }
+          ]
+        }
+      ],
+      advanced: [
+        {
+          name: 'Dumbbell Ladder',
+          duration: '15 min',
+          description: '10-8-6-4-2 reps: squat clean → push press → burpee over dumbbell. Rest as needed.',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw1fHxkdW1iYmVsbCUyMGFkdmFuY2VkfGVufDB8fHx8MTc1Njg4MzIzN3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Descending ladder format with complex movements demands advanced strength, power, and conditioning.',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Clean Technique',
+              description: 'Catch dumbbells close to shoulders, not out front.'
+            },
+            {
+              icon: 'body',
+              title: 'Landing Control',
+              description: 'Controlled burpee jump—tight core, avoid sloppy landings.'
+            }
+          ]
+        },
+        {
+          name: 'AMRAP 15 min',
+          duration: '15 min',
+          description: '10 alternating snatches → 10 goblet jump squats → 10 push-up to row (5/side) → 10 alternating lunges (holding dumbbells).',
+          imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw2fHxkdW1iYmVsbCUyMGNhcmRpb3xlbnwwfHx8fDE3NTY4ODMyMzd8MA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'High-intensity AMRAP combining power movements with plyometrics for maximum metabolic challenge.',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Snatch Power',
+              description: 'Snatches—hips drive, lock arms overhead.'
+            },
+            {
+              icon: 'body',
+              title: 'Joint Protection',
+              description: 'Land soft in squat jumps to save knees.'
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    equipment: 'Kettle bells',
+    icon: 'fitness',
+    workouts: {
+      beginner: [
+        {
+          name: 'Swing & Carry',
+          duration: '15 min',
+          description: '20 sec swings → 40 sec farmer\'s carry (walk) → 1 min rest. Repeat 5x.',
+          imageUrl: 'https://images.unsplash.com/photo-1566241134850-541012f1d4cf?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxrZXR0bGViZWxsJTIwd29ya291dHxlbnwwfHx8fDE3NTY4ODMyMzd8MA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Basic kettlebell introduction combining hip hinge movement with stability training.',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Hip Hinge Technique',
+              description: 'Swings—hinge hips, glutes drive; don\'t squat.'
+            },
+            {
+              icon: 'body',
+              title: 'Posture Control',
+              description: 'Farmer\'s carry—shoulders back, core tight, walk tall.'
+            }
+          ]
+        },
+        {
+          name: 'Cardio Flow',
+          duration: '12 min',
+          description: '8 goblet squats → 8 single-arm swings (each side) → 8 overhead presses (each side) → 1 min rest. Repeat 3x.',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwyfHxrZXR0bGViZWxsJTIwZmxvd3xlbnwwfHx8fDE3NTY4ODMyMzd8MA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Progressive flow that builds kettlebell familiarity with controlled movement patterns.',
+          moodTips: [
+            {
+              icon: 'body',
+              title: 'Press Technique',
+              description: 'Elbows tucked on presses—avoid flaring.'
+            },
+            {
+              icon: 'flash',
+              title: 'Swing Control',
+              description: 'Control swing arc; don\'t let bell pull forward.'
+            }
+          ]
+        }
+      ],
+      intermediate: [
+        {
+          name: 'Kettlebell Ladder',
+          duration: '16 min',
+          description: '10 swings → 8 cleans (4/side) → 6 snatches (3/side) → 4 goblet squats → 2 push presses (each side). Rest 1 min, repeat 4x.',
+          imageUrl: 'https://images.unsplash.com/photo-1517838277536-f5f99be501cd?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwzfHxrZXR0bGViZWxsJTIwdHJhaW5pbmd8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Complex ladder format challenging coordination and strength across multiple kettlebell movements.',
+          moodTips: [
+            {
+              icon: 'body',
+              title: 'Clean Technique',
+              description: 'Rotate wrist under on cleans to protect forearm.'
+            },
+            {
+              icon: 'refresh',
+              title: 'Breathing Control',
+              description: 'Exhale at top of snatch/press for core stability.'
+            }
+          ]
+        },
+        {
+          name: 'Tabata Kettlebell',
+          duration: '16 min',
+          description: '20 sec work, 10 sec rest, alternate: swings, goblet squats, alternating lunges, high pulls. 4 rounds each, 16 total intervals.',
+          imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxrZXR0bGViZWxsJTIwdGFiYXRhfGVufDB8fHx8MTc1Njg4MzIzN3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'High-intensity intervals that push cardiovascular limits with varied kettlebell movements.',
+          moodTips: [
+            {
+              icon: 'body',
+              title: 'Form Under Fatigue',
+              description: 'Keep spine neutral under fatigue.'
+            },
+            {
+              icon: 'flash',
+              title: 'Glute Engagement',
+              description: 'Engage glutes fully on squats/lunges.'
+            }
+          ]
+        }
+      ],
+      advanced: [
+        {
+          name: 'Kettlebell Complex',
+          duration: '20 min',
+          description: '6 reps each, no rest: swing → clean → front squat → push press → snatch (each side). Rest 1 min, repeat 5x.',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw1fHxrZXR0bGViZWxsJTIwYWR2YW5jZWR8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Advanced complex demanding mastery of all major kettlebell movements with minimal rest.',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Flow Efficiency',
+              description: 'Flow smoothly; minimize pausing.'
+            },
+            {
+              icon: 'body',
+              title: 'Bell Control',
+              description: 'Core tight—bell close to body always.'
+            }
+          ]
+        },
+        {
+          name: 'AMRAP 15 min',
+          duration: '15 min',
+          description: '10 double swings → 8 alternating snatches → 6 goblet jump squats → 4 Turkish get-ups (2/side).',
+          imageUrl: 'https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw2fHxrZXR0bGViZWxsJTIwYW1yYXB8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Maximum intensity AMRAP combining power, agility, and complex movement patterns.',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Double Swing Power',
+              description: 'Double swings—lats engaged, neutral wrists.'
+            },
+            {
+              icon: 'body',
+              title: 'Turkish Get-up Control',
+              description: 'Turkish get-up—slow, stacked joints overhead.'
+            }
+          ]
+        }
+      ]
+    }
   }
-];
 
 interface WorkoutCardProps {
   equipment: string;
