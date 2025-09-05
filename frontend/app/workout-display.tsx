@@ -2794,7 +2794,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Tire Flip & Sprint',
           duration: '16 min',
-          description: '6 flips → 20m sprint → 6 flips → 20m sprint → 1 min rest. Repeat 4x.',
+          description: '6 flips → 20 meters sprint → 6 flips → 20 meters sprint → 1 min rest. Repeat 4x.',
           imageUrl: 'https://images.unsplash.com/photo-1517838277536-f5f99be501cd?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw2fHx0aXJlJTIwZmxpcCUyMHNwcmludHxlbnwwfHx8fDE3NTY4ODMyMzd8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Ultimate power-speed combination challenging maximum strength output followed by speed work.',
           moodTips: [
