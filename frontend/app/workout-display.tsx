@@ -2357,7 +2357,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Sprint Intervals',
           duration: '10 min',
-          description: '10m sprint push → walk back → repeat 10x.',
+          description: '10 meters sprint push → walk back → repeat 10x.',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwzfHxzbGVkJTIwc3ByaW50fGVufDB8fHx8MTc1Njg4MzIzN3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Power-focused sprint intervals building explosive leg drive and conditioning.',
           moodTips: [
@@ -2376,7 +2376,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Push & Drag',
           duration: '16 min',
-          description: '10m push → 10m backward drag → 10m sideways push → 1 min rest. Repeat 4x.',
+          description: '10 meters push → 10 meters backward drag → 10 meters sideways push → 1 min rest. Repeat 4x.',
           imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxzbGVkJTIwZHJhZ3xlbnwwfHx8fDE3NTY4ODMyMzd8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Multi-directional sled work challenging different movement patterns and muscle groups.',
           moodTips: [
