@@ -1680,7 +1680,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
     }
   },
   {
-    equipment: 'Kettle bells',
+    equipment: 'Removed Kettlebells',
     icon: 'fitness',
     workouts: {
       beginner: [
