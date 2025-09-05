@@ -1458,14 +1458,14 @@ const workoutDatabase: EquipmentWorkouts[] = [
           intensityReason: 'Alternates between rope work and footwork practice to build coordination gradually.',
           moodTips: [
             {
-              icon: 'walk',
-              title: 'Footwork Practice',
-              description: 'Use step touch intervals to practice footwork patterns without the rope - this builds coordination.'
+              icon: 'trending-up',
+              title: 'High Knees Form',
+              description: 'Lift knees for high knees; don\'t kick heels back.'
             },
             {
-              icon: 'refresh',
-              title: 'Active Recovery',
-              description: 'Step touch serves as active recovery while maintaining the jumping movement pattern.'
+              icon: 'timer',
+              title: 'Speed Building',
+              description: 'Start slow for coordination; build speed gradually.'
             }
           ]
         }
