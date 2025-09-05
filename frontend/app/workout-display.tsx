@@ -1580,7 +1580,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Dumbbell Flow',
           duration: '12 min',
-          description: 'Flow Sequence: 8 reps squat to press → 8 reps alternating snatch (light weight) → 8 reps bent-over row → 1 min rest. Complete 3 total rounds.',
+          description: '8 reps squat to press, 8 reps alternating snatch (light weight), 8 reps bent-over row, 1 min rest, repeat 3 rounds.',
           imageUrl: 'https://images.unsplash.com/photo-1574680096145-d05b474e2155?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwyfHxkdW1iYmVsbCUyMHRyYWluaW5nfGVufDB8fHx8MTc1Njg4MzIzN3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Smooth movement flow that teaches basic dumbbell transitions and builds coordination.',
           moodTips: [
