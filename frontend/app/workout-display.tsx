@@ -1520,13 +1520,13 @@ const workoutDatabase: EquipmentWorkouts[] = [
           moodTips: [
             {
               icon: 'flash',
-              title: 'Maximum Speed',
-              description: 'Push your rope speed to the absolute limit while maintaining perfect jumping form and rhythm.'
+              title: 'Wrist Efficiency',
+              description: 'Explosive wrist action for double-unders; efficiency over height.'
             },
             {
-              icon: 'stopwatch',
-              title: 'Rest Efficiency',
-              description: 'Use 10-second rests to prepare mentally for the next sprint - stay loose but focused.'
+              icon: 'refresh',
+              title: 'Breathing Pattern',
+              description: 'Lock in a steady, deep breathing pattern.'
             }
           ]
         },
