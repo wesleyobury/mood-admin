@@ -1267,14 +1267,14 @@ const workoutDatabase: EquipmentWorkouts[] = [
           intensityReason: 'High-intensity intervals demand maximum power, speed, and coordination from advanced fighters.',
           moodTips: [
             {
-              icon: 'flame',
-              title: 'Maximum Intensity',
-              description: 'Give everything you have for 45 seconds - combine power, speed, and complex combinations at maximum effort.'
+              icon: 'flash',
+              title: 'Max Combos',
+              description: 'Max effort combos every round; explosive bursts.'
             },
             {
-              icon: 'stopwatch',
-              title: 'Rest Discipline',
-              description: 'Use 15-second rests to briefly recover while staying mentally focused for the next explosive round.'
+              icon: 'walk',
+              title: 'Light Recovery',
+              description: 'Stay light-footed during rest periods; active recovery.'
             }
           ]
         },
