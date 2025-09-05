@@ -1394,13 +1394,13 @@ const workoutDatabase: EquipmentWorkouts[] = [
           moodTips: [
             {
               icon: 'flash',
-              title: 'Sprint Explosiveness',
-              description: 'During sprints, maximize both arm and leg speed while maintaining perfect climbing coordination.'
+              title: 'Explosive Drive',
+              description: 'Explosive arm-leg drive on sprints.'
             },
             {
-              icon: 'refresh',
-              title: 'Active Recovery',
-              description: 'Keep climbing during moderate phases - this maintains movement pattern while allowing recovery.'
+              icon: 'body',
+              title: 'Controlled Motion',
+              description: 'Slow phases: focus on controlled, deliberate motion.'
             }
           ]
         },
