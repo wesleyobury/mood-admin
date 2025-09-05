@@ -975,14 +975,14 @@ const workoutDatabase: EquipmentWorkouts[] = [
           intensityReason: 'Interval structure challenges intermediate users with varying intensity demands on full-body coordination.',
           moodTips: [
             {
-              icon: 'trending-up',
-              title: 'Power Generation',
-              description: 'During hard intervals, focus on powerful arm pulls and leg drives to maximize calorie burn and fitness gains.'
+              icon: 'body',
+              title: 'Full Stroke',
+              description: 'Hands finish low near thighs for full stroke.'
             },
             {
               icon: 'refresh',
-              title: 'Recovery Technique',
-              description: 'Use moderate and slow intervals to maintain movement while allowing your heart rate to recover.'
+              title: 'Recovery Patience',
+              description: 'Avoid rushing recovery; allow power spikes to be effective.'
             }
           ]
         },
