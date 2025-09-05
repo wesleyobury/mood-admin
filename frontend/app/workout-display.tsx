@@ -1660,7 +1660,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'AMRAP 15 min',
           duration: '15 min',
-          description: 'AMRAP (As Many Rounds As Possible) for 15 minutes: 10 alternating snatches, 10 goblet jump squats, 10 push-up to row (5 per side), 10 alternating lunges (holding dumbbells). Complete as many full rounds as possible.',
+          description: '10 alternating snatches, 10 goblet jump squats, 10 push-up to row (5 per side), 10 alternating lunges (holding dumbbells), complete as many rounds as possible in 15 minutes.',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw2fHxkdW1iYmVsbCUyMGNhcmRpb3xlbnwwfHx8fDE3NTY4ODMyMzd8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'High-intensity AMRAP combining power movements with plyometrics for maximum metabolic challenge.',
           moodTips: [
