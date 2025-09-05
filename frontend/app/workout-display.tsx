@@ -1479,14 +1479,14 @@ const workoutDatabase: EquipmentWorkouts[] = [
           intensityReason: 'Multiple jumping patterns challenge intermediate coordination and cardiovascular fitness.',
           moodTips: [
             {
-              icon: 'repeat',
-              title: 'Pattern Transitions',
-              description: 'Practice smooth transitions between different jumping patterns - this improves agility and coordination.'
+              icon: 'body',
+              title: 'Soft Landing',
+              description: 'Land softly to protect shins and joints.'
             },
             {
-              icon: 'settings',
-              title: 'Technique Focus',
-              description: 'Maintain proper form even as patterns get more complex - quality over speed builds better fitness.'
+              icon: 'flash',
+              title: 'Efficient Turns',
+              description: 'Use short, efficient rope turns; minimize arm movement.'
             }
           ]
         },
