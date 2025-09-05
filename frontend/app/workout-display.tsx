@@ -1853,7 +1853,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Barbell Complex',
           duration: '16 min',
-          description: '5 reps each, no rest: deadlift → hang power clean → front squat → push press → back squat → bent-over row. Rest 1 min, repeat 4x.',
+          description: '5 reps each, no rest:\ndeadlift\nhang power clean\nfront squat\npush press\nback squat\nbent-over row\nRest 1 min, repeat 4x.',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwzfHxiYXJiZWxsJTIwY29tcGxleHxlbnwwfHx8fDE3NTY4ODMyMzd8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Challenging barbell complex requiring strength, endurance, and technical proficiency.',
           moodTips: [
