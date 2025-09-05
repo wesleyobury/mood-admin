@@ -849,14 +849,14 @@ const workoutDatabase: EquipmentWorkouts[] = [
           intensityReason: 'Mixed stepping patterns and intensities challenge intermediate users with both speed and coordination demands.',
           moodTips: [
             {
-              icon: 'repeat',
-              title: 'Side Step Technique',
-              description: 'When side stepping, lead with one leg and follow with the other - this engages different muscle fibers.'
+              icon: 'body',
+              title: 'Side Step Form',
+              description: 'Side steps: keep knees soft, engage outer glutes.'
             },
             {
               icon: 'flash',
-              title: 'Speed Control',
-              description: 'During fast intervals, maintain control and form - speed without technique leads to inefficient movement.'
+              title: 'Arm Swing',
+              description: 'Strong arm swing aids rhythm and balance.'
             }
           ]
         },
@@ -868,14 +868,14 @@ const workoutDatabase: EquipmentWorkouts[] = [
           intensityReason: 'Continuous climbing with varied techniques builds intermediate-level lower body strength and endurance.',
           moodTips: [
             {
-              icon: 'trending-up',
-              title: 'Progressive Challenge',
-              description: 'Each round should feel slightly harder as fatigue builds - focus on maintaining good form throughout.'
+              icon: 'fitness',
+              title: 'Double Step Power',
+              description: 'Treat double steps as strength work.'
             },
             {
-              icon: 'battery-charging',
-              title: 'Energy Conservation',
-              description: 'Use slow intervals to recover while still working - this builds endurance without complete exhaustion.'
+              icon: 'trending-up',
+              title: 'Pace Maintenance',
+              description: 'Don\'t let steady pace drift; maintain effort.'
             }
           ]
         }
@@ -890,32 +890,32 @@ const workoutDatabase: EquipmentWorkouts[] = [
           moodTips: [
             {
               icon: 'flash',
-              title: 'Maximum Intensity',
-              description: 'During fast intervals, push your stepping rate to the limit while maintaining perfect form and control.'
+              title: 'Rhythm Control',
+              description: 'Maintain rhythm on fast sets; avoid choppy steps.'
             },
             {
-              icon: 'trophy',
-              title: 'Mental Focus',
-              description: 'Complex stepping patterns require intense concentration - stay mentally engaged throughout the workout.'
+              icon: 'fitness',
+              title: 'Full Engagement',
+              description: 'Master side/double steps for full leg engagement.'
             }
           ]
         },
         {
           name: 'HIIT Steps',
           duration: '20 min',
-          description: '30 sec sprint, 1 min moderate, 30 sec skip steps, 1 min slow, repeat 5x.',
+          description: '30 sec sprint, 90 sec moderate, 30 sec skip-step, 90 sec easy, repeat 5x.',
           imageUrl: 'https://images.pexels.com/photos/2774172/pexels-photo-2774172.jpeg',
-          intensityReason: 'High-intensity intervals with skip steps push advanced users to maximum power and agility limits.',
+          intensityReason: 'High-intensity intervals with plyometric skip-steps challenge advanced explosive power and recovery.',
           moodTips: [
             {
-              icon: 'stopwatch',
-              title: 'Sprint Protocol',
-              description: 'During 30-second sprints, step as fast as possible while maintaining control - this builds explosive power.'
+              icon: 'flash',
+              title: 'Explosive Power',
+              description: 'Explode on sprint and skip-step phases.'
             },
             {
-              icon: 'settings',
-              title: 'Skip Step Mastery',
-              description: 'Skip steps require precise timing and power - focus on landing softly and maintaining rhythm.'
+              icon: 'body',
+              title: 'Light Footwork',
+              description: 'Stay light-footed to protect knees.'
             }
           ]
         }
