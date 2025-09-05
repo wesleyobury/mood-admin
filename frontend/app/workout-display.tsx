@@ -1678,10 +1678,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
         }
       ]
     }
-  },
-  {
-    equipment: 'Removed Kettlebells',
-    icon: 'fitness',
+  }
     workouts: {
       beginner: [
         {
