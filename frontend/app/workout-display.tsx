@@ -2562,7 +2562,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
     }
   },
   {
-    equipment: 'Sledgehammer & tire',
+    equipment: 'Sledge hammer & tire',
     icon: 'hammer',
     workouts: {
       beginner: [
