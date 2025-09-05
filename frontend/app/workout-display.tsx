@@ -1034,14 +1034,14 @@ const workoutDatabase: EquipmentWorkouts[] = [
           intensityReason: 'Tabata-style intervals push advanced users to maximum anaerobic capacity with full-body engagement.',
           moodTips: [
             {
-              icon: 'stopwatch',
-              title: 'Maximum Effort',
-              description: 'Give everything you have for 20 seconds - this protocol demands absolute maximum intensity.'
+              icon: 'flash',
+              title: 'Pull Maximum',
+              description: 'Max pulls per 20-sec interval; stay tall.'
             },
             {
-              icon: 'battery-charging',
-              title: 'Rest Efficiency',
-              description: 'Use 10-second rests to prepare mentally for the next all-out effort while staying loosely active.'
+              icon: 'refresh',
+              title: 'Controlled Recovery',
+              description: 'Controlled recovery; focus on deep breaths.'
             }
           ]
         }
