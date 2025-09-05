@@ -1313,14 +1313,14 @@ const workoutDatabase: EquipmentWorkouts[] = [
           intensityReason: 'Equal work-to-rest ratio helps beginners adapt to full-body climbing motion safely.',
           moodTips: [
             {
-              icon: 'triangle',
-              title: 'Climbing Coordination',
-              description: 'Coordinate opposite arm and leg movements - when right arm pulls up, left leg steps up.'
+              icon: 'body',
+              title: 'Smooth Control',
+              description: 'Smooth, controlled steps; avoid jerky movements.'
             },
             {
-              icon: 'body',
-              title: 'Core Engagement',
-              description: 'Keep your core tight throughout the climbing motion to maintain stability and maximize efficiency.'
+              icon: 'fitness',
+              title: 'Leg Priority',
+              description: 'Engage legs primarily; arms assist lightly.'
             }
           ]
         },
