@@ -77,6 +77,9 @@ export default function WorkoutGuidanceScreen() {
   const difficulty = params.difficulty as string || 'beginner';
   const workoutType = params.workoutType as string || 'Cardio Based';
   
+  // Format workout type to show "Cardio" suffix for weight workouts  
+  const displayWorkoutType = workoutType === 'Weight Based' ? 'Weight Based Cardio' : workoutType;
+  
   // Parse MOOD tips from params (passed as JSON string)
   const moodTipsParam = params.moodTips as string || '[]';
   let moodTips: MOODTip[] = [];
