@@ -1354,13 +1354,13 @@ const workoutDatabase: EquipmentWorkouts[] = [
           moodTips: [
             {
               icon: 'trending-up',
-              title: 'Progressive Challenge',
-              description: 'Each hard interval should push your limits - use moderate and slow phases for active recovery.'
+              title: 'High Knees',
+              description: 'High knees in "hard" phase for power.'
             },
             {
-              icon: 'sync',
-              title: 'Rhythm Maintenance',
-              description: 'Maintain consistent climbing rhythm throughout all intensities - this improves efficiency and endurance.'
+              icon: 'body',
+              title: 'Upright Posture',
+              description: 'Maintain upright posture; avoid hunching.'
             }
           ]
         },
