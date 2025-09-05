@@ -1412,14 +1412,14 @@ const workoutDatabase: EquipmentWorkouts[] = [
           intensityReason: 'Extended hard efforts test advanced cardiovascular endurance during sustained vertical climbing.',
           moodTips: [
             {
-              icon: 'trophy',
-              title: 'Endurance Mindset',
-              description: 'This workout tests mental toughness as much as physical - stay focused throughout extended efforts.'
+              icon: 'timer',
+              title: 'Pacing Control',
+              description: 'Pace yourself; don\'t peak early.'
             },
             {
-              icon: 'time',
-              title: 'Long Interval Strategy',
-              description: 'Break 2-minute hard intervals into smaller mental segments to maintain intensity and form.'
+              icon: 'hand-right',
+              title: 'Grip Relaxation',
+              description: 'Relax grip to prevent forearm burnout.'
             }
           ]
         }
