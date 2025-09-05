@@ -577,13 +577,13 @@ const workoutDatabase: EquipmentWorkouts[] = [
           moodTips: [
             {
               icon: 'settings',
-              title: 'Resistance Control',
-              description: 'Learn to adjust resistance based on your effort level - more resistance for strength, less for speed.'
+              title: 'Seat Height',
+              description: 'Adjust seat height so legs get nearly full extension'
             },
             {
               icon: 'body',
-              title: 'Posture Maintenance',
-              description: 'Keep your core stable and avoid excessive leaning forward or backward during intense intervals.'
+              title: 'Leg Priority',
+              description: 'Use legs as primary driver, especially when fatigued.'
             }
           ]
         }
