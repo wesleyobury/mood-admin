@@ -1160,14 +1160,14 @@ const workoutDatabase: EquipmentWorkouts[] = [
           intensityReason: 'Sustained high-intensity work tests advanced cardiovascular capacity with self-regulated pace control.',
           moodTips: [
             {
-              icon: 'repeat',
-              title: 'Consistency Challenge',
-              description: 'Maintain the same sprint intensity for all 15 minutes - pace yourself but don\'t hold back.'
+              icon: 'flash',
+              title: 'Fresh Sprint',
+              description: 'Treat each sprint as a fresh, max effort.'
             },
             {
-              icon: 'trophy',
-              title: 'Mental Toughness',
-              description: 'This workout tests your ability to maintain intensity under fatigue - stay mentally strong throughout.'
+              icon: 'body',
+              title: 'Relaxed Form',
+              description: 'Relax shoulders and jaw to conserve energy.'
             }
           ]
         }
