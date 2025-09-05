@@ -3086,7 +3086,7 @@ export default function WorkoutDisplayScreen() {
             <View style={styles.progressStepActive}>
               <Ionicons name="heart" size={12} color="#000000" />
             </View>
-            <Text style={styles.progressStepText}>Cardio</Text>
+            <Text style={styles.progressStepText}>{workoutType}</Text>
           </View>
           
           <View style={styles.progressConnector} />
