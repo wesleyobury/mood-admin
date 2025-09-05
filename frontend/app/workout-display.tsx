@@ -637,14 +637,14 @@ const workoutDatabase: EquipmentWorkouts[] = [
           intensityReason: 'Tabata on assault bike demands maximum full-body power and elite anaerobic capacity.',
           moodTips: [
             {
-              icon: 'flame',
-              title: 'All-Out Commitment',
-              description: 'Give absolute maximum effort for 20 seconds - this should feel unsustainable beyond the time limit.'
+              icon: 'flash',
+              title: 'Explosive Start',
+              description: 'Explode at start of each 20-sec bout.'
             },
             {
-              icon: 'stopwatch',
-              title: 'Rest Discipline',
-              description: 'Use 10-second rests to briefly recover while staying mentally focused for the next explosive effort.'
+              icon: 'refresh',
+              title: 'Active Phases',
+              description: 'Don\'t coast; easy phases should still move.'
             }
           ]
         },
@@ -656,14 +656,14 @@ const workoutDatabase: EquipmentWorkouts[] = [
           intensityReason: 'Extended EMOM format tests advanced endurance under consistent high-intensity demands.',
           moodTips: [
             {
-              icon: 'repeat',
-              title: 'Consistency Challenge',
-              description: 'Maintain the same effort level for all 20 minutes - resist the urge to go too hard early.'
+              icon: 'flash',
+              title: 'Fresh Set Approach',
+              description: 'Attack each sprint as a fresh set.'
             },
             {
-              icon: 'trophy',
-              title: 'Mental Endurance',
-              description: 'This tests mental toughness as much as physical - break into 5-minute segments to stay focused.'
+              icon: 'refresh',
+              title: 'Breathing Window',
+              description: 'Use moderate window to find breathing rhythm.'
             }
           ]
         }
