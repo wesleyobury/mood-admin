@@ -2989,8 +2989,9 @@ export default function WorkoutDisplayScreen() {
   
   const difficulty = (params.difficulty as string || 'beginner').toLowerCase();
   const moodTitle = params.mood as string || 'I want to sweat';
+  const workoutType = params.workoutType as string || 'Cardio Based';
   
-  console.log('Parsed parameters:', { selectedEquipmentNames, difficulty, moodTitle });
+  console.log('Parsed parameters:', { selectedEquipmentNames, difficulty, moodTitle, workoutType });
 
   // Get difficulty color - all the same neon gold
   const getDifficultyColor = (level: string) => {
