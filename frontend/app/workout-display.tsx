@@ -1538,14 +1538,14 @@ const workoutDatabase: EquipmentWorkouts[] = [
           intensityReason: 'Advanced jumping patterns demand elite coordination, timing, and cardiovascular endurance.',
           moodTips: [
             {
-              icon: 'settings',
-              title: 'Complex Coordination',
-              description: 'Master cross-overs and double unders through practice - these patterns require perfect timing and technique.'
+              icon: 'timer',
+              title: 'Energy Conservation',
+              description: 'Conserve energy with small, controlled jumps.'
             },
             {
-              icon: 'trophy',
-              title: 'Mental Focus',
-              description: 'Advanced patterns require intense concentration - stay mentally engaged throughout the workout.'
+              icon: 'flash',
+              title: 'Crossover Technique',
+              description: 'Crossovers: quick wrist snap, minimal arm swing.'
             }
           ]
         }
