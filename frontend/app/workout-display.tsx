@@ -472,13 +472,13 @@ const workoutDatabase: EquipmentWorkouts[] = [
           moodTips: [
             {
               icon: 'trending-up',
-              title: 'Hill Climbing Power',
-              description: 'During hill intervals, slow your cadence but increase power output - focus on strong pedal strokes.'
+              title: 'Hip Position',
+              description: 'Shift hips back on climbs, push through heels.'
             },
             {
               icon: 'flash',
-              title: 'Sprint Explosiveness',
-              description: 'For sprints, keep resistance lower and focus on quick leg turnover - aim for 100+ RPM.'
+              title: 'Sprint Cadence',
+              description: 'Sprints: high, consistent cadence; avoid stomping.'
             }
           ]
         },
