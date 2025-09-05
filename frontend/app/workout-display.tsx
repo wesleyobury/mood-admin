@@ -1746,7 +1746,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Tabata Kettlebell',
           duration: '16 min',
-          description: '20 sec work, 10 sec rest, alternate: swings, goblet squats, alternating lunges, high pulls. 4 rounds each, 16 total intervals.',
+          description: 'Tabata Protocol: 20 sec work, 10 sec rest. Cycle through: swings, goblet squats, alternating lunges, high pulls. Complete 4 rounds of each exercise (16 total intervals).',
           imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxrZXR0bGViZWxsJTIwdGFiYXRhfGVufDB8fHx8MVc1Njg4MzIzN3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'High-intensity intervals that push cardiovascular limits with varied kettlebell movements.',
           moodTips: [
