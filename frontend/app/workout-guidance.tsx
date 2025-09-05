@@ -75,6 +75,7 @@ export default function WorkoutGuidanceScreen() {
   const description = params.description as string || '';
   const duration = params.duration as string || '20 min';
   const difficulty = params.difficulty as string || 'beginner';
+  const workoutType = params.workoutType as string || 'Cardio Based';
   
   // Parse MOOD tips from params (passed as JSON string)
   const moodTipsParam = params.moodTips as string || '[]';
