@@ -1015,14 +1015,14 @@ const workoutDatabase: EquipmentWorkouts[] = [
           intensityReason: 'High-intensity sprints demand maximum power and coordination from advanced full-body athletes.',
           moodTips: [
             {
-              icon: 'flash',
-              title: 'Sprint Explosiveness',
-              description: 'During sprints, maximize both arm and leg speed while maintaining coordination - this builds explosive power.'
+              icon: 'body',
+              title: 'Hip Power',
+              description: 'Keep arms loose; power from hips.'
             },
             {
-              icon: 'refresh',
-              title: 'Active Recovery',
-              description: 'Keep moving during recovery at moderate pace to maintain blood flow and prepare for next sprint.'
+              icon: 'flash',
+              title: 'Stroke Completion',
+              description: 'Quick rhythm, but don\'t cut the pull short.'
             }
           ]
         },
