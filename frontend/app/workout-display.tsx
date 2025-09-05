@@ -1187,14 +1187,14 @@ const workoutDatabase: EquipmentWorkouts[] = [
           intensityReason: 'Basic combinations with rest allow beginners to learn proper punching form while building cardio base.',
           moodTips: [
             {
-              icon: 'hand-left',
-              title: 'Proper Punching Form',
-              description: 'Keep your wrists straight and punch through the target - rotate your hips for maximum power generation.'
+              icon: 'body',
+              title: 'Hip Rotation',
+              description: 'Rotate hips with punches; don\'t just arm-swing.'
             },
             {
-              icon: 'body',
-              title: 'Stance & Balance',
-              description: 'Maintain a balanced stance with feet shoulder-width apart - this provides stability for powerful strikes.'
+              icon: 'shield',
+              title: 'Guard Position',
+              description: 'Keep guard tight between combos; protect face.'
             }
           ]
         },
