@@ -2560,6 +2560,258 @@ const workoutDatabase: EquipmentWorkouts[] = [
         }
       ]
     }
+  },
+  {
+    equipment: 'Sledgehammer & tire',
+    icon: 'hammer',
+    workouts: {
+      beginner: [
+        {
+          name: 'Hammer Basics',
+          duration: '12 min',
+          description: '10 strikes (each side) → 10 tire step-ups → 1 min rest. Repeat 3x.',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxzbGVkZ2VoYW1tZXIlMjB3b3Jrb3V0fGVufDB8fHx8TVc1Mjg4MzIzN3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Introduction to sledgehammer fundamentals with proper striking technique and tire integration.',
+          moodTips: [
+            {
+              icon: 'hand-left',
+              title: 'Grip Technique',
+              description: 'Slide top hand down; loose grip.'
+            },
+            {
+              icon: 'body',
+              title: 'Step-up Form',
+              description: 'Step-ups—whole foot on tire, glutes drive.'
+            }
+          ]
+        },
+        {
+          name: 'Hammer & March',
+          duration: '12 min',
+          description: '8 strikes (each side) → 8 tire toe taps → 1 min rest. Repeat 4x.',
+          imageUrl: 'https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwyfHxzbGVkZ2VoYW1tZXIlMjBtYXJjaHxlbnwwfHx8fDE3NTY4ODMyMzd8MA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Progressive workout building coordination between striking power and agility movements.',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Hip Power',
+              description: 'Strikes driven from hips, not arms.'
+            },
+            {
+              icon: 'body',
+              title: 'Toe Tap Agility',
+              description: 'Toe taps—stay light, balls of feet.'
+            }
+          ]
+        }
+      ],
+      intermediate: [
+        {
+          name: 'Hammer & Burpee Circuit',
+          duration: '16 min',
+          description: '10 strikes (per side) → 8 burpees → 10 tire jumps → 1 min rest. Repeat 4x.',
+          imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwzfHxzbGVkZ2VoYW1tZXIlMjBidXJwZWV8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Intermediate circuit combining hammer power with plyometric and bodyweight movements.',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Core Power',
+              description: 'Explosive core twist with strikes.'
+            },
+            {
+              icon: 'body',
+              title: 'Jump Landing',
+              description: 'Tire jumps—land softly, chest tall.'
+            }
+          ]
+        },
+        {
+          name: 'Hammer Tabata',
+          duration: '12 min',
+          description: '20s strikes (switch halfway), 10s rest. 8 rounds. 1 min rest. 3 cycles.',
+          imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxzbGVkZ2VoYW1tZXIlMjB0YWJhdGF8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'High-intensity Tabata format focusing purely on striking power and endurance.',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Hip Snap',
+              description: 'Strong hip snap on every strike.'
+            },
+            {
+              icon: 'refresh',
+              title: 'Breathing Rhythm',
+              description: 'Breathing cadence—exhale with each hit.'
+            }
+          ]
+        }
+      ],
+      advanced: [
+        {
+          name: 'Hammer Gauntlet',
+          duration: '16 min',
+          description: '12 strikes (each side) → 10 tire jumps → 8 burpees → 6 flips → 1 min rest. Repeat 4x.',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw1fHxzbGVkZ2VoYW1tZXIlMjBhZHZhbmNlZHxlbnwwfHx8fDE3NTY4ODMyMzd8MA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Advanced gauntlet combining maximum striking power with tire manipulation and conditioning.',
+          moodTips: [
+            {
+              icon: 'refresh',
+              title: 'Core Endurance',
+              description: 'Maintain core tightness under fatigue.'
+            },
+            {
+              icon: 'flash',
+              title: 'Flip Power',
+              description: 'Explosive flips—hips drop low, arms secondary.'
+            }
+          ]
+        },
+        {
+          name: 'Hammer & Sprint Circuit',
+          duration: '20 min',
+          description: '10 strikes (each side) → 20m sprint → 10 tire jumps → 20m sprint → 1 min rest. Repeat 5x.',
+          imageUrl: 'https://images.unsplash.com/photo-1517838277536-f5f99be501cd?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw2fHxzbGVkZ2VoYW1tZXIlMjBzcHJpbnR8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Ultimate conditioning combining hammer power with maximum sprint speed for elite performance.',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Sprint Mechanics',
+              description: 'Sprint ballistics—extend stride fully.'
+            },
+            {
+              icon: 'refresh',
+              title: 'Quick Resets',
+              description: 'Quick strike resets, no time wasted.'
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    equipment: 'Flipping tire',
+    icon: 'ellipse',
+    workouts: {
+      beginner: [
+        {
+          name: 'Tire Flip & Step',
+          duration: '12 min',
+          description: '5 flips → 10 step-ups on tire → 1 min rest. Repeat 3x.',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHx0aXJlJTIwZmxpcCUyMHdvcmtvdXR8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Introduction to tire flipping with proper technique and complementary step-up movements.',
+          moodTips: [
+            {
+              icon: 'body',
+              title: 'Flip Technique',
+              description: 'Chest tight to tire, drive through heels.'
+            },
+            {
+              icon: 'flash',
+              title: 'Step-up Power',
+              description: 'Step-ups—whole foot, glute engaged.'
+            }
+          ]
+        },
+        {
+          name: 'Tire Flip & Tap',
+          duration: '12 min',
+          description: '4 flips → 20 toe taps on tire → 1 min rest. Repeat 4x.',
+          imageUrl: 'https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwyfHx0aXJlJTIwZmxpcCUyMHRhcHxlbnwwfHx8fDE3NTY4ODMyMzd8MA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Building flip strength while incorporating agility work for comprehensive conditioning.',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Hip Drive',
+              description: 'Explosive hip drive on flips.'
+            },
+            {
+              icon: 'body',
+              title: 'Agility Technique',
+              description: 'Toe taps—quick, light, balls of feet.'
+            }
+          ]
+        }
+      ],
+      intermediate: [
+        {
+          name: 'Flip & Jump',
+          duration: '16 min',
+          description: '6 flips → 8 jumps on tire → 1 min rest. Repeat 4x.',
+          imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwzfHx0aXJlJTIwZmxpcCUyMGp1bXB8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Intermediate progression adding plyometric jumps to build explosive power and conditioning.',
+          moodTips: [
+            {
+              icon: 'body',
+              title: 'Flip Form',
+              description: 'Flat back on flips, arms under tire edge.'
+            },
+            {
+              icon: 'flash',
+              title: 'Jump Landing',
+              description: 'Land softly on jumps.'
+            }
+          ]
+        },
+        {
+          name: 'Tire Flip Circuit',
+          duration: '12 min',
+          description: '5 flips → 10 push-ups on tire → 10 lateral jumps → 1 min rest. Repeat 3x.',
+          imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHx0aXJlJTIwZmxpcCUyMGNpcmN1aXR8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Circuit training integrating tire work with upper body and lateral movement patterns.',
+          moodTips: [
+            {
+              icon: 'body',
+              title: 'Push-up Stability',
+              description: 'Push-ups—hands stable, core braced.'
+            },
+            {
+              icon: 'flash',
+              title: 'Lateral Movement',
+              description: 'Lateral jumps—compact feet, soft landings.'
+            }
+          ]
+        }
+      ],
+      advanced: [
+        {
+          name: 'Tire Flip Gauntlet',
+          duration: '16 min',
+          description: '8 flips → 8 burpees → 8 jumps → 8 push-ups → 1 min rest. Repeat 4x.',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw1fHx0aXJlJTIwZmxpcCUyMGFkdmFuY2VkfGVufDB8fHx8MTc1Njg4MzIzN3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Advanced gauntlet testing maximum strength, power, and conditioning with tire manipulation.',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Explosive Hip Power',
+              description: 'Explosive hip power on flips.'
+            },
+            {
+              icon: 'refresh',
+              title: 'Pacing Strategy',
+              description: 'Pace burpees to survive full circuit.'
+            }
+          ]
+        },
+        {
+          name: 'Tire Flip & Sprint',
+          duration: '16 min',
+          description: '6 flips → 20m sprint → 6 flips → 20m sprint → 1 min rest. Repeat 4x.',
+          imageUrl: 'https://images.unsplash.com/photo-1517838277536-f5f99be501cd?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw2fHx0aXJlJTIwZmxpcCUyMHNwcmludHxlbnwwfHx8fDE3NTY4ODMyMzd8MA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Ultimate power-speed combination challenging maximum strength output followed by speed work.',
+          moodTips: [
+            {
+              icon: 'body',
+              title: 'Grip Technique',
+              description: 'Grip low under tire, chest close.'
+            },
+            {
+              icon: 'flash',
+              title: 'Sprint Efficiency',
+              description: 'Sprint tall to keep efficiency after heavy flips.'
+            }
+          ]
+        }
+      ]
+    }
   }
 ];
 
