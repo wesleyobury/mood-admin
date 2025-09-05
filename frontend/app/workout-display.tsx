@@ -764,13 +764,13 @@ const workoutDatabase: EquipmentWorkouts[] = [
           moodTips: [
             {
               icon: 'flash',
-              title: 'Sprint Technique',
-              description: 'During sprints, maintain form while maximizing stroke rate - power comes from technique, not just speed.'
+              title: 'Grip Relaxation',
+              description: 'Snap at the catch for power; relax grip.'
             },
             {
               icon: 'refresh',
-              title: 'Recovery Strategy',
-              description: 'Use moderate intervals for active recovery while maintaining good rowing rhythm and technique.'
+              title: 'Quick Rhythm',
+              description: 'Quick rhythm, but complete each stroke fully.'
             }
           ]
         },
@@ -783,13 +783,13 @@ const workoutDatabase: EquipmentWorkouts[] = [
           moodTips: [
             {
               icon: 'trophy',
-              title: 'Endurance Mindset',
-              description: 'This workout tests mental endurance - maintain consistent technique even as fatigue builds throughout.'
+              title: 'Split Consistency',
+              description: 'Consistent split time across zones; focus on efficiency.'
             },
             {
-              icon: 'time',
-              title: 'Pacing Strategy',
-              description: 'Each 5-minute segment has a purpose - respect the progression and don\'t go too hard too early.'
+              icon: 'refresh',
+              title: 'Deep Breathing',
+              description: 'Maintain steady, deep breathing throughout.'
             }
           ]
         }
