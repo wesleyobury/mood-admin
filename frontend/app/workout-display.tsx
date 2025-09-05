@@ -2317,7 +2317,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Push & Pull',
           duration: '15 min',
-          description: '10m push (light) → 10m pull (backwards) → 1 min rest. Repeat 5x.',
+          description: '10 meters push (light) → 10 meters pull (backwards) → 1 min rest. Repeat 5x.',
           imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxzbGVkJTIwd29ya291dHxlbnwwfHx8fDE3NTY4ODMyMzd8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Introduction to sled training with light loads focusing on proper pushing and pulling mechanics.',
           moodTips: [
@@ -2336,7 +2336,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'March',
           duration: '12 min',
-          description: '15m slow push → 15m slow pull → 1 min rest. Repeat 4x.',
+          description: '15 meters slow push → 15 meters slow pull → 1 min rest. Repeat 4x.',
           imageUrl: 'https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwyfHxzbGVkJTIwbWFyY2h8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Controlled movement patterns building strength endurance and proper sled mechanics.',
           moodTips: [
