@@ -2191,7 +2191,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Waves & Slams',
           duration: '10 min',
-          description: '20 sec waves → 20 sec rest → 20 sec slams → 20 sec rest. Repeat 5x.',
+          description: '20 sec waves\n20 sec rest\n20 sec slams\n20 sec rest\nRepeat 5x.',
           imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxiYXR0bGUlMjByb3BlcyUyMHdvcmtvdXR8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Introduction to battle rope fundamentals with manageable work-to-rest ratios.',
           moodTips: [
