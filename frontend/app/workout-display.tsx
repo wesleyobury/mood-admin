@@ -1142,13 +1142,13 @@ const workoutDatabase: EquipmentWorkouts[] = [
           moodTips: [
             {
               icon: 'flash',
-              title: 'Maximum Sprint Power',
-              description: 'During sprints, drive with maximum leg turnover and arm swing - the curve will challenge your top speed.'
+              title: 'Explosive Acceleration',
+              description: 'Explosive acceleration for each sprint.'
             },
             {
-              icon: 'refresh',
-              title: 'Quick Recovery',
-              description: 'Use walking intervals to quickly recover while staying ready for the next explosive sprint effort.'
+              icon: 'walk',
+              title: 'Active Recovery',
+              description: 'Active walk recovery; maintain cadence.'
             }
           ]
         },
