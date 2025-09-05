@@ -1439,14 +1439,14 @@ const workoutDatabase: EquipmentWorkouts[] = [
           intensityReason: 'Equal work-to-rest ratio helps beginners learn proper jumping technique while building cardiovascular base.',
           moodTips: [
             {
-              icon: 'git-compare',
-              title: 'Basic Jump Form',
-              description: 'Stay on the balls of your feet and keep jumps low - just enough to clear the rope efficiently.'
+              icon: 'body',
+              title: 'Light Hops',
+              description: 'Stay on balls of feet; light, small hops.'
             },
             {
               icon: 'hand-right',
-              title: 'Wrist Rotation',
-              description: 'Turn the rope with your wrists, not your arms - this conserves energy and improves speed.'
+              title: 'Wrist Control',
+              description: 'Keep elbows tucked close; wrists turn the rope.'
             }
           ]
         },
