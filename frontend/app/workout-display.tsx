@@ -1247,13 +1247,13 @@ const workoutDatabase: EquipmentWorkouts[] = [
           moodTips: [
             {
               icon: 'flash',
-              title: 'Speed Development',
-              description: 'During fast punches, focus on hand speed over power - quick, snappy punches build speed and endurance.'
+              title: 'Speed Focus',
+              description: 'Fast punches: focus on speed, not just power.'
             },
             {
-              icon: 'refresh',
-              title: 'Defensive Movement',
-              description: 'Practice slips and ducks as active recovery - these movements keep you moving while reducing punch impact.'
+              icon: 'body',
+              title: 'Minimal Movement',
+              description: 'Practice smooth slips/ducks; minimal head movement.'
             }
           ]
         }
