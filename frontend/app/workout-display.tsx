@@ -1727,7 +1727,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Kettlebell Ladder',
           duration: '16 min',
-          description: 'Ladder Sequence: 10 swings, 8 cleans (4 per side), 6 snatches (3 per side), 4 goblet squats, 2 push presses (each side). Rest 1 min between rounds, complete 4 total rounds.',
+          description: '10 swings, 8 cleans (4 per side), 6 snatches (3 per side), 4 goblet squats, 2 push presses (each side), rest 1 min, repeat 4 rounds.',
           imageUrl: 'https://images.unsplash.com/photo-1517838277536-f5f99be501cd?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwzfHxrZXR0bGViZWxsJTIwdHJhaW5pbmd8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Complex ladder format challenging coordination and strength across multiple kettlebell movements.',
           moodTips: [
