@@ -1101,14 +1101,14 @@ const workoutDatabase: EquipmentWorkouts[] = [
           intensityReason: 'Interval structure on curve treadmill challenges intermediate runners with self-regulated intensity.',
           moodTips: [
             {
-              icon: 'trending-up',
-              title: 'Self-Regulation',
-              description: 'Push yourself harder during run intervals - the curve treadmill will challenge you to maintain speed.'
+              icon: 'refresh',
+              title: 'Active Reset',
+              description: 'Walks are for active reset, not coasting.'
             },
             {
-              icon: 'timer',
-              title: 'Interval Discipline',
-              description: 'Resist the urge to slow down too much during walk intervals - maintain active recovery pace.'
+              icon: 'body',
+              title: 'Light Impact',
+              description: 'Light foot placement; avoid heavy impact.'
             }
           ]
         },
