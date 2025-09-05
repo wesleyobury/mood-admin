@@ -935,14 +935,14 @@ const workoutDatabase: EquipmentWorkouts[] = [
           intensityReason: 'Short intervals with rest periods help beginners learn ski machine technique while building base fitness.',
           moodTips: [
             {
-              icon: 'snow',
-              title: 'Ski Motion Fundamentals',
-              description: 'Coordinate your arms and legs in opposition - when right leg goes forward, left arm pulls back.'
+              icon: 'body',
+              title: 'Hip Power',
+              description: 'Power from hips hinging back; use primarily lats, not just arms.'
             },
             {
               icon: 'body',
-              title: 'Core Stability',
-              description: 'Keep your core engaged throughout the movement to maintain balance and maximize power transfer.'
+              title: 'Posture Control',
+              description: 'Keep knees soft, back neutral; avoid hunching.'
             }
           ]
         },
