@@ -1286,14 +1286,14 @@ const workoutDatabase: EquipmentWorkouts[] = [
           intensityReason: 'Extended rounds test advanced cardiovascular endurance under high-skill technical demands.',
           moodTips: [
             {
-              icon: 'trophy',
-              title: 'Endurance Under Pressure',
-              description: 'Maintain technique quality even as fatigue builds - this develops elite-level boxing conditioning.'
+              icon: 'refresh',
+              title: 'Breathing Control',
+              description: 'Control breathing for sustained effort.'
             },
             {
-              icon: 'refresh',
-              title: 'Active Recovery',
-              description: 'Use footwork and defense rounds as active recovery while maintaining boxing-specific movement patterns.'
+              icon: 'body',
+              title: 'Head Movement',
+              description: 'Constant head movement; don\'t stay static.'
             }
           ]
         }
