@@ -34,7 +34,7 @@ const equipmentOptions: EquipmentOption[] = [
   { id: 'resistance-bands', name: 'Resistance bands', icon: 'remove' },
   { id: 'sled', name: 'Sled', icon: 'triangle' },
   { id: 'slam-balls', name: 'Slam balls', icon: 'basketball' },
-  { id: 'sledgehammer-tire', name: 'Sledgehammer & tire', icon: 'hammer' },
+  { id: 'sledgehammer-tire', name: 'Sledge hammer & tire', icon: 'hammer' },
 ];
 
 const difficultyLevels: DifficultyLevel[] = [
