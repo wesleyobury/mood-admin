@@ -1805,6 +1805,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
       ]
     }
   }
+];
 
 interface WorkoutCardProps {
   equipment: string;
