@@ -702,14 +702,14 @@ const workoutDatabase: EquipmentWorkouts[] = [
           intensityReason: 'Varied stroke rates help beginners develop rhythm control while building steady cardiovascular base.',
           moodTips: [
             {
-              icon: 'speedometer',
-              title: 'Stroke Rate Control',
-              description: 'Monitor your strokes per minute (SPM) and focus on maintaining consistent rhythm for each interval.'
+              icon: 'refresh',
+              title: 'Recovery Control',
+              description: 'Control recovery (2x drive time); conserve energy.'
             },
             {
-              icon: 'refresh',
-              title: 'Recovery Phase',
-              description: 'Use the return phase of each stroke as active recovery - controlled and relaxed movement back to catch position.'
+              icon: 'speedometer',
+              title: 'Breathing Match',
+              description: 'Match stroke rate with breathing; smooth transitions.'
             }
           ]
         }
@@ -724,13 +724,13 @@ const workoutDatabase: EquipmentWorkouts[] = [
           moodTips: [
             {
               icon: 'barbell',
-              title: 'Power Development',
-              description: 'During hard intervals, focus on explosive leg drive and strong back engagement for maximum power output.'
+              title: 'Explosive Drive',
+              description: 'Drive explosively from heels (60% legs, 30% core, 10% arms).'
             },
             {
-              icon: 'pulse',
-              title: 'Heart Rate Management',
-              description: 'Use moderate intervals to control heart rate while maintaining good rowing technique.'
+              icon: 'settings',
+              title: 'Form Drills',
+              description: 'Use slower segments for perfect form drills.'
             }
           ]
         },
@@ -742,14 +742,14 @@ const workoutDatabase: EquipmentWorkouts[] = [
           intensityReason: 'Progressive time intervals challenge intermediate rowers with increasing demands on both power and mental focus.',
           moodTips: [
             {
-              icon: 'trending-up',
-              title: 'Progressive Building',
-              description: 'Build intensity gradually through the pyramid - save your best effort for the 3-minute peak intervals.'
+              icon: 'speedometer',
+              title: 'Stroke Control',
+              description: 'Control stroke rate (20-26 SPM); avoid wild pulling.'
             },
             {
-              icon: 'timer',
-              title: 'Time Management',
-              description: 'Break longer intervals into smaller mental segments to maintain focus and technique throughout.'
+              icon: 'refresh',
+              title: 'Core Breathing',
+              description: 'Strong belly breathing to stabilize core on hard stretches.'
             }
           ]
         }
