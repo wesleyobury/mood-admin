@@ -1620,7 +1620,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'EMOM 12 min',
           duration: '12 min',
-          description: 'Every Minute on the Minute: Odd minutes (1,3,5,7,9,11) - 10 dumbbell thrusters. Even minutes (2,4,6,8,10,12) - 12 alternating renegade rows.',
+          description: 'Minute 1: 10 dumbbell thrusters, Minute 2: 12 alternating renegade rows, Minute 3: 10 dumbbell thrusters, Minute 4: 12 alternating renegade rows, continue alternating for 12 minutes.',
           imageUrl: 'https://images.unsplash.com/photo-1598971861713-54ad16c5b44b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxkdW1iYmVsbCUyMGNpcmN1aXR8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Time-based intervals challenge muscular endurance and cardiovascular capacity with precise rest periods.',
           moodTips: [
