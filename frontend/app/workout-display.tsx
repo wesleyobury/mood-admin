@@ -3040,6 +3040,7 @@ export default function WorkoutDisplayScreen() {
           description: workout.description || '',
           duration: workout.duration || '20 min',
           difficulty: difficulty,
+          workoutType: workoutType,
           // Pass MOOD tips as properly encoded JSON string
           moodTips: encodeURIComponent(JSON.stringify(workout.moodTips || []))
         }
