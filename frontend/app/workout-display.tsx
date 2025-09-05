@@ -2182,6 +2182,384 @@ const workoutDatabase: EquipmentWorkouts[] = [
         }
       ]
     }
+  },
+  {
+    equipment: 'Battle ropes',
+    icon: 'git-compare',
+    workouts: {
+      beginner: [
+        {
+          name: 'Waves & Slams',
+          duration: '10 min',
+          description: '20 sec waves → 20 sec rest → 20 sec slams → 20 sec rest. Repeat 5x.',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxiYXR0bGUlMjByb3BlcyUyMHdvcmtvdXR8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Introduction to battle rope fundamentals with manageable work-to-rest ratios.',
+          moodTips: [
+            {
+              icon: 'body',
+              title: 'Athletic Stance',
+              description: 'Athletic stance; knees bent, core braced.'
+            },
+            {
+              icon: 'refresh',
+              title: 'Power Breathing',
+              description: 'Exhale with each slam for power.'
+            }
+          ]
+        },
+        {
+          name: 'Rope Circuit',
+          duration: '12 min',
+          description: '20 sec waves → 20 sec side-to-side → 20 sec slams → 1 min rest. Repeat 4x.',
+          imageUrl: 'https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwyfHxiYXR0bGUlMjByb3BlcyUyMGNpcmN1aXR8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Varied rope movements building coordination and cardiovascular endurance.',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Rope Control',
+              description: 'Maintain consistent rope slack.'
+            },
+            {
+              icon: 'body',
+              title: 'Shoulder Position',
+              description: 'Shoulders down—avoid shrug.'
+            }
+          ]
+        }
+      ],
+      intermediate: [
+        {
+          name: 'Tabata',
+          duration: '16 min',
+          description: '20s work, 10s rest: waves, slams, circles, jacks. 4 rounds each, 16 intervals.',
+          imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwzfHxiYXR0bGUlMjByb3BlcyUyMHRhYmF0YXxlbnwwfHx8fDE3NTY4ODMyMzd8MA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'High-intensity Tabata protocol with varied rope movements for maximum cardiovascular stress.',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Core Power',
+              description: 'Hips/core generate force, not arms alone.'
+            },
+            {
+              icon: 'refresh',
+              title: 'Maintain Volume',
+              description: 'Keep volume high, don\'t fade early.'
+            }
+          ]
+        },
+        {
+          name: 'Rope & Burpee Combo',
+          duration: '16 min',
+          description: '30 sec waves → 5 burpees → 30 sec slams → 5 burpees → 1 min rest. Repeat 4x.',
+          imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxiYXR0bGUlMjByb3BlcyUyMGJ1cnBlZXxlbnwwfHx8fDE3NTY4ODMyMzd8MA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Combination training adding bodyweight movements to rope work for total body conditioning.',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Quick Transitions',
+              description: 'Quick rope-to-burpee transition.'
+            },
+            {
+              icon: 'body',
+              title: 'Landing Control',
+              description: 'Control burpee landings.'
+            }
+          ]
+        }
+      ],
+      advanced: [
+        {
+          name: 'Battle Rope Gauntlet',
+          duration: '20 min',
+          description: '30 sec waves → 30 sec slams → 30 sec side-to-side → 30 sec jacks → 30 sec alt circles → 1 min rest. Repeat 4x.',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw1fHxiYXR0bGUlMjByb3BlcyUyMGFkdmFuY2VkfGVufDB8fHx8MVc1Njg4MzIzN3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Extended high-intensity gauntlet testing advanced cardiovascular capacity and rope mastery.',
+          moodTips: [
+            {
+              icon: 'refresh',
+              title: 'Rhythm Control',
+              description: 'Consistent rhythm across moves; avoid burnout.'
+            },
+            {
+              icon: 'flash',
+              title: 'Breathing Technique',
+              description: 'Breathing control per wave set.'
+            }
+          ]
+        },
+        {
+          name: 'Rope & Sprint Circuit',
+          duration: '20 min',
+          description: '20 sec waves → 20m sprint → 20 sec slams → 20m sprint → 1 min rest. Repeat 5x.',
+          imageUrl: 'https://images.unsplash.com/photo-1517838277536-f5f99be501cd?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw2fHxiYXR0bGUlMjByb3BlcyUyMHNwcmludHxlbnwwfHx8fDE3NTY4ODMyMzd8MA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Ultimate conditioning circuit combining rope power with sprint speed for peak athletic performance.',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Sprint Form',
+              description: 'Sprint tall with full arm drive.'
+            },
+            {
+              icon: 'refresh',
+              title: 'Maximum Effort',
+              description: 'Commit max effort before sprints.'
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    equipment: 'Sled',
+    icon: 'triangle',
+    workouts: {
+      beginner: [
+        {
+          name: 'Push & Pull',
+          duration: '15 min',
+          description: '10m push (light) → 10m pull (backwards) → 1 min rest. Repeat 5x.',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxzbGVkJTIwd29ya291dHxlbnwwfHx8fDE3NTY4ODMyMzd8MA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Introduction to sled training with light loads focusing on proper pushing and pulling mechanics.',
+          moodTips: [
+            {
+              icon: 'body',
+              title: 'Push Angle',
+              description: 'Push at ~45°, arms straight.'
+            },
+            {
+              icon: 'flash',
+              title: 'Pull Technique',
+              description: 'Backward pull—short fast steps.'
+            }
+          ]
+        },
+        {
+          name: 'March',
+          duration: '12 min',
+          description: '15m slow push → 15m slow pull → 1 min rest. Repeat 4x.',
+          imageUrl: 'https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwyfHxzbGVkJTIwbWFyY2h8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Controlled movement patterns building strength endurance and proper sled mechanics.',
+          moodTips: [
+            {
+              icon: 'body',
+              title: 'Heel Drive',
+              description: 'Heel-to-toe drive; keep spine neutral.'
+            },
+            {
+              icon: 'refresh',
+              title: 'Core Stability',
+              description: 'Braced core, no back arch.'
+            }
+          ]
+        }
+      ],
+      intermediate: [
+        {
+          name: 'Sprint Intervals',
+          duration: '10 min',
+          description: '10m sprint push → walk back → repeat 10x.',
+          imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwzfHxzbGVkJTIwc3ByaW50fGVufDB8fHx8MTc1Njg4MzIzN3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Power-focused sprint intervals building explosive leg drive and conditioning.',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Explosive Drive',
+              description: 'Explosive leg drive each push.'
+            },
+            {
+              icon: 'body',
+              title: 'Sprint Mechanics',
+              description: 'Short, rapid steps off balls of feet.'
+            }
+          ]
+        },
+        {
+          name: 'Push & Drag',
+          duration: '16 min',
+          description: '10m push → 10m backward drag → 10m sideways push → 1 min rest. Repeat 4x.',
+          imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxzbGVkJTIwZHJhZ3xlbnwwfHx8fDE3NTY4ODMyMzd8MA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Multi-directional sled work challenging different movement patterns and muscle groups.',
+          moodTips: [
+            {
+              icon: 'body',
+              title: 'Sideways Technique',
+              description: 'Side push—hips square, small steps.'
+            },
+            {
+              icon: 'refresh',
+              title: 'Drag Position',
+              description: 'Backward drag—knees bent, core tight.'
+            }
+          ]
+        }
+      ],
+      advanced: [
+        {
+          name: 'Sled Gauntlet',
+          duration: '20 min',
+          description: '10m heavy push → 10m sprint push → 10m back drag → 10m side push → 1 min rest. Repeat 5x.',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw1fHxzbGVkJTIwYWR2YW5jZWR8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Advanced gauntlet combining maximum load with speed work for elite conditioning.',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Heavy Load Technique',
+              description: 'Heavy loads—glutes drive, torso rigid.'
+            },
+            {
+              icon: 'refresh',
+              title: 'Fast Transitions',
+              description: 'Fast transitions maximize burn.'
+            }
+          ]
+        },
+        {
+          name: 'Sled & Burpee Circuit',
+          duration: '16 min',
+          description: '10m heavy push → 10 burpees → 10m back drag → 10 burpees → 1 min rest. Repeat 4x.',
+          imageUrl: 'https://images.unsplash.com/photo-1517838277536-f5f99be501cd?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHc2fHxzbGVkJTIwYnVycGVlfGVufDB8fHx8MTc1Njg4MzIzN3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Ultimate challenge combining heavy sled work with burpees for maximum conditioning stress.',
+          moodTips: [
+            {
+              icon: 'body',
+              title: 'Burpee Transition',
+              description: 'Tight-core drop into burpees.'
+            },
+            {
+              icon: 'flash',
+              title: 'Reset Power',
+              description: 'Explosive resets after each burpee.'
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    equipment: 'Resistance bands',
+    icon: 'remove',
+    workouts: {
+      beginner: [
+        {
+          name: 'Cardio Circuit',
+          duration: '12 min',
+          description: '10 squats → 10 rows → 10 presses → 1 min rest. Repeat 3x.',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxyZXNpc3RhbmNlJTIwYmFuZCUyMHdvcmtvdXR8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Introduction to resistance band training with basic movement patterns and controlled tension.',
+          moodTips: [
+            {
+              icon: 'body',
+              title: 'Squat Form',
+              description: 'Knees push out vs. band tension.'
+            },
+            {
+              icon: 'flash',
+              title: 'Row Technique',
+              description: 'Rows—elbows close, mid-ribcage pull.'
+            }
+          ]
+        },
+        {
+          name: 'Walks & Presses',
+          duration: '12 min',
+          description: '10 lateral band walks (each way) → 10 OH presses → 1 min rest. Repeat 3x.',
+          imageUrl: 'https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwyfHxyZXNpc3RhbmNlJTIwYmFuZCUyMHdhbGt8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Activation-focused workout combining lateral movement with upper body pressing patterns.',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Band Tension',
+              description: 'Band walks—knees bent, never let tension slack.'
+            },
+            {
+              icon: 'body',
+              title: 'Press Position',
+              description: 'OH press—avoid leaning back, brace abs.'
+            }
+          ]
+        }
+      ],
+      intermediate: [
+        {
+          name: 'Band Tabata',
+          duration: '16 min',
+          description: '20s work, 10s rest: squat jumps, push-ups, rows, mountain climbers. 4 rounds each.',
+          imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwzfHxyZXNpc3RhbmNlJTIwYmFuZCUyMHRhYmF0YXxlbnwwfHx8fDE3NTY4ODMyMzd8MA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'High-intensity Tabata protocol using band resistance for maximum metabolic challenge.',
+          moodTips: [
+            {
+              icon: 'body',
+              title: 'Jump Landing',
+              description: 'Land lightly during squat jumps.'
+            },
+            {
+              icon: 'flash',
+              title: 'Row Power',
+              description: 'Rows—squeeze shoulder blades fully.'
+            }
+          ]
+        },
+        {
+          name: 'Band Sprint Circuit',
+          duration: '16 min',
+          description: '10 squat jumps → 10 band sprints → 10 push-ups → 1 min rest. Repeat 4x.',
+          imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxyZXNpc3RhbmNlJTIwYmFuZCUyMHNwcmludHxlbnwwfHx8fDE3NTY4ODMyMzd8MA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Dynamic circuit combining plyometrics with resisted sprint work for power development.',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Sprint Setup',
+              description: 'Anchor band secure before sprints.'
+            },
+            {
+              icon: 'body',
+              title: 'Sprint Form',
+              description: 'Forward lean sprint, pump arms aggressively.'
+            }
+          ]
+        }
+      ],
+      advanced: [
+        {
+          name: 'Band Complex',
+          duration: '16 min',
+          description: '12 squat jumps → 10 push-ups → 8 sprints → 6 burpees → 1 min rest. Repeat 4x.',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw1fHxyZXNpc3RhbmNlJTIwYmFuZCUyMGFkdmFuY2VkfGVufDB8fHx8MVc1Njg4MzIzN3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Advanced complex challenging power, strength, and conditioning with constant band tension.',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Constant Tension',
+              description: 'Maintain constant band tension.'
+            },
+            {
+              icon: 'body',
+              title: 'Recoil Control',
+              description: 'Control band recoil—don\'t "snap" back.'
+            }
+          ]
+        },
+        {
+          name: 'Band & Plyo Circuit',
+          duration: '16 min',
+          description: '10 jump lunges → 10 mountain climbers → 10 rows → 10 push-ups → 1 min rest. Repeat 4x.',
+          imageUrl: 'https://images.unsplash.com/photo-1517838277536-f5f99be501cd?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw2fHxyZXNpc3RhbmNlJTIwYmFuZCUyMHBseW98ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Maximum intensity circuit combining plyometric power with resistance band strength work.',
+          moodTips: [
+            {
+              icon: 'body',
+              title: 'Landing Mechanics',
+              description: 'Land soft, knees tracked.'
+            },
+            {
+              icon: 'refresh',
+              title: 'Core Engagement',
+              description: 'Core tight on every press/push.'
+            }
+          ]
+        }
+      ]
+    }
   }
 ];
 
