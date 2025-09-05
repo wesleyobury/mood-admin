@@ -1062,13 +1062,13 @@ const workoutDatabase: EquipmentWorkouts[] = [
           moodTips: [
             {
               icon: 'walk',
-              title: 'Self-Paced Learning',
-              description: 'Curve treadmills respond to your effort - start conservatively and let the belt speed match your natural pace.'
+              title: 'Mid-Curve Control',
+              description: 'Step mid-curve for control; use natural arm swing.'
             },
             {
-              icon: 'body',
-              title: 'Forward Lean',
-              description: 'Maintain a slight forward lean to keep the belt moving - this engages your core and improves running efficiency.'
+              icon: 'trending-up',
+              title: 'Belt Position',
+              description: 'Stay near front of belt to maintain speed.'
             }
           ]
         },
