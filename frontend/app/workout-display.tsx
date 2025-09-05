@@ -1120,14 +1120,14 @@ const workoutDatabase: EquipmentWorkouts[] = [
           intensityReason: 'Progressive pace pyramids develop intermediate pacing skills on self-powered running surface.',
           moodTips: [
             {
-              icon: 'trending-up',
-              title: 'Pyramid Strategy',
-              description: 'Build intensity gradually to the run phase, then actively recover back down the pyramid.'
+              icon: 'sync',
+              title: 'Smooth Transitions',
+              description: 'Smooth transitions between paces.'
             },
             {
               icon: 'pulse',
-              title: 'Heart Rate Awareness',
-              description: 'Monitor how your heart rate responds to each pace change - learn your body\'s response patterns.'
+              title: 'Heart Rate Control',
+              description: 'Consciously lower heart rate during jog recovery.'
             }
           ]
         }
