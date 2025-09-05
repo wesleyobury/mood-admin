@@ -1080,14 +1080,14 @@ const workoutDatabase: EquipmentWorkouts[] = [
           intensityReason: 'Variable pace work helps beginners understand effort control on self-powered equipment.',
           moodTips: [
             {
-              icon: 'speedometer',
-              title: 'Effort Control',
-              description: 'Learn to control your effort level - the belt will respond immediately to changes in your intensity.'
+              icon: 'walk',
+              title: 'Stride Variation',
+              description: 'Short strides for jog, longer for fast walk.'
             },
             {
-              icon: 'refresh',
-              title: 'Natural Recovery',
-              description: 'Use walking intervals to naturally slow the belt and allow for recovery between higher intensity efforts.'
+              icon: 'flash',
+              title: 'Foot Turnover',
+              description: 'Focus on light, quick foot turnover.'
             }
           ]
         }
