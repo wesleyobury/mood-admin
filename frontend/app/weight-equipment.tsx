@@ -25,16 +25,16 @@ interface DifficultyLevel {
 }
 
 const equipmentOptions: EquipmentOption[] = [
-  { id: 'dumbbells', name: 'Dumbbells', icon: 'barbell' },
-  { id: 'kettle-bells', name: 'Kettle bells', icon: 'fitness' },
   { id: 'barbells', name: 'Barbells', icon: 'barbell' },
-  { id: 'med-balls', name: 'Med balls', icon: 'basketball' },
-  { id: 'slam-balls', name: 'Slam balls', icon: 'basketball' },
   { id: 'battle-ropes', name: 'Battle ropes', icon: 'git-compare' },
-  { id: 'sled', name: 'Sled', icon: 'triangle' },
-  { id: 'resistance-bands', name: 'Resistance bands', icon: 'remove' },
-  { id: 'sledgehammer-tire', name: 'Sledgehammer & tire', icon: 'hammer' },
+  { id: 'dumbbells', name: 'Dumbbells', icon: 'barbell' },
   { id: 'flipping-tire', name: 'Flipping tire', icon: 'ellipse' },
+  { id: 'kettle-bells', name: 'Kettle bells', icon: 'fitness' },
+  { id: 'med-balls', name: 'Med balls', icon: 'basketball' },
+  { id: 'resistance-bands', name: 'Resistance bands', icon: 'remove' },
+  { id: 'sled', name: 'Sled', icon: 'triangle' },
+  { id: 'slam-balls', name: 'Slam balls', icon: 'basketball' },
+  { id: 'sledgehammer-tire', name: 'Sledgehammer & tire', icon: 'hammer' },
 ];
 
 const difficultyLevels: DifficultyLevel[] = [
