@@ -598,13 +598,13 @@ const workoutDatabase: EquipmentWorkouts[] = [
           moodTips: [
             {
               icon: 'flash',
-              title: 'Sprint Intensity',
-              description: 'During 20-second sprints, coordinate explosive arm and leg movements for maximum power output.'
+              title: 'All-Out Effort',
+              description: 'Go all out on sprints; don\'t hold back.'
             },
             {
               icon: 'refresh',
-              title: 'Active Recovery',
-              description: 'Keep moving during rest periods at a sustainable pace to maintain blood flow and prepare for next sprint.'
+              title: 'RPM Control',
+              description: 'Steady RPM in recovery; don\'t slow too much.'
             }
           ]
         },
@@ -616,14 +616,14 @@ const workoutDatabase: EquipmentWorkouts[] = [
           intensityReason: 'Progressive interval lengths challenge intermediate athletes with increasing demands.',
           moodTips: [
             {
-              icon: 'trending-up',
-              title: 'Progressive Challenge',
-              description: 'Each interval gets longer - pace yourself so you can maintain intensity throughout the progression.'
+              icon: 'flash',
+              title: 'Mini-Max Effort',
+              description: 'Treat each sprint as a mini-max effort.'
             },
             {
-              icon: 'timer',
-              title: 'Mental Preparation',
-              description: 'Use rest periods to mentally prepare for the next longer interval - visualization helps performance.'
+              icon: 'body',
+              title: 'Core Control',
+              description: 'Brace core to control upper-body movement.'
             }
           ]
         }
