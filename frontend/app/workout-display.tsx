@@ -491,13 +491,13 @@ const workoutDatabase: EquipmentWorkouts[] = [
           moodTips: [
             {
               icon: 'timer',
-              title: 'Pacing Strategy',
-              description: 'Build intensity gradually through each pyramid - save your hardest effort for the 1-minute peak.'
+              title: 'Active Recovery',
+              description: 'Moderate phases are active recovery; track cadence.'
             },
             {
               icon: 'refresh',
-              title: 'Recovery Discipline',
-              description: 'Use easy periods for true recovery - resist the urge to maintain high intensity throughout.'
+              title: 'Breathing Rhythm',
+              description: 'Use strong, steady breathing to maintain rhythm.'
             }
           ]
         }
@@ -511,14 +511,14 @@ const workoutDatabase: EquipmentWorkouts[] = [
           intensityReason: 'Tabata protocol pushes advanced cyclists to maximum anaerobic power and VO2 capacity.',
           moodTips: [
             {
-              icon: 'stopwatch',
-              title: 'Maximum Effort Protocol',
-              description: 'During 20-second intervals, give everything you have - this should feel impossible to maintain longer.'
+              icon: 'flash',
+              title: 'Power Bursts',
+              description: 'Out-of-saddle sprints for power; maintain form.'
             },
             {
-              icon: 'battery-charging',
-              title: 'Recovery Efficiency',
-              description: 'Use 10-second rest periods to prepare mentally for the next all-out effort while keeping legs moving.'
+              icon: 'refresh',
+              title: 'Recovery Control',
+              description: 'Control breathing during recovery; don\'t fully relax.'
             }
           ]
         },
