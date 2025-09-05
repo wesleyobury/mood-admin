@@ -2065,7 +2065,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Basics',
           duration: '12 min',
-          description: '10 slams → 10 squat to press → 10 alternating lunges (ball at chest) → 1 min rest. Repeat 3x.',
+          description: '10 slams\n10 squat to press\n10 alternating lunges (ball at chest)\n1 min rest\nRepeat 3x.',
           imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxzbGFtJTIwYmFsbCUyMHdvcmtvdXR8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Introduction to slam ball fundamentals focusing on proper lifting mechanics and control.',
           moodTips: [
