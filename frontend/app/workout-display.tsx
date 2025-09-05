@@ -809,14 +809,14 @@ const workoutDatabase: EquipmentWorkouts[] = [
           intensityReason: 'Gentle step intervals with recovery periods help beginners build leg strength and cardiovascular base safely.',
           moodTips: [
             {
-              icon: 'trending-up',
-              title: 'Step Placement',
-              description: 'Place your entire foot on each step and avoid toe-stepping to engage all leg muscles and prevent injury.'
+              icon: 'body',
+              title: 'Full Foot',
+              description: 'Push through full foot, not just toes.'
             },
             {
-              icon: 'body',
-              title: 'Posture Control',
-              description: 'Keep your torso upright and avoid leaning forward - engage your core for stability and balance.'
+              icon: 'trending-up',
+              title: 'Upright Posture',
+              description: 'Stay upright; avoid leaning heavily on rails.'
             }
           ]
         },
@@ -828,14 +828,14 @@ const workoutDatabase: EquipmentWorkouts[] = [
           intensityReason: 'Varied stepping patterns introduce beginners to different movement patterns while maintaining moderate intensity.',
           moodTips: [
             {
-              icon: 'swap-horizontal',
-              title: 'Step Variation',
-              description: 'Alternate between single steps and double steps to work different muscle groups and prevent monotony.'
+              icon: 'fitness',
+              title: 'Glute Engagement',
+              description: 'Double steps: engage glutes deliberately.'
             },
             {
-              icon: 'pulse',
-              title: 'Heart Rate Monitoring',
-              description: 'Stepping movements quickly elevate heart rate - maintain a pace where you can still hold a conversation.'
+              icon: 'refresh',
+              title: 'Breathing Control',
+              description: 'Use slow phases to regain breathing control.'
             }
           ]
         }
