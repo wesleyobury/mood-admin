@@ -1498,14 +1498,14 @@ const workoutDatabase: EquipmentWorkouts[] = [
           intensityReason: 'Speed variations challenge intermediate jumpers with intense cardio demands and active recovery.',
           moodTips: [
             {
-              icon: 'flash',
-              title: 'Speed Development',
-              description: 'During fast intervals, increase rope speed while maintaining light, quick jumps - avoid jumping higher.'
+              icon: 'body',
+              title: 'Shoulder Relaxation',
+              description: 'Relax shoulders; prevent upper body fatigue.'
             },
             {
-              icon: 'refresh',
-              title: 'Recovery Jumping',
-              description: 'Use slow intervals for active recovery - keep moving but allow your heart rate to come down.'
+              icon: 'flash',
+              title: 'Double-Under Technique',
+              description: 'Double-unders: quick wrist snap, not higher jumps.'
             }
           ]
         }
