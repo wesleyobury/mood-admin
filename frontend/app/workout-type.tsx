@@ -89,9 +89,12 @@ export default function WorkoutTypeScreen() {
         pathname: '/cardio-equipment',
         params: { mood: moodTitle, workoutType: option.title }
       });
-    } else {
-      // TODO: Navigate to weight-based workout selection screen
-      console.log('Weight-based selection will be implemented later');
+    } else if (option.id === 'weight') {
+      // Navigate to weight equipment selection screen
+      router.push({
+        pathname: '/weight-equipment',
+        params: { mood: moodTitle, workoutType: option.title }
+      });
     }
   };
 
