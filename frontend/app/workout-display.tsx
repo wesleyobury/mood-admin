@@ -2290,7 +2290,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Rope & Sprint Circuit',
           duration: '20 min',
-          description: '20 sec waves → 20m sprint → 20 sec slams → 20m sprint → 1 min rest. Repeat 5x.',
+          description: '20 sec waves → 20 meters sprint → 20 sec slams → 20 meters sprint → 1 min rest. Repeat 5x.',
           imageUrl: 'https://images.unsplash.com/photo-1517838277536-f5f99be501cd?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw2fHxiYXR0bGUlMjByb3BlcyUyMHNwcmludHxlbnwwfHx8fDE3NTY4ODMyMzd8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Ultimate conditioning circuit combining rope power with sprint speed for peak athletic performance.',
           moodTips: [
