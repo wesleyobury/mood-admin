@@ -1207,13 +1207,13 @@ const workoutDatabase: EquipmentWorkouts[] = [
           moodTips: [
             {
               icon: 'walk',
-              title: 'Footwork Fundamentals',
-              description: 'Move around the bag with small steps, staying on the balls of your feet for quick directional changes.'
+              title: 'Light Movement',
+              description: 'Stay light on feet, constantly circling the bag.'
             },
             {
-              icon: 'eye',
-              title: 'Target Focus',
-              description: 'Keep your eyes on the bag and visualize different targets - this improves accuracy and mental engagement.'
+              icon: 'flash',
+              title: 'Sharp Punches',
+              description: 'Punch sharp, not pushing; snap back quickly.'
             }
           ]
         }
