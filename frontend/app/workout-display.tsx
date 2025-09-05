@@ -2038,7 +2038,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Sprint Circuit',
           duration: '20 min',
-          description: '10 wall balls → 20m sprint (with ball) → 10 slams → 20m sprint → 1 min rest. Repeat 5x.',
+          description: '10 wall balls → 20 meters sprint (with ball) → 10 slams → 20 meters sprint → 1 min rest. Repeat 5x.',
           imageUrl: 'https://images.unsplash.com/photo-1517838277536-f5f99be501cd?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw2fHxtZWRpY2luZSUyMGJhbGwlMjBzcHJpbnR8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'High-intensity circuit combining medicine ball work with sprint conditioning for peak performance.',
           moodTips: [
