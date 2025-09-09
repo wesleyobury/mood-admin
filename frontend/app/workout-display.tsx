@@ -2229,40 +2229,40 @@ const workoutDatabase: EquipmentWorkouts[] = [
       ],
       intermediate: [
         {
-          name: 'Tabata',
+          name: 'Battle Rope Tabata',
           duration: '16 min',
-          description: '20s work, 10s rest: waves, slams, circles, jacks. 4 rounds each, 16 intervals.',
+          description: '20s work, 10s rest alternating:\nwaves, slams, circles, jumping jacks\n4 rounds each (16 intervals total)',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwzfHxiYXR0bGUlMjByb3BlcyUyMHRhYmF0YXxlbnwwfHx8fDE3NTY4ODMyMzd8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'High-intensity Tabata protocol with varied rope movements for maximum cardiovascular stress.',
           moodTips: [
             {
               icon: 'flash',
               title: 'Core Power',
-              description: 'Hips/core generate force, not arms alone.'
+              description: 'Generate force from hips/core, not just arms.'
             },
             {
               icon: 'refresh',
               title: 'Maintain Volume',
-              description: 'Keep volume high, don\'t fade early.'
+              description: 'Keep efforts sharp—focus on short bursts.'
             }
           ]
         },
         {
           name: 'Rope & Burpee Combo',
-          duration: '16 min',
-          description: '30 sec waves → 5 burpees → 30 sec slams → 5 burpees → 1 min rest. Repeat 4x.',
+          duration: '20-22 min',
+          description: '30s waves\n5 burpees\n30s slams\n5 burpees\n1 min rest\nRepeat 4 rounds',
           imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxiYXR0bGUlMjByb3BlcyUyMGJ1cnBlZXxlbnwwfHx8fDE3NTY4ODMyMzd8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Combination training adding bodyweight movements to rope work for total body conditioning.',
           moodTips: [
             {
               icon: 'flash',
               title: 'Quick Transitions',
-              description: 'Quick rope-to-burpee transition.'
+              description: 'Transition rope-to-burpee fluidly.'
             },
             {
               icon: 'body',
               title: 'Landing Control',
-              description: 'Control burpee landings.'
+              description: 'Land gently on each burpee push.'
             }
           ]
         }
