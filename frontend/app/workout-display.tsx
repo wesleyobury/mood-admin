@@ -1964,7 +1964,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
           moodTips: [
             {
               icon: 'flash',
-              title: 'Chest Pass Power',
+              title: 'Explosive Power Development',
               description: 'Chest passes—drive with arms and chest together.'
             },
             {
