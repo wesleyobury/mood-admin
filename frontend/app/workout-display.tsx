@@ -2404,7 +2404,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'flash',
               title: 'Heavy Load Technique',
-              description: 'Heavy loads—glutes drive, torso rigid.'
+              description: 'Heavy pushes—glutes and hamstrings drive.'
             },
             {
               icon: 'refresh',
