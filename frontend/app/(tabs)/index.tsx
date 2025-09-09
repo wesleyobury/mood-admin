@@ -136,6 +136,12 @@ export default function WorkoutsHome() {
         pathname: '/workout-type',
         params: { mood: mood.title }
       });
+    } else if (mood.id === 'muscle') {
+      // Navigate to body parts selection for "I want to push and gain muscle"
+      router.push({
+        pathname: '/body-parts',
+        params: { mood: mood.title }
+      });
     } else {
       // TODO: Navigate to workout selection based on other moods
       console.log('Navigation for other moods will be implemented later');
