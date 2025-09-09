@@ -1946,7 +1946,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'eye',
               title: 'Wall Ball Precision',
-              description: 'Wall balls—aim eye-level, full squat range.'
+              description: 'Target eye-level mark on wall; catch ball in deep squat position with chest tall and arms extended.'
             },
             {
               icon: 'body',
