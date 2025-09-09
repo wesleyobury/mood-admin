@@ -1945,7 +1945,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
           moodTips: [
             {
               icon: 'eye',
-              title: 'Wall Ball Accuracy',
+              title: 'Wall Ball Precision',
               description: 'Wall balls—aim eye-level, full squat range.'
             },
             {
