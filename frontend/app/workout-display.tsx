@@ -1941,7 +1941,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
           duration: '18-20 min',
           description: '10 wall balls (8-12 lb ball, target 9-10 feet)\n10 medicine ball slams (8-10 lb ball)\n10 Russian twists each side (6-8 lb ball)\n90 seconds rest\nRepeat for 4 complete rounds\nFinish with 2 minutes gentle stretching',
           imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxtZWRpY2luZSUyMGJhbGwlMjB3b3Jrb3V0fGVufDB8fHx8MTc1Njg4MzIzN3ww&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Basic medicine ball movements introducing wall work and core engagement patterns.',
+          intensityReason: 'Perfect beginner introduction to medicine ball training emphasizing proper throwing mechanics, core stability, and functional movement patterns with appropriate rest periods.',
           moodTips: [
             {
               icon: 'eye',
