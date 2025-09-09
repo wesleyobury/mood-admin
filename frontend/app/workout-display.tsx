@@ -2441,40 +2441,40 @@ const workoutDatabase: EquipmentWorkouts[] = [
     workouts: {
       beginner: [
         {
-          name: 'Cardio Circuit',
-          duration: '12 min',
-          description: '10 squats → 10 rows → 10 presses → 1 min rest. Repeat 3x.',
+          name: 'Resistance Band Foundation Circuit',
+          duration: '18-22 min',
+          description: '10 banded squats (medium resistance)\n10 seated rows (medium resistance)\n10 chest presses (light-medium resistance)\n10 bicep curls (light resistance)\n8 shoulder lateral raises (light resistance)\n90 seconds rest\nRepeat for 4 complete rounds\nFinish with 3 minutes band-assisted stretching',
           imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxyZXNpc3RhbmNlJTIwYmFuZCUyMHdvcmtvdXR8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Introduction to resistance band training with basic movement patterns and controlled tension.',
+          intensityReason: 'Perfect introduction to resistance band training emphasizing controlled movement patterns, proper tension maintenance, and progressive muscle activation.',
           moodTips: [
             {
               icon: 'body',
-              title: 'Squat Form',
-              description: 'Knees push out vs. band tension.'
+              title: 'Squat Tension Control',
+              description: 'Keep knees tracking over toes against band resistance; maintain tension throughout entire squat range of motion.'
             },
             {
               icon: 'flash',
-              title: 'Row Technique',
-              description: 'Rows—elbows close, mid-ribcage pull.'
+              title: 'Rowing Technique',
+              description: 'Pull elbows close to ribcage during rows; squeeze shoulder blades together and control the return phase slowly.'
             }
           ]
         },
         {
-          name: 'Walks & Presses',
-          duration: '12 min',
-          description: '10 lateral band walks (each way) → 10 OH presses → 1 min rest. Repeat 3x.',
+          name: 'Band Activation and Mobility Flow',
+          duration: '16-20 min',
+          description: '10 lateral band walks each direction (light resistance)\n10 overhead shoulder presses (light-medium resistance)\n10 band pull-aparts (light resistance)\n10 standing wood chops each side (medium resistance)\n8 banded glute bridges (medium resistance)\n90 seconds rest\nRepeat for 3 complete rounds',
           imageUrl: 'https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwyfHxyZXNpc3RhbmNlJTIwYmFuZCUyMHdhbGt8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Activation-focused workout combining lateral movement with upper body pressing patterns.',
+          intensityReason: 'Activation-focused workout targeting glute engagement, shoulder stability, and rotational strength through controlled band movements.',
           moodTips: [
             {
               icon: 'flash',
-              title: 'Band Tension',
-              description: 'Band walks—knees bent, never let tension slack.'
+              title: 'Consistent Band Tension',
+              description: 'Never allow band to go slack during lateral walks; maintain constant knee bend and step wide to preserve tension.'
             },
             {
               icon: 'body',
-              title: 'Press Position',
-              description: 'OH press—avoid leaning back, brace abs.'
+              title: 'Overhead Press Stability',
+              description: 'Avoid arching back during overhead presses; engage core strongly and press bands straight up overhead.'
             }
           ]
         }
