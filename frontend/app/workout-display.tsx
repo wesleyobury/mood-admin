@@ -1969,7 +1969,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
             },
             {
               icon: 'refresh',
-              title: 'Core Engagement',
+              title: 'Balance and Control',
               description: 'Squat to press—tight abs, exhale on drive.'
             }
           ]
