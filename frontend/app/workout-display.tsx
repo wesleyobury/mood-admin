@@ -2752,21 +2752,21 @@ const workoutDatabase: EquipmentWorkouts[] = [
           ]
         },
         {
-          name: 'Tire Flip Circuit',
-          duration: '12 min',
-          description: '5 flips → 10 push-ups on tire → 10 lateral jumps → 1 min rest. Repeat 3x.',
+          name: 'Tire Flip Strength Circuit',
+          duration: '20-24 min',
+          description: '5 tire flips with 2-second pause at top\n10 tire push-ups (hands and feet on tire)\n10 lateral tire jumps each direction\n8 tire sit-ups (back against tire)\n6 tire farmer walks (carry tire 20 yards)\n2 minutes rest\nRepeat for 4 complete rounds',
           imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHx0aXJlJTIwZmxpcCUyMGNpcmN1aXR8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Circuit training integrating tire work with upper body and lateral movement patterns.',
+          intensityReason: 'Strength-focused circuit integrating tire manipulation with upper body, core, and carrying patterns for comprehensive functional development.',
           moodTips: [
             {
               icon: 'body',
-              title: 'Push-up Stability',
-              description: 'Push-ups—hands stable, core braced.'
+              title: 'Tire Push-up Stability',
+              description: 'Maintain stable hand placement on tire edge during push-ups; engage core strongly to prevent wobbling and maintain proper alignment.'
             },
             {
               icon: 'flash',
-              title: 'Lateral Movement',
-              description: 'Lateral jumps—compact feet, soft landings.'
+              title: 'Controlled Movement Quality',
+              description: 'Execute lateral jumps with controlled landing mechanics; maintain compact foot positioning and soft landing absorption.'
             }
           ]
         }
