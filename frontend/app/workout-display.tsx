@@ -2428,7 +2428,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'flash',
               title: 'Reset Power',
-              description: 'Explosive resets after each burpee.'
+              description: 'Push explosively out of burpees.'
             }
           ]
         }
