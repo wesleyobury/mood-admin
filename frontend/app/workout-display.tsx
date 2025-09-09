@@ -1892,8 +1892,8 @@ const workoutDatabase: EquipmentWorkouts[] = [
       advanced: [
         {
           name: 'Barbell Ladder',
-          duration: '18 min',
-          description: '10-8-6-4-2 reps:\npower clean\npush jerk\nfront squat\nburpee over bar\nRest as needed.',
+          duration: '20-24 min',
+          description: '10-8-6-4-2 reps:\npower clean\npush jerk\nfront squat\nburpee over bar\nRest as needed until ladder complete',
           imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw1fHxiYXJiZWxsJTIwYWR2YW5jZWR8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Advanced ladder requiring explosive power, strength, and conditioning with complex movements.',
           moodTips: [
@@ -1905,26 +1905,26 @@ const workoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'body',
               title: 'Burpee Control',
-              description: 'Burpees—flat landings, avoid sloppy spring.'
+              description: 'Burpees—land flat-foot, avoid toe springing.'
             }
           ]
         },
         {
-          name: 'AMRAP 15 min',
+          name: 'Barbell AMRAP',
           duration: '15 min',
-          description: '6 deadlifts\n6 hang cleans\n6 push presses\n6 back squats\n6 bar-facing burpees.',
+          description: 'Max rounds in 15 min of:\n6 deadlifts\n6 hang cleans\n6 push presses\n6 back squats\n6 bar-facing burpees',
           imageUrl: 'https://images.unsplash.com/photo-1517838277536-f5f99be501cd?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw2fHxiYXJiZWxsJTIwYW1yYXB8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'High-intensity AMRAP testing maximum work capacity with full-body barbell movements.',
           moodTips: [
             {
               icon: 'refresh',
               title: 'Barbell Efficiency',
-              description: 'Cycle barbell efficiently with minimal regrip.'
+              description: 'Cycle barbell smoothly, minimize bar resets.'
             },
             {
               icon: 'flash',
               title: 'Breathing Management',
-              description: 'Burpees—control breathing to avoid burnout.'
+              description: 'Burpees—steady breathing, don\'t over gas.'
             }
           ]
         }
