@@ -2693,21 +2693,21 @@ const workoutDatabase: EquipmentWorkouts[] = [
     workouts: {
       beginner: [
         {
-          name: 'Tire Flip & Step',
-          duration: '12 min',
-          description: '5 flips → 10 step-ups on tire → 1 min rest. Repeat 3x.',
+          name: 'Tire Flipping Foundation',
+          duration: '16-20 min',
+          description: '5 proper tire flips (focus on technique)\n10 tire step-ups (controlled pace)\n8 tire toe taps for footwork\n6 tire push-ups (hands on tire edge)\n90 seconds rest\nRepeat for 4 complete rounds\nFinish with 3 minutes stretching and lower back mobility',
           imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHx0aXJlJTIwZmxpcCUyMHdvcmtvdXR8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Introduction to tire flipping with proper technique and complementary step-up movements.',
+          intensityReason: 'Perfect introduction to tire flipping emphasizing proper lifting mechanics, hip hinge technique, and complementary movements for comprehensive strength development.',
           moodTips: [
             {
               icon: 'body',
-              title: 'Flip Technique',
-              description: 'Chest tight to tire, drive through heels.'
+              title: 'Proper Flip Mechanics',
+              description: 'Keep chest close to tire during setup; drive powerfully through heels and hips while maintaining neutral spine alignment throughout the flip.'
             },
             {
               icon: 'flash',
-              title: 'Step-up Power',
-              description: 'Step-ups—whole foot, glute engaged.'
+              title: 'Step-up Control',
+              description: 'Place entire foot securely on tire during step-ups; engage glutes to drive upward and maintain balance throughout the movement.'
             }
           ]
         },
