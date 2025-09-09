@@ -1950,7 +1950,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
             },
             {
               icon: 'body',
-              title: 'Slam Technique',
+              title: 'Slam Mechanics',
               description: 'Ball slams—hinge hips, flat back.'
             }
           ]
