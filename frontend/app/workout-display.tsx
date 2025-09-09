@@ -2409,7 +2409,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'refresh',
               title: 'Fast Transitions',
-              description: 'Fast transitions maximize burn.'
+              description: 'Transition quickly for conditioning effect.'
             }
           ]
         },
