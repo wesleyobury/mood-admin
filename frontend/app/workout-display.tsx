@@ -1600,8 +1600,8 @@ const workoutDatabase: EquipmentWorkouts[] = [
       intermediate: [
         {
           name: 'Dumbbell Complex',
-          duration: '16 min',
-          description: '6 reps deadlift, 6 reps hang clean, 6 reps front squat, 6 reps push press, 6 reps reverse lunge (no rest between exercises), 1 min rest between rounds, repeat 4 rounds.',
+          duration: '28-30 min',
+          description: '6 reps each move in sequence:\ndeadlift\nhang clean\nfront squat\npush press\nreverse lunge\nRest 1 min, repeat 4 rounds',
           imageUrl: 'https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwzfHxkdW1iYmVsbCUyMGNvbXBsZXh8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Challenging complex that combines multiple movement patterns for increased strength and conditioning.',
           moodTips: [
@@ -1618,21 +1618,21 @@ const workoutDatabase: EquipmentWorkouts[] = [
           ]
         },
         {
-          name: 'EMOM 12 min',
+          name: 'EMOM 12',
           duration: '12 min',
-          description: 'Minute 1: 10 dumbbell thrusters, Minute 2: 12 alternating renegade rows, Minute 3: 10 dumbbell thrusters, Minute 4: 12 alternating renegade rows, continue alternating for 12 minutes.',
+          description: 'Odd minutes: 10 dumbbell thrusters\nEven minutes: 12 alternating renegade rows\n12 minutes total',
           imageUrl: 'https://images.unsplash.com/photo-1598971861713-54ad16c5b44b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxkdW1iYmVsbCUyMGNpcmN1aXR8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Time-based intervals challenge muscular endurance and cardiovascular capacity with precise rest periods.',
           moodTips: [
             {
               icon: 'flash',
               title: 'Hip Drive',
-              description: 'Thrusters—power from hips, not arms.'
+              description: 'Thrusters—hips drive press, don\'t isolate arms.'
             },
             {
               icon: 'body',
               title: 'Core Stability',
-              description: 'Renegade rows—keep hips steady; avoid twisting.'
+              description: 'Renegade rows—hips stable, no twisting.'
             }
           ]
         }
