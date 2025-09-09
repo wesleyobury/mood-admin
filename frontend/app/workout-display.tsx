@@ -2792,21 +2792,21 @@ const workoutDatabase: EquipmentWorkouts[] = [
           ]
         },
         {
-          name: 'Tire Flip & Sprint',
-          duration: '16 min',
-          description: '6 flips → 20 meters sprint → 6 flips → 20 meters sprint → 1 min rest. Repeat 4x.',
+          name: 'Tire Flip Conditioning Challenge',
+          duration: '26-30 min',
+          description: '10 explosive tire flips (maximum speed)\n10 tire box jumps (full tire height)\n20-yard tire drag (rope attachment)\n8 tire slam alternatives (if available)\n6 tire deadlifts (if tire has handles)\n10-yard tire bear crawl push\n90 seconds rest\nRepeat for 4 complete rounds',
           imageUrl: 'https://images.unsplash.com/photo-1517838277536-f5f99be501cd?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw2fHx0aXJlJTIwZmxpcCUyMHNwcmludHxlbnwwfHx8fDE3NTY4ODMyMzd8MA&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Ultimate power-speed combination challenging maximum strength output followed by speed work.',
+          intensityReason: 'Peak-intensity conditioning challenge integrating maximum tire manipulation, dragging, and multi-planar movement for complete functional strength development.',
           moodTips: [
             {
-              icon: 'body',
-              title: 'Grip Technique',
-              description: 'Grip low under tire, chest close.'
+              icon: 'refresh',
+              title: 'Rapid Recovery Mechanics',
+              description: 'Execute quick transitions between tire flips and subsequent movements; maintain breathing rhythm and movement efficiency despite high intensity.'
             },
             {
               icon: 'flash',
-              title: 'Sprint Efficiency',
-              description: 'Sprint tall to keep efficiency after heavy flips.'
+              title: 'Sustained Power Output',
+              description: 'Maintain tire flipping speed and power throughout extended sets; focus on explosive intent rather than grinding through fatigue.'
             }
           ]
         }
