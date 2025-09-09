@@ -1970,7 +1970,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'refresh',
               title: 'Balance and Control',
-              description: 'Squat to press—tight abs, exhale on drive.'
+              description: 'Single-leg RDL—keep standing leg strong, control the descent and maintain neutral spine throughout entire range of motion.'
             }
           ]
         }
