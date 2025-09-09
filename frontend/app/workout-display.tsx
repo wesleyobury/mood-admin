@@ -1852,39 +1852,39 @@ const workoutDatabase: EquipmentWorkouts[] = [
       intermediate: [
         {
           name: 'Barbell Complex',
-          duration: '16 min',
-          description: '5 reps each, no rest:\ndeadlift\nhang power clean\nfront squat\npush press\nback squat\nbent-over row\nRest 1 min, repeat 4x.',
+          duration: '28-30 min',
+          description: '5 reps each, no rest between:\ndeadlift\nhang power clean\nfront squat\npush press\nback squat\nbent row\n1 min rest, repeat 4 rounds',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwzfHxiYXJiZWxsJTIwY29tcGxleHxlbnwwfHx8fDE3NTY4ODMyMzd8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Challenging barbell complex requiring strength, endurance, and technical proficiency.',
           moodTips: [
             {
               icon: 'hand-left',
               title: 'Grip Efficiency',
-              description: 'Hook grip helps efficiency in long sets.'
+              description: 'Hook grip saves grip fatigue.'
             },
             {
               icon: 'refresh',
               title: 'Breathing Strategy',
-              description: 'Exhale on heavy presses/squats for bracing.'
+              description: 'Breathe out strongly on presses/squats.'
             }
           ]
         },
         {
-          name: 'Barbell EMOM 12 min',
+          name: 'Barbell EMOM',
           duration: '12 min',
-          description: 'Odd minutes: 8 thrusters. Even minutes: 10 sumo deadlift high pulls.',
+          description: 'Odd minutes: 8 thrusters\nEven minutes: 10 sumo deadlift high pulls\n12 minutes total',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxiYXJiZWxsJTIwZW1vbXxlbnwwfHx8fDE3NTY4ODMyMzd8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Time-constrained intervals building power endurance with two demanding barbell movements.',
           moodTips: [
             {
               icon: 'flash',
               title: 'Thruster Power',
-              description: 'Thrusters—ride bounce out of squat for press.'
+              description: 'Thrusters—ride squat bounce into press.'
             },
             {
               icon: 'trending-up',
               title: 'High Pull Technique',
-              description: 'High pulls—keep bar close, elbows higher than wrists.'
+              description: 'High pulls—elbows above wrists, bar stays close.'
             }
           ]
         }
