@@ -2189,40 +2189,40 @@ const workoutDatabase: EquipmentWorkouts[] = [
     workouts: {
       beginner: [
         {
-          name: 'Waves & Slams',
-          duration: '10 min',
-          description: '20 sec waves\n20 sec rest\n20 sec slams\n20 sec rest\nRepeat 5x.',
+          name: 'Rope Waves & Slams',
+          duration: '12-14 min',
+          description: '20s alternating waves\n20s rest\n20s double slams\n20s rest\nRepeat 5 rounds',
           imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxiYXR0bGUlMjByb3BlcyUyMHdvcmtvdXR8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Introduction to battle rope fundamentals with manageable work-to-rest ratios.',
           moodTips: [
             {
               icon: 'body',
               title: 'Athletic Stance',
-              description: 'Athletic stance; knees bent, core braced.'
+              description: 'Hips and core engaged, knees bent.'
             },
             {
               icon: 'refresh',
               title: 'Power Breathing',
-              description: 'Exhale with each slam for power.'
+              description: 'Exhale with impact on each slam.'
             }
           ]
         },
         {
           name: 'Rope Circuit',
-          duration: '12 min',
-          description: '20 sec waves → 20 sec side-to-side → 20 sec slams → 1 min rest. Repeat 4x.',
+          duration: '12-15 min',
+          description: '20s waves\n20s side-to-side waves\n20s slams\n1 min rest\nRepeat 4 rounds',
           imageUrl: 'https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwyfHxiYXR0bGUlMjByb3BlcyUyMGNpcmN1aXR8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Varied rope movements building coordination and cardiovascular endurance.',
           moodTips: [
             {
               icon: 'flash',
               title: 'Rope Control',
-              description: 'Maintain consistent rope slack.'
+              description: 'Maintain steady rope slack.'
             },
             {
               icon: 'body',
               title: 'Shoulder Position',
-              description: 'Shoulders down—avoid shrug.'
+              description: 'Relax shoulders, no trap shrugging.'
             }
           ]
         }
