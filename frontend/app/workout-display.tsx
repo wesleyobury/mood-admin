@@ -2773,21 +2773,21 @@ const workoutDatabase: EquipmentWorkouts[] = [
       ],
       advanced: [
         {
-          name: 'Tire Flip Gauntlet',
-          duration: '16 min',
-          description: '8 flips → 8 burpees → 8 jumps → 8 push-ups → 1 min rest. Repeat 4x.',
-          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw1fHx0aXJlJTIwZmxpcCUyMGFkdmFuY2VkfGVufDB8fHx8MTc1Njg4MzIzN3ww&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Advanced gauntlet testing maximum strength, power, and conditioning with tire manipulation.',
+          name: 'Elite Tire Flip Complex',
+          duration: '28-32 min',
+          description: '8 maximum-power tire flips (explosive technique)\n8 tire jumps with 180-degree rotation\n8 single-arm tire push-ups each arm\n8 tire burpees with jump over tire\n6 tire overhead carries (30 yards)\n4 tire flips into immediate sprint (15 yards)\n2 minutes rest\nRepeat for 5 complete rounds\nFinish with 5 minutes comprehensive stretching',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw1fHx0aXJlJTIwZmxpcCUyMGFkdmFuY2VkfGVufDB8fHx8TVc1Njg4MzIzN3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Elite-level complex demanding maximal tire flipping power, rotational stability, unilateral strength, and integrated conditioning through advanced movement patterns.',
           moodTips: [
             {
               icon: 'flash',
-              title: 'Explosive Hip Power',
-              description: 'Explosive hip power on flips.'
+              title: 'Maximum Power Output',
+              description: 'Generate maximum explosiveness on every tire flip; maintain technique integrity even under high-volume fatigue demands.'
             },
             {
-              icon: 'refresh',
-              title: 'Pacing Strategy',
-              description: 'Pace burpees to survive full circuit.'
+              icon: 'body',
+              title: 'Complex Movement Integration',
+              description: 'Execute smooth transitions between tire flip and sprint; maintain spatial awareness during rotational jumps and overhead carries.'
             }
           ]
         },
