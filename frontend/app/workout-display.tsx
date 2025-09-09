@@ -2567,40 +2567,40 @@ const workoutDatabase: EquipmentWorkouts[] = [
     workouts: {
       beginner: [
         {
-          name: 'Hammer Basics',
-          duration: '12 min',
-          description: '10 strikes (each side) → 10 tire step-ups → 1 min rest. Repeat 3x.',
+          name: 'Sledgehammer Foundation Training',
+          duration: '18-22 min',
+          description: '10 overhead strikes each side (10-12 lb hammer)\n10 tire step-ups (focus on balance)\n8 lateral strikes each side (light hammer)\n8 tire toe taps for agility\n90 seconds rest\nRepeat for 4 complete rounds\nFinish with 3 minutes stretching and shoulder mobility',
           imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxzbGVkZ2VoYW1tZXIlMjB3b3Jrb3V0fGVufDB8fHx8TVc1Mjg4MzIzN3ww&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Introduction to sledgehammer fundamentals with proper striking technique and tire integration.',
+          intensityReason: 'Perfect introduction to sledgehammer training emphasizing proper striking mechanics, grip technique, and tire integration with safety-first approach.',
           moodTips: [
             {
               icon: 'hand-left',
-              title: 'Grip Technique',
-              description: 'Slide top hand down; loose grip.'
+              title: 'Proper Grip Mechanics',
+              description: 'Start with hands together, slide top hand down during strike; maintain loose grip to prevent fatigue and improve power transfer.'
             },
             {
               icon: 'body',
-              title: 'Step-up Form',
-              description: 'Step-ups—whole foot on tire, glutes drive.'
+              title: 'Step-up Balance Control',
+              description: 'Place entire foot on tire during step-ups; drive through glutes and maintain upright posture throughout movement.'
             }
           ]
         },
         {
-          name: 'Hammer & March',
-          duration: '12 min',
-          description: '8 strikes (each side) → 8 tire toe taps → 1 min rest. Repeat 4x.',
+          name: 'Hammer and Agility Flow',
+          duration: '16-20 min',
+          description: '8 controlled overhead strikes each side (8-10 lb hammer)\n8 tire toe taps (quick feet pattern)\n6 diagonal strikes each side (light hammer)\n10 tire step-overs (lateral movement)\n8 tire punches with gloves\n90 seconds rest\nRepeat for 3 complete rounds',
           imageUrl: 'https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwyfHxzbGVkZ2VoYW1tZXIlMjBtYXJjaHxlbnwwfHx8fDE3NTY4ODMyMzd8MA&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Progressive workout building coordination between striking power and agility movements.',
+          intensityReason: 'Progressive coordination workout building relationship between striking power, footwork agility, and multi-directional movement patterns.',
           moodTips: [
             {
               icon: 'flash',
-              title: 'Hip Power',
-              description: 'Strikes driven from hips, not arms.'
+              title: 'Hip-Driven Power',
+              description: 'Generate striking force from hip rotation and core engagement rather than arm strength alone; let gravity assist the downward motion.'
             },
             {
               icon: 'body',
-              title: 'Toe Tap Agility',
-              description: 'Toe taps—stay light, balls of feet.'
+              title: 'Agility Footwork',
+              description: 'Stay light on balls of feet during toe taps; maintain athletic position with slight knee bend throughout agility work.'
             }
           ]
         }
