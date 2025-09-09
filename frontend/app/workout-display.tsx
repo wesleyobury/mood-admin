@@ -1812,8 +1812,8 @@ const workoutDatabase: EquipmentWorkouts[] = [
       beginner: [
         {
           name: 'Barbell Metcon',
-          duration: '12 min',
-          description: '8 deadlifts\n8 front squats\n8 push presses\n1 min rest\nRepeat 3x (light weight).',
+          duration: '12-15 min',
+          description: '8 deadlifts\n8 front squats\n8 push presses\n1 min rest\nRepeat 3 rounds (use light weight)',
           imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxiYXJiZWxsJTIwd29ya291dHxlbnwwfHx8fDE3NTY4ODMyMzd8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Light barbell introduction focusing on proper movement patterns and form development.',
           moodTips: [
@@ -1825,26 +1825,26 @@ const workoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'fitness',
               title: 'Front Squat Technique',
-              description: 'Front squat—elbows high; bar rests on shoulders.'
+              description: 'Front squat—elbows high, bar rests on shoulders.'
             }
           ]
         },
         {
           name: 'Barbell Cardio Flow',
-          duration: '13 min',
-          description: '6 reps each: \nhang clean\npush press\nback squat\nbent-over row\nRest 90 sec, repeat 3x.',
+          duration: '14-16 min',
+          description: '6 reps each:\nhang clean\npush press\nback squat\nbent-over row\nRest 90 sec, repeat 3 rounds',
           imageUrl: 'https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwyfHxiYXJiZWxsJTIwZmxvd3xlbnwwfHx8fDE3NTY4ODMyMzd8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Smooth barbell flow that teaches coordination between major compound movements.',
           moodTips: [
             {
               icon: 'flash',
               title: 'Clean Technique',
-              description: 'Cleans—triple extension, catch tall.'
+              description: 'Cleans—triple extension, chest tall on catch.'
             },
             {
               icon: 'body',
               title: 'Row Form',
-              description: 'Row—flat back, elbows drive to ribs.'
+              description: 'Rows—flat back, elbows sweep to ribs.'
             }
           ]
         }
