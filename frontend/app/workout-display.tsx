@@ -2415,8 +2415,8 @@ const workoutDatabase: EquipmentWorkouts[] = [
         },
         {
           name: 'Sled & Burpee Circuit',
-          duration: '16 min',
-          description: '10 meters heavy push → 10 burpees → 10 meters back drag → 10 burpees → 1 min rest. Repeat 4x.',
+          duration: '24-26 min',
+          description: '10 meters heavy push\n10 burpees\n10 meters backward drag\n10 burpees\n1 min rest\nRepeat 4 rounds',
           imageUrl: 'https://images.unsplash.com/photo-1517838277536-f5f99be501cd?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHc2fHxzbGVkJTIwYnVycGVlfGVufDB8fHx8MTc1Njg4MzIzN3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Ultimate challenge combining heavy sled work with burpees for maximum conditioning stress.',
           moodTips: [
