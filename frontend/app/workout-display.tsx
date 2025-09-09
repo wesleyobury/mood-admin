@@ -2103,40 +2103,40 @@ const workoutDatabase: EquipmentWorkouts[] = [
       ],
       intermediate: [
         {
-          name: 'AMRAP 10 min',
+          name: 'Slam Ball AMRAP',
           duration: '10 min',
-          description: '10 slams → 10 lateral slams (5/side) → 10 squat jumps (ball at chest).',
+          description: 'Max rounds in 10 min of:\n10 slams\n10 lateral slams (5 per side)\n10 squat jumps (ball at chest)',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwzfHxzbGFtJTIwYmFsbCUyMGFtcmFwfGVufDB8fHx8MTc1Njg4MzIzN3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'High-intensity AMRAP incorporating lateral movement and plyometric elements.',
           moodTips: [
             {
               icon: 'flash',
               title: 'Lateral Slam Safety',
-              description: 'Lateral slams—pivot hips fully; don\'t twist knees.'
+              description: 'Lateral slams—pivot hips fully, protect knees.'
             },
             {
               icon: 'body',
               title: 'Jump Landing',
-              description: 'Land squat jumps with soft knees, chest up.'
+              description: 'Land squat jumps softly, chest tall.'
             }
           ]
         },
         {
-          name: 'Tabata',
+          name: 'Slam Ball Tabata',
           duration: '16 min',
-          description: '20s work, 10s rest: slams, squat to press, lateral slams, burpee to slam. 4 rounds each, 16 total.',
+          description: '20s work, 10s rest alternating:\nslams, squat-to-press, lateral slams, burpee-slams\n4 rounds each (16 intervals total)',
           imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxzbGFtJTIwYmFsbCUyMHRhYmF0YXxlbnwwfHx8fDE3NTY4ODMyMzd8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Intense Tabata protocol pushing anaerobic power with explosive slam ball movements.',
           moodTips: [
             {
               icon: 'body',
               title: 'Burpee Form',
-              description: 'Burpee-to-slam—center ball, don\'t round back.'
+              description: 'Burpee-slam—ball set dead center before drop.'
             },
             {
               icon: 'refresh',
               title: 'Control Descent',
-              description: 'Control ball descent each rep.'
+              description: 'Exhale sharply with each overhead drive.'
             }
           ]
         }
