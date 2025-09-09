@@ -2607,40 +2607,40 @@ const workoutDatabase: EquipmentWorkouts[] = [
       ],
       intermediate: [
         {
-          name: 'Hammer & Burpee Circuit',
-          duration: '16 min',
-          description: '10 strikes (per side) → 8 burpees → 10 tire jumps → 1 min rest. Repeat 4x.',
+          name: 'Sledgehammer Power Circuit',
+          duration: '24-28 min',
+          description: '10 explosive overhead strikes each side (12-16 lb hammer)\n8 burpees with tire touch\n10 tire jumps (lateral and forward)\n8 alternating diagonal strikes each side\n6 tire step-ups with hammer carry\n90 seconds rest\nRepeat for 5 complete rounds\nFinish with 3 minutes recovery stretching',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwzfHxzbGVkZ2VoYW1tZXIlMjBidXJwZWV8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Intermediate circuit combining hammer power with plyometric and bodyweight movements.',
+          intensityReason: 'Intermediate circuit combining sledgehammer power development with plyometric and bodyweight movements for comprehensive conditioning.',
           moodTips: [
             {
               icon: 'flash',
-              title: 'Core Power',
-              description: 'Explosive core twist with strikes.'
+              title: 'Explosive Core Integration',
+              description: 'Drive strikes through explosive core rotation and hip snap; maintain strong spinal alignment throughout entire striking motion.'
             },
             {
               icon: 'body',
-              title: 'Jump Landing',
-              description: 'Tire jumps—land softly, chest tall.'
+              title: 'Plyometric Landing Control',
+              description: 'Land tire jumps with soft knees and centered balance; keep chest tall and immediately prepare for next movement transition.'
             }
           ]
         },
         {
-          name: 'Hammer Tabata',
-          duration: '12 min',
-          description: '20s strikes (switch halfway), 10s rest. 8 rounds. 1 min rest. 3 cycles.',
-          imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxzbGVkZ2VoYW1tZXIlMjB0YWJhdGF8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'High-intensity Tabata format focusing purely on striking power and endurance.',
+          name: 'High-Intensity Sledgehammer Tabata',
+          duration: '22-25 min',
+          description: 'Tabata Protocol: 20 seconds work, 10 seconds rest\nRound 1: Overhead strikes alternating sides (14-16 lb hammer) - 8 intervals\n2 minutes rest\nRound 2: Lateral strikes left side (12-14 lb hammer) - 8 intervals\n2 minutes rest\nRound 3: Lateral strikes right side (12-14 lb hammer) - 8 intervals\n2 minutes rest\nFinish with 4 minutes mobility work',
+          imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHc0fHxzbGVkZ2VoYW1tZXIlMjB0YWJhdGF8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'High-intensity Tabata intervals focused on developing sledgehammer-specific power endurance and anaerobic capacity.',
           moodTips: [
             {
               icon: 'flash',
-              title: 'Hip Snap',
-              description: 'Strong hip snap on every strike.'
+              title: 'Hip Snap Efficiency',
+              description: 'Maintain strong hip snap on every strike even as fatigue sets in; focus on technique over pure force during intervals.'
             },
             {
               icon: 'refresh',
-              title: 'Breathing Rhythm',
-              description: 'Breathing cadence—exhale with each hit.'
+              title: 'Breathing Coordination',
+              description: 'Exhale forcefully with each strike; establish rhythmic breathing pattern to maintain power output throughout intervals.'
             }
           ]
         }
