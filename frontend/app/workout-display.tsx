@@ -2315,40 +2315,40 @@ const workoutDatabase: EquipmentWorkouts[] = [
     workouts: {
       beginner: [
         {
-          name: 'Push & Pull',
-          duration: '15 min',
-          description: '10 meters push (light) → 10 meters pull (backwards) → 1 min rest. Repeat 5x.',
+          name: 'Sled Push & Pull',
+          duration: '12-15 min',
+          description: '10 meters push (light)\n10 meters backward pull\n1 min rest\nRepeat 5 rounds',
           imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxzbGVkJTIwd29ya291dHxlbnwwfHx8fDE3NTY4ODMyMzd8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Introduction to sled training with light loads focusing on proper pushing and pulling mechanics.',
           moodTips: [
             {
               icon: 'body',
               title: 'Push Angle',
-              description: 'Push at ~45°, arms straight.'
+              description: 'Push at ~45° lean, arms straight.'
             },
             {
               icon: 'flash',
               title: 'Pull Technique',
-              description: 'Backward pull—short fast steps.'
+              description: 'Backward pulls—fast, short steps.'
             }
           ]
         },
         {
-          name: 'March',
-          duration: '12 min',
-          description: '15 meters slow push → 15 meters slow pull → 1 min rest. Repeat 4x.',
+          name: 'Sled March',
+          duration: '12-16 min',
+          description: '15 meters slow push\n15 meters slow pull\n1 min rest\nRepeat 4 rounds',
           imageUrl: 'https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwyfHxzbGVkJTIwbWFyY2h8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Controlled movement patterns building strength endurance and proper sled mechanics.',
           moodTips: [
             {
               icon: 'body',
               title: 'Heel Drive',
-              description: 'Heel-to-toe drive; keep spine neutral.'
+              description: 'Heel-to-toe push, core braced.'
             },
             {
               icon: 'refresh',
               title: 'Core Stability',
-              description: 'Braced core, no back arch.'
+              description: 'Chest upright on pulls, no leaning back.'
             }
           ]
         }
