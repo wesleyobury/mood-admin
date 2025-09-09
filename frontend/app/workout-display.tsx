@@ -2712,21 +2712,21 @@ const workoutDatabase: EquipmentWorkouts[] = [
           ]
         },
         {
-          name: 'Tire Flip & Tap',
-          duration: '12 min',
-          description: '4 flips → 20 toe taps on tire → 1 min rest. Repeat 4x.',
+          name: 'Tire Flip and Agility Training',
+          duration: '18-22 min',
+          description: '4 controlled tire flips (emphasis on form)\n20 tire toe taps (quick feet pattern)\n8 tire lateral step-overs each direction\n6 tire mountain climbers (hands on tire)\n8 tire bear crawls around perimeter\n90 seconds rest\nRepeat for 3 complete rounds',
           imageUrl: 'https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwyfHx0aXJlJTIwZmxpcCUyMHRhcHxlbnwwfHx8fDE3NTY4ODMyMzd8MA&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Building flip strength while incorporating agility work for comprehensive conditioning.',
+          intensityReason: 'Progressive strength and agility workout building tire flipping power while incorporating multi-directional movement patterns and core stability.',
           moodTips: [
             {
               icon: 'flash',
-              title: 'Hip Drive',
-              description: 'Explosive hip drive on flips.'
+              title: 'Explosive Hip Drive',
+              description: 'Generate flipping power through explosive hip extension rather than back strain; coordinate leg drive with upper body push for efficient tire movement.'
             },
             {
               icon: 'body',
-              title: 'Agility Technique',
-              description: 'Toe taps—quick, light, balls of feet.'
+              title: 'Agility and Balance',
+              description: 'Stay light on balls of feet during toe taps and step-overs; maintain athletic position with knees slightly bent throughout agility work.'
             }
           ]
         }
