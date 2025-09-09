@@ -2270,39 +2270,39 @@ const workoutDatabase: EquipmentWorkouts[] = [
       advanced: [
         {
           name: 'Battle Rope Gauntlet',
-          duration: '20 min',
-          description: '30 sec waves → 30 sec slams → 30 sec side-to-side → 30 sec jacks → 30 sec alt circles → 1 min rest. Repeat 4x.',
+          duration: '24-26 min',
+          description: '30s waves\n30s slams\n30s side-to-side\n30s jacks\n30s circles\n1 min rest\nRepeat 4 rounds',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw1fHxiYXR0bGUlMjByb3BlcyUyMGFkdmFuY2VkfGVufDB8fHx8MVc1Njg4MzIzN3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Extended high-intensity gauntlet testing advanced cardiovascular capacity and rope mastery.',
           moodTips: [
             {
               icon: 'refresh',
               title: 'Rhythm Control',
-              description: 'Consistent rhythm across moves; avoid burnout.'
+              description: 'Keep steady rhythm across all rope patterns.'
             },
             {
               icon: 'flash',
               title: 'Breathing Technique',
-              description: 'Breathing control per wave set.'
+              description: 'Sync breathing pattern with wave count.'
             }
           ]
         },
         {
           name: 'Rope & Sprint Circuit',
-          duration: '20 min',
-          description: '20 sec waves → 20 meters sprint → 20 sec slams → 20 meters sprint → 1 min rest. Repeat 5x.',
+          duration: '20-25 min',
+          description: '20s waves\n20 meters sprint\n20s slams\n20 meters sprint\n1 min rest\nRepeat 5 rounds',
           imageUrl: 'https://images.unsplash.com/photo-1517838277536-f5f99be501cd?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw2fHxiYXR0bGUlMjByb3BlcyUyMHNwcmludHxlbnwwfHx8fDE3NTY4ODMyMzd8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Ultimate conditioning circuit combining rope power with sprint speed for peak athletic performance.',
           moodTips: [
             {
               icon: 'flash',
               title: 'Sprint Form',
-              description: 'Sprint tall with full arm drive.'
+              description: 'Sprints—tall posture, full arm drive.'
             },
             {
               icon: 'refresh',
               title: 'Maximum Effort',
-              description: 'Commit max effort before sprints.'
+              description: 'Commit max intensity in rope bursts before each sprint.'
             }
           ]
         }
