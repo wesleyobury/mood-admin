@@ -1938,7 +1938,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
       beginner: [
         {
           name: 'Medicine Ball Foundation Circuit',
-          duration: '12 min',
+          duration: '18-20 min',
           description: '10 wall balls\n10 slams\n10 Russian twists (each side)\n1 min rest\nRepeat 3x.',
           imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxtZWRpY2luZSUyMGJhbGwlMjB3b3Jrb3V0fGVufDB8fHx8MTc1Njg4MzIzN3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Basic medicine ball movements introducing wall work and core engagement patterns.',
