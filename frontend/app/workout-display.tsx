@@ -2733,21 +2733,21 @@ const workoutDatabase: EquipmentWorkouts[] = [
       ],
       intermediate: [
         {
-          name: 'Flip & Jump',
-          duration: '16 min',
-          description: '6 flips → 8 jumps on tire → 1 min rest. Repeat 4x.',
+          name: 'Power Tire Flip Circuit',
+          duration: '22-26 min',
+          description: '6 explosive tire flips (focus on speed)\n8 tire jumps (forward and lateral)\n10 tire push-ups with feet elevated\n8 tire burpees (hands on tire edge)\n6 single-leg tire step-ups each leg\n90 seconds rest\nRepeat for 5 complete rounds\nFinish with 4 minutes recovery stretching',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwzfHx0aXJlJTIwZmxpcCUyMGp1bXB8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Intermediate progression adding plyometric jumps to build explosive power and conditioning.',
+          intensityReason: 'Intermediate circuit combining tire flipping power development with plyometric jumps and unilateral strength for comprehensive athletic conditioning.',
           moodTips: [
             {
               icon: 'body',
-              title: 'Flip Form',
-              description: 'Flat back on flips, arms under tire edge.'
+              title: 'Advanced Flip Technique',
+              description: 'Maintain flat back throughout tire flip setup; position arms under tire edge and drive through legs while pushing with upper body simultaneously.'
             },
             {
               icon: 'flash',
-              title: 'Jump Landing',
-              description: 'Land softly on jumps.'
+              title: 'Plyometric Landing Safety',
+              description: 'Land tire jumps with soft knees and centered balance; absorb impact through hip flexion and prepare immediately for next movement.'
             }
           ]
         },
