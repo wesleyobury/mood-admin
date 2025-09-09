@@ -2143,40 +2143,40 @@ const workoutDatabase: EquipmentWorkouts[] = [
       ],
       advanced: [
         {
-          name: 'Complex',
-          duration: '16 min',
-          description: '12 slams → 10 lateral slams → 8 burpee/slam → 6 OH throws. Rest 1 min, repeat 4x.',
-          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw1fHxzbGFtJTIwYmFsbCUyMGFkdmFuY2VkfGVufDB8fHx8MTc1Njg4MzIzN3ww&ixlib=rb-4.1.0&q=85',
+          name: 'Slam Ball Complex',
+          duration: '20-24 min',
+          description: '12 slams\n10 lateral slams\n8 burpee-slams\n6 overhead throws\n1 min rest\nRepeat 4 rounds',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw1fHxzbGFtJTIwYmFsbCUyMGFkdmFuY2VkfGVufDB8fHx8MVc1Njg4MzIzN3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Advanced complex demanding maximum power output and conditioning with varied slam movements.',
           moodTips: [
             {
               icon: 'flash',
               title: 'Explosive Power',
-              description: 'Explosive slams—brace ribs/core.'
+              description: 'Lateral slams—generate power from sides of core.'
             },
             {
               icon: 'body',
               title: 'Overhead Throw Power',
-              description: 'OH throws—legs drive, arms guide.'
+              description: 'OH throw—hips snap, arms guide.'
             }
           ]
         },
         {
-          name: 'Sprint Circuit',
-          duration: '20 min',
-          description: '10 slams → 20 meters sprint (with ball) → 10 lateral slams → 20 meters sprint → 1 min rest. Repeat 5x.',
+          name: 'Slam Ball Sprint Circuit',
+          duration: '20-25 min',
+          description: '10 slams\n20 meters sprint (with ball)\n10 lateral slams\n20 meters sprint\n1 min rest\nRepeat 5 rounds',
           imageUrl: 'https://images.unsplash.com/photo-1517838277536-f5f99be501cd?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw2fHxzbGFtJTIwYmFsbCUyMHNwcmludHxlbnwwfHx8fDE3NTY4ODMyMzd8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Peak performance circuit combining slam ball power with sprint conditioning.',
           moodTips: [
             {
               icon: 'flash',
               title: 'Sprint Control',
-              description: 'Hug ball tight on sprints; minimize bounce.'
+              description: 'Sprint holding ball high and tight to chest.'
             },
             {
               icon: 'refresh',
               title: 'Quick Resets',
-              description: 'Reset stance quickly after pickups.'
+              description: 'Reset stance instantly after each slam.'
             }
           ]
         }
