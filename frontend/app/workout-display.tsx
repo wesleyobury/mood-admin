@@ -2017,40 +2017,40 @@ const workoutDatabase: EquipmentWorkouts[] = [
       ],
       advanced: [
         {
-          name: 'Med Ball Complex',
-          duration: '16 min',
-          description: '12 wall balls → 10 slams → 8 rotations → 6 burpee to slam. Rest 1 min, repeat 4x.',
+          name: 'Elite Medicine Ball Complex',
+          duration: '28-32 min',
+          description: '12 wall balls (16-20 lb ball, target 10-11 feet)\n10 overhead slams (14-16 lb ball)\n8 rotational throws each side (12-14 lb ball)\n6 burpee to slam combo (10-12 lb ball)\n90 seconds rest\nRepeat for 5 complete rounds\nFinish with 4 minutes dynamic stretching and core work',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw1fHxtZWRpY2luZSUyMGJhbGwlMjBhZHZhbmNlZHxlbnwwfHx8fDE3NTY4ODMyMzd8MA&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Advanced complex combining power, core rotation, and explosive movements for maximum challenge.',
+          intensityReason: 'Elite-level complex demanding maximal power output, rotational strength, and metabolic conditioning through progressive ball weights and extended volume.',
           moodTips: [
             {
               icon: 'flash',
-              title: 'Rotation Power',
-              description: 'Rotations—big hip drive, protect knees.'
+              title: 'Rotational Power Mechanics',
+              description: 'Generate rotation from hip drive and core; pivot feet fully and maintain strong oblique engagement throughout entire throwing motion.'
             },
             {
               icon: 'body',
-              title: 'Burpee Form',
-              description: 'Burpees—keep spine straight on slam pickup.'
+              title: 'Burpee-Slam Integration',
+              description: 'Maintain neutral spine during slam pickup; explode up from burpee position and immediately engage core for powerful slam.'
             }
           ]
         },
         {
-          name: 'Sprint Circuit',
-          duration: '20 min',
-          description: '10 wall balls → 20 meters sprint (with ball) → 10 slams → 20 meters sprint → 1 min rest. Repeat 5x.',
+          name: 'Medicine Ball Sprint Conditioning',
+          duration: '25-28 min',
+          description: '10 wall balls (14-16 lb ball)\n20-meter sprint carrying ball chest-level\n10 overhead slams (12-14 lb ball)\n20-meter backward sprint with ball\n8 rotational slams each side (10-12 lb ball)\n20-meter lateral shuffles with ball\n2 minutes rest\nRepeat for 4 complete rounds',
           imageUrl: 'https://images.unsplash.com/photo-1517838277536-f5f99be501cd?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw2fHxtZWRpY2luZSUyMGJhbGwlMjBzcHJpbnR8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'High-intensity circuit combining medicine ball work with sprint conditioning for peak performance.',
+          intensityReason: 'Peak-intensity circuit integrating medicine ball power movements with multi-directional sprint conditioning for complete athletic development.',
           moodTips: [
             {
               icon: 'flash',
-              title: 'Sprint Control',
-              description: 'Keep ball close and centered when sprinting.'
+              title: 'Sprint Stability Control',
+              description: 'Maintain ball close to chest during forward sprints; keep core tight and avoid excessive vertical bounce for efficiency.'
             },
             {
               icon: 'refresh',
-              title: 'Transition Speed',
-              description: 'Explosive slams, reset quickly for transition.'
+              title: 'Multi-Directional Transitions',
+              description: 'Reset body position between movement directions; engage stabilizer muscles and maintain ball control through all planes of motion.'
             }
           ]
         }
