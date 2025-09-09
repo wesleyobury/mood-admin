@@ -1726,8 +1726,8 @@ const workoutDatabase: EquipmentWorkouts[] = [
       intermediate: [
         {
           name: 'Kettlebell Ladder',
-          duration: '16 min',
-          description: '10 swings, 8 cleans (4 per side), 6 snatches (3 per side), 4 goblet squats, 2 push presses (each side), rest 1 min, repeat 4 rounds.',
+          duration: '20-24 min',
+          description: '10 swings\n8 cleans (4/side)\n6 snatches (3/side)\n4 goblet squats\n2 push presses each side\n1 min rest, repeat 4 rounds',
           imageUrl: 'https://images.unsplash.com/photo-1517838277536-f5f99be501cd?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwzfHxrZXR0bGViZWxsJTIwdHJhaW5pbmd8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Complex ladder format challenging coordination and strength across multiple kettlebell movements.',
           moodTips: [
@@ -1746,7 +1746,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Tabata Kettlebell',
           duration: '16 min',
-          description: '20 sec swings, 10 sec rest, 20 sec goblet squats, 10 sec rest, 20 sec alternating lunges, 10 sec rest, 20 sec high pulls, 10 sec rest, repeat cycle 4 times each exercise.',
+          description: '20 sec work, 10 sec rest\nCycle: swings, goblet squats, alternating lunges, high pulls\n4 rounds each move (16 total intervals)',
           imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxrZXR0bGViZWxsJTIwdGFiYXRhfGVufDB8fHx8MVc1Njg4MzIzN3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'High-intensity intervals that push cardiovascular limits with varied kettlebell movements.',
           moodTips: [
@@ -1758,7 +1758,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'flash',
               title: 'Glute Engagement',
-              description: 'Engage glutes fully on squats/lunges.'
+              description: 'Drive glutes in squats/lunges.'
             }
           ]
         }
