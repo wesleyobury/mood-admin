@@ -1965,7 +1965,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'flash',
               title: 'Explosive Power Development',
-              description: 'Chest passes—drive with arms and chest together.'
+              description: 'Drive chest passes with full arm extension and core engagement; focus on powerful hip drive rather than arm strength alone.'
             },
             {
               icon: 'refresh',
