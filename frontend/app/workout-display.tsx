@@ -1766,39 +1766,39 @@ const workoutDatabase: EquipmentWorkouts[] = [
       advanced: [
         {
           name: 'Kettlebell Complex',
-          duration: '20 min',
-          description: '6 reps each, no rest:\nswing\nclean\nfront squat\npush press\nsnatch (each side)\nRest 1 min, repeat 5x.',
+          duration: '25-26 min',
+          description: '6 reps each side, back-to-back:\nswing\nclean\nfront squat\npush press\nsnatch\nRest 1 min, repeat 5 rounds',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw1fHxrZXR0bGViZWxsJTIwYWR2YW5jZWR8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Advanced complex demanding mastery of all major kettlebell movements with minimal rest.',
           moodTips: [
             {
               icon: 'flash',
               title: 'Flow Efficiency',
-              description: 'Flow smoothly; minimize pausing.'
+              description: 'Flow smoothly with no pauses.'
             },
             {
               icon: 'body',
               title: 'Bell Control',
-              description: 'Core tight—bell close to body always.'
+              description: 'Core tight; bell stays close.'
             }
           ]
         },
         {
-          name: 'AMRAP 15 min',
+          name: 'Kettlebell AMRAP',
           duration: '15 min',
-          description: '10 double swings → 8 alternating snatches → 6 goblet jump squats → 4 Turkish get-ups (2/side).',
+          description: 'Max rounds in 15 min of:\n10 double swings\n8 alternating snatches\n6 goblet squat jumps\n4 Turkish get-ups (2/side)',
           imageUrl: 'https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw2fHxrZXR0bGViZWxsJTIwYW1yYXB8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Maximum intensity AMRAP combining power, agility, and complex movement patterns.',
           moodTips: [
             {
               icon: 'flash',
               title: 'Double Swing Power',
-              description: 'Double swings—lats engaged, neutral wrists.'
+              description: 'Double swings—engage lats, neutral wrists.'
             },
             {
               icon: 'body',
               title: 'Turkish Get-up Control',
-              description: 'Turkish get-up—slow, stacked joints overhead.'
+              description: 'Turkish get-up—go slow, stack joints overhead.'
             }
           ]
         }
