@@ -2063,40 +2063,40 @@ const workoutDatabase: EquipmentWorkouts[] = [
     workouts: {
       beginner: [
         {
-          name: 'Basics',
-          duration: '12 min',
-          description: '10 slams\n10 squat to press\n10 alternating lunges (ball at chest)\n1 min rest\nRepeat 3x.',
+          name: 'Slam Ball Basics',
+          duration: '12-16 min',
+          description: '10 slams\n10 squat-to-press\n10 reverse lunges (ball at chest)\n1 min rest\nRepeat 3 rounds',
           imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxzbGFtJTIwYmFsbCUyMHdvcmtvdXR8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Introduction to slam ball fundamentals focusing on proper lifting mechanics and control.',
           moodTips: [
             {
               icon: 'body',
               title: 'Safe Pickup',
-              description: 'Pick up with squat, not waist bend.'
+              description: 'Pick up via squat, not back bend.'
             },
             {
               icon: 'fitness',
               title: 'Lunge Position',
-              description: 'Lunges—ball close to chest; spine tall.'
+              description: 'Lunges—ball close, posture upright.'
             }
           ]
         },
         {
-          name: 'Flow',
-          duration: '12 min',
-          description: '8 slams → 8 OH throws → 8 Russian twists (each side) → 1 min rest. Repeat 3x.',
+          name: 'Slam Ball Flow',
+          duration: '12-15 min',
+          description: '8 slams\n8 overhead throws\n8 Russian twists (per side)\n1 min rest\nRepeat 3 rounds',
           imageUrl: 'https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwyfHxzbGFtJTIwYmFsbCUyMGZsb3d8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Movement progression adding overhead power and core rotation to basic slam patterns.',
           moodTips: [
             {
               icon: 'flash',
               title: 'Overhead Safety',
-              description: 'Overhead throws—hips drive, protect back.'
+              description: 'OH throw—legs drive, avoid spine arch.'
             },
             {
               icon: 'refresh',
               title: 'Core Rotation',
-              description: 'Russian twists—rotate torso, not just arms.'
+              description: 'Twists—rotate torso, not just arms.'
             }
           ]
         }
