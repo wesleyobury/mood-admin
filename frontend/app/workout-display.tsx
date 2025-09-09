@@ -1951,7 +1951,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'body',
               title: 'Slam Mechanics',
-              description: 'Ball slams—hinge hips, flat back.'
+              description: 'Drive through hips on slams; keep spine neutral and engage core throughout entire movement pattern.'
             }
           ]
         },
