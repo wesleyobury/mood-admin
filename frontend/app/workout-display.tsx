@@ -1977,40 +1977,40 @@ const workoutDatabase: EquipmentWorkouts[] = [
       ],
       intermediate: [
         {
-          name: 'AMRAP 10 min',
-          duration: '10 min',
-          description: '10 wall balls\n10 slams\n10 alternating lunges (ball overhead).',
+          name: 'Medicine Ball AMRAP Challenge',
+          duration: '22-25 min',
+          description: '10 wall balls (14-16 lb ball, target 10 feet)\n10 medicine ball slams (12-14 lb ball)\n10 alternating overhead reverse lunges (10-12 lb ball)\n8 rotational tosses each side (8-10 lb ball)\nAMRAP for 12 minutes\n3 minutes rest\n6 minutes AMRAP of same movements\nFinish with 3 minutes mobility work',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwzfHxtZWRpY2luZSUyMGJhbGwlMjBhbXJhcHxlbnwwfHx8fDE3NTY4ODMyMzd8MA&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Continuous movement AMRAP challenging cardiovascular endurance with overhead stability.',
+          intensityReason: 'Intermediate AMRAP protocol that challenges cardiovascular capacity, overhead stability, and rotational power with progressive volume demands.',
           moodTips: [
             {
               icon: 'body',
-              title: 'Overhead Control',
-              description: 'Lock arms overhead during lunges.'
+              title: 'Overhead Lunge Stability',
+              description: 'Lock arms overhead during lunges; maintain vertical torso and control knee tracking over toes throughout entire range.'
             },
             {
               icon: 'refresh',
-              title: 'Slam Power',
-              description: 'Exhale strongly with every slam.'
+              title: 'Power Generation',
+              description: 'Drive slam power from hip hinge, not arms; exhale forcefully on impact and maintain core tension throughout.'
             }
           ]
         },
         {
-          name: 'Tabata',
-          duration: '16 min',
-          description: '20 sec work, 10 sec rest: wall balls, slams, rotational throws, squat to press. 4 rounds each, 16 total.',
+          name: 'High-Intensity Medicine Ball Tabata',
+          duration: '24-26 min',
+          description: 'Tabata Protocol: 20 seconds work, 10 seconds rest\nRound 1: Wall balls (12-14 lb ball) - 8 intervals\n2 minutes rest\nRound 2: Medicine ball slams (10-12 lb ball) - 8 intervals\n2 minutes rest\nRound 3: Rotational throws (8-10 lb ball) - 8 intervals\n2 minutes rest\nRound 4: Squat to overhead press (8-10 lb ball) - 8 intervals\nFinish with 4 minutes gentle stretching',
           imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxtZWRpY2luZSUyMGJhbGwlMjB0YWJhdGF8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'High-intensity interval training pushing anaerobic capacity with varied medicine ball movements.',
+          intensityReason: 'Advanced Tabata intervals that maximize anaerobic power development through varied medicine ball movements with proper work-to-rest ratios.',
           moodTips: [
             {
               icon: 'eye',
-              title: 'Wall Ball Reset',
-              description: 'Wall ball—catch clean, reset tall chest.'
+              title: 'Wall Ball Consistency',
+              description: 'Maintain target accuracy throughout intervals; catch ball in full squat and reset posture between every repetition.'
             },
             {
               icon: 'refresh',
-              title: 'Rotation Safety',
-              description: 'Rotational throws—pivot feet, not knees.'
+              title: 'Rotational Power Safety',
+              description: 'Pivot from feet during rotational throws, never from knees; engage obliques and maintain strong core connection.'
             }
           ]
         }
