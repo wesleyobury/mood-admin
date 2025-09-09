@@ -1640,8 +1640,8 @@ const workoutDatabase: EquipmentWorkouts[] = [
       advanced: [
         {
           name: 'Dumbbell Ladder',
-          duration: '15 min',
-          description: '10 reps each exercise, 8 reps each exercise, 6 reps each exercise, 4 reps each exercise, 2 reps each exercise. Exercises: squat clean, push press, burpee over dumbbell. Rest as needed between rounds.',
+          duration: '20-24 min',
+          description: '10-8-6-4-2 reps sequence:\nsquat clean\npush press\nburpee over dumbbell\nDo all three moves before dropping reps\nRest as needed and complete all five sets',
           imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw1fHxkdW1iYmVsbCUyMGFkdmFuY2VkfGVufDB8fHx8MTc1Njg4MzIzN3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Descending ladder format with complex movements demands advanced strength, power, and conditioning.',
           moodTips: [
@@ -1658,9 +1658,9 @@ const workoutDatabase: EquipmentWorkouts[] = [
           ]
         },
         {
-          name: 'AMRAP 15 min',
+          name: 'Dumbbell AMRAP',
           duration: '15 min',
-          description: '10 alternating snatches, 10 goblet jump squats, 10 push-up to row (5 per side), 10 alternating lunges (holding dumbbells), complete as many rounds as possible in 15 minutes.',
+          description: 'Max rounds in 15 min of:\n10 alternating snatches\n10 goblet jump squats\n10 push-up to row (5/side)\n10 alternating reverse lunges (holding dumbbells)',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw2fHxkdW1iYmVsbCUyMGNhcmRpb3xlbnwwfHx8fDE3NTY4ODMyMzd8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'High-intensity AMRAP combining power movements with plyometrics for maximum metabolic challenge.',
           moodTips: [
