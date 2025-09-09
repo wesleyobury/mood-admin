@@ -1561,7 +1561,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Dumbbell Cardio Circuit',
           duration: '16 min',
-          description: '30 sec goblet squat, 30 sec alternating reverse lunge, 30 sec push press, 30 sec rest, repeat 4 rounds.',
+          description: '30 sec goblet squat\n30 sec alternating reverse lunge\n30 sec push press\n30 sec rest\nRepeat 4 rounds (4 min each)',
           imageUrl: 'https://images.unsplash.com/photo-1571390263724-7e0bd2cb3b77?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxkdW1iYmVsbCUyMHdvcmtvdXR8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Perfect beginner circuit combining functional movements with rest periods for gradual strength building.',
           moodTips: [
@@ -1579,9 +1579,9 @@ const workoutDatabase: EquipmentWorkouts[] = [
         },
         {
           name: 'Dumbbell Flow',
-          duration: '12 min',
-          description: '8 reps squat to press, 8 reps alternating snatch (light weight), 8 reps bent-over row, 1 min rest, repeat 3 rounds.',
-          imageUrl: 'https://images.unsplash.com/photo-1574680096145-d05b474e2155?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwyfHxkdW1iYmVsbCUyMHRyYWluaW5nfGVufDB8fHx8MTc1Njg4MzIzN3ww&ixlib=rb-4.1.0&q=85',
+          duration: '15 min',
+          description: '8 reps squat to press\n8 reps alternating snatch (light)\n8 reps bent-over row\n1 min rest\nRepeat 3 rounds',
+          imageUrl: 'https://images.unsplash.com/photo-1574680096145-d05b474e2155?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwyfHxkdW1iYmVsbCUyMHRyYWluaW5nfGVufDB8fHx8MVc1Njg4MzIzN3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Smooth movement flow that teaches basic dumbbell transitions and builds coordination.',
           moodTips: [
             {
