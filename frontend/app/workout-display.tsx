@@ -2423,7 +2423,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'body',
               title: 'Burpee Transition',
-              description: 'Tight-core drop into burpees.'
+              description: 'Drop tight into burpees—no sagging hips.'
             },
             {
               icon: 'flash',
