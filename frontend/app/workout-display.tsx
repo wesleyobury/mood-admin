@@ -1685,40 +1685,40 @@ const workoutDatabase: EquipmentWorkouts[] = [
     workouts: {
       beginner: [
         {
-          name: 'Swing & Carry',
+          name: 'Kettlebell Swing & Carry',
           duration: '15 min',
-          description: '20 sec swings\n40 sec farmer\'s carry (walk)\n1 min rest\nRepeat 5x.',
+          description: '20 sec swings\n40 sec farmer\'s carry\n1 min rest\nRepeat 5 rounds',
           imageUrl: 'https://images.unsplash.com/photo-1566241134850-541012f1d4cf?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxrZXR0bGViZWxsJTIwd29ya291dHxlbnwwfHx8fDE3NTY4ODMyMzd8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Basic kettlebell introduction combining hip hinge movement with stability training.',
           moodTips: [
             {
               icon: 'flash',
               title: 'Hip Hinge Technique',
-              description: 'Swings—hinge hips, glutes drive; don\'t squat.'
+              description: 'Swings—hinge hips, power from glutes.'
             },
             {
               icon: 'body',
               title: 'Posture Control',
-              description: 'Farmer\'s carry—shoulders back, core tight, walk tall.'
+              description: 'Farmer\'s carry—shoulders back, core tight.'
             }
           ]
         },
         {
-          name: 'Cardio Flow',
-          duration: '12 min',
-          description: '8 goblet squats\n8 single-arm swings (each side)\n8 overhead presses (each side)\n1 min rest\nRepeat 3x.',
+          name: 'Kettlebell Cardio Flow',
+          duration: '12-15 min',
+          description: '8 goblet squats\n8 single-arm swings each side\n8 overhead presses each side\n1 min rest\nRepeat 3 rounds',
           imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwyfHxrZXR0bGViZWxsJTIwZmxvd3xlbnwwfHx8fDE3NTY4ODMyMzd8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Progressive flow that builds kettlebell familiarity with controlled movement patterns.',
           moodTips: [
             {
               icon: 'body',
               title: 'Press Technique',
-              description: 'Elbows tucked on presses—avoid flaring.'
+              description: 'Elbows tucked on presses.'
             },
             {
               icon: 'flash',
               title: 'Swing Control',
-              description: 'Control swing arc; don\'t let bell pull forward.'
+              description: 'Control swing arc, no forward pull.'
             }
           ]
         }
