@@ -2647,40 +2647,40 @@ const workoutDatabase: EquipmentWorkouts[] = [
       ],
       advanced: [
         {
-          name: 'Hammer Gauntlet',
-          duration: '16 min',
-          description: '12 strikes (each side) → 10 tire jumps → 8 burpees → 6 flips → 1 min rest. Repeat 4x.',
+          name: 'Elite Sledgehammer Complex',
+          duration: '30-35 min',
+          description: '12 maximum-power overhead strikes each side (16-20 lb hammer)\n10 burpees with tire slam landing\n8 tire jumps with 180-degree rotation\n6 single-arm farmer carry with hammer (25 yards each arm)\n4 tire step-ups with overhead hammer hold\n2 minutes rest\nRepeat for 6 complete rounds\nFinish with 5 minutes comprehensive stretching',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw1fHxzbGVkZ2VoYW1tZXIlMjBhZHZhbmNlZHxlbnwwfHx8fDE3NTY4ODMyMzd8MA&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Advanced gauntlet combining maximum striking power with tire manipulation and conditioning.',
+          intensityReason: 'Elite-level complex demanding maximum striking power, rotational stability, and integrated strength through extended volume and advanced movement patterns.',
           moodTips: [
             {
-              icon: 'refresh',
-              title: 'Core Endurance',
-              description: 'Maintain core tightness under fatigue.'
+              icon: 'flash',
+              title: 'Maximum Strike Efficiency',
+              description: 'Generate maximum power with minimal wasted motion; maintain perfect technique even under fatigue and high volume demands.'
             },
             {
-              icon: 'flash',
-              title: 'Flip Power',
-              description: 'Explosive flips—hips drop low, arms secondary.'
+              icon: 'body',
+              title: 'Complex Movement Transitions',
+              description: 'Execute smooth transitions between movements; maintain spatial awareness and control during rotational tire jumps and carries.'
             }
           ]
         },
         {
-          name: 'Hammer & Sprint Circuit',
-          duration: '20 min',
-          description: '10 strikes (each side) → 20 meters sprint → 10 tire jumps → 20 meters sprint → 1 min rest. Repeat 5x.',
+          name: 'Sledgehammer Sprint Conditioning',
+          duration: '28-32 min',
+          description: '20 explosive strikes each side (16-18 lb hammer)\n10 tire flips (focus on proper mechanics)\n20-yard sprint with hammer carry\n8 tire jumps (forward and lateral combination)\n6 hammer overhead carries (30 yards)\n90 seconds rest\nRepeat for 5 complete rounds',
           imageUrl: 'https://images.unsplash.com/photo-1517838277536-f5f99be501cd?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw2fHxzbGVkZ2VoYW1tZXIlMjBzcHJpbnR8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Ultimate conditioning combining hammer power with maximum sprint speed for elite performance.',
+          intensityReason: 'Peak-intensity conditioning integrating sledgehammer power, tire manipulation, and sprint work for complete athletic development.',
           moodTips: [
             {
               icon: 'flash',
-              title: 'Sprint Mechanics',
-              description: 'Sprint ballistics—extend stride fully.'
+              title: 'Power Endurance Maintenance',
+              description: 'Maintain striking power and speed throughout high-volume sets; focus on explosiveness rather than grinding through fatigue.'
             },
             {
               icon: 'refresh',
-              title: 'Quick Resets',
-              description: 'Quick strike resets, no time wasted.'
+              title: 'Active Sprint Recovery',
+              description: 'Use sprint intervals as active recovery while maintaining speed; coordinate breathing and maintain hammer control during carries.'
             }
           ]
         }
