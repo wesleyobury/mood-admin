@@ -1957,7 +1957,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
         },
         {
           name: 'Dynamic Medicine Ball Flow',
-          duration: '12 min',
+          duration: '16-18 min',
           description: '8 chest passes (wall)\n8 overhead throws\n8 squat to press\n1 min rest\nRepeat 3x.',
           imageUrl: 'https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwyfHxtZWRpY2luZSUyMGJhbGwlMjBmbG93fGVufDB8fHx8MTc1Njg4MzIzN3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Movement flow building upper body power and coordination with medicine ball variations.',
