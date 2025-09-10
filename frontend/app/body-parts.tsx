@@ -163,7 +163,7 @@ export default function BodyPartsScreen() {
                   <Ionicons 
                     name={bodyPart.icon} 
                     size={32} 
-                    color={isSelected ? '#000' : '#FFD700'} 
+                    color={isSelected ? '#FFD700' : '#333'} 
                   />
                 </View>
                 <Text style={[
