@@ -100,7 +100,7 @@ export default function BodyPartsScreen() {
           </View>
           <Ionicons name="chevron-forward" size={16} color="#666" />
           <View style={[styles.progressStep, styles.activeStep]}>
-            <Text style={[styles.progressText, styles.activeProgressText]}>Body Parts</Text>
+            <Text style={[styles.progressText, styles.activeProgressText]}>Select Muscle Group</Text>
           </View>
         </View>
       </View>
