@@ -121,7 +121,7 @@ export default function BodyPartsScreen() {
                   styles.bodyPartCard,
                   isSelected && styles.selectedBodyPartCard
                 ]}
-                onPress={() => handleBodyPartToggle(bodyPart.name)}
+                onPress={() => handleBodyPartSelect(bodyPart.name)}
               >
                 <View style={[
                   styles.iconContainer,
