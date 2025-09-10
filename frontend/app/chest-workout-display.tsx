@@ -1334,66 +1334,96 @@ export default function ChestWorkoutDisplayScreen() {
         contentContainerStyle={styles.scrollContent}
       >
         <Text style={styles.subtitle}>
-          {allWorkouts.length} personalized chest workout{allWorkouts.length > 1 ? 's' : ''} ready for you
+          {workoutsByEquipment.length} equipment type{workoutsByEquipment.length > 1 ? 's' : ''} with personalized chest workouts
         </Text>
 
-        {allWorkouts.length > 1 && (
-          <View style={styles.workoutIndicator}>
-            <Text style={styles.indicatorText}>
-              {currentWorkoutIndex + 1}/{allWorkouts.length}
-            </Text>
-          </View>
-        )}
+        {workoutsByEquipment.map((equipmentData, equipmentIndex) => {
+          const currentWorkout = equipmentData.workouts[workoutIndices[equipmentData.equipment] || 0];
+          const totalWorkouts = equipmentData.workouts.length;
+          
+          const handleNextWorkout = () => {
+            setWorkoutIndices(prev => ({
+              ...prev,
+              [equipmentData.equipment]: ((prev[equipmentData.equipment] || 0) + 1) % totalWorkouts
+            }));
+          };
 
-        {allWorkouts.map((workout, index) => (
-          <View key={index} style={styles.workoutCard}>
-            <Image source={{ uri: workout.imageUrl }} style={styles.workoutImage} />
-            
-            <View style={styles.workoutInfo}>
-              <View style={styles.workoutHeader}>
-                <View style={styles.workoutTitleContainer}>
-                  <Text style={styles.workoutName}>{workout.name}</Text>
-                  <View style={styles.equipmentBadgeContainer}>
-                    <View style={styles.bodyPartBadge}>
-                      <Text style={styles.bodyPartText}>{bodyPart}</Text>
-                    </View>
-                    <View style={styles.equipmentBadge}>
-                      <Text style={styles.equipmentText}>{workout.equipmentName}</Text>
+          const handlePrevWorkout = () => {
+            setWorkoutIndices(prev => ({
+              ...prev,
+              [equipmentData.equipment]: ((prev[equipmentData.equipment] || 0) - 1 + totalWorkouts) % totalWorkouts
+            }));
+          };
+
+          return (
+            <View key={equipmentData.equipment} style={styles.equipmentSection}>
+              <View style={styles.equipmentHeader}>
+                <View style={styles.equipmentTitleContainer}>
+                  <Ionicons name={equipmentData.icon} size={24} color="#FFD700" />
+                  <Text style={styles.equipmentTitle}>{equipmentData.equipment}</Text>
+                </View>
+                {totalWorkouts > 1 && (
+                  <View style={styles.workoutNav}>
+                    <TouchableOpacity onPress={handlePrevWorkout} style={styles.navButton}>
+                      <Ionicons name="chevron-back" size={20} color="#FFD700" />
+                    </TouchableOpacity>
+                    <Text style={styles.workoutCounter}>
+                      {(workoutIndices[equipmentData.equipment] || 0) + 1}/{totalWorkouts}
+                    </Text>
+                    <TouchableOpacity onPress={handleNextWorkout} style={styles.navButton}>
+                      <Ionicons name="chevron-forward" size={20} color="#FFD700" />
+                    </TouchableOpacity>
+                  </View>
+                )}
+              </View>
+              
+              <View style={styles.workoutCard}>
+                <Image source={{ uri: currentWorkout.imageUrl }} style={styles.workoutImage} />
+                
+                <View style={styles.workoutInfo}>
+                  <View style={styles.workoutHeader}>
+                    <View style={styles.workoutTitleContainer}>
+                      <Text style={styles.workoutName}>{currentWorkout.name}</Text>
+                      <View style={styles.equipmentBadgeContainer}>
+                        <View style={styles.bodyPartBadge}>
+                          <Text style={styles.bodyPartText}>{bodyPart}</Text>
+                        </View>
+                        <View style={styles.difficultyBadge}>
+                          <Text style={styles.difficultyText}>{selectedDifficultyParam}</Text>
+                        </View>
+                      </View>
                     </View>
                   </View>
-                </View>
-                <View style={styles.difficultyBadge}>
-                  <Text style={styles.difficultyText}>{selectedDifficultyParam}</Text>
+
+                  <View style={styles.workoutMeta}>
+                    <View style={styles.metaItem}>
+                      <Ionicons name="time" size={16} color="#FFD700" />
+                      <Text style={styles.metaText}>{currentWorkout.duration}</Text>
+                    </View>
+                    <View style={styles.metaItem}>
+                      <Ionicons name="shield" size={16} color="#FFD700" />
+                      <Text style={styles.metaText}>Chest Focus</Text>
+                    </View>
+                    <View style={styles.metaItem}>
+                      <Ionicons name={equipmentData.icon} size={16} color="#FFD700" />
+                      <Text style={styles.metaText}>{equipmentData.equipment}</Text>
+                    </View>
+                  </View>
+
+                  <Text style={styles.intensityReason}>{currentWorkout.intensityReason}</Text>
+
+                  <TouchableOpacity 
+                    style={styles.startButton}
+                    onPress={() => handleStartWorkout(currentWorkout)}
+                  >
+                    <Text style={styles.startButtonText}>Start Workout</Text>
+                    <Ionicons name="play" size={20} color="#000" />
+                  </TouchableOpacity>
                 </View>
               </View>
-
-              <View style={styles.workoutMeta}>
-                <View style={styles.metaItem}>
-                  <Ionicons name="time" size={16} color="#FFD700" />
-                  <Text style={styles.metaText}>{workout.duration}</Text>
-                </View>
-                <View style={styles.metaItem}>
-                  <Ionicons name="shield" size={16} color="#FFD700" />
-                  <Text style={styles.metaText}>Chest Focus</Text>
-                </View>
-                <View style={styles.metaItem}>
-                  <Ionicons name="fitness" size={16} color="#FFD700" />
-                  <Text style={styles.metaText}>{selectedDifficultyParam}</Text>
-                </View>
-              </View>
-
-              <Text style={styles.intensityReason}>{workout.intensityReason}</Text>
-
-              <TouchableOpacity 
-                style={styles.startButton}
-                onPress={() => handleStartWorkout(workout)}
-              >
-                <Text style={styles.startButtonText}>Start Workout</Text>
-                <Ionicons name="play" size={20} color="#000" />
-              </TouchableOpacity>
             </View>
-          </View>
-        ))}
+          );
+        })}
       </ScrollView>
     </SafeAreaView>
   );
