@@ -33,12 +33,12 @@ const bodyParts: BodyPart[] = [
   },
   {
     name: 'Back',
-    icon: 'body',
+    icon: 'person',
     description: 'Lats, rhomboids & traps'
   },
   {
     name: 'Chest',
-    icon: 'heart',
+    icon: 'body',
     description: 'Pectorals & upper body'
   },
   {
@@ -48,7 +48,7 @@ const bodyParts: BodyPart[] = [
   },
   {
     name: 'Shoulders',
-    icon: 'trophy',
+    icon: 'diamond',
     description: 'Deltoids & rotator cuffs'
   }
 ];
