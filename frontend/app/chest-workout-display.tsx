@@ -1524,6 +1524,11 @@ const styles = StyleSheet.create({
     color: '#fff',
     marginBottom: 6,
   },
+  equipmentBadgeContainer: {
+    flexDirection: 'row',
+    gap: 8,
+    flexWrap: 'wrap',
+  },
   bodyPartBadge: {
     backgroundColor: '#FFD700',
     paddingHorizontal: 8,
@@ -1535,6 +1540,18 @@ const styles = StyleSheet.create({
     fontSize: 12,
     fontWeight: '600',
     color: '#000',
+  },
+  equipmentBadge: {
+    backgroundColor: '#333',
+    paddingHorizontal: 8,
+    paddingVertical: 4,
+    borderRadius: 8,
+    alignSelf: 'flex-start',
+  },
+  equipmentText: {
+    fontSize: 12,
+    fontWeight: '600',
+    color: '#FFD700',
   },
   difficultyBadge: {
     backgroundColor: '#333',
