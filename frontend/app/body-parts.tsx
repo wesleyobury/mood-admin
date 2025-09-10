@@ -108,7 +108,7 @@ export default function BodyPartsScreen() {
       {/* Body Parts Grid */}
       <ScrollView style={styles.content} showsVerticalScrollIndicator={false}>
         <Text style={styles.subtitle}>
-          Choose the body parts you want to target in your workout
+          Select one muscle group to focus on. Return to this screen to work another muscle group.
         </Text>
         
         <View style={styles.bodyPartsGrid}>
