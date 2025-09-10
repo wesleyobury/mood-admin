@@ -1343,35 +1343,31 @@ export default function ChestWorkoutDisplayScreen() {
   const selectedEquipmentList = selectedEquipmentParam.split(',').filter(Boolean);
   const selectedDifficulty = selectedDifficultyParam.toLowerCase();
 
-  // Organize workouts by equipment - each selected equipment gets its own set of workouts for swipeable format
-  const workoutsByEquipment: { equipment: string; icon: keyof typeof Ionicons.glyphMap; workouts: Workout[]; currentIndex: number }[] = [];
-  
-  selectedEquipmentList.forEach(selectedEquipment => {
-    const matchingEquipmentGroup = chestWorkoutDatabase.find(equipmentGroup => 
-      equipmentGroup.equipment.toLowerCase().includes(selectedEquipment.toLowerCase()) ||
-      selectedEquipment.toLowerCase().includes(equipmentGroup.equipment.toLowerCase())
-    );
-    
-    if (matchingEquipmentGroup) {
-      const difficultyWorkouts = matchingEquipmentGroup.workouts[selectedDifficulty as keyof typeof matchingEquipmentGroup.workouts];
-      if (difficultyWorkouts && difficultyWorkouts.length > 0) {
-        workoutsByEquipment.push({
-          equipment: matchingEquipmentGroup.equipment,
-          icon: matchingEquipmentGroup.icon,
-          workouts: difficultyWorkouts,
-          currentIndex: 0
-        });
-      }
+  // Get difficulty color (matching the cardio path)
+  const getDifficultyColor = (difficulty: string) => {
+    switch (difficulty.toLowerCase()) {
+      case 'beginner': return '#FFD700';
+      case 'intermediate': return '#FFD700';  
+      case 'advanced': return '#FFD700';
+      default: return '#FFD700';
     }
-  });
+  };
 
-  const [workoutIndices, setWorkoutIndices] = useState<{ [equipment: string]: number }>(() => {
-    const indices: { [equipment: string]: number } = {};
-    workoutsByEquipment.forEach(({ equipment }) => {
-      indices[equipment] = 0;
-    });
-    return indices;
-  });
+  const difficultyColor = getDifficultyColor(selectedDifficulty);
+
+  // Filter and organize workouts exactly like the cardio path
+  const filteredEquipment = chestWorkoutDatabase.filter(equipmentGroup => {
+    return selectedEquipmentList.some(selected => 
+      equipmentGroup.equipment.toLowerCase().includes(selected.toLowerCase()) ||
+      selected.toLowerCase().includes(equipmentGroup.equipment.toLowerCase())
+    );
+  }).map(equipmentGroup => ({
+    ...equipmentGroup,
+    workouts: {
+      ...equipmentGroup.workouts,
+      [selectedDifficulty]: equipmentGroup.workouts[selectedDifficulty as keyof typeof equipmentGroup.workouts] || []
+    }
+  }));
 
   const handleStartWorkout = (workout: Workout) => {
     const moodTipsParam = encodeURIComponent(JSON.stringify(workout.moodTips));
