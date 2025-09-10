@@ -141,7 +141,7 @@ export default function ChestEquipmentScreen() {
   const [selectedEquipment, setSelectedEquipment] = useState<EquipmentOption[]>([]);
   const [selectedDifficulty, setSelectedDifficulty] = useState<DifficultyLevel | null>(null);
   
-  const moodTitle = params.mood as string || 'I want to push and gain muscle';
+  const moodTitle = params.mood as string || 'Muscle gainer';
   const bodyPart = params.bodyPart as string || 'Chest';
 
   const handleEquipmentSelect = (equipment: EquipmentOption) => {
