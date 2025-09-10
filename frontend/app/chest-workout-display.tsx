@@ -1559,6 +1559,43 @@ const styles = StyleSheet.create({
     color: '#fff',
     marginBottom: 6,
   },
+  equipmentSection: {
+    marginBottom: 32,
+  },
+  equipmentHeader: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: 16,
+    paddingHorizontal: 4,
+  },
+  equipmentTitleContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 12,
+  },
+  equipmentTitle: {
+    fontSize: 18,
+    fontWeight: '700',
+    color: '#fff',
+  },
+  workoutNav: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 16,
+  },
+  navButton: {
+    padding: 8,
+    borderRadius: 8,
+    backgroundColor: '#333',
+  },
+  workoutCounter: {
+    fontSize: 14,
+    color: '#FFD700',
+    fontWeight: '600',
+    minWidth: 40,
+    textAlign: 'center',
+  },
   equipmentBadgeContainer: {
     flexDirection: 'row',
     gap: 8,
@@ -1575,18 +1612,6 @@ const styles = StyleSheet.create({
     fontSize: 12,
     fontWeight: '600',
     color: '#000',
-  },
-  equipmentBadge: {
-    backgroundColor: '#333',
-    paddingHorizontal: 8,
-    paddingVertical: 4,
-    borderRadius: 8,
-    alignSelf: 'flex-start',
-  },
-  equipmentText: {
-    fontSize: 12,
-    fontWeight: '600',
-    color: '#FFD700',
   },
   difficultyBadge: {
     backgroundColor: '#333',
