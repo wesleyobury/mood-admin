@@ -57,30 +57,23 @@ export default function BodyPartsScreen() {
   const router = useRouter();
   const insets = useSafeAreaInsets();
   const params = useLocalSearchParams();
-  const [selectedBodyParts, setSelectedBodyParts] = useState<string[]>([]);
+  const [selectedBodyPart, setSelectedBodyPart] = useState<string>('');
 
   const { mood } = params;
 
-  const handleBodyPartToggle = (bodyPartName: string) => {
-    setSelectedBodyParts(prev => {
-      if (prev.includes(bodyPartName)) {
-        return prev.filter(name => name !== bodyPartName);
-      } else {
-        return [...prev, bodyPartName];
-      }
-    });
+  const handleBodyPartSelect = (bodyPartName: string) => {
+    if (selectedBodyPart === bodyPartName) {
+      setSelectedBodyPart(''); // Deselect if already selected
+    } else {
+      setSelectedBodyPart(bodyPartName); // Select new body part
+    }
   };
 
   const handleContinue = () => {
-    if (selectedBodyParts.length > 0) {
-      // Navigate to equipment selection or workout display for body parts
-      router.push({
-        pathname: '/muscle-equipment',
-        params: {
-          mood: mood,
-          bodyParts: selectedBodyParts.join(','),
-        }
-      });
+    if (selectedBodyPart) {
+      // TODO: Navigate to next screen in muscle building path
+      console.log('Selected body part:', selectedBodyPart);
+      // Will implement navigation to next screen later
     }
   };
 
