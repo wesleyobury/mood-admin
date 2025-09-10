@@ -1192,19 +1192,32 @@ export default function ChestWorkoutDisplayScreen() {
   const selectedEquipmentList = selectedEquipmentParam.split(',').filter(Boolean);
   const selectedDifficulty = selectedDifficultyParam.toLowerCase();
 
-  // Filter workouts based on selected equipment and difficulty
-  const filteredWorkouts: Workout[] = [];
+  // Organize workouts by equipment - each selected equipment gets its own set of workouts
+  const workoutsByEquipment: { equipmentName: string; workouts: Workout[] }[] = [];
   
-  chestWorkoutDatabase.forEach(equipmentGroup => {
-    if (selectedEquipmentList.some(selected => 
-      equipmentGroup.equipment.toLowerCase().includes(selected.toLowerCase()) ||
-      selected.toLowerCase().includes(equipmentGroup.equipment.toLowerCase())
-    )) {
-      const difficultyWorkouts = equipmentGroup.workouts[selectedDifficulty as keyof typeof equipmentGroup.workouts];
-      if (difficultyWorkouts) {
-        filteredWorkouts.push(...difficultyWorkouts);
+  selectedEquipmentList.forEach(selectedEquipment => {
+    const matchingEquipmentGroup = chestWorkoutDatabase.find(equipmentGroup => 
+      equipmentGroup.equipment.toLowerCase().includes(selectedEquipment.toLowerCase()) ||
+      selectedEquipment.toLowerCase().includes(equipmentGroup.equipment.toLowerCase())
+    );
+    
+    if (matchingEquipmentGroup) {
+      const difficultyWorkouts = matchingEquipmentGroup.workouts[selectedDifficulty as keyof typeof matchingEquipmentGroup.workouts];
+      if (difficultyWorkouts && difficultyWorkouts.length > 0) {
+        workoutsByEquipment.push({
+          equipmentName: matchingEquipmentGroup.equipment,
+          workouts: difficultyWorkouts
+        });
       }
     }
+  });
+
+  // Create flat list of workouts with equipment info for display
+  const allWorkouts: (Workout & { equipmentName: string })[] = [];
+  workoutsByEquipment.forEach(({ equipmentName, workouts }) => {
+    workouts.forEach(workout => {
+      allWorkouts.push({ ...workout, equipmentName });
+    });
   });
 
   const handleStartWorkout = (workout: Workout) => {
