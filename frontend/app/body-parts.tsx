@@ -164,14 +164,19 @@ export default function BodyPartsScreen() {
           {bodyParts.map((bodyPart) => {
             const isSelected = selectedBodyPart === bodyPart.name;
             return (
-              <TouchableOpacity
+              <Animated.View
                 key={bodyPart.name}
                 style={[
-                  styles.bodyPartCard,
-                  isSelected && styles.selectedBodyPartCard
+                  { transform: [{ scale: scaleAnim }] }
                 ]}
-                onPress={() => handleBodyPartSelect(bodyPart.name)}
               >
+                <TouchableOpacity
+                  style={[
+                    styles.bodyPartCard,
+                    isSelected && styles.selectedBodyPartCard
+                  ]}
+                  onPress={() => handleBodyPartSelect(bodyPart.name)}
+                >
                 <View style={[
                   styles.iconContainer,
                   isSelected && styles.selectedIconContainer
