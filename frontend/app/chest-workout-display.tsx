@@ -1303,14 +1303,17 @@ export default function ChestWorkoutDisplayScreen() {
           
           <View style={styles.progressConnector} />
           
-          <View style={styles.progressStep}>
-            <View style={styles.progressStepActive}>
-              <Text style={[styles.progressStepNumber, styles.progressStepNumberActive]}>
-                {selectedEquipmentList.length}
-              </Text>
-            </View>
-            <Text style={styles.progressStepText}>Equipment</Text>
-          </View>
+          {workoutsByEquipment.map(({ equipment, icon }, index) => (
+            <React.Fragment key={equipment}>
+              <View style={styles.progressStep}>
+                <View style={styles.progressStepActive}>
+                  <Ionicons name={icon} size={12} color="#000000" />
+                </View>
+                <Text style={styles.progressStepText}>{equipment}</Text>
+              </View>
+              {index < workoutsByEquipment.length - 1 && <View style={styles.progressConnector} />}
+            </React.Fragment>
+          ))}
           
           <View style={styles.progressConnector} />
           
