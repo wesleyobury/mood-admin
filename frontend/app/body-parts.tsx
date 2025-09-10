@@ -113,7 +113,7 @@ export default function BodyPartsScreen() {
         
         <View style={styles.bodyPartsGrid}>
           {bodyParts.map((bodyPart) => {
-            const isSelected = selectedBodyParts.includes(bodyPart.name);
+            const isSelected = selectedBodyPart === bodyPart.name;
             return (
               <TouchableOpacity
                 key={bodyPart.name}
