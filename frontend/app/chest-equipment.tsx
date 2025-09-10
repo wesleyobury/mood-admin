@@ -164,8 +164,16 @@ export default function ChestEquipmentScreen() {
       console.log('Selected equipment:', selectedEquipment.map(eq => eq.name));
       console.log('Selected difficulty:', selectedDifficulty.title);
       
-      // TODO: Navigate to chest workout display screen
-      // For now, just log the selections
+      // Navigate to chest workout display screen
+      router.push({
+        pathname: '/chest-workout-display',
+        params: {
+          mood: mood,
+          bodyPart: bodyPart,
+          selectedEquipment: selectedEquipment.map(eq => eq.name).join(','),
+          selectedDifficulty: selectedDifficulty.title,
+        }
+      });
     }
   };
 
