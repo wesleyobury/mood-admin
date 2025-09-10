@@ -1177,6 +1177,157 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
   }
 ];
 
+interface WorkoutCardProps {
+  equipment: string;
+  icon: keyof typeof Ionicons.glyphMap;
+  workouts: Workout[];
+  difficulty: string;
+  difficultyColor: string;
+  onStartWorkout: (workout: Workout, equipment: string, difficulty: string) => void;
+}
+
+const WorkoutCard = ({ equipment, icon, workouts, difficulty, difficultyColor, onStartWorkout }: WorkoutCardProps) => {
+  const [currentWorkoutIndex, setCurrentWorkoutIndex] = useState(0);
+
+  const renderWorkout = ({ item, index }: { item: Workout; index: number }) => (
+    <View style={[styles.workoutSlide, { width: width - 48 }]}>
+      {/* Workout Image */}
+      <View style={styles.workoutImageContainer}>
+        <Image 
+          source={{ uri: item.imageUrl }}
+          style={styles.workoutImage}
+          resizeMode="cover"
+        />
+        <View style={styles.imageOverlay} />
+        <View style={styles.swipeIndicator}>
+          <Ionicons name="swap-horizontal" size={20} color="#FFD700" />
+          <Text style={styles.swipeText}>Swipe for more</Text>
+        </View>
+      </View>
+
+      {/* Workout Content */}
+      <View style={styles.workoutContent}>
+        <View style={styles.workoutHeader}>
+          <View style={styles.workoutTitleContainer}>
+            <Text style={styles.workoutName}>{item.name}</Text>
+            <View style={[styles.difficultyBadge, { backgroundColor: difficultyColor }]}>
+              <Text style={styles.difficultyBadgeText}>{difficulty.toUpperCase()}</Text>
+            </View>
+          </View>
+          <Text style={styles.workoutDuration}>{item.duration}</Text>
+        </View>
+
+        {/* Intensity Reason */}
+        <View style={styles.intensityContainer}>
+          <Ionicons name="information-circle" size={16} color="#FFD700" />
+          <Text style={styles.intensityReason}>{item.intensityReason}</Text>
+        </View>
+
+        {/* Workout Description */}
+        <ScrollView style={styles.workoutDescriptionContainer} showsVerticalScrollIndicator={false}>
+          <Text style={styles.workoutDescription}>{item.description}</Text>
+        </ScrollView>
+
+        {/* Start Workout Button */}
+        <TouchableOpacity 
+          style={styles.startWorkoutButton}
+          onPress={() => onStartWorkout(item, equipment, difficulty)}
+          activeOpacity={0.8}
+        >
+          <Ionicons name="play" size={20} color="#000000" />
+          <Text style={styles.startWorkoutButtonText}>Start Workout</Text>
+        </TouchableOpacity>
+      </View>
+    </View>
+  );
+
+  // Simple touch-based swipe detection for reliable web compatibility
+  const [touchStart, setTouchStart] = useState<number | null>(null);
+  const [touchEnd, setTouchEnd] = useState<number | null>(null);
+
+  const handleTouchStart = (e: any) => {
+    const touch = e.nativeEvent.touches ? e.nativeEvent.touches[0] : e.nativeEvent;
+    setTouchEnd(null);
+    setTouchStart(touch.pageX || touch.clientX);
+    console.log('👆 Touch started at:', touch.pageX || touch.clientX);
+  };
+
+  const handleTouchMove = (e: any) => {
+    const touch = e.nativeEvent.touches ? e.nativeEvent.touches[0] : e.nativeEvent;
+    setTouchEnd(touch.pageX || touch.clientX);
+  };
+
+  const handleTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > 50;
+    const isRightSwipe = distance < -50;
+    
+    console.log('🎯 Swipe detected! Distance:', distance);
+    
+    if (isLeftSwipe && currentWorkoutIndex < workouts.length - 1) {
+      const newIndex = currentWorkoutIndex + 1;
+      console.log('👉 Swiped left, changing to workout index:', newIndex);
+      setCurrentWorkoutIndex(newIndex);
+    }
+    
+    if (isRightSwipe && currentWorkoutIndex > 0) {
+      const newIndex = currentWorkoutIndex - 1;
+      console.log('👈 Swiped right, changing to workout index:', newIndex);
+      setCurrentWorkoutIndex(newIndex);
+    }
+    
+    setTouchStart(null);
+    setTouchEnd(null);
+  };
+
+  return (
+    <View style={styles.workoutCard}>
+      {/* Equipment Header */}
+      <View style={styles.equipmentHeader}>
+        <View style={styles.equipmentIconContainer}>
+          <Ionicons name={icon} size={24} color="#FFD700" />
+        </View>
+        <Text style={styles.equipmentName}>{equipment}</Text>
+        <View style={styles.workoutIndicator}>
+          <Text style={styles.workoutCount}>{currentWorkoutIndex + 1}/{workouts.length}</Text>
+        </View>
+      </View>
+
+      {/* Swipeable Workouts - Touch-based Implementation */}
+      <View 
+        style={[styles.workoutList, { width: width - 48, height: 420 }]}
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
+      >
+        {renderWorkout({ item: workouts[currentWorkoutIndex], index: currentWorkoutIndex })}
+      </View>
+
+      {/* Enhanced Dots Indicator */}
+      <View style={styles.dotsContainer}>
+        <Text style={styles.dotsLabel}>Swipe to explore</Text>
+        <View style={styles.dotsRow}>
+          {workouts.map((_, index) => (
+            <TouchableOpacity
+              key={index}
+              style={[
+                styles.dot,
+                currentWorkoutIndex === index && styles.activeDot
+              ]}
+              onPress={() => {
+                console.log('🔘 Dot clicked, changing to workout index:', index);
+                setCurrentWorkoutIndex(index);
+              }}
+            />
+          ))}
+        </View>
+      </View>
+    </View>
+  );
+};
+
 export default function ChestWorkoutDisplayScreen() {
   const router = useRouter();
   const params = useLocalSearchParams();
