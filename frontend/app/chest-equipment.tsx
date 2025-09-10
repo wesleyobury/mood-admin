@@ -24,37 +24,36 @@ interface DifficultyLevel {
   color: string;
 }
 
-// Chest equipment options sorted alphabetically
 const equipmentOptions: EquipmentOption[] = [
-  { id: 'adjustable-bench', name: 'Adjustable bench', icon: 'barbell' },
-  { id: 'cable-crossover', name: 'Cable Crossover', icon: 'remove' },
-  { id: 'chest-press-machine', name: 'Chest Press Machine', icon: 'cog' },
+  { id: 'adjustable-bench', name: 'Adjustable bench', icon: 'square' },
+  { id: 'cable-crossover', name: 'Cable crossover', icon: 'reorder-three' },
+  { id: 'chest-press-machine', name: 'Chest press machine', icon: 'hardware-chip' },
   { id: 'decline-bench', name: 'Decline bench', icon: 'trending-down' },
-  { id: 'dip-station', name: 'Dip Station', icon: 'triangle' },
-  { id: 'flat-bench', name: 'Flat bench', icon: 'remove' },
+  { id: 'dip-station', name: 'Dip station', icon: 'remove' },
+  { id: 'flat-bench', name: 'Flat bench', icon: 'rectangle' },
   { id: 'incline-bench', name: 'Incline bench', icon: 'trending-up' },
-  { id: 'pec-deck', name: 'Pec Deck', icon: 'albums' },
-  { id: 'smith-machine', name: 'Smith Machine', icon: 'grid' },
+  { id: 'pec-dec-machine', name: 'Pec dec machine', icon: 'contract' },
+  { id: 'smith-machine', name: 'Smith machine', icon: 'barbell' },
 ];
 
 const difficultyLevels: DifficultyLevel[] = [
   {
     id: 'beginner',
     title: 'Beginner',
-    subtitle: 'New to chest training',
-    color: '#FFD700',
+    subtitle: 'New to chest workouts',
+    color: '#FFD700',    // Same neon gold for all
   },
   {
     id: 'intermediate',
     title: 'Intermediate',
-    subtitle: 'Some chest experience',
-    color: '#FFD700',
+    subtitle: 'Some chest training experience',
+    color: '#FFD700',    // Same neon gold for all
   },
   {
     id: 'advanced',
     title: 'Advanced',
-    subtitle: 'Experienced chest training',
-    color: '#FFD700',
+    subtitle: 'Regular chest training enthusiast',
+    color: '#FFD700',    // Same neon gold for all
   },
 ];
 
@@ -126,7 +125,7 @@ const DifficultyCard = ({
       </View>
       {isSelected && (
         <View style={[styles.difficultyIndicator, { backgroundColor: level.color }]}>
-          <Ionicons name="checkmark" size={20} color="#000000" />
+          <Ionicons name="checkmark" size={16} color="#ffffff" />
         </View>
       )}
     </TouchableOpacity>
@@ -142,14 +141,16 @@ export default function ChestEquipmentScreen() {
   const [selectedDifficulty, setSelectedDifficulty] = useState<DifficultyLevel | null>(null);
   
   const moodTitle = params.mood as string || 'Muscle gainer';
-  const bodyPart = params.bodyPart as string || 'Chest';
+  const workoutType = params.workoutType as string || 'Chest';
 
   const handleEquipmentSelect = (equipment: EquipmentOption) => {
     setSelectedEquipment(prev => {
       const isAlreadySelected = prev.some(item => item.id === equipment.id);
       if (isAlreadySelected) {
+        // Remove from selection
         return prev.filter(item => item.id !== equipment.id);
       } else {
+        // Add to selection
         return [...prev, equipment];
       }
     });
@@ -161,29 +162,21 @@ export default function ChestEquipmentScreen() {
 
   const handleContinue = () => {
     if (selectedEquipment.length > 0 && selectedDifficulty) {
-      console.log('Continue button pressed!');
       console.log('Selected equipment:', selectedEquipment.map(eq => eq.name));
       console.log('Selected difficulty:', selectedDifficulty.title);
-      console.log('Mood:', moodTitle);
-      console.log('Body part:', bodyPart);
       
+      // Navigate to chest workout display screen with selected equipment and difficulty
+      // Convert equipment array to comma-separated string and properly encode for URL
       const equipmentNames = selectedEquipment.map(eq => eq.name).join(',');
-      console.log('Equipment string:', equipmentNames);
       
-      // Navigate to chest workout display screen
       router.push({
         pathname: '/chest-workout-display',
-        params: {
+        params: { 
           mood: moodTitle,
-          bodyPart: bodyPart,
-          selectedEquipment: equipmentNames,
-          selectedDifficulty: selectedDifficulty.title,
+          workoutType: workoutType,
+          equipment: encodeURIComponent(equipmentNames), // Properly encode the parameter
+          difficulty: selectedDifficulty.id
         }
-      });
-    } else {
-      console.log('Cannot continue - missing selections:', {
-        equipmentCount: selectedEquipment.length,
-        difficulty: selectedDifficulty?.title || 'none'
       });
     }
   };
@@ -206,7 +199,7 @@ export default function ChestEquipmentScreen() {
         </TouchableOpacity>
         <View style={styles.headerTextContainer}>
           <Text style={styles.headerTitle}>Chest Equipment</Text>
-          <Text style={styles.headerSubtitle}>{bodyPart}</Text>
+          <Text style={styles.headerSubtitle}>{moodTitle}</Text>
         </View>
         <View style={styles.headerSpacer} />
       </View>
@@ -220,7 +213,7 @@ export default function ChestEquipmentScreen() {
         >
           <View style={styles.progressStep}>
             <View style={styles.progressStepActive}>
-              <Ionicons name="barbell" size={14} color="#000000" />
+              <Ionicons name="flame" size={14} color="#000000" />
             </View>
             <Text style={styles.progressStepText}>{moodTitle}</Text>
           </View>
@@ -229,9 +222,9 @@ export default function ChestEquipmentScreen() {
           
           <View style={styles.progressStep}>
             <View style={styles.progressStepActive}>
-              <Ionicons name="shield" size={14} color="#000000" />
+              <Ionicons name="fitness" size={14} color="#000000" />
             </View>
-            <Text style={styles.progressStepText}>{bodyPart}</Text>
+            <Text style={styles.progressStepText}>{workoutType}</Text>
           </View>
           
           <View style={styles.progressConnector} />
@@ -273,63 +266,64 @@ export default function ChestEquipmentScreen() {
         </ScrollView>
       </View>
 
-      {/* Content */}
       <ScrollView style={styles.scrollView} showsVerticalScrollIndicator={false}>
-        <View style={styles.contentContainer}>
+        {/* Equipment Selection */}
+        <View style={styles.section}>
+          <Text style={styles.sectionTitle}>Select Equipment</Text>
+          <Text style={styles.sectionSubtitle}>Choose one or multiple chest equipment options</Text>
           
-          {/* Equipment Selection */}
-          <View style={styles.sectionContainer}>
-            <Text style={styles.sectionTitle}>Select Your Equipment</Text>
-            <Text style={styles.sectionSubtitle}>
-              Choose the chest equipment you have access to
-            </Text>
-            
-            <View style={styles.equipmentGrid}>
-              {equipmentOptions.map((equipment) => (
-                <EquipmentCard
-                  key={equipment.id}
-                  equipment={equipment}
-                  isSelected={selectedEquipment.some(item => item.id === equipment.id)}
-                  onPress={handleEquipmentSelect}
-                />
-              ))}
-            </View>
+          <View style={styles.equipmentGrid}>
+            {equipmentOptions.map((equipment) => (
+              <EquipmentCard
+                key={equipment.id}
+                equipment={equipment}
+                isSelected={selectedEquipment.some(item => item.id === equipment.id)}
+                onPress={handleEquipmentSelect}
+              />
+            ))}
           </View>
+        </View>
 
-          {/* Difficulty Selection */}
-          <View style={styles.sectionContainer}>
-            <Text style={styles.sectionTitle}>Choose Your Level</Text>
-            <Text style={styles.sectionSubtitle}>
-              Select your chest training experience
-            </Text>
-            
-            <View style={styles.difficultyContainer}>
-              {difficultyLevels.map((level) => (
-                <DifficultyCard
-                  key={level.id}
-                  level={level}
-                  isSelected={selectedDifficulty?.id === level.id}
-                  onPress={handleDifficultySelect}
-                />
-              ))}
-            </View>
+        {/* Difficulty Selection */}
+        <View style={styles.section}>
+          <Text style={styles.sectionTitle}>Select Difficulty</Text>
+          <Text style={styles.sectionSubtitle}>Choose your fitness level</Text>
+          
+          <View style={styles.difficultyContainer}>
+            {difficultyLevels.map((level) => (
+              <DifficultyCard
+                key={level.id}
+                level={level}
+                isSelected={selectedDifficulty?.id === level.id}
+                onPress={handleDifficultySelect}
+              />
+            ))}
           </View>
-
         </View>
       </ScrollView>
 
       {/* Continue Button */}
-      {canContinue && (
-        <View style={styles.continueContainer}>
-          <TouchableOpacity 
-            style={styles.continueButton}
-            onPress={handleContinue}
-          >
-            <Text style={styles.continueButtonText}>Continue</Text>
-            <Ionicons name="arrow-forward" size={20} color="#000000" />
-          </TouchableOpacity>
-        </View>
-      )}
+      <View style={styles.footer}>
+        <TouchableOpacity
+          style={[
+            styles.continueButton,
+            canContinue && styles.continueButtonActive
+          ]}
+          onPress={handleContinue}
+          disabled={!canContinue}
+          activeOpacity={0.8}
+        >
+          <Text style={[
+            styles.continueButtonText,
+            canContinue && styles.continueButtonTextActive
+          ]}>
+            Continue
+          </Text>
+          {canContinue && (
+            <Ionicons name="chevron-forward" size={20} color="#000000" />
+          )}
+        </TouchableOpacity>
+      </View>
     </SafeAreaView>
   );
 }
@@ -342,29 +336,36 @@ const styles = StyleSheet.create({
   header: {
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'space-between',
-    paddingHorizontal: 20,
+    paddingHorizontal: 24,
     paddingVertical: 16,
     borderBottomWidth: 1,
     borderBottomColor: 'rgba(255, 215, 0, 0.2)',
   },
   backButton: {
-    padding: 8,
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+    backgroundColor: 'rgba(255, 215, 0, 0.1)',
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderWidth: 2,
+    borderColor: 'rgba(255, 215, 0, 0.3)',
   },
   headerTextContainer: {
     flex: 1,
     alignItems: 'center',
   },
   headerTitle: {
-    fontSize: 18,
+    fontSize: 20,
     fontWeight: 'bold',
-    color: '#FFFFFF',
-    marginBottom: 2,
+    color: '#FFD700',
+    textAlign: 'center',
   },
   headerSubtitle: {
     fontSize: 14,
-    color: '#FFD700',
-    fontWeight: '500',
+    color: 'rgba(255, 255, 255, 0.7)',
+    textAlign: 'center',
+    marginTop: 2,
   },
   headerSpacer: {
     width: 40,
@@ -436,85 +437,96 @@ const styles = StyleSheet.create({
   scrollView: {
     flex: 1,
   },
-  contentContainer: {
-    paddingHorizontal: 20,
-    paddingBottom: 100,
-  },
-  sectionContainer: {
-    marginTop: 24,
-    marginBottom: 32,
+  section: {
+    paddingHorizontal: 24,
+    paddingVertical: 24,
   },
   sectionTitle: {
-    fontSize: 20,
+    fontSize: 22,
     fontWeight: 'bold',
-    color: '#FFFFFF',
+    color: '#ffffff',
     marginBottom: 8,
-    textAlign: 'center',
+    textShadowColor: 'rgba(255, 215, 0, 0.3)',
+    textShadowOffset: { width: 0, height: 0 },
+    textShadowRadius: 8,
   },
   sectionSubtitle: {
     fontSize: 16,
     color: 'rgba(255, 255, 255, 0.7)',
-    textAlign: 'center',
     marginBottom: 24,
     lineHeight: 22,
   },
   equipmentGrid: {
     flexDirection: 'row',
     flexWrap: 'wrap',
-    justifyContent: 'space-between',
     gap: 12,
+    justifyContent: 'space-between',
   },
   equipmentCard: {
     width: '48%',
-    backgroundColor: '#1a1a1a',
-    borderRadius: 12,
+    backgroundColor: '#111111',
+    borderRadius: 16,
+    borderWidth: 2,
+    borderColor: 'rgba(255, 215, 0, 0.3)',
     padding: 16,
     alignItems: 'center',
-    borderWidth: 2,
-    borderColor: 'transparent',
     marginBottom: 8,
   },
   equipmentCardSelected: {
-    backgroundColor: '#2a2a2a',
+    backgroundColor: '#FFD700',
     borderColor: '#FFD700',
+    shadowColor: '#FFD700',
+    shadowOffset: { width: 0, height: 0 },
+    shadowOpacity: 0.6,
+    shadowRadius: 12,
+    elevation: 8,
   },
   equipmentIconContainer: {
     width: 48,
     height: 48,
     borderRadius: 24,
-    backgroundColor: '#333333',
-    alignItems: 'center',
+    backgroundColor: 'rgba(255, 215, 0, 0.15)',
     justifyContent: 'center',
+    alignItems: 'center',
     marginBottom: 12,
+    borderWidth: 2,
+    borderColor: 'rgba(255, 215, 0, 0.3)',
   },
   equipmentIconContainerSelected: {
-    backgroundColor: '#FFD700',
+    backgroundColor: 'rgba(0, 0, 0, 0.2)',
+    borderColor: 'rgba(0, 0, 0, 0.3)',
   },
   equipmentName: {
     fontSize: 14,
     fontWeight: '600',
-    color: '#FFFFFF',
+    color: '#ffffff',
     textAlign: 'center',
     lineHeight: 18,
   },
   equipmentNameSelected: {
-    color: '#FFD700',
+    color: '#000000',
+    fontWeight: 'bold',
   },
   difficultyContainer: {
     gap: 16,
   },
   difficultyCard: {
-    backgroundColor: '#1a1a1a',
-    borderRadius: 12,
+    backgroundColor: '#111111',
+    borderRadius: 16,
+    borderWidth: 2,
+    borderColor: 'rgba(255, 215, 0, 0.3)',
     padding: 20,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    borderWidth: 2,
-    borderColor: 'transparent',
   },
   difficultyCardSelected: {
-    backgroundColor: '#2a2a2a',
+    borderWidth: 3,
+    shadowColor: '#FFD700',
+    shadowOffset: { width: 0, height: 0 },
+    shadowOpacity: 0.4,
+    shadowRadius: 12,
+    elevation: 8,
   },
   difficultyContent: {
     flex: 1,
@@ -522,7 +534,7 @@ const styles = StyleSheet.create({
   difficultyTitle: {
     fontSize: 18,
     fontWeight: 'bold',
-    color: '#FFFFFF',
+    color: '#ffffff',
     marginBottom: 4,
   },
   difficultySubtitle: {
@@ -530,35 +542,45 @@ const styles = StyleSheet.create({
     color: 'rgba(255, 255, 255, 0.7)',
   },
   difficultyIndicator: {
-    width: 32,
-    height: 32,
-    borderRadius: 16,
-    alignItems: 'center',
+    width: 28,
+    height: 28,
+    borderRadius: 14,
     justifyContent: 'center',
+    alignItems: 'center',
   },
-  continueContainer: {
-    position: 'absolute',
-    bottom: 0,
-    left: 0,
-    right: 0,
-    backgroundColor: '#000000',
-    paddingHorizontal: 20,
-    paddingVertical: 16,
+  footer: {
+    paddingHorizontal: 24,
+    paddingVertical: 20,
     borderTopWidth: 1,
     borderTopColor: 'rgba(255, 215, 0, 0.2)',
   },
   continueButton: {
-    backgroundColor: '#FFD700',
-    borderRadius: 12,
-    padding: 16,
+    backgroundColor: '#333333',
+    borderRadius: 16,
+    paddingVertical: 16,
+    paddingHorizontal: 24,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
+    borderWidth: 2,
+    borderColor: 'rgba(255, 215, 0, 0.3)',
+    gap: 8,
+  },
+  continueButtonActive: {
+    backgroundColor: '#FFD700',
+    borderColor: '#FFD700',
+    shadowColor: '#FFD700',
+    shadowOffset: { width: 0, height: 0 },
+    shadowOpacity: 0.6,
+    shadowRadius: 12,
+    elevation: 8,
   },
   continueButtonText: {
-    fontSize: 16,
+    fontSize: 18,
     fontWeight: 'bold',
+    color: 'rgba(255, 255, 255, 0.5)',
+  },
+  continueButtonTextActive: {
     color: '#000000',
-    marginRight: 8,
   },
 });
