@@ -59,10 +59,25 @@ export default function BodyPartsScreen() {
   const insets = useSafeAreaInsets();
   const params = useLocalSearchParams();
   const [selectedBodyPart, setSelectedBodyPart] = useState<string>('');
+  const scaleAnim = useRef(new Animated.Value(1)).current;
 
   const { mood } = params;
 
   const handleBodyPartSelect = (bodyPartName: string) => {
+    // Animate button press
+    Animated.sequence([
+      Animated.timing(scaleAnim, {
+        toValue: 0.95,
+        duration: 100,
+        useNativeDriver: true,
+      }),
+      Animated.timing(scaleAnim, {
+        toValue: 1,
+        duration: 100,
+        useNativeDriver: true,
+      }),
+    ]).start();
+
     if (selectedBodyPart === bodyPartName) {
       setSelectedBodyPart(''); // Deselect if already selected
     } else {
