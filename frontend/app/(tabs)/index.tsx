@@ -137,7 +137,7 @@ export default function WorkoutsHome() {
         params: { mood: mood.title }
       });
     } else if (mood.id === 'muscle') {
-      // Navigate to body parts selection for "I want to push and gain muscle"
+      // Navigate to body parts selection for "Muscle gainer"
       router.push({
         pathname: '/body-parts',
         params: { mood: mood.title }
