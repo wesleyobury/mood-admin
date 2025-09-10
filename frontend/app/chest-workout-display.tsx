@@ -1242,7 +1242,7 @@ export default function ChestWorkoutDisplayScreen() {
     router.back();
   };
 
-  if (allWorkouts.length === 0) {
+  if (workoutsByEquipment.length === 0) {
     return (
       <SafeAreaView style={[styles.container, { paddingTop: insets.top }]}>
         <View style={styles.header}>
