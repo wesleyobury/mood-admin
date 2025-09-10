@@ -1192,8 +1192,8 @@ export default function ChestWorkoutDisplayScreen() {
   const selectedEquipmentList = selectedEquipmentParam.split(',').filter(Boolean);
   const selectedDifficulty = selectedDifficultyParam.toLowerCase();
 
-  // Organize workouts by equipment - each selected equipment gets its own set of workouts
-  const workoutsByEquipment: { equipmentName: string; workouts: Workout[] }[] = [];
+  // Organize workouts by equipment - each selected equipment gets its own set of workouts for swipeable format
+  const workoutsByEquipment: { equipment: string; icon: keyof typeof Ionicons.glyphMap; workouts: Workout[]; currentIndex: number }[] = [];
   
   selectedEquipmentList.forEach(selectedEquipment => {
     const matchingEquipmentGroup = chestWorkoutDatabase.find(equipmentGroup => 
@@ -1205,19 +1205,21 @@ export default function ChestWorkoutDisplayScreen() {
       const difficultyWorkouts = matchingEquipmentGroup.workouts[selectedDifficulty as keyof typeof matchingEquipmentGroup.workouts];
       if (difficultyWorkouts && difficultyWorkouts.length > 0) {
         workoutsByEquipment.push({
-          equipmentName: matchingEquipmentGroup.equipment,
-          workouts: difficultyWorkouts
+          equipment: matchingEquipmentGroup.equipment,
+          icon: matchingEquipmentGroup.icon,
+          workouts: difficultyWorkouts,
+          currentIndex: 0
         });
       }
     }
   });
 
-  // Create flat list of workouts with equipment info for display
-  const allWorkouts: (Workout & { equipmentName: string })[] = [];
-  workoutsByEquipment.forEach(({ equipmentName, workouts }) => {
-    workouts.forEach(workout => {
-      allWorkouts.push({ ...workout, equipmentName });
+  const [workoutIndices, setWorkoutIndices] = useState<{ [equipment: string]: number }>(() => {
+    const indices: { [equipment: string]: number } = {};
+    workoutsByEquipment.forEach(({ equipment }) => {
+      indices[equipment] = 0;
     });
+    return indices;
   });
 
   const handleStartWorkout = (workout: Workout) => {
