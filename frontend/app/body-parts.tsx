@@ -94,15 +94,36 @@ export default function BodyPartsScreen() {
 
       {/* Progress Bar */}
       <View style={styles.progressContainer}>
-        <View style={styles.progressBar}>
+        <ScrollView 
+          horizontal 
+          showsHorizontalScrollIndicator={false}
+          contentContainerStyle={styles.progressContent}
+        >
           <View style={styles.progressStep}>
-            <Text style={styles.progressText}>{mood}</Text>
+            <View style={styles.progressStepActive}>
+              <Ionicons name="flame" size={14} color="#000000" />
+            </View>
+            <Text style={styles.progressStepText}>{mood}</Text>
           </View>
-          <Ionicons name="chevron-forward" size={16} color="#666" />
-          <View style={[styles.progressStep, styles.activeStep]}>
-            <Text style={[styles.progressText, styles.activeProgressText]}>Select Muscle Group</Text>
+          
+          <View style={styles.progressConnector} />
+          
+          <View style={styles.progressStep}>
+            <View style={[
+              styles.progressStepCircle,
+              selectedBodyPart && styles.progressStepActive
+            ]}>
+              {selectedBodyPart ? (
+                <Ionicons name="checkmark" size={14} color="#000000" />
+              ) : (
+                <Text style={styles.progressStepNumber}>2</Text>
+              )}
+            </View>
+            <Text style={styles.progressStepText}>
+              {selectedBodyPart ? selectedBodyPart : 'Muscle Group'}
+            </Text>
           </View>
-        </View>
+        </ScrollView>
       </View>
 
       {/* Body Parts Grid */}
