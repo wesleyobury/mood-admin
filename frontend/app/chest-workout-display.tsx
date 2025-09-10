@@ -1348,8 +1348,13 @@ export default function ChestWorkoutDisplayScreen() {
               <View style={styles.workoutHeader}>
                 <View style={styles.workoutTitleContainer}>
                   <Text style={styles.workoutName}>{workout.name}</Text>
-                  <View style={styles.bodyPartBadge}>
-                    <Text style={styles.bodyPartText}>{bodyPart}</Text>
+                  <View style={styles.equipmentBadgeContainer}>
+                    <View style={styles.bodyPartBadge}>
+                      <Text style={styles.bodyPartText}>{bodyPart}</Text>
+                    </View>
+                    <View style={styles.equipmentBadge}>
+                      <Text style={styles.equipmentText}>{workout.equipmentName}</Text>
+                    </View>
                   </View>
                 </View>
                 <View style={styles.difficultyBadge}>
