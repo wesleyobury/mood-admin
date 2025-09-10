@@ -161,18 +161,29 @@ export default function ChestEquipmentScreen() {
 
   const handleContinue = () => {
     if (selectedEquipment.length > 0 && selectedDifficulty) {
+      console.log('Continue button pressed!');
       console.log('Selected equipment:', selectedEquipment.map(eq => eq.name));
       console.log('Selected difficulty:', selectedDifficulty.title);
+      console.log('Mood:', moodTitle);
+      console.log('Body part:', bodyPart);
+      
+      const equipmentNames = selectedEquipment.map(eq => eq.name).join(',');
+      console.log('Equipment string:', equipmentNames);
       
       // Navigate to chest workout display screen
       router.push({
         pathname: '/chest-workout-display',
         params: {
-          mood: mood,
+          mood: moodTitle,
           bodyPart: bodyPart,
-          selectedEquipment: selectedEquipment.map(eq => eq.name).join(','),
+          selectedEquipment: equipmentNames,
           selectedDifficulty: selectedDifficulty.title,
         }
+      });
+    } else {
+      console.log('Cannot continue - missing selections:', {
+        equipmentCount: selectedEquipment.length,
+        difficulty: selectedDifficulty?.title || 'none'
       });
     }
   };
