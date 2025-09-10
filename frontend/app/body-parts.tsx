@@ -71,9 +71,21 @@ export default function BodyPartsScreen() {
 
   const handleContinue = () => {
     if (selectedBodyPart) {
-      // TODO: Navigate to next screen in muscle building path
       console.log('Selected body part:', selectedBodyPart);
-      // Will implement navigation to next screen later
+      
+      if (selectedBodyPart === 'Chest') {
+        // Navigate to chest equipment screen
+        router.push({
+          pathname: '/chest-equipment',
+          params: {
+            mood: mood,
+            bodyPart: selectedBodyPart,
+          }
+        });
+      } else {
+        // TODO: Navigate to other body part screens when implemented
+        console.log(`Navigation for ${selectedBodyPart} will be implemented later`);
+      }
     }
   };
 
