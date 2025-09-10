@@ -72,7 +72,7 @@ const moodCards: MoodCard[] = [
   },
   {
     id: 'muscle',
-    title: 'I want to push and gain muscle',
+    title: 'Muscle gainer',
     subtitle: 'Strength training focus',
     icon: 'barbell',
     gradient: ['#4ECDC4', '#44A08D'],
