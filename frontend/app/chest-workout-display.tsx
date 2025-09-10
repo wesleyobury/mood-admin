@@ -1480,94 +1480,19 @@ export default function ChestWorkoutDisplayScreen() {
         showsVerticalScrollIndicator={false}
         contentContainerStyle={styles.scrollContent}
       >
-        <Text style={styles.subtitle}>
-          {workoutsByEquipment.length} equipment type{workoutsByEquipment.length > 1 ? 's' : ''} with personalized chest workouts
-        </Text>
-
-        {workoutsByEquipment.map((equipmentData, equipmentIndex) => {
-          const currentWorkout = equipmentData.workouts[workoutIndices[equipmentData.equipment] || 0];
-          const totalWorkouts = equipmentData.workouts.length;
-          
-          const handleNextWorkout = () => {
-            setWorkoutIndices(prev => ({
-              ...prev,
-              [equipmentData.equipment]: ((prev[equipmentData.equipment] || 0) + 1) % totalWorkouts
-            }));
-          };
-
-          const handlePrevWorkout = () => {
-            setWorkoutIndices(prev => ({
-              ...prev,
-              [equipmentData.equipment]: ((prev[equipmentData.equipment] || 0) - 1 + totalWorkouts) % totalWorkouts
-            }));
-          };
-
+        {filteredEquipment.map((equipmentData, index) => {
+          console.log(`Rendering card ${index + 1}:`, equipmentData.equipment);
           return (
-            <View key={equipmentData.equipment} style={styles.equipmentSection}>
-              <View style={styles.equipmentHeader}>
-                <View style={styles.equipmentTitleContainer}>
-                  <Ionicons name={equipmentData.icon} size={24} color="#FFD700" />
-                  <Text style={styles.equipmentTitle}>{equipmentData.equipment}</Text>
-                </View>
-                {totalWorkouts > 1 && (
-                  <View style={styles.workoutNav}>
-                    <TouchableOpacity onPress={handlePrevWorkout} style={styles.navButton}>
-                      <Ionicons name="chevron-back" size={20} color="#FFD700" />
-                    </TouchableOpacity>
-                    <Text style={styles.workoutCounter}>
-                      {(workoutIndices[equipmentData.equipment] || 0) + 1}/{totalWorkouts}
-                    </Text>
-                    <TouchableOpacity onPress={handleNextWorkout} style={styles.navButton}>
-                      <Ionicons name="chevron-forward" size={20} color="#FFD700" />
-                    </TouchableOpacity>
-                  </View>
-                )}
-              </View>
-              
-              <View style={styles.workoutCard}>
-                <Image source={{ uri: currentWorkout.imageUrl }} style={styles.workoutImage} />
-                
-                <View style={styles.workoutInfo}>
-                  <View style={styles.workoutHeader}>
-                    <View style={styles.workoutTitleContainer}>
-                      <Text style={styles.workoutName}>{currentWorkout.name}</Text>
-                      <View style={styles.equipmentBadgeContainer}>
-                        <View style={styles.bodyPartBadge}>
-                          <Text style={styles.bodyPartText}>{bodyPart}</Text>
-                        </View>
-                        <View style={styles.difficultyBadge}>
-                          <Text style={styles.difficultyText}>{selectedDifficultyParam}</Text>
-                        </View>
-                      </View>
-                    </View>
-                  </View>
-
-                  <View style={styles.workoutMeta}>
-                    <View style={styles.metaItem}>
-                      <Ionicons name="time" size={16} color="#FFD700" />
-                      <Text style={styles.metaText}>{currentWorkout.duration}</Text>
-                    </View>
-                    <View style={styles.metaItem}>
-                      <Ionicons name="shield" size={16} color="#FFD700" />
-                      <Text style={styles.metaText}>Chest Focus</Text>
-                    </View>
-                    <View style={styles.metaItem}>
-                      <Ionicons name={equipmentData.icon} size={16} color="#FFD700" />
-                      <Text style={styles.metaText}>{equipmentData.equipment}</Text>
-                    </View>
-                  </View>
-
-                  <Text style={styles.intensityReason}>{currentWorkout.intensityReason}</Text>
-
-                  <TouchableOpacity 
-                    style={styles.startButton}
-                    onPress={() => handleStartWorkout(currentWorkout)}
-                  >
-                    <Text style={styles.startButtonText}>Start Workout</Text>
-                    <Ionicons name="play" size={20} color="#000" />
-                  </TouchableOpacity>
-                </View>
-              </View>
+            <View key={`container-${equipmentData.equipment}`} style={styles.workoutCardContainer}>
+              <WorkoutCard
+                key={`workout-card-${equipmentData.equipment}-${index}`}
+                equipment={equipmentData.equipment}
+                icon={equipmentData.icon}
+                workouts={equipmentData.workouts[selectedDifficulty as keyof typeof equipmentData.workouts]}
+                difficulty={selectedDifficulty}
+                difficultyColor={difficultyColor}
+                onStartWorkout={handleStartWorkout}
+              />
             </View>
           );
         })}
