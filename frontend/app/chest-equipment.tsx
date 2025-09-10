@@ -165,19 +165,35 @@ export default function ChestEquipmentScreen() {
       console.log('Selected equipment:', selectedEquipment.map(eq => eq.name));
       console.log('Selected difficulty:', selectedDifficulty.title);
       
-      // Navigate to chest workout display screen with selected equipment and difficulty
-      // Convert equipment array to comma-separated string and properly encode for URL
-      const equipmentNames = selectedEquipment.map(eq => eq.name).join(',');
+      // Check if Adjustable bench is selected - navigate to specific adjustable bench screen
+      const equipmentNames = selectedEquipment.map(eq => eq.name);
+      const hasAdjustableBench = equipmentNames.includes('Adjustable bench');
       
-      router.push({
-        pathname: '/chest-workout-display',
-        params: { 
-          mood: moodTitle,
-          workoutType: workoutType,
-          equipment: encodeURIComponent(equipmentNames), // Properly encode the parameter
-          difficulty: selectedDifficulty.id
-        }
-      });
+      if (hasAdjustableBench && selectedEquipment.length === 1) {
+        // Navigate to adjustable bench specific workout display
+        router.push({
+          pathname: '/adjustable-bench-workout-display',
+          params: { 
+            mood: moodTitle,
+            workoutType: workoutType,
+            equipment: encodeURIComponent(equipmentNames.join(',')),
+            difficulty: selectedDifficulty.id
+          }
+        });
+      } else {
+        // Navigate to general chest workout display screen for other equipment combinations
+        const equipmentNamesString = equipmentNames.join(',');
+        
+        router.push({
+          pathname: '/chest-workout-display',
+          params: { 
+            mood: moodTitle,
+            workoutType: workoutType,
+            equipment: encodeURIComponent(equipmentNamesString), // Properly encode the parameter
+            difficulty: selectedDifficulty.id
+          }
+        });
+      }
     }
   };
 
