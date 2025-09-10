@@ -155,10 +155,10 @@ export default function BodyPartsScreen() {
           })}
         </View>
 
-        {selectedBodyParts.length > 0 && (
+        {selectedBodyPart && (
           <View style={styles.selectionSummary}>
             <Text style={styles.selectionText}>
-              Selected: {selectedBodyParts.join(', ')} ({selectedBodyParts.length} body part{selectedBodyParts.length > 1 ? 's' : ''})
+              Selected: {selectedBodyPart}
             </Text>
           </View>
         )}
