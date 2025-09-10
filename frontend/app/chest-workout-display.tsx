@@ -1450,7 +1450,7 @@ export default function ChestWorkoutDisplayScreen() {
           
           <View style={styles.progressConnector} />
           
-          {workoutsByEquipment.map(({ equipment, icon }, index) => (
+          {filteredEquipment.map(({ equipment, icon }, index) => (
             <React.Fragment key={equipment}>
               <View style={styles.progressStep}>
                 <View style={styles.progressStepActive}>
@@ -1458,7 +1458,7 @@ export default function ChestWorkoutDisplayScreen() {
                 </View>
                 <Text style={styles.progressStepText}>{equipment}</Text>
               </View>
-              {index < workoutsByEquipment.length - 1 && <View style={styles.progressConnector} />}
+              {index < filteredEquipment.length - 1 && <View style={styles.progressConnector} />}
             </React.Fragment>
           ))}
           
