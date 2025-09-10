@@ -343,6 +343,8 @@ const styles = StyleSheet.create({
   },
   selectedIconContainer: {
     backgroundColor: '#000',
+    borderWidth: 2,
+    borderColor: '#FFD700',
   },
   bodyPartName: {
     fontSize: 16,
