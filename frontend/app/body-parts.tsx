@@ -165,7 +165,7 @@ export default function BodyPartsScreen() {
       </ScrollView>
 
       {/* Continue Button */}
-      {selectedBodyParts.length > 0 && (
+      {selectedBodyPart && (
         <View style={styles.bottomContainer}>
           <TouchableOpacity 
             style={styles.continueButton}
