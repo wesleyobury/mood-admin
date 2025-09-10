@@ -1329,18 +1329,18 @@ export default function ChestWorkoutDisplayScreen() {
         contentContainerStyle={styles.scrollContent}
       >
         <Text style={styles.subtitle}>
-          {filteredWorkouts.length} personalized chest workout{filteredWorkouts.length > 1 ? 's' : ''} ready for you
+          {allWorkouts.length} personalized chest workout{allWorkouts.length > 1 ? 's' : ''} ready for you
         </Text>
 
-        {filteredWorkouts.length > 1 && (
+        {allWorkouts.length > 1 && (
           <View style={styles.workoutIndicator}>
             <Text style={styles.indicatorText}>
-              {currentWorkoutIndex + 1}/{filteredWorkouts.length}
+              {currentWorkoutIndex + 1}/{allWorkouts.length}
             </Text>
           </View>
         )}
 
-        {filteredWorkouts.map((workout, index) => (
+        {allWorkouts.map((workout, index) => (
           <View key={index} style={styles.workoutCard}>
             <Image source={{ uri: workout.imageUrl }} style={styles.workoutImage} />
             
