@@ -204,7 +204,8 @@ export default function BodyPartsScreen() {
                     <Ionicons name="checkmark-circle" size={20} color="#000" />
                   </View>
                 )}
-              </TouchableOpacity>
+                </TouchableOpacity>
+              </Animated.View>
             );
           })}
         </View>
