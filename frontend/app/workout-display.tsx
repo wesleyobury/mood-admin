@@ -1831,8 +1831,8 @@ const workoutDatabase: EquipmentWorkouts[] = [
         },
         {
           name: 'Barbell Cardio Flow',
-          duration: '14-16 min',
-          description: '• 6 reps each:\nhang clean\npush press\nback squat\nbent-over row\nRest 90 sec\n• repeat 3 rounds',
+          duration: '14–16 min',
+          description: 'Perform 3 rounds:\n• 6 hang cleans\n• 6 push presses\n• 6 back squats\n• 6 bent-over rows\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwyfHxiYXJiZWxsJTIwZmxvd3xlbnwwfHx8fDE3NTY4ODMyMzd8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Smooth barbell flow that teaches coordination between major compound movements.',
           moodTips: [
