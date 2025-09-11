@@ -2017,9 +2017,9 @@ const workoutDatabase: EquipmentWorkouts[] = [
       ],
       advanced: [
         {
-          name: 'Elite Medicine Ball Complex',
-          duration: '28-32 min',
-          description: '• 12 wall balls (16-20 lb ball\n• target 10-11 feet)\n10 overhead slams (14-16 lb ball)\n8 rotational throws each side (12-14 lb ball)\n6 burpee to slam combo (10-12 lb ball)\n90 seconds rest\nRepeat for 5 complete rounds\nFinish with 4 minutes dynamic stretching and core work',
+          name: 'Medicine Ball Complex',
+          duration: '16–20 min',
+          description: 'Perform 4 rounds:\n• 12 wall balls\n• 10 slams\n• 8 rotations (per side)\n• 6 burpee slams\nRest 1 min',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw1fHxtZWRpY2luZSUyMGJhbGwlMjBhZHZhbmNlZHxlbnwwfHx8fDE3NTY4ODMyMzd8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Elite-level complex demanding maximal power output, rotational strength, and metabolic conditioning through progressive ball weights and extended volume.',
           moodTips: [
