@@ -970,7 +970,7 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Pec Dec Pyramid',
           duration: '14–16 min',
-          description: '4 rounds:\n• 12 light pec dec\n• 10 moderate pec dec\n• 8 heavy pec dec\n• Rest 75s',
+          description: '4 rounds:\n• 12 light pec dec\n• 10 moderate pec dec\n• 8 heavy pec dec\n• Rest 75s\n\nTips:\n• Progressive loading: Each weight should challenge you within the target rep range—feel the burn.\n• Mind-muscle connection: Focus on chest fibers contracting, not just moving the weight.',
           imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Progressive loading pyramid that challenges chest isolation across different rep ranges for intermediate development.',
           moodTips: [
