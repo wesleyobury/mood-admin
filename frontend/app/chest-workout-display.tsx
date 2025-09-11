@@ -651,7 +651,7 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Cable Finisher',
           duration: '15–18 min',
-          description: '2 rounds:\n• 15 high cable fly\n• 15 mid cable fly\n• 15 low cable fly\n• 10 cable press\n• Rest 2–3 min',
+          description: '2 rounds:\n• 15 high cable fly\n• 15 mid cable fly\n• 15 low cable fly\n• 10 cable press\n• Rest 2–3 min\n\nTips:\n• High volume finisher: Form degrades before failure—maintain perfect technique over speed.\n• Cable advantage: Constant tension means every rep counts, no momentum cheating allowed.',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'High-volume cable finisher for advanced trainees seeking maximum chest pump and metabolic stress.',
           moodTips: [
