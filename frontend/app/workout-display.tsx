@@ -2396,8 +2396,8 @@ const workoutDatabase: EquipmentWorkouts[] = [
       advanced: [
         {
           name: 'Sled Gauntlet',
-          duration: '24-28 min',
-          description: '• 10 meters heavy push\n10 meters sprint push (light)\n10 meters backward drag\n10 meters lateral push\n1 min rest\nRepeat 5 rounds',
+          duration: '24–28 min',
+          description: 'Perform 5 rounds:\n• 10m heavy push\n• 10m sprint push (light)\n• 10m backward drag\n• 10m lateral push\nRest 1 min',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw1fHxzbGVkJTIwYWR2YW5jZWR8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Advanced gauntlet combining maximum load with speed work for elite conditioning.',
           moodTips: [
