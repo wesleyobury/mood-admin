@@ -2443,7 +2443,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Band Cardio Circuit',
           duration: '12–15 min',
-          description: 'Perform 3 rounds:\n• 10 banded squats\n• 10 band rows\n• 10 chest presses\nRest 1 min',
+          description: 'Perform 3 rounds:\n• 10 banded squats (band around lower thighs, just above knees)\n• 10 band rows (anchor band at chest height, pull toward torso)\n• 10 band chest presses (anchor band behind you at chest level, press forward)\nRest 1 min',
           imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxyZXNpc3RhbmNlJTIwYmFuZCUyMHdvcmtvdXR8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Perfect introduction to resistance band training with simple movements that build fundamental strength patterns.',
           moodTips: [
@@ -2462,7 +2462,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Band Walks & Presses',
           duration: '12–15 min',
-          description: 'Perform 3 rounds:\n• 10 lateral band walks (each way)\n• 10 overhead presses\nRest 1 min',
+          description: 'Perform 3 rounds:\n• 10 lateral band walks (band around ankles)\n• 10 overhead presses (stand on middle of band, press handles/ends overhead)\nRest 1 min',
           imageUrl: 'https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwyfHxyZXNpc3RhbmNlJTIwYmFuZCUyMHdhbGt8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Focus on glute activation and shoulder stability through controlled lateral and vertical movements.',
           moodTips: [
@@ -2483,7 +2483,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Band Tabata',
           duration: '16 min',
-          description: '20s work / 10s rest:\n• Squat jumps\n• Push-ups\n• Rows\n• Mountain climbers\nRepeat 4 rounds each (16 intervals total)',
+          description: '20s work / 10s rest. Cycle through:\n• Squat jumps (band around thighs)\n• Push-ups (band across upper back, ends anchored under palms)\n• Rows (band anchored low, pull to ribs)\n• Mountain climbers (band anchored in front, loop around waist)\nRepeat 4 rounds each (16 intervals total)',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwzfHxyZXNpc3RhbmNlJTIwYmFuZCUyMHRhYmF0YXxlbnwwfHx8fDE3NTY4ODMyMzd8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'High-intensity Tabata protocol maximizing anaerobic power and metabolic conditioning.',
           moodTips: [
@@ -2495,21 +2495,21 @@ const workoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'flash',
               title: 'Row Focus',
-              description: 'Full scap squeeze each time for maximum muscle activation.'
+              description: 'Squeeze shoulder blades every pull for maximum activation.'
             }
           ]
         },
         {
           name: 'Band Sprint Circuit',
           duration: '20–22 min',
-          description: 'Perform 4 rounds:\n• 10 squat jumps\n• 10 band sprints (anchored)\n• 10 band push-ups\nRest 1 min',
+          description: 'Perform 4 rounds:\n• 10 squat jumps (band around thighs)\n• 10 band sprints (band anchored behind you, loop around waist)\n• 10 band push-ups (band across upper back, anchored under palms)\nRest 1 min',
           imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxyZXNpc3RhbmNlJTIwYmFuZCUyMHNwcmludHxlbnwwfHx8fDE3NTY4ODMyMzd8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Power-focused circuit combining plyometrics with resisted sprint mechanics.',
           moodTips: [
             {
               icon: 'flash',
               title: 'Sprint Setup',
-              description: 'Anchor bands safely for maximum resistance effect.'
+              description: 'Anchor bands safely to a heavy rack or fixed post.'
             },
             {
               icon: 'body',
@@ -2523,38 +2523,38 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Band Complex',
           duration: '20–22 min',
-          description: 'Perform 4 rounds:\n• 12 squat jumps\n• 10 push-ups\n• 8 sprints\n• 6 burpees\nRest 1 min',
+          description: 'Perform 4 rounds:\n• 12 squat jumps (band around thighs)\n• 10 push-ups (band across upper back, anchored under palms)\n• 8 sprints (band around waist, anchored behind you)\n• 6 burpees (optional: add light band loop around thighs for extra tension)\nRest 1 min',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw1fHxyZXNpc3RhbmNlJTIwYmFuZCUyMGFkdmFuY2VkfGVufDB8fHx8MVc1Njg4MzIzN3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Elite complex demanding maximal power output through progressive movement combinations.',
           moodTips: [
             {
               icon: 'flash',
               title: 'Tension Control',
-              description: 'Keep band tension through all moves for maximum effect.'
+              description: 'Maintain controlled band tension every move.'
             },
             {
               icon: 'body',
               title: 'Recoil Management',
-              description: 'Control recoil on release to prevent injury.'
+              description: 'Don\'t let band snap on release to prevent injury.'
             }
           ]
         },
         {
           name: 'Band & Plyo Circuit',
           duration: '20–22 min',
-          description: 'Perform 4 rounds:\n• 10 jump lunges\n• 10 mountain climbers\n• 10 rows\n• 10 push-ups\nRest 1 min',
+          description: 'Perform 4 rounds:\n• 10 jump lunges (band looped around thighs)\n• 10 mountain climbers (band anchored in front, looped around waist)\n• 10 rows (band anchored low, pull to ribs)\n• 10 push-ups (band across upper back, anchored under palms)\nRest 1 min',
           imageUrl: 'https://images.unsplash.com/photo-1517838277536-f5f99be501cd?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw2fHxyZXNpc3RhbmNlJTIwYmFuZCUyMHBseW98ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Advanced plyometric integration combining explosive movements with resistance training.',
           moodTips: [
             {
               icon: 'body',
               title: 'Landing Mechanics',
-              description: 'Jump/land softly with knees stacked over hips.'
+              description: 'Land softly with knees stacked under hips.'
             },
             {
               icon: 'refresh',
               title: 'Core Stability',
-              description: 'Brace core strong during push-ups for proper form.'
+              description: 'Brace core firmly during push-ups for max activation.'
             }
           ]
         }
