@@ -389,8 +389,8 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
           moodTips: [
             {
               icon: 'flash',
-              title: 'Go for hypertrophy density',
-              description: 'Aim for near-failure each angle, minimal rest for growth.'
+              title: 'Hypertrophy density',
+              description: 'Aim for near-failure each angle, minimal rest.'
             },
             {
               icon: 'body',
