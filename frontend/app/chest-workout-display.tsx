@@ -67,7 +67,7 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Fly Flow',
           duration: '12–15 min',
-          description: '3 rounds:\n• 10 flat fly\n• 10 incline fly\n• 10 decline fly (light)\n• Rest 60s',
+          description: '3 rounds:\n• 10 flat fly\n• 10 incline fly\n• 10 decline fly (light)\n• Rest 60s\n\nTips:\n• Pause at stretch position 1s to expand pec fibers.\n• Bring dumbbells together until they meet—not just overhead—to force full contraction.',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Gentle fly progression that teaches proper chest isolation across multiple angles for comprehensive beginners development.',
           moodTips: [
