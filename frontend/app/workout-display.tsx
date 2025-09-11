@@ -1996,9 +1996,9 @@ const workoutDatabase: EquipmentWorkouts[] = [
           ]
         },
         {
-          name: 'High-Intensity Medicine Ball Tabata',
-          duration: '24-26 min',
-          description: '• Tabata Protocol: 20 seconds work\n• 10 seconds rest\nRound 1: Wall balls (12-14 lb ball) - 8 intervals\n2 minutes rest\nRound 2: Medicine ball slams (10-12 lb ball) - 8 intervals\n2 minutes rest\nRound 3: Rotational throws (8-10 lb ball) - 8 intervals\n2 minutes rest\nRound 4: Squat to overhead press (8-10 lb ball) - 8 intervals\nFinish with 4 minutes gentle stretching',
+          name: 'Tabata',
+          duration: '16 min',
+          description: '20s work / 10s rest:\n• Wall balls\n• Slams\n• Rotational throws\n• Squat-to-press\nRepeat 4 rounds each for 16 total intervals.',
           imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxtZWRpY2luZSUyMGJhbGwlMjB0YWJhdGF8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Advanced Tabata intervals that maximize anaerobic power development through varied medicine ball movements with proper work-to-rest ratios.',
           moodTips: [
