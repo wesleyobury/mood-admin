@@ -989,7 +989,7 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Pre-Exhaust Circuit',
           duration: '12–15 min',
-          description: '3 rounds:\n• 12 pec dec fly\n• 8 chest press (immediately after)\n• 10 push-ups\n• Rest 90s',
+          description: '3 rounds:\n• 12 pec dec fly\n• 8 chest press (immediately after)\n• 10 push-ups\n• Rest 90s\n\nTips:\n• No rest transition: Move immediately from pec dec to pressing—this pre-exhausts chest maximally.\n• Push-ups last: When chest is fatigued, form becomes critical—focus on perfect technique.',
           imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
           intensityReason: 'Pre-exhaustion protocol using pec dec to fatigue chest before pressing movements for intermediate intensity.',
           moodTips: [
