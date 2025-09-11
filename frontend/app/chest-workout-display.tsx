@@ -1809,6 +1809,260 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
         }
       ]
     }
+  },
+  // PEC DECK FLY / REAR DELT MACHINE
+  {
+    equipment: 'Pec dec machine',
+    icon: 'body',
+    workouts: {
+      beginner: [
+        {
+          name: 'Pec Deck Circuit',
+          duration: '12–14 min',
+          description: '• 3 rounds:\n  • 12 pec fly\n  • 10 rear delt fly\n  • Rest 60s',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8MTc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Perfect beginner introduction to pec dec training focusing on chest isolation and shoulder balance.',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Drive hands together',
+              description: 'On pec fly, squeeze chest at peak contraction.'
+            },
+            {
+              icon: 'timer',
+              title: 'Control return slowly',
+              description: 'Keep pec stretching under tension for growth.'
+            }
+          ]
+        },
+        {
+          name: 'Pec Deck Hold',
+          duration: '10–12 min',
+          description: '• 3 rounds:\n  • 10 pec fly with 2s squeeze hold\n  • Rest 60s',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Isometric hold training that maximizes chest contraction and mind-muscle connection.',
+          moodTips: [
+            {
+              icon: 'fitness',
+              title: 'Crushing a plate together',
+              description: 'Think of crushing a plate at chest height.'
+            },
+            {
+              icon: 'body',
+              title: 'Fight to keep pecs engaged',
+              description: 'During isometric hold for maximum activation.'
+            }
+          ]
+        }
+      ],
+      intermediate: [
+        {
+          name: 'Drop Set',
+          duration: '16–18 min',
+          description: '• 2 rounds:\n  • 10 heavy fly\n  • Drop → 10 moderate\n  • Drop → 10 light\n  • Rest 90s',
+          imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Progressive drop set training for pec isolation with varying intensity ranges.',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Heavy for deep stretch',
+              description: 'Moderate/light for squeezing contraction.'
+            },
+            {
+              icon: 'construct',
+              title: 'Don\'t let arms collapse inward',
+              description: 'Control the arc throughout entire range.'
+            }
+          ]
+        },
+        {
+          name: 'Ladder',
+          duration: '14–15 min',
+          description: '• 3 rounds:\n  • 8 wide fly\n  • 8 neutral\n  • 8 close grip fly\n  • Rest 90s',
+          imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
+          intensityReason: 'Angle variation ladder that targets chest fibers from different positions.',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Wide angle stretches maximally',
+              description: 'Chest fibers get full expansion.'
+            },
+            {
+              icon: 'fitness',
+              title: 'Close angle = brutal squeeze',
+              description: 'Hold it for maximum contraction.'
+            }
+          ]
+        }
+      ],
+      advanced: [
+        {
+          name: 'Pec Deck AMRAP',
+          duration: '10 min',
+          description: '• Max fly reps in 10 min',
+          imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmc&ZW44MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Maximum volume pec deck challenge for advanced chest pump and endurance.',
+          moodTips: [
+            {
+              icon: 'timer',
+              title: 'Take slow, high-rep sets',
+              description: 'Aim for burn and pump over speed.'
+            },
+            {
+              icon: 'body',
+              title: 'Pull shoulder blades together',
+              description: 'Move only arms for pure chest isolation.'
+            }
+          ]
+        },
+        {
+          name: 'Pec Deck Complex',
+          duration: '15–18 min',
+          description: '• 3 rounds:\n  • 8 pec fly\n  • 8 rear delt fly\n  • 8 single-arm fly\n  • Rest 90s',
+          imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Advanced complex alternating pec and rear delt training for balanced shoulder development.',
+          moodTips: [
+            {
+              icon: 'refresh',
+              title: 'Alternate pec vs rear delt',
+              description: 'Pre-exhaust chest and shoulders for balance.'
+            },
+            {
+              icon: 'construct',
+              title: 'Cross over chest midline',
+              description: 'On single-arm for extra contraction.'
+            }
+          ]
+        }
+      ]
+    }
+  },
+  // CABLE CROSSOVER MACHINE
+  {
+    equipment: 'Cable crossover',
+    icon: 'git-network',
+    workouts: {
+      beginner: [
+        {
+          name: 'Cable Fly Circuit',
+          duration: '12–14 min',
+          description: '• 3 rounds:\n  • 12 standing fly (light)\n  • 10 low-to-high fly\n  • Rest 60s',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHc5fHxyaW5nfGVufDB8fHx8MTc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Perfect beginner introduction to cable training with constant tension and multiple angles.',
+          moodTips: [
+            {
+              icon: 'body',
+              title: 'Slight bend in elbows',
+              description: 'Move from chest not arms for proper isolation.'
+            },
+            {
+              icon: 'fitness',
+              title: 'Squeeze like hugging barrel',
+              description: 'Pecs hard like hugging a barrel for activation.'
+            }
+          ]
+        },
+        {
+          name: 'Cable Press Circuit',
+          duration: '12–14 min',
+          description: '• 3 rounds:\n  • 10 standing press\n  • 10 single-arm press\n  • Rest 60s',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Standing cable press foundation that builds chest strength with core stability.',
+          moodTips: [
+            {
+              icon: 'fitness',
+              title: 'Push with pecs, not shoulders',
+              description: 'Think chest meeting hands for proper activation.'
+            },
+            {
+              icon: 'construct',
+              title: 'Keep torso still',
+              description: 'On single-arm; don\'t rotate for pure chest work.'
+            }
+          ]
+        }
+      ],
+      intermediate: [
+        {
+          name: 'Cable Fly Ladder',
+          duration: '14–16 min',
+          description: '• 3 rounds:\n  • 8 high-to-low\n  • 8 low-to-high\n  • 8 mid-level\n  • Rest 90s',
+          imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Multi-angle cable training that targets all chest fiber directions with constant tension.',
+          moodTips: [
+            {
+              icon: 'speedometer',
+              title: 'Change cable height quickly',
+              description: 'Keep intensity up between angle changes.'
+            },
+            {
+              icon: 'body',
+              title: 'Don\'t rush',
+              description: 'Tension constant all the way through movement.'
+            }
+          ]
+        },
+        {
+          name: 'Cable Press & Fly',
+          duration: '14–16 min',
+          description: '• 3 rounds:\n  • 10 press\n  • 10 fly\n  • 10 single-arm fly\n  • Rest 90s',
+          imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
+          intensityReason: 'Combined compound and isolation cable training for intermediate chest development.',
+          moodTips: [
+            {
+              icon: 'refresh',
+              title: 'Alternate press and fly',
+              description: 'For pre-exhaust chest timing and activation.'
+            },
+            {
+              icon: 'construct',
+              title: 'Bring hand fully across body',
+              description: 'On single-arm fly for max pec activation.'
+            }
+          ]
+        }
+      ],
+      advanced: [
+        {
+          name: 'Cable Complex',
+          duration: '15–18 min',
+          description: '• 3 rounds:\n  • 8 high-to-low fly\n  • 8 low-to-high fly\n  • 8 cable press\n  • 8 single-arm fly\n  • Rest 90s',
+          imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmc&ZW44MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Advanced cable complex with multiple angles and unilateral training for complete chest development.',
+          moodTips: [
+            {
+              icon: 'body',
+              title: 'Maintain forward lean',
+              description: 'To load pecs more throughout complex.'
+            },
+            {
+              icon: 'construct',
+              title: 'Prevent swaying',
+              description: 'Brace abs; pecs, not momentum, should move weights.'
+            }
+          ]
+        },
+        {
+          name: 'Cable Drop Set',
+          duration: '16–18 min',
+          description: '• 2 rounds:\n  • 10 heavy fly\n  • Drop → 10 moderate\n  • Drop → 10 light\n  • Rest 90s',
+          imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'High-intensity cable drop set protocol for maximum chest pump and fiber recruitment.',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Heavy for stretch',
+              description: 'Light for squeeze and burn - complete range training.'
+            },
+            {
+              icon: 'timer',
+              title: 'Hold contraction 1s',
+              description: 'On last 10 reps for maximum chest pump.'
+            }
+          ]
+        }
+      ]
+    }
   }
 ];
 
