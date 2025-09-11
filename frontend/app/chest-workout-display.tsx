@@ -485,7 +485,7 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Decline Chest Flow',
           duration: '12–15 min',
-          description: '3 rounds:\n• 10 decline press\n• 10 decline fly\n• 10 close-grip press\n• Rest 90s',
+          description: '3 rounds:\n• 10 decline press\n• 10 decline fly\n• 10 close-grip press\n• Rest 90s\n\nTips:\n• Pump-style sequence—don\'t rack weights; keep pecs loaded.\n• Close-grip: squeeze chest by pushing hands inward.',
           imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
           intensityReason: 'Continuous flow training that overloads lower chest through combined pressing, isolation, and close-grip movements.',
           moodTips: [
