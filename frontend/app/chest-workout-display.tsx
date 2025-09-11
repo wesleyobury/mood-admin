@@ -426,7 +426,7 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Decline Push-Up Circuit',
           duration: '10–12 min',
-          description: '3 rounds:\n• 8 decline push-ups (feet on bench)\n• 10 decline bench press (light)\n• Rest 60s',
+          description: '3 rounds:\n• 8 decline push-ups (feet on bench)\n• 10 decline bench press (light)\n• Rest 60s\n\nTips:\n• Keep chest low between hands and push up forcefully for pec tension.\n• Lower chest stretch emphasized at decline; control eccentric.',
           imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHc5fHxyaW5nfGVufDB8fHx8MVc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Perfect beginner introduction to decline training targeting lower chest development with bodyweight and light resistance.',
           moodTips: [
