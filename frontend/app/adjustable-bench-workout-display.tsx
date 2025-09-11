@@ -48,38 +48,38 @@ const adjustableBenchDatabase: EquipmentWorkouts[] = [
         {
           name: 'Adjustable Press Circuit',
           duration: '15–18 min',
-          description: '3 rounds:\n• 10 flat bench press\n• 10 incline bench press\n• 10 decline bench press (all light)\n• Rest 60–75s',
+          description: '3 rounds:\n• 10 flat press\n• 10 incline press\n• 10 decline press (light)\n• Rest 60–75s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8MTc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Perfect beginner introduction with adjustable angles that build chest strength gradually without overwhelming new exercisers.',
+          intensityReason: 'Perfect beginner introduction targeting pecs from multiple angles with flat = mid, incline = upper, decline = lower chest development.',
           moodTips: [
             {
               icon: 'construct',
-              title: 'Adjust angles securely',
-              description: 'Ensure bench locks securely at each angle before lifting.'
+              title: 'Think of targeting pecs from multiple angles',
+              description: 'Flat = mid, incline = upper, decline = lower for complete development.'
             },
             {
-              icon: 'fitness',
-              title: 'Keep feet flat',
-              description: 'Maintain stable foot position throughout all pressing movements.'
+              icon: 'trending-up',
+              title: 'Drive elbows slightly inward',
+              description: 'On all presses to maximize chest fiber recruitment and activation.'
             }
           ]
         },
         {
           name: 'Fly Flow',
           duration: '12–15 min',
-          description: '3 rounds:\n• 10 flat fly\n• 10 incline fly\n• 10 decline fly (all light)\n• Rest 60s',
+          description: '3 rounds:\n• 10 flat fly\n• 10 incline fly\n• 10 decline fly (light)\n• Rest 60s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Gentle fly progression that teaches proper chest isolation across multiple angles for beginners.',
+          intensityReason: 'Gentle fly progression that teaches proper chest isolation across multiple angles for comprehensive beginners development.',
           moodTips: [
             {
-              icon: 'body',
-              title: 'Maintain slight elbow bend',
-              description: 'Keep elbows slightly bent throughout the entire fly movement.'
+              icon: 'timer',
+              title: 'Pause at stretch position 1s',
+              description: 'To expand pec fibers and maximize muscle growth stimulus.'
             },
             {
-              icon: 'trending-down',
-              title: 'Stop arms just below shoulder line',
-              description: 'Control the descent and stop when arms reach shoulder level.'
+              icon: 'flash',
+              title: 'Bring dumbbells together until they meet',
+              description: 'Not just overhead—to force full contraction and muscle activation.'
             }
           ]
         }
