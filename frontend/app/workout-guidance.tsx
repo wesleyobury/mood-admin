@@ -310,11 +310,15 @@ export default function WorkoutGuidanceScreen() {
                 {parseWorkoutDescription(description).map((step, index) => (
                   <View key={index} style={styles.stepItem}>
                     {step.startsWith('•') ? (
-                      // Step already has bullet - don't add another one
-                      <Text style={styles.stepText}>{step}</Text>
+                      // Step already has bullet - parse for parenthetical text
+                      <Text style={styles.stepText}>
+                        {renderStepWithBandPlacement(step)}
+                      </Text>
                     ) : (
                       // Step doesn't have bullet - it's an instruction, don't add bullet
-                      <Text style={styles.stepTextNoBullet}>{step}</Text>
+                      <Text style={styles.stepTextNoBullet}>
+                        {renderStepWithBandPlacement(step)}
+                      </Text>
                     )}
                   </View>
                 ))}
