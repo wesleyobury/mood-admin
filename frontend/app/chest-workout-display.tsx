@@ -445,7 +445,7 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Decline Chest Press',
           duration: '12–15 min',
-          description: '3 rounds:\n• 12 decline press\n• 10 decline fly\n• Rest 60–75s',
+          description: '3 rounds:\n• 12 decline press\n• 10 decline fly\n• Rest 60–75s\n\nTips:\n• Set bench 20–30° decline for optimal lower pec activation.\n• Fly: stretch deeply, but stop just before shoulder strain.',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Combines decline pressing and isolation to build lower chest strength and definition for beginners.',
           moodTips: [
