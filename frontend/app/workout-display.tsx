@@ -1705,8 +1705,8 @@ const workoutDatabase: EquipmentWorkouts[] = [
         },
         {
           name: 'Kettlebell Cardio Flow',
-          duration: '12-15 min',
-          description: '• 8 goblet squats\n8 single-arm swings each side\n8 overhead presses each side\n1 min rest\nRepeat 3 rounds',
+          duration: '12–15 min',
+          description: 'Perform 3 rounds:\n• 8 goblet squats\n• 8 single-arm swings (each side)\n• 8 overhead presses (each side)\n1 min rest',
           imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwyfHxrZXR0bGViZWxsJTIwZmxvd3xlbnwwfHx8fDE3NTY4ODMyMzd8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Progressive flow that builds kettlebell familiarity with controlled movement patterns.',
           moodTips: [
