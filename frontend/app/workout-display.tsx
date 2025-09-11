@@ -2569,7 +2569,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Sledgehammer Foundation Training',
           duration: '18-22 min',
-          description: '• 10 overhead strikes each side (10-12 lb hammer)\n10 tire step-ups (focus on balance)\n8 lateral strikes each side (light hammer)\n8 tire toe taps for agility\n90 seconds rest\nRepeat for 4 complete rounds\nFinish with 3 minutes stretching and shoulder mobility',
+          description: '• 10 overhead strikes each side (10-12 lb hammer)\n• 10 tire step-ups (focus on balance)\n• 8 lateral strikes each side (light hammer)\n• 8 tire toe taps for agility\n90 seconds rest\nRepeat for 4 complete rounds\nFinish with 3 minutes stretching and shoulder mobility',
           imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxzbGVkZ2VoYW1tZXIlMjB3b3Jrb3V0fGVufDB8fHx8TVc1Mjg4MzIzN3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Perfect introduction to sledgehammer training emphasizing proper striking mechanics, grip technique, and tire integration with safety-first approach.',
           moodTips: [
