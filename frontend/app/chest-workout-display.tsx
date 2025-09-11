@@ -254,7 +254,7 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Bench Complex',
           duration: '15–18 min',
-          description: '3 rounds:\n• 8 bench press\n• 8 bench fly\n• 8 plyo push-ups (hands on bench)\n• 8 dips\n• Rest 90s',
+          description: '3 rounds:\n• 8 bench press\n• 8 bench fly\n• 8 plyo push-ups (hands on bench)\n• 8 dips\n• Rest 90s\n\nTips:\n• Bench press: Use a slight pause at the bottom to kill momentum and force pec drive.\n• Dips: Lean forward, chest toward floor—this shifts tension from triceps into pec stretch/contraction.',
           imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmd8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Advanced complex training combining pressing, isolation, plyometric, and bodyweight movements for maximum chest development.',
           moodTips: [
