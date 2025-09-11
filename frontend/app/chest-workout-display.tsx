@@ -421,6 +421,133 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
       ]
     }
   },
+  // DECLINE BENCH
+  {
+    equipment: 'Decline bench',
+    icon: 'trending-down',
+    workouts: {
+      beginner: [
+        {
+          name: 'Decline Push-Up Circuit',
+          duration: '10–12 min',
+          description: '• 3 rounds:\n  • 8 decline push-ups (feet on bench)\n  • 10 decline bench press (light)\n  • Rest 60s',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8MTc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Perfect beginner introduction to decline training focusing on lower chest development.',
+          moodTips: [
+            {
+              icon: 'fitness',
+              title: 'Keep chest low',
+              description: 'Between hands and push up forcefully for pec tension.'
+            },
+            {
+              icon: 'construct',
+              title: 'Control eccentric',
+              description: 'Lower chest stretch emphasized at decline.'
+            }
+          ]
+        },
+        {
+          name: 'Decline Chest Press',
+          duration: '12–15 min',
+          description: '• 3 rounds:\n  • 12 decline press\n  • 10 decline fly\n  • Rest 60–75s',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Foundational decline pressing and isolation for lower chest development.',
+          moodTips: [
+            {
+              icon: 'construct',
+              title: 'Set bench 20-30° decline',
+              description: 'For optimal lower pec activation.'
+            },
+            {
+              icon: 'shield',
+              title: 'Stretch deeply, stop before strain',
+              description: 'On fly - protect shoulders while maximizing pec stretch.'
+            }
+          ]
+        }
+      ],
+      intermediate: [
+        {
+          name: 'Decline Plyo Push-Ups',
+          duration: '14–15 min',
+          description: '• 4 rounds:\n  • 6 explosive feet-elevated push-ups\n  • 10 single-arm decline press\n  • Rest 75s',
+          imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Explosive decline training with unilateral work for intermediate power development.',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Push hard enough',
+              description: 'That hands leave ground for explosive chest drive.'
+            },
+            {
+              icon: 'construct',
+              title: 'Angle dumbbell inward',
+              description: 'Across chest for more pec squeeze.'
+            }
+          ]
+        },
+        {
+          name: 'Decline Chest Flow',
+          duration: '12–15 min',
+          description: '• 3 rounds:\n  • 10 decline press\n  • 10 decline fly\n  • 10 close-grip press\n  • Rest 90s',
+          imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
+          intensityReason: 'Pump-style sequence for decline training with constant muscle tension.',
+          moodTips: [
+            {
+              icon: 'refresh',
+              title: 'Pump-style sequence',
+              description: 'Don\'t rack weights; keep pecs loaded.'
+            },
+            {
+              icon: 'fitness',
+              title: 'Close-grip chest squeeze',
+              description: 'Squeeze chest by pushing hands inward.'
+            }
+          ]
+        }
+      ],
+      advanced: [
+        {
+          name: 'Decline Complex',
+          duration: '15–18 min',
+          description: '• 3 rounds:\n  • 8 decline press\n  • 8 decline fly\n  • 8 decline plyo push-ups\n  • 8 dips\n  • Rest 90s',
+          imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmc&ZW44MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Advanced decline complex for complete lower chest development.',
+          moodTips: [
+            {
+              icon: 'timer',
+              title: 'Pause 1s at bottom',
+              description: 'Of press for stronger stretch.'
+            },
+            {
+              icon: 'body',
+              title: 'Dips with forward lean',
+              description: 'Make lower chest fire maximally.'
+            }
+          ]
+        },
+        {
+          name: 'Decline Drop Set',
+          duration: '16–20 min',
+          description: '• 2 rounds:\n  • 10 heavy decline press\n  • Drop → 10 moderate\n  • Drop → 10 light\n  • Rest 90–120s',
+          imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'High-intensity decline drop sets for maximum lower chest hypertrophy.',
+          moodTips: [
+            {
+              icon: 'shield',
+              title: 'Heavy set near failure',
+              description: 'Drops controlled and slower.'
+            },
+            {
+              icon: 'construct',
+              title: 'Focus on lower pec line',
+              description: 'During lighter sets for targeted development.'
+            }
+          ]
+        }
+      ]
+    }
+  },
   {
     equipment: 'Flat bench',
     icon: 'square',
