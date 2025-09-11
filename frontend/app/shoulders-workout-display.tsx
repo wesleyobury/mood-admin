@@ -775,8 +775,11 @@ const styles = StyleSheet.create({
   equipmentHeader: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginBottom: 16,
-    paddingHorizontal: 4,
+    paddingHorizontal: 20,
+    paddingTop: 20,
+    paddingBottom: 12,
+    borderBottomWidth: 1,
+    borderBottomColor: 'rgba(255, 215, 0, 0.2)',
   },
   equipmentIconContainer: {
     width: 36,
@@ -789,19 +792,19 @@ const styles = StyleSheet.create({
     borderWidth: 2,
     borderColor: 'rgba(255, 215, 0, 0.3)',
   },
-  equipmentTitle: {
+  equipmentName: {
     fontSize: 18,
     fontWeight: 'bold',
     color: '#FFD700',
     flex: 1,
   },
-  workoutCountIndicator: {
+  workoutIndicator: {
     backgroundColor: 'rgba(255, 215, 0, 0.15)',
     paddingHorizontal: 8,
     paddingVertical: 4,
     borderRadius: 12,
   },
-  workoutCountText: {
+  workoutCount: {
     fontSize: 12,
     fontWeight: 'bold',
     color: '#FFD700',
