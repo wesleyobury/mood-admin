@@ -678,7 +678,7 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Machine Press Foundation',
           duration: '12–15 min',
-          description: '3 rounds:\n• 12 chest press (light)\n• 10 wide grip press\n• 10 narrow grip press\n• Rest 60–75s',
+          description: '3 rounds:\n• 12 chest press (light)\n• 10 wide grip press\n• 10 narrow grip press\n• Rest 60–75s\n\nTips:\n• Seat height adjustment: Handles should align with mid-chest to ensure proper pressing angle.\n• Wide grip targets outer pecs, narrow grip hits inner pecs—use both for complete development.',
           imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHc5fHxyaW5nfGVufDB8fHx8MVc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Safe machine-based introduction to chest pressing with different grip positions for comprehensive development.',
           moodTips: [
@@ -697,7 +697,7 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Machine Chest Circuit',
           duration: '10–12 min',
-          description: '3 rounds:\n• 10 chest press\n• 10 pec deck (if available)\n• Rest 60s',
+          description: '3 rounds:\n• 10 chest press\n• 10 pec deck (if available)\n• Rest 60s\n\nTips:\n• Machine advantage: Eliminates stabilization requirements—focus purely on chest contraction.\n• Squeeze handles together at peak contraction to maximize inner pec activation.',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Simple machine circuit combining pressing and isolation for beginner chest development.',
           moodTips: [
