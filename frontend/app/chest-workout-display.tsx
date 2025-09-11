@@ -107,7 +107,7 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Bench Plyo Push-Ups',
           duration: '14–16 min',
-          description: '4 rounds:\n• 8 explosive plyo push-ups (vary bench angle each round)\n• 10 single-arm press\n• Rest 75s',
+          description: '4 rounds:\n• 8 explosive plyo push-ups (vary bench angle each round)\n• 10 single-arm press\n• Rest 75s\n\nTips:\n• Varying angle forces pec adaptation = greater growth stimulus.\n• Press across midline with single-arm for deeper chest contraction.',
           imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
           intensityReason: 'Explosive plyometric work with varied angles forces pec adaptation for greater growth stimulus.',
           moodTips: [
