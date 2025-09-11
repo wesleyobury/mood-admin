@@ -380,7 +380,7 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Incline Complex',
           duration: '15–18 min',
-          description: '3 rounds:\n• 8 incline bench press\n• 8 incline fly\n• 8 incline plyo push-ups\n• 8 dips\n• Rest 90s',
+          description: '3 rounds:\n• 8 incline bench press\n• 8 incline fly\n• 8 incline plyo push-ups\n• 8 dips\n• Rest 90s\n\nTips:\n• Incline presses: Drive bar/dumbbells in a straight bar path angled slightly toward nose for max chest fiber alignment.\n• Dips: Aim chin slightly down, chest forward, elbows flared slightly = deep pec stretch.',
           imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmd8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Advanced complex training combining incline pressing, isolation, plyometric, and dip movements for maximum upper chest development.',
           moodTips: [
