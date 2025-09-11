@@ -2144,8 +2144,8 @@ const workoutDatabase: EquipmentWorkouts[] = [
       advanced: [
         {
           name: 'Slam Ball Complex',
-          duration: '20-24 min',
-          description: '• 12 slams\n10 lateral slams\n8 burpee-slams\n6 overhead throws\n1 min rest\nRepeat 4 rounds',
+          duration: '20–24 min',
+          description: 'Perform 4 rounds:\n• 12 slams\n• 10 lateral slams\n• 8 burpee slams\n• 6 overhead throws\nRest 1 min',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw1fHxzbGFtJTIwYmFsbCUyMGFkdmFuY2VkfGVufDB8fHx8MVc1Njg4MzIzN3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Advanced complex demanding maximum power output and conditioning with varied slam movements.',
           moodTips: [
