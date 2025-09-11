@@ -165,65 +165,8 @@ export default function ChestEquipmentScreen() {
       console.log('Selected equipment:', selectedEquipment.map(eq => eq.name));
       console.log('Selected difficulty:', selectedDifficulty.title);
       
-      // Check equipment selections and navigate to appropriate screens
+      // Navigate to unified chest workout display for all equipment selections
       const equipmentNames = selectedEquipment.map(eq => eq.name);
-      
-      // Handle single equipment selections
-      if (selectedEquipment.length === 1) {
-        const equipmentName = equipmentNames[0];
-        
-        switch (equipmentName) {
-          case 'Adjustable bench':
-            router.push({
-              pathname: '/adjustable-bench-workout-display',
-              params: { 
-                mood: moodTitle,
-                workoutType: workoutType,
-                equipment: encodeURIComponent(equipmentName),
-                difficulty: selectedDifficulty.id
-              }
-            });
-            return;
-            
-          case 'Flat bench':
-            router.push({
-              pathname: '/flat-bench-workout-display',
-              params: { 
-                mood: moodTitle,
-                workoutType: workoutType,
-                equipment: encodeURIComponent(equipmentName),
-                difficulty: selectedDifficulty.id
-              }
-            });
-            return;
-            
-          case 'Incline bench':
-            router.push({
-              pathname: '/incline-bench-workout-display',
-              params: { 
-                mood: moodTitle,
-                workoutType: workoutType,
-                equipment: encodeURIComponent(equipmentName),
-                difficulty: selectedDifficulty.id
-              }
-            });
-            return;
-            
-          case 'Decline bench':
-            router.push({
-              pathname: '/decline-bench-workout-display',
-              params: { 
-                mood: moodTitle,
-                workoutType: workoutType,
-                equipment: encodeURIComponent(equipmentName),
-                difficulty: selectedDifficulty.id
-              }
-            });
-            return;
-        }
-      }
-      
-      // For multiple equipment selections or unsupported single equipment, navigate to general chest workout display
       const equipmentNamesString = equipmentNames.join(',');
       
       router.push({
