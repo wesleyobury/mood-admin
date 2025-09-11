@@ -935,7 +935,10 @@ const styles = StyleSheet.create({
   },
   dotsContainer: {
     paddingVertical: 16,
+    paddingHorizontal: 20,
     alignItems: 'center',
+    borderTopWidth: 1,
+    borderTopColor: 'rgba(255, 215, 0, 0.2)',
   },
   dotsLabel: {
     fontSize: 11,
