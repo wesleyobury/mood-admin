@@ -632,7 +632,7 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Cable Drop Complex',
           duration: '16–20 min',
-          description: '3 rounds:\n• 8 heavy cable fly (all angles)\n• Drop → 10 moderate\n• Drop → 12 light\n• 8 cable press\n• Rest 90–120s',
+          description: '3 rounds:\n• 8 heavy cable fly (all angles)\n• Drop → 10 moderate\n• Drop → 12 light\n• 8 cable press\n• Rest 90–120s\n\nTips:\n• Heavy flies: Focus on perfect form and peak contraction—cable tension makes this brutally effective.\n• Drop sets: Move weight pin quickly, maintain strict form even as fatigue sets in.',
           imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmc&ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Advanced drop set training with cables providing constant tension for maximum chest hypertrophy.',
           moodTips: [
