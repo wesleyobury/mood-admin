@@ -2270,8 +2270,8 @@ const workoutDatabase: EquipmentWorkouts[] = [
       advanced: [
         {
           name: 'Battle Rope Gauntlet',
-          duration: '24-26 min',
-          description: '• 30s waves\n30s slams\n30s side-to-side\n30s jacks\n30s circles\n1 min rest\nRepeat 4 rounds',
+          duration: '24–26 min',
+          description: 'Perform 4 rounds:\n• 30s waves\n• 30s slams\n• 30s side-to-sides\n• 30s jacks\n• 30s circles\nRest 1 min',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw1fHxiYXR0bGUlMjByb3BlcyUyMGFkdmFuY2VkfGVufDB8fHx8MVc1Njg4MzIzN3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Extended high-intensity gauntlet testing advanced cardiovascular capacity and rope mastery.',
           moodTips: [
