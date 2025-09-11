@@ -2567,120 +2567,120 @@ const workoutDatabase: EquipmentWorkouts[] = [
     workouts: {
       beginner: [
         {
-          name: 'Sledgehammer Foundation Training',
-          duration: '18-22 min',
-          description: '• 10 overhead strikes each side (10-12 lb hammer)\n• 10 tire step-ups (focus on balance)\n• 8 lateral strikes each side (light hammer)\n• 8 tire toe taps for agility\n90 seconds rest\nRepeat for 4 complete rounds\nFinish with 3 minutes stretching and shoulder mobility',
+          name: 'Hammer Basics',
+          duration: '12–15 min',
+          description: 'Perform 3 rounds:\n• 10 hammer strikes (each side)\n• 10 tire step-ups\nRest 1 min',
           imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxzbGVkZ2VoYW1tZXIlMjB3b3Jrb3V0fGVufDB8fHx8TVc1Mjg4MzIzN3ww&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Perfect introduction to sledgehammer training emphasizing proper striking mechanics, grip technique, and tire integration with safety-first approach.',
+          intensityReason: 'Perfect introduction to sledgehammer training emphasizing proper striking mechanics and tire integration.',
           moodTips: [
             {
               icon: 'hand-left',
-              title: 'Proper Grip Mechanics',
-              description: 'Start with hands together, slide top hand down during strike; maintain loose grip to prevent fatigue and improve power transfer.'
+              title: 'Strike Technique',
+              description: 'Slide top hand down handle to maximize strike power.'
             },
             {
               icon: 'body',
-              title: 'Step-up Balance Control',
-              description: 'Place entire foot on tire during step-ups; drive through glutes and maintain upright posture throughout movement.'
+              title: 'Step-up Form',
+              description: 'Place whole foot on tire during step-ups for stability.'
             }
           ]
         },
         {
-          name: 'Hammer and Agility Flow',
-          duration: '16-20 min',
-          description: '• 8 controlled overhead strikes each side (8-10 lb hammer)\n• 8 tire toe taps (quick feet pattern)\n• 6 diagonal strikes each side (light hammer)\n• 10 tire step-overs (lateral movement)\n• 8 tire punches with gloves\n90 seconds rest\nRepeat for 3 complete rounds',
+          name: 'Hammer & March',
+          duration: '12–16 min',
+          description: 'Perform 4 rounds:\n• 8 strikes (each side)\n• 8 tire toe taps\nRest 1 min',
           imageUrl: 'https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwyfHxzbGVkZ2VoYW1tZXIlMjBtYXJjaHxlbnwwfHx8fDE3NTY4ODMyMzd8MA&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Progressive coordination workout building relationship between striking power, footwork agility, and multi-directional movement patterns.',
+          intensityReason: 'Progressive coordination workout building striking power and footwork agility.',
           moodTips: [
             {
               icon: 'flash',
-              title: 'Hip-Driven Power',
-              description: 'Generate striking force from hip rotation and core engagement rather than arm strength alone; let gravity assist the downward motion.'
+              title: 'Hip Power',
+              description: 'Hip whip generates speed for more powerful strikes.'
             },
             {
               icon: 'body',
-              title: 'Agility Footwork',
-              description: 'Stay light on balls of feet during toe taps; maintain athletic position with slight knee bend throughout agility work.'
+              title: 'Footwork',
+              description: 'Toe taps: fast, rhythmic footwork for agility development.'
             }
           ]
         }
       ],
       intermediate: [
         {
-          name: 'Sledgehammer Power Circuit',
-          duration: '24-28 min',
-          description: '• 10 explosive overhead strikes each side (12-16 lb hammer)\n• 8 burpees with tire touch\n• 10 tire jumps (lateral and forward)\n• 8 alternating diagonal strikes each side\n• 6 tire step-ups with hammer carry\n90 seconds rest\nRepeat for 5 complete rounds\nFinish with 3 minutes recovery stretching',
+          name: 'Hammer & Burpee Circuit',
+          duration: '18–20 min',
+          description: 'Perform 4 rounds:\n• 10 strikes (each side)\n• 8 burpees\n• 10 tire jumps\nRest 1 min',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwzfHxzbGVkZ2VoYW1tZXIlMjBidXJwZWV8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Intermediate circuit combining sledgehammer power development with plyometric and bodyweight movements for comprehensive conditioning.',
+          intensityReason: 'Intermediate circuit combining sledgehammer power with plyometric and bodyweight movements.',
           moodTips: [
             {
               icon: 'flash',
-              title: 'Explosive Core Integration',
-              description: 'Drive strikes through explosive core rotation and hip snap; maintain strong spinal alignment throughout entire striking motion.'
+              title: 'Strike Power',
+              description: 'Rotate hips and snap wrists powerfully for maximum impact.'
             },
             {
               icon: 'body',
-              title: 'Plyometric Landing Control',
-              description: 'Land tire jumps with soft knees and centered balance; keep chest tall and immediately prepare for next movement transition.'
+              title: 'Jump Landing',
+              description: 'Land softly on tire jumps to reduce impact fatigue.'
             }
           ]
         },
         {
-          name: 'High-Intensity Sledgehammer Tabata',
-          duration: '22-25 min',
-          description: 'Tabata Protocol: 20 seconds work, 10 seconds rest\n• Round 1: Overhead strikes alternating sides (14-16 lb hammer) - 8 intervals\n2 minutes rest\n• Round 2: Lateral strikes left side (12-14 lb hammer) - 8 intervals\n2 minutes rest\n• Round 3: Lateral strikes right side (12-14 lb hammer) - 8 intervals\n2 minutes rest\nFinish with 4 minutes mobility work',
+          name: 'Hammer Tabata',
+          duration: '16–18 min',
+          description: '20s strikes (switch side halfway) / 10s rest\n8 rounds = 4 min\nRest 1 min\nRepeat for 3 cycles (~16–18 min)',
           imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHc0fHxzbGVkZ2VoYW1tZXIlMjB0YWJhdGF8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'High-intensity Tabata intervals focused on developing sledgehammer-specific power endurance and anaerobic capacity.',
+          intensityReason: 'High-intensity Tabata intervals focused on developing sledgehammer-specific power endurance.',
           moodTips: [
             {
               icon: 'flash',
-              title: 'Hip Snap Efficiency',
-              description: 'Maintain strong hip snap on every strike even as fatigue sets in; focus on technique over pure force during intervals.'
+              title: 'Hip Snap',
+              description: 'Aggressive hip snap maximizes strike power under fatigue.'
             },
             {
               icon: 'refresh',
-              title: 'Breathing Coordination',
-              description: 'Exhale forcefully with each strike; establish rhythmic breathing pattern to maintain power output throughout intervals.'
+              title: 'Breathing',
+              description: 'Exhale with each swing for rhythm and power.'
             }
           ]
         }
       ],
       advanced: [
         {
-          name: 'Elite Sledgehammer Complex',
-          duration: '30-35 min',
-          description: '• 12 maximum-power overhead strikes each side (16-20 lb hammer)\n10 burpees with tire slam landing\n8 tire jumps with 180-degree rotation\n6 single-arm farmer carry with hammer (25 yards each arm)\n4 tire step-ups with overhead hammer hold\n2 minutes rest\nRepeat for 6 complete rounds\nFinish with 5 minutes comprehensive stretching',
+          name: 'Hammer Gauntlet',
+          duration: '20–24 min',
+          description: 'Perform 4 rounds:\n• 12 strikes (each side)\n• 10 tire jumps\n• 8 burpees\n• 6 tire flips\nRest 1 min',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw1fHxzbGVkZ2VoYW1tZXIlMjBhZHZhbmNlZHxlbnwwfHx8fDE3NTY4ODMyMzd8MA&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Elite-level complex demanding maximum striking power, rotational stability, and integrated strength through extended volume and advanced movement patterns.',
+          intensityReason: 'Elite-level complex demanding maximum striking power and integrated strength movements.',
           moodTips: [
             {
               icon: 'flash',
-              title: 'Maximum Strike Efficiency',
-              description: 'Generate maximum power with minimal wasted motion; maintain perfect technique even under fatigue and high volume demands.'
+              title: 'Core Stability',
+              description: 'Brace core during flips for maximum power transfer.'
             },
             {
               icon: 'body',
-              title: 'Complex Movement Transitions',
-              description: 'Execute smooth transitions between movements; maintain spatial awareness and control during rotational tire jumps and carries.'
+              title: 'Impact Management',
+              description: 'Land lightly to reduce fatigue impact throughout rounds.'
             }
           ]
         },
         {
-          name: 'Sledgehammer Sprint Conditioning',
-          duration: '28-32 min',
-          description: '• 20 explosive strikes each side (16-18 lb hammer)\n10 tire flips (focus on proper mechanics)\n20-yard sprint with hammer carry\n8 tire jumps (forward and lateral combination)\n6 hammer overhead carries (30 yards)\n90 seconds rest\nRepeat for 5 complete rounds',
+          name: 'Hammer & Sprint Circuit',
+          duration: '20–25 min',
+          description: 'Perform 5 rounds:\n• 10 strikes (each side)\n• 20m sprint\n• 10 tire jumps\n• 20m sprint\nRest 1 min',
           imageUrl: 'https://images.unsplash.com/photo-1517838277536-f5f99be501cd?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw2fHxzbGVkZ2VoYW1tZXIlMjBzcHJpbnR8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Peak-intensity conditioning integrating sledgehammer power, tire manipulation, and sprint work for complete athletic development.',
+          intensityReason: 'Peak-intensity conditioning integrating sledgehammer power with sprint work for complete development.',
           moodTips: [
             {
               icon: 'flash',
-              title: 'Power Endurance Maintenance',
-              description: 'Maintain striking power and speed throughout high-volume sets; focus on explosiveness rather than grinding through fatigue.'
+              title: 'Grip Reset',
+              description: 'Reset grip each strike for consistent power output.'
             },
             {
               icon: 'refresh',
-              title: 'Active Sprint Recovery',
-              description: 'Use sprint intervals as active recovery while maintaining speed; coordinate breathing and maintain hammer control during carries.'
+              title: 'Sprint Form',
+              description: 'Sprint tall with full arm pump for maximum speed.'
             }
           ]
         }
