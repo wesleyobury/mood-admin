@@ -90,36 +90,36 @@ const adjustableBenchDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: '3 rounds:\n• 8 flat press\n• 8 incline press\n• 8 decline press\n• Rest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Progressive angle training that challenges intermediate strength across all pressing planes.',
+          intensityReason: 'Progressive recruitment training that starts more pec-dominant and progresses to fatigue lower range for intermediate development.',
           moodTips: [
             {
-              icon: 'timer',
-              title: 'Minimize downtime changing angles',
-              description: 'Quick angle adjustments keep workout intensity high.'
+              icon: 'trending-up',
+              title: 'Think progressive recruitment',
+              description: 'Start more pec-dominant, progress to fatigue lower range.'
             },
             {
-              icon: 'resize',
-              title: 'Use full ROM with each position',
-              description: 'Complete range of motion at every angle for maximum benefit.'
+              icon: 'timer',
+              title: 'Don\'t rush—feel pec stretch',
+              description: 'On each angle for maximum muscle activation and growth.'
             }
           ]
         },
         {
           name: 'Bench Plyo Push-Ups',
           duration: '14–16 min',
-          description: '4 rounds:\n• 8 plyo push-ups (hands on bench, change angle each set)\n• 10 single-arm press (dumbbell or Smith)\n• Rest 75s',
+          description: '4 rounds:\n• 8 explosive plyo push-ups (vary bench angle each round)\n• 10 single-arm press\n• Rest 75s',
           imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
-          intensityReason: 'Explosive plyometric work combined with unilateral strength for intermediate power development.',
+          intensityReason: 'Explosive plyometric work with varied angles forces pec adaptation for greater growth stimulus.',
           moodTips: [
             {
               icon: 'refresh',
-              title: 'Rotate bench angles',
-              description: 'flat → incline → decline → flat for varied stimulus.'
+              title: 'Varying angle forces pec adaptation',
+              description: 'Greater growth stimulus through multi-angle training.'
             },
             {
-              icon: 'fitness',
-              title: 'Single-arm strengthens core stability',
-              description: 'Unilateral pressing challenges core and stabilizer muscles.'
+              icon: 'trending-up',
+              title: 'Press across midline with single-arm',
+              description: 'For deeper chest contraction and unilateral strength.'
             }
           ]
         }
@@ -130,17 +130,17 @@ const adjustableBenchDatabase: EquipmentWorkouts[] = [
           duration: '15–20 min',
           description: '3 rounds:\n• 8 flat press\n• 8 incline press\n• 8 decline press\n• 8 fly (choose angle)\n• Rest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmd8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Advanced complex training combining pressing and isolation movements for maximum chest development.',
+          intensityReason: 'Advanced hypertrophy density training with near-failure at each angle and minimal rest for maximum chest development.',
           moodTips: [
             {
-              icon: 'construct',
-              title: 'Preset bench beforehand for efficiency',
-              description: 'Plan angle changes to minimize rest between exercises.'
+              icon: 'flash',
+              title: 'Go for hypertrophy density',
+              description: 'Aim for near-failure each angle, minimal rest for growth.'
             },
             {
-              icon: 'shield',
-              title: 'Brace spine on decline press',
-              description: 'Maintain neutral spine position during decline movements.'
+              icon: 'body',
+              title: 'On fly, think chest-to-chest squeeze',
+              description: 'At top for maximum muscle contraction and activation.'
             }
           ]
         },
@@ -149,17 +149,17 @@ const adjustableBenchDatabase: EquipmentWorkouts[] = [
           duration: '16–20 min',
           description: '2 rounds:\n• 10 heavy press (any angle)\n• Drop → 10 moderate\n• Drop → 10 light\n• Rest 90–120s',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MTc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'High-intensity drop sets push muscle failure across multiple weight ranges for advanced hypertrophy.',
+          intensityReason: 'High-intensity drop sets push muscle failure across multiple weight ranges with focus on time under tension for advanced hypertrophy.',
           moodTips: [
             {
-              icon: 'speedometer',
-              title: 'Controlled, strict tempo',
-              description: 'Maintain perfect form even as weights decrease.'
+              icon: 'flash',
+              title: 'Don\'t save energy',
+              description: 'Heavy set should be all-out near failure for maximum recruitment.'
             },
             {
-              icon: 'trending-up',
-              title: 'Incline often safest for heavy drops',
-              description: 'Incline position provides better shoulder safety for drop sets.'
+              icon: 'timer',
+              title: 'Focus on time under tension',
+              description: 'During final drops for growth and muscle development.'
             }
           ]
         }
