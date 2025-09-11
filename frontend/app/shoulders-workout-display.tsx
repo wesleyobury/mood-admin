@@ -39,7 +39,7 @@ interface EquipmentWorkouts {
   };
 }
 
-// Shoulders workout database with all equipment types
+// Complete Shoulders workout database with all equipment types
 const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
   {
     equipment: 'Dumbbells',
@@ -51,18 +51,18 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: '• 3x12 Seated Shoulder Press\n• 3x12 Lateral Raises\nRest 60s between sets.',
           imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8MVc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Perfect beginner introduction with controlled seated position for shoulder stability and proper form development.',
+          intensityReason: 'Perfect beginner introduction targeting delts from multiple angles with seated stability for proper form development.',
           moodTips: [
             {
-              icon: 'bulb',
+              icon: 'construct',
               title: 'Hard exhale on each rep',
               description: 'More core stability and shoulder efficiency.'
             },
             {
-              icon: 'hand-left',
-              title: 'Stop at shoulder height',
-              description: 'On lateral raises and pause — over-raising shifts load away from delts.'
-            },
+              icon: 'trending-up',
+              title: 'Stop at shoulder height and pause',
+              description: 'Over-raising shifts load away from delts.'
+            }
           ]
         },
         {
@@ -70,20 +70,20 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–15 min',
           description: '• 30s alternating single-arm overhead press (march in place)\n• 30s lateral raise with 2-sec hold at top\n• 30s bent-over reverse flys\n• 30s rest\nRepeat 3x.',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Dynamic flow training with timed holds to enhance muscle activation and movement coordination.',
+          intensityReason: 'Dynamic flow progression that teaches proper shoulder isolation across multiple movement patterns for comprehensive beginners development.',
           moodTips: [
             {
               icon: 'timer',
-              title: 'Isometric pauses',
-              description: 'Make light weights feel heavy — perfect for growth.'
+              title: 'Isometric pauses make light weights feel heavy',
+              description: 'Perfect for growth stimulus.'
             },
             {
-              icon: 'walk',
-              title: 'Marching during press',
-              description: 'Ramps core activation and shoulder stability.'
-            },
+              icon: 'flash',
+              title: 'Marching during press ramps core activation',
+              description: 'And shoulder stability for better muscle development.'
+            }
           ]
-        },
+        }
       ],
       intermediate: [
         {
@@ -91,18 +91,18 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: '• 4x10 Standing Arnold Press\n• 4x10 Upright Row\nRest 75s between sets.',
           imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Intermediate strength building with Arnold press rotation for enhanced deltoid fiber recruitment.',
+          intensityReason: 'Progressive recruitment training that starts more delt-dominant and progresses to fatigue upper range for intermediate development.',
           moodTips: [
             {
-              icon: 'refresh',
+              icon: 'trending-up',
               title: 'Rotate fully on Arnold presses',
               description: 'It recruits more deltoid fibers.'
             },
             {
-              icon: 'trending-up',
+              icon: 'construct',
               title: 'Pull elbows higher than wrists',
-              description: 'On upright rows for maximum trap-to-delt tension.'
-            },
+              description: 'For maximum trap-to-delt tension on upright rows.'
+            }
           ]
         },
         {
@@ -110,18 +110,18 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: '• 10 Arnold presses\n• 10 "bus driver" raises (hold plate or dumbbell, rotate at top)\n• 10 push presses\n• 10 plank dumbbell drags (push-up position, drag side to side)\nRepeat 3x. Rest 75s between rounds.',
           imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
-          intensityReason: 'Circuit training combining shoulder pressing with core integration for enhanced conditioning.',
+          intensityReason: 'Continuous flow training that overloads shoulders through combined pressing, isolation, and core-integration movements.',
           moodTips: [
             {
-              icon: 'flash',
-              title: 'Explosive push presses',
-              description: 'Overload shoulders better than light strict raises.'
+              icon: 'refresh',
+              title: 'Explosive push presses overload shoulders',
+              description: 'Better than light strict raises for growth.'
             },
             {
-              icon: 'fitness',
-              title: 'Plank drags double',
-              description: 'As a shoulder/core integration move without extra time.'
-            },
+              icon: 'hand-left',
+              title: 'Plank drags double as shoulder/core integration',
+              description: 'Without extra time for maximum efficiency.'
+            }
           ]
         },
       ],
@@ -131,18 +131,18 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '18–20 min',
           description: '• 4x8 Push Press\n• 4x10 Lateral Raises\n• 4x10 Bent-Over Reverse Flys\nRest 90s between sets.',
           imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmc&ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'High intensity training for advanced lifters combining explosive movements with isolation work.',
+          intensityReason: 'High-intensity explosive training push shoulders across multiple weight ranges for advanced hypertrophy.',
           moodTips: [
             {
-              icon: 'body',
+              icon: 'flash',
               title: 'Push from legs on push press',
-              description: 'More load capacity = more growth.'
+              description: 'More load capacity = more growth stimulus.'
             },
             {
-              icon: 'timer',
+              icon: 'shield',
               title: 'Keep rear delts under tension',
-              description: 'On reverse flys by stopping just shy of lockout.'
-            },
+              description: 'By stopping just shy of lockout on reverse flys.'
+            }
           ]
         },
         {
@@ -150,22 +150,22 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '16–18 min',
           description: '• 8 clean to press\n• 8 lateral raise to front raise combo\n• 8 alternating single-arm snatch (light, explosive)\nRepeat 4x. Rest 90s between rounds.',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Elite complex movements with explosive patterns for maximum shoulder development and power.',
+          intensityReason: 'Elite complex movements that overload shoulders through explosive patterns and maximum tension demands.',
           moodTips: [
             {
               icon: 'flash',
               title: 'Pairing lateral + front raise',
-              description: 'Double delt pump from one motion.'
+              description: 'Double delt pump from one motion for efficiency.'
             },
             {
-              icon: 'rocket',
-              title: 'Single-arm snatches',
-              description: 'Teach max intent and fire up fast-twitch fibers in shoulders.'
-            },
+              icon: 'shield',
+              title: 'Single-arm snatches teach max intent',
+              description: 'And fire up fast-twitch fibers in shoulders.'
+            }
           ]
-        },
-      ],
-    },
+        }
+      ]
+    }
   },
   {
     equipment: 'Barbells',
@@ -177,18 +177,18 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: '• 3x10 Standing Overhead Press\n• 3x10 Upright Row\nRest 60–75s between sets.',
           imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHc5fHxyaW5nfGVufDB8fHx8MVc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Foundation building with basic barbell movements for shoulder strength development.',
+          intensityReason: 'Perfect beginner introduction targeting shoulders from basic pressing angles with barbell stability for proper form development.',
           moodTips: [
             {
-              icon: 'trending-up',
-              title: 'Drive bar in straight path',
-              description: 'Not arced — shoulders stay loaded, not joints.'
+              icon: 'construct',
+              title: 'Drive bar in straight path, not arced',
+              description: 'Shoulders stay loaded, not joints.'
             },
             {
-              icon: 'resize',
+              icon: 'trending-up',
               title: 'Upright rows hit better',
-              description: 'With a shoulder-width grip.'
-            },
+              description: 'With a shoulder-width grip for maximum activation.'
+            }
           ]
         },
         {
@@ -196,20 +196,20 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: '• 8 strict presses\n• 8 behind-the-neck presses (light)\n• 8 barbell "rainbows" (arc overhead side to side)\nRepeat 3x. Rest 1 min between rounds.',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Introduces varied movement patterns and range of motion safely for shoulder mobility.',
+          intensityReason: 'Gentle barbell progression that teaches proper shoulder isolation across multiple movement patterns for comprehensive beginners development.',
           moodTips: [
             {
-              icon: 'warning',
-              title: 'Behind-the-neck safety',
-              description: 'Only go as low as shoulder mobility allows to prevent strain.'
+              icon: 'timer',
+              title: 'Behind-the-neck: only go as low',
+              description: 'As shoulder mobility allows to prevent strain.'
             },
             {
-              icon: 'refresh',
+              icon: 'flash',
               title: 'Rainbows add lateral movement',
               description: 'Recruiting stabilizers neglected in pressing.'
-            },
+            }
           ]
-        },
+        }
       ],
       intermediate: [
         {
@@ -217,18 +217,18 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '16–18 min',
           description: '• 4x8 Push Press\n• 4x8 Barbell High Pull\nRest 75s between sets.',
           imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Power-focused training combining leg drive pressing with high pulls for strength building.',
+          intensityReason: 'Progressive recruitment training that starts more shoulder-dominant and progresses to fatigue upper range for intermediate development.',
           moodTips: [
             {
-              icon: 'body',
+              icon: 'trending-up',
               title: 'Drive power from legs',
-              description: 'Into push press for heavy overload.'
+              description: 'Into push press for heavy overload capacity.'
             },
             {
-              icon: 'expand',
-              title: 'Elbows drive wide and high',
-              description: 'On high pulls to maximize delt stretch.'
-            },
+              icon: 'construct',
+              title: 'High pulls: elbows drive wide and high',
+              description: 'To maximize delt stretch and activation.'
+            }
           ]
         },
         {
@@ -236,18 +236,18 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: '• 8 push presses\n• 8 barbell Z-presses (seated on floor)\n• 8 overhead lunges (alternate legs)\nRepeat 3x. Rest 90s between rounds.',
           imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
-          intensityReason: 'Circuit format with strict movements for enhanced shoulder strength and stability.',
+          intensityReason: 'Continuous flow training that overloads shoulders through combined pressing, strict movements, and stability patterns.',
           moodTips: [
             {
-              icon: 'shield',
+              icon: 'refresh',
               title: 'Z-press: no lower body',
-              description: 'Equals strict shoulder strength.'
+              description: 'Equals strict shoulder strength development.'
             },
             {
-              icon: 'walk',
-              title: 'Overhead lunges build stability',
-              description: 'Under fatigue, great for functional hypertrophy.'
-            },
+              icon: 'hand-left',
+              title: 'Overhead lunges build stability under fatigue',
+              description: 'Great for functional hypertrophy.'
+            }
           ]
         },
       ],
@@ -257,18 +257,18 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '18–20 min',
           description: '• 4x8 Strict Press\n• 4x8 Upright Row\n• 4x8 Front Raise (Barbell)\nRest 90s between sets.',
           imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmc&ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Elite level training for maximum strength with strict form emphasis and constant tension.',
+          intensityReason: 'High-intensity strict training push shoulders across multiple weight ranges for advanced hypertrophy.',
           moodTips: [
             {
-              icon: 'checkmark-circle',
+              icon: 'flash',
               title: 'Strict pressing keeps body honest',
-              description: 'No cheating momentum.'
+              description: 'No cheating momentum for maximum growth.'
             },
             {
-              icon: 'barbell',
+              icon: 'shield',
               title: 'Front raise with barbell',
               description: 'Constant tension different from dumbbells.'
-            },
+            }
           ]
         },
         {
@@ -276,23 +276,23 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '18–20 min',
           description: '• 6 push jerks\n• 6 snatch grip high pulls\n• 6 Sots presses (overhead squat position, strict press)\nRepeat 4x. Rest 90–120s after each round.',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Elite complex training with maximum tension and mobility demands for advanced athletes.',
+          intensityReason: 'Elite complex movements that overload shoulders through explosive patterns and maximum tension + mobility demands.',
           moodTips: [
             {
-              icon: 'trophy',
+              icon: 'flash',
               title: 'Push jerk = heavy overload',
               description: 'Vital for breaking growth plateaus.'
             },
             {
-              icon: 'body',
+              icon: 'shield',
               title: 'Sots press pushes shoulders',
               description: 'Under maximum tension + mobility demand.'
-            },
+            }
           ]
-        },
-      ],
-    },
-  },
+        }
+      ]
+    }
+  }
 ];
 
 interface WorkoutCardProps {
