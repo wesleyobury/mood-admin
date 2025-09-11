@@ -393,9 +393,9 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
               description: 'Aim for near-failure each angle, minimal rest.'
             },
             {
-              icon: 'body',
-              title: 'On fly, think chest-to-chest squeeze',
-              description: 'At top for maximum muscle contraction and activation.'
+              icon: 'fitness',
+              title: 'Chest-to-chest squeeze',
+              description: 'On fly, think chest-to-chest squeeze at top.'
             }
           ]
         },
