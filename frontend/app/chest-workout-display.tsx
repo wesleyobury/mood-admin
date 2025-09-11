@@ -383,7 +383,7 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Adjustable Complex',
           duration: '15–20 min',
-          description: '3 rounds:\n• 8 flat press\n• 8 incline press\n• 8 decline press\n• 8 fly (choose angle)\n• Rest 90s',
+          description: '• 3 rounds:\n  • 8 flat press\n  • 8 incline press\n  • 8 decline press\n  • 8 fly (choose angle)\n  • Rest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmd8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Advanced hypertrophy density training with near-failure at each angle and minimal rest for maximum chest development.',
           moodTips: [
