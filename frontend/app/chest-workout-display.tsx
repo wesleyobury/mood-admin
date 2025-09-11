@@ -1471,7 +1471,7 @@ export default function ChestWorkoutDisplayScreen() {
             const getEquipmentIcon = (equipmentName: string) => {
               const equipmentIconMap: { [key: string]: keyof typeof Ionicons.glyphMap } = {
                 'Adjustable bench': 'square',
-                'Flat bench': 'rectangle',
+                'Flat bench': 'square',
                 'Incline bench': 'trending-up',
                 'Decline bench': 'trending-down',
                 'Cable crossover': 'reorder-three',
