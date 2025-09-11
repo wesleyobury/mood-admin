@@ -2445,116 +2445,116 @@ const workoutDatabase: EquipmentWorkouts[] = [
           duration: '12–15 min',
           description: 'Perform 3 rounds:\n• 10 banded squats\n• 10 band rows\n• 10 chest presses\nRest 1 min',
           imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxyZXNpc3RhbmNlJTIwYmFuZCUyMHdvcmtvdXR8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Perfect introduction to resistance band training emphasizing controlled movement patterns, proper tension maintenance, and progressive muscle activation.',
+          intensityReason: 'Perfect introduction to resistance band training with simple movements that build fundamental strength patterns.',
           moodTips: [
             {
               icon: 'body',
-              title: 'Squat Tension Control',
-              description: 'Keep knees tracking over toes against band resistance; maintain tension throughout entire squat range of motion.'
+              title: 'Squat Form',
+              description: 'Push knees outward into band for proper alignment.'
             },
             {
               icon: 'flash',
-              title: 'Rowing Technique',
-              description: 'Pull elbows close to ribcage during rows; squeeze shoulder blades together and control the return phase slowly.'
+              title: 'Row Technique',
+              description: 'Drive elbows to ribs for maximum back engagement.'
             }
           ]
         },
         {
-          name: 'Band Activation and Mobility Flow',
-          duration: '16-20 min',
-          description: '• 10 lateral band walks each direction (light resistance)\n• 10 overhead shoulder presses (light-medium resistance)\n• 10 band pull-aparts (light resistance)\n• 10 standing wood chops each side (medium resistance)\n• 8 banded glute bridges (medium resistance)\n90 seconds rest\nRepeat for 3 complete rounds',
+          name: 'Band Walks & Presses',
+          duration: '12–15 min',
+          description: 'Perform 3 rounds:\n• 10 lateral band walks (each way)\n• 10 overhead presses\nRest 1 min',
           imageUrl: 'https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwyfHxyZXNpc3RhbmNlJTIwYmFuZCUyMHdhbGt8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Activation-focused workout targeting glute engagement, shoulder stability, and rotational strength through controlled band movements.',
+          intensityReason: 'Focus on glute activation and shoulder stability through controlled lateral and vertical movements.',
           moodTips: [
             {
               icon: 'flash',
-              title: 'Consistent Band Tension',
-              description: 'Never allow band to go slack during lateral walks; maintain constant knee bend and step wide to preserve tension.'
+              title: 'Lateral Walk Form',
+              description: 'Keep knees bent with constant tension throughout movement.'
             },
             {
               icon: 'body',
-              title: 'Overhead Press Stability',
-              description: 'Avoid arching back during overhead presses; engage core strongly and press bands straight up overhead.'
+              title: 'Press Stability',
+              description: 'Brace abs and avoid arching back during overhead movement.'
             }
           ]
         }
       ],
       intermediate: [
         {
-          name: 'High-Intensity Band Tabata Protocol',
-          duration: '26-28 min',
-          description: 'Tabata Protocol: 20 seconds work, 10 seconds rest\n• Round 1: Banded squat jumps (medium-heavy resistance) - 8 intervals\n2 minutes rest\n• Round 2: Band-assisted push-ups (light resistance) - 8 intervals\n2 minutes rest\n• Round 3: Seated rows (medium-heavy resistance) - 8 intervals\n2 minutes rest\n• Round 4: Mountain climbers with ankle bands (light resistance) - 8 intervals\nFinish with 4 minutes stretching',
+          name: 'Band Tabata',
+          duration: '16 min',
+          description: '20s work / 10s rest:\n• Squat jumps\n• Push-ups\n• Rows\n• Mountain climbers\nRepeat 4 rounds each (16 intervals total)',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwzfHxyZXNpc3RhbmNlJTIwYmFuZCUyMHRhYmF0YXxlbnwwfHx8fDE3NTY4ODMyMzd8MA&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Advanced Tabata intervals utilizing band resistance to maximize anaerobic power development and metabolic conditioning across multiple movement patterns.',
+          intensityReason: 'High-intensity Tabata protocol maximizing anaerobic power and metabolic conditioning.',
           moodTips: [
             {
               icon: 'body',
-              title: 'Jump Landing Control',
-              description: 'Land softly with slight knee bend during squat jumps; maintain control against band resistance throughout entire range.'
+              title: 'Jump Control',
+              description: 'Stay light when jumping to maintain form under fatigue.'
             },
             {
               icon: 'flash',
-              title: 'Rowing Power Generation',
-              description: 'Drive rows from lat engagement and shoulder blade retraction; squeeze fully at end range and control eccentric phase.'
+              title: 'Row Focus',
+              description: 'Full scap squeeze each time for maximum muscle activation.'
             }
           ]
         },
         {
-          name: 'Resistance Band Sprint Power Circuit',
-          duration: '22-25 min',
-          description: '• 10 banded squat jumps (medium resistance)\n• 10 resisted sprint accelerations (heavy resistance, 10 yards)\n• 10 band-assisted push-ups (light-medium resistance)\n• 8 lateral band walks each direction (medium resistance)\n• 8 single-arm rows each arm (medium-heavy resistance)\n2 minutes rest\nRepeat for 4 complete rounds',
+          name: 'Band Sprint Circuit',
+          duration: '20–22 min',
+          description: 'Perform 4 rounds:\n• 10 squat jumps\n• 10 band sprints (anchored)\n• 10 band push-ups\nRest 1 min',
           imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxyZXNpc3RhbmNlJTIwYmFuZCUyMHNwcmludHxlbnwwfHx8fDE3NTY4ODMyMzd8MA&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Dynamic power circuit integrating plyometric movements with resisted acceleration work to develop explosive strength and sprint mechanics.',
+          intensityReason: 'Power-focused circuit combining plyometrics with resisted sprint mechanics.',
           moodTips: [
             {
               icon: 'flash',
-              title: 'Sprint Acceleration Setup',
-              description: 'Secure band anchor point solidly; maintain forward body lean and drive arms powerfully during resisted sprints.'
+              title: 'Sprint Setup',
+              description: 'Anchor bands safely for maximum resistance effect.'
             },
             {
               icon: 'body',
-              title: 'Multi-Planar Movement',
-              description: 'Engage core during lateral walks; maintain tension without letting bands go slack between movements.'
+              title: 'Sprint Mechanics',
+              description: 'Sprint with forward lean and strong arm drive.'
             }
           ]
         }
       ],
       advanced: [
         {
-          name: 'Elite Resistance Band Complex',
-          duration: '30-35 min',
-          description: '• 12 banded squat jumps with pause (heavy resistance)\n• 10 single-arm push-ups with band assistance (medium resistance)\n• 8 resisted sprint intervals (heavy resistance, 15 yards)\n• 6 burpee to band overhead press (medium-heavy resistance)\n• 4 single-leg Romanian deadlifts each leg (medium resistance)\n2 minutes rest\nRepeat for 5 complete rounds\nFinish with 5 minutes recovery stretching',
+          name: 'Band Complex',
+          duration: '20–22 min',
+          description: 'Perform 4 rounds:\n• 12 squat jumps\n• 10 push-ups\n• 8 sprints\n• 6 burpees\nRest 1 min',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw1fHxyZXNpc3RhbmNlJTIwYmFuZCUyMGFkdmFuY2VkfGVufDB8fHx8MVc1Njg4MzIzN3ww&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Elite-level complex demanding maximal power output, unilateral strength, and metabolic conditioning through progressive resistance patterns and extended volume.',
+          intensityReason: 'Elite complex demanding maximal power output through progressive movement combinations.',
           moodTips: [
             {
               icon: 'flash',
-              title: 'Tension Maintenance Mastery',
-              description: 'Never allow bands to lose tension during any movement; control eccentric phase and maintain constant resistance throughout entire range.'
+              title: 'Tension Control',
+              description: 'Keep band tension through all moves for maximum effect.'
             },
             {
               icon: 'body',
-              title: 'Single-Limb Stability',
-              description: 'Engage stabilizer muscles during single-arm and single-leg movements; maintain core rigidity and prevent compensatory movements.'
+              title: 'Recoil Management',
+              description: 'Control recoil on release to prevent injury.'
             }
           ]
         },
         {
-          name: 'Advanced Band and Plyometric Integration',
-          duration: '28-32 min',
-          description: '• 10 jump lunges with band resistance (medium-heavy)\n• 10 explosive mountain climbers with ankle bands (light-medium)\n• 10 single-arm rows to rotation each arm (heavy resistance)\n• 10 band-assisted pistol squats each leg (light-medium resistance)\n• 8 resisted broad jumps (heavy resistance)\n90 seconds rest\nRepeat for 5 complete rounds',
+          name: 'Band & Plyo Circuit',
+          duration: '20–22 min',
+          description: 'Perform 4 rounds:\n• 10 jump lunges\n• 10 mountain climbers\n• 10 rows\n• 10 push-ups\nRest 1 min',
           imageUrl: 'https://images.unsplash.com/photo-1517838277536-f5f99be501cd?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw2fHxyZXNpc3RhbmNlJTIwYmFuZCUyMHBseW98ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Maximum intensity integration combining advanced plyometric patterns with resistance band strength work for elite athletic development.',
+          intensityReason: 'Advanced plyometric integration combining explosive movements with resistance training.',
           moodTips: [
             {
               icon: 'body',
-              title: 'Advanced Landing Mechanics',
-              description: 'Land with perfect knee tracking during jump lunges; absorb impact through hip flexion and maintain band tension throughout.'
+              title: 'Landing Mechanics',
+              description: 'Jump/land softly with knees stacked over hips.'
             },
             {
               icon: 'refresh',
-              title: 'Core Integration',
-              description: 'Engage deep core muscles during rotational rows; coordinate breathing with resistance and maintain postural stability.'
+              title: 'Core Stability',
+              description: 'Brace core strong during push-ups for proper form.'
             }
           ]
         }
