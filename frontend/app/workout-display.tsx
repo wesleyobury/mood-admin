@@ -2714,7 +2714,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Tire Flip and Agility Training',
           duration: '18-22 min',
-          description: '• 4 controlled tire flips (emphasis on form)\n20 tire toe taps (quick feet pattern)\n8 tire lateral step-overs each direction\n6 tire mountain climbers (hands on tire)\n8 tire bear crawls around perimeter\n90 seconds rest\nRepeat for 3 complete rounds',
+          description: '• 4 controlled tire flips (emphasis on form)\n• 20 tire toe taps (quick feet pattern)\n• 8 tire lateral step-overs each direction\n• 6 tire mountain climbers (hands on tire)\n• 8 tire bear crawls around perimeter\n90 seconds rest\nRepeat for 3 complete rounds',
           imageUrl: 'https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwyfHx0aXJlJTIwZmxpcCUyMHRhcHxlbnwwfHx8fDE3NTY4ODMyMzd8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Progressive strength and agility workout building tire flipping power while incorporating multi-directional movement patterns and core stability.',
           moodTips: [
