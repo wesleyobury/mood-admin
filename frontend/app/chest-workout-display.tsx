@@ -930,7 +930,7 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Pec Dec Foundation',
           duration: '10–12 min',
-          description: '3 rounds:\n• 12 pec dec fly\n• 10 reverse pec dec (rear delts)\n• Rest 60s',
+          description: '3 rounds:\n• 12 pec dec fly\n• 10 reverse pec dec (rear delts)\n• Rest 60s\n\nTips:\n• Seat height: Upper arms parallel to floor at mid-chest level for optimal pec engagement.\n• Reverse pec dec: Balances chest work with rear delt strengthening—prevents shoulder imbalances.',
           imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHc5fHxyaW5nfGVufDB8fHx8MVc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Perfect beginner introduction to pec dec training focusing on chest isolation and shoulder balance.',
           moodTips: [
@@ -949,7 +949,7 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Isolation Circuit',
           duration: '12–15 min',
-          description: '3 rounds:\n• 10 pec dec fly\n• 8 chest press (if available)\n• 10 pec dec fly\n• Rest 60–75s',
+          description: '3 rounds:\n• 10 pec dec fly\n• 8 chest press (if available)\n• 10 pec dec fly\n• Rest 60–75s\n\nTips:\n• Pec dec focus: Contract chest hard as pads come together—hold for 1s at peak contraction.\n• Pre-exhaust effect: Starting and ending with flies fatigues chest before and after pressing.',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Isolation-focused circuit combining pec dec with pressing movements for comprehensive beginner chest development.',
           moodTips: [
