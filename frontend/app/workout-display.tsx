@@ -2609,7 +2609,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Sledgehammer Power Circuit',
           duration: '24-28 min',
-          description: '• 10 explosive overhead strikes each side (12-16 lb hammer)\n8 burpees with tire touch\n10 tire jumps (lateral and forward)\n8 alternating diagonal strikes each side\n6 tire step-ups with hammer carry\n90 seconds rest\nRepeat for 5 complete rounds\nFinish with 3 minutes recovery stretching',
+          description: '• 10 explosive overhead strikes each side (12-16 lb hammer)\n• 8 burpees with tire touch\n• 10 tire jumps (lateral and forward)\n• 8 alternating diagonal strikes each side\n• 6 tire step-ups with hammer carry\n90 seconds rest\nRepeat for 5 complete rounds\nFinish with 3 minutes recovery stretching',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwzfHxzbGVkZ2VoYW1tZXIlMjBidXJwZWV8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Intermediate circuit combining sledgehammer power development with plyometric and bodyweight movements for comprehensive conditioning.',
           moodTips: [
