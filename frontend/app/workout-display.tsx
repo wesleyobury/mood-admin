@@ -2523,7 +2523,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Elite Resistance Band Complex',
           duration: '30-35 min',
-          description: '• 12 banded squat jumps with pause (heavy resistance)\n10 single-arm push-ups with band assistance (medium resistance)\n8 resisted sprint intervals (heavy resistance\n• 15 yards)\n6 burpee to band overhead press (medium-heavy resistance)\n4 single-leg Romanian deadlifts each leg (medium resistance)\n2 minutes rest\nRepeat for 5 complete rounds\nFinish with 5 minutes recovery stretching',
+          description: '• 12 banded squat jumps with pause (heavy resistance)\n• 10 single-arm push-ups with band assistance (medium resistance)\n• 8 resisted sprint intervals (heavy resistance, 15 yards)\n• 6 burpee to band overhead press (medium-heavy resistance)\n• 4 single-leg Romanian deadlifts each leg (medium resistance)\n2 minutes rest\nRepeat for 5 complete rounds\nFinish with 5 minutes recovery stretching',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw1fHxyZXNpc3RhbmNlJTIwYmFuZCUyMGFkdmFuY2VkfGVufDB8fHx8MVc1Njg4MzIzN3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Elite-level complex demanding maximal power output, unilateral strength, and metabolic conditioning through progressive resistance patterns and extended volume.',
           moodTips: [
