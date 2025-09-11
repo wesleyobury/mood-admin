@@ -317,26 +317,19 @@ const WorkoutCard = ({ equipment, icon, workouts, difficulty, difficultyColor, o
           resizeMode="cover"
         />
         <View style={styles.imageOverlay} />
-        
-        {/* Swipe Indicator */}
-        {workouts.length > 1 && (
-          <View style={styles.swipeIndicator}>
-            <Ionicons name="chevron-forward" size={12} color="#FFD700" />
-            <Text style={styles.swipeText}>swipe</Text>
-          </View>
-        )}
+        <View style={styles.swipeIndicator}>
+          <Ionicons name="swap-horizontal" size={20} color="#FFD700" />
+          <Text style={styles.swipeText}>Swipe for more</Text>
+        </View>
       </View>
 
       {/* Workout Content */}
       <View style={styles.workoutContent}>
-        {/* Header with Title and Duration */}
         <View style={styles.workoutHeader}>
           <View style={styles.workoutTitleContainer}>
             <Text style={styles.workoutName}>{item.name}</Text>
             <View style={[styles.difficultyBadge, { backgroundColor: difficultyColor }]}>
-              <Text style={styles.difficultyBadgeText}>
-                {difficulty.toUpperCase()}
-              </Text>
+              <Text style={styles.difficultyBadgeText}>{difficulty.toUpperCase()}</Text>
             </View>
           </View>
           <Text style={styles.workoutDuration}>{item.duration}</Text>
@@ -349,60 +342,58 @@ const WorkoutCard = ({ equipment, icon, workouts, difficulty, difficultyColor, o
         </View>
 
         {/* Workout Description */}
-        <View style={styles.workoutDescriptionContainer}>
-          <ScrollView showsVerticalScrollIndicator={false}>
-            <Text style={styles.workoutDescription}>{item.description}</Text>
-          </ScrollView>
-        </View>
+        <ScrollView style={styles.workoutDescriptionContainer} showsVerticalScrollIndicator={false}>
+          <Text style={styles.workoutDescription}>{item.description}</Text>
+        </ScrollView>
 
         {/* Start Workout Button */}
-        <TouchableOpacity
+        <TouchableOpacity 
           style={styles.startWorkoutButton}
           onPress={() => onStartWorkout(item, equipment, difficulty)}
           activeOpacity={0.8}
         >
+          <Ionicons name="play" size={20} color="#000000" />
           <Text style={styles.startWorkoutButtonText}>Start Workout</Text>
-          <Ionicons name="play-circle" size={20} color="#000000" />
         </TouchableOpacity>
       </View>
     </View>
   );
 
-  // Touch handling for swipe functionality
-  const touchStartRef = useRef<{ x: number; y: number } | null>(null);
+  // Simple touch-based swipe detection for reliable web compatibility
+  const [touchStart, setTouchStart] = useState<number | null>(null);
+  const [touchEnd, setTouchEnd] = useState<number | null>(null);
 
-  const handleTouchStart = (event: any) => {
-    const { pageX, pageY } = event.nativeEvent;
-    touchStartRef.current = { x: pageX, y: pageY };
+  const handleTouchStart = (e: any) => {
+    const touch = e.nativeEvent.touches ? e.nativeEvent.touches[0] : e.nativeEvent;
+    setTouchEnd(null);
+    setTouchStart(touch.pageX || touch.clientX);
   };
 
-  const handleTouchMove = (event: any) => {
-    // Prevent default scrolling during swipe
-    event.preventDefault();
+  const handleTouchMove = (e: any) => {
+    const touch = e.nativeEvent.touches ? e.nativeEvent.touches[0] : e.nativeEvent;
+    setTouchEnd(touch.pageX || touch.clientX);
   };
 
-  const handleTouchEnd = (event: any) => {
-    if (!touchStartRef.current) return;
+  const handleTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > 50;
+    const isRightSwipe = distance < -50;
 
-    const { pageX } = event.nativeEvent;
-    const deltaX = pageX - touchStartRef.current.x;
-    const minSwipeDistance = 50;
-
-    if (Math.abs(deltaX) > minSwipeDistance) {
-      if (deltaX > 0) {
-        // Swipe right - previous workout
-        setCurrentWorkoutIndex(prev => 
-          prev > 0 ? prev - 1 : workouts.length - 1
-        );
-      } else {
-        // Swipe left - next workout
-        setCurrentWorkoutIndex(prev => 
-          prev < workouts.length - 1 ? prev + 1 : 0
-        );
-      }
+    if (isLeftSwipe && workouts.length > 1) {
+      // Swipe left - next workout
+      setCurrentWorkoutIndex(prev => 
+        prev < workouts.length - 1 ? prev + 1 : 0
+      );
     }
-
-    touchStartRef.current = null;
+    
+    if (isRightSwipe && workouts.length > 1) {
+      // Swipe right - previous workout
+      setCurrentWorkoutIndex(prev => 
+        prev > 0 ? prev - 1 : workouts.length - 1
+      );
+    }
   };
 
   return (
@@ -413,11 +404,14 @@ const WorkoutCard = ({ equipment, icon, workouts, difficulty, difficultyColor, o
           <Ionicons name={icon} size={20} color="#FFD700" />
         </View>
         <Text style={styles.equipmentTitle}>{equipment}</Text>
+        <View style={styles.workoutCountIndicator}>
+          <Text style={styles.workoutCountText}>{currentWorkoutIndex + 1}/{workouts.length}</Text>
+        </View>
       </View>
 
-      {/* Swipeable Workout Content */}
-      <View
-        style={styles.swipeableContainer}
+      {/* Workout Card */}
+      <View 
+        style={styles.workoutCard}
         onTouchStart={handleTouchStart}
         onTouchMove={handleTouchMove}
         onTouchEnd={handleTouchEnd}
@@ -471,7 +465,7 @@ export default function ShouldersWorkoutDisplayScreen() {
   
   const difficulty = (params.difficulty as string || 'beginner').toLowerCase();
   const moodTitle = params.mood as string || 'Muscle gainer';
-  const workoutType = params.bodyPart as string || 'Shoulders';
+  const workoutType = params.workoutType as string || 'Shoulders';
   
   console.log('Parsed parameters:', { selectedEquipmentNames, difficulty, moodTitle, workoutType });
 
@@ -543,14 +537,18 @@ export default function ShouldersWorkoutDisplayScreen() {
         </TouchableOpacity>
         <View style={styles.headerTextContainer}>
           <Text style={styles.headerTitle}>Your Workouts</Text>
-          <Text style={styles.headerSubtitle}>{moodTitle} • {difficulty}</Text>
+          <Text style={styles.headerSubtitle}>{moodTitle} - {difficulty}</Text>
         </View>
         <View style={styles.headerSpacer} />
       </View>
 
-      {/* Progress Bar - Single Non-Scrolling Section */}
+      {/* Progress Bar - matches chest format exactly */}
       <View style={styles.progressContainer}>
-        <View style={styles.progressContent}>
+        <ScrollView 
+          horizontal 
+          showsHorizontalScrollIndicator={false}
+          contentContainerStyle={styles.progressContent}
+        >  
           {/* Step 1: Mood Selection */}
           <View style={styles.progressStep}>
             <View style={styles.progressStepActive}>
@@ -581,40 +579,37 @@ export default function ShouldersWorkoutDisplayScreen() {
             </Text>
           </View>
           
-          <View style={styles.progressConnector} />
-          
-          {/* Steps 4+: Individual Equipment Items */}
           {selectedEquipmentNames.map((equipment, index) => {
             // Get appropriate icon for each equipment type
             const getEquipmentIcon = (equipmentName: string) => {
               const equipmentIconMap: { [key: string]: keyof typeof Ionicons.glyphMap } = {
-                'Adjustable Bench': 'square',
+                'Adjustable Bench': 'square-outline',
                 'Barbells': 'barbell',
-                'Cable Crossover Machine': 'reorder-three',
+                'Cable Crossover Machine': 'reorder-three-outline',
                 'Dumbbells': 'barbell',
-                'Kettlebells': 'diamond',
-                'Landmine Attachment': 'rocket',
-                'Pec Deck / Rear Delt Fly Machine': 'contract',
-                'Powerlifting Platform': 'grid',
-                'Shoulder Press Machine': 'triangle',
-                'Smith Machine': 'hardware-chip'
+                'Kettlebells': 'diamond-outline',
+                'Landmine Attachment': 'rocket-outline',
+                'Pec Deck / Rear Delt Fly Machine': 'contract-outline',
+                'Powerlifting Platform': 'grid-outline',
+                'Shoulder Press Machine': 'triangle-outline',
+                'Smith Machine': 'hardware-chip-outline'
               };
-              return equipmentIconMap[equipmentName] || 'fitness';
+              return equipmentIconMap[equipmentName] || 'fitness-outline';
             };
 
             return (
               <React.Fragment key={equipment}>
+                <View style={styles.progressConnector} />
                 <View style={styles.progressStep}>
                   <View style={styles.progressStepActive}>
                     <Ionicons name={getEquipmentIcon(equipment)} size={12} color="#000000" />
                   </View>
                   <Text style={styles.progressStepText}>{equipment}</Text>
                 </View>
-                {index < selectedEquipmentNames.length - 1 && <View style={styles.progressConnector} />}
               </React.Fragment>
             );
           })}
-        </View>
+        </ScrollView>
       </View>
 
       {/* Workouts List */}
@@ -626,17 +621,15 @@ export default function ShouldersWorkoutDisplayScreen() {
         {uniqueUserWorkouts.map((equipmentData, index) => {
           console.log(`Rendering card ${index + 1}:`, equipmentData.equipment);
           return (
-            <View key={`container-${equipmentData.equipment}`} style={styles.workoutCardContainer}>
-              <WorkoutCard
-                key={`workout-card-${equipmentData.equipment}-${index}`}
-                equipment={equipmentData.equipment}
-                icon={equipmentData.icon}
-                workouts={equipmentData.workouts[difficulty as keyof typeof equipmentData.workouts]}
-                difficulty={difficulty}
-                difficultyColor={difficultyColor}
-                onStartWorkout={handleStartWorkout}
-              />
-            </View>
+            <WorkoutCard
+              key={`workout-card-${equipmentData.equipment}-${index}`}
+              equipment={equipmentData.equipment}
+              icon={equipmentData.icon}
+              workouts={equipmentData.workouts[difficulty as keyof typeof equipmentData.workouts]}
+              difficulty={difficulty}
+              difficultyColor={difficultyColor}
+              onStartWorkout={handleStartWorkout}
+            />
           );
         })}
 
@@ -701,62 +694,83 @@ const styles = StyleSheet.create({
   headerSpacer: {
     width: 40,
   },
-  progressContainer: {
-    backgroundColor: '#111111',
-    borderBottomWidth: 1,
-    borderBottomColor: 'rgba(255, 215, 0, 0.2)',
-    paddingVertical: 16,
-    paddingHorizontal: 20,
-  },
-  progressContent: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    flexWrap: 'wrap',
-    gap: 8,
-  },
   progressStep: {
     alignItems: 'center',
     minWidth: 60,
+    maxWidth: 80,
   },
   progressStepActive: {
-    width: 32,
-    height: 32,
-    borderRadius: 16,
+    width: 28,
+    height: 28,
+    borderRadius: 14,
     backgroundColor: '#FFD700',
     borderWidth: 2,
     borderColor: '#FFD700',
     justifyContent: 'center',
     alignItems: 'center',
-    marginBottom: 8,
+    marginBottom: 6,
     shadowColor: '#FFD700',
     shadowOffset: { width: 0, height: 0 },
     shadowOpacity: 0.6,
-    shadowRadius: 8,
-    elevation: 6,
+    shadowRadius: 6,
+    elevation: 4,
+  },
+  progressStepNumberActive: {
+    fontSize: 14,
+    fontWeight: 'bold',
+    color: '#000000',
   },
   progressStepText: {
     fontSize: 10,
     color: 'rgba(255, 255, 255, 0.8)',
     textAlign: 'center',
     fontWeight: '500',
-    maxWidth: 60,
+    maxWidth: 70,
   },
   progressConnector: {
-    width: 20,
+    width: 16,
     height: 2,
     backgroundColor: 'rgba(255, 215, 0, 0.3)',
-    marginTop: 8,
+    marginHorizontal: 4,
+    marginTop: 14,
+  },
+  progressContainer: {
+    backgroundColor: '#111111',
+    borderBottomWidth: 1,
+    borderBottomColor: 'rgba(255, 215, 0, 0.2)',
+    paddingVertical: 16,
+    paddingHorizontal: 8,
+  },
+  progressContent: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    flexWrap: 'wrap',
   },
   scrollView: {
     flex: 1,
   },
   scrollContent: {
-    paddingBottom: 24,
+    padding: 24,
+    paddingBottom: 100,
   },
   workoutCardContainer: {
-    marginHorizontal: 24,
-    marginVertical: 12,
+    marginBottom: 30,
+    width: '100%',
+  },
+  workoutCard: {
+    backgroundColor: '#111111',
+    borderRadius: 20,
+    borderWidth: 2,
+    borderColor: 'rgba(255, 215, 0, 0.3)',
+    shadowColor: '#FFD700',
+    shadowOffset: { width: 0, height: 0 },
+    shadowOpacity: 0.3,
+    shadowRadius: 15,
+    elevation: 8,
+    overflow: 'hidden',
+    marginBottom: 30,
+    width: '100%',
   },
   equipmentHeader: {
     flexDirection: 'row',
@@ -779,25 +793,36 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: 'bold',
     color: '#FFD700',
+    flex: 1,
   },
-  swipeableContainer: {
-    borderRadius: 16,
-    overflow: 'hidden',
-    backgroundColor: '#111111',
-    borderWidth: 2,
-    borderColor: 'rgba(255, 215, 0, 0.3)',
+  workoutCountIndicator: {
+    backgroundColor: 'rgba(255, 215, 0, 0.15)',
+    paddingHorizontal: 8,
+    paddingVertical: 4,
+    borderRadius: 12,
+  },
+  workoutCountText: {
+    fontSize: 12,
+    fontWeight: 'bold',
+    color: '#FFD700',
+  },
+  workoutList: {
+    height: 420,
   },
   workoutSlide: {
-    backgroundColor: '#111111',
+    paddingHorizontal: 20,
+    paddingVertical: 16,
   },
   workoutImageContainer: {
     height: 120,
+    borderRadius: 12,
+    overflow: 'hidden',
+    marginBottom: 16,
     position: 'relative',
   },
   workoutImage: {
     width: '100%',
     height: '100%',
-    backgroundColor: '#222',
   },
   imageOverlay: {
     position: 'absolute',
@@ -887,8 +912,8 @@ const styles = StyleSheet.create({
   startWorkoutButton: {
     backgroundColor: '#FFD700',
     borderRadius: 12,
-    paddingVertical: 12,
-    paddingHorizontal: 16,
+    paddingVertical: 16,
+    paddingHorizontal: 24,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
@@ -896,19 +921,18 @@ const styles = StyleSheet.create({
     gap: 8,
     shadowColor: '#FFD700',
     shadowOffset: { width: 0, height: 0 },
-    shadowOpacity: 0.4,
-    shadowRadius: 8,
-    elevation: 6,
+    shadowOpacity: 0.6,
+    shadowRadius: 12,
+    elevation: 8,
   },
   startWorkoutButtonText: {
-    fontSize: 14,
+    fontSize: 16,
     fontWeight: 'bold',
     color: '#000000',
   },
   dotsContainer: {
-    alignItems: 'center',
     paddingVertical: 16,
-    backgroundColor: 'rgba(255, 215, 0, 0.05)',
+    alignItems: 'center',
   },
   dotsLabel: {
     fontSize: 11,
