@@ -1892,8 +1892,8 @@ const workoutDatabase: EquipmentWorkouts[] = [
       advanced: [
         {
           name: 'Barbell Ladder',
-          duration: '20-24 min',
-          description: '• 10-8-6-4-2 reps:\npower clean\npush jerk\nfront squat\nburpee over bar\nRest as needed until ladder complete',
+          duration: '20–24 min',
+          description: 'Perform 10–8–6–4–2 reps:\n• Power clean\n• Push jerk\n• Front squat\n• Burpee over bar\nRest as needed to complete ladder.',
           imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw1fHxiYXJiZWxsJTIwYWR2YW5jZWR8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Advanced ladder requiring explosive power, strength, and conditioning with complex movements.',
           moodTips: [
