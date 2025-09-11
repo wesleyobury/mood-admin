@@ -2462,7 +2462,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Band Activation and Mobility Flow',
           duration: '16-20 min',
-          description: '• 10 lateral band walks each direction (light resistance)\n10 overhead shoulder presses (light-medium resistance)\n10 band pull-aparts (light resistance)\n10 standing wood chops each side (medium resistance)\n8 banded glute bridges (medium resistance)\n90 seconds rest\nRepeat for 3 complete rounds',
+          description: '• 10 lateral band walks each direction (light resistance)\n• 10 overhead shoulder presses (light-medium resistance)\n• 10 band pull-aparts (light resistance)\n• 10 standing wood chops each side (medium resistance)\n• 8 banded glute bridges (medium resistance)\n90 seconds rest\nRepeat for 3 complete rounds',
           imageUrl: 'https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwyfHxyZXNpc3RhbmNlJTIwYmFuZCUyMHdhbGt8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Activation-focused workout targeting glute engagement, shoulder stability, and rotational strength through controlled band movements.',
           moodTips: [
