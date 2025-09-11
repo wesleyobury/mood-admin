@@ -359,7 +359,7 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Incline Chest Flow',
           duration: '12–15 min',
-          description: '3 rounds:\n• 10 incline bench press\n• 10 incline fly\n• 10 close-grip incline press\n• Rest 90s',
+          description: '3 rounds:\n• 10 incline bench press\n• 10 incline fly\n• 10 close-grip incline press\n• Rest 90s\n\nTips:\n• Minimal rest transitions overload pecs—this forces metabolic stress, a key growth driver.\n• In close-grip, apply inward force on the dumbbells/bar to emphasize chest squeeze.',
           imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
           intensityReason: 'Continuous flow training that overloads upper chest through combined pressing, isolation, and close-grip movements.',
           moodTips: [
