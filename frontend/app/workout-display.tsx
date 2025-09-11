@@ -1726,8 +1726,8 @@ const workoutDatabase: EquipmentWorkouts[] = [
       intermediate: [
         {
           name: 'Kettlebell Ladder',
-          duration: '20-24 min',
-          description: '• 10 swings\n8 cleans (4/side)\n6 snatches (3/side)\n4 goblet squats\n2 push presses each side\n1 min rest\n• repeat 4 rounds',
+          duration: '20–24 min',
+          description: 'Perform 4 rounds:\n• 10 swings\n• 8 cleans (4/side)\n• 6 snatches (3/side)\n• 4 goblet squats\n• 2 push presses (each side)\nRest 1 min',
           imageUrl: 'https://images.unsplash.com/photo-1517838277536-f5f99be501cd?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwzfHxrZXR0bGViZWxsJTIwdHJhaW5pbmd8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Complex ladder format challenging coordination and strength across multiple kettlebell movements.',
           moodTips: [
