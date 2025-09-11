@@ -592,7 +592,7 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Cable Fly Complex',
           duration: '14–16 min',
-          description: '4 rounds:\n• 10 high cable fly\n• 10 mid cable fly\n• 8 cable press\n• Rest 75s',
+          description: '4 rounds:\n• 10 high cable fly\n• 10 mid cable fly\n• 8 cable press\n• Rest 75s\n\nTips:\n• High → mid → press creates a cascade fatigue pattern—pecs get pre-exhausted then pushed through compound movement.\n• Keep elbows slightly bent throughout flies to protect joint and maximize chest stretch.',
           imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Progressive cable training combining isolation and pressing movements for intermediate chest development.',
           moodTips: [
@@ -611,7 +611,7 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Cable Power Circuit',
           duration: '12–15 min',
-          description: '3 rounds:\n• 8 explosive cable press\n• 10 single-arm cable fly\n• 8 cable punches\n• Rest 90s',
+          description: '3 rounds:\n• 8 explosive cable press\n• 10 single-arm cable fly\n• 8 cable punches\n• Rest 90s\n\nTips:\n• Explosive press: Drive fast on concentric, control slow on eccentric—builds power and size.\n• Cable punches: Rotate slightly at waist and drive through pec, not just arm movement.',
           imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
           intensityReason: 'Power-focused cable training with explosive movements for intermediate athletic development.',
           moodTips: [
