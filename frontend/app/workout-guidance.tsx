@@ -883,6 +883,13 @@ const styles = StyleSheet.create({
     lineHeight: 22,
     flex: 1,
   },
+  stepTextNoBullet: {
+    fontSize: 16,
+    color: 'rgba(255, 255, 255, 0.9)',
+    lineHeight: 22,
+    flex: 1,
+    fontWeight: '600', // Make instructions slightly bolder
+  },
   // Completed workout button styles
   completedButtonContainer: {
     backgroundColor: '#000000',
