@@ -25,17 +25,17 @@ interface DifficultyLevel {
 }
 
 const equipmentOptions: EquipmentOption[] = [
-  { id: 'dumbbells', name: 'Dumbbells', icon: 'barbell' },
-  { id: 'barbells', name: 'Barbells', icon: 'barbell' },
-  { id: 'kettlebells', name: 'Kettlebells', icon: 'diamond' },
   { id: 'adjustable-bench', name: 'Adjustable Bench', icon: 'square' },
-  { id: 'powerlifting-platform', name: 'Powerlifting Platform', icon: 'grid' },
-  { id: 'smith-machine', name: 'Smith Machine', icon: 'hardware-chip' },
-  { id: 'shoulder-press-machine', name: 'Shoulder Press Machine', icon: 'triangle' },
-  { id: 'pec-deck-rear-delt', name: 'Pec Deck / Rear Delt Fly Machine', icon: 'contract' },
+  { id: 'barbells', name: 'Barbells', icon: 'barbell' },
   { id: 'cable-crossover-machine', name: 'Cable Crossover Machine', icon: 'reorder-three' },
-  { id: 'single-stack-cable', name: 'Single Stack Cable Machine', icon: 'remove' },
+  { id: 'dumbbells', name: 'Dumbbells', icon: 'barbell' },
+  { id: 'kettlebells', name: 'Kettlebells', icon: 'diamond' },
   { id: 'landmine-attachment', name: 'Landmine Attachment', icon: 'rocket' },
+  { id: 'pec-deck-rear-delt', name: 'Pec Deck / Rear Delt Fly Machine', icon: 'contract' },
+  { id: 'powerlifting-platform', name: 'Powerlifting Platform', icon: 'grid' },
+  { id: 'shoulder-press-machine', name: 'Shoulder Press Machine', icon: 'triangle' },
+  { id: 'single-stack-cable', name: 'Single Stack Cable Machine', icon: 'remove' },
+  { id: 'smith-machine', name: 'Smith Machine', icon: 'hardware-chip' },
 ];
 
 const difficultyLevels: DifficultyLevel[] = [
