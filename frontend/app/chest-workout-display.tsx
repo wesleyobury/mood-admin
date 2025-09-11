@@ -294,6 +294,10 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
       ]
     }
   },
+  // ADJUSTABLE BENCH
+  {
+    equipment: 'Adjustable bench',
+    icon: 'square',
     workouts: {
       beginner: [
         {
