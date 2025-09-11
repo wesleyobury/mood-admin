@@ -34,7 +34,6 @@ const equipmentOptions: EquipmentOption[] = [
   { id: 'pec-deck-rear-delt', name: 'Pec Deck / Rear Delt Fly Machine', icon: 'contract' },
   { id: 'powerlifting-platform', name: 'Powerlifting Platform', icon: 'grid' },
   { id: 'shoulder-press-machine', name: 'Shoulder Press Machine', icon: 'triangle' },
-  { id: 'single-stack-cable', name: 'Single Stack Cable Machine', icon: 'remove' },
   { id: 'smith-machine', name: 'Smith Machine', icon: 'hardware-chip' },
 ];
 
