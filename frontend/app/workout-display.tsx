@@ -2628,7 +2628,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'High-Intensity Sledgehammer Tabata',
           duration: '22-25 min',
-          description: '• Tabata Protocol: 20 seconds work\n• 10 seconds rest\nRound 1: Overhead strikes alternating sides (14-16 lb hammer) - 8 intervals\n2 minutes rest\nRound 2: Lateral strikes left side (12-14 lb hammer) - 8 intervals\n2 minutes rest\nRound 3: Lateral strikes right side (12-14 lb hammer) - 8 intervals\n2 minutes rest\nFinish with 4 minutes mobility work',
+          description: 'Tabata Protocol: 20 seconds work, 10 seconds rest\n• Round 1: Overhead strikes alternating sides (14-16 lb hammer) - 8 intervals\n2 minutes rest\n• Round 2: Lateral strikes left side (12-14 lb hammer) - 8 intervals\n2 minutes rest\n• Round 3: Lateral strikes right side (12-14 lb hammer) - 8 intervals\n2 minutes rest\nFinish with 4 minutes mobility work',
           imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHc0fHxzbGVkZ2VoYW1tZXIlMjB0YWJhdGF8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'High-intensity Tabata intervals focused on developing sledgehammer-specific power endurance and anaerobic capacity.',
           moodTips: [
