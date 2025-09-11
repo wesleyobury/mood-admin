@@ -94,6 +94,25 @@ const parseWorkoutDescription = (description: string): string[] => {
   return steps.length > 1 ? steps : [cleanedDescription];
 };
 
+const renderStepWithBandPlacement = (step: string) => {
+  // Check if the step contains parenthetical text (band placement)
+  const parts = step.split(/(\([^)]+\))/);
+  
+  return parts.map((part, index) => {
+    if (part.startsWith('(') && part.endsWith(')')) {
+      // This is parenthetical text - render with smaller, italic style
+      return (
+        <Text key={index} style={styles.bandPlacementText}>
+          {part}
+        </Text>
+      );
+    } else {
+      // Regular text
+      return part;
+    }
+  });
+};
+
 export default function WorkoutGuidanceScreen() {
   const router = useRouter();
   const params = useLocalSearchParams();
