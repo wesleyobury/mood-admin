@@ -237,7 +237,7 @@ metadata:
 
 test_plan:
   current_focus:
-    - "Complete MOOD Tips Database"
+    - "Battle Plan Formatting Completed"
   stuck_tasks: []
   test_all: false
   test_priority: "high_first"
