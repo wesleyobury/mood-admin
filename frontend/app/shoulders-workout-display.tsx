@@ -397,21 +397,21 @@ const WorkoutCard = ({ equipment, icon, workouts, difficulty, difficultyColor, o
   };
 
   return (
-    <View style={styles.workoutCardContainer}>
+    <View style={styles.workoutCard}>
       {/* Equipment Header */}
       <View style={styles.equipmentHeader}>
         <View style={styles.equipmentIconContainer}>
-          <Ionicons name={icon} size={20} color="#FFD700" />
+          <Ionicons name={icon} size={24} color="#FFD700" />
         </View>
-        <Text style={styles.equipmentTitle}>{equipment}</Text>
-        <View style={styles.workoutCountIndicator}>
-          <Text style={styles.workoutCountText}>{currentWorkoutIndex + 1}/{workouts.length}</Text>
+        <Text style={styles.equipmentName}>{equipment}</Text>
+        <View style={styles.workoutIndicator}>
+          <Text style={styles.workoutCount}>{currentWorkoutIndex + 1}/{workouts.length}</Text>
         </View>
       </View>
 
-      {/* Workout Card */}
+      {/* Swipeable Workouts - Touch-based Implementation */}
       <View 
-        style={styles.workoutCard}
+        style={[styles.workoutList, { width: width - 48, height: 420 }]}
         onTouchStart={handleTouchStart}
         onTouchMove={handleTouchMove}
         onTouchEnd={handleTouchEnd}
