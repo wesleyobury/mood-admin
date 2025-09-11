@@ -1056,7 +1056,7 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Smith Machine Basics',
           duration: '12–15 min',
-          description: '3 rounds:\n• 10 Smith bench press\n• 8 Smith incline press\n• 10 push-ups\n• Rest 60–75s',
+          description: '3 rounds:\n• 10 Smith bench press\n• 8 Smith incline press\n• 10 push-ups\n• Rest 60–75s\n\nTips:\n• Smith advantage: Safety rails allow you to train closer to failure than free weights safely.\n• Bar path: Smith machine guides the path—focus purely on chest contraction and power.',
           imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHc5fHxyaW5nfGVufDB8fHx8MVc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Safe introduction to barbell movements using Smith machine stability for beginner chest development.',
           moodTips: [
