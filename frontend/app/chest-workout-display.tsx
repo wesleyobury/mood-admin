@@ -1555,6 +1555,260 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
         }
       ]
     }
+  },
+  // SMITH MACHINE
+  {
+    equipment: 'Smith machine',
+    icon: 'barbell',
+    workouts: {
+      beginner: [
+        {
+          name: 'Smith Chest Press',
+          duration: '12–14 min',
+          description: '• 3 rounds:\n  • 10 flat Smith machine press (light)\n  • 10 incline Smith machine press (light)\n  • Rest 60s',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8MTc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Safe machine-based introduction to chest pressing with guided bar path for beginner confidence.',
+          moodTips: [
+            {
+              icon: 'construct',
+              title: 'Keep wrists stacked with elbows',
+              description: 'Don\'t let elbows flare too wide for proper form.'
+            },
+            {
+              icon: 'fitness',
+              title: 'Drive bar inward arc',
+              description: 'Contracting pecs hard at top for maximum activation.'
+            }
+          ]
+        },
+        {
+          name: 'Push-Up Circuit',
+          duration: '10–12 min',
+          description: '• 3 rounds:\n  • 8 push-ups (hands on bar; adjust height)\n  • 10 close-grip Smith press\n  • Rest 60s',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Progressive bodyweight and machine combination that builds strength curve safely.',
+          moodTips: [
+            {
+              icon: 'trending-up',
+              title: 'Progressive bar lowering',
+              description: 'Use higher to lower each set to build strength curve.'
+            },
+            {
+              icon: 'fitness',
+              title: 'Squeeze bellies of pecs',
+              description: 'On close-grip, push hands inward against bar.'
+            }
+          ]
+        }
+      ],
+      intermediate: [
+        {
+          name: 'Smith Angle Ladder',
+          duration: '14–15 min',
+          description: '• 3 rounds:\n  • 8 flat press\n  • 8 incline press\n  • 8 decline press\n  • Rest 90s',
+          imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Multi-angle Smith training that targets all chest fibers with machine safety and control.',
+          moodTips: [
+            {
+              icon: 'body',
+              title: 'Maintain constant pec tension',
+              description: 'Don\'t fully lock out on presses.'
+            },
+            {
+              icon: 'timer',
+              title: 'Controlled eccentrics',
+              description: 'Each angle stresses new fibers - focus on slow negatives.'
+            }
+          ]
+        },
+        {
+          name: 'Smith Plyo Push-Ups',
+          duration: '14–16 min',
+          description: '• 4 rounds:\n  • 8 explosive push-ups (hands on bar, adjust height)\n  • 10 single-arm presses\n  • Rest 75s',
+          imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
+          intensityReason: 'Explosive power development using Smith machine stability for intermediate progression.',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Explode off the bar',
+              description: 'As if throwing it - intent recruits fast-twitch pec fibers.'
+            },
+            {
+              icon: 'construct',
+              title: 'Press toward midline',
+              description: 'Not straight up, to hit chest deeply on single-arm.'
+            }
+          ]
+        }
+      ],
+      advanced: [
+        {
+          name: 'Smith Complex',
+          duration: '15–18 min',
+          description: '• 3 rounds:\n  • 8 flat press\n  • 8 incline press\n  • 8 decline press\n  • 8 close-grip press\n  • Rest 90s',
+          imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmc&ZW44MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Advanced Smith machine complex keeping pecs under constant tension throughout entire sequence.',
+          moodTips: [
+            {
+              icon: 'refresh',
+              title: 'Don\'t rack mid-complex',
+              description: 'Keeping pecs under tension throughout is the growth driver.'
+            },
+            {
+              icon: 'fitness',
+              title: 'Squeeze bar inward',
+              description: 'On close-grip, actively squeeze with palms for inner pec.'
+            }
+          ]
+        },
+        {
+          name: 'Smith Drop Set',
+          duration: '16–20 min',
+          description: '• 2 rounds:\n  • 10 heavy press (any angle)\n  • Drop → 10 moderate\n  • Drop → 10 light\n  • Rest 90–120s',
+          imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'High-intensity Smith drop sets with explosive concentric and controlled eccentric phases.',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Heavy = explosive concentric',
+              description: 'Drops = slow controlled eccentric for time under tension.'
+            },
+            {
+              icon: 'body',
+              title: 'Keep pecs under constant load',
+              description: 'Don\'t rest at the top between reps.'
+            }
+          ]
+        }
+      ]
+    }
+  },
+  // CHEST PRESS MACHINE
+  {
+    equipment: 'Chest press machine',
+    icon: 'fitness',
+    workouts: {
+      beginner: [
+        {
+          name: 'Press Circuit',
+          duration: '12–14 min',
+          description: '• 3 rounds:\n  • 12 light chest press\n  • 10 close-grip press (narrow handles)\n  • Rest 60s',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHc5fHxyaW5nfGVufDB8fHx8MTc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Safe machine introduction to chest pressing with different grip positions for comprehensive development.',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Squeeze pecs hard',
+              description: 'Don\'t just move handles - actively contract chest.'
+            },
+            {
+              icon: 'fitness',
+              title: 'Push as if hugging',
+              description: 'Chest toward midline for better activation.'
+            }
+          ]
+        },
+        {
+          name: 'Press & Fly',
+          duration: '12–14 min',
+          description: '• 3 rounds:\n  • 10 machine press\n  • 10 machine fly\n  • Rest 60s',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Machine-based pressing and isolation combination for beginner chest development.',
+          moodTips: [
+            {
+              icon: 'construct',
+              title: 'Stop before weights touch',
+              description: 'On fly - keeps pec fully under tension.'
+            },
+            {
+              icon: 'flash',
+              title: 'Exhale hard on contraction',
+              description: 'For more fiber recruitment and activation.'
+            }
+          ]
+        }
+      ],
+      intermediate: [
+        {
+          name: 'Drop Set',
+          duration: '16–18 min',
+          description: '• 2 rounds:\n  • 10 heavy\n  • Drop → 10 moderate\n  • Drop → 10 light\n  • Rest 90–120s',
+          imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Progressive drop set training using machine safety for maximum intensity.',
+          moodTips: [
+            {
+              icon: 'timer',
+              title: 'Keep reps slow on final light set',
+              description: '3s down, 1s squeeze for time under tension.'
+            },
+            {
+              icon: 'construct',
+              title: 'Don\'t bounce weights',
+              description: 'Every inch should be controlled for maximum benefit.'
+            }
+          ]
+        },
+        {
+          name: 'Ladder',
+          duration: '14–16 min',
+          description: '• 3 rounds:\n  • 8 wide grip\n  • 8 neutral grip\n  • 8 close grip\n  • Rest 90s',
+          imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
+          intensityReason: 'Grip variation ladder that targets different chest fiber patterns for complete development.',
+          moodTips: [
+            {
+              icon: 'construct',
+              title: 'Wide = stretch, close = contraction',
+              description: 'Combine both for full fiber recruitment.'
+            },
+            {
+              icon: 'body',
+              title: 'Pack shoulders down',
+              description: 'Stop delts from stealing load from pecs.'
+            }
+          ]
+        }
+      ],
+      advanced: [
+        {
+          name: 'Chest Press AMRAP',
+          duration: '10 min',
+          description: '• Max reps in 10 min',
+          imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmc&ZW44MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Maximum volume accumulation challenge for advanced chest endurance and pump.',
+          moodTips: [
+            {
+              icon: 'timer',
+              title: 'Break into mini-sets',
+              description: '10-12 reps with short pauses; accumulate max volume.'
+            },
+            {
+              icon: 'construct',
+              title: 'Control weight on every rep',
+              description: 'Fast = wasted fibers - maintain form throughout.'
+            }
+          ]
+        },
+        {
+          name: 'Chest Press Complex',
+          duration: '15–18 min',
+          description: '• 3 rounds:\n  • 8 wide press\n  • 8 close press\n  • 8 single-arm press (if machine allows)\n  • Rest 90s',
+          imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Advanced machine complex combining grip variations and unilateral training.',
+          moodTips: [
+            {
+              icon: 'fitness',
+              title: 'Apply inward tension',
+              description: 'Even on wide grip - pressing into the handles.'
+            },
+            {
+              icon: 'body',
+              title: 'Single-arm demands stability',
+              description: 'Flex abs for efficiency and safety.'
+            }
+          ]
+        }
+      ]
+    }
   }
 ];
 
