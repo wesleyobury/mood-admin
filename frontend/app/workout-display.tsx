@@ -2693,120 +2693,120 @@ const workoutDatabase: EquipmentWorkouts[] = [
     workouts: {
       beginner: [
         {
-          name: 'Tire Flipping Foundation',
-          duration: '16-20 min',
-          description: '• 5 proper tire flips (focus on technique)\n• 10 tire step-ups (controlled pace)\n• 8 tire toe taps for footwork\n• 6 tire push-ups (hands on tire edge)\n90 seconds rest\nRepeat for 4 complete rounds\nFinish with 3 minutes stretching and lower back mobility',
+          name: 'Tire Flip & Step',
+          duration: '12–15 min',
+          description: 'Perform 3 rounds:\n• 5 flips\n• 10 tire step-ups\nRest 1 min',
           imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHx0aXJlJTIwZmxpcCUyMHdvcmtvdXR8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Perfect introduction to tire flipping emphasizing proper lifting mechanics, hip hinge technique, and complementary movements for comprehensive strength development.',
+          intensityReason: 'Perfect introduction to tire flipping emphasizing proper lifting mechanics and complementary movements.',
           moodTips: [
             {
               icon: 'body',
-              title: 'Proper Flip Mechanics',
-              description: 'Keep chest close to tire during setup; drive powerfully through heels and hips while maintaining neutral spine alignment throughout the flip.'
+              title: 'Flip Mechanics',
+              description: 'Keep chest tight to tire, drive with hips for power.'
             },
             {
               icon: 'flash',
-              title: 'Step-up Control',
-              description: 'Place entire foot securely on tire during step-ups; engage glutes to drive upward and maintain balance throughout the movement.'
+              title: 'Step-up Form',
+              description: 'Place full foot on tire for step-ups with control.'
             }
           ]
         },
         {
-          name: 'Tire Flip and Agility Training',
-          duration: '18-22 min',
-          description: '• 4 controlled tire flips (emphasis on form)\n• 20 tire toe taps (quick feet pattern)\n• 8 tire lateral step-overs each direction\n• 6 tire mountain climbers (hands on tire)\n• 8 tire bear crawls around perimeter\n90 seconds rest\nRepeat for 3 complete rounds',
+          name: 'Tire Flip & Tap',
+          duration: '12–16 min',
+          description: 'Perform 4 rounds:\n• 4 flips\n• 20 toe taps on tire\nRest 1 min',
           imageUrl: 'https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwyfHx0aXJlJTIwZmxpcCUyMHRhcHxlbnwwfHx8fDE3NTY4ODMyMzd8MA&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Progressive strength and agility workout building tire flipping power while incorporating multi-directional movement patterns and core stability.',
+          intensityReason: 'Progressive strength and agility workout building tire flipping power with footwork conditioning.',
           moodTips: [
             {
               icon: 'flash',
-              title: 'Explosive Hip Drive',
-              description: 'Generate flipping power through explosive hip extension rather than back strain; coordinate leg drive with upper body push for efficient tire movement.'
+              title: 'Hip Extension',
+              description: 'Use full hip extension on flips for maximum power.'
             },
             {
               icon: 'body',
-              title: 'Agility and Balance',
-              description: 'Stay light on balls of feet during toe taps and step-overs; maintain athletic position with knees slightly bent throughout agility work.'
+              title: 'Toe Tap Speed',
+              description: 'Toe taps: quick and light for agility development.'
             }
           ]
         }
       ],
       intermediate: [
         {
-          name: 'Power Tire Flip Circuit',
-          duration: '22-26 min',
-          description: '• 6 explosive tire flips (focus on speed)\n8 tire jumps (forward and lateral)\n10 tire push-ups with feet elevated\n8 tire burpees (hands on tire edge)\n6 single-leg tire step-ups each leg\n90 seconds rest\nRepeat for 5 complete rounds\nFinish with 4 minutes recovery stretching',
+          name: 'Tire Flip & Jump',
+          duration: '14–16 min',
+          description: 'Perform 4 rounds:\n• 6 flips\n• 8 tire jumps\nRest 1 min',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwzfHx0aXJlJTIwZmxpcCUyMGp1bXB8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Intermediate circuit combining tire flipping power development with plyometric jumps and unilateral strength for comprehensive athletic conditioning.',
+          intensityReason: 'Intermediate circuit combining tire flipping power with plyometric jumping movements.',
           moodTips: [
             {
               icon: 'body',
-              title: 'Advanced Flip Technique',
-              description: 'Maintain flat back throughout tire flip setup; position arms under tire edge and drive through legs while pushing with upper body simultaneously.'
+              title: 'Back Position',
+              description: 'Keep back flat during flips for safety and power.'
             },
             {
               icon: 'flash',
-              title: 'Plyometric Landing Safety',
-              description: 'Land tire jumps with soft knees and centered balance; absorb impact through hip flexion and prepare immediately for next movement.'
+              title: 'Jump Landing',
+              description: 'Soft landings with bent knees to absorb impact.'
             }
           ]
         },
         {
-          name: 'Tire Flip Strength Circuit',
-          duration: '20-24 min',
-          description: '• 5 tire flips with 2-second pause at top\n10 tire push-ups (hands and feet on tire)\n10 lateral tire jumps each direction\n8 tire sit-ups (back against tire)\n6 tire farmer walks (carry tire 20 yards)\n2 minutes rest\nRepeat for 4 complete rounds',
+          name: 'Tire Flip Circuit',
+          duration: '14–18 min',
+          description: 'Perform 3 rounds:\n• 5 flips\n• 10 tire push-ups\n• 10 lateral jumps\nRest 1 min',
           imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHx0aXJlJTIwZmxpcCUyMGNpcmN1aXR8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Strength-focused circuit integrating tire manipulation with upper body, core, and carrying patterns for comprehensive functional development.',
+          intensityReason: 'Strength-focused circuit integrating tire manipulation with upper body and lateral movement patterns.',
           moodTips: [
             {
               icon: 'body',
-              title: 'Tire Push-up Stability',
-              description: 'Maintain stable hand placement on tire edge during push-ups; engage core strongly to prevent wobbling and maintain proper alignment.'
+              title: 'Push-up Stability',
+              description: 'Push-ups: hands wide and stable on tire edge.'
             },
             {
               icon: 'flash',
-              title: 'Controlled Movement Quality',
-              description: 'Execute lateral jumps with controlled landing mechanics; maintain compact foot positioning and soft landing absorption.'
+              title: 'Lateral Movement',
+              description: 'Lateral jumps: compact and quick for efficiency.'
             }
           ]
         }
       ],
       advanced: [
         {
-          name: 'Elite Tire Flip Complex',
-          duration: '28-32 min',
-          description: '• 8 maximum-power tire flips (explosive technique)\n8 tire jumps with 180-degree rotation\n8 single-arm tire push-ups each arm\n8 tire burpees with jump over tire\n6 tire overhead carries (30 yards)\n4 tire flips into immediate sprint (15 yards)\n2 minutes rest\nRepeat for 5 complete rounds\nFinish with 5 minutes comprehensive stretching',
+          name: 'Tire Flip Gauntlet',
+          duration: '20–22 min',
+          description: 'Perform 4 rounds:\n• 8 flips\n• 8 burpees\n• 8 tire jumps\n• 8 tire push-ups\nRest 1 min',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw1fHx0aXJlJTIwZmxpcCUyMGFkdmFuY2VkfGVufDB8fHx8TVc1Njg4MzIzN3ww&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Elite-level complex demanding maximal tire flipping power, rotational stability, unilateral strength, and integrated conditioning through advanced movement patterns.',
+          intensityReason: 'Elite-level complex demanding maximal tire flipping power and integrated conditioning movements.',
           moodTips: [
             {
               icon: 'flash',
-              title: 'Maximum Power Output',
-              description: 'Generate maximum explosiveness on every tire flip; maintain technique integrity even under high-volume fatigue demands.'
+              title: 'Core Engagement',
+              description: 'Core braced in flips, drive with legs for power.'
             },
             {
               icon: 'body',
-              title: 'Complex Movement Integration',
-              description: 'Execute smooth transitions between tire flip and sprint; maintain spatial awareness during rotational jumps and overhead carries.'
+              title: 'Pace Control',
+              description: 'Control burpee pace to finish all rounds strong.'
             }
           ]
         },
         {
-          name: 'Tire Flip Conditioning Challenge',
-          duration: '26-30 min',
-          description: '• 10 explosive tire flips (maximum speed)\n10 tire box jumps (full tire height)\n20-yard tire drag (rope attachment)\n8 tire slam alternatives (if available)\n6 tire deadlifts (if tire has handles)\n10-yard tire bear crawl push\n90 seconds rest\nRepeat for 4 complete rounds',
+          name: 'Tire Flip & Sprint',
+          duration: '20–22 min',
+          description: 'Perform 4 rounds:\n• 6 flips\n• 20m sprint\n• 6 flips\n• 20m sprint\nRest 1 min',
           imageUrl: 'https://images.unsplash.com/photo-1517838277536-f5f99be501cd?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw2fHx0aXJlJTIwZmxpcCUyMHNwcmludHxlbnwwfHx8fDE3NTY4ODMyMzd8MA&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Peak-intensity conditioning challenge integrating maximum tire manipulation, dragging, and multi-planar movement for complete functional strength development.',
+          intensityReason: 'Peak-intensity conditioning integrating maximum tire manipulation with sprint work for complete development.',
           moodTips: [
             {
               icon: 'refresh',
-              title: 'Rapid Recovery Mechanics',
-              description: 'Execute quick transitions between tire flips and subsequent movements; maintain breathing rhythm and movement efficiency despite high intensity.'
+              title: 'Grip Position',
+              description: 'Grip low under tire, chest close for optimal leverage.'
             },
             {
               icon: 'flash',
-              title: 'Sustained Power Output',
-              description: 'Maintain tire flipping speed and power throughout extended sets; focus on explosive intent rather than grinding through fatigue.'
+              title: 'Sprint Recovery',
+              description: 'Sprint tall and relaxed after heavy tire flips.'
             }
           ]
         }
