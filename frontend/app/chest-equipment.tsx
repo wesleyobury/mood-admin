@@ -165,35 +165,76 @@ export default function ChestEquipmentScreen() {
       console.log('Selected equipment:', selectedEquipment.map(eq => eq.name));
       console.log('Selected difficulty:', selectedDifficulty.title);
       
-      // Check if Adjustable bench is selected - navigate to specific adjustable bench screen
+      // Check equipment selections and navigate to appropriate screens
       const equipmentNames = selectedEquipment.map(eq => eq.name);
-      const hasAdjustableBench = equipmentNames.includes('Adjustable bench');
       
-      if (hasAdjustableBench && selectedEquipment.length === 1) {
-        // Navigate to adjustable bench specific workout display
-        router.push({
-          pathname: '/adjustable-bench-workout-display',
-          params: { 
-            mood: moodTitle,
-            workoutType: workoutType,
-            equipment: encodeURIComponent(equipmentNames.join(',')),
-            difficulty: selectedDifficulty.id
-          }
-        });
-      } else {
-        // Navigate to general chest workout display screen for other equipment combinations
-        const equipmentNamesString = equipmentNames.join(',');
+      // Handle single equipment selections
+      if (selectedEquipment.length === 1) {
+        const equipmentName = equipmentNames[0];
         
-        router.push({
-          pathname: '/chest-workout-display',
-          params: { 
-            mood: moodTitle,
-            workoutType: workoutType,
-            equipment: encodeURIComponent(equipmentNamesString), // Properly encode the parameter
-            difficulty: selectedDifficulty.id
-          }
-        });
+        switch (equipmentName) {
+          case 'Adjustable bench':
+            router.push({
+              pathname: '/adjustable-bench-workout-display',
+              params: { 
+                mood: moodTitle,
+                workoutType: workoutType,
+                equipment: encodeURIComponent(equipmentName),
+                difficulty: selectedDifficulty.id
+              }
+            });
+            return;
+            
+          case 'Flat bench':
+            router.push({
+              pathname: '/flat-bench-workout-display',
+              params: { 
+                mood: moodTitle,
+                workoutType: workoutType,
+                equipment: encodeURIComponent(equipmentName),
+                difficulty: selectedDifficulty.id
+              }
+            });
+            return;
+            
+          case 'Incline bench':
+            router.push({
+              pathname: '/incline-bench-workout-display',
+              params: { 
+                mood: moodTitle,
+                workoutType: workoutType,
+                equipment: encodeURIComponent(equipmentName),
+                difficulty: selectedDifficulty.id
+              }
+            });
+            return;
+            
+          case 'Decline bench':
+            router.push({
+              pathname: '/decline-bench-workout-display',
+              params: { 
+                mood: moodTitle,
+                workoutType: workoutType,
+                equipment: encodeURIComponent(equipmentName),
+                difficulty: selectedDifficulty.id
+              }
+            });
+            return;
+        }
       }
+      
+      // For multiple equipment selections or unsupported single equipment, navigate to general chest workout display
+      const equipmentNamesString = equipmentNames.join(',');
+      
+      router.push({
+        pathname: '/chest-workout-display',
+        params: { 
+          mood: moodTitle,
+          workoutType: workoutType,
+          equipment: encodeURIComponent(equipmentNamesString),
+          difficulty: selectedDifficulty.id
+        }
+      });
     }
   };
 
