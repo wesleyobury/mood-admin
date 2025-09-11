@@ -48,7 +48,7 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Adjustable Press Circuit',
           duration: '15–18 min',
-          description: '3 rounds:\n• 10 flat press\n• 10 incline press\n• 10 decline press (light)\n• Rest 60–75s',
+          description: '3 rounds:\n• 10 flat press\n• 10 incline press\n• 10 decline press (light)\n• Rest 60–75s\n\nTips:\n• Think of targeting pecs from multiple angles—flat = mid, incline = upper, decline = lower.\n• Drive elbows slightly inward on all presses to maximize chest fiber recruitment.',
           imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8MTc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Perfect beginner introduction targeting pecs from multiple angles with flat = mid, incline = upper, decline = lower chest development.',
           moodTips: [
