@@ -462,7 +462,7 @@ export default function FlatBenchWorkoutDisplayScreen() {
             // Get appropriate icon for each equipment type
             const getEquipmentIcon = (equipmentName: string) => {
               const equipmentIconMap: { [key: string]: keyof typeof Ionicons.glyphMap } = {
-                'Flat bench': 'rectangle'
+                'Flat bench': 'square'
               };
               return equipmentIconMap[equipmentName] || 'fitness';
             };
