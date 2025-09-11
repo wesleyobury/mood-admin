@@ -30,7 +30,7 @@ const equipmentOptions: EquipmentOption[] = [
   { id: 'chest-press-machine', name: 'Chest press machine', icon: 'hardware-chip' },
   { id: 'decline-bench', name: 'Decline bench', icon: 'trending-down' },
   { id: 'dip-station', name: 'Dip station', icon: 'remove' },
-  { id: 'flat-bench', name: 'Flat bench', icon: 'rectangle' },
+  { id: 'flat-bench', name: 'Flat bench', icon: 'square' },
   { id: 'incline-bench', name: 'Incline bench', icon: 'trending-up' },
   { id: 'pec-dec-machine', name: 'Pec dec machine', icon: 'contract' },
   { id: 'smith-machine', name: 'Smith machine', icon: 'barbell' },
