@@ -407,9 +407,9 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
           intensityReason: 'Maximum intensity drop set protocol focusing on time under tension for advanced muscle growth.',
           moodTips: [
             {
-              icon: 'flash',
+              icon: 'shield',
               title: 'Don\'t save energy',
-              description: 'Heavy set should be all-out near failure for maximum recruitment.'
+              description: 'Heavy set should be all-out near failure.'
             },
             {
               icon: 'timer',
