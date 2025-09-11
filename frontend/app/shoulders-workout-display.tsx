@@ -8,6 +8,7 @@ import {
   ScrollView,
   Dimensions,
   Image,
+  FlatList,
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { useRouter, useLocalSearchParams } from 'expo-router';
@@ -294,170 +295,366 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
   },
 ];
 
+interface WorkoutCardProps {
+  equipment: string;
+  icon: keyof typeof Ionicons.glyphMap;
+  workouts: Workout[];
+  difficulty: string;
+  difficultyColor: string;
+  onStartWorkout: (workout: Workout, equipment: string, difficulty: string) => void;
+}
+
+const WorkoutCard = ({ equipment, icon, workouts, difficulty, difficultyColor, onStartWorkout }: WorkoutCardProps) => {
+  const [currentWorkoutIndex, setCurrentWorkoutIndex] = useState(0);
+
+  const renderWorkout = ({ item, index }: { item: Workout; index: number }) => (
+    <View style={[styles.workoutSlide, { width: width - 48 }]}>
+      {/* Workout Image */}
+      <View style={styles.workoutImageContainer}>
+        <Image 
+          source={{ uri: item.imageUrl }}
+          style={styles.workoutImage}
+          resizeMode="cover"
+        />
+        <View style={styles.imageOverlay} />
+        
+        {/* Swipe Indicator */}
+        {workouts.length > 1 && (
+          <View style={styles.swipeIndicator}>
+            <Ionicons name="chevron-forward" size={12} color="#FFD700" />
+            <Text style={styles.swipeText}>swipe</Text>
+          </View>
+        )}
+      </View>
+
+      {/* Workout Content */}
+      <View style={styles.workoutContent}>
+        {/* Header with Title and Duration */}
+        <View style={styles.workoutHeader}>
+          <View style={styles.workoutTitleContainer}>
+            <Text style={styles.workoutName}>{item.name}</Text>
+            <View style={[styles.difficultyBadge, { backgroundColor: difficultyColor }]}>
+              <Text style={styles.difficultyBadgeText}>
+                {difficulty.toUpperCase()}
+              </Text>
+            </View>
+          </View>
+          <Text style={styles.workoutDuration}>{item.duration}</Text>
+        </View>
+
+        {/* Intensity Reason */}
+        <View style={styles.intensityContainer}>
+          <Ionicons name="information-circle" size={16} color="#FFD700" />
+          <Text style={styles.intensityReason}>{item.intensityReason}</Text>
+        </View>
+
+        {/* Workout Description */}
+        <View style={styles.workoutDescriptionContainer}>
+          <ScrollView showsVerticalScrollIndicator={false}>
+            <Text style={styles.workoutDescription}>{item.description}</Text>
+          </ScrollView>
+        </View>
+
+        {/* Start Workout Button */}
+        <TouchableOpacity
+          style={styles.startWorkoutButton}
+          onPress={() => onStartWorkout(item, equipment, difficulty)}
+          activeOpacity={0.8}
+        >
+          <Text style={styles.startWorkoutButtonText}>Start Workout</Text>
+          <Ionicons name="play-circle" size={20} color="#000000" />
+        </TouchableOpacity>
+      </View>
+    </View>
+  );
+
+  // Touch handling for swipe functionality
+  const touchStartRef = useRef<{ x: number; y: number } | null>(null);
+
+  const handleTouchStart = (event: any) => {
+    const { pageX, pageY } = event.nativeEvent;
+    touchStartRef.current = { x: pageX, y: pageY };
+  };
+
+  const handleTouchMove = (event: any) => {
+    // Prevent default scrolling during swipe
+    event.preventDefault();
+  };
+
+  const handleTouchEnd = (event: any) => {
+    if (!touchStartRef.current) return;
+
+    const { pageX } = event.nativeEvent;
+    const deltaX = pageX - touchStartRef.current.x;
+    const minSwipeDistance = 50;
+
+    if (Math.abs(deltaX) > minSwipeDistance) {
+      if (deltaX > 0) {
+        // Swipe right - previous workout
+        setCurrentWorkoutIndex(prev => 
+          prev > 0 ? prev - 1 : workouts.length - 1
+        );
+      } else {
+        // Swipe left - next workout
+        setCurrentWorkoutIndex(prev => 
+          prev < workouts.length - 1 ? prev + 1 : 0
+        );
+      }
+    }
+
+    touchStartRef.current = null;
+  };
+
+  return (
+    <View style={styles.workoutCardContainer}>
+      {/* Equipment Header */}
+      <View style={styles.equipmentHeader}>
+        <View style={styles.equipmentIconContainer}>
+          <Ionicons name={icon} size={20} color="#FFD700" />
+        </View>
+        <Text style={styles.equipmentTitle}>{equipment}</Text>
+      </View>
+
+      {/* Swipeable Workout Content */}
+      <View
+        style={styles.swipeableContainer}
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
+      >
+        {renderWorkout({ item: workouts[currentWorkoutIndex], index: currentWorkoutIndex })}
+      </View>
+
+      {/* Enhanced Dots Indicator */}
+      <View style={styles.dotsContainer}>
+        <Text style={styles.dotsLabel}>Swipe to explore</Text>
+        <View style={styles.dotsRow}>
+          {workouts.map((_, index) => (
+            <TouchableOpacity
+              key={index}
+              style={[
+                styles.dot,
+                currentWorkoutIndex === index && styles.activeDot
+              ]}
+              onPress={() => {
+                console.log('🔘 Dot clicked, changing to workout index:', index);
+                setCurrentWorkoutIndex(index);
+              }}
+            />
+          ))}
+        </View>
+      </View>
+    </View>
+  );
+};
+
 export default function ShouldersWorkoutDisplayScreen() {
   const router = useRouter();
-  const insets = useSafeAreaInsets();
   const params = useLocalSearchParams();
-  const [selectedWorkout, setSelectedWorkout] = useState<Workout | null>(null);
-  const scrollViewRef = useRef<ScrollView>(null);
-
+  const insets = useSafeAreaInsets();
+  
+  // Parse parameters with error handling and proper URL decoding
+  const equipmentParam = params.equipment as string || '';
+  let selectedEquipmentNames: string[] = [];
+  
+  try {
+    if (equipmentParam) {
+      // Decode URL-encoded parameter and split by comma
+      const decodedEquipment = decodeURIComponent(equipmentParam);
+      selectedEquipmentNames = decodedEquipment.split(',').map(name => name.trim());
+    }
+  } catch (error) {
+    console.error('Error parsing equipment parameter:', error);
+    // Fallback to default equipment for testing
+    selectedEquipmentNames = ['Dumbbells'];
+  }
+  
+  const difficulty = (params.difficulty as string || 'beginner').toLowerCase();
   const moodTitle = params.mood as string || 'Muscle gainer';
-  const workoutType = params.workoutType as string || 'Shoulders';
-  const selectedEquipmentParam = params.equipment as string || '';
-  const difficultyLevel = params.difficulty as string || 'beginner';
+  const workoutType = params.bodyPart as string || 'Shoulders';
+  
+  console.log('Parsed parameters:', { selectedEquipmentNames, difficulty, moodTitle, workoutType });
 
-  // Decode and split equipment names
-  const selectedEquipmentNames = decodeURIComponent(selectedEquipmentParam).split(',').filter(name => name.trim());
+  // Get difficulty color - all the same neon gold
+  const getDifficultyColor = (level: string) => {
+    return '#FFD700'; // Same neon gold for all difficulty levels
+  };
+
+  const difficultyColor = getDifficultyColor(difficulty);
 
   // Filter workouts based on selected equipment
-  const getWorkoutsForEquipment = () => {
-    const filteredWorkouts: Workout[] = [];
-    
-    selectedEquipmentNames.forEach(equipmentName => {
-      const equipmentData = shouldersWorkoutDatabase.find(eq => 
-        eq.equipment.toLowerCase() === equipmentName.toLowerCase().trim()
-      );
-      
-      if (equipmentData) {
-        const workoutsForDifficulty = equipmentData.workouts[difficultyLevel as keyof typeof equipmentData.workouts];
-        if (workoutsForDifficulty) {
-          filteredWorkouts.push(...workoutsForDifficulty);
-        }
-      }
-    });
-    
-    return filteredWorkouts;
-  };
+  const userWorkouts = shouldersWorkoutDatabase.filter(item => 
+    selectedEquipmentNames.includes(item.equipment)
+  );
 
-  const availableWorkouts = getWorkoutsForEquipment();
+  console.log('Debug info:', {
+    selectedEquipmentNames,
+    shouldersWorkoutDatabaseEquipment: shouldersWorkoutDatabase.map(w => w.equipment),
+    userWorkouts: userWorkouts.map(w => w.equipment),
+    userWorkoutsLength: userWorkouts.length
+  });
 
-  const handleWorkoutSelect = (workout: Workout) => {
-    setSelectedWorkout(workout);
-  };
-
-  const handleStartWorkout = () => {
-    if (selectedWorkout) {
-      router.push({
-        pathname: '/workout-guidance',
-        params: {
-          workoutName: selectedWorkout.name,
-          workoutDescription: selectedWorkout.description,
-          workoutDuration: selectedWorkout.duration,
-          equipment: selectedEquipmentParam,
-          difficulty: difficultyLevel,
-          mood: moodTitle,
-          workoutType: workoutType,
-        }
-      });
-    }
-  };
+  // Remove any potential duplicates
+  const uniqueUserWorkouts = userWorkouts.filter((workout, index, self) => 
+    index === self.findIndex(w => w.equipment === workout.equipment)
+  );
 
   const handleGoBack = () => {
     router.back();
   };
 
-  const getDifficultyColor = () => {
-    switch (difficultyLevel) {
-      case 'beginner': return '#4CAF50';
-      case 'intermediate': return '#FF9800';
-      case 'advanced': return '#F44336';
-      default: return '#FFD700';
+  const handleStartWorkout = (workout: Workout, equipment: string, difficulty: string) => {
+    try {
+      console.log('🚀 Starting workout:', workout.name, 'on', equipment);
+      
+      // Validate required parameters
+      if (!workout.name || !equipment || !difficulty) {
+        console.error('❌ Missing required parameters for workout navigation');
+        return;
+      }
+      
+      // Use navigation state instead of URL parameters to avoid encoding issues
+      router.push({
+        pathname: '/workout-guidance',
+        params: {
+          workoutName: workout.name,
+          equipment: equipment,
+          workoutDescription: workout.description,
+          workoutDuration: workout.duration,
+          difficulty: difficulty,
+          mood: moodTitle,
+          workoutType: workoutType,
+        }
+      });
+    } catch (error) {
+      console.error('❌ Navigation error:', error);
     }
-  };
-
-  const getDifficultyLabel = () => {
-    return difficultyLevel.charAt(0).toUpperCase() + difficultyLevel.slice(1);
   };
 
   return (
     <SafeAreaView style={[styles.container, { paddingTop: insets.top }]}>
       {/* Header */}
       <View style={styles.header}>
-        <TouchableOpacity style={styles.backButton} onPress={handleGoBack}>
+        <TouchableOpacity 
+          style={styles.backButton}
+          onPress={handleGoBack}
+        >
           <Ionicons name="chevron-back" size={24} color="#FFD700" />
         </TouchableOpacity>
         <View style={styles.headerTextContainer}>
-          <Text style={styles.headerTitle}>Shoulders Workouts</Text>
-          <Text style={styles.headerSubtitle}>{moodTitle}</Text>
+          <Text style={styles.headerTitle}>Your Workouts</Text>
+          <Text style={styles.headerSubtitle}>{moodTitle} • {difficulty}</Text>
         </View>
         <View style={styles.headerSpacer} />
       </View>
 
-      {/* Equipment and Difficulty Info */}
-      <View style={styles.infoContainer}>
-        <View style={styles.equipmentInfo}>
-          <Text style={styles.infoLabel}>Equipment:</Text>
-          <Text style={styles.infoText}>{selectedEquipmentNames.join(', ')}</Text>
-        </View>
-        <View style={[styles.difficultyBadge, { backgroundColor: getDifficultyColor() }]}>
-          <Text style={styles.difficultyText}>{getDifficultyLabel()}</Text>
+      {/* Progress Bar - Single Non-Scrolling Section */}
+      <View style={styles.progressContainer}>
+        <View style={styles.progressContent}>
+          {/* Step 1: Mood Selection */}
+          <View style={styles.progressStep}>
+            <View style={styles.progressStepActive}>
+              <Ionicons name="flame" size={12} color="#000000" />
+            </View>
+            <Text style={styles.progressStepText}>{moodTitle}</Text>
+          </View>
+          
+          <View style={styles.progressConnector} />
+          
+          {/* Step 2: Workout Type */}
+          <View style={styles.progressStep}>
+            <View style={styles.progressStepActive}>
+              <Ionicons name="diamond-outline" size={12} color="#000000" />
+            </View>
+            <Text style={styles.progressStepText}>{workoutType}</Text>
+          </View>
+          
+          <View style={styles.progressConnector} />
+          
+          {/* Step 3: Intensity Level */}
+          <View style={styles.progressStep}>
+            <View style={styles.progressStepActive}>
+              <Ionicons name="speedometer" size={12} color="#000000" />
+            </View>
+            <Text style={styles.progressStepText}>
+              {difficulty.charAt(0).toUpperCase() + difficulty.slice(1)}
+            </Text>
+          </View>
+          
+          <View style={styles.progressConnector} />
+          
+          {/* Steps 4+: Individual Equipment Items */}
+          {selectedEquipmentNames.map((equipment, index) => {
+            // Get appropriate icon for each equipment type
+            const getEquipmentIcon = (equipmentName: string) => {
+              const equipmentIconMap: { [key: string]: keyof typeof Ionicons.glyphMap } = {
+                'Adjustable Bench': 'square',
+                'Barbells': 'barbell',
+                'Cable Crossover Machine': 'reorder-three',
+                'Dumbbells': 'barbell',
+                'Kettlebells': 'diamond',
+                'Landmine Attachment': 'rocket',
+                'Pec Deck / Rear Delt Fly Machine': 'contract',
+                'Powerlifting Platform': 'grid',
+                'Shoulder Press Machine': 'triangle',
+                'Smith Machine': 'hardware-chip'
+              };
+              return equipmentIconMap[equipmentName] || 'fitness';
+            };
+
+            return (
+              <React.Fragment key={equipment}>
+                <View style={styles.progressStep}>
+                  <View style={styles.progressStepActive}>
+                    <Ionicons name={getEquipmentIcon(equipment)} size={12} color="#000000" />
+                  </View>
+                  <Text style={styles.progressStepText}>{equipment}</Text>
+                </View>
+                {index < selectedEquipmentNames.length - 1 && <View style={styles.progressConnector} />}
+              </React.Fragment>
+            );
+          })}
         </View>
       </View>
 
-      <ScrollView ref={scrollViewRef} style={styles.content} showsVerticalScrollIndicator={false}>
-        {availableWorkouts.length > 0 ? (
-          <>
-            <Text style={styles.sectionTitle}>Choose Your Workout</Text>
-            <Text style={styles.sectionSubtitle}>
-              Select a workout that matches your energy level and available time
-            </Text>
+      {/* Workouts List */}
+      <ScrollView 
+        style={styles.scrollView}
+        showsVerticalScrollIndicator={false}
+        contentContainerStyle={styles.scrollContent}
+      >
+        {uniqueUserWorkouts.map((equipmentData, index) => {
+          console.log(`Rendering card ${index + 1}:`, equipmentData.equipment);
+          return (
+            <View key={`container-${equipmentData.equipment}`} style={styles.workoutCardContainer}>
+              <WorkoutCard
+                key={`workout-card-${equipmentData.equipment}-${index}`}
+                equipment={equipmentData.equipment}
+                icon={equipmentData.icon}
+                workouts={equipmentData.workouts[difficulty as keyof typeof equipmentData.workouts]}
+                difficulty={difficulty}
+                difficultyColor={difficultyColor}
+                onStartWorkout={handleStartWorkout}
+              />
+            </View>
+          );
+        })}
 
-            {availableWorkouts.map((workout, index) => (
-              <TouchableOpacity
-                key={index}
-                style={[
-                  styles.workoutCard,
-                  selectedWorkout?.name === workout.name && styles.selectedWorkoutCard
-                ]}
-                onPress={() => handleWorkoutSelect(workout)}
-                activeOpacity={0.8}
-              >
-                <Image source={{ uri: workout.imageUrl }} style={styles.workoutImage} />
-                <View style={styles.workoutContent}>
-                  <View style={styles.workoutHeader}>
-                    <Text style={styles.workoutName}>{workout.name}</Text>
-                    <View style={styles.durationBadge}>
-                      <Ionicons name="time-outline" size={16} color="#FFD700" />
-                      <Text style={styles.durationText}>{workout.duration}</Text>
-                    </View>
-                  </View>
-                  
-                  <Text style={styles.workoutDescription}>{workout.description}</Text>
-                  
-                  <View style={styles.intensityContainer}>
-                    <Text style={styles.intensityReason}>{workout.intensityReason}</Text>
-                  </View>
-
-                  {selectedWorkout?.name === workout.name && (
-                    <View style={styles.selectedIndicator}>
-                      <Ionicons name="checkmark-circle" size={24} color="#FFD700" />
-                      <Text style={styles.selectedText}>Selected</Text>
-                    </View>
-                  )}
-                </View>
-              </TouchableOpacity>
-            ))}
-          </>
-        ) : (
+        {/* Debug info for development */}
+        {uniqueUserWorkouts.length === 0 && (
           <View style={styles.noWorkoutsContainer}>
-            <Ionicons name="barbell-outline" size={48} color="#666" />
-            <Text style={styles.noWorkoutsTitle}>No Workouts Available</Text>
             <Text style={styles.noWorkoutsText}>
-              No workouts found for the selected equipment and difficulty level. Please go back and try different selections.
+              No workouts available for selected equipment.
+            </Text>
+            <Text style={styles.debugText}>
+              Selected: {selectedEquipmentNames.join(', ')}
+            </Text>
+            <Text style={styles.debugText}>
+              Available: {shouldersWorkoutDatabase.map(w => w.equipment).join(', ')}
             </Text>
           </View>
         )}
       </ScrollView>
-
-      {/* Start Workout Button */}
-      {selectedWorkout && (
-        <View style={styles.footer}>
-          <TouchableOpacity style={styles.startButton} onPress={handleStartWorkout}>
-            <Text style={styles.startButtonText}>Start Workout</Text>
-            <Ionicons name="play-circle" size={24} color="#000" />
-          </TouchableOpacity>
-        </View>
-      )}
     </SafeAreaView>
   );
 }
@@ -504,179 +701,260 @@ const styles = StyleSheet.create({
   headerSpacer: {
     width: 40,
   },
-  infoContainer: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    paddingHorizontal: 24,
-    paddingVertical: 16,
+  progressContainer: {
     backgroundColor: '#111111',
     borderBottomWidth: 1,
     borderBottomColor: 'rgba(255, 215, 0, 0.2)',
+    paddingVertical: 16,
+    paddingHorizontal: 20,
   },
-  equipmentInfo: {
-    flex: 1,
+  progressContent: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    flexWrap: 'wrap',
+    gap: 8,
   },
-  infoLabel: {
-    fontSize: 12,
-    color: 'rgba(255, 255, 255, 0.6)',
-    marginBottom: 4,
+  progressStep: {
+    alignItems: 'center',
+    minWidth: 60,
   },
-  infoText: {
-    fontSize: 14,
-    color: '#FFD700',
-    fontWeight: '600',
-  },
-  difficultyBadge: {
-    paddingHorizontal: 12,
-    paddingVertical: 6,
+  progressStepActive: {
+    width: 32,
+    height: 32,
     borderRadius: 16,
-  },
-  difficultyText: {
-    fontSize: 12,
-    color: '#ffffff',
-    fontWeight: 'bold',
-  },
-  content: {
-    flex: 1,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    color: '#ffffff',
-    marginTop: 24,
-    marginBottom: 8,
-    textShadowColor: 'rgba(255, 215, 0, 0.3)',
-    textShadowOffset: { width: 0, height: 0 },
-    textShadowRadius: 8,
-  },
-  sectionSubtitle: {
-    fontSize: 16,
-    color: 'rgba(255, 255, 255, 0.7)',
-    marginBottom: 24,
-    lineHeight: 22,
-  },
-  workoutCard: {
-    backgroundColor: '#111111',
-    borderRadius: 16,
+    backgroundColor: '#FFD700',
     borderWidth: 2,
-    borderColor: 'rgba(255, 215, 0, 0.3)',
-    marginBottom: 16,
-    overflow: 'hidden',
-  },
-  selectedWorkoutCard: {
     borderColor: '#FFD700',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginBottom: 8,
     shadowColor: '#FFD700',
     shadowOffset: { width: 0, height: 0 },
     shadowOpacity: 0.6,
-    shadowRadius: 12,
-    elevation: 8,
+    shadowRadius: 8,
+    elevation: 6,
+  },
+  progressStepText: {
+    fontSize: 10,
+    color: 'rgba(255, 255, 255, 0.8)',
+    textAlign: 'center',
+    fontWeight: '500',
+    maxWidth: 60,
+  },
+  progressConnector: {
+    width: 20,
+    height: 2,
+    backgroundColor: 'rgba(255, 215, 0, 0.3)',
+    marginTop: 8,
+  },
+  scrollView: {
+    flex: 1,
+  },
+  scrollContent: {
+    paddingBottom: 24,
+  },
+  workoutCardContainer: {
+    marginHorizontal: 24,
+    marginVertical: 12,
+  },
+  equipmentHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 16,
+    paddingHorizontal: 4,
+  },
+  equipmentIconContainer: {
+    width: 36,
+    height: 36,
+    borderRadius: 18,
+    backgroundColor: 'rgba(255, 215, 0, 0.15)',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginRight: 12,
+    borderWidth: 2,
+    borderColor: 'rgba(255, 215, 0, 0.3)',
+  },
+  equipmentTitle: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    color: '#FFD700',
+  },
+  swipeableContainer: {
+    borderRadius: 16,
+    overflow: 'hidden',
+    backgroundColor: '#111111',
+    borderWidth: 2,
+    borderColor: 'rgba(255, 215, 0, 0.3)',
+  },
+  workoutSlide: {
+    backgroundColor: '#111111',
+  },
+  workoutImageContainer: {
+    height: 120,
+    position: 'relative',
   },
   workoutImage: {
     width: '100%',
-    height: 120,
+    height: '100%',
     backgroundColor: '#222',
   },
+  imageOverlay: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    backgroundColor: 'rgba(0, 0, 0, 0.3)',
+  },
+  swipeIndicator: {
+    position: 'absolute',
+    top: 8,
+    right: 8,
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: 'rgba(0, 0, 0, 0.7)',
+    paddingHorizontal: 8,
+    paddingVertical: 4,
+    borderRadius: 12,
+  },
+  swipeText: {
+    fontSize: 11,
+    color: '#FFD700',
+    marginLeft: 4,
+    fontWeight: '600',
+  },
   workoutContent: {
-    padding: 20,
+    flex: 1,
   },
   workoutHeader: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    alignItems: 'center',
+    alignItems: 'flex-start',
     marginBottom: 12,
+  },
+  workoutTitleContainer: {
+    flex: 1,
+    marginRight: 12,
   },
   workoutName: {
-    fontSize: 18,
+    fontSize: 16,
     fontWeight: 'bold',
     color: '#ffffff',
-    flex: 1,
+    marginBottom: 6,
   },
-  durationBadge: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    backgroundColor: 'rgba(255, 215, 0, 0.15)',
+  difficultyBadge: {
     paddingHorizontal: 8,
     paddingVertical: 4,
-    borderRadius: 12,
-    gap: 4,
+    borderRadius: 8,
+    alignSelf: 'flex-start',
   },
-  durationText: {
-    fontSize: 12,
-    color: '#FFD700',
-    fontWeight: '600',
+  difficultyBadgeText: {
+    fontSize: 10,
+    fontWeight: 'bold',
+    color: '#ffffff',
   },
-  workoutDescription: {
+  workoutDuration: {
     fontSize: 14,
-    color: 'rgba(255, 255, 255, 0.8)',
-    lineHeight: 20,
-    marginBottom: 12,
+    fontWeight: 'bold',
+    color: '#FFD700',
   },
   intensityContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
     marginBottom: 12,
+    paddingHorizontal: 12,
+    paddingVertical: 8,
+    backgroundColor: 'rgba(255, 215, 0, 0.1)',
+    borderRadius: 8,
   },
   intensityReason: {
-    fontSize: 13,
-    color: '#FFD700',
+    fontSize: 12,
+    color: 'rgba(255, 255, 255, 0.8)',
+    marginLeft: 8,
+    flex: 1,
     fontStyle: 'italic',
   },
-  selectedIndicator: {
+  workoutDescriptionContainer: {
+    flex: 1,
+    maxHeight: 80,
+  },
+  workoutDescription: {
+    fontSize: 13,
+    color: 'rgba(255, 255, 255, 0.8)',
+    lineHeight: 18,
+  },
+  startWorkoutButton: {
+    backgroundColor: '#FFD700',
+    borderRadius: 12,
+    paddingVertical: 12,
+    paddingHorizontal: 16,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
+    marginTop: 16,
     gap: 8,
-    marginTop: 8,
+    shadowColor: '#FFD700',
+    shadowOffset: { width: 0, height: 0 },
+    shadowOpacity: 0.4,
+    shadowRadius: 8,
+    elevation: 6,
   },
-  selectedText: {
-    fontSize: 16,
-    color: '#FFD700',
+  startWorkoutButtonText: {
+    fontSize: 14,
     fontWeight: 'bold',
+    color: '#000000',
+  },
+  dotsContainer: {
+    alignItems: 'center',
+    paddingVertical: 16,
+    backgroundColor: 'rgba(255, 215, 0, 0.05)',
+  },
+  dotsLabel: {
+    fontSize: 11,
+    color: 'rgba(255, 255, 255, 0.6)',
+    marginBottom: 8,
+    fontWeight: '500',
+  },
+  dotsRow: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    gap: 12,
+  },
+  dot: {
+    width: 12,
+    height: 12,
+    borderRadius: 6,
+    backgroundColor: 'rgba(255, 255, 255, 0.3)',
+    borderWidth: 2,
+    borderColor: 'rgba(255, 215, 0, 0.3)',
+  },
+  activeDot: {
+    backgroundColor: '#FFD700',
+    borderColor: '#FFD700',
+    shadowColor: '#FFD700',
+    shadowOffset: { width: 0, height: 0 },
+    shadowOpacity: 0.6,
+    shadowRadius: 4,
+    elevation: 4,
   },
   noWorkoutsContainer: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
     paddingVertical: 60,
-  },
-  noWorkoutsTitle: {
-    fontSize: 20,
-    fontWeight: 'bold',
-    color: '#ffffff',
-    marginTop: 16,
-    marginBottom: 8,
+    paddingHorizontal: 24,
   },
   noWorkoutsText: {
     fontSize: 16,
     color: 'rgba(255, 255, 255, 0.7)',
     textAlign: 'center',
-    lineHeight: 22,
-    paddingHorizontal: 20,
+    marginBottom: 12,
   },
-  footer: {
-    paddingHorizontal: 24,
-    paddingVertical: 20,
-    borderTopWidth: 1,
-    borderTopColor: 'rgba(255, 215, 0, 0.2)',
-  },
-  startButton: {
-    backgroundColor: '#FFD700',
-    borderRadius: 16,
-    paddingVertical: 16,
-    paddingHorizontal: 24,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    gap: 8,
-    shadowColor: '#FFD700',
-    shadowOffset: { width: 0, height: 0 },
-    shadowOpacity: 0.6,
-    shadowRadius: 12,
-    elevation: 8,
-  },
-  startButtonText: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    color: '#000000',
+  debugText: {
+    fontSize: 12,
+    color: 'rgba(255, 255, 255, 0.5)',
+    textAlign: 'center',
+    marginTop: 4,
   },
 });
