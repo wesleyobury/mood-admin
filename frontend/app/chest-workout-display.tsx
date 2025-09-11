@@ -758,7 +758,7 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Machine Drop Set',
           duration: '16–20 min',
-          description: '3 rounds:\n• 8 heavy chest press\n• Drop → 10 moderate\n• Drop → 12 light\n• 10 pec deck\n• Rest 90–120s',
+          description: '3 rounds:\n• 8 heavy chest press\n• Drop → 10 moderate\n• Drop → 12 light\n• 10 pec deck\n• Rest 90–120s\n\nTips:\n• Drop sets: Move weight pin quickly (5s max)—minimize rest to maximize metabolic stress.\n• Machine benefit: Safety rails allow you to push each drop set to true failure without risk.',
           imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmd8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Advanced drop set protocol using machine safety for maximum intensity and chest hypertrophy.',
           moodTips: [
