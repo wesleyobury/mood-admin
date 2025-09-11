@@ -903,7 +903,7 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Dip Endurance Challenge',
           duration: '15–18 min',
-          description: '2 rounds:\n• Max bodyweight dips\n• 20 bench dips\n• 15 diamond push-ups\n• 20 regular push-ups\n• Rest 2–3 min',
+          description: '2 rounds:\n• Max bodyweight dips\n• 20 bench dips\n• 15 diamond push-ups\n• 20 regular push-ups\n• Rest 2–3 min\n\nTips:\n• Max dips: Start strong but pace yourself—form breakdown = end of set, not muscle failure.\n• Mental approach: This is as much mental as physical—push through the burn while maintaining technique.',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Advanced endurance challenge testing maximum dip capacity and muscular endurance.',
           moodTips: [
