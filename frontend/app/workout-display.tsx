@@ -1977,9 +1977,9 @@ const workoutDatabase: EquipmentWorkouts[] = [
       ],
       intermediate: [
         {
-          name: 'Medicine Ball AMRAP Challenge',
-          duration: '22-25 min',
-          description: '• 10 wall balls (14-16 lb ball\n• target 10 feet)\n10 medicine ball slams (12-14 lb ball)\n10 alternating overhead reverse lunges (10-12 lb ball)\n8 rotational tosses each side (8-10 lb ball)\nAMRAP for 12 minutes\n3 minutes rest\n6 minutes AMRAP of same movements\nFinish with 3 minutes mobility work',
+          name: 'Medicine Ball AMRAP',
+          duration: '10 min',
+          description: 'As many rounds as possible in 10 minutes:\n• 10 wall balls\n• 10 ball slams\n• 10 lunges (ball overhead)',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwzfHxtZWRpY2luZSUyMGJhbGwlMjBhbXJhcHxlbnwwfHx8fDE3NTY4ODMyMzd8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Intermediate AMRAP protocol that challenges cardiovascular capacity, overhead stability, and rotational power with progressive volume demands.',
           moodTips: [
