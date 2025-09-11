@@ -413,8 +413,8 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
             },
             {
               icon: 'timer',
-              title: 'Focus on time under tension',
-              description: 'During final drops for growth and muscle development.'
+              title: 'Time under tension',
+              description: 'Focus on TUT during final drops for growth.'
             }
           ]
         }
