@@ -913,6 +913,12 @@ const styles = StyleSheet.create({
     flex: 1,
     fontWeight: '600', // Make instructions slightly bolder
   },
+  bandPlacementText: {
+    fontSize: 15, // 1pt smaller than regular stepText (16pt)
+    fontStyle: 'italic',
+    color: 'rgba(255, 255, 255, 0.7)', // Slightly muted color for band placement
+    lineHeight: 22,
+  },
   // Completed workout button styles
   completedButtonContainer: {
     backgroundColor: '#000000',
