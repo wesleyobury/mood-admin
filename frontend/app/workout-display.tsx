@@ -3358,6 +3358,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 8,
     paddingVertical: 4,
     borderRadius: 12,
+    zIndex: 10,
   },
   swipeText: {
     fontSize: 11,
