@@ -36,11 +36,11 @@ const parseWorkoutDescription = (description: string): string[] => {
     
     for (const line of lines) {
       if (line.startsWith('•')) {
-        // This is a movement/exercise - already has bullet, just capitalize the content
+        // This is a movement/exercise - already has bullet, just capitalize and keep as is
         const cleanStep = line.replace(/^•\s*/, '').trim();
         if (cleanStep) {
           const capitalized = cleanStep.charAt(0).toUpperCase() + cleanStep.slice(1);
-          steps.push(`• ${capitalized}`);
+          steps.push(line); // Keep the original line with its bullet
         }
       } else {
         // This is an instruction - no bullet, just capitalize
