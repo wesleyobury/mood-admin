@@ -2695,7 +2695,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Tire Flipping Foundation',
           duration: '16-20 min',
-          description: '• 5 proper tire flips (focus on technique)\n10 tire step-ups (controlled pace)\n8 tire toe taps for footwork\n6 tire push-ups (hands on tire edge)\n90 seconds rest\nRepeat for 4 complete rounds\nFinish with 3 minutes stretching and lower back mobility',
+          description: '• 5 proper tire flips (focus on technique)\n• 10 tire step-ups (controlled pace)\n• 8 tire toe taps for footwork\n• 6 tire push-ups (hands on tire edge)\n90 seconds rest\nRepeat for 4 complete rounds\nFinish with 3 minutes stretching and lower back mobility',
           imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHx0aXJlJTIwZmxpcCUyMHdvcmtvdXR8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Perfect introduction to tire flipping emphasizing proper lifting mechanics, hip hinge technique, and complementary movements for comprehensive strength development.',
           moodTips: [
