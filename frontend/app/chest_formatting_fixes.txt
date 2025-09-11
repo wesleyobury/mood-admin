@@ -1,0 +1,27 @@
+Key formatting fixes needed for chest workout battle plans:
+
+CURRENT FORMAT → PROPER FORMAT:
+'3 rounds:\n• exercise' → '• 3 rounds:\n  • exercise'
+'4 rounds:\n• exercise' → '• 4 rounds:\n  • exercise'  
+'2 rounds:\n• exercise' → '• 2 rounds:\n  • exercise'
+
+All exercises within rounds should be indented with 2 spaces:
+  • 8 flat press
+  • 10 incline press
+  • Rest 60s
+
+Drop sets format:
+  • 8 heavy exercise
+  • Drop → 10 moderate  
+  • Drop → 12 light
+
+Common patterns to fix:
+- Adjustable bench workouts
+- Flat bench workouts
+- Incline bench workouts
+- Decline bench workouts
+- Cable crossover workouts
+- Chest press machine workouts
+- Dip station workouts (DONE)
+- Pec dec machine workouts
+- Smith machine workouts
