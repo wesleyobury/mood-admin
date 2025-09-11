@@ -25,7 +25,23 @@ const formatTime = (seconds: number): string => {
 };
 
 const parseWorkoutDescription = (description: string): string[] => {
-  // Clean up punctuation and extra spaces
+  // Handle bullet-point format with line breaks
+  if (description.includes('\n•')) {
+    // Split on line breaks and clean up bullets
+    return description
+      .split('\n')
+      .map(step => step.trim())
+      .filter(step => step.length > 0)
+      .map(step => {
+        // Remove bullet point if present and clean up
+        const cleanStep = step.replace(/^•\s*/, '').trim();
+        // Capitalize first letter if not already
+        return cleanStep.charAt(0).toUpperCase() + cleanStep.slice(1);
+      })
+      .filter(step => step.length > 0);
+  }
+  
+  // Fallback for old comma-separated format
   let cleanedDescription = description
     .replace(/\s+/g, ' ') // Replace multiple spaces with single space
     .replace(/,\s*\./g, '.') // Remove comma before period
@@ -34,7 +50,6 @@ const parseWorkoutDescription = (description: string): string[] => {
     .trim();
 
   // Smart splitting on time units and logical breaks
-  // Split on: commas before time units, repeat statements, and finish statements
   const steps = cleanedDescription
     .split(/,\s*(?=\d+\s*(?:sec|min))|(?:,\s*)?(?=repeat\s+\d+\s*(?:x|times?|cycles?|sets?))|(?:,\s*)?(?=finish\s+with)/i)
     .map(step => step.trim())
@@ -59,7 +74,7 @@ const parseWorkoutDescription = (description: string): string[] => {
       // Capitalize first letter
       return step.charAt(0).toUpperCase() + step.slice(1);
     })
-    .filter(step => step.length > 0); // Remove any empty steps
+    .filter(step => step.length > 0);
   
   // If we only have one step or no meaningful splits, return the original
   return steps.length > 1 ? steps : [cleanedDescription];
