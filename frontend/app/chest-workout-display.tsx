@@ -804,7 +804,7 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Assisted Dip Circuit',
           duration: '10–12 min',
-          description: '3 rounds:\n• 8 assisted dips (use band or machine)\n• 10 bench dips\n• Rest 60s',
+          description: '3 rounds:\n• 8 assisted dips (use band or machine)\n• 10 bench dips\n• Rest 60s\n\nTips:\n• Assisted dips: Lean forward slightly to engage chest more than triceps—shoulder angle matters.\n• Bench dips: Keep feet closer to bench to reduce shoulder stress and maintain chest focus.',
           imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHc5fHxyaW5nfGVufDB8fHx8MVc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Perfect beginner introduction to dip movements with assistance to build strength progressively.',
           moodTips: [
@@ -823,7 +823,7 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Dip Progression',
           duration: '12–15 min',
-          description: '3 rounds:\n• 6 assisted dips\n• 8 bench dips\n• 10 push-ups\n• Rest 60–75s',
+          description: '3 rounds:\n• 6 assisted dips\n• 8 bench dips\n• 10 push-ups\n• Rest 60–75s\n\nTips:\n• Progressive overload: Gradually reduce assistance week by week as strength improves.\n• Bench dips: Lower until shoulders are below elbows, then drive up through chest—not just arms.',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Progressive dip training combined with complementary movements for comprehensive beginner chest development.',
           moodTips: [
