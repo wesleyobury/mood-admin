@@ -2441,9 +2441,9 @@ const workoutDatabase: EquipmentWorkouts[] = [
     workouts: {
       beginner: [
         {
-          name: 'Resistance Band Foundation Circuit',
-          duration: '18-22 min',
-          description: '• 10 banded squats (medium resistance)\n10 seated rows (medium resistance)\n10 chest presses (light-medium resistance)\n10 bicep curls (light resistance)\n8 shoulder lateral raises (light resistance)\n90 seconds rest\nRepeat for 4 complete rounds\nFinish with 3 minutes band-assisted stretching',
+          name: 'Band Cardio Circuit',
+          duration: '12–15 min',
+          description: 'Perform 3 rounds:\n• 10 banded squats\n• 10 band rows\n• 10 chest presses\nRest 1 min',
           imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxyZXNpc3RhbmNlJTIwYmFuZCUyMHdvcmtvdXR8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Perfect introduction to resistance band training emphasizing controlled movement patterns, proper tension maintenance, and progressive muscle activation.',
           moodTips: [
