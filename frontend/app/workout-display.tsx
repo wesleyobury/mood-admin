@@ -2588,7 +2588,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Hammer and Agility Flow',
           duration: '16-20 min',
-          description: '• 8 controlled overhead strikes each side (8-10 lb hammer)\n8 tire toe taps (quick feet pattern)\n6 diagonal strikes each side (light hammer)\n10 tire step-overs (lateral movement)\n8 tire punches with gloves\n90 seconds rest\nRepeat for 3 complete rounds',
+          description: '• 8 controlled overhead strikes each side (8-10 lb hammer)\n• 8 tire toe taps (quick feet pattern)\n• 6 diagonal strikes each side (light hammer)\n• 10 tire step-overs (lateral movement)\n• 8 tire punches with gloves\n90 seconds rest\nRepeat for 3 complete rounds',
           imageUrl: 'https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwyfHxzbGVkZ2VoYW1tZXIlMjBtYXJjaHxlbnwwfHx8fDE3NTY4ODMyMzd8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Progressive coordination workout building relationship between striking power, footwork agility, and multi-directional movement patterns.',
           moodTips: [
