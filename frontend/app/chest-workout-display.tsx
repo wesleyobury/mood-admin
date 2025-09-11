@@ -552,7 +552,7 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Cable Chest Foundation',
           duration: '12–15 min',
-          description: '3 rounds:\n• 12 high cable fly\n• 12 mid cable fly\n• 12 low cable fly\n• Rest 60–75s',
+          description: '3 rounds:\n• 12 high cable fly\n• 12 mid cable fly\n• 12 low cable fly\n• Rest 60–75s\n\nTips:\n• High cables target upper chest, mid-level targets center, low cables hit lower pecs—use full range.\n• Maintain constant tension throughout—cables provide resistance unlike free weights.',
           imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHc5fHxyaW5nfGVufDB8fHx8MVc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Perfect beginner introduction to cable training targeting all areas of chest development with constant tension.',
           moodTips: [
@@ -571,7 +571,7 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Cable Press Circuit',
           duration: '10–12 min',
-          description: '3 rounds:\n• 10 standing cable press\n• 10 single-arm cable press\n• Rest 60s',
+          description: '3 rounds:\n• 10 standing cable press\n• 10 single-arm cable press\n• Rest 60s\n\nTips:\n• Stand with one foot forward for stability—core engaged prevents energy leakage.\n• Press across body midline (not straight forward) to maximize pec fiber recruitment.',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Builds chest pressing strength with cable resistance and unilateral training for balanced development.',
           moodTips: [
