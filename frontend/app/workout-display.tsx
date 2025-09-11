@@ -2483,7 +2483,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'High-Intensity Band Tabata Protocol',
           duration: '26-28 min',
-          description: '• Tabata Protocol: 20 seconds work\n• 10 seconds rest\nRound 1: Banded squat jumps (medium-heavy resistance) - 8 intervals\n2 minutes rest\nRound 2: Band-assisted push-ups (light resistance) - 8 intervals\n2 minutes rest\nRound 3: Seated rows (medium-heavy resistance) - 8 intervals\n2 minutes rest\nRound 4: Mountain climbers with ankle bands (light resistance) - 8 intervals\nFinish with 4 minutes stretching',
+          description: 'Tabata Protocol: 20 seconds work, 10 seconds rest\n• Round 1: Banded squat jumps (medium-heavy resistance) - 8 intervals\n2 minutes rest\n• Round 2: Band-assisted push-ups (light resistance) - 8 intervals\n2 minutes rest\n• Round 3: Seated rows (medium-heavy resistance) - 8 intervals\n2 minutes rest\n• Round 4: Mountain climbers with ankle bands (light resistance) - 8 intervals\nFinish with 4 minutes stretching',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwzfHxyZXNpc3RhbmNlJTIwYmFuZCUyMHRhYmF0YXxlbnwwfHx8fDE3NTY4ODMyMzd8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Advanced Tabata intervals utilizing band resistance to maximize anaerobic power development and metabolic conditioning across multiple movement patterns.',
           moodTips: [
