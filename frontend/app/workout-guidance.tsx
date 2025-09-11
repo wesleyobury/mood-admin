@@ -25,20 +25,34 @@ const formatTime = (seconds: number): string => {
 };
 
 const parseWorkoutDescription = (description: string): string[] => {
-  // Handle bullet-point format with line breaks
-  if (description.includes('\n•')) {
-    // Split on line breaks and clean up bullets
-    return description
+  // Handle the new format with instructions and bulleted movements
+  if (description.includes('\n•') || description.includes('\n')) {
+    const lines = description
       .split('\n')
-      .map(step => step.trim())
-      .filter(step => step.length > 0)
-      .map(step => {
-        // Remove bullet point if present and clean up
-        const cleanStep = step.replace(/^•\s*/, '').trim();
-        // Capitalize first letter if not already
-        return cleanStep.charAt(0).toUpperCase() + cleanStep.slice(1);
-      })
-      .filter(step => step.length > 0);
+      .map(line => line.trim())
+      .filter(line => line.length > 0);
+    
+    const steps: string[] = [];
+    
+    for (const line of lines) {
+      if (line.startsWith('•')) {
+        // This is a movement/exercise - keep the bullet and capitalize
+        const cleanStep = line.replace(/^•\s*/, '').trim();
+        if (cleanStep) {
+          const capitalized = cleanStep.charAt(0).toUpperCase() + cleanStep.slice(1);
+          steps.push(`• ${capitalized}`);
+        }
+      } else {
+        // This is an instruction - no bullet, just capitalize
+        const cleanStep = line.trim();
+        if (cleanStep) {
+          const capitalized = cleanStep.charAt(0).toUpperCase() + cleanStep.slice(1);
+          steps.push(capitalized);
+        }
+      }
+    }
+    
+    return steps.filter(step => step.length > 0);
   }
   
   // Fallback for old comma-separated format
