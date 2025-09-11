@@ -2063,6 +2063,133 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
         }
       ]
     }
+  },
+  // DIP STATION
+  {
+    equipment: 'Dip station',
+    icon: 'remove',
+    workouts: {
+      beginner: [
+        {
+          name: 'Assisted Dip Circuit',
+          duration: '12–14 min',
+          description: '• 3 rounds:\n  • 8 assisted dips (band/spot)\n  • 10 bench dips\n  • Rest 60s',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHc5fHxyaW5nfGVufDB8fHx8MTc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Perfect beginner introduction to dip movements with assistance to build strength progressively.',
+          moodTips: [
+            {
+              icon: 'body',
+              title: 'Tilt torso forward slightly',
+              description: 'To bias pecs more than triceps during movement.'
+            },
+            {
+              icon: 'trending-down',
+              title: 'Lower slowly until pecs stretch',
+              description: 'Drive up with chest for proper activation.'
+            }
+          ]
+        },
+        {
+          name: 'Dip & Push-Up Flow',
+          duration: '10–12 min',
+          description: '• 3 rounds:\n  • 8 dips\n  • 10 push-ups\n  • Rest 60s',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Bodyweight combination that builds fundamental dip strength and chest endurance.',
+          moodTips: [
+            {
+              icon: 'body',
+              title: 'Don\'t stay too upright',
+              description: 'Lean slightly chest-forward for pec engagement.'
+            },
+            {
+              icon: 'construct',
+              title: 'Keep elbows out 45°',
+              description: 'To keep tension in pecs throughout movement.'
+            }
+          ]
+        }
+      ],
+      intermediate: [
+        {
+          name: 'Dip Ladder',
+          duration: '14–15 min',
+          description: '• 3 rounds:\n  • 10 dips\n  • 8 dips (feet elevated)\n  • 6 slow negatives\n  • Rest 90s',
+          imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Progressive dip training with elevation and negatives for intermediate strength development.',
+          moodTips: [
+            {
+              icon: 'trending-up',
+              title: 'Elevation = deeper pec stretch',
+              description: 'Feet elevation increases range and difficulty.'
+            },
+            {
+              icon: 'timer',
+              title: 'Slow negatives = muscle breakdown',
+              description: 'For hypertrophy and strength gains.'
+            }
+          ]
+        },
+        {
+          name: 'Dip & Plyo Push-Ups',
+          duration: '15 min',
+          description: '• 3 rounds:\n  • 8 dips\n  • 8 plyo push-ups\n  • 8 dips\n  • Rest 90s',
+          imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
+          intensityReason: 'Mechanical drop set combining dips and explosive push-ups for massive chest pump.',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Transition = mechanical drop set',
+              description: 'Creates massive pec pump and fiber recruitment.'
+            },
+            {
+              icon: 'fitness',
+              title: 'Explode on push-ups',
+              description: 'To hit fast-twitch fibers after dip fatigue.'
+            }
+          ]
+        }
+      ],
+      advanced: [
+        {
+          name: 'Weighted Dip AMRAP',
+          duration: '10 min',
+          description: '• As many dips as possible in 10 min (add weight if possible)',
+          imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmc&ZW44MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Maximum volume dip challenge with optional weight addition for advanced strength endurance.',
+          moodTips: [
+            {
+              icon: 'timer',
+              title: 'Use 5-10 rep mini-sets',
+              description: 'With short rests to build volume efficiently.'
+            },
+            {
+              icon: 'body',
+              title: 'Lean forward to stretch pecs',
+              description: 'At bottom for maximum chest activation.'
+            }
+          ]
+        },
+        {
+          name: 'Dip Complex',
+          duration: '15–18 min',
+          description: '• 3 rounds:\n  • 8 dips\n  • 8 push-ups\n  • 8 plyo push-ups\n  • 8 slow negatives\n  • Rest 90s',
+          imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Advanced chest finisher combining multiple movement patterns for complete muscle breakdown.',
+          moodTips: [
+            {
+              icon: 'shield',
+              title: 'Treat as chest finisher',
+              description: 'Always go near failure for maximum stimulus.'
+            },
+            {
+              icon: 'timer',
+              title: 'Negative dips (3-4s)',
+              description: 'Unmatched chest fiber breakdown for growth.'
+            }
+          ]
+        }
+      ]
+    }
   }
 ];
 
