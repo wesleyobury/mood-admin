@@ -2502,7 +2502,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Resistance Band Sprint Power Circuit',
           duration: '22-25 min',
-          description: '• 10 banded squat jumps (medium resistance)\n10 resisted sprint accelerations (heavy resistance\n• 10 yards)\n10 band-assisted push-ups (light-medium resistance)\n8 lateral band walks each direction (medium resistance)\n8 single-arm rows each arm (medium-heavy resistance)\n2 minutes rest\nRepeat for 4 complete rounds',
+          description: '• 10 banded squat jumps (medium resistance)\n• 10 resisted sprint accelerations (heavy resistance, 10 yards)\n• 10 band-assisted push-ups (light-medium resistance)\n• 8 lateral band walks each direction (medium resistance)\n• 8 single-arm rows each arm (medium-heavy resistance)\n2 minutes rest\nRepeat for 4 complete rounds',
           imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxyZXNpc3RhbmNlJTIwYmFuZCUyMHNwcmludHxlbnwwfHx8fDE3NTY4ODMyMzd8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Dynamic power circuit integrating plyometric movements with resisted acceleration work to develop explosive strength and sprint mechanics.',
           moodTips: [
