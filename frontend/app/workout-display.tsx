@@ -1786,7 +1786,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Kettlebell AMRAP',
           duration: '15 min',
-          description: '• Max rounds in 15 min of:\n10 double swings\n8 alternating snatches\n6 goblet squat jumps\n4 Turkish get-ups (2/side)',
+          description: 'Complete as many rounds as possible in 15 minutes:\n• 10 double swings\n• 8 alternating snatches\n• 6 goblet squat jumps\n• 4 Turkish get-ups (2/side)',
           imageUrl: 'https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw2fHxrZXR0bGViZWxsJTIwYW1yYXB8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Maximum intensity AMRAP combining power, agility, and complex movement patterns.',
           moodTips: [
