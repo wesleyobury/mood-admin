@@ -168,7 +168,7 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
   },
   {
     equipment: 'Flat bench',
-    icon: 'rectangle',
+    icon: 'square',
     workouts: {
       beginner: [
         {
