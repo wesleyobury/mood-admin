@@ -319,7 +319,7 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Incline Chest Press',
           duration: '12–15 min',
-          description: '3 rounds:\n• 12 incline bench press (light)\n• 10 incline fly\n• Rest 60–75s',
+          description: '3 rounds:\n• 12 incline bench press (light)\n• 10 incline fly\n• Rest 60–75s\n\nTips:\n• Exhale and squeeze pecs hard as dumbbells come together; imagine bringing elbows to midline.\n• Keep bench angle at ~30° to avoid shoulder takeover.',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Combines incline pressing and isolation to build upper chest strength and definition for beginners.',
           moodTips: [
