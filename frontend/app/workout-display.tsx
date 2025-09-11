@@ -2542,7 +2542,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Advanced Band and Plyometric Integration',
           duration: '28-32 min',
-          description: '• 10 jump lunges with band resistance (medium-heavy)\n10 explosive mountain climbers with ankle bands (light-medium)\n10 single-arm rows to rotation each arm (heavy resistance)\n10 band-assisted pistol squats each leg (light-medium resistance)\n8 resisted broad jumps (heavy resistance)\n90 seconds rest\nRepeat for 5 complete rounds',
+          description: '• 10 jump lunges with band resistance (medium-heavy)\n• 10 explosive mountain climbers with ankle bands (light-medium)\n• 10 single-arm rows to rotation each arm (heavy resistance)\n• 10 band-assisted pistol squats each leg (light-medium resistance)\n• 8 resisted broad jumps (heavy resistance)\n90 seconds rest\nRepeat for 5 complete rounds',
           imageUrl: 'https://images.unsplash.com/photo-1517838277536-f5f99be501cd?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw2fHxyZXNpc3RhbmNlJTIwYmFuZCUyMHBseW98ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Maximum intensity integration combining advanced plyometric patterns with resistance band strength work for elite athletic development.',
           moodTips: [
