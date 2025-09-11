@@ -844,7 +844,7 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Dip Strength Circuit',
           duration: '14–16 min',
-          description: '4 rounds:\n• 8 bodyweight dips\n• 10 bench dips\n• 8 diamond push-ups\n• Rest 75s',
+          description: '4 rounds:\n• 8 bodyweight dips\n• 10 bench dips\n• 8 diamond push-ups\n• Rest 75s\n\nTips:\n• Bodyweight dips: Maintain forward lean throughout—think chest toward floor to maximize pec engagement.\n• Diamond push-ups: Keep elbows closer to body and drive through chest, not just triceps.',
           imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Intermediate bodyweight dip training with supporting movements for strength and endurance development.',
           moodTips: [
@@ -863,7 +863,7 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Dip Power Complex',
           duration: '12–15 min',
-          description: '3 rounds:\n• 6 explosive dips\n• 8 controlled dips\n• 10 incline push-ups\n• Rest 90s',
+          description: '3 rounds:\n• 6 explosive dips\n• 8 controlled dips\n• 10 incline push-ups\n• Rest 90s\n\nTips:\n• Explosive dips: Drive up with max intent, but control lockout to avoid joint hyperextension.\n• Controlled dips: 3s descent, 1s pause at bottom, explosive drive up—builds power and size.',
           imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
           intensityReason: 'Power-focused dip training combining explosive and controlled movements for intermediate athletic development.',
           moodTips: [
