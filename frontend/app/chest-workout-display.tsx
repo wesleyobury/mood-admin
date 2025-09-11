@@ -1010,7 +1010,7 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Pec Dec Drop Set',
           duration: '16–20 min',
-          description: '3 rounds:\n• 10 heavy pec dec\n• Drop → 12 moderate\n• Drop → 15 light\n• 8 chest press\n• Rest 90–120s',
+          description: '3 rounds:\n• 10 heavy pec dec\n• Drop → 12 moderate\n• Drop → 15 light\n• 8 chest press\n• Rest 90–120s\n\nTips:\n• Drop sets: Move weight pin quickly (5s max)—constant tension maximizes muscle fiber recruitment.\n• Peak contraction: On every rep, squeeze pads together and hold for 1s—force maximum activation.',
           imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmc&ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Advanced drop set protocol maximizing chest isolation and hypertrophy through machine safety and control.',
           moodTips: [
