@@ -129,7 +129,7 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Explosive Press Builder',
           duration: '18–20 min',
-          description: '• 4x8 Push Press\n• 4x10 Lateral Raises\n• 4x10 Bent-Over Reverse Flys\nRest 90s between sets.',
+          description: 'Overloads delts with heavy push presses and targeted isolation movements.',
           imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmc&ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Advanced explosive dumbbell training combining power movements with isolation work.',
           moodTips: [
@@ -148,7 +148,7 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Dumbbell Power Flow',
           duration: '16–18 min',
-          description: '• 8 clean to press\n• 8 lateral raise to front raise combo\n• 8 alternating single-arm snatch (light, explosive)\nRepeat 4x. Rest 90s between rounds.',
+          description: 'Trains explosive power and hypertrophy through cleans, combo raises, and snatches.',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Elite dumbbell complex movements emphasizing explosive patterns and fast-twitch fiber activation.',
           moodTips: [
