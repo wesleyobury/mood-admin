@@ -215,7 +215,7 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Power Press Combo',
           duration: '16–18 min',
-          description: '• 4x8 Push Press\n• 4x8 Barbell High Pull\nRest 75s between sets.',
+          description: 'Heavier push presses and high pulls to\ndevelop explosive delt power.\n ',
           imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Power-focused training combining leg drive pressing with explosive pulling for intermediate strength development.',
           moodTips: [
@@ -234,7 +234,7 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Barbell Shoulder Circuit',
           duration: '14–16 min',
-          description: '• 8 push presses\n• 8 barbell Z-presses (seated on floor)\n• 8 overhead lunges (alternate legs)\nRepeat 3x. Rest 90s between rounds.',
+          description: 'Presses, Z-presses, and overhead lunges\nto build strict strength and stability.\n ',
           imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
           intensityReason: 'Circuit format combining power, strict strength, and stability patterns for comprehensive shoulder development.',
           moodTips: [
