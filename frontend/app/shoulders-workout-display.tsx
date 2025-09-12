@@ -975,7 +975,7 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           name: 'Intro Shoulder Isolation',
           duration: '12–14 min',
           description: 'Light rear delt and pec deck pairing\nfor balance.\n ',
-          battlePlan: '• 3 rounds:\n• 12 rear delt fly\n• 12 pec deck fly\n• Rest 60s',
+          battlePlan: '• 3 rounds:\n• 12 Rear Delt Fly\n• 12 Pec Deck Fly\n• Rest 60s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8MTc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Perfect beginner introduction to isolation training balancing front and rear deltoid development.',
           moodTips: [
@@ -1017,7 +1017,7 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           name: 'Fly Isolation Builder',
           duration: '14–16 min',
           description: 'Moderate delt/chest fly pairing for\nhypertrophy.\n ',
-          battlePlan: '• 4 rounds:\n• 10 rear delt fly\n• 10 pec deck fly\n• Rest 75s',
+          battlePlan: '• 4 rounds:\n• 10 Rear Delt Fly\n• 10 Pec Deck Fly\n• Rest 75s',
           imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW54MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Intermediate isolation training balancing posterior and anterior deltoid hypertrophy development.',
           moodTips: [
@@ -1059,7 +1059,7 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           name: 'Heavy Shoulder Isolation',
           duration: '18–20 min',
           description: 'Heavy rear delt, pec deck, and single-arm\nflys for overload.\n ',
-          battlePlan: '• 4 rounds:\n• 8 rear delt fly\n• 8 pec deck fly\n• 8 single-arm fly\n• Rest 90s',
+          battlePlan: '• 4 rounds:\n• 8 Rear Delt Fly\n• 8 Pec Deck Fly\n• 8 Single-Arm Fly\n• Rest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmc&ZW54MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Advanced isolation training emphasizing maximum load capacity for targeted deltoid hypertrophy.',
           moodTips: [
@@ -1079,7 +1079,7 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           name: 'Fly Machine Burnout',
           duration: '18–20 min',
           description: 'Burnout sequence with holds and single-arm\nrear delt focus.\n ',
-          battlePlan: '• 3 rounds:\n• 8 rear delt fly\n• 8 pec deck fly\n• 8 single-arm fly\n• 8s hold at top\n• No rest between exercises\n• Rest 90s between rounds',
+          battlePlan: '• 3 rounds:\n• 8 rear delt fly\n• 8 pec deck fly\n• 8 single-arm fly\n• 8s hold at top\n• Rest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Mijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Elite burnout protocol maximizing metabolic stress and time under tension for hypertrophy.',
           moodTips: [
