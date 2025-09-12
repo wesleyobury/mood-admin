@@ -39,7 +39,7 @@ interface EquipmentWorkouts {
   };
 }
 
-// Shoulders workout database - using flat bench workouts from chest path for barbells
+// Shoulders workout database with detailed battle plans
 const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
   {
     equipment: 'Dumbbells',
@@ -89,7 +89,7 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Arnold Power Set',
           duration: '14–16 min',
-          description: 'Develops delt and trap strength through\nArnold presses and upright rows.\n ',
+          description: '• 4 rounds:\n• 10 Arnold press\n• 10 upright row\n• Rest 75s',
           imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Intermediate dumbbell training combining rotation movements with traditional pulling patterns.',
           moodTips: [
@@ -108,7 +108,7 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Shoulder Circuit Challenge',
           duration: '14–16 min',
-          description: 'A multi-exercise circuit enhancing shoulder\nstrength, stability, and core integration.\n ',
+          description: '• 3 rounds:\n• 8 explosive push press\n• 8 lateral raise\n• 8 plank drag (each arm)\n• Rest 90s',
           imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
           intensityReason: 'Circuit format combining pressing, isolation, and core integration for comprehensive shoulder development.',
           moodTips: [
@@ -129,7 +129,7 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Explosive Press Builder',
           duration: '18–20 min',
-          description: 'Overloads delts with heavy push presses\nand targeted isolation movements.\n ',
+          description: '• 4 rounds:\n• 8 push press (each arm)\n• 8 single-arm lateral raise (each arm)\n• 8 rear delt fly\n• Rest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmc&ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Advanced explosive dumbbell training combining power movements with isolation work.',
           moodTips: [
@@ -148,7 +148,7 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Dumbbell Power Flow',
           duration: '16–18 min',
-          description: 'Trains explosive power and hypertrophy\nthrough cleans, combo raises, and snatches.\n ',
+          description: '• 3 rounds:\n• 6 dumbbell clean\n• 6 lateral + front raise combo\n• 6 single-arm snatch (each arm)\n• Rest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Elite dumbbell complex movements emphasizing explosive patterns and fast-twitch fiber activation.',
           moodTips: [
@@ -175,7 +175,7 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Barbell Press Builder',
           duration: '12–14 min',
-          description: 'Strengthens shoulders with pressing and\nupright row fundamentals.\n ',
+          description: '• 3 rounds:\n• 10 standing barbell press\n• 10 upright row\n• Rest 60–75s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8MTc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Perfect beginner introduction to barbell shoulder training with fundamental overhead pressing movements.',
           moodTips: [
@@ -194,7 +194,7 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Intro Shoulder Flow',
           duration: '12–14 min',
-          description: 'Light circuit combining strict press,\nbehind-the-neck press, and overhead arcs\nfor stability.',
+          description: '• 3 rounds:\n• 8 strict press\n• 8 behind-the-neck press (light)\n• 8 barbell rainbows\n• Rest 75s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Gentle progression introducing varied barbell shoulder movement patterns for mobility and control.',
           moodTips: [
@@ -215,7 +215,7 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Power Press Combo',
           duration: '16–18 min',
-          description: 'Heavier push presses and high pulls to\ndevelop explosive delt power.\n ',
+          description: '• 4 rounds:\n• 8 push press\n• 8 high pull\n• Rest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Power-focused training combining leg drive pressing with explosive pulling for intermediate strength development.',
           moodTips: [
@@ -234,7 +234,7 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Barbell Shoulder Circuit',
           duration: '14–16 min',
-          description: 'Presses, Z-presses, and overhead lunges\nto build strict strength and stability.\n ',
+          description: '• 3 rounds:\n• 8 push press\n• 8 Z-press\n• 8 overhead lunge (each leg)\n• Rest 90s',
           imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
           intensityReason: 'Circuit format combining power, strict strength, and stability patterns for comprehensive shoulder development.',
           moodTips: [
@@ -255,7 +255,7 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Advanced Barbell Builder',
           duration: '18–20 min',
-          description: 'Strict pressing, rows, and raises for\ncomplete shoulder overload.\n ',
+          description: '• 4 rounds:\n• 8 strict press\n• 8 upright row\n• 8 front raise (barbell)\n• Rest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmc&ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Advanced strict barbell training emphasizing controlled movement patterns for maximum shoulder development.',
           moodTips: [
@@ -274,8 +274,8 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Barbell Power Complex',
           duration: '18–20 min',
-          description: 'Push jerks, high pulls, and Sots presses\nfor heavy, functional shoulder growth.\n ',
-          imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
+          description: '• 4 rounds:\n• 6 push jerk\n• 6 high pull\n• 6 Sots press\n• Rest 120s',
+          imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW4lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Elite complex training combining explosive jerks, pulls, and overhead squat pressing for maximum power and mobility.',
           moodTips: [
             {
@@ -301,7 +301,7 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Kettlebell Shoulder Builder',
           duration: '12–14 min',
-          description: 'Builds delt stability and strength with\npresses and single‑arm raises.\n ',
+          description: '• 3 rounds:\n• 10 single-arm overhead press (each side)\n• 10 single-arm lateral raise (each side)\n• Rest 60s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8MTc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Perfect beginner introduction to kettlebell shoulder training with single-arm stability work.',
           moodTips: [
@@ -320,7 +320,7 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Kettlebell Flow Starter',
           duration: '12–14 min',
-          description: 'A mobility and stability circuit using\npresses, halos, and carries.\n ',
+          description: '• 3 rounds:\n• 8 single-arm overhead press (each side)\n• 8 halos (each direction)\n• 8 overhead carries (each side, 20 sec)\n• Rest 75s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Dynamic mobility flow training with halos and carries for shoulder stability and control.',
           moodTips: [
@@ -341,7 +341,7 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Double Press Builder',
           duration: '15–17 min',
-          description: 'Heavy bilateral pressing paired with\nupright rows for delts and traps.\n ',
+          description: '• 4 rounds:\n• 8 double kettlebell press\n• 10 upright row\n• Rest 75s',
           imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Intermediate double kettlebell training combining bilateral pressing with upright rowing patterns.',
           moodTips: [
@@ -360,7 +360,7 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Kettlebell Strength Flow',
           duration: '16–18 min',
-          description: 'Clean & presses, snatches, windmills, and\nlunges for delt strength with mobility.\n ',
+          description: '• 3 rounds:\n• 8 clean & press (each side)\n• 8 snatch (each side)\n• 8 windmill (each side)\n• 8 overhead lunge (each side, 10m)\n• Rest 90s',
           imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
           intensityReason: 'Advanced flow combining explosive movements with mobility patterns for comprehensive shoulder development.',
           moodTips: [
@@ -381,7 +381,7 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Kettlebell Strength Builder',
           duration: '18–20 min',
-          description: 'Overloads shoulders with push presses,\nhigh pulls, and front raises.\n ',
+          description: '• 4 rounds:\n• 8 push press (each side)\n• 8 high pull (each side)\n• 8 single-arm front raise (each side)\n• Rest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmc&ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Advanced kettlebell training emphasizing explosive power movements and targeted isolation work.',
           moodTips: [
@@ -400,7 +400,7 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Kettlebell Power Complex',
           duration: '18–20 min',
-          description: 'A power circuit of presses, snatches, and\nTurkish sit-ups to train explosive endurance.\n ',
+          description: '• 4 rounds:\n• 6 double kettlebell push press\n• 6 alternating snatch\n• 6 Turkish get-up sit-up (each side)\n• Rest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Elite power complex combining explosive snatches with Turkish get-up variations for maximum endurance.',
           moodTips: [
@@ -427,7 +427,7 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Seated Angle Press Builder',
           duration: '12–14 min',
-          description: 'Seated presses and raises at angles\nfor delt isolation.\n ',
+          description: '• 3 rounds:\n• 12 seated dumbbell press (bench at 75–90°)\n• 12 seated lateral raise\n• Rest 60s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8MTc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Perfect beginner introduction to adjustable bench training with angle-specific delt targeting.',
           moodTips: [
@@ -446,7 +446,7 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Adjustable Bench Flow',
           duration: '12–14 min',
-          description: 'Press progression across angles to hit\ndifferent shoulder fibers.\n ',
+          description: '• 2 rounds:\n• 8 press at 90°\n• 8 press at 75°\n• 8 press at 60°\n• Rest 75s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Progressive angle training systematically targeting different deltoid muscle fiber orientations.',
           moodTips: [
@@ -467,7 +467,7 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Arnold + Fly Builder',
           duration: '14–16 min',
-          description: 'Arnold presses and reverse flys for\nfront-to-rear delt balance.\n ',
+          description: '• 4 rounds:\n• 10 Arnold press (seated)\n• 10 reverse fly (seated)\n• Rest 75s',
           imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Intermediate bench training combining rotational pressing with rear deltoid isolation work.',
           moodTips: [
@@ -486,7 +486,7 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Seated Shoulder Circuit',
           duration: '16–18 min',
-          description: 'Circuit of Arnold presses, raises, and\nisometric holds for hypertrophy and stability.\n ',
+          description: '• 3 rounds:\n• 10 Arnold press\n• 10 lateral raise\n• 10 reverse fly\n• 30s overhead hold (standing)\n• Rest 90s',
           imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
           intensityReason: 'Circuit format combining rotational pressing, isolation, and isometric holds for comprehensive development.',
           moodTips: [
@@ -507,7 +507,7 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Complete Bench Builder',
           duration: '18–20 min',
-          description: 'Press, lateral raise, and reverse fly\ntriad for full delt work.\n ',
+          description: '• 4 rounds:\n• 8 seated shoulder press\n• 8 lateral raise\n• 8 seated reverse fly\n• Rest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmc&ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Advanced complete shoulder development combining pressing, lateral, and posterior deltoid work.',
           moodTips: [
@@ -526,7 +526,7 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Shoulder Giant Set',
           duration: '18–20 min',
-          description: 'Back-to-back presses, raises, and isometrics\ncreate maximum density.\n ',
+          description: '• 3 rounds:\n• 10 press (seated)\n• 10 lateral raise (seated)\n• 10 front raise (seated)\n• 30s isometric hold (lateral raise position)\n• Rest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Elite giant set protocol maximizing training density with continuous deltoid activation patterns.',
           moodTips: [
@@ -553,7 +553,7 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Press + Pull Starter',
           duration: '12–14 min',
-          description: 'Overhead presses and high pulls for\ndelt strength basics.\n ',
+          description: '• 3 rounds:\n• 10 standing barbell overhead press\n• 10 barbell high pull\n• Rest 60–75s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8MTc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Perfect beginner introduction to platform training with fundamental overhead pressing and pulling.',
           moodTips: [
@@ -572,7 +572,7 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Overhead Intro Flow',
           duration: '12–14 min',
-          description: 'Strict press, pulls, holds, and arcs to\nbuild overhead stability.\n ',
+          description: '• 3 rounds:\n• 8 strict press\n• 8 high pull\n• 8 overhead hold (10s)\n• 8 barbell rainbow\n• Rest 75s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Progressive overhead stability training combining pressing, pulling, and mobility patterns.',
           moodTips: [
@@ -593,7 +593,7 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Platform Power Builder',
           duration: '15–17 min',
-          description: 'Push presses and holds for heavy\ndelt overload.\n ',
+          description: '• 4 rounds:\n• 8 push press\n• 8 overhead hold (15s)\n• Rest 75s',
           imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Intermediate power development combining explosive pressing with isometric holds for strength.',
           moodTips: [
@@ -612,7 +612,7 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Olympic Flow',
           duration: '16–18 min',
-          description: 'A strength and mobility blend of press,\nsnatch, and squat.\n ',
+          description: '• 3 rounds:\n• 8 push press\n• 8 power snatch (light)\n• 8 overhead squat (light)\n• Rest 90s',
           imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
           intensityReason: 'Olympic movement integration combining pressing, explosive pulling, and overhead mobility patterns.',
           moodTips: [
@@ -633,7 +633,7 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Advanced Platform Builder',
           duration: '18–20 min',
-          description: 'Heavy jerks, pulls, and squats for\nadvanced delt growth.\n ',
+          description: '• 4 rounds:\n• 8 push jerk\n• 8 high pull\n• 8 overhead squat (light)\n• Rest 90–120s',
           imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmc&ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Advanced platform training emphasizing heavy Olympic lifts for maximum shoulder power development.',
           moodTips: [
@@ -652,7 +652,7 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Olympic Shoulder Complex',
           duration: '18–20 min',
-          description: 'Jerks, snatches, and Sots presses for\nload and mobility.\n ',
+          description: '• 4 rounds:\n• 6 push jerk\n• 6 snatch\n• 6 Sots press\n• Rest 120s',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Elite Olympic complex combining maximum explosive power with deep overhead mobility demands.',
           moodTips: [
@@ -665,636 +665,6 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
               icon: 'body',
               title: 'Sots presses push shoulders under maximum',
               description: 'Tension + mobility demand.'
-            }
-          ]
-        }
-      ]
-    }
-  },
-  {
-    equipment: 'Smith Machine',
-    icon: 'hardware-chip',
-    workouts: {
-      beginner: [
-        {
-          name: 'Smith Intro Press',
-          duration: '12–14 min',
-          description: 'Strict pressing and rows with\nSmith stability.\n ',
-          imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8MTc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Perfect beginner introduction to Smith machine training with guided bar path stability.',
-          moodTips: [
-            {
-              icon: 'checkmark-circle',
-              title: 'Smith machine removes balance demands',
-              description: 'Focus purely on pressing strength.'
-            },
-            {
-              icon: 'trending-up',
-              title: 'Upright rows: keep elbows higher than wrists',
-              description: 'For maximum delt activation.'
-            }
-          ]
-        },
-        {
-          name: 'Smith Flow Starter',
-          duration: '12–14 min',
-          description: 'Press, row, and light behind-neck work\nin a safe track.\n ',
-          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Safe progression through multiple shoulder movement patterns using Smith machine guidance.',
-          moodTips: [
-            {
-              icon: 'warning',
-              title: 'Behind-the-neck presses: only go as low',
-              description: 'As shoulder mobility allows safely.'
-            },
-            {
-              icon: 'shield',
-              title: 'Smith track provides safety',
-              description: 'For exploring new movement patterns.'
-            }
-          ]
-        }
-      ],
-      intermediate: [
-        {
-          name: 'Smith Press Builder',
-          duration: '14–16 min',
-          description: 'Shoulder presses with bar-only raises\nfor anterior delt focus.\n ',
-          imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Intermediate Smith training combining guided pressing with isolated anterior deltoid work.',
-          moodTips: [
-            {
-              icon: 'barbell',
-              title: 'Smith pressing allows focus on form',
-              description: 'Without balance concerns.'
-            },
-            {
-              icon: 'trending-up',
-              title: 'Front raises with bar create different tension',
-              description: 'Than dumbbells - constant load.'
-            }
-          ]
-        },
-        {
-          name: 'Smith Shoulder Circuit',
-          duration: '16–18 min',
-          description: 'Multi-move Smith circuit targeting pressing\nstrength and stability.\n ',
-          imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
-          intensityReason: 'Circuit format combining multiple Smith machine angles for comprehensive shoulder development.',
-          moodTips: [
-            {
-              icon: 'flash',
-              title: 'Push presses in Smith allow heavier loads',
-              description: 'Safely without balance demands.'
-            },
-            {
-              icon: 'timer',
-              title: 'Overhead holds build confidence',
-              description: 'Under heavy loads with safety.'
-            }
-          ]
-        }
-      ],
-      advanced: [
-        {
-          name: 'Heavy Smith Builder',
-          duration: '18–20 min',
-          description: 'Heavy press and row combo without\nbalance demands.\n ',
-          imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmc&ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Advanced heavy Smith training maximizing load capacity without balance limitations.',
-          moodTips: [
-            {
-              icon: 'barbell',
-              title: 'Smith allows true maximal loading',
-              description: 'Without stabilizer limitations.'
-            },
-            {
-              icon: 'warning',
-              title: 'Behind-the-neck work requires perfect mobility',
-              description: 'Use Smith safety for confidence.'
-            }
-          ]
-        },
-        {
-          name: 'Descending Rep Shoulder Complex',
-          duration: '18–20 min',
-          description: 'Dropset-style circuit across press,\nrow, and raise.\n ',
-          imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Elite descending rep protocol maximizing fatigue accumulation across multiple movement patterns.',
-          moodTips: [
-            {
-              icon: 'trending-down',
-              title: 'Descending reps maintain intensity',
-              description: 'As fatigue accumulates.'
-            },
-            {
-              icon: 'flash',
-              title: 'No rest between exercises',
-              description: 'Maximizes metabolic demand and growth.'
-            }
-          ]
-        }
-      ]
-    }
-  },
-  {
-    equipment: 'Shoulder Press Machine',
-    icon: 'triangle',
-    workouts: {
-      beginner: [
-        {
-          name: 'Machine Shoulder Builder',
-          duration: '12–14 min',
-          description: 'Light presses with neutral grip for\njoint-friendly strength.\n ',
-          imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8MTc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Perfect beginner introduction to machine pressing with joint-friendly grip variations.',
-          moodTips: [
-            {
-              icon: 'hand-left',
-              title: 'Neutral grip reduces wrist stress',
-              description: 'While maintaining delt activation.'
-            },
-            {
-              icon: 'checkmark-circle',
-              title: 'Machine path ensures consistent form',
-              description: 'Throughout the movement.'
-            }
-          ]
-        },
-        {
-          name: 'Machine Static Flow',
-          duration: '12–14 min',
-          description: 'Alternates reps and isometric holds to\nextend tension.\n ',
-          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Progressive isometric integration extending time under tension for enhanced muscle activation.',
-          moodTips: [
-            {
-              icon: 'timer',
-              title: 'Isometric holds at top and midpoint',
-              description: 'Maximize tension at different angles.'
-            },
-            {
-              icon: 'flash',
-              title: 'Machine stability allows focus',
-              description: 'On muscle contraction quality.'
-            }
-          ]
-        }
-      ],
-      intermediate: [
-        {
-          name: 'Press Machine Builder',
-          duration: '14–16 min',
-          description: 'Moderate pressing with unilateral work\nfor balance.\n ',
-          imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Intermediate machine training combining bilateral and unilateral pressing for balanced development.',
-          moodTips: [
-            {
-              icon: 'body',
-              title: 'Single-arm presses reveal imbalances',
-              description: 'Machine safety allows exploration.'
-            },
-            {
-              icon: 'checkmark-circle',
-              title: 'Bilateral work builds pure strength',
-              description: 'Without stabilizer limitations.'
-            }
-          ]
-        },
-        {
-          name: 'Machine Grip Circuit',
-          duration: '16–18 min',
-          description: 'Grips and holds to recruit all\nshoulder fibers.\n ',
-          imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
-          intensityReason: 'Circuit format utilizing multiple grip positions to target different deltoid fiber orientations.',
-          moodTips: [
-            {
-              icon: 'hand-left',
-              title: 'Wide grip targets posterior delts more',
-              description: 'Neutral hits anterior and medial.'
-            },
-            {
-              icon: 'timer',
-              title: 'Overhead holds with different grips',
-              description: 'Build grip-specific stability.'
-            }
-          ]
-        }
-      ],
-      advanced: [
-        {
-          name: 'Heavy Machine Builder',
-          duration: '18–20 min',
-          description: 'Heavy multi-grip pressing for\ndelt hypertrophy.\n ',
-          imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmc&ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Advanced heavy machine training maximizing load across multiple grip positions for hypertrophy.',
-          moodTips: [
-            {
-              icon: 'barbell',
-              title: 'Machine allows true maximal loads',
-              description: 'Without balance or stabilizer concerns.'
-            },
-            {
-              icon: 'hand-left',
-              title: 'Grip variation prevents adaptation',
-              description: 'Keeps muscles challenged.'
-            }
-          ]
-        },
-        {
-          name: 'Machine Shoulder Gauntlet',
-          duration: '18–20 min',
-          description: 'High-density pressing gauntlet for hypertrophy\nand tendon strength.\n ',
-          imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Elite high-density protocol combining maximum training volume with tendon strengthening adaptations.',
-          moodTips: [
-            {
-              icon: 'flash',
-              title: 'High-density training maximizes hypertrophy',
-              description: 'Through volume accumulation.'
-            },
-            {
-              icon: 'timer',
-              title: 'Overhead holds strengthen tendons',
-              description: 'Under maximal tension.'
-            }
-          ]
-        }
-      ]
-    }
-  },
-  {
-    equipment: 'Rear Delt Fly Machine',
-    icon: 'contract',
-    workouts: {
-      beginner: [
-        {
-          name: 'Intro Shoulder Isolation',
-          duration: '12–14 min',
-          description: 'Light rear delt and pec deck pairing\nfor balance.\n ',
-          imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8MTc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Perfect beginner introduction to isolation training balancing front and rear deltoid development.',
-          moodTips: [
-            {
-              icon: 'contract',
-              title: 'Rear delt flies require light weight',
-              description: 'Focus on squeeze, not load.'
-            },
-            {
-              icon: 'refresh',
-              title: 'Pec deck flies balance front-focused',
-              description: 'Pressing movements.'
-            }
-          ]
-        },
-        {
-          name: 'Isolation Hold Circuit',
-          duration: '12–14 min',
-          description: 'Paused rear delt and pec deck flys for\ncontraction and control.\n ',
-          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Isometric integration protocol enhancing muscle activation through paused contractions.',
-          moodTips: [
-            {
-              icon: 'timer',
-              title: '2-second pause at peak contraction',
-              description: 'Maximizes muscle activation.'
-            },
-            {
-              icon: 'checkmark-circle',
-              title: 'Machine path ensures perfect isolation',
-              description: 'No momentum or cheating.'
-            }
-          ]
-        }
-      ],
-      intermediate: [
-        {
-          name: 'Fly Isolation Builder',
-          duration: '14–16 min',
-          description: 'Moderate delt/chest fly pairing for\nhypertrophy.\n ',
-          imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Intermediate isolation training balancing posterior and anterior deltoid hypertrophy development.',
-          moodTips: [
-            {
-              icon: 'contract',
-              title: 'Rear flys first when fresh',
-              description: 'They\'re usually the weakest link.'
-            },
-            {
-              icon: 'trending-up',
-              title: 'Progressive overload on isolation',
-              description: 'Comes from perfect form, not just weight.'
-            }
-          ]
-        },
-        {
-          name: 'Grips & Angles Circuit',
-          duration: '16–18 min',
-          description: 'Multiple fly grips and single-arm flies\nfor isolation angles.\n ',
-          imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
-          intensityReason: 'Circuit format utilizing multiple grip positions and unilateral work for comprehensive isolation.',
-          moodTips: [
-            {
-              icon: 'hand-left',
-              title: 'Grip variations target different fiber angles',
-              description: 'Wide, neutral, close all matter.'
-            },
-            {
-              icon: 'body',
-              title: 'Single-arm flies reveal imbalances',
-              description: 'Between left and right sides.'
-            }
-          ]
-        }
-      ],
-      advanced: [
-        {
-          name: 'Heavy Shoulder Isolation',
-          duration: '18–20 min',
-          description: 'Heavy rear delt, pec deck, and single-arm\nflys for overload.\n ',
-          imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmc&ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Advanced isolation training emphasizing maximum load capacity for targeted deltoid hypertrophy.',
-          moodTips: [
-            {
-              icon: 'barbell',
-              title: 'Heavy isolation requires perfect form',
-              description: 'Machine stability allows focus on load.'
-            },
-            {
-              icon: 'body',
-              title: 'Single-arm flies allow independent loading',
-              description: 'Address imbalances with precision.'
-            }
-          ]
-        },
-        {
-          name: 'Fly Machine Burnout',
-          duration: '18–20 min',
-          description: 'Burnout sequence with holds and single-arm\nrear delt focus.\n ',
-          imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Mijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Elite burnout protocol maximizing metabolic stress and time under tension for hypertrophy.',
-          moodTips: [
-            {
-              icon: 'flash',
-              title: 'Burnout sequences push past normal failure',
-              description: 'Maximum hypertrophy stimulus.'
-            },
-            {
-              icon: 'timer',
-              title: 'Holds at top extend time under tension',
-              description: 'When muscles want to quit.'
-            }
-          ]
-        }
-      ]
-    }
-  },
-  {
-    equipment: 'Cable Crossover Machine',
-    icon: 'reorder-three',
-    workouts: {
-      beginner: [
-        {
-          name: 'Cable Raise Starter',
-          duration: '12–14 min',
-          description: 'Lateral and front raises under constant\ncable tension.\n ',
-          imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8MTc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Perfect beginner introduction to cable training with constant tension throughout range of motion.',
-          moodTips: [
-            {
-              icon: 'flash',
-              title: 'Cables provide constant tension',
-              description: 'Unlike free weights that vary with gravity.'
-            },
-            {
-              icon: 'trending-up',
-              title: 'Start light and focus on control',
-              description: 'Cable resistance feels different.'
-            }
-          ]
-        },
-        {
-          name: 'Cable Flow Burn',
-          duration: '14–15 min',
-          description: 'Cable raises, face pulls, and static hold\nfor shoulder pump.\n ',
-          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Progressive flow combining isolation raises with posterior chain work for balanced development.',
-          moodTips: [
-            {
-              icon: 'contract',
-              title: 'Face pulls hit often-neglected rear delts',
-              description: 'Essential for shoulder health.'
-            },
-            {
-              icon: 'timer',
-              title: 'Static holds create metabolic stress',
-              description: 'Perfect for muscle growth.'
-            }
-          ]
-        }
-      ],
-      intermediate: [
-        {
-          name: 'Cable Combo Press Builder',
-          duration: '14–16 min',
-          description: 'Cable pressing paired with rows for\ndelts and traps.\n ',
-          imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Intermediate cable training combining pressing patterns with rowing for comprehensive development.',
-          moodTips: [
-            {
-              icon: 'flash',
-              title: 'Cable presses allow unique angles',
-              description: 'Not possible with free weights.'
-            },
-            {
-              icon: 'trending-up',
-              title: 'Upright rows with cables',
-              description: 'Provide smoother resistance curve.'
-            }
-          ]
-        },
-        {
-          name: 'Cable Angle Circuit',
-          duration: '16–18 min',
-          description: 'Multi-angle raises plus face pulls and\npresses for delts.\n ',
-          imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
-          intensityReason: 'Circuit format utilizing multiple cable angles to target deltoids from all vectors.',
-          moodTips: [
-            {
-              icon: 'settings',
-              title: 'High-to-low and low-to-high angles',
-              description: 'Hit different deltoid fiber orientations.'
-            },
-            {
-              icon: 'contract',
-              title: 'Face pulls between raises',
-              description: 'Maintain rear delt activation.'
-            }
-          ]
-        }
-      ],
-      advanced: [
-        {
-          name: 'Heavy Cable Builder',
-          duration: '18–20 min',
-          description: 'Heavy raises, face pulls, and rows to\nhit fast-twitch delts.\n ',
-          imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmc&ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Advanced heavy cable training targeting fast-twitch muscle fibers for maximum power development.',
-          moodTips: [
-            {
-              icon: 'flash',
-              title: 'Heavy cable work requires explosive intent',
-              description: 'Even on isolation movements.'
-            },
-            {
-              icon: 'trending-up',
-              title: 'Cables allow heavy isolation safely',
-              description: 'With constant tension benefits.'
-            }
-          ]
-        },
-        {
-          name: 'Cable Complex Burnout',
-          duration: '18–20 min',
-          description: 'Giant set across raises, pulls, and presses\nfor nonstop activation.\n ',
-          imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Mijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Elite giant set protocol maximizing continuous deltoid activation across multiple movement patterns.',
-          moodTips: [
-            {
-              icon: 'flash',
-              title: 'Giant sets with cables create',
-              description: 'Maximum metabolic stress and growth.'
-            },
-            {
-              icon: 'timer',
-              title: 'No rest between exercises',
-              description: 'Maintains constant tension throughout.'
-            }
-          ]
-        }
-      ]
-    }
-  },
-  {
-    equipment: 'Landmine Attachment',
-    icon: 'rocket',
-    workouts: {
-      beginner: [
-        {
-          name: 'Landmine Starter Press',
-          duration: '12–14 min',
-          description: 'Intro to single- and two-arm\nlandmine pressing.\n ',
-          imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8MTc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Perfect beginner introduction to landmine training with natural arc pressing movement.',
-          moodTips: [
-            {
-              icon: 'trending-up',
-              title: 'Landmine arc feels more natural',
-              description: 'Than straight overhead pressing.'
-            },
-            {
-              icon: 'body',
-              title: 'Single-arm work reveals imbalances',
-              description: 'Between left and right sides.'
-            }
-          ]
-        },
-        {
-          name: 'Landmine Basics Flow',
-          duration: '12–15 min',
-          description: 'Press, raise, and iso-hold circuit for\nstability and growth.\n ',
-          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Progressive flow combining pressing, isolation, and stability work through landmine arc movement.',
-          moodTips: [
-            {
-              icon: 'flash',
-              title: 'Landmine raises hit unique angle',
-              description: 'Not possible with other equipment.'
-            },
-            {
-              icon: 'timer',
-              title: 'Overhead holds in landmine position',
-              description: 'Build stability through the arc.'
-            }
-          ]
-        }
-      ],
-      intermediate: [
-        {
-          name: 'Landmine Press Builder',
-          duration: '15–16 min',
-          description: 'Press and front raise focus using\nlandmine arc.\n ',
-          imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Intermediate landmine training combining pressing strength with front deltoid isolation work.',
-          moodTips: [
-            {
-              icon: 'trending-up',
-              title: 'Landmine arc allows heavier loads',
-              description: 'Than traditional overhead pressing.'
-            },
-            {
-              icon: 'flash',
-              title: 'Front raises in landmine arc',
-              description: 'Create unique resistance curve.'
-            }
-          ]
-        },
-        {
-          name: 'Landmine Functional Flow',
-          duration: '16–18 min',
-          description: 'Presses, rotations, and holds combining\ndelts and core.\n ',
-          imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
-          intensityReason: 'Functional integration combining deltoid work with core stability through rotational patterns.',
-          moodTips: [
-            {
-              icon: 'refresh',
-              title: 'Rotational presses combine shoulders and core',
-              description: 'Perfect functional integration.'
-            },
-            {
-              icon: 'body',
-              title: 'Landmine forces anti-rotation stability',
-              description: 'Building real-world strength.'
-            }
-          ]
-        }
-      ],
-      advanced: [
-        {
-          name: 'Heavy Landmine Builder',
-          duration: '18–20 min',
-          description: 'Heavy push presses and raises for\ndelt overload.\n ',
-          imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmc&ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Advanced heavy landmine training maximizing load capacity through explosive pressing patterns.',
-          moodTips: [
-            {
-              icon: 'flash',
-              title: 'Push presses in landmine allow',
-              description: 'Maximum loading with natural arc.'
-            },
-            {
-              icon: 'trending-up',
-              title: 'Heavy raises challenge delts',
-              description: 'Through unique resistance angle.'
-            }
-          ]
-        },
-        {
-          name: 'Advanced Landmine Complex',
-          duration: '18–20 min',
-          description: 'Complex of push presses, rotations, and\nwindmills for delt power.\n ',
-          imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Mijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Elite complex training integrating power, rotation, and mobility for maximum functional development.',
-          moodTips: [
-            {
-              icon: 'refresh',
-              title: 'Windmills in landmine position',
-              description: 'Challenge stability and mobility simultaneously.'
-            },
-            {
-              icon: 'flash',
-              title: 'Complex training builds power endurance',
-              description: 'And functional shoulder strength.'
             }
           ]
         }
