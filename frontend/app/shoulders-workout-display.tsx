@@ -49,7 +49,7 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Seated Shoulder Builder',
           duration: '12–14 min',
-          description: '• 3x12 Seated Shoulder Press\n• 3x12 Lateral Raises\nRest 60s between sets.',
+          description: 'Builds foundational shoulder strength with seated presses and lateral raises.',
           imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8MTc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Perfect beginner introduction to dumbbell shoulder training with controlled seated movements.',
           moodTips: [
@@ -68,7 +68,7 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Dynamic Shoulder Flow',
           duration: '12–15 min',
-          description: '• 30s alternating single-arm overhead press (march in place)\n• 30s lateral raise with 2-sec hold at top\n• 30s bent-over reverse flys\n• 30s rest\nRepeat 3x.',
+          description: 'A time-based circuit blending presses, isometric raises, and rear delt work for comprehensive activation.',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Dynamic flow training with timed holds and movement patterns for enhanced muscle activation.',
           moodTips: [
