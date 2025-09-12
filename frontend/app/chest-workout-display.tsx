@@ -1351,7 +1351,7 @@ const WorkoutCard = ({ equipment, icon, workouts, difficulty, difficultyColor, o
 
       {/* Swipeable Workouts - Touch-based Implementation */}
       <View 
-        style={[styles.workoutList, { width: width - 48, height: 420 }]}
+        style={[styles.workoutList, { width: width - 48 }]}
         onTouchStart={handleTouchStart}
         onTouchMove={handleTouchMove}
         onTouchEnd={handleTouchEnd}
