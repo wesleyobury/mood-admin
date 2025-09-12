@@ -237,7 +237,7 @@ metadata:
 
 test_plan:
   current_focus:
-    - "Battle Plan Formatting Completed"
+    - "Chest Workout Summary Format Update"
   stuck_tasks: []
   test_all: false
   test_priority: "high_first"
