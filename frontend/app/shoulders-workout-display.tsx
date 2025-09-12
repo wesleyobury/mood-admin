@@ -89,7 +89,7 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Arnold Power Set',
           duration: '14–16 min',
-          description: 'Develops delt and trap strength through Arnold presses and upright rows.',
+          description: 'Develops delt and trap strength through\nArnold presses and upright rows.\n ',
           imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Intermediate dumbbell training combining rotation movements with traditional pulling patterns.',
           moodTips: [
@@ -108,7 +108,7 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Shoulder Circuit Challenge',
           duration: '14–16 min',
-          description: 'A multi-exercise circuit enhancing shoulder strength, stability, and core integration.',
+          description: 'A multi-exercise circuit enhancing shoulder\nstrength, stability, and core integration.\n ',
           imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
           intensityReason: 'Circuit format combining pressing, isolation, and core integration for comprehensive shoulder development.',
           moodTips: [
