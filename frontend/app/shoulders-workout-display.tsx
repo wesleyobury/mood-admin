@@ -387,11 +387,12 @@ export default function ShouldersWorkoutDisplayScreen() {
         params: {
           workoutName: workout.name,
           equipment: equipment,
-          workoutDescription: workout.description,
-          workoutDuration: workout.duration,
+          description: workout.description || '',
+          duration: workout.duration || '15 min',
           difficulty: difficulty,
-          mood: moodTitle,
           workoutType: workoutType,
+          // Pass MOOD tips as properly encoded JSON string
+          moodTips: encodeURIComponent(JSON.stringify(workout.moodTips || []))
         }
       });
     } catch (error) {
