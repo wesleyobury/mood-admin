@@ -47,120 +47,120 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
     workouts: {
       beginner: [
         {
-          name: 'Bench Push-Up Circuit',
-          duration: '10–12 min',
-          description: '• 3 rounds:\n• 10 push-ups (hands on bench)\n• 10 bench dips\n• Rest 60s',
+          name: 'Barbell Press Builder',
+          duration: '12–14 min',
+          description: '• 3x10 Standing Overhead Press\n• 3x10 Upright Row\nRest 60–75s between sets.',
           imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8MTc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Perfect beginner introduction combining bench-assisted push-ups with dips to build foundational chest and tricep strength.',
+          intensityReason: 'Perfect beginner introduction to barbell shoulder training with fundamental overhead pressing movements.',
           moodTips: [
             {
-              icon: 'flash',
-              title: 'Push-ups: Lower slow, drive up hard',
-              description: 'Squeeze pecs together at the top. Think "push the floor apart."'
+              icon: 'trending-up',
+              title: 'Drive bar in straight path, not arced',
+              description: 'Shoulders stay loaded, not joints.'
             },
             {
-              icon: 'body',
-              title: 'Dips: Keep chest slightly forward',
-              description: 'Shift load onto pecs vs. triceps for better chest activation.'
+              icon: 'resize',
+              title: 'Upright rows hit better',
+              description: 'With a shoulder-width grip.'
             }
           ]
         },
         {
-          name: 'Bench Chest Press',
-          duration: '12–15 min',
-          description: '• 3 rounds:\n• 12 light dumbbell or Smith bench press\n• 10 dumbbell bench fly\n• Rest 60–75s',
+          name: 'Intro Shoulder Flow',
+          duration: '12–14 min',
+          description: '• 8 strict presses\n• 8 behind-the-neck presses (light)\n• 8 barbell "rainbows" (arc overhead side to side)\nRepeat 3x. Rest 1 min between rounds.',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Combines pressing and isolation movements to teach proper bench technique while building chest strength.',
+          intensityReason: 'Gentle progression introducing varied barbell shoulder movement patterns for mobility and control.',
           moodTips: [
             {
-              icon: 'trending-up',
-              title: 'Bench press: Drag elbows slightly in',
-              description: 'Move toward midline as you press for max pec activation.'
+              icon: 'warning',
+              title: 'Behind-the-neck: only go as low',
+              description: 'As shoulder mobility allows to prevent strain.'
             },
             {
-              icon: 'body',
-              title: 'Fly: Focus on stretching fibers',
-              description: 'Stretch at bottom, then forcefully contract chest to bring dumbbells together.'
+              icon: 'refresh',
+              title: 'Rainbows add lateral movement',
+              description: 'Recruiting stabilizers neglected in pressing.'
             }
           ]
         }
       ],
       intermediate: [
         {
-          name: 'Bench Plyo Push-Ups',
-          duration: '14–16 min',
-          description: '• 4 rounds:\n• 8 explosive push-ups (hands on bench)\n• 10 single-arm bench press\n• Rest 60–75s',
+          name: 'Power Press Combo',
+          duration: '16–18 min',
+          description: '• 4x8 Push Press\n• 4x8 Barbell High Pull\nRest 75s between sets.',
           imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Explosive plyometric training combined with unilateral strength work for intermediate power development.',
+          intensityReason: 'Power-focused training combining leg drive pressing with explosive pulling for intermediate strength development.',
           moodTips: [
             {
               icon: 'flash',
-              title: 'Plyo push-ups: Push off with max intent',
-              description: 'Builds fast-twitch fiber recruitment for growth every rep.'
+              title: 'Drive power from legs',
+              description: 'Into push press for heavy overload.'
             },
             {
-              icon: 'fitness',
-              title: 'Single-arm press: Lock shoulders down',
-              description: 'Bring dumbbell in slight inward arc to increase inner-chest tension.'
+              icon: 'trending-up',
+              title: 'High pulls: elbows drive wide and high',
+              description: 'To maximize delt stretch.'
             }
           ]
         },
         {
-          name: 'Bench Chest Flow',
-          duration: '12–15 min',
-          description: '• 3 rounds:\n• 10 bench press\n• 10 fly\n• 10 close-grip bench press\n• Rest 90s',
+          name: 'Barbell Shoulder Circuit',
+          duration: '14–16 min',
+          description: '• 8 push presses\n• 8 barbell Z-presses (seated on floor)\n• 8 overhead lunges (alternate legs)\nRepeat 3x. Rest 90s between rounds.',
           imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
-          intensityReason: 'Continuous flow training that overloads pecs through combined pressing and isolation movements.',
+          intensityReason: 'Circuit format combining power, strict strength, and stability patterns for comprehensive shoulder development.',
           moodTips: [
             {
-              icon: 'refresh',
-              title: 'Fly → press transition, don\'t rest',
-              description: 'Overloads pecs by hitting both stretch and contraction.'
+              icon: 'shield',
+              title: 'Z-press: no lower body',
+              description: 'Equals strict shoulder strength.'
             },
             {
-              icon: 'hand-left',
-              title: 'Close-grip: Press palms inward',
-              description: 'Into bar/dumbbells to increase pec activation.'
+              icon: 'walk',
+              title: 'Overhead lunges build stability',
+              description: 'Under fatigue, great for functional hypertrophy.'
             }
           ]
         }
       ],
       advanced: [
         {
-          name: 'Bench Complex',
-          duration: '15–18 min',
-          description: '• 3 rounds:\n• 8 bench press\n• 8 bench fly\n• 8 plyo push-ups (hands on bench)\n• 8 dips\n• Rest 90s',
+          name: 'Advanced Barbell Builder',
+          duration: '18–20 min',
+          description: '• 4x8 Strict Press\n• 4x8 Upright Row\n• 4x8 Front Raise (Barbell)\nRest 90s between sets.',
           imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmc&ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Advanced complex training combining pressing, isolation, plyometric, and bodyweight movements for maximum chest development.',
+          intensityReason: 'Advanced strict barbell training emphasizing controlled movement patterns for maximum shoulder development.',
           moodTips: [
             {
-              icon: 'timer',
-              title: 'Bench press: Use slight pause at bottom',
-              description: 'Kill momentum and force pec drive for better activation.'
+              icon: 'checkmark-circle',
+              title: 'Strict pressing keeps body honest',
+              description: 'No cheating momentum.'
             },
             {
-              icon: 'trending-down',
-              title: 'Dips: Lean forward, chest toward floor',
-              description: 'Shifts tension from triceps into pec stretch/contraction.'
+              icon: 'barbell',
+              title: 'Front raise with barbell',
+              description: 'Constant tension different from dumbbells.'
             }
           ]
         },
         {
-          name: 'Bench Drop Set',
-          duration: '15–18 min',
-          description: '• 3 rounds:\n• 8 bench press (heavy)\n• 8 bench press (moderate)\n• 8 bench press (light)\n• 10 dips\n• Rest 90s',
+          name: 'Barbell Power Complex',
+          duration: '18–20 min',
+          description: '• 6 push jerks\n• 6 snatch grip high pulls\n• 6 Sots presses (overhead squat position, strict press)\nRepeat 4x. Rest 90–120s after each round.',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Elite drop set training that pushes chest through multiple weight loads for maximum hypertrophy.',
+          intensityReason: 'Elite complex training combining explosive jerks, pulls, and overhead squat pressing for maximum power and mobility.',
           moodTips: [
             {
-              icon: 'flash',
-              title: 'Drop sets: Reduce by ~25% each drop',
-              description: 'Progress to fatigue, then progress to fatigue lower range.'
+              icon: 'trophy',
+              title: 'Push jerk = heavy overload',
+              description: 'Vital for breaking growth plateaus.'
             },
             {
               icon: 'body',
-              title: 'Keep chest arched and shoulders back',
-              description: 'By pushing hands inward for enhanced muscle activation.'
+              title: 'Sots press pushes shoulders',
+              description: 'Under maximum tension + mobility demand.'
             }
           ]
         }
