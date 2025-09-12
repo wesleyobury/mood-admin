@@ -377,6 +377,18 @@ test_plan:
           agent: "testing"
           comment: "✅ COMPREHENSIVE TESTING COMPLETED: All three major improvements successfully verified. PROGRESS BAR FIXES: Individual equipment names ('Treadmill', 'Elliptical') display correctly in progress bar with unique icons. Console logs confirm proper rendering: 'Rendering card 1: Treadmill', 'Rendering card 2: Elliptical'. No repetition bug detected - mood and cardio steps appear only once each. TOUCH-BASED SWIPE: Console logs show touch detection ('👆 Touch started at: 187'), swipe functionality working with proper indicators (1/2, 2/2). ENHANCED GUIDANCE SCREEN: Extended progress bar with 'In Progress' step verified, manual timer starts at '00:00', Start/Pause/Reset controls functional, Performance Tracker with stats (Reps: 0, Calories: 0, Sets: 0) present, numbered tip cards found. Timer functionality fully working - starts counting when Start button clicked, resets to 00:00 when Reset clicked. All requested enhancements successfully implemented and tested."
 
+  - task: "Shoulders Workout Descriptions Update"
+    implemented: true
+    working: true
+    file: "app/shoulders-workout-display.tsx"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+        - working: true
+          agent: "main"
+          comment: "Successfully updated dumbbell workout descriptions in shoulders path from detailed workout instructions to concise 1-line summaries. Updated all 6 workouts (2 beginner, 2 intermediate, 2 advanced) with user-provided summaries while preserving moodTips and other functionality."
+
 agent_communication:
     - agent: "main"
       message: "MOOD app shell completed with full authentication system, social features, and mood-based workout UI. Ready for backend testing to verify API endpoints work correctly, then workout data import."
