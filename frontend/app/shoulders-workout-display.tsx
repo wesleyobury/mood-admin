@@ -175,7 +175,7 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Barbell Press Builder',
           duration: '12–14 min',
-          description: '• 3x10 Standing Overhead Press\n• 3x10 Upright Row\nRest 60–75s between sets.',
+          description: 'Strengthens shoulders with pressing and\nupright row fundamentals.\n ',
           imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8MTc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Perfect beginner introduction to barbell shoulder training with fundamental overhead pressing movements.',
           moodTips: [
@@ -194,7 +194,7 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Intro Shoulder Flow',
           duration: '12–14 min',
-          description: '• 8 strict presses\n• 8 behind-the-neck presses (light)\n• 8 barbell "rainbows" (arc overhead side to side)\nRepeat 3x. Rest 1 min between rounds.',
+          description: 'Light circuit combining strict press,\nbehind-the-neck press, and overhead arcs\nfor stability.',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Gentle progression introducing varied barbell shoulder movement patterns for mobility and control.',
           moodTips: [
