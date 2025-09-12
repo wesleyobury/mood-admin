@@ -42,6 +42,132 @@ interface EquipmentWorkouts {
 // Shoulders workout database - using flat bench workouts from chest path for barbells
 const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
   {
+    equipment: 'Dumbbells',
+    icon: 'barbell',
+    workouts: {
+      beginner: [
+        {
+          name: 'Seated Shoulder Builder',
+          duration: '12–14 min',
+          description: '• 3x12 Seated Shoulder Press\n• 3x12 Lateral Raises\nRest 60s between sets.',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8MTc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Perfect beginner introduction to dumbbell shoulder training with controlled seated movements.',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Hard exhale on each rep',
+              description: 'More core stability and shoulder efficiency.'
+            },
+            {
+              icon: 'hand-left',
+              title: 'Stop at shoulder height and pause',
+              description: 'Over-raising shifts load away from delts.'
+            }
+          ]
+        },
+        {
+          name: 'Dynamic Shoulder Flow',
+          duration: '12–15 min',
+          description: '• 30s alternating single-arm overhead press (march in place)\n• 30s lateral raise with 2-sec hold at top\n• 30s bent-over reverse flys\n• 30s rest\nRepeat 3x.',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Dynamic flow training with timed holds and movement patterns for enhanced muscle activation.',
+          moodTips: [
+            {
+              icon: 'timer',
+              title: 'Isometric pauses make light weights feel heavy',
+              description: 'Perfect for growth.'
+            },
+            {
+              icon: 'walk',
+              title: 'Marching during press ramps core activation',
+              description: 'And shoulder stability.'
+            }
+          ]
+        }
+      ],
+      intermediate: [
+        {
+          name: 'Arnold Power Set',
+          duration: '14–16 min',
+          description: '• 4x10 Standing Arnold Press\n• 4x10 Upright Row\nRest 75s between sets.',
+          imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Intermediate dumbbell training combining rotation movements with traditional pulling patterns.',
+          moodTips: [
+            {
+              icon: 'refresh',
+              title: 'Rotate fully on Arnold presses',
+              description: 'It recruits more deltoid fibers.'
+            },
+            {
+              icon: 'trending-up',
+              title: 'Pull elbows higher than wrists',
+              description: 'For maximum trap-to-delt tension.'
+            }
+          ]
+        },
+        {
+          name: 'Shoulder Circuit Challenge',
+          duration: '14–16 min',
+          description: '• 10 Arnold presses\n• 10 "bus driver" raises (hold plate or dumbbell, rotate at top)\n• 10 push presses\n• 10 plank dumbbell drags (push-up position, drag side to side)\nRepeat 3x. Rest 75s between rounds.',
+          imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
+          intensityReason: 'Circuit format combining pressing, isolation, and core integration for comprehensive shoulder development.',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Explosive push presses overload shoulders',
+              description: 'Better than light strict raises.'
+            },
+            {
+              icon: 'fitness',
+              title: 'Plank drags double as shoulder/core integration',
+              description: 'Move without extra time.'
+            }
+          ]
+        }
+      ],
+      advanced: [
+        {
+          name: 'Explosive Press Builder',
+          duration: '18–20 min',
+          description: '• 4x8 Push Press\n• 4x10 Lateral Raises\n• 4x10 Bent-Over Reverse Flys\nRest 90s between sets.',
+          imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmc&ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Advanced explosive dumbbell training combining power movements with isolation work.',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Push from legs on push press',
+              description: 'More load capacity = more growth.'
+            },
+            {
+              icon: 'timer',
+              title: 'Keep rear delts under tension',
+              description: 'By stopping just shy of lockout.'
+            }
+          ]
+        },
+        {
+          name: 'Dumbbell Power Flow',
+          duration: '16–18 min',
+          description: '• 8 clean to press\n• 8 lateral raise to front raise combo\n• 8 alternating single-arm snatch (light, explosive)\nRepeat 4x. Rest 90s between rounds.',
+          imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Elite dumbbell complex movements emphasizing explosive patterns and fast-twitch fiber activation.',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Pairing lateral + front raise',
+              description: 'Double delt pump from one motion.'
+            },
+            {
+              icon: 'rocket',
+              title: 'Single-arm snatches teach max intent',
+              description: 'And fire up fast-twitch fibers in shoulders.'
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
     equipment: 'Barbells',
     icon: 'barbell',
     workouts: {
