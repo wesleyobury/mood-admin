@@ -543,13 +543,9 @@ export default function ShouldersWorkoutDisplayScreen() {
         <View style={styles.headerSpacer} />
       </View>
 
-      {/* Progress Bar - matches chest format exactly */}
+      {/* Progress Bar - Single Non-Scrolling Section */}
       <View style={styles.progressContainer}>
-        <ScrollView 
-          horizontal 
-          showsHorizontalScrollIndicator={false}
-          contentContainerStyle={styles.progressContent}
-        >  
+        <View style={styles.progressContent}>
           {/* Step 1: Mood Selection */}
           <View style={styles.progressStep}>
             <View style={styles.progressStepActive}>
@@ -563,7 +559,7 @@ export default function ShouldersWorkoutDisplayScreen() {
           {/* Step 2: Workout Type */}
           <View style={styles.progressStep}>
             <View style={styles.progressStepActive}>
-              <Ionicons name="diamond-outline" size={12} color="#000000" />
+              <Ionicons name="fitness" size={12} color="#000000" />
             </View>
             <Text style={styles.progressStepText}>{workoutType}</Text>
           </View>
@@ -580,37 +576,40 @@ export default function ShouldersWorkoutDisplayScreen() {
             </Text>
           </View>
           
+          <View style={styles.progressConnector} />
+          
+          {/* Steps 4+: Individual Equipment Items */}
           {selectedEquipmentNames.map((equipment, index) => {
             // Get appropriate icon for each equipment type
             const getEquipmentIcon = (equipmentName: string) => {
               const equipmentIconMap: { [key: string]: keyof typeof Ionicons.glyphMap } = {
-                'Adjustable Bench': 'square-outline',
+                'Adjustable Bench': 'square',
                 'Barbells': 'barbell',
-                'Cable Crossover Machine': 'reorder-three-outline',
+                'Cable Crossover Machine': 'reorder-three',
                 'Dumbbells': 'barbell',
-                'Kettlebells': 'diamond-outline',
-                'Landmine Attachment': 'rocket-outline',
-                'Pec Deck / Rear Delt Fly Machine': 'contract-outline',
-                'Powerlifting Platform': 'grid-outline',
-                'Shoulder Press Machine': 'triangle-outline',
-                'Smith Machine': 'hardware-chip-outline'
+                'Kettlebells': 'diamond',
+                'Landmine Attachment': 'rocket',
+                'Pec Deck / Rear Delt Fly Machine': 'contract',
+                'Powerlifting Platform': 'grid',
+                'Shoulder Press Machine': 'triangle',
+                'Smith Machine': 'hardware-chip'
               };
-              return equipmentIconMap[equipmentName] || 'fitness-outline';
+              return equipmentIconMap[equipmentName] || 'fitness';
             };
 
             return (
               <React.Fragment key={equipment}>
-                <View style={styles.progressConnector} />
                 <View style={styles.progressStep}>
                   <View style={styles.progressStepActive}>
                     <Ionicons name={getEquipmentIcon(equipment)} size={12} color="#000000" />
                   </View>
                   <Text style={styles.progressStepText}>{equipment}</Text>
                 </View>
+                {index < selectedEquipmentNames.length - 1 && <View style={styles.progressConnector} />}
               </React.Fragment>
             );
           })}
-        </ScrollView>
+        </View>
       </View>
 
       {/* Workouts List */}
