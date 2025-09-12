@@ -31,7 +31,7 @@ const equipmentOptions: EquipmentOption[] = [
   { id: 'dumbbells', name: 'Dumbbells', icon: 'barbell' },
   { id: 'kettlebells', name: 'Kettlebells', icon: 'diamond' },
   { id: 'landmine-attachment', name: 'Landmine Attachment', icon: 'rocket' },
-  { id: 'pec-deck-rear-delt', name: 'Pec Deck / Rear Delt Fly Machine', icon: 'contract' },
+  { id: 'rear-delt-fly-machine', name: 'Rear Delt Fly Machine', icon: 'contract' },
   { id: 'powerlifting-platform', name: 'Powerlifting Platform', icon: 'grid' },
   { id: 'shoulder-press-machine', name: 'Shoulder Press Machine', icon: 'triangle' },
   { id: 'smith-machine', name: 'Smith Machine', icon: 'hardware-chip' },
