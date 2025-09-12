@@ -1658,7 +1658,6 @@ export default function ShouldersWorkoutDisplayScreen() {
                 'Dumbbells': 'barbell',
                 'Kettlebells': 'diamond',
                 'Landmine Attachment': 'rocket',
-                'Pec Deck / Rear Delt Fly Machine': 'contract',
                 'Powerlifting Platform': 'grid',
                 'Rear Delt Fly Machine': 'contract',
                 'Shoulder Press Machine': 'triangle',
