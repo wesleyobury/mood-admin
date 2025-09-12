@@ -20,6 +20,7 @@ interface Workout {
   name: string;
   duration: string;
   description: string;
+  battlePlan: string;
   imageUrl: string;
   intensityReason: string;
   moodTips: {
