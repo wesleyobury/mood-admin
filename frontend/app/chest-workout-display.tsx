@@ -1553,7 +1553,11 @@ export default function ChestWorkoutDisplayScreen() {
       </View>
 
       {/* Workouts List */}
-      <ScrollView style={styles.scrollView} showsVerticalScrollIndicator={false}>
+      <ScrollView 
+        style={styles.scrollView} 
+        contentContainerStyle={styles.scrollContent}
+        showsVerticalScrollIndicator={false}
+      >
         {uniqueUserWorkouts.length > 0 ? (
           uniqueUserWorkouts.map((equipmentData, index) => {
             console.log(`Rendering card ${index + 1}: ${equipmentData.equipment}`);
