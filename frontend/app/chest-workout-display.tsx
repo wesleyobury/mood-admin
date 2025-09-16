@@ -834,7 +834,7 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
     }
   },
   {
-    equipment: 'Pec Deck Fly / Rear Delt Machine',
+    equipment: 'Pec dec machine',
     icon: 'contract',
     workouts: {
       beginner: [
