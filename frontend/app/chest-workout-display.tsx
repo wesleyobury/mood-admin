@@ -1425,7 +1425,8 @@ export default function ChestWorkoutDisplayScreen() {
     selectedEquipmentNames,
     chestWorkoutDatabaseEquipment: chestWorkoutDatabase.map(w => w.equipment),
     userWorkouts: userWorkouts.map(w => w.equipment),
-    userWorkoutsLength: userWorkouts.length
+    userWorkoutsLength: userWorkouts.length,
+    equipmentParam: equipmentParam
   });
 
   // Remove any potential duplicates
