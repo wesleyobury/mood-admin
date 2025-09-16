@@ -1681,6 +1681,10 @@ const styles = StyleSheet.create({
   scrollView: {
     flex: 1,
   },
+  scrollContent: {
+    padding: 24,
+    paddingBottom: 100,
+  },
   workoutCard: {
     backgroundColor: '#111111',
     borderRadius: 20,
