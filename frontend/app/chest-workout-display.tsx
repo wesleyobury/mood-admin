@@ -1632,12 +1632,13 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     borderBottomColor: 'rgba(255, 215, 0, 0.2)',
     paddingVertical: 16,
-    paddingHorizontal: 20,
+    paddingHorizontal: 8,
   },
   progressContent: {
     flexDirection: 'row',
     alignItems: 'center',
-    paddingHorizontal: 10,
+    justifyContent: 'center',
+    flexWrap: 'wrap',
   },
   progressStep: {
     alignItems: 'center',
