@@ -52,7 +52,7 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
           description: 'Push-ups and dips using the bench to\nbuild beginner chest strength and control.\n ',
           battlePlan: '• 3 rounds:\n• 10 push-ups (hands on bench)\n• 10 bench dips\n• Rest 60s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8MTc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Perfect beginner introduction combining bench-assisted push-ups with dips to build foundational chest and tricep strength.',
+          intensityReason: 'Perfect bench-assisted introduction to chest and tricep strength development.',
           moodTips: [
             {
               icon: 'flash',
