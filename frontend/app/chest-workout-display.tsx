@@ -1488,14 +1488,10 @@ export default function ChestWorkoutDisplayScreen() {
 
       {/* Progress Bar */}
       <View style={styles.progressContainer}>
-        <ScrollView 
-          horizontal 
-          showsHorizontalScrollIndicator={false}
-          contentContainerStyle={styles.progressContent}
-        >
+        <View style={styles.progressContent}>
           <View style={styles.progressStep}>
             <View style={styles.progressStepActive}>
-              <Ionicons name="flame" size={14} color="#000000" />
+              <Ionicons name="flame" size={12} color="#000000" />
             </View>
             <Text style={styles.progressStepText}>{moodTitle}</Text>
           </View>
@@ -1504,39 +1500,56 @@ export default function ChestWorkoutDisplayScreen() {
           
           <View style={styles.progressStep}>
             <View style={styles.progressStepActive}>
-              <Ionicons name="fitness" size={14} color="#000000" />
+              <Ionicons name="fitness" size={12} color="#000000" />
             </View>
             <Text style={styles.progressStepText}>{workoutType}</Text>
           </View>
 
-          {/* Render individual equipment names */}
-          {selectedEquipmentNames.map((equipmentName, index) => (
-            <React.Fragment key={`equipment-${index}`}>
-              <View style={styles.progressConnector} />
-              <View style={styles.progressStep}>
-                <View style={styles.progressStepActive}>
-                  <Ionicons 
-                    name={
-                      chestWorkoutDatabase.find(w => w.equipment === equipmentName)?.icon || 'hardware-chip'
-                    } 
-                    size={14} 
-                    color="#000000" 
-                  />
-                </View>
-                <Text style={styles.progressStepText}>{equipmentName}</Text>
-              </View>
-            </React.Fragment>
-          ))}
+          <View style={styles.progressConnector} />
+          
+          {/* Step 3: Intensity Level */}
+          <View style={styles.progressStep}>
+            <View style={styles.progressStepActive}>
+              <Ionicons name="speedometer" size={12} color="#000000" />
+            </View>
+            <Text style={styles.progressStepText}>
+              {difficulty.charAt(0).toUpperCase() + difficulty.slice(1)}
+            </Text>
+          </View>
           
           <View style={styles.progressConnector} />
           
-          <View style={styles.progressStep}>
-            <View style={styles.progressStepActive}>
-              <Ionicons name="checkmark" size={14} color="#000000" />
-            </View>
-            <Text style={styles.progressStepText}>{difficulty.charAt(0).toUpperCase() + difficulty.slice(1)}</Text>
-          </View>
-        </ScrollView>
+          {/* Steps 4+: Individual Equipment Items */}
+          {selectedEquipmentNames.map((equipment, index) => {
+            // Get appropriate icon for each equipment type
+            const getEquipmentIcon = (equipmentName: string) => {
+              const equipmentIconMap: { [key: string]: keyof typeof Ionicons.glyphMap } = {
+                'Adjustable bench': 'square',
+                'Cable crossover': 'reorder-three',
+                'Chest press machine': 'hardware-chip',
+                'Decline bench': 'trending-down',
+                'Dip station': 'remove',
+                'Flat bench': 'square',
+                'Incline bench': 'trending-up',
+                'Pec dec machine': 'contract',
+                'Smith machine': 'barbell'
+              };
+              return equipmentIconMap[equipmentName] || 'fitness';
+            };
+
+            return (
+              <React.Fragment key={equipment}>
+                <View style={styles.progressStep}>
+                  <View style={styles.progressStepActive}>
+                    <Ionicons name={getEquipmentIcon(equipment)} size={12} color="#000000" />
+                  </View>
+                  <Text style={styles.progressStepText}>{equipment}</Text>
+                </View>
+                {index < selectedEquipmentNames.length - 1 && <View style={styles.progressConnector} />}
+              </React.Fragment>
+            );
+          })}
+        </View>
       </View>
 
       {/* Workouts List */}
