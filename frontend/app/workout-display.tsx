@@ -592,7 +592,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Sprint & Recover',
           duration: '18 min',
-          description: '• 20 sec sprint\n• 40 sec easy\n• repeat 10x\n• 5 min moderate',
+          description: '20s sprint intervals with 40s recovery.\n10 rounds plus 5min moderate finish.\n ',
           imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmd8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Classic 1:2 work-to-rest ratio challenges intermediate full-body power and recovery.',
           moodTips: [
