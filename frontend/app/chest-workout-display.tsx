@@ -1778,21 +1778,22 @@ const styles = StyleSheet.create({
   workoutContent: {
     padding: 20,
   },
-  workoutHeader: {
-    marginBottom: 12,
-  },
-  workoutTitleContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    marginBottom: 8,
-  },
   workoutName: {
     fontSize: 16,
     fontWeight: 'bold',
     color: '#ffffff',
-    flex: 1,
-    marginRight: 12,
+    marginBottom: 8,
+  },
+  durationIntensityRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    marginBottom: 16,
+  },
+  workoutDuration: {
+    fontSize: 14,
+    color: '#FFD700',
+    fontWeight: '600',
   },
   difficultyBadge: {
     paddingHorizontal: 8,
@@ -1803,11 +1804,6 @@ const styles = StyleSheet.create({
     fontSize: 10,
     fontWeight: 'bold',
     color: '#000000',
-  },
-  workoutDuration: {
-    fontSize: 14,
-    color: '#FFD700',
-    fontWeight: '600',
   },
   intensityContainer: {
     flexDirection: 'row',
@@ -1828,7 +1824,6 @@ const styles = StyleSheet.create({
     marginLeft: 8,
   },
   workoutDescriptionContainer: {
-    maxHeight: 80,
     marginBottom: 16,
   },
   workoutDescription: {
