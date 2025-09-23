@@ -1862,6 +1862,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingVertical: 16,
     paddingHorizontal: 20,
+    backgroundColor: 'rgba(255, 215, 0, 0.05)',
   },
   dotsLabel: {
     fontSize: 12,
