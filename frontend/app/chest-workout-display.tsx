@@ -1531,7 +1531,7 @@ export default function ChestWorkoutDisplayScreen() {
                 <React.Fragment key={step.key}>
                   <View style={styles.progressStep}>
                     <View style={styles.progressStepActive}>
-                      <Ionicons name={step.icon as keyof typeof Ionicons.glyphMap} size={12} color="#000000" />
+                      <Ionicons name={step.icon as keyof typeof Ionicons.glyphMap} size={10} color="#000000" />
                     </View>
                     <Text style={styles.progressStepText}>{step.text}</Text>
                   </View>
