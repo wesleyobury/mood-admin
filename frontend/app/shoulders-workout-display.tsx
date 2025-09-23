@@ -966,7 +966,7 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
     }
   },
   {
-    equipment: 'Cable machine',
+    equipment: 'Cable Crossover Machine',
     icon: 'reorder-three',
     workouts: {
       beginner: [
