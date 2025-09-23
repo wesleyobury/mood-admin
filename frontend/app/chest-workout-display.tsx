@@ -1641,7 +1641,7 @@ const styles = StyleSheet.create({
   progressContent: {
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'space-around',
     flexWrap: 'wrap',
   },
   progressStep: {
