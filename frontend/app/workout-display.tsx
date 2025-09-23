@@ -1388,7 +1388,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Sprint & Recover',
           duration: '20 min',
-          description: '• 20 sec sprint\n• 40 sec moderate\n• repeat 15x',
+          description: 'High-intensity climbing sprints with 20s\nall-out effort and 40s recovery. 15 rounds.\n ',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHx2ZXJ0aWNhbCUyMGNsaW1iZXIlMjB3b3Jrb3V0fGVufDF8fHx8MTc1Nijg4MzY1Mnww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'High-intensity sprints demand maximum full-body power and advanced climbing coordination.',
           moodTips: [
