@@ -438,7 +438,7 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
     }
   },
   {
-    equipment: 'Adjustable bench',
+    equipment: 'Adjustable Bench',
     icon: 'square',
     workouts: {
       beginner: [
