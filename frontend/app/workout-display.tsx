@@ -107,7 +107,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Incline Intervals',
           duration: '30 min',
-          description: '• 2 min run (6.0 mph, incline 1%)\n• 1 min run (6.0 mph, incline 5%)\n• 2 min walk (3.5 mph, incline 2%)\n• Repeat 5x\n• Finish with 3 min walk (3.0 mph)',
+          description: 'Incline running intervals at consistent\npace with varying elevation. 5 rounds total.\n ',
           imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
           intensityReason: 'Combines consistent running pace with challenging inclines to build both cardiovascular and muscular endurance.',
           moodTips: [
