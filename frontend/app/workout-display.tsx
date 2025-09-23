@@ -651,7 +651,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'EMOM Challenge',
           duration: '20 min',
-          description: '• Every minute: 20 sec sprint\n• 40 sec moderate\n• repeat for 20 min',
+          description: 'Every minute sprint for 20s with\n40s moderate pace for 20 minutes total.\n ',
           imageUrl: 'https://images.pexels.com/photos/2774172/pexels-photo-2774172.jpeg',
           intensityReason: 'Extended EMOM format tests advanced endurance under consistent high-intensity demands.',
           moodTips: [
