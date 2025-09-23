@@ -445,7 +445,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Cadence Intervals',
           duration: '18 min',
-          description: '• 2 min steady (70 RPM)\n• 1 min fast (90 RPM)\n• 2 min moderate (80 RPM)\n• 1 min slow (60 RPM\n• resistance 6)\n• repeat 3x',
+          description: 'Cadence training from 60-90 RPM with\nsteady, fast, and moderate intervals.\n ',
           imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
           intensityReason: 'RPM variations teach beginners pedaling rhythm while maintaining moderate intensity.',
           moodTips: [
