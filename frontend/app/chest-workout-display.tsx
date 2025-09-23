@@ -1818,6 +1818,7 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     borderWidth: 1,
     borderColor: 'rgba(255, 215, 0, 0.2)',
+    marginHorizontal: 0,
   },
   intensityReason: {
     flex: 1,
@@ -1828,11 +1829,13 @@ const styles = StyleSheet.create({
   },
   workoutDescriptionContainer: {
     marginBottom: 16,
+    paddingHorizontal: 0,
   },
   workoutDescription: {
     fontSize: 14,
     color: 'rgba(255, 255, 255, 0.9)',
     lineHeight: 20,
+    paddingHorizontal: 20,
   },
   startWorkoutButton: {
     backgroundColor: '#FFD700',
@@ -1847,6 +1850,7 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.6,
     shadowRadius: 8,
     elevation: 6,
+    marginHorizontal: 0,
   },
   startWorkoutButtonText: {
     fontSize: 16,
