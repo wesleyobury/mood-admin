@@ -359,7 +359,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Reverse & Forward',
           duration: '20 min',
-          description: '• 2 min forward (resistance 5)\n• 1 min reverse (resistance 3)\n• 1 min sprint (forward\n• resistance 4)\n• repeat 4x',
+          description: 'Alternating forward and reverse cycling\nwith sprint intervals. 4 complete rounds.\n ',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MTc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Alternating directions engage different muscle groups while building intermediate cardiovascular capacity.',
           moodTips: [
