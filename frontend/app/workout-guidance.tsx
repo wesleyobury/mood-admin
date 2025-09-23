@@ -327,7 +327,12 @@ export default function WorkoutGuidanceScreen() {
             <View style={styles.stepsContainer}>
               <Text style={styles.stepsHeader}>Battle Plan</Text>
               <View style={styles.stepsList}>
-                {parseWorkoutDescription(description).map((step, index) => (
+                {(() => {
+                  // Use battlePlan for workout instructions, fallback to description for backward compatibility
+                  const workoutInstructions = battlePlan || description;
+                  const workoutSteps = parseWorkoutDescription(workoutInstructions);
+                  return workoutSteps;
+                })().map((step, index) => (
                   <View key={index} style={styles.stepItem}>
                     {step.startsWith('•') ? (
                       // Step already has bullet - parse for parenthetical text
