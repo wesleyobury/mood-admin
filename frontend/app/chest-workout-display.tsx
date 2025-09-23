@@ -1629,15 +1629,17 @@ const styles = StyleSheet.create({
     paddingHorizontal: 8,
   },
   progressContent: {
+    alignItems: 'center',
+  },
+  progressRow: {
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'space-around',
-    flexWrap: 'wrap',
+    justifyContent: 'center',
+    marginBottom: 16,
   },
   progressStep: {
     alignItems: 'center',
-    width: '30%',
-    marginBottom: 12,
+    minWidth: 80,
   },
   progressStepActive: {
     width: 32,
