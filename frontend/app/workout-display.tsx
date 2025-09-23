@@ -949,7 +949,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Resistance Play',
           duration: '15 min',
-          description: '• 2 min steady (resistance 3)\n• 1 min moderate (resistance 5)\n• 2 min slow (resistance 2)\n• repeat 3x',
+          description: 'Resistance variations from light to moderate\nwith steady, moderate, and slow phases.\n ',
           imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
           intensityReason: 'Varied resistance levels introduce beginners to full-body ski motion gradually.',
           moodTips: [
