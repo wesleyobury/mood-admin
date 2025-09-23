@@ -1632,7 +1632,6 @@ export default function ShouldersWorkoutDisplayScreen() {
       'Platform / Step': 'layers',
       'Rear Delt Fly Machine': 'contract',
       'Cable Crossover Machine': 'reorder-three',
-      'Suspension trainer': 'link',
       'Landmine Attachment': 'rocket',
       'Powerlifting Platform': 'grid',
       'Shoulder Press Machine': 'triangle',
