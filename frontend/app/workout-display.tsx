@@ -525,7 +525,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Endurance & Power',
           duration: '35 min',
-          description: '• 5 min easy\n• 10 min moderate (resistance 7)\n• 5 min hard (resistance 10)\n• 5 min fast (resistance 5\n• 100+ RPM)\n• 5 min standing climb (resistance 8)\n• 5 min cool-down',
+          description: 'Long endurance ride with moderate resistance\nand reverse intervals for advanced training.\n ',
           imageUrl: 'https://images.pexels.com/photos/2774172/pexels-photo-2774172.jpeg',
           intensityReason: 'Extended workout with varied challenges tests advanced cardiovascular endurance and power.',
           moodTips: [
