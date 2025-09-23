@@ -1136,7 +1136,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Sprint Intervals',
           duration: '20 min',
-          description: '• 20 sec sprint\n• 40 sec walk\n• repeat 15x',
+          description: 'High-intensity sprint intervals with 20s\nall-out effort and 40s recovery. 15 rounds.\n ',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxjdXJ2ZSUyMHRyZWFkbWlsbCUyMHdvcmtvdXR8ZW58MXx8fHwxNzU2ODgzNjUyfDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'High-intensity sprints on curve treadmill demand maximum power output and advanced running mechanics.',
           moodTips: [
