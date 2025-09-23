@@ -552,7 +552,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Intro Intervals',
           duration: '12 min',
-          description: '• 1 min easy\n• 30 sec moderate\n• 1 min easy\n• 30 sec fast\n• repeat 4x',
+          description: 'Easy intervals with 30s moderate\nand fast bursts. 4 complete rounds.\n ',
           imageUrl: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxhc3NhdWx0JTIwYmlrZSUyMHdvcmtvdXR8ZW58MXx8fHwxNzU2ODgzNjUyfDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Short intervals introduce beginners to assault bike intensity while allowing adequate recovery.',
           moodTips: [
