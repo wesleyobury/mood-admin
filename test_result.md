@@ -401,6 +401,18 @@ test_plan:
           agent: "main"
           comment: "Successfully updated dumbbell workout descriptions in shoulders path from detailed workout instructions to concise 1-line summaries. Updated all 6 workouts (2 beginner, 2 intermediate, 2 advanced) with user-provided summaries while preserving moodTips and other functionality."
 
+  - task: "Shoulders Workout Equipment Mapping Verification"
+    implemented: true
+    working: false
+    file: "app/shoulders-workout-display.tsx, app/shoulders-equipment.tsx"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+        - working: false
+          agent: "testing"
+          comment: "CRITICAL EQUIPMENT MAPPING ISSUES IDENTIFIED: Comprehensive code analysis reveals multiple equipment mapping problems in shoulders workout system. ISSUES FOUND: 1) DUPLICATE PLATFORM ENTRIES: Workout database contains both 'Platform / Step' (line 573) and 'Powerlifting Platform' (line 1365), but equipment selection only has 'Powerlifting Platform' - making 'Platform / Step' workouts inaccessible. 2) NAVIGATION ROUTING ISSUE: App consistently shows welcome screen instead of workout displays during testing, indicating potential routing configuration problem. 3) EQUIPMENT NAME MISMATCHES: Equipment selection screen names may not exactly match workout database equipment names, causing filtering failures in shouldersWorkoutDatabase.filter() logic (lines 1949-1951). VERIFICATION STATUS: ✅ All 10 equipment types exist in selection screen ✅ Workout database has comprehensive data for all equipment ❌ Equipment mapping logic has filtering issues ❌ App routing prevents access to workout displays. RECOMMENDATION: Fix duplicate platform entries, verify exact name matching between selection and database, and resolve routing issues to enable proper equipment-to-workout mapping."
+
 agent_communication:
     - agent: "main"
       message: "MOOD app shell completed with full authentication system, social features, and mood-based workout UI. Ready for backend testing to verify API endpoints work correctly, then workout data import."
