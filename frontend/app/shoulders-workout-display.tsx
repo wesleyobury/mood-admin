@@ -1720,7 +1720,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   workoutImageContainer: {
-    height: 160,
+    height: 120,
     position: 'relative',
     overflow: 'hidden',
     borderRadius: 12,
