@@ -1784,14 +1784,14 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: '#ffffff',
     marginBottom: 8,
-    paddingHorizontal: 12,
+    paddingHorizontal: 6,
   },
   durationIntensityRow: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
     marginBottom: 16,
-    paddingHorizontal: 12,
+    paddingHorizontal: 6,
   },
   workoutDuration: {
     fontSize: 14,
