@@ -11,7 +11,7 @@ from datetime import datetime
 from typing import Dict, Any, Optional
 
 # Configuration
-BASE_URL = "https://shoulder-workout.preview.emergentagent.com/api"
+BASE_URL = "https://single-line-titles.preview.emergentagent.com/api"
 TEST_USER_DATA = {
     "username": "moodtester2025",
     "email": "moodtest2025@example.com", 
