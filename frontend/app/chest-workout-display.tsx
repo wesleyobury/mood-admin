@@ -1776,19 +1776,22 @@ const styles = StyleSheet.create({
     fontWeight: '600',
   },
   workoutContent: {
-    padding: 20,
+    paddingHorizontal: 0,
+    paddingVertical: 16,
   },
   workoutName: {
     fontSize: 16,
     fontWeight: 'bold',
     color: '#ffffff',
     marginBottom: 8,
+    paddingHorizontal: 20,
   },
   durationIntensityRow: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
     marginBottom: 16,
+    paddingHorizontal: 20,
   },
   workoutDuration: {
     fontSize: 14,
