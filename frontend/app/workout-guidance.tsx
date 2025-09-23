@@ -121,6 +121,7 @@ export default function WorkoutGuidanceScreen() {
   const workoutName = params.workoutName as string || 'Workout';
   const equipment = params.equipment as string || 'Equipment';
   const description = params.description as string || '';
+  const battlePlan = params.battlePlan as string || '';
   const duration = params.duration as string || '20 min';
   const difficulty = params.difficulty as string || 'beginner';
   const workoutType = params.workoutType as string || 'Cardio Based';
