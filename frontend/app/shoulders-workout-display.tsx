@@ -1228,6 +1228,534 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
         }
       ]
     }
+  },
+  {
+    equipment: 'Landmine Attachment',
+    icon: 'rocket',
+    workouts: {
+      beginner: [
+        {
+          name: 'Landmine Press',
+          duration: '12–15 min',
+          description: 'Landmine shoulder press building\nfoundation strength with barbell setup.\n ',
+          battlePlan: '• 3 rounds:\n• 10 landmine press (each arm)\n• 8 landmine upright rows\n• Rest 60s',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Perfect introduction to landmine shoulder training.',
+          moodTips: [
+            {
+              icon: 'construct',
+              title: 'Landmine setup: Secure one end of barbell',
+              description: 'Ensure barbell is properly secured in landmine attachment.'
+            },
+            {
+              icon: 'body',
+              title: 'Core engagement: Maintain stability',
+              description: 'Keep core braced throughout all landmine movements.'
+            }
+          ]
+        },
+        {
+          name: 'Landmine Flow',
+          duration: '10–12 min',
+          description: 'Basic landmine movement flow\nfor shoulder mobility and strength.\n ',
+          battlePlan: '• 3 rounds:\n• 8 landmine press\n• 6 landmine lateral raise\n• 8 landmine rainbow\n• Rest 60s',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8TVc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Functional landmine movements for shoulder development.',
+          moodTips: [
+            {
+              icon: 'refresh',
+              title: 'Rainbow motion: Full arc movement',
+              description: 'Move barbell in smooth arc from side to side overhead.'
+            },
+            {
+              icon: 'flash',
+              title: 'Control the weight: Smooth movements',
+              description: 'Focus on controlled motion rather than speed.'
+            }
+          ]
+        }
+      ],
+      intermediate: [
+        {
+          name: 'Power Press',
+          duration: '15–18 min',
+          description: 'Landmine power pressing with\nincreased load and complexity.\n ',
+          battlePlan: '• 4 rounds:\n• 8 single-arm landmine press\n• 10 landmine upright rows\n• 6 landmine thrusters\n• Rest 90s',
+          imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Intermediate landmine training for power development.',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Thrusters: Combine squat and press',
+              description: 'Explosive movement from squat position to overhead press.'
+            },
+            {
+              icon: 'trending-up',
+              title: 'Single-arm work: Unilateral strength',
+              description: 'Builds core stability and addresses muscle imbalances.'
+            }
+          ]
+        },
+        {
+          name: 'Complex',
+          duration: '12–15 min',
+          description: 'Landmine shoulder complex combining\nmultiple movement patterns.\n ',
+          battlePlan: '• 3 rounds:\n• 6 landmine clean and press\n• 8 landmine halos\n• 10 landmine rotations\n• Rest 90s',
+          imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
+          intensityReason: 'Dynamic landmine complex for functional strength.',
+          moodTips: [
+            {
+              icon: 'refresh',
+              title: 'Halos: Complete circles around head',
+              description: 'Move barbell in controlled circles around your head.'
+            },
+            {
+              icon: 'body',
+              title: 'Rotations: Core and shoulder integration',
+              description: 'Rotational movements build functional strength patterns.'
+            }
+          ]
+        }
+      ],
+      advanced: [
+        {
+          name: 'Landmine Max',
+          duration: '18–22 min',
+          description: 'Advanced landmine training for\nmaximum shoulder power development.\n ',
+          battlePlan: '• 4 rounds:\n• 6 heavy landmine press\n• 8 landmine clean and jerk\n• 10 landmine windmills\n• 12 landmine switches\n• Rest 2 min',
+          imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmc&ZW54MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Advanced landmine complex for elite shoulder development.',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Clean and jerk: Explosive power movement',
+              description: 'Full-body power transfer to overhead position.'
+            },
+            {
+              icon: 'trending-up',
+              title: 'Windmills: Core stability challenge',
+              description: 'Advanced movement requiring excellent mobility and control.'
+            }
+          ]
+        },
+        {
+          name: 'Elite Flow',
+          duration: '16–20 min',
+          description: 'Ultimate landmine flow for\nelite shoulder conditioning.\n ',
+          battlePlan: '• 3 rounds:\n• 5 landmine snatches\n• 8 single-arm thrusters\n• 10 landmine rotational press\n• 12 landmine spirals\n• Rest 3 min',
+          imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Ultimate landmine challenge for elite athletes.',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Snatches: One fluid motion to overhead',
+              description: 'Explosive full-body movement requiring perfect technique.'
+            },
+            {
+              icon: 'body',
+              title: 'Spirals: Three-dimensional movement',
+              description: 'Advanced pattern combining rotation and vertical movement.'
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    equipment: 'Powerlifting Platform',
+    icon: 'grid',
+    workouts: {
+      beginner: [
+        {
+          name: 'Platform Press',
+          duration: '12–15 min',
+          description: 'Platform overhead pressing with\nsolid foundation and form focus.\n ',
+          battlePlan: '• 3 rounds:\n• 8 overhead press\n• 10 push press\n• 6 strict press\n• Rest 75s',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Perfect introduction to platform overhead pressing.',
+          moodTips: [
+            {
+              icon: 'construct',
+              title: 'Platform setup: Use proper rack height',
+              description: 'Set bar at appropriate height for safe unracking.'
+            },
+            {
+              icon: 'body',
+              title: 'Foot position: Stable base for pressing',
+              description: 'Maintain stable foot position throughout all presses.'
+            }
+          ]
+        },
+        {
+          name: 'Power Base',
+          duration: '10–12 min',
+          description: 'Foundation power movements on\nplatform for shoulder development.\n ',
+          battlePlan: '• 3 rounds:\n• 6 military press\n• 8 behind neck press (light)\n• 10 front raises\n• Rest 60s',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8TVc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Fundamental platform movements for shoulder strength.',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Military press: Strict form required',
+              description: 'No leg drive, pure shoulder and core strength.'
+            },
+            {
+              icon: 'shield',
+              title: 'Behind neck: Only if flexible',
+              description: 'Skip if any shoulder discomfort or limited mobility.'
+            }
+          ]
+        }
+      ],
+      intermediate: [
+        {
+          name: 'Platform Power',
+          duration: '15–18 min',
+          description: 'Intermediate platform training with\npower movements and heavier loads.\n ',
+          battlePlan: '• 4 rounds:\n• 6 push press\n• 8 strict press\n• 10 upright rows\n• 8 high pulls\n• Rest 90s',
+          imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Intermediate platform training for power development.',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Push press: Use leg drive efficiently',
+              description: 'Explosive leg extension transfers power to shoulders.'
+            },
+            {
+              icon: 'trending-up',
+              title: 'High pulls: Power from hips',
+              description: 'Generate force from hip drive, not just arms.'
+            }
+          ]
+        },
+        {
+          name: 'Strength Base',
+          duration: '12–15 min',
+          description: 'Platform strength building with\ncompound movement combinations.\n ',
+          battlePlan: '• 3 rounds:\n• 5 heavy press\n• 8 push press\n• 10 upright rows\n• 12 shrugs\n• Rest 2 min',
+          imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
+          intensityReason: 'Strength-focused platform training for muscle development.',
+          moodTips: [
+            {
+              icon: 'construct',
+              title: 'Heavy press: Focus on technique',
+              description: 'Maintain perfect form even at heavier weights.'
+            },
+            {
+              icon: 'body',
+              title: 'Shrugs: Trap activation',
+              description: 'Complete shoulder development with trap emphasis.'
+            }
+          ]
+        }
+      ],
+      advanced: [
+        {
+          name: 'Platform Max',
+          duration: '18–22 min',
+          description: 'Advanced platform training for\nmaximum shoulder strength and power.\n ',
+          battlePlan: '• 4 rounds:\n• 3 max effort press\n• 5 push press\n• 6 jerk\n• 8 high pulls\n• Rest 3 min',
+          imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmc&ZW54MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Advanced platform training for maximum strength development.',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Max effort: Challenge your limits',
+              description: 'Push maximum weights while maintaining perfect form.'
+            },
+            {
+              icon: 'trending-up',
+              title: 'Jerk: Technical precision required',
+              description: 'Advanced Olympic lift technique for explosive power.'
+            }
+          ]
+        },
+        {
+          name: 'Elite Power',
+          duration: '16–20 min',
+          description: 'Ultimate platform workout for\nelite shoulder power and strength.\n ',
+          battlePlan: '• 3 rounds:\n• 2 max press singles\n• 4 split jerks\n• 6 snatch grip press\n• 8 muscle snatches\n• Rest 3–4 min',
+          imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Ultimate platform challenge for elite athletes.',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Max singles: Peak strength testing',
+              description: 'Test maximum strength capabilities with single reps.'
+            },
+            {
+              icon: 'construct',
+              title: 'Olympic variations: Technical mastery',
+              description: 'Advanced Olympic lift variations requiring years of practice.'
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    equipment: 'Shoulder Press Machine',
+    icon: 'triangle',
+    workouts: {
+      beginner: [
+        {
+          name: 'Machine Press',
+          duration: '12–15 min',
+          description: 'Machine shoulder press foundation\nwith guided movement patterns.\n ',
+          battlePlan: '• 3 rounds:\n• 12 seated machine press\n• 10 single-arm machine press\n• Rest 60s',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Perfect introduction to machine shoulder pressing.',
+          moodTips: [
+            {
+              icon: 'construct',
+              title: 'Seat adjustment: Proper height alignment',
+              description: 'Adjust seat so handles are at shoulder level.'
+            },
+            {
+              icon: 'body',
+              title: 'Back support: Maintain contact',
+              description: 'Keep back pressed against pad throughout movement.'
+            }
+          ]
+        },
+        {
+          name: 'Press Basics',
+          duration: '10–12 min',
+          description: 'Basic machine pressing with\nform focus and progression.\n ',
+          battlePlan: '• 3 rounds:\n• 10 machine press\n• 8 partial reps (top half)\n• 6 slow negatives\n• Rest 75s',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8TVc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Form-focused machine training for proper technique.',
+          moodTips: [
+            {
+              icon: 'timer',
+              title: 'Slow negatives: Control the descent',
+              description: 'Take 3-4 seconds to lower weight for muscle building.'
+            },
+            {
+              icon: 'trending-up',
+              title: 'Partial reps: Focus on sticking points',
+              description: 'Work on the most challenging portion of the movement.'
+            }
+          ]
+        }
+      ],
+      intermediate: [
+        {
+          name: 'Machine Power',
+          duration: '15–18 min',
+          description: 'Intermediate machine training with\nvaried rep ranges and intensities.\n ',
+          battlePlan: '• 4 rounds:\n• 8 machine press\n• 10 single-arm alternating\n• 12 high rep burns\n• Rest 90s',
+          imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Intermediate machine training for strength and endurance.',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Alternating arms: Unilateral focus',
+              description: 'Single-arm work challenges stability and balance.'
+            },
+            {
+              icon: 'timer',
+              title: 'High rep burns: Push through fatigue',
+              description: 'Mental toughness and muscular endurance challenge.'
+            }
+          ]
+        },
+        {
+          name: 'Complex',
+          duration: '12–15 min',
+          description: 'Machine press complex with\ndrop sets and intensity techniques.\n ',
+          battlePlan: '• 3 rounds:\n• 8 heavy machine press\n• Drop to 12 moderate\n• Drop to 16 light\n• Rest 2 min',
+          imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
+          intensityReason: 'Drop set protocol for maximum machine press development.',
+          moodTips: [
+            {
+              icon: 'speedometer',
+              title: 'Quick weight changes: Minimal rest',
+              description: 'Efficient machine adjustments maximize training effect.'
+            },
+            {
+              icon: 'flash',
+              title: 'Push through burn: Mental toughness',
+              description: 'Drop sets create intense muscle fatigue and growth.'
+            }
+          ]
+        }
+      ],
+      advanced: [
+        {
+          name: 'Machine Max',
+          duration: '18–22 min',
+          description: 'Advanced machine training for\nmaximum shoulder development.\n ',
+          battlePlan: '• 4 rounds:\n• 6 max weight press\n• 8 tempo press (3-1-3)\n• 10 explosive press\n• 12 burnout reps\n• Rest 3 min',
+          imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmc&ZW54MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Advanced machine protocol for elite shoulder development.',
+          moodTips: [
+            {
+              icon: 'timer',
+              title: 'Tempo work: Time under tension',
+              description: '3 seconds down, 1 second pause, 3 seconds up.'
+            },
+            {
+              icon: 'flash',
+              title: 'Explosive press: Maximum force production',
+              description: 'Push with maximum speed while maintaining control.'
+            }
+          ]
+        },
+        {
+          name: 'Elite Machine',
+          duration: '16–20 min',
+          description: 'Ultimate machine shoulder workout\nfor elite strength and endurance.\n ',
+          battlePlan: '• 3 rounds:\n• 4 max effort singles\n• 6 cluster sets (pause reps)\n• 8 1.5 rep method\n• Max reps to failure\n• Rest 4 min',
+          imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHc0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Ultimate machine challenge for elite athletes.',
+          moodTips: [
+            {
+              icon: 'construct',
+              title: '1.5 reps: Bottom half plus full rep',
+              description: 'Advanced technique combining partial and full range motion.'
+            },
+            {
+              icon: 'trending-up',
+              title: 'Cluster sets: Short rest between reps',
+              description: 'Brief pause between reps allows heavier weight usage.'
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    equipment: 'Smith Machine',
+    icon: 'hardware-chip',
+    workouts: {
+      beginner: [
+        {
+          name: 'Smith Press',
+          duration: '12–15 min',
+          description: 'Smith machine shoulder press\nwith guided bar path for safety.\n ',
+          battlePlan: '• 3 rounds:\n• 10 smith machine press\n• 8 behind neck press (light)\n• 12 upright rows\n• Rest 75s',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Perfect introduction to Smith machine shoulder training.',
+          moodTips: [
+            {
+              icon: 'construct',
+              title: 'Bar position: Centered on shoulders',
+              description: 'Ensure bar is properly centered before pressing.'
+            },
+            {
+              icon: 'shield',
+              title: 'Safety hooks: Set appropriate height',
+              description: 'Position safety hooks just below lowest point.'
+            }
+          ]
+        },
+        {
+          name: 'Smith Basics',
+          duration: '10–12 min',
+          description: 'Basic Smith machine movements\nfor shoulder strength foundation.\n ',
+          battlePlan: '• 3 rounds:\n• 8 seated smith press\n• 10 smith upright rows\n• 6 smith shrugs\n• Rest 60s',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8TVc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Foundational Smith machine training for safe progression.',
+          moodTips: [
+            {
+              icon: 'body',
+              title: 'Seated position: Back support',
+              description: 'Use bench back support for seated pressing variations.'
+            },
+            {
+              icon: 'flash',
+              title: 'Controlled movement: Use the guide rails',
+              description: 'Take advantage of guided bar path for perfect form.'
+            }
+          ]
+        }
+      ],
+      intermediate: [
+        {
+          name: 'Smith Power',
+          duration: '15–18 min',
+          description: 'Intermediate Smith machine training\nwith power and strength focus.\n ',
+          battlePlan: '• 4 rounds:\n• 8 smith push press\n• 10 standing smith press\n• 8 smith high pulls\n• 12 smith rows\n• Rest 90s',
+          imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Intermediate Smith machine training for power development.',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Push press: Use leg drive',
+              description: 'Generate power from legs to assist shoulder press.'
+            },
+            {
+              icon: 'trending-up',
+              title: 'Standing press: Core engagement',
+              description: 'Standing position challenges core stability more.'
+            }
+          ]
+        },
+        {
+          name: 'Smith Complex',
+          duration: '12–15 min',
+          description: 'Smith machine shoulder complex\nfor comprehensive development.\n ',
+          battlePlan: '• 3 rounds:\n• 6 smith press\n• 8 smith behind neck\n• 10 smith upright rows\n• 12 smith front raise\n• Rest 90s',
+          imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
+          intensityReason: 'Comprehensive Smith machine complex for all deltoid heads.',
+          moodTips: [
+            {
+              icon: 'body',
+              title: 'Behind neck: Only if mobile',
+              description: 'Skip behind neck pressing if any shoulder discomfort.'
+            },
+            {
+              icon: 'construct',
+              title: 'Front raises: Light weight',
+              description: 'Use lighter weight for isolation movements.'
+            }
+          ]
+        }
+      ],
+      advanced: [
+        {
+          name: 'Smith Max',
+          duration: '18–22 min',
+          description: 'Advanced Smith machine training\nfor maximum shoulder development.\n ',
+          battlePlan: '• 4 rounds:\n• 5 max smith press\n• 6 smith push press\n• 8 smith muscle cleans\n• 10 smith high pulls\n• Rest 2–3 min',
+          imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmc&ZW54MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Advanced Smith machine training for maximum strength.',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Muscle cleans: Power development',
+              description: 'Explosive pulling movement to shoulder level.'
+            },
+            {
+              icon: 'construct',
+              title: 'Max press: Challenge limits safely',
+              description: 'Smith machine allows for heavier pressing safely.'
+            }
+          ]
+        },
+        {
+          name: 'Elite Smith',
+          duration: '16–20 min',
+          description: 'Ultimate Smith machine workout\nfor elite shoulder power and size.\n ',
+          battlePlan: '• 3 rounds:\n• 3 max effort singles\n• 5 cluster press\n• 8 tempo press (4-1-2)\n• Max reps burnout\n• Rest 3–4 min',
+          imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Ultimate Smith machine challenge for elite athletes.',
+          moodTips: [
+            {
+              icon: 'timer',
+              title: 'Tempo press: Maximize time under tension',
+              description: '4 seconds down, 1 second pause, 2 seconds up.'
+            },
+            {
+              icon: 'trending-up',
+              title: 'Cluster press: Rest-pause technique',
+              description: 'Brief rest between reps allows heavier loads.'
+            }
+          ]
+        }
+      ]
+    }
   }
 ];
 
