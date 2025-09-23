@@ -399,7 +399,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Endurance & Power',
           duration: '25 min',
-          description: '• 5 min moderate\n• 10 x 30 sec sprint (resistance 10) with 30 sec easy\n• 5 min reverse\n• 5 min cool-down',
+          description: 'Extended endurance with sprint intervals\nand reverse cycling for complete training.\n ',
           imageUrl: 'https://images.pexels.com/photos/2774172/pexels-photo-2774172.jpeg',
           intensityReason: 'Extended power intervals with reverse work test advanced upper body endurance and strength.',
           moodTips: [
