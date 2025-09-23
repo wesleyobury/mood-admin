@@ -2022,12 +2022,16 @@ export default function ShouldersWorkoutDisplayScreen() {
       'Dumbbells': 'barbell',
       'Barbells': 'barbell',
       'Kettlebells': 'fitness',
-      'Adjustable bench': 'square',
+      'Adjustable Bench': 'square',
       'Platform / Step': 'layers',
       'Resistance bands': 'resize',
       'Rear Delt Fly Machine': 'contract',
-      'Cable machine': 'reorder-three',
-      'Suspension trainer': 'link'
+      'Cable Crossover Machine': 'reorder-three',
+      'Suspension trainer': 'link',
+      'Landmine Attachment': 'rocket',
+      'Powerlifting Platform': 'grid',
+      'Shoulder Press Machine': 'triangle',
+      'Smith Machine': 'hardware-chip'
     };
     return equipmentIconMap[equipmentName] || 'fitness';
   };
