@@ -1029,7 +1029,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'HIIT Ski',
           duration: '16 min',
-          description: '• 8 rounds: 20 sec max effort\n• 10 sec rest\n• 2 min easy\n• repeat for 2 cycles',
+          description: 'Tabata protocol with 20s max effort\nand 10s rest. 2 complete cycles.\n ',
           imageUrl: 'https://images.pexels.com/photos/2774172/pexels-photo-2774172.jpeg',
           intensityReason: 'Tabata-style intervals push advanced users to maximum anaerobic capacity with full-body engagement.',
           moodTips: [
