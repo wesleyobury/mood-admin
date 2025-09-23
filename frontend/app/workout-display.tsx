@@ -180,8 +180,9 @@ const workoutDatabase: EquipmentWorkouts[] = [
       beginner: [
         {
           name: 'Resistance Rounds',
-          duration: '20 min',
-          description: '• 3 min easy (resistance 3)\n• 2 min moderate (resistance 6)\n• 1 min fast (resistance 4)\n• repeat 4x\n• finish with 3 min easy (resistance 2)',
+          duration: '18 min',
+          description: 'Resistance intervals from easy to moderate\nwith 4 rounds of progressive intensity.\n ',
+          battlePlan: '• 3 min easy (resistance 3)\n• 2 min moderate (resistance 6)\n• 1 min fast (resistance 4)\n• repeat 4x\n• finish with 3 min easy (resistance 2)',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Low-impact movement with gentle resistance changes, ideal for building cardio base without joint stress.',
           moodTips: [
