@@ -697,7 +697,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Stroke Play',
           duration: '15 min',
-          description: '• 2 min steady (22 SPM)\n• 1 min fast (28 SPM)\n• 2 min slow (20 SPM)\n• repeat 3x',
+          description: 'Stroke rate variations from 20-28 SPM\nwith steady, fast, and slow phases.\n ',
           imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
           intensityReason: 'Varied stroke rates help beginners develop rhythm control while building steady cardiovascular base.',
           moodTips: [
