@@ -1533,7 +1533,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Complex Patterns',
           duration: '18 min',
-          description: '• 1 min cross-over\n• 1 min double under\n• 1 min basic jump\n• repeat 6x',
+          description: 'Advanced techniques including cross-over,\ndouble under, and basic patterns. 6 rounds.\n ',
           imageUrl: 'https://images.pexels.com/photos/2774172/pexels-photo-2774172.jpeg',
           intensityReason: 'Advanced jumping patterns demand elite coordination, timing, and cardiovascular endurance.',
           moodTips: [
