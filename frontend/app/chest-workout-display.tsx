@@ -1470,7 +1470,7 @@ export default function ChestWorkoutDisplayScreen() {
     }
   };
 
-  // Create rows of progress steps with max 3 per row
+  // Create rows of progress steps with max 4 per row (matching cardio format)
   const createProgressRows = () => {
     const allSteps = [
       { icon: 'flame', text: moodTitle, key: 'mood' },
@@ -1484,8 +1484,8 @@ export default function ChestWorkoutDisplayScreen() {
     ];
 
     const rows = [];
-    for (let i = 0; i < allSteps.length; i += 3) {
-      rows.push(allSteps.slice(i, i + 3));
+    for (let i = 0; i < allSteps.length; i += 4) {
+      rows.push(allSteps.slice(i, i + 4));
     }
     return rows;
   };
