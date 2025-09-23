@@ -1742,10 +1742,13 @@ const styles = StyleSheet.create({
     height: 120,
     position: 'relative',
     overflow: 'hidden',
+    borderRadius: 12,
+    marginBottom: 16,
   },
   workoutImage: {
     width: '100%',
     height: '100%',
+    borderRadius: 12,
   },
   imageOverlay: {
     position: 'absolute',
