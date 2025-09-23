@@ -1646,7 +1646,8 @@ const styles = StyleSheet.create({
   },
   progressStep: {
     alignItems: 'center',
-    minWidth: 80,
+    width: '30%',
+    marginBottom: 12,
   },
   progressStepActive: {
     width: 32,
