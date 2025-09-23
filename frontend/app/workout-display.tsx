@@ -48,7 +48,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Walk & Jog Mixer',
           duration: '20 min',
-          description: 'Walk-jog intervals alternating between\n3.5-5.2 mph for beginner endurance.\n ',
+          description: '• 5 min walk (3.5 mph)\n• 3 min jog (5 mph)\n• 2 min walk (3 mph)\n• 4 min jog (5.2 mph)\n• 3 min walk (3.5 mph)\n• 3 min jog (5 mph)',
           imageUrl: 'https://images.unsplash.com/photo-1591291621164-2c6367723315?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8MTc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Perfect beginner introduction with walk-jog intervals that build endurance gradually without overwhelming new exercisers.',
           moodTips: [
