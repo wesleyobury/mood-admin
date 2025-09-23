@@ -1245,7 +1245,7 @@ const WorkoutCard = ({ equipment, icon, workouts, difficulty, difficultyColor, o
 
   const renderWorkout = ({ item, index }: { item: Workout; index: number }) => (
     <View style={[styles.workoutSlide, { width: width - 48 }]}>
-      {/* Workout Image */}
+      {/* Workout Image with Rounded Edges */}
       <View style={styles.workoutImageContainer}>
         <Image 
           source={{ uri: item.imageUrl }}
@@ -1261,28 +1261,29 @@ const WorkoutCard = ({ equipment, icon, workouts, difficulty, difficultyColor, o
 
       {/* Workout Content */}
       <View style={styles.workoutContent}>
-        <View style={styles.workoutHeader}>
-          <View style={styles.workoutTitleContainer}>
-            <Text style={styles.workoutName}>{item.name}</Text>
-            <View style={[styles.difficultyBadge, { backgroundColor: difficultyColor }]}>
-              <Text style={styles.difficultyBadgeText}>{difficulty.toUpperCase()}</Text>
-            </View>
-          </View>
+        {/* Workout Title */}
+        <Text style={styles.workoutName}>{item.name}</Text>
+        
+        {/* Duration & Intensity Level on Same Line */}
+        <View style={styles.durationIntensityRow}>
           <Text style={styles.workoutDuration}>{item.duration}</Text>
+          <View style={[styles.difficultyBadge, { backgroundColor: difficultyColor }]}>
+            <Text style={styles.difficultyBadgeText}>{difficulty.toUpperCase()}</Text>
+          </View>
         </View>
 
-        {/* Intensity Reason */}
+        {/* Intensity Reason - Same Width as Photo */}
         <View style={styles.intensityContainer}>
           <Ionicons name="information-circle" size={16} color="#FFD700" />
           <Text style={styles.intensityReason}>{item.intensityReason}</Text>
         </View>
 
-        {/* Workout Description */}
-        <ScrollView style={styles.workoutDescriptionContainer} showsVerticalScrollIndicator={false}>
+        {/* Workout Description - Same Width as Photo */}
+        <View style={styles.workoutDescriptionContainer}>
           <Text style={styles.workoutDescription}>{item.description}</Text>
-        </ScrollView>
+        </View>
 
-        {/* Start Workout Button */}
+        {/* Start Workout Button - Same Width as Photo */}
         <TouchableOpacity 
           style={styles.startWorkoutButton}
           onPress={() => onStartWorkout(item, equipment, difficulty)}
