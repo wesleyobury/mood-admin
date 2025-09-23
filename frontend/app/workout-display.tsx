@@ -193,7 +193,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Cadence Play',
           duration: '18 min',
-          description: 'RPM variations from 50-70 with steady,\nfast, and moderate pace changes.\n ',
+          description: '• 2 min steady (RPM 55)\n• 1 min fast (RPM 70)\n• 2 min moderate (RPM 60)\n• 1 min slow (RPM 50, resistance 5)\n• repeat 3x',
           imageUrl: 'https://images.pexels.com/photos/2774172/pexels-photo-2774172.jpeg',
           intensityReason: 'Moderate RPM variations help beginners learn rhythm control while building steady-state endurance.',
           moodTips: [
