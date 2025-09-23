@@ -804,7 +804,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Step & Recover',
           duration: '12 min',
-          description: '• 1 min easy\n• 30 sec moderate\n• 1 min easy\n• 30 sec fast\n• repeat 4x',
+          description: 'Easy stepping intervals with 30s moderate\nand fast bursts. 4 complete rounds.\n ',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxzdGFpcm1hc3RlciUyMHdvcmtvdXR8ZW58MXx8fHwxNzU2ODgzNjUyfDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Gentle step intervals with recovery periods help beginners build leg strength and cardiovascular base safely.',
           moodTips: [
