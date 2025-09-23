@@ -1630,7 +1630,6 @@ export default function ShouldersWorkoutDisplayScreen() {
       'Kettlebells': 'fitness',
       'Adjustable Bench': 'square',
       'Platform / Step': 'layers',
-      'Resistance bands': 'resize',
       'Rear Delt Fly Machine': 'contract',
       'Cable Crossover Machine': 'reorder-three',
       'Suspension trainer': 'link',
