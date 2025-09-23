@@ -1757,8 +1757,7 @@ const styles = StyleSheet.create({
     marginLeft: 4,
   },
   workoutContent: {
-    paddingHorizontal: 0,
-    paddingVertical: 16,
+    padding: 20,
   },
   workoutName: {
     fontSize: 16,
