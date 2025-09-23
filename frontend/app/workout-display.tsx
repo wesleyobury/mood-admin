@@ -970,7 +970,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Interval Ski',
           duration: '18 min',
-          description: '• 1 min hard\n• 2 min moderate\n• 1 min slow\n• repeat 4x',
+          description: 'Skiing intervals alternating hard, moderate,\nand slow intensities. 4 complete rounds.\n ',
           imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmd8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Interval structure challenges intermediate users with varying intensity demands on full-body coordination.',
           moodTips: [
