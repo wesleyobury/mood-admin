@@ -233,7 +233,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Reverse & Forward',
           duration: '30 min',
-          description: 'Forward and reverse elliptical intervals\nwith sprint finishes for muscle balance.\n ',
+          description: '• 3 min forward (resistance 6)\n• 2 min reverse (resistance 4)\n• 1 min sprint (forward, resistance 5)\n• repeat 4x\n• finish with 2 min easy',
           imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
           intensityReason: 'Direction changes engage different muscle groups while maintaining consistent cardiovascular demand.',
           moodTips: [
