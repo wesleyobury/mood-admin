@@ -3039,6 +3039,7 @@ export default function WorkoutDisplayScreen() {
           workoutName: workout.name,
           equipment: equipment,
           description: workout.description || '',
+          battlePlan: workout.battlePlan || '',
           duration: workout.duration || '20 min',
           difficulty: difficulty,
           workoutType: workoutType,
