@@ -107,9 +107,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Incline Intervals',
           duration: '30 min',
-          description: 'Condensed workout summary with
-key intervals and intensity levels.
- '
+          description: '• 2 min run (6.0 mph, incline 1%)\n• 1 min run (6.0 mph, incline 5%)\n• 2 min walk (3.5 mph, incline 2%)\n• Repeat 5x\n• Finish with 3 min walk (3.0 mph)',
           imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
           intensityReason: 'Combines consistent running pace with challenging inclines to build both cardiovascular and muscular endurance.',
           moodTips: [
@@ -216,9 +214,7 @@ key intervals and intensity levels.
         {
           name: 'Climb & Sprint',
           duration: '25 min',
-          description: 'Condensed workout summary with
-key intervals and intensity levels.
- '
+          description: '• 2 min moderate (resistance 5)\n• 1 min climb (resistance 10)\n• 1 min sprint (resistance 4\n• RPM 80+)\n• repeat 5x\n• finish with 3 min easy',
           imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Alternates between high resistance climbs and fast sprints to challenge both strength and speed.',
           moodTips: [
@@ -237,9 +233,7 @@ key intervals and intensity levels.
         {
           name: 'Reverse & Forward',
           duration: '30 min',
-          description: 'Condensed workout summary with
-key intervals and intensity levels.
- '
+          description: '• 3 min forward (resistance 6)\n• 2 min reverse (resistance 4)\n• 1 min sprint (forward\n• resistance 5)\n• repeat 4x\n• finish with 2 min easy',
           imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
           intensityReason: 'Direction changes engage different muscle groups while maintaining consistent cardiovascular demand.',
           moodTips: [
@@ -260,9 +254,7 @@ key intervals and intensity levels.
         {
           name: 'Tabata Elliptical',
           duration: '24 min',
-          description: 'Condensed workout summary with
-key intervals and intensity levels.
- '
+          description: '• 8 rounds: 20 sec max effort (resistance 8)\n• 10 sec easy (resistance 3)\n• 2 min recovery\n• repeat for 3 cycles',
           imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmd8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Tabata protocol demands maximum effort bursts, pushing VO2 max and anaerobic capacity to limits.',
           moodTips: [
@@ -281,9 +273,7 @@ key intervals and intensity levels.
         {
           name: 'Endurance Builder',
           duration: '35 min',
-          description: 'Condensed workout summary with
-key intervals and intensity levels.
- '
+          description: '• 5 min easy\n• 10 min moderate (resistance 7)\n• 5 min hard (resistance 10)\n• 5 min fast (resistance 5\n• RPM 80+)\n• 5 min reverse (resistance 6)\n• 5 min cool-down',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MTc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Long duration with varied intensities tests cardiovascular endurance and mental resilience.',
           moodTips: [
@@ -310,9 +300,7 @@ key intervals and intensity levels.
         {
           name: 'Speed & Resistance Mix',
           duration: '12 min',
-          description: 'Condensed workout summary with
-key intervals and intensity levels.
- '
+          description: '• 2 min easy (resistance 2)\n• 1 min moderate (resistance 4)\n• 1 min fast (resistance 2)\n• repeat 3x\n• finish with 2 min easy',
           imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Short intervals with varied resistance help beginners build upper body endurance gradually.',
           moodTips: [
@@ -331,9 +319,7 @@ key intervals and intensity levels.
         {
           name: 'Interval Builder',
           duration: '15 min',
-          description: 'Condensed workout summary with
-key intervals and intensity levels.
- '
+          description: '• 1 min easy\n• 1 min moderate\n• 30 sec fast\n• 1 min easy\n• 1 min reverse\n• repeat 3x',
           imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
           intensityReason: 'Basic interval structure with reverse motion introduces beginners to upper body cardio safely.',
           moodTips: [
@@ -354,9 +340,7 @@ key intervals and intensity levels.
         {
           name: 'Pyramid Challenge',
           duration: '18 min',
-          description: 'Condensed workout summary with
-key intervals and intensity levels.
- '
+          description: '• 1 min easy\n• 1 min moderate\n• 1 min hard\n• 1 min moderate\n• 1 min easy\n• repeat 3x',
           imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmd8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Progressive intensity pyramid challenges intermediate upper body strength and endurance.',
           moodTips: [
@@ -375,9 +359,7 @@ key intervals and intensity levels.
         {
           name: 'Reverse & Forward',
           duration: '20 min',
-          description: 'Condensed workout summary with
-key intervals and intensity levels.
- '
+          description: '• 2 min forward (resistance 5)\n• 1 min reverse (resistance 3)\n• 1 min sprint (forward\n• resistance 4)\n• repeat 4x',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MTc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Alternating directions engage different muscle groups while building intermediate cardiovascular capacity.',
           moodTips: [
@@ -398,9 +380,7 @@ key intervals and intensity levels.
         {
           name: 'HIIT Sprints',
           duration: '20 min',
-          description: 'Condensed workout summary with
-key intervals and intensity levels.
- '
+          description: '• 30 sec max effort (resistance 8)\n• 1 min easy (resistance 3)\n• repeat 10x\n• finish with 5 min moderate',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxhcm0lMjBiaWN5Y2xlJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'High-intensity sprints demand maximum upper body power and anaerobic capacity.',
           moodTips: [
@@ -419,9 +399,7 @@ key intervals and intensity levels.
         {
           name: 'Endurance & Power',
           duration: '25 min',
-          description: 'Condensed workout summary with
-key intervals and intensity levels.
- '
+          description: '• 5 min moderate\n• 10 x 30 sec sprint (resistance 10) with 30 sec easy\n• 5 min reverse\n• 5 min cool-down',
           imageUrl: 'https://images.pexels.com/photos/2774172/pexels-photo-2774172.jpeg',
           intensityReason: 'Extended power intervals with reverse work test advanced upper body endurance and strength.',
           moodTips: [
@@ -448,9 +426,7 @@ key intervals and intensity levels.
         {
           name: 'Rolling Ride',
           duration: '20 min',
-          description: 'Condensed workout summary with
-key intervals and intensity levels.
- '
+          description: '• 3 min easy (resistance 2)\n• 2 min moderate (resistance 5)\n• 1 min fast (resistance 3)\n• repeat 4x',
           imageUrl: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxzdGF0aW9uYXJ5JTIwYmlrZSUyMHdvcmtvdXR8ZW58MXx8fHwxNzU2ODgzNjUyfDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Gentle resistance changes help beginners build leg strength and cardiovascular base.',
           moodTips: [
@@ -469,9 +445,7 @@ key intervals and intensity levels.
         {
           name: 'Cadence Intervals',
           duration: '18 min',
-          description: 'Condensed workout summary with
-key intervals and intensity levels.
- '
+          description: '• 2 min steady (70 RPM)\n• 1 min fast (90 RPM)\n• 2 min moderate (80 RPM)\n• 1 min slow (60 RPM\n• resistance 6)\n• repeat 3x',
           imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
           intensityReason: 'RPM variations teach beginners pedaling rhythm while maintaining moderate intensity.',
           moodTips: [
@@ -492,9 +466,7 @@ key intervals and intensity levels.
         {
           name: 'Hill & Sprint',
           duration: '25 min',
-          description: 'Condensed workout summary with
-key intervals and intensity levels.
- '
+          description: '• 2 min moderate (resistance 6)\n• 1 min hill (resistance 10)\n• 1 min sprint (resistance 4\n• 100+ RPM)\n• repeat 5x',
           imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Alternates between strength-building hills and speed-focused sprints for balanced intermediate training.',
           moodTips: [
@@ -513,9 +485,7 @@ key intervals and intensity levels.
         {
           name: 'Pyramid Ride',
           duration: '30 min',
-          description: 'Condensed workout summary with
-key intervals and intensity levels.
- '
+          description: '• 3 min easy\n• 2 min moderate\n• 1 min hard\n• 2 min moderate\n• 3 min easy\n• repeat 3x',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MTc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Progressive intensity pyramids challenge intermediate riders with sustained effort periods.',
           moodTips: [
@@ -536,9 +506,7 @@ key intervals and intensity levels.
         {
           name: 'Tabata Bike',
           duration: '24 min',
-          description: 'Condensed workout summary with
-key intervals and intensity levels.
- '
+          description: '• 8 rounds: 20 sec max effort (resistance 8)\n• 10 sec easy (resistance 3)\n• 2 min recovery\n• repeat for 3 cycles',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxzdGF0aW9uYXJ5JTIwYmlrZSUyMHdvcmtvdXR8ZW58MXx8fHwxNzU2ODgzNjUyfDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Tabata protocol pushes advanced cyclists to maximum anaerobic power and VO2 capacity.',
           moodTips: [
@@ -557,9 +525,7 @@ key intervals and intensity levels.
         {
           name: 'Endurance & Power',
           duration: '35 min',
-          description: 'Condensed workout summary with
-key intervals and intensity levels.
- '
+          description: '• 5 min easy\n• 10 min moderate (resistance 7)\n• 5 min hard (resistance 10)\n• 5 min fast (resistance 5\n• 100+ RPM)\n• 5 min standing climb (resistance 8)\n• 5 min cool-down',
           imageUrl: 'https://images.pexels.com/photos/2774172/pexels-photo-2774172.jpeg',
           intensityReason: 'Extended workout with varied challenges tests advanced cardiovascular endurance and power.',
           moodTips: [
@@ -586,9 +552,7 @@ key intervals and intensity levels.
         {
           name: 'Intro Intervals',
           duration: '12 min',
-          description: 'Condensed workout summary with
-key intervals and intensity levels.
- '
+          description: '• 1 min easy\n• 30 sec moderate\n• 1 min easy\n• 30 sec fast\n• repeat 4x',
           imageUrl: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxhc3NhdWx0JTIwYmlrZSUyMHdvcmtvdXR8ZW58MXx8fHwxNzU2ODgzNjUyfDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Short intervals introduce beginners to assault bike intensity while allowing adequate recovery.',
           moodTips: [
@@ -607,9 +571,7 @@ key intervals and intensity levels.
         {
           name: 'Resistance Play',
           duration: '15 min',
-          description: 'Condensed workout summary with
-key intervals and intensity levels.
- '
+          description: '• 2 min easy\n• 1 min moderate (increase resistance)\n• 1 min fast\n• repeat 3x\n• finish with 2 min easy',
           imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
           intensityReason: 'Gradual resistance increases help beginners adapt to full-body assault bike movement.',
           moodTips: [
@@ -630,9 +592,7 @@ key intervals and intensity levels.
         {
           name: 'Sprint & Recover',
           duration: '18 min',
-          description: 'Condensed workout summary with
-key intervals and intensity levels.
- '
+          description: '• 20 sec sprint\n• 40 sec easy\n• repeat 10x\n• 5 min moderate',
           imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmd8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Classic 1:2 work-to-rest ratio challenges intermediate full-body power and recovery.',
           moodTips: [
@@ -651,9 +611,7 @@ key intervals and intensity levels.
         {
           name: 'Ladder Intervals',
           duration: '20 min',
-          description: 'Condensed workout summary with
-key intervals and intensity levels.
- '
+          description: '• 30 sec sprint\n• 1 min easy\n• 45 sec sprint\n• 1 min easy\n• 1 min sprint\n• 1 min easy\n• repeat sequence',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MTc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Progressive interval lengths challenge intermediate athletes with increasing demands.',
           moodTips: [
@@ -674,9 +632,7 @@ key intervals and intensity levels.
         {
           name: 'Tabata Assault',
           duration: '16 min',
-          description: 'Condensed workout summary with
-key intervals and intensity levels.
- '
+          description: '• 8 rounds: 20 sec max effort\n• 10 sec rest\n• 2 min easy\n• repeat for 2 cycles',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxhc3NhdWx0JTIwYmlrZSUyMHdvcmtvdXR8ZW58MXx8fHwxNzU2ODgzNjUyfDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Tabata on assault bike demands maximum full-body power and elite anaerobic capacity.',
           moodTips: [
@@ -695,9 +651,7 @@ key intervals and intensity levels.
         {
           name: 'EMOM Challenge',
           duration: '20 min',
-          description: 'Condensed workout summary with
-key intervals and intensity levels.
- '
+          description: '• Every minute: 20 sec sprint\n• 40 sec moderate\n• repeat for 20 min',
           imageUrl: 'https://images.pexels.com/photos/2774172/pexels-photo-2774172.jpeg',
           intensityReason: 'Extended EMOM format tests advanced endurance under consistent high-intensity demands.',
           moodTips: [
@@ -724,9 +678,7 @@ key intervals and intensity levels.
         {
           name: 'Row & Rest',
           duration: '12 min',
-          description: 'Condensed workout summary with
-key intervals and intensity levels.
- '
+          description: '• 1 min easy\n• 30 sec moderate\n• 1 min easy\n• 30 sec fast\n• repeat 4x',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxyb3dpbmclMjBtYWNoaW5lJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODM2NTJ8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Short intervals with rest periods make this ideal for beginners learning rowing technique and building base endurance.',
           moodTips: [
@@ -745,9 +697,7 @@ key intervals and intensity levels.
         {
           name: 'Stroke Play',
           duration: '15 min',
-          description: 'Condensed workout summary with
-key intervals and intensity levels.
- '
+          description: '• 2 min steady (22 SPM)\n• 1 min fast (28 SPM)\n• 2 min slow (20 SPM)\n• repeat 3x',
           imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
           intensityReason: 'Varied stroke rates help beginners develop rhythm control while building steady cardiovascular base.',
           moodTips: [
@@ -768,9 +718,7 @@ key intervals and intensity levels.
         {
           name: 'Power Intervals',
           duration: '20 min',
-          description: 'Condensed workout summary with
-key intervals and intensity levels.
- '
+          description: '• 1 min hard (28 SPM)\n• 2 min moderate (24 SPM)\n• 1 min slow (20 SPM)\n• repeat 4x',
           imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmd8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Alternates between power strokes and recovery periods, perfect for building intermediate strength and endurance.',
           moodTips: [
@@ -789,9 +737,7 @@ key intervals and intensity levels.
         {
           name: 'Pyramid Row',
           duration: '25 min',
-          description: 'Condensed workout summary with
-key intervals and intensity levels.
- '
+          description: '• 1 min easy\n• 1 min hard\n• 2 min easy\n• 2 min hard\n• 3 min easy\n• 3 min hard\n• then back down',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MTc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Progressive time intervals challenge intermediate rowers with increasing demands on both power and mental focus.',
           moodTips: [
@@ -812,9 +758,7 @@ key intervals and intensity levels.
         {
           name: 'Sprint & Recover',
           duration: '20 min',
-          description: 'Condensed workout summary with
-key intervals and intensity levels.
- '
+          description: '• 30 sec sprint (32 SPM)\n• 1 min moderate (24 SPM)\n• repeat 10x',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxyb3dpbmclMjBtYWNoaW5lJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODM2NTJ8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'High-intensity sprints at 32 SPM demand maximum power output and anaerobic capacity from advanced rowers.',
           moodTips: [
@@ -833,9 +777,7 @@ key intervals and intensity levels.
         {
           name: 'Endurance Builder',
           duration: '30 min',
-          description: 'Condensed workout summary with
-key intervals and intensity levels.
- '
+          description: '• 5 min easy\n• 10 min moderate\n• 5 min hard\n• 5 min fast\n• 5 min cool-down',
           imageUrl: 'https://images.pexels.com/photos/2774172/pexels-photo-2774172.jpeg',
           intensityReason: 'Extended duration with progressive intensity builds elite-level cardiovascular endurance and mental toughness.',
           moodTips: [
@@ -862,9 +804,7 @@ key intervals and intensity levels.
         {
           name: 'Step & Recover',
           duration: '12 min',
-          description: 'Condensed workout summary with
-key intervals and intensity levels.
- '
+          description: '• 1 min easy\n• 30 sec moderate\n• 1 min easy\n• 30 sec fast\n• repeat 4x',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxzdGFpcm1hc3RlciUyMHdvcmtvdXR8ZW58MXx8fHwxNzU2ODgzNjUyfDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Gentle step intervals with recovery periods help beginners build leg strength and cardiovascular base safely.',
           moodTips: [
@@ -883,9 +823,7 @@ key intervals and intensity levels.
         {
           name: 'Pace Changer',
           duration: '15 min',
-          description: 'Condensed workout summary with
-key intervals and intensity levels.
- '
+          description: '• 2 min steady\n• 1 min double step (skip a step)\n• 2 min slow\n• repeat 3x',
           imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
           intensityReason: 'Varied stepping patterns introduce beginners to different movement patterns while maintaining moderate intensity.',
           moodTips: [
@@ -906,9 +844,7 @@ key intervals and intensity levels.
         {
           name: 'Interval Climb',
           duration: '20 min',
-          description: 'Condensed workout summary with
-key intervals and intensity levels.
- '
+          description: '• 1 min fast\n• 2 min moderate\n• 1 min side step (face sideways)\n• repeat 4x',
           imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmd8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Mixed stepping patterns and intensities challenge intermediate users with both speed and coordination demands.',
           moodTips: [
@@ -927,9 +863,7 @@ key intervals and intensity levels.
         {
           name: 'Hill Climb',
           duration: '25 min',
-          description: 'Condensed workout summary with
-key intervals and intensity levels.
- '
+          description: '• 2 min moderate\n• 1 min fast\n• 1 min slow\n• 1 min double step\n• repeat 5x',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MTc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Continuous climbing with varied techniques builds intermediate-level lower body strength and endurance.',
           moodTips: [
@@ -950,9 +884,7 @@ key intervals and intensity levels.
         {
           name: 'Speed & Endurance',
           duration: '30 min',
-          description: 'Condensed workout summary with
-key intervals and intensity levels.
- '
+          description: '• 2 min fast\n• 1 min side step\n• 1 min double step\n• 2 min moderate\n• repeat 5x',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxzdGFpcm1hc3RlciUyMHdvcmtvdXR8ZW58MXx8fHwxNzU2ODgzNjUyfDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'High-speed stepping with complex patterns demands advanced coordination, power, and cardiovascular fitness.',
           moodTips: [
@@ -971,9 +903,7 @@ key intervals and intensity levels.
         {
           name: 'HIIT Steps',
           duration: '20 min',
-          description: 'Condensed workout summary with
-key intervals and intensity levels.
- '
+          description: '• 30 sec sprint\n• 90 sec moderate\n• 30 sec skip-step\n• 90 sec easy\n• repeat 5x',
           imageUrl: 'https://images.pexels.com/photos/2774172/pexels-photo-2774172.jpeg',
           intensityReason: 'High-intensity intervals with plyometric skip-steps challenge advanced explosive power and recovery.',
           moodTips: [
@@ -1000,9 +930,7 @@ key intervals and intensity levels.
         {
           name: 'Ski & Glide',
           duration: '12 min',
-          description: 'Condensed workout summary with
-key intervals and intensity levels.
- '
+          description: '• 1 min easy\n• 30 sec moderate\n• 1 min easy\n• 30 sec fast\n• repeat 4x',
           imageUrl: 'https://images.unsplash.com/photo-1551716652-ddc80b66aaae?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxza2klMjBtYWNoaW5lJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODM2NTJ8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Short intervals with rest periods help beginners learn ski machine technique while building base fitness.',
           moodTips: [
@@ -1021,9 +949,7 @@ key intervals and intensity levels.
         {
           name: 'Resistance Play',
           duration: '15 min',
-          description: 'Condensed workout summary with
-key intervals and intensity levels.
- '
+          description: '• 2 min steady (resistance 3)\n• 1 min moderate (resistance 5)\n• 2 min slow (resistance 2)\n• repeat 3x',
           imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
           intensityReason: 'Varied resistance levels introduce beginners to full-body ski motion gradually.',
           moodTips: [
@@ -1044,9 +970,7 @@ key intervals and intensity levels.
         {
           name: 'Interval Ski',
           duration: '18 min',
-          description: 'Condensed workout summary with
-key intervals and intensity levels.
- '
+          description: '• 1 min hard\n• 2 min moderate\n• 1 min slow\n• repeat 4x',
           imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmd8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Interval structure challenges intermediate users with varying intensity demands on full-body coordination.',
           moodTips: [
@@ -1065,9 +989,7 @@ key intervals and intensity levels.
         {
           name: 'Pyramid Ski',
           duration: '20 min',
-          description: 'Condensed workout summary with
-key intervals and intensity levels.
- '
+          description: '• 1 min easy\n• 1 min hard\n• 2 min easy\n• 2 min hard\n• 3 min easy\n• 3 min hard',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MTc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Progressive time increases test intermediate endurance and mental focus during sustained efforts.',
           moodTips: [
@@ -1088,9 +1010,7 @@ key intervals and intensity levels.
         {
           name: 'Sprint & Recover',
           duration: '20 min',
-          description: 'Condensed workout summary with
-key intervals and intensity levels.
- '
+          description: '• 30 sec sprint\n• 1 min moderate\n• repeat 10x',
           imageUrl: 'https://images.unsplash.com/photo-1551716652-ddc80b66aaae?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxza2klMjBtYWNoaW5lJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODM2NTJ8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'High-intensity sprints demand maximum power and coordination from advanced full-body athletes.',
           moodTips: [
@@ -1109,9 +1029,7 @@ key intervals and intensity levels.
         {
           name: 'HIIT Ski',
           duration: '16 min',
-          description: 'Condensed workout summary with
-key intervals and intensity levels.
- '
+          description: '• 8 rounds: 20 sec max effort\n• 10 sec rest\n• 2 min easy\n• repeat for 2 cycles',
           imageUrl: 'https://images.pexels.com/photos/2774172/pexels-photo-2774172.jpeg',
           intensityReason: 'Tabata-style intervals push advanced users to maximum anaerobic capacity with full-body engagement.',
           moodTips: [
@@ -1138,9 +1056,7 @@ key intervals and intensity levels.
         {
           name: 'Walk & Jog',
           duration: '12 min',
-          description: 'Condensed workout summary with
-key intervals and intensity levels.
- '
+          description: '• 2 min walk\n• 1 min jog\n• 2 min walk\n• 1 min jog\n• repeat 2x',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxjdXJ2ZSUyMHRyZWFkbWlsbCUyMHdvcmtvdXR8ZW58MXx8fHwxNzU2ODgzNjUyfDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Self-powered curve treadmill naturally moderates pace, perfect for beginners learning running form.',
           moodTips: [
@@ -1159,9 +1075,7 @@ key intervals and intensity levels.
         {
           name: 'Speed Play',
           duration: '15 min',
-          description: 'Condensed workout summary with
-key intervals and intensity levels.
- '
+          description: '• 1 min walk\n• 30 sec jog\n• 1 min walk\n• 30 sec fast walk\n• repeat 4x',
           imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
           intensityReason: 'Variable pace work helps beginners understand effort control on self-powered equipment.',
           moodTips: [
@@ -1182,9 +1096,7 @@ key intervals and intensity levels.
         {
           name: 'Interval Run',
           duration: '18 min',
-          description: 'Condensed workout summary with
-key intervals and intensity levels.
- '
+          description: '• 1 min run\n• 2 min walk\n• 1 min fast run\n• 2 min walk\n• repeat 3x',
           imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmd8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Interval structure on curve treadmill challenges intermediate runners with self-regulated intensity.',
           moodTips: [
@@ -1203,9 +1115,7 @@ key intervals and intensity levels.
         {
           name: 'Pyramid Pace',
           duration: '20 min',
-          description: 'Condensed workout summary with
-key intervals and intensity levels.
- '
+          description: '• 1 min walk\n• 1 min jog\n• 1 min run\n• 1 min jog\n• 1 min walk\n• repeat 3x',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MTc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Progressive pace pyramids develop intermediate pacing skills on self-powered running surface.',
           moodTips: [
@@ -1226,9 +1136,7 @@ key intervals and intensity levels.
         {
           name: 'Sprint Intervals',
           duration: '20 min',
-          description: 'Condensed workout summary with
-key intervals and intensity levels.
- '
+          description: '• 20 sec sprint\n• 40 sec walk\n• repeat 15x',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxjdXJ2ZSUyMHRyZWFkbWlsbCUyMHdvcmtvdXR8ZW58MXx8fHwxNzU2ODgzNjUyfDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'High-intensity sprints on curve treadmill demand maximum power output and advanced running mechanics.',
           moodTips: [
@@ -1247,9 +1155,7 @@ key intervals and intensity levels.
         {
           name: 'EMOM Challenge',
           duration: '15 min',
-          description: 'Condensed workout summary with
-key intervals and intensity levels.
- '
+          description: '• Every minute: 20 sec sprint\n• 40 sec moderate jog\n• repeat for 15 min',
           imageUrl: 'https://images.pexels.com/photos/2774172/pexels-photo-2774172.jpeg',
           intensityReason: 'Sustained high-intensity work tests advanced cardiovascular capacity with self-regulated pace control.',
           moodTips: [
@@ -1276,9 +1182,7 @@ key intervals and intensity levels.
         {
           name: 'Combo Builder',
           duration: '10 min',
-          description: 'Condensed workout summary with
-key intervals and intensity levels.
- '
+          description: '• 30 sec jab-cross\n• 30 sec rest\n• 30 sec jab-cross-hook\n• 30 sec rest\n• repeat 5x',
           imageUrl: 'https://images.unsplash.com/photo-1549719386-74dfcbeb7dfc?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxwdW5jaGluZyUyMGJhZyUyMHdvcmtvdXR8ZW58MXx8fHwxNzU2ODgzNjUyfDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Basic combinations with rest allow beginners to learn proper punching form while building cardio base.',
           moodTips: [
@@ -1297,9 +1201,7 @@ key intervals and intensity levels.
         {
           name: 'Movement Mix',
           duration: '12 min',
-          description: 'Condensed workout summary with
-key intervals and intensity levels.
- '
+          description: '• 30 sec light punches\n• 30 sec footwork (move around bag)\n• 30 sec rest\n• repeat 4x',
           imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
           intensityReason: 'Combines punching with movement patterns to introduce beginners to boxing cardio safely.',
           moodTips: [
@@ -1320,9 +1222,7 @@ key intervals and intensity levels.
         {
           name: 'Power Rounds',
           duration: '15 min',
-          description: 'Condensed workout summary with
-key intervals and intensity levels.
- '
+          description: '• 1 min combos (jab-cross-hook-uppercut)\n• 30 sec rest\n• 1 min power punches\n• 30 sec rest\n• repeat 4x',
           imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmd8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Complex combinations and power work challenge intermediate coordination and cardiovascular fitness.',
           moodTips: [
@@ -1341,9 +1241,7 @@ key intervals and intensity levels.
         {
           name: 'Speed & Defense',
           duration: '16 min',
-          description: 'Condensed workout summary with
-key intervals and intensity levels.
- '
+          description: '• 30 sec fast punches\n• 30 sec slips/ducks\n• 30 sec rest\n• repeat 6x',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MTc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Speed work plus defensive movement develops intermediate boxing skills and agility.',
           moodTips: [
@@ -1364,9 +1262,7 @@ key intervals and intensity levels.
         {
           name: 'HIIT Boxing',
           duration: '20 min',
-          description: 'Condensed workout summary with
-key intervals and intensity levels.
- '
+          description: '• 45 sec max effort combos\n• 15 sec rest\n• repeat 15x',
           imageUrl: 'https://images.unsplash.com/photo-1549719386-74dfcbeb7dfc?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxwdW5jaGluZyUyMGJhZyUyMHdvcmtvdXR8ZW58MXx8fHwxNzU2ODgzNjUyfDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'High-intensity intervals demand maximum power, speed, and coordination from advanced fighters.',
           moodTips: [
@@ -1385,9 +1281,7 @@ key intervals and intensity levels.
         {
           name: 'Endurance Rounds',
           duration: '20 min',
-          description: 'Condensed workout summary with
-key intervals and intensity levels.
- '
+          description: '• 2 min all-out\n• 1 min rest\n• 2 min footwork & defense\n• 1 min rest\n• repeat 3x',
           imageUrl: 'https://images.pexels.com/photos/2774172/pexels-photo-2774172.jpeg',
           intensityReason: 'Extended rounds test advanced cardiovascular endurance under high-skill technical demands.',
           moodTips: [
@@ -1414,9 +1308,7 @@ key intervals and intensity levels.
         {
           name: 'Climb & Rest',
           duration: '10 min',
-          description: 'Condensed workout summary with
-key intervals and intensity levels.
- '
+          description: '• 1 min climb\n• 1 min rest\n• repeat 5x',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHx2ZXJ0aWNhbCUyMGNsaW1iZXIlMjB3b3Jrb3V0fGVufDF8fHx8MTc1Nijg4MzY1Mnww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Equal work-to-rest ratio helps beginners adapt to full-body climbing motion safely.',
           moodTips: [
@@ -1435,9 +1327,7 @@ key intervals and intensity levels.
         {
           name: 'Pace Play',
           duration: '12 min',
-          description: 'Condensed workout summary with
-key intervals and intensity levels.
- '
+          description: '• 30 sec slow\n• 30 sec moderate\n• 30 sec fast\n• 30 sec rest\n• repeat 3x',
           imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
           intensityReason: 'Varied pace work introduces beginners to different climbing intensities with adequate recovery.',
           moodTips: [
@@ -1458,9 +1348,7 @@ key intervals and intensity levels.
         {
           name: 'Interval Climb',
           duration: '15 min',
-          description: 'Condensed workout summary with
-key intervals and intensity levels.
- '
+          description: '• 1 min hard\n• 1 min moderate\n• 1 min slow\n• repeat 5x',
           imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmd8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Sustained interval structure challenges intermediate full-body endurance and coordination.',
           moodTips: [
@@ -1479,9 +1367,7 @@ key intervals and intensity levels.
         {
           name: 'Ladder Climb',
           duration: '18 min',
-          description: 'Condensed workout summary with
-key intervals and intensity levels.
- '
+          description: '• 30 sec fast\n• 1 min moderate\n• 30 sec slow\n• repeat 6x',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MTc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Variable interval lengths develop intermediate pacing skills during vertical climbing movement.',
           moodTips: [
@@ -1502,9 +1388,7 @@ key intervals and intensity levels.
         {
           name: 'Sprint & Recover',
           duration: '20 min',
-          description: 'Condensed workout summary with
-key intervals and intensity levels.
- '
+          description: '• 20 sec sprint\n• 40 sec moderate\n• repeat 15x',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHx2ZXJ0aWNhbCUyMGNsaW1iZXIlMjB3b3Jrb3V0fGVufDF8fHx8MTc1Nijg4MzY1Mnww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'High-intensity sprints demand maximum full-body power and advanced climbing coordination.',
           moodTips: [
@@ -1523,9 +1407,7 @@ key intervals and intensity levels.
         {
           name: 'Endurance Climb',
           duration: '20 min',
-          description: 'Condensed workout summary with
-key intervals and intensity levels.
- '
+          description: '• 2 min hard\n• 1 min moderate\n• repeat 6x',
           imageUrl: 'https://images.pexels.com/photos/2774172/pexels-photo-2774172.jpeg',
           intensityReason: 'Extended hard efforts test advanced cardiovascular endurance during sustained vertical climbing.',
           moodTips: [
@@ -1552,9 +1434,7 @@ key intervals and intensity levels.
         {
           name: 'Jump & Rest',
           duration: '10 min',
-          description: 'Condensed workout summary with
-key intervals and intensity levels.
- '
+          description: '• 30 sec jump\n• 30 sec rest\n• repeat 10x',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxqdW1wJTIwcm9wZSUyMHdvcmtvdXR8ZW58MXx8fHwxNzU2ODgzNjUyfDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Equal work-to-rest ratio helps beginners learn proper jumping technique while building cardiovascular base.',
           moodTips: [
@@ -1573,9 +1453,7 @@ key intervals and intensity levels.
         {
           name: 'Step Touch',
           duration: '12 min',
-          description: 'Condensed workout summary with
-key intervals and intensity levels.
- '
+          description: '• 30 sec basic jump\n• 30 sec step touch (no rope)\n• 30 sec basic jump\n• 30 sec rest\n• repeat 4x',
           imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
           intensityReason: 'Alternates between rope work and footwork practice to build coordination gradually.',
           moodTips: [
@@ -1596,9 +1474,7 @@ key intervals and intensity levels.
         {
           name: 'Combo Jumps',
           duration: '15 min',
-          description: 'Condensed workout summary with
-key intervals and intensity levels.
- '
+          description: '• 1 min basic jump\n• 30 sec alternate foot\n• 30 sec double bounce\n• 1 min rest\n• repeat 4x',
           imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmd8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Multiple jumping patterns challenge intermediate coordination and cardiovascular fitness.',
           moodTips: [
@@ -1617,9 +1493,7 @@ key intervals and intensity levels.
         {
           name: 'Speed Intervals',
           duration: '18 min',
-          description: 'Condensed workout summary with
-key intervals and intensity levels.
- '
+          description: '• 45 sec fast jump\n• 15 sec slow jump\n• repeat 12x',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MTc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Speed variations challenge intermediate jumpers with intense cardio demands and active recovery.',
           moodTips: [
@@ -1640,9 +1514,7 @@ key intervals and intensity levels.
         {
           name: 'HIIT Rope',
           duration: '20 min',
-          description: 'Condensed workout summary with
-key intervals and intensity levels.
- '
+          description: '• 30 sec max speed\n• 10 sec rest\n• repeat 20x',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxqdW1wJTIwcm9wZSUyMHdvcmtvdXR8ZW58MXx8fHwxNzU2ODgzNjUyfDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Maximum speed intervals with minimal rest demand elite cardiovascular fitness and coordination.',
           moodTips: [
@@ -1661,9 +1533,7 @@ key intervals and intensity levels.
         {
           name: 'Complex Patterns',
           duration: '18 min',
-          description: 'Condensed workout summary with
-key intervals and intensity levels.
- '
+          description: '• 1 min cross-over\n• 1 min double under\n• 1 min basic jump\n• repeat 6x',
           imageUrl: 'https://images.pexels.com/photos/2774172/pexels-photo-2774172.jpeg',
           intensityReason: 'Advanced jumping patterns demand elite coordination, timing, and cardiovascular endurance.',
           moodTips: [
