@@ -1807,13 +1807,11 @@ const styles = StyleSheet.create({
   },
   workoutDescriptionContainer: {
     marginBottom: 16,
-    paddingHorizontal: 0,
   },
   workoutDescription: {
     fontSize: 14,
     color: 'rgba(255, 255, 255, 0.9)',
     lineHeight: 20,
-    paddingHorizontal: 6,
   },
   startWorkoutButton: {
     backgroundColor: '#FFD700',
