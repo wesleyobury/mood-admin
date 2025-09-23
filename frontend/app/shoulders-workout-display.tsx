@@ -1629,7 +1629,6 @@ export default function ShouldersWorkoutDisplayScreen() {
       'Barbells': 'barbell',
       'Kettlebells': 'fitness',
       'Adjustable Bench': 'square',
-      'Platform / Step': 'layers',
       'Rear Delt Fly Machine': 'contract',
       'Cable Crossover Machine': 'reorder-three',
       'Landmine Attachment': 'rocket',
