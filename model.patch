@@ -1,0 +1,46 @@
+diff --git a/frontend/app/chest-workout-display.tsx b/frontend/app/chest-workout-display.tsx
+index 570c11b..2e28aa4 100644
+--- a/frontend/app/chest-workout-display.tsx
++++ b/frontend/app/chest-workout-display.tsx
+@@ -1469,6 +1469,41 @@ export default function ChestWorkoutDisplayScreen() {
+     }
+   };
+ 
++  // Create rows of progress steps with max 3 per row
++  const createProgressRows = () => {
++    const allSteps = [
++      { icon: 'flame', text: moodTitle, key: 'mood' },
++      { icon: 'fitness', text: workoutType, key: 'type' },
++      { icon: 'speedometer', text: difficulty.charAt(0).toUpperCase() + difficulty.slice(1), key: 'difficulty' },
++      ...selectedEquipmentNames.map((equipment, index) => ({
++        icon: getEquipmentIcon(equipment),
++        text: equipment,
++        key: `equipment-${index}`
++      }))
++    ];
++
++    const rows = [];
++    for (let i = 0; i < allSteps.length; i += 3) {
++      rows.push(allSteps.slice(i, i + 3));
++    }
++    return rows;
++  };
++
++  const getEquipmentIcon = (equipmentName: string): keyof typeof Ionicons.glyphMap => {
++    const equipmentIconMap: { [key: string]: keyof typeof Ionicons.glyphMap } = {
++      'Adjustable bench': 'square',
++      'Cable crossover': 'reorder-three',
++      'Chest press machine': 'hardware-chip',
++      'Decline bench': 'trending-down',
++      'Dip station': 'remove',
++      'Flat bench': 'square',
++      'Incline bench': 'trending-up',
++      'Pec dec machine': 'contract',
++      'Smith machine': 'barbell'
++    };
++    return equipmentIconMap[equipmentName] || 'fitness';
++  };
++
+   return (
+     <SafeAreaView style={[styles.container, { paddingTop: insets.top }]}>
+       {/* Header */}
