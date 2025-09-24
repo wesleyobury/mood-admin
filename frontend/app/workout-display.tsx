@@ -2112,7 +2112,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
           duration: '20–25 min',
           description: 'Perform 5 rounds:\n• 10 wall balls\n• 20m sprint (with ball)\n• 10 slams\n• 20m sprint (with ball)\nRest 1 min',
           imageUrl: 'https://images.unsplash.com/photo-1517838277536-f5f99be501cd?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw2fHxtZWRpY2luZSUyMGJhbGwlMjBzcHJpbnR8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Peak-intensity circuit integrating medicine ball power movements with multi-directional sprint conditioning for complete athletic development.',
+          intensityReason: 'Peak circuit integrates medicine ball power with sprint conditioning.',
           moodTips: [
             {
               icon: 'flash',
