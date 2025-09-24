@@ -1,25 +1,32 @@
 <analysis>
-The previous AI engineer diligently focused on enhancing the MOOD app's Muscle gainer section, specifically for Shoulders and Chest paths, based on iterative user feedback. Initial work established UI/UX patterns, including 3-line workout summaries and detailed battle plans, and resolved a Rear Delt Fly Machine naming bug. Subsequent tasks involved extensive refactoring of  to standardize card dimensions, shorten  descriptions, and refine the progress bar layout to match the shoulders path (initially 3 icons per row). Later, the progress bar and workout cards (photos, alignment, content width, neon glow, icon colors) were standardized across Chest and Shoulders to precisely mirror the Cardio path, adopting a 4-icon-per-row progress bar and reduced padding. The latest critical task involved debugging and fixing equipment-to-workout mapping issues in the shoulders path, identifying and correcting name mismatches, adding missing workout data, and cleaning up unused equipment references. Despite these efforts, the last frontend test indicated persistent Routing/Navigation issues and Equipment filtering logic problems, which are the immediate remaining challenges.
+The AI engineer's work primarily focused on enhancing the MOOD app's UI/UX and data consistency, particularly within the Muscle gainer (Shoulders, Chest) and Cardio (Sweat Path) sections. Initial efforts included standardizing UI elements like workout cards and progress bars across Chest and Shoulders, and fixing equipment mapping bugs in the Shoulders path. A major part of the work involved refactoring cardio workout data in  to condense descriptions into 3-line summaries for cards and later re-implementing a separate  field for detailed instructions on guidance screens. This required modifying the  interface, , and the navigation logic. The trajectory also involved iterative visual bug fixes, such as adding a neon gold shading to  on chest/shoulders cards and later restoring a lost gradient background on cardio intensity reasons. Despite extensive data refactoring, initial routing/filtering issues remain.
 </analysis>
 
 <product_requirements>
-The MOOD app provides personalized, dark-themed workout recommendations with gold accents and bottom tab navigation. The Muscle gainer section was expanded for Shoulders and Chest with the following requirements:
+The MOOD app offers personalized, dark-themed workout recommendations with gold accents. The Muscle gainer section was expanded for Shoulders and Chest, requiring:
 1.  **Equipment/Workout Screens:** Implement  and  with specific, alphabetized equipment and workout content.
 2.  **UI/UX Standardisation:** Duplicate Chest UI/UX (swipeable cards, non-scrollable progress bar, start button) for Shoulders.
 3.  **Content Formatting:** Workout cards display *exactly 3-line summaries* (), while detailed s are for guidance screens.
-4.  **Equipment Naming Consistency:** Pec Dec Rear Delt Fly was standardized to Rear Delt Fly Machine, and later Pec dec machine was reverted for chest.
-5.  **Chest Path Specifics:** Apply 3-line summaries, standardize card dimensions, shorten  to max 3 lines, update progress bar (initially 3 icons/row, then 4 icons/row like cardio path, smaller elements), add neon shading to cards.
+4.  **Equipment Naming Consistency:** Standardize Pec Dec Rear Delt Fly to Rear Delt Fly Machine, and later revert Pec dec machine for chest.
+5.  **Chest Path Specifics:** Apply 3-line summaries, standardize card dimensions, shorten  to max 3 lines, update progress bar (4 icons/row like cardio path, smaller elements), add neon shading to cards.
 6.  **Workout Card Title Standardisation:** All workout card titles (chest and shoulders) to be *1 line*.
-7.  **Chest Card Visuals:** Photos on workout cards need rounded edges, same dimensions as i want to sweat path. Duration & intensity on same line below title. Intensity reason, description, start button to match photo width. Intensity icon text black, i icon yellow.
+7.  **Chest Card Visuals:** Photos with rounded edges, duration & intensity on same line; content width matches photo; intensity icon text black, i icon yellow.
 8.  **Chest Text Alignment:** Workout title, duration, 3-line description moved slightly left (6px padding) to match cardio path.
-9.  **Shoulder Card Visuals:** Apply chest/cardio layout updates to shoulder cards: neon glow, matching picture dimensions, correct padding (elements not touching border), and content (title, duration, description, button) matching photo width.
-10. **Shoulder Workout Display Bug:** Ensure all equipment in the shoulders path has workouts correctly linked and mapped, resolving No Workouts Found errors.
+9.  **Shoulder Card Visuals:** Apply chest/cardio layout updates to shoulder cards: neon glow, matching picture dimensions, correct padding.
+10. **Shoulder Workout Display Bug:** Ensure all equipment has correctly linked workouts.
+11. **Cardio Path Enhancements:**
+    *   Add light neon gold shading to bottom of workout cards (initially missing).
+    *   Condense all cardio workout descriptions on your workouts screen to 3-line summaries.
+    *   Restore full, bulleted battle plans on workout guidance screens (after accidental shortening).
+    *   Display duration and intensity level on the same line on cardio workout cards.
+    *   Change intensity level text font to black on cardio workout cards.
+    *   Restore light neon gold gradient around intensity level reason/description on cardio workout cards.
 </product_requirements>
 
 <key_technical_concepts>
 -   **Mobile Frontend**: Expo, React Native, Expo Router (file-based routing), React Navigation.
--   **UI/UX Replication**: Duplicating component structures, styles (Flexbox), interactive elements, and visual consistency across workout paths.
--   **Data Structure & Content Formatting**: Dynamic rendering of workout details with separate  (3-line summary) and  (detailed instructions) fields.
+-   **UI/UX Consistency**: Standardizing component layouts, styles (Flexbox), interactive elements, and visual themes across app sections.
+-   **Data Structure Modification**: Adapting  interface with new  field for separated content presentation.
 -   **State & Navigation**:  for local state,  for navigation with parameter passing.
 </key_technical_concepts>
 
@@ -29,38 +36,50 @@ The MOOD app provides personalized, dark-themed workout recommendations with gol
 
 
 -   
-    -   **Importance**: Manages top-level navigation to different body parts within the Muscle gainer path.
+    -   **Importance**: Manages top-level navigation to different body parts.
     -   **Summary of changes made**: Modified to include navigation to .
 -   
     -   **Importance**: Handles equipment selection for Shoulders workouts.
-    -   **Summary of changes made**: Initially created with 10 alphabetized equipment options. Updated to standardize Pec Deck / Rear Delt Fly Machine to Rear Delt Fly Machine. No further direct changes recorded in the trajectory for this file, but it was key for comparison in the mapping bug.
+    -   **Summary of changes made**: Standardized Pec Deck / Rear Delt Fly Machine to Rear Delt Fly Machine.
 -   
-    -   **Importance**: Displays dynamic Shoulders workout data; served as UI/UX reference.
+    -   **Importance**: Displays dynamic Shoulders workout data.
     -   **Summary of changes made**:
-        1.  Initial creation, populated with 60 shoulder workouts. Stored  (3-line summary) and  (detailed instructions).
+        1.  Initial creation, populated with 60 shoulder workouts including  (3-line summary) and .
         2.  Updated  to pass . Consolidated Pec Deck / Rear Delt Fly Machine to Rear Delt Fly Machine.
         3.  Workout titles shortened to fit one line.
-        4.  Progress bar structure updated ( to group by 4, smaller elements: 24px circles, 10px icons/text, 60px step width, compact spacing).
-        5.  Workout card styling: added rounded photo edges, duration & intensity on same line, content width matches photo, left-aligned text (6px padding), yellow intensity icon, removed  from description.
-        6.  Visual improvements: added neon glow border, adjusted photo dimensions (, ), refined padding (, , text elements, buttons) for full-width content.
-        7.  **Bug Fixes (Equipment Mapping):** Corrected 'Adjustable bench' casing, renamed 'Cable machine' to 'Cable Crossover Machine', added workout data for 'Landmine Attachment', 'Powerlifting Platform', 'Shoulder Press Machine', 'Smith Machine'. Removed unused equipment types ('Platform / Step', 'Resistance bands', 'Suspension trainer') from data and  mappings.
+        4.  Progress bar and workout card styling updated to match Cardio path (4 icons/row, smaller elements, compact spacing, rounded photo edges, duration & intensity on same line, content width matches photo, left-aligned text, yellow intensity icon, no  for description). Neon glow border added.
+        5.  **Bug Fixes (Equipment Mapping):** Corrected 'Adjustable bench' casing, renamed 'Cable machine' to 'Cable Crossover Machine', added workout data for 'Landmine Attachment', 'Powerlifting Platform', 'Shoulder Press Machine', 'Smith Machine'. Removed unused equipment types.
+        6.  Added  to  for light gold shading at bottom of workout cards.
 -   
     -   **Importance**: Handles equipment selection for Chest workouts.
-    -   **Summary of changes made**: Reverted from Pec Deck Fly / Rear Delt Machine back to Pec dec machine.
+    -   **Summary of changes made**: Reverted Pec Deck Fly / Rear Delt Machine back to Pec dec machine.
 -   
     -   **Importance**: Central screen for displaying dynamic Chest workout data.
     -   **Summary of changes made**:
         1.   interface updated with ;  passes .  updated to 3-line summaries.
         2.  UI/UX standardisation for card dimensions,  shortened.
         3.  Bug fix: Pec Deck Fly / Rear Delt Machine renamed to Pec dec machine.
-        4.  Progress bar: included intensity level, non-scrolling, items in view, padding between bar and cards, / to fit *up to 3 icons/row (initially), then 4 icons/row (matching cardio) with smaller elements and compact spacing*.
+        4.  Progress bar: items fit 4 icons/row, smaller elements, compact spacing.
         5.  All workout  fields shortened to 1 line.
         6.  Workout card styling: photos with rounded edges, duration & intensity on same line;  description, 3-line description, start button match photo width; intensity level icon text black;  icon yellow.
         7.  Layout and alignment: Removed horizontal padding from ; added  to , ,  for left alignment.
-        8.  Added supporting functions and  style for progress bar.
+        8.  Added  to  for light gold shading at bottom of workout cards.
 -   
     -   **Importance**: Renders detailed workout battle plans and mood tips.
-    -   **Summary of changes made**: Verified to correctly receive and display  and  from both  and .
+    -   **Summary of changes made**:
+        1.  Verified to correctly receive and display  and  from  and .
+        2.  Modified to explicitly receive  as a navigation parameter and use it for rendering detailed workout steps, instead of .
+-   
+    -   **Importance**: Central screen for displaying dynamic Cardio (sweat path) workout data. Also defines the  interface.
+    -   **Summary of changes made**:
+        1.  Initial  interface modified to include .
+        2.  All cardio workout descriptions ( field) were iteratively condensed to 3-line summaries.
+        3.  A new  field was systematically added to *all* cardio workouts, containing the original detailed bullet-pointed instructions.
+        4.   function updated to pass both  (for card summary) and  (for guidance screen) parameters to .
+        5.  Card layout for duration and intensity adjusted to be on the same line, mirroring chest/shoulders.
+        6.  Intensity text color changed to black ( style).
+        7.  Added  to , ,  for consistent alignment.
+        8.  Restored the light neon gold gradient around the  section using , , , and .
 </code_architecture>
 
 <pending_tasks>
@@ -74,24 +93,18 @@ The MOOD app provides personalized, dark-themed workout recommendations with gol
 </pending_tasks>
 
 <current_work>
-Immediately before this summary request, the AI engineer was engaged in resolving a critical bug in the Shoulders workout path. Users reported that a bunch of the workouts are not displaying for shoulders, specifically mentioning adjustable bench and crossover machine as missing. This indicated an issue with how equipment selections were linked to available workouts.
+Immediately before this summary request, the AI engineer was addressing a visual regression in the Sweat (cardio-based) path. Specifically, the user reported that the light neon gold gradient that previously surrounded the intensity level reason/description on the cardio workout cards had disappeared after recent styling updates. This was a critical UI bug requiring immediate attention.
 
-The AI engineer performed a thorough investigation, comparing equipment names from  (the selection screen) with the  fields within the workout data in . Several discrepancies were identified:
-1.  **Case Mismatch:** 'Adjustable Bench' in the selection screen versus 'Adjustable bench' in the workout data.
-2.  **Name Mismatch:** 'Cable Crossover Machine' in selection versus 'Cable machine' in workout data.
-3.  **Missing Workouts:** Workouts for 'Landmine Attachment', 'Powerlifting Platform', 'Shoulder Press Machine', and 'Smith Machine' were present in the selection but lacked corresponding data in .
-4.  **Redundant Data:** Equipment types like 'Platform / Step', 'Resistance bands', and 'Suspension trainer' were present in the workout data but not in the selection screen.
+The AI engineer identified that the , , and  properties for the intensity container had been inadvertently removed or overridden during the previous styling adjustments made to align the cardio cards with the chest and shoulders paths.
 
-The AI engineer implemented fixes by:
--   Correcting the casing for 'Adjustable bench'.
--   Renaming 'Cable machine' to 'Cable Crossover Machine'.
--   Adding new workout entries for 'Landmine Attachment', 'Powerlifting Platform', 'Shoulder Press Machine', and 'Smith Machine' to .
--   Removing the redundant workout data (e.g., 'Platform / Step') and updating the  function to align with the current, corrected equipment list.
+The fix involved restoring the following styles to the intensity container:
+-    to bring back the light gold gradient.
+-    and  for correct spacing.
+-    for rounded corners.
 
-After these changes and a frontend restart, a re-test using the frontend testing agent for shoulders equipment mapping was conducted. However, this test **failed**, reporting Routing/Navigation issues and Equipment filtering logic problems, indicating that while some mapping issues were addressed, the root cause might persist or new issues were introduced, preventing full functionality. The task is currently paused at this point, awaiting further investigation into these reported navigation and filtering problems.
+This action aimed to reintroduce the missing gradient while preserving the other recent styling changes, such as duration and intensity on the same line, and black intensity text. The frontend service was restarted after these changes.
 </current_work>
 
 <optional_next_step>
-Investigate and fix the Routing/Navigation issues and Equipment filtering logic reported by the frontend testing agent for shoulders workouts.
+I will await user feedback to confirm the restored gradient appears correctly.
 </optional_next_step>
-
