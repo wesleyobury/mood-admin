@@ -1127,7 +1127,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
           description: 'Speed variation training with walking,\njogging, and fast walking. 4 rounds total.\n ',
           battlePlan: '• 1 min walk\n• 30 sec jog\n• 1 min walk\n• 30 sec fast walk\n• repeat 4x',
           imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
-          intensityReason: 'Variable pace work helps beginners understand effort control on self-powered equipment.',
+          intensityReason: 'Variable pace helps beginners understand effort control.',
           moodTips: [
             {
               icon: 'walk',
