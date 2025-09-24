@@ -1715,7 +1715,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
           duration: '20–24 min',
           description: 'Perform ladder sequence:\n• 10–8–6–4–2 reps\n• Squat clean\n• Push press\n• Burpee over dumbbell\nRest as needed. Complete all 5 sets.',
           imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw1fHxkdW1iYmVsbCUyMGFkdmFuY2VkfGVufDB8fHx8MTc1Njg4MzIzN3ww&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Descending ladder format with complex movements demands advanced strength, power, and conditioning.',
+          intensityReason: 'Descending ladder demands advanced strength and conditioning.',
           moodTips: [
             {
               icon: 'flash',
