@@ -1985,7 +1985,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Barbell AMRAP',
           duration: '15 min',
-          description: 'As many rounds as possible in 15 minutes:\n• 6 deadlifts\n• 6 hang cleans\n• 6 push presses\n• 6 back squats\n• 6 bar-facing burpees',
+          description: 'AMRAP: deadlifts, cleans, presses, back squats, and burpees.\n\n ',
           imageUrl: 'https://images.unsplash.com/photo-1517838277536-f5f99be501cd?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw2fHxiYXJiZWxsJTIwYW1yYXB8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'High-intensity AMRAP tests maximum work capacity.',
           moodTips: [
