@@ -946,6 +946,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
           name: 'HIIT Steps',
           duration: '20 min',
           description: 'HIIT intervals with sprint and skip-step\nalternating with recovery periods. 5 rounds.\n ',
+          battlePlan: '• 30 sec sprint\n• 90 sec moderate\n• 30 sec skip-step\n• 90 sec easy\n• repeat 5x',
           imageUrl: 'https://images.pexels.com/photos/2774172/pexels-photo-2774172.jpeg',
           intensityReason: 'High-intensity intervals with plyometric skip-steps challenge advanced explosive power and recovery.',
           moodTips: [
