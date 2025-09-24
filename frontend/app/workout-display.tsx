@@ -996,7 +996,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
           description: 'Resistance variations from light to moderate\nwith steady, moderate, and slow phases.\n ',
           battlePlan: '• 2 min steady (resistance 3)\n• 1 min moderate (resistance 5)\n• 2 min slow (resistance 2)\n• repeat 3x',
           imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
-          intensityReason: 'Varied resistance levels introduce beginners to full-body ski motion gradually.',
+          intensityReason: 'Varied resistance introduces beginners to ski motion gradually.',
           moodTips: [
             {
               icon: 'flash',
