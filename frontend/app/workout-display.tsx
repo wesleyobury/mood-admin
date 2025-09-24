@@ -2722,7 +2722,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Hammer Gauntlet',
           duration: '20–24 min',
-          description: 'Perform 4 rounds:\n• 12 strikes (each side)\n• 10 tire jumps\n• 8 burpees\n• 6 tire flips\nRest 1 min',
+          description: 'Full-body gauntlet: strikes, tire jumps, burpees, and tire flips.\n\n ',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw1fHxzbGVkZ2VoYW1tZXIlMjBhZHZhbmNlZHxlbnwwfHx8fDE3NTY4ODMyMzd8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Elite complex demands maximum striking power and strength.',
           moodTips: [
