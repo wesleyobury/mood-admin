@@ -2557,7 +2557,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
           duration: '16 min',
           description: '20s work / 10s rest. Cycle through:\n• Squat jumps (band around thighs)\n• Push-ups (band across upper back, ends anchored under palms)\n• Rows (band anchored low, pull to ribs)\n• Mountain climbers (band anchored in front, loop around waist)\nRepeat 4 rounds each (16 intervals total)',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwzfHxyZXNpc3RhbmNlJTIwYmFuZCUyMHRhYmF0YXxlbnwwfHx8fDE3NTY4ODMyMzd8MA&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'High-intensity Tabata protocol maximizing anaerobic power and metabolic conditioning.',
+          intensityReason: 'High-intensity Tabata maximizes anaerobic power.',
           moodTips: [
             {
               icon: 'body',
