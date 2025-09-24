@@ -3487,10 +3487,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     marginBottom: 12,
-    paddingHorizontal: 12,
-    paddingVertical: 8,
-    backgroundColor: 'rgba(255, 215, 0, 0.1)',
-    borderRadius: 8,
+    paddingHorizontal: 6,
   },
   intensityReason: {
     fontSize: 12,
@@ -3502,6 +3499,7 @@ const styles = StyleSheet.create({
   workoutDescriptionContainer: {
     flex: 1,
     maxHeight: 80,
+    paddingHorizontal: 6,
   },
   workoutDescription: {
     fontSize: 13,
