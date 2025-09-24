@@ -2517,7 +2517,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
           duration: '12–15 min',
           description: 'Perform 3 rounds:\n• 10 banded squats (band around lower thighs, just above knees)\n• 10 band rows (anchor band at chest height, pull toward torso)\n• 10 band chest presses (anchor band behind you at chest level, press forward)\nRest 1 min',
           imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxyZXNpc3RhbmNlJTIwYmFuZCUyMHdvcmtvdXR8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Perfect introduction to resistance band training with simple movements that build fundamental strength patterns.',
+          intensityReason: 'Perfect introduction to resistance bands with simple movements.',
           moodTips: [
             {
               icon: 'body',
