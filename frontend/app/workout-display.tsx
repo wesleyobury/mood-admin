@@ -1391,7 +1391,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
           description: 'Progressive pace climbing from slow\nto fast with recovery periods. 3 rounds.\n ',
           battlePlan: '• 30 sec slow\n• 30 sec moderate\n• 30 sec fast\n• 30 sec rest\n• repeat 3x',
           imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
-          intensityReason: 'Varied pace work introduces beginners to different climbing intensities with adequate recovery.',
+          intensityReason: 'Varied pace introduces different climbing intensities.',
           moodTips: [
             {
               icon: 'refresh',
