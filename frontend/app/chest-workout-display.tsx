@@ -1690,7 +1690,7 @@ const styles = StyleSheet.create({
     shadowRadius: 20,
     elevation: 12,
     overflow: 'hidden',
-    marginBottom: 30,
+    marginBottom: 20,
     width: '100%',
   },
   equipmentHeader: {
