@@ -732,7 +732,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
           description: 'Stroke rate variations from 20-28 SPM\nwith steady, fast, and slow phases.\n ',
           battlePlan: '• 2 min steady (22 SPM)\n• 1 min fast (28 SPM)\n• 2 min slow (20 SPM)\n• repeat 3x',
           imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
-          intensityReason: 'Varied stroke rates help beginners develop rhythm control while building steady cardiovascular base.',
+          intensityReason: 'Varied stroke rates develop rhythm and cardio base.',
           moodTips: [
             {
               icon: 'refresh',
