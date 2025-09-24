@@ -814,6 +814,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
           name: 'Endurance Builder',
           duration: '30 min',
           description: 'Progressive endurance build from easy\nto fast pace with structured progression.\n ',
+          battlePlan: '• 5 min easy\n• 10 min moderate\n• 5 min hard\n• 5 min fast\n• 5 min cool-down',
           imageUrl: 'https://images.pexels.com/photos/2774172/pexels-photo-2774172.jpeg',
           intensityReason: 'Extended duration with progressive intensity builds elite-level cardiovascular endurance and mental toughness.',
           moodTips: [
