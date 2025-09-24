@@ -1519,6 +1519,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
           name: 'Step Touch',
           duration: '12 min',
           description: 'Basic jumps alternating with step touch\nfootwork practice and rest periods.\n ',
+          battlePlan: '• 30 sec basic jump\n• 30 sec step touch (no rope)\n• 30 sec basic jump\n• 30 sec rest\n• repeat 4x',
           imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
           intensityReason: 'Alternates between rope work and footwork practice to build coordination gradually.',
           moodTips: [
