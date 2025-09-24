@@ -1259,7 +1259,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
           description: 'Light punching combined with footwork\nand movement around the bag. 4 rounds.\n ',
           battlePlan: '• 30 sec light punches\n• 30 sec footwork (move around bag)\n• 30 sec rest\n• repeat 4x',
           imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
-          intensityReason: 'Combines punching with movement patterns to introduce beginners to boxing cardio safely.',
+          intensityReason: 'Punching with movement introduces beginners to boxing cardio.',
           moodTips: [
             {
               icon: 'walk',
