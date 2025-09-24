@@ -2072,7 +2072,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
           duration: '16 min',
           description: '20s work / 10s rest:\n• Wall balls\n• Slams\n• Rotational throws\n• Squat-to-press\nRepeat 4 rounds each for 16 total intervals.',
           imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxtZWRpY2luZSUyMGJhbGwlMjB0YWJhdGF8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Advanced Tabata intervals that maximize anaerobic power development through varied medicine ball movements with proper work-to-rest ratios.',
+          intensityReason: 'Advanced Tabata maximizes anaerobic power development.',
           moodTips: [
             {
               icon: 'eye',
