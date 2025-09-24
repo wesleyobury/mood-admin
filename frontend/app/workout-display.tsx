@@ -1281,7 +1281,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
           description: 'Complex combos and power punches with\njab-cross-hook-uppercut sequences. 4 rounds.\n ',
           battlePlan: '• 1 min combos (jab-cross-hook-uppercut)\n• 30 sec rest\n• 1 min power punches\n• 30 sec rest\n• repeat 4x',
           imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmd8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Complex combinations and power work challenge intermediate coordination and cardiovascular fitness.',
+          intensityReason: 'Complex combinations challenge intermediate coordination.',
           moodTips: [
             {
               icon: 'body',
