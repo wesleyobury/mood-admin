@@ -2364,7 +2364,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
           duration: '20–25 min',
           description: 'Perform 5 rounds:\n• 20s waves\n• 20m sprint\n• 20s slams\n• 20m sprint\nRest 1 min',
           imageUrl: 'https://images.unsplash.com/photo-1517838277536-f5f99be501cd?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw2fHxiYXR0bGUlMjByb3BlcyUyMHNwcmludHxlbnwwfHx8fDE3NTY4ODMyMzd8MA&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Ultimate conditioning circuit combining rope power with sprint speed for peak athletic performance.',
+          intensityReason: 'Ultimate circuit combines rope power with sprint speed.',
           moodTips: [
             {
               icon: 'flash',
