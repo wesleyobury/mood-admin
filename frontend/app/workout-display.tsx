@@ -2179,7 +2179,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
           duration: '10 min',
           description: 'As many rounds as possible in 10 minutes:\n• 10 slams\n• 10 lateral slams (5 per side)\n• 10 squat jumps (ball at chest)',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwzfHxzbGFtJTIwYmFsbCUyMGFtcmFwfGVufDB8fHx8MTc1Njg4MzIzN3ww&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'High-intensity AMRAP incorporating lateral movement and plyometric elements.',
+          intensityReason: 'High-intensity AMRAP with lateral movement and plyometrics.',
           moodTips: [
             {
               icon: 'flash',
