@@ -1107,7 +1107,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
           description: 'Basic walk-jog intervals alternating\nbetween 2min walks and 1min jogs. 2 cycles.\n ',
           battlePlan: '• 2 min walk\n• 1 min jog\n• 2 min walk\n• 1 min jog\n• repeat 2x',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxjdXJ2ZSUyMHRyZWFkbWlsbCUyMHdvcmtvdXR8ZW58MXx8fHwxNzU2ODgzNjUyfDA&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Self-powered curve treadmill naturally moderates pace, perfect for beginners learning running form.',
+          intensityReason: 'Curve treadmill moderates pace, perfect for beginners.',
           moodTips: [
             {
               icon: 'walk',
