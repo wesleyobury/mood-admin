@@ -3342,10 +3342,6 @@ const styles = StyleSheet.create({
     padding: 24,
     paddingBottom: 100,
   },
-  workoutCardContainer: {
-    marginBottom: 25,
-    width: '100%',
-  },
   workoutCard: {
     backgroundColor: '#111111',
     borderRadius: 20,
