@@ -1777,7 +1777,6 @@ const styles = StyleSheet.create({
   },
   workoutContent: {
     paddingHorizontal: 0,
-    paddingVertical: 16,
   },
   workoutName: {
     fontSize: 16,
