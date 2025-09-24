@@ -2701,7 +2701,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Hammer Tabata',
           duration: '16–18 min',
-          description: '20s strikes (switch side halfway) / 10s rest\n8 rounds = 4 min\nRest 1 min\nRepeat for 3 cycles (~16–18 min)',
+          description: 'Tabata: intense hammer strikes for power endurance.\n\n ',
           imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHc0fHxzbGVkZ2VoYW1tZXIlMjB0YWJhdGF8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'High-intensity Tabata develops sledgehammer power endurance.',
           moodTips: [
