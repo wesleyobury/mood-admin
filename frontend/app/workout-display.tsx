@@ -3224,17 +3224,15 @@ export default function WorkoutDisplayScreen() {
         {uniqueUserWorkouts.map((equipmentData, index) => {
           console.log(`Rendering card ${index + 1}:`, equipmentData.equipment);
           return (
-            <View key={`container-${equipmentData.equipment}`} style={styles.workoutCardContainer}>
-              <WorkoutCard
-                key={`workout-card-${equipmentData.equipment}-${index}`}
-                equipment={equipmentData.equipment}
-                icon={equipmentData.icon}
-                workouts={equipmentData.workouts[difficulty as keyof typeof equipmentData.workouts]}
-                difficulty={difficulty}
-                difficultyColor={difficultyColor}
-                onStartWorkout={handleStartWorkout}
-              />
-            </View>
+            <WorkoutCard
+              key={`workout-card-${equipmentData.equipment}-${index}`}
+              equipment={equipmentData.equipment}
+              icon={equipmentData.icon}
+              workouts={equipmentData.workouts[difficulty as keyof typeof equipmentData.workouts]}
+              difficulty={difficulty}
+              difficultyColor={difficultyColor}
+              onStartWorkout={handleStartWorkout}
+            />
           );
         })}
       </ScrollView>
