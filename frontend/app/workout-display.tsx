@@ -2304,7 +2304,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Battle Rope Tabata',
           duration: '16 min',
-          description: '20s work / 10s rest alternating:\n• Waves\n• Slams\n• Circles\n• Jumping jacks\nRepeat 4 rounds each (16 intervals).',
+          description: 'Tabata: waves, slams, circles, and jumping jacks.\n\n ',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwzfHxiYXR0bGUlMjByb3BlcyUyMHRhYmF0YXxlbnwwfHx8fDE3NTY4ODMyMzd8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'High-intensity Tabata with varied rope movements for max cardio.',
           moodTips: [
