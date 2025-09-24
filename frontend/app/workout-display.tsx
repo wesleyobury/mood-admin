@@ -1734,7 +1734,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
           duration: '15 min',
           description: 'Perform as many rounds as possible (15 min):\n• 10 alternating snatches\n• 10 goblet jump squats\n• 10 push-up to row (5/side)\n• 10 alternating reverse lunges (holding dumbbells)',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw2fHxkdW1iYmVsbCUyMGNhcmRpb3xlbnwwfHx8fDE3NTY4ODMyMzd8MA&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'High-intensity AMRAP combining power movements with plyometrics for maximum metabolic challenge.',
+          intensityReason: 'High-intensity AMRAP combines power movements with plyometrics.',
           moodTips: [
             {
               icon: 'flash',
