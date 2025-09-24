@@ -358,7 +358,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
           description: 'Pyramid intensity progression from easy\nto hard and back down. 3 complete cycles.\n ',
           battlePlan: '• 1 min easy\n• 1 min moderate\n• 1 min hard\n• 1 min moderate\n• 1 min easy\n• repeat 3x',
           imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmd8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Progressive intensity pyramid challenges intermediate upper body strength and endurance.',
+          intensityReason: 'Progressive pyramid challenges intermediate strength.',
           moodTips: [
             {
               icon: 'flash',
