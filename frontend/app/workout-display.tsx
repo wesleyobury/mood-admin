@@ -1369,6 +1369,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
           name: 'Climb & Rest',
           duration: '10 min',
           description: 'Basic climbing intervals with equal\nwork and rest periods. 5 rounds total.\n ',
+          battlePlan: '• 1 min climb\n• 1 min rest\n• repeat 5x',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHx2ZXJ0aWNhbCUyMGNsaW1iZXIlMjB3b3Jrb3V0fGVufDF8fHx8MTc1Nijg4MzY1Mnww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Equal work-to-rest ratio helps beginners adapt to full-body climbing motion safely.',
           moodTips: [
