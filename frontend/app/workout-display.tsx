@@ -2197,7 +2197,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Slam Ball Tabata',
           duration: '16 min',
-          description: '20s work / 10s rest with:\n• Slams\n• Squat-to-press\n• Lateral slams\n• Burpee slams\nRepeat 4 rounds each (16 total).',
+          description: 'Tabata: slams, squat-to-press, lateral slams, and burpee slams.\n\n ',
           imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxzbGFtJTIwYmFsbCUyMHRhYmF0YXxlbnwwfHx8fDE3NTY4ODMyMzd8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Intense Tabata pushes anaerobic power with explosive slams.',
           moodTips: [
