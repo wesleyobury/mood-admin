@@ -1565,7 +1565,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
           description: 'High-intensity intervals with 45s fast\njumping and 15s recovery. 12 rounds total.\n ',
           battlePlan: '• 45 sec fast jump\n• 15 sec slow jump\n• repeat 12x',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MTc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Speed variations challenge intermediate jumpers with cardio demands.',
+          intensityReason: 'Speed variations challenge intermediate jumpers.',
           moodTips: [
             {
               icon: 'body',
