@@ -1887,7 +1887,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
           duration: '12–15 min',
           description: 'Perform 3 rounds (light weight):\n• 8 deadlifts\n• 8 front squats\n• 8 push presses\nRest 1 min',
           imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxiYXJiZWxsJTIwd29ya291dHxlbnwwfHx8fDE3NTY4ODMyMzd8MA&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Light barbell introduction focusing on proper movement patterns and form development.',
+          intensityReason: 'Light barbell introduction focuses on proper movement patterns.',
           moodTips: [
             {
               icon: 'body',
