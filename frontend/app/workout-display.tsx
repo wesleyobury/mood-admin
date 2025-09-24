@@ -2662,7 +2662,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
           duration: '12–16 min',
           description: 'Perform 4 rounds:\n• 8 strikes (each side)\n• 8 tire toe taps\nRest 1 min',
           imageUrl: 'https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwyfHxzbGVkZ2VoYW1tZXIlMjBtYXJjaHxlbnwwfHx8fDE3NTY4ODMyMzd8MA&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Progressive coordination workout building striking power and footwork agility.',
+          intensityReason: 'Progressive coordination workout builds striking power.',
           moodTips: [
             {
               icon: 'flash',
