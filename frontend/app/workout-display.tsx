@@ -2615,7 +2615,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Band & Plyo Circuit',
           duration: '20–22 min',
-          description: 'Perform 4 rounds:\n• 10 jump lunges (band looped around thighs)\n• 10 mountain climbers (band anchored in front, looped around waist)\n• 10 rows (band anchored low, pull to ribs)\n• 10 push-ups (band across upper back, anchored under palms)\nRest 1 min',
+          description: 'Plyometric circuit: jump lunges, mountain climbers, rows, and push-ups.\n\n ',
           imageUrl: 'https://images.unsplash.com/photo-1517838277536-f5f99be501cd?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw2fHxyZXNpc3RhbmNlJTIwYmFuZCUyMHBseW98ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Advanced plyometrics combines explosive movements.',
           moodTips: [
