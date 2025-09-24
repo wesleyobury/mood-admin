@@ -1038,7 +1038,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
           description: 'Pyramid skiing building from 1-3 minutes\neasy/hard pairs with progressive intensity.\n ',
           battlePlan: '• 1 min easy\n• 1 min hard\n• 2 min easy\n• 2 min hard\n• 3 min easy\n• 3 min hard',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MTc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Progressive time increases test intermediate endurance and mental focus during sustained efforts.',
+          intensityReason: 'Progressive time increases test intermediate endurance.',
           moodTips: [
             {
               icon: 'trending-up',
