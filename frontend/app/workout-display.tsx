@@ -3487,7 +3487,10 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     marginBottom: 12,
-    paddingHorizontal: 6,
+    paddingHorizontal: 12,
+    paddingVertical: 8,
+    backgroundColor: 'rgba(255, 215, 0, 0.1)',
+    borderRadius: 8,
   },
   intensityReason: {
     fontSize: 12,
