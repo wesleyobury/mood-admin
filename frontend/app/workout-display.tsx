@@ -2683,7 +2683,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
           duration: '18–20 min',
           description: 'Perform 4 rounds:\n• 10 strikes (each side)\n• 8 burpees\n• 10 tire jumps\nRest 1 min',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwzfHxzbGVkZ2VoYW1tZXIlMjBidXJwZWV8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Intermediate circuit combining sledgehammer power with plyometric and bodyweight movements.',
+          intensityReason: 'Intermediate circuit combines sledgehammer power with plyometrics.',
           moodTips: [
             {
               icon: 'flash',
