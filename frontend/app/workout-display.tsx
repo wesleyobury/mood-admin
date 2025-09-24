@@ -2265,7 +2265,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Perform 5 rounds:\n• 20s alternating waves\n• 20s rest\n• 20s double slams\n• 20s rest',
           imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxiYXR0bGUlMjByb3BlcyUyMHdvcmtvdXR8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Introduction to battle rope fundamentals with manageable work-to-rest ratios.',
+          intensityReason: 'Introduction to battle rope fundamentals with manageable ratios.',
           moodTips: [
             {
               icon: 'body',
