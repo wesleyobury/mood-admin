@@ -1499,6 +1499,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
           name: 'Jump & Rest',
           duration: '10 min',
           description: 'Basic jump rope intervals with equal\nwork and rest periods. 10 rounds total.\n ',
+          battlePlan: '• 30 sec jump\n• 30 sec rest\n• repeat 10x',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxqdW1wJTIwcm9wZSUyMHdvcmtvdXR8ZW58MXx8fHwxNzU2ODgzNjUyfDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Equal work-to-rest ratio helps beginners learn proper jumping technique while building cardiovascular base.',
           moodTips: [
