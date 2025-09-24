@@ -3458,6 +3458,14 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: '#ffffff',
     marginBottom: 6,
+    paddingHorizontal: 6,
+  },
+  durationIntensityRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: 12,
+    paddingHorizontal: 6,
   },
   difficultyBadge: {
     paddingHorizontal: 8,
@@ -3468,7 +3476,7 @@ const styles = StyleSheet.create({
   difficultyBadgeText: {
     fontSize: 10,
     fontWeight: 'bold',
-    color: '#ffffff',
+    color: '#000000',
   },
   workoutDuration: {
     fontSize: 14,
