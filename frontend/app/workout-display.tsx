@@ -2013,7 +2013,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
           duration: '12–16 min',
           description: 'Perform 3 rounds:\n• 10 wall balls\n• 10 slams\n• 10 Russian twists (each side)\nRest 1 min',
           imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxtZWRpY2luZSUyMGJhbGwlMjB3b3Jrb3V0fGVufDB8fHx8MTc1Njg4MzIzN3ww&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Perfect beginner medicine ball introduction with proper mechanics.',
+          intensityReason: 'Perfect beginner medicine ball introduction with mechanics.',
           moodTips: [
             {
               icon: 'eye',
