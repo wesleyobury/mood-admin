@@ -1475,7 +1475,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
           description: 'Extended climbing endurance with 2min hard\nefforts and 1min recovery. 6 rounds total.\n ',
           battlePlan: '• 2 min hard\n• 1 min moderate\n• repeat 6x',
           imageUrl: 'https://images.pexels.com/photos/2774172/pexels-photo-2774172.jpeg',
-          intensityReason: 'Extended hard efforts test advanced cardiovascular endurance during sustained vertical climbing.',
+          intensityReason: 'Extended efforts test advanced cardiovascular endurance.',
           moodTips: [
             {
               icon: 'timer',
