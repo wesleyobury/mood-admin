@@ -1431,6 +1431,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
           name: 'Ladder Climb',
           duration: '18 min',
           description: 'Mixed pace climbing with fast, moderate,\nand slow intervals. 6 complete rounds.\n ',
+          battlePlan: '• 30 sec fast\n• 1 min moderate\n• 30 sec slow\n• repeat 6x',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MTc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Variable interval lengths develop intermediate pacing skills during vertical climbing movement.',
           moodTips: [
