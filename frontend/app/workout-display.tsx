@@ -1079,7 +1079,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
           duration: '16 min',
           description: 'Tabata protocol with 20s max effort\nand 10s rest. 2 complete cycles.\n ',
           imageUrl: 'https://images.pexels.com/photos/2774172/pexels-photo-2774172.jpeg',
-          intensityReason: 'Tabata-style intervals push advanced users to maximum anaerobic capacity with full-body engagement.',
+          intensityReason: 'Tabata intervals push advanced users to max anaerobic capacity.',
           moodTips: [
             {
               icon: 'flash',
