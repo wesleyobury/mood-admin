@@ -2053,7 +2053,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
           duration: '10 min',
           description: 'As many rounds as possible in 10 minutes:\n• 10 wall balls\n• 10 ball slams\n• 10 lunges (ball overhead)',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwzfHxtZWRpY2luZSUyMGJhbGwlMjBhbXJhcHxlbnwwfHx8fDE3NTY4ODMyMzd8MA&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Intermediate AMRAP protocol that challenges cardiovascular capacity, overhead stability, and rotational power with progressive volume demands.',
+          intensityReason: 'Intermediate AMRAP challenges cardiovascular capacity and power.',
           moodTips: [
             {
               icon: 'body',
