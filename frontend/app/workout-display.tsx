@@ -2596,7 +2596,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Band Complex',
           duration: '20–22 min',
-          description: 'Perform 4 rounds:\n• 12 squat jumps (band around thighs)\n• 10 push-ups (band across upper back, anchored under palms)\n• 8 sprints (band around waist, anchored behind you)\n• 6 burpees (optional: add light band loop around thighs for extra tension)\nRest 1 min',
+          description: 'Full-body complex: squat jumps, push-ups, sprints, and burpees.\n\n ',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw1fHxyZXNpc3RhbmNlJTIwYmFuZCUyMGFkdmFuY2VkfGVufDB8fHx8MVc1Njg4MzIzN3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Elite complex demands maximal power through movements.',
           moodTips: [
