@@ -600,7 +600,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
           description: 'Resistance progression with easy, moderate,\nand fast intervals. 3 complete cycles.\n ',
           battlePlan: '• 2 min easy\n• 1 min moderate (increase resistance)\n• 1 min fast\n• repeat 3x\n• finish with 2 min easy',
           imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
-          intensityReason: 'Gradual resistance increases help beginners adapt to full-body assault bike movement.',
+          intensityReason: 'Gradual resistance helps beginners adapt to assault bike.',
           moodTips: [
             {
               icon: 'settings',
