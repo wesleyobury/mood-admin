@@ -2323,7 +2323,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Rope & Burpee Combo',
           duration: '20–22 min',
-          description: 'Perform 4 rounds:\n• 30s waves\n• 5 burpees\n• 30s slams\n• 5 burpees\nRest 1 min',
+          description: 'Cardio and power: waves, slams, and burpees.\n\n ',
           imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxiYXR0bGUlMjByb3BlcyUyMGJ1cnBlZXxlbnwwfHx8fDE3NTY4ODMyMzd8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Combination training adds bodyweight movements to rope work.',
           moodTips: [
