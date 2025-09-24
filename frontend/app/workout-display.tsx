@@ -1167,6 +1167,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
           name: 'Pyramid Pace',
           duration: '20 min',
           description: 'Pyramid pace progression from walk to\nrun and back down. 3 complete cycles.\n ',
+          battlePlan: '• 1 min walk\n• 1 min jog\n• 1 min run\n• 1 min jog\n• 1 min walk\n• repeat 3x',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MTc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Progressive pace pyramids develop intermediate pacing skills on self-powered running surface.',
           moodTips: [
