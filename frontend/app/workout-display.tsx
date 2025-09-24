@@ -2219,7 +2219,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
           name: 'Slam Ball Complex',
           duration: '20–24 min',
           description: 'Full-body complex: slams, lateral slams, burpee slams, and throws.\n\n ',
-          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw1fHxzbGFtJTIwYmFsbCUyMGFkdmFuY2VkfGVufDB8fHx8MVc1Njg4MzIzN3ww&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw1fHxzbGFtJTIwYmFsbCUyMGFkdmFuY2VkfGVufDB8fHx8MVc1Nijg4MzIzN3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Advanced complex demands maximum power with varied slams.',
           moodTips: [
             {
