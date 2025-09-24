@@ -862,6 +862,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
           name: 'Pace Changer',
           duration: '15 min',
           description: 'Steady pace with double-step intervals\nfor variety and challenge. 3 rounds total.\n ',
+          battlePlan: '• 2 min steady\n• 1 min double step (skip a step)\n• 2 min slow\n• repeat 3x',
           imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
           intensityReason: 'Varied stepping patterns introduce beginners to different movement patterns while maintaining moderate intensity.',
           moodTips: [
