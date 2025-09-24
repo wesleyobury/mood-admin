@@ -709,6 +709,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
           name: 'Row & Rest',
           duration: '12 min',
           description: 'Easy rowing intervals with 30s moderate\nand fast bursts. 4 complete rounds.\n ',
+          battlePlan: '• 1 min easy\n• 30 sec moderate\n• 1 min easy\n• 30 sec fast\n• repeat 4x',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxyb3dpbmclMjBtYWNoaW5lJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODM2NTJ8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Short intervals with rest periods make this ideal for beginners learning rowing technique and building base endurance.',
           moodTips: [
