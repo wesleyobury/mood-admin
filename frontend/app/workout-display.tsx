@@ -2093,7 +2093,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
           duration: '16–20 min',
           description: 'Perform 4 rounds:\n• 12 wall balls\n• 10 slams\n• 8 rotations (per side)\n• 6 burpee slams\nRest 1 min',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw1fHxtZWRpY2luZSUyMGJhbGwlMjBhZHZhbmNlZHxlbnwwfHx8fDE3NTY4ODMyMzd8MA&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Elite-level complex demanding maximal power output, rotational strength, and metabolic conditioning through progressive ball weights and extended volume.',
+          intensityReason: 'Elite complex demands maximal power and metabolic conditioning.',
           moodTips: [
             {
               icon: 'flash',
