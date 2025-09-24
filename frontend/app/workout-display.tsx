@@ -2827,7 +2827,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Tire Flip Circuit',
           duration: '14–18 min',
-          description: 'Perform 3 rounds:\n• 5 flips\n• 10 tire push-ups\n• 10 lateral jumps\nRest 1 min',
+          description: 'Full-body circuit: tire flips, push-ups, and lateral jumps.\n\n ',
           imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHx0aXJlJTIwZmxpcCUyMGNpcmN1aXR8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Strength circuit integrates tire manipulation with movements.',
           moodTips: [
