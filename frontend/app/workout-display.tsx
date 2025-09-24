@@ -94,7 +94,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
           description: 'Speed intervals from 5.5-7.5 mph with\nincline recovery walks. 3 rounds total.\n ',
           battlePlan: '• 3 min jog (5.5 mph)\n• 2 min run (6.5 mph)\n• 1 min fast run (7.5 mph)\n• 2 min walk (3.5 mph, incline 3%)\n• repeat 3x\n• finish with 3 min jog (5.5 mph)',
           imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Progressively increases speed while maintaining good recovery periods for intermediate fitness levels.',
+          intensityReason: 'Speed increases with recovery for intermediate fitness.',
           moodTips: [
             {
               icon: 'flash',
