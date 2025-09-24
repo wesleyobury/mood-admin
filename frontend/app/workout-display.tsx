@@ -1545,7 +1545,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
           description: 'Combination jumping patterns with basic,\nalternate foot, and double bounce styles.\n ',
           battlePlan: '• 1 min basic jump\n• 30 sec alternate foot\n• 30 sec double bounce\n• 1 min rest\n• repeat 4x',
           imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmd8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Multiple jumping patterns challenge intermediate coordination and cardiovascular fitness.',
+          intensityReason: 'Multiple jumping patterns challenge intermediate coordination.',
           moodTips: [
             {
               icon: 'body',
