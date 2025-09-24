@@ -2742,7 +2742,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
           duration: '20–25 min',
           description: 'Perform 5 rounds:\n• 10 strikes (each side)\n• 20m sprint\n• 10 tire jumps\n• 20m sprint\nRest 1 min',
           imageUrl: 'https://images.unsplash.com/photo-1517838277536-f5f99be501cd?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw2fHxzbGVkZ2VoYW1tZXIlMjBzcHJpbnR8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Peak-intensity conditioning integrating sledgehammer power with sprint work for complete development.',
+          intensityReason: 'Peak conditioning integrates sledgehammer power with sprints.',
           moodTips: [
             {
               icon: 'flash',
