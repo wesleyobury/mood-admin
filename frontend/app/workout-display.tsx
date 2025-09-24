@@ -1321,6 +1321,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
           name: 'HIIT Boxing',
           duration: '20 min',
           description: 'High-intensity boxing with 45s max effort\ncombos and minimal rest. 15 rounds total.\n ',
+          battlePlan: '• 45 sec max effort combos\n• 15 sec rest\n• repeat 15x',
           imageUrl: 'https://images.unsplash.com/photo-1549719386-74dfcbeb7dfc?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxwdW5jaGluZyUyMGJhZyUyMHdvcmtvdXR8ZW58MXx8fHwxNzU2ODgzNjUyfDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'High-intensity intervals demand maximum power, speed, and coordination from advanced fighters.',
           moodTips: [
