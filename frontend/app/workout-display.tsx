@@ -333,6 +333,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
           name: 'Interval Builder',
           duration: '15 min',
           description: 'Upper body intervals with forward and\nreverse cycling patterns. 3 complete rounds.\n ',
+          battlePlan: '• 1 min easy\n• 1 min moderate\n• 30 sec fast\n• 1 min easy\n• 1 min reverse\n• repeat 3x',
           imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
           intensityReason: 'Basic interval structure with reverse motion introduces beginners to upper body cardio safely.',
           moodTips: [
