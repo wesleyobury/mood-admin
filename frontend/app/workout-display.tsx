@@ -3345,7 +3345,7 @@ const styles = StyleSheet.create({
     paddingBottom: 100,
   },
   workoutCardContainer: {
-    marginBottom: 15,
+    marginBottom: 20,
     width: '100%',
   },
   workoutCard: {
