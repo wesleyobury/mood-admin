@@ -2849,7 +2849,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
           duration: '20–22 min',
           description: 'Perform 4 rounds:\n• 8 flips\n• 8 burpees\n• 8 tire jumps\n• 8 tire push-ups\nRest 1 min',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw1fHx0aXJlJTIwZmxpcCUyMGFkdmFuY2VkfGVufDB8fHx8TVc1Njg4MzIzN3ww&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Elite-level complex demanding maximal tire flipping power and integrated conditioning movements.',
+          intensityReason: 'Elite complex demands maximal tire flipping power.',
           moodTips: [
             {
               icon: 'flash',
