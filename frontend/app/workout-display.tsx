@@ -639,6 +639,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
           name: 'Ladder Intervals',
           duration: '20 min',
           description: 'Progressive sprint ladder from 30s to 1min\nwith equal recovery periods between.\n ',
+          battlePlan: '• 30 sec sprint\n• 1 min easy\n• 45 sec sprint\n• 1 min easy\n• 1 min sprint\n• 1 min easy\n• repeat sequence',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MTc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Progressive interval lengths challenge intermediate athletes with increasing demands.',
           moodTips: [
