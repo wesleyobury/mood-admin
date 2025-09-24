@@ -1779,7 +1779,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Kettlebell Cardio Flow',
           duration: '12–15 min',
-          description: 'Perform 3 rounds:\n• 8 goblet squats\n• 8 single-arm swings (each side)\n• 8 overhead presses (each side)\n1 min rest',
+          description: 'Full-body flow: squats, swings, and overhead presses.\n\n ',
           imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwyfHxrZXR0bGViZWxsJTIwZmxvd3xlbnwwfHx8fDE3NTY4ODMyMzd8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Progressive flow builds kettlebell familiarity with control.',
           moodTips: [
@@ -1800,7 +1800,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Kettlebell Ladder',
           duration: '20–24 min',
-          description: 'Perform 4 rounds:\n• 10 swings\n• 8 cleans (4/side)\n• 6 snatches (3/side)\n• 4 goblet squats\n• 2 push presses (each side)\nRest 1 min',
+          description: 'Descending rep ladder: swings, cleans, snatches, squats, presses.\n\n ',
           imageUrl: 'https://images.unsplash.com/photo-1517838277536-f5f99be501cd?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwzfHxrZXR0bGViZWxsJTIwdHJhaW5pbmd8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Complex ladder challenges coordination and strength.',
           moodTips: [
@@ -1819,7 +1819,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Kettlebell Tabata',
           duration: '16 min',
-          description: '20s work / 10s rest cycles:\n• Swings\n• Goblet squats\n• Alternating lunges\n• High pulls\nRepeat 4 rounds of each movement (16 intervals total).',
+          description: 'Tabata: swings, squats, lunges, and high pulls.\n\n ',
           imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxrZXR0bGViZWxsJTIwdGFiYXRhfGVufDB8fHx8MVc1Njg4MzIzN3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'High-intensity intervals push cardiovascular limits.',
           moodTips: [
@@ -1840,7 +1840,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Kettlebell Complex',
           duration: '25–26 min',
-          description: 'Perform 5 rounds (6 reps each, per side, no rest between moves):\n• Swing\n• Clean\n• Front squat\n• Push press\n• Snatch\nRest 1 min between rounds.',
+          description: 'Full-body complex: swing, clean, squat, press, and snatch.\n\n ',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw1fHxrZXR0bGViZWxsJTIwYWR2YW5jZWR8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Advanced complex demands mastery with minimal rest.',
           moodTips: [
@@ -1859,7 +1859,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Kettlebell AMRAP',
           duration: '15 min',
-          description: 'Complete as many rounds as possible in 15 minutes:\n• 10 double swings\n• 8 alternating snatches\n• 6 goblet squat jumps\n• 4 Turkish get-ups (2/side)',
+          description: 'AMRAP: double swings, snatches, jump squats, and Turkish get-ups.\n\n ',
           imageUrl: 'https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw2fHxrZXR0bGViZWxsJTIwYW1yYXB8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Maximum intensity AMRAP combines power, agility, and movement.',
           moodTips: [
