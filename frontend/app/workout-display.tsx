@@ -2576,7 +2576,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
           duration: '20–22 min',
           description: 'Perform 4 rounds:\n• 10 squat jumps (band around thighs)\n• 10 band sprints (band anchored behind you, loop around waist)\n• 10 band push-ups (band across upper back, anchored under palms)\nRest 1 min',
           imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxyZXNpc3RhbmNlJTIwYmFuZCUyMHNwcmludHxlbnwwfHx8fDE3NTY4ODMyMzd8MA&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Power-focused circuit combining plyometrics with resisted sprint mechanics.',
+          intensityReason: 'Power circuit combines plyometrics with sprint mechanics.',
           moodTips: [
             {
               icon: 'flash',
