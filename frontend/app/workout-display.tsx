@@ -1060,7 +1060,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
           description: 'High-intensity ski sprints with moderate\nrecovery periods. 10 complete rounds.\n ',
           battlePlan: '• 30 sec sprint\n• 1 min moderate\n• repeat 10x',
           imageUrl: 'https://images.unsplash.com/photo-1551716652-ddc80b66aaae?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxza2klMjBtYWNoaW5lJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODM2NTJ8MA&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'High-intensity sprints demand maximum power and coordination from advanced full-body athletes.',
+          intensityReason: 'High-intensity sprints demand max power and coordination.',
           moodTips: [
             {
               icon: 'body',
