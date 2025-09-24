@@ -1341,6 +1341,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
           name: 'Endurance Rounds',
           duration: '20 min',
           description: 'Extended rounds alternating all-out effort\nwith footwork and defense. 3 complete cycles.\n ',
+          battlePlan: '• 2 min all-out\n• 1 min rest\n• 2 min footwork & defense\n• 1 min rest\n• repeat 3x',
           imageUrl: 'https://images.pexels.com/photos/2774172/pexels-photo-2774172.jpeg',
           intensityReason: 'Extended rounds test advanced cardiovascular endurance under high-skill technical demands.',
           moodTips: [
