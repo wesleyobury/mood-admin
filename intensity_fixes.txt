@@ -1,0 +1,32 @@
+# Intensity Reason Fixes - All need to be condensed to 2 lines max (60 chars)
+
+# Current long intensity reasons that need shortening:
+1. "Perfect beginner introduction with walk-jog intervals that build endurance gradually without overwhelming new exercisers." → "Perfect beginner introduction with walk-jog intervals." ✅ DONE
+2. "Gentle incline progression helps beginners build leg strength and cardiovascular endurance safely." → "Gentle incline progression builds leg strength safely." ✅ DONE
+3. "Progressively increases speed while maintaining good recovery periods for intermediate fitness levels." → "Speed increases with recovery for intermediate fitness."
+4. "Combines consistent running pace with challenging inclines to build both cardiovascular and muscular endurance." → "Running pace with inclines builds cardio and muscle."
+5. "High-intensity sprints at 9.0 mph challenge maximum cardiovascular capacity and anaerobic power." → "High-intensity 9.0 mph sprints challenge max capacity."
+6. "Extended tempo runs plus high-intensity hill sprints demand advanced cardiovascular fitness and mental toughness." → "Tempo runs plus hill sprints demand advanced fitness."
+7. "Low-impact movement with gentle resistance changes, ideal for building cardio base without joint stress." → "Low-impact with gentle resistance, ideal for cardio."
+8. "Moderate RPM variations help beginners learn rhythm control while building steady-state endurance." → "RPM variations teach rhythm and build endurance."
+9. "Alternates between high resistance climbs and fast sprints to challenge both strength and speed." → "Alternates climbs and sprints for strength and speed."
+10. "Direction changes engage different muscle groups while maintaining consistent cardiovascular demand." → "Direction changes engage muscles with cardio demand."
+
+# Key intensity reason from screenshot:
+"High-intensity sprints at 32 SPM demand maximum power output and anaerobic capacity from advanced rowers." → "High-intensity 32 SPM sprints demand max power output."
+
+# Additional long ones to fix:
+"Tabata protocol demands maximum effort bursts, pushing VO2 max and anaerobic capacity to limits." → "Tabata protocol demands max effort and VO2 limits."
+"Long duration with varied intensities tests cardiovascular endurance and mental resilience." → "Long duration with varied intensities tests endurance."
+"Short intervals with varied resistance help beginners build upper body endurance gradually." → "Short intervals build upper body endurance gradually."
+"Basic interval structure with reverse motion introduces beginners to upper body cardio safely." → "Basic intervals with reverse motion for safe cardio."
+"Progressive intensity pyramid challenges intermediate upper body strength and endurance." → "Progressive pyramid challenges intermediate strength."
+"Alternating directions engage different muscle groups while building intermediate cardiovascular capacity." → "Alternating directions engage muscles and cardio."
+"High-intensity sprints demand maximum upper body power and anaerobic capacity." → "High-intensity sprints demand max upper body power."
+"Extended power intervals with reverse work test advanced upper body endurance and strength." → "Extended power intervals test advanced endurance."
+"Gentle resistance changes help beginners build leg strength and cardiovascular base." → "Gentle resistance builds leg strength and cardio base."
+"RPM variations teach beginners pedaling rhythm while maintaining moderate intensity." → "RPM variations teach pedaling rhythm and intensity."
+"Alternates between strength-building hills and speed-focused sprints for balanced intermediate training." → "Alternates hills and sprints for balanced training."
+"Progressive intensity pyramids challenge intermediate riders with sustained effort periods." → "Progressive pyramids challenge sustained effort."
+"Tabata protocol pushes advanced cyclists to maximum anaerobic power and VO2 capacity." → "Tabata pushes advanced cyclists to max power and VO2."
+"Extended workout with varied challenges tests advanced cardiovascular endurance and power." → "Extended workout with challenges tests endurance."
