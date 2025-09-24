@@ -2490,7 +2490,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
           duration: '24–26 min',
           description: 'Perform 4 rounds:\n• 10m heavy push\n• 10 burpees\n• 10m backward drag\n• 10 burpees\nRest 1 min',
           imageUrl: 'https://images.unsplash.com/photo-1517838277536-f5f99be501cd?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHc2fHxzbGVkJTIwYnVycGVlfGVufDB8fHx8MTc1Njg4MzIzN3ww&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Ultimate challenge combining heavy sled work with burpees for maximum conditioning stress.',
+          intensityReason: 'Ultimate challenge combining heavy sled work with burpees.',
           moodTips: [
             {
               icon: 'body',
