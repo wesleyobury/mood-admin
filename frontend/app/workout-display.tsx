@@ -1946,7 +1946,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
           duration: '12 min',
           description: 'Every odd minute:\n• 8 thrusters\nEvery even minute:\n• 10 sumo deadlift high pulls',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxiYXJiZWxsJTIwZW1vbXxlbnwwfHx8fDE3NTY4ODMyMzd8MA&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Time-constrained intervals building power endurance with two demanding barbell movements.',
+          intensityReason: 'Time-constrained intervals build power endurance.',
           moodTips: [
             {
               icon: 'flash',
