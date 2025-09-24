@@ -754,7 +754,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
           description: 'Power intervals alternating hard, moderate,\nand recovery strokes. 4 complete rounds.\n ',
           battlePlan: '• 1 min hard (28 SPM)\n• 2 min moderate (24 SPM)\n• 1 min slow (20 SPM)\n• repeat 4x',
           imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmd8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Alternates between power strokes and recovery periods, perfect for building intermediate strength and endurance.',
+          intensityReason: 'Alternates power strokes and recovery for strength.',
           moodTips: [
             {
               icon: 'barbell',
