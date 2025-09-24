@@ -2031,7 +2031,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Med Ball Flow',
           duration: '12–15 min',
-          description: 'Perform 3 rounds:\n• 8 chest passes against wall\n• 8 overhead throws\n• 8 squat-to-press\nRest 1 min',
+          description: 'Full-body flow: chest passes, overhead throws, and squat-to-press.\n\n ',
           imageUrl: 'https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwyfHxtZWRpY2luZSUyMGJhbGwlMjBmbG93fGVufDB8fHx8MTc1Njg4MzIzN3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Progressive flow builds upper body power and coordination.',
           moodTips: [
@@ -2052,7 +2052,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Medicine Ball AMRAP',
           duration: '10 min',
-          description: 'As many rounds as possible in 10 minutes:\n• 10 wall balls\n• 10 ball slams\n• 10 lunges (ball overhead)',
+          description: 'AMRAP: wall balls, slams, and overhead lunges.\n\n ',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwzfHxtZWRpY2luZSUyMGJhbGwlMjBhbXJhcHxlbnwwfHx8fDE3NTY4ODMyMzd8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Intermediate AMRAP challenges cardiovascular capacity and power.',
           moodTips: [
@@ -2071,7 +2071,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Tabata',
           duration: '16 min',
-          description: '20s work / 10s rest:\n• Wall balls\n• Slams\n• Rotational throws\n• Squat-to-press\nRepeat 4 rounds each for 16 total intervals.',
+          description: 'Tabata: wall balls, slams, rotational throws, and squat-to-press.\n\n ',
           imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxtZWRpY2luZSUyMGJhbGwlMjB0YWJhdGF8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Advanced Tabata maximizes anaerobic power development.',
           moodTips: [
@@ -2092,7 +2092,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Medicine Ball Complex',
           duration: '16–20 min',
-          description: 'Perform 4 rounds:\n• 12 wall balls\n• 10 slams\n• 8 rotations (per side)\n• 6 burpee slams\nRest 1 min',
+          description: 'Full-body complex: wall balls, slams, rotations, and burpee slams.\n\n ',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw1fHxtZWRpY2luZSUyMGJhbGwlMjBhZHZhbmNlZHxlbnwwfHx8fDE3NTY4ODMyMzd8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Elite complex demands maximal power and metabolic conditioning.',
           moodTips: [
@@ -2111,7 +2111,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Med Ball Sprint Circuit',
           duration: '20–25 min',
-          description: 'Perform 5 rounds:\n• 10 wall balls\n• 20m sprint (with ball)\n• 10 slams\n• 20m sprint (with ball)\nRest 1 min',
+          description: 'Sprint circuit: wall balls, slams, and sprints with the ball.\n\n ',
           imageUrl: 'https://images.unsplash.com/photo-1517838277536-f5f99be501cd?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw2fHxtZWRpY2luZSUyMGJhbGwlMjBzcHJpbnR8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Peak circuit integrates medicine ball power with sprints.',
           moodTips: [
