@@ -2769,7 +2769,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
           duration: '12–15 min',
           description: 'Perform 3 rounds:\n• 5 flips\n• 10 tire step-ups\nRest 1 min',
           imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHx0aXJlJTIwZmxpcCUyMHdvcmtvdXR8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Perfect introduction to tire flipping emphasizing proper lifting mechanics and complementary movements.',
+          intensityReason: 'Perfect introduction to tire flipping with proper mechanics.',
           moodTips: [
             {
               icon: 'body',
