@@ -2917,14 +2917,15 @@ const WorkoutCard = ({ equipment, icon, workouts, difficulty, difficultyColor, o
 
       {/* Workout Content */}
       <View style={styles.workoutContent}>
-        <View style={styles.workoutHeader}>
-          <View style={styles.workoutTitleContainer}>
-            <Text style={styles.workoutName}>{item.name}</Text>
-            <View style={[styles.difficultyBadge, { backgroundColor: difficultyColor }]}>
-              <Text style={styles.difficultyBadgeText}>{difficulty.toUpperCase()}</Text>
-            </View>
-          </View>
+        {/* Workout Name */}
+        <Text style={styles.workoutName}>{item.name}</Text>
+        
+        {/* Duration and Intensity on same line */}
+        <View style={styles.durationIntensityRow}>
           <Text style={styles.workoutDuration}>{item.duration}</Text>
+          <View style={[styles.difficultyBadge, { backgroundColor: difficultyColor }]}>
+            <Text style={styles.difficultyBadgeText}>{difficulty.toUpperCase()}</Text>
+          </View>
         </View>
 
         {/* Intensity Reason */}
