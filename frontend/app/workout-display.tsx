@@ -1607,7 +1607,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
           description: 'Advanced techniques including cross-over,\ndouble under, and basic patterns. 6 rounds.\n ',
           battlePlan: '• 1 min cross-over\n• 1 min double under\n• 1 min basic jump\n• repeat 6x',
           imageUrl: 'https://images.pexels.com/photos/2774172/pexels-photo-2774172.jpeg',
-          intensityReason: 'Advanced jumping patterns demand elite coordination, timing, and cardiovascular endurance.',
+          intensityReason: 'Advanced jumping patterns demand elite coordination and timing.',
           moodTips: [
             {
               icon: 'timer',
