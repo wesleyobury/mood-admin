@@ -2578,6 +2578,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
           name: 'Band Walks & Presses',
           duration: '12–15 min',
           description: 'Lower body and upper body: lateral walks and overhead presses.\n\n ',
+          battlePlan: 'Perform 4 rounds:\n• 10 lateral walks (each direction with band around ankles)\n• 8 overhead presses (hold band overhead, press arms apart)\n• 6 band pull-aparts (at chest level)\n• Rest 75 sec\nFinish with stretching',
           imageUrl: 'https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwyfHxyZXNpc3RhbmNlJTIwYmFuZCUyMHdhbGt8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Focus on glute activation and shoulder stability.',
           moodTips: [
