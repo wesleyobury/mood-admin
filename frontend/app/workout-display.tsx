@@ -2182,6 +2182,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
           name: 'Slam Ball Flow',
           duration: '12–15 min',
           description: 'Full-body flow: slams, overhead throws, and Russian twists.\n\n ',
+          battlePlan: 'Perform 3 rounds:\n• 8 overhead slams\n• 6 rotational slams (3 each side)\n• 4 slam-to-squat\n• Rest 90 sec\nFinish with light walking',
           imageUrl: 'https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwyfHxzbGFtJTIwYmFsbCUyMGZsb3d8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Movement progression adds overhead power and core rotation.',
           moodTips: [
