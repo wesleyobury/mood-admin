@@ -1983,6 +1983,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
           name: 'Barbell Ladder',
           duration: '20–24 min',
           description: 'Descending rep ladder: cleans, jerks, squats, and burpees.\n\n ',
+          battlePlan: 'Descending ladder (10-9-8-7-6-5-4-3-2-1):\n• Power cleans\n• Push jerks\n• Back squats\n• Barbell burpees\nRest 2 min every 3 rounds\nFinish when all rounds complete',
           imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw1fHxiYXJiZWxsJTIwYWR2YW5jZWR8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Advanced ladder requires explosive power and conditioning.',
           moodTips: [
