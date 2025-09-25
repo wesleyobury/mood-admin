@@ -2794,6 +2794,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
           name: 'Hammer & Sprint Circuit',
           duration: '20–25 min',
           description: 'Sprint circuit: hammer strikes, tire jumps, and sprints.\n\n ',
+          battlePlan: 'Perform 5 rounds:\n• 12 hammer strikes (6 each side)\n• 20m sprint\n• 6 tire jumps\n• 20m sprint\n• Rest 2 min\nFinish when all rounds complete',
           imageUrl: 'https://images.unsplash.com/photo-1517838277536-f5f99be501cd?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw2fHxzbGVkZ2VoYW1tZXIlMjBzcHJpbnR8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Peak conditioning integrates sledgehammer power with sprints.',
           moodTips: [
