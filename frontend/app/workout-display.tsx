@@ -2732,6 +2732,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
           name: 'Hammer & Burpee Circuit',
           duration: '18–20 min',
           description: 'Power and cardio: hammer strikes, burpees, and tire jumps.\n\n ',
+          battlePlan: 'Perform 5 rounds:\n• 10 hammer strikes (alternating sides)\n• 5 burpees\n• 8 tire jumps\n• Rest 90 sec\nFinish when all rounds complete',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwzfHxzbGVkZ2VoYW1tZXIlMjBidXJwZWV8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Intermediate circuit combines sledgehammer with plyometrics.',
           moodTips: [
