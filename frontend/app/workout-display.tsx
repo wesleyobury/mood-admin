@@ -3523,7 +3523,7 @@ const styles = StyleSheet.create({
     elevation: 6,
   },
   startWorkoutButtonText: {
-    fontSize: 14,
+    fontSize: 16,
     fontWeight: 'bold',
     color: '#000000',
   },
