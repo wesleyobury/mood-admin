@@ -1787,6 +1787,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
           name: 'Kettlebell Cardio Flow',
           duration: '12–15 min',
           description: 'Full-body flow: squats, swings, and overhead presses.\n\n ',
+          battlePlan: 'Perform 3 rounds:\n• 10 goblet squats\n• 15 kettlebell swings\n• 8 overhead presses (4 each arm)\n• Rest 90 sec\nFinish with light walking',
           imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwyfHxrZXR0bGViZWxsJTIwZmxvd3xlbnwwfHx8fDE3NTY4ODMyMzd8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Progressive flow builds kettlebell familiarity with control.',
           moodTips: [
