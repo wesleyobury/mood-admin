@@ -2822,6 +2822,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
           name: 'Tire Flip & Step',
           duration: '12–15 min',
           description: 'Foundational tire flips and step-ups for strength.\n\n ',
+          battlePlan: 'Perform 4 rounds:\n• 5 tire flips\n• 8 tire step-ups (each leg)\n• Rest 90 sec\nFinish with stretching',
           imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHx0aXJlJTIwZmxpcCUyMHdvcmtvdXR8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Perfect introduction to tire flipping with proper mechanics.',
           moodTips: [
