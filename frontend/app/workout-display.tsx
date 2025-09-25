@@ -2530,6 +2530,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
           name: 'Sled & Burpee Circuit',
           duration: '24–26 min',
           description: 'Strength and cardio: heavy pushes, drags, and burpees.\n\n ',
+          battlePlan: 'Perform 3 rounds:\n• 10m max effort push\n• 20m sprint push\n• 15m single-arm drag (each arm)\n• 10 sled jumpovers\n• Rest 3 min\nFinish with walk',
           imageUrl: 'https://images.unsplash.com/photo-1517838277536-f5f99be501cd?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHc2fHxzbGVkJTIwYnVycGVlfGVufDB8fHx8MTc1Njg4MzIzN3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Ultimate challenge combining heavy sled work with burpees.',
           moodTips: [
