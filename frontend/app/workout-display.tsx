@@ -2003,6 +2003,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
           name: 'Barbell AMRAP',
           duration: '15 min',
           description: 'AMRAP: deadlifts, cleans, presses, back squats, and burpees.\n\n ',
+          battlePlan: 'AMRAP for 15 minutes:\n• 8 barbell deadlifts\n• 6 power cleans\n• 4 overhead presses\n• 6 back squats\n• 8 barbell burpees\nScore total rounds + reps',
           imageUrl: 'https://images.unsplash.com/photo-1517838277536-f5f99be501cd?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw2fHxiYXJiZWxsJTIwYW1yYXB8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'High-intensity AMRAP tests maximum work capacity.',
           moodTips: [
