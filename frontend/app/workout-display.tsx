@@ -3437,6 +3437,7 @@ const styles = StyleSheet.create({
   },
   workoutContent: {
     flex: 1,
+    paddingHorizontal: 0,
   },
   workoutHeader: {
     flexDirection: 'row',
