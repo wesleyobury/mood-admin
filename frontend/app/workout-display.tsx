@@ -2266,6 +2266,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
           name: 'Slam Ball Sprint Circuit',
           duration: '20–25 min',
           description: 'Sprint circuit: slams, lateral slams, and sprints with the ball.\n\n ',
+          battlePlan: 'AMRAP for 12 minutes:\n• 10 overhead slams\n• 8 side-to-side slams\n• 6 slam-to-burpee\n• 4 single-arm slams (2 each)\nScore total rounds + reps',
           imageUrl: 'https://images.unsplash.com/photo-1517838277536-f5f99be501cd?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw2fHxzbGFtJTIwYmFsbCUyMHNwcmludHxlbnwwfHx8fDE3NTY4ODMyMzd8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Peak performance circuit combines slam ball power with sprints.',
           moodTips: [
