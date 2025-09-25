@@ -2488,6 +2488,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
           name: 'Push & Drag Circuit',
           duration: '20–22 min',
           description: 'Full-body circuit: pushes, backward drags, and lateral pushes.\n\n ',
+          battlePlan: 'Perform 4 rounds:\n• 15m forward push\n• 15m backward drag\n• 15m lateral push (each side)\n• Rest 2 min\nFinish with stretching',
           imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxzbGVkJTIwZHJhZ3xlbnwwfHx8fDE3NTY4ODMyMzd8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Multi-directional sled work challenges different patterns.',
           moodTips: [
