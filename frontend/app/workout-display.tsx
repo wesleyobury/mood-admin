@@ -1739,6 +1739,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
           name: 'Dumbbell AMRAP',
           duration: '15 min',
           description: 'AMRAP: snatches, jump squats, push-up rows, and lunges.\n\n ',
+          battlePlan: 'AMRAP for 15 minutes:\n• 8 single-arm dumbbell snatches (4 each)\n• 12 dumbbell jump squats\n• 8 push-up to T (4 each side)\n• 10 walking lunges with dumbbells\nScore total rounds + reps',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw2fHxkdW1iYmVsbCUyMGNhcmRpb3xlbnwwfHx8fDE3NTY4ODMyMzd8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'High-intensity AMRAP combines power movements with plyometrics.',
           moodTips: [
