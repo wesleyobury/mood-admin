@@ -1719,7 +1719,8 @@ const workoutDatabase: EquipmentWorkouts[] = [
           name: 'Dumbbell Ladder',
           duration: '20–24 min',
           description: 'Descending rep ladder: cleans, presses, and burpees.\n\n ',
-          imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw1fHxkdW1iYmVsbCUyMGFkdmFuY2VkfGVufDB8fHx8MTc1Njg4MzIzN3ww&ixlib=rb-4.1.0&q=85',
+          battlePlan: 'Descending ladder (10-9-8-7-6-5-4-3-2-1):\n• Dumbbell cleans\n• Push presses\n• Burpees over dumbbells\nRest 2 min every 3 rounds\nFinish when all rounds complete',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw1fHxkdW1iYmVsbCUyMGFkdmFuY2VkfGVufDB8fHx8MTc1Nijg4MzIzN3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Descending ladder demands advanced strength and conditioning.',
           moodTips: [
             {
