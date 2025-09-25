@@ -1635,6 +1635,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
           name: 'Dumbbell Cardio Circuit',
           duration: '16 min',
           description: 'Full-body cardio circuit with squats, lunges, and presses.\n\n ',
+          battlePlan: 'Perform 4 rounds:\n• 10 dumbbell squats\n• 8 alternating lunges (each leg)\n• 6 dumbbell push presses\n• 30 sec rest\nFinish with 2 min easy walking',
           imageUrl: 'https://images.unsplash.com/photo-1571390263724-7e0bd2cb3b77?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxkdW1iYmVsbCUyMHdvcmtvdXR8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Perfect beginner circuit with functional movements and rest.',
           moodTips: [
