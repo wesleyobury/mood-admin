@@ -2468,6 +2468,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
           name: 'Sled Sprint Intervals',
           duration: '20 min',
           description: 'High-intensity sled sprint pushes with active recovery.\n\n ',
+          battlePlan: 'Perform 6 rounds:\n• 20m sled sprint (light load)\n• Walk back recovery\n• Rest 45 sec\nFinish with cool-down walk',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwzfHxzbGVkJTIwc3ByaW50fGVufDB8fHx8TVc1Mjg4MzIzN3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Power sprint intervals build explosive leg drive.',
           moodTips: [
