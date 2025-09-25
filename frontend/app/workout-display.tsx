@@ -1655,6 +1655,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
           name: 'Dumbbell Flow',
           duration: '15 min',
           description: 'Strength flow: squat to press, snatches, and bent-over rows.\n\n ',
+          battlePlan: 'Perform 3 rounds:\n• 8 squat to overhead press\n• 6 single-arm dumbbell snatches (each arm)\n• 10 bent-over rows\n• 45 sec rest\nFinish with light stretching',
           imageUrl: 'https://images.unsplash.com/photo-1574680096145-d05b474e2155?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwyfHxkdW1iYmVsbCUyMHRyYWluaW5nfGVufDB8fHx8MVc1Njg4MzIzN3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Smooth flow teaches dumbbell transitions and builds coordination.',
           moodTips: [
