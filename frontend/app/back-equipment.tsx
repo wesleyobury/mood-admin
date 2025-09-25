@@ -25,16 +25,16 @@ interface DifficultyLevel {
 }
 
 const equipmentOptions: EquipmentOption[] = [
-  { id: 'adjustable-bench', name: 'Adjustable bench', icon: 'square' },
-  { id: 'barbell', name: 'Barbell', icon: 'barbell' },
-  { id: 'grip-variation-pull-up-bar', name: 'Grip variation pull up bar', icon: 'remove-outline' },
-  { id: 'kettle-bells', name: 'Kettle bells', icon: 'fitness' },
-  { id: 'lat-pull-down-machine', name: 'Lat pull down machine', icon: 'arrow-down' },
-  { id: 'roman-chair', name: 'Roman chair', icon: 'desktop' },
-  { id: 'seated-cable-machine', name: 'Seated cable machine', icon: 'reorder-three' },
-  { id: 'seated-chest-supported-row-machine', name: 'Seated Chest Supported Row Machine', icon: 'hardware-chip' },
-  { id: 'straight-pull-up-bar', name: 'Straight pull up bar', icon: 'remove' },
-  { id: 't-bar-row-machine', name: 'T bar row machine', icon: 'triangle' },
+  { id: 'adjustable-bench', name: 'Adjustable bench', icon: 'bed-outline' },
+  { id: 'barbell', name: 'Barbell', icon: 'barbell-outline' },
+  { id: 'grip-variation-pull-up-bar', name: 'Grip variation pull up bar', icon: 'git-branch-outline' },
+  { id: 'kettle-bells', name: 'Kettle bells', icon: 'diamond-outline' },
+  { id: 'lat-pull-down-machine', name: 'Lat pull down machine', icon: 'arrow-down-circle-outline' },
+  { id: 'roman-chair', name: 'Roman chair', icon: 'car-outline' },
+  { id: 'seated-cable-machine', name: 'Seated cable machine', icon: 'git-network-outline' },
+  { id: 'seated-chest-supported-row-machine', name: 'Seated Chest Supported Row Machine', icon: 'car-sport-outline' },
+  { id: 'straight-pull-up-bar', name: 'Straight pull up bar', icon: 'remove-circle-outline' },
+  { id: 't-bar-row-machine', name: 'T bar row machine', icon: 'git-branch' },
 ];
 
 const difficultyLevels: DifficultyLevel[] = [
