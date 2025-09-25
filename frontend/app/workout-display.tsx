@@ -1697,6 +1697,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
           name: 'EMOM 12',
           duration: '12 min',
           description: 'EMOM: thrusters and renegade rows for strength endurance.\n\n ',
+          battlePlan: 'Every minute on the minute for 12 minutes:\n• Minute 1: 8 dumbbell thrusters\n• Minute 2: 10 renegade rows\nRepeat alternating pattern\nRest remaining time in each minute',
           imageUrl: 'https://images.unsplash.com/photo-1598971861713-54ad16c5b44b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxkdW1iYmVsbCUyMGNpcmN1aXR8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Time-based intervals challenge muscular endurance and cardio.',
           moodTips: [
