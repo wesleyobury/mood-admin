@@ -2600,6 +2600,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
           name: 'Band Tabata',
           duration: '16 min',
           description: 'Tabata: squat jumps, push-ups, rows, and mountain climbers.\n\n ',
+          battlePlan: 'Perform 4 Tabata rounds (20 sec work, 10 sec rest):\nRound 1: Band squat jumps\nRound 2: Band-assisted push-ups\nRound 3: Band rows\nRound 4: Mountain climbers with band\nRest 2 min between rounds',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwzfHxyZXNpc3RhbmNlJTIwYmFuZCUyMHRhYmF0YXxlbnwwfHx8fDE3NTY4ODMyMzd8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'High-intensity Tabata maximizes anaerobic power.',
           moodTips: [
