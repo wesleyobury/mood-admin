@@ -2115,6 +2115,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
           name: 'Medicine Ball Complex',
           duration: '16–20 min',
           description: 'Full-body complex: wall balls, slams, rotations, and burpee slams.\n\n ',
+          battlePlan: 'Perform 4 rounds without dropping ball:\n• 8 wall balls\n• 8 overhead throws\n• 8 slam-to-burpee\n• 8 rotational throws (4 each side)\n• Rest 2 min\nFinish with stretching',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw1fHxtZWRpY2luZSUyMGJhbGwlMjBhZHZhbmNlZHxlbnwwfHx8fDE3NTY4ODMyMzd8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Elite complex demands maximal power and metabolic conditioning.',
           moodTips: [
