@@ -1,33 +1,25 @@
 <analysis>
-The previous AI engineer's work, which was passed to me, initially focused on MOOD app UI/UX, data consistency, and implementing the  field for detailed workout instructions across Chest, Shoulders, and Cardio sections. Visual consistency issues like  shading and cardio gradient backgrounds were also addressed. The current trajectory began with the user explicitly requesting to condense all intensity level descriptions in the cardio path to a maximum of two lines, as demonstrated by a screenshot.
-
-The AI engineer systematically addressed this by iteratively searching for and editing long  strings within . The process involved identifying descriptions over 70 characters and manually shortening them, performing numerous  operations in batches. During this, attempts to take screenshots for verification exposed frontend navigation issues (incorrect port, Unicode errors in script, general navigation failures), but the agent correctly prioritized the core user request. After successfully reducing all long intensity reasons, the user reported a missing  for the HIIT Ski workout. This was added and subsequently modified to match precise user-provided text, including a final minor edit to remove a period. The trajectory concludes with the AI engineer confirming the full resolution of both the intensity description condensation and the HIIT Ski battle plan issue.
+The trajectory details the AI engineer's work on the MOOD app, primarily focusing on two distinct phases. Initially, the work involved extensive UI/UX standardization across workout cards, addressing padding, spacing, neon glow effects, and particularly troubleshooting persistent Start Workout button positioning issues in weight-based paths within . This phase was characterized by iterative adjustments based on user screenshots and attempts to use the testing agent. The second, more recent phase, initiated by a user request, involved adding detailed  fields to all weight-based workouts in  within . The AI systematically identified and updated 10 equipment types (e.g., Dumbbells, Kettlebells, Barbells) across beginner, intermediate, and advanced levels, ensuring full battle plans are available on guidance screens while maintaining condensed summaries on workout cards. This task concluded with 100% completion of battle plan integration for all weight-based workouts.
 </analysis>
 
 <product_requirements>
-The MOOD app aims to provide personalized, dark-themed workout recommendations with gold accents. Key features include Muscle gainer (Shoulders, Chest) and Cardio (Sweat Path) sections.
-Explicit requirements included:
-1.  **Equipment/Workout Screens:** Implement  and  with alphabetized equipment and content.
-2.  **UI/UX Standardization:** Duplicate Chest UI/UX (swipeable cards, non-scrollable progress bar, start button) for Shoulders.
-3.  **Content Formatting:** Workout cards to display *exactly 3-line summaries* (), while detailed s are for guidance screens.
-4.  **Equipment Naming Consistency:** Standardize Pec Dec Rear Delt Fly to Rear Delt Fly Machine, then revert Pec dec machine for chest.
-5.  **Chest Path Specifics:** Apply 3-line summaries, standardize card dimensions, shorten  to max 3 lines, update progress bar (4 icons/row, smaller elements), add neon shading to cards.
-6.  **Workout Card Title Standardization:** All workout card titles (chest and shoulders) to be *1 line*.
-7.  **Chest Card Visuals:** Photos with rounded edges, duration & intensity on same line; content width matches photo; intensity icon text black, i icon yellow.
-8.  **Chest Text Alignment:** Workout title, duration, 3-line description moved slightly left (6px padding).
-9.  **Shoulder Card Visuals:** Apply chest/cardio layout updates: neon glow, matching picture dimensions, correct padding.
-10. **Shoulder Workout Display Bug:** Ensure all equipment has correctly linked workouts.
-11. **Cardio Path Enhancements:** Add light neon gold shading to bottom of workout cards; condense all cardio workout  to 3-line summaries; restore full s on guidance screens; duration and intensity on same line; intensity level text black; restore light neon gold gradient around .
-**New Request (during trajectory):** Condense *all* cardio intensity level descriptions to a *maximum of two lines* on workout cards.
-**New Request (during trajectory):** Ensure HIIT Ski workout in cardio path has full  content, specifically: 8 roundsn20 sec max effortn10 sec restnRest for two minutesnRepeat for 2 cycles. Subsequently, remove the period from Repeat for 2 cycles.
+The MOOD app aims to provide personalized, dark-themed workout recommendations with gold accents, categorized into Muscle Gainer (Shoulders, Chest) and Cardio (Sweat Path). Key requirements from the user included:
+1.  **UI/UX Standardization**: Consistent design for workout cards, including padding, spacing (25px), neon glow effects, and border styling across Cardio, Chest, and Shoulder paths.
+2.  **Content Summarization**: Cardio intensity descriptions condensed to a maximum of two lines. HIIT Ski battle plans to have specific content.
+3.  **Weight Workout Display**: Replace  fields with one-line summaries on workout cards (two-line display), while preserving s for detailed guidance. Adjust spacing, padding, and overall card height to match other paths.
+4.  **Button Positioning**: Center the Start Workout button on weight-based cards, consistent with Cardio, Chest, and Shoulder layouts. Resolve issues where the button was positioned too far down.
+5.  **Font Consistency**: Standardize font sizes for intensity level, battle plan, and Start Workout button across all paths.
+6.  **Text Formatting**: Remove italicization from battle plan summaries in the I want to sweat path.
+7.  **Missing Battle Plans (New Request)**: Add full, detailed battle plans for all workouts in the sweat based path to be displayed on the workout guidance screen, following established instruction, movement, and rest format, while keeping condensed summaries on the your workouts screen.
 </product_requirements>
 
 <key_technical_concepts>
--   **Mobile Frontend**: Expo, React Native, Expo Router (file-based routing), React Navigation.
--   **UI/UX Consistency**: Standardizing component layouts, styles (Flexbox), interactive elements, and visual themes.
--   **Data Structure Modification**: Adapting  interface with  field.
--   **String Manipulation**: Condensing  text for optimal UI display.
--   **Navigation**:  for passing parameters.
+-   **Mobile Frontend**: Expo, React Native.
+-   **UI/UX Standardization**: Consistent styling, Flexbox layout, spacing, neon glow/shadows.
+-   **Component Refactoring**:  to  for layout control.
+-   **Static Data Management**: Direct manipulation of  in .
+-   **StyleSheet API**: Centralized style management.
+-   **Iterative UI Debugging**: Visual feedback-driven development.
 </key_technical_concepts>
 
 <code_architecture>
@@ -36,40 +28,27 @@ Explicit requirements included:
 
 
 -   
-    -   **Importance**: Manages top-level navigation to different body parts.
-    -   **Summary of changes made**: Modified to include navigation to .
+    -   **Importance**: Renders UI for Chest workouts, serving as a styling reference.
+    -   **Summary of changes made**: Padding, margin, neon glow, and border styling were standardized.
 -   
-    -   **Importance**: Handles equipment selection for Shoulders workouts.
-    -   **Summary of changes made**: Standardized Pec Deck / Rear Delt Fly Machine to Rear Delt Fly Machine.
+    -   **Importance**: Manages display of Shoulder workout cards and UI elements, adhering to the standard.
+    -   **Summary of changes made**: Padding, margin, neon glow, and border styling were standardized to match Chest style.
 -   
-    -   **Importance**: Displays dynamic Shoulders workout data.
-    -   **Summary of changes made**: Initial creation, data population with  (3-line summary) and . UI styling updates (progress bar, workout cards, neon glow). Equipment mapping bug fixes (casing, renaming, adding new equipment data). Added  for light gold shading.
--   
-    -   **Importance**: Handles equipment selection for Chest workouts.
-    -   **Summary of changes made**: Reverted Pec Deck Fly / Rear Delt Machine to Pec dec machine.
--   
-    -   **Importance**: Central screen for displaying dynamic Chest workout data.
-    -   **Summary of changes made**:  interface updated with ;  updated. UI/UX standardization for card dimensions,  shortening, progress bar updates, workout card styling (rounded photo edges, duration & intensity on same line, black intensity icon text, yellow 'i' icon), text alignment. Added  for light gold shading.
--   
-    -   **Importance**: Renders detailed workout battle plans and mood tips.
-    -   **Summary of changes made**: Modified to explicitly receive and display  (instead of ) as a navigation parameter.
--   
-    -   **Importance**: Central screen for displaying dynamic Cardio workout data. Defines the  interface.
+    -   **Importance**: Central component for displaying Cardio and Weight workout data. Contains ,  interface, and rendering logic for workout cards, especially for weight-based equipment paths.
     -   **Summary of changes made**:
-        -   Initial  interface modified to include .
-        -   Iteratively condensed all cardio workout  fields to 3-line summaries and systematically added  fields with original detailed instructions.
-        -    updated to pass both  and .
-        -   Card layout for duration and intensity adjusted to be on the same line.
-        -   Intensity text color changed to black ().
-        -   Added  for consistent text alignment.
-        -   Restored light neon gold gradient (, , , ) to  section.
-        -   **Crucially, during this trajectory, this file underwent extensive iterative edits to:**
-            1.  Condense *all*  fields to ensure a maximum of two lines, reducing over 132 long descriptions to zero.
-            2.  Add and specifically populate the  for the HIIT Ski workout.
-            3.  Perform a final edit to remove a period from the HIIT Ski  text.
+        -    wrapper removed for Cardio paths;   adjusted to .
+        -   Neon glow and border styling updated.
+        -    fields for weight equipment workouts were updated to one-line summaries.
+        -     adjusted.
+        -     adjusted, then removed entirely.
+        -    changed to  for workout description.
+        -    , ,  standardized.
+        -     updated.
+        -    italicization removed.
+        -   **Crucially, detailed  fields were added to all workouts for 10 weight equipment types (Dumbbells, Kettlebells, Barbells, Med balls, Slam balls, Battle ropes, Sled, Resistance bands, Sledgehammer & tire, Flipping tire) across beginner, intermediate, and advanced levels.**
 -   
-    -   **Importance**: Temporary file created to batch proposed intensity reason fixes.
-    -   **Summary of changes made**: Created to store a list of intensity reason updates for systematic application, though manual edits were mostly used.
+    -   **Importance**: Responsible for displaying the detailed workout instructions, including battle plans.
+    -   **Summary of changes made**: No direct code changes in this trajectory, but its expected output format guided the structure of the  data added to .
 </code_architecture>
 
 <pending_tasks>
@@ -80,16 +59,20 @@ Explicit requirements included:
 -   Verify intelligent time-unit splitting for workout instructions.
 -   Resolve Routing/Navigation issues identified during frontend testing of shoulders workout equipment mapping.
 -   Resolve Equipment filtering logic issues identified during frontend testing of shoulders workout equipment mapping.
+-   Verify the implemented visual consistency across all workout cards.
+-   Analyze the testing agent's report for the Start Workout button positioning on weight-based cards.
 </pending_tasks>
 
 <current_work>
-Immediately before this summary request, the AI engineer completed a series of tasks related to the Sweat (cardio-based) path, as per user requests.
+Immediately before this summary request, the AI engineer was addressing a user report that the Start Workout button on weight-based workout cards was positioned too far down. The last attempted fix involved removing  from  (setting it to ) and removing  from  entirely in , aiming for a natural flex layout. The AI had just invoked the testing agent to verify this fix and was awaiting results.
 
-The primary task involved condensing all intensity level descriptions within the cardio workout cards in  to a maximum of two lines. This was a substantial effort, as there were originally 132 descriptions identified as being over 70 characters long (and thus likely rendering over two lines). The AI engineer systematically located and iteratively edited these descriptions through numerous  operations, ensuring brevity while retaining technical accuracy. This iterative process was tracked and reported in summaries, eventually leading to the successful condensation of all problematic descriptions.
-
-Following this, the user identified a new issue: the Advanced Ski Machine workout, specifically HIIT Ski, was missing its full  content on the workout guidance screen. The AI engineer located the HIIT Ski workout in  and added the specified detailed : • 8 roundsn• 20 sec max effortn• 10 sec restn• Rest for two minutesn• Repeat for 2 cycles. A subsequent user request involved a minor textual correction, removing the period from Repeat for 2 cycles. Both the addition and the final textual refinement of the HIIT Ski  were successfully implemented and verified.
+Subsequently, the user introduced a new, critical task: the sweat based path workouts were missing full  details on the workout guidance screen, although the condensed summaries on workout cards were correct. The AI engineer proceeded to implement this, systematically adding the missing  fields to  within . This involved:
+1.  Identifying all 10 types of weight equipment (Dumbbells, Kettlebells, Barbells, Med balls, Slam balls, Battle ropes, Sled, Resistance bands, Sledgehammer & tire, Flipping Tire).
+2.  Iteratively adding detailed  content for each workout across beginner, intermediate, and advanced levels, ensuring the format (instructions, movements, rest separated by line indentations in bullet format) matched other finalized paths.
+3.  The task involved numerous  operations and occasional frontend service restarts. The AI encountered and navigated through screenshot issues during initial verification attempts but continued with the user's confirmation. The trajectory concludes with the AI declaring 100% completion of this task.
 </current_work>
 
 <optional_next_step>
-The last explicit user-requested task (modifying the HIIT Ski battle plan to remove a period) has been completed and verified.
+Verify the correct display of the newly added detailed battle plans on the workout guidance screens for weight-based workouts.
 </optional_next_step>
+
