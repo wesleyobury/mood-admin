@@ -3493,7 +3493,6 @@ const styles = StyleSheet.create({
     color: 'rgba(255, 255, 255, 0.8)',
     marginLeft: 8,
     flex: 1,
-    fontStyle: 'italic',
   },
   workoutDescriptionContainer: {
     flex: 1,
