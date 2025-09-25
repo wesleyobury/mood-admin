@@ -107,6 +107,15 @@ export default function BodyPartsScreen() {
             bodyPart: selectedBodyPart,
           }
         });
+      } else if (selectedBodyPart === 'Back') {
+        // Navigate to back equipment screen
+        router.push({
+          pathname: '/back-equipment',
+          params: {
+            mood: mood,
+            bodyPart: selectedBodyPart,
+          }
+        });
       } else {
         // TODO: Navigate to other body part screens when implemented
         console.log(`Navigation for ${selectedBodyPart} will be implemented later`);
