@@ -2936,9 +2936,9 @@ const WorkoutCard = ({ equipment, icon, workouts, difficulty, difficultyColor, o
         </View>
 
         {/* Workout Description */}
-        <ScrollView style={styles.workoutDescriptionContainer} showsVerticalScrollIndicator={false}>
+        <View style={styles.workoutDescriptionContainer}>
           <Text style={styles.workoutDescription}>{item.description}</Text>
-        </ScrollView>
+        </View>
 
         {/* Start Workout Button */}
         <TouchableOpacity 
