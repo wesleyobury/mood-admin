@@ -2926,6 +2926,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
           name: 'Tire Flip & Sprint',
           duration: '20–22 min',
           description: 'Sprint circuit: tire flips and sprints for power endurance.\n\n ',
+          battlePlan: 'Perform 5 rounds:\n• 6 tire flips\n• 40m sprint\n• 4 tire flips\n• 20m sprint\n• Rest 2 min\nFinish when all rounds complete',
           imageUrl: 'https://images.unsplash.com/photo-1517838277536-f5f99be501cd?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw2fHx0aXJlJTIwZmxpcCUyMHNwcmludHxlbnwwfHx8fDE3NTY4ODMyMzd8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Peak conditioning integrates tire manipulation with sprints.',
           moodTips: [
