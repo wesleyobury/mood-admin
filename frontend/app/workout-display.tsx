@@ -1829,6 +1829,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
           name: 'Kettlebell Tabata',
           duration: '16 min',
           description: 'Tabata: swings, squats, lunges, and high pulls.\n\n ',
+          battlePlan: 'Perform 4 Tabata rounds (20 sec work, 10 sec rest):\nRound 1: Kettlebell swings\nRound 2: Goblet squats\nRound 3: Reverse lunges\nRound 4: High pulls\nRest 2 min between rounds',
           imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxrZXR0bGViZWxsJTIwdGFiYXRhfGVufDB8fHx8MVc1Njg4MzIzN3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'High-intensity intervals push cardiovascular limits.',
           moodTips: [
