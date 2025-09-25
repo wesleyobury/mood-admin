@@ -2510,6 +2510,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
           name: 'Sled Gauntlet',
           duration: '24–28 min',
           description: 'Full-body gauntlet: heavy pushes, sprints, drags, and lateral pushes.\n\n ',
+          battlePlan: 'Perform 5 rounds:\n• 20m heavy push\n• 15m sprint push (light)\n• 15m backward drag\n• 10m lateral pushes (each side)\n• Rest 2 min\nFinish when complete',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw1fHxzbGVkJTIwYWR2YW5jZWR8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Advanced gauntlet combines max load with speed work.',
           moodTips: [
