@@ -3502,7 +3502,7 @@ const styles = StyleSheet.create({
     marginBottom: 16,
   },
   workoutDescription: {
-    fontSize: 13,
+    fontSize: 14,
     color: 'rgba(255, 255, 255, 0.8)',
     lineHeight: 18,
   },
