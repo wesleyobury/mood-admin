@@ -1809,6 +1809,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
           name: 'Kettlebell Ladder',
           duration: '20–24 min',
           description: 'Descending rep ladder: swings, cleans, snatches, squats, presses.\n\n ',
+          battlePlan: 'Descending ladder (10-8-6-4-2):\n• Kettlebell swings\n• Single-arm cleans (alternating)\n• Snatches (alternating)\n• Goblet squats\n• Overhead presses\nRest 90 sec between rounds',
           imageUrl: 'https://images.unsplash.com/photo-1517838277536-f5f99be501cd?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwzfHxrZXR0bGViZWxsJTIwdHJhaW5pbmd8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Complex ladder challenges coordination and strength.',
           moodTips: [
