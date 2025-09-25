@@ -2378,6 +2378,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
           name: 'Battle Rope Gauntlet',
           duration: '24–26 min',
           description: 'Full-body gauntlet: waves, slams, side-to-sides, jacks, circles.\n\n ',
+          battlePlan: 'Perform 4 rounds:\n• 30s waves\n• 30s slams\n• 30s side-to-sides\n• 30s jacks\n• 30s circles\n• Rest 1 min\nFinish with stretching',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw1fHxiYXR0bGUlMjByb3BlcyUyMGFkdmFuY2VkfGVufDB8fHx8MVc1Njg4MzIzN3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Extended gauntlet tests advanced cardiovascular capacity.',
           moodTips: [
