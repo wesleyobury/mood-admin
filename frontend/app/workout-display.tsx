@@ -1961,6 +1961,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
           name: 'Barbell EMOM',
           duration: '12 min',
           description: 'EMOM: thrusters and sumo deadlift high pulls.\n\n ',
+          battlePlan: 'Every minute on the minute for 12 minutes:\n• Minute 1: 8 barbell thrusters\n• Minute 2: 6 sumo deadlift high pulls\nRepeat alternating pattern\nRest remaining time in each minute',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxiYXJiZWxsJTIwZW1vbXxlbnwwfHx8fDE3NTY4ODMyMzd8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Time-constrained intervals build power endurance.',
           moodTips: [
