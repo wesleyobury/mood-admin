@@ -1677,6 +1677,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
           name: 'Dumbbell Complex',
           duration: '28–30 min',
           description: 'Full-body complex: deadlifts, cleans, squats, presses, lunges.\n\n ',
+          battlePlan: 'Perform 5 rounds:\n• 5 dumbbell deadlifts\n• 5 dumbbell cleans\n• 5 front squats\n• 5 push presses\n• 5 reverse lunges (each leg)\nRest 90 sec\nFinish with 3 min walk',
           imageUrl: 'https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwzfHxkdW1iYmVsbCUyMGNvbXBsZXh8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Complex movements for increased strength and conditioning.',
           moodTips: [
