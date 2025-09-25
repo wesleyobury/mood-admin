@@ -2864,6 +2864,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
           name: 'Tire Flip & Jump',
           duration: '14–16 min',
           description: 'Tire flips and jumps for explosive power.\n\n ',
+          battlePlan: 'Perform 5 rounds:\n• 4 tire flips\n• 6 tire jumps\n• 8 tire step-ups (alternating legs)\n• Rest 90 sec\nFinish with stretching',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwzfHx0aXJlJTIwZmxpcCUyMGp1bXB8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Intermediate circuit combines tire flipping with plyometrics.',
           moodTips: [
