@@ -2073,6 +2073,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
           name: 'Medicine Ball AMRAP',
           duration: '10 min',
           description: 'AMRAP: wall balls, slams, and overhead lunges.\n\n ',
+          battlePlan: 'AMRAP for 10 minutes:\n• 12 wall balls (10 ft target)\n• 10 medicine ball slams\n• 8 overhead lunges (4 each leg)\nScore total rounds + reps',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwzfHxtZWRpY2luZSUyMGJhbGwlMjBhbXJhcHxlbnwwfHx8fDE3NTY4ODMyMzd8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Intermediate AMRAP challenges cardiovascular capacity and power.',
           moodTips: [
