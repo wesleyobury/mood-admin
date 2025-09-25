@@ -2162,6 +2162,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
           name: 'Slam Ball Basics',
           duration: '12–16 min',
           description: 'Foundational slams, squat-to-press, and lunges.\n\n ',
+          battlePlan: 'Perform 4 rounds:\n• 10 overhead slams\n• 8 side slams (4 each side)\n• 6 squat slams\n• Rest 60 sec\nFinish with stretching',
           imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxzbGFtJTIwYmFsbCUyMHdvcmtvdXR8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Introduction to slam ball fundamentals with proper mechanics.',
           moodTips: [
