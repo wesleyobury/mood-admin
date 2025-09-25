@@ -1941,6 +1941,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
           name: 'Barbell Complex',
           duration: '28–30 min',
           description: 'Full-body complex: deadlifts, cleans, squats, presses, rows.\n\n ',
+          battlePlan: 'Perform 5 rounds without dropping bar:\n• 5 deadlifts\n• 5 power cleans\n• 5 front squats\n• 5 push presses\n• 5 bent-over rows\nRest 2 min between rounds',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwzfHxiYXJiZWxsJTIwY29tcGxleHxlbnwwfHx8fDE3NTY4ODMyMzd8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Challenging barbell complex requires strength and endurance.',
           moodTips: [
