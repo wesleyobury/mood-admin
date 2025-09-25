@@ -2294,6 +2294,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
           name: 'Rope Waves & Slams',
           duration: '12–14 min',
           description: 'Cardio and power: alternating waves and double slams.\n\n ',
+          battlePlan: 'Perform 4 rounds:\n• 30 sec alternating waves\n• 20 sec slams\n• 30 sec side-to-side waves\n• Rest 90 sec\nFinish with stretching',
           imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxiYXR0bGUlMjByb3BlcyUyMHdvcmtvdXR8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Introduction to battle rope fundamentals with manageable ratios.',
           moodTips: [
