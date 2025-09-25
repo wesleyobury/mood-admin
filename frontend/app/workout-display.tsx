@@ -2051,7 +2051,8 @@ const workoutDatabase: EquipmentWorkouts[] = [
           name: 'Med Ball Flow',
           duration: '12–15 min',
           description: 'Full-body flow: chest passes, overhead throws, and squat-to-press.\n\n ',
-          imageUrl: 'https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwyfHxtZWRpY2luZSUyMGJhbGwlMjBmbG93fGVufDB8fHx8MTc1Njg4MzIzN3ww&ixlib=rb-4.1.0&q=85',
+          battlePlan: 'Perform 3 rounds:\n• 10 chest passes (against wall)\n• 8 overhead throws (against wall)\n• 6 squat-to-press\n• Rest 90 sec\nFinish with stretching',
+          imageUrl: 'https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwyfHxtZWRpY2luZSUyMGJhbGwlMjBmbG93fGVufDB8fHx8MTc1Nijg4MzIzN3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Progressive flow builds upper body power and coordination.',
           moodTips: [
             {
