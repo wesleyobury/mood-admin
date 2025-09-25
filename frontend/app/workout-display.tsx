@@ -2093,6 +2093,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
           name: 'Tabata',
           duration: '16 min',
           description: 'Tabata: wall balls, slams, rotational throws, and squat-to-press.\n\n ',
+          battlePlan: 'Perform 4 Tabata rounds (20 sec work, 10 sec rest):\nRound 1: Wall balls\nRound 2: Medicine ball slams\nRound 3: Overhead lunges\nRound 4: Russian twists\nRest 2 min between rounds',
           imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxtZWRpY2luZSUyMGJhbGwlMjB0YWJhdGF8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Advanced Tabata maximizes anaerobic power development.',
           moodTips: [
