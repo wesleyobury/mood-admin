@@ -1851,6 +1851,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
           name: 'Kettlebell Complex',
           duration: '25–26 min',
           description: 'Full-body complex: swing, clean, squat, press, and snatch.\n\n ',
+          battlePlan: 'Perform 5 rounds without putting bell down:\n• 5 swings\n• 5 cleans\n• 5 front squats\n• 5 presses\n• 5 snatches\nRest 2 min between rounds\nFinish with stretching',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw1fHxrZXR0bGViZWxsJTIwYWR2YW5jZWR8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Advanced complex demands mastery with minimal rest.',
           moodTips: [
