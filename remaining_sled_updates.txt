@@ -1,0 +1,13 @@
+// Remaining Sled Workouts battlePlan Updates:
+
+// Sled Sprint (intermediate) - around line 2470
+battlePlan: 'Perform 6 rounds:\n• 20m sled sprint (light load)\n• Walk back recovery\n• Rest 45 sec\nFinish with cool-down walk',
+
+// Push & Drag Circuit (intermediate) - around line 2487  
+battlePlan: 'Perform 4 rounds:\n• 15m forward push\n• 15m backward drag\n• 15m lateral push (each side)\n• Rest 2 min\nFinish with stretching',
+
+// Sled Gauntlet (advanced) - around line 2508
+battlePlan: 'Perform 5 rounds:\n• 20m heavy push\n• 15m sprint push (light)\n• 15m backward drag\n• 10m lateral pushes (each side)\n• Rest 2 min\nFinish when complete',
+
+// Sled Power Circuit (advanced) - will find around line 2530+
+battlePlan: 'Perform 3 rounds:\n• 10m max effort push\n• 20m sprint push\n• 15m single-arm drag (each arm)\n• 10 sled jumpovers\n• Rest 3 min\nFinish with walk',
