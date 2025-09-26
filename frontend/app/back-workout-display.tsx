@@ -47,66 +47,126 @@ const backWorkoutDatabase: EquipmentWorkouts[] = [
     workouts: {
       beginner: [
         {
-          name: 'Row Foundation',
-          duration: '12–15 min',
-          description: 'Supported rows and reverse fly for\nback strength and posture.\n ',
-          battlePlan: '• 3 rounds:\n• 12 supported single-arm row\n• 10 reverse fly\n• Rest 60s',
+          name: 'DB Row + Rear Fly',
+          duration: '12–14 min',
+          description: 'Rows for pulling power and rear flies\nfor stability\n ',
+          battlePlan: '3 rounds\n• 10 Single-Arm Dumbbell Row (each side, supported on bench)\nRest 60s after each side\n• 10 Prone Rear Delt Fly (lying face down)\nRest 60s after each set',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Perfect introduction to back rowing and posterior chain.',
+          intensityReason: 'Targets lats + rear delts with simple supported lifts',
           moodTips: [
             {
-              icon: 'flash',
-              title: 'Row: Pull elbow behind torso',
-              description: 'Focus on squeezing shoulder blade toward spine for lat activation.'
+              icon: 'construct',
+              title: 'Keep bench as chest support, avoid over-arching.',
+              description: 'Proper bench support isolates target muscles and protects spine.'
             },
             {
-              icon: 'body',
-              title: 'Reverse fly: Keep slight bend in arms',
-              description: 'Target rear delts and improve posture with controlled motion.'
+              icon: 'timer',
+              title: 'Move light on rear flies; control beats swinging.',
+              description: 'Controlled tempo maximizes rear delt activation over momentum.'
+            }
+          ]
+        },
+        {
+          name: 'Y-T Row Flow',
+          duration: '12–14 min',
+          description: 'Rows with Y + T raises for posture\nand shoulder health\n ',
+          battlePlan: '3 rounds\n• 10 Single-Arm Row (each side)\n• 10 Incline Prone Y-Raise\n• 10 Incline Prone T-Raise\nRest 75s after sequence',
+          imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Basic scapular + rear delt balance with angles',
+          moodTips: [
+            {
+              icon: 'trending-up',
+              title: 'Slow and deliberate Y/T raises, not weight-focused.',
+              description: 'Movement quality over load for postural muscle activation.'
+            },
+            {
+              icon: 'construct',
+              title: 'Keep forehead against pad for no neck strain.',
+              description: 'Pad contact maintains neutral neck alignment throughout movement.'
             }
           ]
         }
       ],
       intermediate: [
         {
-          name: 'Back Power',
-          duration: '15–18 min',
-          description: 'Incline rows and chest-supported movements\nfor intermediate back development.\n ',
-          battlePlan: '• 4 rounds:\n• 10 incline dumbbell row\n• 8 chest-supported reverse fly\n• 12 prone Y-raises\n• Rest 90s',
-          imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Progressive back training with multiple angles and planes.',
+          name: 'Chest-Support Row',
+          duration: '14–16 min',
+          description: 'Supported rows and flies promote\nstrict contraction\n ',
+          battlePlan: '4 rounds\n• 8 Chest-Supported Dumbbell Row\nRest 75–90s\n• 10 Incline Prone Reverse Fly\nRest 75–90s',
+          imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
+          intensityReason: 'Neutral spine from support isolates lats + traps',
           moodTips: [
             {
-              icon: 'trending-up',
-              title: 'Incline row: Pull to lower ribs',
-              description: 'Target different lat fibers with varied pull angles.'
+              icon: 'flash',
+              title: 'Don\'t yank dumbbells—steady elbows driving back.',
+              description: 'Controlled elbow drive maximizes lat activation over momentum.'
             },
             {
+              icon: 'timer',
+              title: 'Go light on reverse fly, pause 1s at top.',
+              description: 'Peak contraction pause enhances rear delt development.'
+            }
+          ]
+        },
+        {
+          name: 'W-Rear Flow',
+          duration: '14–16 min',
+          description: 'Rows, W-raises, and flys refine\nmid-back strength\n ',
+          battlePlan: '3 rounds\n• 8 Single-Arm Row (each side)\n• 8 Incline Prone W-Raise\n• 8 Incline Prone Reverse Fly\nRest 90s after sequence',
+          imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmc&ZW54MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'W-raises + flys emphasize scapular control',
+          moodTips: [
+            {
               icon: 'flash',
-              title: 'Y-raises: Thumbs up toward ceiling',
-              description: 'Activates lower traps and improves shoulder stability.'
+              title: 'In W-raise, squeeze shoulder blades hard.',
+              description: 'Maximum scapular retraction activates mid-traps effectively.'
+            },
+            {
+              icon: 'construct',
+              title: 'Keep reps slow, avoid shrugging shoulders.',
+              description: 'Controlled tempo with depressed shoulders isolates target muscles.'
             }
           ]
         }
       ],
       advanced: [
         {
-          name: 'Back Complex',
-          duration: '18–22 min',
-          description: 'Advanced rowing complex with\nvariations for complete development.\n ',
-          battlePlan: '• 3 rounds:\n• 8 heavy single-arm row\n• 10 incline row\n• 8 reverse fly\n• 12 prone T-raises\n• Rest 2 min',
-          imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmc&ZW54MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Advanced back complex for maximum posterior development.',
+          name: '3-Way Pull Row',
+          duration: '16–18 min',
+          description: 'Supported row, reverse fly, and\nsingle-arm grind\n ',
+          battlePlan: '4 rounds\n• 8 Chest-Supported Row\nRest 90s\n• 8 Incline Prone Reverse Fly\nRest 90s\n• 8 Single-Arm Row (each side)\nRest 90s',
+          imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Multiple row/rear delt moves for depth of fatigue',
           moodTips: [
             {
-              icon: 'timer',
-              title: 'Heavy rows: Control the negative',
-              description: 'Slow eccentric phase builds strength and muscle mass.'
+              icon: 'construct',
+              title: 'Stay strict: upper body still, arms pulling only.',
+              description: 'Isolated arm movement maximizes target muscle activation.'
             },
             {
-              icon: 'construct',
-              title: 'T-raises: Focus on mid-trap activation',
-              description: 'Target often-neglected middle trapezius for complete development.'
+              icon: 'flash',
+              title: 'Neutral spine always, no jerking.',
+              description: 'Consistent spinal alignment prevents compensation patterns.'
+            }
+          ]
+        },
+        {
+          name: 'Y-T Row Blast',
+          duration: '18–20 min',
+          description: 'Rows plus Y/T raises for\nbalanced shoulder growth\n ',
+          battlePlan: '4 rounds\n• 8 Chest-Supported Row\n• 8 Incline Prone Y-Raise\n• 8 Incline Prone T-Raise\nRest 90–120s after sequence',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8TVc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Multi-angle raises + row overload scapular support',
+          moodTips: [
+            {
+              icon: 'trending-up',
+              title: 'Limit load on Y/T—goal is posture, not strain.',
+              description: 'Light loads with perfect form for postural muscle development.'
+            },
+            {
+              icon: 'timer',
+              title: 'Breathe steady during high fatigue at end.',
+              description: 'Controlled breathing maintains performance through fatigue.'
             }
           ]
         }
