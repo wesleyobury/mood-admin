@@ -342,7 +342,7 @@ export default function BackWorkoutDisplay() {
 
           {/* Intensity Reason - Same Width as Photo */}
           <View style={styles.intensityContainer}>
-            <Ionicons name="information-circle" size={16} color="#FFD700" />
+            <Ionicons name="information-circle" size={16} color="#FFD700" style={{ color: '#FFD700' }} />
             <Text style={styles.intensityReason}>{item.intensityReason}</Text>
           </View>
 
