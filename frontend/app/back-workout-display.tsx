@@ -347,10 +347,10 @@ export default function BackWorkoutDisplay() {
             marginBottom: 12,
             paddingHorizontal: 12,
             paddingVertical: 8,
-            backgroundColor: 'rgba(255, 215, 0, 0.15)',
+            backgroundColor: 'rgba(255, 215, 0, 0.12)',
             borderRadius: 8,
             borderWidth: 1,
-            borderColor: 'rgba(255, 215, 0, 0.3)',
+            borderColor: 'rgba(255, 215, 0, 0.25)',
             marginHorizontal: 0,
           }}>
             <Ionicons name="information-circle" size={16} color="#FFD700" style={{ color: '#FFD700' }} />
