@@ -335,7 +335,7 @@ export default function BackWorkoutDisplay() {
           {/* Duration & Intensity Level on Same Line */}
           <View style={styles.durationIntensityRow}>
             <Text style={styles.workoutDuration}>{item.duration}</Text>
-            <View style={[styles.difficultyBadge, { backgroundColor: difficultyColor }]}>
+            <View style={[styles.difficultyBadge, { backgroundColor: '#FFD700' }]}>
               <Text style={styles.difficultyBadgeText}>{difficulty.toUpperCase()}</Text>
             </View>
           </View>
