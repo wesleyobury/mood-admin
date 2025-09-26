@@ -727,21 +727,24 @@ const styles = StyleSheet.create({
     color: '#FFD700',
   },
   workoutList: {
-    paddingHorizontal: 24,
-    paddingVertical: 20,
+    height: 420,
+    overflow: 'hidden',
   },
   workoutSlide: {
-    backgroundColor: 'transparent',
+    paddingHorizontal: 20,
+    paddingVertical: 16,
   },
   workoutImageContainer: {
+    height: 120,
     position: 'relative',
+    overflow: 'hidden',
+    borderRadius: 12,
     marginBottom: 16,
   },
   workoutImage: {
     width: '100%',
-    height: 200,
-    borderRadius: 16,
-    backgroundColor: '#222222',
+    height: '100%',
+    borderRadius: 12,
   },
   imageOverlay: {
     position: 'absolute',
@@ -749,8 +752,7 @@ const styles = StyleSheet.create({
     left: 0,
     right: 0,
     bottom: 0,
-    backgroundColor: 'rgba(0, 0, 0, 0.2)',
-    borderRadius: 16,
+    backgroundColor: 'rgba(0, 0, 0, 0.4)',
   },
   swipeIndicator: {
     position: 'absolute',
