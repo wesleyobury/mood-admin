@@ -244,8 +244,140 @@ const backWorkoutDatabase: EquipmentWorkouts[] = [
         }
       ]
     }
+  },
+  {
+    equipment: 'Kettle bells',
+    icon: 'cafe-outline',
+    workouts: {
+      beginner: [
+        {
+          name: 'Row & Deadlift KB',
+          duration: '12–14 min',
+          description: 'Rows and deadlifts with kettlebells\nbuild back base\n ',
+          battlePlan: '3 rounds\n• 10 Single-Arm KB Row (each side)\nRest 60–75s after each set\n• 10 KB Deadlift\nRest 60–75s after each set',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Simple pull + hinge strengthen grip and core',
+          moodTips: [
+            {
+              icon: 'construct',
+              title: 'Keep bell close to shins during deadlifts.',
+              description: 'Proper bell placement protects back and maximizes posterior activation.'
+            },
+            {
+              icon: 'flash',
+              title: 'Drive elbows back, not out, when rowing.',
+              description: 'Proper elbow path targets lats more effectively than rear delts.'
+            }
+          ]
+        },
+        {
+          name: 'Row Swing Flow',
+          duration: '14–15 min',
+          description: 'Grip and back strength with\nflow style movements\n ',
+          battlePlan: '3 rounds\n• 10 KB Single-Arm Row (each side)\n• 10 KB Suitcase Deadlift (each side)\n• 10 KB Swing\nRest 60–75s after sequence',
+          imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Combines rows, deadlifts, swings for endurance',
+          moodTips: [
+            {
+              icon: 'refresh',
+              title: 'Snap hips for swings, don\'t squat them.',
+              description: 'Hip hinge pattern generates power and protects lower back.'
+            },
+            {
+              icon: 'body',
+              title: 'Keep chest high in suitcase deadlift.',
+              description: 'Maintain proud chest to avoid rounding and target glutes properly.'
+            }
+          ]
+        }
+      ],
+      intermediate: [
+        {
+          name: 'Double Row + Suitcase',
+          duration: '16–18 min',
+          description: 'Double rows with suitcase pulls\ntrain grip/core\n ',
+          battlePlan: '4 rounds\n• 8 Double KB Row\nRest 75–90s after each set\n• 10 KB Suitcase Deadlift\nRest 75–90s after each set',
+          imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
+          intensityReason: 'Heavier bilateral pulls build lats and posture',
+          moodTips: [
+            {
+              icon: 'trending-up',
+              title: 'Chest parallel to floor for full activation.',
+              description: 'Proper rowing angle maximizes lat stretch and contraction range.'
+            },
+            {
+              icon: 'flash',
+              title: 'Suitcase pulls = anti-tilt stability focus.',
+              description: 'Resist lateral flexion to build core strength and stability.'
+            }
+          ]
+        },
+        {
+          name: 'Gorilla Row Flow',
+          duration: '16–18 min',
+          description: 'Renegade, gorilla, high pulls\nfor dense volume\n ',
+          battlePlan: '3 rounds\n• 8 Renegade Row (each side)\n• 8 Gorilla Row (each side)\n• 8 KB High Pull (each side)\nRest 90s after sequence',
+          imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmc&ZW54MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Combo flow hits lats, core, and traps together',
+          moodTips: [
+            {
+              icon: 'construct',
+              title: 'Brace core during renegade rows to stop hip twist.',
+              description: 'Maintain plank position to maximize core engagement and stability.'
+            },
+            {
+              icon: 'trending-up',
+              title: 'Pull elbows high and wide in KB high pulls.',
+              description: 'High elbow position targets upper traps and rear delts effectively.'
+            }
+          ]
+        }
+      ],
+      advanced: [
+        {
+          name: 'Row Swing Dead',
+          duration: '18–20 min',
+          description: 'Balanced rotational pulls and\nhip hinge strength\n ',
+          battlePlan: '4 rounds\n• 8 Single-Arm Row (each side)\nRest 90s after set\n• 8 KB Swing\nRest 90s after set\n• 8 KB Deadlift\nRest 90s after set',
+          imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Loaded volume builds strength and conditioning',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Stay explosive in swings.',
+              description: 'Maintain power output throughout sets for maximum posterior development.'
+            },
+            {
+              icon: 'construct',
+              title: 'Row with control, don\'t twist torso.',
+              description: 'Keep spine stable to isolate lats and prevent compensatory movement.'
+            }
+          ]
+        },
+        {
+          name: 'Snatch Clean Flow',
+          duration: '20–22 min',
+          description: 'Combo snatch, renegade, clean flow\nbuilds power\n ',
+          battlePlan: '4 rounds\n• 8 Renegade Row (alternating sides)\n• 8 KB Snatch (each side)\n• 8 KB Clean and Pull\nRest 90–120s after sequence',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8TVc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Explosive circuit of pulls, cleans, and snatches',
+          moodTips: [
+            {
+              icon: 'trending-up',
+              title: 'Punch bell overhead on snatch to reduce impact.',
+              description: 'Active lockout reduces joint stress and improves control.'
+            },
+            {
+              icon: 'flash',
+              title: 'Keep spine solid in cleans, power from hips.',
+              description: 'Hip drive generates force while spine stability protects back.'
+            }
+          ]
+        }
+      ]
+    }
   }
-  // TODO: Add remaining equipment types (Grip variation pull up bar, Kettle bells, etc.)
+  // TODO: Add remaining equipment types (Grip variation pull up bar, Roman chair, etc.)
   // This is a placeholder structure - full equipment database will be implemented later
 ];
 
