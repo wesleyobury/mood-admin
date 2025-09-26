@@ -1,25 +1,26 @@
 <analysis>
-The trajectory details the AI engineer's work on the MOOD app, primarily focusing on two distinct phases. Initially, the work involved extensive UI/UX standardization across workout cards, addressing padding, spacing, neon glow effects, and particularly troubleshooting persistent Start Workout button positioning issues in weight-based paths within . This phase was characterized by iterative adjustments based on user screenshots and attempts to use the testing agent. The second, more recent phase, initiated by a user request, involved adding detailed  fields to all weight-based workouts in  within . The AI systematically identified and updated 10 equipment types (e.g., Dumbbells, Kettlebells, Barbells) across beginner, intermediate, and advanced levels, ensuring full battle plans are available on guidance screens while maintaining condensed summaries on workout cards. This task concluded with 100% completion of battle plan integration for all weight-based workouts.
+The trajectory chronicles the AI engineer's transition from previous UI/UX standardization and battle plan integration to a new feature: implementing Back Workouts within the Muscle Gainer mood card. The work commenced with creating a  screen, duplicating the chest path, and precisely configuring equipment icons through multiple user feedback loops. Subsequently, the AI duplicated the your workouts and workout guidance screens for the back path via , integrating detailed barbell workout data. The latter half of the trajectory involved extensive UI/UX debugging for these barbell workouts, addressing issues such as missing swipe functionality, incorrect icon choices, inconsistent intensity icon colors and container backgrounds across difficulty levels, and text wrapping in the progress bar. Each fix involved iterative adjustments, comparisons with chest/shoulder path styling, and screenshot verification, culminating in pixel-perfect visual consistency for barbell back workouts.
 </analysis>
 
 <product_requirements>
-The MOOD app aims to provide personalized, dark-themed workout recommendations with gold accents, categorized into Muscle Gainer (Shoulders, Chest) and Cardio (Sweat Path). Key requirements from the user included:
-1.  **UI/UX Standardization**: Consistent design for workout cards, including padding, spacing (25px), neon glow effects, and border styling across Cardio, Chest, and Shoulder paths.
-2.  **Content Summarization**: Cardio intensity descriptions condensed to a maximum of two lines. HIIT Ski battle plans to have specific content.
-3.  **Weight Workout Display**: Replace  fields with one-line summaries on workout cards (two-line display), while preserving s for detailed guidance. Adjust spacing, padding, and overall card height to match other paths.
-4.  **Button Positioning**: Center the Start Workout button on weight-based cards, consistent with Cardio, Chest, and Shoulder layouts. Resolve issues where the button was positioned too far down.
-5.  **Font Consistency**: Standardize font sizes for intensity level, battle plan, and Start Workout button across all paths.
-6.  **Text Formatting**: Remove italicization from battle plan summaries in the I want to sweat path.
-7.  **Missing Battle Plans (New Request)**: Add full, detailed battle plans for all workouts in the sweat based path to be displayed on the workout guidance screen, following established instruction, movement, and rest format, while keeping condensed summaries on the your workouts screen.
+The MOOD app provides personalized, dark-themed workout recommendations with gold accents, initially focusing on Muscle Gainer (Shoulders, Chest) and Cardio (Sweat Path). Initial requirements included UI/UX standardization (padding, spacing, neon glow, borders), content summarization (Cardio, Weight workout descriptions), precise button positioning (Start Workout), font/text consistency, and the crucial addition of detailed s for all weight-based workouts on the workout guidance screen, while maintaining condensed summaries on workout cards.
+
+The most recent development cycle focused on extending Muscle Gainer to include **Back Workouts**. This involved:
+1.  **Back Equipment Selection Screen**: Duplicate the chest path's equipment screen, listing specific back equipment (barbell, kettlebells, roman chair, adjustable bench, etc.) in alphabetical order.
+2.  **Icon Accuracy**: Ensure all equipment icons are highly representative and intuitive (e.g., barbell icon shows a bar, Roman chair shows a 100-degree angle).
+3.  **Workout Display & Guidance Duplication**: Duplicate your workouts and workout guidance screens from chest/shoulder paths for the back path, using its own data.
+4.  **Barbell Workout Data**: Integrate detailed barbell workout data (Beginner, Intermediate, Advanced) with specific titles, durations, intensity reasoning, summaries, MOOD tips, and instructions/battle plans.
+5.  **UI/UX Consistency (Barbell)**: Replicate chest path's styling precisely, including progress bar formatting, workout card height, overall styling (borders, colors, shading), picture formatting, workout title/duration/intensity positioning, button formatting, swipe features, timer positioning, battle plan formatting, and MOOD tip formatting.
+6.  **Progress Bar & Icon Fixes**: Ensure progress bar is compact (4 icons per row), workout card photos have correct dimensions without overflow, intensity icon color is consistent yellow-gold, difficulty badge color is consistent yellow-gold, and progress bar text (Intermediate) fits on a single line across all relevant paths (Back, Chest, Shoulders).
 </product_requirements>
 
 <key_technical_concepts>
 -   **Mobile Frontend**: Expo, React Native.
--   **UI/UX Standardization**: Consistent styling, Flexbox layout, spacing, neon glow/shadows.
--   **Component Refactoring**:  to  for layout control.
--   **Static Data Management**: Direct manipulation of  in .
--   **StyleSheet API**: Centralized style management.
--   **Iterative UI Debugging**: Visual feedback-driven development.
+-   **UI/UX Standardization**: Consistent styling, Flexbox layout, 8pt grid spacing, neon glow/shadows, StyleSheet API, inline styling overrides.
+-   **File-based Routing**: Expo Router (, ).
+-   **Static Data Management**: Direct manipulation of  in workout display components.
+-   **Component Reusability**: Duplicating and adapting existing components.
+-   **Iterative UI Debugging**: Visual feedback-driven development using screenshots.
 </key_technical_concepts>
 
 <code_architecture>
@@ -28,27 +29,37 @@ The MOOD app aims to provide personalized, dark-themed workout recommendations w
 
 
 -   
-    -   **Importance**: Renders UI for Chest workouts, serving as a styling reference.
-    -   **Summary of changes made**: Padding, margin, neon glow, and border styling were standardized.
+    -   **Importance**: Renders the main body parts selection screen (e.g., Chest, Shoulders, Back). Manages navigation to specific equipment screens.
+    -   **Summary of changes made**: Updated to include navigation for Back to .
+-   
+    -   **Importance**: Provides the template and styling reference for equipment selection screens.
+    -   **Summary of changes made**:  for  updated from 60 to 70 to prevent text wrapping.
+-   
+    -   **Importance**: Manages display of Shoulder workout equipment, adhering to the standard.
+    -   **Summary of changes made**:  for  updated from 60 to 70 to prevent text wrapping.
+-    (Newly created)
+    -   **Importance**: Renders the equipment selection UI specifically for Back workouts.
+    -   **Summary of changes made**: Created by duplicating . Populated with 10 back equipment types (Barbell, Kettlebells, Roman chair, Adjustable bench, Seated Chest Supported Row Machine, Lat pull down machine, Straight pull up bar, Grip variation pull up bar, T bar row machine, Seated cable machine) in alphabetical order with highly representative icons (e.g.,  for adjustable bench,  for barbell,  for kettlebells,  for roman chair).
+-   
+    -   **Importance**: Serves as the primary reference for UI/UX styling and functionality (swipe, swipe to explore, image formatting, progress bar) for workout cards.
+    -   **Summary of changes made**:  for  updated from 60 to 70 to prevent text wrapping.
 -   
     -   **Importance**: Manages display of Shoulder workout cards and UI elements, adhering to the standard.
-    -   **Summary of changes made**: Padding, margin, neon glow, and border styling were standardized to match Chest style.
--   
-    -   **Importance**: Central component for displaying Cardio and Weight workout data. Contains ,  interface, and rendering logic for workout cards, especially for weight-based equipment paths.
+    -   **Summary of changes made**:  for  updated from 60 to 70 to prevent text wrapping.
+-    (Newly created)
+    -   **Importance**: Central component for displaying Back workout data, specifically for barbell workouts. Contains  for back, rendering logic for workout cards, and integrates with .
     -   **Summary of changes made**:
-        -    wrapper removed for Cardio paths;   adjusted to .
-        -   Neon glow and border styling updated.
-        -    fields for weight equipment workouts were updated to one-line summaries.
-        -     adjusted.
-        -     adjusted, then removed entirely.
-        -    changed to  for workout description.
-        -    , ,  standardized.
-        -     updated.
-        -    italicization removed.
-        -   **Crucially, detailed  fields were added to all workouts for 10 weight equipment types (Dumbbells, Kettlebells, Barbells, Med balls, Slam balls, Battle ropes, Sled, Resistance bands, Sledgehammer & tire, Flipping tire) across beginner, intermediate, and advanced levels.**
+        -   Created by duplicating structure from , including swipe functionality, swipe for more overlay, Swipe to explore section, and MOOD tips integration.
+        -   Integrated detailed workout data for Barbell (Beginner, Intermediate, Advanced) including titles, durations, intensity reasoning, summaries, and battle plans.
+        -   Fixed progress bar to be compact (24x24 icons), with 4 icons per row, and  for .
+        -   Standardized workout image dimensions (height: 120, width: '100%') to prevent overflow.
+        -   Ensured intensity icon (information-circle) uses a consistent bright  golden color across all difficulty levels through explicit styling.
+        -   Ensured the intensity container background () and border () use consistent vibrant yellow-gold colors across all difficulty levels through inline style overrides.
+        -   Fixed difficulty badges (BEGINNER, INTERMEDIATE, ADVANCED) to consistently use  bright yellow/gold background.
 -   
-    -   **Importance**: Responsible for displaying the detailed workout instructions, including battle plans.
-    -   **Summary of changes made**: No direct code changes in this trajectory, but its expected output format guided the structure of the  data added to .
+    -   **Importance**: Central component for displaying Cardio and Weight workout data (previously used for weight-based battle plan integration).
+    -   **Summary of changes made**:  for  updated from 60 to 70 to ensure consistency with other workout display components.
+
 </code_architecture>
 
 <pending_tasks>
@@ -59,20 +70,24 @@ The MOOD app aims to provide personalized, dark-themed workout recommendations w
 -   Verify intelligent time-unit splitting for workout instructions.
 -   Resolve Routing/Navigation issues identified during frontend testing of shoulders workout equipment mapping.
 -   Resolve Equipment filtering logic issues identified during frontend testing of shoulders workout equipment mapping.
--   Verify the implemented visual consistency across all workout cards.
--   Analyze the testing agent's report for the Start Workout button positioning on weight-based cards.
+-   Analyze the testing agent's report for the Start Workout button positioning on weight-based cards (from previous context).
+-   Verify the correct display of the newly added detailed battle plans on the workout guidance screens for weight-based workouts (from previous context).
+-   Add workout cards and workout data for the *remaining* back equipment (Kettlebells, Roman chair, Adjustable bench, etc.).
 </pending_tasks>
 
 <current_work>
-Immediately before this summary request, the AI engineer was addressing a user report that the Start Workout button on weight-based workout cards was positioned too far down. The last attempted fix involved removing  from  (setting it to ) and removing  from  entirely in , aiming for a natural flex layout. The AI had just invoked the testing agent to verify this fix and was awaiting results.
+Immediately before this summary request, the AI engineer was addressing several UI/UX inconsistencies reported by the user for the newly implemented back barbell workouts, aiming for pixel-perfect duplication of the chest/shoulder path's styling.
 
-Subsequently, the user introduced a new, critical task: the sweat based path workouts were missing full  details on the workout guidance screen, although the condensed summaries on workout cards were correct. The AI engineer proceeded to implement this, systematically adding the missing  fields to  within . This involved:
-1.  Identifying all 10 types of weight equipment (Dumbbells, Kettlebells, Barbells, Med balls, Slam balls, Battle ropes, Sled, Resistance bands, Sledgehammer & tire, Flipping Tire).
-2.  Iteratively adding detailed  content for each workout across beginner, intermediate, and advanced levels, ensuring the format (instructions, movements, rest separated by line indentations in bullet format) matched other finalized paths.
-3.  The task involved numerous  operations and occasional frontend service restarts. The AI encountered and navigated through screenshot issues during initial verification attempts but continued with the user's confirmation. The trajectory concludes with the AI declaring 100% completion of this task.
+The specific issues and their resolutions were:
+1.  **Progress Bar Text Wrapping**: The Intermediate text in the progress bar was breaking onto two lines. The fix involved updating  for  from 60 to 70 in , , , and  to ensure it fits on a single line, matching the cardio path. This was the final completed fix.
+2.  **Difficulty Badge Color**: The INTERMEDIATE and ADVANCED difficulty badges on workout cards were showing orange and dark gold backgrounds, respectively, instead of a consistent yellow/gold. This was fixed by changing the  for the difficulty badge to a hardcoded  in , ensuring all badges are consistently yellow/gold.
+3.  **Intensity Container Background/Border Color**: Despite previous attempts, the background and border of the intensity container were still visually inconsistent (appearing orange/darker) for intermediate and advanced levels compared to beginner and chest/shoulders. This was resolved by applying explicit inline style overrides with  and  directly to the intensity container  in  to ensure vibrant yellow-gold consistency.
+4.  **Intensity Icon Color**: The information-circle icon within the intensity container had subtle color inconsistencies across difficulty levels. This was fixed by applying an explicit inline  to the icon in .
+5.  **Progress Bar Height and Image Dimensions**: Earlier in the process, the progress bar was too tall, and workout card images were overflowing. These were fixed by standardizing progress bar icon sizes (24x24) and  dimensions, and setting workout image dimensions to  and  in .
+
+The current state is that the back barbell workouts now feature complete UI/UX consistency, including swipe functionality, proper content display, and pixel-perfect styling, aligning with the chest and shoulder paths.
 </current_work>
 
 <optional_next_step>
-Verify the correct display of the newly added detailed battle plans on the workout guidance screens for weight-based workouts.
+Continue implementing workout cards and workout data for the remaining back equipment types on the  screen, ensuring all styling matches the established chest/shoulders path.
 </optional_next_step>
-
