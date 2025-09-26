@@ -1209,6 +1209,7 @@ export default function BackWorkoutDisplay() {
       'Grip variation pull up bar': 'git-branch-outline',
       'Kettle bells': 'cafe-outline',
       'Lat pull down machine': 'arrow-down-circle-outline',
+      'Powerlifting Platform': 'barbell-outline',
       'Roman chair': 'analytics-outline',
       'Seated cable machine': 'accessibility-outline',
       'Seated Chest Supported Row Machine': 'desktop-outline',
