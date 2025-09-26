@@ -341,7 +341,18 @@ export default function BackWorkoutDisplay() {
           </View>
 
           {/* Intensity Reason - Same Width as Photo */}
-          <View style={[styles.intensityContainer, { backgroundColor: 'rgba(255, 215, 0, 0.1)', borderColor: 'rgba(255, 215, 0, 0.2)' }]}>
+          <View style={{
+            flexDirection: 'row',
+            alignItems: 'flex-start',
+            marginBottom: 12,
+            paddingHorizontal: 12,
+            paddingVertical: 8,
+            backgroundColor: 'rgba(255, 215, 0, 0.1)',
+            borderRadius: 8,
+            borderWidth: 1,
+            borderColor: 'rgba(255, 215, 0, 0.2)',
+            marginHorizontal: 0,
+          }}>
             <Ionicons name="information-circle" size={16} color="#FFD700" style={{ color: '#FFD700' }} />
             <Text style={styles.intensityReason}>{item.intensityReason}</Text>
           </View>
