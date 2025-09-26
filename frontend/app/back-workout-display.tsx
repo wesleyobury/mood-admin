@@ -119,66 +119,126 @@ const backWorkoutDatabase: EquipmentWorkouts[] = [
     workouts: {
       beginner: [
         {
-          name: 'Row Basics',
-          duration: '12–15 min',
-          description: 'Bent-over rows and upright rows\nfor basic barbell back training.\n ',
-          battlePlan: '• 3 rounds:\n• 10 bent-over row (light)\n• 8 upright row\n• Rest 75s',
+          name: 'Row & Deadlift',
+          duration: '14–16 min',
+          description: 'Rows and deadlifts develop base power\nand muscle control.\n ',
+          battlePlan: '3 rounds:\n• 10 Barbell Bent-Over Row\nRest 60–75s after each set\n• 10 Barbell Deadlift\nRest 60–75s after each set',
           imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8TVc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Safe introduction to barbell rowing movements.',
+          intensityReason: 'Builds foundational back strength with compound lifts.',
           moodTips: [
             {
               icon: 'construct',
-              title: 'Bent-over: Hinge at hips, not waist',
-              description: 'Maintain neutral spine throughout the rowing motion.'
+              title: 'Brace core, hinge hips, maintain flat back',
+              description: 'Proper spine alignment protects back on all lifts.'
             },
             {
               icon: 'flash',
-              title: 'Pull to sternum: Elbows back',
-              description: 'Target lats by pulling bar to lower chest/upper abs.'
+              title: 'Tight lats protect spine',
+              description: 'Lat engagement improves pulling strength and safety.'
+            }
+          ]
+        },
+        {
+          name: 'Row Flow Combo',
+          duration: '12–14 min',
+          description: 'Combines row grips and good mornings\nfor total back work.\n ',
+          battlePlan: '3 rounds:\n• 10 Bent-Over Row\n• 10 Underhand Grip Row\n• 10 Barbell Good Morning\nRest 60–75s after completing the full sequence',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Varied grip rowing boosts muscular activation volume.',
+          moodTips: [
+            {
+              icon: 'refresh',
+              title: 'Transition smoothly between grips',
+              description: 'Don\'t rush form between grip changes for better activation.'
+            },
+            {
+              icon: 'body',
+              title: 'Drive hips back, spine neutral',
+              description: 'Proper hip hinge pattern during good mornings.'
             }
           ]
         }
       ],
       intermediate: [
         {
-          name: 'Power Rows',
-          duration: '15–18 min',
-          description: 'Progressive barbell rowing with\nvaried grips and intensities.\n ',
-          battlePlan: '• 4 rounds:\n• 8 bent-over row\n• 6 underhand row\n• 10 upright row\n• Rest 90s',
+          name: 'Pendlay + RDL',
+          duration: '16–18 min',
+          description: 'Pendlay rows and RDLs balance power\nwith hamstring load.\n ',
+          battlePlan: '4 rounds:\n• 8 Pendlay Row\nRest 75–90s after each set\n• 10 Romanian Deadlift\nRest 75–90s after each set',
           imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Intermediate barbell rowing with grip variations.',
+          intensityReason: 'Explosive pulls and slow RDLs strengthen full posterior.',
           moodTips: [
             {
-              icon: 'trending-up',
-              title: 'Underhand row: Targets lower lats',
-              description: 'Different grip angle emphasizes biceps and lower lat fibers.'
+              icon: 'refresh',
+              title: 'Reset back tightness between Pendlay reps',
+              description: 'Dead stop allows full lat engagement each rep.'
             },
             {
-              icon: 'body',
-              title: 'Keep core braced throughout',
-              description: 'Maintain tight core to protect spine during rowing.'
+              icon: 'timer',
+              title: 'Lower bar under control',
+              description: 'Control eccentric to fully stretch hamstrings.'
+            }
+          ]
+        },
+        {
+          name: 'Row Shrug Flow',
+          duration: '16–18 min',
+          description: 'Multi-grip rows, shrugs, deads build\ntraps and mid-back.\n ',
+          battlePlan: '3 rounds:\n• 8 Bent-Over Row\n• 8 Reverse-Grip Row\n• 8 Barbell Shrugs\n• 8 Deadlift\nRest 90s after finishing the full circuit',
+          imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
+          intensityReason: 'Combo of rows, shrugs, and deads creates dense fatigue.',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Squeeze shrugs hard for one second',
+              description: 'Peak contraction at top maximizes trap activation.'
+            },
+            {
+              icon: 'construct',
+              title: 'Stabilize posture before transitioning',
+              description: 'Reset form between exercises for safety and effectiveness.'
             }
           ]
         }
       ],
       advanced: [
         {
-          name: 'Barbell Complex',
-          duration: '18–22 min',
-          description: 'Advanced barbell back complex\nfor maximum strength and mass.\n ',
-          battlePlan: '• 3 rounds:\n• 6 heavy bent-over row\n• 8 Pendlay row\n• 5 barbell high pull\n• 10 barbell shrug\n• Rest 2–3 min',
+          name: 'Heavy Barbell',
+          duration: '20–22 min',
+          description: 'Rows, deads, shrugs overload traps\nand spinal erectors.\n ',
+          battlePlan: '4 rounds:\n• 8 Barbell Bent-Over Row\nRest 90–120s after each set\n• 8 Barbell Deadlift\nRest 90–120s after each set\n• 8 Barbell Shrug\nRest 90–120s after each set',
           imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmc&ZW54MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Advanced rowing variations for elite back development.',
+          intensityReason: 'Higher volume heavy lifts establish raw size and mass.',
           moodTips: [
             {
-              icon: 'flash',
-              title: 'Pendlay row: Dead stop each rep',
-              description: 'Full stop on floor eliminates momentum, pure pulling power.'
+              icon: 'timer',
+              title: 'Control eccentric for time under tension',
+              description: 'Slow lowering phase builds strength and muscle mass.'
             },
             {
-              icon: 'speedometer',
-              title: 'High pull: Explosive hip drive',
-              description: 'Generate power from hips, pull high and fast.'
+              icon: 'trending-up',
+              title: 'Drive hips and traps through lockouts',
+              description: 'Complete range of motion for maximum development.'
+            }
+          ]
+        },
+        {
+          name: 'Power Complex',
+          duration: '20–22 min',
+          description: 'Row, high pull, and clean complex\nmaximizes back output.\n ',
+          battlePlan: '4 rounds:\n• 8 Barbell Row\n• 8 Barbell High Pull\n• 8 Barbell Power Clean\nRest 90–120s after completing the full sequence',
+          imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Explosive high pulls and cleans target power capacity.',
+          moodTips: [
+            {
+              icon: 'trending-up',
+              title: 'Keep elbows leading bar path',
+              description: 'Proper elbow position in high pulls for maximum power.'
+            },
+            {
+              icon: 'flash',
+              title: 'Explode hips to drive bar fast',
+              description: 'Hip drive generates power for explosive cleans.'
             }
           ]
         }
