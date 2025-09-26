@@ -376,8 +376,536 @@ const backWorkoutDatabase: EquipmentWorkouts[] = [
         }
       ]
     }
+  },
+  {
+    equipment: 'Roman chair',
+    icon: 'analytics-outline',
+    workouts: {
+      beginner: [
+        {
+          name: 'Extensions + Hold',
+          duration: '10–12 min',
+          description: 'Bodyweight extensions paired with\nshort static holds\n ',
+          battlePlan: '3 rounds\n• 12 Back Extensions\nRest 45–60s\n• 2 Roman Chair Holds (20s each)\nRest 60s after set',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Introduces endurance and stability to lower back',
+          moodTips: [
+            {
+              icon: 'body',
+              title: 'Engage glutes/hamstrings to spare low back strain.',
+              description: 'Posterior chain activation protects lumbar spine during extensions.'
+            },
+            {
+              icon: 'construct',
+              title: 'Keep chin tucked to maintain neutral posture.',
+              description: 'Neutral neck alignment prevents cervical hyperextension.'
+            }
+          ]
+        },
+        {
+          name: 'Twist & Hold Flow',
+          duration: '12–14 min',
+          description: 'Extension, twist, and short hold combo\nfor endurance\n ',
+          battlePlan: '3 rounds\n• 10 Back Extensions\n• 10 Side-to-Side Twists (at top of extension)\n• 1 Roman Chair Hold (30s)\nRest 60–75s after sequence',
+          imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Adds light rotation and isometrics for core demands',
+          moodTips: [
+            {
+              icon: 'refresh',
+              title: 'Turn from ribs, not shoulders, during twists.',
+              description: 'Ribcage initiation creates safer rotational movement pattern.'
+            },
+            {
+              icon: 'timer',
+              title: 'Breathe steady during holds, don\'t "crank."',
+              description: 'Controlled breathing maintains position without excessive strain.'
+            }
+          ]
+        }
+      ],
+      intermediate: [
+        {
+          name: 'Weighted Ext',
+          duration: '14–16 min',
+          description: 'Weighted extensions and basic hyperextensions\nfor mass\n ',
+          battlePlan: '4 rounds\n• 10 Weighted Back Extensions\nRest 75s after set\n• 10 Roman Chair Hyperextensions\nRest 75s after set',
+          imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
+          intensityReason: 'External load strengthens spinal erectors safely',
+          moodTips: [
+            {
+              icon: 'construct',
+              title: 'Hug plate close to stomach/chest.',
+              description: 'Keeping weight close maintains balance and control during movement.'
+            },
+            {
+              icon: 'timer',
+              title: 'Lower slowly, 2–3s, for stronger gains.',
+              description: 'Controlled eccentric phase maximizes strength development.'
+            }
+          ]
+        },
+        {
+          name: 'Extension Circuit',
+          duration: '14–16 min',
+          description: 'Blends extension, superman, side bends\nfor variety\n ',
+          battlePlan: '3 rounds\n• 8 Back Extensions\n• 8 Alternating Superman (1 arm + opposite leg)\n• 8 Side Bends (each side)\nRest 90s after sequence',
+          imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmc&ZW54MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Mix of dynamic posterior moves challenges control',
+          moodTips: [
+            {
+              icon: 'trending-up',
+              title: 'Lift opposite arm/leg smoothly in superman.',
+              description: 'Coordinated contralateral movement improves stability and strength.'
+            },
+            {
+              icon: 'flash',
+              title: 'Don\'t rush side bends; full ROM and squeeze.',
+              description: 'Complete range of motion with peak contraction maximizes benefits.'
+            }
+          ]
+        }
+      ],
+      advanced: [
+        {
+          name: 'Weighted Twist',
+          duration: '16–18 min',
+          description: 'Weighted extensions with twist patterns\nfor obliques\n ',
+          battlePlan: '4 rounds\n• 10 Weighted Back Extensions\nRest 90s after set\n• 10 Roman Chair Hyperextensions\nRest 90s after set\n• 10 Roman Chair Twists\nRest 90s after set',
+          imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Adds load and rotation for advanced spinal strength',
+          moodTips: [
+            {
+              icon: 'construct',
+              title: 'Keep ribcage engaged, don\'t torque spine.',
+              description: 'Core stability prevents excessive spinal rotation under load.'
+            },
+            {
+              icon: 'flash',
+              title: 'Brace core before rotating under load.',
+              description: 'Pre-bracing creates safe foundation for rotational movements.'
+            }
+          ]
+        },
+        {
+          name: 'Superman + Iso Hold',
+          duration: '18–20 min',
+          description: 'Superman lifts plus holds improve\nstability capacity\n ',
+          battlePlan: '4 rounds\n• 8 Weighted Back Extensions\n• 8 Alternating Supermans\n• 1 Roman Chair Hold (20–30s)\nRest 90–120s after sequence',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8TVc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Extended isometrics + dynamic raises build max control',
+          moodTips: [
+            {
+              icon: 'trending-up',
+              title: 'Keep limbs only slightly above parallel, not over-extended.',
+              description: 'Moderate range prevents hyperextension while maintaining effectiveness.'
+            },
+            {
+              icon: 'timer',
+              title: 'Squeeze glutes during 20s hold to protect spine.',
+              description: 'Glute activation provides spinal stability during isometric holds.'
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    equipment: 'T bar row machine',
+    icon: 'add-outline',
+    workouts: {
+      beginner: [
+        {
+          name: 'Neutral Grip Row',
+          duration: '10–12 min',
+          description: 'Simple neutral rowing pattern\nfor beginners\n ',
+          battlePlan: '3 rounds\n• 12 Neutral Grip T-Bar Row\nRest 60–75s after set',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Neutral grip builds confidence & lat line strength',
+          moodTips: [
+            {
+              icon: 'construct',
+              title: 'Keep chest against pad, no hip driving.',
+              description: 'Chest support isolates lats and prevents momentum cheating.'
+            },
+            {
+              icon: 'flash',
+              title: 'Pull elbows straight back, not out.',
+              description: 'Proper elbow path targets lats more effectively than rear delts.'
+            }
+          ]
+        },
+        {
+          name: 'Wide Grip Row',
+          duration: '10–12 min',
+          description: 'Wide row variation for\nupper-back foundation\n ',
+          battlePlan: '3 rounds\n• 10 Wide Grip T-Bar Row\nRest 60–75s after set',
+          imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Wide grip shifts load to traps/rhomboids for posture',
+          moodTips: [
+            {
+              icon: 'trending-up',
+              title: 'Pull chest high into pad during contraction.',
+              description: 'Active chest engagement maximizes upper back activation.'
+            },
+            {
+              icon: 'body',
+              title: 'Avoid shrugging shoulders during pull.',
+              description: 'Keep shoulders down and back to isolate target muscles.'
+            }
+          ]
+        }
+      ],
+      intermediate: [
+        {
+          name: 'Close Grip Row',
+          duration: '12–14 min',
+          description: 'Simple close grip with\nmoderate-to-heavy focus\n ',
+          battlePlan: '4 rounds\n• 10 Close Grip T-Bar Row\nRest 75s after set',
+          imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
+          intensityReason: 'Close grip overloads lats with higher load capacity',
+          moodTips: [
+            {
+              icon: 'construct',
+              title: 'Brace core, avoid torso swing.',
+              description: 'Core stability prevents momentum and isolates target muscles.'
+            },
+            {
+              icon: 'flash',
+              title: 'Drive elbows low, past hip line.',
+              description: 'Deep elbow drive maximizes lat contraction and range.'
+            }
+          ]
+        },
+        {
+          name: 'Slow Neg Row',
+          duration: '12–14 min',
+          description: 'Time-under-tension row\nprogression\n ',
+          battlePlan: '4 rounds\n• 8 Neutral Grip Row (3–4s eccentric)\nRest 90s after set',
+          imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmc&ZW54MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
+          intensityReason: '3–4s eccentric tempo increases hypertrophy effect',
+          moodTips: [
+            {
+              icon: 'trending-up',
+              title: 'Explode to chest, lower slow & steady.',
+              description: 'Fast concentric, slow eccentric maximizes muscle stimulus.'
+            },
+            {
+              icon: 'timer',
+              title: 'Keep weight lighter to maintain control.',
+              description: 'Reduced load allows proper tempo execution and form.'
+            }
+          ]
+        }
+      ],
+      advanced: [
+        {
+          name: 'Iso Wide Rows',
+          duration: '14–16 min',
+          description: 'Wide grip rows with\nstatic squeeze finish\n ',
+          battlePlan: '4 rounds\n• 8 Wide Grip T-Bar Row\nEnd each set with 10s static hold at full contraction\nRest 90–120s after set',
+          imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Isometric holds create intense contraction stress',
+          moodTips: [
+            {
+              icon: 'construct',
+              title: 'Hold elbows back & chest tall in iso.',
+              description: 'Maintain peak contraction position throughout hold duration.'
+            },
+            {
+              icon: 'flash',
+              title: 'Aim for smooth squeeze across mid-back.',
+              description: 'Focus on scapular retraction and mid-trap engagement.'
+            }
+          ]
+        },
+        {
+          name: 'Combo Superset',
+          duration: '16–18 min',
+          description: 'Wide-to-underhand superset\nwith scap squeezes\n ',
+          battlePlan: '4 rounds\n• 8 Wide Grip Row\n• Immediately 8 Underhand Grip Row\n• Finish with 10 Back Squeezes (bodyweight, no load)\nRest 120s after full superset',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8TVc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Pairing grips + post-set contractions maximizes fatigue',
+          moodTips: [
+            {
+              icon: 'trending-up',
+              title: 'Moderate weight, strict form for both grips.',
+              description: 'Controlled loads allow proper execution of superset protocol.'
+            },
+            {
+              icon: 'refresh',
+              title: 'Squeezes: think small, controlled scap retractions.',
+              description: 'Bodyweight squeezes enhance muscle activation and recovery.'
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    equipment: 'Powerlifting Platform',
+    icon: 'barbell-outline',
+    workouts: {
+      beginner: [
+        {
+          name: 'Dead + Row',
+          duration: '14–16 min',
+          description: 'Deadlifts and rows for\nbeginner back foundation\n ',
+          battlePlan: '3 rounds\n• 10 Barbell Deadlift\nRest 60–75s\n• 10 Barbell Bent-Over Row\nRest 60–75s',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Intro hinge + pull to teach proper barbell basics',
+          moodTips: [
+            {
+              icon: 'construct',
+              title: 'Hinge, don\'t squat, on deadlifts.',
+              description: 'Hip hinge pattern targets posterior chain effectively.'
+            },
+            {
+              icon: 'flash',
+              title: 'Lats tight on rows to build pulling base.',
+              description: 'Lat engagement improves pulling strength and spinal stability.'
+            }
+          ]
+        },
+        {
+          name: 'Dead Row Shrug',
+          duration: '14–16 min',
+          description: 'Deads, rows, shrugs train\nerectors and upper traps\n ',
+          battlePlan: '3 rounds\n• 10 Barbell Deadlift\n• 10 Barbell Bent-Over Row\n• 10 Barbell Power Shrug\nRest 75s after sequence',
+          imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Adds shrug finish for trap-dominant overload',
+          moodTips: [
+            {
+              icon: 'trending-up',
+              title: 'Explode hips in dead, pause with bar tight to legs.',
+              description: 'Hip drive generates power while maintaining bar path control.'
+            },
+            {
+              icon: 'timer',
+              title: 'Shrugs: no bounce, pause 1 count at top.',
+              description: 'Controlled shrugs with pause maximize trap activation.'
+            }
+          ]
+        }
+      ],
+      intermediate: [
+        {
+          name: 'RDL + Pendlay',
+          duration: '16–18 min',
+          description: 'Romanian deadlifts with Pendlay rows\nfor balance\n ',
+          battlePlan: '4 rounds\n• 8 Romanian Deadlift\nRest 75–90s\n• 10 Pendlay Row\nRest 75–90s',
+          imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
+          intensityReason: 'Posterior strength + explosive pull development',
+          moodTips: [
+            {
+              icon: 'timer',
+              title: 'Go slow with RDL to maximize hamstring loading.',
+              description: 'Controlled tempo increases hamstring and glute activation.'
+            },
+            {
+              icon: 'refresh',
+              title: 'Reset bar dead-stop every time in Pendlay.',
+              description: 'Dead stop allows full lat engagement each rep.'
+            }
+          ]
+        },
+        {
+          name: 'Pull Combo',
+          duration: '16–18 min',
+          description: 'Deadlifts plus Olympic pulls\nfor hybrid training\n ',
+          battlePlan: '3 rounds\n• 8 Barbell Deadlift\n• 8 Barbell High Pull\n• 8 Barbell Clean Pull\nRest 90s after sequence',
+          imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmc&ZW54MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Add high pulls + clean pulls to boost explosiveness',
+          moodTips: [
+            {
+              icon: 'trending-up',
+              title: 'Hips and legs drive bar, elbows guide.',
+              description: 'Lower body power generation with upper body guidance.'
+            },
+            {
+              icon: 'construct',
+              title: 'Keep tight core, don\'t overextend at top.',
+              description: 'Core stability prevents hyperextension during pulls.'
+            }
+          ]
+        }
+      ],
+      advanced: [
+        {
+          name: 'Dead Row Shrug',
+          duration: '18–20 min',
+          description: 'Heavy hinge, row, shrug focus\nfor dense back work\n ',
+          battlePlan: '4 rounds\n• 8 Barbell Deadlift\nRest 90s\n• 8 Barbell Bent-Over Row\nRest 90s\n• 8 Power Shrug\nRest 90s',
+          imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Adds volume with heavy compound barbell pulls',
+          moodTips: [
+            {
+              icon: 'construct',
+              title: 'Belt useful here for safe bracing.',
+              description: 'Lifting belt provides additional core support for heavy loads.'
+            },
+            {
+              icon: 'flash',
+              title: 'Pull bar into thighs at shrug peak.',
+              description: 'Bar contact maximizes trap activation and stability.'
+            }
+          ]
+        },
+        {
+          name: 'Dead Clean Flow',
+          duration: '20–22 min',
+          description: 'Heavy compound pulls\nwith clean finish\n ',
+          battlePlan: '4 rounds\n• 8 Barbell Deadlift\n• 8 Barbell High Pull\n• 8 Barbell Power Clean\nRest 90–120s after sequence',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8TVc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Olympic-style lifts tie power explosiveness to back',
+          moodTips: [
+            {
+              icon: 'trending-up',
+              title: 'Explode hips, bar close on clean.',
+              description: 'Hip explosion with tight bar path for clean efficiency.'
+            },
+            {
+              icon: 'refresh',
+              title: 'Keep arms relaxed until pull finish.',
+              description: 'Delayed arm pull maximizes lower body power contribution.'
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    equipment: 'Seated cable machine',
+    icon: 'accessibility-outline',
+    workouts: {
+      beginner: [
+        {
+          name: 'Neutral Row Start',
+          duration: '10–12 min',
+          description: 'Single movement to master\nseated row mechanics\n ',
+          battlePlan: '3 rounds\n• 12 Neutral Grip Cable Row\nRest 60–75s after set',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Neutral grip anchor builds confidence + control',
+          moodTips: [
+            {
+              icon: 'construct',
+              title: 'Sit tall, chest steady, no torso rocking.',
+              description: 'Stable posture isolates target muscles and prevents momentum.'
+            },
+            {
+              icon: 'timer',
+              title: 'Pull elbows near ribs, pause each rep.',
+              description: 'Controlled movement with pause maximizes muscle activation.'
+            }
+          ]
+        },
+        {
+          name: 'Wide Row Intro',
+          duration: '10–12 min',
+          description: 'Focuses on wide row control\nfor beginners\n ',
+          battlePlan: '3 rounds\n• 10 Wide Grip Cable Row\nRest 60–75s after set',
+          imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Wide grip recruits upper back posture muscles',
+          moodTips: [
+            {
+              icon: 'trending-up',
+              title: 'Elbows flare naturally but keep chest upright.',
+              description: 'Natural elbow path with stable torso for optimal activation.'
+            },
+            {
+              icon: 'body',
+              title: 'Pull to sternum level, no lower.',
+              description: 'Proper pull height maximizes upper back engagement.'
+            }
+          ]
+        }
+      ],
+      intermediate: [
+        {
+          name: 'Underhand Row',
+          duration: '12–14 min',
+          description: 'Control-focused row variation\nwith palms up\n ',
+          battlePlan: '4 rounds\n• 10 Underhand Grip Cable Row\nRest 75s after set',
+          imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
+          intensityReason: 'Underhand row shifts focus to lower lats & biceps',
+          moodTips: [
+            {
+              icon: 'construct',
+              title: 'Keep wrists straight, elbows tight to body.',
+              description: 'Proper wrist alignment and elbow path optimize muscle targeting.'
+            },
+            {
+              icon: 'timer',
+              title: 'Hold 1s at contraction for stronger squeeze.',
+              description: 'Pause at peak contraction enhances muscle activation.'
+            }
+          ]
+        },
+        {
+          name: 'Slow Negatives',
+          duration: '12–14 min',
+          description: 'Single movement with emphasized\nnegative control\n ',
+          battlePlan: '4 rounds\n• 8 Neutral Grip Cable Row (3–4s eccentric each rep)\nRest 90s after set',
+          imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmc&ZW54MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Extended 3–4s eccentrics boost hypertrophy',
+          moodTips: [
+            {
+              icon: 'trending-up',
+              title: 'Pull powerfully, but lower slow and steady.',
+              description: 'Fast concentric with controlled eccentric maximizes stimulus.'
+            },
+            {
+              icon: 'construct',
+              title: 'Brace abs so spine stays neutral.',
+              description: 'Core engagement maintains proper spinal alignment.'
+            }
+          ]
+        }
+      ],
+      advanced: [
+        {
+          name: 'Iso Hold Rows',
+          duration: '14–16 min',
+          description: 'Rows with a final long hold\nat contraction\n ',
+          battlePlan: '4 rounds\n• 8 Wide Grip Row\nEnd each set with 10s hold at contraction\nRest 90–120s after set',
+          imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Isometric finish after working sets increases time under tension',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Crush shoulder blades tight in hold.',
+              description: 'Maximum scapular retraction during isometric phase.'
+            },
+            {
+              icon: 'trending-up',
+              title: 'Think "chest proud" during static phase.',
+              description: 'Proud chest position maintains optimal muscle activation.'
+            }
+          ]
+        },
+        {
+          name: 'Superset Grind',
+          duration: '16–18 min',
+          description: 'Wide-to-underhand superset with\npost-set squeezes\n ',
+          battlePlan: '4 rounds\n• 8 Wide Grip Row (controlled)\n• Immediately 8 Underhand Grip Row\n• Finish with 10 Standing Back Squeezes (bodyweight scapular retractions, no load)\nRest 120s after full superset',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8TVc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Combo of two grips + contractions maximizes fatigue',
+          moodTips: [
+            {
+              icon: 'construct',
+              title: 'Go moderate weight, perfect form on both grips.',
+              description: 'Controlled loads ensure proper execution throughout superset.'
+            },
+            {
+              icon: 'refresh',
+              title: 'Post-set back squeezes: keep tiny ROM, lats locked.',
+              description: 'Small range squeezes enhance activation and recovery.'
+            }
+          ]
+        }
+      ]
+    }
   }
-  // TODO: Add remaining equipment types (Grip variation pull up bar, Roman chair, etc.)
+  // TODO: Add remaining equipment types (Grip variation pull up bar, Lat pull down machine, etc.)
   // This is a placeholder structure - full equipment database will be implemented later
 ];
 
