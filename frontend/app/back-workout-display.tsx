@@ -1096,9 +1096,403 @@ const backWorkoutDatabase: EquipmentWorkouts[] = [
         }
       ]
     }
+  },
+  {
+    equipment: 'Straight pull up bar',
+    icon: 'remove-circle-outline',
+    workouts: {
+      beginner: [
+        {
+          name: 'Assisted Pull-Ups',
+          duration: '10–12 min',
+          description: 'Focuses on mastering the basic\npull-up movement pattern\n ',
+          battlePlan: '3 rounds\n• 5 Pull-Ups (use band or assisted machine if needed)\nRest 60–75s after set',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Builds foundational pulling strength with necessary support',
+          moodTips: [
+            {
+              icon: 'construct',
+              title: 'Use a band or assisted machine to complete all reps with good form, focusing on lat engagement.',
+              description: 'Assistance ensures proper form while building strength foundation.'
+            },
+            {
+              icon: 'trending-up',
+              title: 'Drive chin above bar every rep; control the lowering phase.',
+              description: 'Full range of motion with controlled eccentric builds strength.'
+            }
+          ]
+        },
+        {
+          name: 'Pull-Up Negatives',
+          duration: '10–12 min',
+          description: 'Focuses on controlled lowering\nto build pulling power\n ',
+          battlePlan: '3 rounds\n• 5 Negative Pull-Ups (jump to top, 3-5s lower)\nRest 75s after set',
+          imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Eccentric training builds strength for full pull-ups',
+          moodTips: [
+            {
+              icon: 'timer',
+              title: 'Jump to the top position and take 3-5 seconds to lower yourself. This builds strength even if you can\'t pull up yet.',
+              description: 'Eccentric strength training effectively builds pulling power.'
+            },
+            {
+              icon: 'construct',
+              title: 'Keep core tight throughout the lowering phase.',
+              description: 'Core stability enhances control and safety during negatives.'
+            }
+          ]
+        }
+      ],
+      intermediate: [
+        {
+          name: 'Chin-Up Strength',
+          duration: '12–14 min',
+          description: 'Builds pulling power with a slightly\neasier grip variation\n ',
+          battlePlan: '4 rounds\n• 6 Chin-Ups\nRest 75–90s after set',
+          imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
+          intensityReason: 'Chin-ups engage biceps more, aiding overall pull strength',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'If needed, use light assistance (thin band) to maintain strict form. Focus on squeezing your biceps and lats.',
+              description: 'Minimal assistance maintains form while building strength.'
+            },
+            {
+              icon: 'construct',
+              title: 'Keep elbows tucked, pull chest to bar.',
+              description: 'Proper elbow path maximizes muscle activation and range.'
+            }
+          ]
+        },
+        {
+          name: 'Pull-Up + Hold',
+          duration: '12–14 min',
+          description: 'Combines pull-ups with a static hold\nfor enhanced strength\n ',
+          battlePlan: '3 rounds\n• 6 Pull-Ups\nEnd each set with a 3s hold at the top\nRest 90s after set',
+          imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmc&ZW54MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Adds isometric hold to increase time under tension for growth',
+          moodTips: [
+            {
+              icon: 'trending-up',
+              title: 'Aim for unassisted reps. If form breaks, use minimal assistance. The hold should be challenging but maintainable.',
+              description: 'Progressive overload with isometric challenge builds strength.'
+            },
+            {
+              icon: 'timer',
+              title: 'Hold chin above bar for 3 seconds at the top of each final rep.',
+              description: 'Isometric hold maximizes time under tension and strength gains.'
+            }
+          ]
+        }
+      ],
+      advanced: [
+        {
+          name: 'Wide + Neutral Pull',
+          duration: '14–16 min',
+          description: 'Two key pull-up variations for\ncomprehensive back development\n ',
+          battlePlan: '4 rounds\n• 8 Wide Grip Pull-Ups\nRest 90s\n• 8 Neutral Grip Pull-Ups\nRest 90s',
+          imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Targets outer lats and overall back width with varied grips',
+          moodTips: [
+            {
+              icon: 'construct',
+              title: 'These are unassisted. Focus on maximizing muscle activation with each grip.',
+              description: 'Different grips target various muscle fibers for complete development.'
+            },
+            {
+              icon: 'trending-up',
+              title: 'Wide grip emphasizes lat stretch; neutral grip allows for more power.',
+              description: 'Grip variation optimizes both width and strength development.'
+            }
+          ]
+        },
+        {
+          name: 'Chest-to-Bar Flow',
+          duration: '16–18 min',
+          description: 'Advanced pull-ups with deep range\nand controlled lowering\n ',
+          battlePlan: '4 rounds\n• 6 Chest-to-Bar Pull-Ups\n• 6 Negative Pull-Ups (3–5s lower)\nRest 90–120s after sequence',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8TVc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Higher pull range and negatives build extreme strength',
+          moodTips: [
+            {
+              icon: 'construct',
+              title: 'This is for high-level strength. Ensure full control throughout.',
+              description: 'Advanced technique requires complete movement mastery.'
+            },
+            {
+              icon: 'timer',
+              title: 'Drive chest to bar, then control the 3-5 second negative.',
+              description: 'Extended range with controlled eccentric maximizes strength gains.'
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    equipment: 'Grip variation pull up bar',
+    icon: 'git-branch-outline',
+    workouts: {
+      beginner: [
+        {
+          name: 'Assisted Neutral',
+          duration: '10–12 min',
+          description: 'Focuses on the neutral grip pull-up\nwith support\n ',
+          battlePlan: '3 rounds\n• 5 Neutral Grip Pull-Ups (use band or assisted machine if needed)\nRest 60–75s after set',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Neutral grip is often easiest, building initial pulling strength',
+          moodTips: [
+            {
+              icon: 'construct',
+              title: 'Use a band or assisted machine to ensure you can complete all reps with good form. This helps build the mind-muscle connection.',
+              description: 'Assistance allows focus on movement quality and muscle activation.'
+            },
+            {
+              icon: 'flash',
+              title: 'Keep elbows tucked, pull with your lats.',
+              description: 'Proper elbow position targets lats effectively while learning.'
+            }
+          ]
+        },
+        {
+          name: 'Assisted Chin-Ups',
+          duration: '10–12 min',
+          description: 'Builds pulling strength using an underhand\ngrip with assistance\n ',
+          battlePlan: '3 rounds\n• 5 Chin-Ups (use band or assisted machine if needed)\nRest 75s after set',
+          imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Chin-ups recruit biceps, making them slightly easier to learn',
+          moodTips: [
+            {
+              icon: 'trending-up',
+              title: 'Use assistance to focus on the movement pattern. As you get stronger, reduce the assistance.',
+              description: 'Progressive assistance reduction builds strength systematically.'
+            },
+            {
+              icon: 'flash',
+              title: 'Palms face you, squeeze biceps at the top.',
+              description: 'Underhand grip engages biceps more for easier progression.'
+            }
+          ]
+        }
+      ],
+      intermediate: [
+        {
+          name: 'Mixed Grip Pulls',
+          duration: '12–14 min',
+          description: 'Alternating grip for balanced\nstrength development\n ',
+          battlePlan: '4 rounds\n• 6 Mixed Grip Pull-Ups (swap grip each set)\nRest 75–90s after set',
+          imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
+          intensityReason: 'Mixed grip helps overcome sticking points, building unilateral strength',
+          moodTips: [
+            {
+              icon: 'refresh',
+              title: 'Aim for unassisted reps. If needed, use a very light band. Swap your mixed grip hand position each set.',
+              description: 'Alternating grip position ensures balanced development.'
+            },
+            {
+              icon: 'trending-up',
+              title: 'Focus on pulling with the supinated hand, then switch.',
+              description: 'Supinated hand leads pull for optimal activation pattern.'
+            }
+          ]
+        },
+        {
+          name: 'Commando Pulls',
+          duration: '12–14 min',
+          description: 'Dynamic pull-up variation for core\nand back engagement\n ',
+          battlePlan: '3 rounds\n• 6 Commando Pull-Ups (chest to each side)\nRest 90s after set',
+          imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmc&ZW54MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Commando pulls challenge stability and unilateral strength',
+          moodTips: [
+            {
+              icon: 'construct',
+              title: 'This is a step up. If needed, use a light band. Focus on moving your chest to each side of your hands.',
+              description: 'Dynamic movement challenges core stability and coordination.'
+            },
+            {
+              icon: 'flash',
+              title: 'Keep body tight, move chest side-to-side over hands.',
+              description: 'Core tension maintains control during lateral movement.'
+            }
+          ]
+        }
+      ],
+      advanced: [
+        {
+          name: 'Wide + Neutral',
+          duration: '14–16 min',
+          description: 'Targets both back width and\noverall pulling power\n ',
+          battlePlan: '4 rounds\n• 8 Wide Grip Pull-Ups\nRest 90s\n• 8 Neutral Grip Pull-Ups\nRest 90s',
+          imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Combines two primary grips for comprehensive back development',
+          moodTips: [
+            {
+              icon: 'construct',
+              title: 'These are unassisted. Focus on perfect form and full range of motion.',
+              description: 'Unassisted reps with perfect form maximize strength development.'
+            },
+            {
+              icon: 'trending-up',
+              title: 'Wide grip for lat spread, neutral for power and depth.',
+              description: 'Different grips target width versus thickness development.'
+            }
+          ]
+        },
+        {
+          name: 'Archer Pulls',
+          duration: '16–18 min',
+          description: 'Highly challenging pull-up variation\nfor extreme strength\n ',
+          battlePlan: '4 rounds\n• 6 Archer Pull-Ups (each side)\nRest 90–120s after set',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8TVc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Unilateral strength builder, progressing towards one-arm pull-ups',
+          moodTips: [
+            {
+              icon: 'construct',
+              title: 'This is very advanced. Keep the non-pulling arm extended.',
+              description: 'Advanced unilateral training requires exceptional control.'
+            },
+            {
+              icon: 'trending-up',
+              title: 'Focus on pulling with one arm while the other provides minimal assistance.',
+              description: 'Single-arm emphasis builds towards ultimate pulling strength.'
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    equipment: 'Seated Chest Supported Row Machine',
+    icon: 'desktop-outline',
+    workouts: {
+      beginner: [
+        {
+          name: 'Neutral Row',
+          duration: '10–12 min',
+          description: 'Builds pulling strength with\na natural elbow path\n ',
+          battlePlan: '3 rounds\n• 10–12 Neutral Grip Row\nRest 60–75s after set',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Neutral grip row teaches form with stable setup',
+          moodTips: [
+            {
+              icon: 'construct',
+              title: 'Keep chest pressed firmly to pad, no torso lift.',
+              description: 'Stable chest position isolates back muscles effectively.'
+            },
+            {
+              icon: 'timer',
+              title: 'Pull elbows straight back, pause at squeeze.',
+              description: 'Straight elbow path with pause maximizes muscle activation.'
+            }
+          ]
+        },
+        {
+          name: 'Wide Row',
+          duration: '10–12 min',
+          description: 'Engages rhomboids and traps\nwith safer alignment\n ',
+          battlePlan: '3 rounds\n• 10–12 Wide Grip Row\nRest 60–75s after set',
+          imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Wide row variation builds posture and width',
+          moodTips: [
+            {
+              icon: 'trending-up',
+              title: 'Lead with elbows, not forearms.',
+              description: 'Elbow-led movement optimizes lat and rhomboid activation.'
+            },
+            {
+              icon: 'flash',
+              title: 'Pull bar toward upper chest line for best squeeze.',
+              description: 'Upper chest pull height maximizes upper back engagement.'
+            }
+          ]
+        }
+      ],
+      intermediate: [
+        {
+          name: 'Underhand Row',
+          duration: '12–14 min',
+          description: 'Stronger pull variation for\ncontrolled overload\n ',
+          battlePlan: '4 rounds\n• 8–10 Underhand Grip Row (moderate to heavy)\nRest 75s after set',
+          imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
+          intensityReason: 'Underhand angle shifts load to lats and biceps',
+          moodTips: [
+            {
+              icon: 'construct',
+              title: 'Keep wrists straight, elbows close to torso.',
+              description: 'Proper wrist alignment and elbow path optimize pulling mechanics.'
+            },
+            {
+              icon: 'timer',
+              title: 'Hold 1s at contraction to deepen squeeze.',
+              description: 'Peak contraction pause enhances muscle activation.'
+            }
+          ]
+        },
+        {
+          name: 'Slow Negatives',
+          duration: '12–14 min',
+          description: 'Focuses on lat control with\nlonger lowering phase\n ',
+          battlePlan: '3 rounds\n• 8 Neutral Grip Row (3s eccentric each rep)\nRest 90s after set',
+          imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmc&ZW54MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
+          intensityReason: '3s eccentric reps add high time under tension',
+          moodTips: [
+            {
+              icon: 'trending-up',
+              title: 'Pull explosively, lower over full 3 count.',
+              description: 'Fast concentric with slow eccentric maximizes muscle stimulus.'
+            },
+            {
+              icon: 'construct',
+              title: 'Don\'t let weight touch stack between reps.',
+              description: 'Constant tension maintains muscle activation throughout set.'
+            }
+          ]
+        }
+      ],
+      advanced: [
+        {
+          name: 'Neutral + Wide',
+          duration: '14–16 min',
+          description: 'Neutral rows + wide rows maximize\npulling volume\n ',
+          battlePlan: '4 rounds\n• 8 Neutral Grip Row\nRest 90s\n• 8 Wide Grip Row\nRest 90s',
+          imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Two grips stimulate width and thickness growth',
+          moodTips: [
+            {
+              icon: 'construct',
+              title: 'Keep chest glued down on all reps.',
+              description: 'Stable torso position ensures isolated back muscle targeting.'
+            },
+            {
+              icon: 'flash',
+              title: 'Squeeze each rep at peak for best activation.',
+              description: 'Peak contraction squeeze maximizes muscle fiber recruitment.'
+            }
+          ]
+        },
+        {
+          name: 'Row Superset + Iso',
+          duration: '16–18 min',
+          description: 'Neutral-to-underhand rows plus\nisometric finisher\n ',
+          battlePlan: '4 rounds\n• 8 Neutral Grip Row\n• Immediately 8 Underhand Grip Row\n• Finish with 10s Hold at peak contraction\nRest 120s after full sequence',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8TVc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Superset adds load, holds extend time under tension',
+          moodTips: [
+            {
+              icon: 'timer',
+              title: 'Focus on slow return, don\'t drop stack.',
+              description: 'Controlled eccentric maintains tension and prevents momentum.'
+            },
+            {
+              icon: 'flash',
+              title: 'Lock in hard squeeze during iso hold.',
+              description: 'Maximum contraction during hold maximizes strength gains.'
+            }
+          ]
+        }
+      ]
+    }
   }
-  // TODO: Add remaining equipment types (Grip variation pull up bar, Straight pull up bar, etc.)
-  // This is a placeholder structure - full equipment database will be implemented later
 ];
 
 export default function BackWorkoutDisplay() {
