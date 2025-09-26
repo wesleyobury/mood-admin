@@ -964,8 +964,140 @@ const backWorkoutDatabase: EquipmentWorkouts[] = [
         }
       ]
     }
+  },
+  {
+    equipment: 'Lat pull down machine',
+    icon: 'arrow-down-circle-outline',
+    workouts: {
+      beginner: [
+        {
+          name: 'Wide Pulldown',
+          duration: '10–12 min',
+          description: 'Wide grip basis for learning\nlat engagement\n ',
+          battlePlan: '3 rounds\n• 10–12 Wide Grip Pulldown\nRest 60–75s after set',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Wide grip teaches lat activation and form control',
+          moodTips: [
+            {
+              icon: 'trending-up',
+              title: 'Keep chest tall and lean slightly back for contraction.',
+              description: 'Proper posture maximizes lat engagement and range of motion.'
+            },
+            {
+              icon: 'timer',
+              title: 'Pull bar to upper chest, pause, control the return.',
+              description: 'Full range with pause enhances muscle activation and control.'
+            }
+          ]
+        },
+        {
+          name: 'Underhand Pulldown',
+          duration: '10–12 min',
+          description: 'Easier grip variation supports\nearly progression\n ',
+          battlePlan: '3 rounds\n• 10–12 Underhand Pulldown\nRest 60–75s after set',
+          imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Underhand grip recruits arms to aid pulling work',
+          moodTips: [
+            {
+              icon: 'construct',
+              title: 'Elbows tucked, bar to chest line for full range.',
+              description: 'Proper elbow position maximizes lat stretch and contraction.'
+            },
+            {
+              icon: 'flash',
+              title: 'Squeeze lats and biceps hard each rep.',
+              description: 'Dual muscle activation enhances strength and development.'
+            }
+          ]
+        }
+      ],
+      intermediate: [
+        {
+          name: 'Neutral Pulldown',
+          duration: '12–14 min',
+          description: 'Stronger setup for\nprogressive overload\n ',
+          battlePlan: '4 rounds\n• 8–10 Neutral Grip Pulldown (moderate to heavy)\nRest 75–90s after set',
+          imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
+          intensityReason: 'Neutral grip enables heavier lat loading safely',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Drive elbows to ribs, no shoulder shrug.',
+              description: 'Proper elbow drive isolates lats and prevents compensation.'
+            },
+            {
+              icon: 'timer',
+              title: 'Lower weight slowly to maximize tension.',
+              description: 'Controlled eccentric phase enhances muscle stimulus.'
+            }
+          ]
+        },
+        {
+          name: 'Pulldown + Hold',
+          duration: '12–14 min',
+          description: 'Controlled reps followed by\nstatic contraction\n ',
+          battlePlan: '3 rounds\n• 8–10 Pulldown (neutral or wide, consistent grip choice)\nEnd each set with 5s hold at bottom\nRest 90s after set',
+          imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmc&ZW54MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Isometric hold boosts tension and endurance',
+          moodTips: [
+            {
+              icon: 'timer',
+              title: 'Hold bar at chest for 5s after last rep.',
+              description: 'Isometric contraction increases time under tension.'
+            },
+            {
+              icon: 'construct',
+              title: 'Keep shoulders down, blades squeezed tight.',
+              description: 'Proper scapular position maintains optimal muscle activation.'
+            }
+          ]
+        }
+      ],
+      advanced: [
+        {
+          name: 'Wide + Close',
+          duration: '14–16 min',
+          description: 'Mix of wide and close grips\nfor full lat work\n ',
+          battlePlan: '4 rounds\n• 8 Wide Grip Pulldown\nRest 90s\n• 8 Close Grip Pulldown\nRest 90s',
+          imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Grip pairing develops width and back thickness',
+          moodTips: [
+            {
+              icon: 'refresh',
+              title: 'Breathe out as you pull down, in as you rise.',
+              description: 'Proper breathing pattern maintains core stability and power.'
+            },
+            {
+              icon: 'construct',
+              title: 'Don\'t swing stack — keep it controlled.',
+              description: 'Smooth movement prevents momentum and maintains tension.'
+            }
+          ]
+        },
+        {
+          name: 'Pulldown Superset',
+          duration: '16–18 min',
+          description: 'Wide-to-underhand with\ncontrolled lowering\n ',
+          battlePlan: '4 rounds\n• 8 Wide Grip Pulldown\n• Immediately 8 Underhand Pulldown (3s eccentric each)\nRest 120s after superset',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8TVc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Superset + eccentrics maximize hypertrophy stress',
+          moodTips: [
+            {
+              icon: 'construct',
+              title: 'Use moderate weight to hold perfect form.',
+              description: 'Controlled loads ensure proper execution throughout superset.'
+            },
+            {
+              icon: 'timer',
+              title: 'Each rep: take 3s to lower bar slowly.',
+              description: 'Extended eccentric phase maximizes muscle development.'
+            }
+          ]
+        }
+      ]
+    }
   }
-  // TODO: Add remaining equipment types (Grip variation pull up bar, Lat pull down machine, etc.)
+  // TODO: Add remaining equipment types (Grip variation pull up bar, Straight pull up bar, etc.)
   // This is a placeholder structure - full equipment database will be implemented later
 ];
 
