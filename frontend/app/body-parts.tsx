@@ -152,6 +152,7 @@ export default function BodyPartsScreen() {
   const handleContinue = () => {
     if (selectedBodyPart) {
       console.log('Selected body part:', selectedBodyPart);
+      console.log('Selected sub-option:', selectedSubOption);
       
       if (selectedBodyPart === 'Chest') {
         // Navigate to chest equipment screen
@@ -180,6 +181,10 @@ export default function BodyPartsScreen() {
             bodyPart: selectedBodyPart,
           }
         });
+      } else if (selectedBodyPart === 'Arms' && selectedSubOption) {
+        // Navigate to arms equipment screen with sub-option
+        // TODO: Create arms equipment screens for Biceps and Triceps
+        console.log(`Navigation for Arms > ${selectedSubOption} will be implemented later`);
       } else {
         // TODO: Navigate to other body part screens when implemented
         console.log(`Navigation for ${selectedBodyPart} will be implemented later`);
