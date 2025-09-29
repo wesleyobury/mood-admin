@@ -100,10 +100,52 @@ export default function BodyPartsScreen() {
       }),
     ]).start();
 
-    if (selectedBodyPart === bodyPartName) {
-      setSelectedBodyPart(''); // Deselect if already selected
+    // Special handling for Arms with sub-options
+    if (bodyPartName === 'Arms') {
+      if (expandedBodyPart === 'Arms') {
+        // Collapse Arms if already expanded
+        setExpandedBodyPart('');
+        setSelectedBodyPart('');
+        setSelectedSubOption('');
+        Animated.timing(expandAnim, {
+          toValue: 0,
+          duration: 300,
+          useNativeDriver: false,
+        }).start();
+      } else {
+        // Expand Arms to show Biceps and Triceps
+        setExpandedBodyPart('Arms');
+        setSelectedBodyPart('');
+        setSelectedSubOption('');
+        Animated.timing(expandAnim, {
+          toValue: 1,
+          duration: 300,
+          useNativeDriver: false,
+        }).start();
+      }
     } else {
-      setSelectedBodyPart(bodyPartName); // Select new body part
+      // Handle regular body parts
+      if (selectedBodyPart === bodyPartName) {
+        setSelectedBodyPart(''); // Deselect if already selected
+      } else {
+        setSelectedBodyPart(bodyPartName); // Select new body part
+        setExpandedBodyPart(''); // Collapse Arms if another body part is selected
+        setSelectedSubOption('');
+        Animated.timing(expandAnim, {
+          toValue: 0,
+          duration: 300,
+          useNativeDriver: false,
+        }).start();
+      }
+    }
+  };
+
+  const handleSubOptionSelect = (subOptionName: string) => {
+    if (selectedSubOption === subOptionName) {
+      setSelectedSubOption(''); // Deselect if already selected
+    } else {
+      setSelectedSubOption(subOptionName); // Select sub-option
+      setSelectedBodyPart('Arms'); // Set Arms as the main selection
     }
   };
 
