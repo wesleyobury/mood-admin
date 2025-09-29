@@ -555,13 +555,13 @@ const styles = StyleSheet.create({
     borderColor: '#FFD700',
   },
   centeredSubIcon: {
-    width: 28,
-    height: 28,
-    borderRadius: 14,
+    width: 24,
+    height: 24,
+    borderRadius: 12,
     backgroundColor: 'rgba(136, 136, 136, 0.2)',
     alignItems: 'center',
     justifyContent: 'center',
-    marginBottom: 6,
+    marginRight: 8,
   },
   selectedCenteredSubIcon: {
     backgroundColor: 'rgba(255, 215, 0, 0.2)',
@@ -570,7 +570,6 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontWeight: '600',
     color: '#fff',
-    marginBottom: 2,
     textAlign: 'center',
   },
   selectedCenteredSubName: {
