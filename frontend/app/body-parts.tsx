@@ -600,6 +600,11 @@ const styles = StyleSheet.create({
   inCardCheckmark: {
     marginLeft: 4,
   },
+  expandIndicator: {
+    position: 'absolute',
+    top: 8,
+    right: 8,
+  },
   iconContainer: {
     width: 60,
     height: 60,
@@ -669,9 +674,6 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     color: '#000',
     marginRight: 8,
-  },
-  buttonIcon: {
-    marginLeft: 4,
   },
 });
 });
