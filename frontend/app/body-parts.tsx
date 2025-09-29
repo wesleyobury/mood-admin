@@ -596,8 +596,8 @@ const styles = StyleSheet.create({
   },
   cornerBackButton: {
     position: 'absolute',
-    top: 8,
-    left: 8,
+    top: 12,
+    left: 12,
     width: 24,
     height: 24,
     borderRadius: 12,
