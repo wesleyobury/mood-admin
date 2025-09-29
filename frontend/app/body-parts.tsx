@@ -587,8 +587,8 @@ const styles = StyleSheet.create({
   },
   centeredCheckmark: {
     position: 'absolute',
-    top: 8,
-    right: 8,
+    top: 6,
+    right: 6,
   },
   cornerBackButton: {
     position: 'absolute',
