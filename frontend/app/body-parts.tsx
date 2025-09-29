@@ -306,7 +306,7 @@ export default function BodyPartsScreen() {
                     )}
                   </TouchableOpacity>
                 ) : (
-                  /* Arms expanded content - sub-options replace main content */
+                  /* Arms expanded content - centered sub-options */
                   <Animated.View
                     style={[
                       styles.expandedContent,
@@ -315,61 +315,58 @@ export default function BodyPartsScreen() {
                       }
                     ]}
                   >
-                    {/* Header with back arrow */}
-                    <TouchableOpacity 
-                      style={styles.expandedHeader}
-                      onPress={() => handleBodyPartSelect('Arms')}
-                    >
-                      <Ionicons name="chevron-back" size={16} color="#FFD700" />
-                      <Text style={styles.expandedHeaderText}>Arms</Text>
-                    </TouchableOpacity>
-                    
-                    {/* Sub-options within the same card */}
-                    <View style={styles.subOptionsInCard}>
+                    {/* Centered Sub-options within the same card */}
+                    <View style={styles.centeredSubOptions}>
                       {bodyPart.subOptions?.map((subOption) => {
                         const isSubSelected = selectedSubOption === subOption.name;
                         return (
                           <TouchableOpacity
                             key={subOption.name}
                             style={[
-                              styles.inCardSubOption,
-                              isSubSelected && styles.selectedInCardSubOption
+                              styles.centeredSubOptionButton,
+                              isSubSelected && styles.selectedCenteredSubOption
                             ]}
                             onPress={() => handleSubOptionSelect(subOption.name)}
                           >
                             <View style={[
-                              styles.inCardSubIcon,
-                              isSubSelected && styles.selectedInCardSubIcon
+                              styles.centeredSubIcon,
+                              isSubSelected && styles.selectedCenteredSubIcon
                             ]}>
                               <Ionicons 
                                 name={subOption.icon} 
-                                size={18} 
-                                color={isSubSelected ? '#000' : '#FFD700'} 
+                                size={20} 
+                                color={isSubSelected ? '#FFD700' : '#888'} 
                               />
                             </View>
-                            <View style={styles.inCardSubText}>
-                              <Text style={[
-                                styles.inCardSubName,
-                                isSubSelected && styles.selectedInCardSubName
-                              ]}>
-                                {subOption.name}
-                              </Text>
-                              <Text style={[
-                                styles.inCardSubDesc,
-                                isSubSelected && styles.selectedInCardSubDesc
-                              ]}>
-                                {subOption.description}
-                              </Text>
-                            </View>
+                            <Text style={[
+                              styles.centeredSubName,
+                              isSubSelected && styles.selectedCenteredSubName
+                            ]}>
+                              {subOption.name}
+                            </Text>
+                            <Text style={[
+                              styles.centeredSubDesc,
+                              isSubSelected && styles.selectedCenteredSubDesc
+                            ]}>
+                              {subOption.description}
+                            </Text>
                             {isSubSelected && (
-                              <View style={styles.inCardCheckmark}>
-                                <Ionicons name="checkmark-circle" size={14} color="#000" />
+                              <View style={styles.centeredCheckmark}>
+                                <Ionicons name="checkmark-circle" size={16} color="#FFD700" />
                               </View>
                             )}
                           </TouchableOpacity>
                         );
                       })}
                     </View>
+
+                    {/* Small back arrow in corner */}
+                    <TouchableOpacity 
+                      style={styles.cornerBackButton}
+                      onPress={() => handleBodyPartSelect('Arms')}
+                    >
+                      <Ionicons name="chevron-back" size={14} color="#888" />
+                    </TouchableOpacity>
                   </Animated.View>
                 )}
               </Animated.View>
