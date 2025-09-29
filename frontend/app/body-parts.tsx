@@ -380,7 +380,7 @@ export default function BodyPartsScreen() {
       </ScrollView>
 
       {/* Continue Button */}
-      {selectedBodyPart && (
+      {(selectedBodyPart && (selectedBodyPart !== 'Arms' || selectedSubOption)) && (
         <View style={styles.bottomContainer}>
           <TouchableOpacity 
             style={styles.continueButton}
