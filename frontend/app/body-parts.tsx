@@ -525,77 +525,82 @@ const styles = StyleSheet.create({
     borderColor: '#FFD700',
   },
   expandedBodyPartCard: {
-    backgroundColor: '#FFD700',
+    backgroundColor: '#2a2a2a',
     borderColor: '#FFD700',
   },
   expandedContent: {
     flex: 1,
     padding: 16,
-    justifyContent: 'space-between',
-  },
-  expandedHeader: {
-    flexDirection: 'row',
+    justifyContent: 'center',
     alignItems: 'center',
-    marginBottom: 12,
+    position: 'relative',
   },
-  expandedHeaderText: {
-    fontSize: 14,
-    fontWeight: '600',
-    color: '#000',
-    marginLeft: 4,
-  },
-  subOptionsInCard: {
-    flex: 1,
-    justifyContent: 'space-around',
-  },
-  inCardSubOption: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    backgroundColor: 'rgba(0, 0, 0, 0.1)',
-    borderRadius: 8,
-    padding: 8,
-    marginBottom: 6,
-    borderWidth: 1,
-    borderColor: 'rgba(0, 0, 0, 0.2)',
-  },
-  selectedInCardSubOption: {
-    backgroundColor: '#000',
-    borderColor: '#000',
-  },
-  inCardSubIcon: {
-    width: 28,
-    height: 28,
-    borderRadius: 14,
-    backgroundColor: 'rgba(255, 215, 0, 0.2)',
+  centeredSubOptions: {
+    width: '100%',
     alignItems: 'center',
     justifyContent: 'center',
-    marginRight: 8,
-  },
-  selectedInCardSubIcon: {
-    backgroundColor: '#FFD700',
-  },
-  inCardSubText: {
     flex: 1,
   },
-  inCardSubName: {
-    fontSize: 12,
-    fontWeight: '600',
-    color: '#000',
-    marginBottom: 1,
+  centeredSubOptionButton: {
+    width: '90%',
+    backgroundColor: '#1a1a1a',
+    borderRadius: 12,
+    padding: 16,
+    marginBottom: 12,
+    alignItems: 'center',
+    borderWidth: 2,
+    borderColor: 'rgba(136, 136, 136, 0.3)',
   },
-  selectedInCardSubName: {
+  selectedCenteredSubOption: {
+    backgroundColor: '#333333',
+    borderColor: '#FFD700',
+  },
+  centeredSubIcon: {
+    width: 32,
+    height: 32,
+    borderRadius: 16,
+    backgroundColor: 'rgba(136, 136, 136, 0.2)',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginBottom: 8,
+  },
+  selectedCenteredSubIcon: {
+    backgroundColor: 'rgba(255, 215, 0, 0.2)',
+  },
+  centeredSubName: {
+    fontSize: 16,
+    fontWeight: '600',
+    color: '#fff',
+    marginBottom: 4,
+    textAlign: 'center',
+  },
+  selectedCenteredSubName: {
     color: '#FFD700',
   },
-  inCardSubDesc: {
-    fontSize: 10,
-    color: '#333',
-    lineHeight: 12,
+  centeredSubDesc: {
+    fontSize: 12,
+    color: '#888',
+    textAlign: 'center',
+    lineHeight: 16,
   },
-  selectedInCardSubDesc: {
-    color: '#999',
+  selectedCenteredSubDesc: {
+    color: '#ccc',
   },
-  inCardCheckmark: {
-    marginLeft: 4,
+  centeredCheckmark: {
+    position: 'absolute',
+    top: 8,
+    right: 8,
+  },
+  cornerBackButton: {
+    position: 'absolute',
+    top: 8,
+    left: 8,
+    width: 24,
+    height: 24,
+    borderRadius: 12,
+    backgroundColor: 'rgba(136, 136, 136, 0.2)',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   expandIndicator: {
     position: 'absolute',
