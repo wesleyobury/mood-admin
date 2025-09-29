@@ -373,7 +373,7 @@ export default function BodyPartsScreen() {
         {selectedBodyPart && (
           <View style={styles.selectionSummary}>
             <Text style={styles.selectionText}>
-              Selected: {selectedBodyPart}
+              Selected: {selectedBodyPart}{selectedSubOption ? ` > ${selectedSubOption}` : ''}
             </Text>
           </View>
         )}
