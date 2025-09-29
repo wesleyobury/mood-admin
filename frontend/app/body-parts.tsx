@@ -539,7 +539,7 @@ const styles = StyleSheet.create({
     paddingVertical: 8,
   },
   centeredSubOptionButton: {
-    width: '80%',
+    width: '90%',
     backgroundColor: '#1a1a1a',
     borderRadius: 8,
     padding: 8,
@@ -549,6 +549,7 @@ const styles = StyleSheet.create({
     borderColor: 'rgba(136, 136, 136, 0.3)',
     flexDirection: 'row',
     justifyContent: 'center',
+    position: 'relative',
   },
   selectedCenteredSubOption: {
     backgroundColor: '#333333',
