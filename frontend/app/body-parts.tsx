@@ -592,6 +592,11 @@ const styles = StyleSheet.create({
     top: 6,
     right: 6,
   },
+  buttonContent: {
+    flex: 1,
+    marginLeft: 4,
+    marginRight: 24, // Space for checkmark
+  },
   cornerBackButton: {
     position: 'absolute',
     top: 12,
