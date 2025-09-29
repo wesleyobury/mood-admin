@@ -530,7 +530,9 @@ const styles = StyleSheet.create({
   },
   expandedContent: {
     flex: 1,
-    padding: 16,
+    padding: 20,
+    paddingTop: 24,
+    paddingBottom: 24,
     justifyContent: 'center',
     alignItems: 'center',
     position: 'relative',
