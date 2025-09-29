@@ -338,12 +338,14 @@ export default function BodyPartsScreen() {
                                 color={isSubSelected ? '#FFD700' : '#888'} 
                               />
                             </View>
-                            <Text style={[
-                              styles.centeredSubName,
-                              isSubSelected && styles.selectedCenteredSubName
-                            ]}>
-                              {subOption.name}
-                            </Text>
+                            <View style={styles.buttonContent}>
+                              <Text style={[
+                                styles.centeredSubName,
+                                isSubSelected && styles.selectedCenteredSubName
+                              ]}>
+                                {subOption.name}
+                              </Text>
+                            </View>
                             {isSubSelected && (
                               <View style={styles.centeredCheckmark}>
                                 <Ionicons name="checkmark-circle" size={16} color="#FFD700" />
