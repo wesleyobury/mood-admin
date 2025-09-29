@@ -183,8 +183,23 @@ export default function BodyPartsScreen() {
         });
       } else if (selectedBodyPart === 'Arms' && selectedSubOption) {
         // Navigate to arms equipment screen with sub-option
-        // TODO: Create arms equipment screens for Biceps and Triceps
-        console.log(`Navigation for Arms > ${selectedSubOption} will be implemented later`);
+        if (selectedSubOption === "Bi's") {
+          router.push({
+            pathname: '/biceps-equipment',
+            params: {
+              mood: mood,
+              bodyPart: 'Biceps',
+            }
+          });
+        } else if (selectedSubOption === "Tri's") {
+          router.push({
+            pathname: '/triceps-equipment',
+            params: {
+              mood: mood,
+              bodyPart: 'Triceps',
+            }
+          });
+        }
       } else {
         // TODO: Navigate to other body part screens when implemented
         console.log(`Navigation for ${selectedBodyPart} will be implemented later`);
