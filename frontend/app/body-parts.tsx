@@ -19,6 +19,13 @@ interface BodyPart {
   name: string;
   icon: keyof typeof Ionicons.glyphMap;
   description: string;
+  subOptions?: SubOption[];
+}
+
+interface SubOption {
+  name: string;
+  icon: keyof typeof Ionicons.glyphMap;
+  description: string;
 }
 
 const bodyParts: BodyPart[] = [
