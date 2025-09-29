@@ -587,4 +587,70 @@ const styles = StyleSheet.create({
   buttonIcon: {
     marginLeft: 4,
   },
+  bodyPartContainer: {
+    width: (width - 60) / 2,
+    marginBottom: 16,
+  },
+  expandedBodyPartCard: {
+    backgroundColor: '#FFD700',
+    borderColor: '#FFD700',
+  },
+  expandIndicator: {
+    position: 'absolute',
+    top: 8,
+    left: 8,
+  },
+  subOptionsContainer: {
+    overflow: 'hidden',
+    marginTop: 8,
+  },
+  subOptionCard: {
+    backgroundColor: '#1a1a1a',
+    borderRadius: 12,
+    padding: 12,
+    marginBottom: 8,
+    flexDirection: 'row',
+    alignItems: 'center',
+    borderWidth: 1,
+    borderColor: 'rgba(255, 215, 0, 0.3)',
+  },
+  selectedSubOptionCard: {
+    backgroundColor: '#FFD700',
+    borderColor: '#FFD700',
+  },
+  subIconContainer: {
+    width: 36,
+    height: 36,
+    borderRadius: 18,
+    backgroundColor: '#333',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginRight: 12,
+  },
+  selectedSubIconContainer: {
+    backgroundColor: '#000',
+  },
+  subOptionTextContainer: {
+    flex: 1,
+  },
+  subOptionName: {
+    fontSize: 14,
+    fontWeight: '600',
+    color: '#fff',
+    marginBottom: 2,
+  },
+  selectedSubOptionName: {
+    color: '#000',
+  },
+  subOptionDescription: {
+    fontSize: 11,
+    color: '#999',
+    lineHeight: 14,
+  },
+  selectedSubOptionDescription: {
+    color: '#333',
+  },
+  subCheckmark: {
+    marginLeft: 8,
+  },
 });
