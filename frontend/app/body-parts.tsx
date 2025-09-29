@@ -250,49 +250,122 @@ export default function BodyPartsScreen() {
         <View style={styles.bodyPartsGrid}>
           {bodyParts.map((bodyPart) => {
             const isSelected = selectedBodyPart === bodyPart.name;
+            const isExpanded = expandedBodyPart === bodyPart.name;
+            
             return (
-              <Animated.View
-                key={bodyPart.name}
-                style={[
-                  { transform: [{ scale: scaleAnim }] }
-                ]}
-              >
-                <TouchableOpacity
+              <View key={bodyPart.name} style={styles.bodyPartContainer}>
+                <Animated.View
                   style={[
-                    styles.bodyPartCard,
-                    isSelected && styles.selectedBodyPartCard
+                    { transform: [{ scale: scaleAnim }] }
                   ]}
-                  onPress={() => handleBodyPartSelect(bodyPart.name)}
                 >
-                <View style={[
-                  styles.iconContainer,
-                  isSelected && styles.selectedIconContainer
-                ]}>
-                  <Ionicons 
-                    name={bodyPart.icon} 
-                    size={32} 
-                    color={isSelected ? '#FFD700' : '#FFD700'} 
-                  />
-                </View>
-                <Text style={[
-                  styles.bodyPartName,
-                  isSelected && styles.selectedBodyPartName
-                ]}>
-                  {bodyPart.name}
-                </Text>
-                <Text style={[
-                  styles.bodyPartDescription,
-                  isSelected && styles.selectedBodyPartDescription
-                ]}>
-                  {bodyPart.description}
-                </Text>
-                {isSelected && (
-                  <View style={styles.checkmark}>
-                    <Ionicons name="checkmark-circle" size={20} color="#000" />
-                  </View>
-                )}
-                </TouchableOpacity>
-              </Animated.View>
+                  <TouchableOpacity
+                    style={[
+                      styles.bodyPartCard,
+                      isSelected && styles.selectedBodyPartCard,
+                      isExpanded && styles.expandedBodyPartCard
+                    ]}
+                    onPress={() => handleBodyPartSelect(bodyPart.name)}
+                  >
+                    <View style={[
+                      styles.iconContainer,
+                      isSelected && styles.selectedIconContainer
+                    ]}>
+                      <Ionicons 
+                        name={bodyPart.icon} 
+                        size={32} 
+                        color={isSelected ? '#FFD700' : '#FFD700'} 
+                      />
+                    </View>
+                    <Text style={[
+                      styles.bodyPartName,
+                      isSelected && styles.selectedBodyPartName
+                    ]}>
+                      {bodyPart.name}
+                    </Text>
+                    <Text style={[
+                      styles.bodyPartDescription,
+                      isSelected && styles.selectedBodyPartDescription
+                    ]}>
+                      {bodyPart.description}
+                    </Text>
+                    {isSelected && !isExpanded && (
+                      <View style={styles.checkmark}>
+                        <Ionicons name="checkmark-circle" size={20} color="#000" />
+                      </View>
+                    )}
+                    {bodyPart.name === 'Arms' && (
+                      <View style={styles.expandIndicator}>
+                        <Ionicons 
+                          name={isExpanded ? "chevron-up" : "chevron-down"} 
+                          size={16} 
+                          color={isExpanded ? "#FFD700" : "#999"} 
+                        />
+                      </View>
+                    )}
+                  </TouchableOpacity>
+
+                  {/* Sub-options for Arms */}
+                  {bodyPart.name === 'Arms' && bodyPart.subOptions && (
+                    <Animated.View
+                      style={[
+                        styles.subOptionsContainer,
+                        {
+                          height: expandAnim.interpolate({
+                            inputRange: [0, 1],
+                            outputRange: [0, 120], // Adjust height based on content
+                          }),
+                          opacity: expandAnim,
+                        }
+                      ]}
+                    >
+                      {bodyPart.subOptions.map((subOption) => {
+                        const isSubSelected = selectedSubOption === subOption.name;
+                        return (
+                          <TouchableOpacity
+                            key={subOption.name}
+                            style={[
+                              styles.subOptionCard,
+                              isSubSelected && styles.selectedSubOptionCard
+                            ]}
+                            onPress={() => handleSubOptionSelect(subOption.name)}
+                          >
+                            <View style={[
+                              styles.subIconContainer,
+                              isSubSelected && styles.selectedSubIconContainer
+                            ]}>
+                              <Ionicons 
+                                name={subOption.icon} 
+                                size={20} 
+                                color={isSubSelected ? '#000' : '#FFD700'} 
+                              />
+                            </View>
+                            <View style={styles.subOptionTextContainer}>
+                              <Text style={[
+                                styles.subOptionName,
+                                isSubSelected && styles.selectedSubOptionName
+                              ]}>
+                                {subOption.name}
+                              </Text>
+                              <Text style={[
+                                styles.subOptionDescription,
+                                isSubSelected && styles.selectedSubOptionDescription
+                              ]}>
+                                {subOption.description}
+                              </Text>
+                            </View>
+                            {isSubSelected && (
+                              <View style={styles.subCheckmark}>
+                                <Ionicons name="checkmark-circle" size={16} color="#000" />
+                              </View>
+                            )}
+                          </TouchableOpacity>
+                        );
+                      })}
+                    </Animated.View>
+                  )}
+                </Animated.View>
+              </View>
             );
           })}
         </View>
