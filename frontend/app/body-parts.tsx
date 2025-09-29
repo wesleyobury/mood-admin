@@ -508,18 +508,97 @@ const styles = StyleSheet.create({
   },
   bodyPartCard: {
     width: (width - 60) / 2,
+    height: 160, // Fixed height for consistent layout
     backgroundColor: '#1a1a1a',
     borderRadius: 16,
-    padding: 20,
-    alignItems: 'center',
     borderWidth: 2,
     borderColor: 'transparent',
     marginBottom: 16,
     position: 'relative',
+    overflow: 'hidden',
+  },
+  bodyPartContent: {
+    flex: 1,
+    padding: 20,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   selectedBodyPartCard: {
     backgroundColor: '#FFD700',
     borderColor: '#FFD700',
+  },
+  expandedBodyPartCard: {
+    backgroundColor: '#FFD700',
+    borderColor: '#FFD700',
+  },
+  expandedContent: {
+    flex: 1,
+    padding: 16,
+    justifyContent: 'space-between',
+  },
+  expandedHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 12,
+  },
+  expandedHeaderText: {
+    fontSize: 14,
+    fontWeight: '600',
+    color: '#000',
+    marginLeft: 4,
+  },
+  subOptionsInCard: {
+    flex: 1,
+    justifyContent: 'space-around',
+  },
+  inCardSubOption: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: 'rgba(0, 0, 0, 0.1)',
+    borderRadius: 8,
+    padding: 8,
+    marginBottom: 6,
+    borderWidth: 1,
+    borderColor: 'rgba(0, 0, 0, 0.2)',
+  },
+  selectedInCardSubOption: {
+    backgroundColor: '#000',
+    borderColor: '#000',
+  },
+  inCardSubIcon: {
+    width: 28,
+    height: 28,
+    borderRadius: 14,
+    backgroundColor: 'rgba(255, 215, 0, 0.2)',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginRight: 8,
+  },
+  selectedInCardSubIcon: {
+    backgroundColor: '#FFD700',
+  },
+  inCardSubText: {
+    flex: 1,
+  },
+  inCardSubName: {
+    fontSize: 12,
+    fontWeight: '600',
+    color: '#000',
+    marginBottom: 1,
+  },
+  selectedInCardSubName: {
+    color: '#FFD700',
+  },
+  inCardSubDesc: {
+    fontSize: 10,
+    color: '#333',
+    lineHeight: 12,
+  },
+  selectedInCardSubDesc: {
+    color: '#999',
+  },
+  inCardCheckmark: {
+    marginLeft: 4,
   },
   iconContainer: {
     width: 60,
