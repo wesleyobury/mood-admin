@@ -37,7 +37,19 @@ const bodyParts: BodyPart[] = [
   {
     name: 'Arms',
     icon: 'barbell',
-    description: 'Biceps, triceps & forearms'
+    description: 'Biceps, triceps & forearms',
+    subOptions: [
+      {
+        name: 'Biceps',
+        icon: 'fitness-outline',
+        description: 'Front arm muscles'
+      },
+      {
+        name: 'Triceps',
+        icon: 'barbell-outline',
+        description: 'Back arm muscles'
+      }
+    ]
   },
   {
     name: 'Back',
