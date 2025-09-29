@@ -78,7 +78,10 @@ export default function BodyPartsScreen() {
   const insets = useSafeAreaInsets();
   const params = useLocalSearchParams();
   const [selectedBodyPart, setSelectedBodyPart] = useState<string>('');
+  const [selectedSubOption, setSelectedSubOption] = useState<string>('');
+  const [expandedBodyPart, setExpandedBodyPart] = useState<string>('');
   const scaleAnim = useRef(new Animated.Value(1)).current;
+  const expandAnim = useRef(new Animated.Value(0)).current;
 
   const { mood } = params;
 
