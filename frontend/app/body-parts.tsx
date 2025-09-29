@@ -334,7 +334,7 @@ export default function BodyPartsScreen() {
                             ]}>
                               <Ionicons 
                                 name={subOption.icon} 
-                                size={20} 
+                                size={18} 
                                 color={isSubSelected ? '#FFD700' : '#888'} 
                               />
                             </View>
