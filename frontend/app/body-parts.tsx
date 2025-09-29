@@ -253,18 +253,19 @@ export default function BodyPartsScreen() {
             const isExpanded = expandedBodyPart === bodyPart.name;
             
             return (
-              <View key={bodyPart.name} style={styles.bodyPartContainer}>
-                <Animated.View
-                  style={[
-                    { transform: [{ scale: scaleAnim }] }
-                  ]}
-                >
+              <Animated.View
+                key={bodyPart.name}
+                style={[
+                  styles.bodyPartCard,
+                  isSelected && styles.selectedBodyPartCard,
+                  isExpanded && styles.expandedBodyPartCard,
+                  { transform: [{ scale: scaleAnim }] }
+                ]}
+              >
+                {/* Regular body part content */}
+                {bodyPart.name !== 'Arms' || !isExpanded ? (
                   <TouchableOpacity
-                    style={[
-                      styles.bodyPartCard,
-                      isSelected && styles.selectedBodyPartCard,
-                      isExpanded && styles.expandedBodyPartCard
-                    ]}
+                    style={styles.bodyPartContent}
                     onPress={() => handleBodyPartSelect(bodyPart.name)}
                   >
                     <View style={[
@@ -297,75 +298,81 @@ export default function BodyPartsScreen() {
                     {bodyPart.name === 'Arms' && (
                       <View style={styles.expandIndicator}>
                         <Ionicons 
-                          name={isExpanded ? "chevron-up" : "chevron-down"} 
+                          name="chevron-down" 
                           size={16} 
-                          color={isExpanded ? "#FFD700" : "#999"} 
+                          color="#999" 
                         />
                       </View>
                     )}
                   </TouchableOpacity>
-
-                  {/* Sub-options for Arms */}
-                  {bodyPart.name === 'Arms' && bodyPart.subOptions && (
-                    <Animated.View
-                      style={[
-                        styles.subOptionsContainer,
-                        {
-                          height: expandAnim.interpolate({
-                            inputRange: [0, 1],
-                            outputRange: [0, 120], // Adjust height based on content
-                          }),
-                          opacity: expandAnim,
-                        }
-                      ]}
+                ) : (
+                  /* Arms expanded content - sub-options replace main content */
+                  <Animated.View
+                    style={[
+                      styles.expandedContent,
+                      {
+                        opacity: expandAnim,
+                      }
+                    ]}
+                  >
+                    {/* Header with back arrow */}
+                    <TouchableOpacity 
+                      style={styles.expandedHeader}
+                      onPress={() => handleBodyPartSelect('Arms')}
                     >
-                      {bodyPart.subOptions.map((subOption) => {
+                      <Ionicons name="chevron-back" size={16} color="#FFD700" />
+                      <Text style={styles.expandedHeaderText}>Arms</Text>
+                    </TouchableOpacity>
+                    
+                    {/* Sub-options within the same card */}
+                    <View style={styles.subOptionsInCard}>
+                      {bodyPart.subOptions?.map((subOption) => {
                         const isSubSelected = selectedSubOption === subOption.name;
                         return (
                           <TouchableOpacity
                             key={subOption.name}
                             style={[
-                              styles.subOptionCard,
-                              isSubSelected && styles.selectedSubOptionCard
+                              styles.inCardSubOption,
+                              isSubSelected && styles.selectedInCardSubOption
                             ]}
                             onPress={() => handleSubOptionSelect(subOption.name)}
                           >
                             <View style={[
-                              styles.subIconContainer,
-                              isSubSelected && styles.selectedSubIconContainer
+                              styles.inCardSubIcon,
+                              isSubSelected && styles.selectedInCardSubIcon
                             ]}>
                               <Ionicons 
                                 name={subOption.icon} 
-                                size={20} 
+                                size={18} 
                                 color={isSubSelected ? '#000' : '#FFD700'} 
                               />
                             </View>
-                            <View style={styles.subOptionTextContainer}>
+                            <View style={styles.inCardSubText}>
                               <Text style={[
-                                styles.subOptionName,
-                                isSubSelected && styles.selectedSubOptionName
+                                styles.inCardSubName,
+                                isSubSelected && styles.selectedInCardSubName
                               ]}>
                                 {subOption.name}
                               </Text>
                               <Text style={[
-                                styles.subOptionDescription,
-                                isSubSelected && styles.selectedSubOptionDescription
+                                styles.inCardSubDesc,
+                                isSubSelected && styles.selectedInCardSubDesc
                               ]}>
                                 {subOption.description}
                               </Text>
                             </View>
                             {isSubSelected && (
-                              <View style={styles.subCheckmark}>
-                                <Ionicons name="checkmark-circle" size={16} color="#000" />
+                              <View style={styles.inCardCheckmark}>
+                                <Ionicons name="checkmark-circle" size={14} color="#000" />
                               </View>
                             )}
                           </TouchableOpacity>
                         );
                       })}
-                    </Animated.View>
-                  )}
-                </Animated.View>
-              </View>
+                    </View>
+                  </Animated.View>
+                )}
+              </Animated.View>
             );
           })}
         </View>
