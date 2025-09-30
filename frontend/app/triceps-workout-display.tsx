@@ -39,91 +39,91 @@ interface EquipmentWorkouts {
   };
 }
 
-// Triceps workout database - starting with Dumbbell and more equipment to be added
+// Comprehensive triceps workout database with all 8 equipment types
 const tricepsWorkoutDatabase: EquipmentWorkouts[] = [
   {
-    equipment: 'Dumbbell',
+    equipment: 'Dumbbells',
     icon: 'barbell',
     workouts: {
       beginner: [
         {
-          name: 'DB Overhead Press',
+          name: 'Flat DB Ext',
           duration: '10–12 min',
-          description: 'Simple overhead tricep extension builds foundation',
-          battlePlan: '3 rounds\n• 10–12 Overhead Tricep Extensions\nRest 60–75s',
+          description: 'Lying dumbbell extensions build safe, strict strength',
+          battlePlan: '3 rounds\n• 10–12 Flat Bench DB Extensions\nRest 60–75s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8MVc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Teaches basic tricep control and form',
+          intensityReason: 'Stable flat bench isolates movement to triceps only',
           moodTips: [
             {
               icon: 'flash',
-              title: 'Keep elbows close to head',
-              description: 'Fixed elbow position isolates triceps effectively.'
+              title: 'Flat bench support reduces back strain and keeps core relaxed',
+              description: 'Lower DBs behind head for stretch, extend arms fully each rep.'
             },
             {
               icon: 'body',
-              title: 'Lower slowly, control the weight',
-              description: 'Slow eccentric builds strength and prevents injury.'
+              title: 'Keep elbows fixed upward, no drifting outward during press',
+              description: 'Fixed elbow position maximizes tricep isolation.'
             }
           ]
         },
         {
-          name: 'DB Kickbacks',
+          name: 'Incline DB Ext',
           duration: '10–12 min',
-          description: 'Kickbacks develop tricep isolation skills',
-          battlePlan: '3 rounds\n• 10–12 Tricep Kickbacks per arm\nRest 75s',
+          description: 'Extended angle overhead hits fibers more intensely',
+          battlePlan: '3 rounds\n• 10–12 Incline Overhead DB Extensions\nRest 75s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Bent-over position challenges stability and isolation',
+          intensityReason: 'Incline bench increases stretch on long triceps head',
           moodTips: [
             {
-              icon: 'hand-left',
-              title: 'Keep upper arm parallel to floor',
-              description: 'Stable upper arm maximizes tricep activation.'
+              icon: 'body',
+              title: 'Incline bench places arms behind torso for deeper stretch',
+              description: 'Keep elbows fixed upward, no drifting outward during press.'
             },
             {
               icon: 'timer',
-              title: 'Squeeze at full extension',
-              description: 'Peak contraction builds muscle definition.'
+              title: 'Control descent 3s, then snap lockout for crisp contraction',
+              description: 'Controlled eccentric movement builds strength and prevents injury.'
             }
           ]
         }
       ],
       intermediate: [
         {
-          name: 'Close-Grip Press',
+          name: 'Eccentric Incline Ext',
           duration: '12–14 min',
-          description: 'Close-grip press builds pressing power',
-          battlePlan: '4 rounds\n• 8–10 Close-Grip DB Press\nRest 75–90s',
+          description: 'Incline bench enhances stretch with eccentric focus',
+          battlePlan: '4 rounds\n• 8–10 Incline Overhead DB Extensions (3s eccentric)\nRest 75–90s',
           imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Close grip emphasizes tricep engagement over chest',
+          intensityReason: 'Three second negatives reinforce hypertrophy load',
           moodTips: [
             {
-              icon: 'refresh',
-              title: 'Keep dumbbells touching',
-              description: 'Narrow grip targets triceps more effectively.'
+              icon: 'flash',
+              title: 'Use incline bench to safely deepen long head under load',
+              description: 'Control descent 3s, then snap lockout for crisp contraction.'
             },
             {
-              icon: 'body',
-              title: 'Lower to chest, press straight up',
-              description: 'Full range of motion maximizes development.'
+              icon: 'shield',
+              title: 'Pause 1–2s at bottom before powering extension upward',
+              description: 'Stable torso ensures triceps handle all resistance.'
             }
           ]
         },
         {
-          name: 'Skull Crushers',
+          name: 'Pause Skull Crusher',
           duration: '12–14 min',
-          description: 'Lying extensions focus on tricep stretch',
-          battlePlan: '3 rounds\n• 8 DB Skull Crushers (3s eccentric)\nRest 90s',
+          description: 'Incline position plus pause extends hypertrophy work',
+          battlePlan: '3 rounds\n• 8–10 Incline Skull Crushers w/2s Pause\nRest 75–90s',
           imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
-          intensityReason: 'Long muscle stretch increases hypertrophy stimulus',
+          intensityReason: 'Skull crushers with pause build stronger end range',
           moodTips: [
             {
-              icon: 'flash',
-              title: 'Lower to forehead level, not past',
-              description: 'Controlled range protects elbows and maximizes tension.'
+              icon: 'timer',
+              title: 'Incline bench increases elbow flex angle for greater loading',
+              description: 'Pause 1–2s at bottom before powering extension upward.'
             },
             {
               icon: 'fitness',
-              title: 'Keep elbows stationary',
+              title: 'Switch quickly to keep constant pressure on muscles',
               description: 'Fixed elbows ensure triceps do all the work.'
             }
           ]
@@ -131,42 +131,42 @@ const tricepsWorkoutDatabase: EquipmentWorkouts[] = [
       ],
       advanced: [
         {
-          name: 'Tricep Complex',
+          name: 'Ext Superset',
           duration: '14–16 min',
-          description: 'Multi-angle tricep combination for complete development',
-          battlePlan: '4 rounds\n• 8 Overhead Extensions\nRest 60s\n• 8 Skull Crushers\nRest 90s',
+          description: 'Two extension positions maximize complete training',
+          battlePlan: '4 rounds\n• 8 Flat DB Extensions\nRest 60s\n• 8 Incline Skull Crushers\nRest 75–90s',
           imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmc&ZW54MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Two angles target all tricep heads completely',
+          intensityReason: 'Flat and incline superset hits triceps from angles',
           moodTips: [
             {
               icon: 'shield',
-              title: 'Maintain form through fatigue',
-              description: 'Quality reps trump quantity for muscle growth.'
+              title: 'Flat bench = stability; incline = deeper stretch and fiber hit',
+              description: 'Switch quickly to keep constant pressure on muscles.'
             },
             {
               icon: 'flash',
-              title: 'Focus on tricep stretch and squeeze',
+              title: 'Keep elbows locked narrow both variations',
               description: 'Feel the muscle working through full range.'
             }
           ]
         },
         {
-          name: 'Tricep Burnout',
+          name: 'Iso Burn Ext',
           duration: '16–18 min',
-          description: 'High-volume tricep destruction for advanced trainees',
-          battlePlan: '4 rounds\n• 8 Close-Grip Press\n• Immediately 8 Overhead Extensions\n• End with 8 Kickbacks\nRest 120s',
+          description: 'Incline curl then isometric hold finishes triceps hard',
+          battlePlan: '4 rounds\n• 8 Incline Overhead Extensions (3s eccentric)\n• 8 Incline Skull Crushers\n• End with 10s Hold Mid Rep\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Triple-set creates maximum metabolic stress',
+          intensityReason: 'Superset with eccentric and iso hold maximizes load',
           moodTips: [
             {
               icon: 'timer',
-              title: 'No rest between exercises in set',
-              description: 'Continuous tension maximizes muscle fatigue.'
+              title: 'Combine deep incline stretch with slow eccentric lowering',
+              description: 'Finish every round with a 10s mid extension iso hold.'
             },
             {
               icon: 'flame',
-              title: 'Push through the burn sensation',
-              description: 'Mental toughness through lactic acid builds strength.'
+              title: 'Control bar path entire round',
+              description: 'Mental toughness through metabolic stress builds strength.'
             }
           ]
         }
@@ -174,46 +174,46 @@ const tricepsWorkoutDatabase: EquipmentWorkouts[] = [
     }
   },
   {
-    equipment: 'Kettle bell',
+    equipment: 'Kettlebells',
     icon: 'diamond',
     workouts: {
       beginner: [
         {
-          name: 'KB Floor Press',
+          name: 'Flat KB Ext',
           duration: '10–12 min',
-          description: 'Floor press limits range for safe learning',
-          battlePlan: '3 rounds\n• 10–12 Kettlebell Floor Press\nRest 60–75s',
+          description: 'Beginner kettlebell extensions build pressing base',
+          battlePlan: '3 rounds\n• 10–12 Flat Bench KB Extensions\nRest 60–75s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8MVc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Floor limits range for beginner safety',
+          intensityReason: 'Flat bench keeps posture stable, isolating triceps',
           moodTips: [
             {
               icon: 'hand-left',
-              title: 'Grip handle, let bell rest on forearm',
-              description: 'Natural kettlebell position for stable pressing.'
+              title: 'Flat bench stability prevents arching and strict isolates arms',
+              description: 'Lower bell behind head, drive up until full elbow lockout.'
             },
             {
               icon: 'body',
-              title: 'Press straight up from floor position',
-              description: 'Floor contact prevents overextension and injury.'
+              title: 'Keep elbows aligned upward, resist flaring outward',
+              description: 'Fixed elbow position despite challenging grip.'
             }
           ]
         },
         {
-          name: 'KB Overhead Hold',
+          name: 'Incline KB Ext',
           duration: '10–12 min',
-          description: 'Static holds build tricep endurance',
-          battlePlan: '3 rounds\n• 20-30s Overhead Hold per arm\nRest 75s',
+          description: 'Incline position loads arms with deeper extension',
+          battlePlan: '3 rounds\n• 10–12 Incline Overhead KB Extensions\nRest 75s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Isometric loading builds stability and endurance',
+          intensityReason: 'Incline angle extends stretch on long triceps head',
           moodTips: [
             {
               icon: 'timer',
-              title: 'Keep arm locked overhead',
-              description: 'Triceps work constantly to maintain position.'
+              title: 'Incline back support creates longer lever for muscle growth',
+              description: 'Keep elbows aligned upward, resist flaring outward.'
             },
             {
               icon: 'fitness',
-              title: 'Engage core for stability',
+              title: 'Keep shoulders still, only forearms hinge during rep',
               description: 'Full body tension supports arm position.'
             }
           ]
@@ -221,59 +221,59 @@ const tricepsWorkoutDatabase: EquipmentWorkouts[] = [
       ],
       intermediate: [
         {
-          name: 'KB Bottom-Up Press',
+          name: 'Eccentric Ext',
           duration: '12–14 min',
-          description: 'Bottom-up grip challenges stability and control',
-          battlePlan: '4 rounds\n• 6-8 Bottom-Up Press per arm\nRest 90s',
+          description: 'Controlled eccentrics optimize fiber recruitment',
+          battlePlan: '4 rounds\n• 8–10 Incline KB Extensions (3s eccentric)\nRest 75–90s',
           imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Inverted grip demands maximum stability',
+          intensityReason: 'Slow negatives increase hypertrophy efficiency',
           moodTips: [
             {
               icon: 'flash',
-              title: 'Grip tight, keep bell balanced',
-              description: 'Intense grip strength required for control.'
+              title: 'Use incline for safer elbow line, stretch 3s on descent',
+              description: 'Keep shoulders still, only forearms hinge during rep.'
             },
             {
-              icon: 'body',
-              title: 'Press slowly, maintain balance',
-              description: 'Speed kills balance - control is everything.'
+              icon: 'shield',
+              title: 'Keep grip neutral, wrists aligned with elbows fully',
+              description: 'Control the bell behind head - kettlebell weight shifts require extra control.'
             }
           ]
         },
         {
-          name: 'KB Tricep Extensions',
+          name: 'Pause Crusher',
           duration: '12–14 min',
-          description: 'Overhead extensions with kettlebell challenge',
-          battlePlan: '3 rounds\n• 8-10 KB Overhead Extensions\nRest 90s',
+          description: 'Incline crusher with pause stresses long head more',
+          battlePlan: '3 rounds\n• 8–10 Incline KB Skull Crushers (2s pause)\nRest 75–90s',
           imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
-          intensityReason: 'Awkward weight distribution increases difficulty',
+          intensityReason: 'Pausing at stretch prolongs muscular demand',
           moodTips: [
             {
-              icon: 'shield',
-              title: 'Control the bell behind head',
-              description: 'Kettlebell weight shifts require extra control.'
+              icon: 'timer',
+              title: 'Pause 1–2s at bottom increases tension and control',
+              description: 'Keep grip neutral, wrists aligned with elbows fully.'
             },
             {
-              icon: 'flash',
-              title: 'Keep elbows pointing forward',
-              description: 'Fixed elbow position despite challenging grip.'
+              icon: 'fitness',
+              title: 'Move quickly bench to bench for constant pressure',
+              description: 'Fixed elbow position ensures tricep isolation.'
             }
           ]
         }
       ],
       advanced: [
         {
-          name: 'KB Press Complex',
+          name: 'KB Ext Superset',
           duration: '14–16 min',
-          description: 'Multiple kettlebell pressing angles for complete development',
-          battlePlan: '4 rounds\n• 6 Bottom-Up Press\nRest 60s\n• 8 Overhead Extensions\nRest 90s',
+          description: 'Flat plus incline overloads fibers across ranges',
+          battlePlan: '4 rounds\n• 8 Flat KB Extensions\n• 8 Incline KB Skull Crushers\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmc&ZW44MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Combines stability and isolation challenges',
+          intensityReason: 'Superset angles maximize triceps hypertrophy',
           moodTips: [
             {
               icon: 'construct',
-              title: 'Master each movement separately first',
-              description: 'Complex requires individual exercise proficiency.'
+              title: 'Move quickly bench to bench for constant pressure',
+              description: 'Flat = stability, incline = deep stretch.'
             },
             {
               icon: 'fitness',
@@ -283,21 +283,21 @@ const tricepsWorkoutDatabase: EquipmentWorkouts[] = [
           ]
         },
         {
-          name: 'KB Tricep Gauntlet',
+          name: 'Eccentric + Iso',
           duration: '16–18 min',
-          description: 'Ultimate kettlebell tricep endurance challenge',
-          battlePlan: '4 rounds\n• 6 Bottom-Up Press\n• Immediately 8 Extensions\n• End with 20s Overhead Hold\nRest 120s',
+          description: 'Combo layering builds fibers toward failure',
+          battlePlan: '4 rounds\n• 8 Incline KB Extensions (3s eccentric)\n• 8 Incline KB Skull Crushers\n• End with 10s Iso Hold Mid Rep\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Triple challenge tests strength, stability, endurance',
+          intensityReason: 'Negatives plus holds prolong hypertrophy stress',
           moodTips: [
             {
               icon: 'timer',
-              title: 'No rest between exercises',
-              description: 'Continuous work maximizes adaptation stimulus.'
+              title: 'Descend slowly, finish with 10s mid rep hold',
+              description: 'Incline support ensures safe stretch depth at long head.'
             },
             {
               icon: 'flame',
-              title: 'Embrace the challenge',
+              title: 'No rest between exercises',
               description: 'Advanced training requires mental fortitude.'
             }
           ]
@@ -306,42 +306,174 @@ const tricepsWorkoutDatabase: EquipmentWorkouts[] = [
     }
   },
   {
-    equipment: 'EZ bar',
+    equipment: 'EZ Bar',
     icon: 'remove',
     workouts: {
       beginner: [
         {
-          name: 'EZ Skull Crushers',
+          name: 'Flat EZ Ext',
           duration: '10–12 min',
-          description: 'Wrist-friendly tricep extensions for beginners',
-          battlePlan: '3 rounds\n• 10–12 EZ Bar Skull Crushers\nRest 60–75s',
+          description: 'Lying EZ extensions target long head efficiently',
+          battlePlan: '3 rounds\n• 10–12 Flat Bench EZ Extensions\nRest 60–75s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8MVc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Angled grip reduces wrist strain for beginners',
+          intensityReason: 'Flat bench setup teaches safer pushing mechanics',
           moodTips: [
             {
               icon: 'hand-left',
-              title: 'Use angled grip naturally',
-              description: 'EZ bar curve matches natural wrist position.'
+              title: 'Flat support reduces arching, focusing stress on arms',
+              description: 'Lower EZ bar slowly, extend overhead in a straight track.'
             },
             {
               icon: 'body',
-              title: 'Lower to forehead, not past',
-              description: 'Safe range protects joints while targeting triceps.'
+              title: 'Wrists stay neutral, elbows drive straight upward',
+              description: 'EZ bar curve matches natural wrist position.'
             }
           ]
         },
         {
-          name: 'EZ Close-Grip Press',
+          name: 'Incline EZ Ext',
           duration: '10–12 min',
-          description: 'Close-grip pressing with comfortable wrist angle',
-          battlePlan: '3 rounds\n• 10 EZ Close-Grip Press\nRest 75s',
+          description: 'EZ bar incline extension builds deeper triceps load',
+          battlePlan: '3 rounds\n• 10–12 Incline EZ Extensions\nRest 75s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Beginner-friendly compound tricep movement',
+          intensityReason: 'Incline increases long head activation via angle',
           moodTips: [
             {
               icon: 'fitness',
-              title: 'Hands closer than shoulder-width',
-              description: 'Close grip emphasizes triceps over chest.'
+              title: 'Incline position intensifies stretch tension safely',
+              description: 'Wrists stay neutral, elbows drive straight upward.'
+            },
+            {
+              icon: 'flash',
+              title: 'Keep elbows tight, no shoulder involvement',
+              description: 'Steady press pattern builds consistent strength.'
+            }
+          ]
+        }
+      ],
+      intermediate: [
+        {
+          name: 'EZ Crushers',
+          duration: '12–14 min',
+          description: 'Benchmark triceps builder with strict execution',
+          battlePlan: '4 rounds\n• 8–10 EZ Skull Crushers\nRest 75–90s',
+          imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Skull crushers stretch and contract muscle fully',
+          moodTips: [
+            {
+              icon: 'body',
+              title: 'With flat bench, lower bar near forehead for line',
+              description: 'Keep elbows tight, no shoulder involvement.'
+            },
+            {
+              icon: 'trending-up',
+              title: 'Lower bar over 3s, press up without bouncing',
+              description: 'Control the stretch for safety and effectiveness.'
+            }
+          ]
+        },
+        {
+          name: 'Eccentric Crushers',
+          duration: '12–14 min',
+          description: 'Negatives extend overall time under triceps tension',
+          battlePlan: '3 rounds\n• 8 EZ Skull Crushers (3s eccentric)\nRest 75–90s',
+          imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
+          intensityReason: '3s lower phase increases hypertrophy precision',
+          moodTips: [
+            {
+              icon: 'timer',
+              title: 'Lower bar over 3s, press up without bouncing',
+              description: 'Incline bench option deepens long head involvement.'
+            },
+            {
+              icon: 'shield',
+              title: 'Keep elbows locked narrow both variations',
+              description: 'Never let the weight drop or bounce.'
+            }
+          ]
+        }
+      ],
+      advanced: [
+        {
+          name: 'Ext Superset',
+          duration: '14–16 min',
+          description: 'Combo adds angles for complete triceps overload',
+          battlePlan: '4 rounds\n• 8 Flat EZ Extensions\n• 8 Incline EZ Extensions\nRest 90s',
+          imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmc&ZW54MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Pair flat extension with incline for volume boost',
+          moodTips: [
+            {
+              icon: 'refresh',
+              title: 'Perform flat reps strict, hit incline immediately',
+              description: 'Keep elbows locked narrow both variations.'
+            },
+            {
+              icon: 'fitness',
+              title: 'Control bar path entire round',
+              description: 'Each angle hits triceps differently.'
+            }
+          ]
+        },
+        {
+          name: 'Crusher Burnout',
+          duration: '16–18 min',
+          description: 'Burnout ends with static hold for max triceps fatigue',
+          battlePlan: '4 rounds\n• 8 Incline EZ Skull Crushers\n• 8 Flat EZ Extensions\n• End with 10s Iso Hold Mid Rep\nRest 90s',
+          imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Multi set pairing with iso hold taxes endurance',
+          moodTips: [
+            {
+              icon: 'flame',
+              title: 'Final rep: hold halfway down for 10s',
+              description: 'Control bar path entire round.'
+            },
+            {
+              icon: 'body',
+              title: 'Listen to your body',
+              description: 'Stop if form breaks down significantly.'
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    equipment: 'Cable Machine',
+    icon: 'swap-vertical',
+    workouts: {
+      beginner: [
+        {
+          name: 'Rope Pushdowns',
+          duration: '10–12 min',
+          description: 'Rope attachment separates arms, isolates better',
+          battlePlan: '3 rounds\n• 10–12 Rope Pushdowns\nRest 60–75s',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8MVc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Pushdowns teach elbow lockout form safely',
+          moodTips: [
+            {
+              icon: 'hand-left',
+              title: 'Keep elbows tight; only forearms hinge down',
+              description: 'Spread rope ends apart fully at lockout.'
+            },
+            {
+              icon: 'body',
+              title: 'Upright stance, elbows glued to ribcage',
+              description: 'Full lockout down, slow reset up.'
+            }
+          ]
+        },
+        {
+          name: 'Straight Bar Push',
+          duration: '10–12 min',
+          description: 'Bar option builds controlled starting triceps form',
+          battlePlan: '3 rounds\n• 10–12 Straight Bar Pushdowns\nRest 75s',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Straight bar teaches strict downward extension',
+          moodTips: [
+            {
+              icon: 'fitness',
+              title: 'Upright stance, elbows glued to ribcage',
+              description: 'Full lockout down, slow reset up.'
             },
             {
               icon: 'flash',
@@ -353,59 +485,59 @@ const tricepsWorkoutDatabase: EquipmentWorkouts[] = [
       ],
       intermediate: [
         {
-          name: 'EZ Overhead Extensions',
+          name: 'Overhead Rope Ext',
           duration: '12–14 min',
-          description: 'Standing overhead extensions for full tricep stretch',
-          battlePlan: '4 rounds\n• 8–10 EZ Overhead Extensions\nRest 75–90s',
+          description: 'Rope overhead creates long head hypertrophy focus',
+          battlePlan: '4 rounds\n• 8–10 Overhead Rope Extensions\nRest 75–90s',
           imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Standing position challenges core stability',
+          intensityReason: 'Overhead path lengthens triceps time under load',
           moodTips: [
             {
               icon: 'body',
-              title: 'Keep elbows close to head',
-              description: 'Fixed elbows maximize tricep isolation.'
+              title: 'Step away, lean slightly forward for tension',
+              description: 'Elbows remain by ears, press rope forward/up.'
             },
             {
               icon: 'trending-up',
-              title: 'Lower bar behind head carefully',
+              title: 'Keep constant rope tension, no slack',
               description: 'Control the stretch for safety and effectiveness.'
             }
           ]
         },
         {
-          name: 'EZ Negative Focus',
+          name: 'Negative Pushdown',
           duration: '12–14 min',
-          description: 'Slow eccentric emphasis for strength building',
-          battlePlan: '3 rounds\n• 8 EZ Skull Crushers (4s eccentric)\nRest 90s',
+          description: 'Slow eccentrics keep stack tension constant longer',
+          battlePlan: '3 rounds\n• 8 Cable Pushdowns (3s eccentric)\nRest 75–90s',
           imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
-          intensityReason: 'Extended eccentric maximizes muscle damage',
+          intensityReason: '3s lowering phase enhances cable tension output',
           moodTips: [
             {
               icon: 'timer',
-              title: 'Count 4 seconds on the way down',
-              description: 'Slow negatives build exceptional strength.'
+              title: 'Press down firmly, return bar in 3 slow seconds',
+              description: 'Keep stack plates off rest between reps.'
             },
             {
-              icon: 'shield',
-              title: 'Stay in control throughout',
-              description: 'Never let the weight drop or bounce.'
+              icon: 'fitness',
+              title: 'Elbows fixed at torso sides',
+              description: 'Stable elbow position ensures tricep isolation.'
             }
           ]
         }
       ],
       advanced: [
         {
-          name: 'EZ Tri-Set',
+          name: 'Rope + Bar Combo',
           duration: '14–16 min',
-          description: 'Three EZ bar exercises back-to-back for overload',
-          battlePlan: '4 rounds\n• 8 Skull Crushers\nRest 60s\n• 8 Overhead Extensions\nRest 90s',
+          description: 'Superset challenges both control and arm strength',
+          battlePlan: '4 rounds\n• 8 Rope Pushdowns\n• 8 Straight Bar Pushdowns\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmc&ZW54MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Multiple angles exhaust triceps completely',
+          intensityReason: 'Pair grips for full fiber recruitment and volume',
           moodTips: [
             {
-              icon: 'refresh',
-              title: 'Switch angles but maintain intensity',
-              description: 'Each angle hits triceps differently.'
+              icon: 'hand-left',
+              title: 'Rope flare trains outer head, bar keeps line strict',
+              description: 'Transition smooth, elbows never leave side.'
             },
             {
               icon: 'fitness',
@@ -415,22 +547,550 @@ const tricepsWorkoutDatabase: EquipmentWorkouts[] = [
           ]
         },
         {
-          name: 'EZ Tricep Finisher',
+          name: 'Overhead Iso Burn',
           duration: '16–18 min',
-          description: 'Ultimate EZ bar tricep exhaustion protocol',
-          battlePlan: '4 rounds\n• 8 Close-Grip Press\n• Immediately 8 Skull Crushers\n• End with 6 Overhead Extensions\nRest 120s',
+          description: 'Rope overhead extension plus hold maximizes stress',
+          battlePlan: '4 rounds\n• 8 Overhead Rope Extensions\n• End each with 10s Hold Mid Rep\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Triple-stack maximally fatigues all tricep heads',
+          intensityReason: 'Overhead with timeout hold creates total fatigue',
           moodTips: [
+            {
+              icon: 'timer',
+              title: 'Hold halfway extended for 10s each superset',
+              description: 'Keep slight lean to maintain line of pull.'
+            },
             {
               icon: 'flame',
               title: 'No rest between movements',
               description: 'Continuous work for maximum growth stimulus.'
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    equipment: 'Cable Crossover Machine',
+    icon: 'reorder-three',
+    workouts: {
+      beginner: [
+        {
+          name: 'Rope Pushdown',
+          duration: '10–12 min',
+          description: 'Rope attachment builds triceps with simple tension',
+          battlePlan: '3 rounds\n• 10–12 Rope Pushdowns\nRest 60–75s',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8MVc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Rope pushdowns teach elbow stability and control',
+          moodTips: [
+            {
+              icon: 'hand-left',
+              title: 'Spread rope ends apart at bottom lockout',
+              description: 'Keep elbows locked by torso, no flaring.'
             },
             {
               icon: 'body',
-              title: 'Listen to your body',
-              description: 'Stop if form breaks down significantly.'
+              title: 'Step forward, lean slightly for rope clearance',
+              description: 'Keep elbows fixed toward ceiling, extend fully.'
+            }
+          ]
+        },
+        {
+          name: 'Overhead Rope Ext',
+          duration: '10–12 min',
+          description: 'Cable overhead isolates stretch for stronger arms',
+          battlePlan: '3 rounds\n• 10–12 Overhead Rope Extensions\nRest 75s',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Overhead cable path increases long head tension',
+          moodTips: [
+            {
+              icon: 'timer',
+              title: 'Step forward, lean slightly for rope clearance',
+              description: 'Keep elbows fixed toward ceiling, extend fully.'
+            },
+            {
+              icon: 'fitness',
+              title: 'Brace forward lean to prevent back strain',
+              description: 'Full body tension supports arm position.'
+            }
+          ]
+        }
+      ],
+      intermediate: [
+        {
+          name: 'Overhead Bar Ext',
+          duration: '12–14 min',
+          description: 'Straight bar hits triceps with longer stretch angle',
+          battlePlan: '4 rounds\n• 8–10 Overhead Bar Extensions\nRest 75–90s',
+          imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Bar overhead creates continuous long head stress',
+          moodTips: [
+            {
+              icon: 'body',
+              title: 'Position hands shoulder width on bar',
+              description: 'Brace forward lean to prevent back strain.'
+            },
+            {
+              icon: 'trending-up',
+              title: 'Extend quickly, return rope over 3s',
+              description: 'Keep constant rope tension, no slack.'
+            }
+          ]
+        },
+        {
+          name: 'Negative Rope Ext',
+          duration: '12–14 min',
+          description: 'Slow eccentric rope reps increase hypertrophy load',
+          battlePlan: '3 rounds\n• 8 Rope Overhead Extensions (3s eccentric)\nRest 75–90s',
+          imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
+          intensityReason: 'Three second lowers extend constant cable time',
+          moodTips: [
+            {
+              icon: 'timer',
+              title: 'Extend quickly, return rope over 3s',
+              description: 'Keep constant rope tension, no slack.'
+            },
+            {
+              icon: 'fitness',
+              title: 'Keep constant rope tension, no slack',
+              description: 'Stable elbow position ensures tricep isolation.'
+            }
+          ]
+        }
+      ],
+      advanced: [
+        {
+          name: 'Rope + Bar Combo',
+          duration: '14–16 min',
+          description: 'Superset strategy hits triceps with extra volume',
+          battlePlan: '4 rounds\n• 8 Rope Overhead Extensions\n• 8 Bar Overhead Extensions\nRest 90s',
+          imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmc&ZW54MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Two grips build variety across pushdown fibers',
+          moodTips: [
+            {
+              icon: 'refresh',
+              title: 'Rope fully flared, bar strict and straight',
+              description: 'Minimal rest between switches.'
+            },
+            {
+              icon: 'fitness',
+              title: 'Focus on form as fatigue builds',
+              description: 'Each angle hits triceps differently.'
+            }
+          ]
+        },
+        {
+          name: 'Overhead 21s',
+          duration: '16–18 min',
+          description: 'Overhead 21 style burns fibers through completion',
+          battlePlan: '3 rounds\n• 7 Bottom Half Reps\n• 7 Top Half Reps\n• 7 Full Range Reps\nRest 90s',
+          imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Seven seven seven partials overload triceps range',
+          moodTips: [
+            {
+              icon: 'timer',
+              title: 'Control half reps, don\'t rush transitions',
+              description: 'Keep elbows high, upper arms locked in.'
+            },
+            {
+              icon: 'trending-up',
+              title: 'Keep elbows high, upper arms locked in',
+              description: 'Control movement through each range.'
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    equipment: 'Triceps Pushdown Machine',
+    icon: 'fitness',
+    workouts: {
+      beginner: [
+        {
+          name: 'Machine Pushdown',
+          duration: '10–12 min',
+          description: 'Basic guided pushdowns strengthen pressing muscles',
+          battlePlan: '3 rounds\n• 10–12 Machine Pushdowns\nRest 60–75s',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8MVc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Fixed path helps learn stable elbow positioning',
+          moodTips: [
+            {
+              icon: 'fitness',
+              title: 'Sit upright, grip handles firm and neutral',
+              description: 'Extend fully down, don\'t lift shoulders.'
+            },
+            {
+              icon: 'hand-left',
+              title: 'Keep elbows pressed tight inward',
+              description: 'Proper posture and grip maximize effectiveness.'
+            }
+          ]
+        },
+        {
+          name: 'Pause Pushdown',
+          duration: '10–12 min',
+          description: 'Hold at bottom teaches contraction and stability',
+          battlePlan: '3 rounds\n• 10 Machine Pushdowns (1–2s pause)\nRest 75s',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Paused lockout adds control and clear tension',
+          moodTips: [
+            {
+              icon: 'timer',
+              title: 'Hold contraction 1–2s at lockout',
+              description: 'Keep elbows pressed tight inward.'
+            },
+            {
+              icon: 'trending-down',
+              title: 'Control return phase',
+              description: 'Slow negative enhances muscle development.'
+            }
+          ]
+        }
+      ],
+      intermediate: [
+        {
+          name: 'Heavy Pushdown',
+          duration: '12–14 min',
+          description: 'Solid heavy machine sets grow triceps size fast',
+          battlePlan: '4 rounds\n• 8–10 Heavy Pushdowns\nRest 75–90s',
+          imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Heavier loading promotes hypertrophy safely',
+          moodTips: [
+            {
+              icon: 'fitness',
+              title: 'Increase load slowly, keep range strict',
+              description: 'Don\'t jerk stack, smooth rep flow.'
+            },
+            {
+              icon: 'refresh',
+              title: 'Perform with steady rhythm',
+              description: 'Consistent tempo maximizes muscle engagement.'
+            }
+          ]
+        },
+        {
+          name: 'Negative Pushdown',
+          duration: '12–14 min',
+          description: 'Controlled negatives drive growth stimulation',
+          battlePlan: '3 rounds\n• 8 Negative Machine Pushdowns\nRest 75–90s',
+          imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
+          intensityReason: 'Slow 3s return emphasizes eccentric overload',
+          moodTips: [
+            {
+              icon: 'timer',
+              title: 'Lower weight under strict 3s control',
+              description: 'Keep stack engaged, no rest mid set.'
+            },
+            {
+              icon: 'fitness',
+              title: 'Keep pads tight to arms',
+              description: 'Proper pad contact ensures safety and isolation.'
+            }
+          ]
+        }
+      ],
+      advanced: [
+        {
+          name: 'Drop Set Pushdowns',
+          duration: '14–16 min',
+          description: 'Reduce weight in quick steps to extend tension',
+          battlePlan: '4 rounds\n• 8 Heavy Pushdowns\n• Drop 20% → 8 More Reps\nRest 90s',
+          imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmc&ZW44MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Drops increase fatigue and hypertrophy workload',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Strip weight quickly after set',
+              description: 'Maintain range, never shorten strokes.'
+            },
+            {
+              icon: 'trending-up',
+              title: 'Keep reps smooth each drop',
+              description: 'Maintain form through all weight reductions.'
+            }
+          ]
+        },
+        {
+          name: 'Pushdown Iso Burn',
+          duration: '16–18 min',
+          description: 'Burnout with iso hold maximizes arm endurance',
+          battlePlan: '4 rounds\n• 8 Pushdowns\n• End each with 10s Iso Hold\nRest 90s',
+          imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Static finish creates greater fiber recruitment',
+          moodTips: [
+            {
+              icon: 'timer',
+              title: 'Hold at lockout for 10s after last rep',
+              description: 'Keep shoulders relaxed, arms straight.'
+            },
+            {
+              icon: 'shield',
+              title: 'Control the weight throughout entire range',
+              description: 'Maintain form through metabolic stress.'
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    equipment: 'Dip Station / Machine',
+    icon: 'remove',
+    workouts: {
+      beginner: [
+        {
+          name: 'Assisted Dips',
+          duration: '10–12 min',
+          description: 'Builds pressing power with reduced bodyweight load',
+          battlePlan: '3 rounds\n• 6–8 Assisted Dips\nRest 60–75s',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8MVc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Assistance teaches proper form and depth safely',
+          moodTips: [
+            {
+              icon: 'body',
+              title: 'Keep torso vertical for max triceps',
+              description: 'Lower under control, don\'t bounce.'
+            },
+            {
+              icon: 'hand-left',
+              title: 'Hands behind hips, elbows drive straight back',
+              description: 'Don\'t let shoulders shrug, torso stays tall.'
+            }
+          ]
+        },
+        {
+          name: 'Bench Dips',
+          duration: '10–12 min',
+          description: 'Simple bench dip strengthens arms with low setup',
+          battlePlan: '3 rounds\n• 8–10 Bench Dips\nRest 75s',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Bench setup improves stability via shorter lever',
+          moodTips: [
+            {
+              icon: 'timer',
+              title: 'Hands behind hips, elbows drive straight back',
+              description: 'Don\'t let shoulders shrug, torso stays tall.'
+            },
+            {
+              icon: 'fitness',
+              title: 'Stay upright for triceps, no leaning forward',
+              description: 'Bend to 90° elbow, press back up strong.'
+            }
+          ]
+        }
+      ],
+      intermediate: [
+        {
+          name: 'Parallel Dips',
+          duration: '12–14 min',
+          description: 'Strict parallel bar dips overload pressing muscles',
+          battlePlan: '4 rounds\n• 6–8 Parallel Bar Dips\nRest 75–90s',
+          imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Bodyweight dips build compound triceps strength',
+          moodTips: [
+            {
+              icon: 'body',
+              title: 'Stay upright for triceps, no leaning forward',
+              description: 'Bend to 90° elbow, press back up strong.'
+            },
+            {
+              icon: 'trending-up',
+              title: 'Lower slowly for 3s each rep',
+              description: 'Press up fast, don\'t swing legs.'
+            }
+          ]
+        },
+        {
+          name: 'Dip Negatives',
+          duration: '12–14 min',
+          description: 'Dip negatives accelerate strength and growth gains',
+          battlePlan: '3 rounds\n• 6 Negative Dips (3s descent)\nRest 75–90s',
+          imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
+          intensityReason: '3s controlled descent creates heavy eccentric load',
+          moodTips: [
+            {
+              icon: 'timer',
+              title: 'Lower slowly for 3s each rep',
+              description: 'Press up fast, don\'t swing legs.'
+            },
+            {
+              icon: 'shield',
+              title: 'Control descent, never overload reps',
+              description: 'Smooth transition prevents joint stress.'
+            }
+          ]
+        }
+      ],
+      advanced: [
+        {
+          name: 'Weighted Dips',
+          duration: '14–16 min',
+          description: 'Weighted dipping expands pressing endurance power',
+          battlePlan: '4 rounds\n• 6–8 Weighted Dips\nRest 90s',
+          imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmc&ZW44MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Added external load enhances triceps hypertrophy',
+          moodTips: [
+            {
+              icon: 'construct',
+              title: 'Add plates via belt, keep body upright',
+              description: 'Control descent, never overload reps.'
+            },
+            {
+              icon: 'fitness',
+              title: 'Control descent, never overload reps',
+              description: 'Quality reps more important than quantity.'
+            }
+          ]
+        },
+        {
+          name: 'Dip + Hold',
+          duration: '16–18 min',
+          description: 'Weighted or strict dips end with static position hold',
+          battlePlan: '4 rounds\n• 6–8 Dips (bodyweight or weighted)\n• End with 10s Iso Hold\nRest 90s',
+          imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Iso hold at midpoint deepens muscular fatigue',
+          moodTips: [
+            {
+              icon: 'timer',
+              title: 'Hold halfway down for 10s at last rep',
+              description: 'Elbows aligned straight back, chest tall.'
+            },
+            {
+              icon: 'flame',
+              title: 'Elbows aligned straight back, chest tall',
+              description: 'Advanced training requires mental fortitude.'
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    equipment: 'TRX Bands',
+    icon: 'link',
+    workouts: {
+      beginner: [
+        {
+          name: 'TRX Pushdown',
+          duration: '10–12 min',
+          description: 'Easy scale body angle to increase or reduce load',
+          battlePlan: '3 rounds\n• 10–12 TRX Pushdowns\nRest 60–75s',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8MVc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Body angled band push teaches triceps extension',
+          moodTips: [
+            {
+              icon: 'hand-left',
+              title: 'Step forward deeper for more resistance',
+              description: 'Keep elbows pinned, hinge only forearms.'
+            },
+            {
+              icon: 'body',
+              title: 'Control rope tension across full rep',
+              description: 'Fixed elbow position maximizes tricep isolation.'
+            }
+          ]
+        },
+        {
+          name: 'TRX Overhead Ext',
+          duration: '10–12 min',
+          description: 'Overhead TRX extension increases stretch safely',
+          battlePlan: '3 rounds\n• 10–12 TRX Overhead Extensions\nRest 75s',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Lean forward position stretches tricep long head',
+          moodTips: [
+            {
+              icon: 'timer',
+              title: 'Lean slightly forward, keep arms overhead',
+              description: 'Control rope tension across full rep.'
+            },
+            {
+              icon: 'fitness',
+              title: 'Don\'t let straps slack mid rep',
+              description: 'Full body tension supports arm position.'
+            }
+          ]
+        }
+      ],
+      intermediate: [
+        {
+          name: 'Incline TRX Ext',
+          duration: '12–14 min',
+          description: 'Body angle incline forces longer extension workload',
+          battlePlan: '4 rounds\n• 8–10 Incline TRX Extensions\nRest 75–90s',
+          imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Sharper incline builds greater triceps range use',
+          moodTips: [
+            {
+              icon: 'body',
+              title: 'Walk feet closer to anchor for load',
+              description: 'Bend elbows fully before locking out.'
+            },
+            {
+              icon: 'trending-up',
+              title: 'Lower slowly for 3s with solid core',
+              description: 'Don\'t let straps slack mid rep.'
+            }
+          ]
+        },
+        {
+          name: 'TRX Negatives',
+          duration: '12–14 min',
+          description: 'Controlled negatives raise extension efficiency',
+          battlePlan: '3 rounds\n• 8 TRX Extensions (3s eccentric)\nRest 75–90s',
+          imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
+          intensityReason: '3s eccentric phases enhance hypertrophy tension',
+          moodTips: [
+            {
+              icon: 'timer',
+              title: 'Lower slowly for 3s with solid core',
+              description: 'Don\'t let straps slack mid rep.'
+            },
+            {
+              icon: 'fitness',
+              title: 'Brace entire body to stop strap sway',
+              description: 'Stable elbow position ensures tricep isolation.'
+            }
+          ]
+        }
+      ],
+      advanced: [
+        {
+          name: 'TRX Ext Combo',
+          duration: '14–16 min',
+          description: 'Superset TRX pushes and overheads overload fibers',
+          battlePlan: '4 rounds\n• 8 TRX Overhead Extensions\n• 8 TRX Pushdowns\nRest 90s',
+          imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmc&ZW44MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Overhead plus pushdown adds training variety',
+          moodTips: [
+            {
+              icon: 'refresh',
+              title: 'Perform overhead stretch then pushdown strict',
+              description: 'Minimal time between moves keeps arms loaded.'
+            },
+            {
+              icon: 'fitness',
+              title: 'Hold halfway extended for 10s, elbows locked in',
+              description: 'Each angle hits triceps differently.'
+            }
+          ]
+        },
+        {
+          name: 'TRX Iso Burn',
+          duration: '16–18 min',
+          description: 'Pause holds in mid rep create intense arm fatigue',
+          battlePlan: '3 rounds\n• 8 TRX Extensions\n• End with 10s Hold Mid Extension\nRest 90s',
+          imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Static positions drive endurance under band load',
+          moodTips: [
+            {
+              icon: 'timer',
+              title: 'Hold halfway extended for 10s, elbows locked in',
+              description: 'Brace entire body to stop strap sway.'
+            },
+            {
+              icon: 'flame',
+              title: 'Brace entire body to stop strap sway',
+              description: 'Advanced training requires mental fortitude.'
             }
           ]
         }
