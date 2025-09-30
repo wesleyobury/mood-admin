@@ -249,7 +249,8 @@ metadata:
 
 test_plan:
   current_focus:
-    - "Chest Workout Summary Format Update"
+    - "Biceps Workout Display Screen"
+    - "Triceps Workout Display Screen"
   stuck_tasks: []
   test_all: false
   test_priority: "high_first"
