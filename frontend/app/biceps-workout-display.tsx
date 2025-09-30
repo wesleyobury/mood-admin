@@ -69,10 +69,10 @@ const bicepsWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Hammer Curl',
           duration: '10–12 min',
-          description: 'Hammer curls thicken early arm development',
+          description: 'Hammer curl variation develops early arm thickness',
           battlePlan: '3 rounds\n• 10–12 Hammer Curls\nRest 75s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Neutral grip adds forearms and brachialis stress',
+          intensityReason: 'Neutral grip activates forearms and brachialis',
           moodTips: [
             {
               icon: 'hand-left',
