@@ -181,19 +181,19 @@ const bicepsWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Bar Curl',
           duration: '10–12 min',
-          description: 'Wrist-friendly curls for arm foundation',
+          description: 'Straightforward curls build solid foundation form',
           battlePlan: '3 rounds\n• 10–12 EZ Bar Curls\nRest 60–75s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8MVc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'EZ bar allows easy introduction to curling',
+          intensityReason: 'EZ bar reduces wrist stress for easier motion',
           moodTips: [
             {
               icon: 'hand-left',
-              title: 'Grip angled position naturally',
+              title: 'Grip the angled bar comfortably',
               description: 'EZ bar reduces wrist strain while maintaining effectiveness.'
             },
             {
               icon: 'body',
-              title: 'Elbows stay locked, chest tall',
+              title: 'Keep elbows locked at your sides',
               description: 'Stable upper arm position isolates biceps movement.'
             }
           ]
