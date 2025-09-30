@@ -438,7 +438,7 @@ const tricepsWorkoutDatabase: EquipmentWorkouts[] = [
     }
   },
   {
-    equipment: 'Cable Machine',
+    equipment: 'Single extension cable',
     icon: 'swap-vertical',
     workouts: {
       beginner: [
