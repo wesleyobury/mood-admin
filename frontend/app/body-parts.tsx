@@ -200,6 +200,15 @@ export default function BodyPartsScreen() {
             }
           });
         }
+      } else if (selectedBodyPart === 'Legs') {
+        // Navigate to legs muscle groups screen
+        router.push({
+          pathname: '/legs-muscle-groups',
+          params: {
+            mood: mood,
+            bodyPart: selectedBodyPart,
+          }
+        });
       } else {
         // TODO: Navigate to other body part screens when implemented
         console.log(`Navigation for ${selectedBodyPart} will be implemented later`);
