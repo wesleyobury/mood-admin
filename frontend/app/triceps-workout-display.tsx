@@ -702,7 +702,7 @@ const tricepsWorkoutDatabase: EquipmentWorkouts[] = [
     }
   },
   {
-    equipment: 'Triceps Pushdown Machine',
+    equipment: 'Tricep pushdown machine',
     icon: 'fitness',
     workouts: {
       beginner: [
