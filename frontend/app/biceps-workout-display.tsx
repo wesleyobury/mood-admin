@@ -153,19 +153,19 @@ const bicepsWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Curl Complex',
           duration: '16–18 min',
-          description: 'Combo curls with hold pumps maximum fatigue',
+          description: 'Complex mix of curls and holds builds serious pump',
           battlePlan: '4 rounds\n• 8 Alternating DB Curls\n• Immediately 8 Hammer Curls\n• End with 10s DB Curl Hold\nRest 120s',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Superset plus static hold builds endurance',
+          intensityReason: 'Supersets and holds maximize tension duration',
           moodTips: [
             {
               icon: 'timer',
-              title: 'Hold weight at 90° for max tension',
+              title: 'Hold at 90° to keep muscle fully engaged',
               description: 'Midrange isometric hold maximizes muscle activation.'
             },
             {
               icon: 'flame',
-              title: 'Push through the burn — no dropping early',
+              title: 'Push through the burn — don\'t disengage',
               description: 'Mental toughness through metabolic stress builds strength.'
             }
           ]
