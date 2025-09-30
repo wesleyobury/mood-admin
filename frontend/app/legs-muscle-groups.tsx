@@ -222,7 +222,7 @@ export default function LegsMuscleGroupsScreen() {
         {/* Muscle Group Selection */}
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>Select Muscle Groups</Text>
-          <Text style={styles.sectionSubtitle}>Choose one or multiple leg muscle groups to target</Text>
+          <Text style={styles.sectionSubtitle}>Choose individual muscle groups or select Compound for a full leg workout</Text>
           
           <View style={styles.muscleGroupContainer}>
             {muscleGroupOptions.map((muscleGroup) => (
