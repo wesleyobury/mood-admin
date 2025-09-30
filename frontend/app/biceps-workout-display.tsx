@@ -201,19 +201,19 @@ const bicepsWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Wide Grip Curl',
           duration: '10–12 min',
-          description: 'Grip shift builds early variation and control',
+          description: 'Wide grip curls improve control and arm balance',
           battlePlan: '3 rounds\n• 10 Wide Grip EZ Curls\nRest 75s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Wider hand spacing recruits outer biceps',
+          intensityReason: 'Wide grip shifts stress toward the outer heads',
           moodTips: [
             {
               icon: 'fitness',
-              title: 'Keep elbows tucked in place',
+              title: 'Wide stance, no shoulder flare',
               description: 'Fixed elbow position targets biceps, not shoulders.'
             },
             {
               icon: 'flash',
-              title: 'Breathe steady, squeeze at top',
+              title: 'Squeeze at the top each rep',
               description: 'Peak contraction with controlled breathing pattern.'
             }
           ]
