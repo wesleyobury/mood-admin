@@ -30,7 +30,7 @@ const equipmentOptions: EquipmentOption[] = [
   { id: 'dumbbell', name: 'Dumbbell', icon: 'barbell' },
   { id: 'ez-bar', name: 'EZ bar', icon: 'remove' },
   { id: 'kettle-bell', name: 'Kettle bell', icon: 'diamond' },
-  { id: 'sa-machine', name: 'SA machine', icon: 'fitness' },
+  { id: 'single-extension-cable', name: 'Single extension cable', icon: 'fitness' },
   { id: 'tricep-pushdown-machine', name: 'Tricep pushdown machine', icon: 'swap-vertical' },
   { id: 'trx-bands', name: 'TRX bands', icon: 'link' },
 ];
