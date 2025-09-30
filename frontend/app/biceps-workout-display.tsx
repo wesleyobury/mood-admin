@@ -304,6 +304,534 @@ const bicepsWorkoutDatabase: EquipmentWorkouts[] = [
         }
       ]
     }
+  },
+  {
+    equipment: 'SA cable machine',
+    icon: 'swap-vertical',
+    workouts: {
+      beginner: [
+        {
+          name: 'Straight Bar Curl',
+          duration: '10–12 min',
+          description: 'Straight bar curl develops controlled curling form',
+          battlePlan: '3 rounds\n• 10–12 Straight Bar Cable Curls\nRest 60s',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8MVc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Cable tension enforces strict and smooth curling',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Keep elbows tucked, bar path vertical',
+              description: 'Vertical bar path ensures pure bicep isolation.'
+            },
+            {
+              icon: 'body',
+              title: 'Don\'t lean back or swing',
+              description: 'Stable position maximizes muscle tension.'
+            }
+          ]
+        },
+        {
+          name: 'Rope Hammer Curl',
+          duration: '10–12 min',
+          description: 'Rope hammer curl adds overall forearm thickness',
+          battlePlan: '3 rounds\n• 10–12 Rope Hammer Curls\nRest 60–75s',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Neutral grip cable work hits brachialis harder',
+          moodTips: [
+            {
+              icon: 'hand-left',
+              title: 'Spread rope ends at the top',
+              description: 'Opening the rope maximizes peak contraction.'
+            },
+            {
+              icon: 'timer',
+              title: 'Controlled lowering enhances result',
+              description: 'Slow negative builds strength and size.'
+            }
+          ]
+        }
+      ],
+      intermediate: [
+        {
+          name: 'EZ Bar Curl',
+          duration: '12–14 min',
+          description: 'Stronger sets develop hypertrophy with posture',
+          battlePlan: '4 rounds\n• 8–10 EZ Bar Cable Curls\nRest 75–90s',
+          imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Angled bar grip improves joint comfort heavy',
+          moodTips: [
+            {
+              icon: 'body',
+              title: 'Stand tall, no torso swing',
+              description: 'Upright posture isolates biceps effectively.'
+            },
+            {
+              icon: 'flash',
+              title: 'Lower bar slowly, keep tension',
+              description: 'Constant tension maximizes muscle activation.'
+            }
+          ]
+        },
+        {
+          name: 'Cable Negatives',
+          duration: '12–14 min',
+          description: 'Negative bar curls grow size and total integrity',
+          battlePlan: '3 rounds\n• 8 Cable Bar Curls (3s eccentric)\nRest 75–90s',
+          imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
+          intensityReason: 'Slow eccentrics amplify hypertrophy adaptation',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Drive up powerfully, lower 3s',
+              description: 'Explosive positive, controlled negative.'
+            },
+            {
+              icon: 'fitness',
+              title: 'Elbows fixed at torso sides',
+              description: 'Stable elbow position ensures bicep isolation.'
+            }
+          ]
+        }
+      ],
+      advanced: [
+        {
+          name: 'Rope + Bar Combo',
+          duration: '14–16 min',
+          description: 'Rope plus bar combo overloads total arm volume',
+          battlePlan: '4 rounds\n• 8 Rope Hammer Curls\nRest 60–75s\n• 8 Straight Bar Curls\nRest 75–90s',
+          imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmc&ZW54MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Grip pairing works multiple arm muscle fibers',
+          moodTips: [
+            {
+              icon: 'hand-left',
+              title: 'Rope = neutral, bar = strict supination',
+              description: 'Different grips target various muscle fibers.'
+            },
+            {
+              icon: 'flash',
+              title: 'Focus pump control with each grip',
+              description: 'Maintain control through both variations.'
+            }
+          ]
+        },
+        {
+          name: 'Cable Curl 21s',
+          duration: '16–18 min',
+          description: 'Seven seven seven set fully exhausts every curl',
+          battlePlan: '3 rounds\n• 7 Bottom Half Cable Curls\n• 7 Top Half Cable Curls\n• 7 Full Range Cable Curls\nRest 90s',
+          imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Partial and full ranges maximize biceps fatigue',
+          moodTips: [
+            {
+              icon: 'timer',
+              title: 'Keep tension, no stack resting',
+              description: 'Constant tension through all three phases.'
+            },
+            {
+              icon: 'trending-up',
+              title: 'Smooth range in all three phases',
+              description: 'Control movement through each range.'
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    equipment: 'Preacher curl machine',
+    icon: 'desktop',
+    workouts: {
+      beginner: [
+        {
+          name: 'Preacher Intro',
+          duration: '10–12 min',
+          description: 'Guided preacher curls isolate and strengthen arms',
+          battlePlan: '3 rounds\n• 10–12 Preacher Curls\nRest 60s',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8MVc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Arm pad stabilizes curl motion and builds control',
+          moodTips: [
+            {
+              icon: 'fitness',
+              title: 'Keep arms locked to the pad',
+              description: 'Full pad contact ensures proper isolation.'
+            },
+            {
+              icon: 'flash',
+              title: 'Avoid bouncing at the bottom',
+              description: 'Smooth motion protects joints and maintains tension.'
+            }
+          ]
+        },
+        {
+          name: 'Slow Preacher',
+          duration: '10–12 min',
+          description: 'Tempo preacher curls enhance control and tension',
+          battlePlan: '3 rounds\n• 10 Preacher Curls (2–3s descent)\nRest 75s',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Slowed cadence develops precision under load',
+          moodTips: [
+            {
+              icon: 'timer',
+              title: 'Lower in 2–3s each rep',
+              description: 'Controlled tempo maximizes muscle engagement.'
+            },
+            {
+              icon: 'flash',
+              title: 'Pause and squeeze at top',
+              description: 'Peak contraction enhances muscle activation.'
+            }
+          ]
+        }
+      ],
+      intermediate: [
+        {
+          name: 'Heavy Preacher',
+          duration: '12–14 min',
+          description: 'Heavier preacher curls grow arms with intensity',
+          battlePlan: '4 rounds\n• 8–10 Heavy Preacher Curls\nRest 75–90s',
+          imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Stable preacher pad allows progressive overload',
+          moodTips: [
+            {
+              icon: 'trending-up',
+              title: 'Drive bar smooth each rep',
+              description: 'Consistent power output through full range.'
+            },
+            {
+              icon: 'fitness',
+              title: 'Maintain full pad contact',
+              description: 'Complete arm support ensures safety and isolation.'
+            }
+          ]
+        },
+        {
+          name: 'Negative Preacher',
+          duration: '12–14 min',
+          description: 'Slow negatives increase biceps time under tension',
+          battlePlan: '3 rounds\n• 8 Negative Preacher Curls (3s lowering)\nRest 75–90s',
+          imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
+          intensityReason: '3 second eccentrics add enhanced hypertrophy load',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Explode up, lower 3s down',
+              description: 'Fast concentric, slow eccentric for maximum growth.'
+            },
+            {
+              icon: 'shield',
+              title: 'Control bar to avoid bounce',
+              description: 'Smooth transition prevents joint stress.'
+            }
+          ]
+        }
+      ],
+      advanced: [
+        {
+          name: 'Wide + Narrow',
+          duration: '14–16 min',
+          description: 'Wide and narrow grips target both biceps heads',
+          battlePlan: '4 rounds\n• 8 Wide Grip Preachers\nRest 75s\n• 8 Narrow Grip Preachers\nRest 75–90s',
+          imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmc&ZW54MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Changing grips stresses variation in fiber lines',
+          moodTips: [
+            {
+              icon: 'construct',
+              title: 'Wide hits outer, narrow inner',
+              description: 'Different grips target specific muscle heads.'
+            },
+            {
+              icon: 'fitness',
+              title: 'Keep torso against the pad',
+              description: 'Stable body position throughout grip changes.'
+            }
+          ]
+        },
+        {
+          name: 'Preacher Burnout',
+          duration: '16–18 min',
+          description: 'Burnout preacher curls finish arms under tension',
+          battlePlan: '4 rounds\n• 8–10 Preacher Curls\n• End with 10s Midpoint Hold\nRest 90s',
+          imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Iso holds combined with sets maximize fatigue',
+          moodTips: [
+            {
+              icon: 'timer',
+              title: 'Last rep hold 10s halfway',
+              description: 'Midpoint hold creates maximum tension.'
+            },
+            {
+              icon: 'flame',
+              title: 'Keep tension strict to end',
+              description: 'Maintain form through metabolic stress.'
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    equipment: 'Bicep curl machine',
+    icon: 'fitness',
+    workouts: {
+      beginner: [
+        {
+          name: 'Machine Curl',
+          duration: '10–12 min',
+          description: 'Standard machine curls build early strength base',
+          battlePlan: '3 rounds\n• 10–12 Machine Curls\nRest 60–75s',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8MVc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Fixed pathway ensures easier curling technique',
+          moodTips: [
+            {
+              icon: 'fitness',
+              title: 'Sit tall and grip handles tight',
+              description: 'Proper posture and grip maximize effectiveness.'
+            },
+            {
+              icon: 'flash',
+              title: 'Pull smooth without bounce',
+              description: 'Controlled movement prevents momentum cheating.'
+            }
+          ]
+        },
+        {
+          name: 'Curl with Pause',
+          duration: '10–12 min',
+          description: 'Isometric hold improves mind muscle link early',
+          battlePlan: '3 rounds\n• 10 Machine Curls (2s pause top)\nRest 75s',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Peak pause builds muscle contraction strength',
+          moodTips: [
+            {
+              icon: 'timer',
+              title: 'Hold 2s at top of each rep',
+              description: 'Isometric pause increases muscle activation.'
+            },
+            {
+              icon: 'trending-down',
+              title: 'Control return phase',
+              description: 'Slow negative enhances muscle development.'
+            }
+          ]
+        }
+      ],
+      intermediate: [
+        {
+          name: 'Heavy Machine Curl',
+          duration: '12–14 min',
+          description: 'Stronger machine curls stimulate hypertrophy gains',
+          battlePlan: '4 rounds\n• 8–10 Heavy Machine Curls\nRest 75–90s',
+          imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Safe machine setup supports heavier overload',
+          moodTips: [
+            {
+              icon: 'fitness',
+              title: 'Lock elbows down to pad',
+              description: 'Stable elbow position ensures proper isolation.'
+            },
+            {
+              icon: 'refresh',
+              title: 'Perform with steady rhythm',
+              description: 'Consistent tempo maximizes muscle engagement.'
+            }
+          ]
+        },
+        {
+          name: 'Eccentric Curl',
+          duration: '12–14 min',
+          description: 'Negative machine curls deepen hypertrophy drive',
+          battlePlan: '3 rounds\n• 8 Curls (3s eccentric lowering)\nRest 75–90s',
+          imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
+          intensityReason: 'Slower eccentric motion builds harder tension',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Drive up then lower for 3s',
+              description: 'Explosive positive, controlled negative.'
+            },
+            {
+              icon: 'fitness',
+              title: 'Keep pads tight to arms',
+              description: 'Proper pad contact ensures safety and isolation.'
+            }
+          ]
+        }
+      ],
+      advanced: [
+        {
+          name: 'Drop Set Curls',
+          duration: '14–16 min',
+          description: 'Drop sets extend working time for biceps growth',
+          battlePlan: '4 rounds\n• 8 Heavy Machine Curls\n• Drop 20% → 8 More Reps\nRest 75–90s',
+          imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmc&ZW54MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Removing weight sustains prolonged curl strain',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Strip weight quickly after set',
+              description: 'Fast transitions maintain muscle fatigue.'
+            },
+            {
+              icon: 'trending-up',
+              title: 'Keep reps smooth each drop',
+              description: 'Maintain form through all weight reductions.'
+            }
+          ]
+        },
+        {
+          name: 'Machine Curl Burn',
+          duration: '16–18 min',
+          description: 'Iso holds at midpoint greatly exhaust the biceps',
+          battlePlan: '4 rounds\n• 8 Machine Curls\n• End with 10s Mid Curl Hold\nRest 90s',
+          imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Static holds boost stimulus beyond normal sets',
+          moodTips: [
+            {
+              icon: 'timer',
+              title: 'After last rep, hold 10s mid',
+              description: 'Midpoint isometric creates maximum tension.'
+            },
+            {
+              icon: 'shield',
+              title: 'No stack slamming at bottom',
+              description: 'Control the weight throughout entire range.'
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    equipment: 'Pull up bar',
+    icon: 'remove-outline',
+    workouts: {
+      beginner: [
+        {
+          name: 'Assisted Chins',
+          duration: '10–12 min',
+          description: 'Assisted chin ups help beginners build curl strength',
+          battlePlan: '3 rounds\n• 5 Assisted Chin Ups\nRest 60–75s',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8MVc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Band or machine assistance teaches strict form',
+          moodTips: [
+            {
+              icon: 'hand-left',
+              title: 'Palms face you, elbows tucked',
+              description: 'Chin-up grip maximizes bicep activation.'
+            },
+            {
+              icon: 'construct',
+              title: 'Use band/machine as needed',
+              description: 'Assistance helps maintain proper form.'
+            }
+          ]
+        },
+        {
+          name: 'Negative Chins',
+          duration: '10–12 min',
+          description: 'Negative chin ups improve strength for real reps',
+          battlePlan: '3 rounds\n• 5 Negative Chin Ups\nRest 60–75s',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Controlled descent builds stronger arm pulling',
+          moodTips: [
+            {
+              icon: 'timer',
+              title: 'Lower for 3–5s on each rep',
+              description: 'Slow negatives build eccentric strength.'
+            },
+            {
+              icon: 'body',
+              title: 'Keep torso steady, no swing',
+              description: 'Stable body position ensures muscle focus.'
+            }
+          ]
+        }
+      ],
+      intermediate: [
+        {
+          name: 'Strict Chins',
+          duration: '12–14 min',
+          description: 'Strict chin ups strengthen biceps and lats together',
+          battlePlan: '4 rounds\n• 6 Chin Ups\nRest 75–90s',
+          imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Bodyweight movement grows pulling arm power',
+          moodTips: [
+            {
+              icon: 'trending-up',
+              title: 'Pull chest high to bar line',
+              description: 'Full range maximizes muscle activation.'
+            },
+            {
+              icon: 'trending-down',
+              title: 'Extend fully at bottom each rep',
+              description: 'Complete extension ensures full range benefits.'
+            }
+          ]
+        },
+        {
+          name: 'Chin + Hold',
+          duration: '12–14 min',
+          description: 'Isometric on bar builds tougher pulling strength',
+          battlePlan: '3 rounds\n• 6 Chin Ups\n• End with 3s Hold at Top\nRest 75–90s',
+          imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
+          intensityReason: 'Finishing hold improves control and endurance',
+          moodTips: [
+            {
+              icon: 'timer',
+              title: 'Hold top for 3s after last rep',
+              description: 'Isometric hold builds pulling endurance.'
+            },
+            {
+              icon: 'body',
+              title: 'Do not shrug shoulders up',
+              description: 'Keep shoulders down for proper muscle activation.'
+            }
+          ]
+        }
+      ],
+      advanced: [
+        {
+          name: 'Weighted Chins',
+          duration: '14–16 min',
+          description: 'Weighted chin ups grow mass with strict posture',
+          battlePlan: '4 rounds\n• 6–8 Weighted Chin Ups\nRest 90s',
+          imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmc&ZW54MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Adding load forces stronger hypertrophy gains',
+          moodTips: [
+            {
+              icon: 'construct',
+              title: 'Add belt or dumbbell slowly',
+              description: 'Progressive overload ensures continued growth.'
+            },
+            {
+              icon: 'shield',
+              title: 'Never kip or swing body',
+              description: 'Strict form maximizes muscle development.'
+            }
+          ]
+        },
+        {
+          name: 'Chest Bar + Negs',
+          duration: '16–18 min',
+          description: 'High pulls combined with negatives boost strength',
+          battlePlan: '4 rounds\n• 6 Chest to Bar Pull Ups\n• 6 Negative Chin Ups\nRest 90s',
+          imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Chest to bar reps plus negatives overload arms',
+          moodTips: [
+            {
+              icon: 'trending-up',
+              title: 'Pull chest to bar every rep',
+              description: 'Maximum range of motion for best results.'
+            },
+            {
+              icon: 'timer',
+              title: 'Descend 3–5s consistently',
+              description: 'Controlled negatives build eccentric strength.'
+            }
+          ]
+        }
+      ]
+    }
   }
 ];
 
