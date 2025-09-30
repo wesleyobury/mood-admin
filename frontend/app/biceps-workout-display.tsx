@@ -235,7 +235,7 @@ const bicepsWorkoutDatabase: EquipmentWorkouts[] = [
             },
             {
               icon: 'trending-up',
-              title: 'Pull bar smoothly to chest',
+              title: 'Pull bar to upper chest line',
               description: 'Smooth arc motion maximizes muscle fiber recruitment.'
             }
           ]
