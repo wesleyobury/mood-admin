@@ -288,6 +288,8 @@ metadata:
 
 test_plan:
   current_focus:
+    - "Legs Muscle Groups Selection Screen"
+    - "Legs Workout Display Screen"
     - "Biceps Workout Display Screen"
     - "Triceps Workout Display Screen"
   stuck_tasks: []
