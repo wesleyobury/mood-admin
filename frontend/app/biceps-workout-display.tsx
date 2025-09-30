@@ -243,14 +243,14 @@ const bicepsWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Negative Curl',
           duration: '12–14 min',
-          description: 'Controlled lowering engages full range',
-          battlePlan: '3 rounds\n• 8 EZ Bar Curls (3s eccentric each rep)\nRest 90s',
+          description: 'Controlled lowering builds growth development fast',
+          battlePlan: '3 rounds\n• 8 EZ Bar Curls (3s eccentric)\nRest 90s',
           imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
-          intensityReason: '3s eccentrics overload tension for growth',
+          intensityReason: 'Three second eccentric exaggerates curl tension',
           moodTips: [
             {
               icon: 'flash',
-              title: 'Quick up, 3s controlled down',
+              title: 'Explode up, lower in 3s',
               description: 'Explosive concentric, slow eccentric for max growth.'
             },
             {
