@@ -1608,8 +1608,8 @@ const styles = StyleSheet.create({
     color: '#FFD700',
   },
   workoutList: {
-    height: 420,
-    overflow: 'hidden',
+    height: 400,
+    marginBottom: 16,
   },
   workoutSlide: {
     paddingHorizontal: 20,
