@@ -1608,7 +1608,7 @@ const styles = StyleSheet.create({
     color: '#FFD700',
   },
   workoutList: {
-    height: 400,
+    height: 380,
     marginBottom: 16,
   },
   workoutSlide: {
