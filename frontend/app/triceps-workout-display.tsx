@@ -306,7 +306,7 @@ const tricepsWorkoutDatabase: EquipmentWorkouts[] = [
     }
   },
   {
-    equipment: 'EZ Bar',
+    equipment: 'EZ bar',
     icon: 'remove',
     workouts: {
       beginner: [
