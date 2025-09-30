@@ -111,19 +111,19 @@ const bicepsWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Negative Curl',
           duration: '12–14 min',
-          description: 'Slow descents emphasize strict control',
-          battlePlan: '3 rounds\n• 8 Dumbbell Curls (3s eccentric each rep)\nRest 90s',
+          description: 'Negative dumbbell curls extend training stimulus',
+          battlePlan: '3 rounds\n• 8 Dumbbell Curls (3s eccentric)\nRest 90s',
           imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
-          intensityReason: '3s eccentric increases hypertrophy tension',
+          intensityReason: 'Controlled eccentric adds greater hypertrophy load',
           moodTips: [
             {
               icon: 'flash',
-              title: 'Lift quick, lower 3s steady',
+              title: 'Raise quickly, lower over 3s',
               description: 'Fast concentric, slow eccentric maximizes muscle growth.'
             },
             {
               icon: 'fitness',
-              title: 'Brace core, no swaying',
+              title: 'Stay tall, don\'t lean',
               description: 'Stable core ensures biceps do all the work.'
             }
           ]
