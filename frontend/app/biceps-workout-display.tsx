@@ -91,10 +91,10 @@ const bicepsWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Alternating Curl',
           duration: '12–14 min',
-          description: 'Alternating curls build strength and balance',
+          description: 'Alternating curls sharpen balance and strict form',
           battlePlan: '4 rounds\n• 8–10 per arm Alternating DB Curls\nRest 75–90s',
           imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'One arm rests as the other works for focus',
+          intensityReason: 'Alternating arms builds strength and discipline',
           moodTips: [
             {
               icon: 'refresh',
@@ -103,7 +103,7 @@ const bicepsWorkoutDatabase: EquipmentWorkouts[] = [
             },
             {
               icon: 'body',
-              title: 'Stay tall, don\'t rotate torso',
+              title: 'Don\'t rotate torso when curling',
               description: 'Maintain upright posture to isolate arm movement.'
             }
           ]
