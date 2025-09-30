@@ -1370,14 +1370,14 @@ export default function TricepsWorkoutDisplayScreen() {
 
   const getEquipmentIcon = (equipmentName: string): keyof typeof Ionicons.glyphMap => {
     const equipmentIconMap: { [key: string]: keyof typeof Ionicons.glyphMap } = {
-      'Dumbbells': 'barbell',
-      'Kettlebells': 'diamond',
-      'EZ Bar': 'remove',
-      'Cable Machine': 'swap-vertical',
-      'Cable Crossover Machine': 'reorder-three',
-      'Triceps Pushdown Machine': 'fitness',
-      'Dip Station / Machine': 'remove',
-      'TRX Bands': 'link'
+      'Dumbbell': 'barbell',
+      'Kettle bell': 'diamond', 
+      'EZ bar': 'remove',
+      'Single extension cable': 'swap-vertical',
+      'Cable crossover machine': 'reorder-three',
+      'Tricep pushdown machine': 'fitness',
+      'Dip station / machine': 'remove',
+      'TRX bands': 'link'
     };
     return equipmentIconMap[equipmentName] || 'fitness';
   };
