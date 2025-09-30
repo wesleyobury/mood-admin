@@ -102,7 +102,7 @@
 # Testing Data - Main Agent and testing sub agent both should log testing data below this section
 #====================================================================================================
 
-user_problem_statement: Build MOOD app - fitness app with mood-based workout recommendations and Instagram-style social features
+user_problem_statement: Create biceps and triceps workout display screens copying the chest workout flow, starting with Dumbbells and EZ Curl Bar equipment with detailed workout specifications
 
 backend:
   - task: "User Authentication System"
