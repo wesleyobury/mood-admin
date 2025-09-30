@@ -265,19 +265,19 @@ const bicepsWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Wide + Narrow',
           duration: '14–16 min',
-          description: 'Two grips stimulate inner & outer heads',
+          description: 'Wide and narrow grips develop balance and size',
           battlePlan: '4 rounds\n• 8 Wide Grip Curl\nRest 90s\n• 8 Narrow Grip Curl\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmc&ZW54MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Grip pairing overloads different fibers',
+          intensityReason: 'Grip variance maximizes recruitment across arms',
           moodTips: [
             {
               icon: 'construct',
-              title: 'Prioritize control, not load',
+              title: 'Don\'t overload; stay controlled',
               description: 'Perfect form with both grips trumps heavy weight.'
             },
             {
               icon: 'fitness',
-              title: 'Elbows locked in position',
+              title: 'Keep elbows locked at sides',
               description: 'Consistent elbow position throughout grip changes.'
             }
           ]
