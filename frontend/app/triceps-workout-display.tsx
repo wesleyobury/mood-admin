@@ -834,7 +834,7 @@ const tricepsWorkoutDatabase: EquipmentWorkouts[] = [
     }
   },
   {
-    equipment: 'Dip Station / Machine',
+    equipment: 'Dip station / machine',
     icon: 'remove',
     workouts: {
       beginner: [
