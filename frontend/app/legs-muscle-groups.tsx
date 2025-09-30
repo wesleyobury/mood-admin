@@ -115,12 +115,19 @@ export default function LegsMuscleGroupsScreen() {
   const handleMuscleGroupSelect = (muscleGroup: MuscleGroupOption) => {
     setSelectedMuscleGroups(prev => {
       const isAlreadySelected = prev.some(item => item.id === muscleGroup.id);
+      
       if (isAlreadySelected) {
         // Remove from selection
         return prev.filter(item => item.id !== muscleGroup.id);
       } else {
-        // Add to selection
-        return [...prev, muscleGroup];
+        // If selecting Compound, clear all other selections
+        if (muscleGroup.id === 'compound') {
+          return [muscleGroup];
+        }
+        
+        // If selecting any other muscle group, remove Compound if it exists
+        const withoutCompound = prev.filter(item => item.id !== 'compound');
+        return [...withoutCompound, muscleGroup];
       }
     });
   };
