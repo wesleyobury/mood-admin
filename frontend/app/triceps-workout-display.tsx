@@ -42,7 +42,7 @@ interface EquipmentWorkouts {
 // Comprehensive triceps workout database with all 8 equipment types
 const tricepsWorkoutDatabase: EquipmentWorkouts[] = [
   {
-    equipment: 'Dumbbells',
+    equipment: 'Dumbbell',
     icon: 'barbell',
     workouts: {
       beginner: [
