@@ -133,14 +133,14 @@ const bicepsWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Curl + Hammer',
           duration: '14–16 min',
-          description: 'Combined curls and hammer work maximize growth',
+          description: 'Pairing curls with hammer expands overall growth',
           battlePlan: '4 rounds\n• 8 Standard DB Curls\nRest 90s\n• 8 Hammer Curls\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmc&ZW54MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Two grips boost fatigue and arm fullness',
+          intensityReason: 'Combining grips overloads arms with intensity',
           moodTips: [
             {
               icon: 'shield',
-              title: 'Stay strict — drop load if form breaks',
+              title: 'Keep form strict, reduce weight if swinging',
               description: 'Maintain perfect form throughout both grip variations.'
             },
             {
