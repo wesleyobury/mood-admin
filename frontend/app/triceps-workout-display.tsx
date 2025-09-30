@@ -966,7 +966,7 @@ const tricepsWorkoutDatabase: EquipmentWorkouts[] = [
     }
   },
   {
-    equipment: 'TRX Bands',
+    equipment: 'TRX bands',
     icon: 'link',
     workouts: {
       beginner: [
