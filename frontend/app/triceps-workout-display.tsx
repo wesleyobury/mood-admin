@@ -1613,7 +1613,7 @@ const styles = StyleSheet.create({
   },
   workoutSlide: {
     paddingHorizontal: 20,
-    paddingVertical: 16,
+    paddingVertical: 12,
   },
   workoutImageContainer: {
     height: 120,
