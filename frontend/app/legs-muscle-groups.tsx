@@ -134,7 +134,9 @@ export default function LegsMuscleGroupsScreen() {
 
   const handleContinue = () => {
     if (selectedMuscleGroups.length > 0) {
+      const isCompoundSelected = selectedMuscleGroups.some(mg => mg.id === 'compound');
       console.log('Selected muscle groups:', selectedMuscleGroups.map(mg => mg.name));
+      console.log('Selection type:', isCompoundSelected ? 'Compound (full leg workout)' : 'Individual muscle groups');
       
       // Navigate to legs workout display for all muscle group selections
       const muscleGroupNames = selectedMuscleGroups.map(mg => mg.name);
