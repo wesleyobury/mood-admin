@@ -49,10 +49,10 @@ const bicepsWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'DB Curl',
           duration: '10–12 min',
-          description: 'Simple dumbbell curl builds foundation strength',
+          description: 'Standard dumbbell curl increases beginner strength',
           battlePlan: '3 rounds\n• 10–12 Dumbbell Curls\nRest 60–75s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8MVc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Teaches form and starting arm control',
+          intensityReason: 'Builds curl discipline with stable elbow position',
           moodTips: [
             {
               icon: 'flash',
