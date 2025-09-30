@@ -223,10 +223,10 @@ const bicepsWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Narrow Curl',
           duration: '12–14 min',
-          description: 'Tighter grip increases arm strength line',
+          description: 'Close grip curls build stronger arm inner heads',
           battlePlan: '4 rounds\n• 8–10 Narrow Grip EZ Curls\nRest 75–90s',
           imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Narrow grip emphasizes inner biceps overload',
+          intensityReason: 'Narrow grip overloads the biceps inner portion',
           moodTips: [
             {
               icon: 'hand-left',
