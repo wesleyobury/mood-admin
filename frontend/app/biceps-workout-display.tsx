@@ -51,7 +51,7 @@ const bicepsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Simple dumbbell curl builds foundation strength',
           battlePlan: '3 rounds\n• 10–12 Dumbbell Curls\nRest 60–75s',
-          imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8MTc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8MVc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Teaches form and starting arm control',
           moodTips: [
             {
@@ -321,7 +321,7 @@ const WorkoutCard = ({ equipment, icon, workouts, difficulty, difficultyColor, o
 
   const renderWorkout = ({ item, index }: { item: Workout; index: number }) => (
     <View style={[styles.workoutSlide, { width: width - 48 }]}>
-      {/* Workout Image with Rounded Edges */}
+      {/* Workout Image with Rounded Edges - Match chest dimensions */}
       <View style={styles.workoutImageContainer}>
         <Image 
           source={{ uri: item.imageUrl }}
@@ -335,7 +335,7 @@ const WorkoutCard = ({ equipment, icon, workouts, difficulty, difficultyColor, o
         </View>
       </View>
 
-      {/* Workout Content */}
+      {/* Workout Content - Match chest positioning */}
       <View style={styles.workoutContent}>
         {/* Workout Title */}
         <Text style={styles.workoutName}>{item.name}</Text>
@@ -426,9 +426,9 @@ const WorkoutCard = ({ equipment, icon, workouts, difficulty, difficultyColor, o
         </View>
       </View>
 
-      {/* Swipeable Workouts - Touch-based Implementation */}
+      {/* Swipeable Workouts - Touch-based Implementation with fixed height */}
       <View 
-        style={[styles.workoutList, { width: width - 48 }]}
+        style={styles.workoutList}
         onTouchStart={handleTouchStart}
         onTouchMove={handleTouchMove}
         onTouchEnd={handleTouchEnd}
@@ -482,7 +482,7 @@ export default function BicepsWorkoutDisplayScreen() {
   
   const difficulty = (params.difficulty as string || 'beginner').toLowerCase();
   const moodTitle = params.mood as string || 'Muscle gainer';
-  const workoutType = params.workoutType as string || 'Biceps';
+  const workoutType = 'Biceps';
   
   console.log('Parsed parameters:', { selectedEquipmentNames, difficulty, moodTitle, workoutType });
 
@@ -493,7 +493,7 @@ export default function BicepsWorkoutDisplayScreen() {
 
   const difficultyColor = getDifficultyColor(difficulty);
 
-  // Filter workouts based on selected equipment
+  // Filter workouts based on selected equipment and remove duplicates
   const userWorkouts = selectedEquipmentNames.map(equipmentName => {
     const equipmentData = bicepsWorkoutDatabase.find(
       eq => eq.equipment.toLowerCase() === equipmentName.toLowerCase()
@@ -511,8 +511,13 @@ export default function BicepsWorkoutDisplayScreen() {
     return null;
   }).filter(item => item !== null);
 
-  console.log('User workouts:', userWorkouts);
-  console.log('userWorkoutsLength:', userWorkouts.length);
+  // Remove duplicate equipment entries
+  const uniqueUserWorkouts = userWorkouts.filter((workout, index, self) => 
+    index === self.findIndex(w => w!.equipment === workout!.equipment)
+  );
+
+  console.log('User workouts:', uniqueUserWorkouts);
+  console.log('userWorkoutsLength:', uniqueUserWorkouts.length);
 
   const handleStartWorkout = (workout: Workout, equipment: string, selectedDifficulty: string) => {
     console.log('🚀 Starting workout:', workout.name);
@@ -524,38 +529,64 @@ export default function BicepsWorkoutDisplayScreen() {
       moodTipsCount: workout.moodTips?.length || 0
     });
 
-    // Navigate to workout guidance with simplified parameters to avoid URI encoding issues
-    router.push({
-      pathname: '/workout-guidance',
-      params: {
-        workoutName: workout.name,
-        equipment: equipment,
-        description: workout.description,
-        battlePlan: workout.battlePlan,
-        duration: workout.duration,
-        difficulty: selectedDifficulty,
-        workoutType: workoutType,
-        // Pass MOOD tips as JSON string with count for fallback
-        moodTips: JSON.stringify(workout.moodTips || []),
-        moodTipsCount: workout.moodTips?.length || 0
-      }
-    });
-
-    console.log('✅ Navigation completed - using simplified parameters');
+    try {
+      // Navigate to workout guidance with properly encoded parameters
+      router.push({
+        pathname: '/workout-guidance',
+        params: {
+          workoutName: workout.name,
+          equipment: equipment,
+          description: workout.description,
+          battlePlan: workout.battlePlan,
+          duration: workout.duration,
+          difficulty: selectedDifficulty,
+          workoutType: workoutType,
+          // Pass MOOD tips as properly encoded JSON string
+          moodTips: encodeURIComponent(JSON.stringify(workout.moodTips || []))
+        }
+      });
+      
+      console.log('✅ Navigation completed - using simplified parameters');
+    } catch (error) {
+      console.error('❌ Error starting workout:', error);
+    }
   };
 
   const handleGoBack = () => {
     router.back();
   };
 
-  const renderProgressStep = (stepName: string, icon: keyof typeof Ionicons.glyphMap, isActive: boolean = true) => (
-    <View style={styles.progressStep} key={stepName}>
-      <View style={isActive ? styles.progressStepActive : styles.progressStepInactive}>
-        <Ionicons name={icon} size={14} color={isActive ? "#000000" : "#FFD700"} />
-      </View>
-      <Text style={styles.progressStepText}>{stepName}</Text>
-    </View>
-  );
+  // Create rows of progress steps with max 4 per row (matching chest format)
+  const createProgressRows = () => {
+    const allSteps = [
+      { icon: 'flame', text: moodTitle, key: 'mood' },
+      { icon: 'fitness', text: workoutType, key: 'type' },
+      { icon: 'speedometer', text: difficulty.charAt(0).toUpperCase() + difficulty.slice(1), key: 'difficulty' },
+      ...selectedEquipmentNames.map((equipment, index) => ({
+        icon: getEquipmentIcon(equipment),
+        text: equipment,
+        key: `equipment-${index}`
+      }))
+    ];
+
+    const rows = [];
+    for (let i = 0; i < allSteps.length; i += 4) {
+      rows.push(allSteps.slice(i, i + 4));
+    }
+    return rows;
+  };
+
+  const getEquipmentIcon = (equipmentName: string): keyof typeof Ionicons.glyphMap => {
+    const equipmentIconMap: { [key: string]: keyof typeof Ionicons.glyphMap } = {
+      'Dumbbell': 'barbell',
+      'EZ curl bar': 'remove',
+      'SA cable machine': 'swap-vertical',
+      'Preacher curl machine': 'desktop',
+      'Bicep curl machine': 'fitness',
+      'Pull up bar': 'remove-outline'
+    };
+    return equipmentIconMap[equipmentName] || 'fitness';
+  };
 
   return (
     <SafeAreaView style={[styles.container, { paddingTop: insets.top }]}>
@@ -568,49 +599,50 @@ export default function BicepsWorkoutDisplayScreen() {
           <Ionicons name="chevron-back" size={24} color="#FFD700" />
         </TouchableOpacity>
         <View style={styles.headerTextContainer}>
-          <Text style={styles.headerTitle}>Biceps Workouts</Text>
-          <Text style={styles.headerSubtitle}>{difficulty.charAt(0).toUpperCase() + difficulty.slice(1)} Level</Text>
+          <Text style={styles.headerTitle}>Your Workouts</Text>
+          <Text style={styles.headerSubtitle}>{moodTitle}</Text>
         </View>
         <View style={styles.headerSpacer} />
       </View>
 
-      {/* Progress Bar - Extended Format */}
+      {/* Progress Bar with Row Layout - Match chest format */}
       <View style={styles.progressContainer}>
-        <ScrollView 
-          horizontal 
-          showsHorizontalScrollIndicator={false}
-          contentContainerStyle={styles.progressContent}
-        >
-          {renderProgressStep(moodTitle, 'flame')}
-          <View style={styles.progressConnector} />
-          {renderProgressStep(workoutType, 'fitness')}
-          
-          {selectedEquipmentNames.map((equipmentName, index) => (
-            <React.Fragment key={equipmentName}>
-              <View style={styles.progressConnector} />
-              {renderProgressStep(equipmentName, 'barbell')}
-            </React.Fragment>
+        <View style={styles.progressContent}>
+          {createProgressRows().map((row, rowIndex) => (
+            <View key={`row-${rowIndex}`} style={styles.progressRow}>
+              {row.map((step, stepIndex) => (
+                <React.Fragment key={step.key}>
+                  <View style={styles.progressStep}>
+                    <View style={styles.progressStepActive}>
+                      <Ionicons name={step.icon as keyof typeof Ionicons.glyphMap} size={10} color="#000000" />
+                    </View>
+                    <Text style={styles.progressStepText}>{step.text}</Text>
+                  </View>
+                  {stepIndex < row.length - 1 && <View style={styles.progressConnector} />}
+                </React.Fragment>
+              ))}
+            </View>
           ))}
-          
-          <View style={styles.progressConnector} />
-          {renderProgressStep(`Equipment (${selectedEquipmentNames.length})`, 'cube')}
-          
-          <View style={styles.progressConnector} />
-          {renderProgressStep(difficulty.charAt(0).toUpperCase() + difficulty.slice(1), 'checkmark')}
-        </ScrollView>
+        </View>
       </View>
 
-      {/* Main Content */}
-      <ScrollView style={styles.scrollView} contentContainerStyle={styles.scrollContent}>
-        {userWorkouts.length > 0 ? (
-          userWorkouts.map((workoutData, index) => {
-            console.log(`Rendering card ${index + 1}: ${workoutData!.equipment}`);
+      {/* Workouts List */}
+      <ScrollView 
+        style={styles.scrollView} 
+        contentContainerStyle={styles.scrollContent}
+        showsVerticalScrollIndicator={false}
+      >
+        {uniqueUserWorkouts.length > 0 ? (
+          uniqueUserWorkouts.map((equipmentData, index) => {
+            console.log(`Rendering card ${index + 1}: ${equipmentData!.equipment}`);
+            const difficultyWorkouts = equipmentData!.workouts;
+            
             return (
               <WorkoutCard
-                key={`${workoutData!.equipment}-${index}`}
-                equipment={workoutData!.equipment}
-                icon={workoutData!.icon}
-                workouts={workoutData!.workouts}
+                key={`${equipmentData!.equipment}-${index}`}
+                equipment={equipmentData!.equipment}
+                icon={equipmentData!.icon}
+                workouts={difficultyWorkouts}
                 difficulty={difficulty}
                 difficultyColor={difficultyColor}
                 onStartWorkout={handleStartWorkout}
@@ -619,14 +651,11 @@ export default function BicepsWorkoutDisplayScreen() {
           })
         ) : (
           <View style={styles.noWorkoutsContainer}>
-            <Ionicons name="fitness" size={48} color="#666666" />
+            <Ionicons name="fitness" size={48} color="#FFD700" />
             <Text style={styles.noWorkoutsTitle}>No Workouts Found</Text>
-            <Text style={styles.noWorkoutsText}>
-              No workouts available for the selected equipment and difficulty level.
+            <Text style={styles.noWorkoutsSubtitle}>
+              Please select different equipment or go back to make new selections.
             </Text>
-            <TouchableOpacity style={styles.backButton} onPress={handleGoBack}>
-              <Text style={styles.backButtonText}>Go Back</Text>
-            </TouchableOpacity>
           </View>
         )}
       </ScrollView>
@@ -680,51 +709,50 @@ const styles = StyleSheet.create({
     backgroundColor: '#111111',
     borderBottomWidth: 1,
     borderBottomColor: 'rgba(255, 215, 0, 0.2)',
-    paddingVertical: 16,
-    paddingHorizontal: 20,
+    paddingVertical: 12,
+    paddingHorizontal: 8,
   },
   progressContent: {
     alignItems: 'center',
-    paddingHorizontal: 10,
+  },
+  progressRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginBottom: 12,
   },
   progressStep: {
     alignItems: 'center',
-    minWidth: 70,
-    maxWidth: 80,
+    minWidth: 60,
   },
   progressStepActive: {
-    width: 28,
-    height: 28,
-    borderRadius: 14,
+    width: 24,
+    height: 24,
+    borderRadius: 12,
     backgroundColor: '#FFD700',
     borderWidth: 2,
     borderColor: '#FFD700',
     justifyContent: 'center',
     alignItems: 'center',
     marginBottom: 6,
-  },
-  progressStepInactive: {
-    width: 28,
-    height: 28,
-    borderRadius: 14,
-    backgroundColor: '#333333',
-    borderWidth: 2,
-    borderColor: 'rgba(255, 215, 0, 0.3)',
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginBottom: 6,
+    shadowColor: '#FFD700',
+    shadowOffset: { width: 0, height: 0 },
+    shadowOpacity: 0.6,
+    shadowRadius: 4,
+    elevation: 4,
   },
   progressStepText: {
     fontSize: 10,
     color: 'rgba(255, 255, 255, 0.8)',
     textAlign: 'center',
     fontWeight: '500',
+    maxWidth: 70,
   },
   progressConnector: {
     width: 20,
-    height: 2,
+    height: 1,
     backgroundColor: 'rgba(255, 215, 0, 0.3)',
-    marginHorizontal: 6,
+    marginHorizontal: 4,
     marginTop: 12,
   },
   scrollView: {
@@ -732,25 +760,28 @@ const styles = StyleSheet.create({
   },
   scrollContent: {
     padding: 24,
-    gap: 24,
+    paddingBottom: 100,
   },
   workoutCard: {
     backgroundColor: '#111111',
     borderRadius: 20,
     borderWidth: 2,
     borderColor: 'rgba(255, 215, 0, 0.3)',
-    overflow: 'hidden',
     shadowColor: '#FFD700',
-    shadowOffset: { width: 0, height: 0 },
-    shadowOpacity: 0.3,
-    shadowRadius: 12,
-    elevation: 8,
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.4,
+    shadowRadius: 20,
+    elevation: 12,
+    overflow: 'hidden',
+    marginBottom: 25,
+    width: '100%',
   },
   equipmentHeader: {
     flexDirection: 'row',
     alignItems: 'center',
-    padding: 20,
-    paddingBottom: 16,
+    paddingHorizontal: 20,
+    paddingVertical: 16,
+    backgroundColor: 'rgba(255, 215, 0, 0.1)',
     borderBottomWidth: 1,
     borderBottomColor: 'rgba(255, 215, 0, 0.2)',
   },
@@ -758,24 +789,22 @@ const styles = StyleSheet.create({
     width: 40,
     height: 40,
     borderRadius: 20,
-    backgroundColor: 'rgba(255, 215, 0, 0.15)',
+    backgroundColor: 'rgba(255, 215, 0, 0.2)',
     justifyContent: 'center',
     alignItems: 'center',
     marginRight: 12,
-    borderWidth: 2,
-    borderColor: 'rgba(255, 215, 0, 0.3)',
   },
   equipmentName: {
+    flex: 1,
     fontSize: 18,
     fontWeight: 'bold',
     color: '#ffffff',
-    flex: 1,
   },
   workoutIndicator: {
-    backgroundColor: 'rgba(255, 215, 0, 0.1)',
-    borderRadius: 12,
+    backgroundColor: 'rgba(255, 215, 0, 0.15)',
     paddingHorizontal: 12,
     paddingVertical: 6,
+    borderRadius: 12,
     borderWidth: 1,
     borderColor: 'rgba(255, 215, 0, 0.3)',
   },
@@ -785,19 +814,24 @@ const styles = StyleSheet.create({
     color: '#FFD700',
   },
   workoutList: {
-    paddingHorizontal: 20,
+    height: 420,
+    overflow: 'hidden',
   },
   workoutSlide: {
+    paddingHorizontal: 20,
     paddingVertical: 16,
   },
   workoutImageContainer: {
+    height: 120,
     position: 'relative',
+    overflow: 'hidden',
+    borderRadius: 12,
     marginBottom: 16,
   },
   workoutImage: {
     width: '100%',
-    height: 180,
-    borderRadius: 16,
+    height: '100%',
+    borderRadius: 12,
   },
   imageOverlay: {
     position: 'absolute',
@@ -805,8 +839,7 @@ const styles = StyleSheet.create({
     left: 0,
     right: 0,
     bottom: 0,
-    backgroundColor: 'rgba(0, 0, 0, 0.3)',
-    borderRadius: 16,
+    backgroundColor: 'rgba(0, 0, 0, 0.4)',
   },
   swipeIndicator: {
     position: 'absolute',
@@ -814,37 +847,41 @@ const styles = StyleSheet.create({
     right: 12,
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: 'rgba(0, 0, 0, 0.6)',
+    backgroundColor: 'rgba(0, 0, 0, 0.7)',
     paddingHorizontal: 8,
     paddingVertical: 4,
-    borderRadius: 8,
-    gap: 4,
+    borderRadius: 12,
   },
   swipeText: {
-    fontSize: 10,
+    fontSize: 12,
     color: '#FFD700',
+    marginLeft: 4,
     fontWeight: '600',
   },
   workoutContent: {
-    gap: 12,
+    paddingHorizontal: 0,
   },
   workoutName: {
-    fontSize: 20,
+    fontSize: 16,
     fontWeight: 'bold',
-    color: '#FFD700',
+    color: '#ffffff',
+    marginBottom: 8,
+    paddingHorizontal: 6,
   },
   durationIntensityRow: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
     alignItems: 'center',
+    justifyContent: 'space-between',
+    marginBottom: 16,
+    paddingHorizontal: 6,
   },
   workoutDuration: {
-    fontSize: 16,
+    fontSize: 14,
+    color: '#FFD700',
     fontWeight: '600',
-    color: 'rgba(255, 255, 255, 0.8)',
   },
   difficultyBadge: {
-    paddingHorizontal: 10,
+    paddingHorizontal: 8,
     paddingVertical: 4,
     borderRadius: 8,
   },
@@ -855,54 +892,59 @@ const styles = StyleSheet.create({
   },
   intensityContainer: {
     flexDirection: 'row',
-    alignItems: 'center',
+    alignItems: 'flex-start',
+    marginBottom: 12,
+    paddingHorizontal: 12,
+    paddingVertical: 8,
     backgroundColor: 'rgba(255, 215, 0, 0.1)',
-    padding: 12,
-    borderRadius: 12,
+    borderRadius: 8,
     borderWidth: 1,
     borderColor: 'rgba(255, 215, 0, 0.2)',
-    gap: 8,
+    marginHorizontal: 0,
   },
   intensityReason: {
-    fontSize: 14,
-    color: 'rgba(255, 255, 255, 0.9)',
     flex: 1,
-    lineHeight: 18,
+    fontSize: 12,
+    color: 'rgba(255, 255, 255, 0.8)',
+    lineHeight: 16,
+    marginLeft: 8,
   },
   workoutDescriptionContainer: {
-    paddingHorizontal: 4,
-    marginBottom: 8,
+    marginBottom: 16,
+    paddingHorizontal: 0,
   },
   workoutDescription: {
     fontSize: 14,
-    color: 'rgba(255, 255, 255, 0.7)',
+    color: 'rgba(255, 255, 255, 0.9)',
     lineHeight: 20,
+    paddingHorizontal: 6,
   },
   startWorkoutButton: {
     backgroundColor: '#FFD700',
     borderRadius: 12,
-    paddingVertical: 14,
-    paddingHorizontal: 20,
+    paddingVertical: 12,
+    paddingHorizontal: 16,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    gap: 8,
     shadowColor: '#FFD700',
     shadowOffset: { width: 0, height: 0 },
-    shadowOpacity: 0.4,
+    shadowOpacity: 0.6,
     shadowRadius: 8,
-    elevation: 4,
-    marginTop: 0,
+    elevation: 6,
+    marginHorizontal: 0,
   },
   startWorkoutButtonText: {
     fontSize: 16,
     fontWeight: 'bold',
     color: '#000000',
+    marginLeft: 8,
   },
   dotsContainer: {
     alignItems: 'center',
     paddingVertical: 16,
     paddingHorizontal: 20,
+    backgroundColor: 'rgba(255, 215, 0, 0.05)',
   },
   dotsLabel: {
     fontSize: 12,
@@ -912,41 +954,40 @@ const styles = StyleSheet.create({
   },
   dotsRow: {
     flexDirection: 'row',
-    gap: 8,
+    alignItems: 'center',
   },
   dot: {
     width: 8,
     height: 8,
     borderRadius: 4,
-    backgroundColor: 'rgba(255, 255, 255, 0.3)',
+    backgroundColor: 'rgba(255, 215, 0, 0.3)',
+    marginHorizontal: 4,
   },
   activeDot: {
     backgroundColor: '#FFD700',
-    width: 24,
+    shadowColor: '#FFD700',
+    shadowOffset: { width: 0, height: 0 },
+    shadowOpacity: 0.6,
+    shadowRadius: 4,
+    elevation: 4,
   },
   noWorkoutsContainer: {
     flex: 1,
-    justifyContent: 'center',
     alignItems: 'center',
-    padding: 40,
+    justifyContent: 'center',
+    paddingVertical: 60,
   },
   noWorkoutsTitle: {
-    fontSize: 24,
+    fontSize: 20,
     fontWeight: 'bold',
-    color: '#ffffff',
-    marginTop: 20,
-    marginBottom: 12,
+    color: '#FFD700',
+    marginTop: 16,
+    marginBottom: 8,
   },
-  noWorkoutsText: {
+  noWorkoutsSubtitle: {
     fontSize: 16,
     color: 'rgba(255, 255, 255, 0.7)',
     textAlign: 'center',
-    lineHeight: 22,
-    marginBottom: 32,
-  },
-  backButtonText: {
-    fontSize: 16,
-    fontWeight: '600',
-    color: '#FFD700',
+    paddingHorizontal: 40,
   },
 });
