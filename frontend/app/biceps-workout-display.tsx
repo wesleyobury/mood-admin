@@ -255,7 +255,7 @@ const bicepsWorkoutDatabase: EquipmentWorkouts[] = [
             },
             {
               icon: 'shield',
-              title: 'Stay braced, zero rocking',
+              title: 'Stay tall with posture locked',
               description: 'Stable torso ensures biceps handle all resistance.'
             }
           ]
