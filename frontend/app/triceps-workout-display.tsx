@@ -570,7 +570,7 @@ const tricepsWorkoutDatabase: EquipmentWorkouts[] = [
     }
   },
   {
-    equipment: 'Cable Crossover Machine',
+    equipment: 'Cable crossover machine',
     icon: 'reorder-three',
     workouts: {
       beginner: [
