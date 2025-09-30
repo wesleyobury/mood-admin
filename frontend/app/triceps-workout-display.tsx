@@ -174,7 +174,7 @@ const tricepsWorkoutDatabase: EquipmentWorkouts[] = [
     }
   },
   {
-    equipment: 'Kettlebells',
+    equipment: 'Kettle bell',
     icon: 'diamond',
     workouts: {
       beginner: [
