@@ -426,6 +426,27 @@ export default function LegsEquipmentScreen() {
               onEquipmentSelect={handleEquipmentSelect}
             />
           ))}
+          
+          {/* Intensity Selection - Only show if Compound is selected */}
+          {isCompoundSelected && hasCompoundEquipment && (
+            <View style={styles.intensitySection}>
+              <Text style={styles.sectionTitle}>Select Intensity Level</Text>
+              <Text style={styles.sectionSubtitle}>
+                Choose your workout difficulty for compound exercises
+              </Text>
+              
+              <View style={styles.intensityContainer}>
+                {intensityLevels.map((intensity) => (
+                  <IntensityCard
+                    key={intensity.id}
+                    intensity={intensity}
+                    isSelected={selectedIntensity?.id === intensity.id}
+                    onPress={handleIntensitySelect}
+                  />
+                ))}
+              </View>
+            </View>
+          )}
         </View>
       </ScrollView>
 
