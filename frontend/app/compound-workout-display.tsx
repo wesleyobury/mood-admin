@@ -92,7 +92,7 @@ const compoundWorkoutDatabase: EquipmentWorkouts[] = [
           name: 'Bulgarian Split Squat',
           duration: '14–16 min',
           description: 'Advanced split squat builds quads\nand glute drive with elevated rear foot.\n ',
-          battlePlan: '• 4 rounds\n• 8-10 bulgarian split squats per leg\n• Rest 75–90s',
+          battlePlan: '• 4 rounds\n• 8-10 bulgarian split squats per leg\n• Rest 75-90s',
           imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Rear foot elevated squat raises ROM + intensity.',
           moodTips: [
@@ -202,7 +202,7 @@ const compoundWorkoutDatabase: EquipmentWorkouts[] = [
           name: 'Reverse Lunge',
           duration: '10–12 min',
           description: 'Reverse lunge reduces strain while\nbuilding single leg strength.\n ',
-          battlePlan: '• 3 rounds\n• 8 per leg Reverse Lunges\n• Rest 75–90s',
+          battlePlan: '• 3 rounds\n• 8 per leg Reverse Lunges\n• Rest 75-90s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Teaches single leg balance with less knee stress.',
           moodTips: [
@@ -222,7 +222,7 @@ const compoundWorkoutDatabase: EquipmentWorkouts[] = [
           name: 'Rack RDL',
           duration: '10–12 min',
           description: 'Beginner hinge teaches depth and\nhamstring control with barbell.\n ',
-          battlePlan: '• 3 rounds\n• 8-10 rack rdls\n• Rest 75–90s',
+          battlePlan: '• 3 rounds\n• 8-10 rack rdls\n• Rest 75-90s',
           imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
           intensityReason: 'Barbell hinge pattern develops glutes + hams.',
           moodTips: [
