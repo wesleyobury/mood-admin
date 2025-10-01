@@ -149,19 +149,10 @@ export default function LegsEquipmentScreen() {
   // Parse the muscle groups from the previous screen
   const muscleGroupNames = muscleGroupsParam ? decodeURIComponent(muscleGroupsParam).split(',') : [];
   
-  // Debug logging
-  console.log('🔍 Debug - Equipment Screen Parameters:');
-  console.log('- All params:', params);
-  console.log('- muscleGroupsParam:', muscleGroupsParam);
-  console.log('- muscleGroupNames:', muscleGroupNames);
-  console.log('- equipmentDatabase:', equipmentDatabase.map(e => e.muscleGroup));
-  
   // Filter equipment data based on selected muscle groups
   const relevantEquipmentData = equipmentDatabase.filter(mgEquipment => 
     muscleGroupNames.includes(mgEquipment.muscleGroup)
   );
-  
-  console.log('- relevantEquipmentData:', relevantEquipmentData.map(e => e.muscleGroup));
 
   const handleEquipmentSelect = (equipment: Equipment) => {
     setSelectedEquipment(prev => {
