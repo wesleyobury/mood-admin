@@ -313,19 +313,19 @@ const glutesWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Machine Kickback',
           duration: '10–12 min',
-          description: 'Beginner machine exercise builds focused posture',
-          battlePlan: '3 rounds\n• 10–12 Kickbacks per leg\nRest 60s',
+          description: 'Pad press hip drive builds foundation safely first\n ',
+          battlePlan: '3 rounds\n• 10–12 per leg Kickbacks\nRest 60s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8TVc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Guided path isolates glutes in safe extension',
+          intensityReason: 'Guided extension path isolates glutes effectively',
           moodTips: [
             {
               icon: 'construct',
-              title: 'Push pad back steady with heel',
+              title: 'Push with heel, torso braced on pad',
               description: 'Controlled movement ensures proper muscle activation and safety.'
             },
             {
               icon: 'shield',
-              title: 'Control down, brace torso against pad',
+              title: 'Contract glute without arching spine',
               description: 'Torso stability prevents compensations and maximizes glute isolation.'
             }
           ]
@@ -333,19 +333,19 @@ const glutesWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Seated Kickback',
           duration: '10–12 min',
-          description: 'Stability lets beginners focus on contraction',
+          description: 'Seated pad drive provides beginner stability focus\n ',
           battlePlan: '3 rounds\n• 12 per leg Seated Kickbacks\nRest 60s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Torso supported, glutes isolated with pad stride',
+          intensityReason: 'Torso support stabilizes movement for beginners',
           moodTips: [
             {
               icon: 'construct',
-              title: 'Hold seat steady, core locked',
+              title: 'Sit braced, core upright on machine seat',
               description: 'Seated position provides stability for focused glute activation.'
             },
             {
               icon: 'timer',
-              title: 'Drive through heel, pause at end',
+              title: 'Press pad back steadily with glute drive',
               description: 'Pause at peak contraction enhances muscle activation.'
             }
           ]
@@ -355,19 +355,19 @@ const glutesWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Heavy Kickback',
           duration: '14–16 min',
-          description: 'Strong extension builds both power and size',
-          battlePlan: '4 rounds\n• 8–10 Heavy Kickbacks per side\nRest 90s',
+          description: 'Progressive overload builds strength at extension\n ',
+          battlePlan: '4 rounds\n• 8–10 Heavy Kickbacks per leg\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Heavier load develops strength progression',
+          intensityReason: 'Increased load pushes hypertrophy for glutes',
           moodTips: [
             {
               icon: 'construct',
-              title: 'Keep hips locked, don\'t arch spine',
+              title: 'Keep back steady, hips square to pad',
               description: 'Hip stability prevents compensations under heavier loads.'
             },
             {
               icon: 'shield',
-              title: 'Move pad steady, avoid jerking',
+              title: 'Push controlled, bar no sudden drops',
               description: 'Controlled movement maintains form and prevents injury.'
             }
           ]
@@ -375,19 +375,19 @@ const glutesWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Pause Kickback',
           duration: '14–16 min',
-          description: 'Builds high‑quality reps at full extension',
+          description: 'Strict tempo isolates stronger contraction at end\n ',
           battlePlan: '3 rounds\n• 8 per leg Pause Kickbacks\nRest 90s',
           imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
-          intensityReason: 'Pause rep style maxes peak glute contraction',
+          intensityReason: 'Added pause loads glute contraction maximally',
           moodTips: [
             {
               icon: 'timer',
-              title: '2s pause at lockout, glutes hard squeeze',
+              title: 'Pause 2s with knee extended back',
               description: 'Extended pause maximizes peak contraction and muscle activation.'
             },
             {
               icon: 'construct',
-              title: 'Lower slow, don\'t slam pads',
+              title: 'Slow return; avoid pad snapping',
               description: 'Controlled eccentric enhances muscle development and joint safety.'
             }
           ]
@@ -397,19 +397,19 @@ const glutesWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Drop‑Set Kickback',
           duration: '16–18 min',
-          description: 'Drop pattern pushes muscles into deep fatigue',
-          battlePlan: '3 rounds\n• 8 Heavy Kickbacks each leg\nDrop 15–20% → 6–8 reps\nDrop 15–20% again → 6–8 reps\nRest 90s',
+          description: 'Sequential weight drops demand non‑stop contraction\n ',
+          battlePlan: '3 rounds\n• 8 Heavy Kickbacks per leg\nDrop 15% weight → 6–8 reps\nDrop 15% again → 6–8 reps\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmc&ZW54MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Strip sets extend time under tension for glutes',
+          intensityReason: 'Drop loading pattern extends tension for hypertrophy',
           moodTips: [
             {
               icon: 'flash',
-              title: 'Drop 15–20% fast, no resting mid‑set',
+              title: 'Reduce weight 15% instantly, keep going',
               description: 'Quick weight changes maintain fatigue and extend training stimulus.'
             },
             {
               icon: 'construct',
-              title: 'Smooth ROM across all drops',
+              title: 'One fluid motion across all drops',
               description: 'Maintain full range of motion even as fatigue increases.'
             }
           ]
@@ -417,19 +417,19 @@ const glutesWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Kickback Hold Burner',
           duration: '16–18 min',
-          description: 'Hybrid hold and pump challenge drains glutes',
-          battlePlan: '4 rounds\n• 8 Kickbacks per leg\nEnd with 10s Iso Hold\nRest 90s',
+          description: 'Static‑dynamic combo adds brutal finishing stimulus\n ',
+          battlePlan: '4 rounds\n• 8 Kickbacks each leg\nFinish with 10s Iso Hold on last rep\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHc0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Static hold plus reps creates burnout tension',
+          intensityReason: 'Iso hold after reps enhances glute activation burn',
           moodTips: [
             {
               icon: 'timer',
-              title: 'On last rep, 10s full lockout hold',
+              title: 'Hold final rep 10s contraction tight',
               description: 'Isometric hold at peak contraction maximizes metabolic stress.'
             },
             {
               icon: 'construct',
-              title: 'Maintain hip alignment during hold',
+              title: 'Keep body square, hips strong inline',
               description: 'Proper position prevents compensations during extended hold.'
             }
           ]
