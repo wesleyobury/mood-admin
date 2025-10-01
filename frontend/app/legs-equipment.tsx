@@ -279,7 +279,7 @@ export default function LegsEquipmentScreen() {
           params: { 
             mood: moodTitle,
             workoutType: 'Compound',
-            selectedEquipmentNames: equipmentNamesString,
+            equipment: equipmentNamesString,
             difficulty: selectedIntensity.id
           }
         });
