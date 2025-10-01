@@ -91,19 +91,19 @@ const glutesWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Cable Step‑Back Lunge',
           duration: '14–16 min',
-          description: 'Rear lunge stimulates glutes under guided load',
+          description: 'Cable anchor increases balance and constant tension',
           battlePlan: '4 rounds\n• 8–10 per leg Step‑Back Lunges\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Split stance with cable adds balanced tension',
+          intensityReason: 'Rear lunges with cable build unilateral glute force',
           moodTips: [
             {
               icon: 'construct',
-              title: 'Cable at chest height, core upright',
+              title: 'Cable set low, hold handle at chest height',
               description: 'Proper cable position maintains balance and core engagement.'
             },
             {
               icon: 'trending-down',
-              title: 'Step back slow, press through front heel',
+              title: 'Step back steady, push from heel upright',
               description: 'Controlled descent with heel drive maximizes glute loading.'
             }
           ]
@@ -111,19 +111,19 @@ const glutesWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Cable High Kickback',
           duration: '14–16 min',
-          description: 'Cuff to ankle allows full hip extension strength',
+          description: 'Top‑end contraction isolates and strengthens glutes',
           battlePlan: '3 rounds\n• 8–10 per leg Kickbacks (2s pause top)\nRest 75–90s',
           imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
-          intensityReason: 'Higher angle enhances peak glute contraction',
+          intensityReason: 'Kickbacks with higher angle add peak glute tension',
           moodTips: [
             {
               icon: 'construct',
-              title: 'Cable cuff to ankle, pulley low',
+              title: 'Ankle cuff, pulley low, hinge slightly forward',
               description: 'Low pulley position creates optimal resistance curve for glutes.'
             },
             {
               icon: 'timer',
-              title: 'Kick back + up, pause 2s at top',
+              title: 'Kick upward + back, pause two seconds top',
               description: 'Pause at peak contraction maximizes muscle activation and control.'
             }
           ]
