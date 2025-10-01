@@ -310,13 +310,18 @@ export default function LegsEquipmentScreen() {
   };
 
   const isCompoundSelected = muscleGroupNames.includes('Compound');
+  const isGlutesSelected = muscleGroupNames.includes('Glutes');
   const hasCompoundEquipment = selectedEquipment.some(eq => 
     ['Dumbbells', 'Squat Rack', 'Leg Press Machine', 'Hack Squat Machine', 'Single Stack Cable Machine', 'Trap Bar'].includes(eq.name)
   );
+  const hasGlutesEquipment = selectedEquipment.some(eq => 
+    ['Glute Kick Machine', 'Hip Abductor Machine', 'Hip Thruster Equipment', 'Single Stack Cable Machine'].includes(eq.name)
+  );
   
-  // Can continue if equipment is selected, and if compound equipment is selected, intensity must also be selected
+  // Can continue if equipment is selected, and if compound or glutes equipment is selected, intensity must also be selected
+  const needsIntensity = (isCompoundSelected && hasCompoundEquipment) || (isGlutesSelected && hasGlutesEquipment);
   const canContinue = selectedEquipment.length > 0 && 
-    (!isCompoundSelected || !hasCompoundEquipment || selectedIntensity !== null);
+    (!needsIntensity || selectedIntensity !== null);
 
   if (relevantEquipmentData.length === 0) {
     return (
