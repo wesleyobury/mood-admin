@@ -22,6 +22,13 @@ interface MuscleGroupEquipment {
   equipment: Equipment[];
 }
 
+interface IntensityLevel {
+  id: string;
+  title: string;
+  subtitle: string;
+  icon: keyof typeof Ionicons.glyphMap;
+}
+
 const equipmentDatabase: MuscleGroupEquipment[] = [
   {
     muscleGroup: 'Compound',
