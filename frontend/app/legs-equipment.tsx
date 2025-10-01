@@ -252,6 +252,10 @@ export default function LegsEquipmentScreen() {
     });
   };
 
+  const handleIntensitySelect = (intensity: IntensityLevel) => {
+    setSelectedIntensity(intensity);
+  };
+
   const handleContinue = () => {
     if (selectedEquipment.length > 0) {
       const equipmentNames = selectedEquipment.map(eq => eq.name);
