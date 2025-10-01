@@ -261,30 +261,37 @@ export default function LegsEquipmentScreen() {
       const equipmentNames = selectedEquipment.map(eq => eq.name);
       const equipmentNamesString = equipmentNames.join(',');
       const isCompoundSelected = muscleGroupNames.includes('Compound');
+      const isGlutesSelected = muscleGroupNames.includes('Glutes');
       const hasCompoundEquipment = selectedEquipment.some(eq => 
         ['Dumbbells', 'Squat Rack', 'Leg Press Machine', 'Hack Squat Machine', 'Single Stack Cable Machine', 'Trap Bar'].includes(eq.name)
+      );
+      const hasGlutesEquipment = selectedEquipment.some(eq => 
+        ['Glute Kick Machine', 'Hip Abductor Machine', 'Hip Thruster Equipment', 'Single Stack Cable Machine'].includes(eq.name)
       );
       
       console.log('Selected equipment:', equipmentNames);
       console.log('Selected muscle groups:', muscleGroupNames);
       console.log('Is compound selected:', isCompoundSelected);
+      console.log('Is glutes selected:', isGlutesSelected);
       console.log('Has compound equipment:', hasCompoundEquipment);
+      console.log('Has glutes equipment:', hasGlutesEquipment);
       console.log('Selected intensity:', selectedIntensity?.id);
       
-      // If Compound is selected AND compound equipment is selected AND intensity is selected
-      if (isCompoundSelected && hasCompoundEquipment && selectedIntensity) {
-        // Navigate to compound workout display
+      // If we have compound equipment that requires intensity OR glutes equipment
+      if ((isCompoundSelected && hasCompoundEquipment && selectedIntensity) || (isGlutesSelected && hasGlutesEquipment && selectedIntensity)) {
+        // Navigate to compound workout display (which now handles both compound and glutes)
         router.push({
           pathname: '/compound-workout-display',
           params: { 
             mood: moodTitle,
-            workoutType: 'Compound',
+            workoutType: 'Legs',
+            muscleGroups: encodeURIComponent(muscleGroupNames.join(',')),
             equipment: equipmentNamesString,
             difficulty: selectedIntensity.id
           }
         });
       } else {
-        // Navigate to regular legs workout display
+        // Navigate to regular legs workout display for other muscle groups
         router.push({
           pathname: '/legs-workout-display',
           params: { 
