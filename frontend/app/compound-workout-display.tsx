@@ -1787,18 +1787,40 @@ export default function CompoundWorkoutDisplayScreen() {
 
       <ScrollView style={styles.scrollView} showsVerticalScrollIndicator={false}>
         <View style={styles.scrollContent}>
-          {/* Workout Cards */}
-          {userWorkouts.map((equipmentWorkout, index) => (
-            <WorkoutCard
-              key={equipmentWorkout.equipment}
-              equipment={equipmentWorkout.equipment}
-              icon={equipmentWorkout.icon}
-              workouts={equipmentWorkout.workouts}
-              difficulty={difficulty}
-              difficultyColor={difficultyColor}
-              onStartWorkout={handleStartWorkout}
-            />
-          ))}
+          {/* Workout Cards - Grouped by Muscle Group */}
+          {selectedMuscleGroups.includes('Compound') && (
+            <>
+              <Text style={styles.muscleGroupHeader}>Compound Workouts</Text>
+              {userWorkouts.filter(w => w.muscleGroup === 'Compound').map((equipmentWorkout, index) => (
+                <WorkoutCard
+                  key={`compound-${equipmentWorkout.equipment}`}
+                  equipment={equipmentWorkout.equipment}
+                  icon={equipmentWorkout.icon}
+                  workouts={equipmentWorkout.workouts}
+                  difficulty={difficulty}
+                  difficultyColor={difficultyColor}
+                  onStartWorkout={handleStartWorkout}
+                />
+              ))}
+            </>
+          )}
+          
+          {selectedMuscleGroups.includes('Glutes') && (
+            <>
+              <Text style={styles.muscleGroupHeader}>Glutes Workouts</Text>
+              {userWorkouts.filter(w => w.muscleGroup === 'Glutes').map((equipmentWorkout, index) => (
+                <WorkoutCard
+                  key={`glutes-${equipmentWorkout.equipment}`}
+                  equipment={equipmentWorkout.equipment}
+                  icon={equipmentWorkout.icon}
+                  workouts={equipmentWorkout.workouts}
+                  difficulty={difficulty}
+                  difficultyColor={difficultyColor}
+                  onStartWorkout={handleStartWorkout}
+                />
+              ))}
+            </>
+          )}
         </View>
       </ScrollView>
     </SafeAreaView>
