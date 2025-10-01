@@ -223,19 +223,19 @@ const glutesWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Banded Hip Thrust',
           duration: '14–16 min',
-          description: 'Top range of thrust maximally challenges glutes',
+          description: 'Builds glute lockout with band top range tension\n ',
           battlePlan: '4 rounds\n• 10 Banded Hip Thrusts\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Band adds peak contraction constant tension',
+          intensityReason: 'Band drives abduction for long range contraction',
           moodTips: [
             {
               icon: 'resize',
-              title: 'Band above knees, push outward hard',
+              title: 'Keep band above knees, press outward',
               description: 'Band resistance challenges glutes in multiple planes of movement.'
             },
             {
               icon: 'flash',
-              title: 'Drive hips to full lockout each rep',
+              title: 'Brace abs, extend hips forcefully each rep',
               description: 'Complete hip extension against band resistance maximizes glute activation.'
             }
           ]
@@ -243,19 +243,19 @@ const glutesWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Single‑Leg Hip Thrust',
           duration: '14–16 min',
-          description: 'Unilateral thrust forces even glute development',
+          description: 'Unilateral load prevents imbalance and aids stability\n ',
           battlePlan: '3 rounds\n• 8–10 per leg Single‑Leg Hip Thrusts\nRest 90s',
           imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
-          intensityReason: 'Isolates one side for balance and hypertrophy',
+          intensityReason: 'One‑leg thrust isolates glutes for stronger balance',
           moodTips: [
             {
               icon: 'construct',
-              title: 'Keep pelvis steady, no dropping hips',
+              title: 'Keep pelvis level, don\'t rotate hips down',
               description: 'Pelvic stability ensures proper muscle activation and prevents injury.'
             },
             {
               icon: 'fitness',
-              title: 'Drive single leg into ground steady',
+              title: 'Drive heel firmly, feel isolated squeeze',
               description: 'Focused single-leg drive develops unilateral strength and power.'
             }
           ]
@@ -265,19 +265,19 @@ const glutesWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Heavy Bar Hip Thrust',
           duration: '16–18 min',
-          description: 'Core posterior builder for explosive hip drive',
+          description: 'Barbell lift grows strength and posterior hip power\n ',
           battlePlan: '4 rounds\n• 6–8 Heavy Hip Thrusts\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmc&ZW54MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Heavy load maximizes strength + glute mass',
+          intensityReason: 'Heavy thrust progression maximizes glute overload',
           moodTips: [
             {
               icon: 'shield',
-              title: 'Brace torso, don\'t let back arch',
+              title: 'Bar over hips, brace abs to stabilize',
               description: 'Core stability prevents compensations under heavy load.'
             },
             {
               icon: 'construct',
-              title: 'Lock hips in controlled extension',
+              title: 'Thrust up sharply, lock out glutes',
               description: 'Controlled movement pattern maintains safety and effectiveness.'
             }
           ]
@@ -285,19 +285,19 @@ const glutesWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Hip Thrust + Iso Hold',
           duration: '16–18 min',
-          description: 'Combo reps with iso challenge complete burnout',
-          battlePlan: '3 rounds\n• 8–10 Hip Thrusts\nFinish with 10s Iso Hold at Top\nRest 90s',
+          description: 'Finisher combo challenges endurance and contraction\n ',
+          battlePlan: '3 rounds\n• 8–10 Hip Thrusts\nFinish with 10s Iso Hold at top\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHc0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Holding at top extends tension for hypertrophy',
+          intensityReason: 'Iso hold extending reps prolongs glute time under load',
           moodTips: [
             {
               icon: 'timer',
-              title: 'Squeeze glutes through hold, knees wide',
+              title: '10s hold in full extension each set',
               description: 'Sustained contraction maximizes metabolic stress and muscle activation.'
             },
             {
               icon: 'construct',
-              title: 'Don\'t let hips sag during 10s hold',
+              title: 'Push knees out to hold band tension',
               description: 'Maintain position throughout hold for maximum effectiveness.'
             }
           ]
