@@ -20,6 +20,12 @@ interface MuscleGroupOption {
 
 const muscleGroupOptions: MuscleGroupOption[] = [
   { 
+    id: 'compound', 
+    name: 'Compound', 
+    icon: 'layers',
+    description: 'Multiple leg muscles'
+  },
+  { 
     id: 'glutes', 
     name: 'Glutes', 
     icon: 'fitness',
@@ -42,12 +48,6 @@ const muscleGroupOptions: MuscleGroupOption[] = [
     name: 'Calfs', 
     icon: 'diamond',
     description: 'Lower leg muscles'
-  },
-  { 
-    id: 'compound', 
-    name: 'Compound', 
-    icon: 'layers',
-    description: 'Multiple leg muscles'
   },
 ];
 
