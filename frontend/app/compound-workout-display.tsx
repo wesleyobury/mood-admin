@@ -529,19 +529,19 @@ const glutesWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Drop‑Set Abduction',
           duration: '16–18 min',
-          description: 'Sequential drops extend glute medius training',
-          battlePlan: '3 rounds\n• 12 Heavy Abductions\nDrop 20% → 10 reps\nDrop 20% → 10 reps\nRest 90s',
+          description: 'Stacked reps crush glute medius with high overload\n ',
+          battlePlan: '3 rounds\n• 12 Heavy Abductions\nDrop 20% → 10 reps\nDrop 20% again → 10 reps\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmc&ZW54MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Strip set overload maximizes muscle fatigue',
+          intensityReason: 'Drop set prolongs effort rising metabolic fatigue',
           moodTips: [
             {
               icon: 'flash',
-              title: 'Drop weights fast and keep going',
+              title: 'Strip plates fast, no mid‑set rest',
               description: 'Quick transitions maintain fatigue and extend training stimulus.'
             },
             {
               icon: 'construct',
-              title: 'ROM steady even when lightened',
+              title: 'Keep every rep smooth and steady',
               description: 'Maintain full range of motion throughout all drop sets.'
             }
           ]
