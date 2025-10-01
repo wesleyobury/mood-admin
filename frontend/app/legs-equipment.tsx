@@ -444,7 +444,7 @@ export default function LegsEquipmentScreen() {
             <View style={styles.intensitySection}>
               <Text style={styles.sectionTitle}>Select Intensity Level</Text>
               <Text style={styles.sectionSubtitle}>
-                Choose your workout difficulty for compound exercises
+                Choose your workout difficulty level
               </Text>
               
               <View style={styles.intensityContainer}>
