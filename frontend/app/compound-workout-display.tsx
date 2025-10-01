@@ -943,6 +943,23 @@ export default function CompoundWorkoutDisplayScreen() {
   console.log('Parsed parameters:', { selectedEquipmentNames, difficulty, moodTitle, workoutType });
 
   // Get difficulty color - all the same neon gold
+  // Get equipment icon for progress bar
+  const getEquipmentIcon = (equipmentName: string): keyof typeof Ionicons.glyphMap => {
+    const equipmentIconMap: { [key: string]: keyof typeof Ionicons.glyphMap } = {
+      'Dumbbells': 'barbell',
+      'Squat Rack': 'square-outline',
+      'Leg Press Machine': 'hardware-chip',
+      'Hack Squat Machine': 'triangle',
+      'Single Stack Cable': 'reorder-three'
+    };
+    return equipmentIconMap[equipmentName] || 'fitness';
+  };
+
+  // Get difficulty color - all the same neon gold
+  const getDifficultyColor = (level: string) => {
+    return '#FFD700'; // Same neon gold for all difficulty levels
+  };
+
   // Create rows of progress steps with max 4 per row (matching chest format)
   const createProgressRows = () => {
     const allSteps = [
@@ -962,22 +979,6 @@ export default function CompoundWorkoutDisplayScreen() {
       rows.push(allSteps.slice(i, i + 4));
     }
     return rows;
-  };
-
-  const getEquipmentIcon = (equipmentName: string): keyof typeof Ionicons.glyphMap => {
-    const equipmentIconMap: { [key: string]: keyof typeof Ionicons.glyphMap } = {
-      'Dumbbells': 'barbell',
-      'Squat Rack': 'square-outline',
-      'Leg Press Machine': 'hardware-chip',
-      'Hack Squat Machine': 'triangle',
-      'Single Stack Cable': 'reorder-three'
-    };
-    return equipmentIconMap[equipmentName] || 'fitness';
-  };
-
-  // Get difficulty color - all the same neon gold
-  const getDifficultyColor = (level: string) => {
-    return '#FFD700'; // Same neon gold for all difficulty levels
   };
 
   const difficultyColor = getDifficultyColor(difficulty);
