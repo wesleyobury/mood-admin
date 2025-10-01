@@ -39,6 +39,538 @@ interface EquipmentWorkouts {
   };
 }
 
+// Complete Glutes workout database with detailed battle plans and MOOD tips
+const glutesWorkoutDatabase: EquipmentWorkouts[] = [
+  {
+    equipment: 'Single Stack Cable Machine',
+    icon: 'reorder-three',
+    workouts: {
+      beginner: [
+        {
+          name: 'Cable Ankle Kickback',
+          duration: '10–12 min',
+          description: 'Kickbacks isolate glutes with strict range of motion',
+          battlePlan: '3 rounds\n• 10–12 per leg Kickbacks\nRest 60s',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8TVc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Cable line adds constant tension to hip extension',
+          moodTips: [
+            {
+              icon: 'body',
+              title: 'Strap cuff to ankle, hinge slightly forward',
+              description: 'Proper positioning ensures target muscle isolation and safety.'
+            },
+            {
+              icon: 'construct',
+              title: 'Keep torso still, extend leg back smoothly',
+              description: 'Controlled movement prevents compensation and maximizes glute activation.'
+            }
+          ]
+        },
+        {
+          name: 'Cable Pull‑Through',
+          duration: '10–12 min',
+          description: 'Rope pull builds foundation with safe hinge pattern',
+          battlePlan: '3 rounds\n• 10–12 Pull‑Throughs\nRest 75s',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Hinge motion builds hamstrings and glutes together',
+          moodTips: [
+            {
+              icon: 'walk',
+              title: 'Step forward with rope between legs',
+              description: 'Proper setup creates the foundation for effective hip hinge movement.'
+            },
+            {
+              icon: 'flash',
+              title: 'Push hips back, drive through into lockout',
+              description: 'Hip drive ensures complete glute activation and power development.'
+            }
+          ]
+        }
+      ],
+      intermediate: [
+        {
+          name: 'Cable Step‑Back Lunge',
+          duration: '14–16 min',
+          description: 'Rear lunge stimulates glutes under guided load',
+          battlePlan: '4 rounds\n• 8–10 per leg Step‑Back Lunges\nRest 90s',
+          imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Split stance with cable adds balanced tension',
+          moodTips: [
+            {
+              icon: 'construct',
+              title: 'Cable at chest height, core upright',
+              description: 'Proper cable position maintains balance and core engagement.'
+            },
+            {
+              icon: 'trending-down',
+              title: 'Step back slow, press through front heel',
+              description: 'Controlled descent with heel drive maximizes glute loading.'
+            }
+          ]
+        },
+        {
+          name: 'Cable High Kickback',
+          duration: '14–16 min',
+          description: 'Cuff to ankle allows full hip extension strength',
+          battlePlan: '3 rounds\n• 8–10 per leg Kickbacks (2s pause top)\nRest 75–90s',
+          imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
+          intensityReason: 'Higher angle enhances peak glute contraction',
+          moodTips: [
+            {
+              icon: 'construct',
+              title: 'Cable cuff to ankle, pulley low',
+              description: 'Low pulley position creates optimal resistance curve for glutes.'
+            },
+            {
+              icon: 'timer',
+              title: 'Kick back + up, pause 2s at top',
+              description: 'Pause at peak contraction maximizes muscle activation and control.'
+            }
+          ]
+        }
+      ],
+      advanced: [
+        {
+          name: 'Pull‑Through + Squat Combo',
+          duration: '16–18 min',
+          description: 'Constant tension keeps glutes working throughout',
+          battlePlan: '4 rounds\n• 8 Cable Pull‑Throughs\n• 8 Cable Squats\nRest 90s',
+          imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmc&ZW54MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Pair hinge and squat for dual glute recruitment',
+          moodTips: [
+            {
+              icon: 'refresh',
+              title: 'Perform pull‑through, then squat without resting',
+              description: 'Continuous movement maintains muscle tension and metabolic stress.'
+            },
+            {
+              icon: 'construct',
+              title: 'Stay close to stack to keep path smooth',
+              description: 'Proper positioning ensures consistent resistance throughout range.'
+            }
+          ]
+        },
+        {
+          name: 'Cable Kickback Burnout',
+          duration: '16–18 min',
+          description: 'Endurance‑style work flushes muscles completely',
+          battlePlan: '3 rounds\n• 15–20 per leg Kickbacks\nRest 90s',
+          imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHc0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'High reps + tension torch glutes to failure',
+          moodTips: [
+            {
+              icon: 'construct',
+              title: 'Keep hips square, no torso swing',
+              description: 'Maintain proper alignment to isolate glutes and prevent compensation.'
+            },
+            {
+              icon: 'shield',
+              title: 'Small controlled reps, no sloppy form',
+              description: 'Quality over quantity - maintain form even during high-rep burnout.'
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    equipment: 'Hip Thruster Equipment',
+    icon: 'fitness',
+    workouts: {
+      beginner: [
+        {
+          name: 'Bodyweight Hip Thrust',
+          duration: '10–12 min',
+          description: 'Intro thrust teaches hip extension mechanics',
+          battlePlan: '3 rounds\n• 12–15 Bodyweight Thrusts\nRest 60s',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8TVc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Builds form before loading with weights safely',
+          moodTips: [
+            {
+              icon: 'construct',
+              title: 'Upper back on pad, chin tucked',
+              description: 'Proper positioning creates stable base for hip thrust movement.'
+            },
+            {
+              icon: 'trending-up',
+              title: 'Drive hips fully upward, squeeze glutes',
+              description: 'Complete hip extension with glute squeeze maximizes muscle activation.'
+            }
+          ]
+        },
+        {
+          name: 'Light Bar Hip Thrust',
+          duration: '10–12 min',
+          description: 'Adds simple progressive overload for growth',
+          battlePlan: '3 rounds\n• 10–12 Bar Hip Thrusts\nRest 75s',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Barbell load increases strength above bodyweight',
+          moodTips: [
+            {
+              icon: 'barbell',
+              title: 'Barbell across hips, brace core',
+              description: 'Proper bar positioning and core bracing ensure safe load transfer.'
+            },
+            {
+              icon: 'fitness',
+              title: 'Push evenly with both heels',
+              description: 'Balanced heel drive prevents compensations and maximizes power.'
+            }
+          ]
+        }
+      ],
+      intermediate: [
+        {
+          name: 'Banded Hip Thrust',
+          duration: '14–16 min',
+          description: 'Top range of thrust maximally challenges glutes',
+          battlePlan: '4 rounds\n• 10 Banded Hip Thrusts\nRest 90s',
+          imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Band adds peak contraction constant tension',
+          moodTips: [
+            {
+              icon: 'resize',
+              title: 'Band above knees, push outward hard',
+              description: 'Band resistance challenges glutes in multiple planes of movement.'
+            },
+            {
+              icon: 'flash',
+              title: 'Drive hips to full lockout each rep',
+              description: 'Complete hip extension against band resistance maximizes glute activation.'
+            }
+          ]
+        },
+        {
+          name: 'Single‑Leg Hip Thrust',
+          duration: '14–16 min',
+          description: 'Unilateral thrust forces even glute development',
+          battlePlan: '3 rounds\n• 8–10 per leg Single‑Leg Hip Thrusts\nRest 90s',
+          imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
+          intensityReason: 'Isolates one side for balance and hypertrophy',
+          moodTips: [
+            {
+              icon: 'construct',
+              title: 'Keep pelvis steady, no dropping hips',
+              description: 'Pelvic stability ensures proper muscle activation and prevents injury.'
+            },
+            {
+              icon: 'fitness',
+              title: 'Drive single leg into ground steady',
+              description: 'Focused single-leg drive develops unilateral strength and power.'
+            }
+          ]
+        }
+      ],
+      advanced: [
+        {
+          name: 'Heavy Bar Hip Thrust',
+          duration: '16–18 min',
+          description: 'Core posterior builder for explosive hip drive',
+          battlePlan: '4 rounds\n• 6–8 Heavy Hip Thrusts\nRest 90s',
+          imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmc&ZW54MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Heavy load maximizes strength + glute mass',
+          moodTips: [
+            {
+              icon: 'shield',
+              title: 'Brace torso, don\'t let back arch',
+              description: 'Core stability prevents compensations under heavy load.'
+            },
+            {
+              icon: 'construct',
+              title: 'Lock hips in controlled extension',
+              description: 'Controlled movement pattern maintains safety and effectiveness.'
+            }
+          ]
+        },
+        {
+          name: 'Hip Thrust + Iso Hold',
+          duration: '16–18 min',
+          description: 'Combo reps with iso challenge complete burnout',
+          battlePlan: '3 rounds\n• 8–10 Hip Thrusts\nFinish with 10s Iso Hold at Top\nRest 90s',
+          imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHc0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Holding at top extends tension for hypertrophy',
+          moodTips: [
+            {
+              icon: 'timer',
+              title: 'Squeeze glutes through hold, knees wide',
+              description: 'Sustained contraction maximizes metabolic stress and muscle activation.'
+            },
+            {
+              icon: 'construct',
+              title: 'Don\'t let hips sag during 10s hold',
+              description: 'Maintain position throughout hold for maximum effectiveness.'
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    equipment: 'Glute Kick Machine',
+    icon: 'ellipse',
+    workouts: {
+      beginner: [
+        {
+          name: 'Machine Kickback',
+          duration: '10–12 min',
+          description: 'Beginner machine exercise builds focused posture',
+          battlePlan: '3 rounds\n• 10–12 Kickbacks per leg\nRest 60s',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8TVc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Guided path isolates glutes in safe extension',
+          moodTips: [
+            {
+              icon: 'construct',
+              title: 'Push pad back steady with heel',
+              description: 'Controlled movement ensures proper muscle activation and safety.'
+            },
+            {
+              icon: 'shield',
+              title: 'Control down, brace torso against pad',
+              description: 'Torso stability prevents compensations and maximizes glute isolation.'
+            }
+          ]
+        },
+        {
+          name: 'Seated Kickback',
+          duration: '10–12 min',
+          description: 'Stability lets beginners focus on contraction',
+          battlePlan: '3 rounds\n• 12 per leg Seated Kickbacks\nRest 60s',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Torso supported, glutes isolated with pad stride',
+          moodTips: [
+            {
+              icon: 'construct',
+              title: 'Hold seat steady, core locked',
+              description: 'Seated position provides stability for focused glute activation.'
+            },
+            {
+              icon: 'timer',
+              title: 'Drive through heel, pause at end',
+              description: 'Pause at peak contraction enhances muscle activation.'
+            }
+          ]
+        }
+      ],
+      intermediate: [
+        {
+          name: 'Heavy Kickback',
+          duration: '14–16 min',
+          description: 'Strong extension builds both power and size',
+          battlePlan: '4 rounds\n• 8–10 Heavy Kickbacks per side\nRest 90s',
+          imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Heavier load develops strength progression',
+          moodTips: [
+            {
+              icon: 'construct',
+              title: 'Keep hips locked, don\'t arch spine',
+              description: 'Hip stability prevents compensations under heavier loads.'
+            },
+            {
+              icon: 'shield',
+              title: 'Move pad steady, avoid jerking',
+              description: 'Controlled movement maintains form and prevents injury.'
+            }
+          ]
+        },
+        {
+          name: 'Pause Kickback',
+          duration: '14–16 min',
+          description: 'Builds high‑quality reps at full extension',
+          battlePlan: '3 rounds\n• 8 per leg Pause Kickbacks\nRest 90s',
+          imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
+          intensityReason: 'Pause rep style maxes peak glute contraction',
+          moodTips: [
+            {
+              icon: 'timer',
+              title: '2s pause at lockout, glutes hard squeeze',
+              description: 'Extended pause maximizes peak contraction and muscle activation.'
+            },
+            {
+              icon: 'construct',
+              title: 'Lower slow, don\'t slam pads',
+              description: 'Controlled eccentric enhances muscle development and joint safety.'
+            }
+          ]
+        }
+      ],
+      advanced: [
+        {
+          name: 'Drop‑Set Kickback',
+          duration: '16–18 min',
+          description: 'Drop pattern pushes muscles into deep fatigue',
+          battlePlan: '3 rounds\n• 8 Heavy Kickbacks each leg\nDrop 15–20% → 6–8 reps\nDrop 15–20% again → 6–8 reps\nRest 90s',
+          imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmc&ZW54MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Strip sets extend time under tension for glutes',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Drop 15–20% fast, no resting mid‑set',
+              description: 'Quick weight changes maintain fatigue and extend training stimulus.'
+            },
+            {
+              icon: 'construct',
+              title: 'Smooth ROM across all drops',
+              description: 'Maintain full range of motion even as fatigue increases.'
+            }
+          ]
+        },
+        {
+          name: 'Kickback Hold Burner',
+          duration: '16–18 min',
+          description: 'Hybrid hold and pump challenge drains glutes',
+          battlePlan: '4 rounds\n• 8 Kickbacks per leg\nEnd with 10s Iso Hold\nRest 90s',
+          imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHc0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Static hold plus reps creates burnout tension',
+          moodTips: [
+            {
+              icon: 'timer',
+              title: 'On last rep, 10s full lockout hold',
+              description: 'Isometric hold at peak contraction maximizes metabolic stress.'
+            },
+            {
+              icon: 'construct',
+              title: 'Maintain hip alignment during hold',
+              description: 'Proper position prevents compensations during extended hold.'
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    equipment: 'Hip Abductor Machine',
+    icon: 'resize',
+    workouts: {
+      beginner: [
+        {
+          name: 'Standard Abduction',
+          duration: '10–12 min',
+          description: 'Beginner movement improves hip stability basics',
+          battlePlan: '3 rounds\n• 12–15 Hip Abductions\nRest 60s',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8TVc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Simple seated hip open strengthens glute medius',
+          moodTips: [
+            {
+              icon: 'construct',
+              title: 'Sit tall, press knees wide steady',
+              description: 'Upright posture ensures proper glute medius activation.'
+            },
+            {
+              icon: 'shield',
+              title: 'Return slow, avoid bounce inward',
+              description: 'Controlled return prevents momentum and maintains muscle tension.'
+            }
+          ]
+        },
+        {
+          name: 'Lean Forward Abduction',
+          duration: '10–12 min',
+          description: 'Builds engagement by altering trunk placement',
+          battlePlan: '3 rounds\n• 12–15 Lean Abductions\nRest 75s',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Lean angle shifts load deeper onto glute fibers',
+          moodTips: [
+            {
+              icon: 'construct',
+              title: 'Lean forward 20–30°, chest down',
+              description: 'Forward lean changes muscle fiber recruitment for enhanced activation.'
+            },
+            {
+              icon: 'fitness',
+              title: 'Push knees wide with control',
+              description: 'Controlled movement ensures quality muscle activation.'
+            }
+          ]
+        }
+      ],
+      intermediate: [
+        {
+          name: 'Banded Abduction',
+          duration: '14–16 min',
+          description: 'Boosts hypertrophy by adding lateral force',
+          battlePlan: '4 rounds\n• 12 Banded Hip Abductions\nRest 90s',
+          imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Band tension amplifies contraction intensity',
+          moodTips: [
+            {
+              icon: 'resize',
+              title: 'Band above knees, press outward hard',
+              description: 'Band creates additional resistance throughout the range of motion.'
+            },
+            {
+              icon: 'construct',
+              title: 'Control return, don\'t let knees crash',
+              description: 'Controlled return prevents band snap-back and maintains tension.'
+            }
+          ]
+        },
+        {
+          name: 'Unilateral Abduction',
+          duration: '14–16 min',
+          description: 'Prevents imbalances with strict single‑side work',
+          battlePlan: '4 rounds\n• 8–10 per side Unilateral Abductions\nRest 90s',
+          imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
+          intensityReason: 'One side at a time enhances activation and control',
+          moodTips: [
+            {
+              icon: 'construct',
+              title: 'Press one knee, anchor the other hard',
+              description: 'Unilateral work highlights and addresses strength imbalances.'
+            },
+            {
+              icon: 'shield',
+              title: 'Sit tall, torso stable against pad',
+              description: 'Torso stability ensures isolated glute medius activation.'
+            }
+          ]
+        }
+      ],
+      advanced: [
+        {
+          name: 'Drop‑Set Abduction',
+          duration: '16–18 min',
+          description: 'Sequential drops extend glute medius training',
+          battlePlan: '3 rounds\n• 12 Heavy Abductions\nDrop 20% → 10 reps\nDrop 20% → 10 reps\nRest 90s',
+          imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmc&ZW54MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Strip set overload maximizes muscle fatigue',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Drop weights fast and keep going',
+              description: 'Quick transitions maintain fatigue and extend training stimulus.'
+            },
+            {
+              icon: 'construct',
+              title: 'ROM steady even when lightened',
+              description: 'Maintain full range of motion throughout all drop sets.'
+            }
+          ]
+        },
+        {
+          name: 'Hold + Rep Abduction',
+          duration: '16–18 min',
+          description: 'Tension overload floods glute medius thoroughly',
+          battlePlan: '3 rounds\n• 10s Iso Hold (knees wide)\n• 10–12 Full Reps\nRest 90s',
+          imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHc0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Combination iso + reps forces total burnout',
+          moodTips: [
+            {
+              icon: 'timer',
+              title: 'Squeeze wide in 10s iso hold',
+              description: 'Sustained contraction pre-fatigues muscles for enhanced training effect.'
+            },
+            {
+              icon: 'construct',
+              title: 'Go straight into smooth full reps',
+              description: 'Immediate transition maintains fatigue and training intensity.'
+            }
+          ]
+        }
+      ]
+    }
+  }
+];
+
 // Complete Compound Leg workout database with detailed battle plans and MOOD tips
 const compoundWorkoutDatabase: EquipmentWorkouts[] = [
   {
