@@ -148,12 +148,12 @@ export default function LegsMuscleGroupsScreen() {
           }
         });
       } else {
-        // Navigate to legs workout display for individual muscle group selections
+        // Navigate to legs equipment screen for individual muscle group selections
         const muscleGroupNames = selectedMuscleGroups.map(mg => mg.name);
         const muscleGroupNamesString = muscleGroupNames.join(',');
         
         router.push({
-          pathname: '/legs-workout-display',
+          pathname: '/legs-equipment',
           params: { 
             mood: moodTitle,
             workoutType: workoutType,
