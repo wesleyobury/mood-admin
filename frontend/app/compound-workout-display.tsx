@@ -49,19 +49,19 @@ const glutesWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Cable Ankle Kickback',
           duration: '10–12 min',
-          description: 'Kickbacks isolate glutes with strict range of motion',
+          description: 'Ankle‑strapped motion builds activation through glutes',
           battlePlan: '3 rounds\n• 10–12 per leg Kickbacks\nRest 60s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8TVc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Cable line adds constant tension to hip extension',
+          intensityReason: 'Cable adds constant tension for strict hip extension',
           moodTips: [
             {
               icon: 'body',
-              title: 'Strap cuff to ankle, hinge slightly forward',
+              title: 'Strap cuff to ankle, hinge slightly, torso tall',
               description: 'Proper positioning ensures target muscle isolation and safety.'
             },
             {
               icon: 'construct',
-              title: 'Keep torso still, extend leg back smoothly',
+              title: 'Kick leg smoothly back, no hip or torso twist',
               description: 'Controlled movement prevents compensation and maximizes glute activation.'
             }
           ]
