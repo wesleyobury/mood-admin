@@ -133,19 +133,19 @@ const glutesWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Pull‑Through + Squat Combo',
           duration: '16–18 min',
-          description: 'Constant tension keeps glutes working throughout',
-          battlePlan: '4 rounds\n• 8 Cable Pull‑Throughs\n• 8 Cable Squats\nRest 90s',
+          description: 'Constant tension pairing ensures strong hypertrophy',
+          battlePlan: '4 rounds\n• 8 Pull‑Throughs\n• 8 Cable Squats\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmc&ZW54MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Pair hinge and squat for dual glute recruitment',
+          intensityReason: 'Pair hinge and squat hits glutes from dual angles',
           moodTips: [
             {
               icon: 'refresh',
-              title: 'Perform pull‑through, then squat without resting',
+              title: 'Perform pull‑through hinge, then squat upright',
               description: 'Continuous movement maintains muscle tension and metabolic stress.'
             },
             {
               icon: 'construct',
-              title: 'Stay close to stack to keep path smooth',
+              title: 'Stay tight near stack, no resting mid‑set',
               description: 'Proper positioning ensures consistent resistance throughout range.'
             }
           ]
@@ -153,19 +153,19 @@ const glutesWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Cable Kickback Burnout',
           duration: '16–18 min',
-          description: 'Endurance‑style work flushes muscles completely',
+          description: 'Ankle‑cuff movement torches glutes with total volume',
           battlePlan: '3 rounds\n• 15–20 per leg Kickbacks\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHc0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'High reps + tension torch glutes to failure',
+          intensityReason: 'High rep burnout floods glutes with strict tension',
           moodTips: [
             {
               icon: 'construct',
-              title: 'Keep hips square, no torso swing',
+              title: 'Keep hips square, no torso leaning back',
               description: 'Maintain proper alignment to isolate glutes and prevent compensation.'
             },
             {
               icon: 'shield',
-              title: 'Small controlled reps, no sloppy form',
+              title: 'Small but controlled, avoid swinging reps',
               description: 'Quality over quantity - maintain form even during high-rep burnout.'
             }
           ]
