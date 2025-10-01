@@ -452,7 +452,7 @@ const glutesWorkoutDatabase: EquipmentWorkouts[] = [
           moodTips: [
             {
               icon: 'construct',
-              title: 'Sit tall, press knees wide steady',
+              title: 'Stay upright; push knees outward slow',
               description: 'Upright posture ensures proper glute medius activation.'
             },
             {
