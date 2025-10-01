@@ -69,19 +69,19 @@ const glutesWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Cable Pull‑Through',
           duration: '10–12 min',
-          description: 'Rope pull builds foundation with safe hinge pattern',
+          description: 'Great hip hinge builder for posterior chain activation',
           battlePlan: '3 rounds\n• 10–12 Pull‑Throughs\nRest 75s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Hinge motion builds hamstrings and glutes together',
+          intensityReason: 'Rope hinge motion loads glutes with safe posture path',
           moodTips: [
             {
               icon: 'walk',
-              title: 'Step forward with rope between legs',
+              title: 'Hold rope, step forward, hinge hips deep',
               description: 'Proper setup creates the foundation for effective hip hinge movement.'
             },
             {
               icon: 'flash',
-              title: 'Push hips back, drive through into lockout',
+              title: 'Drive hips through, squeeze glutes at end',
               description: 'Hip drive ensures complete glute activation and power development.'
             }
           ]
