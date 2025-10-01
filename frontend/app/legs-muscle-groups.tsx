@@ -129,23 +129,44 @@ export default function LegsMuscleGroupsScreen() {
   const handleContinue = () => {
     if (selectedMuscleGroups.length > 0) {
       const isCompoundSelected = selectedMuscleGroups.some(mg => mg.id === 'compound');
-      const hasIndividualMuscleGroups = selectedMuscleGroups.some(mg => mg.id !== 'compound');
+      const individualMuscleGroups = selectedMuscleGroups.filter(mg => mg.id !== 'compound');
       
       console.log('Selected muscle groups:', selectedMuscleGroups.map(mg => mg.name));
-      console.log('Has compound:', isCompoundSelected, 'Has individual:', hasIndividualMuscleGroups);
+      console.log('Has compound:', isCompoundSelected, 'Individual groups:', individualMuscleGroups.map(mg => mg.name));
       
-      // Always navigate to legs equipment screen - it will handle both compound and individual selections
-      const muscleGroupNames = selectedMuscleGroups.map(mg => mg.name);
-      const muscleGroupNamesString = muscleGroupNames.join(',');
-      
-      router.push({
-        pathname: '/legs-equipment',
-        params: { 
-          mood: moodTitle,
-          workoutType: workoutType,
-          muscleGroups: encodeURIComponent(muscleGroupNamesString)
-        }
-      });
+      if (isCompoundSelected && individualMuscleGroups.length === 0) {
+        // Only Compound selected - navigate to existing compound-equipment screen
+        router.push({
+          pathname: '/compound-equipment',
+          params: { 
+            mood: moodTitle,
+            workoutType: 'Compound'
+          }
+        });
+      } else if (!isCompoundSelected && individualMuscleGroups.length > 0) {
+        // Only individual muscle groups selected - navigate to legs equipment screen
+        const muscleGroupNames = individualMuscleGroups.map(mg => mg.name);
+        const muscleGroupNamesString = muscleGroupNames.join(',');
+        
+        router.push({
+          pathname: '/legs-equipment',
+          params: { 
+            mood: moodTitle,
+            workoutType: workoutType,
+            muscleGroups: encodeURIComponent(muscleGroupNamesString)
+          }
+        });
+      } else if (isCompoundSelected && individualMuscleGroups.length > 0) {
+        // Both Compound and individual muscle groups selected
+        // For now, prioritize compound workflow, but we could create a combined flow later
+        router.push({
+          pathname: '/compound-equipment',
+          params: { 
+            mood: moodTitle,
+            workoutType: 'Compound + Individual'
+          }
+        });
+      }
     }
   };
 
