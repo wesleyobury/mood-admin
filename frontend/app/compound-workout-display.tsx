@@ -1083,10 +1083,11 @@ export default function CompoundWorkoutDisplayScreen() {
       </View>
 
       <ScrollView style={styles.scrollView} showsVerticalScrollIndicator={false}>
-        {/* Workout Cards */}
-        {userWorkouts.map((equipmentWorkout, index) => (
-          <View key={equipmentWorkout.equipment} style={styles.cardContainer}>
+        <View style={styles.scrollContent}>
+          {/* Workout Cards */}
+          {userWorkouts.map((equipmentWorkout, index) => (
             <WorkoutCard
+              key={equipmentWorkout.equipment}
               equipment={equipmentWorkout.equipment}
               icon={equipmentWorkout.icon}
               workouts={equipmentWorkout.workouts}
@@ -1094,8 +1095,8 @@ export default function CompoundWorkoutDisplayScreen() {
               difficultyColor={difficultyColor}
               onStartWorkout={handleStartWorkout}
             />
-          </View>
-        ))}
+          ))}
+        </View>
       </ScrollView>
     </SafeAreaView>
   );
