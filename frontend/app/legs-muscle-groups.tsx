@@ -120,14 +120,8 @@ export default function LegsMuscleGroupsScreen() {
         // Remove from selection
         return prev.filter(item => item.id !== muscleGroup.id);
       } else {
-        // If selecting Compound, clear all other selections
-        if (muscleGroup.id === 'compound') {
-          return [muscleGroup];
-        }
-        
-        // If selecting any other muscle group, remove Compound if it exists
-        const withoutCompound = prev.filter(item => item.id !== 'compound');
-        return [...withoutCompound, muscleGroup];
+        // Add to selection - no exclusivity rules
+        return [...prev, muscleGroup];
       }
     });
   };
