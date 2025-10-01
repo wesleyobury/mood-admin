@@ -134,39 +134,18 @@ export default function LegsMuscleGroupsScreen() {
       console.log('Selected muscle groups:', selectedMuscleGroups.map(mg => mg.name));
       console.log('Has compound:', isCompoundSelected, 'Individual groups:', individualMuscleGroups.map(mg => mg.name));
       
-      if (isCompoundSelected && individualMuscleGroups.length === 0) {
-        // Only Compound selected - navigate to existing compound-equipment screen
-        router.push({
-          pathname: '/compound-equipment',
-          params: { 
-            mood: moodTitle,
-            workoutType: 'Compound'
-          }
-        });
-      } else if (!isCompoundSelected && individualMuscleGroups.length > 0) {
-        // Only individual muscle groups selected - navigate to legs equipment screen
-        const muscleGroupNames = individualMuscleGroups.map(mg => mg.name);
-        const muscleGroupNamesString = muscleGroupNames.join(',');
-        
-        router.push({
-          pathname: '/legs-equipment',
-          params: { 
-            mood: moodTitle,
-            workoutType: workoutType,
-            muscleGroups: encodeURIComponent(muscleGroupNamesString)
-          }
-        });
-      } else if (isCompoundSelected && individualMuscleGroups.length > 0) {
-        // Both Compound and individual muscle groups selected
-        // For now, prioritize compound workflow, but we could create a combined flow later
-        router.push({
-          pathname: '/compound-equipment',
-          params: { 
-            mood: moodTitle,
-            workoutType: 'Compound + Individual'
-          }
-        });
-      }
+      // Always navigate to unified legs equipment screen
+      const muscleGroupNames = selectedMuscleGroups.map(mg => mg.name);
+      const muscleGroupNamesString = muscleGroupNames.join(',');
+      
+      router.push({
+        pathname: '/legs-equipment',
+        params: { 
+          mood: moodTitle,
+          workoutType: workoutType,
+          muscleGroups: encodeURIComponent(muscleGroupNamesString)
+        }
+      });
     }
   };
 
