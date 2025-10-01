@@ -1161,6 +1161,13 @@ const styles = StyleSheet.create({
     marginHorizontal: 4,
     marginTop: 12,
   },
+  progressRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginHorizontal: 4,
+    marginTop: 12,
+  },
   progressStep: {
     alignItems: 'center',
     minWidth: 80,
