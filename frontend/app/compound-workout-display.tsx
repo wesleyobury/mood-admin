@@ -561,7 +561,7 @@ const glutesWorkoutDatabase: EquipmentWorkouts[] = [
             },
             {
               icon: 'construct',
-              title: 'Go straight into smooth full reps',
+              title: 'Don\'t lean, keep torso locked tall',
               description: 'Immediate transition maintains fatigue and training intensity.'
             }
           ]
