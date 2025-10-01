@@ -556,7 +556,7 @@ const glutesWorkoutDatabase: EquipmentWorkouts[] = [
           moodTips: [
             {
               icon: 'timer',
-              title: 'Squeeze wide in 10s iso hold',
+              title: 'Brace pad wide for 10s then repeat',
               description: 'Sustained contraction pre-fatigues muscles for enhanced training effect.'
             },
             {
