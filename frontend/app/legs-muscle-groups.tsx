@@ -129,32 +129,23 @@ export default function LegsMuscleGroupsScreen() {
   const handleContinue = () => {
     if (selectedMuscleGroups.length > 0) {
       const isCompoundSelected = selectedMuscleGroups.some(mg => mg.id === 'compound');
-      console.log('Selected muscle groups:', selectedMuscleGroups.map(mg => mg.name));
-      console.log('Selection type:', isCompoundSelected ? 'Compound (full leg workout)' : 'Individual muscle groups');
+      const hasIndividualMuscleGroups = selectedMuscleGroups.some(mg => mg.id !== 'compound');
       
-      if (isCompoundSelected) {
-        // Navigate to compound equipment screen for full leg workout
-        router.push({
-          pathname: '/compound-equipment',
-          params: { 
-            mood: moodTitle,
-            workoutType: 'Compound'
-          }
-        });
-      } else {
-        // Navigate to legs equipment screen for individual muscle group selections
-        const muscleGroupNames = selectedMuscleGroups.map(mg => mg.name);
-        const muscleGroupNamesString = muscleGroupNames.join(',');
-        
-        router.push({
-          pathname: '/legs-equipment',
-          params: { 
-            mood: moodTitle,
-            workoutType: workoutType,
-            muscleGroups: encodeURIComponent(muscleGroupNamesString)
-          }
-        });
-      }
+      console.log('Selected muscle groups:', selectedMuscleGroups.map(mg => mg.name));
+      console.log('Has compound:', isCompoundSelected, 'Has individual:', hasIndividualMuscleGroups);
+      
+      // Always navigate to legs equipment screen - it will handle both compound and individual selections
+      const muscleGroupNames = selectedMuscleGroups.map(mg => mg.name);
+      const muscleGroupNamesString = muscleGroupNames.join(',');
+      
+      router.push({
+        pathname: '/legs-equipment',
+        params: { 
+          mood: moodTitle,
+          workoutType: workoutType,
+          muscleGroups: encodeURIComponent(muscleGroupNamesString)
+        }
+      });
     }
   };
 
