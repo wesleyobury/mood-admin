@@ -1,81 +1,76 @@
 <analysis>
-The trajectory details the development of a new Legs workout path, starting with a user request to create a muscle group selection screen. This initial screen () was built to allow multiple selections, with a later refinement making the Compound option exclusive.
+The trajectory documents an iterative and complex development process for a Legs workout feature. The initial task was to create a simple equipment selection screen that dynamically displayed equipment based on chosen muscle groups. This involved creating  and linking it from .
 
-The core of the work was building out the Compound sub-path, which was explicitly requested to mirror the existing Chest path. This involved creating new screens for equipment selection () and workout display (), populating the latter with a large, user-provided workout database.
+The user's requests evolved significantly, leading to multiple major refactors. The first was a request to alphabetize equipment lists. The second was a larger change to the  screen: moving the Compound option to the top, removing its exclusive selection behavior, fixing a scrollable progress bar, and adding a new Trap Bar equipment type with its associated workout data.
 
-A significant portion of the effort was dedicated to iterative refinement and bug fixing based on user feedback. This included:
-1.  Replicating the precise UI/UX of the chest workout cards, including layout, colors, and spacing.
-2.  Fixing a critical uncaught error by first re-adding a missing helper function () and then correcting a JavaScript hoisting issue by reordering function definitions.
-3.  Adjusting the swipe to explore dot icon styles to match the reference.
-4.  Correcting the data passed to the  screen to include missing MOOD tips and properly formatted battle plans.
-5.  Performing multiple bulk updates on the hardcoded workout data using  commands to standardize battle plan formatting (bold/unbulleted instructions vs. bulleted movements).
+A key challenge was managing navigation logic. The engineer initially misinterpreted a request, leading to incorrect routing, but corrected it to point Compound selections to the pre-existing  flow.
 
-The final task extended this battle plan formatting consistency to the existing Chest and Shoulders paths, concluding the work cycle.
+The final and most significant user request was to merge all equipment selection into a single, unified screen. This deprecated  and required a major overhaul of  to include sections for all muscle groups (including Compound), dynamically add an intensity level selector, and handle complex conditional navigation to the  screen. The process was marked by repeated debugging of URL parameter passing, which was ultimately resolved by ensuring correct parameter names ( vs. ) and restarting the frontend to apply changes.
 </analysis>
 
 <product_requirements>
-The primary objective is to build a comprehensive Legs workout feature, ensuring functional and visual consistency with existing application paths, particularly the Chest path.
+The primary goal is to create a seamless and unified user flow for selecting and viewing Legs workouts.
 
-**Initial Implementation:**
-1.  Create a Legs muscle group selection screen () with options: Glutes, Hammies, Quads, Calfs, and Compound.
-2.  Implement multi-selection logic, which was later refined to make the Compound selection mutually exclusive.
-3.  Connect this screen to the main navigation in .
+**Initial Phase:**
+*   A new screen () was created to allow users to select equipment for specific leg muscle groups (Glutes, Hammies, Quads, Calves) chosen on the preceding  screen.
+*   The equipment lists on this screen were required to be alphabetically sorted.
 
-**Compound Path Development:**
-1.  Replicate the entire user flow from the Chest path for the Compound option. This includes creating an equipment selection screen () and a workout display screen ().
-2.  Populate the workout display screen with a detailed, multi-level workout database for five equipment types provided by the user.
+**Refactoring and Expansion:**
+*   The  screen was updated: Compound was moved to the top, its selection was made non-exclusive, and a static progress bar was implemented.
+*   The equipment database was updated for all muscle groups, and a new Trap Bar equipment type with a full set of beginner, intermediate, and advanced workouts was added to the Compound path.
 
-**UI/UX and Bug Fixes:**
-1.  Ensure the new compound workout cards perfectly match the Chest path's styling, including colors, layout, progress bar, and swipe to explore dot icons.
-2.  Fix a recurring uncaught error that prevented navigation to the workout display screen.
-3.  Correct the data payload sent to the workout guidance screen to include missing MOOD tips and correctly formatted  strings.
-4.  Standardize the  format across the Compound, Chest, and Shoulders paths, making instructions (e.g., 3 rounds, Rest 60s) bold and unbulleted, while keeping workout movements bulleted and unbolded.
+**Final Unified Flow:**
+*   The core requirement became consolidating all leg equipment selection into a single, unified  screen.
+*   This screen must dynamically display equipment sections for any combination of selected muscle groups (including Compound).
+*   An intensity level selector (Beginner, Intermediate, Advanced) must appear at the bottom of this screen only when Compound equipment is selected.
+*   Selections on this screen must navigate to the  screen, correctly filtering and displaying the workout cards that match the selected equipment and intensity level.
 </product_requirements>
 
 <key_technical_concepts>
-- **Expo Router**: Manages app navigation via a file-based system in .
-- **React Native **: Used for all UI styling, crucial for the iterative process of matching the Chest path's design.
-- **Component State ()**: Implemented to handle the multi-select and exclusive selection logic on the muscle group screen.
-- **Navigation Parameters**:  was used to pass workout data (including  and ) between the display and guidance screens.
-- **Shell Scripting ()**: Employed for efficient, in-place bulk updates of hardcoded battle plan data across multiple files.
+- **Expo Router**: Used for file-based routing.  for navigation and  for reading URL parameters were critical.
+- **React State Management ()**: Essential for managing multi-selection arrays for muscle groups and equipment, and for tracking the selected intensity level.
+- **Conditional Rendering**: Used to dynamically show the Intensity Level selection UI on the unified equipment screen only when a Compound equipment item is selected.
+- **URL Parameter Passing**: A recurring theme for passing user selections (mood, muscle groups, equipment, difficulty) between screens, which was the source of several bugs.
 </key_technical_concepts>
 
 <code_architecture>
-The application's front end is built with Expo Router, where each file in the  directory corresponds to a navigable screen. The work focused on extending this structure by adding a new Legs path and ensuring its visual consistency with existing paths.
+The architecture follows Expo's file-based routing system. The work centered on creating and heavily modifying screens within the  directory to build out the Legs workout path.
 
 
 
 -   ****
-    -   **Importance**: The new entry point for the entire Legs workout flow. It allows users to select which part of the legs they want to work on.
-    -   **Summary of changes**: This file was created from scratch. It includes logic for multi-selection with an exclusive Compound option and navigates to the appropriate next screen based on user selection.
+    -   **Importance**: This is the entry point for the Legs workout flow.
+    -   **Summary of changes**: The muscle group options were reordered to place Compound first. The selection logic () was rewritten to remove the exclusivity of the Compound option, allowing it to be selected alongside other groups. The navigation logic () was simplified to always route to the unified  screen. The progress bar's styling was changed from a  to a static  to prevent scrolling.
 
 -   ****
-    -   **Importance**: The core screen for the Compound Legs feature, containing the extensive, user-provided workout database and logic for displaying workout cards.
-    -   **Summary of changes**: This file was created and underwent numerous modifications. It was populated with a large workout database, its styles were completely overhauled to match , and it was the subject of multiple bug fixes related to a missing function, function declaration order (hoisting), and incorrect data being passed to the guidance screen. The battle plan data within it was reformatted multiple times using .
+    -   **Importance**: This became the central, unified screen for all leg equipment and intensity selection.
+    -   **Summary of changes**: This file was created and evolved dramatically. It now contains a comprehensive equipment database for all leg muscle groups, including Compound. It uses  to manage selected equipment and a selected intensity level. The UI was updated to include a dynamically rendered Intensity Level section that appears only when Compound equipment is chosen. The navigation logic () is complex, routing to  with the correct  and  parameters if Compound is selected, or to  otherwise.
 
 -   ****
-    -   **Importance**: Served as the definitive template for the  screen's layout, styling, and functionality.
-    -   **Summary of changes**: This file was read extensively for comparison. Its only modification was at the end of the trajectory, where its hardcoded battle plan data was reformatted via  commands to ensure consistency.
+    -   **Importance**: This screen displays the workout cards for the Compound path.
+    -   **Summary of changes**: The hardcoded workout database within this file was expanded significantly to include a new Trap Bar equipment section with six distinct workouts across three difficulty levels. A mapping for the Trap Bar icon was also added. The parameter parsing logic was crucial for the final debugging steps.
 
 -   ****
-    -   **Importance**: An existing workout path that also required formatting updates for application-wide consistency.
-    -   **Summary of changes**: Similar to the chest file, its hardcoded battle plan data was updated using  commands to match the new standardized format.
-
--   ****
-    -   **Importance**: The main muscle group selection screen of the app.
-    -   **Summary of changes**: A minor edit was made to add the navigation handler for the Legs button, directing users to the newly created .
+    -   **Importance**: This was the original equipment selection screen for the Compound path. Its functionality is now deprecated.
+    -   **Summary of changes**: It was briefly updated to include Trap Bar as an option before its entire purpose was merged into the new unified  screen.
 </code_architecture>
 
 <pending_tasks>
-- There are no explicit pending tasks. The last user request to apply battle plan formatting to the Chest and Shoulders paths was completed. The next logical step would be user verification of all the recent formatting changes.
+- Implement the workout databases for the individual muscle groups (Glutes, Hammies, Quads, Calves).
+- Update the  screen (or create a new unified workout display screen) to render a combined list of workout cards based on all user selections (e.g., show selected Compound cards, followed by selected Glutes cards, etc.).
 </pending_tasks>
 
 <current_work>
-The most recent work involved ensuring consistent battle plan formatting across multiple workout paths. The user requested that instructions (like round counts and rest periods) be unbulleted and bold, while specific movements remain bulleted and unbolded. This format was first implemented in the new .
+The most recent work involved successfully implementing the unified equipment screen as requested by the user. This consolidated the previously separate Compound equipment selection flow into the main  screen.
 
-The final actions in the trajectory were to apply this same formatting rule to the existing workout databases within  and . This was accomplished by running a series of  commands to perform bulk replacements on the battle plan strings in both files. The AI engineer noted a slight variation in the original format (the presence of a colon in rounds:) and adjusted the commands accordingly. The work concluded after applying these changes and restarting the frontend server to ensure the application remained stable.
+Key accomplishments in the last cycle include:
+1.  **UI Consolidation**: The  screen was refactored to display equipment sections for all selected muscle groups, including Compound, in a single scrollable view.
+2.  **Dynamic Intensity Selection**: An intensity level selector (Beginner, Intermediate, Advanced) was added to the bottom of the unified screen. This UI section is conditionally rendered and only appears after the user selects at least one piece of Compound equipment.
+3.  **Navigation Logic Fix**: A critical bug in parameter passing was identified and fixed. The navigation from the unified screen to the  screen was updated to pass the parameter as  instead of , which allowed the workout screen to correctly filter and display the workout cards for the selected equipment (e.g., Dumbbells, Leg Press).
+
+The entire end-to-end flow for the Compound path is now fully functional, from muscle group selection to the final workout guidance screen.
 </current_work>
 
 <optional_next_step>
-Verify with the user that the battle plan formatting on the workout guidance screen is now correct for the Compound, Chest, and Shoulders paths.
+I will begin implementing the workout database for the individual muscle groups, starting with Glutes, and integrate them into the  screen to create the combined workout list view the user requested.
 </optional_next_step>
