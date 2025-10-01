@@ -1082,7 +1082,8 @@ export default function CompoundWorkoutDisplayScreen() {
       'Squat Rack': 'square-outline',
       'Leg Press Machine': 'hardware-chip',
       'Hack Squat Machine': 'triangle',
-      'Single Stack Cable': 'reorder-three'
+      'Single Stack Cable': 'reorder-three',
+      'Trap Bar': 'remove'
     };
     return equipmentIconMap[equipmentName] || 'fitness';
   };
