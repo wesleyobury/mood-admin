@@ -260,20 +260,41 @@ export default function LegsEquipmentScreen() {
     if (selectedEquipment.length > 0) {
       const equipmentNames = selectedEquipment.map(eq => eq.name);
       const equipmentNamesString = equipmentNames.join(',');
+      const isCompoundSelected = muscleGroupNames.includes('Compound');
+      const hasCompoundEquipment = selectedEquipment.some(eq => 
+        ['Dumbbells', 'Squat Rack', 'Leg Press Machine', 'Hack Squat Machine', 'Single Stack Cable Machine', 'Trap Bar'].includes(eq.name)
+      );
       
       console.log('Selected equipment:', equipmentNames);
       console.log('Selected muscle groups:', muscleGroupNames);
+      console.log('Is compound selected:', isCompoundSelected);
+      console.log('Has compound equipment:', hasCompoundEquipment);
+      console.log('Selected intensity:', selectedIntensity?.id);
       
-      // Navigate to legs workout display with both muscle groups and equipment
-      router.push({
-        pathname: '/legs-workout-display',
-        params: { 
-          mood: moodTitle,
-          workoutType: workoutType,
-          muscleGroups: encodeURIComponent(muscleGroupNames.join(',')),
-          equipment: encodeURIComponent(equipmentNamesString)
-        }
-      });
+      // If Compound is selected AND compound equipment is selected AND intensity is selected
+      if (isCompoundSelected && hasCompoundEquipment && selectedIntensity) {
+        // Navigate to compound workout display
+        router.push({
+          pathname: '/compound-workout-display',
+          params: { 
+            mood: moodTitle,
+            workoutType: 'Compound',
+            selectedEquipmentNames: equipmentNamesString,
+            difficulty: selectedIntensity.id
+          }
+        });
+      } else {
+        // Navigate to regular legs workout display
+        router.push({
+          pathname: '/legs-workout-display',
+          params: { 
+            mood: moodTitle,
+            workoutType: workoutType,
+            muscleGroups: encodeURIComponent(muscleGroupNames.join(',')),
+            equipment: encodeURIComponent(equipmentNamesString)
+          }
+        });
+      }
     }
   };
 
@@ -281,7 +302,14 @@ export default function LegsEquipmentScreen() {
     router.back();
   };
 
-  const canContinue = selectedEquipment.length > 0;
+  const isCompoundSelected = muscleGroupNames.includes('Compound');
+  const hasCompoundEquipment = selectedEquipment.some(eq => 
+    ['Dumbbells', 'Squat Rack', 'Leg Press Machine', 'Hack Squat Machine', 'Single Stack Cable Machine', 'Trap Bar'].includes(eq.name)
+  );
+  
+  // Can continue if equipment is selected, and if compound equipment is selected, intensity must also be selected
+  const canContinue = selectedEquipment.length > 0 && 
+    (!isCompoundSelected || !hasCompoundEquipment || selectedIntensity !== null);
 
   if (relevantEquipmentData.length === 0) {
     return (
