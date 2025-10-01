@@ -77,6 +77,27 @@ const equipmentDatabase: MuscleGroupEquipment[] = [
   },
 ];
 
+const intensityLevels: IntensityLevel[] = [
+  {
+    id: 'beginner',
+    title: 'Beginner',
+    subtitle: 'New to leg workouts',
+    icon: 'leaf'
+  },
+  {
+    id: 'intermediate',
+    title: 'Intermediate',
+    subtitle: 'Some workout experience',
+    icon: 'fitness'
+  },
+  {
+    id: 'advanced',
+    title: 'Advanced',
+    subtitle: 'Experienced lifter',
+    icon: 'flame'
+  }
+];
+
 const EquipmentCard = ({ 
   equipment, 
   isSelected, 
