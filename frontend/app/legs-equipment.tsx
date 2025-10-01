@@ -141,6 +141,57 @@ const EquipmentCard = ({
   );
 };
 
+const IntensityCard = ({ 
+  intensity, 
+  isSelected, 
+  onPress 
+}: { 
+  intensity: IntensityLevel; 
+  isSelected: boolean;
+  onPress: (intensity: IntensityLevel) => void;
+}) => {
+  return (
+    <TouchableOpacity
+      style={[
+        styles.intensityCard,
+        isSelected && styles.intensityCardSelected
+      ]}
+      onPress={() => onPress(intensity)}
+      activeOpacity={0.8}
+    >
+      <View style={[
+        styles.intensityIconContainer,
+        isSelected && styles.intensityIconContainerSelected
+      ]}>
+        <Ionicons 
+          name={intensity.icon} 
+          size={20} 
+          color={isSelected ? "#000000" : "#FFD700"} 
+        />
+      </View>
+      <View style={styles.intensityTextContainer}>
+        <Text style={[
+          styles.intensityTitle,
+          isSelected && styles.intensityTitleSelected
+        ]}>
+          {intensity.title}
+        </Text>
+        <Text style={[
+          styles.intensitySubtitle,
+          isSelected && styles.intensitySubtitleSelected
+        ]}>
+          {intensity.subtitle}
+        </Text>
+      </View>
+      {isSelected && (
+        <View style={styles.intensityIndicator}>
+          <Ionicons name="checkmark" size={16} color="#000000" />
+        </View>
+      )}
+    </TouchableOpacity>
+  );
+};
+
 const MuscleGroupSection = ({ 
   muscleGroupData, 
   selectedEquipment, 
