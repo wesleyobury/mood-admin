@@ -1648,13 +1648,45 @@ export default function CompoundWorkoutDisplayScreen() {
 
   const difficultyColor = getDifficultyColor(difficulty);
 
-  // Filter workouts based on selected equipment
-  const userWorkouts = compoundWorkoutDatabase.filter(equipment => 
-    selectedEquipmentNames.includes(equipment.equipment)
-  ).map(equipment => ({
-    ...equipment,
-    workouts: equipment.workouts[difficulty as keyof typeof equipment.workouts] || []
-  }));
+  // Get muscle groups from params to determine which databases to use
+  const muscleGroupsParam = params.muscleGroups as string || '';
+  let selectedMuscleGroups: string[] = [];
+  
+  try {
+    if (muscleGroupsParam) {
+      const decodedMuscleGroups = decodeURIComponent(muscleGroupsParam);
+      selectedMuscleGroups = decodedMuscleGroups.split(',').map(group => group.trim());
+    }
+  } catch (error) {
+    console.error('Error parsing muscle groups parameter:', error);
+  }
+
+  // Filter workouts based on selected equipment and muscle groups
+  let userWorkouts: any[] = [];
+  
+  // Add compound workouts if Compound is selected
+  if (selectedMuscleGroups.includes('Compound')) {
+    const compoundWorkouts = compoundWorkoutDatabase.filter(equipment => 
+      selectedEquipmentNames.includes(equipment.equipment)
+    ).map(equipment => ({
+      ...equipment,
+      workouts: equipment.workouts[difficulty as keyof typeof equipment.workouts] || [],
+      muscleGroup: 'Compound'
+    }));
+    userWorkouts.push(...compoundWorkouts);
+  }
+  
+  // Add glutes workouts if Glutes is selected
+  if (selectedMuscleGroups.includes('Glutes')) {
+    const glutesWorkouts = glutesWorkoutDatabase.filter(equipment => 
+      selectedEquipmentNames.includes(equipment.equipment)
+    ).map(equipment => ({
+      ...equipment,
+      workouts: equipment.workouts[difficulty as keyof typeof equipment.workouts] || [],
+      muscleGroup: 'Glutes'
+    }));
+    userWorkouts.push(...glutesWorkouts);
+  }
 
   console.log('User workouts:', userWorkouts.length, 'for difficulty:', difficulty);
 
