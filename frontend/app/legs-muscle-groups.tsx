@@ -138,18 +138,29 @@ export default function LegsMuscleGroupsScreen() {
       console.log('Selected muscle groups:', selectedMuscleGroups.map(mg => mg.name));
       console.log('Selection type:', isCompoundSelected ? 'Compound (full leg workout)' : 'Individual muscle groups');
       
-      // Navigate to legs workout display for all muscle group selections
-      const muscleGroupNames = selectedMuscleGroups.map(mg => mg.name);
-      const muscleGroupNamesString = muscleGroupNames.join(',');
-      
-      router.push({
-        pathname: '/legs-workout-display',
-        params: { 
-          mood: moodTitle,
-          workoutType: workoutType,
-          muscleGroups: encodeURIComponent(muscleGroupNamesString)
-        }
-      });
+      if (isCompoundSelected) {
+        // Navigate to compound equipment screen for full leg workout
+        router.push({
+          pathname: '/compound-equipment',
+          params: { 
+            mood: moodTitle,
+            workoutType: 'Compound'
+          }
+        });
+      } else {
+        // Navigate to legs workout display for individual muscle group selections
+        const muscleGroupNames = selectedMuscleGroups.map(mg => mg.name);
+        const muscleGroupNamesString = muscleGroupNames.join(',');
+        
+        router.push({
+          pathname: '/legs-workout-display',
+          params: { 
+            mood: moodTitle,
+            workoutType: workoutType,
+            muscleGroups: encodeURIComponent(muscleGroupNamesString)
+          }
+        });
+      }
     }
   };
 
