@@ -975,6 +975,11 @@ export default function CompoundWorkoutDisplayScreen() {
     return equipmentIconMap[equipmentName] || 'fitness';
   };
 
+  // Get difficulty color - all the same neon gold
+  const getDifficultyColor = (level: string) => {
+    return '#FFD700'; // Same neon gold for all difficulty levels
+  };
+
   const difficultyColor = getDifficultyColor(difficulty);
 
   // Filter workouts based on selected equipment
