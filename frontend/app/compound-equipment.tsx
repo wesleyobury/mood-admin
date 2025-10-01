@@ -30,6 +30,7 @@ const equipmentOptions: EquipmentOption[] = [
   { id: 'leg-press-machine', name: 'Leg Press Machine', icon: 'hardware-chip' },
   { id: 'hack-squat-machine', name: 'Hack Squat Machine', icon: 'triangle' },
   { id: 'single-stack-cable', name: 'Single Stack Cable', icon: 'reorder-three' },
+  { id: 'trap-bar', name: 'Trap Bar', icon: 'remove' },
 ];
 
 const difficultyLevels: DifficultyLevel[] = [
