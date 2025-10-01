@@ -996,15 +996,15 @@ export default function CompoundWorkoutDisplayScreen() {
   const handleStartWorkout = (workout: Workout, equipment: string, difficulty: string) => {
     console.log('🚀 Starting workout:', workout.name);
     
-    // Navigate to workout guidance with simplified parameters
+    // Navigate to workout guidance with full parameters including MOOD tips
     const params = {
       workoutName: workout.name,
       equipment: equipment,
       description: workout.description,
       duration: workout.duration,
       intensity: difficulty,
-      battlePlan: workout.battlePlan.replace(/•/g, '').trim(),
-      moodTipsCount: workout.moodTips.length.toString()
+      battlePlan: workout.battlePlan, // Keep bullets intact
+      moodTips: encodeURIComponent(JSON.stringify(workout.moodTips)) // Pass actual MOOD tips
     };
     
     console.log('📝 Workout data:', params);
@@ -1015,7 +1015,7 @@ export default function CompoundWorkoutDisplayScreen() {
         pathname: '/workout-guidance',
         params
       });
-      console.log('✅ Navigation completed - using simplified parameters');
+      console.log('✅ Navigation completed - with full MOOD tips and proper battle plan');
     } catch (error) {
       console.error('❌ Navigation failed:', error);
     }
