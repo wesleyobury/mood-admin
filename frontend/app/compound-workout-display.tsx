@@ -181,19 +181,19 @@ const glutesWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Bodyweight Hip Thrust',
           duration: '10–12 min',
-          description: 'Intro thrust teaches hip extension mechanics',
-          battlePlan: '3 rounds\n• 12–15 Bodyweight Thrusts\nRest 60s',
+          description: 'Teaches thrust basics before loading with bar weight\n ',
+          battlePlan: '3 rounds\n• 12–15 Bodyweight Hip Thrusts\nRest 60s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8TVc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Builds form before loading with weights safely',
+          intensityReason: 'Entry thrust builds safe mechanics for hip extension',
           moodTips: [
             {
               icon: 'construct',
-              title: 'Upper back on pad, chin tucked',
+              title: 'Upper back on bench, chin down, core tight',
               description: 'Proper positioning creates stable base for hip thrust movement.'
             },
             {
               icon: 'trending-up',
-              title: 'Drive hips fully upward, squeeze glutes',
+              title: 'Drive hips up, squeeze glutes firmly top',
               description: 'Complete hip extension with glute squeeze maximizes muscle activation.'
             }
           ]
@@ -201,19 +201,19 @@ const glutesWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Light Bar Hip Thrust',
           duration: '10–12 min',
-          description: 'Adds simple progressive overload for growth',
-          battlePlan: '3 rounds\n• 10–12 Bar Hip Thrusts\nRest 75s',
+          description: 'Adds external weight to strengthen glute hip drive\n ',
+          battlePlan: '3 rounds\n• 10–12 Light Bar Hip Thrusts\nRest 75s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Barbell load increases strength above bodyweight',
+          intensityReason: 'Light load introduces controlled thrust progression',
           moodTips: [
             {
               icon: 'barbell',
-              title: 'Barbell across hips, brace core',
+              title: 'Rest padded bar across hips locked in',
               description: 'Proper bar positioning and core bracing ensure safe load transfer.'
             },
             {
               icon: 'fitness',
-              title: 'Push evenly with both heels',
+              title: 'Thrust upward hard, pause at top',
               description: 'Balanced heel drive prevents compensations and maximizes power.'
             }
           ]
