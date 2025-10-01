@@ -507,19 +507,19 @@ const glutesWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Unilateral Abduction',
           duration: '14–16 min',
-          description: 'Prevents imbalances with strict single‑side work',
-          battlePlan: '4 rounds\n• 8–10 per side Unilateral Abductions\nRest 90s',
+          description: 'Asymmetry training balances strength between hips\n ',
+          battlePlan: '4 rounds\n• 8–10 per side Abductions\nRest 90s',
           imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
-          intensityReason: 'One side at a time enhances activation and control',
+          intensityReason: 'One‑sided work isolates weaker glute completely',
           moodTips: [
             {
               icon: 'construct',
-              title: 'Press one knee, anchor the other hard',
+              title: 'Work one leg at a time deliberately',
               description: 'Unilateral work highlights and addresses strength imbalances.'
             },
             {
               icon: 'shield',
-              title: 'Sit tall, torso stable against pad',
+              title: 'Keep torso tall, avoid rocking body',
               description: 'Torso stability ensures isolated glute medius activation.'
             }
           ]
