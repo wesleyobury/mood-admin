@@ -1,70 +1,81 @@
 <analysis>
-The trajectory documents the development of the Triceps workout feature, mirroring the existing Biceps path. The process began with the user providing extensive workout data for eight different equipment types. The AI engineer's first task was to populate  with this data, copying the structure and styling from the biceps screen.
+The trajectory details the development of a new Legs workout path, starting with a user request to create a muscle group selection screen. This initial screen () was built to allow multiple selections, with a later refinement making the Compound option exclusive.
 
-Immediately after implementation, the user identified a critical bug: several workout cards were missing. The engineer correctly diagnosed this as a mismatch between equipment names passed from the selection screen () and the keys used in the newly created workout database (e.g., 'Dumbbell' vs. 'Dumbbells'). A series of file edits were performed to align these names, successfully resolving the issue.
+The core of the work was building out the Compound sub-path, which was explicitly requested to mirror the existing Chest path. This involved creating new screens for equipment selection () and workout display (), populating the latter with a large, user-provided workout database.
 
-Following this fix, the user reported a UI spacing problem on the triceps cards. The engineer fixed this by aligning the  height and  padding with the values from the biceps screen. However, the user requested a further reduction in spacing. The final actions in the trajectory were a more aggressive set of style changes to reduce the card height and internal padding, followed by a server restart. The work concluded pending verification of this latest UI adjustment.
+A significant portion of the effort was dedicated to iterative refinement and bug fixing based on user feedback. This included:
+1.  Replicating the precise UI/UX of the chest workout cards, including layout, colors, and spacing.
+2.  Fixing a critical uncaught error by first re-adding a missing helper function () and then correcting a JavaScript hoisting issue by reordering function definitions.
+3.  Adjusting the swipe to explore dot icon styles to match the reference.
+4.  Correcting the data passed to the  screen to include missing MOOD tips and properly formatted battle plans.
+5.  Performing multiple bulk updates on the hardcoded workout data using  commands to standardize battle plan formatting (bold/unbulleted instructions vs. bulleted movements).
+
+The final task extended this battle plan formatting consistency to the existing Chest and Shoulders paths, concluding the work cycle.
 </analysis>
 
 <product_requirements>
-The primary objective is to build out the Triceps workout path within the fitness application, ensuring it is functionally and visually identical to the completed Biceps path.
+The primary objective is to build a comprehensive Legs workout feature, ensuring functional and visual consistency with existing application paths, particularly the Chest path.
 
-Core requirements involve:
-1.  **Populate Triceps Workout Data**: Implement the  screen with comprehensive, multi-level workout plans for eight specific pieces of equipment: Dumbbells, Kettlebells, EZ Bar, Cable Machine, Cable Crossover, Triceps Pushdown Machine, Dip Station, and TRX Bands. All descriptive content was provided by the user.
-2.  **Ensure Visual and Functional Parity**: The triceps workout cards and guidance screen must perfectly replicate the layout, styling, and format of the biceps path. This includes resolving any discrepancies that arise during development.
-3.  **Fix Data Mismatches**: Correctly link the equipment selection screen () with the workout display screen by ensuring equipment names match exactly, preventing issues like missing workout cards.
-4.  **Refine UI Spacing**: Address specific user feedback regarding excessive vertical spacing on the workout cards, adjusting styles until the layout matches the compact design of the biceps cards.
+**Initial Implementation:**
+1.  Create a Legs muscle group selection screen () with options: Glutes, Hammies, Quads, Calfs, and Compound.
+2.  Implement multi-selection logic, which was later refined to make the Compound selection mutually exclusive.
+3.  Connect this screen to the main navigation in .
+
+**Compound Path Development:**
+1.  Replicate the entire user flow from the Chest path for the Compound option. This includes creating an equipment selection screen () and a workout display screen ().
+2.  Populate the workout display screen with a detailed, multi-level workout database for five equipment types provided by the user.
+
+**UI/UX and Bug Fixes:**
+1.  Ensure the new compound workout cards perfectly match the Chest path's styling, including colors, layout, progress bar, and swipe to explore dot icons.
+2.  Fix a recurring uncaught error that prevented navigation to the workout display screen.
+3.  Correct the data payload sent to the workout guidance screen to include missing MOOD tips and correctly formatted  strings.
+4.  Standardize the  format across the Compound, Chest, and Shoulders paths, making instructions (e.g., 3 rounds, Rest 60s) bold and unbulleted, while keeping workout movements bulleted and unbolded.
 </product_requirements>
 
 <key_technical_concepts>
-- **React Native & Expo**: The core framework for building the cross-platform mobile application.
-- **Expo Router**: Manages navigation through a file-based routing system in the  directory.
-- **StyleSheet API**: All component styling is handled using , which was critical for the iterative UI spacing adjustments.
-- **Data-in-component**: Workout data is stored as a large, hardcoded JavaScript array () directly within the  component.
-- **Data Consistency**: Debugging revealed the necessity of maintaining exact string matches for equipment names between routing parameters and data structures.
+- **Expo Router**: Manages app navigation via a file-based system in .
+- **React Native **: Used for all UI styling, crucial for the iterative process of matching the Chest path's design.
+- **Component State ()**: Implemented to handle the multi-select and exclusive selection logic on the muscle group screen.
+- **Navigation Parameters**:  was used to pass workout data (including  and ) between the display and guidance screens.
+- **Shell Scripting ()**: Employed for efficient, in-place bulk updates of hardcoded battle plan data across multiple files.
 </key_technical_concepts>
 
 <code_architecture>
-The application uses Expo Router, with screens defined as files in . The development focused on creating and refining the triceps workout display screen to match existing patterns.
-
-**Directory Structure:**
+The application's front end is built with Expo Router, where each file in the  directory corresponds to a navigable screen. The work focused on extending this structure by adding a new Legs path and ensuring its visual consistency with existing paths.
 
 
--   ****
-    -   **Importance**: This is the central file for the triceps feature. It receives an equipment name as a parameter and displays the corresponding detailed workout cards.
-    -   **Summary of changes**:
-        1.  **Data Population**: The file was massively updated to include the , an array containing detailed workout plans for all 8 equipment types provided by the user.
-        2.  **Data Key Correction**: The  key for every entry in the database was modified in a series of edits to match the exact strings passed from  (e.g., 'Dumbbells' was changed to 'Dumbbell', 'Cable Machine' to 'Single extension cable'). This fixed the missing cards bug.
-        3.  **Icon Mapping Update**: The  function was updated to use the corrected equipment names.
-        4.  **Initial Spacing Fix**: The  style's  was changed from  to , and the  style's  was changed from  to  to match the biceps screen.
-        5.  **Final Spacing Fix (Current Work)**: The  height was further reduced from  to , and the 's  was reduced from  to  to make the layout more compact.
 
 -   ****
-    -   **Importance**: This screen allows the user to select a piece of triceps equipment. It was crucial for debugging, as the equipment names defined here are the source of truth that the display screen must match.
-    -   **Summary of changes**: This file was read to diagnose the missing cards issue but was not modified.
+    -   **Importance**: The new entry point for the entire Legs workout flow. It allows users to select which part of the legs they want to work on.
+    -   **Summary of changes**: This file was created from scratch. It includes logic for multi-selection with an exclusive Compound option and navigates to the appropriate next screen based on user selection.
 
 -   ****
-    -   **Importance**: This file served as the blueprint for the triceps screen. Its styling rules were the target for achieving visual consistency.
-    -   **Summary of changes**: This file was read to compare styling values for the spacing fixes but was not modified.
+    -   **Importance**: The core screen for the Compound Legs feature, containing the extensive, user-provided workout database and logic for displaying workout cards.
+    -   **Summary of changes**: This file was created and underwent numerous modifications. It was populated with a large workout database, its styles were completely overhauled to match , and it was the subject of multiple bug fixes related to a missing function, function declaration order (hoisting), and incorrect data being passed to the guidance screen. The battle plan data within it was reformatted multiple times using .
+
+-   ****
+    -   **Importance**: Served as the definitive template for the  screen's layout, styling, and functionality.
+    -   **Summary of changes**: This file was read extensively for comparison. Its only modification was at the end of the trajectory, where its hardcoded battle plan data was reformatted via  commands to ensure consistency.
+
+-   ****
+    -   **Importance**: An existing workout path that also required formatting updates for application-wide consistency.
+    -   **Summary of changes**: Similar to the chest file, its hardcoded battle plan data was updated using  commands to match the new standardized format.
+
+-   ****
+    -   **Importance**: The main muscle group selection screen of the app.
+    -   **Summary of changes**: A minor edit was made to add the navigation handler for the Legs button, directing users to the newly created .
 </code_architecture>
 
 <pending_tasks>
-- Verify if the most recent, more aggressive spacing adjustments on the triceps workout cards have resolved the UI issue to the user's satisfaction.
-- Conduct end-to-end testing of the newly populated Triceps user flow to ensure navigation and data display work correctly for all 8 equipment types.
+- There are no explicit pending tasks. The last user request to apply battle plan formatting to the Chest and Shoulders paths was completed. The next logical step would be user verification of all the recent formatting changes.
 </pending_tasks>
 
 <current_work>
-The most recent task was a direct response to user feedback that the triceps workout cards still had too much vertical space, even after being styled to match the biceps cards initially. The engineer was in the process of implementing a more aggressive fix to create a more compact layout.
+The most recent work involved ensuring consistent battle plan formatting across multiple workout paths. The user requested that instructions (like round counts and rest periods) be unbulleted and bold, while specific movements remain bulleted and unbolded. This format was first implemented in the new .
 
-The final actions involved editing the  in  in two specific ways:
-
-1.  The height of the  style was further reduced from  to .
-    
-2.  The vertical padding of the  style was reduced from  to .
-    
-The work concluded immediately after restarting the frontend server to apply these changes. The effectiveness of this final adjustment has not yet been verified by the user.
+The final actions in the trajectory were to apply this same formatting rule to the existing workout databases within  and . This was accomplished by running a series of  commands to perform bulk replacements on the battle plan strings in both files. The AI engineer noted a slight variation in the original format (the presence of a colon in rounds:) and adjusted the commands accordingly. The work concluded after applying these changes and restarting the frontend server to ensure the application remained stable.
 </current_work>
 
 <optional_next_step>
-Check the UI to confirm if the latest height and padding reductions have successfully resolved the spacing issue on the  screen.
+Verify with the user that the battle plan formatting on the workout guidance screen is now correct for the Compound, Chest, and Shoulders paths.
 </optional_next_step>
