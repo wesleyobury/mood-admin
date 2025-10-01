@@ -487,19 +487,19 @@ const glutesWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Banded Abduction',
           duration: '14–16 min',
-          description: 'Boosts hypertrophy by adding lateral force',
-          battlePlan: '4 rounds\n• 12 Banded Hip Abductions\nRest 90s',
+          description: 'Combo band+machine emphasizes hypertrophy work\n ',
+          battlePlan: '4 rounds\n• 12 Banded Abductions\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Band tension amplifies contraction intensity',
+          intensityReason: 'Band tension increases abductor contraction top end',
           moodTips: [
             {
               icon: 'resize',
-              title: 'Band above knees, press outward hard',
+              title: 'Strap band above knees, press outward',
               description: 'Band creates additional resistance throughout the range of motion.'
             },
             {
               icon: 'construct',
-              title: 'Control return, don\'t let knees crash',
+              title: 'Keep knees wide, resist on way in',
               description: 'Controlled return prevents band snap-back and maintains tension.'
             }
           ]
