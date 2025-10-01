@@ -174,11 +174,7 @@ export default function LegsMuscleGroupsScreen() {
 
       {/* Progress Bar */}
       <View style={styles.progressContainer}>
-        <ScrollView 
-          horizontal 
-          showsHorizontalScrollIndicator={false}
-          contentContainerStyle={styles.progressContent}
-        >
+        <View style={styles.progressContent}>
           <View style={styles.progressStep}>
             <View style={styles.progressStepActive}>
               <Ionicons name="flame" size={14} color="#000000" />
@@ -213,7 +209,7 @@ export default function LegsMuscleGroupsScreen() {
               Muscle Groups {selectedMuscleGroups.length > 0 && `(${selectedMuscleGroups.length})`}
             </Text>
           </View>
-        </ScrollView>
+        </View>
       </View>
 
       <ScrollView style={styles.scrollView} showsVerticalScrollIndicator={false}>
