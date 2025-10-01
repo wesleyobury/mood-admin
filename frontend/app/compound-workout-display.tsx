@@ -465,19 +465,19 @@ const glutesWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Lean Forward Abduction',
           duration: '10–12 min',
-          description: 'Builds engagement by altering trunk placement',
+          description: 'Shifts emphasis effectively into upper glute tissues\n ',
           battlePlan: '3 rounds\n• 12–15 Lean Abductions\nRest 75s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Lean angle shifts load deeper onto glute fibers',
+          intensityReason: 'Lean angle biases deeper glute muscle activity',
           moodTips: [
             {
               icon: 'construct',
-              title: 'Lean forward 20–30°, chest down',
+              title: 'Lean 20–30° forward with chest down',
               description: 'Forward lean changes muscle fiber recruitment for enhanced activation.'
             },
             {
               icon: 'fitness',
-              title: 'Push knees wide with control',
+              title: 'Control knees in and out steady',
               description: 'Controlled movement ensures quality muscle activation.'
             }
           ]
