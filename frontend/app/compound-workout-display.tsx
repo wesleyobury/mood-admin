@@ -92,7 +92,7 @@ const compoundWorkoutDatabase: EquipmentWorkouts[] = [
           name: 'Bulgarian Split Squat',
           duration: '14–16 min',
           description: 'Advanced split squat builds quads\nand glute drive with elevated rear foot.\n ',
-          battlePlan: '• 4 rounds\n• 8–10 Bulgarian Split Squats per leg\n• Rest 75–90s',
+          battlePlan: '• 4 rounds\n• 8-10 bulgarian split squats per leg\n• Rest 75–90s',
           imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Rear foot elevated squat raises ROM + intensity.',
           moodTips: [
@@ -182,7 +182,7 @@ const compoundWorkoutDatabase: EquipmentWorkouts[] = [
           name: 'Back Squat',
           duration: '10–12 min',
           description: 'Classic barbell squat lays foundation\nfor leg strength and control.\n ',
-          battlePlan: '• 3 rounds\n• 8–10 Back Squats\n• Rest 90s',
+          battlePlan: '• 3 rounds\n• 8-10 back squats\n• Rest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8TVc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Foundational squat builds strength + control.',
           moodTips: [
@@ -222,7 +222,7 @@ const compoundWorkoutDatabase: EquipmentWorkouts[] = [
           name: 'Rack RDL',
           duration: '10–12 min',
           description: 'Beginner hinge teaches depth and\nhamstring control with barbell.\n ',
-          battlePlan: '• 3 rounds\n• 8–10 Rack RDLs\n• Rest 75–90s',
+          battlePlan: '• 3 rounds\n• 8-10 rack rdls\n• Rest 75–90s',
           imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
           intensityReason: 'Barbell hinge pattern develops glutes + hams.',
           moodTips: [
@@ -244,7 +244,7 @@ const compoundWorkoutDatabase: EquipmentWorkouts[] = [
           name: 'Front Squat',
           duration: '14–16 min',
           description: 'Front squat builds quads while\ndemanding upright posture.\n ',
-          battlePlan: '• 4 rounds\n• 6–8 Front Squats\n• Rest 90s',
+          battlePlan: '• 4 rounds\n• 6-8 front squats\n• Rest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Upright bar placement drives quad and core load.',
           moodTips: [
@@ -264,7 +264,7 @@ const compoundWorkoutDatabase: EquipmentWorkouts[] = [
           name: 'Bulgarian Split Squat',
           duration: '14–16 min',
           description: 'Advanced unilateral builder with\ndeeper range and balance challenge.\n ',
-          battlePlan: '• 4 rounds\n• 8–10 Bulgarians per side\n• Rest 90s',
+          battlePlan: '• 4 rounds\n• 8-10 bulgarians per side\n• Rest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmc&ZW54MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Rear foot squat overloads quads and balance.',
           moodTips: [
@@ -284,7 +284,7 @@ const compoundWorkoutDatabase: EquipmentWorkouts[] = [
           name: 'Rack Deficit RDL',
           duration: '14–16 min',
           description: 'Longer range hinge boosts hamstring\nhypertrophy with elevated position.\n ',
-          battlePlan: '• 3 rounds\n• 8–10 Deficit RDLs\n• Rest 90s',
+          battlePlan: '• 3 rounds\n• 8-10 deficit rdls\n• Rest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHc0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8TVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Standing on plates increases hamstring stretch.',
           moodTips: [
@@ -374,7 +374,7 @@ const compoundWorkoutDatabase: EquipmentWorkouts[] = [
           name: 'Neutral Leg Press',
           duration: '10–12 min',
           description: 'Basic press builds safety, posture,\nand control with machine support.\n ',
-          battlePlan: '• 3 rounds\n• 10–12 Neutral Leg Press\n• Rest 75s',
+          battlePlan: '• 3 rounds\n• 10-12 neutral leg press\n• Rest 75s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8TVc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Teaches full ROM with stable machine support.',
           moodTips: [
@@ -394,7 +394,7 @@ const compoundWorkoutDatabase: EquipmentWorkouts[] = [
           name: 'Narrow Stance Press',
           duration: '10–12 min',
           description: 'Targets quads more directly in\nsafe range of motion.\n ',
-          battlePlan: '• 3 rounds\n• 10–12 Narrow Stance Press\n• Rest 75s',
+          battlePlan: '• 3 rounds\n• 10-12 narrow stance press\n• Rest 75s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Close foot stance emphasizes quad activation.',
           moodTips: [
@@ -416,7 +416,7 @@ const compoundWorkoutDatabase: EquipmentWorkouts[] = [
           name: 'Wide Glute Press',
           duration: '14–16 min',
           description: 'Outside placement recruits posterior\nchain harder than narrow stance.\n ',
-          battlePlan: '• 4 rounds\n• 8–10 Wide Stance Press\n• Rest 90s',
+          battlePlan: '• 4 rounds\n• 8-10 wide stance press\n• Rest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Wider stance shifts target to glutes + hamstrings.',
           moodTips: [
@@ -506,7 +506,7 @@ const compoundWorkoutDatabase: EquipmentWorkouts[] = [
           name: 'Neutral Hack Squat',
           duration: '10–12 min',
           description: 'Basic hack squat introduces form\nand confidence with machine guidance.\n ',
-          battlePlan: '• 3 rounds\n• 10–12 Hack Squats\n• Rest 75s',
+          battlePlan: '• 3 rounds\n• 10-12 hack squats\n• Rest 75s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8TVc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Machine guidance builds squat mechanics safely.',
           moodTips: [
@@ -526,7 +526,7 @@ const compoundWorkoutDatabase: EquipmentWorkouts[] = [
           name: 'Narrow Hack Squat',
           duration: '10–12 min',
           description: 'Builds quad dominant strength with\nstable machine support.\n ',
-          battlePlan: '• 3 rounds\n• 8–10 Narrow Hack Squats\n• Rest 75s',
+          battlePlan: '• 3 rounds\n• 8-10 narrow hack squats\n• Rest 75s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Narrow stance emphasizes quads more directly.',
           moodTips: [
@@ -548,7 +548,7 @@ const compoundWorkoutDatabase: EquipmentWorkouts[] = [
           name: 'Wide Hack Squat',
           duration: '14–16 min',
           description: 'Trains posterior chain through\ndeeper ROM with wide stance.\n ',
-          battlePlan: '• 4 rounds\n• 8–10 Wide Hack Squats\n• Rest 90s',
+          battlePlan: '• 4 rounds\n• 8-10 wide hack squats\n• Rest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Wide stance targets glute and hamstring drive.',
           moodTips: [
@@ -590,7 +590,7 @@ const compoundWorkoutDatabase: EquipmentWorkouts[] = [
           name: '1½ Rep Hack Squat',
           duration: '16–18 min',
           description: 'Blends controlled pulses with full ROM\nsquatting for hypertrophy.\n ',
-          battlePlan: '• 3 rounds\n• 6–8 Hack Squats (1 full + ½ rep = 1 rep)\n• Rest 90s',
+          battlePlan: '• 3 rounds\n• 6-8 hack squats (1 full + ½ rep = 1 rep)\n• Rest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmc&ZW54MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Partial + full reps increase hypertrophy tension.',
           moodTips: [
@@ -610,7 +610,7 @@ const compoundWorkoutDatabase: EquipmentWorkouts[] = [
           name: 'Reverse Hack Squat',
           duration: '16–18 min',
           description: 'Reverse stance hack builds posterior\nchain strength and development.\n ',
-          battlePlan: '• 4 rounds\n• 8–10 Reverse Hack Squats\n• Rest 90s',
+          battlePlan: '• 4 rounds\n• 8-10 reverse hack squats\n• Rest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHc0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Facing pad emphasizes glutes and hamstrings.',
           moodTips: [
@@ -638,7 +638,7 @@ const compoundWorkoutDatabase: EquipmentWorkouts[] = [
           name: 'Cable Squat',
           duration: '10–12 min',
           description: 'Cable tension mimics goblet squat\nwith safety and control.\n ',
-          battlePlan: '• 3 rounds\n• 10–12 Cable Squats\n• Rest 75s',
+          battlePlan: '• 3 rounds\n• 10-12 cable squats\n• Rest 75s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8TVc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Front loaded setup controls posture + squat form.',
           moodTips: [
@@ -680,7 +680,7 @@ const compoundWorkoutDatabase: EquipmentWorkouts[] = [
           name: 'Cable RDL',
           duration: '14–16 min',
           description: 'Cable variation keeps constant load\non posterior chain throughout ROM.\n ',
-          battlePlan: '• 4 rounds\n• 8–10 Cable RDLs\n• Rest 90s',
+          battlePlan: '• 4 rounds\n• 8-10 cable rdls\n• Rest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Hip hinge move teaches tension through hamstrings.',
           moodTips: [
@@ -700,7 +700,7 @@ const compoundWorkoutDatabase: EquipmentWorkouts[] = [
           name: 'Cable Split Squat',
           duration: '14–16 min',
           description: 'Great hypertrophy builder with guided\nconstant tension throughout movement.\n ',
-          battlePlan: '• 4 rounds\n• 8–10 Cable Split Squats per leg\n• Rest 90s',
+          battlePlan: '• 4 rounds\n• 8-10 cable split squats per leg\n• Rest 90s',
           imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
           intensityReason: 'Unilateral squat keeps quads under stable load.',
           moodTips: [
@@ -722,7 +722,7 @@ const compoundWorkoutDatabase: EquipmentWorkouts[] = [
           name: 'Cable Front Squat',
           duration: '16–18 min',
           description: 'Replicates barbell front squat with\ncable constant tension loading.\n ',
-          battlePlan: '• 4 rounds\n• 6–8 Heavy Cable Front Squats\n• Rest 90s',
+          battlePlan: '• 4 rounds\n• 6-8 heavy cable front squats\n• Rest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmc&ZW54MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Heavy stack front squat overloads safe quads.',
           moodTips: [
