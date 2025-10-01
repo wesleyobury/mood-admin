@@ -457,7 +457,7 @@ const glutesWorkoutDatabase: EquipmentWorkouts[] = [
             },
             {
               icon: 'shield',
-              title: 'Return slow, avoid bounce inward',
+              title: 'Don\'t slam pads together when resting',
               description: 'Controlled return prevents momentum and maintains muscle tension.'
             }
           ]
