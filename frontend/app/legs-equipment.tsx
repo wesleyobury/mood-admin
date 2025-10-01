@@ -26,42 +26,42 @@ const equipmentDatabase: MuscleGroupEquipment[] = [
   {
     muscleGroup: 'Glutes',
     equipment: [
-      { id: 'squat-rack', name: 'Squat Rack', icon: 'barbell' },
+      { id: 'glute-machine', name: 'Glute Machine', icon: 'ellipse' },
+      { id: 'hack-squat', name: 'Hack Squat Machine', icon: 'triangle' },
+      { id: 'hip-abductor', name: 'Hip Abductor Machine', icon: 'resize' },
+      { id: 'hip-thruster', name: 'Hip Thruster Equipment', icon: 'fitness' },
       { id: 'leg-press', name: 'Leg Press Machine', icon: 'hardware-chip' },
       { id: 'cable-machine', name: 'Single Stack Cable Machine', icon: 'link' },
-      { id: 'hip-thruster', name: 'Hip Thruster Equipment', icon: 'fitness' },
-      { id: 'hack-squat', name: 'Hack Squat Machine', icon: 'triangle' },
-      { id: 'glute-machine', name: 'Glute Machine', icon: 'ellipse' },
-      { id: 'hip-abductor', name: 'Hip Abductor Machine', icon: 'resize' },
+      { id: 'squat-rack', name: 'Squat Rack', icon: 'barbell' },
     ]
   },
   {
     muscleGroup: 'Hammies',
     equipment: [
       { id: 'dumbbells', name: 'Dumbbells', icon: 'fitness' },
+      { id: 'leg-curl', name: 'Leg Curl Machine', icon: 'return-down-forward' },
       { id: 'roman-chair', name: 'Roman Chair', icon: 'desktop' },
       { id: 'squat-rack-ham', name: 'Squat Rack', icon: 'barbell' },
-      { id: 'leg-curl', name: 'Leg Curl Machine', icon: 'return-down-forward' },
     ]
   },
   {
     muscleGroup: 'Quads',
     equipment: [
       { id: 'dumbbells-quad', name: 'Dumbbells', icon: 'fitness' },
-      { id: 'squat-rack-quad', name: 'Squat Rack', icon: 'barbell' },
-      { id: 'leg-press-quad', name: 'Leg Press Machine', icon: 'hardware-chip' },
-      { id: 'leg-extension', name: 'Leg Extension Machine', icon: 'trending-up' },
       { id: 'hack-squat-quad', name: 'Hack Squat Machine', icon: 'triangle' },
+      { id: 'leg-extension', name: 'Leg Extension Machine', icon: 'trending-up' },
+      { id: 'leg-press-quad', name: 'Leg Press Machine', icon: 'hardware-chip' },
       { id: 'cable-machine-quad', name: 'Single Stack Cable Machine', icon: 'link' },
+      { id: 'squat-rack-quad', name: 'Squat Rack', icon: 'barbell' },
     ]
   },
   {
     muscleGroup: 'Calfs',
     equipment: [
-      { id: 'dumbbells-calf', name: 'Dumbbells', icon: 'fitness' },
-      { id: 'squat-rack-calf', name: 'Squat Rack', icon: 'barbell' },
-      { id: 'leg-press-calf', name: 'Leg Press Machine', icon: 'hardware-chip' },
       { id: 'calf-raise', name: 'Calf Raise Machine', icon: 'arrow-up' },
+      { id: 'dumbbells-calf', name: 'Dumbbells', icon: 'fitness' },
+      { id: 'leg-press-calf', name: 'Leg Press Machine', icon: 'hardware-chip' },
+      { id: 'squat-rack-calf', name: 'Squat Rack', icon: 'barbell' },
     ]
   },
 ];
