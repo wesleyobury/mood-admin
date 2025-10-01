@@ -439,8 +439,8 @@ export default function LegsEquipmentScreen() {
             />
           ))}
           
-          {/* Intensity Selection - Only show if Compound is selected */}
-          {isCompoundSelected && hasCompoundEquipment && (
+          {/* Intensity Selection - Show if Compound or Glutes equipment is selected */}
+          {needsIntensity && (
             <View style={styles.intensitySection}>
               <Text style={styles.sectionTitle}>Select Intensity Level</Text>
               <Text style={styles.sectionSubtitle}>
