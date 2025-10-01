@@ -224,6 +224,7 @@ export default function LegsEquipmentScreen() {
   const insets = useSafeAreaInsets();
   
   const [selectedEquipment, setSelectedEquipment] = useState<Equipment[]>([]);
+  const [selectedIntensity, setSelectedIntensity] = useState<IntensityLevel | null>(null);
   
   const moodTitle = params.mood as string || 'Muscle gainer';
   const workoutType = params.workoutType as string || 'Legs';
