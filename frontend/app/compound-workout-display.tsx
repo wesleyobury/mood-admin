@@ -49,7 +49,7 @@ const glutesWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Cable Ankle Kickback',
           duration: '10–12 min',
-          description: 'Ankle‑strapped motion builds activation through glutes',
+          description: 'Ankle‑strapped motion builds activation through glutes\n ',
           battlePlan: '3 rounds\n• 10–12 per leg Kickbacks\nRest 60s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8TVc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Cable adds constant tension for strict hip extension',
@@ -69,7 +69,7 @@ const glutesWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Cable Pull‑Through',
           duration: '10–12 min',
-          description: 'Great hip hinge builder for posterior chain activation',
+          description: 'Great hip hinge builder for posterior chain activation\n ',
           battlePlan: '3 rounds\n• 10–12 Pull‑Throughs\nRest 75s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Rope hinge motion loads glutes with safe posture path',
@@ -91,7 +91,7 @@ const glutesWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Cable Step‑Back Lunge',
           duration: '14–16 min',
-          description: 'Cable anchor increases balance and constant tension',
+          description: 'Cable anchor increases balance and constant tension\n ',
           battlePlan: '4 rounds\n• 8–10 per leg Step‑Back Lunges\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Rear lunges with cable build unilateral glute force',
@@ -111,7 +111,7 @@ const glutesWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Cable High Kickback',
           duration: '14–16 min',
-          description: 'Top‑end contraction isolates and strengthens glutes',
+          description: 'Top‑end contraction isolates and strengthens glutes\n ',
           battlePlan: '3 rounds\n• 8–10 per leg Kickbacks (2s pause top)\nRest 75–90s',
           imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
           intensityReason: 'Kickbacks with higher angle add peak glute tension',
@@ -133,7 +133,7 @@ const glutesWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Pull‑Through + Squat Combo',
           duration: '16–18 min',
-          description: 'Constant tension pairing ensures strong hypertrophy',
+          description: 'Constant tension pairing ensures strong hypertrophy\n ',
           battlePlan: '4 rounds\n• 8 Pull‑Throughs\n• 8 Cable Squats\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmc&ZW54MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Pair hinge and squat hits glutes from dual angles',
@@ -153,7 +153,7 @@ const glutesWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Cable Kickback Burnout',
           duration: '16–18 min',
-          description: 'Ankle‑cuff movement torches glutes with total volume',
+          description: 'Ankle‑cuff movement torches glutes with total volume\n ',
           battlePlan: '3 rounds\n• 15–20 per leg Kickbacks\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHc0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'High rep burnout floods glutes with strict tension',
