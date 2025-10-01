@@ -760,6 +760,138 @@ const compoundWorkoutDatabase: EquipmentWorkouts[] = [
         }
       ]
     }
+  },
+  {
+    equipment: 'Trap Bar',
+    icon: 'remove',
+    workouts: {
+      beginner: [
+        {
+          name: 'Trap Bar Deadlift Squat',
+          duration: '10–12 min',
+          description: 'Full‑body squat/deadlift hybrid builds foundation',
+          battlePlan: '**3 rounds**\n• 8–10 Deadlift‑Style Trap Bar Squats\n**Rest 75–90s**',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8TVc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Safest trap bar squat teaches form and posture',
+          moodTips: [
+            {
+              icon: 'body',
+              title: 'Stand tall inside bar, chest up',
+              description: 'Maintain upright posture throughout the movement for proper form.'
+            },
+            {
+              icon: 'arrow-down',
+              title: 'Push floor evenly, lock out fully',
+              description: 'Drive through both feet equally and complete full extension at top.'
+            }
+          ]
+        },
+        {
+          name: 'Neutral Grip Trap Bar Squat',
+          duration: '10–12 min',
+          description: 'Neutral foot placement encourages steady control',
+          battlePlan: '**3 rounds**\n• 8–10 Neutral Squats\n**Rest 75–90s**',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8TVc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Balanced stance builds quads and glutes evenly',
+          moodTips: [
+            {
+              icon: 'resize-outline',
+              title: 'Feet shoulder width, toes slightly out',
+              description: 'Proper foot positioning ensures balanced muscle activation.'
+            },
+            {
+              icon: 'trending-down',
+              title: 'Keep spine tall, descend under control',
+              description: 'Controlled descent maximizes muscle engagement and safety.'
+            }
+          ]
+        }
+      ],
+      intermediate: [
+        {
+          name: 'Wide Stance Trap Bar Squat',
+          duration: '14–16 min',
+          description: 'Builds hip strength and glute drive through stance',
+          battlePlan: '**4 rounds**\n• 6–8 Wide Stance Squats\n**Rest 90s**',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8TVc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Wider base targets hips and glutes harder',
+          moodTips: [
+            {
+              icon: 'resize',
+              title: 'Feet wider, push knees out strongly',
+              description: 'Wide stance activates glutes more effectively than narrow stance.'
+            },
+            {
+              icon: 'arrow-forward',
+              title: 'Drive hips forward to finish rep',
+              description: 'Hip drive ensures complete glute activation at top of movement.'
+            }
+          ]
+        },
+        {
+          name: 'Tempo Trap Bar Squat',
+          duration: '14–16 min',
+          description: 'Slow descent builds control and hypertrophy',
+          battlePlan: '**4 rounds**\n• 6–8 Squats (3–4s eccentric)\n**Rest 90s**',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8TVc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Extended eccentrics increase muscle time',
+          moodTips: [
+            {
+              icon: 'time',
+              title: 'Lower in 3–4s, keep chest upright',
+              description: 'Slow tempo increases time under tension for muscle growth.'
+            },
+            {
+              icon: 'construct',
+              title: 'Controlled pace — no collapse at depth',
+              description: 'Maintain tension throughout range of motion for safety.'
+            }
+          ]
+        }
+      ],
+      advanced: [
+        {
+          name: 'Pause Trap Bar Squat',
+          duration: '16–18 min',
+          description: 'Builds stability and power out of squat bottom',
+          battlePlan: '**4 rounds**\n• 6 Paused Squats (2s)\n**Rest 90s**',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8TVc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: '2s pause eliminates momentum, loads glutes/quads',
+          moodTips: [
+            {
+              icon: 'pause',
+              title: 'Hold depth 2s, keep core braced',
+              description: 'Pause eliminates stretch reflex, requiring pure strength to ascend.'
+            },
+            {
+              icon: 'rocket',
+              title: 'Explode upward from pause each rep',
+              description: 'Rapid acceleration from pause develops explosive power.'
+            }
+          ]
+        },
+        {
+          name: '1½ Rep Trap Bar Squat',
+          duration: '16–18 min',
+          description: 'Doubles workload while keeping constant tension',
+          battlePlan: '**3 rounds**\n• 6–8 1½ Rep Trap Bar Squats\n**Rest 90s**',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8TVc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Half + full rep combo extends quad fatigue',
+          moodTips: [
+            {
+              icon: 'repeat',
+              title: 'Lower full, rise half, drop, then stand',
+              description: 'Complete sequence: full down, half up, full down, full up.'
+            },
+            {
+              icon: 'trending-up',
+              title: 'Stay smooth — no bouncing between halves',
+              description: 'Controlled movement pattern prevents momentum and maintains tension.'
+            }
+          ]
+        }
+      ]
+    }
   }
 ];
 
