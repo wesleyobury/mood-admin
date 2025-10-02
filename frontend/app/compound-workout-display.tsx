@@ -1405,7 +1405,7 @@ const compoundWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: '1½ Rep Trap Bar Squat',
           duration: '16–18 min',
-          description: 'Doubles workload while keeping constant tension',
+          description: 'Doubles workload while keeping constant tension\n ',
           battlePlan: '3 rounds\n• 6–8 1½ Rep Trap Bar Squats\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8TVc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Half + full rep combo extends quad fatigue',
