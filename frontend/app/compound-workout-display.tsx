@@ -775,7 +775,7 @@ const hamstringsWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Barbell Deficit RDL',
           duration: '14–16 min',
-          description: 'Standing elevated extends hinge stretch fully\n ',
+          description: 'Creates extra tension through hamstring length ROM\n ',
           battlePlan: '3 rounds\n• 6–8 Deficit Barbell RDLs\nRest 90s',
           imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
           intensityReason: 'Standing elevated extends hinge stretch fully',
