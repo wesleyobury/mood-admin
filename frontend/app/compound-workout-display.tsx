@@ -3075,8 +3075,9 @@ export default function CompoundWorkoutDisplayScreen() {
   
   // Add calves workouts if Calfs is selected (note: Calfs comes from legs-equipment.tsx)
   if (selectedMuscleGroups.includes('Calfs')) {
+    const calfsEquipment = equipmentPerGroup['Calfs'] || [];
     const calvesWorkouts = calvesWorkoutDatabase.filter(equipment => 
-      selectedEquipmentNames.includes(equipment.equipment)
+      calfsEquipment.includes(equipment.equipment)
     ).map(equipment => ({
       ...equipment,
       workouts: equipment.workouts[difficulty as keyof typeof equipment.workouts] || [],
