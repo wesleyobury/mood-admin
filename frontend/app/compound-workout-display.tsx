@@ -2516,6 +2516,18 @@ export default function CompoundWorkoutDisplayScreen() {
     }));
     userWorkouts.push(...hamstringsWorkouts);
   }
+  
+  // Add quadriceps workouts if Quads is selected
+  if (selectedMuscleGroups.includes('Quads')) {
+    const quadricepsWorkouts = quadricepsWorkoutDatabase.filter(equipment => 
+      selectedEquipmentNames.includes(equipment.equipment)
+    ).map(equipment => ({
+      ...equipment,
+      workouts: equipment.workouts[difficulty as keyof typeof equipment.workouts] || [],
+      muscleGroup: 'Quadriceps'
+    }));
+    userWorkouts.push(...quadricepsWorkouts);
+  }
 
   console.log('User workouts:', userWorkouts.length, 'for difficulty:', difficulty);
 
