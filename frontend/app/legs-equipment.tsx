@@ -262,23 +262,29 @@ export default function LegsEquipmentScreen() {
       const equipmentNamesString = equipmentNames.join(',');
       const isCompoundSelected = muscleGroupNames.includes('Compound');
       const isGlutesSelected = muscleGroupNames.includes('Glutes');
+      const isHamstringsSelected = muscleGroupNames.includes('Hammies');
       const hasCompoundEquipment = selectedEquipment.some(eq => 
         ['Dumbbells', 'Squat Rack', 'Leg Press Machine', 'Hack Squat Machine', 'Single Stack Cable Machine', 'Trap Bar'].includes(eq.name)
       );
       const hasGlutesEquipment = selectedEquipment.some(eq => 
         ['Glute Kick Machine', 'Hip Abductor Machine', 'Hip Thruster Equipment', 'Single Stack Cable Machine'].includes(eq.name)
       );
+      const hasHamstringsEquipment = selectedEquipment.some(eq => 
+        ['Barbell', 'Dumbbells', 'Leg Curl Machine', 'Roman Chair'].includes(eq.name)
+      );
       
       console.log('Selected equipment:', equipmentNames);
       console.log('Selected muscle groups:', muscleGroupNames);
       console.log('Is compound selected:', isCompoundSelected);
       console.log('Is glutes selected:', isGlutesSelected);
+      console.log('Is hamstrings selected:', isHamstringsSelected);
       console.log('Has compound equipment:', hasCompoundEquipment);
       console.log('Has glutes equipment:', hasGlutesEquipment);
+      console.log('Has hamstrings equipment:', hasHamstringsEquipment);
       console.log('Selected intensity:', selectedIntensity?.id);
       
-      // If we have compound equipment that requires intensity OR glutes equipment
-      if ((isCompoundSelected && hasCompoundEquipment && selectedIntensity) || (isGlutesSelected && hasGlutesEquipment && selectedIntensity)) {
+      // If we have compound equipment that requires intensity OR glutes equipment OR hamstrings equipment
+      if ((isCompoundSelected && hasCompoundEquipment && selectedIntensity) || (isGlutesSelected && hasGlutesEquipment && selectedIntensity) || (isHamstringsSelected && hasHamstringsEquipment && selectedIntensity)) {
         // Navigate to compound workout display (which now handles both compound and glutes)
         router.push({
           pathname: '/compound-workout-display',
