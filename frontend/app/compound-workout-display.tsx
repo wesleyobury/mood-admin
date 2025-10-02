@@ -2543,7 +2543,8 @@ export default function CompoundWorkoutDisplayScreen() {
       equipment: equipment,
       description: workout.description,
       duration: workout.duration,
-      intensity: difficulty,
+      difficulty: difficulty,
+      workoutType: 'Strength Based', // Set proper workout type for leg workouts
       battlePlan: workout.battlePlan, // Keep bullets intact
       moodTips: encodeURIComponent(JSON.stringify(workout.moodTips)) // Pass actual MOOD tips
     };
