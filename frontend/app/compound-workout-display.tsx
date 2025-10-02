@@ -1039,7 +1039,7 @@ const hamstringsWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Pause Leg Curl',
           duration: '14–16 min',
-          description: 'Isometric hold raises muscular control demand\n ',
+          description: 'Pausing at top peaks hamstring contraction force\n ',
           battlePlan: '3 rounds\n• 8–10 Pause Reps\nRest 90s',
           imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
           intensityReason: 'Isometric hold raises muscular control demand',
