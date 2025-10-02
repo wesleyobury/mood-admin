@@ -3049,8 +3049,9 @@ export default function CompoundWorkoutDisplayScreen() {
   
   // Add hamstrings workouts if Hammies is selected (note: Hammies comes from legs-equipment.tsx)
   if (selectedMuscleGroups.includes('Hammies')) {
+    const hamstringsEquipment = equipmentPerGroup['Hammies'] || [];
     const hamstringsWorkouts = hamstringsWorkoutDatabase.filter(equipment => 
-      selectedEquipmentNames.includes(equipment.equipment)
+      hamstringsEquipment.includes(equipment.equipment)
     ).map(equipment => ({
       ...equipment,
       workouts: equipment.workouts[difficulty as keyof typeof equipment.workouts] || [],
