@@ -530,7 +530,7 @@ const glutesWorkoutDatabase: EquipmentWorkouts[] = [
           name: 'Drop‑Set Abduction',
           duration: '16–18 min',
           description: 'Stacked reps crush glute medius with high overload\n ',
-          battlePlan: '3 rounds\n• 12 Heavy Abductions\nDrop 20% → 10 reps\nDrop 20% again → 10 reps\nRest 90s',
+          battlePlan: '3 rounds\n• 12 Heavy Abductions\n• Drop 20% → 10 reps\n• Drop 20% again → 10 reps\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmc&ZW54MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Drop set prolongs effort rising metabolic fatigue',
           moodTips: [
