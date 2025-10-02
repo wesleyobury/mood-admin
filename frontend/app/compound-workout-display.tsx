@@ -1553,7 +1553,7 @@ const calvesWorkoutDatabase: EquipmentWorkouts[] = [
       ],
       intermediate: [
         {
-          name: 'Barbell Calf Raise (Pause + Bodyweight)',
+          name: 'Barbell Calf Raise',
           duration: '14–16 min',
           description: 'Builds strength and control through isometric hold\n ',
           battlePlan: '4 rounds\n• 10–12 Pause Calf Raises\n• Immediately 15 Bodyweight Calf Raises\nRest 90s',
