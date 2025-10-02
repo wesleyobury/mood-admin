@@ -1363,8 +1363,8 @@ const compoundWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Tempo Trap Bar Squat',
           duration: '14–16 min',
-          description: 'Slow descent builds control and hypertrophy',
-          battlePlan: '**4 rounds**\n• 6–8 Squats (3–4s eccentric)\n**Rest 90s**',
+          description: 'Slow descent builds control and hypertrophy\n ',
+          battlePlan: '4 rounds\n• 6–8 Squats (3–4s eccentric)\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8TVc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Extended eccentrics increase muscle time',
           moodTips: [
