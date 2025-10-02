@@ -1444,7 +1444,7 @@ const calvesWorkoutDatabase: EquipmentWorkouts[] = [
           name: 'DB Calf Raise (Tempo + Bodyweight)',
           duration: '14–16 min',
           description: 'Controlled tempo builds endurance and hypertrophy\n ',
-          battlePlan: '3 rounds\n• 10–12 Tempo Calf Raises\nImmediately 15 Bodyweight Calf Raises\nRest 75s',
+          battlePlan: '3 rounds\n• 10–12 Tempo Calf Raises\n• Immediately 15 Bodyweight Calf Raises\nRest 75s',
           imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
           intensityReason: 'Slow eccentric phase maximizes calf time under tension',
           moodTips: [
