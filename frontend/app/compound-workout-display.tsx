@@ -2918,7 +2918,9 @@ export default function CompoundWorkoutDisplayScreen() {
   
   // Parse parameters with error handling and proper URL decoding
   const equipmentParam = params.equipment as string || '';
+  const equipmentPerGroupParam = params.equipmentPerGroup as string || '';
   let selectedEquipmentNames: string[] = [];
+  let equipmentPerGroup: {[key: string]: string[]} = {};
   
   try {
     if (equipmentParam) {
@@ -2926,17 +2928,24 @@ export default function CompoundWorkoutDisplayScreen() {
       const decodedEquipment = decodeURIComponent(equipmentParam);
       selectedEquipmentNames = decodedEquipment.split(',').map(name => name.trim());
     }
+    
+    if (equipmentPerGroupParam) {
+      // Parse equipment per muscle group mapping
+      const decodedMapping = decodeURIComponent(equipmentPerGroupParam);
+      equipmentPerGroup = JSON.parse(decodedMapping);
+    }
   } catch (error) {
-    console.error('Error parsing equipment parameter:', error);
+    console.error('Error parsing equipment parameters:', error);
     // Fallback to default equipment for testing
     selectedEquipmentNames = ['Dumbbells'];
+    equipmentPerGroup = {};
   }
   
   const difficulty = (params.difficulty as string || 'beginner').toLowerCase();
   const moodTitle = params.mood as string || 'Muscle gainer';
   const workoutType = params.workoutType as string || 'Compound';
   
-  console.log('Parsed parameters:', { selectedEquipmentNames, difficulty, moodTitle, workoutType });
+  console.log('Parsed parameters:', { selectedEquipmentNames, equipmentPerGroup, difficulty, moodTitle, workoutType });
 
   // Get difficulty color - all the same neon gold
   // Get equipment icon for progress bar
