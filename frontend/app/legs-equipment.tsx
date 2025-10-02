@@ -324,6 +324,7 @@ export default function LegsEquipmentScreen() {
   const isCompoundSelected = muscleGroupNames.includes('Compound');
   const isGlutesSelected = muscleGroupNames.includes('Glutes');
   const isHamstringsSelected = muscleGroupNames.includes('Hammies');
+  const isQuadsSelected = muscleGroupNames.includes('Quads');
   const hasCompoundEquipment = selectedEquipment.some(eq => 
     ['Dumbbells', 'Squat Rack', 'Leg Press Machine', 'Hack Squat Machine', 'Single Stack Cable Machine', 'Trap Bar'].includes(eq.name)
   );
@@ -333,9 +334,12 @@ export default function LegsEquipmentScreen() {
   const hasHamstringsEquipment = selectedEquipment.some(eq => 
     ['Barbell', 'Dumbbells', 'Leg Curl Machine', 'Roman Chair'].includes(eq.name)
   );
+  const hasQuadsEquipment = selectedEquipment.some(eq => 
+    ['Barbell', 'Leg Extension Machine'].includes(eq.name)
+  );
   
-  // Can continue if equipment is selected, and if compound, glutes, or hamstrings equipment is selected, intensity must also be selected
-  const needsIntensity = (isCompoundSelected && hasCompoundEquipment) || (isGlutesSelected && hasGlutesEquipment) || (isHamstringsSelected && hasHamstringsEquipment);
+  // Can continue if equipment is selected, and if compound, glutes, hamstrings, or quads equipment is selected, intensity must also be selected
+  const needsIntensity = (isCompoundSelected && hasCompoundEquipment) || (isGlutesSelected && hasGlutesEquipment) || (isHamstringsSelected && hasHamstringsEquipment) || (isQuadsSelected && hasQuadsEquipment);
   const canContinue = selectedEquipment.length > 0 && 
     (!needsIntensity || selectedIntensity !== null);
 
