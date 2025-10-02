@@ -357,10 +357,9 @@ export default function LegsEquipmentScreen() {
     ['barbell-calf', 'dumbbells-calf', 'calf-raise', 'leg-press-calf'].includes(eq.id)
   );
   
-  // Can continue if equipment is selected, and if compound, glutes, hamstrings, quads, or calves equipment is selected, intensity must also be selected
-  const needsIntensity = (isCompoundSelected && hasCompoundEquipment) || (isGlutesSelected && hasGlutesEquipment) || (isHamstringsSelected && hasHamstringsEquipment) || (isQuadsSelected && hasQuadsEquipment) || (isCalvesSelected && hasCalvesEquipment);
-  const canContinue = selectedEquipment.length > 0 && 
-    (!needsIntensity || selectedIntensity !== null);
+  // For legs workouts, intensity selection is ALWAYS required
+  const needsIntensity = true; // Always require intensity for legs workouts
+  const canContinue = selectedEquipment.length > 0 && selectedIntensity !== null;
 
   if (relevantEquipmentData.length === 0) {
     return (
