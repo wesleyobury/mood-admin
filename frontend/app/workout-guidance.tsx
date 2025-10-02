@@ -124,9 +124,9 @@ export default function WorkoutGuidanceScreen() {
   const battlePlan = params.battlePlan as string || '';
   const duration = params.duration as string || '20 min';
   const difficulty = params.difficulty as string || 'beginner';
-  const workoutType = params.workoutType as string || 'Cardio Based';
+  const workoutType = params.workoutType as string || 'Strength Based';
   
-  // Format workout type to show "Cardio" suffix for weight workouts  
+  // Format workout type to show proper type for leg workouts  
   const displayWorkoutType = workoutType === 'Weight Based' ? 'Weight Based Cardio' : workoutType;
   
   // Parse MOOD tips from params (passed as JSON string)
