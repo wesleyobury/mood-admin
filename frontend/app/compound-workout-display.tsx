@@ -1629,19 +1629,33 @@ export default function CompoundWorkoutDisplayScreen() {
   const createProgressRows = () => {
     const allSteps = [
       { icon: 'flame', text: moodTitle, key: 'mood' },
-      { icon: 'walk', text: 'Legs', key: 'legs' },
-      { icon: 'layers', text: workoutType, key: 'type' },
-      { icon: 'speedometer', text: difficulty.charAt(0).toUpperCase() + difficulty.slice(1), key: 'difficulty' },
-      ...selectedEquipmentNames.map((equipment, index) => ({
-        icon: getEquipmentIcon(equipment),
-        text: equipment,
-        key: `equipment-${index}`
-      }))
+      { icon: 'speedometer', text: difficulty.charAt(0).toUpperCase() + difficulty.slice(1), key: 'difficulty' }
     ];
+    
+    // Add muscle group icons instead of individual equipment to keep it concise
+    if (selectedMuscleGroups.includes('Compound')) {
+      allSteps.push({ icon: 'layers', text: 'Compound', key: 'compound' });
+    }
+    if (selectedMuscleGroups.includes('Glutes')) {
+      allSteps.push({ icon: 'walk', text: 'Glutes', key: 'glutes' });
+    }
+    
+    // Add up to 2 more equipment items to fill but not exceed 8 total icons
+    const remainingSlots = 8 - allSteps.length;
+    const equipmentToShow = selectedEquipmentNames.slice(0, remainingSlots);
+    
+    allSteps.push(...equipmentToShow.map((equipment, index) => ({
+      icon: getEquipmentIcon(equipment),
+      text: equipment,
+      key: `equipment-${index}`
+    })));
 
+    // Limit to 2 rows maximum (8 items)
+    const limitedSteps = allSteps.slice(0, 8);
+    
     const rows = [];
-    for (let i = 0; i < allSteps.length; i += 4) {
-      rows.push(allSteps.slice(i, i + 4));
+    for (let i = 0; i < limitedSteps.length; i += 4) {
+      rows.push(limitedSteps.slice(i, i + 4));
     }
     return rows;
   };
