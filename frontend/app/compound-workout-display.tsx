@@ -3036,8 +3036,9 @@ export default function CompoundWorkoutDisplayScreen() {
   
   // Add glutes workouts if Glutes is selected
   if (selectedMuscleGroups.includes('Glutes')) {
+    const glutesEquipment = equipmentPerGroup['Glutes'] || [];
     const glutesWorkouts = glutesWorkoutDatabase.filter(equipment => 
-      selectedEquipmentNames.includes(equipment.equipment)
+      glutesEquipment.includes(equipment.equipment)
     ).map(equipment => ({
       ...equipment,
       workouts: equipment.workouts[difficulty as keyof typeof equipment.workouts] || [],
