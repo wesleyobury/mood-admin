@@ -477,8 +477,8 @@ export default function LegsEquipmentScreen() {
             />
           ))}
           
-          {/* Intensity Selection - Show if Compound or Glutes equipment is selected */}
-          {needsIntensity && (
+          {/* Intensity Selection - Always required for legs workouts */}
+          {selectedEquipment.length > 0 && (
             <View style={styles.intensitySection}>
               <Text style={styles.sectionTitle}>Select Intensity Level</Text>
               <Text style={styles.sectionSubtitle}>
