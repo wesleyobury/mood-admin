@@ -3063,6 +3063,18 @@ export default function CompoundWorkoutDisplayScreen() {
     }));
     userWorkouts.push(...quadricepsWorkouts);
   }
+  
+  // Add calves workouts if Calfs is selected (note: Calfs comes from legs-equipment.tsx)
+  if (selectedMuscleGroups.includes('Calfs')) {
+    const calvesWorkouts = calvesWorkoutDatabase.filter(equipment => 
+      selectedEquipmentNames.includes(equipment.equipment)
+    ).map(equipment => ({
+      ...equipment,
+      workouts: equipment.workouts[difficulty as keyof typeof equipment.workouts] || [],
+      muscleGroup: 'Calves'
+    }));
+    userWorkouts.push(...calvesWorkouts);
+  }
 
   console.log('User workouts:', userWorkouts.length, 'for difficulty:', difficulty);
 
