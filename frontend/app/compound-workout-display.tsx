@@ -3244,6 +3244,23 @@ export default function CompoundWorkoutDisplayScreen() {
               ))}
             </>
           )}
+          
+          {selectedMuscleGroups.includes('Calfs') && (
+            <>
+              <Text style={styles.muscleGroupHeader}>Calves Workouts</Text>
+              {userWorkouts.filter(w => w.muscleGroup === 'Calves').map((equipmentWorkout, index) => (
+                <WorkoutCard
+                  key={`calves-${equipmentWorkout.equipment}`}
+                  equipment={equipmentWorkout.equipment}
+                  icon={equipmentWorkout.icon}
+                  workouts={equipmentWorkout.workouts}
+                  difficulty={difficulty}
+                  difficultyColor={difficultyColor}
+                  onStartWorkout={handleStartWorkout}
+                />
+              ))}
+            </>
+          )}
         </View>
       </ScrollView>
     </SafeAreaView>
