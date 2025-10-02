@@ -2171,6 +2171,9 @@ export default function CompoundWorkoutDisplayScreen() {
     if (selectedMuscleGroups.includes('Glutes')) {
       allSteps.push({ icon: 'walk', text: 'Glutes', key: 'glutes' });
     }
+    if (selectedMuscleGroups.includes('Hammies')) {
+      allSteps.push({ icon: 'fitness', text: 'Hamstrings', key: 'hamstrings' });
+    }
     
     // Add up to 2 more equipment items to fill but not exceed 8 total icons
     const remainingSlots = 8 - allSteps.length;
