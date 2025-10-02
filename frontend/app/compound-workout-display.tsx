@@ -1531,7 +1531,7 @@ const calvesWorkoutDatabase: EquipmentWorkouts[] = [
           ]
         },
         {
-          name: 'Barbell Calf Raise (Plate Elevated)',
+          name: 'Barbell Calf Raise (Elevated)',
           duration: '10–12 min',
           description: 'Plate under toes enhances calf muscle activation\n ',
           battlePlan: '3 rounds\n• 12–15 Elevated Calf Raises\nRest 75s',
