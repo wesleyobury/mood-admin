@@ -623,7 +623,7 @@ const hamstringsWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Staggered‑Stance DB RDL',
           duration: '14–16 min',
-          description: 'Split stance emphasizes deeper hamstring load\n ',
+          description: 'Single‑leg hinge balances strength across sides\n ',
           battlePlan: '4 rounds\n• 8 per side Staggered RDLs\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Split stance emphasizes deeper hamstring load',
