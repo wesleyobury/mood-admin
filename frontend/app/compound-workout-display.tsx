@@ -2980,6 +2980,15 @@ export default function CompoundWorkoutDisplayScreen() {
     const hasQuadsEquipment = equipmentPerGroup['Quads'] && equipmentPerGroup['Quads'].length > 0;
     const hasCalfsEquipment = equipmentPerGroup['Calfs'] && equipmentPerGroup['Calfs'].length > 0;
     
+    console.log('Progress bar debug:', { 
+      equipmentPerGroup, 
+      hasCompoundEquipment, 
+      hasGlutesEquipment, 
+      hasHamstringsEquipment, 
+      hasQuadsEquipment, 
+      hasCalfsEquipment 
+    });
+    
     if (selectedMuscleGroups.includes('Compound') && hasCompoundEquipment) {
       allSteps.push({ icon: 'layers', text: 'Compound', key: 'compound' });
     }
