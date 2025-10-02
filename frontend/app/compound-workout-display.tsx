@@ -2379,6 +2379,23 @@ export default function CompoundWorkoutDisplayScreen() {
               ))}
             </>
           )}
+          
+          {selectedMuscleGroups.includes('Hammies') && (
+            <>
+              <Text style={styles.muscleGroupHeader}>Hamstrings Workouts</Text>
+              {userWorkouts.filter(w => w.muscleGroup === 'Hammies').map((equipmentWorkout, index) => (
+                <WorkoutCard
+                  key={`hamstrings-${equipmentWorkout.equipment}`}
+                  equipment={equipmentWorkout.equipment}
+                  icon={equipmentWorkout.icon}
+                  workouts={equipmentWorkout.workouts}
+                  difficulty={difficulty}
+                  difficultyColor={difficultyColor}
+                  onStartWorkout={handleStartWorkout}
+                />
+              ))}
+            </>
+          )}
         </View>
       </ScrollView>
     </SafeAreaView>
