@@ -1111,7 +1111,7 @@ const quadricepsWorkoutDatabase: EquipmentWorkouts[] = [
     workouts: {
       beginner: [
         {
-          name: 'Barbell Sissy Squat (Front Hold Light)',
+          name: 'Barbell Sissy Squat',
           duration: '10–12 min',
           description: 'Front held bar guides posture as quads take full load\n ',
           battlePlan: '3 rounds\n• 10–12 Light Barbell Sissy Squats\nRest 75s',
