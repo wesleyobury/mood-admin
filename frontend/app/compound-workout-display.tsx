@@ -1486,7 +1486,7 @@ const calvesWorkoutDatabase: EquipmentWorkouts[] = [
           name: 'DB Calf Raise (Iso + Jumps)',
           duration: '16–18 min',
           description: 'Combo reps with iso hold completely crushes calves\n ',
-          battlePlan: '3 rounds\n• 12–15 Calf Raises\nFinish with 10s Iso Hold at top\nImmediately 10 Stiff Leg Jumps\nRest 90s',
+          battlePlan: '3 rounds\n• 12–15 Calf Raises\n• Finish with 10s Iso Hold at top\n• Immediately 10 Stiff Leg Jumps\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Static hold at peak contraction maximizes tension',
           moodTips: [
@@ -1618,7 +1618,7 @@ const calvesWorkoutDatabase: EquipmentWorkouts[] = [
           name: 'Barbell Calf Raise (Iso + Jumps)',
           duration: '16–18 min',
           description: 'Combo reps with iso hold completely crushes calves\n ',
-          battlePlan: '3 rounds\n• 12–15 Calf Raises\nFinish with 10s Iso Hold at top\nImmediately 10 Stiff Leg Jumps\nRest 90s',
+          battlePlan: '3 rounds\n• 12–15 Calf Raises\n• Finish with 10s Iso Hold at top\n• Immediately 10 Stiff Leg Jumps\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Static hold at peak contraction maximizes tension',
           moodTips: [
@@ -1750,7 +1750,7 @@ const calvesWorkoutDatabase: EquipmentWorkouts[] = [
           name: 'Leg Press Calf Raise (Iso + Jumps)',
           duration: '16–18 min',
           description: 'Combo reps with iso hold completely crushes calves\n ',
-          battlePlan: '3 rounds\n• 12–15 Calf Raises\nFinish with 10s Iso Hold at top\nImmediately 10 Stiff Leg Jumps\nRest 90s',
+          battlePlan: '3 rounds\n• 12–15 Calf Raises\n• Finish with 10s Iso Hold at top\n• Immediately 10 Stiff Leg Jumps\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Static hold at peak contraction maximizes tension',
           moodTips: [
@@ -1882,7 +1882,7 @@ const calvesWorkoutDatabase: EquipmentWorkouts[] = [
           name: 'Calf Raise Machine (Iso + Jumps)',
           duration: '16–18 min',
           description: 'Combo reps with iso hold completely crushes calves\n ',
-          battlePlan: '3 rounds\n• 12–15 Calf Raises\nFinish with 10s Iso Hold at top\nImmediately 10 Stiff Leg Jumps\nRest 90s',
+          battlePlan: '3 rounds\n• 12–15 Calf Raises\n• Finish with 10s Iso Hold at top\n• Immediately 10 Stiff Leg Jumps\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Static hold at peak contraction maximizes tension',
           moodTips: [
