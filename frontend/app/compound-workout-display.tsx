@@ -2977,6 +2977,9 @@ export default function CompoundWorkoutDisplayScreen() {
     if (selectedMuscleGroups.includes('Quads')) {
       allSteps.push({ icon: 'flash', text: 'Quadriceps', key: 'quadriceps' });
     }
+    if (selectedMuscleGroups.includes('Calfs')) {
+      allSteps.push({ icon: 'arrow-up', text: 'Calves', key: 'calves' });
+    }
     
     // Add up to 2 more equipment items to fill but not exceed 8 total icons
     const remainingSlots = 8 - allSteps.length;
