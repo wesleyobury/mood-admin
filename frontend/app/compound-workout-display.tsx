@@ -643,7 +643,7 @@ const hamstringsWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'DB Deficit RDL',
           duration: '14–16 min',
-          description: 'Deficit stance adds longer hamstring stretch load\n ',
+          description: 'Elevation increases hypertrophy by extended ROM\n ',
           battlePlan: '3 rounds\n• 8–10 Deficit DB RDLs\nRest 90s',
           imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
           intensityReason: 'Deficit stance adds longer hamstring stretch load',
