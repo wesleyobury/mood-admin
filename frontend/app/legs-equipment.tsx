@@ -266,19 +266,19 @@ export default function LegsEquipmentScreen() {
       const isQuadsSelected = muscleGroupNames.includes('Quads');
       const isCalvesSelected = muscleGroupNames.includes('Calfs');
       const hasCompoundEquipment = selectedEquipment.some(eq => 
-        ['Dumbbells', 'Squat Rack', 'Leg Press Machine', 'Hack Squat Machine', 'Single Stack Cable Machine', 'Trap Bar'].includes(eq.name)
+        ['dumbbells-compound', 'squat-rack-compound', 'leg-press-compound', 'hack-squat-compound', 'cable-machine-compound', 'trap-bar'].includes(eq.id)
       );
       const hasGlutesEquipment = selectedEquipment.some(eq => 
-        ['Glute Kick Machine', 'Hip Abductor Machine', 'Hip Thruster Equipment', 'Single Stack Cable Machine'].includes(eq.name)
+        ['glute-kick-machine', 'hip-abductor', 'hip-thruster', 'cable-machine'].includes(eq.id)
       );
       const hasHamstringsEquipment = selectedEquipment.some(eq => 
-        ['Barbell', 'Dumbbells', 'Leg Curl Machine', 'Roman Chair'].includes(eq.name)
+        ['barbell-ham', 'dumbbells', 'leg-curl', 'roman-chair'].includes(eq.id)
       );
       const hasQuadsEquipment = selectedEquipment.some(eq => 
-        ['Barbell', 'Leg Extension Machine'].includes(eq.name)
+        ['barbell-quad', 'leg-extension'].includes(eq.id)
       );
       const hasCalvesEquipment = selectedEquipment.some(eq => 
-        ['Barbell', 'Dumbbells', 'Calf Raise Machine', 'Leg Press Machine'].includes(eq.name)
+        ['barbell-calf', 'dumbbells-calf', 'calf-raise', 'leg-press-calf'].includes(eq.id)
       );
       
       console.log('Selected equipment:', equipmentNames);
