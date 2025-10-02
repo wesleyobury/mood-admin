@@ -1343,8 +1343,8 @@ const compoundWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Wide Stance Trap Bar Squat',
           duration: '14–16 min',
-          description: 'Builds hip strength and glute drive through stance',
-          battlePlan: '**4 rounds**\n• 6–8 Wide Stance Squats\n**Rest 90s**',
+          description: 'Builds hip strength and glute drive through stance\n ',
+          battlePlan: '4 rounds\n• 6–8 Wide Stance Squats\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8TVc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Wider base targets hips and glutes harder',
           moodTips: [
