@@ -2973,20 +2973,26 @@ export default function CompoundWorkoutDisplayScreen() {
       { icon: 'speedometer', text: difficulty.charAt(0).toUpperCase() + difficulty.slice(1), key: 'difficulty' }
     ];
     
-    // Add muscle group icons instead of individual equipment to keep it concise
-    if (selectedMuscleGroups.includes('Compound')) {
+    // Add muscle group icons only for groups that have selected equipment
+    const hasCompoundEquipment = equipmentPerGroup['Compound'] && equipmentPerGroup['Compound'].length > 0;
+    const hasGlutesEquipment = equipmentPerGroup['Glutes'] && equipmentPerGroup['Glutes'].length > 0;
+    const hasHamstringsEquipment = equipmentPerGroup['Hammies'] && equipmentPerGroup['Hammies'].length > 0;
+    const hasQuadsEquipment = equipmentPerGroup['Quads'] && equipmentPerGroup['Quads'].length > 0;
+    const hasCalfsEquipment = equipmentPerGroup['Calfs'] && equipmentPerGroup['Calfs'].length > 0;
+    
+    if (selectedMuscleGroups.includes('Compound') && hasCompoundEquipment) {
       allSteps.push({ icon: 'layers', text: 'Compound', key: 'compound' });
     }
-    if (selectedMuscleGroups.includes('Glutes')) {
+    if (selectedMuscleGroups.includes('Glutes') && hasGlutesEquipment) {
       allSteps.push({ icon: 'walk', text: 'Glutes', key: 'glutes' });
     }
-    if (selectedMuscleGroups.includes('Hammies')) {
+    if (selectedMuscleGroups.includes('Hammies') && hasHamstringsEquipment) {
       allSteps.push({ icon: 'fitness', text: 'Hamstrings', key: 'hamstrings' });
     }
-    if (selectedMuscleGroups.includes('Quads')) {
+    if (selectedMuscleGroups.includes('Quads') && hasQuadsEquipment) {
       allSteps.push({ icon: 'flash', text: 'Quadriceps', key: 'quadriceps' });
     }
-    if (selectedMuscleGroups.includes('Calfs')) {
+    if (selectedMuscleGroups.includes('Calfs') && hasCalfsEquipment) {
       allSteps.push({ icon: 'arrow-up', text: 'Calves', key: 'calves' });
     }
     
