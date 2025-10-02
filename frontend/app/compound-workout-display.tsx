@@ -2968,6 +2968,7 @@ export default function CompoundWorkoutDisplayScreen() {
 
   // Create rows of progress steps with max 4 per row (matching chest format)
   const createProgressRows = () => {
+    console.log('🔍 createProgressRows called!');
     const allSteps = [
       { icon: 'flame', text: moodTitle, key: 'mood' },
       { icon: 'speedometer', text: difficulty.charAt(0).toUpperCase() + difficulty.slice(1), key: 'difficulty' }
