@@ -2679,6 +2679,23 @@ export default function CompoundWorkoutDisplayScreen() {
               ))}
             </>
           )}
+          
+          {selectedMuscleGroups.includes('Quads') && (
+            <>
+              <Text style={styles.muscleGroupHeader}>Quadriceps Workouts</Text>
+              {userWorkouts.filter(w => w.muscleGroup === 'Quadriceps').map((equipmentWorkout, index) => (
+                <WorkoutCard
+                  key={`quadriceps-${equipmentWorkout.equipment}`}
+                  equipment={equipmentWorkout.equipment}
+                  icon={equipmentWorkout.icon}
+                  workouts={equipmentWorkout.workouts}
+                  difficulty={difficulty}
+                  difficultyColor={difficultyColor}
+                  onStartWorkout={handleStartWorkout}
+                />
+              ))}
+            </>
+          )}
         </View>
       </ScrollView>
     </SafeAreaView>
