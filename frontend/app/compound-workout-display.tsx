@@ -2981,15 +2981,8 @@ export default function CompoundWorkoutDisplayScreen() {
       allSteps.push({ icon: 'arrow-up', text: 'Calves', key: 'calves' });
     }
     
-    // Add up to 2 more equipment items to fill but not exceed 8 total icons
-    const remainingSlots = 8 - allSteps.length;
-    const equipmentToShow = selectedEquipmentNames.slice(0, remainingSlots);
-    
-    allSteps.push(...equipmentToShow.map((equipment, index) => ({
-      icon: getEquipmentIcon(equipment),
-      text: equipment,
-      key: `equipment-${index}`
-    })));
+    // For legs path, don't show equipment - muscle groups are sufficient
+    // Progress bar will only show: mood, difficulty, and selected muscle groups
 
     // Limit to 2 rows maximum (8 items)
     const limitedSteps = allSteps.slice(0, 8);
