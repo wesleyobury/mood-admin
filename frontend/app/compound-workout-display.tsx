@@ -1705,7 +1705,7 @@ const calvesWorkoutDatabase: EquipmentWorkouts[] = [
           ]
         },
         {
-          name: 'Leg Press Calf Raise (Pause) + Bodyweight',
+          name: 'Leg Press Calf Raise (Pause + Bodyweight)',
           duration: '14–16 min',
           description: 'Builds strength and control through isometric hold\n ',
           battlePlan: '3 rounds\n• 10–12 Pause Calf Raises\nImmediately 15 Bodyweight Calf Raises\nRest 90s',
