@@ -1665,7 +1665,7 @@ const calvesWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Leg Press Calf Raise (Toes Out)',
           duration: '10–12 min',
-          description: 'Foot angle variation for balanced calf growth\n ',
+          description: 'Foot angle variation for balanced calf growth and stimulation\n ',
           battlePlan: '3 rounds\n• 12–15 Toes Out Calf Raises\nRest 75s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Toes out stance targets inner calf muscle fibers',
