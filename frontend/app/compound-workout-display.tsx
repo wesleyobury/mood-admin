@@ -1837,7 +1837,7 @@ const calvesWorkoutDatabase: EquipmentWorkouts[] = [
           ]
         },
         {
-          name: 'Calf Raise Machine (Pause + Bodyweight)',
+          name: 'Calf Raise Machine',
           duration: '14–16 min',
           description: 'Builds strength and control through isometric hold\n ',
           battlePlan: '3 rounds\n• 10–12 Pause Calf Raises\n• Immediately 15 Bodyweight Calf Raises\nRest 90s',
