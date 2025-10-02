@@ -845,7 +845,7 @@ const hamstringsWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Roman Chair Back Extension',
           duration: '10–12 min',
-          description: 'Bodyweight hinge builds hamstring control safely\n ',
+          description: 'Establish hinge mechanics for beginner lifters\n ',
           battlePlan: '3 rounds\n• 12–15 Back Extensions\nRest 60s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8TVc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Bodyweight hinge builds hamstring control safely',
