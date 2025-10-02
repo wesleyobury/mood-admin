@@ -2234,8 +2234,8 @@ export default function CompoundWorkoutDisplayScreen() {
     userWorkouts.push(...glutesWorkouts);
   }
   
-  // Add hamstrings workouts if Hamstrings is selected
-  if (selectedMuscleGroups.includes('Hamstrings')) {
+  // Add hamstrings workouts if Hammies is selected (note: Hammies comes from legs-equipment.tsx)
+  if (selectedMuscleGroups.includes('Hammies')) {
     const hamstringsWorkouts = hamstringsWorkoutDatabase.filter(equipment => 
       selectedEquipmentNames.includes(equipment.equipment)
     ).map(equipment => ({
