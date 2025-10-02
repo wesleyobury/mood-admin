@@ -2494,7 +2494,7 @@ const compoundWorkoutDatabase: EquipmentWorkouts[] = [
     }
   },
   {
-    equipment: 'Single Stack Cable',
+    equipment: 'Single Stack Cable Machine',
     icon: 'reorder-three',
     workouts: {
       beginner: [
