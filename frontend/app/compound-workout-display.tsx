@@ -3062,8 +3062,9 @@ export default function CompoundWorkoutDisplayScreen() {
   
   // Add quadriceps workouts if Quads is selected
   if (selectedMuscleGroups.includes('Quads')) {
+    const quadsEquipment = equipmentPerGroup['Quads'] || [];
     const quadricepsWorkouts = quadricepsWorkoutDatabase.filter(equipment => 
-      selectedEquipmentNames.includes(equipment.equipment)
+      quadsEquipment.includes(equipment.equipment)
     ).map(equipment => ({
       ...equipment,
       workouts: equipment.workouts[difficulty as keyof typeof equipment.workouts] || [],
