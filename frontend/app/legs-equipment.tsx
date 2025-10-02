@@ -258,6 +258,34 @@ export default function LegsEquipmentScreen() {
 
   const handleContinue = () => {
     if (selectedEquipment.length > 0) {
+      // Create equipment mapping per muscle group
+      const equipmentPerGroup = {
+        Compound: [] as string[],
+        Glutes: [] as string[],
+        Hammies: [] as string[],
+        Quads: [] as string[],
+        Calfs: [] as string[]
+      };
+
+      // Map selected equipment to their respective muscle groups
+      selectedEquipment.forEach(eq => {
+        if (['dumbbells-compound', 'squat-rack-compound', 'leg-press-compound', 'hack-squat-compound', 'cable-machine-compound', 'trap-bar'].includes(eq.id)) {
+          equipmentPerGroup.Compound.push(eq.name);
+        }
+        if (['glute-kick-machine', 'hip-abductor', 'hip-thruster', 'cable-machine'].includes(eq.id)) {
+          equipmentPerGroup.Glutes.push(eq.name);
+        }
+        if (['barbell-ham', 'dumbbells', 'leg-curl', 'roman-chair'].includes(eq.id)) {
+          equipmentPerGroup.Hammies.push(eq.name);
+        }
+        if (['barbell-quad', 'leg-extension'].includes(eq.id)) {
+          equipmentPerGroup.Quads.push(eq.name);
+        }
+        if (['barbell-calf', 'dumbbells-calf', 'calf-raise', 'leg-press-calf'].includes(eq.id)) {
+          equipmentPerGroup.Calfs.push(eq.name);
+        }
+      });
+
       const equipmentNames = selectedEquipment.map(eq => eq.name);
       const equipmentNamesString = equipmentNames.join(',');
       const isCompoundSelected = muscleGroupNames.includes('Compound');
@@ -265,39 +293,19 @@ export default function LegsEquipmentScreen() {
       const isHamstringsSelected = muscleGroupNames.includes('Hammies');
       const isQuadsSelected = muscleGroupNames.includes('Quads');
       const isCalvesSelected = muscleGroupNames.includes('Calfs');
-      const hasCompoundEquipment = selectedEquipment.some(eq => 
-        ['dumbbells-compound', 'squat-rack-compound', 'leg-press-compound', 'hack-squat-compound', 'cable-machine-compound', 'trap-bar'].includes(eq.id)
-      );
-      const hasGlutesEquipment = selectedEquipment.some(eq => 
-        ['glute-kick-machine', 'hip-abductor', 'hip-thruster', 'cable-machine'].includes(eq.id)
-      );
-      const hasHamstringsEquipment = selectedEquipment.some(eq => 
-        ['barbell-ham', 'dumbbells', 'leg-curl', 'roman-chair'].includes(eq.id)
-      );
-      const hasQuadsEquipment = selectedEquipment.some(eq => 
-        ['barbell-quad', 'leg-extension'].includes(eq.id)
-      );
-      const hasCalvesEquipment = selectedEquipment.some(eq => 
-        ['barbell-calf', 'dumbbells-calf', 'calf-raise', 'leg-press-calf'].includes(eq.id)
-      );
+      const hasCompoundEquipment = equipmentPerGroup.Compound.length > 0;
+      const hasGlutesEquipment = equipmentPerGroup.Glutes.length > 0;
+      const hasHamstringsEquipment = equipmentPerGroup.Hammies.length > 0;
+      const hasQuadsEquipment = equipmentPerGroup.Quads.length > 0;
+      const hasCalvesEquipment = equipmentPerGroup.Calfs.length > 0;
       
-      console.log('Selected equipment:', equipmentNames);
+      console.log('Equipment per group:', equipmentPerGroup);
       console.log('Selected muscle groups:', muscleGroupNames);
-      console.log('Is compound selected:', isCompoundSelected);
-      console.log('Is glutes selected:', isGlutesSelected);
-      console.log('Is hamstrings selected:', isHamstringsSelected);
-      console.log('Is quads selected:', isQuadsSelected);
-      console.log('Is calves selected:', isCalvesSelected);
-      console.log('Has compound equipment:', hasCompoundEquipment);
-      console.log('Has glutes equipment:', hasGlutesEquipment);
-      console.log('Has hamstrings equipment:', hasHamstringsEquipment);
-      console.log('Has quads equipment:', hasQuadsEquipment);
-      console.log('Has calves equipment:', hasCalvesEquipment);
       console.log('Selected intensity:', selectedIntensity?.id);
       
-      // If we have compound equipment that requires intensity OR glutes equipment OR hamstrings equipment OR quads equipment OR calves equipment
+      // If we have equipment that requires intensity
       if ((isCompoundSelected && hasCompoundEquipment && selectedIntensity) || (isGlutesSelected && hasGlutesEquipment && selectedIntensity) || (isHamstringsSelected && hasHamstringsEquipment && selectedIntensity) || (isQuadsSelected && hasQuadsEquipment && selectedIntensity) || (isCalvesSelected && hasCalvesEquipment && selectedIntensity)) {
-        // Navigate to compound workout display (which now handles both compound and glutes)
+        // Navigate to compound workout display with equipment mapping
         router.push({
           pathname: '/compound-workout-display',
           params: { 
@@ -305,6 +313,7 @@ export default function LegsEquipmentScreen() {
             workoutType: 'Legs',
             muscleGroups: encodeURIComponent(muscleGroupNames.join(',')),
             equipment: equipmentNamesString,
+            equipmentPerGroup: encodeURIComponent(JSON.stringify(equipmentPerGroup)),
             difficulty: selectedIntensity.id
           }
         });
