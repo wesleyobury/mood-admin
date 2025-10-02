@@ -665,7 +665,7 @@ const hamstringsWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Paused DB RDL',
           duration: '16–18 min',
-          description: 'Pausing mid‑shin removes momentum, builds control\n ',
+          description: 'Burns hamstrings with static stress and strict tempo\n ',
           battlePlan: '4 rounds\n• 6–8 Paused DB RDLs\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmc&ZW54MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Pausing mid‑shin removes momentum, builds control',
