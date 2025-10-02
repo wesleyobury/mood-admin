@@ -907,7 +907,7 @@ const hamstringsWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Single‑Leg Extension',
           duration: '14–16 min',
-          description: 'Single leg increases unilateral hamstring stress\n ',
+          description: 'Forces balance and greater range for each limb\n ',
           battlePlan: '3 rounds\n• 8–10 per side\nRest 90s',
           imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
           intensityReason: 'Single leg increases unilateral hamstring stress',
