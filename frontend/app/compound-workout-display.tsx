@@ -817,7 +817,7 @@ const hamstringsWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Barbell RDL + Rack Pull Combo',
           duration: '16–18 min',
-          description: 'Heavy rack pulls pair with RDL for full overload\n ',
+          description: 'Hamstring fatigue plus power finish explosively\n ',
           battlePlan: '3 rounds\n• 6 RDLs\n• 4 Rack Pulls heavy\nRest 120s',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHc0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8TVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Heavy rack pulls pair with RDL for full overload',
