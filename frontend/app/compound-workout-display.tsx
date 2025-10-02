@@ -685,7 +685,7 @@ const hamstringsWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: '1½ Rep DB RDL Combo',
           duration: '16–18 min',
-          description: 'Adds half reps between full reps for constant stress\n ',
+          description: 'Complex set multiplies time under hamstring tension\n ',
           battlePlan: '3 rounds\n• 8 Combo Reps (full + half = 1 rep)\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHc0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8TVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Adds half reps between full reps for constant stress',
