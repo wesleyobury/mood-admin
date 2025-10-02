@@ -571,6 +571,538 @@ const glutesWorkoutDatabase: EquipmentWorkouts[] = [
   }
 ];
 
+// Complete Hamstrings workout database with detailed battle plans and MOOD tips
+const hamstringsWorkoutDatabase: EquipmentWorkouts[] = [
+  {
+    equipment: 'Dumbbells',
+    icon: 'barbell',
+    workouts: {
+      beginner: [
+        {
+          name: 'Dumbbell RDL',
+          duration: '10–12 min',
+          description: 'Starter hinge builds hamstring stretch and control\n ',
+          battlePlan: '3 rounds\n• 10–12 Dumbbell RDLs\nRest 75s',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8TVc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Starter hinge builds hamstring stretch and control',
+          moodTips: [
+            {
+              icon: 'construct',
+              title: 'Keep dumbbells close to legs during hinge',
+              description: 'Proper path ensures maximum hamstring activation and safety.'
+            },
+            {
+              icon: 'body',
+              title: 'Slight knee bend, spine neutral throughout',
+              description: 'Maintain neutral spine to protect back while targeting hamstrings.'
+            }
+          ]
+        },
+        {
+          name: 'Dumbbell Good Morning (Chest Hold)',
+          duration: '10–12 min',
+          description: 'Upright hinge challenges hamstrings + posture\n ',
+          battlePlan: '3 rounds\n• 8–10 DB Good Mornings\nRest 75–90s',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Upright hinge challenges hamstrings + posture',
+          moodTips: [
+            {
+              icon: 'fitness',
+              title: 'Hold DB tight to chest, elbows in',
+              description: 'Secure grip maintains stability during hinge movement.'
+            },
+            {
+              icon: 'trending-down',
+              title: 'Push hips back, don\'t let chest drop',
+              description: 'Hip hinge pattern protects spine while loading hamstrings.'
+            }
+          ]
+        }
+      ],
+      intermediate: [
+        {
+          name: 'Staggered‑Stance DB RDL',
+          duration: '14–16 min',
+          description: 'Split stance emphasizes deeper hamstring load\n ',
+          battlePlan: '4 rounds\n• 8 per side Staggered RDLs\nRest 90s',
+          imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Split stance emphasizes deeper hamstring load',
+          moodTips: [
+            {
+              icon: 'construct',
+              title: 'Stagger feet, 80% load on front leg',
+              description: 'Uneven weight distribution targets working side hamstrings.'
+            },
+            {
+              icon: 'trending-down',
+              title: 'Control descent for full hamstring stretch',
+              description: 'Slow eccentric maximizes muscle lengthening and development.'
+            }
+          ]
+        },
+        {
+          name: 'DB Deficit RDL',
+          duration: '14–16 min',
+          description: 'Deficit stance adds longer hamstring stretch load\n ',
+          battlePlan: '3 rounds\n• 8–10 Deficit DB RDLs\nRest 90s',
+          imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
+          intensityReason: 'Deficit stance adds longer hamstring stretch load',
+          moodTips: [
+            {
+              icon: 'construct',
+              title: 'Stand on plate, keep DBs close to thighs',
+              description: 'Elevated position increases range of motion for deeper stretch.'
+            },
+            {
+              icon: 'flash',
+              title: 'Lower under strict control, drive up steady',
+              description: 'Controlled movement prevents injury while maximizing benefit.'
+            }
+          ]
+        }
+      ],
+      advanced: [
+        {
+          name: 'Paused DB RDL',
+          duration: '16–18 min',
+          description: 'Pausing mid‑shin removes momentum, builds control\n ',
+          battlePlan: '4 rounds\n• 6–8 Paused DB RDLs\nRest 90s',
+          imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmc&ZW54MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Pausing mid‑shin removes momentum, builds control',
+          moodTips: [
+            {
+              icon: 'timer',
+              title: 'Pause 2s at mid‑shin, don\'t lose brace',
+              description: 'Isometric hold increases time under tension and control.'
+            },
+            {
+              icon: 'flash',
+              title: 'Explode up smooth, no jerking bar path',
+              description: 'Controlled concentric prevents injury and maximizes power.'
+            }
+          ]
+        },
+        {
+          name: '1½ Rep DB RDL Combo',
+          duration: '16–18 min',
+          description: 'Adds half reps between full reps for constant stress\n ',
+          battlePlan: '3 rounds\n• 8 Combo Reps (full + half = 1 rep)\nRest 90s',
+          imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHc0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8TVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Adds half reps between full reps for constant stress',
+          moodTips: [
+            {
+              icon: 'refresh',
+              title: 'Perform one full + one half as one rep',
+              description: 'Complex rep pattern extends time under tension significantly.'
+            },
+            {
+              icon: 'construct',
+              title: 'Keep tempo smooth, no bouncing at knees',
+              description: 'Smooth rhythm prevents momentum and maintains muscle tension.'
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    equipment: 'Barbell',
+    icon: 'barbell',
+    workouts: {
+      beginner: [
+        {
+          name: 'Barbell RDL',
+          duration: '10–12 min',
+          description: 'Basic hinge develops hamstrings under straight bar\n ',
+          battlePlan: '3 rounds\n• 10 Barbell RDLs\nRest 75s',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8TVc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Basic hinge develops hamstrings under straight bar',
+          moodTips: [
+            {
+              icon: 'construct',
+              title: 'Bar slides on thighs down shin',
+              description: 'Close bar path maximizes hamstring engagement throughout range.'
+            },
+            {
+              icon: 'body',
+              title: 'Keep knees soft, brace abs fully',
+              description: 'Slight knee bend with core stability protects spine.'
+            }
+          ]
+        },
+        {
+          name: 'Barbell Good Morning (Light!)',
+          duration: '10–12 min',
+          description: 'Bar on back hinge is effective but very demanding\n ',
+          battlePlan: '3 rounds\n• 8 Good Mornings\nRest 75–90s',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Bar on back hinge is effective but very demanding',
+          moodTips: [
+            {
+              icon: 'barbell',
+              title: 'Barbell resting high traps, chest open',
+              description: 'Proper bar position distributes load safely across shoulders.'
+            },
+            {
+              icon: 'trending-down',
+              title: 'Shift hips back, spine locked neutral',
+              description: 'Hip hinge movement protects spine while loading hamstrings.'
+            }
+          ]
+        }
+      ],
+      intermediate: [
+        {
+          name: 'Barbell Pause RDL',
+          duration: '14–16 min',
+          description: 'Mid‑hinge pause increases hamstring strength time\n ',
+          battlePlan: '4 rounds\n• 8 RDLs (2s pause at shin)\nRest 90s',
+          imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Mid‑hinge pause increases hamstring strength time',
+          moodTips: [
+            {
+              icon: 'timer',
+              title: 'Pause 2s across shin level',
+              description: 'Isometric hold at stretched position builds strength.'
+            },
+            {
+              icon: 'construct',
+              title: 'Keep bar tight against body always',
+              description: 'Close bar path maintains hamstring tension throughout.'
+            }
+          ]
+        },
+        {
+          name: 'Barbell Deficit RDL',
+          duration: '14–16 min',
+          description: 'Standing elevated extends hinge stretch fully\n ',
+          battlePlan: '3 rounds\n• 6–8 Deficit Barbell RDLs\nRest 90s',
+          imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
+          intensityReason: 'Standing elevated extends hinge stretch fully',
+          moodTips: [
+            {
+              icon: 'construct',
+              title: 'Stand on 2‑inch plates, core tight',
+              description: 'Elevated position increases range for deeper hamstring stretch.'
+            },
+            {
+              icon: 'flash',
+              title: 'Drive hips through, don\'t round spine',
+              description: 'Hip drive with spine neutral maximizes safety and power.'
+            }
+          ]
+        }
+      ],
+      advanced: [
+        {
+          name: 'Barbell Tempo RDL',
+          duration: '16–18 min',
+          description: '3s eccentric raises time under tension dramatically\n ',
+          battlePlan: '4 rounds\n• 6 Tempo RDLs (3s eccentric)\nRest 90s',
+          imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmc&ZW54MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
+          intensityReason: '3s eccentric raises time under tension dramatically',
+          moodTips: [
+            {
+              icon: 'timer',
+              title: '3s lowering, 1s up, stay locked core',
+              description: 'Extended eccentric with fast concentric maximizes hypertrophy.'
+            },
+            {
+              icon: 'construct',
+              title: 'Don\'t rush, hold bar close body',
+              description: 'Tempo control with proper bar path ensures safety and effectiveness.'
+            }
+          ]
+        },
+        {
+          name: 'Barbell RDL + Rack Pull Combo',
+          duration: '16–18 min',
+          description: 'Heavy rack pulls pair with RDL for full overload\n ',
+          battlePlan: '3 rounds\n• 6 RDLs\n• 4 Rack Pulls heavy\nRest 120s',
+          imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHc0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8TVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Heavy rack pulls pair with RDL for full overload',
+          moodTips: [
+            {
+              icon: 'construct',
+              title: 'Start with RDLs strict tempo',
+              description: 'Begin with controlled movement to pre-fatigue hamstrings.'
+            },
+            {
+              icon: 'flash',
+              title: 'Finish with heavy rack pulls top half',
+              description: 'Heavy partial range builds strength at strongest position.'
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    equipment: 'Roman Chair',
+    icon: 'square-outline',
+    workouts: {
+      beginner: [
+        {
+          name: 'Roman Chair Back Extension',
+          duration: '10–12 min',
+          description: 'Bodyweight hinge builds hamstring control safely\n ',
+          battlePlan: '3 rounds\n• 12–15 Back Extensions\nRest 60s',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8TVc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Bodyweight hinge builds hamstring control safely',
+          moodTips: [
+            {
+              icon: 'body',
+              title: 'Cross arms chest, move spine locked',
+              description: 'Arm position and spine stability ensure proper movement pattern.'
+            },
+            {
+              icon: 'trending-down',
+              title: 'Stop when hamstring stretch felt',
+              description: 'Range of motion should be dictated by hamstring flexibility.'
+            }
+          ]
+        },
+        {
+          name: 'Roman Chair Good Morning',
+          duration: '10–12 min',
+          description: 'Torso hinge without load builds basic stability\n ',
+          battlePlan: '3 rounds\n• 12 Good Morning Reps (bodyweight)\nRest 60s',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Torso hinge without load builds basic stability',
+          moodTips: [
+            {
+              icon: 'construct',
+              title: 'Keep hips anchored, hinge down slow',
+              description: 'Hip stability with controlled descent builds foundational strength.'
+            },
+            {
+              icon: 'shield',
+              title: 'Avoid jerking torso quickly upward',
+              description: 'Smooth movement prevents injury and maintains muscle tension.'
+            }
+          ]
+        }
+      ],
+      intermediate: [
+        {
+          name: 'Weighted Back Extension',
+          duration: '14–16 min',
+          description: 'Hug plate to overload hamstring hinge movement\n ',
+          battlePlan: '4 rounds\n• 10 Weighted Back Extensions\nRest 75–90s',
+          imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Hug plate to overload hamstring hinge movement',
+          moodTips: [
+            {
+              icon: 'fitness',
+              title: 'Hug plate chest tight secure',
+              description: 'Secure grip and body position maintain safety under load.'
+            },
+            {
+              icon: 'shield',
+              title: 'Don\'t hyperextend spine upwards',
+              description: 'Controlled range prevents back hyperextension injury.'
+            }
+          ]
+        },
+        {
+          name: 'Single‑Leg Extension',
+          duration: '14–16 min',
+          description: 'Single leg increases unilateral hamstring stress\n ',
+          battlePlan: '3 rounds\n• 8–10 per side\nRest 90s',
+          imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
+          intensityReason: 'Single leg increases unilateral hamstring stress',
+          moodTips: [
+            {
+              icon: 'construct',
+              title: 'One leg braced, hinge slow',
+              description: 'Single leg work challenges balance and unilateral strength.'
+            },
+            {
+              icon: 'body',
+              title: 'Keep hips square to bench pad',
+              description: 'Hip stability prevents compensation and ensures proper targeting.'
+            }
+          ]
+        }
+      ],
+      advanced: [
+        {
+          name: 'Pause Back Extension',
+          duration: '16–18 min',
+          description: 'Static hold at hinge builds hamstring isometric work\n ',
+          battlePlan: '3 rounds\n• 8 Paused Extensions\nRest 90s',
+          imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmc&ZW54MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Static hold at hinge builds hamstring isometric work',
+          moodTips: [
+            {
+              icon: 'timer',
+              title: 'Pause 2s at mid‑hinge low',
+              description: 'Isometric hold at stretched position builds control and strength.'
+            },
+            {
+              icon: 'flash',
+              title: 'Drive back up locked glutes strong',
+              description: 'Explosive concentric with glute finish maximizes power development.'
+            }
+          ]
+        },
+        {
+          name: 'Alternating Half + Full Extensions',
+          duration: '16–18 min',
+          description: 'Half + full reps cycle extend muscle set time fully\n ',
+          battlePlan: '3 rounds\n• 8 Alternating Half + Full Extensions\nRest 90s',
+          imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Half + full reps cycle extend muscle set time fully',
+          moodTips: [
+            {
+              icon: 'refresh',
+              title: 'Perform half rep then follow with full',
+              description: 'Alternating range pattern extends time under tension significantly.'
+            },
+            {
+              icon: 'construct',
+              title: 'Smooth alternating rhythm each rep',
+              description: 'Consistent rhythm maintains muscle tension throughout set.'
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    equipment: 'Leg Curl Machine',
+    icon: 'hardware-chip',
+    workouts: {
+      beginner: [
+        {
+          name: 'Seated Leg Curl',
+          duration: '10–12 min',
+          description: 'Isolated seat curl strengthens flexion carefully\n ',
+          battlePlan: '3 rounds\n• 12–15 Seated Leg Curls\nRest 60s',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8TVc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Isolated seat curl strengthens flexion carefully',
+          moodTips: [
+            {
+              icon: 'body',
+              title: 'Sit back flat, grip seat firmly',
+              description: 'Stable position allows focused hamstring isolation.'
+            },
+            {
+              icon: 'construct',
+              title: 'Curl steady, avoid pad slam return',
+              description: 'Controlled movement prevents machine stress and maintains tension.'
+            }
+          ]
+        },
+        {
+          name: 'Lying Leg Curl',
+          duration: '10–12 min',
+          description: 'Lying pad curl isolates hamstring contraction\n ',
+          battlePlan: '3 rounds\n• 12–15 Lying Curls\nRest 60s',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Lying pad curl isolates hamstring contraction',
+          moodTips: [
+            {
+              icon: 'construct',
+              title: 'Keep hips glued to pad tight',
+              description: 'Hip stability ensures proper hamstring isolation throughout range.'
+            },
+            {
+              icon: 'flash',
+              title: 'Raise slow, hold, lower controlled',
+              description: 'Tempo control maximizes muscle activation and development.'
+            }
+          ]
+        }
+      ],
+      intermediate: [
+        {
+          name: 'Heavy Leg Curl',
+          duration: '14–16 min',
+          description: 'Progressive loading builds hamstrings thickness\n ',
+          battlePlan: '4 rounds\n• 8–10 Heavy Curls\nRest 90s',
+          imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Progressive loading builds hamstrings thickness',
+          moodTips: [
+            {
+              icon: 'shield',
+              title: 'Brace core firm, pad curl explosive',
+              description: 'Core stability allows maximum force transfer to hamstrings.'
+            },
+            {
+              icon: 'flash',
+              title: 'Finish with hard squeeze up top',
+              description: 'Peak contraction at top maximizes muscle activation.'
+            }
+          ]
+        },
+        {
+          name: 'Pause Leg Curl',
+          duration: '14–16 min',
+          description: 'Isometric hold raises muscular control demand\n ',
+          battlePlan: '3 rounds\n• 8–10 Pause Reps\nRest 90s',
+          imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
+          intensityReason: 'Isometric hold raises muscular control demand',
+          moodTips: [
+            {
+              icon: 'timer',
+              title: 'Pause 2s at top under max flexion',
+              description: 'Isometric hold at peak contraction builds strength and control.'
+            },
+            {
+              icon: 'construct',
+              title: 'Resist pad lowering too fast',
+              description: 'Controlled eccentric maintains tension and prevents momentum.'
+            }
+          ]
+        }
+      ],
+      advanced: [
+        {
+          name: 'Drop‑Set Curl',
+          duration: '16–18 min',
+          description: 'Drop weights prolong contraction by overload reps\n ',
+          battlePlan: '3 rounds\n• 8 Heavy Curls\n• Drop 15–20% → 8 reps\n• Drop 15–20% → 8 reps\nRest 90s',
+          imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmc&ZW54MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Drop weights prolong contraction by overload reps',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Drop 15–20% weight quickly',
+              description: 'Fast transitions maintain fatigue and extend training stimulus.'
+            },
+            {
+              icon: 'construct',
+              title: 'Keep tempo matched across drops',
+              description: 'Consistent movement quality throughout all drop sets.'
+            }
+          ]
+        },
+        {
+          name: 'Curl + Iso Hold',
+          duration: '16–18 min',
+          description: 'Finish set with hold for longer contraction stress\n ',
+          battlePlan: '3 rounds\n• 8–10 Leg Curls\nFinish 10s Iso Hold @ top\nRest 90s',
+          imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHc0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8TVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Finish set with hold for longer contraction stress',
+          moodTips: [
+            {
+              icon: 'timer',
+              title: 'Final rep hold 10s curl peak',
+              description: 'Extended isometric hold maximizes metabolic stress on hamstrings.'
+            },
+            {
+              icon: 'construct',
+              title: 'Stay tight as pad pulls downward',
+              description: 'Maintain contraction against resistance throughout hold period.'
+            }
+          ]
+        }
+      ]
+    }
+  }
+];
+
 // Complete Compound Leg workout database with detailed battle plans and MOOD tips
 const compoundWorkoutDatabase: EquipmentWorkouts[] = [
   {
