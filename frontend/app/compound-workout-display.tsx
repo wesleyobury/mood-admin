@@ -2241,7 +2241,7 @@ export default function CompoundWorkoutDisplayScreen() {
     ).map(equipment => ({
       ...equipment,
       workouts: equipment.workouts[difficulty as keyof typeof equipment.workouts] || [],
-      muscleGroup: 'Hamstrings'
+      muscleGroup: 'Hammies'
     }));
     userWorkouts.push(...hamstringsWorkouts);
   }
