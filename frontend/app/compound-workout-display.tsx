@@ -949,7 +949,7 @@ const hamstringsWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Alternating Half + Full Extensions',
           duration: '16–18 min',
-          description: 'Half + full reps cycle extend muscle set time fully\n ',
+          description: 'Alternating range burns hamstrings under long tension\n ',
           battlePlan: '3 rounds\n• 8 Alternating Half + Full Extensions\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Half + full reps cycle extend muscle set time fully',
