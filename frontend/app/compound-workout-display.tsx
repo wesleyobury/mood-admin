@@ -2233,6 +2233,18 @@ export default function CompoundWorkoutDisplayScreen() {
     }));
     userWorkouts.push(...glutesWorkouts);
   }
+  
+  // Add hamstrings workouts if Hamstrings is selected
+  if (selectedMuscleGroups.includes('Hamstrings')) {
+    const hamstringsWorkouts = hamstringsWorkoutDatabase.filter(equipment => 
+      selectedEquipmentNames.includes(equipment.equipment)
+    ).map(equipment => ({
+      ...equipment,
+      workouts: equipment.workouts[difficulty as keyof typeof equipment.workouts] || [],
+      muscleGroup: 'Hamstrings'
+    }));
+    userWorkouts.push(...hamstringsWorkouts);
+  }
 
   console.log('User workouts:', userWorkouts.length, 'for difficulty:', difficulty);
 
