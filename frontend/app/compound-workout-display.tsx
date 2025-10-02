@@ -3023,8 +3023,9 @@ export default function CompoundWorkoutDisplayScreen() {
   
   // Add compound workouts if Compound is selected
   if (selectedMuscleGroups.includes('Compound')) {
+    const compoundEquipment = equipmentPerGroup['Compound'] || [];
     const compoundWorkouts = compoundWorkoutDatabase.filter(equipment => 
-      selectedEquipmentNames.includes(equipment.equipment)
+      compoundEquipment.includes(equipment.equipment)
     ).map(equipment => ({
       ...equipment,
       workouts: equipment.workouts[difficulty as keyof typeof equipment.workouts] || [],
