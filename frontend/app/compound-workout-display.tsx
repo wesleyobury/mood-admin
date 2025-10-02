@@ -1444,7 +1444,7 @@ const calvesWorkoutDatabase: EquipmentWorkouts[] = [
           name: 'DB Calf Raise (Tempo + Bodyweight)',
           duration: '14–16 min',
           description: 'Controlled tempo builds endurance and hypertrophy\n ',
-          battlePlan: '3 rounds\n• 10–12 Tempo Calf Raises\n• Immediately 15 Bodyweight Calf Raises\nRest 75s',
+          battlePlan: '3 rounds\n• 10–12 Tempo Calf Raises\n• • Immediately 15 Bodyweight Calf Raises\nRest 75s',
           imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
           intensityReason: 'Slow eccentric phase maximizes calf time under tension',
           moodTips: [
@@ -1556,7 +1556,7 @@ const calvesWorkoutDatabase: EquipmentWorkouts[] = [
           name: 'Barbell Calf Raise (Pause + Bodyweight)',
           duration: '14–16 min',
           description: 'Builds strength and control through isometric hold\n ',
-          battlePlan: '4 rounds\n• 10–12 Pause Calf Raises\nImmediately 15 Bodyweight Calf Raises\nRest 90s',
+          battlePlan: '4 rounds\n• 10–12 Pause Calf Raises\n• Immediately 15 Bodyweight Calf Raises\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Pause at top maximizes peak contraction tension',
           moodTips: [
@@ -1708,7 +1708,7 @@ const calvesWorkoutDatabase: EquipmentWorkouts[] = [
           name: 'Leg Press Calf Raise (Pause + Bodyweight)',
           duration: '14–16 min',
           description: 'Builds strength and control through isometric hold\n ',
-          battlePlan: '3 rounds\n• 10–12 Pause Calf Raises\nImmediately 15 Bodyweight Calf Raises\nRest 90s',
+          battlePlan: '3 rounds\n• 10–12 Pause Calf Raises\n• Immediately 15 Bodyweight Calf Raises\nRest 90s',
           imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
           intensityReason: 'Pause at top maximizes peak contraction tension',
           moodTips: [
@@ -1840,7 +1840,7 @@ const calvesWorkoutDatabase: EquipmentWorkouts[] = [
           name: 'Calf Raise Machine (Pause + Bodyweight)',
           duration: '14–16 min',
           description: 'Builds strength and control through isometric hold\n ',
-          battlePlan: '3 rounds\n• 10–12 Pause Calf Raises\nImmediately 15 Bodyweight Calf Raises\nRest 90s',
+          battlePlan: '3 rounds\n• 10–12 Pause Calf Raises\n• Immediately 15 Bodyweight Calf Raises\nRest 90s',
           imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
           intensityReason: 'Pause at top maximizes peak contraction tension',
           moodTips: [
