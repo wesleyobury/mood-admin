@@ -1747,7 +1747,7 @@ const calvesWorkoutDatabase: EquipmentWorkouts[] = [
           ]
         },
         {
-          name: 'Leg Press Calf Raise (Iso Hold) + Stiff Leg Jumps',
+          name: 'Leg Press Calf Raise (Iso + Jumps)',
           duration: '16–18 min',
           description: 'Combo reps with iso hold completely crushes calves\n ',
           battlePlan: '3 rounds\n• 12–15 Calf Raises\nFinish with 10s Iso Hold at top\nImmediately 10 Stiff Leg Jumps\nRest 90s',
