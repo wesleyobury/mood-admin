@@ -303,8 +303,8 @@ export default function LegsEquipmentScreen() {
       console.log('Selected muscle groups:', muscleGroupNames);
       console.log('Selected intensity:', selectedIntensity?.id);
       
-      // If we have equipment that requires intensity
-      if ((isCompoundSelected && hasCompoundEquipment && selectedIntensity) || (isGlutesSelected && hasGlutesEquipment && selectedIntensity) || (isHamstringsSelected && hasHamstringsEquipment && selectedIntensity) || (isQuadsSelected && hasQuadsEquipment && selectedIntensity) || (isCalvesSelected && hasCalvesEquipment && selectedIntensity)) {
+      // For legs workouts, always navigate to compound-workout-display with intensity
+      if (selectedIntensity) {
         // Navigate to compound workout display with equipment mapping
         router.push({
           pathname: '/compound-workout-display',
@@ -315,17 +315,6 @@ export default function LegsEquipmentScreen() {
             equipment: equipmentNamesString,
             equipmentPerGroup: encodeURIComponent(JSON.stringify(equipmentPerGroup)),
             difficulty: selectedIntensity.id
-          }
-        });
-      } else {
-        // Navigate to regular legs workout display for other muscle groups
-        router.push({
-          pathname: '/legs-workout-display',
-          params: { 
-            mood: moodTitle,
-            workoutType: workoutType,
-            muscleGroups: encodeURIComponent(muscleGroupNames.join(',')),
-            equipment: encodeURIComponent(equipmentNamesString)
           }
         });
       }
