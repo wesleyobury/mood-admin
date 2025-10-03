@@ -26,14 +26,12 @@ interface DifficultyLevel {
 
 // Equipment options sorted alphabetically as requested
 const equipmentOptions: EquipmentOption[] = [
+  { id: 'ab-crunch-machine', name: 'Ab Crunch Machine', icon: 'hardware-chip' },
   { id: 'ab-roller', name: 'Ab Roller', icon: 'ellipse' },
-  { id: 'cable-machine', name: 'Cable Machine', icon: 'reorder-three' },
   { id: 'captains-chair', name: 'Captain\'s Chair', icon: 'desktop' },
   { id: 'decline-bench', name: 'Decline Bench', icon: 'trending-down' },
-  { id: 'dumbbells', name: 'Dumbbells', icon: 'fitness' },
   { id: 'medicine-ball', name: 'Medicine Ball', icon: 'basketball' },
   { id: 'roman-hyperextension', name: 'Roman Hyperextension', icon: 'return-down-forward' },
-  { id: 'stability-ball', name: 'Stability Ball', icon: 'radio-button-on' },
 ];
 
 // Difficulty levels with chest-path style formatting
