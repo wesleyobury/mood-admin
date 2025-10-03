@@ -28,6 +28,7 @@ interface DifficultyLevel {
 const equipmentOptions: EquipmentOption[] = [
   { id: 'ab-crunch-machine', name: 'Ab Crunch Machine', icon: 'hardware-chip' },
   { id: 'ab-roller', name: 'Ab Roller', icon: 'ellipse' },
+  { id: 'body-weight', name: 'Body Weight', icon: 'body' },
   { id: 'captains-chair', name: 'Captain\'s Chair', icon: 'desktop' },
   { id: 'decline-bench', name: 'Decline Bench', icon: 'trending-down' },
   { id: 'medicine-ball', name: 'Medicine Ball', icon: 'basketball' },
