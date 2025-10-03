@@ -1085,6 +1085,7 @@ const WorkoutCard = ({ equipment, icon, workouts, difficulty, difficultyColor, o
         onTouchEnd={onTouchEnd}
       >
         <FlatList
+          ref={flatListRef}
           data={workouts}
           renderItem={renderWorkout}
           horizontal
