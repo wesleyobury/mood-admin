@@ -1148,13 +1148,12 @@ export default function AbsWorkoutDisplayScreen() {
     index === self.findIndex((w) => w.equipment === workout.equipment)
   );
 
-  const difficultyColors: { [key: string]: string } = {
-    'beginner': '#4CAF50',
-    'intermediate': '#FF9800', 
-    'advanced': '#f44336'
+  // Get difficulty color - all the same neon gold to match chest path
+  const getDifficultyColor = (level: string) => {
+    return '#FFD700'; // Same neon gold for all difficulty levels
   };
 
-  const difficultyColor = difficultyColors[difficulty] || '#4CAF50';
+  const difficultyColor = getDifficultyColor(difficulty);
 
   const handleStartWorkout = (workout: Workout, equipment: string, difficulty: string) => {
     console.log('Starting workout:', workout.name, 'with', equipment, 'at', difficulty, 'level');
