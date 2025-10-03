@@ -1,65 +1,51 @@
 <analysis>
-The trajectory outlines an iterative development process for adding a Glutes workout section to an existing Legs workout path in a mobile application. The initial request was to add a large, detailed database of Glutes workouts, mirroring the structure of the existing Compound workouts, and display them on the same screen.
-
-The development cycle involved several rounds of user feedback and subsequent refinements. The first phase focused on adding the raw workout data for Glutes into the  file and updating the navigation and UI logic in  to handle the new muscle group.
-
-Subsequent user requests highlighted multiple UI/UX and data accuracy issues. These included:
-1.  Updating the Intensity Reasoning and Workout Summary text for all Glutes workouts with improved content.
-2.  Fixing UI inconsistencies, such as workout card height and button spacing, particularly for the Trap Bar exercises.
-3.  Correcting text formatting within the Battle Plan sections (e.g., ensuring drop sets were bulleted, not bolded).
-4.  A significant redesign of the top progress bar to prevent it from becoming too long, by limiting it to two rows and grouping equipment selections under their parent muscle group icon.
-
-The AI engineer addressed these issues through a series of targeted file edits, primarily within , followed by frontend service restarts to apply the changes. The process demonstrates a reactive workflow, with each step directly addressing a specific user-reported problem.
+The AI engineer successfully implemented the Legs workout path, adding Hamstrings, Quads, and Calves muscle groups. The primary work involved integrating new workout data, refining UI elements like the progress bar, and fixing a navigation bug related to . A critical cross-contamination bug was identified where equipment selected for one muscle group incorrectly influenced others. The engineer meticulously debugged this, first by correcting equipment ID usage in selection logic (), then by refining the workout display logic () to filter based on equipment per muscle group. Finally, the intermittent display of the intensity selection was fixed, ensuring it always appears for Legs workouts with proper formatting. The engineer followed an iterative approach, with extensive debugging and verification after each fix.
 </analysis>
 
 <product_requirements>
-The primary goal is to expand the Legs workout feature by incorporating a new, comprehensive Glutes section that integrates seamlessly with the existing Compound workout flow.
-
-**Core Feature Requirements:**
-1.  **Glutes Workout Database:** Implement a detailed database for Glutes workouts, categorized by equipment type (Single Stack Cable Machine, Hip Thruster Equipment, etc.) and difficulty level (Beginger, Intermediate, Advanced). This data includes titles, durations, intensity reasoning, summaries, and detailed Battle Plans.
-2.  **Unified Workout Display:** Display the newly added Glutes workout cards on the  screen, directly following any selected Compound workout cards.
-3.  **UI/UX Consistency:** Ensure all new Glutes workout cards maintain the same visual styling, height, and layout as the existing Compound cards. The spacing for elements like the Start Workout button must be identical.
-4.  **Content Accuracy:** The text for Intensity Reasoning and Workout Summary must be updated to match the specific, improved versions provided by the user.
-5.  **Progress Bar Enhancement:** The progress bar at the top of the workout display screen must be constrained to a maximum of two rows (eight icons). When more than eight items are selected, individual equipment selections must be consolidated and represented by their parent muscle group icon to maintain a clean UI. Any duplicate icons (e.g., Legs) must be removed.
+The goal is to complete the Legs workout path by adding Hamstrings, Quads, and Calves, integrating them with existing Compound and Glutes workouts. This requires hardcoded workout databases per muscle group and equipment, unified display on . UI/UX refinements include a progress bar showing only muscle group icons, concise workout titles, and bullet-pointed Battle Plan text. A bug fix ensures the correct  is passed to the workout guidance screen. Additionally, the intensity level selection must always display for Legs workouts, formatted consistently with the Chest path, and cross-contamination of equipment selection across muscle groups must be prevented.
 </product_requirements>
 
 <key_technical_concepts>
-- **Static Data Management:** The entire workout database for both Compound and Glutes exercises is hardcoded as a large JavaScript object within the  file.
-- **Component-Based UI (React Native):** The application is built using React Native components. The work involved modifying existing components to handle and display new data structures.
-- **Conditional Rendering & Styling:** Logic was implemented to conditionally render workout sections based on user selections and to fix layout issues (e.g., card height) caused by variations in data content and formatting.
+-   **Monolithic Static Database:** Workout data hardcoded in .
+-   **Conditional Rendering:** Displaying UI elements based on  and .
+-   **Expo File-Based Routing:** Navigation using  and URL parameters for state passing.
+-   **State Management:** Local component state for equipment and intensity selections.
 </key_technical_concepts>
 
 <code_architecture>
-The architecture is based on Expo's file-based routing. The recent work was heavily concentrated on modifying the workout display screen to incorporate new data and fix UI issues.
-
 
 
 -   ****
-    -   **Importance**: This screen is the user's entry point for selecting equipment for the Legs path. Its navigation logic determines which workouts are passed to the display screen.
-    -   **Summary of Changes**: The file was modified to ensure that selecting Glutes equipment correctly routes the user to the  screen. Logic was also updated to conditionally show the Intensity Level selector when Glutes equipment is chosen, in addition to Compound equipment.
+    -   **Importance:** Handles user selection of muscle groups and equipment for Legs workouts. Manages navigation parameters.
+    -   **Summary of Changes:**
+        -   Modified , , etc., to check unique  instead of  to fix cross-contamination.
+        -   Updated  to pass  (muscle group to selected equipment IDs mapping) via URL parameters to .
+        -   Removed conditional rendering logic for the Intensity Selection section and  checks, ensuring intensity selection always displays.
+        -   Simplified  navigation logic, as intensity is now always required.
 
 -   ****
-    -   **Importance**: This is the most critical file in this trajectory. It contains the hardcoded workout databases for both the Compound and Glutes muscle groups and is responsible for rendering all the workout cards and the progress bar.
-    -   **Summary of Changes**: This file underwent extensive modifications. A large new data structure for the Glutes workouts was added. The entire Glutes database was later overwritten multiple times with user-provided updates to Intensity Reasoning and Workout Summary text. The rendering logic was updated to display headers for each muscle group. Crucially, the code for the progress bar was refactored to limit its size to two rows and group equipment icons. Finally, multiple minor text formatting fixes were applied to the data (e.g., removing bold markdown from Trap Bar workouts and reformatting drop-set battle plans) to resolve UI spacing and layout inconsistencies.
+    -   **Importance:** Contains hardcoded workout databases for all leg muscle groups and renders the workout cards, progress bar, and workout details.
+    -   **Summary of Changes:**
+        -   Fixed an equipment name mismatch:  changed to  in the database.
+        -   Updated URL parameter parsing to receive and use  mapping.
+        -   Modified workout filtering logic for Compound, Glutes, Hamstrings, Quads, and Calves sections to use , ensuring workouts only display if specific equipment was selected for *that muscle group*.
+        -   Modified  logic to attempt showing muscle groups in the progress bar only if they have selected equipment, though some minor display issues with greyed-out icons persisted.
+
+-   ****
+    -   **Importance:** Displays detailed steps for a selected workout.
+    -   **Summary of Changes:** (No new changes in this trajectory segment, but previously had  parameter fix.)
 </code_architecture>
 
 <pending_tasks>
-- Implement the workout databases for the remaining individual muscle groups: Hammies, Quads, and Calves.
-- Integrate these new muscle groups into the unified workout display screen, ensuring they appear alongside Compound and Glutes workouts when selected.
+- The progress bar in  might still show non-selected muscle groups as greyed-out icons, even when no equipment is selected for them, which could be visually misleading. This was not fully resolved to the user's explicit satisfaction.
 </pending_tasks>
 
 <current_work>
-The most recent work focused on resolving a set of specific UI and data-related issues reported by the user. All changes were made within the  file.
-
-The key fixes implemented were:
-1.  **Trap Bar Workout Card Height:** The extra vertical spacing on the Trap Bar workout cards was fixed. The issue was traced to long, unformatted description text and improper use of bold markdown in the Battle Plan. The descriptions were reformatted and the bolding was removed to ensure the card height matches all other workout cards.
-2.  **Glutes Battle Plan Formatting:** The Battle Plan for Glutes workouts featuring drop sets was corrected. The instructions (e.g., Drop 20% → 10 reps) are now properly formatted as bullet points.
-3.  **Progress Bar Logic:** The progress bar at the top of the screen was re-engineered to prevent it from overflowing. It is now capped at a maximum of two rows. If a user's selections exceed this limit, the individual equipment icons are grouped under their parent muscle group icon.
-4.  **Content Update:** A final, specific text update was made to the Intensity Reasoning for the Wide Stance Trap Bar Squat workout as requested.
-
-The frontend server was restarted after these changes were applied.
+The immediate work involved addressing two critical bugs: first, preventing equipment selection cross-contamination across muscle groups, and second, ensuring the intensity level selection for Legs workouts always displays. The cross-contamination was fixed by updating  to pass unique equipment IDs per muscle group and modifying  to filter workouts based on this precise mapping. The intensity selection for legs now renders 100% of the time, regardless of equipment selection, and its navigation logic has been simplified in . The formatting of the intensity section was confirmed to be professional. The main functional bugs reported by the user have been resolved.
 </current_work>
 
 <optional_next_step>
-I will ask you to review the latest fixes to the Trap Bar card height, Glutes workout formatting, and the progress bar to ensure they meet your expectations.
+Investigate and refine the progress bar logic to only display muscle groups for which equipment has truly been selected.
 </optional_next_step>
+
