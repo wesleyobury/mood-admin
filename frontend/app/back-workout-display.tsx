@@ -1666,17 +1666,36 @@ export default function BackWorkoutDisplay() {
           </View>
         </View>
 
-        {/* Swipeable Workouts - Touch-based Implementation */}
+        {/* Workout List with Touch Swiping */}
         <View 
-          style={[styles.workoutList, { width: width - 48 }]}
-          onTouchStart={handleTouchStart}
-          onTouchMove={handleTouchMove}
-          onTouchEnd={handleTouchEnd}
+          style={styles.workoutList}
+          onTouchStart={onTouchStart}
+          onTouchMove={onTouchMove}
+          onTouchEnd={onTouchEnd}
         >
-          {renderWorkout({ item: workouts[currentWorkoutIndex], index: currentWorkoutIndex })}
+          <FlatList
+            ref={flatListRef}
+            data={workouts}
+            renderItem={renderWorkout}
+            horizontal
+            pagingEnabled
+            showsHorizontalScrollIndicator={false}
+            onMomentumScrollEnd={(event) => {
+              const slideSize = width - 48;
+              const index = Math.floor(event.nativeEvent.contentOffset.x / slideSize);
+              setCurrentWorkoutIndex(index);
+            }}
+            initialScrollIndex={currentWorkoutIndex}
+            getItemLayout={(data, index) => ({
+              length: width - 48,
+              offset: (width - 48) * index,
+              index,
+            })}
+            keyExtractor={(item, index) => `${equipment}-${item.name}-${index}`}
+          />
         </View>
 
-        {/* Enhanced Dots Indicator */}
+        {/* Workout Indicator Dots */}
         <View style={styles.dotsContainer}>
           <Text style={styles.dotsLabel}>Swipe to explore</Text>
           <View style={styles.dotsRow}>
@@ -1685,12 +1704,16 @@ export default function BackWorkoutDisplay() {
                 key={index}
                 style={[
                   styles.dot,
-                  currentWorkoutIndex === index && styles.activeDot
+                  currentWorkoutIndex === index && styles.activeDot,
                 ]}
                 onPress={() => {
-                  console.log('🔘 Dot clicked, changing to workout index:', index);
                   setCurrentWorkoutIndex(index);
+                  flatListRef.current?.scrollToIndex({ 
+                    index, 
+                    animated: true 
+                  });
                 }}
+                activeOpacity={0.7}
               />
             ))}
           </View>
