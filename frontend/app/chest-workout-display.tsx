@@ -1243,6 +1243,7 @@ interface WorkoutCardProps {
 
 const WorkoutCard = ({ equipment, icon, workouts, difficulty, difficultyColor, onStartWorkout }: WorkoutCardProps) => {
   const [currentWorkoutIndex, setCurrentWorkoutIndex] = useState(0);
+  const flatListRef = useRef<FlatList>(null);
 
   const renderWorkout = ({ item, index }: { item: Workout; index: number }) => (
     <View style={[styles.workoutSlide, { width: width - 48 }]}>
@@ -1301,41 +1302,30 @@ const WorkoutCard = ({ equipment, icon, workouts, difficulty, difficultyColor, o
   const [touchStart, setTouchStart] = useState<number | null>(null);
   const [touchEnd, setTouchEnd] = useState<number | null>(null);
 
-  const handleTouchStart = (e: any) => {
-    const touch = e.nativeEvent.touches ? e.nativeEvent.touches[0] : e.nativeEvent;
+  const minSwipeDistance = 50;
+
+  const onTouchStart = (e: any) => {
     setTouchEnd(null);
-    setTouchStart(touch.pageX || touch.clientX);
-    console.log('👆 Touch started at:', touch.pageX || touch.clientX);
+    setTouchStart(e.nativeEvent.touches[0].clientX);
   };
 
-  const handleTouchMove = (e: any) => {
-    const touch = e.nativeEvent.touches ? e.nativeEvent.touches[0] : e.nativeEvent;
-    setTouchEnd(touch.pageX || touch.clientX);
+  const onTouchMove = (e: any) => {
+    setTouchEnd(e.nativeEvent.touches[0].clientX);
   };
 
-  const handleTouchEnd = () => {
+  const onTouchEnd = () => {
     if (!touchStart || !touchEnd) return;
     
     const distance = touchStart - touchEnd;
-    const isLeftSwipe = distance > 50;
-    const isRightSwipe = distance < -50;
-    
-    console.log('🎯 Swipe detected! Distance:', distance);
-    
+    const isLeftSwipe = distance > minSwipeDistance;
+    const isRightSwipe = distance < -minSwipeDistance;
+
     if (isLeftSwipe && currentWorkoutIndex < workouts.length - 1) {
-      const newIndex = currentWorkoutIndex + 1;
-      console.log('👉 Swiped left, changing to workout index:', newIndex);
-      setCurrentWorkoutIndex(newIndex);
+      setCurrentWorkoutIndex(currentWorkoutIndex + 1);
     }
-    
     if (isRightSwipe && currentWorkoutIndex > 0) {
-      const newIndex = currentWorkoutIndex - 1;
-      console.log('👈 Swiped right, changing to workout index:', newIndex);
-      setCurrentWorkoutIndex(newIndex);
+      setCurrentWorkoutIndex(currentWorkoutIndex - 1);
     }
-    
-    setTouchStart(null);
-    setTouchEnd(null);
   };
 
   return (
@@ -1351,17 +1341,36 @@ const WorkoutCard = ({ equipment, icon, workouts, difficulty, difficultyColor, o
         </View>
       </View>
 
-      {/* Swipeable Workouts - Touch-based Implementation */}
+      {/* Workout List with Touch Swiping */}
       <View 
-        style={[styles.workoutList, { width: width - 48 }]}
-        onTouchStart={handleTouchStart}
-        onTouchMove={handleTouchMove}
-        onTouchEnd={handleTouchEnd}
+        style={styles.workoutList}
+        onTouchStart={onTouchStart}
+        onTouchMove={onTouchMove}
+        onTouchEnd={onTouchEnd}
       >
-        {renderWorkout({ item: workouts[currentWorkoutIndex], index: currentWorkoutIndex })}
+        <FlatList
+          ref={flatListRef}
+          data={workouts}
+          renderItem={renderWorkout}
+          horizontal
+          pagingEnabled
+          showsHorizontalScrollIndicator={false}
+          onMomentumScrollEnd={(event) => {
+            const slideSize = width - 48;
+            const index = Math.floor(event.nativeEvent.contentOffset.x / slideSize);
+            setCurrentWorkoutIndex(index);
+          }}
+          initialScrollIndex={currentWorkoutIndex}
+          getItemLayout={(data, index) => ({
+            length: width - 48,
+            offset: (width - 48) * index,
+            index,
+          })}
+          keyExtractor={(item, index) => `${equipment}-${item.name}-${index}`}
+        />
       </View>
 
-      {/* Enhanced Dots Indicator */}
+      {/* Workout Indicator Dots */}
       <View style={styles.dotsContainer}>
         <Text style={styles.dotsLabel}>Swipe to explore</Text>
         <View style={styles.dotsRow}>
@@ -1370,12 +1379,16 @@ const WorkoutCard = ({ equipment, icon, workouts, difficulty, difficultyColor, o
               key={index}
               style={[
                 styles.dot,
-                currentWorkoutIndex === index && styles.activeDot
+                currentWorkoutIndex === index && styles.activeDot,
               ]}
               onPress={() => {
-                console.log('🔘 Dot clicked, changing to workout index:', index);
                 setCurrentWorkoutIndex(index);
+                flatListRef.current?.scrollToIndex({ 
+                  index, 
+                  animated: true 
+                });
               }}
+              activeOpacity={0.7}
             />
           ))}
         </View>
