@@ -42,6 +42,78 @@ interface EquipmentWorkouts {
 // Basic abs workout database - this will be expanded later
 const absWorkoutDatabase: EquipmentWorkouts[] = [
   {
+    equipment: 'Ab Crunch Machine',
+    icon: 'hardware-chip',
+    workouts: {
+      beginner: [
+        {
+          name: 'Basic Machine Crunch',
+          duration: '8–10 min',
+          description: 'Foundational core strengthening with machine support\n ',
+          battlePlan: '3 rounds\n• 12–15 Machine Crunches\nRest 60s',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8TVc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Machine provides controlled resistance for safe learning',
+          moodTips: [
+            {
+              icon: 'construct',
+              title: 'Adjust seat and pad for proper alignment',
+              description: 'Proper machine setup ensures safety and maximum muscle activation.'
+            },
+            {
+              icon: 'flash',
+              title: 'Focus on slow, controlled movement',
+              description: 'Machine allows perfect form with consistent resistance.'
+            }
+          ]
+        }
+      ],
+      intermediate: [
+        {
+          name: 'Weighted Machine Crunch',
+          duration: '12–14 min',
+          description: 'Increased resistance for progressive core development\n ',
+          battlePlan: '3 rounds\n• 10–12 Weighted Crunches\nRest 75s',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Added weight challenges abs with progressive overload',
+          moodTips: [
+            {
+              icon: 'fitness',
+              title: 'Increase weight gradually for progression',
+              description: 'Progressive overload builds strength safely over time.'
+            },
+            {
+              icon: 'construct',
+              title: 'Maintain perfect form despite added weight',
+              description: 'Focus on form over weight for optimal results.'
+            }
+          ]
+        }
+      ],
+      advanced: [
+        {
+          name: 'Advanced Machine Protocol',
+          duration: '14–16 min',
+          description: 'Complex training protocol for maximum core challenge\n ',
+          battlePlan: '4 rounds\n• 8–10 Heavy Crunches\n• 10s Isometric Hold\nRest 90s',
+          imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Combination protocol maximizes core strength and endurance',
+          moodTips: [
+            {
+              icon: 'timer',
+              title: 'Hold isometric position after each set',
+              description: 'Isometric holds increase muscle activation and control.'
+            },
+            {
+              icon: 'flash',
+              title: 'Focus on peak contraction quality',
+              description: 'Advanced training requires exceptional mind-muscle connection.'
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
     equipment: 'Ab Roller',
     icon: 'ellipse',
     workouts: {
