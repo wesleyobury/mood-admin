@@ -432,6 +432,22 @@ export default function LegsWorkoutDisplayScreen() {
             <Text style={styles.indicatorText}>
               {currentWorkoutIndex + 1}/{userWorkouts.length}
             </Text>
+            <Text style={styles.dotsLabel}>Swipe to explore</Text>
+            <View style={styles.dotsRow}>
+              {userWorkouts.map((_, index) => (
+                <TouchableOpacity
+                  key={index}
+                  style={[
+                    styles.dot,
+                    currentWorkoutIndex === index && styles.activeDot,
+                  ]}
+                  onPress={() => {
+                    setCurrentWorkoutIndex(index);
+                  }}
+                  activeOpacity={0.7}
+                />
+              ))}
+            </View>
           </View>
 
           {/* Current Workout Slide */}
