@@ -1722,24 +1722,17 @@ export default function BackWorkoutDisplay() {
     );
   };
 
-  // Create rows of progress steps with max 4 per row (matching cardio format)
+  // Create progress bar - single row with requested order
   const createProgressRows = () => {
-    const allSteps = [
-      { icon: 'flame', text: moodTitle, key: 'mood' },
-      { icon: 'fitness', text: workoutType, key: 'type' },
-      { icon: 'speedometer', text: difficulty.charAt(0).toUpperCase() + difficulty.slice(1), key: 'difficulty' },
-      ...selectedEquipmentNames.map((equipment, index) => ({
-        icon: getEquipmentIcon(equipment),
-        text: equipment,
-        key: `equipment-${index}`
-      }))
+    const steps = [
+      { key: 'mood', icon: 'flame', text: moodTitle },
+      { key: 'bodyPart', icon: 'fitness', text: workoutType },
+      { key: 'difficulty', icon: 'speedometer', text: difficulty.charAt(0).toUpperCase() + difficulty.slice(1) },
+      { key: 'equipment', icon: 'construct', text: `${selectedEquipmentNames.length} Equipment` },
     ];
 
-    const rows = [];
-    for (let i = 0; i < allSteps.length; i += 4) {
-      rows.push(allSteps.slice(i, i + 4));
-    }
-    return rows;
+    // Return single row
+    return [steps];
   };
 
   const getEquipmentIcon = (equipmentName: string): keyof typeof Ionicons.glyphMap => {
