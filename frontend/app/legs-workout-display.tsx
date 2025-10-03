@@ -602,6 +602,29 @@ const styles = StyleSheet.create({
     color: '#FFD700',
     fontWeight: '600',
   },
+  dotsLabel: {
+    fontSize: 12,
+    color: 'rgba(255, 255, 255, 0.6)',
+    marginTop: 4,
+    marginBottom: 8,
+    fontWeight: '500',
+  },
+  dotsRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  dot: {
+    width: 8,
+    height: 8,
+    borderRadius: 4,
+    backgroundColor: 'rgba(255, 255, 255, 0.3)',
+    marginHorizontal: 4,
+  },
+  activeDot: {
+    backgroundColor: '#FFD700',
+    width: 24,
+    borderRadius: 4,
+  },
   workoutSlide: {
     flex: 1,
     justifyContent: 'space-between',
