@@ -1512,7 +1512,7 @@ const styles = StyleSheet.create({
   intensityReason: {
     flex: 1,
     fontSize: 12,
-    color: 'rgba(255, 255, 255, 0.8)',
+    color: '#000000',
     lineHeight: 16,
     marginLeft: 8,
   },
