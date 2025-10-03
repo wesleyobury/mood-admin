@@ -1106,7 +1106,7 @@ const WorkoutCard = ({ equipment, icon, workouts, difficulty, difficultyColor, o
 
       {/* Workout Indicator Dots */}
       <View style={styles.dotsContainer}>
-        <Text style={styles.dotsLabel}>{currentWorkoutIndex + 1} of {workouts.length}</Text>
+        <Text style={styles.dotsLabel}>Swipe to explore</Text>
         <View style={styles.dotsRow}>
           {workouts.map((_, index) => (
             <View
