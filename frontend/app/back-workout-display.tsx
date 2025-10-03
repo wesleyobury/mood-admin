@@ -1557,6 +1557,7 @@ export default function BackWorkoutDisplay() {
     workouts: Workout[] 
   }) => {
     const [currentWorkoutIndex, setCurrentWorkoutIndex] = useState(0);
+    const flatListRef = useRef<FlatList>(null);
     
     const renderWorkout = ({ item, index }: { item: Workout; index: number }) => (
       <View style={[styles.workoutSlide, { width: width - 48 }]}>
