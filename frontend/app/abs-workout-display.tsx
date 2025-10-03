@@ -1011,7 +1011,7 @@ const WorkoutCard = ({ equipment, icon, workouts, difficulty, difficultyColor, o
 
         {/* Intensity Reason - Same Width as Photo */}
         <View style={styles.intensityContainer}>
-          <Ionicons name="information-circle" size={16} color="#000000" />
+          <Ionicons name="information-circle" size={16} color="#FFD700" />
           <Text style={styles.intensityReason}>{item.intensityReason}</Text>
         </View>
 
