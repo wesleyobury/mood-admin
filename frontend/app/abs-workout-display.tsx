@@ -1116,7 +1116,13 @@ const WorkoutCard = ({ equipment, icon, workouts, difficulty, difficultyColor, o
                 styles.dot,
                 currentWorkoutIndex === index && styles.activeDot,
               ]}
-              onPress={() => setCurrentWorkoutIndex(index)}
+              onPress={() => {
+                setCurrentWorkoutIndex(index);
+                flatListRef.current?.scrollToIndex({ 
+                  index, 
+                  animated: true 
+                });
+              }}
               activeOpacity={0.7}
             />
           ))}
