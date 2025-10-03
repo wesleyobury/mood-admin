@@ -839,6 +839,135 @@ const absWorkoutDatabase: EquipmentWorkouts[] = [
     workouts: {
       beginner: [
         {
+          name: 'Decline Sit Up (Bodyweight)',
+          duration: '8–10 min',
+          description: 'Bodyweight baseline drill builds control and strength\n ',
+          battlePlan: '3 rounds\n• 10–12 Decline Sit Ups\nRest 60s',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8TVc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Decline angle increases core range and challenge',
+          moodTips: [
+            {
+              icon: 'construct',
+              title: 'Curl torso slowly up',
+              description: 'Controlled movement maximizes muscle engagement.'
+            },
+            {
+              icon: 'flash',
+              title: 'Hard squeeze at top rep',
+              description: 'Peak contraction maximizes ab activation.'
+            }
+          ]
+        },
+        {
+          name: 'Decline Crunch',
+          duration: '8–10 min',
+          description: 'Works midline without excessive torso movement\n ',
+          battlePlan: '3 rounds\n• 12–15 Decline Crunches\nRest 75s',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Short ROM targets abs intensely with safety',
+          moodTips: [
+            {
+              icon: 'construct',
+              title: 'Small crunch only, spine curl',
+              description: 'Focus on spinal flexion for targeted ab work.'
+            },
+            {
+              icon: 'flash',
+              title: 'Exhale squeeze contraction',
+              description: 'Coordinate breathing for maximum muscle activation.'
+            }
+          ]
+        }
+      ],
+      intermediate: [
+        {
+          name: 'Weighted Sit Up',
+          duration: '10–12 min',
+          description: 'Strengthens core wall with consistent loaded work\n ',
+          battlePlan: '4 rounds\n• 8 Sit Ups w/ Plate\nRest 90s',
+          imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Holding plate increases progressive overload stress',
+          moodTips: [
+            {
+              icon: 'construct',
+              title: 'Hug plate close chest',
+              description: 'Secure weight placement maintains proper form.'
+            },
+            {
+              icon: 'timer',
+              title: 'Pause squeeze contraction',
+              description: 'Brief hold at peak maximizes muscle activation.'
+            }
+          ]
+        },
+        {
+          name: 'Twisting Sit Up',
+          duration: '12–14 min',
+          description: 'Full abs trained with twist motion superset strategy\n ',
+          battlePlan: '3 rounds\n• 8 per side Twisting Sit Ups\nRest 90s',
+          imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
+          intensityReason: 'Rotational sit up engages obliques + rectus combo',
+          moodTips: [
+            {
+              icon: 'construct',
+              title: 'Rotate elbow toward knee',
+              description: 'Twisting motion engages obliques effectively.'
+            },
+            {
+              icon: 'flash',
+              title: 'Core tight, control twist',
+              description: 'Maintain core tension throughout rotation.'
+            }
+          ]
+        }
+      ],
+      advanced: [
+        {
+          name: '1½ Rep Sit Up',
+          duration: '12–14 min',
+          description: 'Time under tension drill builds durability fully\n ',
+          battlePlan: '3 rounds\n• 8 Combo Reps (half+full =1)\nRest 90s',
+          imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmc&ZW54MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Combo half+full doubles ab contraction under load',
+          moodTips: [
+            {
+              icon: 'construct',
+              title: 'Perform half then full smoothly',
+              description: 'Continuous movement maintains muscle tension.'
+            },
+            {
+              icon: 'flash',
+              title: 'Squeeze hard both times',
+              description: 'Dual contractions maximize muscle engagement.'
+            }
+          ]
+        },
+        {
+          name: 'Decline Sit Up + Flutter Kicks',
+          duration: '12–14 min',
+          description: 'Powerful finisher blends flexion and endurance set\n ',
+          battlePlan: '3 rounds\n• 8 Decline Sit Ups\n• Immediately 15 Flutter Kicks\nRest 90s',
+          imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHc0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Sit ups paired with flutter kicks torch abs fully',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Abs tight during sit ups',
+              description: 'Maintain core engagement throughout movement.'
+            },
+            {
+              icon: 'construct',
+              title: 'Kick legs steady below bench',
+              description: 'Controlled flutter kicks maintain constant tension.'
+            }
+          ]
+        }
+      ]
+    }
+  }
+    workouts: {
+      beginner: [
+        {
           name: 'Basic Ab Rollout',
           duration: '8–10 min',
           description: 'Foundational core strengthening with controlled range\n ',
