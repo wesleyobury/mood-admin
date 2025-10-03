@@ -40,7 +40,7 @@ interface EquipmentWorkouts {
   };
 }
 
-// Complete abs workout database with all equipment and difficulty levels
+// Complete Abs workout database with chest-format card descriptions and detailed battle plans
 const absWorkoutDatabase: EquipmentWorkouts[] = [
   {
     equipment: 'Body Weight',
@@ -50,7 +50,7 @@ const absWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Standard Crunch',
           duration: '8–10 min',
-          description: 'Simple crunch develops mind muscle connection safely\n ',
+          description: 'Simple crunch develops mind muscle\nconnection safely.\n ',
           battlePlan: '3 rounds\n• 12–15 Crunches\nRest 45s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8TVc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Intro movement builds baseline flexion ab strength',
@@ -70,7 +70,7 @@ const absWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Forearm Plank Hold',
           duration: '8–10 min',
-          description: 'Teaches proper bracing and foundation ab stability\n ',
+          description: 'Teaches proper bracing and foundation\nab stability.\n ',
           battlePlan: '3 rounds\n• 3 × 20–30s Plank Holds\nRest 45s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Static hold trains core for anti extension endurance',
@@ -92,7 +92,7 @@ const absWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'V Up',
           duration: '10–12 min',
-          description: 'Challenging bodyweight drill hits whole ab wall\n ',
+          description: 'Challenging bodyweight drill hits\nwhole ab wall.\n ',
           battlePlan: '4 rounds\n• 10–12 V Ups\nRest 60–75s',
           imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Combines flexion of torso + legs for full ab load',
@@ -112,7 +112,7 @@ const absWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Bicycle Crunch',
           duration: '10–12 min',
-          description: 'Builds rotation endurance and total core activation\n ',
+          description: 'Builds rotation endurance and\ntotal core activation.\n ',
           battlePlan: '3 rounds\n• 12 per side Bicycle Crunches\nRest 60s',
           imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
           intensityReason: 'Alternating twist works obliques + midline control',
@@ -134,7 +134,7 @@ const absWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Hanging Leg Raise (Bar)',
           duration: '12–14 min',
-          description: 'Very challenging movement for strength and control\n ',
+          description: 'Very challenging movement for\nstrength and control.\n ',
           battlePlan: '3 rounds\n• 8–10 Hanging Leg Raises\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmc&ZW54MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Hanging position overloads abs through hip flexion',
@@ -152,11 +152,11 @@ const absWorkoutDatabase: EquipmentWorkouts[] = [
           ]
         },
         {
-          name: 'Hollow Body Hold + Pike Jump Finisher',
+          name: 'Hollow Body + Pike Jump',
           duration: '12–14 min',
-          description: 'Brutal hybrid test for dynamic and static ab strength\n ',
+          description: 'Brutal hybrid test for dynamic and\nstatic ab strength.\n ',
           battlePlan: '3 rounds\n• 20s Hollow Hold\n• Immediately 8 Stiff Leg Pike Jumps\nRest 90s',
-          imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHc0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Iso hold builds endurance, jumps build explosiveness',
           moodTips: [
             {
@@ -182,7 +182,7 @@ const absWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Wall Assisted Rollout',
           duration: '8–10 min',
-          description: 'Lets true beginners practice core extension safely first\n ',
+          description: 'Lets true beginners practice core\nextension safely first.\n ',
           battlePlan: '3 rounds\n• 12–15 Wall Rollouts\nRest 60s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8TVc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Wall stop reduces risk while building bracing control',
@@ -202,7 +202,7 @@ const absWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Short Range Rollout',
           duration: '8–10 min',
-          description: 'Builds starter strength to prepare for full extensions\n ',
+          description: 'Builds starter strength to prepare\nfor full extensions.\n ',
           battlePlan: '3 rounds\n• 12–15 Short Rollouts\nRest 60s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Controlled partial rep trains tension in safer range',
@@ -224,7 +224,7 @@ const absWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Full Ab Rollout',
           duration: '10–12 min',
-          description: 'Long stretch motion challenges anterior abs strongly\n ',
+          description: 'Long stretch motion challenges\nanterior abs strongly.\n ',
           battlePlan: '4 rounds\n• 8 Full Rollouts\nRest 75s',
           imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Full range engages deep abdominals with control',
@@ -244,7 +244,7 @@ const absWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Rollout + Plank Hold',
           duration: '12–14 min',
-          description: 'Pair movement rollout and plank for total ab burn\n ',
+          description: 'Pair movement rollout and plank\nfor total ab burn.\n ',
           battlePlan: '3 rounds\n• 8 Rollouts\n• 20s Plank Hold\nRest 75s',
           imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
           intensityReason: 'Flexion with static hold strengthens ab endurance',
@@ -266,7 +266,7 @@ const absWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Standing Rollout',
           duration: '12–14 min',
-          description: 'Requires elite bracing strength and anterior stability\n ',
+          description: 'Requires elite bracing strength\nand anterior stability.\n ',
           battlePlan: '3 rounds\n• 5–6 Standing Rollouts\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmc&ZW54MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Max difficulty rollout challenges core extension',
@@ -286,7 +286,7 @@ const absWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Rollout with 3s Eccentric',
           duration: '12–14 min',
-          description: '3s descend rollout punishes abs with strict tempo\n ',
+          description: '3s descend rollout punishes abs\nwith strict tempo.\n ',
           battlePlan: '3 rounds\n• 6–8 Slow Eccentric Rollouts (3s down)\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHc0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Slow lowering multiplies tension for maximal core',
@@ -314,7 +314,7 @@ const absWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Machine Crunch (Light)',
           duration: '8–10 min',
-          description: 'Builds ab control using small guided resisted flexion\n ',
+          description: 'Builds ab control using small guided\nresisted flexion.\n ',
           battlePlan: '3 rounds\n• 12–15 Light Crunches\nRest 60s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8TVc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Entry movement teaches crunch with resistance path',
@@ -334,7 +334,7 @@ const absWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Machine Crunch Pause',
           duration: '8–10 min',
-          description: 'Isometric crunch teaches control and endurance reps\n ',
+          description: 'Isometric crunch teaches control\nand endurance reps.\n ',
           battlePlan: '3 rounds\n• 10 Crunches (2s hold)\nRest 75s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Static top hold boosts power of ab contraction',
@@ -356,7 +356,7 @@ const absWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Heavy Crunch',
           duration: '10–12 min',
-          description: 'Machine allows safe progressive overload to abs\n ',
+          description: 'Machine allows safe progressive\noverload to abs.\n ',
           battlePlan: '4 rounds\n• 8–10 Heavy Crunches\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Increased resistance thickens ab structure well',
@@ -376,7 +376,7 @@ const absWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Crunch + Leg Raise',
           duration: '12–14 min',
-          description: 'Isolation combo burns abdominal wall comprehensively\n ',
+          description: 'Isolation combo burns abdominal\nwall comprehensively.\n ',
           battlePlan: '3 rounds\n• 8 Crunches\n• 10 Hanging Leg Raises\nRest 90s',
           imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
           intensityReason: 'Superset works upper + lower abs in one session',
@@ -398,7 +398,7 @@ const absWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Drop Set Crunch',
           duration: '12–14 min',
-          description: 'Extended time under tension breaks ab plateaus\n ',
+          description: 'Extended time under tension\nbreaks ab plateaus.\n ',
           battlePlan: '3 rounds\n• 10 Heavy Crunches\n• Drop → 8 reps\n• Drop → 8 reps\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmc&ZW54MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Drop weight pushes contraction beyond fatigue point',
@@ -416,9 +416,9 @@ const absWorkoutDatabase: EquipmentWorkouts[] = [
           ]
         },
         {
-          name: 'Iso Crunch + Weighted Flutter Kicks',
+          name: 'Iso Crunch + Flutter Kicks',
           duration: '12–14 min',
-          description: 'Extended tension exercise strengthens abs endurance\n ',
+          description: 'Extended tension exercise\nstrengthens abs endurance.\n ',
           battlePlan: '3 rounds\n• 8 Crunches + 10s Hold\n• Immediately 15 Flutter Kicks\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHc0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Holds plus kicks exhaust abs dynamically and isometric',
@@ -446,7 +446,7 @@ const absWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Knee Raise',
           duration: '8–10 min',
-          description: 'Controlled movement isolates lower ab recruitment\n ',
+          description: 'Controlled movement isolates lower\nab recruitment.\n ',
           battlePlan: '3 rounds\n• 10–12 Knee Raises\nRest 60s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8TVc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Basic raise builds lower abdominal lift strength',
@@ -466,7 +466,7 @@ const absWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Straight Leg Hold',
           duration: '8–10 min',
-          description: 'Lockout position burns abs for lower focus stability\n ',
+          description: 'Lockout position burns abs for\nlower focus stability.\n ',
           battlePlan: '3 rounds\n• 15s Holds\nRest 75s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Isometric hold increases abs\' endurance demands',
@@ -488,7 +488,7 @@ const absWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Straight Leg Raise',
           duration: '10–12 min',
-          description: 'Builds strength in lower abs with stable path control\n ',
+          description: 'Builds strength in lower abs with\nstable path control.\n ',
           battlePlan: '4 rounds\n• 8–10 Leg Raises\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Full ROM raise loads abs through longer range',
@@ -508,7 +508,7 @@ const absWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Knee Raise + Twist',
           duration: '12–14 min',
-          description: 'Hits lower abs and sides in one combined superset\n ',
+          description: 'Hits lower abs and sides in one\ncombined superset.\n ',
           battlePlan: '3 rounds\n• 8 per side Knee Raise Twist\nRest 90s',
           imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
           intensityReason: 'Twist adds oblique rotation into lower ab raises',
@@ -530,7 +530,7 @@ const absWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Weighted Leg Raise',
           duration: '12–14 min',
-          description: 'Dumbbell held between feet amplifies difficulty\n ',
+          description: 'Dumbbell held between feet\namplifies difficulty.\n ',
           battlePlan: '3 rounds\n• 8–10 Weighted Leg Raises\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmc&ZW54MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Extra load maximizes ab contraction from raises',
@@ -550,7 +550,7 @@ const absWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Leg Raise + Slow Eccentric',
           duration: '12–14 min',
-          description: 'Builds more strength with controlled negative reps\n ',
+          description: 'Builds more strength with controlled\nnegative reps.\n ',
           battlePlan: '3 rounds\n• 8–10 Leg Raises (3s eccentric)\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHc0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Slow eccentric multiplies ab contraction stress',
@@ -578,7 +578,7 @@ const absWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Bodyweight Side Bend',
           duration: '8–10 min',
-          description: 'Learns lateral bending to build oblique connection\n ',
+          description: 'Learns lateral bending to build\noblique connection.\n ',
           battlePlan: '3 rounds\n• 10 per side Side Bends\nRest 60s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHc5fHxyaW5nfGVufDB8fHx8TVc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Basic side crunch trains obliques with safe control',
@@ -598,7 +598,7 @@ const absWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Supported Crunch',
           duration: '8–10 min',
-          description: 'Controlled entry drill targets upper ab connection\n ',
+          description: 'Controlled entry drill targets\nupper ab connection.\n ',
           battlePlan: '3 rounds\n• 10–12 Supported Crunches\nRest 60s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Small crunch on bench works abs beginner safe',
@@ -620,7 +620,7 @@ const absWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Weighted Side Bend',
           duration: '10–12 min',
-          description: 'Builds oblique thickness with controlled weighted reps\n ',
+          description: 'Builds oblique thickness with\ncontrolled weighted reps.\n ',
           battlePlan: '4 rounds\n• 8–10 per side Weighted Bends\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Progression adds resistance for lateral growth',
@@ -640,7 +640,7 @@ const absWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Oblique Twist Sit Up',
           duration: '12–14 min',
-          description: 'Twisting sit up enhances rotational ab engagement\n ',
+          description: 'Twisting sit up enhances rotational\nab engagement.\n ',
           battlePlan: '3 rounds\n• 8 per side Twisting Sit Ups\nRest 90s',
           imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
           intensityReason: 'Rotating adds dynamic work for obliques strongly',
@@ -662,7 +662,7 @@ const absWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Weighted Sit Up',
           duration: '12–14 min',
-          description: 'Progressive overload thickens abs via sit ups\n ',
+          description: 'Progressive overload thickens\nabs via sit ups.\n ',
           battlePlan: '3 rounds\n• 8–10 Weighted Sit Ups\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmc&ZW54MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Added weight enhances muscular demand on abs',
@@ -682,7 +682,7 @@ const absWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Sit Up with 3s Hold Top',
           duration: '12–14 min',
-          description: 'Hold then release makes sit up much more demanding\n ',
+          description: 'Hold then release makes sit up\nmuch more demanding.\n ',
           battlePlan: '3 rounds\n• 8 Sit Ups (3s hold top)\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHc0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Iso contraction hold increases abs endurance',
@@ -710,9 +710,9 @@ const absWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'MB Crunch',
           duration: '8–10 min',
-          description: 'Beginner crunch builds control with small resistance\n ',
+          description: 'Beginner crunch builds control\nwith small resistance.\n ',
           battlePlan: '3 rounds\n• 12 MB Crunches\nRest 60s',
-          imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8TVc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8MVc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Light ball adds gentle overload to crunch pattern',
           moodTips: [
             {
@@ -730,7 +730,7 @@ const absWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Seated MB Twist',
           duration: '8–10 min',
-          description: 'Dynamic twisting strengthens side core stability\n ',
+          description: 'Dynamic twisting strengthens\nside core stability.\n ',
           battlePlan: '3 rounds\n• 10 per side Twists\nRest 75s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Rotation works obliques with ball resistance control',
@@ -752,7 +752,7 @@ const absWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'MB Overhead Sit Up',
           duration: '10–12 min',
-          description: 'Long lever increases core demand and stretch tension\n ',
+          description: 'Long lever increases core demand\nand stretch tension.\n ',
           battlePlan: '4 rounds\n• 8–10 MB Sit Ups\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Lever arm extended overhead intensifies abs load',
@@ -772,7 +772,7 @@ const absWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'MB Slam + Plank Hold',
           duration: '12–14 min',
-          description: 'Dynamic then static pairing builds full capacity\n ',
+          description: 'Dynamic then static pairing\nbuilds full capacity.\n ',
           battlePlan: '3 rounds\n• 8 MB Slams\n• 25s Plank Hold\nRest 90s',
           imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
           intensityReason: 'Explosive slam pairs with core static endurance',
@@ -794,7 +794,7 @@ const absWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'MB V Sit Twist',
           duration: '12–14 min',
-          description: 'Heavy core load combining balance and twist\n ',
+          description: 'Heavy core load combining\nbalance and twist.\n ',
           battlePlan: '3 rounds\n• 10 per side V Twists\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmc&ZW54MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Rotational V sit fires obliques under high stress',
@@ -814,7 +814,7 @@ const absWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'MB Slam + Toe Touch Finisher',
           duration: '12–14 min',
-          description: 'Brutal pairing challenges power and contraction\n ',
+          description: 'Brutal pairing challenges power\nand contraction.\n ',
           battlePlan: '3 rounds\n• 8 MB Slams\n• 10 MB Toe Touches\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHc0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Targets entire abs with slam then toe reach combo',
@@ -842,7 +842,7 @@ const absWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Decline Sit Up (Bodyweight)',
           duration: '8–10 min',
-          description: 'Bodyweight baseline drill builds control and strength\n ',
+          description: 'Bodyweight baseline drill builds\ncontrol and strength.\n ',
           battlePlan: '3 rounds\n• 10–12 Decline Sit Ups\nRest 60s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8TVc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Decline angle increases core range and challenge',
@@ -862,7 +862,7 @@ const absWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Decline Crunch',
           duration: '8–10 min',
-          description: 'Works midline without excessive torso movement\n ',
+          description: 'Works midline without excessive\ntorso movement.\n ',
           battlePlan: '3 rounds\n• 12–15 Decline Crunches\nRest 75s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Short ROM targets abs intensely with safety',
@@ -884,7 +884,7 @@ const absWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Weighted Sit Up',
           duration: '10–12 min',
-          description: 'Strengthens core wall with consistent loaded work\n ',
+          description: 'Strengthens core wall with\nconsistent loaded work.\n ',
           battlePlan: '4 rounds\n• 8 Sit Ups w/ Plate\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Holding plate increases progressive overload stress',
@@ -904,7 +904,7 @@ const absWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Twisting Sit Up',
           duration: '12–14 min',
-          description: 'Full abs trained with twist motion superset strategy\n ',
+          description: 'Full abs trained with twist motion\nsuperset strategy.\n ',
           battlePlan: '3 rounds\n• 8 per side Twisting Sit Ups\nRest 90s',
           imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
           intensityReason: 'Rotational sit up engages obliques + rectus combo',
@@ -926,7 +926,7 @@ const absWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: '1½ Rep Sit Up',
           duration: '12–14 min',
-          description: 'Time under tension drill builds durability fully\n ',
+          description: 'Time under tension drill builds\ndurability fully.\n ',
           battlePlan: '3 rounds\n• 8 Combo Reps (half+full =1)\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmc&ZW54MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Combo half+full doubles ab contraction under load',
@@ -946,7 +946,7 @@ const absWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Decline Sit Up + Flutter Kicks',
           duration: '12–14 min',
-          description: 'Powerful finisher blends flexion and endurance set\n ',
+          description: 'Powerful finisher blends flexion\nand endurance set.\n ',
           battlePlan: '3 rounds\n• 8 Decline Sit Ups\n• Immediately 15 Flutter Kicks\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHc0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Sit ups paired with flutter kicks torch abs fully',
@@ -968,6 +968,161 @@ const absWorkoutDatabase: EquipmentWorkouts[] = [
   }
 ];
 
+interface WorkoutCardProps {
+  equipment: string;
+  icon: keyof typeof Ionicons.glyphMap;
+  workouts: Workout[];
+  difficulty: string;
+  difficultyColor: string;
+  onStartWorkout: (workout: Workout, equipment: string, difficulty: string) => void;
+}
+
+const WorkoutCard = ({ equipment, icon, workouts, difficulty, difficultyColor, onStartWorkout }: WorkoutCardProps) => {
+  const [currentWorkoutIndex, setCurrentWorkoutIndex] = useState(0);
+
+  const renderWorkout = ({ item, index }: { item: Workout; index: number }) => (
+    <View style={[styles.workoutSlide, { width: width - 48 }]}>
+      {/* Workout Image with Rounded Edges */}
+      <View style={styles.workoutImageContainer}>
+        <Image 
+          source={{ uri: item.imageUrl }}
+          style={styles.workoutImage}
+          resizeMode="cover"
+        />
+        <View style={styles.imageOverlay} />
+        <View style={styles.swipeIndicator}>
+          <Ionicons name="swap-horizontal" size={20} color="#FFD700" />
+          <Text style={styles.swipeText}>Swipe for more</Text>
+        </View>
+      </View>
+
+      {/* Workout Content */}
+      <View style={styles.workoutContent}>
+        {/* Workout Title */}
+        <Text style={styles.workoutName}>{item.name}</Text>
+        
+        {/* Duration & Intensity Level on Same Line */}
+        <View style={styles.durationIntensityRow}>
+          <Text style={styles.workoutDuration}>{item.duration}</Text>
+          <View style={[styles.difficultyBadge, { backgroundColor: difficultyColor }]}>
+            <Text style={styles.difficultyBadgeText}>{difficulty.toUpperCase()}</Text>
+          </View>
+        </View>
+
+        {/* Intensity Reason - Same Width as Photo */}
+        <View style={styles.intensityContainer}>
+          <Ionicons name="information-circle" size={16} color="#FFD700" />
+          <Text style={styles.intensityReason}>{item.intensityReason}</Text>
+        </View>
+
+        {/* Workout Description - Same Width as Photo */}
+        <View style={styles.workoutDescriptionContainer}>
+          <Text style={styles.workoutDescription}>{item.description}</Text>
+        </View>
+
+        {/* Start Workout Button - Same Width as Photo */}
+        <TouchableOpacity 
+          style={styles.startWorkoutButton}
+          onPress={() => onStartWorkout(item, equipment, difficulty)}
+          activeOpacity={0.8}
+        >
+          <Ionicons name="play" size={20} color="#000000" />
+          <Text style={styles.startWorkoutButtonText}>Start Workout</Text>
+        </TouchableOpacity>
+      </View>
+    </View>
+  );
+
+  // Simple touch-based swipe detection for reliable web compatibility
+  const [touchStart, setTouchStart] = useState<number | null>(null);
+  const [touchEnd, setTouchEnd] = useState<number | null>(null);
+
+  const minSwipeDistance = 50;
+
+  const onTouchStart = (e: any) => {
+    setTouchEnd(null);
+    setTouchStart(e.nativeEvent.touches[0].clientX);
+  };
+
+  const onTouchMove = (e: any) => {
+    setTouchEnd(e.nativeEvent.touches[0].clientX);
+  };
+
+  const onTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > minSwipeDistance;
+    const isRightSwipe = distance < -minSwipeDistance;
+
+    if (isLeftSwipe && currentWorkoutIndex < workouts.length - 1) {
+      setCurrentWorkoutIndex(currentWorkoutIndex + 1);
+    }
+    if (isRightSwipe && currentWorkoutIndex > 0) {
+      setCurrentWorkoutIndex(currentWorkoutIndex - 1);
+    }
+  };
+
+  return (
+    <View style={styles.workoutCard}>
+      {/* Equipment Header */}
+      <View style={styles.equipmentHeader}>
+        <View style={styles.equipmentIconContainer}>
+          <Ionicons name={icon} size={24} color="#FFD700" />
+        </View>
+        <Text style={styles.equipmentName}>{equipment}</Text>
+        <View style={styles.workoutIndicator}>
+          <Text style={styles.workoutCount}>{workouts.length} workouts</Text>
+        </View>
+      </View>
+
+      {/* Workout List with Touch Swiping */}
+      <View 
+        style={styles.workoutList}
+        onTouchStart={onTouchStart}
+        onTouchMove={onTouchMove}
+        onTouchEnd={onTouchEnd}
+      >
+        <FlatList
+          data={workouts}
+          renderItem={renderWorkout}
+          horizontal
+          pagingEnabled
+          showsHorizontalScrollIndicator={false}
+          onMomentumScrollEnd={(event) => {
+            const slideSize = width - 48;
+            const index = Math.floor(event.nativeEvent.contentOffset.x / slideSize);
+            setCurrentWorkoutIndex(index);
+          }}
+          initialScrollIndex={currentWorkoutIndex}
+          getItemLayout={(data, index) => ({
+            length: width - 48,
+            offset: (width - 48) * index,
+            index,
+          })}
+          keyExtractor={(item, index) => `${equipment}-${item.name}-${index}`}
+        />
+      </View>
+
+      {/* Workout Indicator Dots */}
+      <View style={styles.dotsContainer}>
+        <Text style={styles.dotsLabel}>{currentWorkoutIndex + 1} of {workouts.length}</Text>
+        <View style={styles.dotsRow}>
+          {workouts.map((_, index) => (
+            <View
+              key={index}
+              style={[
+                styles.dot,
+                currentWorkoutIndex === index && styles.activeDot,
+              ]}
+            />
+          ))}
+        </View>
+      </View>
+    </View>
+  );
+};
+
 export default function AbsWorkoutDisplayScreen() {
   const router = useRouter();
   const params = useLocalSearchParams();
@@ -988,8 +1143,21 @@ export default function AbsWorkoutDisplayScreen() {
     selectedEquipmentNames.includes(equipmentWorkouts.equipment)
   );
 
-  const handleWorkoutSelect = (workout: Workout, equipment: string) => {
-    console.log('Selected workout:', workout.name);
+  // Remove duplicates and get unique equipment workouts
+  const uniqueUserWorkouts = relevantWorkouts.filter((workout, index, self) => 
+    index === self.findIndex((w) => w.equipment === workout.equipment)
+  );
+
+  const difficultyColors: { [key: string]: string } = {
+    'beginner': '#4CAF50',
+    'intermediate': '#FF9800', 
+    'advanced': '#f44336'
+  };
+
+  const difficultyColor = difficultyColors[difficulty] || '#4CAF50';
+
+  const handleStartWorkout = (workout: Workout, equipment: string, difficulty: string) => {
+    console.log('Starting workout:', workout.name, 'with', equipment, 'at', difficulty, 'level');
     
     router.push({
       pathname: '/workout-guidance',
@@ -1010,30 +1178,22 @@ export default function AbsWorkoutDisplayScreen() {
     router.back();
   };
 
-  if (relevantWorkouts.length === 0) {
-    return (
-      <SafeAreaView style={[styles.container, { paddingTop: insets.top }]}>
-        <View style={styles.header}>
-          <TouchableOpacity 
-            style={styles.backButton}
-            onPress={handleGoBack}
-          >
-            <Ionicons name="chevron-back" size={24} color="#FFD700" />
-          </TouchableOpacity>
-          <View style={styles.headerTextContainer}>
-            <Text style={styles.headerTitle}>No Workouts Found</Text>
-          </View>
-          <View style={styles.headerSpacer} />
-        </View>
-        
-        <View style={styles.noWorkoutsContainer}>
-          <Text style={styles.noWorkoutsText}>
-            No workouts available for the selected equipment.
-          </Text>
-        </View>
-      </SafeAreaView>
-    );
-  }
+  // Create progress bar rows
+  const createProgressRows = () => {
+    const steps = [
+      { key: 'mood', icon: 'flame', text: moodTitle },
+      { key: 'bodyPart', icon: 'fitness', text: workoutType },
+      { key: 'equipment', icon: 'construct', text: `Equipment (${selectedEquipmentNames.length})` },
+      { key: 'difficulty', icon: 'speedometer', text: difficulty.charAt(0).toUpperCase() + difficulty.slice(1) },
+    ];
+
+    // Group into rows of 4 for chest format
+    const rows = [];
+    for (let i = 0; i < steps.length; i += 4) {
+      rows.push(steps.slice(i, i + 4));
+    }
+    return rows;
+  };
 
   return (
     <SafeAreaView style={[styles.container, { paddingTop: insets.top }]}>
@@ -1046,100 +1206,65 @@ export default function AbsWorkoutDisplayScreen() {
           <Ionicons name="chevron-back" size={24} color="#FFD700" />
         </TouchableOpacity>
         <View style={styles.headerTextContainer}>
-          <Text style={styles.headerTitle}>Abs Workouts</Text>
+          <Text style={styles.headerTitle}>Your Workouts</Text>
           <Text style={styles.headerSubtitle}>{moodTitle}</Text>
         </View>
         <View style={styles.headerSpacer} />
       </View>
 
-      {/* Progress Bar */}
+      {/* Progress Bar with Row Layout */}
       <View style={styles.progressContainer}>
-        <ScrollView 
-          horizontal 
-          showsHorizontalScrollIndicator={false}
-          contentContainerStyle={styles.progressContent}
-        >
-          <View style={styles.progressStep}>
-            <View style={styles.progressStepActive}>
-              <Ionicons name="flame" size={14} color="#000000" />
+        <View style={styles.progressContent}>
+          {createProgressRows().map((row, rowIndex) => (
+            <View key={`row-${rowIndex}`} style={styles.progressRow}>
+              {row.map((step, stepIndex) => (
+                <React.Fragment key={step.key}>
+                  <View style={styles.progressStep}>
+                    <View style={styles.progressStepActive}>
+                      <Ionicons name={step.icon as keyof typeof Ionicons.glyphMap} size={10} color="#000000" />
+                    </View>
+                    <Text style={styles.progressStepText}>{step.text}</Text>
+                  </View>
+                  {stepIndex < row.length - 1 && <View style={styles.progressConnector} />}
+                </React.Fragment>
+              ))}
             </View>
-            <Text style={styles.progressStepText}>{moodTitle}</Text>
-          </View>
-          
-          <View style={styles.progressConnector} />
-          
-          <View style={styles.progressStep}>
-            <View style={styles.progressStepActive}>
-              <Ionicons name="fitness" size={14} color="#000000" />
-            </View>
-            <Text style={styles.progressStepText}>{workoutType}</Text>
-          </View>
-          
-          <View style={styles.progressConnector} />
-          
-          <View style={styles.progressStep}>
-            <View style={styles.progressStepActive}>
-              <Text style={styles.progressStepNumber}>
-                {selectedEquipmentNames.length}
-              </Text>
-            </View>
-            <Text style={styles.progressStepText}>
-              Equipment ({selectedEquipmentNames.length})
-            </Text>
-          </View>
-          
-          <View style={styles.progressConnector} />
-          
-          <View style={styles.progressStep}>
-            <View style={styles.progressStepActive}>
-              <Ionicons name="checkmark" size={14} color="#000000" />
-            </View>
-            <Text style={styles.progressStepText}>
-              {difficulty.charAt(0).toUpperCase() + difficulty.slice(1)}
-            </Text>
-          </View>
-        </ScrollView>
+          ))}
+        </View>
       </View>
 
-      <ScrollView style={styles.scrollView} showsVerticalScrollIndicator={false}>
-        {relevantWorkouts.map((equipmentWorkouts) => {
-          const workoutsForDifficulty = equipmentWorkouts.workouts[difficulty as keyof typeof equipmentWorkouts.workouts] || [];
-          
-          return (
-            <View key={equipmentWorkouts.equipment} style={styles.section}>
-              <Text style={styles.equipmentTitle}>
-                {equipmentWorkouts.equipment}
-              </Text>
-              
-              <View style={styles.workoutGrid}>
-                {workoutsForDifficulty.map((workout, index) => (
-                  <TouchableOpacity
-                    key={index}
-                    style={styles.workoutCard}
-                    onPress={() => handleWorkoutSelect(workout, equipmentWorkouts.equipment)}
-                    activeOpacity={0.8}
-                  >
-                    <Image
-                      source={{ uri: workout.imageUrl }}
-                      style={styles.workoutImage}
-                      resizeMode="cover"
-                    />
-                    <View style={styles.workoutCardContent}>
-                      <Text style={styles.workoutName}>{workout.name}</Text>
-                      <Text style={styles.workoutDuration}>{workout.duration}</Text>
-                      <Text style={styles.workoutDescription} numberOfLines={2}>
-                        {workout.description.replace(/\n/g, ' ').trim()}
-                      </Text>
-                    </View>
-                    <View style={styles.workoutCardActions}>
-                      <Ionicons name="play-circle" size={32} color="#FFD700" />
-                    </View>
-                  </TouchableOpacity>
-                ))}
-              </View>
-            </View>
-          );
-        })}
+      {/* Workouts List */}
+      <ScrollView 
+        style={styles.scrollView} 
+        contentContainerStyle={styles.scrollContent}
+        showsVerticalScrollIndicator={false}
+      >
+        {uniqueUserWorkouts.length > 0 ? (
+          uniqueUserWorkouts.map((equipmentData, index) => {
+            console.log(`Rendering card ${index + 1}: ${equipmentData.equipment}`);
+            const difficultyWorkouts = equipmentData.workouts[difficulty as keyof typeof equipmentData.workouts] || [];
+            
+            return (
+              <WorkoutCard
+                key={`${equipmentData.equipment}-${index}`}
+                equipment={equipmentData.equipment}
+                icon={equipmentData.icon}
+                workouts={difficultyWorkouts}
+                difficulty={difficulty}
+                difficultyColor={difficultyColor}
+                onStartWorkout={handleStartWorkout}
+              />
+            );
+          })
+        ) : (
+          <View style={styles.noWorkoutsContainer}>
+            <Ionicons name="fitness" size={48} color="#FFD700" />
+            <Text style={styles.noWorkoutsTitle}>No Workouts Found</Text>
+            <Text style={styles.noWorkoutsSubtitle}>
+              Please select different equipment or go back to make new selections.
+            </Text>
+          </View>
+        )}
       </ScrollView>
     </SafeAreaView>
   );
@@ -1191,117 +1316,287 @@ const styles = StyleSheet.create({
     backgroundColor: '#111111',
     borderBottomWidth: 1,
     borderBottomColor: 'rgba(255, 215, 0, 0.2)',
-    paddingVertical: 16,
-    paddingHorizontal: 20,
+    paddingVertical: 12,
+    paddingHorizontal: 8,
   },
   progressContent: {
     alignItems: 'center',
-    paddingHorizontal: 10,
+  },
+  progressRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginBottom: 12,
   },
   progressStep: {
     alignItems: 'center',
-    minWidth: 80,
+    minWidth: 60,
   },
   progressStepActive: {
-    width: 32,
-    height: 32,
-    borderRadius: 16,
+    width: 24,
+    height: 24,
+    borderRadius: 12,
     backgroundColor: '#FFD700',
     borderWidth: 2,
     borderColor: '#FFD700',
     justifyContent: 'center',
     alignItems: 'center',
+    marginBottom: 6,
+    shadowColor: '#FFD700',
+    shadowOffset: { width: 0, height: 0 },
+    shadowOpacity: 0.6,
+    shadowRadius: 4,
+    elevation: 4,
+  },
+  progressStepText: {
+    fontSize: 10,
+    color: 'rgba(255, 255, 255, 0.8)',
+    textAlign: 'center',
+    fontWeight: '500',
+    maxWidth: 70,
+  },
+  progressConnector: {
+    width: 20,
+    height: 1,
+    backgroundColor: 'rgba(255, 215, 0, 0.3)',
+    marginHorizontal: 4,
+    marginTop: 12,
+  },
+  scrollView: {
+    flex: 1,
+  },
+  scrollContent: {
+    padding: 24,
+    paddingBottom: 100,
+  },
+  workoutCard: {
+    backgroundColor: '#111111',
+    borderRadius: 20,
+    borderWidth: 2,
+    borderColor: 'rgba(255, 215, 0, 0.3)',
+    shadowColor: '#FFD700',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.4,
+    shadowRadius: 20,
+    elevation: 12,
+    overflow: 'hidden',
+    marginBottom: 25,
+    width: '100%',
+  },
+  equipmentHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingHorizontal: 20,
+    paddingVertical: 16,
+    backgroundColor: 'rgba(255, 215, 0, 0.1)',
+    borderBottomWidth: 1,
+    borderBottomColor: 'rgba(255, 215, 0, 0.2)',
+  },
+  equipmentIconContainer: {
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+    backgroundColor: 'rgba(255, 215, 0, 0.2)',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginRight: 12,
+  },
+  equipmentName: {
+    flex: 1,
+    fontSize: 18,
+    fontWeight: 'bold',
+    color: '#ffffff',
+  },
+  workoutIndicator: {
+    backgroundColor: 'rgba(255, 215, 0, 0.15)',
+    paddingHorizontal: 12,
+    paddingVertical: 6,
+    borderRadius: 12,
+    borderWidth: 1,
+    borderColor: 'rgba(255, 215, 0, 0.3)',
+  },
+  workoutCount: {
+    fontSize: 12,
+    fontWeight: 'bold',
+    color: '#FFD700',
+  },
+  workoutList: {
+    height: 420,
+    overflow: 'hidden',
+  },
+  workoutSlide: {
+    paddingHorizontal: 20,
+    paddingVertical: 16,
+  },
+  workoutImageContainer: {
+    height: 120,
+    position: 'relative',
+    overflow: 'hidden',
+    borderRadius: 12,
+    marginBottom: 16,
+  },
+  workoutImage: {
+    width: '100%',
+    height: '100%',
+    borderRadius: 12,
+  },
+  imageOverlay: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    backgroundColor: 'rgba(0, 0, 0, 0.4)',
+  },
+  swipeIndicator: {
+    position: 'absolute',
+    top: 12,
+    right: 12,
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: 'rgba(0, 0, 0, 0.7)',
+    paddingHorizontal: 8,
+    paddingVertical: 4,
+    borderRadius: 12,
+  },
+  swipeText: {
+    fontSize: 12,
+    color: '#FFD700',
+    marginLeft: 4,
+    fontWeight: '600',
+  },
+  workoutContent: {
+    paddingHorizontal: 0,
+  },
+  workoutName: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    color: '#ffffff',
     marginBottom: 8,
+    paddingHorizontal: 6,
+  },
+  durationIntensityRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    marginBottom: 16,
+    paddingHorizontal: 6,
+  },
+  workoutDuration: {
+    fontSize: 14,
+    color: '#FFD700',
+    fontWeight: '600',
+  },
+  difficultyBadge: {
+    paddingHorizontal: 8,
+    paddingVertical: 4,
+    borderRadius: 8,
+  },
+  difficultyBadgeText: {
+    fontSize: 10,
+    fontWeight: 'bold',
+    color: '#000000',
+  },
+  intensityContainer: {
+    flexDirection: 'row',
+    alignItems: 'flex-start',
+    marginBottom: 12,
+    paddingHorizontal: 12,
+    paddingVertical: 8,
+    backgroundColor: 'rgba(255, 215, 0, 0.1)',
+    borderRadius: 8,
+    borderWidth: 1,
+    borderColor: 'rgba(255, 215, 0, 0.2)',
+    marginHorizontal: 0,
+  },
+  intensityReason: {
+    flex: 1,
+    fontSize: 12,
+    color: 'rgba(255, 255, 255, 0.8)',
+    lineHeight: 16,
+    marginLeft: 8,
+  },
+  workoutDescriptionContainer: {
+    marginBottom: 16,
+    paddingHorizontal: 0,
+  },
+  workoutDescription: {
+    fontSize: 14,
+    color: 'rgba(255, 255, 255, 0.9)',
+    lineHeight: 20,
+    paddingHorizontal: 6,
+  },
+  startWorkoutButton: {
+    backgroundColor: '#FFD700',
+    borderRadius: 12,
+    paddingVertical: 12,
+    paddingHorizontal: 16,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
     shadowColor: '#FFD700',
     shadowOffset: { width: 0, height: 0 },
     shadowOpacity: 0.6,
     shadowRadius: 8,
     elevation: 6,
+    marginHorizontal: 0,
   },
-  progressStepNumber: {
-    fontSize: 14,
+  startWorkoutButtonText: {
+    fontSize: 16,
     fontWeight: 'bold',
     color: '#000000',
+    marginLeft: 8,
   },
-  progressStepText: {
+  dotsContainer: {
+    alignItems: 'center',
+    paddingVertical: 16,
+    paddingHorizontal: 20,
+    backgroundColor: 'rgba(255, 215, 0, 0.05)',
+  },
+  dotsLabel: {
     fontSize: 12,
-    color: 'rgba(255, 255, 255, 0.8)',
-    textAlign: 'center',
+    color: 'rgba(255, 255, 255, 0.6)',
+    marginBottom: 8,
     fontWeight: '500',
-    maxWidth: 80,
   },
-  progressConnector: {
-    width: 30,
-    height: 2,
-    backgroundColor: 'rgba(255, 215, 0, 0.3)',
-    marginHorizontal: 8,
-    marginTop: 16,
-  },
-  scrollView: {
-    flex: 1,
-  },
-  section: {
-    paddingHorizontal: 24,
-    paddingVertical: 24,
-  },
-  equipmentTitle: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    color: '#FFD700',
-    marginBottom: 20,
-    textAlign: 'center',
-  },
-  workoutGrid: {
-    gap: 16,
-  },
-  workoutCard: {
-    backgroundColor: '#111111',
-    borderRadius: 16,
-    borderWidth: 1,
-    borderColor: 'rgba(255, 215, 0, 0.3)',
-    overflow: 'hidden',
+  dotsRow: {
     flexDirection: 'row',
     alignItems: 'center',
   },
-  workoutImage: {
-    width: 80,
-    height: 80,
-    backgroundColor: '#333333',
+  dot: {
+    width: 8,
+    height: 8,
+    borderRadius: 4,
+    backgroundColor: 'rgba(255, 215, 0, 0.3)',
+    marginHorizontal: 4,
   },
-  workoutCardContent: {
-    flex: 1,
-    padding: 16,
-  },
-  workoutName: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    color: '#FFD700',
-    marginBottom: 4,
-  },
-  workoutDuration: {
-    fontSize: 14,
-    color: 'rgba(255, 255, 255, 0.8)',
-    marginBottom: 8,
-  },
-  workoutDescription: {
-    fontSize: 14,
-    color: 'rgba(255, 255, 255, 0.7)',
-    lineHeight: 20,
-  },
-  workoutCardActions: {
-    paddingHorizontal: 16,
-    paddingVertical: 16,
+  activeDot: {
+    backgroundColor: '#FFD700',
+    shadowColor: '#FFD700',
+    shadowOffset: { width: 0, height: 0 },
+    shadowOpacity: 0.6,
+    shadowRadius: 4,
+    elevation: 4,
   },
   noWorkoutsContainer: {
     flex: 1,
-    justifyContent: 'center',
     alignItems: 'center',
-    paddingHorizontal: 40,
+    justifyContent: 'center',
+    paddingVertical: 60,
   },
-  noWorkoutsText: {
-    fontSize: 18,
+  noWorkoutsTitle: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    color: '#FFD700',
+    marginTop: 16,
+    textAlign: 'center',
+  },
+  noWorkoutsSubtitle: {
+    fontSize: 16,
     color: 'rgba(255, 255, 255, 0.7)',
     textAlign: 'center',
-    lineHeight: 24,
+    marginTop: 8,
+    paddingHorizontal: 40,
+    lineHeight: 22,
   },
 });
