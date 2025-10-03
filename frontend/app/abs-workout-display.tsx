@@ -1178,20 +1178,42 @@ export default function AbsWorkoutDisplayScreen() {
     router.back();
   };
 
-  // Create progress bar rows
+  // Create progress bar rows with equipment icons
   const createProgressRows = () => {
-    const steps = [
+    // First row: Mood and Body Part
+    const firstRow = [
       { key: 'mood', icon: 'flame', text: moodTitle },
       { key: 'bodyPart', icon: 'fitness', text: workoutType },
-      { key: 'equipment', icon: 'construct', text: `Equipment (${selectedEquipmentNames.length})` },
+    ];
+
+    // Second row: Selected Equipment with their individual icons
+    const equipmentSteps = [];
+    selectedEquipmentNames.forEach((equipmentName, index) => {
+      const equipmentData = absWorkoutDatabase.find(eq => eq.equipment === equipmentName);
+      if (equipmentData) {
+        equipmentSteps.push({
+          key: `equipment-${index}`,
+          icon: equipmentData.icon,
+          text: equipmentName
+        });
+      }
+    });
+
+    // Third row: Difficulty
+    const thirdRow = [
       { key: 'difficulty', icon: 'speedometer', text: difficulty.charAt(0).toUpperCase() + difficulty.slice(1) },
     ];
 
-    // Group into rows of 4 for chest format
     const rows = [];
-    for (let i = 0; i < steps.length; i += 4) {
-      rows.push(steps.slice(i, i + 4));
+    if (firstRow.length > 0) rows.push(firstRow);
+    if (equipmentSteps.length > 0) {
+      // Split equipment into rows if there are many (max 4 per row)
+      for (let i = 0; i < equipmentSteps.length; i += 4) {
+        rows.push(equipmentSteps.slice(i, i + 4));
+      }
     }
+    if (thirdRow.length > 0) rows.push(thirdRow);
+    
     return rows;
   };
 
