@@ -1503,10 +1503,10 @@ const styles = StyleSheet.create({
     marginBottom: 12,
     paddingHorizontal: 12,
     paddingVertical: 8,
-    backgroundColor: 'rgba(255, 215, 0, 0.1)',
+    backgroundColor: '#FFD700',
     borderRadius: 8,
     borderWidth: 1,
-    borderColor: 'rgba(255, 215, 0, 0.2)',
+    borderColor: '#FFD700',
     marginHorizontal: 0,
   },
   intensityReason: {
