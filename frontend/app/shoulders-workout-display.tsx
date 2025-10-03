@@ -1436,41 +1436,30 @@ const WorkoutCard = ({ equipment, icon, workouts, difficulty, difficultyColor, o
   const [touchStart, setTouchStart] = useState<number | null>(null);
   const [touchEnd, setTouchEnd] = useState<number | null>(null);
 
-  const handleTouchStart = (e: any) => {
-    const touch = e.nativeEvent.touches ? e.nativeEvent.touches[0] : e.nativeEvent;
+  const minSwipeDistance = 50;
+
+  const onTouchStart = (e: any) => {
     setTouchEnd(null);
-    setTouchStart(touch.pageX || touch.clientX);
-    console.log('👆 Touch started at:', touch.pageX || touch.clientX);
+    setTouchStart(e.nativeEvent.touches[0].clientX);
   };
 
-  const handleTouchMove = (e: any) => {
-    const touch = e.nativeEvent.touches ? e.nativeEvent.touches[0] : e.nativeEvent;
-    setTouchEnd(touch.pageX || touch.clientX);
+  const onTouchMove = (e: any) => {
+    setTouchEnd(e.nativeEvent.touches[0].clientX);
   };
 
-  const handleTouchEnd = () => {
+  const onTouchEnd = () => {
     if (!touchStart || !touchEnd) return;
     
     const distance = touchStart - touchEnd;
-    const isLeftSwipe = distance > 50;
-    const isRightSwipe = distance < -50;
-    
-    console.log('🎯 Swipe detected! Distance:', distance);
-    
+    const isLeftSwipe = distance > minSwipeDistance;
+    const isRightSwipe = distance < -minSwipeDistance;
+
     if (isLeftSwipe && currentWorkoutIndex < workouts.length - 1) {
-      const newIndex = currentWorkoutIndex + 1;
-      console.log('👉 Swiped left, changing to workout index:', newIndex);
-      setCurrentWorkoutIndex(newIndex);
+      setCurrentWorkoutIndex(currentWorkoutIndex + 1);
     }
-    
     if (isRightSwipe && currentWorkoutIndex > 0) {
-      const newIndex = currentWorkoutIndex - 1;
-      console.log('👈 Swiped right, changing to workout index:', newIndex);
-      setCurrentWorkoutIndex(newIndex);
+      setCurrentWorkoutIndex(currentWorkoutIndex - 1);
     }
-    
-    setTouchStart(null);
-    setTouchEnd(null);
   };
 
   return (
