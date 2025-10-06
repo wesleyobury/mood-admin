@@ -434,7 +434,7 @@ export default function BodyweightExplosivenessWorkoutsScreen() {
 
         {/* Workout List with Touch Swiping */}
         <View 
-          style={[styles.workoutList, { height: 420 }]}
+          style={[styles.workoutList, { height: 500 }]}
           onTouchStart={onTouchStart}
           onTouchMove={onTouchMove}
           onTouchEnd={onTouchEnd}
