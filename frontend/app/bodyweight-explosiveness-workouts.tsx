@@ -48,9 +48,9 @@ const workoutDatabase: EquipmentWorkouts[] = [
     workouts: {
       beginner: [
         {
-          name: 'Explosive Rope Slams (Intro)',
+          name: 'Explosive Rope Slams',
           duration: '8–10 min',
-          description: 'Short max bursts to learn power and quick resets\nwith braced core mechanics.\n ',
+          description: 'Short max bursts to learn power and quick resets',
           battlePlan: '3 rounds\n• 3 × 8s Max Slams (15s between efforts)\nRest 60s',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Teaches full-body intent with braced core mechanics',
