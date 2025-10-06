@@ -85,13 +85,6 @@ const moodCards: MoodCard[] = [
     gradient: ['#FFD93D', '#FF6B6B'],
   },
   {
-    id: 'light',
-    title: 'I want a light sweat',
-    subtitle: 'Moderate intensity',
-    icon: 'walk',
-    gradient: ['#A8EDEA', '#FED6E3'],
-  },
-  {
     id: 'lazy',
     title: "I'm feeling lazy",
     subtitle: 'Gentle movement',
