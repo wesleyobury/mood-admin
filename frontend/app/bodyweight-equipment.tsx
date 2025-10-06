@@ -145,7 +145,7 @@ export default function BodyweightEquipmentScreen() {
   const [selectedEquipment, setSelectedEquipment] = useState<EquipmentOption[]>([]);
   const [selectedDifficulty, setSelectedDifficulty] = useState<DifficultyLevel | null>(null);
   
-  const moodTitle = params.mood as string || 'I want to build explosiveness';
+  const moodTitle = params.mood as string || 'Build Explosive';
   const workoutType = params.workoutType as string || 'Body Weight';
 
   const handleEquipmentSelect = (equipment: EquipmentOption) => {
