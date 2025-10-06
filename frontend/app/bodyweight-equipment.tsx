@@ -170,16 +170,18 @@ export default function BodyweightEquipmentScreen() {
       console.log('Selected equipment:', selectedEquipment.map(eq => eq.name));
       console.log('Selected difficulty:', selectedDifficulty.title);
       
-      // TODO: Navigate to bodyweight explosiveness workout display
+      // Navigate to bodyweight explosiveness workout display
       const equipmentNames = selectedEquipment.map(eq => eq.name);
       const equipmentNamesString = equipmentNames.join(',');
       
-      // For now, just log - we'll implement the workout display later
-      console.log('Would navigate to workout display with:', {
-        mood: moodTitle,
-        workoutType: workoutType,
-        equipment: equipmentNamesString,
-        difficulty: selectedDifficulty.id
+      router.push({
+        pathname: '/bodyweight-explosiveness-workouts',
+        params: { 
+          mood: moodTitle,
+          workoutType: workoutType,
+          equipment: encodeURIComponent(equipmentNamesString),
+          difficulty: selectedDifficulty.id
+        }
       });
     }
   };
