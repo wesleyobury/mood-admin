@@ -135,6 +135,12 @@ export default function WorkoutsHome() {
         pathname: '/body-parts',
         params: { mood: mood.title }
       });
+    } else if (mood.id === 'explosive') {
+      // Navigate to explosiveness workout type selection
+      router.push({
+        pathname: '/explosiveness-type',
+        params: { mood: mood.title }
+      });
     } else {
       // TODO: Navigate to workout selection based on other moods
       console.log('Navigation for other moods will be implemented later');
