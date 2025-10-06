@@ -78,7 +78,7 @@ export default function ExplosivenessTypeScreen() {
   const params = useLocalSearchParams();
   const insets = useSafeAreaInsets();
   
-  const moodTitle = params.mood as string || 'I want to build explosiveness';
+  const moodTitle = params.mood as string || 'Build Explosive';
 
   const handleExplosivenessTypeSelect = (option: ExplosivenessTypeOption) => {
     console.log('Selected explosiveness type:', option.title, 'for mood:', moodTitle);
