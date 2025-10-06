@@ -3200,6 +3200,19 @@ export default function WorkoutDisplayScreen() {
     }
   };
 
+  // Create progress bar - single row with requested order
+  const createProgressRows = () => {
+    const steps = [
+      { key: 'mood', icon: 'flame', text: moodTitle },
+      { key: 'bodyPart', icon: 'heart', text: workoutType },
+      { key: 'difficulty', icon: 'speedometer', text: difficulty.charAt(0).toUpperCase() + difficulty.slice(1) },
+      { key: 'equipment', icon: 'construct', text: `${selectedEquipmentNames.length} Equipment` },
+    ];
+
+    // Return single row
+    return [steps];
+  };
+
   return (
     <SafeAreaView style={[styles.container, { paddingTop: insets.top }]}>
       {/* Header */}
