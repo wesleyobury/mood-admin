@@ -84,17 +84,14 @@ export default function ExplosivenessTypeScreen() {
     console.log('Selected explosiveness type:', option.title, 'for mood:', moodTitle);
     
     if (option.id === 'bodyweight') {
-      // Navigate to bodyweight explosiveness workout display
+      // Navigate to bodyweight equipment selection
       router.push({
-        pathname: '/bodyweight-explosiveness-display',
+        pathname: '/bodyweight-equipment',
         params: { mood: moodTitle, workoutType: option.title }
       });
     } else if (option.id === 'weight') {
-      // Navigate to weight-based explosiveness workout display
-      router.push({
-        pathname: '/weight-explosiveness-display',
-        params: { mood: moodTitle, workoutType: option.title }
-      });
+      // TODO: Navigate to weight-based equipment selection (will implement next)
+      console.log('Weight-based equipment selection will be implemented next');
     }
   };
 
