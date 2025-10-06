@@ -334,47 +334,45 @@ export default function BodyweightExplosivenessWorkoutsScreen() {
     const [currentWorkoutIndex, setCurrentWorkoutIndex] = useState(0);
     const flatListRef = useRef<FlatList>(null);
 
-    const renderWorkout = ({ item }: { item: Workout }) => (
-      <View style={[styles.workoutItem, { width: width - 48 }]}>
-        {/* Workout Image with Overlay */}
-        <View style={styles.imageContainer}>
+    const renderWorkout = ({ item, index }: { item: Workout; index: number }) => (
+      <View style={[styles.workoutSlide, { width: width - 48 }]}>
+        {/* Workout Image */}
+        <View style={styles.workoutImageContainer}>
           <Image 
-            source={{ uri: item.imageUrl }} 
+            source={{ uri: item.imageUrl }}
             style={styles.workoutImage}
-            onError={() => console.log('Image load error for:', item.imageUrl)}
+            resizeMode="cover"
           />
-          {/* Swipe Indicator */}
+          <View style={styles.imageOverlay} />
           <View style={styles.swipeIndicator}>
-            <Ionicons name="swap-horizontal" size={16} color="#FFD700" />
+            <Ionicons name="swap-horizontal" size={20} color="#FFD700" />
             <Text style={styles.swipeText}>Swipe for more</Text>
           </View>
         </View>
 
         {/* Workout Content */}
         <View style={styles.workoutContent}>
-          {/* Workout Title */}
-          <Text style={styles.workoutTitle}>{item.name}</Text>
+          {/* Workout Name */}
+          <Text style={styles.workoutName}>{item.name}</Text>
           
-          {/* Duration */}
-          <Text style={styles.workoutDuration}>{item.duration}</Text>
-
-          {/* Intensity Badge */}
-          <View style={styles.intensityBadge}>
-            <Text style={styles.intensityText}>
-              {difficulty.toUpperCase()}
-            </Text>
-          </View>
-
-          {/* Intensity Reasoning with Icon */}
-          <View style={styles.intensityReasonContainer}>
-            <View style={styles.infoIconContainer}>
-              <Ionicons name="information-circle" size={16} color="#FFD700" />
+          {/* Duration and Intensity on same line */}
+          <View style={styles.durationIntensityRow}>
+            <Text style={styles.workoutDuration}>{item.duration}</Text>
+            <View style={[styles.difficultyBadge, { backgroundColor: '#FFD700' }]}>
+              <Text style={styles.difficultyBadgeText}>{difficulty.toUpperCase()}</Text>
             </View>
-            <Text style={styles.intensityReasonText}>{item.intensityReason}</Text>
           </View>
 
-          {/* Workout Summary */}
-          <Text style={styles.workoutSummary}>{item.description}</Text>
+          {/* Intensity Reason */}
+          <View style={styles.intensityContainer}>
+            <Ionicons name="information-circle" size={16} color="#FFD700" />
+            <Text style={styles.intensityReason}>{item.intensityReason}</Text>
+          </View>
+
+          {/* Workout Description */}
+          <View style={styles.workoutDescriptionContainer}>
+            <Text style={styles.workoutDescription}>{item.description}</Text>
+          </View>
 
           {/* Start Workout Button */}
           <TouchableOpacity 
