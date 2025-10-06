@@ -3366,9 +3366,13 @@ const styles = StyleSheet.create({
     paddingHorizontal: 8,
   },
   progressContent: {
+    alignItems: 'center',
+  },
+  progressRow: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
+    marginBottom: 12,
     flexWrap: 'wrap',
   },
   scrollView: {
