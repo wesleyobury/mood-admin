@@ -69,6 +69,18 @@ frontend:
         agent: "main"
         comment: "Frontend feature implemented but not tested by testing agent"
 
+  - task: "Explosiveness Workout Path Implementation"
+    implemented: true
+    working: "NA"
+    file: "frontend/app/explosiveness-type.tsx, frontend/app/bodyweight-explosiveness-display.tsx, frontend/app/weight-explosiveness-display.tsx"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: true
+    status_history:
+      - working: "NA"
+        agent: "main"
+        comment: "Implemented complete explosiveness workout path with bodyweight and weight-based options. Removed 'I want a light sweat' mood card as requested."
+
 metadata:
   created_by: "testing_agent"
   version: "1.0"
