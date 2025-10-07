@@ -770,10 +770,10 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Push Pull Shuttle',
           duration: '12–16 min',
-          description: 'Shuttle changes with quick re-acceleration timing',
+          description: 'Direction shuttle changes with quick re-acceleration timing control',
           battlePlan: '5 rounds\n• 10m Push → 10m Pull → 10m Push\nRest 120s',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Fast transitions challenge loaded agility',
+          intensityReason: 'Fast directional transitions challenge loaded agility and control',
           moodTips: [
             {
               icon: 'footsteps',
