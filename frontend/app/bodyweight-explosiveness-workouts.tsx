@@ -522,7 +522,7 @@ export default function BodyweightExplosivenessWorkoutsScreen() {
         </View>
       </View>
 
-      <ScrollView style={styles.scrollView} showsVerticalScrollIndicator={false}>
+      <ScrollView style={styles.scrollView} showsVerticalScrollIndicator={false} contentContainerStyle={styles.scrollContent}>
         {/* No Workouts Message */}
         {uniqueUserWorkouts.length === 0 && (
           <View style={styles.noWorkoutsContainer}>
