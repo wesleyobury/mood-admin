@@ -70,10 +70,10 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Alternating Waves',
           duration: '8–10 min',
-          description: 'Fast arms and knees groove efficient, elastic cadence',
+          description: 'Fast alternating arms with high knees build efficient elastic rhythm',
           battlePlan: '4 rounds\n• 15s Alternating Waves\n• 10s In-place High Knees\nRest 45–60s',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'High-knee waves build arm speed, posture, and rhythm',
+          intensityReason: 'High-knee wave combo builds explosive arm speed and postural control',
           moodTips: [
             {
               icon: 'walk',
