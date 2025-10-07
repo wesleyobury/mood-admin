@@ -434,10 +434,10 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Chest Pass to Wall',
           duration: '8–10 min',
-          description: 'Step, snap wrists, receive softly, repeat quickly',
+          description: 'Step forward, snap wrists through, receive softly, repeat quickly',
           battlePlan: '4 rounds\n• 8–10 Chest Passes (medium ball)\nRest 45–60s',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Linear throws teach timing and trunk stiffness',
+          intensityReason: 'Linear throw patterns teach explosive timing and core stiffness',
           moodTips: [
             {
               icon: 'walk',
