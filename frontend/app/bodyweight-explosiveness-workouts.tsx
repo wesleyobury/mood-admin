@@ -1030,10 +1030,10 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Sandbag Clean',
           duration: '8–10 min',
-          description: 'Hip drive to front rack with quick elbows up',
+          description: 'Drive hips explosively to front rack position with quick high elbow turnover',
           battlePlan: '3 rounds\n• 6–8 Cleans\nRest 75s',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Clean turnover teaches fast, high catch path',
+          intensityReason: 'Clean turnover develops fast elbow timing and explosive catch positioning',
           moodTips: [
             {
               icon: 'hand-right',
