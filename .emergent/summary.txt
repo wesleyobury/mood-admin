@@ -1,56 +1,58 @@
 <analysis>
-The trajectory chronicles the AI engineer's work, initially summarizing previous tasks on Legs and Abs workout paths, noting  achieved complete swipe functionality. The primary user request (Chat Message 5) was to extend this bidirectional swipe and clickable dot functionality to *all* workout cards, prioritizing muscle gainer then sweat paths. The AI meticulously analyzed relevant files, confirming  as the functional benchmark with  and programmatic scrolling. Subsequently, the engineer implemented -based swipe functionality across most  files. A notable deviation was , which retained its  while gaining clickable dots. Finally, a user request (Chat Message 173, 204) emerged to standardize progress bars across muscle gainer and i want to sweat paths to a single-row format, which the AI completed by modifying several files.
+The trajectory details the AI engineer's work on an Expo mobile application, initially addressing swipe functionality and progress bar standardization from previous tasks. The primary focus then shifted to implementing a new Build Explosiveness workout path. This involved removing an existing mood card, creating new selection screens, and developing equipment-specific workout displays (). The AI meticulously copied and adapted UI components from  to create swipeable workout cards and guidance screens. Significant effort was dedicated to precisely matching design specifications from reference screenshots, including card dimensions, text styles, gradients, button positioning, and padding. The AI also managed extensive data integration, populating the new workout path with detailed routines for multiple equipment types (Battle Ropes, Plyometric Box, Medicine Ball, Sled/Prowler, Kettlebell, Sandbag, Bodyweight), and subsequently updated all workout summaries and intensity reasoning based on explicit user feedback. Throughout, the AI prioritized exact UI/UX replication and data accuracy through iterative refinement.
 </analysis>
 
 <product_requirements>
-The initial project focused on completing the Legs workout path, followed by building the Abs workout path. Key requirements for Abs included: creating  with specific equipment and intensity selection; implementing comprehensive hardcoded workout data; exact UI/UX replication of the Chest path in ; reordering the progress bar to a single row (mood, body part, intensity, equipment count); implementing bidirectional swiping and clickable progress dots; and ensuring visual consistency like golden difficulty badges.
+The application provides workout guidance in a native-feeling Expo mobile app. Initial work included completing Legs and Abs workout paths. Key Abs requirements involved creating  for selection, hardcoded workout data, UI/UX replication of Chest path, a single-row progress bar (mood, body part, intensity, equipment), bidirectional swiping, and clickable dots.
 
-The most recent product requirements are:
-1.  Extend the complete bidirectional swipe functionality with clickable dots (as implemented in ) to *all* other workout cards within the muscle gainer and i want to sweat paths, prioritizing muscle gainer first.
-2.  Standardize the progress bars in muscle gainer paths (arms, back, chest, shoulders) and the i want to sweat path to a single-row format (mood card, muscle group, intensity level, # of equipment selected), mirroring the Abs path.
+Recent explicit requirements:
+1.  Extend bidirectional swipe and clickable dots (from ) to *all* other workout cards in muscle gainer and i want to sweat paths.
+2.  Standardize progress bars in muscle gainer and i want to sweat paths to a single-row format, mirroring Abs.
+3.  **New Feature: Build Explosiveness Path:**
+    -   Remove I want a light sweat mood card.
+    -   Create a Build Explosiveness entry from the home screen.
+    -   Duplicate workout type selection (from I want to sweat) for Explosiveness, with Body weight and Weight based options.
+    -   For Body weight, copy  for equipment selection (Battle Ropes, Plyo Box, Bodyweight Only, Med Ball, Sled, Kettlebell, Sandbag).
+    -   Implement Your Workouts screen (e.g., Battle Ropes) identical to I want to sweat workout cards (format, layout, height, photos, fonts, gradients, button, padding, borders).
+    -   Ensure 3 swipeable workout cards per intensity level per equipment type.
+    -   Implement comprehensive hardcoded workout data (titles, duration, reasoning, summaries, tips, plans) for all explosiveness equipment types, with precise text and formatting.
+    -   Standardize mood card/header text to Build Explosive.
 </product_requirements>
 
 <key_technical_concepts>
 -   **Expo File-Based Routing:**  for screen navigation.
--   **React Native Components:**  for performant lists, , , , .
--   **State & Refs:** ,  for component state and direct element access.
--   **Interactive UI:**  and  with  for carousels and programmatic scrolling.
--   **Gesture Handling:**  for custom swipe interactions (pre-existing in ).
+-   **React Native UI:**  for performant, swipeable carousels (, ), , , , , .
+-   **State & Refs:**  for component state,  for programmatic  scrolling.
+-   **Styling:**  for consistent UI element styling using Flexbox.
 </key_technical_concepts>
 
 <code_architecture>
 
 
 -   ****:
-    -   **Importance:** Core screen for Abs workouts. Served as the reference for  based bidirectional swiping, clickable dots, and the single-row progress bar format.
-    -   **Summary of Changes:** No new modifications within this trajectory, primarily referenced.
+    -   **Importance:** The primary home screen displaying workout path entry points.
+    -   **Summary of Changes:** Removed the i want a light sweat mood card and updated navigation to include the new Build Explosiveness path, directing to .
 -   ****:
-    -   **Importance:** Displays Chest workouts, previously a design template.
-    -   **Summary of Changes:** Updated to utilize  for programmatic bidirectional swiping and clickable dots. Its progress bar was refactored to a single row (mood, body part, intensity, equipment count) to match .
+    -   **Importance:** Reference screen for equipment and intensity selection.
+    -   **Summary of Changes:** Used as a structural template for .
 -   ****:
-    -   **Importance:** Displays Back workouts.
-    -   **Summary of Changes:** Modified to use  for programmatic bidirectional swiping and clickable dots within its  component. Its progress bar was refactored to a single row, matching .
+    -   **Importance:** Defines the layout for workout type selection screens.
+    -   **Summary of Changes:** Served as a reference for creating .
 -   ****:
-    -   **Importance:** Displays Shoulder workouts.
-    -   **Summary of Changes:** Its  component was updated to use  for programmatic bidirectional swiping and clickable dots. Its progress bar was refactored to a single row, matching .
+    -   **Importance:** Generic workout display, serving as the benchmark for UI/UX (swipeable cards, progress bar, styling).
+    -   **Summary of Changes:** Heavily referenced for replicating card styling, layout, spacing, and FlatList implementation in . No direct modifications in this trajectory.
 -   ****:
-    -   **Importance:** Displays Biceps workouts.
-    -   **Summary of Changes:** Rewritten to incorporate  for programmatic bidirectional swiping and clickable dots within its  component. Its progress bar was refactored to a single row, matching .
+    -   **Importance:** New screen for selecting Body weight or Weight based within the Build Explosiveness path.
+    -   **Summary of Changes:** Created to mimic  structure. Initial routes to placeholders were updated to navigate to . The progress bar/header mood text was set to Build Explosive.
 -   ****:
-    -   **Importance:** Displays Triceps workouts.
-    -   **Summary of Changes:** Updated to use  for programmatic bidirectional swiping and clickable dots. Its progress bar was refactored to a single row, matching .
+    -   **Importance:** New equipment selection screen for the Body weight explosiveness path.
+    -   **Summary of Changes:** Duplicated from , updated with specific explosiveness equipment. Routes to . Mood text updated to Build Explosive.
 -   ****:
-    -   **Importance:** Handles compound workout displays.
-    -   **Summary of Changes:** Updated to use  for programmatic bidirectional swiping and clickable dots within its  component structure.
--   ****:
-    -   **Importance:** Displays Legs workout routines. Uses .
-    -   **Summary of Changes:**  import was added. Clickable progress dots and their styles were added next to the existing 1/X indicator, while retaining its  and  based swipe functionality.
--   ****:
-    -   **Importance:** Displays workouts for adjustable bench.
-    -   **Summary of Changes:** Updated to include  and programmatic bidirectional swiping and clickable dots.
--   ****:
-    -   **Importance:** Generic display for I want to sweat path (cardio/weight equipment).
-    -   **Summary of Changes:** Updated its  component to use  for programmatic bidirectional swiping and clickable dots. Its progress bar was refactored to a single row (mood card, workout type, intensity level, equipment count), and the  function and  style were added.
+    -   **Importance:** Displays actual workout cards for Body weight explosiveness, featuring swipeable content and detailed workout data.
+    -   **Summary of Changes:** Created by adapting 's structure. Extensive styling adjustments were made to precisely match reference images for card height, fonts, gradients, button placement, and overall padding.  with  replaced conflicting margins. The mood text was consistently set to Build Explosive. Loaded with detailed hardcoded workout data for Battle Ropes, Plyometric Box, Medicine Ball, Sled/Prowler, Kettlebell, Sandbag, and Bodyweight, organized by difficulty. All 54 workout titles, intensity reasoning, and workout summaries were comprehensively updated to user specifications.
+-   ** & **:
+    -   **Importance:** Temporary placeholder screens for explosiveness workouts.
+    -   **Summary of Changes:** Created, then deleted after the structured equipment flow was implemented.
 </code_architecture>
 
 <pending_tasks>
@@ -58,11 +60,20 @@ The most recent product requirements are:
 </pending_tasks>
 
 <current_work>
-The AI engineer has just completed the two main user-requested tasks.
-First, the complete bidirectional swipe functionality with clickable dots (as implemented in ) has been extended to *all* other workout cards. This involved updating , , , , , , , and  to use  with  for programmatic scrolling. For , clickable dots were added while preserving its existing  based swipe.
-Second, the progress bars in , , , , , and  (for the I want to sweat path) have been standardized to a single-row format displaying mood, body part/workout type, intensity, and equipment count, consistent with . The  function and necessary styles were integrated where required. The frontend service was restarted after the final changes ().
+The AI engineer has just completed a major phase of implementing the Build Explosiveness workout path for the Body weight category. This involved replicating a complex UI/UX from existing workout paths and integrating extensive, precise workout data.
+
+Specifically, the work involved:
+1.  **Navigation and Entry Points:** The home screen () was updated to remove the i want a light sweat mood card and add an entry for Build Explosiveness. A new screen, , was created for selecting Body weight or Weight based training, and its mood text was standardized to Build Explosive.
+2.  **Equipment Selection:**  was created, mirroring the  structure, but configured with seven specific explosiveness equipment types (Battle Ropes, Plyo Box, Bodyweight Only, Med Ball, Sled, Kettlebell, Sandbag). This screen also displays Build Explosive for mood text.
+3.  **Workout Display ():** This is the most complex component recently worked on. It was developed based on , featuring  for swipeable workout cards.
+    -   **Styling & Layout:** Iterative adjustments were made to achieve exact visual consistency with the I want to sweat path. This included precise card height, photo dimensions, font styles, gradients, button positioning, borders, and padding. Conflicting margins on workout cards were resolved by implementing a  with appropriate  padding.
+    -   **Button & Spacing:** The 's vertical positioning and padding were fine-tuned by adding  and  to the button itself, and  to the , ensuring it matched the reference UI.
+    -   **Data Integration:** All 54 workouts across the 7 bodyweight explosiveness equipment types (Beginner, Intermediate, Advanced) were integrated with their detailed titles, estimated durations, intensity reasoning, workout summaries, MOOD tips, and Battle Plans.
+    -   **Data Correction:** The most immediate preceding task involved a comprehensive update of *all* intensity reasoning and workout summaries for these 54 workouts, as well as refining workout titles (e.g., removing intro) and adjusting specific Battle Plans according to user feedback.
+
+The bodyweight path for Build Explosiveness is now fully functional, visually consistent, and populated with corrected, detailed workout data.
 </current_work>
 
 <optional_next_step>
-Inform the user that all requested changes have been implemented and await their testing and feedback.
+Implement the weight based explosiveness workout path, starting with its equipment selection and workout display screens.
 </optional_next_step>
