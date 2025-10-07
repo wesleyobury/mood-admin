@@ -366,10 +366,10 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Weighted Box Jumps',
           duration: '12–14 min',
-          description: 'Light DBs or vest; jump fast to moderate-high box',
+          description: 'Light dumbbells or vest; jump explosively to moderate-high box',
           battlePlan: '5 rounds\n• 6–8 Weighted Box Jumps\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Small load increases power under landing control',
+          intensityReason: 'Small load increases power demands under controlled landing stress',
           moodTips: [
             {
               icon: 'flash',
