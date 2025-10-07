@@ -858,10 +858,10 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'KB Clean',
           duration: '8–10 min',
-          description: 'Close zip, hip pop, quiet catch in front rack',
+          description: 'Close zip path, explosive hip pop, quiet catch in front rack',
           battlePlan: '3 rounds\n• 6 per side Cleans\nRest 75s',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Clean path teaches rack timing and turnover',
+          intensityReason: 'Clean movement path teaches explosive rack timing and turnover',
           moodTips: [
             {
               icon: 'fitness',
