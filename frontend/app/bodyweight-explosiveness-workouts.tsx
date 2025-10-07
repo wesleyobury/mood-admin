@@ -262,10 +262,10 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Low Box Jumps',
           duration: '8–10 min',
-          description: 'Jump up, hold two seconds, train calm deceleration',
+          description: 'Jump up confidently, hold two seconds, train calm deceleration',
           battlePlan: '3 rounds\n• 5 Box Jumps (stick 2s)\nRest 60s',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Emphasizes landing quality and alignment skills',
+          intensityReason: 'Emphasizes safe landing quality and proper joint alignment skills',
           moodTips: [
             {
               icon: 'fitness',
