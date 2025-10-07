@@ -549,7 +549,6 @@ export default function BodyweightExplosivenessWorkoutsScreen() {
                 workouts={workoutsForDifficulty}
                 difficulty={difficulty}
               />
-            </View>
           );
         })}
       </ScrollView>
