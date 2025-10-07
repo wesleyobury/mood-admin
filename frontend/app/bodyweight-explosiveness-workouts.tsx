@@ -644,6 +644,10 @@ const styles = StyleSheet.create({
   scrollView: {
     flex: 1,
   },
+  scrollContent: {
+    padding: 24,
+    paddingBottom: 100,
+  },
   workoutCardContainer: {
     marginBottom: 24,
   },
