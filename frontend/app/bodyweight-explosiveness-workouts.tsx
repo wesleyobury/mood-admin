@@ -1092,10 +1092,10 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Clean to Jump Squat',
           duration: '10–12 min',
-          description: 'Clean, safely drop bag, quick soft bodyweight jump',
+          description: 'Clean bag, safely drop to ground, then perform quick soft bodyweight jumps',
           battlePlan: '4 rounds\n• 5 Cleans\n• 4 Jump Squats\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Clean primes vertical jump for better output',
+          intensityReason: 'Clean primes neuromuscular system for vertical jump with better power output',
           moodTips: [
             {
               icon: 'bag',
