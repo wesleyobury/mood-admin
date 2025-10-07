@@ -542,8 +542,8 @@ export default function BodyweightExplosivenessWorkoutsScreen() {
           const workoutsForDifficulty = workoutItem.workouts[difficulty as keyof typeof workoutItem.workouts] || [];
           
           return (
-            <View key={workoutItem.equipment} style={styles.workoutCardContainer}>
-              <WorkoutCard
+            <WorkoutCard
+              key={workoutItem.equipment}
                 equipment={workoutItem.equipment}
                 icon={workoutItem.icon}
                 workouts={workoutsForDifficulty}
