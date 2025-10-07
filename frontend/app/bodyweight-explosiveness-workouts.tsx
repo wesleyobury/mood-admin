@@ -646,10 +646,10 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Backward Drags',
           duration: '8–10 min',
-          description: 'Quick small steps back with tall posture',
+          description: 'Quick small backward steps maintaining tall upright posture',
           battlePlan: '3 rounds\n• 12–15m Backward Drag (light)\nRest 60–75s',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Quad-focused drags build decel and drive',
+          intensityReason: 'Quad-focused drag movement builds deceleration and drive strength',
           moodTips: [
             {
               icon: 'body',
