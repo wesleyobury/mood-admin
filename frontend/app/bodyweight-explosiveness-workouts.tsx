@@ -647,11 +647,7 @@ const styles = StyleSheet.create({
     padding: 24,
     paddingBottom: 100,
   },
-  workoutCardContainer: {
-    marginBottom: 24,
-  },
   workoutCard: {
-    marginHorizontal: 24,
     backgroundColor: '#111111',
     borderRadius: 20,
     borderWidth: 2,
@@ -662,6 +658,7 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.3,
     shadowRadius: 15,
     elevation: 8,
+    marginBottom: 24,
   },
   equipmentHeader: {
     flexDirection: 'row',
