@@ -578,10 +578,10 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Slam Cluster Density',
           duration: '12–14 min',
-          description: 'Short bursts separated by micro-rests stay crisp',
+          description: 'Short explosive bursts separated by micro-rests to maintain crisp quality',
           battlePlan: '4 rounds\n• Cluster: 4 Slams, 12s rest, 4 Slams\nRest 120s',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Cluster design sustains top-quality outputs',
+          intensityReason: 'Cluster training design sustains high-quality explosive outputs',
           moodTips: [
             {
               icon: 'speedometer',
