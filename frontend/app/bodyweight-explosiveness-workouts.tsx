@@ -386,10 +386,10 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Depth Drop Triple',
           duration: '12–14 min',
-          description: 'Drop, rebound on floor, then box with quick rhythm',
+          description: 'Drop down, rebound on floor, then jump to box with quick rhythm',
           battlePlan: '5 rounds\n• Triplet: 1 Depth Drop → 1 Floor Rebound → 1 Box Jump\n• Repeat 2 triplets/round (6 jumps)\nRest 120s',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Multi-contact series develops elastic stiffness',
+          intensityReason: 'Multi-contact jump series develops reactive elastic stiffness',
           moodTips: [
             {
               icon: 'flash',
