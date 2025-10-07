@@ -880,10 +880,10 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'KB Swing EMOM',
           duration: '10–12 min',
-          description: 'Short consistent bursts maintain quality outputs',
+          description: 'Short consistent bursts every minute maintain explosive quality outputs',
           battlePlan: 'EMOM 10 min\n• 12 Swings each minute',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'On-the-minute sets sharpen sustainable power',
+          intensityReason: 'On-the-minute training sets sharpen sustainable explosive power',
           moodTips: [
             {
               icon: 'fitness',
