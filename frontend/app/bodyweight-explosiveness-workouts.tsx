@@ -406,10 +406,10 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Bounds + Weighted Finish',
           duration: '12–16 min',
-          description: 'Continuous bounds followed by crisp weighted steps',
+          description: 'Continuous box bounds followed immediately by crisp weighted steps',
           battlePlan: '4 rounds\n• 8–10 Continuous Box Bounds (no full reset)\n• Immediately 6 Weighted Step-Up Pops (3/leg)\nRest 120s',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Rhythm bounds then loaded pops tax endurance',
+          intensityReason: 'Rhythm bounds then loaded pops challenge explosive power endurance',
           moodTips: [
             {
               icon: 'basketball',
