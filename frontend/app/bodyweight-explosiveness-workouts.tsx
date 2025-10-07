@@ -982,10 +982,10 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Snatch + Broad Jump',
           duration: '12–16 min',
-          description: 'Snatch reps then stick broad jumps for distance',
+          description: 'Explosive snatch reps then stick broad jumps for max distance',
           battlePlan: '4 rounds\n• 8 per side Snatches\n• 3 Broad Jumps (stick 2s)\nRest 150s',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Overhead power primes horizontal explosion',
+          intensityReason: 'Overhead explosive power primes horizontal jumping explosion',
           moodTips: [
             {
               icon: 'fitness',
