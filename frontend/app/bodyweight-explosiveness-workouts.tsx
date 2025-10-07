@@ -474,10 +474,10 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Short Rotational Toss',
           duration: '8–10 min',
-          description: 'Quick hip lead into wall with controlled rebound',
+          description: 'Quick hip lead rotation into wall with controlled ball rebound',
           battlePlan: '3 rounds\n• 6–8 per side Short Tosses\nRest 60s',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Compact rotation links hips, core, and release',
+          intensityReason: 'Compact rotational movement links hips, core, and release timing',
           moodTips: [
             {
               icon: 'footsteps',
