@@ -242,10 +242,10 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Step-Up Pops',
           duration: '8–10 min',
-          description: 'Fast step, brief float, and soft, balanced landing',
+          description: 'Fast step drive, brief float phase, and soft balanced landing',
           battlePlan: '3 rounds\n• 6 per leg Step-Up Pops (low box)\nRest 60s',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Low-impact vertical force with precise control',
+          intensityReason: 'Low-impact vertical force development with precise movement control',
           moodTips: [
             {
               icon: 'trending-up',
