@@ -70,10 +70,10 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Alternating Waves',
           duration: '8–10 min',
-          description: 'Fast alternating arms with light athletic footwork',
+          description: 'Fast arms and knees groove efficient, elastic cadence',
           battlePlan: '4 rounds\n• 15s Alternating Waves\n• 10s In-place High Knees\nRest 45–60s',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Rhythm waves build speed endurance and posture',
+          intensityReason: 'High-knee waves build arm speed, posture, and rhythm',
           moodTips: [
             {
               icon: 'walk',
@@ -90,10 +90,10 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Side-to-Side Waves',
           duration: '8–10 min',
-          description: 'Hip shift drives lateral rope hits without twisting',
+          description: 'Hip shifts drive crisp lateral hits without trunk twist',
           battlePlan: '3 rounds\n• 12s Side-to-Side Waves\nRest 60s',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Trains frontal-plane power with torso stability',
+          intensityReason: 'Lateral strikes train frontal-plane control and power',
           moodTips: [
             {
               icon: 'swap-horizontal',
@@ -112,10 +112,10 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Slam + Reactive Drop Squats',
           duration: '10–12 min',
-          description: 'Learn decel-then-explode with quiet, fast contacts',
+          description: 'Quick catches teach fast elastic rebound with control',
           battlePlan: '4 rounds\n• 10 Hard Slams\n• 4 Reactive Drop Squats (stick 1s, then pop)\nRest 75s',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Pairing slam to quick drop improves reactivity',
+          intensityReason: 'Slam-to-drop pairing builds reactivity and decel skill',
           moodTips: [
             {
               icon: 'fitness',
@@ -132,10 +132,10 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Alternating Waves + Bounce Steps',
           duration: '10–12 min',
-          description: 'Light pogo-style rhythm paired with fast waves',
+          description: 'Light bounce steps keep cadence high and waves crisp',
           battlePlan: '4 rounds\n• 20s Alternating Waves + Bounce Steps\nRest 75s',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Foot rhythm improves stiffness and arm speed',
+          intensityReason: 'Pogo foot rhythm elevates stiffness and arm velocity',
           moodTips: [
             {
               icon: 'basketball',
@@ -152,10 +152,10 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Hand-Over-Hand Rope Pull',
           duration: '10–12 min',
-          description: 'Seated/low stance pull with plate/anchor resistance',
+          description: 'Low stance, quick re-grips, constant sled tension path',
           battlePlan: '3 rounds\n• 1 × 20–25m Weighted Rope Pull (hand-over-hand)\n• 10s Easy Waves reset\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Horizontal pulling power builds acceleration force',
+          intensityReason: 'Heavy horizontal pulls build start-phase force fast',
           moodTips: [
             {
               icon: 'body',
@@ -174,10 +174,10 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Max Slam Density',
           duration: '12–14 min',
-          description: 'Short max efforts with tight rests to sustain speed',
+          description: 'Repeat max slams while preserving height and tempo',
           battlePlan: '5 rounds\n• 12s Max Slams\nRest 18s\nRepeat 2 efforts per round (total 10 max efforts)',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'High-density power repeats stress peak output',
+          intensityReason: 'Short bursts with tight rests sustain top power',
           moodTips: [
             {
               icon: 'speedometer',
@@ -194,10 +194,10 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Side-to-Side Wave Clusters',
           duration: '12–14 min',
-          description: 'Crisp lateral hits in short clusters sustain quality',
+          description: 'Crisp lateral hits maintained across short clusters',
           battlePlan: '4 rounds\n• Cluster: 10s Side-to-Side Waves, 10s rest, 10s Waves\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Frontal-plane endurance at high rope velocity',
+          intensityReason: 'Clusters sharpen lateral velocity under fatigue',
           moodTips: [
             {
               icon: 'body',
@@ -214,10 +214,10 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Heavy Rope Pull + Sprint Contrast',
           duration: '12–16 min',
-          description: 'Load the pattern, then sprint to express speed',
+          description: 'Load the pattern, then sprint tall with knee drive',
           battlePlan: '5 rounds\n• 1 × 20m HEAVY Rope Pull (hand-over-hand to sled)\n• 20m Acceleration Sprint\nRest 120s',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Heavy pull potentiates acceleration mechanics',
+          intensityReason: 'Heavy pulls potentiate acceleration mechanics',
           moodTips: [
             {
               icon: 'barbell',
@@ -242,10 +242,10 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Step-Up Pops',
           duration: '8–10 min',
-          description: 'Fast concentric step, small float, soft landing',
+          description: 'Fast step, brief float, and soft, balanced landing',
           battlePlan: '3 rounds\n• 6 per leg Step-Up Pops (low box)\nRest 60s',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Teaches vertical force with low impact and control',
+          intensityReason: 'Low-impact vertical force with precise control',
           moodTips: [
             {
               icon: 'trending-up',
@@ -262,10 +262,10 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Low Box Jumps',
           duration: '8–10 min',
-          description: 'Jump up and hold 2s to train deceleration',
+          description: 'Jump up, hold two seconds, train calm deceleration',
           battlePlan: '3 rounds\n• 5 Box Jumps (stick 2s)\nRest 60s',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Landing mechanics and alignment come first',
+          intensityReason: 'Emphasizes landing quality and alignment skills',
           moodTips: [
             {
               icon: 'fitness',
@@ -282,10 +282,10 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Depth Step Rebound',
           duration: '8–10 min',
-          description: 'Step off 6–8", instant rebound onto low box',
+          description: 'Step off 6–8", pop to box with minimal contact',
           battlePlan: '3 rounds\n• 3 Depth Step → Rebound to Box (low)\nRest 75s',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Light drop then quick up primes SSC timing',
+          intensityReason: 'Drop then quick rebound primes SSC timing',
           moodTips: [
             {
               icon: 'flash',
@@ -304,10 +304,10 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Box Jump Repeats',
           duration: '10–12 min',
-          description: 'Crisp reps with short resets to keep outputs high',
+          description: 'Crisp jumps with short resets preserve output',
           battlePlan: '4 rounds\n• 6–8 Box Jumps\nRest 75s',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Repeated quality jumps build maintainable power',
+          intensityReason: 'Repeated efforts build maintainable jump power',
           moodTips: [
             {
               icon: 'refresh',
@@ -324,10 +324,10 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Weighted Step-Up Pops',
           duration: '10–12 min',
-          description: 'DBs at sides; quick up; soft land on box',
+          description: 'Dumbbells at sides; quick up; soft land on box',
           battlePlan: '4 rounds\n• 5 per leg Weighted Step-Up Pops\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Light load increases vertical power demands',
+          intensityReason: 'Light load raises concentric demand safely',
           moodTips: [
             {
               icon: 'barbell',
@@ -344,10 +344,10 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Depth Drop Rebound',
           duration: '10–12 min',
-          description: 'Drop, hold 1s, then quick rebound to box',
+          description: 'Drop, hold one second, rebound to box immediately',
           battlePlan: '4 rounds\n• 3 Depth Drop (stick 1s) → Rebound to Box\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Eccentric control then reactive takeoff',
+          intensityReason: 'Eccentric stick then rapid takeoff improves RFD',
           moodTips: [
             {
               icon: 'body',
@@ -366,10 +366,10 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Weighted Box Jumps',
           duration: '12–14 min',
-          description: 'Light DBs or vest; jump to moderate-high box',
+          description: 'Light DBs or vest; jump fast to moderate-high box',
           battlePlan: '5 rounds\n• 6–8 Weighted Box Jumps\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Small load raises concentric demand safely',
+          intensityReason: 'Small load increases power under landing control',
           moodTips: [
             {
               icon: 'flash',
@@ -386,10 +386,10 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Depth Drop Triple',
           duration: '12–14 min',
-          description: 'Drop, floor rebound, then box; repeat quickly',
+          description: 'Drop, rebound on floor, then box with quick rhythm',
           battlePlan: '5 rounds\n• Triplet: 1 Depth Drop → 1 Floor Rebound → 1 Box Jump\n• Repeat 2 triplets/round (6 jumps)\nRest 120s',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Multi-contact series trains stiffness and RFD',
+          intensityReason: 'Multi-contact series develops elastic stiffness',
           moodTips: [
             {
               icon: 'flash',
@@ -406,10 +406,10 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Bounds + Weighted Finish',
           duration: '12–16 min',
-          description: 'Rhythm jumps challenge endurance and posture',
+          description: 'Continuous bounds followed by crisp weighted steps',
           battlePlan: '4 rounds\n• 8–10 Continuous Box Bounds (no full reset)\n• Immediately 6 Weighted Step-Up Pops (3/leg)\nRest 120s',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Repeat jumps then loaded step-up pops to finish',
+          intensityReason: 'Rhythm bounds then loaded pops tax endurance',
           moodTips: [
             {
               icon: 'basketball',
@@ -434,10 +434,10 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Chest Pass to Wall',
           duration: '8–10 min',
-          description: 'Step-throw; receive; repeat with quick cadence',
+          description: 'Step, snap wrists, receive softly, repeat quickly',
           battlePlan: '4 rounds\n• 8–10 Chest Passes (medium ball)\nRest 45–60s',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Linear force with easy catch-reset timing',
+          intensityReason: 'Linear throws teach timing and trunk stiffness',
           moodTips: [
             {
               icon: 'walk',
@@ -454,10 +454,10 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Overhead Slam',
           duration: '8–10 min',
-          description: 'Tall reach to hard slam without spinal flexion',
+          description: 'Tall reach, neutral spine, direct powerful slam',
           battlePlan: '3 rounds\n• 8–10 Overhead Slams\nRest 60s',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Full-body slam builds basic power expression',
+          intensityReason: 'Full-body slam grooves hinge-to-slam linkage',
           moodTips: [
             {
               icon: 'body',
@@ -474,10 +474,10 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Short Rotational Toss',
           duration: '8–10 min',
-          description: 'Quick whip into wall with controlled rebound',
+          description: 'Quick hip lead into wall with controlled rebound',
           battlePlan: '3 rounds\n• 6–8 per side Short Tosses\nRest 60s',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Compact rotation trains hip-to-core linkage',
+          intensityReason: 'Compact rotation links hips, core, and release',
           moodTips: [
             {
               icon: 'footsteps',
@@ -496,10 +496,10 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Scoop Vertical Toss',
           duration: '10–12 min',
-          description: 'Hinge load; triple-extend; toss up high',
+          description: 'Hinge load, tall finish, toss high, safe catch',
           battlePlan: '4 rounds\n• 6–8 Vertical Scoop Tosses\nRest 75s',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Hip extension velocity with ball release timing',
+          intensityReason: 'Hip triple extension with clean release timing',
           moodTips: [
             {
               icon: 'fitness',
@@ -516,10 +516,10 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Full Rotational Throw',
           duration: '10–12 min',
-          description: 'Hip turn to shoulder whip into firm wall',
+          description: 'Load back hip, rotate through, snap into wall',
           battlePlan: '4 rounds\n• 6–8 per side Rotational Throws\nRest 75–90s',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Greater ROM increases side power output',
+          intensityReason: 'Larger ROM increases lateral power transfer',
           moodTips: [
             {
               icon: 'swap-horizontal',
@@ -536,10 +536,10 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Slam + Quick Pick',
           duration: '10–12 min',
-          description: 'Slam then immediate scoop to next slam',
+          description: 'Hard slam, instant scoop, repeat at steady height',
           battlePlan: '4 rounds\n• 8–10 Overhead Slams\n• 8–10 Fast Scoop Resets\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Rapid reset improves repeat power production',
+          intensityReason: 'Rapid resets train repeatable power output',
           moodTips: [
             {
               icon: 'body',
@@ -558,10 +558,10 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Counter-Rotation Heave',
           duration: '12–14 min',
-          description: 'Stretch away; fast unwind; big lateral heave',
+          description: 'Stretch away, unwind fast, heave far with stick',
           battlePlan: '4 rounds\n• 5–6 per side Heaves (mark distance)\nRest 90–120s',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Preload opposite, then explosive side release',
+          intensityReason: 'Preload opposite, then release maximal side power',
           moodTips: [
             {
               icon: 'swap-horizontal',
@@ -578,10 +578,10 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Slam Cluster Density',
           duration: '12–14 min',
-          description: 'Small groups with brief in-cluster rests',
+          description: 'Short bursts separated by micro-rests stay crisp',
           battlePlan: '4 rounds\n• Cluster: 4 Slams, 12s rest, 4 Slams\nRest 120s',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Cluster bursts sustain max output quality',
+          intensityReason: 'Cluster design sustains top-quality outputs',
           moodTips: [
             {
               icon: 'speedometer',
@@ -598,10 +598,10 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Rotational Heave + Stick',
           duration: '12–16 min',
-          description: 'Big heave to distance; freeze posture at end',
+          description: 'Big heave for distance; freeze posture on finish',
           battlePlan: '5 rounds\n• 4–5 per side Heave + Stick (mark best)\nRest 120s',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Max side power plus decel control on finish',
+          intensityReason: 'Max side power plus controlled deceleration',
           moodTips: [
             {
               icon: 'swap-horizontal',
@@ -626,10 +626,10 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Push Starts',
           duration: '8–10 min',
-          description: 'Short 8–10m drives with tall, stiff core',
+          description: 'Short 8–10m drives with stacked, rigid core',
           battlePlan: '4 rounds\n• 8–10m Sled Push (light)\nRest 60–75s',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Teaches angle, stride, and initial acceleration',
+          intensityReason: 'Teaches lean, stride, and first-step power',
           moodTips: [
             {
               icon: 'trending-up',
@@ -646,10 +646,10 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Backward Drags',
           duration: '8–10 min',
-          description: 'Quick steps back with tall posture and tension',
+          description: 'Quick small steps back with tall posture',
           battlePlan: '3 rounds\n• 12–15m Backward Drag (light)\nRest 60–75s',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Quad-dominant decel and knee drive patterning',
+          intensityReason: 'Quad-focused drags build decel and drive',
           moodTips: [
             {
               icon: 'body',
@@ -666,10 +666,10 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Push Turn Pull',
           duration: '8–10 min',
-          description: 'Smooth 180 turn; re-set lean; continue drive',
+          description: 'Smooth 180, re-set lean, continue powerful steps',
           battlePlan: '3 rounds\n• 10m Push → 10m Pull (harness or rope)\nRest 75s',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Direction changes improve re-acceleration skill',
+          intensityReason: 'Direction changes sharpen re-acceleration',
           moodTips: [
             {
               icon: 'footsteps',
@@ -688,10 +688,10 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Sprint Push Repeats',
           duration: '10–12 min',
-          description: 'High-quality efforts with measured rest',
+          description: 'High-quality drives with measured recovery',
           battlePlan: '5 rounds\n• 12–15m Sprint Push (light-moderate)\nRest 75–90s',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Repeated 12–15m drives build acceleration rate',
+          intensityReason: 'Repeated 12–15m efforts build acceleration rate',
           moodTips: [
             {
               icon: 'flash',
@@ -708,10 +708,10 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Harness Pull Accels',
           duration: '10–12 min',
-          description: 'Aggressive steps; constant rope tension forward',
+          description: 'Long pushes, steady lean, rope tension constant',
           battlePlan: '4 rounds\n• 20–25m Harness Pull\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Horizontal pulling increases posterior drive',
+          intensityReason: 'Horizontal pulls increase posterior force',
           moodTips: [
             {
               icon: 'trending-up',
@@ -728,10 +728,10 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Push + Backward Drag',
           duration: '10–12 min',
-          description: 'Balanced pattern for robust acceleration',
+          description: 'Forward push then backward drag with smooth turn',
           battlePlan: '4 rounds\n• 15m Sprint Push\n• 15m Backward Drag\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Posterior then anterior chain contrast pairing',
+          intensityReason: 'Contrast pairing balances front and back chain',
           moodTips: [
             {
               icon: 'body',
@@ -750,10 +750,10 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Wave Starts Cluster',
           duration: '12–16 min',
-          description: 'Micro efforts with micro rest to hone output',
+          description: 'Micro-efforts with micro-rests maintain quality',
           battlePlan: '4 rounds\n• Cluster: 4 × 5m Sled Push, 15s between efforts\nRest 120s between clusters',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Multiple 5m bursts sharpen first-step power',
+          intensityReason: 'Repeated 5m bursts sharpen first-step power',
           moodTips: [
             {
               icon: 'flash',
@@ -770,10 +770,10 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Push Pull Shuttle',
           duration: '12–16 min',
-          description: 'Shuttle changes with quick re-acceleration',
+          description: 'Shuttle changes with quick re-acceleration timing',
           battlePlan: '5 rounds\n• 10m Push → 10m Pull → 10m Push\nRest 120s',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Rapid transitions under load challenge agility',
+          intensityReason: 'Fast transitions challenge loaded agility',
           moodTips: [
             {
               icon: 'footsteps',
@@ -790,10 +790,10 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Flying 20s Contrast',
           duration: '12–16 min',
-          description: 'Light push loads the pattern, then sprint free',
+          description: 'Smooth push followed by tall, fast free sprint',
           battlePlan: '5 rounds\n• 15m Sled Push (light)\n• 20–25m Free Sprint\nRest 150s',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Sled priming then free sprint to express speed',
+          intensityReason: 'Light sled primes then free sprint expresses',
           moodTips: [
             {
               icon: 'car-sport',
@@ -818,10 +818,10 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'KB Swing Hip Snap',
           duration: '8–10 min',
-          description: 'Float bell; arms are hooks; hips drive',
+          description: 'Hips drive; bell floats; arms stay as hooks',
           battlePlan: '4 rounds\n• 12–15 Swings\nRest 60s',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Teaches hinge timing and hip extension velocity',
+          intensityReason: 'Hinge timing builds hip extension velocity',
           moodTips: [
             {
               icon: 'body',
@@ -838,10 +838,10 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Dead-Start Swings',
           duration: '8–10 min',
-          description: 'Hike-pass start; stand tall with fast hips',
+          description: 'Hike pass, tall stand, crisp stop at chest line',
           battlePlan: '3 rounds\n• 6 × 2 Dead-Start Swings\nRest 60–75s',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Reset each rep to reinforce crisp power',
+          intensityReason: 'Dead starts reinforce clean, powerful reps',
           moodTips: [
             {
               icon: 'fitness',
@@ -858,10 +858,10 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'KB Clean',
           duration: '8–10 min',
-          description: 'Tame arc; quiet catch in front rack',
+          description: 'Close zip, hip pop, quiet catch in front rack',
           battlePlan: '3 rounds\n• 6 per side Cleans\nRest 75s',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Clean teaches path, rack, and hip pop timing',
+          intensityReason: 'Clean path teaches rack timing and turnover',
           moodTips: [
             {
               icon: 'fitness',
@@ -880,10 +880,10 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'KB Swing EMOM',
           duration: '10–12 min',
-          description: 'Short bursts on the minute maintain quality',
+          description: 'Short consistent bursts maintain quality outputs',
           battlePlan: 'EMOM 10 min\n• 12 Swings each minute',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Repeated sets sharpen sustainable power rhythm',
+          intensityReason: 'On-the-minute sets sharpen sustainable power',
           moodTips: [
             {
               icon: 'fitness',
@@ -900,10 +900,10 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Clean to Squat Chain',
           duration: '10–12 min',
-          description: 'Pop to rack; descend fast; stand explosively',
+          description: 'Pop to rack, fast drop, explosive stand tall',
           battlePlan: '4 rounds\n• 5 per side Clean → Squat (alt)\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Clean then front squat builds full-chain power',
+          intensityReason: 'Clean-to-squat strengthens full power chain',
           moodTips: [
             {
               icon: 'fitness',
@@ -920,10 +920,10 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'KB Snatch',
           duration: '10–12 min',
-          description: 'Punch through at top; smooth turnover',
+          description: 'High pull, punch through, crisp overhead lockout',
           battlePlan: '4 rounds\n• 6 per side Snatches\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Overhead power with crisp hip snap and pull',
+          intensityReason: 'Overhead hip power with smooth turnover path',
           moodTips: [
             {
               icon: 'trending-up',
@@ -942,10 +942,10 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Heavy Two-Hand Swings',
           duration: '12–14 min',
-          description: 'Big hip snap while controlling arc and posture',
+          description: 'Big hip snap; stable ribs; float to chest height',
           battlePlan: '5 rounds\n• 12 Heavy Swings\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Heavier bell raises output per repetition',
+          intensityReason: 'Heavier bells raise output and demand control',
           moodTips: [
             {
               icon: 'body',
@@ -962,10 +962,10 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Clean to Press Ladder',
           duration: '12–16 min',
-          description: 'Clean to rack; strict press; alternate sides',
+          description: 'Tight rack, strict press, alternate sides cleanly',
           battlePlan: '4 rounds\n• Ladder per side: 3-2-1 Clean + Press\nRest 120s',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Force production into vertical press expression',
+          intensityReason: 'Clean-to-press converts force to vertical work',
           moodTips: [
             {
               icon: 'fitness',
@@ -982,10 +982,10 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Snatch + Broad Jump',
           duration: '12–16 min',
-          description: 'Snatch reps then stick broad jumps',
+          description: 'Snatch reps then stick broad jumps for distance',
           battlePlan: '4 rounds\n• 8 per side Snatches\n• 3 Broad Jumps (stick 2s)\nRest 150s',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Overhead power potentiates horizontal jumping',
+          intensityReason: 'Overhead power primes horizontal explosion',
           moodTips: [
             {
               icon: 'fitness',
@@ -1010,10 +1010,10 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'SB Shouldering',
           duration: '8–10 min',
-          description: 'Scoop close; hip pop to shoulder; stand tall',
+          description: 'Scoop close, hip pop, tall stand with control',
           battlePlan: '3 rounds\n• 5 per side Shouldering (alt)\nRest 75s',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Ground-to-shoulder teaches triple extension',
+          intensityReason: 'Ground-to-shoulder builds triple extension',
           moodTips: [
             {
               icon: 'hand-right',
@@ -1030,10 +1030,10 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Sandbag Clean',
           duration: '8–10 min',
-          description: 'From floor to front rack; quick elbows up',
+          description: 'Hip drive to front rack with quick elbows up',
           battlePlan: '3 rounds\n• 6–8 Cleans\nRest 75s',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Clean path trains fast turnover and catch',
+          intensityReason: 'Clean turnover teaches fast, high catch path',
           moodTips: [
             {
               icon: 'hand-right',
@@ -1050,10 +1050,10 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Short Heave Toss',
           duration: '8–10 min',
-          description: 'Hinge load; heave 2–4m; chase and reset',
+          description: 'Hinge load, launch 2–4m, chase and reset stance',
           battlePlan: '4 rounds\n• 4 Heaves (mark distance)\nRest 60–75s',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Release timing and safe landing control',
+          intensityReason: 'Short heaves build safe release and control',
           moodTips: [
             {
               icon: 'hand-right',
@@ -1072,10 +1072,10 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Alt Shoulders Volume',
           duration: '10–12 min',
-          description: 'Switch shoulders every rep; tight holds',
+          description: 'Switch shoulders each rep with snug, stable holds',
           battlePlan: '4 rounds\n• 6 per side Shouldering (alt)\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Repeated power outputs with symmetry focus',
+          intensityReason: 'Alternating reps build symmetrical power work',
           moodTips: [
             {
               icon: 'fitness',
@@ -1092,10 +1092,10 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Clean to Jump Squat',
           duration: '10–12 min',
-          description: 'Clean, drop bag, quick bodyweight jump',
+          description: 'Clean, safely drop bag, quick soft bodyweight jump',
           battlePlan: '4 rounds\n• 5 Cleans\n• 4 Jump Squats\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Clean primes vertical drive for jump power',
+          intensityReason: 'Clean primes vertical jump for better output',
           moodTips: [
             {
               icon: 'bag',
@@ -1112,10 +1112,10 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Lateral Toss',
           duration: '10–12 min',
-          description: 'Pivot feet; drive hips; release across body',
+          description: 'Pivot feet, drive hips, release across the body',
           battlePlan: '4 rounds\n• 5 per side Tosses (mark distance)\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Frontal-plane power with hip-led rotation',
+          intensityReason: 'Hip-led rotation develops frontal-plane power',
           moodTips: [
             {
               icon: 'hand-right',
@@ -1134,10 +1134,10 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Clean to Thruster',
           duration: '12–16 min',
-          description: 'Front rack drop; explode to press; crisp lockout',
+          description: 'Front rack drop, leg drive, crisp overhead lockout',
           battlePlan: '5 rounds\n• 4 Clean → Thrusters\nRest 120s',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Clean then fast overhead drive full-chain output',
+          intensityReason: 'Clean-to-press ties lower and upper chain',
           moodTips: [
             {
               icon: 'fitness',
@@ -1154,10 +1154,10 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Bear-Hug Loaded Jumps',
           duration: '12–14 min',
-          description: 'Hug bag; small reactive jumps; quiet landings',
+          description: 'Hug bag tight; quick low-amplitude reactive jumps',
           battlePlan: '5 rounds\n• 6–8 Loaded Jumps\nRest 120s',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Light load adds instability to vertical power',
+          intensityReason: 'Light unstable load trains vertical stiffness',
           moodTips: [
             {
               icon: 'bag',
@@ -1174,10 +1174,10 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Heave for Distance',
           duration: '12–16 min',
-          description: 'Big hinge preload; snap tall; launch to ~45°',
+          description: 'Hinge preload, tall snap, launch near 45 degrees',
           battlePlan: '5 rounds\n• 3–4 Heaves (measure best)\nRest 150s',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Max distance throws test timing and intent',
+          intensityReason: 'Max-distance throws challenge timing intent',
           moodTips: [
             {
               icon: 'hand-right',
@@ -1205,7 +1205,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
           description: 'Small amplitude switches with quiet, aligned landings',
           battlePlan: '3 rounds\n• 6–8 per side Split Jumps\nRest 60s',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Teaches switching with reduced ground shock',
+          intensityReason: 'Switch jumps teach stiffness with low shock',
           moodTips: [
             {
               icon: 'walk',
@@ -1222,10 +1222,10 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Squat Pop Stick',
           duration: '8–10 min',
-          description: 'Pop up, hold 2s, stand tall, repeat cleanly',
+          description: 'Pop up, two-second hold, repeat crisp landings',
           battlePlan: '3 rounds\n• 6–8 Squat Pops (stick 2s)\nRest 60s',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Small pop with rigid stick improves deceleration',
+          intensityReason: 'Decel focus improves control and joint position',
           moodTips: [
             {
               icon: 'trending-up',
@@ -1242,10 +1242,10 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Skater Bounds',
           duration: '8–10 min',
-          description: 'Bound side-to-side and hold position',
+          description: 'Side hops with controlled stick and knee track',
           battlePlan: '3 rounds\n• 6–8 per side Skater Bounds (stick 1–2s)\nRest 60–75s',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Lateral hops teach frontal-plane control',
+          intensityReason: 'Lateral bounds build frontal-plane strength',
           moodTips: [
             {
               icon: 'swap-horizontal',
@@ -1264,10 +1264,10 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Burpees',
           duration: '10–12 min',
-          description: 'Plank clean; snap feet in; vertical jump high',
+          description: 'Clean plank, snap in, tall jump with soft land',
           battlePlan: '4 rounds\n• 10–12 Burpees\nRest 75–90s',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Ground-to-air cycle with fast transitions',
+          intensityReason: 'Ground-to-air cycles train fast full-body power',
           moodTips: [
             {
               icon: 'body',
@@ -1284,10 +1284,10 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Broad Jumps',
           duration: '10–12 min',
-          description: 'Max distance with stable landing mechanics',
+          description: 'Big arm swing, hinge load, stick stable landings',
           battlePlan: '4 rounds\n• 5–6 Broad Jumps (stick 2s)\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Horizontal displacement builds hip drive',
+          intensityReason: 'Horizontal jumps build hip drive and projection',
           moodTips: [
             {
               icon: 'fitness',
@@ -1304,10 +1304,10 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Reactive Pogos',
           duration: '10–12 min',
-          description: 'Bouncy hops; minimal contact; even rhythm',
+          description: 'Minimal contact rebounds with quiet mid-foot spring',
           battlePlan: '4 rounds\n• 20s Pogos\nRest 60–75s',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Ankle stiffness and fast ground contacts',
+          intensityReason: 'Ankle pogo hops train stiffness and rhythm',
           moodTips: [
             {
               icon: 'footsteps',
@@ -1326,10 +1326,10 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Depth Jump to Broad',
           duration: '12–16 min',
-          description: 'Off box to floor, instant max broad jump',
+          description: 'Quick floor contact into long, stuck broad jump',
           battlePlan: '5 rounds\n• Cluster: 1 Depth Jump → 1 Broad Jump, 20s rest, repeat once (2 pairings)\nRest 120s between clusters',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Shock load then horizontal explosion',
+          intensityReason: 'Shock drop then horizontal power expression',
           moodTips: [
             {
               icon: 'flash',
@@ -1346,10 +1346,10 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Split Squat Jump Repeats',
           duration: '12–14 min',
-          description: 'High tempo; consistent height; quiet landings',
+          description: 'High tempo jumps with consistent height and quiet land',
           battlePlan: '5 rounds\n• 10–12 per side Split Jumps\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Repeated switches challenge elastic stiffness',
+          intensityReason: 'Repeat switches stress elastic reactivity',
           moodTips: [
             {
               icon: 'flash',
@@ -1366,10 +1366,10 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Burpee Broad Jump',
           duration: '12–16 min',
-          description: 'Burpee pop straight into long broad jump',
+          description: 'Burpee into long broad jump with decisive burst',
           battlePlan: '5 rounds\n• 5 Burpee → Broad Jump\nRest 150s',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Combined ground-to-air and horizontal power',
+          intensityReason: 'Combined cycles train full-body explosive flow',
           moodTips: [
             {
               icon: 'body',
