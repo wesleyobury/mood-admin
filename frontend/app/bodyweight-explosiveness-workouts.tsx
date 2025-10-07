@@ -1366,10 +1366,10 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Burpee Broad Jump',
           duration: '12–16 min',
-          description: 'Burpee into long broad jump with decisive burst',
+          description: 'Complete burpee into long broad jump with decisive explosive burst',
           battlePlan: '5 rounds\n• 5 Burpee → Broad Jump\nRest 150s',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Combined cycles train full-body explosive flow',
+          intensityReason: 'Combined movement cycles train complete full-body explosive flow',
           moodTips: [
             {
               icon: 'body',
