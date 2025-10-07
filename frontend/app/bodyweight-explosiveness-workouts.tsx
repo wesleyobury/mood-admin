@@ -666,10 +666,10 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Push Turn Pull',
           duration: '8–10 min',
-          description: 'Smooth 180, re-set lean, continue powerful steps',
+          description: 'Smooth 180-degree turn, re-set lean angle, continue powerful steps',
           battlePlan: '3 rounds\n• 10m Push → 10m Pull (harness or rope)\nRest 75s',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Direction changes sharpen re-acceleration',
+          intensityReason: 'Direction changes sharpen re-acceleration and movement transition',
           moodTips: [
             {
               icon: 'footsteps',
