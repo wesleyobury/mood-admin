@@ -1326,10 +1326,10 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Depth Jump to Broad',
           duration: '12–16 min',
-          description: 'Quick floor contact into long, stuck broad jump',
+          description: 'Quick reactive floor contact into long, stuck broad jump distance',
           battlePlan: '5 rounds\n• Cluster: 1 Depth Jump → 1 Broad Jump, 20s rest, repeat once (2 pairings)\nRest 120s between clusters',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Shock drop then horizontal power expression',
+          intensityReason: 'Shock absorption drop then explosive horizontal power expression',
           moodTips: [
             {
               icon: 'flash',
