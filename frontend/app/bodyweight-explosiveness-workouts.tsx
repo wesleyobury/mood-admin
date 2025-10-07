@@ -304,10 +304,10 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Box Jump Repeats',
           duration: '10–12 min',
-          description: 'Crisp jumps with short resets preserve output',
+          description: 'Crisp consecutive jumps with short resets to preserve power output',
           battlePlan: '4 rounds\n• 6–8 Box Jumps\nRest 75s',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Repeated efforts build maintainable jump power',
+          intensityReason: 'Repeated jump efforts build sustainable explosive power capacity',
           moodTips: [
             {
               icon: 'refresh',
