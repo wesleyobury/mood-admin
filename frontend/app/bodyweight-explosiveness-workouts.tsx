@@ -496,10 +496,10 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Scoop Vertical Toss',
           duration: '10–12 min',
-          description: 'Hinge load, tall finish, toss high, safe catch',
+          description: 'Hinge load deep, tall finish, toss high, catch safely overhead',
           battlePlan: '4 rounds\n• 6–8 Vertical Scoop Tosses\nRest 75s',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Hip triple extension with clean release timing',
+          intensityReason: 'Hip triple extension movement with clean explosive release timing',
           moodTips: [
             {
               icon: 'fitness',
