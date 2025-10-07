@@ -1284,10 +1284,10 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Broad Jumps',
           duration: '10–12 min',
-          description: 'Big arm swing, hinge load, stick stable landings',
+          description: 'Big explosive arm swing, hinge load deep, stick stable landings',
           battlePlan: '4 rounds\n• 5–6 Broad Jumps (stick 2s)\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Horizontal jumps build hip drive and projection',
+          intensityReason: 'Horizontal jump patterns build explosive hip drive and projection',
           moodTips: [
             {
               icon: 'fitness',
