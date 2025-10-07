@@ -516,7 +516,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Full Rotational Throw',
           duration: '10–12 min',
-          description: 'Load back hip, rotate through, snap into wall',
+          description: 'Load back hip deeply, rotate through core, snap into wall target',
           battlePlan: '4 rounds\n• 6–8 per side Rotational Throws\nRest 75–90s',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Larger ROM increases lateral power transfer',
