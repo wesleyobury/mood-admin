@@ -40,7 +40,7 @@ interface EquipmentWorkouts {
   };
 }
 
-// Battle Ropes workout database with the provided data
+// Explosiveness workout database with all equipment types
 const workoutDatabase: EquipmentWorkouts[] = [
   {
     equipment: 'Battle Ropes',
