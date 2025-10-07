@@ -750,10 +750,10 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Wave Starts Cluster',
           duration: '12–16 min',
-          description: 'Micro-efforts with micro-rests maintain quality',
+          description: 'Micro-efforts with micro-rest intervals to maintain explosive quality',
           battlePlan: '4 rounds\n• Cluster: 4 × 5m Sled Push, 15s between efforts\nRest 120s between clusters',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Repeated 5m bursts sharpen first-step power',
+          intensityReason: 'Repeated 5-meter bursts sharpen explosive first-step power output',
           moodTips: [
             {
               icon: 'flash',
