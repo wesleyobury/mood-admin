@@ -132,10 +132,10 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Alternating Waves + Bounce Steps',
           duration: '10–12 min',
-          description: 'Light bounce steps keep cadence high and waves crisp',
+          description: 'Light bounce steps maintain high cadence while keeping waves crisp',
           battlePlan: '4 rounds\n• 20s Alternating Waves + Bounce Steps\nRest 75s',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Pogo foot rhythm elevates stiffness and arm velocity',
+          intensityReason: 'Pogo foot rhythm enhances stiffness training and arm velocity',
           moodTips: [
             {
               icon: 'basketball',
