@@ -670,7 +670,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'refresh',
               title: 'Keep form crisp',
-              description: 'Keep form crisp under sprinkle; don't chase PR'
+              description: 'Keep form crisp under sprinkle; don\'t chase PR'
             },
             {
               icon: 'leaf',
