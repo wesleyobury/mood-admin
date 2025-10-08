@@ -405,12 +405,12 @@ const styles = StyleSheet.create({
     color: '#000000',
   },
   progressStepText: {
-    fontSize: 11,
+    fontSize: 10,
     color: 'rgba(255, 255, 255, 0.8)',
     textAlign: 'center',
     fontWeight: '500',
-    maxWidth: 80,
-    lineHeight: 13,
+    maxWidth: 70,
+    lineHeight: 12,
   },
   progressConnector: {
     width: 12,
