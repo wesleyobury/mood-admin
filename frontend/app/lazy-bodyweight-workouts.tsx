@@ -431,11 +431,7 @@ export default function LazyBodyweightWorkoutsScreen() {
 
       {/* Progress Bar */}
       <View style={styles.progressContainer}>
-        <ScrollView 
-          horizontal 
-          showsHorizontalScrollIndicator={false}
-          contentContainerStyle={styles.progressContent}
-        >
+        <View style={styles.progressContent}>
           {createProgressRows()[0].map((step, index) => (
             <View key={step.key} style={styles.progressRow}>
               <View style={styles.progressStep}>
@@ -452,7 +448,7 @@ export default function LazyBodyweightWorkoutsScreen() {
               )}
             </View>
           ))}
-        </ScrollView>
+        </View>
       </View>
 
       <ScrollView style={styles.scrollView} showsVerticalScrollIndicator={false}>
