@@ -141,6 +141,12 @@ export default function WorkoutsHome() {
         pathname: '/explosiveness-type',
         params: { mood: mood.title }
       });
+    } else if (mood.id === 'lazy') {
+      // Navigate to lazy training type selection
+      router.push({
+        pathname: '/lazy-training-type',
+        params: { mood: mood.title }
+      });
     } else {
       // TODO: Navigate to workout selection based on other moods
       console.log('Navigation for other moods will be implemented later');
