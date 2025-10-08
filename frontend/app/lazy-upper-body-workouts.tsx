@@ -78,49 +78,221 @@ export default function LazyUpperBodyWorkoutsScreen() {
   const router = useRouter();
   const params = useLocalSearchParams();
   const insets = useSafeAreaInsets();
-  const flatListRef = useRef<FlatList>(null);
-  
-  const [currentWorkoutIndex, setCurrentWorkoutIndex] = useState(0);
   
   const moodTitle = "I'm feeling lazy";
   const workoutType = 'Lift weights';
   const bodyPart = 'Upper body';
-  const difficulty = 'Beginner';
+  const difficulty = 'beginner';
   
-  // Get workout data for the current selection
-  const selectedEquipment = upperBodyWorkoutDatabase[0]; // Assault Bike
-  const workoutList = selectedEquipment.workouts.beginner;
+  // Get workout data
+  const selectedEquipmentNames = ['Assault Bike'];
+  const workoutDatabase = upperBodyWorkoutDatabase;
 
-  const handleWorkoutPress = (workout: Workout) => {
-    console.log('Selected workout:', workout.name);
-    // TODO: Navigate to workout detail or start workout
-    alert(`Starting workout: ${workout.name}`);
+  const handleStartWorkout = (workout: Workout, equipment: string) => {
+    try {
+      console.log('✅ Starting workout navigation with params:', {
+        workoutName: workout.name,
+        equipment: equipment,
+        description: workout.description,
+        battlePlan: workout.battlePlan,
+        duration: workout.duration,
+        difficulty: difficulty,
+        workoutType: workoutType,
+      });
+      
+      router.push({
+        pathname: '/workout-guidance',
+        params: {
+          workoutName: workout.name,
+          equipment: equipment,
+          description: workout.description || '',
+          battlePlan: workout.battlePlan || '',
+          duration: workout.duration || '20 min',
+          difficulty: difficulty,
+          workoutType: workoutType,
+          moodTips: encodeURIComponent(JSON.stringify(workout.moodTips || []))
+        }
+      });
+      
+      console.log('✅ Navigation completed - using simplified parameters');
+    } catch (error) {
+      console.error('❌ Error starting workout:', error);
+    }
+  };
+
+  // Create progress bar - single row with requested order
+  const createProgressRows = () => {
+    const steps = [
+      { key: 'mood', icon: 'bed', text: moodTitle },
+      { key: 'bodyPart', icon: 'barbell', text: workoutType },
+      { key: 'difficulty', icon: 'body', text: bodyPart },
+      { key: 'equipment', icon: 'construct', text: `${selectedEquipmentNames.length} Equipment` },
+    ];
+
+    // Return single row
+    return [steps];
+  };
+
+  // Workout Card Component matching bodyweight explosiveness format exactly
+  const WorkoutCard = ({ equipment, icon, workouts, difficulty }: { 
+    equipment: string; 
+    icon: keyof typeof Ionicons.glyphMap; 
+    workouts: Workout[]; 
+    difficulty: string;
+  }) => {
+    const [currentWorkoutIndex, setCurrentWorkoutIndex] = useState(0);
+    const flatListRef = useRef<FlatList>(null);
+
+    const renderWorkout = ({ item, index }: { item: Workout; index: number }) => (
+      <View style={[styles.workoutSlide, { width: width - 48 }]}>
+        {/* Workout Image */}
+        <View style={styles.workoutImageContainer}>
+          <Image 
+            source={{ uri: item.imageUrl }}
+            style={styles.workoutImage}
+            resizeMode="cover"
+          />
+          <View style={styles.imageOverlay} />
+          <View style={styles.swipeIndicator}>
+            <Ionicons name="swap-horizontal" size={20} color="#FFD700" />
+            <Text style={styles.swipeText}>Swipe for more</Text>
+          </View>
+        </View>
+
+        {/* Workout Content */}
+        <View style={styles.workoutContent}>
+          {/* Workout Name */}
+          <Text style={styles.workoutName}>{item.name}</Text>
+          
+          {/* Duration and Intensity on same line */}
+          <View style={styles.durationIntensityRow}>
+            <Text style={styles.workoutDuration}>{item.duration}</Text>
+            <View style={[styles.difficultyBadge, { backgroundColor: '#FFD700' }]}>
+              <Text style={styles.difficultyBadgeText}>{(difficulty === 'intermediate' ? 'INTERMED.' : difficulty).toUpperCase()}</Text>
+            </View>
+          </View>
+
+          {/* Intensity Reason */}
+          <View style={styles.intensityContainer}>
+            <Text style={styles.intensityReason}>{item.intensityReason}</Text>
+          </View>
+
+          {/* Workout Description */}
+          <Text style={styles.workoutDescription}>{item.description}</Text>
+
+          {/* Start Workout Button */}
+          <TouchableOpacity 
+            style={styles.startWorkoutButton}
+            onPress={() => handleStartWorkout(item, equipment)}
+            activeOpacity={0.8}
+          >
+            <Ionicons name="play" size={20} color="#000000" />
+            <Text style={styles.startWorkoutText}>Start Workout</Text>
+          </TouchableOpacity>
+        </View>
+      </View>
+    );
+
+    // Touch handling for swiping
+    const [touchStart, setTouchStart] = useState<number | null>(null);
+    const [touchEnd, setTouchEnd] = useState<number | null>(null);
+
+    const onTouchStart = (e: any) => {
+      setTouchEnd(null);
+      setTouchStart(e.nativeEvent.pageX);
+    };
+
+    const onTouchMove = (e: any) => {
+      setTouchEnd(e.nativeEvent.pageX);
+    };
+
+    const onTouchEnd = () => {
+      if (!touchStart || !touchEnd) return;
+      
+      const distance = touchStart - touchEnd;
+      const isLeftSwipe = distance > 50;
+      const isRightSwipe = distance < -50;
+      
+      if (isLeftSwipe && currentWorkoutIndex < workouts.length - 1) {
+        setCurrentWorkoutIndex(currentWorkoutIndex + 1);
+      }
+      if (isRightSwipe && currentWorkoutIndex > 0) {
+        setCurrentWorkoutIndex(currentWorkoutIndex - 1);
+      }
+    };
+
+    return (
+      <View style={styles.workoutCard}>
+        {/* Equipment Header */}
+        <View style={styles.equipmentHeader}>
+          <View style={styles.equipmentIconContainer}>
+            <Ionicons name={icon} size={24} color="#FFD700" />
+          </View>
+          <Text style={styles.equipmentName}>{equipment}</Text>
+          <View style={styles.workoutIndicator}>
+            <Text style={styles.workoutCount}>{currentWorkoutIndex + 1}/{workouts.length}</Text>
+          </View>
+        </View>
+
+        {/* Workout List with Touch Swiping */}
+        <View 
+          style={[styles.workoutList, { height: 380 }]}
+          onTouchStart={onTouchStart}
+          onTouchMove={onTouchMove}
+          onTouchEnd={onTouchEnd}
+        >
+          <FlatList
+            ref={flatListRef}
+            data={workouts}
+            renderItem={renderWorkout}
+            horizontal
+            pagingEnabled
+            showsHorizontalScrollIndicator={false}
+            onMomentumScrollEnd={(event) => {
+              const slideSize = width - 48;
+              const index = Math.floor(event.nativeEvent.contentOffset.x / slideSize);
+              setCurrentWorkoutIndex(index);
+            }}
+            initialScrollIndex={currentWorkoutIndex}
+            getItemLayout={(data, index) => ({
+              length: width - 48,
+              offset: (width - 48) * index,
+              index,
+            })}
+            keyExtractor={(item, index) => `${equipment}-${difficulty}-${index}`}
+          />
+        </View>
+
+        {/* Workout Indicator Dots */}
+        <View style={styles.dotsContainer}>
+          <Text style={styles.dotsLabel}>Swipe to explore</Text>
+          <View style={styles.dotsRow}>
+            {workouts.map((_, index) => (
+              <TouchableOpacity
+                key={index}
+                style={[
+                  styles.dot,
+                  index === currentWorkoutIndex && styles.activeDot
+                ]}
+                onPress={() => {
+                  setCurrentWorkoutIndex(index);
+                  if (flatListRef.current) {
+                    flatListRef.current.scrollToIndex({ index, animated: true });
+                  }
+                }}
+              />
+            ))}
+          </View>
+        </View>
+      </View>
+    );
   };
 
   const handleGoBack = () => {
     router.back();
   };
 
-  const onViewableItemsChanged = useRef(({ viewableItems }: any) => {
-    if (viewableItems.length > 0) {
-      setCurrentWorkoutIndex(viewableItems[0].index || 0);
-    }
-  }).current;
-
-  const viewabilityConfig = useRef({
-    itemVisiblePercentThreshold: 50
-  }).current;
-
-  const renderWorkout = ({ item: workout }: { item: Workout }) => {
-    return (
-      <View style={styles.workoutSlide}>
-        <WorkoutCard 
-          workout={workout} 
-          onPress={handleWorkoutPress}
-        />
-      </View>
-    );
-  };
+  const progressRows = createProgressRows();
 
   return (
     <SafeAreaView style={[styles.container, { paddingTop: insets.top }]}>
@@ -141,112 +313,42 @@ export default function LazyUpperBodyWorkoutsScreen() {
 
       {/* Progress Bar */}
       <View style={styles.progressContainer}>
-        <View style={styles.progressContent}>
-          <View style={styles.progressStep}>
-            <View style={styles.progressStepActive}>
-              <Ionicons name="bed" size={12} color="#000000" />
-            </View>
-            <Text style={styles.progressStepText}>Feeling lazy</Text>
+        {progressRows.map((row, rowIndex) => (
+          <View key={rowIndex} style={styles.progressRow}>
+            {row.map((step, stepIndex) => (
+              <React.Fragment key={step.key}>
+                <View style={styles.progressStep}>
+                  <View style={styles.progressStepActive}>
+                    <Ionicons name={step.icon} size={12} color="#000000" />
+                  </View>
+                  <Text style={styles.progressStepText}>{step.text}</Text>
+                </View>
+                {stepIndex < row.length - 1 && <View style={styles.progressConnector} />}
+              </React.Fragment>
+            ))}
           </View>
-          
-          <View style={styles.progressConnector} />
-          
-          <View style={styles.progressStep}>
-            <View style={styles.progressStepActive}>
-              <Ionicons name="barbell" size={12} color="#000000" />
-            </View>
-            <Text style={styles.progressStepText}>Lift weights</Text>
-          </View>
-          
-          <View style={styles.progressConnector} />
-          
-          <View style={styles.progressStep}>
-            <View style={styles.progressStepActive}>
-              <Ionicons name="body" size={12} color="#000000" />
-            </View>
-            <Text style={styles.progressStepText}>Upper body</Text>
-          </View>
-          
-          <View style={styles.progressConnector} />
-          
-          <View style={styles.progressStep}>
-            <View style={styles.progressStepActive}>
-              <Ionicons name="checkmark" size={12} color="#000000" />
-            </View>
-            <Text style={styles.progressStepText}>Workouts</Text>
-          </View>
-        </View>
+        ))}
       </View>
 
       <ScrollView style={styles.scrollView} showsVerticalScrollIndicator={false}>
-        {/* Workout Selection Info */}
-        <View style={styles.selectionInfo}>
-          <Text style={styles.selectionTitle}>
-            {bodyPart} • {difficulty}
-          </Text>
-          <Text style={styles.selectionSubtitle}>
-            Gentle upper body movements perfect for your lazy day mood
-          </Text>
-        </View>
-
-        {/* Equipment Section */}
-        <View style={styles.equipmentSection}>
-          <View style={styles.equipmentHeader}>
-            <View style={styles.equipmentIconContainer}>
-              <Ionicons 
-                name={selectedEquipment.icon} 
-                size={24} 
-                color="#FFD700" 
-              />
-            </View>
-            <Text style={styles.equipmentName}>{selectedEquipment.equipment}</Text>
-          </View>
+        {/* Generate workout cards for selected equipment */}
+        {workoutDatabase.map((equipmentData) => {
+          const workoutsForDifficulty = equipmentData.workouts[difficulty as keyof typeof equipmentData.workouts] || [];
           
-          {/* Workout Cards Carousel */}
-          <View style={styles.workoutsContainer}>
-            <FlatList
-              ref={flatListRef}
-              data={workoutList}
-              renderItem={renderWorkout}
-              keyExtractor={(item, index) => `${item.name}-${index}`}
-              horizontal
-              showsHorizontalScrollIndicator={false}
-              pagingEnabled
-              snapToInterval={width - 48}
-              decelerationRate="fast"
-              contentContainerStyle={styles.workoutsList}
-              onViewableItemsChanged={onViewableItemsChanged}
-              viewabilityConfig={viewabilityConfig}
-            />
-            
-            <SwipeIndicator 
-              total={workoutList.length} 
-              current={currentWorkoutIndex} 
-            />
-          </View>
-        </View>
+          if (workoutsForDifficulty.length === 0) {
+            return null;
+          }
 
-        {/* Mood Tips Section */}
-        <View style={styles.moodTipsSection}>
-          <Text style={styles.moodTipsTitle}>Lazy Day Tips</Text>
-          <Text style={styles.moodTipsSubtitle}>
-            Perfect your gentle movement with these easy tips
-          </Text>
-          
-          <View style={styles.moodTipsGrid}>
-            {workoutList[currentWorkoutIndex]?.moodTips.map((tip, index) => (
-              <View key={index} style={styles.moodTipCard}>
-                <View style={styles.moodTipIcon}>
-                  <Ionicons name={tip.icon} size={20} color="#FFD700" />
-                </View>
-                <View style={styles.moodTipContent}>
-                  <Text style={styles.moodTipTitle}>{tip.title}</Text>
-                  <Text style={styles.moodTipDescription}>{tip.description}</Text>
-                </View>
-              </View>
-            ))}
-          </View>
-        </View>
+          return (
+            <WorkoutCard
+              key={equipmentData.equipment}
+              equipment={equipmentData.equipment}
+              icon={equipmentData.icon}
+              workouts={workoutsForDifficulty}
+              difficulty={difficulty}
+            />
+          );
+        })}
       </ScrollView>
     </SafeAreaView>
   );
