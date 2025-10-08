@@ -222,7 +222,7 @@ export default function LazyBodyweightEquipmentScreen() {
             <View style={styles.progressStepActive}>
               <Ionicons name="bed" size={14} color="#000000" />
             </View>
-            <Text style={styles.progressStepText} numberOfLines={2}>I'm{'\n'}lazy</Text>
+            <Text style={styles.progressStepText}>I'm feeling lazy</Text>
           </View>
           
           <View style={styles.progressConnector} />
@@ -231,7 +231,7 @@ export default function LazyBodyweightEquipmentScreen() {
             <View style={styles.progressStepActive}>
               <Ionicons name="walk" size={14} color="#000000" />
             </View>
-            <Text style={styles.progressStepText} numberOfLines={2}>Move{'\n'}your body</Text>
+            <Text style={styles.progressStepText}>Just move your body</Text>
           </View>
           
           <View style={styles.progressConnector} />
