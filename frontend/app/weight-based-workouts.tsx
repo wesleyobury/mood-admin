@@ -1327,7 +1327,7 @@ export default function WeightBasedWorkoutsScreen() {
     const steps = [
       { key: 'mood', icon: 'flash', text: moodTitle },
       { key: 'bodyPart', icon: 'barbell', text: workoutType },
-      { key: 'difficulty', icon: 'speedometer', text: difficulty.charAt(0).toUpperCase() + difficulty.slice(1) },
+      { key: 'difficulty', icon: 'speedometer', text: difficulty === 'intermediate' ? 'Intermed.' : difficulty.charAt(0).toUpperCase() + difficulty.slice(1) },
       { key: 'equipment', icon: 'construct', text: `${selectedEquipmentNames.length} Equipment` },
     ];
 
