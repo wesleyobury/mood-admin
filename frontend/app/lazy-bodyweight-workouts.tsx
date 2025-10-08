@@ -536,8 +536,10 @@ const styles = StyleSheet.create({
   progressContent: {
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'space-between',
-    paddingHorizontal: 20,
+    justifyContent: 'center',
+    paddingHorizontal: 24,
+    maxWidth: '100%',
+    overflow: 'hidden',
   },
   progressRow: {
     flexDirection: 'row',
