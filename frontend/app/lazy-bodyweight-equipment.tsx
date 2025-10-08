@@ -410,11 +410,12 @@ const styles = StyleSheet.create({
     marginTop: 4,
   },
   progressConnector: {
-    width: 20,
+    width: 40,
     height: 2,
     backgroundColor: 'rgba(255, 215, 0, 0.3)',
-    marginHorizontal: 8,
+    marginHorizontal: 12,
     marginTop: -24,
+    alignSelf: 'center',
   },
   scrollView: {
     flex: 1,
