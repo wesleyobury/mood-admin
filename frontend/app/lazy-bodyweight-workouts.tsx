@@ -1024,7 +1024,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'hand-right',
               title: 'No pulling',
-              description: 'Don't pull on rails; soft lockout'
+              description: "Don't pull on rails; soft lockout"
             },
             {
               icon: 'settings',
