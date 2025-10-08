@@ -90,10 +90,11 @@ export default function LazyTrainingTypeScreen() {
         params: { mood: moodTitle, workoutType: option.title }
       });
     } else if (option.id === 'weights') {
-      // TODO: Navigate to lazy weight selection  
-      console.log('Navigate to lazy weight selection');
-      // For now, show alert that this will be implemented
-      alert('Weight-based lazy workouts will be available soon!');
+      // Navigate to lazy weight selection
+      router.push({
+        pathname: '/lazy-weight-selection',
+        params: { mood: moodTitle, workoutType: option.title }
+      });
     }
   };
 
