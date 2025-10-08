@@ -24,13 +24,13 @@ interface DifficultyLevel {
   color: string;
 }
 
-// Weight-based explosiveness equipment options
+// Weight-based explosiveness equipment options (alphabetical order)
 const equipmentOptions: EquipmentOption[] = [
-  { id: 'power-lifting-platform', name: 'Power Lifting Platform', icon: 'barbell' },
-  { id: 'landmine-attachment', name: 'Landmine Attachment', icon: 'extension-puzzle' },
+  { id: 'chains-bands', name: 'Chains / Bands', icon: 'link' },
   { id: 'dumbbells', name: 'Dumbbells', icon: 'fitness' },
   { id: 'kettlebells', name: 'Kettlebells', icon: 'fitness' },
-  { id: 'chains-bands', name: 'Chains / Bands', icon: 'link' },
+  { id: 'landmine-attachment', name: 'Landmine Attachment', icon: 'extension-puzzle' },
+  { id: 'power-lifting-platform', name: 'Power Lifting Platform', icon: 'barbell' },
   { id: 'trap-hex-bar', name: 'Trap Hex Bar', icon: 'stop' },
 ];
 
