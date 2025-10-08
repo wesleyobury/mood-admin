@@ -164,19 +164,34 @@ export default function WeightEquipmentScreen() {
       console.log('Selected equipment:', selectedEquipment.map(eq => eq.name));
       console.log('Selected difficulty:', selectedDifficulty.title);
       
-      // Navigate to workout display screen with selected equipment and difficulty
-      // Convert equipment array to comma-separated string and properly encode for URL
-      const equipmentNames = selectedEquipment.map(eq => eq.name).join(',');
+      // Check if powerlifting platform is selected to route to specific screen
+      const isPowerliftingSelected = selectedEquipment.some(eq => eq.id === 'power-lifting-platform');
       
-      router.push({
-        pathname: '/workout-display',
-        params: { 
-          mood: moodTitle,
-          workoutType: workoutType,
-          equipment: encodeURIComponent(equipmentNames), // Properly encode the parameter
-          difficulty: selectedDifficulty.id
-        }
-      });
+      if (isPowerliftingSelected) {
+        // Route to powerlifting-specific workouts screen
+        router.push({
+          pathname: '/powerlifting-workouts',
+          params: { 
+            mood: moodTitle,
+            workoutType: workoutType,
+            equipment: 'Power Lifting Platform',
+            difficulty: selectedDifficulty.id
+          }
+        });
+      } else {
+        // For other equipment, navigate to generic workout display screen
+        const equipmentNames = selectedEquipment.map(eq => eq.name).join(',');
+        
+        router.push({
+          pathname: '/workout-display',
+          params: { 
+            mood: moodTitle,
+            workoutType: workoutType,
+            equipment: encodeURIComponent(equipmentNames),
+            difficulty: selectedDifficulty.id
+          }
+        });
+      }
     }
   };
 
