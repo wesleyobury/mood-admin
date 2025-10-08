@@ -213,11 +213,7 @@ export default function LazyBodyweightEquipmentScreen() {
 
       {/* Progress Bar */}
       <View style={styles.progressContainer}>
-        <ScrollView 
-          horizontal 
-          showsHorizontalScrollIndicator={false}
-          contentContainerStyle={styles.progressContent}
-        >
+        <View style={styles.progressContent}>
           <View style={styles.progressStep}>
             <View style={styles.progressStepActive}>
               <Ionicons name="bed" size={14} color="#000000" />
@@ -248,29 +244,9 @@ export default function LazyBodyweightEquipmentScreen() {
                 {selectedEquipment.length}
               </Text>
             </View>
-            <Text style={styles.progressStepText}>
-              Equipment {selectedEquipment.length > 0 && `(${selectedEquipment.length})`}
-            </Text>
+            <Text style={styles.progressStepText}>Equipment</Text>
           </View>
-          
-          <View style={styles.progressConnector} />
-          
-          <View style={styles.progressStep}>
-            <View style={[
-              styles.progressStepCircle,
-              selectedDifficulty && styles.progressStepActive
-            ]}>
-              {selectedDifficulty ? (
-                <Ionicons name="checkmark" size={14} color="#000000" />
-              ) : (
-                <Text style={styles.progressStepNumber}>4</Text>
-              )}
-            </View>
-            <Text style={styles.progressStepText}>
-              {selectedDifficulty ? (selectedDifficulty.title === 'intermediate' ? 'Intermed.' : selectedDifficulty.title) : 'Difficulty'}
-            </Text>
-          </View>
-        </ScrollView>
+        </View>
       </View>
 
       <ScrollView style={styles.scrollView} showsVerticalScrollIndicator={false}>
