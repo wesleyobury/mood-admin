@@ -271,7 +271,7 @@ export default function WeightEquipmentScreen() {
           <Text style={styles.sectionTitle}>Select Equipment</Text>
           <Text style={styles.sectionSubtitle}>Choose one or multiple equipment for explosive weight training</Text>
           
-          <View style={styles.equipmentGrid}>
+          <View style={styles.equipmentContainer}>
             {equipmentOptions.map((equipment) => (
               <EquipmentCard
                 key={equipment.id}
