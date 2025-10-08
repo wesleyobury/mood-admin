@@ -359,129 +359,164 @@ export default function PowerliftingWorkoutsScreen() {
     const steps = [
       { key: 'mood', icon: 'flash', text: moodTitle },
       { key: 'bodyPart', icon: 'barbell', text: workoutType },
-      { key: 'difficulty', icon: 'checkmark', text: difficulty.charAt(0).toUpperCase() + difficulty.slice(1) },
-      { key: 'equipment', icon: 'barbell', text: '1' }
+      { key: 'difficulty', icon: 'speedometer', text: difficulty.charAt(0).toUpperCase() + difficulty.slice(1) },
+      { key: 'equipment', icon: 'construct', text: '1 Equipment' },
     ];
 
-    return (
-      <View style={styles.progressContainer}>
-        <ScrollView 
-          horizontal 
-          showsHorizontalScrollIndicator={false}
-          contentContainerStyle={styles.progressContent}
-        >
-          {steps.map((step, index) => (
-            <React.Fragment key={step.key}>
-              <View style={styles.progressStep}>
-                <View style={styles.progressStepActive}>
-                  <Ionicons name={step.icon} size={14} color="#000000" />
-                </View>
-                <Text style={styles.progressStepText}>{step.text}</Text>
-              </View>
-              {index < steps.length - 1 && <View style={styles.progressConnector} />}
-            </React.Fragment>
-          ))}
-        </ScrollView>
-      </View>
-    );
+    // Return single row
+    return [steps];
   };
 
-  // Workout card component with 4 cards per row
-  const WorkoutCard = ({ workout, equipmentName, difficulty: cardDifficulty, index, totalCards }: {
-    workout: Workout;
-    equipmentName: string;
+  // Workout Card Component matching bodyweight explosiveness format exactly
+  const WorkoutCard = ({ equipment, icon, workouts, difficulty }: { 
+    equipment: string; 
+    icon: keyof typeof Ionicons.glyphMap; 
+    workouts: Workout[]; 
     difficulty: string;
-    index: number;
-    totalCards: number;
   }) => {
-    const [currentImageIndex, setCurrentImageIndex] = useState(0);
+    const [currentWorkoutIndex, setCurrentWorkoutIndex] = useState(0);
     const flatListRef = useRef<FlatList>(null);
 
-    // Create array of workout data (for swipe functionality, we'll use the same workout)
-    const workoutData = [workout];
-
-    const handleDotPress = (index: number) => {
-      setCurrentImageIndex(index);
-      flatListRef.current?.scrollToIndex({ index, animated: true });
-    };
-
-    const renderWorkoutContent = ({ item }: { item: Workout }) => (
-      <View style={styles.cardContent}>
-        <Image source={{ uri: item.imageUrl }} style={styles.cardImage} />
-        
-        <View style={styles.cardTextContainer}>
-          <View style={styles.cardHeader}>
-            <Text style={styles.workoutTitle}>{item.name}</Text>
-            <Text style={styles.workoutDuration}>{item.duration}</Text>
+    const renderWorkout = ({ item, index }: { item: Workout; index: number }) => (
+      <View style={[styles.workoutSlide, { width: width - 48 }]}>
+        {/* Workout Image */}
+        <View style={styles.workoutImageContainer}>
+          <Image 
+            source={{ uri: item.imageUrl }}
+            style={styles.workoutImage}
+            resizeMode="cover"
+          />
+          <View style={styles.imageOverlay} />
+          <View style={styles.swipeIndicator}>
+            <Ionicons name="swap-horizontal" size={20} color="#FFD700" />
+            <Text style={styles.swipeText}>Swipe for more</Text>
           </View>
+        </View>
 
-          <View style={styles.intensityContainer}>
-            <View style={styles.intensityBadge}>
-              <Text style={styles.intensityText}>
-                {cardDifficulty.toUpperCase()}
-              </Text>
+        {/* Workout Content */}
+        <View style={styles.workoutContent}>
+          {/* Workout Name */}
+          <Text style={styles.workoutName}>{item.name}</Text>
+          
+          {/* Duration and Intensity on same line */}
+          <View style={styles.durationIntensityRow}>
+            <Text style={styles.workoutDuration}>{item.duration}</Text>
+            <View style={[styles.difficultyBadge, { backgroundColor: '#FFD700' }]}>
+              <Text style={styles.difficultyBadgeText}>{difficulty.toUpperCase()}</Text>
             </View>
           </View>
 
-          <Text style={styles.intensityReason}>{item.intensityReason}</Text>
-          <Text style={styles.workoutDescription}>{item.description}</Text>
+          {/* Intensity Reason */}
+          <View style={styles.intensityContainer}>
+            <Ionicons name="information-circle" size={16} color="#FFD700" />
+            <Text style={styles.intensityReason}>{item.intensityReason}</Text>
+          </View>
 
-          <TouchableOpacity
-            style={styles.startButton}
-            onPress={() => handleStartWorkout(item, equipmentName, cardDifficulty)}
+          {/* Workout Description */}
+          <View style={styles.workoutDescriptionContainer}>
+            <Text style={styles.workoutDescription}>{item.description}</Text>
+          </View>
+
+          {/* Start Workout Button */}
+          <TouchableOpacity 
+            style={styles.startWorkoutButton}
+            onPress={() => handleStartWorkout(item, equipment, difficulty)}
             activeOpacity={0.8}
           >
             <Ionicons name="play" size={20} color="#000000" />
-            <Text style={styles.startButtonText}>Start Workout</Text>
+            <Text style={styles.startWorkoutButtonText}>Start Workout</Text>
           </TouchableOpacity>
         </View>
       </View>
     );
 
+    // Simple touch-based swipe detection for reliable web compatibility
+    const [touchStart, setTouchStart] = useState<number | null>(null);
+    const [touchEnd, setTouchEnd] = useState<number | null>(null);
+
+    const minSwipeDistance = 50;
+
+    const onTouchStart = (e: any) => {
+      setTouchEnd(null);
+      setTouchStart(e.nativeEvent.touches[0].clientX);
+    };
+
+    const onTouchMove = (e: any) => {
+      setTouchEnd(e.nativeEvent.touches[0].clientX);
+    };
+
+    const onTouchEnd = () => {
+      if (!touchStart || !touchEnd) return;
+      
+      const distance = touchStart - touchEnd;
+      const isLeftSwipe = distance > minSwipeDistance;
+      const isRightSwipe = distance < -minSwipeDistance;
+
+      if (isLeftSwipe && currentWorkoutIndex < workouts.length - 1) {
+        setCurrentWorkoutIndex(currentWorkoutIndex + 1);
+      }
+      if (isRightSwipe && currentWorkoutIndex > 0) {
+        setCurrentWorkoutIndex(currentWorkoutIndex - 1);
+      }
+    };
+
     return (
       <View style={styles.workoutCard}>
-        <View style={styles.cardTopSection}>
-          <TouchableOpacity style={styles.backToListButton} onPress={handleGoBack}>
-            <Ionicons name="chevron-back" size={16} color="#FFD700" />
-          </TouchableOpacity>
-          
-          <View style={styles.cardCountContainer}>
-            <Text style={styles.cardCountText}>{index + 1}/{totalCards}</Text>
-          </View>
-        </View>
-
+        {/* Equipment Header */}
         <View style={styles.equipmentHeader}>
           <View style={styles.equipmentIconContainer}>
-            <Ionicons name="barbell" size={24} color="#FFD700" />
+            <Ionicons name={icon} size={24} color="#FFD700" />
           </View>
-          <Text style={styles.equipmentTitle}>{equipmentName}</Text>
+          <Text style={styles.equipmentName}>{equipment}</Text>
+          <View style={styles.workoutIndicator}>
+            <Text style={styles.workoutCount}>{currentWorkoutIndex + 1}/{workouts.length}</Text>
+          </View>
         </View>
 
-        <FlatList
-          ref={flatListRef}
-          data={workoutData}
-          renderItem={renderWorkoutContent}
-          horizontal
-          pagingEnabled
-          showsHorizontalScrollIndicator={false}
-          onMomentumScrollEnd={(event) => {
-            const index = Math.round(event.nativeEvent.contentOffset.x / width);
-            setCurrentImageIndex(index);
-          }}
-          keyExtractor={(_, index) => index.toString()}
-        />
+        {/* Workout List with Touch Swiping */}
+        <View 
+          style={[styles.workoutList, { height: 420 }]}
+          onTouchStart={onTouchStart}
+          onTouchMove={onTouchMove}
+          onTouchEnd={onTouchEnd}
+        >
+          <FlatList
+            ref={flatListRef}
+            data={workouts}
+            renderItem={renderWorkout}
+            horizontal
+            pagingEnabled
+            showsHorizontalScrollIndicator={false}
+            onMomentumScrollEnd={(event) => {
+              const slideSize = width - 48;
+              const index = Math.floor(event.nativeEvent.contentOffset.x / slideSize);
+              setCurrentWorkoutIndex(index);
+            }}
+            initialScrollIndex={currentWorkoutIndex}
+            getItemLayout={(data, index) => ({
+              length: width - 48,
+              offset: (width - 48) * index,
+              index,
+            })}
+            keyExtractor={(item, index) => `${equipment}-${item.name}-${index}`}
+          />
+        </View>
 
-        <View style={styles.swipeIndicatorContainer}>
-          <Text style={styles.swipeText}>Swipe to explore</Text>
-          <View style={styles.dotContainer}>
-            {workoutData.map((_, index) => (
+        {/* Workout Indicator Dots */}
+        <View style={styles.dotsContainer}>
+          <Text style={styles.dotsLabel}>Swipe to explore</Text>
+          <View style={styles.dotsRow}>
+            {workouts.map((_, index) => (
               <TouchableOpacity
                 key={index}
                 style={[
                   styles.dot,
-                  currentImageIndex === index && styles.activeDot
+                  currentWorkoutIndex === index && styles.activeDot,
                 ]}
-                onPress={() => handleDotPress(index)}
+                onPress={() => {
+                  setCurrentWorkoutIndex(index);
+                  flatListRef.current?.scrollToIndex({ index, animated: true });
+                }}
               />
             ))}
           </View>
