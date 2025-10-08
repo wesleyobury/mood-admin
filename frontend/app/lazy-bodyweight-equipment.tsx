@@ -358,13 +358,13 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     borderBottomColor: 'rgba(255, 215, 0, 0.2)',
     paddingVertical: 16,
-    paddingHorizontal: 20,
+    paddingHorizontal: 10,
   },
   progressContent: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    paddingHorizontal: 15,
+    width: '100%',
   },
   progressStep: {
     alignItems: 'center',
