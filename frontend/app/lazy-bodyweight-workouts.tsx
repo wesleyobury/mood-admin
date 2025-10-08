@@ -704,12 +704,13 @@ const styles = StyleSheet.create({
     color: '#FFD700',
   },
   difficultyBadge: {
-    paddingHorizontal: 12,
+    paddingHorizontal: 8,
     paddingVertical: 4,
     borderRadius: 8,
+    alignSelf: 'flex-start',
   },
   difficultyBadgeText: {
-    fontSize: 12,
+    fontSize: 10,
     fontWeight: 'bold',
     color: '#000000',
   },
