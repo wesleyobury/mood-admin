@@ -641,7 +641,7 @@ const styles = StyleSheet.create({
   },
   workoutSlide: {
     paddingHorizontal: 20,
-    paddingBottom: 20,
+    paddingVertical: 16,
   },
   workoutImageContainer: {
     height: 120,
