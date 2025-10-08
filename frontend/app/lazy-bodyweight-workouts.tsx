@@ -700,8 +700,8 @@ const styles = StyleSheet.create({
   },
   workoutDuration: {
     fontSize: 14,
+    fontWeight: 'bold',
     color: '#FFD700',
-    fontWeight: '600',
   },
   difficultyBadge: {
     paddingHorizontal: 12,
