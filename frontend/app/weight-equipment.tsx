@@ -493,15 +493,22 @@ const styles = StyleSheet.create({
     borderColor: 'rgba(0, 0, 0, 0.3)',
   },
   equipmentName: {
-    fontSize: 14,
+    fontSize: 16,
     fontWeight: '600',
     color: '#ffffff',
-    textAlign: 'center',
-    lineHeight: 18,
+    flex: 1,
   },
   equipmentNameSelected: {
     color: '#000000',
-    fontWeight: 'bold',
+  },
+  equipmentIndicator: {
+    width: 24,
+    height: 24,
+    borderRadius: 12,
+    backgroundColor: 'rgba(0, 0, 0, 0.2)',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginLeft: 8,
   },
   difficultyContainer: {
     gap: 16,
