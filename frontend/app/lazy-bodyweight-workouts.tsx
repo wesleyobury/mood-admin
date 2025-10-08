@@ -689,9 +689,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: '#ffffff',
     marginBottom: 6,
-    textShadowColor: 'rgba(255, 215, 0, 0.2)',
-    textShadowOffset: { width: 1, height: 1 },
-    textShadowRadius: 3,
+    paddingHorizontal: 6,
   },
   durationIntensityRow: {
     flexDirection: 'row',
