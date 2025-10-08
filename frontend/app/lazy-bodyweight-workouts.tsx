@@ -598,8 +598,10 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     paddingHorizontal: 20,
-    paddingTop: 20,
-    paddingBottom: 16,
+    paddingVertical: 16,
+    backgroundColor: 'rgba(255, 215, 0, 0.1)',
+    borderBottomWidth: 1,
+    borderBottomColor: 'rgba(255, 215, 0, 0.2)',
   },
   equipmentIconContainer: {
     width: 40,
