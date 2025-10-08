@@ -164,97 +164,18 @@ export default function WeightEquipmentScreen() {
       console.log('Selected equipment:', selectedEquipment.map(eq => eq.name));
       console.log('Selected difficulty:', selectedDifficulty.title);
       
-      // Route to specific equipment workout screens
-      const selectedEquipmentId = selectedEquipment[0]?.id; // Take first selected equipment
-      const selectedEquipmentName = selectedEquipment[0]?.name;
+      // Route to unified weight-based workouts screen with all selected equipment
+      const equipmentNames = selectedEquipment.map(eq => eq.name).join(',');
       
-      switch (selectedEquipmentId) {
-        case 'power-lifting-platform':
-          router.push({
-            pathname: '/powerlifting-workouts',
-            params: { 
-              mood: moodTitle,
-              workoutType: workoutType,
-              equipment: selectedEquipmentName,
-              difficulty: selectedDifficulty.id
-            }
-          });
-          break;
-          
-        case 'landmine-attachment':
-          router.push({
-            pathname: '/landmine-workouts',
-            params: { 
-              mood: moodTitle,
-              workoutType: workoutType,
-              equipment: selectedEquipmentName,
-              difficulty: selectedDifficulty.id
-            }
-          });
-          break;
-          
-        case 'dumbbells':
-          router.push({
-            pathname: '/dumbbells-workouts',
-            params: { 
-              mood: moodTitle,
-              workoutType: workoutType,
-              equipment: selectedEquipmentName,
-              difficulty: selectedDifficulty.id
-            }
-          });
-          break;
-          
-        case 'kettlebells':
-          router.push({
-            pathname: '/kettlebells-workouts',
-            params: { 
-              mood: moodTitle,
-              workoutType: workoutType,
-              equipment: selectedEquipmentName,
-              difficulty: selectedDifficulty.id
-            }
-          });
-          break;
-          
-        case 'chains-bands':
-          router.push({
-            pathname: '/chains-bands-workouts',
-            params: { 
-              mood: moodTitle,
-              workoutType: workoutType,
-              equipment: selectedEquipmentName,
-              difficulty: selectedDifficulty.id
-            }
-          });
-          break;
-          
-        case 'trap-hex-bar':
-          router.push({
-            pathname: '/trap-hex-bar-workouts',
-            params: { 
-              mood: moodTitle,
-              workoutType: workoutType,
-              equipment: selectedEquipmentName,
-              difficulty: selectedDifficulty.id
-            }
-          });
-          break;
-          
-        default:
-          // Fallback to generic workout display screen
-          const equipmentNames = selectedEquipment.map(eq => eq.name).join(',');
-          router.push({
-            pathname: '/workout-display',
-            params: { 
-              mood: moodTitle,
-              workoutType: workoutType,
-              equipment: encodeURIComponent(equipmentNames),
-              difficulty: selectedDifficulty.id
-            }
-          });
-          break;
-      }
+      router.push({
+        pathname: '/weight-based-workouts',
+        params: { 
+          mood: moodTitle,
+          workoutType: workoutType,
+          equipment: encodeURIComponent(equipmentNames),
+          difficulty: selectedDifficulty.id
+        }
+      });
     }
   };
 
