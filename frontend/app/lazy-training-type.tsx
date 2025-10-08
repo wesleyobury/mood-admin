@@ -24,14 +24,14 @@ const lazyTrainingTypeOptions: LazyTrainingTypeOption[] = [
     title: 'Just move your body',
     subtitle: 'Gentle bodyweight movements',
     icon: 'walk',
-    description: 'Light stretching, easy flows, and gentle bodyweight exercises to get moving',
+    description: 'Light stretching, easy flows, and gentle bodyweight exercises to get you moving at your own pace',
   },
   {
     id: 'weights',
     title: 'Lift weights',
     subtitle: 'Easy strength training',
     icon: 'barbell',
-    description: 'Simple weight exercises with lighter loads and comfortable pacing',
+    description: 'Simple weight exercises with lighter loads and comfortable pacing for relaxed strength building',
   },
 ];
 
