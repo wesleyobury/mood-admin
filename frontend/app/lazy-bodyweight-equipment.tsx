@@ -97,7 +97,7 @@ const EquipmentCard = ({
       {isSelected && (
         <View style={styles.equipmentIndicator}>
           <Ionicons name="checkmark" size={16} color="#000000" />
-        </View>
+        </ScrollView>
       )}
     </TouchableOpacity>
   );
@@ -134,7 +134,7 @@ const DifficultyCard = ({
       {isSelected && (
         <View style={[styles.difficultyIndicator, { backgroundColor: level.color }]}>
           <Ionicons name="checkmark" size={16} color="#ffffff" />
-        </View>
+        </ScrollView>
       )}
     </TouchableOpacity>
   );
@@ -207,7 +207,7 @@ export default function LazyBodyweightEquipmentScreen() {
         <View style={styles.headerTextContainer}>
           <Text style={styles.headerTitle}>Movement Equipment</Text>
           <Text style={styles.headerSubtitle}>{moodTitle}</Text>
-        </View>
+        </ScrollView>
         <View style={styles.headerSpacer} />
       </View>
 
@@ -221,18 +221,18 @@ export default function LazyBodyweightEquipmentScreen() {
           <View style={styles.progressStep}>
             <View style={styles.progressStepActive}>
               <Ionicons name="bed" size={14} color="#000000" />
-            </View>
+            </ScrollView>
             <Text style={styles.progressStepText} numberOfLines={2}>I'm{'\n'}lazy</Text>
-          </View>
+          </ScrollView>
           
           <View style={styles.progressConnector} />
           
           <View style={styles.progressStep}>
             <View style={styles.progressStepActive}>
               <Ionicons name="walk" size={14} color="#000000" />
-            </View>
+            </ScrollView>
             <Text style={styles.progressStepText} numberOfLines={2}>Move{'\n'}your body</Text>
-          </View>
+          </ScrollView>
           
           <View style={styles.progressConnector} />
           
@@ -247,10 +247,10 @@ export default function LazyBodyweightEquipmentScreen() {
               ]}>
                 {selectedEquipment.length}
               </Text>
-            </View>
+            </ScrollView>
             <Text style={styles.progressStepText}>Equipment</Text>
-          </View>
-        </View>
+          </ScrollView>
+        </ScrollView>
       </View>
 
       <ScrollView style={styles.scrollView} showsVerticalScrollIndicator={false}>
@@ -268,8 +268,8 @@ export default function LazyBodyweightEquipmentScreen() {
                 onPress={handleEquipmentSelect}
               />
             ))}
-          </View>
-        </View>
+          </ScrollView>
+        </ScrollView>
 
         {/* Difficulty Selection */}
         <View style={styles.section}>
@@ -285,8 +285,8 @@ export default function LazyBodyweightEquipmentScreen() {
                 onPress={handleDifficultySelect}
               />
             ))}
-          </View>
-        </View>
+          </ScrollView>
+        </ScrollView>
       </ScrollView>
 
       {/* Continue Button */}
