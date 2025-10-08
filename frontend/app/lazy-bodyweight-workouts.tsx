@@ -564,10 +564,13 @@ const styles = StyleSheet.create({
     borderColor: '#FFD700',
   },
   progressStepText: {
-    fontSize: 12,
+    fontSize: 10,
     color: 'rgba(255, 255, 255, 0.7)',
     textAlign: 'center',
     fontWeight: '500',
+    lineHeight: 12,
+    marginTop: 4,
+    paddingHorizontal: 2,
   },
   progressConnector: {
     width: 16,
