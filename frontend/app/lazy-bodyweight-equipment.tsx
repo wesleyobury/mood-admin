@@ -213,7 +213,11 @@ export default function LazyBodyweightEquipmentScreen() {
 
       {/* Progress Bar */}
       <View style={styles.progressContainer}>
-        <View style={styles.progressContent}>
+        <ScrollView 
+          horizontal 
+          showsHorizontalScrollIndicator={false}
+          contentContainerStyle={styles.progressContent}
+        >
           <View style={styles.progressStep}>
             <View style={styles.progressStepActive}>
               <Ionicons name="bed" size={14} color="#000000" />
