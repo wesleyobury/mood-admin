@@ -90,8 +90,11 @@ export default function ExplosivenessTypeScreen() {
         params: { mood: moodTitle, workoutType: option.title }
       });
     } else if (option.id === 'weight') {
-      // TODO: Navigate to weight-based equipment selection (will implement next)
-      console.log('Weight-based equipment selection will be implemented next');
+      // Navigate to weight-based equipment selection
+      router.push({
+        pathname: '/weight-equipment',
+        params: { mood: moodTitle, workoutType: option.title }
+      });
     }
   };
 
