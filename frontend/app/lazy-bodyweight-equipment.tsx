@@ -227,7 +227,7 @@ export default function LazyBodyweightEquipmentScreen() {
             <View style={styles.progressStepActive}>
               <Ionicons name="walk" size={14} color="#000000" />
             </View>
-            <Text style={styles.progressStepText}>Move{'\n'}body</Text>
+            <Text style={styles.progressStepText}>Move{'\n'}your body</Text>
           </View>
           
           <View style={styles.progressConnector} />
