@@ -26,16 +26,16 @@ interface DifficultyLevel {
 
 // Lazy bodyweight equipment options
 const equipmentOptions: EquipmentOption[] = [
-  { id: 'assault-bike', name: 'Assault bike', icon: 'bicycle' },
-  { id: 'bodyweight-only', name: 'Body weight only', icon: 'body' },
+  { id: 'treadmill', name: 'Treadmill', icon: 'walk' },
+  { id: 'stationary-bike', name: 'Stationary bike', icon: 'bicycle' },
   { id: 'elliptical', name: 'Elliptical', icon: 'infinite' },
-  { id: 'jump-rope', name: 'Jump rope', icon: 'remove' },
-  { id: 'plyo-box', name: 'Plyo box', icon: 'cube' },
+  { id: 'stair-stepper', name: 'Stair stepper', icon: 'walk' },
   { id: 'rowing-machine', name: 'Rowing machine', icon: 'boat' },
   { id: 'skierg', name: 'SkiErg', icon: 'snow' },
-  { id: 'stair-stepper', name: 'Stair stepper', icon: 'walk' },
-  { id: 'stationary-bike', name: 'Stationary bike', icon: 'bicycle' },
-  { id: 'treadmill', name: 'Treadmill', icon: 'walk' },
+  { id: 'jump-rope', name: 'Jump rope', icon: 'remove' },
+  { id: 'plyo-box', name: 'Plyo box', icon: 'cube' },
+  { id: 'bodyweight-only', name: 'Body weight only', icon: 'body' },
+  { id: 'assault-bike', name: 'Assault Bike', icon: 'bicycle' },
 ];
 
 // Difficulty levels with lazy-appropriate descriptions
