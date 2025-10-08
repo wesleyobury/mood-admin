@@ -446,10 +446,7 @@ const styles = StyleSheet.create({
     lineHeight: 22,
   },
   equipmentContainer: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
     gap: 12,
-    marginBottom: 20,
   },
   equipmentCard: {
     flexDirection: 'row',
