@@ -1513,7 +1513,7 @@ export default function BodyweightExplosivenessWorkoutsScreen() {
           <View style={styles.durationIntensityRow}>
             <Text style={styles.workoutDuration}>{item.duration}</Text>
             <View style={[styles.difficultyBadge, { backgroundColor: '#FFD700' }]}>
-              <Text style={styles.difficultyBadgeText}>{difficulty.toUpperCase()}</Text>
+              <Text style={styles.difficultyBadgeText}>{(difficulty === 'intermediate' ? 'INTERMED.' : difficulty).toUpperCase()}</Text>
             </View>
           </View>
 
