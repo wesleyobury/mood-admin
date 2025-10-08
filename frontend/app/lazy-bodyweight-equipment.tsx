@@ -409,8 +409,7 @@ const styles = StyleSheet.create({
     fontWeight: '500',
     lineHeight: 12,
     marginTop: 4,
-    maxWidth: 80,
-    numberOfLines: 2,
+    maxWidth: 100,
   },
   progressConnector: {
     width: 40,
