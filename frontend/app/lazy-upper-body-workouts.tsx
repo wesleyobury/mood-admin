@@ -74,67 +74,6 @@ const upperBodyWorkoutDatabase: EquipmentWorkouts[] = [
   }
 ];
 
-const WorkoutCard = ({
-  workout,
-  onPress,
-}: {
-  workout: Workout;
-  onPress: (workout: Workout) => void;
-}) => {
-  return (
-    <TouchableOpacity
-      style={styles.workoutCard}
-      onPress={() => onPress(workout)}
-      activeOpacity={0.8}
-    >
-      <View style={styles.workoutContent}>
-        <View style={styles.workoutHeader}>
-          <View style={styles.workoutInfo}>
-            <Text style={styles.workoutName}>{workout.name}</Text>
-            <Text style={styles.workoutDuration}>{workout.duration}</Text>
-          </View>
-          <View style={styles.playButton}>
-            <Ionicons name="play" size={24} color="#000000" />
-          </View>
-        </View>
-        
-        <Text style={styles.workoutDescription}>{workout.description}</Text>
-        
-        <View style={styles.workoutMeta}>
-          <View style={styles.intensityBadge}>
-            <Text style={styles.intensityText}>Gentle</Text>
-          </View>
-          <Text style={styles.intensityReason}>{workout.intensityReason}</Text>
-        </View>
-      </View>
-    </TouchableOpacity>
-  );
-};
-
-const SwipeIndicator = ({ 
-  total, 
-  current 
-}: { 
-  total: number; 
-  current: number; 
-}) => {
-  if (total <= 1) return null;
-  
-  return (
-    <View style={styles.swipeIndicatorContainer}>
-      {Array.from({ length: total }, (_, index) => (
-        <View
-          key={index}
-          style={[
-            styles.swipeIndicatorDot,
-            index === current && styles.swipeIndicatorDotActive
-          ]}
-        />
-      ))}
-    </View>
-  );
-};
-
 export default function LazyUpperBodyWorkoutsScreen() {
   const router = useRouter();
   const params = useLocalSearchParams();
