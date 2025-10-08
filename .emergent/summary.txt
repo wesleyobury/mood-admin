@@ -1,73 +1,67 @@
 <analysis>
-The trajectory details the AI engineer's work on an Expo mobile application, continuing the development of the Build Explosiveness workout path. The primary task in this session was to standardize the length and display of intensity reason and workout summary texts on workout cards within  for consistent two-line presentation. The AI engineer first addressed Sandbag workouts, meticulously adjusting text to 70-80 characters. Following user feedback, the task was extended to all other bodyweight explosiveness equipment types (Battle Ropes, Plyometric Box, Medicine Ball, Sled/Prowler, Kettlebell, Bodyweight), with a target of 60-70 characters per text field. This involved extensive iterative file edits, systematically modifying workout data across numerous entries. The AI demonstrated persistence and meticulousness in ensuring visual consistency by updating over 50 workout entries, frequently confirming progress with the user and restarting the frontend to apply changes.
+The trajectory details the AI engineer's transition to a new set of tasks after completing initial text standardization on workout cards. The primary focus shifted to implementing the Weight Based path within the Build Explosiveness feature. The AI successfully created/modified  by duplicating , populating it with new equipment, ensuring alphabetical order, consistent styling, and correct navigation to . Subsequently, the AI generated  based on , inserting specific Power Lifting Platform workout data. However, the user clarified that the workout card UI/UX in  needed to *exactly* match the  design. The AI is currently in the process of extracting the detailed  component structure and associated styles from  to replicate it precisely.
 </analysis>
 
 <product_requirements>
-The application provides native-feeling workout guidance. Prior work established Legs and Abs paths with specific UI/UX for equipment selection, hardcoded data, swipeable workout displays, and a standardized single-row progress bar (mood, body part, intensity, equipment).
-
-Recent explicit requirements included:
+The application delivers native-feeling workout guidance, with existing Legs and Abs paths featuring equipment selection, hardcoded data, and swipeable workout displays. Recent requirements included:
 1.  Extend bidirectional swipe and clickable dots to all muscle gainer and i want to sweat workout cards.
 2.  Standardize progress bars in muscle gainer and i want to sweat paths to the single-row Abs format.
 3.  Implement a new Build Explosiveness Path:
-    -   Remove I want a light sweat card from the home screen.
-    -   Add a Build Explosiveness entry point.
-    -   Create a workout type selection for Explosiveness (Body weight, Weight based).
-    -   For Body weight, develop an equipment selection screen (Battle Ropes, Plyo Box, Bodyweight Only, Med Ball, Sled, Kettlebell, Sandbag).
-    -   Implement Your Workouts screen for each equipment type, replicating existing workout card UI/UX (format, layout, height, photos, fonts, gradients, button, padding, borders) with 3 swipeable cards per intensity level per equipment.
-    -   Integrate comprehensive, hardcoded workout data (titles, duration, reasoning, summaries, tips, plans).
-    -   Standardize mood card/header text to Build Explosive.
+    -   Remove I want a light sweat card from the home screen and add a Build Explosiveness entry point.
+    -   Create workout type selection (Body weight, Weight based).
+    -   For Body weight, develop an equipment selection screen (Battle Ropes, Plyo Box, Bodyweight Only, Med Ball, Sled, Kettlebell, Sandbag) and corresponding Your Workouts screens with 3 swipeable cards per intensity per equipment, replicating existing UI/UX.
+    -   For Weight based, create an equipment selection screen with Power Lifting Platform, Landmine Attachment, Dumbbells, Kettlebells, Chains / Bands, Trap Hex Bar. Implement Your Workouts for Power Lifting Platform with 4 swipeable cards per intensity level, exactly replicating design specifications (layout, spacing, format, padding, height, photos, fonts, gradients, button, swipe function).
+    -   Integrate comprehensive, hardcoded workout data and standardize mood card/header text to Build Explosive.
 </product_requirements>
 
 <key_technical_concepts>
 -   **Expo File-Based Routing:**  for screen navigation.
--   **React Native UI:**  for performant, swipeable carousels (, ), , , , , .
+-   **React Native UI:**  for performant, swipeable carousels, , , , , .
 -   **State & Refs:**  for component state,  for programmatic  scrolling.
 -   **Styling:**  for consistent UI element styling using Flexbox.
 </key_technical_concepts>
 
 <code_architecture>
 
-
 -   ****:
-    -   **Importance:** The primary home screen displaying workout path entry points.
-    -   **Summary of Changes:** Removed the i want a light sweat mood card and updated navigation to include the new Build Explosiveness path, directing to .
+    -   **Importance:** Primary home screen.
+    -   **Summary of Changes:** Updated to include Build Explosiveness path, directing to .
 -   ****:
-    -   **Importance:** Reference screen for equipment and intensity selection.
-    -   **Summary of Changes:** Used as a structural template for .
+    -   **Importance:** Generic workout display, benchmark for UI/UX.
+    -   **Summary of Changes:** Heavily referenced for card styling in explosiveness paths.
 -   ****:
-    -   **Importance:** Defines the layout for workout type selection screens.
-    -   **Summary of Changes:** Served as a reference for creating .
+    -   **Importance:** Selects Body weight or Weight based explosiveness.
+    -   **Summary of Changes:** Created to mimic . Routes to  and now . Progress bar text Build Explosive.
 -   ****:
-    -   **Importance:** Generic workout display, serving as the benchmark for UI/UX (swipeable cards, progress bar, styling).
-    -   **Summary of Changes:** Heavily referenced for replicating card styling, layout, spacing, and FlatList implementation in . No direct modifications in this trajectory.
+    -   **Importance:** Equipment selection for Body weight explosiveness.
+    -   **Summary of Changes:** Duplicated from , updated with specific explosiveness equipment, routes to . Mood text Build Explosive.
 -   ****:
-    -   **Importance:** New screen for selecting Body weight or Weight based within the Build Explosiveness path.
-    -   **Summary of Changes:** Created to mimic  structure. Initial routes to placeholders were updated to navigate to . The progress bar/header mood text was set to Build Explosive.
+    -   **Importance:** Displays Body weight explosiveness workout cards.
+    -   **Summary of Changes:** Created from . All  and  fields for Sandbag workouts updated to 70-80 chars, and for other equipment types (Battle Ropes, Plyometric Box, Medicine Ball, Sled/Prowler, Kettlebell, Bodyweight) to 60-70 characters for consistent two-line spacing. Served as the template for .
 -   ****:
-    -   **Importance:** New equipment selection screen for the Body weight explosiveness path.
-    -   **Summary of Changes:** Duplicated from , updated with specific explosiveness equipment. Routes to . Mood text updated to Build Explosive.
+    -   **Importance:** Equipment selection screen for the Weight based explosiveness path.
+    -   **Summary of Changes:** Duplicated from . Updated with Power Lifting Platform, Landmine Attachment, Dumbbells, Kettlebells, Chains / Bands, Trap Hex Bar, in alphabetical order. Difficulty levels, mood title, section subtitles, and progress bar icon (flash) were updated. Layout and equipment card styles were adjusted to match . Now routes to  when Power Lifting Platform is selected.
 -   ****:
-    -   **Importance:** Displays actual workout cards for Body weight explosiveness, featuring swipeable content and detailed workout data.
-    -   **Summary of Changes:** Created by adapting 's structure. Extensive styling adjustments were made for card height, fonts, gradients, button placement, and padding.  with  resolved conflicting margins. The mood text was consistently Build Explosive. Loaded with detailed hardcoded workout data for Battle Ropes, Plyometric Box, Medicine Ball, Sled/Prowler, Kettlebell, Sandbag, and Bodyweight, organized by difficulty. All 54 workout titles, intensity reasoning, and workout summaries were updated in the previous task. **Crucially, in this trajectory, all  and  fields for Sandbag workouts were updated to be 70-80 characters, and for all other equipment types (Battle Ropes, Plyometric Box, Medicine Ball, Sled/Prowler, Kettlebell, Bodyweight), they were updated to be 60-70 characters to ensure consistent two-line spacing on workout cards.**
--   ** & **:
-    -   **Importance:** Temporary placeholder screens for explosiveness workouts.
-    -   **Summary of Changes:** Created, then deleted after the structured equipment flow was implemented.
+    -   **Importance:** Displays workout cards for Power Lifting Platform explosiveness.
+    -   **Summary of Changes:** Created by duplicating and modifying . Populated with hardcoded data for 12 Power Lifting Platform workouts (4 per Beginner, Intermediate, Advanced difficulty). Currently, the UI/UX is an initial duplication and requires exact replication of 's card design.
 </code_architecture>
 
 <pending_tasks>
--   **Progress Bar Standardization (Legs Path):** The  file's progress bar has not been updated to the new single-row, icon-based format (mood card, muscle group, intensity level, # of equipment selected) as implemented in other muscle gainer paths.
--   Implement the weight based explosiveness workout path, starting with its equipment selection and workout display screens.
+-   **Progress Bar Standardization (Legs Path):**  needs its progress bar updated to the single-row icon-based format.
+-   **Complete Weight Based Path:** Implement Your Workouts screens for the remaining equipment types in the Weight based explosiveness path (Landmine Attachment, Dumbbells, Kettlebells, Chains / Bands, Trap Hex Bar).
+-   **UI/UX Replication:** Exactly replicate the design specifications (layout, spacing, format, padding, card height, picture dimensions, text placement, fonts, button size, color gradients, swipe function) for workout cards in  to match .
 </pending_tasks>
 
 <current_work>
-The immediate preceding work involved a comprehensive text consistency update across all workout cards in . The user requested standardizing the  and  (workout summary) fields to ensure they consistently display on two lines, improving visual layout.
+The immediate previous work involved standardizing the  and  text fields in  to ensure a consistent two-line display across all Sandbag (70-80 characters) and other bodyweight equipment workouts (60-70 characters).
 
-Specifically, the AI engineer:
-1.  **Sandbag Workouts:** Modified all 9 sandbag workouts (3 beginner, 3 intermediate, 3 advanced) to ensure both their  and  fields were approximately 70-80 characters long.
-2.  **Other Equipment Workouts:** Extended this task to all remaining equipment types in the Body weight explosiveness path: Battle Ropes, Plyometric Box, Medicine Ball, Sled/Prowler, Kettlebell, and Body Weight Only. For these, the  and  fields for each workout (totaling 45 more workouts) were adjusted to be approximately 60-70 characters long.
-This required systematically traversing the hardcoded workout data within  and performing numerous targeted  operations. The goal was successfully achieved, ensuring all relevant workout text now consistently spans two lines for a polished user interface.
+Subsequently, the AI engineer began implementing the Weight Based explosiveness path. This involved:
+1.  ** Creation/Update**: Duplicated from , updated with new equipment types (Power Lifting Platform, Landmine Attachment, Dumbbells, Kettlebells, Chains / Bands, Trap Hex Bar), alphabetized them, and adjusted its UI/UX to match the bodyweight counterpart, including mood text (Build Explosive), difficulty levels, subtitles, progress bar icon (flash), and equipment card styling.
+2.  **Navigation Integration**: Updated  to correctly navigate to .
+3.  ** Creation**: Created this new screen by duplicating the structure of  and populated it with the provided 12 hardcoded Power Lifting Platform workouts (4 each for Beginner, Intermediate, and Advanced difficulties).
+Currently, the AI is focused on a user-requested refinement: to precisely replicate the UI/UX of the workout cards in  to exactly match the design found in . The AI is actively inspecting  to extract the  component and its associated styles.
 </current_work>
 
 <optional_next_step>
-None. The explicit task of updating workout card text consistency for all bodyweight explosiveness equipment has been completed.
+Complete the exact UI/UX replication of workout cards in  to match the design from .
 </optional_next_step>
