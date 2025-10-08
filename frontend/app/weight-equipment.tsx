@@ -455,21 +455,18 @@ const styles = StyleSheet.create({
     marginBottom: 24,
     lineHeight: 22,
   },
-  equipmentGrid: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
+  equipmentContainer: {
     gap: 12,
-    justifyContent: 'space-between',
   },
   equipmentCard: {
-    width: '48%',
     backgroundColor: '#111111',
-    borderRadius: 16,
-    borderWidth: 2,
+    borderRadius: 12,
+    borderWidth: 1,
     borderColor: 'rgba(255, 215, 0, 0.3)',
     padding: 16,
+    flexDirection: 'row',
     alignItems: 'center',
-    marginBottom: 8,
+    justifyContent: 'space-between',
   },
   equipmentCardSelected: {
     backgroundColor: '#FFD700',
