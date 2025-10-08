@@ -22,7 +22,7 @@ const lazyTrainingTypeOptions: LazyTrainingTypeOption[] = [
   {
     id: 'bodyweight',
     title: 'Move your body',
-    subtitle: 'Bodyweight movements',
+    subtitle: 'Light movements',
     icon: 'walk',
     description: 'Easy flows and gentle bodyweight exercises to get you moving at your own comfortable pace today',
   },
