@@ -573,11 +573,12 @@ const styles = StyleSheet.create({
     paddingHorizontal: 2,
   },
   progressConnector: {
-    width: 16,
+    width: 20,
     height: 2,
     backgroundColor: 'rgba(255, 215, 0, 0.3)',
-    marginHorizontal: 4,
+    marginHorizontal: 8,
     marginTop: -24,
+    alignSelf: 'center',
   },
   scrollView: {
     flex: 1,
