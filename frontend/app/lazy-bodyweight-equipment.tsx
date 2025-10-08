@@ -386,6 +386,7 @@ const styles = StyleSheet.create({
   },
   progressContent: {
     alignItems: 'center',
+    justifyContent: 'center',
     paddingHorizontal: 10,
   },
   progressStep: {
