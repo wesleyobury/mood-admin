@@ -389,21 +389,24 @@ export default function LazyBodyweightWorkoutsScreen() {
           />
         </View>
 
-        {/* Workout Navigation Dots */}
-        <View style={styles.navigationDots}>
-          {workouts.map((_, index) => (
-            <TouchableOpacity
-              key={index}
-              style={[
-                styles.dot,
-                index === currentWorkoutIndex && styles.activeDot
-              ]}
-              onPress={() => {
-                setCurrentWorkoutIndex(index);
-                flatListRef.current?.scrollToIndex({ index, animated: true });
-              }}
-            />
-          ))}
+        {/* Workout Indicator Dots */}
+        <View style={styles.dotsContainer}>
+          <Text style={styles.dotsLabel}>Swipe to explore</Text>
+          <View style={styles.dotsRow}>
+            {workouts.map((_, index) => (
+              <TouchableOpacity
+                key={index}
+                style={[
+                  styles.dot,
+                  index === currentWorkoutIndex && styles.activeDot
+                ]}
+                onPress={() => {
+                  setCurrentWorkoutIndex(index);
+                  flatListRef.current?.scrollToIndex({ index, animated: true });
+                }}
+              />
+            ))}
+          </View>
         </View>
       </View>
     );
