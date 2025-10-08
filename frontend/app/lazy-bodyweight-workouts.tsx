@@ -700,7 +700,7 @@ const styles = StyleSheet.create({
     marginBottom: 8,
   },
   workoutDuration: {
-    fontSize: 16,
+    fontSize: 14,
     color: '#FFD700',
     fontWeight: '600',
   },
