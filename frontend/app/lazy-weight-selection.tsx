@@ -157,8 +157,21 @@ export default function LazyWeightSelectionScreen() {
       console.log('Selected body part:', selectedBodyPart.name);
       console.log('Selected difficulty:', selectedDifficulty.title);
       
-      // TODO: Route to lazy weight workouts screen 
-      alert(`${selectedBodyPart.name} workouts at ${selectedDifficulty.title} level will be available soon!`);
+      if (selectedBodyPart.id === 'upper-body' && selectedDifficulty.id === 'beginner') {
+        // Route to upper body workouts screen
+        router.push({
+          pathname: '/lazy-upper-body-workouts',
+          params: { 
+            mood: moodTitle,
+            workoutType: workoutType,
+            bodyPart: selectedBodyPart.name,
+            difficulty: selectedDifficulty.id
+          }
+        });
+      } else {
+        // TODO: Route to other body part/difficulty combinations
+        alert(`${selectedBodyPart.name} workouts at ${selectedDifficulty.title} level will be available soon!`);
+      }
     }
   };
 
