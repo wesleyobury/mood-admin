@@ -81,6 +81,18 @@ frontend:
         agent: "main"
         comment: "Implemented complete explosiveness workout path with bodyweight and weight-based options. Removed 'I want a light sweat' mood card as requested."
 
+  - task: "Progress Bar Text Truncation Fix"
+    implemented: true
+    working: true
+    file: "frontend/app/bodyweight-explosiveness-workouts.tsx, frontend/app/weight-based-workouts.tsx"
+    stuck_count: 0
+    priority: "medium"
+    needs_retesting: false
+    status_history:
+      - working: "NA"
+        agent: "main"
+        comment: "Fixed 'intermediate' text truncation in progress bars by changing to 'Intermed.' in both workout display screens to prevent text overflow issues."
+
 metadata:
   created_by: "testing_agent"
   version: "1.0"
