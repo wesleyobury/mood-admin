@@ -358,13 +358,16 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     borderBottomColor: 'rgba(255, 215, 0, 0.2)',
     paddingVertical: 16,
-    paddingHorizontal: 10,
+    paddingHorizontal: 20,
+    overflow: 'hidden',
   },
   progressContent: {
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'space-evenly',
     width: '100%',
+    maxWidth: 350,
+    alignSelf: 'center',
   },
   progressStep: {
     alignItems: 'center',
