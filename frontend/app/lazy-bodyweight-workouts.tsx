@@ -362,7 +362,7 @@ export default function LazyBodyweightWorkoutsScreen() {
 
         {/* Workout List with Touch Swiping */}
         <View 
-          style={[styles.workoutList, { height: 420 }]}
+          style={[styles.workoutList, { height: 380 }]}
           onTouchStart={onTouchStart}
           onTouchMove={onTouchMove}
           onTouchEnd={onTouchEnd}
