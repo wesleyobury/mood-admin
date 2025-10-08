@@ -173,11 +173,18 @@ export default function LazyBodyweightEquipmentScreen() {
       console.log('Selected equipment:', selectedEquipment.map(eq => eq.name));
       console.log('Selected difficulty:', selectedDifficulty.title);
       
-      // TODO: Route to lazy bodyweight workouts screen with all selected equipment
+      // Route to lazy bodyweight workouts screen with all selected equipment
       const equipmentNames = selectedEquipment.map(eq => eq.name).join(',');
       
-      // For now, show alert that this will be implemented
-      alert(`Lazy workouts will be available soon!\n\nSelected: ${equipmentNames}\nDifficulty: ${selectedDifficulty.title}`);
+      router.push({
+        pathname: '/lazy-bodyweight-workouts',
+        params: { 
+          mood: moodTitle,
+          workoutType: workoutType,
+          equipment: encodeURIComponent(equipmentNames),
+          difficulty: selectedDifficulty.id
+        }
+      });
     }
   };
 
