@@ -496,7 +496,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'body',
               title: 'Tall posture',
-              description: 'Keep posture tall; don't bottom out steps'
+              description: 'Keep posture tall; don\'t bottom out steps'
             },
             {
               icon: 'leaf',
