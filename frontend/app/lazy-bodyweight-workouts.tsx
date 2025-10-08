@@ -406,7 +406,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'body',
               title: 'Good form',
-              description: 'Posture tall; feet quiet; don\'t overstride'
+              description: "Posture tall; feet quiet; don't overstride"
             },
             {
               icon: 'refresh',
