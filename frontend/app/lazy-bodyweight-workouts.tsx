@@ -685,13 +685,13 @@ const styles = StyleSheet.create({
     paddingHorizontal: 0,
   },
   workoutName: {
-    fontSize: 20,
+    fontSize: 16,
     fontWeight: 'bold',
     color: '#ffffff',
-    marginBottom: 8,
-    textShadowColor: 'rgba(255, 215, 0, 0.3)',
-    textShadowOffset: { width: 0, height: 0 },
-    textShadowRadius: 8,
+    marginBottom: 6,
+    textShadowColor: 'rgba(255, 215, 0, 0.2)',
+    textShadowOffset: { width: 1, height: 1 },
+    textShadowRadius: 3,
   },
   durationIntensityRow: {
     flexDirection: 'row',
