@@ -759,7 +759,6 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: 'bold',
     color: '#000000',
-    marginLeft: 8,
   },
   dotsContainer: {
     alignItems: 'center',
