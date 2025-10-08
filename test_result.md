@@ -105,6 +105,18 @@ frontend:
         agent: "main"
         comment: "Successfully implemented 'I'm feeling lazy' mood card navigation to training type selection screen. Created lazy-training-type.tsx duplicated from explosiveness-type.tsx with options 'Just move your body' and 'Lift weights'. Updated main navigation routing. Screen tested and working correctly with proper UI/UX matching existing patterns."
 
+  - task: "Lazy Bodyweight Equipment Selection Screen"
+    implemented: true
+    working: true
+    file: "frontend/app/lazy-bodyweight-equipment.tsx"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: true
+        agent: "main"
+        comment: "Successfully implemented complete equipment selection screen for 'I'm feeling lazy' > 'Just move your body' path. Created lazy-bodyweight-equipment.tsx duplicated from weight-equipment.tsx with all 10 specified equipment options (Treadmill, Stationary bike, Elliptical, Stair stepper, Rowing machine, Assault bike, SkiErg, Jump rope, Plyo box, Body weight only). Maintains same UI/UX formatting, progress bar, and intensity levels. Complete navigation flow tested and working: Home → Lazy → Just move your body → Equipment selection → Working perfectly."
+
 metadata:
   created_by: "testing_agent"
   version: "1.0"
