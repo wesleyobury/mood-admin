@@ -525,50 +525,68 @@ export default function PowerliftingWorkoutsScreen() {
     );
   };
 
-  if (workoutsForDifficulty.length === 0) {
-    return (
-      <SafeAreaView style={[styles.container, { paddingTop: insets.top }]}>
-        <View style={styles.header}>
-          <TouchableOpacity style={styles.backButton} onPress={handleGoBack}>
-            <Ionicons name="chevron-back" size={24} color="#FFD700" />
-          </TouchableOpacity>
-          <Text style={styles.headerTitle}>No Workouts Found</Text>
-        </View>
-      </SafeAreaView>
-    );
-  }
-
   return (
     <SafeAreaView style={[styles.container, { paddingTop: insets.top }]}>
       {/* Header */}
       <View style={styles.header}>
-        <TouchableOpacity style={styles.backButton} onPress={handleGoBack}>
+        <TouchableOpacity 
+          style={styles.backButton}
+          onPress={handleGoBack}
+        >
           <Ionicons name="chevron-back" size={24} color="#FFD700" />
         </TouchableOpacity>
         <View style={styles.headerTextContainer}>
           <Text style={styles.headerTitle}>Your Workouts</Text>
-          <Text style={styles.headerSubtitle}>{moodTitle} - {difficulty}</Text>
+          <Text style={styles.headerSubtitle}>{moodTitle} • {difficulty}</Text>
         </View>
         <View style={styles.headerSpacer} />
       </View>
 
-      {/* Progress Bar */}
-      {createProgressRows()}
-
-      {/* Workout Cards */}
-      <ScrollView style={styles.scrollContainer} showsVerticalScrollIndicator={false}>
-        <View style={styles.workoutContainer}>
-          {workoutsForDifficulty.map((workout, index) => (
-            <WorkoutCard
-              key={`${equipment}-${workout.name}-${index}`}
-              workout={workout}
-              equipmentName={equipment}
-              difficulty={difficulty}
-              index={index}
-              totalCards={workoutsForDifficulty.length}
-            />
+      {/* Progress Bar with Row Layout */}
+      <View style={styles.progressContainer}>
+        <View style={styles.progressContent}>
+          {createProgressRows().map((row, rowIndex) => (
+            <View key={`row-${rowIndex}`} style={styles.progressRow}>
+              {row.map((step, stepIndex) => (
+                <React.Fragment key={step.key}>
+                  <View style={styles.progressStep}>
+                    <View style={styles.progressStepActive}>
+                      <Ionicons name={step.icon as keyof typeof Ionicons.glyphMap} size={10} color="#000000" />
+                    </View>
+                    <Text style={styles.progressStepText}>{step.text}</Text>
+                  </View>
+                  {stepIndex < row.length - 1 && <View style={styles.progressConnector} />}
+                </React.Fragment>
+              ))}
+            </View>
           ))}
         </View>
+      </View>
+
+      <ScrollView style={styles.scrollView} showsVerticalScrollIndicator={false} contentContainerStyle={styles.scrollContent}>
+        {/* No Workouts Message */}
+        {workoutsForDifficulty.length === 0 && (
+          <View style={styles.noWorkoutsContainer}>
+            <Ionicons name="fitness-outline" size={64} color="rgba(255, 215, 0, 0.3)" />
+            <Text style={styles.noWorkoutsTitle}>No Workouts Available</Text>
+            <Text style={styles.noWorkoutsText}>
+              We couldn't find workouts for the selected equipment. Please go back and select different equipment.
+            </Text>
+            <TouchableOpacity style={styles.goBackButton} onPress={handleGoBack}>
+              <Text style={styles.goBackButtonText}>Select Equipment</Text>
+            </TouchableOpacity>
+          </View>
+        )}
+
+        {/* Workout Card */}
+        {workoutsForDifficulty.length > 0 && (
+          <WorkoutCard
+            equipment={equipment}
+            icon="barbell"
+            workouts={workoutsForDifficulty}
+            difficulty={difficulty}
+          />
+        )}
       </ScrollView>
     </SafeAreaView>
   );
