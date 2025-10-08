@@ -406,7 +406,7 @@ const styles = StyleSheet.create({
     color: 'rgba(255, 255, 255, 0.8)',
     textAlign: 'center',
     fontWeight: '500',
-    maxWidth: 100,
+    maxWidth: 90,
     lineHeight: 14,
   },
   progressConnector: {
