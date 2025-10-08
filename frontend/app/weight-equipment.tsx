@@ -34,24 +34,25 @@ const equipmentOptions: EquipmentOption[] = [
   { id: 'trap-hex-bar', name: 'Trap Hex Bar', icon: 'stop' },
 ];
 
+// Difficulty levels with explosiveness-appropriate descriptions
 const difficultyLevels: DifficultyLevel[] = [
   {
     id: 'beginner',
     title: 'Beginner',
-    subtitle: 'New to weight training',
-    color: '#FFD700',    // Same neon gold for all
+    subtitle: 'New to explosive lifting',
+    color: '#FFD700',
   },
   {
     id: 'intermediate',
     title: 'Intermediate',
-    subtitle: 'Some weight training experience',
-    color: '#FFD700',    // Same neon gold for all
+    subtitle: 'Some power lifting experience',
+    color: '#FFD700',
   },
   {
     id: 'advanced',
     title: 'Advanced',
-    subtitle: 'Regular strength training',
-    color: '#FFD700',    // Same neon gold for all
+    subtitle: 'Competitive power training',
+    color: '#FFD700',
   },
 ];
 
