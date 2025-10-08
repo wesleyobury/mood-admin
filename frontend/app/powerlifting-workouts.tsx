@@ -303,6 +303,7 @@ export default function PowerliftingWorkoutsScreen() {
 
   // Parse URL parameters
   const rawMoodTitle = params.mood as string || 'Build Explosive';
+  // Convert "I want to build explosiveness" to "Build Explosive" for display
   const moodTitle = rawMoodTitle.toLowerCase().includes('explosiveness') ? 'Build Explosive' : rawMoodTitle;
   const workoutType = params.workoutType as string || 'Weight Based';
   const equipment = params.equipment as string || 'Power Lifting Platform';
