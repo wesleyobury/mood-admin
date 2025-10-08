@@ -365,16 +365,12 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
   },
   progressContent: {
-    flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'space-between',
-    paddingHorizontal: 40,
+    paddingHorizontal: 10,
   },
   progressStep: {
     alignItems: 'center',
-    justifyContent: 'center',
-    flex: 1,
-    minWidth: 100,
+    minWidth: 80,
   },
   progressStepCircle: {
     width: 32,
