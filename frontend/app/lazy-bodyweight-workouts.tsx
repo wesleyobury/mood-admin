@@ -681,7 +681,8 @@ const styles = StyleSheet.create({
     fontWeight: '500',
   },
   workoutContent: {
-    paddingHorizontal: 4,
+    flex: 1,
+    paddingHorizontal: 0,
   },
   workoutName: {
     fontSize: 20,
