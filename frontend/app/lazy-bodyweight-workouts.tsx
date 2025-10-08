@@ -727,7 +727,7 @@ const styles = StyleSheet.create({
     lineHeight: 20,
   },
   workoutDescriptionContainer: {
-    marginBottom: 16,
+    marginBottom: 12,
   },
   workoutDescription: {
     fontSize: 14,
