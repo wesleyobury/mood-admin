@@ -269,7 +269,7 @@ export default function WeightEquipmentScreen() {
         {/* Equipment Selection */}
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>Select Equipment</Text>
-          <Text style={styles.sectionSubtitle}>Choose one or multiple weight training equipment options</Text>
+          <Text style={styles.sectionSubtitle}>Choose one or multiple equipment for explosive weight training</Text>
           
           <View style={styles.equipmentGrid}>
             {equipmentOptions.map((equipment) => (
