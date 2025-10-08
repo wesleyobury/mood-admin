@@ -250,7 +250,7 @@ export default function LazyBodyweightEquipmentScreen() {
             </View>
             <Text style={styles.progressStepText}>Equipment</Text>
           </View>
-        </View>
+        </ScrollView>
       </View>
 
       <ScrollView style={styles.scrollView} showsVerticalScrollIndicator={false}>
