@@ -361,15 +361,15 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
   },
   progressContent: {
+    flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'center',
-    paddingHorizontal: 10,
+    justifyContent: 'space-between',
+    paddingHorizontal: 40,
   },
   progressStep: {
     alignItems: 'center',
     justifyContent: 'center',
-    width: 80,
-    flex: 0,
+    flex: 1,
   },
   progressStepCircle: {
     width: 32,
