@@ -24,17 +24,14 @@ interface DifficultyLevel {
   color: string;
 }
 
+// Weight-based explosiveness equipment options
 const equipmentOptions: EquipmentOption[] = [
-  { id: 'barbells', name: 'Barbells', icon: 'barbell' },
-  { id: 'battle-ropes', name: 'Battle ropes', icon: 'git-compare' },
-  { id: 'dumbbells', name: 'Dumbbells', icon: 'barbell' },
-  { id: 'flipping-tire', name: 'Flipping tire', icon: 'ellipse' },
-  { id: 'kettle-bells', name: 'Kettle bells', icon: 'fitness' },
-  { id: 'med-balls', name: 'Med balls', icon: 'basketball' },
-  { id: 'resistance-bands', name: 'Resistance bands', icon: 'remove' },
-  { id: 'sled', name: 'Sled', icon: 'triangle' },
-  { id: 'slam-balls', name: 'Slam balls', icon: 'basketball' },
-  { id: 'sledgehammer-tire', name: 'Sledge hammer & tire', icon: 'hammer' },
+  { id: 'power-lifting-platform', name: 'Power Lifting Platform', icon: 'barbell' },
+  { id: 'landmine-attachment', name: 'Landmine Attachment', icon: 'extension-puzzle' },
+  { id: 'dumbbells', name: 'Dumbbells', icon: 'fitness' },
+  { id: 'kettlebells', name: 'Kettlebells', icon: 'fitness' },
+  { id: 'chains-bands', name: 'Chains / Bands', icon: 'link' },
+  { id: 'trap-hex-bar', name: 'Trap Hex Bar', icon: 'stop' },
 ];
 
 const difficultyLevels: DifficultyLevel[] = [
