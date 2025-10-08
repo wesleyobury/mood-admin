@@ -693,9 +693,10 @@ const styles = StyleSheet.create({
   },
   durationIntensityRow: {
     flexDirection: 'row',
-    alignItems: 'center',
     justifyContent: 'space-between',
-    marginBottom: 8,
+    alignItems: 'center',
+    marginBottom: 12,
+    paddingHorizontal: 6,
   },
   workoutDuration: {
     fontSize: 14,
