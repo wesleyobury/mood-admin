@@ -212,7 +212,7 @@ export default function WeightEquipmentScreen() {
         >
           <View style={styles.progressStep}>
             <View style={styles.progressStepActive}>
-              <Ionicons name="flame" size={14} color="#000000" />
+              <Ionicons name="flash" size={14} color="#000000" />
             </View>
             <Text style={styles.progressStepText}>{moodTitle}</Text>
           </View>
