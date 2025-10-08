@@ -717,7 +717,7 @@ const styles = StyleSheet.create({
   intensityContainer: {
     flexDirection: 'row',
     alignItems: 'flex-start',
-    marginBottom: 12,
+    marginBottom: 8,
   },
   intensityReason: {
     fontSize: 14,
