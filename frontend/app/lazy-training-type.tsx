@@ -84,10 +84,11 @@ export default function LazyTrainingTypeScreen() {
     console.log('Selected lazy training type:', option.title, 'for mood:', moodTitle);
     
     if (option.id === 'bodyweight') {
-      // TODO: Navigate to lazy bodyweight selection
-      console.log('Navigate to lazy bodyweight selection');
-      // For now, show alert that this will be implemented
-      alert('Bodyweight lazy workouts will be available soon!');
+      // Navigate to lazy bodyweight equipment selection
+      router.push({
+        pathname: '/lazy-bodyweight-equipment',
+        params: { mood: moodTitle, workoutType: option.title }
+      });
     } else if (option.id === 'weights') {
       // TODO: Navigate to lazy weight selection  
       console.log('Navigate to lazy weight selection');
