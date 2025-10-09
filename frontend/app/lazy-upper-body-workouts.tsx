@@ -590,14 +590,19 @@ const styles = StyleSheet.create({
     color: '#000000',
   },
   intensityContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
     marginBottom: 12,
-    paddingHorizontal: 6,
+    paddingHorizontal: 12,
+    paddingVertical: 8,
+    backgroundColor: 'rgba(255, 215, 0, 0.1)',
+    borderRadius: 8,
   },
   intensityReason: {
     fontSize: 12,
-    color: 'rgba(255, 255, 255, 0.6)',
-    fontStyle: 'italic',
-    lineHeight: 16,
+    color: 'rgba(255, 255, 255, 0.8)',
+    marginLeft: 8,
+    flex: 1,
   },
   workoutDescription: {
     fontSize: 13,
