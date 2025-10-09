@@ -168,8 +168,19 @@ export default function LazyWeightSelectionScreen() {
             difficulty: selectedDifficulty.id
           }
         });
+      } else if (selectedBodyPart.id === 'lower-body') {
+        // Route to lower body workouts screen for all difficulty levels
+        router.push({
+          pathname: '/lazy-lower-body-workouts',
+          params: { 
+            mood: moodTitle,
+            workoutType: workoutType,
+            bodyPart: selectedBodyPart.name,
+            difficulty: selectedDifficulty.id
+          }
+        });
       } else {
-        // TODO: Route to other body part/difficulty combinations
+        // TODO: Route to full body workouts (not implemented yet)
         alert(`${selectedBodyPart.name} workouts at ${selectedDifficulty.title} level will be available soon!`);
       }
     }
