@@ -1644,6 +1644,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   scrollContentContainer: {
+    paddingTop: 24,
     paddingBottom: 40,
   },
   equipmentSection: {
