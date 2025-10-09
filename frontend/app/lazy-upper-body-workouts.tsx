@@ -40,36 +40,582 @@ interface EquipmentWorkouts {
   };
 }
 
-// Upper body workout database with assault bike workouts
+// Upper body workout database with all press, pull, and full upper body workouts
 const upperBodyWorkoutDatabase: EquipmentWorkouts[] = [
   {
-    equipment: 'Assault Bike',
-    icon: 'bicycle',
+    equipment: 'PRESS',
+    icon: 'arrow-up',
     workouts: {
       beginner: [
         {
-          name: 'Breeze Pedal',
+          name: 'Push Starter',
           duration: '8–10 min',
-          description: 'Light pace, gentle arm swing, calm nasal–mouth breathing.',
-          battlePlan: '1 set\n• 8–10 min Easy (RPE 3)',
+          description: 'Press first, laterals next, rope pressdowns finish smoothly.',
+          battlePlan: 'Machine Chest Press\n• 3 × 8–10 (RPE 4), 45–60s rest\nMachine Lateral Raise\n• 3 × 10–12 (RPE 4), 45–60s rest\nRope Pressdown\n• 3 × 10–12 (RPE 4), 45–60s rest',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Easy spin moves blood with very low systemic stress.',
+          intensityReason: 'Simple machines train chest, delts, tris with minimal setup.',
+          moodTips: [
+            {
+              icon: 'body',
+              title: 'Shoulders down; soft lockouts',
+              description: 'Shoulders down; soft lockouts'
+            },
+            {
+              icon: 'leaf',
+              title: 'Breathe out on effort',
+              description: 'Breathe out on effort, in on return'
+            }
+          ]
+        },
+        {
+          name: 'Incline Balance',
+          duration: '8–10 min',
+          description: 'Light incline press, reverse fly, overhead triceps closer.',
+          battlePlan: 'Machine Incline Chest Press\n• 3 × 8–10 (RPE 4), 60s rest\nReverse Pec Deck\n• 3 × 12 (RPE 4), 45–60s rest\nOverhead Rope Triceps\n• 3 × 10–12 (RPE 4), 45–60s rest',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Incline press pairs with rear delts and tris for balance.',
+          moodTips: [
+            {
+              icon: 'body',
+              title: 'Chest up; elbows 30–45°',
+              description: 'Chest up; elbows 30–45°'
+            },
+            {
+              icon: 'arrow-down',
+              title: 'Ribs down on triceps overhead',
+              description: 'Ribs down on triceps overhead'
+            }
+          ]
+        },
+        {
+          name: 'Vertical Ease',
+          duration: '8–10 min',
+          description: 'Shoulder press, pec-deck squeeze, dip assist to finish clean.',
+          battlePlan: 'Machine Shoulder Press\n• 3 × 8–10 (RPE 4), 60s rest\nPec Deck\n• 3 × 10–12 (RPE 4), 60s rest\nAssisted Dips\n• 3 × 8–10 (RPE 4), 60s rest',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Vertical press with fly and assisted dips keeps effort light.',
           moodTips: [
             {
               icon: 'hand-right',
-              title: 'Soft grip',
-              description: 'Soft grip; shoulders down; even strokes'
+              title: 'Elbows under grips; no arch',
+              description: 'Elbows under grips; no arch'
             },
             {
-              icon: 'chatbubble',
-              title: 'Stay conversational',
-              description: 'Keep RPE ~3; stay conversational'
+              icon: 'arrow-down',
+              title: 'Control depth on dip assist',
+              description: 'Control depth on dip assist'
             }
           ]
         }
       ],
-      intermediate: [],
-      advanced: []
+      intermediate: [
+        {
+          name: 'Press Arc',
+          duration: '10–12 min',
+          description: 'Machine press, incline cable fly, cable Y-raise to polish.',
+          battlePlan: 'Machine Chest Press\n• 4 × 8 (RPE 5), 60–75s rest\nIncline Cable Fly\n• 3 × 10 (RPE 5), 60s rest\nCable Y Raise\n• 3 × 12 (RPE 5), 45–60s rest',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Strong press plus fly stretch and Y-raise for delt detail.',
+          moodTips: [
+            {
+              icon: 'time',
+              title: '2–1–3 tempo; soft lock',
+              description: '2–1–3 tempo; soft lock'
+            },
+            {
+              icon: 'pause',
+              title: 'Pause mid-arc on fly',
+              description: 'Pause mid-arc on fly'
+            }
+          ]
+        },
+        {
+          name: 'Overhead Line',
+          duration: '10–12 min',
+          description: 'Press for delts, upright row adds caps, overhead tris finish.',
+          battlePlan: 'Machine Shoulder Press\n• 4 × 8 (RPE 5–6), 60–75s rest\nCable Upright Row (wide)\n• 3 × 10 (RPE 5), 60s rest\nOverhead Rope Triceps\n• 3 × 10–12 (RPE 5), 45–60s rest',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Shoulder press, upright row, overhead tris build balance.',
+          moodTips: [
+            {
+              icon: 'arrow-up',
+              title: 'Upright row: lead elbows',
+              description: 'Upright row: lead elbows'
+            },
+            {
+              icon: 'contract',
+              title: 'Narrow elbows on OH tris',
+              description: 'Narrow elbows on OH tris'
+            }
+          ]
+        },
+        {
+          name: 'Lower Line',
+          duration: '10–12 min',
+          description: 'Decline press base, medial delts next, rope pressdowns close.',
+          battlePlan: 'Machine Decline Chest Press\n• 3 × 8–10 (RPE 5), 60s rest\nMachine Lateral Raise\n• 3 × 12 (RPE 5), 60s rest\nRope Pressdown\n• 3 × 10–12 (RPE 5), 45–60s rest',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Decline chest plus laterals and pressdowns target pressers.',
+          moodTips: [
+            {
+              icon: 'fitness',
+              title: 'Elbows ~45° on decline',
+              description: 'Elbows ~45° on decline'
+            },
+            {
+              icon: 'remove-circle',
+              title: 'No shrugging on laterals',
+              description: 'No shrugging on laterals'
+            }
+          ]
+        }
+      ],
+      advanced: [
+        {
+          name: 'Drop Drive',
+          duration: '12–14 min',
+          description: 'Heavy press drops, incline fly control, rope finishers.',
+          battlePlan: 'Machine Chest Press\n• 1 × 6 heavy (RPE 7) → drop 15% → 1 × 6 (RPE 6) → drop 15% → 1 × 6 (RPE 6)\n• Rest 90s; repeat for 3 total series\nIncline Cable Fly\n• 3 × 10 (RPE 6), 60s rest\nRope Pressdown\n• 3 × 10–12 (RPE 6), 60–75s rest',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Drop-set press boosts volume; fly and pushdown refine.',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Drop ~15% quickly',
+              description: 'Drop ~15% quickly'
+            },
+            {
+              icon: 'time',
+              title: 'Control 3s lowers on fly',
+              description: 'Control 3s lowers on fly'
+            }
+          ]
+        },
+        {
+          name: 'Cluster Overhead',
+          duration: '12–14 min',
+          description: 'Shoulder press clusters; rear delts next; overhead tris close.',
+          battlePlan: 'Machine Shoulder Press\n• 3 clusters: 3 + 3 + 3 (15s between), 90s between clusters\nReverse Pec Deck\n• 3 × 12 (RPE 6), 60–75s rest\nOverhead Rope Triceps\n• 3 × 10–12 (RPE 6), 60s rest',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Cluster presses maintain power while technique stays tidy.',
+          moodTips: [
+            {
+              icon: 'leaf',
+              title: '15s breaths in clusters',
+              description: '15s breaths in clusters'
+            },
+            {
+              icon: 'barbell',
+              title: 'Same load within cluster',
+              description: 'Same load within cluster'
+            }
+          ]
+        },
+        {
+          name: 'Midrange Squeeze',
+          duration: '12–14 min',
+          description: 'Cable fly one-and-a-halfs; laterals and rope pressdowns.',
+          battlePlan: 'Cable Fly (1.5 reps)\n• 3 × 8–10 (RPE 6), 60–75s rest\nMachine Lateral Raise\n• 3 × 12 (RPE 6), 60s rest\nRope Pressdown\n• 3 × 10–12 (RPE 6), 60s rest',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: '1.5 fly increases tension; delts and tris support work.',
+          moodTips: [
+            {
+              icon: 'body',
+              title: 'Keep chest lifted',
+              description: 'Keep chest lifted'
+            },
+            {
+              icon: 'time',
+              title: '1s squeeze; 3s return',
+              description: '1s squeeze; 3s return'
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    equipment: 'PULL',
+    icon: 'arrow-down',
+    workouts: {
+      beginner: [
+        {
+          name: 'Pull Primer',
+          duration: '8–10 min',
+          description: 'Lats first, mid-back next, rear delts and posture finish.',
+          battlePlan: 'Lat Pulldown (wide or neutral)\n• 3 × 8–10 (RPE 4), 45–60s rest\nSeated Row (neutral)\n• 3 × 8–10 (RPE 4), 45–60s rest\nCable Face Pull\n• 3 × 12–15 (RPE 4), 45–60s rest',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Pulldown, row, face pull cover back and biceps simply.',
+          moodTips: [
+            {
+              icon: 'arrow-down',
+              title: 'Elbows drive down/back',
+              description: 'Elbows drive down/back'
+            },
+            {
+              icon: 'body',
+              title: 'Chin tucked on face pulls',
+              description: 'Chin tucked on face pulls'
+            }
+          ]
+        },
+        {
+          name: 'Chest-Supported',
+          duration: '8–10 min',
+          description: 'Row machine, straight-arm pulldown, cable curls finish.',
+          battlePlan: 'Chest-Supported Row Machine\n• 3 × 8–10 (RPE 4), 60s rest\nCable Straight-Arm Pulldown\n• 3 × 12 (RPE 4), 45–60s rest\nCable Curl (EZ or rope)\n• 3 × 10–12 (RPE 4), 45–60s rest',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Supported rows reduce bracing and simplify posture.',
+          moodTips: [
+            {
+              icon: 'body',
+              title: 'Chest to pad; no heave',
+              description: 'Chest to pad; no heave'
+            },
+            {
+              icon: 'hand-right',
+              title: 'Long arms on straight-arm',
+              description: 'Long arms on straight-arm'
+            }
+          ]
+        },
+        {
+          name: 'High Line',
+          duration: '8–10 min',
+          description: 'High cable row, reverse pec deck, cable curls sequence.',
+          battlePlan: 'High Cable Row\n• 3 × 8–10 (RPE 4), 60s rest\nReverse Pec Deck\n• 3 × 12 (RPE 4), 45–60s rest\nCable Curl\n• 3 × 10–12 (RPE 4), 45–60s rest',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Upper-back bias plus curls for balanced pulling day.',
+          moodTips: [
+            {
+              icon: 'arrow-up',
+              title: 'Row to collarbone line',
+              description: 'Row to collarbone line'
+            },
+            {
+              icon: 'hand-right',
+              title: 'Wrists quiet on curls',
+              description: 'Wrists quiet on curls'
+            }
+          ]
+        }
+      ],
+      intermediate: [
+        {
+          name: 'Lat Ladder',
+          duration: '10–12 min',
+          description: 'Pulldown work, straight-arm sweeps, incline cable curls.',
+          battlePlan: 'Lat Pulldown\n• 4 × 8 (RPE 5), 60–75s rest\nCable Straight-Arm Pulldown\n• 3 × 10–12 (RPE 5), 60s rest\nIncline Cable Curl (low to high)\n• 3 × 10–12 (RPE 5), 45–60s rest',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Vertical pull pairs with length-tension lat training.',
+          moodTips: [
+            {
+              icon: 'body',
+              title: 'Tall chest on pulldowns',
+              description: 'Tall chest on pulldowns'
+            },
+            {
+              icon: 'fitness',
+              title: 'Hinge slight on straight-arm',
+              description: 'Hinge slight on straight-arm'
+            }
+          ]
+        },
+        {
+          name: 'Midback Focus',
+          duration: '10–12 min',
+          description: 'Neutral rows, reverse fly sets, rope hammer curls finish.',
+          battlePlan: 'Seated Row (neutral)\n• 4 × 8 (RPE 5), 60–75s rest\nReverse Pec Deck\n• 3 × 12 (RPE 5), 60s rest\nRope Hammer Curl\n• 3 × 10–12 (RPE 5), 45–60s rest',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Rows, rear delts, and hammers build the mid-back chain.',
+          moodTips: [
+            {
+              icon: 'contract',
+              title: 'Squeeze 1–2s on row',
+              description: 'Squeeze 1–2s on row'
+            },
+            {
+              icon: 'hand-right',
+              title: 'Elbows soft on rear delts',
+              description: 'Elbows soft on rear delts'
+            }
+          ]
+        },
+        {
+          name: 'High Row Line',
+          duration: '10–12 min',
+          description: 'High cable rows, reverse pec deck, preacher curl machine.',
+          battlePlan: 'High Cable Row\n• 4 × 8 (RPE 5–6), 60–75s rest\nReverse Pec Deck\n• 3 × 12 (RPE 5), 60s rest\nPreacher Curl Machine\n• 3 × 10–12 (RPE 5), 45–60s rest',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'High rows, rear delts, preacher curls cover pull angles.',
+          moodTips: [
+            {
+              icon: 'fitness',
+              title: 'Elbows 45–60° path',
+              description: 'Elbows 45–60° path'
+            },
+            {
+              icon: 'expand',
+              title: 'Full stretch on preacher',
+              description: 'Full stretch on preacher'
+            }
+          ]
+        }
+      ],
+      advanced: [
+        {
+          name: 'Drop Pull',
+          duration: '12–14 min',
+          description: 'Heavy pulldown drops, rows next, cable curls to close.',
+          battlePlan: 'Lat Pulldown\n• 1 × 6 heavy (RPE 7) → drop 15% → 1 × 6 (RPE 6) → drop 15% → 1 × 6 (RPE 6)\n• Rest 90s; repeat for 3 total series\nSeated Row\n• 3 × 8–10 (RPE 6), 60–75s rest\nCable Curl\n• 3 × 10–12 (RPE 6), 60s rest',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Pulldown drops extend time under tension efficiently.',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Quick pin changes',
+              description: 'Quick pin changes'
+            },
+            {
+              icon: 'remove-circle',
+              title: 'Avoid torso heave',
+              description: 'Avoid torso heave'
+            }
+          ]
+        },
+        {
+          name: 'Cluster Row',
+          duration: '12–14 min',
+          description: 'Cluster rows, rear delts after, incline cable curls finish.',
+          battlePlan: 'Chest-Supported Row Machine\n• 3 clusters: 4 + 4 + 4 (15s between), 90s between clusters\nReverse Pec Deck\n• 3 × 12 (RPE 6), 60–75s rest\nIncline Cable Curl\n• 3 × 10–12 (RPE 6), 60s rest',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Row clusters sustain output with crisp scap control.',
+          moodTips: [
+            {
+              icon: 'body',
+              title: 'Chest glued to pad',
+              description: 'Chest glued to pad'
+            },
+            {
+              icon: 'leaf',
+              title: '15s breaths in clusters',
+              description: '15s breaths in clusters'
+            }
+          ]
+        },
+        {
+          name: 'Midrange Pull',
+          duration: '12–14 min',
+          description: 'Face pull 1.5 reps, high rows next, rope hammer curls.',
+          battlePlan: 'Cable Face Pull (1.5 reps)\n• 3 × 10–12 (RPE 6), 60–75s rest\nHigh Cable Row\n• 3 × 8–10 (RPE 6), 60–75s rest\nRope Hammer Curl\n• 3 × 10–12 (RPE 6), 60s rest',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: '1.5 face pulls intensify rear delts with safe load.',
+          moodTips: [
+            {
+              icon: 'hand-right',
+              title: 'Thumbs back; 1s hold',
+              description: 'Thumbs back; 1s hold'
+            },
+            {
+              icon: 'time',
+              title: 'Smooth 3s returns',
+              description: 'Smooth 3s returns'
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    equipment: 'FULL UPPER BODY',
+    icon: 'fitness',
+    workouts: {
+      beginner: [
+        {
+          name: 'Simple Push–Pull',
+          duration: '8–10 min',
+          description: 'Chest press, row, laterals, pressdowns for simple flow.',
+          battlePlan: 'Machine Chest Press\n• 3 × 8–10 (RPE 4), 60s rest\nSeated Row\n• 3 × 8–10 (RPE 4), 60s rest\nMachine Lateral Raise\n• 3 × 12 (RPE 4), 45–60s rest\nRope Pressdown\n• 3 × 10–12 (RPE 4), 45–60s rest',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Balanced machines load push and pull with few cues.',
+          moodTips: [
+            {
+              icon: 'barbell',
+              title: 'Press/row: soft lock',
+              description: 'Press/row: soft lock'
+            },
+            {
+              icon: 'body',
+              title: 'Keep neck long, shoulders down',
+              description: 'Keep neck long, shoulders down'
+            }
+          ]
+        },
+        {
+          name: 'Vertical Pair',
+          duration: '8–10 min',
+          description: 'Shoulder press, pulldown, pec deck, cable curls lineup.',
+          battlePlan: 'Machine Shoulder Press\n• 3 × 8–10 (RPE 4), 60s rest\nLat Pulldown\n• 3 × 8–10 (RPE 4), 60s rest\nPec Deck\n• 3 × 10–12 (RPE 4), 60s rest\nCable Curl\n• 3 × 10–12 (RPE 4), 45–60s rest',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Vertical press and pull with easy isolation finishers.',
+          moodTips: [
+            {
+              icon: 'hand-right',
+              title: 'Elbows under on press',
+              description: 'Elbows under on press'
+            },
+            {
+              icon: 'arrow-down',
+              title: 'Elbows down on pulldown',
+              description: 'Elbows down on pulldown'
+            }
+          ]
+        },
+        {
+          name: 'Cable Flow',
+          duration: '8–10 min',
+          description: 'Cable press, high row, Y-raises, rope triceps to finish.',
+          battlePlan: 'Cable Chest Press\n• 3 × 10 (RPE 4), 60s rest\nHigh Cable Row\n• 3 × 10 (RPE 4), 60s rest\nCable Y Raise\n• 3 × 12 (RPE 4), 45–60s rest\nRope Pressdown\n• 3 × 10–12 (RPE 4), 45–60s rest',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Cables guide paths and reduce setup, keeping it easy.',
+          moodTips: [
+            {
+              icon: 'arrow-down',
+              title: 'Ribs down on presses',
+              description: 'Ribs down on presses'
+            },
+            {
+              icon: 'contract',
+              title: 'Squeeze 1s on rows',
+              description: 'Squeeze 1s on rows'
+            }
+          ]
+        }
+      ],
+      intermediate: [
+        {
+          name: 'Balanced Lines',
+          duration: '10–12 min',
+          description: 'Chest press, row, lateral raise, curls; clean sequence.',
+          battlePlan: 'Machine Chest Press\n• 4 × 8 (RPE 5), 60–75s rest\nSeated Row\n• 4 × 8 (RPE 5), 60–75s rest\nMachine Lateral Raise\n• 3 × 12 (RPE 5), 60s rest\nCable Curl\n• 3 × 10–12 (RPE 5), 45–60s rest',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Machines train push, pull, and delts with control.',
+          moodTips: [
+            {
+              icon: 'settings',
+              title: 'Note seat settings',
+              description: 'Note seat settings'
+            },
+            {
+              icon: 'time',
+              title: 'Keep tempos controlled',
+              description: 'Keep tempos controlled'
+            }
+          ]
+        },
+        {
+          name: 'Vertical Stack',
+          duration: '10–12 min',
+          description: 'Shoulder press, pulldown, pec deck, rope tris; tidy flow.',
+          battlePlan: 'Machine Shoulder Press\n• 4 × 8 (RPE 5–6), 60–75s rest\nLat Pulldown\n• 4 × 8 (RPE 5), 60–75s rest\nPec Deck\n• 3 × 10–12 (RPE 5), 60s rest\nRope Pressdown\n• 3 × 10–12 (RPE 5), 60s rest',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Overhead press and pulldown anchor simple accessory.',
+          moodTips: [
+            {
+              icon: 'remove-circle',
+              title: 'Don\'t arch on press',
+              description: 'Don\'t arch on press'
+            },
+            {
+              icon: 'body',
+              title: 'Tall chest on pulldown',
+              description: 'Tall chest on pulldown'
+            }
+          ]
+        },
+        {
+          name: 'Cable Circuitry',
+          duration: '10–12 min',
+          description: 'Cable press, high row, rear delts, overhead tris polish.',
+          battlePlan: 'Cable Chest Press\n• 4 × 8 (RPE 5), 60–75s rest\nHigh Cable Row\n• 4 × 8 (RPE 5), 60–75s rest\nReverse Pec Deck\n• 3 × 12 (RPE 5), 60s rest\nOverhead Rope Triceps\n• 3 × 10–12 (RPE 5), 60s rest',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Cable paths allow smooth arcs and moderate control.',
+          moodTips: [
+            {
+              icon: 'arrow-down',
+              title: 'Press: ribs down',
+              description: 'Press: ribs down'
+            },
+            {
+              icon: 'hand-right',
+              title: 'Rear delts: soft elbows',
+              description: 'Rear delts: soft elbows'
+            }
+          ]
+        }
+      ],
+      advanced: [
+        {
+          name: 'Push–Pull Drops',
+          duration: '12–14 min',
+          description: 'Chest and row drops, then laterals and cable curls.',
+          battlePlan: 'Machine Chest Press\n• 1 × 6 heavy (RPE 7) → drop 15% → 1 × 6 (RPE 6) → drop 15% → 1 × 6 (RPE 6)\n• Rest 90s; repeat for 3 total series\nSeated Row\n• 1 × 6 heavy (RPE 7) → drop 15% → 1 × 6 (RPE 6) → drop 15% → 1 × 6 (RPE 6)\n• Rest 90s; repeat for 3 total series\nMachine Lateral Raise\n• 3 × 12 (RPE 6), 60–75s rest\nCable Curl\n• 3 × 10–12 (RPE 6), 60–75s rest',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Drop sets increase volume without extra complexity.',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Swift pin changes',
+              description: 'Swift pin changes'
+            },
+            {
+              icon: 'checkmark-circle',
+              title: 'Keep reps smooth',
+              description: 'Keep reps smooth'
+            }
+          ]
+        },
+        {
+          name: 'Cluster Stack',
+          duration: '12–14 min',
+          description: 'Press and row clusters, then rear delts and rope tris.',
+          battlePlan: 'Machine Chest Press\n• 3 clusters: 3 + 3 + 3 (15s between), 90s between clusters\nSeated Row\n• 3 clusters: 4 + 4 + 4 (15s between), 90s between clusters\nReverse Pec Deck\n• 3 × 12 (RPE 6), 60–75s rest\nRope Pressdown\n• 3 × 10–12 (RPE 6), 60s rest',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Cluster sets keep output high with preserved form.',
+          moodTips: [
+            {
+              icon: 'time',
+              title: '15s mini-rests',
+              description: '15s mini-rests'
+            },
+            {
+              icon: 'barbell',
+              title: 'Same load in clusters',
+              description: 'Same load in clusters'
+            }
+          ]
+        },
+        {
+          name: 'Cable Finish',
+          duration: '12–14 min',
+          description: 'Fly 1.5s, high rows, Y raises, overhead triceps finisher.',
+          battlePlan: 'Cable Fly (1.5 reps)\n• 3 × 8–10 (RPE 6), 60–75s rest\nHigh Cable Row\n• 3 × 8–10 (RPE 6), 60–75s rest\nCable Y Raise\n• 3 × 12 (RPE 6), 60s rest\nOverhead Rope Triceps\n• 3 × 10–12 (RPE 6), 60s rest',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Midrange focus with cables adds tension at modest load.',
+          moodTips: [
+            {
+              icon: 'contract',
+              title: '1s squeeze on peak',
+              description: '1s squeeze on peak'
+            },
+            {
+              icon: 'time',
+              title: 'Control 3s returns',
+              description: 'Control 3s returns'
+            }
+          ]
+        }
+      ]
     }
   }
 ];
