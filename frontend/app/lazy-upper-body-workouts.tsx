@@ -187,8 +187,8 @@ export default function LazyUpperBodyWorkoutsScreen() {
             onPress={() => handleStartWorkout(item, equipment)}
             activeOpacity={0.8}
           >
-            <Ionicons name="play" size={20} color="#000000" />
-            <Text style={styles.startWorkoutText}>Start Workout</Text>
+            <Ionicons name="play" size={20} color="#000000" style={{ marginRight: 8 }} />
+            <Text style={styles.startWorkoutButtonText}>Start Workout</Text>
           </TouchableOpacity>
         </View>
       </View>
