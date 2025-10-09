@@ -1823,24 +1823,33 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: '#000000',
   },
-  workoutDots: {
-    flexDirection: 'row',
-    justifyContent: 'center',
+  dotsContainer: {
     alignItems: 'center',
     paddingVertical: 16,
-    gap: 8,
+    backgroundColor: 'rgba(255, 215, 0, 0.05)',
   },
-  workoutDot: {
-    width: 8,
-    height: 8,
-    borderRadius: 4,
-    backgroundColor: 'rgba(255, 255, 255, 0.3)',
+  dotsLabel: {
+    fontSize: 11,
+    color: 'rgba(255, 255, 255, 0.6)',
+    marginBottom: 8,
+    fontWeight: '500',
   },
-  workoutDotActive: {
-    backgroundColor: '#FFD700',
+  dotsRow: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    gap: 12,
+  },
+  dot: {
     width: 12,
     height: 12,
     borderRadius: 6,
+    backgroundColor: 'rgba(255, 255, 255, 0.3)',
+    borderWidth: 2,
+    borderColor: 'rgba(255, 215, 0, 0.3)',
+  },
+  activeDot: {
+    backgroundColor: '#FFD700',
+    borderColor: '#FFD700',
     shadowColor: '#FFD700',
     shadowOffset: { width: 0, height: 0 },
     shadowOpacity: 0.6,
