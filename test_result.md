@@ -49,6 +49,9 @@ backend:
       - working: true
         agent: "testing"
         comment: "✅ Database connectivity working perfectly. MongoDB connection established successfully. All CRUD operations working: user registration/login, workout creation/retrieval, post creation, likes, comments, follows, and workout logging all persist data correctly."
+      - working: true
+        agent: "testing"
+        comment: "✅ POST-LIGHT WEIGHTS CHANGES DATABASE VERIFICATION PASSED: Database connectivity remains stable after frontend 'Light weights' path changes. MongoDB connection working perfectly with all CRUD operations functional: ✅ User authentication and profile management ✅ Workout data storage and retrieval ✅ Social features data persistence ✅ All database collections responding correctly. Database infrastructure unaffected by frontend routing updates and ready to support updated workout paths."
 
 frontend:
   - task: "Legs Workout Feature - Muscle Group Selection"
