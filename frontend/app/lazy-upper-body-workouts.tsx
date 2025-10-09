@@ -634,7 +634,7 @@ const styles = StyleSheet.create({
   dotsContainer: {
     alignItems: 'center',
     paddingVertical: 16,
-    paddingHorizontal: 20,
+    backgroundColor: 'rgba(255, 215, 0, 0.05)',
   },
   dotsLabel: {
     fontSize: 11,
