@@ -179,8 +179,19 @@ export default function LazyWeightSelectionScreen() {
             difficulty: selectedDifficulty.id
           }
         });
+      } else if (selectedBodyPart.id === 'full-body') {
+        // Route to full body workouts screen for all difficulty levels
+        router.push({
+          pathname: '/lazy-full-body-workouts',
+          params: { 
+            mood: moodTitle,
+            workoutType: workoutType,
+            bodyPart: selectedBodyPart.name,
+            difficulty: selectedDifficulty.id
+          }
+        });
       } else {
-        // TODO: Route to full body workouts (not implemented yet)
+        // This should not happen with current options, but keeping as safety net
         alert(`${selectedBodyPart.name} workouts at ${selectedDifficulty.title} level will be available soon!`);
       }
     }
