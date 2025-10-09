@@ -28,7 +28,7 @@ const workoutTypeOptions: WorkoutTypeOption[] = [
   },
   {
     id: 'weight',
-    title: 'Weight Based',
+    title: 'Light weights',
     subtitle: 'Using weights & equipment to burn cals',
     icon: 'barbell',
     description: 'Strength training with weights and equipment to burn calories and build lean muscle',
