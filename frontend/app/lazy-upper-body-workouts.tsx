@@ -174,6 +174,7 @@ export default function LazyUpperBodyWorkoutsScreen() {
 
           {/* Intensity Reason */}
           <View style={styles.intensityContainer}>
+            <Ionicons name="information-circle" size={16} color="#FFD700" />
             <Text style={styles.intensityReason}>{item.intensityReason}</Text>
           </View>
 
