@@ -37,24 +37,24 @@ const equipmentOptions: EquipmentOption[] = [
   { id: 'sledgehammer-tire', name: 'Sledgehammer + Tire', icon: 'hammer' },
 ];
 
-// Difficulty levels with explosiveness-appropriate descriptions
+// Difficulty levels with sweat-appropriate descriptions
 const difficultyLevels: DifficultyLevel[] = [
   {
     id: 'beginner',
     title: 'Beginner',
-    subtitle: 'New to explosive lifting',
+    subtitle: 'Light cardio training',
     color: '#FFD700',
   },
   {
     id: 'intermediate',
     title: 'Intermediate',
-    subtitle: 'Some power lifting experience',
+    subtitle: 'Moderate cardio with weights',
     color: '#FFD700',
   },
   {
     id: 'advanced',
     title: 'Advanced',
-    subtitle: 'Competitive power training',
+    subtitle: 'High intensity cardio',
     color: '#FFD700',
   },
 ];
