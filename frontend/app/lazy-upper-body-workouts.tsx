@@ -672,8 +672,8 @@ export default function LazyUpperBodyWorkoutsScreen() {
   const createProgressRows = () => {
     const steps = [
       { key: 'mood', icon: 'bed', text: moodTitle },
-      { key: 'bodyPart', icon: 'barbell', text: workoutType },
-      { key: 'difficulty', icon: 'body', text: bodyPart },
+      { key: 'bodyPart', icon: 'barbell', text: bodyPart },
+      { key: 'difficulty', icon: 'body', text: difficulty },
       { key: 'equipment', icon: 'construct', text: `${selectedEquipmentNames.length} Equipment` },
     ];
 
