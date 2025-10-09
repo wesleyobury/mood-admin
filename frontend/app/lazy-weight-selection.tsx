@@ -157,8 +157,8 @@ export default function LazyWeightSelectionScreen() {
       console.log('Selected body part:', selectedBodyPart.name);
       console.log('Selected difficulty:', selectedDifficulty.title);
       
-      if (selectedBodyPart.id === 'upper-body' && selectedDifficulty.id === 'beginner') {
-        // Route to upper body workouts screen
+      if (selectedBodyPart.id === 'upper-body') {
+        // Route to upper body workouts screen for all difficulty levels
         router.push({
           pathname: '/lazy-upper-body-workouts',
           params: { 
