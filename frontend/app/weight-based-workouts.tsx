@@ -40,30 +40,30 @@ interface EquipmentWorkouts {
   };
 }
 
-// Weight-based workout database
+// Light weights workout database for sweat path
 const workoutDatabase: EquipmentWorkouts[] = [
   {
-    equipment: 'Power Lifting Platform',
-    icon: 'barbell',
+    equipment: 'Dumbbells',
+    icon: 'fitness',
     workouts: {
       beginner: [
         {
-          name: 'Speed Back Squat',
-          duration: '8–10 min',
-          description: 'Light bar, fast down/up; stick tall finish each repetition.',
-          battlePlan: '4 rounds\n• 3 × 3 Speed Squats (40–50% 1RM)\nRest 90s',
+          name: 'Cardio Circuit',
+          duration: '16–18 min',
+          description: 'Four 4‑min rounds: squats, lunges, push press, programmed rest.',
+          battlePlan: 'Perform 4 rounds (4 min each):\n• 30s Goblet Squat\n• 30s Alternating Reverse Lunge\n• 30s Push Press\n• 30s Rest',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Light load teaches proper speed patterns with safe range.',
+          intensityReason: 'Intervals raise HR while preserving form and control.',
           moodTips: [
             {
-              icon: 'speedometer',
-              title: 'Speed Focus',
-              description: 'Focus on fast concentric; control eccentric descent'
+              icon: 'body',
+              title: 'Chest tall; knees track toes',
+              description: 'Chest tall; knees track toes'
             },
             {
-              icon: 'body',
-              title: 'Form Check',
-              description: 'Keep knees tracking; chest up; drive through heels'
+              icon: 'fitness',
+              title: 'Exhale hard on push press',
+              description: 'Exhale hard on push press'
             }
           ]
         },
