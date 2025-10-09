@@ -43,7 +43,7 @@ interface EquipmentWorkouts {
 // Upper body workout database with all press, pull, and full upper body workouts
 const upperBodyWorkoutDatabase: EquipmentWorkouts[] = [
   {
-    equipment: 'PRESS',
+    equipment: 'Press',
     icon: 'arrow-up',
     workouts: {
       beginner: [
