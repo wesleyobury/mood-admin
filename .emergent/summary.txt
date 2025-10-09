@@ -1,61 +1,71 @@
 <analysis>
-The AI engineer successfully integrated extensive workout data for nine new equipment types into the Im feeling lazy" path, ensuring a unified workout display with swipeable cards. A major challenge involved resolving persistent syntax errors due to unescaped apostrophes in string literals within `lazy-bodyweight-workouts.tsx`, which required multiple iterations and a `troubleshoot_agent` call to identify changing single quotes to double quotes as the fix. Subsequently, significant effort was dedicated to refining the progress bar UI in `lazy-bodyweight-equipment.tsx`, tackling issues like icon centering, text wrapping (to a maximum of two lines), spacing, and eliminating unwanted scrollability, drawing comparisons to the "cardio-equipment" path. The work involved continuous iterative adjustments of flexbox properties, widths, font sizes, and text content to achieve the desired static and visually consistent layout.
+The AI engineer's initial work (pre-trajectory) focused on implementing the Lift weights path, including Upper body, Lower body, and Full body workout screens, ensuring navigation and UI consistency. The current trajectory addressed a critical user-reported issue: the I want to sweat > Weight Based path incorrectly displayed Build Explosiveness content due to a naming conflict.
+
+The AI engineer systematically fixed this by:
+1. Renaming Weight Based to Light weights in .
+2. Updating  with the correct equipment list, descriptions, and mood references for Light weights.
+3. Creating a new file, , populated with extensive, user-provided Light weights workout data (Dumbbells, Kettlebells, Barbells, etc., across three difficulty levels).
+4. Updating  to navigate to this new .
+5. Performing comprehensive verification of navigation, equipment selection, and workout content display.
+6. Addressing user feedback to implement missing UI/UX elements (padding, gold gradients, Swipe to explore section) in  to ensure visual parity with existing workout screens.
 </analysis>
 
 <product_requirements>
-The application provides native-feeling workout guidance, with existing "Legs" and "Abs" paths. Recent focus included enhancing the "Build Explosiveness" path with "Body weight" and "Weight based" options, comprehensive hardcoded workout data, and standardized "Build Explosive." text. Key UI/UX elements like bidirectional swipe, clickable dots, and single-row icon-based progress bars were established. The current phase centers on developing the "Im feeling lazy path, starting from the home screen. This path requires a new  screen for Just move your body or Lift weights selection, followed by an equipment selection screen () for Just move your body with specific equipment (Treadmill, Stationary bike, etc.). Finally, a unified Your Workouts screen () must display workout cards for the selected equipment, incorporating specific data (e.g., Assault Bike workout data, 4 workouts per intensity for Bodyweight Only), while maintaining full UI/UX parity with existing paths.
+The application provides a native-feeling workout experience. The current enhancement focuses on the I want to sweat path.
+
+Key requirements addressed in this trajectory:
+1.  **Issue**: The I want to sweat > Weight Based path was displaying content intended for the Build Explosiveness path, caused by a naming overlap.
+2.  **Rename**: Change Weight Based to Light weights within the I want to sweat path to prevent future confusion.
+3.  **Content Reimplementation**: Replace the incorrect equipment and workout content with specific Light weights data.
+    *   **Equipment**: DUMBBELLS, KETTLEBELLS, BARBELLS, MEDICINE BALLS, SLAM BALLS, BATTLE ROPES, SLED, SLEDGEHAMMER + TIRE, FLIPPING TIRE.
+    *   **Workouts**: Provide comprehensive workout data for each equipment type, categorized by Beginner, Intermediate, and Advanced difficulty levels, including titles, durations, intensity, summaries, MOOD tips, and Battle Plans.
+4.  **UI/UX Consistency**: Maintain the existing equipment screen, your workouts screen, and workout card format/layout, including adding missing elements like padding, gold gradients, and a swipe to explore section, ensuring parity with other workout displays.
 </product_requirements>
 
 <key_technical_concepts>
--   **Expo File-Based Routing:**  for screen navigation.
--   **React Native UI:**  for carousels, , , , , , .
--   **State & Refs:**  for component state,  for  scrolling.
--   **Styling:**  for Flexbox-based UI using an 8pt grid system.
+-   **Expo File-Based Routing**: Utilized  for screen navigation and query parameters.
+-   **React Native UI Components**: , , ,  for building the UI.
+-   **Styling**:  for Flexbox layouts and consistent UI/UX.
+-   **State Management**:  for UI state.
+-   **UI/UX Parity**: Critical emphasis on consistent visual design across workout screens.
 </key_technical_concepts>
 
 <code_architecture>
 
 -   ****:
-    -   **Importance:** Primary home screen, entry point for the application.
-    -   **Summary of Changes:** Updated to navigate Im feeling lazy" mood card to `lazy-training-type.tsx`.
--   **`frontend/app/lazy-training-type.tsx`**:
-    -   **Importance:** New screen for "Im feeling lazy path to select Just move your body or Lift weights.
-    -   **Summary of Changes:** Created by duplicating . Modified card text to fit on single lines and description on four lines, ensuring consistent dimensions. Navigation updated to .
+    -   **Importance**: Screen for selecting general workout categories.
+    -   **Changes**: Renamed Weight Based option to Light weights to resolve naming conflict.
 -   ****:
-    -   **Importance:** Equipment selection screen for Im feeling lazy" > "Just move your body" path. This file has been the focus of recent UI/UX improvements.
-    -   **Summary of Changes:** Initially duplicated from `weight-equipment.tsx`, styled for stacked format, and navigation to `lazy-bodyweight-workouts.tsx`. Recent changes include:
-        -   Alphabetical reordering of equipment options.
-        -   Removal of the "difficulty" step from the progress bar.
-        -   Multiple iterations to fix progress bar icon centering, spacing, and text wrapping to a maximum of two lines. This involved adjusting `minWidth`, `maxWidth`, `flex`, `justifyContent`, `fontSize`, `lineHeight`, and removing `ScrollView` in favor of a static `View` to prevent scrolling.
-        -   The latest changes aimed at making the progress bar truly static, ensuring all three steps ("Feeling lazy", "Move body", "Equipment") are fully visible and centered within the screen bounds without any scroll capability, by aggressively adjusting widths and spacing.
--   **`frontend/app/lazy-bodyweight-workouts.tsx`**:
-    -   **Importance:** Displays workout cards for "Im feeling lazy > Just move your body path, serving as a unified workout screen for all equipment types in this path.
-    -   **Summary of Changes:** Created by duplicating . Integrated Assault Bike and subsequently 9 additional equipment types (Treadmill, Stationary bike, Elliptical, Stair stepper, Rowing machine, SkiErg, Jump rope, Plyo box, Body weight only) with their respective workout data. Extensively modified to fix UI/UX issues, including image height, swipe indicators, gradients, padding/layout for overflow, workout card height,  button text spacing, and ensuring the progress bar displayed all 4 icons in a single row without overflow. Critical fixes involved escaping apostrophes in workout descriptions by changing single quotes to double quotes, which caused server errors.
+    -   **Importance**: Equipment selection screen for Weight Based (now Light weights) path.
+    -   **Changes**: Updated with the correct list of 9 equipment types (Dumbbells, Kettlebells, etc.) relevant to Light weights. Modified difficulty level descriptions, section titles, mood references, and section description text to align with the sweat path. Updated navigation logic to point to .
 -   ****:
-    -   **Importance:** Served as a reference for styling and layout of the progress bar, specifically for achieving 2-line text wrapping and static layout.
-    -   **Summary of Changes:** None directly, but its styling properties were inspected and applied to .
+    -   **Importance**: Previously held incorrect workout content for I want to sweat path.
+    -   **Changes**: This file's content was effectively superseded by the creation of .
+-   ****:
+    -   **Importance**: *New file* created to display specific workouts for the I want to sweat > Light weights path. Contains comprehensive workout data for 9 equipment types across Beginner, Intermediate, and Advanced difficulties.
+    -   **Changes**: Created by duplicating  structure and heavily modified. Populated with detailed workout data. Implemented UI/UX improvements: added padding below the progress bar, integrated gold gradients at the top and bottom of workout cards, applied a gold gradient behind the intensity reasoning text, and included a Swipe to explore section with navigation dots.
+-   ****:
+    -   **Importance**: Served as a reference/template for UI/UX patterns (gradients, swipe indicators) for .
+    -   **Changes**: No direct changes were made to this file; it was used for reference.
 </code_architecture>
 
 <pending_tasks>
 -   **Progress Bar Standardization (Legs Path):**  needs its progress bar updated to the single-row icon-based format.
+-   **Difficulty Parameter Display Bug**: The workout screen () still shows Beginner in the progress bar and badges even when an Intermediate difficulty parameter is passed via URL.
 </pending_tasks>
 
 <current_work>
-Immediately before this summary request, the AI engineer was intensely focused on resolving persistent issues with the progress bar in the  screen. The user repeatedly reported that the progress bar was still scrollable and that the Equipment text was being cut off, despite previous attempts to make it static and centered.
+Immediately prior to this summary, the AI engineer completed implementing and verifying UI/UX improvements for the  screen. This work addressed explicit user feedback regarding missing styling elements to ensure visual parity with other workout displays in the application.
 
-The AI engineer's actions involved:
-1.  **Re-diagnosing the Scroll Issue**: Acknowledging the user's feedback that Equip text was cut off, confirming the scrollable behavior persisted.
-2.  **Aggressive Styling Adjustments**: To achieve a truly static and fully visible progress bar with centered icons, the engineer made the following adjustments in :
-    *   **Container Constraints**: Added  and  to the main progress bar container to enforce strict bounds.
-    *   **Layout Distribution**: Used  to distribute the three progress steps (Feeling lazy, Move body, Equipment) equally within the available width.
-    *   **Step Sizing**: Further reduced the  of  to  and set  to prevent them from expanding beyond their defined size, ensuring fixed widths.
-    *   **Text Sizing**: Reduced  to  and  to  for the text within each step to ensure it wraps into a maximum of two lines.
-    *   **Connector Minimization**: Minimized   to  and  to  to bring the icons closer together.
-3.  **Self-Verification**: The engineer took a screenshot () after these changes to verify the fix. The screenshot showed all three elements (Feeling lazy, Move body, Equipment) fully visible and properly contained within the screen, suggesting the scroll issue was finally resolved and the layout was static.
-
-The goal was to make the progress bar static, centered, with 2-line text, and icons closer together, ensuring all content is in view without any scroll feature.
+The steps taken and verified were:
+1.  **Reference Existing Styles**: The AI engineer examined  to understand the correct styling patterns for gradients, spacing, and swipe indicators.
+2.  **Add Padding Below Progress Bar**: Implemented appropriate  to the scroll content container in  to create clear spacing between the progress bar and the first workout card.
+3.  **Add Swipe to Explore Section**: Incorporated the Swipe to explore text with navigation dots ( and related JSX/styles) at the bottom of each workout card section, including active dot highlighting.
+4.  **Add Gold Gradient to Intensity Reasoning**: Applied a golden background gradient to the intensity reasoning text section, enhancing its visual presentation.
+5.  **Add Gold Gradients to Workout Cards**: Integrated golden background gradients to the equipment headers (e.g., Dumbbells, Kettlebells) and the Swipe to explore sections at the bottom of the cards.
+6.  **Frontend Restart and Verification**: The Expo frontend was restarted, and the  screen was thoroughly tested by navigating to . Screenshots confirmed all implemented UI/UX improvements (padding, all gradient applications, Swipe to explore sections with dots, and overall styling consistency) were working correctly across multiple equipment sections.
 </current_work>
 
 <optional_next_step>
-Verify the progress bar in  is static, centered, and has 2-line text as confirmed by the last screenshot.
+Address the pending task:  needs its progress bar updated to the single-row icon-based format.
 </optional_next_step>
