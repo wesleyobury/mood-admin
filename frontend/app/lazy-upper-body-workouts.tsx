@@ -640,7 +640,7 @@ const styles = StyleSheet.create({
     fontSize: 11,
     color: 'rgba(255, 255, 255, 0.6)',
     marginBottom: 8,
-    fontStyle: 'italic',
+    fontWeight: '500',
   },
   dotsRow: {
     flexDirection: 'row',
