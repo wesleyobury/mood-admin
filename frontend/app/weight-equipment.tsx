@@ -24,14 +24,17 @@ interface DifficultyLevel {
   color: string;
 }
 
-// Weight-based explosiveness equipment options (alphabetical order)
+// Light weights equipment options (alphabetical order)
 const equipmentOptions: EquipmentOption[] = [
-  { id: 'chains-bands', name: 'Chains / Bands', icon: 'link' },
+  { id: 'barbells', name: 'Barbells', icon: 'barbell' },
+  { id: 'battle-ropes', name: 'Battle Ropes', icon: 'git-branch' },
   { id: 'dumbbells', name: 'Dumbbells', icon: 'fitness' },
+  { id: 'flipping-tire', name: 'Flipping Tire', icon: 'ellipse' },
   { id: 'kettlebells', name: 'Kettlebells', icon: 'fitness' },
-  { id: 'landmine-attachment', name: 'Landmine Attachment', icon: 'extension-puzzle' },
-  { id: 'power-lifting-platform', name: 'Power Lifting Platform', icon: 'barbell' },
-  { id: 'trap-hex-bar', name: 'Trap Hex Bar', icon: 'stop' },
+  { id: 'medicine-balls', name: 'Medicine Balls', icon: 'basketball' },
+  { id: 'slam-balls', name: 'Slam Balls', icon: 'baseball' },
+  { id: 'sled', name: 'Sled', icon: 'car-sport' },
+  { id: 'sledgehammer-tire', name: 'Sledgehammer + Tire', icon: 'hammer' },
 ];
 
 // Difficulty levels with explosiveness-appropriate descriptions
