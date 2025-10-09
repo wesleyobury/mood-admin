@@ -427,7 +427,7 @@ const upperBodyWorkoutDatabase: EquipmentWorkouts[] = [
     }
   },
   {
-    equipment: 'FULL UPPER BODY',
+    equipment: 'Full Upper Body',
     icon: 'fitness',
     workouts: {
       beginner: [
