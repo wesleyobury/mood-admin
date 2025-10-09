@@ -625,10 +625,12 @@ export default function LazyUpperBodyWorkoutsScreen() {
   const params = useLocalSearchParams();
   const insets = useSafeAreaInsets();
   
-  const moodTitle = "I'm feeling lazy";
-  const workoutType = 'Lift weights';
-  const bodyPart = 'Upper body';
-  const difficulty = 'beginner';
+  // Parse URL parameters
+  const rawMoodTitle = params.mood as string || "I'm feeling lazy";
+  const moodTitle = rawMoodTitle;
+  const workoutType = params.workoutType as string || 'Lift weights';
+  const bodyPart = params.bodyPart as string || 'Upper body';
+  const difficulty = params.difficulty as string || 'beginner';
   
   // Get workout data
   const selectedEquipmentNames = ['PRESS', 'PULL', 'FULL UPPER BODY'];
