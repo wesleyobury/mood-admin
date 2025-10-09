@@ -672,9 +672,9 @@ export default function LazyUpperBodyWorkoutsScreen() {
   const createProgressRows = () => {
     const steps = [
       { key: 'mood', icon: 'bed', text: moodTitle },
-      { key: 'bodyPart', icon: 'barbell', text: bodyPart },
-      { key: 'difficulty', icon: 'body', text: difficulty },
-      { key: 'equipment', icon: 'construct', text: `${selectedEquipmentNames.length} Equipment` },
+      { key: 'bodyPart', icon: 'barbell', text: workoutType },
+      { key: 'difficulty', icon: 'body', text: bodyPart },
+      { key: 'equipment', icon: 'construct', text: difficulty === 'intermediate' ? 'Intermed.' : difficulty.charAt(0).toUpperCase() + difficulty.slice(1) },
     ];
 
     // Return single row
