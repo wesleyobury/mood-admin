@@ -626,7 +626,7 @@ const styles = StyleSheet.create({
     shadowRadius: 8,
     elevation: 6,
   },
-  startWorkoutText: {
+  startWorkoutButtonText: {
     fontSize: 16,
     fontWeight: 'bold',
     color: '#000000',
