@@ -633,7 +633,7 @@ export default function LazyUpperBodyWorkoutsScreen() {
   const difficulty = params.difficulty as string || 'beginner';
   
   // Get workout data
-  const selectedEquipmentNames = ['PRESS', 'PULL', 'FULL UPPER BODY'];
+  const selectedEquipmentNames = ['Press', 'Pull', 'Full Upper Body'];
   const workoutDatabase = upperBodyWorkoutDatabase;
 
   const handleStartWorkout = (workout: Workout, equipment: string) => {
