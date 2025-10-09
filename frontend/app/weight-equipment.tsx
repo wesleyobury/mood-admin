@@ -171,7 +171,7 @@ export default function WeightEquipmentScreen() {
       const equipmentNames = selectedEquipment.map(eq => eq.name).join(',');
       
       router.push({
-        pathname: '/weight-based-workouts',
+        pathname: '/light-weights-workouts',
         params: { 
           mood: moodTitle,
           workoutType: workoutType,
