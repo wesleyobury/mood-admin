@@ -288,7 +288,7 @@ export default function WeightEquipmentScreen() {
         {/* Difficulty Selection */}
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>Select Difficulty</Text>
-          <Text style={styles.sectionSubtitle}>Choose your explosive weight training level</Text>
+          <Text style={styles.sectionSubtitle}>Choose your cardio weight training level</Text>
           
           <View style={styles.difficultyContainer}>
             {difficultyLevels.map((level) => (
