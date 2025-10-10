@@ -248,13 +248,13 @@ export default function OutdoorWorkoutsScreen() {
               <TouchableOpacity
                 key={index}
                 style={[
-                  styles.dot,
-                  currentWorkoutIndex === index && styles.activeDot
+                  styles.dotTouchArea,
+                  currentWorkoutIndex === index && styles.activeDotTouchArea,
                 ]}
                 onPress={() => {
-                  console.log(`Dot clicked: index ${index}, width: ${width - 48}`);
+                  console.log(`🔥 Dot clicked: index ${index}, width: ${width - 48}`);
                   const offset = (width - 48) * index;
-                  console.log(`Scrolling to offset: ${offset}`);
+                  console.log(`🔥 Scrolling to offset: ${offset}`);
                   
                   // Use scrollToOffset instead of scrollToIndex for better web compatibility
                   flatListRef.current?.scrollToOffset({
@@ -264,7 +264,13 @@ export default function OutdoorWorkoutsScreen() {
                   setCurrentWorkoutIndex(index);
                 }}
                 activeOpacity={0.7}
-              />
+                hitSlop={{top: 10, bottom: 10, left: 10, right: 10}}
+              >
+                <View style={[
+                  styles.dot,
+                  currentWorkoutIndex === index && styles.activeDot,
+                ]} />
+              </TouchableOpacity>
             ))}
           </View>
         </View>
