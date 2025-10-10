@@ -40,133 +40,645 @@ interface EquipmentWorkouts {
   };
 }
 
-// Placeholder workout data for each equipment type
-const calisthenicsWorkouts: { [key: string]: { [key: string]: Workout[] } } = {
-  'Pure bodyweight': {
-    beginner: [
-      {
-        id: 'pb-beginner-1',
-        title: 'Foundation Flow',
-        duration: '15 min',
-        intensity: 'Light',
-        summary: 'Basic bodyweight movements to build fundamental strength',
-        equipment: 'Pure bodyweight',
-        difficultyLevel: 'beginner',
-        moodTip: 'Focus on form and breathing. Every great calisthenics journey starts with these basics.',
-        battlePlan: ['5 Push-ups', '10 Bodyweight squats', '30-second plank', '5 Lunges each leg', 'Rest 1 minute, repeat 3 rounds']
-      },
-    ],
-    intermediate: [
-      {
-        id: 'pb-intermediate-1',
-        title: 'Strength Builder',
-        duration: '25 min',
-        intensity: 'Moderate',
-        summary: 'Progressive bodyweight exercises to develop strength and control',
-        equipment: 'Pure bodyweight',
-        difficultyLevel: 'intermediate',
-        moodTip: 'Challenge yourself with perfect form. Quality over quantity builds real strength.',
-        battlePlan: ['15 Push-ups', '20 Squats', '1-minute plank', '10 Burpees', 'Pike push-ups x8', 'Rest 90 seconds, repeat 4 rounds']
-      },
-    ],
-    advanced: [
-      {
-        id: 'pb-advanced-1',
-        title: 'Elite Mastery',
-        duration: '35 min',
-        intensity: 'High',
-        summary: 'Advanced bodyweight skills and high-intensity movements',
-        equipment: 'Pure bodyweight',
-        difficultyLevel: 'advanced',
-        moodTip: 'Push your limits. Advanced calisthenics is about mind-muscle mastery.',
-        battlePlan: ['Archer push-ups x5 each', 'Pistol squats x5 each', '2-minute plank', 'Handstand holds 30s', 'Single-leg burpees', 'Rest 2 minutes, repeat 5 rounds']
-      },
-    ],
+// Comprehensive calisthenics workout database
+const workoutDatabase: EquipmentWorkouts[] = [
+  {
+    equipment: 'Pure bodyweight',
+    icon: 'body',
+    workouts: {
+      beginner: [
+        {
+          name: 'Body Start',
+          duration: '16–20 min',
+          description: 'Squats and incline pushups, dead bugs for core stability.',
+          battlePlan: 'Bodyweight Squat\n• 3 × 12–15 (RPE 4), 60s rest\nIncline Pushup (hands on bench/wall)\n• 3 × 8–12 (RPE 4), 60s rest\nDead Bug\n• 3 × 8–10/side (RPE 4), 45–60s rest',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYWxpc3RoZW5pY3N8ZW58MXx8fHwxVzU2aWNnNMzIyM3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Simple patterns build control without loading demands.',
+          moodTips: [
+            {
+              icon: 'body',
+              title: 'Own shallow ranges',
+              description: 'Own shallow ranges'
+            },
+            {
+              icon: 'leaf',
+              title: 'Exhale on effort; slow lowers',
+              description: 'Exhale on effort; slow lowers'
+            }
+          ]
+        },
+        {
+          name: 'Hinge Intro',
+          duration: '16–20 min',
+          description: 'Hip hinge, step-back lunges, plank hold for midline.',
+          battlePlan: 'Hip Hinge (bodyweight RDL pattern)\n• 3 × 12 (RPE 4), 60s rest\nReverse Lunge\n• 3 × 8/side (RPE 4), 60s rest\nFront Plank\n• 3 × 20–40s (RPE 4), 45–60s rest',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYWxpc3RoZW5pY3N8ZW58MXx8fHwxVzU2aWNnNMzIyM3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Hip hinge and knee patterns build base body control.',
+          moodTips: [
+            {
+              icon: 'body',
+              title: 'Hips back, shins quiet',
+              description: 'Hips back, shins quiet'
+            },
+            {
+              icon: 'leaf',
+              title: 'Brace light; breathe steady',
+              description: 'Brace light; breathe steady'
+            }
+          ]
+        },
+        {
+          name: 'Vertical Intro',
+          duration: '16–20 min',
+          description: 'Doorframe rows, incline pushups, hollow holds finish.',
+          battlePlan: 'Towel/Doorframe Row (light angle)\n• 3 × 10–12 (RPE 4), 60s rest\nIncline Pushup\n• 3 × 8–12 (RPE 4), 60s rest\nHollow Hold\n• 3 × 15–25s (RPE 4), 45–60s rest',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYWxpc3RoZW5pY3N8ZW58MXx8fHwxVzU2aWNnNMzIyM3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Vertical pulls regress to build scap control safely.',
+          moodTips: [
+            {
+              icon: 'body',
+              title: 'Shoulders down/back',
+              description: 'Shoulders down/back'
+            },
+            {
+              icon: 'body',
+              title: 'Ribs down in hollow',
+              description: 'Ribs down in hollow'
+            }
+          ]
+        },
+        {
+          name: 'Flow Basics',
+          duration: '18–22 min',
+          description: 'Squats, wall sits, pushups from knees, side planks.',
+          battlePlan: 'Bodyweight Squat\n• 3 × 12–15 (RPE 4), 60s rest\nWall Sit\n• 3 × 30–45s (RPE 4), 45–60s rest\nKnee Pushup\n• 3 × 8–12 (RPE 4), 60s rest\nSide Plank\n• 3 × 15–25s/side (RPE 4), 45–60s rest',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYWxpc3RoZW5pY3N8ZW58MXx8fHwxVzU2aWNnNMzIyM3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Controlled flow builds capacity with minimal strain.',
+          moodTips: [
+            {
+              icon: 'refresh',
+              title: 'Move smooth, no rush',
+              description: 'Move smooth, no rush'
+            },
+            {
+              icon: 'body',
+              title: 'Keep neck long; soft lock',
+              description: 'Keep neck long; soft lock'
+            }
+          ]
+        }
+      ],
+      intermediate: [
+        {
+          name: 'Body Lines',
+          duration: '22–28 min',
+          description: 'Split squats, pushups, hip lifts, hollow rocks.',
+          battlePlan: 'Rear-Foot Flat Split Squat\n• 4 × 8/side (RPE 5), 60–75s rest\nPushup (standard)\n• 4 × 8–12 (RPE 5), 60–75s rest\nGlute Bridge\n• 3 × 12–15 (RPE 5), 60s rest\nHollow Rock\n• 3 × 10–15 (RPE 5), 45–60s rest',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYWxpc3RoZW5pY3N8ZW58MXx8fHwxVzU2aWNnNMzIyM3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Moderate volume builds strength with steady control.',
+          moodTips: [
+            {
+              icon: 'body',
+              title: 'Control 3s lowers',
+              description: 'Control 3s lowers'
+            },
+            {
+              icon: 'body',
+              title: 'Ribs down on pushups',
+              description: 'Ribs down on pushups'
+            }
+          ]
+        },
+        {
+          name: 'Single-Leg Start',
+          duration: '22–28 min',
+          description: 'Step-downs, skater squats, pushups, dead bugs.',
+          battlePlan: 'Heel Tap Step-Down (low step)\n• 4 × 6–8/side (RPE 5), 60–75s rest\nSkater Squat (assisted)\n• 3 × 6–8/side (RPE 5), 60–75s rest\nPushup\n• 3 × 8–12 (RPE 5), 60s rest\nDead Bug\n• 3 × 10–12/side (RPE 5), 45–60s rest',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYWxpc3RoZW5pY3N8ZW58MXx8fHwxVzU2aWNnNMzIyM3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Unilateral patterns build balance and hip stability.',
+          moodTips: [
+            {
+              icon: 'body',
+              title: 'Reach long; soft knee',
+              description: 'Reach long; soft knee'
+            },
+            {
+              icon: 'body',
+              title: 'Quiet torso on pushes',
+              description: 'Quiet torso on pushes'
+            }
+          ]
+        },
+        {
+          name: 'Hinge + Pull',
+          duration: '22–28 min',
+          description: 'Good mornings, table rows, pushups, side planks.',
+          battlePlan: 'Bodyweight Good Morning\n• 4 × 12 (RPE 5), 60s rest\nTable/Ring Row Regression (feet bent)\n• 4 × 8–10 (RPE 5), 60–75s rest\nPushup\n• 3 × 8–12 (RPE 5), 60s rest\nSide Plank\n• 3 × 25–35s/side (RPE 5), 45–60s rest',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYWxpc3RoZW5pY3N8ZW58MXx8fHwxVzU2aWNnNMzIyM3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Hip hinge pairs with row regressions for posture.',
+          moodTips: [
+            {
+              icon: 'body',
+              title: 'Hips back; neutral neck',
+              description: 'Hips back; neutral neck'
+            },
+            {
+              icon: 'body',
+              title: 'Row to ribs, no shrug',
+              description: 'Row to ribs, no shrug'
+            }
+          ]
+        },
+        {
+          name: 'Flow Builder',
+          duration: '22–28 min',
+          description: 'Squat to lunge flow, pushups, hollow hold finisher.',
+          battlePlan: 'Squat → Reverse Lunge (alt sides)\n• 4 × 6/side (RPE 5), 60–75s rest\nPushup\n• 4 × 8–12 (RPE 5), 60–75s rest\nHollow Hold\n• 3 × 25–35s (RPE 5), 45–60s rest',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYWxpc3RoZW5pY3N8ZW58MXx8fHwxVzU2aWNnNMzIyM3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Alternating patterns elevate capacity with control.',
+          moodTips: [
+            {
+              icon: 'refresh',
+              title: 'Smooth transitions',
+              description: 'Smooth transitions'
+            },
+            {
+              icon: 'leaf',
+              title: 'Keep breath rhythmic',
+              description: 'Keep breath rhythmic'
+            }
+          ]
+        }
+      ],
+      advanced: [
+        {
+          name: 'Power Lines',
+          duration: '26–34 min',
+          description: 'Pistol regressions, decline pushups, hollow rocks.',
+          battlePlan: 'Pistol Box Squat (to box/bench)\n• 4 × 5–7/side (RPE 6), 75s rest\nDecline Pushup (feet elevated)\n• 4 × 8–12 (RPE 6), 60–75s rest\nHollow Rock\n• 4 × 10–15 (RPE 6), 60s rest',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYWxpc3RoZW5pY3N8ZW58MXx8fHwxVzU2aWNnNMzIyM3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Higher tension bodyweight builds strength under control.',
+          moodTips: [
+            {
+              icon: 'body',
+              title: 'Stay balanced, slow lowers',
+              description: 'Stay balanced, slow lowers'
+            },
+            {
+              icon: 'body',
+              title: 'Pushups: ribs down, no flare',
+              description: 'Pushups: ribs down, no flare'
+            }
+          ]
+        },
+        {
+          name: 'Hinge Power',
+          duration: '26–34 min',
+          description: 'Single-leg RDL reach, hard rows, side plank holds.',
+          battlePlan: 'Single-Leg RDL Reach (unloaded)\n• 4 × 6–8/side (RPE 6), 75s rest\nTable/Ring Row (feet forward)\n• 4 × 8–10 (RPE 6), 60–75s rest\nSide Plank\n• 3 × 35–45s/side (RPE 6), 45–60s rest',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYWxpc3RoZW5pY3N8ZW58MXx8fHwxVzU2aWNnNMzIyM3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Single-leg hinge and rows increase posterior demand.',
+          moodTips: [
+            {
+              icon: 'body',
+              title: 'Hips square; soft knee',
+              description: 'Hips square; soft knee'
+            },
+            {
+              icon: 'body',
+              title: 'Row: pause 1s at ribs',
+              description: 'Row: pause 1s at ribs'
+            }
+          ]
+        },
+        {
+          name: 'Volume Push–Pull',
+          duration: '26–34 min',
+          description: 'Pushups, rows, squat jumps light, hollow hold closer.',
+          battlePlan: 'Pushup\n• 5 × 8–12 (RPE 6), 60–75s rest\nInverted Row (low table or rail)\n• 4 × 8–10 (RPE 6), 60–75s rest\nSquat Jump (small height)\n• 3 × 8 (RPE 6), 60s rest\nHollow Hold\n• 3 × 30–40s (RPE 6), 45–60s rest',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYWxpc3RoZW5pY3N8ZW58MXx8fHwxVzU2aWNnNMzIyM3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Higher push–pull volume builds endurance and control.',
+          moodTips: [
+            {
+              icon: 'body',
+              title: 'Keep reps smooth',
+              description: 'Keep reps smooth'
+            },
+            {
+              icon: 'walk',
+              title: 'Land soft; quiet feet',
+              description: 'Land soft; quiet feet'
+            }
+          ]
+        },
+        {
+          name: 'Midrange Core',
+          duration: '26–34 min',
+          description: '1.5 tempo adds time under tension for safe progress.',
+          battlePlan: 'Bodyweight Squat (1.5 reps)\n• 4 × 8–10 (RPE 6), 60–75s rest\nPushup (1.5 reps)\n• 4 × 6–8 (RPE 6), 60–75s rest\nSide Plank with Top-Arm Reach\n• 3 × 8–10/side (RPE 6), 45–60s rest',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYWxpc3RoZW5pY3N8ZW58MXx8fHwxVzU2aWNnNMzIyM3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: '1.5 tempo adds time under tension for safe progress.',
+          moodTips: [
+            {
+              icon: 'body',
+              title: '1s pause mid; 3s return',
+              description: '1s pause mid; 3s return'
+            },
+            {
+              icon: 'leaf',
+              title: 'Keep ribs stacked, nose breathe',
+              description: 'Keep ribs stacked, nose breathe'
+            }
+          ]
+        }
+      ]
+    }
   },
-  'Pull up bar': {
-    beginner: [
-      {
-        id: 'pul-beginner-1',
-        title: 'Upper Power Start',
-        duration: '20 min',
-        intensity: 'Light',
-        summary: 'Build pulling strength with assisted and basic pull-up movements',
-        equipment: 'Pull up bar',
-        difficultyLevel: 'beginner',
-        moodTip: 'Every pull-up master started with their first hang. Progress takes patience.',
-        battlePlan: ['Dead hangs 15s x3', 'Negative pull-ups x5', 'Inverted rows x8', 'Assisted pull-ups x3', 'Rest 2 minutes between sets']
-      },
-    ],
-    intermediate: [
-      {
-        id: 'pul-intermediate-1',
-        title: 'Pull Progression',
-        duration: '30 min',
-        intensity: 'Moderate',
-        summary: 'Structured pull-up training with variations',
-        equipment: 'Pull up bar',
-        difficultyLevel: 'intermediate',
-        moodTip: 'Feel the power in your lats. Each pull-up builds both strength and confidence.',
-        battlePlan: ['Pull-ups x8', 'Wide-grip pull-ups x5', 'Chin-ups x6', 'L-sits 20s x3', 'Hanging leg raises x10', 'Rest 90s between exercises']
-      },
-    ],
-    advanced: [
-      {
-        id: 'pul-advanced-1',
-        title: 'Pull Mastery',
-        duration: '40 min',
-        intensity: 'High',
-        summary: 'Advanced pull-up variations and high-volume training',
-        equipment: 'Pull up bar',
-        difficultyLevel: 'advanced',
-        moodTip: 'Dominate the bar. Advanced pulling is about explosive power and control.',
-        battlePlan: ['Weighted pull-ups x5', 'Muscle-ups x3', 'Commando pull-ups x6', 'Typewriter pull-ups x4 each', 'Advanced L-sits 45s', 'Rest 3 minutes, repeat 4 rounds']
-      },
-    ],
+  {
+    equipment: 'Pull up bar',
+    icon: 'remove-outline',
+    workouts: {
+      beginner: [
+        {
+          name: 'Bar Start',
+          duration: '16–22 min',
+          description: 'Assisted hangs and rows build grip and scap control.',
+          battlePlan: 'Dead Hang (feet supported if needed)\n• 3 × 20–30s (RPE 4), 60s rest\nBand-Assisted Pullup (light angle)\n• 3 × 4–6 (RPE 4), 75s rest\nInverted Row (high bar, feet bent)\n• 3 × 8–10 (RPE 4), 60s rest',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYWxpc3RoZW5pY3N8ZW58MXx8fHwxVzU2aWNnNMzIyM3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Assisted hangs and rows build grip and scap control.',
+          moodTips: [
+            {
+              icon: 'body',
+              title: 'Shoulders down; long neck',
+              description: 'Shoulders down; long neck'
+            },
+            {
+              icon: 'leaf',
+              title: 'Smooth breath under tension',
+              description: 'Smooth breath under tension'
+            }
+          ]
+        },
+        {
+          name: 'Scap Basics',
+          duration: '16–22 min',
+          description: 'Scapular movement priming builds safer pull strength.',
+          battlePlan: 'Scapular Pullups (top to bottom)\n• 3 × 8–10 (RPE 4), 60s rest\nEccentric Pullup (3–4s lowers, band if needed)\n• 3 × 3–5 (RPE 4), 75s rest\nHollow Hold\n• 3 × 20–30s (RPE 4), 45–60s rest',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYWxpc3RoZW5pY3N8ZW58MXx8fHwxVzU2aWNnNMzIyM3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Scapular movement priming builds safer pull strength.',
+          moodTips: [
+            {
+              icon: 'body',
+              title: 'Move only the scaps',
+              description: 'Move only the scaps'
+            },
+            {
+              icon: 'body',
+              title: 'Ribs down in hollow hold',
+              description: 'Ribs down in hollow hold'
+            }
+          ]
+        },
+        {
+          name: 'Mixed Angle',
+          duration: '16–22 min',
+          description: 'Different bar grips distribute load and teach control.',
+          battlePlan: 'Neutral-Grip Band-Assisted Pullup\n• 3 × 5–7 (RPE 4), 75s rest\nEccentric Chin-Up (4s down)\n• 3 × 3–4 (RPE 4), 75s rest\nInverted Row (bar chest height)\n• 3 × 8–10 (RPE 4), 60s rest',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYWxpc3RoZW5pY3N8ZW58MXx8fHwxVzU2aWNnNMzIyM3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Different bar grips distribute load and teach control.',
+          moodTips: [
+            {
+              icon: 'body',
+              title: 'Elbows track down',
+              description: 'Elbows track down'
+            },
+            {
+              icon: 'body',
+              title: 'Avoid neck craning up',
+              description: 'Avoid neck craning up'
+            }
+          ]
+        }
+      ],
+      intermediate: [
+        {
+          name: 'Volume Pull',
+          duration: '22–28 min',
+          description: 'Moderate band assist allows higher-quality volume.',
+          battlePlan: 'Band-Assisted Pullup\n• 4 × 6–8 (RPE 5), 90s rest\nInverted Row (feet flat)\n• 4 × 8–10 (RPE 5), 75s rest\nHollow Rock\n• 3 × 10–15 (RPE 5), 60s rest',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYWxpc3RoZW5pY3N8ZW58MXx8fHwxVzU2aWNnNMzIyM3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Moderate band assist allows higher-quality volume.',
+          moodTips: [
+            {
+              icon: 'body',
+              title: 'Smooth 2–1–3 tempo',
+              description: 'Smooth 2–1–3 tempo'
+            },
+            {
+              icon: 'body',
+              title: 'Keep ribs down in rocks',
+              description: 'Keep ribs down in rocks'
+            }
+          ]
+        },
+        {
+          name: 'Eccentric Lines',
+          duration: '22–28 min',
+          description: 'Negatives build strength through full, safe range.',
+          battlePlan: 'Eccentric Chin-Up\n• 4 × 3–4 (RPE 5–6), 90s rest\nTop Isometric Pullup Hold (chin over bar)\n• 3 × 10–15s (RPE 5), 75s rest\nHanging Knee Raise\n• 3 × 10–12 (RPE 5), 60s rest',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYWxpc3RoZW5pY3N8ZW58MXx8fHwxVzU2aWNnNMzIyM3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Negatives build strength through full, safe range.',
+          moodTips: [
+            {
+              icon: 'body',
+              title: '4–5s negatives',
+              description: '4–5s negatives'
+            },
+            {
+              icon: 'body',
+              title: 'Hold chest-up position',
+              description: 'Hold chest-up position'
+            }
+          ]
+        },
+        {
+          name: 'Mixed Grips',
+          duration: '22–28 min',
+          description: 'Grip variations balance forearm and lat engagement.',
+          battlePlan: 'Neutral-Grip Pullup (light band if needed)\n• 4 × 5–7 (RPE 5–6), 90s rest\nPronated Inverted Row (feet bent)\n• 4 × 8–10 (RPE 5), 75s rest\nDead Hang\n• 3 × 30–40s (RPE 5), 60s rest',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYWxpc3RoZW5pY3N8ZW58MXx8fHwxVzU2aWNnNMzIyM3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Grip variations balance forearm and lat engagement.',
+          moodTips: [
+            {
+              icon: 'body',
+              title: 'Drive elbows to ribs',
+              description: 'Drive elbows to ribs'
+            },
+            {
+              icon: 'hand-right',
+              title: 'Keep hands quiet, no twist',
+              description: 'Keep hands quiet, no twist'
+            }
+          ]
+        }
+      ],
+      advanced: [
+        {
+          name: 'Strict Pull',
+          duration: '26–34 min',
+          description: 'Strict sets prioritize clean strength and scap control.',
+          battlePlan: 'Strict Pullup (bodyweight)\n• 5 × 4–6 (RPE 6), 90s rest\nChest-to-Bar Inverted Row (feet extended)\n• 4 × 8–10 (RPE 6), 75s rest\nHanging Leg Raise\n• 3 × 8–12 (RPE 6), 60–75s rest',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYWxpc3RoZW5pY3N8ZW58MXx8fHwxVzU2aWNnNMzIyM3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Strict sets prioritize clean strength and scap control.',
+          moodTips: [
+            {
+              icon: 'body',
+              title: 'Pull chest to bar',
+              description: 'Pull chest to bar'
+            },
+            {
+              icon: 'body',
+              title: 'No swing; smooth lowers',
+              description: 'No swing; smooth lowers'
+            }
+          ]
+        },
+        {
+          name: 'Eccentric Power',
+          duration: '26–34 min',
+          description: 'Weighted negatives push strength beyond sticking zones.',
+          battlePlan: 'Weighted Eccentric Pullup (dip belt/DB)\n• 5 × 2–3 (RPE 6–7), 120s rest\nHollow Rock\n• 4 × 12–16 (RPE 6), 60–75s rest\nBar Hang (thick grip/towel)\n• 3 × 30–40s (RPE 6), 60s rest',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHc0fHxjYWxpc3RoZW5pY3N8ZW58MXx8fHwxVzU2aWNnNMzIyM3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Weighted negatives push strength beyond sticking zones.',
+          moodTips: [
+            {
+              icon: 'body',
+              title: '5s negatives; solid brace',
+              description: '5s negatives; solid brace'
+            },
+            {
+              icon: 'body',
+              title: 'Avoid shrug; pack shoulder',
+              description: 'Avoid shrug; pack shoulder'
+            }
+          ]
+        },
+        {
+          name: 'Volume Mix',
+          duration: '26–34 min',
+          description: 'Higher total pulls with varied grips improve capacity.',
+          battlePlan: 'Neutral-Grip Pullup\n• 4 × 5–7 (RPE 6), 90s rest\nPronated Pullup\n• 3 × 4–6 (RPE 6), 90s rest\nTop Isometric Chin-Up Hold\n• 3 × 10–15s (RPE 6), 75s rest',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYWxpc3RoZW5pY3N8ZW58MXx8fHwxVzU2aWNnNMzIyM3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Higher total pulls with varied grips improve capacity.',
+          moodTips: [
+            {
+              icon: 'body',
+              title: 'Full depth, calm chest',
+              description: 'Full depth, calm chest'
+            },
+            {
+              icon: 'body',
+              title: '2–1–3 tempo throughout',
+              description: '2–1–3 tempo throughout'
+            }
+          ]
+        }
+      ]
+    }
   },
-  // Add placeholder data for other equipment types
-  'Parallel bars / dip station': {
-    beginner: [
-      {
-        id: 'pb-beginner-1',
-        title: 'Dip Foundation',
-        duration: '18 min',
-        intensity: 'Light',
-        summary: 'Learn proper dip form and build tricep strength',
-        equipment: 'Parallel bars / dip station',
-        difficultyLevel: 'beginner',
-        moodTip: 'Master the basics. Strong dips build incredible pushing power.',
-        battlePlan: ['Supported dips x5', 'Dip negatives x8', 'L-sit holds 10s', 'Tricep dips x10', 'Rest 90s between sets']
-      },
-    ],
-    intermediate: [
-      {
-        id: 'pb-intermediate-1',
-        title: 'Parallel Power',
-        duration: '28 min',
-        intensity: 'Moderate',
-        summary: 'Progressive dip training with advanced holds',
-        equipment: 'Parallel bars / dip station',
-        difficultyLevel: 'intermediate',
-        moodTip: 'Feel the burn in your triceps. Each dip builds functional upper body strength.',
-        battlePlan: ['Full dips x12', 'L-sits 30s x3', 'Knee raises x15', 'Dip holds 15s x3', 'Rest 2 minutes between sets']
-      },
-    ],
-    advanced: [
-      {
-        id: 'pb-advanced-1',
-        title: 'Elite Dips',
-        duration: '38 min',
-        intensity: 'High',
-        summary: 'Advanced dip variations and high-intensity training',
-        equipment: 'Parallel bars / dip station',
-        difficultyLevel: 'advanced',
-        moodTip: 'Push beyond limits. Advanced dips require both strength and mental focus.',
-        battlePlan: ['Weighted dips x8', 'Handstand to dips x3', 'Advanced L-sits 60s', 'Russian dips x10', 'Rest 3 minutes, repeat 5 rounds']
-      },
-    ],
-  },
-};
+  {
+    equipment: 'Parallel bars / dip station',
+    icon: 'remove',
+    workouts: {
+      beginner: [
+        {
+          name: 'Dip Prep',
+          duration: '16–22 min',
+          description: 'Support holds and assisted dips teach body alignment.',
+          battlePlan: 'Parallel Bar Support Hold\n• 3 × 15–25s (RPE 4), 60s rest\nBand-Assisted Dips\n• 3 × 5–7 (RPE 4), 75s rest\nParallel Bar Knee Tucks\n• 3 × 10–12 (RPE 4), 60s rest',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYWxpc3RoZW5pY3N8ZW58MXx8fHwxVzU2aWNnNMzIyM3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Support holds and assisted dips teach body alignment.',
+          moodTips: [
+            {
+              icon: 'body',
+              title: 'Shoulders down; long neck',
+              description: 'Shoulders down; long neck'
+            },
+            {
+              icon: 'body',
+              title: 'Small depth you control',
+              description: 'Small depth you control'
+            }
+          ]
+        },
+        {
+          name: 'Angle Rows',
+          duration: '16–22 min',
+          description: 'Bar rows build scap control with simple setup.',
+          battlePlan: 'Parallel Bar Inverted Row (knees bent)\n• 3 × 8–10 (RPE 4), 60s rest\nBand-Assisted Dips\n• 3 × 5–7 (RPE 4), 75s rest\nDead Bug\n• 3 × 10–12/side (RPE 4), 45–60s rest',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYWxpc3RoZW5pY3N8ZW58MXx8fHwxVzU2aWNnNMzIyM3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Bar rows build scap control with simple setup.',
+          moodTips: [
+            {
+              icon: 'body',
+              title: 'Elbows to ribs line',
+              description: 'Elbows to ribs line'
+            },
+            {
+              icon: 'body',
+              title: 'Ribs down on dip reps',
+              description: 'Ribs down on dip reps'
+            }
+          ]
+        },
+        {
+          name: 'Support + Core',
+          duration: '16–22 min',
+          description: 'Stable support positions teach shoulder packing.',
+          battlePlan: 'Parallel Bar Support Hold\n• 3 × 20–30s (RPE 4), 60s rest\nAssisted Dip Eccentric (3–4s down)\n• 3 × 3–5 (RPE 4), 75s rest\nHanging Knee Raise (on bars)\n• 3 × 8–10 (RPE 4), 60s rest',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYWxpc3RoZW5pY3N8ZW58MXx8fHwxVzU2aWNnNMzIyM3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Stable support positions teach shoulder packing.',
+          moodTips: [
+            {
+              icon: 'body',
+              title: 'Pack shoulders down',
+              description: 'Pack shoulders down'
+            },
+            {
+              icon: 'body',
+              title: 'Slow 3–4s lowers',
+              description: 'Slow 3–4s lowers'
+            }
+          ]
+        }
+      ],
+      intermediate: [
+        {
+          name: 'Dip Lines',
+          duration: '22–28 min',
+          description: 'Moderate dip volume strengthens chest and triceps.',
+          battlePlan: 'Band-Assisted Dips\n• 4 × 6–8 (RPE 5), 90s rest\nParallel Bar Inverted Row (feet flat)\n• 4 × 8–10 (RPE 5), 75s rest\nParallel Bar Knee Raise\n• 3 × 10–12 (RPE 5), 60s rest',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYWxpc3RoZW5pY3N8ZW58MXx8fHwxVzU2aWNnNMzIyM3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Moderate dip volume strengthens chest and triceps.',
+          moodTips: [
+            {
+              icon: 'body',
+              title: 'Slight torso forward',
+              description: 'Slight torso forward'
+            },
+            {
+              icon: 'body',
+              title: 'Elbows 45–60° track',
+              description: 'Elbows 45–60° track'
+            }
+          ]
+        },
+        {
+          name: 'Support Strength',
+          duration: '22–28 min',
+          description: 'Isometrics add control for safer pressing patterns.',
+          battlePlan: 'Parallel Bar Support Hold\n• 4 × 25–35s (RPE 5), 60–75s rest\nTempo Dips (3s down) with Band\n• 4 × 5–7 (RPE 5–6), 90s rest\nDead Bug\n• 3 × 12–14/side (RPE 5), 60s rest',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYWxpc3RoZW5pY3N8ZW58MXx8fHwxVzU2aWNnNMzIyM3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Isometrics add control for safer pressing patterns.',
+          moodTips: [
+            {
+              icon: 'body',
+              title: 'Lock shoulder position',
+              description: 'Lock shoulder position'
+            },
+            {
+              icon: 'body',
+              title: '2–1–3 tempo on dips',
+              description: '2–1–3 tempo on dips'
+            }
+          ]
+        },
+        {
+          name: 'Mixed Angle',
+          duration: '22–28 min',
+          description: 'Pair rows with dips for balanced push–pull control.',
+          battlePlan: 'Parallel Bar Row (pronated, feet bent)\n• 4 × 8–10 (RPE 5), 75s rest\nBand-Assisted Dips\n• 4 × 6–8 (RPE 5–6), 90s rest\nParallel Bar Knee Tucks\n• 3 × 10–12 (RPE 5), 60s rest',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYWxpc3RoZW5pY3N8ZW58MXx8fHwxVzU2aWNnNMzIyM3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Pair rows with dips for balanced push–pull control.',
+          moodTips: [
+            {
+              icon: 'body',
+              title: 'Chest to bar line',
+              description: 'Chest to bar line'
+            },
+            {
+              icon: 'body',
+              title: 'Keep tucks slow, no swing',
+              description: 'Keep tucks slow, no swing'
+            }
+          ]
+        }
+      ],
+      advanced: [
+        {
+          name: 'Strict Dips',
+          duration: '26–34 min',
+          description: 'Bodyweight dips build pressing power and stability.',
+          battlePlan: 'Strict Parallel Bar Dips\n• 5 × 5–7 (RPE 6), 90s rest\nFeet-Elevated Parallel Bar Row\n• 4 × 8–10 (RPE 6), 75s rest\nParallel Bar Tuck L-Sit Hold\n• 4 × 10–15s (RPE 6), 60–75s rest',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYWxpc3RoZW5pY3N8ZW58MXx8fHwxVzU2aWNnNMzIyM3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Bodyweight dips build pressing power and stability.',
+          moodTips: [
+            {
+              icon: 'body',
+              title: 'Shoulders packed down',
+              description: 'Shoulders packed down'
+            },
+            {
+              icon: 'body',
+              title: 'Control depth; no bounce',
+              description: 'Control depth; no bounce'
+            }
+          ]
+        },
+        {
+          name: 'Eccentric Power',
+          duration: '26–34 min',
+          description: 'Weighted eccentrics increase force in safe ranges.',
+          battlePlan: 'Weighted Eccentric Dip\n• 5 × 2–3 (RPE 6–7), 120s rest\nParallel Bar Row (feet extended)\n• 4 × 8–10 (RPE 6), 75s rest\nParallel Bar Knee Raise\n• 4 × 10–12 (RPE 6), 60–75s rest',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYWxpc3RoZW5pY3N8ZW58MXx8fHwxVzU2aWNnNMzIyM3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Weighted eccentrics increase force in safe ranges.',
+          moodTips: [
+            {
+              icon: 'body',
+              title: '4–5s controlled lowers',
+              description: '4–5s controlled lowers'
+            },
+            {
+              icon: 'body',
+              title: 'Keep elbows 45–60°',
+              description: 'Keep elbows 45–60°'
+            }
+          ]
+        },
+        {
+          name: 'Midrange Control',
+          duration: '26–34 min',
+          description: '1.5 dip reps increase time under tension efficiently.',
+          battlePlan: 'Dips (1.5 reps: half up, down, full press)\n• 4 × 4–6 (RPE 6), 120s rest\nChest-to-Bar Parallel Bar Row\n• 4 × 8–10 (RPE 6), 75s rest\nTuck L-Sit Hold\n• 4 × 12–18s (RPE 6), 60–75s rest',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYWxpc3RoZW5pY3N8ZW58MXx8fHwxVzU2aWNnNMzIyM3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: '1.5 dip reps increase time under tension efficiently.',
+          moodTips: [
+            {
+              icon: 'body',
+              title: 'Pause mid, then press',
+              description: 'Pause mid, then press'
+            },
+            {
+              icon: 'body',
+              title: 'Keep ribs down; no sway',
+              description: 'Keep ribs down; no sway'
+            }
+          ]
+        }
+      ]
+    }
+  }
+];
 
 const WorkoutCard = ({ 
   workout, 
