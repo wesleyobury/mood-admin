@@ -79,7 +79,7 @@ const moodCards: MoodCard[] = [
   },
   {
     id: 'explosive',
-    title: 'I want to build explosiveness',
+    title: 'Build explosion',
     subtitle: 'Power & plyometric moves',
     icon: 'flash',
     gradient: ['#FFD93D', '#FF6B6B'],
