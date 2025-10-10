@@ -583,9 +583,9 @@ const styles = StyleSheet.create({
     elevation: 3,
   },
   cardIcon: {
-    textShadowColor: 'rgba(255, 215, 0, 0.7)',
+    textShadowColor: 'rgba(255, 215, 0, 0.3)',
     textShadowOffset: { width: 0, height: 0 },
-    textShadowRadius: 6,
+    textShadowRadius: 3,
   },
   textContainer: {
     flex: 1,
