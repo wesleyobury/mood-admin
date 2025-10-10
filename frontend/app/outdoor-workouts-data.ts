@@ -9,20 +9,20 @@ export const outdoorRunWorkoutDatabase = [
         {
           name: 'Easy Interval Run',
           duration: '22–25 min',
-          description: 'Walk–jog intervals to build cardiovascular base safely without placing excessive strain on joints and muscles.',
+          description: 'Walk–jog intervals build aerobic base and reinforce clean form.',
           battlePlan: '• 5 min brisk walk\n• 6 rounds: 1 min easy jog + 1 min walk\n• 5 min easy walk',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwb3V0ZG9vcnxlbnwwfHx8fDE3MDM0NzU2NjM&ixlib=rb-4.0.3&q=85',
-          intensityReason: 'Short jogging bouts effectively lift heart rate while maintaining low impact stress on joints and connective tissues.',
+          intensityReason: 'Short jog bouts lift heart rate gently while protecting joints.',
           moodTips: [
             {
               icon: 'body',
-              title: 'Keep tall posture; slight forward lean from ankles',
-              description: 'Keep tall posture; slight forward lean from ankles'
+              title: 'Keep tall posture; slight lean from ankles; eyes on horizon',
+              description: 'Keep tall posture; slight lean from ankles; eyes on horizon'
             },
             {
               icon: 'walk',
-              title: 'Land under hips; quiet steps to reduce impact',
-              description: 'Land under hips; quiet steps to reduce impact'
+              title: 'Land under hips with quiet steps to reduce impact and strain',
+              description: 'Land under hips with quiet steps to reduce impact and strain'
             }
           ]
         },
