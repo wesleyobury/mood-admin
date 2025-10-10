@@ -122,10 +122,10 @@ const styles = StyleSheet.create({
   },
   heroSection: {
     alignItems: 'center',
-    paddingTop: height * 0.1,
+    paddingTop: height * 0.06, // Reduced from 0.1 to move content up
   },
   logoContainer: {
-    marginBottom: 20,
+    marginBottom: 16, // Reduced from 20
   },
   logoBackground: {
     width: 80,
