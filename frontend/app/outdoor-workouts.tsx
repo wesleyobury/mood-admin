@@ -220,6 +220,12 @@ export default function OutdoorWorkoutsScreen() {
             viewabilityConfig={{
               itemVisiblePercentThreshold: 50
             }}
+            getItemLayout={(data, index) => ({
+              length: width - 48,
+              offset: (width - 48) * index,
+              index,
+            })}
+            keyExtractor={(item, index) => `workout-${index}`}
           />
         </View>
 
