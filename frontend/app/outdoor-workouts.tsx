@@ -228,12 +228,20 @@ export default function OutdoorWorkoutsScreen() {
           <Text style={styles.dotsLabel}>Swipe to explore</Text>
           <View style={styles.dotsRow}>
             {workouts.map((_, index) => (
-              <View
+              <TouchableOpacity
                 key={index}
                 style={[
                   styles.dot,
                   currentWorkoutIndex === index && styles.activeDot
                 ]}
+                onPress={() => {
+                  flatListRef.current?.scrollToIndex({ 
+                    index, 
+                    animated: true 
+                  });
+                  setCurrentWorkoutIndex(index);
+                }}
+                activeOpacity={0.7}
               />
             ))}
           </View>
