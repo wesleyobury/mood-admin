@@ -1,0 +1,666 @@
+import React, { useState, useRef } from 'react';
+import {
+  View,
+  Text,
+  StyleSheet,
+  TouchableOpacity,
+  SafeAreaView,
+  ScrollView,
+  Dimensions,
+  Image,
+  FlatList,
+} from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
+import { useRouter, useLocalSearchParams } from 'expo-router';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
+
+const { width } = Dimensions.get('window');
+
+interface Workout {
+  name: string;
+  duration: string;
+  description: string;
+  battlePlan: string;
+  imageUrl: string;
+  intensityReason: string;
+  moodTips: {
+    icon: keyof typeof Ionicons.glyphMap;
+    title: string;
+    description: string;
+  }[];
+}
+
+interface EquipmentWorkouts {
+  equipment: string;
+  icon: keyof typeof Ionicons.glyphMap;
+  workouts: {
+    beginner: Workout[];
+    intermediate: Workout[];
+    advanced: Workout[];
+  };
+}
+
+import { outdoorRunWorkoutDatabase } from './outdoor-workouts-data';
+
+// Outdoor workout database
+const workoutDatabase: EquipmentWorkouts[] = outdoorRunWorkoutDatabase;
+
+export default function OutdoorWorkoutsScreen() {
+  const router = useRouter();
+  const params = useLocalSearchParams();
+  const insets = useSafeAreaInsets();
+
+  // Parse URL parameters
+  const moodTitle = params.mood as string || 'I want to get outside';
+  const workoutType = params.workoutType as string || 'Outdoor activities';
+  const equipmentParam = params.equipment as string || '';
+  const difficulty = params.difficulty as string || 'beginner';
+  
+  // Parse selected equipment from comma-separated string
+  const selectedEquipmentNames = equipmentParam.split(',').filter(name => name.trim() !== '');
+  
+  console.log('Outdoor Debug:', {
+    equipmentParam,
+    selectedEquipmentNames,
+    difficulty,
+    workoutType,
+    moodTitle
+  });
+
+  // Get workout data for selected equipment
+  const selectedWorkoutData = workoutDatabase.filter(eq => 
+    selectedEquipmentNames.some(name => 
+      eq.equipment.toLowerCase().trim() === name.toLowerCase().trim()
+    )
+  );
+
+  console.log('Selected workout data count:', selectedWorkoutData.length);
+
+  const handleGoBack = () => {
+    router.back();
+  };
+
+  const handleStartWorkout = (workout: Workout, equipment: string, difficulty: string) => {
+    try {
+      console.log('🚀 Starting workout:', workout.name, 'on', equipment);
+      
+      if (!workout.name || !equipment || !difficulty) {
+        console.error('❌ Missing required parameters for workout navigation');
+        return;
+      }
+      
+      router.push({
+        pathname: '/workout-guidance',
+        params: {
+          workoutName: workout.name,
+          equipment: equipment,
+          description: workout.description || '',
+          battlePlan: workout.battlePlan || '',
+          duration: workout.duration || '20 min',
+          difficulty: difficulty,
+          workoutType: workoutType,
+          moodTips: encodeURIComponent(JSON.stringify(workout.moodTips || []))
+        }
+      });
+      
+      console.log('✅ Navigation completed - using simplified parameters');
+    } catch (error) {
+      console.error('❌ Error starting workout:', error);
+    }
+  };
+
+  // Create progress bar - single row with requested order
+  const createProgressRows = () => {
+    const steps = [
+      { key: 'mood', icon: 'flame', text: moodTitle },
+      { key: 'difficulty', icon: 'speedometer', text: difficulty === 'intermediate' ? 'Intermed.' : difficulty.charAt(0).toUpperCase() + difficulty.slice(1) },
+      { key: 'equipment', icon: 'construct', text: `Activity (${selectedEquipmentNames.length})` },
+    ];
+
+    // Return single row
+    return [steps];
+  };
+
+  // Workout Card Component matching light weights format exactly
+  const WorkoutCard = ({ equipment, icon, workouts, difficulty }: { 
+    equipment: string; 
+    icon: keyof typeof Ionicons.glyphMap; 
+    workouts: Workout[]; 
+    difficulty: string;
+  }) => {
+    const [currentWorkoutIndex, setCurrentWorkoutIndex] = useState(0);
+    const flatListRef = useRef<FlatList>(null);
+
+    const renderWorkout = ({ item, index }: { item: Workout; index: number }) => (
+      <View style={[styles.workoutSlide, { width: width - 48 }]}>
+        {/* Workout Image */}
+        <View style={styles.workoutImageContainer}>
+          <Image 
+            source={{ uri: item.imageUrl }}
+            style={styles.workoutImage}
+            resizeMode="cover"
+          />
+          <View style={styles.imageOverlay} />
+          <View style={styles.swipeIndicator}>
+            <Ionicons name="swap-horizontal" size={20} color="#FFD700" />
+            <Text style={styles.swipeText}>Swipe for more</Text>
+          </View>
+        </View>
+
+        {/* Workout Content */}
+        <View style={styles.workoutContent}>
+          {/* Workout Name */}
+          <Text style={styles.workoutName}>{item.name}</Text>
+          
+          {/* Duration and Intensity on same line */}
+          <View style={styles.durationIntensityRow}>
+            <Text style={styles.workoutDuration}>{item.duration}</Text>
+            <View style={[styles.difficultyBadge, { backgroundColor: '#FFD700' }]}>
+              <Text style={styles.difficultyBadgeText}>{(difficulty === 'intermediate' ? 'INTERMED.' : difficulty).toUpperCase()}</Text>
+            </View>
+          </View>
+
+          {/* Intensity Reason */}
+          <View style={styles.intensityContainer}>
+            <Ionicons name="information-circle" size={16} color="#FFD700" />
+            <Text style={styles.intensityReason}>{item.intensityReason}</Text>
+          </View>
+
+          {/* Workout Description */}
+          <View style={styles.workoutDescriptionContainer}>
+            <Text style={styles.workoutDescription}>{item.description}</Text>
+          </View>
+
+          {/* Start Workout Button */}
+          <TouchableOpacity 
+            style={styles.startWorkoutButton}
+            onPress={() => handleStartWorkout(item, equipment, difficulty)}
+            activeOpacity={0.8}
+          >
+            <Text style={styles.startWorkoutButtonText}>Start Workout</Text>
+            <Ionicons name="play" size={16} color="#000000" />
+          </TouchableOpacity>
+        </View>
+      </View>
+    );
+
+    const onViewableItemsChanged = useRef(({ viewableItems }: any) => {
+      if (viewableItems.length > 0) {
+        setCurrentWorkoutIndex(viewableItems[0].index || 0);
+      }
+    }).current;
+
+    if (workouts.length === 0) {
+      return null;
+    }
+
+    return (
+      <View style={styles.workoutCard}>
+        {/* Equipment Header */}
+        <View style={styles.equipmentHeader}>
+          <View style={styles.equipmentIconContainer}>
+            <Ionicons name={icon} size={16} color="#FFD700" />
+          </View>
+          <Text style={styles.equipmentName}>{equipment}</Text>
+          <View style={styles.workoutIndicator}>
+            <Text style={styles.workoutCount}>{workouts.length} workout{workouts.length !== 1 ? 's' : ''}</Text>
+          </View>
+        </View>
+
+        {/* Workout List */}
+        <View style={styles.workoutList}>
+          <FlatList
+            ref={flatListRef}
+            data={workouts}
+            renderItem={renderWorkout}
+            horizontal
+            pagingEnabled
+            showsHorizontalScrollIndicator={false}
+            onViewableItemsChanged={onViewableItemsChanged}
+            viewabilityConfig={{
+              itemVisiblePercentThreshold: 50
+            }}
+          />
+        </View>
+
+        {/* Navigation Dots */}
+        <View style={styles.dotsContainer}>
+          <Text style={styles.dotsLabel}>Swipe to explore</Text>
+          <View style={styles.dotsRow}>
+            {workouts.map((_, index) => (
+              <View
+                key={index}
+                style={[
+                  styles.dot,
+                  currentWorkoutIndex === index && styles.activeDot
+                ]}
+              />
+            ))}
+          </View>
+        </View>
+      </View>
+    );
+  };
+
+  // Progress bar rows
+  const progressRows = createProgressRows();
+
+  if (selectedWorkoutData.length === 0) {
+    return (
+      <SafeAreaView style={[styles.container, { paddingTop: insets.top }]}>
+        {/* Header */}
+        <View style={styles.header}>
+          <TouchableOpacity 
+            style={styles.backButton}
+            onPress={handleGoBack}
+          >
+            <Ionicons name="chevron-back" size={24} color="#FFD700" />
+          </TouchableOpacity>
+          <View style={styles.headerTextContainer}>
+            <Text style={styles.headerTitle}>Outdoor Activities</Text>
+            <Text style={styles.headerSubtitle}>{moodTitle}</Text>
+          </View>
+          <View style={styles.headerSpacer} />
+        </View>
+
+        <View style={styles.emptyState}>
+          <Ionicons name="bicycle" size={80} color="rgba(255, 215, 0, 0.6)" />
+          <Text style={styles.emptyStateText}>No Activities Found</Text>
+          <Text style={styles.emptyStateSubtext}>
+            The selected outdoor activities couldn't be loaded. Please go back and try selecting different activities.
+          </Text>
+        </View>
+      </SafeAreaView>
+    );
+  }
+
+  return (
+    <SafeAreaView style={[styles.container, { paddingTop: insets.top }]}>
+      {/* Header */}
+      <View style={styles.header}>
+        <TouchableOpacity 
+          style={styles.backButton}
+          onPress={handleGoBack}
+        >
+          <Ionicons name="chevron-back" size={24} color="#FFD700" />
+        </TouchableOpacity>
+        <View style={styles.headerTextContainer}>
+          <Text style={styles.headerTitle}>Outdoor Activities</Text>
+          <Text style={styles.headerSubtitle}>{moodTitle}</Text>
+        </View>
+        <View style={styles.headerSpacer} />
+      </View>
+
+      {/* Progress Bar */}
+      <View style={styles.progressContainer}>
+        <View style={styles.progressContent}>
+          {progressRows[0].map((step, stepIndex) => (
+            <React.Fragment key={step.key}>
+              <View style={styles.progressStep}>
+                <View style={[styles.progressStepActive]}>
+                  {step.key === 'equipment' ? (
+                    <Text style={styles.progressStepBadgeText}>{stepIndex + 1}</Text>
+                  ) : (
+                    <Ionicons name={step.icon as keyof typeof Ionicons.glyphMap} size={14} color="#000000" />
+                  )}
+                </View>
+                <Text style={styles.progressStepText}>{step.text}</Text>
+              </View>
+              
+              {stepIndex < progressRows[0].length - 1 && (
+                <View style={styles.progressConnector} />
+              )}
+            </React.Fragment>
+          ))}
+        </View>
+      </View>
+
+      {/* Scrollable Workout Cards */}
+      <ScrollView 
+        style={[styles.scrollView, { marginTop: 16 }]}
+        showsVerticalScrollIndicator={false}
+        contentContainerStyle={styles.scrollContent}
+      >
+        {selectedWorkoutData.map((equipmentData, index) => {
+          const workouts = equipmentData.workouts[difficulty as keyof typeof equipmentData.workouts] || [];
+          return (
+            <WorkoutCard
+              key={`${equipmentData.equipment}-${index}`}
+              equipment={equipmentData.equipment}
+              icon={equipmentData.icon}
+              workouts={workouts}
+              difficulty={difficulty}
+            />
+          );
+        })}
+      </ScrollView>
+    </SafeAreaView>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#000000',
+  },
+  header: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingHorizontal: 24,
+    paddingVertical: 16,
+    borderBottomWidth: 1,
+    borderBottomColor: 'rgba(255, 215, 0, 0.2)',
+  },
+  backButton: {
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+    backgroundColor: 'rgba(255, 215, 0, 0.1)',
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderWidth: 2,
+    borderColor: 'rgba(255, 215, 0, 0.3)',
+  },
+  headerTextContainer: {
+    flex: 1,
+    alignItems: 'center',
+  },
+  headerTitle: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    color: '#FFD700',
+    textAlign: 'center',
+  },
+  headerSubtitle: {
+    fontSize: 14,
+    color: 'rgba(255, 255, 255, 0.7)',
+    textAlign: 'center',
+    marginTop: 2,
+  },
+  headerSpacer: {
+    width: 40,
+  },
+  progressContainer: {
+    backgroundColor: '#111111',
+    borderBottomWidth: 1,
+    borderBottomColor: 'rgba(255, 215, 0, 0.2)',
+    paddingVertical: 16,
+    paddingHorizontal: 20,
+    overflow: 'hidden',
+  },
+  progressContent: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-evenly',
+    width: '100%',
+    maxWidth: 350,
+    alignSelf: 'center',
+  },
+  progressStep: {
+    alignItems: 'center',
+    width: 70,
+    flex: 0,
+  },
+  progressStepActive: {
+    width: 32,
+    height: 32,
+    borderRadius: 16,
+    backgroundColor: '#FFD700',
+    borderWidth: 2,
+    borderColor: '#FFD700',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginBottom: 8,
+  },
+  progressStepBadgeText: {
+    fontSize: 10,
+    fontWeight: 'bold',
+    color: '#000000',
+    textAlign: 'center',
+  },
+  progressStepText: {
+    fontSize: 10,
+    color: 'rgba(255, 255, 255, 0.8)',
+    textAlign: 'center',
+    fontWeight: '500',
+    maxWidth: 70,
+    lineHeight: 12,
+  },
+  progressConnector: {
+    width: 12,
+    height: 2,
+    backgroundColor: 'rgba(255, 215, 0, 0.3)',
+    marginHorizontal: 1,
+    marginTop: 16,
+  },
+  scrollView: {
+    flex: 1,
+    paddingHorizontal: 24,
+  },
+  scrollContent: {
+    paddingBottom: 40,
+  },
+  workoutCard: {
+    backgroundColor: '#111111',
+    borderRadius: 16,
+    marginBottom: 20,
+    overflow: 'hidden',
+    borderWidth: 1,
+    borderColor: 'rgba(255, 215, 0, 0.6)',
+    shadowColor: '#FFD700',
+    shadowOffset: { width: 0, height: 0 },
+    shadowOpacity: 0.3,
+    shadowRadius: 10,
+    elevation: 5,
+  },
+  equipmentHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingHorizontal: 20,
+    paddingVertical: 16,
+    backgroundColor: 'rgba(255, 215, 0, 0.1)',
+    borderBottomWidth: 1,
+    borderBottomColor: 'rgba(255, 215, 0, 0.3)',
+  },
+  equipmentIconContainer: {
+    width: 32,
+    height: 32,
+    borderRadius: 16,
+    backgroundColor: 'rgba(255, 215, 0, 0.2)',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginRight: 16,
+  },
+  equipmentName: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    color: '#ffffff',
+    flex: 1,
+  },
+  workoutIndicator: {
+    backgroundColor: 'rgba(255, 215, 0, 0.2)',
+    borderRadius: 12,
+    paddingHorizontal: 12,
+    paddingVertical: 6,
+  },
+  workoutCount: {
+    fontSize: 12,
+    fontWeight: 'bold',
+    color: '#FFD700',
+  },
+  workoutList: {
+    backgroundColor: '#000000',
+  },
+  workoutSlide: {
+    backgroundColor: '#111111',
+    paddingHorizontal: 24,
+    paddingVertical: 20,
+  },
+  workoutImageContainer: {
+    height: 120,
+    borderRadius: 12,
+    marginBottom: 16,
+    overflow: 'hidden',
+    position: 'relative',
+  },
+  workoutImage: {
+    width: '100%',
+    height: '100%',
+  },
+  imageOverlay: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    backgroundColor: 'rgba(0, 0, 0, 0.4)',
+  },
+  swipeIndicator: {
+    position: 'absolute',
+    top: 10,
+    right: 10,
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: 'rgba(0, 0, 0, 0.6)',
+    borderRadius: 12,
+    paddingHorizontal: 8,
+    paddingVertical: 4,
+  },
+  swipeText: {
+    fontSize: 10,
+    color: '#FFD700',
+    marginLeft: 4,
+    fontWeight: '500',
+  },
+  workoutContent: {
+    flex: 1,
+  },
+  workoutName: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    color: '#ffffff',
+    marginBottom: 12,
+    textShadowColor: 'transparent',
+    textShadowOffset: { width: 0, height: 0 },
+    textShadowRadius: 0,
+  },
+  durationIntensityRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: 12,
+  },
+  workoutDuration: {
+    fontSize: 14,
+    color: '#FFD700',
+    fontWeight: 'bold',
+  },
+  difficultyBadge: {
+    borderRadius: 12,
+    paddingHorizontal: 12,
+    paddingVertical: 4,
+  },
+  difficultyBadgeText: {
+    fontSize: 10,
+    fontWeight: 'bold',
+    color: '#000000',
+  },
+  intensityContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: 'rgba(255, 215, 0, 0.1)',
+    borderRadius: 8,
+    padding: 12,
+    marginBottom: 12,
+    borderWidth: 1,
+    borderColor: 'rgba(255, 215, 0, 0.3)',
+  },
+  intensityReason: {
+    fontSize: 13,
+    color: 'rgba(255, 255, 255, 0.9)',
+    marginLeft: 8,
+    lineHeight: 18,
+    flex: 1,
+  },
+  workoutDescriptionContainer: {
+    marginBottom: 16,
+  },
+  workoutDescription: {
+    fontSize: 14,
+    color: 'rgba(255, 255, 255, 0.8)',
+    lineHeight: 20,
+  },
+  startWorkoutButton: {
+    backgroundColor: '#FFD700',
+    borderRadius: 12,
+    paddingVertical: 12,
+    paddingHorizontal: 16,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: 8,
+    shadowColor: '#FFD700',
+    shadowOffset: { width: 0, height: 0 },
+    shadowOpacity: 0.4,
+    shadowRadius: 8,
+    elevation: 6,
+  },
+  startWorkoutButtonText: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    color: '#000000',
+  },
+  dotsContainer: {
+    alignItems: 'center',
+    paddingVertical: 16,
+    backgroundColor: 'rgba(255, 215, 0, 0.05)',
+  },
+  dotsLabel: {
+    fontSize: 11,
+    color: 'rgba(255, 255, 255, 0.6)',
+    marginBottom: 8,
+    fontWeight: '500',
+  },
+  dotsRow: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    gap: 12,
+  },
+  dot: {
+    width: 12,
+    height: 12,
+    borderRadius: 6,
+    backgroundColor: 'rgba(255, 255, 255, 0.3)',
+    borderWidth: 2,
+    borderColor: 'rgba(255, 215, 0, 0.3)',
+  },
+  activeDot: {
+    backgroundColor: '#FFD700',
+    borderColor: '#FFD700',
+    shadowColor: '#FFD700',
+    shadowOffset: { width: 0, height: 0 },
+    shadowOpacity: 0.6,
+    shadowRadius: 4,
+    elevation: 4,
+  },
+  emptyState: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingHorizontal: 40,
+  },
+  emptyStateText: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    color: 'rgba(255, 255, 255, 0.8)',
+    textAlign: 'center',
+    marginTop: 20,
+    marginBottom: 8,
+  },
+  emptyStateSubtext: {
+    fontSize: 14,
+    color: 'rgba(255, 255, 255, 0.6)',
+    textAlign: 'center',
+    lineHeight: 20,
+  },
+});
