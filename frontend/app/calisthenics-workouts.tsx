@@ -1209,6 +1209,9 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: '#ffffff',
     marginBottom: 12,
+    textShadowColor: 'transparent',
+    textShadowOffset: { width: 0, height: 0 },
+    textShadowRadius: 0,
   },
   durationIntensityRow: {
     flexDirection: 'row',
