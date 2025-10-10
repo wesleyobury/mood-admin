@@ -153,6 +153,12 @@ export default function WorkoutsHome() {
         pathname: '/calisthenics-equipment',
         params: { mood: mood.title }
       });
+    } else if (mood.id === 'outdoor') {
+      // Navigate to outdoor equipment selection
+      router.push({
+        pathname: '/outdoor-equipment',
+        params: { mood: mood.title }
+      });
     } else {
       // TODO: Navigate to workout selection based on other moods
       console.log('Navigation for other moods will be implemented later');
