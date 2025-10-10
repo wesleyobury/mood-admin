@@ -679,7 +679,8 @@ const workoutDatabase: EquipmentWorkouts[] = [
         }
       ]
     }
-  }
+  },
+  ...additionalWorkoutDatabase
 ];
 
 const WorkoutCard = ({ 
