@@ -685,6 +685,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     minWidth: 32,
     minHeight: 32,
+    borderRadius: 16,
   },
   activeDotTouchArea: {
     padding: 8,
@@ -692,6 +693,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     minWidth: 32,
     minHeight: 32,
+    borderRadius: 16,
+    backgroundColor: 'rgba(255, 215, 0, 0.1)',
   },
   emptyState: {
     flex: 1,
