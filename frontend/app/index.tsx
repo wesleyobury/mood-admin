@@ -192,7 +192,8 @@ const styles = StyleSheet.create({
     color: '#888',
   },
   actionSection: {
-    paddingBottom: 10, // Further reduced to move button up even more
+    paddingTop: 8, // Minimal top padding between features and button
+    paddingBottom: 10, // Bottom padding
   },
   primaryButton: {
     marginBottom: 16,
