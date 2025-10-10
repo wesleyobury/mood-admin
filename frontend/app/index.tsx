@@ -4,20 +4,22 @@ import {
   Text,
   StyleSheet,
   TouchableOpacity,
-  SafeAreaView,
   Dimensions,
 } from 'react-native';
 import { router } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 const { width, height } = Dimensions.get('window');
 
 export default function Welcome() {
+  const insets = useSafeAreaInsets();
+  
   return (
-    <SafeAreaView style={styles.container}>
+    <View style={styles.container}>
       <View style={styles.simplifiedGradient}>
-        <View style={styles.content}>
+        <View style={[styles.content, { paddingTop: insets.top, paddingBottom: insets.bottom }]}>
           {/* Hero Section */}
           <View style={styles.heroSection}>
             <View style={styles.logoContainer}>
