@@ -244,7 +244,11 @@ export default function WorkoutGuidanceScreen() {
           
           <View style={styles.progressStep}>
             <View style={styles.progressStepActive}>
-              <Ionicons name="heart" size={14} color="#000000" />
+              <Ionicons 
+                name={workoutType === 'Body Weight' ? 'body' : workoutType === 'Weight Based' ? 'barbell' : 'heart'} 
+                size={14} 
+                color="#000000" 
+              />
             </View>
             <Text style={styles.progressStepText}>{displayWorkoutType}</Text>
           </View>
