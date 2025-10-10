@@ -172,7 +172,7 @@ export default function OutdoorEquipmentScreen() {
       // Route to outdoor workouts screen with all selected equipment
       const equipmentNames = selectedEquipment.map(eq => eq.name).join(',');
       
-      // TODO: Create outdoor-workouts screen later
+      // Route to outdoor workouts screen with all selected activities
       router.push({
         pathname: '/outdoor-workouts',
         params: { 
