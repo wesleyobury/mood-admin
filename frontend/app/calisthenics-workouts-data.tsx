@@ -1,0 +1,580 @@
+// Additional equipment workout data for calisthenics - Part 2
+
+export const additionalWorkoutDatabase = [
+  {
+    equipment: 'Gymnast rings',
+    icon: 'radio-button-off',
+    workouts: {
+      beginner: [
+        {
+          name: 'Ring Start',
+          duration: '16–22 min',
+          description: 'Stable regressions teach alignment and shoulder set.',
+          battlePlan: 'Ring Support Lean (feet down)\n• 3 × 15–25s (RPE 4), 60s rest\nHigh Ring Row (knees bent)\n• 3 × 8–10 (RPE 4), 60s rest\nKneeling Ring Pushup\n• 3 × 8–12 (RPE 4), 60s rest',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYWxpc3RoZW5pY3N8ZW58MXx8fHwxVzU2aWNnNMzIyM3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Stable regressions teach alignment and shoulder set.',
+          moodTips: [
+            {
+              icon: 'body',
+              title: 'Rings close to body',
+              description: 'Rings close to body'
+            },
+            {
+              icon: 'hand-right',
+              title: 'Keep wrists neutral',
+              description: 'Keep wrists neutral'
+            }
+          ]
+        },
+        {
+          name: 'Scap Lines',
+          duration: '16–22 min',
+          description: 'Scap control on rings builds robust base stability.',
+          battlePlan: 'Ring Scap Rows\n• 3 × 10–12 (RPE 4), 60s rest\nRing Scap Pushups\n• 3 × 10–12 (RPE 4), 60s rest\nDead Bug\n• 3 × 10–12/side (RPE 4), 45–60s rest',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYWxpc3RoZW5pY3N8ZW58MXx8fHwxVzU2aWNnNMzIyM3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Scap control on rings builds robust base stability.',
+          moodTips: [
+            {
+              icon: 'body',
+              title: 'Move just shoulder blades',
+              description: 'Move just shoulder blades'
+            },
+            {
+              icon: 'body',
+              title: 'Ribs down and quiet',
+              description: 'Ribs down and quiet'
+            }
+          ]
+        },
+        {
+          name: 'Angle Mix',
+          duration: '16–22 min',
+          description: 'Angle adjustments dial in intensity while stable.',
+          battlePlan: 'Ring Row (medium angle)\n• 3 × 8–10 (RPE 4), 60s rest\nRing Pushup (incline)\n• 3 × 8–12 (RPE 4), 60s rest\nHollow Hold\n• 3 × 20–30s (RPE 4), 45–60s rest',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYWxpc3RoZW5pY3N8ZW58MXx8fHwxVzU2aWNnNMzIyM3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Angle adjustments dial in intensity while stable.',
+          moodTips: [
+            {
+              icon: 'body',
+              title: 'Set feet to control load',
+              description: 'Set feet to control load'
+            },
+            {
+              icon: 'body',
+              title: 'Ring pushups: elbows 45°',
+              description: 'Ring pushups: elbows 45°'
+            }
+          ]
+        }
+      ],
+      intermediate: [
+        {
+          name: 'Stable Lines',
+          duration: '22–28 min',
+          description: 'Moderate ring angles challenge stabilizers with control.',
+          battlePlan: 'Ring Row (mid angle)\n• 4 × 8–10 (RPE 5), 75s rest\nRing Pushup (horizontal)\n• 4 × 8–12 (RPE 5), 75s rest\nRing Knee Tucks (support)\n• 3 × 10–12 (RPE 5), 60s rest',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYWxpc3RoZW5pY3N8ZW58MXx8fHwxVzU2aWNnNMzIyM3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Moderate ring angles challenge stabilizers with control.',
+          moodTips: [
+            {
+              icon: 'hand-right',
+              title: 'Squeeze rings lightly',
+              description: 'Squeeze rings lightly'
+            },
+            {
+              icon: 'body',
+              title: 'Keep shoulders packed',
+              description: 'Keep shoulders packed'
+            }
+          ]
+        },
+        {
+          name: 'Archer Starts',
+          duration: '22–28 min',
+          description: 'Unilateral bias builds strength and positional control.',
+          battlePlan: 'Ring Archer Row (assisted)\n• 4 × 6–8/side (RPE 5–6), 90s rest\nRing Pushup (narrow)\n• 4 × 8–10 (RPE 5), 75s rest\nHollow Rock\n• 3 × 10–15 (RPE 5), 60s rest',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYWxpc3RoZW5pY3N8ZW58MXx8fHwxVzU2aWNnNMzIyM3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Unilateral bias builds strength and positional control.',
+          moodTips: [
+            {
+              icon: 'body',
+              title: 'Control rotation',
+              description: 'Control rotation'
+            },
+            {
+              icon: 'body',
+              title: 'Stay within clean range',
+              description: 'Stay within clean range'
+            }
+          ]
+        },
+        {
+          name: 'Support Strength',
+          duration: '22–28 min',
+          description: 'Isometrics enhance ring stability for pressing tasks.',
+          battlePlan: 'Ring Support Hold (feet off as able)\n• 4 × 15–25s (RPE 5), 60–75s rest\nTempo Ring Pushup (3s down)\n• 4 × 6–8 (RPE 5–6), 90s rest\nStrict Ring Knee Raise\n• 3 × 10–12 (RPE 5), 60s rest',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYWxpc3RoZW5pY3N8ZW58MXx8fHwxVzU2aWNnNMzIyM3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Isometrics enhance ring stability for pressing tasks.',
+          moodTips: [
+            {
+              icon: 'hand-right',
+              title: 'Turn rings out slightly',
+              description: 'Turn rings out slightly'
+            },
+            {
+              icon: 'body',
+              title: '3s lowers; steady path',
+              description: '3s lowers; steady path'
+            }
+          ]
+        }
+      ],
+      advanced: [
+        {
+          name: 'Ring Power',
+          duration: '26–34 min',
+          description: 'Low-swing strict patterns develop strength and control.',
+          battlePlan: 'Feet-Elevated Ring Row\n• 5 × 6–8 (RPE 6), 90s rest\nDeep Ring Pushup (rings low)\n• 5 × 6–8 (RPE 6), 90s rest\nRing Tuck L-Sit (support)\n• 4 × 10–15s (RPE 6), 60–75s rest',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYWxpc3RoZW5pY3N8ZW58MXx8fHwxVzU2aWNnNMzIyM3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Low-swing strict patterns develop strength and control.',
+          moodTips: [
+            {
+              icon: 'body',
+              title: 'Minimize swing with pause',
+              description: 'Minimize swing with pause'
+            },
+            {
+              icon: 'body',
+              title: 'Keep elbows 45–60° path',
+              description: 'Keep elbows 45–60° path'
+            }
+          ]
+        },
+        {
+          name: 'Archer Lines',
+          duration: '26–34 min',
+          description: 'Archer progressions raise unilateral strength demands.',
+          battlePlan: 'Ring Archer Row (hard angle)\n• 5 × 5–7/side (RPE 6), 90s rest\nPseudo Planche Ring Pushup (lean)\n• 4 × 6–8 (RPE 6), 90s rest\nHollow Rock\n• 4 × 12–16 (RPE 6), 60s rest',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYWxpc3RoZW5pY3N8ZW58MXx8fHwxVzU2aWNnNMzIyM3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Archer progressions raise unilateral strength demands.',
+          moodTips: [
+            {
+              icon: 'body',
+              title: 'Control anti-rotation',
+              description: 'Control anti-rotation'
+            },
+            {
+              icon: 'body',
+              title: 'Shoulders packed always',
+              description: 'Shoulders packed always'
+            }
+          ]
+        },
+        {
+          name: 'Midrange Control',
+          duration: '26–34 min',
+          description: '1.5 reps on rings add tension with joint-friendly load.',
+          battlePlan: 'Ring Row (1.5 reps)\n• 4 × 6–8 (RPE 6), 90s rest\nRing Pushup (1.5 reps)\n• 4 × 6–8 (RPE 6), 90s rest\nRing Support Hold\n• 4 × 20–30s (RPE 6), 60–75s rest',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYWxpc3RoZW5pY3N8ZW58MXx8fHwxVzU2aWNnNMzIyM3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: '1.5 reps on rings add tension with joint-friendly load.',
+          moodTips: [
+            {
+              icon: 'body',
+              title: 'Pause midrange; no bounce',
+              description: 'Pause midrange; no bounce'
+            },
+            {
+              icon: 'hand-right',
+              title: 'Turn rings out slightly',
+              description: 'Turn rings out slightly'
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    equipment: 'Pushup bars / parallettes',
+    icon: 'reorder-three',
+    workouts: {
+      beginner: [
+        {
+          name: 'Bar Start',
+          duration: '16–22 min',
+          description: 'Elevated grips reduce wrist strain and aid control.',
+          battlePlan: 'Incline Pushup on Parallettes\n• 3 × 8–12 (RPE 4), 60s rest\nTable Row or Band Row (if available)\n• 3 × 10–12 (RPE 4), 60s rest\nDead Bug\n• 3 × 10–12/side (RPE 4), 45–60s rest',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYWxpc3RoZW5pY3N8ZW58MXx8fHwxVzU2aWNnNMzIyM3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Elevated grips reduce wrist strain and aid control.',
+          moodTips: [
+            {
+              icon: 'hand-right',
+              title: 'Hands stacked under shoulders',
+              description: 'Hands stacked under shoulders'
+            },
+            {
+              icon: 'body',
+              title: 'Elbows 30–45° path',
+              description: 'Elbows 30–45° path'
+            }
+          ]
+        },
+        {
+          name: 'Depth Intro',
+          duration: '16–22 min',
+          description: 'Slight deficit allows safe depth and chest tension.',
+          battlePlan: 'Deficit Pushup (small blocks)\n• 3 × 8–10 (RPE 4), 60s rest\nScapular Pushups on Bars\n• 3 × 10–12 (RPE 4), 60s rest\nSide Plank\n• 3 × 20–30s/side (RPE 4), 45–60s rest',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYWxpc3RoZW5pY3N8ZW58MXx8fHwxVzU2aWNnNMzIyM3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Slight deficit allows safe depth and chest tension.',
+          moodTips: [
+            {
+              icon: 'body',
+              title: 'Ribs down; no sway',
+              description: 'Ribs down; no sway'
+            },
+            {
+              icon: 'body',
+              title: 'Slow 2–1–3 tempo',
+              description: 'Slow 2–1–3 tempo'
+            }
+          ]
+        },
+        {
+          name: 'Lean Prep',
+          duration: '16–22 min',
+          description: 'Forward lean introduces planche-line loading gently.',
+          battlePlan: 'Parallette Lean Hold (pseudo planche)\n• 3 × 15–25s (RPE 4), 60s rest\nParallette Pushup (neutral wrists)\n• 3 × 8–12 (RPE 4), 60s rest\nHollow Hold\n• 3 × 20–30s (RPE 4), 45–60s rest',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYWxpc3RoZW5pY3N8ZW58MXx8fHwxVzU2aWNnNMzIyM3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Forward lean introduces planche-line loading gently.',
+          moodTips: [
+            {
+              icon: 'body',
+              title: 'Protract, then lean',
+              description: 'Protract, then lean'
+            },
+            {
+              icon: 'body',
+              title: 'Keep elbows soft, not locked',
+              description: 'Keep elbows soft, not locked'
+            }
+          ]
+        }
+      ],
+      intermediate: [
+        {
+          name: 'Depth Lines',
+          duration: '22–28 min',
+          description: 'Deeper range increases tension at manageable load.',
+          battlePlan: 'Deep Parallette Pushup\n• 4 × 8–12 (RPE 5), 75s rest\nInverted Row (table/rings)\n• 4 × 8–10 (RPE 5), 75s rest\nParallette Knee Tucks (L-sit prep)\n• 3 × 10–12 (RPE 5), 60s rest',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYWxpc3RoZW5pY3N8ZW58MXx8fHwxVzU2aWNnNMzIyM3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Deeper range increases tension at manageable load.',
+          moodTips: [
+            {
+              icon: 'body',
+              title: 'Touch chest between bars',
+              description: 'Touch chest between bars'
+            },
+            {
+              icon: 'body',
+              title: 'Keep scap packed and down',
+              description: 'Keep scap packed and down'
+            }
+          ]
+        },
+        {
+          name: 'Lean Lines',
+          duration: '22–28 min',
+          description: 'Lean progressions build anterior shoulder integrity.',
+          battlePlan: 'Pseudo Planche Pushup (on bars)\n• 4 × 6–8 (RPE 5–6), 90s rest\nBox/Bench Dips (light)\n• 3 × 8–10 (RPE 5), 60–75s rest\nHollow Rock\n• 3 × 10–15 (RPE 5), 60s rest',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYWxpc3RoZW5pY3N8ZW58MXx8fHwxVzU2aWNnNMzIyM3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Lean progressions build anterior shoulder integrity.',
+          moodTips: [
+            {
+              icon: 'body',
+              title: 'Protract; elbows soft',
+              description: 'Protract; elbows soft'
+            },
+            {
+              icon: 'body',
+              title: 'Rock smooth; ribs down',
+              description: 'Rock smooth; ribs down'
+            }
+          ]
+        },
+        {
+          name: 'Mixed Angle',
+          duration: '22–28 min',
+          description: 'Hand placement changes emphasize different fibers.',
+          battlePlan: 'Wide Parallette Pushup\n• 4 × 8–12 (RPE 5), 75s rest\nNeutral Parallette Pushup\n• 3 × 8–12 (RPE 5), 60–75s rest\nSide Plank with Reach\n• 3 × 8–10/side (RPE 5), 45–60s rest',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYWxpc3RoZW5pY3N8ZW58MXx8fHwxVzU2aWNnNMzIyM3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Hand placement changes emphasize different fibers.',
+          moodTips: [
+            {
+              icon: 'hand-right',
+              title: 'Keep forearms vertical',
+              description: 'Keep forearms vertical'
+            },
+            {
+              icon: 'body',
+              title: 'Reach long; hips stacked',
+              description: 'Reach long; hips stacked'
+            }
+          ]
+        }
+      ],
+      advanced: [
+        {
+          name: 'HSPU Prep',
+          duration: '26–34 min',
+          description: 'Elevated pike positions build overhead pressing lines.',
+          battlePlan: 'Feet-Elevated Pike Pushup (on bars)\n• 5 × 6–8 (RPE 6), 90s rest\nParallette Lean Hold (harder angle)\n• 4 × 20–30s (RPE 6), 75s rest\nParallette Tuck L-Sit\n• 4 × 10–15s (RPE 6), 60–75s rest',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYWxpc3RoZW5pY3N8ZW58MXx8fHwxVzU2aWNnNMzIyM3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Elevated pike positions build overhead pressing lines.',
+          moodTips: [
+            {
+              icon: 'body',
+              title: 'Stack hips over hands',
+              description: 'Stack hips over hands'
+            },
+            {
+              icon: 'body',
+              title: 'Press tall; no elbow flare',
+              description: 'Press tall; no elbow flare'
+            }
+          ]
+        },
+        {
+          name: 'Deficit Power',
+          duration: '26–34 min',
+          description: 'Deeper deficit increases load and shoulder stability.',
+          battlePlan: 'Deep Deficit Parallette Pushup\n• 5 × 6–10 (RPE 6), 90s rest\nFeet-Elevated Inverted Row\n• 4 × 8–10 (RPE 6), 75s rest\nHollow Rock\n• 4 × 12–16 (RPE 6), 60s rest',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYWxpc3RoZW5pY3N8ZW58MXx8fHwxVzU2aWNnNMzIyM3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Deeper deficit increases load and shoulder stability.',
+          moodTips: [
+            {
+              icon: 'body',
+              title: 'Move slow; chest between bars',
+              description: 'Move slow; chest between bars'
+            },
+            {
+              icon: 'body',
+              title: 'Row: pause 1s at top',
+              description: 'Row: pause 1s at top'
+            }
+          ]
+        },
+        {
+          name: 'Midrange Control',
+          duration: '26–34 min',
+          description: '1.5 pushups add tension without joint irritability.',
+          battlePlan: 'Parallette Pushup (1.5 reps)\n• 4 × 6–8 (RPE 6), 90s rest\nPseudo Planche Pushup\n• 4 × 6–8 (RPE 6), 90s rest\nParallette L-Sit (tuck or one leg)\n• 4 × 10–15s (RPE 6), 60–75s rest',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYWxpc3RoZW5pY3N8ZW58MXx8fHwxVzU2aWNnNMzIyM3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: '1.5 pushups add tension without joint irritability.',
+          moodTips: [
+            {
+              icon: 'body',
+              title: 'Pause mid; smooth return',
+              description: 'Pause mid; smooth return'
+            },
+            {
+              icon: 'body',
+              title: 'Long spine, neck relaxed',
+              description: 'Long spine, neck relaxed'
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    equipment: 'Ab wheel',
+    icon: 'ellipse',
+    workouts: {
+      beginner: [
+        {
+          name: 'Wheel Intro',
+          duration: '12–16 min',
+          description: 'Short ranges teach control without overloading spine.',
+          battlePlan: 'Kneeling Ab Wheel (short ROM)\n• 3 × 6–8 (RPE 4), 75s rest\nDead Bug\n• 3 × 10–12/side (RPE 4), 45–60s rest\nFront Plank\n• 3 × 20–30s (RPE 4), 45–60s rest',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYWxpc3RoZW5pY3N8ZW58MXx8fHwxVzU2aWNnNMzIyM3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Short ranges teach control without overloading spine.',
+          moodTips: [
+            {
+              icon: 'body',
+              title: 'Ribs down; small ranges',
+              description: 'Ribs down; small ranges'
+            },
+            {
+              icon: 'body',
+              title: 'Hips glide with torso',
+              description: 'Hips glide with torso'
+            }
+          ]
+        },
+        {
+          name: 'Eccentric Teach',
+          duration: '12–16 min',
+          description: 'Controlled negatives build safe end-range capacity.',
+          battlePlan: 'Kneeling Ab Wheel Eccentric (stand up after)\n• 3 × 4–6 (RPE 4), 90s rest\nHollow Hold\n• 3 × 20–30s (RPE 4), 45–60s rest\nBird Dog\n• 3 × 8–10/side (RPE 4), 45–60s rest',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYWxpc3RoZW5pY3N8ZW58MXx8fHwxVzU2aWNnNMzIyM3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Controlled negatives build safe end-range capacity.',
+          moodTips: [
+            {
+              icon: 'body',
+              title: '4s lowers; 1s pause',
+              description: '4s lowers; 1s pause'
+            },
+            {
+              icon: 'body',
+              title: 'Keep low back quiet',
+              description: 'Keep low back quiet'
+            }
+          ]
+        },
+        {
+          name: 'Range Build',
+          duration: '12–16 min',
+          description: 'Gradual ROM progression increases tension safely.',
+          battlePlan: 'Kneeling Ab Wheel (moderate ROM)\n• 3 × 6–8 (RPE 4), 75s rest\nSide Plank\n• 3 × 20–30s/side (RPE 4), 45–60s rest\nFront Plank\n• 3 × 20–30s (RPE 4), 45–60s rest',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYWxpc3RoZW5pY3N8ZW58MXx8fHwxVzU2aWNnNMzIyM3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Gradual ROM progression increases tension safely.',
+          moodTips: [
+            {
+              icon: 'body',
+              title: 'Add inches slowly',
+              description: 'Add inches slowly'
+            },
+            {
+              icon: 'body',
+              title: 'Keep hips tucked slightly',
+              description: 'Keep hips tucked slightly'
+            }
+          ]
+        }
+      ],
+      intermediate: [
+        {
+          name: 'Wheel Lines',
+          duration: '14–18 min',
+          description: 'Moderate volume kneeling rolls challenge midline.',
+          battlePlan: 'Kneeling Ab Wheel (fuller ROM)\n• 4 × 6–8 (RPE 5), 90s rest\nHollow Rock\n• 3 × 10–15 (RPE 5), 60s rest\nSide Plank with Hip Tap\n• 3 × 8–10/side (RPE 5), 45–60s rest',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYWxpc3RoZW5pY3N8ZW58MXx8fHwxVzU2aWNnNMzIyM3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Moderate volume kneeling rolls challenge midline.',
+          moodTips: [
+            {
+              icon: 'body',
+              title: 'Smooth 3s lowers',
+              description: 'Smooth 3s lowers'
+            },
+            {
+              icon: 'leaf',
+              title: 'Exhale pulling back',
+              description: 'Exhale pulling back'
+            }
+          ]
+        },
+        {
+          name: 'Eccentric Plus',
+          duration: '14–18 min',
+          description: 'Longer negatives build strength in extended ranges.',
+          battlePlan: 'Kneeling Ab Wheel Eccentric (4–5s down)\n• 4 × 4–6 (RPE 5–6), 90s rest\nDead Bug\n• 3 × 12–14/side (RPE 5), 60s rest\nFront Plank\n• 3 × 25–35s (RPE 5), 45–60s rest',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYWxpc3RoZW5pY3N8ZW58MXx8fHwxVzU2aWNnNMzIyM3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Longer negatives build strength in extended ranges.',
+          moodTips: [
+            {
+              icon: 'body',
+              title: 'Keep ribs stacked',
+              description: 'Keep ribs stacked'
+            },
+            {
+              icon: 'body',
+              title: 'Move only as range allows',
+              description: 'Move only as range allows'
+            }
+          ]
+        },
+        {
+          name: 'Angle Mix',
+          duration: '14–18 min',
+          description: 'Slight angle changes load obliques and anti-rotation.',
+          battlePlan: 'Kneeling Ab Wheel Diagonal Rolls\n• 4 × 5–6/side (RPE 5), 90s rest\nSide Plank\n• 3 × 25–35s/side (RPE 5), 45–60s rest\nHollow Hold\n• 3 × 25–35s (RPE 5), 45–60s rest',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYWxpc3RoZW5pY3N8ZW58MXx8fHwxVzU2aWNnNMzIyM3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Slight angle changes load obliques and anti-rotation.',
+          moodTips: [
+            {
+              icon: 'body',
+              title: 'Small angle changes',
+              description: 'Small angle changes'
+            },
+            {
+              icon: 'body',
+              title: 'Keep hips square level',
+              description: 'Keep hips square level'
+            }
+          ]
+        }
+      ],
+      advanced: [
+        {
+          name: 'Long Lines',
+          duration: '16–22 min',
+          description: 'Full-range kneeling rolls challenge deep core safely.',
+          battlePlan: 'Kneeling Ab Wheel (full ROM)\n• 5 × 6–8 (RPE 6), 90s rest\nHollow Rock\n• 4 × 12–16 (RPE 6), 60s rest\nSide Plank with Reach\n• 3 × 10–12/side (RPE 6), 45–60s rest',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYWxpc3RoZW5pY3N8ZW58MXx8fHwxVzU2aWNnNMzIyM3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Full-range kneeling rolls challenge deep core safely.',
+          moodTips: [
+            {
+              icon: 'body',
+              title: 'Control end range',
+              description: 'Control end range'
+            },
+            {
+              icon: 'body',
+              title: 'Avoid lumbar extension',
+              description: 'Avoid lumbar extension'
+            }
+          ]
+        },
+        {
+          name: 'Eccentric Heavy',
+          duration: '16–22 min',
+          description: 'Very slow negatives build resilience in long ranges.',
+          battlePlan: 'Kneeling Ab Wheel Eccentric (5–6s down)\n• 5 × 3–5 (RPE 6–7), 120s rest\nFront Plank (hard)\n• 4 × 30–45s (RPE 6), 60–75s rest\nHollow Hold\n• 3 × 30–40s (RPE 6), 60s rest',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYWxpc3RoZW5pY3N8ZW58MXx8fHwxVzU2aWNnNMzIyM3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Very slow negatives build resilience in long ranges.',
+          moodTips: [
+            {
+              icon: 'body',
+              title: 'Stay stacked, glutes on',
+              description: 'Stay stacked, glutes on'
+            },
+            {
+              icon: 'leaf',
+              title: 'Nose breathe; calm rhythm',
+              description: 'Nose breathe; calm rhythm'
+            }
+          ]
+        },
+        {
+          name: 'Midrange Control',
+          duration: '16–22 min',
+          description: '1.5 wheel reps add bracing time at safe midrange.',
+          battlePlan: 'Kneeling Ab Wheel (1.5 reps)\n• 4 × 5–6 (RPE 6), 90s rest\nKneeling Diagonal Rolls (short)\n• 3 × 5–6/side (RPE 6), 90s rest\nSide Plank\n• 3 × 30–40s/side (RPE 6), 60s rest',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYWxpc3RoZW5pY3N8ZW58MXx8fHwxVzU2aWNnNMzIyM3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: '1.5 wheel reps add bracing time at safe midrange.',
+          moodTips: [
+            {
+              icon: 'body',
+              title: 'Pause mid, smooth return',
+              description: 'Pause mid, smooth return'
+            },
+            {
+              icon: 'body',
+              title: 'Keep hips from swaying',
+              description: 'Keep hips from swaying'
+            }
+          ]
+        }
+      ]
+    }
+  }
+];
