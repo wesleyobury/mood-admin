@@ -190,6 +190,15 @@ export default function OutdoorWorkoutsScreen() {
       }
     }).current;
 
+    const onScroll = (event: any) => {
+      const contentOffset = event.nativeEvent.contentOffset;
+      const viewSize = event.nativeEvent.layoutMeasurement;
+      
+      // Calculate current index based on scroll position
+      const currentIndex = Math.round(contentOffset.x / viewSize.width);
+      setCurrentWorkoutIndex(currentIndex);
+    };
+
     if (workouts.length === 0) {
       return null;
     }
