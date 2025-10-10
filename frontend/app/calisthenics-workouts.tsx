@@ -1230,7 +1230,7 @@ const styles = StyleSheet.create({
   },
   intensityContainer: {
     flexDirection: 'row',
-    alignItems: 'flex-start',
+    alignItems: 'center',
     backgroundColor: 'rgba(255, 215, 0, 0.1)',
     borderRadius: 8,
     padding: 12,
