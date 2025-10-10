@@ -556,9 +556,9 @@ const styles = StyleSheet.create({
     backgroundColor: '#333333', // Much more visible background
     shadowColor: '#FFD700',
     shadowOffset: { width: 0, height: 0 },
-    shadowOpacity: 0.8,
-    shadowRadius: 20,
-    elevation: 12,
+    shadowOpacity: 0.3,
+    shadowRadius: 10,
+    elevation: 6,
   },
   cardContent: {
     flexDirection: 'row',
