@@ -203,7 +203,7 @@ export default function OutdoorWorkoutsScreen() {
           </View>
           <Text style={styles.equipmentName}>{equipment}</Text>
           <View style={styles.workoutIndicator}>
-            <Text style={styles.workoutCount}>{workouts.length} workout{workouts.length !== 1 ? 's' : ''}</Text>
+            <Text style={styles.workoutCount}>{currentWorkoutIndex + 1}/{workouts.length}</Text>
           </View>
         </View>
 
