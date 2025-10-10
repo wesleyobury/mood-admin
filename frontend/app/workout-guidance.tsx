@@ -126,8 +126,8 @@ export default function WorkoutGuidanceScreen() {
   const difficulty = params.difficulty as string || 'beginner';
   const workoutType = params.workoutType as string || 'Strength Based';
   
-  // Format workout type to show proper type for leg workouts  
-  const displayWorkoutType = workoutType === 'Weight Based' ? 'Weight Based Cardio' : workoutType;
+  // Format workout type to show proper type  
+  const displayWorkoutType = workoutType;
   
   // Parse MOOD tips from params (passed as JSON string)
   const moodTipsParam = params.moodTips as string || '[]';
