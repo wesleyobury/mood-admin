@@ -542,9 +542,9 @@ const styles = StyleSheet.create({
     borderColor: '#FFD700',
     shadowColor: '#FFD700',
     shadowOffset: { width: 0, height: 0 },
-    shadowOpacity: 1,
-    shadowRadius: 25,
-    elevation: 20,
+    shadowOpacity: 0.4,
+    shadowRadius: 12,
+    elevation: 8,
   },
   visibleMoodCard: {
     borderRadius: 21,
