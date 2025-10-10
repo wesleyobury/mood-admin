@@ -102,7 +102,7 @@ export default function Welcome() {
           </View>
         </View>
       </View>
-    </SafeAreaView>
+    </View>
   );
 }
 
