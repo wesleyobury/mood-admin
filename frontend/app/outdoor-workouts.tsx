@@ -241,11 +241,21 @@ export default function OutdoorWorkoutsScreen() {
                   currentWorkoutIndex === index && styles.activeDot
                 ]}
                 onPress={() => {
-                  flatListRef.current?.scrollToIndex({ 
-                    index, 
-                    animated: true 
-                  });
-                  setCurrentWorkoutIndex(index);
+                  try {
+                    flatListRef.current?.scrollToIndex({ 
+                      index, 
+                      animated: true 
+                    });
+                    setCurrentWorkoutIndex(index);
+                  } catch (error) {
+                    console.log('ScrollToIndex failed, using scrollToOffset instead');
+                    // Fallback to scrollToOffset if scrollToIndex fails
+                    flatListRef.current?.scrollToOffset({
+                      offset: (width - 48) * index,
+                      animated: true
+                    });
+                    setCurrentWorkoutIndex(index);
+                  }
                 }}
                 activeOpacity={0.7}
               />
