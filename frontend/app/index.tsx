@@ -109,6 +109,7 @@ export default function Welcome() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: '#0c0c0c', // Dark background edge-to-edge
   },
   simplifiedGradient: {
     flex: 1,
