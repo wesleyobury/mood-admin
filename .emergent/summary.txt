@@ -1,72 +1,59 @@
 <analysis>
-The previous AI engineer initiated by resolving a critical issue: the I want to sweat > Weight Based path was misdirecting to Build Explosiveness content. This was fixed by renaming Weight Based to Light weights in , updating  with correct equipment data, and creating a dedicated  file for comprehensive Light weights workout data. UI/UX parity was ensured by incorporating gradients, padding, and swipe indicators based on .
-
-Subsequently, the user shifted focus to the Calisthenics path. The AI engineer duplicated the  screen to create  with specified equipment. Navigation was integrated via , and a placeholder  was initially created. Extensive calisthenics workout data was provided by the user, leading to a complete overhaul of  to mirror  design, including swipe functionality and data integration through . Multiple testing phases confirmed functionality and UI consistency. The trajectory concluded with the user reporting specific UI/UX discrepancies on the calisthenics workout cards, which the AI engineer was preparing to address.
+The AI engineer successfully addressed several user-reported UI/UX issues. Key achievements include the shortening of I want to build explosiveness to Build explosion across all relevant explosiveness path screens, along with corresponding fixes to progress bar icons and text. The engineer also refined the neon glow effect on home screen mood cards. A significant effort was made to fix the outdoor activity navigation dots, which were clickable but not swiping cards. This investigation uncovered a fundamental issue: only one workout was being displayed despite data containing more, hindering swipe functionality, and touch events for dots were not consistently registering in the React Native Web environment. Finally, the AI engineer successfully resolved the square-edged shadow issue on lazy path workout cards by standardizing  values.
 </analysis>
 
 <product_requirements>
-The primary goal is to provide a polished, native-feeling workout application.
-1.  **Light weights Path Fix**: Resolve an issue where I want to sweat > Weight Based incorrectly displayed Build Explosiveness content. This involved renaming Weight Based to Light weights and implementing correct equipment (Dumbbells, Kettlebells, Barbells, Medicine Balls, Slam Balls, Battle Ropes, Sled, Sledgehammer + Tire, Flipping Tire) and workout data with Beginner, Intermediate, and Advanced difficulties. UI/UX consistency, including padding, gold gradients, and a Swipe to explore section, was crucial.
-2.  **Calisthenics Path Implementation**: Create a new workout path for Calisthenics.
-    *   **Equipment Screen**: Duplicate the  template, listing specific equipment alphabetically: Pure bodyweight, Pull up bar, Parallel bars / dip station, Gymnast rings, Pushup bars / parallettes, Ab wheel.
-    *   **Workouts Screen**: Implement a comprehensive workout display screen based on the light weights screen design, ensuring all UI/UX elements (layout, spacing, swipe navigation, progress bar, styling, routing) align. This includes detailed workout data for each equipment type across Beginner, Intermediate, and Advanced difficulties, with 4 bodyweight workouts per intensity level and 3 for all other equipment, all swipe-enabled.
-    *   **UI/UX Refinement for Calisthenics**: Address missing gold neon around workout card edges, standardize duration font, center i icon in intensity reasoning, ensure consistent picture dimensions with padding, and make workout titles white on the cards.
+The goal is a polished, native-feeling workout application. Initially, this involved implementing a Light weights path (renaming, equipment updates, UI consistency) and a Calisthenics path (new equipment/workout screens, detailed data, extensive UI/UX refinement like gold gradients, consistent images, and progress bar corrections). Most recently, an Outdoor path was created, including  (6 activity options, abbreviated header/progress bar text) and  (mirroring Calisthenics UI, 1/x counter, progress bar text fixes). Subsequent requests focused on: making outdoor path navigation dots swipeable, shortening I want to build explosiveness to Build explosion on progress bars (explosiveness path), fixing Weight Based Cardio text and duplicate bodyweight icons in explosiveness path workout guidance, lightening home screen mood card neon glow, and rounding square-edged shadows on lazy workout cards.
 </product_requirements>
 
 <key_technical_concepts>
--   **Expo File-Based Routing ()**: For defining and navigating between screens using file paths and query parameters.
--   **React Native Components**: Utilizing core components like , ,  for UI construction.
--   ****: For defining and managing component styles with Flexbox.
--   **UI/UX Parity**: Emphasizing consistent visual design and interaction patterns across the application.
--   **State Management ()**: For local component state.
+-   **Expo File-Based Routing ()**: For declarative navigation.
+-   **React Native Components**: Fundamental UI building blocks (View, Text, FlatList, TouchableOpacity).
+-   ** with Flexbox**: For managing responsive, mobile-first layouts.
+-   **State Management (, )**: For dynamic UI updates and component state.
 </key_technical_concepts>
 
 <code_architecture>
 
 -   ****:
-    -   **Importance**: Entry point for selecting workout categories.
-    -   **Changes**: Renamed Weight Based option to Light weights to resolve a naming conflict.
+    -   **Importance**: Main entry point for tab navigation and mood card display.
+    -   **Changes**: Updated I want to build explosiveness mood card title to Build explosion. Reduced  and  shadow properties (color, opacity, radius, offset, elevation) and / to lighten the overall glow effect.
 -   ****:
-    -   **Importance**: Equipment selection for the I want to sweat > Light weights path.
-    -   **Changes**: Updated with 9 specific equipment types, modified descriptions, mood references, and section text. Navigation logic was updated to point to .
+    -   **Importance**: Equipment selection screen for outdoor activities.
+    -   **Changes**: Header subtitle changed to Get outside and progress bar's first step to Outside to prevent text wrapping.
 -   ****:
-    -   **Importance**: Displays workouts for the Light weights path. Serves as a primary design template.
-    -   **Changes**: Created to replace . Populated with extensive workout data and implemented specific UI/UX elements (padding, gold gradients, Swipe to explore section). This file's structure and styling were later used as a template for .
+    -   **Importance**: Displays selected outdoor workouts with swipeable cards and navigation dots.
+    -   **Changes**: Progress bar mood text abbreviated to Outside.  prop added to FlatList.  handler, manual scroll logic, and improved  touch target area were added during debugging the dot functionality. Debug logs were also added to trace data flow.
 -   ****:
-    -   **Importance**: Served as an initial UI/UX reference for elements like gradients and swipe indicators.
-    -   **Changes**: No direct changes, but its structure was used as a basis.
+    -   **Importance**: Screen for selecting bodyweight or weight-based explosiveness training.
+    -   **Changes**: Modified to pass Build explosion as the  parameter.
 -   ****:
-    -   **Importance**: The main tab-based navigation screen of the application.
-    -   **Changes**: Modified to include navigation to the newly created  screen.
+    -   **Importance**: Equipment selection for bodyweight explosiveness workouts.
+    -   **Changes**: Updated to use Build explosion for the mood title in the progress bar.
 -   ****:
-    -   **Importance**: New screen for selecting equipment for the calisthenics path.
-    -   **Changes**: Created by duplicating  and customized with 6 specific calisthenics equipment options (Ab wheel, Gymnast rings, Parallel bars / dip station, Pull up bar, Pure bodyweight, Pushup bars / parallettes) in alphabetical order. Includes a 3-step progress bar (Calisthenics → Equipment → Difficulty) and consistent UI.
+    -   **Importance**: Displays weight-based explosiveness workouts.
+    -   **Changes**: Updated  to Build explosion.
 -   ****:
-    -   **Importance**: New screen to display calisthenics workouts.
-    -   **Changes**: Initially created as a placeholder. Later completely refactored and populated with extensive workout data from , adopting the full UI/UX structure and styling from , including swipe-enabled workout cards and navigation dots.
+    -   **Importance**: Displays bodyweight explosiveness workouts.
+    -   **Changes**: Updated  to Build explosion. Identified to have the same FlatList dot-swiping issue as .
 -   ****:
-    -   **Importance**: New file to store the detailed workout data for all calisthenics equipment types across different difficulty levels.
-    -   **Changes**: Created to store the comprehensive workout data provided by the user for Pure bodyweight, Pull up bar, Parallel bars / dip station, Gymnast rings, Pushup bars / parallettes, and Ab wheel.
+    -   **Importance**: Screen displaying workout instructions and real-time progress.
+    -   **Changes**: Removed hardcoded Weight Based Cardio text. Implemented dynamic icon selection for workout type in the progress bar (body icon for bodyweight, barbell for weight-based) to fix duplicate icons. Mood title now dynamically fetched from parameters.
+-   ****, ****, ****, ****, ****, ****, ****:
+    -   **Importance**: These files represent various lazy workout paths, including workout display and equipment/training type selection screens.
+    -   **Changes**:  property in workout card styles was consistently reduced from  to  across all these files to fix square-edged shadows and ensure rounded corners.
 </code_architecture>
 
 <pending_tasks>
 -   **Progress Bar Standardization (Legs Path):**  needs its progress bar updated to the single-row icon-based format.
--   **Difficulty Parameter Display Bug**: The workout screen ( and now ) still shows Beginner in the progress bar/badges even when an Intermediate difficulty parameter is passed via URL.
--   **Calisthenics UI/UX Refinement**: Fix specific styling issues on calisthenics workout cards.
+-   **Difficulty Parameter Display Bug**: The workout screen ( and ) still shows Beginner in the progress bar/badges even when an Intermediate difficulty parameter is passed via URL.
+-   **Outdoor Activity Dots Swiping Functionality**: The dots are clickable but cards do not swipe; debugging revealed a potential data issue where only one workout is displayed despite more being available in .
 </pending_tasks>
 
 <current_work>
-Immediately prior to this summary, the AI engineer completed the comprehensive implementation of the Calisthenics workout path. This involved:
-1.  **Creating **: Duplicated from , customized with 6 specific calisthenics equipment types (Ab wheel, Gymnast rings, Parallel bars / dip station, Pull up bar, Pure bodyweight, Pushup bars / parallettes), ensuring alphabetical order, correct progress bar flow, and consistent UI.
-2.  **Updating Navigation**: Modified  to enable navigation to the new calisthenics path.
-3.  **Creating **: Populated with extensive, detailed workout plans for each calisthenics equipment type across Beginner, Intermediate, and Advanced difficulties, including the specification of 4 bodyweight workouts and 3 for other equipment per intensity level.
-4.  **Implementing **: This screen was completely refactored to replicate the design and functionality of . This included importing and integrating the new workout data, implementing swipe-enabled workout cards with navigation dots (Swipe to explore), gold gradients, equipment-specific content, and ensuring overall UI/UX consistency.
-5.  **Verification**: Multiple tests were performed, navigating through the calisthenics path, selecting single and multiple equipment types, and confirming that workout cards, content, progress bar, and swipe functionality were working as expected, matching the  design.
-
-The AI engineer's work concluded with the user reporting several outstanding UI/UX issues on the  screen, despite previous verification. These issues include missing gold neon borders, incorrect duration font, misaligned i icon, inconsistent picture dimensions with padding, and incorrect workout title color.
+Immediately before this summary, the AI engineer successfully fixed the square-edged shadow issue on lazy workout cards by reducing the  from  to  in , , , , , , and . This ensures visual consistency with other rounded cards. Prior to this, the engineer was debugging the outdoor activity dots issue in . While the UI elements for dots were verified, comprehensive debugging revealed that the  was only rendering one workout, preventing swiping. Console logs for dot click events were not being triggered, suggesting a deeper issue with touch detection or data filtering for multiple workouts.
 </current_work>
 
 <optional_next_step>
-Address the specific UI/UX issues on the calisthenics workout cards reported by the user.
+Investigate the data filtering logic in  to ensure all available workouts are passed to the .
 </optional_next_step>
-
