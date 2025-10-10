@@ -215,7 +215,7 @@ export default function OutdoorEquipmentScreen() {
             <View style={styles.progressStepActive}>
               <Ionicons name="bicycle" size={14} color="#000000" />
             </View>
-            <Text style={styles.progressStepText}>Outdoor</Text>
+            <Text style={styles.progressStepText}>Outside</Text>
           </View>
           
           <View style={styles.progressConnector} />
