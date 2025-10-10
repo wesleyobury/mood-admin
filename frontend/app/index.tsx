@@ -160,12 +160,13 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
   },
   featuresSection: {
-    paddingVertical: 32, // Reduced from 40 to move features up
+    paddingTop: 32, // Top padding for features
+    paddingBottom: 16, // Reduced bottom padding to close gap with button
   },
   featureItem: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginBottom: 20, // Reduced from 24
+    marginBottom: 16, // Further reduced from 20 to tighten spacing
     paddingHorizontal: 20,
   },
   featureIcon: {
