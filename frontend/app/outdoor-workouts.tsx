@@ -235,6 +235,8 @@ export default function OutdoorWorkoutsScreen() {
               index,
             })}
             keyExtractor={(item, index) => `workout-${index}`}
+            onScroll={onScroll}
+            scrollEventThrottle={16}
           />
         </View>
 
