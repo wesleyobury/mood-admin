@@ -9,10 +9,10 @@ export const outdoorRunWorkoutDatabase = [
         {
           name: 'Easy Interval Run',
           duration: '22–25 min',
-          description: 'Walk–jog intervals to build base without strain.',
+          description: 'Walk–jog intervals to build cardiovascular base safely without placing excessive strain on joints and muscles.',
           battlePlan: '• 5 min brisk walk\n• 6 rounds: 1 min easy jog + 1 min walk\n• 5 min easy walk',
-          imageUrl: 'https://images.unsplash.com/photo-1544717297-fa95b6ee9643?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxvdXRkb29yJTIwcnVubmluZ3xlbnwwfHx8fDE3MDM0NzU2NjM&ixlib=rb-4.0.3&q=85',
-          intensityReason: 'Short jog bouts lift HR with low joint stress.',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwb3V0ZG9vcnxlbnwwfHx8fDE3MDM0NzU2NjM&ixlib=rb-4.0.3&q=85',
+          intensityReason: 'Short jogging bouts effectively lift heart rate while maintaining low impact stress on joints and connective tissues.',
           moodTips: [
             {
               icon: 'body',
