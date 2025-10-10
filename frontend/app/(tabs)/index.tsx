@@ -174,11 +174,11 @@ export default function WorkoutsHome() {
   };
 
   return (
-    <View style={[styles.container, { paddingTop: insets.top, paddingBottom: insets.bottom }]}>
+    <View style={styles.container}>
       <ScrollView 
         style={styles.fullScrollView}
         showsVerticalScrollIndicator={false}
-        contentContainerStyle={[styles.scrollContentContainer, { paddingBottom: Math.max(insets.bottom, 40) }]}
+        contentContainerStyle={[styles.scrollContentContainer, { paddingTop: insets.top, paddingBottom: Math.max(insets.bottom, 40) }]}
         bounces={true}
         scrollEventThrottle={16}
         onScroll={(event) => {
