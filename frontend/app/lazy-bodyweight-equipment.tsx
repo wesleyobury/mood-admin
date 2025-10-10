@@ -514,7 +514,7 @@ const styles = StyleSheet.create({
   difficultyCardSelected: {
     backgroundColor: 'rgba(255, 215, 0, 0.1)',
     shadowOpacity: 0.4,
-    shadowRadius: 15,
+    shadowRadius: 10,
     elevation: 8,
   },
   difficultyContent: {
@@ -568,7 +568,7 @@ const styles = StyleSheet.create({
     shadowColor: '#FFD700',
     shadowOffset: { width: 0, height: 0 },
     shadowOpacity: 0.5,
-    shadowRadius: 15,
+    shadowRadius: 10,
     elevation: 8,
   },
   continueButtonText: {
