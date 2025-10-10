@@ -679,6 +679,20 @@ const styles = StyleSheet.create({
     shadowRadius: 4,
     elevation: 4,
   },
+  dotTouchArea: {
+    padding: 8,
+    justifyContent: 'center',
+    alignItems: 'center',
+    minWidth: 32,
+    minHeight: 32,
+  },
+  activeDotTouchArea: {
+    padding: 8,
+    justifyContent: 'center',
+    alignItems: 'center',
+    minWidth: 32,
+    minHeight: 32,
+  },
   emptyState: {
     flex: 1,
     justifyContent: 'center',
