@@ -29,10 +29,10 @@ export const outdoorRunWorkoutDatabase = [
         {
           name: 'Progressive Easy Run',
           duration: '25–30 min',
-          description: 'Start easy; finish slightly quicker, not hard.',
+          description: 'Start at comfortable easy pace and gradually finish slightly quicker to build aerobic capacity without excessive stress.',
           battlePlan: '• 5 min easy jog\n• 15–20 min continuous easy→steady\n• 3–5 min walk',
-          imageUrl: 'https://images.unsplash.com/photo-1544717297-fa95b6ee9643?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxvdXRkb29yJTIwcnVubmluZ3xlbnwwfHx8fDE3MDM0NzU2NjM&ixlib=rb-4.0.3&q=85',
-          intensityReason: 'Gentle pace rise improves aerobic efficiency.',
+          imageUrl: 'https://images.unsplash.com/photo-1506629905607-53e103a5301d?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZml0bmVzc3xlbnwwfHx8fDE3MDM0NzU2NjM&ixlib=rb-4.0.3&q=85',
+          intensityReason: 'Gentle progressive pace increase gradually improves aerobic efficiency and running economy without overloading the cardiovascular system.',
           moodTips: [
             {
               icon: 'hand-left',
