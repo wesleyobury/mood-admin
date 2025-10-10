@@ -1394,9 +1394,9 @@ export default function BodyweightExplosivenessWorkoutsScreen() {
   const insets = useSafeAreaInsets();
 
   // Parse URL parameters
-  const rawMoodTitle = params.mood as string || 'Build Explosive';
-  // Convert "I want to build explosiveness" to "Build Explosive" for display
-  const moodTitle = rawMoodTitle.toLowerCase().includes('explosiveness') ? 'Build Explosive' : rawMoodTitle;
+  const rawMoodTitle = params.mood as string || 'Build explosion';
+  // Convert "I want to build explosiveness" to "Build explosion" for display
+  const moodTitle = rawMoodTitle.toLowerCase().includes('explosiveness') ? 'Build explosion' : rawMoodTitle;
   const workoutType = params.workoutType as string || 'Body Weight';
   const equipmentParam = params.equipment as string || '';
   const difficulty = params.difficulty as string || 'beginner';
