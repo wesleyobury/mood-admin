@@ -112,7 +112,7 @@ export default function OutdoorWorkoutsScreen() {
   // Create progress bar - single row with requested order
   const createProgressRows = () => {
     const steps = [
-      { key: 'mood', icon: 'flame', text: moodTitle },
+      { key: 'mood', icon: 'flame', text: 'Outside' },
       { key: 'difficulty', icon: 'speedometer', text: difficulty === 'intermediate' ? 'Intermed.' : difficulty.charAt(0).toUpperCase() + difficulty.slice(1) },
       { key: 'equipment', icon: 'construct', text: `Activity (${selectedEquipmentNames.length})` },
     ];
