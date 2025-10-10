@@ -203,7 +203,7 @@ export default function OutdoorEquipmentScreen() {
         </TouchableOpacity>
         <View style={styles.headerTextContainer}>
           <Text style={styles.headerTitle}>Outdoor Activities</Text>
-          <Text style={styles.headerSubtitle}>{moodTitle}</Text>
+          <Text style={styles.headerSubtitle}>Get outside</Text>
         </View>
         <View style={styles.headerSpacer} />
       </View>
