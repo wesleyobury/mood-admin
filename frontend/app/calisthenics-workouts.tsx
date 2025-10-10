@@ -749,14 +749,10 @@ export default function CalisthenicsWorkoutsScreen() {
 
   // Create progress bar - single row with requested order
   const createProgressRows = () => {
-    const equipmentText = selectedEquipmentNames.length <= 2 
-      ? selectedEquipmentNames.join(', ')
-      : `${selectedEquipmentNames.slice(0, 2).join(', ')} +${selectedEquipmentNames.length - 2}`;
-    
     const steps = [
       { key: 'mood', icon: 'flame', text: moodTitle },
       { key: 'difficulty', icon: 'speedometer', text: difficulty === 'intermediate' ? 'Intermed.' : difficulty.charAt(0).toUpperCase() + difficulty.slice(1) },
-      { key: 'equipment', icon: 'construct', text: equipmentText },
+      { key: 'equipment', icon: 'construct', text: `Equipment (${selectedEquipmentNames.length})` },
     ];
 
     // Return single row
