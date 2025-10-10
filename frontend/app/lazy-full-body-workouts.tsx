@@ -1002,7 +1002,7 @@ const styles = StyleSheet.create({
     shadowColor: '#FFD700',
     shadowOffset: { width: 0, height: 0 },
     shadowOpacity: 0.3,
-    shadowRadius: 15,
+    shadowRadius: 10,
     elevation: 8,
     overflow: 'hidden',
   },
