@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useRef } from 'react';
 import {
   View,
   Text,
@@ -6,22 +6,38 @@ import {
   TouchableOpacity,
   SafeAreaView,
   ScrollView,
+  Dimensions,
+  Image,
   FlatList,
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { useRouter, useLocalSearchParams } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
+const { width } = Dimensions.get('window');
+
 interface Workout {
-  id: string;
-  title: string;
+  name: string;
   duration: string;
-  intensity: string;
-  summary: string;
+  description: string;
+  battlePlan: string;
+  imageUrl: string;
+  intensityReason: string;
+  moodTips: {
+    icon: keyof typeof Ionicons.glyphMap;
+    title: string;
+    description: string;
+  }[];
+}
+
+interface EquipmentWorkouts {
   equipment: string;
-  difficultyLevel: string;
-  moodTip: string;
-  battlePlan: string[];
+  icon: keyof typeof Ionicons.glyphMap;
+  workouts: {
+    beginner: Workout[];
+    intermediate: Workout[];
+    advanced: Workout[];
+  };
 }
 
 // Placeholder workout data for each equipment type
