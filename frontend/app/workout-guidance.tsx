@@ -158,7 +158,18 @@ export default function WorkoutGuidanceScreen() {
   // Get selected equipment names from router state or parse from URL
   // For demo purposes, we'll extract from the navigation path
   const selectedEquipmentNames = [equipment]; // This should be passed from navigation
-  const moodTitle = 'I want to sweat'; // This should be passed from navigation
+  
+  // Determine mood title based on workout type for better UX
+  let moodTitle = 'Workout';
+  if (workoutType === 'Body Weight' || workoutType === 'Weight Based') {
+    moodTitle = 'Build explosion';
+  } else if (workoutType.toLowerCase().includes('cardio') || workoutType.toLowerCase().includes('sweat')) {
+    moodTitle = 'I want to sweat';
+  } else if (workoutType.toLowerCase().includes('lazy') || workoutType.toLowerCase().includes('light')) {
+    moodTitle = 'Light movement';
+  } else if (workoutType.toLowerCase().includes('outdoor')) {
+    moodTitle = 'Outside';
+  }
   
   const [elapsedTime, setElapsedTime] = useState(0); // Timer starts from 0:00
   const [isRunning, setIsRunning] = useState(false);
