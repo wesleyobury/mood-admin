@@ -1,0 +1,587 @@
+import React, { useState, useEffect } from 'react';
+import {
+  View,
+  Text,
+  StyleSheet,
+  TouchableOpacity,
+  SafeAreaView,
+  ScrollView,
+  Image,
+  Alert,
+} from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
+import { useRouter, useLocalSearchParams } from 'expo-router';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { useCart } from '../contexts/CartContext';
+
+interface SessionWorkout {
+  workoutName: string;
+  equipment: string;
+  description: string;
+  battlePlan: string;
+  duration: string;
+  difficulty: string;
+  workoutType: string;
+  moodTips: string;
+}
+
+export default function WorkoutSessionScreen() {
+  const router = useRouter();
+  const params = useLocalSearchParams();
+  const insets = useSafeAreaInsets();
+  const { clearCart } = useCart();
+  
+  const [sessionWorkouts, setSessionWorkouts] = useState<SessionWorkout[]>([]);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    try {
+      const workoutsParam = params.sessionWorkouts as string;
+      const indexParam = params.currentIndex as string;
+      
+      if (workoutsParam) {
+        const workouts = JSON.parse(workoutsParam);
+        setSessionWorkouts(workouts);
+        setCurrentIndex(parseInt(indexParam) || 0);
+      }
+      
+      setIsLoading(false);
+    } catch (error) {
+      console.error('Error parsing session workouts:', error);
+      setIsLoading(false);
+    }
+  }, [params]);
+
+  const currentWorkout = sessionWorkouts[currentIndex];
+  const isLastWorkout = currentIndex === sessionWorkouts.length - 1;
+  const isFirstWorkout = currentIndex === 0;
+
+  const handleGoBack = () => {
+    if (currentIndex === 0) {
+      router.back();
+    } else {
+      Alert.alert(
+        "Leave Session",
+        "Are you sure you want to leave the workout session?",
+        [
+          { text: "Cancel", style: "cancel" },
+          { text: "Leave", style: "destructive", onPress: () => router.back() }
+        ]
+      );
+    }
+  };
+
+  const handleNextWorkout = () => {
+    if (!isLastWorkout) {
+      setCurrentIndex(currentIndex + 1);
+    }
+  };
+
+  const handlePreviousWorkout = () => {
+    if (!isFirstWorkout) {
+      setCurrentIndex(currentIndex - 1);
+    }
+  };
+
+  const handleFinishSession = () => {
+    Alert.alert(
+      "Session Complete!",
+      "Congratulations on completing your workout session! Clear your cart?",
+      [
+        { text: "Keep Cart", style: "cancel", onPress: () => router.push('/cart') },
+        { 
+          text: "Clear Cart", 
+          style: "default", 
+          onPress: () => {
+            clearCart();
+            router.push('/(tabs)');
+          }
+        }
+      ]
+    );
+  };
+
+  const handleSkipWorkout = () => {
+    Alert.alert(
+      "Skip Workout",
+      "Skip this workout and move to the next one?",
+      [
+        { text: "Cancel", style: "cancel" },
+        { 
+          text: "Skip", 
+          style: "default", 
+          onPress: () => {
+            if (isLastWorkout) {
+              handleFinishSession();
+            } else {
+              handleNextWorkout();
+            }
+          }
+        }
+      ]
+    );
+  };
+
+  const getTotalDuration = () => {
+    return sessionWorkouts.reduce((total, workout) => {
+      const duration = parseInt(workout.duration.split(' ')[0]) || 0;
+      return total + duration;
+    }, 0);
+  };
+
+  const getCompletedDuration = () => {
+    return sessionWorkouts.slice(0, currentIndex).reduce((total, workout) => {
+      const duration = parseInt(workout.duration.split(' ')[0]) || 0;
+      return total + duration;
+    }, 0);
+  };
+
+  if (isLoading || !currentWorkout) {
+    return (
+      <SafeAreaView style={[styles.container, { paddingTop: insets.top }]}>
+        <View style={styles.loadingContainer}>
+          <Text style={styles.loadingText}>Loading session...</Text>
+        </View>
+      </SafeAreaView>
+    );
+  }
+
+  let moodTips = [];
+  try {
+    moodTips = JSON.parse(currentWorkout.moodTips || '[]');
+  } catch (error) {
+    console.error('Error parsing mood tips:', error);
+  }
+
+  return (
+    <SafeAreaView style={[styles.container, { paddingTop: insets.top }]}>
+      {/* Header */}
+      <View style={styles.header}>
+        <TouchableOpacity 
+          style={styles.backButton}
+          onPress={handleGoBack}
+        >
+          <Ionicons name="chevron-back" size={24} color="#FFD700" />
+        </TouchableOpacity>
+        <View style={styles.headerTextContainer}>
+          <Text style={styles.headerTitle}>Workout Session</Text>
+          <Text style={styles.headerSubtitle}>
+            {currentIndex + 1} of {sessionWorkouts.length} • {getCompletedDuration()}/{getTotalDuration()} min
+          </Text>
+        </View>
+        <TouchableOpacity 
+          style={styles.skipButton}
+          onPress={handleSkipWorkout}
+        >
+          <Ionicons name="play-forward" size={20} color="#FFD700" />
+        </TouchableOpacity>
+      </View>
+
+      {/* Progress Bar */}
+      <View style={styles.progressContainer}>
+        <View style={styles.progressBar}>
+          <View 
+            style={[
+              styles.progressFill, 
+              { width: `${((currentIndex) / sessionWorkouts.length) * 100}%` }
+            ]} 
+          />
+        </View>
+        <Text style={styles.progressText}>
+          {Math.round(((currentIndex) / sessionWorkouts.length) * 100)}% Complete
+        </Text>
+      </View>
+
+      <ScrollView 
+        style={styles.scrollView}
+        contentContainerStyle={styles.scrollContent}
+        showsVerticalScrollIndicator={false}
+      >
+        {/* Current Workout */}
+        <View style={styles.workoutCard}>
+          <View style={styles.workoutHeader}>
+            <Text style={styles.workoutName}>{currentWorkout.workoutName}</Text>
+            <View style={styles.workoutMeta}>
+              <Text style={styles.workoutEquipment}>{currentWorkout.equipment}</Text>
+              <View style={styles.workoutBadges}>
+                <View style={styles.durationBadge}>
+                  <Text style={styles.durationText}>{currentWorkout.duration}</Text>
+                </View>
+                <View style={styles.difficultyBadge}>
+                  <Text style={styles.difficultyText}>{currentWorkout.difficulty.toUpperCase()}</Text>
+                </View>
+              </View>
+            </View>
+          </View>
+
+          <Text style={styles.workoutDescription}>{currentWorkout.description}</Text>
+
+          {/* Battle Plan */}
+          <View style={styles.battlePlanContainer}>
+            <View style={styles.sectionHeader}>
+              <Ionicons name="list-outline" size={20} color="#FFD700" />
+              <Text style={styles.sectionTitle}>Battle Plan</Text>
+            </View>
+            <Text style={styles.battlePlanText}>{currentWorkout.battlePlan}</Text>
+          </View>
+
+          {/* MOOD Tips */}
+          {moodTips.length > 0 && (
+            <View style={styles.moodTipsContainer}>
+              <View style={styles.sectionHeader}>
+                <Ionicons name="bulb-outline" size={20} color="#FFD700" />
+                <Text style={styles.sectionTitle}>MOOD Tips</Text>
+              </View>
+              {moodTips.map((tip: any, index: number) => (
+                <View key={index} style={styles.moodTip}>
+                  <View style={styles.moodTipHeader}>
+                    <Ionicons name={tip.icon as any} size={16} color="#FFD700" />
+                    <Text style={styles.moodTipTitle}>{tip.title}</Text>
+                  </View>
+                  <Text style={styles.moodTipDescription}>{tip.description}</Text>
+                </View>
+              ))}
+            </View>
+          )}
+        </View>
+
+        {/* Navigation Buttons */}
+        <View style={styles.navigationContainer}>
+          <TouchableOpacity
+            style={[styles.navButton, isFirstWorkout && styles.navButtonDisabled]}
+            onPress={handlePreviousWorkout}
+            disabled={isFirstWorkout}
+            activeOpacity={0.8}
+          >
+            <Ionicons 
+              name="chevron-back" 
+              size={20} 
+              color={isFirstWorkout ? 'rgba(255, 255, 255, 0.3)' : '#FFD700'} 
+            />
+            <Text style={[
+              styles.navButtonText, 
+              isFirstWorkout && styles.navButtonTextDisabled
+            ]}>
+              Previous
+            </Text>
+          </TouchableOpacity>
+
+          {isLastWorkout ? (
+            <TouchableOpacity
+              style={styles.finishButton}
+              onPress={handleFinishSession}
+              activeOpacity={0.8}
+            >
+              <Ionicons name="checkmark-circle" size={20} color="#000000" />
+              <Text style={styles.finishButtonText}>Finish Session</Text>
+            </TouchableOpacity>
+          ) : (
+            <TouchableOpacity
+              style={styles.nextButton}
+              onPress={handleNextWorkout}
+              activeOpacity={0.8}
+            >
+              <Text style={styles.nextButtonText}>Next Workout</Text>
+              <Ionicons name="chevron-forward" size={20} color="#000000" />
+            </TouchableOpacity>
+          )}
+        </View>
+
+        {/* Upcoming Workouts */}
+        {!isLastWorkout && (
+          <View style={styles.upcomingContainer}>
+            <View style={styles.sectionHeader}>
+              <Ionicons name="time-outline" size={20} color="#FFD700" />
+              <Text style={styles.sectionTitle}>Up Next</Text>
+            </View>
+            {sessionWorkouts.slice(currentIndex + 1, currentIndex + 3).map((workout, index) => (
+              <View key={index} style={styles.upcomingWorkout}>
+                <Text style={styles.upcomingWorkoutName}>{workout.workoutName}</Text>
+                <Text style={styles.upcomingWorkoutMeta}>
+                  {workout.equipment} • {workout.duration}
+                </Text>
+              </View>
+            ))}
+          </View>
+        )}
+      </ScrollView>
+    </SafeAreaView>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#000000',
+  },
+  loadingContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  loadingText: {
+    fontSize: 18,
+    color: '#FFD700',
+    fontWeight: 'bold',
+  },
+  header: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingHorizontal: 24,
+    paddingVertical: 16,
+    borderBottomWidth: 1,
+    borderBottomColor: 'rgba(255, 215, 0, 0.2)',
+  },
+  backButton: {
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+    backgroundColor: 'rgba(255, 215, 0, 0.1)',
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderWidth: 2,
+    borderColor: 'rgba(255, 215, 0, 0.3)',
+  },
+  headerTextContainer: {
+    flex: 1,
+    alignItems: 'center',
+  },
+  headerTitle: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    color: '#FFD700',
+    textAlign: 'center',
+  },
+  headerSubtitle: {
+    fontSize: 14,
+    color: 'rgba(255, 255, 255, 0.7)',
+    textAlign: 'center',
+    marginTop: 2,
+  },
+  skipButton: {
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+    backgroundColor: 'rgba(255, 215, 0, 0.1)',
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderWidth: 2,
+    borderColor: 'rgba(255, 215, 0, 0.3)',
+  },
+  progressContainer: {
+    paddingHorizontal: 24,
+    paddingVertical: 16,
+    backgroundColor: '#111111',
+    borderBottomWidth: 1,
+    borderBottomColor: 'rgba(255, 215, 0, 0.2)',
+  },
+  progressBar: {
+    height: 8,
+    backgroundColor: 'rgba(255, 255, 255, 0.1)',
+    borderRadius: 4,
+    overflow: 'hidden',
+    marginBottom: 8,
+  },
+  progressFill: {
+    height: '100%',
+    backgroundColor: '#FFD700',
+    borderRadius: 4,
+  },
+  progressText: {
+    fontSize: 12,
+    color: 'rgba(255, 255, 255, 0.7)',
+    textAlign: 'center',
+    fontWeight: '600',
+  },
+  scrollView: {
+    flex: 1,
+  },
+  scrollContent: {
+    padding: 24,
+    paddingBottom: 100,
+  },
+  workoutCard: {
+    backgroundColor: '#111111',
+    borderRadius: 20,
+    borderWidth: 2,
+    borderColor: 'rgba(255, 215, 0, 0.3)',
+    padding: 24,
+    marginBottom: 24,
+  },
+  workoutHeader: {
+    marginBottom: 16,
+  },
+  workoutName: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    color: '#ffffff',
+    marginBottom: 8,
+  },
+  workoutMeta: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+  workoutEquipment: {
+    fontSize: 16,
+    color: '#FFD700',
+    fontWeight: '600',
+  },
+  workoutBadges: {
+    flexDirection: 'row',
+    gap: 8,
+  },
+  durationBadge: {
+    backgroundColor: 'rgba(255, 215, 0, 0.2)',
+    paddingHorizontal: 8,
+    paddingVertical: 4,
+    borderRadius: 8,
+  },
+  durationText: {
+    fontSize: 12,
+    fontWeight: 'bold',
+    color: '#FFD700',
+  },
+  difficultyBadge: {
+    backgroundColor: '#FFD700',
+    paddingHorizontal: 8,
+    paddingVertical: 4,
+    borderRadius: 8,
+  },
+  difficultyText: {
+    fontSize: 12,
+    fontWeight: 'bold',
+    color: '#000000',
+  },
+  workoutDescription: {
+    fontSize: 16,
+    color: 'rgba(255, 255, 255, 0.9)',
+    lineHeight: 24,
+    marginBottom: 24,
+  },
+  battlePlanContainer: {
+    marginBottom: 24,
+  },
+  sectionHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 12,
+  },
+  sectionTitle: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    color: '#FFD700',
+    marginLeft: 8,
+  },
+  battlePlanText: {
+    fontSize: 14,
+    color: 'rgba(255, 255, 255, 0.8)',
+    lineHeight: 20,
+    fontFamily: 'monospace',
+  },
+  moodTipsContainer: {
+    marginBottom: 16,
+  },
+  moodTip: {
+    backgroundColor: 'rgba(255, 215, 0, 0.1)',
+    borderRadius: 12,
+    padding: 16,
+    marginBottom: 12,
+  },
+  moodTipHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 8,
+  },
+  moodTipTitle: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    color: '#ffffff',
+    marginLeft: 8,
+  },
+  moodTipDescription: {
+    fontSize: 14,
+    color: 'rgba(255, 255, 255, 0.8)',
+    lineHeight: 20,
+  },
+  navigationContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: 32,
+  },
+  navButton: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: 'rgba(255, 215, 0, 0.1)',
+    borderRadius: 12,
+    paddingHorizontal: 16,
+    paddingVertical: 12,
+    borderWidth: 2,
+    borderColor: 'rgba(255, 215, 0, 0.3)',
+  },
+  navButtonDisabled: {
+    backgroundColor: 'rgba(255, 255, 255, 0.05)',
+    borderColor: 'rgba(255, 255, 255, 0.1)',
+  },
+  navButtonText: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    color: '#FFD700',
+    marginLeft: 8,
+  },
+  navButtonTextDisabled: {
+    color: 'rgba(255, 255, 255, 0.3)',
+  },
+  nextButton: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: '#FFD700',
+    borderRadius: 12,
+    paddingHorizontal: 24,
+    paddingVertical: 12,
+    gap: 8,
+  },
+  nextButtonText: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    color: '#000000',
+  },
+  finishButton: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: '#4CAF50',
+    borderRadius: 12,
+    paddingHorizontal: 24,
+    paddingVertical: 12,
+    gap: 8,
+  },
+  finishButtonText: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    color: '#000000',
+  },
+  upcomingContainer: {
+    backgroundColor: '#111111',
+    borderRadius: 16,
+    borderWidth: 2,
+    borderColor: 'rgba(255, 215, 0, 0.2)',
+    padding: 20,
+  },
+  upcomingWorkout: {
+    paddingVertical: 12,
+    borderBottomWidth: 1,
+    borderBottomColor: 'rgba(255, 255, 255, 0.1)',
+  },
+  upcomingWorkoutName: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    color: '#ffffff',
+    marginBottom: 4,
+  },
+  upcomingWorkoutMeta: {
+    fontSize: 14,
+    color: 'rgba(255, 255, 255, 0.6)',
+  },
+});
