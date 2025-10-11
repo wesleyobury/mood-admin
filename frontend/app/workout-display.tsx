@@ -3684,12 +3684,12 @@ const styles = StyleSheet.create({
     elevation: 4,
   },
   addToCartButton: {
-    backgroundColor: 'rgba(100, 100, 100, 0.8)',
+    backgroundColor: 'rgba(70, 70, 70, 0.9)',
     borderRadius: 12,
     paddingHorizontal: 8,
     paddingVertical: 6,
     borderWidth: 1,
-    borderColor: 'rgba(255, 255, 255, 0.3)',
+    borderColor: '#FFD700',
   },
   addToCartButtonAdded: {
     backgroundColor: 'rgba(70, 70, 70, 0.9)',
@@ -3703,6 +3703,6 @@ const styles = StyleSheet.create({
   addToCartButtonText: {
     fontSize: 11,
     fontWeight: '600',
-    color: '#FFFFFF',
+    color: '#FFD700',
   },
 });
