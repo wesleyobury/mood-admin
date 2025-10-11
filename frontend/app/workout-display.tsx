@@ -2989,7 +2989,7 @@ const WorkoutCard = ({ equipment, icon, workouts, difficulty, difficultyColor, w
       intensityReason: workout.intensityReason,
       equipment: equipment,
       difficulty: difficulty,
-      workoutType: 'Cardio Based', // This should be passed from props ideally
+      workoutType: workoutType,
       moodTips: workout.moodTips || [],
     };
 
