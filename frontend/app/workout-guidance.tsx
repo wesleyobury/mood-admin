@@ -510,7 +510,14 @@ export default function WorkoutGuidanceScreen() {
           activeOpacity={0.8}
         >
           <Ionicons name="checkmark-circle" size={24} color="#000000" />
-          <Text style={styles.completedButtonText}>Completed Workout</Text>
+          <Text style={styles.completedButtonText}>
+            {isSession 
+              ? (currentSessionIndex < sessionWorkouts.length - 1 
+                  ? "Next Workout" 
+                  : "Complete Session")
+              : "Completed Workout"
+            }
+          </Text>
         </TouchableOpacity>
       </View>
     </SafeAreaView>
