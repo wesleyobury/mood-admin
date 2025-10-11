@@ -132,21 +132,34 @@ export default function CartScreen() {
     
     setIsStarting(true);
     
-    // Navigate to the first workout with session data
+    // Navigate to the original workout guidance screen with the first workout
+    const firstWorkout = cartItems[0];
     router.push({
-      pathname: '/workout-session',
+      pathname: '/workout-guidance',
       params: {
+        workoutName: firstWorkout.name,
+        equipment: firstWorkout.equipment,
+        description: firstWorkout.description,
+        battlePlan: firstWorkout.battlePlan,
+        duration: firstWorkout.duration,
+        difficulty: firstWorkout.difficulty,
+        workoutType: firstWorkout.workoutType,
+        moodCard: firstWorkout.moodCard,
+        // Pass session data for navigation between workouts
         sessionWorkouts: JSON.stringify(cartItems.map(item => ({
-          workoutName: item.name,
+          name: item.name,
           equipment: item.equipment,
           description: item.description,
           battlePlan: item.battlePlan,
           duration: item.duration,
           difficulty: item.difficulty,
           workoutType: item.workoutType,
-          moodTips: JSON.stringify(item.moodTips || [])
+          moodCard: item.moodCard,
+          moodTips: item.moodTips || []
         }))),
-        currentIndex: '0'
+        currentSessionIndex: '0',
+        isSession: 'true',
+        moodTips: encodeURIComponent(JSON.stringify(firstWorkout.moodTips || []))
       }
     });
   };
