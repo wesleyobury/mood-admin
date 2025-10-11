@@ -2956,6 +2956,7 @@ interface WorkoutCardProps {
   workouts: Workout[];
   difficulty: string;
   difficultyColor: string;
+  workoutType: string;
   onStartWorkout: (workout: Workout, equipment: string, difficulty: string) => void;
 }
 
