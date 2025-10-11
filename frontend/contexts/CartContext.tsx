@@ -11,6 +11,7 @@ export interface WorkoutItem {
   equipment: string;
   difficulty: string;
   workoutType: string;
+  moodCard: string;
   moodTips: {
     icon: string;
     title: string;
