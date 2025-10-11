@@ -29,6 +29,13 @@ const CartItemComponent: React.FC<{
         <View style={styles.orderNumber}>
           <Text style={styles.orderNumberText}>{index + 1}</Text>
         </View>
+        <View style={styles.moodCardTitleContainer}>
+          <Text style={styles.moodCardTitle}>
+            {item.moodCard && item.moodCard.length > 15 
+              ? item.moodCard.substring(0, 15) + '...' 
+              : item.moodCard || 'Workout'}
+          </Text>
+        </View>
         <TouchableOpacity
           style={styles.removeButton}
           onPress={() => onRemove(item.id)}
