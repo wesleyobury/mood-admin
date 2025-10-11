@@ -126,6 +126,17 @@ export default function WorkoutGuidanceScreen() {
   const difficulty = params.difficulty as string || 'beginner';
   const workoutType = params.workoutType as string || 'Strength Based';
   
+  // Session handling
+  const isSession = params.isSession === 'true';
+  const currentSessionIndex = parseInt(params.currentSessionIndex as string) || 0;
+  const sessionWorkoutsParam = params.sessionWorkouts as string || '[]';
+  let sessionWorkouts: any[] = [];
+  try {
+    sessionWorkouts = JSON.parse(sessionWorkoutsParam);
+  } catch (error) {
+    console.error('Error parsing session workouts:', error);
+  }
+  
   // Format workout type to show proper type  
   const displayWorkoutType = workoutType;
   
