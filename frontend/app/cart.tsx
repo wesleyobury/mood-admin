@@ -406,6 +406,17 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     borderBottomColor: 'rgba(255, 215, 0, 0.2)',
   },
+  moodCardTitleContainer: {
+    flex: 1,
+    alignItems: 'center',
+    marginHorizontal: 12,
+  },
+  moodCardTitle: {
+    fontSize: 14,
+    fontWeight: 'bold',
+    color: '#FFD700',
+    textAlign: 'center',
+  },
   orderNumber: {
     width: 28,
     height: 28,
