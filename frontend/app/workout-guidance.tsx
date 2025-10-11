@@ -217,8 +217,44 @@ export default function WorkoutGuidanceScreen() {
   };
   
   const handleCompletedWorkout = () => {
-    // Navigate back to the previous workout cards screen
-    router.back();
+    if (isSession && sessionWorkouts.length > 0) {
+      const nextIndex = currentSessionIndex + 1;
+      
+      if (nextIndex < sessionWorkouts.length) {
+        // Move to next workout in session
+        const nextWorkout = sessionWorkouts[nextIndex];
+        router.push({
+          pathname: '/workout-guidance',
+          params: {
+            workoutName: nextWorkout.name,
+            equipment: nextWorkout.equipment,
+            description: nextWorkout.description,
+            battlePlan: nextWorkout.battlePlan,
+            duration: nextWorkout.duration,
+            difficulty: nextWorkout.difficulty,
+            workoutType: nextWorkout.workoutType,
+            moodCard: nextWorkout.moodCard,
+            sessionWorkouts: sessionWorkoutsParam,
+            currentSessionIndex: nextIndex.toString(),
+            isSession: 'true',
+            moodTips: encodeURIComponent(JSON.stringify(nextWorkout.moodTips || []))
+          }
+        });
+      } else {
+        // Session complete
+        Alert.alert(
+          "Session Complete! 🎉",
+          `Congratulations! You've completed all ${sessionWorkouts.length} workouts in your session.`,
+          [
+            { text: "Back to Cart", onPress: () => router.push('/cart') },
+            { text: "Back to Home", onPress: () => router.push('/(tabs)') }
+          ]
+        );
+      }
+    } else {
+      // Single workout - navigate back to the previous workout cards screen
+      router.back();
+    }
   };
   
   const handleGoBack = () => {
