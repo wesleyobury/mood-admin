@@ -307,6 +307,11 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     marginTop: 2,
   },
+  moodCardText: {
+    fontSize: 14,
+    color: '#FFD700',
+    fontWeight: '600',
+  },
   clearButton: {
     width: 40,
     height: 40,
