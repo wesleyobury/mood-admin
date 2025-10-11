@@ -1602,7 +1602,8 @@ export default function ShouldersWorkoutDisplayScreen() {
         params: {
           workoutName: workout.name,
           equipment: equipment,
-          description: workout.battlePlan || '',
+          description: workout.description || '',
+          battlePlan: workout.battlePlan || '',
           duration: workout.duration || '15 min',
           difficulty: difficulty,
           workoutType: workoutType,
