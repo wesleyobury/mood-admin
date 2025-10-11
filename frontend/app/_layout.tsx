@@ -33,12 +33,17 @@ export default function RootLayout() {
       <StatusBar style="light" backgroundColor="#000000" translucent={true} />
       <SafeAreaProvider>
         <AuthProvider>
-          <Stack screenOptions={{ headerShown: false, contentStyle: { backgroundColor: '#000000' } }}>
-            <Stack.Screen name="index" options={{ headerShown: false, title: '', contentStyle: { backgroundColor: '#000000' } }} />
-            <Stack.Screen name="(tabs)" options={{ headerShown: false, title: '', contentStyle: { backgroundColor: '#000000' } }} />
-            <Stack.Screen name="auth/login" options={{ headerShown: false, title: '', contentStyle: { backgroundColor: '#000000' } }} />
-            <Stack.Screen name="auth/register" options={{ headerShown: false, title: '', contentStyle: { backgroundColor: '#000000' } }} />
-          </Stack>
+          <CartProvider>
+            <Stack screenOptions={{ headerShown: false, contentStyle: { backgroundColor: '#000000' } }}>
+              <Stack.Screen name="index" options={{ headerShown: false, title: '', contentStyle: { backgroundColor: '#000000' } }} />
+              <Stack.Screen name="(tabs)" options={{ headerShown: false, title: '', contentStyle: { backgroundColor: '#000000' } }} />
+              <Stack.Screen name="auth/login" options={{ headerShown: false, title: '', contentStyle: { backgroundColor: '#000000' } }} />
+              <Stack.Screen name="auth/register" options={{ headerShown: false, title: '', contentStyle: { backgroundColor: '#000000' } }} />
+              <Stack.Screen name="cart" options={{ headerShown: false, title: '', contentStyle: { backgroundColor: '#000000' } }} />
+              <Stack.Screen name="workout-session" options={{ headerShown: false, title: '', contentStyle: { backgroundColor: '#000000' } }} />
+            </Stack>
+            <FloatingCart />
+          </CartProvider>
         </AuthProvider>
       </SafeAreaProvider>
     </GestureHandlerRootView>
