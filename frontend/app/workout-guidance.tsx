@@ -283,7 +283,15 @@ export default function WorkoutGuidanceScreen() {
           <Ionicons name="chevron-back" size={24} color="#FFD700" />
         </TouchableOpacity>
         <View style={styles.headerTextContainer}>
-          <Text style={styles.headerTitle}>Workout Guidance</Text>
+          <Text style={styles.headerTitle}>
+            {isSession ? "Workout Session" : "Workout Guidance"}
+          </Text>
+          <Text style={styles.headerSubtitle}>
+            {isSession 
+              ? `${currentSessionIndex + 1} of ${sessionWorkouts.length} • ${displayWorkoutType}`
+              : displayWorkoutType
+            }
+          </Text>
         </View>
         <View style={styles.headerSpacer} />
       </View>
