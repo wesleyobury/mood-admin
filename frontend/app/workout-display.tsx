@@ -2961,7 +2961,7 @@ interface WorkoutCardProps {
   onStartWorkout: (workout: Workout, equipment: string, difficulty: string) => void;
 }
 
-const WorkoutCard = ({ equipment, icon, workouts, difficulty, difficultyColor, workoutType, onStartWorkout }: WorkoutCardProps) => {
+const WorkoutCard = ({ equipment, icon, workouts, difficulty, difficultyColor, workoutType, moodCard, onStartWorkout }: WorkoutCardProps) => {
   const [currentWorkoutIndex, setCurrentWorkoutIndex] = useState(0);
   const flatListRef = useRef<FlatList>(null);
   const { addToCart, isInCart } = useCart();
