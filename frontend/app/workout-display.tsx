@@ -3354,6 +3354,7 @@ export default function WorkoutDisplayScreen() {
               difficulty={difficulty}
               difficultyColor={difficultyColor}
               workoutType={workoutType}
+              moodCard={workoutType}
               onStartWorkout={handleStartWorkout}
             />
           );
