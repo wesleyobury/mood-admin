@@ -175,7 +175,15 @@ export default function CartScreen() {
         </TouchableOpacity>
         <View style={styles.headerTextContainer}>
           <Text style={styles.headerTitle}>Workout Cart</Text>
-          <Text style={styles.headerSubtitle}>{cartItems.length} workouts • ~{getTotalDuration()} min</Text>
+          <Text style={styles.headerSubtitle}>
+            {cartItems.length > 0 && cartItems[0].moodCard && (
+              <Text style={styles.moodCardText}>
+                {cartItems[0].moodCard.length > 12 
+                  ? cartItems[0].moodCard.substring(0, 12) + '...' 
+                  : cartItems[0].moodCard} • </Text>
+            )}
+            {cartItems.length} workouts • ~{getTotalDuration()} min
+          </Text>
         </View>
         {cartItems.length > 0 && (
           <TouchableOpacity 
