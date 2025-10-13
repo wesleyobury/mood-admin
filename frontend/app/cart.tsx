@@ -121,12 +121,14 @@ export default function CartScreen() {
   };
 
   const handleClearCart = () => {
+    console.log('🗑️ Clear cart button pressed');
     Alert.alert(
       "Clear Cart",
       "Remove all workouts from your cart?",
       [
         { text: "Cancel", style: "cancel" },
         { text: "Clear All", style: "destructive", onPress: () => {
+          console.log('🗑️ Clearing entire cart');
           clearCart();
           router.push('/(tabs)');
         }}
