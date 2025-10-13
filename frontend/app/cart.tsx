@@ -106,12 +106,16 @@ export default function CartScreen() {
   };
 
   const handleRemoveItem = (workoutId: string) => {
+    console.log('🔥 Remove item button pressed for workout:', workoutId);
     Alert.alert(
       "Remove Workout",
       "Remove this workout from your cart?",
       [
         { text: "Cancel", style: "cancel" },
-        { text: "Remove", style: "destructive", onPress: () => removeFromCart(workoutId) }
+        { text: "Remove", style: "destructive", onPress: () => {
+          console.log('🔥 Removing workout from cart:', workoutId);
+          removeFromCart(workoutId);
+        }}
       ]
     );
   };
