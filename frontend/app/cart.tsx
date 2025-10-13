@@ -38,7 +38,10 @@ const CartItemComponent: React.FC<{
         </View>
         <TouchableOpacity
           style={styles.removeButton}
-          onPress={() => onRemove(item.id)}
+          onPress={() => {
+            console.log('❌ X button pressed for item:', item.id, item.name);
+            onRemove(item.id);
+          }}
           activeOpacity={0.8}
         >
           <Ionicons name="close-circle" size={24} color="rgba(255, 215, 0, 0.7)" />
