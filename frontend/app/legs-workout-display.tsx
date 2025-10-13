@@ -385,11 +385,7 @@ export default function LegsWorkoutDisplayScreen() {
 
       {/* Progress Bar */}
       <View style={styles.progressContainer}>
-        <ScrollView 
-          horizontal 
-          showsHorizontalScrollIndicator={false}
-          contentContainerStyle={styles.progressContent}
-        >
+        <View style={styles.progressContent}>
           <View style={styles.progressStep}>
             <View style={styles.progressStepActive}>
               <Ionicons name="flame" size={14} color="#000000" />
@@ -408,18 +404,13 @@ export default function LegsWorkoutDisplayScreen() {
           
           <View style={styles.progressConnector} />
           
-          {muscleGroupNames.map((muscleGroupName, index) => (
-            <React.Fragment key={muscleGroupName}>
-              <View style={styles.progressStep}>
-                <View style={styles.progressStepActive}>
-                  <Ionicons name={getMuscleGroupIcon(muscleGroupName)} size={14} color="#000000" />
-                </View>
-                <Text style={styles.progressStepText}>{muscleGroupName}</Text>
-              </View>
-              {index < muscleGroupNames.length - 1 && <View style={styles.progressConnector} />}
-            </React.Fragment>
-          ))}
-        </ScrollView>
+          <View style={styles.progressStep}>
+            <View style={styles.progressStepActive}>
+              <Text style={styles.progressStepBadgeText}>{muscleGroupNames.length}</Text>
+            </View>
+            <Text style={styles.progressStepText}>Muscle Groups</Text>
+          </View>
+        </View>
       </View>
 
       <PanGestureHandler
