@@ -122,7 +122,10 @@ export default function CartScreen() {
       "Remove all workouts from your cart?",
       [
         { text: "Cancel", style: "cancel" },
-        { text: "Clear All", style: "destructive", onPress: () => clearCart() }
+        { text: "Clear All", style: "destructive", onPress: () => {
+          clearCart();
+          router.push('/(tabs)');
+        }}
       ]
     );
   };
