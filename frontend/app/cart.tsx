@@ -456,7 +456,11 @@ const styles = StyleSheet.create({
     color: '#000000',
   },
   removeButton: {
-    padding: 4,
+    padding: 8,
+    minWidth: 40,
+    minHeight: 40,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   cartItemContent: {
     flexDirection: 'row',
