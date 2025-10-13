@@ -213,7 +213,7 @@ export default function CartScreen() {
             style={styles.clearButton}
             onPress={handleClearCart}
           >
-            <Ionicons name="trash-outline" size={20} color="#FF4444" />
+            <Ionicons name="trash-outline" size={20} color="rgba(255, 215, 0, 0.7)" />
           </TouchableOpacity>
         )}
       </View>
