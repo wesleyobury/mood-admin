@@ -60,6 +60,21 @@ backend:
         comment: "✅ LATEST DATABASE CONNECTIVITY VERIFICATION PASSED: MongoDB service running and connected successfully. All CRUD operations working: ✅ User authentication and profile management ✅ Workout data storage and retrieval ✅ Social features data persistence (posts, likes, comments, follows) ✅ User workout logging ✅ All database collections responding correctly. Database infrastructure stable and ready to support frontend cart functionality."
 
 frontend:
+  - task: "Complete Workout Navigation and Cart Functionality Flow"
+    implemented: true
+    working: false
+    file: "frontend/app/workout-display.tsx"
+    stuck_count: 1
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: "NA"
+        agent: "testing"
+        comment: "Comprehensive testing of workout navigation and cart functionality flow requested"
+      - working: false
+        agent: "testing"
+        comment: "❌ CRITICAL ERROR FOUND: JavaScript error 'currentWorkoutIndex is not defined' in workout-display.tsx at line 3066. This prevents the Add workout button from functioning properly. Navigation flow works correctly through: Home → 'I want to sweat' → 'Cardio Based' → Equipment selection → Workout display, but cart functionality is blocked by this undefined variable error. The error occurs in the isInCart function call when trying to determine button state. REQUIRES IMMEDIATE FIX."
+
   - task: "Legs Workout Feature - Muscle Group Selection"
     implemented: true
     working: "NA"
@@ -152,10 +167,9 @@ metadata:
 
 test_plan:
   current_focus:
-    - "Backend Health Check"
-    - "API Endpoints Functionality"
-    - "Database Connectivity"
-  stuck_tasks: []
+    - "Complete Workout Navigation and Cart Functionality Flow"
+  stuck_tasks:
+    - "Complete Workout Navigation and Cart Functionality Flow"
   test_all: false
   test_priority: "high_first"
 
@@ -172,3 +186,5 @@ agent_communication:
     message: "✅ BACKEND HEALTH CHECK AFTER LIGHT WEIGHTS CHANGES - EXCELLENT STATUS: Comprehensive backend verification after frontend 'Light weights' path changes shows perfect stability. 🎯 HEALTH CHECK RESULTS: ✅ Backend health endpoints: API root and health check responding correctly ✅ Database connectivity: MongoDB connection stable and working ✅ API endpoints: 94.7% success rate maintained (18/19 tests passed) ✅ Authentication system: Registration and login working perfectly ✅ Workout endpoints: All CRUD operations functional, supporting all mood categories ✅ Social features: Posts, likes, comments, follows all working ✅ User workout logging: Working correctly. 🔧 SAME MINOR ISSUE: GET /user-workouts endpoint ObjectId serialization issue persists (technical issue, doesn't affect core functionality). Backend infrastructure completely unaffected by frontend routing changes and ready to support updated 'Light weights' workout path."
   - agent: "testing"
     message: "✅ BACKEND HEALTH CHECK COMPLETED - EXCELLENT STATUS: Comprehensive backend health verification shows excellent system stability. 🎯 HEALTH CHECK RESULTS: ✅ Backend service running on port 8001 via supervisor ✅ API root and health endpoints responding correctly ✅ MongoDB service running and connected ✅ API endpoints: 94.7% success rate (18/19 tests passed) ✅ Authentication system working perfectly ✅ All workout endpoints functional ✅ Social features fully operational ✅ Database CRUD operations working correctly. 🔧 CONFIRMED MINOR ISSUE: GET /user-workouts endpoint has ObjectId serialization issue (technical issue, doesn't affect core functionality). Backend infrastructure is stable and ready to support frontend cart functionality. No critical errors detected."
+  - agent: "testing"
+    message: "❌ CRITICAL CART FUNCTIONALITY ERROR DISCOVERED: Comprehensive testing of workout navigation and cart functionality revealed a blocking JavaScript error. 🎯 TESTING RESULTS: ✅ Navigation flow works perfectly: Home → 'I want to sweat' → 'Cardio Based' → Equipment selection → Workout display ✅ Mobile responsiveness excellent (390x844) ✅ All buttons responsive and functional ✅ UI renders correctly throughout flow ❌ CRITICAL ERROR: 'currentWorkoutIndex is not defined' in workout-display.tsx line 3066 prevents Add workout button from functioning ❌ Cart functionality completely blocked by this undefined variable error ❌ Error occurs in isInCart function call when determining button state. IMMEDIATE ACTION REQUIRED: Fix currentWorkoutIndex variable initialization in workout-display.tsx to enable cart functionality."
