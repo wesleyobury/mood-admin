@@ -3365,8 +3365,13 @@ export default function WorkoutDisplayScreen() {
               difficulty={difficulty}
               difficultyColor={difficultyColor}
               workoutType={workoutType}
-              moodCard={workoutType}
+              moodCard={moodTitle}
               onStartWorkout={handleStartWorkout}
+              isInCart={isInCart}
+              addedItems={addedItems}
+              scaleAnim={scaleAnim}
+              createWorkoutId={createWorkoutId}
+              handleAddToCart={handleAddToCart}
             />
           );
         })}
