@@ -3113,8 +3113,17 @@ const WorkoutCard = ({ equipment, icon, workouts, difficulty, difficultyColor, w
           showsHorizontalScrollIndicator={false}
           onMomentumScrollEnd={(event) => {
             const slideSize = width - 48;
-            const index = Math.floor(event.nativeEvent.contentOffset.x / slideSize);
-            setCurrentWorkoutIndex(index);
+            const offset = event.nativeEvent.contentOffset.x;
+            const index = Math.round(offset / slideSize);
+            const boundedIndex = Math.max(0, Math.min(index, workouts.length - 1));
+            setCurrentWorkoutIndex(boundedIndex);
+          }}
+          onScrollEndDrag={(event) => {
+            const slideSize = width - 48;
+            const offset = event.nativeEvent.contentOffset.x;
+            const index = Math.round(offset / slideSize);
+            const boundedIndex = Math.max(0, Math.min(index, workouts.length - 1));
+            setCurrentWorkoutIndex(boundedIndex);
           }}
           initialScrollIndex={currentWorkoutIndex}
           getItemLayout={(data, index) => ({
