@@ -23,6 +23,7 @@ const CartItemComponent: React.FC<{
   isFirst: boolean;
   isLast: boolean;
 }> = ({ item, index, onRemove, onMoveUp, onMoveDown, isFirst, isLast }) => {
+  console.log('🛒 Rendering cart item:', item.id, 'moodCard:', item.moodCard);
   return (
     <View style={styles.cartItem}>
       <View style={styles.cartItemHeader}>
