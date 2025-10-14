@@ -3025,45 +3025,7 @@ const WorkoutCard = ({ equipment, icon, workouts, difficulty, difficultyColor, w
     </View>
   );
 
-  // Simple touch-based swipe detection for reliable web compatibility
-  const [touchStart, setTouchStart] = useState<number | null>(null);
-  const [touchEnd, setTouchEnd] = useState<number | null>(null);
-
-  const minSwipeDistance = 50;
-
-  const onTouchStart = (e: any) => {
-    setTouchEnd(null);
-    setTouchStart(e.nativeEvent.touches[0].clientX);
-  };
-
-  const onTouchMove = (e: any) => {
-    setTouchEnd(e.nativeEvent.touches[0].clientX);
-  };
-
-  const onTouchEnd = () => {
-    if (!touchStart || !touchEnd) return;
-    
-    const distance = touchStart - touchEnd;
-    const isLeftSwipe = distance > minSwipeDistance;
-    const isRightSwipe = distance < -minSwipeDistance;
-
-    if (isLeftSwipe && currentWorkoutIndex < workouts.length - 1) {
-      const newIndex = currentWorkoutIndex + 1;
-      setCurrentWorkoutIndex(newIndex);
-      flatListRef.current?.scrollToIndex({ 
-        index: newIndex, 
-        animated: true 
-      });
-    }
-    if (isRightSwipe && currentWorkoutIndex > 0) {
-      const newIndex = currentWorkoutIndex - 1;
-      setCurrentWorkoutIndex(newIndex);
-      flatListRef.current?.scrollToIndex({ 
-        index: newIndex, 
-        animated: true 
-      });
-    }
-  };
+  // No manual touch handlers - let FlatList handle native scrolling
 
   return (
     <View style={styles.workoutCard}>
