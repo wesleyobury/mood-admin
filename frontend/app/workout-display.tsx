@@ -3375,6 +3375,9 @@ export default function WorkoutDisplayScreen() {
               scaleAnim={scaleAnim}
               createWorkoutId={createWorkoutId}
               handleAddToCart={handleAddToCart}
+              currentWorkoutIndex={currentWorkoutIndex}
+              setCurrentWorkoutIndex={setCurrentWorkoutIndex}
+              flatListRef={flatListRef}
             />
           );
         })}
