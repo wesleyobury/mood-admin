@@ -3059,13 +3059,8 @@ const WorkoutCard = ({ equipment, icon, workouts, difficulty, difficultyColor, w
         </TouchableOpacity>
       </View>
 
-      {/* Workout List with Touch Swiping */}
-      <View 
-        style={[styles.workoutList, { height: 420 }]}
-        onTouchStart={onTouchStart}
-        onTouchMove={onTouchMove}
-        onTouchEnd={onTouchEnd}
-      >
+      {/* Workout List - Native Swipe Enabled */}
+      <View style={[styles.workoutList, { height: 420 }]}>
         <FlatList
           ref={flatListRef}
           data={workouts}
