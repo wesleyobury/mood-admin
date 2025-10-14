@@ -3147,11 +3147,21 @@ const WorkoutCard = ({ equipment, icon, workouts, difficulty, difficultyColor, w
                 currentWorkoutIndex === index && styles.activeDot,
               ]}
               onPress={() => {
-                setCurrentWorkoutIndex(index);
-                flatListRef.current?.scrollToIndex({ 
-                  index, 
-                  animated: true 
-                });
+                try {
+                  setCurrentWorkoutIndex(index);
+                  flatListRef.current?.scrollToIndex({ 
+                    index, 
+                    animated: true,
+                    viewPosition: 0
+                  });
+                } catch (error) {
+                  console.log('Scroll to index error:', error);
+                  // Fallback: scroll using offset calculation
+                  flatListRef.current?.scrollToOffset({
+                    offset: index * (width - 48),
+                    animated: true
+                  });
+                }
               }}
               activeOpacity={0.7}
             />
