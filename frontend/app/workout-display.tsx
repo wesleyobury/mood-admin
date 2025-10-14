@@ -2969,7 +2969,7 @@ interface WorkoutCardProps {
   flatListRef: React.RefObject<FlatList>;
 }
 
-const WorkoutCard = ({ equipment, icon, workouts, difficulty, difficultyColor, workoutType, moodCard, onStartWorkout, isInCart, addedItems, scaleAnim, createWorkoutId, handleAddToCart }: WorkoutCardProps) => {
+const WorkoutCard = ({ equipment, icon, workouts, difficulty, difficultyColor, workoutType, moodCard, onStartWorkout, isInCart, addedItems, scaleAnim, createWorkoutId, handleAddToCart, currentWorkoutIndex, setCurrentWorkoutIndex, flatListRef }: WorkoutCardProps) => {
   // Hooks moved to proper scope within component
 
   const renderWorkout = ({ item, index }: { item: Workout; index: number }) => (
