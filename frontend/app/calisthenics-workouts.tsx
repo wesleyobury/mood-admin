@@ -40,7 +40,7 @@ interface EquipmentWorkouts {
   };
 }
 
-import { additionalWorkoutDatabase } from './calisthenics-workouts-data';
+import { additionalWorkoutDatabase } from '../data/calisthenics-workouts-data';
 
 // Comprehensive calisthenics workout database
 const workoutDatabase: EquipmentWorkouts[] = [
