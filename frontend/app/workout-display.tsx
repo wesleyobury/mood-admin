@@ -2991,6 +2991,7 @@ const WorkoutCard = ({ equipment, icon, workouts, difficulty, difficultyColor, w
       equipment: equipment,
       difficulty: difficulty,
       workoutType: workoutType,
+      moodCard: workoutType, // Using workoutType as moodCard
       moodTips: workout.moodTips || [],
     };
 
