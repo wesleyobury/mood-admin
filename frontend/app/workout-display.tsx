@@ -3162,6 +3162,15 @@ export default function WorkoutDisplayScreen() {
   
   console.log('Parsed parameters:', { selectedEquipmentNames, difficulty, moodTitle, workoutType });
 
+  // Cart and animation hooks
+  const { addToCart, isInCart } = useCart();
+  const [scaleAnim] = useState(new Animated.Value(1));
+  const [addedItems, setAddedItems] = useState<Set<string>>(new Set());
+  
+  // Workout navigation hooks
+  const [currentWorkoutIndex, setCurrentWorkoutIndex] = useState(0);
+  const flatListRef = useRef<FlatList>(null);
+
   // Get difficulty color - all the same neon gold
   const getDifficultyColor = (level: string) => {
     return '#FFD700'; // Same neon gold for all difficulty levels
