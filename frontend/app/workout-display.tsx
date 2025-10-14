@@ -3048,10 +3048,20 @@ const WorkoutCard = ({ equipment, icon, workouts, difficulty, difficultyColor, w
     const isRightSwipe = distance < -minSwipeDistance;
 
     if (isLeftSwipe && currentWorkoutIndex < workouts.length - 1) {
-      setCurrentWorkoutIndex(currentWorkoutIndex + 1);
+      const newIndex = currentWorkoutIndex + 1;
+      setCurrentWorkoutIndex(newIndex);
+      flatListRef.current?.scrollToIndex({ 
+        index: newIndex, 
+        animated: true 
+      });
     }
     if (isRightSwipe && currentWorkoutIndex > 0) {
-      setCurrentWorkoutIndex(currentWorkoutIndex - 1);
+      const newIndex = currentWorkoutIndex - 1;
+      setCurrentWorkoutIndex(newIndex);
+      flatListRef.current?.scrollToIndex({ 
+        index: newIndex, 
+        animated: true 
+      });
     }
   };
 
