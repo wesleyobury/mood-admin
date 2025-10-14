@@ -2966,7 +2966,7 @@ interface WorkoutCardProps {
   handleAddToCart: (workout: Workout) => void;
 }
 
-const WorkoutCard = ({ equipment, icon, workouts, difficulty, difficultyColor, workoutType, moodCard, onStartWorkout }: WorkoutCardProps) => {
+const WorkoutCard = ({ equipment, icon, workouts, difficulty, difficultyColor, workoutType, moodCard, onStartWorkout, isInCart, addedItems, scaleAnim, createWorkoutId, handleAddToCart }: WorkoutCardProps) => {
   // Hooks moved to proper scope within component
 
   const renderWorkout = ({ item, index }: { item: Workout; index: number }) => (
