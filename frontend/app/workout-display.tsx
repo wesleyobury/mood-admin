@@ -2968,65 +2968,7 @@ const WorkoutCard = ({ equipment, icon, workouts, difficulty, difficultyColor, w
   const [scaleAnim] = useState(new Animated.Value(1));
   const [addedItems, setAddedItems] = useState<Set<string>>(new Set());
 
-  const createWorkoutId = (workout: Workout, equipment: string, difficulty: string) => {
-    return `${workout.name}-${equipment}-${difficulty}`;
-  };
-
-  const handleAddToCart = (workout: Workout) => {
-    const workoutId = createWorkoutId(workout, equipment, difficulty);
-    
-    if (isInCart(workoutId) || addedItems.has(workoutId)) {
-      return; // Already in cart
-    }
-
-    // Create WorkoutItem from current workout
-    const workoutItem: WorkoutItem = {
-      id: workoutId,
-      name: workout.name,
-      duration: workout.duration,
-      description: workout.description,
-      battlePlan: workout.battlePlan,
-      imageUrl: workout.imageUrl,
-      intensityReason: workout.intensityReason,
-      equipment: equipment,
-      difficulty: difficulty,
-      workoutType: workoutType,
-      moodCard: (params.mood as string) || 'I want to sweat', // Using mood from params directly
-      moodTips: workout.moodTips || [],
-    };
-
-    // Animate button
-    Animated.sequence([
-      Animated.timing(scaleAnim, {
-        toValue: 0.8,
-        duration: 100,
-        useNativeDriver: true,
-      }),
-      Animated.timing(scaleAnim, {
-        toValue: 1.2,
-        duration: 200,
-        useNativeDriver: true,
-      }),
-      Animated.timing(scaleAnim, {
-        toValue: 1,
-        duration: 100,
-        useNativeDriver: true,
-      }),
-    ]).start();
-
-    // Add to cart and update local state
-    addToCart(workoutItem);
-    setAddedItems(prev => new Set(prev).add(workoutId));
-
-    // Remove from local added state after 3 seconds to allow re-adding if removed from cart
-    setTimeout(() => {
-      setAddedItems(prev => {
-        const newSet = new Set(prev);
-        newSet.delete(workoutId);
-        return newSet;
-      });
-    }, 3000);
-  };
+  // Functions moved to proper scope within component
 
   const renderWorkout = ({ item, index }: { item: Workout; index: number }) => (
     <View style={[styles.workoutSlide, { width: width - 48 }]}>
