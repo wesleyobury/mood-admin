@@ -119,9 +119,11 @@ export default function CartScreen() {
 
   const handleClearCart = () => {
     console.log('🗑️ Clear cart button pressed');
+    console.log('🗑️ Cart items before clearing:', cartItems.length);
     // Direct clear for better web compatibility
     console.log('🗑️ Clearing entire cart');
     clearCart();
+    console.log('🗑️ Clear function called, navigating to home');
     router.push('/(tabs)');
   };
 
