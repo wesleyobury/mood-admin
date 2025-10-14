@@ -2991,7 +2991,7 @@ const WorkoutCard = ({ equipment, icon, workouts, difficulty, difficultyColor, w
       equipment: equipment,
       difficulty: difficulty,
       workoutType: workoutType,
-      moodCard: moodTitle, // Using moodTitle from navigation params
+      moodCard: (params.mood as string) || 'I want to sweat', // Using mood from params directly
       moodTips: workout.moodTips || [],
     };
 
