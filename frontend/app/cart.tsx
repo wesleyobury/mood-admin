@@ -110,9 +110,11 @@ export default function CartScreen() {
 
   const handleRemoveItem = (workoutId: string) => {
     console.log('🔥 Remove item button pressed for workout:', workoutId);
+    console.log('🔥 Cart items before removal:', cartItems.length);
     // Direct removal for better web compatibility
     console.log('🔥 Removing workout from cart:', workoutId);
     removeFromCart(workoutId);
+    console.log('🔥 Remove function called');
   };
 
   const handleClearCart = () => {
