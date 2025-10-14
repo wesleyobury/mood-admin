@@ -40,7 +40,7 @@ interface EquipmentWorkouts {
   };
 }
 
-import { outdoorRunWorkoutDatabase } from './outdoor-workouts-data';
+import { outdoorRunWorkoutDatabase } from '../data/outdoor-workouts-data';
 
 // Outdoor workout database
 const workoutDatabase: EquipmentWorkouts[] = outdoorRunWorkoutDatabase;
