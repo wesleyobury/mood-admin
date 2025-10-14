@@ -2962,13 +2962,7 @@ interface WorkoutCardProps {
 }
 
 const WorkoutCard = ({ equipment, icon, workouts, difficulty, difficultyColor, workoutType, moodCard, onStartWorkout }: WorkoutCardProps) => {
-  const [currentWorkoutIndex, setCurrentWorkoutIndex] = useState(0);
-  const flatListRef = useRef<FlatList>(null);
-  const { addToCart, isInCart } = useCart();
-  const [scaleAnim] = useState(new Animated.Value(1));
-  const [addedItems, setAddedItems] = useState<Set<string>>(new Set());
-
-  // Functions moved to proper scope within component
+  // Hooks moved to proper scope within component
 
   const renderWorkout = ({ item, index }: { item: Workout; index: number }) => (
     <View style={[styles.workoutSlide, { width: width - 48 }]}>
