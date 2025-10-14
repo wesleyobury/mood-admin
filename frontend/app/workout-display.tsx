@@ -2959,6 +2959,11 @@ interface WorkoutCardProps {
   workoutType: string;
   moodCard: string;
   onStartWorkout: (workout: Workout, equipment: string, difficulty: string) => void;
+  isInCart: (id: string) => boolean;
+  addedItems: Set<string>;
+  scaleAnim: Animated.Value;
+  createWorkoutId: (workout: Workout, equipment: string, difficulty: string) => string;
+  handleAddToCart: (workout: Workout) => void;
 }
 
 const WorkoutCard = ({ equipment, icon, workouts, difficulty, difficultyColor, workoutType, moodCard, onStartWorkout }: WorkoutCardProps) => {
