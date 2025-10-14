@@ -2964,6 +2964,9 @@ interface WorkoutCardProps {
   scaleAnim: Animated.Value;
   createWorkoutId: (workout: Workout, equipment: string, difficulty: string) => string;
   handleAddToCart: (workout: Workout) => void;
+  currentWorkoutIndex: number;
+  setCurrentWorkoutIndex: (index: number) => void;
+  flatListRef: React.RefObject<FlatList>;
 }
 
 const WorkoutCard = ({ equipment, icon, workouts, difficulty, difficultyColor, workoutType, moodCard, onStartWorkout, isInCart, addedItems, scaleAnim, createWorkoutId, handleAddToCart }: WorkoutCardProps) => {
