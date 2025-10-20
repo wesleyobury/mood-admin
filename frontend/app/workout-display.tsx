@@ -3067,7 +3067,19 @@ const WorkoutCard = ({ equipment, icon, workouts, difficulty, difficultyColor, w
           renderItem={renderWorkout}
           horizontal
           pagingEnabled
+          snapToInterval={width - 48}
+          decelerationRate="fast"
           showsHorizontalScrollIndicator={false}
+          scrollEventThrottle={16}
+          onScroll={(event) => {
+            const slideSize = width - 48;
+            const offset = event.nativeEvent.contentOffset.x;
+            const index = Math.round(offset / slideSize);
+            const boundedIndex = Math.max(0, Math.min(index, workouts.length - 1));
+            if (boundedIndex !== currentWorkoutIndex) {
+              setCurrentWorkoutIndex(boundedIndex);
+            }
+          }}
           onMomentumScrollEnd={(event) => {
             const slideSize = width - 48;
             const offset = event.nativeEvent.contentOffset.x;
@@ -3082,7 +3094,7 @@ const WorkoutCard = ({ equipment, icon, workouts, difficulty, difficultyColor, w
             const boundedIndex = Math.max(0, Math.min(index, workouts.length - 1));
             setCurrentWorkoutIndex(boundedIndex);
           }}
-          initialScrollIndex={currentWorkoutIndex}
+          initialScrollIndex={0}
           getItemLayout={(data, index) => ({
             length: width - 48,
             offset: (width - 48) * index,
