@@ -3116,21 +3116,14 @@ const WorkoutCard = ({ equipment, icon, workouts, difficulty, difficultyColor, w
                 currentWorkoutIndex === index && styles.activeDot,
               ]}
               onPress={() => {
-                try {
-                  setCurrentWorkoutIndex(index);
-                  flatListRef.current?.scrollToIndex({ 
-                    index, 
-                    animated: true,
-                    viewPosition: 0
-                  });
-                } catch (error) {
-                  console.log('Scroll to index error:', error);
-                  // Fallback: scroll using offset calculation
-                  flatListRef.current?.scrollToOffset({
-                    offset: index * (width - 48),
-                    animated: true
-                  });
-                }
+                console.log(`Dot clicked: ${index}, Current: ${currentWorkoutIndex}`);
+                setCurrentWorkoutIndex(index);
+                // Use scrollToOffset for more reliable web behavior
+                const slideSize = width - 48;
+                flatListRef.current?.scrollToOffset({
+                  offset: index * slideSize,
+                  animated: true
+                });
               }}
               activeOpacity={0.7}
             />
