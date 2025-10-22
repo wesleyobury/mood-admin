@@ -1717,6 +1717,229 @@ export default function BackWorkoutDisplay() {
         </View>
       </View>
     </View>
+};
+
+export default function BackWorkoutDisplay() {
+  const router = useRouter();
+  const params = useLocalSearchParams();
+  const insets = useSafeAreaInsets();
+  
+  const moodTitle = params.mood as string || 'Muscle gainer';
+  const workoutType = params.workoutType as string || 'Back';
+  const equipmentParam = params.equipment as string || '';
+  const difficulty = params.difficulty as string || 'beginner';
+  
+  // Parse selected equipment from URL parameter
+  const selectedEquipment = equipmentParam ? 
+    decodeURIComponent(equipmentParam).split(',').map(eq => eq.trim()) : 
+    [];
+
+  // Filter workout database based on selected equipment
+  const userWorkouts = backWorkoutDatabase.filter(equipmentGroup => 
+    selectedEquipment.includes(equipmentGroup.equipment)
+  );
+
+  const selectedEquipmentNames = userWorkouts.map(eq => eq.equipment);
+
+  // Get difficulty color
+  const difficultyColor = difficulty === 'beginner' ? '#FFD700' : 
+                         difficulty === 'intermediate' ? '#FFA500' : '#B8860B';
+
+  const handleGoBack = () => {
+    router.back();
+  };
+
+  const onStartWorkout = (workout: Workout, equipment: string, difficulty: string) => {
+    console.log('🚀 Starting back workout:', workout.name);
+    
+    try {
+      router.push({
+        pathname: '/workout-guidance',
+        params: {
+          workoutName: workout.name,
+          equipment: equipment,
+          description: workout.description || '',
+          battlePlan: workout.battlePlan || '',
+          duration: workout.duration || '15 min',
+          difficulty: difficulty,
+          workoutType: workoutType,
+          // Pass MOOD tips as properly encoded JSON string
+          moodTips: encodeURIComponent(JSON.stringify(workout.moodTips || []))
+        }
+      });
+      
+      console.log('✅ Navigation completed - using simplified parameters');
+    } catch (error) {
+      console.error('❌ Error starting workout:', error);
+    }
+  };
+
+  // Equipment Workout Component matching chest path exactly
+  const EquipmentWorkout = ({ equipment, icon, workouts }: { 
+    equipment: string; 
+    icon: keyof typeof Ionicons.glyphMap; 
+    workouts: Workout[] 
+  }) => {
+    const [currentWorkoutIndex, setCurrentWorkoutIndex] = useState(0);
+    const flatListRef = useRef<FlatList>(null);
+
+  console.log(`💪 WorkoutCard for ${equipment}: received ${workouts.length} workouts for ${difficulty} difficulty`);
+    
+    const renderWorkout = ({ item, index }: { item: Workout; index: number }) => (
+      <View style={[styles.workoutSlide, { width: width - 48 }]}>
+        {/* Workout Image with Rounded Edges */}
+        <View style={styles.workoutImageContainer}>
+          <Image 
+            source={{ uri: item.imageUrl }}
+            style={styles.workoutImage}
+            resizeMode="cover"
+          />
+          <View style={styles.imageOverlay} />
+          <View style={styles.swipeIndicator}>
+            <Ionicons name="swap-horizontal" size={20} color="#FFD700" />
+            <Text style={styles.swipeText}>Swipe for more</Text>
+          </View>
+        </View>
+
+        {/* Workout Content */}
+        <View style={styles.workoutContent}>
+          {/* Workout Title */}
+          <Text style={styles.workoutName}>{item.name}</Text>
+          
+          {/* Duration & Intensity Level on Same Line */}
+          <View style={styles.durationIntensityRow}>
+            <Text style={styles.workoutDuration}>{item.duration}</Text>
+            <View style={[styles.difficultyBadge, { backgroundColor: '#FFD700' }]}>
+              <Text style={styles.difficultyBadgeText}>{difficulty.toUpperCase()}</Text>
+            </View>
+          </View>
+
+          {/* Intensity Reason - Same Width as Photo */}
+          <View style={{
+            flexDirection: 'row',
+            alignItems: 'flex-start',
+            marginBottom: 12,
+            paddingHorizontal: 12,
+            paddingVertical: 8,
+            backgroundColor: 'rgba(255, 215, 0, 0.12)',
+            borderRadius: 8,
+            borderWidth: 1,
+            borderColor: 'rgba(255, 215, 0, 0.25)',
+            marginHorizontal: 0,
+          }}>
+            <Ionicons name="information-circle" size={16} color="#FFD700" style={{ color: '#FFD700' }} />
+            <Text style={styles.intensityReason}>{item.intensityReason}</Text>
+          </View>
+
+          {/* Workout Description - Same Width as Photo */}
+          <View style={styles.workoutDescriptionContainer}>
+            <Text style={styles.workoutDescription}>{item.description}</Text>
+          </View>
+
+          {/* Start Workout Button - Same Width as Photo */}
+          <TouchableOpacity 
+            style={styles.startWorkoutButton}
+            onPress={() => onStartWorkout(item, equipment, difficulty)}
+            activeOpacity={0.8}
+          >
+            <Ionicons name="play" size={20} color="#000000" />
+            <Text style={styles.startWorkoutButtonText}>Start Workout</Text>
+          </TouchableOpacity>
+        </View>
+      </View>
+    );
+
+    const onViewableItemsChanged = useRef(({ viewableItems }: any) => {
+    if (viewableItems.length > 0) {
+      setCurrentWorkoutIndex(viewableItems[0].index || 0);
+    }
+  }).current;
+
+  const onScroll = (event: any) => {
+    const contentOffset = event.nativeEvent.contentOffset;
+    const viewSize = event.nativeEvent.layoutMeasurement;
+    
+    // Calculate current index based on scroll position
+    const currentIndex = Math.round(contentOffset.x / viewSize.width);
+    setCurrentWorkoutIndex(currentIndex);
+  };
+
+  if (workouts.length === 0) {
+    return null;
+  }
+
+  return (
+    <View style={styles.workoutCard}>
+        {/* Equipment Header */}
+        <View style={styles.equipmentHeader}>
+          <View style={styles.equipmentIconContainer}>
+            <Ionicons name={icon} size={24} color="#FFD700" />
+          </View>
+          <Text style={styles.equipmentName}>{equipment}</Text>
+          <View style={styles.workoutIndicator}>
+            <Text style={styles.workoutCount}>{currentWorkoutIndex + 1}/{workouts.length}</Text>
+          </View>
+        </View>
+
+        {/* Workout List */}
+      <View style={styles.workoutList}>
+        <FlatList
+            ref={flatListRef}
+            data={workouts}
+            renderItem={renderWorkout}
+            horizontal
+            pagingEnabled
+            showsHorizontalScrollIndicator={false}
+          onViewableItemsChanged={onViewableItemsChanged}
+          viewabilityConfig={{
+            itemVisiblePercentThreshold: 50
+          }}
+          getItemLayout={(data, index) => ({
+            length: width - 48,
+            offset: (width - 48) * index,
+            index,
+          })}
+          keyExtractor={(item, index) => `${equipment}-${item.name}-${index}`}
+          onScroll={onScroll}
+          scrollEventThrottle={16}
+        />
+      </View>
+
+      {/* Navigation Dots */}
+      <View style={styles.dotsContainer}>
+        <Text style={styles.dotsLabel}>Swipe to explore</Text>
+        <View style={styles.dotsRow}>
+          {workouts.map((_, index) => (
+            <TouchableOpacity
+              key={index}
+              style={[
+                styles.dotTouchArea,
+                currentWorkoutIndex === index && styles.activeDotTouchArea,
+              ]}
+              onPress={() => {
+                console.log(`🔥 Dot clicked: index ${index}, width: ${width - 48}`);
+                const offset = (width - 48) * index;
+                console.log(`🔥 Scrolling to offset: ${offset}`);
+                
+                // Use scrollToOffset instead of scrollToIndex for better web compatibility
+                flatListRef.current?.scrollToOffset({
+                  offset: offset,
+                  animated: true
+                });
+                setCurrentWorkoutIndex(index);
+              }}
+              activeOpacity={0.7}
+              hitSlop={{top: 10, bottom: 10, left: 10, right: 10}}
+            >
+              <View style={[
+                styles.dot,
+                currentWorkoutIndex === index && styles.activeDot,
+              ]} />
+            </TouchableOpacity>
+          ))}
+        </View>
+      </View>
+    </View>
   );{(event) => {
               const slideSize = width - 48;
               const index = Math.floor(event.nativeEvent.contentOffset.x / slideSize);

@@ -1525,46 +1525,6 @@ const WorkoutCard = ({ equipment, icon, workouts, difficulty, difficultyColor, o
         </View>
       </View>
     </View>
-  );{(event) => {
-            const slideSize = width - 48;
-            const index = Math.floor(event.nativeEvent.contentOffset.x / slideSize);
-            setCurrentWorkoutIndex(index);
-          }}
-          initialScrollIndex={currentWorkoutIndex}
-          getItemLayout={(data, index) => ({
-            length: width - 48,
-            offset: (width - 48) * index,
-            index,
-          })}
-          keyExtractor={(item, index) => `${equipment}-${item.name}-${index}`}
-        />
-      </View>
-
-      {/* Workout Indicator Dots */}
-      <View style={styles.dotsContainer}>
-        <Text style={styles.dotsLabel}>Swipe to explore</Text>
-        <View style={styles.dotsRow}>
-          {workouts.map((_, index) => (
-            <TouchableOpacity
-              key={index}
-              style={[
-                styles.dot,
-                currentWorkoutIndex === index && styles.activeDot,
-              ]}
-              onPress={() => {
-                setCurrentWorkoutIndex(index);
-                flatListRef.current?.scrollToIndex({ 
-                  index, 
-                  animated: true 
-                });
-              }}
-              activeOpacity={0.7}
-            />
-          ))}
-        </View>
-      </View>
-    </View>
-  );
 };
 
 export default function ShouldersWorkoutDisplayScreen() {
