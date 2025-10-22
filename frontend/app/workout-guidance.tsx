@@ -219,11 +219,18 @@ export default function WorkoutGuidanceScreen() {
   };
   
   const handleCompletedWorkout = () => {
+    console.log('🎯 handleCompletedWorkout called');
+    console.log('🎯 isSession:', isSession);
+    console.log('🎯 sessionWorkouts.length:', sessionWorkouts.length);
+    console.log('🎯 currentSessionIndex:', currentSessionIndex);
+    
     if (isSession && sessionWorkouts.length > 0) {
       const nextIndex = currentSessionIndex + 1;
+      console.log('🎯 nextIndex:', nextIndex);
       
       if (nextIndex < sessionWorkouts.length) {
         // Move to next workout in session
+        console.log('🎯 Moving to next workout');
         const nextWorkout = sessionWorkouts[nextIndex];
         router.push({
           pathname: '/workout-guidance',
@@ -244,6 +251,7 @@ export default function WorkoutGuidanceScreen() {
         });
       } else {
         // Session complete - clear cart and go home
+        console.log('🎉 Session complete! Showing alert...');
         Alert.alert(
           "Session Complete! 🎉",
           `Congratulations! You've completed all ${sessionWorkouts.length} workouts in your session.`,
@@ -251,7 +259,9 @@ export default function WorkoutGuidanceScreen() {
             { 
               text: "Done", 
               onPress: () => {
+                console.log('🧹 Clearing cart...');
                 clearCart();
+                console.log('🏠 Navigating to home...');
                 router.push('/(tabs)');
               }
             }
@@ -260,6 +270,7 @@ export default function WorkoutGuidanceScreen() {
       }
     } else {
       // Single workout - navigate back to the previous workout cards screen
+      console.log('🔙 Single workout, navigating back');
       router.back();
     }
   };
