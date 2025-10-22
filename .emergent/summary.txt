@@ -1,31 +1,34 @@
 <analysis>
-The AI engineer's work primarily focused on refining the Workout Shopping Cart feature and resolving critical navigation issues in an Expo mobile app. Initially, UI fixes and core cart implementation were completed. The trajectory details two major issues: first, an equipment is not defined error preventing workouts from being added to the cart, which was fixed by correctly accessing  in  in . Second, the Add workout button's checkmark animation was broken due to a similar  scope issue within its  check, also resolved in . The previous routing problems caused by data files in  were also resolved by relocating them and updating imports. The immediate next steps involve tackling the remaining .
+The AI engineer's recent work focused on resolving persistent swipe and dot indicator issues within the Sweat, Cardio Based workout path. Initially, the problem manifested as non-functional swiping and incorrect dot updates in , with manual touch handlers interfering with 's native behavior. After removing these handlers, a critical state bleeding issue was discovered:  was being shared across  instances via props, causing one card's swipe to affect others. The core fix involved refactoring  to manage its own  state internally, removing these props from the parent component. This ensures independent swipe and dot functionality for each workout card. Earlier fixes included using  and  for improved web compatibility.
 </analysis>
 
 <product_requirements>
-The mobile application is designed as a polished, native-feeling workout experience offering Light weights, Calisthenics, and Outdoor workout paths. Key UI/UX goals include fixing squared neon glow edges and achieving an edge-to-edge background. The central feature is a Workout Shopping Cart where users can add workouts for sequential completion. The 1/2 indicator was replaced by an animated Add workout + button that transforms into a checkmark upon selection. A floating cart icon displays local state. The cart screen allows viewing, managing (remove, clear), and starting multi-workout sessions, navigating to . Design specifics for the cart include a scale bounce animation for the add button, dark grey initial button, gold checkmark, and dark, transparent red for remove/clear buttons. Each cart item must display its abbreviated mood card title.
+The mobile application is designed as a polished, native-feeling workout experience offering Light weights, Calisthenics, and Outdoor workout paths. Key UI/UX goals include fixing squared neon glow edges and achieving an edge-to-edge background. The central feature is a Workout Shopping Cart where users can add workouts for sequential completion. The 1/2 indicator was replaced by an animated Add workout + button that transforms into a checkmark upon selection. A floating cart icon displays local state. The cart screen allows viewing, managing (remove, clear), and starting multi-workout sessions, navigating to . Design specifics for the cart include a scale bounce animation for the add button, dark grey initial button, gold checkmark, and dark, transparent red for remove/clear buttons. Each cart item must display its abbreviated mood card title. The recent focus has been on ensuring robust swipe and dot navigation for workout cards in paths like Cardio Based.
 </product_requirements>
 
 <key_technical_concepts>
-- **Expo File-Based Routing ()**: For declarative navigation and screen management.
-- **React Native Components**: Building UI with , , , etc.
-- **React Context API ()**: Global state management for the workout cart.
-- ****: For animations like the Add workout + button's scale bounce.
-- ****: For handling device safe areas in UI layout.
-- **Flexbox with **: For responsive styling and layout.
+-   **Expo File-Based Routing ()**: For declarative navigation and screen management.
+-   **React Native Components**: Building UI with , , , , etc.
+-   **React Context API ()**: Global state management for the workout cart.
+-   ****: For animations like the Add workout + button's scale bounce.
+-   ****: For handling device safe areas in UI layout.
+-   **Flexbox with **: For responsive styling and layout.
 </key_technical_concepts>
 
 <code_architecture>
 
 
--   ****: This is a critical screen component responsible for displaying individual workout cards and allowing users to add them to the cart.
-    -   **Summary of why important**: Central to the Workout Shopping Cart functionality, handling adding workouts and displaying their status.
+-   ****: This is a critical screen component responsible for displaying individual workout cards and allowing users to add them to the cart. It hosts the  component.
+    -   **Summary of why important**: Central to the Workout Shopping Cart functionality, handling adding workouts and displaying their status, and displaying the swipable workout cards with dot indicators.
     -   **Changes made**:
-        1.  The  function was modified to correctly use  (from the  object passed as an argument) instead of an undefined  variable. This resolved the equipment is not defined error when adding items to the cart.
-        2.  The logic within the Add workout button, specifically its  check, was updated to use  instead of an undefined  variable. This fixed the animation issue where the button was not correctly switching to a gold checkmark after being clicked.
+        1.  Initial fix attempts involved adding , ,  to  and using  for dot clicks to improve web compatibility and scrolling.
+        2.  Manual // handlers and their references were completely removed from the  wrapper of the  to prevent interference with native scrolling gestures.
+        3.  Refactored  component to manage its own  and  state internally using  and , instead of receiving them as props from the parent.
+        4.  Removed  and  from the parent component () as they are now managed within each  instance.
+        5.  Removed the passing of , , and  as props to the  instantiation in the parent component.
 -   ****: The dedicated screen for managing items in the workout cart.
     -   **Summary of why important**: Displays selected workouts and provides options to remove or clear them.
-    -   **Changes made**: Previous changes involved updating button styles, replacing  for web compatibility, and debugging  prop passing. The current trajectory verified its functionality after fixes in .
+    -   **Changes made**: Previous changes involved updating button styles, replacing  for web compatibility, and debugging  prop passing. Verified its functionality after fixes in .
 -   ****: Manages the global state for the workout cart.
     -   **Summary of why important**: Provides , , and  functionalities across the application.
     -   **Changes made**: Debug logging was added to  and  functions.
@@ -41,16 +44,16 @@ The mobile application is designed as a polished, native-feeling workout experie
 </code_architecture>
 
 <pending_tasks>
-- **Outdoor Activity Dots Swiping Functionality**: The dots are clickable but cards do not swipe in , indicating a potential issue with the swiping mechanism itself.
-- **Difficulty Parameter Display Bug**: Workout screens ( and ) still show Beginner in progress bars even when Intermediate difficulty is passed.
+-   **Outdoor Activity Dots Swiping Functionality**: The general swipe and dot functionality across *all* workout cards in the Sweat, Cardio Based path needs thorough verification to ensure left and right swipes function correctly and dots reflect the current card.
+-   **Difficulty Parameter Display Bug**: Workout screens ( and ) still show Beginner in progress bars even when Intermediate difficulty is passed.
 </pending_tasks>
 
 <current_work>
-Immediately before this summary request, the AI engineer successfully addressed a user-reported issue where the Add workout button's checkmark animation was not working as previously implemented. This involved re-investigating the  file. The root cause was identified as an incorrect reference to an undefined  variable within the button's logic (specifically, the  check that determines the button's visual state).
+Immediately before this summary request, the AI engineer successfully addressed a critical issue where swiping one workout card incorrectly affected the dot indicators on *other* workout cards present on the same screen (state bleeding). This was identified as  and related state/references being passed as props to multiple  components within .
 
-The fix entailed modifying the button's conditional rendering logic to correctly access  (the equipment associated with the currently displayed workout) instead of the undefined  variable. After applying this edit and restarting the frontend, comprehensive testing was performed using the . The tests confirmed that the Add workout button now correctly displays + Add workout initially, transitions with a scale bounce animation, and then changes to a gold checkmark icon (✓) after a workout is added to the cart. The floating cart also appeared with the correct item count. This indicates the animation and cart addition process are fully functional as per product requirements.
+The core fix involved refactoring the  component to encapsulate its  state and  locally using React's  and  hooks. Consequently, the parent component () was modified to no longer pass these now-internal state management props to  instances, nor declare them at its own level. This ensures that each  operates independently regarding its swipe and dot navigation, preventing unintended state coupling. The frontend was restarted to apply these changes, preparing for re-testing.
 </current_work>
 
 <optional_next_step>
-Investigate and fix the Outdoor Activity Dots Swiping Functionality in .
+Verify that swipe and dot functionality is working correctly for *all* workout cards in the cardio path, ensuring independent operation.
 </optional_next_step>
