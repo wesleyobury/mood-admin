@@ -3041,7 +3041,7 @@ const WorkoutCard = ({ equipment, icon, workouts, difficulty, difficultyColor, w
              addedItems.has(createWorkoutId(workouts[currentWorkoutIndex], workouts[currentWorkoutIndex].equipment, difficulty))) && 
             styles.addToCartButtonAdded
           ]}
-          onPress={() => handleAddToCart(workouts[currentWorkoutIndex])}
+          onPress={() => handleAddToCart(workouts[currentWorkoutIndex], equipment)}
           activeOpacity={0.8}
         >
           <Animated.View style={[styles.addToCartButtonContent, { transform: [{ scale: scaleAnim }] }]}>
