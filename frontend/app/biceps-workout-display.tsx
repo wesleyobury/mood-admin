@@ -16,16 +16,20 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 const { width } = Dimensions.get('window');
 
-// Data Types
+interface MoodTip {
+  icon: string;
+  title: string;
+  description: string;
+}
+
 interface Workout {
-  id: string;
   name: string;
   duration: string;
-  imageUrl: string;
   description: string;
-  intensityReason: string;
   battlePlan: string;
-  moodTips: string[];
+  imageUrl: string;
+  intensityReason: string;
+  moodTips: MoodTip[];
 }
 
 interface EquipmentWorkouts {
@@ -40,137 +44,793 @@ interface EquipmentWorkouts {
 
 const bicepsWorkoutDatabase: EquipmentWorkouts[] = [
   {
-    equipment: "Adjustable bench",
-    icon: "trending-up-outline",
+    equipment: 'Dumbbell',
+    icon: 'barbell',
     workouts: {
       beginner: [
         {
-          id: "bicep_bench_1",
-          name: "Hammer Curls on Bench",
-          duration: "15 min",
-          imageUrl: "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAoACgDASIAAhEBAxEB/8QAGwAAAQUBAQAAAAAAAAAAAAAABQACBAYHAwj/xAAuEAACAQMDAgUDAwUAAAAAAAABAgMABBEFEiExQVEGEyJhcYGRoRQy0eHB8P/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAHxEAAgICAgMBAAAAAAAAAAAAAAECEQMhBBIxQVFh/9oADAMBAAIRAxEAPwDuFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAF//Z",
-          description: "Sitting on an incline bench, perform controlled hammer curls to target the biceps and forearms.",
-          intensityReason: "Perfect for beginners to learn proper form and control.",
-          battlePlan: "3 sets of 8-10 reps with moderate weight, focus on slow controlled movement.",
-          moodTips: ["Start with lighter weights to master the form", "Keep your back against the bench for stability"]
+          name: 'DB Curl',
+          duration: '10–12 min',
+          description: 'Standard dumbbell curl increases beginner strength',
+          battlePlan: '3 rounds\n• 10–12 Dumbbell Curls\nRest 60–75s',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8MVc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Builds curl discipline with stable elbow position',
+          moodTips: [
+            {
+              icon: 'hand-left',
+              title: 'Keep elbows pinned at sides',
+              description: 'Maintain strict form throughout movement.'
+            },
+            {
+              icon: 'trending-down',
+              title: 'Lower weights slowly, avoid swinging',
+              description: 'Control the negative for better gains.'
+            }
+          ]
         },
         {
-          id: "bicep_bench_2",
-          name: "Incline Dumbbell Curls",
-          duration: "12 min",
-          imageUrl: "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAoACgDASIAAhEBAxEB/8QAGwAAAQUBAQAAAAAAAAAAAAAABQACBAYHAwj/xAAuEAACAQMDAgUDAwUAAAAAAAABAgMABBEFEiExQVEGEyJhcYGRoRQy0eHB8P/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAHxEAAgICAgMBAAAAAAAAAAAAAAECEQMhBBIxQVFh/9oADAMBAAIRAxEAPwDuFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAF//Z",
-          description: "Perform curls on an inclined bench to stretch the biceps and increase range of motion.",
-          intensityReason: "Incline position provides better bicep stretch and activation.",
-          battlePlan: "3 sets of 10-12 reps, focus on the stretch at the bottom of the movement.",
-          moodTips: ["Feel the stretch at the bottom", "Don't let the weights swing"]
+          name: 'Hammer Curl',
+          duration: '10–12 min',
+          description: 'Hammer curl variation develops early arm thickness',
+          battlePlan: '3 rounds\n• 10–12 Hammer Curls\nRest 75s',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Neutral grip activates forearms and brachialis',
+          moodTips: [
+            {
+              icon: 'hand-left',
+              title: 'Palms face each other all reps',
+              description: 'Neutral grip maximizes forearm engagement.'
+            },
+            {
+              icon: 'timer',
+              title: 'Pause lightly at top of curl',
+              description: 'Brief pause increases muscle activation.'
+            }
+          ]
         }
       ],
       intermediate: [
         {
-          id: "bicep_bench_int_1",
-          name: "Concentration Curls",
-          duration: "18 min",
-          imageUrl: "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAoACgDASIAAhEBAxEB/8QAGwAAAQUBAQAAAAAAAAAAAAAABQACBAYHAwj/xAAuEAACAQMDAgUDAwUAAAAAAAABAgMABBEFEiExQVEGEyJhcYGRoRQy0eHB8P/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAHxEAAgICAgMBAAAAAAAAAAAAAAECEQMhBBIxQVFh/9oADAMBAAIRAxEAPwDuFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAF//Z",
-          description: "Seated on bench, perform single-arm curls with elbow braced against inner thigh for isolation.",
-          intensityReason: "Isolation movement with focused mind-muscle connection.",
-          battlePlan: "4 sets of 8-10 reps per arm, squeeze at the top for 2 seconds.",
-          moodTips: ["Focus on one arm at a time", "Really squeeze at the top"]
+          name: 'Alternating Curl',
+          duration: '12–14 min',
+          description: 'Alternating curls sharpen balance and strict form',
+          battlePlan: '4 rounds\n• 8–10 per arm Alternating DB Curls\nRest 75–90s',
+          imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Alternating arms builds strength and discipline',
+          moodTips: [
+            {
+              icon: 'refresh',
+              title: 'Turn palms up fully at top',
+              description: 'Full supination maximizes bicep contraction.'
+            },
+            {
+              icon: 'body',
+              title: 'Don\'t rotate torso when curling',
+              description: 'Keep core stable for isolated arm work.'
+            }
+          ]
+        },
+        {
+          name: 'Negative Curl',
+          duration: '12–14 min',
+          description: 'Negative dumbbell curls extend training stimulus',
+          battlePlan: '3 rounds\n• 8 Dumbbell Curls (3s eccentric)\nRest 90s',
+          imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
+          intensityReason: 'Controlled eccentric adds greater hypertrophy load',
+          moodTips: [
+            {
+              icon: 'timer',
+              title: 'Raise quickly, lower over 3s',
+              description: 'Extended negative phase builds strength.'
+            },
+            {
+              icon: 'body',
+              title: 'Stay tall, don\'t lean',
+              description: 'Proper posture prevents momentum.'
+            }
+          ]
         }
       ],
       advanced: [
         {
-          id: "bicep_bench_adv_1",
-          name: "21s Bicep Protocol",
-          duration: "20 min",
-          imageUrl: "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAoACgDASIAAhEBAxEB/8QAGwAAAQUBAQAAAAAAAAAAAAAABQACBAYHAwj/xAAuEAACAQMDAgUDAwUAAAAAAAABAgMABBEFEiExQVEGEyJhcYGRoRQy0eHB8P/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAHxEAAgICAgMBAAAAAAAAAAAAAAECEQMhBBIxQVFh/9oADAMBAAIRAxEAPwDuFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAF//Z",
-          description: "Advanced bicep protocol: 7 partial reps bottom half, 7 partial reps top half, 7 full reps.",
-          intensityReason: "High-intensity protocol for maximum muscle stimulation and growth.",
-          battlePlan: "3 sets of 21 total reps (7+7+7), minimal rest between phases.",
-          moodTips: ["This will burn - embrace it", "Push through the challenge"]
+          name: 'Curl + Hammer',
+          duration: '14–16 min',
+          description: 'Pairing curls with hammer expands overall growth',
+          battlePlan: '4 rounds\n• 8 Standard DB Curls\nRest 90s\n• 8 Hammer Curls\nRest 90s',
+          imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmc&ZW54MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Combining grips overloads arms with intensity',
+          moodTips: [
+            {
+              icon: 'fitness',
+              title: 'Keep form strict, reduce weight if swinging',
+              description: 'Quality over quantity for best results.'
+            },
+            {
+              icon: 'flash',
+              title: 'Maintain tension, no resting at bottom',
+              description: 'Constant tension maximizes hypertrophy.'
+            }
+          ]
+        },
+        {
+          name: 'Curl Complex',
+          duration: '16–18 min',
+          description: 'Complex mix of curls and holds builds serious pump',
+          battlePlan: '4 rounds\n• 8 Alternating DB Curls\n• Immediately 8 Hammer Curls\n• End with 10s DB Curl Hold\nRest 120s',
+          imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Supersets and holds maximize tension duration',
+          moodTips: [
+            {
+              icon: 'timer',
+              title: 'Hold at 90° to keep muscle fully engaged',
+              description: 'Isometric hold increases time under tension.'
+            },
+            {
+              icon: 'flame',
+              title: 'Push through the burn — don\'t disengage',
+              description: 'Mental toughness builds physical results.'
+            }
+          ]
         }
       ]
     }
   },
   {
-    equipment: "Barbell",
-    icon: "remove",
+    equipment: 'EZ Curl Bar',
+    icon: 'remove',
     workouts: {
       beginner: [
         {
-          id: "bicep_barbell_1",
-          name: "Standing Barbell Curls",
-          duration: "15 min",
-          imageUrl: "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAoACgDASIAAhEBAxEB/8QAGwAAAQUBAQAAAAAAAAAAAAAABQACBAYHAwj/xAAuEAACAQMDAgUDAwUAAAAAAAABAgMABBEFEiExQVEGEyJhcYGRoRQy0eHB8P/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAHxEAAgICAgMBAAAAAAAAAAAAAAECEQMhBBIxQVFh/9oADAMBAAIRAxEAPwDuFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAF//Z",
-          description: "Classic bicep exercise using a straight barbell with proper standing form.",
-          intensityReason: "Foundational movement that builds overall bicep strength and size.",
-          battlePlan: "3 sets of 8-10 reps, focus on controlled movement and no swinging.",
-          moodTips: ["Keep your core tight", "Don't use momentum"]
+          name: 'Bar Curl',
+          duration: '10–12 min',
+          description: 'Straightforward curls build solid foundation form',
+          battlePlan: '3 rounds\n• 10–12 EZ Bar Curls\nRest 60–75s',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8MVc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'EZ bar reduces wrist stress for easier motion',
+          moodTips: [
+            {
+              icon: 'hand-left',
+              title: 'Grip the angled bar comfortably',
+              description: 'EZ bar angle protects wrists.'
+            },
+            {
+              icon: 'fitness',
+              title: 'Keep elbows locked at your sides',
+              description: 'Fixed elbow position isolates biceps.'
+            }
+          ]
+        },
+        {
+          name: 'Wide Grip Curl',
+          duration: '10–12 min',
+          description: 'Wide grip curls improve control and arm balance',
+          battlePlan: '3 rounds\n• 10 Wide Grip EZ Curls\nRest 75s',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Wide grip shifts stress toward the outer heads',
+          moodTips: [
+            {
+              icon: 'body',
+              title: 'Wide stance, no shoulder flare',
+              description: 'Stable base prevents momentum.'
+            },
+            {
+              icon: 'flash',
+              title: 'Squeeze at the top each rep',
+              description: 'Peak contraction builds definition.'
+            }
+          ]
         }
       ],
       intermediate: [
         {
-          id: "bicep_barbell_int_1",
-          name: "Preacher Barbell Curls",
-          duration: "18 min",
-          imageUrl: "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAoACgDASIAAhEBAxEB/8QAGwAAAQUBAQAAAAAAAAAAAAAABQACBAYHAwj/xAAuEAACAQMDAgUDAwUAAAAAAAABAgMABBEFEiExQVEGEyJhcYGRoRQy0eHB8P/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAHxEAAgICAgMBAAAAAAAAAAAAAAECEQMhBBIxQVFh/9oADAMBAAIRAxEAPwDuFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAF//Z",
-          description: "Using an incline bench as a preacher pad to isolate biceps with strict form.",
-          intensityReason: "Preacher position eliminates momentum and isolates the biceps effectively.",
-          battlePlan: "4 sets of 6-8 reps with heavier weight, focus on the negative.",
-          moodTips: ["Control the negative", "Feel the burn in isolation"]
+          name: 'Narrow Curl',
+          duration: '12–14 min',
+          description: 'Close grip curls build stronger arm inner heads',
+          battlePlan: '4 rounds\n• 8–10 Narrow Grip EZ Curls\nRest 75–90s',
+          imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Narrow grip overloads the biceps inner portion',
+          moodTips: [
+            {
+              icon: 'hand-left',
+              title: 'Keep palms inward, elbows close',
+              description: 'Narrow grip targets inner biceps.'
+            },
+            {
+              icon: 'trending-up',
+              title: 'Pull bar to upper chest line',
+              description: 'Full range maximizes muscle fiber recruitment.'
+            }
+          ]
+        },
+        {
+          name: 'Negative Curl',
+          duration: '12–14 min',
+          description: 'Controlled lowering builds growth development fast',
+          battlePlan: '3 rounds\n• 8 EZ Bar Curls (3s eccentric)\nRest 90s',
+          imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
+          intensityReason: 'Three second eccentric exaggerates curl tension',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Explode up, lower in 3s',
+              description: 'Fast concentric, slow eccentric.'
+            },
+            {
+              icon: 'body',
+              title: 'Stay tall with posture locked',
+              description: 'Prevent body English for isolation.'
+            }
+          ]
         }
       ],
       advanced: [
         {
-          id: "bicep_barbell_adv_1",
-          name: "Drag Curls",
-          duration: "20 min",
-          imageUrl: "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAoACgDASIAAhEBAxEB/8QAGwAAAQUBAQAAAAAAAAAAAAAABQACBAYHAwj/xAAuEAACAQMDAgUDAwUAAAAAAAABAgMABBEFEiExQVEGEyJhcYGRoRQy0eHB8P/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAHxEAAgICAgMBAAAAAAAAAAAAAAECEQMhBBIxQVFh/9oADAMBAAIRAxEAPwDuFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAF//Z",
-          description: "Advanced technique where the barbell is dragged up the body targeting the long head of biceps.",
-          intensityReason: "Unique movement pattern that maximally targets the bicep's long head.",
-          battlePlan: "4 sets of 8-10 reps, keep elbows behind body throughout movement.",
-          moodTips: ["Keep elbows back", "Feel it in the bicep peak"]
+          name: 'Wide + Narrow',
+          duration: '14–16 min',
+          description: 'Wide and narrow grips develop balance and size',
+          battlePlan: '4 rounds\n• 8 Wide Grip Curl\nRest 90s\n• 8 Narrow Grip Curl\nRest 90s',
+          imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmc&ZW54MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Grip variance maximizes recruitment across arms',
+          moodTips: [
+            {
+              icon: 'shield',
+              title: 'Don\'t overload; stay controlled',
+              description: 'Form matters more than weight.'
+            },
+            {
+              icon: 'fitness',
+              title: 'Keep elbows locked at sides',
+              description: 'Consistent elbow position ensures isolation.'
+            }
+          ]
+        },
+        {
+          name: 'Curl + Hold',
+          duration: '16–18 min',
+          description: 'Fast curls then iso hold fully exhaust the biceps',
+          battlePlan: '4 rounds\n• 8 Wide Grip EZ Curl\n• 8 Narrow Grip Curl\n• End with 10s Hold Mid Curl\nRest 120s',
+          imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Static hold after volume increases muscle stress',
+          moodTips: [
+            {
+              icon: 'timer',
+              title: 'Hold mid curl for 10s each set',
+              description: 'Isometric position builds endurance.'
+            },
+            {
+              icon: 'body',
+              title: 'Keep posture strict under load',
+              description: 'Don\'t sacrifice form when fatigued.'
+            }
+          ]
         }
       ]
     }
   },
   {
-    equipment: "Dumbbells",
-    icon: "fitness",
+    equipment: 'Cable Machine',
+    icon: 'swap-vertical',
     workouts: {
       beginner: [
         {
-          id: "bicep_db_1",
-          name: "Alternating Dumbbell Curls",
-          duration: "15 min",
-          imageUrl: "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAoACgDASIAAhEBAxEB/8QAGwAAAQUBAQAAAAAAAAAAAAAABQACBAYHAwj/xAAuEAACAQMDAgUDAwUAAAAAAAABAgMABBEFEiExQVEGEyJhcYGRoRQy0eHB8P/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAHxEAAgICAgMBAAAAAAAAAAAAAAECEQMhBBIxQVFh/9oADAMBAAIRAxEAPwDuFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAF//Z",
-          description: "Fundamental dumbbell exercise alternating arms to build bicep strength and coordination.",
-          intensityReason: "Perfect starting movement for learning proper bicep activation and control.",
-          battlePlan: "3 sets of 10-12 reps per arm, maintain strict form throughout.",
-          moodTips: ["One arm at a time", "Focus on the working muscle"]
+          name: 'Straight Bar Curl',
+          duration: '10–12 min',
+          description: 'Straight bar curl develops controlled curling form',
+          battlePlan: '3 rounds\n• 10–12 Straight Bar Cable Curls\nRest 60s',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8MVc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Cable tension enforces strict and smooth curling',
+          moodTips: [
+            {
+              icon: 'fitness',
+              title: 'Keep elbows tucked, bar path vertical',
+              description: 'Straight bar path maximizes bicep engagement.'
+            },
+            {
+              icon: 'body',
+              title: 'Don\'t lean back or swing',
+              description: 'Cable provides constant tension.'
+            }
+          ]
+        },
+        {
+          name: 'Rope Hammer Curl',
+          duration: '10–12 min',
+          description: 'Rope hammer curl adds overall forearm thickness',
+          battlePlan: '3 rounds\n• 10–12 Rope Hammer Curls\nRest 60–75s',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Neutral grip cable work hits brachialis harder',
+          moodTips: [
+            {
+              icon: 'hand-left',
+              title: 'Spread rope ends at the top',
+              description: 'Spreading rope increases peak contraction.'
+            },
+            {
+              icon: 'trending-down',
+              title: 'Controlled lowering enhances result',
+              description: 'Slow negative builds strength.'
+            }
+          ]
         }
       ],
       intermediate: [
         {
-          id: "bicep_db_int_1",
-          name: "Hammer Curls",
-          duration: "18 min",
-          imageUrl: "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAoACgDASIAAhEBAxEB/8QAGwAAAQUBAQAAAAAAAAAAAAAABQACBAYHAwj/xAAuEAACAQMDAgUDAwUAAAAAAAABAgMABBEFEiExQVEGEyJhcYGRoRQy0eHB8P/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAHxEAAgICAgMBAAAAAAAAAAAAAAECEQMhBBIxQVFh/9oADAMBAAIRAxEAPwDuFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAF//Z",
-          description: "Neutral grip dumbbell curls that target both biceps and forearms effectively.",
-          intensityReason: "Neutral grip allows for heavier weight and targets multiple muscle groups.",
-          battlePlan: "4 sets of 8-10 reps, focus on controlled tempo and squeeze.",
-          moodTips: ["Keep wrists straight", "Feel it in biceps and forearms"]
+          name: 'EZ Bar Curl',
+          duration: '12–14 min',
+          description: 'Stronger sets develop hypertrophy with posture',
+          battlePlan: '4 rounds\n• 8–10 EZ Bar Cable Curls\nRest 75–90s',
+          imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Angled bar grip improves joint comfort heavy',
+          moodTips: [
+            {
+              icon: 'body',
+              title: 'Stand tall, no torso swing',
+              description: 'Stable core isolates arm work.'
+            },
+            {
+              icon: 'timer',
+              title: 'Lower bar slowly, keep tension',
+              description: 'Cable provides constant resistance.'
+            }
+          ]
+        },
+        {
+          name: 'Cable Negatives',
+          duration: '12–14 min',
+          description: 'Negative bar curls grow size and total integrity',
+          battlePlan: '3 rounds\n• 8 Cable Bar Curls (3s eccentric)\nRest 75–90s',
+          imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
+          intensityReason: 'Slow eccentrics amplify hypertrophy adaptation',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Drive up powerfully, lower 3s',
+              description: 'Explosive concentric, controlled eccentric.'
+            },
+            {
+              icon: 'fitness',
+              title: 'Elbows fixed at torso sides',
+              description: 'Locked elbows ensure bicep isolation.'
+            }
+          ]
         }
       ],
       advanced: [
         {
-          id: "bicep_db_adv_1",
-          name: "Zottman Curls",
-          duration: "22 min",
-          imageUrl: "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAoACgDASIAAhEBAxEB/8QAGwAAAQUBAQAAAAAAAAAAAAAABQACBAYHAwj/xAAuEAACAQMDAgUDAwUAAAAAAAABAgMABBEFEiExQVEGEyJhcYGRoRQy0eHB8P/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAHxEAAgICAgMBAAAAAAAAAAAAAAECEQMhBBSxQVFh/9oADAMBAAIRAxEAPwDuFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAF//Z",
-          description: "Advanced technique: curl up with supinated grip, rotate to pronated at top, lower slowly.",
-          intensityReason: "Complex movement targeting biceps concentrically and forearms eccentrically.",
-          battlePlan: "4 sets of 6-8 reps, emphasize the rotation and slow negative.",
-          moodTips: ["Slow and controlled", "Focus on the rotation"]
+          name: 'Rope + Bar Combo',
+          duration: '14–16 min',
+          description: 'Rope plus bar combo overloads total arm volume',
+          battlePlan: '4 rounds\n• 8 Rope Hammer Curls\nRest 60–75s\n• 8 Straight Bar Curls\nRest 75–90s',
+          imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmc&ZW54MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Grip pairing works multiple arm muscle fibers',
+          moodTips: [
+            {
+              icon: 'refresh',
+              title: 'Rope = neutral, bar = strict supination',
+              description: 'Different grips target different fibers.'
+            },
+            {
+              icon: 'flash',
+              title: 'Focus pump control with each grip',
+              description: 'Mind-muscle connection is key.'
+            }
+          ]
+        },
+        {
+          name: 'Cable Curl 21s',
+          duration: '16–18 min',
+          description: 'Seven seven seven set fully exhausts every curl',
+          battlePlan: '3 rounds\n• 7 Bottom Half Cable Curls\n• 7 Top Half Cable Curls\n• 7 Full Range Cable Curls\nRest 90s',
+          imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Partial and full ranges maximize biceps fatigue',
+          moodTips: [
+            {
+              icon: 'shield',
+              title: 'Keep tension, no stack resting',
+              description: 'Constant tension throughout all 21 reps.'
+            },
+            {
+              icon: 'trending-up',
+              title: 'Smooth range in all three phases',
+              description: 'Control through partial and full ranges.'
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    equipment: 'Preacher Curl Machine',
+    icon: 'desktop',
+    workouts: {
+      beginner: [
+        {
+          name: 'Preacher Intro',
+          duration: '10–12 min',
+          description: 'Guided preacher curls isolate and strengthen arms',
+          battlePlan: '3 rounds\n• 10–12 Preacher Curls\nRest 60s',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8MVc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Arm pad stabilizes curl motion and builds control',
+          moodTips: [
+            {
+              icon: 'fitness',
+              title: 'Keep arms locked to the pad',
+              description: 'Pad support ensures strict isolation.'
+            },
+            {
+              icon: 'shield',
+              title: 'Avoid bouncing at the bottom',
+              description: 'Controlled movement prevents injury.'
+            }
+          ]
+        },
+        {
+          name: 'Slow Preacher',
+          duration: '10–12 min',
+          description: 'Tempo preacher curls enhance control and tension',
+          battlePlan: '3 rounds\n• 10 Preacher Curls (2–3s descent)\nRest 75s',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Slowed cadence develops precision under load',
+          moodTips: [
+            {
+              icon: 'timer',
+              title: 'Lower in 2–3s each rep',
+              description: 'Slow tempo increases time under tension.'
+            },
+            {
+              icon: 'flash',
+              title: 'Pause and squeeze at top',
+              description: 'Peak contraction builds strength.'
+            }
+          ]
+        }
+      ],
+      intermediate: [
+        {
+          name: 'Heavy Preacher',
+          duration: '12–14 min',
+          description: 'Heavier preacher curls grow arms with intensity',
+          battlePlan: '4 rounds\n• 8–10 Heavy Preacher Curls\nRest 75–90s',
+          imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Stable preacher pad allows progressive overload',
+          moodTips: [
+            {
+              icon: 'trending-up',
+              title: 'Drive bar smooth each rep',
+              description: 'Consistent tempo under heavy load.'
+            },
+            {
+              icon: 'fitness',
+              title: 'Maintain full pad contact',
+              description: 'Pad contact ensures proper isolation.'
+            }
+          ]
+        },
+        {
+          name: 'Negative Preacher',
+          duration: '12–14 min',
+          description: 'Slow negatives increase biceps time under tension',
+          battlePlan: '3 rounds\n• 8 Negative Preacher Curls (3s lowering)\nRest 75–90s',
+          imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
+          intensityReason: '3 second eccentrics add enhanced hypertrophy load',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Explode up, lower 3s down',
+              description: 'Fast up, slow down for growth.'
+            },
+            {
+              icon: 'shield',
+              title: 'Control bar to avoid bounce',
+              description: 'Smooth transition at bottom protects elbows.'
+            }
+          ]
+        }
+      ],
+      advanced: [
+        {
+          name: 'Wide + Narrow',
+          duration: '14–16 min',
+          description: 'Wide and narrow grips target both biceps heads',
+          battlePlan: '4 rounds\n• 8 Wide Grip Preachers\nRest 75s\n• 8 Narrow Grip Preachers\nRest 75–90s',
+          imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmc&ZW54MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Changing grips stresses variation in fiber lines',
+          moodTips: [
+            {
+              icon: 'refresh',
+              title: 'Wide hits outer, narrow inner',
+              description: 'Different grips target different heads.'
+            },
+            {
+              icon: 'body',
+              title: 'Keep torso against the pad',
+              description: 'Body position maintains strict form.'
+            }
+          ]
+        },
+        {
+          name: 'Preacher Burnout',
+          duration: '16–18 min',
+          description: 'Burnout preacher curls finish arms under tension',
+          battlePlan: '4 rounds\n• 8–10 Preacher Curls\n• End with 10s Midpoint Hold\nRest 90s',
+          imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Iso holds combined with sets maximize fatigue',
+          moodTips: [
+            {
+              icon: 'timer',
+              title: 'Last rep hold 10s halfway',
+              description: 'Isometric hold fully exhausts muscle.'
+            },
+            {
+              icon: 'flame',
+              title: 'Keep tension strict to end',
+              description: 'Mental toughness completes the set.'
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    equipment: 'Biceps Curl Machine',
+    icon: 'fitness',
+    workouts: {
+      beginner: [
+        {
+          name: 'Machine Curl',
+          duration: '10–12 min',
+          description: 'Standard machine curls build early strength base',
+          battlePlan: '3 rounds\n• 10–12 Machine Curls\nRest 60–75s',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8MVc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Fixed pathway ensures easier curling technique',
+          moodTips: [
+            {
+              icon: 'fitness',
+              title: 'Sit tall and grip handles tight',
+              description: 'Proper posture ensures effective movement.'
+            },
+            {
+              icon: 'shield',
+              title: 'Pull smooth without bounce',
+              description: 'Controlled reps prevent injury.'
+            }
+          ]
+        },
+        {
+          name: 'Curl with Pause',
+          duration: '10–12 min',
+          description: 'Isometric hold improves mind muscle link early',
+          battlePlan: '3 rounds\n• 10 Machine Curls (2s pause top)\nRest 75s',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Peak pause builds muscle contraction strength',
+          moodTips: [
+            {
+              icon: 'timer',
+              title: 'Hold 2s at top of each rep',
+              description: 'Pause increases peak contraction.'
+            },
+            {
+              icon: 'trending-down',
+              title: 'Control return phase',
+              description: 'Slow negative builds strength.'
+            }
+          ]
+        }
+      ],
+      intermediate: [
+        {
+          name: 'Heavy Machine Curl',
+          duration: '12–14 min',
+          description: 'Stronger machine curls stimulate hypertrophy gains',
+          battlePlan: '4 rounds\n• 8–10 Heavy Machine Curls\nRest 75–90s',
+          imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Safe machine setup supports heavier overload',
+          moodTips: [
+            {
+              icon: 'fitness',
+              title: 'Lock elbows down to pad',
+              description: 'Fixed position maximizes isolation.'
+            },
+            {
+              icon: 'refresh',
+              title: 'Perform with steady rhythm',
+              description: 'Consistent tempo builds strength.'
+            }
+          ]
+        },
+        {
+          name: 'Eccentric Curl',
+          duration: '12–14 min',
+          description: 'Negative machine curls deepen hypertrophy drive',
+          battlePlan: '3 rounds\n• 8 Curls (3s eccentric lowering)\nRest 75–90s',
+          imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
+          intensityReason: 'Slower eccentric motion builds harder tension',
+          moodTips: [
+            {
+              icon: 'timer',
+              title: 'Drive up then lower for 3s',
+              description: 'Extended negative phase builds size.'
+            },
+            {
+              icon: 'fitness',
+              title: 'Keep pads tight to arms',
+              description: 'Proper pad contact ensures isolation.'
+            }
+          ]
+        }
+      ],
+      advanced: [
+        {
+          name: 'Drop Set Curls',
+          duration: '14–16 min',
+          description: 'Drop sets extend working time for biceps growth',
+          battlePlan: '4 rounds\n• 8 Heavy Machine Curls\n• Drop 20% → 8 More Reps\nRest 75–90s',
+          imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmc&ZW54MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Removing weight sustains prolonged curl strain',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Strip weight quickly after set',
+              description: 'Fast transition maximizes intensity.'
+            },
+            {
+              icon: 'trending-up',
+              title: 'Keep reps smooth each drop',
+              description: 'Maintain form through fatigue.'
+            }
+          ]
+        },
+        {
+          name: 'Machine Curl Burn',
+          duration: '16–18 min',
+          description: 'Iso holds at midpoint greatly exhaust the biceps',
+          battlePlan: '4 rounds\n• 8 Machine Curls\n• End with 10s Mid Curl Hold\nRest 90s',
+          imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Static holds boost stimulus beyond normal sets',
+          moodTips: [
+            {
+              icon: 'timer',
+              title: 'After last rep, hold 10s mid',
+              description: 'Isometric position creates metabolic stress.'
+            },
+            {
+              icon: 'shield',
+              title: 'No stack slamming at bottom',
+              description: 'Control throughout maintains tension.'
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    equipment: 'Pull Up Bar',
+    icon: 'remove-outline',
+    workouts: {
+      beginner: [
+        {
+          name: 'Assisted Chins',
+          duration: '10–12 min',
+          description: 'Assisted chin ups help beginners build curl strength',
+          battlePlan: '3 rounds\n• 5 Assisted Chin Ups\nRest 60–75s',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8MVc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Band or machine assistance teaches strict form',
+          moodTips: [
+            {
+              icon: 'hand-left',
+              title: 'Palms face you, elbows tucked',
+              description: 'Underhand grip targets biceps.'
+            },
+            {
+              icon: 'fitness',
+              title: 'Use band/machine as needed',
+              description: 'Assistance helps build strength gradually.'
+            }
+          ]
+        },
+        {
+          name: 'Negative Chins',
+          duration: '10–12 min',
+          description: 'Negative chin ups improve strength for real reps',
+          battlePlan: '3 rounds\n• 5 Negative Chin Ups\nRest 60–75s',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Controlled descent builds stronger arm pulling',
+          moodTips: [
+            {
+              icon: 'timer',
+              title: 'Lower for 3–5s on each rep',
+              description: 'Slow negatives build eccentric strength.'
+            },
+            {
+              icon: 'body',
+              title: 'Keep torso steady, no swing',
+              description: 'Strict form prevents momentum.'
+            }
+          ]
+        }
+      ],
+      intermediate: [
+        {
+          name: 'Strict Chins',
+          duration: '12–14 min',
+          description: 'Strict chin ups strengthen biceps and lats together',
+          battlePlan: '4 rounds\n• 6 Chin Ups\nRest 75–90s',
+          imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Bodyweight movement grows pulling arm power',
+          moodTips: [
+            {
+              icon: 'trending-up',
+              title: 'Pull chest high to bar line',
+              description: 'Full range maximizes muscle recruitment.'
+            },
+            {
+              icon: 'fitness',
+              title: 'Extend fully at bottom each rep',
+              description: 'Complete extension ensures full range.'
+            }
+          ]
+        },
+        {
+          name: 'Chin + Hold',
+          duration: '12–14 min',
+          description: 'Isometric on bar builds tougher pulling strength',
+          battlePlan: '3 rounds\n• 6 Chin Ups\n• End with 3s Hold at Top\nRest 75–90s',
+          imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
+          intensityReason: 'Finishing hold improves control and endurance',
+          moodTips: [
+            {
+              icon: 'timer',
+              title: 'Hold top for 3s after last rep',
+              description: 'Isometric hold builds endurance.'
+            },
+            {
+              icon: 'body',
+              title: 'Do not shrug shoulders up',
+              description: 'Keep shoulders down and engaged.'
+            }
+          ]
+        }
+      ],
+      advanced: [
+        {
+          name: 'Weighted Chins',
+          duration: '14–16 min',
+          description: 'Weighted chin ups grow mass with strict posture',
+          battlePlan: '4 rounds\n• 6–8 Weighted Chin Ups\nRest 90s',
+          imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmc&ZW54MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Adding load forces stronger hypertrophy gains',
+          moodTips: [
+            {
+              icon: 'construct',
+              title: 'Add belt or dumbbell slowly',
+              description: 'Progressive overload builds strength.'
+            },
+            {
+              icon: 'shield',
+              title: 'Never kip or swing body',
+              description: 'Strict form prevents injury.'
+            }
+          ]
+        },
+        {
+          name: 'Chest Bar + Negs',
+          duration: '16–18 min',
+          description: 'High pulls combined with negatives boost strength',
+          battlePlan: '4 rounds\n• 6 Chest to Bar Pull Ups\n• 6 Negative Chin Ups\nRest 90s',
+          imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Chest to bar reps plus negatives overload arms',
+          moodTips: [
+            {
+              icon: 'trending-up',
+              title: 'Pull chest to bar every rep',
+              description: 'Full range maximizes development.'
+            },
+            {
+              icon: 'timer',
+              title: 'Descend 3–5s consistently',
+              description: 'Controlled negatives build strength.'
+            }
+          ]
         }
       ]
     }
@@ -216,23 +876,23 @@ const WorkoutCard = ({ equipment, icon, workouts, difficulty, difficultyColor, o
         {/* Duration & Intensity Level on Same Line */}
         <View style={styles.durationIntensityRow}>
           <Text style={styles.workoutDuration}>{item.duration}</Text>
-          <View style={[styles.difficultyBadge, { backgroundColor: '#FFD700' }]}>
+          <View style={[styles.difficultyBadge, { backgroundColor: difficultyColor }]}>
             <Text style={styles.difficultyBadgeText}>{difficulty.toUpperCase()}</Text>
           </View>
         </View>
 
-        {/* Intensity Reason - Same Width as Photo */}
+        {/* Intensity Reason */}
         <View style={styles.intensityContainer}>
           <Ionicons name="information-circle" size={16} color="#FFD700" />
           <Text style={styles.intensityReason}>{item.intensityReason}</Text>
         </View>
 
-        {/* Workout Description - Same Width as Photo */}
+        {/* Workout Description */}
         <View style={styles.workoutDescriptionContainer}>
           <Text style={styles.workoutDescription}>{item.description}</Text>
         </View>
 
-        {/* Start Workout Button - Same Width as Photo */}
+        {/* Start Workout Button */}
         <TouchableOpacity 
           style={styles.startWorkoutButton}
           onPress={() => onStartWorkout(item, equipment, difficulty)}
@@ -255,7 +915,6 @@ const WorkoutCard = ({ equipment, icon, workouts, difficulty, difficultyColor, o
     const contentOffset = event.nativeEvent.contentOffset;
     const viewSize = event.nativeEvent.layoutMeasurement;
     
-    // Calculate current index based on scroll position
     const currentIndex = Math.round(contentOffset.x / viewSize.width);
     setCurrentWorkoutIndex(currentIndex);
   };
@@ -317,7 +976,6 @@ const WorkoutCard = ({ equipment, icon, workouts, difficulty, difficultyColor, o
                 const offset = (width - 48) * index;
                 console.log(`🔥 Scrolling to offset: ${offset}`);
                 
-                // Use scrollToOffset instead of scrollToIndex for better web compatibility
                 flatListRef.current?.scrollToOffset({
                   offset: offset,
                   animated: true
@@ -339,56 +997,81 @@ const WorkoutCard = ({ equipment, icon, workouts, difficulty, difficultyColor, o
   );
 };
 
-export default function BicepsWorkoutDisplay() {
+export default function BicepsWorkoutDisplayScreen() {
   const router = useRouter();
   const params = useLocalSearchParams();
   const insets = useSafeAreaInsets();
   
-  const moodTitle = params.mood as string || 'Muscle gainer';
-  const workoutType = params.workoutType as string || 'Biceps';
   const equipmentParam = params.equipment as string || '';
-  const difficulty = params.difficulty as string || 'beginner';
+  let selectedEquipmentNames: string[] = [];
   
-  // Parse selected equipment from URL parameter
-  const selectedEquipment = equipmentParam ? 
-    decodeURIComponent(equipmentParam).split(',').map(eq => eq.trim()) : 
-    [];
+  try {
+    if (equipmentParam) {
+      const decodedEquipment = decodeURIComponent(equipmentParam);
+      selectedEquipmentNames = decodedEquipment.split(',').map(name => name.trim());
+    }
+  } catch (error) {
+    console.error('Error parsing equipment parameter:', error);
+    selectedEquipmentNames = ['Dumbbell'];
+  }
+  
+  const difficulty = (params.difficulty as string || 'beginner').toLowerCase();
+  const moodTitle = params.mood as string || 'Muscle gainer';
+  const workoutType = 'Biceps';
+  
+  console.log('Parsed parameters:', { selectedEquipmentNames, difficulty, moodTitle, workoutType });
 
-  // Filter workout database based on selected equipment
-  const userWorkouts = bicepsWorkoutDatabase.filter(item => 
-    selectedEquipment.includes(item.equipment)
-  );
-
-  // Remove duplicates if any
-  const uniqueUserWorkouts = userWorkouts.filter((item, index, self) => 
-    index === self.findIndex((t) => t.equipment === item.equipment)
-  );
-
-  const selectedEquipmentNames = uniqueUserWorkouts.map(eq => eq.equipment);
-
-  // Get difficulty color
-  const difficultyColor = difficulty === 'beginner' ? '#FFD700' : 
-                         difficulty === 'intermediate' ? '#FFA500' : '#B8860B';
-
-  const handleGoBack = () => {
-    router.back();
+  const getDifficultyColor = (level: string) => {
+    return '#FFD700';
   };
 
-  const handleStartWorkout = (workout: Workout, equipment: string, difficulty: string) => {
-    console.log('🚀 Starting biceps workout:', workout.name);
+  const difficultyColor = getDifficultyColor(difficulty);
+
+  const userWorkouts = selectedEquipmentNames.map(equipmentName => {
+    const equipmentData = bicepsWorkoutDatabase.find(
+      eq => eq.equipment.toLowerCase() === equipmentName.toLowerCase()
+    );
     
+    if (equipmentData) {
+      const workoutsForDifficulty = equipmentData.workouts[difficulty as keyof typeof equipmentData.workouts] || [];
+      return {
+        equipment: equipmentData.equipment,
+        icon: equipmentData.icon,
+        workouts: workoutsForDifficulty
+      };
+    }
+    
+    return null;
+  }).filter(item => item !== null);
+
+  const uniqueUserWorkouts = userWorkouts.filter((workout, index, self) => 
+    index === self.findIndex(w => w!.equipment === workout!.equipment)
+  );
+
+  console.log('User workouts:', uniqueUserWorkouts);
+  console.log('userWorkoutsLength:', uniqueUserWorkouts.length);
+
+  const handleStartWorkout = (workout: Workout, equipment: string, selectedDifficulty: string) => {
+    console.log('🚀 Starting workout:', workout.name);
+    console.log('📝 Workout data:', { 
+      name: workout.name, 
+      equipment, 
+      difficulty: selectedDifficulty,
+      duration: workout.duration,
+      moodTipsCount: workout.moodTips?.length || 0
+    });
+
     try {
       router.push({
         pathname: '/workout-guidance',
         params: {
           workoutName: workout.name,
           equipment: equipment,
-          description: workout.description || '',
-          battlePlan: workout.battlePlan || '',
-          duration: workout.duration || '15 min',
-          difficulty: difficulty,
+          description: workout.description,
+          battlePlan: workout.battlePlan,
+          duration: workout.duration,
+          difficulty: selectedDifficulty,
           workoutType: workoutType,
-          // Pass MOOD tips as properly encoded JSON string
           moodTips: encodeURIComponent(JSON.stringify(workout.moodTips || []))
         }
       });
@@ -399,7 +1082,10 @@ export default function BicepsWorkoutDisplay() {
     }
   };
 
-  // Create progress bar - single row with requested order
+  const handleGoBack = () => {
+    router.back();
+  };
+
   const createProgressRows = () => {
     const steps = [
       { key: 'mood', icon: 'flame', text: moodTitle },
@@ -408,85 +1094,79 @@ export default function BicepsWorkoutDisplay() {
       { key: 'equipment', icon: 'construct', text: `${selectedEquipmentNames.length} Equipment` },
     ];
 
-    // Return single row
     return [steps];
   };
-
-  const getEquipmentIcon = (equipmentName: string): keyof typeof Ionicons.glyphMap => {
-    const equipmentIconMap: { [key: string]: keyof typeof Ionicons.glyphMap } = {
-      'Adjustable bench': 'trending-up-outline',
-      'Barbell': 'remove',
-      'Dumbbells': 'fitness'
-    };
-    return equipmentIconMap[equipmentName] || 'fitness';
-  };
-
-  if (uniqueUserWorkouts.length === 0) {
-    return (
-      <SafeAreaView style={[styles.container, { paddingTop: insets.top }]}>
-        <View style={styles.header}>
-          <TouchableOpacity onPress={handleGoBack} style={styles.backButton}>
-            <Ionicons name="chevron-back" size={24} color="#ffffff" />
-          </TouchableOpacity>
-          <Text style={styles.headerTitle}>Your Workouts</Text>
-          <View style={styles.placeholder} />
-        </View>
-        
-        <View style={styles.emptyState}>
-          <Ionicons name="fitness" size={64} color="#666" />
-          <Text style={styles.emptyStateText}>No biceps workouts found for your selected equipment.</Text>
-        </View>
-      </SafeAreaView>
-    );
-  }
 
   return (
     <SafeAreaView style={[styles.container, { paddingTop: insets.top }]}>
       {/* Header */}
       <View style={styles.header}>
-        <TouchableOpacity onPress={handleGoBack} style={styles.backButton}>
-          <Ionicons name="chevron-back" size={24} color="#ffffff" />
+        <TouchableOpacity 
+          style={styles.backButton}
+          onPress={handleGoBack}
+        >
+          <Ionicons name="chevron-back" size={24} color="#FFD700" />
         </TouchableOpacity>
-        <Text style={styles.headerTitle}>Your Workouts</Text>
-        <View style={styles.placeholder} />
+        <View style={styles.headerTextContainer}>
+          <Text style={styles.headerTitle}>Your Workouts</Text>
+          <Text style={styles.headerSubtitle}>{moodTitle}</Text>
+        </View>
+        <View style={styles.headerSpacer} />
       </View>
 
-      <ScrollView style={styles.scrollView} showsVerticalScrollIndicator={false}>
-        {/* Progress Section */}
-        <View style={styles.progressSection}>
-          <Text style={styles.progressTitle}>Your Workout Path</Text>
+      {/* Progress Bar */}
+      <View style={styles.progressContainer}>
+        <View style={styles.progressContent}>
           {createProgressRows().map((row, rowIndex) => (
-            <View key={rowIndex} style={styles.progressRow}>
+            <View key={`row-${rowIndex}`} style={styles.progressRow}>
               {row.map((step, stepIndex) => (
-                <View key={step.key} style={styles.progressStep}>
-                  <View style={styles.progressIcon}>
-                    <Ionicons name={step.icon as keyof typeof Ionicons.glyphMap} size={16} color="#FFD700" />
+                <React.Fragment key={step.key}>
+                  <View style={styles.progressStep}>
+                    <View style={styles.progressStepActive}>
+                      <Ionicons name={step.icon as keyof typeof Ionicons.glyphMap} size={10} color="#000000" />
+                    </View>
+                    <Text style={styles.progressStepText}>{step.text}</Text>
                   </View>
-                  <Text style={styles.progressText}>{step.text}</Text>
-                </View>
+                  {stepIndex < row.length - 1 && <View style={styles.progressConnector} />}
+                </React.Fragment>
               ))}
             </View>
           ))}
         </View>
+      </View>
 
-        {/* Workout Cards */}
-        <View style={styles.workoutsContainer}>
-          {uniqueUserWorkouts.map((equipmentData, index) => {
-            const difficultyWorkouts = equipmentData.workouts[difficulty as keyof typeof equipmentData.workouts] || [];
+      {/* Workouts List */}
+      <ScrollView 
+        style={styles.scrollView} 
+        contentContainerStyle={styles.scrollContent}
+        showsVerticalScrollIndicator={false}
+      >
+        {uniqueUserWorkouts.length > 0 ? (
+          uniqueUserWorkouts.map((equipmentData, index) => {
+            console.log(`Rendering card ${index + 1}: ${equipmentData!.equipment}`);
+            const difficultyWorkouts = equipmentData!.workouts;
             
             return (
               <WorkoutCard
-                key={equipmentData.equipment}
-                equipment={equipmentData.equipment}
-                icon={equipmentData.icon}
+                key={`${equipmentData!.equipment}-${index}`}
+                equipment={equipmentData!.equipment}
+                icon={equipmentData!.icon}
                 workouts={difficultyWorkouts}
                 difficulty={difficulty}
                 difficultyColor={difficultyColor}
                 onStartWorkout={handleStartWorkout}
               />
             );
-          })}
-        </View>
+          })
+        ) : (
+          <View style={styles.noWorkoutsContainer}>
+            <Ionicons name="fitness" size={48} color="#FFD700" />
+            <Text style={styles.noWorkoutsTitle}>No Workouts Found</Text>
+            <Text style={styles.noWorkoutsSubtitle}>
+              Please select different equipment or go back to make new selections.
+            </Text>
+          </View>
+        )}
       </ScrollView>
     </SafeAreaView>
   );
@@ -495,86 +1175,124 @@ export default function BicepsWorkoutDisplay() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#0c0c0c',
+    backgroundColor: '#000000',
   },
   header: {
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'space-between',
-    paddingHorizontal: 20,
+    paddingHorizontal: 24,
     paddingVertical: 16,
-    backgroundColor: '#1a1a1a',
     borderBottomWidth: 1,
-    borderBottomColor: '#333333',
+    borderBottomColor: 'rgba(255, 215, 0, 0.2)',
   },
   backButton: {
-    padding: 8,
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+    backgroundColor: 'rgba(255, 215, 0, 0.1)',
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderWidth: 2,
+    borderColor: 'rgba(255, 215, 0, 0.3)',
+  },
+  headerTextContainer: {
+    flex: 1,
+    alignItems: 'center',
   },
   headerTitle: {
     fontSize: 20,
     fontWeight: 'bold',
-    color: '#ffffff',
+    color: '#FFD700',
     textAlign: 'center',
   },
-  placeholder: {
+  headerSubtitle: {
+    fontSize: 14,
+    color: 'rgba(255, 255, 255, 0.7)',
+    textAlign: 'center',
+    marginTop: 2,
+  },
+  headerSpacer: {
     width: 40,
+  },
+  progressContainer: {
+    backgroundColor: '#111111',
+    borderBottomWidth: 1,
+    borderBottomColor: 'rgba(255, 215, 0, 0.2)',
+    paddingVertical: 12,
+    paddingHorizontal: 8,
+  },
+  progressContent: {
+    alignItems: 'center',
+  },
+  progressRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginBottom: 12,
+  },
+  progressStep: {
+    alignItems: 'center',
+    minWidth: 60,
+  },
+  progressStepActive: {
+    width: 24,
+    height: 24,
+    borderRadius: 12,
+    backgroundColor: '#FFD700',
+    borderWidth: 2,
+    borderColor: '#FFD700',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginBottom: 6,
+    shadowColor: '#FFD700',
+    shadowOffset: { width: 0, height: 0 },
+    shadowOpacity: 0.6,
+    shadowRadius: 4,
+    elevation: 4,
+  },
+  progressStepText: {
+    fontSize: 10,
+    color: 'rgba(255, 255, 255, 0.8)',
+    textAlign: 'center',
+    fontWeight: '500',
+    maxWidth: 70,
+  },
+  progressConnector: {
+    width: 20,
+    height: 1,
+    backgroundColor: 'rgba(255, 215, 0, 0.3)',
+    marginHorizontal: 4,
+    marginTop: 12,
   },
   scrollView: {
     flex: 1,
   },
-  progressSection: {
-    padding: 20,
-    backgroundColor: '#1a1a1a',
-    marginBottom: 16,
-  },
-  progressTitle: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    color: '#ffffff',
-    marginBottom: 16,
-    textAlign: 'center',
-  },
-  progressRow: {
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    marginBottom: 8,
-  },
-  progressStep: {
-    alignItems: 'center',
-    flex: 1,
-    maxWidth: '25%',
-  },
-  progressIcon: {
-    width: 32,
-    height: 32,
-    borderRadius: 16,
-    backgroundColor: 'rgba(255, 215, 0, 0.15)',
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginBottom: 4,
-  },
-  progressText: {
-    fontSize: 11,
-    color: '#ffffff',
-    textAlign: 'center',
-    fontWeight: '500',
-  },
-  workoutsContainer: {
+  scrollContent: {
+    padding: 24,
     paddingBottom: 100,
   },
   workoutCard: {
-    backgroundColor: '#1a1a1a',
-    marginHorizontal: 24,
-    marginVertical: 12,
-    borderRadius: 16,
+    backgroundColor: '#111111',
+    borderRadius: 20,
+    borderWidth: 2,
+    borderColor: 'rgba(255, 215, 0, 0.3)',
+    shadowColor: '#FFD700',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.4,
+    shadowRadius: 20,
+    elevation: 12,
     overflow: 'hidden',
+    marginBottom: 25,
+    width: '100%',
   },
   equipmentHeader: {
     flexDirection: 'row',
     alignItems: 'center',
-    paddingHorizontal: 20,
-    paddingVertical: 16,
-    backgroundColor: '#262626',
+    justifyContent: 'space-between',
+    padding: 16,
+    borderBottomWidth: 1,
+    borderBottomColor: 'rgba(255, 215, 0, 0.2)',
+    backgroundColor: '#1a1a1a',
   },
   equipmentIconContainer: {
     width: 40,
@@ -583,40 +1301,46 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(255, 215, 0, 0.15)',
     justifyContent: 'center',
     alignItems: 'center',
-    marginRight: 12,
+    borderWidth: 2,
+    borderColor: 'rgba(255, 215, 0, 0.3)',
   },
   equipmentName: {
     fontSize: 18,
     fontWeight: 'bold',
-    color: '#ffffff',
+    color: '#FFD700',
     flex: 1,
+    marginLeft: 12,
   },
   workoutIndicator: {
     backgroundColor: 'rgba(255, 215, 0, 0.15)',
     paddingHorizontal: 12,
     paddingVertical: 6,
     borderRadius: 12,
+    borderWidth: 1,
+    borderColor: 'rgba(255, 215, 0, 0.3)',
   },
   workoutCount: {
-    fontSize: 14,
-    color: '#FFD700',
+    fontSize: 12,
     fontWeight: '600',
+    color: '#FFD700',
   },
   workoutList: {
-    // Container for FlatList
+    paddingVertical: 16,
   },
   workoutSlide: {
-    padding: 20,
+    paddingHorizontal: 16,
   },
   workoutImageContainer: {
-    position: 'relative',
-    borderRadius: 12,
+    width: '100%',
+    height: 200,
+    borderRadius: 16,
     overflow: 'hidden',
     marginBottom: 16,
+    position: 'relative',
   },
   workoutImage: {
     width: '100%',
-    height: 200,
+    height: '100%',
   },
   imageOverlay: {
     position: 'absolute',
@@ -628,29 +1352,33 @@ const styles = StyleSheet.create({
   },
   swipeIndicator: {
     position: 'absolute',
-    top: 12,
+    bottom: 12,
     right: 12,
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: 'rgba(0, 0, 0, 0.7)',
-    paddingHorizontal: 8,
-    paddingVertical: 4,
-    borderRadius: 12,
+    backgroundColor: 'rgba(0, 0, 0, 0.6)',
+    paddingHorizontal: 12,
+    paddingVertical: 6,
+    borderRadius: 20,
+    gap: 6,
   },
   swipeText: {
-    fontSize: 12,
     color: '#FFD700',
-    marginLeft: 4,
-    fontWeight: '500',
+    fontSize: 12,
+    fontWeight: '600',
   },
   workoutContent: {
-    // Content container
+    paddingHorizontal: 16,
+    paddingBottom: 16,
   },
   workoutName: {
-    fontSize: 20,
+    fontSize: 22,
     fontWeight: 'bold',
     color: '#ffffff',
     marginBottom: 8,
+    textShadowColor: 'rgba(255, 215, 0, 0.3)',
+    textShadowOffset: { width: 0, height: 0 },
+    textShadowRadius: 8,
   },
   durationIntensityRow: {
     flexDirection: 'row',
@@ -659,113 +1387,116 @@ const styles = StyleSheet.create({
     marginBottom: 12,
   },
   workoutDuration: {
-    fontSize: 16,
-    color: '#cccccc',
+    fontSize: 14,
+    color: 'rgba(255, 255, 255, 0.8)',
     fontWeight: '500',
   },
   difficultyBadge: {
     paddingHorizontal: 12,
     paddingVertical: 4,
-    borderRadius: 12,
+    borderRadius: 8,
   },
   difficultyBadgeText: {
-    fontSize: 12,
+    fontSize: 10,
     fontWeight: 'bold',
     color: '#000000',
   },
   intensityContainer: {
     flexDirection: 'row',
     alignItems: 'flex-start',
+    backgroundColor: 'rgba(255, 215, 0, 0.1)',
+    padding: 12,
+    borderRadius: 12,
     marginBottom: 12,
-    paddingHorizontal: 12,
-    paddingVertical: 8,
-    backgroundColor: 'rgba(255, 215, 0, 0.12)',
-    borderRadius: 8,
-    borderWidth: 1,
-    borderColor: 'rgba(255, 215, 0, 0.25)',
+    gap: 8,
   },
   intensityReason: {
-    fontSize: 14,
-    color: '#FFD700',
-    marginLeft: 8,
     flex: 1,
-    lineHeight: 20,
+    fontSize: 13,
+    color: 'rgba(255, 255, 255, 0.9)',
+    lineHeight: 18,
+    fontStyle: 'italic',
   },
   workoutDescriptionContainer: {
     marginBottom: 16,
   },
   workoutDescription: {
     fontSize: 14,
-    color: '#cccccc',
+    color: 'rgba(255, 255, 255, 0.8)',
     lineHeight: 20,
   },
   startWorkoutButton: {
+    backgroundColor: '#FFD700',
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#FFD700',
-    paddingVertical: 12,
-    borderRadius: 8,
+    paddingVertical: 14,
+    borderRadius: 12,
+    gap: 8,
+    shadowColor: '#FFD700',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.4,
+    shadowRadius: 8,
+    elevation: 6,
   },
   startWorkoutButtonText: {
     fontSize: 16,
     fontWeight: 'bold',
     color: '#000000',
-    marginLeft: 8,
   },
   dotsContainer: {
     alignItems: 'center',
     paddingVertical: 16,
+    paddingHorizontal: 16,
+    gap: 8,
   },
   dotsLabel: {
     fontSize: 12,
-    color: '#888888',
-    marginBottom: 8,
+    color: 'rgba(255, 255, 255, 0.6)',
+    marginBottom: 4,
   },
   dotsRow: {
     flexDirection: 'row',
     alignItems: 'center',
+    gap: 8,
+  },
+  dotTouchArea: {
+    padding: 8,
+    borderRadius: 12,
+  },
+  activeDotTouchArea: {
+    backgroundColor: 'rgba(255, 215, 0, 0.1)',
   },
   dot: {
     width: 8,
     height: 8,
     borderRadius: 4,
-    backgroundColor: '#333333',
-    marginHorizontal: 4,
+    backgroundColor: 'rgba(255, 215, 0, 0.3)',
   },
   activeDot: {
+    width: 12,
+    height: 12,
+    borderRadius: 6,
     backgroundColor: '#FFD700',
-    width: 24,
-    borderRadius: 4,
   },
-  dotTouchArea: {
-    padding: 8,
-    justifyContent: 'center',
-    alignItems: 'center',
-    minWidth: 32,
-    minHeight: 32,
-    borderRadius: 16,
-  },
-  activeDotTouchArea: {
-    padding: 8,
-    justifyContent: 'center',
-    alignItems: 'center',
-    minWidth: 32,
-    minHeight: 32,
-    borderRadius: 16,
-    backgroundColor: 'rgba(255, 215, 0, 0.1)',
-  },
-    emptyState: {
+  noWorkoutsContainer: {
     flex: 1,
-    justifyContent: 'center',
     alignItems: 'center',
-    paddingHorizontal: 40,
+    justifyContent: 'center',
+    paddingVertical: 60,
+    paddingHorizontal: 24,
   },
-  emptyStateText: {
-    fontSize: 16,
-    color: '#666666',
-    textAlign: 'center',
+  noWorkoutsTitle: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    color: '#FFD700',
     marginTop: 16,
-    lineHeight: 22,
+    marginBottom: 8,
+  },
+  noWorkoutsSubtitle: {
+    fontSize: 14,
+    color: 'rgba(255, 255, 255, 0.7)',
+    textAlign: 'center',
+    lineHeight: 20,
   },
 });
