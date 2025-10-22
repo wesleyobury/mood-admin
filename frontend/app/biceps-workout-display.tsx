@@ -190,6 +190,8 @@ const WorkoutCard = ({ equipment, icon, workouts, difficulty, difficultyColor, o
   const [currentWorkoutIndex, setCurrentWorkoutIndex] = useState(0);
   const flatListRef = useRef<FlatList>(null);
 
+  console.log(`💪 WorkoutCard for ${equipment}: received ${workouts.length} workouts for ${difficulty} difficulty`);
+
   const renderWorkout = ({ item, index }: { item: Workout; index: number }) => (
     <View style={[styles.workoutSlide, { width: width - 48 }]}>
       {/* Workout Image with Rounded Edges */}
@@ -243,35 +245,24 @@ const WorkoutCard = ({ equipment, icon, workouts, difficulty, difficultyColor, o
     </View>
   );
 
-  // Simple touch-based swipe detection for reliable web compatibility
-  const [touchStart, setTouchStart] = useState<number | null>(null);
-  const [touchEnd, setTouchEnd] = useState<number | null>(null);
+  const onViewableItemsChanged = useRef(({ viewableItems }: any) => {
+    if (viewableItems.length > 0) {
+      setCurrentWorkoutIndex(viewableItems[0].index || 0);
+    }
+  }).current;
 
-  const minSwipeDistance = 50;
-
-  const onTouchStart = (e: any) => {
-    setTouchEnd(null);
-    setTouchStart(e.nativeEvent.touches[0].clientX);
-  };
-
-  const onTouchMove = (e: any) => {
-    setTouchEnd(e.nativeEvent.touches[0].clientX);
-  };
-
-  const onTouchEnd = () => {
-    if (!touchStart || !touchEnd) return;
+  const onScroll = (event: any) => {
+    const contentOffset = event.nativeEvent.contentOffset;
+    const viewSize = event.nativeEvent.layoutMeasurement;
     
-    const distance = touchStart - touchEnd;
-    const isLeftSwipe = distance > minSwipeDistance;
-    const isRightSwipe = distance < -minSwipeDistance;
-
-    if (isLeftSwipe && currentWorkoutIndex < workouts.length - 1) {
-      setCurrentWorkoutIndex(currentWorkoutIndex + 1);
-    }
-    if (isRightSwipe && currentWorkoutIndex > 0) {
-      setCurrentWorkoutIndex(currentWorkoutIndex - 1);
-    }
+    // Calculate current index based on scroll position
+    const currentIndex = Math.round(contentOffset.x / viewSize.width);
+    setCurrentWorkoutIndex(currentIndex);
   };
+
+  if (workouts.length === 0) {
+    return null;
+  }
 
   return (
     <View style={styles.workoutCard}>
@@ -286,13 +277,8 @@ const WorkoutCard = ({ equipment, icon, workouts, difficulty, difficultyColor, o
         </View>
       </View>
 
-      {/* Workout List with Touch Swiping */}
-      <View 
-        style={styles.workoutList}
-        onTouchStart={onTouchStart}
-        onTouchMove={onTouchMove}
-        onTouchEnd={onTouchEnd}
-      >
+      {/* Workout List */}
+      <View style={styles.workoutList}>
         <FlatList
           ref={flatListRef}
           data={workouts}
@@ -300,7 +286,57 @@ const WorkoutCard = ({ equipment, icon, workouts, difficulty, difficultyColor, o
           horizontal
           pagingEnabled
           showsHorizontalScrollIndicator={false}
-          onMomentumScrollEnd={(event) => {
+          onViewableItemsChanged={onViewableItemsChanged}
+          viewabilityConfig={{
+            itemVisiblePercentThreshold: 50
+          }}
+          getItemLayout={(data, index) => ({
+            length: width - 48,
+            offset: (width - 48) * index,
+            index,
+          })}
+          keyExtractor={(item, index) => `${equipment}-${item.name}-${index}`}
+          onScroll={onScroll}
+          scrollEventThrottle={16}
+        />
+      </View>
+
+      {/* Navigation Dots */}
+      <View style={styles.dotsContainer}>
+        <Text style={styles.dotsLabel}>Swipe to explore</Text>
+        <View style={styles.dotsRow}>
+          {workouts.map((_, index) => (
+            <TouchableOpacity
+              key={index}
+              style={[
+                styles.dotTouchArea,
+                currentWorkoutIndex === index && styles.activeDotTouchArea,
+              ]}
+              onPress={() => {
+                console.log(`🔥 Dot clicked: index ${index}, width: ${width - 48}`);
+                const offset = (width - 48) * index;
+                console.log(`🔥 Scrolling to offset: ${offset}`);
+                
+                // Use scrollToOffset instead of scrollToIndex for better web compatibility
+                flatListRef.current?.scrollToOffset({
+                  offset: offset,
+                  animated: true
+                });
+                setCurrentWorkoutIndex(index);
+              }}
+              activeOpacity={0.7}
+              hitSlop={{top: 10, bottom: 10, left: 10, right: 10}}
+            >
+              <View style={[
+                styles.dot,
+                currentWorkoutIndex === index && styles.activeDot,
+              ]} />
+            </TouchableOpacity>
+          ))}
+        </View>
+      </View>
+    </View>
+  );{(event) => {
             const slideSize = width - 48;
             const index = Math.floor(event.nativeEvent.contentOffset.x / slideSize);
             setCurrentWorkoutIndex(index);
@@ -741,7 +777,24 @@ const styles = StyleSheet.create({
     width: 24,
     borderRadius: 4,
   },
-  emptyState: {
+  dotTouchArea: {
+    padding: 8,
+    justifyContent: 'center',
+    alignItems: 'center',
+    minWidth: 32,
+    minHeight: 32,
+    borderRadius: 16,
+  },
+  activeDotTouchArea: {
+    padding: 8,
+    justifyContent: 'center',
+    alignItems: 'center',
+    minWidth: 32,
+    minHeight: 32,
+    borderRadius: 16,
+    backgroundColor: 'rgba(255, 215, 0, 0.1)',
+  },
+    emptyState: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
