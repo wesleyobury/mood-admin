@@ -11,6 +11,7 @@ import {
 import { Ionicons } from '@expo/vector-icons';
 import { useRouter, useLocalSearchParams } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { useCart } from '../contexts/CartContext';
 
 interface MOODTip {
   icon: keyof typeof Ionicons.glyphMap;
