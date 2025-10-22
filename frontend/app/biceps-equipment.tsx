@@ -24,11 +24,13 @@ interface DifficultyLevel {
   color: string;
 }
 
-// Updated equipment names to match biceps-workout-display.tsx database
 const equipmentOptions: EquipmentOption[] = [
-  { id: 'adjustable-bench', name: 'Adjustable bench', icon: 'trending-up-outline' },
-  { id: 'barbell', name: 'Barbell', icon: 'remove' },
-  { id: 'dumbbells', name: 'Dumbbells', icon: 'fitness' },
+  { id: 'biceps-curl-machine', name: 'Biceps Curl Machine', icon: 'fitness' },
+  { id: 'cable-machine', name: 'Cable Machine', icon: 'swap-vertical' },
+  { id: 'dumbbell', name: 'Dumbbell', icon: 'barbell' },
+  { id: 'ez-curl-bar', name: 'EZ Curl Bar', icon: 'remove' },
+  { id: 'preacher-curl-machine', name: 'Preacher Curl Machine', icon: 'desktop' },
+  { id: 'pull-up-bar', name: 'Pull Up Bar', icon: 'remove-outline' },
 ];
 
 const difficultyLevels: DifficultyLevel[] = [
@@ -147,10 +149,8 @@ export default function BicepsEquipmentScreen() {
     setSelectedEquipment(prev => {
       const isAlreadySelected = prev.some(item => item.id === equipment.id);
       if (isAlreadySelected) {
-        // Remove from selection
         return prev.filter(item => item.id !== equipment.id);
       } else {
-        // Add to selection
         return [...prev, equipment];
       }
     });
@@ -165,7 +165,6 @@ export default function BicepsEquipmentScreen() {
       console.log('Selected equipment:', selectedEquipment.map(eq => eq.name));
       console.log('Selected difficulty:', selectedDifficulty.title);
       
-      // Navigate to biceps workout display
       const equipmentNames = selectedEquipment.map(eq => eq.name);
       const equipmentNamesString = equipmentNames.join(',');
       
