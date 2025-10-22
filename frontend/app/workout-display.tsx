@@ -2964,13 +2964,12 @@ interface WorkoutCardProps {
   scaleAnim: Animated.Value;
   createWorkoutId: (workout: Workout, equipment: string, difficulty: string) => string;
   handleAddToCart: (workout: Workout) => void;
-  currentWorkoutIndex: number;
-  setCurrentWorkoutIndex: (index: number) => void;
-  flatListRef: React.RefObject<FlatList>;
 }
 
-const WorkoutCard = ({ equipment, icon, workouts, difficulty, difficultyColor, workoutType, moodCard, onStartWorkout, isInCart, addedItems, scaleAnim, createWorkoutId, handleAddToCart, currentWorkoutIndex, setCurrentWorkoutIndex, flatListRef }: WorkoutCardProps) => {
-  // Hooks moved to proper scope within component
+const WorkoutCard = ({ equipment, icon, workouts, difficulty, difficultyColor, workoutType, moodCard, onStartWorkout, isInCart, addedItems, scaleAnim, createWorkoutId, handleAddToCart }: WorkoutCardProps) => {
+  // Each card manages its own state - isolated from other cards
+  const [currentWorkoutIndex, setCurrentWorkoutIndex] = useState(0);
+  const flatListRef = useRef<FlatList>(null);
 
   const renderWorkout = ({ item, index }: { item: Workout; index: number }) => (
     <View style={[styles.workoutSlide, { width: width - 48 }]}>
