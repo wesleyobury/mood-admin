@@ -336,6 +336,7 @@ const WorkoutCard = ({ equipment, icon, workouts, difficulty, difficultyColor, o
         </View>
       </View>
     </View>
+  );
 };
 
 export default function BicepsWorkoutDisplay() {

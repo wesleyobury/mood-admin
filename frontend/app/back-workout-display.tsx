@@ -1717,6 +1717,7 @@ export default function BackWorkoutDisplay() {
         </View>
       </View>
     </View>
+  );
 };
 
 export default function BackWorkoutDisplay() {
