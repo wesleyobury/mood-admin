@@ -86,12 +86,11 @@ export default function WorkoutSessionScreen() {
 
   const handleFinishSession = () => {
     Alert.alert(
-      "Session Complete!",
-      "Congratulations on completing your workout session! Clear your cart?",
+      "Session Complete! 🎉",
+      "Congratulations on completing your workout session!",
       [
-        { text: "Keep Cart", style: "cancel", onPress: () => router.push('/cart') },
         { 
-          text: "Clear Cart", 
+          text: "Done", 
           style: "default", 
           onPress: () => {
             clearCart();
