@@ -243,13 +243,18 @@ export default function WorkoutGuidanceScreen() {
           }
         });
       } else {
-        // Session complete
+        // Session complete - clear cart and go home
         Alert.alert(
           "Session Complete! 🎉",
           `Congratulations! You've completed all ${sessionWorkouts.length} workouts in your session.`,
           [
-            { text: "Back to Cart", onPress: () => router.push('/cart') },
-            { text: "Back to Home", onPress: () => router.push('/(tabs)') }
+            { 
+              text: "Done", 
+              onPress: () => {
+                clearCart();
+                router.push('/(tabs)');
+              }
+            }
           ]
         );
       }
