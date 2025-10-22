@@ -3197,8 +3197,8 @@ export default function WorkoutDisplayScreen() {
     return `${workout.name}-${equipment}-${difficulty}`;
   };
 
-  const handleAddToCart = (workout: Workout) => {
-    const workoutId = createWorkoutId(workout, workout.equipment, difficulty);
+  const handleAddToCart = (workout: Workout, equipment: string) => {
+    const workoutId = createWorkoutId(workout, equipment, difficulty);
     
     if (isInCart(workoutId) || addedItems.has(workoutId)) {
       return; // Already in cart
@@ -3213,7 +3213,7 @@ export default function WorkoutDisplayScreen() {
       battlePlan: workout.battlePlan,
       imageUrl: workout.imageUrl,
       intensityReason: workout.intensityReason,
-      equipment: workout.equipment,
+      equipment: equipment,
       difficulty: difficulty,
       workoutType: workoutType,
       moodCard: moodTitle, // Now moodTitle is in scope
