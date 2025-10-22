@@ -3037,16 +3037,16 @@ const WorkoutCard = ({ equipment, icon, workouts, difficulty, difficultyColor, w
         <TouchableOpacity
           style={[
             styles.addToCartButton,
-            (isInCart(createWorkoutId(workouts[currentWorkoutIndex], workouts[currentWorkoutIndex].equipment, difficulty)) || 
-             addedItems.has(createWorkoutId(workouts[currentWorkoutIndex], workouts[currentWorkoutIndex].equipment, difficulty))) && 
+            (isInCart(createWorkoutId(workouts[currentWorkoutIndex], equipment, difficulty)) || 
+             addedItems.has(createWorkoutId(workouts[currentWorkoutIndex], equipment, difficulty))) && 
             styles.addToCartButtonAdded
           ]}
           onPress={() => handleAddToCart(workouts[currentWorkoutIndex], equipment)}
           activeOpacity={0.8}
         >
           <Animated.View style={[styles.addToCartButtonContent, { transform: [{ scale: scaleAnim }] }]}>
-            {isInCart(createWorkoutId(workouts[currentWorkoutIndex], workouts[currentWorkoutIndex].equipment, difficulty)) || 
-             addedItems.has(createWorkoutId(workouts[currentWorkoutIndex], workouts[currentWorkoutIndex].equipment, difficulty)) ? (
+            {isInCart(createWorkoutId(workouts[currentWorkoutIndex], equipment, difficulty)) || 
+             addedItems.has(createWorkoutId(workouts[currentWorkoutIndex], equipment, difficulty)) ? (
               <Ionicons name="checkmark" size={16} color="#FFD700" />
             ) : (
               <>
