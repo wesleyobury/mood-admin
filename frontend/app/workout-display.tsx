@@ -928,7 +928,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Speed & Endurance',
           duration: '30 min',
-          description: 'Advanced stepping with fast pace, side steps,\nand double steps patterns. 5 complete rounds.\n ',
+          description: 'Advanced stepping with varied patterns. 5 rounds.\n ',
           battlePlan: '• 2 min fast\n• 1 min side step\n• 1 min double step\n• 2 min moderate\n• repeat 5x',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxzdGFpcm1hc3RlciUyMHdvcmtvdXR8ZW58MXx8fHwxNzU2ODgzNjUyfDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'High-speed stepping demands advanced coordination and power.',
