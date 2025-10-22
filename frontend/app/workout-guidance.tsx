@@ -118,6 +118,7 @@ export default function WorkoutGuidanceScreen() {
   const router = useRouter();
   const params = useLocalSearchParams();
   const insets = useSafeAreaInsets();
+  const { clearCart } = useCart();
   
   const workoutName = params.workoutName as string || 'Workout';
   const equipment = params.equipment as string || 'Equipment';
