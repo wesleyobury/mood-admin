@@ -521,7 +521,7 @@ export default function WorkoutGuidanceScreen() {
             {isSession 
               ? (currentSessionIndex < sessionWorkouts.length - 1 
                   ? "Next Workout" 
-                  : "Complete Session")
+                  : "Complete & Go Home")
               : "Completed Workout"
             }
           </Text>
