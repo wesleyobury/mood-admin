@@ -1150,7 +1150,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Interval Run',
           duration: '18 min',
-          description: 'Running intervals with recovery walks.\nAlternating 1min runs and 2min recovery. 3 cycles.\n ',
+          description: 'Running intervals with recovery walks. 3 cycles.\n ',
           battlePlan: '• 1 min run\n• 2 min walk\n• 1 min fast run\n• 2 min walk\n• repeat 3x',
           imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmd8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Intervals on curve treadmill challenge intermediate runners.',
