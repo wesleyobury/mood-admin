@@ -250,23 +250,12 @@ export default function WorkoutGuidanceScreen() {
           }
         });
       } else {
-        // Session complete - clear cart and go home
-        console.log('🎉 Session complete! Showing alert...');
-        Alert.alert(
-          "Session Complete! 🎉",
-          `Congratulations! You've completed all ${sessionWorkouts.length} workouts in your session.`,
-          [
-            { 
-              text: "Done", 
-              onPress: () => {
-                console.log('🧹 Clearing cart...');
-                clearCart();
-                console.log('🏠 Navigating to home...');
-                router.push('/(tabs)');
-              }
-            }
-          ]
-        );
+        // Session complete - clear cart and go home automatically
+        console.log('🎉 Session complete! Clearing cart and navigating home...');
+        console.log('🧹 Clearing cart...');
+        clearCart();
+        console.log('🏠 Navigating to home...');
+        router.push('/(tabs)');
       }
     } else {
       // Single workout - navigate back to the previous workout cards screen
