@@ -1414,7 +1414,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Interval Climb',
           duration: '15 min',
-          description: 'Climbing intervals alternating hard, moderate,\nand slow intensities. 5 complete rounds.\n ',
+          description: 'Sustained intervals challenge full-body endurance. 5 rounds.\n ',
           battlePlan: '• 1 min hard\n• 1 min moderate\n• 1 min slow\n• repeat 5x',
           imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmd8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Sustained intervals challenge intermediate full-body endurance.',
