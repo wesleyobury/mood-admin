@@ -40,19 +40,19 @@ const difficultyLevels: DifficultyLevel[] = [
     id: 'beginner',
     title: 'Beginner',
     subtitle: 'New to triceps workouts',
-    color: '#FFD700',    // Same neon gold for all
+    color: '#FFD700',
   },
   {
     id: 'intermediate',
     title: 'Intermediate',
     subtitle: 'Some triceps training experience',
-    color: '#FFD700',    // Same neon gold for all
+    color: '#FFD700',
   },
   {
     id: 'advanced',
     title: 'Advanced',
     subtitle: 'Regular triceps training enthusiast',
-    color: '#FFD700',    // Same neon gold for all
+    color: '#FFD700',
   },
 ];
 
@@ -80,7 +80,7 @@ const EquipmentCard = ({
       ]}>
         <Ionicons 
           name={equipment.icon} 
-          size={24} 
+          size={20} 
           color={isSelected ? "#000000" : "#FFD700"} 
         />
       </View>
@@ -90,6 +90,11 @@ const EquipmentCard = ({
       ]}>
         {equipment.name}
       </Text>
+      {isSelected && (
+        <View style={styles.equipmentIndicator}>
+          <Ionicons name="checkmark" size={16} color="#000000" />
+        </View>
+      )}
     </TouchableOpacity>
   );
 };
@@ -164,7 +169,7 @@ export default function TricepsEquipmentScreen() {
       console.log('Selected equipment:', selectedEquipment.map(eq => eq.name));
       console.log('Selected difficulty:', selectedDifficulty.title);
       
-      // Navigate to triceps workout display for all equipment selections
+      // Navigate to triceps workout display
       const equipmentNames = selectedEquipment.map(eq => eq.name);
       const equipmentNamesString = equipmentNames.join(',');
       
@@ -266,12 +271,12 @@ export default function TricepsEquipmentScreen() {
       </View>
 
       <ScrollView style={styles.scrollView} showsVerticalScrollIndicator={false}>
-        {/* Equipment Selection */}
+        {/* Equipment Selection - Vertically Stacked */}
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>Select Equipment</Text>
           <Text style={styles.sectionSubtitle}>Choose one or multiple triceps equipment options</Text>
           
-          <View style={styles.equipmentGrid}>
+          <View style={styles.equipmentContainer}>
             {equipmentOptions.map((equipment) => (
               <EquipmentCard
                 key={equipment.id}
@@ -455,56 +460,60 @@ const styles = StyleSheet.create({
     marginBottom: 24,
     lineHeight: 22,
   },
-  equipmentGrid: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
+  equipmentContainer: {
     gap: 12,
-    justifyContent: 'space-between',
   },
   equipmentCard: {
-    width: '48%',
     backgroundColor: '#111111',
-    borderRadius: 16,
-    borderWidth: 2,
+    borderRadius: 12,
+    borderWidth: 1,
     borderColor: 'rgba(255, 215, 0, 0.3)',
     padding: 16,
+    flexDirection: 'row',
     alignItems: 'center',
-    marginBottom: 8,
+    justifyContent: 'space-between',
   },
   equipmentCardSelected: {
     backgroundColor: '#FFD700',
     borderColor: '#FFD700',
     shadowColor: '#FFD700',
     shadowOffset: { width: 0, height: 0 },
-    shadowOpacity: 0.6,
-    shadowRadius: 12,
-    elevation: 8,
+    shadowOpacity: 0.4,
+    shadowRadius: 8,
+    elevation: 4,
   },
   equipmentIconContainer: {
-    width: 48,
-    height: 48,
-    borderRadius: 24,
+    width: 36,
+    height: 36,
+    borderRadius: 18,
     backgroundColor: 'rgba(255, 215, 0, 0.15)',
     justifyContent: 'center',
     alignItems: 'center',
-    marginBottom: 12,
-    borderWidth: 2,
+    borderWidth: 1,
     borderColor: 'rgba(255, 215, 0, 0.3)',
+    marginRight: 12,
   },
   equipmentIconContainerSelected: {
     backgroundColor: 'rgba(0, 0, 0, 0.2)',
     borderColor: 'rgba(0, 0, 0, 0.3)',
   },
   equipmentName: {
-    fontSize: 14,
+    fontSize: 16,
     fontWeight: '600',
     color: '#ffffff',
-    textAlign: 'center',
-    lineHeight: 18,
+    flex: 1,
   },
   equipmentNameSelected: {
     color: '#000000',
-    fontWeight: 'bold',
+  },
+  equipmentIndicator: {
+    width: 24,
+    height: 24,
+    borderRadius: 12,
+    backgroundColor: 'rgba(0, 0, 0, 0.2)',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginLeft: 8,
   },
   difficultyContainer: {
     gap: 16,
