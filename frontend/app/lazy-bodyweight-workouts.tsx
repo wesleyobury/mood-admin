@@ -1691,8 +1691,8 @@ export default function LazyBodyweightWorkoutsScreen() {
               <TouchableOpacity
                 key={index}
                 style={[
-                  styles.dot,
-                  index === currentWorkoutIndex && styles.activeDot
+                  styles.dotTouchArea,
+                  index === currentWorkoutIndex && styles.activeDotTouchArea
                 ]}
                 onPress={() => {
                   console.log(`Dot clicked: ${index}, Current: ${currentWorkoutIndex}`);
@@ -1705,7 +1705,13 @@ export default function LazyBodyweightWorkoutsScreen() {
                   });
                 }}
                 activeOpacity={0.7}
-              />
+                hitSlop={{top: 10, bottom: 10, left: 10, right: 10}}
+              >
+                <View style={[
+                  styles.dot,
+                  index === currentWorkoutIndex && styles.activeDot,
+                ]} />
+              </TouchableOpacity>
             ))}
           </View>
         </View>
