@@ -3193,12 +3193,15 @@ export default function CompoundWorkoutDisplayScreen() {
     return `${workout.name}-${equipment}-${difficulty}`;
   };
 
-  const handleAddToCart = (workout: Workout, equipment: string) => {
+  const handleAddToCart = (workout: Workout, equipment: string, muscleGroup: string) => {
     const workoutId = createWorkoutId(workout, equipment, difficulty);
     
     if (isInCart(workoutId) || addedItems.has(workoutId)) {
       return; // Already in cart
     }
+
+    // Create proper workout type with muscle group (e.g., "Legs - Compound", "Legs - Hammies")
+    const displayWorkoutType = `${workoutType} - ${muscleGroup}`;
 
     // Create WorkoutItem from current workout
     const workoutItem: WorkoutItem = {
@@ -3211,7 +3214,7 @@ export default function CompoundWorkoutDisplayScreen() {
       intensityReason: workout.intensityReason,
       equipment: equipment,
       difficulty: difficulty,
-      workoutType: workoutType,
+      workoutType: displayWorkoutType,
       moodCard: moodTitle,
       moodTips: workout.moodTips || [],
     };
