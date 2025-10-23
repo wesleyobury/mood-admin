@@ -983,9 +983,7 @@ const WorkoutCard = ({ equipment, icon, workouts, difficulty, difficultyColor, o
   const [currentWorkoutIndex, setCurrentWorkoutIndex] = useState(0);
   const flatListRef = useRef<FlatList>(null);
 
-  console.log(`💪 WorkoutCard for ${equipment}: received ${workouts.length} workouts for ${difficulty} difficulty`);
-
-  const renderWorkout = ({ item, index }: { item: Workout; index: number }) => (
+  console.log(`💪 WorkoutCard for ${equipment}: received ${workouts.length} workouts for ${difficulty} difficulty`);  const renderWorkout = ({ item, index }: { item: Workout; index: number }) => (
     <View style={[styles.workoutSlide, { width: width - 48 }]}>
       {/* Workout Image with Rounded Edges */}
       <View style={styles.workoutImageContainer}>
