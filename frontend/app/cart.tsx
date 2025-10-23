@@ -36,6 +36,12 @@ const CartItemComponent: React.FC<{
               ? item.moodCard.substring(0, 15) + '...' 
               : item.moodCard || 'Workout'}
           </Text>
+          <View style={styles.workoutTypeContainer}>
+            <View style={styles.workoutTypeDot} />
+            <Text style={styles.workoutTypeText}>
+              {item.workoutType}
+            </Text>
+          </View>
         </View>
         <TouchableOpacity
           style={styles.removeButton}
