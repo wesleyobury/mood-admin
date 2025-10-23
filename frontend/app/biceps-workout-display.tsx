@@ -1059,6 +1059,11 @@ export default function BicepsWorkoutDisplayScreen() {
   
   console.log('Parsed parameters:', { selectedEquipmentNames, difficulty, moodTitle, workoutType });
 
+  // Cart and animation hooks
+  const { addToCart, isInCart } = useCart();
+  const [scaleAnim] = useState(new Animated.Value(1));
+  const [addedItems, setAddedItems] = useState<Set<string>>(new Set());
+
   const getDifficultyColor = (level: string) => {
     return '#FFD700';
   };
