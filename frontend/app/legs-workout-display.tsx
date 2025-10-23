@@ -605,6 +605,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingVertical: 8,
     marginBottom: 16,
+    backgroundColor: 'rgba(255, 215, 0, 0.05)',
   },
   indicatorText: {
     fontSize: 16,
@@ -622,17 +623,22 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
   },
-  dot: {
+  dotTouchArea: {
     width: 8,
     height: 8,
     borderRadius: 4,
-    backgroundColor: 'rgba(255, 255, 255, 0.3)',
+    backgroundColor: 'rgba(255, 215, 0, 0.3)',
     marginHorizontal: 4,
   },
-  activeDot: {
+  activeDotTouchArea: {
     backgroundColor: '#FFD700',
     width: 24,
     borderRadius: 4,
+    shadowColor: '#FFD700',
+    shadowOffset: { width: 0, height: 0 },
+    shadowOpacity: 0.6,
+    shadowRadius: 4,
+    elevation: 4,
   },
   workoutSlide: {
     flex: 1,
