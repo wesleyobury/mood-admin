@@ -1142,6 +1142,11 @@ export default function AbsWorkoutDisplayScreen() {
   const equipmentParam = params.equipment as string || '';
   const difficulty = params.difficulty as string || 'beginner';
   
+  // Cart and animation hooks
+  const { addToCart, isInCart } = useCart();
+  const [scaleAnim] = useState(new Animated.Value(1));
+  const [addedItems, setAddedItems] = useState<Set<string>>(new Set());
+  
   // Parse equipment from params
   const selectedEquipmentNames = equipmentParam 
     ? decodeURIComponent(equipmentParam).split(',')
