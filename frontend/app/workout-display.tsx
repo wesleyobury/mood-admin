@@ -3111,8 +3111,8 @@ const WorkoutCard = ({ equipment, icon, workouts, difficulty, difficultyColor, w
             <TouchableOpacity
               key={index}
               style={[
-                styles.dot,
-                currentWorkoutIndex === index && styles.activeDot,
+                styles.dotTouchArea,
+                currentWorkoutIndex === index && styles.activeDotTouchArea,
               ]}
               onPress={() => {
                 console.log(`Dot clicked: ${index}, Current: ${currentWorkoutIndex}`);
@@ -3125,7 +3125,13 @@ const WorkoutCard = ({ equipment, icon, workouts, difficulty, difficultyColor, w
                 });
               }}
               activeOpacity={0.7}
-            />
+              hitSlop={{top: 10, bottom: 10, left: 10, right: 10}}
+            >
+              <View style={[
+                styles.dot,
+                currentWorkoutIndex === index && styles.activeDot,
+              ]} />
+            </TouchableOpacity>
           ))}
         </View>
       </View>
