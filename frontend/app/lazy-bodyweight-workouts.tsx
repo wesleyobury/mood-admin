@@ -1822,7 +1822,7 @@ export default function LazyBodyweightWorkoutsScreen() {
         </View>
       </View>
     );
-  };
+  });
 
   return (
     <SafeAreaView style={[styles.container, { paddingTop: insets.top }]}>
