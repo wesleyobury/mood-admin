@@ -303,7 +303,9 @@ export default function LegsWorkoutDisplayScreen() {
 
   const onViewableItemsChanged = useRef(({ viewableItems }: any) => {
     if (viewableItems.length > 0) {
-      setCurrentWorkoutIndex(viewableItems[0].index || 0);
+      const newIndex = viewableItems[0].index || 0;
+      console.log('👁️ Viewable items changed, new index:', newIndex);
+      setCurrentWorkoutIndex(newIndex);
     }
   }).current;
 
@@ -313,6 +315,7 @@ export default function LegsWorkoutDisplayScreen() {
     
     // Calculate current index based on scroll position
     const currentIndex = Math.round(contentOffset.x / viewSize.width);
+    console.log('📜 Scroll event, calculated index:', currentIndex, 'offset:', contentOffset.x, 'viewWidth:', viewSize.width);
     setCurrentWorkoutIndex(currentIndex);
   };
 
