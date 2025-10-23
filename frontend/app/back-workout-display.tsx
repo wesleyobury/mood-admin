@@ -1498,8 +1498,33 @@ const backWorkoutDatabase: EquipmentWorkouts[] = [
   }
 ];
 
+interface WorkoutCardProps {
+  equipment: string;
+  icon: keyof typeof Ionicons.glyphMap;
+  workouts: Workout[];
+  difficulty: string;
+  difficultyColor: string;
+  onStartWorkout: (workout: Workout, equipment: string, difficulty: string) => void;
+  isInCart: (workoutId: string) => boolean;
+  createWorkoutId: (workout: Workout, equipment: string, difficulty: string) => string;
+  addedItems: Set<string>;
+  handleAddToCart: (workout: Workout, equipment: string) => void;
+  scaleAnim: Animated.Value;
+}
 
-const WorkoutCard = ({ equipment, icon, workouts, difficulty, difficultyColor, onStartWorkout }: WorkoutCardProps) => {
+const WorkoutCard = ({ 
+  equipment, 
+  icon, 
+  workouts, 
+  difficulty, 
+  difficultyColor, 
+  onStartWorkout,
+  isInCart,
+  createWorkoutId,
+  addedItems,
+  handleAddToCart,
+  scaleAnim
+}: WorkoutCardProps) => {
   const [currentWorkoutIndex, setCurrentWorkoutIndex] = useState(0);
   const flatListRef = useRef<FlatList>(null);
 
