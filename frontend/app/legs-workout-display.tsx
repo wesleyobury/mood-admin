@@ -262,6 +262,11 @@ export default function LegsWorkoutDisplayScreen() {
   const [currentWorkoutIndex, setCurrentWorkoutIndex] = useState(0);
   const flatListRef = useRef<FlatList>(null);
 
+  // Cart and animation hooks
+  const { addToCart, isInCart } = useCart();
+  const [scaleAnim] = useState(new Animated.Value(1));
+  const [addedItems, setAddedItems] = useState<Set<string>>(new Set());
+
   // Parse parameters
   const mood = params.mood as string || 'Muscle gainer';
   const workoutType = params.workoutType as string || 'Legs';
