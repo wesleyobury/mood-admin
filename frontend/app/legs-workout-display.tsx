@@ -392,80 +392,106 @@ export default function LegsWorkoutDisplayScreen() {
         </View>
       </View>
 
-      <PanGestureHandler
-        onGestureEvent={handlePanGestureEvent}
-        onHandlerStateChange={handlePanHandlerStateChange}
-      >
-        <Animated.View style={[styles.workoutList, { transform: [{ translateX }] }]}>
-          {/* Workout Indicators */}
-          <View style={styles.dotsContainer}>
-            <Text style={styles.indicatorText}>
-              {currentWorkoutIndex + 1}/{userWorkouts.length}
-            </Text>
-            <Text style={styles.dotsLabel}>Swipe to explore</Text>
-            <View style={styles.dotsRow}>
-              {userWorkouts.map((_, index) => (
-                <TouchableOpacity
-                  key={index}
-                  style={[
-                    styles.dot,
-                    currentWorkoutIndex === index && styles.activeDot,
-                  ]}
-                  onPress={() => {
-                    setCurrentWorkoutIndex(index);
-                  }}
-                  activeOpacity={0.7}
-                />
-              ))}
-            </View>
-          </View>
+      {/* Workout Indicators */}
+      <View style={styles.dotsContainer}>
+        <Text style={styles.indicatorText}>
+          {currentWorkoutIndex + 1}/{userWorkouts.length}
+        </Text>
+        <Text style={styles.dotsLabel}>Swipe to explore</Text>
+        <View style={styles.dotsRow}>
+          {userWorkouts.map((_, index) => (
+            <TouchableOpacity
+              key={index}
+              style={[
+                styles.dotTouchArea,
+                currentWorkoutIndex === index && styles.activeDotTouchArea,
+              ]}
+              onPress={() => {
+                console.log(`🔥 Dot clicked: index ${index}, width: ${width}`);
+                const offset = width * index;
+                console.log(`🔥 Scrolling to offset: ${offset}`);
+                
+                flatListRef.current?.scrollToOffset({
+                  offset: offset,
+                  animated: true
+                });
+                setCurrentWorkoutIndex(index);
+              }}
+              activeOpacity={0.7}
+            />
+          ))}
+        </View>
+      </View>
 
-          {/* Current Workout Slide */}
-          <View style={styles.workoutSlide}>
-            <View style={styles.workoutHeader}>
-              <View style={styles.muscleGroupInfo}>
-                <View style={styles.muscleGroupIconContainer}>
-                  <Ionicons 
-                    name={getMuscleGroupIcon(currentMuscleGroup?.muscleGroupName || '')} 
-                    size={24} 
-                    color="#FFD700" 
-                  />
+      {/* Workout Cards FlatList */}
+      <FlatList
+        ref={flatListRef}
+        data={userWorkouts}
+        horizontal
+        pagingEnabled
+        showsHorizontalScrollIndicator={false}
+        onViewableItemsChanged={onViewableItemsChanged}
+        viewabilityConfig={{
+          itemVisiblePercentThreshold: 50
+        }}
+        getItemLayout={(data, index) => ({
+          length: width,
+          offset: width * index,
+          index,
+        })}
+        keyExtractor={(item, index) => `${item.muscleGroupName}-${index}`}
+        onScroll={onScroll}
+        scrollEventThrottle={16}
+        renderItem={({ item: muscleGroup }) => {
+          const currentWorkout = muscleGroup.workouts[0]; // Show first workout for each muscle group
+          
+          return (
+            <View style={[styles.workoutSlide, { width }]}>
+              <View style={styles.workoutHeader}>
+                <View style={styles.muscleGroupInfo}>
+                  <View style={styles.muscleGroupIconContainer}>
+                    <Ionicons 
+                      name={getMuscleGroupIcon(muscleGroup.muscleGroupName)} 
+                      size={24} 
+                      color="#FFD700" 
+                    />
+                  </View>
+                  <Text style={styles.muscleGroupName}>{muscleGroup.muscleGroupName}</Text>
                 </View>
-                <Text style={styles.muscleGroupName}>{currentMuscleGroup?.muscleGroupName}</Text>
               </View>
-            </View>
 
-            {currentWorkout && (
-              <View style={styles.workoutCard}>
-                <View style={styles.workoutInfo}>
-                  <Text style={styles.workoutName}>{currentWorkout.name}</Text>
-                  <Text style={styles.workoutDescription}>{currentWorkout.description}</Text>
-                  
-                  <View style={styles.workoutDetails}>
-                    <View style={styles.detailItem}>
-                      <Ionicons name="time" size={16} color="#FFD700" />
-                      <Text style={styles.detailText}>{currentWorkout.duration}</Text>
-                    </View>
-                    <View style={styles.detailItem}>
-                      <Ionicons name="speedometer" size={16} color="#FFD700" />
-                      <Text style={styles.detailText}>{currentWorkout.intensity}</Text>
+              {currentWorkout && (
+                <View style={styles.workoutCard}>
+                  <View style={styles.workoutInfo}>
+                    <Text style={styles.workoutName}>{currentWorkout.name}</Text>
+                    <Text style={styles.workoutDescription}>{currentWorkout.description}</Text>
+                    
+                    <View style={styles.workoutDetails}>
+                      <View style={styles.detailItem}>
+                        <Ionicons name="time" size={16} color="#FFD700" />
+                        <Text style={styles.detailText}>{currentWorkout.duration}</Text>
+                      </View>
+                      <View style={styles.detailItem}>
+                        <Ionicons name="speedometer" size={16} color="#FFD700" />
+                        <Text style={styles.detailText}>{currentWorkout.intensity}</Text>
+                      </View>
                     </View>
                   </View>
-                </View>
 
-                <TouchableOpacity
-                  style={styles.startWorkoutButton}
-                  onPress={() => handleStartWorkout(currentWorkout)}
-                  activeOpacity={0.8}
-                >
-                  <Text style={styles.startWorkoutButtonText}>Start Workout</Text>
-                  <Ionicons name="play" size={20} color="#000000" />
-                </TouchableOpacity>
-              </View>
-            )}
-          </View>
-        </Animated.View>
-      </PanGestureHandler>
+                  <TouchableOpacity
+                    style={styles.startWorkoutButton}
+                    onPress={() => handleStartWorkout(currentWorkout, muscleGroup.muscleGroupName)}
+                    activeOpacity={0.8}
+                  >
+                    <Text style={styles.startWorkoutButtonText}>Start Workout</Text>
+                    <Ionicons name="play" size={20} color="#000000" />
+                  </TouchableOpacity>
+                </View>
+              )}
+            </View>
+          );
+        }}
+      />
     </SafeAreaView>
   );
 }
