@@ -1550,25 +1550,6 @@ export default function LazyBodyweightWorkoutsScreen() {
       moodTips: workout.moodTips || [],
     };
 
-    // Animate button
-    Animated.sequence([
-      Animated.timing(scaleAnim, {
-        toValue: 0.8,
-        duration: 100,
-        useNativeDriver: true,
-      }),
-      Animated.timing(scaleAnim, {
-        toValue: 1.2,
-        duration: 200,
-        useNativeDriver: true,
-      }),
-      Animated.timing(scaleAnim, {
-        toValue: 1,
-        duration: 100,
-        useNativeDriver: true,
-      }),
-    ]).start();
-
     // Add to cart and update local state
     addToCart(workoutItem);
     setAddedItems(prev => new Set(prev).add(workoutId));
