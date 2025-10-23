@@ -291,6 +291,9 @@ export default function LegsWorkoutDisplayScreen() {
       return; // Already in cart
     }
 
+    // Create proper workout type with muscle group (e.g., "Legs - Glutes", "Legs - Hammies")
+    const displayWorkoutType = `${workoutType} - ${muscleGroupName}`;
+
     // Create WorkoutItem from current workout
     const workoutItem: WorkoutItem = {
       id: workoutId,
@@ -302,7 +305,7 @@ export default function LegsWorkoutDisplayScreen() {
       intensityReason: workout.intensity,
       equipment: muscleGroupName,
       difficulty: workout.intensity,
-      workoutType: workoutType,
+      workoutType: displayWorkoutType,
       moodCard: mood,
       moodTips: workout.moodTips || [],
     };
