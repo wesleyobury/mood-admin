@@ -1446,19 +1446,19 @@ const styles = StyleSheet.create({
   },
   dotsContainer: {
     alignItems: 'center',
-    paddingVertical: 16,
-    paddingHorizontal: 16,
-    gap: 8,
+    paddingVertical: 8,
+    paddingHorizontal: 20,
+    backgroundColor: 'rgba(255, 215, 0, 0.05)',
   },
   dotsLabel: {
     fontSize: 12,
     color: 'rgba(255, 255, 255, 0.6)',
-    marginBottom: 4,
+    marginBottom: 8,
+    fontWeight: '500',
   },
   dotsRow: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 8,
   },
   dotTouchArea: {
     padding: 8,
@@ -1472,12 +1472,15 @@ const styles = StyleSheet.create({
     height: 8,
     borderRadius: 4,
     backgroundColor: 'rgba(255, 215, 0, 0.3)',
+    marginHorizontal: 4,
   },
   activeDot: {
-    width: 12,
-    height: 12,
-    borderRadius: 6,
     backgroundColor: '#FFD700',
+    shadowColor: '#FFD700',
+    shadowOffset: { width: 0, height: 0 },
+    shadowOpacity: 0.6,
+    shadowRadius: 4,
+    elevation: 4,
   },
   noWorkoutsContainer: {
     flex: 1,
