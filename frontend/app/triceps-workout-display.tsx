@@ -1327,6 +1327,11 @@ export default function TricepsWorkoutDisplayScreen() {
   
   console.log('Parsed parameters:', { selectedEquipmentNames, difficulty, moodTitle, workoutType });
 
+  // Cart and animation hooks
+  const { addToCart, isInCart } = useCart();
+  const [scaleAnim] = useState(new Animated.Value(1));
+  const [addedItems, setAddedItems] = useState<Set<string>>(new Set());
+
   // Get difficulty color - all the same neon gold
   const getDifficultyColor = (level: string) => {
     return '#FFD700'; // Same neon gold for all difficulty levels
