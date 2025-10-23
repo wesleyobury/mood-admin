@@ -3446,6 +3446,11 @@ export default function CompoundWorkoutDisplayScreen() {
                   difficulty={difficulty}
                   difficultyColor={difficultyColor}
                   onStartWorkout={handleStartWorkout}
+                  isInCart={isInCart}
+                  createWorkoutId={createWorkoutId}
+                  addedItems={addedItems}
+                  handleAddToCart={handleAddToCart}
+                  scaleAnim={scaleAnim}
                 />
               ))}
             </>
