@@ -8,10 +8,12 @@ import {
   ScrollView,
   Dimensions,
   FlatList,
+  Animated,
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { useRouter, useLocalSearchParams } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { useCart, WorkoutItem } from '../contexts/CartContext';
 
 const { width } = Dimensions.get('window');
 
