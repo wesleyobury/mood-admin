@@ -39,7 +39,9 @@ const CartItemComponent: React.FC<{
           <View style={styles.workoutTypeContainer}>
             <View style={styles.workoutTypeDot} />
             <Text style={styles.workoutTypeText}>
-              {item.workoutType}
+              {item.workoutType.includes(' - ') 
+                ? item.workoutType.split(' - ')[1] 
+                : item.workoutType}
             </Text>
           </View>
         </View>
