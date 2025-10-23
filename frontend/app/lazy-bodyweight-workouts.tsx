@@ -2098,11 +2098,10 @@ const styles = StyleSheet.create({
   },
   activeDot: {
     backgroundColor: '#FFD700',
-    borderColor: '#FFD700',
     shadowColor: '#FFD700',
     shadowOffset: { width: 0, height: 0 },
-    shadowOpacity: 0.6,
-    shadowRadius: 4,
+    shadowOpacity: 0.8,
+    shadowRadius: 6,
     elevation: 4,
   },
   noWorkoutsContainer: {
