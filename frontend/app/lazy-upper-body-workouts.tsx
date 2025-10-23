@@ -1209,4 +1209,21 @@ const styles = StyleSheet.create({
     shadowRadius: 6,
     elevation: 4,
   },
+  dotTouchArea: {
+    padding: 8,
+    justifyContent: 'center',
+    alignItems: 'center',
+    minWidth: 32,
+    minHeight: 32,
+    borderRadius: 16,
+  },
+  activeDotTouchArea: {
+    padding: 8,
+    justifyContent: 'center',
+    alignItems: 'center',
+    minWidth: 32,
+    minHeight: 32,
+    borderRadius: 16,
+    backgroundColor: 'rgba(255, 215, 0, 0.1)',
+  },
 });
