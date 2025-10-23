@@ -1752,7 +1752,8 @@ const styles = StyleSheet.create({
   },
   dotsRow: {
     flexDirection: 'row',
-    alignItems: 'center',
+    justifyContent: 'center',
+    gap: 12,
   },
   dot: {
     width: 12,
