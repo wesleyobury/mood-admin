@@ -822,36 +822,6 @@ export default function CalisthenicsWorkoutsScreen() {
       </View>
     );
 
-    // Simple touch-based swipe detection for reliable web compatibility
-    const [touchStart, setTouchStart] = useState<number | null>(null);
-    const [touchEnd, setTouchEnd] = useState<number | null>(null);
-
-    const minSwipeDistance = 50;
-
-    const onTouchStart = (e: any) => {
-      setTouchEnd(null);
-      setTouchStart(e.nativeEvent.touches[0].clientX);
-    };
-
-    const onTouchMove = (e: any) => {
-      setTouchEnd(e.nativeEvent.touches[0].clientX);
-    };
-
-    const onTouchEnd = () => {
-      if (!touchStart || !touchEnd) return;
-      
-      const distance = touchStart - touchEnd;
-      const isLeftSwipe = distance > minSwipeDistance;
-      const isRightSwipe = distance < -minSwipeDistance;
-
-      if (isLeftSwipe && currentWorkoutIndex < workouts.length - 1) {
-        setCurrentWorkoutIndex(currentWorkoutIndex + 1);
-      }
-      if (isRightSwipe && currentWorkoutIndex > 0) {
-        setCurrentWorkoutIndex(currentWorkoutIndex - 1);
-      }
-    };
-
     return (
       <View style={styles.workoutCard}>
         {/* Equipment Header */}
@@ -865,26 +835,42 @@ export default function CalisthenicsWorkoutsScreen() {
           </View>
         </View>
 
-        {/* Workout List with Touch Swiping */}
-        <View 
-          style={[styles.workoutList, { height: 420 }]}
-          onTouchStart={onTouchStart}
-          onTouchMove={onTouchMove}
-          onTouchEnd={onTouchEnd}
-        >
+        {/* Workout List - Native Swipe Enabled */}
+        <View style={[styles.workoutList, { height: 420 }]}>
           <FlatList
             ref={flatListRef}
             data={workouts}
             renderItem={renderWorkout}
             horizontal
             pagingEnabled
+            snapToInterval={width - 48}
+            decelerationRate="fast"
             showsHorizontalScrollIndicator={false}
+            scrollEventThrottle={16}
+            onScroll={(event) => {
+              const slideSize = width - 48;
+              const offset = event.nativeEvent.contentOffset.x;
+              const index = Math.round(offset / slideSize);
+              const boundedIndex = Math.max(0, Math.min(index, workouts.length - 1));
+              if (boundedIndex !== currentWorkoutIndex) {
+                setCurrentWorkoutIndex(boundedIndex);
+              }
+            }}
             onMomentumScrollEnd={(event) => {
               const slideSize = width - 48;
-              const index = Math.floor(event.nativeEvent.contentOffset.x / slideSize);
-              setCurrentWorkoutIndex(index);
+              const offset = event.nativeEvent.contentOffset.x;
+              const index = Math.round(offset / slideSize);
+              const boundedIndex = Math.max(0, Math.min(index, workouts.length - 1));
+              setCurrentWorkoutIndex(boundedIndex);
             }}
-            initialScrollIndex={currentWorkoutIndex}
+            onScrollEndDrag={(event) => {
+              const slideSize = width - 48;
+              const offset = event.nativeEvent.contentOffset.x;
+              const index = Math.round(offset / slideSize);
+              const boundedIndex = Math.max(0, Math.min(index, workouts.length - 1));
+              setCurrentWorkoutIndex(boundedIndex);
+            }}
+            initialScrollIndex={0}
             getItemLayout={(data, index) => ({
               length: width - 48,
               offset: (width - 48) * index,
@@ -905,9 +891,16 @@ export default function CalisthenicsWorkoutsScreen() {
                   index === currentWorkoutIndex && styles.activeDot
                 ]}
                 onPress={() => {
+                  console.log(`Dot clicked: ${index}, Current: ${currentWorkoutIndex}`);
                   setCurrentWorkoutIndex(index);
-                  flatListRef.current?.scrollToIndex({ index, animated: true });
+                  // Use scrollToOffset for more reliable behavior
+                  const slideSize = width - 48;
+                  flatListRef.current?.scrollToOffset({
+                    offset: index * slideSize,
+                    animated: true
+                  });
                 }}
+                activeOpacity={0.7}
               />
             ))}
           </View>
