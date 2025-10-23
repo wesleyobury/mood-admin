@@ -1466,9 +1466,9 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(255, 215, 0, 0.1)',
   },
   dot: {
-    width: 8,
-    height: 8,
-    borderRadius: 4,
+    width: 12,
+    height: 12,
+    borderRadius: 6,
     backgroundColor: 'rgba(255, 215, 0, 0.3)',
     marginHorizontal: 4,
   },
