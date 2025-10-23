@@ -1,0 +1,127 @@
+<analysis>
+The trajectory details the AI engineer's continuous development of an Expo mobile application, focusing on implementing consistent swipe and dot indicator functionality for workout cards across various workout paths. Initially, the engineer was tasked with fixing leg workout cards, which involved debugging  and  to synchronize dot indicators with 's  and , and setting workout duration text to golden.
+
+Subsequently, the user introduced three new feature requests:
+1.  **Explosion > Body Weight Path**: Ensure  has correct swipe functionality and dot synchronization without altering styling.
+2.  **I'm Feeling Lazy > Move Your Body Path**: Apply the same swipe and dot fixes to , , , and .
+3.  **Calisthenics and Outdoor Moodcards**: Implement identical swipe and dot behavior for  and .
+
+For each new request, the AI engineer consistently followed a pattern: inspecting the relevant file(s) for outdated  or touch-based swipe implementations, comparing them to a known working implementation (e.g., ), updating the  to use , , , , removing redundant touch handling logic, and finally restarting the frontend to apply changes. The process involved meticulous file inspections and targeted code modifications to standardize the interactive workout card experience. The trajectory concludes with the engineer completing the changes for the calisthenics and outdoor workouts, preparing to provide a summary.
+</analysis>
+
+<product_requirements>
+The application delivers a high-quality workout experience across Light weights, Calisthenics, and Outdoor paths, featuring an interactive Workout Shopping Cart and a floating cart icon.
+
+**Previously Implemented Features & Fixes:**
+1.  Workout Summary Formatting & Equipment Name in Progress Bar.
+2.  Complete Session Button & Cart Clearing in .
+3.  Add Workout Button Animation.
+4.  Swipe functionality for Sweat weights and Muscle Gainer workout cards using  and viewability events.
+5.  Biceps Workout Routing & Vertical Equipment Layout in  and .
+6.  Comprehensive Biceps Workouts & Styling Parity with  in .
+7.  Biceps Workout Card Styling Enhancements: image dimensions, golden gradients, and golden font for workout duration.
+
+**Leg Workout Card Fixes (Completed during initial phase of this trajectory):**
+8.  Ensure dot indicators in swipe to explore update correctly for leg workout cards (Glutes, Hamstrings, Quads, Calfs, Compound), and workout duration text is golden. This specifically addressed issues in  and .
+
+**New User Requests during this trajectory:**
+9.  **Bodyweight Explosiveness Path**: Implement swipe functionality and dot synchronization for workout cards in build explosion weight path (). *Styling/formatting must not be altered.*
+10. **Lazy Path Workouts**: Apply consistent swipe functionality and dot synchronization to all workout cards in Im feeling lazy > move your body" path (`lazy-upper-body-workouts.tsx`, `lazy-full-body-workouts.tsx`, `lazy-bodyweight-workouts.tsx`, `lazy-lower-body-workouts.tsx`).
+11. **Calisthenics & Outdoor Workouts**: Implement consistent swipe functionality and dot synchronization for workout cards in "calisthenics" and "I want to get outside" moodcards (`calisthenics-workouts.tsx`, `outdoor-workouts.tsx`).
+</product_requirements>
+
+<key_technical_concepts>
+-   **Expo File-Based Routing (`expo-router`)**: For screen navigation.
+-   **React Native Components**: `FlatList` for performant, swipeable lists; `View`, `Text`, `TouchableOpacity`, `Image`.
+-   **React Hooks**: `useState`, `useRef`, `useEffect`.
+-   **FlatList Viewability**: `onViewableItemsChanged`, `onScroll`, `scrollToOffset`, `viewabilityConfig` for carousel-like behavior and dot synchronization.
+-   **Flexbox Styling**: For UI layouts.
+</key_technical_concepts>
+
+<code_architecture>
+```
+/app
+├── frontend
+│   ├── app
+│   │   ├── (tabs)
+│   │   │   ├── index.tsx
+│   │   │   └── _layout.tsx
+│   │   ├── auth
+│   │   │   └── login.tsx
+│   │   ├── cart.tsx
+│   │   ├── workout-session.tsx
+│   │   ├── _layout.tsx
+│   │   ├── abs-equipment.tsx
+│   │   ├── abs-workout-display.tsx
+│   │   ├── adjustable-bench-workout-display.tsx
+│   │   ├── back-workout-display.tsx
+│   │   ├── biceps-workout-display.tsx
+│   │   ├── body-parts.tsx
+│   │   ├── bodyweight-explosiveness-workouts.tsx
+│   │   ├── bodyweight-equipment.tsx
+│   │   ├── cardio-equipment.tsx
+│   │   ├── calisthenics-equipment.tsx
+│   │   ├── calisthenics-workouts.tsx
+│   │   ├── chest-equipment.tsx
+│   │   ├── chest-workout-display.tsx
+│   │   ├── compound-workout-display.tsx
+│   │   ├── explosiveness-type.tsx
+│   │   ├── forearms-workout-display.tsx
+│   │   ├── full-body-workout-display.tsx
+│   │   ├── hamstrings-workout-display.tsx
+│   │   ├── index.tsx
+│   │   ├── lazy-bodyweight-equipment.tsx
+│   │   ├── lazy-bodyweight-workouts.tsx
+│   │   ├── lazy-full-body-workouts.tsx
+│   │   ├── lazy-lower-body-workouts.tsx
+│   │   ├── lazy-training-type.tsx
+│   │   ├── lazy-weight-selection.tsx
+│   │   ├── lazy-upper-body-workouts.tsx
+│   │   ├── legs-equipment.tsx
+│   │   ├── legs-workout-display.tsx
+│   │   ├── light-weights-workouts.tsx
+│   │   ├── quads-workout-display.tsx
+│   │   ├── shoulders-workout-display.tsx
+│   │   ├── triceps-workout-display.tsx
+│   │   ├── workout-guidance.tsx
+│   │   ├── workout-display.tsx
+│   │   ├── workout-type.tsx
+│   │   ├── weight-equipment.tsx
+│   │   ├── weight-based-workouts.tsx
+│   │   ├── outdoor-equipment.tsx
+│   │   ├── outdoor-workouts.tsx
+│   │   └── outdoor-workouts-data.ts
+│   ├── components
+│   │   └── FloatingCart.tsx
+│   ├── contexts
+│   │   └── CartContext.tsx
+│   └── data
+│       ├── calisthenics-workouts-data.ts
+│       └── outdoor-workouts-data.ts
+```
+
+-   **`frontend/app/workout-guidance.tsx`**: Manages multi-workout sessions. Completion logic modified to clear cart and navigate home.
+-   **`frontend/contexts/CartContext.tsx`**: Provides global state and `clearCart()` function. No changes.
+-   **`frontend/app/light-weights-workouts.tsx`**: Displays "Light weights" workout cards. Updated to use `FlatList` with `onViewableItemsChanged`, `onScroll`, `viewabilityConfig`, `useRef`, `scrollToOffset`, and new styles for swipe/dot navigation.
+-   **`frontend/app/biceps-equipment.tsx`**: Selects equipment for biceps workouts. `equipmentGrid` layout changed to vertical stacking, equipment names corrected.
+-   **`frontend/app/triceps-equipment.tsx`**: Selects equipment for triceps workouts. `equipmentGrid` layout changed to vertical stacking.
+-   **`frontend/app/biceps-workout-display.tsx`**: Displays workout cards for biceps. Recreated with extensive workout data. Styling updated (image height, golden gradient, golden font for `workoutDuration`).
+-   **`frontend/app/back-workout-display.tsx`**: Displays workout cards for back. Reconstructed after corruption, adapting structure from `chest-workout-display.tsx`.
+-   **`frontend/app/legs-workout-display.tsx`**: Displays workouts for leg sub-muscle groups. `PanGestureHandler` replaced with `FlatList` for swipe/dot synchronization. `detailText` updated to golden and `dotsContainer` background to golden gradient.
+-   **`frontend/app/compound-workout-display.tsx`**: Displays compound leg workouts. Restored after accidental deletion. `onMomentumScrollEnd` replaced with `onViewableItemsChanged` and `onScroll` for dot synchronization. `workoutDuration` text color set to golden (`#FFD700`).
+-   **`frontend/app/workout-display.tsx`**: Serves as a reference for the correct `FlatList` implementation for swipe and dot synchronization. Used to guide fixes in other files.
+-   **`frontend/app/bodyweight-explosiveness-workouts.tsx`**: Displays "bodyweight explosiveness" workout cards. Updated by replacing outdated `onMomentumScrollEnd` and touch handlers with `FlatList` `onScroll`, `onScrollEndDrag`, `scrollToOffset` logic, and removing unused touch state variables.
+-   **`frontend/app/lazy-upper-body-workouts.tsx`**: Displays "lazy upper body" workouts. Updated to replace old swipe implementation and touch handlers with `FlatList` viewability logic.
+-   **`frontend/app/lazy-full-body-workouts.tsx`**: Displays "lazy full body" workouts. Updated to replace old swipe implementation and touch handlers with `FlatList` viewability logic.
+-   **`frontend/app/lazy-lower-body-workouts.tsx`**: Displays "lazy lower body" workouts. Updated to replace old swipe implementation and touch handlers with `FlatList` viewability logic.
+-   **`frontend/app/lazy-bodyweight-workouts.tsx`**: Displays "lazy bodyweight" workouts. Updated to replace old swipe implementation and touch handlers with `FlatList` viewability logic.
+-   **`frontend/app/calisthenics-workouts.tsx`**: Displays calisthenics workout cards. Updated by replacing outdated `onMomentumScrollEnd` and touch handlers with `FlatList` `onViewableItemsChanged` and `onScroll` logic.
+-   **`frontend/app/outdoor-workouts.tsx`**: Displays outdoor workout cards. Already had partial `onViewableItemsChanged`/`onScroll` but was updated to include full `FlatList` swipe synchronization (e.g., `snapToInterval`).
+</code_architecture>
+
+<pending_tasks>
+- The user needs to confirm that the fixes applied to `calisthenics-workouts.tsx` and `outdoor-workouts.tsx` (swipe synchronization and dot indicator updates) are now reflected and working as expected.
+</pending_tasks>
+
+<current_work>
+Immediately before this summary, the AI engineer completed the users request to ensure consistent swipe functionality and dot indicator synchronization for workout cards in the calisthenics and I want to get outside moodcard paths.
