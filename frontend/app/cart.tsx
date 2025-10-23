@@ -40,7 +40,9 @@ const CartItemComponent: React.FC<{
             <View style={styles.workoutTypeDot} />
             <Text style={styles.workoutTypeText}>
               {item.workoutType.includes(' - ') 
-                ? item.workoutType.split(' - ')[1] 
+                ? (item.workoutType.toLowerCase().includes('legs') || item.workoutType.toLowerCase().includes('compound')
+                    ? item.workoutType.split(' - ').join(' - ')  // Show full "Legs - Compound" for leg workouts
+                    : item.workoutType.split(' - ')[1])           // Show only subgroup for other workouts (e.g., "Abs" from "Muscle gainer - Abs")
                 : item.workoutType}
             </Text>
           </View>
