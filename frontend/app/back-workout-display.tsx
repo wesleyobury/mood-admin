@@ -1677,6 +1677,11 @@ export default function BackWorkoutDisplay() {
   const moodTitle = params.mood as string || 'Muscle gainer';
   const workoutType = params.workoutType as string || 'Back';
   
+  // Cart and animation hooks
+  const { addToCart, isInCart } = useCart();
+  const [scaleAnim] = useState(new Animated.Value(1));
+  const [addedItems, setAddedItems] = useState<Set<string>>(new Set());
+  
   console.log('Parsed parameters:', { selectedEquipmentNames, difficulty, moodTitle, workoutType });
 
   // Get difficulty color - all the same neon gold
