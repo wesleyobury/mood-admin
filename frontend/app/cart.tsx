@@ -436,6 +436,25 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: '#FFD700',
     textAlign: 'center',
+    marginBottom: 4,
+  },
+  workoutTypeContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: 6,
+  },
+  workoutTypeDot: {
+    width: 4,
+    height: 4,
+    borderRadius: 2,
+    backgroundColor: 'rgba(255, 255, 255, 0.5)',
+  },
+  workoutTypeText: {
+    fontSize: 11,
+    fontWeight: '500',
+    color: 'rgba(255, 255, 255, 0.7)',
+    textAlign: 'center',
   },
   orderNumber: {
     width: 28,
