@@ -328,7 +328,7 @@ const styles = StyleSheet.create({
   },
   headerSubtitle: {
     fontSize: 14,
-    color: 'rgba(255, 255, 255, 0.7)',
+    color: '#FFFFFF',
     textAlign: 'center',
     marginTop: 2,
   },
