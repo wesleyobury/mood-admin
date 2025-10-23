@@ -258,8 +258,7 @@ export default function LegsWorkoutDisplayScreen() {
   const insets = useSafeAreaInsets();
 
   const [currentWorkoutIndex, setCurrentWorkoutIndex] = useState(0);
-  const scrollViewRef = useRef<ScrollView>(null);
-  const translateX = useRef(new Animated.Value(0)).current;
+  const flatListRef = useRef<FlatList>(null);
 
   // Parse parameters
   const mood = params.mood as string || 'Muscle gainer';
@@ -274,16 +273,13 @@ export default function LegsWorkoutDisplayScreen() {
     muscleGroupNames.includes(mgw.muscleGroupName)
   );
 
-  const currentMuscleGroup = userWorkouts[currentWorkoutIndex];
-  const currentWorkout = currentMuscleGroup?.workouts?.[0]; // Show first workout for each muscle group
-
-  const handleStartWorkout = (workout: Workout) => {
+  const handleStartWorkout = (workout: Workout, muscleGroupName: string) => {
     console.log('🚀 Starting workout:', workout.name);
     
     // Navigate to workout guidance with simplified parameters
     const params = {
       workoutName: workout.name,
-      muscleGroup: currentMuscleGroup?.muscleGroupName || '',
+      muscleGroup: muscleGroupName,
       description: workout.description,
       duration: workout.duration,
       intensity: workout.intensity,
@@ -305,34 +301,19 @@ export default function LegsWorkoutDisplayScreen() {
     }
   };
 
-  const handlePanGestureEvent = (event: any) => {
-    const { translationX } = event.nativeEvent;
-    
-    console.log('🎯 Gesture detected, translationX:', translationX);
-    
-    if (translationX > 100 && currentWorkoutIndex > 0) {
-      // Swiped right, go to previous workout
-      console.log('👈 Swiped right, changing to workout index:', currentWorkoutIndex - 1);
-      setCurrentWorkoutIndex(currentWorkoutIndex - 1);
-    } else if (translationX < -100 && currentWorkoutIndex < userWorkouts.length - 1) {
-      // Swiped left, go to next workout
-      console.log('👉 Swiped left, changing to workout index:', currentWorkoutIndex + 1);
-      setCurrentWorkoutIndex(currentWorkoutIndex + 1);
+  const onViewableItemsChanged = useRef(({ viewableItems }: any) => {
+    if (viewableItems.length > 0) {
+      setCurrentWorkoutIndex(viewableItems[0].index || 0);
     }
-  };
+  }).current;
 
-  const handlePanHandlerStateChange = (event: any) => {
-    if (event.nativeEvent.state === State.BEGAN) {
-      console.log('👆 Touch started at:', event.nativeEvent.x);
-    } else if (event.nativeEvent.state === State.END) {
-      console.log('🔥 Touch ended');
-      
-      // Reset animation
-      Animated.spring(translateX, {
-        toValue: 0,
-        useNativeDriver: true,
-      }).start();
-    }
+  const onScroll = (event: any) => {
+    const contentOffset = event.nativeEvent.contentOffset;
+    const viewSize = event.nativeEvent.layoutMeasurement;
+    
+    // Calculate current index based on scroll position
+    const currentIndex = Math.round(contentOffset.x / viewSize.width);
+    setCurrentWorkoutIndex(currentIndex);
   };
 
   const handleBack = () => {
