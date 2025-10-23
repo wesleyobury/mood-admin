@@ -1187,7 +1187,7 @@ const WorkoutCard = React.memo(({
       </View>
     </View>
   );
-};
+});
 
 export default function AbsWorkoutDisplayScreen() {
   const router = useRouter();
