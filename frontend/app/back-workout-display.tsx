@@ -1935,6 +1935,11 @@ export default function BackWorkoutDisplay() {
                 difficulty={difficulty}
                 difficultyColor={difficultyColor}
                 onStartWorkout={handleStartWorkout}
+                isInCart={isInCart}
+                createWorkoutId={createWorkoutId}
+                addedItems={addedItems}
+                handleAddToCart={handleAddToCart}
+                scaleAnim={scaleAnim}
               />
             );
           })
