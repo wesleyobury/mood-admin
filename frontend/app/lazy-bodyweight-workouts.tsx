@@ -1883,7 +1883,6 @@ export default function LazyBodyweightWorkoutsScreen() {
                 createWorkoutId={createWorkoutId}
                 addedItems={addedItems}
                 handleAddToCart={handleAddToCart}
-                scaleAnim={scaleAnim}
               />
             );
           })
