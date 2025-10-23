@@ -1631,11 +1631,26 @@ export default function LazyBodyweightWorkoutsScreen() {
   };
 
   // Workout Card Component matching bodyweight explosiveness format exactly
-  const WorkoutCard = ({ equipment, icon, workouts, difficulty }: { 
+  const WorkoutCard = ({ 
+    equipment, 
+    icon, 
+    workouts, 
+    difficulty,
+    isInCart,
+    createWorkoutId,
+    addedItems,
+    handleAddToCart,
+    scaleAnim
+  }: { 
     equipment: string; 
     icon: keyof typeof Ionicons.glyphMap; 
     workouts: Workout[]; 
     difficulty: string;
+    isInCart: (workoutId: string) => boolean;
+    createWorkoutId: (workout: Workout, equipment: string, difficulty: string) => string;
+    addedItems: Set<string>;
+    handleAddToCart: (workout: Workout, equipment: string) => void;
+    scaleAnim: Animated.Value;
   }) => {
     const [currentWorkoutIndex, setCurrentWorkoutIndex] = useState(0);
     const flatListRef = useRef<FlatList>(null);
