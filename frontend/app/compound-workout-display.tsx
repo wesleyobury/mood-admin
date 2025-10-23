@@ -3025,6 +3025,11 @@ export default function CompoundWorkoutDisplayScreen() {
   
   console.log('Parsed parameters:', { selectedEquipmentNames, equipmentPerGroup, difficulty, moodTitle, workoutType });
 
+  // Cart and animation hooks
+  const { addToCart, isInCart } = useCart();
+  const [scaleAnim] = useState(new Animated.Value(1));
+  const [addedItems, setAddedItems] = useState<Set<string>>(new Set());
+
   // Get difficulty color - all the same neon gold
   // Get equipment icon for progress bar
   const getEquipmentIcon = (equipmentName: string): keyof typeof Ionicons.glyphMap => {
