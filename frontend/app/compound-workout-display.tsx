@@ -2902,11 +2902,12 @@ const WorkoutCard = ({ equipment, icon, workouts, difficulty, difficultyColor, o
           horizontal
           pagingEnabled
           showsHorizontalScrollIndicator={false}
-          onMomentumScrollEnd={(event) => {
-            const slideSize = width - 48;
-            const index = Math.floor(event.nativeEvent.contentOffset.x / slideSize);
-            setCurrentWorkoutIndex(index);
+          onViewableItemsChanged={onViewableItemsChanged}
+          viewabilityConfig={{
+            itemVisiblePercentThreshold: 50
           }}
+          onScroll={onScroll}
+          scrollEventThrottle={16}
           initialScrollIndex={currentWorkoutIndex}
           getItemLayout={(data, index) => ({
             length: width - 48,
