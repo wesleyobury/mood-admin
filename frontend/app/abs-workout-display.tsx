@@ -1363,7 +1363,6 @@ export default function AbsWorkoutDisplayScreen() {
                 createWorkoutId={createWorkoutId}
                 addedItems={addedItems}
                 handleAddToCart={handleAddToCart}
-                scaleAnim={scaleAnim}
               />
             );
           })
