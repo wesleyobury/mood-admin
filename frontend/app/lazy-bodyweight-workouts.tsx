@@ -1876,6 +1876,11 @@ export default function LazyBodyweightWorkoutsScreen() {
                 icon={equipmentData.icon}
                 workouts={workoutsForDifficulty}
                 difficulty={difficulty}
+                isInCart={isInCart}
+                createWorkoutId={createWorkoutId}
+                addedItems={addedItems}
+                handleAddToCart={handleAddToCart}
+                scaleAnim={scaleAnim}
               />
             );
           })
