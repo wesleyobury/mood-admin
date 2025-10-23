@@ -42,6 +42,12 @@ const CartItemComponent: React.FC<{
               {item.workoutType.includes(' - ') 
                 ? item.workoutType.split(' - ')[1] 
                 : item.workoutType}
+              {(item.workoutType.toLowerCase().includes('leg') || 
+                item.workoutType.toLowerCase().includes('compound')) && 
+                item.equipment && 
+                item.equipment !== 'legs' && 
+                item.equipment !== 'Legs' &&
+                ` (${item.equipment})`}
             </Text>
           </View>
         </View>
