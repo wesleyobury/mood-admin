@@ -598,8 +598,6 @@ const styles = StyleSheet.create({
   },
   workoutList: {
     flex: 1,
-    paddingHorizontal: 24,
-    paddingTop: 20,
   },
   dotsContainer: {
     alignItems: 'center',
