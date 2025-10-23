@@ -645,7 +645,8 @@ const styles = StyleSheet.create({
     borderRadius: 24,
     paddingVertical: 16,
     paddingHorizontal: 20,
-    marginHorizontal: 8,
+    marginHorizontal: 16,
+    marginTop: 20,
   },
   workoutHeader: {
     marginBottom: 20,
