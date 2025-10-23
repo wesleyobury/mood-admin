@@ -1201,7 +1201,6 @@ export default function AbsWorkoutDisplayScreen() {
   
   // Cart and animation hooks
   const { addToCart, isInCart } = useCart();
-  const [scaleAnim] = useState(new Animated.Value(1));
   const [addedItems, setAddedItems] = useState<Set<string>>(new Set());
   
   // Parse equipment from params
