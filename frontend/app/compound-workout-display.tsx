@@ -2788,7 +2788,8 @@ const WorkoutCard = ({
   createWorkoutId,
   addedItems,
   handleAddToCart,
-  scaleAnim
+  scaleAnim,
+  muscleGroup
 }: WorkoutCardProps) => {
   const [currentWorkoutIndex, setCurrentWorkoutIndex] = useState(0);
   const flatListRef = useRef<FlatList>(null);
