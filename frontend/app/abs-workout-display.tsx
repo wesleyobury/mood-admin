@@ -981,10 +981,9 @@ interface WorkoutCardProps {
   createWorkoutId: (workout: Workout, equipment: string, difficulty: string) => string;
   addedItems: Set<string>;
   handleAddToCart: (workout: Workout, equipment: string) => void;
-  scaleAnim: Animated.Value;
 }
 
-const WorkoutCard = ({ 
+const WorkoutCard = React.memo(({ 
   equipment, 
   icon, 
   workouts, 
@@ -995,10 +994,34 @@ const WorkoutCard = ({
   createWorkoutId,
   addedItems,
   handleAddToCart,
-  scaleAnim
 }: WorkoutCardProps) => {
   const [currentWorkoutIndex, setCurrentWorkoutIndex] = useState(0);
+  const [localScaleAnim] = useState(new Animated.Value(1));
   const flatListRef = useRef<FlatList>(null);
+
+  const handleAddToCartWithAnimation = (workout: Workout) => {
+    // Animate locally without affecting parent
+    Animated.sequence([
+      Animated.timing(localScaleAnim, {
+        toValue: 0.8,
+        duration: 100,
+        useNativeDriver: true,
+      }),
+      Animated.timing(localScaleAnim, {
+        toValue: 1.2,
+        duration: 200,
+        useNativeDriver: true,
+      }),
+      Animated.timing(localScaleAnim, {
+        toValue: 1,
+        duration: 100,
+        useNativeDriver: true,
+      }),
+    ]).start();
+
+    // Call parent handler
+    handleAddToCart(workout, equipment);
+  };
 
   console.log(`💪 WorkoutCard for ${equipment}: received ${workouts.length} workouts for ${difficulty} difficulty`);  const renderWorkout = ({ item, index }: { item: Workout; index: number }) => (
     <View style={[styles.workoutSlide, { width: width - 48 }]}>
