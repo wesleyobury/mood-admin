@@ -1192,7 +1192,7 @@ export default function AbsWorkoutDisplayScreen() {
       equipment: equipment,
       difficulty: difficulty,
       workoutType: `Muscle gainer - ${workoutType}`,
-      moodCardTitle: moodTitle,
+      moodCard: moodTitle,
       moodTips: workout.moodTips || [],
     };
 
