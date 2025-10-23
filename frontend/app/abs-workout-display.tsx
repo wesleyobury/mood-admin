@@ -1212,11 +1212,6 @@ export default function AbsWorkoutDisplayScreen() {
     }, 3000);
   };
 
-  // Parse equipment from params
-  const selectedEquipmentNames = equipmentParam 
-    ? decodeURIComponent(equipmentParam).split(',')
-    : [];
-
   // Filter workouts based on selected equipment
   const relevantWorkouts = absWorkoutDatabase.filter(equipmentWorkouts => 
     selectedEquipmentNames.includes(equipmentWorkouts.equipment)
