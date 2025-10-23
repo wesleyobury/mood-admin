@@ -2772,8 +2772,9 @@ interface WorkoutCardProps {
   isInCart: (workoutId: string) => boolean;
   createWorkoutId: (workout: Workout, equipment: string, difficulty: string) => string;
   addedItems: Set<string>;
-  handleAddToCart: (workout: Workout, equipment: string) => void;
+  handleAddToCart: (workout: Workout, equipment: string, muscleGroup: string) => void;
   scaleAnim: Animated.Value;
+  muscleGroup: string;
 }
 
 const WorkoutCard = ({ 
