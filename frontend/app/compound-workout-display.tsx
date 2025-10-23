@@ -2773,6 +2773,25 @@ const WorkoutCard = ({ equipment, icon, workouts, difficulty, difficultyColor, o
   const [currentWorkoutIndex, setCurrentWorkoutIndex] = useState(0);
   const flatListRef = useRef<FlatList>(null);
 
+  const onViewableItemsChanged = useRef(({ viewableItems }: any) => {
+    if (viewableItems.length > 0) {
+      const newIndex = viewableItems[0].index || 0;
+      console.log('👁️ Compound workout viewable items changed, new index:', newIndex);
+      setCurrentWorkoutIndex(newIndex);
+    }
+  }).current;
+
+  const onScroll = (event: any) => {
+    const contentOffset = event.nativeEvent.contentOffset;
+    const viewSize = event.nativeEvent.layoutMeasurement;
+    const slideSize = width - 48;
+    
+    // Calculate current index based on scroll position
+    const currentIndex = Math.round(contentOffset.x / slideSize);
+    console.log('📜 Compound workout scroll, index:', currentIndex, 'offset:', contentOffset.x);
+    setCurrentWorkoutIndex(currentIndex);
+  };
+
   const renderWorkout = ({ item, index }: { item: Workout; index: number }) => (
     <View style={[styles.workoutSlide, { width: width - 48 }]}>
       {/* Workout Image with Rounded Edges */}
