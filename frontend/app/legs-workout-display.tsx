@@ -704,7 +704,7 @@ const styles = StyleSheet.create({
   },
   detailText: {
     fontSize: 16,
-    color: '#ffffff',
+    color: '#FFD700',
     fontWeight: '600',
   },
   startWorkoutButton: {
