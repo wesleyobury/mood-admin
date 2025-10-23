@@ -1541,12 +1541,6 @@ export default function BodyweightExplosivenessWorkoutsScreen() {
       </View>
     );
 
-    // Simple touch-based swipe detection for reliable web compatibility
-    const [touchStart, setTouchStart] = useState<number | null>(null);
-    const [touchEnd, setTouchEnd] = useState<number | null>(null);
-
-    const minSwipeDistance = 50;
-
     return (
       <View style={styles.workoutCard}>
         {/* Equipment Header */}
