@@ -3368,6 +3368,7 @@ export default function CompoundWorkoutDisplayScreen() {
                   addedItems={addedItems}
                   handleAddToCart={handleAddToCart}
                   scaleAnim={scaleAnim}
+                  muscleGroup="Compound"
                 />
               ))}
             </>
@@ -3390,6 +3391,7 @@ export default function CompoundWorkoutDisplayScreen() {
                   addedItems={addedItems}
                   handleAddToCart={handleAddToCart}
                   scaleAnim={scaleAnim}
+                  muscleGroup="Glutes"
                 />
               ))}
             </>
@@ -3412,6 +3414,7 @@ export default function CompoundWorkoutDisplayScreen() {
                   addedItems={addedItems}
                   handleAddToCart={handleAddToCart}
                   scaleAnim={scaleAnim}
+                  muscleGroup="Hammies"
                 />
               ))}
             </>
@@ -3434,6 +3437,7 @@ export default function CompoundWorkoutDisplayScreen() {
                   addedItems={addedItems}
                   handleAddToCart={handleAddToCart}
                   scaleAnim={scaleAnim}
+                  muscleGroup="Quads"
                 />
               ))}
             </>
@@ -3456,6 +3460,7 @@ export default function CompoundWorkoutDisplayScreen() {
                   addedItems={addedItems}
                   handleAddToCart={handleAddToCart}
                   scaleAnim={scaleAnim}
+                  muscleGroup="Calves"
                 />
               ))}
             </>
