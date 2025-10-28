@@ -1450,21 +1450,6 @@ export default function LightWeightsWorkoutsScreen() {
       </View>
     );
 
-    const onViewableItemsChanged = useRef(({ viewableItems }: any) => {
-      if (viewableItems.length > 0) {
-        setCurrentWorkoutIndex(viewableItems[0].index || 0);
-      }
-    }).current;
-
-    const onScroll = (event: any) => {
-      const contentOffset = event.nativeEvent.contentOffset;
-      const viewSize = event.nativeEvent.layoutMeasurement;
-      
-      // Calculate current index based on scroll position
-      const currentIndex = Math.round(contentOffset.x / viewSize.width);
-      setCurrentWorkoutIndex(currentIndex);
-    };
-
     if (workouts.length === 0) {
       return null;
     }
@@ -1507,19 +1492,40 @@ export default function LightWeightsWorkoutsScreen() {
             renderItem={renderWorkout}
             horizontal
             pagingEnabled
+            snapToInterval={width - 48}
+            decelerationRate="fast"
             showsHorizontalScrollIndicator={false}
-            onViewableItemsChanged={onViewableItemsChanged}
-            viewabilityConfig={{
-              itemVisiblePercentThreshold: 50
+            scrollEventThrottle={16}
+            onScroll={(event) => {
+              const slideSize = width - 48;
+              const offset = event.nativeEvent.contentOffset.x;
+              const index = Math.round(offset / slideSize);
+              const boundedIndex = Math.max(0, Math.min(index, workouts.length - 1));
+              if (boundedIndex !== currentWorkoutIndex) {
+                setCurrentWorkoutIndex(boundedIndex);
+              }
             }}
+            onMomentumScrollEnd={(event) => {
+              const slideSize = width - 48;
+              const offset = event.nativeEvent.contentOffset.x;
+              const index = Math.round(offset / slideSize);
+              const boundedIndex = Math.max(0, Math.min(index, workouts.length - 1));
+              setCurrentWorkoutIndex(boundedIndex);
+            }}
+            onScrollEndDrag={(event) => {
+              const slideSize = width - 48;
+              const offset = event.nativeEvent.contentOffset.x;
+              const index = Math.round(offset / slideSize);
+              const boundedIndex = Math.max(0, Math.min(index, workouts.length - 1));
+              setCurrentWorkoutIndex(boundedIndex);
+            }}
+            initialScrollIndex={0}
             getItemLayout={(data, index) => ({
               length: width - 48,
               offset: (width - 48) * index,
               index,
             })}
-            keyExtractor={(item, index) => `workout-${index}`}
-            onScroll={onScroll}
-            scrollEventThrottle={16}
+            keyExtractor={(item, index) => `${equipment}-${difficulty}-${index}`}
           />
         </View>
 
