@@ -1529,7 +1529,7 @@ export default function LazyBodyweightWorkoutsScreen() {
   const handleAddToCart = (workout: Workout, equipment: string) => {
     const workoutId = createWorkoutId(workout, equipment, difficulty);
     
-    if (isInCart(workoutId) || addedItems.has(workoutId)) {
+    if (isInCart(workoutId)) {
       return; // Already in cart
     }
 
@@ -1549,18 +1549,8 @@ export default function LazyBodyweightWorkoutsScreen() {
       moodTips: workout.moodTips || [],
     };
 
-    // Add to cart and update local state
+    // Add to cart
     addToCart(workoutItem);
-    setAddedItems(prev => new Set(prev).add(workoutId));
-
-    // Remove from local added state after 3 seconds to allow re-adding if removed from cart
-    setTimeout(() => {
-      setAddedItems(prev => {
-        const newSet = new Set(prev);
-        newSet.delete(workoutId);
-        return newSet;
-      });
-    }, 3000);
   };
 
   const handleGoBack = () => {
