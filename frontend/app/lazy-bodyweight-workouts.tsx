@@ -1866,7 +1866,6 @@ export default function LazyBodyweightWorkoutsScreen() {
                 difficulty={difficulty}
                 isInCart={isInCart}
                 createWorkoutId={createWorkoutId}
-                addedItems={addedItems}
                 handleAddToCart={handleAddToCart}
               />
             );
