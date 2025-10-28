@@ -1661,7 +1661,9 @@ const LightWeightsWorkoutsScreen = memo(function LightWeightsWorkoutsScreen() {
       </ScrollView>
     </SafeAreaView>
   );
-}
+});
+
+export default LightWeightsWorkoutsScreen;
 
 const styles = StyleSheet.create({
   container: {
