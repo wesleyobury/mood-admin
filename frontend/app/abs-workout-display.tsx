@@ -1346,7 +1346,6 @@ export default function AbsWorkoutDisplayScreen() {
                 onStartWorkout={handleStartWorkout}
                 isInCart={isInCart}
                 createWorkoutId={createWorkoutId}
-                addedItems={addedItems}
                 handleAddToCart={handleAddToCart}
               />
             );
