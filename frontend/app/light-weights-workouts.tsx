@@ -1347,7 +1347,7 @@ export default function LightWeightsWorkoutsScreen() {
   };
 
   // Workout Card Component matching bodyweight explosiveness format exactly
-  const WorkoutCard = React.memo(({ 
+  const WorkoutCard = ({ 
     equipment, 
     icon, 
     workouts, 
