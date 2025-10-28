@@ -979,7 +979,6 @@ interface WorkoutCardProps {
   onStartWorkout: (workout: Workout, equipment: string, difficulty: string) => void;
   isInCart: (workoutId: string) => boolean;
   createWorkoutId: (workout: Workout, equipment: string, difficulty: string) => string;
-  addedItems: Set<string>;
   handleAddToCart: (workout: Workout, equipment: string) => void;
 }
 
