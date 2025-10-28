@@ -1642,6 +1642,9 @@ export default function LightWeightsWorkoutsScreen() {
                 icon={equipmentData.icon}
                 workouts={workouts}
                 difficulty={difficulty}
+                isInCart={isInCart}
+                createWorkoutId={createWorkoutId}
+                handleAddToCart={handleAddToCart}
               />
             </View>
           );
