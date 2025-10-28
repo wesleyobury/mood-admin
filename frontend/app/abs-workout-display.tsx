@@ -991,7 +991,6 @@ const WorkoutCard = React.memo(({
   onStartWorkout,
   isInCart,
   createWorkoutId,
-  addedItems,
   handleAddToCart,
 }: WorkoutCardProps) => {
   const [currentWorkoutIndex, setCurrentWorkoutIndex] = useState(0);
