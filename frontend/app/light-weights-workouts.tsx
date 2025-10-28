@@ -1468,16 +1468,14 @@ export default function LightWeightsWorkoutsScreen() {
           <TouchableOpacity
             style={[
               styles.addToCartButton,
-              (isInCart(createWorkoutId(workouts[currentWorkoutIndex], equipment, difficulty)) || 
-               addedItems.has(createWorkoutId(workouts[currentWorkoutIndex], equipment, difficulty))) && 
+              isInCart(createWorkoutId(workouts[currentWorkoutIndex], equipment, difficulty)) && 
               styles.addToCartButtonAdded
             ]}
-            onPress={() => handleAddToCart(workouts[currentWorkoutIndex], equipment)}
+            onPress={() => handleAddToCartWithAnimation(workouts[currentWorkoutIndex])}
             activeOpacity={0.8}
           >
-            <Animated.View style={[styles.addToCartButtonContent, { transform: [{ scale: scaleAnim }] }]}>
-              {isInCart(createWorkoutId(workouts[currentWorkoutIndex], equipment, difficulty)) || 
-               addedItems.has(createWorkoutId(workouts[currentWorkoutIndex], equipment, difficulty)) ? (
+            <Animated.View style={[styles.addToCartButtonContent, { transform: [{ scale: localScaleAnim }] }]}>
+              {isInCart(createWorkoutId(workouts[currentWorkoutIndex], equipment, difficulty)) ? (
                 <Ionicons name="checkmark" size={16} color="#FFD700" />
               ) : (
                 <>
