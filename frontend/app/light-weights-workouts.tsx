@@ -1272,10 +1272,10 @@ export default function LightWeightsWorkoutsScreen() {
     router.back();
   };
 
-  // Memoize functions to prevent WorkoutCard re-renders
-  const createWorkoutId = useCallback((workout: Workout, equipment: string, difficulty: string) => {
+  // Regular function - not memoized to avoid circular dependency
+  const createWorkoutId = (workout: Workout, equipment: string, difficulty: string) => {
     return `${workout.name}-${equipment}-${difficulty}`;
-  }, []);
+  };
 
   const handleAddToCart = useCallback((workout: Workout, equipment: string) => {
     const workoutId = createWorkoutId(workout, equipment, difficulty);
@@ -1302,7 +1302,7 @@ export default function LightWeightsWorkoutsScreen() {
 
     // Add to cart
     addToCart(workoutItem);
-  }, [difficulty, workoutType, moodTitle, addToCart, isInCart, createWorkoutId]);
+  }, [difficulty, workoutType, moodTitle, addToCart, isInCart]);
 
   const handleStartWorkout = useCallback((workout: Workout, equipment: string, difficulty: string) => {
     try {
