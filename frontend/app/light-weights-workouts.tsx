@@ -1234,7 +1234,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
   }
 ];
 
-export default function LightWeightsWorkoutsScreen() {
+const LightWeightsWorkoutsScreen = memo(function LightWeightsWorkoutsScreen() {
   const router = useRouter();
   const params = useLocalSearchParams();
   const insets = useSafeAreaInsets();
