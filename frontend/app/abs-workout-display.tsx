@@ -1199,9 +1199,8 @@ export default function AbsWorkoutDisplayScreen() {
   const equipmentParam = params.equipment as string || '';
   const difficulty = params.difficulty as string || 'beginner';
   
-  // Cart and animation hooks
+  // Cart hooks (removed addedItems to prevent button flashing)
   const { addToCart, isInCart } = useCart();
-  const [addedItems, setAddedItems] = useState<Set<string>>(new Set());
   
   // Parse equipment from params
   const selectedEquipmentNames = equipmentParam 
