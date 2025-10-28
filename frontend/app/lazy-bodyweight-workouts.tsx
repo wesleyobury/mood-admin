@@ -1607,7 +1607,6 @@ export default function LazyBodyweightWorkoutsScreen() {
     difficulty,
     isInCart,
     createWorkoutId,
-    addedItems,
     handleAddToCart,
   }: { 
     equipment: string; 
@@ -1616,7 +1615,6 @@ export default function LazyBodyweightWorkoutsScreen() {
     difficulty: string;
     isInCart: (workoutId: string) => boolean;
     createWorkoutId: (workout: Workout, equipment: string, difficulty: string) => string;
-    addedItems: Set<string>;
     handleAddToCart: (workout: Workout, equipment: string) => void;
   }) => {
     const [currentWorkoutIndex, setCurrentWorkoutIndex] = useState(0);
