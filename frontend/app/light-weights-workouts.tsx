@@ -1757,10 +1757,8 @@ const styles = StyleSheet.create({
     paddingTop: 24,
     paddingBottom: 40,
   },
-  equipmentSection: {
-    marginBottom: 32,
-  },
   workoutCard: {
+    marginBottom: 32,
     marginHorizontal: 24,
     backgroundColor: '#111111',
     borderRadius: 20,
