@@ -1347,11 +1347,22 @@ export default function LightWeightsWorkoutsScreen() {
   };
 
   // Workout Card Component matching bodyweight explosiveness format exactly
-  const WorkoutCard = React.memo(({ equipment, icon, workouts, difficulty }: { 
+  const WorkoutCard = React.memo(({ 
+    equipment, 
+    icon, 
+    workouts, 
+    difficulty,
+    isInCart,
+    createWorkoutId,
+    handleAddToCart,
+  }: { 
     equipment: string; 
     icon: keyof typeof Ionicons.glyphMap; 
     workouts: Workout[]; 
     difficulty: string;
+    isInCart: (workoutId: string) => boolean;
+    createWorkoutId: (workout: Workout, equipment: string, difficulty: string) => string;
+    handleAddToCart: (workout: Workout, equipment: string) => void;
   }) => {
     const [currentWorkoutIndex, setCurrentWorkoutIndex] = useState(0);
     const [localScaleAnim] = useState(new Animated.Value(1));
