@@ -1265,10 +1265,8 @@ export default function LightWeightsWorkoutsScreen() {
 
   console.log('Selected workout data count:', selectedWorkoutData.length);
 
-  // Cart and animation hooks
+  // Cart hooks (removed addedItems to prevent re-render issues)
   const { addToCart, isInCart } = useCart();
-  const [scaleAnim] = useState(new Animated.Value(1));
-  const [addedItems, setAddedItems] = useState<Set<string>>(new Set());
 
   const handleGoBack = () => {
     router.back();
@@ -1281,7 +1279,7 @@ export default function LightWeightsWorkoutsScreen() {
   const handleAddToCart = (workout: Workout, equipment: string) => {
     const workoutId = createWorkoutId(workout, equipment, difficulty);
     
-    if (isInCart(workoutId) || addedItems.has(workoutId)) {
+    if (isInCart(workoutId)) {
       return; // Already in cart
     }
 
@@ -1301,37 +1299,8 @@ export default function LightWeightsWorkoutsScreen() {
       moodTips: workout.moodTips || [],
     };
 
-    // Animate button
-    Animated.sequence([
-      Animated.timing(scaleAnim, {
-        toValue: 0.8,
-        duration: 100,
-        useNativeDriver: true,
-      }),
-      Animated.timing(scaleAnim, {
-        toValue: 1.2,
-        duration: 200,
-        useNativeDriver: true,
-      }),
-      Animated.timing(scaleAnim, {
-        toValue: 1,
-        duration: 100,
-        useNativeDriver: true,
-      }),
-    ]).start();
-
-    // Add to cart and update local state
+    // Add to cart
     addToCart(workoutItem);
-    setAddedItems(prev => new Set(prev).add(workoutId));
-
-    // Remove from local added state after 3 seconds to allow re-adding if removed from cart
-    setTimeout(() => {
-      setAddedItems(prev => {
-        const newSet = new Set(prev);
-        newSet.delete(workoutId);
-        return newSet;
-      });
-    }, 3000);
   };
 
   const handleStartWorkout = (workout: Workout, equipment: string, difficulty: string) => {
