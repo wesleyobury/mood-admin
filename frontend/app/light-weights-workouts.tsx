@@ -1565,7 +1565,7 @@ export default function LightWeightsWorkoutsScreen() {
         </View>
       </View>
     );
-  });
+  };
 
   if (selectedWorkoutData.length === 0) {
     return (
