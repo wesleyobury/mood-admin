@@ -1304,7 +1304,7 @@ export default function LightWeightsWorkoutsScreen() {
     addToCart(workoutItem);
   }, [difficulty, workoutType, moodTitle, addToCart, isInCart, createWorkoutId]);
 
-  const handleStartWorkout = (workout: Workout, equipment: string, difficulty: string) => {
+  const handleStartWorkout = useCallback((workout: Workout, equipment: string, difficulty: string) => {
     try {
       console.log('🚀 Starting workout:', workout.name, 'on', equipment);
       
@@ -1331,7 +1331,7 @@ export default function LightWeightsWorkoutsScreen() {
     } catch (error) {
       console.error('❌ Error starting workout:', error);
     }
-  };
+  }, [router, workoutType]);
 
   // Create progress bar - single row with requested order
   const createProgressRows = () => {
