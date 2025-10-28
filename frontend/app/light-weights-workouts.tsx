@@ -1641,18 +1641,21 @@ export default function LightWeightsWorkoutsScreen() {
         {selectedWorkoutData.map((equipmentData, index) => {
           const workouts = equipmentData.workouts[difficulty as keyof typeof equipmentData.workouts] || [];
           
+          if (workouts.length === 0) {
+            return null;
+          }
+          
           return (
-            <View key={equipmentData.equipment} style={styles.equipmentSection}>
-              <WorkoutCard
-                equipment={equipmentData.equipment}
-                icon={equipmentData.icon}
-                workouts={workouts}
-                difficulty={difficulty}
-                isInCart={isInCart}
-                createWorkoutId={createWorkoutId}
-                handleAddToCart={handleAddToCart}
-              />
-            </View>
+            <WorkoutCard
+              key={equipmentData.equipment}
+              equipment={equipmentData.equipment}
+              icon={equipmentData.icon}
+              workouts={workouts}
+              difficulty={difficulty}
+              isInCart={isInCart}
+              createWorkoutId={createWorkoutId}
+              handleAddToCart={handleAddToCart}
+            />
           );
         })}
       </ScrollView>
