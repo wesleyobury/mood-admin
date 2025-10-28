@@ -63,9 +63,9 @@ export const CartProvider: React.FC<CartProviderProps> = ({ children }) => {
     setCartItems([]);
   };
 
-  const isInCart = (workoutId: string) => {
+  const isInCart = useCallback((workoutId: string) => {
     return cartItems.some(item => item.id === workoutId);
-  };
+  }, [cartItems]);
 
   const reorderCart = (startIndex: number, endIndex: number) => {
     const result = Array.from(cartItems);
