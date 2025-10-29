@@ -1659,6 +1659,7 @@ const LightWeightsWorkoutsScreen = memo(function LightWeightsWorkoutsScreen() {
               isInCart={isInCart}
               createWorkoutId={createWorkoutId}
               handleAddToCart={handleAddToCart}
+              onStartWorkout={handleStartWorkout}
             />
           );
         })}
