@@ -1481,14 +1481,56 @@ export default function BodyweightExplosivenessWorkoutsScreen() {
   };
 
   // Workout Card Component matching I want to sweat format
-  const WorkoutCard = ({ equipment, icon, workouts, difficulty }: { 
-    equipment: string; 
-    icon: keyof typeof Ionicons.glyphMap; 
-    workouts: Workout[]; 
+  interface WorkoutCardProps {
+    equipment: string;
+    icon: keyof typeof Ionicons.glyphMap;
+    workouts: Workout[];
     difficulty: string;
-  }) => {
+    difficultyColor: string;
+    onStartWorkout: (workout: Workout, equipment: string, difficulty: string) => void;
+    isInCart: (workoutId: string) => boolean;
+    createWorkoutId: (workout: Workout, equipment: string, difficulty: string) => string;
+    handleAddToCart: (workout: Workout, equipment: string) => void;
+  }
+
+  const WorkoutCard = React.memo(({ 
+    equipment, 
+    icon, 
+    workouts, 
+    difficulty, 
+    difficultyColor, 
+    onStartWorkout,
+    isInCart,
+    createWorkoutId,
+    handleAddToCart,
+  }: WorkoutCardProps) => {
     const [currentWorkoutIndex, setCurrentWorkoutIndex] = useState(0);
+    const [localScaleAnim] = useState(new Animated.Value(1));
     const flatListRef = useRef<FlatList>(null);
+
+    const handleAddToCartWithAnimation = (workout: Workout) => {
+      // Animate locally without affecting parent
+      Animated.sequence([
+        Animated.timing(localScaleAnim, {
+          toValue: 0.8,
+          duration: 100,
+          useNativeDriver: true,
+        }),
+        Animated.timing(localScaleAnim, {
+          toValue: 1.2,
+          duration: 200,
+          useNativeDriver: true,
+        }),
+        Animated.timing(localScaleAnim, {
+          toValue: 1,
+          duration: 100,
+          useNativeDriver: true,
+        }),
+      ]).start();
+
+      // Call parent handler
+      handleAddToCart(workout, equipment);
+    };
 
     const renderWorkout = ({ item, index }: { item: Workout; index: number }) => (
       <View style={[styles.workoutSlide, { width: width - 48 }]}>
@@ -1514,8 +1556,8 @@ export default function BodyweightExplosivenessWorkoutsScreen() {
           {/* Duration and Intensity on same line */}
           <View style={styles.durationIntensityRow}>
             <Text style={styles.workoutDuration}>{item.duration}</Text>
-            <View style={[styles.difficultyBadge, { backgroundColor: '#FFD700' }]}>
-              <Text style={styles.difficultyBadgeText}>{(difficulty === 'intermediate' ? 'INTERMED.' : difficulty).toUpperCase()}</Text>
+            <View style={[styles.difficultyBadge, { backgroundColor: difficultyColor }]}>
+              <Text style={styles.difficultyBadgeText}>{difficulty.toUpperCase()}</Text>
             </View>
           </View>
 
@@ -1533,7 +1575,7 @@ export default function BodyweightExplosivenessWorkoutsScreen() {
           {/* Start Workout Button */}
           <TouchableOpacity 
             style={styles.startWorkoutButton}
-            onPress={() => handleStartWorkout(item, equipment, difficulty)}
+            onPress={() => onStartWorkout(item, equipment, difficulty)}
             activeOpacity={0.8}
           >
             <Ionicons name="play" size={20} color="#000000" />
@@ -1543,6 +1585,25 @@ export default function BodyweightExplosivenessWorkoutsScreen() {
       </View>
     );
 
+    const onViewableItemsChanged = useRef(({ viewableItems }: any) => {
+      if (viewableItems.length > 0) {
+        setCurrentWorkoutIndex(viewableItems[0].index || 0);
+      }
+    }).current;
+
+    const onScroll = (event: any) => {
+      const contentOffset = event.nativeEvent.contentOffset;
+      const viewSize = event.nativeEvent.layoutMeasurement;
+      
+      // Calculate current index based on scroll position
+      const currentIndex = Math.round(contentOffset.x / viewSize.width);
+      setCurrentWorkoutIndex(currentIndex);
+    };
+
+    if (workouts.length === 0) {
+      return null;
+    }
+
     return (
       <View style={styles.workoutCard}>
         {/* Equipment Header */}
@@ -1551,9 +1612,26 @@ export default function BodyweightExplosivenessWorkoutsScreen() {
             <Ionicons name={icon} size={24} color="#FFD700" />
           </View>
           <Text style={styles.equipmentName}>{equipment}</Text>
-          <View style={styles.workoutIndicator}>
-            <Text style={styles.workoutCount}>{currentWorkoutIndex + 1}/{workouts.length}</Text>
-          </View>
+          <TouchableOpacity
+            style={[
+              styles.addToCartButton,
+              isInCart(createWorkoutId(workouts[currentWorkoutIndex], equipment, difficulty)) && 
+              styles.addToCartButtonAdded
+            ]}
+            onPress={() => handleAddToCartWithAnimation(workouts[currentWorkoutIndex])}
+            activeOpacity={0.8}
+          >
+            <Animated.View style={[styles.addToCartButtonContent, { transform: [{ scale: localScaleAnim }] }]}>
+              {isInCart(createWorkoutId(workouts[currentWorkoutIndex], equipment, difficulty)) ? (
+                <Ionicons name="checkmark" size={16} color="#FFD700" />
+              ) : (
+                <>
+                  <Ionicons name="add" size={14} color="#FFFFFF" />
+                  <Text style={styles.addToCartButtonText}>Add workout</Text>
+                </>
+              )}
+            </Animated.View>
+          </TouchableOpacity>
         </View>
 
         {/* Workout List - Native Swipe Enabled */}
@@ -1564,40 +1642,19 @@ export default function BodyweightExplosivenessWorkoutsScreen() {
             renderItem={renderWorkout}
             horizontal
             pagingEnabled
-            snapToInterval={width - 48}
-            decelerationRate="fast"
             showsHorizontalScrollIndicator={false}
-            scrollEventThrottle={16}
-            onScroll={(event) => {
-              const slideSize = width - 48;
-              const offset = event.nativeEvent.contentOffset.x;
-              const index = Math.round(offset / slideSize);
-              const boundedIndex = Math.max(0, Math.min(index, workouts.length - 1));
-              if (boundedIndex !== currentWorkoutIndex) {
-                setCurrentWorkoutIndex(boundedIndex);
-              }
+            onViewableItemsChanged={onViewableItemsChanged}
+            viewabilityConfig={{
+              itemVisiblePercentThreshold: 50
             }}
-            onMomentumScrollEnd={(event) => {
-              const slideSize = width - 48;
-              const offset = event.nativeEvent.contentOffset.x;
-              const index = Math.round(offset / slideSize);
-              const boundedIndex = Math.max(0, Math.min(index, workouts.length - 1));
-              setCurrentWorkoutIndex(boundedIndex);
-            }}
-            onScrollEndDrag={(event) => {
-              const slideSize = width - 48;
-              const offset = event.nativeEvent.contentOffset.x;
-              const index = Math.round(offset / slideSize);
-              const boundedIndex = Math.max(0, Math.min(index, workouts.length - 1));
-              setCurrentWorkoutIndex(boundedIndex);
-            }}
-            initialScrollIndex={0}
             getItemLayout={(data, index) => ({
               length: width - 48,
               offset: (width - 48) * index,
               index,
             })}
             keyExtractor={(item, index) => `${equipment}-${item.name}-${index}`}
+            onScroll={onScroll}
+            scrollEventThrottle={16}
           />
         </View>
 
@@ -1614,13 +1671,15 @@ export default function BodyweightExplosivenessWorkoutsScreen() {
                 ]}
                 onPress={() => {
                   console.log(`Dot clicked: ${index}, Current: ${currentWorkoutIndex}`);
-                  setCurrentWorkoutIndex(index);
-                  // Use scrollToOffset for more reliable behavior
-                  const slideSize = width - 48;
+                  const offset = (width - 48) * index;
+                  console.log(`Scrolling to offset: ${offset}`);
+                  
+                  // Use scrollToOffset instead of scrollToIndex for better web compatibility
                   flatListRef.current?.scrollToOffset({
-                    offset: index * slideSize,
+                    offset: offset,
                     animated: true
                   });
+                  setCurrentWorkoutIndex(index);
                 }}
                 activeOpacity={0.7}
                 hitSlop={{top: 10, bottom: 10, left: 10, right: 10}}
@@ -1635,7 +1694,7 @@ export default function BodyweightExplosivenessWorkoutsScreen() {
         </View>
       </View>
     );
-  };
+  });
 
   return (
     <SafeAreaView style={[styles.container, { paddingTop: insets.top }]}>
