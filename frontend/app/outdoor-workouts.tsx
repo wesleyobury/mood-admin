@@ -367,7 +367,7 @@ export default function OutdoorWorkoutsScreen() {
               >
                 <View style={[
                   styles.dot,
-                  currentWorkoutIndex === index && styles.activeDot,
+                  index === currentWorkoutIndex && styles.activeDot,
                 ]} />
               </TouchableOpacity>
             ))}
