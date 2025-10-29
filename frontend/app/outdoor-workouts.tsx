@@ -47,6 +47,20 @@ import { outdoorRunWorkoutDatabase } from '../data/outdoor-workouts-data';
 // Outdoor workout database
 const workoutDatabase: EquipmentWorkouts[] = outdoorRunWorkoutDatabase;
 
+// Workout Card Component - moved outside for memoization
+interface WorkoutCardProps {
+  equipment: string;
+  icon: keyof typeof Ionicons.glyphMap;
+  workouts: Workout[];
+  difficulty: string;
+  workoutType: string;
+  moodTitle: string;
+  onStartWorkout: (workout: Workout, equipment: string, difficulty: string) => void;
+  isInCart: (workoutId: string) => boolean;
+  createWorkoutId: (workout: Workout, equipment: string, difficulty: string) => string;
+  handleAddToCart: (workout: Workout, equipment: string) => void;
+}
+
 export default function OutdoorWorkoutsScreen() {
   const router = useRouter();
   const params = useLocalSearchParams();
