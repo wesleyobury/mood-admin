@@ -353,16 +353,14 @@ export default function OutdoorWorkoutsScreen() {
                   currentWorkoutIndex === index && styles.activeDotTouchArea,
                 ]}
                 onPress={() => {
-                  console.log(`🔥 Dot clicked: index ${index}, width: ${width - 48}`);
-                  const offset = (width - 48) * index;
-                  console.log(`🔥 Scrolling to offset: ${offset}`);
-                  
-                  // Use scrollToOffset instead of scrollToIndex for better web compatibility
+                  console.log(`Dot clicked: ${index}, Current: ${currentWorkoutIndex}`);
+                  setCurrentWorkoutIndex(index);
+                  // Use scrollToOffset for more reliable behavior
+                  const slideSize = width - 48;
                   flatListRef.current?.scrollToOffset({
-                    offset: offset,
+                    offset: index * slideSize,
                     animated: true
                   });
-                  setCurrentWorkoutIndex(index);
                 }}
                 activeOpacity={0.7}
                 hitSlop={{top: 10, bottom: 10, left: 10, right: 10}}
