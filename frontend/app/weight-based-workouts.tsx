@@ -261,7 +261,7 @@ const WorkoutCard = React.memo(({
   );
 });
 
-export default function AbsWorkoutDisplayScreen() {
+export default function WeightBasedWorkoutsScreen() {
   const router = useRouter();
   const params = useLocalSearchParams();
   const insets = useSafeAreaInsets();
