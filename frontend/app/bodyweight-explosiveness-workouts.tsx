@@ -1794,6 +1794,11 @@ export default function BodyweightExplosivenessWorkoutsScreen() {
               icon={workoutItem.icon}
               workouts={workoutsForDifficulty}
               difficulty={difficulty}
+              difficultyColor='#FFD700'
+              onStartWorkout={handleStartWorkout}
+              isInCart={isInCart}
+              createWorkoutId={createWorkoutId}
+              handleAddToCart={handleAddToCart}
             />
           );
         })}
