@@ -792,6 +792,21 @@ const WorkoutCard = React.memo(({
     </View>
   );
 
+  const onViewableItemsChanged = useRef(({ viewableItems }: any) => {
+    if (viewableItems.length > 0) {
+      setCurrentWorkoutIndex(viewableItems[0].index || 0);
+    }
+  }).current;
+
+  const onScroll = (event: any) => {
+    const contentOffset = event.nativeEvent.contentOffset;
+    const viewSize = event.nativeEvent.layoutMeasurement;
+    
+    // Calculate current index based on scroll position
+    const currentIndex = Math.round(contentOffset.x / viewSize.width);
+    setCurrentWorkoutIndex(currentIndex);
+  };
+
   if (workouts.length === 0) {
     return null;
   }
