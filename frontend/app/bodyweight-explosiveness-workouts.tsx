@@ -1434,6 +1434,37 @@ export default function BodyweightExplosivenessWorkoutsScreen() {
     index === self.findIndex(w => w.equipment === workout.equipment)
   );
 
+  const createWorkoutId = (workout: Workout, equipment: string, difficulty: string) => {
+    return `${workout.name}-${equipment}-${difficulty}`;
+  };
+
+  const handleAddToCart = (workout: Workout, equipment: string) => {
+    const workoutId = createWorkoutId(workout, equipment, difficulty);
+    
+    if (isInCart(workoutId)) {
+      return; // Already in cart
+    }
+
+    // Create WorkoutItem from current workout
+    const workoutItem: WorkoutItem = {
+      id: workoutId,
+      name: workout.name,
+      duration: workout.duration,
+      description: workout.description,
+      battlePlan: workout.battlePlan,
+      imageUrl: workout.imageUrl,
+      intensityReason: workout.intensityReason,
+      equipment: equipment,
+      difficulty: difficulty,
+      workoutType: `${moodTitle} - Body weight`,
+      moodCard: moodTitle,
+      moodTips: workout.moodTips || [],
+    };
+
+    // Add to cart
+    addToCart(workoutItem);
+  };
+
   const handleGoBack = () => {
     router.back();
   };
