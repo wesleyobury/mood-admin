@@ -1434,11 +1434,11 @@ export default function BodyweightExplosivenessWorkoutsScreen() {
     index === self.findIndex(w => w.equipment === workout.equipment)
   );
 
-  const createWorkoutId = (workout: Workout, equipment: string, difficulty: string) => {
+  const createWorkoutId = React.useCallback((workout: Workout, equipment: string, difficulty: string) => {
     return `${workout.name}-${equipment}-${difficulty}`;
-  };
+  }, []);
 
-  const handleAddToCart = (workout: Workout, equipment: string) => {
+  const handleAddToCart = React.useCallback((workout: Workout, equipment: string) => {
     const workoutId = createWorkoutId(workout, equipment, difficulty);
     
     if (isInCart(workoutId)) {
@@ -1463,7 +1463,7 @@ export default function BodyweightExplosivenessWorkoutsScreen() {
 
     // Add to cart
     addToCart(workoutItem);
-  };
+  }, [createWorkoutId, difficulty, moodTitle, addToCart, isInCart]);
 
   const handleGoBack = () => {
     router.back();
