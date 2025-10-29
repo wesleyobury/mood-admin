@@ -902,6 +902,230 @@ const WorkoutCard = React.memo(({
     );
   };
 
+  if (workouts.length === 0) {
+    return null;
+  }
+
+  return (
+    <View style={styles.workoutCard}>
+      {/* Equipment Header */}
+      <View style={styles.equipmentHeader}>
+        <View style={styles.equipmentIconContainer}>
+          <Ionicons name={icon} size={24} color="#FFD700" />
+        </View>
+        <Text style={styles.equipmentName}>{equipment}</Text>
+        <TouchableOpacity
+          style={[
+            styles.addToCartButton,
+            isInCart(createWorkoutId(workouts[currentWorkoutIndex], equipment, difficulty)) && 
+            styles.addToCartButtonAdded
+          ]}
+          onPress={() => handleAddToCartWithAnimation(workouts[currentWorkoutIndex])}
+          activeOpacity={0.8}
+        >
+          <Animated.View style={[styles.addToCartButtonContent, { transform: [{ scale: localScaleAnim }] }]}>
+            {isInCart(createWorkoutId(workouts[currentWorkoutIndex], equipment, difficulty)) ? (
+              <Ionicons name="checkmark" size={16} color="#FFD700" />
+            ) : (
+              <>
+                <Ionicons name="add" size={14} color="#FFFFFF" />
+                <Text style={styles.addToCartButtonText}>Add workout</Text>
+              </>
+            )}
+          </Animated.View>
+        </TouchableOpacity>
+      </View>
+
+      {/* Workout List - Native Swipe Enabled */}
+      <View style={[styles.workoutList, { height: 420 }]}>
+        <FlatList
+          ref={flatListRef}
+          data={workouts}
+          renderItem={renderWorkout}
+          horizontal
+          pagingEnabled
+          snapToInterval={width - 48}
+          decelerationRate="fast"
+          showsHorizontalScrollIndicator={false}
+          scrollEventThrottle={16}
+          onScroll={(event) => {
+            const slideSize = width - 48;
+            const offset = event.nativeEvent.contentOffset.x;
+            const index = Math.round(offset / slideSize);
+            const boundedIndex = Math.max(0, Math.min(index, workouts.length - 1));
+            if (boundedIndex !== currentWorkoutIndex) {
+              setCurrentWorkoutIndex(boundedIndex);
+            }
+          }}
+          onMomentumScrollEnd={(event) => {
+            const slideSize = width - 48;
+            const offset = event.nativeEvent.contentOffset.x;
+            const index = Math.round(offset / slideSize);
+            const boundedIndex = Math.max(0, Math.min(index, workouts.length - 1));
+            setCurrentWorkoutIndex(boundedIndex);
+          }}
+          onScrollEndDrag={(event) => {
+            const slideSize = width - 48;
+            const offset = event.nativeEvent.contentOffset.x;
+            const index = Math.round(offset / slideSize);
+            const boundedIndex = Math.max(0, Math.min(index, workouts.length - 1));
+            setCurrentWorkoutIndex(boundedIndex);
+          }}
+          initialScrollIndex={0}
+          getItemLayout={(data, index) => ({
+            length: width - 48,
+            offset: (width - 48) * index,
+            index,
+          })}
+        />
+      </View>
+
+      {/* Workout Indicator Dots */}
+      <View style={styles.dotsContainer}>
+        <Text style={styles.dotsLabel}>Swipe to explore</Text>
+        <View style={styles.dotsRow}>
+          {workouts.map((_, index) => (
+            <TouchableOpacity
+              key={index}
+              style={[
+                styles.dotTouchArea,
+                index === currentWorkoutIndex && styles.activeDotTouchArea
+              ]}
+              onPress={() => {
+                console.log(`Dot clicked: ${index}, Current: ${currentWorkoutIndex}`);
+                setCurrentWorkoutIndex(index);
+                // Use scrollToOffset for more reliable behavior
+                const slideSize = width - 48;
+                flatListRef.current?.scrollToOffset({
+                  offset: index * slideSize,
+                  animated: true
+                });
+              }}
+              activeOpacity={0.7}
+              hitSlop={{top: 10, bottom: 10, left: 10, right: 10}}
+            >
+              <View style={[
+                styles.dot,
+                index === currentWorkoutIndex && styles.activeDot,
+              ]} />
+            </TouchableOpacity>
+          ))}
+        </View>
+      </View>
+    </View>
+  );
+});
+
+export default function CalisthenicsWorkoutsScreen() {
+  const router = useRouter();
+  const params = useLocalSearchParams();
+  const insets = useSafeAreaInsets();
+
+  // Parse URL parameters
+  const moodTitle = params.mood as string || 'I want to do calisthenics';
+  const workoutType = params.workoutType as string || 'Bodyweight exercises';
+  const equipmentParam = params.equipment as string || '';
+  const difficulty = params.difficulty as string || 'beginner';
+  
+  // Parse selected equipment from comma-separated string
+  const selectedEquipmentNames = equipmentParam.split(',').filter(name => name.trim() !== '');
+  
+  console.log('Calisthenics Debug:', {
+    equipmentParam,
+    selectedEquipmentNames,
+    difficulty,
+    workoutType,
+    moodTitle
+  });
+
+  // Get workout data for selected equipment
+  const selectedWorkoutData = workoutDatabase.filter(eq => 
+    selectedEquipmentNames.some(name => 
+      eq.equipment.toLowerCase().trim() === name.toLowerCase().trim()
+    )
+  );
+
+  console.log('Selected workout data count:', selectedWorkoutData.length);
+
+  // Cart hooks
+  const { addToCart, isInCart } = useCart();
+
+  const createWorkoutId = (workout: Workout, equipment: string, difficulty: string) => {
+    return `${workout.name}-${equipment}-${difficulty}`;
+  };
+
+  const handleAddToCart = (workout: Workout, equipment: string) => {
+    const workoutId = createWorkoutId(workout, equipment, difficulty);
+    
+    if (isInCart(workoutId)) {
+      return; // Already in cart
+    }
+
+    // Create WorkoutItem from current workout
+    const workoutItem: WorkoutItem = {
+      id: workoutId,
+      name: workout.name,
+      duration: workout.duration,
+      description: workout.description,
+      battlePlan: workout.battlePlan,
+      imageUrl: workout.imageUrl,
+      intensityReason: workout.intensityReason,
+      equipment: equipment,
+      difficulty: difficulty,
+      workoutType: workoutType,
+      moodCard: moodTitle,
+      moodTips: workout.moodTips || [],
+    };
+
+    // Add to cart
+    addToCart(workoutItem);
+  };
+
+  const handleGoBack = () => {
+    router.back();
+  };
+
+  const handleStartWorkout = (workout: Workout, equipment: string, difficulty: string) => {
+    try {
+      console.log('🚀 Starting workout:', workout.name, 'on', equipment);
+      
+      if (!workout.name || !equipment || !difficulty) {
+        console.error('❌ Missing required parameters for workout navigation');
+        return;
+      }
+      
+      router.push({
+        pathname: '/workout-guidance',
+        params: {
+          workoutName: workout.name,
+          equipment: equipment,
+          description: workout.description || '',
+          battlePlan: workout.battlePlan || '',
+          duration: workout.duration || '20 min',
+          difficulty: difficulty,
+          workoutType: workoutType,
+          moodTips: encodeURIComponent(JSON.stringify(workout.moodTips || []))
+        }
+      });
+      
+      console.log('✅ Navigation completed - using simplified parameters');
+    } catch (error) {
+      console.error('❌ Error starting workout:', error);
+    }
+  };
+
+  // Create progress bar - single row with requested order
+  const createProgressRows = () => {
+    const steps = [
+      { key: 'mood', icon: 'flame', text: moodTitle },
+      { key: 'difficulty', icon: 'speedometer', text: difficulty === 'intermediate' ? 'Intermed.' : difficulty.charAt(0).toUpperCase() + difficulty.slice(1) },
+      { key: 'equipment', icon: 'construct', text: `Equipment (${selectedEquipmentNames.length})` },
+    ];
+
+    // Return single row
+    return [steps];
+  };
+
   if (selectedWorkoutData.length === 0) {
     return (
       <SafeAreaView style={[styles.container, { paddingTop: insets.top }]}>
