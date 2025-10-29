@@ -468,7 +468,7 @@ export default function OutdoorWorkoutsScreen() {
         {selectedWorkoutData.map((equipmentData, index) => {
           const workouts = equipmentData.workouts[difficulty as keyof typeof equipmentData.workouts] || [];
           return (
-            <WorkoutCardComponent
+            <WorkoutCard
               key={`${equipmentData.equipment}-${index}`}
               equipment={equipmentData.equipment}
               icon={equipmentData.icon}
