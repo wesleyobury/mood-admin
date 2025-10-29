@@ -31,12 +31,12 @@ const CartItemComponent: React.FC<{
           <Text style={styles.orderNumberText}>{index + 1}</Text>
         </View>
         <View style={styles.moodCardTitleContainer}>
-          <Text style={styles.moodCardTitle} numberOfLines={1}>
+          <Text style={styles.moodCardTitle}>
             {item.moodCard || 'Workout'}
           </Text>
           <View style={styles.workoutTypeContainer}>
             <View style={styles.workoutTypeDot} />
-            <Text style={styles.workoutTypeText} numberOfLines={1}>
+            <Text style={styles.workoutTypeText}>
               {(() => {
                 // Handle "I'm feeling lazy - Lift weights - Upper body" format
                 if (item.workoutType.includes("I'm feeling lazy") && item.workoutType.includes("Lift weights")) {
