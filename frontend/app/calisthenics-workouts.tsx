@@ -985,6 +985,12 @@ const WorkoutCard = React.memo(({
               icon={equipmentData.icon}
               workouts={workouts}
               difficulty={difficulty}
+              workoutType=""
+              moodTitle={moodTitle}
+              onStartWorkout={handleStartWorkout}
+              isInCart={isInCart}
+              createWorkoutId={createWorkoutId}
+              handleAddToCart={handleAddToCart}
             />
           );
         })}
