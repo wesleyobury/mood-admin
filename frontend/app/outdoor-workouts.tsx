@@ -177,7 +177,32 @@ export default function OutdoorWorkoutsScreen() {
     handleAddToCart,
   }: WorkoutCardProps) => {
     const [currentWorkoutIndex, setCurrentWorkoutIndex] = useState(0);
+    const [localScaleAnim] = useState(new Animated.Value(1));
     const flatListRef = useRef<FlatList>(null);
+
+    const handleAddToCartWithAnimation = (workout: Workout) => {
+      // Animate locally without affecting parent
+      Animated.sequence([
+        Animated.timing(localScaleAnim, {
+          toValue: 0.8,
+          duration: 100,
+          useNativeDriver: true,
+        }),
+        Animated.timing(localScaleAnim, {
+          toValue: 1.2,
+          duration: 200,
+          useNativeDriver: true,
+        }),
+        Animated.timing(localScaleAnim, {
+          toValue: 1,
+          duration: 100,
+          useNativeDriver: true,
+        }),
+      ]).start();
+
+      // Call parent handler
+      handleAddToCart(workout, equipment);
+    };
 
     console.log(`🏃 WorkoutCard for ${equipment}: received ${workouts.length} workouts for ${difficulty} difficulty`);
     workouts.forEach((workout, index) => {
