@@ -739,58 +739,58 @@ const WorkoutCard = React.memo(({
     handleAddToCart(workout, equipment);
   };
 
-    const renderWorkout = ({ item, index }: { item: Workout; index: number }) => (
-      <View style={[styles.workoutSlide, { width: width - 48 }]}>
-        {/* Workout Image */}
-        <View style={styles.workoutImageContainer}>
-          <Image 
-            source={{ uri: item.imageUrl }}
-            style={styles.workoutImage}
-            resizeMode="cover"
-          />
-          <View style={styles.imageOverlay} />
-          <View style={styles.swipeIndicator}>
-            <Ionicons name="swap-horizontal" size={20} color="#FFD700" />
-            <Text style={styles.swipeText}>Swipe for more</Text>
-          </View>
-        </View>
-
-        {/* Workout Content */}
-        <View style={styles.workoutContent}>
-          {/* Workout Name */}
-          <Text style={styles.workoutName}>{item.name}</Text>
-          
-          {/* Duration and Intensity on same line */}
-          <View style={styles.durationIntensityRow}>
-            <Text style={styles.workoutDuration}>{item.duration}</Text>
-            <View style={[styles.difficultyBadge, { backgroundColor: '#FFD700' }]}>
-              <Text style={styles.difficultyBadgeText}>{(difficulty === 'intermediate' ? 'INTERMED.' : difficulty).toUpperCase()}</Text>
-            </View>
-          </View>
-
-          {/* Intensity Reason */}
-          <View style={styles.intensityContainer}>
-            <Ionicons name="information-circle" size={16} color="#FFD700" />
-            <Text style={styles.intensityReason}>{item.intensityReason}</Text>
-          </View>
-
-          {/* Workout Description */}
-          <View style={styles.workoutDescriptionContainer}>
-            <Text style={styles.workoutDescription}>{item.description}</Text>
-          </View>
-
-          {/* Start Workout Button */}
-          <TouchableOpacity 
-            style={styles.startWorkoutButton}
-            onPress={() => handleStartWorkout(item, equipment, difficulty)}
-            activeOpacity={0.8}
-          >
-            <Ionicons name="play" size={20} color="#000000" />
-            <Text style={styles.startWorkoutButtonText}>Start Workout</Text>
-          </TouchableOpacity>
+  const renderWorkout = ({ item, index }: { item: Workout; index: number }) => (
+    <View style={[styles.workoutSlide, { width: width - 48 }]}>
+      {/* Workout Image */}
+      <View style={styles.workoutImageContainer}>
+        <Image 
+          source={{ uri: item.imageUrl }}
+          style={styles.workoutImage}
+          resizeMode="cover"
+        />
+        <View style={styles.imageOverlay} />
+        <View style={styles.swipeIndicator}>
+          <Ionicons name="swap-horizontal" size={20} color="#FFD700" />
+          <Text style={styles.swipeText}>Swipe for more</Text>
         </View>
       </View>
-    );
+
+      {/* Workout Content */}
+      <View style={styles.workoutContent}>
+        {/* Workout Name */}
+        <Text style={styles.workoutName}>{item.name}</Text>
+        
+        {/* Duration and Intensity on same line */}
+        <View style={styles.durationIntensityRow}>
+          <Text style={styles.workoutDuration}>{item.duration}</Text>
+          <View style={[styles.difficultyBadge, { backgroundColor: '#FFD700' }]}>
+            <Text style={styles.difficultyBadgeText}>{(difficulty === 'intermediate' ? 'INTERMED.' : difficulty).toUpperCase()}</Text>
+          </View>
+        </View>
+
+        {/* Intensity Reason */}
+        <View style={styles.intensityContainer}>
+          <Ionicons name="information-circle" size={16} color="#FFD700" />
+          <Text style={styles.intensityReason}>{item.intensityReason}</Text>
+        </View>
+
+        {/* Workout Description */}
+        <View style={styles.workoutDescriptionContainer}>
+          <Text style={styles.workoutDescription}>{item.description}</Text>
+        </View>
+
+        {/* Start Workout Button */}
+        <TouchableOpacity 
+          style={styles.startWorkoutButton}
+          onPress={() => onStartWorkout(item, equipment, difficulty)}
+          activeOpacity={0.8}
+        >
+          <Ionicons name="play" size={20} color="#000000" />
+          <Text style={styles.startWorkoutButtonText}>Start Workout</Text>
+        </TouchableOpacity>
+      </View>
+    </View>
+  );
 
   if (workouts.length === 0) {
     return null;
