@@ -1,0 +1,140 @@
+<analysis>
+The trajectory details the AI engineer's work on an Expo mobile app. It commenced with a summary of prior fixes, including a carousel bug,  memoization, and content display for build explosion based. A critical routing error was then resolved, where I want to sweat weights incorrectly showed build explosion based content. This required creating dedicated data and equipment files (, ), updating routing in , and refactoring .
+
+Subsequently, the user requested adding the Add to Cart feature to build explosion weight workouts, mirroring the weights based path. The AI implemented this in , integrating cart logic, , updating the  component and adding necessary styles.
+
+A persistent carousel reset bug emerged in both body weight and Im feeling lazy > move your body" paths. Initial attempts involved `useCallback`, but the user identified the core issue: `WorkoutCard` was defined *inside* the main component, breaking `React.memo`. The AI refactored `WorkoutCard` in both `bodyweight-explosiveness-workouts.tsx` and `lazy-bodyweight-workouts.tsx` to be defined *outside* their respective main components, resolving the carousel issue.
+
+Finally, the user reported squared corners on workout cards in the "Im feeling lazy move your body path. The AI fixed this by adding  and adjusting , , and  in  for a consistent, rounded appearance.
+</analysis>
+
+<product_requirements>
+The application provides an interactive workout experience across categories like Light weights, Calisthenics, Outdoor, Cardio, and Muscle Gainer, featuring a Workout Shopping Cart that leads to a workout guidance screen. The cart's display was refined to show total workout count and estimated duration, and Add to Cart functionality was extended to Muscle gainer - Biceps, Triceps, Legs and Im feeling lazy > body weight" workouts.
+
+Key issues addressed include:
+1.  Fixing a carousel reset and button flashing bug in the "cardio based > light weights" path.
+2.  Correcting a critical routing error where "build explosion > weights based" path incorrectly displayed "light weights" content, requiring specific workout data and UI/UX restoration.
+3.  Resolving a new routing issue: "I want to sweat > light weights" mistakenly showed "build explosion > weights based" content, requiring a dedicated equipment screen and workout data.
+4.  Implementing "Add to Cart" functionality for all workout cards in the "build explosion > body weight" path, matching the appearance and behavior of the "weights based" path.
+5.  Fixing the carousel reset bug in both "build explosion > body weight" and "Im feeling lazy your body paths.
+6.  Correcting the visual appearance of workout cards in Im feeling lazy > just move your body" path to have rounded corners and consistent neon glow.
+</product_requirements>
+
+<key_technical_concepts>
+-   **Expo File-Based Routing (`expo-router`)**: For defining and navigating app screens via file paths.
+-   **React Native Components**: Basic UI building blocks like `View`, `Text`, `TouchableOpacity`, `FlatList`.
+-   **React Hooks**: `useState`, `useEffect`, `useCallback` for managing component state, lifecycle, and optimizing performance.
+-   **Context API (`CartContext`)**: Global state management for workout cart functionality.
+-   **React Memoization (`React.memo`)**: Optimizing component re-renders to prevent unnecessary updates.
+</key_technical_concepts>
+
+<code_architecture>
+```
+/app
+├── frontend
+│   ├── app
+│   │   ├── (tabs)
+│   │   │   ├── index.tsx
+│   │   │   └── _layout.tsx
+│   │   ├── auth
+│   │   │   └── login.tsx
+│   │   ├── cart.tsx
+│   │   ├── workout-session.tsx
+│   │   ├── _layout.tsx
+│   │   ├── abs-equipment.tsx
+│   │   ├── abs-workout-display.tsx
+│   │   ├── adjustable-bench-workout-display.tsx
+│   │   ├── back-workout-display.tsx
+│   │   ├── biceps-workout-display.tsx
+│   │   ├── body-parts.tsx
+│   │   ├── bodyweight-explosiveness-workouts.tsx
+│   │   ├── bodyweight-equipment.tsx
+│   │   ├── cardio-equipment.tsx
+│   │   ├── calisthenics-equipment.tsx
+│   │   ├── calisthenics-workouts.tsx
+│   │   ├── chest-equipment.
+│   │   ├── chest-workout-display.tsx
+│   │   ├── compound-workout-display.tsx
+│   │   ├── explosiveness-type.tsx
+│   │   ├── forearms-workout-display.tsx
+│   │   ├── full-body-workout-display.tsx
+│   │   ├── hamstrings-workout-display.tsx
+│   │   ├── index.tsx
+│   │   ├── lazy-bodyweight-equipment.tsx
+│   │   ├── lazy-bodyweight-workouts.tsx
+│   │   ├── lazy-full-body-workouts.tsx
+│   │   ├── lazy-lower-body-workouts.tsx
+│   │   ├── lazy-training-type.tsx
+│   │   ├── lazy-weight-selection.tsx
+│   │   ├── lazy-upper-body-workouts.tsx
+│   │   ├── legs-equipment.tsx
+│   │   ├── legs-workout-display.tsx
+│   │   ├── light-weights-equipment.tsx
+│   │   ├── light-weights-workouts.tsx
+│   │   ├── quads-workout-display.tsx
+│   │   ├── shoulders-workout-display.tsx
+│   │   ├── triceps-workout-display.tsx
+│   │   ├── workout-guidance.tsx
+│   │   ├── workout-display.tsx
+│   │   ├── workout-type.tsx
+│   │   ├── weight-equipment.tsx
+│   │   ├── weight-based-workouts.tsx
+│   │   ├── outdoor-equipment.tsx
+│   │   ├── outdoor-workouts.tsx
+│   │   └── outdoor-workouts-data.ts
+│   ├── components
+│   │   └── FloatingCart.tsx
+│   ├── contexts
+│   │   └── CartContext.tsx
+│   └── data
+│       ├── calisthenics-workouts-data.ts
+│       ├── explosiveness-weights-data.ts
+│       ├── light-weights-data.ts
+│       └── outdoor-workouts-data.ts
+```
+The application uses Expo Router for file-based navigation, with screens located under `/app/frontend/app`. Global state management for the workout cart is handled by `frontend/contexts/CartContext.tsx`. Data for various workout types is centralized in the `frontend/data` directory.
+
+-   **`frontend/app/light-weights-workouts.tsx`**:
+    -   **Importance**: Displays cardio-based "Light Weights" workouts.
+    -   **Changes**: Refactored to import `lightWeightsDatabase` from `frontend/data/light-weights-data.ts`, replacing extensive inline data (previously lines 46-1236).
+-   **`frontend/contexts/CartContext.tsx`**:
+    -   **Importance**: Manages global cart state and `isInCart` status.
+    -   **Changes**: `isInCart` function was wrapped with `useCallback` for memoization and performance.
+-   **`frontend/app/workout-type.tsx`**:
+    -   **Importance**: Defines initial navigation paths for workout type selection.
+    -   **Changes**: Modified to correctly route the "Light weights" option to the new `/light-weights-equipment` screen, separating its navigation from the "Build Explosion > Weights Based" path.
+-   **`frontend/data/light-weights-data.ts`**:
+    -   **Importance**: Centralizes comprehensive workout data for the "cardio based > light weights" path.
+    -   **Changes**: Newly created to store detailed workout data by equipment and intensity.
+-   **`frontend/app/light-weights-equipment.tsx`**:
+    -   **Importance**: Provides a dedicated equipment selection screen for "I want to sweat > light weights."
+    -   **Changes**: Newly created file to route to `light-weights-workouts.tsx`.
+-   **`frontend/app/bodyweight-explosiveness-workouts.tsx`**:
+    -   **Importance**: Displays "Build Explosion > Body Weight" workouts and was a target for adding cart functionality and fixing the carousel reset bug.
+    -   **Changes**:
+        -   `WorkoutCard` component was updated to include "Add to Cart" functionality (replacing original definition).
+        -   Cart hooks (`useCart`, `isInCart`) and helper functions (`createWorkoutId`, `handleAddToCart`, `handleStartWorkout`) were added and wrapped in `useCallback` to prevent re-creation on renders.
+        -   `WorkoutCard` rendering was updated to pass new `isInCart` and `handleAddToCart` props.
+        -   Missing `addToCartButton` styles were added to the stylesheet.
+        -   **Crucially**: The `WorkoutCard` component definition (originally lines 1518-1731) was moved *outside* the main component function (inserted between lines 1391 and 1393) to enable proper memoization and fix the carousel reset.
+-   **`frontend/app/lazy-bodyweight-workouts.tsx`**:
+    -   **Importance**: Displays "Im feeling lazy your body workouts, requiring carousel reset and style fixes.
+    -   **Changes**:
+        -   **Crucially**: The  component definition (originally lines 1603-1810) and its inline interface were moved *outside* the main component function (inserted after line 1487) to resolve the carousel reset issue.
+        -    styles were updated to include , change  to 2,  to 0.3, and  to 15, to ensure rounded corners and a consistent neon glow effect.
+</code_architecture>
+
+<pending_tasks>
+-   Verify the fix for the carousel reset and button flashing issues in the cardio based weights path ().
+-   Verify the  is correctly displayed in the cart/progress bar for Build Explosion Based workouts.
+-   Verify the correct routing and content display for the I want to sweat weights path.
+-   Verify the Add to Cart functionality and button appearance in the build explosion weight path.
+-   Verify the carousel reset fix for the build explosion weight path.
+-   Verify the carousel reset fix for the Im feeling lazy > move your body" path.
+-   Verify the rounded corners and neon glow appearance for workout cards in "Im feeling lazy move your body path.
+</pending_tasks>
+
+<current_work>
+Immediately prior to this summary request, the AI engineer was focused on resolving a visual inconsistency in the Im feeling lazy > just move your body" path. The user explicitly stated in Chat Message 166: "the neon glow around the workout cards has squared corners, as shown in the screen shot, the format of the workout cards borders should match other workout cards".
+
+To resolve this, the AI engineer investigated the styles within `frontend/app/lazy-bodyweight-workouts.tsx`, specifically the `workoutCard` style definition. The issue was identified as a missing `overflow: hidden` property, which prevents inner content from respecting the parents . Additionally, the AI adjusted other style properties to ensure a consistent look with other workout cards, comparing against .
