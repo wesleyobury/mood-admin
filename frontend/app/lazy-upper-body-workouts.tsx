@@ -638,6 +638,41 @@ export default function LazyUpperBodyWorkoutsScreen() {
   const selectedEquipmentNames = ['Press', 'Pull', 'Full Upper Body'];
   const workoutDatabase = upperBodyWorkoutDatabase;
 
+  // Cart hooks
+  const { addToCart, isInCart } = useCart();
+
+  // Cart helper functions
+  const createWorkoutId = useCallback((workout: Workout, equipment: string, difficulty: string) => {
+    return `${workout.name}-${equipment}-${difficulty}`;
+  }, []);
+
+  const handleAddToCart = useCallback((workout: Workout, equipment: string) => {
+    const workoutId = createWorkoutId(workout, equipment, difficulty);
+    
+    if (isInCart(workoutId)) {
+      return; // Already in cart
+    }
+
+    // Create WorkoutItem from current workout
+    const workoutItem: WorkoutItem = {
+      id: workoutId,
+      name: workout.name,
+      duration: workout.duration,
+      description: workout.description,
+      battlePlan: workout.battlePlan,
+      imageUrl: workout.imageUrl,
+      intensityReason: workout.intensityReason,
+      equipment: equipment,
+      difficulty: difficulty,
+      workoutType: `I'm feeling lazy - ${workoutType} - ${bodyPart}`,
+      moodCard: moodTitle,
+      moodTips: workout.moodTips || [],
+    };
+
+    // Add to cart
+    addToCart(workoutItem);
+  }, [addToCart, isInCart, createWorkoutId, difficulty, workoutType, bodyPart, moodTitle]);
+
   const handleStartWorkout = (workout: Workout, equipment: string) => {
     try {
       console.log('✅ Starting workout navigation with params:', {
