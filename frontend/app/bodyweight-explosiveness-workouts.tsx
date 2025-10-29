@@ -1469,7 +1469,7 @@ export default function BodyweightExplosivenessWorkoutsScreen() {
     router.back();
   };
 
-  const handleStartWorkout = (workout: Workout, equipment: string, difficulty: string) => {
+  const handleStartWorkout = React.useCallback((workout: Workout, equipment: string, difficulty: string) => {
     try {
       console.log('🚀 Starting workout:', workout.name, 'on', equipment);
       
@@ -1499,7 +1499,7 @@ export default function BodyweightExplosivenessWorkoutsScreen() {
     } catch (error) {
       console.error('❌ Error starting workout:', error);
     }
-  };
+  }, [router, workoutType]);
 
   // Create progress bar - single row with requested order
   const createProgressRows = () => {
