@@ -41,33 +41,8 @@ interface EquipmentWorkouts {
   };
 }
 
-// Light weights workout database for sweat path
-const workoutDatabase: EquipmentWorkouts[] = [
-  {
-    equipment: 'Dumbbells',
-    icon: 'fitness',
-    workouts: {
-      beginner: [
-        {
-          name: 'Cardio Circuit',
-          duration: '16–18 min',
-          description: 'Four 4‑min rounds: squats, lunges, push press, programmed rest.',
-          battlePlan: 'Perform 4 rounds (4 min each):\n• 30s Goblet Squat\n• 30s Alternating Reverse Lunge\n• 30s Push Press\n• 30s Rest',
-          imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Intervals raise HR while preserving form and control.',
-          moodTips: [
-            {
-              icon: 'body',
-              title: 'Chest tall; knees track toes',
-              description: 'Chest tall; knees track toes'
-            },
-            {
-              icon: 'fitness',
-              title: 'Exhale hard on push press',
-              description: 'Exhale hard on push press'
-            }
-          ]
-        },
+// Explosiveness weights workout database
+const workoutDatabase: EquipmentWorkouts[] = explosivenessWeightsDatabase;
         {
           name: 'Push Press',
           duration: '8–10 min',
