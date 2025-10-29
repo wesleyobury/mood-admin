@@ -718,13 +718,11 @@ export default function LazyLowerBodyWorkoutsScreen() {
     return [steps];
   };
 
-  // Workout Card Component matching bodyweight explosiveness format exactly
-  const WorkoutCard = ({ equipment, icon, workouts, difficulty }: { 
-    equipment: string; 
-    icon: keyof typeof Ionicons.glyphMap; 
-    workouts: Workout[]; 
-    difficulty: string;
-  }) => {
+  const handleGoBack = () => {
+    router.back();
+  };
+
+  const progressRows = createProgressRows();
     const [currentWorkoutIndex, setCurrentWorkoutIndex] = useState(0);
     const flatListRef = useRef<FlatList>(null);
 
