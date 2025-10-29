@@ -729,23 +729,26 @@ const WorkoutCard = React.memo(({
           <Ionicons name={icon} size={24} color="#FFD700" />
         </View>
         <Text style={styles.equipmentName}>{equipment}</Text>
-        <Animated.View style={{ transform: [{ scale: localScaleAnim }] }}>
-          <TouchableOpacity
-            style={[
-              styles.addToCartButton,
-              isInCart(createWorkoutId(workouts[currentWorkoutIndex], equipment, difficulty)) && 
-              styles.addToCartButtonAdded
-            ]}
-            onPress={() => handleAddToCartWithAnimation(workouts[currentWorkoutIndex])}
-            activeOpacity={0.7}
-          >
-            <Ionicons 
-              name={isInCart(createWorkoutId(workouts[currentWorkoutIndex], equipment, difficulty)) ? "checkmark" : "add"} 
-              size={18} 
-              color={isInCart(createWorkoutId(workouts[currentWorkoutIndex], equipment, difficulty)) ? "#FFFFFF" : "#000000"} 
-            />
-          </TouchableOpacity>
-        </Animated.View>
+        <TouchableOpacity
+          style={[
+            styles.addToCartButton,
+            isInCart(createWorkoutId(workouts[currentWorkoutIndex], equipment, difficulty)) && 
+            styles.addToCartButtonAdded
+          ]}
+          onPress={() => handleAddToCartWithAnimation(workouts[currentWorkoutIndex])}
+          activeOpacity={0.8}
+        >
+          <Animated.View style={[styles.addToCartButtonContent, { transform: [{ scale: localScaleAnim }] }]}>
+            {isInCart(createWorkoutId(workouts[currentWorkoutIndex], equipment, difficulty)) ? (
+              <Ionicons name="checkmark" size={16} color="#FFD700" />
+            ) : (
+              <>
+                <Ionicons name="add" size={14} color="#FFFFFF" />
+                <Text style={styles.addToCartButtonText}>Add workout</Text>
+              </>
+            )}
+          </Animated.View>
+        </TouchableOpacity>
       </View>
 
       {/* Workout List - Native Swipe Enabled */}
