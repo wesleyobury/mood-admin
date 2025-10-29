@@ -1407,6 +1407,9 @@ export default function BodyweightExplosivenessWorkoutsScreen() {
   const selectedEquipmentNames = equipmentParam ? 
     decodeURIComponent(equipmentParam).split(',').map(name => name.trim()) : [];
 
+  // Cart hooks (removed addedItems to prevent button flashing)
+  const { addToCart, isInCart } = useCart();
+
   console.log('Bodyweight Explosiveness Debug:', {
     selectedEquipmentNames,
     difficulty,
