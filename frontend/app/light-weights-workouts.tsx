@@ -46,8 +46,9 @@ interface EquipmentWorkouts {
 // Use imported light weights workout database for cardio path
 const workoutDatabase: EquipmentWorkouts[] = lightWeightsDatabase;
 
+
 // Workout Card Component - defined outside to prevent recreation on parent re-renders
-    icon: 'fitness',
+const WorkoutCard = React.memo(({
     workouts: {
       beginner: [
         {
