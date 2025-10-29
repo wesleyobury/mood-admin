@@ -126,6 +126,31 @@ export default function OutdoorWorkoutsScreen() {
     }
   };
 
+  // Cart helper functions
+  const createWorkoutId = (workout: Workout, equipment: string, difficulty: string) => {
+    return `${workout.name}-${equipment}-${difficulty}`.toLowerCase().replace(/\s+/g, '-');
+  };
+
+  const isInCart = (workoutId: string) => {
+    return cartItems.some(item => item.id === workoutId);
+  };
+
+  const handleAddToCart = (workout: Workout, equipment: string) => {
+    const workoutItem: WorkoutItem = {
+      id: createWorkoutId(workout, equipment, difficulty),
+      name: workout.name,
+      equipment: equipment,
+      difficulty: difficulty,
+      duration: workout.duration,
+      description: workout.description,
+      workoutType: workoutType,
+      moodTitle: moodTitle,
+    };
+    
+    console.log('🛒 Adding to cart:', workoutItem);
+    addToCart(workoutItem);
+  };
+
   // Create progress bar - single row with requested order
   const createProgressRows = () => {
     const steps = [
