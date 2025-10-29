@@ -1495,6 +1495,7 @@ const WorkoutCard = React.memo(({
   isInCart,
   createWorkoutId,
   handleAddToCart,
+  handleStartWorkout,
 }: { 
   equipment: string; 
   icon: keyof typeof Ionicons.glyphMap; 
@@ -1503,6 +1504,7 @@ const WorkoutCard = React.memo(({
   isInCart: (workoutId: string) => boolean;
   createWorkoutId: (workout: Workout, equipment: string, difficulty: string) => string;
   handleAddToCart: (workout: Workout, equipment: string) => void;
+  handleStartWorkout: (workout: Workout, equipment: string, difficulty: string) => void;
 }) => {
   const [currentWorkoutIndex, setCurrentWorkoutIndex] = useState(0);
   const [localScaleAnim] = useState(new Animated.Value(1));
