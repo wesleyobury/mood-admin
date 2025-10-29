@@ -622,6 +622,213 @@ const fullBodyWorkoutDatabase: EquipmentWorkouts[] = [
   }
 ];
 
+// Workout Card Component outside the main component for proper memoization
+const WorkoutCard = React.memo(({ 
+  equipment, 
+  icon, 
+  workouts, 
+  difficulty,
+  isInCart,
+  createWorkoutId,
+  handleAddToCart,
+  handleStartWorkout,
+}: { 
+  equipment: string; 
+  icon: keyof typeof Ionicons.glyphMap; 
+  workouts: Workout[]; 
+  difficulty: string;
+  isInCart: (workoutId: string) => boolean;
+  createWorkoutId: (workout: Workout, equipment: string, difficulty: string) => string;
+  handleAddToCart: (workout: Workout, equipment: string) => void;
+  handleStartWorkout: (workout: Workout, equipment: string) => void;
+}) => {
+  const [currentWorkoutIndex, setCurrentWorkoutIndex] = useState(0);
+  const [localScaleAnim] = useState(new Animated.Value(1));
+  const flatListRef = useRef<FlatList>(null);
+
+  const handleAddToCartWithAnimation = (workout: Workout) => {
+    // Animate locally without affecting parent
+    Animated.sequence([
+      Animated.timing(localScaleAnim, {
+        toValue: 0.8,
+        duration: 100,
+        useNativeDriver: true,
+      }),
+      Animated.timing(localScaleAnim, {
+        toValue: 1.2,
+        duration: 200,
+        useNativeDriver: true,
+      }),
+      Animated.timing(localScaleAnim, {
+        toValue: 1,
+        duration: 100,
+        useNativeDriver: true,
+      }),
+    ]).start();
+
+    // Call parent handler
+    handleAddToCart(workout, equipment);
+  };
+
+  const renderWorkout = ({ item, index }: { item: Workout; index: number }) => (
+    <View style={[styles.workoutSlide, { width: width - 48 }]}>
+      {/* Workout Image */}
+      <View style={styles.workoutImageContainer}>
+        <Image 
+          source={{ uri: item.imageUrl }}
+          style={styles.workoutImage}
+          resizeMode="cover"
+        />
+        <View style={styles.imageOverlay} />
+        <View style={styles.swipeIndicator}>
+          <Ionicons name="swap-horizontal" size={20} color="#FFD700" />
+          <Text style={styles.swipeText}>Swipe for more</Text>
+        </View>
+      </View>
+
+      {/* Workout Content */}
+      <View style={styles.workoutContent}>
+        {/* Workout Name */}
+        <Text style={styles.workoutName}>{item.name}</Text>
+        
+        {/* Duration and Intensity on same line */}
+        <View style={styles.durationIntensityRow}>
+          <Text style={styles.workoutDuration}>{item.duration}</Text>
+          <View style={[styles.difficultyBadge, { backgroundColor: '#FFD700' }]}>
+            <Text style={styles.difficultyBadgeText}>{(difficulty === 'intermediate' ? 'INTERMED.' : difficulty).toUpperCase()}</Text>
+          </View>
+        </View>
+
+        {/* Intensity Reason */}
+        <View style={styles.intensityContainer}>
+          <Ionicons name="information-circle" size={16} color="#FFD700" />
+          <Text style={styles.intensityReason}>{item.intensityReason}</Text>
+        </View>
+
+        {/* Workout Description */}
+        <Text style={styles.workoutDescription}>{item.description}</Text>
+
+        {/* Start Workout Button */}
+        <TouchableOpacity 
+          style={styles.startWorkoutButton}
+          onPress={() => handleStartWorkout(item, equipment)}
+          activeOpacity={0.8}
+        >
+          <Ionicons name="play" size={20} color="#000000" style={{ marginRight: 8 }} />
+          <Text style={styles.startWorkoutButtonText}>Start Workout</Text>
+        </TouchableOpacity>
+      </View>
+    </View>
+  );
+
+  return (
+    <View style={styles.workoutCard}>
+      {/* Equipment Header */}
+      <View style={styles.equipmentHeader}>
+        <View style={styles.equipmentIconContainer}>
+          <Ionicons name={icon} size={24} color="#FFD700" />
+        </View>
+        <Text style={styles.equipmentName}>{equipment}</Text>
+        <Animated.View style={{ transform: [{ scale: localScaleAnim }] }}>
+          <TouchableOpacity
+            style={[
+              styles.addToCartButton,
+              isInCart(createWorkoutId(workouts[currentWorkoutIndex], equipment, difficulty)) && 
+              styles.addToCartButtonAdded
+            ]}
+            onPress={() => handleAddToCartWithAnimation(workouts[currentWorkoutIndex])}
+            activeOpacity={0.7}
+          >
+            <Ionicons 
+              name={isInCart(createWorkoutId(workouts[currentWorkoutIndex], equipment, difficulty)) ? "checkmark" : "add"} 
+              size={18} 
+              color={isInCart(createWorkoutId(workouts[currentWorkoutIndex], equipment, difficulty)) ? "#FFFFFF" : "#000000"} 
+            />
+          </TouchableOpacity>
+        </Animated.View>
+      </View>
+
+      {/* Workout List - Native Swipe Enabled */}
+      <View style={[styles.workoutList, { height: 380 }]}>
+        <FlatList
+          ref={flatListRef}
+          data={workouts}
+          renderItem={renderWorkout}
+          horizontal
+          pagingEnabled
+          snapToInterval={width - 48}
+          decelerationRate="fast"
+          showsHorizontalScrollIndicator={false}
+          scrollEventThrottle={16}
+          onScroll={(event) => {
+            const slideSize = width - 48;
+            const offset = event.nativeEvent.contentOffset.x;
+            const index = Math.round(offset / slideSize);
+            const boundedIndex = Math.max(0, Math.min(index, workouts.length - 1));
+            if (boundedIndex !== currentWorkoutIndex) {
+              setCurrentWorkoutIndex(boundedIndex);
+            }
+          }}
+          onMomentumScrollEnd={(event) => {
+            const slideSize = width - 48;
+            const offset = event.nativeEvent.contentOffset.x;
+            const index = Math.round(offset / slideSize);
+            const boundedIndex = Math.max(0, Math.min(index, workouts.length - 1));
+            setCurrentWorkoutIndex(boundedIndex);
+          }}
+          onScrollEndDrag={(event) => {
+            const slideSize = width - 48;
+            const offset = event.nativeEvent.contentOffset.x;
+            const index = Math.round(offset / slideSize);
+            const boundedIndex = Math.max(0, Math.min(index, workouts.length - 1));
+            setCurrentWorkoutIndex(boundedIndex);
+          }}
+          initialScrollIndex={0}
+          getItemLayout={(data, index) => ({
+            length: width - 48,
+            offset: (width - 48) * index,
+            index,
+          })}
+          keyExtractor={(item, index) => `${equipment}-${difficulty}-${index}`}
+        />
+      </View>
+
+      {/* Workout Indicator Dots */}
+      <View style={styles.dotsContainer}>
+        <Text style={styles.dotsLabel}>Swipe to explore</Text>
+        <View style={styles.dotsRow}>
+          {workouts.map((_, index) => (
+            <TouchableOpacity
+              key={index}
+              style={[
+                styles.dotTouchArea,
+                index === currentWorkoutIndex && styles.activeDotTouchArea
+              ]}
+              onPress={() => {
+                console.log(`Dot clicked: ${index}, Current: ${currentWorkoutIndex}`);
+                setCurrentWorkoutIndex(index);
+                // Use scrollToOffset for more reliable behavior
+                const slideSize = width - 48;
+                flatListRef.current?.scrollToOffset({
+                  offset: index * slideSize,
+                  animated: true
+                });
+              }}
+              activeOpacity={0.7}
+              hitSlop={{top: 10, bottom: 10, left: 10, right: 10}}
+            >
+              <View style={[
+                styles.dot,
+                index === currentWorkoutIndex && styles.activeDot,
+              ]} />
+            </TouchableOpacity>
+          ))}
+        </View>
+      </View>
+    </View>
+  );
+});
+
 export default function LazyFullBodyWorkoutsScreen() {
   const router = useRouter();
   const params = useLocalSearchParams();
