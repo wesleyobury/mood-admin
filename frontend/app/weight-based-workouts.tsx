@@ -311,7 +311,7 @@ export default function WeightBasedWorkoutsScreen() {
   };
 
   // Filter workouts based on selected equipment
-  const relevantWorkouts = absWorkoutDatabase.filter(equipmentWorkouts => 
+  const relevantWorkouts = workoutDatabase.filter(equipmentWorkouts => 
     selectedEquipmentNames.includes(equipmentWorkouts.equipment)
   );
 
