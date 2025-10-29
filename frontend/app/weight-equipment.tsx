@@ -34,24 +34,24 @@ const equipmentOptions: EquipmentOption[] = [
   { id: 'trap-bar', name: 'Trap Hex Bar', icon: 'stop' },
 ];
 
-// Difficulty levels with sweat-appropriate descriptions
+// Difficulty levels with explosiveness-appropriate descriptions
 const difficultyLevels: DifficultyLevel[] = [
   {
     id: 'beginner',
     title: 'Beginner',
-    subtitle: 'Light cardio training',
+    subtitle: 'Foundation explosive training',
     color: '#FFD700',
   },
   {
     id: 'intermediate',
     title: 'Intermediate',
-    subtitle: 'Moderate cardio with weights',
+    subtitle: 'Progressive power development',
     color: '#FFD700',
   },
   {
     id: 'advanced',
     title: 'Advanced',
-    subtitle: 'High intensity cardio',
+    subtitle: 'Peak power expression',
     color: '#FFD700',
   },
 ];
