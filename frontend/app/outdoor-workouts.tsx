@@ -163,13 +163,19 @@ export default function OutdoorWorkoutsScreen() {
     return [steps];
   };
 
-  // Workout Card Component matching light weights format exactly
-  const WorkoutCard = ({ equipment, icon, workouts, difficulty }: { 
-    equipment: string; 
-    icon: keyof typeof Ionicons.glyphMap; 
-    workouts: Workout[]; 
-    difficulty: string;
-  }) => {
+  // Use the memoized WorkoutCard component
+  const WorkoutCardComponent = React.memo(({ 
+    equipment, 
+    icon, 
+    workouts, 
+    difficulty,
+    workoutType,
+    moodTitle,
+    onStartWorkout,
+    isInCart,
+    createWorkoutId,
+    handleAddToCart,
+  }: WorkoutCardProps) => {
     const [currentWorkoutIndex, setCurrentWorkoutIndex] = useState(0);
     const flatListRef = useRef<FlatList>(null);
 
