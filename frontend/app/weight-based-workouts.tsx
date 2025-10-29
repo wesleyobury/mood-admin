@@ -13,6 +13,7 @@ import {
 import { Ionicons } from '@expo/vector-icons';
 import { useRouter, useLocalSearchParams } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { explosivenessWeightsDatabase } from '../data/explosiveness-weights-data';
 
 const { width } = Dimensions.get('window');
 
