@@ -685,91 +685,59 @@ const workoutDatabase: EquipmentWorkouts[] = [
   ...additionalWorkoutDatabase
 ];
 
-export default function CalisthenicsWorkoutsScreen() {
-  const router = useRouter();
-  const params = useLocalSearchParams();
-  const insets = useSafeAreaInsets();
+// Workout Card Component - moved outside for memoization
+interface WorkoutCardProps {
+  equipment: string;
+  icon: keyof typeof Ionicons.glyphMap;
+  workouts: Workout[];
+  difficulty: string;
+  workoutType: string;
+  moodTitle: string;
+  onStartWorkout: (workout: Workout, equipment: string, difficulty: string) => void;
+  isInCart: (workoutId: string) => boolean;
+  createWorkoutId: (workout: Workout, equipment: string, difficulty: string) => string;
+  handleAddToCart: (workout: Workout, equipment: string) => void;
+}
 
-  // Parse URL parameters
-  const moodTitle = params.mood as string || 'I want to do calisthenics';
-  const workoutType = params.workoutType as string || 'Bodyweight exercises';
-  const equipmentParam = params.equipment as string || '';
-  const difficulty = params.difficulty as string || 'beginner';
-  
-  // Parse selected equipment from comma-separated string
-  const selectedEquipmentNames = equipmentParam.split(',').filter(name => name.trim() !== '');
-  
-  console.log('Calisthenics Debug:', {
-    equipmentParam,
-    selectedEquipmentNames,
-    difficulty,
-    workoutType,
-    moodTitle
-  });
+const WorkoutCard = React.memo(({ 
+  equipment, 
+  icon, 
+  workouts, 
+  difficulty,
+  workoutType,
+  moodTitle,
+  onStartWorkout,
+  isInCart,
+  createWorkoutId,
+  handleAddToCart,
+}: WorkoutCardProps) => {
+  const [currentWorkoutIndex, setCurrentWorkoutIndex] = useState(0);
+  const [localScaleAnim] = useState(new Animated.Value(1));
+  const flatListRef = useRef<FlatList>(null);
 
-  // Get workout data for selected equipment
-  const selectedWorkoutData = workoutDatabase.filter(eq => 
-    selectedEquipmentNames.some(name => 
-      eq.equipment.toLowerCase().trim() === name.toLowerCase().trim()
-    )
-  );
+  const handleAddToCartWithAnimation = (workout: Workout) => {
+    // Animate locally without affecting parent
+    Animated.sequence([
+      Animated.timing(localScaleAnim, {
+        toValue: 0.8,
+        duration: 100,
+        useNativeDriver: true,
+      }),
+      Animated.timing(localScaleAnim, {
+        toValue: 1.2,
+        duration: 200,
+        useNativeDriver: true,
+      }),
+      Animated.timing(localScaleAnim, {
+        toValue: 1,
+        duration: 100,
+        useNativeDriver: true,
+      }),
+    ]).start();
 
-  console.log('Selected workout data count:', selectedWorkoutData.length);
-
-  const handleGoBack = () => {
-    router.back();
+    // Call parent handler
+    handleAddToCart(workout, equipment);
   };
-
-  const handleStartWorkout = (workout: Workout, equipment: string, difficulty: string) => {
-    try {
-      console.log('🚀 Starting workout:', workout.name, 'on', equipment);
-      
-      if (!workout.name || !equipment || !difficulty) {
-        console.error('❌ Missing required parameters for workout navigation');
-        return;
-      }
-      
-      router.push({
-        pathname: '/workout-guidance',
-        params: {
-          workoutName: workout.name,
-          equipment: equipment,
-          description: workout.description || '',
-          battlePlan: workout.battlePlan || '',
-          duration: workout.duration || '20 min',
-          difficulty: difficulty,
-          workoutType: workoutType,
-          moodTips: encodeURIComponent(JSON.stringify(workout.moodTips || []))
-        }
-      });
-      
-      console.log('✅ Navigation completed - using simplified parameters');
-    } catch (error) {
-      console.error('❌ Error starting workout:', error);
-    }
-  };
-
-  // Create progress bar - single row with requested order
-  const createProgressRows = () => {
-    const steps = [
-      { key: 'mood', icon: 'flame', text: moodTitle },
-      { key: 'difficulty', icon: 'speedometer', text: difficulty === 'intermediate' ? 'Intermed.' : difficulty.charAt(0).toUpperCase() + difficulty.slice(1) },
-      { key: 'equipment', icon: 'construct', text: `Equipment (${selectedEquipmentNames.length})` },
-    ];
-
-    // Return single row
-    return [steps];
-  };
-
-  // Workout Card Component matching light weights format exactly
-  const WorkoutCard = ({ equipment, icon, workouts, difficulty }: { 
-    equipment: string; 
-    icon: keyof typeof Ionicons.glyphMap; 
-    workouts: Workout[]; 
-    difficulty: string;
-  }) => {
-    const [currentWorkoutIndex, setCurrentWorkoutIndex] = useState(0);
-    const flatListRef = useRef<FlatList>(null);
 
     const renderWorkout = ({ item, index }: { item: Workout; index: number }) => (
       <View style={[styles.workoutSlide, { width: width - 48 }]}>
