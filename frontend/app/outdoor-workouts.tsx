@@ -252,7 +252,7 @@ export default function OutdoorWorkoutsScreen() {
           {/* Start Workout Button */}
           <TouchableOpacity 
             style={styles.startWorkoutButton}
-            onPress={() => handleStartWorkout(item, equipment, difficulty)}
+            onPress={() => onStartWorkout(item, equipment, difficulty)}
             activeOpacity={0.8}
           >
             <Text style={styles.startWorkoutButtonText}>Start Workout</Text>
