@@ -31,19 +31,31 @@ const CartItemComponent: React.FC<{
           <Text style={styles.orderNumberText}>{index + 1}</Text>
         </View>
         <View style={styles.moodCardTitleContainer}>
-          <Text style={styles.moodCardTitle}>
-            {item.moodCard && item.moodCard.length > 15 
-              ? item.moodCard.substring(0, 15) + '...' 
-              : item.moodCard || 'Workout'}
+          <Text style={styles.moodCardTitle} numberOfLines={1}>
+            {item.moodCard || 'Workout'}
           </Text>
           <View style={styles.workoutTypeContainer}>
             <View style={styles.workoutTypeDot} />
-            <Text style={styles.workoutTypeText}>
-              {item.workoutType.includes(' - ') 
-                ? (item.workoutType.toLowerCase().includes('legs') || item.workoutType.toLowerCase().includes('compound')
-                    ? item.workoutType.split(' - ').join(' - ')  // Show full "Legs - Compound" for leg workouts
-                    : item.workoutType.split(' - ')[1])           // Show only subgroup for other workouts (e.g., "Abs" from "Muscle gainer - Abs")
-                : item.workoutType}
+            <Text style={styles.workoutTypeText} numberOfLines={1}>
+              {(() => {
+                // Handle "I'm feeling lazy - Lift weights - Upper body" format
+                if (item.workoutType.includes("I'm feeling lazy") && item.workoutType.includes("Lift weights")) {
+                  const parts = item.workoutType.split(' - ');
+                  if (parts.length === 3) {
+                    // Return "Lift weights • Upper body" (or Lower/Full body)
+                    return `${parts[1]} • ${parts[2]}`;
+                  }
+                }
+                // Handle "Muscle gainer - Legs - Compound" format (show full)
+                if (item.workoutType.toLowerCase().includes('legs') || item.workoutType.toLowerCase().includes('compound')) {
+                  return item.workoutType.split(' - ').join(' - ');
+                }
+                // Handle other formats like "Muscle gainer - Abs"
+                if (item.workoutType.includes(' - ')) {
+                  return item.workoutType.split(' - ')[1];
+                }
+                return item.workoutType;
+              })()}
             </Text>
           </View>
         </View>
