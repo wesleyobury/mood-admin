@@ -1136,6 +1136,10 @@ export default function LazyLowerBodyWorkoutsScreen() {
               icon={equipmentData.icon}
               workouts={workoutsForDifficulty}
               difficulty={difficulty}
+              isInCart={isInCart}
+              createWorkoutId={createWorkoutId}
+              handleAddToCart={handleAddToCart}
+              handleStartWorkout={handleStartWorkout}
             />
           );
         })}
