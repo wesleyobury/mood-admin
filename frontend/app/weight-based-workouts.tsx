@@ -43,8 +43,7 @@ interface EquipmentWorkouts {
 
 // Explosiveness weights workout database
 const workoutDatabase: EquipmentWorkouts[] = explosivenessWeightsDatabase;
-        {
-          name: 'Push Press',
+export default function WeightBasedWorkoutsScreen() {
           duration: '8–10 min',
           description: 'Short dip, explosive drive, clean overhead lockout finish.',
           battlePlan: '4 rounds\n• 4–5 Push Press (light–moderate)\nRest 90s',
