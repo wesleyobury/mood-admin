@@ -136,18 +136,29 @@ export default function OutdoorWorkoutsScreen() {
   };
 
   const handleAddToCart = (workout: Workout, equipment: string) => {
+    const workoutId = createWorkoutId(workout, equipment, difficulty);
+    
+    if (isInCart(workoutId)) {
+      return; // Already in cart
+    }
+
+    // Create WorkoutItem from current workout
     const workoutItem: WorkoutItem = {
-      id: createWorkoutId(workout, equipment, difficulty),
+      id: workoutId,
       name: workout.name,
-      equipment: equipment,
-      difficulty: difficulty,
       duration: workout.duration,
       description: workout.description,
+      battlePlan: workout.battlePlan,
+      imageUrl: workout.imageUrl,
+      intensityReason: workout.intensityReason,
+      equipment: equipment,
+      difficulty: difficulty,
       workoutType: workoutType,
-      moodTitle: moodTitle,
+      moodCard: moodTitle,
+      moodTips: workout.moodTips || [],
     };
-    
-    console.log('🛒 Adding to cart:', workoutItem);
+
+    // Add to cart
     addToCart(workoutItem);
   };
 
