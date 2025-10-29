@@ -274,9 +274,26 @@ export default function OutdoorWorkoutsScreen() {
             <Ionicons name={icon} size={16} color="#FFD700" />
           </View>
           <Text style={styles.equipmentName}>{equipment}</Text>
-          <View style={styles.workoutIndicator}>
-            <Text style={styles.workoutCount}>{currentWorkoutIndex + 1}/{workouts.length}</Text>
-          </View>
+          <TouchableOpacity
+            style={[
+              styles.addToCartButton,
+              isInCart(createWorkoutId(workouts[currentWorkoutIndex], equipment, difficulty)) && 
+              styles.addToCartButtonAdded
+            ]}
+            onPress={() => handleAddToCartWithAnimation(workouts[currentWorkoutIndex])}
+            activeOpacity={0.8}
+          >
+            <Animated.View style={[styles.addToCartButtonContent, { transform: [{ scale: localScaleAnim }] }]}>
+              {isInCart(createWorkoutId(workouts[currentWorkoutIndex], equipment, difficulty)) ? (
+                <Ionicons name="checkmark" size={16} color="#FFD700" />
+              ) : (
+                <>
+                  <Ionicons name="add" size={14} color="#FFFFFF" />
+                  <Text style={styles.addToCartButtonText}>Add workout</Text>
+                </>
+              )}
+            </Animated.View>
+          </TouchableOpacity>
         </View>
 
         {/* Workout List - Native Swipe Enabled */}
