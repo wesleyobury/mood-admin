@@ -15,6 +15,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { useRouter, useLocalSearchParams } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useCart, WorkoutItem } from '../contexts/CartContext';
+import { explosivenessWeightsDatabase } from '../data/explosiveness-weights-data';
 
 const { width } = Dimensions.get('window');
 
@@ -42,8 +43,8 @@ interface EquipmentWorkouts {
   };
 }
 
-// Complete Abs workout database with chest-format card descriptions and detailed battle plans
-const absWorkoutDatabase: EquipmentWorkouts[] = [
+// Explosiveness weights workout database
+const workoutDatabase: EquipmentWorkouts[] = explosivenessWeightsDatabase;
   {
     equipment: 'Body Weight',
     icon: 'body',
