@@ -65,6 +65,7 @@ export default function OutdoorWorkoutsScreen() {
   const router = useRouter();
   const params = useLocalSearchParams();
   const insets = useSafeAreaInsets();
+  const { addToCart, cartItems } = useCart();
 
   // Parse URL parameters
   const moodTitle = params.mood as string || 'I want to get outside';
