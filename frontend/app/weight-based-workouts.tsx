@@ -301,7 +301,7 @@ export default function WeightBasedWorkoutsScreen() {
       intensityReason: workout.intensityReason,
       equipment: equipment,
       difficulty: difficulty,
-      workoutType: `Muscle gainer - ${workoutType}`,
+      workoutType: `${moodTitle} - Weight Based`,
       moodCard: moodTitle,
       moodTips: workout.moodTips || [],
     };
