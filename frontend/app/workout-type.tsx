@@ -90,9 +90,9 @@ export default function WorkoutTypeScreen() {
         params: { mood: moodTitle, workoutType: option.title }
       });
     } else if (option.id === 'weight') {
-      // Navigate to weight equipment selection screen
+      // Navigate to light weights equipment selection screen (cardio path)
       router.push({
-        pathname: '/weight-equipment',
+        pathname: '/light-weights-equipment',
         params: { mood: moodTitle, workoutType: option.title }
       });
     }
