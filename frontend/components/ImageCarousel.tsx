@@ -128,4 +128,9 @@ const styles = StyleSheet.create({
     height: 18,
     tintColor: '#FFD700',
   },
+  counterText: {
+    color: '#fff',
+    fontSize: 12,
+    fontWeight: '600',
+  },
 });
