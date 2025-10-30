@@ -76,31 +76,6 @@ const LazyTrainingTypeOption = ({
     </TouchableOpacity>
   );
 };
-    >
-      <View style={styles.optionCard}>
-        <View style={styles.iconContainer}>
-          <Ionicons 
-            name={option.icon} 
-            size={48} 
-            color="#FFD700" 
-          />
-        </View>
-        <View style={styles.textContainer}>
-          <Text style={styles.optionTitle}>{option.title}</Text>
-          <Text style={styles.optionSubtitle}>{option.subtitle}</Text>
-          <Text style={styles.optionDescription}>{option.description}</Text>
-        </View>
-        <View style={styles.arrowContainer}>
-          <Ionicons 
-            name="chevron-forward" 
-            size={24} 
-            color="#FFD700" 
-          />
-        </View>
-      </View>
-    </TouchableOpacity>
-  );
-};
 
 export default function LazyTrainingTypeScreen() {
   const router = useRouter();
