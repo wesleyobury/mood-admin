@@ -231,6 +231,7 @@ export default function CartScreen() {
             <Ionicons name="trash-outline" size={20} color="rgba(255, 215, 0, 0.7)" />
           </TouchableOpacity>
         )}
+        {cartItems.length === 0 && <HomeButton />}
       </View>
 
       {cartItems.length === 0 ? (
