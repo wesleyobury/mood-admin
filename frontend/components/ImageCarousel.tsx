@@ -68,10 +68,9 @@ export default function ImageCarousel({ images }: ImageCarouselProps) {
       {images.length > 1 && (
         <View style={styles.counterContainer}>
           <View style={styles.counterBadge}>
-            <Image
-              source={require('../assets/images/icon.png')}
-              style={styles.counterIcon}
-            />
+            <Text style={styles.counterText}>
+              {activeIndex + 1}/{images.length}
+            </Text>
           </View>
         </View>
       )}
