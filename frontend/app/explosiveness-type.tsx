@@ -81,23 +81,29 @@ export default function ExplosivenessTypeScreen() {
   const router = useRouter();
   const params = useLocalSearchParams();
   const insets = useSafeAreaInsets();
+  const [selectedOption, setSelectedOption] = useState<ExplosivenessTypeOption | null>(null);
   
   const moodTitle = params.mood as string || 'Build explosion';
 
   const handleExplosivenessTypeSelect = (option: ExplosivenessTypeOption) => {
     console.log('Selected explosiveness type:', option.title, 'for mood:', moodTitle);
+    setSelectedOption(option);
+  };
+
+  const handleContinue = () => {
+    if (!selectedOption) return;
     
-    if (option.id === 'bodyweight') {
+    if (selectedOption.id === 'bodyweight') {
       // Navigate to bodyweight equipment selection
       router.push({
         pathname: '/bodyweight-equipment',
-        params: { mood: moodTitle, workoutType: option.title }
+        params: { mood: moodTitle, workoutType: selectedOption.title }
       });
-    } else if (option.id === 'weight') {
+    } else if (selectedOption.id === 'weight') {
       // Navigate to weight-based equipment selection
       router.push({
         pathname: '/weight-equipment',
-        params: { mood: moodTitle, workoutType: option.title }
+        params: { mood: moodTitle, workoutType: selectedOption.title }
       });
     }
   };
@@ -124,20 +130,22 @@ export default function ExplosivenessTypeScreen() {
       </View>
 
       {/* Content */}
-      <View style={styles.content}>
-        <View style={styles.instructionContainer}>
-          <Text style={styles.instructionTitle}>Build Your Power</Text>
-          <Text style={styles.instructionText}>
-            Choose the type of explosive training that matches your goals today
-          </Text>
-        </View>
+      <ScrollView style={styles.scrollView} showsVerticalScrollIndicator={false}>
+        <View style={styles.content}>
+          <View style={styles.instructionContainer}>
+            <Text style={styles.instructionTitle}>Build Your Power</Text>
+            <Text style={styles.instructionText}>
+              Choose the type of explosive training that matches your goals today
+            </Text>
+          </View>
 
-        <View style={styles.optionsContainer}>
-          {explosivenessTypeOptions.map((option) => (
-            <ExplosivenessTypeOption
-              key={option.id}
-              option={option}
-              onPress={handleExplosivenessTypeSelect}
+          <View style={styles.optionsContainer}>
+            {explosivenessTypeOptions.map((option) => (
+              <ExplosivenessTypeOption
+                key={option.id}
+                option={option}
+                onPress={handleExplosivenessTypeSelect}
+                isSelected={selectedOption?.id === option.id}
             />
           ))}
         </View>
