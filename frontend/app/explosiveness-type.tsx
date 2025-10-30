@@ -39,10 +39,12 @@ const explosivenessTypeOptions: ExplosivenessTypeOption[] = [
 
 const ExplosivenessTypeOption = ({ 
   option, 
-  onPress 
+  onPress,
+  isSelected
 }: { 
   option: ExplosivenessTypeOption; 
   onPress: (option: ExplosivenessTypeOption) => void;
+  isSelected: boolean;
 }) => {
   return (
     <TouchableOpacity
@@ -50,25 +52,25 @@ const ExplosivenessTypeOption = ({
       onPress={() => onPress(option)}
       activeOpacity={0.8}
     >
-      <View style={styles.optionCard}>
-        <View style={styles.iconContainer}>
+      <View style={[styles.optionCard, isSelected && styles.selectedOptionCard]}>
+        <View style={[styles.iconContainer, isSelected && styles.selectedIconContainer]}>
           <Ionicons 
             name={option.icon} 
             size={48} 
-            color="#FFD700" 
+            color={isSelected ? "#FFD700" : "#FFD700"} 
           />
         </View>
         <View style={styles.textContainer}>
-          <Text style={styles.optionTitle}>{option.title}</Text>
-          <Text style={styles.optionSubtitle}>{option.subtitle}</Text>
-          <Text style={styles.optionDescription}>{option.description}</Text>
+          <Text style={[styles.optionTitle, isSelected && styles.selectedOptionTitle]}>{option.title}</Text>
+          <Text style={[styles.optionSubtitle, isSelected && styles.selectedOptionSubtitle]}>{option.subtitle}</Text>
+          <Text style={[styles.optionDescription, isSelected && styles.selectedOptionDescription]}>{option.description}</Text>
         </View>
         <View style={styles.arrowContainer}>
-          <Ionicons 
-            name="chevron-forward" 
-            size={24} 
-            color="#FFD700" 
-          />
+          {isSelected ? (
+            <Ionicons name="checkmark-circle" size={28} color="#FFD700" />
+          ) : (
+            <Ionicons name="chevron-forward" size={24} color="#FFD700" />
+          )}
         </View>
       </View>
     </TouchableOpacity>
