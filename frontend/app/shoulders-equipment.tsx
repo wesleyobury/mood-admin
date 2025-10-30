@@ -83,7 +83,7 @@ const EquipmentCard = ({
       ]}>
         <Ionicons 
           name={equipment.icon} 
-          size={24} 
+          size={20} 
           color={isSelected ? "#000000" : "#FFD700"} 
         />
       </View>
@@ -93,6 +93,11 @@ const EquipmentCard = ({
       ]}>
         {equipment.name}
       </Text>
+      {isSelected && (
+        <View style={styles.equipmentIndicator}>
+          <Ionicons name="checkmark" size={16} color="#000000" />
+        </View>
+      )}
     </TouchableOpacity>
   );
 };
