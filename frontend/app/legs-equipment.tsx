@@ -10,6 +10,7 @@ import {
 import { Ionicons } from '@expo/vector-icons';
 import { useRouter, useLocalSearchParams } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import HomeButton from '../components/HomeButton';
 
 interface Equipment {
   id: string;
@@ -363,7 +364,7 @@ export default function LegsEquipmentScreen() {
           <View style={styles.headerTextContainer}>
             <Text style={styles.headerTitle}>No Equipment Found</Text>
           </View>
-          <View style={styles.headerSpacer} />
+          <HomeButton />
         </View>
         
         <View style={styles.noEquipmentContainer}>
@@ -389,7 +390,7 @@ export default function LegsEquipmentScreen() {
           <Text style={styles.headerTitle}>Select Equipment</Text>
           <Text style={styles.headerSubtitle}>{moodTitle}</Text>
         </View>
-        <View style={styles.headerSpacer} />
+        <HomeButton />
       </View>
 
       {/* Progress Bar */}

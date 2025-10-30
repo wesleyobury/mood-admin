@@ -14,6 +14,7 @@ import {
 import { Ionicons } from '@expo/vector-icons';
 import { useRouter, useLocalSearchParams } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import HomeButton from '../components/HomeButton';
 import { useCart, WorkoutItem } from '../contexts/CartContext';
 
 const { width } = Dimensions.get('window');
@@ -404,7 +405,7 @@ export default function OutdoorWorkoutsScreen() {
             <Text style={styles.headerTitle}>Outdoor Activities</Text>
             <Text style={styles.headerSubtitle}>{moodTitle}</Text>
           </View>
-          <View style={styles.headerSpacer} />
+          <HomeButton />
         </View>
 
         <View style={styles.emptyState}>
@@ -432,7 +433,7 @@ export default function OutdoorWorkoutsScreen() {
           <Text style={styles.headerTitle}>Outdoor Activities</Text>
           <Text style={styles.headerSubtitle}>{moodTitle}</Text>
         </View>
-        <View style={styles.headerSpacer} />
+        <HomeButton />
       </View>
 
       {/* Progress Bar */}

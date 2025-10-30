@@ -14,6 +14,7 @@ import {
 import { Ionicons } from '@expo/vector-icons';
 import { useRouter, useLocalSearchParams } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import HomeButton from '../components/HomeButton';
 import { useCart, WorkoutItem } from '../contexts/CartContext';
 
 const { width } = Dimensions.get('window');
@@ -1045,7 +1046,7 @@ export default function CalisthenicsWorkoutsScreen() {
             <Text style={styles.headerTitle}>Calisthenics</Text>
             <Text style={styles.headerSubtitle}>{moodTitle}</Text>
           </View>
-          <View style={styles.headerSpacer} />
+          <HomeButton />
         </View>
         <View style={styles.emptyState}>
           <Ionicons name="body" size={64} color="rgba(255, 215, 0, 0.3)" />
@@ -1072,7 +1073,7 @@ export default function CalisthenicsWorkoutsScreen() {
           <Text style={styles.headerTitle}>Your Workouts</Text>
           <Text style={styles.headerSubtitle}>{moodTitle}</Text>
         </View>
-        <View style={styles.headerSpacer} />
+        <HomeButton />
       </View>
 
       {/* Progress Bar */}

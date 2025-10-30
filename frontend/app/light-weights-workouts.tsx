@@ -14,6 +14,7 @@ import {
 import { Ionicons } from '@expo/vector-icons';
 import { useRouter, useLocalSearchParams } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import HomeButton from '../components/HomeButton';
 import { useCart, WorkoutItem } from '../contexts/CartContext';
 import { lightWeightsDatabase } from '../data/light-weights-data';
 
@@ -398,7 +399,7 @@ const LightWeightsWorkoutsScreen = memo(function LightWeightsWorkoutsScreen() {
             <Text style={styles.headerTitle}>Light Weights</Text>
             <Text style={styles.headerSubtitle}>{moodTitle}</Text>
           </View>
-          <View style={styles.headerSpacer} />
+          <HomeButton />
         </View>
         <View style={styles.emptyState}>
           <Ionicons name="barbell" size={64} color="rgba(255, 215, 0, 0.3)" />
@@ -423,7 +424,7 @@ const LightWeightsWorkoutsScreen = memo(function LightWeightsWorkoutsScreen() {
           <Text style={styles.headerTitle}>Light Weights</Text>
           <Text style={styles.headerSubtitle}>{moodTitle}</Text>
         </View>
-        <View style={styles.headerSpacer} />
+        <HomeButton />
       </View>
 
       {/* Progress Bar */}

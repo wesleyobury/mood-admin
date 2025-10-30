@@ -10,6 +10,7 @@ import {
 import { Ionicons } from '@expo/vector-icons';
 import { useRouter, useLocalSearchParams } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import HomeButton from '../components/HomeButton';
 
 interface EquipmentOption {
   id: string;
@@ -205,7 +206,7 @@ export default function TricepsEquipmentScreen() {
           <Text style={styles.headerTitle}>Triceps Equipment</Text>
           <Text style={styles.headerSubtitle}>{moodTitle}</Text>
         </View>
-        <View style={styles.headerSpacer} />
+        <HomeButton />
       </View>
 
       {/* Progress Bar */}

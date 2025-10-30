@@ -13,6 +13,7 @@ import {
 import { Ionicons } from '@expo/vector-icons';
 import { useRouter, useLocalSearchParams } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import HomeButton from '../components/HomeButton';
 
 const { width } = Dimensions.get('window');
 
@@ -420,7 +421,7 @@ export default function AdjustableBenchWorkoutDisplayScreen() {
           <Text style={styles.headerTitle}>Your Workouts</Text>
           <Text style={styles.headerSubtitle}>{moodTitle} • {difficulty}</Text>
         </View>
-        <View style={styles.headerSpacer} />
+        <HomeButton />
       </View>
 
       {/* Progress Bar - Single Non-Scrolling Section */}

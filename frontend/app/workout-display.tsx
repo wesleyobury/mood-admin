@@ -14,6 +14,7 @@ import {
 import { Ionicons } from '@expo/vector-icons';
 import { useRouter, useLocalSearchParams } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import HomeButton from '../components/HomeButton';
 import { useCart, WorkoutItem } from '../contexts/CartContext';
 
 const { width } = Dimensions.get('window');
@@ -3319,7 +3320,7 @@ export default function WorkoutDisplayScreen() {
           <Text style={styles.headerTitle}>Your Workouts</Text>
           <Text style={styles.headerSubtitle}>{moodTitle} • {difficulty}</Text>
         </View>
-        <View style={styles.headerSpacer} />
+        <HomeButton />
       </View>
 
       {/* Progress Bar with Row Layout */}
