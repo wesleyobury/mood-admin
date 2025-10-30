@@ -39,16 +39,43 @@ const lazyTrainingTypeOptions: LazyTrainingTypeOption[] = [
 
 const LazyTrainingTypeOption = ({ 
   option, 
-  onPress 
+  onPress,
+  isSelected
 }: { 
   option: LazyTrainingTypeOption; 
   onPress: (option: LazyTrainingTypeOption) => void;
+  isSelected: boolean;
 }) => {
   return (
     <TouchableOpacity
       style={styles.optionContainer}
       onPress={() => onPress(option)}
       activeOpacity={0.8}
+    >
+      <View style={[styles.optionCard, isSelected && styles.selectedOptionCard]}>
+        <View style={[styles.iconContainer, isSelected && styles.selectedIconContainer]}>
+          <Ionicons 
+            name={option.icon} 
+            size={48} 
+            color={isSelected ? "#FFD700" : "#FFD700"} 
+          />
+        </View>
+        <View style={styles.textContainer}>
+          <Text style={[styles.optionTitle, isSelected && styles.selectedOptionTitle]}>{option.title}</Text>
+          <Text style={[styles.optionSubtitle, isSelected && styles.selectedOptionSubtitle]}>{option.subtitle}</Text>
+          <Text style={[styles.optionDescription, isSelected && styles.selectedOptionDescription]}>{option.description}</Text>
+        </View>
+        <View style={styles.arrowContainer}>
+          {isSelected ? (
+            <Ionicons name="checkmark-circle" size={28} color="#FFD700" />
+          ) : (
+            <Ionicons name="chevron-forward" size={24} color="#FFD700" />
+          )}
+        </View>
+      </View>
+    </TouchableOpacity>
+  );
+};
     >
       <View style={styles.optionCard}>
         <View style={styles.iconContainer}>
