@@ -13,12 +13,11 @@ import {
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { useRouter } from 'expo-router';
-import Constants from 'expo-constants';
 import ImageCarousel from '../../components/ImageCarousel';
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
-const { EXPO_BACKEND_URL } = Constants.expoConfig?.extra || {};
-const API_URL = EXPO_BACKEND_URL || 'http://localhost:8001';
+// Use the environment variable set in .env
+const API_URL = process.env.EXPO_PUBLIC_BACKEND_URL || 'https://fitness-hub-117.preview.emergentagent.com';
 
 interface Author {
   id: string;
