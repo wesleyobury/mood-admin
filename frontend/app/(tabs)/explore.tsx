@@ -416,6 +416,31 @@ export default function Explore() {
           </View>
         )}
       </ScrollView>
+
+      {/* Comments Bottom Sheet Modal */}
+      <Modal
+        visible={showComments}
+        animationType="slide"
+        transparent={true}
+        onRequestClose={() => setShowComments(false)}
+      >
+        <View style={styles.modalContainer}>
+          <TouchableOpacity 
+            style={styles.modalBackdrop}
+            activeOpacity={1}
+            onPress={() => setShowComments(false)}
+          />
+          <View style={styles.modalContent}>
+            {selectedPostId && authToken && (
+              <CommentsBottomSheet
+                postId={selectedPostId}
+                authToken={authToken}
+                onClose={() => setShowComments(false)}
+              />
+            )}
+          </View>
+        </View>
+      </Modal>
     </SafeAreaView>
   );
 }
