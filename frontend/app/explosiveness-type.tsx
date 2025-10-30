@@ -149,8 +149,30 @@ export default function ExplosivenessTypeScreen() {
             />
           ))}
         </View>
+
+        {selectedOption && (
+          <View style={styles.selectionSummary}>
+            <Text style={styles.selectionText}>
+              Selected: {selectedOption.title}
+            </Text>
+          </View>
+        )}
       </View>
-    </SafeAreaView>
+    </ScrollView>
+
+    {/* Continue Button */}
+    {selectedOption && (
+      <View style={styles.bottomContainer}>
+        <TouchableOpacity 
+          style={styles.continueButton}
+          onPress={handleContinue}
+        >
+          <Text style={styles.continueButtonText}>Continue</Text>
+          <Ionicons name="arrow-forward" size={20} color="#000" style={styles.buttonIcon} />
+        </TouchableOpacity>
+      </View>
+    )}
+  </SafeAreaView>
   );
 }
 
