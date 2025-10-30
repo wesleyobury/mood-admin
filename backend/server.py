@@ -354,6 +354,89 @@ async def get_user_workouts(current_user_id: str = Depends(get_current_user), li
     
     return user_workouts
 
+# File Upload Endpoints
+
+UPLOAD_DIR = Path("/app/backend/uploads")
+UPLOAD_DIR.mkdir(exist_ok=True)
+
+@api_router.post("/upload")
+async def upload_file(
+    file: UploadFile = File(...),
+    current_user_id: str = Depends(get_current_user)
+):
+    """Upload a single media file (image or video)"""
+    try:
+        # Validate file type
+        allowed_extensions = {'.jpg', '.jpeg', '.png', '.gif', '.mp4', '.mov', '.avi'}
+        file_ext = Path(file.filename).suffix.lower()
+        
+        if file_ext not in allowed_extensions:
+            raise HTTPException(status_code=400, detail=f"File type {file_ext} not allowed")
+        
+        # Generate unique filename
+        unique_filename = f"{uuid.uuid4()}{file_ext}"
+        file_path = UPLOAD_DIR / unique_filename
+        
+        # Save file
+        async with aiofiles.open(file_path, 'wb') as f:
+            content = await file.read()
+            await f.write(content)
+        
+        # Return file URL (relative path that frontend can use)
+        file_url = f"/api/uploads/{unique_filename}"
+        
+        return {
+            "message": "File uploaded successfully",
+            "url": file_url,
+            "filename": unique_filename
+        }
+    
+    except Exception as e:
+        logger.error(f"File upload error: {str(e)}")
+        raise HTTPException(status_code=500, detail="File upload failed")
+
+@api_router.post("/upload/multiple")
+async def upload_multiple_files(
+    files: List[UploadFile] = File(...),
+    current_user_id: str = Depends(get_current_user)
+):
+    """Upload multiple media files (up to 5)"""
+    if len(files) > 5:
+        raise HTTPException(status_code=400, detail="Maximum 5 files allowed")
+    
+    uploaded_urls = []
+    
+    for file in files:
+        try:
+            # Validate file type
+            allowed_extensions = {'.jpg', '.jpeg', '.png', '.gif', '.mp4', '.mov', '.avi'}
+            file_ext = Path(file.filename).suffix.lower()
+            
+            if file_ext not in allowed_extensions:
+                continue  # Skip invalid files
+            
+            # Generate unique filename
+            unique_filename = f"{uuid.uuid4()}{file_ext}"
+            file_path = UPLOAD_DIR / unique_filename
+            
+            # Save file
+            async with aiofiles.open(file_path, 'wb') as f:
+                content = await file.read()
+                await f.write(content)
+            
+            # Return file URL
+            file_url = f"/api/uploads/{unique_filename}"
+            uploaded_urls.append(file_url)
+        
+        except Exception as e:
+            logger.error(f"File upload error for {file.filename}: {str(e)}")
+            continue
+    
+    return {
+        "message": f"{len(uploaded_urls)} files uploaded successfully",
+        "urls": uploaded_urls
+    }
+
 # Social Features - Posts
 
 @api_router.post("/posts")
