@@ -170,12 +170,15 @@ export default function WorkoutSessionScreen() {
             {currentIndex + 1} of {sessionWorkouts.length} • {getCompletedDuration()}/{getTotalDuration()} min
           </Text>
         </View>
-        <TouchableOpacity 
-          style={styles.skipButton}
-          onPress={handleSkipWorkout}
-        >
-          <Ionicons name="play-forward" size={20} color="#FFD700" />
-        </TouchableOpacity>
+        <View style={styles.headerButtonsContainer}>
+          <TouchableOpacity 
+            style={styles.skipButton}
+            onPress={handleSkipWorkout}
+          >
+            <Ionicons name="play-forward" size={20} color="#FFD700" />
+          </TouchableOpacity>
+          <HomeButton />
+        </View>
       </View>
 
       {/* Progress Bar */}
