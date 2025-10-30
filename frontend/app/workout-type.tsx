@@ -81,23 +81,29 @@ export default function WorkoutTypeScreen() {
   const router = useRouter();
   const params = useLocalSearchParams();
   const insets = useSafeAreaInsets();
+  const [selectedOption, setSelectedOption] = useState<WorkoutTypeOption | null>(null);
   
   const moodTitle = params.mood as string || 'I want to sweat';
 
   const handleWorkoutTypeSelect = (option: WorkoutTypeOption) => {
     console.log('Selected workout type:', option.title, 'for mood:', moodTitle);
+    setSelectedOption(option);
+  };
+
+  const handleContinue = () => {
+    if (!selectedOption) return;
     
-    if (option.id === 'cardio') {
+    if (selectedOption.id === 'cardio') {
       // Navigate to cardio equipment selection screen
       router.push({
         pathname: '/cardio-equipment',
-        params: { mood: moodTitle, workoutType: option.title }
+        params: { mood: moodTitle, workoutType: selectedOption.title }
       });
-    } else if (option.id === 'weight') {
+    } else if (selectedOption.id === 'weight') {
       // Navigate to light weights equipment selection screen (cardio path)
       router.push({
         pathname: '/light-weights-equipment',
-        params: { mood: moodTitle, workoutType: option.title }
+        params: { mood: moodTitle, workoutType: selectedOption.title }
       });
     }
   };
@@ -124,24 +130,48 @@ export default function WorkoutTypeScreen() {
       </View>
 
       {/* Content */}
-      <View style={styles.content}>
-        <View style={styles.instructionContainer}>
-          <Text style={styles.instructionTitle}>Choose Your Focus</Text>
-          <Text style={styles.instructionText}>
-            Select the type of workout that matches your goals today
-          </Text>
-        </View>
+      <ScrollView style={styles.scrollView} showsVerticalScrollIndicator={false}>
+        <View style={styles.content}>
+          <View style={styles.instructionContainer}>
+            <Text style={styles.instructionTitle}>Choose Your Focus</Text>
+            <Text style={styles.instructionText}>
+              Select the type of workout that matches your goals today
+            </Text>
+          </View>
 
-        <View style={styles.optionsContainer}>
-          {workoutTypeOptions.map((option) => (
-            <WorkoutTypeOption
-              key={option.id}
-              option={option}
-              onPress={handleWorkoutTypeSelect}
-            />
-          ))}
+          <View style={styles.optionsContainer}>
+            {workoutTypeOptions.map((option) => (
+              <WorkoutTypeOption
+                key={option.id}
+                option={option}
+                onPress={handleWorkoutTypeSelect}
+                isSelected={selectedOption?.id === option.id}
+              />
+            ))}
+          </View>
+
+          {selectedOption && (
+            <View style={styles.selectionSummary}>
+              <Text style={styles.selectionText}>
+                Selected: {selectedOption.title}
+              </Text>
+            </View>
+          )}
         </View>
-      </View>
+      </ScrollView>
+
+      {/* Continue Button */}
+      {selectedOption && (
+        <View style={styles.bottomContainer}>
+          <TouchableOpacity 
+            style={styles.continueButton}
+            onPress={handleContinue}
+          >
+            <Text style={styles.continueButtonText}>Continue</Text>
+            <Ionicons name="arrow-forward" size={20} color="#000" style={styles.buttonIcon} />
+          </TouchableOpacity>
+        </View>
+      )}
     </SafeAreaView>
   );
 }
