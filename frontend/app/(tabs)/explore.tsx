@@ -54,10 +54,16 @@ export default function Explore() {
   const [posts, setPosts] = useState<Post[]>([]);
   const [refreshing, setRefreshing] = useState(false);
   const [loading, setLoading] = useState(true);
+  const [showComments, setShowComments] = useState(false);
+  const [selectedPostId, setSelectedPostId] = useState<string | null>(null);
   const router = useRouter();
 
   // Mock auth token - In real app, this would come from auth context
   const [authToken, setAuthToken] = useState<string | null>(null);
+
+  // Double tap to like functionality
+  const lastTap = useRef<number>(0);
+  const [likeAnimations] = useState<{ [key: string]: Animated.Value }>({});
 
   useEffect(() => {
     loadMockAuth();
