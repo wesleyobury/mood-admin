@@ -16,8 +16,8 @@ import { useRouter } from 'expo-router';
 import ImageCarousel from '../../components/ImageCarousel';
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
-// Use the environment variable set in .env
-const API_URL = process.env.EXPO_PUBLIC_BACKEND_URL || 'https://fitness-hub-117.preview.emergentagent.com';
+// Use relative /api path which gets proxied to backend
+const API_URL = '';
 
 interface Author {
   id: string;
