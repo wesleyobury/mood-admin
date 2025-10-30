@@ -1,6 +1,7 @@
 import React, { useState, useRef } from 'react';
 import {
   View,
+  Text,
   Image,
   StyleSheet,
   Dimensions,
