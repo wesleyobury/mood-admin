@@ -576,7 +576,7 @@ const styles = StyleSheet.create({
   },
   scrollContentContainer: {
     paddingTop: 24,
-    paddingBottom: 40,
+    paddingBottom: 10,
   },
   workoutCard: {
     marginBottom: 32,
