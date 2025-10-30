@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import {
   View,
   Text,
@@ -8,26 +8,44 @@ import {
   SafeAreaView,
   Image,
   RefreshControl,
+  Dimensions,
+  FlatList,
+  Animated,
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+import { useRouter } from 'expo-router';
+import Constants from 'expo-constants';
+
+const SCREEN_WIDTH = Dimensions.get('window').width;
+const { EXPO_BACKEND_URL } = Constants.expoConfig?.extra || {};
+const API_URL = EXPO_BACKEND_URL || 'http://localhost:8001';
+
+interface Author {
+  id: string;
+  username: string;
+  avatar: string;
+  name?: string;
+}
+
+interface Workout {
+  id: string;
+  title: string;
+  duration: number;
+  mood_category: string;
+  difficulty: string;
+}
 
 interface Post {
   id: string;
-  author: {
-    id: string;
-    username: string;
-    avatar: string;
-  };
-  workout: {
-    title: string;
-    duration: number;
-    mood: string;
-  };
+  author: Author;
+  workout?: Workout;
   caption: string;
-  likes: number;
-  comments: number;
-  timestamp: string;
-  isLiked: boolean;
+  media_urls: string[];
+  hashtags: string[];
+  likes_count: number;
+  comments_count: number;
+  is_liked: boolean;
+  created_at: string;
 }
 
 // Mock data - will be replaced with API calls
