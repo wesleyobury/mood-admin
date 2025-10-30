@@ -274,7 +274,7 @@ export default function BackEquipmentScreen() {
           <Text style={styles.sectionTitle}>Select Equipment</Text>
           <Text style={styles.sectionSubtitle}>Choose one or multiple back equipment options</Text>
           
-          <View style={styles.equipmentGrid}>
+          <View style={styles.equipmentContainer}>
             {equipmentOptions.map((equipment) => (
               <EquipmentCard
                 key={equipment.id}
@@ -458,21 +458,18 @@ const styles = StyleSheet.create({
     marginBottom: 24,
     lineHeight: 22,
   },
-  equipmentGrid: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
+  equipmentContainer: {
     gap: 12,
-    justifyContent: 'space-between',
   },
   equipmentCard: {
-    width: '48%',
     backgroundColor: '#111111',
-    borderRadius: 16,
-    borderWidth: 2,
+    borderRadius: 12,
+    borderWidth: 1,
     borderColor: 'rgba(255, 215, 0, 0.3)',
     padding: 16,
+    flexDirection: 'row',
     alignItems: 'center',
-    marginBottom: 8,
+    justifyContent: 'space-between',
   },
   equipmentCardSelected: {
     backgroundColor: '#FFD700',
@@ -484,13 +481,12 @@ const styles = StyleSheet.create({
     elevation: 8,
   },
   equipmentIconContainer: {
-    width: 48,
-    height: 48,
-    borderRadius: 24,
+    width: 36,
+    height: 36,
+    borderRadius: 18,
     backgroundColor: 'rgba(255, 215, 0, 0.15)',
     justifyContent: 'center',
     alignItems: 'center',
-    marginBottom: 12,
     borderWidth: 2,
     borderColor: 'rgba(255, 215, 0, 0.3)',
   },
@@ -499,11 +495,11 @@ const styles = StyleSheet.create({
     borderColor: 'rgba(0, 0, 0, 0.3)',
   },
   equipmentName: {
-    fontSize: 14,
+    fontSize: 16,
     fontWeight: '600',
     color: '#ffffff',
-    textAlign: 'center',
-    lineHeight: 18,
+    flex: 1,
+    marginLeft: 12,
   },
   equipmentNameSelected: {
     color: '#000000',
