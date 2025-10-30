@@ -667,4 +667,27 @@ const styles = StyleSheet.create({
     fontSize: 16,
     textAlign: 'center',
   },
+  doubleTapHeart: {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    marginLeft: -40,
+    marginTop: -40,
+    zIndex: 100,
+  },
+  modalContainer: {
+    flex: 1,
+    justifyContent: 'flex-end',
+  },
+  modalBackdrop: {
+    ...StyleSheet.absoluteFillObject,
+    backgroundColor: 'rgba(0, 0, 0, 0.7)',
+  },
+  modalContent: {
+    height: '75%',
+    backgroundColor: '#000',
+    borderTopLeftRadius: 20,
+    borderTopRightRadius: 20,
+    overflow: 'hidden',
+  },
 });
