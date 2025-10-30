@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import {
   View,
   Text,
@@ -10,10 +10,13 @@ import {
   RefreshControl,
   Dimensions,
   Alert,
+  Modal,
+  Animated,
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { useRouter } from 'expo-router';
 import ImageCarousel from '../../components/ImageCarousel';
+import CommentsBottomSheet from '../../components/CommentsBottomSheet';
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
 // Use relative /api path which gets proxied to backend
