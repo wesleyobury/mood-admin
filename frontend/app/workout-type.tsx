@@ -321,4 +321,57 @@ const styles = StyleSheet.create({
     shadowRadius: 4,
     elevation: 3,
   },
+  selectedOptionCard: {
+    backgroundColor: '#FFD700',
+    borderColor: '#FFD700',
+  },
+  selectedIconContainer: {
+    backgroundColor: '#000',
+    borderColor: '#FFD700',
+  },
+  selectedOptionTitle: {
+    color: '#000',
+  },
+  selectedOptionSubtitle: {
+    color: '#000',
+    fontWeight: '600',
+  },
+  selectedOptionDescription: {
+    color: 'rgba(0, 0, 0, 0.7)',
+  },
+  selectionSummary: {
+    backgroundColor: '#1a1a1a',
+    borderRadius: 12,
+    padding: 16,
+    marginTop: 20,
+    marginBottom: 20,
+  },
+  selectionText: {
+    fontSize: 14,
+    color: '#FFD700',
+    textAlign: 'center',
+    fontWeight: '500',
+  },
+  bottomContainer: {
+    paddingHorizontal: 20,
+    paddingBottom: 20,
+    paddingTop: 10,
+  },
+  continueButton: {
+    backgroundColor: '#FFD700',
+    borderRadius: 12,
+    padding: 16,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  continueButtonText: {
+    fontSize: 16,
+    fontWeight: '600',
+    color: '#000',
+    marginRight: 8,
+  },
+  buttonIcon: {
+    marginLeft: 4,
+  },
 });
