@@ -25,9 +25,34 @@ export default function CreatePost() {
   const [selectedImages, setSelectedImages] = useState<string[]>([]);
   const [uploading, setUploading] = useState(false);
   const [uploadProgress, setUploadProgress] = useState(0);
+  const [authToken, setAuthToken] = useState<string | null>(null);
 
-  // Mock auth token - In real app, this would come from auth context
-  const authToken = 'mock-token'; // TODO: Get from auth context
+  // Load auth token
+  useEffect(() => {
+    loadMockAuth();
+  }, []);
+
+  const loadMockAuth = async () => {
+    try {
+      const response = await fetch(`${API_URL}/api/auth/login`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          username: 'fitnessqueen',
+          password: 'password123',
+        }),
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        setAuthToken(data.token);
+      }
+    } catch (error) {
+      console.error('Mock auth failed:', error);
+    }
+  };
 
   const pickImages = async () => {
     if (selectedImages.length >= 5) {
