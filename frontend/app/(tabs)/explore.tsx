@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   View,
   Text,
@@ -9,12 +9,12 @@ import {
   Image,
   RefreshControl,
   Dimensions,
-  FlatList,
-  Animated,
+  Alert,
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { useRouter } from 'expo-router';
 import Constants from 'expo-constants';
+import ImageCarousel from '../../components/ImageCarousel';
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
 const { EXPO_BACKEND_URL } = Constants.expoConfig?.extra || {};
@@ -48,81 +48,155 @@ interface Post {
   created_at: string;
 }
 
-// Mock data - will be replaced with API calls
-const mockPosts: Post[] = [
-  {
-    id: '1',
-    author: {
-      id: 'user1',
-      username: 'fitnessqueen',
-      avatar: 'https://images.unsplash.com/photo-1494790108755-2616b332c5db?w=100&h=100&fit=crop&crop=face',
-    },
-    workout: {
-      title: 'Morning Sweat Session',
-      duration: 45,
-      mood: 'I want to sweat',
-    },
-    caption: 'Started my day with an intense cardio session! 💪 Feeling energized and ready to conquer the day. Who else loves morning workouts?',
-    likes: 24,
-    comments: 8,
-    timestamp: '2h ago',
-    isLiked: false,
-  },
-  {
-    id: '2',
-    author: {
-      id: 'user2',
-      username: 'strengthbeast',
-      avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face',
-    },
-    workout: {
-      title: 'Push Day Power',
-      duration: 60,
-      mood: 'I want to push and gain muscle',
-    },
-    caption: 'Heavy chest and shoulder day in the books! New PR on bench press 🔥',
-    likes: 31,
-    comments: 12,
-    timestamp: '4h ago',
-    isLiked: true,
-  },
-];
-
 export default function Explore() {
-  const [posts, setPosts] = useState<Post[]>(mockPosts);
+  const [posts, setPosts] = useState<Post[]>([]);
   const [refreshing, setRefreshing] = useState(false);
+  const [loading, setLoading] = useState(true);
+  const router = useRouter();
+
+  // Mock auth token - In real app, this would come from auth context
+  const [authToken, setAuthToken] = useState<string | null>(null);
+
+  useEffect(() => {
+    loadMockAuth();
+  }, []);
+
+  useEffect(() => {
+    if (authToken) {
+      fetchPosts();
+    }
+  }, [authToken]);
+
+  const loadMockAuth = async () => {
+    // Try to login with mock user to get token
+    try {
+      const response = await fetch(`${API_URL}/api/auth/login`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          username: 'fitnessqueen',
+          password: 'password123',
+        }),
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        setAuthToken(data.token);
+      }
+    } catch (error) {
+      console.error('Mock auth failed:', error);
+    }
+  };
+
+  const fetchPosts = async () => {
+    if (!authToken) return;
+
+    try {
+      const response = await fetch(`${API_URL}/api/posts`, {
+        headers: {
+          'Authorization': `Bearer ${authToken}`,
+        },
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        setPosts(data);
+      }
+    } catch (error) {
+      console.error('Error fetching posts:', error);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   const onRefresh = async () => {
     setRefreshing(true);
-    // TODO: Fetch fresh posts from API
-    setTimeout(() => setRefreshing(false), 1000);
+    await fetchPosts();
+    setRefreshing(false);
   };
 
-  const handleLike = (postId: string) => {
-    setPosts(posts.map(post => 
-      post.id === postId 
-        ? { ...post, isLiked: !post.isLiked, likes: post.isLiked ? post.likes - 1 : post.likes + 1 }
-        : post
-    ));
+  const handleLike = async (postId: string) => {
+    if (!authToken) return;
+
+    try {
+      // Optimistic update
+      setPosts(posts.map(post => 
+        post.id === postId 
+          ? { 
+              ...post, 
+              is_liked: !post.is_liked, 
+              likes_count: post.is_liked ? post.likes_count - 1 : post.likes_count + 1 
+            }
+          : post
+      ));
+
+      // API call
+      await fetch(`${API_URL}/api/posts/${postId}/like`, {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${authToken}`,
+        },
+      });
+    } catch (error) {
+      console.error('Error liking post:', error);
+      // Revert on error
+      fetchPosts();
+    }
   };
 
   const handleComment = (postId: string) => {
-    console.log('Comment on post:', postId);
     // TODO: Navigate to comments screen
+    Alert.alert('Comments', 'Comments feature coming soon!');
   };
 
   const handleProfile = (userId: string) => {
-    console.log('View profile:', userId);
     // TODO: Navigate to user profile
+    Alert.alert('Profile', 'Profile view coming soon!');
   };
+
+  const handleCreatePost = () => {
+    // TODO: Navigate to create post screen
+    Alert.alert('Create Post', 'Post creation feature coming soon!');
+  };
+
+  const formatTimeAgo = (dateString: string) => {
+    const date = new Date(dateString);
+    const now = new Date();
+    const seconds = Math.floor((now.getTime() - date.getTime()) / 1000);
+
+    if (seconds < 60) return 'just now';
+    if (seconds < 3600) return `${Math.floor(seconds / 60)}m ago`;
+    if (seconds < 86400) return `${Math.floor(seconds / 3600)}h ago`;
+    return `${Math.floor(seconds / 86400)}d ago`;
+  };
+
+  if (loading) {
+    return (
+      <SafeAreaView style={styles.container}>
+        <View style={styles.header}>
+          <Text style={styles.title}>Explore</Text>
+        </View>
+        <View style={styles.loadingContainer}>
+          <Text style={styles.loadingText}>Loading feed...</Text>
+        </View>
+      </SafeAreaView>
+    );
+  }
 
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
         <Text style={styles.title}>Explore</Text>
-        <TouchableOpacity style={styles.searchBtn}>
-          <Ionicons name="search" size={24} color="#FFD700" />
-        </TouchableOpacity>
+        <View style={styles.headerActions}>
+          <TouchableOpacity 
+            style={styles.createButton}
+            onPress={handleCreatePost}
+          >
+            <Ionicons name="add-circle" size={28} color="#FFD700" />
+          </TouchableOpacity>
+        </View>
       </View>
 
       <ScrollView 
@@ -150,7 +224,7 @@ export default function Explore() {
                 />
                 <View>
                   <Text style={styles.username}>{post.author.username}</Text>
-                  <Text style={styles.timestamp}>{post.timestamp}</Text>
+                  <Text style={styles.timestamp}>{formatTimeAgo(post.created_at)}</Text>
                 </View>
               </TouchableOpacity>
               <TouchableOpacity>
@@ -158,53 +232,88 @@ export default function Explore() {
               </TouchableOpacity>
             </View>
 
-            {/* Workout Info */}
-            <View style={styles.workoutInfo}>
-              <Text style={styles.workoutTitle}>{post.workout.title}</Text>
-              <View style={styles.workoutMeta}>
-                <View style={styles.workoutTag}>
-                  <Text style={styles.workoutTagText}>{post.workout.mood}</Text>
-                </View>
-                <Text style={styles.duration}>{post.workout.duration} min</Text>
+            {/* Image Carousel */}
+            {post.media_urls.length > 0 && (
+              <ImageCarousel images={post.media_urls} />
+            )}
+
+            {/* Actions Row */}
+            <View style={styles.actionsRow}>
+              <View style={styles.leftActions}>
+                <TouchableOpacity 
+                  style={styles.actionBtn}
+                  onPress={() => handleLike(post.id)}
+                >
+                  <Ionicons 
+                    name={post.is_liked ? 'heart' : 'heart-outline'} 
+                    size={28} 
+                    color={post.is_liked ? '#FF3B30' : '#fff'} 
+                  />
+                </TouchableOpacity>
+
+                <TouchableOpacity 
+                  style={styles.actionBtn}
+                  onPress={() => handleComment(post.id)}
+                >
+                  <Ionicons name="chatbubble-outline" size={26} color="#fff" />
+                </TouchableOpacity>
+
+                <TouchableOpacity style={styles.actionBtn}>
+                  <Ionicons name="paper-plane-outline" size={26} color="#fff" />
+                </TouchableOpacity>
               </View>
-            </View>
-
-            {/* Caption */}
-            <Text style={styles.caption}>{post.caption}</Text>
-
-            {/* Actions */}
-            <View style={styles.actions}>
-              <TouchableOpacity 
-                style={styles.actionBtn}
-                onPress={() => handleLike(post.id)}
-              >
-                <Ionicons 
-                  name={post.isLiked ? 'heart' : 'heart-outline'} 
-                  size={24} 
-                  color={post.isLiked ? '#FF6B6B' : '#888'} 
-                />
-                <Text style={styles.actionText}>{post.likes}</Text>
-              </TouchableOpacity>
-
-              <TouchableOpacity 
-                style={styles.actionBtn}
-                onPress={() => handleComment(post.id)}
-              >
-                <Ionicons name="chatbubble-outline" size={24} color="#888" />
-                <Text style={styles.actionText}>{post.comments}</Text>
-              </TouchableOpacity>
 
               <TouchableOpacity style={styles.actionBtn}>
-                <Ionicons name="share-outline" size={24} color="#888" />
+                <Ionicons name="bookmark-outline" size={26} color="#fff" />
               </TouchableOpacity>
             </View>
+
+            {/* Likes Count */}
+            {post.likes_count > 0 && (
+              <Text style={styles.likesCount}>
+                {post.likes_count} {post.likes_count === 1 ? 'like' : 'likes'}
+              </Text>
+            )}
+
+            {/* Caption */}
+            <View style={styles.captionContainer}>
+              <Text style={styles.captionText}>
+                <Text style={styles.captionUsername}>{post.author.username}</Text>
+                {' '}
+                {post.caption}
+              </Text>
+            </View>
+
+            {/* View Comments */}
+            {post.comments_count > 0 && (
+              <TouchableOpacity 
+                style={styles.viewCommentsBtn}
+                onPress={() => handleComment(post.id)}
+              >
+                <Text style={styles.viewCommentsText}>
+                  View all {post.comments_count} comments
+                </Text>
+              </TouchableOpacity>
+            )}
+
+            {/* Workout Info */}
+            {post.workout && (
+              <View style={styles.workoutBadge}>
+                <Ionicons name="fitness" size={14} color="#FFD700" />
+                <Text style={styles.workoutBadgeText}>
+                  {post.workout.mood_category} • {post.workout.duration} min
+                </Text>
+              </View>
+            )}
           </View>
         ))}
 
-        {/* Load More */}
-        <TouchableOpacity style={styles.loadMore}>
-          <Text style={styles.loadMoreText}>Load More Posts</Text>
-        </TouchableOpacity>
+        {/* Load More Placeholder */}
+        {posts.length > 0 && (
+          <View style={styles.endMessage}>
+            <Text style={styles.endMessageText}>You're all caught up! 🎉</Text>
+          </View>
+        )}
       </ScrollView>
     </SafeAreaView>
   );
@@ -213,51 +322,68 @@ export default function Explore() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#0c0c0c',
+    backgroundColor: '#000',
   },
   header: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    paddingHorizontal: 20,
-    paddingVertical: 16,
-    borderBottomWidth: 1,
+    paddingHorizontal: 16,
+    paddingVertical: 12,
+    borderBottomWidth: 0.5,
     borderBottomColor: '#333',
   },
   title: {
-    fontSize: 24,
+    fontSize: 28,
     fontWeight: 'bold',
     color: '#fff',
+    letterSpacing: 0.5,
   },
-  searchBtn: {
-    padding: 8,
+  headerActions: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 16,
+  },
+  createButton: {
+    padding: 4,
+  },
+  loadingContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  loadingText: {
+    color: '#888',
+    fontSize: 16,
   },
   scrollView: {
     flex: 1,
   },
   postContainer: {
-    backgroundColor: '#1a1a1a',
-    marginBottom: 12,
-    padding: 16,
+    marginBottom: 16,
+    backgroundColor: '#000',
   },
   postHeader: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    marginBottom: 12,
+    paddingHorizontal: 16,
+    paddingVertical: 12,
   },
   authorInfo: {
     flexDirection: 'row',
     alignItems: 'center',
   },
   avatar: {
-    width: 40,
-    height: 40,
-    borderRadius: 20,
+    width: 36,
+    height: 36,
+    borderRadius: 18,
     marginRight: 12,
+    borderWidth: 0.5,
+    borderColor: '#333',
   },
   username: {
-    fontSize: 16,
+    fontSize: 15,
     fontWeight: '600',
     color: '#fff',
   },
@@ -266,71 +392,73 @@ const styles = StyleSheet.create({
     color: '#888',
     marginTop: 2,
   },
-  workoutInfo: {
-    backgroundColor: '#2a2a2a',
-    borderRadius: 12,
-    padding: 12,
-    marginBottom: 12,
-  },
-  workoutTitle: {
-    fontSize: 16,
-    fontWeight: '600',
-    color: '#FFD700',
-    marginBottom: 8,
-  },
-  workoutMeta: {
+  actionsRow: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
+    paddingHorizontal: 12,
+    paddingTop: 8,
   },
-  workoutTag: {
-    backgroundColor: '#FFD700',
-    paddingHorizontal: 8,
-    paddingVertical: 4,
-    borderRadius: 12,
-    flex: 1,
-    marginRight: 8,
-  },
-  workoutTagText: {
-    fontSize: 12,
-    color: '#0c0c0c',
-    fontWeight: '600',
-  },
-  duration: {
-    fontSize: 12,
-    color: '#888',
-    fontWeight: '500',
-  },
-  caption: {
-    fontSize: 14,
-    color: '#fff',
-    lineHeight: 20,
-    marginBottom: 12,
-  },
-  actions: {
+  leftActions: {
     flexDirection: 'row',
     alignItems: 'center',
-    paddingTop: 12,
-    borderTopWidth: 1,
-    borderTopColor: '#333',
   },
   actionBtn: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginRight: 24,
+    padding: 8,
   },
-  actionText: {
+  likesCount: {
+    color: '#fff',
+    fontWeight: '600',
+    fontSize: 14,
+    paddingHorizontal: 16,
+    marginTop: 4,
+  },
+  captionContainer: {
+    paddingHorizontal: 16,
+    marginTop: 6,
+  },
+  captionText: {
+    color: '#fff',
+    fontSize: 14,
+    lineHeight: 20,
+  },
+  captionUsername: {
+    fontWeight: '600',
+  },
+  viewCommentsBtn: {
+    paddingHorizontal: 16,
+    marginTop: 6,
+  },
+  viewCommentsText: {
     color: '#888',
     fontSize: 14,
-    marginLeft: 4,
   },
-  loadMore: {
-    padding: 16,
+  workoutBadge: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginTop: 8,
+    marginHorizontal: 16,
+    paddingVertical: 6,
+    paddingHorizontal: 12,
+    backgroundColor: 'rgba(255, 215, 0, 0.15)',
+    borderRadius: 12,
+    borderWidth: 1,
+    borderColor: 'rgba(255, 215, 0, 0.3)',
+    alignSelf: 'flex-start',
+  },
+  workoutBadgeText: {
+    color: '#FFD700',
+    fontSize: 12,
+    fontWeight: '600',
+    marginLeft: 6,
+  },
+  endMessage: {
+    padding: 32,
     alignItems: 'center',
   },
-  loadMoreText: {
-    color: '#FFD700',
+  endMessageText: {
+    color: '#888',
     fontSize: 16,
-    fontWeight: '600',
+    textAlign: 'center',
   },
 });
