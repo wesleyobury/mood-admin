@@ -114,14 +114,16 @@ class UserWorkoutCreate(BaseModel):
 class PostCreate(BaseModel):
     workout_id: Optional[str] = None
     caption: str
-    image: Optional[str] = None  # base64 encoded image
+    media_urls: List[str] = []  # URLs to uploaded media files
+    hashtags: List[str] = []
 
 class PostResponse(BaseModel):
     id: str
     author: UserResponse
     workout: Optional[WorkoutResponse] = None
     caption: str
-    image: Optional[str] = None
+    media_urls: List[str] = []
+    hashtags: List[str] = []
     likes_count: int = 0
     comments_count: int = 0
     is_liked: bool = False
