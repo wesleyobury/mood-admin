@@ -223,6 +223,9 @@ const styles = StyleSheet.create({
     paddingHorizontal: 24,
     paddingTop: 30,
   },
+  scrollView: {
+    flex: 1,
+  },
   instructionContainer: {
     alignItems: 'center',
     marginBottom: 40,
