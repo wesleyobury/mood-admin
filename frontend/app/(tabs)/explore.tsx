@@ -281,7 +281,31 @@ export default function Explore() {
 
             {/* Image Carousel */}
             {post.media_urls.length > 0 && (
-              <ImageCarousel images={post.media_urls} />
+              <TouchableOpacity 
+                activeOpacity={1}
+                onPress={() => handleDoubleTapLike(post.id)}
+              >
+                <ImageCarousel images={post.media_urls} />
+                {/* Double Tap Heart Animation */}
+                {likeAnimations[post.id] && (
+                  <Animated.View 
+                    style={[
+                      styles.doubleTapHeart,
+                      {
+                        opacity: likeAnimations[post.id],
+                        transform: [{
+                          scale: likeAnimations[post.id].interpolate({
+                            inputRange: [0, 1],
+                            outputRange: [0.5, 1.5],
+                          }),
+                        }],
+                      },
+                    ]}
+                  >
+                    <Ionicons name="heart" size={80} color="#FFD700" />
+                  </Animated.View>
+                )}
+              </TouchableOpacity>
             )}
 
             {/* Actions Row */}
