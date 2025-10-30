@@ -211,7 +211,7 @@ const styles = StyleSheet.create({
     lineHeight: 22,
   },
   optionsContainer: {
-    gap: 20,
+    gap: 60,
   },
   optionContainer: {
     marginBottom: 0,
