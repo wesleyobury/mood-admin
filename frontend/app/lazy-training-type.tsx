@@ -81,23 +81,29 @@ export default function LazyTrainingTypeScreen() {
   const router = useRouter();
   const params = useLocalSearchParams();
   const insets = useSafeAreaInsets();
+  const [selectedOption, setSelectedOption] = useState<LazyTrainingTypeOption | null>(null);
   
   const moodTitle = params.mood as string || "I'm feeling lazy";
 
   const handleLazyTrainingTypeSelect = (option: LazyTrainingTypeOption) => {
     console.log('Selected lazy training type:', option.title, 'for mood:', moodTitle);
+    setSelectedOption(option);
+  };
+
+  const handleContinue = () => {
+    if (!selectedOption) return;
     
-    if (option.id === 'bodyweight') {
+    if (selectedOption.id === 'bodyweight') {
       // Navigate to lazy bodyweight equipment selection
       router.push({
         pathname: '/lazy-bodyweight-equipment',
-        params: { mood: moodTitle, workoutType: option.title }
+        params: { mood: moodTitle, workoutType: selectedOption.title }
       });
-    } else if (option.id === 'weights') {
+    } else if (selectedOption.id === 'weights') {
       // Navigate to lazy weight selection
       router.push({
         pathname: '/lazy-weight-selection',
-        params: { mood: moodTitle, workoutType: option.title }
+        params: { mood: moodTitle, workoutType: selectedOption.title }
       });
     }
   };
@@ -124,24 +130,48 @@ export default function LazyTrainingTypeScreen() {
       </View>
 
       {/* Content */}
-      <View style={styles.content}>
-        <View style={styles.instructionContainer}>
-          <Text style={styles.instructionTitle}>Take It Easy</Text>
-          <Text style={styles.instructionText}>
-            Choose a gentle way to move your body today - no pressure, just progress
-          </Text>
-        </View>
+      <ScrollView style={styles.scrollView} showsVerticalScrollIndicator={false}>
+        <View style={styles.content}>
+          <View style={styles.instructionContainer}>
+            <Text style={styles.instructionTitle}>Take It Easy</Text>
+            <Text style={styles.instructionText}>
+              Choose a gentle way to move your body today - no pressure, just progress
+            </Text>
+          </View>
 
-        <View style={styles.optionsContainer}>
-          {lazyTrainingTypeOptions.map((option) => (
-            <LazyTrainingTypeOption
-              key={option.id}
-              option={option}
-              onPress={handleLazyTrainingTypeSelect}
-            />
-          ))}
+          <View style={styles.optionsContainer}>
+            {lazyTrainingTypeOptions.map((option) => (
+              <LazyTrainingTypeOption
+                key={option.id}
+                option={option}
+                onPress={handleLazyTrainingTypeSelect}
+                isSelected={selectedOption?.id === option.id}
+              />
+            ))}
+          </View>
+
+          {selectedOption && (
+            <View style={styles.selectionSummary}>
+              <Text style={styles.selectionText}>
+                Selected: {selectedOption.title}
+              </Text>
+            </View>
+          )}
         </View>
-      </View>
+      </ScrollView>
+
+      {/* Continue Button */}
+      {selectedOption && (
+        <View style={styles.bottomContainer}>
+          <TouchableOpacity 
+            style={styles.continueButton}
+            onPress={handleContinue}
+          >
+            <Text style={styles.continueButtonText}>Continue</Text>
+            <Ionicons name="arrow-forward" size={20} color="#000" style={styles.buttonIcon} />
+          </TouchableOpacity>
+        </View>
+      )}
     </SafeAreaView>
   );
 }
