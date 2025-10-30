@@ -193,7 +193,9 @@ export default function Explore() {
             style={styles.createButton}
             onPress={handleCreatePost}
           >
-            <Ionicons name="add-circle" size={28} color="#FFD700" />
+            <View style={styles.createIconContainer}>
+              <Ionicons name="add" size={24} color="#000" />
+            </View>
           </TouchableOpacity>
         </View>
       </View>
@@ -217,17 +219,22 @@ export default function Explore() {
                 style={styles.authorInfo}
                 onPress={() => handleProfile(post.author.id)}
               >
-                <Image 
-                  source={{ uri: post.author.avatar }} 
-                  style={styles.avatar}
-                />
+                <View style={styles.avatarContainer}>
+                  <Image 
+                    source={{ uri: post.author.avatar }} 
+                    style={styles.avatar}
+                  />
+                  <View style={styles.avatarRing} />
+                </View>
                 <View>
                   <Text style={styles.username}>{post.author.username}</Text>
                   <Text style={styles.timestamp}>{formatTimeAgo(post.created_at)}</Text>
                 </View>
               </TouchableOpacity>
-              <TouchableOpacity>
-                <Ionicons name="ellipsis-horizontal" size={24} color="#888" />
+              <TouchableOpacity style={styles.menuButton}>
+                <View style={styles.menuDot} />
+                <View style={styles.menuDot} />
+                <View style={styles.menuDot} />
               </TouchableOpacity>
             </View>
 
@@ -242,36 +249,60 @@ export default function Explore() {
                 <TouchableOpacity 
                   style={styles.actionBtn}
                   onPress={() => handleLike(post.id)}
+                  activeOpacity={0.7}
                 >
-                  <Ionicons 
-                    name={post.is_liked ? 'heart' : 'heart-outline'} 
-                    size={28} 
-                    color={post.is_liked ? '#FF3B30' : '#fff'} 
-                  />
+                  <View style={[
+                    styles.actionIconContainer,
+                    post.is_liked && styles.likedIconContainer
+                  ]}>
+                    <Ionicons 
+                      name={post.is_liked ? 'heart' : 'heart-outline'} 
+                      size={22} 
+                      color={post.is_liked ? '#000' : '#FFD700'} 
+                    />
+                  </View>
                 </TouchableOpacity>
 
                 <TouchableOpacity 
                   style={styles.actionBtn}
                   onPress={() => handleComment(post.id)}
+                  activeOpacity={0.7}
                 >
-                  <Ionicons name="chatbubble-outline" size={26} color="#fff" />
+                  <View style={styles.actionIconContainer}>
+                    <Ionicons name="chatbubble-outline" size={20} color="#FFD700" />
+                  </View>
                 </TouchableOpacity>
 
-                <TouchableOpacity style={styles.actionBtn}>
-                  <Ionicons name="paper-plane-outline" size={26} color="#fff" />
+                <TouchableOpacity 
+                  style={styles.actionBtn}
+                  activeOpacity={0.7}
+                >
+                  <View style={styles.actionIconContainer}>
+                    <Ionicons name="paper-plane-outline" size={20} color="#FFD700" />
+                  </View>
                 </TouchableOpacity>
               </View>
 
-              <TouchableOpacity style={styles.actionBtn}>
-                <Ionicons name="bookmark-outline" size={26} color="#fff" />
+              <TouchableOpacity 
+                style={styles.actionBtn}
+                activeOpacity={0.7}
+              >
+                <View style={styles.actionIconContainer}>
+                  <Ionicons name="bookmark-outline" size={20} color="#FFD700" />
+                </View>
               </TouchableOpacity>
             </View>
 
             {/* Likes Count */}
             {post.likes_count > 0 && (
-              <Text style={styles.likesCount}>
-                {post.likes_count} {post.likes_count === 1 ? 'like' : 'likes'}
-              </Text>
+              <View style={styles.likesContainer}>
+                <View style={styles.likesIconBadge}>
+                  <Ionicons name="heart" size={12} color="#FFD700" />
+                </View>
+                <Text style={styles.likesCount}>
+                  {post.likes_count} {post.likes_count === 1 ? 'like' : 'likes'}
+                </Text>
+              </View>
             )}
 
             {/* Caption */}
@@ -288,6 +319,7 @@ export default function Explore() {
               <TouchableOpacity 
                 style={styles.viewCommentsBtn}
                 onPress={() => handleComment(post.id)}
+                activeOpacity={0.7}
               >
                 <Text style={styles.viewCommentsText}>
                   View all {post.comments_count} comments
@@ -298,7 +330,9 @@ export default function Explore() {
             {/* Workout Info */}
             {post.workout && (
               <View style={styles.workoutBadge}>
-                <Ionicons name="fitness" size={14} color="#FFD700" />
+                <View style={styles.workoutIconContainer}>
+                  <Ionicons name="fitness" size={14} color="#000" />
+                </View>
                 <Text style={styles.workoutBadgeText}>
                   {post.workout.mood_category} • {post.workout.duration} min
                 </Text>
@@ -310,7 +344,10 @@ export default function Explore() {
         {/* Load More Placeholder */}
         {posts.length > 0 && (
           <View style={styles.endMessage}>
-            <Text style={styles.endMessageText}>You're all caught up! 🎉</Text>
+            <View style={styles.endMessageIcon}>
+              <Ionicons name="checkmark-circle" size={24} color="#FFD700" />
+            </View>
+            <Text style={styles.endMessageText}>You're all caught up!</Text>
           </View>
         )}
       </ScrollView>
@@ -329,8 +366,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingHorizontal: 16,
     paddingVertical: 12,
-    borderBottomWidth: 0.5,
-    borderBottomColor: '#333',
+    borderBottomWidth: 1,
+    borderBottomColor: 'rgba(255, 215, 0, 0.1)',
   },
   title: {
     fontSize: 28,
@@ -346,6 +383,14 @@ const styles = StyleSheet.create({
   createButton: {
     padding: 4,
   },
+  createIconContainer: {
+    width: 32,
+    height: 32,
+    borderRadius: 16,
+    backgroundColor: '#FFD700',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
   loadingContainer: {
     flex: 1,
     justifyContent: 'center',
@@ -359,7 +404,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   postContainer: {
-    marginBottom: 16,
+    marginBottom: 24,
     backgroundColor: '#000',
   },
   postHeader: {
@@ -373,13 +418,26 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
   },
+  avatarContainer: {
+    position: 'relative',
+    marginRight: 12,
+  },
   avatar: {
     width: 36,
     height: 36,
     borderRadius: 18,
-    marginRight: 12,
-    borderWidth: 0.5,
-    borderColor: '#333',
+    borderWidth: 2,
+    borderColor: '#000',
+  },
+  avatarRing: {
+    position: 'absolute',
+    top: -2,
+    left: -2,
+    right: -2,
+    bottom: -2,
+    borderRadius: 20,
+    borderWidth: 1,
+    borderColor: 'rgba(255, 215, 0, 0.3)',
   },
   username: {
     fontSize: 15,
@@ -391,30 +449,71 @@ const styles = StyleSheet.create({
     color: '#888',
     marginTop: 2,
   },
+  menuButton: {
+    padding: 8,
+    flexDirection: 'column',
+    gap: 3,
+  },
+  menuDot: {
+    width: 4,
+    height: 4,
+    borderRadius: 2,
+    backgroundColor: '#FFD700',
+  },
   actionsRow: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
     paddingHorizontal: 12,
-    paddingTop: 8,
+    paddingTop: 12,
   },
   leftActions: {
     flexDirection: 'row',
     alignItems: 'center',
+    gap: 4,
   },
   actionBtn: {
     padding: 8,
+  },
+  actionIconContainer: {
+    width: 36,
+    height: 36,
+    borderRadius: 18,
+    backgroundColor: 'rgba(255, 215, 0, 0.1)',
+    borderWidth: 1,
+    borderColor: 'rgba(255, 215, 0, 0.2)',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  likedIconContainer: {
+    backgroundColor: '#FFD700',
+    borderColor: '#FFD700',
+  },
+  likesContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingHorizontal: 16,
+    marginTop: 8,
+    gap: 6,
+  },
+  likesIconBadge: {
+    width: 20,
+    height: 20,
+    borderRadius: 10,
+    backgroundColor: 'rgba(255, 215, 0, 0.15)',
+    borderWidth: 1,
+    borderColor: 'rgba(255, 215, 0, 0.3)',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   likesCount: {
     color: '#fff',
     fontWeight: '600',
     fontSize: 14,
-    paddingHorizontal: 16,
-    marginTop: 4,
   },
   captionContainer: {
     paddingHorizontal: 16,
-    marginTop: 6,
+    marginTop: 8,
   },
   captionText: {
     color: '#fff',
@@ -423,36 +522,54 @@ const styles = StyleSheet.create({
   },
   captionUsername: {
     fontWeight: '600',
+    color: '#FFD700',
   },
   viewCommentsBtn: {
     paddingHorizontal: 16,
     marginTop: 6,
   },
   viewCommentsText: {
-    color: '#888',
+    color: '#666',
     fontSize: 14,
   },
   workoutBadge: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginTop: 8,
+    marginTop: 12,
     marginHorizontal: 16,
-    paddingVertical: 6,
+    paddingVertical: 8,
     paddingHorizontal: 12,
-    backgroundColor: 'rgba(255, 215, 0, 0.15)',
-    borderRadius: 12,
-    borderWidth: 1,
-    borderColor: 'rgba(255, 215, 0, 0.3)',
+    backgroundColor: '#FFD700',
+    borderRadius: 20,
     alignSelf: 'flex-start',
   },
+  workoutIconContainer: {
+    width: 20,
+    height: 20,
+    borderRadius: 10,
+    backgroundColor: 'rgba(0, 0, 0, 0.1)',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginRight: 6,
+  },
   workoutBadgeText: {
-    color: '#FFD700',
+    color: '#000',
     fontSize: 12,
     fontWeight: '600',
-    marginLeft: 6,
   },
   endMessage: {
     padding: 32,
+    alignItems: 'center',
+    gap: 8,
+  },
+  endMessageIcon: {
+    width: 48,
+    height: 48,
+    borderRadius: 24,
+    backgroundColor: 'rgba(255, 215, 0, 0.1)',
+    borderWidth: 2,
+    borderColor: 'rgba(255, 215, 0, 0.2)',
+    justifyContent: 'center',
     alignItems: 'center',
   },
   endMessageText: {
