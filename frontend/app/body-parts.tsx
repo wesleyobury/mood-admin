@@ -238,7 +238,7 @@ export default function BodyPartsScreen() {
           <Ionicons name="chevron-back" size={24} color="#FFD700" />
         </TouchableOpacity>
         <Text style={styles.headerTitle}>Select Body Parts</Text>
-        <View style={styles.placeholder} />
+        <HomeButton />
       </View>
 
       {/* Progress Bar */}
