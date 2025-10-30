@@ -64,17 +64,6 @@ export default function ImageCarousel({ images }: ImageCarouselProps) {
           ))}
         </View>
       )}
-
-      {/* Image counter */}
-      {images.length > 1 && (
-        <View style={styles.counterContainer}>
-          <View style={styles.counterBadge}>
-            <Text style={styles.counterText}>
-              {activeIndex + 1}/{images.length}
-            </Text>
-          </View>
-        </View>
-      )}
     </View>
   );
 }
