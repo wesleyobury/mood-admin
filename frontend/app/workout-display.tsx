@@ -3480,7 +3480,7 @@ const styles = StyleSheet.create({
   },
   scrollContent: {
     padding: 24,
-    paddingBottom: 100,
+    paddingBottom: 10,
   },
   workoutCard: {
     backgroundColor: '#111111',
