@@ -112,14 +112,4 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  counterIcon: {
-    width: 18,
-    height: 18,
-    tintColor: '#FFD700',
-  },
-  counterText: {
-    color: '#fff',
-    fontSize: 12,
-    fontWeight: '600',
-  },
 });
