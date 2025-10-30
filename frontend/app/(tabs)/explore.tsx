@@ -155,8 +155,41 @@ export default function Explore() {
   };
 
   const handleComment = (postId: string) => {
-    // TODO: Navigate to comments screen
-    Alert.alert('Comments', 'Comments feature coming soon!');
+    setSelectedPostId(postId);
+    setShowComments(true);
+  };
+
+  const handleDoubleTapLike = (postId: string) => {
+    const now = Date.now();
+    const DOUBLE_TAP_DELAY = 300;
+    
+    if (now - lastTap.current < DOUBLE_TAP_DELAY) {
+      // Double tap detected
+      const post = posts.find(p => p.id === postId);
+      if (post && !post.is_liked) {
+        handleLike(postId);
+        
+        // Trigger like animation
+        if (!likeAnimations[postId]) {
+          likeAnimations[postId] = new Animated.Value(0);
+        }
+        
+        Animated.sequence([
+          Animated.timing(likeAnimations[postId], {
+            toValue: 1,
+            duration: 400,
+            useNativeDriver: true,
+          }),
+          Animated.timing(likeAnimations[postId], {
+            toValue: 0,
+            duration: 200,
+            useNativeDriver: true,
+          }),
+        ]).start();
+      }
+    }
+    
+    lastTap.current = now;
   };
 
   const handleProfile = (userId: string) => {
