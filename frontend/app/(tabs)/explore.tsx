@@ -156,8 +156,7 @@ export default function Explore() {
   };
 
   const handleCreatePost = () => {
-    // TODO: Navigate to create post screen
-    Alert.alert('Create Post', 'Post creation feature coming soon!');
+    router.push('/create-post');
   };
 
   const formatTimeAgo = (dateString: string) => {
