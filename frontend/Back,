@@ -1,26 +1,32 @@
 <analysis>
-The trajectory outlines the transition of work from an AI engineer to a human expert. The initial phase focused on completing Add to Cart functionality across various workout paths (calisthenics, outdoor) and resolving associated styling and Metro bundler errors. The user then confirmed previous fixes. Subsequently, the AI engineer implemented a global Home button navigation by creating a  component and systematically integrating it into over 45 workout screens, including manual adjustments for unique header layouts (, ). This was followed by a series of UI/UX refinements: adjusting bottom padding on Your Workouts screens, transforming Workout Type screens to use a Selected: xxx block with a Continue button, and standardizing equipment displays to a vertical stacked format (e.g., Cardio, Back, Shoulders, Chest) to match existing patterns. The final tasks involved applying the Selected: xxx and Continue block pattern to Build explosion and Im feeling lazy" training type screens, which included significant refactoring and style updates. The trajectory concludes with the AI restarting the Expo service after the latest UI updates.
+The AI engineer's work transitioned from initial UI/UX refinements (e.g., 'Add to Cart' extensions, 'Home' button, padding adjustments, 'Selected: xxx' block patterns) to a significant new feature: building an Instagram-inspired social feed. This involved substantial backend work to support multi-media posts and file uploads, followed by comprehensive frontend development on the  screen. Key challenges included rectifying environment variable access, fixing missing React Native component imports, and ensuring carousel functionality. The latest efforts focused on implementing the Create Post flow with image selection and a Comments system with double-tap to like functionality, integrating these into the existing social feed. The current status involves summarizing these completed phases.
 </analysis>
 
 <product_requirements>
-The application delivers an interactive workout experience across diverse categories (Light weights, Calisthenics, Outdoor, Cardio, Muscle Gainer), integrating a "Workout Shopping Cart" that guides users to a "workout guidance" screen. The cart tracks total workout count and duration. Key features previously implemented include "Add to Cart" for "Muscle gainer - Biceps, Triceps, Legs" and "Im feeling lazy weight workouts, addressing routing issues for light weights, fixing carousel reset bugs, and refining workout card aesthetics.
+The application delivers an interactive workout experience across diverse categories (Light weights, Calisthenics, Outdoor, Cardio, Muscle Gainer), integrating a Workout Shopping Cart that guides users to a workout guidance screen, tracking total workout count and duration. Key features previously implemented included extending Add to Cart functionality to Im feeling lazy > lift weights", "calisthenics path", and "outdoor activities" workouts, ensuring consistent button styling and cart display. A global "Home" button was implemented in the top-right corner of all workout screens for consistent navigation. UI/UX improvements included decreasing excessive bottom padding on various "workout type" and "your workouts" display screens, and redesigning "workout type" screens in "I want to sweat", "Build explosion", and "Im feeling lazy paths to feature a Selected: xxx block and a Continue button. Equipment displays in sweat based and Muscle Gainer Shoulders, Chest paths were changed from square grid cards to a vertical stacked format.
 
-Current and recent development focused on:
-1. Extending Add to Cart functionality to Im feeling lazy > lift weights" (upper, lower, full body), "calisthenics path", and "outdoor activities" workouts, ensuring consistent button styling and cart display (body part details, no title truncation).
-2. Implementing a global "Home" button in the top-right corner of all workout screens to navigate back to the main mood card home screen.
-3. Decreasing excessive bottom padding on the "workout type" screen (e.g., Cardio/Light weights selection) and "your workouts" display screens across "I want to sweat" and "Muscle Gainer" paths (including the specific Legs flow) for a tighter UI.
-4. Redesigning "workout type" screens in "I want to sweat", "Build explosion", and "Im feeling lazy paths to feature a Selected: xxx block and a Continue button, similar to the Muscle Gainer path.
-5. Changing equipment display in sweat based and Muscle Gainer Shoulders, Chest paths from square grid cards to a vertical stacked format, matching the layout and spacing of Abs equipment and Light weights paths.
+The most recent major product requirement is to build out a rich Social Feed on the  screen, drawing inspiration from Instagram. This includes:
+1.  Displaying posts from other users.
+2.  Utilizing existing email/password and/or Google social login for authentication.
+3.  Allowing users to post carousels with up to 5 photos, with the 6th or last item optionally being a workout details overlay (if an in-app workout was completed).
+4.  Implementing file upload functionality for custom photos/videos.
+5.  Designing a sleek, user-friendly, high-end interface with subtle golden branding and altered icon aesthetics.
+6.  Developing a Create Post flow.
+7.  Implementing Comments and enhanced interactions like double-tap to like.
 </product_requirements>
 
 <key_technical_concepts>
-- **Expo File-Based Routing ()**: For defining app screens via file paths.
-- **React Native Components**: Core UI elements (, , , , ).
-- **React Hooks**: , , ,  for state, lifecycle, and routing.
-- **Context API ()**: Global state management for workout cart.
-- **React Memoization ()**: Optimizing component re-renders.
-- **React Native Animated**: For UI animations (e.g., button states).
-- **StyleSheet.create()**: Centralized styling in React Native.
+-   **Expo File-Based Routing ()**: For defining app screens via file paths.
+-   **React Native Components**: Core UI elements (, , , , , ).
+-   **React Hooks**: , , , , ,  for state, lifecycle, and navigation.
+-   **Context API ()**: Global state management for workout cart.
+-   **FastAPI**: Python backend framework for API services.
+-   **MongoDB**: NoSQL database for data persistence.
+-   ****: Asynchronous file I/O for FastAPI backend.
+-   ****: Frontend library for selecting images from device.
+-   ****: For advanced touch interactions like double-tap.
+-   ****: For UI animations (e.g., heart animation, button states).
+-   ****: Centralized styling in React Native.
 </key_technical_concepts>
 
 <code_architecture>
@@ -28,56 +34,36 @@ The application uses Expo Router for file-based navigation, with screens located
 
 
 
--   ** (CREATED)**:
-    -   **Importance**: A new reusable component providing a consistent navigation back to the home screen.
-    -   **Changes**: Created from scratch, containing a  with a  'home-variant' icon. It uses  to navigate to .
+-   ****: A reusable component providing consistent navigation back to the home screen. It was integrated into over 45 workout screens, including manual adjustments for  and .
+-   **, , **: These screens were refactored to use a  state, a  component for displaying the chosen type, and a  button, standardizing the selection UI.
+-   ** (multiple files)**: The  in  styles was consistently reduced from  to  across various Your Workouts screens (e.g., , , , etc.) for a tighter UI.
+-   ** (multiple files)**: Equipment selection screens (, , , ) had their  components refactored to a vertical stacked layout to match the design of  and .
 -   ****:
-    -   **Importance**: Screen for selecting body parts.
-    -   **Changes**:  was added, replacing a placeholder  in the header, demonstrating the pattern for other screens.
+    -   **Importance**: Central API for the application, handling data models and business logic.
+    -   **Changes**: Updated  model to include  for multiple image support. Added  endpoint () for handling multiple image file uploads, saving them to the new  directory. Modified  to accept  and  to return posts with this field. A  endpoint was added to serve uploaded media from .
 -   ****:
-    -   **Importance**: Displays selected workout items.
-    -   **Changes**: Manually updated to include  in the header, positioned to coexist with the existing Clear Cart button.
+    -   **Importance**: Specifies Python dependencies.
+    -   **Changes**:  was added to support asynchronous file operations in the backend.
 -   ****:
-    -   **Importance**: Active workout session display.
-    -   **Changes**: Manually updated to integrate  alongside the existing Skip button within a new  style, adjusting button layout and styles.
+    -   **Importance**: A new directory created to persistently store user-uploaded media files.
+    -   **Changes**: Created.
 -   ****:
-    -   **Importance**: Screen for selecting workout types (e.g., Cardio, Light Weights).
-    -   **Changes**: Refactored to revert previous spacing adjustments. Significant changes were made to introduce  state, a  component for displaying the chosen type, and a  button. New styles (, , ) were added.
+    -   **Importance**: A script to populate the database with initial mock users and posts, facilitating frontend development and testing of the social feed.
+    -   **Changes**: Created to generate mock users and posts, including carousels with multiple media files.
 -   ****:
-    -   **Importance**: Displays Your Workouts for light weights.
-    -   **Changes**:  in  reduced from  to .
+    -   **Importance**: This screen was entirely transformed to host the new Instagram-style social feed.
+    -   **Changes**: Extensively refactored to integrate API calls for fetching posts, liking/unliking posts. It manages local state for , , ,  (for comments), , and animated heart states (, ). Incorporates the  component for media display, navigation to the  screen, and the  component as a modal. Styling was updated to incorporate subtle golden branding and custom icons for a unique aesthetic.
 -   ****:
-    -   **Importance**: Generic workout display screen, used by cardio paths.
-    -   **Changes**:  in  reduced from  to .
+    -   **Importance**: A new reusable component crucial for displaying swipeable image/video carousels within posts.
+    -   **Changes**: Created from scratch. It handles swipe gestures, displays dot indicators for multiple media files, and manages the active image index. It underwent several fixes, including resolving a missing  import and removing a problematic counter display, eventually re-implementing robust swipe and indicator functionality.
 -   ****:
-    -   **Importance**: Displays equipment options for cardio.
-    -   **Changes**:  component structure was refactored to a horizontal layout with  and  (checkmark) to match  and .  was removed from  style to match spacing. Styles for ,  etc. were updated/added.
--   **, , , , , , , , , **:
-    -   **Importance**: Your Workouts display screens for various muscle groups.
-    -   **Changes**:  in their respective  styles was consistently reduced from  to  across 6 files.
+    -   **Importance**: A new screen enabling users to create and publish social media posts.
+    -   **Changes**: Created. It utilizes  for selecting multiple images from the device gallery, provides an input field for a post caption, and handles the logic for uploading selected media and submitting the post data to the backend API. It also includes a  hook to securely retrieve the authentication token.
 -   ****:
-    -   **Importance**: Used by the Legs path for workout display.
-    -   **Changes**:  reduced from  to .
--   **, , **:
-    -   **Importance**: Equipment selection screens for Back, Shoulders, Chest.
-    -   **Changes**:  component structure was refactored to a horizontal layout with  and  (checkmark) to match . Relevant  and  styles were updated/added.
--   ****:
-    -   **Importance**: Screen for selecting explosiveness training type.
-    -   **Changes**: Refactored to implement  state, a  component for displaying the chosen type, and a  button. New styles (, , ) were added.
--   ****:
-    -   **Importance**: Screen for selecting lazy training type.
-    -   **Changes**: Refactored to implement  state, a  component for displaying the chosen type, and a  button. New styles (, , ) were added, and duplicate code was removed.
+    -   **Importance**: A new component to manage and display comments for a given post.
+    -   **Changes**: Created as a modal/bottom sheet component. It's designed to fetch and display existing comments for a  and allows users to input and submit new comments. Integrated into .
 </code_architecture>
 
 <pending_tasks>
-- No explicit pending tasks were noted, as the user stated everything looks to be in working order regarding prior tasks. All subsequent user requests have been addressed.
-</pending_tasks>
-
-<current_work>
-Immediately prior to this summary request, the AI engineer was focused on implementing the Selected: xxx block and Continue button pattern for two key training type screens:  (for the Build explosion mood card path) and  (for the Im feeling lazy" mood card path).
-
-For both screens, the work involved:
-1.  **State Management**: Introducing `useState` to manage the `selectedOption`, which stores the currently chosen training type.
-2.  **Conditional Rendering**: Displaying a `SelectedBlock` component only when an option has been selected, showing the `selectedOption.name`.
-3.  **Navigation and Action**: Implementing a `Continue` button that, when pressed, navigates the user to the next screen, passing the `selectedOption.id` as a parameter.
-4.  **Component Refactoring**: Restructuring the main components render logic to incorporate the new selection UI elements, including to render the options and wrap them in to handle selection.
+-   Verify the implemented Selected block and Continue button functionality on  and  screens (as originally stated in system prompt, but not explicitly verified by user).
+-   Comprehensive testing and user verification of the newly implemented Create Post flow and Comments
