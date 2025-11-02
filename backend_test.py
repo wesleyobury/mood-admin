@@ -1,43 +1,44 @@
 #!/usr/bin/env python3
 """
-Backend API Testing for Social Feed Features
-Tests the Instagram-inspired social feed backend APIs including posts, likes, comments, and file uploads
+Backend API Testing for User Profile & Following System
+Tests the newly implemented User Profile & Following System backend endpoints
 """
 
 import requests
 import json
-import time
-from datetime import datetime
-from typing import Dict, Any, Optional
+import os
 from pathlib import Path
 import tempfile
-from PIL import Image
-import io
+from datetime import datetime
 
-# Get backend URL from frontend .env
-def get_backend_url():
-    frontend_env_path = Path("/app/frontend/.env")
-    if frontend_env_path.exists():
-        with open(frontend_env_path, 'r') as f:
+# Load environment variables
+def load_env():
+    env_path = Path("/app/frontend/.env")
+    env_vars = {}
+    if env_path.exists():
+        with open(env_path, 'r') as f:
             for line in f:
-                if line.startswith('EXPO_PUBLIC_BACKEND_URL'):
-                    return line.split('=')[1].strip().strip('"')
-    return "https://workoutsocial.preview.emergentagent.com"
+                if '=' in line and not line.startswith('#'):
+                    key, value = line.strip().split('=', 1)
+                    env_vars[key] = value.strip('"')
+    return env_vars
 
-BASE_URL = get_backend_url()
+env_vars = load_env()
+BASE_URL = env_vars.get('EXPO_PUBLIC_BACKEND_URL', 'http://localhost:8001')
 API_BASE = f"{BASE_URL}/api"
+
 TEST_USER_DATA = {
-    "username": "moodtester2025",
-    "email": "moodtest2025@example.com", 
+    "username": "fitness_enthusiast_2025",
+    "email": "fitness@example.com",
     "password": "SecurePass123!",
-    "name": "Mood Test User"
+    "name": "Alex Fitness"
 }
 
 TEST_USER_2_DATA = {
-    "username": "moodtester2_2025",
-    "email": "moodtest2_2025@example.com",
+    "username": "workout_buddy_2025",
+    "email": "buddy@example.com", 
     "password": "SecurePass456!",
-    "name": "Second Test User"
+    "name": "Jordan Workout"
 }
 
 class MoodAppTester:
