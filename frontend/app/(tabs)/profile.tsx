@@ -73,6 +73,7 @@ export default function Profile() {
   const [authToken, setAuthToken] = useState<string | null>(null);
 
   const [activeTab, setActiveTab] = useState<'workouts' | 'achievements' | 'cards'>('workouts');
+  const router = useRouter();
 
   // Load auth token
   useEffect(() => {
