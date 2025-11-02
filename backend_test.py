@@ -41,57 +41,31 @@ TEST_USER_2_DATA = {
     "name": "Jordan Workout"
 }
 
-class MoodAppTester:
+class UserProfileFollowingSystemTest:
     def __init__(self):
         self.session = requests.Session()
-        self.auth_token = None
-        self.user_id = None
-        self.auth_token_2 = None
-        self.user_id_2 = None
+        self.user1_token = None
+        self.user2_token = None
+        self.user1_id = None
+        self.user2_id = None
         self.test_results = []
         
-    def log_result(self, test_name: str, success: bool, message: str, details: Any = None):
+    def log_result(self, test_name, success, details="", response_data=None):
         """Log test results"""
+        status = "✅ PASS" if success else "❌ FAIL"
         result = {
             "test": test_name,
-            "success": success,
-            "message": message,
+            "status": status,
             "details": details,
-            "timestamp": datetime.now().isoformat()
+            "response_data": response_data
         }
         self.test_results.append(result)
-        status = "✅ PASS" if success else "❌ FAIL"
-        print(f"{status} {test_name}: {message}")
-        if details and not success:
+        print(f"{status}: {test_name}")
+        if details:
             print(f"   Details: {details}")
-    
-    def make_request(self, method: str, endpoint: str, data: Dict = None, headers: Dict = None) -> requests.Response:
-        """Make HTTP request with proper error handling"""
-        url = f"{API_BASE}{endpoint}"
-        request_headers = {"Content-Type": "application/json"}
-        
-        if headers:
-            request_headers.update(headers)
-            
-        if self.auth_token and "Authorization" not in request_headers:
-            request_headers["Authorization"] = f"Bearer {self.auth_token}"
-        
-        try:
-            if method.upper() == "GET":
-                response = self.session.get(url, headers=request_headers, params=data)
-            elif method.upper() == "POST":
-                response = self.session.post(url, headers=request_headers, json=data)
-            elif method.upper() == "PUT":
-                response = self.session.put(url, headers=request_headers, json=data)
-            elif method.upper() == "DELETE":
-                response = self.session.delete(url, headers=request_headers)
-            else:
-                raise ValueError(f"Unsupported HTTP method: {method}")
-                
-            return response
-        except requests.exceptions.RequestException as e:
-            print(f"Request failed: {e}")
-            raise
+        if not success and response_data:
+            print(f"   Response: {response_data}")
+        print()
     
     def test_health_endpoints(self):
         """Test API health and connectivity"""
