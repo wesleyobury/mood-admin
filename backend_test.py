@@ -602,19 +602,23 @@ class MoodAppTester:
             self.log_result("Get Workout History", False, f"Workout history request failed: {str(e)}")
     
     def run_all_tests(self):
-        """Run comprehensive backend API tests"""
-        print("🚀 Starting MOOD App Backend API Tests")
+        """Run comprehensive backend API tests focusing on social feed features"""
+        print("🚀 Starting Backend Social Feed API Tests")
         print(f"Testing against: {BASE_URL}")
         print("=" * 60)
         
-        # Run all test suites
+        # Run essential setup tests
         self.test_health_endpoints()
         self.test_user_registration()
         self.test_user_login()
         self.test_protected_endpoint_access()
-        self.test_workout_endpoints()
+        
+        # Focus on social feed features
         self.test_social_features()
+        
+        # Run additional tests for completeness
         self.test_follow_system()
+        self.test_workout_endpoints()
         self.test_user_workout_logging()
         
         # Summary
