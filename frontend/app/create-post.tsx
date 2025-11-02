@@ -534,14 +534,14 @@ const styles = StyleSheet.create({
   },
   statsCardWrapper: {
     alignItems: 'center',
-    marginVertical: 8,
+    marginVertical: 6,
   },
   saveExplanation: {
     flexDirection: 'row',
     alignItems: 'center',
     gap: 6,
-    marginTop: 10,
-    marginBottom: 6,
+    marginTop: 8,
+    marginBottom: 4,
     paddingHorizontal: 10,
   },
   saveExplanationText: {
