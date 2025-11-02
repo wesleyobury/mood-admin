@@ -720,4 +720,28 @@ const styles = StyleSheet.create({
     borderTopRightRadius: 20,
     overflow: 'hidden',
   },
+  tabContainer: {
+    flexDirection: 'row',
+    borderBottomWidth: 1,
+    borderBottomColor: 'rgba(255, 215, 0, 0.1)',
+    paddingHorizontal: 16,
+  },
+  tab: {
+    flex: 1,
+    paddingVertical: 12,
+    alignItems: 'center',
+    borderBottomWidth: 2,
+    borderBottomColor: 'transparent',
+  },
+  activeTab: {
+    borderBottomColor: '#FFD700',
+  },
+  tabText: {
+    fontSize: 15,
+    fontWeight: '600',
+    color: '#888',
+  },
+  activeTabText: {
+    color: '#FFD700',
+  },
 });
