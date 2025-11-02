@@ -632,17 +632,17 @@ const styles = StyleSheet.create({
   },
   captionSection: {
     marginHorizontal: 16,
-    marginBottom: 16,
+    marginBottom: 12,
     backgroundColor: 'rgba(255, 255, 255, 0.02)',
     borderRadius: 16,
     borderWidth: 1,
     borderColor: 'rgba(255, 215, 0, 0.15)',
-    padding: 16,
+    padding: 14,
   },
   captionHeader: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginBottom: 12,
+    marginBottom: 10,
     gap: 8,
   },
   captionLabel: {
