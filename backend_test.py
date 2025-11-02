@@ -67,31 +67,41 @@ class UserProfileFollowingSystemTest:
             print(f"   Response: {response_data}")
         print()
     
-    def test_health_endpoints(self):
-        """Test API health and connectivity"""
-        print("\n=== Testing Health Endpoints ===")
+    def test_user_registration_and_login(self):
+        """Test user registration and login for test users"""
+        print("=== Testing User Registration and Login ===")
         
-        # Test root endpoint
+        # Register user1
         try:
-            response = self.make_request("GET", "/")
+            response = self.session.post(f"{API_BASE}/auth/register", json=TEST_USER_DATA)
             if response.status_code == 200:
                 data = response.json()
-                self.log_result("API Root Endpoint", True, f"API is running: {data.get('message', 'No message')}")
+                self.user1_token = data.get('token')
+                self.user1_id = data.get('user_id')
+                self.log_result("User1 Registration", True, f"User ID: {self.user1_id}")
             else:
-                self.log_result("API Root Endpoint", False, f"Unexpected status code: {response.status_code}", response.text)
+                self.log_result("User1 Registration", False, f"Status: {response.status_code}", response.text)
+                return False
         except Exception as e:
-            self.log_result("API Root Endpoint", False, f"Connection failed: {str(e)}")
-        
-        # Test health check endpoint
+            self.log_result("User1 Registration", False, f"Exception: {str(e)}")
+            return False
+
+        # Register user2
         try:
-            response = self.make_request("GET", "/health")
+            response = self.session.post(f"{API_BASE}/auth/register", json=TEST_USER_2_DATA)
             if response.status_code == 200:
                 data = response.json()
-                self.log_result("Health Check Endpoint", True, f"Health status: {data.get('status', 'unknown')}")
+                self.user2_token = data.get('token')
+                self.user2_id = data.get('user_id')
+                self.log_result("User2 Registration", True, f"User ID: {self.user2_id}")
             else:
-                self.log_result("Health Check Endpoint", False, f"Unexpected status code: {response.status_code}", response.text)
+                self.log_result("User2 Registration", False, f"Status: {response.status_code}", response.text)
+                return False
         except Exception as e:
-            self.log_result("Health Check Endpoint", False, f"Health check failed: {str(e)}")
+            self.log_result("User2 Registration", False, f"Exception: {str(e)}")
+            return False
+
+        return True
     
     def test_user_registration(self):
         """Test user registration"""
