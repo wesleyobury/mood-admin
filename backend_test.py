@@ -138,8 +138,8 @@ class UserProfileFollowingSystemTest:
         try:
             headers = {"Authorization": f"Bearer {self.user1_token}"}
             profile_data = {
-                "name": "Alex 'The Beast' Fitness",
-                "bio": "Passionate about fitness and helping others achieve their goals! 💪 #FitnessMotivation"
+                "name": "Alex 'The Ultimate' Fitness Champion",
+                "bio": "Updated bio: Dedicated to transforming lives through fitness and wellness! 🏋️‍♂️ #FitnessTransformation #WellnessJourney"
             }
             
             response = self.session.put(f"{API_BASE}/users/me", json=profile_data, headers=headers)
