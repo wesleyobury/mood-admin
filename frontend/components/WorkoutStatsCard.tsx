@@ -3,8 +3,8 @@ import { View, Text, StyleSheet, Dimensions } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
 const { width } = Dimensions.get('window');
-const CARD_WIDTH = width - 48;
-const CARD_HEIGHT = CARD_WIDTH * 1.4; // 7:10 aspect ratio for Instagram-like post
+const CARD_WIDTH = width - 80; // Smaller width with more padding
+const CARD_HEIGHT = CARD_WIDTH * 1.2; // Shorter aspect ratio
 
 interface WorkoutStatsCardProps {
   workouts: Array<{
@@ -30,40 +30,40 @@ export default function WorkoutStatsCard({
       {/* Top Section - Header */}
       <View style={styles.header}>
         <View style={styles.iconContainer}>
-          <Ionicons name="trophy" size={32} color="#FFD700" />
+          <Ionicons name="trophy" size={24} color="#FFD700" />
         </View>
         <Text style={styles.headerTitle}>Workout Complete!</Text>
-        <Text style={styles.headerSubtitle}>Great job crushing it today 💪</Text>
+        <Text style={styles.headerSubtitle}>Amazing work today 💪</Text>
       </View>
 
       {/* Middle Section - Stats Grid */}
       <View style={styles.statsSection}>
         <View style={styles.statsGrid}>
           <View style={styles.statBox}>
-            <Ionicons name="fitness" size={24} color="#FFD700" />
+            <Ionicons name="fitness" size={20} color="#FFD700" />
             <Text style={styles.statValue}>{workouts.length}</Text>
             <Text style={styles.statLabel}>Exercises</Text>
           </View>
           
           <View style={styles.statBox}>
-            <Ionicons name="time" size={24} color="#FFD700" />
+            <Ionicons name="time" size={20} color="#FFD700" />
             <Text style={styles.statValue}>{totalDuration}</Text>
             <Text style={styles.statLabel}>Minutes</Text>
           </View>
           
           <View style={styles.statBox}>
-            <Ionicons name="flame" size={24} color="#FF6B6B" />
+            <Ionicons name="flame" size={20} color="#FF6B6B" />
             <Text style={styles.statValue}>{Math.round(totalDuration * 8)}</Text>
             <Text style={styles.statLabel}>Cal (Est.)</Text>
           </View>
         </View>
       </View>
 
-      {/* Workout List Section */}
+      {/* Workout List Section - Compact */}
       <View style={styles.workoutsSection}>
-        <Text style={styles.workoutsTitle}>Exercises Completed</Text>
+        <Text style={styles.workoutsTitle}>Exercises</Text>
         <View style={styles.workoutsList}>
-          {workouts.map((workout, index) => (
+          {workouts.slice(0, 3).map((workout, index) => (
             <View key={index} style={styles.workoutItem}>
               <View style={styles.workoutNumberContainer}>
                 <Text style={styles.workoutNumber}>{index + 1}</Text>
@@ -76,26 +76,23 @@ export default function WorkoutStatsCard({
                   <Text style={styles.workoutMetaText}>{workout.equipment}</Text>
                   <Text style={styles.workoutDot}>•</Text>
                   <Text style={styles.workoutMetaText}>{workout.duration}</Text>
-                  <Text style={styles.workoutDot}>•</Text>
-                  <View style={styles.difficultyBadge}>
-                    <Text style={styles.difficultyText}>
-                      {workout.difficulty === 'intermediate' ? 'INT' : workout.difficulty.substring(0, 3).toUpperCase()}
-                    </Text>
-                  </View>
                 </View>
               </View>
             </View>
           ))}
+          {workouts.length > 3 && (
+            <Text style={styles.moreText}>+{workouts.length - 3} more exercises</Text>
+          )}
         </View>
       </View>
 
       {/* Footer */}
       <View style={styles.footer}>
         <View style={styles.dateContainer}>
-          <Ionicons name="calendar-outline" size={14} color="rgba(255, 255, 255, 0.6)" />
+          <Ionicons name="calendar-outline" size={12} color="rgba(255, 255, 255, 0.5)" />
           <Text style={styles.dateText}>{completedAt}</Text>
         </View>
-        <Text style={styles.brandText}>MOOD • Fitness Tracker</Text>
+        <Text style={styles.brandText}>MOOD</Text>
       </View>
     </View>
   );
@@ -104,10 +101,10 @@ export default function WorkoutStatsCard({
 const styles = StyleSheet.create({
   container: {
     backgroundColor: '#0a0a0a',
-    borderRadius: 20,
+    borderRadius: 16,
     overflow: 'hidden',
-    borderWidth: 2,
-    borderColor: 'rgba(255, 215, 0, 0.4)',
+    borderWidth: 1.5,
+    borderColor: 'rgba(255, 215, 0, 0.3)',
     position: 'relative',
   },
   gradientOverlay: {
@@ -115,81 +112,81 @@ const styles = StyleSheet.create({
     top: 0,
     left: 0,
     right: 0,
-    height: '40%',
-    backgroundColor: 'rgba(255, 215, 0, 0.05)',
+    height: '35%',
+    backgroundColor: 'rgba(255, 215, 0, 0.04)',
   },
   header: {
     alignItems: 'center',
-    paddingTop: 32,
-    paddingHorizontal: 24,
-    paddingBottom: 24,
+    paddingTop: 20,
+    paddingHorizontal: 16,
+    paddingBottom: 16,
   },
   iconContainer: {
-    width: 64,
-    height: 64,
-    borderRadius: 32,
-    backgroundColor: 'rgba(255, 215, 0, 0.15)',
+    width: 48,
+    height: 48,
+    borderRadius: 24,
+    backgroundColor: 'rgba(255, 215, 0, 0.12)',
     justifyContent: 'center',
     alignItems: 'center',
-    marginBottom: 16,
-    borderWidth: 2,
-    borderColor: 'rgba(255, 215, 0, 0.3)',
+    marginBottom: 10,
+    borderWidth: 1.5,
+    borderColor: 'rgba(255, 215, 0, 0.25)',
   },
   headerTitle: {
-    fontSize: 28,
+    fontSize: 20,
     fontWeight: 'bold',
     color: '#FFD700',
-    marginBottom: 8,
+    marginBottom: 4,
     textAlign: 'center',
   },
   headerSubtitle: {
-    fontSize: 16,
-    color: 'rgba(255, 255, 255, 0.7)',
+    fontSize: 13,
+    color: 'rgba(255, 255, 255, 0.6)',
     textAlign: 'center',
   },
   statsSection: {
-    paddingHorizontal: 24,
-    paddingVertical: 16,
+    paddingHorizontal: 16,
+    paddingVertical: 12,
   },
   statsGrid: {
     flexDirection: 'row',
     justifyContent: 'space-around',
-    gap: 12,
+    gap: 8,
   },
   statBox: {
     flex: 1,
-    backgroundColor: 'rgba(255, 215, 0, 0.08)',
-    borderRadius: 16,
-    padding: 16,
+    backgroundColor: 'rgba(255, 215, 0, 0.06)',
+    borderRadius: 12,
+    padding: 12,
     alignItems: 'center',
     borderWidth: 1,
-    borderColor: 'rgba(255, 215, 0, 0.2)',
+    borderColor: 'rgba(255, 215, 0, 0.15)',
   },
   statValue: {
-    fontSize: 24,
+    fontSize: 20,
     fontWeight: 'bold',
     color: '#ffffff',
-    marginTop: 8,
-    marginBottom: 4,
+    marginTop: 6,
+    marginBottom: 2,
   },
   statLabel: {
-    fontSize: 11,
-    color: 'rgba(255, 255, 255, 0.6)',
+    fontSize: 9,
+    color: 'rgba(255, 255, 255, 0.5)',
     textTransform: 'uppercase',
-    letterSpacing: 0.5,
+    letterSpacing: 0.3,
   },
   workoutsSection: {
     flex: 1,
-    paddingHorizontal: 24,
-    paddingTop: 16,
+    paddingHorizontal: 16,
+    paddingTop: 12,
   },
   workoutsTitle: {
-    fontSize: 16,
+    fontSize: 13,
     fontWeight: 'bold',
     color: '#FFD700',
-    marginBottom: 12,
+    marginBottom: 10,
     textTransform: 'uppercase',
-    letterSpacing: 0.5,
+    letterSpacing: 0.4,
   },
   workoutsList: {
     flex: 1,
@@ -197,24 +194,24 @@ const styles = StyleSheet.create({
   workoutItem: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: 'rgba(255, 255, 255, 0.03)',
-    borderRadius: 12,
-    padding: 12,
-    marginBottom: 8,
+    backgroundColor: 'rgba(255, 255, 255, 0.02)',
+    borderRadius: 10,
+    padding: 10,
+    marginBottom: 6,
     borderWidth: 1,
-    borderColor: 'rgba(255, 255, 255, 0.08)',
+    borderColor: 'rgba(255, 255, 255, 0.06)',
   },
   workoutNumberContainer: {
-    width: 28,
-    height: 28,
-    borderRadius: 14,
-    backgroundColor: 'rgba(255, 215, 0, 0.2)',
+    width: 24,
+    height: 24,
+    borderRadius: 12,
+    backgroundColor: 'rgba(255, 215, 0, 0.15)',
     justifyContent: 'center',
     alignItems: 'center',
-    marginRight: 12,
+    marginRight: 10,
   },
   workoutNumber: {
-    fontSize: 14,
+    fontSize: 12,
     fontWeight: 'bold',
     color: '#FFD700',
   },
@@ -222,10 +219,10 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   workoutName: {
-    fontSize: 14,
+    fontSize: 12,
     fontWeight: '600',
     color: '#ffffff',
-    marginBottom: 4,
+    marginBottom: 3,
   },
   workoutMeta: {
     flexDirection: 'row',
@@ -233,46 +230,42 @@ const styles = StyleSheet.create({
     flexWrap: 'wrap',
   },
   workoutMetaText: {
-    fontSize: 11,
-    color: 'rgba(255, 255, 255, 0.5)',
+    fontSize: 10,
+    color: 'rgba(255, 255, 255, 0.45)',
   },
   workoutDot: {
-    fontSize: 11,
-    color: 'rgba(255, 255, 255, 0.3)',
-    marginHorizontal: 6,
-  },
-  difficultyBadge: {
-    backgroundColor: 'rgba(255, 215, 0, 0.15)',
-    paddingHorizontal: 6,
-    paddingVertical: 2,
-    borderRadius: 4,
-  },
-  difficultyText: {
     fontSize: 10,
-    fontWeight: 'bold',
-    color: '#FFD700',
+    color: 'rgba(255, 255, 255, 0.25)',
+    marginHorizontal: 5,
+  },
+  moreText: {
+    fontSize: 11,
+    color: 'rgba(255, 215, 0, 0.6)',
+    fontStyle: 'italic',
+    textAlign: 'center',
+    marginTop: 4,
   },
   footer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    paddingHorizontal: 24,
-    paddingVertical: 16,
+    paddingHorizontal: 16,
+    paddingVertical: 12,
     borderTopWidth: 1,
-    borderTopColor: 'rgba(255, 255, 255, 0.08)',
+    borderTopColor: 'rgba(255, 255, 255, 0.06)',
   },
   dateContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 6,
+    gap: 4,
   },
   dateText: {
-    fontSize: 11,
-    color: 'rgba(255, 255, 255, 0.6)',
+    fontSize: 10,
+    color: 'rgba(255, 255, 255, 0.5)',
   },
   brandText: {
-    fontSize: 11,
-    color: 'rgba(255, 215, 0, 0.6)',
+    fontSize: 10,
+    color: 'rgba(255, 215, 0, 0.5)',
     fontWeight: '600',
     letterSpacing: 1,
   },
