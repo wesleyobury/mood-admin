@@ -114,6 +114,38 @@ export default function Profile() {
     }
   };
 
+  const fetchUserProfile = async () => {
+    try {
+      const response = await fetch(`${API_URL}/api/users/me`, {
+        headers: {
+          'Authorization': `Bearer ${authToken}`,
+        },
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        setUser({
+          id: data.id,
+          username: data.username,
+          name: data.name || data.username,
+          bio: data.bio || '',
+          avatar: data.avatar || '',
+          isVerified: false,
+        });
+        setStats({
+          workouts: data.workouts_count || 0,
+          followers: data.followers_count || 0,
+          following: data.following_count || 0,
+          streak: data.current_streak || 0,
+        });
+      }
+    } catch (error) {
+      console.error('Error fetching user profile:', error);
+    } finally {
+      setLoadingProfile(false);
+    }
+  };
+
   const fetchWorkoutCards = async () => {
     setLoadingCards(true);
     try {
