@@ -188,7 +188,7 @@ export default function Profile() {
   };
 
   const handleEditProfile = () => {
-    console.log('Edit profile');
+    router.push('/edit-profile');
   };
 
   const handleSettings = () => {
@@ -196,10 +196,12 @@ export default function Profile() {
   };
 
   const handleFollowers = () => {
+    // TODO: Navigate to followers list
     console.log('View followers');
   };
 
   const handleFollowing = () => {
+    // TODO: Navigate to following list
     console.log('View following');
   };
 
