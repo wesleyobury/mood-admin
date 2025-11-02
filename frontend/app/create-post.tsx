@@ -330,7 +330,10 @@ export default function CreatePost() {
 
           {/* Image Picker Section */}
           <View style={styles.section}>
-            <Text style={styles.sectionTitle}>Photos ({selectedImages.length}/5)</Text>
+            <Text style={styles.sectionTitle}>
+              Photos ({selectedImages.length}/{hasStatsCard ? 4 : 5})
+              {hasStatsCard && <Text style={{color: '#666', fontSize: 12}}> + Stats Card</Text>}
+            </Text>
             
             <ScrollView 
               horizontal 
