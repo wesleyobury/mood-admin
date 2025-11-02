@@ -594,4 +594,35 @@ const styles = StyleSheet.create({
     height: '100%',
     backgroundColor: '#FFD700',
   },
+  statsCardHeader: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: 16,
+  },
+  saveCardIconButton: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 4,
+    padding: 8,
+    backgroundColor: 'rgba(255, 215, 0, 0.1)',
+    borderRadius: 8,
+    borderWidth: 1,
+    borderColor: 'rgba(255, 215, 0, 0.3)',
+  },
+  saveCardText: {
+    color: '#FFD700',
+    fontSize: 12,
+    fontWeight: '600',
+  },
+  statsCardContainer: {
+    alignItems: 'center',
+    marginBottom: 12,
+  },
+  statsCardHint: {
+    color: '#666',
+    fontSize: 12,
+    textAlign: 'center',
+    fontStyle: 'italic',
+  },
 });
