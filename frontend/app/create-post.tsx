@@ -125,7 +125,7 @@ export default function CreatePost() {
       });
 
       if (response.ok) {
-        Alert.alert('Success', 'Workout card saved to your profile!');
+        Alert.alert('Saved! 🔖', 'Your workout card has been saved to your Profile > Cards tab for future viewing.');
       } else {
         Alert.alert('Error', 'Failed to save workout card.');
       }
@@ -139,15 +139,15 @@ export default function CreatePost() {
     if (hasStatsCard) {
       Alert.alert(
         'Cancel Post',
-        'Do you want to save your workout card before leaving?',
+        'Do you want to save your workout card to your profile before leaving?',
         [
           {
-            text: 'Discard',
+            text: 'Discard All',
             style: 'destructive',
             onPress: () => router.push('/(tabs)'),
           },
           {
-            text: 'Save Card',
+            text: 'Save Card Only',
             onPress: async () => {
               await handleSaveCard();
               router.push('/(tabs)');
@@ -244,7 +244,7 @@ export default function CreatePost() {
       });
 
       if (response.ok) {
-        Alert.alert('Success', 'Post created successfully! Your workout card has been saved.', [
+        Alert.alert('Posted! ✨', 'Your workout achievement has been shared to your feed and saved to your profile!', [
           {
             text: 'OK',
             onPress: () => router.push('/(tabs)'),
@@ -297,53 +297,13 @@ export default function CreatePost() {
         </View>
 
         <ScrollView style={styles.scrollView} showsVerticalScrollIndicator={false}>
-          {/* Caption Input - First */}
-          <View style={styles.captionSection}>
-            <View style={styles.captionHeader}>
-              <Ionicons name="create-outline" size={20} color="#FFD700" />
-              <Text style={styles.captionLabel}>Write a caption</Text>
-            </View>
-            <TextInput
-              style={styles.captionInput}
-              placeholder="Share your thoughts... (use #hashtags)"
-              placeholderTextColor="#666"
-              value={caption}
-              onChangeText={setCaption}
-              multiline
-              numberOfLines={4}
-              maxLength={500}
-            />
-            <Text style={styles.captionCounter}>{caption.length}/500</Text>
-          </View>
-
           {/* Attachments Label */}
           <View style={styles.attachmentsHeader}>
             <Ionicons name="attach" size={18} color="#FFD700" />
             <Text style={styles.attachmentsLabel}>Attachments</Text>
           </View>
 
-          {/* Workout Stats Card (if from completed workout) */}
-          {workoutStats && (
-            <View style={styles.attachmentCard}>
-              <View style={styles.attachmentHeader}>
-                <View style={styles.attachmentLabelContainer}>
-                  <Ionicons name="trophy" size={16} color="#FFD700" />
-                  <Text style={styles.attachmentType}>Workout Achievement Card</Text>
-                </View>
-                <TouchableOpacity onPress={handleSaveCard} style={styles.saveCardButton}>
-                  <Ionicons name="bookmark-outline" size={18} color="#FFD700" />
-                </TouchableOpacity>
-              </View>
-              <View style={styles.statsCardWrapper}>
-                <WorkoutStatsCard {...workoutStats} />
-              </View>
-              <Text style={styles.attachmentHint}>
-                👆 This will appear as the first item in your post
-              </Text>
-            </View>
-          )}
-
-          {/* Image Picker Section */}
+          {/* 1. Image Picker Section - FIRST */}
           <View style={styles.attachmentCard}>
             <View style={styles.attachmentHeader}>
               <View style={styles.attachmentLabelContainer}>
@@ -381,7 +341,7 @@ export default function CreatePost() {
                     <Ionicons name="close-circle" size={22} color="#FFD700" />
                   </TouchableOpacity>
                   <View style={styles.imageNumber}>
-                    <Text style={styles.imageNumberText}>{hasStatsCard ? index + 2 : index + 1}</Text>
+                    <Text style={styles.imageNumberText}>{index + 1}</Text>
                   </View>
                 </View>
               ))}
@@ -391,6 +351,53 @@ export default function CreatePost() {
               <Text style={styles.emptyText}>Optional: Add photos to your post</Text>
             )}
           </View>
+
+          {/* 2. Caption Input - SECOND */}
+          <View style={styles.captionSection}>
+            <View style={styles.captionHeader}>
+              <Ionicons name="create-outline" size={20} color="#FFD700" />
+              <Text style={styles.captionLabel}>Caption</Text>
+            </View>
+            <TextInput
+              style={styles.captionInput}
+              placeholder="Share your thoughts... (use #hashtags)"
+              placeholderTextColor="#666"
+              value={caption}
+              onChangeText={setCaption}
+              multiline
+              numberOfLines={4}
+              maxLength={500}
+            />
+            <Text style={styles.captionCounter}>{caption.length}/500</Text>
+          </View>
+
+          {/* 3. Workout Stats Card - LAST */}
+          {workoutStats && (
+            <View style={styles.attachmentCard}>
+              <View style={styles.attachmentHeader}>
+                <View style={styles.attachmentLabelContainer}>
+                  <Ionicons name="trophy" size={16} color="#FFD700" />
+                  <Text style={styles.attachmentType}>Workout Achievement</Text>
+                </View>
+                <TouchableOpacity onPress={handleSaveCard} style={styles.saveCardButton}>
+                  <Ionicons name="bookmark-outline" size={18} color="#FFD700" />
+                  <Text style={styles.saveButtonText}>Save</Text>
+                </TouchableOpacity>
+              </View>
+              <View style={styles.statsCardWrapper}>
+                <WorkoutStatsCard {...workoutStats} />
+              </View>
+              <View style={styles.saveExplanation}>
+                <Ionicons name="information-circle-outline" size={14} color="rgba(255, 215, 0, 0.7)" />
+                <Text style={styles.saveExplanationText}>
+                  Tap Save to keep this card in your Profile without posting
+                </Text>
+              </View>
+              <Text style={styles.attachmentHint}>
+                👆 This will appear as the last item in your post
+              </Text>
+            </View>
+          )}
 
           {/* Upload Progress */}
           {uploading && (
@@ -468,41 +475,6 @@ const styles = StyleSheet.create({
   scrollView: {
     flex: 1,
   },
-  captionSection: {
-    padding: 20,
-    paddingBottom: 16,
-    backgroundColor: '#0a0a0a',
-    borderBottomWidth: 1,
-    borderBottomColor: 'rgba(255, 215, 0, 0.1)',
-  },
-  captionHeader: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginBottom: 12,
-    gap: 8,
-  },
-  captionLabel: {
-    fontSize: 14,
-    fontWeight: '600',
-    color: '#FFD700',
-  },
-  captionInput: {
-    backgroundColor: 'rgba(255, 255, 255, 0.04)',
-    borderWidth: 1,
-    borderColor: 'rgba(255, 215, 0, 0.2)',
-    borderRadius: 12,
-    padding: 14,
-    color: '#fff',
-    fontSize: 15,
-    minHeight: 100,
-    textAlignVertical: 'top',
-  },
-  captionCounter: {
-    color: '#666',
-    fontSize: 11,
-    textAlign: 'right',
-    marginTop: 6,
-  },
   attachmentsHeader: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -544,19 +516,44 @@ const styles = StyleSheet.create({
     color: 'rgba(255, 255, 255, 0.8)',
   },
   saveCardButton: {
-    padding: 6,
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 6,
+    paddingVertical: 6,
+    paddingHorizontal: 12,
     backgroundColor: 'rgba(255, 215, 0, 0.1)',
     borderRadius: 8,
+    borderWidth: 1,
+    borderColor: 'rgba(255, 215, 0, 0.3)',
+  },
+  saveButtonText: {
+    fontSize: 12,
+    fontWeight: '600',
+    color: '#FFD700',
   },
   statsCardWrapper: {
     alignItems: 'center',
     marginVertical: 8,
   },
+  saveExplanation: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 6,
+    marginTop: 10,
+    marginBottom: 6,
+    paddingHorizontal: 10,
+  },
+  saveExplanationText: {
+    flex: 1,
+    fontSize: 11,
+    color: 'rgba(255, 215, 0, 0.7)',
+    lineHeight: 16,
+  },
   attachmentHint: {
     color: 'rgba(255, 215, 0, 0.6)',
     fontSize: 11,
     textAlign: 'center',
-    marginTop: 8,
+    marginTop: 4,
     fontStyle: 'italic',
   },
   imageScroll: {
@@ -631,6 +628,43 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontStyle: 'italic',
     marginTop: 8,
+  },
+  captionSection: {
+    marginHorizontal: 16,
+    marginBottom: 16,
+    backgroundColor: 'rgba(255, 255, 255, 0.02)',
+    borderRadius: 16,
+    borderWidth: 1,
+    borderColor: 'rgba(255, 215, 0, 0.15)',
+    padding: 16,
+  },
+  captionHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 12,
+    gap: 8,
+  },
+  captionLabel: {
+    fontSize: 13,
+    fontWeight: '600',
+    color: 'rgba(255, 255, 255, 0.8)',
+  },
+  captionInput: {
+    backgroundColor: 'rgba(255, 255, 255, 0.04)',
+    borderWidth: 1,
+    borderColor: 'rgba(255, 215, 0, 0.2)',
+    borderRadius: 12,
+    padding: 14,
+    color: '#fff',
+    fontSize: 15,
+    minHeight: 100,
+    textAlignVertical: 'top',
+  },
+  captionCounter: {
+    color: '#666',
+    fontSize: 11,
+    textAlign: 'right',
+    marginTop: 6,
   },
   uploadProgressContainer: {
     marginHorizontal: 16,
