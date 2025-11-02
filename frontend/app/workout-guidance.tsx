@@ -251,12 +251,54 @@ export default function WorkoutGuidanceScreen() {
           }
         });
       } else {
-        // Session complete - clear cart and go home automatically
-        console.log('🎉 Session complete! Clearing cart and navigating home...');
-        console.log('🧹 Clearing cart...');
-        clearCart();
-        console.log('🏠 Navigating to home...');
-        router.push('/(tabs)');
+        // Session complete - navigate to create-post with workout stats
+        console.log('🎉 Session complete! Preparing workout stats...');
+        
+        try {
+          const sessionWorkouts = JSON.parse(sessionWorkoutsParam);
+          
+          // Prepare workout completion data
+          const completedWorkouts = sessionWorkouts.map((workout: any) => ({
+            workoutName: workout.workoutName,
+            equipment: workout.equipment,
+            duration: workout.duration,
+            difficulty: workout.difficulty,
+          }));
+
+          const totalDuration = sessionWorkouts.reduce((total: number, workout: any) => {
+            const duration = parseInt(workout.duration.split(' ')[0]) || 0;
+            return total + duration;
+          }, 0);
+
+          const completedAt = new Date().toLocaleDateString('en-US', { 
+            month: 'short', 
+            day: 'numeric', 
+            year: 'numeric' 
+          });
+
+          const workoutStatsData = {
+            workouts: completedWorkouts,
+            totalDuration,
+            completedAt,
+          };
+
+          console.log('Workout stats prepared:', workoutStatsData);
+          console.log('🧹 Clearing cart...');
+          clearCart();
+          
+          console.log('📱 Navigating to create-post...');
+          router.push({
+            pathname: '/create-post',
+            params: {
+              workoutStats: JSON.stringify(workoutStatsData)
+            }
+          });
+        } catch (error) {
+          console.error('Error preparing workout stats:', error);
+          // Fallback to home if there's an error
+          clearCart();
+          router.push('/(tabs)');
+        }
       }
     } else {
       // Single workout - navigate back to the previous workout cards screen
