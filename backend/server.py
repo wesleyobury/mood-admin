@@ -249,6 +249,294 @@ async def get_user_by_id(user_id: str):
     except:
         raise HTTPException(status_code=404, detail="User not found")
 
+class UserUpdate(BaseModel):
+    name: Optional[str] = None
+    bio: Optional[str] = None
+    avatar: Optional[str] = None
+
+@api_router.put("/users/me")
+async def update_profile(
+    user_data: UserUpdate,
+    current_user_id: str = Depends(get_current_user)
+):
+    """Update current user's profile"""
+    update_fields = {}
+    if user_data.name is not None:
+        update_fields["name"] = user_data.name
+    if user_data.bio is not None:
+        update_fields["bio"] = user_data.bio
+    if user_data.avatar is not None:
+        update_fields["avatar"] = user_data.avatar
+    
+    if not update_fields:
+        raise HTTPException(status_code=400, detail="No fields to update")
+    
+    result = await db.users.update_one(
+        {"_id": ObjectId(current_user_id)},
+        {"$set": update_fields}
+    )
+    
+    if result.modified_count == 0:
+        raise HTTPException(status_code=404, detail="User not found")
+    
+    return {"message": "Profile updated successfully"}
+
+@api_router.post("/users/me/avatar")
+async def upload_profile_picture(
+    file: UploadFile = File(...),
+    current_user_id: str = Depends(get_current_user)
+):
+    """Upload profile picture"""
+    try:
+        # Validate file type
+        allowed_extensions = {'.jpg', '.jpeg', '.png'}
+        file_ext = Path(file.filename).suffix.lower()
+        
+        if file_ext not in allowed_extensions:
+            raise HTTPException(status_code=400, detail=f"File type {file_ext} not allowed for profile picture")
+        
+        # Generate unique filename
+        unique_filename = f"avatar_{current_user_id}_{uuid.uuid4()}{file_ext}"
+        file_path = UPLOAD_DIR / unique_filename
+        
+        # Save file
+        async with aiofiles.open(file_path, 'wb') as f:
+            content = await file.read()
+            await f.write(content)
+        
+        # Update user's avatar URL
+        file_url = f"/api/uploads/{unique_filename}"
+        await db.users.update_one(
+            {"_id": ObjectId(current_user_id)},
+            {"$set": {"avatar": file_url}}
+        )
+        
+        return {
+            "message": "Profile picture uploaded successfully",
+            "url": file_url
+        }
+    
+    except Exception as e:
+        logger.error(f"Profile picture upload error: {str(e)}")
+        raise HTTPException(status_code=500, detail="Profile picture upload failed")
+
+@api_router.get("/users/{user_id}/is-following")
+async def check_following_status(
+    user_id: str,
+    current_user_id: str = Depends(get_current_user)
+):
+    """Check if current user is following another user"""
+    if user_id == current_user_id:
+        return {"is_following": False, "is_self": True}
+    
+    try:
+        following_object_id = ObjectId(user_id)
+        follower_object_id = ObjectId(current_user_id)
+        
+        existing_follow = await db.follows.find_one({
+            "follower_id": follower_object_id,
+            "following_id": following_object_id
+        })
+        
+        return {
+            "is_following": existing_follow is not None,
+            "is_self": False
+        }
+    except:
+        raise HTTPException(status_code=404, detail="User not found")
+
+@api_router.get("/users/{user_id}/followers")
+async def get_user_followers(user_id: str, limit: int = 50, skip: int = 0):
+    """Get list of user's followers"""
+    try:
+        user_object_id = ObjectId(user_id)
+        
+        # Get followers with user information
+        pipeline = [
+            {"$match": {"following_id": user_object_id}},
+            {"$sort": {"created_at": -1}},
+            {"$skip": skip},
+            {"$limit": limit},
+            {
+                "$lookup": {
+                    "from": "users",
+                    "localField": "follower_id",
+                    "foreignField": "_id",
+                    "as": "follower"
+                }
+            },
+            {"$unwind": "$follower"}
+        ]
+        
+        follows = await db.follows.aggregate(pipeline).to_list(length=limit)
+        
+        result = []
+        for follow in follows:
+            follower = follow["follower"]
+            result.append(UserResponse(
+                id=str(follower["_id"]),
+                username=follower["username"],
+                email=follower["email"],
+                name=follower.get("name"),
+                bio=follower.get("bio", ""),
+                avatar=follower.get("avatar", ""),
+                followers_count=follower.get("followers_count", 0),
+                following_count=follower.get("following_count", 0),
+                workouts_count=follower.get("workouts_count", 0),
+                current_streak=follower.get("current_streak", 0),
+                created_at=follower["created_at"]
+            ))
+        
+        return result
+    except:
+        raise HTTPException(status_code=404, detail="User not found")
+
+@api_router.get("/users/{user_id}/following")
+async def get_user_following(user_id: str, limit: int = 50, skip: int = 0):
+    """Get list of users that this user is following"""
+    try:
+        user_object_id = ObjectId(user_id)
+        
+        # Get following with user information
+        pipeline = [
+            {"$match": {"follower_id": user_object_id}},
+            {"$sort": {"created_at": -1}},
+            {"$skip": skip},
+            {"$limit": limit},
+            {
+                "$lookup": {
+                    "from": "users",
+                    "localField": "following_id",
+                    "foreignField": "_id",
+                    "as": "following"
+                }
+            },
+            {"$unwind": "$following"}
+        ]
+        
+        follows = await db.follows.aggregate(pipeline).to_list(length=limit)
+        
+        result = []
+        for follow in follows:
+            following = follow["following"]
+            result.append(UserResponse(
+                id=str(following["_id"]),
+                username=following["username"],
+                email=following["email"],
+                name=following.get("name"),
+                bio=following.get("bio", ""),
+                avatar=following.get("avatar", ""),
+                followers_count=following.get("followers_count", 0),
+                following_count=following.get("following_count", 0),
+                workouts_count=following.get("workouts_count", 0),
+                current_streak=following.get("current_streak", 0),
+                created_at=following["created_at"]
+            ))
+        
+        return result
+    except:
+        raise HTTPException(status_code=404, detail="User not found")
+
+@api_router.get("/users/{user_id}/posts")
+async def get_user_posts(
+    user_id: str,
+    current_user_id: str = Depends(get_current_user),
+    limit: int = 20,
+    skip: int = 0
+):
+    """Get posts by a specific user"""
+    try:
+        user_object_id = ObjectId(user_id)
+        
+        # Get posts with author and workout details
+        pipeline = [
+            {"$match": {"author_id": user_object_id}},
+            {"$sort": {"created_at": -1}},
+            {"$skip": skip},
+            {"$limit": limit},
+            {
+                "$lookup": {
+                    "from": "users",
+                    "localField": "author_id",
+                    "foreignField": "_id",
+                    "as": "author"
+                }
+            },
+            {"$unwind": "$author"},
+            {
+                "$lookup": {
+                    "from": "workouts",
+                    "localField": "workout_id",
+                    "foreignField": "_id",
+                    "as": "workout"
+                }
+            },
+            {
+                "$lookup": {
+                    "from": "post_likes",
+                    "let": {"post_id": "$_id", "user_id": ObjectId(current_user_id)},
+                    "pipeline": [
+                        {"$match": {"$expr": {"$and": [
+                            {"$eq": ["$post_id", "$$post_id"]},
+                            {"$eq": ["$user_id", "$$user_id"]}
+                        ]}}}
+                    ],
+                    "as": "user_like"
+                }
+            }
+        ]
+        
+        posts = await db.posts.aggregate(pipeline).to_list(length=limit)
+        
+        result = []
+        for post in posts:
+            # Convert ObjectIds to strings
+            author_data = UserResponse(
+                id=str(post["author"]["_id"]),
+                username=post["author"]["username"],
+                email=post["author"]["email"],
+                name=post["author"].get("name"),
+                bio=post["author"].get("bio", ""),
+                avatar=post["author"].get("avatar", ""),
+                followers_count=post["author"].get("followers_count", 0),
+                following_count=post["author"].get("following_count", 0),
+                workouts_count=post["author"].get("workouts_count", 0),
+                current_streak=post["author"].get("current_streak", 0),
+                created_at=post["author"]["created_at"]
+            )
+            
+            workout_data = None
+            if post.get("workout") and len(post["workout"]) > 0:
+                workout = post["workout"][0]
+                workout_data = WorkoutResponse(
+                    id=str(workout["_id"]),
+                    title=workout["title"],
+                    mood_category=workout["mood_category"],
+                    exercises=workout["exercises"],
+                    duration=workout["duration"],
+                    difficulty=workout["difficulty"],
+                    equipment=workout.get("equipment", []),
+                    calories_estimate=workout.get("calories_estimate"),
+                    created_at=workout["created_at"]
+                )
+            
+            result.append(PostResponse(
+                id=str(post["_id"]),
+                author=author_data,
+                workout=workout_data,
+                caption=post["caption"],
+                media_urls=post.get("media_urls", []),
+                hashtags=post.get("hashtags", []),
+                likes_count=post.get("likes_count", 0),
+                comments_count=post.get("comments_count", 0),
+                is_liked=len(post.get("user_like", [])) > 0,
+                created_at=post["created_at"]
+            ))
+        
+        return result
+    except:
+        raise HTTPException(status_code=404, detail="User not found")
+
 # Workout Endpoints
 
 @api_router.get("/workouts")
