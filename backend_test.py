@@ -66,7 +66,7 @@ class MoodAppTester:
     
     def make_request(self, method: str, endpoint: str, data: Dict = None, headers: Dict = None) -> requests.Response:
         """Make HTTP request with proper error handling"""
-        url = f"{BASE_URL}{endpoint}"
+        url = f"{API_BASE}{endpoint}"
         request_headers = {"Content-Type": "application/json"}
         
         if headers:
