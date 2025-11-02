@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-MOOD App Backend API Testing Suite
-Tests all backend endpoints for authentication, workouts, and social features
+Backend API Testing for Social Feed Features
+Tests the Instagram-inspired social feed backend APIs including posts, likes, comments, and file uploads
 """
 
 import requests
@@ -9,9 +9,23 @@ import json
 import time
 from datetime import datetime
 from typing import Dict, Any, Optional
+from pathlib import Path
+import tempfile
+from PIL import Image
+import io
 
-# Configuration
-BASE_URL = "https://workout-buddy-app-8.preview.emergentagent.com/api"
+# Get backend URL from frontend .env
+def get_backend_url():
+    frontend_env_path = Path("/app/frontend/.env")
+    if frontend_env_path.exists():
+        with open(frontend_env_path, 'r') as f:
+            for line in f:
+                if line.startswith('EXPO_PUBLIC_BACKEND_URL'):
+                    return line.split('=')[1].strip().strip('"')
+    return "https://workout-buddy-app-8.preview.emergentagent.com"
+
+BASE_URL = get_backend_url()
+API_BASE = f"{BASE_URL}/api"
 TEST_USER_DATA = {
     "username": "moodtester2025",
     "email": "moodtest2025@example.com", 
