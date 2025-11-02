@@ -246,18 +246,123 @@ class MoodAppTester:
             except Exception as e:
                 self.log_result("Create Workout", False, f"Create workout request failed: {str(e)}")
     
+    def create_test_image(self):
+        """Create a test image file for upload testing"""
+        try:
+            # Create a simple test image
+            img = Image.new('RGB', (100, 100), color='red')
+            img_bytes = io.BytesIO()
+            img.save(img_bytes, format='JPEG')
+            img_bytes.seek(0)
+            return img_bytes
+        except Exception as e:
+            print(f"Error creating test image: {e}")
+            return None
+
+    def test_file_upload_single(self):
+        """Test POST /api/upload - Single file upload"""
+        try:
+            img_data = self.create_test_image()
+            if not img_data:
+                self.log_result("Single File Upload", False, "Could not create test image")
+                return False
+            
+            files = {'file': ('test_image.jpg', img_data, 'image/jpeg')}
+            # Remove JSON content-type for file upload
+            headers = {"Authorization": f"Bearer {self.auth_token}"}
+            response = requests.post(f"{API_BASE}/upload", files=files, headers=headers)
+            
+            if response.status_code == 200:
+                data = response.json()
+                file_url = data.get('url')
+                self.log_result("Single File Upload", True, f"File URL: {file_url}")
+                return file_url
+            else:
+                self.log_result("Single File Upload", False, f"Status: {response.status_code}", response.text)
+                return False
+                
+        except Exception as e:
+            self.log_result("Single File Upload", False, f"Exception: {str(e)}")
+            return False
+
+    def test_file_upload_multiple(self):
+        """Test POST /api/upload/multiple - Multiple file upload (up to 5)"""
+        try:
+            files = []
+            for i in range(3):  # Test with 3 files
+                img_data = self.create_test_image()
+                if img_data:
+                    files.append(('files', (f'test_image_{i}.jpg', img_data, 'image/jpeg')))
+            
+            if not files:
+                self.log_result("Multiple File Upload", False, "Could not create test images")
+                return False
+            
+            headers = {"Authorization": f"Bearer {self.auth_token}"}
+            response = requests.post(f"{API_BASE}/upload/multiple", files=files, headers=headers)
+            
+            if response.status_code == 200:
+                data = response.json()
+                urls = data.get('urls', [])
+                self.log_result("Multiple File Upload", True, f"Uploaded {len(urls)} files")
+                return urls
+            else:
+                self.log_result("Multiple File Upload", False, f"Status: {response.status_code}", response.text)
+                return False
+                
+        except Exception as e:
+            self.log_result("Multiple File Upload", False, f"Exception: {str(e)}")
+            return False
+
+    def test_static_file_access(self, file_url):
+        """Test accessing uploaded files via /uploads/ static endpoint"""
+        try:
+            if not file_url:
+                self.log_result("Static File Access", False, "No file URL to test")
+                return False
+            
+            # Try to access the file
+            full_url = f"{BASE_URL}{file_url}"
+            response = requests.get(full_url)
+            
+            if response.status_code == 200:
+                content_type = response.headers.get('content-type', '')
+                self.log_result("Static File Access", True, f"Content-Type: {content_type}")
+                return True
+            else:
+                self.log_result("Static File Access", False, f"Status: {response.status_code}")
+                return False
+                
+        except Exception as e:
+            self.log_result("Static File Access", False, f"Exception: {str(e)}")
+            return False
+
     def test_social_features(self):
-        """Test social media features"""
-        print("\n=== Testing Social Features ===")
+        """Test Instagram-inspired social feed features"""
+        print("\n=== Testing Social Feed Features ===")
         
         if not self.auth_token:
             self.log_result("Social Features", False, "No auth token available for social testing")
             return
         
-        # Test creating a post
+        # Test file uploads first
+        print("\n--- File Upload Tests ---")
+        single_file_url = self.test_file_upload_single()
+        multiple_file_urls = self.test_file_upload_multiple()
+        
+        if single_file_url:
+            self.test_static_file_access(single_file_url)
+        
+        # Test creating a post with media URLs
+        print("\n--- Post Creation Tests ---")
+        media_urls = []
+        if multiple_file_urls:
+            media_urls = multiple_file_urls[:2]  # Use first 2 images
+        
         post_data = {
-            "caption": "Just finished an amazing workout! 💪 #MoodApp #Fitness",
-            "workout_id": None  # No specific workout for this test
+            "caption": "Testing social feed post creation with multiple images! 🏋️‍♂️ #workout #fitness #test",
+            "media_urls": media_urls,
+            "hashtags": ["workout", "fitness", "test"]
         }
         
         post_id = None
@@ -267,41 +372,86 @@ class MoodAppTester:
             if response.status_code == 200:
                 data = response.json()
                 post_id = data.get("id")
-                self.log_result("Create Post", True, f"Post created successfully: {post_id}")
+                self.log_result("Create Post with Media", True, f"Post ID: {post_id}, Media count: {len(media_urls)}")
             else:
-                self.log_result("Create Post", False, f"Failed to create post: {response.status_code}", response.text)
+                self.log_result("Create Post with Media", False, f"Failed to create post: {response.status_code}", response.text)
         except Exception as e:
-            self.log_result("Create Post", False, f"Create post request failed: {str(e)}")
+            self.log_result("Create Post with Media", False, f"Create post request failed: {str(e)}")
         
         # Test getting posts feed
+        print("\n--- Posts Feed Tests ---")
         try:
             response = self.make_request("GET", "/posts")
             
             if response.status_code == 200:
                 posts = response.json()
-                self.log_result("Get Posts Feed", True, f"Retrieved {len(posts)} posts from feed")
+                if isinstance(posts, list):
+                    post_count = len(posts)
+                    
+                    # Check if posts have required fields
+                    if posts:
+                        first_post = posts[0]
+                        has_media_urls = 'media_urls' in first_post
+                        has_author = 'author' in first_post
+                        has_created_at = 'created_at' in first_post
+                        
+                        details = f"Found {post_count} posts, media_urls: {has_media_urls}, author: {has_author}"
+                        self.log_result("Get Posts Feed", True, details)
+                        
+                        # Verify newest first order
+                        if len(posts) > 1:
+                            first_date = posts[0].get('created_at')
+                            second_date = posts[1].get('created_at')
+                            if first_date and second_date:
+                                newest_first = first_date >= second_date
+                                self.log_result("Posts Order (Newest First)", newest_first, 
+                                              f"First: {first_date}, Second: {second_date}")
+                    else:
+                        self.log_result("Get Posts Feed", True, "No posts found (empty feed)")
+                else:
+                    self.log_result("Get Posts Feed", False, "Response is not a list")
             else:
                 self.log_result("Get Posts Feed", False, f"Failed to get posts: {response.status_code}", response.text)
         except Exception as e:
             self.log_result("Get Posts Feed", False, f"Get posts request failed: {str(e)}")
         
-        # Test liking a post (if we have a post_id)
+        # Test social interactions
+        print("\n--- Social Interaction Tests ---")
         if post_id:
+            # Test liking a post
             try:
                 response = self.make_request("POST", f"/posts/{post_id}/like")
                 
                 if response.status_code == 200:
                     data = response.json()
-                    self.log_result("Like Post", True, f"Post like action: {data.get('message', 'Success')}")
+                    liked = data.get('liked', False)
+                    message = data.get('message', '')
+                    self.log_result("Like Post", True, f"Liked: {liked}, Message: {message}")
                 else:
                     self.log_result("Like Post", False, f"Failed to like post: {response.status_code}", response.text)
             except Exception as e:
                 self.log_result("Like Post", False, f"Like post request failed: {str(e)}")
             
+            # Test unliking a post (same endpoint toggles)
+            try:
+                response = self.make_request("POST", f"/posts/{post_id}/like")
+                
+                if response.status_code == 200:
+                    data = response.json()
+                    liked = data.get('liked', True)
+                    message = data.get('message', '')
+                    # Should be False if we're unliking
+                    success = not liked
+                    self.log_result("Unlike Post", success, f"Liked: {liked}, Message: {message}")
+                else:
+                    self.log_result("Unlike Post", False, f"Failed to unlike post: {response.status_code}", response.text)
+            except Exception as e:
+                self.log_result("Unlike Post", False, f"Unlike post request failed: {str(e)}")
+            
             # Test commenting on a post
             comment_data = {
                 "post_id": post_id,
-                "text": "Great workout! Keep it up! 🔥"
+                "text": "Great workout! Keep it up! 💪"
             }
             
             try:
@@ -309,11 +459,62 @@ class MoodAppTester:
                 
                 if response.status_code == 200:
                     data = response.json()
-                    self.log_result("Create Comment", True, f"Comment created: {data.get('id', 'Success')}")
+                    self.log_result("Add Comment", True, f"Comment created: {data.get('id', 'Success')}")
                 else:
-                    self.log_result("Create Comment", False, f"Failed to create comment: {response.status_code}", response.text)
+                    self.log_result("Add Comment", False, f"Failed to create comment: {response.status_code}", response.text)
             except Exception as e:
-                self.log_result("Create Comment", False, f"Create comment request failed: {str(e)}")
+                self.log_result("Add Comment", False, f"Create comment request failed: {str(e)}")
+            
+            # Test getting comments for the post
+            try:
+                response = self.make_request("GET", f"/posts/{post_id}/comments")
+                
+                if response.status_code == 200:
+                    comments = response.json()
+                    if isinstance(comments, list):
+                        comment_count = len(comments)
+                        self.log_result("Get Comments", True, f"Found {comment_count} comments")
+                    else:
+                        self.log_result("Get Comments", False, "Response is not a list")
+                else:
+                    self.log_result("Get Comments", False, f"Failed to get comments: {response.status_code}", response.text)
+            except Exception as e:
+                self.log_result("Get Comments", False, f"Get comments request failed: {str(e)}")
+        
+        # Test API endpoint discrepancies
+        print("\n--- API Endpoint Verification ---")
+        
+        # Check for /api/uploadfile/ endpoint (mentioned in review but not implemented)
+        try:
+            response = self.make_request("POST", "/uploadfile/")
+            if response.status_code == 404:
+                self.log_result("API Discrepancy: /uploadfile/", False, "Endpoint /api/uploadfile/ not found - use /api/upload or /api/upload/multiple instead")
+            else:
+                self.log_result("API Discrepancy: /uploadfile/", True, f"Unexpected response: {response.status_code}")
+        except Exception as e:
+            self.log_result("API Discrepancy: /uploadfile/", False, f"Endpoint /api/uploadfile/ not found: {str(e)}")
+        
+        # Check for DELETE /api/posts/{post_id}/like endpoint (mentioned in review but not implemented)
+        if post_id:
+            try:
+                response = self.make_request("DELETE", f"/posts/{post_id}/like")
+                if response.status_code == 405:  # Method not allowed
+                    self.log_result("API Discrepancy: DELETE like", False, "DELETE /api/posts/{post_id}/like not implemented - POST endpoint toggles like/unlike")
+                else:
+                    self.log_result("API Discrepancy: DELETE like", True, f"Unexpected response: {response.status_code}")
+            except Exception as e:
+                self.log_result("API Discrepancy: DELETE like", False, f"DELETE like endpoint issue: {str(e)}")
+        
+        # Check for POST /api/posts/{post_id}/comments endpoint (mentioned in review but implemented as /api/comments)
+        if post_id:
+            try:
+                response = self.make_request("POST", f"/posts/{post_id}/comments", {"text": "Test comment"})
+                if response.status_code == 404:
+                    self.log_result("API Discrepancy: POST comments", False, "POST /api/posts/{post_id}/comments not found - use POST /api/comments instead")
+                else:
+                    self.log_result("API Discrepancy: POST comments", True, f"Unexpected response: {response.status_code}")
+            except Exception as e:
+                self.log_result("API Discrepancy: POST comments", False, f"POST comments endpoint issue: {str(e)}")
     
     def test_follow_system(self):
         """Test user follow/unfollow functionality"""
