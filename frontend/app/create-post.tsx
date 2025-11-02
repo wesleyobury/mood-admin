@@ -442,6 +442,14 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: '#fff',
   },
+  headerActions: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 8,
+  },
+  saveCardButton: {
+    padding: 8,
+  },
   postButton: {
     backgroundColor: '#FFD700',
     paddingHorizontal: 20,
