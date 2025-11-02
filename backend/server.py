@@ -698,6 +698,80 @@ async def follow_user(user_id: str, current_user_id: str = Depends(get_current_u
     except:
         raise HTTPException(status_code=404, detail="User not found")
 
+# Workout Cards Endpoints
+
+class WorkoutCardCreate(BaseModel):
+    workouts: List[Dict[str, Any]]
+    total_duration: int
+    completed_at: str
+
+@api_router.post("/workout-cards")
+async def save_workout_card(
+    card_data: WorkoutCardCreate,
+    current_user_id: str = Depends(get_current_user)
+):
+    """Save a completed workout card for the user"""
+    card_doc = {
+        **card_data.dict(),
+        "user_id": current_user_id,
+        "created_at": datetime.now(timezone.utc)
+    }
+    
+    result = await db.workout_cards.insert_one(card_doc)
+    
+    # Update user's workouts count
+    await db.users.update_one(
+        {"_id": ObjectId(current_user_id)},
+        {"$inc": {"workouts_count": 1}}
+    )
+    
+    return {
+        "message": "Workout card saved successfully",
+        "id": str(result.inserted_id)
+    }
+
+@api_router.get("/workout-cards")
+async def get_workout_cards(
+    current_user_id: str = Depends(get_current_user),
+    limit: int = 50,
+    skip: int = 0
+):
+    """Get all saved workout cards for the current user"""
+    cards = await db.workout_cards.find(
+        {"user_id": current_user_id}
+    ).sort("created_at", -1).skip(skip).limit(limit).to_list(length=limit)
+    
+    result = []
+    for card in cards:
+        result.append({
+            "id": str(card["_id"]),
+            "workouts": card["workouts"],
+            "total_duration": card["total_duration"],
+            "completed_at": card["completed_at"],
+            "created_at": card["created_at"].isoformat()
+        })
+    
+    return result
+
+@api_router.delete("/workout-cards/{card_id}")
+async def delete_workout_card(
+    card_id: str,
+    current_user_id: str = Depends(get_current_user)
+):
+    """Delete a workout card"""
+    try:
+        result = await db.workout_cards.delete_one({
+            "_id": ObjectId(card_id),
+            "user_id": current_user_id
+        })
+        
+        if result.deleted_count == 0:
+            raise HTTPException(status_code=404, detail="Workout card not found")
+        
+        return {"message": "Workout card deleted successfully"}
+    except:
+        raise HTTPException(status_code=404, detail="Workout card not found")
+
 # Health Check
 @api_router.get("/")
 async def root():
