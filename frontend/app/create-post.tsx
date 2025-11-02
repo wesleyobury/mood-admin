@@ -218,8 +218,8 @@ export default function CreatePost() {
   };
 
   const handleCreatePost = async () => {
-    if (selectedImages.length === 0 && !caption.trim()) {
-      Alert.alert('Empty Post', 'Please add at least an image or caption');
+    if (selectedImages.length === 0 && !caption.trim() && !hasStatsCard) {
+      Alert.alert('Empty Post', 'Please add at least an image, caption, or workout card');
       return;
     }
 
@@ -227,6 +227,11 @@ export default function CreatePost() {
     setUploadProgress(0);
 
     try {
+      // If there's a workout stats card, save it automatically
+      if (workoutStats && authToken) {
+        await handleSaveCard();
+      }
+
       // Upload images first
       const mediaUrls = await uploadImages();
 
@@ -248,10 +253,10 @@ export default function CreatePost() {
       });
 
       if (response.ok) {
-        Alert.alert('Success', 'Post created successfully!', [
+        Alert.alert('Success', 'Post created successfully! Your workout card has been saved.', [
           {
             text: 'OK',
-            onPress: () => router.back(),
+            onPress: () => router.push('/(tabs)'),
           },
         ]);
       } else {
