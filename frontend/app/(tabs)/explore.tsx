@@ -56,6 +56,7 @@ export default function Explore() {
   const [loading, setLoading] = useState(true);
   const [showComments, setShowComments] = useState(false);
   const [selectedPostId, setSelectedPostId] = useState<string | null>(null);
+  const [activeTab, setActiveTab] = useState<'forYou' | 'following'>('forYou');
   const router = useRouter();
 
   // Mock auth token - In real app, this would come from auth context
