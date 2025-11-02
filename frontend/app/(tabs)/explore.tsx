@@ -74,7 +74,7 @@ export default function Explore() {
     if (authToken) {
       fetchPosts();
     }
-  }, [authToken]);
+  }, [authToken, activeTab]);
 
   const loadMockAuth = async () => {
     // Try to login with mock user to get token
@@ -103,7 +103,11 @@ export default function Explore() {
     if (!authToken) return;
 
     try {
-      const response = await fetch(`${API_URL}/api/posts`, {
+      const endpoint = activeTab === 'following' 
+        ? `${API_URL}/api/posts/following` 
+        : `${API_URL}/api/posts`;
+        
+      const response = await fetch(endpoint, {
         headers: {
           'Authorization': `Bearer ${authToken}`,
         },
