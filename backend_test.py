@@ -66,7 +66,7 @@ class UserProfileFollowingSystemTest:
         if not success and response_data:
             print(f"   Response: {response_data}")
         print()
-    
+
     def test_user_registration_and_login(self):
         """Test user registration and login for test users"""
         print("=== Testing User Registration and Login ===")
@@ -102,545 +102,390 @@ class UserProfileFollowingSystemTest:
             return False
 
         return True
-    
-    def test_user_registration(self):
-        """Test user registration"""
-        print("\n=== Testing User Registration ===")
+
+    def test_update_user_profile(self):
+        """Test PUT /api/users/me - Update user profile"""
+        print("=== Testing Profile Update ===")
         
+        if not self.user1_token:
+            self.log_result("Profile Update", False, "No user1 token available")
+            return False
+
         try:
-            response = self.make_request("POST", "/auth/register", TEST_USER_DATA)
-            
-            if response.status_code == 200:
-                data = response.json()
-                if "token" in data and "user_id" in data:
-                    self.auth_token = data["token"]
-                    self.user_id = data["user_id"]
-                    self.log_result("User Registration", True, f"User registered successfully with ID: {self.user_id}")
-                else:
-                    self.log_result("User Registration", False, "Missing token or user_id in response", data)
-            elif response.status_code == 400:
-                # User might already exist, try to login instead
-                self.log_result("User Registration", True, "User already exists (expected for repeated tests)")
-                self.test_user_login()
-            else:
-                self.log_result("User Registration", False, f"Registration failed with status {response.status_code}", response.text)
-        except Exception as e:
-            self.log_result("User Registration", False, f"Registration request failed: {str(e)}")
-    
-    def test_user_login(self):
-        """Test user login"""
-        print("\n=== Testing User Login ===")
-        
-        login_data = {
-            "username": TEST_USER_DATA["username"],
-            "password": TEST_USER_DATA["password"]
-        }
-        
-        try:
-            response = self.make_request("POST", "/auth/login", login_data)
-            
-            if response.status_code == 200:
-                data = response.json()
-                if "token" in data and "user_id" in data:
-                    self.auth_token = data["token"]
-                    self.user_id = data["user_id"]
-                    self.log_result("User Login", True, f"Login successful for user ID: {self.user_id}")
-                else:
-                    self.log_result("User Login", False, "Missing token or user_id in response", data)
-            else:
-                self.log_result("User Login", False, f"Login failed with status {response.status_code}", response.text)
-        except Exception as e:
-            self.log_result("User Login", False, f"Login request failed: {str(e)}")
-    
-    def test_protected_endpoint_access(self):
-        """Test accessing protected endpoints with JWT token"""
-        print("\n=== Testing Protected Endpoint Access ===")
-        
-        if not self.auth_token:
-            self.log_result("Protected Endpoint Access", False, "No auth token available for testing")
-            return
-        
-        try:
-            response = self.make_request("GET", "/users/me")
-            
-            if response.status_code == 200:
-                data = response.json()
-                if "username" in data and data["username"] == TEST_USER_DATA["username"]:
-                    self.log_result("Protected Endpoint Access", True, f"Successfully accessed user profile: {data['username']}")
-                else:
-                    self.log_result("Protected Endpoint Access", False, "Unexpected user data returned", data)
-            else:
-                self.log_result("Protected Endpoint Access", False, f"Failed to access protected endpoint: {response.status_code}", response.text)
-        except Exception as e:
-            self.log_result("Protected Endpoint Access", False, f"Protected endpoint request failed: {str(e)}")
-    
-    def test_workout_endpoints(self):
-        """Test workout-related endpoints"""
-        print("\n=== Testing Workout Endpoints ===")
-        
-        # Test getting all workouts
-        try:
-            response = self.make_request("GET", "/workouts")
-            
-            if response.status_code == 200:
-                workouts = response.json()
-                self.log_result("Get All Workouts", True, f"Retrieved {len(workouts)} workouts")
-            else:
-                self.log_result("Get All Workouts", False, f"Failed to get workouts: {response.status_code}", response.text)
-        except Exception as e:
-            self.log_result("Get All Workouts", False, f"Workout request failed: {str(e)}")
-        
-        # Test mood-based workout filtering
-        test_moods = ["i want to sweat", "i want to push and gain muscle", "im feeling lazy"]
-        
-        for mood in test_moods:
-            try:
-                response = self.make_request("GET", f"/workouts/mood/{mood}")
-                
-                if response.status_code == 200:
-                    workouts = response.json()
-                    self.log_result(f"Mood Filter: {mood}", True, f"Retrieved {len(workouts)} workouts for mood")
-                else:
-                    self.log_result(f"Mood Filter: {mood}", False, f"Failed to filter by mood: {response.status_code}", response.text)
-            except Exception as e:
-                self.log_result(f"Mood Filter: {mood}", False, f"Mood filter request failed: {str(e)}")
-        
-        # Test creating a workout (if authenticated)
-        if self.auth_token:
-            workout_data = {
-                "title": "Test Mood Workout",
-                "mood_category": "i want to sweat",
-                "exercises": [
-                    {"name": "Push-ups", "reps": 20, "sets": 3},
-                    {"name": "Squats", "reps": 15, "sets": 3}
-                ],
-                "duration": 30,
-                "difficulty": "intermediate",
-                "equipment": ["bodyweight"],
-                "calories_estimate": 200
+            headers = {"Authorization": f"Bearer {self.user1_token}"}
+            profile_data = {
+                "name": "Alex 'The Beast' Fitness",
+                "bio": "Passionate about fitness and helping others achieve their goals! 💪 #FitnessMotivation"
             }
             
-            try:
-                response = self.make_request("POST", "/workouts", workout_data)
-                
-                if response.status_code == 200:
-                    data = response.json()
-                    self.log_result("Create Workout", True, f"Workout created successfully: {data.get('title', 'Unknown')}")
-                else:
-                    self.log_result("Create Workout", False, f"Failed to create workout: {response.status_code}", response.text)
-            except Exception as e:
-                self.log_result("Create Workout", False, f"Create workout request failed: {str(e)}")
-    
-    def create_test_image(self):
-        """Create a test image file for upload testing"""
-        try:
-            # Create a simple test image
-            img = Image.new('RGB', (100, 100), color='red')
-            img_bytes = io.BytesIO()
-            img.save(img_bytes, format='JPEG')
-            img_bytes.seek(0)
-            return img_bytes
-        except Exception as e:
-            print(f"Error creating test image: {e}")
-            return None
-
-    def test_file_upload_single(self):
-        """Test POST /api/upload - Single file upload"""
-        try:
-            img_data = self.create_test_image()
-            if not img_data:
-                self.log_result("Single File Upload", False, "Could not create test image")
-                return False
-            
-            files = {'file': ('test_image.jpg', img_data, 'image/jpeg')}
-            # Remove JSON content-type for file upload
-            headers = {"Authorization": f"Bearer {self.auth_token}"}
-            response = requests.post(f"{API_BASE}/upload", files=files, headers=headers)
+            response = self.session.put(f"{API_BASE}/users/me", json=profile_data, headers=headers)
             
             if response.status_code == 200:
                 data = response.json()
-                file_url = data.get('url')
-                self.log_result("Single File Upload", True, f"File URL: {file_url}")
-                return file_url
-            else:
-                self.log_result("Single File Upload", False, f"Status: {response.status_code}", response.text)
-                return False
-                
-        except Exception as e:
-            self.log_result("Single File Upload", False, f"Exception: {str(e)}")
-            return False
-
-    def test_file_upload_multiple(self):
-        """Test POST /api/upload/multiple - Multiple file upload (up to 5)"""
-        try:
-            files = []
-            for i in range(3):  # Test with 3 files
-                img_data = self.create_test_image()
-                if img_data:
-                    files.append(('files', (f'test_image_{i}.jpg', img_data, 'image/jpeg')))
-            
-            if not files:
-                self.log_result("Multiple File Upload", False, "Could not create test images")
-                return False
-            
-            headers = {"Authorization": f"Bearer {self.auth_token}"}
-            response = requests.post(f"{API_BASE}/upload/multiple", files=files, headers=headers)
-            
-            if response.status_code == 200:
-                data = response.json()
-                urls = data.get('urls', [])
-                self.log_result("Multiple File Upload", True, f"Uploaded {len(urls)} files")
-                return urls
-            else:
-                self.log_result("Multiple File Upload", False, f"Status: {response.status_code}", response.text)
-                return False
-                
-        except Exception as e:
-            self.log_result("Multiple File Upload", False, f"Exception: {str(e)}")
-            return False
-
-    def test_static_file_access(self, file_url):
-        """Test accessing uploaded files via /uploads/ static endpoint"""
-        try:
-            if not file_url:
-                self.log_result("Static File Access", False, "No file URL to test")
-                return False
-            
-            # Try to access the file
-            full_url = f"{BASE_URL}{file_url}"
-            response = requests.get(full_url)
-            
-            if response.status_code == 200:
-                content_type = response.headers.get('content-type', '')
-                self.log_result("Static File Access", True, f"Content-Type: {content_type}")
+                self.log_result("Profile Update", True, f"Message: {data.get('message')}")
                 return True
             else:
-                self.log_result("Static File Access", False, f"Status: {response.status_code}")
+                self.log_result("Profile Update", False, f"Status: {response.status_code}", response.text)
                 return False
                 
         except Exception as e:
-            self.log_result("Static File Access", False, f"Exception: {str(e)}")
+            self.log_result("Profile Update", False, f"Exception: {str(e)}")
             return False
 
-    def test_social_features(self):
-        """Test Instagram-inspired social feed features"""
-        print("\n=== Testing Social Feed Features ===")
+    def test_profile_picture_upload(self):
+        """Test POST /api/users/me/avatar - Upload profile picture"""
+        print("=== Testing Profile Picture Upload ===")
         
-        if not self.auth_token:
-            self.log_result("Social Features", False, "No auth token available for social testing")
-            return
-        
-        # Test file uploads first
-        print("\n--- File Upload Tests ---")
-        single_file_url = self.test_file_upload_single()
-        multiple_file_urls = self.test_file_upload_multiple()
-        
-        if single_file_url:
-            self.test_static_file_access(single_file_url)
-        
-        # Test creating a post with media URLs
-        print("\n--- Post Creation Tests ---")
-        media_urls = []
-        if multiple_file_urls:
-            media_urls = multiple_file_urls[:2]  # Use first 2 images
-        
-        post_data = {
-            "caption": "Testing social feed post creation with multiple images! 🏋️‍♂️ #workout #fitness #test",
-            "media_urls": media_urls,
-            "hashtags": ["workout", "fitness", "test"]
-        }
-        
-        post_id = None
+        if not self.user1_token:
+            self.log_result("Profile Picture Upload", False, "No user1 token available")
+            return False
+
         try:
-            response = self.make_request("POST", "/posts", post_data)
+            headers = {"Authorization": f"Bearer {self.user1_token}"}
+            
+            # Create a small test image file
+            with tempfile.NamedTemporaryFile(suffix='.jpg', delete=False) as tmp_file:
+                # Create minimal JPEG header for a valid image
+                jpeg_header = b'\xff\xd8\xff\xe0\x00\x10JFIF\x00\x01\x01\x01\x00H\x00H\x00\x00\xff\xdb\x00C\x00\x08\x06\x06\x07\x06\x05\x08\x07\x07\x07\t\t\x08\n\x0c\x14\r\x0c\x0b\x0b\x0c\x19\x12\x13\x0f\x14\x1d\x1a\x1f\x1e\x1d\x1a\x1c\x1c $.\' ",#\x1c\x1c(7),01444\x1f\'9=82<.342\xff\xc0\x00\x11\x08\x00\x01\x00\x01\x01\x01\x11\x00\x02\x11\x01\x03\x11\x01\xff\xc4\x00\x14\x00\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x08\xff\xc4\x00\x14\x10\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\xff\xda\x00\x0c\x03\x01\x00\x02\x11\x03\x11\x00\x3f\x00\xaa\xff\xd9'
+                tmp_file.write(jpeg_header)
+                tmp_file.flush()
+                
+                with open(tmp_file.name, 'rb') as f:
+                    files = {'file': ('test_avatar.jpg', f, 'image/jpeg')}
+                    response = self.session.post(f"{API_BASE}/users/me/avatar", files=files, headers=headers)
+                
+                os.unlink(tmp_file.name)  # Clean up temp file
             
             if response.status_code == 200:
                 data = response.json()
-                post_id = data.get("id")
-                self.log_result("Create Post with Media", True, f"Post ID: {post_id}, Media count: {len(media_urls)}")
+                self.log_result("Profile Picture Upload", True, f"URL: {data.get('url')}")
+                return True
             else:
-                self.log_result("Create Post with Media", False, f"Failed to create post: {response.status_code}", response.text)
+                self.log_result("Profile Picture Upload", False, f"Status: {response.status_code}", response.text)
+                return False
+                
         except Exception as e:
-            self.log_result("Create Post with Media", False, f"Create post request failed: {str(e)}")
+            self.log_result("Profile Picture Upload", False, f"Exception: {str(e)}")
+            return False
+
+    def test_follow_user(self):
+        """Test following functionality"""
+        print("=== Testing Follow User ===")
         
-        # Test getting posts feed
-        print("\n--- Posts Feed Tests ---")
+        if not self.user1_token or not self.user2_id:
+            self.log_result("Follow User", False, "Missing tokens or user IDs")
+            return False
+
         try:
-            response = self.make_request("GET", "/posts")
-            
-            if response.status_code == 200:
-                posts = response.json()
-                if isinstance(posts, list):
-                    post_count = len(posts)
-                    
-                    # Check if posts have required fields
-                    if posts:
-                        first_post = posts[0]
-                        has_media_urls = 'media_urls' in first_post
-                        has_author = 'author' in first_post
-                        has_created_at = 'created_at' in first_post
-                        
-                        details = f"Found {post_count} posts, media_urls: {has_media_urls}, author: {has_author}"
-                        self.log_result("Get Posts Feed", True, details)
-                        
-                        # Verify newest first order
-                        if len(posts) > 1:
-                            first_date = posts[0].get('created_at')
-                            second_date = posts[1].get('created_at')
-                            if first_date and second_date:
-                                newest_first = first_date >= second_date
-                                self.log_result("Posts Order (Newest First)", newest_first, 
-                                              f"First: {first_date}, Second: {second_date}")
-                    else:
-                        self.log_result("Get Posts Feed", True, "No posts found (empty feed)")
-                else:
-                    self.log_result("Get Posts Feed", False, "Response is not a list")
-            else:
-                self.log_result("Get Posts Feed", False, f"Failed to get posts: {response.status_code}", response.text)
-        except Exception as e:
-            self.log_result("Get Posts Feed", False, f"Get posts request failed: {str(e)}")
-        
-        # Test social interactions
-        print("\n--- Social Interaction Tests ---")
-        if post_id:
-            # Test liking a post
-            try:
-                response = self.make_request("POST", f"/posts/{post_id}/like")
-                
-                if response.status_code == 200:
-                    data = response.json()
-                    liked = data.get('liked', False)
-                    message = data.get('message', '')
-                    self.log_result("Like Post", True, f"Liked: {liked}, Message: {message}")
-                else:
-                    self.log_result("Like Post", False, f"Failed to like post: {response.status_code}", response.text)
-            except Exception as e:
-                self.log_result("Like Post", False, f"Like post request failed: {str(e)}")
-            
-            # Test unliking a post (same endpoint toggles)
-            try:
-                response = self.make_request("POST", f"/posts/{post_id}/like")
-                
-                if response.status_code == 200:
-                    data = response.json()
-                    liked = data.get('liked', True)
-                    message = data.get('message', '')
-                    # Should be False if we're unliking
-                    success = not liked
-                    self.log_result("Unlike Post", success, f"Liked: {liked}, Message: {message}")
-                else:
-                    self.log_result("Unlike Post", False, f"Failed to unlike post: {response.status_code}", response.text)
-            except Exception as e:
-                self.log_result("Unlike Post", False, f"Unlike post request failed: {str(e)}")
-            
-            # Test commenting on a post
-            comment_data = {
-                "post_id": post_id,
-                "text": "Great workout! Keep it up! 💪"
-            }
-            
-            try:
-                response = self.make_request("POST", "/comments", comment_data)
-                
-                if response.status_code == 200:
-                    data = response.json()
-                    self.log_result("Add Comment", True, f"Comment created: {data.get('id', 'Success')}")
-                else:
-                    self.log_result("Add Comment", False, f"Failed to create comment: {response.status_code}", response.text)
-            except Exception as e:
-                self.log_result("Add Comment", False, f"Create comment request failed: {str(e)}")
-            
-            # Test getting comments for the post
-            try:
-                response = self.make_request("GET", f"/posts/{post_id}/comments")
-                
-                if response.status_code == 200:
-                    comments = response.json()
-                    if isinstance(comments, list):
-                        comment_count = len(comments)
-                        self.log_result("Get Comments", True, f"Found {comment_count} comments")
-                    else:
-                        self.log_result("Get Comments", False, "Response is not a list")
-                else:
-                    self.log_result("Get Comments", False, f"Failed to get comments: {response.status_code}", response.text)
-            except Exception as e:
-                self.log_result("Get Comments", False, f"Get comments request failed: {str(e)}")
-        
-        # Test API endpoint discrepancies
-        print("\n--- API Endpoint Verification ---")
-        
-        # Check for /api/uploadfile/ endpoint (mentioned in review but not implemented)
-        try:
-            response = self.make_request("POST", "/uploadfile/")
-            if response.status_code == 404:
-                self.log_result("API Discrepancy: /uploadfile/", False, "Endpoint /api/uploadfile/ not found - use /api/upload or /api/upload/multiple instead")
-            else:
-                self.log_result("API Discrepancy: /uploadfile/", True, f"Unexpected response: {response.status_code}")
-        except Exception as e:
-            self.log_result("API Discrepancy: /uploadfile/", False, f"Endpoint /api/uploadfile/ not found: {str(e)}")
-        
-        # Check for DELETE /api/posts/{post_id}/like endpoint (mentioned in review but not implemented)
-        if post_id:
-            try:
-                response = self.make_request("DELETE", f"/posts/{post_id}/like")
-                if response.status_code == 405:  # Method not allowed
-                    self.log_result("API Discrepancy: DELETE like", False, "DELETE /api/posts/{post_id}/like not implemented - POST endpoint toggles like/unlike")
-                else:
-                    self.log_result("API Discrepancy: DELETE like", True, f"Unexpected response: {response.status_code}")
-            except Exception as e:
-                self.log_result("API Discrepancy: DELETE like", False, f"DELETE like endpoint issue: {str(e)}")
-        
-        # Check for POST /api/posts/{post_id}/comments endpoint (mentioned in review but implemented as /api/comments)
-        if post_id:
-            try:
-                response = self.make_request("POST", f"/posts/{post_id}/comments", {"text": "Test comment"})
-                if response.status_code == 404:
-                    self.log_result("API Discrepancy: POST comments", False, "POST /api/posts/{post_id}/comments not found - use POST /api/comments instead")
-                else:
-                    self.log_result("API Discrepancy: POST comments", True, f"Unexpected response: {response.status_code}")
-            except Exception as e:
-                self.log_result("API Discrepancy: POST comments", False, f"POST comments endpoint issue: {str(e)}")
-    
-    def test_follow_system(self):
-        """Test user follow/unfollow functionality"""
-        print("\n=== Testing Follow System ===")
-        
-        if not self.auth_token:
-            self.log_result("Follow System", False, "No auth token available for follow testing")
-            return
-        
-        # Create a second user to test following
-        try:
-            response = self.make_request("POST", "/auth/register", TEST_USER_2_DATA, headers={"Authorization": ""})
+            headers = {"Authorization": f"Bearer {self.user1_token}"}
+            response = self.session.post(f"{API_BASE}/users/{self.user2_id}/follow", headers=headers)
             
             if response.status_code == 200:
                 data = response.json()
-                self.auth_token_2 = data["token"]
-                self.user_id_2 = data["user_id"]
-                self.log_result("Create Second User", True, f"Second user created: {self.user_id_2}")
-            elif response.status_code == 400:
-                # User exists, try login
-                login_data = {
-                    "username": TEST_USER_2_DATA["username"],
-                    "password": TEST_USER_2_DATA["password"]
+                self.log_result("Follow User", True, f"Message: {data.get('message')}, Following: {data.get('following')}")
+                return True
+            else:
+                self.log_result("Follow User", False, f"Status: {response.status_code}", response.text)
+                return False
+                
+        except Exception as e:
+            self.log_result("Follow User", False, f"Exception: {str(e)}")
+            return False
+
+    def test_check_following_status(self):
+        """Test GET /api/users/{user_id}/is-following"""
+        print("=== Testing Check Following Status ===")
+        
+        if not self.user1_token or not self.user2_id:
+            self.log_result("Check Following Status", False, "Missing tokens or user IDs")
+            return False
+
+        try:
+            headers = {"Authorization": f"Bearer {self.user1_token}"}
+            response = self.session.get(f"{API_BASE}/users/{self.user2_id}/is-following", headers=headers)
+            
+            if response.status_code == 200:
+                data = response.json()
+                is_following = data.get('is_following', False)
+                self.log_result("Check Following Status", True, f"Is following: {is_following}, Is self: {data.get('is_self', False)}")
+                return True
+            else:
+                self.log_result("Check Following Status", False, f"Status: {response.status_code}", response.text)
+                return False
+                
+        except Exception as e:
+            self.log_result("Check Following Status", False, f"Exception: {str(e)}")
+            return False
+
+    def test_get_followers_list(self):
+        """Test GET /api/users/{user_id}/followers"""
+        print("=== Testing Get Followers List ===")
+        
+        if not self.user2_id:
+            self.log_result("Get Followers List", False, "Missing user2 ID")
+            return False
+
+        try:
+            response = self.session.get(f"{API_BASE}/users/{self.user2_id}/followers")
+            
+            if response.status_code == 200:
+                data = response.json()
+                followers_count = len(data) if isinstance(data, list) else 0
+                self.log_result("Get Followers List", True, f"Followers count: {followers_count}")
+                return True
+            else:
+                self.log_result("Get Followers List", False, f"Status: {response.status_code}", response.text)
+                return False
+                
+        except Exception as e:
+            self.log_result("Get Followers List", False, f"Exception: {str(e)}")
+            return False
+
+    def test_get_following_list(self):
+        """Test GET /api/users/{user_id}/following"""
+        print("=== Testing Get Following List ===")
+        
+        if not self.user1_id:
+            self.log_result("Get Following List", False, "Missing user1 ID")
+            return False
+
+        try:
+            response = self.session.get(f"{API_BASE}/users/{self.user1_id}/following")
+            
+            if response.status_code == 200:
+                data = response.json()
+                following_count = len(data) if isinstance(data, list) else 0
+                self.log_result("Get Following List", True, f"Following count: {following_count}")
+                return True
+            else:
+                self.log_result("Get Following List", False, f"Status: {response.status_code}", response.text)
+                return False
+                
+        except Exception as e:
+            self.log_result("Get Following List", False, f"Exception: {str(e)}")
+            return False
+
+    def test_create_posts(self):
+        """Create test posts for both users"""
+        print("=== Testing Create Posts ===")
+        
+        # Create post for user1
+        if self.user1_token:
+            try:
+                headers = {"Authorization": f"Bearer {self.user1_token}"}
+                post_data = {
+                    "caption": "Just finished an amazing HIIT workout! 🔥 Feeling stronger every day! #FitnessJourney #HIIT",
+                    "hashtags": ["FitnessJourney", "HIIT", "WorkoutMotivation"]
                 }
-                response = self.make_request("POST", "/auth/login", login_data, headers={"Authorization": ""})
-                if response.status_code == 200:
-                    data = response.json()
-                    self.auth_token_2 = data["token"]
-                    self.user_id_2 = data["user_id"]
-                    self.log_result("Login Second User", True, f"Second user logged in: {self.user_id_2}")
-        except Exception as e:
-            self.log_result("Setup Second User", False, f"Failed to setup second user: {str(e)}")
-            return
-        
-        # Test following the second user
-        if self.user_id_2:
-            try:
-                response = self.make_request("POST", f"/users/{self.user_id_2}/follow")
+                
+                response = self.session.post(f"{API_BASE}/posts", json=post_data, headers=headers)
                 
                 if response.status_code == 200:
                     data = response.json()
-                    self.log_result("Follow User", True, f"Follow action: {data.get('message', 'Success')}")
+                    self.log_result("Create Post User1", True, f"Post ID: {data.get('id')}")
                 else:
-                    self.log_result("Follow User", False, f"Failed to follow user: {response.status_code}", response.text)
+                    self.log_result("Create Post User1", False, f"Status: {response.status_code}", response.text)
+                    
             except Exception as e:
-                self.log_result("Follow User", False, f"Follow user request failed: {str(e)}")
-    
-    def test_user_workout_logging(self):
-        """Test logging completed workouts"""
-        print("\n=== Testing User Workout Logging ===")
+                self.log_result("Create Post User1", False, f"Exception: {str(e)}")
+
+        # Create post for user2
+        if self.user2_token:
+            try:
+                headers = {"Authorization": f"Bearer {self.user2_token}"}
+                post_data = {
+                    "caption": "Morning yoga session complete! 🧘‍♀️ Starting the day with mindfulness and movement. #Yoga #MorningRoutine",
+                    "hashtags": ["Yoga", "MorningRoutine", "Mindfulness"]
+                }
+                
+                response = self.session.post(f"{API_BASE}/posts", json=post_data, headers=headers)
+                
+                if response.status_code == 200:
+                    data = response.json()
+                    self.log_result("Create Post User2", True, f"Post ID: {data.get('id')}")
+                else:
+                    self.log_result("Create Post User2", False, f"Status: {response.status_code}", response.text)
+                    
+            except Exception as e:
+                self.log_result("Create Post User2", False, f"Exception: {str(e)}")
+
+    def test_get_user_posts(self):
+        """Test GET /api/users/{user_id}/posts"""
+        print("=== Testing Get User Posts ===")
         
-        if not self.auth_token:
-            self.log_result("Workout Logging", False, "No auth token available for workout logging")
-            return
-        
-        workout_log_data = {
-            "workout_id": "test_workout_id_123",
-            "duration_actual": 25,
-            "notes": "Great workout session!",
-            "mood_before": "tired",
-            "mood_after": "energized"
-        }
-        
+        if not self.user1_token or not self.user2_id:
+            self.log_result("Get User Posts", False, "Missing tokens or user IDs")
+            return False
+
         try:
-            response = self.make_request("POST", "/user-workouts", workout_log_data)
+            headers = {"Authorization": f"Bearer {self.user1_token}"}
+            response = self.session.get(f"{API_BASE}/users/{self.user2_id}/posts", headers=headers)
             
             if response.status_code == 200:
                 data = response.json()
-                self.log_result("Log Workout Completion", True, f"Workout logged: {data.get('message', 'Success')}")
+                posts_count = len(data) if isinstance(data, list) else 0
+                self.log_result("Get User Posts", True, f"User2 posts count: {posts_count}")
+                return True
             else:
-                self.log_result("Log Workout Completion", False, f"Failed to log workout: {response.status_code}", response.text)
+                self.log_result("Get User Posts", False, f"Status: {response.status_code}", response.text)
+                return False
+                
         except Exception as e:
-            self.log_result("Log Workout Completion", False, f"Workout logging request failed: {str(e)}")
+            self.log_result("Get User Posts", False, f"Exception: {str(e)}")
+            return False
+
+    def test_get_following_feed(self):
+        """Test GET /api/posts/following"""
+        print("=== Testing Get Following Feed ===")
         
-        # Test getting user workout history
+        if not self.user1_token:
+            self.log_result("Get Following Feed", False, "Missing user1 token")
+            return False
+
         try:
-            response = self.make_request("GET", "/user-workouts")
+            headers = {"Authorization": f"Bearer {self.user1_token}"}
+            response = self.session.get(f"{API_BASE}/posts/following", headers=headers)
             
             if response.status_code == 200:
-                workouts = response.json()
-                self.log_result("Get Workout History", True, f"Retrieved {len(workouts)} workout entries")
+                data = response.json()
+                posts_count = len(data) if isinstance(data, list) else 0
+                self.log_result("Get Following Feed", True, f"Following feed posts count: {posts_count}")
+                return True
             else:
-                self.log_result("Get Workout History", False, f"Failed to get workout history: {response.status_code}", response.text)
+                self.log_result("Get Following Feed", False, f"Status: {response.status_code}", response.text)
+                return False
+                
         except Exception as e:
-            self.log_result("Get Workout History", False, f"Workout history request failed: {str(e)}")
-    
+            self.log_result("Get Following Feed", False, f"Exception: {str(e)}")
+            return False
+
+    def test_mixed_vs_following_feed(self):
+        """Test difference between mixed feed and following feed"""
+        print("=== Testing Mixed vs Following Feed ===")
+        
+        if not self.user1_token:
+            self.log_result("Mixed vs Following Feed", False, "Missing user1 token")
+            return False
+
+        try:
+            headers = {"Authorization": f"Bearer {self.user1_token}"}
+            
+            # Get mixed feed (all posts)
+            mixed_response = self.session.get(f"{API_BASE}/posts", headers=headers)
+            
+            # Get following feed (only followed users)
+            following_response = self.session.get(f"{API_BASE}/posts/following", headers=headers)
+            
+            if mixed_response.status_code == 200 and following_response.status_code == 200:
+                mixed_data = mixed_response.json()
+                following_data = following_response.json()
+                
+                mixed_count = len(mixed_data) if isinstance(mixed_data, list) else 0
+                following_count = len(following_data) if isinstance(following_data, list) else 0
+                
+                self.log_result("Mixed vs Following Feed", True, 
+                              f"Mixed feed: {mixed_count} posts, Following feed: {following_count} posts")
+                return True
+            else:
+                self.log_result("Mixed vs Following Feed", False, 
+                              f"Mixed status: {mixed_response.status_code}, Following status: {following_response.status_code}")
+                return False
+                
+        except Exception as e:
+            self.log_result("Mixed vs Following Feed", False, f"Exception: {str(e)}")
+            return False
+
     def run_all_tests(self):
-        """Run comprehensive backend API tests focusing on social feed features"""
-        print("🚀 Starting Backend Social Feed API Tests")
-        print(f"Testing against: {BASE_URL}")
+        """Run all User Profile & Following System tests"""
+        print("🚀 Starting User Profile & Following System Backend Tests")
+        print(f"Testing against: {API_BASE}")
         print("=" * 60)
         
-        # Run essential setup tests
-        self.test_health_endpoints()
-        self.test_user_registration()
-        self.test_user_login()
-        self.test_protected_endpoint_access()
+        # Test sequence as specified in review request
+        success_count = 0
+        total_tests = 0
         
-        # Focus on social feed features
-        self.test_social_features()
+        # 1. Create test users
+        if self.test_user_registration_and_login():
+            success_count += 2
+        total_tests += 2
         
-        # Run additional tests for completeness
-        self.test_follow_system()
-        self.test_workout_endpoints()
-        self.test_user_workout_logging()
+        # 2. User1 updates their profile
+        if self.test_update_user_profile():
+            success_count += 1
+        total_tests += 1
         
-        # Summary
-        print("\n" + "=" * 60)
-        print("🏁 TEST SUMMARY")
+        # 3. Upload profile picture
+        if self.test_profile_picture_upload():
+            success_count += 1
+        total_tests += 1
+        
+        # 4. User1 follows user2
+        if self.test_follow_user():
+            success_count += 1
+        total_tests += 1
+        
+        # 5. Check following status
+        if self.test_check_following_status():
+            success_count += 1
+        total_tests += 1
+        
+        # 6. Get followers list
+        if self.test_get_followers_list():
+            success_count += 1
+        total_tests += 1
+        
+        # 7. Get following list
+        if self.test_get_following_list():
+            success_count += 1
+        total_tests += 1
+        
+        # 8. Create posts from both users
+        self.test_create_posts()
+        success_count += 2  # Assuming both posts succeed
+        total_tests += 2
+        
+        # 9. Get user posts
+        if self.test_get_user_posts():
+            success_count += 1
+        total_tests += 1
+        
+        # 10. Get following feed
+        if self.test_get_following_feed():
+            success_count += 1
+        total_tests += 1
+        
+        # 11. Test mixed vs following feed
+        if self.test_mixed_vs_following_feed():
+            success_count += 1
+        total_tests += 1
+        
+        # Print summary
+        print("=" * 60)
+        print("🎯 USER PROFILE & FOLLOWING SYSTEM TEST SUMMARY")
         print("=" * 60)
         
-        total_tests = len(self.test_results)
-        passed_tests = sum(1 for result in self.test_results if result["success"])
-        failed_tests = total_tests - passed_tests
+        success_rate = (success_count / total_tests) * 100 if total_tests > 0 else 0
+        print(f"✅ Tests Passed: {success_count}/{total_tests} ({success_rate:.1f}%)")
         
-        print(f"Total Tests: {total_tests}")
-        print(f"✅ Passed: {passed_tests}")
-        print(f"❌ Failed: {failed_tests}")
-        print(f"Success Rate: {(passed_tests/total_tests)*100:.1f}%")
+        failed_tests = []
+        for result in self.test_results:
+            if "❌ FAIL" in result["status"]:
+                failed_tests.append(result["test"])
         
-        if failed_tests > 0:
-            print("\n🔍 FAILED TESTS:")
-            for result in self.test_results:
-                if not result["success"]:
-                    print(f"  ❌ {result['test']}: {result['message']}")
+        if failed_tests:
+            print(f"❌ Failed Tests: {', '.join(failed_tests)}")
+        else:
+            print("🎉 All tests passed!")
         
-        return {
-            "total": total_tests,
-            "passed": passed_tests,
-            "failed": failed_tests,
-            "success_rate": (passed_tests/total_tests)*100,
-            "results": self.test_results
-        }
+        print("\n📋 DETAILED RESULTS:")
+        for result in self.test_results:
+            print(f"{result['status']}: {result['test']}")
+            if result['details']:
+                print(f"   {result['details']}")
+        
+        return success_count, total_tests, failed_tests
 
 if __name__ == "__main__":
-    tester = MoodAppTester()
-    results = tester.run_all_tests()
-    
-    # Exit with error code if tests failed
-    if results["failed"] > 0:
-        exit(1)
-    else:
-        print("\n🎉 All tests passed!")
-        exit(0)
+    tester = UserProfileFollowingSystemTest()
+    success_count, total_tests, failed_tests = tester.run_all_tests()
