@@ -276,25 +276,36 @@ export default function CreatePost() {
         <View style={styles.header}>
           <TouchableOpacity 
             style={styles.backButton}
-            onPress={() => router.back()}
+            onPress={handleCancel}
           >
             <Ionicons name="close" size={28} color="#fff" />
           </TouchableOpacity>
           <Text style={styles.headerTitle}>New Post</Text>
-          <TouchableOpacity 
-            style={[
-              styles.postButton,
-              (!caption.trim() && selectedImages.length === 0) && styles.postButtonDisabled
-            ]}
-            onPress={handleCreatePost}
-            disabled={uploading || (!caption.trim() && selectedImages.length === 0)}
-          >
-            {uploading ? (
-              <ActivityIndicator size="small" color="#000" />
-            ) : (
-              <Text style={styles.postButtonText}>Post</Text>
+          <View style={styles.headerActions}>
+            {hasStatsCard && (
+              <TouchableOpacity 
+                style={styles.saveCardButton}
+                onPress={handleSaveCard}
+                disabled={uploading}
+              >
+                <Ionicons name="bookmark" size={20} color="#FFD700" />
+              </TouchableOpacity>
             )}
-          </TouchableOpacity>
+            <TouchableOpacity 
+              style={[
+                styles.postButton,
+                (!caption.trim() && selectedImages.length === 0 && !hasStatsCard) && styles.postButtonDisabled
+              ]}
+              onPress={handleCreatePost}
+              disabled={uploading || (!caption.trim() && selectedImages.length === 0 && !hasStatsCard)}
+            >
+              {uploading ? (
+                <ActivityIndicator size="small" color="#000" />
+              ) : (
+                <Text style={styles.postButtonText}>Post</Text>
+              )}
+            </TouchableOpacity>
+          </View>
         </View>
 
         <ScrollView style={styles.scrollView} showsVerticalScrollIndicator={false}>
