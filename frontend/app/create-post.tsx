@@ -309,6 +309,25 @@ export default function CreatePost() {
         </View>
 
         <ScrollView style={styles.scrollView} showsVerticalScrollIndicator={false}>
+          {/* Workout Stats Card (if from completed workout) */}
+          {workoutStats && (
+            <View style={styles.section}>
+              <View style={styles.statsCardHeader}>
+                <Text style={styles.sectionTitle}>✨ Your Workout Achievement</Text>
+                <TouchableOpacity onPress={handleSaveCard} style={styles.saveCardIconButton}>
+                  <Ionicons name="bookmark-outline" size={20} color="#FFD700" />
+                  <Text style={styles.saveCardText}>Save</Text>
+                </TouchableOpacity>
+              </View>
+              <View style={styles.statsCardContainer} ref={statsCardRef}>
+                <WorkoutStatsCard {...workoutStats} />
+              </View>
+              <Text style={styles.statsCardHint}>
+                This card will be the first image in your post carousel
+              </Text>
+            </View>
+          )}
+
           {/* Image Picker Section */}
           <View style={styles.section}>
             <Text style={styles.sectionTitle}>Photos ({selectedImages.length}/5)</Text>
