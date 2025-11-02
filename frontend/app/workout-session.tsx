@@ -101,18 +101,26 @@ export default function WorkoutSessionScreen() {
       year: 'numeric' 
     });
 
-    // Navigate to create-post with workout stats
+    const workoutStatsData = {
+      workouts: completedWorkouts,
+      totalDuration,
+      completedAt,
+    };
+
+    console.log('Finishing session with stats:', workoutStatsData);
+
+    // Clear cart and navigate to create-post with workout stats
     clearCart();
-    router.push({
-      pathname: '/create-post',
-      params: {
-        workoutStats: JSON.stringify({
-          workouts: completedWorkouts,
-          totalDuration,
-          completedAt,
-        })
-      }
-    });
+    
+    // Use setTimeout to ensure navigation happens after state updates
+    setTimeout(() => {
+      router.push({
+        pathname: '/create-post',
+        params: {
+          workoutStats: JSON.stringify(workoutStatsData)
+        }
+      });
+    }, 100);
   };
 
   const handleSkipWorkout = () => {
