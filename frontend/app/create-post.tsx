@@ -160,7 +160,8 @@ export default function CreatePost() {
         ]
       );
     } else {
-      router.back();
+      // Go to home instead of back
+      router.push('/(tabs)');
     }
   };
 
