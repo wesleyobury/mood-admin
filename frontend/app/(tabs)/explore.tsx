@@ -198,8 +198,7 @@ export default function Explore() {
   };
 
   const handleProfile = (userId: string) => {
-    // TODO: Navigate to user profile
-    Alert.alert('Profile', 'Profile view coming soon!');
+    router.push(`/user-profile?userId=${userId}`);
   };
 
   const handleCreatePost = () => {
