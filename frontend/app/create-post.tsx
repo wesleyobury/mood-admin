@@ -84,8 +84,10 @@ export default function CreatePost() {
   };
 
   const pickImages = async () => {
-    if (selectedImages.length >= 5) {
-      Alert.alert('Limit Reached', 'You can only select up to 5 images');
+    const maxImages = hasStatsCard ? 4 : 5; // Reserve 1 slot for stats card if present
+    
+    if (selectedImages.length >= maxImages) {
+      Alert.alert('Limit Reached', `You can only select up to ${maxImages} images`);
       return;
     }
 
@@ -100,12 +102,67 @@ export default function CreatePost() {
       mediaTypes: ['images'],
       allowsMultipleSelection: true,
       quality: 0.8,
-      selectionLimit: 5 - selectedImages.length,
+      selectionLimit: maxImages - selectedImages.length,
     });
 
     if (!result.canceled && result.assets) {
       const newImages = result.assets.map(asset => asset.uri);
-      setSelectedImages([...selectedImages, ...newImages].slice(0, 5));
+      setSelectedImages([...selectedImages, ...newImages].slice(0, maxImages));
+    }
+  };
+
+  const handleSaveCard = async () => {
+    if (!workoutStats || !authToken) return;
+    
+    try {
+      // Save workout card to backend
+      const response = await fetch(`${API_URL}/api/workout-cards`, {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${authToken}`,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(workoutStats),
+      });
+
+      if (response.ok) {
+        Alert.alert('Success', 'Workout card saved to your profile!');
+      } else {
+        Alert.alert('Error', 'Failed to save workout card.');
+      }
+    } catch (error) {
+      console.error('Error saving workout card:', error);
+      Alert.alert('Error', 'Something went wrong while saving the card.');
+    }
+  };
+
+  const handleCancel = () => {
+    if (hasStatsCard) {
+      // If coming from workout completion, ask to save card
+      Alert.alert(
+        'Cancel Post',
+        'Do you want to save your workout card before leaving?',
+        [
+          {
+            text: 'Discard',
+            style: 'destructive',
+            onPress: () => router.push('/(tabs)'),
+          },
+          {
+            text: 'Save Card',
+            onPress: async () => {
+              await handleSaveCard();
+              router.push('/(tabs)');
+            },
+          },
+          {
+            text: 'Keep Editing',
+            style: 'cancel',
+          },
+        ]
+      );
+    } else {
+      router.back();
     }
   };
 
