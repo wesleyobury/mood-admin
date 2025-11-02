@@ -17,6 +17,21 @@ backend:
         agent: "testing"
         comment: "✅ LATEST BACKEND HEALTH CHECK PASSED: Comprehensive health verification shows excellent system status. Backend service running on port 8001 via supervisor, API root and health endpoints responding correctly with 'MOOD App API is running' and 'healthy' status. MongoDB service running and connected. Backend infrastructure stable and ready for frontend cart functionality support."
 
+  - task: "Social Feed APIs"
+    implemented: true
+    working: true
+    file: "backend/server.py"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: "NA"
+        agent: "testing"
+        comment: "Need to test Instagram-inspired social feed APIs including posts, likes, comments, and file uploads"
+      - working: true
+        agent: "testing"
+        comment: "✅ Social feed APIs working excellently with 89.3% success rate (25/28 tests passed). All core functionality working: ✅ File uploads (single & multiple) with static file serving ✅ Post creation with media URLs (up to 5 images) ✅ Posts feed with newest-first ordering ✅ Like/unlike toggle functionality ✅ Comment creation and retrieval ✅ User authentication and JWT authorization. Minor: API endpoint discrepancies identified - /api/uploadfile/ not found (use /api/upload instead), DELETE like endpoint not implemented (POST toggles), and POST comments endpoint path differs from review request."
+
   - task: "API Endpoints Functionality"
     implemented: true
     working: true
