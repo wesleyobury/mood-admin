@@ -86,20 +86,33 @@ export default function WorkoutSessionScreen() {
   };
 
   const handleFinishSession = () => {
-    Alert.alert(
-      "Session Complete! 🎉",
-      "Congratulations on completing your workout session!",
-      [
-        { 
-          text: "Done", 
-          style: "default", 
-          onPress: () => {
-            clearCart();
-            router.push('/(tabs)');
-          }
-        }
-      ]
-    );
+    // Prepare workout completion data
+    const completedWorkouts = sessionWorkouts.map(workout => ({
+      workoutName: workout.workoutName,
+      equipment: workout.equipment,
+      duration: workout.duration,
+      difficulty: workout.difficulty,
+    }));
+
+    const totalDuration = getTotalDuration();
+    const completedAt = new Date().toLocaleDateString('en-US', { 
+      month: 'short', 
+      day: 'numeric', 
+      year: 'numeric' 
+    });
+
+    // Navigate to create-post with workout stats
+    clearCart();
+    router.push({
+      pathname: '/create-post',
+      params: {
+        workoutStats: JSON.stringify({
+          workouts: completedWorkouts,
+          totalDuration,
+          completedAt,
+        })
+      }
+    });
   };
 
   const handleSkipWorkout = () => {
