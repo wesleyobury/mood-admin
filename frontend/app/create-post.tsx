@@ -84,7 +84,7 @@ export default function CreatePost() {
   };
 
   const pickImages = async () => {
-    const maxImages = hasStatsCard ? 4 : 5; // Reserve 1 slot for stats card if present
+    const maxImages = hasStatsCard ? 4 : 5;
     
     if (selectedImages.length >= maxImages) {
       Alert.alert('Limit Reached', `You can only select up to ${maxImages} images`);
@@ -115,7 +115,6 @@ export default function CreatePost() {
     if (!workoutStats || !authToken) return;
     
     try {
-      // Save workout card to backend
       const response = await fetch(`${API_URL}/api/workout-cards`, {
         method: 'POST',
         headers: {
@@ -138,7 +137,6 @@ export default function CreatePost() {
 
   const handleCancel = () => {
     if (hasStatsCard) {
-      // If coming from workout completion, ask to save card
       Alert.alert(
         'Cancel Post',
         'Do you want to save your workout card before leaving?',
@@ -184,7 +182,6 @@ export default function CreatePost() {
       setUploadProgress(((i + 1) / selectedImages.length) * 100);
 
       try {
-        // Create form data
         const formData = new FormData();
         const filename = imageUri.split('/').pop() || 'image.jpg';
         const match = /\.(\w+)$/.exec(filename);
@@ -196,7 +193,6 @@ export default function CreatePost() {
           type,
         } as any);
 
-        // Upload to backend
         const response = await fetch(`${API_URL}/api/upload`, {
           method: 'POST',
           headers: {
@@ -227,18 +223,13 @@ export default function CreatePost() {
     setUploadProgress(0);
 
     try {
-      // If there's a workout stats card, save it automatically
       if (workoutStats && authToken) {
         await handleSaveCard();
       }
 
-      // Upload images first
       const mediaUrls = await uploadImages();
-
-      // Extract hashtags
       const hashtags = extractHashtags(caption);
 
-      // Create post
       const response = await fetch(`${API_URL}/api/posts`, {
         method: 'POST',
         headers: {
@@ -280,105 +271,41 @@ export default function CreatePost() {
         {/* Header */}
         <View style={styles.header}>
           <TouchableOpacity 
-            style={styles.backButton}
+            style={styles.closeButton}
             onPress={handleCancel}
           >
             <Ionicons name="close" size={28} color="#fff" />
           </TouchableOpacity>
-          <Text style={styles.headerTitle}>New Post</Text>
-          <View style={styles.headerActions}>
-            {hasStatsCard && (
-              <TouchableOpacity 
-                style={styles.saveCardButton}
-                onPress={handleSaveCard}
-                disabled={uploading}
-              >
-                <Ionicons name="bookmark" size={20} color="#FFD700" />
-              </TouchableOpacity>
-            )}
-            <TouchableOpacity 
-              style={[
-                styles.postButton,
-                (!caption.trim() && selectedImages.length === 0 && !hasStatsCard) && styles.postButtonDisabled
-              ]}
-              onPress={handleCreatePost}
-              disabled={uploading || (!caption.trim() && selectedImages.length === 0 && !hasStatsCard)}
-            >
-              {uploading ? (
-                <ActivityIndicator size="small" color="#000" />
-              ) : (
-                <Text style={styles.postButtonText}>Post</Text>
-              )}
-            </TouchableOpacity>
+          <View style={styles.headerCenter}>
+            <Text style={styles.headerTitle}>Share Your Achievement</Text>
+            <Text style={styles.headerSubtitle}>Post to your feed</Text>
           </View>
+          <TouchableOpacity 
+            style={[
+              styles.postButton,
+              (!caption.trim() && selectedImages.length === 0 && !hasStatsCard) && styles.postButtonDisabled
+            ]}
+            onPress={handleCreatePost}
+            disabled={uploading || (!caption.trim() && selectedImages.length === 0 && !hasStatsCard)}
+          >
+            {uploading ? (
+              <ActivityIndicator size="small" color="#000" />
+            ) : (
+              <Ionicons name="send" size={20} color="#000" />
+            )}
+          </TouchableOpacity>
         </View>
 
         <ScrollView style={styles.scrollView} showsVerticalScrollIndicator={false}>
-          {/* Workout Stats Card (if from completed workout) */}
-          {workoutStats && (
-            <View style={styles.section}>
-              <View style={styles.statsCardHeader}>
-                <Text style={styles.sectionTitle}>✨ Your Workout Achievement</Text>
-                <TouchableOpacity onPress={handleSaveCard} style={styles.saveCardIconButton}>
-                  <Ionicons name="bookmark-outline" size={20} color="#FFD700" />
-                  <Text style={styles.saveCardText}>Save</Text>
-                </TouchableOpacity>
-              </View>
-              <View style={styles.statsCardContainer} ref={statsCardRef}>
-                <WorkoutStatsCard {...workoutStats} />
-              </View>
-              <Text style={styles.statsCardHint}>
-                This card will be the first image in your post carousel
-              </Text>
+          {/* Caption Input - First */}
+          <View style={styles.captionSection}>
+            <View style={styles.captionHeader}>
+              <Ionicons name="create-outline" size={20} color="#FFD700" />
+              <Text style={styles.captionLabel}>Write a caption</Text>
             </View>
-          )}
-
-          {/* Image Picker Section */}
-          <View style={styles.section}>
-            <Text style={styles.sectionTitle}>
-              Photos ({selectedImages.length}/{hasStatsCard ? 4 : 5})
-              {hasStatsCard && <Text style={{color: '#666', fontSize: 12}}> + Stats Card</Text>}
-            </Text>
-            
-            <ScrollView 
-              horizontal 
-              showsHorizontalScrollIndicator={false}
-              style={styles.imageScroll}
-            >
-              <TouchableOpacity 
-                style={styles.addImageButton}
-                onPress={pickImages}
-                disabled={selectedImages.length >= 5}
-              >
-                <View style={styles.addImageIconContainer}>
-                  <Ionicons name="add" size={32} color="#FFD700" />
-                </View>
-                <Text style={styles.addImageText}>Add Photo</Text>
-              </TouchableOpacity>
-
-              {selectedImages.map((uri, index) => (
-                <View key={index} style={styles.imagePreviewContainer}>
-                  <Image source={{ uri }} style={styles.imagePreview} />
-                  <TouchableOpacity 
-                    style={styles.removeImageButton}
-                    onPress={() => removeImage(index)}
-                  >
-                    <Ionicons name="close-circle" size={24} color="#FFD700" />
-                  </TouchableOpacity>
-                  <View style={styles.imageNumber}>
-                    <Text style={styles.imageNumberText}>{index + 1}</Text>
-                  </View>
-                </View>
-              ))}
-            </ScrollView>
-          </View>
-
-          {/* Caption Section */}
-          <View style={styles.section}>
-            <Text style={styles.sectionTitle}>Caption</Text>
             <TextInput
               style={styles.captionInput}
-              placeholder="Write a caption... (use #hashtags)"
+              placeholder="Share your thoughts... (use #hashtags)"
               placeholderTextColor="#666"
               value={caption}
               onChangeText={setCaption}
@@ -389,28 +316,91 @@ export default function CreatePost() {
             <Text style={styles.captionCounter}>{caption.length}/500</Text>
           </View>
 
-          {/* Tips Section */}
-          <View style={styles.tipsSection}>
-            <View style={styles.tipItem}>
-              <Ionicons name="information-circle" size={20} color="#FFD700" />
-              <Text style={styles.tipText}>Add up to 5 photos to create a carousel</Text>
+          {/* Attachments Label */}
+          <View style={styles.attachmentsHeader}>
+            <Ionicons name="attach" size={18} color="#FFD700" />
+            <Text style={styles.attachmentsLabel}>Attachments</Text>
+          </View>
+
+          {/* Workout Stats Card (if from completed workout) */}
+          {workoutStats && (
+            <View style={styles.attachmentCard}>
+              <View style={styles.attachmentHeader}>
+                <View style={styles.attachmentLabelContainer}>
+                  <Ionicons name="trophy" size={16} color="#FFD700" />
+                  <Text style={styles.attachmentType}>Workout Achievement Card</Text>
+                </View>
+                <TouchableOpacity onPress={handleSaveCard} style={styles.saveCardButton}>
+                  <Ionicons name="bookmark-outline" size={18} color="#FFD700" />
+                </TouchableOpacity>
+              </View>
+              <View style={styles.statsCardWrapper}>
+                <WorkoutStatsCard {...workoutStats} />
+              </View>
+              <Text style={styles.attachmentHint}>
+                👆 This will appear as the first item in your post
+              </Text>
             </View>
-            <View style={styles.tipItem}>
-              <Ionicons name="pricetag" size={20} color="#FFD700" />
-              <Text style={styles.tipText}>Use #hashtags to reach more people</Text>
+          )}
+
+          {/* Image Picker Section */}
+          <View style={styles.attachmentCard}>
+            <View style={styles.attachmentHeader}>
+              <View style={styles.attachmentLabelContainer}>
+                <Ionicons name="images" size={16} color="#FFD700" />
+                <Text style={styles.attachmentType}>
+                  Photos ({selectedImages.length}/{hasStatsCard ? 4 : 5})
+                </Text>
+              </View>
             </View>
-            <View style={styles.tipItem}>
-              <Ionicons name="fitness" size={20} color="#FFD700" />
-              <Text style={styles.tipText}>Workout details coming soon!</Text>
-            </View>
+            
+            <ScrollView 
+              horizontal 
+              showsHorizontalScrollIndicator={false}
+              style={styles.imageScroll}
+              contentContainerStyle={styles.imageScrollContent}
+            >
+              <TouchableOpacity 
+                style={styles.addImageButton}
+                onPress={pickImages}
+                disabled={selectedImages.length >= (hasStatsCard ? 4 : 5)}
+              >
+                <View style={styles.addImageIconContainer}>
+                  <Ionicons name="add" size={28} color="#FFD700" />
+                </View>
+                <Text style={styles.addImageText}>Add</Text>
+              </TouchableOpacity>
+
+              {selectedImages.map((uri, index) => (
+                <View key={index} style={styles.imagePreviewContainer}>
+                  <Image source={{ uri }} style={styles.imagePreview} />
+                  <TouchableOpacity 
+                    style={styles.removeImageButton}
+                    onPress={() => removeImage(index)}
+                  >
+                    <Ionicons name="close-circle" size={22} color="#FFD700" />
+                  </TouchableOpacity>
+                  <View style={styles.imageNumber}>
+                    <Text style={styles.imageNumberText}>{hasStatsCard ? index + 2 : index + 1}</Text>
+                  </View>
+                </View>
+              ))}
+            </ScrollView>
+            
+            {selectedImages.length === 0 && (
+              <Text style={styles.emptyText}>Optional: Add photos to your post</Text>
+            )}
           </View>
 
           {/* Upload Progress */}
           {uploading && (
             <View style={styles.uploadProgressContainer}>
-              <Text style={styles.uploadProgressText}>
-                Uploading... {Math.round(uploadProgress)}%
-              </Text>
+              <View style={styles.uploadingHeader}>
+                <ActivityIndicator size="small" color="#FFD700" />
+                <Text style={styles.uploadProgressText}>
+                  Posting... {Math.round(uploadProgress)}%
+                </Text>
+              </View>
               <View style={styles.progressBar}>
                 <View 
                   style={[
@@ -421,6 +411,9 @@ export default function CreatePost() {
               </View>
             </View>
           )}
+
+          {/* Bottom Spacing */}
+          <View style={styles.bottomSpacer} />
         </ScrollView>
       </KeyboardAvoidingView>
     </SafeAreaView>
@@ -437,127 +430,68 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     paddingHorizontal: 16,
-    paddingVertical: 12,
+    paddingVertical: 14,
     borderBottomWidth: 1,
-    borderBottomColor: 'rgba(255, 215, 0, 0.1)',
+    borderBottomColor: 'rgba(255, 215, 0, 0.15)',
+    backgroundColor: '#0a0a0a',
   },
-  backButton: {
+  closeButton: {
     padding: 4,
-    width: 60,
+    width: 50,
+  },
+  headerCenter: {
+    flex: 1,
+    alignItems: 'center',
   },
   headerTitle: {
-    fontSize: 18,
+    fontSize: 17,
     fontWeight: 'bold',
-    color: '#fff',
+    color: '#FFD700',
   },
-  headerActions: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 8,
-  },
-  saveCardButton: {
-    padding: 8,
+  headerSubtitle: {
+    fontSize: 11,
+    color: 'rgba(255, 255, 255, 0.5)',
+    marginTop: 2,
   },
   postButton: {
     backgroundColor: '#FFD700',
-    paddingHorizontal: 20,
-    paddingVertical: 8,
-    borderRadius: 20,
-    minWidth: 60,
+    width: 44,
+    height: 44,
+    borderRadius: 22,
     alignItems: 'center',
+    justifyContent: 'center',
   },
   postButtonDisabled: {
     backgroundColor: '#333',
-    opacity: 0.5,
-  },
-  postButtonText: {
-    color: '#000',
-    fontWeight: '600',
-    fontSize: 15,
+    opacity: 0.4,
   },
   scrollView: {
     flex: 1,
   },
-  section: {
-    padding: 16,
+  captionSection: {
+    padding: 20,
+    paddingBottom: 16,
+    backgroundColor: '#0a0a0a',
     borderBottomWidth: 1,
-    borderBottomColor: 'rgba(255, 215, 0, 0.05)',
+    borderBottomColor: 'rgba(255, 215, 0, 0.1)',
   },
-  sectionTitle: {
-    fontSize: 16,
-    fontWeight: '600',
-    color: '#FFD700',
+  captionHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
     marginBottom: 12,
+    gap: 8,
   },
-  imageScroll: {
-    marginTop: 8,
-  },
-  addImageButton: {
-    width: 120,
-    height: 120,
-    borderRadius: 12,
-    borderWidth: 2,
-    borderColor: 'rgba(255, 215, 0, 0.3)',
-    borderStyle: 'dashed',
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginRight: 12,
-    backgroundColor: 'rgba(255, 215, 0, 0.05)',
-  },
-  addImageIconContainer: {
-    width: 48,
-    height: 48,
-    borderRadius: 24,
-    backgroundColor: 'rgba(255, 215, 0, 0.1)',
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginBottom: 8,
-  },
-  addImageText: {
-    color: '#FFD700',
-    fontSize: 12,
+  captionLabel: {
+    fontSize: 14,
     fontWeight: '600',
-  },
-  imagePreviewContainer: {
-    position: 'relative',
-    marginRight: 12,
-  },
-  imagePreview: {
-    width: 120,
-    height: 120,
-    borderRadius: 12,
-    borderWidth: 2,
-    borderColor: '#FFD700',
-  },
-  removeImageButton: {
-    position: 'absolute',
-    top: -8,
-    right: -8,
-    backgroundColor: '#000',
-    borderRadius: 12,
-  },
-  imageNumber: {
-    position: 'absolute',
-    bottom: 8,
-    right: 8,
-    width: 24,
-    height: 24,
-    borderRadius: 12,
-    backgroundColor: '#FFD700',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  imageNumberText: {
-    color: '#000',
-    fontSize: 12,
-    fontWeight: 'bold',
+    color: '#FFD700',
   },
   captionInput: {
-    backgroundColor: 'rgba(255, 255, 255, 0.05)',
+    backgroundColor: 'rgba(255, 255, 255, 0.04)',
     borderWidth: 1,
     borderColor: 'rgba(255, 215, 0, 0.2)',
     borderRadius: 12,
-    padding: 12,
+    padding: 14,
     color: '#fff',
     fontSize: 15,
     minHeight: 100,
@@ -565,72 +499,171 @@ const styles = StyleSheet.create({
   },
   captionCounter: {
     color: '#666',
-    fontSize: 12,
+    fontSize: 11,
     textAlign: 'right',
-    marginTop: 8,
+    marginTop: 6,
   },
-  tipsSection: {
-    padding: 16,
-    gap: 12,
-  },
-  tipItem: {
+  attachmentsHeader: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 12,
+    paddingHorizontal: 20,
+    paddingTop: 20,
+    paddingBottom: 12,
+    gap: 8,
   },
-  tipText: {
-    color: '#888',
+  attachmentsLabel: {
     fontSize: 14,
-    flex: 1,
+    fontWeight: '600',
+    color: '#FFD700',
+    textTransform: 'uppercase',
+    letterSpacing: 0.5,
+  },
+  attachmentCard: {
+    marginHorizontal: 16,
+    marginBottom: 16,
+    backgroundColor: 'rgba(255, 255, 255, 0.02)',
+    borderRadius: 16,
+    borderWidth: 1,
+    borderColor: 'rgba(255, 215, 0, 0.15)',
+    padding: 16,
+  },
+  attachmentHeader: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: 12,
+  },
+  attachmentLabelContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 8,
+  },
+  attachmentType: {
+    fontSize: 13,
+    fontWeight: '600',
+    color: 'rgba(255, 255, 255, 0.8)',
+  },
+  saveCardButton: {
+    padding: 6,
+    backgroundColor: 'rgba(255, 215, 0, 0.1)',
+    borderRadius: 8,
+  },
+  statsCardWrapper: {
+    alignItems: 'center',
+    marginVertical: 8,
+  },
+  attachmentHint: {
+    color: 'rgba(255, 215, 0, 0.6)',
+    fontSize: 11,
+    textAlign: 'center',
+    marginTop: 8,
+    fontStyle: 'italic',
+  },
+  imageScroll: {
+    marginTop: 4,
+  },
+  imageScrollContent: {
+    paddingRight: 12,
+  },
+  addImageButton: {
+    width: 100,
+    height: 100,
+    borderRadius: 12,
+    borderWidth: 1.5,
+    borderColor: 'rgba(255, 215, 0, 0.3)',
+    borderStyle: 'dashed',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginRight: 10,
+    backgroundColor: 'rgba(255, 215, 0, 0.03)',
+  },
+  addImageIconContainer: {
+    width: 44,
+    height: 44,
+    borderRadius: 22,
+    backgroundColor: 'rgba(255, 215, 0, 0.1)',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginBottom: 6,
+  },
+  addImageText: {
+    color: '#FFD700',
+    fontSize: 11,
+    fontWeight: '600',
+  },
+  imagePreviewContainer: {
+    position: 'relative',
+    marginRight: 10,
+  },
+  imagePreview: {
+    width: 100,
+    height: 100,
+    borderRadius: 12,
+    borderWidth: 1.5,
+    borderColor: 'rgba(255, 215, 0, 0.4)',
+  },
+  removeImageButton: {
+    position: 'absolute',
+    top: -6,
+    right: -6,
+    backgroundColor: '#000',
+    borderRadius: 11,
+  },
+  imageNumber: {
+    position: 'absolute',
+    bottom: 6,
+    right: 6,
+    width: 22,
+    height: 22,
+    borderRadius: 11,
+    backgroundColor: '#FFD700',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  imageNumberText: {
+    color: '#000',
+    fontSize: 11,
+    fontWeight: 'bold',
+  },
+  emptyText: {
+    color: '#666',
+    fontSize: 12,
+    textAlign: 'center',
+    fontStyle: 'italic',
+    marginTop: 8,
   },
   uploadProgressContainer: {
+    marginHorizontal: 16,
+    marginBottom: 16,
     padding: 16,
+    backgroundColor: 'rgba(255, 215, 0, 0.05)',
+    borderRadius: 12,
+    borderWidth: 1,
+    borderColor: 'rgba(255, 215, 0, 0.2)',
+  },
+  uploadingHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 10,
+    marginBottom: 10,
   },
   uploadProgressText: {
     color: '#FFD700',
     fontSize: 14,
     fontWeight: '600',
-    marginBottom: 8,
   },
   progressBar: {
-    height: 4,
-    backgroundColor: 'rgba(255, 215, 0, 0.2)',
-    borderRadius: 2,
+    height: 6,
+    backgroundColor: 'rgba(255, 215, 0, 0.15)',
+    borderRadius: 3,
     overflow: 'hidden',
   },
   progressBarFill: {
     height: '100%',
     backgroundColor: '#FFD700',
+    borderRadius: 3,
   },
-  statsCardHeader: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    marginBottom: 16,
-  },
-  saveCardIconButton: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 4,
-    padding: 8,
-    backgroundColor: 'rgba(255, 215, 0, 0.1)',
-    borderRadius: 8,
-    borderWidth: 1,
-    borderColor: 'rgba(255, 215, 0, 0.3)',
-  },
-  saveCardText: {
-    color: '#FFD700',
-    fontSize: 12,
-    fontWeight: '600',
-  },
-  statsCardContainer: {
-    alignItems: 'center',
-    marginBottom: 12,
-  },
-  statsCardHint: {
-    color: '#666',
-    fontSize: 12,
-    textAlign: 'center',
-    fontStyle: 'italic',
+  bottomSpacer: {
+    height: 40,
   },
 });
