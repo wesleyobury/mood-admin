@@ -22,7 +22,7 @@ def get_backend_url():
             for line in f:
                 if line.startswith('EXPO_PUBLIC_BACKEND_URL'):
                     return line.split('=')[1].strip().strip('"')
-    return "https://workout-buddy-app-8.preview.emergentagent.com"
+    return "https://workoutsocial.preview.emergentagent.com"
 
 BASE_URL = get_backend_url()
 API_BASE = f"{BASE_URL}/api"
