@@ -86,6 +86,8 @@ export default function WorkoutSessionScreen() {
   };
 
   const handleFinishSession = () => {
+    console.log('=== FINISH SESSION CALLED ===');
+    
     // Prepare workout completion data
     const completedWorkouts = sessionWorkouts.map(workout => ({
       workoutName: workout.workoutName,
@@ -107,20 +109,21 @@ export default function WorkoutSessionScreen() {
       completedAt,
     };
 
-    console.log('Finishing session with stats:', workoutStatsData);
+    console.log('Workout stats data:', workoutStatsData);
 
-    // Clear cart and navigate to create-post with workout stats
+    // Clear cart
     clearCart();
+    console.log('Cart cleared');
     
-    // Use setTimeout to ensure navigation happens after state updates
-    setTimeout(() => {
-      router.push({
-        pathname: '/create-post',
-        params: {
-          workoutStats: JSON.stringify(workoutStatsData)
-        }
-      });
-    }, 100);
+    // Navigate to create-post with workout stats
+    console.log('Navigating to create-post...');
+    router.push({
+      pathname: '/create-post',
+      params: {
+        workoutStats: JSON.stringify(workoutStatsData)
+      }
+    });
+    console.log('Navigation command sent');
   };
 
   const handleSkipWorkout = () => {
