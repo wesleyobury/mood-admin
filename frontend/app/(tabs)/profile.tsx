@@ -47,7 +47,7 @@ interface WorkoutCard {
 }
 
 export default function Profile() {
-  const [user] = useState({
+  const [user, setUser] = useState({
     id: 'current-user',
     username: 'your_username',
     name: 'Your Name',
@@ -56,7 +56,7 @@ export default function Profile() {
     isVerified: false,
   });
 
-  const [stats] = useState<UserStats>({
+  const [stats, setStats] = useState<UserStats>({
     workouts: 0,
     followers: 0,
     following: 0,
@@ -66,6 +66,7 @@ export default function Profile() {
   const [recentWorkouts] = useState<RecentWorkout[]>([]);
   const [workoutCards, setWorkoutCards] = useState<WorkoutCard[]>([]);
   const [loadingCards, setLoadingCards] = useState(false);
+  const [loadingProfile, setLoadingProfile] = useState(true);
   const [selectedCard, setSelectedCard] = useState<WorkoutCard | null>(null);
   const [modalVisible, setModalVisible] = useState(false);
   const [authToken, setAuthToken] = useState<string | null>(null);
@@ -76,6 +77,13 @@ export default function Profile() {
   useEffect(() => {
     loadMockAuth();
   }, []);
+
+  // Load user profile when auth token is available
+  useEffect(() => {
+    if (authToken) {
+      fetchUserProfile();
+    }
+  }, [authToken]);
 
   // Load workout cards when Cards tab is selected
   useEffect(() => {
