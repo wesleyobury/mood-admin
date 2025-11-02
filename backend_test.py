@@ -71,7 +71,7 @@ class UserProfileFollowingSystemTest:
         """Test user registration and login for test users"""
         print("=== Testing User Registration and Login ===")
         
-        # Register user1
+        # Try to register user1, if exists then login
         try:
             response = self.session.post(f"{API_BASE}/auth/register", json=TEST_USER_DATA)
             if response.status_code == 200:
@@ -79,6 +79,18 @@ class UserProfileFollowingSystemTest:
                 self.user1_token = data.get('token')
                 self.user1_id = data.get('user_id')
                 self.log_result("User1 Registration", True, f"User ID: {self.user1_id}")
+            elif response.status_code == 400:
+                # User exists, try login
+                login_data = {"username": TEST_USER_DATA["username"], "password": TEST_USER_DATA["password"]}
+                login_response = self.session.post(f"{API_BASE}/auth/login", json=login_data)
+                if login_response.status_code == 200:
+                    data = login_response.json()
+                    self.user1_token = data.get('token')
+                    self.user1_id = data.get('user_id')
+                    self.log_result("User1 Login", True, f"User ID: {self.user1_id}")
+                else:
+                    self.log_result("User1 Login", False, f"Status: {login_response.status_code}", login_response.text)
+                    return False
             else:
                 self.log_result("User1 Registration", False, f"Status: {response.status_code}", response.text)
                 return False
@@ -86,7 +98,7 @@ class UserProfileFollowingSystemTest:
             self.log_result("User1 Registration", False, f"Exception: {str(e)}")
             return False
 
-        # Register user2
+        # Try to register user2, if exists then login
         try:
             response = self.session.post(f"{API_BASE}/auth/register", json=TEST_USER_2_DATA)
             if response.status_code == 200:
@@ -94,6 +106,18 @@ class UserProfileFollowingSystemTest:
                 self.user2_token = data.get('token')
                 self.user2_id = data.get('user_id')
                 self.log_result("User2 Registration", True, f"User ID: {self.user2_id}")
+            elif response.status_code == 400:
+                # User exists, try login
+                login_data = {"username": TEST_USER_2_DATA["username"], "password": TEST_USER_2_DATA["password"]}
+                login_response = self.session.post(f"{API_BASE}/auth/login", json=login_data)
+                if login_response.status_code == 200:
+                    data = login_response.json()
+                    self.user2_token = data.get('token')
+                    self.user2_id = data.get('user_id')
+                    self.log_result("User2 Login", True, f"User ID: {self.user2_id}")
+                else:
+                    self.log_result("User2 Login", False, f"Status: {login_response.status_code}", login_response.text)
+                    return False
             else:
                 self.log_result("User2 Registration", False, f"Status: {response.status_code}", response.text)
                 return False
