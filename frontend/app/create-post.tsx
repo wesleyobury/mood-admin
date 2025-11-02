@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import {
   View,
   Text,
@@ -14,23 +14,52 @@ import {
   Platform,
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
-import { useRouter } from 'expo-router';
+import { useRouter, useLocalSearchParams } from 'expo-router';
 import * as ImagePicker from 'expo-image-picker';
+import { captureRef } from 'react-native-view-shot';
+import WorkoutStatsCard from '../components/WorkoutStatsCard';
 
 const API_URL = '';
 
+interface WorkoutStats {
+  workouts: Array<{
+    workoutName: string;
+    equipment: string;
+    duration: string;
+    difficulty: string;
+  }>;
+  totalDuration: number;
+  completedAt: string;
+}
+
 export default function CreatePost() {
   const router = useRouter();
+  const params = useLocalSearchParams();
   const [caption, setCaption] = useState('');
   const [selectedImages, setSelectedImages] = useState<string[]>([]);
   const [uploading, setUploading] = useState(false);
   const [uploadProgress, setUploadProgress] = useState(0);
   const [authToken, setAuthToken] = useState<string | null>(null);
+  const [workoutStats, setWorkoutStats] = useState<WorkoutStats | null>(null);
+  const [hasStatsCard, setHasStatsCard] = useState(false);
+  const statsCardRef = useRef(null);
 
-  // Load auth token
+  // Load auth token and workout stats
   useEffect(() => {
     loadMockAuth();
-  }, []);
+    
+    // Check if we have workout stats from completed workout
+    if (params.workoutStats) {
+      try {
+        const stats = JSON.parse(params.workoutStats as string);
+        setWorkoutStats(stats);
+        setHasStatsCard(true);
+        setCaption(`Just crushed a ${stats.totalDuration} min workout! 💪 #workout #fitness #mood`);
+      } catch (error) {
+        console.error('Error parsing workout stats:', error);
+      }
+    }
+  }, [params]);
 
   const loadMockAuth = async () => {
     try {
