@@ -744,7 +744,7 @@ async def create_post(post_data: PostCreate, current_user_id: str = Depends(get_
     """Create a new social media post"""
     post_doc = {
         **post_data.dict(),
-        "author_id": current_user_id,
+        "author_id": ObjectId(current_user_id),
         "likes_count": 0,
         "comments_count": 0,
         "created_at": datetime.now(timezone.utc)
