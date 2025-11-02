@@ -753,6 +753,114 @@ async def create_post(post_data: PostCreate, current_user_id: str = Depends(get_
     result = await db.posts.insert_one(post_doc)
     return {"message": "Post created successfully", "id": str(result.inserted_id)}
 
+@api_router.get("/posts/following")
+async def get_following_posts(
+    current_user_id: str = Depends(get_current_user),
+    limit: int = 20,
+    skip: int = 0
+):
+    """Get posts from users that the current user follows"""
+    try:
+        user_object_id = ObjectId(current_user_id)
+        
+        # Get list of users current user is following
+        following = await db.follows.find({"follower_id": user_object_id}).to_list(length=None)
+        following_ids = [f["following_id"] for f in following]
+        
+        if not following_ids:
+            # If not following anyone, return empty list
+            return []
+        
+        # Get posts from followed users with author and workout details
+        pipeline = [
+            {"$match": {"author_id": {"$in": following_ids}}},
+            {"$sort": {"created_at": -1}},
+            {"$skip": skip},
+            {"$limit": limit},
+            {
+                "$lookup": {
+                    "from": "users",
+                    "localField": "author_id",
+                    "foreignField": "_id",
+                    "as": "author"
+                }
+            },
+            {"$unwind": "$author"},
+            {
+                "$lookup": {
+                    "from": "workouts",
+                    "localField": "workout_id",
+                    "foreignField": "_id",
+                    "as": "workout"
+                }
+            },
+            {
+                "$lookup": {
+                    "from": "post_likes",
+                    "let": {"post_id": "$_id", "user_id": user_object_id},
+                    "pipeline": [
+                        {"$match": {"$expr": {"$and": [
+                            {"$eq": ["$post_id", "$$post_id"]},
+                            {"$eq": ["$user_id", "$$user_id"]}
+                        ]}}}
+                    ],
+                    "as": "user_like"
+                }
+            }
+        ]
+        
+        posts = await db.posts.aggregate(pipeline).to_list(length=limit)
+        
+        result = []
+        for post in posts:
+            # Convert ObjectIds to strings
+            author_data = UserResponse(
+                id=str(post["author"]["_id"]),
+                username=post["author"]["username"],
+                email=post["author"]["email"],
+                name=post["author"].get("name"),
+                bio=post["author"].get("bio", ""),
+                avatar=post["author"].get("avatar", ""),
+                followers_count=post["author"].get("followers_count", 0),
+                following_count=post["author"].get("following_count", 0),
+                workouts_count=post["author"].get("workouts_count", 0),
+                current_streak=post["author"].get("current_streak", 0),
+                created_at=post["author"]["created_at"]
+            )
+            
+            workout_data = None
+            if post.get("workout") and len(post["workout"]) > 0:
+                workout = post["workout"][0]
+                workout_data = WorkoutResponse(
+                    id=str(workout["_id"]),
+                    title=workout["title"],
+                    mood_category=workout["mood_category"],
+                    exercises=workout["exercises"],
+                    duration=workout["duration"],
+                    difficulty=workout["difficulty"],
+                    equipment=workout.get("equipment", []),
+                    calories_estimate=workout.get("calories_estimate"),
+                    created_at=workout["created_at"]
+                )
+            
+            result.append(PostResponse(
+                id=str(post["_id"]),
+                author=author_data,
+                workout=workout_data,
+                caption=post["caption"],
+                media_urls=post.get("media_urls", []),
+                hashtags=post.get("hashtags", []),
+                likes_count=post.get("likes_count", 0),
+                comments_count=post.get("comments_count", 0),
+                is_liked=len(post.get("user_like", [])) > 0,
+                created_at=post["created_at"]
+            ))
+        
+        return result
+    except Exception as e:
+        logger.error(f"Error fetching following posts: {str(e)}")
+        return []
+
 @api_router.get("/posts")
 async def get_posts(current_user_id: str = Depends(get_current_user), limit: int = 20, skip: int = 0):
     """Get feed posts with user and workout information"""
