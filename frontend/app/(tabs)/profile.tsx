@@ -46,7 +46,7 @@ export default function Profile() {
     // Will be populated from API
   ]);
 
-  const [activeTab, setActiveTab] = useState<'workouts' | 'achievements'>('workouts');
+  const [activeTab, setActiveTab] = useState<'workouts' | 'achievements' | 'cards'>('workouts');
 
   const handleEditProfile = () => {
     console.log('Edit profile');
