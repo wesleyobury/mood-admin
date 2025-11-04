@@ -19,7 +19,7 @@ import * as ImagePicker from 'expo-image-picker';
 import { captureRef } from 'react-native-view-shot';
 import WorkoutStatsCard from '../components/WorkoutStatsCard';
 
-const API_URL = '';
+const API_URL = process.env.EXPO_PUBLIC_BACKEND_URL || '';
 
 interface WorkoutStats {
   workouts: Array<{
