@@ -100,7 +100,7 @@ export default function CreatePost() {
       const response = await fetch(`${API_URL}/api/workout-cards`, {
         method: 'POST',
         headers: {
-          'Authorization': `Bearer ${authToken}`,
+          'Authorization': `Bearer ${token}`,
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(workoutStats),
@@ -186,7 +186,7 @@ export default function CreatePost() {
         const response = await fetch(`${API_URL}/api/upload`, {
           method: 'POST',
           headers: {
-            'Authorization': `Bearer ${authToken}`,
+            'Authorization': `Bearer ${token}`,
           },
           body: formData,
         });
@@ -213,7 +213,7 @@ export default function CreatePost() {
     setUploadProgress(0);
 
     try {
-      if (workoutStats && authToken) {
+      if (workoutStats && token) {
         await handleSaveCard();
       }
 
@@ -223,7 +223,7 @@ export default function CreatePost() {
       const response = await fetch(`${API_URL}/api/posts`, {
         method: 'POST',
         headers: {
-          'Authorization': `Bearer ${authToken}`,
+          'Authorization': `Bearer ${token}`,
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
