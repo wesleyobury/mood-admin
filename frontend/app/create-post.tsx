@@ -112,9 +112,14 @@ export default function CreatePost() {
   };
 
   const handleSaveCard = async () => {
-    if (!workoutStats || !authToken) return;
+    console.log('handleSaveCard called');
+    if (!workoutStats || !authToken) {
+      console.log('Missing workoutStats or authToken:', { workoutStats: !!workoutStats, authToken: !!authToken });
+      return;
+    }
     
     try {
+      console.log('Saving card to API...');
       const response = await fetch(`${API_URL}/api/workout-cards`, {
         method: 'POST',
         headers: {
@@ -124,6 +129,7 @@ export default function CreatePost() {
         body: JSON.stringify(workoutStats),
       });
 
+      console.log('Save response status:', response.status);
       if (response.ok) {
         Alert.alert('Saved! 🔖', 'Your workout card has been saved to your Profile > Cards tab for future viewing.');
       } else {
@@ -136,6 +142,7 @@ export default function CreatePost() {
   };
 
   const handleCancel = () => {
+    console.log('handleCancel called');
     if (hasStatsCard) {
       Alert.alert(
         'Cancel Post',
@@ -144,11 +151,15 @@ export default function CreatePost() {
           {
             text: 'Discard All',
             style: 'destructive',
-            onPress: () => router.push('/(tabs)'),
+            onPress: () => {
+              console.log('Discard All pressed');
+              router.push('/(tabs)');
+            },
           },
           {
             text: 'Save Card Only',
             onPress: async () => {
+              console.log('Save Card Only pressed');
               await handleSaveCard();
               router.push('/(tabs)');
             },
@@ -161,6 +172,7 @@ export default function CreatePost() {
       );
     } else {
       // Go to home instead of back
+      console.log('No stats card, going home');
       router.push('/(tabs)');
     }
   };
