@@ -36,11 +36,11 @@ interface WorkoutStats {
 export default function CreatePost() {
   const router = useRouter();
   const params = useLocalSearchParams();
+  const { user, token } = useAuth();
   const [caption, setCaption] = useState('');
   const [selectedImages, setSelectedImages] = useState<string[]>([]);
   const [uploading, setUploading] = useState(false);
   const [uploadProgress, setUploadProgress] = useState(0);
-  const [authToken, setAuthToken] = useState<string | null>(null);
   const [workoutStats, setWorkoutStats] = useState<WorkoutStats | null>(null);
   const [hasStatsCard, setHasStatsCard] = useState(false);
   const statsCardRef = useRef(null);
