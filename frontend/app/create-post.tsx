@@ -45,10 +45,8 @@ export default function CreatePost() {
   const [hasStatsCard, setHasStatsCard] = useState(false);
   const statsCardRef = useRef(null);
 
-  // Load auth token and workout stats
+  // Load workout stats
   useEffect(() => {
-    loadMockAuth();
-    
     // Check if we have workout stats from completed workout
     if (params.workoutStats) {
       try {
@@ -61,28 +59,6 @@ export default function CreatePost() {
       }
     }
   }, [params]);
-
-  const loadMockAuth = async () => {
-    try {
-      const response = await fetch(`${API_URL}/api/auth/login`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          username: 'fitnessqueen',
-          password: 'password123',
-        }),
-      });
-
-      if (response.ok) {
-        const data = await response.json();
-        setAuthToken(data.token);
-      }
-    } catch (error) {
-      console.error('Mock auth failed:', error);
-    }
-  };
 
   const pickImages = async () => {
     const maxImages = hasStatsCard ? 4 : 5;
