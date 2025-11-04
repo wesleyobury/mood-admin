@@ -394,7 +394,11 @@ export default function CreatePost() {
                   <Ionicons name="trophy" size={16} color="#FFD700" />
                   <Text style={styles.attachmentType}>Workout Achievement</Text>
                 </View>
-                <TouchableOpacity onPress={handleSaveCard} style={styles.saveCardButton}>
+                <TouchableOpacity 
+                  onPress={handleSaveCard} 
+                  style={styles.saveCardButton}
+                  activeOpacity={0.7}
+                >
                   <Ionicons name="bookmark-outline" size={18} color="#FFD700" />
                   <Text style={styles.saveButtonText}>Save</Text>
                 </TouchableOpacity>
