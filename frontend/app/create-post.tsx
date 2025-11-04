@@ -286,6 +286,7 @@ export default function CreatePost() {
           <TouchableOpacity 
             style={styles.closeButton}
             onPress={handleCancel}
+            activeOpacity={0.7}
           >
             <Ionicons name="close" size={28} color="#fff" />
           </TouchableOpacity>
@@ -300,6 +301,7 @@ export default function CreatePost() {
             ]}
             onPress={handleCreatePost}
             disabled={uploading || (!caption.trim() && selectedImages.length === 0 && !hasStatsCard)}
+            activeOpacity={0.7}
           >
             {uploading ? (
               <ActivityIndicator size="small" color="#000" />
