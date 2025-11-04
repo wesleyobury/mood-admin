@@ -39,9 +39,19 @@ export function AuthProvider({ children }: AuthProviderProps) {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // Temporarily disable auto-loading stored auth to prevent flash
-    // loadStoredAuth();
-    setIsLoading(false); // Set loading to false immediately
+    // Auto-login with mock user for development
+    const autoLogin = async () => {
+      try {
+        await login('fitnessqueen', 'password123');
+        console.log('✅ Auto-login successful');
+      } catch (error) {
+        console.error('Auto-login failed:', error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+    
+    autoLogin();
   }, []);
 
   const loadStoredAuth = async () => {
