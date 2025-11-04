@@ -90,8 +90,8 @@ export default function CreatePost() {
 
   const handleSaveCard = async () => {
     console.log('handleSaveCard called');
-    if (!workoutStats || !authToken) {
-      console.log('Missing workoutStats or authToken:', { workoutStats: !!workoutStats, authToken: !!authToken });
+    if (!workoutStats || !token) {
+      console.log('Missing workoutStats or token:', { workoutStats: !!workoutStats, token: !!token });
       return;
     }
     
