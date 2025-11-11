@@ -15,6 +15,7 @@ import {
 import { Ionicons } from '@expo/vector-icons';
 import { useRouter } from 'expo-router';
 import WorkoutStatsCard from '../../components/WorkoutStatsCard';
+import { useAuth } from '../../contexts/AuthContext';
 
 const API_URL = '';
 const { width } = Dimensions.get('window');
