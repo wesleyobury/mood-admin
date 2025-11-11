@@ -8,46 +8,35 @@ import {
   SafeAreaView,
   Image,
   RefreshControl,
-  Dimensions,
-  Alert,
-  Modal,
+  ActivityIndicator,
   Animated,
+  Modal,
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { useRouter } from 'expo-router';
+import { useAuth } from '../../contexts/AuthContext';
 import ImageCarousel from '../../components/ImageCarousel';
 import CommentsBottomSheet from '../../components/CommentsBottomSheet';
 
-const SCREEN_WIDTH = Dimensions.get('window').width;
-// Use relative /api path which gets proxied to backend
-const API_URL = '';
+const API_URL = process.env.EXPO_PUBLIC_BACKEND_URL || '';
 
 interface Author {
   id: string;
   username: string;
+  name: string;
   avatar: string;
-  name?: string;
-}
-
-interface Workout {
-  id: string;
-  title: string;
-  duration: number;
-  mood_category: string;
-  difficulty: string;
 }
 
 interface Post {
   id: string;
   author: Author;
-  workout?: Workout;
   caption: string;
   media_urls: string[];
-  hashtags: string[];
   likes_count: number;
   comments_count: number;
   is_liked: boolean;
   created_at: string;
+  workout?: any;
 }
 
 export default function Explore() {
@@ -58,49 +47,20 @@ export default function Explore() {
   const [selectedPostId, setSelectedPostId] = useState<string | null>(null);
   const [activeTab, setActiveTab] = useState<'forYou' | 'following'>('forYou');
   const router = useRouter();
-
-  // Mock auth token - In real app, this would come from auth context
-  const [authToken, setAuthToken] = useState<string | null>(null);
+  const { token } = useAuth();
 
   // Double tap to like functionality
   const lastTap = useRef<number>(0);
   const [likeAnimations] = useState<{ [key: string]: Animated.Value }>({});
 
   useEffect(() => {
-    loadMockAuth();
-  }, []);
-
-  useEffect(() => {
-    if (authToken) {
+    if (token) {
       fetchPosts();
     }
-  }, [authToken, activeTab]);
-
-  const loadMockAuth = async () => {
-    // Try to login with mock user to get token
-    try {
-      const response = await fetch(`${API_URL}/api/auth/login`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          username: 'fitnessqueen',
-          password: 'password123',
-        }),
-      });
-
-      if (response.ok) {
-        const data = await response.json();
-        setAuthToken(data.token);
-      }
-    } catch (error) {
-      console.error('Mock auth failed:', error);
-    }
-  };
+  }, [token, activeTab]);
 
   const fetchPosts = async () => {
-    if (!authToken) return;
+    if (!token) return;
 
     try {
       const endpoint = activeTab === 'following' 
@@ -109,7 +69,7 @@ export default function Explore() {
         
       const response = await fetch(endpoint, {
         headers: {
-          'Authorization': `Bearer ${authToken}`,
+          'Authorization': `Bearer ${token}`,
         },
       });
 
@@ -130,71 +90,65 @@ export default function Explore() {
     setRefreshing(false);
   };
 
-  const handleLike = async (postId: string) => {
-    if (!authToken) return;
-
-    try {
-      // Optimistic update
-      setPosts(posts.map(post => 
-        post.id === postId 
-          ? { 
-              ...post, 
-              is_liked: !post.is_liked, 
-              likes_count: post.is_liked ? post.likes_count - 1 : post.likes_count + 1 
-            }
-          : post
-      ));
-
-      // API call
-      await fetch(`${API_URL}/api/posts/${postId}/like`, {
-        method: 'POST',
-        headers: {
-          'Authorization': `Bearer ${authToken}`,
-        },
-      });
-    } catch (error) {
-      console.error('Error liking post:', error);
-      // Revert on error
-      fetchPosts();
-    }
-  };
-
-  const handleComment = (postId: string) => {
-    setSelectedPostId(postId);
-    setShowComments(true);
-  };
-
-  const handleDoubleTapLike = (postId: string) => {
+  const handleDoubleTap = (postId: string) => {
     const now = Date.now();
     const DOUBLE_TAP_DELAY = 300;
-    
+
     if (now - lastTap.current < DOUBLE_TAP_DELAY) {
-      // Double tap detected
-      const post = posts.find(p => p.id === postId);
-      if (post && !post.is_liked) {
-        handleLike(postId);
-        
-        // Trigger like animation
-        if (!likeAnimations[postId]) {
-          likeAnimations[postId] = new Animated.Value(0);
-        }
-        
-        Animated.sequence([
-          Animated.timing(likeAnimations[postId], {
-            toValue: 1,
-            duration: 400,
-            useNativeDriver: true,
-          }),
-          Animated.timing(likeAnimations[postId], {
-            toValue: 0,
-            duration: 200,
-            useNativeDriver: true,
-          }),
-        ]).start();
-      }
+      handleLike(postId);
+      showLikeAnimation(postId);
     }
-    
+
     lastTap.current = now;
+  };
+
+  const showLikeAnimation = (postId: string) => {
+    if (!likeAnimations[postId]) {
+      likeAnimations[postId] = new Animated.Value(0);
+    }
+
+    const animation = likeAnimations[postId];
+    animation.setValue(0);
+
+    Animated.sequence([
+      Animated.timing(animation, {
+        toValue: 1,
+        duration: 200,
+        useNativeDriver: true,
+      }),
+      Animated.timing(animation, {
+        toValue: 0,
+        duration: 200,
+        delay: 300,
+        useNativeDriver: true,
+      }),
+    ]).start();
+  };
+
+  const handleLike = async (postId: string) => {
+    if (!token) return;
+
+    try {
+      const response = await fetch(`${API_URL}/api/posts/${postId}/like`, {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${token}`,
+        },
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        setPosts(prevPosts =>
+          prevPosts.map(post =>
+            post.id === postId
+              ? { ...post, is_liked: data.liked, likes_count: data.likes_count }
+              : post
+          )
+        );
+      }
+    } catch (error) {
+      console.error('Error liking post:', error);
+    }
   };
 
   const handleProfile = (userId: string) => {
@@ -205,15 +159,9 @@ export default function Explore() {
     router.push('/create-post');
   };
 
-  const formatTimeAgo = (dateString: string) => {
-    const date = new Date(dateString);
-    const now = new Date();
-    const seconds = Math.floor((now.getTime() - date.getTime()) / 1000);
-
-    if (seconds < 60) return 'just now';
-    if (seconds < 3600) return `${Math.floor(seconds / 60)}m ago`;
-    if (seconds < 86400) return `${Math.floor(seconds / 3600)}h ago`;
-    return `${Math.floor(seconds / 86400)}d ago`;
+  const handleComments = (postId: string) => {
+    setSelectedPostId(postId);
+    setShowComments(true);
   };
 
   if (loading) {
@@ -223,6 +171,7 @@ export default function Explore() {
           <Text style={styles.title}>Explore</Text>
         </View>
         <View style={styles.loadingContainer}>
+          <ActivityIndicator size="large" color="#FFD700" />
           <Text style={styles.loadingText}>Loading feed...</Text>
         </View>
       </SafeAreaView>
@@ -271,200 +220,159 @@ export default function Explore() {
         </TouchableOpacity>
       </View>
 
-      <ScrollView 
-        style={styles.scrollView}
+      <ScrollView
+        style={styles.feed}
         refreshControl={
-          <RefreshControl
-            refreshing={refreshing}
-            onRefresh={onRefresh}
-            tintColor="#FFD700"
-          />
+          <RefreshControl refreshing={refreshing} onRefresh={onRefresh} tintColor="#FFD700" />
         }
-        showsVerticalScrollIndicator={false}
       >
-        {posts.map((post) => (
-          <View key={post.id} style={styles.postContainer}>
-            {/* Post Header */}
-            <View style={styles.postHeader}>
-              <TouchableOpacity 
-                style={styles.authorInfo}
-                onPress={() => handleProfile(post.author.id)}
-              >
-                <View style={styles.avatarContainer}>
-                  <Image 
-                    source={{ uri: post.author.avatar }} 
-                    style={styles.avatar}
-                  />
-                  <View style={styles.avatarRing} />
-                </View>
-                <View>
-                  <Text style={styles.username}>{post.author.username}</Text>
-                  <Text style={styles.timestamp}>{formatTimeAgo(post.created_at)}</Text>
-                </View>
-              </TouchableOpacity>
-              <TouchableOpacity style={styles.menuButton}>
-                <View style={styles.menuDot} />
-                <View style={styles.menuDot} />
-                <View style={styles.menuDot} />
-              </TouchableOpacity>
-            </View>
+        {posts.length === 0 ? (
+          <View style={styles.emptyState}>
+            <Ionicons name="fitness" size={64} color="#666" />
+            <Text style={styles.emptyTitle}>No posts yet</Text>
+            <Text style={styles.emptySubtitle}>
+              {activeTab === 'following' 
+                ? 'Follow users to see their posts here'
+                : 'Be the first to share your fitness journey!'}
+            </Text>
+          </View>
+        ) : (
+          posts.map((post) => {
+            const likeScale = likeAnimations[post.id]
+              ? likeAnimations[post.id].interpolate({
+                  inputRange: [0, 1],
+                  outputRange: [0, 1],
+                })
+              : new Animated.Value(0);
 
-            {/* Image Carousel */}
-            {post.media_urls.length > 0 && (
-              <TouchableOpacity 
-                activeOpacity={1}
-                onPress={() => handleDoubleTapLike(post.id)}
-              >
-                <ImageCarousel images={post.media_urls} />
-                {/* Double Tap Heart Animation */}
-                {likeAnimations[post.id] && (
-                  <Animated.View 
-                    style={[
-                      styles.doubleTapHeart,
-                      {
-                        opacity: likeAnimations[post.id],
-                        transform: [{
-                          scale: likeAnimations[post.id].interpolate({
-                            inputRange: [0, 1],
-                            outputRange: [0.5, 1.5],
-                          }),
-                        }],
-                      },
-                    ]}
+            return (
+              <View key={post.id} style={styles.postCard}>
+                {/* Post Header */}
+                <View style={styles.postHeader}>
+                  <TouchableOpacity
+                    style={styles.authorInfo}
+                    onPress={() => handleProfile(post.author.id)}
                   >
-                    <Ionicons name="heart" size={80} color="#FFD700" />
-                  </Animated.View>
+                    {post.author.avatar ? (
+                      <Image source={{ uri: post.author.avatar }} style={styles.avatar} />
+                    ) : (
+                      <View style={[styles.avatar, styles.avatarPlaceholder]}>
+                        <Ionicons name="person" size={20} color="#666" />
+                      </View>
+                    )}
+                    <View>
+                      <Text style={styles.authorName}>{post.author.name || post.author.username}</Text>
+                      <Text style={styles.authorUsername}>@{post.author.username}</Text>
+                    </View>
+                  </TouchableOpacity>
+                </View>
+
+                {/* Post Images */}
+                {post.media_urls.length > 0 && (
+                  <TouchableOpacity
+                    activeOpacity={0.9}
+                    onPress={() => handleDoubleTap(post.id)}
+                  >
+                    <ImageCarousel images={post.media_urls} />
+                    {likeAnimations[post.id] && (
+                      <Animated.View
+                        style={[
+                          styles.likeAnimationContainer,
+                          {
+                            opacity: likeScale,
+                            transform: [
+                              {
+                                scale: likeScale.interpolate({
+                                  inputRange: [0, 1],
+                                  outputRange: [0, 1.5],
+                                }),
+                              },
+                            ],
+                          },
+                        ]}
+                      >
+                        <Ionicons name="heart" size={80} color="#FFD700" />
+                      </Animated.View>
+                    )}
+                  </TouchableOpacity>
                 )}
-              </TouchableOpacity>
-            )}
 
-            {/* Actions Row */}
-            <View style={styles.actionsRow}>
-              <View style={styles.leftActions}>
-                <TouchableOpacity 
-                  style={styles.actionBtn}
-                  onPress={() => handleLike(post.id)}
-                  activeOpacity={0.7}
-                >
-                  <View style={[
-                    styles.actionIconContainer,
-                    post.is_liked && styles.likedIconContainer
-                  ]}>
-                    <Ionicons 
-                      name={post.is_liked ? 'heart' : 'heart-outline'} 
-                      size={22} 
-                      color={post.is_liked ? '#000' : '#FFD700'} 
-                    />
+                {/* Post Actions */}
+                <View style={styles.postActions}>
+                  <View style={styles.leftActions}>
+                    <TouchableOpacity
+                      style={styles.actionButton}
+                      onPress={() => handleLike(post.id)}
+                    >
+                      <Ionicons
+                        name={post.is_liked ? 'heart' : 'heart-outline'}
+                        size={26}
+                        color={post.is_liked ? '#FF6B6B' : '#fff'}
+                      />
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                      style={styles.actionButton}
+                      onPress={() => handleComments(post.id)}
+                    >
+                      <Ionicons name="chatbubble-outline" size={24} color="#fff" />
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.actionButton}>
+                      <Ionicons name="paper-plane-outline" size={24} color="#fff" />
+                    </TouchableOpacity>
                   </View>
-                </TouchableOpacity>
-
-                <TouchableOpacity 
-                  style={styles.actionBtn}
-                  onPress={() => handleComment(post.id)}
-                  activeOpacity={0.7}
-                >
-                  <View style={styles.actionIconContainer}>
-                    <Ionicons name="chatbubble-outline" size={20} color="#FFD700" />
-                  </View>
-                </TouchableOpacity>
-
-                <TouchableOpacity 
-                  style={styles.actionBtn}
-                  activeOpacity={0.7}
-                >
-                  <View style={styles.actionIconContainer}>
-                    <Ionicons name="paper-plane-outline" size={20} color="#FFD700" />
-                  </View>
-                </TouchableOpacity>
-              </View>
-
-              <TouchableOpacity 
-                style={styles.actionBtn}
-                activeOpacity={0.7}
-              >
-                <View style={styles.actionIconContainer}>
-                  <Ionicons name="bookmark-outline" size={20} color="#FFD700" />
+                  <TouchableOpacity style={styles.actionButton}>
+                    <Ionicons name="bookmark-outline" size={24} color="#fff" />
+                  </TouchableOpacity>
                 </View>
-              </TouchableOpacity>
-            </View>
 
-            {/* Likes Count */}
-            {post.likes_count > 0 && (
-              <View style={styles.likesContainer}>
-                <View style={styles.likesIconBadge}>
-                  <Ionicons name="heart" size={12} color="#FFD700" />
+                {/* Likes Count */}
+                <View style={styles.likesSection}>
+                  <Text style={styles.likesText}>
+                    {post.likes_count} {post.likes_count === 1 ? 'like' : 'likes'}
+                  </Text>
                 </View>
-                <Text style={styles.likesCount}>
-                  {post.likes_count} {post.likes_count === 1 ? 'like' : 'likes'}
+
+                {/* Caption */}
+                {post.caption && (
+                  <View style={styles.captionSection}>
+                    <Text style={styles.caption}>
+                      <Text style={styles.captionUsername}>@{post.author.username} </Text>
+                      {post.caption}
+                    </Text>
+                  </View>
+                )}
+
+                {/* Comments Preview */}
+                {post.comments_count > 0 && (
+                  <TouchableOpacity onPress={() => handleComments(post.id)}>
+                    <Text style={styles.viewComments}>
+                      View all {post.comments_count} comments
+                    </Text>
+                  </TouchableOpacity>
+                )}
+
+                {/* Timestamp */}
+                <Text style={styles.timestamp}>
+                  {new Date(post.created_at).toLocaleDateString()}
                 </Text>
               </View>
-            )}
-
-            {/* Caption */}
-            <View style={styles.captionContainer}>
-              <Text style={styles.captionText}>
-                <Text style={styles.captionUsername}>{post.author.username}</Text>
-                {' '}
-                {post.caption}
-              </Text>
-            </View>
-
-            {/* View Comments */}
-            {post.comments_count > 0 && (
-              <TouchableOpacity 
-                style={styles.viewCommentsBtn}
-                onPress={() => handleComment(post.id)}
-                activeOpacity={0.7}
-              >
-                <Text style={styles.viewCommentsText}>
-                  View all {post.comments_count} comments
-                </Text>
-              </TouchableOpacity>
-            )}
-
-            {/* Workout Info */}
-            {post.workout && (
-              <View style={styles.workoutBadge}>
-                <View style={styles.workoutIconContainer}>
-                  <Ionicons name="fitness" size={14} color="#000" />
-                </View>
-                <Text style={styles.workoutBadgeText}>
-                  {post.workout.mood_category} • {post.workout.duration} min
-                </Text>
-              </View>
-            )}
-          </View>
-        ))}
-
-        {/* Load More Placeholder */}
-        {posts.length > 0 && (
-          <View style={styles.endMessage}>
-            <View style={styles.endMessageIcon}>
-              <Ionicons name="checkmark-circle" size={24} color="#FFD700" />
-            </View>
-            <Text style={styles.endMessageText}>You're all caught up!</Text>
-          </View>
+            );
+          })
         )}
       </ScrollView>
 
-      {/* Comments Bottom Sheet Modal */}
+      {/* Comments Bottom Sheet */}
       <Modal
         visible={showComments}
         animationType="slide"
         transparent={true}
         onRequestClose={() => setShowComments(false)}
       >
-        <View style={styles.modalContainer}>
-          <TouchableOpacity 
-            style={styles.modalBackdrop}
-            activeOpacity={1}
-            onPress={() => setShowComments(false)}
-          />
+        <View style={styles.modalOverlay}>
           <View style={styles.modalContent}>
-            {selectedPostId && authToken && (
+            {selectedPostId && (
               <CommentsBottomSheet
                 postId={selectedPostId}
-                authToken={authToken}
                 onClose={() => setShowComments(false)}
               />
             )}
@@ -478,7 +386,7 @@ export default function Explore() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#000',
+    backgroundColor: '#0c0c0c',
   },
   header: {
     flexDirection: 'row',
@@ -490,24 +398,22 @@ const styles = StyleSheet.create({
     borderBottomColor: 'rgba(255, 215, 0, 0.1)',
   },
   title: {
-    fontSize: 28,
+    fontSize: 24,
     fontWeight: 'bold',
-    color: '#fff',
-    letterSpacing: 0.5,
+    color: '#FFD700',
   },
   headerActions: {
     flexDirection: 'row',
-    alignItems: 'center',
-    gap: 16,
+    gap: 12,
   },
   createButton: {
     padding: 4,
   },
   createIconContainer: {
+    backgroundColor: '#FFD700',
+    borderRadius: 20,
     width: 32,
     height: 32,
-    borderRadius: 16,
-    backgroundColor: '#FFD700',
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -518,14 +424,37 @@ const styles = StyleSheet.create({
   },
   loadingText: {
     color: '#888',
-    fontSize: 16,
+    marginTop: 16,
+    fontSize: 14,
   },
-  scrollView: {
+  feed: {
     flex: 1,
   },
-  postContainer: {
-    marginBottom: 24,
-    backgroundColor: '#000',
+  emptyState: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingVertical: 80,
+    paddingHorizontal: 32,
+  },
+  emptyTitle: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    color: '#fff',
+    marginTop: 16,
+    marginBottom: 8,
+  },
+  emptySubtitle: {
+    fontSize: 14,
+    color: '#888',
+    textAlign: 'center',
+  },
+  postCard: {
+    backgroundColor: '#0c0c0c',
+    marginBottom: 16,
+    paddingBottom: 16,
+    borderBottomWidth: 1,
+    borderBottomColor: 'rgba(255, 215, 0, 0.1)',
   },
   postHeader: {
     flexDirection: 'row',
@@ -537,181 +466,89 @@ const styles = StyleSheet.create({
   authorInfo: {
     flexDirection: 'row',
     alignItems: 'center',
-  },
-  avatarContainer: {
-    position: 'relative',
-    marginRight: 12,
+    gap: 12,
   },
   avatar: {
     width: 36,
     height: 36,
     borderRadius: 18,
-    borderWidth: 2,
-    borderColor: '#000',
-  },
-  avatarRing: {
-    position: 'absolute',
-    top: -2,
-    left: -2,
-    right: -2,
-    bottom: -2,
-    borderRadius: 20,
     borderWidth: 1,
-    borderColor: 'rgba(255, 215, 0, 0.3)',
+    borderColor: '#FFD700',
   },
-  username: {
-    fontSize: 15,
+  avatarPlaceholder: {
+    backgroundColor: '#1a1a1a',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  authorName: {
+    fontSize: 14,
     fontWeight: '600',
     color: '#fff',
   },
-  timestamp: {
+  authorUsername: {
     fontSize: 12,
     color: '#888',
-    marginTop: 2,
   },
-  menuButton: {
-    padding: 8,
-    flexDirection: 'column',
-    gap: 3,
+  likeAnimationContainer: {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    marginLeft: -40,
+    marginTop: -40,
+    zIndex: 10,
   },
-  menuDot: {
-    width: 4,
-    height: 4,
-    borderRadius: 2,
-    backgroundColor: '#FFD700',
-  },
-  actionsRow: {
+  postActions: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    paddingHorizontal: 12,
-    paddingTop: 12,
+    paddingHorizontal: 16,
+    marginTop: 8,
   },
   leftActions: {
     flexDirection: 'row',
-    alignItems: 'center',
-    gap: 4,
+    gap: 16,
   },
-  actionBtn: {
-    padding: 8,
+  actionButton: {
+    padding: 4,
   },
-  actionIconContainer: {
-    width: 36,
-    height: 36,
-    borderRadius: 18,
-    backgroundColor: 'rgba(255, 215, 0, 0.1)',
-    borderWidth: 1,
-    borderColor: 'rgba(255, 215, 0, 0.2)',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  likedIconContainer: {
-    backgroundColor: '#FFD700',
-    borderColor: '#FFD700',
-  },
-  likesContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
+  likesSection: {
     paddingHorizontal: 16,
     marginTop: 8,
-    gap: 6,
   },
-  likesIconBadge: {
-    width: 20,
-    height: 20,
-    borderRadius: 10,
-    backgroundColor: 'rgba(255, 215, 0, 0.15)',
-    borderWidth: 1,
-    borderColor: 'rgba(255, 215, 0, 0.3)',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  likesCount: {
-    color: '#fff',
+  likesText: {
+    fontSize: 14,
     fontWeight: '600',
-    fontSize: 14,
+    color: '#fff',
   },
-  captionContainer: {
+  captionSection: {
     paddingHorizontal: 16,
     marginTop: 8,
   },
-  captionText: {
-    color: '#fff',
+  caption: {
     fontSize: 14,
+    color: '#fff',
     lineHeight: 20,
   },
   captionUsername: {
     fontWeight: '600',
     color: '#FFD700',
   },
-  viewCommentsBtn: {
-    paddingHorizontal: 16,
-    marginTop: 6,
-  },
-  viewCommentsText: {
-    color: '#666',
-    fontSize: 14,
-  },
-  workoutBadge: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginTop: 12,
-    marginHorizontal: 16,
-    paddingVertical: 8,
-    paddingHorizontal: 12,
-    backgroundColor: '#FFD700',
-    borderRadius: 20,
-    alignSelf: 'flex-start',
-  },
-  workoutIconContainer: {
-    width: 20,
-    height: 20,
-    borderRadius: 10,
-    backgroundColor: 'rgba(0, 0, 0, 0.1)',
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginRight: 6,
-  },
-  workoutBadgeText: {
-    color: '#000',
-    fontSize: 12,
-    fontWeight: '600',
-  },
-  endMessage: {
-    padding: 32,
-    alignItems: 'center',
-    gap: 8,
-  },
-  endMessageIcon: {
-    width: 48,
-    height: 48,
-    borderRadius: 24,
-    backgroundColor: 'rgba(255, 215, 0, 0.1)',
-    borderWidth: 2,
-    borderColor: 'rgba(255, 215, 0, 0.2)',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  endMessageText: {
+  viewComments: {
+    fontSize: 13,
     color: '#888',
-    fontSize: 16,
-    textAlign: 'center',
+    paddingHorizontal: 16,
+    marginTop: 8,
   },
-  doubleTapHeart: {
-    position: 'absolute',
-    top: '50%',
-    left: '50%',
-    marginLeft: -40,
-    marginTop: -40,
-    zIndex: 100,
+  timestamp: {
+    fontSize: 11,
+    color: '#666',
+    paddingHorizontal: 16,
+    marginTop: 4,
   },
-  modalContainer: {
+  modalOverlay: {
     flex: 1,
-    justifyContent: 'flex-end',
-  },
-  modalBackdrop: {
-    ...StyleSheet.absoluteFillObject,
     backgroundColor: 'rgba(0, 0, 0, 0.7)',
+    justifyContent: 'flex-end',
   },
   modalContent: {
     height: '75%',
