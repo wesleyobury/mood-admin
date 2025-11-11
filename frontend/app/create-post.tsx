@@ -43,6 +43,7 @@ export default function CreatePost() {
   const [uploadProgress, setUploadProgress] = useState(0);
   const [workoutStats, setWorkoutStats] = useState<WorkoutStats | null>(null);
   const [hasStatsCard, setHasStatsCard] = useState(false);
+  const [saveButtonPressed, setSaveButtonPressed] = useState(false);
   const statsCardRef = useRef(null);
 
   // Load workout stats
