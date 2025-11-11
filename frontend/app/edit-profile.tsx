@@ -42,10 +42,10 @@ export default function EditProfile() {
   }, []);
 
   useEffect(() => {
-    if (authToken) {
+    if (token) {
       fetchUserProfile();
     }
-  }, [authToken]);
+  }, [token]);
 
     try {
       const response = await fetch(`${API_URL}/api/auth/login`, {
@@ -71,7 +71,7 @@ export default function EditProfile() {
     try {
       const response = await fetch(`${API_URL}/api/users/me`, {
         headers: {
-          'Authorization': `Bearer ${authToken}`,
+          'Authorization': `Bearer ${token}`,
         },
       });
 
@@ -132,7 +132,7 @@ export default function EditProfile() {
       const response = await fetch(`${API_URL}/api/users/me/avatar`, {
         method: 'POST',
         headers: {
-          'Authorization': `Bearer ${authToken}`,
+          'Authorization': `Bearer ${token}`,
         },
         body: formData,
       });
@@ -153,14 +153,14 @@ export default function EditProfile() {
   };
 
   const handleSave = async () => {
-    if (!authToken) return;
+    if (!token) return;
 
     setSaving(true);
     try {
       const response = await fetch(`${API_URL}/api/users/me`, {
         method: 'PUT',
         headers: {
-          'Authorization': `Bearer ${authToken}`,
+          'Authorization': `Bearer ${token}`,
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({

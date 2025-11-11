@@ -53,12 +53,12 @@ export default function UserProfile() {
   }, []);
 
   useEffect(() => {
-    if (authToken && userId) {
+    if (token && userId) {
       fetchUserProfile();
       fetchUserPosts();
       checkFollowingStatus();
     }
-  }, [authToken, userId]);
+  }, [token, userId]);
 
     try {
       const response = await fetch(`${API_URL}/api/auth/login`, {
@@ -84,7 +84,7 @@ export default function UserProfile() {
     try {
       const response = await fetch(`${API_URL}/api/users/${userId}`, {
         headers: {
-          'Authorization': `Bearer ${authToken}`,
+          'Authorization': `Bearer ${token}`,
         },
       });
 
@@ -103,7 +103,7 @@ export default function UserProfile() {
     try {
       const response = await fetch(`${API_URL}/api/users/${userId}/posts`, {
         headers: {
-          'Authorization': `Bearer ${authToken}`,
+          'Authorization': `Bearer ${token}`,
         },
       });
 
@@ -120,7 +120,7 @@ export default function UserProfile() {
     try {
       const response = await fetch(`${API_URL}/api/users/${userId}/is-following`, {
         headers: {
-          'Authorization': `Bearer ${authToken}`,
+          'Authorization': `Bearer ${token}`,
         },
       });
 
@@ -135,13 +135,13 @@ export default function UserProfile() {
   };
 
   const handleFollowToggle = async () => {
-    if (!authToken) return;
+    if (!token) return;
 
     try {
       const response = await fetch(`${API_URL}/api/users/${userId}/follow`, {
         method: 'POST',
         headers: {
-          'Authorization': `Bearer ${authToken}`,
+          'Authorization': `Bearer ${token}`,
         },
       });
 
