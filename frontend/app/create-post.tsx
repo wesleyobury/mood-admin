@@ -528,6 +528,11 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: 'rgba(255, 215, 0, 0.3)',
   },
+  saveCardButtonPressed: {
+    backgroundColor: 'rgba(255, 215, 0, 0.3)',
+    borderColor: '#FFD700',
+    transform: [{ scale: 0.95 }],
+  },
   saveButtonText: {
     fontSize: 12,
     fontWeight: '600',
