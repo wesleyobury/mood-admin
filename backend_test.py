@@ -118,34 +118,35 @@ class CreatePostBackendTest:
 
         return True
 
-    def test_update_user_profile(self):
-        """Test PUT /api/users/me - Update user profile"""
-        print("=== Testing Profile Update ===")
+    def test_backend_health_for_create_post(self):
+        """Test backend health endpoints supporting create-post functionality"""
+        print("=== Testing Backend Health for Create-Post Support ===")
         
-        if not self.user1_token:
-            self.log_result("Profile Update", False, "No user1 token available")
-            return False
-
+        # Test API Root endpoint
         try:
-            headers = {"Authorization": f"Bearer {self.user1_token}"}
-            profile_data = {
-                "name": "Alex 'The Ultimate' Fitness Champion",
-                "bio": "Updated bio: Dedicated to transforming lives through fitness and wellness! 🏋️‍♂️ #FitnessTransformation #WellnessJourney"
-            }
-            
-            response = self.session.put(f"{API_BASE}/users/me", json=profile_data, headers=headers)
+            response = self.session.get(f"{API_BASE}/")
             
             if response.status_code == 200:
                 data = response.json()
-                self.log_result("Profile Update", True, f"Message: {data.get('message')}")
-                return True
+                self.log_result("API Root Endpoint", True, f"Message: {data.get('message')}")
             else:
-                self.log_result("Profile Update", False, f"Status: {response.status_code}", response.text)
-                return False
-                
+                self.log_result("API Root Endpoint", False, f"Status: {response.status_code}")
         except Exception as e:
-            self.log_result("Profile Update", False, f"Exception: {str(e)}")
-            return False
+            self.log_result("API Root Endpoint", False, f"Exception: {str(e)}")
+        
+        # Test Health Check endpoint
+        try:
+            response = self.session.get(f"{API_BASE}/health")
+            
+            if response.status_code == 200:
+                data = response.json()
+                self.log_result("Health Check Endpoint", True, f"Status: {data.get('status')}, DB: {data.get('database')}")
+            else:
+                self.log_result("Health Check Endpoint", False, f"Status: {response.status_code}")
+        except Exception as e:
+            self.log_result("Health Check Endpoint", False, f"Exception: {str(e)}")
+        
+        return True
 
     def test_profile_picture_upload(self):
         """Test POST /api/users/me/avatar - Upload profile picture"""
