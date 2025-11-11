@@ -42,17 +42,36 @@ export function AuthProvider({ children }: AuthProviderProps) {
     // Auto-login with mock user for development
     const autoLogin = async () => {
       try {
-        await login('fitnessqueen', 'password123');
-        console.log('✅ Auto-login successful');
+        const response = await fetch(`${API_URL}/api/auth/login`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            username: 'fitnessqueen',
+            password: 'password123',
+          }),
+        });
+
+        if (response.ok) {
+          const data = await response.json();
+          const { token: authToken, user_id } = data;
+          setToken(authToken);
+          await AsyncStorage.setItem('auth_token', authToken);
+          await fetchCurrentUser(authToken);
+          console.log('✅ Auto-login successful');
+        } else {
+          console.error('Auto-login failed with status:', response.status);
+        }
       } catch (error) {
-        console.error('Auto-login failed:', error);
+        console.error('Auto-login error:', error);
       } finally {
         setIsLoading(false);
       }
     };
     
     autoLogin();
-  }, []);
+  }, []); // Empty dependency array - only run once on mount
 
   const loadStoredAuth = async () => {
     try {
