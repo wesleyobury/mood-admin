@@ -48,26 +48,6 @@ export default function EditProfile() {
     }
   }, [token]);
 
-    try {
-      const response = await fetch(`${API_URL}/api/auth/login`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          username: 'fitnessqueen',
-          password: 'password123',
-        }),
-      });
-
-      if (response.ok) {
-        const data = await response.json();
-        setAuthToken(data.token);
-      }
-    } catch (error) {
-    }
-  };
-
   const fetchUserProfile = async () => {
     try {
       const response = await fetch(`${API_URL}/api/users/me`, {
