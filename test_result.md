@@ -197,9 +197,8 @@ metadata:
 
 test_plan:
   current_focus:
-    - "Complete Workout Navigation and Cart Functionality Flow"
-  stuck_tasks:
-    - "Complete Workout Navigation and Cart Functionality Flow"
+    - "Create-Post Screen Backend Support (Auth & Save Button)"
+  stuck_tasks: []
   test_all: false
   test_priority: "high_first"
 
