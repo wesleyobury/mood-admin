@@ -90,26 +90,20 @@ backend:
         comment: "✅ USER PROFILE & FOLLOWING SYSTEM ENDPOINTS WORKING PERFECTLY: Comprehensive testing shows 100% success rate (13/13 tests passed). All endpoints working flawlessly: ✅ PUT /api/users/me - Profile updates (name, bio) working ✅ POST /api/users/me/avatar - Profile picture upload working ✅ POST /api/users/{user_id}/follow - Follow/unfollow functionality working ✅ GET /api/users/{user_id}/is-following - Following status check working ✅ GET /api/users/{user_id}/followers - Followers list retrieval working ✅ GET /api/users/{user_id}/following - Following list retrieval working ✅ GET /api/users/{user_id}/posts - User-specific posts retrieval working ✅ GET /api/posts/following - Following feed working correctly ✅ Mixed vs following feed differentiation working. Fixed ObjectId consistency issue in post creation. All social features fully functional and ready for production use."
 
 frontend:
-  - task: "Complete Workout Navigation and Cart Functionality Flow"
+  - task: "Create-Post Screen Backend Support (Auth & Save Button)"
     implemented: true
     working: true
-    file: "frontend/app/workout-display.tsx"
+    file: "backend/server.py"
     stuck_count: 0
     priority: "high"
     needs_retesting: false
     status_history:
       - working: "NA"
         agent: "testing"
-        comment: "Comprehensive testing of workout navigation and cart functionality flow requested"
-      - working: false
-        agent: "testing"
-        comment: "❌ CRITICAL ERROR FOUND: JavaScript error 'currentWorkoutIndex is not defined' in workout-display.tsx at line 3066. This prevents the Add workout button from functioning properly. Navigation flow works correctly through: Home → 'I want to sweat' → 'Cardio Based' → Equipment selection → Workout display, but cart functionality is blocked by this undefined variable error. The error occurs in the isInCart function call when trying to determine button state. REQUIRES IMMEDIATE FIX."
-      - working: false
-        agent: "testing"
-        comment: "❌ CRITICAL NAVIGATION FAILURE: Comprehensive testing reveals app is completely inaccessible. App shows login screen instead of main mood selection interface. 'Try Demo' button leads to 'Unmatched Route' error (404). Cannot access main app functionality to test navigation flow or cart features. Issues found: 1) App routing broken - cannot access main mood cards screen 2) Authentication flow blocking demo access 3) Direct navigation to /(tabs) results in 404 errors 4) Previous 'currentWorkoutIndex' error cannot be verified due to inability to reach workout display screen. REQUIRES IMMEDIATE ROUTING AND AUTHENTICATION FIX."
+        comment: "Testing backend APIs supporting create-post screen buttons (X close and Save button functionality)"
       - working: true
-        agent: "main"
-        comment: "✅ CART FUNCTIONALITY FIXED: Successfully resolved 'equipment is not defined' error in workout-display.tsx. The issue was in handleAddToCart function (line 3215) where it was using undefined 'equipment' variable instead of 'workout.equipment'. Fix implemented: Changed 'createWorkoutId(workout, equipment, difficulty)' to 'createWorkoutId(workout, workout.equipment, difficulty)'. Also updated workoutItem object to use 'workout.equipment' instead of undefined 'equipment'. Manual testing completed: Successfully clicked '+ Add workout' button without errors, floating cart icon appeared with item count badge. Cart functionality now working correctly."
+        agent: "testing"
+        comment: "✅ CREATE-POST BACKEND SUPPORT EXCELLENT: Comprehensive testing shows 100% success rate (7/7 tests passed). All backend systems supporting create-post screen working perfectly: ✅ Backend health endpoints responding correctly (API root: 'MOOD App API is running', health: 'healthy' status) ✅ Authentication system working flawlessly - single auth call, no infinite loops, proper token validation ✅ User profile endpoints working correctly ✅ Workout card save functionality (Save button backend) working perfectly - cards saved with proper IDs ✅ Workout card retrieval working correctly ✅ Edge case testing passed: proper validation errors for missing fields (422), unauthorized access blocked (401/403), large workout cards handled successfully. Backend fully supports create-post screen functionality including auth centralization and Save button operations."
 
   - task: "Legs Workout Feature - Muscle Group Selection"
     implemented: true
