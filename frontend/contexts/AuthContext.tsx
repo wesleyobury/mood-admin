@@ -37,8 +37,13 @@ export function AuthProvider({ children }: AuthProviderProps) {
   const [user, setUser] = useState<User | null>(null);
   const [token, setToken] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(true);
+  const hasInitialized = useRef(false);
 
   useEffect(() => {
+    // Prevent multiple initializations
+    if (hasInitialized.current) return;
+    hasInitialized.current = true;
+
     // Auto-login with mock user for development
     const autoLogin = async () => {
       try {
@@ -58,7 +63,23 @@ export function AuthProvider({ children }: AuthProviderProps) {
           const { token: authToken, user_id } = data;
           setToken(authToken);
           await AsyncStorage.setItem('auth_token', authToken);
-          await fetchCurrentUser(authToken);
+          
+          // Fetch user data
+          try {
+            const userResponse = await fetch(`${API_URL}/api/users/me`, {
+              headers: {
+                'Authorization': `Bearer ${authToken}`,
+              },
+            });
+
+            if (userResponse.ok) {
+              const userData = await userResponse.json();
+              setUser(userData);
+            }
+          } catch (userError) {
+            console.error('Error fetching user:', userError);
+          }
+          
           console.log('✅ Auto-login successful');
         } else {
           console.error('Auto-login failed with status:', response.status);
