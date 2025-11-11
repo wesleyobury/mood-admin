@@ -1,12 +1,14 @@
 #!/usr/bin/env python3
 """
-Backend API Testing for User Profile & Following System
-Tests the newly implemented User Profile & Following System backend endpoints
+Backend API Testing for Create-Post Screen Functionality
+Tests the backend APIs that support create-post screen buttons (X close and Save button)
+Focus: Auth system and workout card saving functionality
 """
 
 import requests
 import json
 import os
+import time
 from pathlib import Path
 import tempfile
 from datetime import datetime
@@ -27,18 +29,19 @@ env_vars = load_env()
 BASE_URL = env_vars.get('EXPO_PUBLIC_BACKEND_URL', 'http://localhost:8001')
 API_BASE = f"{BASE_URL}/api"
 
+# Use unique test users to avoid conflicts
 TEST_USER_DATA = {
-    "username": "fitness_enthusiast_2025",
-    "email": "fitness@example.com",
+    "username": f"createpost_user_{int(time.time())}",
+    "email": f"createpost_{int(time.time())}@test.com",
     "password": "SecurePass123!",
-    "name": "Alex Fitness"
+    "name": "Create Post Tester"
 }
 
 TEST_USER_2_DATA = {
-    "username": "workout_buddy_2025",
-    "email": "buddy@example.com", 
+    "username": f"savebutton_user_{int(time.time())}",
+    "email": f"savebutton_{int(time.time())}@test.com", 
     "password": "SecurePass456!",
-    "name": "Jordan Workout"
+    "name": "Save Button Tester"
 }
 
 class UserProfileFollowingSystemTest:
