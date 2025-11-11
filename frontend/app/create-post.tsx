@@ -374,8 +374,13 @@ export default function CreatePost() {
                 </View>
                 <TouchableOpacity 
                   onPress={handleSaveCard} 
-                  style={styles.saveCardButton}
-                  activeOpacity={0.7}
+                  onPressIn={() => setSaveButtonPressed(true)}
+                  onPressOut={() => setSaveButtonPressed(false)}
+                  style={[
+                    styles.saveCardButton,
+                    saveButtonPressed && styles.saveCardButtonPressed
+                  ]}
+                  activeOpacity={1}
                 >
                   <Ionicons name="bookmark-outline" size={18} color="#FFD700" />
                   <Text style={styles.saveButtonText}>Save</Text>
