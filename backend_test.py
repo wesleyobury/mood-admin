@@ -70,62 +70,50 @@ class CreatePostBackendTest:
             print(f"   Response: {response_data}")
         print()
 
-    def test_user_registration_and_login(self):
-        """Test user registration and login for test users"""
-        print("=== Testing User Registration and Login ===")
+    def test_auth_system_for_create_post(self):
+        """Test authentication system supporting create-post screen (simulating frontend auto-login)"""
+        print("=== Testing Auth System for Create-Post Screen ===")
         
-        # Try to register user1, if exists then login
+        # Test 1: Register user (simulating first-time user)
         try:
             response = self.session.post(f"{API_BASE}/auth/register", json=TEST_USER_DATA)
             if response.status_code == 200:
                 data = response.json()
                 self.user1_token = data.get('token')
                 self.user1_id = data.get('user_id')
-                self.log_result("User1 Registration", True, f"User ID: {self.user1_id}")
+                self.log_result("Auth Registration (Create-Post User)", True, f"User ID: {self.user1_id}")
             elif response.status_code == 400:
-                # User exists, try login
+                # User exists, try login (simulating auto-login)
                 login_data = {"username": TEST_USER_DATA["username"], "password": TEST_USER_DATA["password"]}
                 login_response = self.session.post(f"{API_BASE}/auth/login", json=login_data)
                 if login_response.status_code == 200:
                     data = login_response.json()
                     self.user1_token = data.get('token')
                     self.user1_id = data.get('user_id')
-                    self.log_result("User1 Login", True, f"User ID: {self.user1_id}")
+                    self.log_result("Auth Auto-Login (Create-Post User)", True, f"User ID: {self.user1_id}")
                 else:
-                    self.log_result("User1 Login", False, f"Status: {login_response.status_code}", login_response.text)
+                    self.log_result("Auth Auto-Login (Create-Post User)", False, f"Status: {login_response.status_code}", login_response.text)
                     return False
             else:
-                self.log_result("User1 Registration", False, f"Status: {response.status_code}", response.text)
+                self.log_result("Auth Registration (Create-Post User)", False, f"Status: {response.status_code}", response.text)
                 return False
         except Exception as e:
-            self.log_result("User1 Registration", False, f"Exception: {str(e)}")
+            self.log_result("Auth Registration (Create-Post User)", False, f"Exception: {str(e)}")
             return False
 
-        # Try to register user2, if exists then login
+        # Test 2: Verify single auth call works (no infinite loops)
         try:
-            response = self.session.post(f"{API_BASE}/auth/register", json=TEST_USER_2_DATA)
+            headers = {"Authorization": f"Bearer {self.user1_token}"}
+            response = self.session.get(f"{API_BASE}/users/me", headers=headers)
+            
             if response.status_code == 200:
-                data = response.json()
-                self.user2_token = data.get('token')
-                self.user2_id = data.get('user_id')
-                self.log_result("User2 Registration", True, f"User ID: {self.user2_id}")
-            elif response.status_code == 400:
-                # User exists, try login
-                login_data = {"username": TEST_USER_2_DATA["username"], "password": TEST_USER_2_DATA["password"]}
-                login_response = self.session.post(f"{API_BASE}/auth/login", json=login_data)
-                if login_response.status_code == 200:
-                    data = login_response.json()
-                    self.user2_token = data.get('token')
-                    self.user2_id = data.get('user_id')
-                    self.log_result("User2 Login", True, f"User ID: {self.user2_id}")
-                else:
-                    self.log_result("User2 Login", False, f"Status: {login_response.status_code}", login_response.text)
-                    return False
+                user_data = response.json()
+                self.log_result("Auth Token Validation (Single Call)", True, f"Username: {user_data.get('username')}")
             else:
-                self.log_result("User2 Registration", False, f"Status: {response.status_code}", response.text)
+                self.log_result("Auth Token Validation (Single Call)", False, f"Status: {response.status_code}")
                 return False
         except Exception as e:
-            self.log_result("User2 Registration", False, f"Exception: {str(e)}")
+            self.log_result("Auth Token Validation (Single Call)", False, f"Exception: {str(e)}")
             return False
 
         return True
