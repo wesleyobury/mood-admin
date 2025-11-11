@@ -36,30 +36,48 @@ interface AuthProviderProps {
 export function AuthProvider({ children }: AuthProviderProps) {
   const [user, setUser] = useState<User | null>(null);
   const [token, setToken] = useState<string | null>(null);
-  const [isLoading, setIsLoading] = useState(false); // Changed to false immediately
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // Simple mock auth - just set a token without any API calls
-    // This prevents infinite loops from async operations
-    const mockToken = 'mock-token-fitnessqueen';
-    setToken(mockToken);
-    
-    // Set mock user data
-    setUser({
-      id: '123',
-      username: 'fitnessqueen',
-      email: 'queen@fitness.com',
-      name: 'Fitness Queen',
-      bio: 'Fitness enthusiast',
-      avatar: '',
-      followers_count: 0,
-      following_count: 0,
-      workouts_count: 0,
-      current_streak: 0,
-    });
-    
-    console.log('✅ Mock auth set');
-  }, []); // Only run once on mount
+    // Do actual login once on mount
+    const doLogin = async () => {
+      try {
+        const response = await fetch(`${API_URL}/api/auth/login`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            username: 'fitnessqueen',
+            password: 'password123',
+          }),
+        });
+
+        if (response.ok) {
+          const data = await response.json();
+          setToken(data.token);
+          
+          // Get user info
+          const userResp = await fetch(`${API_URL}/api/users/me`, {
+            headers: { 'Authorization': `Bearer ${data.token}` },
+          });
+          
+          if (userResp.ok) {
+            const userData = await userResp.json();
+            setUser(userData);
+          }
+          
+          console.log('✅ Auto-login successful');
+        }
+      } catch (err) {
+        console.error('Auth error:', err);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    // Delay to ensure component is mounted
+    const timer = setTimeout(doLogin, 100);
+    return () => clearTimeout(timer);
+  }, []); // Only run once
 
   const loadStoredAuth = async () => {
     try {
