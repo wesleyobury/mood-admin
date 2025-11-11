@@ -85,38 +85,16 @@ export default function Profile() {
 
   // Load workout cards when Cards tab is selected
   useEffect(() => {
-    if (activeTab === 'cards' && authToken) {
+    if (activeTab === 'cards' && token) {
       fetchWorkoutCards();
     }
-  }, [activeTab, authToken]);
-
-  const loadMockAuth = async () => {
-    try {
-      const response = await fetch(`${API_URL}/api/auth/login`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          username: 'fitnessqueen',
-          password: 'password123',
-        }),
-      });
-
-      if (response.ok) {
-        const data = await response.json();
-        setAuthToken(data.token);
-      }
-    } catch (error) {
-      console.error('Mock auth failed:', error);
-    }
-  };
+  }, [activeTab, token]);
 
   const fetchUserProfile = async () => {
     try {
       const response = await fetch(`${API_URL}/api/users/me`, {
         headers: {
-          'Authorization': `Bearer ${authToken}`,
+          'Authorization': `Bearer ${token}`,
         },
       });
 
@@ -147,9 +125,9 @@ export default function Profile() {
   const fetchWorkoutCards = async () => {
     setLoadingCards(true);
     try {
-      const response = await fetch(`${API_URL}/api/workout-cards`, {
+      const response = await fetch(`${API_URL}/api/workout-cards/${user.id}`, {
         headers: {
-          'Authorization': `Bearer ${authToken}`,
+          'Authorization': `Bearer ${token}`,
         },
       });
 
