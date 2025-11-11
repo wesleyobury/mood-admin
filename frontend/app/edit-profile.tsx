@@ -39,7 +39,6 @@ export default function EditProfile() {
   const { token } = useAuth();
 
   useEffect(() => {
-    loadMockAuth();
   }, []);
 
   useEffect(() => {
@@ -48,7 +47,6 @@ export default function EditProfile() {
     }
   }, [authToken]);
 
-  const loadMockAuth = async () => {
     try {
       const response = await fetch(`${API_URL}/api/auth/login`, {
         method: 'POST',
@@ -66,7 +64,6 @@ export default function EditProfile() {
         setAuthToken(data.token);
       }
     } catch (error) {
-      console.error('Mock auth failed:', error);
     }
   };
 

@@ -50,7 +50,6 @@ export default function UserProfile() {
   const { token } = useAuth();
 
   useEffect(() => {
-    loadMockAuth();
   }, []);
 
   useEffect(() => {
@@ -61,7 +60,6 @@ export default function UserProfile() {
     }
   }, [authToken, userId]);
 
-  const loadMockAuth = async () => {
     try {
       const response = await fetch(`${API_URL}/api/auth/login`, {
         method: 'POST',
@@ -79,7 +77,6 @@ export default function UserProfile() {
         setAuthToken(data.token);
       }
     } catch (error) {
-      console.error('Mock auth failed:', error);
     }
   };
 
