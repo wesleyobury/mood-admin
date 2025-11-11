@@ -36,63 +36,30 @@ interface AuthProviderProps {
 export function AuthProvider({ children }: AuthProviderProps) {
   const [user, setUser] = useState<User | null>(null);
   const [token, setToken] = useState<string | null>(null);
-  const [isLoading, setIsLoading] = useState(true);
-  const hasInitialized = useRef(false);
+  const [isLoading, setIsLoading] = useState(false); // Changed to false immediately
 
   useEffect(() => {
-    // Prevent multiple initializations
-    if (hasInitialized.current) return;
-    hasInitialized.current = true;
-
-    // Auto-login with mock user for development
-    const autoLogin = async () => {
-      try {
-        const response = await fetch(`${API_URL}/api/auth/login`, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            username: 'fitnessqueen',
-            password: 'password123',
-          }),
-        });
-
-        if (response.ok) {
-          const data = await response.json();
-          const { token: authToken, user_id } = data;
-          setToken(authToken);
-          await AsyncStorage.setItem('auth_token', authToken);
-          
-          // Fetch user data
-          try {
-            const userResponse = await fetch(`${API_URL}/api/users/me`, {
-              headers: {
-                'Authorization': `Bearer ${authToken}`,
-              },
-            });
-
-            if (userResponse.ok) {
-              const userData = await userResponse.json();
-              setUser(userData);
-            }
-          } catch (userError) {
-            console.error('Error fetching user:', userError);
-          }
-          
-          console.log('✅ Auto-login successful');
-        } else {
-          console.error('Auto-login failed with status:', response.status);
-        }
-      } catch (error) {
-        console.error('Auto-login error:', error);
-      } finally {
-        setIsLoading(false);
-      }
-    };
+    // Simple mock auth - just set a token without any API calls
+    // This prevents infinite loops from async operations
+    const mockToken = 'mock-token-fitnessqueen';
+    setToken(mockToken);
     
-    autoLogin();
-  }, []); // Empty dependency array - only run once on mount
+    // Set mock user data
+    setUser({
+      id: '123',
+      username: 'fitnessqueen',
+      email: 'queen@fitness.com',
+      name: 'Fitness Queen',
+      bio: 'Fitness enthusiast',
+      avatar: '',
+      followers_count: 0,
+      following_count: 0,
+      workouts_count: 0,
+      current_streak: 0,
+    });
+    
+    console.log('✅ Mock auth set');
+  }, []); // Only run once on mount
 
   const loadStoredAuth = async () => {
     try {
