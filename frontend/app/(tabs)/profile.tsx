@@ -147,7 +147,7 @@ export default function Profile() {
       const response = await fetch(`${API_URL}/api/workout-cards/${cardId}`, {
         method: 'DELETE',
         headers: {
-          'Authorization': `Bearer ${authToken}`,
+          'Authorization': `Bearer ${token}`,
         },
       });
 
