@@ -44,7 +44,7 @@ TEST_USER_2_DATA = {
     "name": "Save Button Tester"
 }
 
-class UserProfileFollowingSystemTest:
+class CreatePostBackendTest:
     def __init__(self):
         self.session = requests.Session()
         self.user1_token = None
