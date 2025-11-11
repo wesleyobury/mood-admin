@@ -36,7 +36,7 @@ export default function EditProfile() {
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
   const [uploadingImage, setUploadingImage] = useState(false);
-  const [authToken, setAuthToken] = useState<string | null>(null);
+  const { token } = useAuth();
 
   useEffect(() => {
     loadMockAuth();

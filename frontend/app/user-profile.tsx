@@ -47,7 +47,7 @@ export default function UserProfile() {
   const [isFollowing, setIsFollowing] = useState(false);
   const [isSelf, setIsSelf] = useState(false);
   const [loading, setLoading] = useState(true);
-  const [authToken, setAuthToken] = useState<string | null>(null);
+  const { token } = useAuth();
 
   useEffect(() => {
     loadMockAuth();
