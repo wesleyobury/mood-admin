@@ -71,22 +71,17 @@ export default function Profile() {
   const [loadingProfile, setLoadingProfile] = useState(true);
   const [selectedCard, setSelectedCard] = useState<WorkoutCard | null>(null);
   const [modalVisible, setModalVisible] = useState(false);
-  const [authToken, setAuthToken] = useState<string | null>(null);
+  const { token } = useAuth();
 
   const [activeTab, setActiveTab] = useState<'workouts' | 'achievements' | 'cards'>('workouts');
   const router = useRouter();
 
-  // Load auth token
+  // Load user profile when token is available
   useEffect(() => {
-    loadMockAuth();
-  }, []);
-
-  // Load user profile when auth token is available
-  useEffect(() => {
-    if (authToken) {
+    if (token) {
       fetchUserProfile();
     }
-  }, [authToken]);
+  }, [token]);
 
   // Load workout cards when Cards tab is selected
   useEffect(() => {
