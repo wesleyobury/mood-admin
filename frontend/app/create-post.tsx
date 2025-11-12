@@ -126,11 +126,10 @@ export default function CreatePost() {
         useNativeDriver: true,
       }),
     ]).start(() => {
-      // Auto-dismiss after 2 seconds and navigate home
+      // Auto-dismiss after 1.5 seconds, stay on screen
       setTimeout(() => {
         setShowSuccessModal(false);
-        navigateToHome();
-      }, 2000);
+      }, 1500);
     });
   };
 
