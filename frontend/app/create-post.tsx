@@ -191,37 +191,58 @@ export default function CreatePost() {
 
   const handleCancel = () => {
     console.log('handleCancel called');
-    if (hasStatsCard) {
-      Alert.alert(
-        'Cancel Post',
-        'Do you want to save your workout card to your profile before leaving?',
-        [
-          {
-            text: 'Discard All',
-            style: 'destructive',
-            onPress: () => {
-              console.log('Discard All pressed');
-              navigateToHome();
-            },
-          },
-          {
-            text: 'Save Card Only',
-            onPress: async () => {
-              console.log('Save Card Only pressed');
-              await handleSaveCard();
-              navigateToHome();
-            },
-          },
-          {
-            text: 'Keep Editing',
-            style: 'cancel',
-          },
-        ]
-      );
+    
+    if (Platform.OS === 'web') {
+      // On web, use native confirm dialog
+      if (hasStatsCard) {
+        const shouldSave = window.confirm('Do you want to save your workout card before leaving?\n\nClick OK to save, Cancel to discard.');
+        if (shouldSave) {
+          console.log('User chose to save');
+          handleSaveCard().then(() => {
+            console.log('Card saved, now navigating...');
+            navigateToHome();
+          });
+        } else {
+          console.log('User chose to discard');
+          navigateToHome();
+        }
+      } else {
+        console.log('No stats card, navigating home');
+        navigateToHome();
+      }
     } else {
-      // Go to home instead of back
-      console.log('No stats card, going home');
-      navigateToHome();
+      // On native, use Alert.alert with buttons
+      if (hasStatsCard) {
+        Alert.alert(
+          'Cancel Post',
+          'Do you want to save your workout card to your profile before leaving?',
+          [
+            {
+              text: 'Discard All',
+              style: 'destructive',
+              onPress: () => {
+                console.log('Discard All pressed');
+                navigateToHome();
+              },
+            },
+            {
+              text: 'Save Card Only',
+              onPress: async () => {
+                console.log('Save Card Only pressed');
+                await handleSaveCard();
+                navigateToHome();
+              },
+            },
+            {
+              text: 'Keep Editing',
+              style: 'cancel',
+            },
+          ]
+        );
+      } else {
+        console.log('No stats card, going home');
+        navigateToHome();
+      }
     }
   };
 
