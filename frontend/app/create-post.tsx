@@ -280,6 +280,20 @@ export default function CreatePost() {
     setSelectedImages(selectedImages.filter((_, i) => i !== index));
   };
 
+  const moveImageUp = (index: number) => {
+    if (index === 0) return;
+    const newImages = [...selectedImages];
+    [newImages[index - 1], newImages[index]] = [newImages[index], newImages[index - 1]];
+    setSelectedImages(newImages);
+  };
+
+  const moveImageDown = (index: number) => {
+    if (index === selectedImages.length - 1) return;
+    const newImages = [...selectedImages];
+    [newImages[index], newImages[index + 1]] = [newImages[index + 1], newImages[index]];
+    setSelectedImages(newImages);
+  };
+
   const extractHashtags = (text: string): string[] => {
     const hashtagRegex = /#[a-zA-Z0-9_]+/g;
     const matches = text.match(hashtagRegex);
