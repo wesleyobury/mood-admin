@@ -299,13 +299,21 @@ export default function CreatePost() {
         const match = /\.(\w+)$/.exec(filename);
         const type = match ? `image/${match[1]}` : 'image/jpeg';
 
-        formData.append('file', {
-          uri: imageUri,
-          name: filename,
-          type,
-        } as any);
+        if (Platform.OS === 'web') {
+          // For web, fetch the blob and append it
+          const response = await fetch(imageUri);
+          const blob = await response.blob();
+          formData.append('file', blob, filename);
+        } else {
+          // For native platforms
+          formData.append('file', {
+            uri: imageUri,
+            name: filename,
+            type,
+          } as any);
+        }
 
-        const response = await fetch(`${API_URL}/api/upload`, {
+        const uploadResponse = await fetch(`${API_URL}/api/upload`, {
           method: 'POST',
           headers: {
             'Authorization': `Bearer ${token}`,
@@ -313,15 +321,21 @@ export default function CreatePost() {
           body: formData,
         });
 
-        if (response.ok) {
-          const data = await response.json();
+        console.log('Upload response status:', uploadResponse.status);
+        if (uploadResponse.ok) {
+          const data = await uploadResponse.json();
+          console.log('Upload success:', data);
           uploadedUrls.push(data.url);
+        } else {
+          const errorText = await uploadResponse.text();
+          console.error('Upload failed:', uploadResponse.status, errorText);
         }
       } catch (error) {
         console.error('Error uploading image:', error);
       }
     }
 
+    console.log('All uploaded URLs:', uploadedUrls);
     return uploadedUrls;
   };
 
