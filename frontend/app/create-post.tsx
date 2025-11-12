@@ -105,6 +105,35 @@ export default function CreatePost() {
     }
   };
 
+  const showSuccessAnimation = () => {
+    setShowSuccessModal(true);
+    
+    // Same animation as "Add workout" button
+    Animated.sequence([
+      Animated.timing(successScaleAnim, {
+        toValue: 0.8,
+        duration: 100,
+        useNativeDriver: true,
+      }),
+      Animated.timing(successScaleAnim, {
+        toValue: 1.2,
+        duration: 200,
+        useNativeDriver: true,
+      }),
+      Animated.timing(successScaleAnim, {
+        toValue: 1,
+        duration: 100,
+        useNativeDriver: true,
+      }),
+    ]).start(() => {
+      // Auto-dismiss after 2 seconds and navigate home
+      setTimeout(() => {
+        setShowSuccessModal(false);
+        navigateToHome();
+      }, 2000);
+    });
+  };
+
   const handleSaveCard = async () => {
     console.log('handleSaveCard called');
     console.log('Current auth state:', { 
@@ -151,7 +180,8 @@ export default function CreatePost() {
 
       console.log('Save response status:', response.status);
       if (response.ok) {
-        showAlert('Saved! 🔖', 'Your workout card has been saved to your Profile > Cards tab for future viewing.');
+        console.log('✅ Card saved successfully! Showing success animation...');
+        showSuccessAnimation();
       } else {
         const errorData = await response.json();
         console.error('Save error:', errorData);
