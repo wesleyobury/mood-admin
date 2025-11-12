@@ -653,18 +653,19 @@ const styles = StyleSheet.create({
   saveCardButton: {
     flexDirection: 'row',
     alignItems: 'center',
+    justifyContent: 'center',
     gap: 6,
-    paddingVertical: 6,
-    paddingHorizontal: 12,
+    paddingVertical: 8,
+    paddingHorizontal: 16,
     backgroundColor: 'rgba(255, 215, 0, 0.1)',
     borderRadius: 8,
     borderWidth: 1,
     borderColor: 'rgba(255, 215, 0, 0.3)',
+    minWidth: 80,
   },
-  saveCardButtonPressed: {
-    backgroundColor: 'rgba(255, 215, 0, 0.3)',
+  saveCardButtonSaved: {
+    backgroundColor: 'rgba(255, 215, 0, 0.2)',
     borderColor: '#FFD700',
-    transform: [{ scale: 0.95 }],
   },
   saveButtonText: {
     fontSize: 12,
