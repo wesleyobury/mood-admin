@@ -286,6 +286,21 @@ export default function CreatePost() {
     return matches ? matches.map(tag => tag.substring(1)) : [];
   };
 
+  const captureWorkoutCard = async (): Promise<string | null> => {
+    if (!workoutStats || !statsCardRef.current) return null;
+    
+    try {
+      const uri = await captureRef(statsCardRef.current, {
+        format: 'png',
+        quality: 0.8,
+      });
+      return uri;
+    } catch (error) {
+      console.error('Error capturing workout card:', error);
+      return null;
+    }
+  };
+
   const uploadImages = async (): Promise<string[]> => {
     const uploadedUrls: string[] = [];
     
@@ -295,12 +310,18 @@ export default function CreatePost() {
 
       try {
         const formData = new FormData();
-        const filename = imageUri.split('/').pop() || 'image.jpg';
+        let filename = imageUri.split('/').pop() || 'image.jpg';
+        
+        // Ensure filename has extension
+        if (!filename.includes('.')) {
+          filename = `image_${Date.now()}.jpg`;
+        }
+        
         const match = /\.(\w+)$/.exec(filename);
         const type = match ? `image/${match[1]}` : 'image/jpeg';
 
         if (Platform.OS === 'web') {
-          // For web, fetch the blob and append it
+          // For web, fetch the blob and append it with proper filename
           const response = await fetch(imageUri);
           const blob = await response.blob();
           formData.append('file', blob, filename);
