@@ -370,7 +370,51 @@ export default function CreatePost() {
     setUploadProgress(0);
 
     try {
-      const mediaUrls = await uploadImages();
+      // Upload regular images
+      let mediaUrls = await uploadImages();
+      
+      // Capture and upload workout card if it exists
+      if (hasStatsCard && workoutStats) {
+        const cardUri = await captureWorkoutCard();
+        if (cardUri) {
+          // Add workout card to selectedImages temporarily to upload it
+          const originalImages = [...selectedImages];
+          setSelectedImages([...selectedImages, cardUri]);
+          
+          // Upload the workout card
+          const formData = new FormData();
+          const filename = `workout_card_${Date.now()}.png`;
+          
+          if (Platform.OS === 'web') {
+            const response = await fetch(cardUri);
+            const blob = await response.blob();
+            formData.append('file', blob, filename);
+          } else {
+            formData.append('file', {
+              uri: cardUri,
+              name: filename,
+              type: 'image/png',
+            } as any);
+          }
+          
+          const uploadResponse = await fetch(`${API_URL}/api/upload`, {
+            method: 'POST',
+            headers: {
+              'Authorization': `Bearer ${token}`,
+            },
+            body: formData,
+          });
+          
+          if (uploadResponse.ok) {
+            const data = await uploadResponse.json();
+            mediaUrls.push(data.url); // Add workout card as last item
+          }
+          
+          // Restore original images
+          setSelectedImages(originalImages);
+        }
+      }
+      
       const hashtags = extractHashtags(caption);
 
       const response = await fetch(`${API_URL}/api/posts`, {
@@ -386,13 +430,17 @@ export default function CreatePost() {
         }),
       });
 
+      console.log('Post response status:', response.status);
       if (response.ok) {
+        console.log('Post created successfully!');
         showAlert('Posted! ✨', 'Your workout has been shared to your feed!');
-        // Navigate after a short delay
+        // Navigate after showing alert
         setTimeout(() => {
           navigateToHome();
-        }, 1500);
+        }, 2000);
       } else {
+        const errorText = await response.text();
+        console.error('Post failed:', response.status, errorText);
         showAlert('Error', 'Failed to create post. Please try again.');
       }
     } catch (error) {
