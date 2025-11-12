@@ -36,7 +36,7 @@ interface WorkoutStats {
 export default function CreatePost() {
   const router = useRouter();
   const params = useLocalSearchParams();
-  const { user, token } = useAuth();
+  const { user, token, isLoading } = useAuth();
   const [caption, setCaption] = useState('');
   const [selectedImages, setSelectedImages] = useState<string[]>([]);
   const [uploading, setUploading] = useState(false);
@@ -45,6 +45,16 @@ export default function CreatePost() {
   const [hasStatsCard, setHasStatsCard] = useState(false);
   const [saveButtonPressed, setSaveButtonPressed] = useState(false);
   const statsCardRef = useRef(null);
+
+  // Debug auth state
+  useEffect(() => {
+    console.log('🔍 Auth state:', { 
+      hasToken: !!token, 
+      hasUser: !!user, 
+      isLoading,
+      tokenLength: token?.length || 0 
+    });
+  }, [token, user, isLoading]);
 
   // Load workout stats
   useEffect(() => {
