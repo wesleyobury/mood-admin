@@ -169,7 +169,16 @@ export default function CreatePost() {
             style: 'destructive',
             onPress: () => {
               console.log('Discard All pressed');
-              router.push('/(tabs)');
+              console.log('Attempting navigation to home...');
+              router.replace('/(tabs)');
+              // Fallback navigation
+              setTimeout(() => {
+                if (router.canGoBack()) {
+                  router.back();
+                } else {
+                  router.replace('/');
+                }
+              }, 500);
             },
           },
           {
@@ -177,7 +186,15 @@ export default function CreatePost() {
             onPress: async () => {
               console.log('Save Card Only pressed');
               await handleSaveCard();
-              router.push('/(tabs)');
+              console.log('Attempting navigation to home...');
+              router.replace('/(tabs)');
+              setTimeout(() => {
+                if (router.canGoBack()) {
+                  router.back();
+                } else {
+                  router.replace('/');
+                }
+              }, 500);
             },
           },
           {
@@ -189,7 +206,16 @@ export default function CreatePost() {
     } else {
       // Go to home instead of back
       console.log('No stats card, going home');
-      router.push('/(tabs)');
+      console.log('Attempting navigation to home...');
+      router.replace('/(tabs)');
+      // Fallback navigation
+      setTimeout(() => {
+        if (router.canGoBack()) {
+          router.back();
+        } else {
+          router.replace('/');
+        }
+      }, 500);
     }
   };
 
