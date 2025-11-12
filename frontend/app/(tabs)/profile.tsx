@@ -125,15 +125,20 @@ export default function Profile() {
   const fetchWorkoutCards = async () => {
     setLoadingCards(true);
     try {
-      const response = await fetch(`${API_URL}/api/workout-cards/${user.id}`, {
+      console.log('Fetching workout cards...');
+      const response = await fetch(`${API_URL}/api/workout-cards`, {
         headers: {
           'Authorization': `Bearer ${token}`,
         },
       });
 
+      console.log('Workout cards response status:', response.status);
       if (response.ok) {
         const data = await response.json();
+        console.log('Fetched workout cards:', data);
         setWorkoutCards(data);
+      } else {
+        console.error('Failed to fetch workout cards:', response.status);
       }
     } catch (error) {
       console.error('Error fetching workout cards:', error);
