@@ -504,7 +504,7 @@ export default function CreatePost() {
                     activeOpacity={0.7}
                   >
                     {cardSaved ? (
-                      <Ionicons name="checkmark" size={20} color="#FFD700" />
+                      <Text style={styles.savedText}>Saved to profile</Text>
                     ) : (
                       <>
                         <Ionicons name="bookmark-outline" size={18} color="#FFD700" />
