@@ -666,12 +666,34 @@ async def upload_file(
 ):
     """Upload a single media file (image or video)"""
     try:
-        # Validate file type
+        # Validate file type - handle missing/empty filename
         allowed_extensions = {'.jpg', '.jpeg', '.png', '.gif', '.mp4', '.mov', '.avi'}
-        file_ext = Path(file.filename).suffix.lower()
         
-        if file_ext not in allowed_extensions:
-            raise HTTPException(status_code=400, detail=f"File type {file_ext} not allowed")
+        # Get file extension from filename or fallback to content_type
+        file_ext = None
+        if file.filename:
+            file_ext = Path(file.filename).suffix.lower()
+        
+        # Fallback: detect from content_type if filename is missing/invalid
+        if not file_ext or file_ext not in allowed_extensions:
+            content_type = file.content_type or ''
+            logger.info(f"Filename: {file.filename}, Content-Type: {content_type}")
+            
+            if 'image/jpeg' in content_type or 'image/jpg' in content_type:
+                file_ext = '.jpg'
+            elif 'image/png' in content_type:
+                file_ext = '.png'
+            elif 'image/gif' in content_type:
+                file_ext = '.gif'
+            elif 'video/mp4' in content_type:
+                file_ext = '.mp4'
+            elif 'video/quicktime' in content_type:
+                file_ext = '.mov'
+            elif 'video/avi' in content_type or 'video/x-msvideo' in content_type:
+                file_ext = '.avi'
+        
+        if not file_ext or file_ext not in allowed_extensions:
+            raise HTTPException(status_code=400, detail=f"File type {file_ext} not allowed. Content-Type: {file.content_type}")
         
         # Generate unique filename
         unique_filename = f"{uuid.uuid4()}{file_ext}"
@@ -685,6 +707,7 @@ async def upload_file(
         # Return file URL (relative path that frontend can use)
         file_url = f"/api/uploads/{unique_filename}"
         
+        logger.info(f"✅ File uploaded successfully: {unique_filename}")
         return {
             "message": "File uploaded successfully",
             "url": file_url,
@@ -693,7 +716,7 @@ async def upload_file(
     
     except Exception as e:
         logger.error(f"File upload error: {str(e)}")
-        raise HTTPException(status_code=500, detail="File upload failed")
+        raise HTTPException(status_code=500, detail=str(e))
 
 @api_router.post("/upload/multiple")
 async def upload_multiple_files(
