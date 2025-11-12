@@ -498,19 +498,26 @@ export default function CreatePost() {
                   <Ionicons name="trophy" size={16} color="#FFD700" />
                   <Text style={styles.attachmentType}>Workout Achievement</Text>
                 </View>
-                <TouchableOpacity 
-                  onPress={handleSaveCard} 
-                  onPressIn={() => setSaveButtonPressed(true)}
-                  onPressOut={() => setSaveButtonPressed(false)}
-                  style={[
-                    styles.saveCardButton,
-                    saveButtonPressed && styles.saveCardButtonPressed
-                  ]}
-                  activeOpacity={1}
-                >
-                  <Ionicons name="bookmark-outline" size={18} color="#FFD700" />
-                  <Text style={styles.saveButtonText}>Save</Text>
-                </TouchableOpacity>
+                <Animated.View style={{ transform: [{ scale: saveScaleAnim }] }}>
+                  <TouchableOpacity 
+                    onPress={handleSaveCard} 
+                    disabled={cardSaved}
+                    style={[
+                      styles.saveCardButton,
+                      cardSaved && styles.saveCardButtonSaved
+                    ]}
+                    activeOpacity={0.7}
+                  >
+                    {cardSaved ? (
+                      <Ionicons name="checkmark" size={20} color="#FFD700" />
+                    ) : (
+                      <>
+                        <Ionicons name="bookmark-outline" size={18} color="#FFD700" />
+                        <Text style={styles.saveButtonText}>Save</Text>
+                      </>
+                    )}
+                  </TouchableOpacity>
+                </Animated.View>
               </View>
               <View style={styles.statsCardWrapper}>
                 <WorkoutStatsCard {...workoutStats} />
