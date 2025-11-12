@@ -105,32 +105,25 @@ export default function CreatePost() {
     }
   };
 
-  const showSuccessAnimation = () => {
-    setShowSuccessModal(true);
-    
+  const showSaveAnimation = () => {
     // Same animation as "Add workout" button
     Animated.sequence([
-      Animated.timing(successScaleAnim, {
+      Animated.timing(saveScaleAnim, {
         toValue: 0.8,
         duration: 100,
         useNativeDriver: true,
       }),
-      Animated.timing(successScaleAnim, {
+      Animated.timing(saveScaleAnim, {
         toValue: 1.2,
         duration: 200,
         useNativeDriver: true,
       }),
-      Animated.timing(successScaleAnim, {
+      Animated.timing(saveScaleAnim, {
         toValue: 1,
         duration: 100,
         useNativeDriver: true,
       }),
-    ]).start(() => {
-      // Auto-dismiss after 1.5 seconds, stay on screen
-      setTimeout(() => {
-        setShowSuccessModal(false);
-      }, 1500);
-    });
+    ]).start();
   };
 
   const handleSaveCard = async () => {
