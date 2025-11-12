@@ -48,9 +48,9 @@ export default function CreatePost() {
   const [saveButtonPressed, setSaveButtonPressed] = useState(false);
   const statsCardRef = useRef(null);
   
-  // Success modal state and animation
-  const [showSuccessModal, setShowSuccessModal] = useState(false);
-  const [successScaleAnim] = useState(new Animated.Value(1));
+  // Success animation state (inline button animation like "Add workout")
+  const [cardSaved, setCardSaved] = useState(false);
+  const [saveScaleAnim] = useState(new Animated.Value(1));
 
   // Debug auth state
   useEffect(() => {
