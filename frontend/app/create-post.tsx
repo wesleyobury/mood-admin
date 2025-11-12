@@ -145,15 +145,15 @@ export default function CreatePost() {
 
       console.log('Save response status:', response.status);
       if (response.ok) {
-        Alert.alert('Saved! 🔖', 'Your workout card has been saved to your Profile > Cards tab for future viewing.');
+        showAlert('Saved! 🔖', 'Your workout card has been saved to your Profile > Cards tab for future viewing.');
       } else {
         const errorData = await response.json();
         console.error('Save error:', errorData);
-        Alert.alert('Error', 'Failed to save workout card.');
+        showAlert('Error', 'Failed to save workout card.');
       }
     } catch (error) {
       console.error('Error saving workout card:', error);
-      Alert.alert('Error', 'Something went wrong while saving the card.');
+      showAlert('Error', 'Something went wrong while saving the card.');
     }
   };
 
