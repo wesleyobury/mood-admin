@@ -175,11 +175,6 @@ export default function CreatePost() {
         console.log('✅ Card saved successfully! Showing button animation...');
         setCardSaved(true);
         showSaveAnimation();
-        
-        // Reset after 2 seconds
-        setTimeout(() => {
-          setCardSaved(false);
-        }, 2000);
       } else {
         const errorData = await response.json();
         console.error('Save error:', errorData);
