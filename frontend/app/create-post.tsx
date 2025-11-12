@@ -667,6 +667,11 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     color: '#FFD700',
   },
+  savedText: {
+    fontSize: 12,
+    fontWeight: '600',
+    color: '#FFD700',
+  },
   statsCardWrapper: {
     alignItems: 'center',
     marginVertical: 6,
