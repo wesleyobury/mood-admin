@@ -841,36 +841,4 @@ const styles = StyleSheet.create({
   bottomSpacer: {
     height: 40,
   },
-  // Success Modal Styles
-  successModalOverlay: {
-    flex: 1,
-    backgroundColor: 'rgba(0, 0, 0, 0.95)',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  successModalContent: {
-    backgroundColor: '#1a1a1a',
-    borderRadius: 0,
-    padding: 24,
-    alignItems: 'center',
-    borderWidth: 2,
-    borderColor: 'rgba(255, 215, 0, 0.5)',
-    width: 220,
-  },
-  successIconContainer: {
-    marginBottom: 12,
-  },
-  successTitle: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    color: '#FFD700',
-    marginBottom: 8,
-    textAlign: 'center',
-  },
-  successMessage: {
-    fontSize: 13,
-    color: 'rgba(255, 255, 255, 0.8)',
-    textAlign: 'center',
-    lineHeight: 18,
-  },
 });
