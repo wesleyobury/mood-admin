@@ -59,7 +59,7 @@ export default function CreatePost() {
         console.error('Error parsing workout stats:', error);
       }
     }
-  }, [params]);
+  }, [params.workoutStats]);
 
   const pickImages = async () => {
     const maxImages = hasStatsCard ? 4 : 5;
