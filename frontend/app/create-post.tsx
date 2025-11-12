@@ -567,7 +567,7 @@ export default function CreatePost() {
             ]}
           >
             <View style={styles.successIconContainer}>
-              <Ionicons name="checkmark-circle" size={80} color="#FFD700" />
+              <Ionicons name="checkmark-circle" size={50} color="#FFD700" />
             </View>
             <Text style={styles.successTitle}>Workout Card Saved!</Text>
             <Text style={styles.successMessage}>
