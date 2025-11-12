@@ -136,7 +136,17 @@ export default function Profile() {
       if (response.ok) {
         const data = await response.json();
         console.log('Fetched workout cards:', data);
-        setWorkoutCards(data);
+        
+        // Transform snake_case to camelCase for frontend
+        const transformedData = data.map((card: any) => ({
+          id: card.id,
+          workouts: card.workouts,
+          totalDuration: card.total_duration,
+          completedAt: card.completed_at,
+          created_at: card.created_at,
+        }));
+        
+        setWorkoutCards(transformedData);
       } else {
         console.error('Failed to fetch workout cards:', response.status);
       }
