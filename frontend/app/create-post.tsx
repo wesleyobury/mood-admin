@@ -98,19 +98,29 @@ export default function CreatePost() {
     
     try {
       console.log('Saving card to API...');
+      
+      // Transform camelCase to snake_case for backend
+      const cardData = {
+        workouts: workoutStats.workouts,
+        total_duration: workoutStats.totalDuration,
+        completed_at: workoutStats.completedAt,
+      };
+      
       const response = await fetch(`${API_URL}/api/workout-cards`, {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`,
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(workoutStats),
+        body: JSON.stringify(cardData),
       });
 
       console.log('Save response status:', response.status);
       if (response.ok) {
         Alert.alert('Saved! 🔖', 'Your workout card has been saved to your Profile > Cards tab for future viewing.');
       } else {
+        const errorData = await response.json();
+        console.error('Save error:', errorData);
         Alert.alert('Error', 'Failed to save workout card.');
       }
     } catch (error) {
