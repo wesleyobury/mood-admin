@@ -327,7 +327,7 @@ export default function CreatePost() {
 
   const handleCreatePost = async () => {
     if (selectedImages.length === 0 && !caption.trim() && !hasStatsCard) {
-      Alert.alert('Empty Post', 'Please add at least an image, caption, or workout card');
+      showAlert('Empty Post', 'Please add at least an image, caption, or workout card');
       return;
     }
 
@@ -335,10 +335,6 @@ export default function CreatePost() {
     setUploadProgress(0);
 
     try {
-      if (workoutStats && token) {
-        await handleSaveCard();
-      }
-
       const mediaUrls = await uploadImages();
       const hashtags = extractHashtags(caption);
 
@@ -356,18 +352,17 @@ export default function CreatePost() {
       });
 
       if (response.ok) {
-        Alert.alert('Posted! ✨', 'Your workout achievement has been shared to your feed and saved to your profile!', [
-          {
-            text: 'OK',
-            onPress: () => router.push('/(tabs)'),
-          },
-        ]);
+        showAlert('Posted! ✨', 'Your workout has been shared to your feed!');
+        // Navigate after a short delay
+        setTimeout(() => {
+          navigateToHome();
+        }, 1500);
       } else {
-        Alert.alert('Error', 'Failed to create post. Please try again.');
+        showAlert('Error', 'Failed to create post. Please try again.');
       }
     } catch (error) {
       console.error('Error creating post:', error);
-      Alert.alert('Error', 'Something went wrong. Please try again.');
+      showAlert('Error', 'Something went wrong. Please try again.');
     } finally {
       setUploading(false);
       setUploadProgress(0);
