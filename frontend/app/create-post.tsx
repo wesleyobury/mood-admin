@@ -552,6 +552,30 @@ export default function CreatePost() {
           <View style={styles.bottomSpacer} />
         </ScrollView>
       </KeyboardAvoidingView>
+
+      {/* Success Modal */}
+      <Modal
+        visible={showSuccessModal}
+        transparent
+        animationType="fade"
+      >
+        <View style={styles.successModalOverlay}>
+          <Animated.View 
+            style={[
+              styles.successModalContent,
+              { transform: [{ scale: successScaleAnim }] }
+            ]}
+          >
+            <View style={styles.successIconContainer}>
+              <Ionicons name="checkmark-circle" size={80} color="#FFD700" />
+            </View>
+            <Text style={styles.successTitle}>Workout Card Saved!</Text>
+            <Text style={styles.successMessage}>
+              View it anytime in Profile → Cards
+            </Text>
+          </Animated.View>
+        </View>
+      </Modal>
     </SafeAreaView>
   );
 }
