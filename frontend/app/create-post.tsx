@@ -544,10 +544,29 @@ export default function CreatePost() {
                     style={styles.removeImageButton}
                     onPress={() => removeImage(index)}
                   >
-                    <Ionicons name="close-circle" size={22} color="#FFD700" />
+                    <Ionicons name="close-circle" size={22} color="#FF4444" />
                   </TouchableOpacity>
                   <View style={styles.imageNumber}>
                     <Text style={styles.imageNumberText}>{index + 1}</Text>
+                  </View>
+                  {/* Reorder buttons */}
+                  <View style={styles.reorderButtons}>
+                    {index > 0 && (
+                      <TouchableOpacity 
+                        style={styles.reorderButton}
+                        onPress={() => moveImageUp(index)}
+                      >
+                        <Ionicons name="chevron-back" size={18} color="#FFD700" />
+                      </TouchableOpacity>
+                    )}
+                    {index < selectedImages.length - 1 && (
+                      <TouchableOpacity 
+                        style={styles.reorderButton}
+                        onPress={() => moveImageDown(index)}
+                      >
+                        <Ionicons name="chevron-forward" size={18} color="#FFD700" />
+                      </TouchableOpacity>
+                    )}
                   </View>
                 </View>
               ))}
