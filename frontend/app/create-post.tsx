@@ -109,13 +109,13 @@ export default function CreatePost() {
     });
     
     if (isLoading) {
-      Alert.alert('Please wait', 'Loading authentication...');
+      showAlert('Please wait', 'Loading authentication...');
       return;
     }
     
     if (!token) {
       console.error('❌ No auth token available!');
-      Alert.alert('Authentication Error', 'Please wait a moment and try again. If the problem persists, try refreshing the app.');
+      showAlert('Authentication Error', 'Please wait a moment and try again. If the problem persists, try refreshing the app.');
       return;
     }
     
