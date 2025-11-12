@@ -157,6 +157,26 @@ export default function CreatePost() {
     }
   };
 
+  const navigateToHome = () => {
+    console.log('Navigating to home...');
+    try {
+      // Try multiple navigation strategies
+      if (Platform.OS === 'web' && typeof window !== 'undefined') {
+        console.log('Using window.location for web navigation');
+        window.location.href = '/';
+      } else {
+        console.log('Using router.replace');
+        router.replace('/(tabs)');
+      }
+    } catch (error) {
+      console.error('Navigation error:', error);
+      // Last resort fallback
+      if (router.canGoBack()) {
+        router.back();
+      }
+    }
+  };
+
   const handleCancel = () => {
     console.log('handleCancel called');
     if (hasStatsCard) {
@@ -169,16 +189,7 @@ export default function CreatePost() {
             style: 'destructive',
             onPress: () => {
               console.log('Discard All pressed');
-              console.log('Attempting navigation to home...');
-              router.replace('/(tabs)');
-              // Fallback navigation
-              setTimeout(() => {
-                if (router.canGoBack()) {
-                  router.back();
-                } else {
-                  router.replace('/');
-                }
-              }, 500);
+              navigateToHome();
             },
           },
           {
@@ -186,15 +197,7 @@ export default function CreatePost() {
             onPress: async () => {
               console.log('Save Card Only pressed');
               await handleSaveCard();
-              console.log('Attempting navigation to home...');
-              router.replace('/(tabs)');
-              setTimeout(() => {
-                if (router.canGoBack()) {
-                  router.back();
-                } else {
-                  router.replace('/');
-                }
-              }, 500);
+              navigateToHome();
             },
           },
           {
@@ -206,16 +209,7 @@ export default function CreatePost() {
     } else {
       // Go to home instead of back
       console.log('No stats card, going home');
-      console.log('Attempting navigation to home...');
-      router.replace('/(tabs)');
-      // Fallback navigation
-      setTimeout(() => {
-        if (router.canGoBack()) {
-          router.back();
-        } else {
-          router.replace('/');
-        }
-      }, 500);
+      navigateToHome();
     }
   };
 
