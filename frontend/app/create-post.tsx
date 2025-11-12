@@ -101,8 +101,26 @@ export default function CreatePost() {
 
   const handleSaveCard = async () => {
     console.log('handleSaveCard called');
-    if (!workoutStats || !token) {
-      console.log('Missing workoutStats or token:', { workoutStats: !!workoutStats, token: !!token });
+    console.log('Current auth state:', { 
+      hasWorkoutStats: !!workoutStats, 
+      hasToken: !!token, 
+      isLoading,
+      tokenPreview: token ? `${token.substring(0, 20)}...` : 'null'
+    });
+    
+    if (isLoading) {
+      Alert.alert('Please wait', 'Loading authentication...');
+      return;
+    }
+    
+    if (!token) {
+      console.error('❌ No auth token available!');
+      Alert.alert('Authentication Error', 'Please wait a moment and try again. If the problem persists, try refreshing the app.');
+      return;
+    }
+    
+    if (!workoutStats) {
+      console.log('No workout stats to save');
       return;
     }
     
