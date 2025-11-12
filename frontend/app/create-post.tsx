@@ -198,8 +198,9 @@ export default function CreatePost() {
       if (Platform.OS === 'web' && typeof window !== 'undefined') {
         console.log('Platform is web, using window.location');
         console.log('Current URL:', window.location.href);
-        window.location.href = '/';
-        console.log('window.location.href set to /');
+        // Navigate to the mood cards screen (tabs/index)
+        window.location.href = '/(tabs)';
+        console.log('window.location.href set to /(tabs)');
       } else {
         console.log('Platform is native, using router.replace');
         router.replace('/(tabs)');
