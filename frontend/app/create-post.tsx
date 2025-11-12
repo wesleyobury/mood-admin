@@ -158,22 +158,34 @@ export default function CreatePost() {
   };
 
   const navigateToHome = () => {
-    console.log('Navigating to home...');
+    console.log('navigateToHome called - starting navigation...');
     try {
-      // Try multiple navigation strategies
       if (Platform.OS === 'web' && typeof window !== 'undefined') {
-        console.log('Using window.location for web navigation');
+        console.log('Platform is web, using window.location');
+        console.log('Current URL:', window.location.href);
         window.location.href = '/';
+        console.log('window.location.href set to /');
       } else {
-        console.log('Using router.replace');
+        console.log('Platform is native, using router.replace');
         router.replace('/(tabs)');
       }
     } catch (error) {
       console.error('Navigation error:', error);
-      // Last resort fallback
       if (router.canGoBack()) {
+        console.log('Trying router.back()');
         router.back();
       }
+    }
+    console.log('navigateToHome completed');
+  };
+
+  const showAlert = (title: string, message: string) => {
+    if (Platform.OS === 'web') {
+      // Use native web alert for web platform
+      console.log(`Alert: ${title} - ${message}`);
+      window.alert(`${title}\n\n${message}`);
+    } else {
+      Alert.alert(title, message);
     }
   };
 
