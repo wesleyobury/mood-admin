@@ -336,10 +336,13 @@ export default function CreatePost() {
 
   const uploadImages = async (): Promise<string[]> => {
     const uploadedUrls: string[] = [];
+    const totalSteps = selectedImages.length + (hasStatsCard ? 1 : 0) + 1; // images + card + post creation
+    let currentStep = 0;
     
     for (let i = 0; i < selectedImages.length; i++) {
       const imageUri = selectedImages[i];
-      setUploadProgress(((i + 1) / selectedImages.length) * 100);
+      currentStep++;
+      setUploadProgress((currentStep / totalSteps) * 100);
 
       try {
         const formData = new FormData();
