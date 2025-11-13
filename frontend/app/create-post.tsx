@@ -95,30 +95,19 @@ export default function CreatePost() {
       return;
     }
 
-    // Pick one image at a time to allow manual cropping
+    // Use built-in editor with 4:5 aspect ratio
     const result = await ImagePicker.launchImageLibraryAsync({
       mediaTypes: ['images'],
       allowsMultipleSelection: false,
-      quality: 1,
+      allowsEditing: true,
+      aspect: [4, 5],
+      quality: 0.8,
     });
 
     if (!result.canceled && result.assets && result.assets.length > 0) {
-      // Show crop modal for the selected image
-      setImageToCrop(result.assets[0].uri);
-      setShowCropModal(true);
+      const croppedUri = result.assets[0].uri;
+      setSelectedImages([...selectedImages, croppedUri].slice(0, maxImages));
     }
-  };
-
-  const handleCropComplete = (croppedUri: string) => {
-    const maxImages = hasStatsCard ? 4 : 5;
-    setSelectedImages([...selectedImages, croppedUri].slice(0, maxImages));
-    setShowCropModal(false);
-    setImageToCrop(null);
-  };
-
-  const handleCropCancel = () => {
-    setShowCropModal(false);
-    setImageToCrop(null);
   };
 
   const showSaveAnimation = () => {
