@@ -1123,4 +1123,23 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFD700',
     borderRadius: 4,
   },
+  // Crop Modal Styles
+  cropHeader: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    padding: 16,
+    borderBottomWidth: 1,
+    borderBottomColor: 'rgba(255, 215, 0, 0.15)',
+  },
+  cropTitle: {
+    fontSize: 17,
+    fontWeight: 'bold',
+    color: '#FFD700',
+  },
+  cropCancelText: {
+    fontSize: 16,
+    color: '#FFD700',
+    fontWeight: '600',
+  },
 });
