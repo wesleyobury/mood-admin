@@ -406,6 +406,9 @@ export default function CreatePost() {
     setUploadProgress(0);
 
     try {
+      const totalSteps = selectedImages.length + (hasStatsCard ? 1 : 0) + 1;
+      let currentStep = 0;
+
       // Upload regular images
       let mediaUrls = await uploadImages();
       console.log('Uploaded regular images:', mediaUrls);
@@ -413,10 +416,17 @@ export default function CreatePost() {
       // Capture and upload workout card if it exists
       if (hasStatsCard && workoutStats) {
         console.log('📸 Capturing workout card...');
+        
+        // Small delay to ensure component is rendered
+        await new Promise(resolve => setTimeout(resolve, 100));
+        
         const cardUri = await captureWorkoutCard();
-        console.log('Workout card captured:', cardUri ? 'YES' : 'NO');
+        console.log('Workout card captured:', cardUri ? 'YES' : 'NO', 'Ref:', !!statsCardRef.current);
         
         if (cardUri) {
+          currentStep++;
+          setUploadProgress((currentStep / totalSteps) * 100);
+          
           console.log('Uploading workout card...');
           // Upload the workout card
           const formData = new FormData();
@@ -451,12 +461,17 @@ export default function CreatePost() {
             const errorText = await uploadResponse.text();
             console.error('❌ Workout card upload failed:', errorText);
           }
+        } else {
+          console.error('❌ Failed to capture workout card. Ref current:', statsCardRef.current);
         }
       } else {
         console.log('No workout card to capture (hasStatsCard:', hasStatsCard, ', workoutStats:', !!workoutStats, ')');
       }
       
       console.log('📤 Final mediaUrls for post:', mediaUrls);
+      
+      currentStep++;
+      setUploadProgress((currentStep / totalSteps) * 100);
       
       const hashtags = extractHashtags(caption);
 
@@ -475,20 +490,24 @@ export default function CreatePost() {
 
       console.log('Post response status:', response.status);
       if (response.ok) {
+        setUploadProgress(100);
         console.log('Post created successfully!');
         
-        // Use platform-specific alerts
+        // Small delay to show 100% completion
+        await new Promise(resolve => setTimeout(resolve, 500));
+        
+        // Use platform-specific alerts and navigate to explore page
         if (Platform.OS === 'web' && typeof window !== 'undefined') {
-          window.alert('Posted! ✨\n\nYour workout has been shared to your feed!');
-          // Navigate after alert is dismissed
-          setTimeout(() => {
-            navigateToHome();
-          }, 500);
+          window.alert('Posted! ✨');
+          // Navigate to explore page
+          window.location.href = '/(tabs)/explore';
         } else {
           Alert.alert('Posted! ✨', 'Your workout has been shared to your feed!', [
             {
               text: 'OK',
-              onPress: () => navigateToHome(),
+              onPress: () => {
+                router.replace('/(tabs)/explore');
+              },
             },
           ]);
         }
