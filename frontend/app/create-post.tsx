@@ -748,6 +748,34 @@ export default function CreatePost() {
           </View>
         </Modal>
       )}
+
+      {/* Image Crop Modal */}
+      {showCropModal && imageToCrop && (
+        <Modal
+          visible={showCropModal}
+          animationType="slide"
+          onRequestClose={handleCropCancel}
+        >
+          <SafeAreaView style={{ flex: 1, backgroundColor: '#000' }}>
+            <View style={styles.cropHeader}>
+              <TouchableOpacity onPress={handleCropCancel}>
+                <Text style={styles.cropCancelText}>Cancel</Text>
+              </TouchableOpacity>
+              <Text style={styles.cropTitle}>Adjust Photo</Text>
+              <View style={{ width: 60 }} />
+            </View>
+            <ImageCrop
+              imageUri={imageToCrop}
+              cropAreaWidth={SCREEN_WIDTH * 0.9}
+              cropAreaHeight={(SCREEN_WIDTH * 0.9) * 1.25} // 4:5 ratio
+              onCrop={(croppedUri) => handleCropComplete(croppedUri)}
+              activityIndicatorSize="large"
+              fixedRatio
+              cropRatio={4 / 5}
+            />
+          </SafeAreaView>
+        </Modal>
+      )}
     </SafeAreaView>
   );
 }
