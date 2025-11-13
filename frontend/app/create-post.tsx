@@ -740,6 +740,31 @@ export default function CreatePost() {
           <View style={styles.bottomSpacer} />
         </ScrollView>
       </KeyboardAvoidingView>
+
+      {/* Full Screen Loading Overlay */}
+      {uploading && (
+        <Modal
+          visible={uploading}
+          transparent
+          animationType="fade"
+        >
+          <View style={styles.loadingOverlay}>
+            <View style={styles.loadingContent}>
+              <ActivityIndicator size="large" color="#FFD700" />
+              <Text style={styles.loadingTitle}>Posting Workout...</Text>
+              <Text style={styles.loadingProgress}>{Math.round(uploadProgress)}%</Text>
+              <View style={styles.loadingProgressBar}>
+                <View 
+                  style={[
+                    styles.loadingProgressFill, 
+                    { width: `${uploadProgress}%` }
+                  ]} 
+                />
+              </View>
+            </View>
+          </View>
+        </Modal>
+      )}
     </SafeAreaView>
   );
 }
