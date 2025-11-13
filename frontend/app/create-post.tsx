@@ -684,7 +684,7 @@ export default function CreatePost() {
                   </TouchableOpacity>
                 </Animated.View>
               </View>
-              <View style={styles.statsCardWrapper}>
+              <View style={styles.statsCardWrapper} ref={statsCardRef} collapsable={false}>
                 <WorkoutStatsCard {...workoutStats} />
               </View>
               <View style={styles.saveExplanation}>
