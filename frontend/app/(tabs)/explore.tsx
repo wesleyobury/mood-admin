@@ -233,6 +233,7 @@ export default function Explore() {
       <ScrollView
         ref={scrollViewRef}
         style={styles.feed}
+        showsVerticalScrollIndicator={false}
         refreshControl={
           <RefreshControl refreshing={refreshing} onRefresh={onRefresh} tintColor="#FFD700" />
         }
