@@ -21,6 +21,7 @@ import { useRouter, useLocalSearchParams, router as globalRouter } from 'expo-ro
 import * as ImagePicker from 'expo-image-picker';
 import * as ImageManipulator from 'expo-image-manipulator';
 import { captureRef } from 'react-native-view-shot';
+import { ImageCrop } from 'expo-image-crop';
 import WorkoutStatsCard from '../components/WorkoutStatsCard';
 import { useAuth } from '../contexts/AuthContext';
 
