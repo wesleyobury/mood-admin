@@ -51,6 +51,8 @@ export default function CreatePost() {
   const [hasStatsCard, setHasStatsCard] = useState(false);
   const [saveButtonPressed, setSaveButtonPressed] = useState(false);
   const statsCardRef = useRef(null);
+  const [showCropModal, setShowCropModal] = useState(false);
+  const [imageToCrop, setImageToCrop] = useState<string | null>(null);
   
   // Success animation state (inline button animation like "Add workout")
   const [cardSaved, setCardSaved] = useState(false);
