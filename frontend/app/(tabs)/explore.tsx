@@ -48,6 +48,7 @@ export default function Explore() {
   const [activeTab, setActiveTab] = useState<'forYou' | 'following'>('forYou');
   const router = useRouter();
   const { token } = useAuth();
+  const scrollViewRef = useRef<ScrollView>(null);
 
   // Double tap to like functionality
   const lastTap = useRef<number>(0);
@@ -58,6 +59,15 @@ export default function Explore() {
       fetchPosts();
     }
   }, [token, activeTab]);
+
+  // Scroll to top when this screen is focused
+  useFocusEffect(
+    React.useCallback(() => {
+      if (scrollViewRef.current) {
+        scrollViewRef.current.scrollTo({ y: 0, animated: false });
+      }
+    }, [])
+  );
 
   const fetchPosts = async () => {
     if (!token) return;
