@@ -306,16 +306,34 @@ export default function CreatePost() {
   };
 
   const captureWorkoutCard = async (): Promise<string | null> => {
-    if (!workoutStats || !statsCardRef.current) return null;
+    if (!workoutStats || !statsCardRef.current) {
+      console.log('❌ No stats or ref:', { hasStats: !!workoutStats, hasRef: !!statsCardRef.current });
+      return null;
+    }
     
     try {
-      const uri = await captureRef(statsCardRef.current, {
-        format: 'png',
-        quality: 0.8,
-      });
-      return uri;
+      if (Platform.OS === 'web') {
+        // Use html2canvas for web
+        const html2canvas = (await import('html2canvas')).default;
+        const canvas = await html2canvas(statsCardRef.current, {
+          backgroundColor: '#0a0a0a',
+          scale: 2,
+          logging: false,
+        });
+        const uri = canvas.toDataURL('image/png');
+        console.log('✅ Web capture successful, data URL length:', uri.length);
+        return uri;
+      } else {
+        // Use react-native-view-shot for native
+        const uri = await captureRef(statsCardRef.current, {
+          format: 'png',
+          quality: 0.8,
+        });
+        console.log('✅ Native capture successful:', uri);
+        return uri;
+      }
     } catch (error) {
-      console.error('Error capturing workout card:', error);
+      console.error('❌ Error capturing workout card:', error);
       return null;
     }
   };
