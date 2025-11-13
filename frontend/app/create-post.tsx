@@ -437,9 +437,17 @@ export default function CreatePost() {
           const filename = `workout_card_${Date.now()}.png`;
           
           if (Platform.OS === 'web') {
-            const response = await fetch(cardUri);
-            const blob = await response.blob();
-            formData.append('file', blob, filename);
+            // Convert data URL to blob for web
+            if (cardUri.startsWith('data:')) {
+              const response = await fetch(cardUri);
+              const blob = await response.blob();
+              formData.append('file', blob, filename);
+            } else {
+              // If it's already a URL
+              const response = await fetch(cardUri);
+              const blob = await response.blob();
+              formData.append('file', blob, filename);
+            }
           } else {
             formData.append('file', {
               uri: cardUri,
