@@ -512,11 +512,22 @@ export default function CreatePost() {
       console.log('Post response status:', response.status);
       if (response.ok) {
         console.log('Post created successfully!');
-        showAlert('Posted! ✨', 'Your workout has been shared to your feed!');
-        // Navigate after showing alert
-        setTimeout(() => {
-          navigateToHome();
-        }, 2000);
+        
+        // Use platform-specific alerts
+        if (Platform.OS === 'web' && typeof window !== 'undefined') {
+          window.alert('Posted! ✨\n\nYour workout has been shared to your feed!');
+          // Navigate after alert is dismissed
+          setTimeout(() => {
+            navigateToHome();
+          }, 500);
+        } else {
+          Alert.alert('Posted! ✨', 'Your workout has been shared to your feed!', [
+            {
+              text: 'OK',
+              onPress: () => navigateToHome(),
+            },
+          ]);
+        }
       } else {
         const errorText = await response.text();
         console.error('Post failed:', response.status, errorText);
