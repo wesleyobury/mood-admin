@@ -80,18 +80,77 @@ export default function CreatePost() {
     }
   }, [params.workoutStats]);
 
+  const cropImageTo4x5 = async (imageUri: string): Promise<string> => {
+    try {
+      // Get image info to calculate crop dimensions
+      const imageInfo = await ImageManipulator.manipulateAsync(
+        imageUri,
+        [],
+        { format: ImageManipulator.SaveFormat.JPEG }
+      );
+      
+      const { width, height } = imageInfo;
+      
+      // Calculate 4:5 aspect ratio crop
+      const targetRatio = 4 / 5;
+      const currentRatio = width / height;
+      
+      let cropWidth = width;
+      let cropHeight = height;
+      let originX = 0;
+      let originY = 0;
+      
+      if (currentRatio > targetRatio) {
+        // Image is wider - crop width
+        cropWidth = height * targetRatio;
+        originX = (width - cropWidth) / 2;
+      } else {
+        // Image is taller - crop height
+        cropHeight = width / targetRatio;
+        originY = (height - cropHeight) / 2;
+      }
+      
+      // Crop and resize to optimal size (800x1000 for 4:5)
+      const croppedImage = await ImageManipulator.manipulateAsync(
+        imageUri,
+        [
+          {
+            crop: {
+              originX,
+              originY,
+              width: cropWidth,
+              height: cropHeight,
+            },
+          },
+          {
+            resize: {
+              width: 800,
+              height: 1000,
+            },
+          },
+        ],
+        { compress: 0.8, format: ImageManipulator.SaveFormat.JPEG }
+      );
+      
+      return croppedImage.uri;
+    } catch (error) {
+      console.error('Error cropping image:', error);
+      return imageUri; // Return original if cropping fails
+    }
+  };
+
   const pickImages = async () => {
     const maxImages = hasStatsCard ? 4 : 5;
     
     if (selectedImages.length >= maxImages) {
-      Alert.alert('Limit Reached', `You can only select up to ${maxImages} images`);
+      showAlert('Limit Reached', `You can only select up to ${maxImages} images`);
       return;
     }
 
     const { status } = await ImagePicker.requestMediaLibraryPermissionsAsync();
     
     if (status !== 'granted') {
-      Alert.alert('Permission Required', 'Sorry, we need camera roll permissions to select images!');
+      showAlert('Permission Required', 'Sorry, we need camera roll permissions to select images!');
       return;
     }
 
@@ -103,8 +162,11 @@ export default function CreatePost() {
     });
 
     if (!result.canceled && result.assets) {
-      const newImages = result.assets.map(asset => asset.uri);
-      setSelectedImages([...selectedImages, ...newImages].slice(0, maxImages));
+      // Crop each selected image to 4:5 aspect ratio
+      const croppedImages = await Promise.all(
+        result.assets.map(asset => cropImageTo4x5(asset.uri))
+      );
+      setSelectedImages([...selectedImages, ...croppedImages].slice(0, maxImages));
     }
   };
 
