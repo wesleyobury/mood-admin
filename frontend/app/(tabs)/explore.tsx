@@ -13,7 +13,7 @@ import {
   Modal,
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
-import { useRouter } from 'expo-router';
+import { useRouter, useFocusEffect } from 'expo-router';
 import { useAuth } from '../../contexts/AuthContext';
 import ImageCarousel from '../../components/ImageCarousel';
 import CommentsBottomSheet from '../../components/CommentsBottomSheet';
