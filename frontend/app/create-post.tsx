@@ -1071,4 +1071,45 @@ const styles = StyleSheet.create({
   bottomSpacer: {
     height: 40,
   },
+  // Loading Overlay Styles
+  loadingOverlay: {
+    flex: 1,
+    backgroundColor: 'rgba(0, 0, 0, 0.95)',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  loadingContent: {
+    alignItems: 'center',
+    padding: 40,
+    backgroundColor: '#1a1a1a',
+    borderRadius: 16,
+    borderWidth: 2,
+    borderColor: 'rgba(255, 215, 0, 0.3)',
+    minWidth: 250,
+  },
+  loadingTitle: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    color: '#FFD700',
+    marginTop: 16,
+    marginBottom: 8,
+  },
+  loadingProgress: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    color: '#FFD700',
+    marginBottom: 16,
+  },
+  loadingProgressBar: {
+    width: 200,
+    height: 8,
+    backgroundColor: 'rgba(255, 255, 255, 0.1)',
+    borderRadius: 4,
+    overflow: 'hidden',
+  },
+  loadingProgressFill: {
+    height: '100%',
+    backgroundColor: '#FFD700',
+    borderRadius: 4,
+  },
 });
