@@ -14,15 +14,18 @@ import {
   Platform,
   Animated,
   Modal,
+  Dimensions,
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { useRouter, useLocalSearchParams, router as globalRouter } from 'expo-router';
 import * as ImagePicker from 'expo-image-picker';
+import * as ImageManipulator from 'expo-image-manipulator';
 import { captureRef } from 'react-native-view-shot';
 import WorkoutStatsCard from '../components/WorkoutStatsCard';
 import { useAuth } from '../contexts/AuthContext';
 
 const API_URL = process.env.EXPO_PUBLIC_BACKEND_URL || '';
+const SCREEN_WIDTH = Dimensions.get('window').width;
 
 interface WorkoutStats {
   workouts: Array<{
