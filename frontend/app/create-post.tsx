@@ -451,15 +451,16 @@ export default function CreatePost() {
     try {
       // Upload regular images
       let mediaUrls = await uploadImages();
+      console.log('Uploaded regular images:', mediaUrls);
       
       // Capture and upload workout card if it exists
       if (hasStatsCard && workoutStats) {
+        console.log('📸 Capturing workout card...');
         const cardUri = await captureWorkoutCard();
+        console.log('Workout card captured:', cardUri ? 'YES' : 'NO');
+        
         if (cardUri) {
-          // Add workout card to selectedImages temporarily to upload it
-          const originalImages = [...selectedImages];
-          setSelectedImages([...selectedImages, cardUri]);
-          
+          console.log('Uploading workout card...');
           // Upload the workout card
           const formData = new FormData();
           const filename = `workout_card_${Date.now()}.png`;
@@ -484,15 +485,21 @@ export default function CreatePost() {
             body: formData,
           });
           
+          console.log('Workout card upload status:', uploadResponse.status);
           if (uploadResponse.ok) {
             const data = await uploadResponse.json();
+            console.log('✅ Workout card uploaded:', data.url);
             mediaUrls.push(data.url); // Add workout card as last item
+          } else {
+            const errorText = await uploadResponse.text();
+            console.error('❌ Workout card upload failed:', errorText);
           }
-          
-          // Restore original images
-          setSelectedImages(originalImages);
         }
+      } else {
+        console.log('No workout card to capture (hasStatsCard:', hasStatsCard, ', workoutStats:', !!workoutStats, ')');
       }
+      
+      console.log('📤 Final mediaUrls for post:', mediaUrls);
       
       const hashtags = extractHashtags(caption);
 
