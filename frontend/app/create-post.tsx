@@ -83,65 +83,6 @@ export default function CreatePost() {
     }
   }, [params.workoutStats]);
 
-  const cropImageTo4x5 = async (imageUri: string): Promise<string> => {
-    try {
-      // Get image info to calculate crop dimensions
-      const imageInfo = await ImageManipulator.manipulateAsync(
-        imageUri,
-        [],
-        { format: ImageManipulator.SaveFormat.JPEG }
-      );
-      
-      const { width, height } = imageInfo;
-      
-      // Calculate 4:5 aspect ratio crop
-      const targetRatio = 4 / 5;
-      const currentRatio = width / height;
-      
-      let cropWidth = width;
-      let cropHeight = height;
-      let originX = 0;
-      let originY = 0;
-      
-      if (currentRatio > targetRatio) {
-        // Image is wider - crop width
-        cropWidth = height * targetRatio;
-        originX = (width - cropWidth) / 2;
-      } else {
-        // Image is taller - crop height
-        cropHeight = width / targetRatio;
-        originY = (height - cropHeight) / 2;
-      }
-      
-      // Crop and resize to optimal size (800x1000 for 4:5)
-      const croppedImage = await ImageManipulator.manipulateAsync(
-        imageUri,
-        [
-          {
-            crop: {
-              originX,
-              originY,
-              width: cropWidth,
-              height: cropHeight,
-            },
-          },
-          {
-            resize: {
-              width: 800,
-              height: 1000,
-            },
-          },
-        ],
-        { compress: 0.8, format: ImageManipulator.SaveFormat.JPEG }
-      );
-      
-      return croppedImage.uri;
-    } catch (error) {
-      console.error('Error cropping image:', error);
-      return imageUri; // Return original if cropping fails
-    }
-  };
-
   const pickImages = async () => {
     const maxImages = hasStatsCard ? 4 : 5;
     
@@ -157,20 +98,30 @@ export default function CreatePost() {
       return;
     }
 
+    // Pick one image at a time to allow manual cropping
     const result = await ImagePicker.launchImageLibraryAsync({
       mediaTypes: ['images'],
-      allowsMultipleSelection: true,
-      quality: 0.8,
-      selectionLimit: maxImages - selectedImages.length,
+      allowsMultipleSelection: false,
+      quality: 1,
     });
 
-    if (!result.canceled && result.assets) {
-      // Crop each selected image to 4:5 aspect ratio
-      const croppedImages = await Promise.all(
-        result.assets.map(asset => cropImageTo4x5(asset.uri))
-      );
-      setSelectedImages([...selectedImages, ...croppedImages].slice(0, maxImages));
+    if (!result.canceled && result.assets && result.assets.length > 0) {
+      // Show crop modal for the selected image
+      setImageToCrop(result.assets[0].uri);
+      setShowCropModal(true);
     }
+  };
+
+  const handleCropComplete = (croppedUri: string) => {
+    const maxImages = hasStatsCard ? 4 : 5;
+    setSelectedImages([...selectedImages, croppedUri].slice(0, maxImages));
+    setShowCropModal(false);
+    setImageToCrop(null);
+  };
+
+  const handleCropCancel = () => {
+    setShowCropModal(false);
+    setImageToCrop(null);
   };
 
   const showSaveAnimation = () => {
