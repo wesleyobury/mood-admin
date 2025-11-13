@@ -479,8 +479,12 @@ export default function CreatePost() {
         setUploadProgress(100);
         console.log('Post created successfully!');
         
-        // Small delay to show 100% completion
-        await new Promise(resolve => setTimeout(resolve, 500));
+        // Keep loading screen visible while showing 100%
+        await new Promise(resolve => setTimeout(resolve, 1000));
+        
+        // Dismiss loading screen
+        setUploading(false);
+        setUploadProgress(0);
         
         // Use platform-specific alerts and navigate to explore page
         if (Platform.OS === 'web' && typeof window !== 'undefined') {
@@ -500,14 +504,15 @@ export default function CreatePost() {
       } else {
         const errorText = await response.text();
         console.error('Post failed:', response.status, errorText);
+        setUploading(false);
+        setUploadProgress(0);
         showAlert('Error', 'Failed to create post. Please try again.');
       }
     } catch (error) {
       console.error('Error creating post:', error);
-      showAlert('Error', 'Something went wrong. Please try again.');
-    } finally {
       setUploading(false);
       setUploadProgress(0);
+      showAlert('Error', 'Something went wrong. Please try again.');
     }
   };
 
