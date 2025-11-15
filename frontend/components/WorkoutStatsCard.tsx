@@ -74,7 +74,7 @@ export default function WorkoutStatsCard({
               <View style={styles.workoutDetails}>
                 <View style={styles.workoutMeta}>
                   <Text style={styles.workoutMetaText} numberOfLines={1}>
-                    {workout.workoutName}
+                    {workout.workoutTitle || workout.workoutName}
                   </Text>
                   <Text style={styles.workoutDot}>•</Text>
                   <Text style={styles.workoutMetaText}>{workout.equipment}</Text>
