@@ -259,7 +259,8 @@ export default function WorkoutGuidanceScreen() {
           
           // Prepare workout completion data
           const completedWorkouts = sessionWorkouts.map((workout: any) => ({
-            workoutName: workout.workoutName,
+            workoutTitle: workout.workoutName, // The workout title (e.g., "Tabata Assault")
+            workoutName: workout.workoutName, // Keep for backward compatibility
             equipment: workout.equipment,
             duration: workout.duration,
             difficulty: workout.difficulty,
