@@ -70,12 +70,12 @@ export default function ImageCarousel({ images }: ImageCarouselProps) {
 const styles = StyleSheet.create({
   container: {
     width: SCREEN_WIDTH,
-    height: SCREEN_WIDTH, // Square images like Instagram
+    height: SCREEN_WIDTH * 1.25, // 4:5 aspect ratio (portrait)
     backgroundColor: '#000',
   },
   image: {
     width: SCREEN_WIDTH,
-    height: SCREEN_WIDTH,
+    height: SCREEN_WIDTH * 1.25,
   },
   dotsContainer: {
     position: 'absolute',
