@@ -71,10 +71,11 @@ export default function WorkoutStatsCard({
                 <Text style={styles.workoutNumber}>{index + 1}</Text>
               </View>
               <View style={styles.workoutDetails}>
-                <Text style={styles.workoutName} numberOfLines={1}>
-                  {workout.workoutName}
-                </Text>
                 <View style={styles.workoutMeta}>
+                  <Text style={styles.workoutMetaText} numberOfLines={1}>
+                    {workout.workoutName}
+                  </Text>
+                  <Text style={styles.workoutDot}>•</Text>
                   <Text style={styles.workoutMetaText}>{workout.equipment}</Text>
                   <Text style={styles.workoutDot}>•</Text>
                   <Text style={styles.workoutMetaText}>{workout.difficulty}</Text>
