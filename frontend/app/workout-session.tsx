@@ -90,7 +90,8 @@ export default function WorkoutSessionScreen() {
     
     // Prepare workout completion data
     const completedWorkouts = sessionWorkouts.map(workout => ({
-      workoutName: workout.workoutName,
+      workoutTitle: workout.workoutName, // The workout title (e.g., "Tabata Assault")
+      workoutName: workout.workoutName, // Keep for backward compatibility
       equipment: workout.equipment,
       duration: workout.duration,
       difficulty: workout.difficulty,
