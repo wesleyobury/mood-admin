@@ -316,11 +316,12 @@ export default function CreatePost() {
         // Use html2canvas for web
         const html2canvas = (await import('html2canvas')).default;
         const canvas = await html2canvas(statsCardRef.current, {
-          backgroundColor: '#0a0a0a',
-          scale: 2,
+          backgroundColor: '#000000',
+          scale: 1.5, // Lower scale for smaller file size
           logging: false,
+          useCORS: true,
         });
-        const uri = canvas.toDataURL('image/png');
+        const uri = canvas.toDataURL('image/png', 0.9); // 90% quality
         console.log('✅ Web capture successful, data URL length:', uri.length);
         return uri;
       } else {
