@@ -29,6 +29,7 @@ const SCREEN_WIDTH = Dimensions.get('window').width;
 
 interface WorkoutStats {
   workouts: Array<{
+    workoutTitle: string;
     workoutName: string;
     equipment: string;
     duration: string;
