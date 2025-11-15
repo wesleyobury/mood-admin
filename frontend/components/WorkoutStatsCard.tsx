@@ -3,8 +3,8 @@ import { View, Text, StyleSheet, Dimensions } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
 const { width } = Dimensions.get('window');
-const CARD_WIDTH = width - 80; // Smaller width
-const CARD_HEIGHT = CARD_WIDTH * 1.1; // Even more compact
+const CARD_WIDTH = width * 0.85; // 85% of screen width for padding
+const CARD_HEIGHT = CARD_WIDTH * 1.25; // Match 4:5 aspect ratio of carousel
 
 interface WorkoutStatsCardProps {
   workouts: Array<{
