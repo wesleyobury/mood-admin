@@ -77,7 +77,7 @@ export default function WorkoutStatsCard({
                 <View style={styles.workoutMeta}>
                   <Text style={styles.workoutMetaText}>{workout.equipment}</Text>
                   <Text style={styles.workoutDot}>•</Text>
-                  <Text style={styles.workoutMetaText}>{workout.duration}</Text>
+                  <Text style={styles.workoutMetaText}>{workout.difficulty}</Text>
                 </View>
               </View>
             </View>
