@@ -8,6 +8,7 @@ const CARD_HEIGHT = CARD_WIDTH * 1.25; // Match 4:5 aspect ratio of carousel
 
 interface WorkoutStatsCardProps {
   workouts: Array<{
+    workoutTitle: string;
     workoutName: string;
     equipment: string;
     duration: string;
