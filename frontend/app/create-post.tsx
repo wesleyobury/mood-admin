@@ -1105,12 +1105,12 @@ const styles = StyleSheet.create({
     width: 200,
     height: 8,
     backgroundColor: 'rgba(255, 255, 255, 0.1)',
-    borderRadius: 4,
+    borderRadius: 0,
     overflow: 'hidden',
   },
   loadingProgressFill: {
     height: '100%',
     backgroundColor: '#FFD700',
-    borderRadius: 4,
+    borderRadius: 0,
   },
 });
