@@ -1,75 +1,90 @@
 <analysis>
-The trajectory details a comprehensive and iterative development and debugging process for a social fitness application, primarily focused on the  screen. The initial task was to fix unresponsive Save and X buttons, which evolved into a series of feature enhancements and deeper bug fixes based on continuous user feedback.
+The trajectory details an iterative development process for a social fitness app, centered on the  screen. The initial task to fix unresponsive buttons evolved into a complex feature-building and debugging cycle driven by user feedback.
 
-The work can be summarized in several phases:
-1.  **Initial UI/UX Fixes:** After resolving underlying API connectivity issues, the first step was to provide clear user feedback. This involved implementing navigation for the 'X' button to the main tab screen and adding a success animation for the 'Save' button. This animation went through multiple user-driven iterations, from a modal to an in-button checkmark, and finally to a static Saved to profile text.
+Key phases of work include:
+1.  **Initial Bug Fixes & UX:** Resolved unresponsive buttons and added user feedback mechanisms like navigation on close and a save confirmation.
+2.  **Feature Implementation:** Added several user-requested features:
+    *   Manual image cropping with a 4:5 aspect ratio, initially attempted with  (which failed on web) and later successfully implemented using 's built-in editor.
+    *   A persistent, full-screen loading overlay with a progress percentage for post uploads.
+    *   Automatic navigation to the top of the explore feed after a post is created.
+3.  **Cross-Platform Debugging:** A significant portion of the work involved addressing platform-specific issues. The workout card capture, initially using only , was augmented with  to provide web compatibility.
+4.  **Data Flow and Display Logic:** The most recent and ongoing task involves a deep dive into the application's data flow to fix an issue where the correct workout *title* (e.g., Tabata Assault) was not appearing on the captured . This required tracing data from  through  to , identifying and correcting inconsistencies in property names ( vs. ) across multiple files and interfaces. UI refinements, such as adjusting card padding and layout, were also made based on user feedback.
 
-2.  **Data Persistence Debugging:** A critical issue was that saved workout cards were not appearing on the user's profile. This was traced to a frontend/backend mismatch. The frontend was calling a non-existent API endpoint () and was not transforming the  data from the backend to the  format expected by the UI. Both issues were resolved in .
-
-3.  **Advanced Post Creation Features:** The user then requested more complex features for post creation. This included fixing image uploads, which were failing due to a missing filename on the backend, requiring a fix in . Functionality for reordering photos, cropping images to a 4:5 aspect ratio using , and capturing the workout stats card as an image using  were also added.
-
-4.  **Ongoing Debugging:** The final and current phase involves debugging why the captured workout card image is not appearing in the created post on the explore feed, despite being added to the upload flow. A loading indicator and success alerts were also added to improve the user experience during posting.
+The user's primary language is English. Future responses should be in English.
 </analysis>
 
 <product_requirements>
-The product is a social fitness application designed to let users share their workout achievements. The core of the recent work revolves around the Share Your Achievement screen (), which users access after completing a workout.
+The product is a social fitness application where users can share their workout achievements as posts. The core feature is the Share Your Achievement screen (), which is presented after a user completes a workout.
 
-**Initial Problem:** Users were stuck on this screen because the X (close) and Save Card buttons were unresponsive.
-
-**Feature Evolution & Current State:**
-After the initial button fix, the user's requests drove the implementation of a full-fledged post-creation flow:
-1.  **Save Workout Card:** The Save button now saves the workout summary to the user's profile. The button provides clear visual feedback by changing its text to Saved to profile.
-2.  **Create Post:** The Post button allows users to create a social post with a caption, images, and their workout card.
-3.  **Image Handling:** Users can attach multiple images, reorder them, and crop them to a 4:5 aspect ratio before uploading.
-4.  **Workout Card in Post:** The workout summary card is meant to be automatically captured as an image and included as the last item in the post's image carousel.
-
-**Unresolved Issue:** The main outstanding requirement is to ensure the captured workout card and uploaded photos consistently appear in the final post on the explore page, as this functionality is still not working correctly.
+**Core Requirements & Implementation Status:**
+1.  **Post Creation:** Users must be able to create a post with a caption, multiple images, and a summary of their workout.
+2.  **Image Handling:**
+    *   Users can attach multiple photos to a post.
+    *   Upon selection, each photo must be manually croppable to a 4:5 aspect ratio. (Implemented using 's editor).
+    *   Images on the explore feed must also display in a 4:5 aspect ratio. (Implemented).
+3.  **Workout Card:**
+    *   The workout summary card must be automatically captured as an image and appended as the last item in the post's image carousel. (Implemented using  and ).
+    *   The card's design has been iteratively refined for layout and padding.
+    *   **Crucially, the card must display the overall workout title (e.g., Tabata Assault), not just individual exercise names.** (This is the current focus of debugging).
+4.  **User Experience:**
+    *   A full-screen loading overlay with square corners and a real-time progress percentage must be displayed during the post upload. (Implemented).
+    *   After a successful post, the user must be automatically navigated to the top of the explore feed to see their new post. (Implemented).
 </product_requirements>
 
 <key_technical_concepts>
-- **React Native Web Incompatibility:** Addressed issues with file uploads () and alerts () that behave differently on web vs. native.
-- **Data Transformation:** Converted data between frontend  and backend  formats during API interactions.
-- **Component-to-Image Conversion:** Used  to capture a component () as a base64 image for uploading.
-- **Image Manipulation:** Employed  to programmatically crop user-selected images to a required aspect ratio.
-- **Animated API (React Native):** Used  for UI feedback on buttons.
+- **Cross-Platform Component Capture:** Using  for native and  as a fallback for web to convert a React component into a base64 image.
+- **Cross-Platform Image Editing:** Using  with  and  to provide a consistent, native-feeling crop experience on all platforms.
+- **Data Flow Tracing:** Debugging data propagation through  params and component props across multiple screens ( ->  -> ).
+- **State-Driven UI:** Managing UI state for loading modals (), upload progress (), and image collections.
 </key_technical_concepts>
 
 <code_architecture>
-The application follows a standard Expo monorepo structure with a frontend and a backend.
+The application is a monorepo with an Expo frontend and a Python backend. The primary focus of the work has been on the frontend.
 
 
 
 -   ****
-    -   **Importance:** This is the central file for the entire trajectory. It manages post creation, state for captions, images, workout stats, loading/saved states, and user interactions like saving, posting, picking images, and reordering them.
-    -   **Summary of Changes:** This file has been extensively modified. It now includes state management for , , and . Functions were added or modified for picking and cropping images (), reordering them (/), capturing the workout card (), handling the save action (), and the post creation flow (). The JSX was updated to include a loading modal, image reordering buttons, and dynamic save button text.
+    -   **Importance:** The central screen for all recent development. It handles state for post creation, including caption, images, and workout data. It contains the logic for image picking/cropping, workout card capture, and the entire upload process.
+    -   **Summary of Changes:** Extensively modified to implement all core features. Added state for  and . The  function was updated to use Expo's built-in image editor. The  function now uses  to switch between  and . The  function was rewritten to manage the upload sequence, update progress, and navigate on completion. The JSX was updated with a loading modal. The  interface was updated to include .
 
 -   ****
-    -   **Importance:** This file displays the user's profile, including their saved workout cards. It was crucial for debugging the data persistence issue.
-    -   **Summary of Changes:** The  function was fixed. The API endpoint was corrected to  (removing the user ID parameter). A data transformation step was added using  to convert the  response from the backend to the  format used by the component's  interface.
+    -   **Importance:** This component renders the workout summary that gets captured as an image. Its appearance is critical to the user.
+    -   **Summary of Changes:** The layout was significantly altered to place the workout title, equipment, and difficulty on a single line, and the duration was removed. The overall component dimensions were reduced to create padding when displayed in the 4:5 carousel. The component's interface was updated to accept  and the rendering logic was updated to display  instead of .
 
 -   ****
-    -   **Importance:** This file defines all API endpoints. It was modified to fix a critical file upload bug.
-    -   **Summary of Changes:** The  endpoint was updated. Logic was added to check if  is present and, if not, to generate a random filename with a  extension. This resolved the  error that occurred when uploading files from React Native Web, which did not provide a filename.
+    -   **Importance:** The destination screen after a post is created. It displays the feed of all posts.
+    -   **Summary of Changes:** A  ref and  hook were added to enable scrolling to the top when the screen comes into focus, particularly after a new post is created. The  prop was set to  to hide the scrollbar.
 
 -   ****
-    -   **Importance:** Displays the feed of posts created by users. It was inspected to ensure it could render multiple images in a post.
-    -   **Summary of Changes:** No changes were made, but its logic for rendering  confirmed that the workout card, once successfully uploaded, should appear as the last item in the post's image carousel.
+    -   **Importance:** Renders the images within a post on the explore feed.
+    -   **Summary of Changes:** The  style within the component was modified to enforce a  aspect ratio, ensuring posts are displayed as requested by the user.
+
+-   ** & **
+    -   **Importance:** These are the screens upstream from . They were identified as the source of the workout data.
+    -   **Summary of Changes:** Both files were modified to correctly pass the workout's title. The navigation logic in  was updated to include  (the title) in the params passed to .  was then updated to receive this title and pass it along to the  screen.
+
 </code_architecture>
 
 <pending_tasks>
-- **Primary:** Fix the bug where the captured workout card image and uploaded photos are not appearing in the final post on the explore feed.
-- **Secondary:** Ensure the success alert and loading indicators provide a reliable and clear user experience during and after post creation.
+- **Primary:** Verify that the latest changes successfully display the correct workout *title* (e.g., Tabata Assault) on the  in the final post. The previous attempts were unsuccessful, and the last set of edits was aimed at fixing the data flow.
 </pending_tasks>
 
 <current_work>
-The most recent work focused on fulfilling user requests for the  screen: adding image cropping, a loading indicator for posting, and a success alert.
+The most recent work was focused exclusively on fixing a critical bug where the  was not displaying the correct workout *title*. The user specified they should see the overall workout name (e.g., Tabata Assault) instead of the individual exercise name (e.g., Body Weight).
 
-1.  **Image Cropping:** The  library was installed. The  function was updated to use  to crop selected images to a 4:5 aspect ratio before they are added to the state.
-2.  **Loading Indicator:** A new state variable, , was introduced. It's set to  at the beginning of  and  at the end. A full-screen modal with an  is conditionally rendered based on this state to give users visual feedback that the post is being uploaded.
-3.  **Alerts:** The cross-platform  function is now called to inform the user of a successful post or an error.
-4.  **Debugging:** The primary unresolved issue is that the workout card, which should be captured by  and uploaded, is not appearing in the final post. To diagnose this, additional  statements were added within the  and  functions to trace the  data and the final  array being sent to the backend. The work was paused immediately after adding these logs and restarting the server, pending analysis of the new log output.
+The debugging process involved:
+1.  **Tracing Data Flow:** The AI engineer traced the  data from its origin. This led from  back to  and finally to .
+2.  **Identifying Inconsistency:** It was discovered that the property for the workout title was inconsistent. In the source data (), the title was in the  property, but downstream components and interfaces were expecting a  or  property.
+3.  **Implementing a Fix:** The engineer made a series of edits to standardize the data flow:
+    *   Updated  to pass  as  in the navigation parameters.
+    *   Updated  to receive  from its params and pass it on to .
+    *   Updated the  interface in  to include .
+    *   Updated the  component to receive and display the  prop.
+    *   The last edit corrected a mistake, ensuring  was used consistently when populating the stats.
+
+The work concluded immediately after applying these fixes and restarting the Expo server. The next logical step is to test if this chain of edits resolved the issue.
 </current_work>
 
 <optional_next_step>
-Analyze the console logs generated by the newly added debug statements in  to determine why the captured workout card image is not being successfully included in the post's  array.
+Verify if the workout title now correctly appears on the workout completed card in a new post. If the issue persists, re-examine the data being passed in the navigation params between , , and .
 </optional_next_step>
