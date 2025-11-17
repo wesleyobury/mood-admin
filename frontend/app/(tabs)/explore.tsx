@@ -382,9 +382,10 @@ export default function Explore() {
       >
         <View style={styles.modalOverlay}>
           <View style={styles.modalContent}>
-            {selectedPostId && (
+            {selectedPostId && token && (
               <CommentsBottomSheet
                 postId={selectedPostId}
+                authToken={token}
                 onClose={() => setShowComments(false)}
               />
             )}
