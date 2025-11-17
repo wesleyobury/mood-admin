@@ -62,7 +62,14 @@ export default function CommentsBottomSheet({ postId, authToken, onClose, onComm
         const data = await response.json();
         console.log('Comments fetched:', data.length, 'comments');
         console.log('Comments data:', data);
+        console.log('Setting comments state...');
         setComments(data);
+        console.log('Comments state should be set now');
+        
+        // Verify state was set
+        setTimeout(() => {
+          console.log('State check after 100ms - comments.length:', data.length);
+        }, 100);
       } else {
         const errorText = await response.text();
         console.error('Failed to fetch comments:', response.status, errorText);
