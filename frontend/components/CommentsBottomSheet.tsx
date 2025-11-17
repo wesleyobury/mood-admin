@@ -70,9 +70,6 @@ export default function CommentsBottomSheet({ postId, authToken, onClose, onComm
     setPosting(true);
 
     try {
-      console.log('Posting comment to:', `${API_URL}/api/comments`);
-      console.log('Auth token present:', !!authToken);
-      
       const response = await fetch(`${API_URL}/api/comments`, {
         method: 'POST',
         headers: {
@@ -84,20 +81,13 @@ export default function CommentsBottomSheet({ postId, authToken, onClose, onComm
           text: newComment.trim(),
         }),
       });
-
-      console.log('Comment response status:', response.status);
       
       if (response.ok) {
-        const data = await response.json();
-        console.log('Comment posted successfully:', data);
         setNewComment('');
         fetchComments(); // Refresh comments
         if (onCommentAdded) {
           onCommentAdded(); // Notify parent component
         }
-      } else {
-        const errorData = await response.text();
-        console.error('Failed to post comment:', response.status, errorData);
       }
     } catch (error) {
       console.error('Error posting comment:', error);
