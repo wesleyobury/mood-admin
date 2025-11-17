@@ -150,6 +150,9 @@ export default function CommentsBottomSheet({ postId, authToken, onClose, onComm
           style={styles.scrollView}
           showsVerticalScrollIndicator={false}
         >
+          <Text style={{ color: '#FFD700', padding: 16, fontSize: 12 }}>
+            DEBUG: Loading: {loading ? 'true' : 'false'}, Comments count: {comments.length}
+          </Text>
           {loading ? (
             <View style={styles.loadingContainer}>
               <ActivityIndicator size="large" color="#FFD700" />
@@ -161,7 +164,11 @@ export default function CommentsBottomSheet({ postId, authToken, onClose, onComm
               <Text style={styles.emptySubtext}>Be the first to comment!</Text>
             </View>
           ) : (
-            comments.map((comment) => (
+            <>
+              <Text style={{ color: '#fff', padding: 16 }}>
+                Rendering {comments.length} comments...
+              </Text>
+              {comments.map((comment) => (
               <View key={comment.id} style={styles.commentContainer}>
                 {comment.author.avatar ? (
                   <Image 
