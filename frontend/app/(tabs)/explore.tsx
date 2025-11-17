@@ -85,6 +85,8 @@ export default function Explore() {
 
       if (response.ok) {
         const data = await response.json();
+        console.log('Posts fetched:', data.length, 'posts');
+        console.log('First post data:', data[0]);
         setPosts(data);
       }
     } catch (error) {
