@@ -92,6 +92,9 @@ export default function CommentsBottomSheet({ postId, authToken, onClose, onComm
         console.log('Comment posted successfully:', data);
         setNewComment('');
         fetchComments(); // Refresh comments
+        if (onCommentAdded) {
+          onCommentAdded(); // Notify parent component
+        }
       } else {
         const errorData = await response.text();
         console.error('Failed to post comment:', response.status, errorData);
