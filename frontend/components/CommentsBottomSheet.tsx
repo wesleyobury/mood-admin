@@ -42,7 +42,6 @@ export default function CommentsBottomSheet({ postId, authToken, onClose, onComm
   const [posting, setPosting] = useState(false);
 
   useEffect(() => {
-    console.log('useEffect triggered - postId:', postId);
     fetchComments();
   }, [postId, authToken]);
 
