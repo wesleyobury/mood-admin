@@ -163,10 +163,16 @@ export default function CommentsBottomSheet({ postId, authToken, onClose, onComm
           ) : (
             comments.map((comment) => (
               <View key={comment.id} style={styles.commentContainer}>
-                <Image 
-                  source={{ uri: comment.author.avatar }} 
-                  style={styles.commentAvatar}
-                />
+                {comment.author.avatar ? (
+                  <Image 
+                    source={{ uri: comment.author.avatar }} 
+                    style={styles.commentAvatar}
+                  />
+                ) : (
+                  <View style={[styles.commentAvatar, styles.avatarPlaceholder]}>
+                    <Ionicons name="person" size={16} color="#666" />
+                  </View>
+                )}
                 <View style={styles.commentContent}>
                   <View style={styles.commentHeader}>
                     <Text style={styles.commentUsername}>{comment.author.username}</Text>
