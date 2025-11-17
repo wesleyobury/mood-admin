@@ -286,6 +286,11 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: 'rgba(255, 215, 0, 0.2)',
   },
+  avatarPlaceholder: {
+    backgroundColor: '#1a1a1a',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
   commentContent: {
     flex: 1,
   },
