@@ -174,6 +174,11 @@ export default function Explore() {
     setShowComments(true);
   };
 
+  const handleCommentAdded = () => {
+    // Refresh posts to update comment count
+    fetchPosts();
+  };
+
   if (loading) {
     return (
       <SafeAreaView style={styles.container}>
