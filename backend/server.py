@@ -1058,7 +1058,20 @@ async def get_post_comments(post_id: str, limit: int = 50):
                     "as": "author"
                 }
             },
-            {"$unwind": "$author"}
+            {"$unwind": "$author"},
+            {
+                "$project": {
+                    "id": {"$toString": "$_id"},
+                    "text": 1,
+                    "created_at": 1,
+                    "author": {
+                        "id": {"$toString": "$author._id"},
+                        "username": "$author.username",
+                        "avatar": "$author.avatar"
+                    },
+                    "_id": 0
+                }
+            }
         ]
         
         comments = await db.comments.aggregate(pipeline).to_list(length=limit)
