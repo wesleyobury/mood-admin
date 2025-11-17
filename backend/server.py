@@ -1046,9 +1046,14 @@ async def get_post_comments(post_id: str, limit: int = 50):
             {"$sort": {"created_at": -1}},
             {"$limit": limit},
             {
+                "$addFields": {
+                    "author_id_obj": {"$toObjectId": "$author_id"}
+                }
+            },
+            {
                 "$lookup": {
                     "from": "users",
-                    "localField": "author_id",
+                    "localField": "author_id_obj",
                     "foreignField": "_id",
                     "as": "author"
                 }
