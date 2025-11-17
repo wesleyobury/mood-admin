@@ -13,7 +13,7 @@ import {
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
-const API_URL = '';
+const API_URL = process.env.EXPO_PUBLIC_BACKEND_URL || '';
 
 interface Author {
   id: string;
