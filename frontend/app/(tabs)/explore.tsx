@@ -170,10 +170,8 @@ export default function Explore() {
   };
 
   const handleComments = (postId: string) => {
-    console.log('Opening comments for post:', postId);
     setSelectedPostId(postId);
     setShowComments(true);
-    console.log('showComments set to true');
   };
 
   const handleCommentAdded = () => {
