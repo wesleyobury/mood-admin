@@ -364,13 +364,14 @@ export default function Explore() {
                 )}
 
                 {/* Comments Preview */}
-                {post.comments_count > 0 && (
-                  <TouchableOpacity onPress={() => handleComments(post.id)}>
-                    <Text style={styles.viewComments}>
-                      View all {post.comments_count} comments
-                    </Text>
-                  </TouchableOpacity>
-                )}
+                <TouchableOpacity onPress={() => handleComments(post.id)}>
+                  <Text style={styles.viewComments}>
+                    {post.comments_count > 0 
+                      ? `View all ${post.comments_count} ${post.comments_count === 1 ? 'comment' : 'comments'}`
+                      : 'Add a comment...'
+                    }
+                  </Text>
+                </TouchableOpacity>
 
                 {/* Timestamp */}
                 <Text style={styles.timestamp}>
