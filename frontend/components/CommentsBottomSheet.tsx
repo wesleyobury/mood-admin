@@ -189,8 +189,7 @@ export default function CommentsBottomSheet({ postId, authToken, onClose, onComm
                   <Text style={styles.commentText}>{comment.text}</Text>
                 </View>
               </View>
-            ))}
-            </>
+            ))
           )}
         </ScrollView>
 
