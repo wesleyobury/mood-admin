@@ -47,15 +47,25 @@ export default function CommentsBottomSheet({ postId, authToken, onClose, onComm
 
   const fetchComments = async () => {
     try {
+      console.log('Fetching comments for post:', postId);
+      console.log('API URL:', `${API_URL}/api/posts/${postId}/comments`);
+      
       const response = await fetch(`${API_URL}/api/posts/${postId}/comments`, {
         headers: {
           'Authorization': `Bearer ${authToken}`,
         },
       });
 
+      console.log('Fetch comments response status:', response.status);
+
       if (response.ok) {
         const data = await response.json();
+        console.log('Comments fetched:', data.length, 'comments');
+        console.log('Comments data:', data);
         setComments(data);
+      } else {
+        const errorText = await response.text();
+        console.error('Failed to fetch comments:', response.status, errorText);
       }
     } catch (error) {
       console.error('Error fetching comments:', error);
