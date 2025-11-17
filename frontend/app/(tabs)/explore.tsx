@@ -392,6 +392,7 @@ export default function Explore() {
                 postId={selectedPostId}
                 authToken={token}
                 onClose={() => setShowComments(false)}
+                onCommentAdded={handleCommentAdded}
               />
             )}
           </View>
