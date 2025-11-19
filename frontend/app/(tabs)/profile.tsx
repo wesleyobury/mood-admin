@@ -35,6 +35,15 @@ interface RecentWorkout {
   date: string;
 }
 
+interface Post {
+  id: string;
+  media_urls: string[];
+  caption: string;
+  likes_count: number;
+  comments_count: number;
+  created_at: string;
+}
+
 interface WorkoutCard {
   id: string;
   workouts: Array<{
