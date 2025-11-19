@@ -31,6 +31,7 @@ interface User {
 export default function EditProfile() {
   const router = useRouter();
   const [user, setUser] = useState<User | null>(null);
+  const [username, setUsername] = useState('');
   const [name, setName] = useState('');
   const [bio, setBio] = useState('');
   const [avatarUri, setAvatarUri] = useState<string | null>(null);
