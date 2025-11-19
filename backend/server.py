@@ -288,12 +288,26 @@ async def upload_profile_picture(
 ):
     """Upload profile picture"""
     try:
-        # Validate file type
+        # Validate file type - handle missing/empty filename
         allowed_extensions = {'.jpg', '.jpeg', '.png'}
-        file_ext = Path(file.filename).suffix.lower()
         
-        if file_ext not in allowed_extensions:
-            raise HTTPException(status_code=400, detail=f"File type {file_ext} not allowed for profile picture")
+        # Get file extension from filename or fallback to content_type
+        file_ext = None
+        if file.filename:
+            file_ext = Path(file.filename).suffix.lower()
+        
+        # Fallback: detect from content_type if filename is missing/invalid
+        if not file_ext or file_ext not in allowed_extensions:
+            content_type = file.content_type or ''
+            logger.info(f"Avatar upload - Filename: {file.filename}, Content-Type: {content_type}")
+            
+            if 'image/jpeg' in content_type or 'image/jpg' in content_type:
+                file_ext = '.jpg'
+            elif 'image/png' in content_type:
+                file_ext = '.png'
+        
+        if not file_ext or file_ext not in allowed_extensions:
+            raise HTTPException(status_code=400, detail=f"File type not allowed for profile picture. Supported: JPG, PNG")
         
         # Generate unique filename
         unique_filename = f"avatar_{current_user_id}_{uuid.uuid4()}{file_ext}"
@@ -311,14 +325,17 @@ async def upload_profile_picture(
             {"$set": {"avatar": file_url}}
         )
         
+        logger.info(f"✅ Profile picture uploaded successfully: {unique_filename} for user {current_user_id}")
         return {
             "message": "Profile picture uploaded successfully",
             "url": file_url
         }
     
+    except HTTPException:
+        raise
     except Exception as e:
         logger.error(f"Profile picture upload error: {str(e)}")
-        raise HTTPException(status_code=500, detail="Profile picture upload failed")
+        raise HTTPException(status_code=500, detail=f"Profile picture upload failed: {str(e)}")
 
 @api_router.get("/users/{user_id}/is-following")
 async def check_following_status(
