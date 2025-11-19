@@ -104,11 +104,12 @@ export default function EditProfile() {
       const match = /\.(\w+)$/.exec(filename);
       const type = match ? `image/${match[1]}` : 'image/jpeg';
 
+      // @ts-ignore - React Native FormData handles this correctly
       formData.append('file', {
         uri,
         name: filename,
         type,
-      } as any);
+      });
 
       console.log('Uploading avatar:', { uri, filename, type });
 
@@ -116,7 +117,7 @@ export default function EditProfile() {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`,
-          'Content-Type': 'multipart/form-data',
+          // DO NOT set Content-Type - let fetch set it automatically with boundary
         },
         body: formData,
       });
