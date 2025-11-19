@@ -524,11 +524,27 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginBottom: 16,
   },
+  avatarContainer: {
+    position: 'relative',
+    marginRight: 20,
+  },
   profileImage: {
     width: 80,
     height: 80,
     borderRadius: 40,
-    marginRight: 20,
+  },
+  editIconContainer: {
+    position: 'absolute',
+    bottom: 0,
+    right: 0,
+    backgroundColor: '#FFD700',
+    borderRadius: 12,
+    width: 24,
+    height: 24,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderWidth: 2,
+    borderColor: '#0c0c0c',
   },
   statsContainer: {
     flex: 1,
