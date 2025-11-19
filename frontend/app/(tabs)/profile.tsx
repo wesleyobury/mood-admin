@@ -392,8 +392,7 @@ export default function Profile() {
                         key={post.id}
                         style={styles.gridItem}
                         onPress={() => {
-                          // Navigate to post detail
-                          console.log('Navigate to post:', post.id);
+                          router.push(`/post-detail?postId=${post.id}`);
                         }}
                       >
                         {imageUrl ? (
