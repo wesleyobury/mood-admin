@@ -109,15 +109,25 @@ export default function Profile() {
   }, [activeTab, token, user.id]);
 
   const fetchUserProfile = async () => {
+    if (!token) {
+      console.log('No token available for profile');
+      setLoadingProfile(false);
+      return;
+    }
+
     try {
+      console.log('Fetching user profile from:', `${API_URL}/api/users/me`);
       const response = await fetch(`${API_URL}/api/users/me`, {
         headers: {
           'Authorization': `Bearer ${token}`,
         },
       });
 
+      console.log('Profile fetch response status:', response.status);
+
       if (response.ok) {
         const data = await response.json();
+        console.log('Profile data loaded:', data.username);
         setUser({
           id: data.id,
           username: data.username,
@@ -132,6 +142,8 @@ export default function Profile() {
           following: data.following_count || 0,
           streak: data.current_streak || 0,
         });
+      } else {
+        console.error('Failed to fetch profile:', response.status);
       }
     } catch (error) {
       console.error('Error fetching user profile:', error);
