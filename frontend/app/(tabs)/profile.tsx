@@ -17,7 +17,7 @@ import { useRouter } from 'expo-router';
 import WorkoutStatsCard from '../../components/WorkoutStatsCard';
 import { useAuth } from '../../contexts/AuthContext';
 
-const API_URL = '';
+const API_URL = process.env.EXPO_PUBLIC_BACKEND_URL || '';
 const { width } = Dimensions.get('window');
 
 interface UserStats {
