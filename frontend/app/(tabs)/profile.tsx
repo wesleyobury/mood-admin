@@ -264,7 +264,12 @@ export default function Profile() {
         {/* Profile Info */}
         <View style={styles.profileSection}>
           <View style={styles.profileHeader}>
-            <Image source={{ uri: user.avatar }} style={styles.profileImage} />
+            <TouchableOpacity onPress={handleEditProfile} style={styles.avatarContainer}>
+              <Image source={{ uri: user.avatar }} style={styles.profileImage} />
+              <View style={styles.editIconContainer}>
+                <Ionicons name="pencil" size={16} color="#0c0c0c" />
+              </View>
+            </TouchableOpacity>
             <View style={styles.statsContainer}>
               <TouchableOpacity style={styles.statItem}>
                 <Text style={styles.statValue}>{stats.workouts}</Text>
