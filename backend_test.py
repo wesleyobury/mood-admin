@@ -24,28 +24,30 @@ TEST_USER_2 = {
     "name": "Like Test User 2"
 }
 
-class CreatePostBackendTest:
+class LikeFunctionalityTester:
     def __init__(self):
         self.session = requests.Session()
         self.user1_token = None
+        self.user2_token = None
         self.user1_id = None
+        self.user2_id = None
+        self.test_post_id = None
         self.test_results = []
         
-    def log_result(self, test_name, success, details="", response_data=None):
-        """Log test results"""
+    def log_result(self, test_name, success, message, details=None):
+        """Log test result"""
         status = "✅ PASS" if success else "❌ FAIL"
         result = {
             "test": test_name,
             "status": status,
-            "details": details,
-            "response_data": response_data
+            "message": message,
+            "details": details or {},
+            "timestamp": datetime.now().isoformat()
         }
         self.test_results.append(result)
-        print(f"{status}: {test_name}")
+        print(f"{status}: {test_name} - {message}")
         if details:
             print(f"   Details: {details}")
-        if not success and response_data:
-            print(f"   Response: {response_data}")
         print()
 
     def test_auth_system_for_create_post(self):
