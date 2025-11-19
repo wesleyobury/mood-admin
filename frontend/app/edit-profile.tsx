@@ -60,6 +60,7 @@ export default function EditProfile() {
       if (response.ok) {
         const data = await response.json();
         setUser(data);
+        setUsername(data.username || '');
         setName(data.name || '');
         setBio(data.bio || '');
         setAvatarUri(data.avatar || null);
