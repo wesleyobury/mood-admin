@@ -306,7 +306,10 @@ async def upload_profile_picture(
 ):
     """Upload profile picture"""
     try:
-        logger.info(f"📸 Avatar upload attempt - Filename: {file.filename}, Content-Type: {file.content_type}")
+        logger.info(f"📸 Avatar upload START")
+        logger.info(f"Filename: {file.filename}")
+        logger.info(f"Content-Type: {file.content_type}")
+        logger.info(f"File object type: {type(file)}")
         
         # Validate file type - handle missing/empty filename
         allowed_extensions = {'.jpg', '.jpeg', '.png', '.gif'}
