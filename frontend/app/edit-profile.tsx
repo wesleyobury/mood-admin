@@ -110,24 +110,32 @@ export default function EditProfile() {
         type,
       } as any);
 
+      console.log('Uploading avatar:', { uri, filename, type });
+
       const response = await fetch(`${API_URL}/api/users/me/avatar`, {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`,
+          'Content-Type': 'multipart/form-data',
         },
         body: formData,
       });
 
+      console.log('Avatar upload response status:', response.status);
+
       if (response.ok) {
         const data = await response.json();
+        console.log('Avatar upload success:', data);
         setAvatarUri(data.url);
         Alert.alert('Success', 'Profile picture updated!');
       } else {
-        throw new Error('Upload failed');
+        const errorData = await response.text();
+        console.error('Avatar upload error response:', errorData);
+        throw new Error(`Upload failed: ${response.status}`);
       }
     } catch (error) {
       console.error('Error uploading profile picture:', error);
-      Alert.alert('Error', 'Failed to upload profile picture');
+      Alert.alert('Error', 'Failed to upload profile picture. Please try again.');
     } finally {
       setUploadingImage(false);
     }
