@@ -80,9 +80,11 @@ export default function Profile() {
   const [loadingProfile, setLoadingProfile] = useState(true);
   const [selectedCard, setSelectedCard] = useState<WorkoutCard | null>(null);
   const [modalVisible, setModalVisible] = useState(false);
+  const [userPosts, setUserPosts] = useState<Post[]>([]);
+  const [loadingPosts, setLoadingPosts] = useState(false);
   const { token } = useAuth();
 
-  const [activeTab, setActiveTab] = useState<'workouts' | 'achievements' | 'cards'>('workouts');
+  const [activeTab, setActiveTab] = useState<'posts' | 'achievements' | 'cards'>('posts');
   const router = useRouter();
 
   // Load user profile when token is available
