@@ -1,0 +1,301 @@
+import React, { useState, useEffect } from 'react';
+import {
+  View,
+  Text,
+  StyleSheet,
+  ScrollView,
+  TouchableOpacity,
+  SafeAreaView,
+  Image,
+  ActivityIndicator,
+} from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
+import { useRouter, useLocalSearchParams } from 'expo-router';
+import { useAuth } from '../contexts/AuthContext';
+import ImageCarousel from '../components/ImageCarousel';
+
+const API_URL = process.env.EXPO_PUBLIC_BACKEND_URL || '';
+
+interface Author {
+  id: string;
+  username: string;
+  name: string;
+  avatar: string;
+}
+
+interface Post {
+  id: string;
+  author: Author;
+  caption: string;
+  media_urls: string[];
+  likes_count: number;
+  comments_count: number;
+  is_liked: boolean;
+  created_at: string;
+}
+
+export default function PostDetail() {
+  const router = useRouter();
+  const params = useLocalSearchParams();
+  const { token } = useAuth();
+  const [post, setPost] = useState<Post | null>(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    if (params.postId && token) {
+      fetchPost();
+    }
+  }, [params.postId, token]);
+
+  const fetchPost = async () => {
+    try {
+      // For now, fetch from the general posts endpoint and filter
+      // In a real app, you'd have a dedicated endpoint for single post
+      const response = await fetch(`${API_URL}/api/posts`, {
+        headers: {
+          'Authorization': `Bearer ${token}`,
+        },
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        const foundPost = data.find((p: Post) => p.id === params.postId);
+        if (foundPost) {
+          setPost(foundPost);
+        }
+      }
+    } catch (error) {
+      console.error('Error fetching post:', error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleLike = async () => {
+    if (!post || !token) return;
+
+    try {
+      const response = await fetch(`${API_URL}/api/posts/${post.id}/like`, {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${token}`,
+        },
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        setPost({
+          ...post,
+          is_liked: data.liked,
+          likes_count: data.likes_count,
+        });
+      }
+    } catch (error) {
+      console.error('Error liking post:', error);
+    }
+  };
+
+  if (loading) {
+    return (
+      <SafeAreaView style={styles.container}>
+        <View style={styles.header}>
+          <TouchableOpacity onPress={() => router.back()}>
+            <Ionicons name="arrow-back" size={24} color="#FFD700" />
+          </TouchableOpacity>
+          <Text style={styles.headerTitle}>Post</Text>
+          <View style={{ width: 24 }} />
+        </View>
+        <View style={styles.loadingContainer}>
+          <ActivityIndicator size="large" color="#FFD700" />
+        </View>
+      </SafeAreaView>
+    );
+  }
+
+  if (!post) {
+    return (
+      <SafeAreaView style={styles.container}>
+        <View style={styles.header}>
+          <TouchableOpacity onPress={() => router.back()}>
+            <Ionicons name="arrow-back" size={24} color="#FFD700" />
+          </TouchableOpacity>
+          <Text style={styles.headerTitle}>Post</Text>
+          <View style={{ width: 24 }} />
+        </View>
+        <View style={styles.emptyContainer}>
+          <Text style={styles.emptyText}>Post not found</Text>
+        </View>
+      </SafeAreaView>
+    );
+  }
+
+  return (
+    <SafeAreaView style={styles.container}>
+      <View style={styles.header}>
+        <TouchableOpacity onPress={() => router.back()}>
+          <Ionicons name="arrow-back" size={24} color="#FFD700" />
+        </TouchableOpacity>
+        <Text style={styles.headerTitle}>Post</Text>
+        <View style={{ width: 24 }} />
+      </View>
+
+      <ScrollView style={styles.scrollView}>
+        {/* Author Info */}
+        <View style={styles.authorSection}>
+          {post.author.avatar ? (
+            <Image source={{ uri: post.author.avatar }} style={styles.avatar} />
+          ) : (
+            <View style={[styles.avatar, styles.avatarPlaceholder]}>
+              <Ionicons name="person" size={20} color="#666" />
+            </View>
+          )}
+          <View>
+            <Text style={styles.authorName}>{post.author.name || post.author.username}</Text>
+            <Text style={styles.authorUsername}>@{post.author.username}</Text>
+          </View>
+        </View>
+
+        {/* Images */}
+        {post.media_urls.length > 0 && (
+          <ImageCarousel images={post.media_urls} />
+        )}
+
+        {/* Actions */}
+        <View style={styles.actionsSection}>
+          <TouchableOpacity style={styles.actionButton} onPress={handleLike}>
+            <Ionicons
+              name={post.is_liked ? 'heart' : 'heart-outline'}
+              size={28}
+              color={post.is_liked ? '#FF6B6B' : '#fff'}
+            />
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.actionButton}>
+            <Ionicons name="chatbubble-outline" size={26} color="#fff" />
+          </TouchableOpacity>
+        </View>
+
+        {/* Likes Count */}
+        <Text style={styles.likesText}>
+          {post.likes_count} {post.likes_count === 1 ? 'like' : 'likes'}
+        </Text>
+
+        {/* Caption */}
+        {post.caption && (
+          <View style={styles.captionSection}>
+            <Text style={styles.caption}>
+              <Text style={styles.captionUsername}>@{post.author.username} </Text>
+              {post.caption}
+            </Text>
+          </View>
+        )}
+
+        {/* Timestamp */}
+        <Text style={styles.timestamp}>
+          {new Date(post.created_at).toLocaleDateString('en-US', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric',
+          })}
+        </Text>
+      </ScrollView>
+    </SafeAreaView>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#0c0c0c',
+  },
+  header: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingHorizontal: 16,
+    paddingVertical: 12,
+    borderBottomWidth: 1,
+    borderBottomColor: '#333',
+  },
+  headerTitle: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    color: '#fff',
+  },
+  scrollView: {
+    flex: 1,
+  },
+  loadingContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  emptyContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  emptyText: {
+    color: '#888',
+    fontSize: 16,
+  },
+  authorSection: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    padding: 16,
+  },
+  avatar: {
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+    marginRight: 12,
+  },
+  avatarPlaceholder: {
+    backgroundColor: '#1a1a1a',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  authorName: {
+    fontSize: 15,
+    fontWeight: '600',
+    color: '#fff',
+  },
+  authorUsername: {
+    fontSize: 13,
+    color: '#888',
+  },
+  actionsSection: {
+    flexDirection: 'row',
+    paddingHorizontal: 16,
+    paddingVertical: 8,
+    gap: 16,
+  },
+  actionButton: {
+    padding: 4,
+  },
+  likesText: {
+    fontSize: 14,
+    fontWeight: '600',
+    color: '#fff',
+    paddingHorizontal: 16,
+    marginBottom: 8,
+  },
+  captionSection: {
+    paddingHorizontal: 16,
+    marginBottom: 8,
+  },
+  caption: {
+    fontSize: 14,
+    color: '#fff',
+    lineHeight: 20,
+  },
+  captionUsername: {
+    fontWeight: '600',
+  },
+  timestamp: {
+    fontSize: 12,
+    color: '#666',
+    paddingHorizontal: 16,
+    marginTop: 4,
+    marginBottom: 24,
+  },
+});
