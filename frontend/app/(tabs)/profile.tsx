@@ -629,6 +629,36 @@ const styles = StyleSheet.create({
   cardsTab: {
     flex: 1,
   },
+  postsTab: {
+    flex: 1,
+  },
+  postsGrid: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: 2,
+  },
+  gridItem: {
+    width: (width - 44) / 3, // 3 columns with small gaps
+    height: (width - 44) / 3, // 1:1 aspect ratio
+    position: 'relative',
+  },
+  gridImage: {
+    width: '100%',
+    height: '100%',
+    backgroundColor: '#1a1a1a',
+  },
+  placeholderGrid: {
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  multipleIndicator: {
+    position: 'absolute',
+    top: 8,
+    right: 8,
+    backgroundColor: 'rgba(0, 0, 0, 0.6)',
+    borderRadius: 4,
+    padding: 4,
+  },
   achievementsTab: {
     flex: 1,
   },
