@@ -175,6 +175,26 @@ export default function Profile() {
     }
   };
 
+  const fetchUserPosts = async () => {
+    setLoadingPosts(true);
+    try {
+      const response = await fetch(`${API_URL}/api/users/${user.id}/posts`, {
+        headers: {
+          'Authorization': `Bearer ${token}`,
+        },
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        setUserPosts(data);
+      }
+    } catch (error) {
+      console.error('Error fetching user posts:', error);
+    } finally {
+      setLoadingPosts(false);
+    }
+  };
+
   const handleDeleteCard = async (cardId: string) => {
     try {
       const response = await fetch(`${API_URL}/api/workout-cards/${cardId}`, {
