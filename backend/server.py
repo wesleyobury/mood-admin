@@ -250,6 +250,7 @@ async def get_user_by_id(user_id: str):
         raise HTTPException(status_code=404, detail="User not found")
 
 class UserUpdate(BaseModel):
+    username: Optional[str] = None
     name: Optional[str] = None
     bio: Optional[str] = None
     avatar: Optional[str] = None
@@ -261,6 +262,20 @@ async def update_profile(
 ):
     """Update current user's profile"""
     update_fields = {}
+    
+    # Check if username is being changed and if it's available
+    if user_data.username is not None:
+        username = user_data.username.strip()
+        if not username:
+            raise HTTPException(status_code=400, detail="Username cannot be empty")
+        
+        # Check if username is already taken by another user
+        existing_user = await db.users.find_one({"username": username})
+        if existing_user and str(existing_user["_id"]) != current_user_id:
+            raise HTTPException(status_code=400, detail="Username already taken")
+        
+        update_fields["username"] = username
+    
     if user_data.name is not None:
         update_fields["name"] = user_data.name
     if user_data.bio is not None:
@@ -277,7 +292,10 @@ async def update_profile(
     )
     
     if result.modified_count == 0:
-        raise HTTPException(status_code=404, detail="User not found")
+        # Check if user exists but fields didn't change
+        user = await db.users.find_one({"_id": ObjectId(current_user_id)})
+        if not user:
+            raise HTTPException(status_code=404, detail="User not found")
     
     return {"message": "Profile updated successfully"}
 
