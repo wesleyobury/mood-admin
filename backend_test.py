@@ -50,52 +50,40 @@ class LikeFunctionalityTester:
             print(f"   Details: {details}")
         print()
 
-    def test_auth_system_for_create_post(self):
-        """Test authentication system supporting create-post screen (simulating frontend auto-login)"""
-        print("=== Testing Auth System for Create-Post Screen ===")
+    def setup_test_users(self):
+        """Create test users and get authentication tokens"""
+        print("\n🔧 Setting up test users...")
         
-        # Test 1: Register user (simulating first-time user)
+        # Register User 1
         try:
-            response = self.session.post(f"{API_BASE}/auth/register", json=TEST_USER_DATA)
+            response = self.session.post(f"{BACKEND_URL}/auth/register", json=TEST_USER_1)
             if response.status_code == 200:
                 data = response.json()
-                self.user1_token = data.get('token')
-                self.user1_id = data.get('user_id')
-                self.log_result("Auth Registration (Create-Post User)", True, f"User ID: {self.user1_id}")
-            elif response.status_code == 400:
-                # User exists, try login (simulating auto-login)
-                login_data = {"username": TEST_USER_DATA["username"], "password": TEST_USER_DATA["password"]}
-                login_response = self.session.post(f"{API_BASE}/auth/login", json=login_data)
-                if login_response.status_code == 200:
-                    data = login_response.json()
-                    self.user1_token = data.get('token')
-                    self.user1_id = data.get('user_id')
-                    self.log_result("Auth Auto-Login (Create-Post User)", True, f"User ID: {self.user1_id}")
-                else:
-                    self.log_result("Auth Auto-Login (Create-Post User)", False, f"Status: {login_response.status_code}", login_response.text)
-                    return False
+                self.user1_token = data["token"]
+                self.user1_id = data["user_id"]
+                self.log_result("User 1 Registration", True, "Test user 1 created successfully")
             else:
-                self.log_result("Auth Registration (Create-Post User)", False, f"Status: {response.status_code}", response.text)
+                self.log_result("User 1 Registration", False, f"Failed to create user 1: {response.status_code}")
                 return False
         except Exception as e:
-            self.log_result("Auth Registration (Create-Post User)", False, f"Exception: {str(e)}")
+            self.log_result("User 1 Registration", False, f"Exception creating user 1: {str(e)}")
             return False
-
-        # Test 2: Verify single auth call works (no infinite loops)
+        
+        # Register User 2
         try:
-            headers = {"Authorization": f"Bearer {self.user1_token}"}
-            response = self.session.get(f"{API_BASE}/users/me", headers=headers)
-            
+            response = self.session.post(f"{BACKEND_URL}/auth/register", json=TEST_USER_2)
             if response.status_code == 200:
-                user_data = response.json()
-                self.log_result("Auth Token Validation (Single Call)", True, f"Username: {user_data.get('username')}")
+                data = response.json()
+                self.user2_token = data["token"]
+                self.user2_id = data["user_id"]
+                self.log_result("User 2 Registration", True, "Test user 2 created successfully")
             else:
-                self.log_result("Auth Token Validation (Single Call)", False, f"Status: {response.status_code}")
+                self.log_result("User 2 Registration", False, f"Failed to create user 2: {response.status_code}")
                 return False
         except Exception as e:
-            self.log_result("Auth Token Validation (Single Call)", False, f"Exception: {str(e)}")
+            self.log_result("User 2 Registration", False, f"Exception creating user 2: {str(e)}")
             return False
-
+        
         return True
 
     def test_backend_health_for_create_post(self):
