@@ -70,12 +70,18 @@ export default function Explore() {
   );
 
   const fetchPosts = async () => {
-    if (!token) return;
+    if (!token) {
+      console.log('No token available for fetching posts');
+      setLoading(false);
+      return;
+    }
 
     try {
       const endpoint = activeTab === 'following' 
         ? `${API_URL}/api/posts/following` 
         : `${API_URL}/api/posts`;
+      
+      console.log('Fetching posts from:', endpoint);
         
       const response = await fetch(endpoint, {
         headers: {
@@ -83,9 +89,14 @@ export default function Explore() {
         },
       });
 
+      console.log('Posts fetch response status:', response.status);
+
       if (response.ok) {
         const data = await response.json();
+        console.log('Posts fetched successfully:', data.length, 'posts');
         setPosts(data);
+      } else {
+        console.error('Failed to fetch posts:', response.status);
       }
     } catch (error) {
       console.error('Error fetching posts:', error);
