@@ -147,6 +147,12 @@ export default function EditProfile() {
   const handleSave = async () => {
     if (!token) return;
 
+    // Validate username
+    if (!username || username.trim() === '') {
+      Alert.alert('Error', 'Username cannot be empty');
+      return;
+    }
+
     setSaving(true);
     try {
       const response = await fetch(`${API_URL}/api/users/me`, {
@@ -156,6 +162,7 @@ export default function EditProfile() {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
+          username: username.trim(),
           name,
           bio,
         }),
@@ -169,11 +176,12 @@ export default function EditProfile() {
           },
         ]);
       } else {
-        throw new Error('Update failed');
+        const errorData = await response.json();
+        throw new Error(errorData.detail || 'Update failed');
       }
-    } catch (error) {
+    } catch (error: any) {
       console.error('Error updating profile:', error);
-      Alert.alert('Error', 'Failed to update profile');
+      Alert.alert('Error', error.message || 'Failed to update profile');
     } finally {
       setSaving(false);
     }
