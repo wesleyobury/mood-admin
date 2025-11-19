@@ -307,19 +307,19 @@ export default function Profile() {
         {/* Tabs */}
         <View style={styles.tabContainer}>
           <TouchableOpacity
-            style={[styles.tab, activeTab === 'workouts' && styles.activeTab]}
-            onPress={() => setActiveTab('workouts')}
+            style={[styles.tab, activeTab === 'posts' && styles.activeTab]}
+            onPress={() => setActiveTab('posts')}
           >
             <Ionicons 
-              name="fitness" 
+              name="grid" 
               size={18} 
-              color={activeTab === 'workouts' ? '#FFD700' : '#888'} 
+              color={activeTab === 'posts' ? '#FFD700' : '#888'} 
             />
             <Text style={[
               styles.tabText, 
-              activeTab === 'workouts' && styles.activeTabText
+              activeTab === 'posts' && styles.activeTabText
             ]}>
-              Workouts
+              Posts
             </Text>
           </TouchableOpacity>
 
