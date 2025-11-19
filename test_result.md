@@ -195,6 +195,24 @@ metadata:
   test_sequence: 1
   run_ui: false
 
+# USER REPORTED ISSUES & FIXES
+
+## Issue: Like Count Not Displaying Consistently
+**User Report:** "sometimes when i click the like button it just animates to 'likes' with no count"
+
+**Root Cause:** 
+- Backend endpoint `/api/posts/{post_id}/like` was not returning `likes_count` in the response
+- It only returned `{"liked": True/False, "message": "..."}`
+- Frontend expected `data.likes_count` to update the UI (line 154 in explore.tsx)
+- When `likes_count` was undefined, the UI showed "likes" with no number
+
+**Fix Applied:**
+- Modified `server.py` lines 991-1010 to fetch and return the updated `likes_count` after like/unlike operations
+- Backend now returns: `{"liked": True/False, "likes_count": <number>, "message": "..."}`
+- This ensures the frontend always has the correct count to display
+
+**Status:** ✅ Fixed - Backend restarted, ready for testing
+
 test_plan:
   current_focus:
     - "Create-Post Screen Backend Support (Auth & Save Button)"
