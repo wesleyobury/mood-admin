@@ -995,7 +995,10 @@ async def like_post(post_id: str, current_user_id: str = Depends(get_current_use
                 {"_id": post_object_id},
                 {"$inc": {"likes_count": -1}}
             )
-            return {"message": "Post unliked", "liked": False}
+            # Get updated likes count
+            updated_post = await db.posts.find_one({"_id": post_object_id})
+            likes_count = updated_post.get("likes_count", 0) if updated_post else 0
+            return {"message": "Post unliked", "liked": False, "likes_count": likes_count}
         else:
             # Like
             await db.post_likes.insert_one({
@@ -1007,7 +1010,10 @@ async def like_post(post_id: str, current_user_id: str = Depends(get_current_use
                 {"_id": post_object_id},
                 {"$inc": {"likes_count": 1}}
             )
-            return {"message": "Post liked", "liked": True}
+            # Get updated likes count
+            updated_post = await db.posts.find_one({"_id": post_object_id})
+            likes_count = updated_post.get("likes_count", 0) if updated_post else 0
+            return {"message": "Post liked", "liked": True, "likes_count": likes_count}
     
     except:
         raise HTTPException(status_code=404, detail="Post not found")
