@@ -101,6 +101,13 @@ export default function Profile() {
     }
   }, [activeTab, token]);
 
+  // Load user posts when Posts tab is selected
+  useEffect(() => {
+    if (activeTab === 'posts' && token && user.id !== 'current-user') {
+      fetchUserPosts();
+    }
+  }, [activeTab, token, user.id]);
+
   const fetchUserProfile = async () => {
     try {
       const response = await fetch(`${API_URL}/api/users/me`, {
