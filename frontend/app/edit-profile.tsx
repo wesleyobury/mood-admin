@@ -245,13 +245,19 @@ export default function EditProfile() {
             </TouchableOpacity>
           </View>
 
-          {/* Username (Read-only) */}
+          {/* Username */}
           <View style={styles.inputSection}>
             <Text style={styles.label}>Username</Text>
-            <View style={[styles.input, styles.disabledInput]}>
-              <Text style={styles.disabledInputText}>@{user?.username}</Text>
-            </View>
-            <Text style={styles.helpText}>Username cannot be changed</Text>
+            <TextInput
+              style={styles.input}
+              value={username}
+              onChangeText={setUsername}
+              placeholder="Your username"
+              placeholderTextColor="#666"
+              autoCapitalize="none"
+              maxLength={30}
+            />
+            <Text style={styles.helpText}>Usernames must be unique</Text>
           </View>
 
           {/* Name */}
