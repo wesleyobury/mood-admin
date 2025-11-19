@@ -288,26 +288,36 @@ async def upload_profile_picture(
 ):
     """Upload profile picture"""
     try:
+        logger.info(f"📸 Avatar upload attempt - Filename: {file.filename}, Content-Type: {file.content_type}")
+        
         # Validate file type - handle missing/empty filename
-        allowed_extensions = {'.jpg', '.jpeg', '.png'}
+        allowed_extensions = {'.jpg', '.jpeg', '.png', '.gif'}
         
         # Get file extension from filename or fallback to content_type
         file_ext = None
-        if file.filename:
+        if file.filename and file.filename.strip():
             file_ext = Path(file.filename).suffix.lower()
+            logger.info(f"File extension from filename: {file_ext}")
         
         # Fallback: detect from content_type if filename is missing/invalid
         if not file_ext or file_ext not in allowed_extensions:
             content_type = file.content_type or ''
-            logger.info(f"Avatar upload - Filename: {file.filename}, Content-Type: {content_type}")
+            logger.info(f"Using content_type fallback: {content_type}")
             
-            if 'image/jpeg' in content_type or 'image/jpg' in content_type:
+            if 'jpeg' in content_type or 'jpg' in content_type:
                 file_ext = '.jpg'
-            elif 'image/png' in content_type:
+            elif 'png' in content_type:
                 file_ext = '.png'
+            elif 'gif' in content_type:
+                file_ext = '.gif'
+            elif 'image' in content_type:
+                # Generic image fallback
+                file_ext = '.jpg'
         
-        if not file_ext or file_ext not in allowed_extensions:
-            raise HTTPException(status_code=400, detail=f"File type not allowed for profile picture. Supported: JPG, PNG")
+        if not file_ext:
+            file_ext = '.jpg'  # Ultimate fallback
+        
+        logger.info(f"Final file extension: {file_ext}")
         
         # Generate unique filename
         unique_filename = f"avatar_{current_user_id}_{uuid.uuid4()}{file_ext}"
