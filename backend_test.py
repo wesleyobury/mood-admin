@@ -1,39 +1,27 @@
 #!/usr/bin/env python3
 """
-Backend API Testing for Create-Post Screen Functionality
-Tests the backend APIs that support create-post screen buttons (X close and Save button)
-Focus: Auth system and workout card saving functionality
+Backend Testing Suite for MOOD App - Like Functionality Fix
+Testing the fix for: "sometimes when i click the like button it just animates to 'likes' with no count"
 """
 
 import requests
 import json
-import os
 import time
-from pathlib import Path
 from datetime import datetime
 
-# Load environment variables
-def load_env():
-    env_path = Path("/app/frontend/.env")
-    env_vars = {}
-    if env_path.exists():
-        with open(env_path, 'r') as f:
-            for line in f:
-                if '=' in line and not line.startswith('#'):
-                    key, value = line.strip().split('=', 1)
-                    env_vars[key] = value.strip('"')
-    return env_vars
-
-env_vars = load_env()
-BASE_URL = env_vars.get('EXPO_PUBLIC_BACKEND_URL', 'http://localhost:8001')
-API_BASE = f"{BASE_URL}/api"
-
-# Use unique test users to avoid conflicts
-TEST_USER_DATA = {
-    "username": f"createpost_user_{int(time.time())}",
-    "email": f"createpost_{int(time.time())}@test.com",
-    "password": "SecurePass123!",
-    "name": "Create Post Tester"
+# Configuration
+BACKEND_URL = "https://fitness-comments.preview.emergentagent.com/api"
+TEST_USER_1 = {
+    "username": f"testuser_like_{int(time.time())}",
+    "email": f"testuser_like_{int(time.time())}@test.com",
+    "password": "testpass123",
+    "name": "Like Test User"
+}
+TEST_USER_2 = {
+    "username": f"testuser_like2_{int(time.time())}",
+    "email": f"testuser_like2_{int(time.time())}@test.com", 
+    "password": "testpass123",
+    "name": "Like Test User 2"
 }
 
 class CreatePostBackendTest:
