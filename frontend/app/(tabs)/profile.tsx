@@ -360,27 +360,53 @@ export default function Profile() {
 
         {/* Tab Content */}
         <View style={styles.tabContent}>
-          {activeTab === 'workouts' ? (
-            <View style={styles.workoutsTab}>
-              {recentWorkouts.length === 0 ? (
+          {activeTab === 'posts' ? (
+            <View style={styles.postsTab}>
+              {loadingPosts ? (
+                <View style={styles.loadingContainer}>
+                  <ActivityIndicator size="large" color="#FFD700" />
+                  <Text style={styles.loadingText}>Loading posts...</Text>
+                </View>
+              ) : userPosts.length === 0 ? (
                 <View style={styles.emptyState}>
-                  <Ionicons name="fitness-outline" size={48} color="#666" />
-                  <Text style={styles.emptyTitle}>No workouts yet</Text>
+                  <Ionicons name="images-outline" size={48} color="#666" />
+                  <Text style={styles.emptyTitle}>No posts yet</Text>
                   <Text style={styles.emptySubtitle}>
-                    Start your fitness journey by selecting a mood!
+                    Share your fitness journey with your first post!
                   </Text>
-                  <TouchableOpacity style={styles.startButton}>
-                    <Text style={styles.startButtonText}>Start First Workout</Text>
-                  </TouchableOpacity>
                 </View>
               ) : (
-                recentWorkouts.map((workout) => (
-                  <View key={workout.id} style={styles.workoutItem}>
-                    <Text style={styles.workoutTitle}>{workout.title}</Text>
-                    <Text style={styles.workoutMood}>{workout.mood}</Text>
-                    <Text style={styles.workoutDuration}>{workout.duration} minutes</Text>
-                  </View>
-                ))
+                <View style={styles.postsGrid}>
+                  {userPosts.map((post) => {
+                    const imageUrl = post.media_urls && post.media_urls.length > 0 
+                      ? post.media_urls[0] 
+                      : null;
+                    
+                    return (
+                      <TouchableOpacity
+                        key={post.id}
+                        style={styles.gridItem}
+                        onPress={() => {
+                          // Navigate to post detail
+                          console.log('Navigate to post:', post.id);
+                        }}
+                      >
+                        {imageUrl ? (
+                          <Image source={{ uri: imageUrl }} style={styles.gridImage} />
+                        ) : (
+                          <View style={[styles.gridImage, styles.placeholderGrid]}>
+                            <Ionicons name="image-outline" size={40} color="#666" />
+                          </View>
+                        )}
+                        {post.media_urls && post.media_urls.length > 1 && (
+                          <View style={styles.multipleIndicator}>
+                            <Ionicons name="copy-outline" size={16} color="#fff" />
+                          </View>
+                        )}
+                      </TouchableOpacity>
+                    );
+                  })}
+                </View>
               )}
             </View>
           ) : activeTab === 'cards' ? (
