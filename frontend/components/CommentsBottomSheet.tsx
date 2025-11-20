@@ -33,6 +33,7 @@ interface CommentsBottomSheetProps {
   authToken: string;
   onClose: () => void;
   onCommentAdded?: () => void;
+  onUserPress?: (userId: string) => void;
 }
 
 export default function CommentsBottomSheet({ postId, authToken, onClose, onCommentAdded }: CommentsBottomSheetProps) {
