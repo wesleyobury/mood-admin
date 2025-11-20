@@ -101,40 +101,49 @@ export default function EditProfile() {
 
   const uploadProfilePicture = async (uri: string) => {
     try {
-      const formData = new FormData();
-      const filename = uri.split('/').pop() || 'avatar.jpg';
-      const match = /\.(\w+)$/.exec(filename);
-      const type = match ? `image/${match[1]}` : 'image/jpeg';
-
-      // @ts-ignore - React Native FormData handles this correctly
-      formData.append('file', {
-        uri,
-        name: filename,
-        type,
+      console.log('Converting image to base64...');
+      
+      // Read the file and convert to base64
+      const response = await fetch(uri);
+      const blob = await response.blob();
+      
+      // Convert blob to base64
+      const reader = new FileReader();
+      const base64Promise = new Promise<string>((resolve, reject) => {
+        reader.onloadend = () => {
+          const base64String = reader.result as string;
+          resolve(base64String);
+        };
+        reader.onerror = reject;
+        reader.readAsDataURL(blob);
       });
+      
+      const base64Data = await base64Promise;
+      console.log('Image converted, uploading...');
 
-      console.log('Uploading avatar:', { uri, filename, type });
-
-      const response = await fetch(`${API_URL}/api/users/me/avatar`, {
+      // Send as JSON with base64 data
+      const uploadResponse = await fetch(`${API_URL}/api/users/me/avatar-base64`, {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`,
-          // DO NOT set Content-Type - let fetch set it automatically with boundary
+          'Content-Type': 'application/json',
         },
-        body: formData,
+        body: JSON.stringify({
+          image_data: base64Data,
+        }),
       });
 
-      console.log('Avatar upload response status:', response.status);
+      console.log('Avatar upload response status:', uploadResponse.status);
 
-      if (response.ok) {
-        const data = await response.json();
+      if (uploadResponse.ok) {
+        const data = await uploadResponse.json();
         console.log('Avatar upload success:', data);
         setAvatarUri(data.url);
         Alert.alert('Success', 'Profile picture updated!');
       } else {
-        const errorData = await response.text();
+        const errorData = await uploadResponse.text();
         console.error('Avatar upload error response:', errorData);
-        throw new Error(`Upload failed: ${response.status}`);
+        throw new Error(`Upload failed: ${uploadResponse.status}`);
       }
     } catch (error) {
       console.error('Error uploading profile picture:', error);
