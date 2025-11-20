@@ -36,7 +36,7 @@ interface CommentsBottomSheetProps {
   onUserPress?: (userId: string) => void;
 }
 
-export default function CommentsBottomSheet({ postId, authToken, onClose, onCommentAdded }: CommentsBottomSheetProps) {
+export default function CommentsBottomSheet({ postId, authToken, onClose, onCommentAdded, onUserPress }: CommentsBottomSheetProps) {
   const [comments, setComments] = useState<Comment[]>([]);
   const [newComment, setNewComment] = useState('');
   const [loading, setLoading] = useState(true);
