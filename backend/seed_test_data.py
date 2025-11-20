@@ -13,10 +13,15 @@ import random
 # Password hashing
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 
+# Load environment variables
+from dotenv import load_dotenv
+load_dotenv()
+
 # MongoDB connection
 MONGO_URL = os.getenv("MONGO_URL", "mongodb://localhost:27017/")
+DB_NAME = os.getenv("DB_NAME", "test_database")
 client = MongoClient(MONGO_URL)
-db = client.mood_app
+db = client[DB_NAME]
 
 # Test users data
 TEST_USERS = [
