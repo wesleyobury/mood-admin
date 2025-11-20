@@ -1,0 +1,245 @@
+#!/usr/bin/env python3
+"""
+Script to seed the database with test users and interactions
+"""
+import os
+import sys
+from datetime import datetime, timedelta
+from pymongo import MongoClient
+from bson import ObjectId
+from passlib.context import CryptContext
+import random
+
+# Password hashing
+pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
+
+# MongoDB connection
+MONGO_URL = os.getenv("MONGO_URL", "mongodb://localhost:27017/")
+client = MongoClient(MONGO_URL)
+db = client.mood_app
+
+# Test users data
+TEST_USERS = [
+    {
+        "username": "fitnessguru",
+        "email": "guru@test.com",
+        "name": "Alex Rivera",
+        "bio": "💪 Fitness coach | 🏋️ Strength training enthusiast | Helping you reach your goals",
+        "avatar": "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=150&h=150&fit=crop"
+    },
+    {
+        "username": "yogalife",
+        "email": "yoga@test.com",
+        "name": "Maya Chen",
+        "bio": "🧘‍♀️ Yoga instructor | Mindfulness advocate | Living my best life",
+        "avatar": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=150&h=150&fit=crop"
+    },
+    {
+        "username": "cardioking",
+        "email": "cardio@test.com",
+        "name": "Marcus Johnson",
+        "bio": "🏃 Marathon runner | Cardio is life | Always pushing limits",
+        "avatar": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=150&h=150&fit=crop"
+    },
+    {
+        "username": "strengthqueen",
+        "email": "strength@test.com",
+        "name": "Sarah Williams",
+        "bio": "🏋️‍♀️ Powerlifter | Breaking records | Strong is beautiful",
+        "avatar": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop"
+    },
+    {
+        "username": "hiitmaster",
+        "email": "hiit@test.com",
+        "name": "Jake Thompson",
+        "bio": "⚡ HIIT specialist | No pain, no gain | Let's get it!",
+        "avatar": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop"
+    }
+]
+
+# Sample comments for variety
+COMMENTS = [
+    "This is amazing! 🔥",
+    "Great work! Keep it up! 💪",
+    "Inspiring! 👏",
+    "This is my goal too!",
+    "How did you do this? Tips please!",
+    "Absolutely crushing it! 🙌",
+    "This motivated me to workout today!",
+    "Love the dedication! ❤️",
+    "You're an inspiration! ⭐",
+    "Wow, incredible progress!",
+    "This is exactly what I needed to see! 💯",
+    "Beast mode activated! 🦁",
+    "Respect! 🙏",
+    "Goals right there!",
+    "This is next level! 🚀",
+    "Can't wait to try this!",
+    "You make it look so easy!",
+    "Legendary! 👑",
+    "Keep grinding! 💪",
+    "Absolutely amazing! 😍"
+]
+
+def hash_password(password: str) -> str:
+    """Hash a password"""
+    return pwd_context.hash(password)
+
+def create_test_users():
+    """Create test users in the database"""
+    print("Creating test users...")
+    created_users = []
+    
+    for user_data in TEST_USERS:
+        # Check if user already exists
+        existing = db.users.find_one({"username": user_data["username"]})
+        if existing:
+            print(f"  User {user_data['username']} already exists, skipping...")
+            created_users.append(existing)
+            continue
+        
+        # Create new user
+        user = {
+            "username": user_data["username"],
+            "email": user_data["email"],
+            "name": user_data["name"],
+            "bio": user_data["bio"],
+            "avatar": user_data["avatar"],
+            "hashed_password": hash_password("password123"),
+            "created_at": datetime.utcnow(),
+            "followers_count": 0,
+            "following_count": 0,
+            "workouts_count": 0,
+            "current_streak": random.randint(1, 30)
+        }
+        
+        result = db.users.insert_one(user)
+        user["_id"] = result.inserted_id
+        created_users.append(user)
+        print(f"  ✓ Created user: {user_data['username']}")
+    
+    return created_users
+
+def add_likes_to_posts(test_users):
+    """Add likes from test users to existing posts"""
+    print("\nAdding likes to posts...")
+    
+    # Get all posts
+    posts = list(db.posts.find())
+    if not posts:
+        print("  No posts found to like")
+        return
+    
+    likes_added = 0
+    for post in posts:
+        # Randomly select 1-4 users to like each post
+        num_likes = random.randint(1, min(4, len(test_users)))
+        likers = random.sample(test_users, num_likes)
+        
+        for user in likers:
+            # Check if already liked
+            existing_like = db.likes.find_one({
+                "post_id": post["_id"],
+                "user_id": user["_id"]
+            })
+            
+            if not existing_like:
+                db.likes.insert_one({
+                    "post_id": post["_id"],
+                    "user_id": user["_id"],
+                    "created_at": datetime.utcnow() - timedelta(
+                        hours=random.randint(1, 48)
+                    )
+                })
+                likes_added += 1
+    
+    print(f"  ✓ Added {likes_added} likes")
+
+def add_comments_to_posts(test_users):
+    """Add comments from test users to existing posts"""
+    print("\nAdding comments to posts...")
+    
+    # Get all posts
+    posts = list(db.posts.find())
+    if not posts:
+        print("  No posts found to comment on")
+        return
+    
+    comments_added = 0
+    for post in posts:
+        # Randomly add 1-5 comments per post
+        num_comments = random.randint(1, min(5, len(COMMENTS)))
+        
+        for _ in range(num_comments):
+            user = random.choice(test_users)
+            comment_text = random.choice(COMMENTS)
+            
+            db.comments.insert_one({
+                "post_id": post["_id"],
+                "user_id": user["_id"],
+                "text": comment_text,
+                "created_at": datetime.utcnow() - timedelta(
+                    hours=random.randint(1, 72)
+                )
+            })
+            comments_added += 1
+    
+    print(f"  ✓ Added {comments_added} comments")
+
+def update_post_counts():
+    """Update likes_count and comments_count for all posts"""
+    print("\nUpdating post counts...")
+    
+    posts = list(db.posts.find())
+    for post in posts:
+        likes_count = db.likes.count_documents({"post_id": post["_id"]})
+        comments_count = db.comments.count_documents({"post_id": post["_id"]})
+        
+        db.posts.update_one(
+            {"_id": post["_id"]},
+            {"$set": {
+                "likes_count": likes_count,
+                "comments_count": comments_count
+            }}
+        )
+    
+    print(f"  ✓ Updated counts for {len(posts)} posts")
+
+def main():
+    """Main function to seed test data"""
+    print("=" * 50)
+    print("Seeding Test Data")
+    print("=" * 50)
+    
+    try:
+        # Create test users
+        test_users = create_test_users()
+        
+        if not test_users:
+            print("\n❌ No test users created")
+            return
+        
+        # Add likes and comments
+        add_likes_to_posts(test_users)
+        add_comments_to_posts(test_users)
+        
+        # Update counts
+        update_post_counts()
+        
+        print("\n" + "=" * 50)
+        print("✅ Test data seeding complete!")
+        print("=" * 50)
+        print(f"\nCreated/Found {len(test_users)} test users")
+        print("\nTest user credentials:")
+        print("Username: Any of the above usernames")
+        print("Password: password123")
+        print("\nYou can now like and comment from these test accounts!")
+        
+    except Exception as e:
+        print(f"\n❌ Error: {e}")
+        import traceback
+        traceback.print_exc()
+        sys.exit(1)
+
+if __name__ == "__main__":
+    main()
