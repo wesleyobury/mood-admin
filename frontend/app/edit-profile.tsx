@@ -178,12 +178,16 @@ export default function EditProfile() {
       });
 
       if (response.ok) {
-        Alert.alert('Success', 'Profile updated successfully!', [
-          {
-            text: 'OK',
-            onPress: () => router.back(),
-          },
-        ]);
+        // Update the auth context with new user data
+        updateUser({ username: username.trim(), name, bio });
+        
+        // Navigate back immediately
+        router.back();
+        
+        // Show success message after navigation
+        setTimeout(() => {
+          Alert.alert('Success', 'Profile updated successfully!');
+        }, 300);
       } else {
         const errorData = await response.json();
         throw new Error(errorData.detail || 'Update failed');
