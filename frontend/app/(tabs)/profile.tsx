@@ -311,8 +311,13 @@ export default function Profile() {
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
         <Text style={styles.username}>@{user.username}</Text>
-        <TouchableOpacity onPress={handleSettings}>
-          <Ionicons name="settings-outline" size={24} color="#FFD700" />
+        <TouchableOpacity 
+          style={styles.createButton}
+          onPress={handleCreatePost}
+        >
+          <View style={styles.createIconContainer}>
+            <Ionicons name="add" size={24} color="#000" />
+          </View>
         </TouchableOpacity>
       </View>
 
