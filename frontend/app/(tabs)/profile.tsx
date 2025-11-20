@@ -274,8 +274,8 @@ export default function Profile() {
     router.push('/edit-profile');
   };
 
-  const handleSettings = () => {
-    console.log('Settings');
+  const handleCreatePost = () => {
+    router.push('/create-post');
   };
 
   const handleFollowers = () => {
