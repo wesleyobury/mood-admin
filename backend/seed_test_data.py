@@ -81,6 +81,50 @@ COMMENTS = [
     "Absolutely amazing! 😍"
 ]
 
+# Sample posts data
+SAMPLE_POSTS = [
+    {
+        "caption": "Morning cardio session! Feeling energized 💪 #fitness #cardio",
+        "media_urls": ["https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&h=800&fit=crop"],
+    },
+    {
+        "caption": "Leg day complete! No pain, no gain 🦵🔥 #legday #strength",
+        "media_urls": ["https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=800&h=800&fit=crop"],
+    },
+    {
+        "caption": "Yoga flow to end the day 🧘‍♀️ Finding my balance #yoga #mindfulness",
+        "media_urls": ["https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=800&h=800&fit=crop"],
+    },
+    {
+        "caption": "Chest and arms today! Feeling the pump 💪 #gymlife #gains",
+        "media_urls": ["https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?w=800&h=800&fit=crop"],
+    },
+    {
+        "caption": "5K run in the park this morning 🏃‍♂️ Beautiful weather! #running #outdoor",
+        "media_urls": ["https://images.unsplash.com/photo-1552674605-db6ffd4facb5?w=800&h=800&fit=crop"],
+    },
+    {
+        "caption": "HIIT session done! 30 minutes of pure intensity ⚡ #hiit #cardio",
+        "media_urls": ["https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=800&h=800&fit=crop"],
+    },
+    {
+        "caption": "Back and biceps day 💪 Building that V-taper #backday #lifting",
+        "media_urls": ["https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?w=800&h=800&fit=crop"],
+    },
+    {
+        "caption": "Post-workout smoothie time! 🥤 Fuel for recovery #nutrition #healthy",
+        "media_urls": ["https://images.unsplash.com/photo-1505576399279-565b52d4ac71?w=800&h=800&fit=crop"],
+    },
+    {
+        "caption": "Deadlift PR today! 💪 Hard work paying off #powerlifting #strength",
+        "media_urls": ["https://images.unsplash.com/photo-1574680096145-d05b474e2155?w=800&h=800&fit=crop"],
+    },
+    {
+        "caption": "Evening stretching routine 🌙 Recovery is key #flexibility #recovery",
+        "media_urls": ["https://images.unsplash.com/photo-1599901860904-17e6ed7083a0?w=800&h=800&fit=crop"],
+    },
+]
+
 def hash_password(password: str) -> str:
     """Hash a password"""
     return pwd_context.hash(password)
