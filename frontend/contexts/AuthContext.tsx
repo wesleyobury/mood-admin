@@ -39,17 +39,44 @@ export function AuthProvider({ children }: AuthProviderProps) {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // Do actual login once on mount
-    const doLogin = async () => {
+    // Auto-login or load stored session
+    const initAuth = async () => {
       try {
-        console.log('🔐 Attempting auto-login...');
+        console.log('🔐 Initializing auth...');
         console.log('API_URL:', API_URL);
         
+        // Try to get stored token first
+        const storedToken = await AsyncStorage.getItem('auth_token');
+        if (storedToken) {
+          console.log('Found stored token, validating...');
+          
+          // Validate token by fetching user
+          const userResp = await fetch(`${API_URL}/api/users/me`, {
+            headers: { 'Authorization': `Bearer ${storedToken}` },
+          });
+          
+          if (userResp.ok) {
+            const userData = await userResp.json();
+            setToken(storedToken);
+            setUser(userData);
+            console.log('✅ Restored session for:', userData.username);
+            setIsLoading(false);
+            return;
+          } else {
+            console.log('Stored token invalid, clearing...');
+            await AsyncStorage.removeItem('auth_token');
+          }
+        }
+        
+        // No valid stored token, do auto-login
+        console.log('No valid session, attempting auto-login...');
+        
+        // Try to get the first user from database as a demo user
         const response = await fetch(`${API_URL}/api/auth/login`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
-            username: 'fitnessqueen',
+            username: 'Ogeeezzbury',
             password: 'password123',
           }),
         });
@@ -60,6 +87,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
           const data = await response.json();
           console.log('✅ Login successful, got token');
           setToken(data.token);
+          await AsyncStorage.setItem('auth_token', data.token);
           
           // Get user info
           const userResp = await fetch(`${API_URL}/api/users/me`, {
@@ -83,7 +111,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
     };
 
     // Delay to ensure component is mounted
-    const timer = setTimeout(doLogin, 100);
+    const timer = setTimeout(initAuth, 100);
     return () => clearTimeout(timer);
   }, []); // Only run once
 
