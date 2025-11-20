@@ -94,6 +94,19 @@ export default function Profile() {
     }
   }, [token]);
 
+  // Refetch profile data when screen comes into focus
+  useFocusEffect(
+    React.useCallback(() => {
+      if (token) {
+        fetchUserProfile();
+        // Also refetch posts if on posts tab
+        if (activeTab === 'posts' && user.id !== 'current-user') {
+          fetchUserPosts();
+        }
+      }
+    }, [token, activeTab, user.id])
+  );
+
   // Load workout cards when Cards tab is selected
   useEffect(() => {
     if (activeTab === 'cards' && token) {
