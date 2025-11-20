@@ -38,7 +38,7 @@ export default function EditProfile() {
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
   const [uploadingImage, setUploadingImage] = useState(false);
-  const { token } = useAuth();
+  const { token, updateUser } = useAuth();
 
   useEffect(() => {
   }, []);
