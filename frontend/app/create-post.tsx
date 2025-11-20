@@ -508,27 +508,17 @@ export default function CreatePost() {
         console.log('Post created successfully!');
         
         // Keep loading screen visible while showing 100%
-        await new Promise(resolve => setTimeout(resolve, 1000));
+        await new Promise(resolve => setTimeout(resolve, 800));
         
-        // Dismiss loading screen
+        // Navigate to explore page first (while loading screen is still visible)
+        router.replace('/(tabs)/explore');
+        
+        // Add small delay for navigation to start
+        await new Promise(resolve => setTimeout(resolve, 500));
+        
+        // Dismiss loading screen after navigation begins
         setUploading(false);
         setUploadProgress(0);
-        
-        // Use platform-specific alerts and navigate to explore page
-        if (Platform.OS === 'web' && typeof window !== 'undefined') {
-          window.alert('Posted! ✨');
-          // Navigate to explore page
-          window.location.href = '/(tabs)/explore';
-        } else {
-          Alert.alert('Posted! ✨', 'Your workout has been shared to your feed!', [
-            {
-              text: 'OK',
-              onPress: () => {
-                router.replace('/(tabs)/explore');
-              },
-            },
-          ]);
-        }
       } else {
         const errorText = await response.text();
         console.error('Post failed:', response.status, errorText);
