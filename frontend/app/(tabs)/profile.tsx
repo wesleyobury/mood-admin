@@ -82,7 +82,7 @@ export default function Profile() {
   const [modalVisible, setModalVisible] = useState(false);
   const [userPosts, setUserPosts] = useState<Post[]>([]);
   const [loadingPosts, setLoadingPosts] = useState(false);
-  const { token, user: authUser } = useAuth();
+  const { token, user: authUser, updateUser } = useAuth();
 
   const [activeTab, setActiveTab] = useState<'posts' | 'achievements' | 'cards'>('posts');
   const router = useRouter();
