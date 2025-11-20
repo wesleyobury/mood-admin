@@ -144,19 +144,29 @@ export default function CommentsBottomSheet({ postId, authToken, onClose, onComm
           ) : (
             comments.map((comment) => (
               <View key={comment.id} style={styles.commentContainer}>
-                {comment.author.avatar ? (
-                  <Image 
-                    source={{ uri: comment.author.avatar }} 
-                    style={styles.commentAvatar}
-                  />
-                ) : (
-                  <View style={[styles.commentAvatar, styles.avatarPlaceholder]}>
-                    <Ionicons name="person" size={16} color="#666" />
-                  </View>
-                )}
+                <TouchableOpacity 
+                  onPress={() => onUserPress && onUserPress(comment.author.id)}
+                  activeOpacity={0.7}
+                >
+                  {comment.author.avatar ? (
+                    <Image 
+                      source={{ uri: comment.author.avatar }} 
+                      style={styles.commentAvatar}
+                    />
+                  ) : (
+                    <View style={[styles.commentAvatar, styles.avatarPlaceholder]}>
+                      <Ionicons name="person" size={16} color="#666" />
+                    </View>
+                  )}
+                </TouchableOpacity>
                 <View style={styles.commentContent}>
                   <View style={styles.commentHeader}>
-                    <Text style={styles.commentUsername}>{comment.author.username}</Text>
+                    <TouchableOpacity 
+                      onPress={() => onUserPress && onUserPress(comment.author.id)}
+                      activeOpacity={0.7}
+                    >
+                      <Text style={styles.commentUsername}>{comment.author.username}</Text>
+                    </TouchableOpacity>
                     <Text style={styles.commentTime}>{formatTimeAgo(comment.created_at)}</Text>
                   </View>
                   <Text style={styles.commentText}>{comment.text}</Text>
