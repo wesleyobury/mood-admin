@@ -405,6 +405,7 @@ export default function Explore() {
                 authToken={token}
                 onClose={() => setShowComments(false)}
                 onCommentAdded={handleCommentAdded}
+                onUserPress={handleProfile}
               />
             )}
           </View>
