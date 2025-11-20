@@ -149,7 +149,7 @@ def create_test_users():
             "name": user_data["name"],
             "bio": user_data["bio"],
             "avatar": user_data["avatar"],
-            "hashed_password": hash_password("password123"),
+            "password": hash_password("password123"),
             "created_at": datetime.utcnow(),
             "followers_count": 0,
             "following_count": 0,
