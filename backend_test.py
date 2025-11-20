@@ -15,15 +15,12 @@ BACKEND_URL = "https://tapname.preview.emergentagent.com/api"
 # Test users mentioned in the review request
 TEST_USERS = ["fitnessguru", "yogalife", "cardioking", "strengthqueen", "hiitmaster"]
 
-class LikeFunctionalityTester:
+class BackendTester:
     def __init__(self):
         self.session = requests.Session()
-        self.user1_token = None
-        self.user2_token = None
-        self.user1_id = None
-        self.user2_id = None
-        self.test_post_id = None
         self.test_results = []
+        self.auth_token = None
+        self.test_user_id = None
         
     def log_result(self, test_name, success, message, details=None):
         """Log test result"""
