@@ -173,7 +173,13 @@ export default function Explore() {
   };
 
   const handleProfile = (userId: string) => {
-    router.push(`/user-profile?userId=${userId}`);
+    // If clicking on own profile, navigate to profile tab
+    if (user && user.id === userId) {
+      router.push('/(tabs)/profile');
+    } else {
+      // Otherwise navigate to user-profile screen (keeps tabs visible)
+      router.push(`/user-profile?userId=${userId}`);
+    }
   };
 
   const handleCreatePost = () => {
