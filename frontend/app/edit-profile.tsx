@@ -139,6 +139,8 @@ export default function EditProfile() {
         const data = await uploadResponse.json();
         console.log('Avatar upload success:', data);
         setAvatarUri(data.url);
+        // Update the auth context with new avatar
+        updateUser({ avatar: data.url });
         Alert.alert('Success', 'Profile picture updated!');
       } else {
         const errorData = await uploadResponse.text();
