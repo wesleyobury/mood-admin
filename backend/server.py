@@ -189,15 +189,26 @@ async def login(login_data: UserLogin):
     # Find user
     user = await db.users.find_one({"username": login_data.username})
     if not user:
+        logger.info(f"Login failed: User {login_data.username} not found")
         raise HTTPException(status_code=401, detail="Invalid credentials")
     
+    logger.info(f"Login attempt for user: {login_data.username}")
+    logger.info(f"User has password field: {'password' in user}")
+    
     # Verify password
-    if not bcrypt.checkpw(login_data.password.encode(), user["password"].encode()):
+    try:
+        password_match = bcrypt.checkpw(login_data.password.encode(), user["password"].encode())
+        logger.info(f"Password match result: {password_match}")
+        if not password_match:
+            raise HTTPException(status_code=401, detail="Invalid credentials")
+    except Exception as e:
+        logger.error(f"Password verification error: {e}")
         raise HTTPException(status_code=401, detail="Invalid credentials")
     
     # Generate JWT token
     token = create_jwt_token(str(user["_id"]))
     
+    logger.info(f"Login successful for: {login_data.username}")
     return {
         "message": "Login successful",
         "token": token,
