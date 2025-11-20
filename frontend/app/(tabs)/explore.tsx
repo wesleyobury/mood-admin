@@ -47,7 +47,7 @@ export default function Explore() {
   const [selectedPostId, setSelectedPostId] = useState<string | null>(null);
   const [activeTab, setActiveTab] = useState<'forYou' | 'following'>('forYou');
   const router = useRouter();
-  const { token } = useAuth();
+  const { token, user } = useAuth();
   const scrollViewRef = useRef<ScrollView>(null);
 
   // Double tap to like functionality
