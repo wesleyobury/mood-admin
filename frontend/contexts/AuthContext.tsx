@@ -42,6 +42,9 @@ export function AuthProvider({ children }: AuthProviderProps) {
     // Do actual login once on mount
     const doLogin = async () => {
       try {
+        console.log('🔐 Attempting auto-login...');
+        console.log('API_URL:', API_URL);
+        
         const response = await fetch(`${API_URL}/api/auth/login`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
@@ -51,8 +54,11 @@ export function AuthProvider({ children }: AuthProviderProps) {
           }),
         });
 
+        console.log('Login response status:', response.status);
+
         if (response.ok) {
           const data = await response.json();
+          console.log('✅ Login successful, got token');
           setToken(data.token);
           
           // Get user info
@@ -63,12 +69,14 @@ export function AuthProvider({ children }: AuthProviderProps) {
           if (userResp.ok) {
             const userData = await userResp.json();
             setUser(userData);
+            console.log('✅ User data loaded:', userData.username);
           }
-          
-          console.log('✅ Auto-login successful');
+        } else {
+          const errorData = await response.text();
+          console.error('❌ Login failed:', response.status, errorData);
         }
       } catch (err) {
-        console.error('Auth error:', err);
+        console.error('❌ Auth error:', err);
       } finally {
         setIsLoading(false);
       }
