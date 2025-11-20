@@ -300,17 +300,24 @@ def main():
             print("\n❌ No test users created")
             return
         
-        # Add likes and comments
-        add_likes_to_posts(test_users)
-        add_comments_to_posts(test_users)
+        # Create test posts
+        test_posts = create_test_posts(test_users)
         
-        # Update counts
-        update_post_counts()
+        if not test_posts:
+            print("\n⚠️  No posts created, skipping likes and comments")
+        else:
+            # Add likes and comments
+            add_likes_to_posts(test_users)
+            add_comments_to_posts(test_users)
+            
+            # Update counts
+            update_post_counts()
         
         print("\n" + "=" * 50)
         print("✅ Test data seeding complete!")
         print("=" * 50)
         print(f"\nCreated/Found {len(test_users)} test users")
+        print(f"Created {len(test_posts)} test posts")
         print("\nTest user credentials:")
         print("Username: Any of the above usernames")
         print("Password: password123")
