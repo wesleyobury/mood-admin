@@ -368,6 +368,71 @@ async def upload_profile_picture(
         logger.error(f"Profile picture upload error: {str(e)}")
         raise HTTPException(status_code=500, detail=f"Profile picture upload failed: {str(e)}")
 
+class AvatarBase64Upload(BaseModel):
+    image_data: str
+
+@api_router.post("/users/me/avatar-base64")
+async def upload_profile_picture_base64(
+    data: AvatarBase64Upload,
+    current_user_id: str = Depends(get_current_user)
+):
+    """Upload profile picture using base64 encoded image"""
+    try:
+        logger.info(f"📸 Avatar upload (base64) START for user {current_user_id}")
+        
+        # Parse base64 data
+        image_data = data.image_data
+        
+        # Extract file extension from base64 header
+        if image_data.startswith('data:image/'):
+            # Format: data:image/jpeg;base64,/9j/4AAQ...
+            header, base64_string = image_data.split(',', 1)
+            mime_type = header.split(';')[0].split(':')[1]
+            
+            if 'jpeg' in mime_type or 'jpg' in mime_type:
+                file_ext = '.jpg'
+            elif 'png' in mime_type:
+                file_ext = '.png'
+            elif 'gif' in mime_type:
+                file_ext = '.gif'
+            else:
+                file_ext = '.jpg'
+        else:
+            # Assume it's just the base64 string without header
+            base64_string = image_data
+            file_ext = '.jpg'
+        
+        logger.info(f"Detected file extension: {file_ext}")
+        
+        # Decode base64
+        import base64
+        image_bytes = base64.b64decode(base64_string)
+        
+        # Generate unique filename
+        unique_filename = f"avatar_{current_user_id}_{uuid.uuid4()}{file_ext}"
+        file_path = UPLOAD_DIR / unique_filename
+        
+        # Save file
+        async with aiofiles.open(file_path, 'wb') as f:
+            await f.write(image_bytes)
+        
+        # Update user's avatar URL
+        file_url = f"/api/uploads/{unique_filename}"
+        await db.users.update_one(
+            {"_id": ObjectId(current_user_id)},
+            {"$set": {"avatar": file_url}}
+        )
+        
+        logger.info(f"✅ Profile picture uploaded successfully (base64): {unique_filename}")
+        return {
+            "message": "Profile picture uploaded successfully",
+            "url": file_url
+        }
+    
+    except Exception as e:
+        logger.error(f"Base64 avatar upload error: {str(e)}")
+        raise HTTPException(status_code=500, detail=f"Profile picture upload failed: {str(e)}")
+
 @api_router.get("/users/{user_id}/is-following")
 async def check_following_status(
     user_id: str,
