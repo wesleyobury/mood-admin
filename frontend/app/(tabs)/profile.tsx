@@ -175,6 +175,17 @@ export default function Profile() {
           following: data.following_count || 0,
           streak: data.current_streak || 0,
         });
+        // Also update the AuthContext with the fetched data
+        updateUser({
+          username: data.username,
+          name: data.name,
+          bio: data.bio,
+          avatar: data.avatar,
+          followers_count: data.followers_count || 0,
+          following_count: data.following_count || 0,
+          workouts_count: data.workouts_count || 0,
+          current_streak: data.current_streak || 0,
+        });
       } else {
         console.error('Failed to fetch profile:', response.status);
       }
