@@ -1,28 +1,19 @@
 #!/usr/bin/env python3
 """
-Backend Testing Suite for MOOD App - Like Functionality Fix
-Testing the fix for: "sometimes when i click the like button it just animates to 'likes' with no count"
+Backend API Testing Script for Database Seeding Verification
+Tests the specific endpoints mentioned in the review request to verify seeded data.
 """
 
 import requests
 import json
-import time
+import sys
 from datetime import datetime
 
-# Configuration
+# Backend URL from frontend .env
 BACKEND_URL = "https://tapname.preview.emergentagent.com/api"
-TEST_USER_1 = {
-    "username": f"testuser_like_{int(time.time())}",
-    "email": f"testuser_like_{int(time.time())}@test.com",
-    "password": "testpass123",
-    "name": "Like Test User"
-}
-TEST_USER_2 = {
-    "username": f"testuser_like2_{int(time.time())}",
-    "email": f"testuser_like2_{int(time.time())}@test.com", 
-    "password": "testpass123",
-    "name": "Like Test User 2"
-}
+
+# Test users mentioned in the review request
+TEST_USERS = ["fitnessguru", "yogalife", "cardioking", "strengthqueen", "hiitmaster"]
 
 class LikeFunctionalityTester:
     def __init__(self):
