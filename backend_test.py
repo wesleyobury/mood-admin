@@ -34,458 +34,308 @@ class BackendTester:
         }
         self.test_results.append(result)
         print(f"{status}: {test_name} - {message}")
-        if details:
+        if details and not success:
             print(f"   Details: {details}")
-        print()
     
-    def setup_test_users(self):
-        """Create test users and get authentication tokens"""
-        print("\n🔧 Setting up test users...")
-        
-        # Register User 1
+    def test_health_check(self):
+        """Test basic health endpoints"""
         try:
-            response = self.session.post(f"{BACKEND_URL}/auth/register", json=TEST_USER_1)
+            # Test API root
+            response = self.session.get(f"{BACKEND_URL}/")
             if response.status_code == 200:
                 data = response.json()
-                self.user1_token = data["token"]
-                self.user1_id = data["user_id"]
-                self.log_result("User 1 Registration", True, "Test user 1 created successfully")
+                self.log_result("API Root Health", True, f"API responding: {data.get('message', 'OK')}")
             else:
-                self.log_result("User 1 Registration", False, f"Failed to create user 1: {response.status_code}")
-                return False
-        except Exception as e:
-            self.log_result("User 1 Registration", False, f"Exception creating user 1: {str(e)}")
-            return False
-        
-        # Register User 2
-        try:
-            response = self.session.post(f"{BACKEND_URL}/auth/register", json=TEST_USER_2)
+                self.log_result("API Root Health", False, f"Status {response.status_code}", {"response": response.text})
+                
+            # Test health endpoint
+            response = self.session.get(f"{BACKEND_URL}/health")
             if response.status_code == 200:
                 data = response.json()
-                self.user2_token = data["token"]
-                self.user2_id = data["user_id"]
-                self.log_result("User 2 Registration", True, "Test user 2 created successfully")
+                self.log_result("Health Check", True, f"Status: {data.get('status', 'unknown')}")
             else:
-                self.log_result("User 2 Registration", False, f"Failed to create user 2: {response.status_code}")
-                return False
+                self.log_result("Health Check", False, f"Status {response.status_code}", {"response": response.text})
+                
         except Exception as e:
-            self.log_result("User 2 Registration", False, f"Exception creating user 2: {str(e)}")
-            return False
-        
-        return True
+            self.log_result("Health Check", False, f"Connection error: {str(e)}")
     
-    def create_test_post(self):
-        """Create a test post for like testing"""
-        print("\n📝 Creating test post...")
-        
-        headers = {"Authorization": f"Bearer {self.user1_token}"}
-        post_data = {
-            "caption": "Test post for like functionality testing 🏋️‍♂️ #fitness #test",
-            "media_urls": [],
-            "hashtags": ["fitness", "test"]
-        }
-        
+    def setup_auth(self):
+        """Setup authentication for testing"""
         try:
-            response = self.session.post(f"{BACKEND_URL}/posts", json=post_data, headers=headers)
+            # Try to register a test user for authentication
+            test_user_data = {
+                "username": f"testuser_{datetime.now().strftime('%Y%m%d_%H%M%S')}",
+                "email": f"test_{datetime.now().strftime('%Y%m%d_%H%M%S')}@example.com",
+                "password": "testpass123",
+                "name": "Test User"
+            }
+            
+            response = self.session.post(f"{BACKEND_URL}/auth/register", json=test_user_data)
             if response.status_code == 200:
                 data = response.json()
-                self.test_post_id = data["id"]
-                self.log_result("Test Post Creation", True, f"Test post created with ID: {self.test_post_id}")
+                self.auth_token = data.get("token")
+                self.test_user_id = data.get("user_id")
+                self.session.headers.update({"Authorization": f"Bearer {self.auth_token}"})
+                self.log_result("Auth Setup", True, "Test user registered and authenticated")
                 return True
             else:
-                self.log_result("Test Post Creation", False, f"Failed to create test post: {response.status_code} - {response.text}")
+                self.log_result("Auth Setup", False, f"Registration failed: {response.status_code}", {"response": response.text})
                 return False
+                
         except Exception as e:
-            self.log_result("Test Post Creation", False, f"Exception creating test post: {str(e)}")
+            self.log_result("Auth Setup", False, f"Auth setup error: {str(e)}")
             return False
     
-    def test_like_endpoint_response_format(self):
-        """Test that like endpoint returns correct response format"""
-        print("\n🧪 Testing like endpoint response format...")
-        
-        headers = {"Authorization": f"Bearer {self.user2_token}"}
-        
+    def test_posts_endpoint(self):
+        """Test GET /api/posts to verify test posts are visible"""
         try:
-            # First like
-            response = self.session.post(f"{BACKEND_URL}/posts/{self.test_post_id}/like", headers=headers)
-            
+            response = self.session.get(f"{BACKEND_URL}/posts")
             if response.status_code == 200:
-                data = response.json()
+                posts = response.json()
+                if isinstance(posts, list):
+                    posts_count = len(posts)
+                    if posts_count > 0:
+                        # Check first post structure
+                        first_post = posts[0]
+                        required_fields = ['id', 'author', 'caption', 'likes_count', 'comments_count', 'media_urls']
+                        missing_fields = [field for field in required_fields if field not in first_post]
+                        
+                        if not missing_fields:
+                            # Check author information
+                            author = first_post.get('author', {})
+                            author_fields = ['id', 'username']
+                            missing_author_fields = [field for field in author_fields if field not in author]
+                            
+                            if not missing_author_fields:
+                                self.log_result("Posts Endpoint", True, 
+                                    f"Found {posts_count} posts with proper structure", 
+                                    {"sample_post": {
+                                        "author": author.get('username'),
+                                        "caption": first_post.get('caption', '')[:50] + "...",
+                                        "likes_count": first_post.get('likes_count'),
+                                        "comments_count": first_post.get('comments_count'),
+                                        "media_count": len(first_post.get('media_urls', []))
+                                    }})
+                                return posts
+                            else:
+                                self.log_result("Posts Endpoint", False, 
+                                    f"Author missing fields: {missing_author_fields}")
+                        else:
+                            self.log_result("Posts Endpoint", False, 
+                                f"Posts missing required fields: {missing_fields}")
+                    else:
+                        self.log_result("Posts Endpoint", False, "No posts found in feed")
+                else:
+                    self.log_result("Posts Endpoint", False, "Response is not a list", {"response_type": type(posts)})
+            else:
+                self.log_result("Posts Endpoint", False, f"Status {response.status_code}", {"response": response.text})
                 
-                # Check required fields
-                required_fields = ["liked", "likes_count", "message"]
-                missing_fields = [field for field in required_fields if field not in data]
+        except Exception as e:
+            self.log_result("Posts Endpoint", False, f"Request error: {str(e)}")
+        
+        return []
+    
+    def test_user_lookup(self):
+        """Find test users by username"""
+        found_users = {}
+        
+        # First, try to get all posts and extract unique authors
+        try:
+            response = self.session.get(f"{BACKEND_URL}/posts?limit=100")
+            if response.status_code == 200:
+                posts = response.json()
+                authors = {}
+                for post in posts:
+                    author = post.get('author', {})
+                    username = author.get('username', '')
+                    if username in TEST_USERS:
+                        authors[username] = author.get('id')
+                
+                if authors:
+                    self.log_result("Test Users Found", True, 
+                        f"Found {len(authors)} test users in posts", 
+                        {"users": list(authors.keys())})
+                    return authors
+                else:
+                    self.log_result("Test Users Found", False, 
+                        f"None of the expected test users found in posts", 
+                        {"expected": TEST_USERS})
+            else:
+                self.log_result("Test Users Lookup", False, f"Failed to get posts: {response.status_code}")
+                
+        except Exception as e:
+            self.log_result("Test Users Lookup", False, f"Error: {str(e)}")
+        
+        return {}
+    
+    def test_user_posts_endpoint(self, user_id, username):
+        """Test GET /api/users/{user_id}/posts for a specific user"""
+        try:
+            response = self.session.get(f"{BACKEND_URL}/users/{user_id}/posts")
+            if response.status_code == 200:
+                posts = response.json()
+                if isinstance(posts, list):
+                    posts_count = len(posts)
+                    if posts_count > 0:
+                        self.log_result(f"User Posts - {username}", True, 
+                            f"Found {posts_count} posts for user {username}")
+                        return posts
+                    else:
+                        self.log_result(f"User Posts - {username}", False, 
+                            f"No posts found for user {username}")
+                else:
+                    self.log_result(f"User Posts - {username}", False, 
+                        "Response is not a list", {"response_type": type(posts)})
+            else:
+                self.log_result(f"User Posts - {username}", False, 
+                    f"Status {response.status_code}", {"response": response.text})
+                
+        except Exception as e:
+            self.log_result(f"User Posts - {username}", False, f"Request error: {str(e)}")
+        
+        return []
+    
+    def test_comments_endpoint(self, post_id, post_caption=""):
+        """Test GET /api/posts/{post_id}/comments for a post"""
+        try:
+            response = self.session.get(f"{BACKEND_URL}/posts/{post_id}/comments")
+            if response.status_code == 200:
+                comments = response.json()
+                if isinstance(comments, list):
+                    comments_count = len(comments)
+                    if comments_count > 0:
+                        # Check first comment structure
+                        first_comment = comments[0]
+                        required_fields = ['id', 'text', 'author']
+                        missing_fields = [field for field in required_fields if field not in first_comment]
+                        
+                        if not missing_fields:
+                            author = first_comment.get('author', {})
+                            self.log_result("Comments Endpoint", True, 
+                                f"Found {comments_count} comments for post", 
+                                {"post_caption": post_caption[:30] + "...",
+                                 "sample_comment": {
+                                     "author": author.get('username', 'unknown'),
+                                     "text": first_comment.get('text', '')[:50] + "..."
+                                 }})
+                            return comments
+                        else:
+                            self.log_result("Comments Endpoint", False, 
+                                f"Comments missing required fields: {missing_fields}")
+                    else:
+                        self.log_result("Comments Endpoint", True, 
+                            f"No comments found for post (this is acceptable)")
+                        return []
+                else:
+                    self.log_result("Comments Endpoint", False, 
+                        "Response is not a list", {"response_type": type(comments)})
+            else:
+                self.log_result("Comments Endpoint", False, 
+                    f"Status {response.status_code}", {"response": response.text})
+                
+        except Exception as e:
+            self.log_result("Comments Endpoint", False, f"Request error: {str(e)}")
+        
+        return []
+    
+    def test_user_profile_endpoint(self, user_id, username):
+        """Test GET /api/users/{user_id} for user profile"""
+        try:
+            response = self.session.get(f"{BACKEND_URL}/users/{user_id}")
+            if response.status_code == 200:
+                user = response.json()
+                required_fields = ['id', 'username', 'email', 'followers_count', 'following_count', 'workouts_count']
+                missing_fields = [field for field in required_fields if field not in user]
                 
                 if not missing_fields:
-                    # Verify data types and values
-                    if (isinstance(data["liked"], bool) and 
-                        isinstance(data["likes_count"], int) and 
-                        isinstance(data["message"], str) and
-                        data["liked"] == True and
-                        data["likes_count"] >= 1):
-                        
-                        self.log_result("Like Response Format", True, 
-                                      "Response contains all required fields with correct types",
-                                      {"response": data})
-                        return True
-                    else:
-                        self.log_result("Like Response Format", False,
-                                      "Response fields have incorrect types or values",
-                                      {"response": data})
-                        return False
+                    self.log_result(f"User Profile - {username}", True, 
+                        f"Profile data complete for {username}", 
+                        {"profile": {
+                            "username": user.get('username'),
+                            "name": user.get('name', ''),
+                            "bio": user.get('bio', '')[:50] + "..." if user.get('bio') else '',
+                            "followers_count": user.get('followers_count'),
+                            "following_count": user.get('following_count'),
+                            "workouts_count": user.get('workouts_count')
+                        }})
+                    return user
                 else:
-                    self.log_result("Like Response Format", False,
-                                  f"Missing required fields: {missing_fields}",
-                                  {"response": data})
-                    return False
+                    self.log_result(f"User Profile - {username}", False, 
+                        f"Profile missing required fields: {missing_fields}")
             else:
-                self.log_result("Like Response Format", False,
-                              f"Like request failed: {response.status_code} - {response.text}")
-                return False
+                self.log_result(f"User Profile - {username}", False, 
+                    f"Status {response.status_code}", {"response": response.text})
                 
         except Exception as e:
-            self.log_result("Like Response Format", False, f"Exception testing like response: {str(e)}")
-            return False
+            self.log_result(f"User Profile - {username}", False, f"Request error: {str(e)}")
+        
+        return None
     
-    def test_unlike_endpoint_response_format(self):
-        """Test that unlike endpoint returns correct response format"""
-        print("\n🧪 Testing unlike endpoint response format...")
-        
-        headers = {"Authorization": f"Bearer {self.user2_token}"}
-        
-        try:
-            # Unlike (should already be liked from previous test)
-            response = self.session.post(f"{BACKEND_URL}/posts/{self.test_post_id}/like", headers=headers)
-            
-            if response.status_code == 200:
-                data = response.json()
-                
-                # Check required fields
-                required_fields = ["liked", "likes_count", "message"]
-                missing_fields = [field for field in required_fields if field not in data]
-                
-                if not missing_fields:
-                    # Verify data types and values
-                    if (isinstance(data["liked"], bool) and 
-                        isinstance(data["likes_count"], int) and 
-                        isinstance(data["message"], str) and
-                        data["liked"] == False and
-                        data["likes_count"] >= 0):
-                        
-                        self.log_result("Unlike Response Format", True,
-                                      "Unlike response contains all required fields with correct types",
-                                      {"response": data})
-                        return True
-                    else:
-                        self.log_result("Unlike Response Format", False,
-                                      "Unlike response fields have incorrect types or values",
-                                      {"response": data})
-                        return False
-                else:
-                    self.log_result("Unlike Response Format", False,
-                                  f"Missing required fields in unlike response: {missing_fields}",
-                                  {"response": data})
-                    return False
-            else:
-                self.log_result("Unlike Response Format", False,
-                              f"Unlike request failed: {response.status_code} - {response.text}")
-                return False
-                
-        except Exception as e:
-            self.log_result("Unlike Response Format", False, f"Exception testing unlike response: {str(e)}")
-            return False
-    
-    def test_likes_count_accuracy(self):
-        """Test that likes_count increments and decrements correctly"""
-        print("\n🧪 Testing likes count accuracy...")
-        
-        headers = {"Authorization": f"Bearer {self.user2_token}"}
-        
-        try:
-            # Start fresh - unlike if currently liked
-            response = self.session.post(f"{BACKEND_URL}/posts/{self.test_post_id}/like", headers=headers)
-            if response.status_code == 200 and response.json().get("liked") == True:
-                # Unlike to start from 0
-                self.session.post(f"{BACKEND_URL}/posts/{self.test_post_id}/like", headers=headers)
-            
-            # Test sequence: like -> unlike -> like
-            expected_counts = []
-            actual_counts = []
-            
-            # Like (should increment)
-            response = self.session.post(f"{BACKEND_URL}/posts/{self.test_post_id}/like", headers=headers)
-            if response.status_code == 200:
-                data = response.json()
-                actual_counts.append(data.get("likes_count", -1))
-                expected_counts.append(1)
-            
-            # Unlike (should decrement)
-            response = self.session.post(f"{BACKEND_URL}/posts/{self.test_post_id}/like", headers=headers)
-            if response.status_code == 200:
-                data = response.json()
-                actual_counts.append(data.get("likes_count", -1))
-                expected_counts.append(0)
-            
-            # Like again (should increment)
-            response = self.session.post(f"{BACKEND_URL}/posts/{self.test_post_id}/like", headers=headers)
-            if response.status_code == 200:
-                data = response.json()
-                actual_counts.append(data.get("likes_count", -1))
-                expected_counts.append(1)
-            
-            # Verify accuracy
-            if actual_counts == expected_counts:
-                self.log_result("Likes Count Accuracy", True,
-                              "Likes count increments and decrements correctly",
-                              {"expected": expected_counts, "actual": actual_counts})
-                return True
-            else:
-                self.log_result("Likes Count Accuracy", False,
-                              "Likes count not accurate",
-                              {"expected": expected_counts, "actual": actual_counts})
-                return False
-                
-        except Exception as e:
-            self.log_result("Likes Count Accuracy", False, f"Exception testing likes count accuracy: {str(e)}")
-            return False
-    
-    def test_multiple_like_unlike_cycles(self):
-        """Test multiple like/unlike cycles (5 times)"""
-        print("\n🧪 Testing multiple like/unlike cycles...")
-        
-        headers = {"Authorization": f"Bearer {self.user2_token}"}
-        
-        try:
-            # Start from unliked state
-            response = self.session.post(f"{BACKEND_URL}/posts/{self.test_post_id}/like", headers=headers)
-            if response.status_code == 200 and response.json().get("liked") == True:
-                # Unlike to start fresh
-                self.session.post(f"{BACKEND_URL}/posts/{self.test_post_id}/like", headers=headers)
-            
-            cycle_results = []
-            
-            for cycle in range(5):
-                # Like
-                like_response = self.session.post(f"{BACKEND_URL}/posts/{self.test_post_id}/like", headers=headers)
-                if like_response.status_code != 200:
-                    self.log_result("Multiple Cycles", False, f"Like failed in cycle {cycle + 1}")
-                    return False
-                
-                like_data = like_response.json()
-                
-                # Unlike
-                unlike_response = self.session.post(f"{BACKEND_URL}/posts/{self.test_post_id}/like", headers=headers)
-                if unlike_response.status_code != 200:
-                    self.log_result("Multiple Cycles", False, f"Unlike failed in cycle {cycle + 1}")
-                    return False
-                
-                unlike_data = unlike_response.json()
-                
-                cycle_results.append({
-                    "cycle": cycle + 1,
-                    "like_count": like_data.get("likes_count"),
-                    "unlike_count": unlike_data.get("likes_count"),
-                    "like_status": like_data.get("liked"),
-                    "unlike_status": unlike_data.get("liked")
-                })
-            
-            # Verify all cycles worked correctly
-            all_cycles_passed = True
-            for result in cycle_results:
-                if (result["like_count"] != 1 or result["unlike_count"] != 0 or
-                    result["like_status"] != True or result["unlike_status"] != False):
-                    all_cycles_passed = False
-                    break
-            
-            if all_cycles_passed:
-                self.log_result("Multiple Like/Unlike Cycles", True,
-                              "All 5 like/unlike cycles completed successfully",
-                              {"cycles": cycle_results})
-                return True
-            else:
-                self.log_result("Multiple Like/Unlike Cycles", False,
-                              "Some cycles failed",
-                              {"cycles": cycle_results})
-                return False
-                
-        except Exception as e:
-            self.log_result("Multiple Like/Unlike Cycles", False, f"Exception during multiple cycles: {str(e)}")
-            return False
-    
-    def test_edge_cases(self):
-        """Test edge cases: post with 0 likes, negative counts, etc."""
-        print("\n🧪 Testing edge cases...")
-        
-        headers = {"Authorization": f"Bearer {self.user2_token}"}
-        
-        try:
-            # Ensure post starts with 0 likes
-            response = self.session.post(f"{BACKEND_URL}/posts/{self.test_post_id}/like", headers=headers)
-            if response.status_code == 200 and response.json().get("liked") == True:
-                # Unlike to get to 0
-                self.session.post(f"{BACKEND_URL}/posts/{self.test_post_id}/like", headers=headers)
-            
-            # Test 1: Post with 0 likes
-            response = self.session.post(f"{BACKEND_URL}/posts/{self.test_post_id}/like", headers=headers)
-            if response.status_code == 200:
-                data = response.json()
-                if data.get("likes_count") == 1 and data.get("liked") == True:
-                    self.log_result("Edge Case - Zero Likes", True,
-                                  "Post with 0 likes handles like correctly",
-                                  {"response": data})
-                else:
-                    self.log_result("Edge Case - Zero Likes", False,
-                                  "Post with 0 likes doesn't handle like correctly",
-                                  {"response": data})
-                    return False
-            
-            # Test 2: Verify count never goes negative
-            # Unlike the post
-            response = self.session.post(f"{BACKEND_URL}/posts/{self.test_post_id}/like", headers=headers)
-            if response.status_code == 200:
-                data = response.json()
-                if data.get("likes_count") == 0 and data.get("liked") == False:
-                    self.log_result("Edge Case - Non-negative Count", True,
-                                  "Count correctly stays at 0 when unliking",
-                                  {"response": data})
-                else:
-                    self.log_result("Edge Case - Non-negative Count", False,
-                                  "Count went negative or incorrect",
-                                  {"response": data})
-                    return False
-            
-            # Test 3: Try to like when already at 0 (should go to 1)
-            response = self.session.post(f"{BACKEND_URL}/posts/{self.test_post_id}/like", headers=headers)
-            if response.status_code == 200:
-                data = response.json()
-                if data.get("likes_count") == 1 and data.get("liked") == True:
-                    self.log_result("Edge Case - Toggle from Zero", True,
-                                  "Toggling from 0 likes works correctly",
-                                  {"response": data})
-                    return True
-                else:
-                    self.log_result("Edge Case - Toggle from Zero", False,
-                                  "Toggling from 0 likes failed",
-                                  {"response": data})
-                    return False
-            
-        except Exception as e:
-            self.log_result("Edge Cases", False, f"Exception during edge case testing: {str(e)}")
-            return False
-    
-    def test_likes_count_always_present(self):
-        """Test that likes_count is always present in response (never undefined/null)"""
-        print("\n🧪 Testing likes_count always present...")
-        
-        headers = {"Authorization": f"Bearer {self.user2_token}"}
-        
-        try:
-            # Test multiple operations to ensure likes_count is always present
-            operations = []
-            
-            for i in range(3):
-                # Like
-                response = self.session.post(f"{BACKEND_URL}/posts/{self.test_post_id}/like", headers=headers)
-                if response.status_code == 200:
-                    data = response.json()
-                    operations.append({
-                        "operation": "like",
-                        "has_likes_count": "likes_count" in data,
-                        "likes_count_value": data.get("likes_count"),
-                        "is_number": isinstance(data.get("likes_count"), int)
-                    })
-                
-                # Unlike
-                response = self.session.post(f"{BACKEND_URL}/posts/{self.test_post_id}/like", headers=headers)
-                if response.status_code == 200:
-                    data = response.json()
-                    operations.append({
-                        "operation": "unlike",
-                        "has_likes_count": "likes_count" in data,
-                        "likes_count_value": data.get("likes_count"),
-                        "is_number": isinstance(data.get("likes_count"), int)
-                    })
-            
-            # Check all operations had likes_count present and as number
-            all_present = all(op["has_likes_count"] and op["is_number"] for op in operations)
-            
-            if all_present:
-                self.log_result("Likes Count Always Present", True,
-                              "likes_count field always present and is a number",
-                              {"operations": operations})
-                return True
-            else:
-                self.log_result("Likes Count Always Present", False,
-                              "likes_count field missing or not a number in some responses",
-                              {"operations": operations})
-                return False
-                
-        except Exception as e:
-            self.log_result("Likes Count Always Present", False, f"Exception testing likes_count presence: {str(e)}")
-            return False
-    
-    def run_all_tests(self):
-        """Run all like functionality tests"""
-        print("🚀 Starting Like Functionality Testing Suite")
+    def run_seeding_verification_tests(self):
+        """Run all database seeding verification tests"""
+        print("🧪 STARTING DATABASE SEEDING VERIFICATION TESTS")
         print("=" * 60)
         
-        # Setup
-        if not self.setup_test_users():
-            print("❌ Failed to setup test users. Aborting tests.")
-            return False
+        # 1. Health check
+        self.test_health_check()
         
-        if not self.create_test_post():
-            print("❌ Failed to create test post. Aborting tests.")
-            return False
+        # 2. Setup authentication
+        if not self.setup_auth():
+            print("❌ Cannot proceed without authentication")
+            return
         
-        # Run tests
-        tests = [
-            self.test_like_endpoint_response_format,
-            self.test_unlike_endpoint_response_format,
-            self.test_likes_count_accuracy,
-            self.test_multiple_like_unlike_cycles,
-            self.test_edge_cases,
-            self.test_likes_count_always_present
-        ]
+        # 3. Test posts endpoint
+        posts = self.test_posts_endpoint()
         
-        passed_tests = 0
-        total_tests = len(tests)
+        # 4. Find test users
+        test_users = self.test_user_lookup()
         
-        for test in tests:
-            if test():
-                passed_tests += 1
+        # 5. Test user posts endpoints
+        if test_users:
+            for username, user_id in test_users.items():
+                self.test_user_posts_endpoint(user_id, username)
+        
+        # 6. Test comments endpoint (use first post if available)
+        if posts:
+            first_post = posts[0]
+            post_id = first_post.get('id')
+            post_caption = first_post.get('caption', '')
+            if post_id:
+                self.test_comments_endpoint(post_id, post_caption)
+        
+        # 7. Test user profile endpoints
+        if test_users:
+            for username, user_id in test_users.items():
+                self.test_user_profile_endpoint(user_id, username)
         
         # Summary
+        self.print_summary()
+    
+    def print_summary(self):
+        """Print test summary"""
         print("\n" + "=" * 60)
-        print("🏁 LIKE FUNCTIONALITY TEST SUMMARY")
+        print("🏁 DATABASE SEEDING VERIFICATION SUMMARY")
         print("=" * 60)
         
-        success_rate = (passed_tests / total_tests) * 100
-        print(f"Tests Passed: {passed_tests}/{total_tests} ({success_rate:.1f}%)")
+        passed = sum(1 for result in self.test_results if "✅ PASS" in result["status"])
+        failed = sum(1 for result in self.test_results if "❌ FAIL" in result["status"])
+        total = len(self.test_results)
         
-        if passed_tests == total_tests:
-            print("🎉 ALL TESTS PASSED - Like functionality fix is working correctly!")
-            return True
-        else:
-            print(f"⚠️  {total_tests - passed_tests} tests failed - Like functionality needs attention")
-            return False
-
-def main():
-    """Main test execution"""
-    tester = LikeFunctionalityTester()
-    success = tester.run_all_tests()
-    
-    # Print detailed results
-    print("\n📋 DETAILED TEST RESULTS:")
-    print("-" * 40)
-    for result in tester.test_results:
-        print(f"{result['status']}: {result['test']}")
-        print(f"   {result['message']}")
-        if result['details']:
-            print(f"   Details: {json.dumps(result['details'], indent=2)}")
-        print()
-    
-    return success
+        print(f"Total Tests: {total}")
+        print(f"Passed: {passed} ✅")
+        print(f"Failed: {failed} ❌")
+        print(f"Success Rate: {(passed/total*100):.1f}%" if total > 0 else "0%")
+        
+        if failed > 0:
+            print("\n❌ FAILED TESTS:")
+            for result in self.test_results:
+                if "❌ FAIL" in result["status"]:
+                    print(f"  - {result['test']}: {result['message']}")
+        
+        print("\n📊 DETAILED RESULTS:")
+        for result in self.test_results:
+            print(f"  {result['status']}: {result['test']}")
 
 if __name__ == "__main__":
-    main()
+    tester = BackendTester()
+    tester.run_seeding_verification_tests()
