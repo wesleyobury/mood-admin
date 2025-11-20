@@ -573,6 +573,17 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: '#fff',
   },
+  createButton: {
+    padding: 4,
+  },
+  createIconContainer: {
+    backgroundColor: '#FFD700',
+    borderRadius: 20,
+    width: 32,
+    height: 32,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
   scrollView: {
     flex: 1,
   },
