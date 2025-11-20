@@ -164,6 +164,43 @@ def create_test_users():
     
     return created_users
 
+def create_test_posts(test_users):
+    """Create test posts from test users"""
+    print("\nCreating test posts...")
+    
+    if not test_users:
+        print("  No test users available to create posts")
+        return []
+    
+    created_posts = []
+    
+    # Create 2-3 posts per user
+    for user in test_users:
+        num_posts = random.randint(2, 3)
+        user_posts = random.sample(SAMPLE_POSTS, min(num_posts, len(SAMPLE_POSTS)))
+        
+        for post_data in user_posts:
+            post = {
+                "author_id": user["_id"],
+                "caption": post_data["caption"],
+                "media_urls": post_data["media_urls"],
+                "hashtags": [],
+                "likes_count": 0,
+                "comments_count": 0,
+                "created_at": datetime.utcnow() - timedelta(
+                    days=random.randint(0, 7),
+                    hours=random.randint(0, 23)
+                )
+            }
+            
+            result = db.posts.insert_one(post)
+            post["_id"] = result.inserted_id
+            created_posts.append(post)
+            print(f"  ✓ Created post for {user['username']}")
+    
+    print(f"  Total posts created: {len(created_posts)}")
+    return created_posts
+
 def add_likes_to_posts(test_users):
     """Add likes from test users to existing posts"""
     print("\nAdding likes to posts...")
