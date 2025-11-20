@@ -752,8 +752,8 @@ export default function CreatePost() {
         >
           <View style={styles.loadingOverlay}>
             <View style={styles.loadingContent}>
-              <ActivityIndicator size="large" color="#FFD700" />
-              <Text style={styles.loadingTitle}>Posting Workout...</Text>
+              <ActivityIndicator size={40} color="#ffffff" />
+              <Text style={styles.loadingTitle}>Posting</Text>
               <Text style={styles.loadingProgress}>{Math.round(uploadProgress)}%</Text>
               <View style={styles.loadingProgressBar}>
                 <View 
