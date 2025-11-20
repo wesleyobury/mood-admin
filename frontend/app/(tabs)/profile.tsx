@@ -107,6 +107,26 @@ export default function Profile() {
     }, [token, activeTab, user.id])
   );
 
+  // Sync with AuthContext user data when it changes
+  useEffect(() => {
+    if (authUser) {
+      setUser({
+        id: authUser.id,
+        username: authUser.username,
+        name: authUser.name || authUser.username,
+        bio: authUser.bio || '',
+        avatar: authUser.avatar || '',
+        isVerified: false,
+      });
+      setStats({
+        workouts: authUser.workouts_count || 0,
+        followers: authUser.followers_count || 0,
+        following: authUser.following_count || 0,
+        streak: authUser.current_streak || 0,
+      });
+    }
+  }, [authUser]);
+
   // Load workout cards when Cards tab is selected
   useEffect(() => {
     if (activeTab === 'cards' && token) {
