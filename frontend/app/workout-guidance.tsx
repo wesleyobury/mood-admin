@@ -226,6 +226,45 @@ export default function WorkoutGuidanceScreen() {
     setIsPaused(false);
   };
   
+  const saveWorkoutCard = async (workouts: any[], totalDuration: number, completedAt: string) => {
+    if (!token) {
+      console.log('❌ No token available, cannot save workout card');
+      return false;
+    }
+
+    try {
+      console.log('💾 Saving workout card to profile...');
+      const response = await fetch(`${API_URL}/api/workout-cards`, {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${token}`,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          workouts,
+          total_duration: totalDuration,
+          completed_at: completedAt,
+        }),
+      });
+
+      if (response.ok) {
+        console.log('✅ Workout card saved successfully');
+        return true;
+      } else {
+        console.error('❌ Failed to save workout card:', response.status);
+        return false;
+      }
+    } catch (error) {
+      console.error('❌ Error saving workout card:', error);
+      return false;
+    }
+  };
+  
+  const showToast = (message: string) => {
+    setToastMessage(message);
+    setToastVisible(true);
+  };
+  
   const handleCompletedWorkout = () => {
     console.log('🎯 handleCompletedWorkout called');
     console.log('🎯 isSession:', isSession);
