@@ -10,7 +10,7 @@ import sys
 from datetime import datetime
 
 # Backend URL from frontend .env
-BACKEND_URL = "https://tapname.preview.emergentagent.com/api"
+BACKEND_URL = "https://fitconnect-40.preview.emergentagent.com/api"
 
 # Test users mentioned in the review request
 TEST_USERS = ["fitnessguru", "yogalife", "cardioking", "strengthqueen", "hiitmaster"]
