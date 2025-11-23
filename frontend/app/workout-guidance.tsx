@@ -647,6 +647,14 @@ export default function WorkoutGuidanceScreen() {
           </Text>
         </TouchableOpacity>
       </View>
+      
+      {/* Toast Notification */}
+      <Toast
+        message={toastMessage}
+        visible={toastVisible}
+        onHide={() => setToastVisible(false)}
+        type="success"
+      />
     </SafeAreaView>
   );
 }
