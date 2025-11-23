@@ -370,7 +370,10 @@ class FollowersFollowingTester:
         # Test 3: Following endpoint  
         following_success = self.test_following_endpoint()
         
-        # Test 4: Test with different user
+        # Test 4: Test follow functionality with actual follow/unfollow
+        follow_functionality_success = self.test_follow_functionality()
+        
+        # Test 5: Test with different user
         different_user_success = self.test_with_different_user()
         
         print()
