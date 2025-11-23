@@ -68,7 +68,7 @@ export default function Toast({
                    type === 'error' ? 'alert-circle' : 
                    'information-circle';
   
-  const iconColor = type === 'success' ? '#4CAF50' : 
+  const iconColor = type === 'success' ? '#FFD700' : 
                     type === 'error' ? '#FF4444' : 
                     '#FFD700';
 
