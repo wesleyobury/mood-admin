@@ -1,26 +1,23 @@
 #!/usr/bin/env python3
 """
-Backend API Testing Script for Database Seeding Verification
-Tests the specific endpoints mentioned in the review request to verify seeded data.
+Backend API Testing for Followers and Following Functionality
+Testing the specific endpoints requested in the review.
 """
 
 import requests
 import json
 import sys
-from datetime import datetime
+from typing import Dict, List, Any
 
-# Backend URL from frontend .env
+# Get backend URL from frontend .env
 BACKEND_URL = "https://fitconnect-40.preview.emergentagent.com/api"
 
-# Test users mentioned in the review request
-TEST_USERS = ["fitnessguru", "yogalife", "cardioking", "strengthqueen", "hiitmaster"]
-
-class BackendTester:
+class FollowersFollowingTester:
     def __init__(self):
         self.session = requests.Session()
-        self.test_results = []
         self.auth_token = None
-        self.test_user_id = None
+        self.current_user_id = None
+        self.test_results = []
         
     def log_result(self, test_name, success, message, details=None):
         """Log test result"""
