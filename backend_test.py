@@ -186,6 +186,115 @@ class FollowersFollowingTester:
             self.log_test("GET /api/users/{user_id}/following", False, f"Exception: {str(e)}")
             return False
     
+    def test_follow_functionality(self) -> bool:
+        """Test follow/unfollow functionality and verify followers/following lists"""
+        try:
+            # First, get another user to follow
+            response = self.session.get(f"{BACKEND_URL}/posts")
+            
+            if response.status_code != 200:
+                self.log_test("Test follow functionality", False, "Could not fetch posts to find other users")
+                return False
+            
+            posts = response.json()
+            if not posts or len(posts) == 0:
+                self.log_test("Test follow functionality", True, "No other users found to test follow functionality")
+                return True
+            
+            # Get a different user ID from the first post
+            other_user_id = posts[0]['author']['id']
+            other_username = posts[0]['author']['username']
+            
+            if other_user_id == self.current_user_id:
+                # Try to find a different user
+                for post in posts:
+                    if post['author']['id'] != self.current_user_id:
+                        other_user_id = post['author']['id']
+                        other_username = post['author']['username']
+                        break
+            
+            if other_user_id == self.current_user_id:
+                self.log_test("Test follow functionality", True, "Only current user found in system")
+                return True
+            
+            # Test 1: Follow the user
+            follow_response = self.session.post(f"{BACKEND_URL}/users/{other_user_id}/follow")
+            if follow_response.status_code != 200:
+                self.log_test("Test follow functionality", False, f"Follow request failed: {follow_response.status_code}")
+                return False
+            
+            follow_data = follow_response.json()
+            if not follow_data.get("following"):
+                self.log_test("Test follow functionality", False, "Follow response indicates not following")
+                return False
+            
+            # Test 2: Check that the user appears in our following list
+            following_response = self.session.get(f"{BACKEND_URL}/users/{self.current_user_id}/following")
+            if following_response.status_code != 200:
+                self.log_test("Test follow functionality", False, f"Following list request failed: {following_response.status_code}")
+                return False
+            
+            following_list = following_response.json()
+            found_user = False
+            for user in following_list:
+                if user['id'] == other_user_id:
+                    found_user = True
+                    break
+            
+            if not found_user:
+                self.log_test("Test follow functionality", False, "Followed user not found in following list")
+                return False
+            
+            # Test 3: Check that we appear in the other user's followers list
+            followers_response = self.session.get(f"{BACKEND_URL}/users/{other_user_id}/followers")
+            if followers_response.status_code != 200:
+                self.log_test("Test follow functionality", False, f"Followers list request failed: {followers_response.status_code}")
+                return False
+            
+            followers_list = followers_response.json()
+            found_self = False
+            for user in followers_list:
+                if user['id'] == self.current_user_id:
+                    found_self = True
+                    break
+            
+            if not found_self:
+                self.log_test("Test follow functionality", False, "Current user not found in other user's followers list")
+                return False
+            
+            # Test 4: Unfollow the user
+            unfollow_response = self.session.post(f"{BACKEND_URL}/users/{other_user_id}/follow")
+            if unfollow_response.status_code != 200:
+                self.log_test("Test follow functionality", False, f"Unfollow request failed: {unfollow_response.status_code}")
+                return False
+            
+            unfollow_data = unfollow_response.json()
+            if unfollow_data.get("following"):
+                self.log_test("Test follow functionality", False, "Unfollow response indicates still following")
+                return False
+            
+            # Test 5: Verify lists are empty again
+            following_response2 = self.session.get(f"{BACKEND_URL}/users/{self.current_user_id}/following")
+            following_list2 = following_response2.json()
+            
+            followers_response2 = self.session.get(f"{BACKEND_URL}/users/{other_user_id}/followers")
+            followers_list2 = followers_response2.json()
+            
+            # Check that the followed user is no longer in our following list
+            still_following = any(user['id'] == other_user_id for user in following_list2)
+            still_follower = any(user['id'] == self.current_user_id for user in followers_list2)
+            
+            if still_following or still_follower:
+                self.log_test("Test follow functionality", False, "User still appears in lists after unfollow")
+                return False
+            
+            self.log_test("Test follow functionality", True, f"Complete follow/unfollow cycle tested with user {other_username}")
+            return True
+                
+        except Exception as e:
+            self.log_test("Test follow functionality", False, f"Exception: {str(e)}")
+            return False
+    
     def test_with_different_user(self) -> bool:
         """Test endpoints with a different user ID to verify they work for any user"""
         try:
