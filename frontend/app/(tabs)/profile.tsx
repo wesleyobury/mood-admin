@@ -288,24 +288,49 @@ export default function Profile() {
     console.log('View following');
   };
 
-  const renderWorkoutCard = ({ item }: { item: WorkoutCard }) => (
-    <TouchableOpacity
-      style={styles.cardThumbnail}
-      onPress={() => {
-        setSelectedCard(item);
-        setModalVisible(true);
-      }}
-    >
-      <View style={styles.cardThumbnailContent}>
-        <Ionicons name="trophy" size={24} color="#FFD700" />
-        <Text style={styles.cardThumbnailText}>{item.workouts.length} Exercises</Text>
-        <Text style={styles.cardThumbnailDuration}>{item.totalDuration} min</Text>
-      </View>
-      <View style={styles.cardThumbnailFooter}>
-        <Text style={styles.cardThumbnailDate}>{item.completedAt}</Text>
-      </View>
-    </TouchableOpacity>
-  );
+  const renderWorkoutCard = ({ item }: { item: WorkoutCard }) => {
+    // Get up to 3 workout titles
+    const workoutTitles = item.workouts.slice(0, 3).map(w => w.workoutName);
+    const hasMore = item.workouts.length > 3;
+    
+    return (
+      <TouchableOpacity
+        style={styles.cardThumbnail}
+        onPress={() => {
+          setSelectedCard(item);
+          setModalVisible(true);
+        }}
+      >
+        <View style={styles.cardThumbnailContent}>
+          <Ionicons name="trophy" size={20} color="#FFD700" />
+          
+          {/* Workout titles - up to 3 */}
+          <View style={styles.workoutTitlesContainer}>
+            {workoutTitles.map((title, index) => (
+              <Text key={index} style={styles.workoutTitle} numberOfLines={1}>
+                {title}
+              </Text>
+            ))}
+            {hasMore && (
+              <Text style={styles.workoutTitleMore}>
+                +{item.workouts.length - 3} more
+              </Text>
+            )}
+          </View>
+          
+          {/* Stats row */}
+          <View style={styles.cardStats}>
+            <Text style={styles.cardStat}>{item.workouts.length} exercises</Text>
+            <Text style={styles.cardStatDivider}>•</Text>
+            <Text style={styles.cardStat}>{item.totalDuration} min</Text>
+          </View>
+        </View>
+        <View style={styles.cardThumbnailFooter}>
+          <Text style={styles.cardThumbnailDate}>{item.completedAt}</Text>
+        </View>
+      </TouchableOpacity>
+    );
+  };
 
   return (
     <SafeAreaView style={styles.container}>
