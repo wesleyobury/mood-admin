@@ -249,7 +249,7 @@ class FollowersFollowingTester:
         print()
         
         # Test 1: Login
-        if not self.login_test_user():
+        if not self.find_and_login_test_user():
             print("\n❌ Cannot proceed without successful login")
             return False
         
