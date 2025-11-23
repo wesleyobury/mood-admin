@@ -190,6 +190,11 @@ export default function WorkoutGuidanceScreen() {
   const [elapsedTime, setElapsedTime] = useState(0); // Timer starts from 0:00
   const [isRunning, setIsRunning] = useState(false);
   const [isPaused, setIsPaused] = useState(false);
+  const [toastVisible, setToastVisible] = useState(false);
+  const [toastMessage, setToastMessage] = useState('');
+  
+  const { token } = useAuth();
+  const API_URL = process.env.EXPO_PUBLIC_BACKEND_URL || '';
   
   // Simple elapsed time timer
   useEffect(() => {
