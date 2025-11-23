@@ -265,7 +265,7 @@ export default function WorkoutGuidanceScreen() {
     setToastVisible(true);
   };
   
-  const handleCompletedWorkout = () => {
+  const handleCompletedWorkout = async () => {
     console.log('🎯 handleCompletedWorkout called');
     console.log('🎯 isSession:', isSession);
     console.log('🎯 sessionWorkouts.length:', sessionWorkouts.length);
