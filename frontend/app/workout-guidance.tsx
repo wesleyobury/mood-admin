@@ -373,10 +373,10 @@ export default function WorkoutGuidanceScreen() {
       if (saved) {
         console.log('✅ Workout saved to profile');
         showToast('Workout saved to your profile! 💪');
-        // Small delay to show toast before navigating
+        // Wait for toast to be visible before navigating
         setTimeout(() => {
           router.back();
-        }, 500);
+        }, 2500);
       } else {
         console.log('⚠️  Failed to save workout, but navigating back');
         router.back();
