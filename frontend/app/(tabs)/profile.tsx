@@ -578,6 +578,14 @@ export default function Profile() {
           </View>
         </View>
       </Modal>
+
+      {/* Follow List Modal */}
+      <FollowListModal
+        visible={followListVisible}
+        onClose={() => setFollowListVisible(false)}
+        userId={user.id}
+        type={followListType}
+      />
     </SafeAreaView>
   );
 }
