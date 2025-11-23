@@ -13,6 +13,8 @@ import { useRouter, useLocalSearchParams } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import HomeButton from '../components/HomeButton';
 import { useCart } from '../contexts/CartContext';
+import { useAuth } from '../contexts/AuthContext';
+import Toast from '../components/Toast';
 
 interface MOODTip {
   icon: keyof typeof Ionicons.glyphMap;
