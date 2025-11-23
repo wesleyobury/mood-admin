@@ -288,7 +288,7 @@ class FollowersFollowingTester:
         print()
         
         # Overall assessment
-        critical_tests = ["Login with cardioking", "GET /api/users/{user_id}/followers", "GET /api/users/{user_id}/following"]
+        critical_tests = ["Create and login test user", "GET /api/users/{user_id}/followers", "GET /api/users/{user_id}/following"]
         critical_passed = sum(1 for result in self.test_results if result["test"] in critical_tests and result["success"])
         
         if critical_passed == len(critical_tests):
