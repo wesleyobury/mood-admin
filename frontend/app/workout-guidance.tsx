@@ -348,9 +348,39 @@ export default function WorkoutGuidanceScreen() {
         }
       }
     } else {
-      // Single workout - navigate back to the previous workout cards screen
-      console.log('🔙 Single workout, navigating back');
-      router.back();
+      // Single workout - save to profile and navigate back
+      console.log('🔙 Single workout completed, saving to profile...');
+      
+      // Prepare workout data for saving
+      const completedWorkout = {
+        workoutTitle: workoutName,
+        workoutName: workoutName,
+        equipment: equipment,
+        duration: duration,
+        difficulty: difficulty,
+      };
+      
+      const totalDuration = parseInt(duration.split(' ')[0]) || 0;
+      const completedAt = new Date().toLocaleDateString('en-US', { 
+        month: 'short', 
+        day: 'numeric', 
+        year: 'numeric' 
+      });
+      
+      // Save workout card to profile
+      const saved = await saveWorkoutCard([completedWorkout], totalDuration, completedAt);
+      
+      if (saved) {
+        console.log('✅ Workout saved to profile');
+        showToast('Workout saved to your profile! 💪');
+        // Small delay to show toast before navigating
+        setTimeout(() => {
+          router.back();
+        }, 500);
+      } else {
+        console.log('⚠️  Failed to save workout, but navigating back');
+        router.back();
+      }
     }
   };
   
