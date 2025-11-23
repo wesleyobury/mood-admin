@@ -19,320 +19,261 @@ class FollowersFollowingTester:
         self.current_user_id = None
         self.test_results = []
         
-    def log_result(self, test_name, success, message, details=None):
-        """Log test result"""
+    def log_test(self, test_name: str, success: bool, details: str = ""):
+        """Log test results"""
         status = "✅ PASS" if success else "❌ FAIL"
-        result = {
-            "test": test_name,
-            "status": status,
-            "message": message,
-            "details": details or {},
-            "timestamp": datetime.now().isoformat()
-        }
-        self.test_results.append(result)
-        print(f"{status}: {test_name} - {message}")
-        if details and not success:
+        print(f"{status} {test_name}")
+        if details:
             print(f"   Details: {details}")
+        
+        self.test_results.append({
+            "test": test_name,
+            "success": success,
+            "details": details
+        })
     
-    def test_health_check(self):
-        """Test basic health endpoints"""
+    def login_test_user(self) -> bool:
+        """Login with test user cardioking"""
         try:
-            # Test API root
-            response = self.session.get(f"{BACKEND_URL}/")
-            if response.status_code == 200:
-                data = response.json()
-                self.log_result("API Root Health", True, f"API responding: {data.get('message', 'OK')}")
-            else:
-                self.log_result("API Root Health", False, f"Status {response.status_code}", {"response": response.text})
-                
-            # Test health endpoint
-            response = self.session.get(f"{BACKEND_URL}/health")
-            if response.status_code == 200:
-                data = response.json()
-                self.log_result("Health Check", True, f"Status: {data.get('status', 'unknown')}")
-            else:
-                self.log_result("Health Check", False, f"Status {response.status_code}", {"response": response.text})
-                
-        except Exception as e:
-            self.log_result("Health Check", False, f"Connection error: {str(e)}")
-    
-    def setup_auth(self):
-        """Setup authentication for testing"""
-        try:
-            # Try to register a test user for authentication
-            test_user_data = {
-                "username": f"testuser_{datetime.now().strftime('%Y%m%d_%H%M%S')}",
-                "email": f"test_{datetime.now().strftime('%Y%m%d_%H%M%S')}@example.com",
-                "password": "testpass123",
-                "name": "Test User"
+            login_data = {
+                "username": "cardioking",
+                "password": "test123"
             }
             
-            response = self.session.post(f"{BACKEND_URL}/auth/register", json=test_user_data)
+            response = self.session.post(f"{BACKEND_URL}/auth/login", json=login_data)
+            
             if response.status_code == 200:
                 data = response.json()
                 self.auth_token = data.get("token")
-                self.test_user_id = data.get("user_id")
-                self.session.headers.update({"Authorization": f"Bearer {self.auth_token}"})
-                self.log_result("Auth Setup", True, "Test user registered and authenticated")
-                return True
+                self.current_user_id = data.get("user_id")
+                
+                if self.auth_token and self.current_user_id:
+                    # Set authorization header for future requests
+                    self.session.headers.update({
+                        "Authorization": f"Bearer {self.auth_token}"
+                    })
+                    self.log_test("Login with cardioking", True, f"User ID: {self.current_user_id}")
+                    return True
+                else:
+                    self.log_test("Login with cardioking", False, "Missing token or user_id in response")
+                    return False
             else:
-                self.log_result("Auth Setup", False, f"Registration failed: {response.status_code}", {"response": response.text})
+                self.log_test("Login with cardioking", False, f"Status: {response.status_code}, Response: {response.text}")
                 return False
                 
         except Exception as e:
-            self.log_result("Auth Setup", False, f"Auth setup error: {str(e)}")
+            self.log_test("Login with cardioking", False, f"Exception: {str(e)}")
             return False
     
-    def test_posts_endpoint(self):
-        """Test GET /api/posts to verify test posts are visible"""
+    def test_followers_endpoint(self) -> bool:
+        """Test GET /api/users/{user_id}/followers endpoint"""
         try:
+            if not self.current_user_id:
+                self.log_test("GET /api/users/{user_id}/followers", False, "No user ID available")
+                return False
+            
+            url = f"{BACKEND_URL}/users/{self.current_user_id}/followers"
+            response = self.session.get(url)
+            
+            if response.status_code == 200:
+                followers = response.json()
+                
+                # Verify it's a list
+                if not isinstance(followers, list):
+                    self.log_test("GET /api/users/{user_id}/followers", False, f"Response is not a list: {type(followers)}")
+                    return False
+                
+                # Check response structure if there are followers
+                if len(followers) > 0:
+                    follower = followers[0]
+                    required_fields = ['id', 'username', 'name', 'avatar', 'bio', 'followers_count', 'following_count']
+                    missing_fields = []
+                    
+                    for field in required_fields:
+                        if field not in follower:
+                            missing_fields.append(field)
+                    
+                    if missing_fields:
+                        self.log_test("GET /api/users/{user_id}/followers", False, f"Missing fields: {missing_fields}")
+                        return False
+                    
+                    self.log_test("GET /api/users/{user_id}/followers", True, f"Found {len(followers)} followers with correct structure")
+                else:
+                    self.log_test("GET /api/users/{user_id}/followers", True, "Empty followers list (valid response)")
+                
+                return True
+            else:
+                self.log_test("GET /api/users/{user_id}/followers", False, f"Status: {response.status_code}, Response: {response.text}")
+                return False
+                
+        except Exception as e:
+            self.log_test("GET /api/users/{user_id}/followers", False, f"Exception: {str(e)}")
+            return False
+    
+    def test_following_endpoint(self) -> bool:
+        """Test GET /api/users/{user_id}/following endpoint"""
+        try:
+            if not self.current_user_id:
+                self.log_test("GET /api/users/{user_id}/following", False, "No user ID available")
+                return False
+            
+            url = f"{BACKEND_URL}/users/{self.current_user_id}/following"
+            response = self.session.get(url)
+            
+            if response.status_code == 200:
+                following = response.json()
+                
+                # Verify it's a list
+                if not isinstance(following, list):
+                    self.log_test("GET /api/users/{user_id}/following", False, f"Response is not a list: {type(following)}")
+                    return False
+                
+                # Check response structure if there are following users
+                if len(following) > 0:
+                    following_user = following[0]
+                    required_fields = ['id', 'username', 'name', 'avatar', 'bio', 'followers_count', 'following_count']
+                    missing_fields = []
+                    
+                    for field in required_fields:
+                        if field not in following_user:
+                            missing_fields.append(field)
+                    
+                    if missing_fields:
+                        self.log_test("GET /api/users/{user_id}/following", False, f"Missing fields: {missing_fields}")
+                        return False
+                    
+                    self.log_test("GET /api/users/{user_id}/following", True, f"Found {len(following)} following users with correct structure")
+                else:
+                    self.log_test("GET /api/users/{user_id}/following", True, "Empty following list (valid response)")
+                
+                return True
+            else:
+                self.log_test("GET /api/users/{user_id}/following", False, f"Status: {response.status_code}, Response: {response.text}")
+                return False
+                
+        except Exception as e:
+            self.log_test("GET /api/users/{user_id}/following", False, f"Exception: {str(e)}")
+            return False
+    
+    def test_with_different_user(self) -> bool:
+        """Test endpoints with a different user ID to verify they work for any user"""
+        try:
+            # First, let's get a list of users to find another user ID
             response = self.session.get(f"{BACKEND_URL}/posts")
-            if response.status_code == 200:
-                posts = response.json()
-                if isinstance(posts, list):
-                    posts_count = len(posts)
-                    if posts_count > 0:
-                        # Check first post structure
-                        first_post = posts[0]
-                        required_fields = ['id', 'author', 'caption', 'likes_count', 'comments_count', 'media_urls']
-                        missing_fields = [field for field in required_fields if field not in first_post]
-                        
-                        if not missing_fields:
-                            # Check author information
-                            author = first_post.get('author', {})
-                            author_fields = ['id', 'username']
-                            missing_author_fields = [field for field in author_fields if field not in author]
-                            
-                            if not missing_author_fields:
-                                self.log_result("Posts Endpoint", True, 
-                                    f"Found {posts_count} posts with proper structure", 
-                                    {"sample_post": {
-                                        "author": author.get('username'),
-                                        "caption": first_post.get('caption', '')[:50] + "...",
-                                        "likes_count": first_post.get('likes_count'),
-                                        "comments_count": first_post.get('comments_count'),
-                                        "media_count": len(first_post.get('media_urls', []))
-                                    }})
-                                return posts
-                            else:
-                                self.log_result("Posts Endpoint", False, 
-                                    f"Author missing fields: {missing_author_fields}")
-                        else:
-                            self.log_result("Posts Endpoint", False, 
-                                f"Posts missing required fields: {missing_fields}")
-                    else:
-                        self.log_result("Posts Endpoint", False, "No posts found in feed")
-                else:
-                    self.log_result("Posts Endpoint", False, "Response is not a list", {"response_type": type(posts)})
-            else:
-                self.log_result("Posts Endpoint", False, f"Status {response.status_code}", {"response": response.text})
-                
-        except Exception as e:
-            self.log_result("Posts Endpoint", False, f"Request error: {str(e)}")
-        
-        return []
-    
-    def test_user_lookup(self):
-        """Find test users by username"""
-        found_users = {}
-        
-        # First, try to get all posts and extract unique authors
-        try:
-            response = self.session.get(f"{BACKEND_URL}/posts?limit=100")
-            if response.status_code == 200:
-                posts = response.json()
-                authors = {}
+            
+            if response.status_code != 200:
+                self.log_test("Test with different user", False, "Could not fetch posts to find other users")
+                return False
+            
+            posts = response.json()
+            if not posts or len(posts) == 0:
+                self.log_test("Test with different user", False, "No posts found to get other user IDs")
+                return False
+            
+            # Get a different user ID from the first post
+            other_user_id = posts[0]['author']['id']
+            
+            if other_user_id == self.current_user_id:
+                # Try to find a different user
                 for post in posts:
-                    author = post.get('author', {})
-                    username = author.get('username', '')
-                    if username in TEST_USERS:
-                        authors[username] = author.get('id')
+                    if post['author']['id'] != self.current_user_id:
+                        other_user_id = post['author']['id']
+                        break
+            
+            if other_user_id == self.current_user_id:
+                self.log_test("Test with different user", True, "Only one user found in system (current user)")
+                return True
+            
+            # Test followers endpoint with different user
+            followers_url = f"{BACKEND_URL}/users/{other_user_id}/followers"
+            followers_response = self.session.get(followers_url)
+            
+            # Test following endpoint with different user
+            following_url = f"{BACKEND_URL}/users/{other_user_id}/following"
+            following_response = self.session.get(following_url)
+            
+            if followers_response.status_code == 200 and following_response.status_code == 200:
+                followers = followers_response.json()
+                following = following_response.json()
                 
-                if authors:
-                    self.log_result("Test Users Found", True, 
-                        f"Found {len(authors)} test users in posts", 
-                        {"users": list(authors.keys())})
-                    return authors
+                if isinstance(followers, list) and isinstance(following, list):
+                    self.log_test("Test with different user", True, f"Both endpoints work for user {other_user_id}")
+                    return True
                 else:
-                    self.log_result("Test Users Found", False, 
-                        f"None of the expected test users found in posts", 
-                        {"expected": TEST_USERS})
+                    self.log_test("Test with different user", False, "Responses are not lists")
+                    return False
             else:
-                self.log_result("Test Users Lookup", False, f"Failed to get posts: {response.status_code}")
+                self.log_test("Test with different user", False, f"Followers status: {followers_response.status_code}, Following status: {following_response.status_code}")
+                return False
                 
         except Exception as e:
-            self.log_result("Test Users Lookup", False, f"Error: {str(e)}")
-        
-        return {}
+            self.log_test("Test with different user", False, f"Exception: {str(e)}")
+            return False
     
-    def test_user_posts_endpoint(self, user_id, username):
-        """Test GET /api/users/{user_id}/posts for a specific user"""
-        try:
-            response = self.session.get(f"{BACKEND_URL}/users/{user_id}/posts")
-            if response.status_code == 200:
-                posts = response.json()
-                if isinstance(posts, list):
-                    posts_count = len(posts)
-                    if posts_count > 0:
-                        self.log_result(f"User Posts - {username}", True, 
-                            f"Found {posts_count} posts for user {username}")
-                        return posts
-                    else:
-                        self.log_result(f"User Posts - {username}", False, 
-                            f"No posts found for user {username}")
-                else:
-                    self.log_result(f"User Posts - {username}", False, 
-                        "Response is not a list", {"response_type": type(posts)})
-            else:
-                self.log_result(f"User Posts - {username}", False, 
-                    f"Status {response.status_code}", {"response": response.text})
-                
-        except Exception as e:
-            self.log_result(f"User Posts - {username}", False, f"Request error: {str(e)}")
+    def run_all_tests(self):
+        """Run all followers and following tests"""
+        print("🧪 FOLLOWERS AND FOLLOWING FUNCTIONALITY TESTING")
+        print("=" * 60)
+        print(f"Backend URL: {BACKEND_URL}")
+        print()
         
-        return []
-    
-    def test_comments_endpoint(self, post_id, post_caption=""):
-        """Test GET /api/posts/{post_id}/comments for a post"""
-        try:
-            response = self.session.get(f"{BACKEND_URL}/posts/{post_id}/comments")
-            if response.status_code == 200:
-                comments = response.json()
-                if isinstance(comments, list):
-                    comments_count = len(comments)
-                    if comments_count > 0:
-                        # Check first comment structure
-                        first_comment = comments[0]
-                        required_fields = ['id', 'text', 'author']
-                        missing_fields = [field for field in required_fields if field not in first_comment]
-                        
-                        if not missing_fields:
-                            author = first_comment.get('author', {})
-                            self.log_result("Comments Endpoint", True, 
-                                f"Found {comments_count} comments for post", 
-                                {"post_caption": post_caption[:30] + "...",
-                                 "sample_comment": {
-                                     "author": author.get('username', 'unknown'),
-                                     "text": first_comment.get('text', '')[:50] + "..."
-                                 }})
-                            return comments
-                        else:
-                            self.log_result("Comments Endpoint", False, 
-                                f"Comments missing required fields: {missing_fields}")
-                    else:
-                        self.log_result("Comments Endpoint", True, 
-                            f"No comments found for post (this is acceptable)")
-                        return []
-                else:
-                    self.log_result("Comments Endpoint", False, 
-                        "Response is not a list", {"response_type": type(comments)})
-            else:
-                self.log_result("Comments Endpoint", False, 
-                    f"Status {response.status_code}", {"response": response.text})
-                
-        except Exception as e:
-            self.log_result("Comments Endpoint", False, f"Request error: {str(e)}")
+        # Test 1: Login
+        if not self.login_test_user():
+            print("\n❌ Cannot proceed without successful login")
+            return False
         
-        return []
-    
-    def test_user_profile_endpoint(self, user_id, username):
-        """Test GET /api/users/{user_id} for user profile"""
-        try:
-            response = self.session.get(f"{BACKEND_URL}/users/{user_id}")
-            if response.status_code == 200:
-                user = response.json()
-                required_fields = ['id', 'username', 'email', 'followers_count', 'following_count', 'workouts_count']
-                missing_fields = [field for field in required_fields if field not in user]
-                
-                if not missing_fields:
-                    self.log_result(f"User Profile - {username}", True, 
-                        f"Profile data complete for {username}", 
-                        {"profile": {
-                            "username": user.get('username'),
-                            "name": user.get('name', ''),
-                            "bio": user.get('bio', '')[:50] + "..." if user.get('bio') else '',
-                            "followers_count": user.get('followers_count'),
-                            "following_count": user.get('following_count'),
-                            "workouts_count": user.get('workouts_count')
-                        }})
-                    return user
-                else:
-                    self.log_result(f"User Profile - {username}", False, 
-                        f"Profile missing required fields: {missing_fields}")
-            else:
-                self.log_result(f"User Profile - {username}", False, 
-                    f"Status {response.status_code}", {"response": response.text})
-                
-        except Exception as e:
-            self.log_result(f"User Profile - {username}", False, f"Request error: {str(e)}")
+        print()
         
-        return None
-    
-    def run_seeding_verification_tests(self):
-        """Run all database seeding verification tests"""
-        print("🧪 STARTING DATABASE SEEDING VERIFICATION TESTS")
+        # Test 2: Followers endpoint
+        followers_success = self.test_followers_endpoint()
+        
+        # Test 3: Following endpoint  
+        following_success = self.test_following_endpoint()
+        
+        # Test 4: Test with different user
+        different_user_success = self.test_with_different_user()
+        
+        print()
+        print("=" * 60)
+        print("📊 TEST SUMMARY")
         print("=" * 60)
         
-        # 1. Health check
-        self.test_health_check()
-        
-        # 2. Setup authentication
-        if not self.setup_auth():
-            print("❌ Cannot proceed without authentication")
-            return
-        
-        # 3. Test posts endpoint
-        posts = self.test_posts_endpoint()
-        
-        # 4. Find test users
-        test_users = self.test_user_lookup()
-        
-        # 5. Test user posts endpoints
-        if test_users:
-            for username, user_id in test_users.items():
-                self.test_user_posts_endpoint(user_id, username)
-        
-        # 6. Test comments endpoint (use first post if available)
-        if posts:
-            first_post = posts[0]
-            post_id = first_post.get('id')
-            post_caption = first_post.get('caption', '')
-            if post_id:
-                self.test_comments_endpoint(post_id, post_caption)
-        
-        # 7. Test user profile endpoints
-        if test_users:
-            for username, user_id in test_users.items():
-                self.test_user_profile_endpoint(user_id, username)
-        
-        # Summary
-        self.print_summary()
-    
-    def print_summary(self):
-        """Print test summary"""
-        print("\n" + "=" * 60)
-        print("🏁 DATABASE SEEDING VERIFICATION SUMMARY")
-        print("=" * 60)
-        
-        passed = sum(1 for result in self.test_results if "✅ PASS" in result["status"])
-        failed = sum(1 for result in self.test_results if "❌ FAIL" in result["status"])
+        passed = sum(1 for result in self.test_results if result["success"])
         total = len(self.test_results)
+        success_rate = (passed / total) * 100 if total > 0 else 0
         
-        print(f"Total Tests: {total}")
-        print(f"Passed: {passed} ✅")
-        print(f"Failed: {failed} ❌")
-        print(f"Success Rate: {(passed/total*100):.1f}%" if total > 0 else "0%")
+        print(f"Tests Passed: {passed}/{total} ({success_rate:.1f}%)")
+        print()
         
-        if failed > 0:
-            print("\n❌ FAILED TESTS:")
-            for result in self.test_results:
-                if "❌ FAIL" in result["status"]:
-                    print(f"  - {result['test']}: {result['message']}")
+        # Show failed tests
+        failed_tests = [result for result in self.test_results if not result["success"]]
+        if failed_tests:
+            print("❌ FAILED TESTS:")
+            for test in failed_tests:
+                print(f"   • {test['test']}: {test['details']}")
+        else:
+            print("✅ ALL TESTS PASSED!")
         
-        print("\n📊 DETAILED RESULTS:")
-        for result in self.test_results:
-            print(f"  {result['status']}: {result['test']}")
+        print()
+        
+        # Overall assessment
+        critical_tests = ["Login with cardioking", "GET /api/users/{user_id}/followers", "GET /api/users/{user_id}/following"]
+        critical_passed = sum(1 for result in self.test_results if result["test"] in critical_tests and result["success"])
+        
+        if critical_passed == len(critical_tests):
+            print("🎉 FOLLOWERS AND FOLLOWING FUNCTIONALITY: WORKING PERFECTLY")
+            return True
+        else:
+            print("🚨 FOLLOWERS AND FOLLOWING FUNCTIONALITY: CRITICAL ISSUES FOUND")
+            return False
+
+def main():
+    """Main test execution"""
+    tester = FollowersFollowingTester()
+    success = tester.run_all_tests()
+    
+    # Exit with appropriate code
+    sys.exit(0 if success else 1)
 
 if __name__ == "__main__":
-    tester = BackendTester()
-    tester.run_seeding_verification_tests()
+    main()
