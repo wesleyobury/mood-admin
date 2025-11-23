@@ -14,7 +14,7 @@ export default function Toast({
   message, 
   visible, 
   onHide, 
-  duration = 3000,
+  duration = 2000,
   type = 'success' 
 }: ToastProps) {
   const opacity = React.useRef(new Animated.Value(0)).current;
