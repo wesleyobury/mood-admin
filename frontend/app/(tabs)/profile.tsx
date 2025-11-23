@@ -16,6 +16,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { useRouter, useFocusEffect } from 'expo-router';
 import WorkoutStatsCard from '../../components/WorkoutStatsCard';
 import { useAuth } from '../../contexts/AuthContext';
+import FollowListModal from '../../components/FollowListModal';
 
 const API_URL = process.env.EXPO_PUBLIC_BACKEND_URL || '';
 const { width } = Dimensions.get('window');
