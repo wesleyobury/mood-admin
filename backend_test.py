@@ -32,16 +32,19 @@ class FollowersFollowingTester:
             "details": details
         })
     
-    def login_test_user(self) -> bool:
-        """Login with test user cardioking"""
+    def find_and_login_test_user(self) -> bool:
+        """Find available test users and login with one of them"""
+        # First, try to create a test user for authentication
         try:
-            login_data = {
-                "username": "cardioking",
-                "password": "test123"
+            from datetime import datetime
+            test_user_data = {
+                "username": f"testuser_{datetime.now().strftime('%Y%m%d_%H%M%S')}",
+                "email": f"test_{datetime.now().strftime('%Y%m%d_%H%M%S')}@example.com",
+                "password": "testpass123",
+                "name": "Test User"
             }
             
-            response = self.session.post(f"{BACKEND_URL}/auth/login", json=login_data)
-            
+            response = self.session.post(f"{BACKEND_URL}/auth/register", json=test_user_data)
             if response.status_code == 200:
                 data = response.json()
                 self.auth_token = data.get("token")
@@ -52,18 +55,46 @@ class FollowersFollowingTester:
                     self.session.headers.update({
                         "Authorization": f"Bearer {self.auth_token}"
                     })
-                    self.log_test("Login with cardioking", True, f"User ID: {self.current_user_id}")
+                    self.log_test("Create and login test user", True, f"User ID: {self.current_user_id}")
                     return True
                 else:
-                    self.log_test("Login with cardioking", False, "Missing token or user_id in response")
-                    return False
+                    self.log_test("Create and login test user", False, "Missing token or user_id in response")
             else:
-                self.log_test("Login with cardioking", False, f"Status: {response.status_code}, Response: {response.text}")
-                return False
-                
+                self.log_test("Create and login test user", False, f"Registration failed: {response.status_code}")
         except Exception as e:
-            self.log_test("Login with cardioking", False, f"Exception: {str(e)}")
-            return False
+            self.log_test("Create and login test user", False, f"Exception: {str(e)}")
+        
+        # If registration failed, try known test users
+        test_users = [
+            {"username": "cardioking", "password": "test123"},
+            {"username": "strengthbeast", "password": "test123"},
+            {"username": "yogaflow_", "password": "test123"},
+            {"username": "fitnessguru", "password": "test123"},
+            {"username": "hiitmaster", "password": "test123"}
+        ]
+        
+        for user_creds in test_users:
+            try:
+                response = self.session.post(f"{BACKEND_URL}/auth/login", json=user_creds)
+                
+                if response.status_code == 200:
+                    data = response.json()
+                    self.auth_token = data.get("token")
+                    self.current_user_id = data.get("user_id")
+                    
+                    if self.auth_token and self.current_user_id:
+                        # Set authorization header for future requests
+                        self.session.headers.update({
+                            "Authorization": f"Bearer {self.auth_token}"
+                        })
+                        self.log_test(f"Login with {user_creds['username']}", True, f"User ID: {self.current_user_id}")
+                        return True
+                        
+            except Exception as e:
+                continue
+        
+        self.log_test("Login with any test user", False, "Could not login with any known test users")
+        return False
     
     def test_followers_endpoint(self) -> bool:
         """Test GET /api/users/{user_id}/followers endpoint"""
