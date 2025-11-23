@@ -852,10 +852,44 @@ const styles = StyleSheet.create({
     overflow: 'hidden',
   },
   cardThumbnailContent: {
-    padding: 16,
+    padding: 12,
     alignItems: 'center',
     justifyContent: 'center',
-    minHeight: 120,
+    minHeight: 130,
+  },
+  workoutTitlesContainer: {
+    width: '100%',
+    marginTop: 8,
+    gap: 3,
+  },
+  workoutTitle: {
+    color: '#fff',
+    fontSize: 11,
+    fontWeight: '500',
+    textAlign: 'center',
+    width: '100%',
+  },
+  workoutTitleMore: {
+    color: '#888',
+    fontSize: 10,
+    fontWeight: '400',
+    textAlign: 'center',
+    marginTop: 2,
+  },
+  cardStats: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginTop: 8,
+    gap: 6,
+  },
+  cardStat: {
+    color: '#FFD700',
+    fontSize: 12,
+    fontWeight: '600',
+  },
+  cardStatDivider: {
+    color: '#666',
+    fontSize: 12,
   },
   cardThumbnailText: {
     color: '#fff',
