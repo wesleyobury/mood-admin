@@ -83,6 +83,8 @@ export default function Profile() {
   const [modalVisible, setModalVisible] = useState(false);
   const [userPosts, setUserPosts] = useState<Post[]>([]);
   const [loadingPosts, setLoadingPosts] = useState(false);
+  const [followListVisible, setFollowListVisible] = useState(false);
+  const [followListType, setFollowListType] = useState<'followers' | 'following'>('followers');
   const { token, user: authUser, updateUser } = useAuth();
 
   const [activeTab, setActiveTab] = useState<'posts' | 'achievements' | 'cards'>('posts');
