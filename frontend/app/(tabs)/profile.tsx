@@ -282,13 +282,13 @@ export default function Profile() {
   };
 
   const handleFollowers = () => {
-    // TODO: Navigate to followers list
-    console.log('View followers');
+    setFollowListType('followers');
+    setFollowListVisible(true);
   };
 
   const handleFollowing = () => {
-    // TODO: Navigate to following list
-    console.log('View following');
+    setFollowListType('following');
+    setFollowListVisible(true);
   };
 
   const renderWorkoutCard = ({ item }: { item: WorkoutCard }) => {
