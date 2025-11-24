@@ -3663,8 +3663,7 @@ const styles = StyleSheet.create({
   },
   dotsContainer: {
     alignItems: 'center',
-    paddingTop: 1,
-    paddingBottom: 8,
+    paddingVertical: 16,
     backgroundColor: 'rgba(255, 215, 0, 0.05)',
   },
   dotsLabel: {
