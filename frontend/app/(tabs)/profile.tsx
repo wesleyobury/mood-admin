@@ -14,6 +14,7 @@ import {
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { useRouter, useFocusEffect } from 'expo-router';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import WorkoutStatsCard from '../../components/WorkoutStatsCard';
 import { useAuth } from '../../contexts/AuthContext';
 import FollowListModal from '../../components/FollowListModal';
