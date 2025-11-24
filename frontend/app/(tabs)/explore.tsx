@@ -419,7 +419,7 @@ export default function Explore() {
           </View>
         </View>
       </Modal>
-    </SafeAreaView>
+    </View>
   );
 }
 
