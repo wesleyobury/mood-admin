@@ -268,11 +268,16 @@ export default function WorkoutsHome() {
           </View>
         </View>
       </ScrollView>
+      </View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
+  outerContainer: {
+    flex: 1,
+    backgroundColor: '#000000', // Pure black background - extends to edges
+  },
   container: {
     flex: 1,
     backgroundColor: '#000000', // Pure black background
