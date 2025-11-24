@@ -50,6 +50,7 @@ export default function Explore() {
   const router = useRouter();
   const { token, user } = useAuth();
   const scrollViewRef = useRef<ScrollView>(null);
+  const insets = useSafeAreaInsets();
 
   // Double tap to like functionality
   const lastTap = useRef<number>(0);
