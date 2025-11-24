@@ -10,7 +10,7 @@ export default function TabLayout() {
         tabBarActiveTintColor: '#FFD700', // Gold color
         tabBarInactiveTintColor: '#666',
         tabBarStyle: {
-          backgroundColor: '#1a1a1a',
+          backgroundColor: '#0c0c0c',
           borderTopWidth: 1,
           borderTopColor: '#333',
           height: Platform.OS === 'ios' ? 90 : 70,
@@ -21,6 +21,9 @@ export default function TabLayout() {
         tabBarLabelStyle: {
           fontSize: 12,
           fontWeight: '600',
+        },
+        sceneStyle: {
+          backgroundColor: '#0c0c0c',
         },
       }}>
       <Tabs.Screen
