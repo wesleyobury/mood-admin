@@ -335,9 +335,11 @@ export default function Profile() {
     );
   };
 
+  const insets = useSafeAreaInsets();
+
   return (
-    <SafeAreaView style={styles.container}>
-      <View style={styles.header}>
+    <View style={styles.container}>
+      <View style={[styles.header, { paddingTop: insets.top + 16 }]}>
         <Text style={styles.username}>@{user.username}</Text>
         <TouchableOpacity 
           style={styles.createButton}
