@@ -635,7 +635,7 @@ const styles = StyleSheet.create({
     color: '#FFD700',
   },
   workoutList: {
-    // height will be set dynamically
+    height: 420,
   },
   workoutSlide: {
     paddingHorizontal: 20,
