@@ -638,8 +638,9 @@ const styles = StyleSheet.create({
     // height will be set dynamically
   },
   workoutSlide: {
-    paddingHorizontal: 24,
-    paddingVertical: 20,
+    paddingHorizontal: 20,
+    paddingTop: 12,
+    paddingBottom: 4,
   },
   workoutImageContainer: {
     height: 120,
