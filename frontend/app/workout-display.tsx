@@ -3060,7 +3060,7 @@ const WorkoutCard = ({ equipment, icon, workouts, difficulty, difficultyColor, w
       </View>
 
       {/* Workout List - Native Swipe Enabled */}
-      <View style={[styles.workoutList, { height: 380 }]}>
+      <View style={[styles.workoutList, { height: 378 }]}>
         <FlatList
           ref={flatListRef}
           data={workouts}
