@@ -3672,7 +3672,7 @@ const styles = StyleSheet.create({
   dotsLabel: {
     fontSize: 11,
     color: 'rgba(255, 255, 255, 0.6)',
-    marginBottom: 8,
+    marginBottom: 6,
     fontWeight: '500',
   },
   dotsRow: {
