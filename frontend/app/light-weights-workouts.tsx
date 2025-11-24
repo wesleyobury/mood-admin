@@ -723,8 +723,6 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   workoutDescriptionContainer: {
-    flex: 1,
-    maxHeight: 80,
     marginBottom: 0,
   },
   workoutDescription: {
