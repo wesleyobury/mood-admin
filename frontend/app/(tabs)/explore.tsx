@@ -211,7 +211,7 @@ export default function Explore() {
   }
 
   return (
-    <SafeAreaView style={styles.container}>
+    <View style={styles.container}>
       <View style={styles.header}>
         <Text style={styles.title}>Explore</Text>
         <View style={styles.headerActions}>
