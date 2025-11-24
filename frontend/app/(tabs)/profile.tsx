@@ -589,7 +589,7 @@ export default function Profile() {
         userId={user.id}
         type={followListType}
       />
-    </SafeAreaView>
+    </View>
   );
 }
 
