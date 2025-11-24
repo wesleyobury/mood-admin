@@ -745,8 +745,8 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.6,
     shadowRadius: 12,
     elevation: 8,
-    marginTop: -8,
-    marginBottom: 1,
+    marginTop: 12,
+    marginBottom: 12,
   },
   startWorkoutButtonText: {
     fontSize: 16,
