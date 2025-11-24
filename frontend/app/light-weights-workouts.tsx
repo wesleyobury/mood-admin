@@ -709,15 +709,12 @@ const styles = StyleSheet.create({
   },
   intensityContainer: {
     flexDirection: 'row',
-    alignItems: 'flex-start',
+    alignItems: 'center',
     marginBottom: 12,
-    gap: 6,
-    backgroundColor: 'rgba(255, 215, 0, 0.08)',
     paddingHorizontal: 12,
     paddingVertical: 8,
+    backgroundColor: 'rgba(255, 215, 0, 0.1)',
     borderRadius: 8,
-    borderWidth: 1,
-    borderColor: 'rgba(255, 215, 0, 0.2)',
   },
   intensityReason: {
     fontSize: 14,
