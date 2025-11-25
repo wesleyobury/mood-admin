@@ -1257,7 +1257,7 @@ const styles = StyleSheet.create({
   startWorkoutButton: {
     backgroundColor: '#FFD700',
     borderRadius: 12,
-    paddingVertical: 12,
+    paddingVertical: 10,
     paddingHorizontal: 16,
     flexDirection: 'row',
     alignItems: 'center',
