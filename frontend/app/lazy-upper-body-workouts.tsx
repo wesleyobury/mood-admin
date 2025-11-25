@@ -707,9 +707,7 @@ const WorkoutCard = React.memo(({
         </View>
 
         {/* Workout Description */}
-        <View style={styles.workoutDescriptionContainer}>
-          <Text style={styles.workoutDescription} numberOfLines={2}>{item.description}</Text>
-        </View>
+        <Text style={styles.workoutDescription}>{item.description}</Text>
 
         {/* Start Workout Button */}
         <TouchableOpacity 
