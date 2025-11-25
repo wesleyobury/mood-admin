@@ -533,7 +533,13 @@ const styles = StyleSheet.create({
   },
   progressContent: {
     alignItems: 'center',
-    paddingHorizontal: 10,
+  },
+  progressRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginBottom: 12,
+    flexWrap: 'wrap',
   },
   progressStep: {
     alignItems: 'center',
