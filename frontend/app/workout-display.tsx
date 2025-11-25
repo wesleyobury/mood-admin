@@ -3634,7 +3634,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   workoutDescriptionContainer: {
-    marginBottom: 0,
+    marginBottom: -10,
   },
   workoutDescription: {
     fontSize: 14,
@@ -3655,7 +3655,7 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.4,
     shadowRadius: 8,
     elevation: 6,
-    marginTop: -5,
+    marginTop: 0,
     marginBottom: 1,
   },
   startWorkoutButtonText: {
