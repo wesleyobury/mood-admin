@@ -2008,7 +2008,6 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     marginBottom: 12,
-    paddingHorizontal: 6,
   },
   difficultyBadge: {
     paddingHorizontal: 8,
