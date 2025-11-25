@@ -2072,8 +2072,8 @@ const styles = StyleSheet.create({
   },
   dotsContainer: {
     alignItems: 'center',
-    paddingVertical: 10,
-    marginTop: -6,
+    paddingVertical: 8,
+    marginTop: -8,
     backgroundColor: 'rgba(255, 215, 0, 0.05)',
   },
   dotsLabel: {
