@@ -546,9 +546,9 @@ const styles = StyleSheet.create({
     maxWidth: 80,
   },
   progressStepActive: {
-    width: 32,
-    height: 32,
-    borderRadius: 16,
+    width: 28,
+    height: 28,
+    borderRadius: 14,
     backgroundColor: '#FFD700',
     borderWidth: 2,
     borderColor: '#FFD700',
