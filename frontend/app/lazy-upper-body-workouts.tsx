@@ -1243,13 +1243,11 @@ const styles = StyleSheet.create({
     marginLeft: 8,
     flex: 1,
   },
-  workoutDescriptionContainer: {
-    marginBottom: -10,
-  },
   workoutDescription: {
     fontSize: 13,
     color: 'rgba(255, 255, 255, 0.8)',
     lineHeight: 18,
+    marginBottom: 16,
     paddingHorizontal: 6,
   },
   startWorkoutButton: {
