@@ -540,6 +540,7 @@ const styles = StyleSheet.create({
   progressStep: {
     alignItems: 'center',
     minWidth: 80,
+    height: 60,
   },
   progressStepActive: {
     width: 32,
