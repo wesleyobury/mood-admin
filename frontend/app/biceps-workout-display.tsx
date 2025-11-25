@@ -1432,10 +1432,13 @@ const styles = StyleSheet.create({
     color: '#FFD700',
   },
   workoutList: {
-    paddingVertical: 16,
+    height: 380,
+    overflow: 'hidden',
   },
   workoutSlide: {
-    paddingHorizontal: 16,
+    paddingHorizontal: 20,
+    paddingTop: 12,
+    paddingBottom: 4,
   },
   workoutImageContainer: {
     height: 120,
