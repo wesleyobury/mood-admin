@@ -3474,6 +3474,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     marginBottom: 12,
+    flexWrap: 'wrap',
   },
   scrollView: {
     flex: 1,
