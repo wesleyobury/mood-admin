@@ -1572,7 +1572,7 @@ const WorkoutCard = React.memo(({
 
         {/* Workout Description */}
         <View style={styles.workoutDescriptionContainer}>
-          <Text style={styles.workoutDescription}>{item.description}</Text>
+          <Text style={styles.workoutDescription} numberOfLines={2}>{item.description}</Text>
         </View>
 
         {/* Start Workout Button */}
