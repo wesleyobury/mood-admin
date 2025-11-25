@@ -1676,6 +1676,23 @@ const styles = StyleSheet.create({
     shadowRadius: 4,
     elevation: 4,
   },
+  dotTouchArea: {
+    padding: 6,
+    justifyContent: 'center',
+    alignItems: 'center',
+    minWidth: 28,
+    minHeight: 28,
+    borderRadius: 14,
+  },
+  activeDotTouchArea: {
+    padding: 6,
+    justifyContent: 'center',
+    alignItems: 'center',
+    minWidth: 32,
+    minHeight: 32,
+    borderRadius: 16,
+    backgroundColor: 'rgba(255, 215, 0, 0.1)',
+  },
   noWorkoutsContainer: {
     flex: 1,
     alignItems: 'center',
