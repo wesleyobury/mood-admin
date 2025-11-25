@@ -1527,7 +1527,7 @@ const styles = StyleSheet.create({
     marginLeft: 8,
   },
   workoutDescriptionContainer: {
-    marginBottom: -10,
+    marginBottom: 8,
   },
   workoutDescription: {
     fontSize: 14,
@@ -1548,6 +1548,7 @@ const styles = StyleSheet.create({
     shadowRadius: 8,
     elevation: 6,
     marginTop: 0,
+    marginBottom: 1,
   },
   startWorkoutButtonText: {
     fontSize: 16,
