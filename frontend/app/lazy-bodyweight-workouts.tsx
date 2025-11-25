@@ -1899,7 +1899,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     paddingHorizontal: 24,
-    paddingVertical: 16,
+    paddingVertical: 8,
     borderBottomWidth: 1,
     borderBottomColor: 'rgba(255, 215, 0, 0.2)',
   },
@@ -1936,7 +1936,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#111111',
     borderBottomWidth: 1,
     borderBottomColor: 'rgba(255, 215, 0, 0.2)',
-    paddingVertical: 16,
+    paddingVertical: 8,
     paddingHorizontal: 20,
   },
   progressContent: {
@@ -2010,7 +2010,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     paddingHorizontal: 20,
-    paddingVertical: 16,
+    paddingVertical: 8,
     backgroundColor: 'rgba(255, 215, 0, 0.1)',
     borderBottomWidth: 1,
     borderBottomColor: 'rgba(255, 215, 0, 0.2)',
@@ -2053,7 +2053,7 @@ const styles = StyleSheet.create({
   },
   workoutSlide: {
     paddingHorizontal: 20,
-    paddingVertical: 16,
+    paddingVertical: 8,
   },
   workoutImageContainer: {
     height: 120,
@@ -2174,7 +2174,7 @@ const styles = StyleSheet.create({
   },
   dotsContainer: {
     alignItems: 'center',
-    paddingVertical: 16,
+    paddingVertical: 8,
     backgroundColor: 'rgba(255, 215, 0, 0.05)',
   },
   dotsLabel: {
