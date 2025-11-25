@@ -3493,7 +3493,7 @@ const styles = StyleSheet.create({
     shadowRadius: 15,
     elevation: 8,
     overflow: 'hidden',
-    marginBottom: 32,
+    marginBottom: 25,
     width: '100%',
   },
   equipmentHeader: {
