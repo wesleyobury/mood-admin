@@ -1119,9 +1119,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     marginRight: 12,
-    shadowOpacity: 0.4,
-    shadowRadius: 6,
-    elevation: 3,
   },
   equipmentName: {
     flex: 1,
