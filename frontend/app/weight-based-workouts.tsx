@@ -697,7 +697,7 @@ const styles = StyleSheet.create({
   startWorkoutButton: {
     backgroundColor: '#FFD700',
     borderRadius: 12,
-    paddingVertical: 12,
+    paddingVertical: 10,
     paddingHorizontal: 16,
     flexDirection: 'row',
     alignItems: 'center',
@@ -707,7 +707,8 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.6,
     shadowRadius: 8,
     elevation: 6,
-    marginHorizontal: 0,
+    marginTop: 0,
+    marginBottom: 1,
   },
   startWorkoutButtonText: {
     fontSize: 16,
