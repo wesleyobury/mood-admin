@@ -651,7 +651,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between',
     marginBottom: 16,
-    paddingHorizontal: 6,
   },
   workoutDuration: {
     fontSize: 14,
