@@ -1153,6 +1153,7 @@ const styles = StyleSheet.create({
     paddingBottom: 4,
   },
   workoutImageContainer: {
+    marginTop: 1,
     height: 120,
     borderRadius: 12,
     overflow: 'hidden',
