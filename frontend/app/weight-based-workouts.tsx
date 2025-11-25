@@ -135,7 +135,7 @@ const WorkoutCard = React.memo(({
 
         {/* Workout Description - Same Width as Photo */}
         <View style={styles.workoutDescriptionContainer}>
-          <Text style={styles.workoutDescription}>{item.description}</Text>
+          <Text style={styles.workoutDescription} numberOfLines={2}>{item.description}</Text>
         </View>
 
         {/* Start Workout Button - Same Width as Photo */}
