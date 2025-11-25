@@ -707,7 +707,9 @@ const WorkoutCard = React.memo(({
         </View>
 
         {/* Workout Description */}
-        <Text style={styles.workoutDescription}>{item.description}</Text>
+        <View style={styles.workoutDescriptionContainer}>
+          <Text style={styles.workoutDescription} numberOfLines={2}>{item.description}</Text>
+        </View>
 
         {/* Start Workout Button */}
         <TouchableOpacity 
@@ -753,7 +755,7 @@ const WorkoutCard = React.memo(({
       </View>
 
       {/* Workout List - Native Swipe Enabled */}
-      <View style={[styles.workoutList, { height: 380 }]}>
+      <View style={styles.workoutList}>
         <FlatList
           ref={flatListRef}
           data={workouts}
@@ -1150,11 +1152,12 @@ const styles = StyleSheet.create({
     color: '#FFD700',
   },
   workoutList: {
-    marginBottom: 16,
+    height: 380,
   },
   workoutSlide: {
     paddingHorizontal: 20,
-    paddingVertical: 16,
+    paddingTop: 12,
+    paddingBottom: 4,
   },
   workoutImageContainer: {
     height: 120,
@@ -1249,11 +1252,13 @@ const styles = StyleSheet.create({
     marginLeft: 8,
     flex: 1,
   },
+  workoutDescriptionContainer: {
+    marginBottom: -10,
+  },
   workoutDescription: {
     fontSize: 13,
     color: 'rgba(255, 255, 255, 0.8)',
     lineHeight: 18,
-    marginBottom: 16,
     paddingHorizontal: 6,
   },
   startWorkoutButton: {
@@ -1264,7 +1269,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    marginTop: 8,
+    marginTop: 0,
+    marginBottom: 1,
     shadowColor: '#FFD700',
     shadowOffset: { width: 0, height: 0 },
     shadowOpacity: 0.4,
@@ -1278,7 +1284,8 @@ const styles = StyleSheet.create({
   },
   dotsContainer: {
     alignItems: 'center',
-    paddingVertical: 16,
+    paddingVertical: 10,
+    marginTop: -6,
     backgroundColor: 'rgba(255, 215, 0, 0.05)',
   },
   dotsLabel: {
