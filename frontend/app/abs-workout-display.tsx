@@ -1619,7 +1619,6 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: 'rgba(255, 255, 255, 0.9)',
     lineHeight: 20,
-    paddingHorizontal: 6,
   },
   startWorkoutButton: {
     backgroundColor: '#FFD700',
