@@ -2228,6 +2228,7 @@ const styles = StyleSheet.create({
     shadowRadius: 8,
     elevation: 6,
     marginHorizontal: 0,
+    marginTop: -5,
   },
   startWorkoutButtonText: {
     fontSize: 16,
