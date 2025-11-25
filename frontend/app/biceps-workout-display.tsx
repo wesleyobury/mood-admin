@@ -1482,7 +1482,7 @@ const styles = StyleSheet.create({
     paddingBottom: 16,
   },
   workoutName: {
-    fontSize: 22,
+    fontSize: 16,
     fontWeight: 'bold',
     color: '#ffffff',
     marginBottom: 8,
