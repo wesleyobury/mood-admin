@@ -568,7 +568,7 @@ const styles = StyleSheet.create({
     maxWidth: 70,
   },
   progressConnector: {
-    width: 30,
+    width: 16,
     height: 2,
     backgroundColor: 'rgba(255, 215, 0, 0.3)',
     marginHorizontal: 8,
