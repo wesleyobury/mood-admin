@@ -505,7 +505,7 @@ const styles = StyleSheet.create({
   },
   difficultyContainer: {
     gap: 16,
-    marginBottom: 40,
+    marginBottom: 16,
   },
   difficultyCard: {
     flexDirection: 'row',
