@@ -2042,10 +2042,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   workoutDescriptionContainer: {
-    flex: 1,
-    maxHeight: 80,
-    paddingHorizontal: 6,
-    marginBottom: 16,
+    marginBottom: -10,
   },
   workoutDescription: {
     fontSize: 14,
