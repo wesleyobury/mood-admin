@@ -2001,8 +2001,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: 'bold',
     color: '#ffffff',
-    marginBottom: 6,
-    paddingHorizontal: 6,
+    marginBottom: 8,
   },
   durationIntensityRow: {
     flexDirection: 'row',
