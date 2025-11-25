@@ -2010,7 +2010,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     paddingHorizontal: 20,
-    paddingVertical: 8,
+    paddingVertical: 18,
     backgroundColor: 'rgba(255, 215, 0, 0.1)',
     borderBottomWidth: 1,
     borderBottomColor: 'rgba(255, 215, 0, 0.2)',
