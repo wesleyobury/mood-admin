@@ -723,9 +723,9 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(255, 215, 0, 0.05)',
   },
   dotsLabel: {
-    fontSize: 12,
+    fontSize: 11,
     color: 'rgba(255, 255, 255, 0.6)',
-    marginBottom: 8,
+    marginBottom: 6,
     fontWeight: '500',
   },
   dotsRow: {
