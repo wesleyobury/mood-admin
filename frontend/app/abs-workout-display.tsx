@@ -1630,7 +1630,7 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.4,
     shadowRadius: 8,
     elevation: 6,
-    marginTop: -9,
+    marginTop: -10,
     marginBottom: 1,
   },
   startWorkoutButtonText: {
