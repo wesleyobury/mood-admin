@@ -1613,8 +1613,7 @@ const styles = StyleSheet.create({
     marginLeft: 8,
   },
   workoutDescriptionContainer: {
-    marginBottom: 16,
-    paddingHorizontal: 0,
+    marginBottom: 0,
   },
   workoutDescription: {
     fontSize: 14,
