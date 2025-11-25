@@ -429,26 +429,23 @@ const LightWeightsWorkoutsScreen = memo(function LightWeightsWorkoutsScreen() {
 
       {/* Progress Bar */}
       <View style={styles.progressContainer}>
-        <ScrollView 
-          horizontal 
-          showsHorizontalScrollIndicator={false}
-          scrollEnabled={false}
-          contentContainerStyle={styles.progressContent}
-        >
-          {createProgressRows()[0].map((step, stepIndex) => (
-            <React.Fragment key={step.key}>
-              <View style={styles.progressStep}>
-                <View style={styles.progressStepActive}>
-                  <Ionicons name={step.icon} size={14} color="#000000" />
+        <View style={styles.progressContent}>
+          <View style={styles.progressRow}>
+            {createProgressRows()[0].map((step, stepIndex) => (
+              <React.Fragment key={step.key}>
+                <View style={styles.progressStep}>
+                  <View style={styles.progressStepActive}>
+                    <Ionicons name={step.icon} size={10} color="#000000" />
+                  </View>
+                  <Text style={styles.progressStepText}>{step.text}</Text>
                 </View>
-                <Text style={styles.progressStepText}>{step.text}</Text>
-              </View>
-              {stepIndex < createProgressRows()[0].length - 1 && (
-                <View style={styles.progressConnector} />
-              )}
-            </React.Fragment>
-          ))}
-        </ScrollView>
+                {stepIndex < createProgressRows()[0].length - 1 && (
+                  <View style={styles.progressConnector} />
+                )}
+              </React.Fragment>
+            ))}
+          </View>
+        </View>
       </View>
 
       {/* Equipment Workout Cards */}
