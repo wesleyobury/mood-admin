@@ -432,6 +432,7 @@ const LightWeightsWorkoutsScreen = memo(function LightWeightsWorkoutsScreen() {
         <ScrollView 
           horizontal 
           showsHorizontalScrollIndicator={false}
+          scrollEnabled={false}
           contentContainerStyle={styles.progressContent}
         >
           {createProgressRows()[0].map((step, stepIndex) => (
