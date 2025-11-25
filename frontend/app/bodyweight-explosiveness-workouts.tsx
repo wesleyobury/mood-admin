@@ -1545,7 +1545,7 @@ const WorkoutCard = React.memo(({
       </View>
 
       {/* Workout List - Native Swipe Enabled */}
-      <View style={[styles.workoutList, { height: 420 }]}>
+      <View style={styles.workoutList}>
         <FlatList
           ref={flatListRef}
           data={workouts}
