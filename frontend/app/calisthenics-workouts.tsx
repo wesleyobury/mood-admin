@@ -1342,10 +1342,10 @@ const styles = StyleSheet.create({
     zIndex: 10,
   },
   swipeText: {
-    fontSize: 10,
+    fontSize: 11,
     color: '#FFD700',
     marginLeft: 4,
-    fontWeight: '500',
+    fontWeight: '600',
   },
   workoutContent: {
     flex: 1,
