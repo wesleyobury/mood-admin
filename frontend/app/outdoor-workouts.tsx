@@ -724,10 +724,9 @@ const styles = StyleSheet.create({
     borderRadius: 8,
   },
   intensityReason: {
-    fontSize: 13,
-    color: 'rgba(255, 255, 255, 0.9)',
+    fontSize: 12,
+    color: 'rgba(255, 255, 255, 0.8)',
     marginLeft: 8,
-    lineHeight: 18,
     flex: 1,
   },
   workoutDescriptionContainer: {
