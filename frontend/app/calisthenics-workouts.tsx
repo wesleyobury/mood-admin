@@ -1380,12 +1380,11 @@ const styles = StyleSheet.create({
   intensityContainer: {
     flexDirection: 'row',
     alignItems: 'center',
+    marginBottom: 12,
+    paddingHorizontal: 12,
+    paddingVertical: 8,
     backgroundColor: 'rgba(255, 215, 0, 0.1)',
     borderRadius: 8,
-    padding: 12,
-    marginBottom: 12,
-    borderWidth: 1,
-    borderColor: 'rgba(255, 215, 0, 0.3)',
   },
   intensityReason: {
     fontSize: 13,
