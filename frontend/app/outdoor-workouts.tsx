@@ -734,7 +734,7 @@ const styles = StyleSheet.create({
   },
   workoutDescription: {
     fontSize: 14,
-    color: 'rgba(255, 255, 255, 0.8)',
+    color: '#ffffff',
     lineHeight: 20,
   },
   startWorkoutButton: {
