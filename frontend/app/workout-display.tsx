@@ -1477,10 +1477,10 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Endurance Climb',
           duration: '20 min',
-          description: 'Extended climbing sessions with hard efforts and\nmoderate recovery periods for sustained endurance.\n ',
+          description: 'Extended climb with hard efforts and moderate\nrecovery periods. 6 complete rounds total.\n ',
           battlePlan: '• 2 min hard\n• 1 min moderate\n• repeat 6x',
           imageUrl: 'https://images.pexels.com/photos/2774172/pexels-photo-2774172.jpeg',
-          intensityReason: 'Extended climbing efforts test advanced cardiovascular capacity.',
+          intensityReason: 'Extended climbing efforts build advanced endurance capacity.',
           moodTips: [
             {
               icon: 'timer',
