@@ -687,13 +687,10 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   workoutName: {
-    fontSize: 20,
+    fontSize: 16,
     fontWeight: 'bold',
     color: '#ffffff',
-    marginBottom: 12,
-    textShadowColor: 'transparent',
-    textShadowOffset: { width: 0, height: 0 },
-    textShadowRadius: 0,
+    marginBottom: 8,
   },
   durationIntensityRow: {
     flexDirection: 'row',
