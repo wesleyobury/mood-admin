@@ -115,7 +115,7 @@ const absWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Bicycle Crunch',
           duration: '10–12 min',
-          description: 'Builds rotation endurance and\ntotal core activation.\n ',
+          description: 'Builds rotational endurance and activates\nentire core musculature effectively.\n ',
           battlePlan: '3 rounds\n• 12 per side Bicycle Crunches\nRest 60s',
           imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
           intensityReason: 'Alternating twist works obliques + midline control',
