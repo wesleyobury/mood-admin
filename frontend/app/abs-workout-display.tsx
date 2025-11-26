@@ -53,7 +53,7 @@ const absWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Standard Crunch',
           duration: '8–10 min',
-          description: 'Simple crunch develops mind-muscle connection\nsafely for beginner abdominal training.\n ',
+          description: 'Simple crunch develops mind-muscle connection safely for beginner abdominal training..\n ',
           battlePlan: '3 rounds\n• 12–15 Crunches\nRest 45s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8TVc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Intro movement builds baseline flexion ab strength',
@@ -73,7 +73,7 @@ const absWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Forearm Plank Hold',
           duration: '8–10 min',
-          description: 'Teaches proper core bracing and builds strong\nfoundational abdominal stability.\n ',
+          description: 'Teaches proper core bracing and builds strong foundational abdominal stability..\n ',
           battlePlan: '3 rounds\n• 3 × 20–30s Plank Holds\nRest 45s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Static hold trains core for anti extension endurance',
@@ -95,7 +95,7 @@ const absWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'V Up',
           duration: '10–12 min',
-          description: 'Challenging bodyweight drill effectively targets\nthe entire abdominal wall.\n ',
+          description: 'Challenging bodyweight drill effectively targets the entire abdominal wall..\n ',
           battlePlan: '4 rounds\n• 10–12 V Ups\nRest 60–75s',
           imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Combines flexion of torso + legs for full ab load',
@@ -115,7 +115,7 @@ const absWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Bicycle Crunch',
           duration: '10–12 min',
-          description: 'Builds rotational endurance and activates entire core\nmusculature effectively.\n ',
+          description: 'Builds rotational endurance and activates entire core musculature effectively..\n ',
           battlePlan: '3 rounds\n• 12 per side Bicycle Crunches\nRest 60s',
           imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
           intensityReason: 'Alternating twist works obliques + midline control',
@@ -137,7 +137,7 @@ const absWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Hanging Leg Raise (Bar)',
           duration: '12–14 min',
-          description: 'Very challenging hanging movement requiring strength\nand controlled execution.\n ',
+          description: 'Very challenging hanging movement requiring strength and controlled execution..\n ',
           battlePlan: '3 rounds\n• 8–10 Hanging Leg Raises\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmc&ZW54MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Hanging position overloads abs through hip flexion',
@@ -157,7 +157,7 @@ const absWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Hollow Body + Pike Jump',
           duration: '12–14 min',
-          description: 'Brutal hybrid workout testing both dynamic and\nstatic abdominal strength capacity.\n ',
+          description: 'Brutal hybrid workout testing both dynamic and static abdominal strength capacity..\n ',
           battlePlan: '3 rounds\n• 20s Hollow Hold\n• Immediately 8 Stiff Leg Pike Jumps\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHc0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Iso hold builds endurance, jumps build explosiveness',
@@ -185,7 +185,7 @@ const absWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Wall Assisted Rollout',
           duration: '8–10 min',
-          description: 'Lets true beginners practice safe core extension with\nwall support assistance.\n ',
+          description: 'Lets true beginners practice safe core extension with wall support assistance..\n ',
           battlePlan: '3 rounds\n• 12–15 Wall Rollouts\nRest 60s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8TVc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Wall stop reduces risk while building bracing control',
@@ -317,7 +317,7 @@ const absWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Machine Crunch (Light)',
           duration: '8–10 min',
-          description: 'Builds abdominal control using small guided resisted\nspinal flexion movement.\n ',
+          description: 'Builds abdominal control using small guided resisted spinal flexion movement..\n ',
           battlePlan: '3 rounds\n• 12–15 Light Crunches\nRest 60s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8TVc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Entry movement teaches crunch with resistance path',
@@ -533,7 +533,7 @@ const absWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Weighted Leg Raise',
           duration: '12–14 min',
-          description: 'Dumbbell held securely between feet amplifies difficulty\nand muscle activation.\n ',
+          description: 'Dumbbell held securely between feet amplifies difficulty and muscle activation..\n ',
           battlePlan: '3 rounds\n• 8–10 Weighted Leg Raises\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmc&ZW54MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Extra load maximizes ab contraction from raises',
