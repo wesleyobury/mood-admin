@@ -1418,6 +1418,8 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.4,
     shadowRadius: 8,
     elevation: 6,
+    marginTop: 0,
+    marginBottom: 1,
   },
   startWorkoutButtonText: {
     fontSize: 16,
