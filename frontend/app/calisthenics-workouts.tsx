@@ -1306,9 +1306,9 @@ const styles = StyleSheet.create({
     backgroundColor: '#000000',
   },
   workoutSlide: {
-    backgroundColor: '#111111',
-    paddingHorizontal: 24,
-    paddingVertical: 20,
+    paddingHorizontal: 20,
+    paddingTop: 12,
+    paddingBottom: 4,
   },
   workoutImageContainer: {
     height: 120,
