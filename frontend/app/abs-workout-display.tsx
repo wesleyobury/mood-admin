@@ -797,7 +797,7 @@ const absWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'MB V Sit Twist',
           duration: '12–14 min',
-          description: 'Heavy core load combining balance and twist.\n\n ',
+          description: 'Heavy core load combining balance and twist with med ball.\n ',
           battlePlan: '3 rounds\n• 10 per side V Twists\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmc&ZW54MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Rotational V sit fires obliques under high stress',
