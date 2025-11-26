@@ -1393,7 +1393,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   workoutDescriptionContainer: {
-    marginBottom: 10,
+    marginBottom: 15,
   },
   workoutDescription: {
     fontSize: 14,
