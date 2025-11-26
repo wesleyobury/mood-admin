@@ -1255,13 +1255,13 @@ const styles = StyleSheet.create({
     borderBottomColor: 'rgba(255, 215, 0, 0.3)',
   },
   equipmentIconContainer: {
-    width: 32,
-    height: 32,
-    borderRadius: 16,
+    width: 40,
+    height: 40,
+    borderRadius: 20,
     backgroundColor: 'rgba(255, 215, 0, 0.2)',
     justifyContent: 'center',
     alignItems: 'center',
-    marginRight: 16,
+    marginRight: 12,
   },
   equipmentName: {
     fontSize: 18,
