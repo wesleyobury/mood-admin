@@ -929,7 +929,7 @@ const absWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: '1½ Rep Sit Up',
           duration: '12–14 min',
-          description: 'Time under tension drill builds durability fully.\n\n ',
+          description: 'Time under tension drill builds durability fully while adding strength.\n ',
           battlePlan: '3 rounds\n• 8 Combo Reps (half+full =1)\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmc&ZW54MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Combo half+full doubles ab contraction under load',
