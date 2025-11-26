@@ -10,7 +10,7 @@ import sys
 from typing import Dict, List, Any
 
 # Get backend URL from frontend .env
-BACKEND_URL = "https://card-layout-fix-7.preview.emergentagent.com/api"
+BACKEND_URL = "https://fit-card-harmony.preview.emergentagent.com/api"
 
 class FollowersFollowingTester:
     def __init__(self):
