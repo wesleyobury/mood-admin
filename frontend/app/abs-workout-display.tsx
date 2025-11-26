@@ -185,7 +185,7 @@ const absWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Wall Assisted Rollout',
           duration: '8–10 min',
-          description: 'Lets true beginners practice core extension safely first\nwith wall support.\n ',
+          description: 'Lets true beginners practice safe core extension with\nwall support assistance.\n ',
           battlePlan: '3 rounds\n• 12–15 Wall Rollouts\nRest 60s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8TVc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Wall stop reduces risk while building bracing control',
