@@ -533,7 +533,7 @@ const absWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Weighted Leg Raise',
           duration: '12–14 min',
-          description: 'Dumbbell held between feet\namplifies difficulty.\n ',
+          description: 'Dumbbell held securely between feet amplifies difficulty\nand muscle activation.\n ',
           battlePlan: '3 rounds\n• 8–10 Weighted Leg Raises\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmc&ZW54MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Extra load maximizes ab contraction from raises',
