@@ -205,7 +205,7 @@ const absWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Short Range Rollout',
           duration: '8–10 min',
-          description: 'Builds starter strength to prepare for full extensions.\n\n ',
+          description: 'Builds starter strength to prepare for full extensions.\n ',
           battlePlan: '3 rounds\n• 12–15 Short Rollouts\nRest 60s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Controlled partial rep trains tension in safer range',
@@ -227,7 +227,7 @@ const absWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Full Ab Rollout',
           duration: '10–12 min',
-          description: 'Long stretch motion challenges anterior abs strongly.\n\n ',
+          description: 'Long stretch motion challenges anterior abs strongly.\n ',
           battlePlan: '4 rounds\n• 8 Full Rollouts\nRest 75s',
           imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Full range engages deep abdominals with control',
@@ -247,7 +247,7 @@ const absWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Rollout + Plank Hold',
           duration: '12–14 min',
-          description: 'Pair movement rollout and plank for total ab burn.\n\n ',
+          description: 'Pair movement rollout and plank for total ab burn.\n ',
           battlePlan: '3 rounds\n• 8 Rollouts\n• 20s Plank Hold\nRest 75s',
           imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
           intensityReason: 'Flexion with static hold strengthens ab endurance',
@@ -269,7 +269,7 @@ const absWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Standing Rollout',
           duration: '12–14 min',
-          description: 'Requires elite bracing strength and anterior stability.\n\n ',
+          description: 'Requires elite bracing strength and anterior stability.\n ',
           battlePlan: '3 rounds\n• 5–6 Standing Rollouts\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmc&ZW54MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Max difficulty rollout challenges core extension',
@@ -289,7 +289,7 @@ const absWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Rollout with 3s Eccentric',
           duration: '12–14 min',
-          description: '3s descend rollout punishes abs with strict tempo.\n\n ',
+          description: '3s descend rollout punishes abs with strict tempo.\n ',
           battlePlan: '3 rounds\n• 6–8 Slow Eccentric Rollouts (3s down)\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHc0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Slow lowering multiplies tension for maximal core',
@@ -337,7 +337,7 @@ const absWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Machine Crunch Pause',
           duration: '8–10 min',
-          description: 'Isometric crunch teaches control and endurance reps.\n\n ',
+          description: 'Isometric crunch teaches control and endurance reps.\n ',
           battlePlan: '3 rounds\n• 10 Crunches (2s hold)\nRest 75s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Static top hold boosts power of ab contraction',
@@ -359,7 +359,7 @@ const absWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Heavy Crunch',
           duration: '10–12 min',
-          description: 'Machine allows safe progressive overload to abs.\n\n ',
+          description: 'Machine allows safe progressive overload to abs.\n ',
           battlePlan: '4 rounds\n• 8–10 Heavy Crunches\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Increased resistance thickens ab structure well',
@@ -379,7 +379,7 @@ const absWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Crunch + Leg Raise',
           duration: '12–14 min',
-          description: 'Isolation combo burns abdominal wall comprehensively.\n\n ',
+          description: 'Isolation combo burns abdominal wall comprehensively.\n ',
           battlePlan: '3 rounds\n• 8 Crunches\n• 10 Hanging Leg Raises\nRest 90s',
           imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
           intensityReason: 'Superset works upper + lower abs in one session',
@@ -401,7 +401,7 @@ const absWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Drop Set Crunch',
           duration: '12–14 min',
-          description: 'Extended time under tension breaks ab plateaus.\n\n ',
+          description: 'Extended time under tension breaks ab plateaus.\n ',
           battlePlan: '3 rounds\n• 10 Heavy Crunches\n• Drop → 8 reps\n• Drop → 8 reps\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmc&ZW54MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Drop weight pushes contraction beyond fatigue point',
@@ -421,7 +421,7 @@ const absWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Iso Crunch + Flutter Kicks',
           duration: '12–14 min',
-          description: 'Extended tension exercise strengthens abs endurance.\n\n ',
+          description: 'Extended tension exercise strengthens abs endurance.\n ',
           battlePlan: '3 rounds\n• 8 Crunches + 10s Hold\n• Immediately 15 Flutter Kicks\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHc0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Holds plus kicks exhaust abs dynamically and isometric',
@@ -449,7 +449,7 @@ const absWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Knee Raise',
           duration: '8–10 min',
-          description: 'Controlled movement isolates lower ab recruitment.\n\n ',
+          description: 'Controlled movement isolates lower ab recruitment.\n ',
           battlePlan: '3 rounds\n• 10–12 Knee Raises\nRest 60s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8TVc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Basic raise builds lower abdominal lift strength',
@@ -469,7 +469,7 @@ const absWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Straight Leg Hold',
           duration: '8–10 min',
-          description: 'Lockout position burns abs for lower focus stability.\n\n ',
+          description: 'Lockout position burns abs for lower focus stability.\n ',
           battlePlan: '3 rounds\n• 15s Holds\nRest 75s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Isometric hold increases abs\' endurance demands',
@@ -491,7 +491,7 @@ const absWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Straight Leg Raise',
           duration: '10–12 min',
-          description: 'Builds strength in lower abs with stable path control.\n\n ',
+          description: 'Builds strength in lower abs with stable path control.\n ',
           battlePlan: '4 rounds\n• 8–10 Leg Raises\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Full ROM raise loads abs through longer range',
@@ -511,7 +511,7 @@ const absWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Knee Raise + Twist',
           duration: '12–14 min',
-          description: 'Hits lower abs and sides in one combined superset.\n\n ',
+          description: 'Hits lower abs and sides in one combined superset.\n ',
           battlePlan: '3 rounds\n• 8 per side Knee Raise Twist\nRest 90s',
           imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
           intensityReason: 'Twist adds oblique rotation into lower ab raises',
@@ -553,7 +553,7 @@ const absWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Leg Raise + Slow Eccentric',
           duration: '12–14 min',
-          description: 'Builds more strength with controlled negative reps.\n\n ',
+          description: 'Builds more strength with controlled negative reps.\n ',
           battlePlan: '3 rounds\n• 8–10 Leg Raises (3s eccentric)\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHc0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Slow eccentric multiplies ab contraction stress',
@@ -581,7 +581,7 @@ const absWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Bodyweight Side Bend',
           duration: '8–10 min',
-          description: 'Learns lateral bending to build oblique connection.\n\n ',
+          description: 'Learns lateral bending to build oblique connection.\n ',
           battlePlan: '3 rounds\n• 10 per side Side Bends\nRest 60s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHc5fHxyaW5nfGVufDB8fHx8TVc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Basic side crunch trains obliques with safe control',
@@ -601,7 +601,7 @@ const absWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Supported Crunch',
           duration: '8–10 min',
-          description: 'Controlled entry drill targets upper ab connection.\n\n ',
+          description: 'Controlled entry drill targets upper ab connection.\n ',
           battlePlan: '3 rounds\n• 10–12 Supported Crunches\nRest 60s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Small crunch on bench works abs beginner safe',
@@ -623,7 +623,7 @@ const absWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Weighted Side Bend',
           duration: '10–12 min',
-          description: 'Builds oblique thickness with controlled weighted reps.\n\n ',
+          description: 'Builds oblique thickness with controlled weighted reps.\n ',
           battlePlan: '4 rounds\n• 8–10 per side Weighted Bends\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Progression adds resistance for lateral growth',
@@ -643,7 +643,7 @@ const absWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Oblique Twist Sit Up',
           duration: '12–14 min',
-          description: 'Twisting sit up enhances rotational ab engagement.\n\n ',
+          description: 'Twisting sit up enhances rotational ab engagement.\n ',
           battlePlan: '3 rounds\n• 8 per side Twisting Sit Ups\nRest 90s',
           imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
           intensityReason: 'Rotating adds dynamic work for obliques strongly',
@@ -685,7 +685,7 @@ const absWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Sit Up with 3s Hold Top',
           duration: '12–14 min',
-          description: 'Hold then release makes sit up much more demanding.\n\n ',
+          description: 'Hold then release makes sit up much more demanding.\n ',
           battlePlan: '3 rounds\n• 8 Sit Ups (3s hold top)\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHc0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Iso contraction hold increases abs endurance',
@@ -713,7 +713,7 @@ const absWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'MB Crunch',
           duration: '8–10 min',
-          description: 'Beginner crunch builds control with small resistance.\n\n ',
+          description: 'Beginner crunch builds control with small resistance.\n ',
           battlePlan: '3 rounds\n• 12 MB Crunches\nRest 60s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8MVc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Light ball adds gentle overload to crunch pattern',
@@ -733,7 +733,7 @@ const absWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Seated MB Twist',
           duration: '8–10 min',
-          description: 'Dynamic twisting strengthens side core stability.\n\n ',
+          description: 'Dynamic twisting strengthens side core stability.\n ',
           battlePlan: '3 rounds\n• 10 per side Twists\nRest 75s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Rotation works obliques with ball resistance control',
@@ -755,7 +755,7 @@ const absWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'MB Overhead Sit Up',
           duration: '10–12 min',
-          description: 'Long lever increases core demand and stretch tension.\n\n ',
+          description: 'Long lever increases core demand and stretch tension.\n ',
           battlePlan: '4 rounds\n• 8–10 MB Sit Ups\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Lever arm extended overhead intensifies abs load',
@@ -775,7 +775,7 @@ const absWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'MB Slam + Plank Hold',
           duration: '12–14 min',
-          description: 'Dynamic then static pairing builds full capacity.\n\n ',
+          description: 'Dynamic then static pairing builds full capacity.\n ',
           battlePlan: '3 rounds\n• 8 MB Slams\n• 25s Plank Hold\nRest 90s',
           imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
           intensityReason: 'Explosive slam pairs with core static endurance',
@@ -817,7 +817,7 @@ const absWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'MB Slam + Toe Touch Finisher',
           duration: '12–14 min',
-          description: 'Brutal pairing challenges power and contraction.\n\n ',
+          description: 'Brutal pairing challenges power and contraction.\n ',
           battlePlan: '3 rounds\n• 8 MB Slams\n• 10 MB Toe Touches\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHc0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Targets entire abs with slam then toe reach combo',
@@ -845,7 +845,7 @@ const absWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Decline Sit Up (Bodyweight)',
           duration: '8–10 min',
-          description: 'Bodyweight baseline drill builds control and strength.\n\n ',
+          description: 'Bodyweight baseline drill builds control and strength.\n ',
           battlePlan: '3 rounds\n• 10–12 Decline Sit Ups\nRest 60s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8TVc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Decline angle increases core range and challenge',
@@ -865,7 +865,7 @@ const absWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Decline Crunch',
           duration: '8–10 min',
-          description: 'Works midline without excessive torso movement.\n\n ',
+          description: 'Works midline without excessive torso movement.\n ',
           battlePlan: '3 rounds\n• 12–15 Decline Crunches\nRest 75s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Short ROM targets abs intensely with safety',
@@ -887,7 +887,7 @@ const absWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Weighted Sit Up',
           duration: '10–12 min',
-          description: 'Strengthens core wall with consistent loaded work.\n\n ',
+          description: 'Strengthens core wall with consistent loaded work.\n ',
           battlePlan: '4 rounds\n• 8 Sit Ups w/ Plate\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Holding plate increases progressive overload stress',
@@ -907,7 +907,7 @@ const absWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Twisting Sit Up',
           duration: '12–14 min',
-          description: 'Full abs trained with twist motion superset strategy.\n\n ',
+          description: 'Full abs trained with twist motion superset strategy.\n ',
           battlePlan: '3 rounds\n• 8 per side Twisting Sit Ups\nRest 90s',
           imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
           intensityReason: 'Rotational sit up engages obliques + rectus combo',
@@ -949,7 +949,7 @@ const absWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Decline Sit Up + Flutter Kicks',
           duration: '12–14 min',
-          description: 'Powerful finisher blends flexion and endurance set.\n\n ',
+          description: 'Powerful finisher blends flexion and endurance set.\n ',
           battlePlan: '3 rounds\n• 8 Decline Sit Ups\n• Immediately 15 Flutter Kicks\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHc0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Sit ups paired with flutter kicks torch abs fully',
