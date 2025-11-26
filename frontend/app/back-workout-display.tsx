@@ -53,7 +53,7 @@ const backWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'DB Row + Rear Fly',
           duration: '12–14 min',
-          description: 'Rows for pulling power and rear flies\nfor stability\n ',
+          description: 'Rows for pulling power and rear flies\nfor stability\n',
           battlePlan: '3 rounds\n• 10 Single-Arm Dumbbell Row (each side, supported on bench)\nRest 60s after each side\n• 10 Prone Rear Delt Fly (lying face down)\nRest 60s after each set',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Targets lats + rear delts with simple supported lifts',
@@ -73,7 +73,7 @@ const backWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Y-T Row Flow',
           duration: '12–14 min',
-          description: 'Rows with Y + T raises for posture\nand shoulder health\n ',
+          description: 'Rows with Y + T raises for posture\nand shoulder health\n',
           battlePlan: '3 rounds\n• 10 Single-Arm Row (each side)\n• 10 Incline Prone Y-Raise\n• 10 Incline Prone T-Raise\nRest 75s after sequence',
           imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Basic scapular + rear delt balance with angles',
@@ -95,7 +95,7 @@ const backWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Chest-Support Row',
           duration: '14–16 min',
-          description: 'Supported rows and flies promote\nstrict contraction\n ',
+          description: 'Supported rows and flies promote\nstrict contraction\n',
           battlePlan: '4 rounds\n• 8 Chest-Supported Dumbbell Row\nRest 75–90s\n• 10 Incline Prone Reverse Fly\nRest 75–90s',
           imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
           intensityReason: 'Neutral spine from support isolates lats + traps',
@@ -115,7 +115,7 @@ const backWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'W-Rear Flow',
           duration: '14–16 min',
-          description: 'Rows, W-raises, and flys refine\nmid-back strength\n ',
+          description: 'Rows, W-raises, and flys refine\nmid-back strength\n',
           battlePlan: '3 rounds\n• 8 Single-Arm Row (each side)\n• 8 Incline Prone W-Raise\n• 8 Incline Prone Reverse Fly\nRest 90s after sequence',
           imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmc&ZW54MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'W-raises + flys emphasize scapular control',
@@ -137,7 +137,7 @@ const backWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: '3-Way Pull Row',
           duration: '16–18 min',
-          description: 'Supported row, reverse fly, and\nsingle-arm grind\n ',
+          description: 'Supported row, reverse fly, and\nsingle-arm grind\n',
           battlePlan: '4 rounds\n• 8 Chest-Supported Row\nRest 90s\n• 8 Incline Prone Reverse Fly\nRest 90s\n• 8 Single-Arm Row (each side)\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Multiple row/rear delt moves for depth of fatigue',
@@ -157,7 +157,7 @@ const backWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Y-T Row Blast',
           duration: '18–20 min',
-          description: 'Rows plus Y/T raises for\nbalanced shoulder growth\n ',
+          description: 'Rows plus Y/T raises for\nbalanced shoulder growth\n',
           battlePlan: '4 rounds\n• 8 Chest-Supported Row\n• 8 Incline Prone Y-Raise\n• 8 Incline Prone T-Raise\nRest 90–120s after sequence',
           imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8TVc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Multi-angle raises + row overload scapular support',
@@ -185,7 +185,7 @@ const backWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Row & Deadlift',
           duration: '14–16 min',
-          description: 'Rows and deadlifts develop base power\nand muscle control.\n ',
+          description: 'Rows and deadlifts develop base power\nand muscle control.\n',
           battlePlan: '3 rounds:\n• 10 Barbell Bent-Over Row\nRest 60–75s after each set\n• 10 Barbell Deadlift\nRest 60–75s after each set',
           imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8TVc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Builds foundational back strength with compound lifts.',
@@ -205,7 +205,7 @@ const backWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Row Flow Combo',
           duration: '12–14 min',
-          description: 'Combines row grips and good mornings\nfor total back work.\n ',
+          description: 'Combines row grips and good mornings\nfor total back work.\n',
           battlePlan: '3 rounds:\n• 10 Bent-Over Row\n• 10 Underhand Grip Row\n• 10 Barbell Good Morning\nRest 60–75s after completing the full sequence',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Varied grip rowing boosts muscular activation volume.',
@@ -227,7 +227,7 @@ const backWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Pendlay + RDL',
           duration: '16–18 min',
-          description: 'Pendlay rows and RDLs balance power\nwith hamstring load.\n ',
+          description: 'Pendlay rows and RDLs balance power\nwith hamstring load.\n',
           battlePlan: '4 rounds:\n• 8 Pendlay Row\nRest 75–90s after each set\n• 10 Romanian Deadlift\nRest 75–90s after each set',
           imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Explosive pulls and slow RDLs strengthen full posterior.',
@@ -247,7 +247,7 @@ const backWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Row Shrug Flow',
           duration: '16–18 min',
-          description: 'Multi-grip rows, shrugs, deads build\ntraps and mid-back.\n ',
+          description: 'Multi-grip rows, shrugs, deads build\ntraps and mid-back.\n',
           battlePlan: '3 rounds:\n• 8 Bent-Over Row\n• 8 Reverse-Grip Row\n• 8 Barbell Shrugs\n• 8 Deadlift\nRest 90s after finishing the full circuit',
           imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
           intensityReason: 'Combo of rows, shrugs, and deads creates dense fatigue.',
@@ -269,7 +269,7 @@ const backWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Heavy Barbell',
           duration: '20–22 min',
-          description: 'Rows, deads, shrugs overload traps\nand spinal erectors.\n ',
+          description: 'Rows, deads, shrugs overload traps\nand spinal erectors.\n',
           battlePlan: '4 rounds:\n• 8 Barbell Bent-Over Row\nRest 90–120s after each set\n• 8 Barbell Deadlift\nRest 90–120s after each set\n• 8 Barbell Shrug\nRest 90–120s after each set',
           imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmc&ZW54MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Higher volume heavy lifts establish raw size and mass.',
@@ -289,7 +289,7 @@ const backWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Power Complex',
           duration: '20–22 min',
-          description: 'Row, high pull, and clean complex\nmaximizes back output.\n ',
+          description: 'Row, high pull, and clean complex\nmaximizes back output.\n',
           battlePlan: '4 rounds:\n• 8 Barbell Row\n• 8 Barbell High Pull\n• 8 Barbell Power Clean\nRest 90–120s after completing the full sequence',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Explosive high pulls and cleans target power capacity.',
@@ -317,7 +317,7 @@ const backWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Row & Deadlift KB',
           duration: '12–14 min',
-          description: 'Rows and deadlifts with kettlebells\nbuild back base\n ',
+          description: 'Rows and deadlifts with kettlebells\nbuild back base\n',
           battlePlan: '3 rounds\n• 10 Single-Arm KB Row (each side)\nRest 60–75s after each set\n• 10 KB Deadlift\nRest 60–75s after each set',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Simple pull + hinge strengthen grip and core',
@@ -337,7 +337,7 @@ const backWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Row Swing Flow',
           duration: '14–15 min',
-          description: 'Grip and back strength with\nflow style movements\n ',
+          description: 'Grip and back strength with\nflow style movements\n',
           battlePlan: '3 rounds\n• 10 KB Single-Arm Row (each side)\n• 10 KB Suitcase Deadlift (each side)\n• 10 KB Swing\nRest 60–75s after sequence',
           imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Combines rows, deadlifts, swings for endurance',
@@ -359,7 +359,7 @@ const backWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Double Row + Suitcase',
           duration: '16–18 min',
-          description: 'Double rows with suitcase pulls\ntrain grip/core\n ',
+          description: 'Double rows with suitcase pulls\ntrain grip/core\n',
           battlePlan: '4 rounds\n• 8 Double KB Row\nRest 75–90s after each set\n• 10 KB Suitcase Deadlift\nRest 75–90s after each set',
           imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
           intensityReason: 'Heavier bilateral pulls build lats and posture',
@@ -379,7 +379,7 @@ const backWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Gorilla Row Flow',
           duration: '16–18 min',
-          description: 'Renegade, gorilla, high pulls\nfor dense volume\n ',
+          description: 'Renegade, gorilla, high pulls\nfor dense volume\n',
           battlePlan: '3 rounds\n• 8 Renegade Row (each side)\n• 8 Gorilla Row (each side)\n• 8 KB High Pull (each side)\nRest 90s after sequence',
           imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmc&ZW54MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Combo flow hits lats, core, and traps together',
@@ -401,7 +401,7 @@ const backWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Row Swing Dead',
           duration: '18–20 min',
-          description: 'Balanced rotational pulls and\nhip hinge strength\n ',
+          description: 'Balanced rotational pulls and\nhip hinge strength\n',
           battlePlan: '4 rounds\n• 8 Single-Arm Row (each side)\nRest 90s after set\n• 8 KB Swing\nRest 90s after set\n• 8 KB Deadlift\nRest 90s after set',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Loaded volume builds strength and conditioning',
@@ -421,7 +421,7 @@ const backWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Snatch Clean Flow',
           duration: '20–22 min',
-          description: 'Combo snatch, renegade, clean flow\nbuilds power\n ',
+          description: 'Combo snatch, renegade, clean flow\nbuilds power\n',
           battlePlan: '4 rounds\n• 8 Renegade Row (alternating sides)\n• 8 KB Snatch (each side)\n• 8 KB Clean and Pull\nRest 90–120s after sequence',
           imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8TVc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Explosive circuit of pulls, cleans, and snatches',
@@ -449,7 +449,7 @@ const backWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Extensions + Hold',
           duration: '10–12 min',
-          description: 'Bodyweight extensions paired with\nshort static holds\n ',
+          description: 'Bodyweight extensions paired with\nshort static holds\n',
           battlePlan: '3 rounds\n• 12 Back Extensions\nRest 45–60s\n• 2 Roman Chair Holds (20s each)\nRest 60s after set',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Introduces endurance and stability to lower back',
@@ -469,7 +469,7 @@ const backWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Twist & Hold Flow',
           duration: '12–14 min',
-          description: 'Extension, twist, and short hold combo\nfor endurance\n ',
+          description: 'Extension, twist, and short hold combo\nfor endurance\n',
           battlePlan: '3 rounds\n• 10 Back Extensions\n• 10 Side-to-Side Twists (at top of extension)\n• 1 Roman Chair Hold (30s)\nRest 60–75s after sequence',
           imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Adds light rotation and isometrics for core demands',
@@ -491,7 +491,7 @@ const backWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Weighted Ext',
           duration: '14–16 min',
-          description: 'Weighted extensions and basic hyperextensions\nfor mass\n ',
+          description: 'Weighted extensions and basic hyperextensions\nfor mass\n',
           battlePlan: '4 rounds\n• 10 Weighted Back Extensions\nRest 75s after set\n• 10 Roman Chair Hyperextensions\nRest 75s after set',
           imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
           intensityReason: 'External load strengthens spinal erectors safely',
@@ -511,7 +511,7 @@ const backWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Extension Circuit',
           duration: '14–16 min',
-          description: 'Blends extension, superman, side bends\nfor variety\n ',
+          description: 'Blends extension, superman, side bends\nfor variety\n',
           battlePlan: '3 rounds\n• 8 Back Extensions\n• 8 Alternating Superman (1 arm + opposite leg)\n• 8 Side Bends (each side)\nRest 90s after sequence',
           imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmc&ZW54MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Mix of dynamic posterior moves challenges control',
@@ -533,7 +533,7 @@ const backWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Weighted Twist',
           duration: '16–18 min',
-          description: 'Weighted extensions with twist patterns\nfor obliques\n ',
+          description: 'Weighted extensions with twist patterns\nfor obliques\n',
           battlePlan: '4 rounds\n• 10 Weighted Back Extensions\nRest 90s after set\n• 10 Roman Chair Hyperextensions\nRest 90s after set\n• 10 Roman Chair Twists\nRest 90s after set',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Adds load and rotation for advanced spinal strength',
@@ -553,7 +553,7 @@ const backWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Superman + Iso Hold',
           duration: '18–20 min',
-          description: 'Superman lifts plus holds improve\nstability capacity\n ',
+          description: 'Superman lifts plus holds improve\nstability capacity\n',
           battlePlan: '4 rounds\n• 8 Weighted Back Extensions\n• 8 Alternating Supermans\n• 1 Roman Chair Hold (20–30s)\nRest 90–120s after sequence',
           imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8TVc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Extended isometrics + dynamic raises build max control',
@@ -581,7 +581,7 @@ const backWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Neutral Grip Row',
           duration: '10–12 min',
-          description: 'Simple neutral rowing pattern\nfor beginners\n ',
+          description: 'Simple neutral rowing pattern\nfor beginners\n',
           battlePlan: '3 rounds\n• 12 Neutral Grip T-Bar Row\nRest 60–75s after set',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Neutral grip builds confidence & lat line strength',
@@ -601,7 +601,7 @@ const backWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Wide Grip Row',
           duration: '10–12 min',
-          description: 'Wide row variation for\nupper-back foundation\n ',
+          description: 'Wide row variation for\nupper-back foundation\n',
           battlePlan: '3 rounds\n• 10 Wide Grip T-Bar Row\nRest 60–75s after set',
           imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Wide grip shifts load to traps/rhomboids for posture',
@@ -623,7 +623,7 @@ const backWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Close Grip Row',
           duration: '12–14 min',
-          description: 'Simple close grip with\nmoderate-to-heavy focus\n ',
+          description: 'Simple close grip with\nmoderate-to-heavy focus\n',
           battlePlan: '4 rounds\n• 10 Close Grip T-Bar Row\nRest 75s after set',
           imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
           intensityReason: 'Close grip overloads lats with higher load capacity',
@@ -643,7 +643,7 @@ const backWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Slow Neg Row',
           duration: '12–14 min',
-          description: 'Time-under-tension row\nprogression\n ',
+          description: 'Time-under-tension row\nprogression\n',
           battlePlan: '4 rounds\n• 8 Neutral Grip Row (3–4s eccentric)\nRest 90s after set',
           imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmc&ZW54MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: '3–4s eccentric tempo increases hypertrophy effect',
@@ -665,7 +665,7 @@ const backWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Iso Wide Rows',
           duration: '14–16 min',
-          description: 'Wide grip rows with\nstatic squeeze finish\n ',
+          description: 'Wide grip rows with\nstatic squeeze finish\n',
           battlePlan: '4 rounds\n• 8 Wide Grip T-Bar Row\nEnd each set with 10s static hold at full contraction\nRest 90–120s after set',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Isometric holds create intense contraction stress',
@@ -685,7 +685,7 @@ const backWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Combo Superset',
           duration: '16–18 min',
-          description: 'Wide-to-underhand superset\nwith scap squeezes\n ',
+          description: 'Wide-to-underhand superset\nwith scap squeezes\n',
           battlePlan: '4 rounds\n• 8 Wide Grip Row\n• Immediately 8 Underhand Grip Row\n• Finish with 10 Back Squeezes (bodyweight, no load)\nRest 120s after full superset',
           imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8TVc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Pairing grips + post-set contractions maximizes fatigue',
@@ -713,7 +713,7 @@ const backWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Dead + Row',
           duration: '14–16 min',
-          description: 'Deadlifts and rows for\nbeginner back foundation\n ',
+          description: 'Deadlifts and rows for\nbeginner back foundation\n',
           battlePlan: '3 rounds\n• 10 Barbell Deadlift\nRest 60–75s\n• 10 Barbell Bent-Over Row\nRest 60–75s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Intro hinge + pull to teach proper barbell basics',
@@ -733,7 +733,7 @@ const backWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Dead Row Shrug',
           duration: '14–16 min',
-          description: 'Deads, rows, shrugs train\nerectors and upper traps\n ',
+          description: 'Deads, rows, shrugs train\nerectors and upper traps\n',
           battlePlan: '3 rounds\n• 10 Barbell Deadlift\n• 10 Barbell Bent-Over Row\n• 10 Barbell Power Shrug\nRest 75s after sequence',
           imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Adds shrug finish for trap-dominant overload',
@@ -755,7 +755,7 @@ const backWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'RDL + Pendlay',
           duration: '16–18 min',
-          description: 'Romanian deadlifts with Pendlay rows\nfor balance\n ',
+          description: 'Romanian deadlifts with Pendlay rows\nfor balance\n',
           battlePlan: '4 rounds\n• 8 Romanian Deadlift\nRest 75–90s\n• 10 Pendlay Row\nRest 75–90s',
           imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
           intensityReason: 'Posterior strength + explosive pull development',
@@ -775,7 +775,7 @@ const backWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Pull Combo',
           duration: '16–18 min',
-          description: 'Deadlifts plus Olympic pulls\nfor hybrid training\n ',
+          description: 'Deadlifts plus Olympic pulls\nfor hybrid training\n',
           battlePlan: '3 rounds\n• 8 Barbell Deadlift\n• 8 Barbell High Pull\n• 8 Barbell Clean Pull\nRest 90s after sequence',
           imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmc&ZW54MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Add high pulls + clean pulls to boost explosiveness',
@@ -797,7 +797,7 @@ const backWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Dead Row Shrug',
           duration: '18–20 min',
-          description: 'Heavy hinge, row, shrug focus\nfor dense back work\n ',
+          description: 'Heavy hinge, row, shrug focus\nfor dense back work\n',
           battlePlan: '4 rounds\n• 8 Barbell Deadlift\nRest 90s\n• 8 Barbell Bent-Over Row\nRest 90s\n• 8 Power Shrug\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Adds volume with heavy compound barbell pulls',
@@ -817,7 +817,7 @@ const backWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Dead Clean Flow',
           duration: '20–22 min',
-          description: 'Heavy compound pulls\nwith clean finish\n ',
+          description: 'Heavy compound pulls\nwith clean finish\n',
           battlePlan: '4 rounds\n• 8 Barbell Deadlift\n• 8 Barbell High Pull\n• 8 Barbell Power Clean\nRest 90–120s after sequence',
           imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8TVc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Olympic-style lifts tie power explosiveness to back',
@@ -845,7 +845,7 @@ const backWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Neutral Row Start',
           duration: '10–12 min',
-          description: 'Single movement to master\nseated row mechanics\n ',
+          description: 'Single movement to master\nseated row mechanics\n',
           battlePlan: '3 rounds\n• 12 Neutral Grip Cable Row\nRest 60–75s after set',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Neutral grip anchor builds confidence + control',
@@ -865,7 +865,7 @@ const backWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Wide Row Intro',
           duration: '10–12 min',
-          description: 'Focuses on wide row control\nfor beginners\n ',
+          description: 'Focuses on wide row control\nfor beginners\n',
           battlePlan: '3 rounds\n• 10 Wide Grip Cable Row\nRest 60–75s after set',
           imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Wide grip recruits upper back posture muscles',
@@ -887,7 +887,7 @@ const backWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Underhand Row',
           duration: '12–14 min',
-          description: 'Control-focused row variation\nwith palms up\n ',
+          description: 'Control-focused row variation\nwith palms up\n',
           battlePlan: '4 rounds\n• 10 Underhand Grip Cable Row\nRest 75s after set',
           imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
           intensityReason: 'Underhand row shifts focus to lower lats & biceps',
@@ -907,7 +907,7 @@ const backWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Slow Negatives',
           duration: '12–14 min',
-          description: 'Single movement with emphasized\nnegative control\n ',
+          description: 'Single movement with emphasized\nnegative control\n',
           battlePlan: '4 rounds\n• 8 Neutral Grip Cable Row (3–4s eccentric each rep)\nRest 90s after set',
           imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmc&ZW54MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Extended 3–4s eccentrics boost hypertrophy',
@@ -929,7 +929,7 @@ const backWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Iso Hold Rows',
           duration: '14–16 min',
-          description: 'Rows with a final long hold\nat contraction\n ',
+          description: 'Rows with a final long hold\nat contraction\n',
           battlePlan: '4 rounds\n• 8 Wide Grip Row\nEnd each set with 10s hold at contraction\nRest 90–120s after set',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Isometric finish after working sets increases time under tension',
@@ -949,7 +949,7 @@ const backWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Superset Grind',
           duration: '16–18 min',
-          description: 'Wide-to-underhand superset with\npost-set squeezes\n ',
+          description: 'Wide-to-underhand superset with\npost-set squeezes\n',
           battlePlan: '4 rounds\n• 8 Wide Grip Row (controlled)\n• Immediately 8 Underhand Grip Row\n• Finish with 10 Standing Back Squeezes (bodyweight scapular retractions, no load)\nRest 120s after full superset',
           imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8TVc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Combo of two grips + contractions maximizes fatigue',
@@ -977,7 +977,7 @@ const backWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Wide Pulldown',
           duration: '10–12 min',
-          description: 'Wide grip basis for learning\nlat engagement\n ',
+          description: 'Wide grip basis for learning\nlat engagement\n',
           battlePlan: '3 rounds\n• 10–12 Wide Grip Pulldown\nRest 60–75s after set',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Wide grip teaches lat activation and form control',
@@ -997,7 +997,7 @@ const backWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Underhand Pulldown',
           duration: '10–12 min',
-          description: 'Easier grip variation supports\nearly progression\n ',
+          description: 'Easier grip variation supports\nearly progression\n',
           battlePlan: '3 rounds\n• 10–12 Underhand Pulldown\nRest 60–75s after set',
           imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Underhand grip recruits arms to aid pulling work',
@@ -1019,7 +1019,7 @@ const backWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Neutral Pulldown',
           duration: '12–14 min',
-          description: 'Stronger setup for\nprogressive overload\n ',
+          description: 'Stronger setup for\nprogressive overload\n',
           battlePlan: '4 rounds\n• 8–10 Neutral Grip Pulldown (moderate to heavy)\nRest 75–90s after set',
           imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
           intensityReason: 'Neutral grip enables heavier lat loading safely',
@@ -1039,7 +1039,7 @@ const backWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Pulldown + Hold',
           duration: '12–14 min',
-          description: 'Controlled reps followed by\nstatic contraction\n ',
+          description: 'Controlled reps followed by\nstatic contraction\n',
           battlePlan: '3 rounds\n• 8–10 Pulldown (neutral or wide, consistent grip choice)\nEnd each set with 5s hold at bottom\nRest 90s after set',
           imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmc&ZW54MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Isometric hold boosts tension and endurance',
@@ -1061,7 +1061,7 @@ const backWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Wide + Close',
           duration: '14–16 min',
-          description: 'Mix of wide and close grips\nfor full lat work\n ',
+          description: 'Mix of wide and close grips\nfor full lat work\n',
           battlePlan: '4 rounds\n• 8 Wide Grip Pulldown\nRest 90s\n• 8 Close Grip Pulldown\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Grip pairing develops width and back thickness',
@@ -1081,7 +1081,7 @@ const backWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Pulldown Superset',
           duration: '16–18 min',
-          description: 'Wide-to-underhand with\ncontrolled lowering\n ',
+          description: 'Wide-to-underhand with\ncontrolled lowering\n',
           battlePlan: '4 rounds\n• 8 Wide Grip Pulldown\n• Immediately 8 Underhand Pulldown (3s eccentric each)\nRest 120s after superset',
           imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8TVc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Superset + eccentrics maximize hypertrophy stress',
@@ -1109,7 +1109,7 @@ const backWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Assisted Pull-Ups',
           duration: '10–12 min',
-          description: 'Focuses on mastering the basic\npull-up movement pattern\n ',
+          description: 'Focuses on mastering the basic\npull-up movement pattern\n',
           battlePlan: '3 rounds\n• 5 Pull-Ups (use band or assisted machine if needed)\nRest 60–75s after set',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Builds foundational pulling strength with necessary support',
@@ -1129,7 +1129,7 @@ const backWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Pull-Up Negatives',
           duration: '10–12 min',
-          description: 'Focuses on controlled lowering\nto build pulling power\n ',
+          description: 'Focuses on controlled lowering\nto build pulling power\n',
           battlePlan: '3 rounds\n• 5 Negative Pull-Ups (jump to top, 3-5s lower)\nRest 75s after set',
           imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Eccentric training builds strength for full pull-ups',
@@ -1151,7 +1151,7 @@ const backWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Chin-Up Strength',
           duration: '12–14 min',
-          description: 'Builds pulling power with a slightly\neasier grip variation\n ',
+          description: 'Builds pulling power with a slightly\neasier grip variation\n',
           battlePlan: '4 rounds\n• 6 Chin-Ups\nRest 75–90s after set',
           imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
           intensityReason: 'Chin-ups engage biceps more, aiding overall pull strength',
@@ -1171,7 +1171,7 @@ const backWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Pull-Up + Hold',
           duration: '12–14 min',
-          description: 'Combines pull-ups with a static hold\nfor enhanced strength\n ',
+          description: 'Combines pull-ups with a static hold\nfor enhanced strength\n',
           battlePlan: '3 rounds\n• 6 Pull-Ups\nEnd each set with a 3s hold at the top\nRest 90s after set',
           imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmc&ZW54MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Adds isometric hold to increase time under tension for growth',
@@ -1193,7 +1193,7 @@ const backWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Wide + Neutral Pull',
           duration: '14–16 min',
-          description: 'Two key pull-up variations for\ncomprehensive back development\n ',
+          description: 'Two key pull-up variations for\ncomprehensive back development\n',
           battlePlan: '4 rounds\n• 8 Wide Grip Pull-Ups\nRest 90s\n• 8 Neutral Grip Pull-Ups\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Targets outer lats and overall back width with varied grips',
@@ -1213,7 +1213,7 @@ const backWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Chest-to-Bar Flow',
           duration: '16–18 min',
-          description: 'Advanced pull-ups with deep range\nand controlled lowering\n ',
+          description: 'Advanced pull-ups with deep range\nand controlled lowering\n',
           battlePlan: '4 rounds\n• 6 Chest-to-Bar Pull-Ups\n• 6 Negative Pull-Ups (3–5s lower)\nRest 90–120s after sequence',
           imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8TVc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Higher pull range and negatives build extreme strength',
@@ -1241,7 +1241,7 @@ const backWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Assisted Neutral',
           duration: '10–12 min',
-          description: 'Focuses on the neutral grip pull-up\nwith support\n ',
+          description: 'Focuses on the neutral grip pull-up\nwith support\n',
           battlePlan: '3 rounds\n• 5 Neutral Grip Pull-Ups (use band or assisted machine if needed)\nRest 60–75s after set',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Neutral grip is often easiest, building initial pulling strength',
@@ -1261,7 +1261,7 @@ const backWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Assisted Chin-Ups',
           duration: '10–12 min',
-          description: 'Builds pulling strength using an underhand\ngrip with assistance\n ',
+          description: 'Builds pulling strength using an underhand\ngrip with assistance\n',
           battlePlan: '3 rounds\n• 5 Chin-Ups (use band or assisted machine if needed)\nRest 75s after set',
           imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Chin-ups recruit biceps, making them slightly easier to learn',
@@ -1283,7 +1283,7 @@ const backWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Mixed Grip Pulls',
           duration: '12–14 min',
-          description: 'Alternating grip for balanced\nstrength development\n ',
+          description: 'Alternating grip for balanced\nstrength development\n',
           battlePlan: '4 rounds\n• 6 Mixed Grip Pull-Ups (swap grip each set)\nRest 75–90s after set',
           imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
           intensityReason: 'Mixed grip helps overcome sticking points, building unilateral strength',
@@ -1303,7 +1303,7 @@ const backWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Commando Pulls',
           duration: '12–14 min',
-          description: 'Dynamic pull-up variation for core\nand back engagement\n ',
+          description: 'Dynamic pull-up variation for core\nand back engagement\n',
           battlePlan: '3 rounds\n• 6 Commando Pull-Ups (chest to each side)\nRest 90s after set',
           imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmc&ZW54MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Commando pulls challenge stability and unilateral strength',
@@ -1325,7 +1325,7 @@ const backWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Wide + Neutral',
           duration: '14–16 min',
-          description: 'Targets both back width and\noverall pulling power\n ',
+          description: 'Targets both back width and\noverall pulling power\n',
           battlePlan: '4 rounds\n• 8 Wide Grip Pull-Ups\nRest 90s\n• 8 Neutral Grip Pull-Ups\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Combines two primary grips for comprehensive back development',
@@ -1345,7 +1345,7 @@ const backWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Archer Pulls',
           duration: '16–18 min',
-          description: 'Highly challenging pull-up variation\nfor extreme strength\n ',
+          description: 'Highly challenging pull-up variation\nfor extreme strength\n',
           battlePlan: '4 rounds\n• 6 Archer Pull-Ups (each side)\nRest 90–120s after set',
           imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8TVc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Unilateral strength builder, progressing towards one-arm pull-ups',
@@ -1373,7 +1373,7 @@ const backWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Neutral Row',
           duration: '10–12 min',
-          description: 'Builds pulling strength with\na natural elbow path\n ',
+          description: 'Builds pulling strength with\na natural elbow path\n',
           battlePlan: '3 rounds\n• 10–12 Neutral Grip Row\nRest 60–75s after set',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Neutral grip row teaches form with stable setup',
@@ -1393,7 +1393,7 @@ const backWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Wide Row',
           duration: '10–12 min',
-          description: 'Engages rhomboids and traps\nwith safer alignment\n ',
+          description: 'Engages rhomboids and traps\nwith safer alignment\n',
           battlePlan: '3 rounds\n• 10–12 Wide Grip Row\nRest 60–75s after set',
           imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Wide row variation builds posture and width',
@@ -1415,7 +1415,7 @@ const backWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Underhand Row',
           duration: '12–14 min',
-          description: 'Stronger pull variation for\ncontrolled overload\n ',
+          description: 'Stronger pull variation for\ncontrolled overload\n',
           battlePlan: '4 rounds\n• 8–10 Underhand Grip Row (moderate to heavy)\nRest 75s after set',
           imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
           intensityReason: 'Underhand angle shifts load to lats and biceps',
@@ -1435,7 +1435,7 @@ const backWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Slow Negatives',
           duration: '12–14 min',
-          description: 'Focuses on lat control with\nlonger lowering phase\n ',
+          description: 'Focuses on lat control with\nlonger lowering phase\n',
           battlePlan: '3 rounds\n• 8 Neutral Grip Row (3s eccentric each rep)\nRest 90s after set',
           imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmc&ZW54MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: '3s eccentric reps add high time under tension',
@@ -1457,7 +1457,7 @@ const backWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Neutral + Wide',
           duration: '14–16 min',
-          description: 'Neutral rows + wide rows maximize\npulling volume\n ',
+          description: 'Neutral rows + wide rows maximize\npulling volume\n',
           battlePlan: '4 rounds\n• 8 Neutral Grip Row\nRest 90s\n• 8 Wide Grip Row\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Two grips stimulate width and thickness growth',
@@ -1477,7 +1477,7 @@ const backWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Row Superset + Iso',
           duration: '16–18 min',
-          description: 'Neutral-to-underhand rows plus\nisometric finisher\n ',
+          description: 'Neutral-to-underhand rows plus\nisometric finisher\n',
           battlePlan: '4 rounds\n• 8 Neutral Grip Row\n• Immediately 8 Underhand Grip Row\n• Finish with 10s Hold at peak contraction\nRest 120s after full sequence',
           imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8TVc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Superset adds load, holds extend time under tension',
