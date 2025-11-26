@@ -612,7 +612,7 @@ const styles = StyleSheet.create({
     paddingVertical: 16,
     backgroundColor: 'rgba(255, 215, 0, 0.1)',
     borderBottomWidth: 1,
-    borderBottomColor: 'rgba(255, 215, 0, 0.3)',
+    borderBottomColor: 'rgba(255, 215, 0, 0.2)',
   },
   equipmentIconContainer: {
     width: 32,
