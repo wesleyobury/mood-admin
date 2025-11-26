@@ -53,7 +53,7 @@ const absWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Standard Crunch',
           duration: '8–10 min',
-          description: 'Simple crunch movement develops mind muscle\nconnection safely for beginners.\n ',
+          description: 'Simple crunch develops mind-muscle connection\nsafely for beginner abdominal training.\n ',
           battlePlan: '3 rounds\n• 12–15 Crunches\nRest 45s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8TVc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Intro movement builds baseline flexion ab strength',
