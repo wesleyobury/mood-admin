@@ -977,7 +977,7 @@ const backWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Wide Pulldown',
           duration: '10–12 min',
-          description: 'Wide grip basis for learning lat engagement',
+          description: 'Wide grip basis for learning lat engagement to build pull-up strength',
           battlePlan: '3 rounds\n• 10–12 Wide Grip Pulldown\nRest 60–75s after set',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Wide grip teaches lat activation and form control',
