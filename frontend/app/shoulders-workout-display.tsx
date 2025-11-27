@@ -157,7 +157,7 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Power Flow',
           duration: '16–20 min',
-          description: 'Advanced dumbbell complex targetingall three deltoid heads intensively. ',
+          description: 'Advanced dumbbell complex targeting all three deltoid heads intensively. ',
           battlePlan: '3 rounds:• 6 push press• 8 lateral raise• 10 rear delt fly• 12 front raiseRest 2 min',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Complete shoulder complex for advanced muscle development.',
@@ -185,7 +185,7 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Press Builder',
           duration: '12–15 min',
-          description: 'Basic barbell shoulder press foundationwith light weight and perfect form. ',
+          description: 'Basic barbell shoulder press foundation with light weight and perfect form. ',
           battlePlan: '3 rounds:• 10 standing barbell press• 12 upright rowsRest 75s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Safe introduction to barbell overhead pressing.',
@@ -205,7 +205,7 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Shoulder Flow',
           duration: '10–12 min',
-          description: 'Introductory barbell flow combiningpresses and rows for balance. ',
+          description: 'Introductory barbell flow combining presses and rows for balance. ',
           battlePlan: '3 rounds:• 8 behind neck press (light)• 10 upright rows• 8 bent over rowsRest 60s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8TVc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Beginner barbell complex for shoulder and upper back balance.',
@@ -227,7 +227,7 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Power Combo',
           duration: '15–18 min',
-          description: 'Power press and upright row combinationfor intermediate strength and size. ',
+          description: 'Power press and upright row combination for intermediate strength and size. ',
           battlePlan: '4 rounds:• 8 push press• 12 upright rows• 10 bent over rowsRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Explosive pressing with targeted isolation work.',
@@ -317,7 +317,7 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Shoulder Builder',
           duration: '12–15 min',
-          description: 'Kettlebell shoulder foundation withpresses and basic movement patterns. ',
+          description: 'Kettlebell shoulder foundation with presses and basic movement patterns. ',
           battlePlan: '3 rounds:• 8 kettlebell press (each arm)• 10 kettlebell swings• 8 halos (each direction)Rest 60s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Perfect introduction to kettlebell shoulder training.',
@@ -337,7 +337,7 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Flow Starter',
           duration: '10–12 min',
-          description: 'Gentle kettlebell flow building shouldermobility and basic strength patterns. ',
+          description: 'Gentle kettlebell flow building shoulder mobility and basic strength patterns. ',
           battlePlan: '3 rounds:• 6 around the world (each direction)• 8 overhead carries (20 steps)• 10 arm swingsRest 45s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8TVc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Mobility-focused kettlebell introduction for shoulder health.',
@@ -359,7 +359,7 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Double Press',
           duration: '15–18 min',
-          description: 'Double kettlebell pressing for increasedstrength and core stability demands. ',
+          description: 'Double kettlebell pressing for increased strength and core stability demands. ',
           battlePlan: '4 rounds:• 8 double KB press• 10 single arm swings (each)• 8 bottoms up press (each)Rest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Double kettlebell training for intermediate strength development.',
@@ -379,7 +379,7 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'KB Flow',
           duration: '12–15 min',
-          description: 'Flowing kettlebell sequence combiningstrength and dynamic movements. ',
+          description: 'Flowing kettlebell sequence combining strength and dynamic movements. ',
           battlePlan: '3 rounds:• 6 clean and press (each)• 8 windmills (each)• 10 high pulls (each)Rest 90s',
           imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
           intensityReason: 'Dynamic kettlebell flow for intermediate functional strength.',
@@ -449,7 +449,7 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Angle Press',
           duration: '12–15 min',
-          description: 'Seated angle press building foundationstrength across multiple pressing angles. ',
+          description: 'Seated angle press building foundation strength across multiple pressing angles. ',
           battlePlan: '3 rounds:• 10 seated press (45°)• 12 lateral raises• 10 rear delt flyRest 60s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Perfect seated pressing introduction with back support.',
@@ -469,7 +469,7 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Bench Flow',
           duration: '10–12 min',
-          description: 'Adjustable bench flow targeting allthree deltoid heads systematically. ',
+          description: 'Adjustable bench flow targeting all three deltoid heads systematically. ',
           battlePlan: '3 rounds:• 8 incline press (60°)• 10 lateral raise• 8 incline rear delt flyRest 60s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8TVc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Systematic targeting of all deltoid heads with bench support.',
@@ -491,7 +491,7 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Arnold + Fly',
           duration: '15–18 min',
-          description: 'Arnold press and fly combinationwith adjustable bench support angles. ',
+          description: 'Arnold press and fly combination with adjustable bench support angles. ',
           battlePlan: '4 rounds:• 10 Arnold press (45°)• 12 incline lateral raise• 10 chest-supported rear flyRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Intermediate pressing with isolation work using bench angles.',
@@ -511,7 +511,7 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Circuit',
           duration: '12–15 min',
-          description: 'Seated shoulder circuit maximizingbench angles for complete development. ',
+          description: 'Seated shoulder circuit maximizing bench angles for complete development. ',
           battlePlan: '3 rounds:• 12 seated press (30°)• 15 lateral raise• 12 rear delt fly (45°)• 10 front raiseRest 90s',
           imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
           intensityReason: 'High-volume circuit utilizing multiple bench angles.',
@@ -553,7 +553,7 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Giant Set',
           duration: '16–20 min',
-          description: 'Shoulder giant set utilizing everybench angle for ultimate burnout. ',
+          description: 'Shoulder giant set utilizing every bench angle for ultimate burnout. ',
           battlePlan: '3 rounds:• 6 press (15°)• 8 press (45°)• 10 press (75°)• 12 lateral raise• 15 rear flyRest 3 min',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Ultimate shoulder giant set using all bench positions.',
@@ -715,7 +715,7 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Cable Basics',
           duration: '12–14 min',
-          description: 'Cable shoulder foundation withlateral raises and face pulls. ',
+          description: 'Cable shoulder foundation with lateral raises and face pulls. ',
           battlePlan: '3 rounds:• 10 cable lateral raise• 8 cable face pulls• 6 cable front raiseRest 60–75s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHc5fHxyaW5nfGVufDB8fHx8MVc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Perfect introduction to cable shoulder training.',
@@ -735,7 +735,7 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Cable Flow',
           duration: '12–14 min',
-          description: 'Standing cable shoulder flowfor stability and coordination. ',
+          description: 'Standing cable shoulder flow for stability and coordination. ',
           battlePlan: '3 rounds:• 8 cable shoulder press• 10 single-arm cable raise• 8 cable reverse flyRest 60–75s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Functional cable training for shoulder stability.',
@@ -757,7 +757,7 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Cable Power',
           duration: '14–16 min',
-          description: 'Multi-angle cable training hittingall deltoid heads systematically. ',
+          description: 'Multi-angle cable training hitting all deltoid heads systematically. ',
           battlePlan: '3 rounds:• 8 high cable raise• 8 mid cable raise• 8 low cable raise• 10 cable upright rowRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Comprehensive cable training targeting all shoulder angles.',
@@ -799,7 +799,7 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Cable Max',
           duration: '15–18 min',
-          description: 'Advanced cable complex withdrop sets for maximum development. ',
+          description: 'Advanced cable complex with drop sets for maximum development. ',
           battlePlan: '3 rounds:• 8 heavy cable press• Drop → 10 moderate• Drop → 12 light• 8 cable face pullsRest 90–120s',
           imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmc&ZW44MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Advanced drop set training with constant cable tension.',
@@ -819,7 +819,7 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Cable Elite',
           duration: '16–18 min',
-          description: 'Ultimate cable shoulder finisherfor elite shoulder development. ',
+          description: 'Ultimate cable shoulder finisher for elite shoulder development. ',
           battlePlan: '2 rounds:• 15 cable lateral raise• 12 cable front raise• 10 cable rear delt fly• 8 cable upright rowRest 2–3 min',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'High-volume cable finisher for maximum shoulder pump.',
@@ -847,7 +847,7 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Landmine Press',
           duration: '12–15 min',
-          description: 'Landmine shoulder press buildingfoundation strength with barbell setup. ',
+          description: 'Landmine shoulder press building foundation strength with barbell setup. ',
           battlePlan: '3 rounds:• 10 landmine press (each arm)• 8 landmine upright rowsRest 60s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Perfect introduction to landmine shoulder training.',
@@ -867,7 +867,7 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Landmine Flow',
           duration: '10–12 min',
-          description: 'Basic landmine movement flowfor shoulder mobility and strength. ',
+          description: 'Basic landmine movement flow for shoulder mobility and strength. ',
           battlePlan: '3 rounds:• 8 landmine press• 6 landmine lateral raise• 8 landmine rainbowRest 60s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8TVc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Functional landmine movements for shoulder development.',
@@ -889,7 +889,7 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Power Press',
           duration: '15–18 min',
-          description: 'Landmine power pressing withincreased load and complexity. ',
+          description: 'Landmine power pressing with increased load and complexity. ',
           battlePlan: '4 rounds:• 8 single-arm landmine press• 10 landmine upright rows• 6 landmine thrustersRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Intermediate landmine training for power development.',
@@ -909,7 +909,7 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Complex',
           duration: '12–15 min',
-          description: 'Landmine shoulder complex combiningmultiple movement patterns. ',
+          description: 'Landmine shoulder complex combining multiple movement patterns. ',
           battlePlan: '3 rounds:• 6 landmine clean and press• 8 landmine halos• 10 landmine rotationsRest 90s',
           imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
           intensityReason: 'Dynamic landmine complex for functional strength.',
@@ -931,7 +931,7 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Landmine Max',
           duration: '18–22 min',
-          description: 'Advanced landmine training formaximum shoulder power development. ',
+          description: 'Advanced landmine training for maximum shoulder power development. ',
           battlePlan: '4 rounds:• 6 heavy landmine press• 8 landmine clean and jerk• 10 landmine windmills• 12 landmine switchesRest 2 min',
           imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmc&ZW54MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Advanced landmine complex for elite shoulder development.',
@@ -979,7 +979,7 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Platform Press',
           duration: '12–15 min',
-          description: 'Platform overhead pressing withsolid foundation and form focus. ',
+          description: 'Platform overhead pressing with solid foundation and form focus. ',
           battlePlan: '3 rounds:• 8 overhead press• 10 push press• 6 strict pressRest 75s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Perfect introduction to platform overhead pressing.',
@@ -999,7 +999,7 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Power Base',
           duration: '10–12 min',
-          description: 'Foundation power movements onplatform for shoulder development. ',
+          description: 'Foundation power movements on platform for shoulder development. ',
           battlePlan: '3 rounds:• 6 military press• 8 behind neck press (light)• 10 front raisesRest 60s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8TVc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Fundamental platform movements for shoulder strength.',
@@ -1021,7 +1021,7 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Platform Power',
           duration: '15–18 min',
-          description: 'Intermediate platform training withpower movements and heavier loads. ',
+          description: 'Intermediate platform training with power movements and heavier loads. ',
           battlePlan: '4 rounds:• 6 push press• 8 strict press• 10 upright rows• 8 high pullsRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Intermediate platform training for power development.',
@@ -1063,7 +1063,7 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Platform Max',
           duration: '18–22 min',
-          description: 'Advanced platform training formaximum shoulder strength and power. ',
+          description: 'Advanced platform training for maximum shoulder strength and power. ',
           battlePlan: '4 rounds:• 3 max effort press• 5 push press• 6 jerk• 8 high pullsRest 3 min',
           imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmc&ZW54MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Advanced platform training for maximum strength development.',
@@ -1111,7 +1111,7 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Machine Press',
           duration: '12–15 min',
-          description: 'Machine shoulder press foundationwith guided movement patterns. ',
+          description: 'Machine shoulder press foundation with guided movement patterns. ',
           battlePlan: '3 rounds:• 12 seated machine press• 10 single-arm machine pressRest 60s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Perfect introduction to machine shoulder pressing.',
@@ -1131,7 +1131,7 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Press Basics',
           duration: '10–12 min',
-          description: 'Basic machine pressing withform focus and progression. ',
+          description: 'Basic machine pressing with form focus and progression. ',
           battlePlan: '3 rounds:• 10 machine press• 8 partial reps (top half)• 6 slow negativesRest 75s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8TVc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Form-focused machine training for proper technique.',
@@ -1153,7 +1153,7 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Machine Power',
           duration: '15–18 min',
-          description: 'Intermediate machine training withvaried rep ranges and intensities. ',
+          description: 'Intermediate machine training with varied rep ranges and intensities. ',
           battlePlan: '4 rounds:• 8 machine press• 10 single-arm alternating• 12 high rep burnsRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Intermediate machine training for strength and endurance.',
@@ -1173,7 +1173,7 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Complex',
           duration: '12–15 min',
-          description: 'Machine press complex withdrop sets and intensity techniques. ',
+          description: 'Machine press complex with drop sets and intensity techniques. ',
           battlePlan: '3 rounds:• 8 heavy machine press• Drop to 12 moderate• Drop to 16 lightRest 2 min',
           imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
           intensityReason: 'Drop set protocol for maximum machine press development.',
@@ -1195,7 +1195,7 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Machine Max',
           duration: '18–22 min',
-          description: 'Advanced machine training formaximum shoulder development. ',
+          description: 'Advanced machine training for maximum shoulder development. ',
           battlePlan: '4 rounds:• 6 max weight press• 8 tempo press (3-1-3)• 10 explosive press• 12 burnout repsRest 3 min',
           imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmc&ZW54MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Advanced machine protocol for elite shoulder development.',
@@ -1215,7 +1215,7 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Elite Machine',
           duration: '16–20 min',
-          description: 'Ultimate machine shoulder workoutfor elite strength and endurance. ',
+          description: 'Ultimate machine shoulder workout for elite strength and endurance. ',
           battlePlan: '3 rounds:• 4 max effort singles• 6 cluster sets (pause reps)• 8 1.5 rep method• Max reps to failureRest 4 min',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHc0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Ultimate machine challenge for elite athletes.',
@@ -1243,7 +1243,7 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Smith Press',
           duration: '12–15 min',
-          description: 'Smith machine shoulder presswith guided bar path for safety. ',
+          description: 'Smith machine shoulder press with guided bar path for safety. ',
           battlePlan: '3 rounds:• 10 smith machine press• 8 behind neck press (light)• 12 upright rowsRest 75s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Perfect introduction to Smith machine shoulder training.',
@@ -1285,7 +1285,7 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Smith Power',
           duration: '15–18 min',
-          description: 'Intermediate Smith machine trainingwith power and strength focus. ',
+          description: 'Intermediate Smith machine training with power and strength focus. ',
           battlePlan: '4 rounds:• 8 smith push press• 10 standing smith press• 8 smith high pulls• 12 smith rowsRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Intermediate Smith machine training for power development.',
@@ -1347,7 +1347,7 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Elite Smith',
           duration: '16–20 min',
-          description: 'Ultimate Smith machine workoutfor elite shoulder power and size. ',
+          description: 'Ultimate Smith machine workout for elite shoulder power and size. ',
           battlePlan: '3 rounds:• 3 max effort singles• 5 cluster press• 8 tempo press (4-1-2)• Max reps burnoutRest 3–4 min',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Ultimate Smith machine challenge for elite athletes.',
