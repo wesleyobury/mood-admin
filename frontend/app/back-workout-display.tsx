@@ -1019,7 +1019,7 @@ const backWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Neutral Pulldown',
           duration: '12–14 min',
-          description: 'Stronger setup for progressive overload',
+          description: 'Stronger setup for progressive overload recruiting a wider variety of muscles',
           battlePlan: '4 rounds\n• 8–10 Neutral Grip Pulldown (moderate to heavy)\nRest 75–90s after set',
           imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
           intensityReason: 'Neutral grip enables heavier lat loading safely',
