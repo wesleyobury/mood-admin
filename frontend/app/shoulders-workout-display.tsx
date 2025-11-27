@@ -1083,7 +1083,7 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Elite Power',
           duration: '16–20 min',
-          description: 'Ultimate platform workout forelite shoulder power and strength. ',
+          description: 'Ultimate platform workout for elite shoulder power and strength. ',
           battlePlan: '3 rounds:• 2 max press singles• 4 split jerks• 6 snatch grip press• 8 muscle snatchesRest 3–4 min',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Ultimate platform challenge for elite athletes.',
