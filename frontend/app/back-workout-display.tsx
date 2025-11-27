@@ -320,7 +320,7 @@ const backWorkoutDatabase: EquipmentWorkouts[] = [
           description: 'Rows and deadlifts with kettlebells build back base',
           battlePlan: '3 rounds\n• 10 Single-Arm KB Row (each side)\nRest 60–75s after each set\n• 10 KB Deadlift\nRest 60–75s after each set',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
-          intensityReason: 'Simple pull + hinge strengthen grip and core',
+          intensityReason: 'Simple pull + hinge strengthen grip and core and with modest intensity',
           moodTips: [
             {
               icon: 'construct',
