@@ -1581,7 +1581,7 @@ const WorkoutCard = React.memo(({
           onPress={() => handleStartWorkout(item, equipment, difficulty)}
           activeOpacity={0.8}
         >
-          <Ionicons name="play" size={20} color="#000000" style={{ marginRight: 8 }} />
+          <Ionicons name="play" size={20} color="#000000" />
           <Text style={styles.startWorkoutButtonText}>Start Workout</Text>
         </TouchableOpacity>
       </View>
