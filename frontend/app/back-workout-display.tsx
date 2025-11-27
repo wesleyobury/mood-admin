@@ -581,7 +581,7 @@ const backWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Neutral Grip Row',
           duration: '10–12 min',
-          description: 'Simple neutral rowing pattern for beginners',
+          description: 'Simple neutral rowing pattern for beginners to build back thickness.',
           battlePlan: '3 rounds\n• 12 Neutral Grip T-Bar Row\nRest 60–75s after set',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Neutral grip builds confidence & lat line strength',
