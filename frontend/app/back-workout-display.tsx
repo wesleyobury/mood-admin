@@ -362,7 +362,7 @@ const backWorkoutDatabase: EquipmentWorkouts[] = [
           description: 'Double rows with suitcase pulls train grip/core',
           battlePlan: '4 rounds\n• 8 Double KB Row\nRest 75–90s after each set\n• 10 KB Suitcase Deadlift\nRest 75–90s after each set',
           imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
-          intensityReason: 'Heavier bilateral pulls build lats and posture',
+          intensityReason: 'Heavier bilateral pulls build lats and posture within a circuit format',
           moodTips: [
             {
               icon: 'trending-up',
