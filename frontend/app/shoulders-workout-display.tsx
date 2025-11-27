@@ -2057,7 +2057,7 @@ const styles = StyleSheet.create({
     marginLeft: 8,
   },
   workoutDescriptionContainer: {
-    marginBottom: -10,
+    marginBottom: 10,
     paddingHorizontal: 0,
   },
   workoutDescription: {
