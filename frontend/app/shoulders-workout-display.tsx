@@ -951,7 +951,7 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Elite Flow',
           duration: '16–20 min',
-          description: 'Ultimate landmine flow forelite shoulder conditioning. ',
+          description: 'Ultimate landmine flow for elite shoulder conditioning. ',
           battlePlan: '3 rounds:• 5 landmine snatches• 8 single-arm thrusters• 10 landmine rotational press• 12 landmine spiralsRest 3 min',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Ultimate landmine challenge for elite athletes.',
