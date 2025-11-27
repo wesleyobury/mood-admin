@@ -887,7 +887,7 @@ const backWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Underhand Row',
           duration: '12–14 min',
-          description: 'Control-focused row variation with palms up',
+          description: 'Control-focused row variation with palms up to target lower lats and scaps.',
           battlePlan: '4 rounds\n• 10 Underhand Grip Cable Row\nRest 75s after set',
           imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
           intensityReason: 'Underhand row shifts focus to lower lats & biceps',
