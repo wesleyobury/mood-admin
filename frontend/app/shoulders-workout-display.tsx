@@ -1327,7 +1327,7 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Smith Max',
           duration: '18–22 min',
-          description: 'Advanced Smith machine trainingfor maximum shoulder development. ',
+          description: 'Advanced Smith machine training for maximum shoulder development. ',
           battlePlan: '4 rounds:• 5 max smith press• 6 smith push press• 8 smith muscle cleans• 10 smith high pullsRest 2–3 min',
           imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmc&ZW54MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Advanced Smith machine training for maximum strength.',
