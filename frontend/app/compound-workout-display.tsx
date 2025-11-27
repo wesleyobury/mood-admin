@@ -53,7 +53,7 @@ const glutesWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Cable Ankle Kickback',
           duration: '10–12 min',
-          description: 'Ankle‑strapped motion builds activation through glutes\n ',
+          description: 'Ankle‑strapped motion builds activation through glutes',
           battlePlan: '3 rounds\n• 10–12 per leg Kickbacks\nRest 60s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8TVc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Cable adds constant tension for strict hip extension',
@@ -73,7 +73,7 @@ const glutesWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Cable Pull‑Through',
           duration: '10–12 min',
-          description: 'Great hip hinge builder for posterior chain activation\n ',
+          description: 'Great hip hinge builder for posterior chain activation',
           battlePlan: '3 rounds\n• 10–12 Pull‑Throughs\nRest 75s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Rope hinge motion loads glutes with safe posture path',
@@ -95,7 +95,7 @@ const glutesWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Cable Step‑Back Lunge',
           duration: '14–16 min',
-          description: 'Cable anchor increases balance and constant tension\n ',
+          description: 'Cable anchor increases balance and constant tension',
           battlePlan: '4 rounds\n• 8–10 per leg Step‑Back Lunges\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Rear lunges with cable build unilateral glute force',
@@ -115,7 +115,7 @@ const glutesWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Cable High Kickback',
           duration: '14–16 min',
-          description: 'Top‑end contraction isolates and strengthens glutes\n ',
+          description: 'Top‑end contraction isolates and strengthens glutes',
           battlePlan: '3 rounds\n• 8–10 per leg Kickbacks (2s pause top)\nRest 75–90s',
           imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
           intensityReason: 'Kickbacks with higher angle add peak glute tension',
@@ -137,7 +137,7 @@ const glutesWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Pull‑Through + Squat Combo',
           duration: '16–18 min',
-          description: 'Constant tension pairing ensures strong hypertrophy\n ',
+          description: 'Constant tension pairing ensures strong hypertrophy',
           battlePlan: '4 rounds\n• 8 Pull‑Throughs\n• 8 Cable Squats\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmc&ZW54MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Pair hinge and squat hits glutes from dual angles',
@@ -157,7 +157,7 @@ const glutesWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Cable Kickback Burnout',
           duration: '16–18 min',
-          description: 'Ankle‑cuff movement torches glutes with total volume\n ',
+          description: 'Ankle‑cuff movement torches glutes with total volume',
           battlePlan: '3 rounds\n• 15–20 per leg Kickbacks\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHc0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'High rep burnout floods glutes with strict tension',
@@ -185,7 +185,7 @@ const glutesWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Bodyweight Hip Thrust',
           duration: '10–12 min',
-          description: 'Teaches thrust basics before loading with bar weight\n ',
+          description: 'Teaches thrust basics before loading with bar weight',
           battlePlan: '3 rounds\n• 12–15 Bodyweight Hip Thrusts\nRest 60s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8TVc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Entry thrust builds safe mechanics for hip extension',
@@ -205,7 +205,7 @@ const glutesWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Light Bar Hip Thrust',
           duration: '10–12 min',
-          description: 'Adds external weight to strengthen glute hip drive\n ',
+          description: 'Adds external weight to strengthen glute hip drive',
           battlePlan: '3 rounds\n• 10–12 Light Bar Hip Thrusts\nRest 75s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Light load introduces controlled thrust progression',
@@ -227,7 +227,7 @@ const glutesWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Banded Hip Thrust',
           duration: '14–16 min',
-          description: 'Builds glute lockout with band top range tension\n ',
+          description: 'Builds glute lockout with band top range tension',
           battlePlan: '4 rounds\n• 10 Banded Hip Thrusts\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Band drives abduction for long range contraction',
@@ -247,7 +247,7 @@ const glutesWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Single‑Leg Hip Thrust',
           duration: '14–16 min',
-          description: 'Unilateral load prevents imbalance and aids stability\n ',
+          description: 'Unilateral load prevents imbalance and aids stability',
           battlePlan: '3 rounds\n• 8–10 per leg Single‑Leg Hip Thrusts\nRest 90s',
           imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
           intensityReason: 'One‑leg thrust isolates glutes for stronger balance',
@@ -269,7 +269,7 @@ const glutesWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Heavy Bar Hip Thrust',
           duration: '16–18 min',
-          description: 'Barbell lift grows strength and posterior hip power\n ',
+          description: 'Barbell lift grows strength and posterior hip power',
           battlePlan: '4 rounds\n• 6–8 Heavy Hip Thrusts\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmc&ZW54MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Heavy thrust progression maximizes glute overload',
@@ -289,7 +289,7 @@ const glutesWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Hip Thrust + Iso Hold',
           duration: '16–18 min',
-          description: 'Finisher combo challenges endurance and contraction\n ',
+          description: 'Finisher combo challenges endurance and contraction',
           battlePlan: '3 rounds\n• 8–10 Hip Thrusts\nFinish with 10s Iso Hold at top\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHc0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Iso hold extending reps prolongs glute time under load',
@@ -317,7 +317,7 @@ const glutesWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Machine Kickback',
           duration: '10–12 min',
-          description: 'Pad press hip drive builds foundation safely first\n ',
+          description: 'Pad press hip drive builds foundation safely first',
           battlePlan: '3 rounds\n• 10–12 per leg Kickbacks\nRest 60s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8TVc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Guided extension path isolates glutes effectively',
@@ -337,7 +337,7 @@ const glutesWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Seated Kickback',
           duration: '10–12 min',
-          description: 'Seated pad drive provides beginner stability focus\n ',
+          description: 'Seated pad drive provides beginner stability focus',
           battlePlan: '3 rounds\n• 12 per leg Seated Kickbacks\nRest 60s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Torso support stabilizes movement for beginners',
@@ -359,7 +359,7 @@ const glutesWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Heavy Kickback',
           duration: '14–16 min',
-          description: 'Progressive overload builds strength at extension\n ',
+          description: 'Progressive overload builds strength at extension',
           battlePlan: '4 rounds\n• 8–10 Heavy Kickbacks per leg\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Increased load pushes hypertrophy for glutes',
@@ -379,7 +379,7 @@ const glutesWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Pause Kickback',
           duration: '14–16 min',
-          description: 'Strict tempo isolates stronger contraction at end\n ',
+          description: 'Strict tempo isolates stronger contraction at end',
           battlePlan: '3 rounds\n• 8 per leg Pause Kickbacks\nRest 90s',
           imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
           intensityReason: 'Added pause loads glute contraction maximally',
@@ -401,7 +401,7 @@ const glutesWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Drop‑Set Kickback',
           duration: '16–18 min',
-          description: 'Sequential weight drops demand non‑stop contraction\n ',
+          description: 'Sequential weight drops demand non‑stop contraction',
           battlePlan: '3 rounds\n• 8 Heavy Kickbacks per leg\n• Drop 15% weight → 6–8 reps\n• Drop 15% again → 6–8 reps\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmc&ZW54MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Drop loading pattern extends tension for hypertrophy',
@@ -421,7 +421,7 @@ const glutesWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Kickback Hold Burner',
           duration: '16–18 min',
-          description: 'Static‑dynamic combo adds brutal finishing stimulus\n ',
+          description: 'Static‑dynamic combo adds brutal finishing stimulus',
           battlePlan: '4 rounds\n• 8 Kickbacks each leg\nFinish with 10s Iso Hold on last rep\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHc0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Iso hold after reps enhances glute activation burn',
@@ -449,7 +449,7 @@ const glutesWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Standard Abduction',
           duration: '10–12 min',
-          description: 'Intro machine work builds stability in outer hips\n ',
+          description: 'Intro machine work builds stability in outer hips',
           battlePlan: '3 rounds\n• 12–15 Abductions\nRest 60s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8TVc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Basic seated movement strengthens glute medius',
@@ -469,7 +469,7 @@ const glutesWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Lean Forward Abduction',
           duration: '10–12 min',
-          description: 'Shifts emphasis effectively into upper glute tissues\n ',
+          description: 'Shifts emphasis effectively into upper glute tissues',
           battlePlan: '3 rounds\n• 12–15 Lean Abductions\nRest 75s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Lean angle biases deeper glute muscle activity',
@@ -491,7 +491,7 @@ const glutesWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Banded Abduction',
           duration: '14–16 min',
-          description: 'Combo band+machine emphasizes hypertrophy work\n ',
+          description: 'Combo band+machine emphasizes hypertrophy work',
           battlePlan: '4 rounds\n• 12 Banded Abductions\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Band tension increases abductor contraction top end',
@@ -511,7 +511,7 @@ const glutesWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Unilateral Abduction',
           duration: '14–16 min',
-          description: 'Asymmetry training balances strength between hips\n ',
+          description: 'Asymmetry training balances strength between hips',
           battlePlan: '4 rounds\n• 8–10 per side Abductions\nRest 90s',
           imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
           intensityReason: 'One‑sided work isolates weaker glute completely',
@@ -533,7 +533,7 @@ const glutesWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Drop‑Set Abduction',
           duration: '16–18 min',
-          description: 'Stacked reps crush glute medius with high overload\n ',
+          description: 'Stacked reps crush glute medius with high overload',
           battlePlan: '3 rounds\n• 12 Heavy Abductions\n• Drop 20% → 10 reps\n• Drop 20% again → 10 reps\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmc&ZW54MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Drop set prolongs effort rising metabolic fatigue',
@@ -553,7 +553,7 @@ const glutesWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Hold + Rep Abduction',
           duration: '16–18 min',
-          description: 'Brutal pairing fully activates and fatigues hips\n ',
+          description: 'Brutal pairing fully activates and fatigues hips',
           battlePlan: '3 rounds\n• 10s Iso Hold wide\n• 10–12 Full Reps immediately after\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHc0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Iso hold primes glutes then high‑rep sets extend',
@@ -585,7 +585,7 @@ const hamstringsWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Dumbbell RDL',
           duration: '10–12 min',
-          description: 'Teaches safe mechanics and stretch for hypertrophy\n ',
+          description: 'Teaches safe mechanics and stretch for hypertrophy',
           battlePlan: '3 rounds\n• 10–12 Dumbbell RDLs\nRest 75s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8TVc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Starter hinge builds hamstring stretch and control',
@@ -605,7 +605,7 @@ const hamstringsWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Dumbbell Good Morning (Chest Hold)',
           duration: '10–12 min',
-          description: 'Difficult lift, always start light and progress slowly\n ',
+          description: 'Difficult lift, always start light and progress slowly',
           battlePlan: '3 rounds\n• 8–10 DB Good Mornings\nRest 75–90s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Upright hinge challenges hamstrings + posture',
@@ -627,7 +627,7 @@ const hamstringsWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Staggered‑Stance DB RDL',
           duration: '14–16 min',
-          description: 'Single‑leg hinge balances strength across sides\n ',
+          description: 'Single‑leg hinge balances strength across sides',
           battlePlan: '4 rounds\n• 8 per side Staggered RDLs\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Split stance emphasizes deeper hamstring load',
@@ -647,7 +647,7 @@ const hamstringsWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'DB Deficit RDL',
           duration: '14–16 min',
-          description: 'Elevation increases hypertrophy by extended ROM\n ',
+          description: 'Elevation increases hypertrophy by extended ROM',
           battlePlan: '3 rounds\n• 8–10 Deficit DB RDLs\nRest 90s',
           imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
           intensityReason: 'Deficit stance adds longer hamstring stretch load',
@@ -669,7 +669,7 @@ const hamstringsWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Paused DB RDL',
           duration: '16–18 min',
-          description: 'Burns hamstrings with static stress and strict tempo\n ',
+          description: 'Burns hamstrings with static stress and strict tempo',
           battlePlan: '4 rounds\n• 6–8 Paused DB RDLs\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmc&ZW54MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Pausing mid‑shin removes momentum, builds control',
@@ -689,7 +689,7 @@ const hamstringsWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: '1½ Rep DB RDL Combo',
           duration: '16–18 min',
-          description: 'Complex set multiplies time under hamstring tension\n ',
+          description: 'Complex set multiplies time under hamstring tension',
           battlePlan: '3 rounds\n• 8 Combo Reps (full + half = 1 rep)\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHc0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8TVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Adds half reps between full reps for constant stress',
@@ -717,7 +717,7 @@ const hamstringsWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Barbell RDL',
           duration: '10–12 min',
-          description: 'Fundamental builder, strengthen hinge with light loads\n ',
+          description: 'Fundamental builder, strengthen hinge with light loads',
           battlePlan: '3 rounds\n• 10 Barbell RDLs\nRest 75s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8TVc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Basic hinge develops hamstrings under straight bar',
@@ -737,7 +737,7 @@ const hamstringsWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Barbell Good Morning (Light!)',
           duration: '10–12 min',
-          description: 'Hard lift, best done light for controlled practice\n ',
+          description: 'Hard lift, best done light for controlled practice',
           battlePlan: '3 rounds\n• 8 Good Mornings\nRest 75–90s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Bar on back hinge is effective but very demanding',
@@ -759,7 +759,7 @@ const hamstringsWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Barbell Pause RDL',
           duration: '14–16 min',
-          description: 'Strict hold eliminates momentum, builds hamstring size\n ',
+          description: 'Strict hold eliminates momentum, builds hamstring size',
           battlePlan: '4 rounds\n• 8 RDLs (2s pause at shin)\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Mid‑hinge pause increases hamstring strength time',
@@ -779,7 +779,7 @@ const hamstringsWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Barbell Deficit RDL',
           duration: '14–16 min',
-          description: 'Creates extra tension through hamstring length ROM\n ',
+          description: 'Creates extra tension through hamstring length ROM',
           battlePlan: '3 rounds\n• 6–8 Deficit Barbell RDLs\nRest 90s',
           imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
           intensityReason: 'Standing elevated extends hinge stretch fully',
@@ -801,7 +801,7 @@ const hamstringsWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Barbell Tempo RDL',
           duration: '16–18 min',
-          description: 'Strict controlled pace maximizes hypertrophy stimulus\n ',
+          description: 'Strict controlled pace maximizes hypertrophy stimulus',
           battlePlan: '4 rounds\n• 6 Tempo RDLs (3s eccentric)\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmc&ZW54MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: '3s eccentric raises time under tension dramatically',
@@ -821,7 +821,7 @@ const hamstringsWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Barbell RDL + Rack Pull Combo',
           duration: '16–18 min',
-          description: 'Hamstring fatigue plus power finish explosively\n ',
+          description: 'Hamstring fatigue plus power finish explosively',
           battlePlan: '3 rounds\n• 6 RDLs\n• 4 Rack Pulls heavy\nRest 120s',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHc0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8TVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Heavy rack pulls pair with RDL for full overload',
@@ -849,7 +849,7 @@ const hamstringsWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Roman Chair Back Extension',
           duration: '10–12 min',
-          description: 'Establish hinge mechanics for beginner lifters\n ',
+          description: 'Establish hinge mechanics for beginner lifters',
           battlePlan: '3 rounds\n• 12–15 Back Extensions\nRest 60s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8TVc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Bodyweight hinge builds hamstring control safely',
@@ -869,7 +869,7 @@ const hamstringsWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Roman Chair Good Morning',
           duration: '10–12 min',
-          description: 'Strengthens core as hamstrings extend repeatedly\n ',
+          description: 'Strengthens core as hamstrings extend repeatedly',
           battlePlan: '3 rounds\n• 12 Good Morning Reps (bodyweight)\nRest 60s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Torso hinge without load builds basic stability',
@@ -891,7 +891,7 @@ const hamstringsWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Weighted Back Extension',
           duration: '14–16 min',
-          description: 'Resistance progression builds hypertrophy effectively\n ',
+          description: 'Resistance progression builds hypertrophy effectively',
           battlePlan: '4 rounds\n• 10 Weighted Back Extensions\nRest 75–90s',
           imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Hug plate to overload hamstring hinge movement',
@@ -911,7 +911,7 @@ const hamstringsWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Single‑Leg Extension',
           duration: '14–16 min',
-          description: 'Forces balance and greater range for each limb\n ',
+          description: 'Forces balance and greater range for each limb',
           battlePlan: '3 rounds\n• 8–10 per side\nRest 90s',
           imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
           intensityReason: 'Single leg increases unilateral hamstring stress',
@@ -933,7 +933,7 @@ const hamstringsWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Pause Back Extension',
           duration: '16–18 min',
-          description: 'Eliminates swing, prolongs posterior chain tension\n ',
+          description: 'Eliminates swing, prolongs posterior chain tension',
           battlePlan: '3 rounds\n• 8 Paused Extensions\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmc&ZW54MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Static hold at hinge builds hamstring isometric work',
@@ -953,7 +953,7 @@ const hamstringsWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Alternating Half + Full Extensions',
           duration: '16–18 min',
-          description: 'Alternating range burns hamstrings under long tension\n ',
+          description: 'Alternating range burns hamstrings under long tension',
           battlePlan: '3 rounds\n• 8 Alternating Half + Full Extensions\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Half + full reps cycle extend muscle set time fully',
@@ -981,7 +981,7 @@ const hamstringsWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Seated Leg Curl',
           duration: '10–12 min',
-          description: 'Best beginner machine for full hamstring engagement\n ',
+          description: 'Best beginner machine for full hamstring engagement',
           battlePlan: '3 rounds\n• 12–15 Seated Leg Curls\nRest 60s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8TVc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Isolated seat curl strengthens flexion carefully',
@@ -1001,7 +1001,7 @@ const hamstringsWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Lying Leg Curl',
           duration: '10–12 min',
-          description: 'Fixed setup ensures strict hypertrophy contraction\n ',
+          description: 'Fixed setup ensures strict hypertrophy contraction',
           battlePlan: '3 rounds\n• 12–15 Lying Curls\nRest 60s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Lying pad curl isolates hamstring contraction',
@@ -1023,7 +1023,7 @@ const hamstringsWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Heavy Leg Curl',
           duration: '14–16 min',
-          description: 'Increased weight overload boosts hypertrophy\n ',
+          description: 'Increased weight overload boosts hypertrophy',
           battlePlan: '4 rounds\n• 8–10 Heavy Curls\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Progressive loading builds hamstrings thickness',
@@ -1043,7 +1043,7 @@ const hamstringsWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Pause Leg Curl',
           duration: '14–16 min',
-          description: 'Pausing at top peaks hamstring contraction force\n ',
+          description: 'Pausing at top peaks hamstring contraction force',
           battlePlan: '3 rounds\n• 8–10 Pause Reps\nRest 90s',
           imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
           intensityReason: 'Isometric hold raises muscular control demand',
@@ -1065,7 +1065,7 @@ const hamstringsWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Drop‑Set Curl',
           duration: '16–18 min',
-          description: 'Hamstrings stay under work far beyond normal set\n ',
+          description: 'Hamstrings stay under work far beyond normal set',
           battlePlan: '3 rounds\n• 8 Heavy Curls\n• Drop 15–20% → 8 reps\n• Drop 15–20% → 8 reps\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmc&ZW54MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Drop weights prolong contraction by overload reps',
@@ -1085,7 +1085,7 @@ const hamstringsWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Curl + Iso Hold',
           duration: '16–18 min',
-          description: 'Endurance builder combining iso with normal reps\n ',
+          description: 'Endurance builder combining iso with normal reps',
           battlePlan: '3 rounds\n• 8–10 Leg Curls\nFinish 10s Iso Hold @ top\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHc0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8TVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Finish set with hold for longer contraction stress',
@@ -1117,7 +1117,7 @@ const quadricepsWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Barbell Sissy Squat',
           duration: '10–12 min',
-          description: 'Front held bar guides posture as quads take full load\n ',
+          description: 'Front held bar guides posture as quads take full load',
           battlePlan: '3 rounds\n• 10–12 Light Barbell Sissy Squats\nRest 75s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8TVc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Teaches quad isolation through knee forward motion',
@@ -1137,7 +1137,7 @@ const quadricepsWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Assisted Sissy Squat Hold',
           duration: '10–12 min',
-          description: 'Static hold reinforces posture and leg strength\n ',
+          description: 'Static hold reinforces posture and leg strength',
           battlePlan: '3 rounds\n• 6–8 Sissy Squats\n• Add 10s Hold each set\nRest 75s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Iso hold at squat bottom builds quad endurance',
@@ -1159,7 +1159,7 @@ const quadricepsWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Weighted Sissy Squat',
           duration: '14–16 min',
-          description: 'Adds weight to sissy squat for deeper hypertrophy\n ',
+          description: 'Adds weight to sissy squat for deeper hypertrophy',
           battlePlan: '4 rounds\n• 8–10 Weighted Sissy Squats\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Front bar load progression maximizes quad stress',
@@ -1179,7 +1179,7 @@ const quadricepsWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Sissy Squat 1½ Reps',
           duration: '14–16 min',
-          description: 'High tension squatting style grows endurance fast\n ',
+          description: 'High tension squatting style grows endurance fast',
           battlePlan: '3 rounds\n• 8 Combo Reps (half + full = 1)\nRest 90s',
           imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
           intensityReason: 'Half+full rep sequence lengthens quad activation',
@@ -1201,7 +1201,7 @@ const quadricepsWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Barbell Hack Squat',
           duration: '16–18 min',
-          description: 'Upright torso hack squat builds quads with tension\n ',
+          description: 'Upright torso hack squat builds quads with tension',
           battlePlan: '4 rounds\n• 8–10 Hack Squats\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmc&ZW54MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Behind back hold redirects load heavily to quads',
@@ -1221,7 +1221,7 @@ const quadricepsWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Sissy + Hack Squat Combo',
           duration: '16–18 min',
-          description: 'Dual movement combo overloads quads with fatigue\n ',
+          description: 'Dual movement combo overloads quads with fatigue',
           battlePlan: '3 rounds\n• 6 Front Hold Sissy Squats\n• 6 Barbell Hack Squats\nRest 120s',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Pairing front and back styles crushes quad fibers',
@@ -1249,7 +1249,7 @@ const quadricepsWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Standard Leg Extension',
           duration: '10–12 min',
-          description: 'Perfect intro for building controlled quad strength\n ',
+          description: 'Perfect intro for building controlled quad strength',
           battlePlan: '3 rounds\n• 12–15 Leg Extensions\nRest 60s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8TVc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Isolates quads through safe guided flexion path',
@@ -1269,7 +1269,7 @@ const quadricepsWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Iso Extension Hold',
           duration: '10–12 min',
-          description: 'Builds mind muscle connection through iso tension\n ',
+          description: 'Builds mind muscle connection through iso tension',
           battlePlan: '3 rounds\n• 8–10 Iso Hold Extensions (3s hold)\nRest 75s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Holding peak strengthens quads safely under load',
@@ -1291,7 +1291,7 @@ const quadricepsWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Heavy Extensions',
           duration: '14–16 min',
-          description: 'Machine allows safe overload using strict form\n ',
+          description: 'Machine allows safe overload using strict form',
           battlePlan: '4 rounds\n• 8–10 Heavy Extensions\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Progressive heavy loading maximizes quad growth',
@@ -1311,7 +1311,7 @@ const quadricepsWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: '1½ Rep Leg Extensions',
           duration: '14–16 min',
-          description: 'Longer muscle strain increases hypertrophy response\n ',
+          description: 'Longer muscle strain increases hypertrophy response',
           battlePlan: '3 rounds\n• 8–10 Total Combo Reps\nRest 90s',
           imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
           intensityReason: 'Half+full rep cycle expands quad time under load',
@@ -1333,7 +1333,7 @@ const quadricepsWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Drop Set Leg Extensions',
           duration: '16–18 min',
-          description: 'Stripping load forces fibers to contract under fatigue\n ',
+          description: 'Stripping load forces fibers to contract under fatigue',
           battlePlan: '3 rounds\n• 10 Heavy Extensions\n• Drop 15–20% → 8 reps\n• Drop 15–20% → 8 reps\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmc&ZW54MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Dropsets extend effort for intense quad overload',
@@ -1353,7 +1353,7 @@ const quadricepsWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Leg Extension Iso Burnout',
           duration: '16–18 min',
-          description: 'Pairing holds with reps completely crushes quads\n ',
+          description: 'Pairing holds with reps completely crushes quads',
           battlePlan: '3 rounds\n• 10s Iso Hold at Extension\n• Immediately 10–12 Full Reps\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Static hold plus reps maximizes quad endurance',
@@ -1385,7 +1385,7 @@ const calvesWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Standing DB Calf Raise',
           duration: '10–12 min',
-          description: 'Simple standing lift for foundational calf development\n ',
+          description: 'Simple standing lift for foundational calf development',
           battlePlan: '3 rounds\n• 15–20 Standing Calf Raises\nRest 60s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8TVc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Basic raise builds calf strength with controlled range',
@@ -1405,7 +1405,7 @@ const calvesWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Seated DB Calf Raise',
           duration: '10–12 min',
-          description: 'Targets deeper calf muscle with stable seated form\n ',
+          description: 'Targets deeper calf muscle with stable seated form',
           battlePlan: '3 rounds\n• 12–15 Seated Calf Raises\nRest 60s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Seated position isolates soleus muscle for growth',
@@ -1427,7 +1427,7 @@ const calvesWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Single‑Leg DB Calf Raise',
           duration: '14–16 min',
-          description: 'Isolates each calf for balanced strength and size\n ',
+          description: 'Isolates each calf for balanced strength and size',
           battlePlan: '4 rounds\n• 10–12 per leg Single‑Leg Raises\nRest 75s',
           imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Unilateral raise increases load and balance demand',
@@ -1447,7 +1447,7 @@ const calvesWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'DB Calf Raise (Tempo + Bodyweight)',
           duration: '14–16 min',
-          description: 'Controlled tempo builds endurance and hypertrophy\n ',
+          description: 'Controlled tempo builds endurance and hypertrophy',
           battlePlan: '3 rounds\n• 10–12 Tempo Calf Raises\n• • Immediately 15 Bodyweight Calf Raises\nRest 75s',
           imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
           intensityReason: 'Slow eccentric phase maximizes calf time under tension',
@@ -1469,7 +1469,7 @@ const calvesWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'DB Calf Raise (Drop Set)',
           duration: '16–18 min',
-          description: 'Stripping load forces fibers to contract under fatigue\n ',
+          description: 'Stripping load forces fibers to contract under fatigue',
           battlePlan: '3 rounds\n• 12 Heavy Calf Raises\n• Drop 15–20% → 10 reps\n• Drop 15–20% → 10 reps\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmc&ZW54MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Drop sets extend effort for intense calf overload',
@@ -1489,7 +1489,7 @@ const calvesWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'DB Calf Raise (Iso + Jumps)',
           duration: '16–18 min',
-          description: 'Combo reps with iso hold completely crushes calves\n ',
+          description: 'Combo reps with iso hold completely crushes calves',
           battlePlan: '3 rounds\n• 12–15 Calf Raises\n• Finish with 10s Iso Hold at top\n• Immediately 10 Stiff Leg Jumps\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Static hold at peak contraction maximizes tension',
@@ -1517,7 +1517,7 @@ const calvesWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Standing Barbell Calf Raise',
           duration: '10–12 min',
-          description: 'Classic standing raise for overall calf development\n ',
+          description: 'Classic standing raise for overall calf development',
           battlePlan: '3 rounds\n• 15–20 Standing Calf Raises\nRest 60s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8TVc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Barbell load builds foundational calf strength',
@@ -1537,7 +1537,7 @@ const calvesWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Barbell Calf Raise (Elevated)',
           duration: '10–12 min',
-          description: 'Plate under toes enhances calf muscle activation\n ',
+          description: 'Plate under toes enhances calf muscle activation',
           battlePlan: '3 rounds\n• 12–15 Elevated Calf Raises\nRest 75s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Elevated toes increase stretch for deeper range',
@@ -1559,7 +1559,7 @@ const calvesWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Barbell Calf Raise',
           duration: '14–16 min',
-          description: 'Builds strength and control through isometric hold\n ',
+          description: 'Builds strength and control through isometric hold',
           battlePlan: '4 rounds\n• 10–12 Pause Calf Raises\n• Immediately 15 Bodyweight Calf Raises\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Pause at top maximizes peak contraction tension',
@@ -1579,7 +1579,7 @@ const calvesWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Barbell Calf Raise (Tempo)',
           duration: '14–16 min',
-          description: 'Controlled tempo builds endurance and hypertrophy\n ',
+          description: 'Controlled tempo builds endurance and hypertrophy',
           battlePlan: '3 rounds\n• 10–12 Tempo Calf Raises\nRest 90s',
           imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
           intensityReason: 'Slow eccentric phase maximizes calf time under tension',
@@ -1601,7 +1601,7 @@ const calvesWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Barbell Calf Raise (Drop Set)',
           duration: '16–18 min',
-          description: 'Stripping load forces fibers to contract under fatigue\n ',
+          description: 'Stripping load forces fibers to contract under fatigue',
           battlePlan: '3 rounds\n• 12 Heavy Calf Raises\n• Drop 15–20% → 10 reps\n• Drop 15–20% → 10 reps\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmc&ZW54MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Drop sets extend effort for intense calf overload',
@@ -1621,7 +1621,7 @@ const calvesWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Barbell Calf Raise (Iso + Jumps)',
           duration: '16–18 min',
-          description: 'Combo reps with iso hold completely crushes calves\n ',
+          description: 'Combo reps with iso hold completely crushes calves',
           battlePlan: '3 rounds\n• 12–15 Calf Raises\n• Finish with 10s Iso Hold at top\n• Immediately 10 Stiff Leg Jumps\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Static hold at peak contraction maximizes tension',
@@ -1649,7 +1649,7 @@ const calvesWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Leg Press Calf Raise (Neutral)',
           duration: '10–12 min',
-          description: 'Basic press for foundational calf development\n ',
+          description: 'Basic press for foundational calf development',
           battlePlan: '3 rounds\n• 15–20 Calf Raises\nRest 60s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8TVc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Machine guidance builds calf strength safely',
@@ -1669,7 +1669,7 @@ const calvesWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Leg Press Calf Raise (Toes Out)',
           duration: '10–12 min',
-          description: 'Foot angle variation for balanced calf growth and stimulation\n ',
+          description: 'Foot angle variation for balanced calf growth and stimulation',
           battlePlan: '3 rounds\n• 12–15 Toes Out Calf Raises\nRest 75s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Toes out stance targets inner calf muscle fibers',
@@ -1691,7 +1691,7 @@ const calvesWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Single‑Leg Press Calf Raise',
           duration: '14–16 min',
-          description: 'Isolates each calf for balanced strength and size\n ',
+          description: 'Isolates each calf for balanced strength and size',
           battlePlan: '4 rounds\n• 10–12 per leg Single‑Leg Raises\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Unilateral raise increases load and balance demand',
@@ -1711,7 +1711,7 @@ const calvesWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Leg Press Calf Raise',
           duration: '14–16 min',
-          description: 'Builds strength and control through isometric hold\n ',
+          description: 'Builds strength and control through isometric hold',
           battlePlan: '3 rounds\n• 10–12 Pause Calf Raises\n• Immediately 15 Bodyweight Calf Raises\nRest 90s',
           imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
           intensityReason: 'Pause at top maximizes peak contraction tension',
@@ -1733,7 +1733,7 @@ const calvesWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Leg Press Calf Raise (Drop Set)',
           duration: '16–18 min',
-          description: 'Stripping load forces fibers to contract under fatigue\n ',
+          description: 'Stripping load forces fibers to contract under fatigue',
           battlePlan: '3 rounds\n• 12 Heavy Calf Raises\n• Drop 15–20% → 10 reps\n• Drop 15–20% → 10 reps\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmc&ZW54MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Drop sets extend effort for intense calf overload',
@@ -1753,7 +1753,7 @@ const calvesWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Leg Press Calf Raise (Iso + Jumps)',
           duration: '16–18 min',
-          description: 'Combo reps with iso hold completely crushes calves\n ',
+          description: 'Combo reps with iso hold completely crushes calves',
           battlePlan: '3 rounds\n• 12–15 Calf Raises\n• Finish with 10s Iso Hold at top\n• Immediately 10 Stiff Leg Jumps\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Static hold at peak contraction maximizes tension',
@@ -1781,7 +1781,7 @@ const calvesWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Standing Calf Raise Machine',
           duration: '10–12 min',
-          description: 'Basic standing raise for foundational calf development\n ',
+          description: 'Basic standing raise for foundational calf development',
           battlePlan: '3 rounds\n• 15–20 Standing Calf Raises\nRest 60s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8TVc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Machine guidance builds calf strength safely',
@@ -1801,7 +1801,7 @@ const calvesWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Seated Calf Raise Machine',
           duration: '10–12 min',
-          description: 'Targets deeper calf muscle with stable seated form\n ',
+          description: 'Targets deeper calf muscle with stable seated form',
           battlePlan: '3 rounds\n• 12–15 Seated Calf Raises\nRest 60s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Seated position isolates soleus muscle for growth',
@@ -1823,7 +1823,7 @@ const calvesWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Single‑Leg Calf Raise Machine',
           duration: '14–16 min',
-          description: 'Isolates each calf for balanced strength and size\n ',
+          description: 'Isolates each calf for balanced strength and size',
           battlePlan: '4 rounds\n• 10–12 per leg Single‑Leg Raises\nRest 75s',
           imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Unilateral raise increases load and balance demand',
@@ -1843,7 +1843,7 @@ const calvesWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Calf Raise Machine',
           duration: '14–16 min',
-          description: 'Builds strength and control through isometric hold\n ',
+          description: 'Builds strength and control through isometric hold',
           battlePlan: '3 rounds\n• 10–12 Pause Calf Raises\n• Immediately 15 Bodyweight Calf Raises\nRest 90s',
           imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
           intensityReason: 'Pause at top maximizes peak contraction tension',
@@ -1865,7 +1865,7 @@ const calvesWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Calf Raise Machine (Drop Set)',
           duration: '16–18 min',
-          description: 'Stripping load forces fibers to contract under fatigue\n ',
+          description: 'Stripping load forces fibers to contract under fatigue',
           battlePlan: '3 rounds\n• 12 Heavy Calf Raises\n• Drop 15–20% → 10 reps\n• Drop 15–20% → 10 reps\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmc&ZW54MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Drop sets extend effort for intense calf overload',
@@ -1885,7 +1885,7 @@ const calvesWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Calf Raise Machine (Iso + Jumps)',
           duration: '16–18 min',
-          description: 'Combo reps with iso hold completely crushes calves\n ',
+          description: 'Combo reps with iso hold completely crushes calves',
           battlePlan: '3 rounds\n• 12–15 Calf Raises\n• Finish with 10s Iso Hold at top\n• Immediately 10 Stiff Leg Jumps\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Static hold at peak contraction maximizes tension',
@@ -1917,7 +1917,7 @@ const compoundWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Goblet Squat',
           duration: '10–12 min',
-          description: 'Simple squat variation teaches control\nand balance with front load support.\n ',
+          description: 'Simple squat variation teaches control and balance with front load support.',
           battlePlan: '3 rounds\n• 10-12 goblet squats\nRest 75s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8TVc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Front load squat builds posture and safe depth.',
@@ -1937,7 +1937,7 @@ const compoundWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'DB RDL',
           duration: '10–12 min',
-          description: 'Dumbbell hinge builds strength safely\nfor beginners with proper form.\n ',
+          description: 'Dumbbell hinge builds strength safely for beginners with proper form.',
           battlePlan: '3 rounds\n• 8-10 dumbbell RDLs\nRest 75s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Hip hinge pattern develops hamstrings + glutes.',
@@ -1959,7 +1959,7 @@ const compoundWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Bulgarian Split Squat',
           duration: '14–16 min',
-          description: 'Advanced split squat builds quads\nand glute drive with elevated rear foot.\n ',
+          description: 'Advanced split squat builds quads and glute drive with elevated rear foot.',
           battlePlan: '4 rounds\n• 8-10 bulgarian split squats per leg\nRest 75-90s',
           imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Rear foot elevated squat raises ROM + intensity.',
@@ -1979,7 +1979,7 @@ const compoundWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Lateral Lunge',
           duration: '14–16 min',
-          description: 'Trains quads, glutes, and groin through\nlateral range of motion.\n ',
+          description: 'Trains quads, glutes, and groin through lateral range of motion.',
           battlePlan: '3 rounds\n• 8 per side Lateral Lunges\nRest 90s',
           imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
           intensityReason: 'Side lunge develops stability and hip strength.',
@@ -2001,7 +2001,7 @@ const compoundWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Squat + RDL Superset',
           duration: '16–18 min',
-          description: 'Superset floods quads + hamstrings\nwith volume for complete development.\n ',
+          description: 'Superset floods quads + hamstrings with volume for complete development.',
           battlePlan: '4 rounds\n• 8 DB Squats\n• 8 DB RDLs\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmc&ZW54MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Push pull pairing overloads full lower body range.',
@@ -2021,7 +2021,7 @@ const compoundWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Squat Iso Hold + Pulses',
           duration: '16–18 min',
-          description: 'Brutal high tension squat burns and\nbuilds depth strength.\n ',
+          description: 'Brutal high tension squat burns and builds depth strength.',
           battlePlan: '3 rounds\n• 10 Squats + 10s Hold + 6 Pulses\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Long isos with pulses maximize quad fatigue.',
@@ -2049,7 +2049,7 @@ const compoundWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Back Squat',
           duration: '10–12 min',
-          description: 'Classic barbell squat lays foundation\nfor leg strength and control.\n ',
+          description: 'Classic barbell squat lays foundation for leg strength and control.',
           battlePlan: '3 rounds\n• 8-10 back squats\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8TVc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Foundational squat builds strength + control.',
@@ -2069,7 +2069,7 @@ const compoundWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Reverse Lunge',
           duration: '10–12 min',
-          description: 'Reverse lunge reduces strain while\nbuilding single leg strength.\n ',
+          description: 'Reverse lunge reduces strain while building single leg strength.',
           battlePlan: '3 rounds\n• 8 per leg Reverse Lunges\nRest 75-90s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Teaches single leg balance with less knee stress.',
@@ -2089,7 +2089,7 @@ const compoundWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Rack RDL',
           duration: '10–12 min',
-          description: 'Beginner hinge teaches depth and\nhamstring control with barbell.\n ',
+          description: 'Beginner hinge teaches depth and hamstring control with barbell.',
           battlePlan: '3 rounds\n• 8-10 rack rdls\nRest 75-90s',
           imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
           intensityReason: 'Barbell hinge pattern develops glutes + hams.',
@@ -2111,7 +2111,7 @@ const compoundWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Front Squat',
           duration: '14–16 min',
-          description: 'Front squat builds quads while\ndemanding upright posture.\n ',
+          description: 'Front squat builds quads while demanding upright posture.',
           battlePlan: '4 rounds\n• 6-8 front squats\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Upright bar placement drives quad and core load.',
@@ -2131,7 +2131,7 @@ const compoundWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Bulgarian Split Squat',
           duration: '14–16 min',
-          description: 'Advanced unilateral builder with\ndeeper range and balance challenge.\n ',
+          description: 'Advanced unilateral builder with deeper range and balance challenge.',
           battlePlan: '4 rounds\n• 8-10 bulgarians per side\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmc&ZW54MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Rear foot squat overloads quads and balance.',
@@ -2151,7 +2151,7 @@ const compoundWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Rack Deficit RDL',
           duration: '14–16 min',
-          description: 'Longer range hinge boosts hamstring\nhypertrophy with elevated position.\n ',
+          description: 'Longer range hinge boosts hamstring hypertrophy with elevated position.',
           battlePlan: '3 rounds\n• 8-10 deficit rdls\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHc0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8TVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Standing on plates increases hamstring stretch.',
@@ -2173,7 +2173,7 @@ const compoundWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Pause Back Squat',
           duration: '16–18 min',
-          description: 'Keeps muscles under control in deepest\nrange with bottom pause.\n ',
+          description: 'Keeps muscles under control in deepest range with bottom pause.',
           battlePlan: '4 rounds\n• 6 Pause Back Squats\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8TVc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Bottom pause builds strength and eliminates bounce.',
@@ -2193,7 +2193,7 @@ const compoundWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Walking Lunges',
           duration: '16–18 min',
-          description: 'Combination of strength, balance,\nand conditioning challenge.\n ',
+          description: 'Combination of strength, balance, and conditioning challenge.',
           battlePlan: '3 rounds\n• 20 steps total Walking Lunges\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHcxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Continuous walking pattern overloads endurance.',
@@ -2213,7 +2213,7 @@ const compoundWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Squat + RDL Superset',
           duration: '16–18 min',
-          description: 'Hybrid superset crushes quads,\nglutes, and hamstrings together.\n ',
+          description: 'Hybrid superset crushes quads, glutes, and hamstrings together.',
           battlePlan: '4 rounds\n• 6 Back Squats\n• 6 Rack RDLs\nRest 90s',
           imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
           intensityReason: 'Pair squat + hinge for full lower body overload.',
@@ -2241,7 +2241,7 @@ const compoundWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Neutral Leg Press',
           duration: '10–12 min',
-          description: 'Basic press builds safety, posture,\nand control with machine support.\n ',
+          description: 'Basic press builds safety, posture, and control with machine support.',
           battlePlan: '3 rounds\n• 10-12 neutral leg press\nRest 75s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8TVc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Teaches full ROM with stable machine support.',
@@ -2261,7 +2261,7 @@ const compoundWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Narrow Stance Press',
           duration: '10–12 min',
-          description: 'Targets quads more directly in\nsafe range of motion.\n ',
+          description: 'Targets quads more directly in safe range of motion.',
           battlePlan: '3 rounds\n• 10-12 narrow stance press\nRest 75s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Close foot stance emphasizes quad activation.',
@@ -2283,7 +2283,7 @@ const compoundWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Wide Glute Press',
           duration: '14–16 min',
-          description: 'Outside placement recruits posterior\nchain harder than narrow stance.\n ',
+          description: 'Outside placement recruits posterior chain harder than narrow stance.',
           battlePlan: '4 rounds\n• 8-10 wide stance press\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Wider stance shifts target to glutes + hamstrings.',
@@ -2303,7 +2303,7 @@ const compoundWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Single Leg Press',
           duration: '14–16 min',
-          description: 'One leg at a time reduces imbalances\nin strength development.\n ',
+          description: 'One leg at a time reduces imbalances in strength development.',
           battlePlan: '4 rounds\n• 8 per leg Single Leg Press\nRest 90s',
           imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
           intensityReason: 'Unilateral training balances quads + hamstrings.',
@@ -2325,7 +2325,7 @@ const compoundWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Drop Set Press',
           duration: '16–18 min',
-          description: 'Extends time under tension with\nprogressive load reduction.\n ',
+          description: 'Extends time under tension with progressive load reduction.',
           battlePlan: '3 rounds\n• 8 Heavy Press → Drop x2 (6–8 reps each)\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmc&ZW54MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Strip weight quickly to overload muscle fatigue.',
@@ -2345,7 +2345,7 @@ const compoundWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Pause Press',
           duration: '16–18 min',
-          description: 'Pausing forces muscles to do all\nthe hard work without momentum.\n ',
+          description: 'Pausing forces muscles to do all the hard work without momentum.',
           battlePlan: '4 rounds\n• 8 Leg Press Reps (2s pause at bottom)\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHc0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8TVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Mid rep pause kills momentum and builds tension.',
@@ -2373,7 +2373,7 @@ const compoundWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Neutral Hack Squat',
           duration: '10–12 min',
-          description: 'Basic hack squat introduces form\nand confidence with machine guidance.\n ',
+          description: 'Basic hack squat introduces form and confidence with machine guidance.',
           battlePlan: '3 rounds\n• 10-12 hack squats\nRest 75s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8TVc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Machine guidance builds squat mechanics safely.',
@@ -2393,7 +2393,7 @@ const compoundWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Narrow Hack Squat',
           duration: '10–12 min',
-          description: 'Builds quad dominant strength with\nstable machine support.\n ',
+          description: 'Builds quad dominant strength with stable machine support.',
           battlePlan: '3 rounds\n• 8-10 narrow hack squats\nRest 75s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Narrow stance emphasizes quads more directly.',
@@ -2415,7 +2415,7 @@ const compoundWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Wide Hack Squat',
           duration: '14–16 min',
-          description: 'Trains posterior chain through\ndeeper ROM with wide stance.\n ',
+          description: 'Trains posterior chain through deeper ROM with wide stance.',
           battlePlan: '4 rounds\n• 8-10 wide hack squats\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Wide stance targets glute and hamstring drive.',
@@ -2435,7 +2435,7 @@ const compoundWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Hack Squat Calf Raise',
           duration: '14–16 min',
-          description: 'Doubles lower leg work without\nswitching machines for efficiency.\n ',
+          description: 'Doubles lower leg work without switching machines for efficiency.',
           battlePlan: '4 rounds\n• 8 Hack Squats\n• Immediately 12 Hack Calf Raises\nRest 90s',
           imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
           intensityReason: 'Add calf emphasis within heavy squat structure.',
@@ -2457,7 +2457,7 @@ const compoundWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: '1½ Rep Hack Squat',
           duration: '16–18 min',
-          description: 'Blends controlled pulses with full ROM\nsquatting for hypertrophy.\n ',
+          description: 'Blends controlled pulses with full ROM squatting for hypertrophy.',
           battlePlan: '3 rounds\n• 6-8 hack squats (1 full + ½ rep = 1 rep)\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmc&ZW54MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Partial + full reps increase hypertrophy tension.',
@@ -2477,7 +2477,7 @@ const compoundWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Reverse Hack Squat',
           duration: '16–18 min',
-          description: 'Reverse stance hack builds posterior\nchain strength and development.\n ',
+          description: 'Reverse stance hack builds posterior chain strength and development.',
           battlePlan: '4 rounds\n• 8-10 reverse hack squats\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHc0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Facing pad emphasizes glutes and hamstrings.',
@@ -2505,7 +2505,7 @@ const compoundWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Cable Squat',
           duration: '10–12 min',
-          description: 'Cable tension mimics goblet squat\nwith safety and control.\n ',
+          description: 'Cable tension mimics goblet squat with safety and control.',
           battlePlan: '3 rounds\n• 10-12 cable squats\nRest 75s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8TVc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Front loaded setup controls posture + squat form.',
@@ -2525,7 +2525,7 @@ const compoundWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Cable Step Through',
           duration: '10–12 min',
-          description: 'Crossover cable step engages quads +\nglutes together with unilateral work.\n ',
+          description: 'Crossover cable step engages quads + glutes together with unilateral work.',
           battlePlan: '3 rounds\n• 8 per side Step Throughs\nRest 75s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Split stance improves single leg drive and balance.',
@@ -2547,7 +2547,7 @@ const compoundWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Cable RDL',
           duration: '14–16 min',
-          description: 'Cable variation keeps constant load\non posterior chain throughout ROM.\n ',
+          description: 'Cable variation keeps constant load on posterior chain throughout ROM.',
           battlePlan: '4 rounds\n• 8-10 cable rdls\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Hip hinge move teaches tension through hamstrings.',
@@ -2567,7 +2567,7 @@ const compoundWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Cable Split Squat',
           duration: '14–16 min',
-          description: 'Great hypertrophy builder with guided\nconstant tension throughout movement.\n ',
+          description: 'Great hypertrophy builder with guided constant tension throughout movement.',
           battlePlan: '4 rounds\n• 8-10 cable split squats per leg\nRest 90s',
           imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
           intensityReason: 'Unilateral squat keeps quads under stable load.',
@@ -2589,7 +2589,7 @@ const compoundWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Cable Front Squat',
           duration: '16–18 min',
-          description: 'Replicates barbell front squat with\ncable constant tension loading.\n ',
+          description: 'Replicates barbell front squat with cable constant tension loading.',
           battlePlan: '4 rounds\n• 6-8 heavy cable front squats\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmc&ZW54MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Heavy stack front squat overloads safe quads.',
@@ -2609,7 +2609,7 @@ const compoundWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Cable Squat to RDL',
           duration: '16–18 min',
-          description: 'Superset blend targets both push +\nhinge chains with constant tension.\n ',
+          description: 'Superset blend targets both push + hinge chains with constant tension.',
           battlePlan: '4 rounds\n• 8 Cable Squats\n• 8 Cable RDLs\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHc0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Combo pairing keeps full leg tension loading.',
@@ -2637,7 +2637,7 @@ const compoundWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Trap Bar Deadlift Squat',
           duration: '10–12 min',
-          description: 'Full‑body squat/deadlift hybrid builds foundation\n ',
+          description: 'Full‑body squat/deadlift hybrid builds foundation',
           battlePlan: '3 rounds\n• 8–10 Deadlift‑Style Trap Bar Squats\nRest 75–90s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8TVc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Safest trap bar squat teaches form and posture',
@@ -2657,7 +2657,7 @@ const compoundWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Neutral Grip Trap Bar Squat',
           duration: '10–12 min',
-          description: 'Neutral foot placement encourages steady control\n ',
+          description: 'Neutral foot placement encourages steady control',
           battlePlan: '3 rounds\n• 8–10 Neutral Squats\nRest 75–90s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8TVc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Balanced stance builds quads and glutes evenly',
@@ -2679,7 +2679,7 @@ const compoundWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Wide Stance Trap Bar Squat',
           duration: '14–16 min',
-          description: 'Builds hip strength and glute drive through stance\n ',
+          description: 'Builds hip strength and glute drive through stance',
           battlePlan: '4 rounds\n• 6–8 Wide Stance Squats\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8TVc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'wider base targets hips and glutes with a stronger emphasis',
@@ -2699,7 +2699,7 @@ const compoundWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Tempo Trap Bar Squat',
           duration: '14–16 min',
-          description: 'Slow descent builds control and hypertrophy\n ',
+          description: 'Slow descent builds control and hypertrophy',
           battlePlan: '4 rounds\n• 6–8 Squats (3–4s eccentric)\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8TVc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Extended eccentrics increase muscle time',
@@ -2721,7 +2721,7 @@ const compoundWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Pause Trap Bar Squat',
           duration: '16–18 min',
-          description: 'Builds stability and power out of squat bottom\n ',
+          description: 'Builds stability and power out of squat bottom',
           battlePlan: '4 rounds\n• 6 Paused Squats (2s)\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8TVc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: '2s pause eliminates momentum, loads glutes/quads',
@@ -2741,7 +2741,7 @@ const compoundWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: '1½ Rep Trap Bar Squat',
           duration: '16–18 min',
-          description: 'Doubles workload while keeping constant tension\n ',
+          description: 'Doubles workload while keeping constant tension',
           battlePlan: '3 rounds\n• 6–8 1½ Rep Trap Bar Squats\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8TVc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Half + full rep combo extends quad fatigue',
