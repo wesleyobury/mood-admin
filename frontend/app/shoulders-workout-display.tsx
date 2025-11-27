@@ -53,7 +53,7 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Shoulder Builder',
           duration: '12–15 min',
-          description: 'Builds foundational shoulder strength withseated presses and lateral raises. ',
+          description: 'Builds foundational shoulder strength with seated presses and lateral raises. ',
           battlePlan: '3 rounds:• 12 seated dumbbell press• 12 seated lateral raiseRest 60s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Perfect introduction to shoulder pressing and isolation.',
@@ -73,7 +73,7 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Shoulder Flow',
           duration: '10–12 min',
-          description: 'Dynamic shoulder warm-up building mobilityand activation through multiple planes. ',
+          description: 'Dynamic shoulder warm-up building mobility and activation through multiple planes. ',
           battlePlan: '3 rounds:• 10 arm circles forward• 10 arm circles backward• 10 shoulder shrugsRest 45s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8TVc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Gentle mobility-focused warm-up for shoulder preparation.',
@@ -95,7 +95,7 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Arnold Power',
           duration: '15–18 min',
-          description: 'Arnold press and lateral raise combofor intermediate shoulder strength. ',
+          description: 'Arnold press and lateral raise combo for intermediate shoulder strength. ',
           battlePlan: '4 rounds:• 10 Arnold press• 12 lateral raises• 10 front raisesRest 75s',
           imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Dynamic Arnold press challenges all shoulder planes.',
@@ -115,7 +115,7 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Circuit',
           duration: '12–15 min',
-          description: 'High-rep shoulder circuit for enduranceand metabolic conditioning. ',
+          description: 'High-rep shoulder circuit for endurance and metabolic conditioning. ',
           battlePlan: '3 rounds:• 15 shoulder press• 15 lateral raise• 15 rear delt flyRest 90s',
           imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
           intensityReason: 'High-volume circuit for intermediate shoulder conditioning.',
@@ -289,7 +289,7 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Power Max',
           duration: '16–20 min',
-          description: 'High-intensity barbell power complexfor explosive shoulder strength. ',
+          description: 'High-intensity barbell power complex for explosive shoulder strength. ',
           battlePlan: '3 rounds:• 5 heavy barbell press• 6 push press• 8 high pulls• 10 upright rowsRest 2–3 min',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Maximum intensity barbell training for advanced athletes.',
@@ -421,7 +421,7 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'KB Power',
           duration: '16–20 min',
-          description: 'High-intensity kettlebell power complexfor explosive shoulder development. ',
+          description: 'High-intensity kettlebell power complex for explosive shoulder development. ',
           battlePlan: '3 rounds:• 4 double KB clean and press• 5 single arm snatches (each)• 6 double KB swings• 8 Turkish get-up (partial)Rest 2–3 min',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Maximum intensity kettlebell training for advanced athletes.',
@@ -583,7 +583,7 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Rear Delt Focus',
           duration: '12–14 min',
-          description: 'Machine rear delt flys and reverseflys for posterior chain activation. ',
+          description: 'Machine rear delt flys and reverse flys for posterior chain activation. ',
           battlePlan: '3 rounds:• 12 rear delt fly• 10 reverse fly (chest supported)Rest 60s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHc5fHxyaW5nfGVufDB8fHx8MVc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Perfect introduction to machine rear delt training.',
@@ -603,7 +603,7 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Posture Fix',
           duration: '10–12 min',
-          description: 'Rear delt strengthening circuitfor posture improvement and balance. ',
+          description: 'Rear delt strengthening circuit for posture improvement and balance. ',
           battlePlan: '3 rounds:• 10 rear delt fly• 8 reverse fly• 6 face pulls (if available)Rest 60–75s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Focused posterior deltoid training for posture correction.',
@@ -625,7 +625,7 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Rear Delt Max',
           duration: '16–18 min',
-          description: 'Heavy-to-light rear delt pyramidfor posterior deltoid development. ',
+          description: 'Heavy-to-light rear delt pyramid for posterior deltoid development. ',
           battlePlan: '4 rounds:• 12 light rear delt fly• 10 moderate rear delt fly• 8 heavy rear delt flyRest 75s',
           imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Progressive loading across different rep ranges.',
@@ -645,7 +645,7 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Burnout',
           duration: '14–15 min',
-          description: 'Rear delt pre-exhaustion withcompound movements for balance. ',
+          description: 'Rear delt pre-exhaustion with compound movements for balance. ',
           battlePlan: '3 rounds:• 15 rear delt fly• 10 reverse fly (immediately after)• 8 face pullsRest 90s',
           imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
           intensityReason: 'Pre-exhaustion protocol for posterior deltoid development.',
@@ -667,7 +667,7 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Rear Delt AMRAP',
           duration: '10 min',
-          description: 'Max rear delt fly reps in 10 minutesfor ultimate posterior burnout. ',
+          description: 'Max rear delt fly reps in 10 minutes for ultimate posterior burnout. ',
           battlePlan: '3 rounds:• 12 heavy rear delt fly• Drop → 15 moderate• Drop → 20 lightRest 90–120s',
           imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmc&ZW54MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Advanced drop set protocol for maximum rear delt development.',
@@ -1041,7 +1041,7 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Strength Base',
           duration: '12–15 min',
-          description: 'Platform strength building withcompound movement combinations. ',
+          description: 'Platform strength building with compound movement combinations. ',
           battlePlan: '3 rounds:• 5 heavy press• 8 push press• 10 upright rows• 12 shrugsRest 2 min',
           imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
           intensityReason: 'Strength-focused platform training for muscle development.',
@@ -1263,7 +1263,7 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Smith Basics',
           duration: '10–12 min',
-          description: 'Basic Smith machine movementsfor shoulder strength foundation. ',
+          description: 'Basic Smith machine movements for shoulder strength foundation. ',
           battlePlan: '3 rounds:• 8 seated smith press• 10 smith upright rows• 6 smith shrugsRest 60s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8TVc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Foundational Smith machine training for safe progression.',
@@ -1305,7 +1305,7 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Smith Complex',
           duration: '12–15 min',
-          description: 'Smith machine shoulder complexfor comprehensive development. ',
+          description: 'Smith machine shoulder complex for comprehensive development. ',
           battlePlan: '3 rounds:• 6 smith press• 8 smith behind neck• 10 smith upright rows• 12 smith front raiseRest 90s',
           imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
           intensityReason: 'Comprehensive Smith machine complex for all deltoid heads.',
