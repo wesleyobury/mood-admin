@@ -1898,7 +1898,7 @@ const styles = StyleSheet.create({
   },
   scrollContent: {
     padding: 24,
-    paddingBottom: 100,
+    paddingBottom: 24,
   },
   workoutCard: {
     backgroundColor: '#111111',
