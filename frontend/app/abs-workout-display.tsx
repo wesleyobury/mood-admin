@@ -867,7 +867,7 @@ const absWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '8–10 min',
           description: 'Works midline without excessive torso movement.\n ',
           battlePlan: '3 rounds\n• 12–15 Decline Crunches\nRest 75s',
-          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_sweat-weights-images/artifacts/azdoubte_download%20%286%29.png',
           intensityReason: 'Short ROM targets abs intensely with safety',
           moodTips: [
             {
