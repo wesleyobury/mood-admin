@@ -603,7 +603,7 @@ const styles = StyleSheet.create({
   progressStepNumber: {
     fontSize: 14,
     fontWeight: 'bold',
-    color: 'rgba(255, 255, 255, 0.6)',
+    color: '#000000',
   },
   progressStepNumberActive: {
     color: '#000000',
