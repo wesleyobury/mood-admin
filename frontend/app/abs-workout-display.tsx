@@ -909,7 +909,7 @@ const absWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Full abs trained with twist motion superset strategy.\n ',
           battlePlan: '3 rounds\n• 8 per side Twisting Sit Ups\nRest 90s',
-          imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_sweat-weights-images/artifacts/azdoubte_download%20%286%29.png',
           intensityReason: 'Rotational sit up engages obliques + rectus combo',
           moodTips: [
             {
