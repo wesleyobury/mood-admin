@@ -536,7 +536,7 @@ export const lightWeightsDatabase: EquipmentWorkouts[] = [
           duration: '20–25 min',
           description: 'Five rounds: wall balls, sprint, slams, sprint, recover.',
           battlePlan: 'Perform 5 rounds:\n• 10 Wall Balls\n• 20 m Sprint (with ball)\n• 10 Slams\n• 20 m Sprint (with ball)\n• Rest 1 min',
-          imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-pics/artifacts/vv8j4fll_download.png',
           intensityReason: 'Throws plus sprints tax power and quick recovery.',
           moodTips: [
             {
