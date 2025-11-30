@@ -404,7 +404,7 @@ export const lightWeightsDatabase: EquipmentWorkouts[] = [
           duration: '15 min',
           description: 'Continuous sixes of deads, cleans, presses, squats, burpees.',
           battlePlan: 'As many rounds as possible in 15 min:\n• 6 Deadlifts\n• 6 Hang Cleans\n• 6 Push Presses\n• 6 Back Squats\n• 6 Bar-Facing Burpees',
-          imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-pics/artifacts/2tl6mdrg_download.png',
           intensityReason: 'Fixed window promotes smooth cycling and steady pace.',
           moodTips: [
             {
