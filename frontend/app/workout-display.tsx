@@ -229,7 +229,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
           duration: '25 min',
           description: 'High resistance climbs alternating\nwith low resistance sprints at 80+ RPM.\n ',
           battlePlan: '• 2 min moderate (resistance 5)\n• 1 min climb (resistance 10)\n• 1 min sprint (resistance 4, RPM 80+)\n• repeat 5x\n• finish with 3 min easy',
-          imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-app-ui/artifacts/iu82mwqk_download%20%282%29.png',
           intensityReason: 'Alternates climbs and sprints for strength and speed.',
           moodTips: [
             {
