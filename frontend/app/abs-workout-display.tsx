@@ -249,7 +249,7 @@ const absWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Pair movement rollout and plank for total ab burn.\n ',
           battlePlan: '3 rounds\n• 8 Rollouts\n• 20s Plank Hold\nRest 75s',
-          imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_sweat-weights-images/artifacts/7i1n31ck_download.png',
           intensityReason: 'Flexion with static hold strengthens ab endurance',
           moodTips: [
             {
