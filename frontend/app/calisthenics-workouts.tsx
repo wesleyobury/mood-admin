@@ -409,7 +409,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Mixed Grips',
           duration: '22–28 min',
-          description: 'Grip variations balance forearm and lat engagement.',
+          description: 'Neutral pullups, pronated rows, dead hangs for grip.',
           battlePlan: 'Neutral-Grip Pullup (light band if needed)\n• 4 × 5–7 (RPE 5–6), 90s rest\nPronated Inverted Row (feet bent)\n• 4 × 8–10 (RPE 5), 75s rest\nDead Hang\n• 3 × 30–40s (RPE 5), 60s rest',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYWxpc3RoZW5pY3N8ZW58MXx8fHwxVzU2aWNnNMzIyM3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Grip variations balance forearm and lat engagement.',
@@ -431,7 +431,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Strict Pull',
           duration: '26–34 min',
-          description: 'Strict sets prioritize clean strength and scap control.',
+          description: 'Pullups strict, chest-to-bar rows, hanging leg raises.',
           battlePlan: 'Strict Pullup (bodyweight)\n• 5 × 4–6 (RPE 6), 90s rest\nChest-to-Bar Inverted Row (feet extended)\n• 4 × 8–10 (RPE 6), 75s rest\nHanging Leg Raise\n• 3 × 8–12 (RPE 6), 60–75s rest',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYWxpc3RoZW5pY3N8ZW58MXx8fHwxVzU2aWNnNMzIyM3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Strict sets prioritize clean strength and scap control.',
@@ -451,7 +451,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Eccentric Power',
           duration: '26–34 min',
-          description: 'Weighted negatives push strength beyond sticking zones.',
+          description: 'Eccentric pullups weighted, hollow rocks, grip holds.',
           battlePlan: 'Weighted Eccentric Pullup (dip belt/DB)\n• 5 × 2–3 (RPE 6–7), 120s rest\nHollow Rock\n• 4 × 12–16 (RPE 6), 60–75s rest\nBar Hang (thick grip/towel)\n• 3 × 30–40s (RPE 6), 60s rest',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHc0fHxjYWxpc3RoZW5pY3N8ZW58MXx8fHwxVzU2aWNnNMzIyM3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Weighted negatives push strength beyond sticking zones.',
@@ -471,7 +471,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Volume Mix',
           duration: '26–34 min',
-          description: 'Higher total pulls with varied grips improve capacity.',
+          description: 'Neutral pullups, pronated pullups, chin hold finisher.',
           battlePlan: 'Neutral-Grip Pullup\n• 4 × 5–7 (RPE 6), 90s rest\nPronated Pullup\n• 3 × 4–6 (RPE 6), 90s rest\nTop Isometric Chin-Up Hold\n• 3 × 10–15s (RPE 6), 75s rest',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYWxpc3RoZW5pY3N8ZW58MXx8fHwxVzU2aWNnNMzIyM3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Higher total pulls with varied grips improve capacity.',
