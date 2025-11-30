@@ -1083,7 +1083,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
           duration: '16 min',
           description: 'Tabata protocol with 20s max effort\nand 10s rest. 2 complete cycles.\n ',
           battlePlan: '• 8 rounds\n• 20 sec max effort\n• 10 sec rest\n• Rest for two minutes\n• Repeat for 2 cycles',
-          imageUrl: 'https://images.pexels.com/photos/2774172/pexels-photo-2774172.jpeg',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-app-ui/artifacts/dsrwf4m8_ski1.jpg',
           intensityReason: 'Tabata intervals push advanced users to max anaerobic capacity.',
           moodTips: [
             {
