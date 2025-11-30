@@ -423,7 +423,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
           duration: '25 min',
           description: 'Extended endurance with sprint intervals\nand reverse cycling for complete training.\n ',
           battlePlan: '• 5 min moderate\n• 10 x 30 sec sprint (resistance 10) with 30 sec easy\n• 5 min reverse\n• 5 min cool-down',
-          imageUrl: 'https://images.pexels.com/photos/2774172/pexels-photo-2774172.jpeg',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-app-ui/artifacts/2szzkktw_download.png',
           intensityReason: 'Extended power intervals test advanced endurance.',
           moodTips: [
             {
