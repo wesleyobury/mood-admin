@@ -1215,7 +1215,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
           duration: '15 min',
           description: 'Every minute sprint challenge with 20s\nall-out effort and 40s jog recovery.\n ',
           battlePlan: '• Every minute: 20 sec sprint\n• 40 sec moderate jog\n• repeat for 15 min',
-          imageUrl: 'https://images.pexels.com/photos/2774172/pexels-photo-2774172.jpeg',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-app-ui/artifacts/z2xm78y9_download%20%281%29.png',
           intensityReason: 'Sustained work tests advanced cardiovascular capacity.',
           moodTips: [
             {
