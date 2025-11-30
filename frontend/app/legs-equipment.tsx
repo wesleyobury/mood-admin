@@ -160,16 +160,6 @@ const IntensityCard = ({
       onPress={() => onPress(intensity)}
       activeOpacity={0.8}
     >
-      <View style={[
-        styles.intensityIconContainer,
-        isSelected && styles.intensityIconContainerSelected
-      ]}>
-        <Ionicons 
-          name={intensity.icon} 
-          size={20} 
-          color={isSelected ? "#000000" : "#FFD700"} 
-        />
-      </View>
       <View style={styles.intensityTextContainer}>
         <Text style={[
           styles.intensityTitle,
