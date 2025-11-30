@@ -117,7 +117,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
           duration: '22 min',
           description: 'Incline running intervals at consistent\npace with varying elevation. 5 rounds total.\n ',
           battlePlan: '• 2 min run (6.0 mph, incline 1%)\n• 1 min run (6.0 mph, incline 5%)\n• 2 min walk (3.5 mph, incline 2%)\n• Repeat 5x\n• Finish with 3 min walk (3.0 mph)',
-          imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-app-ui/artifacts/urpigixq_download%20%283%29.png',
           intensityReason: 'Running pace with inclines builds cardio and muscle.',
           moodTips: [
             {
