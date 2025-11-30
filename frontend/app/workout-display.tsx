@@ -1063,7 +1063,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
           duration: '20 min',
           description: 'High-intensity ski sprints with moderate\nrecovery periods. 10 complete rounds.\n ',
           battlePlan: '• 30 sec sprint\n• 1 min moderate\n• repeat 10x',
-          imageUrl: 'https://images.unsplash.com/photo-1551716652-ddc80b66aaae?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxza2klMjBtYWNoaW5lJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODM2NTJ8MA&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-app-ui/artifacts/lv55gxbj_download.png',
           intensityReason: 'High-intensity sprints demand max power and coordination.',
           moodTips: [
             {
