@@ -1285,7 +1285,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
           duration: '15 min',
           description: 'Complex combos with power punches. 4 rounds.\n ',
           battlePlan: '• 1 min combos (jab-cross-hook-uppercut)\n• 30 sec rest\n• 1 min power punches\n• 30 sec rest\n• repeat 4x',
-          imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmd8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-app-ui/artifacts/9djyqo5n_download%20copy%203.png',
           intensityReason: 'Complex combinations challenge intermediate coordination.',
           moodTips: [
             {
