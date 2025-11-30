@@ -1002,7 +1002,7 @@ export const lightWeightsDatabase: EquipmentWorkouts[] = [
           duration: '18–20 min',
           description: 'Four rounds: strikes, burpees, tire jumps, one‑minute rest.',
           battlePlan: 'Perform 4 rounds:\n• 10 Strikes (each side)\n• 8 Burpees\n• 10 Tire Jumps\n• Rest 1 min',
-          imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-pics/artifacts/dehw59za_download%20%283%29.png',
           intensityReason: 'Strikes, burpees, and jumps stress power and recovery.',
           moodTips: [
             {
