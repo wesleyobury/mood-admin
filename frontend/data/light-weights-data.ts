@@ -696,7 +696,7 @@ export const lightWeightsDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Five rounds alternating waves and double slams with rest.',
           battlePlan: 'Perform 5 rounds:\n• 20s Alternating Waves\n• 20s Rest\n• 20s Double Slams\n• 20s Rest',
-          imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-pics/artifacts/264ds1si_download.png',
           intensityReason: 'Short bouts build rhythm without technique overload.',
           moodTips: [
             {
