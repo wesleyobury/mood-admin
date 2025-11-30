@@ -828,7 +828,7 @@ export const lightWeightsDatabase: EquipmentWorkouts[] = [
           duration: '12–15 min',
           description: 'Five rounds: 10 m push, 10 m backward pull, one‑minute rest.',
           battlePlan: 'Perform 5 rounds:\n• 10 m Push (light)\n• 10 m Backward Pull\n• Rest 1 min',
-          imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-pics/artifacts/k6ha38p9_download%20%281%29.png',
           intensityReason: 'Light pushes and pulls build pace with safe control.',
           moodTips: [
             {
