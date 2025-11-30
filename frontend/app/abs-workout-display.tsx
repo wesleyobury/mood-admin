@@ -777,7 +777,7 @@ const absWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Dynamic then static pairing builds full capacity.\n ',
           battlePlan: '3 rounds\n• 8 MB Slams\n• 25s Plank Hold\nRest 90s',
-          imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-pics/artifacts/vv8j4fll_download.png',
           intensityReason: 'Explosive slam pairs with core static endurance',
           moodTips: [
             {
