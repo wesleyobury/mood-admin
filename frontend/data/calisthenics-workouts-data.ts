@@ -413,7 +413,7 @@ export const additionalWorkoutDatabase = [
         {
           name: 'Eccentric Teach',
           duration: '12–16 min',
-          description: 'Eccentric kneeling rolls, hollow hold, bird dog.',
+          description: 'Eccentric kneeling rolls, hollow hold, bird dog for total ab development.',
           battlePlan: 'Kneeling Ab Wheel Eccentric (stand up after)\n• 3 × 4–6 (RPE 4), 90s rest\nHollow Hold\n• 3 × 20–30s (RPE 4), 45–60s rest\nBird Dog\n• 3 × 8–10/side (RPE 4), 45–60s rest',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYWxpc3RoZW5pY3N8ZW58MXx8fHwxVzU2aWNnNMzIyM3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Controlled negatives build safe end-range capacity.',
