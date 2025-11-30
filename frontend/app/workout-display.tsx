@@ -735,7 +735,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
           duration: '15 min',
           description: 'Stroke rate variations from 20-28 SPM\nwith steady, fast, and slow phases.\n ',
           battlePlan: '• 2 min steady (22 SPM)\n• 1 min fast (28 SPM)\n• 2 min slow (20 SPM)\n• repeat 3x',
-          imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-app-ui/artifacts/ovxl084v_download%20%281%29%20copy%204.png',
           intensityReason: 'Varied stroke rates develop rhythm and cardio base.',
           moodTips: [
             {
