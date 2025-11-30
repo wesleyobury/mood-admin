@@ -648,7 +648,7 @@ export const lightWeightsDatabase: EquipmentWorkouts[] = [
           duration: '20–24 min',
           description: 'Four rounds 12‑10‑8‑6 with one‑minute rests between sets.',
           battlePlan: 'Perform 4 rounds:\n• 12 Slams\n• 10 Lateral Slams\n• 8 Burpee Slams\n• 6 Overhead Throws\n• Rest 1 min',
-          imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-pics/artifacts/rfw3jxg0_download%20%283%29.png',
           intensityReason: 'Linked series challenges power across repeated efforts.',
           moodTips: [
             {
