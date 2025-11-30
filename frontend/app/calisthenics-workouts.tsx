@@ -369,7 +369,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Volume Pull',
           duration: '22–28 min',
-          description: 'Moderate band assist allows higher-quality volume.',
+          description: 'Assisted pullups, inverted rows, hollow rocks finish.',
           battlePlan: 'Band-Assisted Pullup\n• 4 × 6–8 (RPE 5), 90s rest\nInverted Row (feet flat)\n• 4 × 8–10 (RPE 5), 75s rest\nHollow Rock\n• 3 × 10–15 (RPE 5), 60s rest',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYWxpc3RoZW5pY3N8ZW58MXx8fHwxVzU2aWNnNMzIyM3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Moderate band assist allows higher-quality volume.',
