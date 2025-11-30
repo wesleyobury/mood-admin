@@ -381,7 +381,7 @@ const absWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Isolation combo burns abdominal wall comprehensively.\n ',
           battlePlan: '3 rounds\n• 8 Crunches\n• 10 Hanging Leg Raises\nRest 90s',
-          imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_sweat-weights-images/artifacts/9jii3lwp_abs.jpg',
           intensityReason: 'Superset works upper + lower abs in one session',
           moodTips: [
             {
