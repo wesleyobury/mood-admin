@@ -819,7 +819,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
           duration: '30 min',
           description: 'Progressive endurance build from easy\nto fast pace with structured progression.\n ',
           battlePlan: '• 5 min easy\n• 10 min moderate\n• 5 min hard\n• 5 min fast\n• 5 min cool-down',
-          imageUrl: 'https://images.pexels.com/photos/2774172/pexels-photo-2774172.jpeg',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-app-ui/artifacts/ovxl084v_download%20%281%29%20copy%204.png',
           intensityReason: 'Extended duration builds elite-level endurance.',
           moodTips: [
             {
