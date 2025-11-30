@@ -471,7 +471,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
           duration: '18 min',
           description: 'Cadence training from 60-90 RPM with\nsteady, fast, and moderate intervals.\n ',
           battlePlan: '• 2 min steady (70 RPM)\n• 1 min fast (90 RPM)\n• 2 min moderate (80 RPM)\n• 1 min slow (60 RPM, resistance 6)\n• repeat 3x',
-          imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-app-ui/artifacts/706vd22i_download%20%282%29.png',
           intensityReason: 'RPM variations teach pedaling rhythm and intensity.',
           moodTips: [
             {
