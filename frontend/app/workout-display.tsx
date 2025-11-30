@@ -1479,7 +1479,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
           duration: '20 min',
           description: 'Hard climbing efforts alternating with\nmoderate recovery periods for endurance.\n ',
           battlePlan: '• 2 min hard\n• 1 min moderate\n• repeat 6x',
-          imageUrl: 'https://images.pexels.com/photos/2774172/pexels-photo-2774172.jpeg',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-app-ui/artifacts/w3vrqrj0_download%20%281%29.png',
           intensityReason: 'Extended climbing efforts build advanced endurance capacity.',
           moodTips: [
             {
