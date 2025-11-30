@@ -660,7 +660,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
             }
           ]
         },
-        {
+        { // Midrange Control workout
           name: 'Midrange Control',
           duration: '26–34 min',
           description: 'Dip 1.5 reps, chest-to-bar rows, tuck L-sit holds for advanced challenge.',
