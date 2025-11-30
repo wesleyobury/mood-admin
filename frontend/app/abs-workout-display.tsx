@@ -361,7 +361,7 @@ const absWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Machine allows safe progressive overload to abs.\n ',
           battlePlan: '4 rounds\n• 8–10 Heavy Crunches\nRest 90s',
-          imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_sweat-weights-images/artifacts/i706j2jh_abss.webp',
           intensityReason: 'Increased resistance thickens ab structure well',
           moodTips: [
             {
