@@ -889,7 +889,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
           duration: '20 min',
           description: 'Fast intervals with moderate recovery\nand side step challenges. 4 rounds total.\n ',
           battlePlan: '• 1 min fast\n• 2 min moderate\n• 1 min side step (face sideways)\n• repeat 4x',
-          imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmd8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-app-ui/artifacts/clikf991_download.png',
           intensityReason: 'Mixed patterns challenge intermediate speed and coordination.',
           moodTips: [
             {
