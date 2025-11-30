@@ -999,7 +999,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
           duration: '15 min',
           description: 'Resistance variations from light to moderate\nwith steady, moderate, and slow phases.\n ',
           battlePlan: '• 2 min steady (resistance 3)\n• 1 min moderate (resistance 5)\n• 2 min slow (resistance 2)\n• repeat 3x',
-          imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-app-ui/artifacts/dsrwf4m8_ski1.jpg',
           intensityReason: 'Varied resistance introduces beginners to ski motion gradually.',
           moodTips: [
             {
