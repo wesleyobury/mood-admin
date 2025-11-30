@@ -207,7 +207,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
           duration: '16 min',
           description: 'RPM variations from 50-70 with steady,\nfast, and moderate pace changes.\n ',
           battlePlan: '• 2 min steady (RPM 55)\n• 1 min fast (RPM 70)\n• 2 min moderate (RPM 60)\n• 1 min slow (RPM 50, resistance 5)\n• repeat 3x',
-          imageUrl: 'https://images.pexels.com/photos/2774172/pexels-photo-2774172.jpeg',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-app-ui/artifacts/0knopdsq_download%20%283%29.png',
           intensityReason: 'RPM variations teach rhythm and build endurance.',
           moodTips: [
             {
