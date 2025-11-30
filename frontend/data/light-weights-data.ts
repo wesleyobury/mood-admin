@@ -1022,7 +1022,7 @@ export const lightWeightsDatabase: EquipmentWorkouts[] = [
           duration: '16–18 min',
           description: 'Repeated sprints of strikes build power under fatigue.',
           battlePlan: '20s strikes (switch side halfway) / 10s rest\n8 rounds = 4 min\nRest 1 min\nRepeat for 3 cycles (~16–18 min)',
-          imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-pics/artifacts/v5drjc07_download%20%282%29.png',
           intensityReason: 'Repeated sprints of strikes build power under fatigue.',
           moodTips: [
             {
