@@ -1305,7 +1305,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
           duration: '16 min',
           description: 'Speed punching combined with defensive\nslips and ducks movements. 6 rounds total.\n ',
           battlePlan: '• 30 sec fast punches\n• 30 sec slips/ducks\n• 30 sec rest\n• repeat 6x',
-          imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MTc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-app-ui/artifacts/gbeea240_download%20%281%29%20copy%203.png',
           intensityReason: 'Speed work with defense develops intermediate boxing skills.',
           moodTips: [
             {
