@@ -516,7 +516,7 @@ export const lightWeightsDatabase: EquipmentWorkouts[] = [
           duration: '16–20 min',
           description: 'Four rounds 12‑10‑8‑6 with one‑minute rests between sets.',
           battlePlan: 'Perform 4 rounds:\n• 12 Wall Balls\n• 10 Slams\n• 8 Rotations (per side)\n• 6 Burpee Slams\n• Rest 1 min',
-          imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-pics/artifacts/cu85n2we_download%20%281%29.png',
           intensityReason: 'Sequenced lifts elevate cardio under moderate load.',
           moodTips: [
             {
