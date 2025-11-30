@@ -403,7 +403,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
           duration: '20 min',
           description: 'High-intensity arm cycling with 30s max\neffort and recovery periods. 10 rounds total.\n ',
           battlePlan: '• 30 sec max effort (resistance 8)\n• 1 min easy (resistance 3)\n• repeat 10x\n• finish with 5 min moderate',
-          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxhcm0lMjBiaWN5Y2xlJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-app-ui/artifacts/csr8mwa9_download%20%281%29.png',
           intensityReason: 'High-intensity sprints demand max upper body power.',
           moodTips: [
             {
