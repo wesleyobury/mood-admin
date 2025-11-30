@@ -320,7 +320,7 @@ export const lightWeightsDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Three rounds: cleans, presses, back squats, rows, rest.',
           battlePlan: 'Perform 3 rounds:\n• 6 Hang Cleans\n• 6 Push Presses\n• 6 Back Squats\n• 6 Bent-Over Rows\n• Rest 90s',
-          imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-pics/artifacts/2tl6mdrg_download.png',
           intensityReason: 'Linked barbell lifts maintain tempo and breathing.',
           moodTips: [
             {
