@@ -625,7 +625,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
           duration: '18 min',
           description: '20s sprint intervals with 40s recovery.\n10 rounds plus 5min moderate finish.\n ',
           battlePlan: '• 20 sec sprint\n• 40 sec easy\n• repeat 10x\n• 5 min moderate',
-          imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmd8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-app-ui/artifacts/foko2r38_download%20%282%29.png',
           intensityReason: 'Classic 1:2 ratio challenges intermediate full-body power.',
           moodTips: [
             {
