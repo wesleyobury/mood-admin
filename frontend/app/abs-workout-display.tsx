@@ -97,7 +97,7 @@ const absWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Challenging bodyweight drill effectively targets the entire abdominal wall..\n ',
           battlePlan: '4 rounds\n• 10–12 V Ups\nRest 60–75s',
-          imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_sweat-weights-images/artifacts/0k3gmh3p_download%20%283%29.png',
           intensityReason: 'Combines flexion of torso + legs for full ab load',
           moodTips: [
             {
