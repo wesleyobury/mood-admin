@@ -139,7 +139,7 @@ const absWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Very challenging hanging movement requiring strength and controlled execution..\n ',
           battlePlan: '3 rounds\n• 8–10 Hanging Leg Raises\nRest 90s',
-          imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmc&ZW54MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_sweat-weights-images/artifacts/0k3gmh3p_download%20%283%29.png',
           intensityReason: 'Hanging position overloads abs through hip flexion',
           moodTips: [
             {
