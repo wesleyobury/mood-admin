@@ -1131,7 +1131,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
           duration: '15 min',
           description: 'Speed variation training with walking,\njogging, and fast walking. 4 rounds total.\n ',
           battlePlan: '• 1 min walk\n• 30 sec jog\n• 1 min walk\n• 30 sec fast walk\n• repeat 4x',
-          imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-app-ui/artifacts/z2xm78y9_download%20%281%29.png',
           intensityReason: 'Variable pace helps beginners understand effort control.',
           moodTips: [
             {
