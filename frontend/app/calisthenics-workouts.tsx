@@ -499,7 +499,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Dip Prep',
           duration: '16–22 min',
-          description: 'Support holds and assisted dips teach body alignment.',
+          description: 'Support holds, band-assisted dips, knee tucks closer.',
           battlePlan: 'Parallel Bar Support Hold\n• 3 × 15–25s (RPE 4), 60s rest\nBand-Assisted Dips\n• 3 × 5–7 (RPE 4), 75s rest\nParallel Bar Knee Tucks\n• 3 × 10–12 (RPE 4), 60s rest',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYWxpc3RoZW5pY3N8ZW58MXx8fHwxVzU2aWNnNMzIyM3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Support holds and assisted dips teach body alignment.',
@@ -519,7 +519,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Angle Rows',
           duration: '16–22 min',
-          description: 'Bar rows build scap control with simple setup.',
+          description: 'Bar rows, band dips light, dead bug finish.',
           battlePlan: 'Parallel Bar Inverted Row (knees bent)\n• 3 × 8–10 (RPE 4), 60s rest\nBand-Assisted Dips\n• 3 × 5–7 (RPE 4), 75s rest\nDead Bug\n• 3 × 10–12/side (RPE 4), 45–60s rest',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYWxpc3RoZW5pY3N8ZW58MXx8fHwxVzU2aWNnNMzIyM3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Bar rows build scap control with simple setup.',
@@ -539,7 +539,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Support + Core',
           duration: '16–22 min',
-          description: 'Stable support positions teach shoulder packing.',
+          description: 'Support holds, assisted dip eccentrics, knee raises.',
           battlePlan: 'Parallel Bar Support Hold\n• 3 × 20–30s (RPE 4), 60s rest\nAssisted Dip Eccentric (3–4s down)\n• 3 × 3–5 (RPE 4), 75s rest\nHanging Knee Raise (on bars)\n• 3 × 8–10 (RPE 4), 60s rest',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYWxpc3RoZW5pY3N8ZW58MXx8fHwxVzU2aWNnNMzIyM3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Stable support positions teach shoulder packing.',
@@ -561,7 +561,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Dip Lines',
           duration: '22–28 min',
-          description: 'Moderate dip volume strengthens chest and triceps.',
+          description: 'Dips banded, bar rows, knee raise strict to finish.',
           battlePlan: 'Band-Assisted Dips\n• 4 × 6–8 (RPE 5), 90s rest\nParallel Bar Inverted Row (feet flat)\n• 4 × 8–10 (RPE 5), 75s rest\nParallel Bar Knee Raise\n• 3 × 10–12 (RPE 5), 60s rest',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYWxpc3RoZW5pY3N8ZW58MXx8fHwxVzU2aWNnNMzIyM3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Moderate dip volume strengthens chest and triceps.',
@@ -581,7 +581,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Support Strength',
           duration: '22–28 min',
-          description: 'Isometrics add control for safer pressing patterns.',
+          description: 'Support holds, tempo dips, dead bugs for brace.',
           battlePlan: 'Parallel Bar Support Hold\n• 4 × 25–35s (RPE 5), 60–75s rest\nTempo Dips (3s down) with Band\n• 4 × 5–7 (RPE 5–6), 90s rest\nDead Bug\n• 3 × 12–14/side (RPE 5), 60s rest',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYWxpc3RoZW5pY3N8ZW58MXx8fHwxVzU2aWNnNMzIyM3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Isometrics add control for safer pressing patterns.',
@@ -601,7 +601,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Mixed Angle',
           duration: '22–28 min',
-          description: 'Pair rows with dips for balanced push–pull control.',
+          description: 'Pronated bar rows, dips, knee tucks controlled.',
           battlePlan: 'Parallel Bar Row (pronated, feet bent)\n• 4 × 8–10 (RPE 5), 75s rest\nBand-Assisted Dips\n• 4 × 6–8 (RPE 5–6), 90s rest\nParallel Bar Knee Tucks\n• 3 × 10–12 (RPE 5), 60s rest',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYWxpc3RoZW5pY3N8ZW58MXx8fHwxVzU2aWNnNMzIyM3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Pair rows with dips for balanced push–pull control.',
@@ -623,7 +623,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Strict Dips',
           duration: '26–34 min',
-          description: 'Bodyweight dips build pressing power and stability.',
+          description: 'Strict dips, feet-elevated rows, L-sit tuck holds.',
           battlePlan: 'Strict Parallel Bar Dips\n• 5 × 5–7 (RPE 6), 90s rest\nFeet-Elevated Parallel Bar Row\n• 4 × 8–10 (RPE 6), 75s rest\nParallel Bar Tuck L-Sit Hold\n• 4 × 10–15s (RPE 6), 60–75s rest',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYWxpc3RoZW5pY3N8ZW58MXx8fHwxVzU2aWNnNMzIyM3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Bodyweight dips build pressing power and stability.',
@@ -643,7 +643,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Eccentric Power',
           duration: '26–34 min',
-          description: 'Weighted eccentrics increase force in safe ranges.',
+          description: 'Dip negatives weighted, hard rows, strict knee raises.',
           battlePlan: 'Weighted Eccentric Dip\n• 5 × 2–3 (RPE 6–7), 120s rest\nParallel Bar Row (feet extended)\n• 4 × 8–10 (RPE 6), 75s rest\nParallel Bar Knee Raise\n• 4 × 10–12 (RPE 6), 60–75s rest',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYWxpc3RoZW5pY3N8ZW58MXx8fHwxVzU2aWNnNMzIyM3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Weighted eccentrics increase force in safe ranges.',
@@ -663,7 +663,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Midrange Control',
           duration: '26–34 min',
-          description: '1.5 dip reps increase time under tension efficiently.',
+          description: 'Dip 1.5s, chest-to-bar rows, tuck L-sit holds.',
           battlePlan: 'Dips (1.5 reps: half up, down, full press)\n• 4 × 4–6 (RPE 6), 120s rest\nChest-to-Bar Parallel Bar Row\n• 4 × 8–10 (RPE 6), 75s rest\nTuck L-Sit Hold\n• 4 × 12–18s (RPE 6), 60–75s rest',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYWxpc3RoZW5pY3N8ZW58MXx8fHwxVzU2aWNnNMzIyM3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: '1.5 dip reps increase time under tension efficiently.',
