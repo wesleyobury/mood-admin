@@ -847,7 +847,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
           duration: '12 min',
           description: 'Easy stepping intervals with 30s moderate\nand fast bursts. 4 complete rounds.\n ',
           battlePlan: '• 1 min easy\n• 30 sec moderate\n• 1 min easy\n• 30 sec fast\n• repeat 4x',
-          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxzdGFpcm1hc3RlciUyMHdvcmtvdXR8ZW58MXx8fHwxNzU2ODgzNjUyfDA&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-app-ui/artifacts/clikf991_download.png',
           intensityReason: 'Gentle step intervals help beginners build leg strength.',
           moodTips: [
             {
