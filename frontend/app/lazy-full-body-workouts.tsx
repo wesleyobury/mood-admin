@@ -1148,7 +1148,7 @@ const styles = StyleSheet.create({
     height: 381,
   },
   workoutSlide: {
-    paddingHorizontal: 20,
+    paddingHorizontal: 15,
     paddingTop: 12,
     paddingBottom: 4,
   },
