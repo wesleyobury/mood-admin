@@ -342,7 +342,7 @@ export const lightWeightsDatabase: EquipmentWorkouts[] = [
           duration: '28–30 min',
           description: 'Four rounds of fives across six classic barbell patterns.',
           battlePlan: 'Perform 4 rounds (no rest between moves):\n• 5 Deadlifts\n• 5 Hang Power Cleans\n• 5 Front Squats\n• 5 Push Presses\n• 5 Back Squats\n• 5 Bent-Over Rows\n• Rest 1 min',
-          imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-pics/artifacts/aw3s2ke8_download%20%281%29.png',
           intensityReason: 'Full‑chain complex sustains output with minimal rest.',
           moodTips: [
             {
