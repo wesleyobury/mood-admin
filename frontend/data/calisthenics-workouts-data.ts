@@ -557,7 +557,7 @@ export const additionalWorkoutDatabase = [
         {
           name: 'Midrange Control',
           duration: '16–22 min',
-          description: 'Wheel 1.5s, diagonal rolls light, side planks.',
+          description: 'Wheel outs with 1.5 reps, diagonal rolls light, side planks for core development.',
           battlePlan: 'Kneeling Ab Wheel (1.5 reps)\n• 4 × 5–6 (RPE 6), 90s rest\nKneeling Diagonal Rolls (short)\n• 3 × 5–6/side (RPE 6), 90s rest\nSide Plank\n• 3 × 30–40s/side (RPE 6), 60s rest',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYWxpc3RoZW5pY3N8ZW58MXx8fHwxVzU2aWNnNMzIyM3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: '1.5 wheel reps add bracing time at safe midrange.',
