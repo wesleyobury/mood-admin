@@ -513,7 +513,7 @@ const absWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Hits lower abs and sides in one combined superset.\n ',
           battlePlan: '3 rounds\n• 8 per side Knee Raise Twist\nRest 90s',
-          imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_sweat-weights-images/artifacts/gtb4564s_download%20%284%29.png',
           intensityReason: 'Twist adds oblique rotation into lower ab raises',
           moodTips: [
             {
