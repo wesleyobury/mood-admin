@@ -687,7 +687,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
           duration: '20 min',
           description: 'Every minute on the minute sprints\nwith variable recovery time.\n ',
           battlePlan: '• Every minute: 20 sec sprint\n• 40 sec moderate\n• repeat for 20 min',
-          imageUrl: 'https://images.pexels.com/photos/2774172/pexels-photo-2774172.jpeg',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-app-ui/artifacts/eusce64e_download%20%283%29.png',
           intensityReason: 'Extended EMOM format tests advanced endurance.',
           moodTips: [
             {
