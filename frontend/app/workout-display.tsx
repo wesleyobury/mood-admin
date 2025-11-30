@@ -159,7 +159,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
           duration: '35 min',
           description: 'Sustained tempo running with hill\nsprints and incline walks for recovery.\n ',
           battlePlan: '• 5 min warm-up (jog)\n• 10 min tempo run (7.0 mph, incline 2%)\n• 5 x 1 min hill sprints (8.0 mph, incline 6%, 1 min walk between)\n• 5 min cool-down',
-          imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MTc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-app-ui/artifacts/urpigixq_download%20%283%29.png',
           intensityReason: 'Tempo runs plus hill sprints demand advanced fitness.',
           moodTips: [
             {
