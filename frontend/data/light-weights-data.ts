@@ -870,7 +870,7 @@ export const lightWeightsDatabase: EquipmentWorkouts[] = [
           duration: '20 min',
           description: 'Ten rounds: 10 m sprint push, walk back recovery pacing.',
           battlePlan: 'Perform 10 rounds:\n• 10 m Sprint Push\n• Walk back slow (rest)',
-          imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-pics/artifacts/k6ha38p9_download%20%281%29.png',
           intensityReason: 'Short sprint pushes spike power with full walkback rest.',
           moodTips: [
             {
