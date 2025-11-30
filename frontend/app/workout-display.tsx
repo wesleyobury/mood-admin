@@ -291,7 +291,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
           duration: '35 min',
           description: 'Long ride with varied intensities tests endurance.\n ',
           battlePlan: '• 5 min easy\n• 10 min moderate (resistance 6)\n• 5 min hard (resistance 8)\n• 5 min reverse (resistance 5)\n• 5 min fast (resistance 4, RPM 75+)\n• 5 min cool-down',
-          imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MTc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-app-ui/artifacts/0knopdsq_download%20%283%29.png',
           intensityReason: 'Long duration with varied intensities tests endurance.',
           moodTips: [
             {
