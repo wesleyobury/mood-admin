@@ -271,7 +271,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
           duration: '24 min',
           description: 'Tabata protocol with 20s max effort\nand 10s recovery. 3 complete cycles.\n ',
           battlePlan: '• 8 rounds: 20 sec max effort (resistance 8)\n• 10 sec easy (resistance 3)\n• 2 min recovery\n• repeat for 3 cycles',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-app-ui/artifacts/iu82mwqk_download%20%282%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-app-ui/artifacts/ylgyqtdj_download%20%282%29.png',
           intensityReason: 'Tabata protocol demands max effort and VO2 limits.',
           moodTips: [
             {
