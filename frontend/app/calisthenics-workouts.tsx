@@ -137,7 +137,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Body Lines',
           duration: '22–28 min',
-          description: 'Split squats, pushups, hip lifts, hollow rocks.',
+          description: 'Split squats, pushups, hip lifts, hollow rocks for bodyweight challenge.',
           battlePlan: 'Rear-Foot Flat Split Squat\n• 4 × 8/side (RPE 5), 60–75s rest\nPushup (standard)\n• 4 × 8–12 (RPE 5), 60–75s rest\nGlute Bridge\n• 3 × 12–15 (RPE 5), 60s rest\nHollow Rock\n• 3 × 10–15 (RPE 5), 45–60s rest',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYWxpc3RoZW5pY3N8ZW58MXx8fHwxVzU2aWNnNMzIyM3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Moderate volume builds strength with steady control.',
