@@ -715,7 +715,7 @@ const absWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '8–10 min',
           description: 'Beginner crunch builds control with small resistance.\n ',
           battlePlan: '3 rounds\n• 12 MB Crunches\nRest 60s',
-          imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8MVc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-pics/artifacts/cu85n2we_download%20%281%29.png',
           intensityReason: 'Light ball adds gentle overload to crunch pattern',
           moodTips: [
             {
