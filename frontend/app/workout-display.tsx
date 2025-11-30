@@ -979,7 +979,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
           duration: '12 min',
           description: 'Easy skiing intervals with 30s moderate\nand fast bursts. 4 complete rounds.\n ',
           battlePlan: '• 1 min easy\n• 30 sec moderate\n• 1 min easy\n• 30 sec fast\n• repeat 4x',
-          imageUrl: 'https://images.unsplash.com/photo-1551716652-ddc80b66aaae?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxza2klMjBtYWNoaW5lJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODM2NTJ8MA&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-app-ui/artifacts/lv55gxbj_download.png',
           intensityReason: 'Short intervals help beginners learn ski machine technique.',
           moodTips: [
             {
