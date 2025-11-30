@@ -535,7 +535,7 @@ const absWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Dumbbell held securely between feet amplifies difficulty and muscle activation..\n ',
           battlePlan: '3 rounds\n• 8–10 Weighted Leg Raises\nRest 90s',
-          imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmc&ZW54MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_sweat-weights-images/artifacts/0ga9gll0_download%20%285%29.png',
           intensityReason: 'Extra load maximizes ab contraction from raises',
           moodTips: [
             {
