@@ -867,7 +867,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
           duration: '15 min',
           description: 'Steady pace with double-step intervals\nfor variety and challenge. 3 rounds total.\n ',
           battlePlan: '• 2 min steady\n• 1 min double step (skip a step)\n• 2 min slow\n• repeat 3x',
-          imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-app-ui/artifacts/yjdyjdsw_sm.avif',
           intensityReason: 'Varied stepping patterns introduce different movements.',
           moodTips: [
             {
