@@ -187,7 +187,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
           duration: '18 min',
           description: 'Resistance intervals from easy to moderate\nwith 4 rounds of progressive intensity.\n ',
           battlePlan: '• 3 min easy (resistance 3)\n• 2 min moderate (resistance 6)\n• 1 min fast (resistance 4)\n• repeat 4x\n• finish with 3 min easy (resistance 2)',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-app-ui/artifacts/iu82mwqk_download%20%282%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-app-ui/artifacts/ylgyqtdj_download%20%282%29.png',
           intensityReason: 'Low-impact with gentle resistance, ideal for cardio.',
           moodTips: [
             {
