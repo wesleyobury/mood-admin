@@ -433,7 +433,7 @@ export const additionalWorkoutDatabase = [
         {
           name: 'Range Build',
           duration: '12–16 min',
-          description: 'Kneeling rolls mid-range, side planks stability.',
+          description: 'Kneeling rolls mid-range, side planks for stability development.',
           battlePlan: 'Kneeling Ab Wheel (moderate ROM)\n• 3 × 6–8 (RPE 4), 75s rest\nSide Plank\n• 3 × 20–30s/side (RPE 4), 45–60s rest\nFront Plank\n• 3 × 20–30s (RPE 4), 45–60s rest',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYWxpc3RoZW5pY3N8ZW58MXx8fHwxVzU2aWNnNMzIyM3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Gradual ROM progression increases tension safely.',
