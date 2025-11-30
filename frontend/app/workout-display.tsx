@@ -451,7 +451,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
           duration: '20 min',
           description: 'Easy to moderate resistance intervals\nwith 4 rounds of progressive intensity.\n ',
           battlePlan: '• 3 min easy (resistance 2)\n• 2 min moderate (resistance 5)\n• 1 min fast (resistance 3)\n• repeat 4x',
-          imageUrl: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxzdGF0aW9uYXJ5JTIwYmlrZSUyMHdvcmtvdXR8ZW58MXx8fHwxNzU2ODgzNjUyfDA&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-app-ui/artifacts/fbe3z3jx_download%20%281%29.png',
           intensityReason: 'Gentle resistance builds leg strength and cardio base.',
           moodTips: [
             {
