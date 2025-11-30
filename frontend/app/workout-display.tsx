@@ -1395,7 +1395,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
           duration: '12 min',
           description: 'Progressive pace climbing from slow\nto fast with recovery periods. 3 rounds.\n ',
           battlePlan: '• 30 sec slow\n• 30 sec moderate\n• 30 sec fast\n• 30 sec rest\n• repeat 3x',
-          imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-app-ui/artifacts/w3vrqrj0_download%20%281%29.png',
           intensityReason: 'Varied pace introduces different climbing intensities.',
           moodTips: [
             {
