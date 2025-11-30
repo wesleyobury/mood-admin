@@ -339,7 +339,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
           duration: '15 min',
           description: 'Upper body intervals with forward and\nreverse cycling patterns. 3 complete rounds.\n ',
           battlePlan: '• 1 min easy\n• 1 min moderate\n• 30 sec fast\n• 1 min easy\n• 1 min reverse\n• repeat 3x',
-          imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-app-ui/artifacts/2szzkktw_download.png',
           intensityReason: 'Basic intervals with reverse motion for safe cardio.',
           moodTips: [
             {
