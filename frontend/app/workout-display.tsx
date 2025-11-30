@@ -1263,7 +1263,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
           duration: '12 min',
           description: 'Light punching combined with footwork\nand movement around the bag. 4 rounds.\n ',
           battlePlan: '• 30 sec light punches\n• 30 sec footwork (move around bag)\n• 30 sec rest\n• repeat 4x',
-          imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-app-ui/artifacts/gbeea240_download%20%281%29%20copy%203.png',
           intensityReason: 'Punching with movement introduces beginners to boxing cardio.',
           moodTips: [
             {
