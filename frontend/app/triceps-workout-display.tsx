@@ -403,7 +403,7 @@ const tricepsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Combo adds angles for complete triceps overload',
           battlePlan: '4 rounds\n• 8 Flat EZ Extensions\n• 8 Incline EZ Extensions\nRest 90s',
-          imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmc&ZW54MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_inspiring-euler/artifacts/ri9qkrqs_download%20%283%29.png',
           intensityReason: 'Pair flat extension with incline for volume boost',
           moodTips: [
             {
