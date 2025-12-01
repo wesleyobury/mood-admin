@@ -645,7 +645,7 @@ const absWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Twisting sit up enhances rotational ab engagement.\n ',
           battlePlan: '3 rounds\n• 8 per side Twisting Sit Ups\nRest 90s',
-          imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_sweat-weights-images/artifacts/geuifix4_download%20%288%29.png',
           intensityReason: 'Rotating adds dynamic work for obliques strongly',
           moodTips: [
             {
