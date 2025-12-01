@@ -250,7 +250,7 @@ const bicepsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Controlled lowering builds growth development fast',
           battlePlan: '3 rounds\n• 8 EZ Bar Curls (3s eccentric)\nRest 90s',
-          imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_de06d55d-ac38-4152-bbf5-479c53d1fb22/artifacts/baaichm8_download%20%283%29.png',
           intensityReason: 'Three second eccentric exaggerates curl tension',
           moodTips: [
             {
