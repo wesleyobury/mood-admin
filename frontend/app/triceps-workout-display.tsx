@@ -687,7 +687,7 @@ const tricepsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '16–18 min',
           description: 'Overhead 21 style burns fibers through completion',
           battlePlan: '3 rounds\n• 7 Bottom Half Reps\n• 7 Top Half Reps\n• 7 Full Range Reps\nRest 90s',
-          imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_inspiring-euler/artifacts/a7rg87q3_download%20%281%29.png',
           intensityReason: 'Seven seven seven partials overload triceps range',
           moodTips: [
             {
