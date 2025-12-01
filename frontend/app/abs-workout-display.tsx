@@ -603,7 +603,7 @@ const absWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '8–10 min',
           description: 'Controlled entry drill targets upper ab connection.\n ',
           battlePlan: '3 rounds\n• 10–12 Supported Crunches\nRest 60s',
-          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_sweat-weights-images/artifacts/geuifix4_download%20%288%29.png',
           intensityReason: 'Small crunch on bench works abs beginner safe',
           moodTips: [
             {
