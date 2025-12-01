@@ -139,7 +139,7 @@ const tricepsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Two extension positions maximize complete training',
           battlePlan: '4 rounds\n• 8 Flat DB Extensions\nRest 60s\n• 8 Incline Skull Crushers\nRest 75–90s',
-          imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmc&ZW54MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_inspiring-euler/artifacts/yyzj0dlo_download%20%281%29.png',
           intensityReason: 'Flat and incline superset hits triceps from angles',
           moodTips: [
             {
