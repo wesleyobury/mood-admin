@@ -117,7 +117,7 @@ const tricepsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Incline position plus pause extends hypertrophy work',
           battlePlan: '3 rounds\n• 8–10 Incline Skull Crushers w/2s Pause\nRest 75–90s',
-          imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_inspiring-euler/artifacts/5cjqt0fg_download.png',
           intensityReason: 'Skull crushers with pause build stronger end range',
           moodTips: [
             {
