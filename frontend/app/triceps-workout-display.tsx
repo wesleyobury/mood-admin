@@ -159,7 +159,7 @@ const tricepsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '16–18 min',
           description: 'Incline curl then isometric hold finishes triceps hard',
           battlePlan: '4 rounds\n• 8 Incline Overhead Extensions (3s eccentric)\n• 8 Incline Skull Crushers\n• End with 10s Hold Mid Rep\nRest 90s',
-          imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_inspiring-euler/artifacts/5cjqt0fg_download.png',
           intensityReason: 'Superset with eccentric and iso hold maximizes load',
           moodTips: [
             {
