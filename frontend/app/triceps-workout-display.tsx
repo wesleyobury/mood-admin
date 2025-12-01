@@ -381,7 +381,7 @@ const tricepsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Negatives extend overall time under triceps tension',
           battlePlan: '3 rounds\n• 8 EZ Skull Crushers (3s eccentric)\nRest 75–90s',
-          imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_inspiring-euler/artifacts/pa8x192c_download%20%282%29.png',
           intensityReason: '3s lower phase increases hypertrophy precision',
           moodTips: [
             {
