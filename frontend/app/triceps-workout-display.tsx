@@ -777,7 +777,7 @@ const tricepsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Controlled negatives drive growth stimulation',
           battlePlan: '3 rounds\n• 8 Negative Machine Pushdowns\nRest 75–90s',
-          imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_inspiring-euler/artifacts/yfoavc6k_download%20%282%29.png',
           intensityReason: 'Slow 3s return emphasizes eccentric overload',
           moodTips: [
             {
