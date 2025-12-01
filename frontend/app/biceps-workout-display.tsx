@@ -646,7 +646,7 @@ const bicepsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Negative machine curls deepen hypertrophy drive',
           battlePlan: '3 rounds\n• 8 Curls (3s eccentric lowering)\nRest 75–90s',
-          imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_de06d55d-ac38-4152-bbf5-479c53d1fb22/artifacts/h9obln9e_download%20%282%29.png',
           intensityReason: 'Slower eccentric motion builds harder tension',
           moodTips: [
             {
