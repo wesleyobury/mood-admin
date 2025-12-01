@@ -1063,7 +1063,7 @@ const tricepsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Superset TRX pushes and overheads overload fibers',
           battlePlan: '4 rounds\n• 8 TRX Overhead Extensions\n• 8 TRX Pushdowns\nRest 90s',
-          imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmc&ZW44MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_inspiring-euler/artifacts/8ci4ug40_trx_kneeling_tricep_extensions.jpg',
           intensityReason: 'Overhead plus pushdown adds training variety',
           moodTips: [
             {
