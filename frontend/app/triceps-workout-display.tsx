@@ -249,7 +249,7 @@ const tricepsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Incline crusher with pause stresses long head more',
           battlePlan: '3 rounds\n• 8–10 Incline KB Skull Crushers (2s pause)\nRest 75–90s',
-          imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_inspiring-euler/artifacts/uwwxoov7_download%20%284%29.png',
           intensityReason: 'Pausing at stretch prolongs muscular demand',
           moodTips: [
             {
