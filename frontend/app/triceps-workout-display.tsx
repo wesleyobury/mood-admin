@@ -1041,7 +1041,7 @@ const tricepsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Controlled negatives raise extension efficiency',
           battlePlan: '3 rounds\n• 8 TRX Extensions (3s eccentric)\nRest 75–90s',
-          imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_inspiring-euler/artifacts/e9mzj704_download%20%284%29.png',
           intensityReason: '3s eccentric phases enhance hypertrophy tension',
           moodTips: [
             {
