@@ -452,7 +452,7 @@ const bicepsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Guided preacher curls isolate and strengthen arms',
           battlePlan: '3 rounds\n• 10–12 Preacher Curls\nRest 60s',
-          imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8MVc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_de06d55d-ac38-4152-bbf5-479c53d1fb22/artifacts/rmfkhn59_download%20%286%29.png',
           intensityReason: 'Arm pad stabilizes curl motion and builds control',
           moodTips: [
             {
