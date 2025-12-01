@@ -688,7 +688,7 @@ const bicepsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '16–18 min',
           description: 'Iso holds at midpoint greatly exhaust the biceps',
           battlePlan: '4 rounds\n• 8 Machine Curls\n• End with 10s Mid Curl Hold\nRest 90s',
-          imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_de06d55d-ac38-4152-bbf5-479c53d1fb22/artifacts/h9obln9e_download%20%282%29.png',
           intensityReason: 'Static holds boost stimulus beyond normal sets',
           moodTips: [
             {
