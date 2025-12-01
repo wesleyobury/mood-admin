@@ -909,7 +909,7 @@ const tricepsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Dip negatives accelerate strength and growth gains',
           battlePlan: '3 rounds\n• 6 Negative Dips (3s descent)\nRest 75–90s',
-          imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_inspiring-euler/artifacts/74stkm4f_download%20%283%29.png',
           intensityReason: '3s controlled descent creates heavy eccentric load',
           moodTips: [
             {
