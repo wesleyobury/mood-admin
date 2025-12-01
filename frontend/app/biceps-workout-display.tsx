@@ -604,7 +604,7 @@ const bicepsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Isometric hold improves mind muscle link early',
           battlePlan: '3 rounds\n• 10 Machine Curls (2s pause top)\nRest 75s',
-          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_de06d55d-ac38-4152-bbf5-479c53d1fb22/artifacts/h9obln9e_download%20%282%29.png',
           intensityReason: 'Peak pause builds muscle contraction strength',
           moodTips: [
             {
