@@ -2591,7 +2591,7 @@ const compoundWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '16–18 min',
           description: 'Replicates barbell front squat with cable constant tension loading.',
           battlePlan: '4 rounds\n• 6-8 heavy cable front squats\nRest 90s',
-          imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmc&ZW54MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/upig32a1_download%20%284%29.png',
           intensityReason: 'Heavy stack front squat overloads safe quads.',
           moodTips: [
             {
