@@ -911,7 +911,7 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–15 min',
           description: 'Landmine shoulder complex combining multiple movement patterns. ',
           battlePlan: '3 rounds:• 6 landmine clean and press• 8 landmine halos• 10 landmine rotationsRest 90s',
-          imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/d7twwdls_lp.webp',
           intensityReason: 'Dynamic landmine complex for functional strength.',
           moodTips: [
             {
