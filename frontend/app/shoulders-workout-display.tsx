@@ -249,7 +249,7 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–15 min',
           description: 'Barbell shoulder circuit with minimal rest for conditioning and strength. ',
           battlePlan: '3 rounds:• 10 barbell press• 15 upright rows• 12 high pullsRest 90s',
-          imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/mgsrjngk_download%20%285%29.png',
           intensityReason: 'High-volume barbell circuit for intermediate conditioning.',
           moodTips: [
             {
