@@ -403,7 +403,7 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '18–22 min',
           description: 'Heavy kettlebell complex for advancedshoulder strength and power development. ',
           battlePlan: '4 rounds:• 5 heavy double KB press• 6 single arm jerks (each)• 8 bottoms up press (each)• 10 windmills (each)Rest 2 min',
-          imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmc&ZW54MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/nakwt6cs_download%20%281%29.png',
           intensityReason: 'Advanced kettlebell complex for maximum shoulder development.',
           moodTips: [
             {
