@@ -667,7 +667,7 @@ const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Wide grip rows with static squeeze finish to bring muscles to full fatigue',
           battlePlan: '4 rounds\n• 8 Wide Grip T-Bar Row\nEnd each set with 10s static hold at full contraction\nRest 90–120s after set',
-          imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_0b65e409-b210-4730-af62-16b022c37685/artifacts/figwdo7y_download%20%2817%29.png',
           intensityReason: 'Isometric holds create intense contraction stress',
           moodTips: [
             {
