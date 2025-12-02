@@ -647,7 +647,7 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–15 min',
           description: 'Rear delt pre-exhaustion with compound movements for balance. ',
           battlePlan: '3 rounds:• 15 rear delt fly• 10 reverse fly (immediately after)• 8 face pullsRest 90s',
-          imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/tav7fwye_rear-delt-fly-machine.gif',
           intensityReason: 'Pre-exhaustion protocol for posterior deltoid development.',
           moodTips: [
             {
