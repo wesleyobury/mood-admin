@@ -291,7 +291,7 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '16–20 min',
           description: 'Heavy-to-light incline presses for maximum fatigue and hypertrophy.',
           battlePlan: '2 rounds:\n• 10 heavy incline press\n• Drop → 10 moderate\n• Drop → 10 light\nRest 90–120s',
-          imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/lnd9yph3_ibp.webp',
           intensityReason: 'High-intensity incline drop sets for advanced hypertrophy.',
           moodTips: [
             {
