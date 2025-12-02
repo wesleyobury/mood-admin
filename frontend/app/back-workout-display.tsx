@@ -159,7 +159,7 @@ const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '18–20 min',
           description: 'Rows plus Y/T raises for balanced shoulder growth',
           battlePlan: '4 rounds\n• 8 Chest-Supported Row\n• 8 Incline Prone Y-Raise\n• 8 Incline Prone T-Raise\nRest 90–120s after sequence',
-          imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8TVc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_0b65e409-b210-4730-af62-16b022c37685/artifacts/e00z2xt6_download%20%281%29.png',
           intensityReason: 'Multi-angle raises + row overload scapular support',
           moodTips: [
             {
