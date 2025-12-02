@@ -1131,7 +1131,7 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Dips and push-ups paired for chest pump endurance.',
           battlePlan: '3 rounds:\n• 6 assisted dips\n• 8 bench dips\n• 10 push-ups\nRest 60–75s',
-          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/i8tbsgyh_download%20%284%29.png',
           intensityReason: 'Progressive dip training with complementary movements.',
           moodTips: [
             {
