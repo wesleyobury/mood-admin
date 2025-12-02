@@ -717,7 +717,7 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Cable shoulder foundation with lateral raises and face pulls. ',
           battlePlan: '3 rounds:• 10 cable lateral raise• 8 cable face pulls• 6 cable front raiseRest 60–75s',
-          imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHc5fHxyaW5nfGVufDB8fHx8MVc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/jzmrn7li_download%20%2811%29.png',
           intensityReason: 'Perfect introduction to cable shoulder training.',
           moodTips: [
             {
