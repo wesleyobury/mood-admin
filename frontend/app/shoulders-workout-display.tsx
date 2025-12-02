@@ -585,7 +585,7 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Machine rear delt flys and reverse flys for posterior chain activation. ',
           battlePlan: '3 rounds:• 12 rear delt fly• 10 reverse fly (chest supported)Rest 60s',
-          imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHc5fHxyaW5nfGVufDB8fHx8MVc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/jmracrsi_focused-rear-delt-fly-machine-260nw-2619940467.webp',
           intensityReason: 'Perfect introduction to machine rear delt training.',
           moodTips: [
             {
