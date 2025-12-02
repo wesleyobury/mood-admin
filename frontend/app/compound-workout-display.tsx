@@ -381,7 +381,7 @@ const glutesWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Strict tempo isolates stronger contraction at end',
           battlePlan: '3 rounds\n• 8 per leg Pause Kickbacks\nRest 90s',
-          imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/k5zii6kf_download%20%288%29.png',
           intensityReason: 'Added pause loads glute contraction maximally',
           moodTips: [
             {
