@@ -1155,7 +1155,7 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '15–18 min',
           description: 'Intermediate machine training with varied rep ranges and intensities. ',
           battlePlan: '4 rounds:• 8 machine press• 10 single-arm alternating• 12 high rep burnsRest 90s',
-          imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/4tfizieb_download%20%288%29.png',
           intensityReason: 'Intermediate machine training for strength and endurance.',
           moodTips: [
             {
