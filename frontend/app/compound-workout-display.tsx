@@ -1919,7 +1919,7 @@ const compoundWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Simple squat variation teaches control and balance with front load support.',
           battlePlan: '3 rounds\n• 10-12 goblet squats\nRest 75s',
-          imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8TVc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/elc9qz74_download%20%2813%29.png',
           intensityReason: 'Front load squat builds posture and safe depth.',
           moodTips: [
             {
