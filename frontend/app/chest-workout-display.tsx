@@ -55,7 +55,7 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Push-ups and dips using the bench to build beginner chest strength and control.',
           battlePlan: '3 rounds:\n• 10 push-ups (hands on bench)\n• 10 bench dips\nRest 60s',
-          imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8MTc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/hs5s9gux_download%20%286%29.png',
           intensityReason: 'Perfect bench-assisted introduction to chest and tricep strength.',
           moodTips: [
             {
