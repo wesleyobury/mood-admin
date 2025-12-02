@@ -361,7 +361,7 @@ const glutesWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Progressive overload builds strength at extension',
           battlePlan: '4 rounds\n• 8–10 Heavy Kickbacks per leg\nRest 90s',
-          imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/u602jvhu_download%20%289%29.png',
           intensityReason: 'Increased load pushes hypertrophy for glutes',
           moodTips: [
             {
