@@ -493,7 +493,7 @@ const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Weighted extensions and basic hyperextensions for mass',
           battlePlan: '4 rounds\n• 10 Weighted Back Extensions\nRest 75s after set\n• 10 Roman Chair Hyperextensions\nRest 75s after set',
-          imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_0b65e409-b210-4730-af62-16b022c37685/artifacts/8tyq8yxs_download%20%2810%29.png',
           intensityReason: 'External load strengthens spinal erectors safely',
           moodTips: [
             {
