@@ -249,7 +249,7 @@ const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '16–18 min',
           description: 'Multi-grip rows, shrugs, deads build traps and mid-back.',
           battlePlan: '3 rounds:\n• 8 Bent-Over Row\n• 8 Reverse-Grip Row\n• 8 Barbell Shrugs\n• 8 Deadlift\nRest 90s after finishing the full circuit',
-          imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_0b65e409-b210-4730-af62-16b022c37685/artifacts/64hoj8hu_download%20%283%29.png',
           intensityReason: 'Combo of rows, shrugs, and deads creates dense fatigue.',
           moodTips: [
             {
