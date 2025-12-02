@@ -423,7 +423,7 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '16–20 min',
           description: 'High-intensity kettlebell power complex for explosive shoulder development. ',
           battlePlan: '3 rounds:• 4 double KB clean and press• 5 single arm snatches (each)• 6 double KB swings• 8 Turkish get-up (partial)Rest 2–3 min',
-          imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/8p6cuez9_download.png',
           intensityReason: 'Maximum intensity kettlebell training for advanced athletes.',
           moodTips: [
             {
