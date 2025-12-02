@@ -1111,7 +1111,7 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Assisted dips and bench dips for beginner chest activation.',
           battlePlan: '3 rounds:\n• 8 assisted dips (use band or machine)\n• 10 bench dips\nRest 60s',
-          imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8MVc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/sudzdwsx_download%20%283%29.png',
           intensityReason: 'Perfect introduction to dip movements with assistance.',
           moodTips: [
             {
