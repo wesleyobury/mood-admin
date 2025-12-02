@@ -2243,7 +2243,7 @@ const compoundWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Basic press builds safety, posture, and control with machine support.',
           battlePlan: '3 rounds\n• 10-12 neutral leg press\nRest 75s',
-          imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8TVc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/l1ouzm6t_download%20%281%29.png',
           intensityReason: 'Teaches full ROM with stable machine support.',
           moodTips: [
             {
