@@ -889,7 +889,7 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '16–18 min',
           description: 'Heavy-to-light pec deck flys for stretch and squeeze combo.',
           battlePlan: '4 rounds:\n• 12 light pec dec\n• 10 moderate pec dec\n• 8 heavy pec dec\nRest 75s',
-          imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/rf17lbcl_pmd2.jpg',
           intensityReason: 'Progressive loading across different rep ranges.',
           moodTips: [
             {
