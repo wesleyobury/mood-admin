@@ -249,7 +249,7 @@ const glutesWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Unilateral load prevents imbalance and aids stability',
           battlePlan: '3 rounds\n• 8–10 per leg Single‑Leg Hip Thrusts\nRest 90s',
-          imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/roi44n5q_download%20%2810%29.png',
           intensityReason: 'One‑leg thrust isolates glutes for stronger balance',
           moodTips: [
             {
