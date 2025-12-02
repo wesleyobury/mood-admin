@@ -759,7 +759,7 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Multi-angle cable training hitting all deltoid heads systematically. ',
           battlePlan: '3 rounds:• 8 high cable raise• 8 mid cable raise• 8 low cable raise• 10 cable upright rowRest 90s',
-          imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/jzmrn7li_download%20%2811%29.png',
           intensityReason: 'Comprehensive cable training targeting all shoulder angles.',
           moodTips: [
             {
