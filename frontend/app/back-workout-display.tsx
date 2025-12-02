@@ -1285,7 +1285,7 @@ const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Alternating grip for balanced strength development',
           battlePlan: '4 rounds\n• 6 Mixed Grip Pull-Ups (swap grip each set)\nRest 75–90s after set',
-          imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_0b65e409-b210-4730-af62-16b022c37685/artifacts/knkswnzw_download%20%284%29.png',
           intensityReason: 'Mixed grip helps overcome sticking points, building unilateral strength',
           moodTips: [
             {
