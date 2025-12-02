@@ -1133,7 +1133,7 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Basic machine pressing with form focus and progression. ',
           battlePlan: '3 rounds:• 10 machine press• 8 partial reps (top half)• 6 slow negativesRest 75s',
-          imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8TVc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/0sr4xno3_download%20%284%29.png',
           intensityReason: 'Form-focused machine training for proper technique.',
           moodTips: [
             {
