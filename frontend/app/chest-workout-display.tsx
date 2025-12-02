@@ -1041,7 +1041,7 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Press, fly, and single-arm fly sequence for hypertrophy density.',
           battlePlan: '3 rounds:\n• 8 explosive cable press\n• 10 single-arm cable fly\n• 8 cable punches\nRest 90s',
-          imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/cvzywaoh_download%20%281%29.png',
           intensityReason: 'Power-focused cable training with explosive movements.',
           moodTips: [
             {
