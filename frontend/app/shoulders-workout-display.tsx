@@ -801,7 +801,7 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '15–18 min',
           description: 'Advanced cable complex with drop sets for maximum development. ',
           battlePlan: '3 rounds:• 8 heavy cable press• Drop → 10 moderate• Drop → 12 light• 8 cable face pullsRest 90–120s',
-          imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmc&ZW44MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/jzmrn7li_download%20%2811%29.png',
           intensityReason: 'Advanced drop set training with constant cable tension.',
           moodTips: [
             {
