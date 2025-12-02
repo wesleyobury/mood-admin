@@ -909,7 +909,7 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–15 min',
           description: 'Wide-to-close grip fly ladder for full fiber recruitment.',
           battlePlan: '3 rounds:\n• 12 pec dec fly\n• 8 chest press (immediately after)\n• 10 push-ups\nRest 90s',
-          imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/5hd3my3c_pdm.webp',
           intensityReason: 'Pre-exhaustion protocol using pec dec to fatigue chest.',
           moodTips: [
             {
