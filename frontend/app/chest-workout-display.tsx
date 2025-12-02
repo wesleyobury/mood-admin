@@ -777,7 +777,7 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Wide, neutral, and close grips to target full chest fibers.',
           battlePlan: '3 rounds:\n• 8 heavy chest press\n• 10 single-arm chest press\n• 12 pec deck\nRest 90s',
-          imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/67nyth7l_download%20%282%29.png',
           intensityReason: 'Strength-focused machine training with unilateral work.',
           moodTips: [
             {
