@@ -381,7 +381,7 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–15 min',
           description: 'Flowing kettlebell sequence combining strength and dynamic movements. ',
           battlePlan: '3 rounds:• 6 clean and press (each)• 8 windmills (each)• 10 high pulls (each)Rest 90s',
-          imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/8p6cuez9_download.png',
           intensityReason: 'Dynamic kettlebell flow for intermediate functional strength.',
           moodTips: [
             {
