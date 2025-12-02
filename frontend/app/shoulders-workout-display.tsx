@@ -117,7 +117,7 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–15 min',
           description: 'High-rep shoulder circuit for endurance and metabolic conditioning. ',
           battlePlan: '3 rounds:• 15 shoulder press• 15 lateral raise• 15 rear delt flyRest 90s',
-          imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/jyl947na_download%20%2810%29.png',
           intensityReason: 'High-volume circuit for intermediate shoulder conditioning.',
           moodTips: [
             {
