@@ -319,7 +319,7 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '15–18 min',
           description: 'Presses at flat, incline, and decline angles for full pec coverage.',
           battlePlan: '3 rounds:\n• 10 flat press\n• 10 incline press\n• 10 decline press (light)\nRest 60–75s',
-          imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8MVc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/avrgfl1y_download%20%2818%29.png',
           intensityReason: 'Perfect multi-angle introduction targeting all pec areas.',
           moodTips: [
             {
