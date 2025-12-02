@@ -1197,7 +1197,7 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '18–22 min',
           description: 'Advanced machine training for maximum shoulder development. ',
           battlePlan: '4 rounds:• 6 max weight press• 8 tempo press (3-1-3)• 10 explosive press• 12 burnout repsRest 3 min',
-          imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmc&ZW54MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/4tfizieb_download%20%288%29.png',
           intensityReason: 'Advanced machine protocol for elite shoulder development.',
           moodTips: [
             {
