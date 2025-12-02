@@ -583,7 +583,7 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Flat and incline Smith presses for guided pressing strength.',
           battlePlan: '3 rounds:\n• 10 Smith bench press\n• 8 Smith incline press\n• 10 push-ups\nRest 60–75s',
-          imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHc5fHxyaW5nfGVufDB8fHx8MVc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/wqpgrlpk_download%20%289%29.png',
           intensityReason: 'Safe introduction to barbell movements with stability.',
           moodTips: [
             {
