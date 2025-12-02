@@ -1243,7 +1243,7 @@ const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Focuses on the neutral grip pull-up with support',
           battlePlan: '3 rounds\n• 5 Neutral Grip Pull-Ups (use band or assisted machine if needed)\nRest 60–75s after set',
-          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_0b65e409-b210-4730-af62-16b022c37685/artifacts/knkswnzw_download%20%284%29.png',
           intensityReason: 'Neutral grip is often easiest, building initial pulling strength',
           moodTips: [
             {
