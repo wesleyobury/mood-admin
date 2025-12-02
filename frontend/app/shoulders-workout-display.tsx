@@ -737,7 +737,7 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Standing cable shoulder flow for stability and coordination. ',
           battlePlan: '3 rounds:• 8 cable shoulder press• 10 single-arm cable raise• 8 cable reverse flyRest 60–75s',
-          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/oau5jji4_download%20%287%29.png',
           intensityReason: 'Functional cable training for shoulder stability.',
           moodTips: [
             {
