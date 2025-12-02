@@ -513,7 +513,7 @@ const glutesWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Asymmetry training balances strength between hips',
           battlePlan: '4 rounds\n• 8–10 per side Abductions\nRest 90s',
-          imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/eqwbozow_Screenshot%202025-12-02%20at%204.48.10%E2%80%AFPM.png',
           intensityReason: 'One‑sided work isolates weaker glute completely',
           moodTips: [
             {
