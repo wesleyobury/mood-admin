@@ -339,7 +339,7 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Gentle kettlebell flow building shoulder mobility and basic strength patterns. ',
           battlePlan: '3 rounds:• 6 around the world (each direction)• 8 overhead carries (20 steps)• 10 arm swingsRest 45s',
-          imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8TVc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/8p6cuez9_download.png',
           intensityReason: 'Mobility-focused kettlebell introduction for shoulder health.',
           moodTips: [
             {
