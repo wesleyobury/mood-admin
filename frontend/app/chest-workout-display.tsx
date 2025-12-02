@@ -1021,7 +1021,7 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'High-to-low, low-to-high, and mid flys to hit pecs at every line.',
           battlePlan: '3 rounds:\n• 8 high cable fly\n• 8 mid cable fly\n• 8 low cable fly\n• 10 cable press\nRest 90s',
-          imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/4tqfn8rc_download.png',
           intensityReason: 'Comprehensive cable training targeting all chest angles.',
           moodTips: [
             {
