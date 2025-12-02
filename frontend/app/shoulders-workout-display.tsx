@@ -1307,7 +1307,7 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–15 min',
           description: 'Smith machine shoulder complex for comprehensive development. ',
           battlePlan: '3 rounds:• 6 smith press• 8 smith behind neck• 10 smith upright rows• 12 smith front raiseRest 90s',
-          imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/civ6xh4i_Smith-Machine-Shoulder-Press.webp',
           intensityReason: 'Comprehensive Smith machine complex for all deltoid heads.',
           moodTips: [
             {
