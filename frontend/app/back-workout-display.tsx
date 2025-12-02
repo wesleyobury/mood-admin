@@ -687,7 +687,7 @@ const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '16–18 min',
           description: 'Wide-to-underhand superset with scap squeezes',
           battlePlan: '4 rounds\n• 8 Wide Grip Row\n• Immediately 8 Underhand Grip Row\n• Finish with 10 Back Squeezes (bodyweight, no load)\nRest 120s after full superset',
-          imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8TVc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_0b65e409-b210-4730-af62-16b022c37685/artifacts/xdrugsxs_tr.jpg',
           intensityReason: 'Pairing grips + post-set contractions maximizes fatigue',
           moodTips: [
             {
