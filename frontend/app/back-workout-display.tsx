@@ -1041,7 +1041,7 @@ const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Controlled reps followed by static contraction',
           battlePlan: '3 rounds\n• 8–10 Pulldown (neutral or wide, consistent grip choice)\nEnd each set with 5s hold at bottom\nRest 90s after set',
-          imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmc&ZW54MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_0b65e409-b210-4730-af62-16b022c37685/artifacts/j967e9c7_download%20%289%29.png',
           intensityReason: 'Isometric hold boosts tension and endurance',
           moodTips: [
             {
