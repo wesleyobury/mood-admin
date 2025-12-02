@@ -667,7 +667,7 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '15–18 min',
           description: 'Pressing complex at multiple angles for sustained chest tension.',
           battlePlan: '3 rounds:\n• 6 heavy Smith bench press\n• Drop → 8 moderate\n• Drop → 10 light\n• 8 Smith incline press\nRest 90–120s',
-          imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmc&ZW54MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/wqpgrlpk_download%20%289%29.png',
           intensityReason: 'Advanced drop set protocol using Smith machine safety.',
           moodTips: [
             {
