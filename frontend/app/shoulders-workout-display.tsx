@@ -1175,7 +1175,7 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–15 min',
           description: 'Machine press complex with drop sets and intensity techniques. ',
           battlePlan: '3 rounds:• 8 heavy machine press• Drop to 12 moderate• Drop to 16 lightRest 2 min',
-          imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/0sr4xno3_download%20%284%29.png',
           intensityReason: 'Drop set protocol for maximum machine press development.',
           moodTips: [
             {
