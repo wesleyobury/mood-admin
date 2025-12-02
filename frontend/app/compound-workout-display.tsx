@@ -2437,7 +2437,7 @@ const compoundWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Doubles lower leg work without switching machines for efficiency.',
           battlePlan: '4 rounds\n• 8 Hack Squats\n• Immediately 12 Hack Calf Raises\nRest 90s',
-          imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/ffi2msmn_hs.avif',
           intensityReason: 'Add calf emphasis within heavy squat structure.',
           moodTips: [
             {
