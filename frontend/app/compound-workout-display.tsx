@@ -1981,7 +1981,7 @@ const compoundWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Trains quads, glutes, and groin through lateral range of motion.',
           battlePlan: '3 rounds\n• 8 per side Lateral Lunges\nRest 90s',
-          imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/unoluv5i_download%20%2812%29.png',
           intensityReason: 'Side lunge develops stability and hip strength.',
           moodTips: [
             {
