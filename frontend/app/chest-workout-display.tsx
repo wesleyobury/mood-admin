@@ -735,7 +735,7 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Press and fly pairing for contraction and stretch under load.',
           battlePlan: '3 rounds:\n• 10 chest press\n• 10 pec deck (if available)\nRest 60s',
-          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/67nyth7l_download%20%282%29.png',
           intensityReason: 'Simple machine circuit combining pressing and isolation.',
           moodTips: [
             {
