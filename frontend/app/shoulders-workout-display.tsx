@@ -669,7 +669,7 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10 min',
           description: 'Max rear delt fly reps in 10 minutes for ultimate posterior burnout. ',
           battlePlan: '3 rounds:• 12 heavy rear delt fly• Drop → 15 moderate• Drop → 20 lightRest 90–120s',
-          imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmc&ZW54MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/jmracrsi_focused-rear-delt-fly-machine-260nw-2619940467.webp',
           intensityReason: 'Advanced drop set protocol for maximum rear delt development.',
           moodTips: [
             {
