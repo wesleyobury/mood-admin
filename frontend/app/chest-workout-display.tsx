@@ -249,7 +249,7 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–15 min',
           description: 'Incline press, fly, and close-grip press sequence for growth density.',
           battlePlan: '3 rounds:\n• 10 incline bench press\n• 10 incline fly\n• 10 close-grip incline press\nRest 90s',
-          imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/lnd9yph3_ibp.webp',
           intensityReason: 'Continuous flow training for upper chest overload.',
           moodTips: [
             {
