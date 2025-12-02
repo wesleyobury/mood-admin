@@ -1113,7 +1113,7 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–15 min',
           description: 'Machine shoulder press foundation with guided movement patterns. ',
           battlePlan: '3 rounds:• 12 seated machine press• 10 single-arm machine pressRest 60s',
-          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/4tfizieb_download%20%288%29.png',
           intensityReason: 'Perfect introduction to machine shoulder pressing.',
           moodTips: [
             {
