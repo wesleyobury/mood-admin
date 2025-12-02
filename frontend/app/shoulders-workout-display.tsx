@@ -779,7 +779,7 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Cable press and raise sequencefor shoulder hypertrophy focus. ',
           battlePlan: '3 rounds:• 8 cable shoulder press• 10 single-arm cable raise• 8 cable rear delt flyRest 90s',
-          imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/oau5jji4_download%20%287%29.png',
           intensityReason: 'Strength-focused cable training with unilateral work.',
           moodTips: [
             {
