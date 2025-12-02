@@ -605,7 +605,7 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Rear delt strengthening circuit for posture improvement and balance. ',
           battlePlan: '3 rounds:• 10 rear delt fly• 8 reverse fly• 6 face pulls (if available)Rest 60–75s',
-          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/tav7fwye_rear-delt-fly-machine.gif',
           intensityReason: 'Focused posterior deltoid training for posture correction.',
           moodTips: [
             {
