@@ -75,7 +75,7 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–15 min',
           description: 'Light bench press and fly pairing to develop chest contraction and stretch.',
           battlePlan: '3 rounds:\n• 12 light dumbbell or Smith bench press\n• 10 dumbbell bench fly\nRest 60–75s',
-          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/1yb66xch_download%20%285%29.png',
           intensityReason: 'Beginner-friendly pressing and isolation movement foundation.',
           moodTips: [
             {
