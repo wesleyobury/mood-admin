@@ -513,7 +513,7 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–15 min',
           description: 'Seated shoulder circuit maximizing bench angles for complete development. ',
           battlePlan: '3 rounds:• 12 seated press (30°)• 15 lateral raise• 12 rear delt fly (45°)• 10 front raiseRest 90s',
-          imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/jyl947na_download%20%2810%29.png',
           intensityReason: 'High-volume circuit utilizing multiple bench angles.',
           moodTips: [
             {
