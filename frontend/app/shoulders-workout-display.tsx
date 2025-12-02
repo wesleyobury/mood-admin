@@ -291,7 +291,7 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '16–20 min',
           description: 'High-intensity barbell power complex for explosive shoulder strength. ',
           battlePlan: '3 rounds:• 5 heavy barbell press• 6 push press• 8 high pulls• 10 upright rowsRest 2–3 min',
-          imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/mgsrjngk_download%20%285%29.png',
           intensityReason: 'Maximum intensity barbell training for advanced athletes.',
           moodTips: [
             {
