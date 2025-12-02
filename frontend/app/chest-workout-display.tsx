@@ -999,7 +999,7 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Standing and single-arm presses with cables for chest isolation.',
           battlePlan: '3 rounds:\n• 10 standing cable press\n• 8 single-arm cable press (each arm)\n• 10 cable fly\nRest 60–75s',
-          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlknwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/cvzywaoh_download%20%281%29.png',
           intensityReason: 'Functional cable training combining bilateral and unilateral work.',
           moodTips: [
             {
