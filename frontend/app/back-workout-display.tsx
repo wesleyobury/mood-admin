@@ -625,7 +625,7 @@ const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Simple close grip with moderate-to-heavy focus',
           battlePlan: '4 rounds\n• 10 Close Grip T-Bar Row\nRest 75s after set',
-          imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_0b65e409-b210-4730-af62-16b022c37685/artifacts/figwdo7y_download%20%2817%29.png',
           intensityReason: 'Close grip overloads lats with higher load capacity',
           moodTips: [
             {
