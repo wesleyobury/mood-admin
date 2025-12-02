@@ -117,7 +117,7 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–15 min',
           description: 'Bench press, fly, and close-grip sequence for balanced chest hypertrophy.',
           battlePlan: '3 rounds:\n• 10 bench press\n• 10 fly\n• 10 close-grip bench press\nRest 90s',
-          imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/1yb66xch_download%20%285%29.png',
           intensityReason: 'Continuous flow training for chest overload and development.',
           moodTips: [
             {
