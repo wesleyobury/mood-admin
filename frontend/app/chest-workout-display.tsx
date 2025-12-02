@@ -625,7 +625,7 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–15 min',
           description: 'Flat, incline, and decline Smith presses to stress fibers at all angles.',
           battlePlan: '4 rounds:\n• 8 Smith bench press\n• 6 Smith incline press\n• 8 Smith close-grip press\nRest 75s',
-          imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHc0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/wqpgrlpk_download%20%289%29.png',
           intensityReason: 'Strength-focused Smith machine training with multiple angles.',
           moodTips: [
             {
