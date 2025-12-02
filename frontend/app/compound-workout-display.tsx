@@ -117,7 +117,7 @@ const glutesWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Top‑end contraction isolates and strengthens glutes',
           battlePlan: '3 rounds\n• 8–10 per leg Kickbacks (2s pause top)\nRest 75–90s',
-          imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/coxrp5yp_gk.jpg',
           intensityReason: 'Kickbacks with higher angle add peak glute tension',
           moodTips: [
             {
