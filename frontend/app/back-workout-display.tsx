@@ -1173,7 +1173,7 @@ const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Combines pull-ups with a static hold for enhanced strength',
           battlePlan: '3 rounds\n• 6 Pull-Ups\nEnd each set with a 3s hold at the top\nRest 90s after set',
-          imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmc&ZW54MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_0b65e409-b210-4730-af62-16b022c37685/artifacts/trd1nd35_download%20%2816%29.png',
           intensityReason: 'Adds isometric hold to increase time under tension for growth',
           moodTips: [
             {
