@@ -1437,7 +1437,7 @@ const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Focuses on lat control with longer lowering phase',
           battlePlan: '3 rounds\n• 8 Neutral Grip Row (3s eccentric each rep)\nRest 90s after set',
-          imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmc&ZW54MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_0b65e409-b210-4730-af62-16b022c37685/artifacts/1uyss7y4_csrr.webp',
           intensityReason: '3s eccentric reps add high time under tension',
           moodTips: [
             {
