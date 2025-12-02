@@ -403,7 +403,7 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '15–20 min',
           description: 'Multi-angle presses and fly for hypertrophy density.',
           battlePlan: '3 rounds:\n• 8 flat press\n• 8 incline press\n• 8 decline press\n• 8 fly (choose angle)\nRest 90s',
-          imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmc&ZW54MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/avrgfl1y_download%20%2818%29.png',
           intensityReason: 'Advanced hypertrophy density training with multi-angle work.',
           moodTips: [
             {
