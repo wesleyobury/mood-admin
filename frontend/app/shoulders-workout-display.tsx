@@ -627,7 +627,7 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '16–18 min',
           description: 'Heavy-to-light rear delt pyramid for posterior deltoid development. ',
           battlePlan: '4 rounds:• 12 light rear delt fly• 10 moderate rear delt fly• 8 heavy rear delt flyRest 75s',
-          imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/jmracrsi_focused-rear-delt-fly-machine-260nw-2619940467.webp',
           intensityReason: 'Progressive loading across different rep ranges.',
           moodTips: [
             {
