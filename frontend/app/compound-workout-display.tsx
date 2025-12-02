@@ -2305,7 +2305,7 @@ const compoundWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'One leg at a time reduces imbalances in strength development.',
           battlePlan: '4 rounds\n• 8 per leg Single Leg Press\nRest 90s',
-          imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/nbzhkmy8_download%20%282%29.png',
           intensityReason: 'Unilateral training balances quads + hamstrings.',
           moodTips: [
             {
