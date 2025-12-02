@@ -1043,7 +1043,7 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–15 min',
           description: 'Platform strength building with compound movement combinations. ',
           battlePlan: '3 rounds:• 5 heavy press• 8 push press• 10 upright rows• 12 shrugsRest 2 min',
-          imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/6evdq9z5_download%20%285%29.png',
           intensityReason: 'Strength-focused platform training for muscle development.',
           moodTips: [
             {
