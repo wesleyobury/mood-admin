@@ -1287,7 +1287,7 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '15–18 min',
           description: 'Intermediate Smith machine training with power and strength focus. ',
           battlePlan: '4 rounds:• 8 smith push press• 10 standing smith press• 8 smith high pulls• 12 smith rowsRest 90s',
-          imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/6jtrgr30_download%20%289%29.png',
           intensityReason: 'Intermediate Smith machine training for power development.',
           moodTips: [
             {
