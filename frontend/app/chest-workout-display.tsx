@@ -645,7 +645,7 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Explosive bar push-ups and single-arm presses for power and hypertrophy.',
           battlePlan: '3 rounds:\n• 6 Smith bench press\n• 8 Smith incline press\n• 10 push-ups\n• 8 dips\nRest 90s',
-          imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/pl1dkh7x_download%20%288%29.png',
           intensityReason: 'Complex training combining Smith machine with bodyweight.',
           moodTips: [
             {
