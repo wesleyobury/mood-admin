@@ -55,7 +55,7 @@ const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Rows for pulling power and rear flies for stability',
           battlePlan: '3 rounds\n• 10 Single-Arm Dumbbell Row (each side, supported on bench)\nRest 60s after each side\n• 10 Prone Rear Delt Fly (lying face down)\nRest 60s after each set',
-          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_0b65e409-b210-4730-af62-16b022c37685/artifacts/q6jestgn_download.png',
           intensityReason: 'Targets lats + rear delts with simple supported lifts',
           moodTips: [
             {
