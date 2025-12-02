@@ -1265,7 +1265,7 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Basic Smith machine movements for shoulder strength foundation. ',
           battlePlan: '3 rounds:• 8 seated smith press• 10 smith upright rows• 6 smith shrugsRest 60s',
-          imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8TVc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/civ6xh4i_Smith-Machine-Shoulder-Press.webp',
           intensityReason: 'Foundational Smith machine training for safe progression.',
           moodTips: [
             {
