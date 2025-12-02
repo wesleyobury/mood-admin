@@ -819,7 +819,7 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '15–18 min',
           description: 'Wide, close, and single-arm presses for hypertrophy and stability.',
           battlePlan: '3 rounds:\n• 6 explosive chest press\n• 8 controlled chest press\n• 10 pec deck\n• 8 single-arm press\nRest 90s',
-          imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/67nyth7l_download%20%282%29.png',
           intensityReason: 'Advanced power and control complex using machine stability.',
           moodTips: [
             {
