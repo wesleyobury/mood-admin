@@ -2195,7 +2195,7 @@ const compoundWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '16–18 min',
           description: 'Combination of strength, balance, and conditioning challenge.',
           battlePlan: '3 rounds\n• 20 steps total Walking Lunges\nRest 90s',
-          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHcxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/a96gl1sh_download%20%287%29.png',
           intensityReason: 'Continuous walking pattern overloads endurance.',
           moodTips: [
             {
