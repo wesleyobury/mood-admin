@@ -979,7 +979,7 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Cable flys at standing and low-to-high angles for tension and stretch.',
           battlePlan: '3 rounds:\n• 10 cable fly (high position)\n• 10 cable fly (low position)\n• 8 cable press\nRest 60–75s',
-          imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8TVc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/4tqfn8rc_download.png',
           intensityReason: 'Perfect introduction to cable chest training with angles.',
           moodTips: [
             {
