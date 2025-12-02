@@ -2091,7 +2091,7 @@ const compoundWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Beginner hinge teaches depth and hamstring control with barbell.',
           battlePlan: '3 rounds\n• 8-10 rack rdls\nRest 75-90s',
-          imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/cj6gx8ak_download%20%286%29.png',
           intensityReason: 'Barbell hinge pattern develops glutes + hams.',
           moodTips: [
             {
