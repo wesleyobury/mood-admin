@@ -1023,7 +1023,7 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '15–18 min',
           description: 'Intermediate platform training with power movements and heavier loads. ',
           battlePlan: '4 rounds:• 6 push press• 8 strict press• 10 upright rows• 8 high pullsRest 90s',
-          imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/cx834bjk_download%20%286%29.png',
           intensityReason: 'Intermediate platform training for power development.',
           moodTips: [
             {
