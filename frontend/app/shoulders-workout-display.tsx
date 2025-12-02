@@ -139,7 +139,7 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '18–22 min',
           description: 'Heavy shoulder press with drop setsfor advanced strength development. ',
           battlePlan: '4 rounds:• 8 heavy shoulder press• Drop to 12 moderate• Drop to 15 lightRest 2 min',
-          imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmc&ZW54MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/d2gkwhep_download%20%282%29.png',
           intensityReason: 'Advanced drop set protocol for maximum shoulder hypertrophy.',
           moodTips: [
             {
