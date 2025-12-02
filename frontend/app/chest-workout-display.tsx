@@ -1173,7 +1173,7 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '15 min',
           description: 'Dips and plyo push-ups combined for strength and power.',
           battlePlan: '3 rounds:\n• 6 explosive dips\n• 8 controlled dips\n• 10 incline push-ups\nRest 90s',
-          imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/i8tbsgyh_download%20%284%29.png',
           intensityReason: 'Power-focused dip training combining explosive and control.',
           moodTips: [
             {
