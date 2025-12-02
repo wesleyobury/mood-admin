@@ -471,7 +471,7 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Adjustable bench flow targeting all three deltoid heads systematically. ',
           battlePlan: '3 rounds:• 8 incline press (60°)• 10 lateral raise• 8 incline rear delt flyRest 60s',
-          imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8TVc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/jyl947na_download%20%2810%29.png',
           intensityReason: 'Systematic targeting of all deltoid heads with bench support.',
           moodTips: [
             {
