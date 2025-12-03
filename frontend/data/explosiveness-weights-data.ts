@@ -181,7 +181,7 @@ export const explosivenessWeightsDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Start at knee; snap tall; elbows high; bar path stays close.',
           battlePlan: '4 rounds\n• 4 × 2 High Pulls from blocks (moderate)\nRest 90s',
-          imageUrl: EXPLOSIVE_IMAGE,
+          imageUrl: 'https://customer-assets.emergentagent.com/job_muscle-mapper-2/artifacts/g3m6pn8h_chp.jpg',
           intensityReason: 'Blocks reduce pull length to emphasize peak speed finish.',
           moodTips: [
             {
