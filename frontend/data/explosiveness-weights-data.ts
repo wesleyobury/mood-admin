@@ -649,7 +649,7 @@ export const explosivenessWeightsDatabase: EquipmentWorkouts[] = [
           duration: '12–16 min',
           description: 'Perform 3-2-1 per side; crisp clean then vertical push press.',
           battlePlan: '4 rounds\n• Ladder per side: 3-2-1 Clean + Push Press\nRest 150s',
-          imageUrl: EXPLOSIVE_IMAGE,
+          imageUrl: 'https://customer-assets.emergentagent.com/job_muscle-mapper-2/artifacts/9tjq4bcw_dbcpp.jpg',
           intensityReason: 'Ladder volume sustains speed-strength with rising density.',
           moodTips: [
             {
