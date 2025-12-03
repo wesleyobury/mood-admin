@@ -1064,7 +1064,7 @@ export const explosivenessWeightsDatabase: EquipmentWorkouts[] = [
           duration: '8–10 min',
           description: 'Quick knee bend to pop and shrug; quiet mid-foot landing.',
           battlePlan: '3 rounds\n• 5 × 3 Jump Shrugs (light)\nRest 75s',
-          imageUrl: EXPLOSIVE_IMAGE,
+          imageUrl: 'https://customer-assets.emergentagent.com/job_muscle-mapper-2/artifacts/dpe352d2_tbj.webp',
           intensityReason: 'Neutral handles support safe vertical extension mechanics.',
           moodTips: [
             {
