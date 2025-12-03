@@ -995,7 +995,7 @@ export const explosivenessWeightsDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Three reps, brief rest, three more; match jump height.',
           battlePlan: '5 rounds\n• Cluster: 3 + 3 Banded Jump Squats\nRest 120s',
-          imageUrl: EXPLOSIVE_IMAGE,
+          imageUrl: 'https://customer-assets.emergentagent.com/job_muscle-mapper-2/artifacts/ltbmgctq_download%20%282%29.png',
           intensityReason: 'Cluster density sustains speed under continuous tension.',
           moodTips: [
             {
