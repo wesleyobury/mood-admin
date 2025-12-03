@@ -1119,7 +1119,7 @@ const quadricepsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Front held bar guides posture as quads take full load',
           battlePlan: '3 rounds\n• 10–12 Light Barbell Sissy Squats\nRest 75s',
-          imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8TVc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_85724e25-1f59-4628-b049-647d06432207/artifacts/3hob85xt_download%20%2822%29.png',
           intensityReason: 'Teaches quad isolation through knee forward motion',
           moodTips: [
             {
