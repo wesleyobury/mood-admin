@@ -416,7 +416,7 @@ export const explosivenessWeightsDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Dip-drive hard; guide sleeve high and far with full control.',
           battlePlan: '5 rounds\n• 4 Heaves (build load across rounds)\nRest 120s',
-          imageUrl: EXPLOSIVE_IMAGE,
+          imageUrl: 'https://customer-assets.emergentagent.com/job_muscle-mapper-2/artifacts/7dpyywwj_download%20%287%29.png',
           intensityReason: 'Heavy leg drive expresses long-arc power safely overhead.',
           moodTips: [
             {
