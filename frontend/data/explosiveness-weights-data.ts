@@ -802,7 +802,7 @@ export const explosivenessWeightsDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Sets of 10–12; float to chest; ribs stacked; avoid overpull.',
           battlePlan: '5 rounds\n• 10–12 Heavy Swings\nRest 90s',
-          imageUrl: EXPLOSIVE_IMAGE,
+          imageUrl: 'https://customer-assets.emergentagent.com/job_muscle-mapper-2/artifacts/bg7rgit4_download%20%284%29.png',
           intensityReason: 'Heavier bell elevates output per rep with posture demand.',
           moodTips: [
             {
