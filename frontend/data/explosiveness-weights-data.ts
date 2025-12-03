@@ -678,7 +678,7 @@ export const explosivenessWeightsDatabase: EquipmentWorkouts[] = [
           duration: '8–10 min',
           description: 'Snap hips; bell floats to chest; arms act as relaxed hooks.',
           battlePlan: '4 rounds\n• 12–15 Swings\nRest 60s',
-          imageUrl: EXPLOSIVE_IMAGE,
+          imageUrl: 'https://customer-assets.emergentagent.com/job_muscle-mapper-2/artifacts/8ao6zx26_download%20%284%29.png',
           intensityReason: 'Hinge rhythm trains hip extension speed and timing safely.',
           moodTips: [
             {
