@@ -740,7 +740,7 @@ export const explosivenessWeightsDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Sharp hip snaps each minute; crisp float to consistent chest.',
           battlePlan: 'EMOM 10 min\n• 12 Swings each minute',
-          imageUrl: EXPLOSIVE_IMAGE,
+          imageUrl: 'https://customer-assets.emergentagent.com/job_muscle-mapper-2/artifacts/bg7rgit4_download%20%284%29.png',
           intensityReason: 'EMOM bursts sustain repeatable high-quality power output.',
           moodTips: [
             {
