@@ -1045,7 +1045,7 @@ const hamstringsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Pausing at top peaks hamstring contraction force',
           battlePlan: '3 rounds\n• 8–10 Pause Reps\nRest 90s',
-          imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_85724e25-1f59-4628-b049-647d06432207/artifacts/o9f5gltv_Screenshot%202025-12-02%20at%2010.29.39%E2%80%AFPM.png',
           intensityReason: 'Isometric hold raises muscular control demand',
           moodTips: [
             {
