@@ -39,7 +39,7 @@ export const explosivenessWeightsDatabase: EquipmentWorkouts[] = [
           duration: '8–10 min',
           description: 'Fast stand to brief float; quiet land; precise reset each rep.',
           battlePlan: '3 rounds\n• 5 × 3 Jump Deadlifts (light; floor or low blocks)\nRest 60–75s',
-          imageUrl: EXPLOSIVE_IMAGE,
+          imageUrl: 'https://customer-assets.emergentagent.com/job_muscle-mapper-2/artifacts/xefmav9j_Screenshot%202025-12-03%20at%204.15.36%E2%80%AFPM.png',
           intensityReason: 'Light bar grooves hip snap and stacked brace for safe pop.',
           moodTips: [
             {
