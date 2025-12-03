@@ -913,7 +913,7 @@ const hamstringsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Forces balance and greater range for each limb',
           battlePlan: '3 rounds\n• 8–10 per side\nRest 90s',
-          imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_85724e25-1f59-4628-b049-647d06432207/artifacts/p2gogdp0_download%20%2820%29.png',
           intensityReason: 'Single leg increases unilateral hamstring stress',
           moodTips: [
             {
