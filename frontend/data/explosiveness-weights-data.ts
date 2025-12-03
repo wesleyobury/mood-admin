@@ -973,7 +973,7 @@ export const explosivenessWeightsDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Quick punch under band; balanced split; one-second hold.',
           battlePlan: '4 rounds\n• 4–5 Split Jerks\nRest 90s',
-          imageUrl: EXPLOSIVE_IMAGE,
+          imageUrl: 'https://customer-assets.emergentagent.com/job_muscle-mapper-2/artifacts/rr22go80_download%20%283%29.png',
           intensityReason: 'Elastic resistance demands rapid dip-drive and firm stick.',
           moodTips: [
             {
