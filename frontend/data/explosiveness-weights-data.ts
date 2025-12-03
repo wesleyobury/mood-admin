@@ -223,7 +223,7 @@ export const explosivenessWeightsDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'From knee blocks; snap tall; elbows high outside; bar close.',
           battlePlan: '5 rounds\n• 3–4 Snatch High Pulls (from blocks)\nRest 120s',
-          imageUrl: EXPLOSIVE_IMAGE,
+          imageUrl: 'https://customer-assets.emergentagent.com/job_muscle-mapper-2/artifacts/064hao7f_snatch.webp',
           intensityReason: 'Wide grip emphasizes speed, bar height, and quick elbows.',
           moodTips: [
             {
