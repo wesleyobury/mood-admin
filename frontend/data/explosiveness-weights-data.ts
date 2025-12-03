@@ -1146,7 +1146,7 @@ export const explosivenessWeightsDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Pop tall; elbows drive up; keep handle path tight and close.',
           battlePlan: '4 rounds\n• 4 × 2 High Pulls (moderate)\nRest 90s',
-          imageUrl: EXPLOSIVE_IMAGE,
+          imageUrl: 'https://customer-assets.emergentagent.com/job_muscle-mapper-2/artifacts/gur5s8sa_tbhp.jpg',
           intensityReason: 'Aggressive extension elevates handles with rapid speed.',
           moodTips: [
             {
