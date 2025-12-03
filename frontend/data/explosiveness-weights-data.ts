@@ -698,7 +698,7 @@ export const explosivenessWeightsDatabase: EquipmentWorkouts[] = [
           duration: '8–10 min',
           description: 'Hike-pass; pop to rack; soft catch; alternate sides smoothly.',
           battlePlan: '3 rounds\n• 5 per side Dead-Start Cleans\nRest 75s',
-          imageUrl: EXPLOSIVE_IMAGE,
+          imageUrl: 'https://customer-assets.emergentagent.com/job_muscle-mapper-2/artifacts/fglieg8a_download%20%285%29.png',
           intensityReason: 'Full reset engrains path, timing, and quiet turnover.',
           moodTips: [
             {
