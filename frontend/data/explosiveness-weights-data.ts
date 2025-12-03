@@ -263,7 +263,7 @@ export const explosivenessWeightsDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Two pulls, short rest, two pulls; crisp vertical extension.',
           battlePlan: '5 rounds\n• Cluster: 2 + 2 Clean Pulls (moderate–heavy)\nRest 120s',
-          imageUrl: EXPLOSIVE_IMAGE,
+          imageUrl: 'https://customer-assets.emergentagent.com/job_muscle-mapper-2/artifacts/9kehs3fb_Screenshot%202025-12-03%20at%204.15.03%E2%80%AFPM.png',
           intensityReason: 'Cluster reps maintain bar speed at higher training loads.',
           moodTips: [
             {
