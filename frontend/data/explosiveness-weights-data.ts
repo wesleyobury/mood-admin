@@ -79,7 +79,7 @@ export const explosivenessWeightsDatabase: EquipmentWorkouts[] = [
           duration: '8–10 min',
           description: 'Shallow dip to quick pop; soft stick; deliberate posture reset.',
           battlePlan: '3 rounds\n• 5 × 3 Jump Squats (empty bar to very light)\nRest 75s',
-          imageUrl: EXPLOSIVE_IMAGE,
+          imageUrl: 'https://customer-assets.emergentagent.com/job_muscle-mapper-2/artifacts/uvdvgv3p_download%20%288%29.png',
           intensityReason: 'Very light load builds speed-strength and landing control.',
           moodTips: [
             {
