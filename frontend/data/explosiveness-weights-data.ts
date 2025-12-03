@@ -485,7 +485,7 @@ export const explosivenessWeightsDatabase: EquipmentWorkouts[] = [
           duration: '8–10 min',
           description: 'Small vertical pop; soft stick; reset tall posture each rep.',
           battlePlan: '3 rounds\n• 5 × 3 Jump Squats (light)\nRest 60–75s',
-          imageUrl: EXPLOSIVE_IMAGE,
+          imageUrl: 'https://customer-assets.emergentagent.com/job_muscle-mapper-2/artifacts/8ykwaghn_djs.jpg',
           intensityReason: 'Light DBs add load while protecting landing and posture.',
           moodTips: [
             {
