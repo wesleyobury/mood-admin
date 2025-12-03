@@ -629,7 +629,7 @@ export const explosivenessWeightsDatabase: EquipmentWorkouts[] = [
           duration: '12–16 min',
           description: 'Snatch sets then skater bounds with firm two-second stick.',
           battlePlan: '4 rounds\n• 6 per side DB Snatch\n• 3 per side Skater Bounds (stick 2s)\nRest 150s',
-          imageUrl: EXPLOSIVE_IMAGE,
+          imageUrl: 'https://customer-assets.emergentagent.com/job_muscle-mapper-2/artifacts/0tqc60nw_dbsn.webp',
           intensityReason: 'Overhead power potentiates lateral projection capacity.',
           moodTips: [
             {
