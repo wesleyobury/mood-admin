@@ -842,7 +842,7 @@ export const explosivenessWeightsDatabase: EquipmentWorkouts[] = [
           duration: '12–16 min',
           description: 'Snatch sets then broad jumps with firm two-second stick.',
           battlePlan: '4 rounds\n• 8 per side Snatches\n• 3 Broad Jumps (stick 2s)\nRest 150s',
-          imageUrl: EXPLOSIVE_IMAGE,
+          imageUrl: 'https://customer-assets.emergentagent.com/job_muscle-mapper-2/artifacts/k2feqqcx_download%20%285%29.png',
           intensityReason: 'Overhead power primes horizontal projection mechanics well.',
           moodTips: [
             {
