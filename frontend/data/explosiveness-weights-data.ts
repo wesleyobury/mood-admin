@@ -587,7 +587,7 @@ export const explosivenessWeightsDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Two broad jumps; grab DBs; fast upright ten-meter carry.',
           battlePlan: '4 rounds\n• 2 Broad Jumps (stick) → 10m Farmer Carry\nRest 90s',
-          imageUrl: EXPLOSIVE_IMAGE,
+          imageUrl: 'https://customer-assets.emergentagent.com/job_muscle-mapper-2/artifacts/yclz6917_dbbjc.avif',
           intensityReason: 'Jumps then loaded carry train projection and bracing.',
           moodTips: [
             {
