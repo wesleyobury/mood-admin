@@ -1126,7 +1126,7 @@ export const explosivenessWeightsDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Small jump with load; soft stick; deliberate stance reset.',
           battlePlan: '4 rounds\n• 5 × 3 Trap Bar Jumps\nRest 90s',
-          imageUrl: EXPLOSIVE_IMAGE,
+          imageUrl: 'https://customer-assets.emergentagent.com/job_muscle-mapper-2/artifacts/dpe352d2_tbj.webp',
           intensityReason: 'Loaded jumps build speed-strength with aligned mechanics.',
           moodTips: [
             {
