@@ -629,7 +629,7 @@ const hamstringsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Single‑leg hinge balances strength across sides',
           battlePlan: '4 rounds\n• 8 per side Staggered RDLs\nRest 90s',
-          imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_85724e25-1f59-4628-b049-647d06432207/artifacts/4yb6j8u5_download%20%2818%29.png',
           intensityReason: 'Split stance emphasizes deeper hamstring load',
           moodTips: [
             {
