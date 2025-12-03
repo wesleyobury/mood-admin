@@ -718,7 +718,7 @@ export const explosivenessWeightsDatabase: EquipmentWorkouts[] = [
           duration: '8–10 min',
           description: 'Short dip; vertical punch; stacked finish; smooth controlled down.',
           battlePlan: '3 rounds\n• 6–8 per side Push Press\nRest 75s',
-          imageUrl: EXPLOSIVE_IMAGE,
+          imageUrl: 'https://customer-assets.emergentagent.com/job_muscle-mapper-2/artifacts/rz71s1n8_download%20%286%29.png',
           intensityReason: 'Leg drive channels force into fast overhead lockout safely.',
           moodTips: [
             {
