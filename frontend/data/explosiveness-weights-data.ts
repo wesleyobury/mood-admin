@@ -547,7 +547,7 @@ export const explosivenessWeightsDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Zip bell close; punch through; alternate sides smoothly.',
           battlePlan: '4 rounds\n• 6 per side Alternating Snatch\nRest 90s',
-          imageUrl: EXPLOSIVE_IMAGE,
+          imageUrl: 'https://customer-assets.emergentagent.com/job_muscle-mapper-2/artifacts/gp7crm2s_dbsn.webp',
           intensityReason: 'Hip snap to overhead hones turnover speed and control.',
           moodTips: [
             {
