@@ -1084,7 +1084,7 @@ export const explosivenessWeightsDatabase: EquipmentWorkouts[] = [
           duration: '8–10 min',
           description: 'Fast stand; smooth controlled return; reset each repetition.',
           battlePlan: '3 rounds\n• 5 × 2 Speed Deadlifts (light–moderate)\nRest 75s',
-          imageUrl: EXPLOSIVE_IMAGE,
+          imageUrl: 'https://customer-assets.emergentagent.com/job_muscle-mapper-2/artifacts/6q0q24is_tbss.webp',
           intensityReason: 'Speed pulls teach crisp leg drive and clean hip finish.',
           moodTips: [
             {
