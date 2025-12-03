@@ -1179,7 +1179,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
           duration: '12–16 min',
           description: 'Deep hinge preload, tall explosive snap, launch bag near optimal 45 degrees',
           battlePlan: '5 rounds\n• 3–4 Heaves (measure best)\nRest 150s',
-          imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_544192a6-040f-432b-8e63-a96565e3e281/artifacts/m2c4155r_download%20%283%29.png',
           intensityReason: 'Maximum-distance throws challenge explosive timing and power output intent',
           moodTips: [
             {
