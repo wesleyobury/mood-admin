@@ -1208,7 +1208,7 @@ export const explosivenessWeightsDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Two reps, ten seconds rest, two reps; maintain speed.',
           battlePlan: '5 rounds\n• Cluster: 2 + 2 Trap Bar Jumps\nRest 120s',
-          imageUrl: EXPLOSIVE_IMAGE,
+          imageUrl: 'https://customer-assets.emergentagent.com/job_muscle-mapper-2/artifacts/dpe352d2_tbj.webp',
           intensityReason: 'Cluster density challenges elastic output and timing clean.',
           moodTips: [
             {
