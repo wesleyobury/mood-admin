@@ -871,7 +871,7 @@ export const explosivenessWeightsDatabase: EquipmentWorkouts[] = [
           duration: '8–10 min',
           description: 'Small vertical jumps versus band; quiet, balanced soft sticks.',
           battlePlan: '3 rounds\n• 5 × 3 Banded Jump Squats\nRest 75s',
-          imageUrl: EXPLOSIVE_IMAGE,
+          imageUrl: 'https://customer-assets.emergentagent.com/job_muscle-mapper-2/artifacts/e6go354m_download%20%282%29.png',
           intensityReason: 'Band adds accommodating tension to sharpen peak speed top.',
           moodTips: [
             {
