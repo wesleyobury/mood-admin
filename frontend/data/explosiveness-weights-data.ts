@@ -1035,7 +1035,7 @@ export const explosivenessWeightsDatabase: EquipmentWorkouts[] = [
           duration: '12–16 min',
           description: 'Three banded broads, then immediate twenty-meter sprint.',
           battlePlan: '4 rounds\n• 3 Banded Broad Jumps (stick 2s)\n• 20m Free Sprint\nRest 150s',
-          imageUrl: EXPLOSIVE_IMAGE,
+          imageUrl: 'https://customer-assets.emergentagent.com/job_muscle-mapper-2/artifacts/raj5xpdf_download%20%281%29.png',
           intensityReason: 'Elastic priming then free sprint expresses pure speed best.',
           moodTips: [
             {
