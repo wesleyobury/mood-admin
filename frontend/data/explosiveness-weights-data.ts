@@ -1188,7 +1188,7 @@ export const explosivenessWeightsDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: '3-2-1 across waves; crisp height; precise repeatable path.',
           battlePlan: '3 waves\n• 3-2-1 Jump Shrugs (build per wave)\nRest 150s between waves',
-          imageUrl: EXPLOSIVE_IMAGE,
+          imageUrl: 'https://customer-assets.emergentagent.com/job_muscle-mapper-2/artifacts/dpe352d2_tbj.webp',
           intensityReason: 'Wave sets preserve speed at rising relative loading.',
           moodTips: [
             {
