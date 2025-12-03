@@ -739,7 +739,7 @@ const hamstringsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Hard lift, best done light for controlled practice',
           battlePlan: '3 rounds\n• 8 Good Mornings\nRest 75–90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_85724e25-1f59-4628-b049-647d06432207/artifacts/joz0sngb_download%20%2814%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_85724e25-1f59-4628-b049-647d06432207/artifacts/vysbxwqg_download%20%2816%29.png',
           intensityReason: 'Bar on back hinge is effective but very demanding',
           moodTips: [
             {
