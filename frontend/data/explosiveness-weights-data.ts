@@ -121,7 +121,7 @@ export const explosivenessWeightsDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Hinge to hang, violent pop, high shrug; reset between reps.',
           battlePlan: '4 rounds\n• 4 × 2 Hang Clean Pulls (moderate)\nRest 90s',
-          imageUrl: EXPLOSIVE_IMAGE,
+          imageUrl: 'https://customer-assets.emergentagent.com/job_muscle-mapper-2/artifacts/9kehs3fb_Screenshot%202025-12-03%20at%204.15.03%E2%80%AFPM.png',
           intensityReason: 'Above-knee start refines bar path, RFD, and tall finish.',
           moodTips: [
             {
