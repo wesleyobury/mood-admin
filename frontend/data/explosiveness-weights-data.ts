@@ -822,7 +822,7 @@ export const explosivenessWeightsDatabase: EquipmentWorkouts[] = [
           duration: '12–16 min',
           description: '3-2-1 per side; crisp rack; decisive dip-drive to lockout.',
           battlePlan: '4 rounds\n• Ladder per side: 3-2-1 Clean + Jerk\nRest 150s',
-          imageUrl: EXPLOSIVE_IMAGE,
+          imageUrl: 'https://customer-assets.emergentagent.com/job_muscle-mapper-2/artifacts/gxkmxo9y_download%20%286%29.png',
           intensityReason: 'Ladder volume sustains speed-strength under compounding load.',
           moodTips: [
             {
