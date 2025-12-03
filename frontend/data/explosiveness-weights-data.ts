@@ -1166,7 +1166,7 @@ export const explosivenessWeightsDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Fast deadlift; quick step to box jump; two-second stick.',
           battlePlan: '4 rounds\n• 3 Speed Deadlifts (moderate)\n• 3 Box Jumps (stick 2s)\nRest 120s',
-          imageUrl: EXPLOSIVE_IMAGE,
+          imageUrl: 'https://customer-assets.emergentagent.com/job_muscle-mapper-2/artifacts/wwxk13a9_tbs.webp',
           intensityReason: 'Strength pull potentiates reactive vertical jump quality.',
           moodTips: [
             {
