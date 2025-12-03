@@ -1581,7 +1581,7 @@ const calvesWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Controlled tempo builds endurance and hypertrophy',
           battlePlan: '3 rounds\n• 10–12 Tempo Calf Raises\nRest 90s',
-          imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_85724e25-1f59-4628-b049-647d06432207/artifacts/xf7sknhj_download%20%2825%29.png',
           intensityReason: 'Slow eccentric phase maximizes calf time under tension',
           moodTips: [
             {
