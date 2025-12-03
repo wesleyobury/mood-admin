@@ -567,7 +567,7 @@ export const explosivenessWeightsDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Fast clean to shoulders; short dip; explosive overhead finish.',
           battlePlan: '4 rounds\n• 5 Clean → Push Press\nRest 90s',
-          imageUrl: EXPLOSIVE_IMAGE,
+          imageUrl: 'https://customer-assets.emergentagent.com/job_muscle-mapper-2/artifacts/rpv6ft1z_dbcpp.jpg',
           intensityReason: 'Clean primes rack; push press expresses vertical power.',
           moodTips: [
             {
