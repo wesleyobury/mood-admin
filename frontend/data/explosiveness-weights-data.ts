@@ -59,7 +59,7 @@ export const explosivenessWeightsDatabase: EquipmentWorkouts[] = [
           duration: '8–10 min',
           description: 'Sweep close to thighs; pop and shrug tall with arms long.',
           battlePlan: '3 rounds\n• 6 × 2 Clean Pulls (light–moderate)\nRest 60–75s',
-          imageUrl: EXPLOSIVE_IMAGE,
+          imageUrl: 'https://customer-assets.emergentagent.com/job_muscle-mapper-2/artifacts/9kehs3fb_Screenshot%202025-12-03%20at%204.15.03%E2%80%AFPM.png',
           intensityReason: 'Clean pull path hones triple extend and vertical bar speed.',
           moodTips: [
             {
