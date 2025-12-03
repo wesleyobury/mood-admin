@@ -1104,7 +1104,7 @@ export const explosivenessWeightsDatabase: EquipmentWorkouts[] = [
           duration: '8–10 min',
           description: 'Ten-meter loaded march; rack; immediate ten-meter sprint.',
           battlePlan: '3 rounds\n• 10m Trap Bar March (light)\n• 10m Free Sprint\nRest 90s',
-          imageUrl: EXPLOSIVE_IMAGE,
+          imageUrl: 'https://customer-assets.emergentagent.com/job_muscle-mapper-2/artifacts/pljikuu6_Screenshot%202025-12-03%20at%204.35.36%E2%80%AFPM.png',
           intensityReason: 'Posture and stiffness under load prepare acceleration.',
           moodTips: [
             {
