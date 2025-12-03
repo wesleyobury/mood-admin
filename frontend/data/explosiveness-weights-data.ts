@@ -780,7 +780,7 @@ export const explosivenessWeightsDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Execute 5-4-3 ladders per side with crisp overhead timing.',
           battlePlan: '3 waves\n• Per side: 5-4-3 Snatches (build slightly)\nRest 90s between waves',
-          imageUrl: EXPLOSIVE_IMAGE,
+          imageUrl: 'https://customer-assets.emergentagent.com/job_muscle-mapper-2/artifacts/k2feqqcx_download%20%285%29.png',
           intensityReason: 'Wave loading hones speed, turnover, and endurance quality.',
           moodTips: [
             {
