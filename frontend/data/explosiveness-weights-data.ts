@@ -911,7 +911,7 @@ export const explosivenessWeightsDatabase: EquipmentWorkouts[] = [
           duration: '8–10 min',
           description: 'Jump forward against band; stable stick; measured resets.',
           battlePlan: '3 rounds\n• 5–6 Banded Broad Jumps (stick 2s)\nRest 75s',
-          imageUrl: EXPLOSIVE_IMAGE,
+          imageUrl: 'https://customer-assets.emergentagent.com/job_muscle-mapper-2/artifacts/j83mxy4p_download%20%281%29.png',
           intensityReason: 'Elastic resistance builds horizontal power with control.',
           moodTips: [
             {
