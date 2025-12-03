@@ -691,7 +691,7 @@ const hamstringsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '16–18 min',
           description: 'Complex set multiplies time under hamstring tension',
           battlePlan: '3 rounds\n• 8 Combo Reps (full + half = 1 rep)\nRest 90s',
-          imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHc0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8TVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_85724e25-1f59-4628-b049-647d06432207/artifacts/vj5eokcy_download%20%2817%29.png',
           intensityReason: 'Adds half reps between full reps for constant stress',
           moodTips: [
             {
