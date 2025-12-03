@@ -953,7 +953,7 @@ export const explosivenessWeightsDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Fast submax pulls; smooth knees; tall snap finish posture.',
           battlePlan: '4 rounds\n• 3–4 reps (submax, fast)\nRest 90s',
-          imageUrl: EXPLOSIVE_IMAGE,
+          imageUrl: 'https://customer-assets.emergentagent.com/job_muscle-mapper-2/artifacts/qgfmm7dj_Screenshot%202025-12-03%20at%202.41.04%E2%80%AFPM.png',
           intensityReason: 'Band tension reinforces lockout speed and hip extension.',
           moodTips: [
             {
