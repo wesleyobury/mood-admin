@@ -671,7 +671,7 @@ const hamstringsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '16–18 min',
           description: 'Burns hamstrings with static stress and strict tempo',
           battlePlan: '4 rounds\n• 6–8 Paused DB RDLs\nRest 90s',
-          imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmc&ZW54MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_85724e25-1f59-4628-b049-647d06432207/artifacts/4yb6j8u5_download%20%2818%29.png',
           intensityReason: 'Pausing mid‑shin removes momentum, builds control',
           moodTips: [
             {
