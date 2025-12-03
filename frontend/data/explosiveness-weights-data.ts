@@ -456,7 +456,7 @@ export const explosivenessWeightsDatabase: EquipmentWorkouts[] = [
           duration: '12–16 min',
           description: 'Hard landmine punch; then long skater bound with firm hold.',
           battlePlan: '4 rounds\n• 5 per side Rotation Punch\n• 3 per side Skater Bounds (stick 1–2s)\nRest 150s',
-          imageUrl: EXPLOSIVE_IMAGE,
+          imageUrl: 'https://customer-assets.emergentagent.com/job_muscle-mapper-2/artifacts/wt0jrj94_lmrot.jpg',
           intensityReason: 'Rotation power primes lateral projection and landing stick.',
           moodTips: [
             {
