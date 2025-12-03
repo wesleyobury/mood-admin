@@ -394,7 +394,7 @@ export const explosivenessWeightsDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Hands low on sleeve; small pop; quiet stick; deliberate reset.',
           battlePlan: '4 rounds\n• 5 × 3 Hack Squat Jumps\nRest 90s',
-          imageUrl: EXPLOSIVE_IMAGE,
+          imageUrl: 'https://customer-assets.emergentagent.com/job_muscle-mapper-2/artifacts/d0nqgx63_Screenshot%202025-12-03%20at%203.29.11%E2%80%AFPM.png',
           intensityReason: 'Supported angle reinforces vertical pop with safe landings.',
           moodTips: [
             {
