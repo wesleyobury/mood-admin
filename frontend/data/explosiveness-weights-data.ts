@@ -505,7 +505,7 @@ export const explosivenessWeightsDatabase: EquipmentWorkouts[] = [
           duration: '8–10 min',
           description: 'Quick dip, violent punch, smooth stacked lockout overhead.',
           battlePlan: '3 rounds\n• 5–6 Push Press\nRest 75s',
-          imageUrl: EXPLOSIVE_IMAGE,
+          imageUrl: 'https://customer-assets.emergentagent.com/job_muscle-mapper-2/artifacts/uezm0ryg_dpp.jpg',
           intensityReason: 'Dip-drive coordination turns leg force into press speed.',
           moodTips: [
             {
