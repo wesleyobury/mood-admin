@@ -891,7 +891,7 @@ export const explosivenessWeightsDatabase: EquipmentWorkouts[] = [
           duration: '8–10 min',
           description: 'Short dip, violent drive, band-accelerated overhead finish.',
           battlePlan: '3 rounds\n• 6–8 Push Press (light band)\nRest 75s',
-          imageUrl: EXPLOSIVE_IMAGE,
+          imageUrl: 'https://customer-assets.emergentagent.com/job_muscle-mapper-2/artifacts/t37zt3nq_download.png',
           intensityReason: 'Band over-speed finish sharpens timing and lockout speed.',
           moodTips: [
             {
