@@ -312,7 +312,7 @@ export const explosivenessWeightsDatabase: EquipmentWorkouts[] = [
           duration: '8–10 min',
           description: 'Shallow squat pop; guide sleeve overhead along smooth arc.',
           battlePlan: '3 rounds\n• 6 × Squat Jump → Press\nRest 75s',
-          imageUrl: EXPLOSIVE_IMAGE,
+          imageUrl: 'https://customer-assets.emergentagent.com/job_muscle-mapper-2/artifacts/mqbps9jp_lmsjp.jpg',
           intensityReason: 'Triple extend into press develops seamless force transfer.',
           moodTips: [
             {
