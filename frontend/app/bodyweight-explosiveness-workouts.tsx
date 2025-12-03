@@ -55,7 +55,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
           duration: '8–10 min',
           description: 'Short all-out bursts build crisp explosive intent and fast resets',
           battlePlan: '3 rounds\n• 3 × 8s Max Slams (15s between efforts)\nRest 60s',
-          imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_544192a6-040f-432b-8e63-a96565e3e281/artifacts/6c5jmoo9_download%20%2832%29.png',
           intensityReason: 'Braced core and hip hinge connection builds safe full-body power',
           moodTips: [
             {
