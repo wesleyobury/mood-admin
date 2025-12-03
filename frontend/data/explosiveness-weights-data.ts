@@ -203,7 +203,7 @@ export const explosivenessWeightsDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Drive force on pulls, then pop height with soft, crisp sticks.',
           battlePlan: '5 rounds\n• 3 Clean Pulls (moderate–heavy)\n• 3 × 2 Back Rack Jump Squats (light)\nRest 120s',
-          imageUrl: EXPLOSIVE_IMAGE,
+          imageUrl: 'https://customer-assets.emergentagent.com/job_muscle-mapper-2/artifacts/uvdvgv3p_download%20%288%29.png',
           intensityReason: 'Heavy pulls potentiate CNS; light jumps express speed.',
           moodTips: [
             {
