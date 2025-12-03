@@ -525,7 +525,7 @@ export const explosivenessWeightsDatabase: EquipmentWorkouts[] = [
           duration: '8–10 min',
           description: 'Low-amplitude switches; aligned, quiet landings every time.',
           battlePlan: '3 rounds\n• 6 per side Split Jumps\nRest 60–75s',
-          imageUrl: EXPLOSIVE_IMAGE,
+          imageUrl: 'https://customer-assets.emergentagent.com/job_muscle-mapper-2/artifacts/kkyhp422_Screenshot%202025-12-03%20at%202.52.59%E2%80%AFPM.png',
           intensityReason: 'Small load refines switching mechanics and stiffness safely.',
           moodTips: [
             {
