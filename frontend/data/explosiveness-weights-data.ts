@@ -1015,7 +1015,7 @@ export const explosivenessWeightsDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: '5-4-3 fast pulls; submax loads; tight bar path each rep.',
           battlePlan: '3 waves\n• 5-4-3 Deadlifts (fast concentric)\nRest 150s between waves',
-          imageUrl: EXPLOSIVE_IMAGE,
+          imageUrl: 'https://customer-assets.emergentagent.com/job_muscle-mapper-2/artifacts/8q3jz0r7_cdl.jpg',
           intensityReason: 'Wave sets maintain bar speed with rising top-end load.',
           moodTips: [
             {
