@@ -1228,7 +1228,7 @@ export const explosivenessWeightsDatabase: EquipmentWorkouts[] = [
           duration: '12–16 min',
           description: 'Single fast pull; immediate twenty-meter relaxed sprint.',
           battlePlan: '5 rounds\n• 1 Fast Deadlift (moderate–heavy)\n• 20m Free Sprint\nRest 150s',
-          imageUrl: EXPLOSIVE_IMAGE,
+          imageUrl: 'https://customer-assets.emergentagent.com/job_muscle-mapper-2/artifacts/6q0q24is_tbss.webp',
           intensityReason: 'Potentiation from pull enhances next short sprint speed.',
           moodTips: [
             {
