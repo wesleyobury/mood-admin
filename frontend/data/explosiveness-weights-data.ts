@@ -760,7 +760,7 @@ export const explosivenessWeightsDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Pop to rack; dip-drive; punch under; stable overhead stick.',
           battlePlan: '4 rounds\n• 4 per side Clean → Jerk\nRest 90s',
-          imageUrl: EXPLOSIVE_IMAGE,
+          imageUrl: 'https://customer-assets.emergentagent.com/job_muscle-mapper-2/artifacts/gxkmxo9y_download%20%286%29.png',
           intensityReason: 'Clean primes rack; jerk expresses rapid vertical force.',
           moodTips: [
             {
