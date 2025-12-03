@@ -1139,7 +1139,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
           duration: '12–16 min',
           description: 'Front rack drop position, explosive leg drive, crisp overhead lockout finish',
           battlePlan: '5 rounds\n• 4 Clean → Thrusters\nRest 120s',
-          imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_544192a6-040f-432b-8e63-a96565e3e281/artifacts/93nr796t_sbclean.jpg',
           intensityReason: 'Clean-to-press movement ties lower and upper explosive power chain together',
           moodTips: [
             {
