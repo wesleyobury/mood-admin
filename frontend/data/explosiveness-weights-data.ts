@@ -332,7 +332,7 @@ export const explosivenessWeightsDatabase: EquipmentWorkouts[] = [
           duration: '8–10 min',
           description: 'Pivot feet, drive hips, release forward-up with tight control.',
           battlePlan: '3 rounds\n• 6 per side Rotational Tosses\nRest 75s',
-          imageUrl: EXPLOSIVE_IMAGE,
+          imageUrl: 'https://customer-assets.emergentagent.com/job_muscle-mapper-2/artifacts/hdnoipr9_lmrot.jpg',
           intensityReason: 'Hip-led rotation builds lateral power with controlled arc.',
           moodTips: [
             {
