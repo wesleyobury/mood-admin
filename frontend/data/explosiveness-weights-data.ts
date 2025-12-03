@@ -292,7 +292,7 @@ export const explosivenessWeightsDatabase: EquipmentWorkouts[] = [
           duration: '8–10 min',
           description: 'Small dip to forceful drive; soft balanced split; one-second hold.',
           battlePlan: '3 rounds\n• 4 per side Split Jerk Pops\nRest 60–75s',
-          imageUrl: EXPLOSIVE_IMAGE,
+          imageUrl: 'https://customer-assets.emergentagent.com/job_muscle-mapper-2/artifacts/40bblhga_lmspj.jpg',
           intensityReason: 'Angled path teaches leg drive and stable split catch safely.',
           moodTips: [
             {
