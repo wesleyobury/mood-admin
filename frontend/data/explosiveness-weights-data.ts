@@ -374,7 +374,7 @@ export const explosivenessWeightsDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Load back hip; rotate through; punch sleeve up powerfully.',
           battlePlan: '4 rounds\n• 5 per side Rotation Punch\nRest 90s',
-          imageUrl: EXPLOSIVE_IMAGE,
+          imageUrl: 'https://customer-assets.emergentagent.com/job_muscle-mapper-2/artifacts/p9g3x5md_ssrp.jpg',
           intensityReason: 'Staggered base enhances hip-to-core transfer and speed.',
           moodTips: [
             {
