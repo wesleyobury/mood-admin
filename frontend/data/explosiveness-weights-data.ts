@@ -933,7 +933,7 @@ export const explosivenessWeightsDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Controlled sit to box; explode up; maintain crisp bar speed.',
           battlePlan: '6 rounds\n• 2 reps every 45s (speed focus)\nRest on timer',
-          imageUrl: EXPLOSIVE_IMAGE,
+          imageUrl: 'https://customer-assets.emergentagent.com/job_muscle-mapper-2/artifacts/2ts1slh6_cbs.jpg',
           intensityReason: 'Chains deload bottom, overload top to drive fast concentric.',
           moodTips: [
             {
