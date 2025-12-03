@@ -243,7 +243,7 @@ export const explosivenessWeightsDatabase: EquipmentWorkouts[] = [
           duration: '12–16 min',
           description: 'Dip-drive, punch under, firm stick; build across wave sets.',
           battlePlan: '5 rounds\n• Wave: 2-2-1 Push Jerks (build slightly per wave)\nRest 120–150s',
-          imageUrl: EXPLOSIVE_IMAGE,
+          imageUrl: 'https://customer-assets.emergentagent.com/job_muscle-mapper-2/artifacts/1n6uft3o_pp.jpg',
           intensityReason: 'Wave loading sustains velocity under rising neural demand.',
           moodTips: [
             {
