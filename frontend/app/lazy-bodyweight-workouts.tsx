@@ -1335,7 +1335,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Split jumps, squat jumps, pike shoulder taps, planks.',
           battlePlan: '4 rounds\n• 20s Split Jumps → 40s Reverse Lunges\n• 20s Squat Jumps → 40s Squats\n• 30s Pike Shoulder Taps\n• 30s Side Plank (switch at 15s)\n• 30s Rest',
-          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-images/artifacts/fx9b15hc_download%20%2810%29.png',
           intensityReason: 'Mixed jumps challenge safely with soft controlled landings.',
           moodTips: [
             {
