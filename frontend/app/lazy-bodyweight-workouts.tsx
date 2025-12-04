@@ -777,7 +777,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: '30s hinge-led pulls with 60s easy glide; repeat calm.',
           battlePlan: '6 cycles continuous\n• 30s Focus (RPE 5)\n• 60s Easy (RPE 3)',
-          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-images/artifacts/7ynxfrel_ski1.jpg',
           intensityReason: 'Technique emphasis spreads work while staying easy.',
           moodTips: [
             {
