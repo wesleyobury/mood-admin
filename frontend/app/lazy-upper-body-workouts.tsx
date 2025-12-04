@@ -411,7 +411,7 @@ const upperBodyWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Face pull 1.5 reps, high rows next, rope hammer curls.',
           battlePlan: 'Cable Face Pull (1.5 reps)\n• 3 × 10–12 (RPE 6), 60–75s rest\nHigh Cable Row\n• 3 × 8–10 (RPE 6), 60–75s rest\nRope Hammer Curl\n• 3 × 10–12 (RPE 6), 60s rest',
-          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_lazy-workout-images/artifacts/3mysq3rj_Screenshot%202025-12-04%20at%2012.02.09%E2%80%AFAM.png',
           intensityReason: '1.5 face pulls intensify rear delts with safe load.',
           moodTips: [
             {
