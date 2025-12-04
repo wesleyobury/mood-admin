@@ -219,7 +219,7 @@ const fullBodyWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '26–32 min',
           description: 'Cable goblet 1.5s, incline fly 1.5s, anti-rotation hold.',
           battlePlan: 'Cable Goblet Squat (1.5 reps)\n• 3 × 8–10 (RPE 6), 60–75s rest\nIncline Cable Fly (1.5 reps)\n• 3 × 8–10 (RPE 6), 60–75s rest\nCable Anti-Rotation Hold\n• 3 × 25–35s/side (RPE 6), 45–60s rest',
-          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_upper-body-enhance/artifacts/rvk5my8t_cgs.jpg',
           intensityReason: '1.5 reps add time under tension at manageable loads.',
           moodTips: [
             {
