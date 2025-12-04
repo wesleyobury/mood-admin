@@ -117,7 +117,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Change incline each minute; maintain easy comfortable pace.',
           battlePlan: '10–12 min continuous\n• Alternate each minute: 2% → 5% → 3% → 6% … (RPE 4–5)',
-          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-images/artifacts/lcrp3pfp_download%20%2827%29.png',
           intensityReason: 'Alternating grades keep interest without impact load.',
           moodTips: [
             {
