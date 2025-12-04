@@ -95,7 +95,7 @@ const fullBodyWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '16–20 min',
           description: 'Smith back squat, Smith bench press, plank for bracing.',
           battlePlan: 'Smith Back Squat\n• 3 × 8–10 (RPE 4), 60–75s rest\nSmith Machine Bench Press\n• 3 × 8–10 (RPE 4), 60s rest\nFront Plank\n• 3 × 20–40s (RPE 4), 45s rest',
-          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_upper-body-enhance/artifacts/5a61mmh2_sms.jpg',
           intensityReason: 'Smith paths stabilize compound lines for safer control.',
           moodTips: [
             {
