@@ -117,7 +117,7 @@ const fullBodyWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '22–26 min',
           description: 'Leg press volume, chest press sets, cable crunch closer.',
           battlePlan: 'Leg Press (machine)\n• 4 × 10 (RPE 5), 60–75s rest\nMachine Chest Press\n• 4 × 8 (RPE 5), 60–75s rest\nCable Crunch (kneeling)\n• 3 × 12–15 (RPE 5), 45–60s rest',
-          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_upper-body-enhance/artifacts/85rxong7_download%20%2829%29.png',
           intensityReason: 'Moderate compounds pair quads, chest, and stable core.',
           moodTips: [
             {
