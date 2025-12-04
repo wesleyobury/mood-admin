@@ -439,7 +439,7 @@ const fullBodyWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '20–24 min',
           description: 'Leg press, chest press, row machine, Pallof core finish.',
           battlePlan: 'Leg Press (machine)\n• 3 × 10–12 (RPE 4), 60s rest\nMachine Chest Press\n• 3 × 8–10 (RPE 4), 60s rest\nSeated Row (neutral)\n• 3 × 8–10 (RPE 4), 60s rest\nCable Pallof Press\n• 3 × 10–12/side (RPE 4), 45–60s rest',
-          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_upper-body-enhance/artifacts/v9n7t5ul_download%20%2831%29.png',
           intensityReason: 'Machines guide compound lines with very simple setup.',
           moodTips: [
             {
