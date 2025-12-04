@@ -1295,7 +1295,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Few burpees per minute; squats and core fill remaining.',
           battlePlan: 'EMOM 12 min\nOdd: 4–6 Burpees, then Squats till minute\nEven: 20s Hollow Hold, then Lunges till minute',
-          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-images/artifacts/560zzeug_download%20%288%29.png',
           intensityReason: 'Sparse burpees add spice while rest moves stay easy.',
           moodTips: [
             {
