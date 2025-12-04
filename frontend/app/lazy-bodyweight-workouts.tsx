@@ -799,7 +799,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: '20–30–40s pulls with equal easy; keep stroke smooth.',
           battlePlan: '3 cycles continuous\n• 20s Pull / 20s Easy\n• 30s Pull / 30s Easy\n• 40s Pull / 40s Easy',
-          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-images/artifacts/1zo355rz_skiierg.jpg',
           intensityReason: 'Small builds keep fun up without heavy fatigue buildup.',
           moodTips: [
             {
