@@ -1363,7 +1363,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
           duration: '8–10 min',
           description: 'Light pace, gentle arm swing, calm nasal–mouth breathing.',
           battlePlan: '1 set\n• 8–10 min Easy (RPE 3)',
-          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-images/artifacts/j0sczg6l_download%20%282%29.png',
           intensityReason: 'Easy spin moves blood with very low systemic stress.',
           moodTips: [
             {
