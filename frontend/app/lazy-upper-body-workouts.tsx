@@ -309,7 +309,7 @@ const upperBodyWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Pulldown work, straight-arm sweeps, incline cable curls.',
           battlePlan: 'Lat Pulldown\n• 4 × 8 (RPE 5), 60–75s rest\nCable Straight-Arm Pulldown\n• 3 × 10–12 (RPE 5), 60s rest\nIncline Cable Curl (low to high)\n• 3 × 10–12 (RPE 5), 45–60s rest',
-          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_lazy-workout-images/artifacts/224yyt9s_download%20%2834%29.png',
           intensityReason: 'Vertical pull pairs with length-tension lat training.',
           moodTips: [
             {
