@@ -391,7 +391,7 @@ const fullBodyWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '26–32 min',
           description: 'Smith RDL clusters, chest-supported row, cable chops.',
           battlePlan: 'Smith RDL\n• 3 clusters: 3 + 3 + 3 (15s between), 90s between clusters\nChest-Supported Row Machine\n• 3 × 8–10 (RPE 6), 60–75s rest\nHigh-to-Low Cable Chop\n• 3 × 8–10/side (RPE 6), 45–60s rest',
-          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_upper-body-enhance/artifacts/0wssum58_Screenshot%202025-12-04%20at%2012.00.14%E2%80%AFAM.png',
           intensityReason: 'Clusters preserve output while scap control stays crisp.',
           moodTips: [
             {
