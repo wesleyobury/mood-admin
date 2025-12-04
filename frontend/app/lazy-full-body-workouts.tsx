@@ -563,7 +563,7 @@ const fullBodyWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '32–40 min',
           description: 'Leg press drop, chest press drop, rows, Pallof finish.',
           battlePlan: 'Leg Press (machine)\n• 1 × 8 heavy (RPE 7) → drop 15% → 1 × 8 (RPE 6) → drop 15% → 1 × 8 (RPE 6)\n• Rest 90s; repeat for 2–3 total series\nMachine Chest Press\n• 1 × 6–8 heavy (RPE 7) → drop 15% → 1 × 6–8 (RPE 6)\nSeated Row (neutral)\n• 3 × 8–10 (RPE 6), 60–75s rest\nCable Pallof Press\n• 3 × 10–12/side (RPE 6), 45–60s rest',
-          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_upper-body-enhance/artifacts/zpkugltm_download.png',
           intensityReason: 'Drop sets scale volume across lifts without complexity.',
           moodTips: [
             {
