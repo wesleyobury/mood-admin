@@ -267,7 +267,7 @@ const fullBodyWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '16–20 min',
           description: '45° back extension, pulldown, dead bug or cable core.',
           battlePlan: '45° Back Extension (machine)\n• 3 × 10–12 (RPE 4), 60s rest\nLat Pulldown\n• 3 × 8–10 (RPE 4), 60s rest\nDead Bug or Cable Anti-Rotation Hold\n• 3 × 20–30s/side (RPE 4), 45s rest',
-          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_upper-body-enhance/artifacts/gwy2em83_download%20%2834%29.png',
           intensityReason: 'Supported hinge plus vertical pull reduce bracing.',
           moodTips: [
             {
