@@ -249,7 +249,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Thirty-second surge, ninety seconds easy; smooth cycles.',
           battlePlan: '6 cycles continuous\n• 30s Surge (RPE 6)\n• 90s Easy (RPE 3)',
-          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-images/artifacts/jx5sn8pf_download%20%2825%29.png',
           intensityReason: 'Short controlled pushes lift HR then settle cleanly.',
           moodTips: [
             {
