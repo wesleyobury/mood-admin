@@ -459,7 +459,7 @@ const lowerBodyWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '8–10 min',
           description: 'Hack squat, hip thrust, leg curl, standing calves lineup.',
           battlePlan: 'Hack Squat (machine)\n• 3 × 8–10 (RPE 4), 60s rest\nHip Thrust Machine\n• 3 × 10–12 (RPE 4), 60s rest\nSeated Leg Curl (machine)\n• 3 × 10–12 (RPE 4), 60s rest\nStanding Calf Raise (machine)\n• 3 × 12–15 (RPE 4), 45–60s rest',
-          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_upper-body-enhance/artifacts/rchrkjlm_hs.avif',
           intensityReason: 'Guided paths reduce setup and stabilize each lift.',
           moodTips: [
             {
