@@ -95,7 +95,7 @@ const upperBodyWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '8–10 min',
           description: 'Shoulder press, pec-deck squeeze, dip assist to finish clean.',
           battlePlan: 'Machine Shoulder Press\n• 3 × 8–10 (RPE 4), 60s rest\nPec Deck\n• 3 × 10–12 (RPE 4), 60s rest\nAssisted Dips\n• 3 × 8–10 (RPE 4), 60s rest',
-          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_lazy-workout-images/artifacts/nj4fggwr_download%20%2830%29.png',
           intensityReason: 'Vertical press with fly and assisted dips keeps effort light.',
           moodTips: [
             {
