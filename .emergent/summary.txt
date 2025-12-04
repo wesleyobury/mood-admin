@@ -1,63 +1,64 @@
 <analysis>
-The trajectory details a systematic and repetitive workflow for populating a React Native fitness application with workout images. The user directs the process by specifying a workout category and equipment type, then provides the corresponding image assets. The AI engineer's task is to update the hardcoded data structures within the application's source code.
+The trajectory documents a highly iterative and methodical process of populating a React Native fitness app with workout images for the Build Explosion Based section. The user drove the process by providing image assets for each equipment type (Chains/Bands, Dumbbells, Kettlebells, Landmine, Power Lifting Platform, and Trap Hex Bar) and each difficulty level (Beginner, Intermediate, Advanced).
 
-Initially, the AI attempted to find the Build Explosion section in the previously known monolithic file, . After failing to find the section, the AI intelligently discovered a new, relevant file, , by listing the directory contents. This marked a key architectural discovery, revealing that workout data is segmented into multiple large, category-specific files rather than a single global one.
+A key discovery occurred early on. The AI initially searched for the workout data in a previously known file, , but failed. Through exploration, it uncovered a new architectural pattern: workout UI is in , while the corresponding data is in a separate  file. This data-view separation was a departure from the monoliths seen before.
 
-Following this discovery, the AI methodically populated images for every equipment type within the Build Explosion path, as directed by the user. This included Battle Ropes, Body Weight Only, Kettle Bell, Med Ball, Plyo Box, Sand Bag, and Sled workouts. The consistent workflow involved: receiving assets, locating the data block in the correct file, executing numerous  commands, restarting the Expo server, and providing a detailed progress summary to the user. The trajectory concludes immediately after the AI finishes updating the final Sled section and restarts the server, just before sending the concluding summary.
+The AI then systematically populated all 57 workouts in this new data file. A critical incident happened during the Power Lifting Platform update, where the AI accidentally wiped the data file. It correctly diagnosed the issue, called the , and successfully restored the file from git history, demonstrating robust error recovery.
 
-The user's language is English. Future interactions should be in English.
+The workflow consistently involved: receiving assets, locating the correct data objects in , executing  commands to add  properties, restarting the Expo server, and summarizing the progress for the user. The trajectory concludes immediately after the AI finishes updating the final Trap Hex Bar workouts and restarts the server, just before sending the final confirmation summary to the user.
+
+The user's language is English, and all future responses should be in English.
 </analysis>
 
 <product_requirements>
-The project's objective is to visually enhance a fitness application by adding images to all workout exercises. The development process is highly iterative and user-driven, where the user acts as a product owner, providing specific instructions and image assets for different workout categories.
+The project's objective is to visually enhance the Build Explosion Based section of a fitness application by adding illustrative images to every workout. The development process is entirely user-driven, with the user acting as the product owner, providing image assets and directing the AI engineer to update specific categories.
 
-The core task involves the engineer editing hardcoded workout databases within the frontend codebase. For each specified equipment type (e.g., Battle Ropes, Kettle Bell), the engineer must insert the provided image URLs into the  field for every workout variation (Beginner, Intermediate, Advanced).
+The core task involves editing a hardcoded workout database located in the frontend codebase. For each specified equipment type—Chains/Bands, Dumbbells, Kettlebells, Landmine, Power Lifting Platform, and Trap Hex Bar—the engineer must insert the provided image URLs into the  field for all Beginner, Intermediate, and Advanced workout variations.
 
-So far, the Legs Day workouts (Compound, Glutes, Hamstrings, etc.) were completed in a previous session. The work detailed in this trajectory focuses entirely on the Build Explosion workout path. This involved identifying a new data file and systematically populating images for all its equipment categories: Battle Ropes, Body Weight Only, Kettle Bell, Med Ball, Plyo Box, Sand Bag, and Sled. The goal is to create a more engaging and intuitive user experience by providing clear visual guidance for each exercise.
+This work follows the completion of other workout categories in previous sessions. The scope of this trajectory was to identify the correct data source for weight-based explosive workouts and systematically populate images for all of them, thereby completing a significant portion of the app's content and improving the user experience with clear visual guidance.
 </product_requirements>
 
 <key_technical_concepts>
-- **Hardcoded Data**: Workout data, including exercises and image URLs, is stored in TypeScript constant arrays directly within component files.
-- **Component-Scoped Data Monoliths**: The application avoids a single global data file, instead opting for large, self-contained data/UI files for each major workout category (e.g., one for leg workouts, another for explosiveness workouts).
-- **User-Driven Iterative Workflow**: Development follows a strict pattern of receiving user instructions and assets, performing targeted file edits, and restarting the server.
+- **Data-View Separation**: Workout data is stored in a dedicated data file (), separate from the React Native component file that renders it.
+- **Hardcoded Data Model**: All workout information, including exercises, descriptions, and image URLs, is stored in a large, exported TypeScript constant array within the data file.
+- **Iterative, User-Driven Workflow**: Development proceeds in a strict cycle: receive user assets and instructions, perform targeted file edits, restart the server to apply changes, and summarize progress.
 </key_technical_concepts>
 
 <code_architecture>
-The application's content architecture is defined by separate, monolithic files that each house both the UI logic and hardcoded data for a specific, high-level workout category.
+The architecture for this feature separates the data from the presentation layer. A central data file exports a large array of workout objects, which is then imported and rendered by a specific React Native screen component.
 
 **Directory Structure:**
 
 
 - ****
-  - **Summary of why this file is important**: This file contains the data and UI for all Legs Day workouts. While it was the focus of previous work, it was only read in this trajectory during the initial, incorrect search for the Build Explosion section.
-  - **Summary of the changes made to this file, if any**: No changes were made to this file in the current trajectory.
+  - **Summary of why this file is important**: This is the most critical file for the work performed in this trajectory. It was discovered during this session and serves as the single source of truth for all workouts within the Build Explosion Based path. It contains a large constant, , which is an array of objects detailing all exercises for 6 different equipment types.
+  - **Summary of the changes made to this file, if any**: This file was the primary target of all edits. The  property was added or updated for all 57 workouts across all 6 equipment types (Chains/Bands, Dumbbells, Kettlebells, Landmine, Power Lifting Platform, Trap Hex Bar) and their respective difficulty levels (Beginner, Intermediate, Advanced). A critical incident occurred where this file was accidentally wiped, but it was successfully restored from git history using a command provided by the .
 
 - ****
-  - **Summary of why this file is important**: This is the most critical file for the work performed in this trajectory. It was discovered during this session and serves as the data and view monolith for the entire Build Explosion workout path. It contains the hardcoded workout database for seven different equipment types: Battle Ropes, Plyo Box, Med Ball, Sled, Kettle Bell, Sand Bag, and Body Weight Only.
-  - **Summary of the changes made to this file, if any**: This file was edited extensively. The  property was populated for all beginner, intermediate, and advanced workouts across all seven equipment categories, totaling 63 individual workout updates. The updates were performed sequentially as the user provided images for each category, starting with Battle Ropes and concluding with Sled.
+  - **Summary of why this file is important**: This file is the React Native component responsible for rendering the UI for the Weight Based workouts. It imports the  from  to display the workout information.
+  - **Summary of the changes made to this file, if any**: This file was read to understand the application architecture but was not edited.
+
+- ****
+  - **Summary of why this file is important**: This file was relevant only at the beginning of the trajectory. The AI initially (and incorrectly) assumed the Weight Based workouts would be here, based on previous work patterns. Reading this file and finding no relevant section prompted the exploration that led to the discovery of the new data architecture.
+  - **Summary of the changes made to this file, if any**: No changes were made to this file.
 </code_architecture>
 
 <pending_tasks>
-- There are no explicit pending tasks. The AI has systematically worked through and completed image population for all equipment types within the Build Explosion workout path as requested by the user. The final requested section, Sled, has been updated.
+- There are no outstanding pending tasks. The user's request to add images to the entire Build Explosion Based section, including all workouts for the final Trap Hex Bar equipment, has been fully completed.
 </pending_tasks>
 
 <current_work>
-The most recent task was the completion of the Build Explosion section by populating the final equipment type: **Sled**.
+The most recent task was the final completion of the **Trap Hex Bar** equipment category, which also marked the completion of the entire Build Explosion Based section.
 
-1.  **User Request**: The user provided five image artifacts with corresponding labels and instructed: use these for sled.
-2.  **File Edited**: .
-3.  **Actions Performed**: The AI correctly located the  data object within the workout database constant. It then executed nine distinct  commands, mapping the user-provided images to the  property of the nine Sled workouts across the Beginner, Intermediate, and Advanced difficulty levels.
-4.  **Final Action**: After successfully updating all nine workouts, the AI restarted the Expo server using the command expo: ERROR (not running)
-expo: started to apply the changes.
-5.  **Where the work left off**: The trajectory concludes immediately after the server restart confirmation. The AI has not yet sent its standard summary message to the user to confirm the completion of the Sled section and the entire Build Explosion path. This final communication step is the only remaining part of the task.
+1.  **Initial User Request**: The user provided an initial set of images for the Trap Hex Bar workouts. The AI updated 8 of the 9 workouts but noted that an image for Trap Bar High Pull was missing.
+2.  **Final User Request**: The user provided a second batch of images, including the missing Trap Bar High Pull image and two improved images for advanced workouts (Heavy Jump Shrug Wave and Trap Bar Jump Cluster).
+3.  **File Edited**: .
+4.  **Actions Performed**: The AI executed three  commands to update the  for these three workouts, overwriting the previous generic images for the advanced workouts with the new, more specific ones.
+5.  **Final Action**: After successfully updating the last remaining workouts, the AI restarted the Expo server with expo: ERROR (not running)
+expo: started to apply all changes.
+6.  **Where the work left off**: The trajectory concludes immediately after the server restart confirmation message. The AI has not yet sent its final summary to the user to confirm the completion of the Trap Hex Bar section and the entire Weight Based category.
 </current_work>
 
 <optional_next_step>
-Provide the user with a final summary confirming that all workouts for the Sled equipment have been updated and that the entire Build Explosion section is now complete.
+Provide a final, comprehensive summary to the user confirming that all Trap Hex Bar workouts are updated and that the entire Build Explosion Based section is now complete.
 </optional_next_step>
-
-<direct_quotes>
-**User's Last Request:** use these for sled
-**AI's Last Confirmed Action:**
-
-</direct_quotes>
