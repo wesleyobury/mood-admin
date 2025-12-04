@@ -583,7 +583,7 @@ const fullBodyWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '32–40 min',
           description: 'Hack clusters, Smith bench clusters, rows, cable chops.',
           battlePlan: 'Hack Squat (machine)\n• 3 clusters: 3 + 3 + 3 (15s between), 90s between clusters\nSmith Machine Bench Press\n• 3 clusters: 3 + 3 + 3 (15s between), 90s between clusters\nHigh Cable Row\n• 3 × 8–10 (RPE 6), 60–75s rest\nHigh-to-Low Cable Chop\n• 3 × 8–10/side (RPE 6), 45–60s rest',
-          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_upper-body-enhance/artifacts/zjzedsvc_download%20%288%29.png',
           intensityReason: 'Clusters maintain power while form remains reliable.',
           moodTips: [
             {
