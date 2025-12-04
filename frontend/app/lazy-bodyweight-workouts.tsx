@@ -339,7 +339,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
           duration: '8–10 min',
           description: '20s quicker strides with 40s easy glides; repeat calm.',
           battlePlan: '3 rounds\n• 2 min Easy\n• 3 × (20s Quick, 40s Easy) done back-to-back\nRecovery is the 40s Easy within each trio',
-          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-images/artifacts/c5a1o86a_download%20%2812%29.png',
           intensityReason: 'Short tempo lifts add spark while effort stays easy.',
           moodTips: [
             {
