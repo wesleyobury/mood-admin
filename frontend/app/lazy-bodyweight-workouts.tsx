@@ -159,7 +159,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'One-minute hill efforts with flat recoveries; breathe calm.',
           battlePlan: '6 cycles continuous\n• 1 min @ 5–6% (RPE 5)\n• 1 min flat (RPE 3–4)',
-          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-images/artifacts/lcrp3pfp_download%20%2827%29.png',
           intensityReason: 'Short hill rises engage legs gently without heavy load.',
           moodTips: [
             {
