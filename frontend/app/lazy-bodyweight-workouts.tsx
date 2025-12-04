@@ -207,7 +207,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
           duration: '8–10 min',
           description: 'Easy spin punctuated by quick fast-leg bursts; reset easy.',
           battlePlan: '3 rounds\n• 2 min Easy (RPE 3)\n• 20s Fast Legs / 40s Easy (repeat 1× = 1 block)\nComplete both intervals back-to-back to finish each round',
-          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-images/artifacts/jx5sn8pf_download%20%2825%29.png',
           intensityReason: 'Short fast legs nudge HR without accumulating fatigue.',
           moodTips: [
             {
