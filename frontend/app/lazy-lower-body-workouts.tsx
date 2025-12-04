@@ -157,7 +157,7 @@ const lowerBodyWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Smith front squats, extensions next, calves to finish.',
           battlePlan: 'Smith Front Squat\n• 4 × 8 (RPE 5–6), 75s rest\nLeg Extension (machine)\n• 3 × 10–12 (RPE 5), 60s rest\nStanding Calf Raise (machine)\n• 3 × 12–15 (RPE 5), 60s rest',
-          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_upper-body-enhance/artifacts/6q78aa0l_smfs.jpg',
           intensityReason: 'Smith guidance reduces setup and stabilizer demands.',
           moodTips: [
             {
