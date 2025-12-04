@@ -521,7 +521,7 @@ const upperBodyWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Shoulder press, pulldown, pec deck, rope tris; tidy flow.',
           battlePlan: 'Machine Shoulder Press\n• 4 × 8 (RPE 5–6), 60–75s rest\nLat Pulldown\n• 4 × 8 (RPE 5), 60–75s rest\nPec Deck\n• 3 × 10–12 (RPE 5), 60s rest\nRope Pressdown\n• 3 × 10–12 (RPE 5), 60s rest',
-          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_lazy-workout-images/artifacts/kwgc495p_download%20%2830%29.png',
           intensityReason: 'Overhead press and pulldown anchor simple accessory.',
           moodTips: [
             {
