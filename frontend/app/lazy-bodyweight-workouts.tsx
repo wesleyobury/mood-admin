@@ -1083,7 +1083,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Two jumps, 10s rest, two jumps; step down always.',
           battlePlan: '5 rounds\n• Cluster: 2 Jumps → 10s rest → 2 Jumps\n• Then 60s Easy Step-Ups\nRepeat; total RPE 5–6',
-          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-images/artifacts/qj1k6asd_bj.webp',
           intensityReason: 'Clusters sustain jump quality with brief micro-rests.',
           moodTips: [
             {
