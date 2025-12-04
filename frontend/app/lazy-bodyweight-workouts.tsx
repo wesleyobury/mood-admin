@@ -1233,7 +1233,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Small squat hops, step-back lunges, pushups, hollow.',
           battlePlan: '3 rounds\n• 30s Small Squat Hops (or Squats)\n• 40s Step-Back Lunges (alt)\n• 30s Pushups\n• 30s Hollow Hold\n• 30s Rest',
-          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-images/artifacts/04x6jgb3_download%20%285%29.png',
           intensityReason: 'Tiny hops add pop while impact stays manageable.',
           moodTips: [
             {
