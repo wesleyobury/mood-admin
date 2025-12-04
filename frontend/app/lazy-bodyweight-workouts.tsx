@@ -535,7 +535,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Mostly forward steps with 30s lateral work each minute.',
           battlePlan: '6 cycles\n• 90s Forward (RPE 4)\n• 30s Side-Steps L/R (RPE 5)',
-          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-images/artifacts/891czvrs_download%20%2822%29.png',
           intensityReason: 'Light lateral steps add variety with modest intensity.',
           moodTips: [
             {
