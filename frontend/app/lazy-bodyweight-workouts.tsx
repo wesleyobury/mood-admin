@@ -271,7 +271,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: '1–2–3–2–1 @ RPE 5 with 1-min easy recoveries between.',
           battlePlan: '1 set\n• 2 min Easy\n• 1 min @ RPE 5 → 1 min Easy\n• 2 min @ RPE 5 → 1 min Easy\n• 3 min @ RPE 5 → 1 min Easy\n• 2 min @ RPE 5 → 1 min Easy\n• 1 min @ RPE 5 → 2 min Easy finish',
-          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-images/artifacts/8k8d6fo4_download%20%2824%29.png',
           intensityReason: 'Build and drop ladder sustains focus without strain.',
           moodTips: [
             {
