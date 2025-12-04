@@ -371,7 +371,7 @@ const lowerBodyWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Heavy seated curl drops, RDLs after, thrust finish.',
           battlePlan: 'Seated Leg Curl (machine)\n• 1 × 8 heavy (RPE 7) → drop 15% → 1 × 8 (RPE 6) → drop 15% → 1 × 8 (RPE 6)\n• Rest 90s; repeat for 3 total series\nSmith RDL\n• 3 × 8–10 (RPE 6), 60–75s rest\nHip Thrust Machine\n• 3 × 10–12 (RPE 6), 60–75s rest',
-          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_upper-body-enhance/artifacts/cj4dx97r_download%20%283%29.png',
           intensityReason: 'Drop sets extend ham tension without complex skills.',
           moodTips: [
             {
