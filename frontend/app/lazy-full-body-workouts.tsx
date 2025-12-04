@@ -541,7 +541,7 @@ const fullBodyWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '26–32 min',
           description: 'Smith squat, Smith bench, row machine, cable chops.',
           battlePlan: 'Smith Back Squat\n• 4 × 8 (RPE 5–6), 75s rest\nSmith Machine Bench Press\n• 4 × 8 (RPE 5), 60–75s rest\nChest-Supported Row Machine\n• 3 × 8–10 (RPE 5), 60–75s rest\nLow-to-High Cable Chop\n• 3 × 8–10/side (RPE 5), 45–60s rest',
-          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_upper-body-enhance/artifacts/uazsquaz_download%20%288%29.png',
           intensityReason: 'Smith guidance allows heavier compounds with control.',
           moodTips: [
             {
