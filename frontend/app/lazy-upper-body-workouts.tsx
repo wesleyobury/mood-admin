@@ -267,7 +267,7 @@ const upperBodyWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '8–10 min',
           description: 'Row machine, straight-arm pulldown, cable curls finish.',
           battlePlan: 'Chest-Supported Row Machine\n• 3 × 8–10 (RPE 4), 60s rest\nCable Straight-Arm Pulldown\n• 3 × 12 (RPE 4), 45–60s rest\nCable Curl (EZ or rope)\n• 3 × 10–12 (RPE 4), 45–60s rest',
-          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_lazy-workout-images/artifacts/8wag7xpf_Screenshot%202025-12-04%20at%2012.00.14%E2%80%AFAM.png',
           intensityReason: 'Supported rows reduce bracing and simplify posture.',
           moodTips: [
             {
