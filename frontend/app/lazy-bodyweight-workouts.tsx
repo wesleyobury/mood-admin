@@ -1021,7 +1021,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Step-up with gentle knee lift; alternate legs; control.',
           battlePlan: '4 rounds\n• 60s Step-Up + Knee (RPE 5)\n• 60s Easy Step-Ups (RPE 3–4)',
-          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-images/artifacts/43a622qp_download%20%2817%29.png',
           intensityReason: 'Small knee drive lifts HR without jumping impact.',
           moodTips: [
             {
