@@ -349,7 +349,7 @@ const fullBodyWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '22–26 min',
           description: 'Pull-through volume, high rows, chops for anti-rotation.',
           battlePlan: 'Cable Pull-Through\n• 4 × 10 (RPE 5), 60–75s rest\nHigh Cable Row\n• 4 × 8–10 (RPE 5), 60–75s rest\nLow-to-High Cable Chop\n• 3 × 8–10/side (RPE 5), 45–60s rest',
-          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_upper-body-enhance/artifacts/1tdr3nmt_download%20%284%29.png',
           intensityReason: 'Cable hinge and rows add control with low setup needs.',
           moodTips: [
             {
