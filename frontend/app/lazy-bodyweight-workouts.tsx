@@ -667,7 +667,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Easy row blocks surrounding one controlled 500m piece.',
           battlePlan: '1 set\n• 4 min Easy (RPE 3)\n• 500m Steady (RPE 6)\n• 4–6 min Easy (RPE 3)',
-          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-images/artifacts/6b87wtzw_download%20%2820%29.png',
           intensityReason: 'Short 500m adds spice while total load remains easy.',
           moodTips: [
             {
