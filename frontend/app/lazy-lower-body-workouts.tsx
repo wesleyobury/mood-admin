@@ -329,7 +329,7 @@ const lowerBodyWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Smith RDLs, seated curls, back extension machine.',
           battlePlan: 'Smith RDL\n• 4 × 8 (RPE 5–6), 75s rest\nSeated Leg Curl (machine)\n• 3 × 10–12 (RPE 5), 60s rest\nBack Extension (machine)\n• 3 × 10–12 (RPE 5), 60s rest',
-          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_upper-body-enhance/artifacts/k4j5yazw_download%20%285%29.png',
           intensityReason: 'Guided RDL reduces balance needs while loading safely.',
           moodTips: [
             {
