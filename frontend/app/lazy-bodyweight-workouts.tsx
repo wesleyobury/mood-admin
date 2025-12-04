@@ -603,7 +603,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
           duration: '8–10 min',
           description: 'Arms-only, arms+body, then full strokes; crisp sequence.',
           battlePlan: '1 set\n• 2 min Arms-only (RPE 2–3)\n• 3 min Arms+Body (RPE 3)\n• 3–5 min Full Stroke (RPE 3–4)',
-          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-images/artifacts/zxa3naw1_download%20%2821%29.png',
           intensityReason: 'Technique segments build rhythm at very easy effort.',
           moodTips: [
             {
