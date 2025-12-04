@@ -179,7 +179,7 @@ const fullBodyWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '26–32 min',
           description: 'Leg press plus chest press drops, then controlled abs.',
           battlePlan: 'Leg Press (machine)\n• 1 × 8 heavy (RPE 7) → drop 15% → 1 × 8 (RPE 6) → drop 15% → 1 × 8 (RPE 6)\n• Rest 90s; repeat for 2–3 total series\nMachine Chest Press\n• 1 × 6–8 heavy (RPE 7) → drop 15% → 1 × 6–8 (RPE 6)\nCable Crunch (kneeling)\n• 3 × 12–15 (RPE 6), 60s rest',
-          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_upper-body-enhance/artifacts/f8k0kcti_download.png',
           intensityReason: 'Drop-set presses expand work capacity without complexity.',
           moodTips: [
             {
