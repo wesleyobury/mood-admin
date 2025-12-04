@@ -999,7 +999,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
           duration: '8–10 min',
           description: 'Light tap to box; stand tall; relaxed smooth rhythm.',
           battlePlan: '3 rounds\n• 60s Squat-to-Stand\n• 30s Easy Step-Ups\nNo extra rest',
-          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-images/artifacts/dgbd4a69_download%20%2818%29.png',
           intensityReason: 'Box target keeps depth safe with comfortable cadence.',
           moodTips: [
             {
