@@ -603,7 +603,7 @@ const fullBodyWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '32–40 min',
           description: 'Goblet 1.5s, cable fly 1.5s, high rows, overhead Pallof.',
           battlePlan: 'Cable Goblet Squat (1.5 reps)\n• 3 × 8–10 (RPE 6), 60–75s rest\nCable Fly (1.5 reps)\n• 3 × 8–10 (RPE 6), 60–75s rest\nHigh Cable Row\n• 3 × 8–10 (RPE 6), 60–75s rest\nCable Overhead Pallof\n• 3 × 10–12/side (RPE 6), 45–60s rest',
-          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_upper-body-enhance/artifacts/8uykic1g_download%20%282%29.png',
           intensityReason: '1.5 reps add tension at manageable loads across lifts.',
           moodTips: [
             {
