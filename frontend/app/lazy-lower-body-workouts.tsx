@@ -55,7 +55,7 @@ const lowerBodyWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '8–10 min',
           description: 'Leg press base, knee extensions next, calves finish smoothly.',
           battlePlan: 'Leg Press (machine)\n• 3 × 10–12 (RPE 4), 60s rest\nLeg Extension (machine)\n• 3 × 10–12 (RPE 4), 45–60s rest\nSeated Calf Raise (machine)\n• 3 × 12–15 (RPE 4), 45–60s rest',
-          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_upper-body-enhance/artifacts/p3j5vmje_download.png',
           intensityReason: 'Guided machines load quads safely with minimal setup.',
           moodTips: [
             {
