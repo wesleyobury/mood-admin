@@ -1063,7 +1063,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Small jumps; quiet sticks; step down; reset each rep.',
           battlePlan: '5 rounds\n• 30s Box Jumps (low)\n• 60s Step-Ups Easy\n• 30s Rest',
-          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-images/artifacts/ikffehr2_download%20%2819%29.png',
           intensityReason: 'Low jumps keep playful intent with soft controlled landings.',
           moodTips: [
             {
