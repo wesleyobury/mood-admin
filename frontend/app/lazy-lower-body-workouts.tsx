@@ -563,7 +563,7 @@ const lowerBodyWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Press drop, curl drop, extensions, calf volume finish.',
           battlePlan: 'Leg Press (machine)\n• 1 × 8 heavy (RPE 7) → drop 15% → 1 × 8 (RPE 6) → drop 15% → 1 × 8 (RPE 6)\n• Rest 90s; repeat for 3 total series\nSeated Leg Curl (machine)\n• 1 × 10 heavy (RPE 7) → drop 15% → 1 × 10 (RPE 6)\nLeg Extension (machine)\n• 3 × 10–12 (RPE 6), 60–75s rest\nSeated Calf Raise (machine)\n• 3 × 15–20 (RPE 6), 60s rest',
-          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_upper-body-enhance/artifacts/l69s6mlz_download.png',
           intensityReason: 'Drop sets add volume without technical complexity.',
           moodTips: [
             {
