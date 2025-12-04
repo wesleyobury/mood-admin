@@ -1193,7 +1193,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Squats, pushups, alternating lunges, plank; steady flow.',
           battlePlan: '3 rounds\n• 40s Squats\n• 30s Pushups (incline if needed)\n• 40s Alternating Lunges\n• 30s Forearm Plank\n• 30s Rest',
-          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-images/artifacts/gwmz0zxk_download%20%283%29.png',
           intensityReason: 'Short sets raise HR while pace stays conversational.',
           moodTips: [
             {
