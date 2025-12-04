@@ -117,7 +117,7 @@ const upperBodyWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Machine press, incline cable fly, cable Y-raise to polish.',
           battlePlan: 'Machine Chest Press\n• 4 × 8 (RPE 5), 60–75s rest\nIncline Cable Fly\n• 3 × 10 (RPE 5), 60s rest\nCable Y Raise\n• 3 × 12 (RPE 5), 45–60s rest',
-          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_lazy-workout-images/artifacts/tp8hgvtb_download%20%2828%29.png',
           intensityReason: 'Strong press plus fly stretch and Y-raise for delt detail.',
           moodTips: [
             {
