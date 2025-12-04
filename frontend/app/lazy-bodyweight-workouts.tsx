@@ -1315,7 +1315,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Pushups and V-ups ladder; lunges fill rest time segments.',
           battlePlan: '1 set flow\n• 6 Pushups → 10 V-ups\n• 8 Pushups → 12 V-ups\n• 10 Pushups → 14 V-ups\n• Between rungs: 20s Alternating Lunges',
-          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-images/artifacts/r5b5c9ea_download%20%289%29.png',
           intensityReason: 'Short ladders challenge without heavy fatigue buildup.',
           moodTips: [
             {
