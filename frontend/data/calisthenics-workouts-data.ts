@@ -265,7 +265,7 @@ export const additionalWorkoutDatabase = [
           duration: '14–18 min',
           description: 'Kneeling rolls fuller range, hollow rocks to polish.',
           battlePlan: 'Kneeling Ab Wheel (fuller ROM)\n• 4 × 6–8 (RPE 5), 90s rest\nHollow Rock\n• 3 × 10–15 (RPE 5), 60s rest\nSide Plank with Hip Tap\n• 3 × 8–10/side (RPE 5), 45–60s rest',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_upper-body-enhance/artifacts/ytutfbco_download%20%281%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_upper-body-enhance/artifacts/pgkoxn00_download.png',
           intensityReason: 'Moderate volume kneeling rolls challenge midline.',
           moodTips: [
             {
