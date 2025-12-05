@@ -135,7 +135,7 @@ export const additionalWorkoutDatabase = [
           duration: '24–32 min',
           description: 'Full archer rows and pushups, pistol assists for leg balance.',
           battlePlan: 'Ring Archer Row (full)\n• 5 × 4–6/side (RPE 6–7), 90–120s rest\nRing Archer Pushup\n• 4 × 4–6/side (RPE 6), 90s rest\nRing-Assisted Pistol\n• 3 × 6–8/side (RPE 6), 75s rest',
-          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYWxpc3RoZW5pY3N8ZW58MXx8fHwxVzU2aWNnNMzIyM3ww&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_upper-body-enhance/artifacts/wd1l2iea_download%20%288%29.png',
           intensityReason: 'Full unilateral work challenges single-arm control.',
           moodTips: [
             {
