@@ -709,7 +709,7 @@ export const outdoorRunWorkoutDatabase = [
           duration: '20–26 min',
           description: 'Lunges, broad jumps, sprints reinforce controlled power.',
           battlePlan: '• 6 sets:\n\n20 yd uphill walking lunges\n6–8 uphill broad jumps (~20 yd)\n20 yd uphill sprint\nWalk down recovery',
-          imageUrl: 'https://images.unsplash.com/photo-1551698618-1dfe5d97d256?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxoaWtpbmclMjBmaXRuZXNzfGVufDB8fHx8MTcwMzQ3NTY2Mw&ixlib=rb-4.0.3&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_exercise-library-12/artifacts/xyu6atdo_download%20%2810%29.png',
           intensityReason: 'Lunges and jumps pre-fatigue, then sprints build posture.',
           moodTips: [
             {
