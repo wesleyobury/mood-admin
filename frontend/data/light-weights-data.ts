@@ -36,7 +36,7 @@ export const lightWeightsDatabase: EquipmentWorkouts[] = [
           duration: '16–18 min',
           description: 'Four 4‑min rounds: squats, lunges, push press, programmed rest.',
           battlePlan: 'Perform 4 rounds (4 min each):\n• 30s Goblet Squat\n• 30s Alternating Reverse Lunge\n• 30s Push Press\n• 30s Rest',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-pics/artifacts/n63352il_download%20%283%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/xgk4blng_download%20%282%29.png',
           intensityReason: 'Intervals raise HR while preserving form and control.',
           moodTips: [
             {
