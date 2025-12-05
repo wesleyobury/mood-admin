@@ -223,7 +223,7 @@ export const outdoorRunWorkoutDatabase = [
           duration: '24–28 min',
           description: 'Alternate moderate and easy minutes to build base steadily.',
           battlePlan: '• 6–8 min easy\n• 6x: 1 min RPE 6 + 1 min easy\n• 5–6 min easy',
-          imageUrl: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjeWNsaW5nJTIwZml0bmVzc3xlbnwwfHx8fDE3MDM0NzU2NjM&ixlib=rb-4.0.3&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_exercise-library-12/artifacts/i40y65gs_download%20%282%29.png',
           intensityReason: 'One-minute efforts lift heart rate safely and smoothly.',
           moodTips: [
             {
