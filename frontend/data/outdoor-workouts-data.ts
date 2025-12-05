@@ -395,7 +395,7 @@ export const outdoorRunWorkoutDatabase = [
           duration: '18–24 min',
           description: 'Easy 25s with generous rest emphasize comfort and clean form.',
           battlePlan: '• 10x25 Freestyle, 30–45s rest (own pace if needed)\n• 4x25 Backstroke easy, 30–45s rest\n• 50 easy Freestyle',
-          imageUrl: 'https://images.unsplash.com/photo-1530549387789-4c1017266635?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxzd2ltbWluZyUyMGZpdG5lc3N8ZW58MHx8fHwxNzAzNDc1NjYz&ixlib=rb-4.0.3&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_exercise-library-12/artifacts/aj6v6kqd_fss.jpg',
           intensityReason: 'Very short repeats reduce fatigue and shoulder strain safely.',
           moodTips: [
             {
