@@ -51,7 +51,7 @@ export const outdoorRunWorkoutDatabase = [
           duration: '24–28 min',
           description: 'Two-minute run/walk blocks add safe volume with tight control.',
           battlePlan: '• 4 min brisk walk\n• 6 rounds: 2 min run + 2 min walk\n• 2–4 min walk',
-          imageUrl: 'https://images.unsplash.com/photo-1544717297-fa95b6ee9643?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxvdXRkb29yJTIwcnVubmluZ3xlbnwwfHx8fDE3MDM0NzU2NjM&ixlib=rb-4.0.3&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_exercise-library-12/artifacts/4842p5as_download%20%286%29.png',
           intensityReason: 'Alternating run and walk develops endurance and steady rhythm.',
           moodTips: [
             {
