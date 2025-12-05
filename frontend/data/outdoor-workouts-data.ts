@@ -31,7 +31,7 @@ export const outdoorRunWorkoutDatabase = [
           duration: '25–30 min',
           description: 'Start relaxed and finish quicker while preserving smooth form.',
           battlePlan: '• 5 min easy jog\n• 15–20 min continuous easy→steady\n• 3–5 min walk',
-          imageUrl: 'https://images.unsplash.com/photo-1506629905607-53e103a5301d?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZml0bmVzc3xlbnwwfHx8fDE3MDM0NzU2NjM&ixlib=rb-4.0.3&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_exercise-library-12/artifacts/hi2nsiep_download%20%285%29.png',
           intensityReason: 'Gradual pace rise improves aerobic economy with low stress.',
           moodTips: [
             {
