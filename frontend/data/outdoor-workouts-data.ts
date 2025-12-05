@@ -751,7 +751,7 @@ export const outdoorRunWorkoutDatabase = [
           duration: '24–30 min',
           description: 'Sprints, knees, bounds, karaoke, shuffles train versatility.',
           battlePlan: '• 3 rounds:\n\n40 yd uphill sprint\n30 yd uphill high knees\n12–15 uphill bounds\n30 yd uphill karaoke (each lead)\n30 yd uphill side shuffle (each)\nWalk down between all',
-          imageUrl: 'https://images.unsplash.com/photo-1551698618-1dfe5d97d256?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxoaWtpbmclMjBmaXRuZXNzfGVufDB8fHx8MTcwMzQ3NTY2Mw&ixlib=rb-4.0.3&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_exercise-library-12/artifacts/0c0jva1u_download%20%2811%29.png',
           intensityReason: 'Varied drills challenge stiffness, power, and precision.',
           moodTips: [
             {
