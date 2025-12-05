@@ -539,7 +539,7 @@ export const outdoorRunWorkoutDatabase = [
           duration: '32–40 min',
           description: 'Free, back, breast 100s with rest enhance technical stability.',
           battlePlan: '• 4x100 Freestyle, 40–60s\n• 3x100 Backstroke, 45–75s\n• 3x100 Breaststroke, 60–90s\n• 200 easy Freestyle',
-          imageUrl: 'https://images.unsplash.com/photo-1530549387789-4c1017266635?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxzd2ltbWluZyUyMGZpdG5lc3N8ZW58MHx8fHwxNzAzNDc1NjYz&ixlib=rb-4.0.3&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_exercise-library-12/artifacts/bh9k9ord_bs.jpeg',
           intensityReason: 'Longer mixed repeats build resilience and balance safely.',
           moodTips: [
             {
