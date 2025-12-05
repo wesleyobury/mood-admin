@@ -223,7 +223,7 @@ export const additionalWorkoutDatabase = [
           duration: '12–16 min',
           description: 'Eccentric kneeling rolls, hollow hold, bird dog for total ab development.',
           battlePlan: 'Kneeling Ab Wheel Eccentric (stand up after)\n• 3 × 4–6 (RPE 4), 90s rest\nHollow Hold\n• 3 × 20–30s (RPE 4), 45–60s rest\nBird Dog\n• 3 × 8–10/side (RPE 4), 45–60s rest',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_upper-body-enhance/artifacts/pgkoxn00_download.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_upper-body-enhance/artifacts/ytutfbco_download%20%281%29.png',
           intensityReason: 'Controlled negatives build safe end-range capacity.',
           moodTips: [
             {
