@@ -587,7 +587,7 @@ export const outdoorRunWorkoutDatabase = [
           duration: '16–22 min',
           description: 'High knees, shuffles, jogs with walkbacks refine uphill form.',
           battlePlan: '• 4x 25 yd uphill high knees (walk down)\n• 4x 25 yd uphill side shuffle L/R (alt) (walk down)\n• 4x 30 yd uphill easy jog (walk down)',
-          imageUrl: 'https://images.unsplash.com/photo-1551698618-1dfe5d97d256?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxoaWtpbmclMjBmaXRuZXNzfGVufDB8fHx8MTcwMzQ3NTY2Mw&ixlib=rb-4.0.3&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_exercise-library-12/artifacts/904pke23_download%20%289%29.png',
           intensityReason: 'Short uphill drills build coordination and confidence safely.',
           moodTips: [
             {
