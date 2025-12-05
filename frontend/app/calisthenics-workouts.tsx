@@ -501,7 +501,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
           duration: '16–22 min',
           description: 'Support holds, band-assisted dips, knee tucks closer.',
           battlePlan: 'Parallel Bar Support Hold\n• 3 × 15–25s (RPE 4), 60s rest\nBand-Assisted Dips\n• 3 × 5–7 (RPE 4), 75s rest\nParallel Bar Knee Tucks\n• 3 × 10–12 (RPE 4), 60s rest',
-          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYWxpc3RoZW5pY3N8ZW58MXx8fHwxVzU2aWNnNMzIyM3ww&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_upper-body-enhance/artifacts/eyqn2a9a_download%20%2810%29.png',
           intensityReason: 'Support holds and assisted dips teach body alignment.',
           moodTips: [
             {
