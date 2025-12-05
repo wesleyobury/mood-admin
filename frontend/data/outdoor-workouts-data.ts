@@ -415,7 +415,7 @@ export const outdoorRunWorkoutDatabase = [
           duration: '18–24 min',
           description: 'Simple free, back, breast 25s with long rest encourage skill.',
           battlePlan: '• 6x25 Freestyle, 30–45s rest (own pace)\n• 4x25 Backstroke, 30–45s rest\n• 4x25 Breaststroke, 40–60s rest\n• 50 easy choice',
-          imageUrl: 'https://images.unsplash.com/photo-1530549387789-4c1017266635?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxzd2ltbWluZyUyMGZpdG5lc3N8ZW58MHx8fHwxNzAzNDc1NjYz&ixlib=rb-4.0.3&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_exercise-library-12/artifacts/ctmkdqkg_backs.webp',
           intensityReason: 'Variety at self-selected pace builds comfort and confidence.',
           moodTips: [
             {
