@@ -113,7 +113,7 @@ export const outdoorRunWorkoutDatabase = [
           duration: '32–36 min',
           description: 'Hold conversational pace steadily, then finish with cooldown.',
           battlePlan: '• 8–10 min easy\n• 20 min steady (talk in phrases)\n• 4–6 min easy',
-          imageUrl: 'https://images.unsplash.com/photo-1544717297-fa95b6ee9643?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxvdXRkb29yJTIwcnVubmluZ3xlbnwwfHx8fDE3MDM0NzU2NjM&ixlib=rb-4.0.3&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_exercise-library-12/artifacts/4842p5as_download%20%286%29.png',
           intensityReason: 'Continuous sub-tempo builds durability and running economy.',
           moodTips: [
             {
