@@ -771,7 +771,7 @@ export const outdoorRunWorkoutDatabase = [
           duration: '22–28 min',
           description: 'Crawl, backpedal, sprint rotations build control, quickness.',
           battlePlan: '• 8 sets:\n\n15–20 yd uphill bear crawl\n20 yd uphill backpedal\n20–25 yd uphill sprint\nWalk down recovery',
-          imageUrl: 'https://images.unsplash.com/photo-1551698618-1dfe5d97d256?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxoaWtpbmclMjBmaXRuZXNzfGVufDB8fHx8MTcwMzQ3NTY2Mw&ixlib=rb-4.0.3&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_exercise-library-12/artifacts/fuxu9rk0_download%20%288%29.png',
           intensityReason: 'Crawling loads core; sprints add speed under fatigue.',
           moodTips: [
             {
