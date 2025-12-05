@@ -243,7 +243,7 @@ export const additionalWorkoutDatabase = [
           duration: '12–16 min',
           description: 'Kneeling rolls mid-range, side planks for stability development.',
           battlePlan: 'Kneeling Ab Wheel (moderate ROM)\n• 3 × 6–8 (RPE 4), 75s rest\nSide Plank\n• 3 × 20–30s/side (RPE 4), 45–60s rest\nFront Plank\n• 3 × 20–30s (RPE 4), 45–60s rest',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_upper-body-enhance/artifacts/pgkoxn00_download.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_upper-body-enhance/artifacts/wgjgrxlk_download%20%282%29.png',
           intensityReason: 'Gradual ROM progression increases tension safely.',
           moodTips: [
             {
