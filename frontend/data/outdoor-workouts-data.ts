@@ -1031,7 +1031,7 @@ export const outdoorRunWorkoutDatabase = [
           duration: '22–26 min',
           description: 'High knees, skips, strides refine cadence and alignment.',
           battlePlan: '• 2 laps easy jog\n• 2x40 m high knees (walk back)\n• 2x40 m A-skips (walk back)\n• 4x40 m relaxed strides (walk back)',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_exercise-library-12/artifacts/8s808afw_download%20%2824%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_exercise-library-12/artifacts/y6eufem1_download%20%2828%29.png',
           intensityReason: 'Short drills improve rhythm and posture with low impact.',
           moodTips: [
             {
