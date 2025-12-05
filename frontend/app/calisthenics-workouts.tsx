@@ -329,7 +329,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
           duration: '16–22 min',
           description: 'Scap pullups, eccentric lowers, hollow hold for core.',
           battlePlan: 'Scapular Pullups (top to bottom)\n• 3 × 8–10 (RPE 4), 60s rest\nEccentric Pullup (3–4s lowers, band if needed)\n• 3 × 3–5 (RPE 4), 75s rest\nHollow Hold\n• 3 × 20–30s (RPE 4), 45–60s rest',
-          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYWxpc3RoZW5pY3N8ZW58MXx8fHwxVzU2aWNnNMzIyM3ww&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_upper-body-enhance/artifacts/fh1b52aj_dead%20hang.png',
           intensityReason: 'Scapular movement priming builds safer pull strength.',
           moodTips: [
             {
