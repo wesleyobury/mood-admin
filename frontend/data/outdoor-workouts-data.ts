@@ -1195,7 +1195,7 @@ export const outdoorRunWorkoutDatabase = [
           duration: '28–34 min',
           description: 'Eight 40s plus six 60s maintain crisp mechanics safely.',
           battlePlan: '• 8x40 m fast, full walk back\n• 6x60 m relaxed fast, walk back',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_exercise-library-12/artifacts/4l6rndq8_download%20%2826%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_exercise-library-12/artifacts/8chb1prv_download%20%2829%29.png',
           intensityReason: 'Short sprints and relaxed strides refine max velocity.',
           moodTips: [
             {
