@@ -729,7 +729,7 @@ export const outdoorRunWorkoutDatabase = [
           duration: '18–24 min',
           description: 'Ten uphill sprints at 30–40 yd build acceleration safely.',
           battlePlan: '• 10x 30–40 yd uphill sprints, full walk down',
-          imageUrl: 'https://images.unsplash.com/photo-1551698618-1dfe5d97d256?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxoaWtpbmclMjBmaXRuZXNzfGVufDB8fHx8MTcwMzQ3NTY2Mw&ixlib=rb-4.0.3&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_exercise-library-12/artifacts/8d9vosf3_download%20%2812%29.png',
           intensityReason: 'Short fast sprints improve power with full recovery.',
           moodTips: [
             {
