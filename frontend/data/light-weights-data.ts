@@ -716,7 +716,7 @@ export const lightWeightsDatabase: EquipmentWorkouts[] = [
           duration: '12–15 min',
           description: 'Four rounds: waves, side‑to‑side waves, slams, programmed rest.',
           battlePlan: 'Perform 4 rounds:\n• 20s Waves\n• 20s Side-to-Side Waves\n• 20s Slams\n• Rest 1 min',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-pics/artifacts/eezapz0l_download%20%282%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/7urm2u9b_download%20%285%29.png',
           intensityReason: 'Cycling patterns sustains output and coordination.',
           moodTips: [
             {
