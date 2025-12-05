@@ -327,7 +327,7 @@ export const outdoorRunWorkoutDatabase = [
           duration: '40–46 min',
           description: '6x2 minutes hard with equal easy sharpens sustainable power.',
           battlePlan: '• 12 min easy + 3x15s high cadence\n• 6x: 2 min RPE 9 + 2 min easy\n• 8–10 min easy',
-          imageUrl: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjeWNsaW5nJTIwZml0bmVzc3xlbnwwfHx8fDE3MDM0NzU2NjM&ixlib=rb-4.0.3&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_exercise-library-12/artifacts/69v88tej_download%20%281%29.png',
           intensityReason: 'Short hard reps raise aerobic ceiling with quality rest.',
           moodTips: [
             {
