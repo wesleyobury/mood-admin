@@ -477,7 +477,7 @@ export const outdoorRunWorkoutDatabase = [
           duration: '26–34 min',
           description: 'Free, back, breast 50s improve posture and comfort evenly.',
           battlePlan: '• 6x50 Freestyle steady, 25–40s rest\n• 4x50 Backstroke steady, 30–45s rest\n• 4x50 Breaststroke steady, 35–60s rest\n• 100 easy Freestyle',
-          imageUrl: 'https://images.unsplash.com/photo-1530549387789-4c1017266635?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxzd2ltbWluZyUyMGZpdG5lc3N8ZW58MHx8fHwxNzAzNDc1NjYz&ixlib=rb-4.0.3&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_exercise-library-12/artifacts/bh9k9ord_bs.jpeg',
           intensityReason: 'Balanced stroke work builds coordination under control.',
           moodTips: [
             {
