@@ -963,7 +963,7 @@ export const outdoorRunWorkoutDatabase = [
           duration: '26–32 min',
           description: 'Dips, decline push-ups, jumps, runs challenge stamina.',
           battlePlan: '• 3 rounds:\n\n15 dips\n12 decline push-ups (feet on bench)\n12 bench jumps\n300 m run\n• 90s rest',
-          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxwYXJrJTIwd29ya291dHxlbnwwfHx8fDE3MDM0NzU2NjM&ixlib=rb-4.0.3&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_exercise-library-12/artifacts/ixf6e9ex_download%20%2820%29.png',
           intensityReason: 'Higher volumes with runs test posture and breathing.',
           moodTips: [
             {
