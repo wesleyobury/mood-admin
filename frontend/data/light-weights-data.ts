@@ -300,7 +300,7 @@ export const lightWeightsDatabase: EquipmentWorkouts[] = [
           duration: '12–15 min',
           description: 'Three rounds: deadlifts, front squats, push press, rest.',
           battlePlan: 'Perform 3 rounds (light weight):\n• 8 Deadlifts\n• 8 Front Squats\n• 8 Push Presses\n• Rest 1 min',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-pics/artifacts/aw3s2ke8_download%20%281%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/7trsgls6_download%20%284%29.png',
           intensityReason: 'Light loads cycle quickly for safe cardio emphasis.',
           moodTips: [
             {
