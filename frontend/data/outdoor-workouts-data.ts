@@ -921,7 +921,7 @@ export const outdoorRunWorkoutDatabase = [
           duration: '20–24 min',
           description: 'Dips, jumps, push-ups, short runs cycle with planned rest.',
           battlePlan: '• 20 min EMOM:\n\nMin 1: 10–12 dips\nMin 2: 10 bench jumps or step-ups/side\nMin 3: 10–12 push-ups\nMin 4: 200 m run',
-          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxwYXJrJTIwd29ya291dHxlbnwwfHx8fDE3MDM0NzU2NjM&ixlib=rb-4.0.3&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_exercise-library-12/artifacts/ixf6e9ex_download%20%2820%29.png',
           intensityReason: 'EMOM timing preserves quality while managing fatigue.',
           moodTips: [
             {
