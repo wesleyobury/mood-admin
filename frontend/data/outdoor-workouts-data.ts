@@ -1153,7 +1153,7 @@ export const outdoorRunWorkoutDatabase = [
           duration: '28–34 min',
           description: 'High knees, skips, bounds precede 60 m quality strides.',
           battlePlan: '• 3 rounds:\n\n30 m high knees (walk back)\n30 m A-skips (walk back)\n30 m bounds (walk back)\n60 m stride',
-          imageUrl: 'https://images.unsplash.com/photo-1461896836934-ffe607ba8211?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHx0cmFjayUyMGF0aGxldGljc3xlbnwwfHx8fDE3MDM0NzU2NjM&ixlib=rb-4.0.3&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_exercise-library-12/artifacts/8s808afw_download%20%2824%29.png',
           intensityReason: 'Drills with strides build posture and elasticity safely.',
           moodTips: [
             {
