@@ -539,7 +539,7 @@ export const additionalWorkoutDatabase = [
           duration: '26–34 min',
           description: 'Deep deficit pushups, rows feet-high, hollow rocks.',
           battlePlan: 'Deep Deficit Parallette Pushup\n• 5 × 6–10 (RPE 6), 90s rest\nFeet-Elevated Inverted Row\n• 4 × 8–10 (RPE 6), 75s rest\nHollow Rock\n• 4 × 12–16 (RPE 6), 60s rest',
-          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYWxpc3RoZW5pY3N8ZW58MXx8fHwxVzU2aWNnNMzIyM3ww&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-visuals/artifacts/3ltjblfg_deficit%20pushup.jpg',
           intensityReason: 'Deeper deficit increases load and shoulder stability.',
           moodTips: [
             {
