@@ -607,7 +607,7 @@ export const outdoorRunWorkoutDatabase = [
           duration: '16–22 min',
           description: 'Three drills uphill with walkbacks develop cadence control.',
           battlePlan: '• 4x 20 yd uphill skips (walk down)\n• 4x 20 yd uphill marching high knees (walk down)\n• 4x 20 yd uphill backpedal (walk down)',
-          imageUrl: 'https://images.unsplash.com/photo-1551698618-1dfe5d97d256?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxoaWtpbmclMjBmaXRuZXNzfGVufDB8fHx8MTcwMzQ3NTY2Mw&ixlib=rb-4.0.3&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_exercise-library-12/artifacts/fuxu9rk0_download%20%288%29.png',
           intensityReason: 'Marching, skipping, backpedal build timing and balance.',
           moodTips: [
             {
