@@ -497,7 +497,7 @@ export const outdoorRunWorkoutDatabase = [
           duration: '26–36 min',
           description: 'Six easy-moderate 100s train breathing and steady rhythm.',
           battlePlan: '• 6x100 Freestyle easy-moderate, 45–75s rest (own pace)\n• 100 easy Freestyle',
-          imageUrl: 'https://images.unsplash.com/photo-1530549387789-4c1017266635?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxzd2ltbWluZyUyMGZpdG5lc3N8ZW58MHx8fHwxNzAzNDc1NjYz&ixlib=rb-4.0.3&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_exercise-library-12/artifacts/u6pkmpnl_fss2.webp',
           intensityReason: 'Longer 100s build pacing control without heavy fatigue.',
           moodTips: [
             {
