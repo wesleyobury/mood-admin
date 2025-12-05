@@ -140,7 +140,7 @@ export const lightWeightsDatabase: EquipmentWorkouts[] = [
           duration: '15 min',
           description: 'Loop snatches, jump squats, push‑up rows, reverse lunges.',
           battlePlan: 'As many rounds as possible in 15 min:\n• 10 Alternating Snatches\n• 10 Goblet Jump Squats\n• 10 Push-Up to Row (5/side)\n• 10 Alternating Reverse Lunges (holding DBs)',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-pics/artifacts/pt6ympzc_download%20%284%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/u48z26jq_download%20%288%29.png',
           intensityReason: 'Fixed clock drives density while encouraging smooth flow.',
           moodTips: [
             {
