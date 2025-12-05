@@ -56,7 +56,7 @@ export const lightWeightsDatabase: EquipmentWorkouts[] = [
           duration: '15–18 min',
           description: 'Three rounds: squat‑to‑press, light snatch, rows, steady rest.',
           battlePlan: 'Perform 3 rounds:\n• 8 Squat to Press\n• 8 Alternating Snatch (light)\n• 8 Bent-Over Row\n• Rest 1 min',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-pics/artifacts/pt6ympzc_download%20%284%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/0x3bwc7i_download%20%281%29.png',
           intensityReason: 'Continuous flow maintains pace with minimal setup time.',
           moodTips: [
             {
