@@ -221,7 +221,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
           duration: '26–34 min',
           description: 'Pistol regressions, decline pushups, hollow rocks.',
           battlePlan: 'Pistol Box Squat (to box/bench)\n• 4 × 5–7/side (RPE 6), 75s rest\nDecline Pushup (feet elevated)\n• 4 × 8–12 (RPE 6), 60–75s rest\nHollow Rock\n• 4 × 10–15 (RPE 6), 60s rest',
-          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYWxpc3RoZW5pY3N8ZW58MXx8fHwxVzU2aWNnNMzIyM3ww&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-visuals/artifacts/h7zvxkan_PS.jpg',
           intensityReason: 'Higher tension bodyweight builds strength under control.',
           moodTips: [
             {
