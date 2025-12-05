@@ -1003,7 +1003,7 @@ export const outdoorRunWorkoutDatabase = [
           duration: '24–30 min',
           description: 'Dips, push-ups, burpees, runs test control and pacing.',
           battlePlan: '• 4 rounds:\n\n15 dips\n12 push-ups\n12 burpees\n200 m run\n• 60–90s rest',
-          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxwYXJrJTIwd29ya291dHxlbnwwfHx8fDE3MDM0NzU2NjM&ixlib=rb-4.0.3&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_exercise-library-12/artifacts/2o1s2i0l_download%20%2819%29.png',
           intensityReason: 'Pairing push patterns and runs increases sustained load.',
           moodTips: [
             {
