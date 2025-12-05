@@ -435,7 +435,7 @@ export const outdoorRunWorkoutDatabase = [
           duration: '20–26 min',
           description: 'Easy-moderate 50s refine breathing rhythm and streamline feel.',
           battlePlan: '• 6x50 Freestyle easy-moderate, 40–60s rest\n• 4x25 Kick easy (choice), 30–45s rest\n• 50 easy Freestyle',
-          imageUrl: 'https://images.unsplash.com/photo-1530549387789-4c1017266635?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxzd2ltbWluZyUyMGZpdG5lc3N8ZW58MHx8fHwxNzAzNDc1NjYz&ixlib=rb-4.0.3&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_exercise-library-12/artifacts/u6pkmpnl_fss2.webp',
           intensityReason: 'Short 50s with rest build pacing awareness and ease strain.',
           moodTips: [
             {
