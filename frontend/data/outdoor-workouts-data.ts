@@ -1235,7 +1235,7 @@ export const outdoorRunWorkoutDatabase = [
           duration: '30–36 min',
           description: 'Fly-in curves into 50s, then 30s sharpen coordination.',
           battlePlan: '• 4x curve fly-in + 50 m fast, walk 200 m\n• 8x30 m sprints, full walk back',
-          imageUrl: 'https://images.unsplash.com/photo-1461896836934-ffe607ba8211?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHx0cmFjayUyMGF0aGxldGljc3xlbnwwfHx8fDE3MDM0NzU2NjM&ixlib=rb-4.0.3&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_exercise-library-12/artifacts/osnepsje_download%20%2825%29.png',
           intensityReason: 'Curve entries and short sprints develop balanced speed.',
           moodTips: [
             {
