@@ -1071,7 +1071,7 @@ export const outdoorRunWorkoutDatabase = [
           duration: '22–26 min',
           description: 'Multiple 30 m sprints with walkbacks build speed safely.',
           battlePlan: '• 2 laps easy jog\n• 8–10x30 m sprints, full walk back',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_exercise-library-12/artifacts/4l6rndq8_download%20%2826%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_exercise-library-12/artifacts/8chb1prv_download%20%2829%29.png',
           intensityReason: 'Very short sprints teach acceleration without overload.',
           moodTips: [
             {
