@@ -665,7 +665,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
           duration: '26–34 min',
           description: 'Dip 1.5 reps, chest-to-bar rows, tuck L-sit holds for advanced challenge.',
           battlePlan: 'Dips (1.5 reps: half up, down, full press)\n• 4 × 4–6 (RPE 6), 120s rest\nChest-to-Bar Parallel Bar Row\n• 4 × 8–10 (RPE 6), 75s rest\nTuck L-Sit Hold\n• 4 × 12–18s (RPE 6), 60–75s rest',
-          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYWxpc3RoZW5pY3N8ZW58MXx8fHwxVzU2aWNnNMzIyM3ww&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_upper-body-enhance/artifacts/gua5r4vy_download%20%2813%29.png',
           intensityReason: '1.5 dip reps increase time under tension efficiently.',
           moodTips: [
             {
