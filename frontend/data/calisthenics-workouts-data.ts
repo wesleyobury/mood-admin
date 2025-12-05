@@ -519,7 +519,7 @@ export const additionalWorkoutDatabase = [
           duration: '26–34 min',
           description: 'Pike pushups feet-high, pseudo planche holds, L-sit.',
           battlePlan: 'Feet-Elevated Pike Pushup (on bars)\n• 5 × 6–8 (RPE 6), 90s rest\nParallette Lean Hold (harder angle)\n• 4 × 20–30s (RPE 6), 75s rest\nParallette Tuck L-Sit\n• 4 × 10–15s (RPE 6), 60–75s rest',
-          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYWxpc3RoZW5pY3N8ZW58MXx8fHwxVzU2aWNnNMzIyM3ww&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-visuals/artifacts/yrisnwxk_pike.png',
           intensityReason: 'Elevated pike positions build overhead pressing lines.',
           moodTips: [
             {
