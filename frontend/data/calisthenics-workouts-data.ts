@@ -384,5 +384,197 @@ export const additionalWorkoutDatabase = [
         }
       ]
     }
+  },
+  {
+    equipment: 'Pushup bars / parallettes',
+    icon: 'reorder-three',
+    workouts: {
+      beginner: [
+        {
+          name: 'Bar Start',
+          duration: '16–22 min',
+          description: 'Incline pushups, row regressions, dead bug finish.',
+          battlePlan: 'Incline Pushup on Parallettes\n• 3 × 8–12 (RPE 4), 60s rest\nTable Row or Band Row (if available)\n• 3 × 10–12 (RPE 4), 60s rest\nDead Bug\n• 3 × 10–12/side (RPE 4), 45–60s rest',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYWxpc3RoZW5pY3N8ZW58MXx8fHwxVzU2aWNnNMzIyM3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Elevated grips reduce wrist strain and aid control.',
+          moodTips: [
+            {
+              icon: 'hand-right',
+              title: 'Hands stacked under shoulders',
+              description: 'Hands stacked under shoulders'
+            },
+            {
+              icon: 'arrow-forward',
+              title: 'Elbows 30–45° path',
+              description: 'Elbows 30–45° path'
+            }
+          ]
+        },
+        {
+          name: 'Depth Intro',
+          duration: '16–22 min',
+          description: 'Deficit pushups, scap pushups, side planks finish.',
+          battlePlan: 'Deficit Pushup (small blocks)\n• 3 × 8–10 (RPE 4), 60s rest\nScapular Pushups on Bars\n• 3 × 10–12 (RPE 4), 60s rest\nSide Plank\n• 3 × 20–30s/side (RPE 4), 45–60s rest',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYWxpc3RoZW5pY3N8ZW58MXx8fHwxVzU2aWNnNMzIyM3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Slight deficit allows safe depth and chest tension.',
+          moodTips: [
+            {
+              icon: 'body',
+              title: 'Ribs down; no sway',
+              description: 'Ribs down; no sway'
+            },
+            {
+              icon: 'time',
+              title: 'Slow 2–1–3 tempo',
+              description: 'Slow 2–1–3 tempo'
+            }
+          ]
+        },
+        {
+          name: 'Lean Prep',
+          duration: '16–22 min',
+          description: 'Pseudo planche lean, pushups, hollow holds finish.',
+          battlePlan: 'Parallette Lean Hold (pseudo planche)\n• 3 × 15–25s (RPE 4), 60s rest\nParallette Pushup (neutral wrists)\n• 3 × 8–12 (RPE 4), 60s rest\nHollow Hold\n• 3 × 20–30s (RPE 4), 45–60s rest',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYWxpc3RoZW5pY3N8ZW58MXx8fHwxVzU2aWNnNMzIyM3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Forward lean introduces planche-line loading gently.',
+          moodTips: [
+            {
+              icon: 'arrow-forward',
+              title: 'Protract, then lean',
+              description: 'Protract, then lean'
+            },
+            {
+              icon: 'body',
+              title: 'Keep elbows soft, not locked',
+              description: 'Keep elbows soft, not locked'
+            }
+          ]
+        }
+      ],
+      intermediate: [
+        {
+          name: 'Depth Lines',
+          duration: '22–28 min',
+          description: 'Deep pushups, ring/table rows, knee tucks finisher.',
+          battlePlan: 'Deep Parallette Pushup\n• 4 × 8–12 (RPE 5), 75s rest\nInverted Row (table/rings)\n• 4 × 8–10 (RPE 5), 75s rest\nParallette Knee Tucks (L-sit prep)\n• 3 × 10–12 (RPE 5), 60s rest',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYWxpc3RoZW5pY3N8ZW58MXx8fHwxVzU2aWNnNMzIyM3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Deeper range increases tension at manageable load.',
+          moodTips: [
+            {
+              icon: 'body',
+              title: 'Touch chest between bars',
+              description: 'Touch chest between bars'
+            },
+            {
+              icon: 'body',
+              title: 'Keep scap packed and down',
+              description: 'Keep scap packed and down'
+            }
+          ]
+        },
+        {
+          name: 'Lean Lines',
+          duration: '22–28 min',
+          description: 'Pseudo planche pushups, dips light, hollow rocks.',
+          battlePlan: 'Pseudo Planche Pushup (on bars)\n• 4 × 6–8 (RPE 5–6), 90s rest\nBox/Bench Dips (light)\n• 3 × 8–10 (RPE 5), 60–75s rest\nHollow Rock\n• 3 × 10–15 (RPE 5), 60s rest',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYWxpc3RoZW5pY3N8ZW58MXx8fHwxVzU2aWNnNMzIyM3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Lean progressions build anterior shoulder integrity.',
+          moodTips: [
+            {
+              icon: 'arrow-forward',
+              title: 'Protract; elbows soft',
+              description: 'Protract; elbows soft'
+            },
+            {
+              icon: 'body',
+              title: 'Rock smooth; ribs down',
+              description: 'Rock smooth; ribs down'
+            }
+          ]
+        },
+        {
+          name: 'Mixed Angle',
+          duration: '22–28 min',
+          description: 'Wide pushups, neutral pushups, side plank reaches.',
+          battlePlan: 'Wide Parallette Pushup\n• 4 × 8–12 (RPE 5), 75s rest\nNeutral Parallette Pushup\n• 3 × 8–12 (RPE 5), 60–75s rest\nSide Plank with Reach\n• 3 × 8–10/side (RPE 5), 45–60s rest',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYWxpc3RoZW5pY3N8ZW58MXx8fHwxVzU2aWNnNMzIyM3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Hand placement changes emphasize different fibers.',
+          moodTips: [
+            {
+              icon: 'hand-right',
+              title: 'Keep forearms vertical',
+              description: 'Keep forearms vertical'
+            },
+            {
+              icon: 'body',
+              title: 'Reach long; hips stacked',
+              description: 'Reach long; hips stacked'
+            }
+          ]
+        }
+      ],
+      advanced: [
+        {
+          name: 'HSPU Prep',
+          duration: '26–34 min',
+          description: 'Pike pushups feet-high, pseudo planche holds, L-sit.',
+          battlePlan: 'Feet-Elevated Pike Pushup (on bars)\n• 5 × 6–8 (RPE 6), 90s rest\nParallette Lean Hold (harder angle)\n• 4 × 20–30s (RPE 6), 75s rest\nParallette Tuck L-Sit\n• 4 × 10–15s (RPE 6), 60–75s rest',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYWxpc3RoZW5pY3N8ZW58MXx8fHwxVzU2aWNnNMzIyM3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Elevated pike positions build overhead pressing lines.',
+          moodTips: [
+            {
+              icon: 'body',
+              title: 'Stack hips over hands',
+              description: 'Stack hips over hands'
+            },
+            {
+              icon: 'arrow-up',
+              title: 'Press tall; no elbow flare',
+              description: 'Press tall; no elbow flare'
+            }
+          ]
+        },
+        {
+          name: 'Deficit Power',
+          duration: '26–34 min',
+          description: 'Deep deficit pushups, rows feet-high, hollow rocks.',
+          battlePlan: 'Deep Deficit Parallette Pushup\n• 5 × 6–10 (RPE 6), 90s rest\nFeet-Elevated Inverted Row\n• 4 × 8–10 (RPE 6), 75s rest\nHollow Rock\n• 4 × 12–16 (RPE 6), 60s rest',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYWxpc3RoZW5pY3N8ZW58MXx8fHwxVzU2aWNnNMzIyM3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: 'Deeper deficit increases load and shoulder stability.',
+          moodTips: [
+            {
+              icon: 'time',
+              title: 'Move slow; chest between bars',
+              description: 'Move slow; chest between bars'
+            },
+            {
+              icon: 'pause',
+              title: 'Row: pause 1s at top',
+              description: 'Row: pause 1s at top'
+            }
+          ]
+        },
+        {
+          name: 'Midrange Control',
+          duration: '26–34 min',
+          description: 'Pushup 1.5s, pseudo planche pushups, L-sit holds.',
+          battlePlan: 'Parallette Pushup (1.5 reps)\n• 4 × 6–8 (RPE 6), 90s rest\nPseudo Planche Pushup\n• 4 × 6–8 (RPE 6), 90s rest\nParallette L-Sit (tuck or one leg)\n• 4 × 10–15s (RPE 6), 60–75s rest',
+          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYWxpc3RoZW5pY3N8ZW58MXx8fHwxVzU2aWNnNMzIyM3ww&ixlib=rb-4.1.0&q=85',
+          intensityReason: '1.5 pushups add tension without joint irritability.',
+          moodTips: [
+            {
+              icon: 'pause',
+              title: 'Pause mid; smooth return',
+              description: 'Pause mid; smooth return'
+            },
+            {
+              icon: 'body',
+              title: 'Long spine, neck relaxed',
+              description: 'Long spine, neck relaxed'
+            }
+          ]
+        }
+      ]
+    }
   }
 ];
