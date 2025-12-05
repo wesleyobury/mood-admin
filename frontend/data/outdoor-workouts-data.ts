@@ -73,7 +73,7 @@ export const outdoorRunWorkoutDatabase = [
           duration: '30–35 min',
           description: 'Easy running flows into short tempo to train pace discipline.',
           battlePlan: '• 8 min easy\n• 10–12 min easy\n• 8–10 min tempo (RPE 7–8)\n• 4–5 min easy',
-          imageUrl: 'https://images.unsplash.com/photo-1486218119243-13883505764c?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZml0bmVzc3xlbnwwfHx8fDE3MDM0NzU2NjM&ixlib=rb-4.0.3&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_exercise-library-12/artifacts/z01f1fdc_download%20%284%29.png',
           intensityReason: 'Late controlled tempo adds stress while preserving technique.',
           moodTips: [
             {
