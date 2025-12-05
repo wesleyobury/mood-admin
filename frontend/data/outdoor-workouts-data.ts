@@ -879,7 +879,7 @@ export const outdoorRunWorkoutDatabase = [
           duration: '16–20 min',
           description: 'Lunges, elevated push-ups, dips with walks build control.',
           battlePlan: '• 3 rounds:\n\n8 walking lunges/side\n8–10 incline push-ups\n8 bench dips\n60s easy walk',
-          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxwYXJrJTIwd29ya291dHxlbnwwfHx8fDE3MDM0NzU2NjM&ixlib=rb-4.0.3&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_exercise-library-12/artifacts/jzueym21_download%20%2818%29.png',
           intensityReason: 'Gentle pairing improves movement quality and stability.',
           moodTips: [
             {
