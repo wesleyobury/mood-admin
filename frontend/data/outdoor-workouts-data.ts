@@ -901,7 +901,7 @@ export const outdoorRunWorkoutDatabase = [
           duration: '22–26 min',
           description: 'Rows, push-ups, dips, step-ups, runs build endurance.',
           battlePlan: '• 4 rounds:\n\n10 bench rows\n10 push-ups\n10–12 dips\n10 step-ups/side\n200 m run\n• Rest 60–90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_exercise-library-12/artifacts/2o1s2i0l_download%20%2819%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_exercise-library-12/artifacts/xmpcsqgf_download%20%2822%29.png',
           intensityReason: 'Balanced upper/lower work with runs sustains output.',
           moodTips: [
             {
