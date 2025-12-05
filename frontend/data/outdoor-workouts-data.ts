@@ -1173,7 +1173,7 @@ export const outdoorRunWorkoutDatabase = [
           duration: '28–34 min',
           description: 'Faster straights, easy curves reinforce pacing transitions.',
           battlePlan: '• 8 laps: straights moderate-fast + curves easy jog',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_exercise-library-12/artifacts/osnepsje_download%20%2825%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_exercise-library-12/artifacts/kb9dg83f_download%20%2830%29.png',
           intensityReason: 'Alternating straights and curves teaches rhythm control.',
           moodTips: [
             {
