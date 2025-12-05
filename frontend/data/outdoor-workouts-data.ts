@@ -689,7 +689,7 @@ export const outdoorRunWorkoutDatabase = [
           duration: '20–26 min',
           description: 'Karaoke, shuffles, backpedal, sprints build coordination.',
           battlePlan: '• 4 rounds:\n\n30 yd uphill karaoke (lead L)\n30 yd uphill karaoke (lead R)\n25 yd uphill side shuffle L\n25 yd uphill side shuffle R\n25 yd uphill backpedal\n25 yd uphill sprint\nWalk down between reps',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_exercise-library-12/artifacts/fuxu9rk0_download%20%288%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_exercise-library-12/artifacts/ts9r3lf1_download%20%2815%29.png',
           intensityReason: 'Lateral and rotational moves challenge balance safely.',
           moodTips: [
             {
