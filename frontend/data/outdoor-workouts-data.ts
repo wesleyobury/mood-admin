@@ -519,7 +519,7 @@ export const outdoorRunWorkoutDatabase = [
           duration: '30–40 min',
           description: 'Eight strong 100s emphasize clean catch and even pacing.',
           battlePlan: '• 8x100 Freestyle strong, 45–75s rest\n• 200 easy Freestyle',
-          imageUrl: 'https://images.unsplash.com/photo-1530549387789-4c1017266635?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxzd2ltbWluZyUyMGZpdG5lc3N8ZW58MHx8fHwxNzAzNDc1NjYz&ixlib=rb-4.0.3&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_exercise-library-12/artifacts/aj6v6kqd_fss.jpg',
           intensityReason: 'Firm 100s with rest sustain speed and technique quality.',
           moodTips: [
             {
