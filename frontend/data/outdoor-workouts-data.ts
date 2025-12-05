@@ -1091,7 +1091,7 @@ export const outdoorRunWorkoutDatabase = [
           duration: '24–28 min',
           description: 'Easy curves, drills, and 40 m sprints refine cadence.',
           battlePlan: '• 2 laps easy jog\n• 2x100 m curves easy (straights walk)\n• 2x30 m high knees (walk back)\n• 4x40 m sprints (walk back)',
-          imageUrl: 'https://images.unsplash.com/photo-1461896836934-ffe607ba8211?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHx0cmFjayUyMGF0aGxldGljc3xlbnwwfHx8fDE3MDM0NzU2NjM&ixlib=rb-4.0.3&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_exercise-library-12/artifacts/8s808afw_download%20%2824%29.png',
           intensityReason: 'Curved running practice improves balance and control.',
           moodTips: [
             {
