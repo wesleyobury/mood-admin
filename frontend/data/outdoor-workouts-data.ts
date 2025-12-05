@@ -791,7 +791,7 @@ export const outdoorRunWorkoutDatabase = [
           duration: '22–28 min',
           description: 'Skips, broad jumps, sprints build explosive rhythm safely.',
           battlePlan: '• 6 sets:\n\n25 yd uphill skips for distance\n6–8 uphill broad jumps (~20–25 yd)\n30 yd uphill sprint\nWalk down',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_exercise-library-12/artifacts/904pke23_download%20%289%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_exercise-library-12/artifacts/zqqramht_download%20%2813%29.png',
           intensityReason: 'Jumps prime tissues; sprints reinforce fast mechanics.',
           moodTips: [
             {
