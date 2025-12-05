@@ -135,7 +135,7 @@ export const outdoorRunWorkoutDatabase = [
           duration: '36–42 min',
           description: 'Three threshold blocks with short floats refine pacing control.',
           battlePlan: '• 10 min easy + 3x20s strides (40s easy)\n• 3x: 8 min threshold + 2 min easy\n• 6–8 min easy',
-          imageUrl: 'https://images.unsplash.com/photo-1544717297-fa95b6ee9643?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxvdXRkb29yJTIwcnVubmluZ3xlbnwwfHx8fDE3MDM0NzU2NjM&ixlib=rb-4.0.3&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_exercise-library-12/artifacts/z01f1fdc_download%20%284%29.png',
           intensityReason: 'Repeated threshold bouts raise LT while preserving form quality.',
           moodTips: [
             {
