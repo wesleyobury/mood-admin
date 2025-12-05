@@ -1133,7 +1133,7 @@ export const outdoorRunWorkoutDatabase = [
           duration: '26–32 min',
           description: 'Six 40s and six 30s build acceleration and posture.',
           battlePlan: '• 1 lap easy jog\n• 6x40 m fast, walk back\n• 6x30 m fast, walk back',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_exercise-library-12/artifacts/4l6rndq8_download%20%2826%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_exercise-library-12/artifacts/8chb1prv_download%20%2829%29.png',
           intensityReason: 'Short sprints sharpen turnover with full recovery.',
           moodTips: [
             {
