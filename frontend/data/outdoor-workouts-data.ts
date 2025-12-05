@@ -669,7 +669,7 @@ export const outdoorRunWorkoutDatabase = [
           duration: '18–24 min',
           description: 'Powerful jumps plus sprints develop rhythm and drive uphill.',
           battlePlan: '• 6x 12–15 uphill bounds (walk down)\n• 6x 25–30 yd uphill skips for height (walk down)\n• 6x 25–30 yd uphill sprints (walk down)',
-          imageUrl: 'https://images.unsplash.com/photo-1551698618-1dfe5d97d256?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxoaWtpbmclMjBmaXRuZXNzfGVufDB8fHx8MTcwMzQ3NTY2Mw&ixlib=rb-4.0.3&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_exercise-library-12/artifacts/904pke23_download%20%289%29.png',
           intensityReason: 'Bounds, skips, sprints build elastic strength safely.',
           moodTips: [
             {
