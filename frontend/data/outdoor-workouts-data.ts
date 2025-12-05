@@ -627,7 +627,7 @@ export const outdoorRunWorkoutDatabase = [
           duration: '18–24 min',
           description: 'Shuffle, karaoke, jog sequence improves control transitions.',
           battlePlan: '• 3 rounds:\n\n25 yd uphill side shuffle L\n25 yd uphill side shuffle R\n25 yd uphill karaoke (lead L)\n25 yd uphill karaoke (lead R)\n30 yd uphill easy jog\nWalk down between each',
-          imageUrl: 'https://images.unsplash.com/photo-1551698618-1dfe5d97d256?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxoaWtpbmclMjBmaXRuZXNzfGVufDB8fHx8MTcwMzQ3NTY2Mw&ixlib=rb-4.0.3&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_exercise-library-12/artifacts/xyu6atdo_download%20%2810%29.png',
           intensityReason: 'Lateral and rotational steps enhance hip strength safely.',
           moodTips: [
             {
