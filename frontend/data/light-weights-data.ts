@@ -78,7 +78,7 @@ export const lightWeightsDatabase: EquipmentWorkouts[] = [
           duration: '28–30 min',
           description: 'Four rounds of sixes: hinge, clean, squat, press, lunge, rest.',
           battlePlan: 'Perform 4 rounds (no rest between moves):\n• 6 Deadlifts\n• 6 Hang Cleans\n• 6 Front Squats\n• 6 Push Presses\n• 6 Reverse Lunges\n• Rest 1 min',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-pics/artifacts/n63352il_download%20%283%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/guxsbtyu_download%20%283%29.png',
           intensityReason: 'Full‑body complex sustains output with limited resting.',
           moodTips: [
             {
