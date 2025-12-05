@@ -758,7 +758,7 @@ export const lightWeightsDatabase: EquipmentWorkouts[] = [
           duration: '20–22 min',
           description: 'Four rounds: waves, burpees, slams, burpees, timed rest.',
           battlePlan: 'Perform 4 rounds:\n• 30s Waves\n• 5 Burpees\n• 30s Slams\n• 5 Burpees\n• Rest 1 min',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-pics/artifacts/eezapz0l_download%20%282%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/7urm2u9b_download%20%285%29.png',
           intensityReason: 'Ropes plus burpees challenge power and recovery speed.',
           moodTips: [
             {
