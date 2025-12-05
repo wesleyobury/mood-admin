@@ -188,7 +188,7 @@ export const lightWeightsDatabase: EquipmentWorkouts[] = [
           duration: '12–15 min',
           description: 'Three rounds: goblet squats, swings, presses, one‑minute rest.',
           battlePlan: 'Perform 3 rounds:\n• 8 Goblet Squats\n• 8 Single-Arm Swings (each side)\n• 8 Overhead Presses (each side)\n• Rest 1 min',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-pics/artifacts/9cotsg82_download.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/6gvgn2e8_download.png',
           intensityReason: 'Simple sequence builds rhythm and steady conditioning.',
           moodTips: [
             {
