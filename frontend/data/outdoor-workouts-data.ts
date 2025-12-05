@@ -839,7 +839,7 @@ export const outdoorRunWorkoutDatabase = [
           duration: '18–22 min',
           description: 'Squats, push-ups, dips plus walking maintain clean form.',
           battlePlan: '• 3 rounds:\n\n12 bench squats\n10 incline push-ups (bench)\n8 bench dips\n60s easy walk',
-          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxwYXJrJTIwd29ya291dHxlbnwwfHx8fDE3MDM0NzU2NjM&ixlib=rb-4.0.3&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_exercise-library-12/artifacts/0aaca0zk_download%20%2816%29.png',
           intensityReason: 'Simple bodyweight moves build strength with joint safety.',
           moodTips: [
             {
