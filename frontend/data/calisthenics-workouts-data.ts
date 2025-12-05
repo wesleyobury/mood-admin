@@ -415,7 +415,7 @@ export const additionalWorkoutDatabase = [
           duration: '16–22 min',
           description: 'Deficit pushups, scap pushups, side planks finish.',
           battlePlan: 'Deficit Pushup (small blocks)\n• 3 × 8–10 (RPE 4), 60s rest\nScapular Pushups on Bars\n• 3 × 10–12 (RPE 4), 60s rest\nSide Plank\n• 3 × 20–30s/side (RPE 4), 45–60s rest',
-          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYWxpc3RoZW5pY3N8ZW58MXx8fHwxVzU2aWNnNMzIyM3ww&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-visuals/artifacts/3ltjblfg_deficit%20pushup.jpg',
           intensityReason: 'Slight deficit allows safe depth and chest tension.',
           moodTips: [
             {
