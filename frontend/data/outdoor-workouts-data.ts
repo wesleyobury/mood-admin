@@ -1215,7 +1215,7 @@ export const outdoorRunWorkoutDatabase = [
           duration: '30–36 min',
           description: 'Knees, skips, bounds before 50s reinforce timing, rhythm.',
           battlePlan: '• 3 rounds:\n\n30 m high knees (walk back)\n30 m A-skips (walk back)\n30 m bounds (walk back)\n2x50 m sprints, walk back',
-          imageUrl: 'https://images.unsplash.com/photo-1461896836934-ffe607ba8211?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHx0cmFjayUyMGF0aGxldGljc3xlbnwwfHx8fDE3MDM0NzU2NjM&ixlib=rb-4.0.3&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_exercise-library-12/artifacts/8s808afw_download%20%2824%29.png',
           intensityReason: 'Pairing drills and sprints engrains efficient patterns.',
           moodTips: [
             {
