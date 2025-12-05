@@ -98,7 +98,7 @@ export const lightWeightsDatabase: EquipmentWorkouts[] = [
           duration: '12 min',
           description: 'Odd: thrusters; Even: renegade rows; sustain steady pace.',
           battlePlan: 'For 12 minutes (alternating each minute):\n• Odd min: 10 Dumbbell Thrusters\n• Even min: 12 Alternating Renegade Rows',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-pics/artifacts/pt6ympzc_download%20%284%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/7dkvjash_download%20%286%29.png',
           intensityReason: 'Alternating minutes build cadence, repeatable intensity.',
           moodTips: [
             {
