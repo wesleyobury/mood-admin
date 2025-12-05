@@ -645,7 +645,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
           duration: '26–34 min',
           description: 'Dip negatives weighted, hard rows, strict knee raises.',
           battlePlan: 'Weighted Eccentric Dip\n• 5 × 2–3 (RPE 6–7), 120s rest\nParallel Bar Row (feet extended)\n• 4 × 8–10 (RPE 6), 75s rest\nParallel Bar Knee Raise\n• 4 × 10–12 (RPE 6), 60–75s rest',
-          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYWxpc3RoZW5pY3N8ZW58MXx8fHwxVzU2aWNnNMzIyM3ww&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_upper-body-enhance/artifacts/bhu7tjin_download%20%2814%29.png',
           intensityReason: 'Weighted eccentrics increase force in safe ranges.',
           moodTips: [
             {
