@@ -309,7 +309,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
           duration: '16–22 min',
           description: 'Dead hangs, band-assisted pulls, incline inverted rows.',
           battlePlan: 'Dead Hang (feet supported if needed)\n• 3 × 20–30s (RPE 4), 60s rest\nBand-Assisted Pullup (light angle)\n• 3 × 4–6 (RPE 4), 75s rest\nInverted Row (high bar, feet bent)\n• 3 × 8–10 (RPE 4), 60s rest',
-          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYWxpc3RoZW5pY3N8ZW58MXx8fHwxVzU2aWNnNMzIyM3ww&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_upper-body-enhance/artifacts/cvdrz3i5_inverted%20rows.png',
           intensityReason: 'Assisted hangs and rows build grip and scap control.',
           moodTips: [
             {
