@@ -113,7 +113,7 @@ export const additionalWorkoutDatabase = [
           duration: '22–28 min',
           description: 'Straight rows and pushups, modest volume increase for strength gains.',
           battlePlan: 'Ring Row (neutral)\n• 4 × 8–12 (RPE 5), 75s rest\nRing Pushup (horizontal)\n• 4 × 10–12 (RPE 5), 75s rest\nFront Plank\n• 3 × 30–40s (RPE 5), 60s rest',
-          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYWxpc3RoZW5pY3N8ZW58MXx8fHwxVzU2aWNnNMzIyM3ww&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_upper-body-enhance/artifacts/fv7h4gkz_row.jpg',
           intensityReason: 'Moderate volume builds work capacity while stable.',
           moodTips: [
             {
