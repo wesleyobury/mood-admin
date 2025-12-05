@@ -859,7 +859,7 @@ export const outdoorRunWorkoutDatabase = [
           duration: '18–22 min',
           description: 'Step-ups, rows, dips with light run build posture control.',
           battlePlan: '• 3 rounds:\n\n10 step-ups/side (bench)\n8 bench rows (underhand)\n8–10 bench dips\n150–200 m easy jog\n• 60–90s rest',
-          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxwYXJrJTIwd29ya291dHxlbnwwfHx8fDE3MDM0NzU2NjM&ixlib=rb-4.0.3&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_exercise-library-12/artifacts/f9t1jnvw_download%20%2817%29.png',
           intensityReason: 'Alternating strength and jog sustains HR without spikes.',
           moodTips: [
             {
