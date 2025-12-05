@@ -367,7 +367,7 @@ export const outdoorRunWorkoutDatabase = [
           duration: '38–44 min',
           description: 'Short surges then relaxed spin reinforce cadence economy.',
           battlePlan: '• 12 min easy\n• 10x: 30s RPE 9 + 90s easy\n• 8–10 min easy',
-          imageUrl: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjeWNsaW5nJTIwZml0bmVzc3xlbnwwfHx8fDE3MDM0NzU2NjM&ixlib=rb-4.0.3&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_exercise-library-12/artifacts/o68zu5hu_download%20%283%29.png',
           intensityReason: 'High-torque sprints train snap and smooth transitions.',
           moodTips: [
             {
