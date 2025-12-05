@@ -241,7 +241,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
           duration: '26–34 min',
           description: 'Single-leg RDL reach, hard rows, side plank holds.',
           battlePlan: 'Single-Leg RDL Reach (unloaded)\n• 4 × 6–8/side (RPE 6), 75s rest\nTable/Ring Row (feet forward)\n• 4 × 8–10 (RPE 6), 60–75s rest\nSide Plank\n• 3 × 35–45s/side (RPE 6), 45–60s rest',
-          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYWxpc3RoZW5pY3N8ZW58MXx8fHwxVzU2aWNnNMzIyM3ww&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-visuals/artifacts/voz31xv4_download%20%2823%29.png',
           intensityReason: 'Single-leg hinge and rows increase posterior demand.',
           moodTips: [
             {
