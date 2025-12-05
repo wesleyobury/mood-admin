@@ -477,7 +477,7 @@ export const additionalWorkoutDatabase = [
           duration: '22–28 min',
           description: 'Pseudo planche pushups, dips light, hollow rocks.',
           battlePlan: 'Pseudo Planche Pushup (on bars)\n• 4 × 6–8 (RPE 5–6), 90s rest\nBox/Bench Dips (light)\n• 3 × 8–10 (RPE 5), 60–75s rest\nHollow Rock\n• 3 × 10–15 (RPE 5), 60s rest',
-          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYWxpc3RoZW5pY3N8ZW58MXx8fHwxVzU2aWNnNMzIyM3ww&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-visuals/artifacts/yneg02k1_pseduo%20planch%20lean.png',
           intensityReason: 'Lean progressions build anterior shoulder integrity.',
           moodTips: [
             {
