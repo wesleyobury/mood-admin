@@ -175,7 +175,7 @@ export const additionalWorkoutDatabase = [
           duration: '24–32 min',
           description: 'High-rep rows and pushups, ring planks for total stability.',
           battlePlan: 'Ring Row (neutral)\n• 5 × 10–15 (RPE 6), 75s rest\nRing Pushup (horizontal)\n• 5 × 12–16 (RPE 6), 75s rest\nRing Front Plank\n• 4 × 30–50s (RPE 6), 60–75s rest',
-          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYWxpc3RoZW5pY3N8ZW58MXx8fHwxVzU2aWNnNMzIyM3ww&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_upper-body-enhance/artifacts/n2vbefok_download%20%287%29.png',
           intensityReason: 'High volume builds muscular endurance on unstable surface.',
           moodTips: [
             {
