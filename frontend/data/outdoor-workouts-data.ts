@@ -305,7 +305,7 @@ export const outdoorRunWorkoutDatabase = [
           duration: '35–40 min',
           description: 'Short climbs with easy spins improve torque and posture.',
           battlePlan: '• 10 min easy\n• 5x: 2 min 60–70 RPM RPE 7 + 2 min easy\n• 6–8 min easy',
-          imageUrl: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjeWNsaW5nJTIwZml0bmVzc3xlbnwwfHx8fDE3MDM0NzU2NjM&ixlib=rb-4.0.3&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_exercise-library-12/artifacts/o68zu5hu_download%20%283%29.png',
           intensityReason: 'Low-cadence seated grinds build strength with safety.',
           moodTips: [
             {
