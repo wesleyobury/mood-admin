@@ -327,7 +327,7 @@ export const additionalWorkoutDatabase = [
           duration: '16–22 min',
           description: 'Full kneeling rolls, hollow rocks, side plank reach.',
           battlePlan: 'Kneeling Ab Wheel (full ROM)\n• 5 × 6–8 (RPE 6), 90s rest\nHollow Rock\n• 4 × 12–16 (RPE 6), 60s rest\nSide Plank with Reach\n• 3 × 10–12/side (RPE 6), 45–60s rest',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_upper-body-enhance/artifacts/wgjgrxlk_download%20%282%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_upper-body-enhance/artifacts/pgkoxn00_download.png',
           intensityReason: 'Full-range kneeling rolls challenge deep core safely.',
           moodTips: [
             {
