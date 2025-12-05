@@ -155,7 +155,7 @@ export const additionalWorkoutDatabase = [
           duration: '24–32 min',
           description: 'False-grip rows, explosive transition drills, ring dips.',
           battlePlan: 'False-Grip Ring Row\n• 5 × 6–8 (RPE 6), 90s rest\nRing Muscle-Up Transition Practice (assisted)\n• 4 × 3–4 (RPE 6–7), 120s rest\nRing Dip\n• 4 × 6–8 (RPE 6), 90s rest',
-          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYWxpc3RoZW5pY3N8ZW58MXx8fHwxVzU2aWNnNMzIyM3ww&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_upper-body-enhance/artifacts/fdh4ryeu_download%20%283%29.png',
           intensityReason: 'MU drills require powerful pull, dip, and transition.',
           moodTips: [
             {
