@@ -11,7 +11,7 @@ export const outdoorRunWorkoutDatabase = [
           duration: '22–25 min',
           description: 'Walk–jog intervals build aerobic base and reinforce clean form.',
           battlePlan: '• 5 min brisk walk\n• 6 rounds: 1 min easy jog + 1 min walk\n• 5 min easy walk',
-          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwb3V0ZG9vcnxlbnwwfHx8fDE3MDM0NzU2NjM&ixlib=rb-4.0.3&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_exercise-library-12/artifacts/z01f1fdc_download%20%284%29.png',
           intensityReason: 'Short jog bouts lift heart rate gently while protecting joints.',
           moodTips: [
             {
