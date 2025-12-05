@@ -305,7 +305,7 @@ export const additionalWorkoutDatabase = [
           duration: '14–18 min',
           description: 'Kneeling diagonals, side planks, hollow holds finish.',
           battlePlan: 'Kneeling Ab Wheel Diagonal Rolls\n• 4 × 5–6/side (RPE 5), 90s rest\nSide Plank\n• 3 × 25–35s/side (RPE 5), 45–60s rest\nHollow Hold\n• 3 × 25–35s (RPE 5), 45–60s rest',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_upper-body-enhance/artifacts/ytutfbco_download%20%281%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_upper-body-enhance/artifacts/wgjgrxlk_download%20%282%29.png',
           intensityReason: 'Slight angle changes load obliques and anti-rotation.',
           moodTips: [
             {
