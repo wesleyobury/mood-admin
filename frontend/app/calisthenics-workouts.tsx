@@ -563,7 +563,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
           duration: '22–28 min',
           description: 'Dips banded, bar rows, knee raise strict to finish.',
           battlePlan: 'Band-Assisted Dips\n• 4 × 6–8 (RPE 5), 90s rest\nParallel Bar Inverted Row (feet flat)\n• 4 × 8–10 (RPE 5), 75s rest\nParallel Bar Knee Raise\n• 3 × 10–12 (RPE 5), 60s rest',
-          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYWxpc3RoZW5pY3N8ZW58MXx8fHwxVzU2aWNnNMzIyM3ww&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_upper-body-enhance/artifacts/bhu7tjin_download%20%2814%29.png',
           intensityReason: 'Moderate dip volume strengthens chest and triceps.',
           moodTips: [
             {
