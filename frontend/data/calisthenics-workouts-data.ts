@@ -347,7 +347,7 @@ export const additionalWorkoutDatabase = [
           duration: '16–22 min',
           description: '5–6s eccentrics, micro-pauses, strict plank holds.',
           battlePlan: 'Kneeling Ab Wheel Eccentric (5–6s down)\n• 5 × 3–5 (RPE 6–7), 120s rest\nFront Plank (hard)\n• 4 × 30–45s (RPE 6), 60–75s rest\nHollow Hold\n• 3 × 30–40s (RPE 6), 60s rest',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_upper-body-enhance/artifacts/wgjgrxlk_download%20%282%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_upper-body-enhance/artifacts/ytutfbco_download%20%281%29.png',
           intensityReason: 'Very slow negatives build resilience in long ranges.',
           moodTips: [
             {
