@@ -983,7 +983,7 @@ export const outdoorRunWorkoutDatabase = [
           duration: '24–28 min',
           description: 'Alternate dips, push-ups with sprints and walkbacks.',
           battlePlan: '• 24 min alternating EMOM:\n\nOdd: 12 dips + 10 push-ups\nEven: 2x 50 m sprint (walk back)',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_exercise-library-12/artifacts/f9t1jnvw_download%20%2817%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_exercise-library-12/artifacts/xmpcsqgf_download%20%2822%29.png',
           intensityReason: 'Short sprints add intensity while EMOM preserves form.',
           moodTips: [
             {
