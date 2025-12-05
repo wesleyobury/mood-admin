@@ -73,7 +73,7 @@ export const additionalWorkoutDatabase = [
           duration: '22–28 min',
           description: 'Mid-angle rows, pushups, knee tucks for core finish.',
           battlePlan: 'Ring Row (mid angle)\n• 4 × 8–10 (RPE 5), 75s rest\nRing Pushup (horizontal)\n• 4 × 8–12 (RPE 5), 75s rest\nRing Knee Tucks (support)\n• 3 × 10–12 (RPE 5), 60s rest',
-          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYWxpc3RoZW5pY3N8ZW58MXx8fHwxVzU2aWNnNMzIyM3ww&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_upper-body-enhance/artifacts/0ah02106_download%20%289%29.png',
           intensityReason: 'Moderate ring angles challenge stabilizers with control.',
           moodTips: [
             {
