@@ -115,12 +115,18 @@ export default function Profile() {
   // Sync with AuthContext user data when it changes
   useEffect(() => {
     if (authUser) {
+      // Fix avatar URL if it doesn't include the backend URL
+      let avatarUrl = authUser.avatar || '';
+      if (avatarUrl && !avatarUrl.startsWith('http')) {
+        avatarUrl = avatarUrl.startsWith('/') ? `${API_URL}${avatarUrl}` : `${API_URL}/api/uploads/${avatarUrl}`;
+      }
+      
       setUser({
         id: authUser.id,
         username: authUser.username,
         name: authUser.name || authUser.username,
         bio: authUser.bio || '',
-        avatar: authUser.avatar || '',
+        avatar: avatarUrl,
         isVerified: false,
       });
       setStats({
