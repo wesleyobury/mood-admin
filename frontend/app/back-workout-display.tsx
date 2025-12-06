@@ -291,7 +291,7 @@ const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '20–22 min',
           description: 'Row, high pull, and clean complex maximizes back output.',
           battlePlan: '4 rounds:\n• 8 Barbell Row\n• 8 Barbell High Pull\n• 8 Barbell Power Clean\nRest 90–120s after completing the full sequence',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_0b65e409-b210-4730-af62-16b022c37685/artifacts/64hoj8hu_download%20%283%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/hnesh89k_download.png',
           intensityReason: 'Explosive high pulls and cleans target power capacity.',
           moodTips: [
             {
