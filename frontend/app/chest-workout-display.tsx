@@ -381,7 +381,7 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Explosive push-ups at varying angles plus single-arm presses for adaptation.',
           battlePlan: '4 rounds:\n• 8 explosive plyo push-ups (vary bench angle each round)\n• 10 single-arm press\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/23ok9no5_download%20%2819%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/w699t364_download%20%287%29.png',
           intensityReason: 'Explosive multi-angle training for pec adaptation.',
           moodTips: [
             {
