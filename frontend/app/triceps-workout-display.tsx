@@ -75,7 +75,7 @@ const tricepsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Extended angle overhead hits fibers more intensely',
           battlePlan: '3 rounds\n• 10–12 Incline Overhead DB Extensions\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_inspiring-euler/artifacts/5cjqt0fg_download.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/nworhx1b_idbsc.webp',
           intensityReason: 'Incline bench increases stretch on long triceps head',
           moodTips: [
             {
