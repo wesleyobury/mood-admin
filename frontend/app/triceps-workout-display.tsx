@@ -493,7 +493,7 @@ const tricepsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Rope overhead creates long head hypertrophy focus',
           battlePlan: '4 rounds\n• 8–10 Overhead Rope Extensions\nRest 75–90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_inspiring-euler/artifacts/lruescv6_download%20%281%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/k3gdq2dy_download%20%281%29.png',
           intensityReason: 'Overhead path lengthens triceps time under load',
           moodTips: [
             {
