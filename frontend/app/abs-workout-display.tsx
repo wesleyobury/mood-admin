@@ -55,7 +55,7 @@ const absWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '8–10 min',
           description: 'Simple crunch develops mind-muscle connection safely for beginner abs.\n ',
           battlePlan: '3 rounds\n• 12–15 Crunches\nRest 45s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_sweat-weights-images/artifacts/0k3gmh3p_download%20%283%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/9ppti423_download%20%2811%29.png',
           intensityReason: 'Intro movement builds baseline flexion ab strength',
           moodTips: [
             {
