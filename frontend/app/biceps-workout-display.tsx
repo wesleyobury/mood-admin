@@ -362,7 +362,7 @@ const bicepsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Stronger sets develop hypertrophy with posture',
           battlePlan: '4 rounds\n• 8–10 EZ Bar Cable Curls\nRest 75–90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_de06d55d-ac38-4152-bbf5-479c53d1fb22/artifacts/3z2y67t7_cc.jpg',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/qi05o2xg_download%20%2819%29.png',
           intensityReason: 'Angled bar grip improves joint comfort heavy',
           moodTips: [
             {
