@@ -1263,7 +1263,7 @@ const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Builds pulling strength using an underhand grip with assistance',
           battlePlan: '3 rounds\n• 5 Chin-Ups (use band or assisted machine if needed)\nRest 75s after set',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_0b65e409-b210-4730-af62-16b022c37685/artifacts/cleevcs9_download%20%285%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/9ie9z8cd_chu.jpg',
           intensityReason: 'Chin-ups recruit biceps, making them slightly easier to learn',
           moodTips: [
             {
