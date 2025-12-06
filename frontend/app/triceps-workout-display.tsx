@@ -55,7 +55,7 @@ const tricepsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Lying dumbbell extensions build safe, strict strength',
           battlePlan: '3 rounds\n• 10–12 Flat Bench DB Extensions\nRest 60–75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_inspiring-euler/artifacts/yyzj0dlo_download%20%281%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/d78e5qae_fdbsc.webp',
           intensityReason: 'Stable flat bench isolates movement to triceps only',
           moodTips: [
             {
