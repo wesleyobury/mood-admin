@@ -97,7 +97,7 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '15–18 min',
           description: 'Arnold press and lateral raise combo for intermediate shoulder strength. ',
           battlePlan: '4 rounds:• 10 Arnold press• 12 lateral raises• 10 front raisesRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/d2gkwhep_download%20%282%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/z5yngcpg_incline%20arnold.jpeg',
           intensityReason: 'Dynamic Arnold press challenges all shoulder planes.',
           moodTips: [
             {
