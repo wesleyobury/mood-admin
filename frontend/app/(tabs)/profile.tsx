@@ -475,9 +475,14 @@ export default function Profile() {
               ) : (
                 <View style={styles.postsGrid}>
                   {userPosts.map((post) => {
-                    const imageUrl = post.media_urls && post.media_urls.length > 0 
+                    let imageUrl = post.media_urls && post.media_urls.length > 0 
                       ? post.media_urls[0] 
                       : null;
+                    
+                    // Fix image URL if it doesn't include the backend URL
+                    if (imageUrl && !imageUrl.startsWith('http')) {
+                      imageUrl = imageUrl.startsWith('/') ? `${API_URL}${imageUrl}` : `${API_URL}/api/uploads/${imageUrl}`;
+                    }
                     
                     return (
                       <TouchableOpacity
