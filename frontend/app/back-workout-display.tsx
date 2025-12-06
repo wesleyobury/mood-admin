@@ -1215,7 +1215,7 @@ const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '16–18 min',
           description: 'Advanced pull-ups with deep range and controlled lowering',
           battlePlan: '4 rounds\n• 6 Chest-to-Bar Pull-Ups\n• 6 Negative Pull-Ups (3–5s lower)\nRest 90–120s after sequence',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_0b65e409-b210-4730-af62-16b022c37685/artifacts/trd1nd35_download%20%2816%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/r3n8muv4_cbpu.webp',
           intensityReason: 'Higher pull range and negatives build extreme strength',
           moodTips: [
             {
