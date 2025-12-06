@@ -309,7 +309,15 @@ export default function Explore() {
                     activeOpacity={0.9}
                     onPress={() => handleDoubleTap(post.id)}
                   >
-                    <ImageCarousel images={post.media_urls} />
+                    <ImageCarousel 
+                      images={post.media_urls.map(url => {
+                        // If URL doesn't start with http/https, prepend backend URL
+                        if (!url.startsWith('http')) {
+                          return url.startsWith('/') ? `${API_URL}${url}` : `${API_URL}/api/uploads/${url}`;
+                        }
+                        return url;
+                      })} 
+                    />
                     {likeAnimations[post.id] && (
                       <Animated.View
                         style={[
