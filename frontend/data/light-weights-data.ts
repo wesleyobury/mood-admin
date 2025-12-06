@@ -384,7 +384,7 @@ export const lightWeightsDatabase: EquipmentWorkouts[] = [
           duration: '20–24 min',
           description: '10–2 reps: power clean, push jerk, front squat, burpees.',
           battlePlan: 'Perform 10–8–6–4–2 reps:\n• Power Clean\n• Push Jerk\n• Front Squat\n• Burpee Over Bar\n• Rest as needed to finish',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-pics/artifacts/aw3s2ke8_download%20%281%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/k0r2xgj4_download%20%2810%29.png',
           intensityReason: 'Descending ladder sustains power as fatigue rises.',
           moodTips: [
             {
