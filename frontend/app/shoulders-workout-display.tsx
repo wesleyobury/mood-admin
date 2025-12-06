@@ -187,7 +187,7 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–15 min',
           description: 'Basic barbell shoulder press foundation with light weight and perfect form. ',
           battlePlan: '3 rounds:• 10 standing barbell press• 12 upright rowsRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/09cx0keq_download%20%286%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/z1k5w5av_download.png',
           intensityReason: 'Safe introduction to barbell overhead pressing.',
           moodTips: [
             {
