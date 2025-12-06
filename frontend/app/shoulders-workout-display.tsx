@@ -1001,7 +1001,7 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Foundation power movements on platform for shoulder development. ',
           battlePlan: '3 rounds:• 6 military press• 8 behind neck press (light)• 10 front raisesRest 60s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/6evdq9z5_download%20%285%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/0eviojnw_behind%20neck%20press.png',
           intensityReason: 'Fundamental platform movements for shoulder strength.',
           moodTips: [
             {
