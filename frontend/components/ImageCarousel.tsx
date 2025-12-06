@@ -7,7 +7,10 @@ import {
   ScrollView,
   NativeScrollEvent,
   NativeSyntheticEvent,
+  ActivityIndicator,
+  Text,
 } from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
 
@@ -17,12 +20,28 @@ interface ImageCarouselProps {
 
 export default function ImageCarousel({ images }: ImageCarouselProps) {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [loadingStates, setLoadingStates] = useState<{ [key: number]: boolean }>({});
+  const [errorStates, setErrorStates] = useState<{ [key: number]: boolean }>({});
   const scrollViewRef = useRef<ScrollView>(null);
 
   const handleScroll = (event: NativeSyntheticEvent<NativeScrollEvent>) => {
     const slideSize = event.nativeEvent.layoutMeasurement.width;
     const index = Math.floor(event.nativeEvent.contentOffset.x / slideSize);
     setActiveIndex(index);
+  };
+
+  const handleLoadStart = (index: number) => {
+    setLoadingStates(prev => ({ ...prev, [index]: true }));
+  };
+
+  const handleLoadEnd = (index: number) => {
+    setLoadingStates(prev => ({ ...prev, [index]: false }));
+  };
+
+  const handleError = (index: number, error: any) => {
+    console.error(`Error loading image ${index}:`, error);
+    setErrorStates(prev => ({ ...prev, [index]: true }));
+    setLoadingStates(prev => ({ ...prev, [index]: false }));
   };
 
   if (!images || images.length === 0) {
@@ -40,12 +59,27 @@ export default function ImageCarousel({ images }: ImageCarouselProps) {
         scrollEventThrottle={16}
       >
         {images.map((imageUrl, index) => (
-          <Image
-            key={index}
-            source={{ uri: imageUrl }}
-            style={styles.image}
-            resizeMode="cover"
-          />
+          <View key={index} style={styles.imageContainer}>
+            <Image
+              source={{ uri: imageUrl }}
+              style={styles.image}
+              resizeMode="cover"
+              onLoadStart={() => handleLoadStart(index)}
+              onLoadEnd={() => handleLoadEnd(index)}
+              onError={(e) => handleError(index, e.nativeEvent.error)}
+            />
+            {loadingStates[index] && (
+              <View style={styles.loadingContainer}>
+                <ActivityIndicator size="large" color="#FFD700" />
+              </View>
+            )}
+            {errorStates[index] && (
+              <View style={styles.errorContainer}>
+                <Ionicons name="image-outline" size={48} color="#666" />
+                <Text style={styles.errorText}>Failed to load image</Text>
+              </View>
+            )}
+          </View>
         ))}
       </ScrollView>
 
