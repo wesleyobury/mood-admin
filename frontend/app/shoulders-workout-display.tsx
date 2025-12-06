@@ -271,7 +271,7 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '18–22 min',
           description: 'Advanced barbell complex with heavyloads for maximum shoulder development. ',
           battlePlan: '4 rounds:• 6 heavy push press• 8 behind neck press• 10 upright rows• 12 high pullsRest 2–3 min',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/09cx0keq_download%20%286%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/5895zxha_bbhp.jpg',
           intensityReason: 'Advanced barbell complex for complete shoulder development.',
           moodTips: [
             {
