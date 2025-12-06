@@ -1153,7 +1153,7 @@ const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Builds pulling power with a slightly easier grip variation',
           battlePlan: '4 rounds\n• 6 Chin-Ups\nRest 75–90s after set',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_0b65e409-b210-4730-af62-16b022c37685/artifacts/zpcds83n_download%20%2815%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/fox3rjq4_chu.jpg',
           intensityReason: 'Chin-ups engage biceps more, aiding overall pull strength',
           moodTips: [
             {
