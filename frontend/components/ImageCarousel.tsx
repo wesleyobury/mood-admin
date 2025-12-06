@@ -60,13 +60,17 @@ export default function ImageCarousel({ images }: ImageCarouselProps) {
       >
         {images.map((imageUrl, index) => (
           <View key={index} style={styles.imageContainer}>
-            <Image
-              source={{ uri: imageUrl }}
+            <FastImage
+              source={{ 
+                uri: imageUrl,
+                priority: FastImage.priority.high,
+                cache: FastImage.cacheControl.immutable
+              }}
               style={styles.image}
-              resizeMode="cover"
+              resizeMode={FastImage.resizeMode.cover}
               onLoadStart={() => handleLoadStart(index)}
               onLoadEnd={() => handleLoadEnd(index)}
-              onError={(e) => handleError(index, e.nativeEvent.error)}
+              onError={(e) => handleError(index, e)}
             />
             {loadingStates[index] && (
               <View style={styles.loadingContainer}>
