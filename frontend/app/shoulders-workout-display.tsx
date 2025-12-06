@@ -981,7 +981,7 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–15 min',
           description: 'Platform overhead pressing with solid foundation and form focus. ',
           battlePlan: '3 rounds:• 8 overhead press• 10 push press• 6 strict pressRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/cx834bjk_download%20%286%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/gojjuow1_download%20%285%29.png',
           intensityReason: 'Perfect introduction to platform overhead pressing.',
           moodTips: [
             {
