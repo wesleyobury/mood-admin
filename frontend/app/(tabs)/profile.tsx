@@ -166,12 +166,19 @@ export default function Profile() {
       if (response.ok) {
         const data = await response.json();
         console.log('Profile data loaded:', data.username);
+        
+        // Fix avatar URL if it doesn't include the backend URL
+        let avatarUrl = data.avatar || '';
+        if (avatarUrl && !avatarUrl.startsWith('http')) {
+          avatarUrl = avatarUrl.startsWith('/') ? `${API_URL}${avatarUrl}` : `${API_URL}/api/uploads/${avatarUrl}`;
+        }
+        
         setUser({
           id: data.id,
           username: data.username,
           name: data.name || data.username,
           bio: data.bio || '',
-          avatar: data.avatar || '',
+          avatar: avatarUrl,
           isVerified: false,
         });
         setStats({
