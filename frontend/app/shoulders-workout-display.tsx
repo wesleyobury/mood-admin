@@ -1085,7 +1085,7 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '16–20 min',
           description: 'Ultimate platform workout for elite shoulder power and strength. ',
           battlePlan: '3 rounds:• 2 max press singles• 4 split jerks• 6 snatch grip press• 8 muscle snatchesRest 3–4 min',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/6evdq9z5_download%20%285%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/7iwt7hcg_download%20%288%29.png',
           intensityReason: 'Ultimate platform challenge for elite athletes.',
           moodTips: [
             {
