@@ -305,10 +305,7 @@ export default function Explore() {
 
                 {/* Post Images */}
                 {post.media_urls.length > 0 && (
-                  <TouchableOpacity
-                    activeOpacity={0.9}
-                    onPress={() => handleDoubleTap(post.id)}
-                  >
+                  <View>
                     <ImageCarousel 
                       images={post.media_urls.map(url => {
                         // If URL doesn't start with http/https, prepend backend URL
@@ -334,11 +331,12 @@ export default function Explore() {
                             ],
                           },
                         ]}
+                        pointerEvents="none"
                       >
                         <Ionicons name="heart" size={80} color="#FFD700" />
                       </Animated.View>
                     )}
-                  </TouchableOpacity>
+                  </View>
                 )}
 
                 {/* Post Actions */}
