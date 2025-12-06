@@ -555,7 +555,7 @@ const absWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Builds more strength with controlled negative reps.\n ',
           battlePlan: '3 rounds\n• 8–10 Leg Raises (3s eccentric)\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_sweat-weights-images/artifacts/gtb4564s_download%20%284%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/pow4f7e4_download%20%2813%29.png',
           intensityReason: 'Slow eccentric multiplies ab contraction stress',
           moodTips: [
             {
