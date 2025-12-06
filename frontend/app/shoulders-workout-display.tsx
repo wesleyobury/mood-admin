@@ -1065,7 +1065,7 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '18–22 min',
           description: 'Advanced platform training for maximum shoulder strength and power. ',
           battlePlan: '4 rounds:• 3 max effort press• 5 push press• 6 jerk• 8 high pullsRest 3 min',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/cx834bjk_download%20%286%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/ixckk97w_download%20%287%29.png',
           intensityReason: 'Advanced platform training for maximum strength development.',
           moodTips: [
             {
