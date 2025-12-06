@@ -1417,7 +1417,7 @@ const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Stronger pull variation for controlled overload',
           battlePlan: '4 rounds\n• 8–10 Underhand Grip Row (moderate to heavy)\nRest 75s after set',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_0b65e409-b210-4730-af62-16b022c37685/artifacts/ty987c3z_download%20%2814%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/pm9titrm_scsrgr.webp',
           intensityReason: 'Underhand angle shifts load to lats and biceps',
           moodTips: [
             {
