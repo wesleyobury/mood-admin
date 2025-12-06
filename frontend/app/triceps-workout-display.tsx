@@ -867,7 +867,7 @@ const tricepsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Simple bench dip strengthens arms with low setup',
           battlePlan: '3 rounds\n• 8–10 Bench Dips\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_inspiring-euler/artifacts/74stkm4f_download%20%283%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/pkwqrz0u_bdips.webp',
           intensityReason: 'Bench setup improves stability via shorter lever',
           moodTips: [
             {
