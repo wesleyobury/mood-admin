@@ -370,14 +370,10 @@ export default function Profile() {
         <View style={styles.profileSection}>
           <View style={styles.profileHeader}>
             <TouchableOpacity onPress={handleEditProfile} style={styles.avatarContainer}>
-              <FastImage 
-                source={{ 
-                  uri: user.avatar,
-                  priority: FastImage.priority.high,
-                  cache: FastImage.cacheControl.immutable
-                }} 
+              <Image 
+                source={{ uri: user.avatar }}
                 style={styles.profileImage}
-                resizeMode={FastImage.resizeMode.cover}
+                resizeMode="cover"
               />
               <View style={styles.editIconContainer}>
                 <Ionicons name="pencil" size={16} color="#0c0c0c" />
