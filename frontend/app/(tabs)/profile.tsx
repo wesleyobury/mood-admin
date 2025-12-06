@@ -494,7 +494,15 @@ export default function Profile() {
                         }}
                       >
                         {imageUrl ? (
-                          <Image source={{ uri: imageUrl }} style={styles.gridImage} />
+                          <FastImage 
+                            source={{ 
+                              uri: imageUrl,
+                              priority: FastImage.priority.normal,
+                              cache: FastImage.cacheControl.immutable
+                            }} 
+                            style={styles.gridImage}
+                            resizeMode={FastImage.resizeMode.cover}
+                          />
                         ) : (
                           <View style={[styles.gridImage, styles.placeholderGrid]}>
                             <Ionicons name="image-outline" size={40} color="#666" />
