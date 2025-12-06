@@ -229,7 +229,7 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '15–18 min',
           description: 'Power press and upright row combination for intermediate strength and size. ',
           battlePlan: '4 rounds:• 8 push press• 12 upright rows• 10 bent over rowsRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/09cx0keq_download%20%286%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/z1k5w5av_download.png',
           intensityReason: 'Explosive pressing with targeted isolation work.',
           moodTips: [
             {
