@@ -645,7 +645,7 @@ const tricepsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Slow eccentric rope reps increase hypertrophy load',
           battlePlan: '3 rounds\n• 8 Rope Overhead Extensions (3s eccentric)\nRest 75–90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_inspiring-euler/artifacts/a7rg87q3_download%20%281%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/d111pjm2_download%20%282%29.png',
           intensityReason: 'Three second lowers extend constant cable time',
           moodTips: [
             {
