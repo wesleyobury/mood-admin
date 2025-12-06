@@ -272,7 +272,7 @@ export const lightWeightsDatabase: EquipmentWorkouts[] = [
           duration: '15 min',
           description: 'Double swings, alternating snatches, jump squats, TGUs.',
           battlePlan: 'As many rounds as possible in 15 min:\n• 10 Double Swings\n• 8 Alternating Snatches\n• 6 Goblet Squat Jumps\n• 4 Turkish Get-Ups (2/side)',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-pics/artifacts/9cotsg82_download.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/c1v64uta_download%20%289%29.png',
           intensityReason: 'Timed density pushes pace while preserving crisp form.',
           moodTips: [
             {
