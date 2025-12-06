@@ -889,7 +889,7 @@ const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Control-focused row variation with palms up to target lower lats and scaps.',
           battlePlan: '4 rounds\n• 10 Underhand Grip Cable Row\nRest 75s after set',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_0b65e409-b210-4730-af62-16b022c37685/artifacts/7hcpy4r7_download%20%2812%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/4jf014no_rgr.jpg',
           intensityReason: 'Underhand row shifts focus to lower lats & biceps',
           moodTips: [
             {
