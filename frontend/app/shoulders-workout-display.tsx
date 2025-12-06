@@ -493,7 +493,7 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '15–18 min',
           description: 'Arnold press and fly combination with adjustable bench support angles. ',
           battlePlan: '4 rounds:• 10 Arnold press (45°)• 12 incline lateral raise• 10 chest-supported rear flyRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/d2gkwhep_download%20%282%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/6ajddf8n_incline%20arnold.jpeg',
           intensityReason: 'Intermediate pressing with isolation work using bench angles.',
           moodTips: [
             {
