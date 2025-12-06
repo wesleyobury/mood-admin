@@ -625,7 +625,7 @@ const tricepsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Straight bar hits triceps with longer stretch angle',
           battlePlan: '4 rounds\n• 8–10 Overhead Bar Extensions\nRest 75–90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_inspiring-euler/artifacts/kn9gulrn_download%20%282%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/fo2f287e_download%20%2821%29.png',
           intensityReason: 'Bar overhead creates continuous long head stress',
           moodTips: [
             {
