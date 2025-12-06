@@ -107,9 +107,39 @@ const styles = StyleSheet.create({
     height: SCREEN_WIDTH * 1.25, // 4:5 aspect ratio (portrait)
     backgroundColor: '#000',
   },
+  imageContainer: {
+    width: SCREEN_WIDTH,
+    height: SCREEN_WIDTH * 1.25,
+    backgroundColor: '#1a1a1a',
+  },
   image: {
     width: SCREEN_WIDTH,
     height: SCREEN_WIDTH * 1.25,
+  },
+  loadingContainer: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'rgba(0, 0, 0, 0.7)',
+  },
+  errorContainer: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#1a1a1a',
+  },
+  errorText: {
+    color: '#666',
+    marginTop: 8,
+    fontSize: 14,
   },
   dotsContainer: {
     position: 'absolute',
