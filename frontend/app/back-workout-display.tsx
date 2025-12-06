@@ -1375,7 +1375,7 @@ const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Builds pulling strength with a natural elbow path',
           battlePlan: '3 rounds\n• 10–12 Neutral Grip Row\nRest 60–75s after set',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_0b65e409-b210-4730-af62-16b022c37685/artifacts/ty987c3z_download%20%2814%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/lmxixaaf_scsngr.webp',
           intensityReason: 'Neutral grip row teaches form with stable setup',
           moodTips: [
             {
