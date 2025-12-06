@@ -1347,7 +1347,7 @@ const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '16–18 min',
           description: 'Highly challenging pull-up variation for extreme strength',
           battlePlan: '4 rounds\n• 6 Archer Pull-Ups (each side)\nRest 90–120s after set',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_0b65e409-b210-4730-af62-16b022c37685/artifacts/cleevcs9_download%20%285%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/yk99v1xl_archpu.jpg',
           intensityReason: 'Unilateral strength builder, progressing towards one-arm pull-ups',
           moodTips: [
             {
