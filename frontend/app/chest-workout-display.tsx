@@ -339,7 +339,7 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–15 min',
           description: 'Flat, incline, and decline flys for chest isolation from all angles.',
           battlePlan: '3 rounds:\n• 10 flat fly\n• 10 incline fly\n• 10 decline fly (light)\nRest 60s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/23ok9no5_download%20%2819%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/qt834fch_idbf.webp',
           intensityReason: 'Gentle fly progression across multiple angles.',
           moodTips: [
             {
