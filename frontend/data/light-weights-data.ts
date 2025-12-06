@@ -210,7 +210,7 @@ export const lightWeightsDatabase: EquipmentWorkouts[] = [
           duration: '20–24 min',
           description: 'Four rounds: swings, cleans, snatches, squats, push presses.',
           battlePlan: 'Perform 4 rounds:\n• 10 Swings\n• 8 Cleans (4/side)\n• 6 Snatches (3/side)\n• 4 Goblet Squats\n• 2 Push Presses (each side)\n• Rest 1 min',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-pics/artifacts/sn9i3ng0_download%20%281%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/x797b7x6_download%20%287%29.png',
           intensityReason: 'Mixed rep ladder balances power, skill, and position.',
           moodTips: [
             {
