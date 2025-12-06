@@ -252,7 +252,7 @@ export const lightWeightsDatabase: EquipmentWorkouts[] = [
           duration: '25–26 min',
           description: 'Five rounds, six per side: swing, clean, squat, press, snatch.',
           battlePlan: 'Perform 5 rounds (6 reps each, per side, no rest between moves):\n• Swing\n• Clean\n• Front Squat\n• Push Press\n• Snatch\n• Rest 1 min between rounds',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-pics/artifacts/sn9i3ng0_download%20%281%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/x797b7x6_download%20%287%29.png',
           intensityReason: 'Continuous complex taxes full chain with minimal rest.',
           moodTips: [
             {
