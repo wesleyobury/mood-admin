@@ -1305,7 +1305,7 @@ const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Dynamic pull-up variation for core and back engagement',
           battlePlan: '3 rounds\n• 6 Commando Pull-Ups (chest to each side)\nRest 90s after set',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_0b65e409-b210-4730-af62-16b022c37685/artifacts/cleevcs9_download%20%285%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/v94peb1z_Screenshot%202025-12-05%20at%2011.08.43%E2%80%AFPM.png',
           intensityReason: 'Commando pulls challenge stability and unilateral strength',
           moodTips: [
             {
