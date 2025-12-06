@@ -319,7 +319,7 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–15 min',
           description: 'Kettlebell shoulder foundation with presses and basic movement patterns. ',
           battlePlan: '3 rounds:• 8 kettlebell press (each arm)• 10 kettlebell swings• 8 halos (each direction)Rest 60s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/nakwt6cs_download%20%281%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/t4q8qc3k_dbkbp.webp',
           intensityReason: 'Perfect introduction to kettlebell shoulder training.',
           moodTips: [
             {
