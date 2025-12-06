@@ -603,7 +603,7 @@ const tricepsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Cable overhead isolates stretch for stronger arms',
           battlePlan: '3 rounds\n• 10–12 Overhead Rope Extensions\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_inspiring-euler/artifacts/a7rg87q3_download%20%281%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/k3gdq2dy_download%20%281%29.png',
           intensityReason: 'Overhead cable path increases long head tension',
           moodTips: [
             {
