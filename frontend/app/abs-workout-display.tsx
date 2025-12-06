@@ -471,7 +471,7 @@ const absWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '8–10 min',
           description: 'Lockout position burns abs for lower focus stability.\n ',
           battlePlan: '3 rounds\n• 15s Holds\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_sweat-weights-images/artifacts/gtb4564s_download%20%284%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/e782pm7q_download%20%2813%29.png',
           intensityReason: 'Isometric hold increases abs\' endurance demands',
           moodTips: [
             {
