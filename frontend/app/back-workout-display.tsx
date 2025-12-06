@@ -1131,7 +1131,7 @@ const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Focuses on controlled lowering to build pulling power',
           battlePlan: '3 rounds\n• 5 Negative Pull-Ups (jump to top, 3-5s lower)\nRest 75s after set',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_0b65e409-b210-4730-af62-16b022c37685/artifacts/trd1nd35_download%20%2816%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/toza6up4_pu.avif',
           intensityReason: 'Eccentric training builds strength for full pull-ups',
           moodTips: [
             {
