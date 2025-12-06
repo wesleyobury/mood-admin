@@ -117,7 +117,7 @@ const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Rows, W-raises, and flys refine mid-back strength',
           battlePlan: '3 rounds\n• 8 Single-Arm Row (each side)\n• 8 Incline Prone W-Raise\n• 8 Incline Prone Reverse Fly\nRest 90s after sequence',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_0b65e409-b210-4730-af62-16b022c37685/artifacts/e00z2xt6_download%20%281%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/k5agvaci_download%20%2823%29.png',
           intensityReason: 'W-raises + flys emphasize scapular control within a circuit',
           moodTips: [
             {
