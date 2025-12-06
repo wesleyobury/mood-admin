@@ -361,7 +361,7 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '15–18 min',
           description: 'Double kettlebell pressing for increased strength and core stability demands. ',
           battlePlan: '4 rounds:• 8 double KB press• 10 single arm swings (each)• 8 bottoms up press (each)Rest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/nakwt6cs_download%20%281%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/t4q8qc3k_dbkbp.webp',
           intensityReason: 'Double kettlebell training for intermediate strength development.',
           moodTips: [
             {
