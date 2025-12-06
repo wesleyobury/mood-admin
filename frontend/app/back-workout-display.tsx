@@ -423,7 +423,7 @@ const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '20–22 min',
           description: 'Combo snatch, renegade, clean flow builds power',
           battlePlan: '4 rounds\n• 8 Renegade Row (alternating sides)\n• 8 KB Snatch (each side)\n• 8 KB Clean and Pull\nRest 90–120s after sequence',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_0b65e409-b210-4730-af62-16b022c37685/artifacts/s1nbakqw_download%20%287%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/qcfdfm3u_download%20%284%29.png',
           intensityReason: 'Explosive circuit of pulls, cleans, and snatches',
           moodTips: [
             {
