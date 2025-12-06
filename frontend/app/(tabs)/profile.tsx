@@ -510,14 +510,10 @@ export default function Profile() {
                         }}
                       >
                         {imageUrl ? (
-                          <FastImage 
-                            source={{ 
-                              uri: imageUrl,
-                              priority: FastImage.priority.normal,
-                              cache: FastImage.cacheControl.immutable
-                            }} 
+                          <Image 
+                            source={{ uri: imageUrl }}
                             style={styles.gridImage}
-                            resizeMode={FastImage.resizeMode.cover}
+                            resizeMode="cover"
                           />
                         ) : (
                           <View style={[styles.gridImage, styles.placeholderGrid]}>
