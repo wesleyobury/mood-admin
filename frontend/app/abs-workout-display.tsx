@@ -75,7 +75,7 @@ const absWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '8–10 min',
           description: 'Teaches proper core bracing and builds strong foundational abdominal stability..\n ',
           battlePlan: '3 rounds\n• 3 × 20–30s Plank Holds\nRest 45s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_sweat-weights-images/artifacts/x9dvjaa1_download%20%282%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/rptdlvng_download%20%2812%29.png',
           intensityReason: 'Static hold trains core for anti extension endurance',
           moodTips: [
             {
