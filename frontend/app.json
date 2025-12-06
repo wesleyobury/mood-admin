@@ -45,8 +45,8 @@
     },
 
     "extra": {
-      "EXPO_PUBLIC_BACKEND_URL": "https://fit-outdoor-views.preview.emergentagent.com",
-      "BACKEND_URL": "https://fit-outdoor-views.preview.emergentagent.com",
+      "EXPO_PUBLIC_BACKEND_URL": "https://workout-media-fix.preview.emergentagent.com",
+      "BACKEND_URL": "https://workout-media-fix.preview.emergentagent.com",
       "router": {}
     }
   }
