@@ -867,7 +867,7 @@ const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Focuses on wide row control & back width for beginners',
           battlePlan: '3 rounds\n• 10 Wide Grip Cable Row\nRest 60–75s after set',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_0b65e409-b210-4730-af62-16b022c37685/artifacts/83ut7zg6_download%20%2813%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/gdb1l44p_wgr.png',
           intensityReason: 'Wide grip recruits upper back posture muscles',
           moodTips: [
             {
