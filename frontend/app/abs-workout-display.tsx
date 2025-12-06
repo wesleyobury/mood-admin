@@ -117,7 +117,7 @@ const absWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Builds rotational endurance and activates entire core musculature effectively..\n ',
           battlePlan: '3 rounds\n• 12 per side Bicycle Crunches\nRest 60s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_sweat-weights-images/artifacts/x9dvjaa1_download%20%282%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/pvvftlsu_download%20%2816%29.png',
           intensityReason: 'Alternating twist works obliques + midline control',
           moodTips: [
             {
