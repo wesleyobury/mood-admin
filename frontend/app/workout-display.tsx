@@ -2971,6 +2971,7 @@ interface WorkoutCardProps {
 const WorkoutCard = ({ equipment, icon, workouts, difficulty, difficultyColor, workoutType, moodCard, onStartWorkout, isInCart, addedItems, scaleAnim, createWorkoutId, handleAddToCart }: WorkoutCardProps) => {
   // Each card manages its own state - isolated from other cards
   const [currentWorkoutIndex, setCurrentWorkoutIndex] = useState(0);
+  const [showIndicator, setShowIndicator] = useState(true);
   const flatListRef = useRef<FlatList>(null);
 
   const renderWorkout = ({ item, index }: { item: Workout; index: number }) => (

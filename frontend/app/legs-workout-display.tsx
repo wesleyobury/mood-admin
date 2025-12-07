@@ -262,6 +262,7 @@ export default function LegsWorkoutDisplayScreen() {
   const insets = useSafeAreaInsets();
 
   const [currentWorkoutIndex, setCurrentWorkoutIndex] = useState(0);
+  const [showIndicator, setShowIndicator] = useState(true);
   const flatListRef = useRef<FlatList>(null);
 
   // Cart and animation hooks
