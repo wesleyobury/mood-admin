@@ -3171,6 +3171,7 @@ export default function WorkoutDisplayScreen() {
   // Cart and animation hooks
   const { addToCart, isInCart } = useCart();
   const [scaleAnim] = useState(new Animated.Value(1));
+  const [showIndicator, setShowIndicator] = useState(true);
   const [addedItems, setAddedItems] = useState<Set<string>>(new Set());
 
   // Get difficulty color - all the same neon gold
