@@ -56,7 +56,7 @@ const LazyTrainingTypeOption = ({
         <View style={[styles.iconContainer, isSelected && styles.selectedIconContainer]}>
           <Ionicons 
             name={option.icon} 
-            size={48} 
+            size={32} 
             color={isSelected ? "#FFD700" : "#FFD700"} 
           />
         </View>
@@ -67,9 +67,9 @@ const LazyTrainingTypeOption = ({
         </View>
         <View style={styles.arrowContainer}>
           {isSelected ? (
-            <Ionicons name="checkmark-circle" size={28} color="#FFD700" />
+            <Ionicons name="checkmark-circle" size={24} color="#FFD700" />
           ) : (
-            <Ionicons name="chevron-forward" size={24} color="#FFD700" />
+            <Ionicons name="chevron-forward" size={20} color="rgba(255, 255, 255, 0.3)" />
           )}
         </View>
       </View>
