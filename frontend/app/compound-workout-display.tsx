@@ -2479,7 +2479,7 @@ const compoundWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '16–18 min',
           description: 'Reverse stance hack builds posterior chain strength and development.',
           battlePlan: '4 rounds\n• 8-10 reverse hack squats\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/ffi2msmn_hs.avif',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-media-fix/artifacts/a9f6gtvn_rhs.jpg',
           intensityReason: 'Facing pad emphasizes glutes and hamstrings.',
           moodTips: [
             {
