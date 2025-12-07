@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, memo } from 'react';
 import {
   View,
   Image,
@@ -18,7 +18,7 @@ interface ImageCarouselProps {
   images: string[];
 }
 
-export default function ImageCarousel({ images }: ImageCarouselProps) {
+const ImageCarousel = memo(({ images }: ImageCarouselProps) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [loadingStates, setLoadingStates] = useState<{ [key: number]: boolean }>({});
   const [errorStates, setErrorStates] = useState<{ [key: number]: boolean }>({});
@@ -27,7 +27,9 @@ export default function ImageCarousel({ images }: ImageCarouselProps) {
   const handleScroll = (event: NativeSyntheticEvent<NativeScrollEvent>) => {
     const slideSize = event.nativeEvent.layoutMeasurement.width;
     const index = Math.floor(event.nativeEvent.contentOffset.x / slideSize);
-    setActiveIndex(index);
+    if (index !== activeIndex) {
+      setActiveIndex(index);
+    }
   };
 
   const handleLoadStart = (index: number) => {
@@ -56,17 +58,24 @@ export default function ImageCarousel({ images }: ImageCarouselProps) {
         pagingEnabled
         showsHorizontalScrollIndicator={false}
         onScroll={handleScroll}
-        scrollEventThrottle={16}
+        scrollEventThrottle={200}
+        decelerationRate="fast"
+        snapToInterval={SCREEN_WIDTH}
+        snapToAlignment="start"
       >
         {images.map((imageUrl, index) => (
-          <View key={index} style={styles.imageContainer}>
+          <View key={`${imageUrl}-${index}`} style={styles.imageContainer}>
             <Image
-              source={{ uri: imageUrl }}
+              source={{ 
+                uri: imageUrl,
+                cache: 'force-cache'
+              }}
               style={styles.image}
               resizeMode="cover"
               onLoadStart={() => handleLoadStart(index)}
               onLoadEnd={() => handleLoadEnd(index)}
               onError={(e) => handleError(index, e.nativeEvent.error)}
+              fadeDuration={0}
             />
             {loadingStates[index] && (
               <View style={styles.loadingContainer}>
