@@ -1139,7 +1139,7 @@ const quadricepsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Static hold reinforces posture and leg strength',
           battlePlan: '3 rounds\n• 6–8 Sissy Squats\n• Add 10s Hold each set\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_85724e25-1f59-4628-b049-647d06432207/artifacts/k4qyeu7h_download%20%2821%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-media-fix/artifacts/sjqdvile_bbss.jpg',
           intensityReason: 'Iso hold at squat bottom builds quad endurance',
           moodTips: [
             {
