@@ -458,7 +458,7 @@ const styles = StyleSheet.create({
   centeredBrandTitle: {
     fontSize: 42,
     fontWeight: '700',
-    color: '#C9A961',
+    color: '#FFD700',
     letterSpacing: 8,
     textShadowColor: 'rgba(255, 215, 0, 0.15)',
     textShadowOffset: { width: 0, height: 0 },
