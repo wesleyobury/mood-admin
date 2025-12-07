@@ -1783,7 +1783,7 @@ const calvesWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Basic standing raise for foundational calf development',
           battlePlan: '3 rounds\n• 15–20 Standing Calf Raises\nRest 60s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_85724e25-1f59-4628-b049-647d06432207/artifacts/1jerzr2s_download%20%2827%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-media-fix/artifacts/kh18cxcw_Screenshot%202025-12-06%20at%209.24.28%E2%80%AFPM.png',
           intensityReason: 'Machine guidance builds calf strength safely',
           moodTips: [
             {
