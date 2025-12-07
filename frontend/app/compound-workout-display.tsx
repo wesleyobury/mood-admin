@@ -3519,7 +3519,7 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     borderBottomColor: 'rgba(255, 215, 0, 0.2)',
     paddingVertical: 8,
-    paddingHorizontal: 20,
+    paddingHorizontal: 12,
   },
   progressContent: {
     alignItems: 'center',
