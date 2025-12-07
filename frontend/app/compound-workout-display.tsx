@@ -587,7 +587,7 @@ const hamstringsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Teaches safe mechanics and stretch for hypertrophy',
           battlePlan: '3 rounds\n• 10–12 Dumbbell RDLs\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_85724e25-1f59-4628-b049-647d06432207/artifacts/4yb6j8u5_download%20%2818%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-media-fix/artifacts/d1gxk1c1_download%20%2818%29.png',
           intensityReason: 'Starter hinge builds hamstring stretch and control',
           moodTips: [
             {
