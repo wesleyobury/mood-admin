@@ -2549,7 +2549,7 @@ const compoundWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Cable variation keeps constant load on posterior chain throughout ROM.',
           battlePlan: '4 rounds\n• 8-10 cable rdls\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/upig32a1_download%20%284%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-media-fix/artifacts/btaq9it2_cable%20rdl.jpg',
           intensityReason: 'Hip hinge move teaches tension through hamstrings.',
           moodTips: [
             {
