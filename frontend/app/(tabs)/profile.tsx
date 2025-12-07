@@ -511,9 +511,13 @@ export default function Profile() {
                       >
                         {imageUrl ? (
                           <Image 
-                            source={{ uri: imageUrl }}
+                            source={{ 
+                              uri: imageUrl,
+                              cache: 'force-cache'
+                            }}
                             style={styles.gridImage}
                             resizeMode="cover"
+                            fadeDuration={0}
                           />
                         ) : (
                           <View style={[styles.gridImage, styles.placeholderGrid]}>
