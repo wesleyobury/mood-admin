@@ -135,7 +135,7 @@ const EquipmentCard = ({
       </Text>
       {isSelected && (
         <View style={styles.equipmentIndicator}>
-          <Ionicons name="checkmark" size={16} color="#000000" />
+          <Ionicons name="checkmark" size={16} color="#FFFFFF" />
         </View>
       )}
     </TouchableOpacity>
@@ -176,7 +176,7 @@ const IntensityCard = ({
       </View>
       {isSelected && (
         <View style={styles.intensityIndicator}>
-          <Ionicons name="checkmark" size={16} color="#000000" />
+          <Ionicons name="checkmark" size={16} color="#FFFFFF" />
         </View>
       )}
     </TouchableOpacity>
