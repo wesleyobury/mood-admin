@@ -2527,7 +2527,7 @@ const compoundWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Crossover cable step engages quads + glutes together with unilateral work.',
           battlePlan: '3 rounds\n• 8 per side Step Throughs\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/il3x97qs_download%20%283%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-media-fix/artifacts/yt6adjli_image.png',
           intensityReason: 'Split stance improves single leg drive and balance.',
           moodTips: [
             {
