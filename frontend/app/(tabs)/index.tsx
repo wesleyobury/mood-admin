@@ -468,7 +468,7 @@ const styles = StyleSheet.create({
   },
   centeredBrandSubtitle: {
     fontSize: 15,
-    color: 'rgba(255, 255, 255, 0.6)',
+    color: '#FFFFFF',
     fontWeight: '400',
     letterSpacing: 0.5,
     textShadowColor: 'transparent',
