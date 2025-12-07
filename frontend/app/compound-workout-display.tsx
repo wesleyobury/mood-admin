@@ -2113,7 +2113,7 @@ const compoundWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Front squat builds quads while demanding upright posture.',
           battlePlan: '4 rounds\n• 6-8 front squats\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/gxoxkpbs_download%20%285%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-media-fix/artifacts/wag3ztrn_bbfs.jpg',
           intensityReason: 'Upright bar placement drives quad and core load.',
           moodTips: [
             {
