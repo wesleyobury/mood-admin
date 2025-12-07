@@ -195,13 +195,13 @@ export default function WorkoutsHome() {
               style={styles.socialButton}
               onPress={() => handleSocialLink('https://www.instagram.com/officialmoodapp/', 'Instagram')}
             >
-              <Ionicons name="logo-instagram" size={18} color="#C9A961" />
+              <Ionicons name="logo-instagram" size={18} color="#FFD700" />
             </TouchableOpacity>
             <TouchableOpacity 
               style={styles.socialButton}
               onPress={() => handleSocialLink('https://www.tiktok.com/@officialmoodapp', 'TikTok')}
             >
-              <Ionicons name="logo-tiktok" size={18} color="#C9A961" />
+              <Ionicons name="logo-tiktok" size={18} color="#FFD700" />
             </TouchableOpacity>
           </View>
         </View>
