@@ -1684,7 +1684,7 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.4,
     shadowRadius: 20,
     elevation: 12,
-    overflow: 'hidden',
+    overflow: 'visible',
     marginBottom: 25,
     width: '100%',
   },
@@ -1737,7 +1737,7 @@ const styles = StyleSheet.create({
   workoutImageContainer: {
     height: 120,
     position: 'relative',
-    overflow: 'hidden',
+    overflow: 'visible',
     borderRadius: 12,
     marginBottom: 16,
   },

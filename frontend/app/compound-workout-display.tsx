@@ -3588,7 +3588,7 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.3,
     shadowRadius: 15,
     elevation: 8,
-    overflow: 'hidden',
+    overflow: 'visible',
     marginBottom: 24,
   },
   equipmentHeader: {
@@ -3630,7 +3630,7 @@ const styles = StyleSheet.create({
   },
   workoutList: {
     height: 380,
-    overflow: 'hidden',
+    overflow: 'visible',
   },
   workoutSlide: {
     paddingHorizontal: 20,
@@ -3639,7 +3639,7 @@ const styles = StyleSheet.create({
   workoutImageContainer: {
     height: 120,
     position: 'relative',
-    overflow: 'hidden',
+    overflow: 'visible',
     borderRadius: 12,
     marginBottom: 16,
   },
