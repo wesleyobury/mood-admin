@@ -16,6 +16,7 @@ import { useRouter, useLocalSearchParams } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import HomeButton from '../components/HomeButton';
 import { useCart, WorkoutItem } from '../contexts/CartContext';
+import AddWorkoutIndicator from '../components/AddWorkoutIndicator';
 import { lightWeightsDatabase } from '../data/light-weights-data';
 
 const { width } = Dimensions.get('window');
