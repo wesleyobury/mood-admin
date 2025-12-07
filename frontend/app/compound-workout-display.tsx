@@ -3529,14 +3529,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     marginHorizontal: 4,
-    marginTop: 12,
-  },
-  progressRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginHorizontal: 4,
-    marginTop: 12,
+    marginTop: 4,
   },
   progressStep: {
     alignItems: 'center',
