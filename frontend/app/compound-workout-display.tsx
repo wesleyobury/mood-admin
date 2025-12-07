@@ -75,7 +75,7 @@ const glutesWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Great hip hinge builder for posterior chain activation',
           battlePlan: '3 rounds\n• 10–12 Pull‑Throughs\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/coxrp5yp_gk.jpg',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-media-fix/artifacts/hgi9y71r_cpt.jpg',
           intensityReason: 'Rope hinge motion loads glutes with safe posture path',
           moodTips: [
             {
