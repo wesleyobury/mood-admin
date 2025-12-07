@@ -480,8 +480,9 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   equipmentCardSelected: {
-    backgroundColor: '#FFD700',
+    backgroundColor: '#111111',
     borderColor: '#FFD700',
+    borderWidth: 2,
     shadowColor: '#FFD700',
     shadowOffset: { width: 0, height: 0 },
     shadowOpacity: 0.6,
@@ -504,8 +505,8 @@ const styles = StyleSheet.create({
     borderColor: 'rgba(255, 215, 0, 0.3)',
   },
   equipmentIconContainerSelected: {
-    backgroundColor: 'rgba(0, 0, 0, 0.2)',
-    borderColor: 'rgba(0, 0, 0, 0.3)',
+    backgroundColor: 'rgba(255, 215, 0, 0.2)',
+    borderColor: '#FFD700',
   },
   equipmentName: {
     fontSize: 16,
@@ -513,7 +514,7 @@ const styles = StyleSheet.create({
     color: '#ffffff',
   },
   equipmentNameSelected: {
-    color: '#000000',
+    color: '#FFD700',
     fontWeight: 'bold',
   },
   difficultyContainer: {
