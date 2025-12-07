@@ -1181,7 +1181,7 @@ const quadricepsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'High tension squatting style grows endurance fast',
           battlePlan: '3 rounds\n• 8 Combo Reps (half + full = 1)\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_85724e25-1f59-4628-b049-647d06432207/artifacts/k4qyeu7h_download%20%2821%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-media-fix/artifacts/sjqdvile_bbss.jpg',
           intensityReason: 'Half+full rep sequence lengthens quad activation',
           moodTips: [
             {
