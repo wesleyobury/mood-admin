@@ -2245,6 +2245,9 @@ const styles = StyleSheet.create({
     borderRadius: 16,
     backgroundColor: 'rgba(255, 215, 0, 0.1)',
   },
+  addButtonWrapper: {
+    position: 'relative',
+  },
   addToCartButton: {
     backgroundColor: 'rgba(70, 70, 70, 0.9)',
     borderRadius: 12,

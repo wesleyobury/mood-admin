@@ -836,6 +836,9 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     lineHeight: 20,
   },
+  addButtonWrapper: {
+    position: 'relative',
+  },
   addToCartButton: {
     backgroundColor: 'rgba(70, 70, 70, 0.9)',
     borderRadius: 12,
