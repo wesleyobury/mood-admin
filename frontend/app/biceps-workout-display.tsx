@@ -1407,6 +1407,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(255, 215, 0, 0.1)',
     borderBottomWidth: 1,
     borderBottomColor: 'rgba(255, 215, 0, 0.2)',
+    overflow: 'visible',
   },
   equipmentIconContainer: {
     width: 40,
