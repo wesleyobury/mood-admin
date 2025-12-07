@@ -77,7 +77,7 @@ const MuscleGroupCard = ({
         <Ionicons 
           name={muscleGroup.icon} 
           size={24} 
-          color={isSelected ? "#000000" : "#FFD700"} 
+          color="#FFD700" 
         />
       </View>
       <View style={styles.muscleGroupTextContainer}>
@@ -96,7 +96,7 @@ const MuscleGroupCard = ({
       </View>
       {isSelected && (
         <View style={styles.muscleGroupIndicator}>
-          <Ionicons name="checkmark" size={20} color="#000000" />
+          <Ionicons name="checkmark" size={20} color="#FFD700" />
         </View>
       )}
     </TouchableOpacity>
