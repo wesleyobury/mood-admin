@@ -781,7 +781,7 @@ const hamstringsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Creates extra tension through hamstring length ROM',
           battlePlan: '3 rounds\n• 6–8 Deficit Barbell RDLs\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_85724e25-1f59-4628-b049-647d06432207/artifacts/joz0sngb_download%20%2814%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-media-fix/artifacts/chdxu3vk_deficit%20rdl.jpg',
           intensityReason: 'Standing elevated extends hinge stretch fully',
           moodTips: [
             {
