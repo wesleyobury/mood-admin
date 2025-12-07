@@ -1223,7 +1223,7 @@ const quadricepsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '16–18 min',
           description: 'Dual movement combo overloads quads with fatigue',
           battlePlan: '3 rounds\n• 6 Front Hold Sissy Squats\n• 6 Barbell Hack Squats\nRest 120s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_85724e25-1f59-4628-b049-647d06432207/artifacts/k4qyeu7h_download%20%2821%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-media-fix/artifacts/sjqdvile_bbss.jpg',
           intensityReason: 'Pairing front and back styles crushes quad fibers',
           moodTips: [
             {
