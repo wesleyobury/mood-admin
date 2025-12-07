@@ -997,6 +997,7 @@ const WorkoutCard = React.memo(({
 }: WorkoutCardProps) => {
   const [currentWorkoutIndex, setCurrentWorkoutIndex] = useState(0);
   const [localScaleAnim] = useState(new Animated.Value(1));
+  const [showIndicator, setShowIndicator] = useState(true);
   const flatListRef = useRef<FlatList>(null);
 
   const handleAddToCartWithAnimation = (workout: Workout) => {
