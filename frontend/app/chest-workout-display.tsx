@@ -2045,7 +2045,7 @@ const styles = StyleSheet.create({
     lineHeight: 20,
   },
   addButtonWrapper: {
-    position: \'relative\',
+    position: 'relative',
   },
     addToCartButton: {
     backgroundColor: 'rgba(70, 70, 70, 0.9)',

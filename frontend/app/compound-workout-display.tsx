@@ -3822,7 +3822,7 @@ const styles = StyleSheet.create({
     textShadowRadius: 8,
   },
   addButtonWrapper: {
-    position: \'relative\',
+    position: 'relative',
   },
     addToCartButton: {
     backgroundColor: 'rgba(70, 70, 70, 0.9)',

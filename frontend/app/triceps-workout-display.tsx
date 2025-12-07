@@ -1904,7 +1904,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 40,
   },
   addButtonWrapper: {
-    position: \'relative\',
+    position: 'relative',
   },
     addToCartButton: {
     backgroundColor: 'rgba(70, 70, 70, 0.9)',
