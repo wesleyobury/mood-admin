@@ -97,7 +97,7 @@ const glutesWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Cable anchor increases balance and constant tension',
           battlePlan: '4 rounds\n• 8–10 per leg Step‑Back Lunges\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/2ambyktp_gk2.webp',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-media-fix/artifacts/kbqqdimd_download%20%282%29.png',
           intensityReason: 'Rear lunges with cable build unilateral glute force',
           moodTips: [
             {
