@@ -66,16 +66,17 @@ const ImageCarousel = memo(({ images }: ImageCarouselProps) => {
         {images.map((imageUrl, index) => (
           <View key={`${imageUrl}-${index}`} style={styles.imageContainer}>
             <Image
-              source={{ 
-                uri: imageUrl,
-                cache: 'force-cache'
-              }}
+              source={imageUrl}
               style={styles.image}
-              resizeMode="cover"
+              contentFit="cover"
+              transition={200}
+              cachePolicy="memory-disk"
+              priority="high"
+              placeholderContentFit="cover"
+              placeholder={{ blurhash: 'L6PZfSi_.AyE_3t7t7R**0o#DgR4' }}
               onLoadStart={() => handleLoadStart(index)}
-              onLoadEnd={() => handleLoadEnd(index)}
-              onError={(e) => handleError(index, e.nativeEvent.error)}
-              fadeDuration={0}
+              onLoad={() => handleLoadEnd(index)}
+              onError={(e) => handleError(index, e)}
             />
             {loadingStates[index] && (
               <View style={styles.loadingContainer}>
