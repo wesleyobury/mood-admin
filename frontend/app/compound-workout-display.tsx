@@ -139,7 +139,7 @@ const glutesWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '16–18 min',
           description: 'Constant tension pairing ensures strong hypertrophy',
           battlePlan: '4 rounds\n• 8 Pull‑Throughs\n• 8 Cable Squats\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/2ambyktp_gk2.webp',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-media-fix/artifacts/hgi9y71r_cpt.jpg',
           intensityReason: 'Pair hinge and squat hits glutes from dual angles',
           moodTips: [
             {
