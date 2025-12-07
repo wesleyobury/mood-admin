@@ -40,8 +40,8 @@ const AnimatedMoodCard = ({ mood, index, onPress }: {
           <View style={styles.iconContainer}>
             <Ionicons 
               name={mood.icon} 
-              size={40} 
-              color="#FFD700" 
+              size={28} 
+              color="#C9A961" 
               style={styles.cardIcon}
             />
           </View>
@@ -52,8 +52,8 @@ const AnimatedMoodCard = ({ mood, index, onPress }: {
           <View style={styles.arrowContainer}>
             <Ionicons 
               name="chevron-forward" 
-              size={24} 
-              color="#FFD700" 
+              size={20} 
+              color="rgba(255, 255, 255, 0.3)" 
             />
           </View>
         </View>
