@@ -41,7 +41,7 @@ const AnimatedMoodCard = ({ mood, index, onPress }: {
             <Ionicons 
               name={mood.icon} 
               size={28} 
-              color="#C9A961" 
+              color="#FFD700" 
               style={styles.cardIcon}
             />
           </View>
