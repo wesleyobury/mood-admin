@@ -1104,26 +1104,29 @@ const WorkoutCard = React.memo(({
           <Ionicons name={icon} size={24} color="#FFD700" />
         </View>
         <Text style={styles.equipmentName}>{equipment}</Text>
-        <TouchableOpacity
-          style={[
-            styles.addToCartButton,
-            isInCart(createWorkoutId(workouts[currentWorkoutIndex], equipment, difficulty)) && 
-            styles.addToCartButtonAdded
-          ]}
-          onPress={() => handleAddToCartWithAnimation(workouts[currentWorkoutIndex])}
-          activeOpacity={0.8}
-        >
-          <Animated.View style={[styles.addToCartButtonContent, { transform: [{ scale: localScaleAnim }] }]}>
-            {isInCart(createWorkoutId(workouts[currentWorkoutIndex], equipment, difficulty)) ? (
-              <Ionicons name="checkmark" size={16} color="#FFD700" />
-            ) : (
-              <>
-                <Ionicons name="add" size={14} color="#FFFFFF" />
-                <Text style={styles.addToCartButtonText}>Add workout</Text>
-              </>
-            )}
-          </Animated.View>
-        </TouchableOpacity>
+        <View style={styles.addButtonWrapper}>
+          <TouchableOpacity
+            style={[
+              styles.addToCartButton,
+              isInCart(createWorkoutId(workouts[currentWorkoutIndex], equipment, difficulty)) && 
+              styles.addToCartButtonAdded
+            ]}
+            onPress={() => handleAddToCartWithAnimation(workouts[currentWorkoutIndex])}
+            activeOpacity={0.8}
+          >
+            <Animated.View style={[styles.addToCartButtonContent, { transform: [{ scale: localScaleAnim }] }]}>
+              {isInCart(createWorkoutId(workouts[currentWorkoutIndex], equipment, difficulty)) ? (
+                <Ionicons name="checkmark" size={16} color="#FFD700" />
+              ) : (
+                <>
+                  <Ionicons name="add" size={14} color="#FFFFFF" />
+                  <Text style={styles.addToCartButtonText}>Add workout</Text>
+                </>
+              )}
+            </Animated.View>
+          </TouchableOpacity>
+          <AddWorkoutIndicator visible={showIndicator} />
+        </View>
       </View>
 
       {/* Workout List */}
