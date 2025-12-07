@@ -1961,7 +1961,7 @@ const compoundWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Advanced split squat builds quads and glute drive with elevated rear foot.',
           battlePlan: '4 rounds\n• 8-10 bulgarian split squats per leg\nRest 75-90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/elc9qz74_download%20%2813%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-media-fix/artifacts/mxfs858v_dbbss.jpg',
           intensityReason: 'Rear foot elevated squat raises ROM + intensity.',
           moodTips: [
             {
