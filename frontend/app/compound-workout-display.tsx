@@ -3556,7 +3556,7 @@ const styles = StyleSheet.create({
     color: 'rgba(255, 255, 255, 0.8)',
     textAlign: 'center',
     fontWeight: '500',
-    maxWidth: 80,
+    maxWidth: 70,
   },
   progressConnector: {
     width: 20,
