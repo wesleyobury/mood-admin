@@ -1939,7 +1939,7 @@ const compoundWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Dumbbell hinge builds strength safely for beginners with proper form.',
           battlePlan: '3 rounds\n• 8-10 dumbbell RDLs\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/unoluv5i_download%20%2812%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-media-fix/artifacts/5v2oyit3_dbrdl.webp',
           intensityReason: 'Hip hinge pattern develops hamstrings + glutes.',
           moodTips: [
             {
