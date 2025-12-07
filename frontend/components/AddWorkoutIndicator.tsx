@@ -59,6 +59,7 @@ export default function AddWorkoutIndicator({ visible }: AddWorkoutIndicatorProp
           transform: [{ translateY: bounceAnim }],
         },
       ]}
+      pointerEvents="none"
     >
       <Ionicons name="arrow-down" size={24} color="#FFD700" />
     </Animated.View>
@@ -68,8 +69,8 @@ export default function AddWorkoutIndicator({ visible }: AddWorkoutIndicatorProp
 const styles = StyleSheet.create({
   arrowContainer: {
     position: 'absolute',
-    top: -35,
-    right: 10,
-    zIndex: 1000,
+    top: -32,
+    right: 8,
+    zIndex: 9999,
   },
 });
