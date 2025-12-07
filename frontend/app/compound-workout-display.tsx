@@ -471,7 +471,7 @@ const glutesWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Shifts emphasis effectively into upper glute tissues',
           battlePlan: '3 rounds\n• 12–15 Lean Abductions\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/eqwbozow_Screenshot%202025-12-02%20at%204.48.10%E2%80%AFPM.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-media-fix/artifacts/ca2oebzr_lfha.png',
           intensityReason: 'Lean angle biases deeper glute muscle activity',
           moodTips: [
             {
