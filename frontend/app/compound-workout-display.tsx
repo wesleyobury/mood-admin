@@ -2133,7 +2133,7 @@ const compoundWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Advanced unilateral builder with deeper range and balance challenge.',
           battlePlan: '4 rounds\n• 8-10 bulgarians per side\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/a96gl1sh_download%20%287%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-media-fix/artifacts/8m6t0a7f_Screenshot%202025-12-06%20at%207.08.54%E2%80%AFPM.png',
           intensityReason: 'Rear foot squat overloads quads and balance.',
           moodTips: [
             {
