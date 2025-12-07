@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { View, Text, StyleSheet, Animated } from 'react-native';
+import { StyleSheet, Animated } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
 interface AddWorkoutIndicatorProps {
@@ -8,110 +8,68 @@ interface AddWorkoutIndicatorProps {
 
 export default function AddWorkoutIndicator({ visible }: AddWorkoutIndicatorProps) {
   const fadeAnim = useRef(new Animated.Value(0)).current;
-  const translateY = useRef(new Animated.Value(-10)).current;
+  const bounceAnim = useRef(new Animated.Value(0)).current;
 
   useEffect(() => {
     if (visible) {
-      // Fade in animation
+      // Fade in and bounce animation
       Animated.parallel([
         Animated.timing(fadeAnim, {
           toValue: 1,
-          duration: 500,
+          duration: 400,
           useNativeDriver: true,
         }),
-        Animated.timing(translateY, {
-          toValue: 0,
-          duration: 500,
-          useNativeDriver: true,
-        }),
+        Animated.loop(
+          Animated.sequence([
+            Animated.timing(bounceAnim, {
+              toValue: -8,
+              duration: 600,
+              useNativeDriver: true,
+            }),
+            Animated.timing(bounceAnim, {
+              toValue: 0,
+              duration: 600,
+              useNativeDriver: true,
+            }),
+          ])
+        ),
       ]).start();
 
-      // Fade out after 2 seconds
+      // Fade out after 3 seconds
       const timer = setTimeout(() => {
-        Animated.parallel([
-          Animated.timing(fadeAnim, {
-            toValue: 0,
-            duration: 500,
-            useNativeDriver: true,
-          }),
-          Animated.timing(translateY, {
-            toValue: -10,
-            duration: 500,
-            useNativeDriver: true,
-          }),
-        ]).start();
-      }, 2000);
+        Animated.timing(fadeAnim, {
+          toValue: 0,
+          duration: 400,
+          useNativeDriver: true,
+        }).start();
+      }, 3000);
 
       return () => clearTimeout(timer);
     }
-  }, [visible, fadeAnim, translateY]);
+  }, [visible, fadeAnim, bounceAnim]);
 
   if (!visible) return null;
 
   return (
     <Animated.View
       style={[
-        styles.indicatorContainer,
+        styles.arrowContainer,
         {
           opacity: fadeAnim,
-          transform: [{ translateY }],
+          transform: [{ translateY: bounceAnim }],
         },
       ]}
     >
-      <View style={styles.bubble}>
-        <View style={styles.contentRow}>
-          <Ionicons name="hand-left" size={16} color="#FFD700" style={styles.handIcon} />
-          <Text style={styles.indicatorText}>Tap here to add workout</Text>
-        </View>
-        <View style={styles.arrow} />
-      </View>
+      <Ionicons name="arrow-down" size={24} color="#FFD700" />
     </Animated.View>
   );
 }
 
 const styles = StyleSheet.create({
-  indicatorContainer: {
+  arrowContainer: {
     position: 'absolute',
-    top: -50,
-    right: 0,
+    top: -35,
+    right: 10,
     zIndex: 1000,
-  },
-  bubble: {
-    backgroundColor: '#FFD700',
-    paddingHorizontal: 14,
-    paddingVertical: 10,
-    borderRadius: 12,
-    shadowColor: '#FFD700',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.3,
-    shadowRadius: 8,
-    elevation: 5,
-  },
-  contentRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 6,
-  },
-  handIcon: {
-    transform: [{ rotate: '90deg' }],
-  },
-  indicatorText: {
-    color: '#000000',
-    fontSize: 13,
-    fontWeight: '600',
-    letterSpacing: 0.3,
-  },
-  arrow: {
-    position: 'absolute',
-    bottom: -6,
-    right: 20,
-    width: 0,
-    height: 0,
-    borderLeftWidth: 8,
-    borderRightWidth: 8,
-    borderTopWidth: 8,
-    borderLeftColor: 'transparent',
-    borderRightColor: 'transparent',
-    borderTopColor: '#FFD700',
   },
 });
