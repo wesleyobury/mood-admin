@@ -1183,7 +1183,7 @@ const styles = StyleSheet.create({
     paddingTop: 6,
     paddingBottom: 21,
     paddingHorizontal: 20,
-    overflow: 'hidden',
+    overflow: 'visible',
   },
   progressContent: {
     flexDirection: 'row',
@@ -1247,7 +1247,7 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.3,
     shadowRadius: 15,
     elevation: 8,
-    overflow: 'hidden',
+    overflow: 'visible',
     marginBottom: 25,
     width: '100%',
   },
@@ -1259,6 +1259,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(255, 215, 0, 0.1)',
     borderBottomWidth: 1,
     borderBottomColor: 'rgba(255, 215, 0, 0.3)',
+    overflow: 'visible',
   },
   equipmentIconContainer: {
     width: 40,
@@ -1323,7 +1324,7 @@ const styles = StyleSheet.create({
     height: 120,
     borderRadius: 12,
     marginBottom: 16,
-    overflow: 'hidden',
+    overflow: 'visible',
     position: 'relative',
   },
   workoutImage: {

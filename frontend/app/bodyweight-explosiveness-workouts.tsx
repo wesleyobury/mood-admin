@@ -1910,7 +1910,7 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     borderWidth: 2,
     borderColor: 'rgba(255, 215, 0, 0.3)',
-    overflow: 'hidden',
+    overflow: 'visible',
     shadowColor: '#FFD700',
     shadowOffset: { width: 0, height: 0 },
     shadowOpacity: 0.3,
@@ -1926,6 +1926,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(255, 215, 0, 0.1)',
     borderBottomWidth: 1,
     borderBottomColor: 'rgba(255, 215, 0, 0.2)',
+    overflow: 'visible',
   },
   equipmentIconContainer: {
     width: 40,
@@ -1964,7 +1965,7 @@ const styles = StyleSheet.create({
   workoutImageContainer: {
     height: 120,
     borderRadius: 12,
-    overflow: 'hidden',
+    overflow: 'visible',
     marginBottom: 16,
     position: 'relative',
   },
