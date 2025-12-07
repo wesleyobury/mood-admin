@@ -2569,7 +2569,7 @@ const compoundWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Great hypertrophy builder with guided constant tension throughout movement.',
           battlePlan: '4 rounds\n• 8-10 cable split squats per leg\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/il3x97qs_download%20%283%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-media-fix/artifacts/rnzpjsna_Screenshot%202025-12-06%20at%207.23.45%E2%80%AFPM.png',
           intensityReason: 'Unilateral squat keeps quads under stable load.',
           moodTips: [
             {
