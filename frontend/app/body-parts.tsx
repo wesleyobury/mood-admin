@@ -658,7 +658,7 @@ const styles = StyleSheet.create({
     marginBottom: 12,
   },
   selectedIconContainer: {
-    backgroundColor: '#000',
+    backgroundColor: 'rgba(255, 215, 0, 0.15)',
     borderWidth: 2,
     borderColor: '#FFD700',
   },
@@ -670,7 +670,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   selectedBodyPartName: {
-    color: '#000',
+    color: '#FFD700',
   },
   bodyPartDescription: {
     fontSize: 12,
