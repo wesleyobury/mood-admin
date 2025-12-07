@@ -322,22 +322,23 @@ const styles = StyleSheet.create({
     elevation: 0,
   },
   selectedOptionCard: {
-    backgroundColor: '#FFD700',
+    backgroundColor: 'rgba(255, 255, 255, 0.02)',
     borderColor: '#FFD700',
+    borderWidth: 2,
   },
   selectedIconContainer: {
-    backgroundColor: '#000',
+    backgroundColor: 'rgba(255, 215, 0, 0.1)',
     borderColor: '#FFD700',
   },
   selectedOptionTitle: {
-    color: '#000',
+    color: '#FFD700',
   },
   selectedOptionSubtitle: {
-    color: '#000',
+    color: '#FFD700',
     fontWeight: '600',
   },
   selectedOptionDescription: {
-    color: 'rgba(0, 0, 0, 0.7)',
+    color: 'rgba(255, 255, 255, 0.8)',
   },
   selectionSummary: {
     backgroundColor: '#1a1a1a',
