@@ -2507,7 +2507,7 @@ const compoundWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Cable tension mimics goblet squat with safety and control.',
           battlePlan: '3 rounds\n• 10-12 cable squats\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/upig32a1_download%20%284%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-media-fix/artifacts/s4c1d5ao_download%20%283%29.png',
           intensityReason: 'Front loaded setup controls posture + squat form.',
           moodTips: [
             {
