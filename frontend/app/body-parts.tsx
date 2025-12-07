@@ -679,7 +679,7 @@ const styles = StyleSheet.create({
     lineHeight: 16,
   },
   selectedBodyPartDescription: {
-    color: '#333',
+    color: '#ccc',
   },
   checkmark: {
     position: 'absolute',
