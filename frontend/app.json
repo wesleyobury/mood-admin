@@ -45,8 +45,8 @@
     },
 
     "extra": {
-      "EXPO_PUBLIC_BACKEND_URL": "https://fit-progress-25.preview.emergentagent.com",
-      "BACKEND_URL": "https://fit-progress-25.preview.emergentagent.com",
+      "EXPO_PUBLIC_BACKEND_URL": "https://sleek-workout-app.preview.emergentagent.com",
+      "BACKEND_URL": "https://sleek-workout-app.preview.emergentagent.com",
       "router": {}
     }
   }
