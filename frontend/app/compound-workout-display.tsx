@@ -3810,7 +3810,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: '#FFD700',
     marginBottom: 16,
-    marginTop: 8,
+    marginTop: 0,
     textAlign: 'left',
     textShadowColor: 'rgba(255, 215, 0, 0.3)',
     textShadowOffset: { width: 0, height: 0 },
