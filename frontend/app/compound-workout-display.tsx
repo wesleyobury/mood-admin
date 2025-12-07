@@ -2023,7 +2023,7 @@ const compoundWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '16–18 min',
           description: 'Brutal high tension squat burns and builds depth strength.',
           battlePlan: '3 rounds\n• 10 Squats + 10s Hold + 6 Pulses\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/unoluv5i_download%20%2812%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-media-fix/artifacts/zkmq6vqh_download%20%281%29.png',
           intensityReason: 'Long isos with pulses maximize quad fatigue.',
           moodTips: [
             {
