@@ -3533,7 +3533,7 @@ const styles = StyleSheet.create({
   },
   progressStep: {
     alignItems: 'center',
-    minWidth: 80,
+    minWidth: 70,
   },
   progressStepActive: {
     width: 28,
