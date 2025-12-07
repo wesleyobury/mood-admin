@@ -108,7 +108,7 @@ const ImageCarousel = memo(({ images }: ImageCarouselProps) => {
       )}
     </View>
   );
-}
+});
 
 const styles = StyleSheet.create({
   container: {
