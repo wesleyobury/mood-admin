@@ -3559,10 +3559,10 @@ const styles = StyleSheet.create({
     maxWidth: 70,
   },
   progressConnector: {
-    width: 20,
+    width: 16,
     height: 2,
     backgroundColor: 'rgba(255, 215, 0, 0.3)',
-    marginHorizontal: 4,
+    marginHorizontal: 2,
     marginTop: -12,
   },
   scrollView: {
