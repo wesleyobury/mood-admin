@@ -174,7 +174,8 @@ const WorkoutCard = React.memo(({
           <Ionicons name={icon} size={16} color="#FFD700" />
         </View>
         <Text style={styles.equipmentName}>{equipment}</Text>
-        <TouchableOpacity
+        <View style={styles.addButtonWrapper}>
+          <TouchableOpacity
           style={[
             styles.addToCartButton,
             isInCart(createWorkoutId(workouts[currentWorkoutIndex], equipment, difficulty)) && 
@@ -194,6 +195,8 @@ const WorkoutCard = React.memo(({
             )}
           </Animated.View>
         </TouchableOpacity>
+          <AddWorkoutIndicator visible={showIndicator} />
+        </View>
       </View>
 
       {/* Workout List - Native Swipe Enabled */}
