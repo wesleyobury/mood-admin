@@ -764,8 +764,9 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   intensityCardSelected: {
-    backgroundColor: '#FFD700',
+    backgroundColor: '#111111',
     borderColor: '#FFD700',
+    borderWidth: 2,
     shadowColor: '#FFD700',
     shadowOffset: { width: 0, height: 0 },
     shadowOpacity: 0.6,
