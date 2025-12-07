@@ -1693,7 +1693,7 @@ const calvesWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Isolates each calf for balanced strength and size',
           battlePlan: '4 rounds\n• 10–12 per leg Single‑Leg Raises\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_85724e25-1f59-4628-b049-647d06432207/artifacts/jwime8o9_download%20%2830%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-media-fix/artifacts/kwq6qti7_Screenshot%202025-12-06%20at%209.20.46%E2%80%AFPM.png',
           intensityReason: 'Unilateral raise increases load and balance demand',
           moodTips: [
             {
