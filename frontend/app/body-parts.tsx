@@ -551,8 +551,9 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   selectedBodyPartCard: {
-    backgroundColor: '#FFD700',
+    backgroundColor: '#1a1a1a',
     borderColor: '#FFD700',
+    borderWidth: 2,
   },
   expandedBodyPartCard: {
     backgroundColor: '#2a2a2a',
