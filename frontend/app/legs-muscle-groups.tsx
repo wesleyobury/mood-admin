@@ -402,8 +402,9 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   muscleGroupCardSelected: {
-    backgroundColor: '#FFD700',
+    backgroundColor: '#111111',
     borderColor: '#FFD700',
+    borderWidth: 2,
     shadowColor: '#FFD700',
     shadowOffset: { width: 0, height: 0 },
     shadowOpacity: 0.6,
@@ -422,8 +423,8 @@ const styles = StyleSheet.create({
     marginRight: 16,
   },
   muscleGroupIconContainerSelected: {
-    backgroundColor: 'rgba(0, 0, 0, 0.2)',
-    borderColor: 'rgba(0, 0, 0, 0.3)',
+    backgroundColor: 'rgba(255, 215, 0, 0.2)',
+    borderColor: '#FFD700',
   },
   muscleGroupTextContainer: {
     flex: 1,
@@ -435,20 +436,20 @@ const styles = StyleSheet.create({
     marginBottom: 4,
   },
   muscleGroupNameSelected: {
-    color: '#000000',
+    color: '#FFD700',
   },
   muscleGroupDescription: {
     fontSize: 14,
     color: 'rgba(255, 255, 255, 0.7)',
   },
   muscleGroupDescriptionSelected: {
-    color: 'rgba(0, 0, 0, 0.7)',
+    color: 'rgba(255, 255, 255, 0.8)',
   },
   muscleGroupIndicator: {
     width: 28,
     height: 28,
     borderRadius: 14,
-    backgroundColor: 'rgba(0, 0, 0, 0.2)',
+    backgroundColor: 'rgba(255, 215, 0, 0.15)',
     justifyContent: 'center',
     alignItems: 'center',
     marginLeft: 12,
