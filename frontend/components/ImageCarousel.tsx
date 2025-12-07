@@ -1,7 +1,6 @@
 import React, { useState, useRef, memo } from 'react';
 import {
   View,
-  Image,
   StyleSheet,
   Dimensions,
   ScrollView,
@@ -10,6 +9,7 @@ import {
   ActivityIndicator,
   Text,
 } from 'react-native';
+import { Image } from 'expo-image';
 import { Ionicons } from '@expo/vector-icons';
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
