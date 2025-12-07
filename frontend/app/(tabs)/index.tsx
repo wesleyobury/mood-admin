@@ -523,7 +523,7 @@ const styles = StyleSheet.create({
   uniqueSectionTitle: {
     fontSize: 13,
     fontWeight: '500',
-    color: 'rgba(255, 255, 255, 0.5)',
+    color: '#FFFFFF',
     textAlign: 'center',
     letterSpacing: 3,
     textTransform: 'uppercase',
