@@ -97,41 +97,24 @@ export default function Welcome() {
 
           {/* Features */}
           <View style={styles.featuresSection}>
-            <View style={styles.featureItem}>
-              <View style={styles.featureIcon}>
-                <Ionicons name="heart" size={24} color="#FFD700" />
-              </View>
-              <View style={styles.featureContent}>
-                <Text style={styles.featureTitle}>Mood-Based Workouts</Text>
-                <Text style={styles.featureDescription}>
-                  7 different moods, infinite possibilities
-                </Text>
-              </View>
-            </View>
-
-            <View style={styles.featureItem}>
-              <View style={styles.featureIcon}>
-                <Ionicons name="people" size={24} color="#FFD700" />
-              </View>
-              <View style={styles.featureContent}>
-                <Text style={styles.featureTitle}>Social Community</Text>
-                <Text style={styles.featureDescription}>
-                  Share your journey, inspire others
-                </Text>
-              </View>
-            </View>
-
-            <View style={styles.featureItem}>
-              <View style={styles.featureIcon}>
-                <Ionicons name="trending-up" size={24} color="#FFD700" />
-              </View>
-              <View style={styles.featureContent}>
-                <Text style={styles.featureTitle}>Track Progress</Text>
-                <Text style={styles.featureDescription}>
-                  Monitor streaks and achievements
-                </Text>
-              </View>
-            </View>
+            <AnimatedFeatureItem
+              icon="heart"
+              title="Mood-Based Workouts"
+              description="7 different moods, infinite possibilities"
+              delay={0}
+            />
+            <AnimatedFeatureItem
+              icon="people"
+              title="Social Community"
+              description="Share your journey, inspire others"
+              delay={400}
+            />
+            <AnimatedFeatureItem
+              icon="trending-up"
+              title="Track Progress"
+              description="Monitor streaks and achievements"
+              delay={800}
+            />
           </View>
 
           {/* Action Buttons */}
