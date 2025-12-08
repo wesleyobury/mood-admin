@@ -1109,7 +1109,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
       beginner: [
         {
           name: 'Easy Body Circuit A',
-          duration: '8–10 min',
+          duration: '10–12 min',
           description: 'Squats, wall pushups, glute bridges, dead bugs; steady.',
           battlePlan: '3 rounds\n• 30s Squats\n• 30s Wall Pushups\n• 30s Glute Bridges\n• 30s Dead Bug\n• 30s Rest',
           imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-images/artifacts/gwmz0zxk_download%20%283%29.png',
@@ -1129,7 +1129,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
         },
         {
           name: 'Easy Body Circuit B',
-          duration: '8–10 min',
+          duration: '10–12 min',
           description: 'Reverse lunges, plank, hip hinges, calf raises; calm.',
           battlePlan: '3 rounds\n• 30s Reverse Lunges (alt)\n• 30s Forearm Plank\n• 30s Hip Hinge Good Mornings\n• 30s Calf Raises\n• 30s Rest',
           imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-images/artifacts/lz6xvlc5_download%20%284%29.png',
@@ -1149,7 +1149,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
         },
         {
           name: 'Core + Hips Flow',
-          duration: '8–10 min',
+          duration: '10–13 min',
           description: 'Bird dogs, side planks, clamshells, hollow holds; smooth.',
           battlePlan: '2 rounds\n• 30s Bird Dogs (alt)\n• 30s Side Plank L\n• 30s Side Plank R\n• 30s Clamshells L\n• 30s Clamshells R\n• 30s Hollow Hold\n• 60s Rest',
           imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-images/artifacts/04x6jgb3_download%20%285%29.png',
@@ -1169,7 +1169,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
         },
         {
           name: 'Low-Bounce Burner',
-          duration: '8–10 min',
+          duration: '10–12 min',
           description: 'Step-back lunges, knee pushups, squat holds, core.',
           battlePlan: '3 rounds\n• 30s Step-Back Lunges (alt)\n• 30s Incline or Knee Pushups\n• 30s Squat Hold (comfortable depth)\n• 30s Dead Bug\n• 30s Rest',
           imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-images/artifacts/e0xo73cq_download%20%286%29.png',
@@ -1191,7 +1191,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
       intermediate: [
         {
           name: 'Lazy Sweat A',
-          duration: '10–12 min',
+          duration: '12–15 min',
           description: 'Squats, pushups, alternating lunges, plank; steady flow.',
           battlePlan: '3 rounds\n• 40s Squats\n• 30s Pushups (incline if needed)\n• 40s Alternating Lunges\n• 30s Forearm Plank\n• 30s Rest',
           imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-images/artifacts/gwmz0zxk_download%20%283%29.png',
@@ -1211,7 +1211,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
         },
         {
           name: 'Lazy Sweat B',
-          duration: '10–12 min',
+          duration: '12–15 min',
           description: 'Good mornings, reverse lunges, dead bugs, side planks.',
           battlePlan: '3 rounds\n• 40s Hip Hinge Good Mornings\n• 40s Reverse Lunges (alt)\n• 30s Dead Bug\n• 30s Side Plank (switch at 15s)\n• 30s Rest',
           imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-images/artifacts/lz6xvlc5_download%20%284%29.png',
@@ -1231,7 +1231,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
         },
         {
           name: 'Low Hop Mix',
-          duration: '10–12 min',
+          duration: '12–15 min',
           description: 'Small squat hops, step-back lunges, pushups, hollow.',
           battlePlan: '3 rounds\n• 30s Small Squat Hops (or Squats)\n• 40s Step-Back Lunges (alt)\n• 30s Pushups\n• 30s Hollow Hold\n• 30s Rest',
           imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-images/artifacts/04x6jgb3_download%20%285%29.png',
@@ -1251,7 +1251,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
         },
         {
           name: 'Core + Shoulders',
-          duration: '10–12 min',
+          duration: '12–15 min',
           description: 'Plank taps, pike holds, dead bugs, scapular pushups.',
           battlePlan: '3 rounds\n• 30s High Plank Shoulder Taps\n• 20–30s Pike Hold (hips high)\n• 30s Dead Bug\n• 30s Scapular Pushups\n• 30s Rest',
           imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-images/artifacts/e0xo73cq_download%20%286%29.png',
@@ -1273,7 +1273,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
       advanced: [
         {
           name: 'Jump Flow A',
-          duration: '12–14 min',
+          duration: '15–18 min',
           description: 'Jump squats, alternating lunges, pushups, plank; flow.',
           battlePlan: '4 rounds\n• 20s Jump Squats → 40s Squats\n• 40s Alternating Lunges\n• 30s Pushups\n• 30s Plank\n• 30s Rest',
           imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-images/artifacts/jurt20jc_download%20%287%29.png',
@@ -1293,7 +1293,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
         },
         {
           name: 'Burpee Sprinkle',
-          duration: '12–14 min',
+          duration: '15–18 min',
           description: 'Few burpees per minute; squats and core fill remaining.',
           battlePlan: 'EMOM 12 min\nOdd: 4–6 Burpees, then Squats till minute\nEven: 20s Hollow Hold, then Lunges till minute',
           imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-images/artifacts/560zzeug_download%20%288%29.png',
@@ -1313,7 +1313,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
         },
         {
           name: 'Push–Core Ladder',
-          duration: '12–14 min',
+          duration: '15–18 min',
           description: 'Pushups and V-ups ladder; lunges fill rest time segments.',
           battlePlan: '1 set flow\n• 6 Pushups → 10 V-ups\n• 8 Pushups → 12 V-ups\n• 10 Pushups → 14 V-ups\n• Between rungs: 20s Alternating Lunges',
           imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-images/artifacts/r5b5c9ea_download%20%289%29.png',
@@ -1333,7 +1333,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
         },
         {
           name: 'Jump Flow B',
-          duration: '12–14 min',
+          duration: '15–18 min',
           description: 'Split jumps, squat jumps, pike shoulder taps, planks.',
           battlePlan: '4 rounds\n• 20s Split Jumps → 40s Reverse Lunges\n• 20s Squat Jumps → 40s Squats\n• 30s Pike Shoulder Taps\n• 30s Side Plank (switch at 15s)\n• 30s Rest',
           imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-images/artifacts/fx9b15hc_download%20%2810%29.png',
