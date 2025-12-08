@@ -16,34 +16,19 @@ const { width, height } = Dimensions.get('window');
 
 // Animated Feature Item Component
 const AnimatedFeatureItem = ({ icon, title, description, delay = 0 }) => {
-  const shimmerAnim = useRef(new Animated.Value(0)).current;
-  const opacityAnim = useRef(new Animated.Value(0.3)).current;
+  const flipAnim = useRef(new Animated.Value(0)).current;
 
   useEffect(() => {
-    // Start shimmer animation after delay
+    // Start flip animation after delay
     const timer = setTimeout(() => {
-      // Shimmer effect - slow horizontal movement
-      Animated.loop(
-        Animated.timing(shimmerAnim, {
-          toValue: 1,
-          duration: 4000,
-          useNativeDriver: false,
-        })
-      ).start();
-
-      // Subtle opacity pulse - very slow and minimal
       Animated.loop(
         Animated.sequence([
-          Animated.timing(opacityAnim, {
-            toValue: 0.6,
-            duration: 5000,
-            useNativeDriver: false,
+          Animated.timing(flipAnim, {
+            toValue: 1,
+            duration: 600,
+            useNativeDriver: true,
           }),
-          Animated.timing(opacityAnim, {
-            toValue: 0.3,
-            duration: 5000,
-            useNativeDriver: false,
-          }),
+          Animated.delay(2400), // Wait 2.4 seconds before next flip
         ])
       ).start();
     }, delay);
@@ -51,27 +36,22 @@ const AnimatedFeatureItem = ({ icon, title, description, delay = 0 }) => {
     return () => clearTimeout(timer);
   }, []);
 
-  // Create a subtle left-to-right shimmer
-  const translateX = shimmerAnim.interpolate({
-    inputRange: [0, 1],
-    outputRange: [-100, 100],
+  // Interpolate rotation for flip effect
+  const rotateY = flipAnim.interpolate({
+    inputRange: [0, 0.5, 1],
+    outputRange: ['0deg', '180deg', '0deg'],
   });
 
   return (
     <View style={styles.featureItem}>
-      {/* Subtle animated shimmer overlay */}
-      <Animated.View
+      <Animated.View 
         style={[
-          styles.shimmerOverlay,
-          {
-            opacity: opacityAnim,
-            transform: [{ translateX }],
-          },
+          styles.featureIcon,
+          { transform: [{ rotateY }] }
         ]}
-      />
-      <View style={styles.featureIcon}>
+      >
         <Ionicons name={icon} size={24} color="#FFD700" />
-      </View>
+      </Animated.View>
       <View style={styles.featureContent}>
         <Text style={styles.featureTitle}>{title}</Text>
         <Text style={styles.featureDescription}>{description}</Text>
