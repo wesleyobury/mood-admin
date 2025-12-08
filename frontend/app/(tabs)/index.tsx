@@ -29,6 +29,34 @@ const AnimatedMoodCard = ({ mood, index, onPress }: {
   index: number; 
   onPress: (mood: MoodCard) => void;
 }) => {
+  const flipAnim = useRef(new Animated.Value(0)).current;
+
+  useEffect(() => {
+    // Stagger the animation start based on index
+    const delay = index * 500; // 500ms between each card's animation start
+    
+    const timer = setTimeout(() => {
+      Animated.loop(
+        Animated.sequence([
+          Animated.timing(flipAnim, {
+            toValue: 1,
+            duration: 900,
+            useNativeDriver: true,
+          }),
+          Animated.delay(3500), // Wait 3.5 seconds before next flip
+        ])
+      ).start();
+    }, delay);
+
+    return () => clearTimeout(timer);
+  }, [index]);
+
+  // Interpolate rotation for flip effect
+  const rotateY = flipAnim.interpolate({
+    inputRange: [0, 0.5, 1],
+    outputRange: ['0deg', '180deg', '0deg'],
+  });
+
   return (
     <TouchableOpacity
       style={styles.moodCardContainer}
@@ -38,14 +66,19 @@ const AnimatedMoodCard = ({ mood, index, onPress }: {
       {/* Highly Visible Card */}
       <View style={styles.visibleMoodCard}>
         <View style={styles.cardContent}>
-          <View style={styles.iconContainer}>
+          <Animated.View 
+            style={[
+              styles.iconContainer,
+              { transform: [{ rotateY }] }
+            ]}
+          >
             <Ionicons 
               name={mood.icon} 
               size={28} 
               color="#FFD700" 
               style={styles.cardIcon}
             />
-          </View>
+          </Animated.View>
           <View style={styles.textContainer}>
             <Text style={styles.cardTitle}>{mood.title}</Text>
             <Text style={styles.cardSubtitle}>{mood.subtitle}</Text>
