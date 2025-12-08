@@ -311,7 +311,7 @@ const styles = StyleSheet.create({
   optionTitle: {
     fontSize: 18,
     fontWeight: '600',
-    color: 'rgba(255, 255, 255, 0.95)',
+    color: '#fff',
     marginBottom: 4,
     textShadowColor: 'transparent',
     textShadowOffset: { width: 0, height: 0 },
@@ -319,13 +319,13 @@ const styles = StyleSheet.create({
   },
   optionSubtitle: {
     fontSize: 14,
-    color: '#FFD700',
+    color: '#999',
     marginBottom: 8,
     fontWeight: '500',
   },
   optionDescription: {
     fontSize: 13,
-    color: 'rgba(255, 255, 255, 0.6)',
+    color: '#888',
     lineHeight: 18,
   },
   arrowContainer: {
