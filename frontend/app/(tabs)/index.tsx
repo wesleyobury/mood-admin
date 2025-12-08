@@ -32,8 +32,8 @@ const AnimatedMoodCard = ({ mood, index, onPress }: {
   const flipAnim = useRef(new Animated.Value(0)).current;
 
   useEffect(() => {
-    // Stagger the animation start based on index
-    const delay = index * 500; // 500ms between each card's animation start
+    // Stagger the animation start based on index - matching welcome page timing
+    const delay = index * 1500; // 1.5 seconds between each card's animation start
     
     const timer = setTimeout(() => {
       Animated.loop(
