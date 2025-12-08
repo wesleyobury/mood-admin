@@ -16,21 +16,32 @@ const { width, height } = Dimensions.get('window');
 
 // Animated Feature Item Component
 const AnimatedFeatureItem = ({ icon, title, description, delay = 0 }) => {
-  const animatedValue = useRef(new Animated.Value(0)).current;
+  const shimmerAnim = useRef(new Animated.Value(0)).current;
+  const opacityAnim = useRef(new Animated.Value(0.3)).current;
 
   useEffect(() => {
-    // Start animation after delay
+    // Start shimmer animation after delay
     const timer = setTimeout(() => {
+      // Shimmer effect - slow horizontal movement
+      Animated.loop(
+        Animated.timing(shimmerAnim, {
+          toValue: 1,
+          duration: 4000,
+          useNativeDriver: false,
+        })
+      ).start();
+
+      // Subtle opacity pulse - very slow and minimal
       Animated.loop(
         Animated.sequence([
-          Animated.timing(animatedValue, {
-            toValue: 1,
-            duration: 3000,
+          Animated.timing(opacityAnim, {
+            toValue: 0.6,
+            duration: 5000,
             useNativeDriver: false,
           }),
-          Animated.timing(animatedValue, {
-            toValue: 0,
-            duration: 3000,
+          Animated.timing(opacityAnim, {
+            toValue: 0.3,
+            duration: 5000,
             useNativeDriver: false,
           }),
         ])
@@ -40,18 +51,24 @@ const AnimatedFeatureItem = ({ icon, title, description, delay = 0 }) => {
     return () => clearTimeout(timer);
   }, []);
 
-  // Interpolate colors for gradient effect
-  const backgroundColor = animatedValue.interpolate({
-    inputRange: [0, 0.5, 1],
-    outputRange: [
-      'rgba(255, 215, 0, 0.05)',
-      'rgba(255, 165, 0, 0.12)',
-      'rgba(255, 215, 0, 0.05)',
-    ],
+  // Create a subtle left-to-right shimmer
+  const translateX = shimmerAnim.interpolate({
+    inputRange: [0, 1],
+    outputRange: [-100, 100],
   });
 
   return (
-    <Animated.View style={[styles.featureItem, { backgroundColor }]}>
+    <View style={styles.featureItem}>
+      {/* Subtle animated shimmer overlay */}
+      <Animated.View
+        style={[
+          styles.shimmerOverlay,
+          {
+            opacity: opacityAnim,
+            transform: [{ translateX }],
+          },
+        ]}
+      />
       <View style={styles.featureIcon}>
         <Ionicons name={icon} size={24} color="#FFD700" />
       </View>
@@ -59,7 +76,7 @@ const AnimatedFeatureItem = ({ icon, title, description, delay = 0 }) => {
         <Text style={styles.featureTitle}>{title}</Text>
         <Text style={styles.featureDescription}>{description}</Text>
       </View>
-    </Animated.View>
+    </View>
   );
 };
 
