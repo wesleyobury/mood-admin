@@ -53,7 +53,7 @@ const lowerBodyWorkoutDatabase: EquipmentWorkouts[] = [
       beginner: [
         {
           name: 'Quad Starter',
-          duration: '8–10 min',
+          duration: '15–18 min',
           description: 'Leg press base, knee extensions next, calves finish smoothly.',
           battlePlan: 'Leg Press (machine)\n• 3 × 10–12 (RPE 4), 60s rest\nLeg Extension (machine)\n• 3 × 10–12 (RPE 4), 45–60s rest\nSeated Calf Raise (machine)\n• 3 × 12–15 (RPE 4), 45–60s rest',
           imageUrl: 'https://customer-assets.emergentagent.com/job_upper-body-enhance/artifacts/p3j5vmje_download.png',
@@ -73,7 +73,7 @@ const lowerBodyWorkoutDatabase: EquipmentWorkouts[] = [
         },
         {
           name: 'Chair Line',
-          duration: '8–10 min',
+          duration: '15–18 min',
           description: 'Extensions first, press for volume, calves for finish.',
           battlePlan: 'Leg Extension (machine)\n• 3 × 10–12 (RPE 4), 45–60s rest\nLeg Press (machine)\n• 3 × 10–12 (RPE 4), 60s rest\nCalf Press (on leg press)\n• 3 × 12–15 (RPE 4), 45–60s rest',
           imageUrl: 'https://customer-assets.emergentagent.com/job_upper-body-enhance/artifacts/ujjqi8g2_download%20%281%29.png',
@@ -93,7 +93,7 @@ const lowerBodyWorkoutDatabase: EquipmentWorkouts[] = [
         },
         {
           name: 'Hack Ease',
-          duration: '8–10 min',
+          duration: '15–18 min',
           description: 'Light hack squats, knee extensions, gentle calf raises.',
           battlePlan: 'Hack Squat (machine)\n• 3 × 8–10 (RPE 4), 60s rest\nLeg Extension (machine)\n• 3 × 10–12 (RPE 4), 60s rest\nStanding Calf Raise (machine)\n• 3 × 12–15 (RPE 4), 45–60s rest',
           imageUrl: 'https://customer-assets.emergentagent.com/job_upper-body-enhance/artifacts/sb8mhy0d_hs.avif',
@@ -115,7 +115,7 @@ const lowerBodyWorkoutDatabase: EquipmentWorkouts[] = [
       intermediate: [
         {
           name: 'Sled Flow',
-          duration: '10–12 min',
+          duration: '20–25 min',
           description: 'Leg press sets, extensions next, calves polish the finish.',
           battlePlan: 'Leg Press (machine)\n• 4 × 10 (RPE 5), 60–75s rest\nLeg Extension (machine)\n• 3 × 10–12 (RPE 5), 60s rest\nSeated Calf Raise (machine)\n• 3 × 12–15 (RPE 5), 60s rest',
           imageUrl: 'https://customer-assets.emergentagent.com/job_upper-body-enhance/artifacts/p3j5vmje_download.png',
@@ -135,7 +135,7 @@ const lowerBodyWorkoutDatabase: EquipmentWorkouts[] = [
         },
         {
           name: 'Hack Line',
-          duration: '10–12 min',
+          duration: '20–25 min',
           description: 'Hack squats first, extensions second, calves to close.',
           battlePlan: 'Hack Squat (machine)\n• 4 × 8 (RPE 5–6), 75s rest\nLeg Extension (machine)\n• 3 × 10–12 (RPE 5), 60s rest\nCalf Press (on leg press)\n• 3 × 12–15 (RPE 5), 60s rest',
           imageUrl: 'https://customer-assets.emergentagent.com/job_upper-body-enhance/artifacts/sb8mhy0d_hs.avif',
@@ -155,7 +155,7 @@ const lowerBodyWorkoutDatabase: EquipmentWorkouts[] = [
         },
         {
           name: 'Smith Front',
-          duration: '10–12 min',
+          duration: '20–25 min',
           description: 'Smith front squats, extensions next, calves to finish.',
           battlePlan: 'Smith Front Squat\n• 4 × 8 (RPE 5–6), 75s rest\nLeg Extension (machine)\n• 3 × 10–12 (RPE 5), 60s rest\nStanding Calf Raise (machine)\n• 3 × 12–15 (RPE 5), 60s rest',
           imageUrl: 'https://customer-assets.emergentagent.com/job_upper-body-enhance/artifacts/6q78aa0l_smfs.jpg',
@@ -177,7 +177,7 @@ const lowerBodyWorkoutDatabase: EquipmentWorkouts[] = [
       advanced: [
         {
           name: 'Press Drop',
-          duration: '12–14 min',
+          duration: '25–30 min',
           description: 'Heavy press drops, precise extensions, high-rep calves.',
           battlePlan: 'Leg Press (machine)\n• 1 × 8 heavy (RPE 7) → drop 15% → 1 × 8 (RPE 6) → drop 15% → 1 × 8 (RPE 6)\n• Rest 90s; repeat for 3 total series\nLeg Extension (machine)\n• 3 × 10–12 (RPE 6), 60–75s rest\nSeated Calf Raise (machine)\n• 3 × 15–20 (RPE 6), 60s rest',
           imageUrl: 'https://customer-assets.emergentagent.com/job_upper-body-enhance/artifacts/p3j5vmje_download.png',
@@ -197,7 +197,7 @@ const lowerBodyWorkoutDatabase: EquipmentWorkouts[] = [
         },
         {
           name: 'Hack Cluster',
-          duration: '12–14 min',
+          duration: '25–30 min',
           description: 'Hack squat clusters, extensions next, standing calves.',
           battlePlan: 'Hack Squat (machine)\n• 3 clusters: 3 + 3 + 3 (15s between), 90s between clusters\nLeg Extension (machine)\n• 3 × 10–12 (RPE 6), 60–75s rest\nStanding Calf Raise (machine)\n• 3 × 12–15 (RPE 6), 60s rest',
           imageUrl: 'https://customer-assets.emergentagent.com/job_upper-body-enhance/artifacts/sb8mhy0d_hs.avif',
@@ -217,7 +217,7 @@ const lowerBodyWorkoutDatabase: EquipmentWorkouts[] = [
         },
         {
           name: 'Smith Split',
-          duration: '12–14 min',
+          duration: '25–30 min',
           description: 'Smith split squats, machine extensions, calves to close.',
           battlePlan: 'Smith Split Squat\n• 3 × 8–10/side (RPE 6), 60–75s rest\nLeg Extension (machine)\n• 3 × 10–12 (RPE 6), 60–75s rest\nCalf Press (on leg press)\n• 3 × 12–15 (RPE 6), 60s rest',
           imageUrl: 'https://customer-assets.emergentagent.com/job_upper-body-enhance/artifacts/a1srgmco_download%20%282%29.png',
@@ -245,7 +245,7 @@ const lowerBodyWorkoutDatabase: EquipmentWorkouts[] = [
       beginner: [
         {
           name: 'Hinge Starter',
-          duration: '8–10 min',
+          duration: '15–18 min',
           description: 'Seated curls, RDL machine or Smith, glute machine finish.',
           battlePlan: 'Seated Leg Curl (machine)\n• 3 × 10–12 (RPE 4), 60s rest\nSmith RDL or Plate-Loaded RDL Machine\n• 3 × 8–10 (RPE 4), 60s rest\nGlute Drive / Hip Thrust Machine\n• 3 × 10–12 (RPE 4), 60s rest',
           imageUrl: 'https://customer-assets.emergentagent.com/job_upper-body-enhance/artifacts/k4j5yazw_download%20%285%29.png',
@@ -265,7 +265,7 @@ const lowerBodyWorkoutDatabase: EquipmentWorkouts[] = [
         },
         {
           name: 'Curl Line',
-          duration: '8–10 min',
+          duration: '15–18 min',
           description: 'Seated curls, hip thrusts next, ham-biased calf finish.',
           battlePlan: 'Seated Leg Curl (machine)\n• 3 × 10–12 (RPE 4), 60s rest\nHip Thrust Machine\n• 3 × 10–12 (RPE 4), 60s rest\nSeated Calf Raise (toes in slightly)\n• 3 × 12–15 (RPE 4), 45–60s rest',
           imageUrl: 'https://customer-assets.emergentagent.com/job_upper-body-enhance/artifacts/cj4dx97r_download%20%283%29.png',
@@ -285,7 +285,7 @@ const lowerBodyWorkoutDatabase: EquipmentWorkouts[] = [
         },
         {
           name: 'Back Line',
-          duration: '8–10 min',
+          duration: '15–18 min',
           description: '45° back extension machine, curls, cable pull-throughs.',
           battlePlan: '45° Back Extension (machine)\n• 3 × 10–12 (RPE 4), 60s rest\nSeated Leg Curl (machine)\n• 3 × 10–12 (RPE 4), 60s rest\nCable Pull-Through\n• 3 × 10–12 (RPE 4), 60s rest',
           imageUrl: 'https://customer-assets.emergentagent.com/job_upper-body-enhance/artifacts/149z42kp_download%20%2819%29.png',
@@ -307,7 +307,7 @@ const lowerBodyWorkoutDatabase: EquipmentWorkouts[] = [
       intermediate: [
         {
           name: 'Curl Stack',
-          duration: '10–12 min',
+          duration: '20–25 min',
           description: 'Seated curls, lying curls, hip thrusts for glute support.',
           battlePlan: 'Seated Leg Curl (machine)\n• 4 × 8–10 (RPE 5), 60–75s rest\nLying Leg Curl (machine)\n• 3 × 10 (RPE 5), 60s rest\nHip Thrust Machine\n• 3 × 10–12 (RPE 5), 60s rest',
           imageUrl: 'https://customer-assets.emergentagent.com/job_upper-body-enhance/artifacts/149z42kp_download%20%2819%29.png',
@@ -327,7 +327,7 @@ const lowerBodyWorkoutDatabase: EquipmentWorkouts[] = [
         },
         {
           name: 'Smith Hinge',
-          duration: '10–12 min',
+          duration: '20–25 min',
           description: 'Smith RDLs, seated curls, back extension machine.',
           battlePlan: 'Smith RDL\n• 4 × 8 (RPE 5–6), 75s rest\nSeated Leg Curl (machine)\n• 3 × 10–12 (RPE 5), 60s rest\nBack Extension (machine)\n• 3 × 10–12 (RPE 5), 60s rest',
           imageUrl: 'https://customer-assets.emergentagent.com/job_upper-body-enhance/artifacts/k4j5yazw_download%20%285%29.png',
@@ -347,7 +347,7 @@ const lowerBodyWorkoutDatabase: EquipmentWorkouts[] = [
         },
         {
           name: 'Cable Hip',
-          duration: '10–12 min',
+          duration: '20–25 min',
           description: 'Pull-throughs first, curls next, hip abduction finisher.',
           battlePlan: 'Cable Pull-Through\n• 4 × 10 (RPE 5), 60–75s rest\nSeated Leg Curl (machine)\n• 3 × 10–12 (RPE 5), 60s rest\nHip Abduction (machine)\n• 3 × 12–15 (RPE 5), 60s rest',
           imageUrl: 'https://customer-assets.emergentagent.com/job_upper-body-enhance/artifacts/aggvazg1_download%20%284%29.png',
@@ -369,7 +369,7 @@ const lowerBodyWorkoutDatabase: EquipmentWorkouts[] = [
       advanced: [
         {
           name: 'Curl Drop',
-          duration: '12–14 min',
+          duration: '25–30 min',
           description: 'Heavy seated curl drops, RDLs after, thrust finish.',
           battlePlan: 'Seated Leg Curl (machine)\n• 1 × 8 heavy (RPE 7) → drop 15% → 1 × 8 (RPE 6) → drop 15% → 1 × 8 (RPE 6)\n• Rest 90s; repeat for 3 total series\nSmith RDL\n• 3 × 8–10 (RPE 6), 60–75s rest\nHip Thrust Machine\n• 3 × 10–12 (RPE 6), 60–75s rest',
           imageUrl: 'https://customer-assets.emergentagent.com/job_upper-body-enhance/artifacts/cj4dx97r_download%20%283%29.png',
@@ -389,7 +389,7 @@ const lowerBodyWorkoutDatabase: EquipmentWorkouts[] = [
         },
         {
           name: 'Cluster Hinge',
-          duration: '12–14 min',
+          duration: '25–30 min',
           description: 'RDL clusters, lying curls next, abduction finisher.',
           battlePlan: 'Smith RDL\n• 3 clusters: 3 + 3 + 3 (15s between), 90s between clusters\nLying Leg Curl (machine)\n• 3 × 10–12 (RPE 6), 60–75s rest\nHip Abduction (machine)\n• 3 × 12–15 (RPE 6), 60s rest',
           imageUrl: 'https://customer-assets.emergentagent.com/job_upper-body-enhance/artifacts/k4j5yazw_download%20%285%29.png',
@@ -409,7 +409,7 @@ const lowerBodyWorkoutDatabase: EquipmentWorkouts[] = [
         },
         {
           name: 'Midrange Hinge',
-          duration: '12–14 min',
+          duration: '25–30 min',
           description: 'Seated curl 1.5s, pull-throughs next, back extensions.',
           battlePlan: 'Seated Leg Curl (1.5 reps)\n• 3 × 8–10 (RPE 6), 60–75s rest\nCable Pull-Through\n• 3 × 10–12 (RPE 6), 60–75s rest\nBack Extension (machine)\n• 3 × 10–12 (RPE 6), 60s rest',
           imageUrl: 'https://customer-assets.emergentagent.com/job_upper-body-enhance/artifacts/aggvazg1_download%20%284%29.png',
@@ -437,7 +437,7 @@ const lowerBodyWorkoutDatabase: EquipmentWorkouts[] = [
       beginner: [
         {
           name: 'Simple Lines',
-          duration: '8–10 min',
+          duration: '18–22 min',
           description: 'Leg press, seated curl, extensions, seated calves finish.',
           battlePlan: 'Leg Press (machine)\n• 3 × 10–12 (RPE 4), 60s rest\nSeated Leg Curl (machine)\n• 3 × 10–12 (RPE 4), 60s rest\nLeg Extension (machine)\n• 3 × 10–12 (RPE 4), 60s rest\nSeated Calf Raise (machine)\n• 3 × 12–15 (RPE 4), 45–60s rest',
           imageUrl: 'https://customer-assets.emergentagent.com/job_upper-body-enhance/artifacts/l69s6mlz_download.png',
@@ -457,7 +457,7 @@ const lowerBodyWorkoutDatabase: EquipmentWorkouts[] = [
         },
         {
           name: 'Guided Flow',
-          duration: '8–10 min',
+          duration: '18–22 min',
           description: 'Hack squat, hip thrust, leg curl, standing calves lineup.',
           battlePlan: 'Hack Squat (machine)\n• 3 × 8–10 (RPE 4), 60s rest\nHip Thrust Machine\n• 3 × 10–12 (RPE 4), 60s rest\nSeated Leg Curl (machine)\n• 3 × 10–12 (RPE 4), 60s rest\nStanding Calf Raise (machine)\n• 3 × 12–15 (RPE 4), 45–60s rest',
           imageUrl: 'https://customer-assets.emergentagent.com/job_upper-body-enhance/artifacts/rchrkjlm_hs.avif',
@@ -477,7 +477,7 @@ const lowerBodyWorkoutDatabase: EquipmentWorkouts[] = [
         },
         {
           name: 'Cable Mix',
-          duration: '8–10 min',
+          duration: '18–22 min',
           description: 'Pull-throughs, cable squats, curls, abduction closer.',
           battlePlan: 'Cable Pull-Through\n• 3 × 10–12 (RPE 4), 60s rest\nCable Goblet Squat (low cable)\n• 3 × 10–12 (RPE 4), 60s rest\nSeated Leg Curl (machine)\n• 3 × 10–12 (RPE 4), 60s rest\nHip Abduction (machine)\n• 3 × 12–15 (RPE 4), 45–60s rest',
           imageUrl: 'https://customer-assets.emergentagent.com/job_upper-body-enhance/artifacts/9k0i6seo_download%20%284%29.png',
@@ -499,7 +499,7 @@ const lowerBodyWorkoutDatabase: EquipmentWorkouts[] = [
       intermediate: [
         {
           name: 'Balanced Load',
-          duration: '10–12 min',
+          duration: '22–28 min',
           description: 'Leg press, curls, extensions, calf press; steady flow.',
           battlePlan: 'Leg Press (machine)\n• 4 × 10 (RPE 5), 60–75s rest\nSeated Leg Curl (machine)\n• 3 × 10–12 (RPE 5), 60s rest\nLeg Extension (machine)\n• 3 × 10–12 (RPE 5), 60s rest\nCalf Press (on leg press)\n• 3 × 12–15 (RPE 5), 60s rest',
           imageUrl: 'https://customer-assets.emergentagent.com/job_upper-body-enhance/artifacts/l69s6mlz_download.png',
@@ -519,7 +519,7 @@ const lowerBodyWorkoutDatabase: EquipmentWorkouts[] = [
         },
         {
           name: 'Vertical Guide',
-          duration: '10–12 min',
+          duration: '22–28 min',
           description: 'Hack squats, hip thrusts, curls, standing calves finish.',
           battlePlan: 'Hack Squat (machine)\n• 4 × 8 (RPE 5–6), 75s rest\nHip Thrust Machine\n• 3 × 10–12 (RPE 5), 60s rest\nSeated Leg Curl (machine)\n• 3 × 10–12 (RPE 5), 60s rest\nStanding Calf Raise (machine)\n• 3 × 12–15 (RPE 5), 60s rest',
           imageUrl: 'https://customer-assets.emergentagent.com/job_upper-body-enhance/artifacts/nsyfdaao_download%20%283%29.png',
@@ -539,7 +539,7 @@ const lowerBodyWorkoutDatabase: EquipmentWorkouts[] = [
         },
         {
           name: 'Smith Lines',
-          duration: '10–12 min',
+          duration: '22–28 min',
           description: 'Smith squats, RDLs, curls, hip abduction machine close.',
           battlePlan: 'Smith Back Squat\n• 4 × 8 (RPE 5–6), 75s rest\nSmith RDL\n• 3 × 8–10 (RPE 5), 60–75s rest\nSeated Leg Curl (machine)\n• 3 × 10–12 (RPE 5), 60s rest\nHip Abduction (machine)\n• 3 × 12–15 (RPE 5), 60s rest',
           imageUrl: 'https://customer-assets.emergentagent.com/job_upper-body-enhance/artifacts/lzw2ud21_download.png',
@@ -561,7 +561,7 @@ const lowerBodyWorkoutDatabase: EquipmentWorkouts[] = [
       advanced: [
         {
           name: 'Drop Lines',
-          duration: '12–14 min',
+          duration: '28–35 min',
           description: 'Press drop, curl drop, extensions, calf volume finish.',
           battlePlan: 'Leg Press (machine)\n• 1 × 8 heavy (RPE 7) → drop 15% → 1 × 8 (RPE 6) → drop 15% → 1 × 8 (RPE 6)\n• Rest 90s; repeat for 3 total series\nSeated Leg Curl (machine)\n• 1 × 10 heavy (RPE 7) → drop 15% → 1 × 10 (RPE 6)\nLeg Extension (machine)\n• 3 × 10–12 (RPE 6), 60–75s rest\nSeated Calf Raise (machine)\n• 3 × 15–20 (RPE 6), 60s rest',
           imageUrl: 'https://customer-assets.emergentagent.com/job_upper-body-enhance/artifacts/l69s6mlz_download.png',
@@ -581,7 +581,7 @@ const lowerBodyWorkoutDatabase: EquipmentWorkouts[] = [
         },
         {
           name: 'Cluster Lines',
-          duration: '12–14 min',
+          duration: '28–35 min',
           description: 'Hack clusters, RDL clusters, curls, abduction closer.',
           battlePlan: 'Hack Squat (machine)\n• 3 clusters: 3 + 3 + 3 (15s between), 90s between clusters\nSmith RDL\n• 3 clusters: 3 + 3 + 3 (15s between), 90s between clusters\nSeated Leg Curl (machine)\n• 3 × 10–12 (RPE 6), 60–75s rest\nHip Abduction (machine)\n• 3 × 12–15 (RPE 6), 60s rest',
           imageUrl: 'https://customer-assets.emergentagent.com/job_upper-body-enhance/artifacts/0tawdmfz_hs.avif',
@@ -601,7 +601,7 @@ const lowerBodyWorkoutDatabase: EquipmentWorkouts[] = [
         },
         {
           name: 'Cable Finish',
-          duration: '12–14 min',
+          duration: '28–35 min',
           description: 'Pull-throughs, cable goblets, curls, standing calves.',
           battlePlan: 'Cable Pull-Through\n• 4 × 10 (RPE 6), 60–75s rest\nCable Goblet Squat (low cable)\n• 4 × 8–10 (RPE 6), 60–75s rest\nSeated Leg Curl (machine)\n• 3 × 10–12 (RPE 6), 60s rest\nStanding Calf Raise (machine)\n• 3 × 12–15 (RPE 6), 60s rest',
           imageUrl: 'https://customer-assets.emergentagent.com/job_upper-body-enhance/artifacts/3gaohp2y_cgs.jpg',
