@@ -203,11 +203,17 @@ export default function WorkoutsHome() {
 
   const handleSocialLink = async (url: string, platform: string) => {
     try {
-      const supported = await Linking.canOpenURL(url);
-      if (supported) {
-        await Linking.openURL(url);
+      // For web platform, use window.open to open in new tab
+      if (Platform.OS === 'web') {
+        window.open(url, '_blank', 'noopener,noreferrer');
       } else {
-        Alert.alert('Error', `Could not open ${platform}. Please check if you have the app installed.`);
+        // For mobile (iOS/Android), use Linking to open in native browser or app
+        const supported = await Linking.canOpenURL(url);
+        if (supported) {
+          await Linking.openURL(url);
+        } else {
+          Alert.alert('Error', `Could not open ${platform}. Please check if you have the app installed.`);
+        }
       }
     } catch (error) {
       Alert.alert('Error', `Could not open ${platform}. Please try again.`);
