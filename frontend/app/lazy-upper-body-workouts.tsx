@@ -93,7 +93,7 @@ const upperBodyWorkoutDatabase: EquipmentWorkouts[] = [
         },
         {
           name: 'Vertical Ease',
-          duration: '8–10 min',
+          duration: '15–18 min',
           description: 'Shoulder press, pec-deck squeeze, dip assist to finish clean.',
           battlePlan: 'Machine Shoulder Press\n• 3 × 8–10 (RPE 4), 60s rest\nPec Deck\n• 3 × 10–12 (RPE 4), 60s rest\nAssisted Dips\n• 3 × 8–10 (RPE 4), 60s rest',
           imageUrl: 'https://customer-assets.emergentagent.com/job_lazy-workout-images/artifacts/nj4fggwr_download%20%2830%29.png',
@@ -115,7 +115,7 @@ const upperBodyWorkoutDatabase: EquipmentWorkouts[] = [
       intermediate: [
         {
           name: 'Press Arc',
-          duration: '10–12 min',
+          duration: '20–25 min',
           description: 'Machine press, incline cable fly, cable Y-raise to polish.',
           battlePlan: 'Machine Chest Press\n• 4 × 8 (RPE 5), 60–75s rest\nIncline Cable Fly\n• 3 × 10 (RPE 5), 60s rest\nCable Y Raise\n• 3 × 12 (RPE 5), 45–60s rest',
           imageUrl: 'https://customer-assets.emergentagent.com/job_lazy-workout-images/artifacts/tp8hgvtb_download%20%2828%29.png',
@@ -135,7 +135,7 @@ const upperBodyWorkoutDatabase: EquipmentWorkouts[] = [
         },
         {
           name: 'Overhead Line',
-          duration: '10–12 min',
+          duration: '20–25 min',
           description: 'Press for delts, upright row adds caps, overhead tris finish.',
           battlePlan: 'Machine Shoulder Press\n• 4 × 8 (RPE 5–6), 60–75s rest\nCable Upright Row (wide)\n• 3 × 10 (RPE 5), 60s rest\nOverhead Rope Triceps\n• 3 × 10–12 (RPE 5), 45–60s rest',
           imageUrl: 'https://customer-assets.emergentagent.com/job_lazy-workout-images/artifacts/nj4fggwr_download%20%2830%29.png',
@@ -155,7 +155,7 @@ const upperBodyWorkoutDatabase: EquipmentWorkouts[] = [
         },
         {
           name: 'Lower Line',
-          duration: '10–12 min',
+          duration: '20–25 min',
           description: 'Decline press base, medial delts next, rope pressdowns close.',
           battlePlan: 'Machine Decline Chest Press\n• 3 × 8–10 (RPE 5), 60s rest\nMachine Lateral Raise\n• 3 × 12 (RPE 5), 60s rest\nRope Pressdown\n• 3 × 10–12 (RPE 5), 45–60s rest',
           imageUrl: 'https://customer-assets.emergentagent.com/job_lazy-workout-images/artifacts/n6oa31c5_download%20%2831%29.png',
@@ -177,7 +177,7 @@ const upperBodyWorkoutDatabase: EquipmentWorkouts[] = [
       advanced: [
         {
           name: 'Drop Drive',
-          duration: '12–14 min',
+          duration: '25–30 min',
           description: 'Heavy press drops, incline fly control, rope finishers.',
           battlePlan: 'Machine Chest Press\n• 1 × 6 heavy (RPE 7) → drop 15% → 1 × 6 (RPE 6) → drop 15% → 1 × 6 (RPE 6)\n• Rest 90s; repeat for 3 total series\nIncline Cable Fly\n• 3 × 10 (RPE 6), 60s rest\nRope Pressdown\n• 3 × 10–12 (RPE 6), 60–75s rest',
           imageUrl: 'https://customer-assets.emergentagent.com/job_lazy-workout-images/artifacts/tp8hgvtb_download%20%2828%29.png',
@@ -197,7 +197,7 @@ const upperBodyWorkoutDatabase: EquipmentWorkouts[] = [
         },
         {
           name: 'Cluster Overhead',
-          duration: '12–14 min',
+          duration: '25–30 min',
           description: 'Shoulder press clusters; rear delts next; overhead tris close.',
           battlePlan: 'Machine Shoulder Press\n• 3 clusters: 3 + 3 + 3 (15s between), 90s between clusters\nReverse Pec Deck\n• 3 × 12 (RPE 6), 60–75s rest\nOverhead Rope Triceps\n• 3 × 10–12 (RPE 6), 60s rest',
           imageUrl: 'https://customer-assets.emergentagent.com/job_lazy-workout-images/artifacts/nj4fggwr_download%20%2830%29.png',
@@ -217,7 +217,7 @@ const upperBodyWorkoutDatabase: EquipmentWorkouts[] = [
         },
         {
           name: 'Midrange Squeeze',
-          duration: '12–14 min',
+          duration: '25–30 min',
           description: 'Cable fly one-and-a-halfs; laterals and rope pressdowns.',
           battlePlan: 'Cable Fly (1.5 reps)\n• 3 × 8–10 (RPE 6), 60–75s rest\nMachine Lateral Raise\n• 3 × 12 (RPE 6), 60s rest\nRope Pressdown\n• 3 × 10–12 (RPE 6), 60s rest',
           imageUrl: 'https://customer-assets.emergentagent.com/job_lazy-workout-images/artifacts/bbb40x4e_download%20%2832%29.png',
@@ -245,7 +245,7 @@ const upperBodyWorkoutDatabase: EquipmentWorkouts[] = [
       beginner: [
         {
           name: 'Pull Primer',
-          duration: '8–10 min',
+          duration: '15–18 min',
           description: 'Lats first, mid-back next, rear delts and posture finish.',
           battlePlan: 'Lat Pulldown (wide or neutral)\n• 3 × 8–10 (RPE 4), 45–60s rest\nSeated Row (neutral)\n• 3 × 8–10 (RPE 4), 45–60s rest\nCable Face Pull\n• 3 × 12–15 (RPE 4), 45–60s rest',
           imageUrl: 'https://customer-assets.emergentagent.com/job_lazy-workout-images/artifacts/224yyt9s_download%20%2834%29.png',
@@ -265,7 +265,7 @@ const upperBodyWorkoutDatabase: EquipmentWorkouts[] = [
         },
         {
           name: 'Chest-Supported',
-          duration: '8–10 min',
+          duration: '15–18 min',
           description: 'Row machine, straight-arm pulldown, cable curls finish.',
           battlePlan: 'Chest-Supported Row Machine\n• 3 × 8–10 (RPE 4), 60s rest\nCable Straight-Arm Pulldown\n• 3 × 12 (RPE 4), 45–60s rest\nCable Curl (EZ or rope)\n• 3 × 10–12 (RPE 4), 45–60s rest',
           imageUrl: 'https://customer-assets.emergentagent.com/job_lazy-workout-images/artifacts/8wag7xpf_Screenshot%202025-12-04%20at%2012.00.14%E2%80%AFAM.png',
@@ -285,7 +285,7 @@ const upperBodyWorkoutDatabase: EquipmentWorkouts[] = [
         },
         {
           name: 'High Line',
-          duration: '8–10 min',
+          duration: '15–18 min',
           description: 'High cable row, reverse pec deck, cable curls sequence.',
           battlePlan: 'High Cable Row\n• 3 × 8–10 (RPE 4), 60s rest\nReverse Pec Deck\n• 3 × 12 (RPE 4), 45–60s rest\nCable Curl\n• 3 × 10–12 (RPE 4), 45–60s rest',
           imageUrl: 'https://customer-assets.emergentagent.com/job_lazy-workout-images/artifacts/4gyd3y66_download%20%2835%29.png',
@@ -307,7 +307,7 @@ const upperBodyWorkoutDatabase: EquipmentWorkouts[] = [
       intermediate: [
         {
           name: 'Lat Ladder',
-          duration: '10–12 min',
+          duration: '20–25 min',
           description: 'Pulldown work, straight-arm sweeps, incline cable curls.',
           battlePlan: 'Lat Pulldown\n• 4 × 8 (RPE 5), 60–75s rest\nCable Straight-Arm Pulldown\n• 3 × 10–12 (RPE 5), 60s rest\nIncline Cable Curl (low to high)\n• 3 × 10–12 (RPE 5), 45–60s rest',
           imageUrl: 'https://customer-assets.emergentagent.com/job_lazy-workout-images/artifacts/224yyt9s_download%20%2834%29.png',
@@ -327,7 +327,7 @@ const upperBodyWorkoutDatabase: EquipmentWorkouts[] = [
         },
         {
           name: 'Midback Focus',
-          duration: '10–12 min',
+          duration: '20–25 min',
           description: 'Neutral rows, reverse fly sets, rope hammer curls finish.',
           battlePlan: 'Seated Row (neutral)\n• 4 × 8 (RPE 5), 60–75s rest\nReverse Pec Deck\n• 3 × 12 (RPE 5), 60s rest\nRope Hammer Curl\n• 3 × 10–12 (RPE 5), 45–60s rest',
           imageUrl: 'https://customer-assets.emergentagent.com/job_lazy-workout-images/artifacts/51z4cigt_download%20%2833%29.png',
@@ -347,7 +347,7 @@ const upperBodyWorkoutDatabase: EquipmentWorkouts[] = [
         },
         {
           name: 'High Row Line',
-          duration: '10–12 min',
+          duration: '20–25 min',
           description: 'High cable rows, reverse pec deck, preacher curl machine.',
           battlePlan: 'High Cable Row\n• 4 × 8 (RPE 5–6), 60–75s rest\nReverse Pec Deck\n• 3 × 12 (RPE 5), 60s rest\nPreacher Curl Machine\n• 3 × 10–12 (RPE 5), 45–60s rest',
           imageUrl: 'https://customer-assets.emergentagent.com/job_lazy-workout-images/artifacts/5z9stzyy_Screenshot%202025-12-04%20at%2012.01.30%E2%80%AFAM.png',
@@ -369,7 +369,7 @@ const upperBodyWorkoutDatabase: EquipmentWorkouts[] = [
       advanced: [
         {
           name: 'Drop Pull',
-          duration: '12–14 min',
+          duration: '25–30 min',
           description: 'Heavy pulldown drops, rows next, cable curls to close.',
           battlePlan: 'Lat Pulldown\n• 1 × 6 heavy (RPE 7) → drop 15% → 1 × 6 (RPE 6) → drop 15% → 1 × 6 (RPE 6)\n• Rest 90s; repeat for 3 total series\nSeated Row\n• 3 × 8–10 (RPE 6), 60–75s rest\nCable Curl\n• 3 × 10–12 (RPE 6), 60s rest',
           imageUrl: 'https://customer-assets.emergentagent.com/job_lazy-workout-images/artifacts/224yyt9s_download%20%2834%29.png',
@@ -389,7 +389,7 @@ const upperBodyWorkoutDatabase: EquipmentWorkouts[] = [
         },
         {
           name: 'Cluster Row',
-          duration: '12–14 min',
+          duration: '25–30 min',
           description: 'Cluster rows, rear delts after, incline cable curls finish.',
           battlePlan: 'Chest-Supported Row Machine\n• 3 clusters: 4 + 4 + 4 (15s between), 90s between clusters\nReverse Pec Deck\n• 3 × 12 (RPE 6), 60–75s rest\nIncline Cable Curl\n• 3 × 10–12 (RPE 6), 60s rest',
           imageUrl: 'https://customer-assets.emergentagent.com/job_lazy-workout-images/artifacts/4gyd3y66_download%20%2835%29.png',
@@ -409,7 +409,7 @@ const upperBodyWorkoutDatabase: EquipmentWorkouts[] = [
         },
         {
           name: 'Midrange Pull',
-          duration: '12–14 min',
+          duration: '25–30 min',
           description: 'Face pull 1.5 reps, high rows next, rope hammer curls.',
           battlePlan: 'Cable Face Pull (1.5 reps)\n• 3 × 10–12 (RPE 6), 60–75s rest\nHigh Cable Row\n• 3 × 8–10 (RPE 6), 60–75s rest\nRope Hammer Curl\n• 3 × 10–12 (RPE 6), 60s rest',
           imageUrl: 'https://customer-assets.emergentagent.com/job_lazy-workout-images/artifacts/3mysq3rj_Screenshot%202025-12-04%20at%2012.02.09%E2%80%AFAM.png',
@@ -437,7 +437,7 @@ const upperBodyWorkoutDatabase: EquipmentWorkouts[] = [
       beginner: [
         {
           name: 'Simple Push–Pull',
-          duration: '8–10 min',
+          duration: '15–18 min',
           description: 'Chest press, row, laterals, pressdowns for simple flow.',
           battlePlan: 'Machine Chest Press\n• 3 × 8–10 (RPE 4), 60s rest\nSeated Row\n• 3 × 8–10 (RPE 4), 60s rest\nMachine Lateral Raise\n• 3 × 12 (RPE 4), 45–60s rest\nRope Pressdown\n• 3 × 10–12 (RPE 4), 45–60s rest',
           imageUrl: 'https://customer-assets.emergentagent.com/job_lazy-workout-images/artifacts/2idat5d8_download%20%2829%29.png',
@@ -457,7 +457,7 @@ const upperBodyWorkoutDatabase: EquipmentWorkouts[] = [
         },
         {
           name: 'Vertical Pair',
-          duration: '8–10 min',
+          duration: '15–18 min',
           description: 'Shoulder press, pulldown, pec deck, cable curls lineup.',
           battlePlan: 'Machine Shoulder Press\n• 3 × 8–10 (RPE 4), 60s rest\nLat Pulldown\n• 3 × 8–10 (RPE 4), 60s rest\nPec Deck\n• 3 × 10–12 (RPE 4), 60s rest\nCable Curl\n• 3 × 10–12 (RPE 4), 45–60s rest',
           imageUrl: 'https://customer-assets.emergentagent.com/job_lazy-workout-images/artifacts/kwgc495p_download%20%2830%29.png',
@@ -477,7 +477,7 @@ const upperBodyWorkoutDatabase: EquipmentWorkouts[] = [
         },
         {
           name: 'Cable Flow',
-          duration: '8–10 min',
+          duration: '15–18 min',
           description: 'Cable press, high row, Y-raises, rope triceps to finish.',
           battlePlan: 'Cable Chest Press\n• 3 × 10 (RPE 4), 60s rest\nHigh Cable Row\n• 3 × 10 (RPE 4), 60s rest\nCable Y Raise\n• 3 × 12 (RPE 4), 45–60s rest\nRope Pressdown\n• 3 × 10–12 (RPE 4), 45–60s rest',
           imageUrl: 'https://customer-assets.emergentagent.com/job_lazy-workout-images/artifacts/4vnqx30z_download%20%2832%29.png',
@@ -499,7 +499,7 @@ const upperBodyWorkoutDatabase: EquipmentWorkouts[] = [
       intermediate: [
         {
           name: 'Balanced Lines',
-          duration: '10–12 min',
+          duration: '20–25 min',
           description: 'Chest press, row, lateral raise, curls; clean sequence.',
           battlePlan: 'Machine Chest Press\n• 4 × 8 (RPE 5), 60–75s rest\nSeated Row\n• 4 × 8 (RPE 5), 60–75s rest\nMachine Lateral Raise\n• 3 × 12 (RPE 5), 60s rest\nCable Curl\n• 3 × 10–12 (RPE 5), 45–60s rest',
           imageUrl: 'https://customer-assets.emergentagent.com/job_lazy-workout-images/artifacts/2idat5d8_download%20%2829%29.png',
@@ -519,7 +519,7 @@ const upperBodyWorkoutDatabase: EquipmentWorkouts[] = [
         },
         {
           name: 'Vertical Stack',
-          duration: '10–12 min',
+          duration: '20–25 min',
           description: 'Shoulder press, pulldown, pec deck, rope tris; tidy flow.',
           battlePlan: 'Machine Shoulder Press\n• 4 × 8 (RPE 5–6), 60–75s rest\nLat Pulldown\n• 4 × 8 (RPE 5), 60–75s rest\nPec Deck\n• 3 × 10–12 (RPE 5), 60s rest\nRope Pressdown\n• 3 × 10–12 (RPE 5), 60s rest',
           imageUrl: 'https://customer-assets.emergentagent.com/job_lazy-workout-images/artifacts/kwgc495p_download%20%2830%29.png',
@@ -539,7 +539,7 @@ const upperBodyWorkoutDatabase: EquipmentWorkouts[] = [
         },
         {
           name: 'Cable Circuitry',
-          duration: '10–12 min',
+          duration: '20–25 min',
           description: 'Cable press, high row, rear delts, overhead tris polish.',
           battlePlan: 'Cable Chest Press\n• 4 × 8 (RPE 5), 60–75s rest\nHigh Cable Row\n• 4 × 8 (RPE 5), 60–75s rest\nReverse Pec Deck\n• 3 × 12 (RPE 5), 60s rest\nOverhead Rope Triceps\n• 3 × 10–12 (RPE 5), 60s rest',
           imageUrl: 'https://customer-assets.emergentagent.com/job_lazy-workout-images/artifacts/2skt7b9o_Screenshot%202025-12-04%20at%2012.01.30%E2%80%AFAM.png',
@@ -561,7 +561,7 @@ const upperBodyWorkoutDatabase: EquipmentWorkouts[] = [
       advanced: [
         {
           name: 'Push–Pull Drops',
-          duration: '12–14 min',
+          duration: '25–30 min',
           description: 'Chest and row drops, then laterals and cable curls.',
           battlePlan: 'Machine Chest Press\n• 1 × 6 heavy (RPE 7) → drop 15% → 1 × 6 (RPE 6) → drop 15% → 1 × 6 (RPE 6)\n• Rest 90s; repeat for 3 total series\nSeated Row\n• 1 × 6 heavy (RPE 7) → drop 15% → 1 × 6 (RPE 6) → drop 15% → 1 × 6 (RPE 6)\n• Rest 90s; repeat for 3 total series\nMachine Lateral Raise\n• 3 × 12 (RPE 6), 60–75s rest\nCable Curl\n• 3 × 10–12 (RPE 6), 60–75s rest',
           imageUrl: 'https://customer-assets.emergentagent.com/job_lazy-workout-images/artifacts/tbt1jia8_download%20%2835%29.png',
@@ -581,7 +581,7 @@ const upperBodyWorkoutDatabase: EquipmentWorkouts[] = [
         },
         {
           name: 'Cluster Stack',
-          duration: '12–14 min',
+          duration: '25–30 min',
           description: 'Press and row clusters, then rear delts and rope tris.',
           battlePlan: 'Machine Chest Press\n• 3 clusters: 3 + 3 + 3 (15s between), 90s between clusters\nSeated Row\n• 3 clusters: 4 + 4 + 4 (15s between), 90s between clusters\nReverse Pec Deck\n• 3 × 12 (RPE 6), 60–75s rest\nRope Pressdown\n• 3 × 10–12 (RPE 6), 60s rest',
           imageUrl: 'https://customer-assets.emergentagent.com/job_lazy-workout-images/artifacts/12gt6fvb_download%20%282%29.png',
@@ -601,7 +601,7 @@ const upperBodyWorkoutDatabase: EquipmentWorkouts[] = [
         },
         {
           name: 'Cable Finish',
-          duration: '12–14 min',
+          duration: '25–30 min',
           description: 'Fly 1.5s, high rows, Y raises, overhead triceps finisher.',
           battlePlan: 'Cable Fly (1.5 reps)\n• 3 × 8–10 (RPE 6), 60–75s rest\nHigh Cable Row\n• 3 × 8–10 (RPE 6), 60–75s rest\nCable Y Raise\n• 3 × 12 (RPE 6), 60s rest\nOverhead Rope Triceps\n• 3 × 10–12 (RPE 6), 60s rest',
           imageUrl: 'https://customer-assets.emergentagent.com/job_lazy-workout-images/artifacts/jjomvfxr_download%20%281%29.png',
