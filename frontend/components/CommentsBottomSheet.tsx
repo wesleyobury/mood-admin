@@ -117,6 +117,7 @@ export default function CommentsBottomSheet({ postId, authToken, onClose, onComm
       <KeyboardAvoidingView 
         style={styles.keyboardView}
         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+        keyboardVerticalOffset={Platform.OS === 'ios' ? 0 : 20}
       >
         {/* Header */}
         <View style={styles.header}>
@@ -133,6 +134,7 @@ export default function CommentsBottomSheet({ postId, authToken, onClose, onComm
         <ScrollView 
           style={styles.scrollView}
           showsVerticalScrollIndicator={false}
+          keyboardShouldPersistTaps="handled"
         >
           {loading ? (
             <View style={styles.loadingContainer}>
