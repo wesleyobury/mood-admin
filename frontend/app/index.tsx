@@ -104,13 +104,13 @@ export default function Welcome() {
               icon="people"
               title="Social Community"
               description="Share your journey, inspire others"
-              delay={400}
+              delay={1000}
             />
             <AnimatedFeatureItem
               icon="trending-up"
               title="Track Progress"
               description="Monitor streaks and achievements"
-              delay={800}
+              delay={2000}
             />
           </View>
 
