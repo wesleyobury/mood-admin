@@ -47,34 +47,55 @@ const LazyTrainingTypeOption = ({
   onPress: (option: LazyTrainingTypeOption) => void;
   isSelected: boolean;
 }) => {
+  const scaleAnim = useRef(new Animated.Value(1)).current;
+
+  const handlePress = () => {
+    // Animate button press
+    Animated.sequence([
+      Animated.timing(scaleAnim, {
+        toValue: 0.95,
+        duration: 100,
+        useNativeDriver: true,
+      }),
+      Animated.timing(scaleAnim, {
+        toValue: 1,
+        duration: 100,
+        useNativeDriver: true,
+      }),
+    ]).start();
+
+    onPress(option);
+  };
+
   return (
-    <TouchableOpacity
-      style={styles.optionContainer}
-      onPress={() => onPress(option)}
-      activeOpacity={0.8}
-    >
-      <View style={[styles.optionCard, isSelected && styles.selectedOptionCard]}>
-        <View style={[styles.iconContainer, isSelected && styles.selectedIconContainer]}>
-          <Ionicons 
-            name={option.icon} 
-            size={32} 
-            color={isSelected ? "#FFD700" : "#FFD700"} 
-          />
+    <Animated.View style={[styles.optionContainer, { transform: [{ scale: scaleAnim }] }]}>
+      <TouchableOpacity
+        onPress={handlePress}
+        activeOpacity={0.8}
+      >
+        <View style={[styles.optionCard, isSelected && styles.selectedOptionCard]}>
+          <View style={[styles.iconContainer, isSelected && styles.selectedIconContainer]}>
+            <Ionicons 
+              name={option.icon} 
+              size={32} 
+              color={isSelected ? "#FFD700" : "#FFD700"} 
+            />
+          </View>
+          <View style={styles.textContainer}>
+            <Text style={[styles.optionTitle, isSelected && styles.selectedOptionTitle]}>{option.title}</Text>
+            <Text style={[styles.optionSubtitle, isSelected && styles.selectedOptionSubtitle]}>{option.subtitle}</Text>
+            <Text style={[styles.optionDescription, isSelected && styles.selectedOptionDescription]}>{option.description}</Text>
+          </View>
+          <View style={styles.arrowContainer}>
+            {isSelected ? (
+              <Ionicons name="checkmark-circle" size={24} color="#FFD700" />
+            ) : (
+              <Ionicons name="chevron-forward" size={20} color="rgba(255, 255, 255, 0.3)" />
+            )}
+          </View>
         </View>
-        <View style={styles.textContainer}>
-          <Text style={[styles.optionTitle, isSelected && styles.selectedOptionTitle]}>{option.title}</Text>
-          <Text style={[styles.optionSubtitle, isSelected && styles.selectedOptionSubtitle]}>{option.subtitle}</Text>
-          <Text style={[styles.optionDescription, isSelected && styles.selectedOptionDescription]}>{option.description}</Text>
-        </View>
-        <View style={styles.arrowContainer}>
-          {isSelected ? (
-            <Ionicons name="checkmark-circle" size={24} color="#FFD700" />
-          ) : (
-            <Ionicons name="chevron-forward" size={20} color="rgba(255, 255, 255, 0.3)" />
-          )}
-        </View>
-      </View>
-    </TouchableOpacity>
+      </TouchableOpacity>
+    </Animated.View>
   );
 };
 
