@@ -182,7 +182,7 @@ export default function CommentsBottomSheet({ postId, authToken, onClose, onComm
         </ScrollView>
 
         {/* Input Section */}
-        <View style={styles.inputContainer}>
+        <View style={[styles.inputContainer, { paddingBottom: Math.max(insets.bottom, 16) }]}>
           <TextInput
             style={styles.input}
             placeholder="Add a comment..."
@@ -191,6 +191,9 @@ export default function CommentsBottomSheet({ postId, authToken, onClose, onComm
             onChangeText={setNewComment}
             multiline
             maxLength={300}
+            returnKeyType="send"
+            blurOnSubmit={false}
+            onSubmitEditing={handleAddComment}
           />
           <TouchableOpacity 
             style={[
