@@ -75,7 +75,7 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           name: 'Shoulder Flow',
           duration: '10–12 min',
           description: 'Dynamic shoulder warm-up building mobility and activation through multiple planes. ',
-          battlePlan: '3 rounds:• 10 arm circles forward• 10 arm circles backward• 10 shoulder shrugsRest 45s',
+          battlePlan: '3 rounds:\n• 10 arm circles forward\n• 10 arm circles backward\n• 10 shoulder shrugs\nRest 45s',
           imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/jyl947na_download%20%2810%29.png',
           intensityReason: 'Gentle mobility-focused warm-up for shoulder preparation.',
           moodTips: [
@@ -97,7 +97,7 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           name: 'Arnold Power',
           duration: '15–18 min',
           description: 'Arnold press and lateral raise combo for intermediate shoulder strength. ',
-          battlePlan: '4 rounds:• 10 Arnold press• 12 lateral raises• 10 front raisesRest 75s',
+          battlePlan: '4 rounds:\n• 10 Arnold press\n• 12 lateral raises\n• 10 front raises\nRest 75s',
           imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/z5yngcpg_incline%20arnold.jpeg',
           intensityReason: 'Dynamic Arnold press challenges all shoulder planes.',
           moodTips: [
@@ -117,7 +117,7 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           name: 'Circuit',
           duration: '12–15 min',
           description: 'High-rep shoulder circuit for endurance and metabolic conditioning. ',
-          battlePlan: '3 rounds:• 15 shoulder press• 15 lateral raise• 15 rear delt flyRest 90s',
+          battlePlan: '3 rounds:\n• 15 shoulder press\n• 15 lateral raise\n• 15 rear delt fly\nRest 90s',
           imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/jyl947na_download%20%2810%29.png',
           intensityReason: 'High-volume circuit for intermediate shoulder conditioning.',
           moodTips: [
@@ -139,7 +139,7 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           name: 'Press Builder',
           duration: '18–22 min',
           description: 'Heavy shoulder press with drop setsfor advanced strength development. ',
-          battlePlan: '4 rounds:• 8 heavy shoulder press• Drop to 12 moderate• Drop to 15 lightRest 2 min',
+          battlePlan: '4 rounds:\n• 8 heavy shoulder press\n• Drop to 12 moderate\n• Drop to 15 light\nRest 2 min',
           imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/d2gkwhep_download%20%282%29.png',
           intensityReason: 'Advanced drop set protocol for maximum shoulder hypertrophy.',
           moodTips: [
@@ -159,7 +159,7 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           name: 'Power Flow',
           duration: '16–20 min',
           description: 'Advanced dumbbell complex targeting all three deltoid heads intensively. ',
-          battlePlan: '3 rounds:• 6 push press• 8 lateral raise• 10 rear delt fly• 12 front raiseRest 2 min',
+          battlePlan: '3 rounds:\n• 6 push press\n• 8 lateral raise\n• 10 rear delt fly\n• 12 front raise\nRest 2 min',
           imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/jyl947na_download%20%2810%29.png',
           intensityReason: 'Complete shoulder complex for advanced muscle development.',
           moodTips: [
@@ -187,7 +187,7 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           name: 'Press Builder',
           duration: '12–15 min',
           description: 'Basic barbell shoulder press foundation with light weight and perfect form. ',
-          battlePlan: '3 rounds:• 10 standing barbell press• 12 upright rowsRest 75s',
+          battlePlan: '3 rounds:\n• 10 standing barbell press\n• 12 upright rows\nRest 75s',
           imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/z1k5w5av_download.png',
           intensityReason: 'Safe introduction to barbell overhead pressing.',
           moodTips: [
