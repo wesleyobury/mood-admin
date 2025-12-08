@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import {
   View,
   Text,
@@ -6,6 +6,7 @@ import {
   TouchableOpacity,
   SafeAreaView,
   ScrollView,
+  Animated,
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { useRouter, useLocalSearchParams } from 'expo-router';
@@ -46,13 +47,33 @@ const ExplosivenessTypeOption = ({
   onPress: (option: ExplosivenessTypeOption) => void;
   isSelected: boolean;
 }) => {
+  const scaleAnim = useRef(new Animated.Value(1)).current;
+
+  const handlePress = () => {
+    // Animate button press
+    Animated.sequence([
+      Animated.timing(scaleAnim, {
+        toValue: 0.95,
+        duration: 100,
+        useNativeDriver: true,
+      }),
+      Animated.timing(scaleAnim, {
+        toValue: 1,
+        duration: 100,
+        useNativeDriver: true,
+      }),
+    ]).start();
+
+    onPress(option);
+  };
+
   return (
-    <TouchableOpacity
-      style={styles.optionContainer}
-      onPress={() => onPress(option)}
-      activeOpacity={0.8}
-    >
-      <View style={[styles.optionCard, isSelected && styles.selectedOptionCard]}>
+    <Animated.View style={[styles.optionContainer, { transform: [{ scale: scaleAnim }] }]}>
+      <TouchableOpacity
+        onPress={handlePress}
+        activeOpacity={0.8}
+      >
+        <View style={[styles.optionCard, isSelected && styles.selectedOptionCard]}>
         <View style={[styles.iconContainer, isSelected && styles.selectedIconContainer]}>
           <Ionicons 
             name={option.icon} 
@@ -73,7 +94,8 @@ const ExplosivenessTypeOption = ({
           )}
         </View>
       </View>
-    </TouchableOpacity>
+      </TouchableOpacity>
+    </Animated.View>
   );
 };
 
@@ -254,9 +276,9 @@ const styles = StyleSheet.create({
   },
   optionCard: {
     borderRadius: 16,
-    backgroundColor: 'rgba(255, 255, 255, 0.02)',
-    borderWidth: 0.5,
-    borderColor: 'rgba(255, 215, 0, 0.12)',
+    backgroundColor: '#1a1a1a',
+    borderWidth: 2,
+    borderColor: 'transparent',
     shadowColor: 'transparent',
     shadowOffset: { width: 0, height: 0 },
     shadowOpacity: 0,
@@ -270,7 +292,7 @@ const styles = StyleSheet.create({
     width: 56,
     height: 56,
     borderRadius: 28,
-    backgroundColor: 'rgba(255, 215, 0, 0.05)',
+    backgroundColor: '#333333',
     justifyContent: 'center',
     alignItems: 'center',
     marginRight: 16,
@@ -289,7 +311,7 @@ const styles = StyleSheet.create({
   optionTitle: {
     fontSize: 18,
     fontWeight: '600',
-    color: 'rgba(255, 255, 255, 0.95)',
+    color: '#fff',
     marginBottom: 4,
     textShadowColor: 'transparent',
     textShadowOffset: { width: 0, height: 0 },
@@ -297,13 +319,13 @@ const styles = StyleSheet.create({
   },
   optionSubtitle: {
     fontSize: 14,
-    color: '#FFD700',
+    color: '#999',
     marginBottom: 8,
     fontWeight: '500',
   },
   optionDescription: {
     fontSize: 13,
-    color: 'rgba(255, 255, 255, 0.6)',
+    color: '#888',
     lineHeight: 18,
   },
   arrowContainer: {
@@ -322,13 +344,12 @@ const styles = StyleSheet.create({
     elevation: 0,
   },
   selectedOptionCard: {
-    backgroundColor: 'rgba(255, 255, 255, 0.02)',
+    backgroundColor: '#1a1a1a',
     borderColor: '#FFD700',
     borderWidth: 2,
   },
   selectedIconContainer: {
-    backgroundColor: 'rgba(255, 215, 0, 0.1)',
-    borderColor: '#FFD700',
+    backgroundColor: '#333333',
   },
   selectedOptionTitle: {
     color: '#FFD700',
