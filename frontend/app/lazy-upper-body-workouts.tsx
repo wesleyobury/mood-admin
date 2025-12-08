@@ -73,7 +73,7 @@ const upperBodyWorkoutDatabase: EquipmentWorkouts[] = [
         },
         {
           name: 'Incline Balance',
-          duration: '8–10 min',
+          duration: '15–18 min',
           description: 'Light incline press, reverse fly, overhead triceps closer.',
           battlePlan: 'Machine Incline Chest Press\n• 3 × 8–10 (RPE 4), 60s rest\nReverse Pec Deck\n• 3 × 12 (RPE 4), 45–60s rest\nOverhead Rope Triceps\n• 3 × 10–12 (RPE 4), 45–60s rest',
           imageUrl: 'https://customer-assets.emergentagent.com/job_lazy-workout-images/artifacts/inhlehab_download%20%2829%29.png',
