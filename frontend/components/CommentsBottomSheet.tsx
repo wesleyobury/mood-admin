@@ -43,6 +43,7 @@ export default function CommentsBottomSheet({ postId, authToken, onClose, onComm
   const [newComment, setNewComment] = useState('');
   const [loading, setLoading] = useState(true);
   const [posting, setPosting] = useState(false);
+  const insets = useSafeAreaInsets();
 
   useEffect(() => {
     fetchComments();
