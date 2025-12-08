@@ -53,7 +53,7 @@ const upperBodyWorkoutDatabase: EquipmentWorkouts[] = [
       beginner: [
         {
           name: 'Push Starter',
-          duration: '8–10 min',
+          duration: '15–18 min',
           description: 'Press first, laterals next, rope pressdowns finish smoothly.',
           battlePlan: 'Machine Chest Press\n• 3 × 8–10 (RPE 4), 45–60s rest\nMachine Lateral Raise\n• 3 × 10–12 (RPE 4), 45–60s rest\nRope Pressdown\n• 3 × 10–12 (RPE 4), 45–60s rest',
           imageUrl: 'https://customer-assets.emergentagent.com/job_lazy-workout-images/artifacts/tp8hgvtb_download%20%2828%29.png',
