@@ -55,7 +55,7 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           name: 'Shoulder Builder',
           duration: '12–15 min',
           description: 'Builds foundational shoulder strength with seated presses and lateral raises. ',
-          battlePlan: '3 rounds:\n\n•  12 seated dumbbell press\n\n•  12 seated lateral raise\n\nRest 60s',
+          battlePlan: '3 rounds:\n•  12 seated dumbbell press\n•  12 seated lateral raise\n\nRest 60s',
           imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/d2gkwhep_download%20%282%29.png',
           intensityReason: 'Perfect introduction to shoulder pressing and isolation.',
           moodTips: [
@@ -75,7 +75,7 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           name: 'Shoulder Flow',
           duration: '10–12 min',
           description: 'Dynamic shoulder warm-up building mobility and activation through multiple planes. ',
-          battlePlan: '3 rounds:\n\n•  10 arm circles forward\n\n•  10 arm circles backward\n\n•  10 shoulder shrugs\n\nRest 45s',
+          battlePlan: '3 rounds:\n•  10 arm circles forward\n•  10 arm circles backward\n•  10 shoulder shrugs\n\nRest 45s',
           imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/jyl947na_download%20%2810%29.png',
           intensityReason: 'Gentle mobility-focused warm-up for shoulder preparation.',
           moodTips: [
@@ -97,7 +97,7 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           name: 'Arnold Power',
           duration: '15–18 min',
           description: 'Arnold press and lateral raise combo for intermediate shoulder strength. ',
-          battlePlan: '4 rounds:\n\n•  10 Arnold press\n\n•  12 lateral raises\n\n•  10 front raises\n\nRest 75s',
+          battlePlan: '4 rounds:\n•  10 Arnold press\n•  12 lateral raises\n•  10 front raises\n\nRest 75s',
           imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/z5yngcpg_incline%20arnold.jpeg',
           intensityReason: 'Dynamic Arnold press challenges all shoulder planes.',
           moodTips: [
@@ -117,7 +117,7 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           name: 'Circuit',
           duration: '12–15 min',
           description: 'High-rep shoulder circuit for endurance and metabolic conditioning. ',
-          battlePlan: '3 rounds:\n\n•  15 shoulder press\n\n•  15 lateral raise\n\n•  15 rear delt fly\n\nRest 90s',
+          battlePlan: '3 rounds:\n•  15 shoulder press\n•  15 lateral raise\n•  15 rear delt fly\n\nRest 90s',
           imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/jyl947na_download%20%2810%29.png',
           intensityReason: 'High-volume circuit for intermediate shoulder conditioning.',
           moodTips: [
@@ -139,7 +139,7 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           name: 'Press Builder',
           duration: '18–22 min',
           description: 'Heavy shoulder press with drop setsfor advanced strength development. ',
-          battlePlan: '4 rounds:\n\n•  8 heavy shoulder press\n\n•  Drop to 12 moderate\n\n•  Drop to 15 light\n\nRest 2 min',
+          battlePlan: '4 rounds:\n•  8 heavy shoulder press\n•  Drop to 12 moderate\n•  Drop to 15 light\n\nRest 2 min',
           imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/d2gkwhep_download%20%282%29.png',
           intensityReason: 'Advanced drop set protocol for maximum shoulder hypertrophy.',
           moodTips: [
@@ -159,7 +159,7 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           name: 'Power Flow',
           duration: '16–20 min',
           description: 'Advanced dumbbell complex targeting all three deltoid heads intensively. ',
-          battlePlan: '3 rounds:\n\n•  6 push press\n\n•  8 lateral raise\n\n•  10 rear delt fly\n\n•  12 front raise\n\nRest 2 min',
+          battlePlan: '3 rounds:\n•  6 push press\n•  8 lateral raise\n•  10 rear delt fly\n•  12 front raise\n\nRest 2 min',
           imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/jyl947na_download%20%2810%29.png',
           intensityReason: 'Complete shoulder complex for advanced muscle development.',
           moodTips: [
@@ -187,7 +187,7 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           name: 'Press Builder',
           duration: '12–15 min',
           description: 'Basic barbell shoulder press foundation with light weight and perfect form. ',
-          battlePlan: '3 rounds:\n\n•  10 standing barbell press\n\n•  12 upright rows\n\nRest 75s',
+          battlePlan: '3 rounds:\n•  10 standing barbell press\n•  12 upright rows\n\nRest 75s',
           imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/z1k5w5av_download.png',
           intensityReason: 'Safe introduction to barbell overhead pressing.',
           moodTips: [
@@ -249,7 +249,7 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           name: 'Circuit',
           duration: '12–15 min',
           description: 'Barbell shoulder circuit with minimal rest for conditioning and strength. ',
-          battlePlan: '3 rounds:\n\n•  10 barbell press\n\n•  15 upright rows\n\n•  12 high pulls\n\nRest 90s',
+          battlePlan: '3 rounds:\n•  10 barbell press\n•  15 upright rows\n•  12 high pulls\n\nRest 90s',
           imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/mgsrjngk_download%20%285%29.png',
           intensityReason: 'High-volume barbell circuit for intermediate conditioning.',
           moodTips: [
@@ -271,7 +271,7 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           name: 'Barbell Max',
           duration: '18–22 min',
           description: 'Advanced barbell complex with heavyloads for maximum shoulder development. ',
-          battlePlan: '4 rounds:\n\n•  6 heavy push press\n\n•  8 behind neck press\n\n•  10 upright rows\n\n•  12 high pulls\n\nRest 2–3 min',
+          battlePlan: '4 rounds:\n•  6 heavy push press\n•  8 behind neck press\n•  10 upright rows\n•  12 high pulls\n\nRest 2–3 min',
           imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/5895zxha_bbhp.jpg',
           intensityReason: 'Advanced barbell complex for complete shoulder development.',
           moodTips: [
@@ -291,7 +291,7 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           name: 'Power Max',
           duration: '16–20 min',
           description: 'High-intensity barbell power complex for explosive shoulder strength. ',
-          battlePlan: '3 rounds:\n\n•  5 heavy barbell press\n\n•  6 push press\n\n•  8 high pulls\n\n•  10 upright rows\n\nRest 2–3 min',
+          battlePlan: '3 rounds:\n•  5 heavy barbell press\n•  6 push press\n•  8 high pulls\n•  10 upright rows\n\nRest 2–3 min',
           imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/mgsrjngk_download%20%285%29.png',
           intensityReason: 'Maximum intensity barbell training for advanced athletes.',
           moodTips: [
@@ -319,7 +319,7 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           name: 'Shoulder Builder',
           duration: '12–15 min',
           description: 'Kettlebell shoulder foundation with presses and basic movement patterns. ',
-          battlePlan: '3 rounds:\n\n•  8 kettlebell press (each arm)\n\n•  10 kettlebell swings\n\n•  8 halos (each direction)\n\nRest 60s',
+          battlePlan: '3 rounds:\n•  8 kettlebell press (each arm)\n•  10 kettlebell swings\n•  8 halos (each direction)\n\nRest 60s',
           imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/t4q8qc3k_dbkbp.webp',
           intensityReason: 'Perfect introduction to kettlebell shoulder training.',
           moodTips: [
@@ -339,7 +339,7 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           name: 'Flow Starter',
           duration: '10–12 min',
           description: 'Gentle kettlebell flow building shoulder mobility and basic strength patterns. ',
-          battlePlan: '3 rounds:\n\n•  6 around the world (each direction)\n\n•  8 overhead carries (20 steps)\n\n•  10 arm swings\n\nRest 45s',
+          battlePlan: '3 rounds:\n•  6 around the world (each direction)\n•  8 overhead carries (20 steps)\n•  10 arm swings\n\nRest 45s',
           imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/8p6cuez9_download.png',
           intensityReason: 'Mobility-focused kettlebell introduction for shoulder health.',
           moodTips: [
@@ -361,7 +361,7 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           name: 'Double Press',
           duration: '15–18 min',
           description: 'Double kettlebell pressing for increased strength and core stability demands. ',
-          battlePlan: '4 rounds:\n\n•  8 double KB press\n\n•  10 single arm swings (each)\n\n•  8 bottoms up press (each)\n\nRest 90s',
+          battlePlan: '4 rounds:\n•  8 double KB press\n•  10 single arm swings (each)\n•  8 bottoms up press (each)\n\nRest 90s',
           imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/t4q8qc3k_dbkbp.webp',
           intensityReason: 'Double kettlebell training for intermediate strength development.',
           moodTips: [
@@ -381,7 +381,7 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           name: 'KB Flow',
           duration: '12–15 min',
           description: 'Flowing kettlebell sequence combining strength and dynamic movements. ',
-          battlePlan: '3 rounds:\n\n•  6 clean and press (each)\n\n•  8 windmills (each)\n\n•  10 high pulls (each)\n\nRest 90s',
+          battlePlan: '3 rounds:\n•  6 clean and press (each)\n•  8 windmills (each)\n•  10 high pulls (each)\n\nRest 90s',
           imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/8p6cuez9_download.png',
           intensityReason: 'Dynamic kettlebell flow for intermediate functional strength.',
           moodTips: [
@@ -403,7 +403,7 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           name: 'KB Max',
           duration: '18–22 min',
           description: 'Heavy kettlebell complex for advancedshoulder strength and power development. ',
-          battlePlan: '4 rounds:\n\n•  5 heavy double KB press\n\n•  6 single arm jerks (each)\n\n•  8 bottoms up press (each)\n\n•  10 windmills (each)\n\nRest 2 min',
+          battlePlan: '4 rounds:\n•  5 heavy double KB press\n•  6 single arm jerks (each)\n•  8 bottoms up press (each)\n•  10 windmills (each)\n\nRest 2 min',
           imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/n333i01m_download%20%283%29.png',
           intensityReason: 'Advanced kettlebell complex for maximum shoulder development.',
           moodTips: [
@@ -423,7 +423,7 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           name: 'KB Power',
           duration: '16–20 min',
           description: 'High-intensity kettlebell power complex for explosive shoulder development. ',
-          battlePlan: '3 rounds:\n\n•  4 double KB clean and press\n\n•  5 single arm snatches (each)\n\n•  6 double KB swings\n\n•  8 Turkish get-up (partial)\n\nRest 2–3 min',
+          battlePlan: '3 rounds:\n•  4 double KB clean and press\n•  5 single arm snatches (each)\n•  6 double KB swings\n•  8 Turkish get-up (partial)\n\nRest 2–3 min',
           imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/8p6cuez9_download.png',
           intensityReason: 'Maximum intensity kettlebell training for advanced athletes.',
           moodTips: [
