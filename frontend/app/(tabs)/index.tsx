@@ -202,7 +202,12 @@ export default function WorkoutsHome() {
 
   const handleSocialLink = async (url: string, platform: string) => {
     try {
-      await WebBrowser.openBrowserAsync(url);
+      const supported = await Linking.canOpenURL(url);
+      if (supported) {
+        await Linking.openURL(url);
+      } else {
+        Alert.alert('Error', `Could not open ${platform}. Please check if you have the app installed.`);
+      }
     } catch (error) {
       Alert.alert('Error', `Could not open ${platform}. Please try again.`);
     }
