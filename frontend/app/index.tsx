@@ -25,10 +25,10 @@ const AnimatedFeatureItem = ({ icon, title, description, delay = 0 }) => {
         Animated.sequence([
           Animated.timing(flipAnim, {
             toValue: 1,
-            duration: 600,
+            duration: 900,
             useNativeDriver: true,
           }),
-          Animated.delay(2400), // Wait 2.4 seconds before next flip
+          Animated.delay(3500), // Wait 3.5 seconds before next flip
         ])
       ).start();
     }, delay);
