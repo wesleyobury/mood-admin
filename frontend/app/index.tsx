@@ -199,8 +199,13 @@ const styles = StyleSheet.create({
   featureItem: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginBottom: 16, // Further reduced from 20 to tighten spacing
-    paddingHorizontal: 20,
+    marginBottom: 16,
+    marginHorizontal: 20,
+    paddingHorizontal: 16,
+    paddingVertical: 16,
+    borderRadius: 16,
+    borderWidth: 1,
+    borderColor: 'rgba(255, 215, 0, 0.1)',
   },
   featureIcon: {
     width: 48,
