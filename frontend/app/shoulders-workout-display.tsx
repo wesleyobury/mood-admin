@@ -55,7 +55,7 @@ const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           name: 'Shoulder Builder',
           duration: '12–15 min',
           description: 'Builds foundational shoulder strength with seated presses and lateral raises. ',
-          battlePlan: '3 rounds:• 12 seated dumbbell press• 12 seated lateral raiseRest 60s',
+          battlePlan: '3 rounds:\n• 12 seated dumbbell press\n• 12 seated lateral raise\nRest 60s',
           imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/d2gkwhep_download%20%282%29.png',
           intensityReason: 'Perfect introduction to shoulder pressing and isolation.',
           moodTips: [
