@@ -14,6 +14,55 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 const { width, height } = Dimensions.get('window');
 
+// Animated Feature Item Component
+const AnimatedFeatureItem = ({ icon, title, description, delay = 0 }) => {
+  const animatedValue = useRef(new Animated.Value(0)).current;
+
+  useEffect(() => {
+    // Start animation after delay
+    const timer = setTimeout(() => {
+      Animated.loop(
+        Animated.sequence([
+          Animated.timing(animatedValue, {
+            toValue: 1,
+            duration: 3000,
+            useNativeDriver: false,
+          }),
+          Animated.timing(animatedValue, {
+            toValue: 0,
+            duration: 3000,
+            useNativeDriver: false,
+          }),
+        ])
+      ).start();
+    }, delay);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  // Interpolate colors for gradient effect
+  const backgroundColor = animatedValue.interpolate({
+    inputRange: [0, 0.5, 1],
+    outputRange: [
+      'rgba(255, 215, 0, 0.05)',
+      'rgba(255, 165, 0, 0.12)',
+      'rgba(255, 215, 0, 0.05)',
+    ],
+  });
+
+  return (
+    <Animated.View style={[styles.featureItem, { backgroundColor }]}>
+      <View style={styles.featureIcon}>
+        <Ionicons name={icon} size={24} color="#FFD700" />
+      </View>
+      <View style={styles.featureContent}>
+        <Text style={styles.featureTitle}>{title}</Text>
+        <Text style={styles.featureDescription}>{description}</Text>
+      </View>
+    </Animated.View>
+  );
+};
+
 export default function Welcome() {
   const insets = useSafeAreaInsets();
   
