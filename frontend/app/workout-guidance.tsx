@@ -1110,7 +1110,7 @@ const styles = StyleSheet.create({
   detailValueSmall: {
     fontSize: 16, // Changed back to 16 to match other cards
     fontWeight: 'bold',
-    color: '#FFD700',
+    color: '#ffffff',
     marginTop: 8,
     marginBottom: 4,
     paddingHorizontal: 12,
