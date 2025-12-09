@@ -915,7 +915,7 @@ const styles = StyleSheet.create({
   descriptionLabel: {
     fontSize: 16,
     fontWeight: '600',
-    color: '#FFD700',
+    color: '#ffffff',
   },
   difficultyBadge: {
     paddingHorizontal: 12,
