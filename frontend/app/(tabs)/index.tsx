@@ -647,7 +647,7 @@ const styles = StyleSheet.create({
   cardTitle: {
     fontSize: 17,
     fontWeight: '600',
-    color: 'rgba(255, 255, 255, 0.95)',
+    color: '#fff',
     marginBottom: 4,
     textShadowColor: 'transparent',
     textShadowOffset: { width: 0, height: 0 },
@@ -655,7 +655,7 @@ const styles = StyleSheet.create({
   },
   cardSubtitle: {
     fontSize: 13,
-    color: 'rgba(255, 255, 255, 0.45)',
+    color: '#888',
     textShadowColor: 'transparent',
     textShadowOffset: { width: 0, height: 0 },
     textShadowRadius: 0,
