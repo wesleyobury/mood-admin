@@ -17,7 +17,7 @@ export const trackEvent = async (
   metadata?: Record<string, any>
 ): Promise<void> => {
   try {
-    await fetch(`${API_URL}/api/analytics/track`, {
+    const response = await fetch(`${API_URL}/api/analytics/track`, {
       method: 'POST',
       headers: {
         'Authorization': `Bearer ${token}`,
@@ -28,6 +28,10 @@ export const trackEvent = async (
         metadata: metadata || {}
       })
     });
+    
+    if (!response.ok) {
+      console.log(`Analytics tracking failed for ${eventType}:`, response.status);
+    }
   } catch (error) {
     // Silently fail - don't block user flow
     console.log('Analytics tracking error:', error);
