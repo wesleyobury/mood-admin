@@ -60,10 +60,15 @@ export default function Explore() {
   const [showComments, setShowComments] = useState(false);
   const [selectedPostId, setSelectedPostId] = useState<string | null>(null);
   const [activeTab, setActiveTab] = useState<'forYou' | 'following'>('forYou');
+  const [showSearch, setShowSearch] = useState(false);
+  const [searchQuery, setSearchQuery] = useState('');
+  const [searchResults, setSearchResults] = useState<SearchUser[]>([]);
+  const [searchLoading, setSearchLoading] = useState(false);
   const router = useRouter();
   const { token, user } = useAuth();
   const scrollViewRef = useRef<ScrollView>(null);
   const insets = useSafeAreaInsets();
+  const searchTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   // Double tap to like functionality
   const lastTap = useRef<number>(0);
