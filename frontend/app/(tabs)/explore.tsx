@@ -430,9 +430,9 @@ export default function Explore() {
             Following
           </Text>
         </TouchableOpacity>
-      </View>
+      </View>}
 
-      <ScrollView
+      {!showSearch && <ScrollView
         ref={scrollViewRef}
         style={styles.feed}
         showsVerticalScrollIndicator={false}
