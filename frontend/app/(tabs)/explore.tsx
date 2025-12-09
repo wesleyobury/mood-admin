@@ -580,7 +580,7 @@ export default function Explore() {
             );
           })
         )}
-      </ScrollView>
+      </ScrollView>}
 
       {/* Comments Bottom Sheet */}
       <Modal
