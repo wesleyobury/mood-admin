@@ -131,6 +131,82 @@ export default function Explore() {
     setRefreshing(false);
   };
 
+  const searchUsers = async (query: string) => {
+    if (!token || query.trim().length < 1) {
+      setSearchResults([]);
+      return;
+    }
+
+    setSearchLoading(true);
+    try {
+      const response = await fetch(
+        `${API_URL}/api/users/search/query?q=${encodeURIComponent(query)}`,
+        {
+          headers: {
+            'Authorization': `Bearer ${token}`,
+          },
+        }
+      );
+
+      if (response.ok) {
+        const data = await response.json();
+        setSearchResults(data);
+      } else {
+        console.error('Failed to search users:', response.status);
+        setSearchResults([]);
+      }
+    } catch (error) {
+      console.error('Error searching users:', error);
+      setSearchResults([]);
+    } finally {
+      setSearchLoading(false);
+    }
+  };
+
+  const handleSearchChange = (text: string) => {
+    setSearchQuery(text);
+    
+    // Clear previous timeout
+    if (searchTimeoutRef.current) {
+      clearTimeout(searchTimeoutRef.current);
+    }
+
+    // Debounce search - wait 300ms after user stops typing
+    if (text.trim().length > 0) {
+      searchTimeoutRef.current = setTimeout(() => {
+        searchUsers(text);
+      }, 300);
+    } else {
+      setSearchResults([]);
+    }
+  };
+
+  const handleFollowToggle = async (userId: string) => {
+    if (!token) return;
+
+    try {
+      const response = await fetch(`${API_URL}/api/users/${userId}/follow`, {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${token}`,
+        },
+      });
+
+      if (response.ok) {
+        // Update search results
+        setSearchResults(prevResults =>
+          prevResults.map(user =>
+            user.id === userId
+              ? { ...user, is_following: !user.is_following }
+              : user
+          )
+        );
+      }
+    } catch (error) {
+      console.error('Error toggling follow:', error);
+    }
+  };
+
   const handleDoubleTap = (postId: string) => {
     const now = Date.now();
     const DOUBLE_TAP_DELAY = 300;
