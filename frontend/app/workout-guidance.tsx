@@ -971,7 +971,7 @@ const styles = StyleSheet.create({
   tipTitle: {
     fontSize: 14,
     fontWeight: 'bold',
-    color: '#FFD700',
+    color: '#ffffff',
     marginBottom: 4,
   },
   tipDescription: {
