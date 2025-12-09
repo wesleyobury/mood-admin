@@ -52,7 +52,12 @@ const AnimatedFeatureItem = ({ icon, title, description, delay = 0 }: {
       <Animated.View 
         style={[
           styles.featureIcon,
-          { transform: [{ rotateY }] }
+          { 
+            transform: [
+              { perspective: 1000 },
+              { rotateY }
+            ] 
+          }
         ]}
       >
         <Ionicons name={icon} size={24} color="#FFD700" />
