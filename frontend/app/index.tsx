@@ -21,19 +21,39 @@ const AnimatedFeatureItem = ({ icon, title, description, delay = 0 }: {
   description: string; 
   delay?: number;
 }) => {
-  const flipAnim = useRef(new Animated.Value(0)).current;
+  const scaleAnim = useRef(new Animated.Value(1)).current;
+  const rotateAnim = useRef(new Animated.Value(0)).current;
 
   useEffect(() => {
-    // Start flip animation after delay
+    // Start animation after delay
     const timer = setTimeout(() => {
       Animated.loop(
         Animated.sequence([
-          Animated.timing(flipAnim, {
-            toValue: 1,
-            duration: 900,
-            useNativeDriver: true,
-          }),
-          Animated.delay(3500), // Wait 3.5 seconds before next flip
+          Animated.parallel([
+            Animated.timing(scaleAnim, {
+              toValue: 1.2,
+              duration: 450,
+              useNativeDriver: true,
+            }),
+            Animated.timing(rotateAnim, {
+              toValue: 1,
+              duration: 450,
+              useNativeDriver: true,
+            }),
+          ]),
+          Animated.parallel([
+            Animated.timing(scaleAnim, {
+              toValue: 1,
+              duration: 450,
+              useNativeDriver: true,
+            }),
+            Animated.timing(rotateAnim, {
+              toValue: 2,
+              duration: 450,
+              useNativeDriver: true,
+            }),
+          ]),
+          Animated.delay(3500), // Wait 3.5 seconds before next animation
         ])
       ).start();
     }, delay);
@@ -41,10 +61,10 @@ const AnimatedFeatureItem = ({ icon, title, description, delay = 0 }: {
     return () => clearTimeout(timer);
   }, []);
 
-  // Interpolate rotation for flip effect
-  const rotateY = flipAnim.interpolate({
-    inputRange: [0, 0.5, 1],
-    outputRange: ['0deg', '180deg', '0deg'],
+  // Interpolate rotation for simple Z-axis rotation
+  const rotateZ = rotateAnim.interpolate({
+    inputRange: [0, 1, 2],
+    outputRange: ['0deg', '180deg', '360deg'],
   });
 
   return (
@@ -54,8 +74,8 @@ const AnimatedFeatureItem = ({ icon, title, description, delay = 0 }: {
           styles.featureIcon,
           { 
             transform: [
-              { perspective: 1000 },
-              { rotateY }
+              { scale: scaleAnim },
+              { rotate: rotateZ }
             ] 
           }
         ]}
