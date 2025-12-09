@@ -15,7 +15,12 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 const { width, height } = Dimensions.get('window');
 
 // Animated Feature Item Component
-const AnimatedFeatureItem = ({ icon, title, description, delay = 0 }) => {
+const AnimatedFeatureItem = ({ icon, title, description, delay = 0 }: { 
+  icon: any; 
+  title: string; 
+  description: string; 
+  delay?: number;
+}) => {
   const flipAnim = useRef(new Animated.Value(0)).current;
 
   useEffect(() => {
