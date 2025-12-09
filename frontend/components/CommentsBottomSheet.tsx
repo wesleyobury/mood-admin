@@ -211,8 +211,8 @@ export default function CommentsBottomSheet({ postId, authToken, onClose, onComm
             )}
           </TouchableOpacity>
         </View>
-      </KeyboardAvoidingView>
-    </View>
+      </View>
+    </KeyboardAvoidingView>
   );
 }
 
