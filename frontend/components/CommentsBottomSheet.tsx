@@ -88,6 +88,12 @@ export default function CommentsBottomSheet({ postId, authToken, onClose, onComm
       });
       
       if (response.ok) {
+        // Track comment
+        Analytics.postCommented(authToken, {
+          post_id: postId,
+          comment_length: newComment.trim().length
+        });
+
         setNewComment('');
         fetchComments(); // Refresh comments
         if (onCommentAdded) {
