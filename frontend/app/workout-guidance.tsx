@@ -1071,7 +1071,7 @@ const styles = StyleSheet.create({
   centeredWorkoutTitle: {
     fontSize: 24,
     fontWeight: 'bold',
-    color: '#FFD700',
+    color: '#ffffff',
     textAlign: 'center',
     marginBottom: 24,
   },
@@ -1081,7 +1081,7 @@ const styles = StyleSheet.create({
   stepsHeader: {
     fontSize: 18,
     fontWeight: 'bold',
-    color: '#FFD700',
+    color: '#ffffff',
     marginBottom: 16,
     textAlign: 'center',
   },
