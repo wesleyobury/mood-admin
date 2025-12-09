@@ -205,35 +205,84 @@ async def register(user_data: UserCreate):
     }
 
 @api_router.post("/auth/login")
-async def login(login_data: UserLogin):
-    # Find user
-    user = await db.users.find_one({"username": login_data.username})
-    if not user:
-        logger.info(f"Login failed: User {login_data.username} not found")
-        raise HTTPException(status_code=401, detail="Invalid credentials")
+async def login(login_data: UserLogin, request: Request):
+    user_id = None
+    success = False
     
-    logger.info(f"Login attempt for user: {login_data.username}")
-    logger.info(f"User has password field: {'password' in user}")
+    # Get client info
+    ip_address = get_client_ip(request)
+    user_agent = get_user_agent(request)
     
-    # Verify password
     try:
-        password_match = bcrypt.checkpw(login_data.password.encode(), user["password"].encode())
-        logger.info(f"Password match result: {password_match}")
-        if not password_match:
+        # Find user
+        user = await db.users.find_one({"username": login_data.username})
+        if not user:
+            logger.info(f"Login failed: User {login_data.username} not found")
+            # Track failed login attempt
+            await track_login_event(
+                db, "unknown", "email_password", False,
+                ip_address, user_agent, failure_reason="User not found"
+            )
             raise HTTPException(status_code=401, detail="Invalid credentials")
+        
+        user_id = str(user["_id"])
+        logger.info(f"Login attempt for user: {login_data.username}")
+        logger.info(f"User has password field: {'password' in user}")
+        
+        # Verify password
+        try:
+            password_match = bcrypt.checkpw(login_data.password.encode(), user["password"].encode())
+            logger.info(f"Password match result: {password_match}")
+            if not password_match:
+                # Track failed login - wrong password
+                await track_login_event(
+                    db, user_id, "email_password", False,
+                    ip_address, user_agent, failure_reason="Invalid password"
+                )
+                await update_auth_metadata(db, user_id, "email_password", False)
+                raise HTTPException(status_code=401, detail="Invalid credentials")
+        except HTTPException:
+            raise
+        except Exception as e:
+            logger.error(f"Password verification error: {e}")
+            await track_login_event(
+                db, user_id, "email_password", False,
+                ip_address, user_agent, failure_reason="Password verification error"
+            )
+            raise HTTPException(status_code=401, detail="Invalid credentials")
+        
+        # Generate JWT token
+        token = create_jwt_token(str(user["_id"]))
+        
+        # Track successful login
+        success = True
+        await track_login_event(
+            db, user_id, "email_password", True,
+            ip_address, user_agent
+        )
+        await update_auth_metadata(db, user_id, "email_password", True)
+        await create_session_record(
+            db, user_id, token, "email_password",
+            ip_address, user_agent
+        )
+        
+        logger.info(f"Login successful for: {login_data.username}")
+        return {
+            "message": "Login successful",
+            "token": token,
+            "user_id": str(user["_id"])
+        }
+    
+    except HTTPException:
+        raise
     except Exception as e:
-        logger.error(f"Password verification error: {e}")
-        raise HTTPException(status_code=401, detail="Invalid credentials")
-    
-    # Generate JWT token
-    token = create_jwt_token(str(user["_id"]))
-    
-    logger.info(f"Login successful for: {login_data.username}")
-    return {
-        "message": "Login successful",
-        "token": token,
-        "user_id": str(user["_id"])
-    }
+        logger.error(f"Unexpected login error: {e}")
+        if user_id:
+            await track_login_event(
+                db, user_id, "email_password", False,
+                ip_address, user_agent, failure_reason=str(e)
+            )
+        raise HTTPException(status_code=500, detail="Login failed")
 
 # Emergent Auth Endpoints
 
