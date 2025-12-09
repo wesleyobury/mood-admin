@@ -1005,7 +1005,7 @@ const styles = StyleSheet.create({
   detailsTitle: {
     fontSize: 18,
     fontWeight: 'bold',
-    color: '#FFD700',
+    color: '#ffffff',
   },
   detailsGrid: {
     flexDirection: 'row',
@@ -1016,19 +1016,19 @@ const styles = StyleSheet.create({
   },
   detailCard: {
     flex: 1,
-    backgroundColor: 'rgba(255, 215, 0, 0.1)',
+    backgroundColor: 'rgba(255, 255, 255, 0.1)',
     borderRadius: 12,
     padding: 14, // Reduced from 18 to 14 to prevent overflow
     alignItems: 'center',
     borderWidth: 1,
-    borderColor: 'rgba(255, 215, 0, 0.2)',
+    borderColor: 'rgba(255, 255, 255, 0.2)',
     minWidth: 90, // Reduced from 100 to 90
     maxWidth: '32%', // Added max width constraint to prevent overflow
   },
   detailValue: {
     fontSize: 16,
     fontWeight: 'bold',
-    color: '#FFD700',
+    color: '#ffffff',
     marginTop: 8,
     marginBottom: 4,
     textAlign: 'center',
