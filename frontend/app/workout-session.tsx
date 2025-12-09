@@ -33,6 +33,7 @@ export default function WorkoutSessionScreen() {
   const params = useLocalSearchParams();
   const insets = useSafeAreaInsets();
   const { clearCart } = useCart();
+  const { token } = useAuth();
   
   const [sessionWorkouts, setSessionWorkouts] = useState<SessionWorkout[]>([]);
   const [currentIndex, setCurrentIndex] = useState(0);
