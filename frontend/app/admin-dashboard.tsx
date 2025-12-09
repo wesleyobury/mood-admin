@@ -654,6 +654,31 @@ const styles = StyleSheet.create({
     color: '#fff',
     fontWeight: '600',
   },
+  socialGrid: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: 12,
+  },
+  socialCard: {
+    width: (screenWidth - 64) / 2,
+    backgroundColor: '#1a1a1a',
+    borderRadius: 12,
+    padding: 16,
+    borderWidth: 1,
+    borderColor: 'rgba(255, 215, 0, 0.1)',
+    alignItems: 'center',
+  },
+  socialValue: {
+    fontSize: 24,
+    fontWeight: '700',
+    color: '#fff',
+    marginTop: 8,
+    marginBottom: 4,
+  },
+  socialLabel: {
+    fontSize: 11,
+    color: '#888',
+  },
   bottomPadding: {
     height: 40,
   },
