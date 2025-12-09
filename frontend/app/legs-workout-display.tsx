@@ -627,7 +627,7 @@ const styles = StyleSheet.create({
   headerTitle: {
     fontSize: 20,
     fontWeight: 'bold',
-    color: '#FFD700',
+    color: '#ffffff',
     textAlign: 'center',
   },
   headerSubtitle: {
@@ -708,7 +708,7 @@ const styles = StyleSheet.create({
   },
   indicatorText: {
     fontSize: 16,
-    color: '#FFD700',
+    color: '#ffffff',
     fontWeight: '600',
   },
   dotsLabel: {
@@ -810,7 +810,7 @@ const styles = StyleSheet.create({
   },
   detailText: {
     fontSize: 16,
-    color: '#FFD700',
+    color: '#ffffff',
     fontWeight: '600',
   },
   startWorkoutButton: {
@@ -868,6 +868,6 @@ const styles = StyleSheet.create({
   addToCartButtonText: {
     fontSize: 11,
     fontWeight: '600',
-    color: '#FFD700',
+    color: '#ffffff',
   },
 });

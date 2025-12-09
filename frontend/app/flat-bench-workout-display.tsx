@@ -541,7 +541,7 @@ const styles = StyleSheet.create({
   headerTitle: {
     fontSize: 20,
     fontWeight: 'bold',
-    color: '#FFD700',
+    color: '#ffffff',
     textAlign: 'center',
   },
   headerSubtitle: {
@@ -664,7 +664,7 @@ const styles = StyleSheet.create({
   workoutCount: {
     fontSize: 12,
     fontWeight: 'bold',
-    color: '#FFD700',
+    color: '#ffffff',
   },
   workoutList: {
     height: 420,
@@ -705,7 +705,7 @@ const styles = StyleSheet.create({
   },
   swipeText: {
     fontSize: 11,
-    color: '#FFD700',
+    color: '#ffffff',
     marginLeft: 4,
     fontWeight: '600',
   },
@@ -742,7 +742,7 @@ const styles = StyleSheet.create({
   workoutDuration: {
     fontSize: 14,
     fontWeight: 'bold',
-    color: '#FFD700',
+    color: '#ffffff',
   },
   intensityContainer: {
     flexDirection: 'row',
