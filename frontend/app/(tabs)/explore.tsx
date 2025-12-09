@@ -41,6 +41,18 @@ interface Post {
   workout?: any;
 }
 
+interface SearchUser {
+  id: string;
+  username: string;
+  name: string;
+  bio: string;
+  avatar: string;
+  followers_count: number;
+  following_count: number;
+  is_following: boolean;
+  is_self: boolean;
+}
+
 export default function Explore() {
   const [posts, setPosts] = useState<Post[]>([]);
   const [refreshing, setRefreshing] = useState(false);
