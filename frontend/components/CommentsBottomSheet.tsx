@@ -113,76 +113,76 @@ export default function CommentsBottomSheet({ postId, authToken, onClose, onComm
   };
 
   return (
-    <KeyboardAvoidingView 
-      style={styles.container}
-      behavior={Platform.OS === 'ios' ? 'padding' : undefined}
-      keyboardVerticalOffset={0}
-    >
-      <View style={styles.innerContainer}>
-        {/* Header */}
-        <View style={styles.header}>
-          <View style={styles.headerHandle} />
-          <View style={styles.headerContent}>
-            <Text style={styles.headerTitle}>Comments</Text>
-            <TouchableOpacity style={styles.closeButton} onPress={onClose}>
-              <Ionicons name="close" size={24} color="#fff" />
-            </TouchableOpacity>
-          </View>
+    <View style={styles.container}>
+      {/* Header */}
+      <View style={styles.header}>
+        <View style={styles.headerHandle} />
+        <View style={styles.headerContent}>
+          <Text style={styles.headerTitle}>Comments</Text>
+          <TouchableOpacity style={styles.closeButton} onPress={onClose}>
+            <Ionicons name="close" size={24} color="#fff" />
+          </TouchableOpacity>
         </View>
+      </View>
 
-        {/* Comments List */}
-        <ScrollView 
-          style={styles.scrollView}
-          contentContainerStyle={styles.scrollContent}
-          showsVerticalScrollIndicator={false}
-          keyboardShouldPersistTaps="handled"
-        >
-          {loading ? (
-            <View style={styles.loadingContainer}>
-              <ActivityIndicator size="large" color="#FFD700" />
-            </View>
-          ) : comments.length === 0 ? (
-            <View style={styles.emptyContainer}>
-              <Ionicons name="chatbubble-outline" size={48} color="#333" />
-              <Text style={styles.emptyText}>No comments yet</Text>
-              <Text style={styles.emptySubtext}>Be the first to comment!</Text>
-            </View>
-          ) : (
-            comments.map((comment) => (
-              <View key={comment.id} style={styles.commentContainer}>
-                <TouchableOpacity 
-                  onPress={() => onUserPress && onUserPress(comment.author.id)}
-                  activeOpacity={0.7}
-                >
-                  {comment.author.avatar ? (
-                    <Image 
-                      source={{ uri: comment.author.avatar }} 
-                      style={styles.commentAvatar}
-                    />
-                  ) : (
-                    <View style={[styles.commentAvatar, styles.avatarPlaceholder]}>
-                      <Ionicons name="person" size={16} color="#666" />
-                    </View>
-                  )}
-                </TouchableOpacity>
-                <View style={styles.commentContent}>
-                  <View style={styles.commentHeader}>
-                    <TouchableOpacity 
-                      onPress={() => onUserPress && onUserPress(comment.author.id)}
-                      activeOpacity={0.7}
-                    >
-                      <Text style={styles.commentUsername}>{comment.author.username}</Text>
-                    </TouchableOpacity>
-                    <Text style={styles.commentTime}>{formatTimeAgo(comment.created_at)}</Text>
+      {/* Comments List */}
+      <ScrollView 
+        style={styles.scrollView}
+        contentContainerStyle={styles.scrollContent}
+        showsVerticalScrollIndicator={false}
+        keyboardShouldPersistTaps="handled"
+        keyboardDismissMode="interactive"
+      >
+        {loading ? (
+          <View style={styles.loadingContainer}>
+            <ActivityIndicator size="large" color="#FFD700" />
+          </View>
+        ) : comments.length === 0 ? (
+          <View style={styles.emptyContainer}>
+            <Ionicons name="chatbubble-outline" size={48} color="#333" />
+            <Text style={styles.emptyText}>No comments yet</Text>
+            <Text style={styles.emptySubtext}>Be the first to comment!</Text>
+          </View>
+        ) : (
+          comments.map((comment) => (
+            <View key={comment.id} style={styles.commentContainer}>
+              <TouchableOpacity 
+                onPress={() => onUserPress && onUserPress(comment.author.id)}
+                activeOpacity={0.7}
+              >
+                {comment.author.avatar ? (
+                  <Image 
+                    source={{ uri: comment.author.avatar }} 
+                    style={styles.commentAvatar}
+                  />
+                ) : (
+                  <View style={[styles.commentAvatar, styles.avatarPlaceholder]}>
+                    <Ionicons name="person" size={16} color="#666" />
                   </View>
-                  <Text style={styles.commentText}>{comment.text}</Text>
+                )}
+              </TouchableOpacity>
+              <View style={styles.commentContent}>
+                <View style={styles.commentHeader}>
+                  <TouchableOpacity 
+                    onPress={() => onUserPress && onUserPress(comment.author.id)}
+                    activeOpacity={0.7}
+                  >
+                    <Text style={styles.commentUsername}>{comment.author.username}</Text>
+                  </TouchableOpacity>
+                  <Text style={styles.commentTime}>{formatTimeAgo(comment.created_at)}</Text>
                 </View>
+                <Text style={styles.commentText}>{comment.text}</Text>
               </View>
-            ))
-          )}
-        </ScrollView>
+            </View>
+          ))
+        )}
+      </ScrollView>
 
-        {/* Input Section */}
+      {/* Input Section - Fixed at bottom with KeyboardAvoidingView */}
+      <KeyboardAvoidingView 
+        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+        keyboardVerticalOffset={Platform.OS === 'ios' ? 90 : 0}
+      >
         <View style={[styles.inputContainer, { paddingBottom: Math.max(insets.bottom, 16) }]}>
           <TextInput
             style={styles.input}
@@ -211,8 +211,8 @@ export default function CommentsBottomSheet({ postId, authToken, onClose, onComm
             )}
           </TouchableOpacity>
         </View>
-      </View>
-    </KeyboardAvoidingView>
+      </KeyboardAvoidingView>
+    </View>
   );
 }
 
