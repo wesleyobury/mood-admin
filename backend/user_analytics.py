@@ -445,6 +445,30 @@ async def get_admin_analytics(
             "timestamp": {"$gte": start_date}
         })
         
+        # Total likes
+        total_likes = await db.user_events.count_documents({
+            "event_type": "post_liked",
+            "timestamp": {"$gte": start_date}
+        })
+        
+        # Total comments
+        total_comments = await db.user_events.count_documents({
+            "event_type": "post_commented",
+            "timestamp": {"$gte": start_date}
+        })
+        
+        # Total follows
+        total_follows = await db.user_events.count_documents({
+            "event_type": "user_followed",
+            "timestamp": {"$gte": start_date}
+        })
+        
+        # Total unfollows
+        total_unfollows = await db.user_events.count_documents({
+            "event_type": "user_unfollowed",
+            "timestamp": {"$gte": start_date}
+        })
+        
         # New users in period
         new_users = await db.users.count_documents({
             "created_at": {"$gte": start_date}
