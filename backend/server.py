@@ -358,6 +358,78 @@ async def logout(request: Request, response: Response):
     
     return {"message": "Logged out successfully"}
 
+
+# Auth Tracking Endpoints
+
+@api_router.get("/auth/sessions")
+async def get_user_sessions(current_user_id: str = Depends(get_current_user)):
+    """
+    Get all active sessions for the current user
+    """
+    sessions = await get_active_sessions(db, current_user_id)
+    
+    # Format response
+    formatted_sessions = []
+    for session in sessions:
+        formatted_sessions.append({
+            "session_token": session["session_token"][:20] + "...",  # Truncate for security
+            "login_method": session["login_method"],
+            "device_type": session.get("device_type", "unknown"),
+            "ip_address": session.get("ip_address"),
+            "created_at": session["created_at"].isoformat(),
+            "last_activity": session["last_activity"].isoformat(),
+            "is_current": False  # Could enhance to detect current session
+        })
+    
+    return {"sessions": formatted_sessions, "total": len(formatted_sessions)}
+
+
+@api_router.get("/auth/login-history")
+async def get_user_login_history(
+    current_user_id: str = Depends(get_current_user),
+    limit: int = 50
+):
+    """
+    Get login history for the current user
+    """
+    history = await get_login_history(db, current_user_id, limit)
+    
+    # Format response
+    formatted_history = []
+    for event in history:
+        formatted_history.append({
+            "login_method": event["login_method"],
+            "success": event["success"],
+            "ip_address": event.get("ip_address"),
+            "device_info": event.get("device_info"),
+            "timestamp": event["timestamp"].isoformat(),
+            "failure_reason": event.get("failure_reason")
+        })
+    
+    return {"history": formatted_history, "total": len(formatted_history)}
+
+
+@api_router.get("/auth/metadata")
+async def get_auth_metadata(current_user_id: str = Depends(get_current_user)):
+    """
+    Get authentication metadata for the current user
+    """
+    user = await db.users.find_one({"_id": ObjectId(current_user_id)})
+    if not user:
+        raise HTTPException(status_code=404, detail="User not found")
+    
+    auth_meta = user.get("auth_metadata", {})
+    
+    return {
+        "login_methods": auth_meta.get("login_methods", []),
+        "first_login_at": auth_meta.get("first_login_at").isoformat() if auth_meta.get("first_login_at") else None,
+        "last_login_at": auth_meta.get("last_login_at").isoformat() if auth_meta.get("last_login_at") else None,
+        "total_logins": auth_meta.get("total_logins", 0),
+        "failed_login_attempts": auth_meta.get("failed_login_attempts", 0),
+        "last_failed_login": auth_meta.get("last_failed_login").isoformat() if auth_meta.get("last_failed_login") else None
+    }
+
+
 # User Endpoints
 
 @api_router.get("/users/me", response_model=UserResponse)
