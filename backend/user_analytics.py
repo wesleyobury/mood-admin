@@ -506,6 +506,10 @@ async def get_admin_analytics(
             "new_users": new_users,
             "total_workouts_completed": total_workouts,
             "total_posts_created": total_posts,
+            "total_likes": total_likes,
+            "total_comments": total_comments,
+            "total_follows": total_follows,
+            "total_unfollows": total_unfollows,
             "retention_rate": round((active_users / total_users * 100), 2) if total_users > 0 else 0,
             "average_workouts_per_active_user": round(total_workouts / active_users, 2) if active_users > 0 else 0,
             "popular_mood_categories": [
