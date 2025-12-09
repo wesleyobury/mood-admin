@@ -293,11 +293,13 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#fff',
+    backgroundColor: '#2a2a2a',
     borderRadius: 12,
     height: 50,
     marginBottom: 24,
     gap: 12,
+    borderWidth: 1,
+    borderColor: '#3a3a3a',
   },
   googleIconContainer: {
     backgroundColor: '#DB4437',
@@ -310,7 +312,7 @@ const styles = StyleSheet.create({
   googleButtonText: {
     fontSize: 16,
     fontWeight: '600',
-    color: '#0c0c0c',
+    color: '#fff',
   },
   divider: {
     flexDirection: 'row',
