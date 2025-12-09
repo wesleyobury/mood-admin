@@ -774,7 +774,7 @@ const styles = StyleSheet.create({
   timerDisplay: {
     fontSize: 24,
     fontWeight: 'bold',
-    color: '#FFD700',
+    color: '#ffffff',
     fontFamily: 'monospace',
     flex: 1,
     textAlign: 'center',
