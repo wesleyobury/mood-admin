@@ -439,6 +439,97 @@ async def get_auth_metadata(current_user_id: str = Depends(get_current_user)):
     }
 
 
+# User Analytics Endpoints
+
+@api_router.post("/analytics/track")
+async def track_event(
+    event_type: str,
+    metadata: Optional[dict] = None,
+    current_user_id: str = Depends(get_current_user)
+):
+    """
+    Track a user event
+    """
+    await track_user_event(db, current_user_id, event_type, metadata)
+    return {"message": "Event tracked successfully"}
+
+
+@api_router.get("/analytics/activity-summary")
+async def get_activity_summary(
+    days: int = 30,
+    current_user_id: str = Depends(get_current_user)
+):
+    """
+    Get user activity summary for the past N days
+    """
+    summary = await get_user_activity_summary(db, current_user_id, days)
+    return summary
+
+
+@api_router.get("/analytics/feature-usage")
+async def get_feature_usage(
+    days: int = 30,
+    current_user_id: str = Depends(get_current_user)
+):
+    """
+    Get feature usage statistics
+    """
+    stats = await get_feature_usage_stats(db, current_user_id, days)
+    return stats
+
+
+@api_router.get("/analytics/workout-stats")
+async def get_workout_stats(
+    days: int = 30,
+    current_user_id: str = Depends(get_current_user)
+):
+    """
+    Get workout analytics
+    """
+    analytics = await get_workout_analytics(db, current_user_id, days)
+    return analytics
+
+
+@api_router.get("/analytics/social-stats")
+async def get_social_stats(
+    days: int = 30,
+    current_user_id: str = Depends(get_current_user)
+):
+    """
+    Get social engagement statistics
+    """
+    stats = await get_social_engagement_stats(db, current_user_id, days)
+    return stats
+
+
+@api_router.get("/analytics/user-journey")
+async def get_journey(
+    limit: int = 100,
+    current_user_id: str = Depends(get_current_user)
+):
+    """
+    Get user activity timeline/journey
+    """
+    journey = await get_user_journey(db, current_user_id, limit)
+    return {"journey": journey, "total": len(journey)}
+
+
+@api_router.get("/analytics/admin/platform-stats")
+async def get_platform_stats(
+    days: int = 30,
+    current_user_id: str = Depends(get_current_user)
+):
+    """
+    Get platform-wide analytics (admin only)
+    Note: In production, add admin role check here
+    """
+    # TODO: Add admin role verification
+    # For now, any authenticated user can access
+    stats = await get_admin_analytics(db, days)
+    return stats
+
+
+
 # User Endpoints
 
 @api_router.get("/users/me", response_model=UserResponse)
