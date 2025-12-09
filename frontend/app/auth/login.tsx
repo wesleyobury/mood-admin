@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   View,
   Text,
@@ -8,12 +8,19 @@ import {
   KeyboardAvoidingView,
   Platform,
   Alert,
+  Linking,
 } from 'react-native';
 import { router } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 import { useAuth } from '../../contexts/AuthContext';
 import { LoadingSpinner } from '../../components/LoadingSpinner';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import * as WebBrowser from 'expo-web-browser';
+import Constants from 'expo-constants';
+
+const API_URL = Constants.expoConfig?.extra?.EXPO_PUBLIC_BACKEND_URL || process.env.EXPO_PUBLIC_BACKEND_URL || '';
+
+WebBrowser.maybeCompleteAuthSession();
 
 export default function Login() {
   const [username, setUsername] = useState('');
@@ -23,6 +30,122 @@ export default function Login() {
   const insets = useSafeAreaInsets();
 
   const { login } = useAuth();
+
+  // Handle deep link redirect from Emergent Auth
+  useEffect(() => {
+    const handleDeepLink = async (event: { url: string }) => {
+      const url = event.url;
+      console.log('Deep link received:', url);
+      
+      // Parse session_id from URL hash or query
+      let sessionId = null;
+      
+      // Try hash first (#session_id=...)
+      if (url.includes('#session_id=')) {
+        sessionId = url.split('#session_id=')[1].split('&')[0];
+      }
+      // Try query (?session_id=...)
+      else if (url.includes('?session_id=')) {
+        sessionId = url.split('?session_id=')[1].split('&')[0];
+      }
+      
+      if (sessionId) {
+        console.log('Found session_id, processing OAuth login...');
+        await handleOAuthCallback(sessionId);
+      }
+    };
+
+    // Check initial URL (cold start)
+    Linking.getInitialURL().then((url) => {
+      if (url) {
+        handleDeepLink({ url });
+      }
+    });
+
+    // Listen for URL changes (hot link)
+    const subscription = Linking.addEventListener('url', handleDeepLink);
+
+    return () => {
+      subscription.remove();
+    };
+  }, []);
+
+  const handleOAuthCallback = async (sessionId: string) => {
+    try {
+      setIsLoading(true);
+      console.log('Exchanging session_id for token...');
+      
+      const response = await fetch(`${API_URL}/api/auth/oauth/callback?session_id=${sessionId}`, {
+        method: 'POST',
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to authenticate with OAuth');
+      }
+
+      const data = await response.json();
+      console.log('OAuth login successful!');
+      
+      // Store session token in AsyncStorage
+      const { AsyncStorage } = require('@react-native-async-storage/async-storage');
+      await AsyncStorage.setItem('auth_token', data.session_token);
+      
+      // Navigate to main app
+      router.replace('/(tabs)');
+    } catch (error: any) {
+      console.error('OAuth error:', error);
+      Alert.alert('Authentication Failed', error.message || 'Please try again');
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const handleGoogleLogin = async () => {
+    try {
+      setIsLoading(true);
+      
+      // Create redirect URL based on platform
+      const redirectUrl = Platform.OS === 'web'
+        ? `${API_URL}/`
+        : Linking.createURL('/');
+      
+      console.log('Redirect URL:', redirectUrl);
+      
+      // Build Emergent Auth URL
+      const authUrl = `https://auth.emergentagent.com/?redirect=${encodeURIComponent(redirectUrl)}`;
+      console.log('Opening auth URL:', authUrl);
+      
+      // Open OAuth session
+      const result = await WebBrowser.openAuthSessionAsync(authUrl, redirectUrl);
+      
+      console.log('Auth session result:', result.type);
+      
+      if (result.type === 'success' && result.url) {
+        // Parse session_id from returned URL
+        const url = result.url;
+        let sessionId = null;
+        
+        if (url.includes('#session_id=')) {
+          sessionId = url.split('#session_id=')[1].split('&')[0];
+        } else if (url.includes('?session_id=')) {
+          sessionId = url.split('?session_id=')[1].split('&')[0];
+        }
+        
+        if (sessionId) {
+          await handleOAuthCallback(sessionId);
+        } else {
+          throw new Error('No session ID returned from authentication');
+        }
+      } else if (result.type === 'cancel') {
+        console.log('User cancelled authentication');
+      }
+    } catch (error: any) {
+      console.error('Google login error:', error);
+      Alert.alert('Login Failed', error.message || 'Unable to sign in with Google');
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   const handleLogin = async () => {
     if (!username.trim() || !password.trim()) {
@@ -56,6 +179,21 @@ export default function Login() {
           <View style={styles.header}>
             <Text style={styles.title}>Welcome back</Text>
             <Text style={styles.subtitle}>Login to continue your fitness journey</Text>
+          </View>
+
+          {/* Google Sign In Button */}
+          <TouchableOpacity style={styles.googleButton} onPress={handleGoogleLogin}>
+            <View style={styles.googleIconContainer}>
+              <Ionicons name="logo-google" size={20} color="#fff" />
+            </View>
+            <Text style={styles.googleButtonText}>Continue with Google</Text>
+          </TouchableOpacity>
+
+          {/* Divider */}
+          <View style={styles.divider}>
+            <View style={styles.dividerLine} />
+            <Text style={styles.dividerText}>OR</Text>
+            <View style={styles.dividerLine} />
           </View>
 
           {/* Form */}
@@ -137,7 +275,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   header: {
-    marginBottom: 40,
+    marginBottom: 32,
     alignItems: 'center',
   },
   title: {
@@ -151,8 +289,47 @@ const styles = StyleSheet.create({
     color: '#888',
     textAlign: 'center',
   },
+  googleButton: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#fff',
+    borderRadius: 12,
+    height: 50,
+    marginBottom: 24,
+    gap: 12,
+  },
+  googleIconContainer: {
+    backgroundColor: '#DB4437',
+    width: 24,
+    height: 24,
+    borderRadius: 12,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  googleButtonText: {
+    fontSize: 16,
+    fontWeight: '600',
+    color: '#0c0c0c',
+  },
+  divider: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 24,
+    gap: 12,
+  },
+  dividerLine: {
+    flex: 1,
+    height: 1,
+    backgroundColor: '#333',
+  },
+  dividerText: {
+    color: '#666',
+    fontSize: 14,
+    fontWeight: '500',
+  },
   form: {
-    marginBottom: 40,
+    marginBottom: 24,
   },
   inputContainer: {
     flexDirection: 'row',
@@ -201,13 +378,12 @@ const styles = StyleSheet.create({
     height: 50,
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop: 16,
-    backgroundColor: 'rgba(255, 215, 0, 0.1)',
+    marginTop: 12,
   },
   skipButtonText: {
     fontSize: 16,
     fontWeight: '600',
-    color: 'rgba(255, 215, 0, 0.8)',
+    color: '#FFD700',
   },
   footer: {
     flexDirection: 'row',
@@ -215,12 +391,12 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   footerText: {
-    fontSize: 14,
     color: '#888',
+    fontSize: 14,
   },
   footerLink: {
-    fontSize: 14,
     color: '#FFD700',
+    fontSize: 14,
     fontWeight: '600',
   },
 });
