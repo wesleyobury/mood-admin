@@ -441,16 +441,19 @@ async def get_auth_metadata(current_user_id: str = Depends(get_current_user)):
 
 # User Analytics Endpoints
 
+class TrackEventRequest(BaseModel):
+    event_type: str
+    metadata: Optional[dict] = None
+
 @api_router.post("/analytics/track")
 async def track_event(
-    event_type: str,
-    metadata: Optional[dict] = None,
+    request: TrackEventRequest,
     current_user_id: str = Depends(get_current_user)
 ):
     """
     Track a user event
     """
-    await track_user_event(db, current_user_id, event_type, metadata)
+    await track_user_event(db, current_user_id, request.event_type, request.metadata)
     return {"message": "Event tracked successfully"}
 
 
