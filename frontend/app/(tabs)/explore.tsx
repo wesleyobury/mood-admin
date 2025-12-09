@@ -805,4 +805,112 @@ const styles = StyleSheet.create({
   activeTabText: {
     color: '#FFD700',
   },
+  searchButton: {
+    padding: 4,
+  },
+  searchContainer: {
+    paddingHorizontal: 16,
+    paddingVertical: 12,
+    borderBottomWidth: 1,
+    borderBottomColor: 'rgba(255, 215, 0, 0.1)',
+  },
+  searchInputContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: '#1a1a1a',
+    borderRadius: 12,
+    paddingHorizontal: 12,
+    paddingVertical: 10,
+    borderWidth: 1,
+    borderColor: 'rgba(255, 215, 0, 0.2)',
+  },
+  searchIcon: {
+    marginRight: 8,
+  },
+  searchInput: {
+    flex: 1,
+    fontSize: 16,
+    color: '#fff',
+    paddingVertical: 0,
+  },
+  searchResults: {
+    flex: 1,
+    backgroundColor: '#0c0c0c',
+  },
+  searchLoadingContainer: {
+    paddingVertical: 40,
+    alignItems: 'center',
+  },
+  noResultsContainer: {
+    paddingVertical: 40,
+    alignItems: 'center',
+  },
+  noResultsText: {
+    color: '#888',
+    fontSize: 16,
+  },
+  userResultCard: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingHorizontal: 16,
+    paddingVertical: 12,
+    borderBottomWidth: 1,
+    borderBottomColor: 'rgba(255, 215, 0, 0.1)',
+  },
+  userResultInfo: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    flex: 1,
+  },
+  userResultAvatar: {
+    width: 50,
+    height: 50,
+    borderRadius: 25,
+    borderWidth: 2,
+    borderColor: '#FFD700',
+  },
+  userResultDetails: {
+    marginLeft: 12,
+    flex: 1,
+  },
+  userResultName: {
+    fontSize: 16,
+    fontWeight: '600',
+    color: '#fff',
+    marginBottom: 2,
+  },
+  userResultUsername: {
+    fontSize: 14,
+    color: '#888',
+    marginBottom: 4,
+  },
+  userResultBio: {
+    fontSize: 13,
+    color: '#aaa',
+    marginBottom: 4,
+  },
+  userResultStats: {
+    fontSize: 12,
+    color: '#666',
+  },
+  followButton: {
+    paddingHorizontal: 20,
+    paddingVertical: 8,
+    borderRadius: 8,
+    backgroundColor: '#FFD700',
+  },
+  followingButton: {
+    backgroundColor: 'transparent',
+    borderWidth: 1,
+    borderColor: '#FFD700',
+  },
+  followButtonText: {
+    fontSize: 14,
+    fontWeight: '600',
+    color: '#000',
+  },
+  followingButtonText: {
+    color: '#FFD700',
+  },
+
 });
