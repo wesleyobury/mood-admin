@@ -117,8 +117,8 @@ export default function Welcome() {
             </Text>
 
             <Text style={styles.description}>
-              Discover personalized workouts based on how you're feeling today.
-              Connect with a fitness community that gets you.
+              Nearly 1,000 curated workouts. Choose based on your mood, equipment, and goals.
+              Train smarter, not harder.
             </Text>
           </View>
 
