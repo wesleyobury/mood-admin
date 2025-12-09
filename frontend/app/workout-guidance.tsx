@@ -901,7 +901,7 @@ const styles = StyleSheet.create({
   workoutDuration: {
     fontSize: 16,
     fontWeight: 'bold',
-    color: '#FFD700',
+    color: '#ffffff',
   },
   descriptionContainer: {
     marginTop: 16,
