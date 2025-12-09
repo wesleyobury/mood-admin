@@ -867,13 +867,13 @@ const styles = StyleSheet.create({
   workoutTitle: {
     fontSize: 22,
     fontWeight: 'bold',
-    color: '#FFD700',
+    color: '#ffffff',
     marginBottom: 8,
   },
   equipmentTag: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: 'rgba(255, 215, 0, 0.1)',
+    backgroundColor: 'rgba(255, 255, 255, 0.1)',
     paddingHorizontal: 12,
     paddingVertical: 6,
     borderRadius: 20,
@@ -882,7 +882,7 @@ const styles = StyleSheet.create({
   },
   equipmentText: {
     fontSize: 14,
-    color: '#FFD700',
+    color: '#ffffff',
     fontWeight: '600',
   },
   workoutMeta: {
