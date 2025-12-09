@@ -524,7 +524,7 @@ const styles = StyleSheet.create({
   headerTitle: {
     fontSize: 20,
     fontWeight: 'bold',
-    color: '#FFD700',
+    color: '#ffffff',
     textAlign: 'center',
   },
   headerSubtitle: {
@@ -644,7 +644,7 @@ const styles = StyleSheet.create({
   workoutCount: {
     fontSize: 12,
     fontWeight: 'bold',
-    color: '#FFD700',
+    color: '#ffffff',
   },
   workoutList: {
     height: 380,
@@ -687,7 +687,7 @@ const styles = StyleSheet.create({
   },
   swipeText: {
     fontSize: 11,
-    color: '#FFD700',
+    color: '#ffffff',
     marginLeft: 4,
     fontWeight: '600',
   },
@@ -708,7 +708,7 @@ const styles = StyleSheet.create({
   },
   workoutDuration: {
     fontSize: 14,
-    color: '#FFD700',
+    color: '#ffffff',
     fontWeight: 'bold',
   },
   difficultyBadge: {
@@ -860,6 +860,6 @@ const styles = StyleSheet.create({
   addToCartButtonText: {
     fontSize: 11,
     fontWeight: '600',
-    color: '#FFD700',
+    color: '#ffffff',
   },
 });
