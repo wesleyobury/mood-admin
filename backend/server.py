@@ -645,6 +645,63 @@ async def get_user_following(user_id: str, limit: int = 50, skip: int = 0):
     except:
         raise HTTPException(status_code=404, detail="User not found")
 
+@api_router.get("/users/search/query")
+async def search_users(
+    q: str,
+    current_user_id: str = Depends(get_current_user),
+    limit: int = 20
+):
+    """Search for users by username or name"""
+    try:
+        if not q or len(q.strip()) < 1:
+            return []
+        
+        search_query = q.strip()
+        
+        # Search in username and name fields (case-insensitive)
+        query = {
+            "$or": [
+                {"username": {"$regex": search_query, "$options": "i"}},
+                {"name": {"$regex": search_query, "$options": "i"}}
+            ]
+        }
+        
+        users = await db.users.find(query).limit(limit).to_list(length=limit)
+        
+        result = []
+        current_user_obj_id = ObjectId(current_user_id)
+        
+        for user in users:
+            user_id = user["_id"]
+            
+            # Check if current user is following this user
+            is_following = False
+            if user_id != current_user_obj_id:
+                follow = await db.follows.find_one({
+                    "follower_id": current_user_obj_id,
+                    "following_id": user_id
+                })
+                is_following = follow is not None
+            
+            result.append({
+                "id": str(user_id),
+                "username": user["username"],
+                "name": user.get("name", ""),
+                "bio": user.get("bio", ""),
+                "avatar": user.get("avatar", ""),
+                "followers_count": user.get("followers_count", 0),
+                "following_count": user.get("following_count", 0),
+                "is_following": is_following,
+                "is_self": user_id == current_user_obj_id
+            })
+        
+        return result
+    
+    except Exception as e:
+        logger.error(f"User search error: {str(e)}")
+        raise HTTPException(status_code=500, detail=f"Search failed: {str(e)}")
+
+
 @api_router.get("/users/{user_id}/posts")
 async def get_user_posts(
     user_id: str,
