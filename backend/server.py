@@ -27,6 +27,16 @@ from auth import (
     clear_session_cookie,
     get_session_token_from_request
 )
+from auth_tracking import (
+    track_login_event,
+    update_auth_metadata,
+    create_session_record,
+    deactivate_session,
+    get_active_sessions,
+    get_login_history,
+    get_client_ip,
+    get_user_agent
+)
 
 ROOT_DIR = Path(__file__).parent
 load_dotenv(ROOT_DIR / '.env')
