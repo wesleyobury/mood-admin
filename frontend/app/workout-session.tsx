@@ -115,6 +115,18 @@ export default function WorkoutSessionScreen() {
 
     console.log('Workout stats data:', workoutStatsData);
 
+    // Track workout completion
+    if (token && sessionWorkouts.length > 0) {
+      const firstWorkout = sessionWorkouts[0];
+      Analytics.workoutCompleted(token, {
+        mood_category: firstWorkout.workoutType || 'Unknown',
+        difficulty: firstWorkout.difficulty,
+        equipment: firstWorkout.equipment,
+        duration_minutes: totalDuration,
+        exercises_completed: sessionWorkouts.length
+      });
+    }
+
     // Clear cart
     clearCart();
     console.log('Cart cleared');
