@@ -25,6 +25,10 @@ interface PlatformStats {
   new_users: number;
   total_workouts_completed: number;
   total_posts_created: number;
+  total_likes: number;
+  total_comments: number;
+  total_follows: number;
+  total_unfollows: number;
   retention_rate: number;
   average_workouts_per_active_user: number;
   popular_mood_categories: Array<{ mood: string; count: number }>;
