@@ -19,6 +19,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useAuth } from '../../contexts/AuthContext';
 import ImageCarousel from '../../components/ImageCarousel';
 import CommentsBottomSheet from '../../components/CommentsBottomSheet';
+import { Analytics } from '../../utils/analytics';
 
 const API_URL = process.env.EXPO_PUBLIC_BACKEND_URL || '';
 
