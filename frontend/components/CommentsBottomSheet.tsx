@@ -181,7 +181,7 @@ export default function CommentsBottomSheet({ postId, authToken, onClose, onComm
       {/* Input Section - Fixed at bottom with KeyboardAvoidingView */}
       <KeyboardAvoidingView 
         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-        keyboardVerticalOffset={Platform.OS === 'ios' ? 140 : 20}
+        keyboardVerticalOffset={Platform.OS === 'ios' ? 200 : 50}
       >
         <View style={[styles.inputContainer, { paddingBottom: Math.max(insets.bottom, 16) }]}>
           <TextInput
