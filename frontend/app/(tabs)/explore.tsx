@@ -194,14 +194,24 @@ export default function Explore() {
       });
 
       if (response.ok) {
+        const data = await response.json();
+        const isNowFollowing = data.following;
+
         // Update search results
         setSearchResults(prevResults =>
           prevResults.map(user =>
             user.id === userId
-              ? { ...user, is_following: !user.is_following }
+              ? { ...user, is_following: isNowFollowing }
               : user
           )
         );
+
+        // Track follow/unfollow
+        if (isNowFollowing) {
+          Analytics.userFollowed(token, { followed_user_id: userId });
+        } else {
+          Analytics.userUnfollowed(token, { unfollowed_user_id: userId });
+        }
       }
     } catch (error) {
       console.error('Error toggling follow:', error);
