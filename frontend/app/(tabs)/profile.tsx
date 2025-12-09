@@ -405,9 +405,18 @@ export default function Profile() {
             <Text style={styles.bio}>{user.bio}</Text>
           </View>
 
-          <TouchableOpacity style={styles.editButton} onPress={handleEditProfile}>
-            <Text style={styles.editButtonText}>Edit Profile</Text>
-          </TouchableOpacity>
+          <View style={styles.buttonRow}>
+            <TouchableOpacity style={styles.editButton} onPress={handleEditProfile}>
+              <Text style={styles.editButtonText}>Edit Profile</Text>
+            </TouchableOpacity>
+            <TouchableOpacity 
+              style={styles.statsButton} 
+              onPress={() => router.push('/user-stats')}
+            >
+              <Ionicons name="stats-chart" size={18} color="#000" />
+              <Text style={styles.statsButtonText}>Stats</Text>
+            </TouchableOpacity>
+          </View>
 
           {/* Current Streak */}
           <View style={styles.streakContainer}>
