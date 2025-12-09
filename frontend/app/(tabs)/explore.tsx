@@ -328,8 +328,86 @@ export default function Explore() {
         </View>
       </View>
 
+      {/* Search Bar */}
+      {showSearch && (
+        <View style={styles.searchContainer}>
+          <View style={styles.searchInputContainer}>
+            <Ionicons name="search" size={20} color="#888" style={styles.searchIcon} />
+            <TextInput
+              style={styles.searchInput}
+              placeholder="Search users..."
+              placeholderTextColor="#666"
+              value={searchQuery}
+              onChangeText={handleSearchChange}
+              autoFocus
+            />
+            {searchQuery.length > 0 && (
+              <TouchableOpacity onPress={() => { setSearchQuery(''); setSearchResults([]); }}>
+                <Ionicons name="close-circle" size={20} color="#888" />
+              </TouchableOpacity>
+            )}
+          </View>
+        </View>
+      )}
+
+      {/* Search Results */}
+      {showSearch && searchQuery.length > 0 && (
+        <ScrollView style={styles.searchResults}>
+          {searchLoading ? (
+            <View style={styles.searchLoadingContainer}>
+              <ActivityIndicator size="small" color="#FFD700" />
+            </View>
+          ) : searchResults.length === 0 ? (
+            <View style={styles.noResultsContainer}>
+              <Text style={styles.noResultsText}>No users found</Text>
+            </View>
+          ) : (
+            searchResults.map((user) => (
+              <View key={user.id} style={styles.userResultCard}>
+                <TouchableOpacity
+                  style={styles.userResultInfo}
+                  onPress={() => handleProfile(user.id)}
+                >
+                  {user.avatar ? (
+                    <Image source={{ uri: user.avatar }} style={styles.userResultAvatar} />
+                  ) : (
+                    <View style={[styles.userResultAvatar, styles.avatarPlaceholder]}>
+                      <Ionicons name="person" size={24} color="#666" />
+                    </View>
+                  )}
+                  <View style={styles.userResultDetails}>
+                    <Text style={styles.userResultName}>{user.name || user.username}</Text>
+                    <Text style={styles.userResultUsername}>@{user.username}</Text>
+                    {user.bio && <Text style={styles.userResultBio} numberOfLines={1}>{user.bio}</Text>}
+                    <Text style={styles.userResultStats}>
+                      {user.followers_count} followers · {user.following_count} following
+                    </Text>
+                  </View>
+                </TouchableOpacity>
+                {!user.is_self && (
+                  <TouchableOpacity
+                    style={[
+                      styles.followButton,
+                      user.is_following && styles.followingButton
+                    ]}
+                    onPress={() => handleFollowToggle(user.id)}
+                  >
+                    <Text style={[
+                      styles.followButtonText,
+                      user.is_following && styles.followingButtonText
+                    ]}>
+                      {user.is_following ? 'Following' : 'Follow'}
+                    </Text>
+                  </TouchableOpacity>
+                )}
+              </View>
+            ))
+          )}
+        </ScrollView>
+      )}
+
       {/* Feed Type Tabs */}
-      <View style={styles.tabContainer}>
+      {!showSearch && <View style={styles.tabContainer}>
         <TouchableOpacity
           style={[styles.tab, activeTab === 'forYou' && styles.activeTab]}
           onPress={() => setActiveTab('forYou')}
