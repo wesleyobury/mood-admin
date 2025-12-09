@@ -71,7 +71,12 @@ const AnimatedMoodCard = ({ mood, index, onPress }: {
           <Animated.View 
             style={[
               styles.iconContainer,
-              { transform: [{ rotateY }] }
+              { 
+                transform: [
+                  { perspective: 1000 },
+                  { rotateY }
+                ] 
+              }
             ]}
           >
             <Ionicons 
