@@ -221,9 +221,6 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#000',
   },
-  innerContainer: {
-    flex: 1,
-  },
   scrollContent: {
     paddingBottom: 20,
   },
