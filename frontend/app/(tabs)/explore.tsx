@@ -263,6 +263,11 @@ export default function Explore() {
               : post
           )
         );
+
+        // Track like event
+        if (data.liked) {
+          Analytics.postLiked(token, { post_id: postId });
+        }
       }
     } catch (error) {
       console.error('Error liking post:', error);
