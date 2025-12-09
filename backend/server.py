@@ -37,6 +37,15 @@ from auth_tracking import (
     get_client_ip,
     get_user_agent
 )
+from user_analytics import (
+    track_user_event,
+    get_user_activity_summary,
+    get_feature_usage_stats,
+    get_workout_analytics,
+    get_social_engagement_stats,
+    get_admin_analytics,
+    get_user_journey
+)
 
 ROOT_DIR = Path(__file__).parent
 load_dotenv(ROOT_DIR / '.env')
