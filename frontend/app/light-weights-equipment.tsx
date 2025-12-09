@@ -78,22 +78,27 @@ const EquipmentCard = ({
       onPress={() => onPress(equipment)}
       activeOpacity={0.8}
     >
-      <View style={[
-        styles.equipmentIconContainer,
-        isSelected && styles.equipmentIconContainerSelected
-      ]}>
-        <Ionicons 
-          name={equipment.icon} 
-          size={20} 
-          color="#FFD700" 
-        />
+      <View style={styles.equipmentLeft}>
+        <View style={[
+          styles.equipmentIconContainer,
+          isSelected && styles.equipmentIconContainerSelected
+        ]}>
+          <Ionicons 
+            name={equipment.icon} 
+            size={20} 
+            color="#FFD700" 
+          />
+        </View>
+        <Text style={[
+          styles.equipmentName,
+          isSelected && styles.equipmentNameSelected
+        ]}>
+          {equipment.name}
+        </Text>
       </View>
-      <Text style={[
-        styles.equipmentName,
-        isSelected && styles.equipmentNameSelected
-      ]}>
-        {equipment.name}
-      </Text>
+      {isSelected && (
+        <Ionicons name="checkmark-circle" size={24} color="#FFD700" />
+      )}
     </TouchableOpacity>
   );
 };
