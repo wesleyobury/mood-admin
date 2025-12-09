@@ -118,7 +118,6 @@ export default function Welcome() {
 
             <Text style={styles.description}>
               Nearly 1,000 curated workouts. Choose based on your mood, equipment, and goals.
-              Train smarter, not harder.
             </Text>
           </View>
 
