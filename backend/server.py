@@ -1,4 +1,4 @@
-from fastapi import FastAPI, APIRouter, HTTPException, Depends, UploadFile, File, Form
+from fastapi import FastAPI, APIRouter, HTTPException, Depends, UploadFile, File, Form, Request, Response
 from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
 from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
@@ -17,6 +17,16 @@ import jwt
 import bcrypt
 import base64
 import aiofiles
+from auth import (
+    exchange_session_id_for_token,
+    create_or_update_user,
+    store_session,
+    get_user_from_session_token,
+    delete_session,
+    set_session_cookie,
+    clear_session_cookie,
+    get_session_token_from_request
+)
 
 ROOT_DIR = Path(__file__).parent
 load_dotenv(ROOT_DIR / '.env')
