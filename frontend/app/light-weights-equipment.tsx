@@ -486,6 +486,12 @@ const styles = StyleSheet.create({
     shadowRadius: 12,
     elevation: 8,
   },
+  equipmentLeft: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 12,
+  },
+
   equipmentIconContainer: {
     width: 36,
     height: 36,
