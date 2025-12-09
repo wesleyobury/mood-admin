@@ -312,6 +312,12 @@ export default function Explore() {
         <Text style={styles.title}>Explore</Text>
         <View style={styles.headerActions}>
           <TouchableOpacity 
+            style={styles.searchButton}
+            onPress={() => setShowSearch(!showSearch)}
+          >
+            <Ionicons name={showSearch ? "close" : "search"} size={24} color="#FFD700" />
+          </TouchableOpacity>
+          <TouchableOpacity 
             style={styles.createButton}
             onPress={handleCreatePost}
           >
