@@ -1051,7 +1051,7 @@ const styles = StyleSheet.create({
   preparationTitle: {
     fontSize: 16,
     fontWeight: 'bold',
-    color: '#FFD700',
+    color: '#ffffff',
   },
   preparationList: {
     gap: 8,
