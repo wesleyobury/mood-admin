@@ -225,6 +225,80 @@ async def login(login_data: UserLogin):
         "user_id": str(user["_id"])
     }
 
+# Emergent Auth Endpoints
+
+@api_router.post("/auth/oauth/callback")
+async def emergent_auth_callback(
+    session_id: str,
+    response: Response
+):
+    """
+    Handle OAuth callback from Emergent Auth
+    Exchange session_id for user data and create/update user session
+    """
+    logger.info(f"Processing Emergent Auth callback with session_id")
+    
+    # Exchange session_id for user data
+    user_data = await exchange_session_id_for_token(session_id)
+    
+    # Create or get existing user
+    user_id = await create_or_update_user(db, user_data)
+    
+    # Store session in database
+    await store_session(db, user_id, user_data.session_token)
+    
+    # Set httpOnly cookie
+    set_session_cookie(response, user_data.session_token)
+    
+    logger.info(f"OAuth login successful for: {user_data.email}")
+    
+    return {
+        "message": "Login successful",
+        "session_token": user_data.session_token,
+        "user_id": user_id
+    }
+
+@api_router.get("/auth/session")
+async def check_session(request: Request):
+    """
+    Check if current session is valid
+    Returns user data if authenticated, 401 if not
+    """
+    session_token = await get_session_token_from_request(request)
+    
+    if not session_token:
+        raise HTTPException(status_code=401, detail="No session token provided")
+    
+    user = await get_user_from_session_token(db, session_token)
+    
+    if not user:
+        raise HTTPException(status_code=401, detail="Invalid or expired session")
+    
+    return {
+        "authenticated": True,
+        "user": {
+            "user_id": user["user_id"],
+            "email": user["email"],
+            "username": user["username"],
+            "name": user["name"],
+            "avatar": user.get("avatar")
+        }
+    }
+
+@api_router.post("/auth/logout")
+async def logout(request: Request, response: Response):
+    """
+    Logout user and clear session
+    """
+    session_token = await get_session_token_from_request(request)
+    
+    if session_token:
+        await delete_session(db, session_token)
+    
+    clear_session_cookie(response)
+    
+    return {"message": "Logged out successfully"}
+
 # User Endpoints
 
 @api_router.get("/users/me", response_model=UserResponse)
