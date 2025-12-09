@@ -1891,7 +1891,7 @@ const styles = StyleSheet.create({
   },
   swipeText: {
     fontSize: 12,
-    color: '#FFD700',
+    color: '#ffffff',
     marginLeft: 4,
     fontWeight: '600',
   },
