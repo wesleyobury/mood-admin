@@ -252,6 +252,37 @@ export default function AdminDashboard() {
           </View>
         </View>
 
+        {/* Social Engagement */}
+        <View style={styles.section}>
+          <Text style={styles.sectionTitle}>Social Activity</Text>
+          
+          <View style={styles.socialGrid}>
+            <View style={styles.socialCard}>
+              <Ionicons name="heart" size={20} color="#E91E63" />
+              <Text style={styles.socialValue}>{stats?.total_likes.toLocaleString()}</Text>
+              <Text style={styles.socialLabel}>Likes</Text>
+            </View>
+
+            <View style={styles.socialCard}>
+              <Ionicons name="chatbubble" size={20} color="#2196F3" />
+              <Text style={styles.socialValue}>{stats?.total_comments.toLocaleString()}</Text>
+              <Text style={styles.socialLabel}>Comments</Text>
+            </View>
+
+            <View style={styles.socialCard}>
+              <Ionicons name="person-add" size={20} color="#4CAF50" />
+              <Text style={styles.socialValue}>{stats?.total_follows.toLocaleString()}</Text>
+              <Text style={styles.socialLabel}>Follows</Text>
+            </View>
+
+            <View style={styles.socialCard}>
+              <Ionicons name="person-remove" size={20} color="#FF5722" />
+              <Text style={styles.socialValue}>{stats?.total_unfollows.toLocaleString()}</Text>
+              <Text style={styles.socialLabel}>Unfollows</Text>
+            </View>
+          </View>
+        </View>
+
         {/* Popular Moods */}
         {moodData && (
           <View style={styles.section}>
