@@ -172,6 +172,7 @@ const moodCards: MoodCard[] = [
 
 export default function WorkoutsHome() {
   const [greeting, setGreeting] = useState('');
+  const [userStats, setUserStats] = useState({ workouts: 0, minutes: 0, streak: 0 });
   const insets = useSafeAreaInsets();
   const router = useRouter();
   const { token } = useAuth();
@@ -182,6 +183,33 @@ export default function WorkoutsHome() {
     else if (hour < 18) setGreeting('Good afternoon');
     else setGreeting('Good evening');
   }, []);
+
+  // Fetch user workout stats
+  useEffect(() => {
+    const fetchUserStats = async () => {
+      if (!token) return;
+      
+      try {
+        const API_URL = process.env.EXPO_PUBLIC_BACKEND_URL || '';
+        const response = await fetch(`${API_URL}/api/users/me/stats`, {
+          headers: { Authorization: `Bearer ${token}` },
+        });
+        
+        if (response.ok) {
+          const data = await response.json();
+          setUserStats({
+            workouts: data.workouts_completed || 0,
+            minutes: data.total_minutes || 0,
+            streak: data.current_streak || 0,
+          });
+        }
+      } catch (error) {
+        console.log('Error fetching user stats:', error);
+      }
+    };
+    
+    fetchUserStats();
+  }, [token]);
 
   const handleMoodSelect = (mood: MoodCard) => {
     console.log('Selected mood:', mood.title);
