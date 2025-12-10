@@ -794,14 +794,13 @@ const styles = StyleSheet.create({
     right: 0,
     padding: 20,
     paddingTop: 60,
-    background: 'linear-gradient(transparent, rgba(0,0,0,0.8))',
+    backgroundColor: 'rgba(0,0,0,0.6)',
   },
   carouselTitle: {
     fontSize: 20,
     fontWeight: '700',
     color: '#fff',
     marginBottom: 4,
-    textShadow: '0px 2px 4px rgba(0,0,0,0.5)',
   },
   carouselTrainer: {
     fontSize: 14,
