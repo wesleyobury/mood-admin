@@ -93,6 +93,14 @@ export default function WorkoutSessionScreen() {
 
   const handleNextWorkout = () => {
     if (!isLastWorkout) {
+      // Track exercise/workout completed
+      if (token && currentWorkout) {
+        Analytics.exerciseCompleted(token, {
+          exercise_name: currentWorkout.workoutName,
+          sets: 1,
+          reps: 1,
+        });
+      }
       setCurrentIndex(currentIndex + 1);
     }
   };
