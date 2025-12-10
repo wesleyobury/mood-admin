@@ -291,7 +291,7 @@ export default function Welcome() {
           <View style={styles.actionSection}>
             <TouchableOpacity 
               style={styles.primaryButton} 
-              onPress={() => router.push('/auth/login')}
+              onPress={handleGetStarted}
             >
               <LinearGradient
                 colors={['#FFD700', '#FFA500']}
