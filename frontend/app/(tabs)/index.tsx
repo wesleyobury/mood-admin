@@ -26,50 +26,45 @@ const { width: SCREEN_WIDTH } = Dimensions.get('window');
 const CARD_WIDTH = SCREEN_WIDTH - 48; // 24px padding on each side
 const CARD_MARGIN = 8;
 
-// Workout carousel data - 5 featured workouts with real images
+// Workout carousel data - 5 featured workouts with mood + workout format
 const featuredWorkouts = [
   {
     id: '1',
-    title: '20 min Glutes & Legs Strength',
-    trainer: 'Rad Lopez',
-    duration: '20 min',
-    type: 'Lower Body',
+    mood: 'Muscle Gainer',
+    title: 'Compound Legs',
+    duration: '25 min',
     badge: 'Top pick',
     image: 'https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=800&h=600&fit=crop',
   },
   {
     id: '2',
-    title: '30 min Full Body HIIT',
-    trainer: 'Sarah Chen',
+    mood: 'I Want to Sweat',
+    title: 'HIIT Cardio Blast',
     duration: '30 min',
-    type: 'Cardio',
     badge: 'Trending',
     image: 'https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=800&h=600&fit=crop',
   },
   {
     id: '3',
-    title: '15 min Core Blast',
-    trainer: 'Marcus Johnson',
-    duration: '15 min',
-    type: 'Abs',
-    badge: 'Quick burn',
+    mood: 'Calisthenics',
+    title: 'Pull Up Volume',
+    duration: '20 min',
+    badge: 'Popular',
     image: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&h=600&fit=crop',
   },
   {
     id: '4',
-    title: '25 min Upper Body Power',
-    trainer: 'Emma Davis',
-    duration: '25 min',
-    type: 'Strength',
+    mood: 'Build Explosion',
+    title: 'Plyometric Power',
+    duration: '15 min',
     badge: 'New',
     image: 'https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?w=800&h=600&fit=crop',
   },
   {
     id: '5',
-    title: '40 min Yoga Flow',
-    trainer: 'Alex Rivera',
-    duration: '40 min',
-    type: 'Mindfulness',
+    mood: "I'm Feeling Lazy",
+    title: 'Gentle Stretch Flow',
+    duration: '20 min',
     badge: 'Staff pick',
     image: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=800&h=600&fit=crop',
   },
@@ -96,28 +91,58 @@ const WorkoutCarouselCard = ({ workout }: { workout: typeof featuredWorkouts[0] 
         <Ionicons name="bookmark-outline" size={22} color="rgba(255,255,255,0.8)" />
       </TouchableOpacity>
       
-      {/* Bottom info */}
+      {/* Bottom info - mood + workout format */}
       <View style={styles.carouselInfo}>
-        <Text style={styles.carouselTitle}>{workout.title}</Text>
-        <Text style={styles.carouselTrainer}>{workout.trainer}</Text>
+        <Text style={styles.carouselTitle}>{workout.mood} - {workout.title}</Text>
+        <Text style={styles.carouselDuration}>{workout.duration}</Text>
       </View>
     </View>
   );
 };
 
-// Carousel Pagination Dots
+// Animated Carousel Pagination Dots
 const CarouselDots = ({ activeIndex, total }: { activeIndex: number; total: number }) => {
+  const animatedValues = useRef(
+    Array.from({ length: total }, () => new Animated.Value(0))
+  ).current;
+
+  useEffect(() => {
+    // Animate all dots
+    animatedValues.forEach((anim, index) => {
+      Animated.spring(anim, {
+        toValue: index === activeIndex ? 1 : 0,
+        useNativeDriver: false,
+        tension: 50,
+        friction: 7,
+      }).start();
+    });
+  }, [activeIndex]);
+
   return (
     <View style={styles.dotsContainer}>
-      {Array.from({ length: total }).map((_, index) => (
-        <View
-          key={index}
-          style={[
-            styles.dot,
-            index === activeIndex ? styles.activeDot : styles.inactiveDot,
-          ]}
-        />
-      ))}
+      {animatedValues.map((anim, index) => {
+        const width = anim.interpolate({
+          inputRange: [0, 1],
+          outputRange: [8, 24],
+        });
+        const backgroundColor = anim.interpolate({
+          inputRange: [0, 1],
+          outputRange: ['rgba(255, 255, 255, 0.3)', '#ffffff'],
+        });
+        
+        return (
+          <Animated.View
+            key={index}
+            style={[
+              styles.dot,
+              {
+                width,
+                backgroundColor,
+              },
+            ]}
+          />
+        );
+      })}
     </View>
   );
 };
