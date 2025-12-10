@@ -1,9 +1,28 @@
 import { Tabs } from 'expo-router';
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Platform } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+import { useAuth } from '../../contexts/AuthContext';
+import { Analytics } from '../../utils/analytics';
 
 export default function TabLayout() {
+  const { token } = useAuth();
+  const previousTab = useRef<string>('index');
+
+  const trackTabSwitch = (toTab: string) => {
+    if (token && previousTab.current !== toTab) {
+      Analytics.tabSwitched(token, {
+        from_tab: previousTab.current,
+        to_tab: toTab,
+      });
+      Analytics.screenViewed(token, {
+        screen_name: toTab,
+        previous_screen: previousTab.current,
+      });
+      previousTab.current = toTab;
+    }
+  };
+
   return (
     <Tabs
       screenOptions={{
@@ -25,7 +44,14 @@ export default function TabLayout() {
         sceneStyle: {
           backgroundColor: '#0c0c0c',
         },
-      }}>
+      }}
+      screenListeners={{
+        tabPress: (e) => {
+          const tabName = e.target?.split('-')[0] || '';
+          trackTabSwitch(tabName);
+        },
+      }}
+    >
       <Tabs.Screen
         name="index"
         options={{
