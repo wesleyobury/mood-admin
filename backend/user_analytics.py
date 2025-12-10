@@ -637,3 +637,535 @@ async def get_user_journey(
     except Exception as e:
         logger.error(f"Error getting user journey: {e}")
         return []
+
+
+
+# ============================================
+# DETAILED ANALYTICS DRILL-DOWN FUNCTIONS
+# ============================================
+
+async def get_all_users_detail(
+    db: AsyncIOMotorDatabase,
+    days: int = 30,
+    limit: int = 100,
+    skip: int = 0
+) -> Dict[str, Any]:
+    """Get all users with their activity summary"""
+    try:
+        start_date = datetime.now(timezone.utc) - timedelta(days=days)
+        
+        # Get all users
+        users = await db.users.find({}).sort("created_at", -1).skip(skip).limit(limit).to_list(length=limit)
+        total_count = await db.users.count_documents({})
+        
+        user_details = []
+        for user in users:
+            user_id = str(user["_id"])
+            
+            # Get activity counts for this user in period
+            workouts = await db.user_events.count_documents({
+                "user_id": user_id,
+                "event_type": "workout_completed",
+                "timestamp": {"$gte": start_date}
+            })
+            
+            posts = await db.user_events.count_documents({
+                "user_id": user_id,
+                "event_type": "post_created",
+                "timestamp": {"$gte": start_date}
+            })
+            
+            sessions = await db.user_events.count_documents({
+                "user_id": user_id,
+                "event_type": "app_session_start",
+                "timestamp": {"$gte": start_date}
+            })
+            
+            user_details.append({
+                "user_id": user_id,
+                "username": user.get("username", "Unknown"),
+                "email": user.get("email", ""),
+                "avatar_url": user.get("avatar_url", ""),
+                "created_at": user.get("created_at", datetime.now()).isoformat() if user.get("created_at") else None,
+                "workouts_completed": workouts,
+                "posts_created": posts,
+                "app_sessions": sessions,
+                "followers_count": user.get("followers_count", 0),
+                "following_count": user.get("following_count", 0),
+            })
+        
+        return {
+            "total_count": total_count,
+            "users": user_details,
+            "period_days": days
+        }
+        
+    except Exception as e:
+        logger.error(f"Error getting all users detail: {e}")
+        return {"total_count": 0, "users": [], "period_days": days}
+
+
+async def get_new_users_detail(
+    db: AsyncIOMotorDatabase,
+    days: int = 30,
+    limit: int = 100
+) -> Dict[str, Any]:
+    """Get new users who joined in the period"""
+    try:
+        start_date = datetime.now(timezone.utc) - timedelta(days=days)
+        
+        users = await db.users.find({
+            "created_at": {"$gte": start_date}
+        }).sort("created_at", -1).limit(limit).to_list(length=limit)
+        
+        total_count = await db.users.count_documents({
+            "created_at": {"$gte": start_date}
+        })
+        
+        user_details = []
+        for user in users:
+            user_details.append({
+                "user_id": str(user["_id"]),
+                "username": user.get("username", "Unknown"),
+                "email": user.get("email", ""),
+                "avatar_url": user.get("avatar_url", ""),
+                "created_at": user.get("created_at").isoformat() if user.get("created_at") else None,
+            })
+        
+        return {
+            "total_count": total_count,
+            "users": user_details,
+            "period_days": days
+        }
+        
+    except Exception as e:
+        logger.error(f"Error getting new users detail: {e}")
+        return {"total_count": 0, "users": [], "period_days": days}
+
+
+async def get_screen_views_breakdown(
+    db: AsyncIOMotorDatabase,
+    days: int = 30
+) -> Dict[str, Any]:
+    """Get breakdown of screen views"""
+    try:
+        start_date = datetime.now(timezone.utc) - timedelta(days=days)
+        
+        pipeline = [
+            {
+                "$match": {
+                    "event_type": "screen_viewed",
+                    "timestamp": {"$gte": start_date}
+                }
+            },
+            {
+                "$group": {
+                    "_id": "$metadata.screen_name",
+                    "count": {"$sum": 1},
+                    "unique_users": {"$addToSet": "$user_id"}
+                }
+            },
+            {
+                "$project": {
+                    "_id": 1,
+                    "count": 1,
+                    "unique_users_count": {"$size": "$unique_users"}
+                }
+            },
+            {"$sort": {"count": -1}},
+            {"$limit": 50}
+        ]
+        
+        results = await db.user_events.aggregate(pipeline).to_list(length=50)
+        total = sum(r["count"] for r in results)
+        
+        screens = []
+        for r in results:
+            if r["_id"]:
+                screens.append({
+                    "screen_name": r["_id"],
+                    "view_count": r["count"],
+                    "unique_users": r["unique_users_count"],
+                    "percentage": round((r["count"] / total * 100), 1) if total > 0 else 0
+                })
+        
+        return {
+            "total_views": total,
+            "screens": screens,
+            "period_days": days
+        }
+        
+    except Exception as e:
+        logger.error(f"Error getting screen views breakdown: {e}")
+        return {"total_views": 0, "screens": [], "period_days": days}
+
+
+async def get_mood_selections_breakdown(
+    db: AsyncIOMotorDatabase,
+    days: int = 30
+) -> Dict[str, Any]:
+    """Get breakdown of mood selections"""
+    try:
+        start_date = datetime.now(timezone.utc) - timedelta(days=days)
+        
+        pipeline = [
+            {
+                "$match": {
+                    "event_type": "mood_selected",
+                    "timestamp": {"$gte": start_date}
+                }
+            },
+            {
+                "$group": {
+                    "_id": "$metadata.mood_category",
+                    "count": {"$sum": 1},
+                    "unique_users": {"$addToSet": "$user_id"}
+                }
+            },
+            {
+                "$project": {
+                    "_id": 1,
+                    "count": 1,
+                    "unique_users_count": {"$size": "$unique_users"}
+                }
+            },
+            {"$sort": {"count": -1}}
+        ]
+        
+        results = await db.user_events.aggregate(pipeline).to_list(length=20)
+        total = sum(r["count"] for r in results)
+        
+        moods = []
+        for r in results:
+            if r["_id"]:
+                moods.append({
+                    "mood": r["_id"],
+                    "selection_count": r["count"],
+                    "unique_users": r["unique_users_count"],
+                    "percentage": round((r["count"] / total * 100), 1) if total > 0 else 0
+                })
+        
+        return {
+            "total_selections": total,
+            "moods": moods,
+            "period_days": days
+        }
+        
+    except Exception as e:
+        logger.error(f"Error getting mood selections breakdown: {e}")
+        return {"total_selections": 0, "moods": [], "period_days": days}
+
+
+async def get_equipment_selections_breakdown(
+    db: AsyncIOMotorDatabase,
+    days: int = 30
+) -> Dict[str, Any]:
+    """Get breakdown of equipment selections with mood paths"""
+    try:
+        start_date = datetime.now(timezone.utc) - timedelta(days=days)
+        
+        # Equipment breakdown
+        equipment_pipeline = [
+            {
+                "$match": {
+                    "event_type": "equipment_selected",
+                    "timestamp": {"$gte": start_date}
+                }
+            },
+            {
+                "$group": {
+                    "_id": "$metadata.equipment",
+                    "count": {"$sum": 1},
+                    "unique_users": {"$addToSet": "$user_id"},
+                    "mood_paths": {"$push": "$metadata.mood_category"}
+                }
+            },
+            {"$sort": {"count": -1}},
+            {"$limit": 30}
+        ]
+        
+        results = await db.user_events.aggregate(equipment_pipeline).to_list(length=30)
+        total = sum(r["count"] for r in results)
+        
+        equipment_list = []
+        for r in results:
+            if r["_id"]:
+                # Count mood paths
+                mood_counts = {}
+                for mood in r["mood_paths"]:
+                    if mood:
+                        mood_counts[mood] = mood_counts.get(mood, 0) + 1
+                
+                top_moods = sorted(mood_counts.items(), key=lambda x: x[1], reverse=True)[:3]
+                
+                equipment_list.append({
+                    "equipment": r["_id"],
+                    "selection_count": r["count"],
+                    "unique_users": len(set(r["unique_users"])) if r["unique_users"] else 0,
+                    "percentage": round((r["count"] / total * 100), 1) if total > 0 else 0,
+                    "top_mood_paths": [{"mood": m[0], "count": m[1]} for m in top_moods]
+                })
+        
+        return {
+            "total_selections": total,
+            "equipment": equipment_list,
+            "period_days": days
+        }
+        
+    except Exception as e:
+        logger.error(f"Error getting equipment selections breakdown: {e}")
+        return {"total_selections": 0, "equipment": [], "period_days": days}
+
+
+async def get_difficulty_selections_breakdown(
+    db: AsyncIOMotorDatabase,
+    days: int = 30
+) -> Dict[str, Any]:
+    """Get breakdown of difficulty selections"""
+    try:
+        start_date = datetime.now(timezone.utc) - timedelta(days=days)
+        
+        pipeline = [
+            {
+                "$match": {
+                    "event_type": "difficulty_selected",
+                    "timestamp": {"$gte": start_date}
+                }
+            },
+            {
+                "$group": {
+                    "_id": "$metadata.difficulty",
+                    "count": {"$sum": 1},
+                    "unique_users": {"$addToSet": "$user_id"},
+                    "mood_paths": {"$push": "$metadata.mood_category"}
+                }
+            },
+            {"$sort": {"count": -1}}
+        ]
+        
+        results = await db.user_events.aggregate(pipeline).to_list(length=10)
+        total = sum(r["count"] for r in results)
+        
+        difficulties = []
+        for r in results:
+            if r["_id"]:
+                difficulties.append({
+                    "difficulty": r["_id"],
+                    "selection_count": r["count"],
+                    "unique_users": len(set(r["unique_users"])) if r["unique_users"] else 0,
+                    "percentage": round((r["count"] / total * 100), 1) if total > 0 else 0
+                })
+        
+        return {
+            "total_selections": total,
+            "difficulties": difficulties,
+            "period_days": days
+        }
+        
+    except Exception as e:
+        logger.error(f"Error getting difficulty selections breakdown: {e}")
+        return {"total_selections": 0, "difficulties": [], "period_days": days}
+
+
+async def get_exercises_breakdown(
+    db: AsyncIOMotorDatabase,
+    days: int = 30
+) -> Dict[str, Any]:
+    """Get breakdown of exercises completed"""
+    try:
+        start_date = datetime.now(timezone.utc) - timedelta(days=days)
+        
+        pipeline = [
+            {
+                "$match": {
+                    "event_type": "exercise_completed",
+                    "timestamp": {"$gte": start_date}
+                }
+            },
+            {
+                "$group": {
+                    "_id": "$metadata.exercise_name",
+                    "count": {"$sum": 1},
+                    "unique_users": {"$addToSet": "$user_id"}
+                }
+            },
+            {
+                "$project": {
+                    "_id": 1,
+                    "count": 1,
+                    "unique_users_count": {"$size": "$unique_users"}
+                }
+            },
+            {"$sort": {"count": -1}},
+            {"$limit": 50}
+        ]
+        
+        results = await db.user_events.aggregate(pipeline).to_list(length=50)
+        total = sum(r["count"] for r in results)
+        
+        exercises = []
+        for r in results:
+            if r["_id"]:
+                exercises.append({
+                    "exercise_name": r["_id"],
+                    "completion_count": r["count"],
+                    "unique_users": r["unique_users_count"],
+                    "percentage": round((r["count"] / total * 100), 1) if total > 0 else 0
+                })
+        
+        return {
+            "total_completions": total,
+            "exercises": exercises,
+            "period_days": days
+        }
+        
+    except Exception as e:
+        logger.error(f"Error getting exercises breakdown: {e}")
+        return {"total_completions": 0, "exercises": [], "period_days": days}
+
+
+async def get_social_activity_breakdown(
+    db: AsyncIOMotorDatabase,
+    days: int = 30
+) -> Dict[str, Any]:
+    """Get breakdown of social activity (likes, comments, follows)"""
+    try:
+        start_date = datetime.now(timezone.utc) - timedelta(days=days)
+        
+        # Get top likers
+        likers_pipeline = [
+            {
+                "$match": {
+                    "event_type": "post_liked",
+                    "timestamp": {"$gte": start_date}
+                }
+            },
+            {
+                "$group": {
+                    "_id": "$user_id",
+                    "count": {"$sum": 1}
+                }
+            },
+            {"$sort": {"count": -1}},
+            {"$limit": 10}
+        ]
+        
+        top_likers = await db.user_events.aggregate(likers_pipeline).to_list(length=10)
+        
+        # Get top commenters
+        commenters_pipeline = [
+            {
+                "$match": {
+                    "event_type": "post_commented",
+                    "timestamp": {"$gte": start_date}
+                }
+            },
+            {
+                "$group": {
+                    "_id": "$user_id",
+                    "count": {"$sum": 1}
+                }
+            },
+            {"$sort": {"count": -1}},
+            {"$limit": 10}
+        ]
+        
+        top_commenters = await db.user_events.aggregate(commenters_pipeline).to_list(length=10)
+        
+        # Enrich with usernames
+        async def enrich_users(user_list):
+            enriched = []
+            for item in user_list:
+                user = await db.users.find_one({"_id": ObjectId(item["_id"])})
+                enriched.append({
+                    "user_id": item["_id"],
+                    "username": user.get("username", "Unknown") if user else "Unknown",
+                    "avatar_url": user.get("avatar_url", "") if user else "",
+                    "count": item["count"]
+                })
+            return enriched
+        
+        return {
+            "top_likers": await enrich_users(top_likers),
+            "top_commenters": await enrich_users(top_commenters),
+            "period_days": days
+        }
+        
+    except Exception as e:
+        logger.error(f"Error getting social activity breakdown: {e}")
+        return {"top_likers": [], "top_commenters": [], "period_days": days}
+
+
+async def get_workout_funnel_detail(
+    db: AsyncIOMotorDatabase,
+    days: int = 30
+) -> Dict[str, Any]:
+    """Get detailed workout funnel with user breakdowns"""
+    try:
+        start_date = datetime.now(timezone.utc) - timedelta(days=days)
+        
+        # Users who started workouts
+        started_pipeline = [
+            {
+                "$match": {
+                    "event_type": "workout_started",
+                    "timestamp": {"$gte": start_date}
+                }
+            },
+            {
+                "$group": {
+                    "_id": "$user_id",
+                    "count": {"$sum": 1}
+                }
+            }
+        ]
+        
+        # Users who completed workouts
+        completed_pipeline = [
+            {
+                "$match": {
+                    "event_type": "workout_completed",
+                    "timestamp": {"$gte": start_date}
+                }
+            },
+            {
+                "$group": {
+                    "_id": "$user_id",
+                    "count": {"$sum": 1}
+                }
+            }
+        ]
+        
+        # Users who abandoned workouts
+        abandoned_pipeline = [
+            {
+                "$match": {
+                    "event_type": "workout_abandoned",
+                    "timestamp": {"$gte": start_date}
+                }
+            },
+            {
+                "$group": {
+                    "_id": "$user_id",
+                    "count": {"$sum": 1}
+                }
+            }
+        ]
+        
+        started_users = await db.user_events.aggregate(started_pipeline).to_list(length=1000)
+        completed_users = await db.user_events.aggregate(completed_pipeline).to_list(length=1000)
+        abandoned_users = await db.user_events.aggregate(abandoned_pipeline).to_list(length=1000)
+        
+        return {
+            "users_who_started": len(started_users),
+            "users_who_completed": len(completed_users),
+            "users_who_abandoned": len(abandoned_users),
+            "total_starts": sum(u["count"] for u in started_users),
+            "total_completions": sum(u["count"] for u in completed_users),
+            "total_abandonments": sum(u["count"] for u in abandoned_users),
+            "period_days": days
+        }
+        
+    except Exception as e:
+        logger.error(f"Error getting workout funnel detail: {e}")
+        return {}
