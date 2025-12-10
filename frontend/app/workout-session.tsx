@@ -167,6 +167,15 @@ export default function WorkoutSessionScreen() {
           text: "Skip", 
           style: "default", 
           onPress: () => {
+            // Track workout skipped event
+            if (token && currentWorkout) {
+              Analytics.workoutSkipped(token, {
+                workout_name: currentWorkout.workoutName,
+                workout_index: currentIndex,
+                total_exercises: sessionWorkouts.length,
+              });
+            }
+            
             if (isLastWorkout) {
               handleFinishSession();
             } else {
