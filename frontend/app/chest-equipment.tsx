@@ -144,6 +144,7 @@ export default function ChestEquipmentScreen() {
   const router = useRouter();
   const params = useLocalSearchParams();
   const insets = useSafeAreaInsets();
+  const { token } = useAuth();
   
   const [selectedEquipment, setSelectedEquipment] = useState<EquipmentOption[]>([]);
   const [selectedDifficulty, setSelectedDifficulty] = useState<DifficultyLevel | null>(null);
@@ -158,7 +159,13 @@ export default function ChestEquipmentScreen() {
         // Remove from selection
         return prev.filter(item => item.id !== equipment.id);
       } else {
-        // Add to selection
+        // Add to selection - track equipment selected
+        if (token) {
+          Analytics.equipmentSelected(token, { 
+            equipment: equipment.name, 
+            mood_category: moodTitle 
+          });
+        }
         return [...prev, equipment];
       }
     });
@@ -166,6 +173,14 @@ export default function ChestEquipmentScreen() {
 
   const handleDifficultySelect = (level: DifficultyLevel) => {
     setSelectedDifficulty(level);
+    
+    // Track difficulty selected
+    if (token) {
+      Analytics.difficultySelected(token, { 
+        difficulty: level.id, 
+        mood_category: moodTitle 
+      });
+    }
   };
 
   const handleContinue = () => {
