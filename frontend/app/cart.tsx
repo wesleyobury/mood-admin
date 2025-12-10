@@ -128,6 +128,7 @@ export default function CartScreen() {
   const router = useRouter();
   const insets = useSafeAreaInsets();
   const { cartItems, removeFromCart, clearCart, reorderCart } = useCart();
+  const { token } = useAuth();
   const [isStarting, setIsStarting] = useState(false);
 
   const handleGoBack = () => {
