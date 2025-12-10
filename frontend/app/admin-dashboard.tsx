@@ -226,7 +226,7 @@ export default function AdminDashboard() {
                 <Text style={styles.engagementLabel}>Workouts</Text>
               </View>
               <Text style={styles.engagementValue}>
-                {stats?.total_workouts_completed.toLocaleString()}
+                {stats?.total_workouts_completed?.toLocaleString() || 0}
               </Text>
             </View>
 
@@ -238,22 +238,100 @@ export default function AdminDashboard() {
                 <Text style={styles.engagementLabel}>Posts</Text>
               </View>
               <Text style={styles.engagementValue}>
-                {stats?.total_posts_created.toLocaleString()}
+                {stats?.total_posts_created?.toLocaleString() || 0}
               </Text>
             </View>
           </View>
 
           <View style={styles.statsGrid}>
             <View style={styles.statBox}>
-              <Text style={styles.statBoxValue}>{stats?.retention_rate.toFixed(1)}%</Text>
+              <Text style={styles.statBoxValue}>{stats?.retention_rate?.toFixed(1) || 0}%</Text>
               <Text style={styles.statBoxLabel}>Retention Rate</Text>
             </View>
 
             <View style={styles.statBox}>
               <Text style={styles.statBoxValue}>
-                {stats?.average_workouts_per_active_user.toFixed(1)}
+                {stats?.average_workouts_per_active_user?.toFixed(1) || 0}
               </Text>
               <Text style={styles.statBoxLabel}>Avg Workouts/User</Text>
+            </View>
+          </View>
+        </View>
+
+        {/* Workout Funnel */}
+        <View style={styles.section}>
+          <Text style={styles.sectionTitle}>Workout Funnel</Text>
+          
+          <View style={styles.funnelContainer}>
+            <View style={styles.funnelItem}>
+              <View style={styles.funnelBar}>
+                <View style={[styles.funnelFill, { width: '100%', backgroundColor: '#4CAF50' }]} />
+              </View>
+              <View style={styles.funnelInfo}>
+                <Text style={styles.funnelLabel}>Started</Text>
+                <Text style={styles.funnelValue}>{stats?.total_workouts_started?.toLocaleString() || 0}</Text>
+              </View>
+            </View>
+
+            <View style={styles.funnelItem}>
+              <View style={styles.funnelBar}>
+                <View style={[styles.funnelFill, { 
+                  width: `${stats?.workout_completion_rate || 0}%`, 
+                  backgroundColor: '#FFD700' 
+                }]} />
+              </View>
+              <View style={styles.funnelInfo}>
+                <Text style={styles.funnelLabel}>Completed</Text>
+                <Text style={styles.funnelValue}>
+                  {stats?.total_workouts_completed?.toLocaleString() || 0}
+                  <Text style={styles.funnelPercent}> ({stats?.workout_completion_rate || 0}%)</Text>
+                </Text>
+              </View>
+            </View>
+
+            <View style={styles.funnelItem}>
+              <View style={styles.funnelBar}>
+                <View style={[styles.funnelFill, { 
+                  width: `${stats?.total_workouts_started ? ((stats?.total_workouts_skipped || 0) / stats.total_workouts_started * 100) : 0}%`, 
+                  backgroundColor: '#FF9800' 
+                }]} />
+              </View>
+              <View style={styles.funnelInfo}>
+                <Text style={styles.funnelLabel}>Skipped</Text>
+                <Text style={styles.funnelValue}>{stats?.total_workouts_skipped?.toLocaleString() || 0}</Text>
+              </View>
+            </View>
+
+            <View style={styles.funnelItem}>
+              <View style={styles.funnelBar}>
+                <View style={[styles.funnelFill, { 
+                  width: `${stats?.total_workouts_started ? ((stats?.total_workouts_abandoned || 0) / stats.total_workouts_started * 100) : 0}%`, 
+                  backgroundColor: '#F44336' 
+                }]} />
+              </View>
+              <View style={styles.funnelInfo}>
+                <Text style={styles.funnelLabel}>Abandoned</Text>
+                <Text style={styles.funnelValue}>{stats?.total_workouts_abandoned?.toLocaleString() || 0}</Text>
+              </View>
+            </View>
+          </View>
+        </View>
+
+        {/* App Sessions */}
+        <View style={styles.section}>
+          <Text style={styles.sectionTitle}>App Activity</Text>
+          
+          <View style={styles.socialGrid}>
+            <View style={styles.socialCard}>
+              <Ionicons name="log-in" size={20} color="#4CAF50" />
+              <Text style={styles.socialValue}>{stats?.total_app_sessions?.toLocaleString() || 0}</Text>
+              <Text style={styles.socialLabel}>App Sessions</Text>
+            </View>
+
+            <View style={styles.socialCard}>
+              <Ionicons name="eye" size={20} color="#9C27B0" />
+              <Text style={styles.socialValue}>{stats?.total_profile_views?.toLocaleString() || 0}</Text>
+              <Text style={styles.socialLabel}>Profile Views</Text>
             </View>
           </View>
         </View>
