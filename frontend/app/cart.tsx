@@ -159,6 +159,16 @@ export default function CartScreen() {
     
     setIsStarting(true);
     
+    // Track workout started event
+    if (token) {
+      const firstWorkout = cartItems[0];
+      Analytics.workoutStarted(token, {
+        mood_category: firstWorkout.moodCard || firstWorkout.workoutType,
+        difficulty: firstWorkout.difficulty,
+        equipment: firstWorkout.equipment,
+      });
+    }
+    
     // Navigate to the original workout guidance screen with the first workout
     const firstWorkout = cartItems[0];
     router.push({
