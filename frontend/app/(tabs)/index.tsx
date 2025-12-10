@@ -286,23 +286,14 @@ export default function WorkoutsHome() {
           </View>
         </View>
 
-        {/* Parallax Hero Image */}
+        {/* Hero Image */}
         <View style={styles.parallaxContainer}>
           <Image 
             source={{ uri: 'https://customer-assets.emergentagent.com/job_mood-workout-app/artifacts/kuk8f49i_download%20%282%29.webp' }}
-            style={[
-              styles.parallaxImage,
-              {
-                transform: [
-                  {
-                    translateY: scrollY * 0.5, // Parallax effect - image moves slower than scroll
-                  },
-                ],
-              },
-            ]}
+            style={styles.parallaxImage}
             resizeMode="cover"
-            onLoad={() => console.log('Parallax image loaded successfully')}
-            onError={(error) => console.log('Parallax image load error:', error.nativeEvent.error)}
+            onLoad={() => console.log('Hero image loaded successfully')}
+            onError={(error) => console.log('Hero image load error:', error.nativeEvent.error)}
           />
           <View style={styles.parallaxOverlay} />
         </View>
