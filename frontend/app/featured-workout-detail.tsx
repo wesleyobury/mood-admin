@@ -15,18 +15,22 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useAuth } from '../contexts/AuthContext';
 import { Analytics } from '../utils/analytics';
 
-// Define workout exercise type
+// Define workout exercise type matching the cart/guidance structure
 interface WorkoutExercise {
-  equipment: string;
   name: string;
-  icon: keyof typeof Ionicons.glyphMap;
-  description?: string;
-  battlePlan?: string;
-  duration?: string;
-  moodTips?: { icon: keyof typeof Ionicons.glyphMap; title: string; description: string }[];
+  equipment: string;
+  description: string;
+  battlePlan: string;
+  duration: string;
+  imageUrl: string;
+  intensityReason: string;
+  difficulty: string;
+  workoutType: string;
+  moodCard: string;
+  moodTips: { icon: keyof typeof Ionicons.glyphMap; title: string; description: string }[];
 }
 
-// Define the workout data for each featured workout
+// Define the workout data for each featured workout - using REAL workout data from the database
 const featuredWorkoutData: Record<string, {
   mood: string;
   title: string;
@@ -41,24 +45,32 @@ const featuredWorkoutData: Record<string, {
     image: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=800&h=600&fit=crop',
     exercises: [
       { 
-        equipment: 'Stationary Bike', 
-        name: 'Hill & Sprint', 
-        icon: 'bicycle',
-        description: '5 min warm-up at moderate resistance\n• 2 min seated climb (high resistance)\n• 1 min standing sprint (moderate resistance)\n• 2 min recovery spin\n• Repeat climb-sprint-recovery 3x\n• 5 min cool down',
-        battlePlan: 'Alternate between seated climbs and standing sprints. Keep cadence above 80 RPM during sprints. Focus on powerful leg drive during climbs.',
-        duration: '15 min',
+        name: 'Hill & Sprint',
+        equipment: 'Stationary bike',
+        description: 'Alternating seated climbs and standing sprints build explosive cardio power.',
+        battlePlan: '5 min warm-up at moderate resistance\n• 2 min seated climb (high resistance)\n• 1 min standing sprint (moderate resistance)\n• 2 min recovery spin\n• Repeat climb-sprint-recovery 3x\n• 5 min cool down',
+        duration: '20 min',
+        imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-images/artifacts/8k8d6fo4_download%20%2824%29.png',
+        intensityReason: 'Hill climbs build leg strength while sprints maximize calorie burn',
+        difficulty: 'intermediate',
+        workoutType: 'I Want to Sweat - Cardio Based',
+        moodCard: 'I Want to Sweat',
         moodTips: [
           { icon: 'speedometer', title: 'Maintain Cadence', description: 'Keep your pedaling cadence consistent during climbs for better muscle engagement.' },
           { icon: 'heart', title: 'Heart Rate Zone', description: 'Aim for 70-85% max heart rate during sprints, recover at 60% between intervals.' }
         ]
       },
       { 
-        equipment: 'Stair Master', 
-        name: 'Hill Climb', 
-        icon: 'trending-up',
-        description: '3 min warm-up at level 4\n• 2 min at level 7\n• 1 min at level 10 (power steps)\n• 2 min at level 5 (recovery)\n• Repeat high-power-recovery 4x\n• 3 min cool down at level 3',
-        battlePlan: 'Use the full range of motion on each step. Avoid holding the rails except for balance. Engage your glutes on each push.',
+        name: 'Hill Climb',
+        equipment: 'Stair master',
+        description: 'Progressive stair climbing builds cardiovascular endurance and leg strength.',
+        battlePlan: '3 min warm-up at level 4\n• 2 min at level 7\n• 1 min at level 10 (power steps)\n• 2 min at level 5 (recovery)\n• Repeat high-power-recovery 4x\n• 3 min cool down at level 3',
         duration: '18 min',
+        imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-app-ui/artifacts/clikf991_download.png',
+        intensityReason: 'Variable intensity stair climbing maximizes cardio adaptation',
+        difficulty: 'intermediate',
+        workoutType: 'I Want to Sweat - Cardio Based',
+        moodCard: 'I Want to Sweat',
         moodTips: [
           { icon: 'body', title: 'Posture Check', description: 'Stand tall with slight forward lean. Avoid hunching over the machine.' },
           { icon: 'flame', title: 'Glute Activation', description: 'Press through your heels to maximize glute engagement on each step.' }
@@ -72,64 +84,89 @@ const featuredWorkoutData: Record<string, {
     duration: '35–45 min',
     image: 'https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?w=800&h=600&fit=crop',
     exercises: [
+      // Back - Adjustable Bench - Chest Support Row (Intermediate)
       { 
-        equipment: 'Adjustable Bench', 
-        name: 'Chest Support Row', 
-        icon: 'fitness',
-        description: 'Set bench at 45° incline\n• Lie face down, arms hanging\n• 12 reps with 3-second negative\n• Rest 60 sec\n• 10 reps with pause at top\n• Rest 60 sec\n• 8 reps heavy, controlled',
-        battlePlan: 'Keep chest pressed into bench throughout. Squeeze shoulder blades together at the top of each rep. Control the descent.',
-        duration: '8 min',
+        name: 'Chest-Support Row',
+        equipment: 'Adjustable bench',
+        description: 'Supported rows and flies promote strict contraction',
+        battlePlan: '4 rounds\n• 8 Chest-Supported Dumbbell Row\nRest 75–90s\n• 10 Incline Prone Reverse Fly\nRest 75–90s',
+        duration: '14–16 min',
+        imageUrl: 'https://customer-assets.emergentagent.com/job_0b65e409-b210-4730-af62-16b022c37685/artifacts/q6jestgn_download.png',
+        intensityReason: 'Neutral spine from support isolates lats + traps',
+        difficulty: 'intermediate',
+        workoutType: 'Muscle Gainer - Back & Bis Volume',
+        moodCard: 'Muscle Gainer',
         moodTips: [
-          { icon: 'fitness', title: 'Scapular Retraction', description: 'Initiate each rep by pulling shoulder blades together before bending elbows.' },
-          { icon: 'timer', title: 'Time Under Tension', description: 'Slow negatives build more muscle. Count 3 seconds on the way down.' }
+          { icon: 'flash', title: "Don't yank dumbbells—steady elbows driving back.", description: 'Controlled elbow drive maximizes lat activation over momentum.' },
+          { icon: 'timer', title: 'Go light on reverse fly, pause 1s at top.', description: 'Peak contraction pause enhances rear delt development.' }
         ]
       },
+      // Back - T-Bar Row Machine - Slow Neg Row (Intermediate)
       { 
-        equipment: 'T-Bar Row Machine', 
-        name: 'Slow Neg Row', 
-        icon: 'barbell',
-        description: 'Load moderate weight\n• 10 reps with 4-second negative\n• Rest 90 sec\n• 8 reps with 5-second negative\n• Rest 90 sec\n• 6 reps max weight, controlled negative',
-        battlePlan: 'Brace core, hinge at hips. Pull to lower chest. Emphasize the slow lowering phase for maximum muscle breakdown.',
-        duration: '10 min',
+        name: 'Slow Neg Row',
+        equipment: 'T bar row machine',
+        description: 'Time-under-tension row progression provides a challenging switchup',
+        battlePlan: '4 rounds\n• 8 Neutral Grip Row (3–4s eccentric)\nRest 90s after set',
+        duration: '12–14 min',
+        imageUrl: 'https://customer-assets.emergentagent.com/job_0b65e409-b210-4730-af62-16b022c37685/artifacts/xdrugsxs_tr.jpg',
+        intensityReason: '3–4s eccentric tempo increases hypertrophy effect',
+        difficulty: 'intermediate',
+        workoutType: 'Muscle Gainer - Back & Bis Volume',
+        moodCard: 'Muscle Gainer',
         moodTips: [
-          { icon: 'body', title: 'Hip Hinge', description: 'Maintain neutral spine by hinging from hips, not rounding lower back.' },
-          { icon: 'flash', title: 'Eccentric Focus', description: 'The slow negative is where muscle growth happens. Resist the weight down.' }
+          { icon: 'trending-up', title: 'Explode to chest, lower slow & steady.', description: 'Fast concentric, slow eccentric maximizes muscle stimulus.' },
+          { icon: 'timer', title: 'Keep weight lighter to maintain control.', description: 'Reduced load allows proper tempo execution and form.' }
         ]
       },
+      // Back - Straight Pull Up Bar - Pull Up + Hold (Intermediate)
       { 
-        equipment: 'Straight Pull Up Bar', 
-        name: 'Pull Up + Hold', 
-        icon: 'body',
-        description: 'Dead hang start\n• Pull up to chin over bar\n• Hold at top for 3 seconds\n• Lower with 4-second negative\n• Rest 10 sec between reps\n• Perform 5 sets of 5 reps',
-        battlePlan: 'Full extension at bottom, chin over bar at top. The isometric hold builds strength at the hardest position.',
-        duration: '12 min',
+        name: 'Pull-Up + Hold',
+        equipment: 'Straight pull up bar',
+        description: 'Combines pull-ups with a static hold for enhanced strength',
+        battlePlan: '3 rounds\n• 6 Pull-Ups\nEnd each set with a 3s hold at the top\nRest 90s after set',
+        duration: '12–14 min',
+        imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/toza6up4_pu.avif',
+        intensityReason: 'Adds isometric hold to increase time under tension for growth',
+        difficulty: 'intermediate',
+        workoutType: 'Muscle Gainer - Back & Bis Volume',
+        moodCard: 'Muscle Gainer',
         moodTips: [
-          { icon: 'body', title: 'Full Range', description: 'Start from complete dead hang and finish with chin clearly over the bar.' },
-          { icon: 'fitness', title: 'Engage Lats', description: 'Think about pulling elbows down to your hips rather than pulling yourself up.' }
+          { icon: 'trending-up', title: 'Aim for unassisted reps. If form breaks, use minimal assistance.', description: 'Progressive overload with isometric challenge builds strength.' },
+          { icon: 'timer', title: 'Hold chin above bar for 3 seconds at the top of each final rep.', description: 'Isometric hold maximizes time under tension and strength gains.' }
         ]
       },
+      // Biceps - Cable Machine - Cable Negatives (Intermediate)
       { 
-        equipment: 'Cable Machine', 
-        name: 'Cable Negatives', 
-        icon: 'git-pull-request',
-        description: 'Set cable at high position\n• Curl up fast (1 sec)\n• Lower slowly (5 sec negative)\n• 12 reps each arm\n• Rest 45 sec\n• Repeat for 3 sets',
-        battlePlan: 'Use momentum-free curls on the way up. Fight the weight all the way down. Maintain constant tension.',
-        duration: '8 min',
+        name: 'Cable Negatives',
+        equipment: 'Cable Machine',
+        description: 'Negative bar curls grow size and total integrity',
+        battlePlan: '3 rounds\n• 8 Cable Bar Curls (3s eccentric)\nRest 75–90s',
+        duration: '12–14 min',
+        imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/vqw55nvb_download%20%2818%29.png',
+        intensityReason: 'Slow eccentrics amplify hypertrophy adaptation',
+        difficulty: 'intermediate',
+        workoutType: 'Muscle Gainer - Back & Bis Volume',
+        moodCard: 'Muscle Gainer',
         moodTips: [
-          { icon: 'fitness', title: 'Elbow Position', description: 'Keep elbows pinned to your sides throughout the movement.' },
-          { icon: 'timer', title: 'Control', description: 'If you cant control the 5-second negative, reduce the weight.' }
+          { icon: 'flash', title: 'Drive up powerfully, lower 3s', description: 'Explosive concentric, controlled eccentric.' },
+          { icon: 'fitness', title: 'Elbows fixed at torso sides', description: 'Locked elbows ensure bicep isolation.' }
         ]
       },
+      // Biceps - EZ Curl Bar - Narrow Curl (Intermediate)
       { 
-        equipment: 'EZ Curl Bar', 
-        name: 'Narrow Curl', 
-        icon: 'barbell',
-        description: 'Grip inner curves of EZ bar\n• 10 reps controlled\n• Rest 60 sec\n• 8 reps with pause at bottom\n• Rest 60 sec\n• 6 reps heavy, full squeeze at top',
-        battlePlan: 'Narrow grip targets the outer bicep head. Keep wrists neutral. Squeeze hard at the top of each rep.',
-        duration: '7 min',
+        name: 'Narrow Curl',
+        equipment: 'EZ Curl Bar',
+        description: 'Close grip curls build stronger arm inner heads',
+        battlePlan: '4 rounds\n• 8–10 Narrow Grip EZ Curls\nRest 75–90s',
+        duration: '12–14 min',
+        imageUrl: 'https://customer-assets.emergentagent.com/job_de06d55d-ac38-4152-bbf5-479c53d1fb22/artifacts/iskvqgub_download%20%284%29.png',
+        intensityReason: 'Narrow grip overloads the biceps inner portion',
+        difficulty: 'intermediate',
+        workoutType: 'Muscle Gainer - Back & Bis Volume',
+        moodCard: 'Muscle Gainer',
         moodTips: [
-          { icon: 'hand-left', title: 'Wrist Position', description: 'Keep wrists straight and strong. The EZ bar reduces wrist strain.' },
-          { icon: 'flame', title: 'Peak Contraction', description: 'Squeeze biceps hard at the top and hold for 1 second.' }
+          { icon: 'hand-left', title: 'Keep palms inward, elbows close', description: 'Narrow grip targets inner biceps.' },
+          { icon: 'trending-up', title: 'Pull bar to upper chest line', description: 'Full range maximizes muscle fiber recruitment.' }
         ]
       },
     ],
@@ -141,48 +178,64 @@ const featuredWorkoutData: Record<string, {
     image: 'https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=800&h=600&fit=crop',
     exercises: [
       { 
-        equipment: 'Power Lifting Platform', 
-        name: 'Hang Clean Pull to Tall Shrug', 
-        icon: 'flash',
-        description: 'Start at mid-thigh hang position\n• Explosive hip extension\n• Shrug shoulders to ears\n• Arms stay straight\n• Reset and repeat\n• 5 sets of 5 reps',
-        battlePlan: 'Power comes from the hips, not the arms. Shrug violently at the top. Keep bar close to body throughout.',
-        duration: '10 min',
+        name: 'Hang Clean Pull to Tall Shrug',
+        equipment: 'Power Lifting Platform',
+        description: 'Explosive hip extension with powerful shrug develops total body power.',
+        battlePlan: '5 sets\n• 5 Hang Clean Pulls with Tall Shrug\n• Focus on explosive hip drive\n• Arms stay straight until shrug\nRest 90–120s between sets',
+        duration: '12 min',
+        imageUrl: 'https://customer-assets.emergentagent.com/job_muscle-mapper-2/artifacts/xefmav9j_Screenshot%202025-12-03%20at%204.15.36%E2%80%AFPM.png',
+        intensityReason: 'Olympic lift derivative builds explosive power through triple extension',
+        difficulty: 'intermediate',
+        workoutType: 'Build Explosion - Power Lifting',
+        moodCard: 'Build Explosion',
         moodTips: [
-          { icon: 'flash', title: 'Hip Drive', description: 'The power comes from snapping your hips forward, not pulling with arms.' },
+          { icon: 'flash', title: 'Hip Drive First', description: 'The power comes from snapping your hips forward, not pulling with arms.' },
           { icon: 'body', title: 'Triple Extension', description: 'Extend ankles, knees, and hips simultaneously for maximum power.' }
         ]
       },
       { 
-        equipment: 'Power Lifting Platform', 
-        name: 'Push Press Launch', 
-        icon: 'arrow-up',
-        description: 'Bar in front rack position\n• Dip knees 4 inches\n• Explode upward, pressing bar overhead\n• Lock out arms at top\n• Lower with control\n• 5 sets of 5 reps',
-        battlePlan: 'Quick dip, explosive drive. Use leg power to launch the bar, then press to lockout. Keep core tight throughout.',
+        name: 'Push Press Launch',
+        equipment: 'Power Lifting Platform',
+        description: 'Explosive overhead press using leg drive for maximum power output.',
+        battlePlan: '5 sets\n• 5 Push Press\n• Quick dip, explosive drive\n• Lock out arms overhead\nRest 90–120s between sets',
         duration: '10 min',
+        imageUrl: 'https://customer-assets.emergentagent.com/job_muscle-mapper-2/artifacts/xefmav9j_Screenshot%202025-12-03%20at%204.15.36%E2%80%AFPM.png',
+        intensityReason: 'Leg-driven overhead press allows heavier loads than strict press',
+        difficulty: 'intermediate',
+        workoutType: 'Build Explosion - Power Lifting',
+        moodCard: 'Build Explosion',
         moodTips: [
           { icon: 'trending-up', title: 'Vertical Path', description: 'Push your head through once the bar passes your face for proper lockout.' },
           { icon: 'flash', title: 'Speed Matters', description: 'The faster the dip-drive, the more weight you can move.' }
         ]
       },
       { 
-        equipment: 'Trap Hex Bar', 
-        name: 'Trap Bar Jump', 
-        icon: 'trending-up',
-        description: 'Stand in center of trap bar\n• Deadlift to standing\n• Dip and explode into jump\n• Land softly, reset\n• 4 sets of 6 reps\n• Rest 90 sec between sets',
-        battlePlan: 'Use 50% of your deadlift max. Focus on explosive vertical power. Land softly with bent knees.',
+        name: 'Trap Bar Jump',
+        equipment: 'Trap Hex Bar',
+        description: 'Loaded jumps develop explosive lower body power.',
+        battlePlan: '4 sets\n• 6 Trap Bar Jumps\n• Use 50% deadlift max\n• Land softly, reset fully\nRest 90s between sets',
         duration: '10 min',
+        imageUrl: 'https://customer-assets.emergentagent.com/job_muscle-mapper-2/artifacts/2q9xaqkj_download%20%281%29.png',
+        intensityReason: 'Loaded jumps bridge strength and explosive power development',
+        difficulty: 'intermediate',
+        workoutType: 'Build Explosion - Power Lifting',
+        moodCard: 'Build Explosion',
         moodTips: [
           { icon: 'body', title: 'Soft Landing', description: 'Land with bent knees to absorb impact. Reset fully before each jump.' },
           { icon: 'flash', title: 'Max Intent', description: 'Jump as high as possible on every rep. Submaximal effort = submaximal results.' }
         ]
       },
       { 
-        equipment: 'Landmine Attachment', 
-        name: 'Hacksquat Jump', 
-        icon: 'flame',
-        description: 'Bar on one shoulder\n• Squat down, thighs parallel\n• Explode up into small hop\n• Land, immediately descend\n• 4 sets of 8 reps each side',
-        battlePlan: 'Keep torso upright. The landmine angle provides stability while building single-leg power.',
+        name: 'Hacksquat Jump',
+        equipment: 'Landmine Attachment',
+        description: 'Landmine-loaded squat jumps build single-leg explosive power.',
+        battlePlan: '4 sets\n• 8 Landmine Hacksquat Jumps (each side)\n• Bar on shoulder, squat and explode\n• Land softly, immediately descend\nRest 90s between sets',
         duration: '10 min',
+        imageUrl: 'https://customer-assets.emergentagent.com/job_muscle-mapper-2/artifacts/xefmav9j_Screenshot%202025-12-03%20at%204.15.36%E2%80%AFPM.png',
+        intensityReason: 'Unilateral loaded jumps improve balance and single-leg power',
+        difficulty: 'intermediate',
+        workoutType: 'Build Explosion - Power Lifting',
+        moodCard: 'Build Explosion',
         moodTips: [
           { icon: 'body', title: 'Core Stability', description: 'Brace your core to prevent rotation. The landmine wants to twist you.' },
           { icon: 'flash', title: 'Reactive Power', description: 'Minimize time on the ground between reps for plyometric benefits.' }
@@ -197,36 +250,48 @@ const featuredWorkoutData: Record<string, {
     image: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&h=600&fit=crop',
     exercises: [
       { 
-        equipment: 'Pull Up Bar', 
-        name: 'Eccentric Lines', 
-        icon: 'body',
-        description: 'Jump to top position\n• Hold chin over bar 2 sec\n• Lower for 8 seconds (count)\n• Full dead hang at bottom\n• Rest 15 sec\n• Repeat for 5 sets of 3 reps',
-        battlePlan: 'Control every inch of the descent. If 8 seconds is easy, slow down to 10. Build strength through the sticking point.',
+        name: 'Eccentric Lines',
+        equipment: 'Pull up bar',
+        description: 'Slow negative pull-ups build strength through controlled lowering.',
+        battlePlan: '5 sets\n• 3 Eccentric Pull-Ups\n• Jump to top position\n• Hold chin over bar 2 sec\n• Lower for 8 seconds\nRest 60–90s between sets',
         duration: '10 min',
+        imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/toza6up4_pu.avif',
+        intensityReason: 'Eccentric training builds pulling strength even without full pull-up ability',
+        difficulty: 'intermediate',
+        workoutType: 'Calisthenics - Pulls & Dips',
+        moodCard: 'Calisthenics',
         moodTips: [
           { icon: 'timer', title: 'Consistency', description: 'Each rep should take the same time. Dont speed up as you fatigue.' },
           { icon: 'fitness', title: 'Shoulder Engagement', description: 'Keep shoulders engaged even at the bottom. Dont just hang on joints.' }
         ]
       },
       { 
-        equipment: 'Pull Up Bar', 
-        name: 'Strict Pull', 
-        icon: 'arrow-up',
-        description: 'Dead hang, shoulders engaged\n• Pull until chin clears bar\n• No kipping or swinging\n• Lower with control (3 sec)\n• 5 sets of max reps\n• Rest 90 sec between sets',
-        battlePlan: 'Quality over quantity. Stop the set when form breaks down. Aim to increase reps each week.',
+        name: 'Strict Pull',
+        equipment: 'Pull up bar',
+        description: 'Perfect form pull-ups with no kipping or swinging.',
+        battlePlan: '5 sets\n• Max Strict Pull-Ups\n• Dead hang start\n• No kipping or swinging\n• Lower with control (3 sec)\nRest 90s between sets',
         duration: '12 min',
+        imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/toza6up4_pu.avif',
+        intensityReason: 'Strict form maximizes muscle activation and strength development',
+        difficulty: 'intermediate',
+        workoutType: 'Calisthenics - Pulls & Dips',
+        moodCard: 'Calisthenics',
         moodTips: [
           { icon: 'body', title: 'Dead Stop', description: 'Come to complete stop at bottom. No bouncing out of the hang.' },
           { icon: 'fitness', title: 'Elbow Path', description: 'Pull elbows down and back, not out to the sides.' }
         ]
       },
       { 
-        equipment: 'Parallel Bars Dip Station', 
-        name: 'Eccentric Power', 
-        icon: 'fitness',
-        description: 'Start at top, arms locked\n• Lower for 5 seconds\n• Go below 90° elbow angle\n• Push back up explosively\n• 4 sets of 6 reps\n• Rest 60 sec between sets',
-        battlePlan: 'Slow descent, fast ascent. Keep elbows tracking back, not flaring out. Chest stays proud.',
+        name: 'Eccentric Power',
+        equipment: 'Parallel bars dip station',
+        description: 'Slow descent dips with explosive push build upper body power.',
+        battlePlan: '4 sets\n• 6 Eccentric Power Dips\n• Lower for 5 seconds\n• Go below 90° elbow angle\n• Push back up explosively\nRest 60–90s between sets',
         duration: '10 min',
+        imageUrl: 'https://customer-assets.emergentagent.com/job_upper-body-enhance/artifacts/qhw328ft_download%20%286%29.png',
+        intensityReason: 'Slow eccentric with explosive concentric builds strength and power',
+        difficulty: 'intermediate',
+        workoutType: 'Calisthenics - Pulls & Dips',
+        moodCard: 'Calisthenics',
         moodTips: [
           { icon: 'body', title: 'Depth', description: 'Lower until shoulders are below elbows for full range of motion.' },
           { icon: 'flash', title: 'Explosive Push', description: 'Drive hard out of the bottom. Speed on the way up builds power.' }
@@ -241,24 +306,32 @@ const featuredWorkoutData: Record<string, {
     image: 'https://images.unsplash.com/photo-1476480862126-209bfaa8edc8?w=800&h=600&fit=crop',
     exercises: [
       { 
-        equipment: 'Hills', 
-        name: 'Power Mix', 
-        icon: 'trail-sign',
-        description: '10 min easy jog warm-up\n• Find a steep hill (30-60 sec climb)\n• Sprint up at 85% effort\n• Walk down for recovery\n• Repeat 6 times\n• 10 min easy jog cool-down',
-        battlePlan: 'Drive knees high on the uphill. Pump arms powerfully. Stay on your toes. Walk recovery - dont jog.',
+        name: 'Hill Power Mix',
+        equipment: 'Hills',
+        description: 'Hill sprint intervals build explosive leg power and cardio endurance.',
+        battlePlan: '10 min easy jog warm-up\n• Find a steep hill (30-60 sec climb)\n• Sprint up at 85% effort\n• Walk down for recovery\n• Repeat 6 times\n• 10 min easy jog cool-down',
         duration: '25 min',
+        imageUrl: 'https://customer-assets.emergentagent.com/job_exercise-library-12/artifacts/904pke23_download%20%289%29.png',
+        intensityReason: 'Hill sprints combine strength and cardio for complete conditioning',
+        difficulty: 'intermediate',
+        workoutType: 'Get Outside - Hill Workout',
+        moodCard: 'Get Outside',
         moodTips: [
           { icon: 'body', title: 'Knee Drive', description: 'Lift knees high to engage hip flexors and glutes on the climb.' },
           { icon: 'heart', title: 'Recovery', description: 'Walk all the way down. Jogging down adds fatigue without building power.' }
         ]
       },
       { 
-        equipment: 'Hills', 
-        name: 'Sprint Only 30s', 
-        icon: 'speedometer',
-        description: '8 min easy jog warm-up\n• Find moderate incline\n• 30 sec all-out sprint\n• 90 sec walk recovery\n• Repeat 8 times\n• 5 min walk cool-down',
-        battlePlan: 'True 30-second max efforts. If you can talk after, you didnt go hard enough. Full recovery between reps.',
+        name: 'Sprint Only 30s',
+        equipment: 'Hills',
+        description: 'Short all-out sprints with full recovery maximize power output.',
+        battlePlan: '8 min easy jog warm-up\n• Find moderate incline\n• 30 sec all-out sprint\n• 90 sec walk recovery\n• Repeat 8 times\n• 5 min walk cool-down',
         duration: '22 min',
+        imageUrl: 'https://customer-assets.emergentagent.com/job_exercise-library-12/artifacts/904pke23_download%20%289%29.png',
+        intensityReason: 'True max effort sprints with full recovery build explosive speed',
+        difficulty: 'intermediate',
+        workoutType: 'Get Outside - Hill Workout',
+        moodCard: 'Get Outside',
         moodTips: [
           { icon: 'flash', title: 'Max Effort', description: '30 seconds is short. Give it everything you have, every rep.' },
           { icon: 'timer', title: 'Full Recovery', description: 'Take the full 90 seconds. Partial recovery = partial effort on the next sprint.' }
@@ -315,25 +388,25 @@ export default function FeaturedWorkoutDetail() {
     if (token) {
       Analytics.workoutStarted(token, {
         mood_category: `${workout.mood} - ${workout.title}`,
-        difficulty: 'intermediate',
+        difficulty: exercises[0].difficulty,
         equipment: exercises[0].equipment,
       });
     }
     
-    // Format exercises for the workout guidance session
+    // Format exercises for the workout guidance session - matching cart format exactly
     const sessionWorkouts = exercises.map(exercise => ({
       name: exercise.name,
       equipment: exercise.equipment,
-      description: exercise.description || '',
-      battlePlan: exercise.battlePlan || '',
-      duration: exercise.duration || '10 min',
-      difficulty: 'intermediate',
-      workoutType: `${workout.mood} - ${workout.title}`,
-      moodCard: workout.mood,
-      moodTips: exercise.moodTips || []
+      description: exercise.description,
+      battlePlan: exercise.battlePlan,
+      duration: exercise.duration,
+      difficulty: exercise.difficulty,
+      workoutType: exercise.workoutType,
+      moodCard: exercise.moodCard,
+      moodTips: exercise.moodTips
     }));
     
-    // Navigate to workout guidance with the first exercise
+    // Navigate to workout guidance with the first exercise - same as cart.tsx
     const firstExercise = sessionWorkouts[0];
     router.push({
       pathname: '/workout-guidance',
@@ -397,12 +470,15 @@ export default function FeaturedWorkoutDetail() {
         >
           {exercises.map((exercise, index) => (
             <View key={index} style={styles.exerciseCard}>
-              <View style={styles.exerciseIconContainer}>
-                <Ionicons name={exercise.icon} size={24} color="#FFD700" />
-              </View>
+              <Image 
+                source={{ uri: exercise.imageUrl }}
+                style={styles.exerciseImage}
+                resizeMode="cover"
+              />
               <View style={styles.exerciseInfo}>
                 <Text style={styles.exerciseEquipment}>{exercise.equipment}</Text>
                 <Text style={styles.exerciseName}>{exercise.name}</Text>
+                <Text style={styles.exerciseDuration}>{exercise.duration}</Text>
               </View>
               <TouchableOpacity
                 style={styles.removeButton}
@@ -465,7 +541,7 @@ const styles = StyleSheet.create({
     fontWeight: '600',
   },
   heroContainer: {
-    height: 260,
+    height: 240,
     position: 'relative',
   },
   heroImage: {
@@ -524,14 +600,14 @@ const styles = StyleSheet.create({
   },
   contentContainer: {
     flex: 1,
-    paddingHorizontal: 20,
+    paddingHorizontal: 16,
     paddingTop: 16,
   },
   sectionHeader: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    marginBottom: 14,
+    marginBottom: 12,
   },
   sectionTitle: {
     fontSize: 17,
@@ -546,19 +622,17 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#1a1a1a',
     borderRadius: 12,
-    padding: 14,
+    padding: 10,
     marginBottom: 10,
     borderWidth: 1,
     borderColor: '#2a2a2a',
   },
-  exerciseIconContainer: {
-    width: 44,
-    height: 44,
-    borderRadius: 10,
-    backgroundColor: 'rgba(255, 215, 0, 0.1)',
-    justifyContent: 'center',
-    alignItems: 'center',
+  exerciseImage: {
+    width: 60,
+    height: 60,
+    borderRadius: 8,
     marginRight: 12,
+    backgroundColor: '#333',
   },
   exerciseInfo: {
     flex: 1,
@@ -575,6 +649,12 @@ const styles = StyleSheet.create({
     fontSize: 15,
     color: '#fff',
     fontWeight: '600',
+    marginBottom: 2,
+  },
+  exerciseDuration: {
+    fontSize: 12,
+    color: '#FFD700',
+    fontWeight: '500',
   },
   removeButton: {
     padding: 4,
