@@ -316,7 +316,7 @@ export default function WorkoutsHome() {
     else setGreeting('Good evening');
   }, []);
 
-  // Auto-scroll carousel every 2 seconds
+  // Auto-scroll carousel every 4 seconds (slower)
   useEffect(() => {
     const startAutoScroll = () => {
       autoScrollTimer.current = setInterval(() => {
@@ -328,7 +328,7 @@ export default function WorkoutsHome() {
           });
           return nextIndex;
         });
-      }, 2000);
+      }, 4000);
     };
 
     startAutoScroll();
