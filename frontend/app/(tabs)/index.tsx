@@ -569,7 +569,7 @@ const styles = StyleSheet.create({
     textShadowColor: 'transparent',
     textShadowOffset: { width: 0, height: 0 },
     textShadowRadius: 0,
-    marginBottom: 20,
+    marginBottom: 12,
     textAlign: 'center',
   },
   centeredSocialContainer: {
