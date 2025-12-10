@@ -793,8 +793,6 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(255, 215, 0, 0.03)',
     borderRadius: 16,
     padding: 16,
-    borderWidth: 1,
-    borderColor: 'rgba(255, 215, 0, 0.1)',
   },
   progressStatsRow: {
     flexDirection: 'row',
