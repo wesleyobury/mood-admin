@@ -472,6 +472,36 @@ async def get_admin_analytics(
             "timestamp": {"$gte": start_date}
         })
         
+        # Workouts started (for completion rate)
+        workouts_started = await db.user_events.count_documents({
+            "event_type": "workout_started",
+            "timestamp": {"$gte": start_date}
+        })
+        
+        # Workouts skipped
+        workouts_skipped = await db.user_events.count_documents({
+            "event_type": "workout_skipped",
+            "timestamp": {"$gte": start_date}
+        })
+        
+        # Workouts abandoned
+        workouts_abandoned = await db.user_events.count_documents({
+            "event_type": "workout_abandoned",
+            "timestamp": {"$gte": start_date}
+        })
+        
+        # Profile views
+        profile_views = await db.user_events.count_documents({
+            "event_type": "profile_viewed",
+            "timestamp": {"$gte": start_date}
+        })
+        
+        # App sessions
+        app_sessions = await db.user_events.count_documents({
+            "event_type": "app_session_start",
+            "timestamp": {"$gte": start_date}
+        })
+        
         # New users in period
         new_users = await db.users.count_documents({
             "created_at": {"$gte": start_date}
