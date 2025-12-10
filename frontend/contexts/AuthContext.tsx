@@ -61,6 +61,12 @@ export function AuthProvider({ children }: AuthProviderProps) {
             setToken(storedToken);
             setUser(userData);
             console.log('✅ Restored session for:', userData.username);
+            
+            // Track app session start on successful restore
+            trackEvent(storedToken, 'app_session_start', {
+              restored_session: true,
+            });
+            
             setIsLoading(false);
             return;
           } else {
