@@ -508,6 +508,15 @@ export default function CreatePost() {
         setUploadProgress(100);
         console.log('Post created successfully!');
         
+        // Track post created event
+        if (token) {
+          Analytics.postCreated(token, {
+            has_media: mediaUrls.length > 0,
+            media_count: mediaUrls.length,
+            caption_length: caption.trim().length,
+          });
+        }
+        
         // Keep loading screen visible while showing 100%
         await new Promise(resolve => setTimeout(resolve, 800));
         
