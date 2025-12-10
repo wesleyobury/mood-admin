@@ -14,6 +14,8 @@ import { useRouter } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import HomeButton from '../components/HomeButton';
 import { useCart, WorkoutItem } from '../contexts/CartContext';
+import { useAuth } from '../contexts/AuthContext';
+import { Analytics } from '../utils/analytics';
 
 const CartItemComponent: React.FC<{
   item: WorkoutItem;
