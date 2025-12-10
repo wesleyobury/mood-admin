@@ -172,7 +172,6 @@ const moodCards: MoodCard[] = [
 
 export default function WorkoutsHome() {
   const [greeting, setGreeting] = useState('');
-  const [scrollY, setScrollY] = useState(0);
   const insets = useSafeAreaInsets();
   const router = useRouter();
   const { token } = useAuth();
