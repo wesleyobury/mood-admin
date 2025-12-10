@@ -162,6 +162,11 @@ export default function BicepsEquipmentScreen() {
 
   const handleDifficultySelect = (level: DifficultyLevel) => {
     setSelectedDifficulty(level);
+    
+    // Track difficulty selected
+    if (token) {
+      Analytics.difficultySelected(token, { difficulty: level.id, mood_category: moodTitle });
+    }
   };
 
   const handleContinue = () => {

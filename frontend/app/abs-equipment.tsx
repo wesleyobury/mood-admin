@@ -159,7 +159,10 @@ export default function AbsEquipmentScreen() {
         // Remove from selection
         return prev.filter(item => item.id !== equipment.id);
       } else {
-        // Add to selection
+        // Add to selection - track equipment selected
+        if (token) {
+          Analytics.equipmentSelected(token, { equipment: equipment.name, mood_category: moodTitle });
+        }
         return [...prev, equipment];
       }
     });
@@ -167,6 +170,11 @@ export default function AbsEquipmentScreen() {
 
   const handleDifficultySelect = (level: DifficultyLevel) => {
     setSelectedDifficulty(level);
+    
+    // Track difficulty selected
+    if (token) {
+      Analytics.difficultySelected(token, { difficulty: level.id, mood_category: moodTitle });
+    }
   };
 
   const handleContinue = () => {

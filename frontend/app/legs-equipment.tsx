@@ -240,7 +240,10 @@ export default function LegsEquipmentScreen() {
         // Remove from selection
         return prev.filter(item => item.id !== equipment.id);
       } else {
-        // Add to selection
+        // Add to selection - track equipment selected
+        if (token) {
+          Analytics.equipmentSelected(token, { equipment: equipment.name, mood_category: moodTitle });
+        }
         return [...prev, equipment];
       }
     });
