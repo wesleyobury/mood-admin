@@ -763,6 +763,47 @@ const styles = StyleSheet.create({
     fontSize: 11,
     color: '#888',
   },
+  funnelContainer: {
+    backgroundColor: '#1a1a1a',
+    borderRadius: 16,
+    padding: 16,
+    borderWidth: 1,
+    borderColor: 'rgba(255, 215, 0, 0.1)',
+  },
+  funnelItem: {
+    marginBottom: 16,
+  },
+  funnelBar: {
+    height: 12,
+    backgroundColor: '#2a2a2a',
+    borderRadius: 6,
+    overflow: 'hidden',
+    marginBottom: 8,
+  },
+  funnelFill: {
+    height: '100%',
+    borderRadius: 6,
+  },
+  funnelInfo: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+  funnelLabel: {
+    fontSize: 13,
+    color: '#888',
+    fontWeight: '500',
+  },
+  funnelValue: {
+    fontSize: 16,
+    fontWeight: '700',
+    color: '#fff',
+  },
+  funnelPercent: {
+    fontSize: 12,
+    fontWeight: '500',
+    color: '#888',
+  },
   bottomPadding: {
     height: 40,
   },
