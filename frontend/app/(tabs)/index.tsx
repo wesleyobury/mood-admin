@@ -388,8 +388,18 @@ export default function WorkoutsHome() {
 
   // Render carousel item
   const renderCarouselItem = useCallback(({ item }: { item: typeof featuredWorkouts[0] }) => {
-    return <WorkoutCarouselCard workout={item} />;
-  }, []);
+    return (
+      <WorkoutCarouselCard 
+        workout={item} 
+        onPress={() => {
+          router.push({
+            pathname: '/featured-workout-detail',
+            params: { id: item.id },
+          });
+        }}
+      />
+    );
+  }, [router]);
 
   // Fetch user workout stats
   useEffect(() => {
