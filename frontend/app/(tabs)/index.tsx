@@ -767,14 +767,14 @@ const styles = StyleSheet.create({
     letterSpacing: 0.3,
   },
   carouselList: {
-    paddingHorizontal: 16,
+    paddingHorizontal: CAROUSEL_PADDING,
   },
   carouselCard: {
     width: CARD_WIDTH,
     height: 280,
     borderRadius: 16,
     overflow: 'hidden',
-    marginHorizontal: CARD_MARGIN,
+    marginRight: CARD_GAP,
     backgroundColor: '#1a1a1a',
   },
   carouselImage: {
