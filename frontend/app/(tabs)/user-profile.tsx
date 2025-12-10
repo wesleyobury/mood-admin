@@ -137,6 +137,13 @@ export default function UserProfile() {
         const data = await response.json();
         setIsFollowing(data.following);
         
+        // Track follow/unfollow
+        if (data.following) {
+          Analytics.userFollowed(token, { followed_user_id: userId });
+        } else {
+          Analytics.userUnfollowed(token, { unfollowed_user_id: userId });
+        }
+        
         // Update local user state
         if (user) {
           setUser({
