@@ -785,4 +785,48 @@ const styles = StyleSheet.create({
     textShadowOffset: { width: 0, height: 0 },
     textShadowRadius: 0,
   },
+  // New top progress section styles
+  topProgressSection: {
+    marginHorizontal: 24,
+    marginTop: 16,
+    marginBottom: 8,
+    backgroundColor: 'rgba(255, 215, 0, 0.03)',
+    borderRadius: 16,
+    padding: 16,
+    borderWidth: 1,
+    borderColor: 'rgba(255, 215, 0, 0.1)',
+  },
+  progressStatsRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    alignItems: 'center',
+  },
+  progressStatItem: {
+    alignItems: 'center',
+    flex: 1,
+  },
+  progressStatValue: {
+    fontSize: 24,
+    fontWeight: '700',
+    color: '#FFD700',
+  },
+  progressStatLabel: {
+    fontSize: 11,
+    color: '#888',
+    marginTop: 4,
+    textTransform: 'uppercase',
+    letterSpacing: 0.5,
+  },
+  progressDivider: {
+    width: 1,
+    height: 32,
+    backgroundColor: 'rgba(255, 215, 0, 0.15)',
+  },
+  streakContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  streakIcon: {
+    marginLeft: 4,
+  },
 });
