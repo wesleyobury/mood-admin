@@ -477,16 +477,37 @@ export default function WorkoutsHome() {
           </View>
         </View>
 
-        {/* Hero Image */}
-        <View style={styles.parallaxContainer}>
-          <Image 
-            source={{ uri: 'https://customer-assets.emergentagent.com/job_mood-workout-app/artifacts/kuk8f49i_download%20%282%29.webp' }}
-            style={styles.parallaxImage}
-            resizeMode="cover"
-            onLoad={() => console.log('Hero image loaded successfully')}
-            onError={(error) => console.log('Hero image load error:', error.nativeEvent.error)}
+        {/* Featured Workouts Carousel - Peloton Style */}
+        <View style={styles.carouselSection}>
+          <View style={styles.carouselHeader}>
+            <View style={styles.yourPlanIcon}>
+              <Ionicons name="calendar" size={16} color="#000" />
+            </View>
+            <Text style={styles.yourPlanText}>Your Plan</Text>
+          </View>
+          <Text style={styles.carouselQuestion}>Ready for a Lower Body workout today, {greeting.split(' ')[1] || 'there'}?</Text>
+          
+          <FlatList
+            ref={carouselRef}
+            data={featuredWorkouts}
+            renderItem={renderCarouselItem}
+            keyExtractor={(item) => item.id}
+            horizontal
+            showsHorizontalScrollIndicator={false}
+            pagingEnabled
+            snapToInterval={CARD_WIDTH + CARD_MARGIN * 2}
+            decelerationRate="fast"
+            contentContainerStyle={styles.carouselList}
+            onScroll={onCarouselScroll}
+            scrollEventThrottle={16}
+            getItemLayout={(data, index) => ({
+              length: CARD_WIDTH + CARD_MARGIN * 2,
+              offset: (CARD_WIDTH + CARD_MARGIN * 2) * index,
+              index,
+            })}
           />
-          <View style={styles.parallaxOverlay} />
+          
+          <CarouselDots activeIndex={activeCarouselIndex} total={featuredWorkouts.length} />
         </View>
 
         {/* Mood Selection Section */}
