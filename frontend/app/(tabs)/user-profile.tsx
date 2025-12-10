@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useAuth } from '../../contexts/AuthContext';
+import { Analytics } from '../../utils/analytics';
 import {
   View,
   Text,
