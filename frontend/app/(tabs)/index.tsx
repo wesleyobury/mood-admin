@@ -362,28 +362,6 @@ export default function WorkoutsHome() {
             ))}
           </View>
         </View>
-
-        {/* Stats Section with Gold Accent */}
-        <View style={styles.quickStats}>
-          <View style={styles.statsHeader}>
-            <Text style={styles.statsTitle}>Your Progress</Text>
-            <View style={styles.goldAccentLine} />
-          </View>
-          <View style={styles.statsContainer}>
-            <View style={styles.statItem}>
-              <Text style={styles.statValue}>0</Text>
-              <Text style={styles.statLabel}>Workouts</Text>
-            </View>
-            <View style={styles.statItem}>
-              <Text style={styles.statValue}>0</Text>
-              <Text style={styles.statLabel}>Minutes</Text>
-            </View>
-            <View style={styles.statItem}>
-              <Text style={styles.statValue}>0</Text>
-              <Text style={styles.statLabel}>Streak</Text>
-            </View>
-          </View>
-        </View>
       </ScrollView>
       </View>
     </View>
