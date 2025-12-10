@@ -370,7 +370,7 @@ export default function WorkoutsHome() {
   // Handle carousel scroll end to update active index
   const onCarouselScroll = useCallback((event: NativeSyntheticEvent<NativeScrollEvent>) => {
     const contentOffsetX = event.nativeEvent.contentOffset.x;
-    const index = Math.round(contentOffsetX / (CARD_WIDTH + CARD_MARGIN * 2));
+    const index = Math.round(contentOffsetX / (CARD_WIDTH + CARD_GAP));
     if (index !== activeCarouselIndex && index >= 0 && index < featuredWorkouts.length) {
       setActiveCarouselIndex(index);
     }
