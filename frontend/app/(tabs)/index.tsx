@@ -791,11 +791,12 @@ const styles = StyleSheet.create({
     left: 0,
     right: 0,
     padding: 16,
+    paddingLeft: 20,
     paddingTop: 40,
     backgroundColor: 'rgba(0,0,0,0.6)',
   },
   carouselTitle: {
-    fontSize: 17,
+    fontSize: 16,
     fontWeight: '700',
     color: '#fff',
     marginBottom: 4,
