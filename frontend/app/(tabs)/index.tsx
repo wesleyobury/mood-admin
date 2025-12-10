@@ -540,15 +540,14 @@ export default function WorkoutsHome() {
             keyExtractor={(item) => item.id}
             horizontal
             showsHorizontalScrollIndicator={false}
-            pagingEnabled
-            snapToInterval={CARD_WIDTH + CARD_MARGIN * 2}
+            snapToInterval={CARD_WIDTH + CARD_GAP}
             decelerationRate="fast"
             contentContainerStyle={styles.carouselList}
             onScroll={onCarouselScroll}
             scrollEventThrottle={16}
             getItemLayout={(data, index) => ({
-              length: CARD_WIDTH + CARD_MARGIN * 2,
-              offset: (CARD_WIDTH + CARD_MARGIN * 2) * index,
+              length: CARD_WIDTH + CARD_GAP,
+              offset: (CARD_WIDTH + CARD_GAP) * index,
               index,
             })}
           />
