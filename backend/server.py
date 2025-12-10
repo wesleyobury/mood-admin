@@ -652,6 +652,47 @@ async def get_current_user_info(current_user_id: str = Depends(get_current_user)
         created_at=user["created_at"]
     )
 
+
+@api_router.get("/users/me/stats")
+async def get_current_user_stats(current_user_id: str = Depends(get_current_user)):
+    """Get user's workout stats from tracking events"""
+    from datetime import datetime, timedelta, timezone
+    
+    # Count completed workouts
+    workouts_completed = await db.user_events.count_documents({
+        "user_id": current_user_id,
+        "event_type": "workout_completed"
+    })
+    
+    # Calculate total minutes (estimate based on workouts - average 20 mins per workout)
+    total_minutes = workouts_completed * 20
+    
+    # Calculate streak (count consecutive days with workout_completed events)
+    today = datetime.now(timezone.utc).replace(hour=0, minute=0, second=0, microsecond=0)
+    current_streak = 0
+    
+    for i in range(30):  # Check last 30 days
+        day_start = today - timedelta(days=i)
+        day_end = day_start + timedelta(days=1)
+        
+        day_workouts = await db.user_events.count_documents({
+            "user_id": current_user_id,
+            "event_type": "workout_completed",
+            "timestamp": {"$gte": day_start, "$lt": day_end}
+        })
+        
+        if day_workouts > 0:
+            current_streak += 1
+        elif i > 0:  # Allow today to be 0 without breaking streak
+            break
+    
+    return {
+        "workouts_completed": workouts_completed,
+        "total_minutes": total_minutes,
+        "current_streak": current_streak
+    }
+
+
 @api_router.get("/users/{user_id}", response_model=UserResponse)
 async def get_user_by_id(user_id: str):
     try:
