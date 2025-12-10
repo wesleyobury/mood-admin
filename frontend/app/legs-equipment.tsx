@@ -11,6 +11,8 @@ import { Ionicons } from '@expo/vector-icons';
 import { useRouter, useLocalSearchParams } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import HomeButton from '../components/HomeButton';
+import { useAuth } from '../contexts/AuthContext';
+import { Analytics } from '../utils/analytics';
 
 interface Equipment {
   id: string;
