@@ -234,7 +234,7 @@ export default function AdminDashboard() {
               <Text style={styles.metricValue}>{stats?.new_users?.toLocaleString() || 0}</Text>
               <Text style={styles.metricLabel}>New Users</Text>
               <Ionicons name="chevron-forward" size={14} color="#666" style={styles.drilldownIcon} />
-            </View>
+            </TouchableOpacity>
           </View>
         </View>
 
