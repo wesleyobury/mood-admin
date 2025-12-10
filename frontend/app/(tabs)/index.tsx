@@ -789,10 +789,10 @@ const styles = StyleSheet.create({
   topProgressSection: {
     marginHorizontal: 24,
     marginTop: -6,
-    marginBottom: 8,
+    marginBottom: 4,
     backgroundColor: 'rgba(255, 215, 0, 0.03)',
     borderRadius: 16,
-    padding: 16,
+    padding: 12,
   },
   progressStatsRow: {
     flexDirection: 'row',
