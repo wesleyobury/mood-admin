@@ -788,7 +788,7 @@ const styles = StyleSheet.create({
   // New top progress section styles
   topProgressSection: {
     marginHorizontal: 24,
-    marginTop: 16,
+    marginTop: 8,
     marginBottom: 8,
     backgroundColor: 'rgba(255, 215, 0, 0.03)',
     borderRadius: 16,
@@ -808,7 +808,7 @@ const styles = StyleSheet.create({
   progressStatValue: {
     fontSize: 24,
     fontWeight: '700',
-    color: '#FFD700',
+    color: '#FFFFFF',
   },
   progressStatLabel: {
     fontSize: 11,
