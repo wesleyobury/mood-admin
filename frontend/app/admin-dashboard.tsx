@@ -282,8 +282,14 @@ export default function AdminDashboard() {
         </View>
 
         {/* Workout Funnel */}
-        <View style={styles.section}>
-          <Text style={styles.sectionTitle}>Workout Funnel</Text>
+        <TouchableOpacity 
+          style={styles.section}
+          onPress={() => router.push(`/analytics-detail?type=workoutFunnel&days=${selectedPeriod}`)}
+        >
+          <View style={styles.sectionHeader}>
+            <Text style={styles.sectionTitle}>Workout Funnel</Text>
+            <Ionicons name="chevron-forward" size={18} color="#666" />
+          </View>
           
           <View style={styles.funnelContainer}>
             <View style={styles.funnelItem}>
@@ -338,11 +344,16 @@ export default function AdminDashboard() {
               </View>
             </View>
           </View>
-        </View>
+        </TouchableOpacity>
 
         {/* App Sessions */}
         <View style={styles.section}>
-          <Text style={styles.sectionTitle}>App Activity</Text>
+          <View style={styles.sectionHeader}>
+            <Text style={styles.sectionTitle}>App Activity</Text>
+            <TouchableOpacity onPress={() => router.push(`/analytics-detail?type=screens&days=${selectedPeriod}`)}>
+              <Text style={styles.seeAllText}>See Details</Text>
+            </TouchableOpacity>
+          </View>
           
           <View style={styles.socialGrid}>
             <View style={styles.socialCard}>
@@ -357,11 +368,15 @@ export default function AdminDashboard() {
               <Text style={styles.socialLabel}>Profile Views</Text>
             </View>
 
-            <View style={styles.socialCard}>
+            <TouchableOpacity 
+              style={styles.socialCard}
+              onPress={() => router.push(`/analytics-detail?type=screens&days=${selectedPeriod}`)}
+            >
               <Ionicons name="layers" size={20} color="#2196F3" />
               <Text style={styles.socialValue}>{stats?.total_screen_views?.toLocaleString() || 0}</Text>
               <Text style={styles.socialLabel}>Screen Views</Text>
-            </View>
+              <Ionicons name="chevron-forward" size={12} color="#666" style={styles.cardArrow} />
+            </TouchableOpacity>
 
             <View style={styles.socialCard}>
               <Ionicons name="swap-horizontal" size={20} color="#FF9800" />
@@ -373,61 +388,92 @@ export default function AdminDashboard() {
 
         {/* User Journey Analytics */}
         <View style={styles.section}>
-          <Text style={styles.sectionTitle}>User Journey</Text>
+          <View style={styles.sectionHeader}>
+            <Text style={styles.sectionTitle}>User Journey</Text>
+          </View>
           
           <View style={styles.socialGrid}>
-            <View style={styles.socialCard}>
+            <TouchableOpacity 
+              style={styles.socialCard}
+              onPress={() => router.push(`/analytics-detail?type=moods&days=${selectedPeriod}`)}
+            >
               <Ionicons name="happy" size={20} color="#FFD700" />
               <Text style={styles.socialValue}>{stats?.total_mood_selections?.toLocaleString() || 0}</Text>
               <Text style={styles.socialLabel}>Mood Selections</Text>
-            </View>
+              <Ionicons name="chevron-forward" size={12} color="#666" style={styles.cardArrow} />
+            </TouchableOpacity>
 
-            <View style={styles.socialCard}>
+            <TouchableOpacity 
+              style={styles.socialCard}
+              onPress={() => router.push(`/analytics-detail?type=equipment&days=${selectedPeriod}`)}
+            >
               <Ionicons name="barbell" size={20} color="#4CAF50" />
               <Text style={styles.socialValue}>{stats?.total_equipment_selections?.toLocaleString() || 0}</Text>
               <Text style={styles.socialLabel}>Equipment Selected</Text>
-            </View>
+              <Ionicons name="chevron-forward" size={12} color="#666" style={styles.cardArrow} />
+            </TouchableOpacity>
 
-            <View style={styles.socialCard}>
+            <TouchableOpacity 
+              style={styles.socialCard}
+              onPress={() => router.push(`/analytics-detail?type=difficulties&days=${selectedPeriod}`)}
+            >
               <Ionicons name="speedometer" size={20} color="#E91E63" />
               <Text style={styles.socialValue}>{stats?.total_difficulty_selections?.toLocaleString() || 0}</Text>
               <Text style={styles.socialLabel}>Difficulty Selected</Text>
-            </View>
+              <Ionicons name="chevron-forward" size={12} color="#666" style={styles.cardArrow} />
+            </TouchableOpacity>
 
-            <View style={styles.socialCard}>
+            <TouchableOpacity 
+              style={styles.socialCard}
+              onPress={() => router.push(`/analytics-detail?type=exercises&days=${selectedPeriod}`)}
+            >
               <Ionicons name="checkmark-circle" size={20} color="#00BCD4" />
               <Text style={styles.socialValue}>{stats?.total_exercises_completed?.toLocaleString() || 0}</Text>
               <Text style={styles.socialLabel}>Exercises Done</Text>
-            </View>
+              <Ionicons name="chevron-forward" size={12} color="#666" style={styles.cardArrow} />
+            </TouchableOpacity>
           </View>
         </View>
 
         {/* Social Engagement */}
         <View style={styles.section}>
-          <Text style={styles.sectionTitle}>Social Activity</Text>
+          <View style={styles.sectionHeader}>
+            <Text style={styles.sectionTitle}>Social Activity</Text>
+            <TouchableOpacity onPress={() => router.push(`/analytics-detail?type=social&days=${selectedPeriod}`)}>
+              <Text style={styles.seeAllText}>Top Users</Text>
+            </TouchableOpacity>
+          </View>
           
           <View style={styles.socialGrid}>
-            <View style={styles.socialCard}>
+            <TouchableOpacity 
+              style={styles.socialCard}
+              onPress={() => router.push(`/analytics-detail?type=social&days=${selectedPeriod}`)}
+            >
               <Ionicons name="heart" size={20} color="#E91E63" />
-              <Text style={styles.socialValue}>{stats?.total_likes.toLocaleString()}</Text>
+              <Text style={styles.socialValue}>{stats?.total_likes?.toLocaleString() || 0}</Text>
               <Text style={styles.socialLabel}>Likes</Text>
-            </View>
+              <Ionicons name="chevron-forward" size={12} color="#666" style={styles.cardArrow} />
+            </TouchableOpacity>
 
-            <View style={styles.socialCard}>
+            <TouchableOpacity 
+              style={styles.socialCard}
+              onPress={() => router.push(`/analytics-detail?type=social&days=${selectedPeriod}`)}
+            >
               <Ionicons name="chatbubble" size={20} color="#2196F3" />
-              <Text style={styles.socialValue}>{stats?.total_comments.toLocaleString()}</Text>
+              <Text style={styles.socialValue}>{stats?.total_comments?.toLocaleString() || 0}</Text>
               <Text style={styles.socialLabel}>Comments</Text>
-            </View>
+              <Ionicons name="chevron-forward" size={12} color="#666" style={styles.cardArrow} />
+            </TouchableOpacity>
 
             <View style={styles.socialCard}>
               <Ionicons name="person-add" size={20} color="#4CAF50" />
-              <Text style={styles.socialValue}>{stats?.total_follows.toLocaleString()}</Text>
+              <Text style={styles.socialValue}>{stats?.total_follows?.toLocaleString() || 0}</Text>
               <Text style={styles.socialLabel}>Follows</Text>
             </View>
 
             <View style={styles.socialCard}>
               <Ionicons name="person-remove" size={20} color="#FF5722" />
-              <Text style={styles.socialValue}>{stats?.total_unfollows.toLocaleString()}</Text>
+              <Text style={styles.socialValue}>{stats?.total_unfollows?.toLocaleString() || 0}</Text>
               <Text style={styles.socialLabel}>Unfollows</Text>
             </View>
           </View>
@@ -435,8 +481,14 @@ export default function AdminDashboard() {
 
         {/* Popular Moods */}
         {moodData && (
-          <View style={styles.section}>
-            <Text style={styles.sectionTitle}>Popular Workout Moods</Text>
+          <TouchableOpacity 
+            style={styles.section}
+            onPress={() => router.push(`/analytics-detail?type=moods&days=${selectedPeriod}`)}
+          >
+            <View style={styles.sectionHeader}>
+              <Text style={styles.sectionTitle}>Popular Workout Moods</Text>
+              <Ionicons name="chevron-forward" size={18} color="#666" />
+            </View>
             
             <View style={styles.chartContainer}>
               <BarChart
