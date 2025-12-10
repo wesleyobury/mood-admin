@@ -52,7 +52,13 @@ export default function UserProfile() {
   const { token } = useAuth();
 
   useEffect(() => {
-  }, []);
+    // Track profile view when the page loads (only for non-self profiles)
+    if (token && userId && !isSelf && user) {
+      Analytics.profileViewed(token, {
+        viewed_user_id: userId,
+      });
+    }
+  }, [userId, token, isSelf, user]);
 
   useEffect(() => {
     if (token && userId) {
