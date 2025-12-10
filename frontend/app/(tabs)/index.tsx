@@ -545,8 +545,8 @@ const styles = StyleSheet.create({
   centeredBrandingHeader: {
     alignItems: 'center',
     paddingHorizontal: 32,
-    paddingTop: 32,
-    paddingBottom: 24,
+    paddingTop: 20,
+    paddingBottom: 16,
     borderBottomWidth: 0.5,
     borderBottomColor: 'rgba(255, 215, 0, 0.08)',
   },
@@ -558,7 +558,7 @@ const styles = StyleSheet.create({
     textShadowColor: 'rgba(255, 215, 0, 0.15)',
     textShadowOffset: { width: 0, height: 0 },
     textShadowRadius: 6,
-    marginBottom: 8,
+    marginBottom: 4,
     textAlign: 'center',
   },
   centeredBrandSubtitle: {
@@ -569,7 +569,7 @@ const styles = StyleSheet.create({
     textShadowColor: 'transparent',
     textShadowOffset: { width: 0, height: 0 },
     textShadowRadius: 0,
-    marginBottom: 12,
+    marginBottom: 8,
     textAlign: 'center',
   },
   centeredSocialContainer: {
