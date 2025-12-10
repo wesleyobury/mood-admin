@@ -44,7 +44,16 @@ from user_analytics import (
     get_workout_analytics,
     get_social_engagement_stats,
     get_admin_analytics,
-    get_user_journey
+    get_user_journey,
+    get_all_users_detail,
+    get_new_users_detail,
+    get_screen_views_breakdown,
+    get_mood_selections_breakdown,
+    get_equipment_selections_breakdown,
+    get_difficulty_selections_breakdown,
+    get_exercises_breakdown,
+    get_social_activity_breakdown,
+    get_workout_funnel_detail
 )
 
 ROOT_DIR = Path(__file__).parent
