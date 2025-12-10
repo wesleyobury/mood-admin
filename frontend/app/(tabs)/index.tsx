@@ -707,6 +707,126 @@ const styles = StyleSheet.create({
     borderRadius: 0, // Straight edges to match container
   },
 
+  // Carousel Styles - Peloton style
+  carouselSection: {
+    marginVertical: 16,
+    paddingTop: 8,
+  },
+  carouselHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingHorizontal: 24,
+    marginBottom: 8,
+  },
+  yourPlanIcon: {
+    width: 28,
+    height: 28,
+    borderRadius: 14,
+    backgroundColor: '#fff',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginRight: 10,
+  },
+  yourPlanText: {
+    fontSize: 15,
+    fontWeight: '600',
+    color: '#fff',
+    letterSpacing: 0.3,
+  },
+  carouselQuestion: {
+    fontSize: 24,
+    fontWeight: '700',
+    color: '#fff',
+    paddingHorizontal: 24,
+    marginBottom: 16,
+    lineHeight: 30,
+  },
+  carouselList: {
+    paddingHorizontal: 24,
+  },
+  carouselCard: {
+    width: CARD_WIDTH,
+    height: 340,
+    borderRadius: 16,
+    overflow: 'hidden',
+    marginHorizontal: CARD_MARGIN,
+    backgroundColor: '#1a1a1a',
+  },
+  carouselImage: {
+    width: '100%',
+    height: '100%',
+    position: 'absolute',
+  },
+  carouselOverlay: {
+    ...StyleSheet.absoluteFillObject,
+    backgroundColor: 'rgba(0, 0, 0, 0.25)',
+  },
+  carouselBadge: {
+    position: 'absolute',
+    top: 16,
+    left: 16,
+    backgroundColor: '#fff',
+    paddingHorizontal: 12,
+    paddingVertical: 6,
+    borderRadius: 4,
+  },
+  carouselBadgeText: {
+    fontSize: 13,
+    fontWeight: '600',
+    color: '#000',
+    letterSpacing: 0.2,
+  },
+  bookmarkButton: {
+    position: 'absolute',
+    top: 16,
+    right: 16,
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+    backgroundColor: 'rgba(0, 0, 0, 0.4)',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  carouselInfo: {
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    right: 0,
+    padding: 20,
+    paddingTop: 60,
+    background: 'linear-gradient(transparent, rgba(0,0,0,0.8))',
+  },
+  carouselTitle: {
+    fontSize: 20,
+    fontWeight: '700',
+    color: '#fff',
+    marginBottom: 4,
+    textShadow: '0px 2px 4px rgba(0,0,0,0.5)',
+  },
+  carouselTrainer: {
+    fontSize: 14,
+    fontWeight: '500',
+    color: 'rgba(255, 255, 255, 0.85)',
+  },
+  dotsContainer: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: 16,
+    gap: 8,
+  },
+  dot: {
+    width: 8,
+    height: 8,
+    borderRadius: 4,
+  },
+  activeDot: {
+    backgroundColor: '#fff',
+    width: 24,
+  },
+  inactiveDot: {
+    backgroundColor: 'rgba(255, 255, 255, 0.3)',
+  },
 
   centeredBrandingHeader: {
     alignItems: 'center',
