@@ -23,8 +23,8 @@ import { useAuth } from '../../contexts/AuthContext';
 import { Analytics } from '../../utils/analytics';
 
 const { width: SCREEN_WIDTH } = Dimensions.get('window');
-const CARD_WIDTH = SCREEN_WIDTH - 48; // 24px padding on each side
 const CARD_MARGIN = 8;
+const CARD_WIDTH = SCREEN_WIDTH - 32; // Full width minus padding
 
 // Workout carousel data - 5 featured workouts with mood + workout format
 const featuredWorkouts = [
