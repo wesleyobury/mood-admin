@@ -186,38 +186,54 @@ export default function AdminDashboard() {
         {/* Key Metrics Grid */}
         <View style={styles.metricsSection}>
           <View style={styles.metricsRow}>
-            <View style={styles.metricCard}>
+            <TouchableOpacity 
+              style={styles.metricCard}
+              onPress={() => router.push(`/analytics-detail?type=users&days=${selectedPeriod}`)}
+            >
               <View style={styles.metricIconContainer}>
                 <Ionicons name="people" size={24} color="#FFD700" />
               </View>
-              <Text style={styles.metricValue}>{stats?.total_users.toLocaleString()}</Text>
+              <Text style={styles.metricValue}>{stats?.total_users?.toLocaleString() || 0}</Text>
               <Text style={styles.metricLabel}>Total Users</Text>
-            </View>
+              <Ionicons name="chevron-forward" size={14} color="#666" style={styles.drilldownIcon} />
+            </TouchableOpacity>
 
-            <View style={styles.metricCard}>
+            <TouchableOpacity 
+              style={styles.metricCard}
+              onPress={() => router.push(`/analytics-detail?type=users&days=${selectedPeriod}`)}
+            >
               <View style={[styles.metricIconContainer, { backgroundColor: 'rgba(76, 175, 80, 0.1)' }]}>
                 <Ionicons name="pulse" size={24} color="#4CAF50" />
               </View>
-              <Text style={styles.metricValue}>{stats?.active_users.toLocaleString()}</Text>
+              <Text style={styles.metricValue}>{stats?.active_users?.toLocaleString() || 0}</Text>
               <Text style={styles.metricLabel}>Active</Text>
-            </View>
+              <Ionicons name="chevron-forward" size={14} color="#666" style={styles.drilldownIcon} />
+            </TouchableOpacity>
           </View>
 
           <View style={styles.metricsRow}>
-            <View style={styles.metricCard}>
+            <TouchableOpacity 
+              style={styles.metricCard}
+              onPress={() => router.push(`/analytics-detail?type=users&days=${selectedPeriod}`)}
+            >
               <View style={[styles.metricIconContainer, { backgroundColor: 'rgba(33, 150, 243, 0.1)' }]}>
                 <Ionicons name="today" size={24} color="#2196F3" />
               </View>
-              <Text style={styles.metricValue}>{stats?.daily_active_users.toLocaleString()}</Text>
+              <Text style={styles.metricValue}>{stats?.daily_active_users?.toLocaleString() || 0}</Text>
               <Text style={styles.metricLabel}>Daily Active</Text>
-            </View>
+              <Ionicons name="chevron-forward" size={14} color="#666" style={styles.drilldownIcon} />
+            </TouchableOpacity>
 
-            <View style={styles.metricCard}>
+            <TouchableOpacity 
+              style={styles.metricCard}
+              onPress={() => router.push(`/analytics-detail?type=newUsers&days=${selectedPeriod}`)}
+            >
               <View style={[styles.metricIconContainer, { backgroundColor: 'rgba(255, 152, 0, 0.1)' }]}>
                 <Ionicons name="person-add" size={24} color="#FF9800" />
               </View>
-              <Text style={styles.metricValue}>{stats?.new_users.toLocaleString()}</Text>
+              <Text style={styles.metricValue}>{stats?.new_users?.toLocaleString() || 0}</Text>
               <Text style={styles.metricLabel}>New Users</Text>
+              <Ionicons name="chevron-forward" size={14} color="#666" style={styles.drilldownIcon} />
             </View>
           </View>
         </View>
