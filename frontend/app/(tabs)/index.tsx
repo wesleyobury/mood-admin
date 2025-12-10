@@ -277,6 +277,9 @@ const moodCards: MoodCard[] = [
 export default function WorkoutsHome() {
   const [greeting, setGreeting] = useState('');
   const [userStats, setUserStats] = useState({ workouts: 0, minutes: 0, streak: 0 });
+  const [activeCarouselIndex, setActiveCarouselIndex] = useState(0);
+  const carouselRef = useRef<FlatList>(null);
+  const autoScrollTimer = useRef<NodeJS.Timeout | null>(null);
   const insets = useSafeAreaInsets();
   const router = useRouter();
   const { token } = useAuth();
@@ -286,6 +289,44 @@ export default function WorkoutsHome() {
     if (hour < 12) setGreeting('Good morning');
     else if (hour < 18) setGreeting('Good afternoon');
     else setGreeting('Good evening');
+  }, []);
+
+  // Auto-scroll carousel every 2 seconds
+  useEffect(() => {
+    const startAutoScroll = () => {
+      autoScrollTimer.current = setInterval(() => {
+        setActiveCarouselIndex((prevIndex) => {
+          const nextIndex = (prevIndex + 1) % featuredWorkouts.length;
+          carouselRef.current?.scrollToIndex({
+            index: nextIndex,
+            animated: true,
+          });
+          return nextIndex;
+        });
+      }, 2000);
+    };
+
+    startAutoScroll();
+
+    return () => {
+      if (autoScrollTimer.current) {
+        clearInterval(autoScrollTimer.current);
+      }
+    };
+  }, []);
+
+  // Handle carousel scroll end to update active index
+  const onCarouselScroll = useCallback((event: NativeSyntheticEvent<NativeScrollEvent>) => {
+    const contentOffsetX = event.nativeEvent.contentOffset.x;
+    const index = Math.round(contentOffsetX / (CARD_WIDTH + CARD_MARGIN * 2));
+    if (index !== activeCarouselIndex && index >= 0 && index < featuredWorkouts.length) {
+      setActiveCarouselIndex(index);
+    }
+  }, [activeCarouselIndex]);
+
+  // Render carousel item
+  const renderCarouselItem = useCallback(({ item }: { item: typeof featuredWorkouts[0] }) => {
+    return <WorkoutCarouselCard workout={item} />;
   }, []);
 
   // Fetch user workout stats
