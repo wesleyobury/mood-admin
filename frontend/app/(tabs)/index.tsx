@@ -740,7 +740,7 @@ const styles = StyleSheet.create({
     letterSpacing: 0.3,
   },
   carouselList: {
-    paddingHorizontal: 24,
+    paddingHorizontal: 16,
   },
   carouselCard: {
     width: CARD_WIDTH,
