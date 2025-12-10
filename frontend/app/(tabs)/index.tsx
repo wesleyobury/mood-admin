@@ -98,9 +98,13 @@ const featuredWorkouts = [
 ];
 
 // Workout Carousel Card Component
-const WorkoutCarouselCard = ({ workout }: { workout: typeof featuredWorkouts[0] }) => {
+const WorkoutCarouselCard = ({ workout, onPress }: { workout: typeof featuredWorkouts[0]; onPress: () => void }) => {
   return (
-    <View style={styles.carouselCard}>
+    <TouchableOpacity 
+      style={styles.carouselCard}
+      onPress={onPress}
+      activeOpacity={0.9}
+    >
       <Image
         source={{ uri: workout.image }}
         style={styles.carouselImage}
@@ -114,7 +118,13 @@ const WorkoutCarouselCard = ({ workout }: { workout: typeof featuredWorkouts[0] 
       </View>
       
       {/* Bookmark icon */}
-      <TouchableOpacity style={styles.bookmarkButton}>
+      <TouchableOpacity 
+        style={styles.bookmarkButton}
+        onPress={(e) => {
+          e.stopPropagation();
+          // TODO: Handle bookmark
+        }}
+      >
         <Ionicons name="bookmark-outline" size={22} color="rgba(255,255,255,0.8)" />
       </TouchableOpacity>
       
@@ -123,7 +133,7 @@ const WorkoutCarouselCard = ({ workout }: { workout: typeof featuredWorkouts[0] 
         <Text style={styles.carouselTitle}>{workout.mood} - {workout.title}</Text>
         <Text style={styles.carouselDuration}>{workout.duration}</Text>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 };
 
