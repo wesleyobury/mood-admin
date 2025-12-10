@@ -788,7 +788,7 @@ const styles = StyleSheet.create({
   // New top progress section styles
   topProgressSection: {
     marginHorizontal: 24,
-    marginTop: 4,
+    marginTop: -1,
     marginBottom: 8,
     backgroundColor: 'rgba(255, 215, 0, 0.03)',
     borderRadius: 16,
