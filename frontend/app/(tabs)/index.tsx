@@ -309,6 +309,29 @@ export default function WorkoutsHome() {
           </View>
         </View>
 
+        {/* Progress Tracker - Moved to top */}
+        <View style={styles.topProgressSection}>
+          <View style={styles.progressStatsRow}>
+            <View style={styles.progressStatItem}>
+              <Text style={styles.progressStatValue}>{userStats.workouts}</Text>
+              <Text style={styles.progressStatLabel}>Workouts</Text>
+            </View>
+            <View style={styles.progressDivider} />
+            <View style={styles.progressStatItem}>
+              <Text style={styles.progressStatValue}>{userStats.minutes}</Text>
+              <Text style={styles.progressStatLabel}>Minutes</Text>
+            </View>
+            <View style={styles.progressDivider} />
+            <View style={styles.progressStatItem}>
+              <View style={styles.streakContainer}>
+                <Text style={styles.progressStatValue}>{userStats.streak}</Text>
+                {userStats.streak > 0 && <Ionicons name="flame" size={16} color="#FFD700" style={styles.streakIcon} />}
+              </View>
+              <Text style={styles.progressStatLabel}>Day Streak</Text>
+            </View>
+          </View>
+        </View>
+
         {/* Hero Image */}
         <View style={styles.parallaxContainer}>
           <Image 
