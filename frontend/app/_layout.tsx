@@ -63,6 +63,7 @@ export default function RootLayout() {
       <SafeAreaProvider style={{ flex: 1, backgroundColor: '#000000' }}>
         <AuthProvider>
           <CartProvider>
+            <AppStateTracker />
             <Stack 
               screenOptions={{ 
                 headerShown: false, 
