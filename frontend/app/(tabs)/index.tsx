@@ -175,6 +175,7 @@ export default function WorkoutsHome() {
   const [scrollY, setScrollY] = useState(0);
   const insets = useSafeAreaInsets();
   const router = useRouter();
+  const { token } = useAuth();
   
   useEffect(() => {
     const hour = new Date().getHours();
@@ -185,6 +186,11 @@ export default function WorkoutsHome() {
 
   const handleMoodSelect = (mood: MoodCard) => {
     console.log('Selected mood:', mood.title);
+    
+    // Track mood selection
+    if (token) {
+      Analytics.moodSelected(token, { mood_category: mood.id });
+    }
     
     if (mood.id === 'sweat') {
       // Navigate to workout type selection for "I want to sweat"
