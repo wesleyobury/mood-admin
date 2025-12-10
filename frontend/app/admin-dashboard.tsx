@@ -693,16 +693,36 @@ const styles = StyleSheet.create({
     color: '#888',
     textAlign: 'center',
   },
+  drilldownIcon: {
+    position: 'absolute',
+    top: 12,
+    right: 12,
+  },
   section: {
     paddingHorizontal: 20,
     marginTop: 24,
+  },
+  sectionHeader: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: 16,
   },
   sectionTitle: {
     fontSize: 16,
     fontWeight: '700',
     color: '#fff',
-    marginBottom: 16,
     letterSpacing: 0.5,
+  },
+  seeAllText: {
+    fontSize: 13,
+    color: '#FFD700',
+    fontWeight: '600',
+  },
+  cardArrow: {
+    position: 'absolute',
+    top: 8,
+    right: 8,
   },
   engagementCard: {
     flexDirection: 'row',
