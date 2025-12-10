@@ -96,6 +96,11 @@ export function AuthProvider({ children }: AuthProviderProps) {
           setToken(data.token);
           await AsyncStorage.setItem('auth_token', data.token);
           
+          // Track app session start on fresh login
+          trackEvent(data.token, 'app_session_start', {
+            restored_session: false,
+          });
+          
           // Get user info
           const userResp = await fetch(`${API_URL}/api/users/me`, {
             headers: { 'Authorization': `Bearer ${data.token}` },
