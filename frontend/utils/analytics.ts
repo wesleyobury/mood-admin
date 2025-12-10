@@ -56,6 +56,19 @@ export const Analytics = {
     exercises_completed?: number;
   }) => trackEvent(token, 'workout_completed', metadata),
 
+  workoutSkipped: (token: string, metadata: {
+    workout_name?: string;
+    workout_index?: number;
+    total_exercises?: number;
+  }) => trackEvent(token, 'workout_skipped', metadata),
+
+  workoutAbandoned: (token: string, metadata: {
+    workout_name?: string;
+    progress_percentage?: number;
+    exercises_completed?: number;
+    total_exercises?: number;
+  }) => trackEvent(token, 'workout_abandoned', metadata),
+
   workoutSaved: (token: string, metadata: {
     workout_id?: string;
     mood_category?: string;
