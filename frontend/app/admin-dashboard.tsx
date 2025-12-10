@@ -28,6 +28,7 @@ interface PlatformStats {
   total_workouts_skipped: number;
   total_workouts_abandoned: number;
   workout_completion_rate: number;
+  total_exercises_completed: number;
   total_posts_created: number;
   total_likes: number;
   total_comments: number;
@@ -35,6 +36,12 @@ interface PlatformStats {
   total_unfollows: number;
   total_profile_views: number;
   total_app_sessions: number;
+  total_app_opens: number;
+  total_screen_views: number;
+  total_tab_switches: number;
+  total_mood_selections: number;
+  total_equipment_selections: number;
+  total_difficulty_selections: number;
   retention_rate: number;
   average_workouts_per_active_user: number;
   popular_mood_categories: Array<{ mood: string; count: number }>;
