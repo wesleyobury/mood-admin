@@ -541,6 +541,94 @@ async def get_platform_stats(
     return stats
 
 
+# ============================================
+# DETAILED ANALYTICS DRILL-DOWN ENDPOINTS
+# ============================================
+
+@api_router.get("/analytics/admin/users")
+async def get_users_detail_endpoint(
+    days: int = 30,
+    limit: int = 100,
+    skip: int = 0,
+    current_user_id: str = Depends(get_current_user)
+):
+    """Get all users with activity summary"""
+    return await get_all_users_detail(db, days, limit, skip)
+
+
+@api_router.get("/analytics/admin/users/new")
+async def get_new_users_endpoint(
+    days: int = 30,
+    limit: int = 100,
+    current_user_id: str = Depends(get_current_user)
+):
+    """Get new users who joined in the period"""
+    return await get_new_users_detail(db, days, limit)
+
+
+@api_router.get("/analytics/admin/screens")
+async def get_screens_breakdown_endpoint(
+    days: int = 30,
+    current_user_id: str = Depends(get_current_user)
+):
+    """Get breakdown of screen views"""
+    return await get_screen_views_breakdown(db, days)
+
+
+@api_router.get("/analytics/admin/moods")
+async def get_moods_breakdown_endpoint(
+    days: int = 30,
+    current_user_id: str = Depends(get_current_user)
+):
+    """Get breakdown of mood selections"""
+    return await get_mood_selections_breakdown(db, days)
+
+
+@api_router.get("/analytics/admin/equipment")
+async def get_equipment_breakdown_endpoint(
+    days: int = 30,
+    current_user_id: str = Depends(get_current_user)
+):
+    """Get breakdown of equipment selections with mood paths"""
+    return await get_equipment_selections_breakdown(db, days)
+
+
+@api_router.get("/analytics/admin/difficulties")
+async def get_difficulties_breakdown_endpoint(
+    days: int = 30,
+    current_user_id: str = Depends(get_current_user)
+):
+    """Get breakdown of difficulty selections"""
+    return await get_difficulty_selections_breakdown(db, days)
+
+
+@api_router.get("/analytics/admin/exercises")
+async def get_exercises_breakdown_endpoint(
+    days: int = 30,
+    current_user_id: str = Depends(get_current_user)
+):
+    """Get breakdown of exercises completed"""
+    return await get_exercises_breakdown(db, days)
+
+
+@api_router.get("/analytics/admin/social")
+async def get_social_breakdown_endpoint(
+    days: int = 30,
+    current_user_id: str = Depends(get_current_user)
+):
+    """Get breakdown of social activity"""
+    return await get_social_activity_breakdown(db, days)
+
+
+@api_router.get("/analytics/admin/workout-funnel")
+async def get_workout_funnel_endpoint(
+    days: int = 30,
+    current_user_id: str = Depends(get_current_user)
+):
+    """Get detailed workout funnel data"""
+    return await get_workout_funnel_detail(db, days)
+
+
 
 # User Endpoints
 
