@@ -527,7 +527,7 @@ export default function AdminDashboard() {
                 );
               })}
             </View>
-          </View>
+          </TouchableOpacity>
         )}
 
         {/* Insights */}
