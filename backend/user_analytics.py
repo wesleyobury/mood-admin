@@ -502,6 +502,48 @@ async def get_admin_analytics(
             "timestamp": {"$gte": start_date}
         })
         
+        # App opens (foreground)
+        app_opens = await db.user_events.count_documents({
+            "event_type": "app_opened",
+            "timestamp": {"$gte": start_date}
+        })
+        
+        # Screen views
+        screen_views = await db.user_events.count_documents({
+            "event_type": "screen_viewed",
+            "timestamp": {"$gte": start_date}
+        })
+        
+        # Tab switches
+        tab_switches = await db.user_events.count_documents({
+            "event_type": "tab_switched",
+            "timestamp": {"$gte": start_date}
+        })
+        
+        # Exercises completed
+        exercises_completed = await db.user_events.count_documents({
+            "event_type": "exercise_completed",
+            "timestamp": {"$gte": start_date}
+        })
+        
+        # Mood selections
+        mood_selections = await db.user_events.count_documents({
+            "event_type": "mood_selected",
+            "timestamp": {"$gte": start_date}
+        })
+        
+        # Equipment selections
+        equipment_selections = await db.user_events.count_documents({
+            "event_type": "equipment_selected",
+            "timestamp": {"$gte": start_date}
+        })
+        
+        # Difficulty selections
+        difficulty_selections = await db.user_events.count_documents({
+            "event_type": "difficulty_selected",
+            "timestamp": {"$gte": start_date}
+        })
+        
         # New users in period
         new_users = await db.users.count_documents({
             "created_at": {"$gte": start_date}
