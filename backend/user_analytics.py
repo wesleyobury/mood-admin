@@ -38,6 +38,8 @@ EVENT_TYPES = {
     # Workout Events
     "workout_started": "workout",
     "workout_completed": "workout",
+    "workout_skipped": "workout",
+    "workout_abandoned": "workout",
     "workout_saved": "workout",
     "exercise_completed": "workout",
     
@@ -55,6 +57,7 @@ EVENT_TYPES = {
     "search_performed": "navigation",
     
     # Engagement Events
+    "app_session_start": "engagement",
     "app_opened": "engagement",
     "app_backgrounded": "engagement",
     "notification_clicked": "engagement",
