@@ -70,7 +70,22 @@ export default function WorkoutSessionScreen() {
         "Are you sure you want to leave the workout session?",
         [
           { text: "Cancel", style: "cancel" },
-          { text: "Leave", style: "destructive", onPress: () => router.back() }
+          { 
+            text: "Leave", 
+            style: "destructive", 
+            onPress: () => {
+              // Track workout abandoned event
+              if (token && currentWorkout) {
+                Analytics.workoutAbandoned(token, {
+                  workout_name: currentWorkout.workoutName,
+                  progress_percentage: Math.round((currentIndex / sessionWorkouts.length) * 100),
+                  exercises_completed: currentIndex,
+                  total_exercises: sessionWorkouts.length,
+                });
+              }
+              router.back();
+            }
+          }
         ]
       );
     }
