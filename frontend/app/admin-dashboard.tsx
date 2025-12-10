@@ -340,6 +340,49 @@ export default function AdminDashboard() {
               <Text style={styles.socialValue}>{stats?.total_profile_views?.toLocaleString() || 0}</Text>
               <Text style={styles.socialLabel}>Profile Views</Text>
             </View>
+
+            <View style={styles.socialCard}>
+              <Ionicons name="layers" size={20} color="#2196F3" />
+              <Text style={styles.socialValue}>{stats?.total_screen_views?.toLocaleString() || 0}</Text>
+              <Text style={styles.socialLabel}>Screen Views</Text>
+            </View>
+
+            <View style={styles.socialCard}>
+              <Ionicons name="swap-horizontal" size={20} color="#FF9800" />
+              <Text style={styles.socialValue}>{stats?.total_tab_switches?.toLocaleString() || 0}</Text>
+              <Text style={styles.socialLabel}>Tab Switches</Text>
+            </View>
+          </View>
+        </View>
+
+        {/* User Journey Analytics */}
+        <View style={styles.section}>
+          <Text style={styles.sectionTitle}>User Journey</Text>
+          
+          <View style={styles.socialGrid}>
+            <View style={styles.socialCard}>
+              <Ionicons name="happy" size={20} color="#FFD700" />
+              <Text style={styles.socialValue}>{stats?.total_mood_selections?.toLocaleString() || 0}</Text>
+              <Text style={styles.socialLabel}>Mood Selections</Text>
+            </View>
+
+            <View style={styles.socialCard}>
+              <Ionicons name="barbell" size={20} color="#4CAF50" />
+              <Text style={styles.socialValue}>{stats?.total_equipment_selections?.toLocaleString() || 0}</Text>
+              <Text style={styles.socialLabel}>Equipment Selected</Text>
+            </View>
+
+            <View style={styles.socialCard}>
+              <Ionicons name="speedometer" size={20} color="#E91E63" />
+              <Text style={styles.socialValue}>{stats?.total_difficulty_selections?.toLocaleString() || 0}</Text>
+              <Text style={styles.socialLabel}>Difficulty Selected</Text>
+            </View>
+
+            <View style={styles.socialCard}>
+              <Ionicons name="checkmark-circle" size={20} color="#00BCD4" />
+              <Text style={styles.socialValue}>{stats?.total_exercises_completed?.toLocaleString() || 0}</Text>
+              <Text style={styles.socialLabel}>Exercises Done</Text>
+            </View>
           </View>
         </View>
 
