@@ -502,15 +502,9 @@ export default function WorkoutsHome() {
           </View>
         </View>
 
-        {/* Featured Workouts Carousel - Peloton Style */}
+        {/* Featured Workouts Carousel - Condensed */}
         <View style={styles.carouselSection}>
-          <View style={styles.carouselHeader}>
-            <View style={styles.yourPlanIcon}>
-              <Ionicons name="calendar" size={16} color="#000" />
-            </View>
-            <Text style={styles.yourPlanText}>Your Plan</Text>
-          </View>
-          <Text style={styles.carouselQuestion}>Ready for a Lower Body workout today, {greeting.split(' ')[1] || 'there'}?</Text>
+          <Text style={styles.carouselTitle2}>Featured Workouts</Text>
           
           <FlatList
             ref={carouselRef}
