@@ -1157,10 +1157,11 @@ const styles = StyleSheet.create({
   },
   progressContainer: {
     backgroundColor: '#111111',
-    paddingTop: 6,
-    paddingBottom: 21,
-    paddingHorizontal: 24,
-    overflow: 'visible',
+    borderBottomWidth: 1,
+    borderBottomColor: 'rgba(255, 215, 0, 0.2)',
+    paddingVertical: 12,
+    paddingHorizontal: 16,
+    zIndex: 10,
   },
   progressContent: {
     flexDirection: 'row',
