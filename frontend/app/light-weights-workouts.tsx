@@ -480,6 +480,8 @@ const styles = StyleSheet.create({
     paddingVertical: 16,
     borderBottomWidth: 1,
     borderBottomColor: 'rgba(255, 215, 0, 0.2)',
+    backgroundColor: '#000000',
+    zIndex: 10,
   },
   backButton: {
     width: 40,
