@@ -835,6 +835,7 @@ const styles = StyleSheet.create({
   },
   addButtonWrapper: {
     position: 'relative',
+    overflow: 'visible',
   },
   addToCartButton: {
     backgroundColor: 'rgba(70, 70, 70, 0.9)',
