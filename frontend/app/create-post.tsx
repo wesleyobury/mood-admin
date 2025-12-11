@@ -888,7 +888,13 @@ const styles = StyleSheet.create({
   },
   statsCardWrapper: {
     alignItems: 'center',
+    justifyContent: 'center',
     marginVertical: 6,
+    backgroundColor: '#000',
+    width: SCREEN_WIDTH,
+    height: SCREEN_WIDTH * 1.25, // 4:5 aspect ratio to match carousel
+    paddingHorizontal: 24,
+    paddingVertical: 24,
   },
   saveExplanation: {
     flexDirection: 'row',
