@@ -219,7 +219,7 @@ const styles = StyleSheet.create({
   workoutNumber: {
     fontSize: 11,
     fontWeight: 'bold',
-    color: '#FFD700',
+    color: '#FFFFFF',
   },
   workoutDetails: {
     flex: 1,
