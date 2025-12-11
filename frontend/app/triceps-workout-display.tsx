@@ -1132,7 +1132,6 @@ const WorkoutCard = ({
   scaleAnim
 }: WorkoutCardProps) => {
   const [currentWorkoutIndex, setCurrentWorkoutIndex] = useState(0);
-  const [showIndicator, setShowIndicator] = useState(true);
   const flatListRef = useRef<FlatList>(null);
 
   console.log(`💪 WorkoutCard for ${equipment}: received ${workouts.length} workouts for ${difficulty} difficulty`);

@@ -2794,7 +2794,6 @@ const WorkoutCard = ({
   muscleGroup
 }: WorkoutCardProps) => {
   const [currentWorkoutIndex, setCurrentWorkoutIndex] = useState(0);
-  const [showIndicator, setShowIndicator] = useState(true);
   const flatListRef = useRef<FlatList>(null);
 
   const onViewableItemsChanged = useRef(({ viewableItems }: any) => {
