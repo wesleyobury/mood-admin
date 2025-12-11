@@ -99,7 +99,9 @@ const EquipmentCard = ({
         </Text>
       </View>
       {isSelected && (
-        <Ionicons name="checkmark-circle" size={24} color="#FFD700" />
+        <View style={styles.equipmentIndicator}>
+          <Ionicons name="checkmark" size={16} color="#FFD700" />
+        </View>
       )}
     </TouchableOpacity>
   );
@@ -489,13 +491,7 @@ const styles = StyleSheet.create({
   },
   equipmentCardSelected: {
     backgroundColor: '#111111',
-    borderColor: '#FFD700',
-    borderWidth: 2,
-    shadowColor: '#FFD700',
-    shadowOffset: { width: 0, height: 0 },
-    shadowOpacity: 0.6,
-    shadowRadius: 12,
-    elevation: 8,
+    // Border stays the same - no heavy gold border on selection
   },
   equipmentLeft: {
     flexDirection: 'row',
@@ -526,6 +522,15 @@ const styles = StyleSheet.create({
   },
   equipmentNameSelected: {
     color: '#FFD700',
+  },
+  equipmentIndicator: {
+    width: 24,
+    height: 24,
+    borderRadius: 12,
+    backgroundColor: '#000000',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginLeft: 8,
   },
   difficultyContainer: {
     gap: 16,
