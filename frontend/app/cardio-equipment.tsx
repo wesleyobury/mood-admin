@@ -515,6 +515,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     borderWidth: 2,
     borderColor: 'rgba(255, 215, 0, 0.3)',
+    marginRight: 12,
   },
   equipmentIconContainerSelected: {
     backgroundColor: 'rgba(255, 215, 0, 0.2)',
