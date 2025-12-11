@@ -527,11 +527,10 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   equipmentIndicator: {
-    backgroundColor: '#FFD700',
     width: 24,
     height: 24,
     borderRadius: 12,
-    backgroundColor: '#000000',
+    backgroundColor: '#FFD700',
     justifyContent: 'center',
     alignItems: 'center',
     marginLeft: 8,
