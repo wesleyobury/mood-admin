@@ -1095,7 +1095,7 @@ const styles = StyleSheet.create({
   },
   workoutCard: {
     backgroundColor: '#111111',
-    overflow: 'visible',
+    overflow: 'hidden',
     borderRadius: 20,
     marginTop: 24,
     marginBottom: 16,
