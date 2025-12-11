@@ -151,8 +151,8 @@ const styles = StyleSheet.create({
     marginTop: 2,
   },
   statsSection: {
-    paddingHorizontal: 14,
-    paddingVertical: 10,
+    paddingHorizontal: 20,
+    paddingVertical: 12,
   },
   statsGrid: {
     flexDirection: 'row',
