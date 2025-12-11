@@ -488,13 +488,7 @@ const styles = StyleSheet.create({
   },
   equipmentCardSelected: {
     backgroundColor: '#111111',
-    borderColor: '#FFD700',
-    borderWidth: 2,
-    shadowColor: '#FFD700',
-    shadowOffset: { width: 0, height: 0 },
-    shadowOpacity: 0.4,
-    shadowRadius: 8,
-    elevation: 4,
+    // Border stays the same - no heavy gold border on selection
   },
   equipmentIconContainer: {
     width: 36,
@@ -524,7 +518,7 @@ const styles = StyleSheet.create({
     width: 24,
     height: 24,
     borderRadius: 12,
-    backgroundColor: 'rgba(0, 0, 0, 0.2)',
+    backgroundColor: '#000000',
     justifyContent: 'center',
     alignItems: 'center',
     marginLeft: 8,
