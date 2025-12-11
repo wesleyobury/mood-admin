@@ -1684,7 +1684,7 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.4,
     shadowRadius: 20,
     elevation: 12,
-    overflow: 'visible',
+    overflow: 'hidden',
     marginBottom: 25,
     width: '100%',
   },

@@ -3588,7 +3588,7 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.3,
     shadowRadius: 15,
     elevation: 8,
-    overflow: 'visible',
+    overflow: 'hidden',
     marginBottom: 24,
   },
   equipmentHeader: {
