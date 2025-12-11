@@ -35,14 +35,14 @@ export default function AddWorkoutIndicator({ visible }: AddWorkoutIndicatorProp
         ),
       ]).start();
 
-      // Fade out after 3 seconds
+      // Fade out after 5 seconds (2 seconds longer)
       const timer = setTimeout(() => {
         Animated.timing(fadeAnim, {
           toValue: 0,
           duration: 400,
           useNativeDriver: true,
         }).start();
-      }, 3000);
+      }, 5000);
 
       return () => clearTimeout(timer);
     }
