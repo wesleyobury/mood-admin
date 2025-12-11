@@ -44,10 +44,10 @@ interface EquipmentWorkouts {
   };
 }
 
-// Lower body workout database with all press, pull, and full lower body workouts
+// Lower body workout database with all push, pull, and full lower body workouts
 const lowerBodyWorkoutDatabase: EquipmentWorkouts[] = [
   {
-    equipment: 'Press',
+    equipment: 'Push',
     icon: 'arrow-up',
     workouts: {
       beginner: [
@@ -851,7 +851,7 @@ export default function LazyLowerBodyWorkoutsScreen() {
   const difficulty = params.difficulty as string || 'beginner';
   
   // Get workout data
-  const selectedEquipmentNames = ['Press', 'Pull', 'Full Lower Body'];
+  const selectedEquipmentNames = ['Push', 'Pull', 'Full Lower Body'];
   const workoutDatabase = lowerBodyWorkoutDatabase;
 
   // Cart hooks
