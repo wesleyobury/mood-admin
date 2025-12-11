@@ -44,10 +44,10 @@ interface EquipmentWorkouts {
   };
 }
 
-// Upper body workout database with all press, pull, and full upper body workouts
+// Upper body workout database with all push, pull, and full upper body workouts
 const upperBodyWorkoutDatabase: EquipmentWorkouts[] = [
   {
-    equipment: 'Press',
+    equipment: 'Push',
     icon: 'arrow-up',
     workouts: {
       beginner: [
@@ -851,7 +851,7 @@ export default function LazyUpperBodyWorkoutsScreen() {
   const difficulty = params.difficulty as string || 'beginner';
   
   // Get workout data
-  const selectedEquipmentNames = ['Press', 'Pull', 'Full Upper Body'];
+  const selectedEquipmentNames = ['Push', 'Pull', 'Full Upper Body'];
   const workoutDatabase = upperBodyWorkoutDatabase;
 
   // Cart hooks
