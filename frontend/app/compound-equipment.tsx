@@ -117,7 +117,7 @@ const DifficultyCard = ({
       <View style={styles.difficultyContent}>
         <Text style={[
           styles.difficultyTitle,
-          isSelected && { color: level.color }
+          
         ]}>
           {level.title}
         </Text>
