@@ -122,9 +122,9 @@ const styles = StyleSheet.create({
   header: {
     flexDirection: 'row',
     alignItems: 'center',
-    paddingTop: 14,
-    paddingHorizontal: 14,
-    paddingBottom: 10,
+    paddingTop: 20,
+    paddingHorizontal: 20,
+    paddingBottom: 12,
   },
   iconContainer: {
     width: 36,
