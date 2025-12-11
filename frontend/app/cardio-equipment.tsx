@@ -523,7 +523,6 @@ const styles = StyleSheet.create({
     color: '#ffffff',
   },
   equipmentNameSelected: {
-    color: '#FFD700',
     fontWeight: 'bold',
   },
   equipmentIndicator: {
