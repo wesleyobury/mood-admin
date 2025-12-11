@@ -96,7 +96,9 @@ const EquipmentCard = ({
         </Text>
       </View>
       {isSelected && (
-        <Ionicons name="checkmark-circle" size={24} color="#FFD700" />
+        <View style={styles.equipmentIndicator}>
+          <Ionicons name="checkmark" size={16} color="#FFD700" />
+        </View>
       )}
     </TouchableOpacity>
   );
