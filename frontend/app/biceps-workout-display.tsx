@@ -381,7 +381,7 @@ const bicepsWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Cable Negatives',
           duration: '12–14 min',
-          description: 'Negative bar curls grow size and total integrity',
+          description: 'Negative bar curls grow size and total integrity with greater muscle fiber recruitment',
           battlePlan: '3 rounds\n• 8 Cable Bar Curls (3s eccentric)\nRest 75–90s',
           imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/vqw55nvb_download%20%2818%29.png',
           intensityReason: 'Slow eccentrics amplify hypertrophy adaptation',
@@ -603,7 +603,7 @@ const bicepsWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Curl with Pause',
           duration: '10–12 min',
-          description: 'Isometric hold improves mind muscle link early',
+          description: 'Isometric hold improves mind muscle link early, with curl machine hyper extension',
           battlePlan: '3 rounds\n• 10 Machine Curls (2s pause top)\nRest 75s',
           imageUrl: 'https://customer-assets.emergentagent.com/job_de06d55d-ac38-4152-bbf5-479c53d1fb22/artifacts/h9obln9e_download%20%282%29.png',
           intensityReason: 'Peak pause builds muscle contraction strength',
