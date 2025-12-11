@@ -97,15 +97,13 @@ export default function WigglingAddButton({ isInCart, onPress, scaleAnim }: Wigg
 
 const styles = StyleSheet.create({
   addToCartButton: {
-    backgroundColor: 'transparent',
+    backgroundColor: '#333333',
     borderRadius: 16,
     paddingVertical: 6,
     paddingHorizontal: 10,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    borderWidth: 1,
-    borderColor: '#FFD700',
   },
   addToCartButtonAdded: {
     backgroundColor: 'rgba(255, 215, 0, 0.2)',
