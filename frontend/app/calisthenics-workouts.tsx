@@ -1144,8 +1144,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingHorizontal: 24,
     paddingVertical: 16,
-    borderBottomWidth: 1,
-    borderBottomColor: 'rgba(255, 215, 0, 0.2)',
   },
   backButton: {
     width: 40,
@@ -1178,8 +1176,6 @@ const styles = StyleSheet.create({
   },
   progressContainer: {
     backgroundColor: '#111111',
-    borderBottomWidth: 1,
-    borderBottomColor: 'rgba(255, 215, 0, 0.2)',
     paddingTop: 6,
     paddingBottom: 21,
     paddingHorizontal: 24,
@@ -1248,7 +1244,7 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.3,
     shadowRadius: 15,
     elevation: 8,
-    overflow: 'visible',
+    overflow: 'hidden',
     marginBottom: 25,
     width: '100%',
   },
