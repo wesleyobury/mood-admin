@@ -22,7 +22,7 @@ export default function AddWorkoutIndicator({ visible }: AddWorkoutIndicatorProp
         Animated.loop(
           Animated.sequence([
             Animated.timing(bounceAnim, {
-              toValue: 4,
+              toValue: -8,
               duration: 600,
               useNativeDriver: true,
             }),
@@ -61,7 +61,7 @@ export default function AddWorkoutIndicator({ visible }: AddWorkoutIndicatorProp
       ]}
       pointerEvents="none"
     >
-      <Ionicons name="arrow-up" size={24} color="#FFD700" />
+      <Ionicons name="arrow-down" size={24} color="#FFD700" />
     </Animated.View>
   );
 }
@@ -69,7 +69,7 @@ export default function AddWorkoutIndicator({ visible }: AddWorkoutIndicatorProp
 const styles = StyleSheet.create({
   arrowContainer: {
     position: 'absolute',
-    bottom: -28,
+    top: -32,
     right: 8,
     zIndex: 9999,
   },
