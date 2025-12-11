@@ -1182,7 +1182,7 @@ const styles = StyleSheet.create({
     borderBottomColor: 'rgba(255, 215, 0, 0.2)',
     paddingTop: 6,
     paddingBottom: 21,
-    paddingHorizontal: 20,
+    paddingHorizontal: 24,
     overflow: 'visible',
   },
   progressContent: {
