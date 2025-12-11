@@ -584,7 +584,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   scrollContentContainer: {
-    paddingTop: 40,
+    paddingTop: 16,
     paddingBottom: 10,
   },
   workoutCard: {
