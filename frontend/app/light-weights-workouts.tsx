@@ -585,7 +585,7 @@ const styles = StyleSheet.create({
     overflow: 'visible',
   },
   scrollContentContainer: {
-    paddingTop: 16,
+    paddingTop: 24,
     paddingBottom: 10,
     overflow: 'visible',
   },
