@@ -463,7 +463,8 @@ const LightWeightsWorkoutsScreen = memo(function LightWeightsWorkoutsScreen() {
           );
         })}
       </ScrollView>
-    </SafeAreaView>
+      </SafeAreaView>
+    </View>
   );
 });
 
