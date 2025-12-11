@@ -91,12 +91,6 @@ export default function TabLayout() {
           ),
         }}
       />
-      <Tabs.Screen
-        name="user-profile"
-        options={{
-          href: null, // Hide from tab bar but keep in navigation stack
-        }}
-      />
     </Tabs>
   );
 }
