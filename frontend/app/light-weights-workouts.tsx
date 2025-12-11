@@ -582,10 +582,12 @@ const styles = StyleSheet.create({
   },
   scrollView: {
     flex: 1,
+    overflow: 'visible',
   },
   scrollContentContainer: {
     paddingTop: 16,
     paddingBottom: 10,
+    overflow: 'visible',
   },
   workoutCard: {
     marginBottom: 25,
