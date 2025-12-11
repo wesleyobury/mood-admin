@@ -138,7 +138,7 @@ const DifficultyCard = ({
       </View>
       {isSelected && (
         <View style={styles.difficultyIndicator}>
-          <Ionicons name="checkmark" size={20} color="#FFD700" />
+          <Ionicons name="checkmark" size={20} color="#000000" />
         </View>
       )}
     </TouchableOpacity>
