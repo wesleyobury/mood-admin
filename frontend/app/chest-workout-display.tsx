@@ -1366,7 +1366,7 @@ const WorkoutCard = ({
                         <Ionicons name="checkmark" size={16} color="#FFD700" />
                       ) : (
                         <>
-                          <Ionicons name="add" size={14} color="#FFFFFF" />
+                          <Ionicons name="add" size={14} color="#FFD700" />
                           <Text style={styles.addToCartButtonText}>Add workout</Text>
                         </>
                       )}
