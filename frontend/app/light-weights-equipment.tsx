@@ -525,6 +525,7 @@ const styles = StyleSheet.create({
     color: '#FFD700',
   },
   equipmentIndicator: {
+    backgroundColor: '#FFD700',
     width: 24,
     height: 24,
     borderRadius: 12,

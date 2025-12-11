@@ -517,6 +517,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   equipmentIndicator: {
+    backgroundColor: '#FFD700',
     width: 24,
     height: 24,
     borderRadius: 12,
