@@ -1162,7 +1162,7 @@ const styles = StyleSheet.create({
   },
   swipeIndicator: {
     position: 'absolute',
-    bottom: 8,
+    top: 8,
     right: 8,
     flexDirection: 'row',
     alignItems: 'center',
