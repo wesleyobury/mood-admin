@@ -1740,6 +1740,6 @@ const styles = StyleSheet.create({
   addToCartButtonText: {
     fontSize: 11,
     fontWeight: '600',
-    color: '#ffffff',
+    color: '#FFD700',
   },
 });
