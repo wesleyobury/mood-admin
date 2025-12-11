@@ -491,6 +491,7 @@ const styles = StyleSheet.create({
   equipmentLeft: {
     flexDirection: 'row',
     alignItems: 'center',
+    flex: 1,
     gap: 12,
   },
 
