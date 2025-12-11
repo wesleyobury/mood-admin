@@ -45,8 +45,8 @@
     },
 
     "extra": {
-      "EXPO_PUBLIC_BACKEND_URL": "https://analyticsflow.preview.emergentagent.com",
-      "BACKEND_URL": "https://analyticsflow.preview.emergentagent.com",
+      "EXPO_PUBLIC_BACKEND_URL": "https://fitness-preview.preview.emergentagent.com",
+      "BACKEND_URL": "https://fitness-preview.preview.emergentagent.com",
       "router": {}
     }
   }
