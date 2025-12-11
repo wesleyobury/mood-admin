@@ -101,7 +101,7 @@ const EquipmentCard = ({
       </View>
       {isSelected && (
         <View style={styles.equipmentIndicator}>
-          <Ionicons name="checkmark" size={16} color="#FFD700" />
+          <Ionicons name="checkmark" size={16} color="#000000" />
         </View>
       )}
     </TouchableOpacity>
