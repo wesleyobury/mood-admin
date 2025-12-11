@@ -290,7 +290,7 @@ const tricepsWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Eccentric + Iso',
           duration: '16–18 min',
-          description: 'Combo layering builds fibers toward failure',
+          description: 'Combo layering builds fibers with greater intensity and control.',
           battlePlan: '4 rounds\n• 8 Incline KB Extensions (3s eccentric)\n• 8 Incline KB Skull Crushers\n• End with 10s Iso Hold Mid Rep\nRest 90s',
           imageUrl: 'https://customer-assets.emergentagent.com/job_inspiring-euler/artifacts/uwwxoov7_download%20%284%29.png',
           intensityReason: 'Negatives plus holds prolong hypertrophy stress',
@@ -585,7 +585,7 @@ const tricepsWorkoutDatabase: EquipmentWorkouts[] = [
           description: 'Rope attachment builds triceps with simple tension',
           battlePlan: '3 rounds\n• 10–12 Rope Pushdowns\nRest 60–75s',
           imageUrl: 'https://customer-assets.emergentagent.com/job_inspiring-euler/artifacts/kn9gulrn_download%20%282%29.png',
-          intensityReason: 'Rope pushdowns teach elbow stability and control',
+          intensityReason: 'Pushdowns teach elbow lockout form safely with traditional movements.',
           moodTips: [
             {
               icon: 'hand-left',
