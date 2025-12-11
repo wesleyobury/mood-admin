@@ -490,9 +490,9 @@ const styles = StyleSheet.create({
     // Border stays the same - no heavy gold border on selection
   },
   equipmentIconContainer: {
-    width: 36,
-    height: 36,
-    borderRadius: 18,
+    width: 28,
+    height: 28,
+    borderRadius: 14,
     backgroundColor: 'rgba(255, 215, 0, 0.15)',
     justifyContent: 'center',
     alignItems: 'center',
@@ -557,9 +557,9 @@ const styles = StyleSheet.create({
     color: 'rgba(255, 255, 255, 0.7)',
   },
   difficultyIndicator: {
-    width: 36,
-    height: 36,
-    borderRadius: 18,
+    width: 28,
+    height: 28,
+    borderRadius: 14,
     backgroundColor: '#000000',
     justifyContent: 'center',
     alignItems: 'center',
