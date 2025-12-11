@@ -246,7 +246,7 @@ const styles = StyleSheet.create({
   },
   moreText: {
     fontSize: 10,
-    color: 'rgba(255, 215, 0, 0.6)',
+    color: 'rgba(255, 255, 255, 0.6)',
     fontStyle: 'italic',
     textAlign: 'center',
     marginTop: 4,
