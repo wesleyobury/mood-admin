@@ -352,10 +352,10 @@ const styles = StyleSheet.create({
     backgroundColor: '#333333',
   },
   selectedOptionTitle: {
-    color: '#FFD700',
+    color: '#FFFFFF',
   },
   selectedOptionSubtitle: {
-    color: '#FFD700',
+    color: '#FFFFFF',
     fontWeight: '600',
   },
   selectedOptionDescription: {
