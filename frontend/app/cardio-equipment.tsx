@@ -500,10 +500,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     flex: 1,
-  },
-  equipmentLeft: {
-    flexDirection: 'row',
-    alignItems: 'center',
     gap: 12,
   },
   equipmentIconContainer: {
