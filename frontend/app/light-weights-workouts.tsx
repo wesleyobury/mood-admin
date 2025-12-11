@@ -398,6 +398,16 @@ const LightWeightsWorkoutsScreen = memo(function LightWeightsWorkoutsScreen() {
 
   return (
     <View style={{ flex: 1, backgroundColor: '#000000' }}>
+      {/* Status bar background - covers the notch/status bar area */}
+      <View style={{ 
+        position: 'absolute', 
+        top: 0, 
+        left: 0, 
+        right: 0, 
+        height: insets.top, 
+        backgroundColor: '#000000', 
+        zIndex: 100 
+      }} />
       <SafeAreaView style={[styles.container, { paddingTop: insets.top }]}>
         {/* Header */}
         <View style={styles.header}>
