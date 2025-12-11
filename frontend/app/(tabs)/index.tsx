@@ -585,7 +585,7 @@ export default function WorkoutsHome() {
         <View style={styles.moodCardsContainer}>
           <View style={styles.sectionTitleContainer}>
             <View style={styles.leftAccent} />
-            <Text style={styles.uniqueSectionTitle}>Choose your mood</Text>
+            <Text style={styles.uniqueSectionTitle}>Choose your <Text style={styles.moodHighlight}>MOOD</Text></Text>
             <View style={styles.rightAccent} />
           </View>
           <View style={styles.moodColumn}>
