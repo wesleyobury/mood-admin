@@ -620,7 +620,7 @@ const styles = StyleSheet.create({
   },
   swipeText: {
     fontSize: 12,
-    color: '#FFD700',
+    color: '#FFFFFF',
     marginLeft: 4,
     fontWeight: '600',
   },

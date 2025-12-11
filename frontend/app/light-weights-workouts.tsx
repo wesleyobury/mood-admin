@@ -671,7 +671,7 @@ const styles = StyleSheet.create({
   },
   swipeText: {
     fontSize: 11,
-    color: '#FFD700',
+    color: '#FFFFFF',
     fontWeight: '500',
   },
   workoutContent: {
