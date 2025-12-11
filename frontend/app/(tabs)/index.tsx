@@ -944,7 +944,7 @@ const styles = StyleSheet.create({
     marginLeft: 12,
   },
   uniqueSectionTitle: {
-    fontSize: 13,
+    fontSize: 15,
     fontWeight: '500',
     color: '#FFFFFF',
     textAlign: 'center',
@@ -953,6 +953,10 @@ const styles = StyleSheet.create({
     textShadowColor: 'transparent',
     textShadowOffset: { width: 0, height: 0 },
     textShadowRadius: 0,
+  },
+  moodHighlight: {
+    color: '#FFD700',
+    fontWeight: '600',
   },
   moodColumn: {
     gap: 14,
