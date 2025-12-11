@@ -533,31 +533,12 @@ export default function LegsWorkoutDisplayScreen() {
                   </View>
                   <Text style={styles.muscleGroupName}>{muscleGroup.muscleGroupName}</Text>
                 </View>
-                <View style={styles.addButtonWrapper}>
-                  <TouchableOpacity
-                    style={[
-                      styles.addToCartButton,
-                      (isInCart(createWorkoutId(currentWorkout, muscleGroup.muscleGroupName)) || 
-                       addedItems.has(createWorkoutId(currentWorkout, muscleGroup.muscleGroupName))) && 
-                      styles.addToCartButtonAdded
-                    ]}
-                    onPress={() => handleAddToCart(currentWorkout, muscleGroup.muscleGroupName)}
-                    activeOpacity={0.8}
-                  >
-                    <Animated.View style={[styles.addToCartButtonContent, { transform: [{ scale: scaleAnim }] }]}>
-                      {isInCart(createWorkoutId(currentWorkout, muscleGroup.muscleGroupName)) || 
-                       addedItems.has(createWorkoutId(currentWorkout, muscleGroup.muscleGroupName)) ? (
-                        <Ionicons name="checkmark" size={16} color="#FFD700" />
-                      ) : (
-                        <>
-                          <Ionicons name="add" size={14} color="#FFD700" />
-                          <Text style={styles.addToCartButtonText}>Add workout</Text>
-                        </>
-                      )}
-                    </Animated.View>
-                  </TouchableOpacity>
-                  <AddWorkoutIndicator visible={showIndicator} />
-                </View>
+                <WigglingAddButton
+                  isInCart={isInCart(createWorkoutId(currentWorkout, muscleGroup.muscleGroupName)) || 
+                           addedItems.has(createWorkoutId(currentWorkout, muscleGroup.muscleGroupName))}
+                  onPress={() => handleAddToCart(currentWorkout, muscleGroup.muscleGroupName)}
+                  scaleAnim={scaleAnim}
+                />
               </View>
 
               {currentWorkout && (
