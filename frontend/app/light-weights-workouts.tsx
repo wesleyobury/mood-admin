@@ -397,9 +397,10 @@ const LightWeightsWorkoutsScreen = memo(function LightWeightsWorkoutsScreen() {
   }
 
   return (
-    <SafeAreaView style={[styles.container, { paddingTop: insets.top }]}>
-      {/* Header */}
-      <View style={styles.header}>
+    <View style={{ flex: 1, backgroundColor: '#000000' }}>
+      <SafeAreaView style={[styles.container, { paddingTop: insets.top }]}>
+        {/* Header */}
+        <View style={styles.header}>
         <TouchableOpacity 
           style={styles.backButton}
           onPress={handleGoBack}
