@@ -355,7 +355,7 @@ const styles = StyleSheet.create({
     color: '#FFFFFF',
   },
   selectedOptionSubtitle: {
-    color: '#FFD700',
+    color: '#FFFFFF',
     fontWeight: '600',
   },
   selectedOptionDescription: {
