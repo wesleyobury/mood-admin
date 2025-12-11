@@ -120,7 +120,7 @@ export const lightWeightsDatabase: EquipmentWorkouts[] = [
           duration: '20–24 min',
           description: 'Five sets 10–2: squat clean, push press, burpee over DB.',
           battlePlan: 'Perform ladder 10–8–6–4–2 reps:\n• Squat Clean\n• Push Press\n• Burpee Over Dumbbell\n• Rest as needed to finish',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/0x3bwc7i_download%20%281%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-preview/artifacts/uz466s67_download%20%285%29.png',
           intensityReason: 'Descending reps sustain power under mounting fatigue.',
           moodTips: [
             {
