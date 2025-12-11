@@ -106,7 +106,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   addToCartButtonAdded: {
-    backgroundColor: 'rgba(255, 215, 0, 0.2)',
+    backgroundColor: '#444444',
   },
   addToCartButtonContent: {
     flexDirection: 'row',
