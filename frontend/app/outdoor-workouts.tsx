@@ -594,6 +594,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 24,
   },
   scrollContent: {
+    paddingTop: 8,
     paddingBottom: 16,
   },
   workoutCard: {
