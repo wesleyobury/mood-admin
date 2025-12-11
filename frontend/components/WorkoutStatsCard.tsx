@@ -183,8 +183,8 @@ const styles = StyleSheet.create({
   },
   workoutsSection: {
     flex: 1,
-    paddingHorizontal: 14,
-    paddingTop: 10,
+    paddingHorizontal: 20,
+    paddingTop: 12,
   },
   workoutsTitle: {
     fontSize: 12,
