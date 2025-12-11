@@ -502,7 +502,7 @@ const styles = StyleSheet.create({
     width: 24,
     height: 24,
     borderRadius: 12,
-    backgroundColor: 'rgba(0, 0, 0, 0.2)',
+    backgroundColor: '#000000',
     justifyContent: 'center',
     alignItems: 'center',
   },
