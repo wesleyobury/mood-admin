@@ -518,7 +518,7 @@ const styles = StyleSheet.create({
     borderBottomColor: 'rgba(255, 215, 0, 0.2)',
     paddingVertical: 12,
     paddingHorizontal: 16,
-    overflow: 'visible',
+    zIndex: 10,
   },
   progressContent: {
     alignItems: 'center',
