@@ -2826,7 +2826,7 @@ const WorkoutCard = ({
         />
         <View style={styles.imageOverlay} />
         <View style={styles.swipeIndicator}>
-          <Ionicons name="swap-horizontal" size={20} color="#FFD700" />
+          <Ionicons name="swap-horizontal" size={20} color="#FFFFFF" />
           <Text style={styles.swipeText}>Swipe for more</Text>
         </View>
       </View>
