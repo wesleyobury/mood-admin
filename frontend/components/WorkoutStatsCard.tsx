@@ -143,7 +143,7 @@ const styles = StyleSheet.create({
   headerTitle: {
     fontSize: 16,
     fontWeight: 'bold',
-    color: '#FFD700',
+    color: '#FFFFFF',
   },
   headerSubtitle: {
     fontSize: 11,
@@ -189,7 +189,7 @@ const styles = StyleSheet.create({
   workoutsTitle: {
     fontSize: 12,
     fontWeight: 'bold',
-    color: '#FFD700',
+    color: '#FFFFFF',
     marginBottom: 8,
     textTransform: 'uppercase',
     letterSpacing: 0.4,
