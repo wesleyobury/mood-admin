@@ -178,7 +178,7 @@ const IntensityCard = ({
       </View>
       {isSelected && (
         <View style={styles.intensityIndicator}>
-          <Ionicons name="checkmark" size={16} color="#000000" />
+          <Ionicons name="checkmark" size={20} color="#000000" />
         </View>
       )}
     </TouchableOpacity>
