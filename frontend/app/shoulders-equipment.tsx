@@ -97,7 +97,7 @@ const EquipmentCard = ({
       </Text>
       {isSelected && (
         <View style={styles.equipmentIndicator}>
-          <Ionicons name="checkmark" size={16} color="#FFD700" />
+          <Ionicons name="checkmark" size={16} color="#000000" />
         </View>
       )}
     </TouchableOpacity>
@@ -349,7 +349,6 @@ export default function ShouldersEquipmentScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#000000',
   },
   header: {
     flexDirection: 'row',
@@ -513,7 +512,7 @@ const styles = StyleSheet.create({
     marginLeft: 12,
   },
   equipmentNameSelected: {
-    color: '#FFD700',
+    
     fontWeight: 'bold',
   },
   equipmentIndicator: {
@@ -521,7 +520,6 @@ const styles = StyleSheet.create({
     width: 24,
     height: 24,
     borderRadius: 12,
-    backgroundColor: '#000000',
     justifyContent: 'center',
     alignItems: 'center',
     marginLeft: 8,
@@ -564,7 +562,6 @@ const styles = StyleSheet.create({
     width: 28,
     height: 28,
     borderRadius: 14,
-    backgroundColor: '#000000',
     justifyContent: 'center',
     alignItems: 'center',
   },

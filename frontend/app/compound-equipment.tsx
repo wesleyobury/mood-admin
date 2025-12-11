@@ -349,7 +349,6 @@ export default function CompoundEquipmentScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#000000',
   },
   header: {
     flexDirection: 'row',
@@ -517,7 +516,7 @@ const styles = StyleSheet.create({
     lineHeight: 18,
   },
   equipmentNameSelected: {
-    color: '#FFD700',
+    
     fontWeight: 'bold',
   },
   difficultyContainer: {
@@ -558,7 +557,6 @@ const styles = StyleSheet.create({
     width: 28,
     height: 28,
     borderRadius: 14,
-    backgroundColor: '#000000',
     justifyContent: 'center',
     alignItems: 'center',
   },
