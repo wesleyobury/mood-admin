@@ -45,8 +45,8 @@
     },
 
     "extra": {
-      "EXPO_PUBLIC_BACKEND_URL": "https://fitness-preview.preview.emergentagent.com",
-      "BACKEND_URL": "https://fitness-preview.preview.emergentagent.com",
+      "EXPO_PUBLIC_BACKEND_URL": "https://fitness-app-polish.preview.emergentagent.com",
+      "BACKEND_URL": "https://fitness-app-polish.preview.emergentagent.com",
       "router": {}
     }
   }
