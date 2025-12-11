@@ -190,7 +190,7 @@ const bicepsWorkoutDatabase: EquipmentWorkouts[] = [
           description: 'Straightforward curls build solid foundation form',
           battlePlan: '3 rounds\n• 10–12 EZ Bar Curls\nRest 60–75s',
           imageUrl: 'https://customer-assets.emergentagent.com/job_de06d55d-ac38-4152-bbf5-479c53d1fb22/artifacts/iskvqgub_download%20%284%29.png',
-          intensityReason: 'EZ bar reduces wrist stress for easier motion',
+          intensityReason: 'EZ bar reduces wrist stress for easier motion and more power',
           moodTips: [
             {
               icon: 'hand-left',
@@ -342,7 +342,7 @@ const bicepsWorkoutDatabase: EquipmentWorkouts[] = [
           description: 'Rope hammer curl adds overall forearm thickness',
           battlePlan: '3 rounds\n• 10–12 Rope Hammer Curls\nRest 60–75s',
           imageUrl: 'https://customer-assets.emergentagent.com/job_de06d55d-ac38-4152-bbf5-479c53d1fb22/artifacts/jzrqwni6_download.png',
-          intensityReason: 'Neutral grip cable work hits brachialis harder',
+          intensityReason: 'Neutral grip cable work hits brachialis harder for fuller arms',
           moodTips: [
             {
               icon: 'hand-left',
