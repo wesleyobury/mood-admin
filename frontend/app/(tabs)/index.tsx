@@ -28,6 +28,7 @@ const CARD_GAP = 12;
 const CARD_WIDTH = SCREEN_WIDTH - (CAROUSEL_PADDING * 2);
 
 // Workout carousel data - 5 featured workouts with mood + workout format
+// Images are from the first workout card in each featured workout
 const featuredWorkouts = [
   {
     id: '1',
@@ -39,7 +40,8 @@ const featuredWorkouts = [
       'Stationary Bike - Hill & Sprint',
       'Stair Master - Hill Climb',
     ],
-    image: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=800&h=600&fit=crop',
+    // Image from: Stationary Bike - Hill & Sprint workout card
+    image: 'https://customer-assets.emergentagent.com/job_fitness-images/artifacts/8k8d6fo4_download%20%2824%29.png',
   },
   {
     id: '2',
@@ -54,7 +56,8 @@ const featuredWorkouts = [
       'Cable Machine - Cable Negatives',
       'EZ Curl Bar - Narrow Curl',
     ],
-    image: 'https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?w=800&h=600&fit=crop',
+    // Image from: Adjustable Bench - Chest-Support Row workout card
+    image: 'https://customer-assets.emergentagent.com/job_0b65e409-b210-4730-af62-16b022c37685/artifacts/q6jestgn_download.png',
   },
   {
     id: '3',
@@ -68,7 +71,8 @@ const featuredWorkouts = [
       'Trap Hex Bar - Trap Bar Jump',
       'Landmine Attachment - Hacksquat Jump',
     ],
-    image: 'https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=800&h=600&fit=crop',
+    // Image from: Power Lifting Platform - Hang Clean Pull workout card
+    image: 'https://customer-assets.emergentagent.com/job_muscle-mapper-2/artifacts/xefmav9j_Screenshot%202025-12-03%20at%204.15.36%E2%80%AFPM.png',
   },
   {
     id: '4',
@@ -81,7 +85,8 @@ const featuredWorkouts = [
       'Pull Up Bar - Strict Pull',
       'Parallel Bars Dip Station - Eccentric Power',
     ],
-    image: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&h=600&fit=crop',
+    // Image from: Pull Up Bar - Eccentric Lines workout card
+    image: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/toza6up4_pu.avif',
   },
   {
     id: '5',
@@ -93,7 +98,8 @@ const featuredWorkouts = [
       'Hills - Power Mix',
       'Hills - Sprint Only 30s',
     ],
-    image: 'https://images.unsplash.com/photo-1476480862126-209bfaa8edc8?w=800&h=600&fit=crop',
+    // Image from: Hills - Power Mix workout card
+    image: 'https://customer-assets.emergentagent.com/job_exercise-library-12/artifacts/904pke23_download%20%289%29.png',
   },
 ];
 
