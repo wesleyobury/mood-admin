@@ -1088,7 +1088,7 @@ export default function CalisthenicsWorkoutsScreen() {
 
       {/* Scrollable Workout Cards */}
       <ScrollView 
-        style={[styles.scrollView, { marginTop: 16 }]}
+        style={styles.scrollView}
         showsVerticalScrollIndicator={false}
         contentContainerStyle={styles.scrollContent}
       >
