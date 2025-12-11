@@ -518,7 +518,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   equipmentNameSelected: {
-    
+    fontWeight: 'bold',
   },
   equipmentIndicator: {
     backgroundColor: '#FFD700',
