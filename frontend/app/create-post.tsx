@@ -893,8 +893,8 @@ const styles = StyleSheet.create({
     backgroundColor: '#000',
     width: SCREEN_WIDTH,
     height: SCREEN_WIDTH * 1.25, // 4:5 aspect ratio to match carousel
-    paddingHorizontal: 24,
-    paddingVertical: 24,
+    paddingHorizontal: 18,
+    paddingVertical: 18,
   },
   saveExplanation: {
     flexDirection: 'row',
