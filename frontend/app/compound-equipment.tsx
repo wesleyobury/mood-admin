@@ -82,7 +82,7 @@ const EquipmentCard = ({
         <Ionicons 
           name={equipment.icon} 
           size={24} 
-          color="#FFD700" 
+          color={isSelected ? "#FFD700" : "#FFFFFF"} 
         />
       </View>
       <Text style={[
