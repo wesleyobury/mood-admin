@@ -524,7 +524,7 @@ const styles = StyleSheet.create({
   headerTitle: {
     fontSize: 20,
     fontWeight: 'bold',
-    color: '#FFFFFF',
+    color: '#FFD700',
     textAlign: 'center',
   },
   headerSubtitle: {
@@ -635,7 +635,7 @@ const styles = StyleSheet.create({
   equipmentName: {
     fontSize: 18,
     fontWeight: 'bold',
-    color: '#ffffff',
+    color: '#FFD700',
     flex: 1,
     textShadowColor: 'rgba(255, 215, 0, 0.3)',
     textShadowOffset: { width: 0, height: 0 },
@@ -695,7 +695,7 @@ const styles = StyleSheet.create({
   },
   swipeText: {
     fontSize: 11,
-    color: '#FFFFFF',
+    color: '#FFD700',
     fontWeight: '500',
   },
   workoutContent: {
@@ -704,7 +704,7 @@ const styles = StyleSheet.create({
   workoutName: {
     fontSize: 16,
     fontWeight: 'bold',
-    color: '#ffffff',
+    color: '#FFD700',
     marginBottom: 8,
   },
   durationIntensityRow: {

@@ -1208,7 +1208,7 @@ const styles = StyleSheet.create({
   summaryTitle: {
     fontSize: 18,
     fontWeight: 'bold',
-    color: '#ffffff',
+    color: '#FFD700',
     textAlign: 'center',
     marginBottom: 4,
   },
@@ -1264,7 +1264,7 @@ const styles = StyleSheet.create({
     flex: 1,
     fontSize: 18,
     fontWeight: 'bold',
-    color: '#ffffff',
+    color: '#FFD700',
   },
   workoutIndicator: {
     backgroundColor: 'rgba(255, 215, 0, 0.2)',
@@ -1335,7 +1335,7 @@ const styles = StyleSheet.create({
   workoutName: {
     fontSize: 16,
     fontWeight: 'bold',
-    color: '#ffffff',
+    color: '#FFD700',
     marginBottom: 6,
   },
   difficultyBadge: {
@@ -1347,7 +1347,7 @@ const styles = StyleSheet.create({
   difficultyBadgeText: {
     fontSize: 10,
     fontWeight: 'bold',
-    color: '#ffffff',
+    color: '#FFD700',
   },
   workoutDuration: {
     fontSize: 14,

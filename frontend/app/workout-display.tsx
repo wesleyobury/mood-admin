@@ -3401,7 +3401,7 @@ const styles = StyleSheet.create({
   headerTitle: {
     fontSize: 20,
     fontWeight: 'bold',
-    color: '#FFFFFF',
+    color: '#FFD700',
     textAlign: 'center',
   },
   headerSubtitle: {
@@ -3514,7 +3514,7 @@ const styles = StyleSheet.create({
     flex: 1,
     fontSize: 18,
     fontWeight: 'bold',
-    color: '#ffffff',
+    color: '#FFD700',
   },
   workoutIndicator: {
     backgroundColor: 'rgba(255, 215, 0, 0.2)',
@@ -3568,7 +3568,7 @@ const styles = StyleSheet.create({
   },
   swipeText: {
     fontSize: 11,
-    color: '#FFFFFF',
+    color: '#FFD700',
     marginLeft: 4,
     fontWeight: '600',
   },
@@ -3589,7 +3589,7 @@ const styles = StyleSheet.create({
   workoutName: {
     fontSize: 16,
     fontWeight: 'bold',
-    color: '#ffffff',
+    color: '#FFD700',
     marginBottom: 8,
   },
   durationIntensityRow: {
