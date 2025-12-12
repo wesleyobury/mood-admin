@@ -400,12 +400,13 @@ export default function FeaturedWorkoutDetail() {
   const handleStartWorkout = () => {
     if (exercises.length === 0) return;
     
-    // Track workout started
+    // Track featured workout started
     if (token) {
-      Analytics.workoutStarted(token, {
-        mood_category: `${workout.mood} - ${workout.title}`,
-        difficulty: exercises[0].difficulty,
-        equipment: exercises[0].equipment,
+      Analytics.featuredWorkoutStarted(token, {
+        workout_id: workoutId,
+        workout_title: workout.title,
+        mood_category: workout.mood,
+        exercise_count: exercises.length,
       });
     }
     
@@ -438,7 +439,9 @@ export default function FeaturedWorkoutDetail() {
         sessionWorkouts: JSON.stringify(sessionWorkouts),
         currentSessionIndex: '0',
         isSession: 'true',
-        moodTips: encodeURIComponent(JSON.stringify(firstExercise.moodTips))
+        moodTips: encodeURIComponent(JSON.stringify(firstExercise.moodTips)),
+        featuredWorkoutId: workoutId,
+        featuredWorkoutTitle: workout.title,
       }
     });
   };
