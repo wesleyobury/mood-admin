@@ -115,7 +115,7 @@ const styles = StyleSheet.create({
     gap: 4,
   },
   addToCartButtonText: {
-    color: '#FFFFFF',
+    color: '#FFD700',
     fontSize: 12,
     fontWeight: '600',
   },
