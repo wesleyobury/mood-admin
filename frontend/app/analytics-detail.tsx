@@ -181,7 +181,7 @@ export default function AnalyticsDetailScreen() {
         <Text style={[styles.rankText, index === 0 && styles.goldText]}>{index + 1}</Text>
       </View>
       <View style={styles.itemContent}>
-        <Text style={styles.itemTitle}>{item.screen_name || 'Unknown Screen'}</Text>
+        <Text style={styles.itemTitle}>{getDisplayScreenName(item.screen_name)}</Text>
         <View style={styles.statsRow}>
           <Text style={styles.statItem}>{item.view_count.toLocaleString()} views</Text>
           <Text style={styles.statDivider}>•</Text>
