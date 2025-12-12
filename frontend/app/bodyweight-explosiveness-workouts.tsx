@@ -1932,7 +1932,7 @@ const styles = StyleSheet.create({
     flex: 1,
     fontSize: 18,
     fontWeight: 'bold',
-    color: '#FFD700',
+    color: '#ffffff',
   },
   workoutIndicator: {
     backgroundColor: 'rgba(255, 215, 0, 0.2)',

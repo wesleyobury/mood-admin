@@ -635,7 +635,7 @@ const styles = StyleSheet.create({
   equipmentName: {
     fontSize: 18,
     fontWeight: 'bold',
-    color: '#FFD700',
+    color: '#ffffff',
     flex: 1,
     textShadowColor: 'rgba(255, 215, 0, 0.3)',
     textShadowOffset: { width: 0, height: 0 },

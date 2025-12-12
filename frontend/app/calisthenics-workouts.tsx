@@ -1262,7 +1262,7 @@ const styles = StyleSheet.create({
   equipmentName: {
     fontSize: 18,
     fontWeight: 'bold',
-    color: '#FFD700',
+    color: '#ffffff',
     flex: 1,
   },
   workoutIndicator: {
