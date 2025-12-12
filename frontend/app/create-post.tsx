@@ -889,10 +889,11 @@ const styles = StyleSheet.create({
   statsCardWrapper: {
     alignItems: 'center',
     justifyContent: 'center',
+    alignSelf: 'center',
     marginVertical: 6,
     backgroundColor: '#000',
-    width: SCREEN_WIDTH,
-    height: SCREEN_WIDTH * 1.25, // 4:5 aspect ratio to match carousel
+    borderRadius: 14,
+    overflow: 'hidden',
   },
   saveExplanation: {
     flexDirection: 'row',
