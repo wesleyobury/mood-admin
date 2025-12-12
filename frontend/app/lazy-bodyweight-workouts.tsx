@@ -1549,7 +1549,7 @@ const WorkoutCard = React.memo(({
         />
         <View style={styles.imageOverlay} />
         <View style={styles.swipeIndicator}>
-          <Ionicons name="swap-horizontal" size={20} color="#FFFFFF" />
+          <Ionicons name="swap-horizontal" size={20} color="#FFD700" />
           <Text style={styles.swipeText}>Swipe for more</Text>
         </View>
       </View>
