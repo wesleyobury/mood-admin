@@ -402,6 +402,19 @@ export default function WorkoutGuidanceScreen() {
       // Single workout - save to profile and navigate back
       console.log('🔙 Single workout completed, saving to profile...');
       
+      // Track single workout completion
+      if (token) {
+        const totalDurationMins = parseInt(duration.split(' ')[0]) || 0;
+        Analytics.workoutCompleted(token, {
+          mood_category: workoutType || 'Unknown',
+          difficulty: difficulty,
+          equipment: equipment,
+          duration_minutes: totalDurationMins,
+          exercises_completed: 1,
+        });
+        console.log('📊 Tracked single workout completed');
+      }
+      
       // Prepare workout data for saving
       const completedWorkout = {
         workoutTitle: workoutName,
