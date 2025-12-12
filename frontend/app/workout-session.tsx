@@ -141,6 +141,23 @@ export default function WorkoutSessionScreen() {
     // Track workout completion
     if (token && sessionWorkouts.length > 0) {
       const firstWorkout = sessionWorkouts[0];
+      
+      // Check if this is a featured workout
+      const featuredWorkoutId = params.featuredWorkoutId as string;
+      const featuredWorkoutTitle = params.featuredWorkoutTitle as string;
+      
+      if (featuredWorkoutId) {
+        // Track featured workout completion
+        Analytics.featuredWorkoutCompleted(token, {
+          workout_id: featuredWorkoutId,
+          workout_title: featuredWorkoutTitle || 'Unknown',
+          mood_category: firstWorkout.workoutType || 'Unknown',
+          exercises_completed: sessionWorkouts.length,
+          duration_minutes: totalDuration,
+        });
+      }
+      
+      // Also track general workout completion
       Analytics.workoutCompleted(token, {
         mood_category: firstWorkout.workoutType || 'Unknown',
         difficulty: firstWorkout.difficulty,
