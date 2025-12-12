@@ -268,6 +268,7 @@ export default function LegsWorkoutDisplayScreen() {
 
   // Cart and animation hooks
   const { addToCart, isInCart } = useCart();
+  const { token } = useAuth();
   const [scaleAnim] = useState(new Animated.Value(1));
   const [addedItems, setAddedItems] = useState<Set<string>>(new Set());
 
