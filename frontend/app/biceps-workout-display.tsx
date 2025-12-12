@@ -1469,6 +1469,7 @@ const styles = StyleSheet.create({
     zIndex: 10,
   },
   swipeText: {
+    color: '#FFD700',
     fontSize: 11,
     color: '#ffffff',
     marginLeft: 4,

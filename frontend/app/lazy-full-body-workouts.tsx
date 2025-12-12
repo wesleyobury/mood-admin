@@ -1182,6 +1182,7 @@ const styles = StyleSheet.create({
     paddingVertical: 4,
   },
   swipeText: {
+    color: '#FFD700',
     fontSize: 11,
     color: '#ffffff',
     marginLeft: 4,

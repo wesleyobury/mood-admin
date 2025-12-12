@@ -1880,6 +1880,7 @@ const styles = StyleSheet.create({
     borderRadius: 12,
   },
   swipeText: {
+    color: '#FFD700',
     fontSize: 12,
     color: '#ffffff',
     marginLeft: 4,

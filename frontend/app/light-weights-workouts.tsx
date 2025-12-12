@@ -694,6 +694,7 @@ const styles = StyleSheet.create({
     gap: 4,
   },
   swipeText: {
+    color: '#FFD700',
     fontSize: 11,
     color: '#FFFFFF',
     fontWeight: '500',
