@@ -272,6 +272,16 @@ export default function WorkoutGuidanceScreen() {
     console.log('🎯 sessionWorkouts.length:', sessionWorkouts.length);
     console.log('🎯 currentSessionIndex:', currentSessionIndex);
     
+    // Track current exercise completion
+    if (token) {
+      Analytics.exerciseCompleted(token, {
+        exercise_name: workoutName,
+        sets: 1,
+        reps: 1,
+      });
+      console.log('📊 Tracked exercise completed:', workoutName);
+    }
+    
     if (isSession && sessionWorkouts.length > 0) {
       const nextIndex = currentSessionIndex + 1;
       console.log('🎯 nextIndex:', nextIndex);
@@ -280,6 +290,11 @@ export default function WorkoutGuidanceScreen() {
         // Move to next workout in session
         console.log('🎯 Moving to next workout');
         const nextWorkout = sessionWorkouts[nextIndex];
+        
+        // Get featured workout params to pass along
+        const featuredWorkoutId = params.featuredWorkoutId as string;
+        const featuredWorkoutTitle = params.featuredWorkoutTitle as string;
+        
         router.push({
           pathname: '/workout-guidance',
           params: {
@@ -294,7 +309,10 @@ export default function WorkoutGuidanceScreen() {
             sessionWorkouts: sessionWorkoutsParam,
             currentSessionIndex: nextIndex.toString(),
             isSession: 'true',
-            moodTips: encodeURIComponent(JSON.stringify(nextWorkout.moodTips || []))
+            moodTips: encodeURIComponent(JSON.stringify(nextWorkout.moodTips || [])),
+            // Pass along featured workout info for tracking
+            ...(featuredWorkoutId && { featuredWorkoutId }),
+            ...(featuredWorkoutTitle && { featuredWorkoutTitle }),
           }
         });
       } else {
@@ -331,6 +349,38 @@ export default function WorkoutGuidanceScreen() {
           };
 
           console.log('Workout stats prepared:', workoutStatsData);
+          
+          // Track workout completion analytics
+          if (token) {
+            const firstWorkout = sessionWorkouts[0];
+            
+            // Check if this is a featured workout
+            const featuredWorkoutId = params.featuredWorkoutId as string;
+            const featuredWorkoutTitle = params.featuredWorkoutTitle as string;
+            
+            if (featuredWorkoutId) {
+              // Track featured workout completion
+              Analytics.featuredWorkoutCompleted(token, {
+                workout_id: featuredWorkoutId,
+                workout_title: featuredWorkoutTitle || 'Unknown',
+                mood_category: firstWorkout.workoutType || firstWorkout.moodCard || 'Unknown',
+                exercises_completed: sessionWorkouts.length,
+                duration_minutes: totalDuration,
+              });
+              console.log('📊 Tracked featured workout completed:', featuredWorkoutId);
+            }
+            
+            // Track general workout completion
+            Analytics.workoutCompleted(token, {
+              mood_category: firstWorkout.workoutType || firstWorkout.moodCard || 'Unknown',
+              difficulty: firstWorkout.difficulty,
+              equipment: firstWorkout.equipment,
+              duration_minutes: totalDuration,
+              exercises_completed: sessionWorkouts.length,
+            });
+            console.log('📊 Tracked workout completed');
+          }
+          
           console.log('🧹 Clearing cart...');
           clearCart();
           
