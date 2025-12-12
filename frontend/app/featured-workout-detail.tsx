@@ -723,25 +723,22 @@ const styles = StyleSheet.create({
     padding: 4,
   },
   bottomBar: {
-    position: 'absolute',
-    bottom: 0,
-    left: 0,
-    right: 0,
-    backgroundColor: '#111',
-    borderTopWidth: 1,
-    borderTopColor: '#222',
-    paddingHorizontal: 20,
-    paddingTop: 14,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
+    paddingHorizontal: 20,
+    paddingTop: 16,
+    backgroundColor: '#000',
+    borderTopWidth: 1,
+    borderTopColor: 'rgba(255, 255, 255, 0.1)',
   },
   exerciseCount: {
     flex: 1,
   },
   exerciseCountText: {
-    color: 'rgba(255, 255, 255, 0.6)',
     fontSize: 14,
+    color: 'rgba(255, 255, 255, 0.7)',
+    fontWeight: '500',
   },
   startButton: {
     flexDirection: 'row',
@@ -753,11 +750,11 @@ const styles = StyleSheet.create({
     gap: 8,
   },
   startButtonDisabled: {
-    opacity: 0.4,
+    backgroundColor: 'rgba(255, 215, 0, 0.5)',
   },
   startButtonText: {
-    color: '#000',
     fontSize: 16,
     fontWeight: '700',
+    color: '#000',
   },
 });
