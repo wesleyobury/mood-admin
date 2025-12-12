@@ -462,7 +462,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#111111',
     borderRadius: 12,
     borderWidth: 1,
-    borderColor: 'rgba(255, 215, 0, 0.3)',
+    borderColor: 'transparent',
     padding: 16,
     flexDirection: 'row',
     alignItems: 'center',
