@@ -398,6 +398,14 @@ export default function WorkoutsHome() {
       <WorkoutCarouselCard 
         workout={item} 
         onPress={() => {
+          // Track featured workout click
+          if (token) {
+            Analytics.featuredWorkoutClicked(token, {
+              workout_id: item.id,
+              workout_title: item.title,
+              mood_category: item.mood,
+            });
+          }
           router.push({
             pathname: '/featured-workout-detail',
             params: { id: item.id },
@@ -405,7 +413,7 @@ export default function WorkoutsHome() {
         }}
       />
     );
-  }, [router]);
+  }, [router, token]);
 
   // Fetch user workout stats
   useEffect(() => {
