@@ -335,6 +335,13 @@ export default function LegsWorkoutDisplayScreen() {
     ]).start();
 
     // Add to cart and update local state
+    if (token) {
+      Analytics.workoutAddedToCart(token, {
+        workout_name: workout.name,
+        mood_category: moodTitle,
+        equipment: equipment,
+      });
+    }
     addToCart(workoutItem);
     setAddedItems(prev => new Set(prev).add(workoutId));
 

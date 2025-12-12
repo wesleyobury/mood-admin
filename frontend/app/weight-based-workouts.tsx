@@ -297,6 +297,13 @@ export default function WeightBasedWorkoutsScreen() {
     };
 
     // Add to cart
+    if (token) {
+      Analytics.workoutAddedToCart(token, {
+        workout_name: workout.name,
+        mood_category: moodTitle,
+        equipment: equipment,
+      });
+    }
     addToCart(workoutItem);
   };
 
