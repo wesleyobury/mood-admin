@@ -1701,6 +1701,7 @@ export default function LazyBodyweightWorkoutsScreen() {
   
   // Cart hooks (removed addedItems to prevent button flashing)
   const { addToCart, isInCart } = useCart();
+  const { token } = useAuth();
   
   // Parse selected equipment from comma-separated string
   const selectedEquipmentNames = equipmentParam.split(',').filter(name => name.trim() !== '');

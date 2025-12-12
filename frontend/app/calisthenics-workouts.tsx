@@ -943,6 +943,7 @@ export default function CalisthenicsWorkoutsScreen() {
 
   // Cart hooks
   const { addToCart, isInCart } = useCart();
+  const { token } = useAuth();
 
   const createWorkoutId = (workout: Workout, equipment: string, difficulty: string) => {
     return `${workout.name}-${equipment}-${difficulty}`;

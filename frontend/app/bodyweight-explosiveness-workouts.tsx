@@ -1613,6 +1613,7 @@ export default function BodyweightExplosivenessWorkoutsScreen() {
 
   // Cart hooks (removed addedItems to prevent button flashing)
   const { addToCart, isInCart } = useCart();
+  const { token } = useAuth();
 
   console.log('Bodyweight Explosiveness Debug:', {
     selectedEquipmentNames,

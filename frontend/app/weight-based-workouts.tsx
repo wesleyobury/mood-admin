@@ -262,6 +262,7 @@ export default function WeightBasedWorkoutsScreen() {
   
   // Cart hooks (removed addedItems to prevent button flashing)
   const { addToCart, isInCart } = useCart();
+  const { token } = useAuth();
   
   // Parse equipment from params
   const selectedEquipmentNames = equipmentParam 

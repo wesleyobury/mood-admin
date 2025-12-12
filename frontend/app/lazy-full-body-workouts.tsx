@@ -841,6 +841,7 @@ export default function LazyFullBodyWorkoutsScreen() {
 
   // Cart hooks
   const { addToCart, isInCart } = useCart();
+  const { token } = useAuth();
 
   // Cart helper functions
   const createWorkoutId = useCallback((workout: Workout, equipment: string, difficulty: string) => {
