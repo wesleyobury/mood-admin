@@ -1,237 +1,216 @@
 <analysis>
 
-<original_problem_statement>
-The user initiated a new session and reported seeing a white screen. After the agent resolved the issue by restarting the stopped services, the user requested a series of features to overhaul the home screen:
+**original_problem_statement**:
+The user's session began with a white screen issue, which was resolved by restarting the backend and expo services. Following this, the user initiated a series of UI and functionality requests:
 
-1.  **Implement Peloton-Style Carousel**: Replace the main home page image with an auto-scrolling carousel of 5 workout cards, styled like Peloton. Initially, these were to be non-clickable mockups.
-2.  **Refine Carousel UI**: The user requested several iterative UI changes:
-    *   Condense the section vertically.
-    *   Remove the Your Plan header and replace the secondary text with a Featured Workouts title.
-    *   Slow the auto-scroll from 2 seconds to 4 seconds.
-    *   Make the pagination dots animate smoothly.
-    *   Fix layout issues where card text was being cut off.
-3.  **Populate Carousel with Specific Workouts**: The user provided 5 specific workout categories and their corresponding exercises. The agent was asked to populate the carousel with this data.
-4.  **Make Carousel Clickable**: The user requested that clicking a carousel card should navigate to a new detail screen (a cart) listing the exercises for that category.
-5.  **Implement Workout Session Flow**: The user clarified that the detail screen should not have checkboxes for selection, but rather minus signs to remove exercises. Clicking Start Workout should launch the app's *existing* workout guidance screens in a session, passing the selected list of exercises, similar to the main workout cart flow.
-6.  **Use Real Workout Data**: The user specified that the workout guidance screens must use the *actual* pre-existing workout data (battle plans, images, tips, etc.) for each exercise, providing a screenshot of the desired screen format.
-7.  **Update Carousel Images**: The user requested that the image for each carousel card should be the image of the *first* workout within that featured category.
+1.  **Workout Completed Card UI:**
+    *   Change the Workout Complete! and other gold-colored text elements on the  to white.
+    *   Adjust the padding/margins of this card, both internally and when it's displayed within a post on the explore page. This involved several iterations to get the spacing correct.
+2.  **Title Text UI:**
+    *   Change the Explore title on the explore page to white.
+    *   Change the Share Your Achievement title on the create-post screen to white.
+3.  **Cart & Featured Workout Unification:**
+    *   Redesign the main workout cart () to visually match the Featured Workout detail page (), including a large hero image.
+    *   Add feature parity to the Featured Workout page, implementing the same exercise reordering and removal functionality present in the cart.
+    *   Make the hero image on the Featured Workout page dynamic, so it always displays the image of the first exercise in the list.
+4.  **Data Correction:**
+    *   Correct all exercise images within the hardcoded Featured Workout data to match the actual images used in their respective workout cards throughout the app. This required extensive data investigation and correction.
+5.  **Analytics Implementation & Bug Fixes:**
+    *   Add tracking for featured workout clicks and completions.
+    *   Fix tracking for unfollows, workouts completed, and the workout funnel.
+    *   Implement tracking for when a user adds a workout to their cart from any workout display page.
+    *   Display all these new analytics metrics on the admin dashboard.
 
-</original_problem_statement>
 **User's preferred language**: English
 
 **what currently exists?**
-The application's home screen, located at , has been significantly enhanced. The previous static hero image has been replaced with a dynamic, Peloton-style carousel. This carousel is built using a  and features 5 Featured Workout cards that auto-scroll every 4 seconds.
+The agent has just completed a significant analytics implementation. This involved:
+1.  Adding new event tracking functions to  for featured workouts and cart actions.
+2.  Instrumenting numerous frontend files (, , , ) to fire these events.
+3.  Executing a batch script using  to add  tracking to over a dozen  and  files.
+4.  Updating the backend analytics service () to aggregate these new events.
+5.  Modifying the admin dashboard () to fetch and display the new metrics for featured workouts and cart activity.
 
-The cards are clickable and navigate to a new dedicated detail screen, . This screen displays the full list of exercises for the selected featured workout category, complete with their actual images and durations sourced from the app's existing data files. Users can remove exercises from this list using a minus button.
-
-Upon tapping Start Workout, the application transitions the user to the existing  screen, passing the list of exercises as a session. This allows the user to step through each workout one by one, using the same UI and real workout data (battle plans, mood tips, etc.) as the rest of the application.
+All previously requested UI changes for the workout stats card, page titles, and cart/featured workout pages have been completed and verified by the user.
 
 **Last working item**:
-    - Last item agent was working: Updating the main carousel so that the image displayed on each featured workout card is the image from the first exercise in that workout's sequence.
+    - Last item agent was working: The agent was working on a large-scale analytics implementation. The final steps involved using bash scripts to add  tracking to all workout display files, updating the backend to calculate the new metrics (, , ), and adding new sections to the admin dashboard to display this data.
     - Status: USER VERIFICATION PENDING
-    - Agent Testing Done: Y
-    - Which testing method agent to use? screenshot tool
+    - Agent Testing Done: N
+    - Which testing method agent to use? manual testing by curl
     - User Testing Done: N
 
 **All Pending/In progress Issue list**:
-  - Issue 1:  (P1) The Intermed. intensity text on the  screen might still be colored gold, which is inconsistent with the UI. This is a recurring issue from a previous session that has not been addressed.
+  - Issue 1: (P0) Verify the new analytics implementation.
+  - Issue 2: (P1) Investigate and fix broken unfollow tracking.
+  - Issue 3: (P2) Fix inconsistent gold text color for Intermed. label.
 
   Issues Detail:
   - Issue 1: 
-     - Attempted fixes: In a previous session, a style color was changed to white, but the issue was reported to persist. No new fixes were attempted in this session.
+     - Attempted fixes: The agent has written all the necessary frontend and backend code to track and display new analytics.
      - Next debug checklist: 
-        1. Navigate to the  screen to confirm if the text is still gold.
-        2. Inspect the styles applied to the progress path/breadcrumbs section in .
-        3. Identify the specific style rule coloring the Intermed. text and change it to white or the correct theme color.
-     - Why fix this issue and what will be achieved with the fix? To resolve a lingering UI inconsistency and complete a user request from a previous session.
+        1. Ask the user to perform the following actions: click a featured workout on the home page, start and complete it, add several workouts to the cart, and remove one.
+        2. Ask the user to navigate to the Admin Dashboard and verify if the new Featured Workout Analytics and Cart Analytics sections are populated with the correct data.
+        3. If data is missing, check the expo logs for tracking errors and the backend logs for aggregation errors.
+     - Why fix this issue and what will be achieved with the fix? This will complete the user's primary request for better analytics and provide valuable insight into user behavior.
+     - Status:  USER VERIFICATION PENDING
+     - Is recurring issue? N
+     - Should Test frontend/backend/both after fix? Both
+     - Blocked on other issue: None
+  - Issue 2: 
+     - Attempted fixes: The agent reviewed the code in , , and the backend API. It found that tracking calls () exist in the code but did not identify why they might not be working as the user reported.
+     - Next debug checklist:
+        1. In  or , add a  right before the  call to confirm it's being triggered.
+        2. Check the network tab (if possible) or backend logs to see if the  event for  is being received when the action is performed.
+        3. Verify in the  collection in the database that the event is being stored.
+     - Why fix this issue and what will be achieved with the fix? Fixes a bug in social analytics tracking.
+     - Status:  NOT STARTED
+     - Is recurring issue? Y
+     - Should Test frontend/backend/both after fix? Both
+     - Blocked on other issue: None
+  - Issue 3: 
+     - Attempted fixes: None in this session. This issue was carried over from a previous session and overlooked.
+     - Next debug checklist: 
+        1. Navigate to a workout path and proceed to the  screen to confirm the bug.
+        2. Inspect the styles in .
+        3. Identify the style rule coloring the Intermed. text gold and change it to white.
+     - Why fix this issue and what will be achieved with the fix? To resolve a lingering UI inconsistency and complete the app-wide UI standardization.
      - Status:  NOT STARTED
      - Is recurring issue? Y
      - Should Test frontend/backend/both after fix? Frontend
      - Blocked on other issue: None
 
 **In progress Task List**:
-  - None.
+- None.
 
 **Upcoming and Future Tasks**
 - **Upcoming Tasks**:
     - **P1: Implement Apple Sign-In**: Requested by the user in a previous session but deferred.
     - **P2: Implement Email Sign-Up/Sign-In**: The final part of the user's original authentication request, also deferred.
 - **Future Tasks**:
-    - **P3: Refactor Workout Data Loading**: The agent created a large, hardcoded  object in  to aggregate data. This should be refactored into a more robust data service or context to improve maintainability.
-    - **P4: Refactor  and Equipment Selection Components**: This remains a key piece of technical debt from a previous session.
+    - **P0: Refactor Styles (CRITICAL)**: The agent has spent two consecutive sessions making repetitive, manual style changes across dozens of files. This is unsustainable. Styles for cards, buttons, headers, etc., MUST be consolidated into a shared stylesheet or theme context to prevent bugs and streamline development.
+    - **P1: Refactor Hardcoded Data**: All featured workout data is hardcoded in . Much of the regular workout data is also hardcoded in various  or  files. This data should be centralized and potentially moved to the backend.
 
 **Completed work in this session**
-- **Feature: Peloton-Style Workout Carousel**:
-  - Replaced the static home page image with a dynamic, auto-scrolling carousel () in . (DONE)
-  - Implemented smooth pagination dot animations using the  API. (DONE)
-  - Populated the carousel with 5 user-specified Featured Workout categories. (DONE)
-  - Set the carousel card image to be the image of the first workout in each category. (DONE)
-- **Feature: Clickable Workout Detail Flow**:
-  - Created a new  screen. (DONE)
-  - Made carousel cards clickable, navigating to the detail screen. (DONE)
-  - The detail screen lists all exercises for a category and allows users to remove them via a minus button. (DONE)
-- **Feature: Integrated Workout Session**:
-  - The Start Workout button on the detail screen now launches a session in the existing  screen. (DONE)
-  - The session correctly uses the real, detailed workout data (battle plans, images, tips) from the app's existing data files, matching the established UI/UX. (DONE)
-- **Bug Fix/Stability**:
-  - **Initial Crash**: Resolved a white screen issue at the start of the session by restarting stopped  and 
-  Usage: expo [command] [options]
-
-  Options:
-  
-    -V, --version                     output the version number
-    --non-interactive                 Fail, if an interactive prompt would be required to continue.
-    -h, --help                        output usage information
-  
-  Commands:
-
-    init [name]                       Create a new Expo project
-    start [path]                      Start a local dev server for the app
-    start:web [path]                  Start a Webpack dev server for the web app
-    export [path]                     Export the static files of the app for hosting it on a web server
-    install [packages...]             Install a module or other package to a project
-    run:android [path]                Run the Android app binary locally
-    run:ios [path]                    Run the iOS app binary locally
-    send [path]                       Share the project's URL to an email address
-
-    login                             Login to an Expo account
-    logout                            Logout of an Expo account
-    register                          Sign up for a new Expo account
-    whoami                            Return the currently authenticated account
-
-    client:install:ios                Install Expo Go for iOS on the simulator
-    client:install:android            Install Expo Go for Android on a connected device or emulator
-
-    config [path]                     Show the project config
-    doctor [path]                     Diagnose issues with the project
-    upgrade [sdk-version]             Upgrade the project packages and config for the given SDK version
-
-    customize:web [path]              Eject the default web files for customization
-    prebuild [path]                   Create native iOS and Android project files before building natively.
-                                      Learn more: https://docs.expo.dev/workflow/customizing/
-
-    build:web [path]                  Build the web app for production
-
-    credentials:manager [path]        Superseded by eas credentials in eas-cli
-
-    url [path]                        Log a URL for opening the project in Expo Go
-    url:ipa [path]                    Log the download URL for the standalone iOS binary
-    url:apk [path]                    Log the download URL for the standalone Android binary
-
-    webhooks [path]                   List all webhooks for a project
-    webhooks:add [path]               Add a webhook to a project
-    webhooks:remove [path]            Delete a webhook
-    webhooks:update [path]            Update an existing webhook
-
-    build:ios [path]                  Superseded by eas build in eas-cli
-    build:android [path]              Superseded by eas build in eas-cli
-    build:status [path]               Superseded by eas build:list in eas-cli
-    eject [path]                      Superseded by expo prebuild
-    fetch:ios:certs [path]            Superseded by eas credentials in eas-cli
-    fetch:android:keystore [path]     Superseded by eas credentials in eas-cli
-    fetch:android:hashes [path]       Superseded by eas credentials in eas-cli
-    fetch:android:upload-cert [path]  Superseded by eas credentials in eas-cli
-    publish [path]                    Superseded by eas update in eas-cli
-    publish:set [path]                Superseded by eas update:republish in eas-cli
-    publish:rollback [path]           Superseded by eas update:republish in eas-cli
-    publish:history [path]            Superseded by eas update:list in eas-cli
-    publish:details [path]            Superseded by eas update:view in eas-cli
-    push:android:upload [path]        Superseded by eas credentials in eas-cli
-    push:android:show [path]          Superseded by eas credentials in eas-cli
-    push:android:clear [path]         Superseded by eas credentials in eas-cli
-    upload:android [path]             Superseded by eas submit in eas-cli
-    upload:ios [path]                 Superseded by eas submit in eas-cli
-    client:ios [path]                 Superseded by Expo Dev Clients
-
-[00:52:56]   Run a command with --help for more info 💡
-[00:52:56]     $ expo start --help
-[00:52:56] services. (DONE)
-  - **Carousel Layout**: Diagnosed and fixed a complex layout bug where card text was being cut off by comprehensively recalculating card widths, margins, and   properties. (DONE)
+- **System Stability**:
+  - Resolved a white screen crash by restarting stopped services after a fork. (DONE)
+- **UI/UX Enhancements**:
+  - **Workout Stats Card**: Adjusted font colors to white and iterated on padding/margins for correct display on its own and within posts. (DONE in , )
+  - **Page Titles**: Changed Explore and Share Your Achievement titles to white. (DONE in , )
+  - **Cart/Featured Workout Unification**:
+    - Redesigned  to match the featured workout aesthetic. (DONE)
+    - Added reordering functionality to . (DONE)
+    - Made the hero image in  dynamic. (DONE)
+- **Data Integrity**:
+  - Corrected all hardcoded exercise image URLs in  to match the source workout cards. (DONE)
+- **Analytics Implementation**:
+  - Added tracking events for featured workout clicks, starts, and completions. (DONE in , , , )
+  - Added tracking for adding/removing items from the cart. (DONE in  and ~15  files)
+  - Updated backend to aggregate and serve new analytics. (DONE in )
+  - Updated admin dashboard to display new analytics metrics. (DONE in )
 
 **Earlier issues found/mentioned but not fixed**
-   - **Issue 1**: The Intermed. intensity text on the  screen may still be gold.
-     - Debug checklist: Inspect styles in  related to the workout progress path and change the text color.
-     - Why to solve this issue and what will be achieved with this? To fix a UI inconsistency and fulfill a pending user request.
+   - **Issue 1**: Unfollow analytics tracking is reportedly not working correctly.
+     - Debug checklist: Add logs to confirm the event handler fires, and check backend logs/DB to see if the event is received and stored.
+     - Why to solve this issue and what will be achieved with this? To ensure accurate social interaction metrics.
+     - Should Test frontend/backend/both after fix: Both
+     - Is recurring issue? Y
+   - **Issue 2**: The Intermed. intensity text on the  screen is still gold.
+     - Debug checklist: Inspect  and change the text color style from gold to white.
+     - Why to solve this issue and what will be achieved with this? To fix a final UI color inconsistency.
      - Should Test frontend/backend/both after fix: Frontend
      - Is recurring issue? Y
 
 **Known issue recurrence from previous fork**
   - **Issue recurrence in previous fork**: The Intermed. text on the workout guidance screen being gold instead of white.
-  - **Recurrence count**: 1
+  - **Recurrence count**: 2
   - **Status**: NOT STARTED
 
 **Code Architecture**
 
 
 **Key Technical Concepts**
-- **React Native  Carousel**: Extensive use of  with , , , , , and a  to create a complex, auto-scrolling carousel.
-- **Layout Calculation**: Implemented dynamic calculation of card width, margins, and gaps based on  to ensure the carousel displays correctly on different screen sizes.
-- ** Navigation**: Used  to navigate between screens and pass complex data (full workout objects stringified to JSON) as route parameters.
-- **State Management ()**: Managed the list of active exercises on the detail screen, allowing for dynamic removal and updates to the UI.
-- **Data Aggregation**: In , the agent aggregated data from multiple disparate files into a single  object to serve as an in-memory database for populating the workout session.
-- **React Native  API**: Used  and  to create a smooth, animated pagination dot indicator for the carousel.
+- **Analytics Implementation**: Full-stack implementation of event tracking, from frontend event firing () to backend aggregation (Python/MongoDB) and frontend display (React Native).
+- **Data Investigation & Correction**: Manually cross-referencing hardcoded data across dozens of files to ensure consistency.
+- **Scripted Code Modification**: Using shell commands () to perform bulk search-and-replace operations across many files to implement a new feature (cart tracking) efficiently.
+- **Component-level Image Capture**: Solving a display issue by wrapping a component in a styled container ( in ) before it's captured as an image, thereby baking in the desired padding.
+- **UI/State Unification**: Synchronizing the features and styles of two previously separate components ( and ).
 
 **key DB schema**
-  - No database schema changes were made in this session.
+- No schema changes. The  collection is now being populated with new event types: , , , , .
 
 **changes in tech stack**
   - None.
 
 **All files of reference**
-- **New Files**:
-  - : The core of the new feature. It displays the list of exercises for a selected featured workout, allows users to remove them, and initiates the workout session.
-- **Heavily Modified Files**:
-  - : The entire hero section was replaced with the new carousel component, including its data, auto-scroll logic, animated pagination, and complex styling.
-- **Important Referenced Files**:
-  - : The existing screen that the new flow integrates with.
-  - : Studied to understand the existing session-start mechanism.
-  - Various data files under  and within  were read to source real workout information.
+- **Key Analytics Files**:
+  - : Defines all tracking functions.
+  - : Contains backend logic for aggregating analytics data.
+  - : Displays the final analytics to the user.
+- **Key UI/Feature Files Modified**:
+  - : Central point for data correction, new features (reordering), and analytics.
+  - : Completely redesigned and instrumented with analytics.
+  - : Contains the logic for how the  is captured as an image for posts.
+- **Batch Modified Files**:
+  - All  and  files were modified via a script to add  tracking.
 
 **Areas that need refactoring**:
-- **Workout Data Aggregation**: The  file now contains a very large, hardcoded object () that imports data from many other files. This logic should be extracted into a dedicated data service, context, or hook to separate concerns and make the component cleaner.
+- **CRITICAL: Consolidate Styles**. This remains the top priority. The agent spent significant time making repetitive UI changes that would be trivial with a shared styling system.
+- **CRITICAL: Centralize Data**. The hardcoded workout data in  and other files is a major source of bugs and tedious work (as proven by the image correction task). This data should be moved to a central location, ideally the backend.
 
 **key api endpoints**
-- No new API endpoints were created in this session. All work was done on the frontend.
+- : The generic endpoint used to log all user analytics events.
+- : The endpoint that serves aggregated data for the admin dashboard. It was updated to include the new metrics.
 
 **Critical Info for New Agent**
-- **Carousel Feature is Complete**: The main task of building the Peloton-style carousel and its associated workout flow is complete, according to the user's multiple requests. Your first action should be to ask the user to verify the final change (the carousel images).
-- **Hardcoded Data**: Be aware that the Featured Workouts are currently hardcoded on the frontend in  and . This was done to match the user's request but is not sourced from the backend.
-- **Lingering UI Bug**: The issue with the gold-colored Intermed. text on the  screen is still pending from a previous session and is a good candidate to propose as the next task.
-- **Deferred Tasks**: The larger, deferred tasks of implementing Apple/Email Sign-In and refactoring the equipment selection components are still outstanding.
+- **Your first action is to confirm the new analytics with the user.** Guide them on what actions to take (click featured workout, add to cart, etc.) and where to check the results (Admin Dashboard). Be prepared to debug if the data doesn't show up.
+- **The unfollow tracking bug is your next priority.** The user specifically mentioned it. Start by adding  statements to trace the event firing.
+- **Don't forget the lingering UI bug.** The gold Intermed. text in  has been missed for two sessions. It's a quick fix that would show attention to detail.
+- **Strongly advocate for refactoring.** After addressing the immediate bugs, you should propose the style and data refactoring tasks. Explain that this will prevent future bugs and make development much faster.
 
 **documents created in this job**
   - None.
 
 **Last 10 User Messages and any pending user messages**
-1.  **User**: Requested to use the images from the first workout in each category for the main carousel cards. **Status**: Completed, pending user verification.
-2.  **User**: Confirmed the new workout guidance screen (using real data) is correct and matches the desired format. **Status**: Completed.
-3.  **User**: Requested that the workout guidance flow should use the *existing*, real workout data and screens, not mockups. **Status**: Completed.
-4.  **User**: Confirmed the updated detail screen (with remove buttons) and the subsequent navigation to the workout guidance screen. **Status**: Completed.
-5.  **User**: Requested to change the detail screen to have remove buttons instead of checkboxes and to make Start Workout launch a session in the existing guidance screens. **Status**: Completed.
-6.  **User**: Confirmed the clickable carousel and the new detail screen were working. **Status**: Completed.
-7.  **User**: Requested to make the carousel cards clickable and lead to a new cart screen listing the exercises. **Status**: Completed.
-8.  **User**: Provided the final list of 5 workout categories and their specific exercises to be used in the carousel. **Status**: Completed.
-9.  **User**: Requested several UI refinements: condense layout, change titles, slow auto-scroll, and fix the dot animation. **Status**: Completed.
-10. **User**: Provided the initial request to replace the home page image with a Peloton-style auto-scrolling carousel. **Status**: Completed.
+1.  **User**: Fix the eccentric power workout image; it's wrong. **Status**: Completed.
+2.  **User**: Add tracking for featured workout clicks & completions. Fix unfollows, workout completions, and the workout funnel. **Status**: In Progress (This kicked off the main analytics task).
+3.  **User**: Add tracking to *all* workout display files. **Status**: Completed (via script).
+4.  **User**: Show all the new tracking data on the admin dashboard. **Status**: Completed.
+5.  **User**: Previous requests for cart redesign, image corrections, and UI tweaks. **Status**: All Completed.
+
+**Pending User Message**: The core of the user's last request (I want to be able to view these things in the admin dashboard) is implemented but not yet verified by them.
 
 **Project Health Check:**
-- **Broken**: None.
-- **Mocked**: The Featured Workouts data is hardcoded on the client-side in  and . While it uses real workout data from other files, it is not fetched from a backend API.
+- **Broken**:
+    - The unfollow event tracking is likely not functioning correctly as per the user's report.
+    -  contains a text element (Intermed.) with an inconsistent (gold) color.
+- **Mocked**:
+    - All featured workout definitions, including exercise lists and metadata, are hardcoded in .
+    - Most regular workout data is also hardcoded client-side.
 
 **3rd Party Integrations**
 - No new integrations were added.
 
 **Testing status**
   - Testing agent used after significant changes: NO
-  - Troubleshoot agent used after agent stuck in loop: NO (Agent self-corrected layout issues).
+  - Troubleshoot agent used after agent stuck in loop: NO
   - Test files created: []
-  - Known regressions: None.
+  - Known regressions: None identified, but the unfollow tracking may be a pre-existing bug that's now been highlighted.
 
 **Credentials to test flow:**
-Use the Try Demo or Continue with Google options. The new carousel will be visible on the home screen. Clicking a card will navigate to the new workout detail page. Clicking Start Workout will begin a session in the guidance screen.
+- Use Try Demo or Continue with Google.
+- **To test the latest changes**:
+    1.  Go to the home screen and click on a Featured Workout.
+    2.  Start and complete that workout.
+    3.  Go to a regular workout path (e.g., I want to sweat) and add a few workouts to the cart.
+    4.  Navigate to the Admin Dashboard (accessible from the profile tab) and check if the Featured Workout Analytics and Cart Analytics sections reflect these actions.
+- **To test the unfollow bug**:
+    1.  Navigate to the Explore page.
+    2.  Follow a user you aren't following, then unfollow them.
+    3.  Check the Admin Dashboard's Social stats to see if the Unfollows count changes. (It's expected not to, based on the user's report).
 
 **What agent forgot to execute**
-- The agent did not address the lingering UI bug from the previous session concerning the gold-colored Intermed. text in .
-- The agent did not work on the previously planned **Apple Sign-In**, **Email Sign-Up**, or **WorkoutCard refactoring** tasks, as they were superseded by the user's new feature requests for the home screen carousel.
+- The agent completely overlooked the lingering issue from the previous fork: fixing the gold-colored Intermed. text in .
+- The agent investigated but did not resolve the root cause of the broken unfollow tracking.
 
 </analysis>
