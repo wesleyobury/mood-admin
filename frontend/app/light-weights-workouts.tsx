@@ -292,6 +292,7 @@ const LightWeightsWorkoutsScreen = memo(function LightWeightsWorkoutsScreen() {
 
   // Cart hooks (removed addedItems to prevent re-render issues)
   const { addToCart, isInCart } = useCart();
+  const { token } = useAuth();
 
   const handleGoBack = () => {
     router.back();
@@ -324,6 +325,15 @@ const LightWeightsWorkoutsScreen = memo(function LightWeightsWorkoutsScreen() {
       moodCard: moodTitle,
       moodTips: workout.moodTips || [],
     };
+
+    // Track workout added to cart
+    if (token) {
+      Analytics.workoutAddedToCart(token, {
+        workout_name: workout.name,
+        mood_category: moodTitle,
+        equipment: equipment,
+      });
+    }
 
     // Add to cart
     addToCart(workoutItem);
