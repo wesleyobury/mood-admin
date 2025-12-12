@@ -445,10 +445,10 @@ export default function FeaturedWorkoutDetail() {
 
   return (
     <View style={styles.container}>
-      {/* Hero Image */}
+      {/* Hero Image - Uses first exercise's image */}
       <View style={styles.heroContainer}>
         <Image
-          source={{ uri: workout.image }}
+          source={{ uri: exercises[0]?.imageUrl || workout.image }}
           style={styles.heroImage}
           resizeMode="cover"
         />
