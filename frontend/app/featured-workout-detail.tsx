@@ -287,7 +287,7 @@ const featuredWorkoutData: Record<string, {
         description: 'Slow descent dips with explosive push build upper body power.',
         battlePlan: '4 sets\n• 6 Eccentric Power Dips\n• Lower for 5 seconds\n• Go below 90° elbow angle\n• Push back up explosively\nRest 60–90s between sets',
         duration: '10 min',
-        imageUrl: 'https://customer-assets.emergentagent.com/job_upper-body-enhance/artifacts/qhw328ft_download%20%286%29.png',
+        imageUrl: 'https://customer-assets.emergentagent.com/job_upper-body-enhance/artifacts/bhu7tjin_download%20%2814%29.png',
         intensityReason: 'Slow eccentric with explosive concentric builds strength and power',
         difficulty: 'intermediate',
         workoutType: 'Calisthenics - Pulls & Dips',
