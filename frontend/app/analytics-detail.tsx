@@ -17,6 +17,24 @@ import Constants from 'expo-constants';
 
 const API_URL = Constants.expoConfig?.extra?.EXPO_PUBLIC_BACKEND_URL || '';
 
+// Screen name mapping for user-friendly display
+const screenNameMap: { [key: string]: string } = {
+  'index': 'Home',
+  'explore': 'Explore',
+  'profile': 'Profile',
+  'cart': 'Workout Cart',
+  'workout-session': 'Workout Session',
+  'create-post': 'Create Post',
+  'admin-dashboard': 'Admin Dashboard',
+  'featured-workout-detail': 'Featured Workout',
+  'user-profile': 'User Profile',
+  'settings': 'Settings',
+};
+
+const getDisplayScreenName = (screenName: string): string => {
+  return screenNameMap[screenName] || screenName.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+};
+
 // Type definitions
 interface UserItem {
   user_id: string;
