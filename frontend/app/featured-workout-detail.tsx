@@ -496,13 +496,41 @@ export default function FeaturedWorkoutDetail() {
                 <Text style={styles.exerciseName}>{exercise.name}</Text>
                 <Text style={styles.exerciseDuration}>{exercise.duration}</Text>
               </View>
-              <TouchableOpacity
-                style={styles.removeButton}
-                onPress={() => removeExercise(index)}
-                activeOpacity={0.7}
-              >
-                <Ionicons name="remove-circle" size={28} color="#FF4444" />
-              </TouchableOpacity>
+              <View style={styles.exerciseActions}>
+                <View style={styles.reorderButtons}>
+                  <TouchableOpacity
+                    style={[styles.reorderButton, index === 0 && styles.reorderButtonDisabled]}
+                    onPress={() => handleMoveUp(index)}
+                    disabled={index === 0}
+                    activeOpacity={0.8}
+                  >
+                    <Ionicons 
+                      name="chevron-up" 
+                      size={18} 
+                      color={index === 0 ? 'rgba(255, 255, 255, 0.3)' : '#fff'} 
+                    />
+                  </TouchableOpacity>
+                  <TouchableOpacity
+                    style={[styles.reorderButton, index === exercises.length - 1 && styles.reorderButtonDisabled]}
+                    onPress={() => handleMoveDown(index)}
+                    disabled={index === exercises.length - 1}
+                    activeOpacity={0.8}
+                  >
+                    <Ionicons 
+                      name="chevron-down" 
+                      size={18} 
+                      color={index === exercises.length - 1 ? 'rgba(255, 255, 255, 0.3)' : '#fff'} 
+                    />
+                  </TouchableOpacity>
+                </View>
+                <TouchableOpacity
+                  style={styles.removeButton}
+                  onPress={() => removeExercise(index)}
+                  activeOpacity={0.7}
+                >
+                  <Ionicons name="remove-circle" size={28} color="#FF4444" />
+                </TouchableOpacity>
+              </View>
             </View>
           ))}
         </ScrollView>
