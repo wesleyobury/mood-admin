@@ -544,6 +544,38 @@ async def get_admin_analytics(
             "timestamp": {"$gte": start_date}
         })
         
+        # Featured workout events
+        featured_workout_clicks = await db.user_events.count_documents({
+            "event_type": "featured_workout_clicked",
+            "timestamp": {"$gte": start_date}
+        })
+        
+        featured_workout_starts = await db.user_events.count_documents({
+            "event_type": "featured_workout_started",
+            "timestamp": {"$gte": start_date}
+        })
+        
+        featured_workout_completions = await db.user_events.count_documents({
+            "event_type": "featured_workout_completed",
+            "timestamp": {"$gte": start_date}
+        })
+        
+        # Cart events
+        workouts_added_to_cart = await db.user_events.count_documents({
+            "event_type": "workout_added_to_cart",
+            "timestamp": {"$gte": start_date}
+        })
+        
+        workouts_removed_from_cart = await db.user_events.count_documents({
+            "event_type": "workout_removed_from_cart",
+            "timestamp": {"$gte": start_date}
+        })
+        
+        cart_views = await db.user_events.count_documents({
+            "event_type": "cart_viewed",
+            "timestamp": {"$gte": start_date}
+        })
+        
         # New users in period
         new_users = await db.users.count_documents({
             "created_at": {"$gte": start_date}
