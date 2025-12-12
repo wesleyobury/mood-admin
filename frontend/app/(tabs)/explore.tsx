@@ -640,7 +640,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 24,
     fontWeight: 'bold',
-    color: '#FFD700',
+    color: '#FFFFFF',
   },
   headerActions: {
     flexDirection: 'row',
