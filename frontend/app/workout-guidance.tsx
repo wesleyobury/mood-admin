@@ -15,6 +15,7 @@ import HomeButton from '../components/HomeButton';
 import { useCart } from '../contexts/CartContext';
 import { useAuth } from '../contexts/AuthContext';
 import Toast from '../components/Toast';
+import { Analytics } from '../utils/analytics';
 
 interface MOODTip {
   icon: keyof typeof Ionicons.glyphMap;
