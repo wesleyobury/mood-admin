@@ -1997,9 +1997,8 @@ const styles = StyleSheet.create({
     borderRadius: 12,
   },
   swipeText: {
-    color: '#FFD700',
     fontSize: 12,
-    color: '#ffffff',
+    color: '#FFD700',
     marginLeft: 4,
   },
   workoutContent: {
