@@ -42,6 +42,13 @@ interface PlatformStats {
   total_mood_selections: number;
   total_equipment_selections: number;
   total_difficulty_selections: number;
+  featured_workout_clicks: number;
+  featured_workout_starts: number;
+  featured_workout_completions: number;
+  featured_workout_conversion_rate: number;
+  workouts_added_to_cart: number;
+  workouts_removed_from_cart: number;
+  cart_views: number;
   retention_rate: number;
   average_workouts_per_active_user: number;
   popular_mood_categories: Array<{ mood: string; count: number }>;
