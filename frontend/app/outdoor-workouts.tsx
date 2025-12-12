@@ -267,6 +267,7 @@ export default function OutdoorWorkoutsScreen() {
   const params = useLocalSearchParams();
   const insets = useSafeAreaInsets();
   const { addToCart, cartItems } = useCart();
+  const { token } = useAuth();
 
   // Parse URL parameters
   const moodTitle = params.mood as string || 'I want to get outside';
@@ -360,6 +361,13 @@ export default function OutdoorWorkoutsScreen() {
     };
 
     // Add to cart
+    if (token) {
+      Analytics.workoutAddedToCart(token, {
+        workout_name: workout.name,
+        mood_category: moodTitle,
+        equipment: equipment,
+      });
+    }
     addToCart(workoutItem);
   };
 
