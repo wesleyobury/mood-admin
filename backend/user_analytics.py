@@ -630,6 +630,13 @@ async def get_admin_analytics(
             "total_mood_selections": mood_selections,
             "total_equipment_selections": equipment_selections,
             "total_difficulty_selections": difficulty_selections,
+            "featured_workout_clicks": featured_workout_clicks,
+            "featured_workout_starts": featured_workout_starts,
+            "featured_workout_completions": featured_workout_completions,
+            "featured_workout_conversion_rate": round((featured_workout_completions / featured_workout_clicks * 100), 1) if featured_workout_clicks > 0 else 0,
+            "workouts_added_to_cart": workouts_added_to_cart,
+            "workouts_removed_from_cart": workouts_removed_from_cart,
+            "cart_views": cart_views,
             "retention_rate": round((active_users / total_users * 100), 2) if total_users > 0 else 0,
             "average_workouts_per_active_user": round(total_workouts / active_users, 2) if active_users > 0 else 0,
             "popular_mood_categories": [
