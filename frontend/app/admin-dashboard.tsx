@@ -353,6 +353,96 @@ export default function AdminDashboard() {
           </View>
         </TouchableOpacity>
 
+        {/* Featured Workouts Analytics */}
+        <View style={styles.section}>
+          <View style={styles.sectionHeader}>
+            <Text style={styles.sectionTitle}>Featured Workouts</Text>
+          </View>
+          
+          <View style={styles.funnelContainer}>
+            <View style={styles.funnelItem}>
+              <View style={styles.funnelBar}>
+                <View style={[styles.funnelFill, { width: '100%', backgroundColor: '#9C27B0' }]} />
+              </View>
+              <View style={styles.funnelInfo}>
+                <Text style={styles.funnelLabel}>Clicks</Text>
+                <Text style={styles.funnelValue}>{stats?.featured_workout_clicks?.toLocaleString() || 0}</Text>
+              </View>
+            </View>
+
+            <View style={styles.funnelItem}>
+              <View style={styles.funnelBar}>
+                <View style={[styles.funnelFill, { 
+                  width: stats?.featured_workout_clicks ? `${Math.round((stats?.featured_workout_starts || 0) / stats.featured_workout_clicks * 100)}%` : '0%',
+                  backgroundColor: '#2196F3' 
+                }]} />
+              </View>
+              <View style={styles.funnelInfo}>
+                <Text style={styles.funnelLabel}>Started</Text>
+                <Text style={styles.funnelValue}>
+                  {stats?.featured_workout_starts?.toLocaleString() || 0}
+                  {stats?.featured_workout_clicks ? (
+                    <Text style={styles.funnelPercent}> ({Math.round((stats?.featured_workout_starts || 0) / stats.featured_workout_clicks * 100)}%)</Text>
+                  ) : null}
+                </Text>
+              </View>
+            </View>
+
+            <View style={styles.funnelItem}>
+              <View style={styles.funnelBar}>
+                <View style={[styles.funnelFill, { 
+                  width: `${stats?.featured_workout_conversion_rate || 0}%`,
+                  backgroundColor: '#FFD700' 
+                }]} />
+              </View>
+              <View style={styles.funnelInfo}>
+                <Text style={styles.funnelLabel}>Completed</Text>
+                <Text style={styles.funnelValue}>
+                  {stats?.featured_workout_completions?.toLocaleString() || 0}
+                  <Text style={styles.funnelPercent}> ({stats?.featured_workout_conversion_rate || 0}%)</Text>
+                </Text>
+              </View>
+            </View>
+          </View>
+        </View>
+
+        {/* Cart Analytics */}
+        <View style={styles.section}>
+          <View style={styles.sectionHeader}>
+            <Text style={styles.sectionTitle}>Cart Activity</Text>
+          </View>
+          
+          <View style={styles.socialGrid}>
+            <View style={styles.socialCard}>
+              <Ionicons name="add-circle" size={20} color="#4CAF50" />
+              <Text style={styles.socialValue}>{stats?.workouts_added_to_cart?.toLocaleString() || 0}</Text>
+              <Text style={styles.socialLabel}>Added to Cart</Text>
+            </View>
+
+            <View style={styles.socialCard}>
+              <Ionicons name="remove-circle" size={20} color="#F44336" />
+              <Text style={styles.socialValue}>{stats?.workouts_removed_from_cart?.toLocaleString() || 0}</Text>
+              <Text style={styles.socialLabel}>Removed</Text>
+            </View>
+
+            <View style={styles.socialCard}>
+              <Ionicons name="cart" size={20} color="#FF9800" />
+              <Text style={styles.socialValue}>{stats?.cart_views?.toLocaleString() || 0}</Text>
+              <Text style={styles.socialLabel}>Cart Views</Text>
+            </View>
+
+            <View style={styles.socialCard}>
+              <Ionicons name="trending-up" size={20} color="#2196F3" />
+              <Text style={styles.socialValue}>
+                {stats?.workouts_added_to_cart && stats?.cart_views 
+                  ? Math.round(stats.workouts_added_to_cart / stats.cart_views * 100) 
+                  : 0}%
+              </Text>
+              <Text style={styles.socialLabel}>Add Rate</Text>
+            </View>
+          </View>
+        </View>
+
         {/* App Sessions */}
         <View style={styles.section}>
           <View style={styles.sectionHeader}>
