@@ -1314,7 +1314,7 @@ const styles = StyleSheet.create({
     height: 120,
     borderRadius: 12,
     marginBottom: 16,
-    overflow: 'visible',
+    overflow: 'hidden',
     position: 'relative',
   },
   workoutImage: {

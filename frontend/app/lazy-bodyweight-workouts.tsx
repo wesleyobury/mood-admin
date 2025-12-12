@@ -2056,7 +2056,7 @@ const styles = StyleSheet.create({
     marginTop: 1,
     height: 120,
     borderRadius: 12,
-    overflow: 'visible',
+    overflow: 'hidden',
     marginBottom: 16,
     position: 'relative',
   },
