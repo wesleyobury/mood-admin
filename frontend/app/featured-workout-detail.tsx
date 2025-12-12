@@ -381,6 +381,22 @@ export default function FeaturedWorkoutDetail() {
     setExercises(newExercises);
   };
 
+  const handleMoveUp = (index: number) => {
+    if (index > 0) {
+      const newExercises = [...exercises];
+      [newExercises[index - 1], newExercises[index]] = [newExercises[index], newExercises[index - 1]];
+      setExercises(newExercises);
+    }
+  };
+
+  const handleMoveDown = (index: number) => {
+    if (index < exercises.length - 1) {
+      const newExercises = [...exercises];
+      [newExercises[index], newExercises[index + 1]] = [newExercises[index + 1], newExercises[index]];
+      setExercises(newExercises);
+    }
+  };
+
   const handleStartWorkout = () => {
     if (exercises.length === 0) return;
     
