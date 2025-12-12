@@ -3589,7 +3589,7 @@ const styles = StyleSheet.create({
   workoutName: {
     fontSize: 16,
     fontWeight: 'bold',
-    color: '#FFD700',
+    color: '#ffffff',
     marginBottom: 8,
   },
   durationIntensityRow: {
