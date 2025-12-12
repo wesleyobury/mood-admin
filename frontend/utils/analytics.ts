@@ -153,4 +153,48 @@ export const Analytics = {
     filter_type: string;
     filter_value: string;
   }) => trackEvent(token, 'filter_applied', metadata),
+
+  // Featured Workout Events
+  featuredWorkoutClicked: (token: string, metadata: {
+    workout_id: string;
+    workout_title: string;
+    mood_category: string;
+  }) => trackEvent(token, 'featured_workout_clicked', metadata),
+
+  featuredWorkoutStarted: (token: string, metadata: {
+    workout_id: string;
+    workout_title: string;
+    mood_category: string;
+    exercise_count: number;
+  }) => trackEvent(token, 'featured_workout_started', metadata),
+
+  featuredWorkoutCompleted: (token: string, metadata: {
+    workout_id: string;
+    workout_title: string;
+    mood_category: string;
+    exercises_completed: number;
+    duration_minutes?: number;
+  }) => trackEvent(token, 'featured_workout_completed', metadata),
+
+  // Workout Funnel Events
+  workoutFunnelStep: (token: string, metadata: {
+    step: string;
+    mood_category?: string;
+    equipment?: string;
+    difficulty?: string;
+  }) => trackEvent(token, 'workout_funnel_step', metadata),
+
+  workoutAddedToCart: (token: string, metadata: {
+    workout_name: string;
+    mood_category?: string;
+    equipment?: string;
+  }) => trackEvent(token, 'workout_added_to_cart', metadata),
+
+  workoutRemovedFromCart: (token: string, metadata: {
+    workout_name: string;
+  }) => trackEvent(token, 'workout_removed_from_cart', metadata),
+
+  cartViewed: (token: string, metadata: {
+    item_count: number;
+  }) => trackEvent(token, 'cart_viewed', metadata),
 };
