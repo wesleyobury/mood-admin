@@ -2020,7 +2020,7 @@ const styles = StyleSheet.create({
   workoutDuration: {
     fontSize: 14,
     fontWeight: 'bold',
-    color: '#FFD700',
+    color: '#ffffff',
   },
   intensityContainer: {
     flexDirection: 'row',
