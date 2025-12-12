@@ -89,7 +89,7 @@ const EquipmentCard = ({
           <Ionicons 
             name={equipment.icon} 
             size={20} 
-            color="#FFD700" 
+            color={isSelected ? "#FFD700" : "#FFFFFF"} 
           />
         </View>
         <Text style={[
@@ -217,7 +217,7 @@ export default function CardioEquipmentScreen() {
           style={styles.backButton}
           onPress={handleGoBack}
         >
-          <Ionicons name="chevron-back" size={24} color="#FFD700" />
+          <Ionicons name="chevron-back" size={24} color={isSelected ? "#FFD700" : "#FFFFFF"} />
         </TouchableOpacity>
         <View style={styles.headerTextContainer}>
           <Text style={styles.headerTitle}>Cardio Equipment</Text>
