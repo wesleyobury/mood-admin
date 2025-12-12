@@ -90,6 +90,13 @@ export default function CartScreen() {
   };
 
   const handleRemoveItem = (workoutId: string) => {
+    // Find the workout name before removing
+    const workout = cartItems.find(item => item.id === workoutId);
+    if (workout && token) {
+      Analytics.workoutRemovedFromCart(token, {
+        workout_name: workout.name,
+      });
+    }
     removeFromCart(workoutId);
   };
 
@@ -97,6 +104,15 @@ export default function CartScreen() {
     clearCart();
     router.push('/(tabs)');
   };
+
+  // Track cart view on mount
+  React.useEffect(() => {
+    if (token && cartItems.length > 0) {
+      Analytics.cartViewed(token, {
+        item_count: cartItems.length,
+      });
+    }
+  }, [token]);
 
   const handleStartWorkoutSession = () => {
     if (cartItems.length === 0) return;
