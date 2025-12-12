@@ -1275,7 +1275,7 @@ const styles = StyleSheet.create({
   workoutCount: {
     fontSize: 12,
     fontWeight: 'bold',
-    color: '#FFD700',
+    color: '#ffffff',
   },
   workoutList: {
     height: 420,
