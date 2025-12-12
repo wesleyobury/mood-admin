@@ -203,7 +203,7 @@ export default function BicepsEquipmentScreen() {
           style={styles.backButton}
           onPress={handleGoBack}
         >
-          <Ionicons name="chevron-back" size={24} color={isSelected ? "#FFD700" : "#FFFFFF"} />
+          <Ionicons name="chevron-back" size={24} color="#FFD700" />
         </TouchableOpacity>
         <View style={styles.headerTextContainer}>
           <Text style={styles.headerTitle}>Biceps Equipment</Text>
