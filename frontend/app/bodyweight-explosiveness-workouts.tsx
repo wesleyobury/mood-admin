@@ -2128,7 +2128,7 @@ const styles = StyleSheet.create({
   noWorkoutsTitle: {
     fontSize: 24,
     fontWeight: 'bold',
-    color: '#FFD700',
+    color: '#ffffff',
     textAlign: 'center',
     marginTop: 24,
     marginBottom: 16,
