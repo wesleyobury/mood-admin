@@ -923,8 +923,8 @@ const styles = StyleSheet.create({
     paddingRight: 12,
   },
   addImageButton: {
-    width: 100,
-    height: 100,
+    width: 80,
+    height: 100, // 4:5 aspect ratio to match final display
     borderRadius: 12,
     borderWidth: 1.5,
     borderColor: 'rgba(255, 215, 0, 0.3)',
