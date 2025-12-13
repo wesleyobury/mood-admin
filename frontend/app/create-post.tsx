@@ -395,37 +395,53 @@ export default function CreatePost() {
     }
   };
 
-  const uploadImages = async (): Promise<string[]> => {
+  const uploadMedia = async (): Promise<string[]> => {
     const uploadedUrls: string[] = [];
-    const totalSteps = selectedImages.length + (hasStatsCard ? 1 : 0) + 1; // images + card + post creation
+    const totalSteps = selectedMedia.length + (hasStatsCard ? 1 : 0) + 1; // media + card + post creation
     let currentStep = 0;
     
-    for (let i = 0; i < selectedImages.length; i++) {
-      const imageUri = selectedImages[i];
+    for (let i = 0; i < selectedMedia.length; i++) {
+      const mediaItem = selectedMedia[i];
       currentStep++;
       setUploadProgress((currentStep / totalSteps) * 100);
 
       try {
         const formData = new FormData();
-        let filename = imageUri.split('/').pop() || 'image.jpg';
+        let filename = mediaItem.uri.split('/').pop() || (mediaItem.type === 'video' ? 'video.mp4' : 'image.jpg');
         
         // Ensure filename has extension
         if (!filename.includes('.')) {
-          filename = `image_${Date.now()}.jpg`;
+          filename = mediaItem.type === 'video' ? `video_${Date.now()}.mp4` : `image_${Date.now()}.jpg`;
         }
         
         const match = /\.(\w+)$/.exec(filename);
-        const type = match ? `image/${match[1]}` : 'image/jpeg';
+        let type: string;
+        
+        if (mediaItem.type === 'video') {
+          // Determine video MIME type
+          const ext = match ? match[1].toLowerCase() : 'mp4';
+          const videoTypes: { [key: string]: string } = {
+            'mp4': 'video/mp4',
+            'mov': 'video/quicktime',
+            'avi': 'video/x-msvideo',
+            'webm': 'video/webm',
+            'mkv': 'video/x-matroska',
+            'm4v': 'video/x-m4v',
+          };
+          type = videoTypes[ext] || 'video/mp4';
+        } else {
+          type = match ? `image/${match[1]}` : 'image/jpeg';
+        }
 
         if (Platform.OS === 'web') {
           // For web, fetch the blob and append it with proper filename
-          const response = await fetch(imageUri);
+          const response = await fetch(mediaItem.uri);
           const blob = await response.blob();
           formData.append('file', blob, filename);
         } else {
           // For native platforms
           formData.append('file', {
-            uri: imageUri,
+            uri: mediaItem.uri,
             name: filename,
             type,
           } as any);
@@ -449,7 +465,7 @@ export default function CreatePost() {
           console.error('Upload failed:', uploadResponse.status, errorText);
         }
       } catch (error) {
-        console.error('Error uploading image:', error);
+        console.error('Error uploading media:', error);
       }
     }
 
@@ -458,8 +474,8 @@ export default function CreatePost() {
   };
 
   const handleCreatePost = async () => {
-    if (selectedImages.length === 0 && !caption.trim() && !hasStatsCard) {
-      showAlert('Empty Post', 'Please add at least an image, caption, or workout card');
+    if (selectedMedia.length === 0 && !caption.trim() && !hasStatsCard) {
+      showAlert('Empty Post', 'Please add at least an image, video, caption, or workout card');
       return;
     }
 
@@ -467,7 +483,7 @@ export default function CreatePost() {
     setUploadProgress(0);
 
     try {
-      const totalSteps = selectedImages.length + (hasStatsCard ? 1 : 0) + 1;
+      const totalSteps = selectedMedia.length + (hasStatsCard ? 1 : 0) + 1;
       let currentStep = 0;
 
       // Upload regular images
