@@ -150,18 +150,30 @@ const WorkoutCarouselCard = ({
       />
       <View style={styles.carouselOverlay} />
       
-      {/* Top row - Badge and Bookmark */}
-      <View style={styles.carouselTopRow}>
-        {/* Bookmark/Save button - as simple View for debugging */}
-        <View style={styles.bookmarkButton}>
-          <Text style={{ color: '#fff', fontSize: 18, fontWeight: 'bold' }}>B</Text>
-        </View>
-        
-        {/* Badge */}
-        <View style={styles.carouselBadge}>
-          <Text style={styles.carouselBadgeText}>{workout.badge}</Text>
-        </View>
+      {/* Badge - top left */}
+      <View style={styles.carouselBadge}>
+        <Text style={styles.carouselBadgeText}>{workout.badge}</Text>
       </View>
+      
+      {/* Bookmark/Save button - top right */}
+      <TouchableOpacity 
+        style={styles.bookmarkButton}
+        onPress={() => {
+          if (!isSaving) {
+            if (isSaved) {
+              onUnsave();
+            } else {
+              onSave();
+            }
+          }
+        }}
+      >
+        <Ionicons 
+          name={isSaved ? "bookmark" : "bookmark-outline"} 
+          size={20} 
+          color={isSaved ? "#FFD700" : "#fff"} 
+        />
+      </TouchableOpacity>
       
       {/* Bottom info - mood + workout format */}
       <View style={styles.carouselInfo}>
