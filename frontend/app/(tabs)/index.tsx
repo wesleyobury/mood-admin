@@ -64,6 +64,20 @@ const featuredWorkouts = [
     image: 'https://customer-assets.emergentagent.com/job_0b65e409-b210-4730-af62-16b022c37685/artifacts/q6jestgn_download.png',
   },
   {
+    id: '6',
+    mood: 'I Want to Sweat',
+    title: 'HIIT - Intense Full Body',
+    duration: '45–55 min',
+    badge: 'Intense',
+    exercises: [
+      'Kettlebells - AMRAP 15',
+      'Battle Ropes - Gauntlet',
+      'Sled - Sled & Burpee Circuit',
+    ],
+    // Kettlebell AMRAP 15 image
+    image: 'https://customer-assets.emergentagent.com/job_3f3e12c6-013b-4158-b2e9-29980fb2b4f9/artifacts/p7pyg0r0_download%20%289%29.png',
+  },
+  {
     id: '3',
     mood: 'Build Explosion',
     title: 'Power Lifting',
@@ -89,8 +103,8 @@ const featuredWorkouts = [
       'Pull Up Bar - Strict Pull',
       'Parallel Bars Dip Station - Eccentric Power',
     ],
-    // Calisthenics image
-    image: 'https://customer-assets.emergentagent.com/job_3f3e12c6-013b-4158-b2e9-29980fb2b4f9/artifacts/wfayf2ux_download%20%2815%29.png',
+    // Calisthenics image - updated
+    image: 'https://customer-assets.emergentagent.com/job_3f3e12c6-013b-4158-b2e9-29980fb2b4f9/artifacts/5axc1tx5_image.png',
   },
   {
     id: '5',
@@ -104,20 +118,6 @@ const featuredWorkouts = [
     ],
     // First exercise: Hill Power Mix - Hills
     image: 'https://customer-assets.emergentagent.com/job_exercise-library-12/artifacts/zqqramht_download%20%2813%29.png',
-  },
-  {
-    id: '6',
-    mood: 'I Want to Sweat',
-    title: 'HIIT - Intense Full Body',
-    duration: '45–55 min',
-    badge: 'Intense',
-    exercises: [
-      'Kettlebells - AMRAP 15',
-      'Battle Ropes - Gauntlet',
-      'Sled - Sled & Burpee Circuit',
-    ],
-    // Kettlebell AMRAP 15 image
-    image: 'https://customer-assets.emergentagent.com/job_3f3e12c6-013b-4158-b2e9-29980fb2b4f9/artifacts/p7pyg0r0_download%20%289%29.png',
   },
 ];
 
