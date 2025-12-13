@@ -337,22 +337,22 @@ export default function CreatePost() {
     }
   };
 
-  const removeImage = (index: number) => {
-    setSelectedImages(selectedImages.filter((_, i) => i !== index));
+  const removeMedia = (index: number) => {
+    setSelectedMedia(selectedMedia.filter((_, i) => i !== index));
   };
 
-  const moveImageUp = (index: number) => {
+  const moveMediaUp = (index: number) => {
     if (index === 0) return;
-    const newImages = [...selectedImages];
-    [newImages[index - 1], newImages[index]] = [newImages[index], newImages[index - 1]];
-    setSelectedImages(newImages);
+    const newMedia = [...selectedMedia];
+    [newMedia[index - 1], newMedia[index]] = [newMedia[index], newMedia[index - 1]];
+    setSelectedMedia(newMedia);
   };
 
-  const moveImageDown = (index: number) => {
-    if (index === selectedImages.length - 1) return;
-    const newImages = [...selectedImages];
-    [newImages[index], newImages[index + 1]] = [newImages[index + 1], newImages[index]];
-    setSelectedImages(newImages);
+  const moveMediaDown = (index: number) => {
+    if (index === selectedMedia.length - 1) return;
+    const newMedia = [...selectedMedia];
+    [newMedia[index], newMedia[index + 1]] = [newMedia[index + 1], newMedia[index]];
+    setSelectedMedia(newMedia);
   };
 
   const extractHashtags = (text: string): string[] => {
