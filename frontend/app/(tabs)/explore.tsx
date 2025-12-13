@@ -484,7 +484,14 @@ export default function Explore() {
                     onPress={() => handleProfile(post.author.id)}
                   >
                     {post.author.avatar ? (
-                      <Image source={{ uri: post.author.avatar }} style={styles.avatar} />
+                      <Image 
+                        source={{ 
+                          uri: post.author.avatar.startsWith('http') 
+                            ? post.author.avatar 
+                            : `${API_URL}${post.author.avatar}` 
+                        }} 
+                        style={styles.avatar} 
+                      />
                     ) : (
                       <View style={[styles.avatar, styles.avatarPlaceholder]}>
                         <Ionicons name="person" size={20} color="#666" />
