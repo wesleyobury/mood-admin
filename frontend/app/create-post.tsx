@@ -486,9 +486,9 @@ export default function CreatePost() {
       const totalSteps = selectedMedia.length + (hasStatsCard ? 1 : 0) + 1;
       let currentStep = 0;
 
-      // Upload regular images
-      let mediaUrls = await uploadImages();
-      console.log('Uploaded regular images:', mediaUrls);
+      // Upload media (images and videos)
+      let mediaUrls = await uploadMedia();
+      console.log('Uploaded media:', mediaUrls);
       
       // Capture and upload workout card if it exists
       if (hasStatsCard && workoutStats) {
