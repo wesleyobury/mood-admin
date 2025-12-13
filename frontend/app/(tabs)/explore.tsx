@@ -304,6 +304,36 @@ export default function Explore() {
     }
   };
 
+  const handleSave = async (postId: string) => {
+    if (!token) return;
+
+    const post = posts.find(p => p.id === postId);
+    if (!post) return;
+
+    try {
+      const method = post.is_saved ? 'DELETE' : 'POST';
+      const response = await fetch(`${API_URL}/api/posts/${postId}/save`, {
+        method,
+        headers: {
+          'Authorization': `Bearer ${token}`,
+        },
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        setPosts(prevPosts =>
+          prevPosts.map(p =>
+            p.id === postId
+              ? { ...p, is_saved: data.is_saved }
+              : p
+          )
+        );
+      }
+    } catch (error) {
+      console.error('Error saving post:', error);
+    }
+  };
+
   const handleProfile = (userId: string) => {
     // If clicking on own profile, navigate to profile tab
     if (user && user.id === userId) {
