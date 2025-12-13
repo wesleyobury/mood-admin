@@ -198,8 +198,9 @@ const MediaCarousel = memo(({ media }: MediaCarouselProps) => {
 
   const handleScroll = (event: NativeSyntheticEvent<NativeScrollEvent>) => {
     const slideSize = event.nativeEvent.layoutMeasurement.width;
-    const index = Math.floor(event.nativeEvent.contentOffset.x / slideSize);
-    if (index !== activeIndex) {
+    const offset = event.nativeEvent.contentOffset.x;
+    const index = Math.round(offset / slideSize);
+    if (index !== activeIndex && index >= 0 && index < media.length) {
       setActiveIndex(index);
     }
   };
