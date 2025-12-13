@@ -620,8 +620,15 @@ export default function Explore() {
                       <Ionicons name="paper-plane-outline" size={24} color="#fff" />
                     </TouchableOpacity>
                   </View>
-                  <TouchableOpacity style={styles.actionButton}>
-                    <Ionicons name="bookmark-outline" size={24} color="#fff" />
+                  <TouchableOpacity 
+                    style={styles.actionButton}
+                    onPress={() => handleSave(post.id)}
+                  >
+                    <Ionicons 
+                      name={post.is_saved ? 'bookmark' : 'bookmark-outline'} 
+                      size={24} 
+                      color={post.is_saved ? '#FFD700' : '#fff'} 
+                    />
                   </TouchableOpacity>
                 </View>
 
