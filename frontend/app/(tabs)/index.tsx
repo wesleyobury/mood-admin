@@ -161,17 +161,20 @@ const WorkoutCarouselCard = ({
           styles.bookmarkButton,
           isSaved && styles.bookmarkButtonSaved
         ]}
-        onPress={(e) => {
-          e.stopPropagation();
+        onPress={() => {
+          console.log('Bookmark pressed, isSaved:', isSaved, 'isSaving:', isSaving);
           if (!isSaving) {
             if (isSaved) {
+              console.log('Calling onUnsave');
               onUnsave();
             } else {
+              console.log('Calling onSave');
               onSave();
             }
           }
         }}
         disabled={isSaving}
+        hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }}
       >
         {isSaving ? (
           <Text style={styles.savingText}>...</Text>
