@@ -372,24 +372,31 @@ export default function CartScreen() {
 
       {/* Bottom Action Bar */}
       <View style={[styles.bottomBar, { paddingBottom: Math.max(insets.bottom, 20) }]}>
-        <View style={styles.exerciseCount}>
-          <Text style={styles.exerciseCountText}>
-            {cartItems.length} exercise{cartItems.length !== 1 ? 's' : ''} ready
-          </Text>
+        <View style={styles.bottomActions}>
+          <TouchableOpacity 
+            style={styles.saveButton}
+            onPress={handleSaveWorkout}
+            disabled={isSaving}
+          >
+            <Ionicons name="bookmark-outline" size={20} color="#FFD700" />
+            <Text style={styles.saveButtonText}>
+              {isSaving ? 'Saving...' : 'Save'}
+            </Text>
+          </TouchableOpacity>
+          <TouchableOpacity 
+            style={[
+              styles.startButton,
+              isStarting && styles.startButtonDisabled,
+            ]}
+            disabled={isStarting}
+            onPress={handleStartWorkoutSession}
+          >
+            <Text style={styles.startButtonText}>
+              {isStarting ? 'Starting...' : 'Start Workout'}
+            </Text>
+            <Ionicons name="arrow-forward" size={20} color="#000" />
+          </TouchableOpacity>
         </View>
-        <TouchableOpacity 
-          style={[
-            styles.startButton,
-            isStarting && styles.startButtonDisabled,
-          ]}
-          disabled={isStarting}
-          onPress={handleStartWorkoutSession}
-        >
-          <Text style={styles.startButtonText}>
-            {isStarting ? 'Starting...' : 'Start Workout'}
-          </Text>
-          <Ionicons name="arrow-forward" size={20} color="#000" />
-        </TouchableOpacity>
       </View>
     </View>
   );
