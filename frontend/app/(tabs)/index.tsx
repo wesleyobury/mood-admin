@@ -125,12 +125,14 @@ const WorkoutCarouselCard = ({
   workout, 
   onPress,
   onSave,
+  onUnsave,
   isSaved,
   isSaving 
 }: { 
   workout: typeof featuredWorkouts[0]; 
   onPress: () => void;
   onSave: () => void;
+  onUnsave: () => void;
   isSaved: boolean;
   isSaving: boolean;
 }) => {
@@ -152,7 +154,7 @@ const WorkoutCarouselCard = ({
         <Text style={styles.carouselBadgeText}>{workout.badge}</Text>
       </View>
       
-      {/* Bookmark/Save button */}
+      {/* Bookmark/Save button - toggleable */}
       <TouchableOpacity 
         style={[
           styles.bookmarkButton,
@@ -160,16 +162,20 @@ const WorkoutCarouselCard = ({
         ]}
         onPress={(e) => {
           e.stopPropagation();
-          if (!isSaved && !isSaving) {
-            onSave();
+          if (!isSaving) {
+            if (isSaved) {
+              onUnsave();
+            } else {
+              onSave();
+            }
           }
         }}
-        disabled={isSaving || isSaved}
+        disabled={isSaving}
       >
         {isSaving ? (
           <Text style={styles.savingText}>...</Text>
         ) : isSaved ? (
-          <Ionicons name="checkmark" size={18} color="#000" />
+          <Ionicons name="bookmark" size={20} color="#FFD700" />
         ) : (
           <Ionicons name="bookmark-outline" size={22} color="rgba(255,255,255,0.9)" />
         )}
