@@ -1175,7 +1175,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'flex-start',
-    marginBottom: 12,
+    marginBottom: 6,
   },
   savedWorkoutInfo: {
     flex: 1,
@@ -1205,7 +1205,7 @@ const styles = StyleSheet.create({
     fontWeight: '600',
   },
   savedWorkoutExercises: {
-    marginTop: 4,
+    marginTop: 2,
   },
   savedExerciseName: {
     fontSize: 13,
