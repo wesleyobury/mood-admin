@@ -20,6 +20,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { useRouter, useLocalSearchParams, router as globalRouter } from 'expo-router';
 import * as ImagePicker from 'expo-image-picker';
 import * as ImageManipulator from 'expo-image-manipulator';
+import { Video, ResizeMode } from 'expo-av';
 import { captureRef } from 'react-native-view-shot';
 import WorkoutStatsCard from '../components/WorkoutStatsCard';
 import { useAuth } from '../contexts/AuthContext';
@@ -27,6 +28,18 @@ import { Analytics } from '../utils/analytics';
 
 const API_URL = process.env.EXPO_PUBLIC_BACKEND_URL || '';
 const SCREEN_WIDTH = Dimensions.get('window').width;
+
+// Helper to detect if a URI is a video
+const isVideoUri = (uri: string): boolean => {
+  const videoExtensions = ['.mp4', '.mov', '.avi', '.webm', '.mkv', '.m4v'];
+  const lowerUri = uri.toLowerCase();
+  return videoExtensions.some(ext => lowerUri.includes(ext));
+};
+
+interface MediaItem {
+  uri: string;
+  type: 'image' | 'video';
+}
 
 interface WorkoutStats {
   workouts: Array<{
@@ -45,17 +58,21 @@ export default function CreatePost() {
   const params = useLocalSearchParams();
   const { user, token, isLoading } = useAuth();
   const [caption, setCaption] = useState('');
-  const [selectedImages, setSelectedImages] = useState<string[]>([]);
+  const [selectedMedia, setSelectedMedia] = useState<MediaItem[]>([]);
   const [uploading, setUploading] = useState(false);
   const [uploadProgress, setUploadProgress] = useState(0);
   const [workoutStats, setWorkoutStats] = useState<WorkoutStats | null>(null);
   const [hasStatsCard, setHasStatsCard] = useState(false);
   const [saveButtonPressed, setSaveButtonPressed] = useState(false);
   const statsCardRef = useRef(null);
+  const [showMediaPicker, setShowMediaPicker] = useState(false);
   
   // Success animation state (inline button animation like "Add workout")
   const [cardSaved, setCardSaved] = useState(false);
   const [saveScaleAnim] = useState(new Animated.Value(1));
+
+  // Legacy support - map selectedImages to selectedMedia
+  const selectedImages = selectedMedia.map(m => m.uri);
 
   // Debug auth state
   useEffect(() => {
