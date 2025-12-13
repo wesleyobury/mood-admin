@@ -87,6 +87,7 @@ export default function CartScreen() {
   const { cartItems, removeFromCart, clearCart, reorderCart } = useCart();
   const { token } = useAuth();
   const [isStarting, setIsStarting] = useState(false);
+  const [isSaving, setIsSaving] = useState(false);
 
   const handleGoBack = () => {
     router.back();
@@ -106,6 +107,85 @@ export default function CartScreen() {
   const handleClearCart = () => {
     clearCart();
     router.push('/(tabs)');
+  };
+
+  const handleSaveWorkout = async () => {
+    if (!token) {
+      Alert.alert('Login Required', 'Please login to save workouts');
+      return;
+    }
+    
+    if (cartItems.length === 0) {
+      Alert.alert('Empty Cart', 'Add some exercises to save a workout');
+      return;
+    }
+    
+    // Ask user for workout name
+    Alert.prompt(
+      'Save Workout',
+      'Enter a name for this workout:',
+      [
+        { text: 'Cancel', style: 'cancel' },
+        { 
+          text: 'Save',
+          onPress: async (workoutName) => {
+            if (!workoutName || workoutName.trim() === '') {
+              Alert.alert('Error', 'Please enter a workout name');
+              return;
+            }
+            
+            setIsSaving(true);
+            try {
+              const totalDuration = cartItems.reduce((total, item) => {
+                const mins = parseInt(item.duration.split(' ')[0]) || 0;
+                return total + mins;
+              }, 0);
+              
+              const response = await fetch(`${API_URL}/api/saved-workouts`, {
+                method: 'POST',
+                headers: {
+                  'Authorization': `Bearer ${token}`,
+                  'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                  name: workoutName.trim(),
+                  workouts: cartItems.map(item => ({
+                    name: item.name,
+                    equipment: item.equipment,
+                    duration: item.duration,
+                    difficulty: item.difficulty,
+                    description: item.description,
+                    battlePlan: item.battlePlan,
+                    imageUrl: item.imageUrl,
+                    intensityReason: item.intensityReason,
+                    workoutType: item.workoutType,
+                    moodCard: item.moodCard,
+                    moodTips: item.moodTips,
+                  })),
+                  total_duration: totalDuration,
+                  source: 'custom',
+                }),
+              });
+              
+              if (response.ok) {
+                Alert.alert('Saved!', 'Workout saved to your profile');
+              } else if (response.status === 400) {
+                Alert.alert('Already Exists', 'A workout with this name already exists');
+              } else {
+                Alert.alert('Error', 'Failed to save workout');
+              }
+            } catch (error) {
+              console.error('Error saving workout:', error);
+              Alert.alert('Error', 'Failed to save workout');
+            } finally {
+              setIsSaving(false);
+            }
+          }
+        }
+      ],
+      'plain-text',
+      `Custom Workout ${new Date().toLocaleDateString()}`
+    );
   };
 
   // Track cart view on mount
