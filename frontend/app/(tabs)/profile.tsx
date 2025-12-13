@@ -1152,10 +1152,10 @@ const styles = StyleSheet.create({
     marginTop: 4,
   },
   savedModalContent: {
-    padding: 4,
+    padding: 16,
   },
   savedModalName: {
-    fontSize: 20,
+    fontSize: 22,
     fontWeight: '700',
     color: '#fff',
     marginBottom: 8,
@@ -1163,26 +1163,26 @@ const styles = StyleSheet.create({
   savedModalMeta: {
     fontSize: 14,
     color: '#888',
-    marginBottom: 20,
+    marginBottom: 24,
   },
   savedModalExercises: {
-    gap: 12,
+    gap: 14,
   },
   savedModalExercise: {
     backgroundColor: '#1a1a1a',
-    borderRadius: 8,
-    padding: 12,
+    borderRadius: 10,
+    padding: 16,
     borderLeftWidth: 3,
     borderLeftColor: '#FFD700',
   },
   savedModalExerciseName: {
-    fontSize: 15,
+    fontSize: 16,
     fontWeight: '600',
     color: '#fff',
-    marginBottom: 4,
+    marginBottom: 6,
   },
   savedModalExerciseDetail: {
-    fontSize: 12,
+    fontSize: 13,
     color: '#888',
   },
   loadWorkoutButton: {
@@ -1192,8 +1192,8 @@ const styles = StyleSheet.create({
     gap: 8,
     backgroundColor: '#FFD700',
     borderRadius: 12,
-    paddingVertical: 16,
-    marginTop: 24,
+    paddingVertical: 18,
+    marginTop: 28,
   },
   loadWorkoutButtonText: {
     fontSize: 16,
