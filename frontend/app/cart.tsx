@@ -7,16 +7,19 @@ import {
   ScrollView,
   Image,
   Dimensions,
+  Alert,
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { useRouter } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import Constants from 'expo-constants';
 import HomeButton from '../components/HomeButton';
 import { useCart, WorkoutItem } from '../contexts/CartContext';
 import { useAuth } from '../contexts/AuthContext';
 import { Analytics } from '../utils/analytics';
 
 const { width: SCREEN_WIDTH } = Dimensions.get('window');
+const API_URL = Constants.expoConfig?.extra?.EXPO_PUBLIC_BACKEND_URL || '';
 
 const CartItemComponent: React.FC<{
   item: WorkoutItem;
