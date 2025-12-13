@@ -125,7 +125,8 @@ export default function CreatePost() {
 
     if (!result.canceled && result.assets && result.assets.length > 0) {
       const asset = result.assets[0];
-      setSelectedMedia([...selectedMedia, { uri: asset.uri, type: 'image' }].slice(0, maxMedia));
+      const newMedia: MediaItem = { uri: asset.uri, type: 'image' };
+      setSelectedMedia([...selectedMedia, newMedia].slice(0, maxMedia));
     }
   };
 
