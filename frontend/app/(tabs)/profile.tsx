@@ -1154,16 +1154,19 @@ const styles = StyleSheet.create({
   savedWorkoutContent: {
     flex: 1,
   },
+  savedWorkoutRightColumn: {
+    alignItems: 'center',
+    gap: 8,
+  },
   unsaveButtonOnCard: {
-    position: 'absolute',
-    top: 8,
-    right: 8,
-    width: 28,
-    height: 28,
-    borderRadius: 14,
+    width: 26,
+    height: 26,
+    borderRadius: 13,
     backgroundColor: 'rgba(0, 0, 0, 0.6)',
     justifyContent: 'center',
     alignItems: 'center',
+    borderWidth: 1,
+    borderColor: 'rgba(255, 215, 0, 0.3)',
   },
   savedWorkoutHeader: {
     flexDirection: 'row',
