@@ -685,14 +685,65 @@ export default function Profile() {
               )}
             </View>
           ) : (
-            <View style={styles.achievementsTab}>
-              <View style={styles.emptyState}>
-                <Ionicons name="ribbon-outline" size={48} color="#666" />
-                <Text style={styles.emptyTitle}>No achievements yet</Text>
-                <Text style={styles.emptySubtitle}>
-                  Complete workouts to unlock achievements!
-                </Text>
-              </View>
+            <View style={styles.savedTab}>
+              {loadingSaved ? (
+                <View style={styles.loadingContainer}>
+                  <ActivityIndicator size="large" color="#FFD700" />
+                  <Text style={styles.loadingText}>Loading saved workouts...</Text>
+                </View>
+              ) : savedWorkouts.length === 0 ? (
+                <View style={styles.emptyState}>
+                  <Ionicons name="bookmark-outline" size={48} color="#666" />
+                  <Text style={styles.emptyTitle}>No saved workouts</Text>
+                  <Text style={styles.emptySubtitle}>
+                    Save workouts from featured workouts or your cart to find them here!
+                  </Text>
+                </View>
+              ) : (
+                <View style={styles.savedWorkoutsList}>
+                  {savedWorkouts.map((savedWorkout) => (
+                    <TouchableOpacity
+                      key={savedWorkout.id}
+                      style={styles.savedWorkoutCard}
+                      onPress={() => {
+                        setSelectedSavedWorkout(savedWorkout);
+                        setSavedModalVisible(true);
+                      }}
+                    >
+                      <View style={styles.savedWorkoutHeader}>
+                        <View style={styles.savedWorkoutInfo}>
+                          <Text style={styles.savedWorkoutName}>{savedWorkout.name}</Text>
+                          <Text style={styles.savedWorkoutMeta}>
+                            {savedWorkout.workouts.length} exercises • {savedWorkout.total_duration} min
+                          </Text>
+                        </View>
+                        <View style={styles.savedWorkoutBadge}>
+                          <Ionicons 
+                            name={savedWorkout.source === 'featured' ? 'star' : 'create'} 
+                            size={14} 
+                            color="#FFD700" 
+                          />
+                          <Text style={styles.savedWorkoutBadgeText}>
+                            {savedWorkout.source === 'featured' ? 'Featured' : 'Custom'}
+                          </Text>
+                        </View>
+                      </View>
+                      <View style={styles.savedWorkoutExercises}>
+                        {savedWorkout.workouts.slice(0, 3).map((exercise, index) => (
+                          <Text key={index} style={styles.savedExerciseName}>
+                            • {exercise.name}
+                          </Text>
+                        ))}
+                        {savedWorkout.workouts.length > 3 && (
+                          <Text style={styles.savedExerciseMore}>
+                            +{savedWorkout.workouts.length - 3} more
+                          </Text>
+                        )}
+                      </View>
+                    </TouchableOpacity>
+                  ))}
+                </View>
+              )}
             </View>
           )}
         </View>
@@ -728,6 +779,65 @@ export default function Profile() {
               {selectedCard && (
                 <View style={styles.modalCardContainer}>
                   <WorkoutStatsCard {...selectedCard} />
+                </View>
+              )}
+            </ScrollView>
+          </View>
+        </View>
+      </Modal>
+
+      {/* Saved Workout Detail Modal */}
+      <Modal
+        visible={savedModalVisible}
+        transparent
+        animationType="fade"
+        onRequestClose={() => setSavedModalVisible(false)}
+      >
+        <View style={styles.modalOverlay}>
+          <View style={styles.modalContent}>
+            <View style={styles.modalHeader}>
+              <Text style={styles.modalTitle}>Saved Workout</Text>
+              <View style={styles.modalActions}>
+                <TouchableOpacity
+                  onPress={() => selectedSavedWorkout && handleDeleteSavedWorkout(selectedSavedWorkout.id)}
+                  style={styles.deleteButton}
+                >
+                  <Ionicons name="trash-outline" size={20} color="#FF4444" />
+                </TouchableOpacity>
+                <TouchableOpacity
+                  onPress={() => setSavedModalVisible(false)}
+                  style={styles.closeButton}
+                >
+                  <Ionicons name="close" size={24} color="#fff" />
+                </TouchableOpacity>
+              </View>
+            </View>
+            <ScrollView style={styles.modalScroll} showsVerticalScrollIndicator={false}>
+              {selectedSavedWorkout && (
+                <View style={styles.savedModalContent}>
+                  <Text style={styles.savedModalName}>{selectedSavedWorkout.name}</Text>
+                  <Text style={styles.savedModalMeta}>
+                    {selectedSavedWorkout.workouts.length} exercises • {selectedSavedWorkout.total_duration} min
+                  </Text>
+                  
+                  <View style={styles.savedModalExercises}>
+                    {selectedSavedWorkout.workouts.map((exercise, index) => (
+                      <View key={index} style={styles.savedModalExercise}>
+                        <Text style={styles.savedModalExerciseName}>{exercise.name}</Text>
+                        <Text style={styles.savedModalExerciseDetail}>
+                          {exercise.equipment} • {exercise.duration}
+                        </Text>
+                      </View>
+                    ))}
+                  </View>
+                  
+                  <TouchableOpacity
+                    style={styles.loadWorkoutButton}
+                    onPress={() => selectedSavedWorkout && handleLoadSavedWorkout(selectedSavedWorkout)}
+                  >
+                    <Ionicons name="play" size={20} color="#000" />
+                    <Text style={styles.loadWorkoutButtonText}>Load to Cart</Text>
+                  </TouchableOpacity>
                 </View>
               )}
             </ScrollView>
