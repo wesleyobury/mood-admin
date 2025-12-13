@@ -722,8 +722,19 @@ export default function Profile() {
                       key={savedWorkout.id}
                       style={styles.savedWorkoutCard}
                       onPress={() => {
-                        setSelectedSavedWorkout(savedWorkout);
-                        setSavedModalVisible(true);
+                        // Check if this is a featured workout
+                        const featuredId = FEATURED_WORKOUT_IDS[savedWorkout.name];
+                        if (featuredId) {
+                          // Navigate to featured workout detail page
+                          router.push({
+                            pathname: '/featured-workout-detail',
+                            params: { id: featuredId },
+                          });
+                        } else {
+                          // Show modal for custom workouts
+                          setSelectedSavedWorkout(savedWorkout);
+                          setSavedModalVisible(true);
+                        }
                       }}
                     >
                       <View style={styles.savedWorkoutHeader}>
