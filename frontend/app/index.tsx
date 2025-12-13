@@ -245,14 +245,11 @@ export default function Welcome() {
           {/* Hero Section */}
           <View style={styles.heroSection}>
             <View style={styles.logoContainer}>
-              <LinearGradient
-                colors={['#FFD700', '#FFA500']}
-                style={styles.logoBackground}
-                start={{ x: 0, y: 0 }}
-                end={{ x: 1, y: 1 }}
-              >
-                <Ionicons name="fitness" size={48} color="#0c0c0c" />
-              </LinearGradient>
+              <Image 
+                source={{ uri: 'https://customer-assets.emergentagent.com/job_healthtracker-133/artifacts/meydhmej_download%20%281%29%20copy.jpeg' }}
+                style={styles.logoImage}
+                resizeMode="contain"
+              />
             </View>
 
             <Text style={styles.title}>MOOD</Text>
