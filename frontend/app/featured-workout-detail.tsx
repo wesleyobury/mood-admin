@@ -555,15 +555,26 @@ export default function FeaturedWorkoutDetail() {
         
         {/* Save Button */}
         <TouchableOpacity 
-          style={[styles.headerSaveButton, { top: insets.top + 10 }]}
+          style={[
+            styles.headerSaveButton, 
+            { top: insets.top + 10 },
+            isSaved && styles.headerSaveButtonSaved
+          ]}
           onPress={handleSaveWorkout}
-          disabled={isSaving}
+          disabled={isSaving || isSaved}
         >
-          <Ionicons 
-            name={isSaved ? "bookmark" : "bookmark-outline"} 
-            size={24} 
-            color={isSaved ? "#FFD700" : "#fff"} 
-          />
+          {isSaving ? (
+            <Text style={styles.savingText}>...</Text>
+          ) : (
+            <>
+              <Ionicons 
+                name={isSaved ? "bookmark" : "bookmark-outline"} 
+                size={20} 
+                color={isSaved ? "#000" : "#fff"} 
+              />
+              {isSaved && <Text style={styles.savedText}>Saved</Text>}
+            </>
+          )}
         </TouchableOpacity>
         
         {/* Hero Content */}
