@@ -385,7 +385,14 @@ export default function Explore() {
                   onPress={() => handleProfile(user.id)}
                 >
                   {user.avatar ? (
-                    <Image source={{ uri: user.avatar }} style={styles.userResultAvatar} />
+                    <Image 
+                      source={{ 
+                        uri: user.avatar.startsWith('http') 
+                          ? user.avatar 
+                          : `${API_URL}${user.avatar}` 
+                      }} 
+                      style={styles.userResultAvatar} 
+                    />
                   ) : (
                     <View style={[styles.userResultAvatar, styles.avatarPlaceholder]}>
                       <Ionicons name="person" size={24} color="#666" />
