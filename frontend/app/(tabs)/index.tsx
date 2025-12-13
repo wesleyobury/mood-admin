@@ -410,37 +410,41 @@ export default function WorkoutsHome() {
   }, []);
 
   // Check which featured workouts are already saved
-  useEffect(() => {
-    const checkSavedWorkouts = async () => {
-      if (!token) return;
+  // This refreshes every time the screen comes into focus
+  const checkSavedWorkouts = useCallback(async () => {
+    if (!token) return;
+    
+    try {
+      const response = await fetch(`${API_URL}/api/saved-workouts`, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
       
-      try {
-        const response = await fetch(`${API_URL}/api/saved-workouts`, {
-          headers: { Authorization: `Bearer ${token}` },
+      if (response.ok) {
+        const savedWorkouts = await response.json();
+        const savedNames = new Set(savedWorkouts.map((w: any) => w.name));
+        const savedIds = new Set<string>();
+        
+        // Match saved workout names to featured workout IDs
+        featuredWorkouts.forEach(fw => {
+          const name = `${fw.mood} - ${fw.title}`;
+          if (savedNames.has(name)) {
+            savedIds.add(fw.id);
+          }
         });
         
-        if (response.ok) {
-          const savedWorkouts = await response.json();
-          const savedNames = new Set(savedWorkouts.map((w: any) => w.name));
-          const savedIds = new Set<string>();
-          
-          // Match saved workout names to featured workout IDs
-          featuredWorkouts.forEach(fw => {
-            const name = `${fw.mood} - ${fw.title}`;
-            if (savedNames.has(name)) {
-              savedIds.add(fw.id);
-            }
-          });
-          
-          setSavedWorkoutIds(savedIds);
-        }
-      } catch (error) {
-        console.log('Error checking saved workouts:', error);
+        setSavedWorkoutIds(savedIds);
       }
-    };
-    
-    checkSavedWorkouts();
+    } catch (error) {
+      console.log('Error checking saved workouts:', error);
+    }
   }, [token]);
+
+  // Refresh saved workouts when screen comes into focus
+  useFocusEffect(
+    useCallback(() => {
+      checkSavedWorkouts();
+    }, [checkSavedWorkouts])
+  );
 
   // Save a featured workout
   const handleSaveFeaturedWorkout = async (workout: typeof featuredWorkouts[0]) => {
