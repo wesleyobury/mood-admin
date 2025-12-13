@@ -105,15 +105,20 @@ export default function Profile() {
 
   const [recentWorkouts] = useState<RecentWorkout[]>([]);
   const [workoutCards, setWorkoutCards] = useState<WorkoutCard[]>([]);
+  const [savedWorkouts, setSavedWorkouts] = useState<SavedWorkout[]>([]);
   const [loadingCards, setLoadingCards] = useState(false);
+  const [loadingSaved, setLoadingSaved] = useState(false);
   const [loadingProfile, setLoadingProfile] = useState(true);
   const [selectedCard, setSelectedCard] = useState<WorkoutCard | null>(null);
+  const [selectedSavedWorkout, setSelectedSavedWorkout] = useState<SavedWorkout | null>(null);
   const [modalVisible, setModalVisible] = useState(false);
+  const [savedModalVisible, setSavedModalVisible] = useState(false);
   const [userPosts, setUserPosts] = useState<Post[]>([]);
   const [loadingPosts, setLoadingPosts] = useState(false);
   const [followListVisible, setFollowListVisible] = useState(false);
   const [followListType, setFollowListType] = useState<'followers' | 'following'>('followers');
   const { token, user: authUser, updateUser } = useAuth();
+  const { addToCart } = useCart();
 
   const [activeTab, setActiveTab] = useState<'posts' | 'saved' | 'cards'>('posts');
   const router = useRouter();
