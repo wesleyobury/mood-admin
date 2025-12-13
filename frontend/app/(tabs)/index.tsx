@@ -31,7 +31,7 @@ const CARD_GAP = 12;
 const CARD_WIDTH = SCREEN_WIDTH - (CAROUSEL_PADDING * 2);
 
 // Workout carousel data - 5 featured workouts with mood + workout format
-// Images are from the first workout card in each featured workout
+// Images MUST match the first exercise's imageUrl from featured-workout-detail.tsx
 const featuredWorkouts = [
   {
     id: '1',
@@ -43,8 +43,8 @@ const featuredWorkouts = [
       'Stationary Bike - Hill & Sprint',
       'Stair Master - Hill Climb',
     ],
-    // Image from: Stationary Bike - Hill & Sprint workout card
-    image: 'https://customer-assets.emergentagent.com/job_fitness-images/artifacts/8k8d6fo4_download%20%2824%29.png',
+    // First exercise: Hill & Sprint - Stationary bike
+    image: 'https://customer-assets.emergentagent.com/job_fitness-app-ui/artifacts/fbe3z3jx_download%20%281%29.png',
   },
   {
     id: '2',
@@ -59,7 +59,7 @@ const featuredWorkouts = [
       'Cable Machine - Cable Negatives',
       'EZ Curl Bar - Narrow Curl',
     ],
-    // Image from: Adjustable Bench - Chest-Support Row workout card
+    // First exercise: Chest-Support Row - Adjustable bench
     image: 'https://customer-assets.emergentagent.com/job_0b65e409-b210-4730-af62-16b022c37685/artifacts/q6jestgn_download.png',
   },
   {
@@ -74,8 +74,8 @@ const featuredWorkouts = [
       'Trap Hex Bar - Trap Bar Jump',
       'Landmine Attachment - Hacksquat Jump',
     ],
-    // Image from: Power Lifting Platform - Hang Clean Pull workout card
-    image: 'https://customer-assets.emergentagent.com/job_muscle-mapper-2/artifacts/xefmav9j_Screenshot%202025-12-03%20at%204.15.36%E2%80%AFPM.png',
+    // First exercise: Hang Clean Pull to Tall Shrug - Power Lifting Platform
+    image: 'https://customer-assets.emergentagent.com/job_muscle-mapper-2/artifacts/9kehs3fb_Screenshot%202025-12-03%20at%204.15.03%E2%80%AFPM.png',
   },
   {
     id: '4',
@@ -88,8 +88,8 @@ const featuredWorkouts = [
       'Pull Up Bar - Strict Pull',
       'Parallel Bars Dip Station - Eccentric Power',
     ],
-    // Image from: Pull Up Bar - Eccentric Lines workout card
-    image: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/toza6up4_pu.avif',
+    // First exercise: Eccentric Lines - Pull up bar
+    image: 'https://customer-assets.emergentagent.com/job_upper-body-enhance/artifacts/7475d60t_chin%20ups.png',
   },
   {
     id: '5',
@@ -101,8 +101,8 @@ const featuredWorkouts = [
       'Hills - Power Mix',
       'Hills - Sprint Only 30s',
     ],
-    // Image from: Hills - Power Mix workout card
-    image: 'https://customer-assets.emergentagent.com/job_exercise-library-12/artifacts/904pke23_download%20%289%29.png',
+    // First exercise: Hill Power Mix - Hills
+    image: 'https://customer-assets.emergentagent.com/job_exercise-library-12/artifacts/zqqramht_download%20%2813%29.png',
   },
 ];
 
