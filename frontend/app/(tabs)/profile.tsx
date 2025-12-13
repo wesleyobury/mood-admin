@@ -96,6 +96,21 @@ interface SavedWorkout {
   created_at: string;
 }
 
+interface SavedPost {
+  id: string;
+  author: {
+    id: string;
+    username: string;
+    name: string;
+    avatar: string;
+  };
+  caption: string;
+  media_urls: string[];
+  likes_count: number;
+  comments_count: number;
+  saved_at: string;
+}
+
 export default function Profile() {
   const [user, setUser] = useState({
     id: 'current-user',
