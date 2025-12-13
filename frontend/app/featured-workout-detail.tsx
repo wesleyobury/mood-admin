@@ -346,7 +346,7 @@ const featuredWorkoutData: Record<string, {
     mood: 'I Want to Sweat',
     title: 'HIIT - Intense Full Body',
     duration: '45–55 min',
-    image: 'https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?w=800&h=600&fit=crop',
+    image: 'https://images.unsplash.com/photo-1579364046732-c21c2177730d?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwyfHxrZXR0bGViZWxsJTIwd29ya291dHxlbnwwfHx8YmxhY2t8MTc2NTYwMTk4OHww&ixlib=rb-4.1.0&q=85',
     exercises: [
       { 
         name: 'Kettlebell AMRAP 15',
@@ -354,7 +354,7 @@ const featuredWorkoutData: Record<string, {
         description: 'Complete as many rounds as possible in 15 minutes. This high-intensity kettlebell workout combines explosive power, agility, and complex movement patterns for maximum conditioning.',
         battlePlan: 'AMRAP 15 minutes:\n• 10 double kettlebell swings\n• 8 alternating snatches (4 each side)\n• 6 goblet squat jumps\n• 4 Turkish get-ups (2 each side)\nNo scheduled rest—move continuously',
         duration: '15 min',
-        imageUrl: 'https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw2fHxrZXR0bGViZWxsJTIwYW1yYXB8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
+        imageUrl: 'https://images.unsplash.com/photo-1579364046732-c21c2177730d?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwyfHxrZXR0bGViZWxsJTIwd29ya291dHxlbnwwfHx8YmxhY2t8MTc2NTYwMTk4OHww&ixlib=rb-4.1.0&q=85',
         intensityReason: 'Maximum intensity AMRAP combining power, agility, and complex movement patterns.',
         difficulty: 'advanced',
         workoutType: 'HIIT - Intense Full Body',
