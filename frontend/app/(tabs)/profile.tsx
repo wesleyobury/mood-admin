@@ -769,25 +769,12 @@ export default function Profile() {
                         </View>
                       </TouchableOpacity>
                       
-                      {/* Delete/Unsave Button */}
+                      {/* Delete/Unsave Button - Golden X */}
                       <TouchableOpacity
                         style={styles.unsaveButton}
-                        onPress={() => {
-                          Alert.alert(
-                            'Remove Saved Workout',
-                            `Are you sure you want to remove "${savedWorkout.name}" from your saved workouts?`,
-                            [
-                              { text: 'Cancel', style: 'cancel' },
-                              { 
-                                text: 'Remove', 
-                                style: 'destructive',
-                                onPress: () => handleDeleteSavedWorkout(savedWorkout.id)
-                              },
-                            ]
-                          );
-                        }}
+                        onPress={() => handleDeleteSavedWorkout(savedWorkout.id)}
                       >
-                        <Ionicons name="bookmark" size={20} color="#FFD700" />
+                        <Ionicons name="close" size={22} color="#FFD700" />
                       </TouchableOpacity>
                     </View>
                   ))}
