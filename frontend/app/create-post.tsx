@@ -722,7 +722,7 @@ export default function CreatePost() {
         <ScrollView style={styles.scrollView} showsVerticalScrollIndicator={false}>
           {/* Attachments Label */}
           <View style={styles.attachmentsHeader}>
-            <Ionicons name="attach" size={18} color="#FFD700" />
+            <Ionicons name="attach" size={16} color="rgba(255, 255, 255, 0.5)" />
             <Text style={styles.attachmentsLabel}>Attachments</Text>
           </View>
 
@@ -730,7 +730,7 @@ export default function CreatePost() {
           <View style={styles.attachmentCard}>
             <View style={styles.attachmentHeader}>
               <View style={styles.attachmentLabelContainer}>
-                <Ionicons name="images" size={16} color="#FFD700" />
+                <Ionicons name="images" size={14} color="rgba(255, 255, 255, 0.5)" />
                 <Text style={styles.attachmentType}>
                   Media ({selectedMedia.length}/{hasStatsCard ? 4 : 5})
                 </Text>
@@ -750,7 +750,7 @@ export default function CreatePost() {
                 disabled={selectedMedia.length >= (hasStatsCard ? 4 : 5)}
               >
                 <View style={styles.addImageIconContainer}>
-                  <Ionicons name="camera" size={24} color="#FFD700" />
+                  <Ionicons name="camera" size={18} color="rgba(255, 255, 255, 0.7)" />
                 </View>
                 <Text style={styles.addImageText}>Camera</Text>
               </TouchableOpacity>
@@ -762,7 +762,7 @@ export default function CreatePost() {
                 disabled={selectedMedia.length >= (hasStatsCard ? 4 : 5)}
               >
                 <View style={styles.addImageIconContainer}>
-                  <Ionicons name="image" size={24} color="#FFD700" />
+                  <Ionicons name="image" size={18} color="rgba(255, 255, 255, 0.7)" />
                 </View>
                 <Text style={styles.addImageText}>Photo</Text>
               </TouchableOpacity>
@@ -774,7 +774,7 @@ export default function CreatePost() {
                 disabled={selectedMedia.length >= (hasStatsCard ? 4 : 5)}
               >
                 <View style={styles.addImageIconContainer}>
-                  <Ionicons name="videocam" size={24} color="#FFD700" />
+                  <Ionicons name="videocam" size={18} color="rgba(255, 255, 255, 0.7)" />
                 </View>
                 <Text style={styles.addImageText}>Record</Text>
               </TouchableOpacity>
@@ -786,7 +786,7 @@ export default function CreatePost() {
                 disabled={selectedMedia.length >= (hasStatsCard ? 4 : 5)}
               >
                 <View style={styles.addImageIconContainer}>
-                  <Ionicons name="film" size={24} color="#FFD700" />
+                  <Ionicons name="film" size={18} color="rgba(255, 255, 255, 0.7)" />
                 </View>
                 <Text style={styles.addImageText}>Video</Text>
               </TouchableOpacity>
