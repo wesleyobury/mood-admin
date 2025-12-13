@@ -1034,9 +1034,9 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
   },
   bookmarkButtonSaved: {
-    backgroundColor: '#FFD700',
-    minWidth: 50,
-    paddingHorizontal: 12,
+    backgroundColor: 'rgba(0, 0, 0, 0.4)',
+    minWidth: 36,
+    paddingHorizontal: 10,
   },
   savingText: {
     fontSize: 14,
