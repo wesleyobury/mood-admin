@@ -600,7 +600,6 @@ const styles = StyleSheet.create({
     marginBottom: 25,
     marginHorizontal: 24,
     backgroundColor: '#111111',
-    overflow: 'visible',
     borderRadius: 20,
     borderWidth: 2,
     borderColor: 'rgba(255, 215, 0, 0.3)',
