@@ -150,40 +150,43 @@ const WorkoutCarouselCard = ({
       />
       <View style={styles.carouselOverlay} />
       
-      {/* Badge */}
-      <View style={styles.carouselBadge}>
-        <Text style={styles.carouselBadgeText}>{workout.badge}</Text>
-      </View>
-      
-      {/* Bookmark/Save button - toggleable */}
-      <TouchableOpacity 
-        style={[
-          styles.bookmarkButton,
-          isSaved && styles.bookmarkButtonSaved
-        ]}
-        onPress={() => {
-          console.log('Bookmark pressed, isSaved:', isSaved, 'isSaving:', isSaving);
-          if (!isSaving) {
-            if (isSaved) {
-              console.log('Calling onUnsave');
-              onUnsave();
-            } else {
-              console.log('Calling onSave');
-              onSave();
+      {/* Top row - Badge and Bookmark */}
+      <View style={styles.carouselTopRow}>
+        {/* Badge */}
+        <View style={styles.carouselBadge}>
+          <Text style={styles.carouselBadgeText}>{workout.badge}</Text>
+        </View>
+        
+        {/* Bookmark/Save button - toggleable */}
+        <TouchableOpacity 
+          style={[
+            styles.bookmarkButton,
+            isSaved && styles.bookmarkButtonSaved
+          ]}
+          onPress={() => {
+            console.log('Bookmark pressed, isSaved:', isSaved, 'isSaving:', isSaving);
+            if (!isSaving) {
+              if (isSaved) {
+                console.log('Calling onUnsave');
+                onUnsave();
+              } else {
+                console.log('Calling onSave');
+                onSave();
+              }
             }
-          }
-        }}
-        disabled={isSaving}
-        hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }}
-      >
-        {isSaving ? (
-          <Text style={styles.savingText}>...</Text>
-        ) : isSaved ? (
-          <Ionicons name="bookmark" size={20} color="#FFD700" />
-        ) : (
-          <Ionicons name="bookmark-outline" size={22} color="rgba(255,255,255,0.9)" />
-        )}
-      </TouchableOpacity>
+          }}
+          disabled={isSaving}
+          hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }}
+        >
+          {isSaving ? (
+            <Text style={styles.savingText}>...</Text>
+          ) : isSaved ? (
+            <Ionicons name="bookmark" size={20} color="#FFD700" />
+          ) : (
+            <Ionicons name="bookmark-outline" size={22} color="rgba(255,255,255,0.9)" />
+          )}
+        </TouchableOpacity>
+      </View>
       
       {/* Bottom info - mood + workout format */}
       <View style={styles.carouselInfo}>
