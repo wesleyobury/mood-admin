@@ -1029,15 +1029,22 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(0, 0, 0, 0.25)',
     zIndex: 2,
   },
-  carouselBadge: {
+  carouselTopRow: {
     position: 'absolute',
-    top: 12,
-    left: 12,
+    top: 0,
+    left: 0,
+    right: 0,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'flex-start',
+    padding: 12,
+    zIndex: 10,
+  },
+  carouselBadge: {
     backgroundColor: 'rgba(0, 0, 0, 0.4)',
     paddingHorizontal: 12,
     paddingVertical: 6,
     borderRadius: 18,
-    zIndex: 10,
   },
   carouselBadgeText: {
     fontSize: 12,
