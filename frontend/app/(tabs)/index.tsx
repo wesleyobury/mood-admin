@@ -157,9 +157,6 @@ const WorkoutCarouselCard = ({
           <Text style={styles.carouselBadgeText}>{workout.badge}</Text>
         </View>
         
-        {/* Spacer to push bookmark to right */}
-        <View style={{ flex: 1 }} />
-        
         {/* Bookmark/Save button - toggleable */}
         <TouchableOpacity 
           style={[
@@ -181,9 +178,11 @@ const WorkoutCarouselCard = ({
           disabled={isSaving}
           hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }}
         >
-          <Text style={{ color: '#fff', fontSize: 16 }}>
-            {isSaving ? '...' : isSaved ? '★' : '☆'}
-          </Text>
+          <Ionicons 
+            name={isSaved ? "bookmark" : "bookmark-outline"} 
+            size={20} 
+            color={isSaved ? "#FFD700" : "#fff"} 
+          />
         </TouchableOpacity>
       </View>
       
