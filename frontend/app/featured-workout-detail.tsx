@@ -725,13 +725,30 @@ const styles = StyleSheet.create({
   headerSaveButton: {
     position: 'absolute',
     right: 16,
-    width: 40,
+    minWidth: 40,
     height: 40,
     borderRadius: 20,
     backgroundColor: 'rgba(0, 0, 0, 0.5)',
     justifyContent: 'center',
     alignItems: 'center',
     zIndex: 10,
+    flexDirection: 'row',
+    paddingHorizontal: 10,
+    gap: 4,
+  },
+  headerSaveButtonSaved: {
+    backgroundColor: '#FFD700',
+    paddingHorizontal: 12,
+  },
+  savingText: {
+    fontSize: 14,
+    color: '#fff',
+    fontWeight: '600',
+  },
+  savedText: {
+    fontSize: 12,
+    color: '#000',
+    fontWeight: '700',
   },
   heroContent: {
     position: 'absolute',
