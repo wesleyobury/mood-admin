@@ -104,6 +104,20 @@ const featuredWorkouts = [
     // First exercise: Hill Power Mix - Hills
     image: 'https://customer-assets.emergentagent.com/job_exercise-library-12/artifacts/zqqramht_download%20%2813%29.png',
   },
+  {
+    id: '6',
+    mood: 'I Want to Sweat',
+    title: 'HIIT - Light Weights',
+    duration: '45–55 min',
+    badge: 'Intense',
+    exercises: [
+      'Kettlebells - AMRAP 15',
+      'Battle Ropes - Gauntlet',
+      'Sled - Sled & Burpee Circuit',
+    ],
+    // Kettlebell AMRAP 15 image
+    image: 'https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw2fHxrZXR0bGViZWxsJTIwYW1yYXB8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
+  },
 ];
 
 // Workout Carousel Card Component
