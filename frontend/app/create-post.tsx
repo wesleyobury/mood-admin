@@ -1032,10 +1032,10 @@ const styles = StyleSheet.create({
   attachmentCard: {
     marginHorizontal: 16,
     marginBottom: 12,
-    backgroundColor: 'rgba(255, 255, 255, 0.02)',
+    backgroundColor: 'rgba(255, 255, 255, 0.03)',
     borderRadius: 16,
     borderWidth: 1,
-    borderColor: 'rgba(255, 215, 0, 0.15)',
+    borderColor: 'rgba(255, 255, 255, 0.08)',
     padding: 14,
   },
   attachmentHeader: {
@@ -1052,7 +1052,7 @@ const styles = StyleSheet.create({
   attachmentType: {
     fontSize: 13,
     fontWeight: '600',
-    color: 'rgba(255, 255, 255, 0.8)',
+    color: 'rgba(255, 255, 255, 0.7)',
   },
   saveCardButton: {
     flexDirection: 'row',
