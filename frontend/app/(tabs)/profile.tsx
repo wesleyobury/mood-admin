@@ -744,15 +744,25 @@ export default function Profile() {
                               {savedWorkout.workouts.length} exercises • {savedWorkout.total_duration} min
                             </Text>
                           </View>
-                          <View style={styles.savedWorkoutBadge}>
-                            <Ionicons 
-                              name={savedWorkout.source === 'featured' ? 'star' : 'create'} 
-                              size={14} 
-                              color="#FFD700" 
-                            />
-                            <Text style={styles.savedWorkoutBadgeText}>
-                              {savedWorkout.source === 'featured' ? 'Featured' : 'Custom'}
-                            </Text>
+                          {/* Right column with badge and X button */}
+                          <View style={styles.savedWorkoutRightColumn}>
+                            <View style={styles.savedWorkoutBadge}>
+                              <Ionicons 
+                                name={savedWorkout.source === 'featured' ? 'star' : 'create'} 
+                                size={14} 
+                                color="#FFD700" 
+                              />
+                              <Text style={styles.savedWorkoutBadgeText}>
+                                {savedWorkout.source === 'featured' ? 'Featured' : 'Custom'}
+                              </Text>
+                            </View>
+                            {/* Delete/Unsave Button - centered below badge */}
+                            <TouchableOpacity
+                              style={styles.unsaveButtonOnCard}
+                              onPress={() => handleDeleteSavedWorkout(savedWorkout.id)}
+                            >
+                              <Ionicons name="close" size={16} color="#FFD700" />
+                            </TouchableOpacity>
                           </View>
                         </View>
                         <View style={styles.savedWorkoutExercises}>
@@ -767,14 +777,6 @@ export default function Profile() {
                             </Text>
                           )}
                         </View>
-                      </TouchableOpacity>
-                      
-                      {/* Delete/Unsave Button - Golden X on card */}
-                      <TouchableOpacity
-                        style={styles.unsaveButtonOnCard}
-                        onPress={() => handleDeleteSavedWorkout(savedWorkout.id)}
-                      >
-                        <Ionicons name="close" size={18} color="#FFD700" />
                       </TouchableOpacity>
                     </View>
                   ))}
