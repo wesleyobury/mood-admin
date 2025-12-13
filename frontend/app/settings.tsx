@@ -28,7 +28,7 @@ export default function Settings() {
   const [showTerms, setShowTerms] = useState(false);
 
   const handleContactSupport = async () => {
-    const subject = encodeURIComponent('Support Request - Fitness App');
+    const subject = encodeURIComponent('Support request - MOOD');
     const body = encodeURIComponent(`Hi,\n\nI need help with:\n\n\n---\nUser: ${user?.username || 'Unknown'}\nApp Version: 1.0.0`);
     const mailtoUrl = `mailto:${SUPPORT_EMAIL}?subject=${subject}&body=${body}`;
     
