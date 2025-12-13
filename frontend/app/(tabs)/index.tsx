@@ -181,13 +181,9 @@ const WorkoutCarouselCard = ({
           disabled={isSaving}
           hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }}
         >
-          {isSaving ? (
-            <Text style={styles.savingText}>...</Text>
-          ) : isSaved ? (
-            <Ionicons name="bookmark" size={20} color="#FFD700" />
-          ) : (
-            <Ionicons name="bookmark-outline" size={20} color="#fff" />
-          )}
+          <Text style={{ color: '#fff', fontSize: 16 }}>
+            {isSaving ? '...' : isSaved ? '★' : '☆'}
+          </Text>
         </TouchableOpacity>
       </View>
       
