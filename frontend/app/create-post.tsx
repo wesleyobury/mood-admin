@@ -163,7 +163,8 @@ export default function CreatePost() {
         return;
       }
       
-      setSelectedMedia([...selectedMedia, { uri: asset.uri, type: 'video' }].slice(0, maxMedia));
+      const newMedia: MediaItem = { uri: asset.uri, type: 'video' };
+      setSelectedMedia([...selectedMedia, newMedia].slice(0, maxMedia));
     }
   };
 
