@@ -347,18 +347,37 @@ const styles = StyleSheet.create({
     color: '#fff',
     fontWeight: '500',
   },
-  dangerItem: {
-    backgroundColor: 'rgba(255, 68, 68, 0.1)',
-    borderWidth: 1,
-    borderColor: 'rgba(255, 68, 68, 0.2)',
+  deleteItem: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    backgroundColor: '#1a1a1a',
+    paddingVertical: 16,
+    paddingHorizontal: 16,
+    borderRadius: 12,
+    marginBottom: 8,
   },
-  dangerIconContainer: {
-    backgroundColor: 'rgba(255, 68, 68, 0.15)',
+  deleteIconContainer: {
+    width: 36,
+    height: 36,
+    borderRadius: 8,
+    backgroundColor: '#252525',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginRight: 14,
   },
-  dangerText: {
-    fontSize: 16,
-    color: '#FF4444',
+  deleteTextContainer: {
+    flexDirection: 'column',
+  },
+  deleteText: {
+    fontSize: 15,
+    color: '#999',
     fontWeight: '500',
+  },
+  deleteSubtext: {
+    fontSize: 12,
+    color: '#666',
+    marginTop: 2,
   },
   appInfo: {
     alignItems: 'center',
