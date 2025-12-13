@@ -541,7 +541,7 @@ export default function Profile() {
 
           {/* Current Streak */}
           <View style={styles.streakContainer}>
-            <Ionicons name="flame" size={24} color="#FF6B6B" />
+            <Ionicons name="flame" size={24} color="#FFD700" />
             <Text style={styles.streakText}>
               {stats.streak} day streak
             </Text>
