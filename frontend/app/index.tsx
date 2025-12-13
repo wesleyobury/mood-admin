@@ -274,7 +274,7 @@ export default function Welcome() {
             <AnimatedFeatureItem
               icon="people"
               title="Social Community"
-              description="Share your journey, inspire others"
+              description="Engage and share with other athletes"
               delay={1500}
             />
             <AnimatedFeatureItem
