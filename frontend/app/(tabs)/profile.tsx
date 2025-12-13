@@ -579,19 +579,19 @@ export default function Profile() {
           </TouchableOpacity>
 
           <TouchableOpacity
-            style={[styles.tab, activeTab === 'achievements' && styles.activeTab]}
-            onPress={() => setActiveTab('achievements')}
+            style={[styles.tab, activeTab === 'saved' && styles.activeTab]}
+            onPress={() => setActiveTab('saved')}
           >
             <Ionicons 
-              name="ribbon" 
+              name="bookmark" 
               size={18} 
-              color={activeTab === 'achievements' ? '#FFD700' : '#888'} 
+              color={activeTab === 'saved' ? '#FFD700' : '#888'} 
             />
             <Text style={[
               styles.tabText, 
-              activeTab === 'achievements' && styles.activeTabText
+              activeTab === 'saved' && styles.activeTabText
             ]}>
-              Achievements
+              Saved
             </Text>
           </TouchableOpacity>
         </View>
