@@ -1019,10 +1019,12 @@ const styles = StyleSheet.create({
     width: '100%',
     height: '100%',
     position: 'absolute',
+    zIndex: 1,
   },
   carouselOverlay: {
     ...StyleSheet.absoluteFillObject,
     backgroundColor: 'rgba(0, 0, 0, 0.25)',
+    zIndex: 2,
   },
   carouselBadge: {
     position: 'absolute',
@@ -1032,6 +1034,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 12,
     paddingVertical: 6,
     borderRadius: 18,
+    zIndex: 10,
   },
   carouselBadgeText: {
     fontSize: 12,
