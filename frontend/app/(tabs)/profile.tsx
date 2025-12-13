@@ -356,6 +356,45 @@ export default function Profile() {
     }
   };
 
+  const fetchSavedPosts = async () => {
+    setLoadingSavedPosts(true);
+    try {
+      const response = await fetch(`${API_URL}/api/saved-posts`, {
+        headers: {
+          'Authorization': `Bearer ${token}`,
+        },
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        setSavedPosts(data);
+      } else {
+        console.error('Failed to fetch saved posts:', response.status);
+      }
+    } catch (error) {
+      console.error('Error fetching saved posts:', error);
+    } finally {
+      setLoadingSavedPosts(false);
+    }
+  };
+
+  const handleUnsavePost = async (postId: string) => {
+    try {
+      const response = await fetch(`${API_URL}/api/posts/${postId}/save`, {
+        method: 'DELETE',
+        headers: {
+          'Authorization': `Bearer ${token}`,
+        },
+      });
+
+      if (response.ok) {
+        setSavedPosts(savedPosts.filter(p => p.id !== postId));
+      }
+    } catch (error) {
+      console.error('Error unsaving post:', error);
+    }
+  };
+
   const handleDeleteSavedWorkout = async (workoutId: string) => {
     try {
       const response = await fetch(`${API_URL}/api/saved-workouts/${workoutId}`, {
