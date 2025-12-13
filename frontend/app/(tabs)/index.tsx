@@ -1053,9 +1053,6 @@ const styles = StyleSheet.create({
     letterSpacing: 0.2,
   },
   bookmarkButton: {
-    position: 'absolute',
-    top: 12,
-    right: 12,
     minWidth: 36,
     height: 36,
     borderRadius: 18,
@@ -1063,12 +1060,9 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     paddingHorizontal: 10,
-    zIndex: 10,
   },
   bookmarkButtonSaved: {
     backgroundColor: 'rgba(0, 0, 0, 0.4)',
-    minWidth: 36,
-    paddingHorizontal: 10,
   },
   savingText: {
     fontSize: 14,
