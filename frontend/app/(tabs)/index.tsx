@@ -157,6 +157,9 @@ const WorkoutCarouselCard = ({
           <Text style={styles.carouselBadgeText}>{workout.badge}</Text>
         </View>
         
+        {/* Spacer to push bookmark to right */}
+        <View style={{ flex: 1 }} />
+        
         {/* Bookmark/Save button - toggleable */}
         <TouchableOpacity 
           style={[
