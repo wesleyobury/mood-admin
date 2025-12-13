@@ -1101,11 +1101,11 @@ const styles = StyleSheet.create({
   saveExplanationText: {
     flex: 1,
     fontSize: 11,
-    color: 'rgba(255, 215, 0, 0.7)',
+    color: 'rgba(255, 255, 255, 0.5)',
     lineHeight: 16,
   },
   attachmentHint: {
-    color: 'rgba(255, 215, 0, 0.6)',
+    color: 'rgba(255, 255, 255, 0.4)',
     fontSize: 11,
     textAlign: 'center',
     marginTop: 4,
