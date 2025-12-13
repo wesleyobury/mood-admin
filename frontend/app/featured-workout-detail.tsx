@@ -578,15 +578,13 @@ export default function FeaturedWorkoutDetail() {
         >
           {isSaving ? (
             <Text style={styles.savingText}>...</Text>
-          ) : (
+          ) : isSaved ? (
             <>
-              <Ionicons 
-                name={isSaved ? "bookmark" : "bookmark-outline"} 
-                size={20} 
-                color={isSaved ? "#000" : "#fff"} 
-              />
-              {isSaved && <Text style={styles.savedText}>Saved</Text>}
+              <Ionicons name="checkmark" size={18} color="#000" />
+              <Text style={styles.savedText}>Saved</Text>
             </>
+          ) : (
+            <Ionicons name="bookmark-outline" size={22} color="#fff" />
           )}
         </TouchableOpacity>
         
