@@ -527,9 +527,12 @@ export default function WorkoutsHome() {
             params: { id: item.id },
           });
         }}
+        onSave={() => handleSaveFeaturedWorkout(item)}
+        isSaved={savedWorkoutIds.has(item.id)}
+        isSaving={savingWorkoutIds.has(item.id)}
       />
     );
-  }, [router, token]);
+  }, [router, token, savedWorkoutIds, savingWorkoutIds]);
 
   // Fetch user workout stats
   useEffect(() => {
