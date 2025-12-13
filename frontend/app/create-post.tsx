@@ -130,6 +130,73 @@ export default function CreatePost() {
     }
   };
 
+  const takePhoto = async () => {
+    const maxMedia = hasStatsCard ? 4 : 5;
+    
+    if (selectedMedia.length >= maxMedia) {
+      showAlert('Limit Reached', `You can only select up to ${maxMedia} items`);
+      return;
+    }
+
+    const { status } = await ImagePicker.requestCameraPermissionsAsync();
+    
+    if (status !== 'granted') {
+      showAlert('Permission Required', 'Sorry, we need camera permissions to take photos!');
+      return;
+    }
+
+    // Launch camera with 4:5 aspect ratio editor
+    const result = await ImagePicker.launchCameraAsync({
+      mediaTypes: ['images'],
+      allowsEditing: true,
+      aspect: [4, 5],
+      quality: 0.8,
+    });
+
+    if (!result.canceled && result.assets && result.assets.length > 0) {
+      const asset = result.assets[0];
+      const newMedia: MediaItem = { uri: asset.uri, type: 'image' };
+      setSelectedMedia([...selectedMedia, newMedia].slice(0, maxMedia));
+    }
+  };
+
+  const recordVideo = async () => {
+    const maxMedia = hasStatsCard ? 4 : 5;
+    
+    if (selectedMedia.length >= maxMedia) {
+      showAlert('Limit Reached', `You can only select up to ${maxMedia} items`);
+      return;
+    }
+
+    const { status } = await ImagePicker.requestCameraPermissionsAsync();
+    
+    if (status !== 'granted') {
+      showAlert('Permission Required', 'Sorry, we need camera permissions to record videos!');
+      return;
+    }
+
+    // Launch camera for video recording
+    const result = await ImagePicker.launchCameraAsync({
+      mediaTypes: ['videos'],
+      allowsEditing: false,
+      videoMaxDuration: 60, // 60 seconds max
+      quality: 0.7,
+    });
+
+    if (!result.canceled && result.assets && result.assets.length > 0) {
+      const asset = result.assets[0];
+      
+      // Check video duration if available
+      if (asset.duration && asset.duration > 60000) { // 60 seconds in ms
+        showAlert('Video Too Long', 'Please record a video under 60 seconds');
+        return;
+      }
+      
+      const newMedia: MediaItem = { uri: asset.uri, type: 'video' };
+      setSelectedMedia([...selectedMedia, newMedia].slice(0, maxMedia));
+    }
+  };
+
   const pickVideo = async () => {
     const maxMedia = hasStatsCard ? 4 : 5;
     
