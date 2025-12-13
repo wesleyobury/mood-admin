@@ -38,6 +38,7 @@ interface Post {
   likes_count: number;
   comments_count: number;
   is_liked: boolean;
+  is_saved: boolean;
   created_at: string;
   workout?: any;
 }
