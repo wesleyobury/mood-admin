@@ -2014,6 +2014,101 @@ async def check_saved_workout(
     
     return {"is_saved": existing is not None}
 
+# Saved Posts Endpoints
+@api_router.post("/posts/{post_id}/save")
+async def save_post(
+    post_id: str,
+    current_user_id: str = Depends(get_current_user)
+):
+    """Save a post to user's saved posts"""
+    # Check if post exists
+    post = await db.posts.find_one({"_id": ObjectId(post_id)})
+    if not post:
+        raise HTTPException(status_code=404, detail="Post not found")
+    
+    # Check if already saved
+    existing = await db.saved_posts.find_one({
+        "user_id": current_user_id,
+        "post_id": post_id
+    })
+    
+    if existing:
+        raise HTTPException(status_code=400, detail="Post already saved")
+    
+    # Save the post
+    saved_doc = {
+        "user_id": current_user_id,
+        "post_id": post_id,
+        "saved_at": datetime.utcnow()
+    }
+    
+    await db.saved_posts.insert_one(saved_doc)
+    
+    return {"message": "Post saved successfully", "is_saved": True}
+
+@api_router.delete("/posts/{post_id}/save")
+async def unsave_post(
+    post_id: str,
+    current_user_id: str = Depends(get_current_user)
+):
+    """Remove a post from user's saved posts"""
+    result = await db.saved_posts.delete_one({
+        "user_id": current_user_id,
+        "post_id": post_id
+    })
+    
+    if result.deleted_count == 0:
+        raise HTTPException(status_code=404, detail="Saved post not found")
+    
+    return {"message": "Post unsaved successfully", "is_saved": False}
+
+@api_router.get("/posts/{post_id}/save/check")
+async def check_post_saved(
+    post_id: str,
+    current_user_id: str = Depends(get_current_user)
+):
+    """Check if a post is saved by the current user"""
+    existing = await db.saved_posts.find_one({
+        "user_id": current_user_id,
+        "post_id": post_id
+    })
+    
+    return {"is_saved": existing is not None}
+
+@api_router.get("/saved-posts")
+async def get_saved_posts(
+    current_user_id: str = Depends(get_current_user)
+):
+    """Get all saved posts for the current user with full post details"""
+    saved_posts = await db.saved_posts.find(
+        {"user_id": current_user_id}
+    ).sort("saved_at", -1).to_list(100)
+    
+    # Get full post details for each saved post
+    posts = []
+    for saved in saved_posts:
+        post = await db.posts.find_one({"_id": ObjectId(saved["post_id"])})
+        if post:
+            # Get author details
+            author = await db.users.find_one({"_id": ObjectId(post["author_id"])})
+            if author:
+                posts.append({
+                    "id": str(post["_id"]),
+                    "author": {
+                        "id": str(author["_id"]),
+                        "username": author.get("username", ""),
+                        "name": author.get("name", ""),
+                        "avatar": author.get("avatar", "")
+                    },
+                    "caption": post.get("caption", ""),
+                    "media_urls": post.get("media_urls", []),
+                    "likes_count": post.get("likes_count", 0),
+                    "comments_count": post.get("comments_count", 0),
+                    "saved_at": saved["saved_at"].isoformat()
+                })
+    
+    return posts
+
 # Health Check
 @api_router.get("/")
 async def root():
