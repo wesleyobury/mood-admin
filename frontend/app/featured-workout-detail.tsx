@@ -84,7 +84,7 @@ const featuredWorkoutData: Record<string, {
   '2': {
     mood: 'Muscle Gainer',
     title: 'Back & Bis Volume',
-    duration: '35–45 min',
+    duration: '45–60 min',
     image: 'https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?w=800&h=600&fit=crop',
     exercises: [
       // Back - Adjustable Bench - Chest Support Row (Intermediate)
