@@ -1250,6 +1250,73 @@ const styles = StyleSheet.create({
   savedTab: {
     flex: 1,
   },
+  savedSection: {
+    marginBottom: 24,
+  },
+  savedSectionHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 8,
+    marginBottom: 12,
+    paddingBottom: 8,
+    borderBottomWidth: 1,
+    borderBottomColor: 'rgba(255, 215, 0, 0.2)',
+  },
+  savedSectionTitle: {
+    fontSize: 16,
+    fontWeight: '600',
+    color: '#fff',
+  },
+  loadingContainerSmall: {
+    padding: 20,
+    alignItems: 'center',
+  },
+  emptyStateSmall: {
+    padding: 16,
+    alignItems: 'center',
+  },
+  emptySubtitleSmall: {
+    fontSize: 14,
+    color: '#666',
+    textAlign: 'center',
+  },
+  savedPostsGrid: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: 4,
+  },
+  savedPostItem: {
+    width: (width - 48 - 8) / 3,
+    aspectRatio: 4 / 5,
+    borderRadius: 8,
+    overflow: 'hidden',
+    backgroundColor: '#1a1a1a',
+  },
+  savedPostImage: {
+    width: '100%',
+    height: '100%',
+  },
+  unsavePostButton: {
+    position: 'absolute',
+    top: 4,
+    right: 4,
+    width: 22,
+    height: 22,
+    borderRadius: 11,
+    backgroundColor: 'rgba(0, 0, 0, 0.7)',
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderWidth: 1,
+    borderColor: 'rgba(255, 215, 0, 0.3)',
+  },
+  multipleImagesIndicator: {
+    position: 'absolute',
+    top: 4,
+    left: 4,
+    backgroundColor: 'rgba(0, 0, 0, 0.6)',
+    borderRadius: 4,
+    padding: 3,
+  },
   savedWorkoutsList: {
     gap: 12,
   },
