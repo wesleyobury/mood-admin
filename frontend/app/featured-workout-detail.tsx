@@ -711,6 +711,17 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     zIndex: 10,
   },
+  headerSaveButton: {
+    position: 'absolute',
+    right: 16,
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    justifyContent: 'center',
+    alignItems: 'center',
+    zIndex: 10,
+  },
   heroContent: {
     position: 'absolute',
     bottom: 20,
