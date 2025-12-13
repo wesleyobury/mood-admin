@@ -104,7 +104,7 @@ const featuredWorkouts = [
       'Parallel Bars Dip Station - Eccentric Power',
     ],
     // Calisthenics image - updated
-    image: 'https://customer-assets.emergentagent.com/job_3f3e12c6-013b-4158-b2e9-29980fb2b4f9/artifacts/5axc1tx5_image.png',
+    image: 'https://customer-assets.emergentagent.com/job_healthtracker-133/artifacts/jiw9nz1m_download%20%282%29.png',
   },
   {
     id: '5',
