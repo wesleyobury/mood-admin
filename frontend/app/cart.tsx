@@ -92,6 +92,8 @@ export default function CartScreen() {
   const { token } = useAuth();
   const [isStarting, setIsStarting] = useState(false);
   const [isSaving, setIsSaving] = useState(false);
+  const [saveModalVisible, setSaveModalVisible] = useState(false);
+  const [workoutName, setWorkoutName] = useState('');
 
   const handleGoBack = () => {
     router.back();
