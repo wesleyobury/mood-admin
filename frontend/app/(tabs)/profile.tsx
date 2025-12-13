@@ -88,7 +88,7 @@ export default function Profile() {
   const [followListType, setFollowListType] = useState<'followers' | 'following'>('followers');
   const { token, user: authUser, updateUser } = useAuth();
 
-  const [activeTab, setActiveTab] = useState<'posts' | 'achievements' | 'cards'>('posts');
+  const [activeTab, setActiveTab] = useState<'posts' | 'saved' | 'cards'>('posts');
   const router = useRouter();
 
   // Load user profile when token is available
