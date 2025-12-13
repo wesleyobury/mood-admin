@@ -40,17 +40,24 @@ const VideoPlayer = memo(({ uri, isActive }: VideoPlayerProps) => {
   const [isLoading, setIsLoading] = useState(true);
   const [hasError, setHasError] = useState(false);
   const [isMuted, setIsMuted] = useState(true);
+  const [duration, setDuration] = useState(0);
+  const [position, setPosition] = useState(0);
+  const [isSeeking, setIsSeeking] = useState(false);
 
   const handlePlaybackStatusUpdate = useCallback((status: AVPlaybackStatus) => {
     if (status.isLoaded) {
       setIsLoading(false);
       setIsPlaying(status.isPlaying);
+      if (!isSeeking) {
+        setPosition(status.positionMillis || 0);
+      }
+      setDuration(status.durationMillis || 0);
       if (status.didJustFinish) {
         // Loop the video
         videoRef.current?.replayAsync();
       }
     }
-  }, []);
+  }, [isSeeking]);
 
   const togglePlayPause = useCallback(async () => {
     if (!videoRef.current) return;
@@ -67,6 +74,24 @@ const VideoPlayer = memo(({ uri, isActive }: VideoPlayerProps) => {
     await videoRef.current.setIsMutedAsync(!isMuted);
     setIsMuted(!isMuted);
   }, [isMuted]);
+
+  const handleSeekStart = useCallback(() => {
+    setIsSeeking(true);
+  }, []);
+
+  const handleSeekComplete = useCallback(async (value: number) => {
+    if (videoRef.current) {
+      await videoRef.current.setPositionAsync(value);
+    }
+    setIsSeeking(false);
+  }, []);
+
+  const formatTime = (millis: number) => {
+    const totalSeconds = Math.floor(millis / 1000);
+    const minutes = Math.floor(totalSeconds / 60);
+    const seconds = totalSeconds % 60;
+    return `${minutes}:${seconds.toString().padStart(2, '0')}`;
+  };
 
   // Auto-pause when not active
   React.useEffect(() => {
@@ -140,6 +165,27 @@ const VideoPlayer = memo(({ uri, isActive }: VideoPlayerProps) => {
           color="#fff" 
         />
       </TouchableOpacity>
+
+      {/* Video Scrubber/Progress Bar */}
+      {duration > 0 && (
+        <View style={styles.scrubberContainer}>
+          <Text style={styles.timeText}>{formatTime(position)}</Text>
+          <View style={styles.sliderWrapper}>
+            <Slider
+              style={styles.slider}
+              minimumValue={0}
+              maximumValue={duration}
+              value={position}
+              onSlidingStart={handleSeekStart}
+              onSlidingComplete={handleSeekComplete}
+              minimumTrackTintColor="#FFD700"
+              maximumTrackTintColor="rgba(255, 255, 255, 0.3)"
+              thumbTintColor="#FFD700"
+            />
+          </View>
+          <Text style={styles.timeText}>{formatTime(duration)}</Text>
+        </View>
+      )}
     </TouchableOpacity>
   );
 });
