@@ -596,6 +596,7 @@ export default function WorkoutsHome() {
           });
         }}
         onSave={() => handleSaveFeaturedWorkout(item)}
+        onUnsave={() => handleUnsaveFeaturedWorkout(item)}
         isSaved={savedWorkoutIds.has(item.id)}
         isSaving={savingWorkoutIds.has(item.id)}
       />
