@@ -58,6 +58,16 @@ const VideoPlayer = memo(({ uri, isActive }: VideoPlayerProps) => {
   const [duration, setDuration] = useState(0);
   const [position, setPosition] = useState(0);
   const [isSeeking, setIsSeeking] = useState(false);
+  const [audioConfigured, setAudioConfigured] = useState(false);
+
+  // Configure audio mode on mount for mobile playback
+  useEffect(() => {
+    if (!audioConfigured) {
+      configureAudio().then(() => {
+        setAudioConfigured(true);
+      });
+    }
+  }, [audioConfigured]);
 
   const handlePlaybackStatusUpdate = useCallback((status: AVPlaybackStatus) => {
     if (status.isLoaded) {
@@ -77,15 +87,27 @@ const VideoPlayer = memo(({ uri, isActive }: VideoPlayerProps) => {
   const togglePlayPause = useCallback(async () => {
     if (!videoRef.current) return;
     
+    // Configure audio before playing (ensures iOS silent mode works)
+    await configureAudio();
+    
     if (isPlaying) {
       await videoRef.current.pauseAsync();
     } else {
+      // When user taps to play, unmute the video
+      await videoRef.current.setIsMutedAsync(false);
+      setIsMuted(false);
       await videoRef.current.playAsync();
     }
   }, [isPlaying]);
 
   const toggleMute = useCallback(async () => {
     if (!videoRef.current) return;
+    
+    // Configure audio when unmuting (ensures iOS silent mode works)
+    if (isMuted) {
+      await configureAudio();
+    }
+    
     await videoRef.current.setIsMutedAsync(!isMuted);
     setIsMuted(!isMuted);
   }, [isMuted]);
