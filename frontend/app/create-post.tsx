@@ -657,13 +657,13 @@ export default function CreatePost() {
             <Text style={styles.attachmentsLabel}>Attachments</Text>
           </View>
 
-          {/* 1. Image Picker Section - FIRST */}
+          {/* 1. Media Picker Section - FIRST */}
           <View style={styles.attachmentCard}>
             <View style={styles.attachmentHeader}>
               <View style={styles.attachmentLabelContainer}>
                 <Ionicons name="images" size={16} color="#FFD700" />
                 <Text style={styles.attachmentType}>
-                  Photos ({selectedImages.length}/{hasStatsCard ? 4 : 5})
+                  Media ({selectedMedia.length}/{hasStatsCard ? 4 : 5})
                 </Text>
               </View>
             </View>
@@ -674,43 +674,75 @@ export default function CreatePost() {
               style={styles.imageScroll}
               contentContainerStyle={styles.imageScrollContent}
             >
+              {/* Add Photo Button */}
               <TouchableOpacity 
                 style={styles.addImageButton}
                 onPress={pickImages}
-                disabled={selectedImages.length >= (hasStatsCard ? 4 : 5)}
+                disabled={selectedMedia.length >= (hasStatsCard ? 4 : 5)}
               >
                 <View style={styles.addImageIconContainer}>
-                  <Ionicons name="add" size={28} color="#FFD700" />
+                  <Ionicons name="image" size={24} color="#FFD700" />
                 </View>
-                <Text style={styles.addImageText}>Add</Text>
+                <Text style={styles.addImageText}>Photo</Text>
               </TouchableOpacity>
 
-              {selectedImages.map((uri, index) => (
+              {/* Add Video Button */}
+              <TouchableOpacity 
+                style={styles.addImageButton}
+                onPress={pickVideo}
+                disabled={selectedMedia.length >= (hasStatsCard ? 4 : 5)}
+              >
+                <View style={styles.addImageIconContainer}>
+                  <Ionicons name="videocam" size={24} color="#FFD700" />
+                </View>
+                <Text style={styles.addImageText}>Video</Text>
+              </TouchableOpacity>
+
+              {selectedMedia.map((media, index) => (
                 <View key={index} style={styles.imagePreviewContainer}>
-                  <Image source={{ uri }} style={styles.imagePreview} />
+                  {media.type === 'video' ? (
+                    <View style={styles.videoPreviewContainer}>
+                      <Video
+                        source={{ uri: media.uri }}
+                        style={styles.imagePreview}
+                        resizeMode={ResizeMode.COVER}
+                        shouldPlay={false}
+                        isMuted={true}
+                      />
+                      <View style={styles.videoOverlay}>
+                        <Ionicons name="play-circle" size={32} color="#fff" />
+                      </View>
+                    </View>
+                  ) : (
+                    <Image source={{ uri: media.uri }} style={styles.imagePreview} />
+                  )}
                   <TouchableOpacity 
                     style={styles.removeImageButton}
-                    onPress={() => removeImage(index)}
+                    onPress={() => removeMedia(index)}
                   >
                     <Ionicons name="close-circle" size={22} color="#FF4444" />
                   </TouchableOpacity>
-                  <View style={styles.imageNumber}>
-                    <Text style={styles.imageNumberText}>{index + 1}</Text>
+                  <View style={[styles.imageNumber, media.type === 'video' && styles.videoNumber]}>
+                    {media.type === 'video' ? (
+                      <Ionicons name="videocam" size={10} color="#000" />
+                    ) : (
+                      <Text style={styles.imageNumberText}>{index + 1}</Text>
+                    )}
                   </View>
                   {/* Reorder buttons */}
                   <View style={styles.reorderButtons}>
                     {index > 0 && (
                       <TouchableOpacity 
                         style={styles.reorderButton}
-                        onPress={() => moveImageUp(index)}
+                        onPress={() => moveMediaUp(index)}
                       >
                         <Ionicons name="chevron-back" size={18} color="#FFD700" />
                       </TouchableOpacity>
                     )}
-                    {index < selectedImages.length - 1 && (
+                    {index < selectedMedia.length - 1 && (
                       <TouchableOpacity 
                         style={styles.reorderButton}
-                        onPress={() => moveImageDown(index)}
+                        onPress={() => moveMediaDown(index)}
                       >
                         <Ionicons name="chevron-forward" size={18} color="#FFD700" />
                       </TouchableOpacity>
@@ -720,8 +752,8 @@ export default function CreatePost() {
               ))}
             </ScrollView>
             
-            {selectedImages.length === 0 && (
-              <Text style={styles.emptyText}>Optional: Add photos to your post</Text>
+            {selectedMedia.length === 0 && (
+              <Text style={styles.emptyText}>Optional: Add photos or videos (max 60s) to your post</Text>
             )}
           </View>
 
