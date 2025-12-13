@@ -1144,7 +1144,6 @@ const styles = StyleSheet.create({
     gap: 12,
   },
   savedWorkoutCard: {
-    position: 'relative',
     backgroundColor: '#1a1a1a',
     borderRadius: 12,
     padding: 16,
