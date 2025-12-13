@@ -440,7 +440,7 @@ export default function Profile() {
           {/* Workout titles - up to 3 */}
           <View style={styles.workoutTitlesContainer}>
             {workoutTitles.map((title, index) => (
-              <Text key={index} style={styles.workoutTitle} numberOfLines={1}>
+              <Text key={index} style={styles.savedWorkoutTitle} numberOfLines={1}>
                 {title}
               </Text>
             ))}
