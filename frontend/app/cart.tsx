@@ -397,6 +397,54 @@ export default function CartScreen() {
           </TouchableOpacity>
         </View>
       </View>
+
+      {/* Save Workout Modal */}
+      <Modal
+        visible={saveModalVisible}
+        transparent
+        animationType="fade"
+        onRequestClose={() => setSaveModalVisible(false)}
+      >
+        <KeyboardAvoidingView 
+          behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+          style={styles.modalOverlay}
+        >
+          <View style={styles.saveModalContent}>
+            <Text style={styles.saveModalTitle}>Save Workout</Text>
+            <Text style={styles.saveModalSubtitle}>
+              Enter a name for this workout to save it to your profile
+            </Text>
+            
+            <TextInput
+              style={styles.saveModalInput}
+              value={workoutName}
+              onChangeText={setWorkoutName}
+              placeholder="Workout name"
+              placeholderTextColor="#666"
+              autoFocus
+            />
+            
+            <View style={styles.saveModalButtons}>
+              <TouchableOpacity 
+                style={styles.saveModalCancelButton}
+                onPress={() => setSaveModalVisible(false)}
+              >
+                <Text style={styles.saveModalCancelText}>Cancel</Text>
+              </TouchableOpacity>
+              <TouchableOpacity 
+                style={styles.saveModalSaveButton}
+                onPress={handleConfirmSave}
+                disabled={isSaving}
+              >
+                <Ionicons name="bookmark" size={18} color="#000" />
+                <Text style={styles.saveModalSaveText}>
+                  {isSaving ? 'Saving...' : 'Save'}
+                </Text>
+              </TouchableOpacity>
+            </View>
+          </View>
+        </KeyboardAvoidingView>
+      </Modal>
     </View>
   );
 }
