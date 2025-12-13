@@ -357,6 +357,91 @@ export default function FeaturedWorkoutDetail() {
   const [exercises, setExercises] = useState<WorkoutExercise[]>(
     workout ? [...workout.exercises] : []
   );
+  const [isSaved, setIsSaved] = useState(false);
+  const [isSaving, setIsSaving] = useState(false);
+  
+  // Check if workout is already saved
+  useEffect(() => {
+    if (token && workout) {
+      checkIfSaved();
+    }
+  }, [token, workout]);
+  
+  const checkIfSaved = async () => {
+    try {
+      const workoutName = `${workout.mood} - ${workout.title}`;
+      const response = await fetch(`${API_URL}/api/saved-workouts/check/${encodeURIComponent(workoutName)}`, {
+        headers: {
+          'Authorization': `Bearer ${token}`,
+        },
+      });
+      if (response.ok) {
+        const data = await response.json();
+        setIsSaved(data.is_saved);
+      }
+    } catch (error) {
+      console.error('Error checking saved status:', error);
+    }
+  };
+  
+  const handleSaveWorkout = async () => {
+    if (!token) {
+      Alert.alert('Login Required', 'Please login to save workouts');
+      return;
+    }
+    
+    setIsSaving(true);
+    try {
+      const totalDuration = exercises.reduce((total, ex) => {
+        const mins = parseInt(ex.duration.split(' ')[0]) || 0;
+        return total + mins;
+      }, 0);
+      
+      const response = await fetch(`${API_URL}/api/saved-workouts`, {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${token}`,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: `${workout.mood} - ${workout.title}`,
+          workouts: exercises.map(ex => ({
+            name: ex.name,
+            equipment: ex.equipment,
+            duration: ex.duration,
+            difficulty: ex.difficulty,
+            description: ex.description,
+            battlePlan: ex.battlePlan,
+            imageUrl: ex.imageUrl,
+            intensityReason: ex.intensityReason,
+            workoutType: ex.workoutType,
+            moodCard: ex.moodCard,
+            moodTips: ex.moodTips,
+          })),
+          total_duration: totalDuration,
+          source: 'featured',
+          featured_workout_id: workoutId,
+          mood: workout.mood,
+          title: workout.title,
+        }),
+      });
+      
+      if (response.ok) {
+        setIsSaved(true);
+        Alert.alert('Saved!', 'Workout saved to your profile');
+      } else if (response.status === 400) {
+        Alert.alert('Already Saved', 'This workout is already in your saved list');
+        setIsSaved(true);
+      } else {
+        Alert.alert('Error', 'Failed to save workout');
+      }
+    } catch (error) {
+      console.error('Error saving workout:', error);
+      Alert.alert('Error', 'Failed to save workout');
+    } finally {
+      setIsSaving(false);
+    }
+  };
   
   if (!workout) {
     return (
