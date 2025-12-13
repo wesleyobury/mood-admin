@@ -1,4 +1,4 @@
-import React, { useState, useRef, memo, useCallback } from 'react';
+import React, { useState, useRef, memo, useCallback, useEffect } from 'react';
 import {
   View,
   StyleSheet,
@@ -12,11 +12,26 @@ import {
   Platform,
 } from 'react-native';
 import { Image } from 'expo-image';
-import { Video, ResizeMode, AVPlaybackStatus } from 'expo-av';
+import { Video, ResizeMode, AVPlaybackStatus, Audio } from 'expo-av';
 import { Ionicons } from '@expo/vector-icons';
 import Slider from '@react-native-community/slider';
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
+
+// Configure audio mode for proper playback on mobile
+const configureAudio = async () => {
+  try {
+    await Audio.setAudioModeAsync({
+      allowsRecordingIOS: false,
+      playsInSilentModeIOS: true,
+      staysActiveInBackground: false,
+      shouldDuckAndroid: true,
+      playThroughEarpieceAndroid: false,
+    });
+  } catch (error) {
+    console.error('Error configuring audio:', error);
+  }
+};
 
 // Helper to detect if a URL is a video
 const isVideoUrl = (url: string): boolean => {
