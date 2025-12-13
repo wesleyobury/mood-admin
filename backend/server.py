@@ -1852,6 +1852,104 @@ async def delete_workout_card(
     except:
         raise HTTPException(status_code=404, detail="Workout card not found")
 
+# Saved Workouts Endpoints (for bookmarking workouts to do later)
+
+class SavedWorkoutCreate(BaseModel):
+    name: str
+    workouts: List[Dict[str, Any]]  # List of workout exercises
+    total_duration: int
+    source: str = "custom"  # "custom" for cart saves, "featured" for featured workout saves
+    featured_workout_id: Optional[str] = None
+    mood: Optional[str] = None
+    title: Optional[str] = None
+
+@api_router.post("/saved-workouts")
+async def save_workout(
+    workout_data: SavedWorkoutCreate,
+    current_user_id: str = Depends(get_current_user)
+):
+    """Save a workout for later"""
+    # Check if this workout is already saved (by name and user)
+    existing = await db.saved_workouts.find_one({
+        "user_id": current_user_id,
+        "name": workout_data.name
+    })
+    
+    if existing:
+        raise HTTPException(status_code=400, detail="Workout already saved")
+    
+    workout_doc = {
+        **workout_data.dict(),
+        "user_id": current_user_id,
+        "created_at": datetime.now(timezone.utc)
+    }
+    
+    result = await db.saved_workouts.insert_one(workout_doc)
+    
+    return {
+        "message": "Workout saved successfully",
+        "id": str(result.inserted_id)
+    }
+
+@api_router.get("/saved-workouts")
+async def get_saved_workouts(
+    current_user_id: str = Depends(get_current_user),
+    limit: int = 50,
+    skip: int = 0
+):
+    """Get all saved workouts for the current user"""
+    workouts = await db.saved_workouts.find(
+        {"user_id": current_user_id}
+    ).sort("created_at", -1).skip(skip).limit(limit).to_list(length=limit)
+    
+    result = []
+    for workout in workouts:
+        result.append({
+            "id": str(workout["_id"]),
+            "name": workout["name"],
+            "workouts": workout["workouts"],
+            "total_duration": workout["total_duration"],
+            "source": workout.get("source", "custom"),
+            "featured_workout_id": workout.get("featured_workout_id"),
+            "mood": workout.get("mood"),
+            "title": workout.get("title"),
+            "created_at": workout["created_at"].isoformat()
+        })
+    
+    return result
+
+@api_router.delete("/saved-workouts/{workout_id}")
+async def delete_saved_workout(
+    workout_id: str,
+    current_user_id: str = Depends(get_current_user)
+):
+    """Delete a saved workout"""
+    try:
+        result = await db.saved_workouts.delete_one({
+            "_id": ObjectId(workout_id),
+            "user_id": current_user_id
+        })
+        
+        if result.deleted_count == 0:
+            raise HTTPException(status_code=404, detail="Saved workout not found")
+        
+        return {"message": "Saved workout deleted successfully"}
+    except:
+        raise HTTPException(status_code=404, detail="Saved workout not found")
+
+@api_router.get("/saved-workouts/check/{workout_name}")
+async def check_saved_workout(
+    workout_name: str,
+    current_user_id: str = Depends(get_current_user)
+):
+    """Check if a workout is already saved"""
+    existing = await db.saved_workouts.find_one({
+        "user_id": current_user_id,
+        "name": workout_name
+    })
+    
+    return {"is_saved": existing is not None}
+
 # Health Check
 @api_router.get("/")
 async def root():
