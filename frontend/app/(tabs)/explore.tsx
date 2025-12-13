@@ -714,6 +714,7 @@ const styles = StyleSheet.create({
     borderRadius: 18,
     borderWidth: 1,
     borderColor: '#FFD700',
+    backgroundColor: '#1a1a1a',
   },
   avatarPlaceholder: {
     backgroundColor: '#1a1a1a',

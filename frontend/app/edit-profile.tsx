@@ -389,6 +389,7 @@ const styles = StyleSheet.create({
     borderRadius: 60,
     borderWidth: 3,
     borderColor: '#FFD700',
+    backgroundColor: '#1a1a1a',
   },
   placeholderAvatar: {
     backgroundColor: '#1a1a1a',
