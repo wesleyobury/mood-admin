@@ -718,9 +718,9 @@ export default function Profile() {
               ) : (
                 <View style={styles.savedWorkoutsList}>
                   {savedWorkouts.map((savedWorkout) => (
-                    <View key={savedWorkout.id} style={styles.savedWorkoutCardWrapper}>
+                    <View key={savedWorkout.id} style={styles.savedWorkoutCard}>
                       <TouchableOpacity
-                        style={styles.savedWorkoutCard}
+                        style={styles.savedWorkoutContent}
                         onPress={() => {
                           // Check if this is a featured workout
                           const featuredId = FEATURED_WORKOUT_IDS[savedWorkout.name];
@@ -769,12 +769,12 @@ export default function Profile() {
                         </View>
                       </TouchableOpacity>
                       
-                      {/* Delete/Unsave Button - Golden X */}
+                      {/* Delete/Unsave Button - Golden X on card */}
                       <TouchableOpacity
-                        style={styles.unsaveButton}
+                        style={styles.unsaveButtonOnCard}
                         onPress={() => handleDeleteSavedWorkout(savedWorkout.id)}
                       >
-                        <Ionicons name="close" size={22} color="#FFD700" />
+                        <Ionicons name="close" size={18} color="#FFD700" />
                       </TouchableOpacity>
                     </View>
                   ))}
