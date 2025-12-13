@@ -495,6 +495,54 @@ export default function WorkoutsHome() {
     }
   };
 
+  // Unsave a featured workout
+  const handleUnsaveFeaturedWorkout = async (workout: typeof featuredWorkouts[0]) => {
+    if (!token) return;
+    
+    // Add to saving state
+    setSavingWorkoutIds(prev => new Set(prev).add(workout.id));
+    
+    try {
+      const workoutName = `${workout.mood} - ${workout.title}`;
+      
+      // First, get all saved workouts to find the one to delete
+      const listResponse = await fetch(`${API_URL}/api/saved-workouts`, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      
+      if (listResponse.ok) {
+        const savedWorkouts = await listResponse.json();
+        const workoutToDelete = savedWorkouts.find((w: any) => w.name === workoutName);
+        
+        if (workoutToDelete) {
+          // Delete the saved workout
+          const deleteResponse = await fetch(`${API_URL}/api/saved-workouts/${workoutToDelete._id}`, {
+            method: 'DELETE',
+            headers: { Authorization: `Bearer ${token}` },
+          });
+          
+          if (deleteResponse.ok) {
+            // Remove from saved state
+            setSavedWorkoutIds(prev => {
+              const newSet = new Set(prev);
+              newSet.delete(workout.id);
+              return newSet;
+            });
+          }
+        }
+      }
+    } catch (error) {
+      console.error('Error unsaving workout:', error);
+    } finally {
+      // Remove from saving state
+      setSavingWorkoutIds(prev => {
+        const newSet = new Set(prev);
+        newSet.delete(workout.id);
+        return newSet;
+      });
+    }
+  };
+
   // Auto-scroll carousel every 4 seconds (slower)
   useEffect(() => {
     const startAutoScroll = () => {
