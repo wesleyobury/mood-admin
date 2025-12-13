@@ -525,7 +525,7 @@ export default function Profile() {
               style={styles.statsButton} 
               onPress={() => router.push('/user-stats')}
             >
-              <Ionicons name="stats-chart" size={18} color="#000" />
+              <Ionicons name="stats-chart" size={18} color="#fff" />
               <Text style={styles.statsButtonText}>Stats</Text>
             </TouchableOpacity>
           </View>
@@ -535,7 +535,7 @@ export default function Profile() {
             style={styles.adminButton} 
             onPress={() => router.push('/admin-dashboard')}
           >
-            <Ionicons name="analytics" size={20} color="#FFD700" />
+            <Ionicons name="analytics" size={20} color="#fff" />
             <Text style={styles.adminButtonText}>Admin Dashboard</Text>
           </TouchableOpacity>
 
