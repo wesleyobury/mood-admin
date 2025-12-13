@@ -100,21 +100,21 @@ export default function CreatePost() {
   }, [params.workoutStats]);
 
   const pickImages = async () => {
-    const maxImages = hasStatsCard ? 4 : 5;
+    const maxMedia = hasStatsCard ? 4 : 5;
     
-    if (selectedImages.length >= maxImages) {
-      showAlert('Limit Reached', `You can only select up to ${maxImages} images`);
+    if (selectedMedia.length >= maxMedia) {
+      showAlert('Limit Reached', `You can only select up to ${maxMedia} items`);
       return;
     }
 
     const { status } = await ImagePicker.requestMediaLibraryPermissionsAsync();
     
     if (status !== 'granted') {
-      showAlert('Permission Required', 'Sorry, we need camera roll permissions to select images!');
+      showAlert('Permission Required', 'Sorry, we need camera roll permissions to select media!');
       return;
     }
 
-    // Use built-in editor with 4:5 aspect ratio
+    // Use built-in editor with 4:5 aspect ratio for images
     const result = await ImagePicker.launchImageLibraryAsync({
       mediaTypes: ['images'],
       allowsMultipleSelection: false,
@@ -124,8 +124,45 @@ export default function CreatePost() {
     });
 
     if (!result.canceled && result.assets && result.assets.length > 0) {
-      const croppedUri = result.assets[0].uri;
-      setSelectedImages([...selectedImages, croppedUri].slice(0, maxImages));
+      const asset = result.assets[0];
+      setSelectedMedia([...selectedMedia, { uri: asset.uri, type: 'image' }].slice(0, maxMedia));
+    }
+  };
+
+  const pickVideo = async () => {
+    const maxMedia = hasStatsCard ? 4 : 5;
+    
+    if (selectedMedia.length >= maxMedia) {
+      showAlert('Limit Reached', `You can only select up to ${maxMedia} items`);
+      return;
+    }
+
+    const { status } = await ImagePicker.requestMediaLibraryPermissionsAsync();
+    
+    if (status !== 'granted') {
+      showAlert('Permission Required', 'Sorry, we need camera roll permissions to select videos!');
+      return;
+    }
+
+    // Pick video without editing (video editing not supported in expo-image-picker)
+    const result = await ImagePicker.launchImageLibraryAsync({
+      mediaTypes: ['videos'],
+      allowsMultipleSelection: false,
+      allowsEditing: false,
+      videoMaxDuration: 60, // 60 seconds max
+      quality: 0.7,
+    });
+
+    if (!result.canceled && result.assets && result.assets.length > 0) {
+      const asset = result.assets[0];
+      
+      // Check video duration if available
+      if (asset.duration && asset.duration > 60000) { // 60 seconds in ms
+        showAlert('Video Too Long', 'Please select a video under 60 seconds');
+        return;
+      }
+      
+      setSelectedMedia([...selectedMedia, { uri: asset.uri, type: 'video' }].slice(0, maxMedia));
     }
   };
 
