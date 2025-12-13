@@ -1091,8 +1091,114 @@ const styles = StyleSheet.create({
     borderRadius: 4,
     padding: 4,
   },
-  achievementsTab: {
+  savedTab: {
     flex: 1,
+  },
+  savedWorkoutsList: {
+    gap: 12,
+  },
+  savedWorkoutCard: {
+    backgroundColor: '#1a1a1a',
+    borderRadius: 12,
+    padding: 16,
+    borderWidth: 1,
+    borderColor: '#333',
+  },
+  savedWorkoutHeader: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'flex-start',
+    marginBottom: 12,
+  },
+  savedWorkoutInfo: {
+    flex: 1,
+  },
+  savedWorkoutName: {
+    fontSize: 16,
+    fontWeight: '700',
+    color: '#fff',
+    marginBottom: 4,
+  },
+  savedWorkoutMeta: {
+    fontSize: 13,
+    color: '#888',
+  },
+  savedWorkoutBadge: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: 'rgba(255, 215, 0, 0.1)',
+    paddingHorizontal: 8,
+    paddingVertical: 4,
+    borderRadius: 12,
+    gap: 4,
+  },
+  savedWorkoutBadgeText: {
+    fontSize: 11,
+    color: '#FFD700',
+    fontWeight: '600',
+  },
+  savedWorkoutExercises: {
+    marginTop: 4,
+  },
+  savedExerciseName: {
+    fontSize: 13,
+    color: '#aaa',
+    marginBottom: 2,
+  },
+  savedExerciseMore: {
+    fontSize: 12,
+    color: '#666',
+    fontStyle: 'italic',
+    marginTop: 4,
+  },
+  savedModalContent: {
+    padding: 4,
+  },
+  savedModalName: {
+    fontSize: 20,
+    fontWeight: '700',
+    color: '#fff',
+    marginBottom: 8,
+  },
+  savedModalMeta: {
+    fontSize: 14,
+    color: '#888',
+    marginBottom: 20,
+  },
+  savedModalExercises: {
+    gap: 12,
+  },
+  savedModalExercise: {
+    backgroundColor: '#1a1a1a',
+    borderRadius: 8,
+    padding: 12,
+    borderLeftWidth: 3,
+    borderLeftColor: '#FFD700',
+  },
+  savedModalExerciseName: {
+    fontSize: 15,
+    fontWeight: '600',
+    color: '#fff',
+    marginBottom: 4,
+  },
+  savedModalExerciseDetail: {
+    fontSize: 12,
+    color: '#888',
+  },
+  loadWorkoutButton: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: 8,
+    backgroundColor: '#FFD700',
+    borderRadius: 12,
+    paddingVertical: 16,
+    marginTop: 24,
+  },
+  loadWorkoutButtonText: {
+    fontSize: 16,
+    fontWeight: '700',
+    color: '#000',
   },
   emptyState: {
     alignItems: 'center',
