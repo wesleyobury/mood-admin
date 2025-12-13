@@ -766,6 +766,70 @@ async def update_profile(
     
     return {"message": "Profile updated successfully"}
 
+@api_router.delete("/users/me")
+async def delete_user_account(current_user_id: str = Depends(get_current_user)):
+    """Delete user account and all associated data"""
+    try:
+        # Get user info for logging
+        user = await db.users.find_one({"_id": ObjectId(current_user_id)})
+        if not user:
+            raise HTTPException(status_code=404, detail="User not found")
+        
+        username = user.get("username", "unknown")
+        logger.info(f"🗑️ Deleting account for user: {username} ({current_user_id})")
+        
+        # Delete user's posts
+        posts_result = await db.posts.delete_many({"author_id": current_user_id})
+        logger.info(f"Deleted {posts_result.deleted_count} posts")
+        
+        # Delete user's comments
+        comments_result = await db.comments.delete_many({"author_id": current_user_id})
+        logger.info(f"Deleted {comments_result.deleted_count} comments")
+        
+        # Delete user's saved workouts
+        saved_result = await db.saved_workouts.delete_many({"user_id": current_user_id})
+        logger.info(f"Deleted {saved_result.deleted_count} saved workouts")
+        
+        # Delete user's workout cards
+        cards_result = await db.workout_cards.delete_many({"user_id": current_user_id})
+        logger.info(f"Deleted {cards_result.deleted_count} workout cards")
+        
+        # Delete user's analytics events
+        events_result = await db.user_events.delete_many({"user_id": current_user_id})
+        logger.info(f"Deleted {events_result.deleted_count} analytics events")
+        
+        # Delete user's sessions
+        sessions_result = await db.user_sessions.delete_many({"user_id": current_user_id})
+        logger.info(f"Deleted {sessions_result.deleted_count} sessions")
+        
+        # Remove user from followers/following lists
+        await db.users.update_many(
+            {"followers": current_user_id},
+            {"$pull": {"followers": current_user_id}, "$inc": {"followers_count": -1}}
+        )
+        await db.users.update_many(
+            {"following": current_user_id},
+            {"$pull": {"following": current_user_id}, "$inc": {"following_count": -1}}
+        )
+        
+        # Delete likes on user's posts
+        await db.likes.delete_many({"author_id": current_user_id})
+        
+        # Delete the user
+        delete_result = await db.users.delete_one({"_id": ObjectId(current_user_id)})
+        
+        if delete_result.deleted_count == 0:
+            raise HTTPException(status_code=404, detail="User not found")
+        
+        logger.info(f"✅ Successfully deleted account for user: {username}")
+        return {"message": "Account deleted successfully"}
+        
+    except HTTPException:
+        raise
+    except Exception as e:
+        logger.error(f"Error deleting user account: {e}")
+        raise HTTPException(status_code=500, detail="Failed to delete account")
+
 @api_router.post("/users/me/avatar")
 async def upload_profile_picture(
     file: UploadFile = File(...),
