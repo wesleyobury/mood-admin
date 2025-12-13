@@ -497,11 +497,11 @@ export default function Explore() {
                   </TouchableOpacity>
                 </View>
 
-                {/* Post Images */}
+                {/* Post Media (Images and Videos) */}
                 {post.media_urls.length > 0 && (
                   <View>
-                    <ImageCarousel 
-                      images={post.media_urls.map(url => {
+                    <MediaCarousel 
+                      media={post.media_urls.map(url => {
                         // If URL doesn't start with http/https, prepend backend URL
                         if (!url.startsWith('http')) {
                           return url.startsWith('/') ? `${API_URL}${url}` : `${API_URL}/api/uploads/${url}`;
