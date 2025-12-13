@@ -1173,15 +1173,15 @@ const styles = StyleSheet.create({
     color: '#FFD700',
   },
   detailValueSmall: {
-    fontSize: 16, // Changed back to 16 to match other cards
+    fontSize: 13,
     fontWeight: 'bold',
     color: '#ffffff',
-    marginTop: 8,
-    marginBottom: 4,
-    paddingHorizontal: 12,
+    marginTop: 6,
+    marginBottom: 2,
+    paddingHorizontal: 2,
     textAlign: 'center',
-    lineHeight: 18, // Adjusted line height for larger font
-    flexShrink: 1, // Allow text to shrink if needed
+    lineHeight: 16,
+    flexShrink: 1,
   },
   stepText: {
     fontSize: 16,
