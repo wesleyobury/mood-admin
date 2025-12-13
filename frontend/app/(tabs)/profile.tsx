@@ -718,56 +718,78 @@ export default function Profile() {
               ) : (
                 <View style={styles.savedWorkoutsList}>
                   {savedWorkouts.map((savedWorkout) => (
-                    <TouchableOpacity
-                      key={savedWorkout.id}
-                      style={styles.savedWorkoutCard}
-                      onPress={() => {
-                        // Check if this is a featured workout
-                        const featuredId = FEATURED_WORKOUT_IDS[savedWorkout.name];
-                        if (featuredId) {
-                          // Navigate to featured workout detail page
-                          router.push({
-                            pathname: '/featured-workout-detail',
-                            params: { id: featuredId },
-                          });
-                        } else {
-                          // Show modal for custom workouts
-                          setSelectedSavedWorkout(savedWorkout);
-                          setSavedModalVisible(true);
-                        }
-                      }}
-                    >
-                      <View style={styles.savedWorkoutHeader}>
-                        <View style={styles.savedWorkoutInfo}>
-                          <Text style={styles.savedWorkoutName}>{savedWorkout.name}</Text>
-                          <Text style={styles.savedWorkoutMeta}>
-                            {savedWorkout.workouts.length} exercises • {savedWorkout.total_duration} min
-                          </Text>
+                    <View key={savedWorkout.id} style={styles.savedWorkoutCardWrapper}>
+                      <TouchableOpacity
+                        style={styles.savedWorkoutCard}
+                        onPress={() => {
+                          // Check if this is a featured workout
+                          const featuredId = FEATURED_WORKOUT_IDS[savedWorkout.name];
+                          if (featuredId) {
+                            // Navigate to featured workout detail page
+                            router.push({
+                              pathname: '/featured-workout-detail',
+                              params: { id: featuredId },
+                            });
+                          } else {
+                            // Show modal for custom workouts
+                            setSelectedSavedWorkout(savedWorkout);
+                            setSavedModalVisible(true);
+                          }
+                        }}
+                      >
+                        <View style={styles.savedWorkoutHeader}>
+                          <View style={styles.savedWorkoutInfo}>
+                            <Text style={styles.savedWorkoutName}>{savedWorkout.name}</Text>
+                            <Text style={styles.savedWorkoutMeta}>
+                              {savedWorkout.workouts.length} exercises • {savedWorkout.total_duration} min
+                            </Text>
+                          </View>
+                          <View style={styles.savedWorkoutBadge}>
+                            <Ionicons 
+                              name={savedWorkout.source === 'featured' ? 'star' : 'create'} 
+                              size={14} 
+                              color="#FFD700" 
+                            />
+                            <Text style={styles.savedWorkoutBadgeText}>
+                              {savedWorkout.source === 'featured' ? 'Featured' : 'Custom'}
+                            </Text>
+                          </View>
                         </View>
-                        <View style={styles.savedWorkoutBadge}>
-                          <Ionicons 
-                            name={savedWorkout.source === 'featured' ? 'star' : 'create'} 
-                            size={14} 
-                            color="#FFD700" 
-                          />
-                          <Text style={styles.savedWorkoutBadgeText}>
-                            {savedWorkout.source === 'featured' ? 'Featured' : 'Custom'}
-                          </Text>
+                        <View style={styles.savedWorkoutExercises}>
+                          {savedWorkout.workouts.slice(0, 3).map((exercise, index) => (
+                            <Text key={index} style={styles.savedExerciseName}>
+                              • {exercise.name}
+                            </Text>
+                          ))}
+                          {savedWorkout.workouts.length > 3 && (
+                            <Text style={styles.savedExerciseMore}>
+                              +{savedWorkout.workouts.length - 3} more
+                            </Text>
+                          )}
                         </View>
-                      </View>
-                      <View style={styles.savedWorkoutExercises}>
-                        {savedWorkout.workouts.slice(0, 3).map((exercise, index) => (
-                          <Text key={index} style={styles.savedExerciseName}>
-                            • {exercise.name}
-                          </Text>
-                        ))}
-                        {savedWorkout.workouts.length > 3 && (
-                          <Text style={styles.savedExerciseMore}>
-                            +{savedWorkout.workouts.length - 3} more
-                          </Text>
-                        )}
-                      </View>
-                    </TouchableOpacity>
+                      </TouchableOpacity>
+                      
+                      {/* Delete/Unsave Button */}
+                      <TouchableOpacity
+                        style={styles.unsaveButton}
+                        onPress={() => {
+                          Alert.alert(
+                            'Remove Saved Workout',
+                            `Are you sure you want to remove "${savedWorkout.name}" from your saved workouts?`,
+                            [
+                              { text: 'Cancel', style: 'cancel' },
+                              { 
+                                text: 'Remove', 
+                                style: 'destructive',
+                                onPress: () => handleDeleteSavedWorkout(savedWorkout.id)
+                              },
+                            ]
+                          );
+                        }}
+                      >
+                        <Ionicons name="bookmark" size={20} color="#FFD700" />
+                      </TouchableOpacity>
+                    </View>
                   ))}
                 </View>
               )}
