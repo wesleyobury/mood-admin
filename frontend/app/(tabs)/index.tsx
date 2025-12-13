@@ -107,7 +107,7 @@ const featuredWorkouts = [
   {
     id: '6',
     mood: 'I Want to Sweat',
-    title: 'HIIT - Light Weights',
+    title: 'HIIT - Intense Full Body',
     duration: '45–55 min',
     badge: 'Intense',
     exercises: [
