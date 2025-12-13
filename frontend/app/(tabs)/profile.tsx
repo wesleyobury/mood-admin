@@ -460,6 +460,12 @@ export default function Profile() {
   return (
     <View style={styles.container}>
       <View style={[styles.header, { paddingTop: insets.top + 16 }]}>
+        <TouchableOpacity 
+          style={styles.settingsButton}
+          onPress={() => router.push('/settings')}
+        >
+          <Ionicons name="settings-outline" size={24} color="#fff" />
+        </TouchableOpacity>
         <Text style={styles.username}>@{user.username}</Text>
         <TouchableOpacity 
           style={styles.createButton}
