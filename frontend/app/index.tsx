@@ -270,7 +270,7 @@ export default function Welcome() {
             <AnimatedFeatureItem
               icon="heart"
               title="Mood-Based Workouts"
-              description="6 different moods, finely curated"
+              description="Six carefully curated mood profiles"
               delay={0}
             />
             <AnimatedFeatureItem
