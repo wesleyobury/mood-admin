@@ -59,6 +59,30 @@ interface WorkoutCard {
   created_at: string;
 }
 
+interface SavedWorkout {
+  id: string;
+  name: string;
+  workouts: Array<{
+    name: string;
+    equipment: string;
+    duration: string;
+    difficulty: string;
+    description?: string;
+    battlePlan?: string;
+    imageUrl?: string;
+    intensityReason?: string;
+    workoutType?: string;
+    moodCard?: string;
+    moodTips?: any[];
+  }>;
+  total_duration: number;
+  source: string;
+  featured_workout_id?: string;
+  mood?: string;
+  title?: string;
+  created_at: string;
+}
+
 export default function Profile() {
   const [user, setUser] = useState({
     id: 'current-user',
