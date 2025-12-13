@@ -1342,7 +1342,7 @@ const styles = StyleSheet.create({
     marginTop: 8,
     gap: 3,
   },
-  workoutTitle: {
+  savedWorkoutTitle: {
     color: '#fff',
     fontSize: 11,
     fontWeight: '500',

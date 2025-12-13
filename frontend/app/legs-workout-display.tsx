@@ -338,8 +338,8 @@ export default function LegsWorkoutDisplayScreen() {
     if (token) {
       Analytics.workoutAddedToCart(token, {
         workout_name: workout.name,
-        mood_category: moodTitle,
-        equipment: equipment,
+        mood_category: mood,
+        equipment: muscleGroupName,
       });
     }
     addToCart(workoutItem);
