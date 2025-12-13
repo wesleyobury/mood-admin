@@ -52,6 +52,31 @@ export default function Settings() {
     }
   };
 
+  const handleSubmitFeedback = async () => {
+    const subject = encodeURIComponent('MOOD feedback');
+    const body = encodeURIComponent(`Hi,\n\nI'd like to share the following feedback:\n\n\n---\nUser: ${user?.username || 'Unknown'}\nApp Version: 1.0.0`);
+    const mailtoUrl = `mailto:${SUPPORT_EMAIL}?subject=${subject}&body=${body}`;
+    
+    try {
+      const canOpen = await Linking.canOpenURL(mailtoUrl);
+      if (canOpen) {
+        await Linking.openURL(mailtoUrl);
+      } else {
+        Alert.alert(
+          'Submit Feedback',
+          `Please email your feedback to:\n${SUPPORT_EMAIL}`,
+          [{ text: 'OK' }]
+        );
+      }
+    } catch (error) {
+      Alert.alert(
+        'Submit Feedback',
+        `Please email your feedback to:\n${SUPPORT_EMAIL}`,
+        [{ text: 'OK' }]
+      );
+    }
+  };
+
   const handleDeleteAccount = () => {
     Alert.alert(
       'Delete Account',
