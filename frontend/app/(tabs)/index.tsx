@@ -50,7 +50,7 @@ const featuredWorkouts = [
     id: '2',
     mood: 'Muscle Gainer',
     title: 'Back & Bis Volume',
-    duration: '35–45 min',
+    duration: '45–60 min',
     badge: 'Trending',
     exercises: [
       'Adjustable Bench - Chest Support Row',
