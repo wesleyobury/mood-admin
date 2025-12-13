@@ -1919,4 +1919,12 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     color: '#FFD700',
   },
+  dotTouchArea: {
+    padding: 8,
+    marginHorizontal: 4,
+  },
+  activeDotTouchArea: {
+    padding: 8,
+    marginHorizontal: 4,
+  },
 });
