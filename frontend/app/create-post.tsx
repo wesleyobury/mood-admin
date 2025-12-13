@@ -743,7 +743,19 @@ export default function CreatePost() {
               style={styles.imageScroll}
               contentContainerStyle={styles.imageScrollContent}
             >
-              {/* Add Photo Button */}
+              {/* Take Photo Button (Camera) */}
+              <TouchableOpacity 
+                style={styles.addImageButton}
+                onPress={takePhoto}
+                disabled={selectedMedia.length >= (hasStatsCard ? 4 : 5)}
+              >
+                <View style={styles.addImageIconContainer}>
+                  <Ionicons name="camera" size={24} color="#FFD700" />
+                </View>
+                <Text style={styles.addImageText}>Camera</Text>
+              </TouchableOpacity>
+
+              {/* Choose Photo Button */}
               <TouchableOpacity 
                 style={styles.addImageButton}
                 onPress={pickImages}
@@ -755,14 +767,26 @@ export default function CreatePost() {
                 <Text style={styles.addImageText}>Photo</Text>
               </TouchableOpacity>
 
-              {/* Add Video Button */}
+              {/* Record Video Button (Camera) */}
+              <TouchableOpacity 
+                style={styles.addImageButton}
+                onPress={recordVideo}
+                disabled={selectedMedia.length >= (hasStatsCard ? 4 : 5)}
+              >
+                <View style={styles.addImageIconContainer}>
+                  <Ionicons name="videocam" size={24} color="#FFD700" />
+                </View>
+                <Text style={styles.addImageText}>Record</Text>
+              </TouchableOpacity>
+
+              {/* Choose Video Button */}
               <TouchableOpacity 
                 style={styles.addImageButton}
                 onPress={pickVideo}
                 disabled={selectedMedia.length >= (hasStatsCard ? 4 : 5)}
               >
                 <View style={styles.addImageIconContainer}>
-                  <Ionicons name="videocam" size={24} color="#FFD700" />
+                  <Ionicons name="film" size={24} color="#FFD700" />
                 </View>
                 <Text style={styles.addImageText}>Video</Text>
               </TouchableOpacity>
