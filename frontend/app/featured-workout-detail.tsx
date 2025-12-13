@@ -344,7 +344,7 @@ const featuredWorkoutData: Record<string, {
   },
   '6': {
     mood: 'I Want to Sweat',
-    title: 'HIIT - Light Weights',
+    title: 'HIIT - Intense Full Body',
     duration: '45–55 min',
     image: 'https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?w=800&h=600&fit=crop',
     exercises: [
@@ -357,7 +357,7 @@ const featuredWorkoutData: Record<string, {
         imageUrl: 'https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw2fHxrZXR0bGViZWxsJTIwYW1yYXB8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
         intensityReason: 'Maximum intensity AMRAP combining power, agility, and complex movement patterns.',
         difficulty: 'advanced',
-        workoutType: 'HIIT - Light Weights',
+        workoutType: 'HIIT - Intense Full Body',
         moodCard: 'I Want to Sweat',
         moodTips: [
           { icon: 'flash', title: 'Double Swing Power', description: 'Double swings—engage lats, keep wrists neutral throughout the movement.' },
@@ -373,7 +373,7 @@ const featuredWorkoutData: Record<string, {
         imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw1fHxiYXR0bGUlMjByb3BlcyUyMGFkdmFuY2VkfGVufDB8fHx8MVc1Njg4MzIzN3ww&ixlib=rb-4.1.0&q=85',
         intensityReason: 'Extended high-intensity gauntlet testing advanced cardiovascular capacity and rope mastery.',
         difficulty: 'advanced',
-        workoutType: 'HIIT - Light Weights',
+        workoutType: 'HIIT - Intense Full Body',
         moodCard: 'I Want to Sweat',
         moodTips: [
           { icon: 'refresh', title: 'Rhythm Control', description: 'Keep steady rhythm across all rope patterns, even when fatigued.' },
@@ -389,7 +389,7 @@ const featuredWorkoutData: Record<string, {
         imageUrl: 'https://images.unsplash.com/photo-1517838277536-f5f99be501cd?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHc2fHxzbGVkJTIwYnVycGVlfGVufDB8fHx8MTc1Njg4MzIzN3ww&ixlib=rb-4.1.0&q=85',
         intensityReason: 'Ultimate challenge combining heavy sled work with burpees for maximum conditioning stress.',
         difficulty: 'advanced',
-        workoutType: 'HIIT - Light Weights',
+        workoutType: 'HIIT - Intense Full Body',
         moodCard: 'I Want to Sweat',
         moodTips: [
           { icon: 'body', title: 'Burpee Transition', description: 'Drop tight into burpees—no sagging hips. Keep core braced.' },
