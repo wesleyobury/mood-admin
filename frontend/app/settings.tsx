@@ -136,6 +136,19 @@ export default function Settings() {
 
           <TouchableOpacity 
             style={styles.settingsItem}
+            onPress={handleSubmitFeedback}
+          >
+            <View style={styles.settingsItemLeft}>
+              <View style={styles.iconContainer}>
+                <Ionicons name="chatbox-outline" size={22} color="#fff" />
+              </View>
+              <Text style={styles.settingsItemText}>Submit Feedback</Text>
+            </View>
+            <Ionicons name="chevron-forward" size={20} color="#666" />
+          </TouchableOpacity>
+
+          <TouchableOpacity 
+            style={styles.settingsItem}
             onPress={handleContactSupport}
           >
             <View style={styles.settingsItemLeft}>
