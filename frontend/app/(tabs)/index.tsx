@@ -154,30 +154,19 @@ const WorkoutCarouselCard = ({
       <View style={styles.carouselTopRow}>
         {/* Bookmark/Save button - toggleable */}
         <TouchableOpacity 
-          style={[
-            styles.bookmarkButton,
-            isSaved && styles.bookmarkButtonSaved
-          ]}
+          style={styles.bookmarkButton}
           onPress={() => {
-            console.log('Bookmark pressed, isSaved:', isSaved, 'isSaving:', isSaving);
+            console.log('Bookmark pressed');
             if (!isSaving) {
               if (isSaved) {
-                console.log('Calling onUnsave');
                 onUnsave();
               } else {
-                console.log('Calling onSave');
                 onSave();
               }
             }
           }}
-          disabled={isSaving}
-          hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }}
         >
-          <Ionicons 
-            name={isSaved ? "bookmark" : "bookmark-outline"} 
-            size={20} 
-            color={isSaved ? "#FFD700" : "#fff"} 
-          />
+          <Text style={{ color: '#fff', fontSize: 18, fontWeight: 'bold' }}>B</Text>
         </TouchableOpacity>
         
         {/* Badge */}
