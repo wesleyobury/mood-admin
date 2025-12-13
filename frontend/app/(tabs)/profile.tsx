@@ -307,6 +307,73 @@ export default function Profile() {
     }
   };
 
+  const fetchSavedWorkouts = async () => {
+    setLoadingSaved(true);
+    try {
+      const response = await fetch(`${API_URL}/api/saved-workouts`, {
+        headers: {
+          'Authorization': `Bearer ${token}`,
+        },
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        setSavedWorkouts(data);
+      } else {
+        console.error('Failed to fetch saved workouts:', response.status);
+      }
+    } catch (error) {
+      console.error('Error fetching saved workouts:', error);
+    } finally {
+      setLoadingSaved(false);
+    }
+  };
+
+  const handleDeleteSavedWorkout = async (workoutId: string) => {
+    try {
+      const response = await fetch(`${API_URL}/api/saved-workouts/${workoutId}`, {
+        method: 'DELETE',
+        headers: {
+          'Authorization': `Bearer ${token}`,
+        },
+      });
+
+      if (response.ok) {
+        setSavedWorkouts(savedWorkouts.filter(w => w.id !== workoutId));
+        setSavedModalVisible(false);
+        setSelectedSavedWorkout(null);
+      }
+    } catch (error) {
+      console.error('Error deleting saved workout:', error);
+    }
+  };
+
+  const handleLoadSavedWorkout = (savedWorkout: SavedWorkout) => {
+    // Add all exercises from saved workout to cart
+    savedWorkout.workouts.forEach(exercise => {
+      addToCart({
+        id: `${exercise.name}-${Date.now()}-${Math.random()}`,
+        name: exercise.name,
+        duration: exercise.duration,
+        description: exercise.description || '',
+        battlePlan: exercise.battlePlan || '',
+        imageUrl: exercise.imageUrl || '',
+        intensityReason: exercise.intensityReason || '',
+        equipment: exercise.equipment,
+        difficulty: exercise.difficulty,
+        workoutType: exercise.workoutType || '',
+        moodCard: exercise.moodCard || '',
+        moodTips: exercise.moodTips || [],
+      });
+    });
+    
+    setSavedModalVisible(false);
+    setSelectedSavedWorkout(null);
+    
+    // Navigate to cart
+    router.push('/cart');
+  };
+
   const handleDeleteCard = async (cardId: string) => {
     try {
       const response = await fetch(`${API_URL}/api/workout-cards/${cardId}`, {
