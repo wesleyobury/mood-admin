@@ -176,6 +176,13 @@ export default function Profile() {
     }
   }, [activeTab, token]);
 
+  // Load saved workouts when Saved tab is selected
+  useEffect(() => {
+    if (activeTab === 'saved' && token) {
+      fetchSavedWorkouts();
+    }
+  }, [activeTab, token]);
+
   // Load user posts when Posts tab is selected
   useEffect(() => {
     if (activeTab === 'posts' && token && user.id !== 'current-user') {
