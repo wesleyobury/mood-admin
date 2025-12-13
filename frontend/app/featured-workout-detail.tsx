@@ -451,10 +451,6 @@ export default function FeaturedWorkoutDetail() {
       setIsSaving(false);
     }
   };
-    } finally {
-      setIsSaving(false);
-    }
-  };
   
   if (!workout) {
     return (
