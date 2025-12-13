@@ -1050,6 +1050,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     paddingHorizontal: 10,
+    zIndex: 10,
   },
   bookmarkButtonSaved: {
     backgroundColor: 'rgba(0, 0, 0, 0.4)',
