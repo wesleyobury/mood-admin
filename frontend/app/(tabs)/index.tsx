@@ -152,11 +152,6 @@ const WorkoutCarouselCard = ({
       
       {/* Top row - Badge and Bookmark */}
       <View style={styles.carouselTopRow}>
-        {/* Badge */}
-        <View style={styles.carouselBadge}>
-          <Text style={styles.carouselBadgeText}>{workout.badge}</Text>
-        </View>
-        
         {/* Bookmark/Save button - toggleable */}
         <TouchableOpacity 
           style={[
@@ -184,6 +179,11 @@ const WorkoutCarouselCard = ({
             color={isSaved ? "#FFD700" : "#fff"} 
           />
         </TouchableOpacity>
+        
+        {/* Badge */}
+        <View style={styles.carouselBadge}>
+          <Text style={styles.carouselBadgeText}>{workout.badge}</Text>
+        </View>
       </View>
       
       {/* Bottom info - mood + workout format */}
