@@ -1082,19 +1082,20 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: 'rgba(255, 255, 255, 0.1)',
     borderRadius: 12,
-    padding: 14, // Reduced from 18 to 14 to prevent overflow
+    paddingVertical: 12,
+    paddingHorizontal: 6,
     alignItems: 'center',
     borderWidth: 1,
     borderColor: 'rgba(255, 255, 255, 0.2)',
-    minWidth: 90, // Reduced from 100 to 90
-    maxWidth: '32%', // Added max width constraint to prevent overflow
+    minWidth: 85,
+    maxWidth: '32%',
   },
   detailValue: {
-    fontSize: 16,
+    fontSize: 14,
     fontWeight: 'bold',
     color: '#ffffff',
-    marginTop: 8,
-    marginBottom: 4,
+    marginTop: 6,
+    marginBottom: 2,
     textAlign: 'center',
   },
   detailLabel: {
