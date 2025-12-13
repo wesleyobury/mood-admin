@@ -261,7 +261,7 @@ export default function Welcome() {
             </Text>
 
             <Text style={styles.description}>
-              Nearly 1,000 curated workouts. Choose based on your mood, equipment, and goals.
+              Access hundreds of curated workouts, intelligently filtered by your mood, available equipment, and fitness goals.
             </Text>
           </View>
 
