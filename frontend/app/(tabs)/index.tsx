@@ -183,7 +183,7 @@ const WorkoutCarouselCard = ({
           ) : isSaved ? (
             <Ionicons name="bookmark" size={20} color="#FFD700" />
           ) : (
-            <Ionicons name="bookmark-outline" size={22} color="rgba(255,255,255,0.9)" />
+            <Ionicons name="bookmark-outline" size={20} color="#fff" />
           )}
         </TouchableOpacity>
       </View>
