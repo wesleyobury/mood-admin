@@ -148,26 +148,29 @@ export default function Settings() {
           </TouchableOpacity>
         </View>
 
-        {/* Danger Zone */}
+        {/* Account Management */}
         <View style={styles.section}>
-          <Text style={styles.sectionTitle}>Danger Zone</Text>
+          <Text style={styles.sectionTitle}>Account Management</Text>
           
           <TouchableOpacity 
-            style={[styles.settingsItem, styles.dangerItem]}
+            style={styles.deleteItem}
             onPress={handleDeleteAccount}
             disabled={isDeleting}
           >
             <View style={styles.settingsItemLeft}>
-              <View style={[styles.iconContainer, styles.dangerIconContainer]}>
+              <View style={styles.deleteIconContainer}>
                 {isDeleting ? (
-                  <ActivityIndicator size="small" color="#FF4444" />
+                  <ActivityIndicator size="small" color="#888" />
                 ) : (
-                  <Ionicons name="trash-outline" size={22} color="#FF4444" />
+                  <Ionicons name="person-remove-outline" size={20} color="#888" />
                 )}
               </View>
-              <Text style={styles.dangerText}>Delete Account</Text>
+              <View style={styles.deleteTextContainer}>
+                <Text style={styles.deleteText}>Delete Account</Text>
+                <Text style={styles.deleteSubtext}>Remove your account and all data</Text>
+              </View>
             </View>
-            <Ionicons name="chevron-forward" size={20} color="#FF4444" />
+            <Ionicons name="chevron-forward" size={18} color="#555" />
           </TouchableOpacity>
         </View>
 
