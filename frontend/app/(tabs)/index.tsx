@@ -424,7 +424,6 @@ export default function WorkoutsHome() {
       if (!token) return;
       
       try {
-        const API_URL = process.env.EXPO_PUBLIC_BACKEND_URL || '';
         const response = await fetch(`${API_URL}/api/users/me/stats`, {
           headers: { Authorization: `Bearer ${token}` },
         });
