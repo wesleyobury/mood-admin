@@ -759,85 +759,139 @@ export default function Profile() {
             </View>
           ) : (
             <View style={styles.savedTab}>
-              {loadingSaved ? (
-                <View style={styles.loadingContainer}>
-                  <ActivityIndicator size="large" color="#FFD700" />
-                  <Text style={styles.loadingText}>Loading saved workouts...</Text>
+              {/* Saved Workouts Section */}
+              <View style={styles.savedSection}>
+                <View style={styles.savedSectionHeader}>
+                  <Ionicons name="fitness" size={20} color="#FFD700" />
+                  <Text style={styles.savedSectionTitle}>Saved Workouts</Text>
                 </View>
-              ) : savedWorkouts.length === 0 ? (
-                <View style={styles.emptyState}>
-                  <Ionicons name="bookmark-outline" size={48} color="#666" />
-                  <Text style={styles.emptyTitle}>No saved workouts</Text>
-                  <Text style={styles.emptySubtitle}>
-                    Save workouts from featured workouts or your cart to find them here!
-                  </Text>
-                </View>
-              ) : (
-                <View style={styles.savedWorkoutsList}>
-                  {savedWorkouts.map((savedWorkout) => (
-                    <View key={savedWorkout.id} style={styles.savedWorkoutCard}>
-                      {/* Main content area */}
-                      <TouchableOpacity
-                        style={styles.savedWorkoutContent}
-                        onPress={() => {
-                          // Check if this is a featured workout
-                          const featuredId = FEATURED_WORKOUT_IDS[savedWorkout.name];
-                          if (featuredId) {
-                            // Navigate to featured workout detail page
-                            router.push({
-                              pathname: '/featured-workout-detail',
-                              params: { id: featuredId },
-                            });
-                          } else {
-                            // Show modal for custom workouts
-                            setSelectedSavedWorkout(savedWorkout);
-                            setSavedModalVisible(true);
-                          }
-                        }}
-                      >
-                        <View style={styles.savedWorkoutHeader}>
-                          <View style={styles.savedWorkoutInfo}>
-                            <Text style={styles.savedWorkoutName}>{savedWorkout.name}</Text>
-                            <Text style={styles.savedWorkoutMeta}>
-                              {savedWorkout.workouts.length} exercises • {savedWorkout.total_duration} min
-                            </Text>
+                {loadingSaved ? (
+                  <View style={styles.loadingContainerSmall}>
+                    <ActivityIndicator size="small" color="#FFD700" />
+                  </View>
+                ) : savedWorkouts.length === 0 ? (
+                  <View style={styles.emptyStateSmall}>
+                    <Text style={styles.emptySubtitleSmall}>No saved workouts yet</Text>
+                  </View>
+                ) : (
+                  <View style={styles.savedWorkoutsList}>
+                    {savedWorkouts.map((savedWorkout) => (
+                      <View key={savedWorkout.id} style={styles.savedWorkoutCard}>
+                        {/* Main content area */}
+                        <TouchableOpacity
+                          style={styles.savedWorkoutContent}
+                          onPress={() => {
+                            // Check if this is a featured workout
+                            const featuredId = FEATURED_WORKOUT_IDS[savedWorkout.name];
+                            if (featuredId) {
+                              // Navigate to featured workout detail page
+                              router.push({
+                                pathname: '/featured-workout-detail',
+                                params: { id: featuredId },
+                              });
+                            } else {
+                              // Show modal for custom workouts
+                              setSelectedSavedWorkout(savedWorkout);
+                              setSavedModalVisible(true);
+                            }
+                          }}
+                        >
+                          <View style={styles.savedWorkoutHeader}>
+                            <View style={styles.savedWorkoutInfo}>
+                              <Text style={styles.savedWorkoutName}>{savedWorkout.name}</Text>
+                              <Text style={styles.savedWorkoutMeta}>
+                                {savedWorkout.workouts.length} exercises • {savedWorkout.total_duration} min
+                              </Text>
+                            </View>
+                            <View style={styles.savedWorkoutBadge}>
+                              <Ionicons 
+                                name={savedWorkout.source === 'featured' ? 'star' : 'create'} 
+                                size={14} 
+                                color="#FFD700" 
+                              />
+                              <Text style={styles.savedWorkoutBadgeText}>
+                                {savedWorkout.source === 'featured' ? 'Featured' : 'Custom'}
+                              </Text>
+                            </View>
                           </View>
-                          <View style={styles.savedWorkoutBadge}>
-                            <Ionicons 
-                              name={savedWorkout.source === 'featured' ? 'star' : 'create'} 
-                              size={14} 
-                              color="#FFD700" 
-                            />
-                            <Text style={styles.savedWorkoutBadgeText}>
-                              {savedWorkout.source === 'featured' ? 'Featured' : 'Custom'}
-                            </Text>
+                          <View style={styles.savedWorkoutExercises}>
+                            {savedWorkout.workouts.slice(0, 3).map((exercise, index) => (
+                              <Text key={index} style={styles.savedExerciseName}>
+                                • {exercise.name}
+                              </Text>
+                            ))}
+                            {savedWorkout.workouts.length > 3 && (
+                              <Text style={styles.savedExerciseMore}>
+                                +{savedWorkout.workouts.length - 3} more
+                              </Text>
+                            )}
                           </View>
-                        </View>
-                        <View style={styles.savedWorkoutExercises}>
-                          {savedWorkout.workouts.slice(0, 3).map((exercise, index) => (
-                            <Text key={index} style={styles.savedExerciseName}>
-                              • {exercise.name}
-                            </Text>
-                          ))}
-                          {savedWorkout.workouts.length > 3 && (
-                            <Text style={styles.savedExerciseMore}>
-                              +{savedWorkout.workouts.length - 3} more
-                            </Text>
-                          )}
-                        </View>
-                      </TouchableOpacity>
-                      
-                      {/* X button - vertically centered on entire card */}
-                      <TouchableOpacity
-                        style={styles.unsaveButtonOnCard}
-                        onPress={() => handleDeleteSavedWorkout(savedWorkout.id)}
-                      >
-                        <Ionicons name="close" size={16} color="#FFD700" />
-                      </TouchableOpacity>
-                    </View>
-                  ))}
+                        </TouchableOpacity>
+                        
+                        {/* X button - vertically centered on entire card */}
+                        <TouchableOpacity
+                          style={styles.unsaveButtonOnCard}
+                          onPress={() => handleDeleteSavedWorkout(savedWorkout.id)}
+                        >
+                          <Ionicons name="close" size={16} color="#FFD700" />
+                        </TouchableOpacity>
+                      </View>
+                    ))}
+                  </View>
+                )}
+              </View>
+
+              {/* Saved Posts Section */}
+              <View style={styles.savedSection}>
+                <View style={styles.savedSectionHeader}>
+                  <Ionicons name="bookmark" size={20} color="#FFD700" />
+                  <Text style={styles.savedSectionTitle}>Saved Posts</Text>
                 </View>
-              )}
+                {loadingSavedPosts ? (
+                  <View style={styles.loadingContainerSmall}>
+                    <ActivityIndicator size="small" color="#FFD700" />
+                  </View>
+                ) : savedPosts.length === 0 ? (
+                  <View style={styles.emptyStateSmall}>
+                    <Text style={styles.emptySubtitleSmall}>No saved posts yet</Text>
+                  </View>
+                ) : (
+                  <View style={styles.savedPostsGrid}>
+                    {savedPosts.map((post) => (
+                      <TouchableOpacity 
+                        key={post.id} 
+                        style={styles.savedPostItem}
+                        onPress={() => router.push('/(tabs)/explore')}
+                      >
+                        {post.media_urls.length > 0 && (
+                          <Image
+                            source={{ 
+                              uri: post.media_urls[0].startsWith('http') 
+                                ? post.media_urls[0] 
+                                : `${API_URL}${post.media_urls[0].startsWith('/') ? '' : '/api/uploads/'}${post.media_urls[0]}` 
+                            }}
+                            style={styles.savedPostImage}
+                            contentFit="cover"
+                          />
+                        )}
+                        {/* Unsave button overlay */}
+                        <TouchableOpacity
+                          style={styles.unsavePostButton}
+                          onPress={() => handleUnsavePost(post.id)}
+                        >
+                          <Ionicons name="close" size={14} color="#FFD700" />
+                        </TouchableOpacity>
+                        {/* Multiple images indicator */}
+                        {post.media_urls.length > 1 && (
+                          <View style={styles.multipleImagesIndicator}>
+                            <Ionicons name="copy" size={12} color="#fff" />
+                          </View>
+                        )}
+                      </TouchableOpacity>
+                    ))}
+                  </View>
+                )}
+              </View>
             </View>
           )}
         </View>
