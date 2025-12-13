@@ -376,7 +376,7 @@ const styles = StyleSheet.create({
   },
   muteButton: {
     position: 'absolute',
-    bottom: 50,
+    bottom: 70,
     right: 12,
     width: 36,
     height: 36,
@@ -384,6 +384,33 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(0, 0, 0, 0.6)',
     justifyContent: 'center',
     alignItems: 'center',
+  },
+  scrubberContainer: {
+    position: 'absolute',
+    bottom: 30,
+    left: 12,
+    right: 12,
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    borderRadius: 20,
+    paddingHorizontal: 12,
+    paddingVertical: 6,
+  },
+  sliderWrapper: {
+    flex: 1,
+    marginHorizontal: 8,
+  },
+  slider: {
+    width: '100%',
+    height: 30,
+  },
+  timeText: {
+    color: '#fff',
+    fontSize: 11,
+    fontWeight: '500',
+    minWidth: 36,
+    textAlign: 'center',
   },
   dotsContainer: {
     position: 'absolute',
