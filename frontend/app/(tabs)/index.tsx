@@ -373,6 +373,8 @@ export default function WorkoutsHome() {
   const [greeting, setGreeting] = useState('');
   const [userStats, setUserStats] = useState({ workouts: 0, minutes: 0, streak: 0 });
   const [activeCarouselIndex, setActiveCarouselIndex] = useState(0);
+  const [savedWorkoutIds, setSavedWorkoutIds] = useState<Set<string>>(new Set());
+  const [savingWorkoutIds, setSavingWorkoutIds] = useState<Set<string>>(new Set());
   const carouselRef = useRef<FlatList>(null);
   const autoScrollTimer = useRef<NodeJS.Timeout | null>(null);
   const insets = useSafeAreaInsets();
@@ -385,6 +387,93 @@ export default function WorkoutsHome() {
     else if (hour < 18) setGreeting('Good afternoon');
     else setGreeting('Good evening');
   }, []);
+
+  // Check which featured workouts are already saved
+  useEffect(() => {
+    const checkSavedWorkouts = async () => {
+      if (!token) return;
+      
+      try {
+        const response = await fetch(`${API_URL}/api/saved-workouts`, {
+          headers: { Authorization: `Bearer ${token}` },
+        });
+        
+        if (response.ok) {
+          const savedWorkouts = await response.json();
+          const savedNames = new Set(savedWorkouts.map((w: any) => w.name));
+          const savedIds = new Set<string>();
+          
+          // Match saved workout names to featured workout IDs
+          featuredWorkouts.forEach(fw => {
+            const name = `${fw.mood} - ${fw.title}`;
+            if (savedNames.has(name)) {
+              savedIds.add(fw.id);
+            }
+          });
+          
+          setSavedWorkoutIds(savedIds);
+        }
+      } catch (error) {
+        console.log('Error checking saved workouts:', error);
+      }
+    };
+    
+    checkSavedWorkouts();
+  }, [token]);
+
+  // Save a featured workout
+  const handleSaveFeaturedWorkout = async (workout: typeof featuredWorkouts[0]) => {
+    if (!token) {
+      Alert.alert('Login Required', 'Please login to save workouts');
+      return;
+    }
+    
+    // Add to saving state
+    setSavingWorkoutIds(prev => new Set(prev).add(workout.id));
+    
+    try {
+      // We need to get the full workout data from the detail data
+      // For now, we'll save with basic info and the exercises list
+      const response = await fetch(`${API_URL}/api/saved-workouts`, {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${token}`,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: `${workout.mood} - ${workout.title}`,
+          workouts: workout.exercises.map(name => ({
+            name: name,
+            equipment: 'Various',
+            duration: '5-10 min',
+            difficulty: 'Intermediate',
+          })),
+          total_duration: parseInt(workout.duration.split('–')[0]) || 30,
+          source: 'featured',
+          featured_workout_id: workout.id,
+          mood: workout.mood,
+          title: workout.title,
+        }),
+      });
+      
+      if (response.ok || response.status === 400) {
+        // Add to saved state
+        setSavedWorkoutIds(prev => new Set(prev).add(workout.id));
+      } else {
+        Alert.alert('Error', 'Failed to save workout');
+      }
+    } catch (error) {
+      console.error('Error saving workout:', error);
+      Alert.alert('Error', 'Failed to save workout');
+    } finally {
+      // Remove from saving state
+      setSavingWorkoutIds(prev => {
+        const newSet = new Set(prev);
+        newSet.delete(workout.id);
+        return newSet;
+      });
+    }
+  };
 
   // Auto-scroll carousel every 4 seconds (slower)
   useEffect(() => {
