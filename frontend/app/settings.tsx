@@ -197,7 +197,7 @@ export default function Settings() {
           </View>
           
           <ScrollView style={styles.termsContent} showsVerticalScrollIndicator={false}>
-            <Text style={styles.termsLastUpdated}>Last Updated: December 2024</Text>
+            <Text style={styles.termsLastUpdated}>Last Updated: December 2025</Text>
             
             <Text style={styles.termsHeading}>1. Acceptance of Terms</Text>
             <Text style={styles.termsText}>
