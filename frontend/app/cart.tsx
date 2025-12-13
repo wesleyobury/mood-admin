@@ -126,72 +126,65 @@ export default function CartScreen() {
       return;
     }
     
-    // Ask user for workout name
-    Alert.prompt(
-      'Save Workout',
-      'Enter a name for this workout:',
-      [
-        { text: 'Cancel', style: 'cancel' },
-        { 
-          text: 'Save',
-          onPress: async (workoutName) => {
-            if (!workoutName || workoutName.trim() === '') {
-              Alert.alert('Error', 'Please enter a workout name');
-              return;
-            }
-            
-            setIsSaving(true);
-            try {
-              const totalDuration = cartItems.reduce((total, item) => {
-                const mins = parseInt(item.duration.split(' ')[0]) || 0;
-                return total + mins;
-              }, 0);
-              
-              const response = await fetch(`${API_URL}/api/saved-workouts`, {
-                method: 'POST',
-                headers: {
-                  'Authorization': `Bearer ${token}`,
-                  'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                  name: workoutName.trim(),
-                  workouts: cartItems.map(item => ({
-                    name: item.name,
-                    equipment: item.equipment,
-                    duration: item.duration,
-                    difficulty: item.difficulty,
-                    description: item.description,
-                    battlePlan: item.battlePlan,
-                    imageUrl: item.imageUrl,
-                    intensityReason: item.intensityReason,
-                    workoutType: item.workoutType,
-                    moodCard: item.moodCard,
-                    moodTips: item.moodTips,
-                  })),
-                  total_duration: totalDuration,
-                  source: 'custom',
-                }),
-              });
-              
-              if (response.ok) {
-                Alert.alert('Saved!', 'Workout saved to your profile');
-              } else if (response.status === 400) {
-                Alert.alert('Already Exists', 'A workout with this name already exists');
-              } else {
-                Alert.alert('Error', 'Failed to save workout');
-              }
-            } catch (error) {
-              console.error('Error saving workout:', error);
-              Alert.alert('Error', 'Failed to save workout');
-            } finally {
-              setIsSaving(false);
-            }
-          }
-        }
-      ],
-      'plain-text',
-      `Custom Workout ${new Date().toLocaleDateString()}`
-    );
+    // Set default workout name and show modal
+    setWorkoutName(`Custom Workout ${new Date().toLocaleDateString()}`);
+    setSaveModalVisible(true);
+  };
+
+  const handleConfirmSave = async () => {
+    if (!workoutName || workoutName.trim() === '') {
+      Alert.alert('Error', 'Please enter a workout name');
+      return;
+    }
+    
+    setIsSaving(true);
+    try {
+      const totalDuration = cartItems.reduce((total, item) => {
+        const mins = parseInt(item.duration.split(' ')[0]) || 0;
+        return total + mins;
+      }, 0);
+      
+      const response = await fetch(`${API_URL}/api/saved-workouts`, {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${token}`,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: workoutName.trim(),
+          workouts: cartItems.map(item => ({
+            name: item.name,
+            equipment: item.equipment,
+            duration: item.duration,
+            difficulty: item.difficulty,
+            description: item.description,
+            battlePlan: item.battlePlan,
+            imageUrl: item.imageUrl,
+            intensityReason: item.intensityReason,
+            workoutType: item.workoutType,
+            moodCard: item.moodCard,
+            moodTips: item.moodTips,
+          })),
+          total_duration: totalDuration,
+          source: 'custom',
+        }),
+      });
+      
+      setSaveModalVisible(false);
+      
+      if (response.ok) {
+        Alert.alert('Saved!', 'Workout saved to your profile');
+      } else if (response.status === 400) {
+        Alert.alert('Already Exists', 'A workout with this name already exists');
+      } else {
+        Alert.alert('Error', 'Failed to save workout');
+      }
+    } catch (error) {
+      console.error('Error saving workout:', error);
+      Alert.alert('Error', 'Failed to save workout');
+    } finally {
+      setIsSaving(false);
+    }
   };
 
   // Track cart view on mount
