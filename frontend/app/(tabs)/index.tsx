@@ -552,20 +552,26 @@ export default function WorkoutsHome() {
   };
 
   // Auto-scroll carousel every 4 seconds (slower)
-  useEffect(() => {
-    const startAutoScroll = () => {
-      autoScrollTimer.current = setInterval(() => {
-        setActiveCarouselIndex((prevIndex) => {
-          const nextIndex = (prevIndex + 1) % featuredWorkouts.length;
-          carouselRef.current?.scrollToIndex({
-            index: nextIndex,
-            animated: true,
-          });
-          return nextIndex;
+  // Timer resets when user manually swipes
+  const startAutoScroll = useCallback(() => {
+    // Clear existing timer first
+    if (autoScrollTimer.current) {
+      clearInterval(autoScrollTimer.current);
+    }
+    
+    autoScrollTimer.current = setInterval(() => {
+      setActiveCarouselIndex((prevIndex) => {
+        const nextIndex = (prevIndex + 1) % featuredWorkouts.length;
+        carouselRef.current?.scrollToIndex({
+          index: nextIndex,
+          animated: true,
         });
-      }, 4000);
-    };
+        return nextIndex;
+      });
+    }, 4000);
+  }, []);
 
+  useEffect(() => {
     startAutoScroll();
 
     return () => {
@@ -573,16 +579,18 @@ export default function WorkoutsHome() {
         clearInterval(autoScrollTimer.current);
       }
     };
-  }, []);
+  }, [startAutoScroll]);
 
-  // Handle carousel scroll end to update active index
+  // Handle carousel scroll end to update active index and reset timer
   const onCarouselScroll = useCallback((event: NativeSyntheticEvent<NativeScrollEvent>) => {
     const contentOffsetX = event.nativeEvent.contentOffset.x;
     const index = Math.round(contentOffsetX / (CARD_WIDTH + CARD_GAP));
     if (index !== activeCarouselIndex && index >= 0 && index < featuredWorkouts.length) {
       setActiveCarouselIndex(index);
+      // Reset the auto-scroll timer when user manually swipes
+      startAutoScroll();
     }
-  }, [activeCarouselIndex]);
+  }, [activeCarouselIndex, startAutoScroll]);
 
   // Render carousel item
   const renderCarouselItem = useCallback(({ item }: { item: typeof featuredWorkouts[0] }) => {
