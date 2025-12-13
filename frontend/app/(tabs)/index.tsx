@@ -507,11 +507,14 @@ export default function WorkoutsHome() {
   const handleUnsaveFeaturedWorkout = async (workout: typeof featuredWorkouts[0]) => {
     if (!token) return;
     
+    console.log('handleUnsaveFeaturedWorkout called for:', workout.title);
+    
     // Add to saving state
     setSavingWorkoutIds(prev => new Set(prev).add(workout.id));
     
     try {
       const workoutName = `${workout.mood} - ${workout.title}`;
+      console.log('Looking for workout to delete:', workoutName);
       
       // First, get all saved workouts to find the one to delete
       const listResponse = await fetch(`${API_URL}/api/saved-workouts`, {
@@ -520,23 +523,30 @@ export default function WorkoutsHome() {
       
       if (listResponse.ok) {
         const savedWorkouts = await listResponse.json();
+        console.log('Saved workouts:', savedWorkouts.map((w: any) => w.name));
         const workoutToDelete = savedWorkouts.find((w: any) => w.name === workoutName);
         
         if (workoutToDelete) {
+          console.log('Found workout to delete:', workoutToDelete._id);
           // Delete the saved workout
           const deleteResponse = await fetch(`${API_URL}/api/saved-workouts/${workoutToDelete._id}`, {
             method: 'DELETE',
             headers: { Authorization: `Bearer ${token}` },
           });
           
+          console.log('Delete response status:', deleteResponse.status);
+          
           if (deleteResponse.ok) {
             // Remove from saved state
             setSavedWorkoutIds(prev => {
               const newSet = new Set(prev);
               newSet.delete(workout.id);
+              console.log('Removed workout from saved state:', workout.id);
               return newSet;
             });
           }
+        } else {
+          console.log('Workout not found in saved list');
         }
       }
     } catch (error) {
