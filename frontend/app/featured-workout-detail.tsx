@@ -390,12 +390,19 @@ export default function FeaturedWorkoutDetail() {
       return;
     }
     
+    if (isSaved) {
+      return; // Already saved, don't save again
+    }
+    
     setIsSaving(true);
     try {
       const totalDuration = exercises.reduce((total, ex) => {
         const mins = parseInt(ex.duration.split(' ')[0]) || 0;
         return total + mins;
       }, 0);
+      
+      console.log('Saving workout to:', `${API_URL}/api/saved-workouts`);
+      console.log('Workout name:', `${workout.mood} - ${workout.title}`);
       
       const response = await fetch(`${API_URL}/api/saved-workouts`, {
         method: 'POST',
@@ -426,18 +433,24 @@ export default function FeaturedWorkoutDetail() {
         }),
       });
       
+      console.log('Save response status:', response.status);
+      
       if (response.ok) {
         setIsSaved(true);
-        Alert.alert('Saved!', 'Workout saved to your profile');
       } else if (response.status === 400) {
-        Alert.alert('Already Saved', 'This workout is already in your saved list');
         setIsSaved(true);
       } else {
+        const errorText = await response.text();
+        console.error('Save error:', errorText);
         Alert.alert('Error', 'Failed to save workout');
       }
     } catch (error) {
       console.error('Error saving workout:', error);
       Alert.alert('Error', 'Failed to save workout');
+    } finally {
+      setIsSaving(false);
+    }
+  };
     } finally {
       setIsSaving(false);
     }
