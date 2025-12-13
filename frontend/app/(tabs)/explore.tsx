@@ -116,7 +116,26 @@ export default function Explore() {
       if (response.ok) {
         const data = await response.json();
         console.log('Posts fetched successfully:', data.length, 'posts');
-        setPosts(data);
+        
+        // Check saved status for each post
+        const postsWithSaveStatus = await Promise.all(
+          data.map(async (post: Post) => {
+            try {
+              const saveCheckRes = await fetch(`${API_URL}/api/posts/${post.id}/save/check`, {
+                headers: { 'Authorization': `Bearer ${token}` },
+              });
+              if (saveCheckRes.ok) {
+                const saveData = await saveCheckRes.json();
+                return { ...post, is_saved: saveData.is_saved };
+              }
+            } catch (e) {
+              console.error('Error checking save status for post:', post.id);
+            }
+            return { ...post, is_saved: false };
+          })
+        );
+        
+        setPosts(postsWithSaveStatus);
       } else {
         console.error('Failed to fetch posts:', response.status);
       }
