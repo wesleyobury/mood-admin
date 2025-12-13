@@ -1061,6 +1061,7 @@ const styles = StyleSheet.create({
     paddingLeft: 20,
     paddingTop: 40,
     backgroundColor: 'rgba(0,0,0,0.6)',
+    zIndex: 10,
   },
   carouselTitle: {
     fontSize: 16,
