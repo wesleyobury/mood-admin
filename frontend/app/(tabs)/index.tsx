@@ -31,7 +31,7 @@ const CARD_GAP = 12;
 const CARD_WIDTH = SCREEN_WIDTH - (CAROUSEL_PADDING * 2);
 
 // Workout carousel data - 5 featured workouts with mood + workout format
-// Images MUST match the first exercise's imageUrl from featured-workout-detail.tsx
+// Images provided by user for carousel display
 const featuredWorkouts = [
   {
     id: '1',
@@ -43,8 +43,8 @@ const featuredWorkouts = [
       'Stationary Bike - Hill & Sprint',
       'Stair Master - Hill Climb',
     ],
-    // First exercise: Hill & Sprint - Stationary bike
-    image: 'https://customer-assets.emergentagent.com/job_fitness-app-ui/artifacts/fbe3z3jx_download%20%281%29.png',
+    // Cardio Based Sweat image
+    image: 'https://customer-assets.emergentagent.com/job_3f3e12c6-013b-4158-b2e9-29980fb2b4f9/artifacts/tfdiqbfo_download.png',
   },
   {
     id: '2',
@@ -74,8 +74,8 @@ const featuredWorkouts = [
       'Trap Hex Bar - Trap Bar Jump',
       'Landmine Attachment - Hacksquat Jump',
     ],
-    // First exercise: Hang Clean Pull to Tall Shrug - Power Lifting Platform
-    image: 'https://customer-assets.emergentagent.com/job_muscle-mapper-2/artifacts/9kehs3fb_Screenshot%202025-12-03%20at%204.15.03%E2%80%AFPM.png',
+    // Power Lifting image
+    image: 'https://customer-assets.emergentagent.com/job_3f3e12c6-013b-4158-b2e9-29980fb2b4f9/artifacts/o0vkrre5_download%20%289%29.png',
   },
   {
     id: '4',
@@ -88,8 +88,8 @@ const featuredWorkouts = [
       'Pull Up Bar - Strict Pull',
       'Parallel Bars Dip Station - Eccentric Power',
     ],
-    // First exercise: Eccentric Lines - Pull up bar
-    image: 'https://customer-assets.emergentagent.com/job_upper-body-enhance/artifacts/7475d60t_chin%20ups.png',
+    // Calisthenics image
+    image: 'https://customer-assets.emergentagent.com/job_3f3e12c6-013b-4158-b2e9-29980fb2b4f9/artifacts/wfayf2ux_download%20%2815%29.png',
   },
   {
     id: '5',
