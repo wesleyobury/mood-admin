@@ -131,8 +131,10 @@ export default function Profile() {
   const [recentWorkouts] = useState<RecentWorkout[]>([]);
   const [workoutCards, setWorkoutCards] = useState<WorkoutCard[]>([]);
   const [savedWorkouts, setSavedWorkouts] = useState<SavedWorkout[]>([]);
+  const [savedPosts, setSavedPosts] = useState<SavedPost[]>([]);
   const [loadingCards, setLoadingCards] = useState(false);
   const [loadingSaved, setLoadingSaved] = useState(false);
+  const [loadingSavedPosts, setLoadingSavedPosts] = useState(false);
   const [loadingProfile, setLoadingProfile] = useState(true);
   const [selectedCard, setSelectedCard] = useState<WorkoutCard | null>(null);
   const [selectedSavedWorkout, setSelectedSavedWorkout] = useState<SavedWorkout | null>(null);
