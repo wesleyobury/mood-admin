@@ -326,7 +326,12 @@ const styles = StyleSheet.create({
     paddingTop: height * 0.06, // Reduced from 0.1 to move content up
   },
   logoContainer: {
-    marginBottom: 16, // Reduced from 20
+    marginBottom: 16,
+  },
+  logoImage: {
+    width: 100,
+    height: 100,
+    borderRadius: 50,
   },
   logoBackground: {
     width: 80,
