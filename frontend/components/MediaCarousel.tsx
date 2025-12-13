@@ -14,6 +14,7 @@ import {
 import { Image } from 'expo-image';
 import { Video, ResizeMode, AVPlaybackStatus } from 'expo-av';
 import { Ionicons } from '@expo/vector-icons';
+import Slider from '@react-native-community/slider';
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
 
