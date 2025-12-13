@@ -553,6 +553,19 @@ export default function FeaturedWorkoutDetail() {
           <Ionicons name="arrow-back" size={24} color="#fff" />
         </TouchableOpacity>
         
+        {/* Save Button */}
+        <TouchableOpacity 
+          style={[styles.headerSaveButton, { top: insets.top + 10 }]}
+          onPress={handleSaveWorkout}
+          disabled={isSaving}
+        >
+          <Ionicons 
+            name={isSaved ? "bookmark" : "bookmark-outline"} 
+            size={24} 
+            color={isSaved ? "#FFD700" : "#fff"} 
+          />
+        </TouchableOpacity>
+        
         {/* Hero Content */}
         <View style={styles.heroContent}>
           <Text style={styles.moodLabel}>{workout.mood}</Text>
