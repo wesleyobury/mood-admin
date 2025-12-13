@@ -45,8 +45,8 @@
     },
 
     "extra": {
-      "EXPO_PUBLIC_BACKEND_URL": "https://streak-fixes.preview.emergentagent.com",
-      "BACKEND_URL": "https://streak-fixes.preview.emergentagent.com",
+      "EXPO_PUBLIC_BACKEND_URL": "https://healthtracker-133.preview.emergentagent.com",
+      "BACKEND_URL": "https://healthtracker-133.preview.emergentagent.com",
       "router": {}
     }
   }
