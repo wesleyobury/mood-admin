@@ -63,7 +63,15 @@ export default function EditProfile() {
         setUsername(data.username || '');
         setName(data.name || '');
         setBio(data.bio || '');
-        setAvatarUri(data.avatar || null);
+        // Transform avatar URL if it's a relative path
+        if (data.avatar) {
+          const avatarUrl = data.avatar.startsWith('http') 
+            ? data.avatar 
+            : `${API_URL}${data.avatar}`;
+          setAvatarUri(avatarUrl);
+        } else {
+          setAvatarUri(null);
+        }
       }
     } catch (error) {
       console.error('Error fetching user profile:', error);
