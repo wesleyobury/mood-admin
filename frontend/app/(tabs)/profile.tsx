@@ -1154,12 +1154,27 @@ const styles = StyleSheet.create({
   savedWorkoutsList: {
     gap: 12,
   },
+  savedWorkoutCardWrapper: {
+    flexDirection: 'row',
+    alignItems: 'stretch',
+    gap: 8,
+  },
   savedWorkoutCard: {
+    flex: 1,
     backgroundColor: '#1a1a1a',
     borderRadius: 12,
     padding: 16,
     borderWidth: 1,
     borderColor: '#333',
+  },
+  unsaveButton: {
+    backgroundColor: '#1a1a1a',
+    borderRadius: 12,
+    borderWidth: 1,
+    borderColor: '#333',
+    paddingHorizontal: 12,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   savedWorkoutHeader: {
     flexDirection: 'row',
