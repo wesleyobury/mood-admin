@@ -50,9 +50,7 @@ export default function PostDetail() {
 
   const fetchPost = async () => {
     try {
-      // For now, fetch from the general posts endpoint and filter
-      // In a real app, you'd have a dedicated endpoint for single post
-      const response = await fetch(`${API_URL}/api/posts`, {
+      const response = await fetch(`${API_URL}/api/posts/${params.postId}`, {
         headers: {
           'Authorization': `Bearer ${token}`,
         },
@@ -60,10 +58,9 @@ export default function PostDetail() {
 
       if (response.ok) {
         const data = await response.json();
-        const foundPost = data.find((p: Post) => p.id === params.postId);
-        if (foundPost) {
-          setPost(foundPost);
-        }
+        setPost(data);
+      } else {
+        console.error('Failed to fetch post:', response.status);
       }
     } catch (error) {
       console.error('Error fetching post:', error);
