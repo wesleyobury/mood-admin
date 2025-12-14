@@ -58,17 +58,24 @@ export function AuthProvider({ children }: AuthProviderProps) {
           
           if (userResp.ok) {
             const userData = await userResp.json();
-            setToken(storedToken);
-            setUser(userData);
-            console.log('✅ Restored session for:', userData.username);
-            
-            // Track app session start on successful restore
-            trackEvent(storedToken, 'app_session_start', {
-              restored_session: true,
-            });
-            
-            setIsLoading(false);
-            return;
+            // Check if it's the correct demo user, if not clear and re-login
+            if (userData.username === 'Ogeeezzbury') {
+              console.log('Old demo user detected, clearing and re-logging...');
+              await AsyncStorage.removeItem('auth_token');
+              // Continue to auto-login below
+            } else {
+              setToken(storedToken);
+              setUser(userData);
+              console.log('✅ Restored session for:', userData.username);
+              
+              // Track app session start on successful restore
+              trackEvent(storedToken, 'app_session_start', {
+                restored_session: true,
+              });
+              
+              setIsLoading(false);
+              return;
+            }
           } else {
             console.log('Stored token invalid, clearing...');
             await AsyncStorage.removeItem('auth_token');
