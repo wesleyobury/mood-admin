@@ -1037,6 +1037,14 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: '#fff',
   },
+  headerRightButtons: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 8,
+  },
+  messagesButton: {
+    padding: 4,
+  },
   createButton: {
     padding: 4,
   },
