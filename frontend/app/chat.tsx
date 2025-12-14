@@ -406,11 +406,11 @@ const styles = StyleSheet.create({
     borderRadius: 18,
   },
   ownMessageBubble: {
-    backgroundColor: '#FFD700',
+    backgroundColor: 'rgba(50, 50, 50, 0.8)',
     borderBottomRightRadius: 4,
   },
   otherMessageBubble: {
-    backgroundColor: '#1a1a1a',
+    backgroundColor: 'rgba(50, 50, 50, 0.8)',
     borderBottomLeftRadius: 4,
   },
   messageText: {
@@ -418,7 +418,7 @@ const styles = StyleSheet.create({
     lineHeight: 20,
   },
   ownMessageText: {
-    color: '#000',
+    color: '#fff',
   },
   otherMessageText: {
     color: '#fff',
