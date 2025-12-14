@@ -667,7 +667,7 @@ async def get_current_user_stats(current_user_id: str = Depends(get_current_user
     # Calculate total minutes (estimate based on workouts - average 20 mins per workout)
     total_minutes = workouts_completed * 20
     
-    # Calculate streak (count consecutive days with workout_completed events)
+    # Calculate streak (count consecutive days with any activity - app_session_start or workout_completed)
     today = datetime.now(timezone.utc).replace(hour=0, minute=0, second=0, microsecond=0)
     current_streak = 0
     
@@ -675,13 +675,14 @@ async def get_current_user_stats(current_user_id: str = Depends(get_current_user
         day_start = today - timedelta(days=i)
         day_end = day_start + timedelta(days=1)
         
-        day_workouts = await db.user_events.count_documents({
+        # Check for any activity (workout completion or app session)
+        day_activity = await db.user_events.count_documents({
             "user_id": current_user_id,
-            "event_type": "workout_completed",
+            "event_type": {"$in": ["workout_completed", "app_session_start", "app_opened"]},
             "timestamp": {"$gte": day_start, "$lt": day_end}
         })
         
-        if day_workouts > 0:
+        if day_activity > 0:
             current_streak += 1
         elif i > 0:  # Allow today to be 0 without breaking streak
             break
