@@ -240,7 +240,7 @@ export default function UserProfile() {
     return (
       <SafeAreaView style={styles.container}>
         <View style={styles.header}>
-          <TouchableOpacity onPress={() => router.back()} style={styles.backButton}>
+          <TouchableOpacity onPress={handleGoBack} style={styles.backButton}>
             <Ionicons name="arrow-back" size={24} color="#FFD700" />
           </TouchableOpacity>
           <Text style={styles.headerTitle}>Profile</Text>
@@ -249,7 +249,7 @@ export default function UserProfile() {
         <View style={styles.errorContainer}>
           <Ionicons name="alert-circle-outline" size={48} color="#FF4444" />
           <Text style={styles.errorText}>User not found</Text>
-          <TouchableOpacity style={styles.backToFeedButton} onPress={() => router.back()}>
+          <TouchableOpacity style={styles.backToFeedButton} onPress={handleGoBack}>
             <Text style={styles.backToFeedText}>Go Back</Text>
           </TouchableOpacity>
         </View>
@@ -260,7 +260,7 @@ export default function UserProfile() {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
-        <TouchableOpacity onPress={() => router.back()} style={styles.backButton}>
+        <TouchableOpacity onPress={handleGoBack} style={styles.backButton}>
           <Ionicons name="arrow-back" size={24} color="#FFD700" />
         </TouchableOpacity>
         <Text style={styles.headerTitle}>{user.username}</Text>
