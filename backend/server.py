@@ -1709,6 +1709,7 @@ async def get_single_post(post_id: str, current_user_id: str = Depends(get_curre
         },
         {
             "$project": {
+                "_id": 0,
                 "id": {"$toString": "$_id"},
                 "author": {
                     "id": {"$toString": "$author._id"},
