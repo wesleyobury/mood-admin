@@ -517,8 +517,9 @@ const styles = StyleSheet.create({
     padding: 20,
   },
   difficultyCardSelected: {
-    backgroundColor: 'rgba(255, 215, 0, 0.1)',
-    borderWidth: 3,
+    backgroundColor: '#111111',
+    borderWidth: 2,
+    borderColor: 'rgba(255, 215, 0, 0.5)',
   },
   difficultyContent: {
     flex: 1,
