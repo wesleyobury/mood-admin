@@ -19,6 +19,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import Constants from 'expo-constants';
 import * as VideoThumbnails from 'expo-video-thumbnails';
 import WorkoutStatsCard from '../../components/WorkoutStatsCard';
+import VideoThumbnail from '../../components/VideoThumbnail';
 import { useAuth } from '../../contexts/AuthContext';
 import { useCart } from '../../contexts/CartContext';
 import FollowListModal from '../../components/FollowListModal';
