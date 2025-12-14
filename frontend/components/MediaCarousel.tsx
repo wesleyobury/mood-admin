@@ -204,24 +204,15 @@ const VideoPlayer = memo(({ uri, isActive }: VideoPlayerProps) => {
         />
       </TouchableOpacity>
 
-      {/* Video Scrubber/Progress Bar */}
+      {/* Minimal Video Progress Bar */}
       {duration > 0 && (
-        <View style={styles.scrubberContainer}>
-          <Text style={styles.timeText}>{formatTime(position)}</Text>
-          <View style={styles.sliderWrapper}>
-            <Slider
-              style={styles.slider}
-              minimumValue={0}
-              maximumValue={duration}
-              value={position}
-              onSlidingStart={handleSeekStart}
-              onSlidingComplete={handleSeekComplete}
-              minimumTrackTintColor="#FFD700"
-              maximumTrackTintColor="rgba(255, 255, 255, 0.3)"
-              thumbTintColor="#FFD700"
-            />
-          </View>
-          <Text style={styles.timeText}>{formatTime(duration)}</Text>
+        <View style={styles.progressBarContainer}>
+          <View 
+            style={[
+              styles.progressBar, 
+              { width: `${(position / duration) * 100}%` }
+            ]} 
+          />
         </View>
       )}
     </TouchableOpacity>
