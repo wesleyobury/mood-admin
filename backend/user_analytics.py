@@ -593,11 +593,11 @@ async def get_admin_analytics(
             "created_at": {"$gte": start_date}
         })
         
-        # Most popular mood categories
+        # Most popular mood categories (from mood_selected events)
         mood_pipeline = [
             {
                 "$match": {
-                    "event_type": "workout_completed",
+                    "event_type": "mood_selected",
                     "timestamp": {"$gte": start_date}
                 }
             },
@@ -616,6 +616,21 @@ async def get_admin_analytics(
         ]
         
         popular_moods = await db.user_events.aggregate(mood_pipeline).to_list(length=10)
+        
+        # Map mood IDs to friendly display names
+        mood_display_names = {
+            "sweat": "I Want to Sweat",
+            "muscle": "Muscle Gainer",
+            "outdoor": "Get Outside",
+            "calisthenics": "Calisthenics",
+            "lazy": "Feeling Lazy",
+            "explosive": "Get Explosive"
+        }
+        
+        # Apply friendly names to mood results
+        for mood in popular_moods:
+            if mood["_id"] in mood_display_names:
+                mood["_id"] = mood_display_names[mood["_id"]]
         
         return {
             "period_days": days,
