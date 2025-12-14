@@ -542,8 +542,23 @@ export default function Explore() {
               fetchPosts(true);
             }
           }
+          
+          // Determine which post is visible
+          const scrollY = nativeEvent.contentOffset.y;
+          const viewportCenter = scrollY + (layoutMeasurement.height / 2);
+          
+          // Find the post that's most visible
+          for (const postId of Object.keys(postLayoutsRef.current)) {
+            const layout = postLayoutsRef.current[postId];
+            if (layout && viewportCenter >= layout.y && viewportCenter <= layout.y + layout.height) {
+              if (visiblePostId !== postId) {
+                setVisiblePostId(postId);
+              }
+              break;
+            }
+          }
         }}
-        scrollEventThrottle={400}
+        scrollEventThrottle={100}
       >
         {posts.length === 0 ? (
           <View style={styles.emptyState}>
