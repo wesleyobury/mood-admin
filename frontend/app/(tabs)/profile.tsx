@@ -730,10 +730,11 @@ export default function Profile() {
                       >
                         {mediaUrl ? (
                           isVideo ? (
-                            // Video thumbnail - show dark background with play icon
-                            <View style={[styles.gridImage, styles.videoThumbnail]}>
-                              <Ionicons name="play-circle" size={40} color="#FFD700" />
-                            </View>
+                            // Video thumbnail - use VideoThumbnail component
+                            <VideoThumbnail 
+                              videoUrl={mediaUrl}
+                              style={styles.gridImage}
+                            />
                           ) : (
                             <Image 
                               source={mediaUrl}
