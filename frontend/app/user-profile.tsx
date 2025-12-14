@@ -512,12 +512,12 @@ const styles = StyleSheet.create({
     fontWeight: '600',
   },
   followButton: {
+    flex: 1,
     backgroundColor: '#FFD700',
     borderRadius: 8,
     paddingVertical: 8,
     paddingHorizontal: 16,
     alignItems: 'center',
-    marginBottom: 16,
   },
   followingButton: {
     backgroundColor: '#1a1a1a',
@@ -531,6 +531,22 @@ const styles = StyleSheet.create({
   },
   followingButtonText: {
     color: '#FFD700',
+  },
+  actionButtonsRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 12,
+    marginBottom: 16,
+  },
+  messageButton: {
+    width: 44,
+    height: 36,
+    borderRadius: 8,
+    backgroundColor: '#1a1a1a',
+    borderWidth: 1,
+    borderColor: '#FFD700',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   streakContainer: {
     flexDirection: 'row',
