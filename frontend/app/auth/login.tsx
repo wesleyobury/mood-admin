@@ -106,9 +106,15 @@ export default function Login() {
       setIsLoading(true);
       
       // Create redirect URL based on platform
-      const redirectUrl = Platform.OS === 'web'
-        ? `${API_URL}/`
-        : Linking.createURL('/');
+      // For Expo Go on mobile, we need to use the exp:// scheme or the app's custom scheme
+      let redirectUrl: string;
+      
+      if (Platform.OS === 'web') {
+        redirectUrl = window.location.origin + '/';
+      } else {
+        // Use Linking.createURL for native - this handles Expo Go and standalone builds
+        redirectUrl = Linking.createURL('auth/callback');
+      }
       
       console.log('Redirect URL:', redirectUrl);
       
@@ -119,26 +125,38 @@ export default function Login() {
       // Open OAuth session
       const result = await WebBrowser.openAuthSessionAsync(authUrl, redirectUrl);
       
-      console.log('Auth session result:', result.type);
+      console.log('Auth session result:', JSON.stringify(result));
       
       if (result.type === 'success' && result.url) {
         // Parse session_id from returned URL
         const url = result.url;
+        console.log('Returned URL:', url);
+        
         let sessionId = null;
         
         if (url.includes('#session_id=')) {
           sessionId = url.split('#session_id=')[1].split('&')[0];
         } else if (url.includes('?session_id=')) {
           sessionId = url.split('?session_id=')[1].split('&')[0];
+        } else if (url.includes('session_id=')) {
+          // Try to extract from anywhere in the URL
+          const match = url.match(/session_id=([^&]+)/);
+          if (match) {
+            sessionId = match[1];
+          }
         }
+        
+        console.log('Extracted session ID:', sessionId ? 'found' : 'not found');
         
         if (sessionId) {
           await handleOAuthCallback(sessionId);
         } else {
-          throw new Error('No session ID returned from authentication');
+          throw new Error('No session ID returned from authentication. URL: ' + url);
         }
       } else if (result.type === 'cancel') {
         console.log('User cancelled authentication');
+      } else if (result.type === 'dismiss') {
+        console.log('Browser was dismissed');
       }
     } catch (error: any) {
       console.error('Google login error:', error);
