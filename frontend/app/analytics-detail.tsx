@@ -35,6 +35,20 @@ const getDisplayScreenName = (screenName: string): string => {
   return screenNameMap[screenName] || screenName.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
 };
 
+// Mood name mapping for user-friendly display
+const moodNameMap: { [key: string]: string } = {
+  'sweat': 'I Want to Sweat',
+  'muscle': 'Muscle Gainer',
+  'outdoor': 'Get Outside',
+  'calisthenics': 'Calisthenics',
+  'lazy': 'Feeling Lazy',
+  'explosive': 'Get Explosive',
+};
+
+const getDisplayMoodName = (moodId: string): string => {
+  return moodNameMap[moodId] || moodId.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+};
+
 // Type definitions
 interface UserItem {
   user_id: string;
