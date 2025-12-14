@@ -436,7 +436,7 @@ const styles = StyleSheet.create({
     marginBottom: 4,
   },
   muscleGroupNameSelected: {
-    color: '#FFD700',
+    color: '#ffffff',
   },
   muscleGroupDescription: {
     fontSize: 14,
