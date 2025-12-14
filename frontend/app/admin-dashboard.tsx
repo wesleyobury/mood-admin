@@ -966,7 +966,7 @@ const styles = StyleSheet.create({
   },
   insightText: {
     fontSize: 14,
-    color: '#aaa',
+    color: '#fff',
     lineHeight: 20,
   },
   insightBold: {
