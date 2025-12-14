@@ -78,15 +78,87 @@ export default function Settings() {
   };
 
   const handleDeleteAccount = () => {
+    // First, ask user to reconsider
     Alert.alert(
-      'Delete Account',
-      'Are you sure you want to permanently delete your account? This action cannot be undone and all your data will be lost.',
+      'We\'re sad to see you go! 😢',
+      'Before you delete your account, would you consider sharing feedback with us? Your input helps us improve the app for everyone.',
       [
         { text: 'Cancel', style: 'cancel' },
         {
-          text: 'Delete',
+          text: 'Submit Feedback',
+          onPress: () => {
+            // Navigate to feedback or show feedback modal
+            Alert.prompt(
+              'Share Your Feedback',
+              'What could we do better? Your feedback is valuable to us.',
+              [
+                { text: 'Cancel', style: 'cancel' },
+                {
+                  text: 'Submit & Stay',
+                  onPress: async (feedback) => {
+                    if (feedback) {
+                      try {
+                        await fetch(`${API_URL}/api/feedback`, {
+                          method: 'POST',
+                          headers: {
+                            'Authorization': `Bearer ${token}`,
+                            'Content-Type': 'application/json',
+                          },
+                          body: JSON.stringify({ feedback, type: 'account_deletion_prevented' }),
+                        });
+                      } catch (e) {
+                        console.error('Error submitting feedback:', e);
+                      }
+                    }
+                    Alert.alert('Thank You! 🙏', 'We appreciate your feedback and are glad you\'re staying!');
+                  },
+                },
+                {
+                  text: 'Submit & Delete',
+                  style: 'destructive',
+                  onPress: async (feedback) => {
+                    if (feedback) {
+                      try {
+                        await fetch(`${API_URL}/api/feedback`, {
+                          method: 'POST',
+                          headers: {
+                            'Authorization': `Bearer ${token}`,
+                            'Content-Type': 'application/json',
+                          },
+                          body: JSON.stringify({ feedback, type: 'account_deletion' }),
+                        });
+                      } catch (e) {
+                        console.error('Error submitting feedback:', e);
+                      }
+                    }
+                    confirmDeleteAccount();
+                  },
+                },
+              ],
+              'plain-text',
+              '',
+              'default'
+            );
+          },
+        },
+        {
+          text: 'Delete Anyway',
           style: 'destructive',
-          onPress: confirmDeleteAccount,
+          onPress: () => {
+            // Final confirmation
+            Alert.alert(
+              'Final Confirmation',
+              'This action is permanent. All your posts, workouts, and data will be permanently deleted. Are you absolutely sure?',
+              [
+                { text: 'Keep My Account', style: 'cancel' },
+                {
+                  text: 'Yes, Delete Everything',
+                  style: 'destructive',
+                  onPress: confirmDeleteAccount,
+                },
+              ]
+            );
+          },
         },
       ]
     );
