@@ -813,7 +813,7 @@ const styles = StyleSheet.create({
   },
   seeAllText: {
     fontSize: 13,
-    color: '#FFD700',
+    color: '#fff',
     fontWeight: '600',
   },
   cardArrow: {
@@ -847,7 +847,7 @@ const styles = StyleSheet.create({
   engagementValue: {
     fontSize: 32,
     fontWeight: '700',
-    color: '#FFD700',
+    color: '#fff',
   },
   engagementDivider: {
     width: 1,
@@ -870,7 +870,7 @@ const styles = StyleSheet.create({
   statBoxValue: {
     fontSize: 24,
     fontWeight: '700',
-    color: '#FFD700',
+    color: '#fff',
     marginBottom: 4,
   },
   statBoxLabel: {
@@ -935,7 +935,7 @@ const styles = StyleSheet.create({
   moodCount: {
     fontSize: 16,
     fontWeight: '700',
-    color: '#FFD700',
+    color: '#fff',
     marginBottom: 2,
   },
   moodPercentage: {
