@@ -302,20 +302,36 @@ export default function UserProfile() {
               <Text style={styles.editButtonText}>Edit Profile</Text>
             </TouchableOpacity>
           ) : (
-            <TouchableOpacity 
-              style={[
-                styles.followButton,
-                isFollowing && styles.followingButton
-              ]}
-              onPress={handleFollowToggle}
-            >
-              <Text style={[
-                styles.followButtonText,
-                isFollowing && styles.followingButtonText
-              ]}>
-                {isFollowing ? 'Following' : 'Follow'}
-              </Text>
-            </TouchableOpacity>
+            <View style={styles.actionButtonsRow}>
+              <TouchableOpacity 
+                style={[
+                  styles.followButton,
+                  isFollowing && styles.followingButton
+                ]}
+                onPress={handleFollowToggle}
+              >
+                <Text style={[
+                  styles.followButtonText,
+                  isFollowing && styles.followingButtonText
+                ]}>
+                  {isFollowing ? 'Following' : 'Follow'}
+                </Text>
+              </TouchableOpacity>
+              <TouchableOpacity 
+                style={styles.messageButton}
+                onPress={() => router.push({
+                  pathname: '/chat',
+                  params: {
+                    userId: user.id,
+                    username: user.username,
+                    name: user.name,
+                    avatar: user.avatar || ''
+                  }
+                })}
+              >
+                <Ionicons name="chatbubble-outline" size={20} color="#FFD700" />
+              </TouchableOpacity>
+            </View>
           )}
 
           {/* Current Streak (if viewing own profile) */}
