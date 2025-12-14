@@ -78,12 +78,12 @@ export function AuthProvider({ children }: AuthProviderProps) {
         // No valid stored token, do auto-login
         console.log('No valid session, attempting auto-login...');
         
-        // Try to login as demo user (weso)
+        // Try to login as demo user (OgeeezzburyTester)
         const response = await fetch(`${API_URL}/api/auth/login`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
-            username: 'weso',
+            username: 'OgeeezzburyTester',
             password: 'password123',
           }),
         });
