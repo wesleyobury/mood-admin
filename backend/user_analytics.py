@@ -202,9 +202,21 @@ async def calculate_workout_streak(
     user_id: str
 ) -> int:
     """
-    Calculate current workout streak for a user
+    Get current workout streak for a user.
+    First checks the stored current_streak in user document,
+    falls back to calculating from daily_activity.
     """
     try:
+        # First try to get stored streak from user document
+        from bson import ObjectId
+        try:
+            user = await db.users.find_one({"_id": ObjectId(user_id)})
+            if user and user.get("current_streak", 0) > 0:
+                return user.get("current_streak", 0)
+        except:
+            pass
+        
+        # Fall back to calculating from daily activity
         today = datetime.now(timezone.utc).replace(hour=0, minute=0, second=0, microsecond=0)
         streak = 0
         current_date = today
