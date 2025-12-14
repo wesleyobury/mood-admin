@@ -216,7 +216,7 @@ export default function AnalyticsDetailScreen() {
         <Text style={[styles.rankText, index === 0 && styles.goldText]}>{index + 1}</Text>
       </View>
       <View style={styles.itemContent}>
-        <Text style={styles.itemTitle}>{item.mood || 'Unknown Mood'}</Text>
+        <Text style={styles.itemTitle}>{getDisplayMoodName(item.mood) || 'Unknown Mood'}</Text>
         <View style={styles.statsRow}>
           <Text style={styles.statItem}>{item.selection_count.toLocaleString()} selections</Text>
           <Text style={styles.statDivider}>•</Text>
