@@ -1,0 +1,467 @@
+import React, { useState, useEffect, useRef, useCallback } from 'react';
+import {
+  View,
+  Text,
+  StyleSheet,
+  FlatList,
+  TextInput,
+  TouchableOpacity,
+  Image,
+  KeyboardAvoidingView,
+  Platform,
+  ActivityIndicator,
+} from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { Ionicons } from '@expo/vector-icons';
+import { useRouter, useLocalSearchParams, useFocusEffect } from 'expo-router';
+import { useAuth } from '../contexts/AuthContext';
+
+const API_URL = process.env.EXPO_PUBLIC_BACKEND_URL || '';
+
+interface Message {
+  id: string;
+  sender_id: string;
+  content: string;
+  created_at: string;
+  read: boolean;
+}
+
+export default function Chat() {
+  const params = useLocalSearchParams();
+  const { conversationId, userId, username, name, avatar } = params as {
+    conversationId?: string;
+    userId: string;
+    username: string;
+    name: string;
+    avatar: string;
+  };
+
+  const [messages, setMessages] = useState<Message[]>([]);
+  const [newMessage, setNewMessage] = useState('');
+  const [loading, setLoading] = useState(true);
+  const [sending, setSending] = useState(false);
+  const [activeConversationId, setActiveConversationId] = useState(conversationId);
+  const flatListRef = useRef<FlatList>(null);
+  const insets = useSafeAreaInsets();
+  const router = useRouter();
+  const { token, user } = useAuth();
+  const pollIntervalRef = useRef<NodeJS.Timeout | null>(null);
+
+  const initializeConversation = async () => {
+    if (!token || !userId) return;
+
+    try {
+      // Create or get existing conversation
+      const response = await fetch(`${API_URL}/api/conversations`, {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${token}`,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ user_id: userId }),
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        setActiveConversationId(data.id);
+        return data.id;
+      }
+    } catch (error) {
+      console.error('Error initializing conversation:', error);
+    }
+    return null;
+  };
+
+  const fetchMessages = async (convId?: string) => {
+    const targetId = convId || activeConversationId;
+    if (!token || !targetId) return;
+
+    try {
+      const response = await fetch(`${API_URL}/api/conversations/${targetId}/messages`, {
+        headers: {
+          'Authorization': `Bearer ${token}`,
+        },
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        setMessages(data);
+      }
+    } catch (error) {
+      console.error('Error fetching messages:', error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    const init = async () => {
+      if (conversationId) {
+        setActiveConversationId(conversationId);
+        await fetchMessages(conversationId);
+      } else if (userId) {
+        const convId = await initializeConversation();
+        if (convId) {
+          await fetchMessages(convId);
+        }
+      }
+      setLoading(false);
+    };
+
+    init();
+
+    // Poll for new messages every 3 seconds
+    pollIntervalRef.current = setInterval(() => {
+      if (activeConversationId) {
+        fetchMessages(activeConversationId);
+      }
+    }, 3000);
+
+    return () => {
+      if (pollIntervalRef.current) {
+        clearInterval(pollIntervalRef.current);
+      }
+    };
+  }, [conversationId, userId, token]);
+
+  useEffect(() => {
+    if (activeConversationId) {
+      fetchMessages(activeConversationId);
+    }
+  }, [activeConversationId]);
+
+  const sendMessage = async () => {
+    if (!token || !activeConversationId || !newMessage.trim()) return;
+
+    setSending(true);
+    const messageContent = newMessage.trim();
+    setNewMessage('');
+
+    try {
+      const response = await fetch(`${API_URL}/api/conversations/${activeConversationId}/messages`, {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${token}`,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ content: messageContent }),
+      });
+
+      if (response.ok) {
+        const newMsg = await response.json();
+        setMessages(prev => [...prev, newMsg]);
+        
+        // Scroll to bottom
+        setTimeout(() => {
+          flatListRef.current?.scrollToEnd({ animated: true });
+        }, 100);
+      }
+    } catch (error) {
+      console.error('Error sending message:', error);
+      setNewMessage(messageContent); // Restore message on error
+    } finally {
+      setSending(false);
+    }
+  };
+
+  const formatTime = (dateString: string) => {
+    const date = new Date(dateString);
+    return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+  };
+
+  const formatDate = (dateString: string) => {
+    const date = new Date(dateString);
+    const today = new Date();
+    const yesterday = new Date(today);
+    yesterday.setDate(yesterday.getDate() - 1);
+
+    if (date.toDateString() === today.toDateString()) {
+      return 'Today';
+    } else if (date.toDateString() === yesterday.toDateString()) {
+      return 'Yesterday';
+    }
+    return date.toLocaleDateString();
+  };
+
+  const renderMessage = ({ item, index }: { item: Message; index: number }) => {
+    const isOwnMessage = item.sender_id === user?.id;
+    const showDate = index === 0 || 
+      formatDate(item.created_at) !== formatDate(messages[index - 1].created_at);
+
+    return (
+      <>
+        {showDate && (
+          <View style={styles.dateContainer}>
+            <Text style={styles.dateText}>{formatDate(item.created_at)}</Text>
+          </View>
+        )}
+        <View style={[
+          styles.messageContainer,
+          isOwnMessage ? styles.ownMessageContainer : styles.otherMessageContainer
+        ]}>
+          <View style={[
+            styles.messageBubble,
+            isOwnMessage ? styles.ownMessageBubble : styles.otherMessageBubble
+          ]}>
+            <Text style={[
+              styles.messageText,
+              isOwnMessage ? styles.ownMessageText : styles.otherMessageText
+            ]}>
+              {item.content}
+            </Text>
+          </View>
+          <Text style={[
+            styles.messageTime,
+            isOwnMessage ? styles.ownMessageTime : styles.otherMessageTime
+          ]}>
+            {formatTime(item.created_at)}
+            {isOwnMessage && (
+              <Text> {item.read ? '✓✓' : '✓'}</Text>
+            )}
+          </Text>
+        </View>
+      </>
+    );
+  };
+
+  const avatarUri = avatar && avatar.startsWith('http') 
+    ? avatar 
+    : avatar ? `${API_URL}${avatar}` : null;
+
+  return (
+    <KeyboardAvoidingView
+      style={[styles.container, { paddingTop: insets.top }]}
+      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+      keyboardVerticalOffset={0}
+    >
+      {/* Header */}
+      <View style={styles.header}>
+        <TouchableOpacity onPress={() => router.back()} style={styles.backButton}>
+          <Ionicons name="arrow-back" size={24} color="#fff" />
+        </TouchableOpacity>
+        <TouchableOpacity 
+          style={styles.headerUser}
+          onPress={() => router.push({
+            pathname: '/user-profile',
+            params: { userId }
+          })}
+        >
+          {avatarUri ? (
+            <Image source={{ uri: avatarUri }} style={styles.headerAvatar} />
+          ) : (
+            <View style={[styles.headerAvatar, styles.avatarPlaceholder]}>
+              <Ionicons name="person" size={18} color="#666" />
+            </View>
+          )}
+          <View style={styles.headerInfo}>
+            <Text style={styles.headerName}>{name || username}</Text>
+            <Text style={styles.headerUsername}>@{username}</Text>
+          </View>
+        </TouchableOpacity>
+        <View style={styles.headerRight} />
+      </View>
+
+      {/* Messages */}
+      {loading ? (
+        <View style={styles.loadingContainer}>
+          <ActivityIndicator size="large" color="#FFD700" />
+        </View>
+      ) : (
+        <FlatList
+          ref={flatListRef}
+          data={messages}
+          renderItem={renderMessage}
+          keyExtractor={(item) => item.id}
+          contentContainerStyle={styles.messagesList}
+          onContentSizeChange={() => flatListRef.current?.scrollToEnd()}
+          ListEmptyComponent={
+            <View style={styles.emptyContainer}>
+              <Text style={styles.emptyText}>No messages yet. Say hi! 👋</Text>
+            </View>
+          }
+        />
+      )}
+
+      {/* Input */}
+      <View style={[styles.inputContainer, { paddingBottom: Math.max(insets.bottom, 8) }]}>
+        <TextInput
+          style={styles.input}
+          value={newMessage}
+          onChangeText={setNewMessage}
+          placeholder="Type a message..."
+          placeholderTextColor="#666"
+          multiline
+          maxLength={1000}
+        />
+        <TouchableOpacity
+          style={[styles.sendButton, !newMessage.trim() && styles.sendButtonDisabled]}
+          onPress={sendMessage}
+          disabled={!newMessage.trim() || sending}
+        >
+          {sending ? (
+            <ActivityIndicator size="small" color="#000" />
+          ) : (
+            <Ionicons name="send" size={20} color={newMessage.trim() ? '#000' : '#666'} />
+          )}
+        </TouchableOpacity>
+      </View>
+    </KeyboardAvoidingView>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#000',
+  },
+  header: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingHorizontal: 8,
+    paddingVertical: 12,
+    borderBottomWidth: 1,
+    borderBottomColor: 'rgba(255, 215, 0, 0.2)',
+  },
+  backButton: {
+    padding: 8,
+  },
+  headerUser: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginLeft: 4,
+  },
+  headerAvatar: {
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+    backgroundColor: '#1a1a1a',
+  },
+  avatarPlaceholder: {
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  headerInfo: {
+    marginLeft: 12,
+  },
+  headerName: {
+    fontSize: 16,
+    fontWeight: '600',
+    color: '#fff',
+  },
+  headerUsername: {
+    fontSize: 12,
+    color: '#888',
+  },
+  headerRight: {
+    width: 40,
+  },
+  loadingContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  messagesList: {
+    paddingHorizontal: 16,
+    paddingVertical: 8,
+    flexGrow: 1,
+  },
+  emptyContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingTop: 100,
+  },
+  emptyText: {
+    fontSize: 16,
+    color: '#888',
+  },
+  dateContainer: {
+    alignItems: 'center',
+    marginVertical: 16,
+  },
+  dateText: {
+    fontSize: 12,
+    color: '#666',
+    backgroundColor: 'rgba(255, 255, 255, 0.1)',
+    paddingHorizontal: 12,
+    paddingVertical: 4,
+    borderRadius: 10,
+  },
+  messageContainer: {
+    marginVertical: 4,
+    maxWidth: '80%',
+  },
+  ownMessageContainer: {
+    alignSelf: 'flex-end',
+    alignItems: 'flex-end',
+  },
+  otherMessageContainer: {
+    alignSelf: 'flex-start',
+    alignItems: 'flex-start',
+  },
+  messageBubble: {
+    paddingHorizontal: 14,
+    paddingVertical: 10,
+    borderRadius: 18,
+  },
+  ownMessageBubble: {
+    backgroundColor: '#FFD700',
+    borderBottomRightRadius: 4,
+  },
+  otherMessageBubble: {
+    backgroundColor: '#1a1a1a',
+    borderBottomLeftRadius: 4,
+  },
+  messageText: {
+    fontSize: 15,
+    lineHeight: 20,
+  },
+  ownMessageText: {
+    color: '#000',
+  },
+  otherMessageText: {
+    color: '#fff',
+  },
+  messageTime: {
+    fontSize: 11,
+    marginTop: 4,
+  },
+  ownMessageTime: {
+    color: '#888',
+  },
+  otherMessageTime: {
+    color: '#666',
+  },
+  inputContainer: {
+    flexDirection: 'row',
+    alignItems: 'flex-end',
+    paddingHorizontal: 16,
+    paddingTop: 8,
+    borderTopWidth: 1,
+    borderTopColor: 'rgba(255, 255, 255, 0.1)',
+    backgroundColor: '#000',
+  },
+  input: {
+    flex: 1,
+    backgroundColor: '#1a1a1a',
+    borderRadius: 20,
+    paddingHorizontal: 16,
+    paddingVertical: 10,
+    color: '#fff',
+    fontSize: 15,
+    maxHeight: 100,
+    marginRight: 8,
+  },
+  sendButton: {
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+    backgroundColor: '#FFD700',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  sendButtonDisabled: {
+    backgroundColor: '#333',
+  },
+});
