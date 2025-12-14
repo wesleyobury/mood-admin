@@ -701,13 +701,21 @@ export default function Profile() {
               ) : (
                 <View style={styles.postsGrid}>
                   {userPosts.map((post) => {
-                    let imageUrl = post.media_urls && post.media_urls.length > 0 
+                    let mediaUrl = post.media_urls && post.media_urls.length > 0 
                       ? post.media_urls[0] 
                       : null;
                     
-                    // Fix image URL if it doesn't include the backend URL
-                    if (imageUrl && !imageUrl.startsWith('http')) {
-                      imageUrl = imageUrl.startsWith('/') ? `${API_URL}${imageUrl}` : `${API_URL}/api/uploads/${imageUrl}`;
+                    // Check if the media is a video
+                    const isVideo = mediaUrl && (
+                      mediaUrl.toLowerCase().endsWith('.mov') ||
+                      mediaUrl.toLowerCase().endsWith('.mp4') ||
+                      mediaUrl.toLowerCase().endsWith('.avi') ||
+                      mediaUrl.toLowerCase().endsWith('.webm')
+                    );
+                    
+                    // Fix media URL if it doesn't include the backend URL
+                    if (mediaUrl && !mediaUrl.startsWith('http')) {
+                      mediaUrl = mediaUrl.startsWith('/') ? `${API_URL}${mediaUrl}` : `${API_URL}/api/uploads/${mediaUrl}`;
                     }
                     
                     return (
@@ -718,18 +726,31 @@ export default function Profile() {
                           router.push(`/post-detail?postId=${post.id}`);
                         }}
                       >
-                        {imageUrl ? (
-                          <Image 
-                            source={imageUrl}
-                            style={styles.gridImage}
-                            contentFit="cover"
-                            transition={150}
-                            cachePolicy="memory-disk"
-                            placeholder={{ blurhash: 'L6PZfSi_.AyE_3t7t7R**0o#DgR4' }}
-                          />
+                        {mediaUrl ? (
+                          isVideo ? (
+                            // Video thumbnail - show dark background with play icon
+                            <View style={[styles.gridImage, styles.videoThumbnail]}>
+                              <Ionicons name="play-circle" size={40} color="#FFD700" />
+                            </View>
+                          ) : (
+                            <Image 
+                              source={mediaUrl}
+                              style={styles.gridImage}
+                              contentFit="cover"
+                              transition={150}
+                              cachePolicy="memory-disk"
+                              placeholder={{ blurhash: 'L6PZfSi_.AyE_3t7t7R**0o#DgR4' }}
+                            />
+                          )
                         ) : (
                           <View style={[styles.gridImage, styles.placeholderGrid]}>
                             <Ionicons name="image-outline" size={40} color="#666" />
+                          </View>
+                        )}
+                        {/* Video indicator overlay */}
+                        {isVideo && (
+                          <View style={styles.videoIndicator}>
+                            <Ionicons name="videocam" size={14} color="#fff" />
                           </View>
                         )}
                         {post.media_urls && post.media_urls.length > 1 && (
