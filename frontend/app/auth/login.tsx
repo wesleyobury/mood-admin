@@ -80,14 +80,15 @@ export default function Login() {
       });
 
       if (!response.ok) {
-        throw new Error('Failed to authenticate with OAuth');
+        const errorData = await response.json().catch(() => ({}));
+        throw new Error(errorData.detail || 'Failed to authenticate with OAuth');
       }
 
       const data = await response.json();
       console.log('OAuth login successful!');
       
       // Store session token in AsyncStorage
-      const { AsyncStorage } = require('@react-native-async-storage/async-storage');
+      const AsyncStorage = (await import('@react-native-async-storage/async-storage')).default;
       await AsyncStorage.setItem('auth_token', data.session_token);
       
       // Navigate to main app
