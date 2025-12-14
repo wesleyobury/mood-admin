@@ -345,7 +345,7 @@ const styles = StyleSheet.create({
   },
   streakLabel: {
     fontSize: 16,
-    color: '#888',
+    color: '#fff',
     marginTop: 4,
   },
   section: {
