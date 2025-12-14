@@ -114,19 +114,69 @@ export default function CreatePost() {
       return;
     }
 
-    // Use built-in editor with 4:5 aspect ratio for images
+    // On iOS, allowsEditing only supports square crop, so we disable it
+    // and do our own 4:5 crop using ImageManipulator
     const result = await ImagePicker.launchImageLibraryAsync({
       mediaTypes: ['images'],
       allowsMultipleSelection: false,
-      allowsEditing: true,
+      allowsEditing: Platform.OS === 'android', // Only use built-in editor on Android
       aspect: [4, 5],
-      quality: 0.8,
+      quality: 0.9,
     });
 
     if (!result.canceled && result.assets && result.assets.length > 0) {
       const asset = result.assets[0];
-      const newMedia: MediaItem = { uri: asset.uri, type: 'image' };
+      
+      // For iOS, crop to 4:5 aspect ratio from center
+      let finalUri = asset.uri;
+      if (Platform.OS === 'ios' && asset.width && asset.height) {
+        finalUri = await cropTo4x5(asset.uri, asset.width, asset.height);
+      }
+      
+      const newMedia: MediaItem = { uri: finalUri, type: 'image' };
       setSelectedMedia([...selectedMedia, newMedia].slice(0, maxMedia));
+    }
+  };
+
+  // Helper function to crop image to 4:5 aspect ratio
+  const cropTo4x5 = async (uri: string, width: number, height: number): Promise<string> => {
+    const targetAspect = 4 / 5; // 0.8
+    const currentAspect = width / height;
+    
+    let cropWidth = width;
+    let cropHeight = height;
+    let originX = 0;
+    let originY = 0;
+    
+    if (currentAspect > targetAspect) {
+      // Image is wider than 4:5 - crop width
+      cropWidth = Math.round(height * targetAspect);
+      originX = Math.round((width - cropWidth) / 2);
+    } else if (currentAspect < targetAspect) {
+      // Image is taller than 4:5 - crop height
+      cropHeight = Math.round(width / targetAspect);
+      originY = Math.round((height - cropHeight) / 2);
+    }
+    
+    try {
+      const manipulated = await ImageManipulator.manipulateAsync(
+        uri,
+        [
+          {
+            crop: {
+              originX,
+              originY,
+              width: cropWidth,
+              height: cropHeight,
+            },
+          },
+        ],
+        { compress: 0.9, format: ImageManipulator.SaveFormat.JPEG }
+      );
+      return manipulated.uri;
+    } catch (error) {
+      console.error('Error cropping image:', error);
+      return uri; // Return original if crop fails
     }
   };
 
