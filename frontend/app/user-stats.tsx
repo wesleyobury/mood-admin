@@ -380,7 +380,7 @@ const styles = StyleSheet.create({
   },
   statLabel: {
     fontSize: 12,
-    color: '#888',
+    color: '#fff',
     textAlign: 'center',
   },
   favoriteCard: {
@@ -394,7 +394,7 @@ const styles = StyleSheet.create({
   },
   favoriteLabel: {
     fontSize: 14,
-    color: '#888',
+    color: '#fff',
     marginBottom: 8,
   },
   favoriteValue: {
@@ -427,7 +427,7 @@ const styles = StyleSheet.create({
   },
   breakdownLabel: {
     fontSize: 14,
-    color: '#888',
+    color: '#fff',
   },
   breakdownValue: {
     fontSize: 14,
@@ -460,7 +460,7 @@ const styles = StyleSheet.create({
   },
   followerLabel: {
     fontSize: 14,
-    color: '#888',
+    color: '#fff',
   },
   engagementCard: {
     backgroundColor: '#1a1a1a',
@@ -472,7 +472,7 @@ const styles = StyleSheet.create({
   },
   engagementLabel: {
     fontSize: 14,
-    color: '#888',
+    color: '#fff',
     marginBottom: 8,
   },
   engagementValue: {
