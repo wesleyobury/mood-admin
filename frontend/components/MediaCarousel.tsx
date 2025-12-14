@@ -405,7 +405,7 @@ const styles = StyleSheet.create({
   },
   muteButton: {
     position: 'absolute',
-    bottom: 70,
+    bottom: 16,
     right: 12,
     width: 36,
     height: 36,
@@ -414,32 +414,17 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  scrubberContainer: {
+  progressBarContainer: {
     position: 'absolute',
-    bottom: 30,
-    left: 12,
-    right: 12,
-    flexDirection: 'row',
-    alignItems: 'center',
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
-    borderRadius: 20,
-    paddingHorizontal: 12,
-    paddingVertical: 6,
+    bottom: 0,
+    left: 0,
+    right: 0,
+    height: 3,
+    backgroundColor: 'rgba(255, 255, 255, 0.2)',
   },
-  sliderWrapper: {
-    flex: 1,
-    marginHorizontal: 8,
-  },
-  slider: {
-    width: '100%',
-    height: 30,
-  },
-  timeText: {
-    color: '#fff',
-    fontSize: 11,
-    fontWeight: '500',
-    minWidth: 36,
-    textAlign: 'center',
+  progressBar: {
+    height: '100%',
+    backgroundColor: '#FFD700',
   },
   dotsContainer: {
     position: 'absolute',
