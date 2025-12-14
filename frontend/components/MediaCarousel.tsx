@@ -282,7 +282,7 @@ const MediaCarousel = memo(({ media, isPostVisible = true }: MediaCarouselProps)
               {isVideo ? (
                 <VideoPlayer 
                   uri={mediaUrl} 
-                  isActive={index === activeIndex}
+                  isActive={index === activeIndex && isPostVisible}
                 />
               ) : (
                 <>
