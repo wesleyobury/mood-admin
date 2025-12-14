@@ -217,3 +217,38 @@ export const Analytics = {
     duration_seconds: number;
   }) => trackEvent(token, 'screen_exited', metadata),
 };
+
+// Screen Time Tracker Hook Helper
+export class ScreenTimeTracker {
+  private screenName: string;
+  private startTime: number;
+  private token: string | null;
+
+  constructor(screenName: string, token: string | null) {
+    this.screenName = screenName;
+    this.startTime = Date.now();
+    this.token = token;
+    
+    // Track screen entered
+    if (token) {
+      Analytics.screenEntered(token, { screen_name: screenName });
+    }
+  }
+
+  stop(): number {
+    const duration = Math.round((Date.now() - this.startTime) / 1000);
+    
+    if (this.token && duration > 0) {
+      Analytics.screenTimeSpent(this.token, {
+        screen_name: this.screenName,
+        duration_seconds: duration,
+      });
+    }
+    
+    return duration;
+  }
+
+  reset(): void {
+    this.startTime = Date.now();
+  }
+}
