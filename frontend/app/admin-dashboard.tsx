@@ -713,7 +713,7 @@ const styles = StyleSheet.create({
   },
   headerSubtitle: {
     fontSize: 12,
-    color: '#888',
+    color: '#fff',
     marginTop: 2,
   },
   placeholder: {
@@ -742,7 +742,7 @@ const styles = StyleSheet.create({
     borderColor: '#FFD700',
   },
   periodChipText: {
-    color: '#888',
+    color: '#fff',
     fontSize: 13,
     fontWeight: '600',
   },
@@ -787,7 +787,7 @@ const styles = StyleSheet.create({
   },
   metricLabel: {
     fontSize: 11,
-    color: '#888',
+    color: '#fff',
     textAlign: 'center',
   },
   drilldownIcon: {
@@ -841,7 +841,7 @@ const styles = StyleSheet.create({
   },
   engagementLabel: {
     fontSize: 13,
-    color: '#888',
+    color: '#fff',
     fontWeight: '500',
   },
   engagementValue: {
@@ -875,7 +875,7 @@ const styles = StyleSheet.create({
   },
   statBoxLabel: {
     fontSize: 11,
-    color: '#888',
+    color: '#fff',
     textAlign: 'center',
   },
   chartContainer: {
@@ -940,7 +940,7 @@ const styles = StyleSheet.create({
   },
   moodPercentage: {
     fontSize: 11,
-    color: '#888',
+    color: '#fff',
   },
   insightCard: {
     flexDirection: 'row',
@@ -996,7 +996,7 @@ const styles = StyleSheet.create({
   },
   socialLabel: {
     fontSize: 11,
-    color: '#888',
+    color: '#fff',
   },
   funnelContainer: {
     backgroundColor: '#1a1a1a',
@@ -1026,7 +1026,7 @@ const styles = StyleSheet.create({
   },
   funnelLabel: {
     fontSize: 13,
-    color: '#888',
+    color: '#fff',
     fontWeight: '500',
   },
   funnelValue: {
@@ -1037,7 +1037,7 @@ const styles = StyleSheet.create({
   funnelPercent: {
     fontSize: 12,
     fontWeight: '500',
-    color: '#888',
+    color: '#fff',
   },
   bottomPadding: {
     height: 40,
