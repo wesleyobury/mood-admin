@@ -77,6 +77,17 @@ export default function Settings() {
     }
   };
 
+  const sendFeedbackEmail = async (feedback: string, type: string) => {
+    const subject = encodeURIComponent('Support request - MOOD');
+    const body = encodeURIComponent(`Feedback Type: ${type}\n\nFeedback:\n${feedback}`);
+    const mailtoUrl = `mailto:${SUPPORT_EMAIL}?subject=${subject}&body=${body}`;
+    
+    const supported = await Linking.canOpenURL(mailtoUrl);
+    if (supported) {
+      await Linking.openURL(mailtoUrl);
+    }
+  };
+
   const handleDeleteAccount = () => {
     // First, ask user to reconsider
     Alert.alert(
@@ -97,18 +108,7 @@ export default function Settings() {
                   text: 'Submit & Stay',
                   onPress: async (feedback) => {
                     if (feedback) {
-                      try {
-                        await fetch(`${API_URL}/api/feedback`, {
-                          method: 'POST',
-                          headers: {
-                            'Authorization': `Bearer ${token}`,
-                            'Content-Type': 'application/json',
-                          },
-                          body: JSON.stringify({ feedback, type: 'account_deletion_prevented' }),
-                        });
-                      } catch (e) {
-                        console.error('Error submitting feedback:', e);
-                      }
+                      await sendFeedbackEmail(feedback, 'Account Deletion Prevented - User Stayed');
                     }
                     Alert.alert('Thank You! 🙏', 'We appreciate your feedback and are glad you\'re staying!');
                   },
@@ -118,18 +118,7 @@ export default function Settings() {
                   style: 'destructive',
                   onPress: async (feedback) => {
                     if (feedback) {
-                      try {
-                        await fetch(`${API_URL}/api/feedback`, {
-                          method: 'POST',
-                          headers: {
-                            'Authorization': `Bearer ${token}`,
-                            'Content-Type': 'application/json',
-                          },
-                          body: JSON.stringify({ feedback, type: 'account_deletion' }),
-                        });
-                      } catch (e) {
-                        console.error('Error submitting feedback:', e);
-                      }
+                      await sendFeedbackEmail(feedback, 'Account Deletion Feedback');
                     }
                     confirmDeleteAccount();
                   },
