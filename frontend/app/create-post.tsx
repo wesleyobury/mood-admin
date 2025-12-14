@@ -195,17 +195,24 @@ export default function CreatePost() {
       return;
     }
 
-    // Launch camera with 4:5 aspect ratio editor
+    // On iOS, disable built-in editor and use custom crop
     const result = await ImagePicker.launchCameraAsync({
       mediaTypes: ['images'],
-      allowsEditing: true,
+      allowsEditing: Platform.OS === 'android',
       aspect: [4, 5],
-      quality: 0.8,
+      quality: 0.9,
     });
 
     if (!result.canceled && result.assets && result.assets.length > 0) {
       const asset = result.assets[0];
-      const newMedia: MediaItem = { uri: asset.uri, type: 'image' };
+      
+      // For iOS, crop to 4:5 aspect ratio from center
+      let finalUri = asset.uri;
+      if (Platform.OS === 'ios' && asset.width && asset.height) {
+        finalUri = await cropTo4x5(asset.uri, asset.width, asset.height);
+      }
+      
+      const newMedia: MediaItem = { uri: finalUri, type: 'image' };
       setSelectedMedia([...selectedMedia, newMedia].slice(0, maxMedia));
     }
   };
