@@ -1045,5 +1045,23 @@ const styles = StyleSheet.create({
   followingButtonText: {
     color: '#FFD700',
   },
-
+  loadingMore: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingVertical: 20,
+    gap: 10,
+  },
+  loadingMoreText: {
+    color: '#888',
+    fontSize: 14,
+  },
+  endOfPosts: {
+    paddingVertical: 30,
+    alignItems: 'center',
+  },
+  endOfPostsText: {
+    color: '#666',
+    fontSize: 14,
+  },
 });
