@@ -799,14 +799,14 @@ const styles = StyleSheet.create({
     marginBottom: 4,
   },
   intensityTitleSelected: {
-    color: '#FFD700',
+    color: '#ffffff',
   },
   intensitySubtitle: {
     fontSize: 14,
     color: 'rgba(255, 255, 255, 0.7)',
   },
   intensitySubtitleSelected: {
-    color: '#FFD700',
+    color: '#ffffff',
   },
   intensityIndicator: {
     width: 28,
