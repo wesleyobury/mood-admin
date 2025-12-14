@@ -521,11 +521,7 @@ const styles = StyleSheet.create({
   },
   difficultyCardSelected: {
     backgroundColor: 'rgba(255, 215, 0, 0.1)',
-    shadowColor: '#FFD700',
-    shadowOffset: { width: 0, height: 0 },
-    shadowOpacity: 0.4,
-    shadowRadius: 15,
-    elevation: 8,
+    borderWidth: 3,
   },
   difficultyContent: {
     flex: 1,
