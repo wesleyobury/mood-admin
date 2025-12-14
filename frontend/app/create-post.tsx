@@ -194,26 +194,20 @@ export default function CreatePost() {
       return;
     }
 
-    // Enable editing so user can select crop area
+    // Don't use native editing - it's square on iOS
     const result = await ImagePicker.launchCameraAsync({
       mediaTypes: ['images'],
-      allowsEditing: true,
-      aspect: [4, 5],
+      allowsEditing: false,  // Disable native editor (square on iOS)
       quality: 0.9,
     });
 
     if (!result.canceled && result.assets && result.assets.length > 0) {
       const asset = result.assets[0];
       
-      // After user crops, ensure it's exactly 4:5 aspect ratio
+      // Always crop to 4:5 aspect ratio
       let finalUri = asset.uri;
       if (asset.width && asset.height) {
-        const currentAspect = asset.width / asset.height;
-        const targetAspect = 4 / 5;
-        // Only re-crop if not already 4:5
-        if (Math.abs(currentAspect - targetAspect) > 0.01) {
-          finalUri = await cropTo4x5(asset.uri, asset.width, asset.height);
-        }
+        finalUri = await cropTo4x5(asset.uri, asset.width, asset.height);
       }
       
       const newMedia: MediaItem = { uri: finalUri, type: 'image' };
