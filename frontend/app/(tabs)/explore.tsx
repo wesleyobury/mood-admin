@@ -580,7 +580,14 @@ export default function Explore() {
               : new Animated.Value(0);
 
             return (
-              <View key={post.id} style={styles.postCard}>
+              <View 
+                key={post.id} 
+                style={styles.postCard}
+                onLayout={(event) => {
+                  const { y, height } = event.nativeEvent.layout;
+                  postLayoutsRef.current[post.id] = { y, height };
+                }}
+              >
                 {/* Post Header */}
                 <View style={styles.postHeader}>
                   <TouchableOpacity
@@ -618,6 +625,9 @@ export default function Explore() {
                           return url.startsWith('/') ? `${API_URL}${url}` : `${API_URL}/api/uploads/${url}`;
                         }
                         return url;
+                      })}
+                      isPostVisible={visiblePostId === post.id}
+                    />
                       })} 
                     />
                     {likeAnimations[post.id] && (
