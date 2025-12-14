@@ -228,7 +228,7 @@ const VideoPlayer = memo(({ uri, isActive }: VideoPlayerProps) => {
   );
 });
 
-const MediaCarousel = memo(({ media }: MediaCarouselProps) => {
+const MediaCarousel = memo(({ media, isPostVisible = true }: MediaCarouselProps) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [loadingStates, setLoadingStates] = useState<{ [key: number]: boolean }>({});
   const [errorStates, setErrorStates] = useState<{ [key: number]: boolean }>({});
