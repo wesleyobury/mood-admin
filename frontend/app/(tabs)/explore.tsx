@@ -68,11 +68,13 @@ export default function Explore() {
   const [searchQuery, setSearchQuery] = useState('');
   const [searchResults, setSearchResults] = useState<SearchUser[]>([]);
   const [searchLoading, setSearchLoading] = useState(false);
+  const [visiblePostId, setVisiblePostId] = useState<string | null>(null);
   const router = useRouter();
   const { token, user } = useAuth();
   const scrollViewRef = useRef<ScrollView>(null);
   const insets = useSafeAreaInsets();
   const searchTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const postLayoutsRef = useRef<{ [key: string]: { y: number; height: number } }>({});
   const PAGE_SIZE = 20;
 
   // Double tap to like functionality
