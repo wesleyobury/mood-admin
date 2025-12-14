@@ -113,6 +113,9 @@ interface SavedPost {
 }
 
 export default function Profile() {
+  // Track screen time
+  useScreenTime('Profile');
+  
   const [user, setUser] = useState({
     id: 'current-user',
     username: 'your_username',
