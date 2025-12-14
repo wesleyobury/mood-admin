@@ -628,8 +628,6 @@ export default function Explore() {
                       })}
                       isPostVisible={visiblePostId === post.id}
                     />
-                      })} 
-                    />
                     {likeAnimations[post.id] && (
                       <Animated.View
                         style={[
