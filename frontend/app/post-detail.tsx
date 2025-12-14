@@ -156,10 +156,10 @@ export default function PostDetail() {
           </View>
         </View>
 
-        {/* Images */}
+        {/* Media (Images/Videos) */}
         {post.media_urls.length > 0 && (
-          <ImageCarousel 
-            images={post.media_urls.map(url => {
+          <MediaCarousel 
+            mediaUrls={post.media_urls.map(url => {
               // If URL doesn't start with http/https, prepend backend URL
               if (!url.startsWith('http')) {
                 return url.startsWith('/') ? `${API_URL}${url}` : `${API_URL}/api/uploads/${url}`;
