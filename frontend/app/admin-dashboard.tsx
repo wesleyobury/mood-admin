@@ -610,7 +610,7 @@ export default function AdminDashboard() {
                   <View key={index} style={styles.moodItem}>
                     <View style={styles.moodLeft}>
                       <View style={[styles.moodRank, { backgroundColor: index === 0 ? '#FFD700' : '#2a2a2a' }]}>
-                        <Text style={[styles.moodRankText, { color: index === 0 ? '#000' : '#FFD700' }]}>
+                        <Text style={[styles.moodRankText, { color: index === 0 ? '#000' : '#fff' }]}>
                           {index + 1}
                         </Text>
                       </View>
