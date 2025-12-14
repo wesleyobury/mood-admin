@@ -973,9 +973,6 @@ const styles = StyleSheet.create({
   activeTabText: {
     color: '#FFD700',
   },
-  searchButton: {
-    padding: 4,
-  },
   searchContainer: {
     paddingHorizontal: 16,
     paddingVertical: 12,
