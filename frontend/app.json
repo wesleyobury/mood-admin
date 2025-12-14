@@ -45,8 +45,8 @@
     },
 
     "extra": {
-      "EXPO_PUBLIC_BACKEND_URL": "https://fitness-mobile-3.preview.emergentagent.com",
-      "BACKEND_URL": "https://fitness-mobile-3.preview.emergentagent.com",
+      "EXPO_PUBLIC_BACKEND_URL": "https://bug-busters-13.preview.emergentagent.com",
+      "BACKEND_URL": "https://bug-busters-13.preview.emergentagent.com",
       "router": {}
     }
   }
