@@ -530,7 +530,7 @@ const styles = StyleSheet.create({
   followingButton: {
     backgroundColor: '#1a1a1a',
     borderWidth: 1,
-    borderColor: '#FFD700',
+    borderColor: '#333',
   },
   followButtonText: {
     color: '#000',
@@ -538,21 +538,21 @@ const styles = StyleSheet.create({
     fontWeight: '600',
   },
   followingButtonText: {
-    color: '#FFD700',
+    color: '#fff',
   },
   actionButtonsRow: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 12,
+    gap: 10,
     marginBottom: 16,
   },
   messageButton: {
     width: 44,
-    height: 36,
+    height: 40,
     borderRadius: 8,
     backgroundColor: '#1a1a1a',
     borderWidth: 1,
-    borderColor: '#FFD700',
+    borderColor: '#333',
     justifyContent: 'center',
     alignItems: 'center',
   },
