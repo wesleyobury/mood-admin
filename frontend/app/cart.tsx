@@ -127,7 +127,7 @@ export default function CartScreen() {
     }
     
     // Set default workout name and show modal
-    setWorkoutName(`Custom Workout ${new Date().toLocaleDateString()}`);
+    setWorkoutName('Custom');
     setSaveModalVisible(true);
   };
 
