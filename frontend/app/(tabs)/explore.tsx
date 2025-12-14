@@ -697,6 +697,21 @@ export default function Explore() {
             );
           })
         )}
+        
+        {/* Loading more indicator */}
+        {loadingMore && (
+          <View style={styles.loadingMore}>
+            <ActivityIndicator size="small" color="#FFD700" />
+            <Text style={styles.loadingMoreText}>Loading more posts...</Text>
+          </View>
+        )}
+        
+        {/* End of posts indicator */}
+        {!hasMore && posts.length > 0 && (
+          <View style={styles.endOfPosts}>
+            <Text style={styles.endOfPostsText}>You've reached the end!</Text>
+          </View>
+        )}
       </ScrollView>}
 
       {/* Comments Bottom Sheet */}
