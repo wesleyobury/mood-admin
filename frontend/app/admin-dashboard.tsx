@@ -583,7 +583,7 @@ export default function AdminDashboard() {
             onPress={() => router.push(`/analytics-detail?type=moods&days=${selectedPeriod}`)}
           >
             <View style={styles.sectionHeader}>
-              <Text style={styles.sectionTitle}>Popular Workout Moods</Text>
+              <Text style={styles.sectionTitle}>Most Selected Workout Modes</Text>
               <Ionicons name="chevron-forward" size={18} color="#666" />
             </View>
             
