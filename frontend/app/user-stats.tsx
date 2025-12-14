@@ -341,7 +341,7 @@ const styles = StyleSheet.create({
   streakNumber: {
     fontSize: 40,
     fontWeight: 'bold',
-    color: '#FFD700',
+    color: '#fff',
   },
   streakLabel: {
     fontSize: 16,
@@ -375,7 +375,7 @@ const styles = StyleSheet.create({
   statNumber: {
     fontSize: 24,
     fontWeight: 'bold',
-    color: '#FFD700',
+    color: '#fff',
     marginBottom: 4,
   },
   statLabel: {
@@ -405,7 +405,7 @@ const styles = StyleSheet.create({
   },
   favoriteCount: {
     fontSize: 14,
-    color: '#FFD700',
+    color: '#fff',
   },
   breakdownCard: {
     backgroundColor: '#1a1a1a',
@@ -432,7 +432,7 @@ const styles = StyleSheet.create({
   breakdownValue: {
     fontSize: 14,
     fontWeight: '600',
-    color: '#FFD700',
+    color: '#fff',
   },
   followerCard: {
     flexDirection: 'row',
@@ -455,7 +455,7 @@ const styles = StyleSheet.create({
   followerNumber: {
     fontSize: 28,
     fontWeight: 'bold',
-    color: '#FFD700',
+    color: '#fff',
     marginBottom: 4,
   },
   followerLabel: {
@@ -478,7 +478,7 @@ const styles = StyleSheet.create({
   engagementValue: {
     fontSize: 32,
     fontWeight: 'bold',
-    color: '#FFD700',
+    color: '#fff',
   },
   summaryCard: {
     backgroundColor: '#1a1a1a',
@@ -503,7 +503,7 @@ const styles = StyleSheet.create({
   summaryValue: {
     fontSize: 16,
     fontWeight: 'bold',
-    color: '#FFD700',
+    color: '#fff',
   },
   bottomPadding: {
     height: 40,
