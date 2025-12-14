@@ -1722,7 +1722,7 @@ async def get_single_post(post_id: str, current_user_id: str = Depends(get_curre
                 "likes_count": {"$ifNull": ["$likes_count", 0]},
                 "comments_count": {"$ifNull": ["$comments_count", 0]},
                 "is_liked": {"$gt": [{"$size": "$user_like"}, 0]},
-                "created_at": 1
+                "created_at": {"$toString": "$created_at"}
             }
         }
     ]
