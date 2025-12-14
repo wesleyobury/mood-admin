@@ -57,6 +57,9 @@ interface SearchUser {
 }
 
 export default function Explore() {
+  // Track screen time
+  useScreenTime('Explore');
+  
   const [posts, setPosts] = useState<Post[]>([]);
   const [refreshing, setRefreshing] = useState(false);
   const [loading, setLoading] = useState(true);
