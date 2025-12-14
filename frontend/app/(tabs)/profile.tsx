@@ -534,14 +534,22 @@ export default function Profile() {
           <Ionicons name="settings-outline" size={24} color="#fff" />
         </TouchableOpacity>
         <Text style={styles.username}>@{user.username}</Text>
-        <TouchableOpacity 
-          style={styles.createButton}
-          onPress={handleCreatePost}
-        >
-          <View style={styles.createIconContainer}>
-            <Ionicons name="add" size={24} color="#000" />
-          </View>
-        </TouchableOpacity>
+        <View style={styles.headerRightButtons}>
+          <TouchableOpacity 
+            style={styles.messagesButton}
+            onPress={() => router.push('/messages')}
+          >
+            <Ionicons name="chatbubbles-outline" size={24} color="#fff" />
+          </TouchableOpacity>
+          <TouchableOpacity 
+            style={styles.createButton}
+            onPress={handleCreatePost}
+          >
+            <View style={styles.createIconContainer}>
+              <Ionicons name="add" size={24} color="#000" />
+            </View>
+          </TouchableOpacity>
+        </View>
       </View>
 
       <ScrollView style={styles.scrollView} showsVerticalScrollIndicator={false}>
