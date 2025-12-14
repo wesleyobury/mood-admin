@@ -337,7 +337,7 @@ export default function UserProfile() {
                   }
                 })}
               >
-                <Ionicons name="chatbubble-outline" size={20} color="#FFD700" />
+                <Ionicons name="chatbubble-outline" size={20} color="#fff" />
               </TouchableOpacity>
             </View>
           )}
