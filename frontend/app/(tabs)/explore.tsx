@@ -20,6 +20,7 @@ import { useAuth } from '../../contexts/AuthContext';
 import MediaCarousel from '../../components/MediaCarousel';
 import CommentsBottomSheet from '../../components/CommentsBottomSheet';
 import { Analytics } from '../../utils/analytics';
+import { useScreenTime } from '../../hooks/useScreenTime';
 
 const API_URL = process.env.EXPO_PUBLIC_BACKEND_URL || '';
 
