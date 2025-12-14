@@ -532,6 +532,16 @@ export default function Explore() {
         refreshControl={
           <RefreshControl refreshing={refreshing} onRefresh={onRefresh} tintColor="#FFD700" />
         }
+        onScroll={({ nativeEvent }) => {
+          const { layoutMeasurement, contentOffset, contentSize } = nativeEvent;
+          const paddingToBottom = 100;
+          if (layoutMeasurement.height + contentOffset.y >= contentSize.height - paddingToBottom) {
+            if (!loadingMore && hasMore) {
+              fetchPosts(true);
+            }
+          }
+        }}
+        scrollEventThrottle={400}
       >
         {posts.length === 0 ? (
           <View style={styles.emptyState}>
