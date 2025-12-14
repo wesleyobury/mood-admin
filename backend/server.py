@@ -1675,6 +1675,64 @@ async def get_posts(current_user_id: str = Depends(get_current_user), limit: int
     
     return result
 
+@api_router.get("/posts/{post_id}")
+async def get_single_post(post_id: str, current_user_id: str = Depends(get_current_user)):
+    """Get a single post by ID"""
+    try:
+        post_object_id = ObjectId(post_id)
+    except:
+        raise HTTPException(status_code=400, detail="Invalid post ID")
+    
+    pipeline = [
+        {"$match": {"_id": post_object_id}},
+        {
+            "$lookup": {
+                "from": "users",
+                "localField": "author_id",
+                "foreignField": "_id",
+                "as": "author"
+            }
+        },
+        {"$unwind": "$author"},
+        {
+            "$lookup": {
+                "from": "post_likes",
+                "let": {"post_id": "$_id", "user_id": ObjectId(current_user_id)},
+                "pipeline": [
+                    {"$match": {"$expr": {"$and": [
+                        {"$eq": ["$post_id", "$$post_id"]},
+                        {"$eq": ["$user_id", "$$user_id"]}
+                    ]}}}
+                ],
+                "as": "user_like"
+            }
+        },
+        {
+            "$project": {
+                "id": {"$toString": "$_id"},
+                "author": {
+                    "id": {"$toString": "$author._id"},
+                    "username": "$author.username",
+                    "name": {"$ifNull": ["$author.name", "$author.username"]},
+                    "avatar": "$author.avatar"
+                },
+                "caption": 1,
+                "media_urls": 1,
+                "likes_count": {"$ifNull": ["$likes_count", 0]},
+                "comments_count": {"$ifNull": ["$comments_count", 0]},
+                "is_liked": {"$gt": [{"$size": "$user_like"}, 0]},
+                "created_at": 1
+            }
+        }
+    ]
+    
+    result = await db.posts.aggregate(pipeline).to_list(1)
+    
+    if not result:
+        raise HTTPException(status_code=404, detail="Post not found")
+    
+    return result[0]
+
 # Social Features - Likes
 
 @api_router.post("/posts/{post_id}/like")
