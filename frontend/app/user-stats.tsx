@@ -311,7 +311,7 @@ const styles = StyleSheet.create({
     borderColor: '#FFD700',
   },
   periodText: {
-    color: '#888',
+    color: '#fff',
     fontSize: 14,
     fontWeight: '600',
   },
