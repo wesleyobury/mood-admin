@@ -94,17 +94,23 @@ export default function Explore() {
     }, [])
   );
 
-  const fetchPosts = async () => {
+  const fetchPosts = async (loadMore = false) => {
     if (!token) {
       console.log('No token available for fetching posts');
       setLoading(false);
       return;
     }
 
+    if (loadMore && !hasMore) return;
+    if (loadMore) {
+      setLoadingMore(true);
+    }
+
     try {
+      const skip = loadMore ? posts.length : 0;
       const endpoint = activeTab === 'following' 
-        ? `${API_URL}/api/posts/following` 
-        : `${API_URL}/api/posts`;
+        ? `${API_URL}/api/posts/following?limit=${PAGE_SIZE}&skip=${skip}` 
+        : `${API_URL}/api/posts?limit=${PAGE_SIZE}&skip=${skip}`;
       
       console.log('Fetching posts from:', endpoint);
         
@@ -119,6 +125,11 @@ export default function Explore() {
       if (response.ok) {
         const data = await response.json();
         console.log('Posts fetched successfully:', data.length, 'posts');
+        
+        // Check if there are more posts
+        if (data.length < PAGE_SIZE) {
+          setHasMore(false);
+        }
         
         // Check saved status for each post
         const postsWithSaveStatus = await Promise.all(
@@ -138,7 +149,12 @@ export default function Explore() {
           })
         );
         
-        setPosts(postsWithSaveStatus);
+        if (loadMore) {
+          setPosts(prev => [...prev, ...postsWithSaveStatus]);
+        } else {
+          setPosts(postsWithSaveStatus);
+          setHasMore(true);
+        }
       } else {
         console.error('Failed to fetch posts:', response.status);
       }
@@ -146,6 +162,7 @@ export default function Explore() {
       console.error('Error fetching posts:', error);
     } finally {
       setLoading(false);
+      setLoadingMore(false);
     }
   };
 
