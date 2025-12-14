@@ -798,9 +798,8 @@ export default function Profile() {
                                 params: { id: featuredId },
                               });
                             } else {
-                              // Show modal for custom workouts
-                              setSelectedSavedWorkout(savedWorkout);
-                              setSavedModalVisible(true);
+                              // For custom workouts, load directly into cart
+                              handleLoadSavedWorkout(savedWorkout);
                             }
                           }}
                         >
