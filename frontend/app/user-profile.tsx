@@ -179,19 +179,54 @@ export default function UserProfile() {
     <TouchableOpacity 
       style={styles.postItem}
       onPress={() => {
-        // TODO: Navigate to post detail
-        Alert.alert('Post', 'Post detail view coming soon!');
+        router.push(`/post-detail?postId=${item.id}`);
       }}
     >
       {item.media_urls.length > 0 ? (
-        <Image 
-          source={{ uri: item.media_urls[0] }} 
-          style={styles.postImage}
-          resizeMode="cover"
-        />
+        (() => {
+          const mediaUrl = item.media_urls[0];
+          const isVideo = mediaUrl && (
+            mediaUrl.toLowerCase().endsWith('.mov') ||
+            mediaUrl.toLowerCase().endsWith('.mp4') ||
+            mediaUrl.toLowerCase().endsWith('.avi') ||
+            mediaUrl.toLowerCase().endsWith('.webm')
+          );
+          
+          // Fix URL if needed
+          const fullUrl = mediaUrl.startsWith('http') ? mediaUrl : 
+            (mediaUrl.startsWith('/') ? `${API_URL}${mediaUrl}` : `${API_URL}/api/uploads/${mediaUrl}`);
+          
+          if (isVideo) {
+            return (
+              <View style={[styles.postImage, styles.videoThumbnail]}>
+                <Ionicons name="play-circle" size={40} color="#FFD700" />
+              </View>
+            );
+          }
+          
+          return (
+            <Image 
+              source={{ uri: fullUrl }} 
+              style={styles.postImage}
+              resizeMode="cover"
+            />
+          );
+        })()
       ) : (
         <View style={[styles.postImage, styles.noImagePost]}>
           <Ionicons name="image-outline" size={40} color="#666" />
+        </View>
+      )}
+      
+      {/* Video indicator */}
+      {item.media_urls.length > 0 && (
+        item.media_urls[0].toLowerCase().endsWith('.mov') ||
+        item.media_urls[0].toLowerCase().endsWith('.mp4') ||
+        item.media_urls[0].toLowerCase().endsWith('.avi') ||
+        item.media_urls[0].toLowerCase().endsWith('.webm')
+      ) && (
+        <View style={styles.videoIndicator}>
+          <Ionicons name="videocam" size={14} color="#fff" />
         </View>
       )}
       
