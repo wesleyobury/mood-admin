@@ -197,4 +197,23 @@ export const Analytics = {
   cartViewed: (token: string, metadata: {
     item_count: number;
   }) => trackEvent(token, 'cart_viewed', metadata),
+
+  // Screen Time Tracking
+  screenTimeSpent: (token: string, metadata: {
+    screen_name: string;
+    duration_seconds: number;
+    duration_minutes?: number;
+  }) => trackEvent(token, 'screen_time_spent', {
+    ...metadata,
+    duration_minutes: metadata.duration_minutes || Math.round(metadata.duration_seconds / 60 * 100) / 100
+  }),
+
+  screenEntered: (token: string, metadata: {
+    screen_name: string;
+  }) => trackEvent(token, 'screen_entered', metadata),
+
+  screenExited: (token: string, metadata: {
+    screen_name: string;
+    duration_seconds: number;
+  }) => trackEvent(token, 'screen_exited', metadata),
 };
