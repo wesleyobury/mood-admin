@@ -626,18 +626,18 @@ const styles = StyleSheet.create({
   saveButton: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: 'rgba(255, 215, 0, 0.1)',
+    backgroundColor: '#1a1a1a',
     paddingHorizontal: 16,
     paddingVertical: 14,
-    borderRadius: 30,
+    borderRadius: 8,
     borderWidth: 1,
-    borderColor: '#FFD700',
+    borderColor: '#333',
     gap: 6,
   },
   saveButtonText: {
     fontSize: 14,
     fontWeight: '600',
-    color: '#FFD700',
+    color: '#fff',
   },
   exerciseCount: {
     flex: 1,
@@ -652,19 +652,21 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#FFD700',
+    backgroundColor: '#1a1a1a',
     paddingHorizontal: 24,
     paddingVertical: 14,
-    borderRadius: 30,
+    borderRadius: 8,
+    borderWidth: 1,
+    borderColor: '#333',
     gap: 8,
   },
   startButtonDisabled: {
-    backgroundColor: 'rgba(255, 215, 0, 0.5)',
+    backgroundColor: 'rgba(26, 26, 26, 0.5)',
   },
   startButtonText: {
     fontSize: 16,
     fontWeight: '700',
-    color: '#000',
+    color: '#fff',
   },
   // Empty State Styles
   emptyHeader: {
