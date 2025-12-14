@@ -201,10 +201,10 @@ export default function CreatePost() {
       return;
     }
 
-    // On iOS, disable built-in editor and use custom crop
+    // Enable editing so user can select crop area
     const result = await ImagePicker.launchCameraAsync({
       mediaTypes: ['images'],
-      allowsEditing: Platform.OS === 'android',
+      allowsEditing: true,
       aspect: [4, 5],
       quality: 0.9,
     });
@@ -212,10 +212,15 @@ export default function CreatePost() {
     if (!result.canceled && result.assets && result.assets.length > 0) {
       const asset = result.assets[0];
       
-      // For iOS, crop to 4:5 aspect ratio from center
+      // After user crops, ensure it's exactly 4:5 aspect ratio
       let finalUri = asset.uri;
-      if (Platform.OS === 'ios' && asset.width && asset.height) {
-        finalUri = await cropTo4x5(asset.uri, asset.width, asset.height);
+      if (asset.width && asset.height) {
+        const currentAspect = asset.width / asset.height;
+        const targetAspect = 4 / 5;
+        // Only re-crop if not already 4:5
+        if (Math.abs(currentAspect - targetAspect) > 0.01) {
+          finalUri = await cropTo4x5(asset.uri, asset.width, asset.height);
+        }
       }
       
       const newMedia: MediaItem = { uri: finalUri, type: 'image' };
