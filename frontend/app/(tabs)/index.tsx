@@ -23,6 +23,7 @@ import * as WebBrowser from 'expo-web-browser';
 import Constants from 'expo-constants';
 import { useAuth } from '../../contexts/AuthContext';
 import { Analytics } from '../../utils/analytics';
+import { useScreenTime } from '../../hooks/useScreenTime';
 
 const API_URL = Constants.expoConfig?.extra?.EXPO_PUBLIC_BACKEND_URL || '';
 
