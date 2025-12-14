@@ -789,7 +789,13 @@ const styles = StyleSheet.create({
   },
   headerActions: {
     flexDirection: 'row',
+    alignItems: 'center',
     gap: 12,
+  },
+  searchButton: {
+    padding: 4,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   createButton: {
     padding: 4,
