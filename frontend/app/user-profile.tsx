@@ -51,6 +51,14 @@ export default function UserProfile() {
   const [loading, setLoading] = useState(true);
   const { token } = useAuth();
 
+  const handleGoBack = useCallback(() => {
+    if (router.canGoBack()) {
+      router.back();
+    } else {
+      router.replace('/(tabs)/explore');
+    }
+  }, [router]);
+
   useEffect(() => {
     // Track profile view when the page loads (only for non-self profiles)
     if (token && userId && !isSelf && user) {
