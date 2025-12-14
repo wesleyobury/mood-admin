@@ -119,8 +119,7 @@ const DifficultyCard = ({
     <TouchableOpacity
       style={[
         styles.difficultyCard,
-        isSelected && styles.difficultyCardSelected,
-        isSelected && { borderColor: level.color }
+        isSelected && styles.difficultyCardSelected
       ]}
       onPress={() => onPress(level)}
       activeOpacity={0.8}
