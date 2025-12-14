@@ -385,6 +385,9 @@ const moodCards: MoodCard[] = [
 ];
 
 export default function WorkoutsHome() {
+  // Track screen time
+  useScreenTime('Home');
+  
   const [greeting, setGreeting] = useState('');
   const [userStats, setUserStats] = useState({ workouts: 0, minutes: 0, streak: 0 });
   const [activeCarouselIndex, setActiveCarouselIndex] = useState(0);
