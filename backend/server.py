@@ -727,18 +727,24 @@ async def get_active_users_endpoint(
     """Get users who were active in the specified period (based on any tracked event)"""
     cutoff = datetime.now(timezone.utc) - timedelta(days=days)
     
+    logger.info(f"Fetching active users for last {days} days")
+    
     # Find unique user IDs from user_events in the period
     active_user_ids = await db.user_events.distinct(
         "user_id",
         {"timestamp": {"$gte": cutoff}}
     )
     
+    logger.info(f"Found {len(active_user_ids)} unique active user IDs: {active_user_ids}")
+    
     # Get user details for these active users
     users = []
     for user_id in active_user_ids[:limit]:
         try:
+            logger.info(f"Looking up user: {user_id}")
             user = await db.users.find_one({"_id": ObjectId(user_id)})
             if user:
+                logger.info(f"Found user: {user.get('username')}")
                 # Get activity counts for this user
                 event_count = await db.user_events.count_documents({
                     "user_id": user_id,
@@ -753,8 +759,13 @@ async def get_active_users_endpoint(
                     "app_sessions": event_count,
                     "created_at": user.get("created_at").isoformat() if user.get("created_at") else None,
                 })
-        except Exception:
+            else:
+                logger.warning(f"User not found for ID: {user_id}")
+        except Exception as e:
+            logger.error(f"Error looking up user {user_id}: {e}")
             continue
+    
+    logger.info(f"Returning {len(users)} users")
     
     # Sort by activity count
     users.sort(key=lambda x: x.get("app_sessions", 0), reverse=True)
@@ -774,18 +785,24 @@ async def get_daily_active_users_endpoint(
     """Get users who were active in the last 24 hours"""
     cutoff = datetime.now(timezone.utc) - timedelta(hours=24)
     
+    logger.info(f"Fetching daily active users (last 24 hours)")
+    
     # Find unique user IDs from user_events in the last 24 hours
     daily_active_user_ids = await db.user_events.distinct(
         "user_id",
         {"timestamp": {"$gte": cutoff}}
     )
     
+    logger.info(f"Found {len(daily_active_user_ids)} daily active user IDs: {daily_active_user_ids}")
+    
     # Get user details
     users = []
     for user_id in daily_active_user_ids[:limit]:
         try:
+            logger.info(f"Looking up user: {user_id}")
             user = await db.users.find_one({"_id": ObjectId(user_id)})
             if user:
+                logger.info(f"Found user: {user.get('username')}")
                 # Get latest activity
                 latest_event = await db.user_events.find_one(
                     {"user_id": user_id},
@@ -800,8 +817,13 @@ async def get_daily_active_users_endpoint(
                     "last_active": latest_event["timestamp"].isoformat() if latest_event and latest_event.get("timestamp") else None,
                     "created_at": user.get("created_at").isoformat() if user.get("created_at") else None,
                 })
-        except Exception:
+            else:
+                logger.warning(f"User not found for ID: {user_id}")
+        except Exception as e:
+            logger.error(f"Error looking up user {user_id}: {e}")
             continue
+    
+    logger.info(f"Returning {len(users)} daily active users")
     
     return {
         "users": users,
