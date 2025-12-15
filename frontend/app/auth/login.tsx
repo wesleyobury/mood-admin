@@ -351,6 +351,7 @@ export default function Login() {
             <TouchableOpacity style={styles.loginButton} onPress={handleLogin}>
               <Text style={styles.loginButtonText}>Login</Text>
             </TouchableOpacity>
+          </View>
 
           {/* Footer */}
           <View style={styles.footer}>
