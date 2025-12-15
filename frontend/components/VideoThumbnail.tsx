@@ -98,6 +98,23 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
+  fallbackContainer: {
+    backgroundColor: '#0c0c0c',
+  },
+  videoIconWrapper: {
+    width: 60,
+    height: 60,
+    borderRadius: 30,
+    backgroundColor: 'rgba(255, 215, 0, 0.15)',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginBottom: 8,
+  },
+  playIconOverlay: {
+    position: 'absolute',
+    bottom: 12,
+    right: 12,
+  },
   thumbnail: {
     width: '100%',
     height: '100%',
