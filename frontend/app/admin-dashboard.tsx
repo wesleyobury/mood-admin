@@ -258,7 +258,7 @@ export default function AdminDashboard() {
           <View style={styles.metricsRow}>
             <TouchableOpacity 
               style={styles.metricCard}
-              onPress={() => router.push(`/analytics-detail?type=users&days=${selectedPeriod}`)}
+              onPress={() => router.push('/time-series-analytics?metric=new_users')}
             >
               <View style={styles.metricIconContainer}>
                 <Ionicons name="people" size={24} color="#FFD700" />
@@ -271,7 +271,7 @@ export default function AdminDashboard() {
 
             <TouchableOpacity 
               style={styles.metricCard}
-              onPress={() => router.push(`/analytics-detail?type=activeUsers&days=${selectedPeriod}`)}
+              onPress={() => router.push('/time-series-analytics?metric=active_users')}
             >
               <View style={[styles.metricIconContainer, { backgroundColor: 'rgba(76, 175, 80, 0.1)' }]}>
                 <Ionicons name="pulse" size={24} color="#4CAF50" />
@@ -286,14 +286,14 @@ export default function AdminDashboard() {
           <View style={styles.metricsRow}>
             <TouchableOpacity 
               style={styles.metricCard}
-              onPress={() => router.push(`/analytics-detail?type=dailyActiveUsers&days=${selectedPeriod}`)}
+              onPress={() => router.push('/time-series-analytics?metric=app_sessions')}
             >
               <View style={[styles.metricIconContainer, { backgroundColor: 'rgba(33, 150, 243, 0.1)' }]}>
-                <Ionicons name="today" size={24} color="#2196F3" />
+                <Ionicons name="phone-portrait" size={24} color="#2196F3" />
               </View>
               <Text style={styles.metricValue}>{stats?.daily_active_users?.toLocaleString() || 0}</Text>
-              <Text style={styles.metricLabel}>Daily Active</Text>
-              <Text style={styles.metricDescription}>Active in last 24 hours</Text>
+              <Text style={styles.metricLabel}>App Sessions</Text>
+              <Text style={styles.metricDescription}>Times app opened today</Text>
               <Ionicons name="chevron-forward" size={14} color="#666" style={styles.drilldownIcon} />
             </TouchableOpacity>
 
