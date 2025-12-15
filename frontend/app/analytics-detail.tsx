@@ -207,6 +207,56 @@ export default function AnalyticsDetailScreen() {
     </View>
   );
 
+  const renderActiveUserItem = (item: any, index: number) => (
+    <View key={item.user_id} style={styles.listItem}>
+      <View style={[styles.rankBadge, index === 0 && styles.goldBadge]}>
+        <Text style={[styles.rankText, index === 0 && styles.goldText]}>{index + 1}</Text>
+      </View>
+      <View style={styles.avatarContainer}>
+        {item.avatar_url ? (
+          <Image source={{ uri: `${API_URL}${item.avatar_url}` }} style={styles.avatar} />
+        ) : (
+          <View style={[styles.avatar, styles.avatarPlaceholder]}>
+            <Ionicons name="person" size={20} color="#666" />
+          </View>
+        )}
+      </View>
+      <View style={styles.itemContent}>
+        <Text style={styles.itemTitle}>{item.username}</Text>
+        {item.email && <Text style={styles.itemSubtitle}>{item.email}</Text>}
+        <Text style={styles.itemMeta}>
+          {item.app_sessions?.toLocaleString() || 0} events tracked
+        </Text>
+      </View>
+    </View>
+  );
+
+  const renderDailyActiveUserItem = (item: any, index: number) => (
+    <View key={item.user_id} style={styles.listItem}>
+      <View style={[styles.rankBadge, index === 0 && styles.goldBadge]}>
+        <Text style={[styles.rankText, index === 0 && styles.goldText]}>{index + 1}</Text>
+      </View>
+      <View style={styles.avatarContainer}>
+        {item.avatar_url ? (
+          <Image source={{ uri: `${API_URL}${item.avatar_url}` }} style={styles.avatar} />
+        ) : (
+          <View style={[styles.avatar, styles.avatarPlaceholder]}>
+            <Ionicons name="person" size={20} color="#666" />
+          </View>
+        )}
+      </View>
+      <View style={styles.itemContent}>
+        <Text style={styles.itemTitle}>{item.username}</Text>
+        {item.email && <Text style={styles.itemSubtitle}>{item.email}</Text>}
+        {item.last_active && (
+          <Text style={styles.itemMeta}>
+            Last active: {new Date(item.last_active).toLocaleTimeString()}
+          </Text>
+        )}
+      </View>
+    </View>
+  );
+
   const renderScreenItem = (item: ScreenItem, index: number) => (
     <View key={item.screen_name} style={styles.listItem}>
       <View style={[styles.rankBadge, index === 0 && styles.goldBadge]}>
