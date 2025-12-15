@@ -355,6 +355,73 @@ export default function AdminDashboard() {
           </View>
         </View>
 
+        {/* User Signup Trend */}
+        <View style={styles.section}>
+          <View style={styles.sectionHeader}>
+            <Text style={styles.sectionTitle}>New User Signups</Text>
+            <Text style={styles.trendTotal}>{signupTrend?.total || 0} total</Text>
+          </View>
+          
+          {/* Period selector */}
+          <View style={styles.signupPeriodSelector}>
+            {signupPeriods.map((p) => (
+              <TouchableOpacity
+                key={p.value}
+                style={[
+                  styles.signupPeriodButton,
+                  signupPeriod === p.value && styles.signupPeriodButtonActive
+                ]}
+                onPress={() => setSignupPeriod(p.value as 'day' | 'week' | 'month')}
+              >
+                <Text style={[
+                  styles.signupPeriodText,
+                  signupPeriod === p.value && styles.signupPeriodTextActive
+                ]}>
+                  {p.label}
+                </Text>
+              </TouchableOpacity>
+            ))}
+          </View>
+
+          {/* Chart */}
+          {signupTrend && signupTrend.values.length > 0 ? (
+            <View style={styles.chartContainer}>
+              <BarChart
+                data={{
+                  labels: signupTrend.labels.slice(-10),
+                  datasets: [{ data: signupTrend.values.slice(-10) }]
+                }}
+                width={screenWidth - 48}
+                height={180}
+                yAxisLabel=""
+                yAxisSuffix=""
+                chartConfig={{
+                  backgroundColor: '#1a1a1a',
+                  backgroundGradientFrom: '#1a1a1a',
+                  backgroundGradientTo: '#1a1a1a',
+                  decimalPlaces: 0,
+                  color: (opacity = 1) => `rgba(255, 215, 0, ${opacity})`,
+                  labelColor: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
+                  style: { borderRadius: 12 },
+                  propsForBackgroundLines: {
+                    strokeDasharray: '',
+                    stroke: '#333',
+                  },
+                  barPercentage: 0.6,
+                }}
+                style={{ borderRadius: 12, marginTop: 8 }}
+                showValuesOnTopOfBars={true}
+                fromZero={true}
+              />
+            </View>
+          ) : (
+            <View style={styles.noDataContainer}>
+              <Ionicons name="bar-chart-outline" size={32} color="#666" />
+              <Text style={styles.noDataText}>No signup data available</Text>
+            </View>
+          )}
+        </View>
+
         {/* Workout Funnel */}
         <TouchableOpacity 
           style={styles.section}
@@ -377,7 +444,7 @@ export default function AdminDashboard() {
             </View>
 
             <View style={styles.funnelItem}>
-              <View style={styles.funnelBar}>
+              <View style={styles.funnelBar}>>
                 <View style={[styles.funnelFill, { 
                   width: `${stats?.workout_completion_rate || 0}%`, 
                   backgroundColor: '#FFD700' 
