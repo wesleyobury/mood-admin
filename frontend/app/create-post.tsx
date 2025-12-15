@@ -821,6 +821,7 @@ export default function CreatePost() {
           caption: caption.trim(),
           media_urls: mediaUrls,
           hashtags,
+          cover_urls: Object.keys(coverUrls).length > 0 ? coverUrls : null,
         }),
       });
 
