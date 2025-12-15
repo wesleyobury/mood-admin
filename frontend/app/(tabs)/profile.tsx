@@ -154,12 +154,30 @@ export default function Profile() {
   const { addToCart } = useCart();
 
   const [activeTab, setActiveTab] = useState<'posts' | 'saved' | 'cards'>('posts');
+  const [unreadMessages, setUnreadMessages] = useState(0);
   const router = useRouter();
+
+  // Fetch unread message count
+  const fetchUnreadCount = async () => {
+    if (!token) return;
+    try {
+      const response = await fetch(`${API_URL}/api/messages/unread-count`, {
+        headers: { 'Authorization': `Bearer ${token}` },
+      });
+      if (response.ok) {
+        const data = await response.json();
+        setUnreadMessages(data.count || 0);
+      }
+    } catch (error) {
+      console.error('Error fetching unread count:', error);
+    }
+  };
 
   // Load user profile when token is available
   useEffect(() => {
     if (token) {
       fetchUserProfile();
+      fetchUnreadCount();
     }
   }, [token]);
 
