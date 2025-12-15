@@ -151,8 +151,15 @@ export default function AdminDashboard() {
   useEffect(() => {
     if (isAuthorized) {
       fetchStats();
+      fetchSignupTrend();
     }
   }, [selectedPeriod, isAuthorized]);
+
+  useEffect(() => {
+    if (isAuthorized) {
+      fetchSignupTrend();
+    }
+  }, [signupPeriod, isAuthorized]);
 
   const onRefresh = () => {
     setRefreshing(true);
