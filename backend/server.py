@@ -157,6 +157,12 @@ class PostCreate(BaseModel):
     media_urls: List[str] = []  # URLs to uploaded media files
     hashtags: List[str] = []
 
+class CredentialsUpdate(BaseModel):
+    current_password: str
+    new_username: Optional[str] = None
+    new_email: Optional[str] = None
+    new_password: Optional[str] = None
+
 class PostResponse(BaseModel):
     id: str
     author: UserResponse
