@@ -241,11 +241,13 @@ async def login(login_data: UserLogin, request: Request):
     
     try:
         # Find user by username OR email (case insensitive)
+        import re
         login_identifier = login_data.username.strip()
+        escaped_identifier = re.escape(login_identifier)
         user = await db.users.find_one({
             "$or": [
-                {"username": {"$regex": f"^{login_identifier}$", "$options": "i"}},
-                {"email": {"$regex": f"^{login_identifier}$", "$options": "i"}}
+                {"username": {"$regex": f"^{escaped_identifier}$", "$options": "i"}},
+                {"email": {"$regex": f"^{escaped_identifier}$", "$options": "i"}}
             ]
         })
         if not user:
