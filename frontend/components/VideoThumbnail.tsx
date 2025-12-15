@@ -48,7 +48,7 @@ const VideoThumbnail: React.FC<VideoThumbnailProps> = ({ videoUrl, style }) => {
   if (error || !thumbnail) {
     return (
       <View style={[styles.container, style]}>
-        <Ionicons name="play-circle" size={40} color="#FFD700" />
+        <Ionicons name="play-circle" size={40} color="#fff" />
       </View>
     );
   }
@@ -61,7 +61,7 @@ const VideoThumbnail: React.FC<VideoThumbnailProps> = ({ videoUrl, style }) => {
         contentFit="cover"
       />
       <View style={styles.playOverlay}>
-        <Ionicons name="play-circle" size={36} color="rgba(255, 215, 0, 0.9)" />
+        <Ionicons name="play-circle" size={36} color="rgba(255, 255, 255, 0.9)" />
       </View>
     </View>
   );
