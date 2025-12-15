@@ -114,6 +114,8 @@ export default function AnalyticsDetailScreen() {
   
   const titles: Record<string, string> = {
     users: 'All Users',
+    activeUsers: 'Active Users',
+    dailyActiveUsers: 'Daily Active Users',
     newUsers: 'New Users',
     screens: 'Screen Views',
     moods: 'Mood Selections',
@@ -122,6 +124,20 @@ export default function AnalyticsDetailScreen() {
     exercises: 'Exercises Completed',
     social: 'Social Activity',
     workoutFunnel: 'Workout Funnel',
+  };
+  
+  const subtitles: Record<string, string> = {
+    users: 'All registered accounts on the platform',
+    activeUsers: `Users who have used the app in the last ${days} ${days === 1 ? 'day' : 'days'}`,
+    dailyActiveUsers: 'Users who were active in the last 24 hours',
+    newUsers: `Users who signed up in the last ${days} ${days === 1 ? 'day' : 'days'}`,
+    screens: 'Most viewed screens in the app',
+    moods: 'Workout mood preferences selected by users',
+    equipment: 'Equipment types selected by users',
+    difficulties: 'Difficulty levels chosen by users',
+    exercises: 'Most completed exercises',
+    social: 'Social engagement metrics',
+    workoutFunnel: 'User journey through workout flow',
   };
 
   useEffect(() => {
@@ -134,6 +150,8 @@ export default function AnalyticsDetailScreen() {
     
     const endpoints: Record<string, string> = {
       users: `/api/analytics/admin/users?days=${days}`,
+      activeUsers: `/api/analytics/admin/users/active?days=${days}`,
+      dailyActiveUsers: `/api/analytics/admin/users/daily-active`,
       newUsers: `/api/analytics/admin/users/new?days=${days}`,
       screens: `/api/analytics/admin/screens?days=${days}`,
       moods: `/api/analytics/admin/moods?days=${days}`,
