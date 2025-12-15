@@ -39,6 +39,7 @@ const isVideoUri = (uri: string): boolean => {
 interface MediaItem {
   uri: string;
   type: 'image' | 'video';
+  coverUri?: string;  // Custom cover image for videos
 }
 
 interface WorkoutStats {
