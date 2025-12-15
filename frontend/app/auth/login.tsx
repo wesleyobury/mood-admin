@@ -29,9 +29,21 @@ export default function Login() {
   const [password, setPassword] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
+  const [isAppleAvailable, setIsAppleAvailable] = useState(false);
   const insets = useSafeAreaInsets();
 
   const { login } = useAuth();
+
+  // Check if Apple Sign-In is available (iOS only)
+  useEffect(() => {
+    const checkAppleAvailability = async () => {
+      if (Platform.OS === 'ios') {
+        const available = await AppleAuthentication.isAvailableAsync();
+        setIsAppleAvailable(available);
+      }
+    };
+    checkAppleAvailability();
+  }, []);
 
   // Handle deep link redirect from Emergent Auth
   useEffect(() => {
