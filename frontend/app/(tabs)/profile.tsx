@@ -565,6 +565,13 @@ export default function Profile() {
             onPress={() => router.push('/messages')}
           >
             <Ionicons name="chatbubbles-outline" size={24} color="#fff" />
+            {unreadMessages > 0 && (
+              <View style={styles.unreadBadge}>
+                <Text style={styles.unreadBadgeText}>
+                  {unreadMessages > 99 ? '99+' : unreadMessages}
+                </Text>
+              </View>
+            )}
           </TouchableOpacity>
           <TouchableOpacity 
             style={styles.createButton}
