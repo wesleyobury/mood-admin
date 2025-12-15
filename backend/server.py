@@ -2337,6 +2337,44 @@ async def save_post(
     
     return {"message": "Post saved successfully", "is_saved": True}
 
+@api_router.delete("/posts/{post_id}")
+async def delete_post(
+    post_id: str,
+    current_user_id: str = Depends(get_current_user)
+):
+    """Delete a post (only owner can delete)"""
+    try:
+        # Find the post and verify ownership
+        post = await db.posts.find_one({"_id": ObjectId(post_id)})
+        
+        if not post:
+            raise HTTPException(status_code=404, detail="Post not found")
+        
+        # Check if the current user is the author
+        if str(post.get("author_id")) != current_user_id:
+            raise HTTPException(status_code=403, detail="You can only delete your own posts")
+        
+        # Delete the post
+        result = await db.posts.delete_one({"_id": ObjectId(post_id)})
+        
+        if result.deleted_count == 0:
+            raise HTTPException(status_code=500, detail="Failed to delete post")
+        
+        # Also delete related data
+        await db.likes.delete_many({"post_id": post_id})
+        await db.comments.delete_many({"post_id": post_id})
+        await db.saved_posts.delete_many({"post_id": post_id})
+        
+        logger.info(f"Post {post_id} deleted by user {current_user_id}")
+        
+        return {"message": "Post deleted successfully"}
+        
+    except HTTPException:
+        raise
+    except Exception as e:
+        logger.error(f"Error deleting post: {str(e)}")
+        raise HTTPException(status_code=500, detail="Failed to delete post")
+
 @api_router.delete("/posts/{post_id}/save")
 async def unsave_post(
     post_id: str,
