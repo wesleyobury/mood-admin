@@ -504,21 +504,6 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: '#0c0c0c',
   },
-  skipButton: {
-    backgroundColor: '#2a2a2a',
-    borderWidth: 1,
-    borderColor: '#3a3a3a',
-    borderRadius: 12,
-    height: 50,
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginTop: 12,
-  },
-  skipButtonText: {
-    fontSize: 16,
-    fontWeight: '600',
-    color: '#fff',
-  },
   footer: {
     flexDirection: 'row',
     justifyContent: 'center',
