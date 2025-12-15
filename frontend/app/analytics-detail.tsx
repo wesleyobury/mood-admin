@@ -472,6 +472,9 @@ export default function AnalyticsDetailScreen() {
       case 'users':
       case 'newUsers':
         return data.total_count || data.users?.length || 0;
+      case 'activeUsers':
+      case 'dailyActiveUsers':
+        return data.total || data.users?.length || 0;
       case 'screens':
         return data.total_views || 0;
       case 'moods':
