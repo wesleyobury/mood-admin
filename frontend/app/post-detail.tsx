@@ -181,7 +181,17 @@ export default function PostDetail() {
           <Ionicons name="arrow-back" size={24} color="#FFD700" />
         </TouchableOpacity>
         <Text style={styles.headerTitle}>Post</Text>
-        <View style={{ width: 24 }} />
+        {isOwnPost ? (
+          <TouchableOpacity onPress={handleDeletePost} disabled={isDeleting}>
+            {isDeleting ? (
+              <ActivityIndicator size="small" color="#FF4444" />
+            ) : (
+              <Ionicons name="trash-outline" size={24} color="#FF4444" />
+            )}
+          </TouchableOpacity>
+        ) : (
+          <View style={{ width: 24 }} />
+        )}
       </View>
 
       <ScrollView style={styles.scrollView}>
