@@ -443,9 +443,11 @@ export default function AnalyticsDetailScreen() {
         <View style={styles.headerTextContainer}>
           <Text style={styles.headerTitle}>{titles[type] || 'Details'}</Text>
           <Text style={styles.headerSubtitle}>
-            Last {days === 1 ? '24 hours' : `${days} days`}
-            {getTotalCount() > 0 && ` • ${getTotalCount().toLocaleString()} total`}
+            {subtitles[type] || `Last ${days === 1 ? '24 hours' : `${days} days`}`}
           </Text>
+          {getTotalCount() > 0 && (
+            <Text style={styles.headerCount}>{getTotalCount().toLocaleString()} total</Text>
+          )}
         </View>
         <View style={styles.headerSpacer} />
       </View>
