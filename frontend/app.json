@@ -18,7 +18,8 @@
         "UIStatusBarStyle": "UIStatusBarStyleLightContent",
         "NSCameraUsageDescription": "MOOD needs camera access to capture workout photos and videos",
         "NSPhotoLibraryUsageDescription": "MOOD needs photo library access to share your workout progress",
-        "NSPhotoLibraryAddUsageDescription": "MOOD needs permission to save photos to your library"
+        "NSPhotoLibraryAddUsageDescription": "MOOD needs permission to save photos to your library",
+        "ITSAppUsesNonExemptEncryption": false
       }
     },
     "android": {
@@ -60,11 +61,13 @@
     "experiments": {
       "typedRoutes": true
     },
-
     "extra": {
       "EXPO_PUBLIC_BACKEND_URL": "https://fitness-app-dash.preview.emergentagent.com",
       "BACKEND_URL": "https://fitness-app-dash.preview.emergentagent.com",
-      "router": {}
+      "router": {},
+      "eas": {
+        "projectId": "ef2c8520-832c-4806-beb0-80b9db1a6214"
+      }
     }
   }
 }
