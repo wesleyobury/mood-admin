@@ -473,6 +473,163 @@ export default function Settings() {
           </ScrollView>
         </SafeAreaView>
       </Modal>
+
+      {/* Change Credentials Modal */}
+      <Modal
+        visible={showCredentialsModal}
+        animationType="slide"
+        presentationStyle="pageSheet"
+        onRequestClose={() => {
+          resetCredentialsForm();
+          setShowCredentialsModal(false);
+        }}
+      >
+        <SafeAreaView style={styles.modalContainer}>
+          <KeyboardAvoidingView 
+            behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+            style={{ flex: 1 }}
+          >
+            <View style={styles.modalHeader}>
+              <TouchableOpacity 
+                style={styles.modalCloseButton}
+                onPress={() => {
+                  resetCredentialsForm();
+                  setShowCredentialsModal(false);
+                }}
+              >
+                <Ionicons name="close" size={28} color="#fff" />
+              </TouchableOpacity>
+              <Text style={styles.modalTitle}>Change Credentials</Text>
+              <View style={styles.placeholder} />
+            </View>
+            
+            <ScrollView style={styles.credentialsContent} showsVerticalScrollIndicator={false}>
+              <Text style={styles.credentialsDescription}>
+                Update your login information below. You'll need to enter your current password to make any changes.
+              </Text>
+
+              {/* Current Password - Required */}
+              <View style={styles.inputSection}>
+                <Text style={styles.inputLabel}>Current Password *</Text>
+                <View style={styles.passwordInputContainer}>
+                  <TextInput
+                    style={styles.credentialInput}
+                    placeholder="Enter current password"
+                    placeholderTextColor="#666"
+                    secureTextEntry={!showCurrentPassword}
+                    value={currentPassword}
+                    onChangeText={setCurrentPassword}
+                    autoCapitalize="none"
+                  />
+                  <TouchableOpacity 
+                    style={styles.eyeButton}
+                    onPress={() => setShowCurrentPassword(!showCurrentPassword)}
+                  >
+                    <Ionicons 
+                      name={showCurrentPassword ? 'eye-off' : 'eye'} 
+                      size={20} 
+                      color="#666" 
+                    />
+                  </TouchableOpacity>
+                </View>
+              </View>
+
+              <View style={styles.dividerLine} />
+
+              {/* New Username */}
+              <View style={styles.inputSection}>
+                <Text style={styles.inputLabel}>New Username</Text>
+                <TextInput
+                  style={styles.credentialInput}
+                  placeholder={user?.username || "Enter new username"}
+                  placeholderTextColor="#666"
+                  value={newUsername}
+                  onChangeText={setNewUsername}
+                  autoCapitalize="none"
+                  autoCorrect={false}
+                />
+              </View>
+
+              {/* New Email */}
+              <View style={styles.inputSection}>
+                <Text style={styles.inputLabel}>New Email</Text>
+                <TextInput
+                  style={styles.credentialInput}
+                  placeholder={user?.email || "Enter new email"}
+                  placeholderTextColor="#666"
+                  value={newEmail}
+                  onChangeText={setNewEmail}
+                  autoCapitalize="none"
+                  autoCorrect={false}
+                  keyboardType="email-address"
+                />
+              </View>
+
+              {/* New Password */}
+              <View style={styles.inputSection}>
+                <Text style={styles.inputLabel}>New Password</Text>
+                <View style={styles.passwordInputContainer}>
+                  <TextInput
+                    style={styles.credentialInput}
+                    placeholder="Enter new password"
+                    placeholderTextColor="#666"
+                    secureTextEntry={!showNewPassword}
+                    value={newPassword}
+                    onChangeText={setNewPassword}
+                    autoCapitalize="none"
+                  />
+                  <TouchableOpacity 
+                    style={styles.eyeButton}
+                    onPress={() => setShowNewPassword(!showNewPassword)}
+                  >
+                    <Ionicons 
+                      name={showNewPassword ? 'eye-off' : 'eye'} 
+                      size={20} 
+                      color="#666" 
+                    />
+                  </TouchableOpacity>
+                </View>
+              </View>
+
+              {/* Confirm New Password */}
+              {newPassword ? (
+                <View style={styles.inputSection}>
+                  <Text style={styles.inputLabel}>Confirm New Password</Text>
+                  <TextInput
+                    style={styles.credentialInput}
+                    placeholder="Confirm new password"
+                    placeholderTextColor="#666"
+                    secureTextEntry={!showNewPassword}
+                    value={confirmPassword}
+                    onChangeText={setConfirmPassword}
+                    autoCapitalize="none"
+                  />
+                </View>
+              ) : null}
+
+              <Text style={styles.credentialsNote}>
+                Leave fields empty if you don't want to change them. Only fill in what you want to update.
+              </Text>
+
+              {/* Update Button */}
+              <TouchableOpacity
+                style={[
+                  styles.updateButton,
+                  (!currentPassword || isUpdating) && styles.updateButtonDisabled
+                ]}
+                onPress={handleUpdateCredentials}
+                disabled={!currentPassword || isUpdating}
+              >
+                {isUpdating ? (
+                  <ActivityIndicator size="small" color="#000" />
+                ) : (
+                  <Text style={styles.updateButtonText}>Update Credentials</Text>
+                )}
+              </TouchableOpacity>
+            </ScrollView>
+          </KeyboardAvoidingView>
+        </SafeAreaView>
+      </Modal>
     </SafeAreaView>
   );
 }
