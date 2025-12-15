@@ -637,14 +637,16 @@ export default function Profile() {
             </TouchableOpacity>
           </View>
 
-          {/* Admin Dashboard Button */}
-          <TouchableOpacity 
-            style={styles.adminButton} 
-            onPress={() => router.push('/admin-dashboard')}
-          >
-            <Ionicons name="analytics" size={20} color="#FFD700" />
-            <Text style={styles.adminButtonText}>Admin Dashboard</Text>
-          </TouchableOpacity>
+          {/* Admin Dashboard Button - Only show for admin user */}
+          {user.email?.toLowerCase() === 'wesleyogsbury@gmail.com' && (
+            <TouchableOpacity 
+              style={styles.adminButton} 
+              onPress={() => router.push('/admin-dashboard')}
+            >
+              <Ionicons name="analytics" size={20} color="#FFD700" />
+              <Text style={styles.adminButtonText}>Admin Dashboard</Text>
+            </TouchableOpacity>
+          )}
 
           {/* Current Streak */}
           <View style={styles.streakContainer}>
