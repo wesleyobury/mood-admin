@@ -909,6 +909,95 @@ async def update_profile(
     
     return {"message": "Profile updated successfully"}
 
+@api_router.put("/users/me/credentials")
+async def update_credentials(
+    credentials: CredentialsUpdate,
+    current_user_id: str = Depends(get_current_user)
+):
+    """Update user's login credentials (username, email, or password)"""
+    try:
+        # Get current user
+        user = await db.users.find_one({"_id": ObjectId(current_user_id)})
+        if not user:
+            raise HTTPException(status_code=404, detail="User not found")
+        
+        # Verify current password
+        stored_password = user.get("password_hash") or user.get("password")
+        if not stored_password:
+            raise HTTPException(status_code=400, detail="Cannot change credentials for OAuth accounts")
+        
+        # Check if password matches
+        if isinstance(stored_password, str):
+            stored_password = stored_password.encode('utf-8')
+        
+        if not bcrypt.checkpw(credentials.current_password.encode('utf-8'), stored_password):
+            raise HTTPException(status_code=401, detail="Current password is incorrect")
+        
+        update_fields = {}
+        
+        # Update username if provided
+        if credentials.new_username:
+            new_username = credentials.new_username.strip()
+            if not new_username:
+                raise HTTPException(status_code=400, detail="Username cannot be empty")
+            if len(new_username) < 3:
+                raise HTTPException(status_code=400, detail="Username must be at least 3 characters")
+            
+            # Check if username is already taken
+            existing = await db.users.find_one({"username": new_username})
+            if existing and str(existing["_id"]) != current_user_id:
+                raise HTTPException(status_code=400, detail="Username already taken")
+            
+            update_fields["username"] = new_username
+        
+        # Update email if provided
+        if credentials.new_email:
+            new_email = credentials.new_email.strip().lower()
+            if not new_email or "@" not in new_email:
+                raise HTTPException(status_code=400, detail="Invalid email address")
+            
+            # Check if email is already taken
+            existing = await db.users.find_one({"email": new_email})
+            if existing and str(existing["_id"]) != current_user_id:
+                raise HTTPException(status_code=400, detail="Email already in use")
+            
+            update_fields["email"] = new_email
+        
+        # Update password if provided
+        if credentials.new_password:
+            if len(credentials.new_password) < 6:
+                raise HTTPException(status_code=400, detail="Password must be at least 6 characters")
+            
+            # Hash the new password
+            new_hash = bcrypt.hashpw(credentials.new_password.encode('utf-8'), bcrypt.gensalt())
+            update_fields["password_hash"] = new_hash
+            update_fields["password"] = new_hash  # Update both fields for compatibility
+        
+        if not update_fields:
+            raise HTTPException(status_code=400, detail="No changes provided")
+        
+        # Perform the update
+        result = await db.users.update_one(
+            {"_id": ObjectId(current_user_id)},
+            {"$set": update_fields}
+        )
+        
+        if result.modified_count == 0:
+            raise HTTPException(status_code=500, detail="Failed to update credentials")
+        
+        logger.info(f"Credentials updated for user {current_user_id}: {list(update_fields.keys())}")
+        
+        return {
+            "message": "Credentials updated successfully",
+            "updated_fields": list(update_fields.keys())
+        }
+        
+    except HTTPException:
+        raise
+    except Exception as e:
+        logger.error(f"Error updating credentials: {str(e)}")
+        raise HTTPException(status_code=500, detail="Failed to update credentials")
+
 @api_router.delete("/users/me")
 async def delete_user_account(current_user_id: str = Depends(get_current_user)):
     """Delete user account and all associated data"""
