@@ -264,6 +264,43 @@ export default function CreatePost() {
     }
   };
 
+  const selectCoverPhoto = async (videoIndex: number) => {
+    // Launch image picker to select cover photo
+    const { status } = await ImagePicker.requestMediaLibraryPermissionsAsync();
+    
+    if (status !== 'granted') {
+      showAlert('Permission Required', 'We need photo library access to select a cover image');
+      return;
+    }
+
+    const result = await ImagePicker.launchImageLibraryAsync({
+      mediaTypes: ['images'],
+      allowsMultipleSelection: false,
+      allowsEditing: true,
+      aspect: [4, 5],
+      quality: 0.8,
+    });
+
+    if (!result.canceled && result.assets && result.assets.length > 0) {
+      const coverUri = result.assets[0].uri;
+      
+      // Update the video item with the cover image
+      const updatedMedia = [...selectedMedia];
+      updatedMedia[videoIndex] = {
+        ...updatedMedia[videoIndex],
+        coverUri: coverUri,
+      };
+      setSelectedMedia(updatedMedia);
+      setShowCoverPicker(false);
+      setCoverPickerVideoIndex(-1);
+    }
+  };
+
+  const openCoverPicker = (index: number) => {
+    setCoverPickerVideoIndex(index);
+    setShowCoverPicker(true);
+  };
+
   const recordVideo = async () => {
     const maxMedia = hasStatsCard ? 4 : 5;
     
