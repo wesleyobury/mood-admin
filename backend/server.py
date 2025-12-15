@@ -708,6 +708,301 @@ async def get_platform_stats(
 
 
 # ============================================
+# TIME-SERIES ANALYTICS ENDPOINTS
+# ============================================
+
+@api_router.get("/analytics/admin/time-series/{metric_type}")
+async def get_time_series_analytics(
+    metric_type: str,
+    period: str = "day",  # day, week, month
+    limit: int = 30,
+    current_user_id: str = Depends(get_current_user)
+):
+    """
+    Get time-series data for various metrics.
+    
+    metric_type options:
+    - active_users: Unique users with activity
+    - app_sessions: Total app sessions started
+    - screen_views: Total screen views
+    - screen_time: Total time spent (in minutes)
+    - workouts_started: Workouts initiated
+    - workouts_completed: Workouts finished
+    - mood_selections: Mood/goal selections made
+    - posts_created: New posts created
+    - social_interactions: Likes, comments, follows combined
+    """
+    from collections import defaultdict
+    
+    # Determine time grouping
+    if period == "month":
+        days_back = 365
+        date_format = "%Y-%m"
+    elif period == "week":
+        days_back = 180
+        date_format = "%Y-W%V"
+    else:  # day
+        days_back = 30 if limit <= 30 else limit
+        date_format = "%Y-%m-%d"
+    
+    cutoff = datetime.now(timezone.utc) - timedelta(days=days_back)
+    
+    try:
+        data_by_period = defaultdict(lambda: {"count": 0, "value": 0})
+        
+        if metric_type == "active_users":
+            # Count unique users per period
+            events = await db.user_events.find(
+                {"timestamp": {"$gte": cutoff}},
+                {"user_id": 1, "timestamp": 1}
+            ).to_list(100000)
+            
+            users_by_period = defaultdict(set)
+            for event in events:
+                if event.get("timestamp"):
+                    period_key = event["timestamp"].strftime(date_format)
+                    users_by_period[period_key].add(event.get("user_id"))
+            
+            for period_key, users in users_by_period.items():
+                data_by_period[period_key]["count"] = len(users)
+                
+        elif metric_type == "app_sessions":
+            events = await db.user_events.find(
+                {"timestamp": {"$gte": cutoff}, "event_type": "app_session_start"},
+                {"timestamp": 1}
+            ).to_list(100000)
+            
+            for event in events:
+                if event.get("timestamp"):
+                    period_key = event["timestamp"].strftime(date_format)
+                    data_by_period[period_key]["count"] += 1
+                    
+        elif metric_type == "screen_views":
+            events = await db.user_events.find(
+                {"timestamp": {"$gte": cutoff}, "event_type": {"$in": ["screen_viewed", "screen_entered"]}},
+                {"timestamp": 1}
+            ).to_list(100000)
+            
+            for event in events:
+                if event.get("timestamp"):
+                    period_key = event["timestamp"].strftime(date_format)
+                    data_by_period[period_key]["count"] += 1
+                    
+        elif metric_type == "screen_time":
+            events = await db.user_events.find(
+                {"timestamp": {"$gte": cutoff}, "event_type": "screen_time_spent"},
+                {"timestamp": 1, "metadata": 1}
+            ).to_list(100000)
+            
+            for event in events:
+                if event.get("timestamp"):
+                    period_key = event["timestamp"].strftime(date_format)
+                    duration = event.get("metadata", {}).get("duration_seconds", 0)
+                    data_by_period[period_key]["count"] += 1
+                    data_by_period[period_key]["value"] += duration / 60  # Convert to minutes
+                    
+        elif metric_type == "workouts_started":
+            events = await db.user_events.find(
+                {"timestamp": {"$gte": cutoff}, "event_type": "workout_started"},
+                {"timestamp": 1}
+            ).to_list(100000)
+            
+            for event in events:
+                if event.get("timestamp"):
+                    period_key = event["timestamp"].strftime(date_format)
+                    data_by_period[period_key]["count"] += 1
+                    
+        elif metric_type == "workouts_completed":
+            events = await db.user_events.find(
+                {"timestamp": {"$gte": cutoff}, "event_type": "workout_completed"},
+                {"timestamp": 1}
+            ).to_list(100000)
+            
+            for event in events:
+                if event.get("timestamp"):
+                    period_key = event["timestamp"].strftime(date_format)
+                    data_by_period[period_key]["count"] += 1
+                    
+        elif metric_type == "mood_selections":
+            events = await db.user_events.find(
+                {"timestamp": {"$gte": cutoff}, "event_type": "mood_selected"},
+                {"timestamp": 1, "metadata": 1}
+            ).to_list(100000)
+            
+            for event in events:
+                if event.get("timestamp"):
+                    period_key = event["timestamp"].strftime(date_format)
+                    data_by_period[period_key]["count"] += 1
+                    
+        elif metric_type == "posts_created":
+            posts = await db.posts.find(
+                {"created_at": {"$gte": cutoff}},
+                {"created_at": 1}
+            ).to_list(100000)
+            
+            for post in posts:
+                if post.get("created_at"):
+                    period_key = post["created_at"].strftime(date_format)
+                    data_by_period[period_key]["count"] += 1
+                    
+        elif metric_type == "social_interactions":
+            # Likes, comments, follows
+            events = await db.user_events.find(
+                {"timestamp": {"$gte": cutoff}, "event_type": {"$in": ["post_liked", "post_commented", "user_followed"]}},
+                {"timestamp": 1, "event_type": 1}
+            ).to_list(100000)
+            
+            for event in events:
+                if event.get("timestamp"):
+                    period_key = event["timestamp"].strftime(date_format)
+                    data_by_period[period_key]["count"] += 1
+                    
+        elif metric_type == "new_users":
+            users = await db.users.find(
+                {"created_at": {"$gte": cutoff}},
+                {"created_at": 1}
+            ).to_list(100000)
+            
+            for user in users:
+                if user.get("created_at"):
+                    period_key = user["created_at"].strftime(date_format)
+                    data_by_period[period_key]["count"] += 1
+        
+        # Format response
+        sorted_data = sorted(data_by_period.items(), key=lambda x: x[0])[-limit:]
+        
+        labels = []
+        values = []
+        secondary_values = []
+        
+        for date_key, data in sorted_data:
+            # Format label
+            if period == "month":
+                try:
+                    dt = datetime.strptime(date_key, "%Y-%m")
+                    labels.append(dt.strftime("%b '%y"))
+                except:
+                    labels.append(date_key)
+            elif period == "week":
+                labels.append(f"W{date_key.split('W')[1]}")
+            else:
+                try:
+                    dt = datetime.strptime(date_key, "%Y-%m-%d")
+                    labels.append(dt.strftime("%m/%d"))
+                except:
+                    labels.append(date_key[-5:])
+            
+            values.append(data["count"])
+            secondary_values.append(round(data["value"], 1) if data["value"] else 0)
+        
+        return {
+            "metric_type": metric_type,
+            "period": period,
+            "labels": labels,
+            "values": values,
+            "secondary_values": secondary_values,  # For metrics like screen_time (minutes)
+            "total": sum(values),
+            "average": round(sum(values) / len(values), 1) if values else 0,
+        }
+        
+    except Exception as e:
+        logger.error(f"Error getting time-series for {metric_type}: {e}")
+        return {
+            "metric_type": metric_type,
+            "period": period,
+            "labels": [],
+            "values": [],
+            "secondary_values": [],
+            "total": 0,
+            "average": 0,
+        }
+
+
+@api_router.get("/analytics/admin/breakdown/{metric_type}")
+async def get_metric_breakdown(
+    metric_type: str,
+    period: str = "day",
+    days: int = 30,
+    current_user_id: str = Depends(get_current_user)
+):
+    """
+    Get detailed breakdown of a metric with sub-categories.
+    
+    metric_type options:
+    - screen_views: Breakdown by screen name
+    - mood_selections: Breakdown by mood type
+    - social_interactions: Breakdown by interaction type
+    """
+    from collections import defaultdict
+    
+    cutoff = datetime.now(timezone.utc) - timedelta(days=days)
+    
+    try:
+        if metric_type == "screen_views":
+            events = await db.user_events.find(
+                {"timestamp": {"$gte": cutoff}, "event_type": {"$in": ["screen_viewed", "screen_entered"]}},
+                {"metadata": 1}
+            ).to_list(100000)
+            
+            breakdown = defaultdict(int)
+            for event in events:
+                screen = event.get("metadata", {}).get("screen_name", "Unknown")
+                breakdown[screen] += 1
+            
+            items = [{"name": k, "count": v} for k, v in sorted(breakdown.items(), key=lambda x: -x[1])[:20]]
+            return {"metric_type": metric_type, "items": items, "total": sum(breakdown.values())}
+            
+        elif metric_type == "mood_selections":
+            events = await db.user_events.find(
+                {"timestamp": {"$gte": cutoff}, "event_type": "mood_selected"},
+                {"metadata": 1}
+            ).to_list(100000)
+            
+            mood_names = {
+                "sweat": "I Want to Sweat",
+                "energize": "Energize Me",
+                "stress": "Stress Relief",
+                "strength": "Build Strength",
+                "lazy": "Lazy Day Workout",
+            }
+            
+            breakdown = defaultdict(int)
+            for event in events:
+                mood = event.get("metadata", {}).get("mood", "Unknown")
+                breakdown[mood_names.get(mood, mood)] += 1
+            
+            items = [{"name": k, "count": v} for k, v in sorted(breakdown.items(), key=lambda x: -x[1])]
+            return {"metric_type": metric_type, "items": items, "total": sum(breakdown.values())}
+            
+        elif metric_type == "social_interactions":
+            events = await db.user_events.find(
+                {"timestamp": {"$gte": cutoff}, "event_type": {"$in": ["post_liked", "post_commented", "user_followed", "user_unfollowed"]}},
+                {"event_type": 1}
+            ).to_list(100000)
+            
+            type_names = {
+                "post_liked": "Likes",
+                "post_commented": "Comments",
+                "user_followed": "Follows",
+                "user_unfollowed": "Unfollows",
+            }
+            
+            breakdown = defaultdict(int)
+            for event in events:
+                event_type = event.get("event_type", "Unknown")
+                breakdown[type_names.get(event_type, event_type)] += 1
+            
+            items = [{"name": k, "count": v} for k, v in sorted(breakdown.items(), key=lambda x: -x[1])]
+            return {"metric_type": metric_type, "items": items, "total": sum(breakdown.values())}
+            
+        return {"metric_type": metric_type, "items": [], "total": 0}
+        
+    except Exception as e:
+        logger.error(f"Error getting breakdown for {metric_type}: {e}")
+        return {"metric_type": metric_type, "items": [], "total": 0}
+
+
+# ============================================
 # DETAILED ANALYTICS DRILL-DOWN ENDPOINTS
 # ============================================
 
