@@ -186,6 +186,7 @@ export default function Profile() {
     React.useCallback(() => {
       if (token) {
         fetchUserProfile();
+        fetchUnreadCount();
         // Also refetch posts if on posts tab
         if (activeTab === 'posts' && user.id !== 'current-user') {
           fetchUserPosts();
