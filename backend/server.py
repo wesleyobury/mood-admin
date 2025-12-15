@@ -702,6 +702,98 @@ async def get_new_users_endpoint(
     return await get_new_users_detail(db, days, limit)
 
 
+@api_router.get("/analytics/admin/users/active")
+async def get_active_users_endpoint(
+    days: int = 30,
+    limit: int = 100,
+    current_user_id: str = Depends(get_current_user)
+):
+    """Get users who were active in the specified period (based on any tracked event)"""
+    cutoff = datetime.now(timezone.utc) - timedelta(days=days)
+    
+    # Find unique user IDs from events in the period
+    active_user_ids = await db.events.distinct(
+        "user_id",
+        {"timestamp": {"$gte": cutoff}}
+    )
+    
+    # Get user details for these active users
+    users = []
+    for user_id in active_user_ids[:limit]:
+        try:
+            user = await db.users.find_one({"_id": ObjectId(user_id)})
+            if user:
+                # Get activity counts for this user
+                event_count = await db.events.count_documents({
+                    "user_id": user_id,
+                    "timestamp": {"$gte": cutoff}
+                })
+                
+                users.append({
+                    "user_id": str(user["_id"]),
+                    "username": user.get("username", "Unknown"),
+                    "email": user.get("email", ""),
+                    "avatar_url": user.get("avatar"),
+                    "app_sessions": event_count,
+                    "created_at": user.get("created_at").isoformat() if user.get("created_at") else None,
+                })
+        except Exception:
+            continue
+    
+    # Sort by activity count
+    users.sort(key=lambda x: x.get("app_sessions", 0), reverse=True)
+    
+    return {
+        "users": users,
+        "total": len(active_user_ids),
+        "period_days": days
+    }
+
+
+@api_router.get("/analytics/admin/users/daily-active")
+async def get_daily_active_users_endpoint(
+    limit: int = 100,
+    current_user_id: str = Depends(get_current_user)
+):
+    """Get users who were active in the last 24 hours"""
+    cutoff = datetime.now(timezone.utc) - timedelta(hours=24)
+    
+    # Find unique user IDs from events in the last 24 hours
+    daily_active_user_ids = await db.events.distinct(
+        "user_id",
+        {"timestamp": {"$gte": cutoff}}
+    )
+    
+    # Get user details
+    users = []
+    for user_id in daily_active_user_ids[:limit]:
+        try:
+            user = await db.users.find_one({"_id": ObjectId(user_id)})
+            if user:
+                # Get latest activity
+                latest_event = await db.events.find_one(
+                    {"user_id": user_id},
+                    sort=[("timestamp", -1)]
+                )
+                
+                users.append({
+                    "user_id": str(user["_id"]),
+                    "username": user.get("username", "Unknown"),
+                    "email": user.get("email", ""),
+                    "avatar_url": user.get("avatar"),
+                    "last_active": latest_event["timestamp"].isoformat() if latest_event and latest_event.get("timestamp") else None,
+                    "created_at": user.get("created_at").isoformat() if user.get("created_at") else None,
+                })
+        except Exception:
+            continue
+    
+    return {
+        "users": users,
+        "total": len(daily_active_user_ids),
+        "period": "24 hours"
+    }
+
+
 @api_router.get("/analytics/admin/screens")
 async def get_screens_breakdown_endpoint(
     days: int = 30,
