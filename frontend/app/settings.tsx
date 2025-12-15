@@ -10,6 +10,9 @@ import {
   ActivityIndicator,
   Modal,
   ScrollView,
+  TextInput,
+  KeyboardAvoidingView,
+  Platform,
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { useRouter } from 'expo-router';
@@ -17,15 +20,99 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import Constants from 'expo-constants';
 import { useAuth } from '../contexts/AuthContext';
 
-const API_URL = Constants.expoConfig?.extra?.EXPO_PUBLIC_BACKEND_URL || '';
+const API_URL = Constants.expoConfig?.extra?.EXPO_PUBLIC_BACKEND_URL || process.env.EXPO_PUBLIC_BACKEND_URL || '';
 const SUPPORT_EMAIL = 'wesleyogsbury@gmail.com';
 
 export default function Settings() {
   const router = useRouter();
   const insets = useSafeAreaInsets();
-  const { token, logout, user } = useAuth();
+  const { token, logout, user, updateUser } = useAuth();
   const [isDeleting, setIsDeleting] = useState(false);
   const [showTerms, setShowTerms] = useState(false);
+  
+  // Credentials modal state
+  const [showCredentialsModal, setShowCredentialsModal] = useState(false);
+  const [currentPassword, setCurrentPassword] = useState('');
+  const [newUsername, setNewUsername] = useState('');
+  const [newEmail, setNewEmail] = useState('');
+  const [newPassword, setNewPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+  const [isUpdating, setIsUpdating] = useState(false);
+  const [showCurrentPassword, setShowCurrentPassword] = useState(false);
+  const [showNewPassword, setShowNewPassword] = useState(false);
+
+  const handleUpdateCredentials = async () => {
+    // Validation
+    if (!currentPassword) {
+      Alert.alert('Error', 'Please enter your current password');
+      return;
+    }
+
+    if (newPassword && newPassword !== confirmPassword) {
+      Alert.alert('Error', 'New passwords do not match');
+      return;
+    }
+
+    if (newPassword && newPassword.length < 6) {
+      Alert.alert('Error', 'New password must be at least 6 characters');
+      return;
+    }
+
+    if (!newUsername && !newEmail && !newPassword) {
+      Alert.alert('Error', 'Please provide at least one field to update');
+      return;
+    }
+
+    setIsUpdating(true);
+    try {
+      const response = await fetch(`${API_URL}/api/users/me/credentials`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`,
+        },
+        body: JSON.stringify({
+          current_password: currentPassword,
+          new_username: newUsername || null,
+          new_email: newEmail || null,
+          new_password: newPassword || null,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        // Update local user state if username changed
+        if (newUsername && updateUser) {
+          updateUser({ username: newUsername });
+        }
+        if (newEmail && updateUser) {
+          updateUser({ email: newEmail });
+        }
+        
+        Alert.alert('Success', 'Your credentials have been updated successfully');
+        resetCredentialsForm();
+        setShowCredentialsModal(false);
+      } else {
+        Alert.alert('Error', data.detail || 'Failed to update credentials');
+      }
+    } catch (error) {
+      console.error('Update credentials error:', error);
+      Alert.alert('Error', 'Failed to update credentials. Please try again.');
+    } finally {
+      setIsUpdating(false);
+    }
+  };
+
+  const resetCredentialsForm = () => {
+    setCurrentPassword('');
+    setNewUsername('');
+    setNewEmail('');
+    setNewPassword('');
+    setConfirmPassword('');
+    setShowCurrentPassword(false);
+    setShowNewPassword(false);
+  };
 
   const handleContactSupport = async () => {
     const subject = encodeURIComponent('Support request - MOOD');
