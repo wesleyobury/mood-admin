@@ -1,22 +1,38 @@
 import React, { useState, useEffect } from 'react';
-import { View, StyleSheet, ActivityIndicator } from 'react-native';
+import { View, StyleSheet, ActivityIndicator, Platform } from 'react-native';
 import { Image } from 'expo-image';
 import { Ionicons } from '@expo/vector-icons';
 import * as VideoThumbnails from 'expo-video-thumbnails';
 
 interface VideoThumbnailProps {
   videoUrl: string;
+  coverUrl?: string | null; // Pre-generated cover image URL
   style?: any;
 }
 
-const VideoThumbnail: React.FC<VideoThumbnailProps> = ({ videoUrl, style }) => {
-  const [thumbnail, setThumbnail] = useState<string | null>(null);
-  const [loading, setLoading] = useState(true);
+const VideoThumbnail: React.FC<VideoThumbnailProps> = ({ videoUrl, coverUrl, style }) => {
+  const [thumbnail, setThumbnail] = useState<string | null>(coverUrl || null);
+  const [loading, setLoading] = useState(!coverUrl);
   const [error, setError] = useState(false);
 
   useEffect(() => {
-    generateThumbnail();
-  }, [videoUrl]);
+    // If we have a cover URL, use it directly
+    if (coverUrl) {
+      setThumbnail(coverUrl);
+      setLoading(false);
+      setError(false);
+      return;
+    }
+    
+    // Otherwise try to generate thumbnail (skip on web as it often fails)
+    if (Platform.OS !== 'web') {
+      generateThumbnail();
+    } else {
+      // On web, just show the fallback immediately
+      setLoading(false);
+      setError(true);
+    }
+  }, [videoUrl, coverUrl]);
 
   const generateThumbnail = async () => {
     try {
@@ -37,6 +53,7 @@ const VideoThumbnail: React.FC<VideoThumbnailProps> = ({ videoUrl, style }) => {
     }
   };
 
+  // Show loading state
   if (loading) {
     return (
       <View style={[styles.container, style]}>
@@ -45,10 +62,16 @@ const VideoThumbnail: React.FC<VideoThumbnailProps> = ({ videoUrl, style }) => {
     );
   }
 
+  // Show fallback with video icon when no thumbnail available
   if (error || !thumbnail) {
     return (
-      <View style={[styles.container, style]}>
-        <Ionicons name="play-circle" size={40} color="#fff" />
+      <View style={[styles.container, styles.fallbackContainer, style]}>
+        <View style={styles.videoIconWrapper}>
+          <Ionicons name="videocam" size={32} color="#FFD700" />
+        </View>
+        <View style={styles.playIconOverlay}>
+          <Ionicons name="play-circle" size={40} color="rgba(255, 255, 255, 0.9)" />
+        </View>
       </View>
     );
   }
