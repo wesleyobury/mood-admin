@@ -246,7 +246,7 @@ export default function Welcome() {
           <View style={styles.heroSection}>
             <View style={styles.logoContainer}>
               <Image 
-                source={{ uri: 'https://customer-assets.emergentagent.com/job_healthtracker-133/artifacts/meydhmej_download%20%281%29%20copy.jpeg' }}
+                source={require('../assets/images/header-logo.png')}
                 style={styles.logoImage}
                 resizeMode="contain"
               />
