@@ -711,8 +711,8 @@ async def get_active_users_endpoint(
     """Get users who were active in the specified period (based on any tracked event)"""
     cutoff = datetime.now(timezone.utc) - timedelta(days=days)
     
-    # Find unique user IDs from events in the period
-    active_user_ids = await db.events.distinct(
+    # Find unique user IDs from user_events in the period
+    active_user_ids = await db.user_events.distinct(
         "user_id",
         {"timestamp": {"$gte": cutoff}}
     )
@@ -724,7 +724,7 @@ async def get_active_users_endpoint(
             user = await db.users.find_one({"_id": ObjectId(user_id)})
             if user:
                 # Get activity counts for this user
-                event_count = await db.events.count_documents({
+                event_count = await db.user_events.count_documents({
                     "user_id": user_id,
                     "timestamp": {"$gte": cutoff}
                 })
@@ -758,8 +758,8 @@ async def get_daily_active_users_endpoint(
     """Get users who were active in the last 24 hours"""
     cutoff = datetime.now(timezone.utc) - timedelta(hours=24)
     
-    # Find unique user IDs from events in the last 24 hours
-    daily_active_user_ids = await db.events.distinct(
+    # Find unique user IDs from user_events in the last 24 hours
+    daily_active_user_ids = await db.user_events.distinct(
         "user_id",
         {"timestamp": {"$gte": cutoff}}
     )
@@ -771,7 +771,7 @@ async def get_daily_active_users_endpoint(
             user = await db.users.find_one({"_id": ObjectId(user_id)})
             if user:
                 # Get latest activity
-                latest_event = await db.events.find_one(
+                latest_event = await db.user_events.find_one(
                     {"user_id": user_id},
                     sort=[("timestamp", -1)]
                 )
