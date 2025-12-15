@@ -67,6 +67,10 @@ export default function CreatePost() {
   const statsCardRef = useRef(null);
   const [showMediaPicker, setShowMediaPicker] = useState(false);
   
+  // Permission notice modal state
+  const [showPermissionModal, setShowPermissionModal] = useState(false);
+  const [permissionType, setPermissionType] = useState<'camera' | 'library'>('camera');
+  
   // Success animation state (inline button animation like "Add workout")
   const [cardSaved, setCardSaved] = useState(false);
   const [saveScaleAnim] = useState(new Animated.Value(1));
