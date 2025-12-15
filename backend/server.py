@@ -156,6 +156,7 @@ class PostCreate(BaseModel):
     caption: str
     media_urls: List[str] = []  # URLs to uploaded media files
     hashtags: List[str] = []
+    cover_urls: Optional[dict] = None  # Map of media index to cover image URL
 
 class CredentialsUpdate(BaseModel):
     current_password: str
@@ -170,6 +171,7 @@ class PostResponse(BaseModel):
     caption: str
     media_urls: List[str] = []
     hashtags: List[str] = []
+    cover_urls: Optional[dict] = None  # Map of media index to cover image URL
     likes_count: int = 0
     comments_count: int = 0
     is_liked: bool = False
