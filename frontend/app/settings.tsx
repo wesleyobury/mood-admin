@@ -708,6 +708,7 @@ const styles = StyleSheet.create({
   settingsItemLeft: {
     flexDirection: 'row',
     alignItems: 'center',
+    gap: 12,
   },
   iconContainer: {
     width: 36,
