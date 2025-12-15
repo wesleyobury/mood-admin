@@ -744,6 +744,15 @@ export default function Profile() {
                       mediaUrl.toLowerCase().endsWith('.webm')
                     );
                     
+                    // Get cover URL for video if available
+                    let coverUrl: string | null = null;
+                    if (isVideo && post.cover_urls && post.cover_urls['0']) {
+                      coverUrl = post.cover_urls['0'];
+                      if (!coverUrl.startsWith('http')) {
+                        coverUrl = coverUrl.startsWith('/') ? `${API_URL}${coverUrl}` : `${API_URL}/api/uploads/${coverUrl}`;
+                      }
+                    }
+                    
                     // Fix media URL if it doesn't include the backend URL
                     if (mediaUrl && !mediaUrl.startsWith('http')) {
                       mediaUrl = mediaUrl.startsWith('/') ? `${API_URL}${mediaUrl}` : `${API_URL}/api/uploads/${mediaUrl}`;
@@ -759,9 +768,10 @@ export default function Profile() {
                       >
                         {mediaUrl ? (
                           isVideo ? (
-                            // Video thumbnail - use VideoThumbnail component
+                            // Video thumbnail - use VideoThumbnail component with cover URL
                             <VideoThumbnail 
                               videoUrl={mediaUrl}
+                              coverUrl={coverUrl}
                               style={styles.gridImage}
                             />
                           ) : (
