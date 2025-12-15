@@ -299,15 +299,13 @@ export default function Settings() {
             onPress={() => setShowCredentialsModal(true)}
           >
             <View style={styles.settingsItemLeft}>
-              <View style={styles.iconContainer}>
-                <Ionicons name="key-outline" size={22} color="#fff" />
-              </View>
+              <Ionicons name="key-outline" size={20} color="#FFD700" />
               <View>
                 <Text style={styles.settingsItemText}>Change Login Credentials</Text>
                 <Text style={styles.settingsItemSubtext}>Update username, email, or password</Text>
               </View>
             </View>
-            <Ionicons name="chevron-forward" size={20} color="#666" />
+            <Ionicons name="chevron-forward" size={18} color="#666" />
           </TouchableOpacity>
           
           <TouchableOpacity 
@@ -315,12 +313,10 @@ export default function Settings() {
             onPress={() => setShowTerms(true)}
           >
             <View style={styles.settingsItemLeft}>
-              <View style={styles.iconContainer}>
-                <Ionicons name="document-text-outline" size={22} color="#fff" />
-              </View>
+              <Ionicons name="document-text-outline" size={20} color="#FFD700" />
               <Text style={styles.settingsItemText}>Terms of Service</Text>
             </View>
-            <Ionicons name="chevron-forward" size={20} color="#666" />
+            <Ionicons name="chevron-forward" size={18} color="#666" />
           </TouchableOpacity>
 
           <TouchableOpacity 
@@ -328,12 +324,10 @@ export default function Settings() {
             onPress={handleSubmitFeedback}
           >
             <View style={styles.settingsItemLeft}>
-              <View style={styles.iconContainer}>
-                <Ionicons name="chatbox-outline" size={22} color="#fff" />
-              </View>
+              <Ionicons name="chatbox-outline" size={20} color="#FFD700" />
               <Text style={styles.settingsItemText}>Submit Feedback</Text>
             </View>
-            <Ionicons name="chevron-forward" size={20} color="#666" />
+            <Ionicons name="chevron-forward" size={18} color="#666" />
           </TouchableOpacity>
 
           <TouchableOpacity 
@@ -341,12 +335,10 @@ export default function Settings() {
             onPress={handleContactSupport}
           >
             <View style={styles.settingsItemLeft}>
-              <View style={styles.iconContainer}>
-                <Ionicons name="mail-outline" size={22} color="#fff" />
-              </View>
+              <Ionicons name="mail-outline" size={20} color="#FFD700" />
               <Text style={styles.settingsItemText}>Contact Support</Text>
             </View>
-            <Ionicons name="chevron-forward" size={20} color="#666" />
+            <Ionicons name="chevron-forward" size={18} color="#666" />
           </TouchableOpacity>
         </View>
 
@@ -355,24 +347,22 @@ export default function Settings() {
           <Text style={styles.sectionTitle}>Account Management</Text>
           
           <TouchableOpacity 
-            style={styles.deleteItem}
+            style={styles.settingsItem}
             onPress={handleDeleteAccount}
             disabled={isDeleting}
           >
             <View style={styles.settingsItemLeft}>
-              <View style={styles.deleteIconContainer}>
-                {isDeleting ? (
-                  <ActivityIndicator size="small" color="#888" />
-                ) : (
-                  <Ionicons name="person-remove-outline" size={20} color="#888" />
-                )}
-              </View>
-              <View style={styles.deleteTextContainer}>
-                <Text style={styles.deleteText}>Delete Account</Text>
-                <Text style={styles.deleteSubtext}>Remove your account and all data</Text>
+              {isDeleting ? (
+                <ActivityIndicator size="small" color="#FFD700" />
+              ) : (
+                <Ionicons name="person-remove-outline" size={20} color="#FFD700" />
+              )}
+              <View>
+                <Text style={styles.settingsItemText}>Delete Account</Text>
+                <Text style={styles.settingsItemSubtext}>Remove your account and all data</Text>
               </View>
             </View>
-            <Ionicons name="chevron-forward" size={18} color="#555" />
+            <Ionicons name="chevron-forward" size={18} color="#666" />
           </TouchableOpacity>
         </View>
 
