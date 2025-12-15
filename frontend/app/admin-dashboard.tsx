@@ -794,6 +794,13 @@ const styles = StyleSheet.create({
     color: '#fff',
     textAlign: 'center',
   },
+  metricDescription: {
+    fontSize: 9,
+    color: 'rgba(255, 255, 255, 0.5)',
+    textAlign: 'center',
+    marginTop: 4,
+    paddingHorizontal: 4,
+  },
   drilldownIcon: {
     position: 'absolute',
     top: 12,
