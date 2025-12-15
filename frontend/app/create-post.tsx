@@ -936,16 +936,30 @@ export default function CreatePost() {
                 <View key={index} style={styles.imagePreviewContainer}>
                   {media.type === 'video' ? (
                     <View style={styles.videoPreviewContainer}>
-                      <Video
-                        source={{ uri: media.uri }}
-                        style={styles.imagePreview}
-                        resizeMode={ResizeMode.COVER}
-                        shouldPlay={false}
-                        isMuted={true}
-                      />
+                      {media.coverUri ? (
+                        <Image source={{ uri: media.coverUri }} style={styles.imagePreview} />
+                      ) : (
+                        <Video
+                          source={{ uri: media.uri }}
+                          style={styles.imagePreview}
+                          resizeMode={ResizeMode.COVER}
+                          shouldPlay={false}
+                          isMuted={true}
+                        />
+                      )}
                       <View style={styles.videoOverlay}>
                         <Ionicons name="play-circle" size={32} color="#fff" />
                       </View>
+                      {/* Cover photo button for videos */}
+                      <TouchableOpacity 
+                        style={styles.setCoverButton}
+                        onPress={() => selectCoverPhoto(index)}
+                      >
+                        <Ionicons name="image-outline" size={14} color="#000" />
+                        <Text style={styles.setCoverButtonText}>
+                          {media.coverUri ? 'Change' : 'Cover'}
+                        </Text>
+                      </TouchableOpacity>
                     </View>
                   ) : (
                     <Image source={{ uri: media.uri }} style={styles.imagePreview} />
