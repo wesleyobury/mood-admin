@@ -29,5 +29,14 @@
         "buildType": "app-bundle"
       }
     }
+  },
+  "submit": {
+    "production": {
+      "ios": {
+        "appleId": "wesleyogsbury@gmail.com",
+        "ascAppId": "6756556024",
+        "appleTeamId": "49L95GRFNU"
+      }
+    }
   }
 }
