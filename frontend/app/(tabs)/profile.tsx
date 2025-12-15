@@ -56,6 +56,7 @@ interface RecentWorkout {
 interface Post {
   id: string;
   media_urls: string[];
+  cover_urls?: { [key: string]: string }; // Map of media index to cover image URL
   caption: string;
   likes_count: number;
   comments_count: number;
