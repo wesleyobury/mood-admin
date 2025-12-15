@@ -638,7 +638,7 @@ export default function Profile() {
           </View>
 
           {/* Admin Dashboard Button - Only show for admin user */}
-          {user.email?.toLowerCase() === 'wesleyogsbury@gmail.com' && (
+          {authUser?.email?.toLowerCase() === 'wesleyogsbury@gmail.com' && (
             <TouchableOpacity 
               style={styles.adminButton} 
               onPress={() => router.push('/admin-dashboard')}
