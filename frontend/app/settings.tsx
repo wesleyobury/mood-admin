@@ -402,7 +402,7 @@ export default function Settings() {
             );
           }}
         >
-          <Ionicons name="log-out-outline" size={20} color="#FF4444" />
+          <Ionicons name="log-out-outline" size={18} color="#fff" />
           <Text style={styles.signOutButtonText}>Sign Out</Text>
         </TouchableOpacity>
       </ScrollView>
