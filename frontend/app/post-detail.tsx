@@ -39,9 +39,13 @@ interface Post {
 export default function PostDetail() {
   const router = useRouter();
   const params = useLocalSearchParams();
-  const { token } = useAuth();
+  const { token, user } = useAuth();
   const [post, setPost] = useState<Post | null>(null);
   const [loading, setLoading] = useState(true);
+  const [isDeleting, setIsDeleting] = useState(false);
+
+  // Check if current user is the post author
+  const isOwnPost = post && user && post.author.id === user.id;
 
   useEffect(() => {
     if (params.postId && token) {
@@ -67,6 +71,48 @@ export default function PostDetail() {
       console.error('Error fetching post:', error);
     } finally {
       setLoading(false);
+    }
+  };
+
+  const handleDeletePost = () => {
+    Alert.alert(
+      'Delete Post',
+      'Are you sure you want to delete this post? This action cannot be undone.',
+      [
+        { text: 'Cancel', style: 'cancel' },
+        { 
+          text: 'Delete', 
+          style: 'destructive',
+          onPress: confirmDelete 
+        },
+      ]
+    );
+  };
+
+  const confirmDelete = async () => {
+    if (!post || !token) return;
+
+    setIsDeleting(true);
+    try {
+      const response = await fetch(`${API_URL}/api/posts/${post.id}`, {
+        method: 'DELETE',
+        headers: {
+          'Authorization': `Bearer ${token}`,
+        },
+      });
+
+      if (response.ok) {
+        Alert.alert('Success', 'Post deleted successfully');
+        router.back();
+      } else {
+        const data = await response.json();
+        Alert.alert('Error', data.detail || 'Failed to delete post');
+      }
+    } catch (error) {
+      console.error('Error deleting post:', error);
+      Alert.alert('Error', 'Failed to delete post. Please try again.');
+    } finally {
+      setIsDeleting(false);
     }
   };
 
