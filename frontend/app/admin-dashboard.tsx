@@ -317,7 +317,10 @@ export default function AdminDashboard() {
           <Text style={styles.sectionTitle}>Engagement Metrics</Text>
           
           <View style={styles.engagementCard}>
-            <View style={styles.engagementItem}>
+            <TouchableOpacity 
+              style={styles.engagementItem}
+              onPress={() => router.push('/time-series-analytics?metric=workouts_completed')}
+            >
               <View style={styles.engagementHeader}>
                 <Ionicons name="fitness" size={20} color="#FFD700" />
                 <Text style={styles.engagementLabel}>Workouts</Text>
@@ -325,11 +328,15 @@ export default function AdminDashboard() {
               <Text style={styles.engagementValue}>
                 {stats?.total_workouts_completed?.toLocaleString() || 0}
               </Text>
-            </View>
+              <Ionicons name="chevron-forward" size={14} color="#666" />
+            </TouchableOpacity>
 
             <View style={styles.engagementDivider} />
 
-            <View style={styles.engagementItem}>
+            <TouchableOpacity 
+              style={styles.engagementItem}
+              onPress={() => router.push('/time-series-analytics?metric=posts_created')}
+            >
               <View style={styles.engagementHeader}>
                 <Ionicons name="create" size={20} color="#FFD700" />
                 <Text style={styles.engagementLabel}>Posts</Text>
@@ -337,21 +344,47 @@ export default function AdminDashboard() {
               <Text style={styles.engagementValue}>
                 {stats?.total_posts_created?.toLocaleString() || 0}
               </Text>
-            </View>
+              <Ionicons name="chevron-forward" size={14} color="#666" />
+            </TouchableOpacity>
           </View>
 
           <View style={styles.statsGrid}>
-            <View style={styles.statBox}>
+            <TouchableOpacity 
+              style={styles.statBox}
+              onPress={() => router.push('/time-series-analytics?metric=screen_time')}
+            >
               <Text style={styles.statBoxValue}>{stats?.retention_rate?.toFixed(1) || 0}%</Text>
               <Text style={styles.statBoxLabel}>Retention Rate</Text>
-            </View>
+            </TouchableOpacity>
 
-            <View style={styles.statBox}>
+            <TouchableOpacity 
+              style={styles.statBox}
+              onPress={() => router.push('/time-series-analytics?metric=social_interactions')}
+            >
               <Text style={styles.statBoxValue}>
                 {stats?.average_workouts_per_active_user?.toFixed(1) || 0}
               </Text>
               <Text style={styles.statBoxLabel}>Avg Workouts/User</Text>
-            </View>
+            </TouchableOpacity>
+          </View>
+
+          {/* Additional Metrics Row */}
+          <View style={styles.statsGrid}>
+            <TouchableOpacity 
+              style={styles.statBox}
+              onPress={() => router.push('/time-series-analytics?metric=screen_views')}
+            >
+              <Ionicons name="eye" size={20} color="#FFD700" style={{marginBottom: 4}} />
+              <Text style={styles.statBoxLabel}>Screen Views</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity 
+              style={styles.statBox}
+              onPress={() => router.push('/time-series-analytics?metric=mood_selections')}
+            >
+              <Ionicons name="happy" size={20} color="#FFD700" style={{marginBottom: 4}} />
+              <Text style={styles.statBoxLabel}>Mood Selections</Text>
+            </TouchableOpacity>
           </View>
         </View>
 
