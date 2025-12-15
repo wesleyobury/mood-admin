@@ -393,6 +393,10 @@ export default function AnalyticsDetailScreen() {
         return data.users?.map((item: UserItem, index: number) => renderUserItem(item, index));
       case 'newUsers':
         return data.users?.map((item: UserItem, index: number) => renderUserItem(item, index));
+      case 'activeUsers':
+        return data.users?.map((item: UserItem, index: number) => renderActiveUserItem(item, index));
+      case 'dailyActiveUsers':
+        return data.users?.map((item: UserItem, index: number) => renderDailyActiveUserItem(item, index));
       case 'screens':
         return data.screens?.map((item: ScreenItem, index: number) => renderScreenItem(item, index));
       case 'moods':
