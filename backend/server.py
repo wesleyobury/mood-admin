@@ -335,6 +335,134 @@ async def emergent_auth_callback(
         "user_id": user_id
     }
 
+class AppleAuthRequest(BaseModel):
+    user_id: str
+    email: Optional[str] = None
+    full_name: Optional[str] = None
+    identity_token: Optional[str] = None
+    authorization_code: Optional[str] = None
+
+@api_router.post("/auth/apple")
+async def apple_sign_in(
+    auth_data: AppleAuthRequest,
+    request: Request,
+    response: Response
+):
+    """
+    Handle Apple Sign-In authentication
+    Creates or updates user based on Apple credentials
+    """
+    logger.info(f"Processing Apple Sign-In for user_id: {auth_data.user_id}")
+    
+    try:
+        # Check if user already exists with this Apple ID
+        existing_user = await db.users.find_one({"apple_user_id": auth_data.user_id})
+        
+        if existing_user:
+            # User exists, log them in
+            user_id = str(existing_user["_id"])
+            username = existing_user.get("username")
+            email = existing_user.get("email")
+            logger.info(f"Existing Apple user found: {username}")
+        else:
+            # Create new user
+            # Generate username from email or Apple user ID
+            if auth_data.email:
+                base_username = auth_data.email.split('@')[0]
+            elif auth_data.full_name:
+                base_username = auth_data.full_name.lower().replace(' ', '_')
+            else:
+                base_username = f"apple_user_{auth_data.user_id[:8]}"
+            
+            # Ensure unique username
+            username = base_username
+            counter = 1
+            while await db.users.find_one({"username": username}):
+                username = f"{base_username}_{counter}"
+                counter += 1
+            
+            email = auth_data.email or f"{auth_data.user_id}@apple.privaterelay.com"
+            
+            new_user = {
+                "username": username,
+                "email": email,
+                "name": auth_data.full_name,
+                "apple_user_id": auth_data.user_id,
+                "password_hash": None,  # No password for Apple Sign-In users
+                "created_at": datetime.now(timezone.utc),
+                "current_streak": 0,
+                "longest_streak": 0,
+                "total_workouts": 0,
+                "avatar": None,
+                "bio": "",
+                "auth_provider": "apple",
+                "auth_metadata": {
+                    "login_methods": ["apple"],
+                    "first_login_at": datetime.now(timezone.utc),
+                    "last_login_at": datetime.now(timezone.utc),
+                    "total_logins": 1
+                }
+            }
+            
+            result = await db.users.insert_one(new_user)
+            user_id = str(result.inserted_id)
+            logger.info(f"Created new Apple user: {username}")
+        
+        # Generate session token
+        session_token = jwt.encode(
+            {
+                "user_id": user_id,
+                "username": username,
+                "email": email,
+                "auth_provider": "apple",
+                "exp": datetime.now(timezone.utc).timestamp() + (30 * 24 * 60 * 60)  # 30 days
+            },
+            os.getenv("JWT_SECRET", "your-secret-key"),
+            algorithm="HS256"
+        )
+        
+        # Update last login
+        await db.users.update_one(
+            {"_id": ObjectId(user_id)},
+            {
+                "$set": {
+                    "auth_metadata.last_login_at": datetime.now(timezone.utc)
+                },
+                "$inc": {
+                    "auth_metadata.total_logins": 1
+                }
+            }
+        )
+        
+        # Track login event
+        await track_login_event(db, user_id, "apple", True, get_client_ip(request), get_user_agent(request))
+        
+        # Create session record
+        await create_session_record(db, user_id, session_token, get_client_ip(request), get_user_agent(request))
+        
+        # Set cookie
+        response.set_cookie(
+            key="session_token",
+            value=session_token,
+            httponly=True,
+            secure=True,
+            samesite="lax",
+            max_age=30 * 24 * 60 * 60  # 30 days
+        )
+        
+        logger.info(f"Apple Sign-In successful for: {username}")
+        
+        return {
+            "message": "Login successful",
+            "session_token": session_token,
+            "user_id": user_id,
+            "username": username
+        }
+        
+    except Exception as e:
+        logger.error(f"Apple Sign-In error: {str(e)}")
+        raise HTTPException(status_code=500, detail=f"Authentication failed: {str(e)}")
+
 @api_router.get("/auth/session")
 async def check_session(request: Request):
     """
