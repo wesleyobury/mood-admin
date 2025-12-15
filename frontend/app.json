@@ -45,8 +45,8 @@
     },
 
     "extra": {
-      "EXPO_PUBLIC_BACKEND_URL": "https://workout-tracker-bugs.preview.emergentagent.com",
-      "BACKEND_URL": "https://workout-tracker-bugs.preview.emergentagent.com",
+      "EXPO_PUBLIC_BACKEND_URL": "https://fitness-app-dash.preview.emergentagent.com",
+      "BACKEND_URL": "https://fitness-app-dash.preview.emergentagent.com",
       "router": {}
     }
   }

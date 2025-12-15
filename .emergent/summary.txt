@@ -1,121 +1,148 @@
 <analysis>
 
 **original_problem_statement**:
-The user's initial problem statement from the beginning of the session included fixing several bugs (blank screen, broken avatars, non-functional back button, incorrect streak counter) and implementing new features (save post, messaging, infinite scroll, screen time analytics, video scrubber).
+The user's initial problem statement from the previous session included fixing bugs (blank screen, broken avatars, non-functional back button, incorrect streak counter) and implementing new features (save post, messaging, infinite scroll, screen time analytics, video scrubber).
 
-Throughout the session, the user provided a continuous stream of feedback and new requests, including:
-1.  **UI/UX Fixes:**
-    *   Fixing a recurring gold glow on intensity selection buttons.
-    *   Adjusting the border style of intensity buttons to match a different user flow.
-    *   Making all text on the Stats and Admin pages white.
-    *   Reducing excessive top padding on the Stats page.
-    *   Aligning the search icon on the Explore page.
-    *   Making the video progress scrubber more minimal.
-2.  **Bug Fixes:**
-    *   Explore and Profile pages were not loading in demo mode.
-    *   The Try Demo button was logging into the wrong user account.
-    *   Videos on the profile grid were not displaying thumbnails and were not playable when clicked.
-    *   Streak counts were inconsistent across different pages.
-    *   Google OAuth login was failing on mobile devices.
-3.  **Feature Enhancements:**
-    *   Providing more descriptive labels for the Popular Workout Modes widget on the Admin Dashboard.
-    *   Ensuring analytics trackers were implemented correctly and data was being displayed on the dashboard.
-    *   Generating and displaying proper video thumbnails on the profile grid instead of just a play icon.
+In the current session, the user made the following requests:
+1.  **Bug Fixes & Immediate Issues:**
+    *   Fix a blank white screen appearing on the preview.
+    *   Reconcile a discrepancy where active/daily user widgets showed 2 but the details page was blank.
+    *   Fix a JSX syntax error that occurred after removing the Try Demo button.
+2.  **Feature Implementation & Enhancements:**
+    *   Add an Apple Sign-In button to the login screen.
+    *   Add a permission notice (modal) before accessing the camera or photo library on the create post screen.
+    *   Add an option in settings for users to change their login credentials.
+    *   Ensure the app remembers a user's login session.
+    *   Implement the ability for a user to delete their own posts.
+    *   Add an option when posting a video to manually select a cover photo for the profile grid.
+    *   Add an unread message indicator (badge with a count) on the chat icon in the user profile.
+    *   Implement a Sign Out option in the settings screen.
+    *   Allow users to log in with either their username or email (case-insensitive).
+    *   Add a widget to the admin dashboard to track new users over time (day/week/month).
+    *   Implement comprehensive, time-based reporting (daily, weekly, monthly) for all analytics metrics (time spent, active users, clicks, workouts added, sessions, screen views, mood selections), accessible by clicking the widgets on the admin dashboard.
+3.  **UI/UX Refinements:**
+    *   Make the play button indicator on videos in the profile grid white.
+    *   Refine the Daily and Active Users widgets on the admin dashboard to be clearer.
+    *   Make the Delete Post button gray instead of red.
+    *   Make the sign-out button and all other buttons on the settings screen match the style of the buttons on the profile screen.
+    *   Ensure icons on the settings screen buttons have a gold accent, matching a provided image.
+4.  **Security & Access Control:**
+    *   Restrict access to the Admin Dashboard to only the user with the email .
+    *   Hide the Admin Dashboard button from all other users.
+5.  **Data & Configuration:**
+    *   Provide the login information for the  and  profiles.
+    *   Investigate why the active users widget was showing no data available.
+    *   Remove the Try Demo button from the login screen.
+    *   Ensure the new users widget tracks real signup stats.
 
 **User's preferred language**: English
 
 **what currently exists?**
-The application is a full-stack Expo-based fitness app with a FastAPI backend and MongoDB database. It is in a running state with a demo mode. Major features like user authentication (including Google OAuth), post creation, an explorable feed with infinite scroll, user profiles, workout tracking, and an admin analytics dashboard are implemented. The agent has just applied a fix for Google OAuth on mobile, which is pending user verification.
+The application is a full-stack Expo-based fitness app with a FastAPI backend and MongoDB database. It is in a running state. Major features like user authentication (email/password, Google, and now Apple), post creation/deletion, a profile page with a media grid, an admin analytics dashboard, and settings are implemented. The application state is managed via React Context, and user sessions are persisted using AsyncStorage. The agent has just started a major enhancement to add comprehensive time-series analytics reporting.
 
 **Last working item**:
-    - Last item agent was working: The user reported that Google Login was failing on mobile. The agent investigated the OAuth flow and found two potential issues: an incorrect  import in the callback handler and an improperly configured redirect URL for mobile deep-linking. The agent fixed the import and updated the  function to use  to generate the correct redirect URL for Expo Go.
-    - Status: USER VERIFICATION PENDING
+    - Last item agent was working: Implementing a comprehensive, time-based analytics feature. The user requested that all widgets on the admin dashboard, when clicked, lead to a detailed view showing metrics over time (daily, weekly, monthly). The agent created new backend endpoints (), created a new frontend page (), and updated the  wrappers on the admin dashboard to navigate to this new page, passing the metric type as a parameter.
+    - Status: IN PROGRESS
     - Agent Testing Done: N
-    - Which testing method agent to use? Manual testing by user on Expo Go. The agent cannot test mobile-specific OAuth flows.
+    - Which testing method agent to use? both
     - User Testing Done: N
 
 **All Pending/In progress Issue list**:
-  Issue 1: (P0) Google OAuth login fails on mobile.
+  Issue 1: (P0) The new time-series analytics page is just a skeleton.
   Issue 2: (P1) Home screen carousel Save button is not visible or functional.
   Issue 3: (P2) Unfollow analytics tracking is not working.
 
   Issues Detail:
   - Issue 1: 
-     - Attempted fixes: The agent corrected an  import in  and modified the  function to use  for a dynamic, mobile-friendly redirect URI. The fix has been applied, and services have been restarted.
+     - Attempted fixes: The agent created the file  and the corresponding backend endpoints. The UI for the page (charts, period selectors, data display) has not been implemented yet.
      - Next debug checklist: 
-        1.  Ask the user to test the Google Login flow again on their mobile device via Expo Go.
-        2.  If it still fails, check backend logs () for any new errors during the OAuth callback.
-        3.  Verify the  in  matches what  generates.
-     - Why fix this issue and what will be achieved with the fix? This is a critical authentication path for mobile users. Fixing it will allow users to sign in via Google on the primary target platform.
-     - Status:  USER VERIFICATION PENDING
+        1. Fully implement the UI for the  page. This should include:
+           - A period selector (Daily, Weekly, Monthly).
+           - A chart to visualize the time-series data (e.g., using ).
+           - A list or table view of the data points.
+           - Loading and empty states.
+        2. Fetch data from the new backend endpoints () based on the  and  selected.
+        3. Test the entire flow from the admin dashboard to the detailed analytics page for each metric.
+     - Why fix this issue and what will be achieved with the fix? This is the user's latest and most comprehensive request. Completing it will provide deep, time-based insights into user behavior, significantly enhancing the admin dashboard's utility.
+     - Status:  IN PROGRESS
      - Is recurring issue? N
-     - Should Test frontend/backend/both after fix? Frontend (manual by user)
+     - Should Test frontend/backend/both after fix? Both
      - Blocked on other issue: None
   - Issue 2: 
-     - Attempted fixes: None. The agent encountered a linter error  in  but dismissed it as a configuration issue. This error is the likely cause of the bug.
+     - Attempted fixes: None in this session. This issue was carried over from a previous fork. The previous agent noted a  in a layout file, which was dismissed but is the likely cause.
      - Next debug checklist:
-        1.  View the file .
-        2.  Locate the line number reported by the linter (Msg 593:  was reported, but the bug is likely in  as per the previous handover).
-        3.  Fix the JSX or TypeScript syntax error that is causing the parsing failure. This likely involves an unclosed tag or incorrect prop syntax within the carousel component.
-     - Why fix this issue and what will be achieved with the fix? This bug breaks a core feature on the app's main screen, preventing users from saving featured workouts.
+        1. View .
+        2. Inspect the JSX for syntax errors, especially around the carousel component where the Save button should be.
+        3. Fix the parsing error.
+     - Why fix this issue and what will be achieved with the fix? This is a critical bug on the main home screen that breaks a core user engagement feature.
      - Status:  NOT STARTED
      - Is recurring issue? Y
      - Should Test frontend/backend/both after fix? Frontend
      - Blocked on other issue: None
   - Issue 3: 
-     - Attempted fixes: None. The agent confirmed that 0  events were present in the database but did not investigate the code path to find the root cause.
+     - Attempted fixes: None in this session. This is another carry-over issue.
      - Next debug checklist:
-        1.  Locate the Unfollow button logic in the frontend (likely in  or a similar component).
-        2.  Check the  handler to see if it calls .
-        3.  If the call exists, trace the event to the backend to ensure it's being processed correctly.
-     - Why fix this issue and what will be achieved with the fix? Fixes a gap in user behavior analytics, providing a complete picture of social interactions.
+        1. Find the Unfollow button logic (likely in ).
+        2. Check if the  event (or equivalent) is being called on press.
+        3. Trace the frontend call to the backend's  endpoint to ensure it's being sent and processed.
+     - Why fix this issue and what will be achieved with the fix? It will fix a gap in analytics, providing a complete picture of social interactions.
      - Status:  NOT STARTED
      - Is recurring issue? Y
-     - Should Test frontend/backend/both after fix? Both (trigger on frontend, check DB/logs on backend).
+     - Should Test frontend/backend/both after fix? Both
      - Blocked on other issue: None
 
 **In progress Task List**:
- - None.
+  - Task 1: Complete Time-Series Analytics Feature
+     - Where to resume: Flesh out the UI and data fetching logic in .
+     - What will be achieved with this? Fulfills the user's request for detailed, time-based analytics for all key metrics.
+     - Status:  IN PROGRESS
+     - Should Test frontend/backend/both after fix? Both
+     - Blocked on something: None
 
 **Upcoming and Future Tasks**
-- **Upcoming Tasks**:
-    - **P1: Implement Apple Sign-In**: Requested in a previous session but not started.
-    - **P2: Implement Email Sign-Up/Sign-In**: The final part of the user's original authentication request, also not started.
 - **Future Tasks**:
-    - **P0: Refactor Hardcoded Workout Data (CRITICAL)**: Workout data remains hardcoded in frontend components. This is a major source of technical debt and should be migrated to the backend database and served via API.
-    - **P1: Refactor Styles**: The app lacks a centralized styling system/theme, leading to repeated fixes for similar UI elements across different files (e.g., the intensity button saga). Consolidating styles would improve maintainability.
+    - **P0: Refactor Hardcoded Workout Data (CRITICAL)**: Workout data is still hardcoded in frontend components. This technical debt needs to be addressed by migrating the data to the backend and serving it via an API.
+    - **P1: Refactor Styles**: The app lacks a centralized styling system, leading to repetitive UI fixes. Consolidating styles into a theme or shared constants would improve maintainability.
 
 **Completed work in this session**
-- **Bug Fixes & Stability:**
-  - **Login & Data Loading:** Fixed a critical bug where the Explore and Profile pages would not load in demo mode by creating a demo user in the correct database () and fixing data inconsistencies ( vs ).
-  - **Demo User Authentication:** Corrected the Try Demo flow to log in to the user's specified test account () and fixed a cached session issue that was showing the wrong profile.
-  - **Video Playback:** Fixed an issue where videos on the profile grid would not play by implementing a new backend endpoint () and updating the  page to use it. Fixed serialization errors (, ) in the new endpoint.
-  - **Streak Inconsistency:** Resolved a bug where streak counts were different across pages by refactoring multiple backend endpoints to use the  field as a single source of truth.
+- **Authentication & Security:**
+  - Fixed a critical startup crash caused by an incorrect  import ().
+  - Implemented **Apple Sign-In** with a new backend endpoint () and frontend button.
+  - Implemented **Change Credentials** functionality in Settings, with a new backend endpoint ().
+  - Implemented **case-insensitive login** for username or email.
+  - Added a **Sign Out** button in Settings.
+  - **Restricted Admin Dashboard** access to a specific email and hid the button for other users.
+  - Removed the Try Demo button and fixed the resulting JSX error.
+- **Feature Implementation:**
+  - Added a **permission request modal** before accessing the camera/library ().
+  - Implemented **post deletion** with a backend endpoint () and a UI button ().
+  - Implemented **manual video cover photo selection** during post creation.
+  - Added an **unread message badge** on the profile chat icon, using an existing backend endpoint.
+- **Admin Dashboard & Analytics:**
+  - Fixed the Active Users widgets by correcting the DB collection name from  to  in backend queries.
+  - Clarified widget labels on the dashboard with descriptive subtitles.
+  - Fixed the analytics detail page to correctly render data for active/daily users.
+  - Added a **New User Signups widget** with a trend chart and a new backend endpoint ().
+  - Added a  tracking event on registration.
 - **UI/UX Refinements:**
-  - **Intensity Buttons:** Fixed a recurring gold glow bug and subsequently adjusted the border styling to match the user's preference.
-  - **Admin & Stats Pages:** Changed all text and numbers to white font as requested and reduced excessive padding at the top of the Stats page.
-  - **Admin Dashboard Labels:** Improved the Popular Workout Modes widget to show user-friendly names (e.g., I Want to Sweat) instead of database IDs (e.g., sweat). This fix was also applied to the analytics detail page.
-  - **Explore Page:** Aligned the header search icon to be vertically centered with the add post icon.
-- **Feature Enhancements:**
-  - **Video Thumbnails:** Implemented video thumbnail generation using  and created a  component to display them in the profile grid.
-  - **Video Scrubber:** Redesigned the video progress scrubber in the  to be a more minimal, sleek progress bar.
-  - **Image Cropper:** Addressed a user complaint about the image cropper being a square on iOS by disabling the native cropper UI, ensuring the backend  function enforces the correct aspect ratio.
-  - **Analytics Integration:** Completed the integration of screen time analytics by creating a  hook and applying it to the main tab screens. Verified that all analytics events were being correctly tracked and recorded in the database.
+  - Changed the video thumbnail play button icon to white ().
+  - Changed the delete post button color to gray.
+  - Overhauled the Settings screen buttons to match the style (dark background, border, gold icons) of the Profile screen for a consistent look and feel.
 
 **Earlier issues found/mentioned but not fixed**
-   - **Issue 1**: **Home screen carousel save button is not visible.**
-     - Debug checklist: A linter error, , was reported in a tab layout file (Msg 593). This error was dismissed by the agent but is the most likely cause of a broken component render. The agent should inspect  for a syntax error in the JSX.
+   - **Issue 1**: Home screen carousel Save button is not visible/functional.
+     - Debug checklist: A linter error, , was reported in a previous session. This error was dismissed but is the most likely cause of a broken component render. The agent should inspect  for a syntax error in the JSX.
      - Why to solve this issue and what will be achieved with this? This is a critical bug breaking a core feature on the app's main screen.
      - Should Test frontend/backend/both after fix: Frontend
      - Is recurring issue? Y
-   - **Issue 2**: **Unfollow analytics tracking is not working.**
-     - Debug checklist: The agent confirmed no  events exist in the database. The next step is to investigate the  (or similar) function in  to see if the  call is missing or failing silently.
+   - **Issue 2**: Unfollow analytics tracking is not working.
+     - Debug checklist: The agent confirmed no  events exist in the database in a previous session. The next step is to investigate the Unfollow  handler in  to see if the analytics call is missing.
      - Why to solve this issue and what will be achieved with this? Fixes a gap in user behavior tracking.
      - Should Test frontend/backend/both after fix: Both
      - Is recurring issue? Y
 
 **Known issue recurrence from previous fork**
-  - **Issue recurrence in previous fork**: Unfollow tracking was mentioned in the previous handover and remains unfixed. The  in  was also noted and dismissed in a previous session.
+  - **Issue recurrence in previous fork**: Unfollow tracking and the broken Save button on the home screen carousel were both mentioned in the previous handover and remain unfixed.
   - **Recurrence count**: 2+
   - **Status**: NOT STARTED
 
@@ -123,94 +150,98 @@ The application is a full-stack Expo-based fitness app with a FastAPI backend an
 
 
 **Key Technical Concepts**
-- **React Native & Expo:**  for lifecycle-aware logic (analytics),  for mobile deep-linking,  and  for custom image cropping,  for thumbnail generation.
-- **FastAPI Backend:** Creation of a new RESTful endpoint (), debugging JSON serialization issues with  and , refactoring multiple endpoints to use a single source of truth for data ().
-- **Authentication:** Debugging Google OAuth flow, specifically the interaction between , deep-link redirect URIs, and backend session exchange.
-- **State Management:** Using React Context () for auth state and debugging issues related to  caching.
-- **Database:** Directly interacting with MongoDB via scripts to diagnose issues, create/update user documents, and verify data consistency across different databases ( vs ).
+- **Authentication**: Implemented Apple Sign-In (), secure password updates (bcrypt), case-insensitive login (MongoDB regex), and role-based UI rendering.
+- **Permissions**: Implemented a user-friendly permission flow using a custom modal before triggering system permission dialogs for .
+- **Backend (FastAPI)**: Added multiple new endpoints, fixed database query logic (collection names, ObjectId casting), implemented time-series data aggregation using MongoDB aggregation pipelines.
+- **Frontend (Expo/React Native)**: Created new file-based routes (), managed state with /, used  for data refreshing, created custom modals, and performed significant styling updates with .
+- **Analytics**: Implemented new tracking events (), created dashboard widgets for trend analysis, and built the foundation for a comprehensive time-series reporting system.
 
 **key DB schema**
-- : 
-- : 
-- : 
-- :  (used for streak calculation before refactor)
+- :  (Added )
+- :  (Added )
+- :  (Corrected collection name for analytics)
 - : 
 - : 
 
 **changes in tech stack**
-- **Added:**  library was installed to support generating cover images for video posts.
+- **Added**:  library was installed to support Apple Sign-In.
 
 **All files of reference**
-- **Last Worked On:**  (Fixed Google OAuth flow).
+- **Last Worked On:**  (new page),  (linking to new page),  (new analytics endpoints).
 - **Recurring Bug:**  (Likely contains syntax error breaking the home screen save button).
-- **Core Logic:** , , .
-- **New Components/Hooks:** , .
-- **Frequently Modified UI:** , , .
+- **Security/Auth:** , , , .
 
 **Areas that need refactoring**:
-- **Hardcoded Workout Data:** This remains the most significant technical debt. All workout content is defined in frontend components, making it impossible to manage without code changes. This data should be moved to the database.
-- **Style Consolidation:** The agent spent considerable time fixing similar style issues (e.g., button colors, borders, glows) across multiple files. A centralized theme or shared style constants would prevent this and ensure UI consistency.
-- **Analytics Event Definitions:** Event names and metadata keys are hardcoded strings scattered across the frontend. Creating a centralized enum or constant file for these would reduce typos and make tracking more robust.
+- **Hardcoded Workout Data:** Remains a critical piece of technical debt. All workout content is defined in the frontend, not the database.
+- **Style Consolidation:** Repetitive styling fixes (buttons, icons) across  and other components highlight the need for a shared styling system or theme.
 
 **key api endpoints**
-- **GET** : **(NEW)** Fetches a single post by its ID.
-- **POST** : Handles the server-side exchange of a session ID for a user token after Google login.
-- **GET** : Fetches stats for the current user, including streak count.
-- **GET** : Fetches aggregated analytics for the user stats page.
-- **GET** : Fetches aggregated analytics for the admin dashboard.
-- **POST** : Generic endpoint for tracking user events.
+- **POST** : (NEW) Handles Apple Sign-In.
+- **PUT** : (NEW) Updates user username, email, or password.
+- **DELETE** : (NEW) Deletes a post.
+- **GET** : (NEW) Gets user signup data for a trend chart.
+- **GET** : (NEW) A versatile endpoint to get time-series data for various metrics.
+- **GET**  & : (MODIFIED) Queries corrected to use  collection.
+- **POST** : (MODIFIED) Logic updated for case-insensitive username/email login.
+- **GET** : Endpoint path was corrected in the frontend call.
 
 **Critical Info for New Agent**
-1.  **Verify Google OAuth Fix:** Your first action should be to ask the user to test the Google Login flow on their mobile device. The fix has been implemented but not verified by the user.
-2.  **Tackle High-Priority Unfixed Bugs:** Before taking new requests, address the known, high-impact bugs:
-    *   **Home Screen Save Button (P1):** The bug is almost certainly caused by a syntax error in  that the previous agent dismissed. Find and fix it.
-    *   **Unfollow Analytics (P2):** The tracking for unfollow events is broken. Investigate the frontend  handler to ensure the event is being fired.
-3.  **Acknowledge Technical Debt:** Be aware of the significant technical debt, especially the hardcoded workout data. While you may not fix it immediately, avoid adding more hardcoded content. If the user requests new workouts, it's a good opportunity to propose the refactoring work.
-4.  **Database Context is Key:** The agent lost significant time debugging because of an incorrect database name ( vs ). Always verify which database the application is connected to ( in ) when debugging data-related issues.
+1.  **Finish the Current Task First:** The user's last request was for a comprehensive time-series analytics page. You must complete the implementation of . This involves building the UI with charts and period selectors and ensuring it correctly fetches and displays data from the new backend endpoints.
+2.  **Address Critical Recurring Bugs:** Once the analytics feature is done, you MUST prioritize fixing the two long-standing bugs from previous forks:
+    *   **Broken Save button:** Investigate  for a syntax error. This is a high-impact bug on the main screen.
+    *   **Broken Unfollow analytics:** Investigate the unfollow logic to ensure the analytics event is fired correctly.
+3.  **Admin Access:** The admin dashboard is now restricted to . You will need to log in as this user to test any admin-related features. The password is .
 
 **documents created in this job**
 - None.
 
 **Last 10 User Messages and any pending user messages**
-- **User (Msg 535):** Asked for more descriptive labels on the admin dashboard's popular workout mode widget. **Status:** Completed.
-- **User (Msg 562):** Pointed out that the descriptive labels were missing from the analytics detail page. **Status:** Completed.
-- **User (Msg 581):** Asked for a deployment readiness health check. **Status:** Completed.
-- **User (Msg 598):** Reported that Google login was failing on mobile. **Status:** Fix implemented, pending user verification.
-- **User (Msg 210, 220):** Provided feedback on which test profile to use for the Try Demo flow. **Status:** Completed.
-- **User (Msg 232):** Reported that videos were not displaying or playing from the profile grid. **Status:** Completed.
-- **User (Msg 265):** Asked to align the search icon on the explore page. **Status:** Completed.
-- **User (Msg 286):** Asked for a more minimal video scrubber and reported videos were still not loading correctly. **Status:** Completed.
-- **User (Msg 341):** Reported videos were playing but the profile grid still showed a black box, and the image cropper was still square. **Status:** Completed.
-- **User (Msg 378):** Confirmed videos play but requested actual video thumbnails instead of a play icon. **Status:** Completed.
-- **User (Msg 397):** Reported that streak counts were inconsistent across pages. **Status:** Completed.
-- **User (Msg 446, 501):** Requested all font on stats and admin pages be made white. **Status:** Completed.
-- **User (Msg 524):** Pointed out too much padding on the stats page. **Status:** Completed.
+- **User (Msg 492):** Requested a widget in the admin dash to track new users. **Status:** Completed.
+- **User (Msg 523):** Asked to remove the Try Demo button and ensure the new user widget tracks real stats. **Status:** Completed.
+- **User (Msg 552):** Reported a JSX syntax error on the login screen. **Status:** Completed.
+- **User (Msg 577):** Requested a major enhancement for comprehensive, time-based analytics reporting for all metrics, accessible by clicking widgets. **Status:** IN PROGRESS.
+- **User (Msg 292):** Requested the delete post button to be gray. **Status:** Completed.
+- **User (Msg 296):** Asked for an unread message indicator and the login info for the demo profile. **Status:** Completed.
+- **User (Msg 340):** Asked if a specific email was registered and reported the active users widget was showing no data. **Status:** Completed (user exists, data issue was fixed).
+- **User (Msg 367):** Requested a sign-out option, username/email login combo, and case-insensitive credentials. **Status:** Completed.
+- **User (Msg 393):** Requested that all buttons on the settings screen match the style of the profile screen buttons. **Status:** Completed.
+- **User (Msg 414):** Provided an image and asked for the icons on the settings buttons to have a gold accent. **Status:** Completed.
+- **User (Msg 427):** Reported that the active/daily active user detail pages were blank despite showing a count of 2. **Status:** Completed.
+- **User (Msg 456):** Asked for the login info for their admin account and requested that only that account can access the admin dashboard. **Status:** Completed.
+- **User (Msg 479):** Clarified that non-admin users should not even see the admin dashboard button. **Status:** Completed (fix was verified).
 
 **Project Health Check:**
 - **Broken**:
-    - The Save button on the **home screen workout carousel** is very likely broken due to a dismissed linter error in .
+    - The Save button on the **home screen workout carousel** is non-functional due to a likely syntax error in .
     - **Unfollow analytics tracking** is not functional.
 - **Mocked**:
-    - **All Workout Data**: All workout content (exercises, paths, etc.) is hardcoded in frontend component files, not stored in the database. This is a critical architectural flaw.
-- **Pending Verification**:
-    - **Google OAuth on Mobile**: A fix has been implemented but requires user testing to confirm it works.
+    - **All Workout Data**: Workout content is hardcoded in frontend files instead of being stored in and fetched from the database.
+- **In Progress**:
+    - **Time-Series Analytics**: The backend endpoints and a skeleton frontend page exist, but the UI and data visualization are not implemented.
 
 **3rd Party Integrations**
-- : Used for the (now replaced) video scrubber.
-- : Newly added to generate thumbnails for video posts.
+- : (New) Used for Apple Sign-In.
+- : Used to generate thumbnails for video posts.
 - , : Used for the Google OAuth flow.
 
 **Testing status**
   - Testing agent used after significant changes: NO
   - Troubleshoot agent used after agent stuck in loop: NO
   - Test files created: []
-  - Known regressions: None identified in this session.
+  - Known regressions: None identified.
 
 **Credentials to test flow:**
-- Use the Try Demo flow on the login screen. It is configured to automatically log in with the user's preferred test account, OgeeezzburyTester.
+- **Admin User**:
+    - **Username/Email**:  or 
+    - **Password**: 
+- **Demo User**:
+    - **Username**: 
+    - **Password**: 
+- **Note**: The Try Demo button has been removed. Manual login is required.
 
 **What agent forgot to execute**
-- The agent never fixed the critical syntax error in  that was reported by the linter and mentioned in the previous handover summary. This is the likely cause of the broken Save button on the home screen carousel.
-- The agent did not fix the broken unfollow analytics event, another carry-over issue from the previous fork.
+- The agent did not fix the two highest-priority issues from the previous handover:
+    1.  The broken **Save button** on the home screen carousel.
+    2.  The non-functional **Unfollow analytics** event.
 
 </analysis>
