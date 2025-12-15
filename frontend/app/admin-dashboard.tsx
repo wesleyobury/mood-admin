@@ -1019,6 +1019,48 @@ const styles = StyleSheet.create({
     color: '#fff',
     textAlign: 'center',
   },
+  trendTotal: {
+    fontSize: 12,
+    color: '#FFD700',
+    fontWeight: '600',
+  },
+  signupPeriodSelector: {
+    flexDirection: 'row',
+    gap: 8,
+    marginBottom: 16,
+  },
+  signupPeriodButton: {
+    paddingHorizontal: 16,
+    paddingVertical: 8,
+    borderRadius: 20,
+    backgroundColor: '#1a1a1a',
+    borderWidth: 1,
+    borderColor: '#333',
+  },
+  signupPeriodButtonActive: {
+    backgroundColor: 'rgba(255, 215, 0, 0.15)',
+    borderColor: '#FFD700',
+  },
+  signupPeriodText: {
+    fontSize: 13,
+    color: '#888',
+    fontWeight: '500',
+  },
+  signupPeriodTextActive: {
+    color: '#FFD700',
+  },
+  noDataContainer: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingVertical: 40,
+    backgroundColor: '#1a1a1a',
+    borderRadius: 12,
+  },
+  noDataText: {
+    marginTop: 8,
+    fontSize: 14,
+    color: '#666',
+  },
   chartContainer: {
     backgroundColor: '#1a1a1a',
     borderRadius: 16,
