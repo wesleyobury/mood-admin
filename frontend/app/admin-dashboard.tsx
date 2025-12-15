@@ -57,12 +57,21 @@ interface PlatformStats {
 
 const ADMIN_EMAIL = 'wesleyogsbury@gmail.com';
 
+interface SignupTrendData {
+  period: string;
+  labels: string[];
+  values: number[];
+  total: number;
+}
+
 export default function AdminDashboard() {
   const [stats, setStats] = useState<PlatformStats | null>(null);
   const [loading, setLoading] = useState(true);
   const [refreshing, setRefreshing] = useState(false);
   const [selectedPeriod, setSelectedPeriod] = useState(1); // 1 day default
   const [isAuthorized, setIsAuthorized] = useState(false);
+  const [signupTrend, setSignupTrend] = useState<SignupTrendData | null>(null);
+  const [signupPeriod, setSignupPeriod] = useState<'day' | 'week' | 'month'>('day');
   const router = useRouter();
   const { token, user } = useAuth();
 
@@ -71,6 +80,12 @@ export default function AdminDashboard() {
     { value: 7, label: '7d' },
     { value: 30, label: '30d' },
     { value: 90, label: '90d' },
+  ];
+
+  const signupPeriods = [
+    { value: 'day', label: 'Daily' },
+    { value: 'week', label: 'Weekly' },
+    { value: 'month', label: 'Monthly' },
   ];
 
   // Check if user is authorized to access admin dashboard
@@ -87,6 +102,26 @@ export default function AdminDashboard() {
       }
     }
   }, [user]);
+
+  const fetchSignupTrend = async () => {
+    if (!token || !isAuthorized) return;
+    
+    try {
+      const response = await fetch(
+        `${API_URL}/api/analytics/admin/users/signup-trend?period=${signupPeriod}`,
+        {
+          headers: { 'Authorization': `Bearer ${token}` }
+        }
+      );
+      
+      if (response.ok) {
+        const data = await response.json();
+        setSignupTrend(data);
+      }
+    } catch (error) {
+      console.error('Error fetching signup trend:', error);
+    }
+  };
 
   const fetchStats = async () => {
     if (!token || !isAuthorized) return;
