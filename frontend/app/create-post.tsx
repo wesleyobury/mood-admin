@@ -111,12 +111,22 @@ export default function CreatePost() {
       return;
     }
 
-    const { status } = await ImagePicker.requestMediaLibraryPermissionsAsync();
+    // Check if we already have permission
+    const { status: existingStatus } = await ImagePicker.getMediaLibraryPermissionsAsync();
     
-    if (status !== 'granted') {
-      showAlert('Permission Required', 'Sorry, we need camera roll permissions to select media!');
+    if (existingStatus !== 'granted') {
+      // Show our custom permission modal first
+      setPermissionType('library');
+      setShowPermissionModal(true);
       return;
     }
+
+    // Already have permission, proceed with picking
+    await launchImageLibrary();
+  };
+
+  const launchImageLibrary = async () => {
+    const maxMedia = hasStatsCard ? 4 : 5;
 
     // Don't use native editing - it's square on iOS
     // Instead, select the image and we'll crop to 4:5 programmatically
@@ -138,6 +148,26 @@ export default function CreatePost() {
       
       const newMedia: MediaItem = { uri: finalUri, type: 'image' };
       setSelectedMedia([...selectedMedia, newMedia].slice(0, maxMedia));
+    }
+  };
+
+  const handlePermissionRequest = async () => {
+    setShowPermissionModal(false);
+    
+    if (permissionType === 'camera') {
+      const { status } = await ImagePicker.requestCameraPermissionsAsync();
+      if (status === 'granted') {
+        await launchCamera();
+      } else {
+        showAlert('Permission Denied', 'Camera access is required to take photos. Please enable it in your device settings.');
+      }
+    } else {
+      const { status } = await ImagePicker.requestMediaLibraryPermissionsAsync();
+      if (status === 'granted') {
+        await launchImageLibrary();
+      } else {
+        showAlert('Permission Denied', 'Photo library access is required to select images. Please enable it in your device settings.');
+      }
     }
   };
 
