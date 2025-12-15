@@ -8,6 +8,7 @@ import {
   SafeAreaView,
   Image,
   ActivityIndicator,
+  Alert,
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { useRouter, useLocalSearchParams } from 'expo-router';
@@ -15,7 +16,7 @@ import { useAuth } from '../contexts/AuthContext';
 import MediaCarousel from '../components/MediaCarousel';
 import Constants from 'expo-constants';
 
-const API_URL = Constants.expoConfig?.extra?.EXPO_PUBLIC_BACKEND_URL || '';
+const API_URL = Constants.expoConfig?.extra?.EXPO_PUBLIC_BACKEND_URL || process.env.EXPO_PUBLIC_BACKEND_URL || '';
 
 interface Author {
   id: string;
