@@ -1061,6 +1061,65 @@ export default function CreatePost() {
           </View>
         </Modal>
       )}
+
+      {/* Permission Request Modal */}
+      <Modal
+        visible={showPermissionModal}
+        transparent={true}
+        animationType="fade"
+        onRequestClose={() => setShowPermissionModal(false)}
+      >
+        <View style={styles.permissionModalOverlay}>
+          <View style={styles.permissionModalContent}>
+            {/* Icon */}
+            <View style={styles.permissionIconContainer}>
+              <Ionicons 
+                name={permissionType === 'camera' ? 'camera' : 'images'} 
+                size={48} 
+                color="#FFD700" 
+              />
+            </View>
+            
+            {/* Title */}
+            <Text style={styles.permissionTitle}>
+              {permissionType === 'camera' ? 'Camera Access' : 'Photo Library Access'}
+            </Text>
+            
+            {/* Description */}
+            <Text style={styles.permissionDescription}>
+              {permissionType === 'camera' 
+                ? 'MOOD needs access to your camera to take photos and videos for your workout posts. Your photos are only shared when you choose to post them.'
+                : 'MOOD needs access to your photo library to let you select photos and videos for your workout posts. Your photos are only shared when you choose to post them.'
+              }
+            </Text>
+            
+            {/* Privacy Note */}
+            <View style={styles.permissionPrivacyNote}>
+              <Ionicons name="shield-checkmark" size={16} color="#4CAF50" />
+              <Text style={styles.permissionPrivacyText}>
+                Your privacy is important to us
+              </Text>
+            </View>
+            
+            {/* Buttons */}
+            <View style={styles.permissionButtonsContainer}>
+              <TouchableOpacity 
+                style={styles.permissionDenyButton}
+                onPress={() => setShowPermissionModal(false)}
+              >
+                <Text style={styles.permissionDenyButtonText}>Not Now</Text>
+              </TouchableOpacity>
+              
+              <TouchableOpacity 
+                style={styles.permissionAllowButton}
+                onPress={handlePermissionRequest}
+              >
+                <Text style={styles.permissionAllowButtonText}>Allow Access</Text>
+              </TouchableOpacity>
+            </View>
+          </View>
+        </View>
+      </Modal>
     </SafeAreaView>
   );
 }
