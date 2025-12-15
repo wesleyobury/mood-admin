@@ -220,14 +220,28 @@ async def register(user_data: UserCreate):
     }
     
     result = await db.users.insert_one(user_doc)
+    user_id = str(result.inserted_id)
+    
+    # Track user signup event
+    await db.user_events.insert_one({
+        "user_id": user_id,
+        "event_type": "user_registered",
+        "timestamp": datetime.now(timezone.utc),
+        "metadata": {
+            "username": user_data.username,
+            "email": user_data.email,
+            "registration_method": "email_password"
+        }
+    })
+    logger.info(f"New user registered: {user_data.username} ({user_data.email})")
     
     # Generate JWT token
-    token = create_jwt_token(str(result.inserted_id))
+    token = create_jwt_token(user_id)
     
     return {
         "message": "User created successfully",
         "token": token,
-        "user_id": str(result.inserted_id)
+        "user_id": user_id
     }
 
 @api_router.post("/auth/login")
