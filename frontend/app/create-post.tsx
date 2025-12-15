@@ -72,6 +72,10 @@ export default function CreatePost() {
   const [showPermissionModal, setShowPermissionModal] = useState(false);
   const [permissionType, setPermissionType] = useState<'camera' | 'library'>('camera');
   
+  // Cover photo selection state
+  const [showCoverPicker, setShowCoverPicker] = useState(false);
+  const [coverPickerVideoIndex, setCoverPickerVideoIndex] = useState<number>(-1);
+  
   // Success animation state (inline button animation like "Add workout")
   const [cardSaved, setCardSaved] = useState(false);
   const [saveScaleAnim] = useState(new Animated.Value(1));
