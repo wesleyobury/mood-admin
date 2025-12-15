@@ -240,10 +240,16 @@ async def login(login_data: UserLogin, request: Request):
     user_agent = get_user_agent(request)
     
     try:
-        # Find user
-        user = await db.users.find_one({"username": login_data.username})
+        # Find user by username OR email (case insensitive)
+        login_identifier = login_data.username.strip()
+        user = await db.users.find_one({
+            "$or": [
+                {"username": {"$regex": f"^{login_identifier}$", "$options": "i"}},
+                {"email": {"$regex": f"^{login_identifier}$", "$options": "i"}}
+            ]
+        })
         if not user:
-            logger.info(f"Login failed: User {login_data.username} not found")
+            logger.info(f"Login failed: User {login_identifier} not found")
             # Track failed login attempt
             await track_login_event(
                 db, "unknown", "email_password", False,
@@ -252,12 +258,20 @@ async def login(login_data: UserLogin, request: Request):
             raise HTTPException(status_code=401, detail="Invalid credentials")
         
         user_id = str(user["_id"])
-        logger.info(f"Login attempt for user: {login_data.username}")
+        logger.info(f"Login attempt for user: {user.get('username')} (searched: {login_identifier})")
         logger.info(f"User has password field: {'password' in user}")
         
         # Verify password
         try:
-            password_match = bcrypt.checkpw(login_data.password.encode(), user["password"].encode())
+            stored_password = user.get("password") or user.get("password_hash")
+            if not stored_password:
+                raise HTTPException(status_code=401, detail="Invalid credentials")
+            
+            if isinstance(stored_password, bytes):
+                password_match = bcrypt.checkpw(login_data.password.encode(), stored_password)
+            else:
+                password_match = bcrypt.checkpw(login_data.password.encode(), stored_password.encode())
+            
             logger.info(f"Password match result: {password_match}")
             if not password_match:
                 # Track failed login - wrong password
