@@ -184,9 +184,9 @@ export default function PostDetail() {
         {isOwnPost ? (
           <TouchableOpacity onPress={handleDeletePost} disabled={isDeleting}>
             {isDeleting ? (
-              <ActivityIndicator size="small" color="#FF4444" />
+              <ActivityIndicator size="small" color="#888" />
             ) : (
-              <Ionicons name="trash-outline" size={24} color="#FF4444" />
+              <Ionicons name="trash-outline" size={24} color="#888" />
             )}
           </TouchableOpacity>
         ) : (
