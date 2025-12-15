@@ -380,6 +380,31 @@ export default function Settings() {
         <View style={styles.appInfo}>
           <Text style={styles.appVersion}>Version 1.0.0</Text>
         </View>
+
+        {/* Sign Out Button */}
+        <TouchableOpacity 
+          style={styles.signOutButton}
+          onPress={() => {
+            Alert.alert(
+              'Sign Out',
+              'Are you sure you want to sign out?',
+              [
+                { text: 'Cancel', style: 'cancel' },
+                { 
+                  text: 'Sign Out', 
+                  style: 'destructive',
+                  onPress: async () => {
+                    await logout();
+                    router.replace('/auth/login');
+                  }
+                },
+              ]
+            );
+          }}
+        >
+          <Ionicons name="log-out-outline" size={20} color="#FF4444" />
+          <Text style={styles.signOutButtonText}>Sign Out</Text>
+        </TouchableOpacity>
       </ScrollView>
 
       {/* Terms of Service Modal */}
