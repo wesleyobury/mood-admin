@@ -161,12 +161,12 @@ export default function Profile() {
   const fetchUnreadCount = async () => {
     if (!token) return;
     try {
-      const response = await fetch(`${API_URL}/api/messages/unread-count`, {
+      const response = await fetch(`${API_URL}/api/conversations/unread-count`, {
         headers: { 'Authorization': `Bearer ${token}` },
       });
       if (response.ok) {
         const data = await response.json();
-        setUnreadMessages(data.count || 0);
+        setUnreadMessages(data.unread_count || 0);
       }
     } catch (error) {
       console.error('Error fetching unread count:', error);
