@@ -54,13 +54,16 @@ interface PlatformStats {
   popular_mood_categories: Array<{ mood: string; count: number }>;
 }
 
+const ADMIN_EMAIL = 'wesleyogsbury@gmail.com';
+
 export default function AdminDashboard() {
   const [stats, setStats] = useState<PlatformStats | null>(null);
   const [loading, setLoading] = useState(true);
   const [refreshing, setRefreshing] = useState(false);
   const [selectedPeriod, setSelectedPeriod] = useState(1); // 1 day default
+  const [isAuthorized, setIsAuthorized] = useState(false);
   const router = useRouter();
-  const { token } = useAuth();
+  const { token, user } = useAuth();
 
   const periods = [
     { value: 1, label: '24h' },
@@ -69,8 +72,23 @@ export default function AdminDashboard() {
     { value: 90, label: '90d' },
   ];
 
+  // Check if user is authorized to access admin dashboard
+  useEffect(() => {
+    if (user) {
+      const authorized = user.email?.toLowerCase() === ADMIN_EMAIL.toLowerCase();
+      setIsAuthorized(authorized);
+      if (!authorized) {
+        Alert.alert(
+          'Access Denied',
+          'You do not have permission to access the admin dashboard.',
+          [{ text: 'OK', onPress: () => router.back() }]
+        );
+      }
+    }
+  }, [user]);
+
   const fetchStats = async () => {
-    if (!token) return;
+    if (!token || !isAuthorized) return;
 
     try {
       const response = await fetch(
@@ -95,8 +113,10 @@ export default function AdminDashboard() {
   };
 
   useEffect(() => {
-    fetchStats();
-  }, [selectedPeriod]);
+    if (isAuthorized) {
+      fetchStats();
+    }
+  }, [selectedPeriod, isAuthorized]);
 
   const onRefresh = () => {
     setRefreshing(true);
