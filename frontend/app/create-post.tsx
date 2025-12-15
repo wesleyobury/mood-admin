@@ -1395,6 +1395,23 @@ const styles = StyleSheet.create({
     backgroundColor: '#000',
     borderRadius: 11,
   },
+  setCoverButton: {
+    position: 'absolute',
+    bottom: 6,
+    left: 6,
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 4,
+    backgroundColor: '#FFD700',
+    paddingHorizontal: 8,
+    paddingVertical: 4,
+    borderRadius: 10,
+  },
+  setCoverButtonText: {
+    color: '#000',
+    fontSize: 10,
+    fontWeight: '600',
+  },
   imageNumber: {
     position: 'absolute',
     bottom: 6,
