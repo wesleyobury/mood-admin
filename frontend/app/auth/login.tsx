@@ -283,6 +283,24 @@ export default function Login() {
             <Text style={styles.googleButtonText}>Continue with Google</Text>
           </TouchableOpacity>
 
+          {/* Apple Sign In Button - iOS only */}
+          {(Platform.OS === 'ios' && isAppleAvailable) ? (
+            <AppleAuthentication.AppleAuthenticationButton
+              buttonType={AppleAuthentication.AppleAuthenticationButtonType.SIGN_IN}
+              buttonStyle={AppleAuthentication.AppleAuthenticationButtonStyle.WHITE}
+              cornerRadius={12}
+              style={styles.appleButton}
+              onPress={handleAppleLogin}
+            />
+          ) : Platform.OS === 'ios' ? null : (
+            <TouchableOpacity style={styles.appleButtonFallback} onPress={handleAppleLogin}>
+              <View style={styles.appleIconContainer}>
+                <Ionicons name="logo-apple" size={20} color="#000" />
+              </View>
+              <Text style={styles.appleButtonText}>Continue with Apple</Text>
+            </TouchableOpacity>
+          )}
+
           {/* Divider */}
           <View style={styles.divider}>
             <View style={styles.dividerLine} />
