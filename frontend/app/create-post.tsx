@@ -605,8 +605,9 @@ export default function CreatePost() {
     }
   };
 
-  const uploadMedia = async (): Promise<string[]> => {
+  const uploadMedia = async (): Promise<{urls: string[], coverUrls: {[key: number]: string}}> => {
     const uploadedUrls: string[] = [];
+    const coverUrls: {[key: number]: string} = {};
     const totalSteps = selectedMedia.length + (hasStatsCard ? 1 : 0) + 1; // media + card + post creation
     let currentStep = 0;
     
@@ -670,6 +671,42 @@ export default function CreatePost() {
           const data = await uploadResponse.json();
           console.log('Upload success:', data);
           uploadedUrls.push(data.url);
+          
+          // If this is a video with a custom cover, upload the cover image
+          if (mediaItem.type === 'video' && mediaItem.coverUri) {
+            try {
+              const coverFormData = new FormData();
+              const coverFilename = `cover_${Date.now()}.jpg`;
+              
+              if (Platform.OS === 'web') {
+                const coverResponse = await fetch(mediaItem.coverUri);
+                const coverBlob = await coverResponse.blob();
+                coverFormData.append('file', coverBlob, coverFilename);
+              } else {
+                coverFormData.append('file', {
+                  uri: mediaItem.coverUri,
+                  name: coverFilename,
+                  type: 'image/jpeg',
+                } as any);
+              }
+              
+              const coverUploadResponse = await fetch(`${API_URL}/api/upload`, {
+                method: 'POST',
+                headers: {
+                  'Authorization': `Bearer ${token}`,
+                },
+                body: coverFormData,
+              });
+              
+              if (coverUploadResponse.ok) {
+                const coverData = await coverUploadResponse.json();
+                coverUrls[uploadedUrls.length - 1] = coverData.url;
+                console.log('Cover uploaded:', coverData.url);
+              }
+            } catch (coverError) {
+              console.error('Error uploading cover:', coverError);
+            }
+          }
         } else {
           const errorText = await uploadResponse.text();
           console.error('Upload failed:', uploadResponse.status, errorText);
@@ -680,7 +717,8 @@ export default function CreatePost() {
     }
 
     console.log('All uploaded URLs:', uploadedUrls);
-    return uploadedUrls;
+    console.log('Cover URLs:', coverUrls);
+    return { urls: uploadedUrls, coverUrls };
   };
 
   const handleCreatePost = async () => {
