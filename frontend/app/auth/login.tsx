@@ -180,6 +180,67 @@ export default function Login() {
     }
   };
 
+  const handleAppleLogin = async () => {
+    try {
+      setIsLoading(true);
+      console.log('Starting Apple Sign-In...');
+      
+      const credential = await AppleAuthentication.signInAsync({
+        requestedScopes: [
+          AppleAuthentication.AppleAuthenticationScope.FULL_NAME,
+          AppleAuthentication.AppleAuthenticationScope.EMAIL,
+        ],
+      });
+
+      console.log('Apple credential received:', {
+        user: credential.user,
+        email: credential.email,
+        fullName: credential.fullName,
+      });
+
+      // Send to backend for authentication
+      const response = await fetch(`${API_URL}/api/auth/apple`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          user_id: credential.user,
+          email: credential.email,
+          full_name: credential.fullName ? 
+            `${credential.fullName.givenName || ''} ${credential.fullName.familyName || ''}`.trim() : 
+            null,
+          identity_token: credential.identityToken,
+          authorization_code: credential.authorizationCode,
+        }),
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json().catch(() => ({}));
+        throw new Error(errorData.detail || 'Failed to authenticate with Apple');
+      }
+
+      const data = await response.json();
+      console.log('Apple login successful!');
+
+      // Store session token in AsyncStorage
+      const AsyncStorage = (await import('@react-native-async-storage/async-storage')).default;
+      await AsyncStorage.setItem('auth_token', data.session_token);
+
+      // Navigate to main app
+      router.replace('/(tabs)');
+    } catch (error: any) {
+      if (error.code === 'ERR_REQUEST_CANCELED') {
+        console.log('User cancelled Apple Sign-In');
+      } else {
+        console.error('Apple login error:', error);
+        Alert.alert('Login Failed', error.message || 'Unable to sign in with Apple');
+      }
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
   const handleLogin = async () => {
     if (!username.trim() || !password.trim()) {
       Alert.alert('Error', 'Please fill in all fields');
