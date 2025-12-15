@@ -221,12 +221,22 @@ export default function CreatePost() {
       return;
     }
 
-    const { status } = await ImagePicker.requestCameraPermissionsAsync();
+    // Check if we already have permission
+    const { status: existingStatus } = await ImagePicker.getCameraPermissionsAsync();
     
-    if (status !== 'granted') {
-      showAlert('Permission Required', 'Sorry, we need camera permissions to take photos!');
+    if (existingStatus !== 'granted') {
+      // Show our custom permission modal first
+      setPermissionType('camera');
+      setShowPermissionModal(true);
       return;
     }
+
+    // Already have permission, proceed with camera
+    await launchCamera();
+  };
+
+  const launchCamera = async () => {
+    const maxMedia = hasStatsCard ? 4 : 5;
 
     // Don't use native editing - it's square on iOS
     const result = await ImagePicker.launchCameraAsync({
