@@ -718,6 +718,93 @@ async def get_new_users_endpoint(
     return await get_new_users_detail(db, days, limit)
 
 
+@api_router.get("/analytics/admin/users/signup-trend")
+async def get_signup_trend_endpoint(
+    period: str = "day",  # day, week, month
+    limit: int = 30,
+    current_user_id: str = Depends(get_current_user)
+):
+    """Get user signup trends grouped by day, week, or month"""
+    try:
+        # Determine the date grouping format
+        if period == "month":
+            date_format = "%Y-%m"
+            days_back = 365
+        elif period == "week":
+            date_format = "%Y-W%V"
+            days_back = 180
+        else:  # day
+            date_format = "%Y-%m-%d"
+            days_back = 30
+        
+        cutoff = datetime.now(timezone.utc) - timedelta(days=days_back)
+        
+        # Get all users created after cutoff
+        users = await db.users.find(
+            {"created_at": {"$gte": cutoff}},
+            {"created_at": 1}
+        ).to_list(10000)
+        
+        # Group by period
+        from collections import defaultdict
+        signup_counts = defaultdict(int)
+        
+        for user in users:
+            if user.get("created_at"):
+                created_at = user["created_at"]
+                if period == "week":
+                    # Format as year-week
+                    period_key = created_at.strftime("%Y-W%V")
+                elif period == "month":
+                    period_key = created_at.strftime("%Y-%m")
+                else:
+                    period_key = created_at.strftime("%Y-%m-%d")
+                signup_counts[period_key] += 1
+        
+        # Sort by date and limit
+        sorted_data = sorted(signup_counts.items(), key=lambda x: x[0], reverse=True)[:limit]
+        sorted_data.reverse()  # Chronological order
+        
+        # Format for chart
+        labels = []
+        values = []
+        for date_key, count in sorted_data:
+            if period == "month":
+                # Format as "Jan", "Feb", etc.
+                try:
+                    dt = datetime.strptime(date_key, "%Y-%m")
+                    labels.append(dt.strftime("%b"))
+                except:
+                    labels.append(date_key[-2:])
+            elif period == "week":
+                # Format as "W1", "W2", etc.
+                labels.append(f"W{date_key.split('W')[1]}")
+            else:
+                # Format as "12/15", "12/16", etc.
+                try:
+                    dt = datetime.strptime(date_key, "%Y-%m-%d")
+                    labels.append(dt.strftime("%m/%d"))
+                except:
+                    labels.append(date_key[-5:])
+            values.append(count)
+        
+        return {
+            "period": period,
+            "labels": labels,
+            "values": values,
+            "total": sum(values),
+        }
+        
+    except Exception as e:
+        logger.error(f"Error getting signup trend: {e}")
+        return {
+            "period": period,
+            "labels": [],
+            "values": [],
+            "total": 0,
+        }
+
+
 @api_router.get("/analytics/admin/users/active")
 async def get_active_users_endpoint(
     days: int = 30,
