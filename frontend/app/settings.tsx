@@ -772,6 +772,24 @@ const styles = StyleSheet.create({
     fontSize: 13,
     color: '#666',
   },
+  signOutButton: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: 8,
+    marginHorizontal: 16,
+    marginBottom: 40,
+    paddingVertical: 14,
+    backgroundColor: 'rgba(255, 68, 68, 0.1)',
+    borderRadius: 12,
+    borderWidth: 1,
+    borderColor: 'rgba(255, 68, 68, 0.3)',
+  },
+  signOutButtonText: {
+    color: '#FF4444',
+    fontSize: 16,
+    fontWeight: '600',
+  },
   // Modal Styles
   modalContainer: {
     flex: 1,
