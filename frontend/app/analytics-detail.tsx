@@ -500,6 +500,12 @@ const styles = StyleSheet.create({
     color: '#888',
     marginTop: 2,
   },
+  headerCount: {
+    fontSize: 11,
+    color: '#FFD700',
+    marginTop: 4,
+    fontWeight: '600',
+  },
   headerSpacer: {
     width: 40,
   },
