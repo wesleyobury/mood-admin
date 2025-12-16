@@ -8,7 +8,7 @@
     "scheme": "moodapp",
     "userInterfaceStyle": "dark",
     "backgroundColor": "#000000",
-    "newArchEnabled": false,
+    "newArchEnabled": true,
     "ios": {
       "bundleIdentifier": "com.official.moodapp",
       "buildNumber": "1",
