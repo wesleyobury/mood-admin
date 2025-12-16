@@ -8,7 +8,6 @@ import { StatusBar } from 'expo-status-bar';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { AuthProvider, useAuth } from '../contexts/AuthContext';
 import { CartProvider } from '../contexts/CartContext';
-import FloatingCart from '../components/FloatingCart';
 import { Analytics } from '../utils/analytics';
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
@@ -41,29 +40,6 @@ function AppStateTracker() {
   return null;
 }
 
-// Navigation content with FloatingCart
-function NavigationContent() {
-  return (
-    <>
-      <Stack 
-        screenOptions={{ 
-          headerShown: false, 
-          contentStyle: { backgroundColor: '#000000' },
-          animation: 'default'
-        }}
-      >
-        <Stack.Screen name="index" options={{ headerShown: false, title: '', contentStyle: { backgroundColor: '#000000' } }} />
-        <Stack.Screen name="(tabs)" options={{ headerShown: false, title: '', contentStyle: { backgroundColor: '#000000' } }} />
-        <Stack.Screen name="auth/login" options={{ headerShown: false, title: '', contentStyle: { backgroundColor: '#000000' } }} />
-        <Stack.Screen name="auth/register" options={{ headerShown: false, title: '', contentStyle: { backgroundColor: '#000000' } }} />
-        <Stack.Screen name="cart" options={{ headerShown: false, title: '', contentStyle: { backgroundColor: '#000000' } }} />
-        <Stack.Screen name="workout-session" options={{ headerShown: false, title: '', contentStyle: { backgroundColor: '#000000' } }} />
-      </Stack>
-      <FloatingCart />
-    </>
-  );
-}
-
 export default function RootLayout() {
   const [loaded, error] = useFonts({
     SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
@@ -92,7 +68,20 @@ export default function RootLayout() {
         <AuthProvider>
           <CartProvider>
             <AppStateTracker />
-            <NavigationContent />
+            <Stack 
+              screenOptions={{ 
+                headerShown: false, 
+                contentStyle: { backgroundColor: '#000000' },
+                animation: 'default'
+              }}
+            >
+              <Stack.Screen name="index" options={{ headerShown: false, title: '', contentStyle: { backgroundColor: '#000000' } }} />
+              <Stack.Screen name="(tabs)" options={{ headerShown: false, title: '', contentStyle: { backgroundColor: '#000000' } }} />
+              <Stack.Screen name="auth/login" options={{ headerShown: false, title: '', contentStyle: { backgroundColor: '#000000' } }} />
+              <Stack.Screen name="auth/register" options={{ headerShown: false, title: '', contentStyle: { backgroundColor: '#000000' } }} />
+              <Stack.Screen name="cart" options={{ headerShown: false, title: '', contentStyle: { backgroundColor: '#000000' } }} />
+              <Stack.Screen name="workout-session" options={{ headerShown: false, title: '', contentStyle: { backgroundColor: '#000000' } }} />
+            </Stack>
           </CartProvider>
         </AuthProvider>
       </SafeAreaProvider>
