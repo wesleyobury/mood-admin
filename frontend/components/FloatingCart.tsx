@@ -4,16 +4,22 @@ import {
   Text,
   TouchableOpacity,
   StyleSheet,
-  Animated,
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { useCart } from '../contexts/CartContext';
-import { useRouter } from 'expo-router';
+import { useRouter, useRootNavigationState } from 'expo-router';
 
 const FloatingCart: React.FC = () => {
   const { cartItems } = useCart();
-  const router = useRouter();
+  const rootNavigationState = useRootNavigationState();
   const cartCount = cartItems.length;
+
+  // Don't render until navigation is ready
+  if (!rootNavigationState?.key) {
+    return null;
+  }
+
+  const router = useRouter();
 
   const handleCartPress = () => {
     router.push('/cart');
