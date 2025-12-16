@@ -41,6 +41,29 @@ function AppStateTracker() {
   return null;
 }
 
+// Navigation content with FloatingCart
+function NavigationContent() {
+  return (
+    <>
+      <Stack 
+        screenOptions={{ 
+          headerShown: false, 
+          contentStyle: { backgroundColor: '#000000' },
+          animation: 'default'
+        }}
+      >
+        <Stack.Screen name="index" options={{ headerShown: false, title: '', contentStyle: { backgroundColor: '#000000' } }} />
+        <Stack.Screen name="(tabs)" options={{ headerShown: false, title: '', contentStyle: { backgroundColor: '#000000' } }} />
+        <Stack.Screen name="auth/login" options={{ headerShown: false, title: '', contentStyle: { backgroundColor: '#000000' } }} />
+        <Stack.Screen name="auth/register" options={{ headerShown: false, title: '', contentStyle: { backgroundColor: '#000000' } }} />
+        <Stack.Screen name="cart" options={{ headerShown: false, title: '', contentStyle: { backgroundColor: '#000000' } }} />
+        <Stack.Screen name="workout-session" options={{ headerShown: false, title: '', contentStyle: { backgroundColor: '#000000' } }} />
+      </Stack>
+      <FloatingCart />
+    </>
+  );
+}
+
 export default function RootLayout() {
   const [loaded, error] = useFonts({
     SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
@@ -62,11 +85,6 @@ export default function RootLayout() {
     }
   }, [loaded, error]);
 
-  // Don't block the app for font loading - show content immediately
-  // if (!loaded && !error) {
-  //   return null;
-  // }
-
   return (
     <GestureHandlerRootView style={{ flex: 1, backgroundColor: '#000000' }}>
       <StatusBar style="light" backgroundColor="#000000" translucent={false} />
@@ -74,21 +92,7 @@ export default function RootLayout() {
         <AuthProvider>
           <CartProvider>
             <AppStateTracker />
-            <Stack 
-              screenOptions={{ 
-                headerShown: false, 
-                contentStyle: { backgroundColor: '#000000' },
-                animation: 'default'
-              }}
-            >
-              <Stack.Screen name="index" options={{ headerShown: false, title: '', contentStyle: { backgroundColor: '#000000' } }} />
-              <Stack.Screen name="(tabs)" options={{ headerShown: false, title: '', contentStyle: { backgroundColor: '#000000' } }} />
-              <Stack.Screen name="auth/login" options={{ headerShown: false, title: '', contentStyle: { backgroundColor: '#000000' } }} />
-              <Stack.Screen name="auth/register" options={{ headerShown: false, title: '', contentStyle: { backgroundColor: '#000000' } }} />
-              <Stack.Screen name="cart" options={{ headerShown: false, title: '', contentStyle: { backgroundColor: '#000000' } }} />
-              <Stack.Screen name="workout-session" options={{ headerShown: false, title: '', contentStyle: { backgroundColor: '#000000' } }} />
-            </Stack>
-            <FloatingCart />
+            <NavigationContent />
           </CartProvider>
         </AuthProvider>
       </SafeAreaProvider>
