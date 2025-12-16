@@ -22,6 +22,7 @@
     },
     "production": {
       "distribution": "store",
+      "node": "20.19.4",
       "ios": {
         "resourceClass": "m-medium",
         "image": "macos-ventura-13.6-xcode-15.2"
