@@ -477,7 +477,7 @@ export default function AdminDashboard() {
             </View>
 
             <View style={styles.funnelItem}>
-              <View style={styles.funnelBar}>>
+              <View style={styles.funnelBar}>
                 <View style={[styles.funnelFill, { 
                   width: `${stats?.workout_completion_rate || 0}%`, 
                   backgroundColor: '#FFD700' 
