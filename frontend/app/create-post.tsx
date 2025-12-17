@@ -1130,6 +1130,11 @@ export default function CreatePost() {
             </View>
           )}
 
+          {/* Content Rights Footnote */}
+          <Text style={styles.contentRightsFootnote}>
+            By uploading, you confirm you own this content or have the rights to use it.
+          </Text>
+
           {/* Bottom Spacing */}
           <View style={styles.bottomSpacer} />
         </ScrollView>

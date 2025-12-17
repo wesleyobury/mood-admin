@@ -438,6 +438,9 @@ export default function Settings() {
             <Text style={styles.termsText}>
               You retain ownership of content you post through the App. By posting content, you grant us a non-exclusive, worldwide, royalty-free license to use, display, and distribute your content in connection with the App's services.
             </Text>
+            <Text style={styles.termsText}>
+              Users may only upload content they own or have the rights to. By uploading content, you represent and warrant that you have all necessary rights, including music rights.
+            </Text>
 
             <Text style={styles.termsHeading}>5. Acceptable Use</Text>
             <Text style={styles.termsText}>
