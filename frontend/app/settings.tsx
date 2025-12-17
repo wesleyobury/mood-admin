@@ -321,6 +321,17 @@ export default function Settings() {
 
           <TouchableOpacity 
             style={styles.settingsItem}
+            onPress={() => router.push('/privacy-policy')}
+          >
+            <View style={styles.settingsItemLeft}>
+              <Ionicons name="shield-checkmark-outline" size={20} color="#FFD700" />
+              <Text style={styles.settingsItemText}>Privacy Policy</Text>
+            </View>
+            <Ionicons name="chevron-forward" size={18} color="#666" />
+          </TouchableOpacity>
+
+          <TouchableOpacity 
+            style={styles.settingsItem}
             onPress={handleSubmitFeedback}
           >
             <View style={styles.settingsItemLeft}>
