@@ -1571,6 +1571,15 @@ const styles = StyleSheet.create({
   bottomSpacer: {
     height: 40,
   },
+  contentRightsFootnote: {
+    fontSize: 11,
+    color: 'rgba(255, 255, 255, 0.4)',
+    textAlign: 'center',
+    paddingHorizontal: 20,
+    marginTop: 16,
+    marginBottom: 8,
+    fontStyle: 'italic',
+  },
   // Loading Overlay Styles
   loadingOverlay: {
     flex: 1,
