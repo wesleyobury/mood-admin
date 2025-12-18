@@ -398,7 +398,16 @@ async def apple_sign_in(
         
         if existing_user:
             # User exists, log them in
-            user_id = str(existing_user["_id"])
+            # Handle both user_id field and _id (ObjectId) for backwards compatibility
+            if "user_id" in existing_user:
+                user_id = existing_user["user_id"]
+            else:
+                user_id = str(existing_user["_id"])
+                # Add user_id field for future consistency
+                await db.users.update_one(
+                    {"_id": existing_user["_id"]},
+                    {"$set": {"user_id": user_id}}
+                )
             username = existing_user.get("username")
             email = existing_user.get("email")
             logger.info(f"Existing Apple user found: {username}")
