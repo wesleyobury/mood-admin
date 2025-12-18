@@ -70,11 +70,23 @@ async def create_or_update_user(db: AsyncIOMotorDatabase, user_data: SessionData
     Does not update existing user data to preserve user changes
     """
     # Check if user exists by email
-    existing_user = await db.users.find_one({"email": user_data.email}, {"_id": 0})
+    existing_user = await db.users.find_one({"email": user_data.email})
     
     if existing_user:
         logger.info(f"User already exists: {user_data.email}")
-        return existing_user["user_id"]
+        # Handle both user_id field and _id (ObjectId) for backwards compatibility
+        if "user_id" in existing_user:
+            return existing_user["user_id"]
+        else:
+            # User exists but doesn't have user_id field - use _id as string
+            user_id = str(existing_user["_id"])
+            # Update user to have user_id field for future lookups
+            await db.users.update_one(
+                {"_id": existing_user["_id"]},
+                {"$set": {"user_id": user_id}}
+            )
+            logger.info(f"Added user_id to existing user: {user_data.email}")
+            return user_id
     
     # Create new user with custom user_id
     user_id = f"user_{uuid.uuid4().hex[:12]}"
