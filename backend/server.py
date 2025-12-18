@@ -430,7 +430,11 @@ async def apple_sign_in(
             
             email = auth_data.email or f"{auth_data.user_id}@apple.privaterelay.com"
             
+            # Generate user_id before insert for consistency
+            user_id = f"apple_{uuid.uuid4().hex[:12]}"
+            
             new_user = {
+                "user_id": user_id,
                 "username": username,
                 "email": email,
                 "name": auth_data.full_name,
@@ -451,9 +455,8 @@ async def apple_sign_in(
                 }
             }
             
-            result = await db.users.insert_one(new_user)
-            user_id = str(result.inserted_id)
-            logger.info(f"Created new Apple user: {username}")
+            await db.users.insert_one(new_user)
+            logger.info(f"Created new Apple user: {username} with user_id: {user_id}")
         
         # Generate session token
         session_token = jwt.encode(
