@@ -23,6 +23,7 @@ class SessionDataResponse(BaseModel):
     name: str
     picture: Optional[str] = None
     session_token: str
+    sub: Optional[str] = None  # Google user ID for account linking
 
 class UserSession(BaseModel):
     """User session stored in database"""
