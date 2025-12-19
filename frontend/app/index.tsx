@@ -125,6 +125,8 @@ export default function Welcome() {
       await AsyncStorage.setItem(PRIVACY_ACCEPTED_KEY, 'true');
       setHasAcceptedPrivacy(true);
       setShowPrivacyModal(false);
+      // Navigate to login after accepting privacy policy
+      router.push('/auth/login');
     } catch (error) {
       console.error('Error saving privacy acceptance:', error);
     }
