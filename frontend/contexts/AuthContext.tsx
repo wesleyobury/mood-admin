@@ -24,6 +24,7 @@ interface AuthContextType {
   register: (username: string, email: string, password: string, name?: string) => Promise<void>;
   logout: () => Promise<void>;
   updateUser: (userData: Partial<User>) => void;
+  refreshAuth: () => Promise<void>;
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
