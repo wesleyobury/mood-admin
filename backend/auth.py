@@ -88,7 +88,7 @@ async def create_or_update_user(db: AsyncIOMotorDatabase, user_data: SessionData
             logger.info(f"Added user_id to existing user: {user_data.email}")
             return user_id
     
-    # Create new user with custom user_id
+    # Create new user with custom user_id and blank profile
     user_id = f"user_{uuid.uuid4().hex[:12]}"
     
     await db.users.insert_one({
@@ -96,12 +96,17 @@ async def create_or_update_user(db: AsyncIOMotorDatabase, user_data: SessionData
         "email": user_data.email,
         "name": user_data.name,
         "username": user_data.email.split('@')[0],  # Default username from email
-        "avatar": user_data.picture,
-        "bio": None,
+        "avatar": user_data.picture or "",
+        "bio": "",
         "followers_count": 0,
         "following_count": 0,
         "workouts_count": 0,
         "current_streak": 0,
+        "longest_streak": 0,
+        "total_workouts": 0,
+        "following": [],
+        "followers": [],
+        "auth_provider": "google",
         "created_at": datetime.now(timezone.utc)
     })
     
