@@ -319,7 +319,16 @@ export default function UserProfile() {
           <View style={styles.profileHeader}>
             <View style={styles.avatarContainer}>
               {user.avatar ? (
-                <Image source={{ uri: user.avatar }} style={styles.profileImage} />
+                <Image 
+                  source={{ 
+                    uri: user.avatar.startsWith('http') 
+                      ? user.avatar 
+                      : user.avatar.startsWith('/') 
+                        ? `${API_URL}${user.avatar}`
+                        : `${API_URL}/api/uploads/${user.avatar}`
+                  }} 
+                  style={styles.profileImage} 
+                />
               ) : (
                 <View style={[styles.profileImage, styles.placeholderAvatar]}>
                   <Ionicons name="person" size={40} color="#666" />
