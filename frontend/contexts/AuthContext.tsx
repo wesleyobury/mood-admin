@@ -261,6 +261,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
     register,
     logout,
     updateUser,
+    refreshAuth,
   };
 
   return (
