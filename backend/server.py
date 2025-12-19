@@ -471,18 +471,31 @@ async def apple_sign_in(
             algorithm="HS256"
         )
         
-        # Update last login
-        await db.users.update_one(
-            {"_id": ObjectId(user_id)},
-            {
-                "$set": {
-                    "auth_metadata.last_login_at": datetime.now(timezone.utc)
-                },
-                "$inc": {
-                    "auth_metadata.total_logins": 1
+        # Update last login - use user_id field or _id depending on format
+        if user_id.startswith("apple_") or user_id.startswith("user_"):
+            await db.users.update_one(
+                {"user_id": user_id},
+                {
+                    "$set": {
+                        "auth_metadata.last_login_at": datetime.now(timezone.utc)
+                    },
+                    "$inc": {
+                        "auth_metadata.total_logins": 1
+                    }
                 }
-            }
-        )
+            )
+        else:
+            await db.users.update_one(
+                {"_id": ObjectId(user_id)},
+                {
+                    "$set": {
+                        "auth_metadata.last_login_at": datetime.now(timezone.utc)
+                    },
+                    "$inc": {
+                        "auth_metadata.total_logins": 1
+                    }
+                }
+            )
         
         # Track login event
         await track_login_event(db, user_id, "apple", True, get_client_ip(request), get_user_agent(request))
