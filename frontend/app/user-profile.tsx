@@ -35,6 +35,7 @@ interface User {
 interface Post {
   id: string;
   media_urls: string[];
+  cover_urls?: { [key: string]: string }; // Map of media index to cover URL
   likes_count: number;
   comments_count: number;
 }
