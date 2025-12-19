@@ -2404,11 +2404,11 @@ async def get_posts(current_user_id: str = Depends(get_current_user), limit: int
         {
             "$lookup": {
                 "from": "post_likes",
-                "let": {"post_id": "$_id", "user_id": ObjectId(current_user_id)},
+                "let": {"post_id": "$_id", "user_id_str": current_user_id},
                 "pipeline": [
                     {"$match": {"$expr": {"$and": [
                         {"$eq": ["$post_id", "$$post_id"]},
-                        {"$eq": ["$user_id", "$$user_id"]}
+                        {"$eq": [{"$toString": "$user_id"}, "$$user_id_str"]}
                     ]}}}
                 ],
                 "as": "user_like"
