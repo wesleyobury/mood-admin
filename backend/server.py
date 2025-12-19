@@ -204,8 +204,11 @@ async def register(user_data: UserCreate):
     # Hash password
     hashed_password = bcrypt.hashpw(user_data.password.encode(), bcrypt.gensalt()).decode()
     
-    # Create user
+    # Create user with generated user_id
+    user_id = f"user_{uuid.uuid4().hex[:12]}"
+    
     user_doc = {
+        "user_id": user_id,
         "username": user_data.username,
         "email": user_data.email,
         "password": hashed_password,
@@ -216,11 +219,14 @@ async def register(user_data: UserCreate):
         "following_count": 0,
         "workouts_count": 0,
         "current_streak": 0,
+        "longest_streak": 0,
+        "total_workouts": 0,
+        "following": [],
+        "followers": [],
         "created_at": datetime.now(timezone.utc)
     }
     
-    result = await db.users.insert_one(user_doc)
-    user_id = str(result.inserted_id)
+    await db.users.insert_one(user_doc)
     
     # Track user signup event
     await db.user_events.insert_one({
