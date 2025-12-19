@@ -230,6 +230,9 @@ export default function Login() {
       const AsyncStorage = (await import('@react-native-async-storage/async-storage')).default;
       await AsyncStorage.setItem('auth_token', data.session_token);
 
+      // Refresh auth context to load the new user
+      await refreshAuth();
+
       // Navigate to main app
       router.replace('/(tabs)');
     } catch (error: any) {
