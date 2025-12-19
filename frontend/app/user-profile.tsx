@@ -198,11 +198,20 @@ export default function UserProfile() {
           const fullUrl = mediaUrl.startsWith('http') ? mediaUrl : 
             (mediaUrl.startsWith('/') ? `${API_URL}${mediaUrl}` : `${API_URL}/api/uploads/${mediaUrl}`);
           
+          // Get cover URL for this video if available
+          const coverUrl = item.cover_urls && item.cover_urls['0'] 
+            ? (item.cover_urls['0'].startsWith('http') 
+                ? item.cover_urls['0'] 
+                : `${API_URL}/api/uploads/${item.cover_urls['0']}`)
+            : null;
+          
           if (isVideo) {
             return (
-              <View style={[styles.postImage, styles.videoThumbnail]}>
-                <Ionicons name="play-circle" size={40} color="#FFD700" />
-              </View>
+              <VideoThumbnail 
+                videoUrl={fullUrl}
+                coverUrl={coverUrl}
+                style={styles.postImage}
+              />
             );
           }
           
