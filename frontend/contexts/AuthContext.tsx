@@ -238,6 +238,21 @@ export function AuthProvider({ children }: AuthProviderProps) {
     }
   };
 
+  // Refresh auth from stored token - used after OAuth/Apple login
+  const refreshAuth = async () => {
+    try {
+      console.log('🔄 Refreshing auth from stored token...');
+      const storedToken = await AsyncStorage.getItem('auth_token');
+      if (storedToken) {
+        setToken(storedToken);
+        await fetchCurrentUser(storedToken);
+        console.log('✅ Auth refreshed successfully');
+      }
+    } catch (error) {
+      console.error('Error refreshing auth:', error);
+    }
+  };
+
   const value: AuthContextType = {
     user,
     token,
