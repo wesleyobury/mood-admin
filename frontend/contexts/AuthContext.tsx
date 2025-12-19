@@ -83,46 +83,10 @@ export function AuthProvider({ children }: AuthProviderProps) {
           }
         }
         
-        // No valid stored token, do auto-login
-        console.log('No valid session, attempting auto-login...');
-        
-        // Try to login as demo user (OgeeezzburyTester)
-        const response = await fetch(`${API_URL}/api/auth/login`, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            username: 'OgeeezzburyTester',
-            password: 'password123',
-          }),
-        });
-
-        console.log('Login response status:', response.status);
-
-        if (response.ok) {
-          const data = await response.json();
-          console.log('✅ Login successful, got token');
-          setToken(data.token);
-          await AsyncStorage.setItem('auth_token', data.token);
-          
-          // Track app session start on fresh login
-          trackEvent(data.token, 'app_session_start', {
-            restored_session: false,
-          });
-          
-          // Get user info
-          const userResp = await fetch(`${API_URL}/api/users/me`, {
-            headers: { 'Authorization': `Bearer ${data.token}` },
-          });
-          
-          if (userResp.ok) {
-            const userData = await userResp.json();
-            setUser(userData);
-            console.log('✅ User data loaded:', userData.username);
-          }
-        } else {
-          const errorData = await response.text();
-          console.error('❌ Login failed:', response.status, errorData);
-        }
+        // No valid stored token - user needs to log in
+        console.log('No valid session found, user needs to authenticate');
+        setUser(null);
+        setToken(null);
       } catch (err) {
         console.error('❌ Auth error:', err);
       } finally {
