@@ -67,26 +67,37 @@ async def exchange_session_id_for_token(session_id: str) -> SessionDataResponse:
 async def create_or_update_user(db: AsyncIOMotorDatabase, user_data: SessionDataResponse) -> str:
     """
     Create new user or return existing user's user_id
-    Does not update existing user data to preserve user changes
+    Links Google account to existing account if email matches (account linking)
     """
-    # Check if user exists by email
+    # Check if user exists by email (supports account linking across auth methods)
     existing_user = await db.users.find_one({"email": user_data.email})
     
     if existing_user:
         logger.info(f"User already exists: {user_data.email}")
+        
+        # Link Google account if not already linked
+        update_fields = {}
+        if not existing_user.get("google_user_id") and user_data.sub:
+            update_fields["google_user_id"] = user_data.sub
+            logger.info(f"Linking Google ID to existing account: {user_data.email}")
+        
         # Handle both user_id field and _id (ObjectId) for backwards compatibility
         if "user_id" in existing_user:
-            return existing_user["user_id"]
+            user_id = existing_user["user_id"]
         else:
             # User exists but doesn't have user_id field - use _id as string
             user_id = str(existing_user["_id"])
-            # Update user to have user_id field for future lookups
+            update_fields["user_id"] = user_id
+            logger.info(f"Added user_id to existing user: {user_data.email}")
+        
+        # Apply updates if any
+        if update_fields:
             await db.users.update_one(
                 {"_id": existing_user["_id"]},
-                {"$set": {"user_id": user_id}}
+                {"$set": update_fields}
             )
-            logger.info(f"Added user_id to existing user: {user_data.email}")
-            return user_id
+        
+        return user_id
     
     # Create new user with custom user_id and blank profile
     user_id = f"user_{uuid.uuid4().hex[:12]}"
@@ -106,6 +117,7 @@ async def create_or_update_user(db: AsyncIOMotorDatabase, user_data: SessionData
         "total_workouts": 0,
         "following": [],
         "followers": [],
+        "google_user_id": user_data.sub,  # Store Google ID for future lookups
         "auth_provider": "google",
         "created_at": datetime.now(timezone.utc)
     })
