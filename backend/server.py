@@ -399,8 +399,19 @@ async def apple_sign_in(
     logger.info(f"Processing Apple Sign-In for user_id: {auth_data.user_id}")
     
     try:
-        # Check if user already exists with this Apple ID
+        # First, check if user already exists with this Apple ID
         existing_user = await db.users.find_one({"apple_user_id": auth_data.user_id})
+        
+        # If not found by Apple ID but email is provided, check by email (account linking)
+        if not existing_user and auth_data.email:
+            existing_user = await db.users.find_one({"email": auth_data.email})
+            if existing_user:
+                # Link this Apple ID to the existing account
+                await db.users.update_one(
+                    {"_id": existing_user["_id"]},
+                    {"$set": {"apple_user_id": auth_data.user_id}}
+                )
+                logger.info(f"Linked Apple ID to existing account: {auth_data.email}")
         
         if existing_user:
             # User exists, log them in
@@ -416,7 +427,7 @@ async def apple_sign_in(
                 )
             username = existing_user.get("username")
             email = existing_user.get("email")
-            logger.info(f"Existing Apple user found: {username}")
+            logger.info(f"Existing user found for Apple Sign-In: {username}")
         else:
             # Create new user
             # Generate username from email or Apple user ID
@@ -452,6 +463,11 @@ async def apple_sign_in(
                 "total_workouts": 0,
                 "avatar": None,
                 "bio": "",
+                "followers_count": 0,
+                "following_count": 0,
+                "workouts_count": 0,
+                "following": [],
+                "followers": [],
                 "auth_provider": "apple",
                 "auth_metadata": {
                     "login_methods": ["apple"],
