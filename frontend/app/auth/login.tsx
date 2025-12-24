@@ -219,6 +219,7 @@ export default function Login() {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          'Accept': 'application/json',
         },
         body: JSON.stringify({
           user_id: credential.user,
@@ -230,6 +231,15 @@ export default function Login() {
           authorization_code: credential.authorizationCode,
         }),
       });
+
+      // Check if response is JSON
+      const contentType = response.headers.get('content-type');
+      if (!contentType || !contentType.includes('application/json')) {
+        console.error('Non-JSON response from Apple auth:', contentType);
+        const textResponse = await response.text();
+        console.error('Response body:', textResponse.substring(0, 200));
+        throw new Error('Server temporarily unavailable. Please try again in a moment.');
+      }
 
       if (!response.ok) {
         const errorData = await response.json().catch(() => ({}));
