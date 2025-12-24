@@ -245,32 +245,27 @@ export default function Login() {
         fullName: credential.fullName,
       });
 
-      // Send to backend for authentication
-      const response = await fetch(`${API_URL}/api/auth/apple`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json',
+      // Send to backend for authentication with retry
+      const response = await fetchWithRetry(
+        `${API_URL}/api/auth/apple`,
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+          },
+          body: JSON.stringify({
+            user_id: credential.user,
+            email: credential.email,
+            full_name: credential.fullName ? 
+              `${credential.fullName.givenName || ''} ${credential.fullName.familyName || ''}`.trim() : 
+              null,
+            identity_token: credential.identityToken,
+            authorization_code: credential.authorizationCode,
+          }),
         },
-        body: JSON.stringify({
-          user_id: credential.user,
-          email: credential.email,
-          full_name: credential.fullName ? 
-            `${credential.fullName.givenName || ''} ${credential.fullName.familyName || ''}`.trim() : 
-            null,
-          identity_token: credential.identityToken,
-          authorization_code: credential.authorizationCode,
-        }),
-      });
-
-      // Check if response is JSON
-      const contentType = response.headers.get('content-type');
-      if (!contentType || !contentType.includes('application/json')) {
-        console.error('Non-JSON response from Apple auth:', contentType);
-        const textResponse = await response.text();
-        console.error('Response body:', textResponse.substring(0, 200));
-        throw new Error('Server temporarily unavailable. Please try again in a moment.');
-      }
+        3 // max retries
+      );
 
       if (!response.ok) {
         const errorData = await response.json().catch(() => ({}));
