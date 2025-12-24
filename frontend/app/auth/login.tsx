@@ -91,7 +91,20 @@ export default function Login() {
       
       const response = await fetch(`${API_URL}/api/auth/oauth/callback?session_id=${sessionId}`, {
         method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+        },
       });
+
+      // Check if response is JSON
+      const contentType = response.headers.get('content-type');
+      if (!contentType || !contentType.includes('application/json')) {
+        console.error('Non-JSON response received:', contentType);
+        const textResponse = await response.text();
+        console.error('Response body:', textResponse.substring(0, 200));
+        throw new Error('Server temporarily unavailable. Please try again in a moment.');
+      }
 
       if (!response.ok) {
         const errorData = await response.json().catch(() => ({}));
