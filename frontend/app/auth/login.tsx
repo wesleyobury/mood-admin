@@ -24,6 +24,42 @@ const API_URL = Constants.expoConfig?.extra?.EXPO_PUBLIC_BACKEND_URL || process.
 
 WebBrowser.maybeCompleteAuthSession();
 
+// Helper function to retry fetch with exponential backoff
+const fetchWithRetry = async (url: string, options: RequestInit, maxRetries = 3): Promise<Response> => {
+  let lastError: Error | null = null;
+  
+  for (let attempt = 1; attempt <= maxRetries; attempt++) {
+    try {
+      const response = await fetch(url, options);
+      
+      // Check if response is JSON
+      const contentType = response.headers.get('content-type');
+      if (!contentType || !contentType.includes('application/json')) {
+        const textResponse = await response.text();
+        console.error(`Attempt ${attempt}: Non-JSON response:`, textResponse.substring(0, 100));
+        
+        if (attempt < maxRetries) {
+          // Wait before retry (exponential backoff)
+          await new Promise(resolve => setTimeout(resolve, 1000 * attempt));
+          continue;
+        }
+        throw new Error('Server temporarily unavailable. Please try again.');
+      }
+      
+      return response;
+    } catch (error: any) {
+      console.error(`Attempt ${attempt} failed:`, error.message);
+      lastError = error;
+      
+      if (attempt < maxRetries) {
+        await new Promise(resolve => setTimeout(resolve, 1000 * attempt));
+      }
+    }
+  }
+  
+  throw lastError || new Error('Failed after multiple attempts');
+};
+
 export default function Login() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
