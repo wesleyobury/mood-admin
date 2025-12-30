@@ -72,6 +72,17 @@ JWT_ALGORITHM = 'HS256'
 app = FastAPI()
 api_router = APIRouter(prefix="/api")
 
+# Root-level health check for Kubernetes deployment
+@app.get("/health")
+async def root_health_check():
+    """Health check endpoint for Kubernetes liveness/readiness probes"""
+    try:
+        # Quick database ping
+        await client.admin.command('ping')
+        return {"status": "healthy", "database": "connected"}
+    except Exception as e:
+        return {"status": "healthy", "database": "disconnected", "error": str(e)}
+
 # Security
 security = HTTPBearer()
 
