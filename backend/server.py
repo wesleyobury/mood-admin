@@ -1341,11 +1341,59 @@ async def get_workout_funnel_endpoint(
 
 # User Endpoints
 
+async def calculate_user_streak(user_id: str) -> int:
+    """Calculate accurate streak based on activity, reset if inactive"""
+    from datetime import datetime, timedelta, timezone
+    
+    today = datetime.now(timezone.utc).replace(hour=0, minute=0, second=0, microsecond=0)
+    yesterday = today - timedelta(days=1)
+    
+    # Check if user was active yesterday or today
+    recent_activity = await db.user_events.count_documents({
+        "user_id": user_id,
+        "event_type": {"$in": ["workout_completed", "app_session_start", "app_opened"]},
+        "timestamp": {"$gte": yesterday}
+    })
+    
+    if recent_activity == 0:
+        # No activity in last 2 days - streak is 0
+        return 0
+    
+    # Calculate actual streak
+    current_streak = 0
+    for i in range(30):
+        day_start = today - timedelta(days=i)
+        day_end = day_start + timedelta(days=1)
+        
+        day_activity = await db.user_events.count_documents({
+            "user_id": user_id,
+            "event_type": {"$in": ["workout_completed", "app_session_start", "app_opened"]},
+            "timestamp": {"$gte": day_start, "$lt": day_end}
+        })
+        
+        if day_activity > 0:
+            current_streak += 1
+        elif i > 0:
+            break
+    
+    return current_streak
+
 @api_router.get("/users/me", response_model=UserResponse)
 async def get_current_user_info(current_user_id: str = Depends(get_current_user)):
     user = await db.users.find_one({"_id": ObjectId(current_user_id)})
     if not user:
         raise HTTPException(status_code=404, detail="User not found")
+    
+    # Calculate accurate streak
+    current_streak = await calculate_user_streak(current_user_id)
+    
+    # Update stored streak if different
+    stored_streak = user.get("current_streak", 0)
+    if current_streak != stored_streak:
+        await db.users.update_one(
+            {"_id": ObjectId(current_user_id)},
+            {"$set": {"current_streak": current_streak}}
+        )
     
     return UserResponse(
         id=str(user["_id"]),
@@ -1357,7 +1405,7 @@ async def get_current_user_info(current_user_id: str = Depends(get_current_user)
         followers_count=user.get("followers_count", 0),
         following_count=user.get("following_count", 0),
         workouts_count=user.get("workouts_count", 0),
-        current_streak=user.get("current_streak", 0),
+        current_streak=current_streak,
         created_at=user["created_at"]
     )
 
