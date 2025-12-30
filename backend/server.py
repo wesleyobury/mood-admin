@@ -1413,12 +1413,6 @@ async def get_current_user_info(current_user_id: str = Depends(get_current_user)
 @api_router.get("/users/me/stats")
 async def get_current_user_stats(current_user_id: str = Depends(get_current_user)):
     """Get user's workout stats from tracking events"""
-    from datetime import datetime, timedelta, timezone
-    
-    # Get user document for stored streak
-    user = await db.users.find_one({"_id": ObjectId(current_user_id)})
-    stored_streak = user.get("current_streak", 0) if user else 0
-    last_activity_date = user.get("last_activity_date") if user else None
     
     # Count completed workouts
     workouts_completed = await db.user_events.count_documents({
@@ -1429,47 +1423,13 @@ async def get_current_user_stats(current_user_id: str = Depends(get_current_user
     # Calculate total minutes (estimate based on workouts - average 20 mins per workout)
     total_minutes = workouts_completed * 20
     
-    # Calculate streak based on recent activity
-    today = datetime.now(timezone.utc).replace(hour=0, minute=0, second=0, microsecond=0)
-    yesterday = today - timedelta(days=1)
+    # Calculate accurate streak using helper function
+    current_streak = await calculate_user_streak(current_user_id)
     
-    # Check if user was active yesterday or today to maintain streak
-    recent_activity = await db.user_events.count_documents({
-        "user_id": current_user_id,
-        "event_type": {"$in": ["workout_completed", "app_session_start", "app_opened"]},
-        "timestamp": {"$gte": yesterday}
-    })
-    
-    if recent_activity == 0:
-        # No activity in last 2 days - reset streak
-        current_streak = 0
-        # Update stored streak to 0
-        if stored_streak > 0:
-            await db.users.update_one(
-                {"_id": ObjectId(current_user_id)},
-                {"$set": {"current_streak": 0}}
-            )
-    else:
-        # Calculate actual streak (count consecutive days with any activity)
-        current_streak = 0
-        
-        for i in range(30):  # Check last 30 days
-            day_start = today - timedelta(days=i)
-            day_end = day_start + timedelta(days=1)
-            
-            # Check for any activity (workout completion or app session)
-            day_activity = await db.user_events.count_documents({
-                "user_id": current_user_id,
-                "event_type": {"$in": ["workout_completed", "app_session_start", "app_opened"]},
-                "timestamp": {"$gte": day_start, "$lt": day_end}
-            })
-            
-            if day_activity > 0:
-                current_streak += 1
-            elif i > 0:  # Allow today to be 0 without breaking streak
-                break
-        
-        # Update stored streak if it changed
+    # Get stored streak and update if different
+    user = await db.users.find_one({"_id": ObjectId(current_user_id)})
+    if user:
+        stored_streak = user.get("current_streak", 0)
         if current_streak != stored_streak:
             await db.users.update_one(
                 {"_id": ObjectId(current_user_id)},
