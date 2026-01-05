@@ -2064,11 +2064,22 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: 'rgba(255, 215, 0, 0.1)',
   },
+  reportSectionHeader: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: 12,
+  },
   reportSectionTitle: {
     fontSize: 14,
     fontWeight: '600',
     color: '#fff',
     marginBottom: 16,
+  },
+  reportTotalBadge: {
+    fontSize: 12,
+    color: '#FFD700',
+    fontWeight: '600',
   },
   reportMetricsGrid: {
     flexDirection: 'row',
