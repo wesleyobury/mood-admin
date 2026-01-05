@@ -2530,9 +2530,11 @@ async def get_posts(current_user_id: str = Depends(get_current_user), limit: int
             caption=post["caption"],
             media_urls=post.get("media_urls", []),
             hashtags=post.get("hashtags", []),
+            cover_urls=post.get("cover_urls"),
             likes_count=post.get("likes_count", 0),
             comments_count=post.get("comments_count", 0),
             is_liked=len(post.get("user_like", [])) > 0,
+            is_saved=len(post.get("user_saved", [])) > 0,
             created_at=post["created_at"]
         ))
     
