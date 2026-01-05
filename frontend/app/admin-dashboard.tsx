@@ -1880,9 +1880,17 @@ const styles = StyleSheet.create({
     fontSize: 10,
     color: '#666',
   },
+  userActions: {
+    flexDirection: 'column',
+    gap: 8,
+  },
+  viewReportBtn: {
+    padding: 6,
+    backgroundColor: 'rgba(255, 215, 0, 0.1)',
+    borderRadius: 8,
+  },
   deleteUserBtn: {
-    padding: 8,
-    marginLeft: 8,
+    padding: 6,
   },
   emptyList: {
     alignItems: 'center',
@@ -1892,5 +1900,138 @@ const styles = StyleSheet.create({
   emptyListText: {
     color: '#666',
     fontSize: 14,
+  },
+  // User Report Modal Styles
+  reportScrollView: {
+    flex: 1,
+  },
+  reportUserHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    padding: 20,
+    backgroundColor: '#1a1a1a',
+    marginHorizontal: 16,
+    marginTop: 16,
+    borderRadius: 16,
+    borderWidth: 1,
+    borderColor: 'rgba(255, 215, 0, 0.2)',
+  },
+  reportAvatar: {
+    width: 70,
+    height: 70,
+    borderRadius: 35,
+    backgroundColor: '#2a2a2a',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginRight: 16,
+    overflow: 'hidden',
+  },
+  reportAvatarImage: {
+    width: 70,
+    height: 70,
+    borderRadius: 35,
+  },
+  reportUserInfo: {
+    flex: 1,
+  },
+  reportUsername: {
+    fontSize: 20,
+    fontWeight: '700',
+    color: '#fff',
+  },
+  reportEmail: {
+    fontSize: 13,
+    color: '#888',
+    marginTop: 4,
+  },
+  reportSignupDate: {
+    fontSize: 11,
+    color: '#FFD700',
+    marginTop: 6,
+  },
+  reportPeriodBadge: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: 6,
+    paddingVertical: 8,
+    marginHorizontal: 16,
+    marginTop: 12,
+    backgroundColor: 'rgba(255, 215, 0, 0.1)',
+    borderRadius: 20,
+  },
+  reportPeriodText: {
+    fontSize: 12,
+    color: '#FFD700',
+  },
+  reportSection: {
+    marginHorizontal: 16,
+    marginTop: 16,
+    padding: 16,
+    backgroundColor: '#1a1a1a',
+    borderRadius: 12,
+    borderWidth: 1,
+    borderColor: 'rgba(255, 215, 0, 0.1)',
+  },
+  reportSectionTitle: {
+    fontSize: 14,
+    fontWeight: '600',
+    color: '#fff',
+    marginBottom: 16,
+  },
+  reportMetricsGrid: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: 12,
+  },
+  reportMetricItem: {
+    width: (screenWidth - 80) / 4,
+    alignItems: 'center',
+  },
+  reportMetricValue: {
+    fontSize: 22,
+    fontWeight: '700',
+    color: '#fff',
+  },
+  reportMetricLabel: {
+    fontSize: 10,
+    color: '#888',
+    marginTop: 4,
+    textAlign: 'center',
+  },
+  reportTopItem: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingVertical: 8,
+    borderBottomWidth: 1,
+    borderBottomColor: 'rgba(255, 255, 255, 0.05)',
+  },
+  reportTopRank: {
+    width: 24,
+    fontSize: 12,
+    fontWeight: '700',
+    color: '#FFD700',
+  },
+  reportTopName: {
+    flex: 1,
+    fontSize: 13,
+    color: '#fff',
+  },
+  reportTopValue: {
+    fontSize: 12,
+    color: '#888',
+  },
+  reportLastActive: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: 6,
+    paddingVertical: 16,
+    marginHorizontal: 16,
+    marginTop: 16,
+  },
+  reportLastActiveText: {
+    fontSize: 12,
+    color: '#888',
   },
 });
