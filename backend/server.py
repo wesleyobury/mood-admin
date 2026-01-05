@@ -513,8 +513,8 @@ async def apple_sign_in(
                 "auth_provider": "apple",
                 "exp": datetime.now(timezone.utc).timestamp() + (30 * 24 * 60 * 60)  # 30 days
             },
-            os.getenv("JWT_SECRET", "your-secret-key"),
-            algorithm="HS256"
+            JWT_SECRET,
+            algorithm=JWT_ALGORITHM
         )
         
         # Update last login - use user_id field or _id depending on format
