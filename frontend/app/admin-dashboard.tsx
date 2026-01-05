@@ -1300,6 +1300,12 @@ const styles = StyleSheet.create({
     color: '#fff',
     marginBottom: 12,
   },
+  chartSubtext: {
+    fontSize: 10,
+    color: '#888',
+    textAlign: 'center',
+    marginTop: 8,
+  },
   chart: {
     borderRadius: 8,
   },
