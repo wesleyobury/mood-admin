@@ -1504,6 +1504,7 @@ async def get_comprehensive_stats(
         total_sessions = max(app_opens, app_sessions) if app_opens > 0 or app_sessions > 0 else 0
         
         # === PAGE/SCREEN VIEWS ===
+        # Use $toLower to normalize screen names and merge duplicates
         screen_views_pipeline = [
             {
                 "$match": {
@@ -1512,8 +1513,13 @@ async def get_comprehensive_stats(
                 }
             },
             {
+                "$addFields": {
+                    "normalized_screen": {"$toLower": "$metadata.screen_name"}
+                }
+            },
+            {
                 "$group": {
-                    "_id": "$metadata.screen_name",
+                    "_id": "$normalized_screen",
                     "count": {"$sum": 1},
                     "unique_users": {"$addToSet": "$user_id"}
                 }
@@ -1522,18 +1528,56 @@ async def get_comprehensive_stats(
             {"$limit": 10}
         ]
         
-        top_pages = await db.user_events.aggregate(screen_views_pipeline).to_list(10)
-        top_pages_formatted = []
-        total_screen_views = 0
+        # Page name normalization map
+        page_name_map = {
+            "profile": "Profile",
+            "explore": "Explore", 
+            "index": "Home",
+            "home": "Home",
+            "cart": "Workout Cart",
+            "workout-session": "Workout Session",
+            "create-post": "Create Post",
+            "admin-dashboard": "Admin Dashboard",
+            "featured-workout-detail": "Featured Workout",
+            "user-profile": "User Profile",
+            "settings": "Settings",
+            "workout-type": "Workout Type",
+            "landing": "Landing Page",
+            "login": "Login",
+            "register": "Register",
+            "auth/login": "Login",
+            "privacy-policy": "Privacy Policy",
+        }
+        
+        top_pages = await db.user_events.aggregate(screen_views_pipeline).to_list(20)
+        
+        # Merge duplicates after normalization
+        merged_pages = {}
         for page in top_pages:
             if page["_id"]:
-                count = page["count"]
-                total_screen_views += count
-                top_pages_formatted.append({
-                    "page": page["_id"],
-                    "views": count,
-                    "unique_users": len(page["unique_users"]) if page["unique_users"] else 0
-                })
+                normalized = page["_id"].lower().strip()
+                display_name = page_name_map.get(normalized, normalized.replace('-', ' ').title())
+                
+                if display_name in merged_pages:
+                    merged_pages[display_name]["views"] += page["count"]
+                    merged_pages[display_name]["unique_users"].update(page["unique_users"] or [])
+                else:
+                    merged_pages[display_name] = {
+                        "page": display_name,
+                        "views": page["count"],
+                        "unique_users": set(page["unique_users"] or [])
+                    }
+        
+        # Convert to list and sort by views
+        top_pages_formatted = []
+        total_screen_views = 0
+        for page_data in sorted(merged_pages.values(), key=lambda x: x["views"], reverse=True)[:10]:
+            total_screen_views += page_data["views"]
+            top_pages_formatted.append({
+                "page": page_data["page"],
+                "views": page_data["views"],
+                "unique_users": len(page_data["unique_users"])
+            })
         
         # === MOOD CARD SELECTIONS ===
         mood_pipeline = [
