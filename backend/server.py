@@ -389,17 +389,34 @@ async def emergent_auth_callback(
     # Create or get existing user
     user_id = await create_or_update_user(db, user_data)
     
+    # Get user from database to get username
+    user = await find_user_by_id(user_id)
+    username = user.get("username", user_data.email.split('@')[0]) if user else user_data.email.split('@')[0]
+    
+    # Generate our own JWT token (not the one from Emergent Auth)
+    session_token = jwt.encode(
+        {
+            "user_id": user_id,
+            "username": username,
+            "email": user_data.email,
+            "auth_provider": "google",
+            "exp": datetime.now(timezone.utc).timestamp() + (30 * 24 * 60 * 60)  # 30 days
+        },
+        JWT_SECRET,
+        algorithm=JWT_ALGORITHM
+    )
+    
     # Store session in database
-    await store_session(db, user_id, user_data.session_token)
+    await store_session(db, user_id, session_token)
     
     # Set httpOnly cookie
-    set_session_cookie(response, user_data.session_token)
+    set_session_cookie(response, session_token)
     
     logger.info(f"OAuth login successful for: {user_data.email}")
     
     return {
         "message": "Login successful",
-        "session_token": user_data.session_token,
+        "session_token": session_token,
         "user_id": user_id
     }
 
