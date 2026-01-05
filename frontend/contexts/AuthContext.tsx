@@ -202,6 +202,33 @@ export function AuthProvider({ children }: AuthProviderProps) {
     }
   };
 
+  // Heartbeat for real-time active user tracking
+  useEffect(() => {
+    if (!token) return;
+    
+    const sendHeartbeat = async () => {
+      try {
+        await fetch(`${API_URL}/api/analytics/heartbeat`, {
+          method: 'POST',
+          headers: { 'Authorization': `Bearer ${token}` }
+        });
+      } catch (error) {
+        // Silently fail - don't disrupt user experience
+        console.log('Heartbeat failed:', error);
+      }
+    };
+    
+    // Send initial heartbeat
+    sendHeartbeat();
+    
+    // Set up interval - every 45 seconds
+    const heartbeatInterval = setInterval(sendHeartbeat, 45000);
+    
+    return () => {
+      clearInterval(heartbeatInterval);
+    };
+  }, [token]);
+
   // Refresh auth from stored token - used after OAuth/Apple login
   const refreshAuth = async () => {
     try {
