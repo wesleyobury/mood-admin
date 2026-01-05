@@ -596,25 +596,25 @@ export default function AdminDashboard() {
           {moodChart && moodChart.labels.length > 0 ? (
             <View style={styles.moodDistributionContainer}>
               {/* Visual bars for each mood */}
-              {moodChart.labels.map((label, index) => {
-                const count = moodChart.datasets[0]?.data[index] || 0;
-                const percentage = totalMoodSelections > 0 ? (count / totalMoodSelections) * 100 : 0;
-                const moodId = stats?.top_mood_cards?.find(m => m.mood === label)?.mood_id || '';
+              {stats?.top_mood_cards?.map((moodData, index) => {
+                const percentage = totalMoodSelections > 0 ? (moodData.selections / totalMoodSelections) * 100 : 0;
+                const moodId = moodData.mood_id || '';
                 const color = MOOD_COLORS[moodId] || '#FFD700';
                 const icon = MOOD_ICONS[moodId] || 'fitness';
+                const displayName = MOOD_DISPLAY_NAMES[moodId] || moodData.mood;
                 
                 return (
-                  <View key={label} style={styles.moodBarRow}>
+                  <View key={moodId || index} style={styles.moodBarRow}>
                     <View style={styles.moodLabelContainer}>
-                      <View style={[styles.moodIconCircle, { backgroundColor: `${color}20` }]}>
+                      <View style={[styles.moodIconCircle, { backgroundColor: `${color}30` }]}>
                         <Ionicons name={icon as any} size={16} color={color} />
                       </View>
-                      <Text style={styles.moodLabel} numberOfLines={1}>{label}</Text>
+                      <Text style={styles.moodLabel} numberOfLines={1}>{displayName}</Text>
                     </View>
                     <View style={styles.moodBarContainer}>
                       <View style={[styles.moodBar, { width: `${percentage}%`, backgroundColor: color }]} />
                     </View>
-                    <Text style={styles.moodPercentage}>{percentage.toFixed(0)}%</Text>
+                    <Text style={[styles.moodPercentage, { color }]}>{percentage.toFixed(0)}%</Text>
                   </View>
                 );
               })}
