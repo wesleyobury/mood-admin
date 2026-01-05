@@ -137,23 +137,11 @@ export default function Explore() {
           setHasMore(false);
         }
         
-        // Check saved status for each post
-        const postsWithSaveStatus = await Promise.all(
-          data.map(async (post: Post) => {
-            try {
-              const saveCheckRes = await fetch(`${API_URL}/api/posts/${post.id}/save/check`, {
-                headers: { 'Authorization': `Bearer ${token}` },
-              });
-              if (saveCheckRes.ok) {
-                const saveData = await saveCheckRes.json();
-                return { ...post, is_saved: saveData.is_saved };
-              }
-            } catch (e) {
-              console.error('Error checking save status for post:', post.id);
-            }
-            return { ...post, is_saved: false };
-          })
-        );
+        // Posts now include is_saved from the backend - no need for individual API calls
+        const postsWithSaveStatus = data.map((post: Post) => ({
+          ...post,
+          is_saved: post.is_saved || false
+        }));
         
         if (loadMore) {
           setPosts(prev => [...prev, ...postsWithSaveStatus]);
