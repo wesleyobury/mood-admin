@@ -1379,6 +1379,675 @@ async def get_workout_funnel_endpoint(
     return await get_workout_funnel_detail(db, days)
 
 
+# ============================================
+# ENHANCED ADMIN ANALYTICS V2 ENDPOINTS
+# ============================================
+
+# Heartbeat endpoint for real-time active user tracking
+@api_router.post("/analytics/heartbeat")
+async def record_heartbeat(
+    current_user_id: str = Depends(get_current_user)
+):
+    """
+    Record user heartbeat for real-time active user tracking.
+    Called every 30-60 seconds while app is open.
+    """
+    try:
+        await db.user_heartbeats.update_one(
+            {"user_id": current_user_id},
+            {
+                "$set": {
+                    "user_id": current_user_id,
+                    "last_heartbeat": datetime.now(timezone.utc),
+                    "is_online": True
+                }
+            },
+            upsert=True
+        )
+        return {"status": "ok"}
+    except Exception as e:
+        logger.error(f"Heartbeat error: {e}")
+        return {"status": "error"}
+
+
+@api_router.get("/analytics/admin/realtime-active")
+async def get_realtime_active_users(
+    timeout_minutes: int = 5,
+    current_user_id: str = Depends(get_current_user)
+):
+    """
+    Get truly active users (with heartbeat in last N minutes).
+    These are users currently with the app open.
+    """
+    cutoff = datetime.now(timezone.utc) - timedelta(minutes=timeout_minutes)
+    
+    # Find users with recent heartbeats
+    active_heartbeats = await db.user_heartbeats.find({
+        "last_heartbeat": {"$gte": cutoff}
+    }).to_list(1000)
+    
+    active_users = []
+    for hb in active_heartbeats:
+        user_id = hb.get("user_id")
+        try:
+            # Try to find user by custom user_id first
+            user = await db.users.find_one({"user_id": user_id})
+            if not user:
+                user = await db.users.find_one({"_id": ObjectId(user_id)})
+            
+            if user:
+                active_users.append({
+                    "user_id": user_id,
+                    "username": user.get("username", "Unknown"),
+                    "avatar_url": user.get("avatar_url") or user.get("avatar", ""),
+                    "last_active": hb.get("last_heartbeat").isoformat() if hb.get("last_heartbeat") else None
+                })
+        except:
+            continue
+    
+    return {
+        "active_count": len(active_users),
+        "users": active_users,
+        "timeout_minutes": timeout_minutes
+    }
+
+
+@api_router.get("/analytics/admin/comprehensive-stats")
+async def get_comprehensive_stats(
+    days: int = 1,
+    current_user_id: str = Depends(get_current_user)
+):
+    """
+    Get comprehensive platform statistics with accurate data.
+    This is the main endpoint for the admin dashboard.
+    """
+    from collections import defaultdict
+    
+    start_date = datetime.now(timezone.utc) - timedelta(days=days)
+    today_start = datetime.now(timezone.utc).replace(hour=0, minute=0, second=0, microsecond=0)
+    realtime_cutoff = datetime.now(timezone.utc) - timedelta(minutes=5)
+    
+    try:
+        # === USER METRICS (Accurate) ===
+        total_users = await db.users.count_documents({})
+        
+        # New users in period
+        new_users = await db.users.count_documents({
+            "created_at": {"$gte": start_date}
+        })
+        
+        # Really active users (with heartbeat in last 5 mins)
+        realtime_active = await db.user_heartbeats.count_documents({
+            "last_heartbeat": {"$gte": realtime_cutoff}
+        })
+        
+        # Users with any activity in period
+        active_user_ids = await db.user_events.distinct(
+            "user_id",
+            {"timestamp": {"$gte": start_date}}
+        )
+        users_with_activity = len(active_user_ids)
+        
+        # === SESSION METRICS (Accurate) ===
+        # Count actual app_opened events (most reliable session indicator)
+        app_opens = await db.user_events.count_documents({
+            "event_type": "app_opened",
+            "timestamp": {"$gte": start_date}
+        })
+        
+        # Count app_session_start as fallback
+        app_sessions = await db.user_events.count_documents({
+            "event_type": "app_session_start",
+            "timestamp": {"$gte": start_date}
+        })
+        
+        total_sessions = max(app_opens, app_sessions) if app_opens > 0 or app_sessions > 0 else 0
+        
+        # === PAGE/SCREEN VIEWS ===
+        screen_views_pipeline = [
+            {
+                "$match": {
+                    "event_type": {"$in": ["screen_viewed", "screen_entered"]},
+                    "timestamp": {"$gte": start_date}
+                }
+            },
+            {
+                "$group": {
+                    "_id": "$metadata.screen_name",
+                    "count": {"$sum": 1},
+                    "unique_users": {"$addToSet": "$user_id"}
+                }
+            },
+            {"$sort": {"count": -1}},
+            {"$limit": 10}
+        ]
+        
+        top_pages = await db.user_events.aggregate(screen_views_pipeline).to_list(10)
+        top_pages_formatted = []
+        total_screen_views = 0
+        for page in top_pages:
+            if page["_id"]:
+                count = page["count"]
+                total_screen_views += count
+                top_pages_formatted.append({
+                    "page": page["_id"],
+                    "views": count,
+                    "unique_users": len(page["unique_users"]) if page["unique_users"] else 0
+                })
+        
+        # === MOOD CARD SELECTIONS ===
+        mood_pipeline = [
+            {
+                "$match": {
+                    "event_type": "mood_selected",
+                    "timestamp": {"$gte": start_date}
+                }
+            },
+            {
+                "$group": {
+                    "_id": "$metadata.mood_category",
+                    "count": {"$sum": 1},
+                    "unique_users": {"$addToSet": "$user_id"}
+                }
+            },
+            {"$sort": {"count": -1}},
+            {"$limit": 10}
+        ]
+        
+        mood_display_names = {
+            "sweat": "I Want to Sweat",
+            "muscle": "Muscle Gainer",
+            "outdoor": "Get Outside",
+            "calisthenics": "Calisthenics",
+            "lazy": "Feeling Lazy",
+            "explosive": "Get Explosive"
+        }
+        
+        top_moods = await db.user_events.aggregate(mood_pipeline).to_list(10)
+        top_moods_formatted = []
+        total_mood_selections = 0
+        for mood in top_moods:
+            if mood["_id"]:
+                count = mood["count"]
+                total_mood_selections += count
+                display_name = mood_display_names.get(mood["_id"], mood["_id"])
+                top_moods_formatted.append({
+                    "mood": display_name,
+                    "mood_id": mood["_id"],
+                    "selections": count,
+                    "unique_users": len(mood["unique_users"]) if mood["unique_users"] else 0
+                })
+        
+        # === WORKOUT METRICS ===
+        workouts_started = await db.user_events.count_documents({
+            "event_type": "workout_started",
+            "timestamp": {"$gte": start_date}
+        })
+        
+        workouts_completed = await db.user_events.count_documents({
+            "event_type": "workout_completed",
+            "timestamp": {"$gte": start_date}
+        })
+        
+        completion_rate = round((workouts_completed / workouts_started * 100), 1) if workouts_started > 0 else 0
+        
+        # === SOCIAL METRICS ===
+        total_posts = await db.user_events.count_documents({
+            "event_type": "post_created",
+            "timestamp": {"$gte": start_date}
+        })
+        
+        total_likes = await db.user_events.count_documents({
+            "event_type": "post_liked",
+            "timestamp": {"$gte": start_date}
+        })
+        
+        total_comments = await db.user_events.count_documents({
+            "event_type": "post_commented",
+            "timestamp": {"$gte": start_date}
+        })
+        
+        total_follows = await db.user_events.count_documents({
+            "event_type": "user_followed",
+            "timestamp": {"$gte": start_date}
+        })
+        
+        return {
+            "period_days": days,
+            "generated_at": datetime.now(timezone.utc).isoformat(),
+            
+            # User Metrics
+            "total_users": total_users,
+            "new_users": new_users,
+            "realtime_active_users": realtime_active,
+            "users_with_activity": users_with_activity,
+            
+            # Session Metrics
+            "total_sessions": total_sessions,
+            "total_screen_views": total_screen_views,
+            
+            # Top Pages
+            "top_pages": top_pages_formatted,
+            
+            # Mood Card Selections
+            "total_mood_selections": total_mood_selections,
+            "top_mood_cards": top_moods_formatted,
+            
+            # Workout Metrics
+            "workouts_started": workouts_started,
+            "workouts_completed": workouts_completed,
+            "workout_completion_rate": completion_rate,
+            
+            # Social Metrics
+            "posts_created": total_posts,
+            "total_likes": total_likes,
+            "total_comments": total_comments,
+            "total_follows": total_follows,
+        }
+        
+    except Exception as e:
+        logger.error(f"Error getting comprehensive stats: {e}")
+        return {"error": str(e)}
+
+
+@api_router.get("/analytics/admin/users/list")
+async def get_users_list(
+    days: int = 30,
+    limit: int = 50,
+    skip: int = 0,
+    sort_by: str = "created_at",
+    sort_order: str = "desc",
+    search: str = "",
+    current_user_id: str = Depends(get_current_user)
+):
+    """
+    Get paginated list of all users with detailed stats.
+    Supports sorting and searching.
+    """
+    start_date = datetime.now(timezone.utc) - timedelta(days=days)
+    
+    # Build query
+    query = {}
+    if search:
+        query["$or"] = [
+            {"username": {"$regex": search, "$options": "i"}},
+            {"email": {"$regex": search, "$options": "i"}}
+        ]
+    
+    # Determine sort order
+    sort_direction = -1 if sort_order == "desc" else 1
+    
+    # Get users
+    users_cursor = db.users.find(query).sort(sort_by, sort_direction).skip(skip).limit(limit)
+    users = await users_cursor.to_list(limit)
+    total_count = await db.users.count_documents(query)
+    
+    user_details = []
+    for user in users:
+        user_id = str(user["_id"])
+        
+        # Get activity metrics
+        events_count = await db.user_events.count_documents({
+            "user_id": user_id,
+            "timestamp": {"$gte": start_date}
+        })
+        
+        workouts_count = await db.user_events.count_documents({
+            "user_id": user_id,
+            "event_type": "workout_completed",
+            "timestamp": {"$gte": start_date}
+        })
+        
+        posts_count = await db.user_events.count_documents({
+            "user_id": user_id,
+            "event_type": "post_created",
+            "timestamp": {"$gte": start_date}
+        })
+        
+        # Get last activity
+        last_event = await db.user_events.find_one(
+            {"user_id": user_id},
+            sort=[("timestamp", -1)]
+        )
+        
+        user_details.append({
+            "user_id": user_id,
+            "username": user.get("username", "Unknown"),
+            "email": user.get("email", ""),
+            "avatar_url": user.get("avatar_url") or user.get("avatar", ""),
+            "created_at": user.get("created_at").isoformat() if user.get("created_at") else None,
+            "last_active": last_event["timestamp"].isoformat() if last_event and last_event.get("timestamp") else None,
+            "events_count": events_count,
+            "workouts_completed": workouts_count,
+            "posts_created": posts_count,
+            "followers_count": user.get("followers_count", 0),
+            "following_count": user.get("following_count", 0),
+        })
+    
+    return {
+        "users": user_details,
+        "total_count": total_count,
+        "page": skip // limit + 1,
+        "total_pages": (total_count + limit - 1) // limit,
+        "period_days": days
+    }
+
+
+@api_router.get("/analytics/admin/export/users")
+async def export_users_csv(
+    days: int = 30,
+    current_user_id: str = Depends(get_current_user)
+):
+    """
+    Export all users data as CSV format (returns JSON for frontend to convert).
+    """
+    start_date = datetime.now(timezone.utc) - timedelta(days=days)
+    
+    users = await db.users.find({}).to_list(10000)
+    
+    export_data = []
+    for user in users:
+        user_id = str(user["_id"])
+        
+        events_count = await db.user_events.count_documents({
+            "user_id": user_id,
+            "timestamp": {"$gte": start_date}
+        })
+        
+        workouts_count = await db.user_events.count_documents({
+            "user_id": user_id,
+            "event_type": "workout_completed"
+        })
+        
+        export_data.append({
+            "username": user.get("username", ""),
+            "email": user.get("email", ""),
+            "created_at": user.get("created_at").isoformat() if user.get("created_at") else "",
+            "followers": user.get("followers_count", 0),
+            "following": user.get("following_count", 0),
+            "total_workouts": workouts_count,
+            "events_in_period": events_count,
+        })
+    
+    return {
+        "data": export_data,
+        "count": len(export_data),
+        "period_days": days
+    }
+
+
+@api_router.get("/analytics/admin/chart-data/{chart_type}")
+async def get_chart_data(
+    chart_type: str,
+    period: str = "day",  # day, week, month
+    days: int = 30,
+    current_user_id: str = Depends(get_current_user)
+):
+    """
+    Get formatted data for various chart types.
+    
+    chart_type options:
+    - user_growth: New users over time
+    - session_trend: App sessions over time
+    - mood_distribution: Pie chart of mood selections
+    - page_views: Top pages bar chart
+    - workout_completion: Workouts started vs completed
+    - engagement_trend: Likes, comments, follows over time
+    """
+    from collections import defaultdict
+    
+    # Determine date range and format
+    if period == "month":
+        days_back = min(days, 365)
+        date_format = "%Y-%m"
+        label_format = "%b '%y"
+    elif period == "week":
+        days_back = min(days, 180)
+        date_format = "%Y-W%V"
+        label_format = "W%V"
+    else:
+        days_back = min(days, 90)
+        date_format = "%Y-%m-%d"
+        label_format = "%m/%d"
+    
+    cutoff = datetime.now(timezone.utc) - timedelta(days=days_back)
+    
+    try:
+        if chart_type == "user_growth":
+            users = await db.users.find(
+                {"created_at": {"$gte": cutoff}},
+                {"created_at": 1}
+            ).to_list(100000)
+            
+            data_by_period = defaultdict(int)
+            for user in users:
+                if user.get("created_at"):
+                    period_key = user["created_at"].strftime(date_format)
+                    data_by_period[period_key] += 1
+            
+            sorted_data = sorted(data_by_period.items())
+            
+            # Calculate cumulative
+            cumulative = []
+            running_total = 0
+            for _, count in sorted_data:
+                running_total += count
+                cumulative.append(running_total)
+            
+            labels = []
+            for date_key, _ in sorted_data:
+                try:
+                    if period == "month":
+                        dt = datetime.strptime(date_key, "%Y-%m")
+                        labels.append(dt.strftime("%b '%y"))
+                    elif period == "week":
+                        labels.append(f"W{date_key.split('W')[1]}")
+                    else:
+                        dt = datetime.strptime(date_key, "%Y-%m-%d")
+                        labels.append(dt.strftime("%m/%d"))
+                except:
+                    labels.append(date_key)
+            
+            return {
+                "chart_type": chart_type,
+                "labels": labels,
+                "datasets": [
+                    {"label": "New Users", "data": [v for _, v in sorted_data]},
+                    {"label": "Cumulative", "data": cumulative}
+                ]
+            }
+            
+        elif chart_type == "session_trend":
+            events = await db.user_events.find(
+                {"event_type": {"$in": ["app_opened", "app_session_start"]}, "timestamp": {"$gte": cutoff}},
+                {"timestamp": 1}
+            ).to_list(100000)
+            
+            data_by_period = defaultdict(int)
+            for event in events:
+                if event.get("timestamp"):
+                    period_key = event["timestamp"].strftime(date_format)
+                    data_by_period[period_key] += 1
+            
+            sorted_data = sorted(data_by_period.items())
+            
+            labels = []
+            for date_key, _ in sorted_data:
+                try:
+                    if period == "month":
+                        dt = datetime.strptime(date_key, "%Y-%m")
+                        labels.append(dt.strftime("%b '%y"))
+                    elif period == "week":
+                        labels.append(f"W{date_key.split('W')[1]}")
+                    else:
+                        dt = datetime.strptime(date_key, "%Y-%m-%d")
+                        labels.append(dt.strftime("%m/%d"))
+                except:
+                    labels.append(date_key)
+            
+            return {
+                "chart_type": chart_type,
+                "labels": labels,
+                "datasets": [
+                    {"label": "Sessions", "data": [v for _, v in sorted_data]}
+                ]
+            }
+            
+        elif chart_type == "mood_distribution":
+            mood_pipeline = [
+                {"$match": {"event_type": "mood_selected", "timestamp": {"$gte": cutoff}}},
+                {"$group": {"_id": "$metadata.mood_category", "count": {"$sum": 1}}},
+                {"$sort": {"count": -1}}
+            ]
+            
+            mood_display_names = {
+                "sweat": "I Want to Sweat",
+                "muscle": "Muscle Gainer", 
+                "outdoor": "Get Outside",
+                "calisthenics": "Calisthenics",
+                "lazy": "Feeling Lazy",
+                "explosive": "Get Explosive"
+            }
+            
+            moods = await db.user_events.aggregate(mood_pipeline).to_list(20)
+            
+            return {
+                "chart_type": chart_type,
+                "labels": [mood_display_names.get(m["_id"], m["_id"] or "Unknown") for m in moods if m["_id"]],
+                "datasets": [
+                    {"label": "Selections", "data": [m["count"] for m in moods if m["_id"]]}
+                ]
+            }
+            
+        elif chart_type == "page_views":
+            page_pipeline = [
+                {"$match": {"event_type": {"$in": ["screen_viewed", "screen_entered"]}, "timestamp": {"$gte": cutoff}}},
+                {"$group": {"_id": "$metadata.screen_name", "count": {"$sum": 1}}},
+                {"$sort": {"count": -1}},
+                {"$limit": 10}
+            ]
+            
+            pages = await db.user_events.aggregate(page_pipeline).to_list(10)
+            
+            return {
+                "chart_type": chart_type,
+                "labels": [p["_id"] or "Unknown" for p in pages],
+                "datasets": [
+                    {"label": "Views", "data": [p["count"] for p in pages]}
+                ]
+            }
+            
+        elif chart_type == "workout_completion":
+            started_pipeline = [
+                {"$match": {"event_type": "workout_started", "timestamp": {"$gte": cutoff}}},
+                {"$group": {"_id": {"$dateToString": {"format": date_format, "date": "$timestamp"}}, "count": {"$sum": 1}}},
+                {"$sort": {"_id": 1}}
+            ]
+            
+            completed_pipeline = [
+                {"$match": {"event_type": "workout_completed", "timestamp": {"$gte": cutoff}}},
+                {"$group": {"_id": {"$dateToString": {"format": date_format, "date": "$timestamp"}}, "count": {"$sum": 1}}},
+                {"$sort": {"_id": 1}}
+            ]
+            
+            started = await db.user_events.aggregate(started_pipeline).to_list(100)
+            completed = await db.user_events.aggregate(completed_pipeline).to_list(100)
+            
+            # Merge datasets
+            all_dates = sorted(set([s["_id"] for s in started] + [c["_id"] for c in completed]))
+            started_dict = {s["_id"]: s["count"] for s in started}
+            completed_dict = {c["_id"]: c["count"] for c in completed}
+            
+            labels = []
+            for date_key in all_dates:
+                try:
+                    if period == "month":
+                        dt = datetime.strptime(date_key, "%Y-%m")
+                        labels.append(dt.strftime("%b '%y"))
+                    elif period == "week":
+                        labels.append(f"W{date_key.split('W')[1]}")
+                    else:
+                        dt = datetime.strptime(date_key, "%Y-%m-%d")
+                        labels.append(dt.strftime("%m/%d"))
+                except:
+                    labels.append(date_key)
+            
+            return {
+                "chart_type": chart_type,
+                "labels": labels,
+                "datasets": [
+                    {"label": "Started", "data": [started_dict.get(d, 0) for d in all_dates]},
+                    {"label": "Completed", "data": [completed_dict.get(d, 0) for d in all_dates]}
+                ]
+            }
+            
+        elif chart_type == "engagement_trend":
+            like_events = await db.user_events.find(
+                {"event_type": "post_liked", "timestamp": {"$gte": cutoff}},
+                {"timestamp": 1}
+            ).to_list(100000)
+            
+            comment_events = await db.user_events.find(
+                {"event_type": "post_commented", "timestamp": {"$gte": cutoff}},
+                {"timestamp": 1}
+            ).to_list(100000)
+            
+            follow_events = await db.user_events.find(
+                {"event_type": "user_followed", "timestamp": {"$gte": cutoff}},
+                {"timestamp": 1}
+            ).to_list(100000)
+            
+            likes_by_period = defaultdict(int)
+            comments_by_period = defaultdict(int)
+            follows_by_period = defaultdict(int)
+            
+            for event in like_events:
+                if event.get("timestamp"):
+                    period_key = event["timestamp"].strftime(date_format)
+                    likes_by_period[period_key] += 1
+                    
+            for event in comment_events:
+                if event.get("timestamp"):
+                    period_key = event["timestamp"].strftime(date_format)
+                    comments_by_period[period_key] += 1
+                    
+            for event in follow_events:
+                if event.get("timestamp"):
+                    period_key = event["timestamp"].strftime(date_format)
+                    follows_by_period[period_key] += 1
+            
+            all_dates = sorted(set(list(likes_by_period.keys()) + list(comments_by_period.keys()) + list(follows_by_period.keys())))
+            
+            labels = []
+            for date_key in all_dates:
+                try:
+                    if period == "month":
+                        dt = datetime.strptime(date_key, "%Y-%m")
+                        labels.append(dt.strftime("%b '%y"))
+                    elif period == "week":
+                        labels.append(f"W{date_key.split('W')[1]}")
+                    else:
+                        dt = datetime.strptime(date_key, "%Y-%m-%d")
+                        labels.append(dt.strftime("%m/%d"))
+                except:
+                    labels.append(date_key)
+            
+            return {
+                "chart_type": chart_type,
+                "labels": labels,
+                "datasets": [
+                    {"label": "Likes", "data": [likes_by_period.get(d, 0) for d in all_dates]},
+                    {"label": "Comments", "data": [comments_by_period.get(d, 0) for d in all_dates]},
+                    {"label": "Follows", "data": [follows_by_period.get(d, 0) for d in all_dates]}
+                ]
+            }
+        
+        return {"chart_type": chart_type, "labels": [], "datasets": []}
+        
+    except Exception as e:
+        logger.error(f"Error getting chart data for {chart_type}: {e}")
+        return {"chart_type": chart_type, "labels": [], "datasets": [], "error": str(e)}
+
 
 # User Endpoints
 
