@@ -1460,10 +1460,18 @@ async def get_comprehensive_stats(
     """
     Get comprehensive platform statistics with accurate data.
     This is the main endpoint for the admin dashboard.
+    days=0 means "all time" (no date filter)
     """
     from collections import defaultdict
     
-    start_date = datetime.now(timezone.utc) - timedelta(days=days)
+    # Handle "all time" option (days=0)
+    is_all_time = days == 0
+    if is_all_time:
+        # Use a very old date to effectively get all data
+        start_date = datetime(2020, 1, 1, tzinfo=timezone.utc)
+    else:
+        start_date = datetime.now(timezone.utc) - timedelta(days=days)
+    
     today_start = datetime.now(timezone.utc).replace(hour=0, minute=0, second=0, microsecond=0)
     realtime_cutoff = datetime.now(timezone.utc) - timedelta(minutes=5)
     
@@ -1471,10 +1479,13 @@ async def get_comprehensive_stats(
         # === USER METRICS (Accurate) ===
         total_users = await db.users.count_documents({})
         
-        # New users in period
-        new_users = await db.users.count_documents({
-            "created_at": {"$gte": start_date}
-        })
+        # New users in period (for "all time", this equals total users)
+        if is_all_time:
+            new_users = total_users
+        else:
+            new_users = await db.users.count_documents({
+                "created_at": {"$gte": start_date}
+            })
         
         # Really active users (with heartbeat in last 5 mins)
         realtime_active = await db.user_heartbeats.count_documents({
