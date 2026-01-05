@@ -115,6 +115,53 @@ interface ChartData {
   datasets: ChartDataset[];
 }
 
+interface UserReport {
+  user: {
+    user_id: string;
+    username: string;
+    email: string;
+    avatar_url?: string;
+    created_at?: string;
+    followers_count: number;
+    following_count: number;
+  };
+  period_days: number;
+  report: {
+    workouts_added_to_cart: number;
+    workouts_started: number;
+    workouts_completed: number;
+    workout_completion_rate: number;
+    total_screen_views: number;
+    unique_screens_viewed: number;
+    top_screens: Array<{ screen: string; views: number }>;
+    app_sessions: number;
+    total_time_seconds: number;
+    time_spent_formatted: string;
+    posts_created: number;
+    likes_given: number;
+    comments_made: number;
+    follows_given: number;
+    mood_selections: number;
+    last_active?: string;
+  };
+}
+
+// Helper to convert UTC to CST
+function formatDateToCST(dateStr?: string): string {
+  if (!dateStr) return 'Unknown';
+  const date = new Date(dateStr);
+  // CST is UTC-6
+  return date.toLocaleString('en-US', {
+    timeZone: 'America/Chicago',
+    month: 'short',
+    day: 'numeric',
+    year: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit',
+    hour12: true
+  }) + ' CST';
+}
+
 export default function AdminDashboard() {
   const router = useRouter();
   const insets = useSafeAreaInsets();
@@ -140,6 +187,11 @@ export default function AdminDashboard() {
   const [usersLoading, setUsersLoading] = useState(false);
   const [userSearchQuery, setUserSearchQuery] = useState('');
   const [totalUsersCount, setTotalUsersCount] = useState(0);
+  
+  // User report modal state
+  const [showUserReport, setShowUserReport] = useState(false);
+  const [userReport, setUserReport] = useState<UserReport | null>(null);
+  const [userReportLoading, setUserReportLoading] = useState(false);
   
   // Active users modal state
   const [showActiveUsers, setShowActiveUsers] = useState(false);
