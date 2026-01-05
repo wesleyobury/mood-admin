@@ -2046,20 +2046,7 @@ async def get_chart_data(
                     data_by_period[period_key] += 1
             
             sorted_data = sorted(data_by_period.items())
-            
-            labels = []
-            for date_key, _ in sorted_data:
-                try:
-                    if period == "month":
-                        dt = datetime.strptime(date_key, "%Y-%m")
-                        labels.append(dt.strftime("%b '%y"))
-                    elif period == "week":
-                        labels.append(f"W{date_key.split('W')[1]}")
-                    else:
-                        dt = datetime.strptime(date_key, "%Y-%m-%d")
-                        labels.append(dt.strftime("%m/%d"))
-                except:
-                    labels.append(date_key)
+            labels = [format_label(date_key, period) for date_key, _ in sorted_data]
             
             return {
                 "chart_type": chart_type,
