@@ -1776,6 +1776,159 @@ async def export_users_csv(
     }
 
 
+@api_router.delete("/analytics/admin/users/{user_id}")
+async def soft_delete_user(
+    user_id: str,
+    current_user_id: str = Depends(get_current_user)
+):
+    """
+    Soft delete a user - moves their profile to deleted_users collection
+    for 7 days before permanent deletion.
+    Only admin can perform this action.
+    """
+    # Verify admin
+    admin_user = await db.users.find_one({"_id": ObjectId(current_user_id)})
+    if not admin_user or admin_user.get("username", "").lower() != "officialmoodapp":
+        raise HTTPException(status_code=403, detail="Admin access required")
+    
+    # Prevent self-deletion
+    if user_id == current_user_id:
+        raise HTTPException(status_code=400, detail="Cannot delete your own account")
+    
+    try:
+        # Find the user to delete
+        user_to_delete = await db.users.find_one({"_id": ObjectId(user_id)})
+        if not user_to_delete:
+            raise HTTPException(status_code=404, detail="User not found")
+        
+        # Prepare the deleted user record
+        deleted_record = {
+            **user_to_delete,
+            "original_id": str(user_to_delete["_id"]),
+            "deleted_at": datetime.now(timezone.utc),
+            "deleted_by": current_user_id,
+            "expires_at": datetime.now(timezone.utc) + timedelta(days=7),
+            "reason": "admin_deletion"
+        }
+        del deleted_record["_id"]  # Remove original _id for new insertion
+        
+        # Move to deleted_users collection
+        await db.deleted_users.insert_one(deleted_record)
+        
+        # Delete from main users collection
+        await db.users.delete_one({"_id": ObjectId(user_id)})
+        
+        # Optionally mark their posts as from deleted user (keep posts but mark them)
+        await db.posts.update_many(
+            {"author_id": user_id},
+            {"$set": {"author_deleted": True}}
+        )
+        
+        logger.info(f"User {user_id} soft deleted by admin {current_user_id}")
+        
+        return {
+            "message": "User deleted successfully",
+            "user_id": user_id,
+            "username": user_to_delete.get("username"),
+            "recoverable_until": deleted_record["expires_at"].isoformat()
+        }
+        
+    except Exception as e:
+        logger.error(f"Error soft deleting user: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+@api_router.get("/analytics/admin/deleted-users")
+async def get_deleted_users(
+    current_user_id: str = Depends(get_current_user)
+):
+    """
+    Get list of soft-deleted users that can be recovered.
+    """
+    # Verify admin
+    admin_user = await db.users.find_one({"_id": ObjectId(current_user_id)})
+    if not admin_user or admin_user.get("username", "").lower() != "officialmoodapp":
+        raise HTTPException(status_code=403, detail="Admin access required")
+    
+    now = datetime.now(timezone.utc)
+    
+    # Get deleted users that haven't expired
+    deleted_users = await db.deleted_users.find({
+        "expires_at": {"$gt": now}
+    }).sort("deleted_at", -1).to_list(100)
+    
+    result = []
+    for user in deleted_users:
+        result.append({
+            "original_id": user.get("original_id"),
+            "username": user.get("username"),
+            "email": user.get("email"),
+            "deleted_at": user.get("deleted_at").isoformat() if user.get("deleted_at") else None,
+            "expires_at": user.get("expires_at").isoformat() if user.get("expires_at") else None,
+            "days_remaining": (user.get("expires_at") - now).days if user.get("expires_at") else 0
+        })
+    
+    return {
+        "deleted_users": result,
+        "count": len(result)
+    }
+
+
+@api_router.post("/analytics/admin/users/{user_id}/restore")
+async def restore_deleted_user(
+    user_id: str,
+    current_user_id: str = Depends(get_current_user)
+):
+    """
+    Restore a soft-deleted user before the 7-day expiration.
+    """
+    # Verify admin
+    admin_user = await db.users.find_one({"_id": ObjectId(current_user_id)})
+    if not admin_user or admin_user.get("username", "").lower() != "officialmoodapp":
+        raise HTTPException(status_code=403, detail="Admin access required")
+    
+    try:
+        # Find in deleted_users
+        deleted_user = await db.deleted_users.find_one({"original_id": user_id})
+        if not deleted_user:
+            raise HTTPException(status_code=404, detail="Deleted user not found")
+        
+        # Check if expired
+        if deleted_user.get("expires_at") and deleted_user["expires_at"] < datetime.now(timezone.utc):
+            raise HTTPException(status_code=410, detail="User data has expired and been permanently deleted")
+        
+        # Restore to users collection
+        restore_data = {k: v for k, v in deleted_user.items() 
+                       if k not in ["_id", "original_id", "deleted_at", "deleted_by", "expires_at", "reason"]}
+        restore_data["_id"] = ObjectId(user_id)
+        restore_data["restored_at"] = datetime.now(timezone.utc)
+        
+        await db.users.insert_one(restore_data)
+        
+        # Remove from deleted_users
+        await db.deleted_users.delete_one({"original_id": user_id})
+        
+        # Restore their posts
+        await db.posts.update_many(
+            {"author_id": user_id},
+            {"$unset": {"author_deleted": ""}}
+        )
+        
+        logger.info(f"User {user_id} restored by admin {current_user_id}")
+        
+        return {
+            "message": "User restored successfully",
+            "user_id": user_id,
+            "username": restore_data.get("username")
+        }
+        
+    except HTTPException:
+        raise
+    except Exception as e:
+        logger.error(f"Error restoring user: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
+
+
 @api_router.get("/analytics/admin/chart-data/{chart_type}")
 async def get_chart_data(
     chart_type: str,
