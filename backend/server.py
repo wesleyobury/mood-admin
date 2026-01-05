@@ -1949,21 +1949,56 @@ async def get_chart_data(
     """
     from collections import defaultdict
     
+    # Helper to get week start date from ISO week format
+    def get_week_start_date(year_week_str):
+        """Convert YYYY-WXX to the Monday of that week"""
+        try:
+            year = int(year_week_str.split('-W')[0])
+            week = int(year_week_str.split('-W')[1])
+            # Get first day of year, then add weeks
+            first_day = datetime(year, 1, 1)
+            # Find first Monday
+            days_to_monday = (7 - first_day.weekday()) % 7
+            first_monday = first_day + timedelta(days=days_to_monday)
+            week_start = first_monday + timedelta(weeks=week - 1)
+            return week_start
+        except:
+            return None
+    
     # Determine date range and format
     if period == "month":
         days_back = min(days, 365)
         date_format = "%Y-%m"
-        label_format = "%b '%y"
     elif period == "week":
         days_back = min(days, 180)
         date_format = "%Y-W%V"
-        label_format = "W%V"
     else:
         days_back = min(days, 90)
         date_format = "%Y-%m-%d"
-        label_format = "%m/%d"
     
     cutoff = datetime.now(timezone.utc) - timedelta(days=days_back)
+    
+    def format_label(date_key, period_type):
+        """Format a date key into a human-readable label"""
+        try:
+            if period_type == "month":
+                dt = datetime.strptime(date_key, "%Y-%m")
+                return dt.strftime("%b '%y")
+            elif period_type == "week":
+                # Convert YYYY-WXX to date range like "Dec 30 - Jan 5"
+                week_start = get_week_start_date(date_key)
+                if week_start:
+                    week_end = week_start + timedelta(days=6)
+                    if week_start.month == week_end.month:
+                        return f"{week_start.strftime('%b %d')}-{week_end.strftime('%d')}"
+                    else:
+                        return f"{week_start.strftime('%b %d')}-{week_end.strftime('%b %d')}"
+                return date_key
+            else:
+                dt = datetime.strptime(date_key, "%Y-%m-%d")
+                return dt.strftime("%m/%d")
+        except:
+            return date_key
     
     try:
         if chart_type == "user_growth":
@@ -1987,19 +2022,7 @@ async def get_chart_data(
                 running_total += count
                 cumulative.append(running_total)
             
-            labels = []
-            for date_key, _ in sorted_data:
-                try:
-                    if period == "month":
-                        dt = datetime.strptime(date_key, "%Y-%m")
-                        labels.append(dt.strftime("%b '%y"))
-                    elif period == "week":
-                        labels.append(f"W{date_key.split('W')[1]}")
-                    else:
-                        dt = datetime.strptime(date_key, "%Y-%m-%d")
-                        labels.append(dt.strftime("%m/%d"))
-                except:
-                    labels.append(date_key)
+            labels = [format_label(date_key, period) for date_key, _ in sorted_data]
             
             return {
                 "chart_type": chart_type,
