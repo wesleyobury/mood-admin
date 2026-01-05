@@ -1961,6 +1961,38 @@ const styles = StyleSheet.create({
     fontSize: 14,
   },
   // User Report Modal Styles
+  reportPeriodSelector: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    gap: 6,
+    paddingVertical: 12,
+    paddingHorizontal: 16,
+    backgroundColor: '#0c0c0c',
+    borderBottomWidth: 1,
+    borderBottomColor: 'rgba(255, 215, 0, 0.1)',
+  },
+  reportPeriodChip: {
+    paddingHorizontal: 12,
+    paddingVertical: 6,
+    borderRadius: 16,
+    backgroundColor: '#1a1a1a',
+    borderWidth: 1,
+    borderColor: '#333',
+    minWidth: 40,
+    alignItems: 'center',
+  },
+  reportPeriodChipActive: {
+    backgroundColor: '#FFD700',
+    borderColor: '#FFD700',
+  },
+  reportPeriodChipText: {
+    color: '#888',
+    fontSize: 12,
+    fontWeight: '600',
+  },
+  reportPeriodChipTextActive: {
+    color: '#000',
+  },
   reportScrollView: {
     flex: 1,
   },
