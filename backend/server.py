@@ -1777,6 +1777,205 @@ async def get_users_list(
     }
 
 
+@api_router.get("/analytics/admin/users/{user_id}/report")
+async def get_user_detail_report(
+    user_id: str,
+    days: int = 30,
+    current_user_id: str = Depends(get_current_user)
+):
+    """
+    Get detailed analytics report for a specific user.
+    Includes: workouts added to cart, workouts completed, screens viewed,
+    app sessions, posts/likes/comments, time spent in app.
+    """
+    # Verify admin
+    admin_user = await db.users.find_one({"_id": ObjectId(current_user_id)})
+    if not admin_user or admin_user.get("username", "").lower() != "officialmoodapp":
+        raise HTTPException(status_code=403, detail="Admin access required")
+    
+    start_date = datetime.now(timezone.utc) - timedelta(days=days)
+    
+    try:
+        # Find the user
+        target_user = await db.users.find_one({"_id": ObjectId(user_id)})
+        if not target_user:
+            raise HTTPException(status_code=404, detail="User not found")
+        
+        # Basic user info
+        user_info = {
+            "user_id": user_id,
+            "username": target_user.get("username", "Unknown"),
+            "email": target_user.get("email", ""),
+            "avatar_url": target_user.get("avatar_url") or target_user.get("avatar", ""),
+            "created_at": target_user.get("created_at").isoformat() if target_user.get("created_at") else None,
+            "followers_count": target_user.get("followers_count", 0),
+            "following_count": target_user.get("following_count", 0),
+        }
+        
+        # Workouts added to cart
+        workouts_added_to_cart = await db.user_events.count_documents({
+            "user_id": user_id,
+            "event_type": "workout_added_to_cart",
+            "timestamp": {"$gte": start_date}
+        })
+        
+        # Workouts completed
+        workouts_completed = await db.user_events.count_documents({
+            "user_id": user_id,
+            "event_type": "workout_completed",
+            "timestamp": {"$gte": start_date}
+        })
+        
+        # Workouts started
+        workouts_started = await db.user_events.count_documents({
+            "user_id": user_id,
+            "event_type": "workout_started",
+            "timestamp": {"$gte": start_date}
+        })
+        
+        # Screen views (unique screens and total views)
+        screen_views_pipeline = [
+            {
+                "$match": {
+                    "user_id": user_id,
+                    "event_type": {"$in": ["screen_viewed", "screen_entered"]},
+                    "timestamp": {"$gte": start_date}
+                }
+            },
+            {
+                "$group": {
+                    "_id": "$metadata.screen_name",
+                    "count": {"$sum": 1}
+                }
+            }
+        ]
+        screen_views_result = await db.user_events.aggregate(screen_views_pipeline).to_list(100)
+        total_screen_views = sum(s["count"] for s in screen_views_result)
+        unique_screens_viewed = len([s for s in screen_views_result if s["_id"]])
+        
+        # Top screens viewed
+        top_screens = sorted(
+            [{"screen": s["_id"], "views": s["count"]} for s in screen_views_result if s["_id"]],
+            key=lambda x: x["views"],
+            reverse=True
+        )[:5]
+        
+        # App sessions (app_opened or app_session_start events)
+        app_sessions = await db.user_events.count_documents({
+            "user_id": user_id,
+            "event_type": {"$in": ["app_opened", "app_session_start"]},
+            "timestamp": {"$gte": start_date}
+        })
+        
+        # Posts created
+        posts_created = await db.user_events.count_documents({
+            "user_id": user_id,
+            "event_type": "post_created",
+            "timestamp": {"$gte": start_date}
+        })
+        
+        # Also count from posts collection
+        posts_in_db = await db.posts.count_documents({
+            "author_id": user_id
+        })
+        
+        # Likes given
+        likes_given = await db.user_events.count_documents({
+            "user_id": user_id,
+            "event_type": "post_liked",
+            "timestamp": {"$gte": start_date}
+        })
+        
+        # Comments made
+        comments_made = await db.user_events.count_documents({
+            "user_id": user_id,
+            "event_type": "post_commented",
+            "timestamp": {"$gte": start_date}
+        })
+        
+        # Time spent in app (sum of screen_time_spent events)
+        time_spent_pipeline = [
+            {
+                "$match": {
+                    "user_id": user_id,
+                    "event_type": "screen_time_spent",
+                    "timestamp": {"$gte": start_date}
+                }
+            },
+            {
+                "$group": {
+                    "_id": None,
+                    "total_seconds": {"$sum": "$metadata.duration_seconds"}
+                }
+            }
+        ]
+        time_spent_result = await db.user_events.aggregate(time_spent_pipeline).to_list(1)
+        total_time_seconds = time_spent_result[0]["total_seconds"] if time_spent_result else 0
+        
+        # Format time spent
+        hours = total_time_seconds // 3600
+        minutes = (total_time_seconds % 3600) // 60
+        time_spent_formatted = f"{hours}h {minutes}m" if hours > 0 else f"{minutes}m"
+        
+        # Get last activity
+        last_event = await db.user_events.find_one(
+            {"user_id": user_id},
+            sort=[("timestamp", -1)]
+        )
+        
+        # Mood selections
+        mood_selections = await db.user_events.count_documents({
+            "user_id": user_id,
+            "event_type": "mood_selected",
+            "timestamp": {"$gte": start_date}
+        })
+        
+        # Follows given
+        follows_given = await db.user_events.count_documents({
+            "user_id": user_id,
+            "event_type": "user_followed",
+            "timestamp": {"$gte": start_date}
+        })
+        
+        return {
+            "user": user_info,
+            "period_days": days,
+            "report": {
+                # Workout metrics
+                "workouts_added_to_cart": workouts_added_to_cart,
+                "workouts_started": workouts_started,
+                "workouts_completed": workouts_completed,
+                "workout_completion_rate": round((workouts_completed / workouts_started * 100), 1) if workouts_started > 0 else 0,
+                
+                # Screen/navigation metrics
+                "total_screen_views": total_screen_views,
+                "unique_screens_viewed": unique_screens_viewed,
+                "top_screens": top_screens,
+                
+                # App usage metrics
+                "app_sessions": app_sessions,
+                "total_time_seconds": total_time_seconds,
+                "time_spent_formatted": time_spent_formatted,
+                
+                # Social/engagement metrics
+                "posts_created": max(posts_created, posts_in_db),
+                "likes_given": likes_given,
+                "comments_made": comments_made,
+                "follows_given": follows_given,
+                
+                # Other
+                "mood_selections": mood_selections,
+                "last_active": last_event["timestamp"].isoformat() if last_event and last_event.get("timestamp") else None,
+            }
+        }
+        
+    except HTTPException:
+        raise
+    except Exception as e:
+        logger.error(f"Error getting user report: {e}")
+        raise HTTPException(status_code=500, detail=str(e))
+
+
 @api_router.get("/analytics/admin/export/users")
 async def export_users_csv(
     days: int = 30,
