@@ -34,23 +34,34 @@ const TIME_PERIODS = [
   { value: 90, label: '90 Days', shortLabel: '90D' },
 ];
 
-// Mood colors for on-brand styling
+// Mood colors - EXACT match from home screen mood cards gradients (first color)
 const MOOD_COLORS: Record<string, string> = {
-  'sweat': '#FF5722',
-  'muscle': '#4CAF50',
-  'outdoor': '#2196F3',
-  'calisthenics': '#9C27B0',
-  'lazy': '#FF9800',
-  'explosive': '#E91E63',
+  'sweat': '#FF6B6B',      // I want to sweat - flame gradient
+  'muscle': '#4ECDC4',     // Muscle gainer - teal gradient  
+  'explosive': '#FFD93D',  // Build explosion - yellow gradient
+  'lazy': '#D299C2',       // Feeling lazy - purple/pink gradient
+  'calisthenics': '#667eea', // Calisthenics - purple/indigo gradient
+  'outdoor': '#56ab2f',    // Get outside - green gradient
 };
 
+// Mood icons - EXACT match from home screen mood cards
 const MOOD_ICONS: Record<string, string> = {
-  'sweat': 'water',
-  'muscle': 'barbell',
-  'outdoor': 'leaf',
-  'calisthenics': 'body',
-  'lazy': 'bed',
-  'explosive': 'flash',
+  'sweat': 'flame',        // I want to sweat
+  'muscle': 'barbell',     // Muscle gainer
+  'explosive': 'flash',    // Build explosion
+  'lazy': 'bed',           // Feeling lazy
+  'calisthenics': 'body',  // Calisthenics
+  'outdoor': 'bicycle',    // Get outside
+};
+
+// Display names for moods
+const MOOD_DISPLAY_NAMES: Record<string, string> = {
+  'sweat': 'I want to sweat',
+  'muscle': 'Muscle gainer',
+  'explosive': 'Build explosion',
+  'lazy': "I'm feeling lazy",
+  'calisthenics': 'Calisthenics',
+  'outdoor': 'Get outside',
 };
 
 interface ComprehensiveStats {
