@@ -55,7 +55,7 @@ interface PlatformStats {
   popular_mood_categories: Array<{ mood: string; count: number }>;
 }
 
-const ADMIN_EMAIL = 'wesleyogsbury@gmail.com';
+const ADMIN_USERNAME = 'officialmoodapp';
 
 interface SignupTrendData {
   period: string;
