@@ -1041,6 +1041,190 @@ export default function AdminDashboard() {
           )}
         </View>
       </Modal>
+
+      {/* User Report Modal */}
+      <Modal
+        visible={showUserReport}
+        animationType="slide"
+        presentationStyle="pageSheet"
+        onRequestClose={() => setShowUserReport(false)}
+      >
+        <View style={[styles.modalContainer, { paddingTop: insets.top }]}>
+          <View style={styles.modalHeader}>
+            <TouchableOpacity onPress={() => setShowUserReport(false)} style={styles.modalClose}>
+              <Ionicons name="close" size={24} color="#fff" />
+            </TouchableOpacity>
+            <Text style={styles.modalTitle}>User Report</Text>
+            <View style={{ width: 24 }} />
+          </View>
+
+          {userReportLoading ? (
+            <View style={styles.modalLoading}>
+              <ActivityIndicator size="large" color="#FFD700" />
+              <Text style={styles.loadingText}>Loading report...</Text>
+            </View>
+          ) : userReport ? (
+            <ScrollView style={styles.reportScrollView} showsVerticalScrollIndicator={false}>
+              {/* User Header */}
+              <View style={styles.reportUserHeader}>
+                <View style={styles.reportAvatar}>
+                  {userReport.user.avatar_url ? (
+                    <Image 
+                      source={{ uri: userReport.user.avatar_url.startsWith('http') ? userReport.user.avatar_url : `${API_URL}${userReport.user.avatar_url}` }} 
+                      style={styles.reportAvatarImage} 
+                    />
+                  ) : (
+                    <Ionicons name="person" size={40} color="#666" />
+                  )}
+                </View>
+                <View style={styles.reportUserInfo}>
+                  <Text style={styles.reportUsername}>{userReport.user.username}</Text>
+                  <Text style={styles.reportEmail}>{userReport.user.email}</Text>
+                  <Text style={styles.reportSignupDate}>
+                    Joined: {formatDateToCST(userReport.user.created_at)}
+                  </Text>
+                </View>
+              </View>
+
+              {/* Period Badge */}
+              <View style={styles.reportPeriodBadge}>
+                <Ionicons name="calendar-outline" size={14} color="#FFD700" />
+                <Text style={styles.reportPeriodText}>
+                  Data from last {userReport.period_days} {userReport.period_days === 1 ? 'day' : 'days'}
+                </Text>
+              </View>
+
+              {/* Workout Metrics */}
+              <View style={styles.reportSection}>
+                <Text style={styles.reportSectionTitle}>
+                  <Ionicons name="fitness" size={16} color="#FFD700" /> Workout Activity
+                </Text>
+                <View style={styles.reportMetricsGrid}>
+                  <View style={styles.reportMetricItem}>
+                    <Text style={styles.reportMetricValue}>{userReport.report.workouts_added_to_cart}</Text>
+                    <Text style={styles.reportMetricLabel}>Added to Cart</Text>
+                  </View>
+                  <View style={styles.reportMetricItem}>
+                    <Text style={styles.reportMetricValue}>{userReport.report.workouts_started}</Text>
+                    <Text style={styles.reportMetricLabel}>Started</Text>
+                  </View>
+                  <View style={styles.reportMetricItem}>
+                    <Text style={styles.reportMetricValue}>{userReport.report.workouts_completed}</Text>
+                    <Text style={styles.reportMetricLabel}>Completed</Text>
+                  </View>
+                  <View style={styles.reportMetricItem}>
+                    <Text style={[styles.reportMetricValue, { color: '#4CAF50' }]}>
+                      {userReport.report.workout_completion_rate}%
+                    </Text>
+                    <Text style={styles.reportMetricLabel}>Completion</Text>
+                  </View>
+                </View>
+              </View>
+
+              {/* App Usage Metrics */}
+              <View style={styles.reportSection}>
+                <Text style={styles.reportSectionTitle}>
+                  <Ionicons name="phone-portrait" size={16} color="#2196F3" /> App Usage
+                </Text>
+                <View style={styles.reportMetricsGrid}>
+                  <View style={styles.reportMetricItem}>
+                    <Text style={styles.reportMetricValue}>{userReport.report.app_sessions}</Text>
+                    <Text style={styles.reportMetricLabel}>App Sessions</Text>
+                  </View>
+                  <View style={styles.reportMetricItem}>
+                    <Text style={styles.reportMetricValue}>{userReport.report.total_screen_views}</Text>
+                    <Text style={styles.reportMetricLabel}>Screens Viewed</Text>
+                  </View>
+                  <View style={styles.reportMetricItem}>
+                    <Text style={styles.reportMetricValue}>{userReport.report.unique_screens_viewed}</Text>
+                    <Text style={styles.reportMetricLabel}>Unique Screens</Text>
+                  </View>
+                  <View style={styles.reportMetricItem}>
+                    <Text style={[styles.reportMetricValue, { color: '#FFD700' }]}>
+                      {userReport.report.time_spent_formatted}
+                    </Text>
+                    <Text style={styles.reportMetricLabel}>Time in App</Text>
+                  </View>
+                </View>
+              </View>
+
+              {/* Top Screens */}
+              {userReport.report.top_screens.length > 0 && (
+                <View style={styles.reportSection}>
+                  <Text style={styles.reportSectionTitle}>
+                    <Ionicons name="layers" size={16} color="#9C27B0" /> Top Screens
+                  </Text>
+                  {userReport.report.top_screens.map((screen, idx) => (
+                    <View key={screen.screen} style={styles.reportTopItem}>
+                      <Text style={styles.reportTopRank}>{idx + 1}</Text>
+                      <Text style={styles.reportTopName}>{formatPageName(screen.screen)}</Text>
+                      <Text style={styles.reportTopValue}>{screen.views} views</Text>
+                    </View>
+                  ))}
+                </View>
+              )}
+
+              {/* Social/Engagement Metrics */}
+              <View style={styles.reportSection}>
+                <Text style={styles.reportSectionTitle}>
+                  <Ionicons name="heart" size={16} color="#E91E63" /> Social Engagement
+                </Text>
+                <View style={styles.reportMetricsGrid}>
+                  <View style={styles.reportMetricItem}>
+                    <Text style={styles.reportMetricValue}>{userReport.report.posts_created}</Text>
+                    <Text style={styles.reportMetricLabel}>Posts</Text>
+                  </View>
+                  <View style={styles.reportMetricItem}>
+                    <Text style={styles.reportMetricValue}>{userReport.report.likes_given}</Text>
+                    <Text style={styles.reportMetricLabel}>Likes Given</Text>
+                  </View>
+                  <View style={styles.reportMetricItem}>
+                    <Text style={styles.reportMetricValue}>{userReport.report.comments_made}</Text>
+                    <Text style={styles.reportMetricLabel}>Comments</Text>
+                  </View>
+                  <View style={styles.reportMetricItem}>
+                    <Text style={styles.reportMetricValue}>{userReport.report.follows_given}</Text>
+                    <Text style={styles.reportMetricLabel}>Follows</Text>
+                  </View>
+                </View>
+              </View>
+
+              {/* Other Metrics */}
+              <View style={styles.reportSection}>
+                <Text style={styles.reportSectionTitle}>
+                  <Ionicons name="analytics" size={16} color="#FF9800" /> Other Activity
+                </Text>
+                <View style={styles.reportMetricsGrid}>
+                  <View style={styles.reportMetricItem}>
+                    <Text style={styles.reportMetricValue}>{userReport.report.mood_selections}</Text>
+                    <Text style={styles.reportMetricLabel}>Mood Selections</Text>
+                  </View>
+                  <View style={styles.reportMetricItem}>
+                    <Text style={styles.reportMetricValue}>{userReport.user.followers_count}</Text>
+                    <Text style={styles.reportMetricLabel}>Followers</Text>
+                  </View>
+                  <View style={styles.reportMetricItem}>
+                    <Text style={styles.reportMetricValue}>{userReport.user.following_count}</Text>
+                    <Text style={styles.reportMetricLabel}>Following</Text>
+                  </View>
+                </View>
+              </View>
+
+              {/* Last Active */}
+              {userReport.report.last_active && (
+                <View style={styles.reportLastActive}>
+                  <Ionicons name="time-outline" size={14} color="#888" />
+                  <Text style={styles.reportLastActiveText}>
+                    Last active: {formatDateToCST(userReport.report.last_active)}
+                  </Text>
+                </View>
+              )}
+
+              <View style={{ height: 40 }} />
+            </ScrollView>
+          ) : null}
+        </View>
+      </Modal>
     </View>
   );
 }
