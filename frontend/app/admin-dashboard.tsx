@@ -720,32 +720,41 @@ export default function AdminDashboard() {
               <ScrollView horizontal showsHorizontalScrollIndicator={false}>
                 <BarChart
                   data={{
-                    labels: userGrowthChart.labels.slice(-10).map(label => 
-                      // Shorten weekly labels like "Dec 30-Jan 5" to "12/30"
-                      chartPeriod === 'week' && label.includes('-') 
-                        ? label.split('-')[0].replace(/([A-Z][a-z]+)\s(\d+)/, '$2/$1').substring(0, 5)
-                        : label
-                    ),
-                    datasets: [{ data: userGrowthChart.datasets[0]?.data.slice(-10) || [0] }]
+                    labels: userGrowthChart.labels.slice(-8).map(label => {
+                      // For weekly labels like "Dec 30-Jan 5", show as "12/30"
+                      if (chartPeriod === 'week' && label.includes('-')) {
+                        const startPart = label.split('-')[0].trim();
+                        const monthMatch = startPart.match(/([A-Z][a-z]+)\s*(\d+)/);
+                        if (monthMatch) {
+                          const monthNum = {
+                            'Jan': '1', 'Feb': '2', 'Mar': '3', 'Apr': '4',
+                            'May': '5', 'Jun': '6', 'Jul': '7', 'Aug': '8',
+                            'Sep': '9', 'Oct': '10', 'Nov': '11', 'Dec': '12'
+                          }[monthMatch[1]] || monthMatch[1];
+                          return `${monthNum}/${monthMatch[2]}`;
+                        }
+                      }
+                      return label;
+                    }),
+                    datasets: [{ data: userGrowthChart.datasets[0]?.data.slice(-8) || [0] }]
                   }}
-                  width={Math.max(screenWidth - 48, userGrowthChart.labels.slice(-10).length * (chartPeriod === 'week' ? 60 : 50))}
-                  height={180}
+                  width={Math.max(screenWidth - 48, 8 * 55)}
+                  height={200}
                   yAxisLabel=""
                   yAxisSuffix=""
                   chartConfig={{
                     ...chartConfig,
                     propsForLabels: {
-                      fontSize: chartPeriod === 'week' ? 9 : 10,
+                      fontSize: 10,
                     }
                   }}
                   style={styles.chart}
                   showValuesOnTopOfBars
                   fromZero
-                  verticalLabelRotation={chartPeriod === 'week' ? 30 : 0}
                 />
               </ScrollView>
               {chartPeriod === 'week' && (
-                <Text style={styles.chartSubtext}>Weekly data showing start date of each week</Text>
+                <Text style={styles.chartSubtext}>Week starting dates (month/day)</Text>
               )}
             </View>
           ) : (
