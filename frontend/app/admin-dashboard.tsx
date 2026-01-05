@@ -1185,19 +1185,41 @@ export default function AdminDashboard() {
                 </View>
               </View>
 
-              {/* Top Screens */}
+              {/* Top Screens - matching aggregate dashboard format */}
               {userReport.report.top_screens.length > 0 && (
                 <View style={styles.reportSection}>
-                  <Text style={styles.reportSectionTitle}>
-                    <Ionicons name="layers" size={16} color="#9C27B0" /> Top Screens
-                  </Text>
-                  {userReport.report.top_screens.map((screen, idx) => (
-                    <View key={screen.screen} style={styles.reportTopItem}>
-                      <Text style={styles.reportTopRank}>{idx + 1}</Text>
-                      <Text style={styles.reportTopName}>{formatPageName(screen.screen)}</Text>
-                      <Text style={styles.reportTopValue}>{screen.views} views</Text>
-                    </View>
-                  ))}
+                  <View style={styles.reportSectionHeader}>
+                    <Text style={styles.reportSectionTitle}>
+                      <Ionicons name="layers" size={16} color="#9C27B0" /> Top Screens
+                    </Text>
+                    <Text style={styles.reportTotalBadge}>{userReport.report.total_screen_views} views</Text>
+                  </View>
+                  <View style={styles.listContainer}>
+                    {userReport.report.top_screens.map((screen, idx) => {
+                      const maxViews = userReport.report.top_screens[0]?.views || 1;
+                      const percentage = (screen.views / maxViews) * 100;
+                      
+                      return (
+                        <View key={screen.screen} style={styles.listItem}>
+                          <View style={styles.listRank}>
+                            <Text style={[styles.rankText, idx === 0 && styles.rankTextGold]}>
+                              {idx + 1}
+                            </Text>
+                          </View>
+                          <View style={styles.listContent}>
+                            <Text style={styles.listTitle}>{screen.screen}</Text>
+                            <View style={styles.progressBar}>
+                              <View style={[styles.progressFill, { width: `${percentage}%`, backgroundColor: '#9C27B0' }]} />
+                            </View>
+                          </View>
+                          <View style={styles.listStats}>
+                            <Text style={styles.listValue}>{screen.views}</Text>
+                            <Text style={styles.listSubValue}>{screen.percentage || Math.round(percentage)}%</Text>
+                          </View>
+                        </View>
+                      );
+                    })}
+                  </View>
                 </View>
               )}
 
