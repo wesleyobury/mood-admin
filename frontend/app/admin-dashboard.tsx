@@ -977,7 +977,11 @@ export default function AdminDashboard() {
               data={users}
               keyExtractor={(item) => item.user_id}
               renderItem={({ item, index }) => (
-                <View style={styles.userItem}>
+                <TouchableOpacity 
+                  style={styles.userItem}
+                  onPress={() => fetchUserReport(item.user_id)}
+                  activeOpacity={0.7}
+                >
                   <View style={styles.userRank}>
                     <Text style={styles.userRankText}>{index + 1}</Text>
                   </View>
@@ -995,7 +999,7 @@ export default function AdminDashboard() {
                     <Text style={styles.userName}>{item.username}</Text>
                     <Text style={styles.userEmail}>{item.email}</Text>
                     <Text style={styles.userSignupDate}>
-                      📅 Signed up: {formatSignupDate(item.created_at)}
+                      📅 Signed up: {formatDateToCST(item.created_at)}
                     </Text>
                     <View style={styles.userStatsRow}>
                       <Text style={styles.userStat}>
@@ -1009,13 +1013,24 @@ export default function AdminDashboard() {
                       </Text>
                     </View>
                   </View>
-                  <TouchableOpacity 
-                    style={styles.deleteUserBtn}
-                    onPress={() => deleteUser(item.user_id, item.username)}
-                  >
-                    <Ionicons name="trash-outline" size={20} color="#F44336" />
-                  </TouchableOpacity>
-                </View>
+                  <View style={styles.userActions}>
+                    <TouchableOpacity 
+                      style={styles.viewReportBtn}
+                      onPress={() => fetchUserReport(item.user_id)}
+                    >
+                      <Ionicons name="analytics-outline" size={18} color="#FFD700" />
+                    </TouchableOpacity>
+                    <TouchableOpacity 
+                      style={styles.deleteUserBtn}
+                      onPress={(e) => {
+                        e.stopPropagation();
+                        deleteUser(item.user_id, item.username);
+                      }}
+                    >
+                      <Ionicons name="trash-outline" size={18} color="#F44336" />
+                    </TouchableOpacity>
+                  </View>
+                </TouchableOpacity>
               )}
               ListEmptyComponent={
                 <View style={styles.emptyList}>
