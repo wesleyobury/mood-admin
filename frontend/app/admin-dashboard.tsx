@@ -26,12 +26,13 @@ const screenWidth = Dimensions.get('window').width;
 
 const ADMIN_USERNAME = 'officialmoodapp';
 
-// Time period options
+// Time period options - 0 means "all time"
 const TIME_PERIODS = [
   { value: 1, label: 'Today', shortLabel: '1D' },
   { value: 7, label: 'This Week', shortLabel: '7D' },
   { value: 30, label: 'This Month', shortLabel: '30D' },
   { value: 90, label: '90 Days', shortLabel: '90D' },
+  { value: 0, label: 'All Time', shortLabel: 'All' },
 ];
 
 // Mood colors - EXACT match from home screen mood cards gradients (first color)
