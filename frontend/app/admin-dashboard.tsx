@@ -1082,6 +1082,27 @@ export default function AdminDashboard() {
             <View style={{ width: 24 }} />
           </View>
 
+          {/* Time Period Selector for User Report */}
+          <View style={styles.reportPeriodSelector}>
+            {TIME_PERIODS.map(period => (
+              <TouchableOpacity
+                key={period.value}
+                style={[
+                  styles.reportPeriodChip,
+                  userReportPeriod === period.value && styles.reportPeriodChipActive
+                ]}
+                onPress={() => handleReportPeriodChange(period.value)}
+              >
+                <Text style={[
+                  styles.reportPeriodChipText,
+                  userReportPeriod === period.value && styles.reportPeriodChipTextActive
+                ]}>
+                  {period.shortLabel}
+                </Text>
+              </TouchableOpacity>
+            ))}
+          </View>
+
           {userReportLoading ? (
             <View style={styles.modalLoading}>
               <ActivityIndicator size="large" color="#FFD700" />
@@ -1108,14 +1129,6 @@ export default function AdminDashboard() {
                     Joined: {formatDateToCST(userReport.user.created_at)}
                   </Text>
                 </View>
-              </View>
-
-              {/* Period Badge */}
-              <View style={styles.reportPeriodBadge}>
-                <Ionicons name="calendar-outline" size={14} color="#FFD700" />
-                <Text style={styles.reportPeriodText}>
-                  Data from last {userReport.period_days} {userReport.period_days === 1 ? 'day' : 'days'}
-                </Text>
               </View>
 
               {/* Workout Metrics */}
