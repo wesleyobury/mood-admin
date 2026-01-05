@@ -69,6 +69,27 @@ const VideoPlayer = memo(({ uri, isActive }: VideoPlayerProps) => {
     }
   }, [audioConfigured]);
 
+  // Cleanup: Stop and unload video when component unmounts or becomes inactive
+  useEffect(() => {
+    return () => {
+      // Cleanup on unmount
+      if (videoRef.current) {
+        videoRef.current.stopAsync().catch(() => {});
+        videoRef.current.unloadAsync().catch(() => {});
+      }
+    };
+  }, []);
+
+  // Auto-pause and stop audio when not active
+  useEffect(() => {
+    if (!isActive && videoRef.current) {
+      videoRef.current.pauseAsync().catch(() => {});
+      videoRef.current.setIsMutedAsync(true).catch(() => {});
+      setIsMuted(true);
+      setIsPlaying(false);
+    }
+  }, [isActive]);
+
   const handlePlaybackStatusUpdate = useCallback((status: AVPlaybackStatus) => {
     if (status.isLoaded) {
       setIsLoading(false);
