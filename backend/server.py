@@ -1843,14 +1843,14 @@ async def get_user_detail_report(
         workouts_completed = await db.user_events.count_documents({
             "user_id": user_id,
             "event_type": "workout_completed",
-            "timestamp": {"$gte": start_date}
+            "timestamp": date_filter
         })
         
         # Workouts started
         workouts_started = await db.user_events.count_documents({
             "user_id": user_id,
             "event_type": "workout_started",
-            "timestamp": {"$gte": start_date}
+            "timestamp": date_filter
         })
         
         # Screen views (unique screens and total views)
@@ -1859,7 +1859,7 @@ async def get_user_detail_report(
                 "$match": {
                     "user_id": user_id,
                     "event_type": {"$in": ["screen_viewed", "screen_entered"]},
-                    "timestamp": {"$gte": start_date}
+                    "timestamp": date_filter
                 }
             },
             {
@@ -1873,25 +1873,66 @@ async def get_user_detail_report(
         total_screen_views = sum(s["count"] for s in screen_views_result)
         unique_screens_viewed = len([s for s in screen_views_result if s["_id"]])
         
-        # Top screens viewed
+        # Page name normalization map (same as aggregate)
+        page_name_map = {
+            "profile": "Profile",
+            "explore": "Explore", 
+            "index": "Home",
+            "home": "Home",
+            "cart": "Workout Cart",
+            "workout-session": "Workout Session",
+            "create-post": "Create Post",
+            "admin-dashboard": "Admin Dashboard",
+            "featured-workout-detail": "Featured Workout",
+            "user-profile": "User Profile",
+            "settings": "Settings",
+            "workout-type": "Workout Type",
+            "landing": "Landing Page",
+            "login": "Login",
+            "register": "Register",
+            "auth/login": "Login",
+            "privacy-policy": "Privacy Policy",
+        }
+        
+        # Merge duplicate screens and normalize names
+        merged_screens = {}
+        for s in screen_views_result:
+            if s["_id"]:
+                normalized = s["_id"].lower().strip()
+                display_name = page_name_map.get(normalized, normalized.replace('-', ' ').title())
+                
+                if display_name in merged_screens:
+                    merged_screens[display_name]["views"] += s["count"]
+                else:
+                    merged_screens[display_name] = {
+                        "screen": display_name,
+                        "views": s["count"]
+                    }
+        
+        # Top screens viewed (sorted and limited)
         top_screens = sorted(
-            [{"screen": s["_id"], "views": s["count"]} for s in screen_views_result if s["_id"]],
+            list(merged_screens.values()),
             key=lambda x: x["views"],
             reverse=True
         )[:5]
+        
+        # Calculate percentages for top screens
+        if total_screen_views > 0:
+            for screen in top_screens:
+                screen["percentage"] = round((screen["views"] / total_screen_views) * 100, 1)
         
         # App sessions (app_opened or app_session_start events)
         app_sessions = await db.user_events.count_documents({
             "user_id": user_id,
             "event_type": {"$in": ["app_opened", "app_session_start"]},
-            "timestamp": {"$gte": start_date}
+            "timestamp": date_filter
         })
         
         # Posts created
         posts_created = await db.user_events.count_documents({
             "user_id": user_id,
             "event_type": "post_created",
-            "timestamp": {"$gte": start_date}
+            "timestamp": date_filter
         })
         
         # Also count from posts collection
@@ -1903,14 +1944,14 @@ async def get_user_detail_report(
         likes_given = await db.user_events.count_documents({
             "user_id": user_id,
             "event_type": "post_liked",
-            "timestamp": {"$gte": start_date}
+            "timestamp": date_filter
         })
         
         # Comments made
         comments_made = await db.user_events.count_documents({
             "user_id": user_id,
             "event_type": "post_commented",
-            "timestamp": {"$gte": start_date}
+            "timestamp": date_filter
         })
         
         # Time spent in app (sum of screen_time_spent events)
