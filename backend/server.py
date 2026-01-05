@@ -2473,6 +2473,19 @@ async def get_posts(current_user_id: str = Depends(get_current_user), limit: int
                 ],
                 "as": "user_like"
             }
+        },
+        {
+            "$lookup": {
+                "from": "saved_posts",
+                "let": {"post_id": "$_id", "user_id_str": current_user_id},
+                "pipeline": [
+                    {"$match": {"$expr": {"$and": [
+                        {"$eq": ["$post_id", "$$post_id"]},
+                        {"$eq": [{"$toString": "$user_id"}, "$$user_id_str"]}
+                    ]}}}
+                ],
+                "as": "user_saved"
+            }
         }
     ]
     
