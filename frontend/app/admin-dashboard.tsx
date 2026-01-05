@@ -91,7 +91,7 @@ export default function AdminDashboard() {
   // Check if user is authorized to access admin dashboard
   useEffect(() => {
     if (user) {
-      const authorized = user.email?.toLowerCase() === ADMIN_EMAIL.toLowerCase();
+      const authorized = user.username?.toLowerCase() === ADMIN_USERNAME.toLowerCase();
       setIsAuthorized(authorized);
       if (!authorized) {
         Alert.alert(
