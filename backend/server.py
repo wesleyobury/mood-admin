@@ -1798,13 +1798,22 @@ async def get_user_detail_report(
     Get detailed analytics report for a specific user.
     Includes: workouts added to cart, workouts completed, screens viewed,
     app sessions, posts/likes/comments, time spent in app.
+    days=0 means "all time" (no date filter)
     """
     # Verify admin
     admin_user = await db.users.find_one({"_id": ObjectId(current_user_id)})
     if not admin_user or admin_user.get("username", "").lower() != "officialmoodapp":
         raise HTTPException(status_code=403, detail="Admin access required")
     
-    start_date = datetime.now(timezone.utc) - timedelta(days=days)
+    # Handle "all time" option (days=0)
+    is_all_time = days == 0
+    if is_all_time:
+        start_date = datetime(2020, 1, 1, tzinfo=timezone.utc)
+    else:
+        start_date = datetime.now(timezone.utc) - timedelta(days=days)
+    
+    # Build date filter for queries
+    date_filter = {"$gte": start_date}
     
     try:
         # Find the user
@@ -1827,7 +1836,7 @@ async def get_user_detail_report(
         workouts_added_to_cart = await db.user_events.count_documents({
             "user_id": user_id,
             "event_type": "workout_added_to_cart",
-            "timestamp": {"$gte": start_date}
+            "timestamp": date_filter
         })
         
         # Workouts completed
