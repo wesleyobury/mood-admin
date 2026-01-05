@@ -151,13 +151,6 @@ const VideoPlayer = memo(({ uri, isActive }: VideoPlayerProps) => {
     return `${minutes}:${seconds.toString().padStart(2, '0')}`;
   };
 
-  // Auto-pause when not active
-  React.useEffect(() => {
-    if (!isActive && videoRef.current && isPlaying) {
-      videoRef.current.pauseAsync();
-    }
-  }, [isActive, isPlaying]);
-
   if (hasError) {
     return (
       <View style={styles.errorContainer}>
