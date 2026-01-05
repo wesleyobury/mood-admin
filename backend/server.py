@@ -1960,7 +1960,7 @@ async def get_user_detail_report(
                 "$match": {
                     "user_id": user_id,
                     "event_type": "screen_time_spent",
-                    "timestamp": {"$gte": start_date}
+                    "timestamp": date_filter
                 }
             },
             {
@@ -1988,19 +1988,20 @@ async def get_user_detail_report(
         mood_selections = await db.user_events.count_documents({
             "user_id": user_id,
             "event_type": "mood_selected",
-            "timestamp": {"$gte": start_date}
+            "timestamp": date_filter
         })
         
         # Follows given
         follows_given = await db.user_events.count_documents({
             "user_id": user_id,
             "event_type": "user_followed",
-            "timestamp": {"$gte": start_date}
+            "timestamp": date_filter
         })
         
         return {
             "user": user_info,
             "period_days": days,
+            "is_all_time": is_all_time,
             "report": {
                 # Workout metrics
                 "workouts_added_to_cart": workouts_added_to_cart,
