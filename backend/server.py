@@ -1402,9 +1402,23 @@ async def calculate_user_streak(user_id: str) -> int:
     
     return current_streak
 
+async def find_user_by_id(user_id: str):
+    """Find user by either custom user_id field or MongoDB ObjectId"""
+    # First try to find by custom user_id field (for OAuth users)
+    user = await db.users.find_one({"user_id": user_id})
+    
+    # If not found, try ObjectId (for legacy users)
+    if not user:
+        try:
+            user = await db.users.find_one({"_id": ObjectId(user_id)})
+        except:
+            pass  # Invalid ObjectId format, skip
+    
+    return user
+
 @api_router.get("/users/me", response_model=UserResponse)
 async def get_current_user_info(current_user_id: str = Depends(get_current_user)):
-    user = await db.users.find_one({"_id": ObjectId(current_user_id)})
+    user = await find_user_by_id(current_user_id)
     if not user:
         raise HTTPException(status_code=404, detail="User not found")
     
@@ -1414,15 +1428,22 @@ async def get_current_user_info(current_user_id: str = Depends(get_current_user)
     # Update stored streak if different
     stored_streak = user.get("current_streak", 0)
     if current_streak != stored_streak:
-        await db.users.update_one(
-            {"_id": ObjectId(current_user_id)},
-            {"$set": {"current_streak": current_streak}}
-        )
+        # Update using the appropriate identifier
+        if "user_id" in user:
+            await db.users.update_one(
+                {"user_id": user["user_id"]},
+                {"$set": {"current_streak": current_streak}}
+            )
+        else:
+            await db.users.update_one(
+                {"_id": user["_id"]},
+                {"$set": {"current_streak": current_streak}}
+            )
     
     return UserResponse(
-        id=str(user["_id"]),
+        id=user.get("user_id") or str(user["_id"]),
         username=user["username"],
-        email=user["email"],
+        email=user.get("email", ""),
         name=user.get("name"),
         bio=user.get("bio", ""),
         avatar=user.get("avatar", ""),
@@ -1430,7 +1451,7 @@ async def get_current_user_info(current_user_id: str = Depends(get_current_user)
         following_count=user.get("following_count", 0),
         workouts_count=user.get("workouts_count", 0),
         current_streak=current_streak,
-        created_at=user["created_at"]
+        created_at=user.get("created_at", datetime.now(timezone.utc))
     )
 
 
