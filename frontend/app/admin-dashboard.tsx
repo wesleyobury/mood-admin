@@ -19,7 +19,7 @@ import { useRouter } from 'expo-router';
 import { useAuth } from '../contexts/AuthContext';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import Constants from 'expo-constants';
-import { BarChart, LineChart, PieChart } from 'react-native-chart-kit';
+import { BarChart, LineChart } from 'react-native-chart-kit';
 
 const API_URL = Constants.expoConfig?.extra?.EXPO_PUBLIC_BACKEND_URL || process.env.EXPO_PUBLIC_BACKEND_URL || '';
 const screenWidth = Dimensions.get('window').width;
@@ -33,6 +33,25 @@ const TIME_PERIODS = [
   { value: 30, label: 'This Month', shortLabel: '30D' },
   { value: 90, label: '90 Days', shortLabel: '90D' },
 ];
+
+// Mood colors for on-brand styling
+const MOOD_COLORS: Record<string, string> = {
+  'sweat': '#FF5722',
+  'muscle': '#4CAF50',
+  'outdoor': '#2196F3',
+  'calisthenics': '#9C27B0',
+  'lazy': '#FF9800',
+  'explosive': '#E91E63',
+};
+
+const MOOD_ICONS: Record<string, string> = {
+  'sweat': 'water',
+  'muscle': 'barbell',
+  'outdoor': 'leaf',
+  'calisthenics': 'body',
+  'lazy': 'bed',
+  'explosive': 'flash',
+};
 
 interface ComprehensiveStats {
   period_days: number;
@@ -67,6 +86,13 @@ interface UserItem {
   followers_count: number;
 }
 
+interface ActiveUser {
+  user_id: string;
+  username: string;
+  avatar_url?: string;
+  last_active?: string;
+}
+
 interface ChartDataset {
   label: string;
   data: number[];
@@ -91,6 +117,7 @@ export default function AdminDashboard() {
   // Data states
   const [stats, setStats] = useState<ComprehensiveStats | null>(null);
   const [realtimeActiveCount, setRealtimeActiveCount] = useState(0);
+  const [activeUsers, setActiveUsers] = useState<ActiveUser[]>([]);
   const [userGrowthChart, setUserGrowthChart] = useState<ChartData | null>(null);
   const [moodChart, setMoodChart] = useState<ChartData | null>(null);
   const [sessionChart, setSessionChart] = useState<ChartData | null>(null);
@@ -102,6 +129,12 @@ export default function AdminDashboard() {
   const [usersLoading, setUsersLoading] = useState(false);
   const [userSearchQuery, setUserSearchQuery] = useState('');
   const [totalUsersCount, setTotalUsersCount] = useState(0);
+  
+  // Active users modal state
+  const [showActiveUsers, setShowActiveUsers] = useState(false);
+  
+  // Session chart modal state
+  const [showSessionChart, setShowSessionChart] = useState(false);
   
   // Chart period selection
   const [chartPeriod, setChartPeriod] = useState<'day' | 'week' | 'month'>('day');
@@ -143,7 +176,7 @@ export default function AdminDashboard() {
     sendHeartbeat();
     
     // Set up interval
-    heartbeatRef.current = setInterval(sendHeartbeat, 30000); // Every 30 seconds
+    heartbeatRef.current = setInterval(sendHeartbeat, 30000);
     
     return () => {
       if (heartbeatRef.current) {
@@ -168,7 +201,7 @@ export default function AdminDashboard() {
         setStats(statsData);
       }
       
-      // Fetch real-time active users
+      // Fetch real-time active users with details
       const realtimeResponse = await fetch(
         `${API_URL}/api/analytics/admin/realtime-active?timeout_minutes=5`,
         { headers: { 'Authorization': `Bearer ${token}` } }
@@ -177,9 +210,10 @@ export default function AdminDashboard() {
       if (realtimeResponse.ok) {
         const realtimeData = await realtimeResponse.json();
         setRealtimeActiveCount(realtimeData.active_count || 0);
+        setActiveUsers(realtimeData.users || []);
       }
       
-      // Fetch chart data
+      // Fetch chart data - always use 'day' for session chart as requested
       const chartDays = chartPeriod === 'month' ? 365 : chartPeriod === 'week' ? 180 : 30;
       
       const [userGrowthRes, moodRes, sessionRes] = await Promise.all([
@@ -189,7 +223,8 @@ export default function AdminDashboard() {
         fetch(`${API_URL}/api/analytics/admin/chart-data/mood_distribution?period=${chartPeriod}&days=${chartDays}`, {
           headers: { 'Authorization': `Bearer ${token}` }
         }),
-        fetch(`${API_URL}/api/analytics/admin/chart-data/session_trend?period=${chartPeriod}&days=${chartDays}`, {
+        // Session chart always uses daily data
+        fetch(`${API_URL}/api/analytics/admin/chart-data/session_trend?period=day&days=30`, {
           headers: { 'Authorization': `Bearer ${token}` }
         }),
       ]);
@@ -228,9 +263,9 @@ export default function AdminDashboard() {
       if (type === 'all') {
         endpoint = `/api/analytics/admin/users/list?days=${selectedPeriod}&limit=50&search=${search}`;
       } else if (type === 'new') {
-        endpoint = `/api/analytics/admin/users/new?days=${selectedPeriod}&limit=50`;
+        endpoint = `/api/analytics/admin/users/list?days=${selectedPeriod}&limit=50&sort_by=created_at&sort_order=desc`;
       } else {
-        endpoint = `/api/analytics/admin/users/active?days=${selectedPeriod}&limit=50`;
+        endpoint = `/api/analytics/admin/users/list?days=${selectedPeriod}&limit=50`;
       }
       
       const response = await fetch(`${API_URL}${endpoint}`, {
@@ -256,6 +291,47 @@ export default function AdminDashboard() {
     fetchUsers(type);
   };
 
+  // Delete user function
+  const deleteUser = async (userId: string, username: string) => {
+    Alert.alert(
+      'Delete User',
+      `Are you sure you want to delete "${username}"?\n\nThis user's profile will be stored safely for 7 days and can be recovered if needed.`,
+      [
+        { text: 'Cancel', style: 'cancel' },
+        {
+          text: 'Delete',
+          style: 'destructive',
+          onPress: async () => {
+            try {
+              const response = await fetch(`${API_URL}/api/analytics/admin/users/${userId}`, {
+                method: 'DELETE',
+                headers: { 'Authorization': `Bearer ${token}` }
+              });
+              
+              if (response.ok) {
+                const data = await response.json();
+                Alert.alert(
+                  'User Deleted',
+                  `${username} has been deleted.\n\nRecoverable until: ${new Date(data.recoverable_until).toLocaleDateString()}`,
+                  [{ text: 'OK' }]
+                );
+                // Refresh user list
+                fetchUsers(userListType, userSearchQuery);
+                // Refresh stats
+                fetchAllData();
+              } else {
+                const error = await response.json();
+                Alert.alert('Error', error.detail || 'Failed to delete user');
+              }
+            } catch (error) {
+              Alert.alert('Error', 'Failed to delete user. Please try again.');
+            }
+          }
+        }
+      ]
+    );
+  };
+
   // Export users as CSV
   const exportUsers = async () => {
     if (!token) return;
@@ -268,8 +344,6 @@ export default function AdminDashboard() {
       
       if (response.ok) {
         const data = await response.json();
-        // In a real app, this would trigger a download
-        // For now, show alert with count
         Alert.alert(
           'Export Ready',
           `${data.count} users exported. In production, this would download as CSV.`,
@@ -284,6 +358,19 @@ export default function AdminDashboard() {
   const onRefresh = () => {
     setRefreshing(true);
     fetchAllData();
+  };
+
+  // Format signup date nicely
+  const formatSignupDate = (dateStr?: string) => {
+    if (!dateStr) return 'Unknown';
+    const date = new Date(dateStr);
+    return date.toLocaleDateString('en-US', {
+      month: 'short',
+      day: 'numeric',
+      year: 'numeric',
+      hour: '2-digit',
+      minute: '2-digit'
+    });
   };
 
   if (!isAuthorized) {
@@ -319,7 +406,8 @@ export default function AdminDashboard() {
     barPercentage: 0.6,
   };
 
-  const pieChartColors = ['#FFD700', '#4CAF50', '#2196F3', '#E91E63', '#FF9800', '#9C27B0'];
+  // Calculate total mood selections for percentage
+  const totalMoodSelections = moodChart?.datasets[0]?.data.reduce((a, b) => a + b, 0) || 0;
 
   return (
     <View style={[styles.container, { paddingTop: insets.top }]}>
@@ -389,7 +477,7 @@ export default function AdminDashboard() {
               <Text style={styles.metricLabel}>Total Users</Text>
               <View style={styles.metricFooter}>
                 <Ionicons name="chevron-forward" size={14} color="#666" />
-                <Text style={styles.metricHint}>Tap to view list</Text>
+                <Text style={styles.metricHint}>View all users</Text>
               </View>
             </TouchableOpacity>
 
@@ -410,8 +498,11 @@ export default function AdminDashboard() {
               </View>
             </TouchableOpacity>
 
-            {/* Real-time Active */}
-            <View style={styles.metricCard}>
+            {/* Real-time Active - Opens active users list */}
+            <TouchableOpacity 
+              style={styles.metricCard}
+              onPress={() => setShowActiveUsers(true)}
+            >
               <View style={[styles.metricIcon, { backgroundColor: 'rgba(244, 67, 54, 0.15)' }]}>
                 <View style={styles.liveDot} />
                 <Ionicons name="radio" size={24} color="#F44336" />
@@ -420,13 +511,14 @@ export default function AdminDashboard() {
               <Text style={styles.metricLabel}>Active Now</Text>
               <View style={styles.metricFooter}>
                 <Text style={[styles.metricSubValue, { color: '#F44336' }]}>LIVE</Text>
+                <Ionicons name="chevron-forward" size={14} color="#666" />
               </View>
-            </View>
+            </TouchableOpacity>
 
-            {/* App Sessions */}
+            {/* App Sessions - Opens session chart */}
             <TouchableOpacity 
               style={styles.metricCard}
-              onPress={() => openUserList('active')}
+              onPress={() => setShowSessionChart(true)}
             >
               <View style={[styles.metricIcon, { backgroundColor: 'rgba(33, 150, 243, 0.15)' }]}>
                 <Ionicons name="phone-portrait" size={24} color="#2196F3" />
@@ -434,7 +526,8 @@ export default function AdminDashboard() {
               <Text style={styles.metricValue}>{stats?.total_sessions?.toLocaleString() || 0}</Text>
               <Text style={styles.metricLabel}>App Sessions</Text>
               <View style={styles.metricFooter}>
-                <Text style={styles.metricSubValue}>app opens</Text>
+                <Text style={styles.metricSubValue}>View chart</Text>
+                <Ionicons name="bar-chart-outline" size={14} color="#666" />
               </View>
             </TouchableOpacity>
           </View>
@@ -482,34 +575,35 @@ export default function AdminDashboard() {
           )}
         </View>
 
-        {/* Top Mood Cards Selected */}
+        {/* Mood Selection Distribution - Custom on-brand design */}
         <View style={styles.section}>
           <View style={styles.sectionHeader}>
-            <Text style={styles.sectionTitle}>Top Mood Cards Selected</Text>
-            <Text style={styles.totalBadge}>{stats?.total_mood_selections?.toLocaleString() || 0} selections</Text>
+            <Text style={styles.sectionTitle}>Mood Selection Distribution</Text>
+            <Text style={styles.totalBadge}>{stats?.total_mood_selections?.toLocaleString() || 0} total</Text>
           </View>
           
-          {stats?.top_mood_cards && stats.top_mood_cards.length > 0 ? (
-            <View style={styles.listContainer}>
-              {stats.top_mood_cards.map((mood, index) => {
-                const maxSelections = stats.top_mood_cards[0]?.selections || 1;
-                const percentage = (mood.selections / maxSelections) * 100;
+          {moodChart && moodChart.labels.length > 0 ? (
+            <View style={styles.moodDistributionContainer}>
+              {/* Visual bars for each mood */}
+              {moodChart.labels.map((label, index) => {
+                const count = moodChart.datasets[0]?.data[index] || 0;
+                const percentage = totalMoodSelections > 0 ? (count / totalMoodSelections) * 100 : 0;
+                const moodId = stats?.top_mood_cards?.find(m => m.mood === label)?.mood_id || '';
+                const color = MOOD_COLORS[moodId] || '#FFD700';
+                const icon = MOOD_ICONS[moodId] || 'fitness';
                 
                 return (
-                  <View key={mood.mood_id} style={styles.listItem}>
-                    <View style={[styles.listRank, { backgroundColor: getMoodColor(mood.mood_id) }]}>
-                      <Ionicons name={getMoodIcon(mood.mood_id)} size={16} color="#fff" />
-                    </View>
-                    <View style={styles.listContent}>
-                      <Text style={styles.listTitle}>{mood.mood}</Text>
-                      <View style={styles.progressBar}>
-                        <View style={[styles.progressFill, { width: `${percentage}%`, backgroundColor: getMoodColor(mood.mood_id) }]} />
+                  <View key={label} style={styles.moodBarRow}>
+                    <View style={styles.moodLabelContainer}>
+                      <View style={[styles.moodIconCircle, { backgroundColor: `${color}20` }]}>
+                        <Ionicons name={icon as any} size={16} color={color} />
                       </View>
+                      <Text style={styles.moodLabel} numberOfLines={1}>{label}</Text>
                     </View>
-                    <View style={styles.listStats}>
-                      <Text style={styles.listValue}>{mood.selections.toLocaleString()}</Text>
-                      <Text style={styles.listSubValue}>{mood.unique_users} users</Text>
+                    <View style={styles.moodBarContainer}>
+                      <View style={[styles.moodBar, { width: `${percentage}%`, backgroundColor: color }]} />
                     </View>
+                    <Text style={styles.moodPercentage}>{percentage.toFixed(0)}%</Text>
                   </View>
                 );
               })}
@@ -571,53 +665,6 @@ export default function AdminDashboard() {
               </View>
             </View>
           )}
-
-          {/* Session Trend Chart */}
-          {sessionChart && sessionChart.labels.length > 0 ? (
-            <View style={styles.chartCard}>
-              <Text style={styles.chartTitle}>App Session Trends</Text>
-              <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-                <LineChart
-                  data={{
-                    labels: sessionChart.labels.slice(-10),
-                    datasets: [{ data: sessionChart.datasets[0]?.data.slice(-10) || [0] }]
-                  }}
-                  width={Math.max(screenWidth - 48, sessionChart.labels.slice(-10).length * 50)}
-                  height={180}
-                  chartConfig={{
-                    ...chartConfig,
-                    color: (opacity = 1) => `rgba(33, 150, 243, ${opacity})`,
-                  }}
-                  bezier
-                  style={styles.chart}
-                  fromZero
-                />
-              </ScrollView>
-            </View>
-          ) : null}
-
-          {/* Mood Distribution Pie Chart */}
-          {moodChart && moodChart.labels.length > 0 ? (
-            <View style={styles.chartCard}>
-              <Text style={styles.chartTitle}>Mood Selection Distribution</Text>
-              <PieChart
-                data={moodChart.labels.map((label, index) => ({
-                  name: label.length > 12 ? label.substring(0, 12) + '...' : label,
-                  count: moodChart.datasets[0]?.data[index] || 0,
-                  color: pieChartColors[index % pieChartColors.length],
-                  legendFontColor: '#fff',
-                  legendFontSize: 11,
-                }))}
-                width={screenWidth - 48}
-                height={180}
-                chartConfig={chartConfig}
-                accessor="count"
-                backgroundColor="transparent"
-                paddingLeft="15"
-                absolute
-              />
-            </View>
-          ) : null}
         </View>
 
         {/* Engagement Summary */}
@@ -667,6 +714,134 @@ export default function AdminDashboard() {
         <View style={{ height: 40 }} />
       </ScrollView>
 
+      {/* Active Users Modal */}
+      <Modal
+        visible={showActiveUsers}
+        animationType="slide"
+        presentationStyle="pageSheet"
+        onRequestClose={() => setShowActiveUsers(false)}
+      >
+        <View style={[styles.modalContainer, { paddingTop: insets.top }]}>
+          <View style={styles.modalHeader}>
+            <TouchableOpacity onPress={() => setShowActiveUsers(false)} style={styles.modalClose}>
+              <Ionicons name="close" size={24} color="#fff" />
+            </TouchableOpacity>
+            <View style={styles.modalTitleContainer}>
+              <View style={styles.liveIndicator}>
+                <View style={styles.livePulse} />
+                <Text style={styles.liveText}>LIVE</Text>
+              </View>
+              <Text style={styles.modalTitle}>Active Users</Text>
+            </View>
+            <Text style={styles.modalCount}>{realtimeActiveCount} online</Text>
+          </View>
+
+          <Text style={styles.activeUsersSubtitle}>
+            Users with app open in the last 5 minutes
+          </Text>
+
+          {activeUsers.length > 0 ? (
+            <FlatList
+              data={activeUsers}
+              keyExtractor={(item) => item.user_id}
+              renderItem={({ item }) => (
+                <View style={styles.activeUserItem}>
+                  <View style={styles.activeUserAvatar}>
+                    {item.avatar_url ? (
+                      <Image 
+                        source={{ uri: item.avatar_url.startsWith('http') ? item.avatar_url : `${API_URL}${item.avatar_url}` }} 
+                        style={styles.avatarImage} 
+                      />
+                    ) : (
+                      <Ionicons name="person" size={24} color="#666" />
+                    )}
+                    <View style={styles.onlineDot} />
+                  </View>
+                  <View style={styles.activeUserInfo}>
+                    <Text style={styles.activeUserName}>{item.username}</Text>
+                    <Text style={styles.activeUserTime}>
+                      Last active: {item.last_active ? new Date(item.last_active).toLocaleTimeString() : 'Just now'}
+                    </Text>
+                  </View>
+                </View>
+              )}
+            />
+          ) : (
+            <View style={styles.emptyActiveUsers}>
+              <Ionicons name="people-outline" size={48} color="#666" />
+              <Text style={styles.emptyActiveText}>No users currently online</Text>
+            </View>
+          )}
+        </View>
+      </Modal>
+
+      {/* Session Chart Modal */}
+      <Modal
+        visible={showSessionChart}
+        animationType="slide"
+        presentationStyle="pageSheet"
+        onRequestClose={() => setShowSessionChart(false)}
+      >
+        <View style={[styles.modalContainer, { paddingTop: insets.top }]}>
+          <View style={styles.modalHeader}>
+            <TouchableOpacity onPress={() => setShowSessionChart(false)} style={styles.modalClose}>
+              <Ionicons name="close" size={24} color="#fff" />
+            </TouchableOpacity>
+            <Text style={styles.modalTitle}>App Sessions by Day</Text>
+            <View style={{ width: 24 }} />
+          </View>
+
+          <Text style={styles.sessionChartSubtitle}>
+            Daily app session activity (last 30 days)
+          </Text>
+
+          {sessionChart && sessionChart.labels.length > 0 ? (
+            <ScrollView 
+              horizontal 
+              showsHorizontalScrollIndicator={false}
+              contentContainerStyle={styles.sessionChartContainer}
+            >
+              <LineChart
+                data={{
+                  labels: sessionChart.labels,
+                  datasets: [{ data: sessionChart.datasets[0]?.data || [0] }]
+                }}
+                width={Math.max(screenWidth - 32, sessionChart.labels.length * 40)}
+                height={280}
+                chartConfig={{
+                  ...chartConfig,
+                  color: (opacity = 1) => `rgba(33, 150, 243, ${opacity})`,
+                }}
+                bezier
+                style={styles.sessionLineChart}
+                fromZero
+              />
+            </ScrollView>
+          ) : (
+            <View style={styles.noSessionData}>
+              <Ionicons name="analytics-outline" size={48} color="#666" />
+              <Text style={styles.noSessionText}>No session data available</Text>
+            </View>
+          )}
+
+          <View style={styles.sessionSummary}>
+            <View style={styles.sessionSummaryItem}>
+              <Text style={styles.sessionSummaryValue}>{stats?.total_sessions?.toLocaleString() || 0}</Text>
+              <Text style={styles.sessionSummaryLabel}>Total Sessions</Text>
+            </View>
+            <View style={styles.sessionSummaryDivider} />
+            <View style={styles.sessionSummaryItem}>
+              <Text style={styles.sessionSummaryValue}>
+                {sessionChart?.datasets[0]?.data.length 
+                  ? Math.round(sessionChart.datasets[0].data.reduce((a, b) => a + b, 0) / sessionChart.datasets[0].data.length)
+                  : 0}
+              </Text>
+              <Text style={styles.sessionSummaryLabel}>Avg Daily</Text>
+            </View>
+          </View>
+        </View>
+      </Modal>
+
       {/* User List Modal */}
       <Modal
         visible={showUserList}
@@ -695,7 +870,6 @@ export default function AdminDashboard() {
                 value={userSearchQuery}
                 onChangeText={(text) => {
                   setUserSearchQuery(text);
-                  // Debounce search
                   setTimeout(() => fetchUsers('all', text), 300);
                 }}
               />
@@ -728,6 +902,9 @@ export default function AdminDashboard() {
                   <View style={styles.userInfo}>
                     <Text style={styles.userName}>{item.username}</Text>
                     <Text style={styles.userEmail}>{item.email}</Text>
+                    <Text style={styles.userSignupDate}>
+                      📅 Signed up: {formatSignupDate(item.created_at)}
+                    </Text>
                     <View style={styles.userStatsRow}>
                       <Text style={styles.userStat}>
                         <Ionicons name="fitness" size={12} color="#FFD700" /> {item.workouts_completed || 0}
@@ -740,13 +917,12 @@ export default function AdminDashboard() {
                       </Text>
                     </View>
                   </View>
-                  <View style={styles.userMeta}>
-                    {item.last_active && (
-                      <Text style={styles.lastActive}>
-                        Last: {new Date(item.last_active).toLocaleDateString()}
-                      </Text>
-                    )}
-                  </View>
+                  <TouchableOpacity 
+                    style={styles.deleteUserBtn}
+                    onPress={() => deleteUser(item.user_id, item.username)}
+                  >
+                    <Ionicons name="trash-outline" size={20} color="#F44336" />
+                  </TouchableOpacity>
                 </View>
               )}
               ListEmptyComponent={
@@ -777,30 +953,6 @@ function formatPageName(pageName: string): string {
     'settings': 'Settings',
   };
   return nameMap[pageName] || pageName.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
-}
-
-function getMoodColor(moodId: string): string {
-  const colors: Record<string, string> = {
-    'sweat': '#FF5722',
-    'muscle': '#4CAF50',
-    'outdoor': '#2196F3',
-    'calisthenics': '#9C27B0',
-    'lazy': '#FF9800',
-    'explosive': '#E91E63',
-  };
-  return colors[moodId] || '#FFD700';
-}
-
-function getMoodIcon(moodId: string): any {
-  const icons: Record<string, string> = {
-    'sweat': 'water',
-    'muscle': 'barbell',
-    'outdoor': 'leaf',
-    'calisthenics': 'body',
-    'lazy': 'bed',
-    'explosive': 'flash',
-  };
-  return icons[moodId] || 'fitness';
 }
 
 const styles = StyleSheet.create({
@@ -1038,6 +1190,56 @@ const styles = StyleSheet.create({
     fontSize: 14,
     marginTop: 8,
   },
+  // Mood Distribution styles (on-brand)
+  moodDistributionContainer: {
+    backgroundColor: '#1a1a1a',
+    borderRadius: 12,
+    padding: 16,
+    borderWidth: 1,
+    borderColor: 'rgba(255, 215, 0, 0.1)',
+  },
+  moodBarRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 12,
+  },
+  moodLabelContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    width: 140,
+  },
+  moodIconCircle: {
+    width: 28,
+    height: 28,
+    borderRadius: 14,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginRight: 8,
+  },
+  moodLabel: {
+    fontSize: 12,
+    color: '#fff',
+    flex: 1,
+  },
+  moodBarContainer: {
+    flex: 1,
+    height: 8,
+    backgroundColor: '#2a2a2a',
+    borderRadius: 4,
+    marginHorizontal: 12,
+    overflow: 'hidden',
+  },
+  moodBar: {
+    height: '100%',
+    borderRadius: 4,
+  },
+  moodPercentage: {
+    fontSize: 12,
+    fontWeight: '700',
+    color: '#FFD700',
+    width: 40,
+    textAlign: 'right',
+  },
   chartPeriodSelector: {
     flexDirection: 'row',
     gap: 6,
@@ -1141,6 +1343,10 @@ const styles = StyleSheet.create({
   modalClose: {
     padding: 4,
   },
+  modalTitleContainer: {
+    flex: 1,
+    alignItems: 'center',
+  },
   modalTitle: {
     flex: 1,
     fontSize: 18,
@@ -1153,6 +1359,141 @@ const styles = StyleSheet.create({
     color: '#FFD700',
     fontWeight: '600',
   },
+  // Active users modal styles
+  liveIndicator: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginBottom: 4,
+  },
+  livePulse: {
+    width: 8,
+    height: 8,
+    borderRadius: 4,
+    backgroundColor: '#F44336',
+    marginRight: 6,
+  },
+  liveText: {
+    fontSize: 10,
+    fontWeight: '700',
+    color: '#F44336',
+  },
+  activeUsersSubtitle: {
+    fontSize: 12,
+    color: '#888',
+    textAlign: 'center',
+    paddingVertical: 12,
+  },
+  activeUserItem: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    padding: 16,
+    marginHorizontal: 16,
+    marginBottom: 8,
+    backgroundColor: '#1a1a1a',
+    borderRadius: 12,
+    borderWidth: 1,
+    borderColor: 'rgba(76, 175, 80, 0.2)',
+  },
+  activeUserAvatar: {
+    width: 50,
+    height: 50,
+    borderRadius: 25,
+    backgroundColor: '#2a2a2a',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginRight: 12,
+    position: 'relative',
+  },
+  onlineDot: {
+    position: 'absolute',
+    bottom: 2,
+    right: 2,
+    width: 12,
+    height: 12,
+    borderRadius: 6,
+    backgroundColor: '#4CAF50',
+    borderWidth: 2,
+    borderColor: '#1a1a1a',
+  },
+  activeUserInfo: {
+    flex: 1,
+  },
+  activeUserName: {
+    fontSize: 16,
+    fontWeight: '600',
+    color: '#fff',
+  },
+  activeUserTime: {
+    fontSize: 12,
+    color: '#888',
+    marginTop: 4,
+  },
+  emptyActiveUsers: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  emptyActiveText: {
+    fontSize: 14,
+    color: '#666',
+    marginTop: 12,
+  },
+  // Session chart modal styles
+  sessionChartSubtitle: {
+    fontSize: 12,
+    color: '#888',
+    textAlign: 'center',
+    paddingVertical: 12,
+  },
+  sessionChartContainer: {
+    paddingHorizontal: 16,
+    paddingVertical: 20,
+  },
+  sessionLineChart: {
+    borderRadius: 12,
+  },
+  noSessionData: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  noSessionText: {
+    fontSize: 14,
+    color: '#666',
+    marginTop: 12,
+  },
+  sessionSummary: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: 20,
+    marginHorizontal: 16,
+    marginTop: 20,
+    backgroundColor: '#1a1a1a',
+    borderRadius: 12,
+  },
+  sessionSummaryItem: {
+    flex: 1,
+    alignItems: 'center',
+  },
+  sessionSummaryValue: {
+    fontSize: 28,
+    fontWeight: '700',
+    color: '#FFD700',
+  },
+  sessionSummaryLabel: {
+    fontSize: 12,
+    color: '#888',
+    marginTop: 4,
+  },
+  sessionSummaryDivider: {
+    width: 1,
+    height: 40,
+    backgroundColor: '#333',
+    marginHorizontal: 20,
+  },
+  // User list styles
   searchContainer: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -1228,6 +1569,11 @@ const styles = StyleSheet.create({
     color: '#888',
     marginTop: 2,
   },
+  userSignupDate: {
+    fontSize: 10,
+    color: '#FFD700',
+    marginTop: 4,
+  },
   userStatsRow: {
     flexDirection: 'row',
     gap: 12,
@@ -1237,12 +1583,9 @@ const styles = StyleSheet.create({
     fontSize: 10,
     color: '#666',
   },
-  userMeta: {
-    alignItems: 'flex-end',
-  },
-  lastActive: {
-    fontSize: 10,
-    color: '#666',
+  deleteUserBtn: {
+    padding: 8,
+    marginLeft: 8,
   },
   emptyList: {
     alignItems: 'center',
