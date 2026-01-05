@@ -127,6 +127,7 @@ interface UserReport {
     following_count: number;
   };
   period_days: number;
+  is_all_time?: boolean;
   report: {
     workouts_added_to_cart: number;
     workouts_started: number;
@@ -134,7 +135,7 @@ interface UserReport {
     workout_completion_rate: number;
     total_screen_views: number;
     unique_screens_viewed: number;
-    top_screens: Array<{ screen: string; views: number }>;
+    top_screens: Array<{ screen: string; views: number; percentage?: number }>;
     app_sessions: number;
     total_time_seconds: number;
     time_spent_formatted: string;
