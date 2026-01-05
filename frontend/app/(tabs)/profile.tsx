@@ -638,8 +638,8 @@ export default function Profile() {
             </TouchableOpacity>
           </View>
 
-          {/* Admin Dashboard Button - Only show for admin user */}
-          {authUser?.email?.toLowerCase() === 'wesleyogsbury@gmail.com' && (
+          {/* Admin Dashboard Button - Only show for officialmoodapp admin account */}
+          {(authUser?.username?.toLowerCase() === 'officialmoodapp' || user?.username?.toLowerCase() === 'officialmoodapp') && (
             <TouchableOpacity 
               style={styles.adminButton} 
               onPress={() => router.push('/admin-dashboard')}
