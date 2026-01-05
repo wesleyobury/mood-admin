@@ -423,17 +423,32 @@ export default function AdminDashboard() {
     fetchAllData();
   };
 
-  // Format signup date nicely
-  const formatSignupDate = (dateStr?: string) => {
-    if (!dateStr) return 'Unknown';
-    const date = new Date(dateStr);
-    return date.toLocaleDateString('en-US', {
-      month: 'short',
-      day: 'numeric',
-      year: 'numeric',
-      hour: '2-digit',
-      minute: '2-digit'
-    });
+  // Fetch user report when clicking on a user
+  const fetchUserReport = async (userId: string) => {
+    if (!token) return;
+    setUserReportLoading(true);
+    setShowUserReport(true);
+    
+    try {
+      const response = await fetch(
+        `${API_URL}/api/analytics/admin/users/${userId}/report?days=${selectedPeriod}`,
+        { headers: { 'Authorization': `Bearer ${token}` } }
+      );
+      
+      if (response.ok) {
+        const data = await response.json();
+        setUserReport(data);
+      } else {
+        Alert.alert('Error', 'Failed to load user report');
+        setShowUserReport(false);
+      }
+    } catch (error) {
+      console.error('Error fetching user report:', error);
+      Alert.alert('Error', 'Failed to load user report');
+      setShowUserReport(false);
+    } finally {
+      setUserReportLoading(false);
+    }
   };
 
   if (!isAuthorized) {
