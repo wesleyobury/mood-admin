@@ -428,14 +428,17 @@ export default function AdminDashboard() {
   };
 
   // Fetch user report when clicking on a user
-  const fetchUserReport = async (userId: string) => {
+  const fetchUserReport = async (userId: string, period?: number) => {
     if (!token) return;
     setUserReportLoading(true);
     setShowUserReport(true);
+    setCurrentReportUserId(userId);
+    
+    const reportPeriod = period !== undefined ? period : userReportPeriod;
     
     try {
       const response = await fetch(
-        `${API_URL}/api/analytics/admin/users/${userId}/report?days=${selectedPeriod}`,
+        `${API_URL}/api/analytics/admin/users/${userId}/report?days=${reportPeriod}`,
         { headers: { 'Authorization': `Bearer ${token}` } }
       );
       
@@ -452,6 +455,14 @@ export default function AdminDashboard() {
       setShowUserReport(false);
     } finally {
       setUserReportLoading(false);
+    }
+  };
+
+  // Handle user report period change
+  const handleReportPeriodChange = (period: number) => {
+    setUserReportPeriod(period);
+    if (currentReportUserId) {
+      fetchUserReport(currentReportUserId, period);
     }
   };
 
