@@ -653,19 +653,33 @@ export default function AdminDashboard() {
               <ScrollView horizontal showsHorizontalScrollIndicator={false}>
                 <BarChart
                   data={{
-                    labels: userGrowthChart.labels.slice(-10),
+                    labels: userGrowthChart.labels.slice(-10).map(label => 
+                      // Shorten weekly labels like "Dec 30-Jan 5" to "12/30"
+                      chartPeriod === 'week' && label.includes('-') 
+                        ? label.split('-')[0].replace(/([A-Z][a-z]+)\s(\d+)/, '$2/$1').substring(0, 5)
+                        : label
+                    ),
                     datasets: [{ data: userGrowthChart.datasets[0]?.data.slice(-10) || [0] }]
                   }}
-                  width={Math.max(screenWidth - 48, userGrowthChart.labels.slice(-10).length * 50)}
+                  width={Math.max(screenWidth - 48, userGrowthChart.labels.slice(-10).length * (chartPeriod === 'week' ? 60 : 50))}
                   height={180}
                   yAxisLabel=""
                   yAxisSuffix=""
-                  chartConfig={chartConfig}
+                  chartConfig={{
+                    ...chartConfig,
+                    propsForLabels: {
+                      fontSize: chartPeriod === 'week' ? 9 : 10,
+                    }
+                  }}
                   style={styles.chart}
                   showValuesOnTopOfBars
                   fromZero
+                  verticalLabelRotation={chartPeriod === 'week' ? 30 : 0}
                 />
               </ScrollView>
+              {chartPeriod === 'week' && (
+                <Text style={styles.chartSubtext}>Weekly data showing start date of each week</Text>
+              )}
             </View>
           ) : (
             <View style={styles.chartCard}>
