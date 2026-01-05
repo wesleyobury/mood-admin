@@ -554,7 +554,7 @@ export default function AdminDashboard() {
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>Key Metrics</Text>
           <Text style={styles.sectionSubtitle}>
-            {selectedPeriod === 1 ? 'Last 24 hours' : `Last ${selectedPeriod} days`}
+            {selectedPeriod === 0 ? 'All Time' : selectedPeriod === 1 ? 'Last 24 hours' : `Last ${selectedPeriod} days`}
           </Text>
           
           <View style={styles.metricsGrid}>
