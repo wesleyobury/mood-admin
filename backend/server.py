@@ -2121,19 +2121,7 @@ async def get_chart_data(
             started_dict = {s["_id"]: s["count"] for s in started}
             completed_dict = {c["_id"]: c["count"] for c in completed}
             
-            labels = []
-            for date_key in all_dates:
-                try:
-                    if period == "month":
-                        dt = datetime.strptime(date_key, "%Y-%m")
-                        labels.append(dt.strftime("%b '%y"))
-                    elif period == "week":
-                        labels.append(f"W{date_key.split('W')[1]}")
-                    else:
-                        dt = datetime.strptime(date_key, "%Y-%m-%d")
-                        labels.append(dt.strftime("%m/%d"))
-                except:
-                    labels.append(date_key)
+            labels = [format_label(date_key, period) for date_key in all_dates]
             
             return {
                 "chart_type": chart_type,
@@ -2181,19 +2169,7 @@ async def get_chart_data(
             
             all_dates = sorted(set(list(likes_by_period.keys()) + list(comments_by_period.keys()) + list(follows_by_period.keys())))
             
-            labels = []
-            for date_key in all_dates:
-                try:
-                    if period == "month":
-                        dt = datetime.strptime(date_key, "%Y-%m")
-                        labels.append(dt.strftime("%b '%y"))
-                    elif period == "week":
-                        labels.append(f"W{date_key.split('W')[1]}")
-                    else:
-                        dt = datetime.strptime(date_key, "%Y-%m-%d")
-                        labels.append(dt.strftime("%m/%d"))
-                except:
-                    labels.append(date_key)
+            labels = [format_label(date_key, period) for date_key in all_dates]
             
             return {
                 "chart_type": chart_type,
