@@ -71,8 +71,8 @@
       "typedRoutes": true
     },
     "extra": {
-      "EXPO_PUBLIC_BACKEND_URL": "https://moodify-deploy.preview.emergentagent.com",
-      "BACKEND_URL": "https://moodify-deploy.preview.emergentagent.com",
+      "EXPO_PUBLIC_BACKEND_URL": "https://bug-busters-13.emergent.host",
+      "BACKEND_URL": "https://bug-busters-13.emergent.host",
       "router": {},
       "eas": {
         "projectId": "ef2c8520-832c-4806-beb0-80b9db1a6214"
