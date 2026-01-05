@@ -194,6 +194,8 @@ export default function AdminDashboard() {
   const [showUserReport, setShowUserReport] = useState(false);
   const [userReport, setUserReport] = useState<UserReport | null>(null);
   const [userReportLoading, setUserReportLoading] = useState(false);
+  const [userReportPeriod, setUserReportPeriod] = useState(1);
+  const [currentReportUserId, setCurrentReportUserId] = useState<string | null>(null);
   
   // Active users modal state
   const [showActiveUsers, setShowActiveUsers] = useState(false);
