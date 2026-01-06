@@ -124,6 +124,7 @@ interface UserReport {
     username: string;
     email: string;
     avatar_url?: string;
+    avatar?: string;
     created_at?: string;
     followers_count: number;
     following_count: number;
