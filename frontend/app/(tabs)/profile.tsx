@@ -237,12 +237,12 @@ export default function Profile() {
     }
   }, [activeTab, token]);
 
-  // Load user posts when Posts tab is selected
+  // Load user posts when Posts tab is selected or user is loaded
   useEffect(() => {
-    if (activeTab === 'posts' && token && user.id !== 'current-user') {
+    if (activeTab === 'posts' && token && authUser?.id) {
       fetchUserPosts();
     }
-  }, [activeTab, token, user.id]);
+  }, [activeTab, token, authUser?.id]);
 
   const fetchUserProfile = async () => {
     if (!token) {
