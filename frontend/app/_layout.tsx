@@ -84,6 +84,7 @@ export default function RootLayout() {
               <Stack.Screen name="cart" options={{ headerShown: false, title: '', contentStyle: { backgroundColor: '#000000' } }} />
               <Stack.Screen name="workout-session" options={{ headerShown: false, title: '', contentStyle: { backgroundColor: '#000000' } }} />
             </Stack>
+            <FloatingCart />
           </CartProvider>
         </AuthProvider>
       </SafeAreaProvider>
