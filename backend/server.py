@@ -2574,7 +2574,7 @@ async def get_current_user_info(current_user_id: str = Depends(get_current_user)
             )
     
     return UserResponse(
-        id=user.get("user_id") or str(user["_id"]),
+        id=str(user["_id"]),  # Always use MongoDB _id for consistency
         username=user["username"],
         email=user.get("email", ""),
         name=user.get("name"),
