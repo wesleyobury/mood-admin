@@ -650,6 +650,20 @@ export default function Explore() {
                       <Text style={styles.authorUsername}>@{post.author.username}</Text>
                     </View>
                   </TouchableOpacity>
+                  {/* Delete button for post owner */}
+                  {user && user.id === post.author.id && (
+                    <TouchableOpacity
+                      style={styles.deletePostButton}
+                      onPress={() => handleDeletePost(post.id)}
+                      disabled={deletingPostId === post.id}
+                    >
+                      {deletingPostId === post.id ? (
+                        <ActivityIndicator size="small" color="#888" />
+                      ) : (
+                        <Ionicons name="trash-outline" size={20} color="#888" />
+                      )}
+                    </TouchableOpacity>
+                  )}
                 </View>
 
                 {/* Post Media (Images and Videos) */}
