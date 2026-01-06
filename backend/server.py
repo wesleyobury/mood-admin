@@ -1829,6 +1829,7 @@ async def get_user_detail_report(
             "username": target_user.get("username", "Unknown"),
             "email": target_user.get("email", ""),
             "avatar_url": target_user.get("avatar_url") or target_user.get("avatar", ""),
+            "avatar": target_user.get("avatar") or target_user.get("avatar_url", ""),
             "created_at": target_user.get("created_at").isoformat() if target_user.get("created_at") else None,
             "followers_count": target_user.get("followers_count", 0),
             "following_count": target_user.get("following_count", 0),
