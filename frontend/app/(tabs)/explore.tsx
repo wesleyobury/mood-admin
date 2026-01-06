@@ -374,6 +374,49 @@ export default function Explore() {
     fetchPosts();
   };
 
+  const handleDeletePost = (postId: string) => {
+    Alert.alert(
+      'Delete Post',
+      'Are you sure you want to delete this post? This action cannot be undone.',
+      [
+        { text: 'Cancel', style: 'cancel' },
+        { 
+          text: 'Delete', 
+          style: 'destructive',
+          onPress: () => confirmDeletePost(postId)
+        },
+      ]
+    );
+  };
+
+  const confirmDeletePost = async (postId: string) => {
+    if (!token) return;
+
+    setDeletingPostId(postId);
+    try {
+      const response = await fetch(`${API_URL}/api/posts/${postId}`, {
+        method: 'DELETE',
+        headers: {
+          'Authorization': `Bearer ${token}`,
+        },
+      });
+
+      if (response.ok) {
+        // Remove the post from local state
+        setPosts(prev => prev.filter(p => p.id !== postId));
+        Alert.alert('Success', 'Post deleted successfully');
+      } else {
+        const data = await response.json();
+        Alert.alert('Error', data.detail || 'Failed to delete post');
+      }
+    } catch (error) {
+      console.error('Error deleting post:', error);
+      Alert.alert('Error', 'Failed to delete post. Please try again.');
+    } finally {
+      setDeletingPostId(null);
+    }
+  };
+
   if (loading) {
     return (
       <View style={styles.container}>
