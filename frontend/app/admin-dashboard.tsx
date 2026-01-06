@@ -1021,9 +1021,9 @@ export default function AdminDashboard() {
                     <Text style={styles.userRankText}>{index + 1}</Text>
                   </View>
                   <View style={styles.userAvatar}>
-                    {item.avatar_url ? (
+                    {getAvatarUri(item.avatar_url, item.avatar) ? (
                       <Image 
-                        source={{ uri: item.avatar_url.startsWith('http') ? item.avatar_url : `${API_URL}${item.avatar_url}` }} 
+                        source={{ uri: getAvatarUri(item.avatar_url, item.avatar)! }} 
                         style={styles.avatarImage} 
                       />
                     ) : (
