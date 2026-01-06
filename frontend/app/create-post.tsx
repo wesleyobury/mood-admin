@@ -22,6 +22,7 @@ import * as ImagePicker from 'expo-image-picker';
 import * as ImageManipulator from 'expo-image-manipulator';
 import { Video, ResizeMode } from 'expo-av';
 import { captureRef } from 'react-native-view-shot';
+import Constants from 'expo-constants';
 import WorkoutStatsCard from '../components/WorkoutStatsCard';
 import { useAuth } from '../contexts/AuthContext';
 import { Analytics } from '../utils/analytics';
