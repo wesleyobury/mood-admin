@@ -189,11 +189,11 @@ export default function Profile() {
         fetchUserProfile();
         fetchUnreadCount();
         // Also refetch posts if on posts tab
-        if (activeTab === 'posts' && user.id !== 'current-user') {
+        if (activeTab === 'posts' && authUser?.id) {
           fetchUserPosts();
         }
       }
-    }, [token, activeTab, user.id])
+    }, [token, activeTab, authUser?.id])
   );
 
   // Sync with AuthContext user data when it changes
