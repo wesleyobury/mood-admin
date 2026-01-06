@@ -195,7 +195,7 @@ export default function WorkoutGuidanceScreen() {
   const [toastMessage, setToastMessage] = useState('');
   
   const { token } = useAuth();
-  const API_URL = process.env.EXPO_PUBLIC_BACKEND_URL || '';
+  const API_URL = process.env.EXPO_PUBLIC_BACKEND_URL || Constants.expoConfig?.extra?.EXPO_PUBLIC_BACKEND_URL || '';
   
   // Simple elapsed time timer
   useEffect(() => {
