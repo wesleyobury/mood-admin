@@ -3164,7 +3164,27 @@ async def get_user_posts(
 ):
     """Get posts by a specific user"""
     try:
-        user_object_id = ObjectId(user_id)
+        # Handle both MongoDB ObjectId and custom user_id formats
+        user_object_id = None
+        
+        # First, try to use it as ObjectId directly
+        try:
+            user_object_id = ObjectId(user_id)
+            # Verify this user exists
+            user = await db.users.find_one({"_id": user_object_id})
+            if not user:
+                user_object_id = None
+        except:
+            user_object_id = None
+        
+        # If not a valid ObjectId, try to find user by custom user_id
+        if not user_object_id:
+            user = await db.users.find_one({"user_id": user_id})
+            if user:
+                user_object_id = user["_id"]
+            else:
+                # Return empty list if user not found
+                return []
         
         # Get posts with author and workout details
         pipeline = [
