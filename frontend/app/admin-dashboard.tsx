@@ -90,6 +90,7 @@ interface UserItem {
   username: string;
   email: string;
   avatar_url?: string;
+  avatar?: string;
   created_at?: string;
   last_active?: string;
   events_count: number;
@@ -102,6 +103,7 @@ interface ActiveUser {
   user_id: string;
   username: string;
   avatar_url?: string;
+  avatar?: string;
   last_active?: string;
 }
 
