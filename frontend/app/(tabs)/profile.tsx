@@ -591,7 +591,11 @@ export default function Profile() {
           <View style={styles.profileHeader}>
             <TouchableOpacity onPress={handleEditProfile} style={styles.avatarContainer}>
               <Image 
-                source={{ uri: user.avatar }}
+                source={{ 
+                  uri: user.avatar 
+                    ? (user.avatar.startsWith('http') ? user.avatar : `${API_URL}${user.avatar}`)
+                    : 'https://via.placeholder.com/100'
+                }}
                 style={styles.profileImage}
                 resizeMode="cover"
               />
