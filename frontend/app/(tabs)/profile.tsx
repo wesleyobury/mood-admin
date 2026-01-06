@@ -347,19 +347,26 @@ export default function Profile() {
       console.log('No user ID available for fetching posts');
       return;
     }
+    console.log('Fetching posts for user:', authUser.id);
+    console.log('Using API_URL:', API_URL);
     setLoadingPosts(true);
     try {
-      const response = await fetch(`${API_URL}/api/users/${authUser.id}/posts`, {
+      const url = `${API_URL}/api/users/${authUser.id}/posts`;
+      console.log('Fetching from URL:', url);
+      const response = await fetch(url, {
         headers: {
           'Authorization': `Bearer ${token}`,
         },
       });
 
+      console.log('Posts response status:', response.status);
       if (response.ok) {
         const data = await response.json();
+        console.log('Posts loaded:', data.length, 'posts');
         setUserPosts(data);
       } else {
-        console.error('Failed to fetch posts:', response.status);
+        const errorText = await response.text();
+        console.error('Failed to fetch posts:', response.status, errorText);
       }
     } catch (error) {
       console.error('Error fetching user posts:', error);
