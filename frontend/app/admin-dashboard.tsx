@@ -167,6 +167,14 @@ function formatDateToCST(dateStr?: string): string {
   }) + ' CST';
 }
 
+// Helper to get avatar URL - handles both avatar_url and avatar fields
+function getAvatarUri(avatarUrl?: string, avatar?: string): string | null {
+  const url = avatarUrl || avatar;
+  if (!url) return null;
+  if (url.startsWith('http')) return url;
+  return `${API_URL}${url}`;
+}
+
 export default function AdminDashboard() {
   const router = useRouter();
   const insets = useSafeAreaInsets();
