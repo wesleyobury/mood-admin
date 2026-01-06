@@ -901,10 +901,14 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
     paddingVertical: 12,
   },
+  deletePostButton: {
+    padding: 8,
+  },
   authorInfo: {
     flexDirection: 'row',
     alignItems: 'center',
     gap: 12,
+    flex: 1,
   },
   avatar: {
     width: 36,
