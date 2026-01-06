@@ -874,9 +874,9 @@ export default function AdminDashboard() {
               renderItem={({ item }) => (
                 <View style={styles.activeUserItem}>
                   <View style={styles.activeUserAvatar}>
-                    {item.avatar_url ? (
+                    {getAvatarUri(item.avatar_url, item.avatar) ? (
                       <Image 
-                        source={{ uri: item.avatar_url.startsWith('http') ? item.avatar_url : `${API_URL}${item.avatar_url}` }} 
+                        source={{ uri: getAvatarUri(item.avatar_url, item.avatar)! }} 
                         style={styles.avatarImage} 
                       />
                     ) : (
