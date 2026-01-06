@@ -25,7 +25,8 @@ import { useCart } from '../../contexts/CartContext';
 import FollowListModal from '../../components/FollowListModal';
 import { useScreenTime } from '../../hooks/useScreenTime';
 
-const API_URL = Constants.expoConfig?.extra?.EXPO_PUBLIC_BACKEND_URL || '';
+// Prioritize process.env for development/preview environments
+const API_URL = process.env.EXPO_PUBLIC_BACKEND_URL || Constants.expoConfig?.extra?.EXPO_PUBLIC_BACKEND_URL || '';
 const { width } = Dimensions.get('window');
 
 // Mapping of featured workout names to their IDs
