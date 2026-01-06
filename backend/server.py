@@ -1440,6 +1440,7 @@ async def get_realtime_active_users(
                     "user_id": user_id,
                     "username": user.get("username", "Unknown"),
                     "avatar_url": user.get("avatar_url") or user.get("avatar", ""),
+                    "avatar": user.get("avatar") or user.get("avatar_url", ""),
                     "last_active": hb.get("last_heartbeat").isoformat() if hb.get("last_heartbeat") else None
                 })
         except:
