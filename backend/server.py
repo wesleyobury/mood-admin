@@ -1770,6 +1770,7 @@ async def get_users_list(
             "username": user.get("username", "Unknown"),
             "email": user.get("email", ""),
             "avatar_url": user.get("avatar_url") or user.get("avatar", ""),
+            "avatar": user.get("avatar") or user.get("avatar_url", ""),
             "created_at": user.get("created_at").isoformat() if user.get("created_at") else None,
             "last_active": last_event["timestamp"].isoformat() if last_event and last_event.get("timestamp") else None,
             "events_count": events_count,
