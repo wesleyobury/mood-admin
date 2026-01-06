@@ -74,6 +74,7 @@ export default function Explore() {
   const [searchResults, setSearchResults] = useState<SearchUser[]>([]);
   const [searchLoading, setSearchLoading] = useState(false);
   const [visiblePostId, setVisiblePostId] = useState<string | null>(null);
+  const [deletingPostId, setDeletingPostId] = useState<string | null>(null);
   const router = useRouter();
   const { token, user } = useAuth();
   const scrollViewRef = useRef<ScrollView>(null);
