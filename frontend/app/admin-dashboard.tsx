@@ -1124,9 +1124,9 @@ export default function AdminDashboard() {
               {/* User Header */}
               <View style={styles.reportUserHeader}>
                 <View style={styles.reportAvatar}>
-                  {userReport.user.avatar_url ? (
+                  {getAvatarUri(userReport.user.avatar_url, userReport.user.avatar) ? (
                     <Image 
-                      source={{ uri: userReport.user.avatar_url.startsWith('http') ? userReport.user.avatar_url : `${API_URL}${userReport.user.avatar_url}` }} 
+                      source={{ uri: getAvatarUri(userReport.user.avatar_url, userReport.user.avatar)! }} 
                       style={styles.reportAvatarImage} 
                     />
                   ) : (
