@@ -787,7 +787,7 @@ export default function Profile() {
                             />
                           ) : (
                             <Image 
-                              source={mediaUrl}
+                              source={{ uri: mediaUrl }}
                               style={styles.gridImage}
                               contentFit="cover"
                               transition={150}
