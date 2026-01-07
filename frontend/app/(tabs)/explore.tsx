@@ -103,7 +103,7 @@ export default function Explore() {
     }, [])
   );
 
-  const fetchPosts = async (loadMore = false) => {
+  const fetchPosts = async (loadMore = false, retryCount = 0) => {
     if (!token) {
       console.log('No token available for fetching posts');
       setLoading(false);
@@ -115,11 +115,17 @@ export default function Explore() {
       setLoadingMore(true);
     }
 
+    const startTime = Date.now();
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 15000); // 15 second timeout
+
     try {
       const skip = loadMore ? posts.length : 0;
+      // Reduce initial load to 10 posts for faster first render
+      const limit = loadMore ? PAGE_SIZE : 10;
       const endpoint = activeTab === 'following' 
-        ? `${API_URL}/api/posts/following?limit=${PAGE_SIZE}&skip=${skip}` 
-        : `${API_URL}/api/posts?limit=${PAGE_SIZE}&skip=${skip}`;
+        ? `${API_URL}/api/posts/following?limit=${limit}&skip=${skip}` 
+        : `${API_URL}/api/posts?limit=${limit}&skip=${skip}`;
       
       console.log('Fetching posts from:', endpoint);
         
@@ -127,16 +133,19 @@ export default function Explore() {
         headers: {
           'Authorization': `Bearer ${token}`,
         },
+        signal: controller.signal,
       });
 
-      console.log('Posts fetch response status:', response.status);
+      clearTimeout(timeoutId);
+      const responseTime = Date.now() - startTime;
+      console.log(`Posts fetch completed in ${responseTime}ms, status: ${response.status}`);
 
       if (response.ok) {
         const data = await response.json();
         console.log('Posts fetched successfully:', data.length, 'posts');
         
         // Check if there are more posts
-        if (data.length < PAGE_SIZE) {
+        if (data.length < limit) {
           setHasMore(false);
         }
         
@@ -152,15 +161,64 @@ export default function Explore() {
           setPosts(postsWithSaveStatus);
           setHasMore(true);
         }
+        
+        // Prefetch images for next batch
+        prefetchPostImages(postsWithSaveStatus);
       } else {
         console.error('Failed to fetch posts:', response.status);
+        // Retry on server errors
+        if (response.status >= 500 && retryCount < 2) {
+          console.log(`Retrying fetch (attempt ${retryCount + 1})...`);
+          setTimeout(() => fetchPosts(loadMore, retryCount + 1), 1000 * (retryCount + 1));
+          return;
+        }
       }
-    } catch (error) {
-      console.error('Error fetching posts:', error);
+    } catch (error: any) {
+      clearTimeout(timeoutId);
+      if (error.name === 'AbortError') {
+        console.error('Posts fetch timed out');
+        // Retry on timeout
+        if (retryCount < 2) {
+          console.log(`Retrying after timeout (attempt ${retryCount + 1})...`);
+          setTimeout(() => fetchPosts(loadMore, retryCount + 1), 1000);
+          return;
+        }
+      } else {
+        console.error('Error fetching posts:', error);
+      }
     } finally {
       setLoading(false);
       setLoadingMore(false);
     }
+  };
+
+  // Prefetch images for posts
+  const prefetchPostImages = (postsToCache: Post[]) => {
+    const imagesToPrefetch: string[] = [];
+    postsToCache.forEach(post => {
+      // Add author avatar
+      if (post.author.avatar) {
+        const avatarUrl = post.author.avatar.startsWith('http') 
+          ? post.author.avatar 
+          : `${API_URL}${post.author.avatar}`;
+        imagesToPrefetch.push(avatarUrl);
+      }
+      // Add first media URL (thumbnail)
+      if (post.media_urls && post.media_urls.length > 0) {
+        const mediaUrl = post.media_urls[0].startsWith('http')
+          ? post.media_urls[0]
+          : `${API_URL}${post.media_urls[0]}`;
+        // Only prefetch images, not videos
+        if (!mediaUrl.match(/\.(mov|mp4|avi|webm)$/i)) {
+          imagesToPrefetch.push(mediaUrl);
+        }
+      }
+    });
+    
+    // Use expo-image prefetch
+    imagesToPrefetch.forEach(url => {
+      Image.prefetch(url).catch(() => {});
+    });
   };
 
   const onRefresh = async () => {
