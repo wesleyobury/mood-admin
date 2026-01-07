@@ -268,13 +268,13 @@ async def register(user_data: UserCreate):
     })
     logger.info(f"New user registered: {user_data.username} ({user_data.email})")
     
-    # Generate JWT token
-    token = create_jwt_token(user_id)
+    # Generate JWT token using MongoDB ObjectId
+    token = create_jwt_token(mongodb_id)
     
     return {
         "message": "User created successfully",
         "token": token,
-        "user_id": user_id
+        "user_id": mongodb_id  # Always return MongoDB ObjectId
     }
 
 @api_router.post("/auth/login")
