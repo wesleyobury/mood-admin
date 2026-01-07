@@ -613,7 +613,18 @@ export default function Profile() {
         </View>
       </View>
 
-      <ScrollView style={styles.scrollView} showsVerticalScrollIndicator={false}>
+      <ScrollView 
+        style={styles.scrollView} 
+        showsVerticalScrollIndicator={false}
+        refreshControl={
+          <RefreshControl
+            refreshing={refreshing}
+            onRefresh={onRefresh}
+            tintColor="#FFD700"
+            colors={['#FFD700']}
+          />
+        }
+      >
         {/* Profile Info */}
         <View style={styles.profileSection}>
           <View style={styles.profileHeader}>
