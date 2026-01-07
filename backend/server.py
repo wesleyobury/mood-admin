@@ -117,7 +117,8 @@ async def get_current_user(credentials: HTTPAuthorizationCredentials = Depends(s
         if not user:
             raise HTTPException(status_code=401, detail="User not found")
         
-        return user_id
+        # ALWAYS return the MongoDB ObjectId for consistency across all operations
+        return str(user["_id"])
     except jwt.InvalidTokenError:
         raise HTTPException(status_code=401, detail="Invalid token")
 
