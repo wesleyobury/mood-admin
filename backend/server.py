@@ -519,13 +519,19 @@ async def apple_sign_in(
                 }
             }
             
-            await db.users.insert_one(new_user)
-            logger.info(f"Created new Apple user: {username} with user_id: {user_id}")
+            result = await db.users.insert_one(new_user)
+            # Get the MongoDB ObjectId after insert
+            mongodb_id = str(result.inserted_id)
+            logger.info(f"Created new Apple user: {username} with MongoDB ID: {mongodb_id}")
         
-        # Generate session token
+        # Get the MongoDB ObjectId for use in token and responses
+        if existing_user:
+            mongodb_id = str(existing_user["_id"])
+        
+        # Generate session token using MongoDB ObjectId (not custom user_id)
         session_token = jwt.encode(
             {
-                "user_id": user_id,
+                "user_id": mongodb_id,  # Always use MongoDB ObjectId
                 "username": username,
                 "email": email,
                 "auth_provider": "apple",
@@ -535,37 +541,24 @@ async def apple_sign_in(
             algorithm=JWT_ALGORITHM
         )
         
-        # Update last login - use user_id field or _id depending on format
-        if user_id.startswith("apple_") or user_id.startswith("user_"):
-            await db.users.update_one(
-                {"user_id": user_id},
-                {
-                    "$set": {
-                        "auth_metadata.last_login_at": datetime.now(timezone.utc)
-                    },
-                    "$inc": {
-                        "auth_metadata.total_logins": 1
-                    }
+        # Update last login using MongoDB ObjectId
+        await db.users.update_one(
+            {"_id": ObjectId(mongodb_id)},
+            {
+                "$set": {
+                    "auth_metadata.last_login_at": datetime.now(timezone.utc)
+                },
+                "$inc": {
+                    "auth_metadata.total_logins": 1
                 }
-            )
-        else:
-            await db.users.update_one(
-                {"_id": ObjectId(user_id)},
-                {
-                    "$set": {
-                        "auth_metadata.last_login_at": datetime.now(timezone.utc)
-                    },
-                    "$inc": {
-                        "auth_metadata.total_logins": 1
-                    }
-                }
-            )
+            }
+        )
         
         # Track login event
-        await track_login_event(db, user_id, "apple", True, get_client_ip(request), get_user_agent(request))
+        await track_login_event(db, mongodb_id, "apple", True, get_client_ip(request), get_user_agent(request))
         
         # Create session record
-        await create_session_record(db, user_id, session_token, get_client_ip(request), get_user_agent(request))
+        await create_session_record(db, mongodb_id, session_token, get_client_ip(request), get_user_agent(request))
         
         # Set cookie
         response.set_cookie(
