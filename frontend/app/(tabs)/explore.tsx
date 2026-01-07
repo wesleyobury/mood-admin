@@ -639,7 +639,10 @@ export default function Explore() {
                             ? post.author.avatar 
                             : `${API_URL}${post.author.avatar}` 
                         }} 
-                        style={styles.avatar} 
+                        style={styles.avatar}
+                        contentFit="cover"
+                        transition={100}
+                        cachePolicy="memory-disk"
                       />
                     ) : (
                       <View style={[styles.avatar, styles.avatarPlaceholder]}>
