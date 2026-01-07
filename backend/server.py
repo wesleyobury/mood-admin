@@ -229,11 +229,11 @@ async def register(user_data: UserCreate):
     # Hash password
     hashed_password = bcrypt.hashpw(user_data.password.encode(), bcrypt.gensalt()).decode()
     
-    # Create user with generated user_id
-    user_id = f"user_{uuid.uuid4().hex[:12]}"
+    # Create user with generated user_id (kept for backwards compatibility)
+    custom_user_id = f"user_{uuid.uuid4().hex[:12]}"
     
     user_doc = {
-        "user_id": user_id,
+        "user_id": custom_user_id,
         "username": user_data.username,
         "email": user_data.email,
         "password": hashed_password,
@@ -251,11 +251,13 @@ async def register(user_data: UserCreate):
         "created_at": datetime.now(timezone.utc)
     }
     
-    await db.users.insert_one(user_doc)
+    result = await db.users.insert_one(user_doc)
+    # Use MongoDB ObjectId for token and response
+    mongodb_id = str(result.inserted_id)
     
     # Track user signup event
     await db.user_events.insert_one({
-        "user_id": user_id,
+        "user_id": mongodb_id,
         "event_type": "user_registered",
         "timestamp": datetime.now(timezone.utc),
         "metadata": {
