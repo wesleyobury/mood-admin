@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, memo } from 'react';
 import {
   View,
   Text,
@@ -11,6 +11,7 @@ import {
   Modal,
   Dimensions,
   Alert,
+  RefreshControl,
 } from 'react-native';
 import { Image } from 'expo-image';
 import { Ionicons } from '@expo/vector-icons';
@@ -24,6 +25,7 @@ import { useAuth } from '../../contexts/AuthContext';
 import { useCart } from '../../contexts/CartContext';
 import FollowListModal from '../../components/FollowListModal';
 import { useScreenTime } from '../../hooks/useScreenTime';
+import { GridItemSkeleton, ProfileHeaderSkeleton } from '../../components/Skeleton';
 
 // Prioritize process.env for development/preview environments
 const API_URL = process.env.EXPO_PUBLIC_BACKEND_URL || Constants.expoConfig?.extra?.EXPO_PUBLIC_BACKEND_URL || '';
