@@ -575,7 +575,7 @@ async def apple_sign_in(
         return {
             "message": "Login successful",
             "session_token": session_token,
-            "user_id": user_id,
+            "user_id": mongodb_id,  # Always return MongoDB ObjectId
             "username": username
         }
         
