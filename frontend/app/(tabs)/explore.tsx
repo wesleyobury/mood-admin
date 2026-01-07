@@ -484,10 +484,11 @@ export default function Explore() {
         <View style={[styles.header, { paddingTop: insets.top + 12 }]}>
           <Text style={styles.title}>Explore</Text>
         </View>
-        <View style={styles.loadingContainer}>
-          <ActivityIndicator size="large" color="#FFD700" />
-          <Text style={styles.loadingText}>Loading feed...</Text>
-        </View>
+        <ScrollView style={styles.content}>
+          <PostSkeleton />
+          <PostSkeleton />
+          <PostSkeleton />
+        </ScrollView>
       </View>
     );
   }
