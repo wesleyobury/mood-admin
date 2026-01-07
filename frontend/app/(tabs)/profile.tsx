@@ -356,37 +356,86 @@ export default function Profile() {
     }
   };
 
-  const fetchUserPosts = async () => {
+  const fetchUserPosts = async (retryCount = 0) => {
     if (!authUser?.id) {
       console.log('No user ID available for fetching posts');
       return;
     }
+    
+    const startTime = Date.now();
     console.log('Fetching posts for user:', authUser.id);
-    console.log('Using API_URL:', API_URL);
     setLoadingPosts(true);
+    
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 15000); // 15 second timeout
+    
     try {
       const url = `${API_URL}/api/users/${authUser.id}/posts`;
-      console.log('Fetching from URL:', url);
       const response = await fetch(url, {
         headers: {
           'Authorization': `Bearer ${token}`,
         },
+        signal: controller.signal,
       });
 
-      console.log('Posts response status:', response.status);
+      clearTimeout(timeoutId);
+      const responseTime = Date.now() - startTime;
+      console.log(`Profile posts fetch completed in ${responseTime}ms, status: ${response.status}`);
+      
       if (response.ok) {
         const data = await response.json();
         console.log('Posts loaded:', data.length, 'posts');
         setUserPosts(data);
+        
+        // Prefetch thumbnails for grid
+        prefetchGridImages(data);
       } else {
         const errorText = await response.text();
         console.error('Failed to fetch posts:', response.status, errorText);
+        // Retry on server error
+        if (response.status >= 500 && retryCount < 2) {
+          console.log(`Retrying fetch (attempt ${retryCount + 1})...`);
+          setTimeout(() => fetchUserPosts(retryCount + 1), 1000 * (retryCount + 1));
+          return;
+        }
       }
-    } catch (error) {
-      console.error('Error fetching user posts:', error);
+    } catch (error: any) {
+      clearTimeout(timeoutId);
+      if (error.name === 'AbortError') {
+        console.error('Profile posts fetch timed out');
+        if (retryCount < 2) {
+          setTimeout(() => fetchUserPosts(retryCount + 1), 1000);
+          return;
+        }
+      } else {
+        console.error('Error fetching user posts:', error);
+      }
     } finally {
       setLoadingPosts(false);
     }
+  };
+
+  // Prefetch grid images for smoother scrolling
+  const prefetchGridImages = (posts: Post[]) => {
+    posts.forEach(post => {
+      if (post.media_urls && post.media_urls.length > 0) {
+        const firstMedia = post.media_urls[0];
+        const mediaUrl = firstMedia.startsWith('http') ? firstMedia : `${API_URL}${firstMedia}`;
+        // Only prefetch images, not videos
+        if (!mediaUrl.match(/\.(mov|mp4|avi|webm)$/i)) {
+          Image.prefetch(mediaUrl).catch(() => {});
+        }
+      }
+      // Prefetch cover_urls for videos
+      if (post.cover_urls) {
+        Object.values(post.cover_urls).forEach((coverUrl: any) => {
+          if (coverUrl) {
+            const url = coverUrl.startsWith('http') ? coverUrl : `${API_URL}${coverUrl}`;
+            Image.prefetch(url).catch(() => {});
+          }
+        });
+      }
+    });
   };
 
   const fetchSavedWorkouts = async () => {
