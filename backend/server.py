@@ -68,9 +68,27 @@ db = client[os.environ['DB_NAME']]
 JWT_SECRET = os.environ.get('JWT_SECRET', 'mood-app-secret-key-2025')
 JWT_ALGORITHM = 'HS256'
 
+import time
+
 # Create the main app
 app = FastAPI()
 api_router = APIRouter(prefix="/api")
+
+# Response time logging middleware
+@app.middleware("http")
+async def log_response_time(request: Request, call_next):
+    start_time = time.time()
+    response = await call_next(request)
+    process_time = (time.time() - start_time) * 1000  # Convert to ms
+    
+    # Log slow requests (> 500ms)
+    if process_time > 500:
+        logger.warning(f"SLOW REQUEST: {request.method} {request.url.path} took {process_time:.2f}ms")
+    elif process_time > 200:
+        logger.info(f"Request: {request.method} {request.url.path} took {process_time:.2f}ms")
+    
+    response.headers["X-Process-Time"] = f"{process_time:.2f}ms"
+    return response
 
 # Root-level health check for Kubernetes deployment
 @app.get("/health")
