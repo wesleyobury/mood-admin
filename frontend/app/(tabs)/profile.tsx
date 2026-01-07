@@ -154,12 +154,24 @@ export default function Profile() {
   const [loadingPosts, setLoadingPosts] = useState(false);
   const [followListVisible, setFollowListVisible] = useState(false);
   const [followListType, setFollowListType] = useState<'followers' | 'following'>('followers');
+  const [refreshing, setRefreshing] = useState(false);
   const { token, user: authUser, updateUser } = useAuth();
   const { addToCart } = useCart();
 
   const [activeTab, setActiveTab] = useState<'posts' | 'saved' | 'cards'>('posts');
   const [unreadMessages, setUnreadMessages] = useState(0);
   const router = useRouter();
+
+  // Pull to refresh handler
+  const onRefresh = useCallback(async () => {
+    setRefreshing(true);
+    await Promise.all([
+      fetchUserProfile(),
+      fetchUserPosts(),
+      fetchUnreadCount(),
+    ]);
+    setRefreshing(false);
+  }, [token, authUser?.id]);
 
   // Fetch unread message count
   const fetchUnreadCount = async () => {
