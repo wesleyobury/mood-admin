@@ -1,166 +1,239 @@
-import React, { useState, useEffect, useCallback } from 'react';
-import { View, Text, StyleSheet, ActivityIndicator, Animated } from 'react-native';
-import { Image } from 'expo-image';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
+import { View, Text, StyleSheet, ActivityIndicator, Animated, TouchableOpacity, AppState, Platform } from 'react-native';
 import Constants from 'expo-constants';
 
-const API_URL = process.env.EXPO_PUBLIC_BACKEND_URL || Constants.expoConfig?.extra?.EXPO_PUBLIC_BACKEND_URL || '';
+// Get API URL with multiple fallbacks
+const getApiUrl = (): string => {
+  // Try process.env first (works in development/preview)
+  if (process.env.EXPO_PUBLIC_BACKEND_URL) {
+    return process.env.EXPO_PUBLIC_BACKEND_URL;
+  }
+  // Try expo config extra (works in production builds)
+  if (Constants.expoConfig?.extra?.EXPO_PUBLIC_BACKEND_URL) {
+    return Constants.expoConfig.extra.EXPO_PUBLIC_BACKEND_URL;
+  }
+  // Try manifest extra (older expo versions)
+  if (Constants.manifest?.extra?.EXPO_PUBLIC_BACKEND_URL) {
+    return Constants.manifest.extra.EXPO_PUBLIC_BACKEND_URL;
+  }
+  // Fallback for production - construct from experienceUrl
+  if (Constants.expoConfig?.hostUri) {
+    const host = Constants.expoConfig.hostUri.split(':')[0];
+    return `https://${host}`;
+  }
+  return '';
+};
 
 interface AppBootstrapProps {
   children: React.ReactNode;
   onReady?: () => void;
 }
 
-type BootState = 'initializing' | 'checking' | 'ready' | 'error';
+type BootPhase = 'splash' | 'environment' | 'health' | 'ready' | 'error';
 
 const AppBootstrap: React.FC<AppBootstrapProps> = ({ children, onReady }) => {
-  const [bootState, setBootState] = useState<BootState>('initializing');
-  const [statusMessage, setStatusMessage] = useState('Starting up...');
-  const [retryCount, setRetryCount] = useState(0);
-  const [fadeAnim] = useState(new Animated.Value(1));
-  const [showChildren, setShowChildren] = useState(false);
-
+  const [phase, setPhase] = useState<BootPhase>('splash');
+  const [statusMessage, setStatusMessage] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
+  const [isReady, setIsReady] = useState(false);
+  const fadeAnim = useRef(new Animated.Value(1)).current;
+  const pulseAnim = useRef(new Animated.Value(1)).current;
+  const mountedRef = useRef(true);
+  const initStartedRef = useRef(false);
+  
   const MAX_RETRIES = 3;
-  const RETRY_DELAY = 1500;
+  const HEALTH_CHECK_TIMEOUT = 8000;
+  const RETRY_DELAY = 1000;
 
-  const checkBackendHealth = useCallback(async (): Promise<boolean> => {
-    if (!API_URL) {
-      console.log('No API_URL configured, skipping health check');
-      return true; // Allow app to proceed without backend
+  // Pulse animation for logo
+  useEffect(() => {
+    const pulse = Animated.loop(
+      Animated.sequence([
+        Animated.timing(pulseAnim, {
+          toValue: 1.05,
+          duration: 1000,
+          useNativeDriver: true,
+        }),
+        Animated.timing(pulseAnim, {
+          toValue: 1,
+          duration: 1000,
+          useNativeDriver: true,
+        }),
+      ])
+    );
+    pulse.start();
+    return () => pulse.stop();
+  }, []);
+
+  // Health check with timeout
+  const checkBackendHealth = useCallback(async (apiUrl: string): Promise<boolean> => {
+    if (!apiUrl) {
+      console.log('AppBootstrap: No API URL, skipping health check');
+      return true;
     }
 
     const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), 10000); // 10 second timeout
+    const timeoutId = setTimeout(() => controller.abort(), HEALTH_CHECK_TIMEOUT);
 
     try {
-      console.log('Checking backend health:', `${API_URL}/api/health`);
-      const response = await fetch(`${API_URL}/api/health`, {
+      console.log(`AppBootstrap: Health check -> ${apiUrl}/api/health`);
+      const response = await fetch(`${apiUrl}/api/health`, {
         method: 'GET',
         signal: controller.signal,
-        headers: {
-          'Accept': 'application/json',
-        },
+        headers: { 'Accept': 'application/json' },
       });
       
       clearTimeout(timeoutId);
       
       if (response.ok) {
         const data = await response.json();
-        console.log('Backend health check passed:', data);
+        console.log('AppBootstrap: Health check passed:', data);
         return true;
-      } else {
-        console.warn('Backend health check failed with status:', response.status);
-        return false;
       }
+      console.warn('AppBootstrap: Health check failed:', response.status);
+      return false;
     } catch (error: any) {
       clearTimeout(timeoutId);
-      if (error.name === 'AbortError') {
-        console.warn('Backend health check timed out');
-      } else {
-        console.warn('Backend health check error:', error.message);
-      }
+      const msg = error.name === 'AbortError' ? 'timeout' : error.message;
+      console.warn('AppBootstrap: Health check error:', msg);
       return false;
     }
   }, []);
 
+  // Main initialization
   const initialize = useCallback(async () => {
+    if (!mountedRef.current) return;
+    
     console.log('AppBootstrap: Starting initialization...');
-    setBootState('initializing');
-    setStatusMessage('Starting up...');
+    
+    // Phase 1: Splash (brief pause for UX)
+    setPhase('splash');
+    setStatusMessage('');
+    await new Promise(resolve => setTimeout(resolve, 300));
+    if (!mountedRef.current) return;
 
-    // Brief delay to ensure splash screen is visible
-    await new Promise(resolve => setTimeout(resolve, 500));
+    // Phase 2: Check environment
+    setPhase('environment');
+    setStatusMessage('Loading...');
+    
+    const apiUrl = getApiUrl();
+    console.log('AppBootstrap: API URL =', apiUrl || '(none)');
+    
+    await new Promise(resolve => setTimeout(resolve, 200));
+    if (!mountedRef.current) return;
 
-    // Check environment variables
-    console.log('AppBootstrap: API_URL =', API_URL);
-    if (!API_URL) {
-      console.warn('AppBootstrap: No API_URL configured');
-      setStatusMessage('Connecting...');
-    }
-
-    // Check backend health with retries
-    setBootState('checking');
-    setStatusMessage('Connecting to server...');
-
-    let healthCheckPassed = false;
-    let attempts = 0;
-
-    while (!healthCheckPassed && attempts < MAX_RETRIES) {
-      attempts++;
-      console.log(`AppBootstrap: Health check attempt ${attempts}/${MAX_RETRIES}`);
+    // Phase 3: Health check with retries
+    setPhase('health');
+    setStatusMessage('Connecting...');
+    
+    let healthy = false;
+    for (let attempt = 1; attempt <= MAX_RETRIES; attempt++) {
+      if (!mountedRef.current) return;
       
-      healthCheckPassed = await checkBackendHealth();
+      console.log(`AppBootstrap: Health check attempt ${attempt}/${MAX_RETRIES}`);
+      healthy = await checkBackendHealth(apiUrl);
       
-      if (!healthCheckPassed && attempts < MAX_RETRIES) {
-        setStatusMessage(`Retrying connection (${attempts}/${MAX_RETRIES})...`);
+      if (healthy) break;
+      
+      if (attempt < MAX_RETRIES) {
+        setStatusMessage(`Retrying (${attempt}/${MAX_RETRIES})...`);
         await new Promise(resolve => setTimeout(resolve, RETRY_DELAY));
       }
     }
+    
+    if (!mountedRef.current) return;
 
-    if (!healthCheckPassed) {
-      console.warn('AppBootstrap: Backend health check failed after all retries, proceeding anyway');
-      setStatusMessage('Offline mode...');
-      // Still allow app to proceed - it will handle errors gracefully
+    // Even if health check fails, proceed (app will handle gracefully)
+    if (!healthy) {
+      console.warn('AppBootstrap: Proceeding despite health check failure');
+      setStatusMessage('Starting offline...');
+      await new Promise(resolve => setTimeout(resolve, 500));
     }
 
-    // Ready to show app
-    setBootState('ready');
-    setStatusMessage('Ready!');
+    // Phase 4: Ready - fade out and show app
+    setPhase('ready');
+    setStatusMessage('Ready');
+    
+    // Small delay before fade for smoother transition
+    await new Promise(resolve => setTimeout(resolve, 100));
+    if (!mountedRef.current) return;
 
     // Fade out loading screen
     Animated.timing(fadeAnim, {
       toValue: 0,
-      duration: 300,
+      duration: 250,
       useNativeDriver: true,
     }).start(() => {
-      setShowChildren(true);
-      onReady?.();
+      if (mountedRef.current) {
+        setIsReady(true);
+        onReady?.();
+      }
     });
-
   }, [checkBackendHealth, fadeAnim, onReady]);
 
+  // Start initialization once
   useEffect(() => {
-    initialize();
-  }, []);
+    mountedRef.current = true;
+    
+    if (!initStartedRef.current) {
+      initStartedRef.current = true;
+      // Small delay to ensure component is fully mounted
+      const timer = setTimeout(initialize, 50);
+      return () => clearTimeout(timer);
+    }
+    
+    return () => {
+      mountedRef.current = false;
+    };
+  }, [initialize]);
 
+  // Handle retry
   const handleRetry = useCallback(() => {
-    setRetryCount(prev => prev + 1);
+    setErrorMessage('');
+    setPhase('splash');
+    initStartedRef.current = false;
     initialize();
   }, [initialize]);
 
-  // Always render children in background for faster perceived loading
-  // But only show them after boot is complete
-  if (showChildren) {
+  // Show children when ready
+  if (isReady) {
     return <>{children}</>;
   }
 
+  // Loading screen
   return (
     <View style={styles.container}>
-      {/* Render children in background but hidden */}
-      <View style={styles.hiddenChildren}>
-        {children}
-      </View>
-      
-      {/* Loading overlay */}
-      <Animated.View style={[styles.loadingOverlay, { opacity: fadeAnim }]}>
-        <View style={styles.content}>
-          {/* App Logo */}
-          <View style={styles.logoContainer}>
-            <Text style={styles.logoText}>MOOD</Text>
-            <Text style={styles.logoSubtext}>FITNESS</Text>
-          </View>
+      <Animated.View style={[styles.loadingScreen, { opacity: fadeAnim }]}>
+        {/* Logo */}
+        <Animated.View style={[styles.logoContainer, { transform: [{ scale: pulseAnim }] }]}>
+          <Text style={styles.logoText}>MOOD</Text>
+          <Text style={styles.logoSubtext}>FITNESS</Text>
+        </Animated.View>
 
-          {/* Loading indicator */}
-          <View style={styles.loadingSection}>
-            <ActivityIndicator size="large" color="#FFD700" />
-            <Text style={styles.statusText}>{statusMessage}</Text>
-          </View>
+        {/* Loading indicator */}
+        <View style={styles.loadingArea}>
+          {phase === 'error' ? (
+            <>
+              <Text style={styles.errorText}>{errorMessage || 'Connection failed'}</Text>
+              <TouchableOpacity style={styles.retryButton} onPress={handleRetry}>
+                <Text style={styles.retryButtonText}>Tap to Retry</Text>
+              </TouchableOpacity>
+            </>
+          ) : (
+            <>
+              <ActivityIndicator size="large" color="#FFD700" />
+              {statusMessage ? (
+                <Text style={styles.statusText}>{statusMessage}</Text>
+              ) : null}
+            </>
+          )}
+        </View>
 
-          {/* Progress dots */}
-          <View style={styles.progressDots}>
-            <View style={[styles.dot, bootState !== 'initializing' && styles.dotActive]} />
-            <View style={[styles.dot, bootState === 'ready' && styles.dotActive]} />
-            <View style={[styles.dot, bootState === 'ready' && styles.dotActive]} />
-          </View>
+        {/* Phase indicators */}
+        <View style={styles.phaseIndicators}>
+          <View style={[styles.phaseIndicator, phase !== 'splash' && styles.phaseComplete]} />
+          <View style={[styles.phaseIndicator, (phase === 'ready' || phase === 'health') && styles.phaseComplete]} />
+          <View style={[styles.phaseIndicator, phase === 'ready' && styles.phaseComplete]} />
         </View>
       </Animated.View>
     </View>
@@ -172,60 +245,71 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#000000',
   },
-  hiddenChildren: {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
-    opacity: 0,
-  },
-  loadingOverlay: {
-    ...StyleSheet.absoluteFillObject,
+  loadingScreen: {
+    flex: 1,
     backgroundColor: '#000000',
     justifyContent: 'center',
     alignItems: 'center',
-  },
-  content: {
-    alignItems: 'center',
-    padding: 40,
+    paddingHorizontal: 40,
   },
   logoContainer: {
     alignItems: 'center',
-    marginBottom: 60,
+    marginBottom: 80,
   },
   logoText: {
-    fontSize: 48,
+    fontSize: 52,
     fontWeight: 'bold',
     color: '#FFD700',
-    letterSpacing: 8,
+    letterSpacing: 10,
   },
   logoSubtext: {
-    fontSize: 14,
-    color: '#888888',
-    letterSpacing: 6,
+    fontSize: 13,
+    color: '#666',
+    letterSpacing: 8,
     marginTop: 8,
   },
-  loadingSection: {
+  loadingArea: {
     alignItems: 'center',
-    marginBottom: 40,
+    minHeight: 80,
   },
   statusText: {
-    marginTop: 16,
+    marginTop: 20,
     fontSize: 14,
-    color: '#888888',
+    color: '#666',
+    letterSpacing: 1,
   },
-  progressDots: {
+  errorText: {
+    fontSize: 14,
+    color: '#ff6b6b',
+    textAlign: 'center',
+    marginBottom: 20,
+  },
+  retryButton: {
+    paddingHorizontal: 32,
+    paddingVertical: 14,
+    backgroundColor: 'rgba(255, 215, 0, 0.15)',
+    borderRadius: 25,
+    borderWidth: 1,
+    borderColor: '#FFD700',
+  },
+  retryButtonText: {
+    color: '#FFD700',
+    fontSize: 15,
+    fontWeight: '600',
+  },
+  phaseIndicators: {
+    position: 'absolute',
+    bottom: 60,
     flexDirection: 'row',
     gap: 8,
   },
-  dot: {
+  phaseIndicator: {
     width: 8,
     height: 8,
     borderRadius: 4,
-    backgroundColor: '#333333',
+    backgroundColor: '#333',
   },
-  dotActive: {
+  phaseComplete: {
     backgroundColor: '#FFD700',
   },
 });
