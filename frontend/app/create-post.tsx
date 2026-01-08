@@ -1259,6 +1259,19 @@ export default function CreatePost() {
           </View>
         </View>
       </Modal>
+
+      {/* Image Crop Modal */}
+      {imageToCrop && (
+        <ImageCropModal
+          visible={showCropModal}
+          imageUri={imageToCrop.uri}
+          imageWidth={imageToCrop.width}
+          imageHeight={imageToCrop.height}
+          onCropComplete={handleCropComplete}
+          onCancel={handleCropCancel}
+          aspectRatio={4 / 5}
+        />
+      )}
     </SafeAreaView>
   );
 }
