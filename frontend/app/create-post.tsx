@@ -272,24 +272,31 @@ export default function CreatePost() {
   const launchCamera = async () => {
     const maxMedia = hasStatsCard ? 4 : 5;
 
-    // Don't use native editing - it's square on iOS
+    // Don't use native editing - we'll use our custom crop modal
     const result = await ImagePicker.launchCameraAsync({
       mediaTypes: ['images'],
-      allowsEditing: false,  // Disable native editor (square on iOS)
+      allowsEditing: false,
       quality: 0.9,
     });
 
     if (!result.canceled && result.assets && result.assets.length > 0) {
       const asset = result.assets[0];
       
-      // Always crop to 4:5 aspect ratio
-      let finalUri = asset.uri;
+      // Show crop modal for user to select crop area
       if (asset.width && asset.height) {
-        finalUri = await cropTo4x5(asset.uri, asset.width, asset.height);
+        setImageToCrop({
+          uri: asset.uri,
+          width: asset.width,
+          height: asset.height,
+        });
+        setCropSource('camera');
+        setShowCropModal(true);
+      } else {
+        // Fallback: If dimensions not available, auto-crop to 4:5
+        const finalUri = await cropTo4x5(asset.uri, asset.width || 1000, asset.height || 1250);
+        const newMedia: MediaItem = { uri: finalUri, type: 'image' };
+        setSelectedMedia([...selectedMedia, newMedia].slice(0, maxMedia));
       }
-      
-      const newMedia: MediaItem = { uri: finalUri, type: 'image' };
-      setSelectedMedia([...selectedMedia, newMedia].slice(0, maxMedia));
     }
   };
 
