@@ -9,7 +9,8 @@ import {
   ActivityIndicator,
   Image,
   PanResponder,
-  Animated,
+  GestureResponderEvent,
+  PanResponderGestureState,
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import * as ImageManipulator from 'expo-image-manipulator';
@@ -37,86 +38,160 @@ export default function ImageCropModal({
 }: ImageCropModalProps) {
   const [isProcessing, setIsProcessing] = useState(false);
   
-  // Calculate display dimensions
+  // Container dimensions
   const containerWidth = SCREEN_WIDTH - 40;
-  const containerHeight = SCREEN_HEIGHT - 300;
+  const containerHeight = SCREEN_HEIGHT - 350;
+  
+  // Zoom state (1 = original size, 2 = 2x zoom, etc.)
+  const [scale, setScale] = useState(1);
+  const [lastScale, setLastScale] = useState(1);
+  const [initialDistance, setInitialDistance] = useState(0);
+  
+  // Image offset for panning when zoomed
+  const [offsetX, setOffsetX] = useState(0);
+  const [offsetY, setOffsetY] = useState(0);
+  const [lastOffsetX, setLastOffsetX] = useState(0);
+  const [lastOffsetY, setLastOffsetY] = useState(0);
   
   // Calculate image display size (fit within container)
   const imageAspect = imageWidth / imageHeight;
-  let displayWidth: number;
-  let displayHeight: number;
+  let baseDisplayWidth: number;
+  let baseDisplayHeight: number;
   
   if (imageAspect > containerWidth / containerHeight) {
-    displayWidth = containerWidth;
-    displayHeight = containerWidth / imageAspect;
+    baseDisplayWidth = containerWidth;
+    baseDisplayHeight = containerWidth / imageAspect;
   } else {
-    displayHeight = containerHeight;
-    displayWidth = containerHeight * imageAspect;
+    baseDisplayHeight = containerHeight;
+    baseDisplayWidth = containerHeight * imageAspect;
   }
   
-  // Calculate crop box size (fixed aspect ratio)
+  // Scaled dimensions
+  const displayWidth = baseDisplayWidth * scale;
+  const displayHeight = baseDisplayHeight * scale;
+  
+  // Calculate crop box size (fixed aspect ratio, fits within base display)
   const cropAspect = aspectRatio;
   let cropBoxWidth: number;
   let cropBoxHeight: number;
   
-  if (cropAspect > displayWidth / displayHeight) {
-    cropBoxWidth = displayWidth * 0.9;
+  if (cropAspect > baseDisplayWidth / baseDisplayHeight) {
+    cropBoxWidth = baseDisplayWidth * 0.85;
     cropBoxHeight = cropBoxWidth / cropAspect;
   } else {
-    cropBoxHeight = displayHeight * 0.9;
+    cropBoxHeight = baseDisplayHeight * 0.85;
     cropBoxWidth = cropBoxHeight * cropAspect;
   }
   
-  // Crop box position (centered initially)
-  const [cropX, setCropX] = useState((displayWidth - cropBoxWidth) / 2);
-  const [cropY, setCropY] = useState((displayHeight - cropBoxHeight) / 2);
+  // Calculate distance between two touches
+  const getDistance = (touches: any[]): number => {
+    if (touches.length < 2) return 0;
+    const dx = touches[0].pageX - touches[1].pageX;
+    const dy = touches[0].pageY - touches[1].pageY;
+    return Math.sqrt(dx * dx + dy * dy);
+  };
   
-  // Pan responder for moving crop box
+  // Pan responder for moving and zooming
   const panResponder = useRef(
     PanResponder.create({
       onStartShouldSetPanResponder: () => true,
       onMoveShouldSetPanResponder: () => true,
-      onPanResponderMove: (_, gestureState) => {
-        const newX = Math.max(0, Math.min(displayWidth - cropBoxWidth, cropX + gestureState.dx));
-        const newY = Math.max(0, Math.min(displayHeight - cropBoxHeight, cropY + gestureState.dy));
-        setCropX(newX);
-        setCropY(newY);
+      
+      onPanResponderGrant: (evt) => {
+        const touches = evt.nativeEvent.touches;
+        if (touches.length === 2) {
+          // Start pinch - record initial distance
+          setInitialDistance(getDistance(touches));
+          setLastScale(scale);
+        } else {
+          // Start pan - record current offset
+          setLastOffsetX(offsetX);
+          setLastOffsetY(offsetY);
+        }
       },
-      onPanResponderRelease: (_, gestureState) => {
-        const newX = Math.max(0, Math.min(displayWidth - cropBoxWidth, cropX + gestureState.dx));
-        const newY = Math.max(0, Math.min(displayHeight - cropBoxHeight, cropY + gestureState.dy));
-        setCropX(newX);
-        setCropY(newY);
+      
+      onPanResponderMove: (evt, gestureState) => {
+        const touches = evt.nativeEvent.touches;
+        
+        if (touches.length === 2) {
+          // Pinch to zoom
+          const currentDistance = getDistance(touches);
+          if (initialDistance > 0) {
+            const newScale = Math.max(1, Math.min(4, lastScale * (currentDistance / initialDistance)));
+            setScale(newScale);
+            
+            // Constrain offset when zooming out
+            if (newScale <= 1) {
+              setOffsetX(0);
+              setOffsetY(0);
+            }
+          }
+        } else if (scale > 1) {
+          // Pan when zoomed in
+          const scaledDisplayWidth = baseDisplayWidth * scale;
+          const scaledDisplayHeight = baseDisplayHeight * scale;
+          
+          // Calculate max offset based on how much the image extends beyond the crop box
+          const maxOffsetX = Math.max(0, (scaledDisplayWidth - cropBoxWidth) / 2);
+          const maxOffsetY = Math.max(0, (scaledDisplayHeight - cropBoxHeight) / 2);
+          
+          const newOffsetX = Math.max(-maxOffsetX, Math.min(maxOffsetX, lastOffsetX + gestureState.dx));
+          const newOffsetY = Math.max(-maxOffsetY, Math.min(maxOffsetY, lastOffsetY + gestureState.dy));
+          
+          setOffsetX(newOffsetX);
+          setOffsetY(newOffsetY);
+        }
+      },
+      
+      onPanResponderRelease: () => {
+        setInitialDistance(0);
+        setLastScale(scale);
+        setLastOffsetX(offsetX);
+        setLastOffsetY(offsetY);
       },
     })
   ).current;
   
-  // Reset position when modal opens
+  // Reset state when modal opens
   useEffect(() => {
     if (visible) {
-      setCropX((displayWidth - cropBoxWidth) / 2);
-      setCropY((displayHeight - cropBoxHeight) / 2);
+      setScale(1);
+      setLastScale(1);
+      setOffsetX(0);
+      setOffsetY(0);
+      setLastOffsetX(0);
+      setLastOffsetY(0);
     }
-  }, [visible, displayWidth, displayHeight, cropBoxWidth, cropBoxHeight]);
+  }, [visible]);
 
   const handleCrop = async () => {
     setIsProcessing(true);
     try {
-      // Calculate scale from display to original image
-      const scaleX = imageWidth / displayWidth;
-      const scaleY = imageHeight / displayHeight;
+      // Calculate the visible crop area in original image coordinates
+      const scaleToOriginal = imageWidth / baseDisplayWidth;
       
-      // Convert display coordinates to image coordinates
-      const originX = Math.round(cropX * scaleX);
-      const originY = Math.round(cropY * scaleY);
-      const width = Math.round(cropBoxWidth * scaleX);
-      const height = Math.round(cropBoxHeight * scaleY);
+      // The crop box is centered in the container
+      // With zoom and offset, we need to calculate what part of the original image is visible
       
-      // Ensure we don't exceed image bounds
-      const safeOriginX = Math.max(0, Math.min(originX, imageWidth - width));
-      const safeOriginY = Math.max(0, Math.min(originY, imageHeight - height));
-      const safeWidth = Math.min(width, imageWidth - safeOriginX);
-      const safeHeight = Math.min(height, imageHeight - safeOriginY);
+      // Center of the crop box in display coordinates (relative to image center)
+      const cropCenterX = -offsetX;
+      const cropCenterY = -offsetY;
+      
+      // Crop box dimensions in current scale
+      const scaledCropWidth = cropBoxWidth / scale;
+      const scaledCropHeight = cropBoxHeight / scale;
+      
+      // Convert to original image coordinates
+      const originX = ((baseDisplayWidth / 2) + cropCenterX - (scaledCropWidth / 2)) * scaleToOriginal;
+      const originY = ((baseDisplayHeight / 2) + cropCenterY - (scaledCropHeight / 2)) * scaleToOriginal;
+      const cropWidth = scaledCropWidth * scaleToOriginal;
+      const cropHeight = scaledCropHeight * scaleToOriginal;
+      
+      // Ensure we stay within bounds
+      const safeOriginX = Math.max(0, Math.min(Math.round(originX), imageWidth - cropWidth));
+      const safeOriginY = Math.max(0, Math.min(Math.round(originY), imageHeight - cropHeight));
+      const safeWidth = Math.min(Math.round(cropWidth), imageWidth - safeOriginX);
+      const safeHeight = Math.min(Math.round(cropHeight), imageHeight - safeOriginY);
       
       // Apply the crop using expo-image-manipulator
       const result = await ImageManipulator.manipulateAsync(
@@ -165,55 +240,95 @@ export default function ImageCropModal({
           <View style={styles.headerButton} />
         </View>
 
-        {/* Aspect Ratio Info */}
+        {/* Aspect Ratio & Zoom Info */}
         <View style={styles.aspectInfo}>
           <Ionicons name="crop" size={16} color="#FFD700" />
-          <Text style={styles.aspectText}>4:5 Aspect Ratio (Portrait)</Text>
+          <Text style={styles.aspectText}>4:5 Portrait</Text>
+          <View style={styles.zoomBadge}>
+            <Ionicons name="search" size={12} color="#FFD700" />
+            <Text style={styles.zoomText}>{scale.toFixed(1)}x</Text>
+          </View>
         </View>
 
         {/* Crop Area */}
         <View style={styles.cropContainer}>
-          <View style={[styles.imageContainer, { width: displayWidth, height: displayHeight }]}>
-            <Image
-              source={{ uri: imageUri }}
-              style={{ width: displayWidth, height: displayHeight }}
-              resizeMode="contain"
-            />
+          <View 
+            style={[styles.imageContainer, { width: containerWidth, height: containerHeight }]}
+            {...panResponder.panHandlers}
+          >
+            {/* Image with zoom and offset */}
+            <View style={styles.imageWrapper}>
+              <Image
+                source={{ uri: imageUri }}
+                style={[
+                  styles.image,
+                  { 
+                    width: displayWidth, 
+                    height: displayHeight,
+                    transform: [
+                      { translateX: offsetX },
+                      { translateY: offsetY },
+                    ],
+                  }
+                ]}
+                resizeMode="contain"
+              />
+            </View>
             
             {/* Dark overlay with crop box cutout */}
-            <View style={[styles.overlay, { top: 0, left: 0, right: 0, height: cropY }]} />
-            <View style={[styles.overlay, { top: cropY + cropBoxHeight, left: 0, right: 0, bottom: 0 }]} />
-            <View style={[styles.overlay, { top: cropY, left: 0, width: cropX, height: cropBoxHeight }]} />
-            <View style={[styles.overlay, { top: cropY, right: 0, width: displayWidth - cropX - cropBoxWidth, height: cropBoxHeight }]} />
-            
-            {/* Crop box */}
-            <View 
-              {...panResponder.panHandlers}
-              style={[
-                styles.cropBox, 
-                { 
-                  width: cropBoxWidth, 
-                  height: cropBoxHeight,
-                  left: cropX,
-                  top: cropY,
-                }
-              ]}
-            >
-              {/* Grid lines */}
-              <View style={[styles.gridLine, styles.gridHorizontal, { top: '33%' }]} />
-              <View style={[styles.gridLine, styles.gridHorizontal, { top: '66%' }]} />
-              <View style={[styles.gridLine, styles.gridVertical, { left: '33%' }]} />
-              <View style={[styles.gridLine, styles.gridVertical, { left: '66%' }]} />
+            <View style={styles.overlayContainer} pointerEvents="none">
+              {/* Top overlay */}
+              <View style={[styles.overlay, { 
+                top: 0, 
+                left: 0, 
+                right: 0, 
+                height: (containerHeight - cropBoxHeight) / 2 
+              }]} />
+              {/* Bottom overlay */}
+              <View style={[styles.overlay, { 
+                bottom: 0, 
+                left: 0, 
+                right: 0, 
+                height: (containerHeight - cropBoxHeight) / 2 
+              }]} />
+              {/* Left overlay */}
+              <View style={[styles.overlay, { 
+                top: (containerHeight - cropBoxHeight) / 2, 
+                left: 0, 
+                width: (containerWidth - cropBoxWidth) / 2, 
+                height: cropBoxHeight 
+              }]} />
+              {/* Right overlay */}
+              <View style={[styles.overlay, { 
+                top: (containerHeight - cropBoxHeight) / 2, 
+                right: 0, 
+                width: (containerWidth - cropBoxWidth) / 2, 
+                height: cropBoxHeight 
+              }]} />
               
-              {/* Corner indicators */}
-              <View style={[styles.corner, styles.cornerTopLeft]} />
-              <View style={[styles.corner, styles.cornerTopRight]} />
-              <View style={[styles.corner, styles.cornerBottomLeft]} />
-              <View style={[styles.corner, styles.cornerBottomRight]} />
-              
-              {/* Move icon */}
-              <View style={styles.moveIcon}>
-                <Ionicons name="move" size={24} color="rgba(255, 255, 255, 0.7)" />
+              {/* Crop box border */}
+              <View 
+                style={[
+                  styles.cropBox, 
+                  { 
+                    width: cropBoxWidth, 
+                    height: cropBoxHeight,
+                    left: (containerWidth - cropBoxWidth) / 2,
+                    top: (containerHeight - cropBoxHeight) / 2,
+                  }
+                ]}
+              >
+                {/* Grid lines */}
+                <View style={[styles.gridLine, styles.gridHorizontal, { top: '33%' }]} />
+                <View style={[styles.gridLine, styles.gridHorizontal, { top: '66%' }]} />
+                <View style={[styles.gridLine, styles.gridVertical, { left: '33%' }]} />
+                <View style={[styles.gridLine, styles.gridVertical, { left: '66%' }]} />
+                
+                {/* Corner indicators */}
+                <View style={[styles.corner, styles.cornerTopLeft]} />
+                <View style={[styles.corner, styles.cornerTopRight]} />
+                <View style={[styles.corner, styles.cornerBottomLeft]} />
+                <View style={[styles.corner, styles.cornerBottomRight]} />
               </View>
             </View>
           </View>
@@ -221,10 +336,15 @@ export default function ImageCropModal({
 
         {/* Instructions */}
         <View style={styles.instructions}>
-          <Ionicons name="finger-print" size={18} color="rgba(255, 255, 255, 0.6)" />
-          <Text style={styles.instructionText}>
-            Drag the box to select crop area
-          </Text>
+          <View style={styles.instructionRow}>
+            <Ionicons name="finger-print" size={16} color="rgba(255, 255, 255, 0.6)" />
+            <Text style={styles.instructionText}>Drag to move</Text>
+          </View>
+          <View style={styles.instructionDivider} />
+          <View style={styles.instructionRow}>
+            <Ionicons name="expand" size={16} color="rgba(255, 255, 255, 0.6)" />
+            <Text style={styles.instructionText}>Pinch to zoom</Text>
+          </View>
         </View>
 
         {/* Actions */}
@@ -247,7 +367,7 @@ export default function ImageCropModal({
             ) : (
               <>
                 <Ionicons name="checkmark" size={20} color="#000" />
-                <Text style={styles.cropButtonText}>Apply Crop</Text>
+                <Text style={styles.cropButtonText}>Apply</Text>
               </>
             )}
           </TouchableOpacity>
@@ -268,7 +388,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingHorizontal: 16,
     paddingTop: 50,
-    paddingBottom: 16,
+    paddingBottom: 12,
     borderBottomWidth: 1,
     borderBottomColor: 'rgba(255, 255, 255, 0.1)',
   },
@@ -287,12 +407,27 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    paddingVertical: 12,
+    paddingVertical: 10,
     gap: 8,
-    backgroundColor: 'rgba(255, 215, 0, 0.1)',
+    backgroundColor: 'rgba(255, 215, 0, 0.08)',
   },
   aspectText: {
     fontSize: 14,
+    color: '#FFD700',
+    fontWeight: '600',
+  },
+  zoomBadge: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 4,
+    backgroundColor: 'rgba(255, 215, 0, 0.15)',
+    paddingHorizontal: 8,
+    paddingVertical: 4,
+    borderRadius: 12,
+    marginLeft: 8,
+  },
+  zoomText: {
+    fontSize: 12,
     color: '#FFD700',
     fontWeight: '600',
   },
@@ -305,10 +440,27 @@ const styles = StyleSheet.create({
   imageContainer: {
     position: 'relative',
     overflow: 'hidden',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  imageWrapper: {
+    position: 'absolute',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  image: {
+    // Dimensions set dynamically
+  },
+  overlayContainer: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
   },
   overlay: {
     position: 'absolute',
-    backgroundColor: 'rgba(0, 0, 0, 0.6)',
+    backgroundColor: 'rgba(0, 0, 0, 0.65)',
   },
   cropBox: {
     position: 'absolute',
@@ -318,7 +470,7 @@ const styles = StyleSheet.create({
   },
   gridLine: {
     position: 'absolute',
-    backgroundColor: 'rgba(255, 255, 255, 0.3)',
+    backgroundColor: 'rgba(255, 255, 255, 0.25)',
   },
   gridHorizontal: {
     left: 0,
@@ -361,39 +513,40 @@ const styles = StyleSheet.create({
     borderLeftWidth: 0,
     borderTopWidth: 0,
   },
-  moveIcon: {
-    position: 'absolute',
-    top: '50%',
-    left: '50%',
-    transform: [{ translateX: -12 }, { translateY: -12 }],
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
-    borderRadius: 20,
-    padding: 8,
-  },
   instructions: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    paddingVertical: 16,
-    gap: 8,
-    backgroundColor: 'rgba(255, 255, 255, 0.05)',
+    paddingVertical: 14,
+    gap: 12,
+    backgroundColor: 'rgba(255, 255, 255, 0.03)',
+  },
+  instructionRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 6,
+  },
+  instructionDivider: {
+    width: 1,
+    height: 16,
+    backgroundColor: 'rgba(255, 255, 255, 0.2)',
   },
   instructionText: {
-    fontSize: 14,
+    fontSize: 13,
     color: 'rgba(255, 255, 255, 0.6)',
   },
   actions: {
     flexDirection: 'row',
     paddingHorizontal: 20,
-    paddingVertical: 20,
-    paddingBottom: 40,
+    paddingVertical: 16,
+    paddingBottom: 36,
     gap: 12,
     borderTopWidth: 1,
     borderTopColor: 'rgba(255, 255, 255, 0.1)',
   },
   cancelButton: {
     flex: 1,
-    paddingVertical: 16,
+    paddingVertical: 14,
     borderRadius: 12,
     backgroundColor: 'rgba(255, 255, 255, 0.1)',
     alignItems: 'center',
@@ -406,12 +559,12 @@ const styles = StyleSheet.create({
   cropButton: {
     flex: 1,
     flexDirection: 'row',
-    paddingVertical: 16,
+    paddingVertical: 14,
     borderRadius: 12,
     backgroundColor: '#FFD700',
     alignItems: 'center',
     justifyContent: 'center',
-    gap: 8,
+    gap: 6,
   },
   cropButtonDisabled: {
     backgroundColor: 'rgba(255, 215, 0, 0.5)',
