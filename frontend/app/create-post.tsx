@@ -397,14 +397,14 @@ export default function CreatePost() {
     try {
       // Pick video with transcoding enabled to handle slow-mo and ProRes videos
       // Using HighestQuality export preset to transcode problematic formats to H.264
+      // This converts slow-mo, ProRes, and HEVC videos to standard H.264 format
       const result = await ImagePicker.launchImageLibraryAsync({
         mediaTypes: ['videos'],
         allowsMultipleSelection: false,
         allowsEditing: false,
         videoMaxDuration: 60, // 60 seconds max
-        videoQuality: ImagePicker.UIImagePickerControllerQualityType.Medium,
-        // This enables transcoding for slow-mo, ProRes, and other special formats
-        videoExportPreset: ImagePicker.VideoExportPreset.H264_1920x1080_30,
+        // Enable transcoding to H.264 - this handles slow-mo, ProRes, HEVC videos
+        videoExportPreset: ImagePicker.VideoExportPreset.HighestQuality,
       });
 
       if (!result.canceled && result.assets && result.assets.length > 0) {
@@ -422,10 +422,10 @@ export default function CreatePost() {
     } catch (error: any) {
       console.error('Video picker error:', error);
       // Handle PHPhotos errors gracefully
-      if (error?.message?.includes('PHPhotos') || error?.message?.includes('3164')) {
+      if (error?.message?.includes('PHPhotos') || error?.message?.includes('3164') || error?.message?.includes('couldn\'t be completed')) {
         showAlert(
           'Video Processing Issue', 
-          'Unable to process this video. It may be in an unsupported format. Try selecting a different video or recording a new one.'
+          'Unable to process this video. It may be corrupted or in an unsupported format. Try selecting a different video or recording a new one.'
         );
       } else {
         showAlert('Error', 'Failed to select video. Please try again.');
