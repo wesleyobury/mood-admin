@@ -389,26 +389,40 @@ export default function CreatePost() {
       return;
     }
 
-    // Pick video without editing (video editing not supported in expo-image-picker)
-    const result = await ImagePicker.launchImageLibraryAsync({
-      mediaTypes: ['videos'],
-      allowsMultipleSelection: false,
-      allowsEditing: false,
-      videoMaxDuration: 60, // 60 seconds max
-      quality: 0.7,
-    });
+    try {
+      // Pick video without editing (video editing not supported in expo-image-picker)
+      // Using videoQuality instead of quality to avoid iOS PHPhotos errors
+      const result = await ImagePicker.launchImageLibraryAsync({
+        mediaTypes: ['videos'],
+        allowsMultipleSelection: false,
+        allowsEditing: false,
+        videoMaxDuration: 60, // 60 seconds max
+        videoQuality: ImagePicker.UIImagePickerControllerQualityType.Medium,
+      });
 
-    if (!result.canceled && result.assets && result.assets.length > 0) {
-      const asset = result.assets[0];
-      
-      // Check video duration if available
-      if (asset.duration && asset.duration > 60000) { // 60 seconds in ms
-        showAlert('Video Too Long', 'Please select a video under 60 seconds');
-        return;
+      if (!result.canceled && result.assets && result.assets.length > 0) {
+        const asset = result.assets[0];
+        
+        // Check video duration if available
+        if (asset.duration && asset.duration > 60000) { // 60 seconds in ms
+          showAlert('Video Too Long', 'Please select a video under 60 seconds');
+          return;
+        }
+        
+        const newMedia: MediaItem = { uri: asset.uri, type: 'video' };
+        setSelectedMedia([...selectedMedia, newMedia].slice(0, maxMedia));
       }
-      
-      const newMedia: MediaItem = { uri: asset.uri, type: 'video' };
-      setSelectedMedia([...selectedMedia, newMedia].slice(0, maxMedia));
+    } catch (error: any) {
+      console.error('Video picker error:', error);
+      // Handle PHPhotos errors gracefully
+      if (error?.message?.includes('PHPhotos') || error?.message?.includes('3164')) {
+        showAlert(
+          'Video Format Issue', 
+          'This video format is not supported. Try selecting a different video or recording a new one.'
+        );
+      } else {
+        showAlert('Error', 'Failed to select video. Please try again.');
+      }
     }
   };
 
