@@ -652,21 +652,19 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#1a1a1a',
+    backgroundColor: '#FFD700',
     paddingHorizontal: 24,
     paddingVertical: 14,
-    borderRadius: 8,
-    borderWidth: 1,
-    borderColor: '#333',
+    borderRadius: 30,
     gap: 8,
   },
   startButtonDisabled: {
-    backgroundColor: 'rgba(26, 26, 26, 0.5)',
+    backgroundColor: 'rgba(255, 215, 0, 0.5)',
   },
   startButtonText: {
     fontSize: 16,
     fontWeight: '700',
-    color: '#fff',
+    color: '#000',
   },
   // Empty State Styles
   emptyHeader: {
