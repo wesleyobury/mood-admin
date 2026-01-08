@@ -78,6 +78,11 @@ export default function CreatePost() {
   const [showCoverPicker, setShowCoverPicker] = useState(false);
   const [coverPickerVideoIndex, setCoverPickerVideoIndex] = useState<number>(-1);
   
+  // Image crop modal state
+  const [showCropModal, setShowCropModal] = useState(false);
+  const [imageToCrop, setImageToCrop] = useState<{uri: string, width: number, height: number} | null>(null);
+  const [cropSource, setCropSource] = useState<'library' | 'camera'>('library');
+  
   // Success animation state (inline button animation like "Add workout")
   const [cardSaved, setCardSaved] = useState(false);
   const [saveScaleAnim] = useState(new Animated.Value(1));
