@@ -352,25 +352,30 @@ export default function CreatePost() {
       return;
     }
 
-    // Launch camera for video recording
-    const result = await ImagePicker.launchCameraAsync({
-      mediaTypes: ['videos'],
-      allowsEditing: false,
-      videoMaxDuration: 60, // 60 seconds max
-      quality: 0.7,
-    });
+    try {
+      // Launch camera for video recording
+      const result = await ImagePicker.launchCameraAsync({
+        mediaTypes: ['videos'],
+        allowsEditing: false,
+        videoMaxDuration: 60, // 60 seconds max
+        videoQuality: ImagePicker.UIImagePickerControllerQualityType.Medium,
+      });
 
-    if (!result.canceled && result.assets && result.assets.length > 0) {
-      const asset = result.assets[0];
-      
-      // Check video duration if available
-      if (asset.duration && asset.duration > 60000) { // 60 seconds in ms
-        showAlert('Video Too Long', 'Please record a video under 60 seconds');
-        return;
+      if (!result.canceled && result.assets && result.assets.length > 0) {
+        const asset = result.assets[0];
+        
+        // Check video duration if available
+        if (asset.duration && asset.duration > 60000) { // 60 seconds in ms
+          showAlert('Video Too Long', 'Please record a video under 60 seconds');
+          return;
+        }
+        
+        const newMedia: MediaItem = { uri: asset.uri, type: 'video' };
+        setSelectedMedia([...selectedMedia, newMedia].slice(0, maxMedia));
       }
-      
-      const newMedia: MediaItem = { uri: asset.uri, type: 'video' };
-      setSelectedMedia([...selectedMedia, newMedia].slice(0, maxMedia));
+    } catch (error: any) {
+      console.error('Video recording error:', error);
+      showAlert('Error', 'Failed to record video. Please try again.');
     }
   };
 
