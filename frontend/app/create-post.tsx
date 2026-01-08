@@ -395,14 +395,16 @@ export default function CreatePost() {
     }
 
     try {
-      // Pick video without editing (video editing not supported in expo-image-picker)
-      // Using videoQuality instead of quality to avoid iOS PHPhotos errors
+      // Pick video with transcoding enabled to handle slow-mo and ProRes videos
+      // Using HighestQuality export preset to transcode problematic formats to H.264
       const result = await ImagePicker.launchImageLibraryAsync({
         mediaTypes: ['videos'],
         allowsMultipleSelection: false,
         allowsEditing: false,
         videoMaxDuration: 60, // 60 seconds max
         videoQuality: ImagePicker.UIImagePickerControllerQualityType.Medium,
+        // This enables transcoding for slow-mo, ProRes, and other special formats
+        videoExportPreset: ImagePicker.VideoExportPreset.H264_1920x1080_30,
       });
 
       if (!result.canceled && result.assets && result.assets.length > 0) {
@@ -422,8 +424,8 @@ export default function CreatePost() {
       // Handle PHPhotos errors gracefully
       if (error?.message?.includes('PHPhotos') || error?.message?.includes('3164')) {
         showAlert(
-          'Video Format Issue', 
-          'This video format is not supported. Try selecting a different video or recording a new one.'
+          'Video Processing Issue', 
+          'Unable to process this video. It may be in an unsupported format. Try selecting a different video or recording a new one.'
         );
       } else {
         showAlert('Error', 'Failed to select video. Please try again.');
