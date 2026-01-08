@@ -2,7 +2,7 @@ import { useFonts } from 'expo-font';
 import { Stack } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
 import { useEffect, useRef, useState, useCallback } from 'react';
-import { AppState, AppStateStatus, View } from 'react-native';
+import { AppState, AppStateStatus, View, StyleSheet } from 'react-native';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { StatusBar } from 'expo-status-bar';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
@@ -13,8 +13,10 @@ import FloatingCart from '../components/FloatingCart';
 import ErrorBoundary from '../components/ErrorBoundary';
 import AppBootstrap from '../components/AppBootstrap';
 
-// Prevent the splash screen from auto-hiding before asset loading is complete.
-SplashScreen.preventAutoHideAsync();
+// Keep splash screen visible while we load
+SplashScreen.preventAutoHideAsync().catch(() => {
+  // Ignore errors - splash screen might already be hidden
+});
 
 // App State Tracker Component
 function AppStateTracker() {
@@ -25,10 +27,8 @@ function AppStateTracker() {
     const subscription = AppState.addEventListener('change', (nextAppState: AppStateStatus) => {
       if (token) {
         if (appState.current.match(/inactive|background/) && nextAppState === 'active') {
-          // App came to foreground
           Analytics.appOpened(token);
         } else if (appState.current === 'active' && nextAppState.match(/inactive|background/)) {
-          // App went to background
           Analytics.appBackgrounded(token);
         }
       }
@@ -43,28 +43,46 @@ function AppStateTracker() {
   return null;
 }
 
-// Main App Content - separated to decouple from initialization
+// Navigation stack configuration
+function NavigationStack() {
+  return (
+    <Stack 
+      screenOptions={{ 
+        headerShown: false, 
+        contentStyle: styles.screenContent,
+        animation: 'default'
+      }}
+    >
+      <Stack.Screen name="index" options={{ headerShown: false }} />
+      <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+      <Stack.Screen name="auth/login" options={{ headerShown: false }} />
+      <Stack.Screen name="auth/register" options={{ headerShown: false }} />
+      <Stack.Screen name="privacy-policy" options={{ headerShown: false }} />
+      <Stack.Screen name="cart" options={{ headerShown: false }} />
+      <Stack.Screen name="workout-session" options={{ headerShown: false }} />
+    </Stack>
+  );
+}
+
+// Main App Content
 function AppContent() {
   return (
     <>
       <AppStateTracker />
-      <Stack 
-        screenOptions={{ 
-          headerShown: false, 
-          contentStyle: { backgroundColor: '#000000' },
-          animation: 'default'
-        }}
-      >
-        <Stack.Screen name="index" options={{ headerShown: false, title: '', contentStyle: { backgroundColor: '#000000' } }} />
-        <Stack.Screen name="(tabs)" options={{ headerShown: false, title: '', contentStyle: { backgroundColor: '#000000' } }} />
-        <Stack.Screen name="auth/login" options={{ headerShown: false, title: '', contentStyle: { backgroundColor: '#000000' } }} />
-        <Stack.Screen name="auth/register" options={{ headerShown: false, title: '', contentStyle: { backgroundColor: '#000000' } }} />
-        <Stack.Screen name="privacy-policy" options={{ headerShown: false, title: '', contentStyle: { backgroundColor: '#000000' } }} />
-        <Stack.Screen name="cart" options={{ headerShown: false, title: '', contentStyle: { backgroundColor: '#000000' } }} />
-        <Stack.Screen name="workout-session" options={{ headerShown: false, title: '', contentStyle: { backgroundColor: '#000000' } }} />
-      </Stack>
+      <NavigationStack />
       <FloatingCart />
     </>
+  );
+}
+
+// Providers wrapper
+function AppProviders({ children }: { children: React.ReactNode }) {
+  return (
+    <AuthProvider>
+      <CartProvider>
+        {children}
+      </CartProvider>
+    </AuthProvider>
   );
 }
 
@@ -74,40 +92,76 @@ export default function RootLayout() {
   });
   const [appReady, setAppReady] = useState(false);
   const [retryKey, setRetryKey] = useState(0);
+  const splashHiddenRef = useRef(false);
 
-  // Hide splash screen when fonts are loaded AND app is ready
-  const handleAppReady = useCallback(() => {
-    console.log('App bootstrap complete, hiding splash screen');
+  // Handle app ready - hide splash screen
+  const handleAppReady = useCallback(async () => {
+    if (splashHiddenRef.current) return;
+    splashHiddenRef.current = true;
+    
+    console.log('RootLayout: App ready, hiding splash screen');
     setAppReady(true);
-    SplashScreen.hideAsync();
+    
+    try {
+      await SplashScreen.hideAsync();
+    } catch (e) {
+      // Ignore - splash screen might already be hidden
+    }
   }, []);
 
   // Handle error boundary retry
   const handleRetry = useCallback(() => {
     setRetryKey(prev => prev + 1);
+    splashHiddenRef.current = false;
   }, []);
 
-  // Don't render until fonts are loaded
+  // Safety timeout - hide splash screen after 5 seconds no matter what
+  useEffect(() => {
+    const timeout = setTimeout(async () => {
+      if (!splashHiddenRef.current) {
+        console.warn('RootLayout: Safety timeout - forcing splash hide');
+        splashHiddenRef.current = true;
+        try {
+          await SplashScreen.hideAsync();
+        } catch (e) {}
+        setAppReady(true);
+      }
+    }, 5000);
+    
+    return () => clearTimeout(timeout);
+  }, []);
+
+  // Show solid black while fonts load (never white)
   if (!fontsLoaded && !fontError) {
-    return (
-      <View style={{ flex: 1, backgroundColor: '#000000' }} />
-    );
+    return <View style={styles.loadingContainer} />;
   }
 
   return (
-    <GestureHandlerRootView style={{ flex: 1, backgroundColor: '#000000' }}>
+    <GestureHandlerRootView style={styles.rootContainer}>
       <StatusBar style="light" backgroundColor="#000000" translucent={false} />
-      <SafeAreaProvider style={{ flex: 1, backgroundColor: '#000000' }}>
+      <SafeAreaProvider style={styles.rootContainer}>
         <ErrorBoundary key={retryKey} onRetry={handleRetry}>
-          <AuthProvider>
-            <CartProvider>
-              <AppBootstrap onReady={handleAppReady}>
-                <AppContent />
-              </AppBootstrap>
-            </CartProvider>
-          </AuthProvider>
+          <AppProviders>
+            <AppBootstrap onReady={handleAppReady}>
+              <AppContent />
+            </AppBootstrap>
+          </AppProviders>
         </ErrorBoundary>
       </SafeAreaProvider>
     </GestureHandlerRootView>
   );
 }
+
+const styles = StyleSheet.create({
+  rootContainer: {
+    flex: 1,
+    backgroundColor: '#000000',
+  },
+  loadingContainer: {
+    flex: 1,
+    backgroundColor: '#000000',
+  },
+  screenContent: {
+    backgroundColor: '#000000',
+  },
+});
