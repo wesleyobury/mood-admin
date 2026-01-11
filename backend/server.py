@@ -3636,6 +3636,61 @@ async def get_following_posts(
         logger.error(f"Error fetching following posts: {str(e)}")
         return []
 
+@api_router.get("/posts/public")
+async def get_public_posts(limit: int = 20, skip: int = 0):
+    """Get public feed posts without authentication (for guest users)"""
+    # Get posts with author and workout details
+    pipeline = [
+        {"$sort": {"created_at": -1}},
+        {"$skip": skip},
+        {"$limit": limit},
+        {
+            "$lookup": {
+                "from": "users",
+                "localField": "author_id",
+                "foreignField": "_id",
+                "as": "author"
+            }
+        },
+        {"$unwind": "$author"}
+    ]
+    
+    posts = await db.posts.aggregate(pipeline).to_list(length=limit)
+    
+    result = []
+    for post in posts:
+        # Convert ObjectIds to strings
+        author_data = UserResponse(
+            id=str(post["author"]["_id"]),
+            username=post["author"]["username"],
+            email=post["author"]["email"],
+            name=post["author"].get("name"),
+            bio=post["author"].get("bio", ""),
+            avatar=post["author"].get("avatar", ""),
+            followers_count=post["author"].get("followers_count", 0),
+            following_count=post["author"].get("following_count", 0),
+            workouts_count=post["author"].get("workouts_count", 0),
+            current_streak=post["author"].get("current_streak", 0),
+            created_at=post["author"]["created_at"]
+        )
+        
+        result.append(PostResponse(
+            id=str(post["_id"]),
+            author=author_data,
+            workout=None,  # Skip workout details for public feed
+            caption=post["caption"],
+            media_urls=post.get("media_urls", []),
+            hashtags=post.get("hashtags", []),
+            cover_urls=post.get("cover_urls"),
+            likes_count=post.get("likes_count", 0),
+            comments_count=post.get("comments_count", 0),
+            is_liked=False,  # Guests can't like
+            is_saved=False,  # Guests can't save
+            created_at=post["created_at"]
+        ))
+    
+    return result
+
 @api_router.get("/posts")
 async def get_posts(current_user_id: str = Depends(get_current_user), limit: int = 20, skip: int = 0):
     """Get feed posts with user and workout information"""
