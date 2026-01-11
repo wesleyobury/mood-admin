@@ -1158,6 +1158,131 @@ export default function AdminDashboard() {
         </View>
       </Modal>
 
+      {/* Engagement Chart Modal */}
+      <Modal
+        visible={showEngagementChart}
+        animationType="slide"
+        presentationStyle="pageSheet"
+        onRequestClose={() => setShowEngagementChart(false)}
+      >
+        <View style={[styles.modalContainer, { paddingTop: insets.top }]}>
+          <View style={styles.modalHeader}>
+            <TouchableOpacity onPress={() => setShowEngagementChart(false)} style={styles.modalClose}>
+              <Ionicons name="close" size={24} color="#fff" />
+            </TouchableOpacity>
+            <Text style={styles.modalTitle}>{engagementChartTitle}</Text>
+            <View style={{ width: 24 }} />
+          </View>
+
+          {/* Period Selector */}
+          <View style={styles.engagementChartPeriodSelector}>
+            {(['day', 'week', 'month'] as const).map((period) => (
+              <TouchableOpacity
+                key={period}
+                style={[
+                  styles.engagementChartPeriodBtn,
+                  engagementChartPeriod === period && styles.engagementChartPeriodBtnActive
+                ]}
+                onPress={() => setEngagementChartPeriod(period)}
+              >
+                <Text style={[
+                  styles.engagementChartPeriodText,
+                  engagementChartPeriod === period && styles.engagementChartPeriodTextActive
+                ]}>
+                  {period === 'day' ? 'Daily' : period === 'week' ? 'Weekly' : 'Monthly'}
+                </Text>
+              </TouchableOpacity>
+            ))}
+          </View>
+
+          {engagementChartLoading ? (
+            <View style={styles.engagementChartLoading}>
+              <ActivityIndicator size="large" color="#FFD700" />
+              <Text style={styles.engagementChartLoadingText}>Loading chart...</Text>
+            </View>
+          ) : engagementChartData && engagementChartData.labels.length > 0 ? (
+            <ScrollView 
+              horizontal 
+              showsHorizontalScrollIndicator={false}
+              contentContainerStyle={styles.engagementChartScrollContainer}
+            >
+              <BarChart
+                data={{
+                  labels: engagementChartData.labels.slice(-12).map(label => {
+                    // Format labels for readability
+                    if (engagementChartPeriod === 'week' && label.includes('-')) {
+                      const startPart = label.split('-')[0].trim();
+                      const monthMatch = startPart.match(/([A-Z][a-z]+)\s*(\d+)/);
+                      if (monthMatch) {
+                        const monthNum: Record<string, string> = {
+                          'Jan': '1', 'Feb': '2', 'Mar': '3', 'Apr': '4',
+                          'May': '5', 'Jun': '6', 'Jul': '7', 'Aug': '8',
+                          'Sep': '9', 'Oct': '10', 'Nov': '11', 'Dec': '12'
+                        };
+                        return `${monthNum[monthMatch[1]] || monthMatch[1]}/${monthMatch[2]}`;
+                      }
+                    }
+                    return label;
+                  }),
+                  datasets: [{ data: engagementChartData.datasets[0]?.data.slice(-12) || [0] }]
+                }}
+                width={Math.max(screenWidth - 48, 12 * 50)}
+                height={280}
+                yAxisLabel=""
+                yAxisSuffix=""
+                chartConfig={{
+                  backgroundColor: '#1a1a1a',
+                  backgroundGradientFrom: '#1a1a1a',
+                  backgroundGradientTo: '#1a1a1a',
+                  decimalPlaces: 0,
+                  color: (opacity = 1) => `rgba(255, 215, 0, ${opacity})`,
+                  labelColor: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
+                  style: { borderRadius: 16 },
+                  propsForLabels: { fontSize: 10 },
+                  barPercentage: 0.7,
+                }}
+                style={styles.engagementBarChart}
+                showValuesOnTopOfBars
+                fromZero
+              />
+            </ScrollView>
+          ) : (
+            <View style={styles.noEngagementData}>
+              <Ionicons name="bar-chart-outline" size={48} color="#666" />
+              <Text style={styles.noEngagementText}>No data available for this period</Text>
+            </View>
+          )}
+
+          {/* Summary */}
+          {engagementChartData && engagementChartData.datasets[0]?.data.length > 0 && (
+            <View style={styles.engagementChartSummary}>
+              <View style={styles.engagementChartSummaryItem}>
+                <Text style={styles.engagementChartSummaryValue}>
+                  {engagementChartData.datasets[0].data.reduce((a, b) => a + b, 0).toLocaleString()}
+                </Text>
+                <Text style={styles.engagementChartSummaryLabel}>Total</Text>
+              </View>
+              <View style={styles.engagementChartSummaryDivider} />
+              <View style={styles.engagementChartSummaryItem}>
+                <Text style={styles.engagementChartSummaryValue}>
+                  {Math.round(engagementChartData.datasets[0].data.reduce((a, b) => a + b, 0) / engagementChartData.datasets[0].data.length)}
+                </Text>
+                <Text style={styles.engagementChartSummaryLabel}>
+                  Avg per {engagementChartPeriod === 'day' ? 'Day' : engagementChartPeriod === 'week' ? 'Week' : 'Month'}
+                </Text>
+              </View>
+              <View style={styles.engagementChartSummaryDivider} />
+              <View style={styles.engagementChartSummaryItem}>
+                <Text style={styles.engagementChartSummaryValue}>
+                  {Math.max(...engagementChartData.datasets[0].data)}
+                </Text>
+                <Text style={styles.engagementChartSummaryLabel}>Peak</Text>
+              </View>
+            </View>
+          )}
+        </View>
+      </Modal>
+
       {/* User List Modal */}
       <Modal
         visible={showUserList}
