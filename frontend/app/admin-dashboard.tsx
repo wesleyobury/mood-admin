@@ -946,42 +946,74 @@ export default function AdminDashboard() {
 
         {/* Engagement Summary */}
         <View style={styles.section}>
-          <Text style={styles.sectionTitle}>Engagement Summary</Text>
+          <View style={styles.sectionHeader}>
+            <Text style={styles.sectionTitle}>Engagement Summary</Text>
+            <Text style={styles.sectionHint}>Tap for chart</Text>
+          </View>
           
           <View style={styles.engagementGrid}>
-            <View style={styles.engagementCard}>
+            <TouchableOpacity 
+              style={styles.engagementCard}
+              onPress={() => openEngagementChart('workouts_added', 'Workouts Added to Cart')}
+            >
               <Ionicons name="cart" size={20} color="#9C27B0" />
               <Text style={styles.engagementValue}>{stats?.workouts_added || 0}</Text>
               <Text style={styles.engagementLabel}>Workouts Added</Text>
-              <Text style={styles.engagementSub}>to cart</Text>
-            </View>
+              <View style={styles.engagementChartHint}>
+                <Ionicons name="bar-chart-outline" size={12} color="#666" />
+              </View>
+            </TouchableOpacity>
             
-            <View style={styles.engagementCard}>
+            <TouchableOpacity 
+              style={styles.engagementCard}
+              onPress={() => openEngagementChart('workouts_completed', 'Workouts Completed')}
+            >
               <Ionicons name="fitness" size={20} color="#FFD700" />
               <Text style={styles.engagementValue}>{stats?.workouts_completed || 0}</Text>
               <Text style={styles.engagementLabel}>Workouts Completed</Text>
               {stats?.workout_completion_rate ? (
-                <Text style={styles.engagementSub}>{stats.workout_completion_rate}% completion</Text>
+                <Text style={styles.engagementSub}>{stats.workout_completion_rate}%</Text>
               ) : null}
-            </View>
+              <View style={styles.engagementChartHint}>
+                <Ionicons name="bar-chart-outline" size={12} color="#666" />
+              </View>
+            </TouchableOpacity>
             
-            <View style={styles.engagementCard}>
+            <TouchableOpacity 
+              style={styles.engagementCard}
+              onPress={() => openEngagementChart('posts_created', 'Posts Created')}
+            >
               <Ionicons name="create" size={20} color="#4CAF50" />
               <Text style={styles.engagementValue}>{stats?.posts_created || 0}</Text>
               <Text style={styles.engagementLabel}>Posts Created</Text>
-            </View>
+              <View style={styles.engagementChartHint}>
+                <Ionicons name="bar-chart-outline" size={12} color="#666" />
+              </View>
+            </TouchableOpacity>
             
-            <View style={styles.engagementCard}>
+            <TouchableOpacity 
+              style={styles.engagementCard}
+              onPress={() => openEngagementChart('likes', 'Likes')}
+            >
               <Ionicons name="heart" size={20} color="#E91E63" />
               <Text style={styles.engagementValue}>{stats?.total_likes || 0}</Text>
               <Text style={styles.engagementLabel}>Likes</Text>
-            </View>
+              <View style={styles.engagementChartHint}>
+                <Ionicons name="bar-chart-outline" size={12} color="#666" />
+              </View>
+            </TouchableOpacity>
             
-            <View style={styles.engagementCard}>
+            <TouchableOpacity 
+              style={styles.engagementCard}
+              onPress={() => openEngagementChart('comments', 'Comments')}
+            >
               <Ionicons name="chatbubble" size={20} color="#2196F3" />
               <Text style={styles.engagementValue}>{stats?.total_comments || 0}</Text>
               <Text style={styles.engagementLabel}>Comments</Text>
-            </View>
+              <View style={styles.engagementChartHint}>
+                <Ionicons name="bar-chart-outline" size={12} color="#666" />
+              </View>
+            </TouchableOpacity>
           </View>
         </View>
 
