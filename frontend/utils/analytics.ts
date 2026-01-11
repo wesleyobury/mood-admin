@@ -7,7 +7,6 @@
 
 import Constants from 'expo-constants';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import * as Application from 'expo-application';
 import { Platform } from 'react-native';
 
 // Prioritize process.env for development/preview environments
@@ -25,18 +24,11 @@ export const getOrCreateDeviceId = async (): Promise<string> => {
     let deviceId = await AsyncStorage.getItem(GUEST_DEVICE_ID_KEY);
     
     if (!deviceId) {
-      // Generate a new device ID
-      // Try to use native device ID first, fallback to UUID
-      if (Platform.OS === 'ios') {
-        deviceId = await Application.getIosIdForVendorAsync() || '';
-      } else if (Platform.OS === 'android') {
-        deviceId = Application.androidId || '';
-      }
-      
-      // Fallback to random UUID if native ID not available
-      if (!deviceId) {
-        deviceId = `guest_${Date.now()}_${Math.random().toString(36).substring(2, 15)}`;
-      }
+      // Generate a unique device ID (platform-agnostic approach)
+      const timestamp = Date.now();
+      const randomPart = Math.random().toString(36).substring(2, 15);
+      const platformPart = Platform.OS.substring(0, 3);
+      deviceId = `guest_${platformPart}_${timestamp}_${randomPart}`;
       
       // Store for future use
       await AsyncStorage.setItem(GUEST_DEVICE_ID_KEY, deviceId);
