@@ -1771,6 +1771,32 @@ async def get_comprehensive_stats(
             "timestamp": {"$gte": start_date}
         })
         
+        # === GUEST METRICS ===
+        # Count guest sessions started
+        guest_signins = await db.user_events.count_documents({
+            "event_type": "guest_session_started",
+            "is_guest": True,
+            "timestamp": {"$gte": start_date}
+        })
+        
+        # Count unique guest devices
+        guest_devices = await db.user_events.distinct(
+            "device_id",
+            {
+                "event_type": "guest_session_started",
+                "is_guest": True,
+                "timestamp": {"$gte": start_date}
+            }
+        )
+        unique_guest_devices = len(guest_devices) if guest_devices else 0
+        
+        # Count guests who converted (merged to user)
+        guest_conversions = await db.user_events.count_documents({
+            "is_guest": True,
+            "merged_to_user_id": {"$ne": None},
+            "timestamp": {"$gte": start_date}
+        })
+        
         return {
             "period_days": days,
             "generated_at": datetime.now(timezone.utc).isoformat(),
@@ -1803,6 +1829,11 @@ async def get_comprehensive_stats(
             "total_likes": total_likes,
             "total_comments": total_comments,
             "total_follows": total_follows,
+            
+            # Guest Metrics
+            "guest_signins": guest_signins,
+            "unique_guest_devices": unique_guest_devices,
+            "guest_conversions": guest_conversions,
         }
         
     except Exception as e:
