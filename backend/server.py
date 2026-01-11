@@ -736,16 +736,84 @@ class TrackEventRequest(BaseModel):
     event_type: str
     metadata: Optional[dict] = None
 
+class GuestTrackEventRequest(BaseModel):
+    event_type: str
+    device_id: str  # Unique device/session identifier for guests
+    metadata: Optional[dict] = None
+
 @api_router.post("/analytics/track")
 async def track_event(
     request: TrackEventRequest,
     current_user_id: str = Depends(get_current_user)
 ):
     """
-    Track a user event
+    Track a user event (authenticated users)
     """
     await track_user_event(db, current_user_id, request.event_type, request.metadata)
     return {"message": "Event tracked successfully"}
+
+@api_router.post("/analytics/track/guest")
+async def track_guest_event(request: GuestTrackEventRequest):
+    """
+    Track a guest user event (no authentication required).
+    Uses device_id to identify the guest session.
+    Guest events are stored separately and can be merged on signup.
+    """
+    try:
+        # Create guest event document
+        guest_event = {
+            "device_id": request.device_id,
+            "event_type": request.event_type,
+            "event_category": EVENT_TYPES.get(request.event_type, "other"),
+            "metadata": request.metadata or {},
+            "is_guest": True,
+            "merged_to_user_id": None,  # Will be set when guest signs up
+            "timestamp": datetime.now(timezone.utc),
+        }
+        
+        await db.user_events.insert_one(guest_event)
+        logger.info(f"📊 Guest event tracked: {request.event_type} for device {request.device_id[:8]}...")
+        
+        return {"message": "Guest event tracked successfully"}
+    except Exception as e:
+        logger.error(f"Error tracking guest event: {str(e)}")
+        raise HTTPException(status_code=500, detail="Failed to track event")
+
+@api_router.post("/analytics/alias")
+async def alias_guest_to_user(
+    device_id: str,
+    current_user_id: str = Depends(get_current_user)
+):
+    """
+    Merge guest activity into a registered user account.
+    Call this after a guest signs up or logs in.
+    """
+    try:
+        # Find all guest events with this device_id that haven't been merged
+        result = await db.user_events.update_many(
+            {
+                "device_id": device_id,
+                "is_guest": True,
+                "merged_to_user_id": None
+            },
+            {
+                "$set": {
+                    "merged_to_user_id": current_user_id,
+                    "merged_at": datetime.now(timezone.utc)
+                }
+            }
+        )
+        
+        merged_count = result.modified_count
+        logger.info(f"🔗 Merged {merged_count} guest events from device {device_id[:8]}... to user {current_user_id}")
+        
+        return {
+            "message": f"Successfully merged {merged_count} guest events",
+            "merged_count": merged_count
+        }
+    except Exception as e:
+        logger.error(f"Error aliasing guest to user: {str(e)}")
+        raise HTTPException(status_code=500, detail="Failed to merge guest activity")
 
 
 @api_router.get("/analytics/activity-summary")
