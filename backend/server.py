@@ -1553,12 +1553,14 @@ async def get_realtime_active_users(
 @api_router.get("/analytics/admin/comprehensive-stats")
 async def get_comprehensive_stats(
     days: int = 1,
+    user_type: str = "all",  # "all", "users", "guests"
     current_user_id: str = Depends(get_current_user)
 ):
     """
     Get comprehensive platform statistics with accurate data.
     This is the main endpoint for the admin dashboard.
     days=0 means "all time" (no date filter)
+    user_type: "all" (combined), "users" (registered only), "guests" (guest only)
     """
     from collections import defaultdict
     
@@ -1573,6 +1575,17 @@ async def get_comprehensive_stats(
     today_start = datetime.now(timezone.utc).replace(hour=0, minute=0, second=0, microsecond=0)
     realtime_cutoff = datetime.now(timezone.utc) - timedelta(minutes=5)
     
+    # Build user type filter for event queries
+    def get_user_type_filter():
+        if user_type == "users":
+            return {"is_guest": {"$ne": True}}  # Registered users only
+        elif user_type == "guests":
+            return {"is_guest": True}  # Guests only
+        else:
+            return {}  # All users (no filter)
+    
+    user_type_filter = get_user_type_filter()
+    
     try:
         # === USER METRICS (Accurate) ===
         total_users = await db.users.count_documents({})
@@ -1585,32 +1598,73 @@ async def get_comprehensive_stats(
                 "created_at": {"$gte": start_date}
             })
         
-        # Really active users (with heartbeat in last 5 mins)
-        realtime_active = await db.user_heartbeats.count_documents({
+        # Really active users (with heartbeat in last 5 mins) - registered users only
+        realtime_active_users = await db.user_heartbeats.count_documents({
             "last_heartbeat": {"$gte": realtime_cutoff}
         })
+        
+        # Active guests (with recent guest events)
+        realtime_active_guests = await db.user_events.distinct(
+            "device_id",
+            {
+                "is_guest": True,
+                "timestamp": {"$gte": realtime_cutoff}
+            }
+        )
+        realtime_active_guest_count = len(realtime_active_guests) if realtime_active_guests else 0
+        
+        # Combined realtime active based on filter
+        if user_type == "users":
+            realtime_active = realtime_active_users
+        elif user_type == "guests":
+            realtime_active = realtime_active_guest_count
+        else:
+            realtime_active = realtime_active_users + realtime_active_guest_count
         
         # Users with any activity in period
         active_user_ids = await db.user_events.distinct(
             "user_id",
-            {"timestamp": {"$gte": start_date}}
+            {"timestamp": {"$gte": start_date}, "is_guest": {"$ne": True}}
         )
-        users_with_activity = len(active_user_ids)
+        active_guest_devices = await db.user_events.distinct(
+            "device_id",
+            {"timestamp": {"$gte": start_date}, "is_guest": True}
+        )
         
-        # === SESSION METRICS (Accurate) ===
+        if user_type == "users":
+            users_with_activity = len(active_user_ids) if active_user_ids else 0
+        elif user_type == "guests":
+            users_with_activity = len(active_guest_devices) if active_guest_devices else 0
+        else:
+            users_with_activity = (len(active_user_ids) if active_user_ids else 0) + (len(active_guest_devices) if active_guest_devices else 0)
+        
+        # === SESSION METRICS (Combined) ===
+        session_filter = {"timestamp": {"$gte": start_date}, **user_type_filter}
+        
         # Count actual app_opened events (most reliable session indicator)
         app_opens = await db.user_events.count_documents({
             "event_type": "app_opened",
-            "timestamp": {"$gte": start_date}
+            **session_filter
         })
         
         # Count app_session_start as fallback
         app_sessions = await db.user_events.count_documents({
             "event_type": "app_session_start",
+            **session_filter
+        })
+        
+        # Count guest_session_started for guests
+        guest_sessions = await db.user_events.count_documents({
+            "event_type": "guest_session_started",
             "timestamp": {"$gte": start_date}
         })
         
-        total_sessions = max(app_opens, app_sessions) if app_opens > 0 or app_sessions > 0 else 0
+        if user_type == "guests":
+            total_sessions = guest_sessions
+        elif user_type == "users":
+            total_sessions = max(app_opens, app_sessions) if app_opens > 0 or app_sessions > 0 else 0
+        else:
+            total_sessions = max(app_opens, app_sessions) + guest_sessions
         
         # === PAGE/SCREEN VIEWS ===
         # Use $toLower to normalize screen names and merge duplicates
@@ -1618,6 +1672,10 @@ async def get_comprehensive_stats(
             {
                 "$match": {
                     "event_type": {"$in": ["screen_viewed", "screen_entered"]},
+                    "timestamp": {"$gte": start_date},
+                    **user_type_filter
+                }
+            },
                     "timestamp": {"$gte": start_date}
                 }
             },
