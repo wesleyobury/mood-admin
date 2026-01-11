@@ -1613,12 +1613,32 @@ const styles = StyleSheet.create({
     height: '100%',
     borderRadius: 4,
   },
+  moodStats: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 4,
+    minWidth: 70,
+    justifyContent: 'flex-end',
+  },
   moodPercentage: {
     fontSize: 12,
     fontWeight: '700',
     color: '#FFD700',
-    width: 40,
-    textAlign: 'right',
+  },
+  moodCount: {
+    fontSize: 10,
+    color: '#666',
+  },
+  moodTotalRow: {
+    marginTop: 12,
+    paddingTop: 12,
+    borderTopWidth: 1,
+    borderTopColor: '#333',
+    alignItems: 'center',
+  },
+  moodTotalText: {
+    fontSize: 11,
+    color: '#888',
   },
   chartPeriodSelector: {
     flexDirection: 'row',
