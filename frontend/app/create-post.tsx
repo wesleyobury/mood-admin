@@ -1303,6 +1303,16 @@ export default function CreatePost() {
           aspectRatio={4 / 5}
         />
       )}
+      
+      {/* Guest Prompt Modal */}
+      <GuestPromptModal 
+        visible={showGuestPrompt}
+        onClose={() => {
+          setShowGuestPrompt(false);
+          router.back();
+        }}
+        action="create posts"
+      />
     </SafeAreaView>
   );
 }
