@@ -84,6 +84,10 @@ interface ComprehensiveStats {
   total_likes: number;
   total_comments: number;
   total_follows: number;
+  // Guest metrics
+  guest_signins: number;
+  unique_guest_devices: number;
+  guest_conversions: number;
 }
 
 interface UserItem {
