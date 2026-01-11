@@ -2121,6 +2121,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     borderWidth: 1,
     borderColor: 'rgba(255, 215, 0, 0.1)',
+    position: 'relative',
   },
   engagementValue: {
     fontSize: 24,
@@ -2137,6 +2138,99 @@ const styles = StyleSheet.create({
     fontSize: 10,
     color: '#4CAF50',
     marginTop: 4,
+  },
+  engagementChartHint: {
+    position: 'absolute',
+    top: 8,
+    right: 8,
+  },
+  sectionHint: {
+    fontSize: 10,
+    color: '#666',
+  },
+  // Engagement Chart Modal Styles
+  engagementChartPeriodSelector: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    gap: 8,
+    paddingVertical: 16,
+    paddingHorizontal: 16,
+    borderBottomWidth: 1,
+    borderBottomColor: 'rgba(255, 215, 0, 0.1)',
+  },
+  engagementChartPeriodBtn: {
+    paddingHorizontal: 20,
+    paddingVertical: 10,
+    borderRadius: 20,
+    backgroundColor: '#1a1a1a',
+    borderWidth: 1,
+    borderColor: '#333',
+  },
+  engagementChartPeriodBtnActive: {
+    backgroundColor: '#FFD700',
+    borderColor: '#FFD700',
+  },
+  engagementChartPeriodText: {
+    fontSize: 13,
+    color: '#888',
+    fontWeight: '500',
+  },
+  engagementChartPeriodTextActive: {
+    color: '#000',
+    fontWeight: '600',
+  },
+  engagementChartLoading: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  engagementChartLoadingText: {
+    color: '#888',
+    marginTop: 12,
+    fontSize: 14,
+  },
+  engagementChartScrollContainer: {
+    paddingHorizontal: 16,
+    paddingVertical: 20,
+  },
+  engagementBarChart: {
+    borderRadius: 12,
+  },
+  noEngagementData: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  noEngagementText: {
+    color: '#666',
+    marginTop: 12,
+    fontSize: 14,
+  },
+  engagementChartSummary: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    paddingVertical: 20,
+    paddingHorizontal: 16,
+    backgroundColor: '#1a1a1a',
+    borderTopWidth: 1,
+    borderTopColor: 'rgba(255, 215, 0, 0.1)',
+  },
+  engagementChartSummaryItem: {
+    alignItems: 'center',
+  },
+  engagementChartSummaryValue: {
+    fontSize: 20,
+    fontWeight: '700',
+    color: '#FFD700',
+  },
+  engagementChartSummaryLabel: {
+    fontSize: 11,
+    color: '#888',
+    marginTop: 4,
+  },
+  engagementChartSummaryDivider: {
+    width: 1,
+    backgroundColor: '#333',
   },
   footer: {
     alignItems: 'center',
