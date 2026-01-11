@@ -3410,14 +3410,19 @@ async def get_user_workouts(current_user_id: str = Depends(get_current_user), li
     
     return user_workouts
 
-# File Upload Endpoints
+# File Upload Endpoints - Using Cloudinary for persistent cloud storage
 
 UPLOAD_DIR = Path("/app/backend/uploads")
 UPLOAD_DIR.mkdir(exist_ok=True)
 
+# Helper function to generate video thumbnail URL from Cloudinary
+def get_cloudinary_video_thumbnail(public_id: str, timestamp: float = 2.0) -> str:
+    """Generate a thumbnail URL for a video at a specific timestamp"""
+    return f"https://res.cloudinary.com/{os.environ.get('CLOUDINARY_CLOUD_NAME')}/video/upload/so_{timestamp},w_400,h_400,c_fill/{public_id}.jpg"
+
 @api_router.get("/uploads/{filename}")
 async def get_uploaded_file(filename: str):
-    """Serve uploaded media files"""
+    """Serve uploaded media files - Legacy endpoint for old local files"""
     file_path = UPLOAD_DIR / filename
     
     if not file_path.exists():
@@ -3430,56 +3435,98 @@ async def upload_file(
     file: UploadFile = File(...),
     current_user_id: str = Depends(get_current_user)
 ):
-    """Upload a single media file (image or video)"""
+    """Upload a single media file (image or video) to Cloudinary cloud storage"""
     try:
         # Validate file type - handle missing/empty filename
-        allowed_extensions = {'.jpg', '.jpeg', '.png', '.gif', '.mp4', '.mov', '.avi'}
+        allowed_image_types = {'image/jpeg', 'image/jpg', 'image/png', 'image/gif'}
+        allowed_video_types = {'video/mp4', 'video/quicktime', 'video/x-msvideo', 'video/avi'}
+        allowed_types = allowed_image_types | allowed_video_types
         
-        # Get file extension from filename or fallback to content_type
-        file_ext = None
-        if file.filename:
-            file_ext = Path(file.filename).suffix.lower()
+        content_type = file.content_type or ''
         
-        # Fallback: detect from content_type if filename is missing/invalid
-        if not file_ext or file_ext not in allowed_extensions:
-            content_type = file.content_type or ''
-            logger.info(f"Filename: {file.filename}, Content-Type: {content_type}")
-            
-            if 'image/jpeg' in content_type or 'image/jpg' in content_type:
-                file_ext = '.jpg'
-            elif 'image/png' in content_type:
-                file_ext = '.png'
-            elif 'image/gif' in content_type:
-                file_ext = '.gif'
-            elif 'video/mp4' in content_type:
-                file_ext = '.mp4'
-            elif 'video/quicktime' in content_type:
-                file_ext = '.mov'
-            elif 'video/avi' in content_type or 'video/x-msvideo' in content_type:
-                file_ext = '.avi'
+        if content_type not in allowed_types:
+            # Try to determine from filename extension
+            if file.filename:
+                ext = Path(file.filename).suffix.lower()
+                ext_to_type = {
+                    '.jpg': 'image/jpeg', '.jpeg': 'image/jpeg',
+                    '.png': 'image/png', '.gif': 'image/gif',
+                    '.mp4': 'video/mp4', '.mov': 'video/quicktime', '.avi': 'video/avi'
+                }
+                content_type = ext_to_type.get(ext, content_type)
         
-        if not file_ext or file_ext not in allowed_extensions:
-            raise HTTPException(status_code=400, detail=f"File type {file_ext} not allowed. Content-Type: {file.content_type}")
+        if content_type not in allowed_types:
+            raise HTTPException(status_code=400, detail=f"File type {content_type} not allowed")
         
-        # Generate unique filename
-        unique_filename = f"{uuid.uuid4()}{file_ext}"
-        file_path = UPLOAD_DIR / unique_filename
+        is_video = content_type in allowed_video_types
         
-        # Save file
-        async with aiofiles.open(file_path, 'wb') as f:
-            content = await file.read()
-            await f.write(content)
+        # Read file content
+        file_content = await file.read()
         
-        # Return file URL (relative path that frontend can use)
-        file_url = f"/api/uploads/{unique_filename}"
+        # Determine resource type for Cloudinary
+        resource_type = "video" if is_video else "image"
         
-        logger.info(f"✅ File uploaded successfully: {unique_filename}")
-        return {
-            "message": "File uploaded successfully",
-            "url": file_url,
-            "filename": unique_filename
+        # Upload to Cloudinary
+        logger.info(f"📤 Uploading {resource_type} to Cloudinary...")
+        
+        # Create a unique public_id
+        public_id = f"mood_app/{resource_type}s/{current_user_id}/{uuid.uuid4()}"
+        
+        # Upload options
+        upload_options = {
+            "public_id": public_id,
+            "resource_type": resource_type,
+            "folder": f"mood_app/{resource_type}s",
+            "overwrite": True,
+            "unique_filename": True,
         }
+        
+        # For videos, generate thumbnail eagerly
+        if is_video:
+            upload_options["eager"] = [
+                {"format": "jpg", "transformation": [{"start_offset": "2", "width": 400, "height": 400, "crop": "fill"}]}
+            ]
+            upload_options["eager_async"] = False
+        
+        # Upload to Cloudinary
+        result = cloudinary.uploader.upload(
+            file_content,
+            **upload_options
+        )
+        
+        # Get the secure URL (permanent, non-expiring)
+        secure_url = result.get("secure_url")
+        
+        # For videos, generate thumbnail URL
+        thumbnail_url = None
+        if is_video:
+            if result.get("eager") and len(result["eager"]) > 0:
+                thumbnail_url = result["eager"][0].get("secure_url")
+            else:
+                # Generate thumbnail URL manually
+                thumbnail_url = get_cloudinary_video_thumbnail(result["public_id"])
+        
+        logger.info(f"✅ Cloudinary upload successful: {secure_url}")
+        
+        response_data = {
+            "message": "File uploaded successfully to cloud storage",
+            "url": secure_url,
+            "public_id": result.get("public_id"),
+            "resource_type": resource_type,
+            "format": result.get("format"),
+            "width": result.get("width"),
+            "height": result.get("height"),
+        }
+        
+        if is_video:
+            response_data["duration"] = result.get("duration")
+            response_data["thumbnail_url"] = thumbnail_url
+        
+        return response_data
     
+    except cloudinary.exceptions.Error as e:
+        logger.error(f"Cloudinary upload error: {str(e)}")
+        raise HTTPException(status_code=500, detail=f"Cloud upload failed: {str(e)}")
     except Exception as e:
         logger.error(f"File upload error: {str(e)}")
         raise HTTPException(status_code=500, detail=str(e))
@@ -3489,41 +3536,87 @@ async def upload_multiple_files(
     files: List[UploadFile] = File(...),
     current_user_id: str = Depends(get_current_user)
 ):
-    """Upload multiple media files (up to 5)"""
+    """Upload multiple media files (up to 5) to Cloudinary cloud storage"""
     if len(files) > 5:
         raise HTTPException(status_code=400, detail="Maximum 5 files allowed")
     
-    uploaded_urls = []
+    uploaded_results = []
+    cover_urls = []  # Thumbnails for videos
+    
+    allowed_image_types = {'image/jpeg', 'image/jpg', 'image/png', 'image/gif'}
+    allowed_video_types = {'video/mp4', 'video/quicktime', 'video/x-msvideo', 'video/avi'}
+    allowed_types = allowed_image_types | allowed_video_types
     
     for file in files:
         try:
-            # Validate file type
-            allowed_extensions = {'.jpg', '.jpeg', '.png', '.gif', '.mp4', '.mov', '.avi'}
-            file_ext = Path(file.filename).suffix.lower()
+            content_type = file.content_type or ''
             
-            if file_ext not in allowed_extensions:
-                continue  # Skip invalid files
+            # Try to determine from filename extension if content_type not recognized
+            if content_type not in allowed_types and file.filename:
+                ext = Path(file.filename).suffix.lower()
+                ext_to_type = {
+                    '.jpg': 'image/jpeg', '.jpeg': 'image/jpeg',
+                    '.png': 'image/png', '.gif': 'image/gif',
+                    '.mp4': 'video/mp4', '.mov': 'video/quicktime', '.avi': 'video/avi'
+                }
+                content_type = ext_to_type.get(ext, content_type)
             
-            # Generate unique filename
-            unique_filename = f"{uuid.uuid4()}{file_ext}"
-            file_path = UPLOAD_DIR / unique_filename
+            if content_type not in allowed_types:
+                logger.warning(f"Skipping file with unsupported type: {content_type}")
+                continue
             
-            # Save file
-            async with aiofiles.open(file_path, 'wb') as f:
-                content = await file.read()
-                await f.write(content)
+            is_video = content_type in allowed_video_types
+            resource_type = "video" if is_video else "image"
             
-            # Return file URL
-            file_url = f"/api/uploads/{unique_filename}"
-            uploaded_urls.append(file_url)
+            # Read file content
+            file_content = await file.read()
+            
+            # Create unique public_id
+            public_id = f"mood_app/{resource_type}s/{current_user_id}/{uuid.uuid4()}"
+            
+            # Upload options
+            upload_options = {
+                "public_id": public_id,
+                "resource_type": resource_type,
+                "folder": f"mood_app/{resource_type}s",
+                "overwrite": True,
+                "unique_filename": True,
+            }
+            
+            # For videos, generate thumbnail eagerly
+            if is_video:
+                upload_options["eager"] = [
+                    {"format": "jpg", "transformation": [{"start_offset": "2", "width": 400, "height": 400, "crop": "fill"}]}
+                ]
+                upload_options["eager_async"] = False
+            
+            # Upload to Cloudinary
+            logger.info(f"📤 Uploading {resource_type} to Cloudinary: {file.filename}")
+            result = cloudinary.uploader.upload(file_content, **upload_options)
+            
+            secure_url = result.get("secure_url")
+            uploaded_results.append(secure_url)
+            
+            # For videos, add thumbnail to cover_urls
+            if is_video:
+                if result.get("eager") and len(result["eager"]) > 0:
+                    cover_urls.append(result["eager"][0].get("secure_url"))
+                else:
+                    cover_urls.append(get_cloudinary_video_thumbnail(result["public_id"]))
+            else:
+                # For images, use the image itself as cover
+                cover_urls.append(secure_url)
+            
+            logger.info(f"✅ Uploaded: {secure_url}")
         
         except Exception as e:
             logger.error(f"File upload error for {file.filename}: {str(e)}")
             continue
     
     return {
-        "message": f"{len(uploaded_urls)} files uploaded successfully",
-        "urls": uploaded_urls
+        "message": f"{len(uploaded_results)} files uploaded successfully to cloud storage",
+        "urls": uploaded_results,
+        "cover_urls": cover_urls
     }
 
 # Social Features - Posts
