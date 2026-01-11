@@ -1751,14 +1751,15 @@ async def get_comprehensive_stats(
             {
                 "$match": {
                     "event_type": "mood_selected",
-                    "timestamp": {"$gte": start_date}
+                    "timestamp": {"$gte": start_date},
+                    **user_type_filter
                 }
             },
             {
                 "$group": {
                     "_id": "$metadata.mood_category",
                     "count": {"$sum": 1},
-                    "unique_users": {"$addToSet": "$user_id"}
+                    "unique_users": {"$addToSet": {"$ifNull": ["$user_id", "$device_id"]}}
                 }
             },
             {"$sort": {"count": -1}},
