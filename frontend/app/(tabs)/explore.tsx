@@ -443,6 +443,12 @@ export default function Explore() {
   };
 
   const handleCreatePost = () => {
+    // Block guests from creating posts
+    if (isGuest) {
+      setGuestAction('create posts');
+      setShowGuestPrompt(true);
+      return;
+    }
     router.push('/create-post');
   };
 
