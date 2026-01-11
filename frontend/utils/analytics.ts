@@ -2,15 +2,55 @@
  * Analytics Tracking Utility
  * 
  * Makes it super easy to track user events throughout the app
+ * Supports both authenticated users and guest users
  */
 
 import Constants from 'expo-constants';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import * as Application from 'expo-application';
+import { Platform } from 'react-native';
 
 // Prioritize process.env for development/preview environments
 const API_URL = process.env.EXPO_PUBLIC_BACKEND_URL || Constants.expoConfig?.extra?.EXPO_PUBLIC_BACKEND_URL || '';
 
+// Guest device ID key for AsyncStorage
+const GUEST_DEVICE_ID_KEY = 'guest_device_id';
+
 /**
- * Track any user event with metadata
+ * Get or create a unique device ID for guest tracking
+ */
+export const getOrCreateDeviceId = async (): Promise<string> => {
+  try {
+    // Check if we already have a device ID stored
+    let deviceId = await AsyncStorage.getItem(GUEST_DEVICE_ID_KEY);
+    
+    if (!deviceId) {
+      // Generate a new device ID
+      // Try to use native device ID first, fallback to UUID
+      if (Platform.OS === 'ios') {
+        deviceId = await Application.getIosIdForVendorAsync() || '';
+      } else if (Platform.OS === 'android') {
+        deviceId = Application.androidId || '';
+      }
+      
+      // Fallback to random UUID if native ID not available
+      if (!deviceId) {
+        deviceId = `guest_${Date.now()}_${Math.random().toString(36).substring(2, 15)}`;
+      }
+      
+      // Store for future use
+      await AsyncStorage.setItem(GUEST_DEVICE_ID_KEY, deviceId);
+    }
+    
+    return deviceId;
+  } catch (error) {
+    // Fallback to a simple random ID
+    return `guest_${Date.now()}_${Math.random().toString(36).substring(2, 15)}`;
+  }
+};
+
+/**
+ * Track any user event with metadata (authenticated users)
  */
 export const trackEvent = async (
   token: string,
@@ -36,6 +76,67 @@ export const trackEvent = async (
   } catch (error) {
     // Silently fail - don't block user flow
     console.log('Analytics tracking error:', error);
+  }
+};
+
+/**
+ * Track guest user events (no authentication required)
+ */
+export const trackGuestEvent = async (
+  eventType: string,
+  metadata?: Record<string, any>
+): Promise<void> => {
+  try {
+    const deviceId = await getOrCreateDeviceId();
+    
+    const response = await fetch(`${API_URL}/api/analytics/track/guest`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        event_type: eventType,
+        device_id: deviceId,
+        metadata: { ...metadata, is_guest: true }
+      })
+    });
+    
+    if (!response.ok) {
+      console.log(`Guest analytics tracking failed for ${eventType}:`, response.status);
+    }
+  } catch (error) {
+    // Silently fail - don't block user flow
+    console.log('Guest analytics tracking error:', error);
+  }
+};
+
+/**
+ * Alias guest activity to a registered user account
+ * Call this after a guest signs up or logs in
+ */
+export const aliasGuestToUser = async (token: string): Promise<number> => {
+  try {
+    const deviceId = await getOrCreateDeviceId();
+    
+    const response = await fetch(`${API_URL}/api/analytics/alias?device_id=${encodeURIComponent(deviceId)}`, {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${token}`,
+        'Content-Type': 'application/json'
+      }
+    });
+    
+    if (response.ok) {
+      const data = await response.json();
+      console.log(`✅ Merged ${data.merged_count} guest events to user account`);
+      return data.merged_count;
+    } else {
+      console.log('Failed to alias guest to user:', response.status);
+      return 0;
+    }
+  } catch (error) {
+    console.log('Error aliasing guest to user:', error);
+    return 0;
   }
 };
 
