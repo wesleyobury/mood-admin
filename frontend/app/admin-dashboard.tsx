@@ -801,6 +801,13 @@ export default function AdminDashboard() {
           
           <View style={styles.engagementGrid}>
             <View style={styles.engagementCard}>
+              <Ionicons name="cart" size={20} color="#9C27B0" />
+              <Text style={styles.engagementValue}>{stats?.workouts_added || 0}</Text>
+              <Text style={styles.engagementLabel}>Workouts Added</Text>
+              <Text style={styles.engagementSub}>to cart</Text>
+            </View>
+            
+            <View style={styles.engagementCard}>
               <Ionicons name="fitness" size={20} color="#FFD700" />
               <Text style={styles.engagementValue}>{stats?.workouts_completed || 0}</Text>
               <Text style={styles.engagementLabel}>Workouts Completed</Text>
