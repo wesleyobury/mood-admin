@@ -71,6 +71,17 @@ db = client[os.environ['DB_NAME']]
 JWT_SECRET = os.environ.get('JWT_SECRET', 'mood-app-secret-key-2025')
 JWT_ALGORITHM = 'HS256'
 
+# Cloudinary Configuration
+cloudinary.config(
+    cloud_name=os.environ.get('CLOUDINARY_CLOUD_NAME'),
+    api_key=os.environ.get('CLOUDINARY_API_KEY'),
+    api_secret=os.environ.get('CLOUDINARY_API_SECRET'),
+    secure=True
+)
+
+logger = logging.getLogger(__name__)
+logger.info(f"✅ Cloudinary configured with cloud: {os.environ.get('CLOUDINARY_CLOUD_NAME')}")
+
 import time
 
 # Create the main app
