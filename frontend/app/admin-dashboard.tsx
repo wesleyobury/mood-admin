@@ -274,9 +274,9 @@ export default function AdminDashboard() {
     if (!token || !isAuthorized) return;
     
     try {
-      // Fetch comprehensive stats
+      // Fetch comprehensive stats with user type filter
       const statsResponse = await fetch(
-        `${API_URL}/api/analytics/admin/comprehensive-stats?days=${selectedPeriod}`,
+        `${API_URL}/api/analytics/admin/comprehensive-stats?days=${selectedPeriod}&user_type=${userTypeFilter}`,
         { headers: { 'Authorization': `Bearer ${token}` } }
       );
       
