@@ -399,7 +399,9 @@ export default function WorkoutsHome() {
   const autoScrollTimer = useRef<NodeJS.Timeout | null>(null);
   const insets = useSafeAreaInsets();
   const router = useRouter();
-  const { token } = useAuth();
+  const { token, isGuest } = useAuth();
+  const [showGuestPrompt, setShowGuestPrompt] = useState(false);
+  const [guestAction, setGuestAction] = useState('');
   
   useEffect(() => {
     const hour = new Date().getHours();
