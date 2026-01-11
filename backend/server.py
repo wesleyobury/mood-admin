@@ -1846,12 +1846,16 @@ async def get_comprehensive_stats(
         )
         unique_guest_devices = len(guest_devices) if guest_devices else 0
         
-        # Count guests who converted (merged to user)
-        guest_conversions = await db.user_events.count_documents({
-            "is_guest": True,
-            "merged_to_user_id": {"$ne": None},
-            "timestamp": {"$gte": start_date}
-        })
+        # Count guests who converted (unique devices that merged to a user)
+        converted_devices = await db.user_events.distinct(
+            "device_id",
+            {
+                "is_guest": True,
+                "merged_to_user_id": {"$ne": None},
+                "timestamp": {"$gte": start_date}
+            }
+        )
+        guest_conversions = len(converted_devices) if converted_devices else 0
         
         return {
             "period_days": days,
