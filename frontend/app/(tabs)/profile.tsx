@@ -643,9 +643,9 @@ export default function Profile() {
     return (
       <View style={styles.container}>
         <View style={[styles.header, { paddingTop: insets.top + 16 }]}>
-          <View style={styles.settingsButton} />
+          <View style={{ width: 32 }} />
           <Text style={styles.username}>Guest</Text>
-          <View style={styles.headerRightButtons} />
+          <View style={{ width: 32 }} />
         </View>
         
         <View style={styles.guestProfileContainer}>
