@@ -60,7 +60,7 @@ interface WorkoutStats {
 export default function CreatePost() {
   const router = useRouter();
   const params = useLocalSearchParams();
-  const { user, token, isLoading } = useAuth();
+  const { user, token, isLoading, isGuest, exitGuestMode } = useAuth();
   const [caption, setCaption] = useState('');
   const [selectedMedia, setSelectedMedia] = useState<MediaItem[]>([]);
   const [uploading, setUploading] = useState(false);
@@ -70,6 +70,7 @@ export default function CreatePost() {
   const [saveButtonPressed, setSaveButtonPressed] = useState(false);
   const statsCardRef = useRef(null);
   const [showMediaPicker, setShowMediaPicker] = useState(false);
+  const [showGuestPrompt, setShowGuestPrompt] = useState(false);
   
   // Permission notice modal state
   const [showPermissionModal, setShowPermissionModal] = useState(false);
