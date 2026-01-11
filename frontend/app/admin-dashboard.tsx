@@ -189,6 +189,7 @@ export default function AdminDashboard() {
   const [refreshing, setRefreshing] = useState(false);
   const [isAuthorized, setIsAuthorized] = useState(false);
   const [selectedPeriod, setSelectedPeriod] = useState(1);
+  const [userTypeFilter, setUserTypeFilter] = useState<'all' | 'users' | 'guests'>('all');
   
   // Data states
   const [stats, setStats] = useState<ComprehensiveStats | null>(null);
