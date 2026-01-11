@@ -556,6 +556,34 @@ export default function AdminDashboard() {
         ))}
       </View>
 
+      {/* User Type Filter */}
+      <View style={styles.userTypeFilter}>
+        <Text style={styles.userTypeLabel}>Show:</Text>
+        <View style={styles.userTypeButtons}>
+          <TouchableOpacity
+            style={[styles.userTypeChip, userTypeFilter === 'all' && styles.userTypeChipActive]}
+            onPress={() => setUserTypeFilter('all')}
+          >
+            <Ionicons name="people" size={14} color={userTypeFilter === 'all' ? '#000' : '#888'} />
+            <Text style={[styles.userTypeChipText, userTypeFilter === 'all' && styles.userTypeChipTextActive]}>All</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={[styles.userTypeChip, userTypeFilter === 'users' && styles.userTypeChipActive]}
+            onPress={() => setUserTypeFilter('users')}
+          >
+            <Ionicons name="person" size={14} color={userTypeFilter === 'users' ? '#000' : '#888'} />
+            <Text style={[styles.userTypeChipText, userTypeFilter === 'users' && styles.userTypeChipTextActive]}>Users</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={[styles.userTypeChip, userTypeFilter === 'guests' && styles.userTypeChipActive]}
+            onPress={() => setUserTypeFilter('guests')}
+          >
+            <Ionicons name="eye-outline" size={14} color={userTypeFilter === 'guests' ? '#000' : '#9C27B0'} />
+            <Text style={[styles.userTypeChipText, userTypeFilter === 'guests' && styles.userTypeChipTextActive]}>Guests</Text>
+          </TouchableOpacity>
+        </View>
+      </View>
+
       <ScrollView
         style={styles.scrollView}
         showsVerticalScrollIndicator={false}
@@ -572,6 +600,7 @@ export default function AdminDashboard() {
           <Text style={styles.sectionTitle}>Key Metrics</Text>
           <Text style={styles.sectionSubtitle}>
             {selectedPeriod === 0 ? 'All Time' : selectedPeriod === 1 ? 'Last 24 hours' : `Last ${selectedPeriod} days`}
+            {userTypeFilter !== 'all' && ` • ${userTypeFilter === 'users' ? 'Registered Users' : 'Guests'} Only`}
           </Text>
           
           <View style={styles.metricsGrid}>
