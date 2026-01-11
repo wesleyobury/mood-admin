@@ -445,6 +445,16 @@ export default function UserProfile() {
           )}
         </View>
       </ScrollView>
+      
+      {/* Guest Prompt Modal */}
+      <GuestPromptModal 
+        visible={showGuestPrompt}
+        onClose={() => {
+          setShowGuestPrompt(false);
+          handleGoBack();
+        }}
+        action="view profiles"
+      />
     </SafeAreaView>
   );
 }
