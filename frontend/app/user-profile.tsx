@@ -65,6 +65,13 @@ export default function UserProfile() {
   }, [router]);
 
   useEffect(() => {
+    // Show guest prompt if guest tries to view a profile
+    if (isGuest) {
+      setShowGuestPrompt(true);
+    }
+  }, [isGuest]);
+
+  useEffect(() => {
     // Track profile view when the page loads (only for non-self profiles)
     if (token && userId && !isSelf && user) {
       Analytics.profileViewed(token, {
