@@ -691,7 +691,9 @@ export default function AdminDashboard() {
             <View style={styles.moodDistributionContainer}>
               {/* Visual bars for each mood */}
               {stats?.top_mood_cards?.map((moodData, index) => {
-                const percentage = totalMoodSelections > 0 ? (moodData.selections / totalMoodSelections) * 100 : 0;
+                // Calculate percentage from stats total (ensures 100% total)
+                const statsTotalMoods = stats?.total_mood_selections || 1;
+                const percentage = (moodData.selections / statsTotalMoods) * 100;
                 const moodId = moodData.mood_id || '';
                 const color = MOOD_COLORS[moodId] || '#FFD700';
                 const icon = MOOD_ICONS[moodId] || 'fitness';
@@ -706,12 +708,21 @@ export default function AdminDashboard() {
                       <Text style={styles.moodLabel} numberOfLines={1}>{displayName}</Text>
                     </View>
                     <View style={styles.moodBarContainer}>
-                      <View style={[styles.moodBar, { width: `${percentage}%`, backgroundColor: color }]} />
+                      <View style={[styles.moodBar, { width: `${Math.min(percentage, 100)}%`, backgroundColor: color }]} />
                     </View>
-                    <Text style={[styles.moodPercentage, { color }]}>{percentage.toFixed(0)}%</Text>
+                    <View style={styles.moodStats}>
+                      <Text style={[styles.moodPercentage, { color }]}>{percentage.toFixed(1)}%</Text>
+                      <Text style={styles.moodCount}>({moodData.selections})</Text>
+                    </View>
                   </View>
                 );
               })}
+              {/* Total verification */}
+              <View style={styles.moodTotalRow}>
+                <Text style={styles.moodTotalText}>
+                  Total: {stats?.total_mood_selections || 0} selections
+                </Text>
+              </View>
             </View>
           ) : (
             <View style={styles.emptyState}>
