@@ -68,7 +68,7 @@ export default function Login() {
   const [isAppleAvailable, setIsAppleAvailable] = useState(false);
   const insets = useSafeAreaInsets();
 
-  const { login, refreshAuth } = useAuth();
+  const { login, refreshAuth, continueAsGuest } = useAuth();
 
   // Check if Apple Sign-In is available (iOS only)
   useEffect(() => {
