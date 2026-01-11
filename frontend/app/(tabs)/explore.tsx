@@ -443,6 +443,13 @@ export default function Explore() {
   };
 
   const handleComments = (postId: string) => {
+    // Block guests from commenting
+    if (isGuest) {
+      setGuestAction('comment on posts');
+      setShowGuestPrompt(true);
+      return;
+    }
+    
     setSelectedPostId(postId);
     setShowComments(true);
   };
