@@ -52,6 +52,17 @@ export function AuthProvider({ children }: AuthProviderProps) {
         console.log('🔐 Initializing auth...');
         console.log('API_URL:', API_URL);
         
+        // Check if user is in guest mode
+        const guestMode = await AsyncStorage.getItem('is_guest');
+        if (guestMode === 'true') {
+          console.log('🚶 User is in guest mode');
+          setIsGuest(true);
+          setUser(null);
+          setToken(null);
+          setIsLoading(false);
+          return;
+        }
+        
         // Try to get stored token first
         const storedToken = await AsyncStorage.getItem('auth_token');
         if (storedToken) {
