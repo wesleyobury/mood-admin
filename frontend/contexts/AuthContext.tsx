@@ -166,6 +166,19 @@ export function AuthProvider({ children }: AuthProviderProps) {
         const { token: authToken, user_id } = data;
         setToken(authToken);
         await AsyncStorage.setItem('auth_token', authToken);
+        
+        // Clear guest mode if user was a guest
+        const wasGuest = await AsyncStorage.getItem('is_guest');
+        if (wasGuest === 'true') {
+          await AsyncStorage.removeItem('is_guest');
+          setIsGuest(false);
+          
+          // Alias guest activity to the user account (identity merge)
+          console.log('🔗 Merging guest activity to user account...');
+          const mergedCount = await aliasGuestToUser(authToken);
+          console.log(`✅ Merged ${mergedCount} guest events to user account`);
+        }
+        
         await fetchCurrentUser(authToken);
       } else {
         throw new Error(data.detail || 'Login failed');
@@ -192,6 +205,19 @@ export function AuthProvider({ children }: AuthProviderProps) {
         const { token: authToken, user_id } = data;
         setToken(authToken);
         await AsyncStorage.setItem('auth_token', authToken);
+        
+        // Clear guest mode if user was a guest
+        const wasGuest = await AsyncStorage.getItem('is_guest');
+        if (wasGuest === 'true') {
+          await AsyncStorage.removeItem('is_guest');
+          setIsGuest(false);
+          
+          // Alias guest activity to the new user account (identity merge)
+          console.log('🔗 Merging guest activity to new user account...');
+          const mergedCount = await aliasGuestToUser(authToken);
+          console.log(`✅ Merged ${mergedCount} guest events to new user account`);
+        }
+        
         await fetchCurrentUser(authToken);
       } else {
         throw new Error(data.detail || 'Registration failed');
