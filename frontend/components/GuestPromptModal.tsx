@@ -64,14 +64,14 @@ export default function GuestPromptModal({ visible, onClose, action = 'use this 
       visible={visible}
       animationType="slide"
       transparent={true}
-      onRequestClose={onClose}
+      onRequestClose={handleDismiss}
     >
       <View style={styles.modalOverlay}>
         <View style={[styles.modalContent, { paddingBottom: insets.bottom + 20 }]}>
           {/* Close button */}
           <TouchableOpacity 
             style={styles.closeButton}
-            onPress={onClose}
+            onPress={handleDismiss}
           >
             <Ionicons name="close" size={24} color="#888" />
           </TouchableOpacity>
