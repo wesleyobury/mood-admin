@@ -424,6 +424,44 @@ export default function AdminDashboard() {
     );
   };
 
+  // Open engagement chart modal
+  const openEngagementChart = async (chartType: string, title: string) => {
+    setEngagementChartType(chartType);
+    setEngagementChartTitle(title);
+    setShowEngagementChart(true);
+    fetchEngagementChartData(chartType, engagementChartPeriod);
+  };
+
+  // Fetch engagement chart data
+  const fetchEngagementChartData = async (chartType: string, period: 'day' | 'week' | 'month') => {
+    if (!token) return;
+    setEngagementChartLoading(true);
+    
+    try {
+      const days = period === 'month' ? 365 : period === 'week' ? 180 : 30;
+      const response = await fetch(
+        `${API_URL}/api/analytics/admin/chart-data/${chartType}?period=${period}&days=${days}`,
+        { headers: { 'Authorization': `Bearer ${token}` } }
+      );
+      
+      if (response.ok) {
+        const data = await response.json();
+        setEngagementChartData(data);
+      }
+    } catch (error) {
+      console.error('Error fetching engagement chart:', error);
+    } finally {
+      setEngagementChartLoading(false);
+    }
+  };
+
+  // Handle engagement chart period change
+  useEffect(() => {
+    if (showEngagementChart && engagementChartType) {
+      fetchEngagementChartData(engagementChartType, engagementChartPeriod);
+    }
+  }, [engagementChartPeriod]);
+
   // Export users as CSV
   const exportUsers = async () => {
     if (!token) return;
