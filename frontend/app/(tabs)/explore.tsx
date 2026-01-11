@@ -94,10 +94,9 @@ export default function Explore() {
   const [likeAnimations] = useState<{ [key: string]: Animated.Value }>({});
 
   useEffect(() => {
-    if (token) {
-      fetchPosts();
-    }
-  }, [token, activeTab]);
+    // Fetch posts for both authenticated users and guests
+    fetchPosts();
+  }, [token, activeTab, isGuest]);
 
   // Scroll to top when this screen is focused
   useFocusEffect(
@@ -109,12 +108,6 @@ export default function Explore() {
   );
 
   const fetchPosts = async (loadMore = false, retryCount = 0) => {
-    if (!token) {
-      console.log('No token available for fetching posts');
-      setLoading(false);
-      return;
-    }
-
     if (loadMore && !hasMore) return;
     if (loadMore) {
       setLoadingMore(true);
@@ -128,16 +121,27 @@ export default function Explore() {
       const skip = loadMore ? posts.length : 0;
       // Reduce initial load to 10 posts for faster first render
       const limit = loadMore ? PAGE_SIZE : 10;
-      const endpoint = activeTab === 'following' 
-        ? `${API_URL}/api/posts/following?limit=${limit}&skip=${skip}` 
-        : `${API_URL}/api/posts?limit=${limit}&skip=${skip}`;
+      
+      // Use public endpoint for guests, authenticated endpoints for logged-in users
+      let endpoint: string;
+      if (isGuest || !token) {
+        // Guests only see the public "For You" feed
+        endpoint = `${API_URL}/api/posts/public?limit=${limit}&skip=${skip}`;
+      } else {
+        endpoint = activeTab === 'following' 
+          ? `${API_URL}/api/posts/following?limit=${limit}&skip=${skip}` 
+          : `${API_URL}/api/posts?limit=${limit}&skip=${skip}`;
+      }
       
       console.log('Fetching posts from:', endpoint);
+      
+      const headers: Record<string, string> = {};
+      if (token && !isGuest) {
+        headers['Authorization'] = `Bearer ${token}`;
+      }
         
       const response = await fetch(endpoint, {
-        headers: {
-          'Authorization': `Bearer ${token}`,
-        },
+        headers,
         signal: controller.signal,
       });
 
