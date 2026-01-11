@@ -900,6 +900,13 @@ export default function Explore() {
           </View>
         </View>
       </Modal>
+      
+      {/* Guest Prompt Modal */}
+      <GuestPromptModal 
+        visible={showGuestPrompt}
+        onClose={() => setShowGuestPrompt(false)}
+        action={guestAction}
+      />
     </View>
   );
 }
