@@ -1676,9 +1676,6 @@ async def get_comprehensive_stats(
                     **user_type_filter
                 }
             },
-                    "timestamp": {"$gte": start_date}
-                }
-            },
             {
                 "$addFields": {
                     "normalized_screen": {"$toLower": "$metadata.screen_name"}
@@ -1688,7 +1685,7 @@ async def get_comprehensive_stats(
                 "$group": {
                     "_id": "$normalized_screen",
                     "count": {"$sum": 1},
-                    "unique_users": {"$addToSet": "$user_id"}
+                    "unique_users": {"$addToSet": {"$ifNull": ["$user_id", "$device_id"]}}
                 }
             },
             {"$sort": {"count": -1}},
