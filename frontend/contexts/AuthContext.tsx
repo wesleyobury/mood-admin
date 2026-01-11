@@ -194,10 +194,36 @@ export function AuthProvider({ children }: AuthProviderProps) {
   const logout = async () => {
     try {
       await AsyncStorage.removeItem('auth_token');
+      await AsyncStorage.removeItem('is_guest');
       setToken(null);
       setUser(null);
+      setIsGuest(false);
     } catch (error) {
       console.error('Logout error:', error);
+    }
+  };
+
+  // Continue as guest - allows browsing without account
+  const continueAsGuest = async () => {
+    console.log('🚶 Continuing as guest...');
+    setIsGuest(true);
+    setUser(null);
+    setToken(null);
+    try {
+      await AsyncStorage.setItem('is_guest', 'true');
+    } catch (error) {
+      console.error('Error saving guest state:', error);
+    }
+  };
+
+  // Exit guest mode - used when guest wants to sign up
+  const exitGuestMode = async () => {
+    console.log('👋 Exiting guest mode...');
+    setIsGuest(false);
+    try {
+      await AsyncStorage.removeItem('is_guest');
+    } catch (error) {
+      console.error('Error clearing guest state:', error);
     }
   };
 
