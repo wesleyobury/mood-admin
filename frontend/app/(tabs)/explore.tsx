@@ -526,12 +526,16 @@ export default function Explore() {
       <View style={[styles.header, { paddingTop: insets.top + 12 }]}>
         <Text style={styles.title}>Explore</Text>
         <View style={styles.headerActions}>
-          <TouchableOpacity 
-            style={styles.searchButton}
-            onPress={() => setShowSearch(!showSearch)}
-          >
-            <Ionicons name={showSearch ? "close" : "search"} size={24} color="#FFD700" />
-          </TouchableOpacity>
+          {/* Hide search for guests */}
+          {!isGuest && (
+            <TouchableOpacity 
+              style={styles.searchButton}
+              onPress={() => setShowSearch(!showSearch)}
+            >
+              <Ionicons name={showSearch ? "close" : "search"} size={24} color="#FFD700" />
+            </TouchableOpacity>
+          )}
+          {/* Hide create button for guests - they'll see prompt when tapping */}
           <TouchableOpacity 
             style={styles.createButton}
             onPress={handleCreatePost}
