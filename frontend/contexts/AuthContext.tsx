@@ -20,11 +20,14 @@ interface AuthContextType {
   user: User | null;
   token: string | null;
   isLoading: boolean;
+  isGuest: boolean;
   login: (username: string, password: string) => Promise<void>;
   register: (username: string, email: string, password: string, name?: string) => Promise<void>;
   logout: () => Promise<void>;
   updateUser: (userData: Partial<User>) => void;
   refreshAuth: () => Promise<void>;
+  continueAsGuest: () => void;
+  exitGuestMode: () => void;
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
