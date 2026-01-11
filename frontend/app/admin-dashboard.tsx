@@ -220,6 +220,14 @@ export default function AdminDashboard() {
   // Session chart modal state
   const [showSessionChart, setShowSessionChart] = useState(false);
   
+  // Engagement chart modal state
+  const [showEngagementChart, setShowEngagementChart] = useState(false);
+  const [engagementChartType, setEngagementChartType] = useState<string>('workouts_added');
+  const [engagementChartTitle, setEngagementChartTitle] = useState<string>('Workouts Added');
+  const [engagementChartData, setEngagementChartData] = useState<ChartData | null>(null);
+  const [engagementChartPeriod, setEngagementChartPeriod] = useState<'day' | 'week' | 'month'>('day');
+  const [engagementChartLoading, setEngagementChartLoading] = useState(false);
+  
   // Chart period selection
   const [chartPeriod, setChartPeriod] = useState<'day' | 'week' | 'month'>('day');
   
