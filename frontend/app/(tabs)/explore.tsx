@@ -80,12 +80,14 @@ export default function Explore() {
   const [visiblePostId, setVisiblePostId] = useState<string | null>(null);
   const [deletingPostId, setDeletingPostId] = useState<string | null>(null);
   const router = useRouter();
-  const { token, user } = useAuth();
+  const { token, user, isGuest } = useAuth();
   const scrollViewRef = useRef<ScrollView>(null);
   const insets = useSafeAreaInsets();
   const searchTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   const postLayoutsRef = useRef<{ [key: string]: { y: number; height: number } }>({});
   const PAGE_SIZE = 20;
+  const [showGuestPrompt, setShowGuestPrompt] = useState(false);
+  const [guestAction, setGuestAction] = useState('');
 
   // Double tap to like functionality
   const lastTap = useRef<number>(0);
