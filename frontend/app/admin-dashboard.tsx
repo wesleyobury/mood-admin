@@ -76,6 +76,7 @@ interface ComprehensiveStats {
   top_pages: Array<{ page: string; views: number; unique_users: number }>;
   total_mood_selections: number;
   top_mood_cards: Array<{ mood: string; mood_id: string; selections: number; unique_users: number }>;
+  workouts_added: number;
   workouts_started: number;
   workouts_completed: number;
   workout_completion_rate: number;
