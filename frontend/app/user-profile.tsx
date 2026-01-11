@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { useAuth } from '../contexts/AuthContext';
 import { Analytics } from '../utils/analytics';
+import GuestPromptModal from '../components/GuestPromptModal';
 import {
   View,
   Text,
