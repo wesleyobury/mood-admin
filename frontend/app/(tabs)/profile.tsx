@@ -1897,7 +1897,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     paddingHorizontal: 32,
-    paddingBottom: 100,
+    marginTop: -60,  // Offset for visual centering (accounts for header)
   },
   guestIconContainer: {
     width: 120,
