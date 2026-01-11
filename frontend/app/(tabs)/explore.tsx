@@ -361,6 +361,13 @@ export default function Explore() {
   };
 
   const handleLike = async (postId: string) => {
+    // Block guests from liking
+    if (isGuest) {
+      setGuestAction('like posts');
+      setShowGuestPrompt(true);
+      return;
+    }
+    
     if (!token) return;
 
     try {
