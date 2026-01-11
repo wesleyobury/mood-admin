@@ -1498,6 +1498,49 @@ const styles = StyleSheet.create({
     fontSize: 13,
     fontWeight: '600',
   },
+  // User Type Filter Styles
+  userTypeFilter: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: 12,
+    paddingVertical: 8,
+    paddingHorizontal: 16,
+    backgroundColor: '#0c0c0c',
+    borderBottomWidth: 1,
+    borderBottomColor: '#1a1a1a',
+  },
+  userTypeLabel: {
+    fontSize: 12,
+    color: '#666',
+  },
+  userTypeButtons: {
+    flexDirection: 'row',
+    gap: 8,
+  },
+  userTypeChip: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 4,
+    paddingHorizontal: 12,
+    paddingVertical: 6,
+    borderRadius: 16,
+    backgroundColor: '#1a1a1a',
+    borderWidth: 1,
+    borderColor: '#333',
+  },
+  userTypeChipActive: {
+    backgroundColor: '#FFD700',
+    borderColor: '#FFD700',
+  },
+  userTypeChipText: {
+    fontSize: 12,
+    color: '#888',
+    fontWeight: '500',
+  },
+  userTypeChipTextActive: {
+    color: '#000',
+  },
   periodChipTextActive: {
     color: '#000',
   },
