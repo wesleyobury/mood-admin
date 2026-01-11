@@ -1793,6 +1793,7 @@ async def get_comprehensive_stats(
             "top_mood_cards": top_moods_formatted,
             
             # Workout Metrics
+            "workouts_added": workouts_added,
             "workouts_started": workouts_started,
             "workouts_completed": workouts_completed,
             "workout_completion_rate": completion_rate,
