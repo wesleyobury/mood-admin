@@ -1742,6 +1742,12 @@ async def get_comprehensive_stats(
             "timestamp": {"$gte": start_date}
         })
         
+        # Workouts added to cart (cart_item_added events)
+        workouts_added = await db.user_events.count_documents({
+            "event_type": "cart_item_added",
+            "timestamp": {"$gte": start_date}
+        })
+        
         completion_rate = round((workouts_completed / workouts_started * 100), 1) if workouts_started > 0 else 0
         
         # === SOCIAL METRICS ===
