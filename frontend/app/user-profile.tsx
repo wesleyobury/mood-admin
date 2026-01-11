@@ -53,7 +53,8 @@ export default function UserProfile() {
   const [isFollowing, setIsFollowing] = useState(false);
   const [isSelf, setIsSelf] = useState(false);
   const [loading, setLoading] = useState(true);
-  const { token } = useAuth();
+  const { token, isGuest } = useAuth();
+  const [showGuestPrompt, setShowGuestPrompt] = useState(false);
 
   const handleGoBack = useCallback(() => {
     if (router.canGoBack()) {
