@@ -248,6 +248,10 @@ export function AuthProvider({ children }: AuthProviderProps) {
     setToken(null);
     try {
       await AsyncStorage.setItem('is_guest', 'true');
+      
+      // Track guest session start
+      await GuestAnalytics.guestSessionStarted();
+      console.log('📊 Guest session tracking started');
     } catch (error) {
       console.error('Error saving guest state:', error);
     }
