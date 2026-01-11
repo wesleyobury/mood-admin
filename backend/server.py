@@ -2880,64 +2880,62 @@ async def upload_profile_picture(
     file: UploadFile = File(...),
     current_user_id: str = Depends(get_current_user)
 ):
-    """Upload profile picture"""
+    """Upload profile picture to Cloudinary cloud storage"""
     try:
-        logger.info(f"📸 Avatar upload START")
+        logger.info(f"📸 Avatar upload START (Cloudinary)")
         logger.info(f"Filename: {file.filename}")
         logger.info(f"Content-Type: {file.content_type}")
-        logger.info(f"File object type: {type(file)}")
         
-        # Validate file type - handle missing/empty filename
-        allowed_extensions = {'.jpg', '.jpeg', '.png', '.gif'}
+        # Validate file type
+        allowed_types = {'image/jpeg', 'image/jpg', 'image/png', 'image/gif'}
+        content_type = file.content_type or ''
         
-        # Get file extension from filename or fallback to content_type
-        file_ext = None
-        if file.filename and file.filename.strip():
-            file_ext = Path(file.filename).suffix.lower()
-            logger.info(f"File extension from filename: {file_ext}")
+        if content_type not in allowed_types:
+            # Try to determine from filename extension
+            if file.filename:
+                ext = Path(file.filename).suffix.lower()
+                ext_to_type = {'.jpg': 'image/jpeg', '.jpeg': 'image/jpeg', '.png': 'image/png', '.gif': 'image/gif'}
+                content_type = ext_to_type.get(ext, content_type)
         
-        # Fallback: detect from content_type if filename is missing/invalid
-        if not file_ext or file_ext not in allowed_extensions:
-            content_type = file.content_type or ''
-            logger.info(f"Using content_type fallback: {content_type}")
-            
-            if 'jpeg' in content_type or 'jpg' in content_type:
-                file_ext = '.jpg'
-            elif 'png' in content_type:
-                file_ext = '.png'
-            elif 'gif' in content_type:
-                file_ext = '.gif'
-            elif 'image' in content_type:
-                # Generic image fallback
-                file_ext = '.jpg'
+        if content_type not in allowed_types:
+            raise HTTPException(status_code=400, detail="Only JPEG, PNG, and GIF images are allowed")
         
-        if not file_ext:
-            file_ext = '.jpg'  # Ultimate fallback
+        # Read file content
+        file_content = await file.read()
         
-        logger.info(f"Final file extension: {file_ext}")
+        # Upload to Cloudinary with avatar-specific transformations
+        public_id = f"mood_app/avatars/{current_user_id}"
         
-        # Generate unique filename
-        unique_filename = f"avatar_{current_user_id}_{uuid.uuid4()}{file_ext}"
-        file_path = UPLOAD_DIR / unique_filename
-        
-        # Save file
-        async with aiofiles.open(file_path, 'wb') as f:
-            content = await file.read()
-            await f.write(content)
-        
-        # Update user's avatar URL
-        file_url = f"/api/uploads/{unique_filename}"
-        await db.users.update_one(
-            {"_id": ObjectId(current_user_id)},
-            {"$set": {"avatar": file_url}}
+        result = cloudinary.uploader.upload(
+            file_content,
+            public_id=public_id,
+            resource_type="image",
+            folder="mood_app/avatars",
+            overwrite=True,
+            transformation=[
+                {"width": 400, "height": 400, "crop": "fill", "gravity": "face"},
+                {"quality": "auto", "fetch_format": "auto"}
+            ]
         )
         
-        logger.info(f"✅ Profile picture uploaded successfully: {unique_filename} for user {current_user_id}")
+        # Get the secure URL (permanent, non-expiring)
+        secure_url = result.get("secure_url")
+        
+        # Update user's avatar URL in database
+        await db.users.update_one(
+            {"_id": ObjectId(current_user_id)},
+            {"$set": {"avatar": secure_url}}
+        )
+        
+        logger.info(f"✅ Profile picture uploaded to Cloudinary: {secure_url}")
         return {
             "message": "Profile picture uploaded successfully",
-            "url": file_url
+            "url": secure_url
         }
     
+    except cloudinary.exceptions.Error as e:
+        logger.error(f"Cloudinary avatar upload error: {str(e)}")
+        raise HTTPException(status_code=500, detail=f"Cloud upload failed: {str(e)}")
     except HTTPException:
         raise
     except Exception as e:
@@ -2952,59 +2950,46 @@ async def upload_profile_picture_base64(
     data: AvatarBase64Upload,
     current_user_id: str = Depends(get_current_user)
 ):
-    """Upload profile picture using base64 encoded image"""
+    """Upload profile picture using base64 encoded image to Cloudinary"""
     try:
         logger.info(f"📸 Avatar upload (base64) START for user {current_user_id}")
         
         # Parse base64 data
         image_data = data.image_data
         
-        # Extract file extension from base64 header
-        if image_data.startswith('data:image/'):
-            # Format: data:image/jpeg;base64,/9j/4AAQ...
-            header, base64_string = image_data.split(',', 1)
-            mime_type = header.split(';')[0].split(':')[1]
-            
-            if 'jpeg' in mime_type or 'jpg' in mime_type:
-                file_ext = '.jpg'
-            elif 'png' in mime_type:
-                file_ext = '.png'
-            elif 'gif' in mime_type:
-                file_ext = '.gif'
-            else:
-                file_ext = '.jpg'
-        else:
-            # Assume it's just the base64 string without header
-            base64_string = image_data
-            file_ext = '.jpg'
+        # Upload to Cloudinary (it handles base64 data URLs directly)
+        public_id = f"mood_app/avatars/{current_user_id}"
         
-        logger.info(f"Detected file extension: {file_ext}")
-        
-        # Decode base64
-        import base64
-        image_bytes = base64.b64decode(base64_string)
-        
-        # Generate unique filename
-        unique_filename = f"avatar_{current_user_id}_{uuid.uuid4()}{file_ext}"
-        file_path = UPLOAD_DIR / unique_filename
-        
-        # Save file
-        async with aiofiles.open(file_path, 'wb') as f:
-            await f.write(image_bytes)
-        
-        # Update user's avatar URL
-        file_url = f"/api/uploads/{unique_filename}"
-        await db.users.update_one(
-            {"_id": ObjectId(current_user_id)},
-            {"$set": {"avatar": file_url}}
+        result = cloudinary.uploader.upload(
+            image_data,
+            public_id=public_id,
+            resource_type="image",
+            folder="mood_app/avatars",
+            overwrite=True,
+            transformation=[
+                {"width": 400, "height": 400, "crop": "fill", "gravity": "face"},
+                {"quality": "auto", "fetch_format": "auto"}
+            ]
         )
         
-        logger.info(f"✅ Profile picture uploaded successfully (base64): {unique_filename}")
+        # Get the secure URL (permanent, non-expiring)
+        secure_url = result.get("secure_url")
+        
+        # Update user's avatar URL in database
+        await db.users.update_one(
+            {"_id": ObjectId(current_user_id)},
+            {"$set": {"avatar": secure_url}}
+        )
+        
+        logger.info(f"✅ Profile picture uploaded to Cloudinary (base64): {secure_url}")
         return {
             "message": "Profile picture uploaded successfully",
-            "url": file_url
+            "url": secure_url
         }
     
+    except cloudinary.exceptions.Error as e:
+        logger.error(f"Cloudinary avatar upload error: {str(e)}")
+        raise HTTPException(status_code=500, detail=f"Cloud upload failed: {str(e)}")
     except Exception as e:
         logger.error(f"Base64 avatar upload error: {str(e)}")
         raise HTTPException(status_code=500, detail=f"Profile picture upload failed: {str(e)}")
