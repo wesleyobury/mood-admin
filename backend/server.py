@@ -56,7 +56,8 @@ from user_analytics import (
     get_difficulty_selections_breakdown,
     get_exercises_breakdown,
     get_social_activity_breakdown,
-    get_workout_funnel_detail
+    get_workout_funnel_detail,
+    EVENT_TYPES,
 )
 
 ROOT_DIR = Path(__file__).parent
