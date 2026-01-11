@@ -2680,6 +2680,104 @@ async def get_chart_data(
                 ]
             }
         
+        # Individual engagement metric charts
+        elif chart_type == "workouts_added":
+            # Track cart_item_added events over time
+            pipeline = [
+                {"$match": {"event_type": "cart_item_added", "timestamp": {"$gte": cutoff}}},
+                {"$group": {"_id": {"$dateToString": {"format": date_format, "date": "$timestamp"}}, "count": {"$sum": 1}}},
+                {"$sort": {"_id": 1}}
+            ]
+            
+            results = await db.user_events.aggregate(pipeline).to_list(100)
+            labels = [format_label(r["_id"], period) for r in results]
+            
+            return {
+                "chart_type": chart_type,
+                "labels": labels,
+                "datasets": [{"label": "Workouts Added", "data": [r["count"] for r in results]}]
+            }
+        
+        elif chart_type == "workouts_completed":
+            pipeline = [
+                {"$match": {"event_type": "workout_completed", "timestamp": {"$gte": cutoff}}},
+                {"$group": {"_id": {"$dateToString": {"format": date_format, "date": "$timestamp"}}, "count": {"$sum": 1}}},
+                {"$sort": {"_id": 1}}
+            ]
+            
+            results = await db.user_events.aggregate(pipeline).to_list(100)
+            labels = [format_label(r["_id"], period) for r in results]
+            
+            return {
+                "chart_type": chart_type,
+                "labels": labels,
+                "datasets": [{"label": "Workouts Completed", "data": [r["count"] for r in results]}]
+            }
+        
+        elif chart_type == "posts_created":
+            pipeline = [
+                {"$match": {"event_type": "post_created", "timestamp": {"$gte": cutoff}}},
+                {"$group": {"_id": {"$dateToString": {"format": date_format, "date": "$timestamp"}}, "count": {"$sum": 1}}},
+                {"$sort": {"_id": 1}}
+            ]
+            
+            results = await db.user_events.aggregate(pipeline).to_list(100)
+            labels = [format_label(r["_id"], period) for r in results]
+            
+            return {
+                "chart_type": chart_type,
+                "labels": labels,
+                "datasets": [{"label": "Posts Created", "data": [r["count"] for r in results]}]
+            }
+        
+        elif chart_type == "likes":
+            pipeline = [
+                {"$match": {"event_type": "post_liked", "timestamp": {"$gte": cutoff}}},
+                {"$group": {"_id": {"$dateToString": {"format": date_format, "date": "$timestamp"}}, "count": {"$sum": 1}}},
+                {"$sort": {"_id": 1}}
+            ]
+            
+            results = await db.user_events.aggregate(pipeline).to_list(100)
+            labels = [format_label(r["_id"], period) for r in results]
+            
+            return {
+                "chart_type": chart_type,
+                "labels": labels,
+                "datasets": [{"label": "Likes", "data": [r["count"] for r in results]}]
+            }
+        
+        elif chart_type == "comments":
+            pipeline = [
+                {"$match": {"event_type": "post_commented", "timestamp": {"$gte": cutoff}}},
+                {"$group": {"_id": {"$dateToString": {"format": date_format, "date": "$timestamp"}}, "count": {"$sum": 1}}},
+                {"$sort": {"_id": 1}}
+            ]
+            
+            results = await db.user_events.aggregate(pipeline).to_list(100)
+            labels = [format_label(r["_id"], period) for r in results]
+            
+            return {
+                "chart_type": chart_type,
+                "labels": labels,
+                "datasets": [{"label": "Comments", "data": [r["count"] for r in results]}]
+            }
+        
+        elif chart_type == "guest_signins":
+            pipeline = [
+                {"$match": {"event_type": "guest_session_started", "is_guest": True, "timestamp": {"$gte": cutoff}}},
+                {"$group": {"_id": {"$dateToString": {"format": date_format, "date": "$timestamp"}}, "count": {"$sum": 1}}},
+                {"$sort": {"_id": 1}}
+            ]
+            
+            results = await db.user_events.aggregate(pipeline).to_list(100)
+            labels = [format_label(r["_id"], period) for r in results]
+            
+            return {
+                "chart_type": chart_type,
+                "labels": labels,
+                "datasets": [{"label": "Guest Sign-ins", "data": [r["count"] for r in results]}]
+            }
+        
         return {"chart_type": chart_type, "labels": [], "datasets": []}
         
     except Exception as e:
