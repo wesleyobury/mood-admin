@@ -98,9 +98,17 @@ export default function CreatePost() {
       hasToken: !!token, 
       hasUser: !!user, 
       isLoading,
+      isGuest,
       tokenLength: token?.length || 0 
     });
-  }, [token, user, isLoading]);
+  }, [token, user, isLoading, isGuest]);
+
+  // Show guest prompt if guest tries to access this screen
+  useEffect(() => {
+    if (isGuest) {
+      setShowGuestPrompt(true);
+    }
+  }, [isGuest]);
 
   // Load workout stats
   useEffect(() => {
