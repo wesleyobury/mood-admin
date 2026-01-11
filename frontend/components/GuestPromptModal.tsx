@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {
   View,
   Text,
@@ -12,6 +12,7 @@ import { LinearGradient } from 'expo-linear-gradient';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { router } from 'expo-router';
 import { useAuth } from '../contexts/AuthContext';
+import { GuestAnalytics } from '../utils/analytics';
 
 const { width } = Dimensions.get('window');
 
@@ -25,7 +26,17 @@ export default function GuestPromptModal({ visible, onClose, action = 'use this 
   const insets = useSafeAreaInsets();
   const { exitGuestMode } = useAuth();
 
+  // Track when the modal is shown
+  useEffect(() => {
+    if (visible && action) {
+      GuestAnalytics.signupPromptShown({ trigger_action: action });
+    }
+  }, [visible, action]);
+
   const handleSignUp = async () => {
+    // Track the click
+    GuestAnalytics.signupPromptClicked({ trigger_action: action, destination: 'register' });
+    
     // Exit guest mode and navigate to register
     await exitGuestMode();
     onClose();
@@ -33,10 +44,19 @@ export default function GuestPromptModal({ visible, onClose, action = 'use this 
   };
 
   const handleSignIn = async () => {
+    // Track the click
+    GuestAnalytics.signupPromptClicked({ trigger_action: action, destination: 'login' });
+    
     // Exit guest mode and navigate to login
     await exitGuestMode();
     onClose();
     router.push('/auth/login');
+  };
+
+  const handleDismiss = () => {
+    // Track the dismissal
+    GuestAnalytics.signupPromptDismissed({ trigger_action: action });
+    onClose();
   };
 
   return (
