@@ -632,8 +632,8 @@ export default function Explore() {
         </ScrollView>
       )}
 
-      {/* Feed Type Tabs */}
-      {!showSearch && <View style={styles.tabContainer}>
+      {/* Feed Type Tabs - Only show for authenticated users */}
+      {!showSearch && !isGuest && <View style={styles.tabContainer}>
         <TouchableOpacity
           style={[styles.tab, activeTab === 'forYou' && styles.activeTab]}
           onPress={() => setActiveTab('forYou')}
