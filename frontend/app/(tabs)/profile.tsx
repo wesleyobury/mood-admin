@@ -628,6 +628,66 @@ export default function Profile() {
 
   const insets = useSafeAreaInsets();
 
+  // Guest Profile View
+  if (isGuest) {
+    const handleGuestSignUp = async () => {
+      await exitGuestMode();
+      router.push('/auth/register');
+    };
+
+    const handleGuestSignIn = async () => {
+      await exitGuestMode();
+      router.push('/auth/login');
+    };
+
+    return (
+      <View style={styles.container}>
+        <View style={[styles.header, { paddingTop: insets.top + 16 }]}>
+          <View style={styles.settingsButton} />
+          <Text style={styles.username}>Guest</Text>
+          <View style={styles.headerRightButtons} />
+        </View>
+        
+        <View style={styles.guestProfileContainer}>
+          <View style={styles.guestIconContainer}>
+            <Ionicons name="person-outline" size={64} color="#FFD700" />
+          </View>
+          <Text style={styles.guestTitle}>You're browsing as a Guest</Text>
+          <Text style={styles.guestSubtitle}>
+            Create an account to unlock your profile and all features
+          </Text>
+          
+          <View style={styles.guestBenefits}>
+            <View style={styles.guestBenefitItem}>
+              <Ionicons name="bookmark" size={20} color="#FFD700" />
+              <Text style={styles.guestBenefitText}>Save your favorite workouts</Text>
+            </View>
+            <View style={styles.guestBenefitItem}>
+              <Ionicons name="trending-up" size={20} color="#FFD700" />
+              <Text style={styles.guestBenefitText}>Track your progress & streaks</Text>
+            </View>
+            <View style={styles.guestBenefitItem}>
+              <Ionicons name="people" size={20} color="#FFD700" />
+              <Text style={styles.guestBenefitText}>Connect with the community</Text>
+            </View>
+            <View style={styles.guestBenefitItem}>
+              <Ionicons name="camera" size={20} color="#FFD700" />
+              <Text style={styles.guestBenefitText}>Share your fitness journey</Text>
+            </View>
+          </View>
+          
+          <TouchableOpacity style={styles.guestSignUpButton} onPress={handleGuestSignUp}>
+            <Text style={styles.guestSignUpButtonText}>Create Account</Text>
+          </TouchableOpacity>
+          
+          <TouchableOpacity style={styles.guestSignInButton} onPress={handleGuestSignIn}>
+            <Text style={styles.guestSignInButtonText}>I already have an account</Text>
+          </TouchableOpacity>
+        </View>
+      </View>
+    );
+  }
+
   return (
     <View style={styles.container}>
       <View style={[styles.header, { paddingTop: insets.top + 16 }]}>
