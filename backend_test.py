@@ -1,332 +1,327 @@
 #!/usr/bin/env python3
 """
-Backend Testing Suite for Time-Series Analytics Feature
-Testing comprehensive analytics endpoints for admin dashboard
+Backend Testing Suite for Cloudinary Media Upload Integration
+Testing the mood fitness app backend APIs with focus on Cloudinary integration
 """
 
 import requests
 import json
+import io
+from PIL import Image
+import base64
+import time
 import sys
-from datetime import datetime
 import os
 
-# Get backend URL from environment
-BACKEND_URL = os.getenv('REACT_APP_BACKEND_URL', 'https://visual-frame-app.preview.emergentagent.com')
+# Configuration
+BACKEND_URL = "https://visual-frame-app.preview.emergentagent.com"
 API_BASE = f"{BACKEND_URL}/api"
 
-class AnalyticsTestSuite:
+# Test credentials from review request
+TEST_USERNAME = "officialmoodapp"
+TEST_PASSWORD = "Matthew1999$"
+
+class CloudinaryIntegrationTester:
     def __init__(self):
         self.session = requests.Session()
         self.auth_token = None
         self.test_results = []
-        self.admin_credentials = {
-            "username": "wesleyogsbury@gmail.com",
-            "password": "password123"
-        }
         
-    def log_test(self, test_name, success, details="", response_data=None):
-        """Log test results"""
+    def log_result(self, test_name, success, message, details=None):
+        """Log test result"""
         status = "✅ PASS" if success else "❌ FAIL"
-        print(f"{status} {test_name}")
-        if details:
-            print(f"   Details: {details}")
-        if response_data and not success:
-            print(f"   Response: {response_data}")
-        
-        self.test_results.append({
+        result = {
             "test": test_name,
             "success": success,
-            "details": details,
-            "response": response_data
-        })
-        
-    def authenticate_admin(self):
-        """Authenticate with admin credentials"""
-        print("\n🔐 AUTHENTICATING ADMIN USER...")
-        
+            "message": message,
+            "details": details or {}
+        }
+        self.test_results.append(result)
+        print(f"{status}: {test_name} - {message}")
+        if details and not success:
+            print(f"   Details: {details}")
+    
+    def create_test_image(self, size=(1, 1), format='PNG'):
+        """Create a small test image for upload testing"""
+        img = Image.new('RGB', size, color='red')
+        img_bytes = io.BytesIO()
+        img.save(img_bytes, format=format)
+        img_bytes.seek(0)
+        return img_bytes
+    
+    def test_health_check(self):
+        """Test 1: Health Check - Verify the API is running"""
         try:
+            response = self.session.get(f"{API_BASE}/health", timeout=10)
+            
+            if response.status_code == 200:
+                data = response.json()
+                if data.get("status") == "healthy":
+                    self.log_result("Health Check", True, "API is running and healthy", {
+                        "status_code": response.status_code,
+                        "response": data
+                    })
+                    return True
+                else:
+                    self.log_result("Health Check", False, f"API unhealthy: {data}", {
+                        "status_code": response.status_code,
+                        "response": data
+                    })
+                    return False
+            else:
+                self.log_result("Health Check", False, f"HTTP {response.status_code}", {
+                    "status_code": response.status_code,
+                    "response": response.text
+                })
+                return False
+                
+        except Exception as e:
+            self.log_result("Health Check", False, f"Connection error: {str(e)}")
+            return False
+    
+    def test_login(self):
+        """Test 2: Login to get auth token"""
+        try:
+            login_data = {
+                "username": TEST_USERNAME,
+                "password": TEST_PASSWORD
+            }
+            
             response = self.session.post(
                 f"{API_BASE}/auth/login",
-                json=self.admin_credentials,
+                json=login_data,
                 timeout=10
             )
             
             if response.status_code == 200:
                 data = response.json()
-                self.auth_token = data.get('token')
-                if self.auth_token:
+                if "token" in data:
+                    self.auth_token = data["token"]
                     self.session.headers.update({
-                        'Authorization': f'Bearer {self.auth_token}'
+                        "Authorization": f"Bearer {self.auth_token}"
                     })
-                    self.log_test("Admin Authentication", True, f"Logged in as {self.admin_credentials['username']}")
+                    self.log_result("Login Authentication", True, "Successfully logged in and got auth token", {
+                        "status_code": response.status_code,
+                        "user_id": data.get("user_id"),
+                        "token_length": len(self.auth_token)
+                    })
                     return True
                 else:
-                    self.log_test("Admin Authentication", False, "No token in response", data)
+                    self.log_result("Login Authentication", False, "No token in response", {
+                        "status_code": response.status_code,
+                        "response": data
+                    })
                     return False
             else:
-                self.log_test("Admin Authentication", False, f"Status: {response.status_code}", response.text)
+                self.log_result("Login Authentication", False, f"Login failed with HTTP {response.status_code}", {
+                    "status_code": response.status_code,
+                    "response": response.text
+                })
                 return False
                 
         except Exception as e:
-            self.log_test("Admin Authentication", False, f"Exception: {str(e)}")
+            self.log_result("Login Authentication", False, f"Login error: {str(e)}")
             return False
     
-    def test_time_series_endpoint(self, metric_type, period="day", limit=30):
-        """Test time-series analytics endpoint"""
-        test_name = f"Time-Series: {metric_type} ({period})"
-        
-        try:
-            url = f"{API_BASE}/analytics/admin/time-series/{metric_type}"
-            params = {"period": period, "limit": limit}
+    def test_single_image_upload(self):
+        """Test 3: Test Single Image Upload to Cloudinary"""
+        if not self.auth_token:
+            self.log_result("Single Image Upload", False, "No auth token available")
+            return False
             
-            response = self.session.get(url, params=params, timeout=10)
+        try:
+            # Create a small test image
+            test_image = self.create_test_image()
+            
+            files = {
+                'file': ('test_image.png', test_image, 'image/png')
+            }
+            
+            response = self.session.post(
+                f"{API_BASE}/upload",
+                files=files,
+                timeout=30
+            )
             
             if response.status_code == 200:
                 data = response.json()
                 
-                # Verify response structure
-                required_fields = ["metric_type", "period", "labels", "values", "secondary_values", "total", "average"]
-                missing_fields = [field for field in required_fields if field not in data]
+                # Check required fields in response
+                required_checks = {
+                    "url_starts_with_cloudinary": data.get("url", "").startswith("https://res.cloudinary.com"),
+                    "public_id_contains_mood_app": "mood_app" in data.get("public_id", ""),
+                    "resource_type_is_image": data.get("resource_type") == "image"
+                }
                 
-                if missing_fields:
-                    self.log_test(test_name, False, f"Missing fields: {missing_fields}", data)
-                    return False
+                all_checks_passed = all(required_checks.values())
                 
-                # Verify data types
-                if not isinstance(data["labels"], list):
-                    self.log_test(test_name, False, "Labels should be a list", data)
-                    return False
-                    
-                if not isinstance(data["values"], list):
-                    self.log_test(test_name, False, "Values should be a list", data)
-                    return False
-                
-                if len(data["labels"]) != len(data["values"]):
-                    self.log_test(test_name, False, "Labels and values length mismatch", data)
-                    return False
-                
-                # Verify metric_type matches
-                if data["metric_type"] != metric_type:
-                    self.log_test(test_name, False, f"Metric type mismatch: expected {metric_type}, got {data['metric_type']}", data)
-                    return False
-                
-                # Verify period matches
-                if data["period"] != period:
-                    self.log_test(test_name, False, f"Period mismatch: expected {period}, got {data['period']}", data)
-                    return False
-                
-                self.log_test(test_name, True, f"Total: {data['total']}, Average: {data['average']}, Data points: {len(data['labels'])}")
-                return True
-                
-            else:
-                self.log_test(test_name, False, f"Status: {response.status_code}", response.text)
-                return False
-                
-        except Exception as e:
-            self.log_test(test_name, False, f"Exception: {str(e)}")
-            return False
-    
-    def test_breakdown_endpoint(self, metric_type, days=30):
-        """Test breakdown analytics endpoint"""
-        test_name = f"Breakdown: {metric_type}"
-        
-        try:
-            url = f"{API_BASE}/analytics/admin/breakdown/{metric_type}"
-            params = {"days": days}
-            
-            response = self.session.get(url, params=params, timeout=10)
-            
-            if response.status_code == 200:
-                data = response.json()
-                
-                # Verify response structure
-                required_fields = ["metric_type", "items", "total"]
-                missing_fields = [field for field in required_fields if field not in data]
-                
-                if missing_fields:
-                    self.log_test(test_name, False, f"Missing fields: {missing_fields}", data)
-                    return False
-                
-                # Verify data types
-                if not isinstance(data["items"], list):
-                    self.log_test(test_name, False, "Items should be a list", data)
-                    return False
-                
-                # Verify item structure
-                for item in data["items"]:
-                    if not isinstance(item, dict) or "name" not in item or "count" not in item:
-                        self.log_test(test_name, False, "Invalid item structure", data)
-                        return False
-                
-                # Verify metric_type matches
-                if data["metric_type"] != metric_type:
-                    self.log_test(test_name, False, f"Metric type mismatch: expected {metric_type}, got {data['metric_type']}", data)
-                    return False
-                
-                self.log_test(test_name, True, f"Total: {data['total']}, Items: {len(data['items'])}")
-                return True
-                
-            else:
-                self.log_test(test_name, False, f"Status: {response.status_code}", response.text)
-                return False
-                
-        except Exception as e:
-            self.log_test(test_name, False, f"Exception: {str(e)}")
-            return False
-    
-    def test_authentication_required(self):
-        """Test that endpoints require authentication"""
-        print("\n🔒 TESTING AUTHENTICATION REQUIREMENTS...")
-        
-        # Remove auth header temporarily
-        original_headers = self.session.headers.copy()
-        if 'Authorization' in self.session.headers:
-            del self.session.headers['Authorization']
-        
-        try:
-            # Test time-series endpoint without auth
-            response = self.session.get(f"{API_BASE}/analytics/admin/time-series/active_users", timeout=10)
-            
-            if response.status_code in [401, 403]:
-                self.log_test("Authentication Required - Time Series", True, f"Correctly blocked with status {response.status_code}")
-                auth_required = True
-            else:
-                self.log_test("Authentication Required - Time Series", False, f"Should require auth but got status {response.status_code}")
-                auth_required = False
-            
-            # Test breakdown endpoint without auth
-            response = self.session.get(f"{API_BASE}/analytics/admin/breakdown/screen_views", timeout=10)
-            
-            if response.status_code in [401, 403]:
-                self.log_test("Authentication Required - Breakdown", True, f"Correctly blocked with status {response.status_code}")
-                auth_required = auth_required and True
-            else:
-                self.log_test("Authentication Required - Breakdown", False, f"Should require auth but got status {response.status_code}")
-                auth_required = False
-                
-        except Exception as e:
-            self.log_test("Authentication Required", False, f"Exception: {str(e)}")
-            auth_required = False
-        finally:
-            # Restore auth headers
-            self.session.headers.update(original_headers)
-        
-        return auth_required
-    
-    def test_error_handling(self):
-        """Test error handling for invalid inputs"""
-        print("\n🚨 TESTING ERROR HANDLING...")
-        
-        # Test invalid metric type
-        try:
-            response = self.session.get(f"{API_BASE}/analytics/admin/time-series/invalid_metric", timeout=10)
-            
-            if response.status_code == 200:
-                data = response.json()
-                # Should return empty data gracefully
-                if data.get("total", 0) == 0 and len(data.get("values", [])) == 0:
-                    self.log_test("Error Handling - Invalid Metric", True, "Returns empty data gracefully")
+                if all_checks_passed:
+                    self.log_result("Single Image Upload", True, "Image uploaded to Cloudinary successfully", {
+                        "status_code": response.status_code,
+                        "url": data.get("url"),
+                        "public_id": data.get("public_id"),
+                        "resource_type": data.get("resource_type"),
+                        "checks": required_checks
+                    })
+                    return True
                 else:
-                    self.log_test("Error Handling - Invalid Metric", False, "Should return empty data", data)
+                    self.log_result("Single Image Upload", False, "Response missing required Cloudinary fields", {
+                        "status_code": response.status_code,
+                        "response": data,
+                        "failed_checks": {k: v for k, v in required_checks.items() if not v}
+                    })
+                    return False
             else:
-                self.log_test("Error Handling - Invalid Metric", False, f"Unexpected status: {response.status_code}")
+                self.log_result("Single Image Upload", False, f"Upload failed with HTTP {response.status_code}", {
+                    "status_code": response.status_code,
+                    "response": response.text
+                })
+                return False
                 
         except Exception as e:
-            self.log_test("Error Handling - Invalid Metric", False, f"Exception: {str(e)}")
+            self.log_result("Single Image Upload", False, f"Upload error: {str(e)}")
+            return False
     
-    def run_comprehensive_tests(self):
-        """Run all analytics tests"""
-        print("🧪 STARTING TIME-SERIES ANALYTICS COMPREHENSIVE TESTING")
+    def test_avatar_upload(self):
+        """Test 4: Test Avatar Upload to Cloudinary"""
+        if not self.auth_token:
+            self.log_result("Avatar Upload", False, "No auth token available")
+            return False
+            
+        try:
+            # Create a test avatar image
+            test_avatar = self.create_test_image(size=(400, 400))
+            
+            files = {
+                'file': ('avatar.png', test_avatar, 'image/png')
+            }
+            
+            response = self.session.post(
+                f"{API_BASE}/users/me/avatar",
+                files=files,
+                timeout=30
+            )
+            
+            if response.status_code == 200:
+                data = response.json()
+                
+                # Check for Cloudinary URL and transformation parameters
+                url = data.get("url", "")
+                cloudinary_url = url.startswith("https://res.cloudinary.com")
+                has_transformation = "c_fill" in url or "w_400" in url or "h_400" in url
+                
+                if cloudinary_url:
+                    self.log_result("Avatar Upload", True, "Avatar uploaded to Cloudinary successfully", {
+                        "status_code": response.status_code,
+                        "url": url,
+                        "has_cloudinary_url": cloudinary_url,
+                        "has_transformation_params": has_transformation,
+                        "response": data
+                    })
+                    return True
+                else:
+                    self.log_result("Avatar Upload", False, "Response doesn't contain Cloudinary URL", {
+                        "status_code": response.status_code,
+                        "url": url,
+                        "response": data
+                    })
+                    return False
+            else:
+                self.log_result("Avatar Upload", False, f"Avatar upload failed with HTTP {response.status_code}", {
+                    "status_code": response.status_code,
+                    "response": response.text
+                })
+                return False
+                
+        except Exception as e:
+            self.log_result("Avatar Upload", False, f"Avatar upload error: {str(e)}")
+            return False
+    
+    def test_public_posts_endpoint(self):
+        """Test 5: Verify Public Posts Endpoint for Guest Mode"""
+        try:
+            # Test without authentication (guest mode)
+            guest_session = requests.Session()
+            
+            response = guest_session.get(
+                f"{API_BASE}/posts/public",
+                timeout=10
+            )
+            
+            if response.status_code == 200:
+                data = response.json()
+                
+                if isinstance(data, list):
+                    self.log_result("Public Posts Endpoint", True, f"Public posts endpoint working - returned {len(data)} posts", {
+                        "status_code": response.status_code,
+                        "posts_count": len(data),
+                        "requires_auth": False
+                    })
+                    return True
+                else:
+                    self.log_result("Public Posts Endpoint", False, "Response is not an array", {
+                        "status_code": response.status_code,
+                        "response_type": type(data).__name__,
+                        "response": data
+                    })
+                    return False
+            else:
+                self.log_result("Public Posts Endpoint", False, f"Public posts failed with HTTP {response.status_code}", {
+                    "status_code": response.status_code,
+                    "response": response.text
+                })
+                return False
+                
+        except Exception as e:
+            self.log_result("Public Posts Endpoint", False, f"Public posts error: {str(e)}")
+            return False
+    
+    def run_all_tests(self):
+        """Run all Cloudinary integration tests"""
+        print("🧪 Starting Cloudinary Media Upload Integration Tests")
+        print(f"🎯 Backend URL: {BACKEND_URL}")
         print("=" * 60)
         
-        # Authenticate first
-        if not self.authenticate_admin():
-            print("❌ CRITICAL: Authentication failed. Cannot proceed with tests.")
-            return False
-        
-        # Test authentication requirements
-        self.test_authentication_required()
-        
-        # Test all time-series metrics
-        print("\n📊 TESTING TIME-SERIES ENDPOINTS...")
-        time_series_metrics = [
-            "active_users",
-            "new_users", 
-            "app_sessions",
-            "screen_views",
-            "workouts_started",
-            "workouts_completed",
-            "mood_selections",
-            "posts_created",
-            "social_interactions"
+        # Test sequence
+        tests = [
+            ("Health Check", self.test_health_check),
+            ("Login Authentication", self.test_login),
+            ("Single Image Upload", self.test_single_image_upload),
+            ("Avatar Upload", self.test_avatar_upload),
+            ("Public Posts Endpoint", self.test_public_posts_endpoint)
         ]
         
-        time_series_success = 0
-        for metric in time_series_metrics:
-            if self.test_time_series_endpoint(metric):
-                time_series_success += 1
+        passed = 0
+        total = len(tests)
         
-        # Test different periods
-        print("\n📅 TESTING DIFFERENT PERIODS...")
-        periods = ["day", "week", "month"]
-        period_success = 0
-        for period in periods:
-            if self.test_time_series_endpoint("active_users", period):
-                period_success += 1
-        
-        # Test breakdown endpoints
-        print("\n🔍 TESTING BREAKDOWN ENDPOINTS...")
-        breakdown_metrics = [
-            "screen_views",
-            "mood_selections", 
-            "social_interactions"
-        ]
-        
-        breakdown_success = 0
-        for metric in breakdown_metrics:
-            if self.test_breakdown_endpoint(metric):
-                breakdown_success += 1
-        
-        # Test error handling
-        self.test_error_handling()
-        
-        # Calculate overall results
-        total_tests = len(self.test_results)
-        passed_tests = sum(1 for result in self.test_results if result["success"])
-        success_rate = (passed_tests / total_tests * 100) if total_tests > 0 else 0
+        for test_name, test_func in tests:
+            print(f"\n🔍 Running: {test_name}")
+            if test_func():
+                passed += 1
         
         print("\n" + "=" * 60)
-        print("📋 TEST SUMMARY")
-        print("=" * 60)
-        print(f"Total Tests: {total_tests}")
-        print(f"Passed: {passed_tests}")
-        print(f"Failed: {total_tests - passed_tests}")
-        print(f"Success Rate: {success_rate:.1f}%")
+        print(f"📊 CLOUDINARY INTEGRATION TEST RESULTS")
+        print(f"✅ Passed: {passed}/{total} tests ({passed/total*100:.1f}%)")
+        print(f"❌ Failed: {total-passed}/{total} tests")
         
-        print(f"\n📊 Time-Series Metrics: {time_series_success}/{len(time_series_metrics)} working")
-        print(f"📅 Period Variations: {period_success}/{len(periods)} working")
-        print(f"🔍 Breakdown Metrics: {breakdown_success}/{len(breakdown_metrics)} working")
-        
-        # Detailed failure analysis
-        failed_tests = [result for result in self.test_results if not result["success"]]
+        # Summary of critical issues
+        failed_tests = [r for r in self.test_results if not r["success"]]
         if failed_tests:
-            print("\n❌ FAILED TESTS:")
+            print(f"\n🚨 CRITICAL ISSUES FOUND:")
             for test in failed_tests:
-                print(f"   • {test['test']}: {test['details']}")
+                print(f"   ❌ {test['test']}: {test['message']}")
+        else:
+            print(f"\n🎉 ALL CLOUDINARY INTEGRATION TESTS PASSED!")
         
-        return success_rate >= 80  # Consider 80%+ as success
+        return passed == total
 
 def main():
     """Main test execution"""
-    tester = AnalyticsTestSuite()
-    success = tester.run_comprehensive_tests()
+    tester = CloudinaryIntegrationTester()
+    success = tester.run_all_tests()
     
-    if success:
-        print("\n🎉 TIME-SERIES ANALYTICS TESTING COMPLETED SUCCESSFULLY!")
-        sys.exit(0)
-    else:
-        print("\n💥 TIME-SERIES ANALYTICS TESTING FAILED!")
-        sys.exit(1)
+    # Exit with appropriate code
+    sys.exit(0 if success else 1)
 
 if __name__ == "__main__":
     main()
