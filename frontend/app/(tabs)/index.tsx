@@ -449,6 +449,13 @@ export default function WorkoutsHome() {
 
   // Save a featured workout
   const handleSaveFeaturedWorkout = async (workout: typeof featuredWorkouts[0]) => {
+    // Block guests from saving workouts
+    if (isGuest) {
+      setGuestAction('save workouts');
+      setShowGuestPrompt(true);
+      return;
+    }
+    
     if (!token) {
       Alert.alert('Login Required', 'Please login to save workouts');
       return;
