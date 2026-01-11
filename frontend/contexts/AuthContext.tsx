@@ -290,11 +290,14 @@ export function AuthProvider({ children }: AuthProviderProps) {
     user,
     token,
     isLoading,
+    isGuest,
     login,
     register,
     logout,
     updateUser,
     refreshAuth,
+    continueAsGuest,
+    exitGuestMode,
   };
 
   return (
