@@ -642,6 +642,64 @@ export default function AdminDashboard() {
           </View>
         </View>
 
+        {/* Guest Sign-ins Section */}
+        <View style={styles.section}>
+          <View style={styles.sectionHeader}>
+            <Text style={styles.sectionTitle}>Guest Activity</Text>
+            <View style={styles.guestBadge}>
+              <Ionicons name="eye-outline" size={12} color="#9C27B0" />
+              <Text style={styles.guestBadgeText}>Browsing Mode</Text>
+            </View>
+          </View>
+          <Text style={styles.sectionSubtitle}>
+            Users exploring without an account
+          </Text>
+          
+          <View style={styles.guestMetricsGrid}>
+            <View style={styles.guestMetricCard}>
+              <View style={[styles.guestMetricIcon, { backgroundColor: 'rgba(156, 39, 176, 0.15)' }]}>
+                <Ionicons name="person-outline" size={20} color="#9C27B0" />
+              </View>
+              <Text style={styles.guestMetricValue}>{stats?.guest_signins || 0}</Text>
+              <Text style={styles.guestMetricLabel}>Guest Sign-ins</Text>
+            </View>
+            
+            <View style={styles.guestMetricCard}>
+              <View style={[styles.guestMetricIcon, { backgroundColor: 'rgba(255, 152, 0, 0.15)' }]}>
+                <Ionicons name="phone-portrait-outline" size={20} color="#FF9800" />
+              </View>
+              <Text style={styles.guestMetricValue}>{stats?.unique_guest_devices || 0}</Text>
+              <Text style={styles.guestMetricLabel}>Unique Devices</Text>
+            </View>
+            
+            <View style={styles.guestMetricCard}>
+              <View style={[styles.guestMetricIcon, { backgroundColor: 'rgba(76, 175, 80, 0.15)' }]}>
+                <Ionicons name="checkmark-circle-outline" size={20} color="#4CAF50" />
+              </View>
+              <Text style={styles.guestMetricValue}>{stats?.guest_conversions || 0}</Text>
+              <Text style={styles.guestMetricLabel}>Converted to User</Text>
+            </View>
+          </View>
+          
+          {/* Conversion Rate */}
+          {(stats?.guest_signins || 0) > 0 && (
+            <View style={styles.conversionRateContainer}>
+              <Text style={styles.conversionRateLabel}>Conversion Rate</Text>
+              <View style={styles.conversionRateBar}>
+                <View 
+                  style={[
+                    styles.conversionRateFill, 
+                    { width: `${Math.min(((stats?.guest_conversions || 0) / (stats?.guest_signins || 1)) * 100, 100)}%` }
+                  ]} 
+                />
+              </View>
+              <Text style={styles.conversionRateValue}>
+                {(((stats?.guest_conversions || 0) / (stats?.guest_signins || 1)) * 100).toFixed(1)}%
+              </Text>
+            </View>
+          )}
+        </View>
+
         {/* Top Pages Visited */}
         <View style={styles.section}>
           <View style={styles.sectionHeader}>
