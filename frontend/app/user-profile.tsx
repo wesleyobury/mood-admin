@@ -143,6 +143,12 @@ export default function UserProfile() {
   };
 
   const handleFollowToggle = async () => {
+    // Block guests from following
+    if (isGuest) {
+      setShowGuestPrompt(true);
+      return;
+    }
+    
     if (!token) return;
 
     try {
