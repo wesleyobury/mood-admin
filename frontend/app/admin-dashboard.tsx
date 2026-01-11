@@ -329,7 +329,7 @@ export default function AdminDashboard() {
       setLoading(false);
       setRefreshing(false);
     }
-  }, [token, isAuthorized, selectedPeriod, chartPeriod]);
+  }, [token, isAuthorized, selectedPeriod, chartPeriod, userTypeFilter]);
 
   useEffect(() => {
     if (isAuthorized) {
