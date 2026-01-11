@@ -283,6 +283,13 @@ export default function Explore() {
   };
 
   const handleFollowToggle = async (userId: string) => {
+    // Block guests from following
+    if (isGuest) {
+      setGuestAction('follow other users');
+      setShowGuestPrompt(true);
+      return;
+    }
+    
     if (!token) return;
 
     try {
