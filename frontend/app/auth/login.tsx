@@ -420,6 +420,15 @@ export default function Login() {
               <Text style={styles.footerLink}>Sign up</Text>
             </TouchableOpacity>
           </View>
+
+          {/* Guest Mode Button */}
+          <TouchableOpacity 
+            style={styles.guestButton}
+            onPress={handleContinueAsGuest}
+          >
+            <Ionicons name="eye-outline" size={18} color="#888" style={{ marginRight: 8 }} />
+            <Text style={styles.guestButtonText}>Continue as Guest</Text>
+          </TouchableOpacity>
         </View>
       </KeyboardAvoidingView>
     </View>
