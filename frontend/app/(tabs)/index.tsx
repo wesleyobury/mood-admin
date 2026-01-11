@@ -827,6 +827,13 @@ export default function WorkoutsHome() {
         </View>
       </ScrollView>
       </View>
+      
+      {/* Guest Prompt Modal */}
+      <GuestPromptModal 
+        visible={showGuestPrompt}
+        onClose={() => setShowGuestPrompt(false)}
+        action={guestAction}
+      />
     </View>
   );
 }
