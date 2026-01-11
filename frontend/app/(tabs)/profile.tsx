@@ -156,7 +156,7 @@ export default function Profile() {
   const [followListVisible, setFollowListVisible] = useState(false);
   const [followListType, setFollowListType] = useState<'followers' | 'following'>('followers');
   const [refreshing, setRefreshing] = useState(false);
-  const { token, user: authUser, updateUser } = useAuth();
+  const { token, user: authUser, updateUser, isGuest, exitGuestMode } = useAuth();
   const { addToCart } = useCart();
 
   const [activeTab, setActiveTab] = useState<'posts' | 'saved' | 'cards'>('posts');
