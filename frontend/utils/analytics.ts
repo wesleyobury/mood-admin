@@ -320,6 +320,74 @@ export const Analytics = {
   }) => trackEvent(token, 'screen_exited', metadata),
 };
 
+// Guest Analytics - for tracking guest user activity
+export const GuestAnalytics = {
+  // Workout Events (guests can browse and start workouts)
+  workoutViewed: (metadata: {
+    workout_name?: string;
+    mood_category?: string;
+  }) => trackGuestEvent('workout_viewed', metadata),
+
+  workoutStarted: (metadata: {
+    mood_category?: string;
+    difficulty?: string;
+    equipment?: string;
+  }) => trackGuestEvent('workout_started', metadata),
+
+  workoutCompleted: (metadata: {
+    mood_category?: string;
+    difficulty?: string;
+    duration_minutes?: number;
+  }) => trackGuestEvent('workout_completed', metadata),
+
+  // Navigation Events
+  screenViewed: (metadata: {
+    screen_name: string;
+  }) => trackGuestEvent('screen_viewed', metadata),
+
+  tabSwitched: (metadata: {
+    from_tab: string;
+    to_tab: string;
+  }) => trackGuestEvent('tab_switched', metadata),
+
+  // Feature Usage
+  moodSelected: (metadata: {
+    mood_category: string;
+  }) => trackGuestEvent('mood_selected', metadata),
+
+  equipmentSelected: (metadata: {
+    equipment: string;
+    mood_category?: string;
+  }) => trackGuestEvent('equipment_selected', metadata),
+
+  difficultySelected: (metadata: {
+    difficulty: string;
+    mood_category?: string;
+  }) => trackGuestEvent('difficulty_selected', metadata),
+
+  // Engagement Events
+  appOpened: () => trackGuestEvent('app_opened'),
+  
+  exploreViewed: () => trackGuestEvent('explore_viewed'),
+  
+  // Conversion Events (when guest tries restricted actions)
+  signupPromptShown: (metadata: {
+    trigger_action: string;  // e.g., "save_workout", "like_post", "follow_user"
+  }) => trackGuestEvent('signup_prompt_shown', metadata),
+  
+  signupPromptDismissed: (metadata: {
+    trigger_action: string;
+  }) => trackGuestEvent('signup_prompt_dismissed', metadata),
+  
+  signupPromptClicked: (metadata: {
+    trigger_action: string;
+    destination: 'register' | 'login';
+  }) => trackGuestEvent('signup_prompt_clicked', metadata),
+
+  // Guest Session Events
+  guestSessionStarted: () => trackGuestEvent('guest_session_started'),
+};
+
 // Screen Time Tracker Hook Helper
 export class ScreenTimeTracker {
   private screenName: string;
