@@ -433,6 +433,13 @@ export default function Explore() {
   };
 
   const handleProfile = (userId: string) => {
+    // Block guests from viewing profiles
+    if (isGuest) {
+      setGuestAction('view profiles');
+      setShowGuestPrompt(true);
+      return;
+    }
+    
     // If clicking on own profile, navigate to profile tab
     if (user && user.id === userId) {
       router.push('/(tabs)/profile');
