@@ -313,6 +313,11 @@ export default function Login() {
     }
   };
 
+  const handleContinueAsGuest = async () => {
+    await continueAsGuest();
+    router.replace('/(tabs)');
+  };
+
   if (isLoading) {
     return <LoadingSpinner text="Logging in..." />;
   }
