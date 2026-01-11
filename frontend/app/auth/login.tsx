@@ -588,4 +588,19 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontWeight: '600',
   },
+  guestButton: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginTop: 20,
+    paddingVertical: 14,
+    borderWidth: 1,
+    borderColor: '#333',
+    borderRadius: 12,
+  },
+  guestButtonText: {
+    color: '#888',
+    fontSize: 15,
+    fontWeight: '500',
+  },
 });
