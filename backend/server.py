@@ -17,6 +17,9 @@ import jwt
 import bcrypt
 import base64
 import aiofiles
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
 from auth import (
     exchange_session_id_for_token,
     create_or_update_user,
