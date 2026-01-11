@@ -134,7 +134,7 @@ export default function GuestPromptModal({ visible, onClose, action = 'use this 
           {/* Continue as guest link */}
           <TouchableOpacity 
             style={styles.continueGuestButton}
-            onPress={onClose}
+            onPress={handleDismiss}
           >
             <Text style={styles.continueGuestText}>Continue browsing as guest</Text>
           </TouchableOpacity>
