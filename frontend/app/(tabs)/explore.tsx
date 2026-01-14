@@ -1018,9 +1018,6 @@ export default function Explore() {
                     >
                       <Ionicons name="chatbubble-outline" size={24} color="#fff" />
                     </TouchableOpacity>
-                    <TouchableOpacity style={styles.actionButton}>
-                      <Ionicons name="paper-plane-outline" size={24} color="#fff" />
-                    </TouchableOpacity>
                   </View>
                   <TouchableOpacity 
                     style={styles.actionButton}
