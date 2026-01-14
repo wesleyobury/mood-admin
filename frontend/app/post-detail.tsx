@@ -14,6 +14,8 @@ import { Ionicons } from '@expo/vector-icons';
 import { useRouter, useLocalSearchParams } from 'expo-router';
 import { useAuth } from '../contexts/AuthContext';
 import MediaCarousel from '../components/MediaCarousel';
+import ReportModal from '../components/ReportModal';
+import GuestPromptModal from '../components/GuestPromptModal';
 import Constants from 'expo-constants';
 
 const API_URL = process.env.EXPO_PUBLIC_BACKEND_URL || Constants.expoConfig?.extra?.EXPO_PUBLIC_BACKEND_URL || '';
@@ -33,16 +35,21 @@ interface Post {
   likes_count: number;
   comments_count: number;
   is_liked: boolean;
+  is_saved: boolean;
   created_at: string;
 }
 
 export default function PostDetail() {
   const router = useRouter();
   const params = useLocalSearchParams();
-  const { token, user } = useAuth();
+  const { token, user, isGuest } = useAuth();
   const [post, setPost] = useState<Post | null>(null);
   const [loading, setLoading] = useState(true);
   const [isDeleting, setIsDeleting] = useState(false);
+  const [showPostMenu, setShowPostMenu] = useState(false);
+  const [showReportModal, setShowReportModal] = useState(false);
+  const [showGuestPrompt, setShowGuestPrompt] = useState(false);
+  const [guestAction, setGuestAction] = useState('');
 
   // Check if current user is the post author
   const isOwnPost = post && user && post.author.id === user.id;
