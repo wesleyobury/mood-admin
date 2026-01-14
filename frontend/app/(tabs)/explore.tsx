@@ -1115,6 +1115,59 @@ const styles = StyleSheet.create({
   deletePostButton: {
     padding: 8,
   },
+  postMenuButton: {
+    padding: 8,
+  },
+  postMenuOverlay: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    backgroundColor: 'rgba(0,0,0,0.6)',
+    justifyContent: 'flex-end',
+    zIndex: 1000,
+  },
+  postMenuContainer: {
+    backgroundColor: '#1a1a1a',
+    borderTopLeftRadius: 20,
+    borderTopRightRadius: 20,
+    paddingBottom: 30,
+  },
+  postMenuHeader: {
+    alignItems: 'center',
+    paddingVertical: 12,
+  },
+  postMenuHandle: {
+    width: 40,
+    height: 4,
+    backgroundColor: '#444',
+    borderRadius: 2,
+  },
+  postMenuItem: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingVertical: 16,
+    paddingHorizontal: 20,
+    gap: 16,
+  },
+  postMenuItemText: {
+    fontSize: 16,
+    color: '#fff',
+    fontWeight: '500',
+  },
+  postMenuCancelItem: {
+    alignItems: 'center',
+    paddingVertical: 16,
+    marginTop: 8,
+    borderTopWidth: 1,
+    borderTopColor: 'rgba(255,255,255,0.1)',
+  },
+  postMenuCancelText: {
+    fontSize: 16,
+    color: 'rgba(255,255,255,0.6)',
+    fontWeight: '500',
+  },
   authorInfo: {
     flexDirection: 'row',
     alignItems: 'center',
