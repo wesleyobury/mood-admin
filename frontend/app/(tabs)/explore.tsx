@@ -1176,16 +1176,30 @@ export default function Explore() {
                 </View>
 
                 {/* Post Preview Thumbnail */}
-                {notification.post_preview && (
-                  <Image
-                    source={{
-                      uri: notification.post_preview.startsWith('http')
-                        ? notification.post_preview
-                        : `${API_URL}${notification.post_preview}`
-                    }}
-                    style={styles.notificationPostPreview}
-                    contentFit="cover"
-                  />
+                {notification.post_preview && notification.type !== 'follow' && (
+                  (() => {
+                    const isVideo = notification.post_preview.match(/\.(mov|mp4|avi|webm|mkv|m4v)$/i);
+                    const previewUri = notification.post_preview.startsWith('http')
+                      ? notification.post_preview
+                      : `${API_URL}${notification.post_preview}`;
+                    
+                    if (isVideo) {
+                      // Show video icon placeholder for video content
+                      return (
+                        <View style={[styles.notificationPostPreview, styles.videoPlaceholder]}>
+                          <Ionicons name="play-circle" size={24} color="#666" />
+                        </View>
+                      );
+                    }
+                    
+                    return (
+                      <Image
+                        source={{ uri: previewUri }}
+                        style={styles.notificationPostPreview}
+                        contentFit="cover"
+                      />
+                    );
+                  })()
                 )}
               </TouchableOpacity>
             ))
