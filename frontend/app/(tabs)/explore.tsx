@@ -981,6 +981,16 @@ export default function Explore() {
                 )}
 
                 {/* Comments Preview */}
+                {post.first_comment && (
+                  <View style={styles.firstCommentContainer}>
+                    <Text style={styles.firstCommentText} numberOfLines={2}>
+                      <Text style={styles.firstCommentUsername}>
+                        {post.first_comment.author.username}
+                      </Text>
+                      {'  '}{post.first_comment.text}
+                    </Text>
+                  </View>
+                )}
                 <TouchableOpacity onPress={() => handleComments(post.id)}>
                   <Text style={styles.viewComments}>
                     {post.comments_count > 0 
