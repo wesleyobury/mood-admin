@@ -755,38 +755,39 @@ export default function Explore() {
 
       {/* Feed Type Tabs - Only show for authenticated users */}
       {!showSearch && !isGuest && <View style={styles.tabContainer}>
+        <View style={styles.mainTabsContainer}>
+          <TouchableOpacity
+            style={[styles.mainTab, activeTab === 'forYou' && styles.activeTab]}
+            onPress={() => setActiveTab('forYou')}
+          >
+            <Text style={[
+              styles.tabText,
+              activeTab === 'forYou' && styles.activeTabText
+            ]}>
+              For You
+            </Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={[styles.mainTab, activeTab === 'following' && styles.activeTab]}
+            onPress={() => setActiveTab('following')}
+          >
+            <Text style={[
+              styles.tabText,
+              activeTab === 'following' && styles.activeTabText
+            ]}>
+              Following
+            </Text>
+          </TouchableOpacity>
+        </View>
         <TouchableOpacity
-          style={[styles.tab, activeTab === 'forYou' && styles.activeTab]}
-          onPress={() => setActiveTab('forYou')}
-        >
-          <Text style={[
-            styles.tabText,
-            activeTab === 'forYou' && styles.activeTabText
-          ]}>
-            For You
-          </Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={[styles.tab, activeTab === 'following' && styles.activeTab]}
-          onPress={() => setActiveTab('following')}
-        >
-          <Text style={[
-            styles.tabText,
-            activeTab === 'following' && styles.activeTabText
-          ]}>
-            Following
-          </Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={[styles.tab, activeTab === 'notifications' && styles.activeTab]}
+          style={[styles.notificationTab, activeTab === 'notifications' && styles.notificationTabActive]}
           onPress={() => setActiveTab('notifications')}
         >
-          <Text style={[
-            styles.tabText,
-            activeTab === 'notifications' && styles.activeTabText
-          ]}>
-            Notifications
-          </Text>
+          <Ionicons 
+            name={activeTab === 'notifications' ? 'notifications' : 'notifications-outline'} 
+            size={22} 
+            color={activeTab === 'notifications' ? '#FFD700' : '#888'} 
+          />
         </TouchableOpacity>
       </View>}
 
