@@ -4214,6 +4214,29 @@ async def get_posts(current_user_id: str = Depends(get_current_user), limit: int
                 ],
                 "as": "user_saved"
             }
+        },
+        {
+            "$lookup": {
+                "from": "comments",
+                "let": {"post_id": {"$toString": "$_id"}},
+                "pipeline": [
+                    {"$match": {"$expr": {"$eq": ["$post_id", "$$post_id"]}}},
+                    {"$sort": {"created_at": 1}},
+                    {"$limit": 1},
+                    {
+                        "$lookup": {
+                            "from": "users",
+                            "let": {"author_id": {"$toObjectId": "$author_id"}},
+                            "pipeline": [
+                                {"$match": {"$expr": {"$eq": ["$_id", "$$author_id"]}}}
+                            ],
+                            "as": "comment_author"
+                        }
+                    },
+                    {"$unwind": {"path": "$comment_author", "preserveNullAndEmptyArrays": true}}
+                ],
+                "as": "first_comment"
+            }
         }
     ]
     
