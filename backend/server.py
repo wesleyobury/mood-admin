@@ -5015,6 +5015,223 @@ async def get_unread_count(
     return {"unread_count": count}
 
 # ============================================
+# USER NOTIFICATIONS ENDPOINTS
+# ============================================
+
+@api_router.get("/notifications")
+async def get_user_notifications(
+    limit: int = 50,
+    skip: int = 0,
+    current_user_id: str = Depends(get_current_user)
+):
+    """Get user notifications for likes, comments, and follows"""
+    notifications = []
+    
+    # Get likes on user's posts (last 7 days)
+    seven_days_ago = datetime.now(timezone.utc) - timedelta(days=7)
+    
+    # Get user's post IDs
+    user_posts = await db.posts.find(
+        {"author_id": ObjectId(current_user_id)}
+    ).to_list(1000)
+    user_post_ids = [str(post["_id"]) for post in user_posts]
+    
+    # Get likes on user's posts
+    likes_pipeline = [
+        {
+            "$match": {
+                "post_id": {"$in": user_post_ids},
+                "user_id": {"$ne": current_user_id},
+                "created_at": {"$gte": seven_days_ago}
+            }
+        },
+        {"$sort": {"created_at": -1}},
+        {"$limit": 100},
+        {
+            "$lookup": {
+                "from": "users",
+                "let": {"user_id": {"$toObjectId": "$user_id"}},
+                "pipeline": [
+                    {"$match": {"$expr": {"$eq": ["$_id", "$$user_id"]}}}
+                ],
+                "as": "user"
+            }
+        },
+        {"$unwind": "$user"},
+        {
+            "$lookup": {
+                "from": "posts",
+                "let": {"post_id": {"$toObjectId": "$post_id"}},
+                "pipeline": [
+                    {"$match": {"$expr": {"$eq": ["$_id", "$$post_id"]}}}
+                ],
+                "as": "post"
+            }
+        },
+        {"$unwind": "$post"}
+    ]
+    
+    likes = await db.likes.aggregate(likes_pipeline).to_list(100)
+    
+    for like in likes:
+        notifications.append({
+            "id": str(like["_id"]),
+            "type": "like",
+            "user": {
+                "id": str(like["user"]["_id"]),
+                "username": like["user"]["username"],
+                "name": like["user"].get("name", ""),
+                "avatar": like["user"].get("avatar")
+            },
+            "post_id": like["post_id"],
+            "post_preview": like["post"].get("media_urls", [])[0] if like["post"].get("media_urls") else None,
+            "created_at": like["created_at"].isoformat(),
+            "message": "liked your post"
+        })
+    
+    # Get comments on user's posts
+    comments_pipeline = [
+        {
+            "$match": {
+                "post_id": {"$in": user_post_ids},
+                "author_id": {"$ne": current_user_id},
+                "created_at": {"$gte": seven_days_ago}
+            }
+        },
+        {"$sort": {"created_at": -1}},
+        {"$limit": 100},
+        {
+            "$lookup": {
+                "from": "users",
+                "let": {"author_id": {"$toObjectId": "$author_id"}},
+                "pipeline": [
+                    {"$match": {"$expr": {"$eq": ["$_id", "$$author_id"]}}}
+                ],
+                "as": "user"
+            }
+        },
+        {"$unwind": "$user"},
+        {
+            "$lookup": {
+                "from": "posts",
+                "let": {"post_id": {"$toObjectId": "$post_id"}},
+                "pipeline": [
+                    {"$match": {"$expr": {"$eq": ["$_id", "$$post_id"]}}}
+                ],
+                "as": "post"
+            }
+        },
+        {"$unwind": "$post"}
+    ]
+    
+    comments = await db.comments.aggregate(comments_pipeline).to_list(100)
+    
+    for comment in comments:
+        notifications.append({
+            "id": str(comment["_id"]),
+            "type": "comment",
+            "user": {
+                "id": str(comment["user"]["_id"]),
+                "username": comment["user"]["username"],
+                "name": comment["user"].get("name", ""),
+                "avatar": comment["user"].get("avatar")
+            },
+            "post_id": comment["post_id"],
+            "post_preview": comment["post"].get("media_urls", [])[0] if comment["post"].get("media_urls") else None,
+            "comment_text": comment.get("text", "")[:50],
+            "created_at": comment["created_at"].isoformat(),
+            "message": f"commented: \"{comment.get('text', '')[:30]}{'...' if len(comment.get('text', '')) > 30 else ''}\""
+        })
+    
+    # Get new followers
+    followers_pipeline = [
+        {
+            "$match": {
+                "following_id": ObjectId(current_user_id),
+                "created_at": {"$gte": seven_days_ago}
+            }
+        },
+        {"$sort": {"created_at": -1}},
+        {"$limit": 100},
+        {
+            "$lookup": {
+                "from": "users",
+                "let": {"follower_id": "$follower_id"},
+                "pipeline": [
+                    {"$match": {"$expr": {"$eq": ["$_id", "$$follower_id"]}}}
+                ],
+                "as": "user"
+            }
+        },
+        {"$unwind": "$user"}
+    ]
+    
+    followers = await db.follows.aggregate(followers_pipeline).to_list(100)
+    
+    for follow in followers:
+        notifications.append({
+            "id": str(follow["_id"]),
+            "type": "follow",
+            "user": {
+                "id": str(follow["user"]["_id"]),
+                "username": follow["user"]["username"],
+                "name": follow["user"].get("name", ""),
+                "avatar": follow["user"].get("avatar")
+            },
+            "created_at": follow["created_at"].isoformat(),
+            "message": "started following you"
+        })
+    
+    # Sort all notifications by date
+    notifications.sort(key=lambda x: x["created_at"], reverse=True)
+    
+    # Apply pagination
+    paginated = notifications[skip:skip + limit]
+    
+    return {
+        "notifications": paginated,
+        "total": len(notifications),
+        "has_more": len(notifications) > skip + limit
+    }
+
+@api_router.get("/notifications/unread-count")
+async def get_unread_notifications_count(
+    current_user_id: str = Depends(get_current_user)
+):
+    """Get count of unread notifications (activities in last 24 hours)"""
+    twenty_four_hours_ago = datetime.now(timezone.utc) - timedelta(hours=24)
+    
+    # Get user's post IDs
+    user_posts = await db.posts.find(
+        {"author_id": ObjectId(current_user_id)}
+    ).to_list(1000)
+    user_post_ids = [str(post["_id"]) for post in user_posts]
+    
+    # Count likes in last 24 hours
+    likes_count = await db.likes.count_documents({
+        "post_id": {"$in": user_post_ids},
+        "user_id": {"$ne": current_user_id},
+        "created_at": {"$gte": twenty_four_hours_ago}
+    })
+    
+    # Count comments in last 24 hours
+    comments_count = await db.comments.count_documents({
+        "post_id": {"$in": user_post_ids},
+        "author_id": {"$ne": current_user_id},
+        "created_at": {"$gte": twenty_four_hours_ago}
+    })
+    
+    # Count new followers in last 24 hours
+    follows_count = await db.follows.count_documents({
+        "following_id": ObjectId(current_user_id),
+        "created_at": {"$gte": twenty_four_hours_ago}
+    })
+    
+    total = likes_count + comments_count + follows_count
+    
+    return {"unread_count": total}
+
+# ============================================
 # CONTENT MODERATION ENDPOINTS
 # ============================================
 
