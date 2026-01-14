@@ -4274,20 +4274,38 @@ async def get_posts(current_user_id: str = Depends(get_current_user), limit: int
                 created_at=workout["created_at"]
             )
         
-        result.append(PostResponse(
-            id=str(post["_id"]),
-            author=author_data,
-            workout=workout_data,
-            caption=post["caption"],
-            media_urls=post.get("media_urls", []),
-            hashtags=post.get("hashtags", []),
-            cover_urls=post.get("cover_urls"),
-            likes_count=post.get("likes_count", 0),
-            comments_count=post.get("comments_count", 0),
-            is_liked=len(post.get("user_like", [])) > 0,
-            is_saved=len(post.get("user_saved", [])) > 0,
-            created_at=post["created_at"]
-        ))
+        # Get first comment data
+        first_comment_data = None
+        if post.get("first_comment") and len(post["first_comment"]) > 0:
+            fc = post["first_comment"][0]
+            comment_author = fc.get("comment_author", {})
+            first_comment_data = {
+                "id": str(fc.get("_id", "")),
+                "text": fc.get("text", ""),
+                "author": {
+                    "id": str(comment_author.get("_id", "")),
+                    "username": comment_author.get("username", ""),
+                    "avatar": comment_author.get("avatar")
+                },
+                "created_at": fc.get("created_at").isoformat() if fc.get("created_at") else None
+            }
+        
+        post_data = {
+            "id": str(post["_id"]),
+            "author": author_data.dict(),
+            "workout": workout_data.dict() if workout_data else None,
+            "caption": post["caption"],
+            "media_urls": post.get("media_urls", []),
+            "hashtags": post.get("hashtags", []),
+            "cover_urls": post.get("cover_urls"),
+            "likes_count": post.get("likes_count", 0),
+            "comments_count": post.get("comments_count", 0),
+            "is_liked": len(post.get("user_like", [])) > 0,
+            "is_saved": len(post.get("user_saved", [])) > 0,
+            "created_at": post["created_at"].isoformat() if hasattr(post["created_at"], 'isoformat') else post["created_at"],
+            "first_comment": first_comment_data
+        }
+        result.append(post_data)
     
     return result
 
