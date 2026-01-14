@@ -331,8 +331,77 @@ export default function UserProfile() {
           <Ionicons name="arrow-back" size={24} color="#FFD700" />
         </TouchableOpacity>
         <Text style={styles.headerTitle}>{user.username}</Text>
-        <View style={styles.headerRight} />
+        {!isSelf ? (
+          <TouchableOpacity 
+            style={styles.moreButton} 
+            onPress={() => setShowMoreOptions(true)}
+          >
+            <Ionicons name="ellipsis-horizontal" size={24} color="#FFD700" />
+          </TouchableOpacity>
+        ) : (
+          <View style={styles.headerRight} />
+        )}
       </View>
+
+      {/* More Options Modal */}
+      {showMoreOptions && (
+        <TouchableOpacity 
+          style={styles.optionsOverlay} 
+          activeOpacity={1} 
+          onPress={() => setShowMoreOptions(false)}
+        >
+          <View style={styles.optionsMenu}>
+            <TouchableOpacity 
+              style={styles.optionItem}
+              onPress={() => {
+                setShowMoreOptions(false);
+                setShowReportModal(true);
+              }}
+            >
+              <Ionicons name="flag-outline" size={22} color="#FF9500" />
+              <Text style={styles.optionText}>Report User</Text>
+            </TouchableOpacity>
+            <TouchableOpacity 
+              style={[styles.optionItem, styles.optionItemDanger]}
+              onPress={() => {
+                setShowMoreOptions(false);
+                setShowBlockModal(true);
+              }}
+            >
+              <Ionicons name="ban-outline" size={22} color="#FF4444" />
+              <Text style={[styles.optionText, styles.optionTextDanger]}>Block User</Text>
+            </TouchableOpacity>
+            <TouchableOpacity 
+              style={styles.optionItemCancel}
+              onPress={() => setShowMoreOptions(false)}
+            >
+              <Text style={styles.optionTextCancel}>Cancel</Text>
+            </TouchableOpacity>
+          </View>
+        </TouchableOpacity>
+      )}
+
+      {/* Report Modal */}
+      <ReportModal
+        visible={showReportModal}
+        onClose={() => setShowReportModal(false)}
+        contentType="profile"
+        contentId={userId}
+        token={token}
+      />
+
+      {/* Block User Modal */}
+      <BlockUserModal
+        visible={showBlockModal}
+        onClose={() => setShowBlockModal(false)}
+        userId={userId}
+        username={user.username}
+        token={token}
+        onBlockSuccess={() => {
+          // Navigate back after blocking
+          handleGoBack();
+        }}
+      />
 
       <ScrollView style={styles.scrollView} showsVerticalScrollIndicator={false}>
         {/* Profile Info */}
