@@ -1612,4 +1612,94 @@ const styles = StyleSheet.create({
     color: '#666',
     fontSize: 14,
   },
+  // Notifications Styles
+  notificationsContainer: {
+    flex: 1,
+  },
+  notificationsContent: {
+    paddingBottom: 100,
+  },
+  notificationsLoading: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingTop: 100,
+  },
+  notificationsEmpty: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingTop: 100,
+    paddingHorizontal: 40,
+  },
+  notificationsEmptyTitle: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    color: '#fff',
+    marginTop: 16,
+    marginBottom: 8,
+  },
+  notificationsEmptyText: {
+    fontSize: 14,
+    color: 'rgba(255,255,255,0.5)',
+    textAlign: 'center',
+    lineHeight: 22,
+  },
+  notificationItem: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingVertical: 14,
+    paddingHorizontal: 16,
+    borderBottomWidth: 1,
+    borderBottomColor: 'rgba(255,255,255,0.05)',
+  },
+  notificationAvatarContainer: {
+    position: 'relative',
+    marginRight: 12,
+  },
+  notificationAvatar: {
+    width: 44,
+    height: 44,
+    borderRadius: 22,
+  },
+  notificationAvatarPlaceholder: {
+    backgroundColor: '#1a1a1a',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  notificationIconBadge: {
+    position: 'absolute',
+    bottom: -2,
+    right: -2,
+    width: 18,
+    height: 18,
+    borderRadius: 9,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderWidth: 2,
+    borderColor: '#000',
+  },
+  notificationContent: {
+    flex: 1,
+    marginRight: 12,
+  },
+  notificationText: {
+    fontSize: 14,
+    color: '#fff',
+    lineHeight: 20,
+  },
+  notificationUsername: {
+    fontWeight: '600',
+  },
+  notificationTime: {
+    fontSize: 12,
+    color: '#666',
+    marginTop: 4,
+  },
+  notificationPostPreview: {
+    width: 44,
+    height: 44,
+    borderRadius: 6,
+    backgroundColor: '#1a1a1a',
+  },
 });
