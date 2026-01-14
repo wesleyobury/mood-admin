@@ -5071,18 +5071,18 @@ async def get_user_notifications(
     # Get likes on user's posts (last 7 days)
     seven_days_ago = datetime.now(timezone.utc) - timedelta(days=7)
     
-    # Get user's post IDs
+    # Get user's post IDs as ObjectIds
     user_posts = await db.posts.find(
         {"author_id": ObjectId(current_user_id)}
     ).to_list(1000)
-    user_post_ids = [str(post["_id"]) for post in user_posts]
+    user_post_ids = [post["_id"] for post in user_posts]  # Keep as ObjectId
     
     # Get likes on user's posts
     likes_pipeline = [
         {
             "$match": {
                 "post_id": {"$in": user_post_ids},
-                "user_id": {"$ne": current_user_id},
+                "user_id": {"$ne": ObjectId(current_user_id)},
                 "created_at": {"$gte": seven_days_ago}
             }
         },
@@ -5091,10 +5091,8 @@ async def get_user_notifications(
         {
             "$lookup": {
                 "from": "users",
-                "let": {"user_id": {"$toObjectId": "$user_id"}},
-                "pipeline": [
-                    {"$match": {"$expr": {"$eq": ["$_id", "$$user_id"]}}}
-                ],
+                "localField": "user_id",
+                "foreignField": "_id",
                 "as": "user"
             }
         },
@@ -5102,10 +5100,8 @@ async def get_user_notifications(
         {
             "$lookup": {
                 "from": "posts",
-                "let": {"post_id": {"$toObjectId": "$post_id"}},
-                "pipeline": [
-                    {"$match": {"$expr": {"$eq": ["$_id", "$$post_id"]}}}
-                ],
+                "localField": "post_id",
+                "foreignField": "_id",
                 "as": "post"
             }
         },
@@ -5124,7 +5120,7 @@ async def get_user_notifications(
                 "name": like["user"].get("name", ""),
                 "avatar": like["user"].get("avatar")
             },
-            "post_id": like["post_id"],
+            "post_id": str(like["post_id"]),
             "post_preview": like["post"].get("media_urls", [])[0] if like["post"].get("media_urls") else None,
             "created_at": like["created_at"].isoformat(),
             "message": "liked your post"
