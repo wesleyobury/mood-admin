@@ -73,7 +73,7 @@ export default function Explore() {
   const [hasMore, setHasMore] = useState(true);
   const [showComments, setShowComments] = useState(false);
   const [selectedPostId, setSelectedPostId] = useState<string | null>(null);
-  const [activeTab, setActiveTab] = useState<'forYou' | 'following'>('forYou');
+  const [activeTab, setActiveTab] = useState<'forYou' | 'following' | 'notifications'>('forYou');
   const [showSearch, setShowSearch] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [searchResults, setSearchResults] = useState<SearchUser[]>([]);
