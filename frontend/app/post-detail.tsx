@@ -520,4 +520,32 @@ const styles = StyleSheet.create({
     marginTop: 4,
     marginBottom: 24,
   },
+  modalOverlay: {
+    flex: 1,
+    backgroundColor: 'rgba(0, 0, 0, 0.7)',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  postMenuContainer: {
+    backgroundColor: '#1a1a1a',
+    borderRadius: 16,
+    padding: 8,
+    width: '80%',
+    maxWidth: 300,
+  },
+  menuItem: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    padding: 16,
+    gap: 12,
+  },
+  menuItemText: {
+    fontSize: 16,
+    color: '#fff',
+  },
+  menuDivider: {
+    height: 1,
+    backgroundColor: '#333',
+    marginHorizontal: 8,
+  },
 });
