@@ -1581,6 +1581,25 @@ const styles = StyleSheet.create({
   notificationTabActive: {
     // Active state handled by icon color
   },
+  notificationBadge: {
+    position: 'absolute',
+    top: -6,
+    right: -8,
+    backgroundColor: '#FF3B30',
+    borderRadius: 10,
+    minWidth: 18,
+    height: 18,
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingHorizontal: 4,
+    borderWidth: 2,
+    borderColor: '#000',
+  },
+  notificationBadgeText: {
+    color: '#fff',
+    fontSize: 10,
+    fontWeight: 'bold',
+  },
   tabText: {
     fontSize: 15,
     fontWeight: '600',
