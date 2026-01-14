@@ -332,6 +332,17 @@ export default function Settings() {
 
           <TouchableOpacity 
             style={styles.settingsItem}
+            onPress={() => router.push('/terms-of-service')}
+          >
+            <View style={styles.settingsItemLeft}>
+              <Ionicons name="document-text-outline" size={20} color="#FFD700" />
+              <Text style={styles.settingsItemText}>Terms of Service</Text>
+            </View>
+            <Ionicons name="chevron-forward" size={18} color="#666" />
+          </TouchableOpacity>
+
+          <TouchableOpacity 
+            style={styles.settingsItem}
             onPress={handleSubmitFeedback}
           >
             <View style={styles.settingsItemLeft}>
