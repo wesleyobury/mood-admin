@@ -778,7 +778,7 @@ export default function Explore() {
         </TouchableOpacity>
       </View>}
 
-      {!showSearch && <ScrollView
+      {!showSearch && activeTab !== 'notifications' && <ScrollView
         ref={scrollViewRef}
         style={styles.feed}
         showsVerticalScrollIndicator={false}
