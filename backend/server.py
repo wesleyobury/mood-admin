@@ -5176,12 +5176,11 @@ async def get_user_notifications(
             "message": f"commented: \"{comment.get('text', '')[:30]}{'...' if len(comment.get('text', '')) > 30 else ''}\""
         })
     
-    # Get new followers
+    # Get followers (all time)
     followers_pipeline = [
         {
             "$match": {
-                "following_id": ObjectId(current_user_id),
-                "created_at": {"$gte": seven_days_ago}
+                "following_id": ObjectId(current_user_id)
             }
         },
         {"$sort": {"created_at": -1}},
