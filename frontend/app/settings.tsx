@@ -353,6 +353,39 @@ export default function Settings() {
           </TouchableOpacity>
         </View>
 
+        {/* Privacy & Safety Section */}
+        <View style={styles.section}>
+          <Text style={styles.sectionTitle}>Privacy & Safety</Text>
+          
+          <TouchableOpacity 
+            style={styles.settingsItem}
+            onPress={() => router.push('/blocked-users')}
+          >
+            <View style={styles.settingsItemLeft}>
+              <Ionicons name="ban-outline" size={20} color="#FFD700" />
+              <View>
+                <Text style={styles.settingsItemText}>Blocked Users</Text>
+                <Text style={styles.settingsItemSubtext}>Manage users you've blocked</Text>
+              </View>
+            </View>
+            <Ionicons name="chevron-forward" size={18} color="#666" />
+          </TouchableOpacity>
+
+          <TouchableOpacity 
+            style={styles.settingsItem}
+            onPress={() => router.push('/content-filter')}
+          >
+            <View style={styles.settingsItemLeft}>
+              <Ionicons name="filter-outline" size={20} color="#FFD700" />
+              <View>
+                <Text style={styles.settingsItemText}>Content Filter</Text>
+                <Text style={styles.settingsItemSubtext}>Hide content with specific keywords</Text>
+              </View>
+            </View>
+            <Ionicons name="chevron-forward" size={18} color="#666" />
+          </TouchableOpacity>
+        </View>
+
         {/* Account Management */}
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>Account Management</Text>
