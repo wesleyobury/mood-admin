@@ -1858,4 +1858,9 @@ const styles = StyleSheet.create({
     borderRadius: 6,
     backgroundColor: '#1a1a1a',
   },
+  videoPlaceholder: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#2a2a2a',
+  },
 });
