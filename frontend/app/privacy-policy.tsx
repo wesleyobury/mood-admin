@@ -141,6 +141,24 @@ export default function PrivacyPolicyScreen() {
           </View>
         </View>
 
+        {/* Push Notifications */}
+        <View style={styles.section}>
+          <Text style={styles.sectionTitle}>Push Notifications</Text>
+          <Text style={styles.paragraph}>
+            We may send push notifications related to:
+          </Text>
+          <View style={styles.bulletList}>
+            <Text style={styles.bulletItem}>• Workout reminders and fitness goals</Text>
+            <Text style={styles.bulletItem}>• Social interactions (likes, comments, new followers)</Text>
+            <Text style={styles.bulletItem}>• New features and app updates</Text>
+            <Text style={styles.bulletItem}>• Account security alerts</Text>
+          </View>
+          <Text style={styles.paragraph}>
+            You can disable notifications at any time in your device settings or within the app's 
+            notification preferences. Disabling notifications will not affect other app functionality.
+          </Text>
+        </View>
+
         {/* Third-Party Services */}
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>Third-Party Services</Text>
