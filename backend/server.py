@@ -4925,6 +4925,535 @@ async def get_unread_count(
     
     return {"unread_count": count}
 
+# ============================================
+# CONTENT MODERATION ENDPOINTS
+# ============================================
+
+@api_router.get("/moderation/report-categories")
+async def get_available_report_categories():
+    """Get list of available report categories"""
+    return {
+        "categories": [
+            {"id": "spam", "label": "Spam"},
+            {"id": "harassment_bullying", "label": "Harassment/Bullying"},
+            {"id": "hate_speech", "label": "Hate Speech"},
+            {"id": "nudity_sexual_content", "label": "Nudity/Sexual Content"},
+            {"id": "violence", "label": "Violence"},
+            {"id": "misinformation", "label": "Misinformation"},
+            {"id": "other", "label": "Other"},
+        ]
+    }
+
+@api_router.post("/moderation/report")
+async def report_content(
+    report_data: ContentReportCreate,
+    current_user_id: str = Depends(get_current_user)
+):
+    """Report objectionable content (post, comment, or profile)"""
+    
+    # Validate content type
+    if report_data.content_type not in ["post", "comment", "profile"]:
+        raise HTTPException(status_code=400, detail="Invalid content type. Must be 'post', 'comment', or 'profile'")
+    
+    # Validate category
+    if not is_valid_report_category(report_data.category):
+        raise HTTPException(status_code=400, detail=f"Invalid category. Must be one of: {REPORT_CATEGORIES}")
+    
+    # Verify content exists
+    if report_data.content_type == "post":
+        content = await db.posts.find_one({"_id": ObjectId(report_data.content_id)})
+        if not content:
+            raise HTTPException(status_code=404, detail="Post not found")
+        content_author_id = content.get("author_id") or content.get("user_id")
+    elif report_data.content_type == "comment":
+        content = await db.comments.find_one({"_id": ObjectId(report_data.content_id)})
+        if not content:
+            raise HTTPException(status_code=404, detail="Comment not found")
+        content_author_id = content.get("user_id")
+    else:  # profile
+        content = await db.users.find_one({"_id": ObjectId(report_data.content_id)})
+        if not content:
+            raise HTTPException(status_code=404, detail="User not found")
+        content_author_id = report_data.content_id
+    
+    # Check if user already reported this content
+    existing_report = await db.content_reports.find_one({
+        "reporter_id": current_user_id,
+        "content_type": report_data.content_type,
+        "content_id": report_data.content_id
+    })
+    
+    if existing_report:
+        raise HTTPException(status_code=400, detail="You have already reported this content")
+    
+    # Create report
+    report = {
+        "reporter_id": current_user_id,
+        "content_type": report_data.content_type,
+        "content_id": report_data.content_id,
+        "content_author_id": content_author_id,
+        "category": report_data.category,
+        "reason": report_data.reason,
+        "status": REPORT_STATUS["pending"],
+        "created_at": datetime.now(timezone.utc),
+        "reviewed_at": None,
+        "reviewed_by": None,
+        "action_taken": None
+    }
+    
+    result = await db.content_reports.insert_one(report)
+    
+    logger.info(f"Content report created: {report_data.content_type} {report_data.content_id} by user {current_user_id}")
+    
+    return {
+        "success": True,
+        "report_id": str(result.inserted_id),
+        "message": "Report submitted successfully. Our team will review it within 24 hours."
+    }
+
+@api_router.post("/moderation/block")
+async def block_user(
+    block_data: BlockUserCreate,
+    current_user_id: str = Depends(get_current_user)
+):
+    """Block a user - mutual blocking, notifies admin"""
+    
+    blocked_user_id = block_data.blocked_user_id
+    
+    # Can't block yourself
+    if blocked_user_id == current_user_id:
+        raise HTTPException(status_code=400, detail="You cannot block yourself")
+    
+    # Verify blocked user exists
+    blocked_user = await db.users.find_one({"_id": ObjectId(blocked_user_id)})
+    if not blocked_user:
+        raise HTTPException(status_code=404, detail="User not found")
+    
+    # Check if already blocked
+    existing_block = await db.user_blocks.find_one({
+        "blocker_id": current_user_id,
+        "blocked_id": blocked_user_id
+    })
+    
+    if existing_block:
+        raise HTTPException(status_code=400, detail="User is already blocked")
+    
+    # Create block record
+    block = {
+        "blocker_id": current_user_id,
+        "blocked_id": blocked_user_id,
+        "reason": block_data.reason,
+        "created_at": datetime.now(timezone.utc)
+    }
+    
+    await db.user_blocks.insert_one(block)
+    
+    # Also create an admin notification/report for the block
+    admin_notification = {
+        "type": "user_blocked",
+        "blocker_id": current_user_id,
+        "blocked_id": blocked_user_id,
+        "reason": block_data.reason,
+        "status": "pending_review",
+        "created_at": datetime.now(timezone.utc),
+        "reviewed_at": None
+    }
+    await db.admin_notifications.insert_one(admin_notification)
+    
+    # Remove any follow relationships
+    await db.follows.delete_many({
+        "$or": [
+            {"follower_id": current_user_id, "following_id": blocked_user_id},
+            {"follower_id": blocked_user_id, "following_id": current_user_id}
+        ]
+    })
+    
+    # Update follower/following counts for both users
+    current_user = await db.users.find_one({"_id": ObjectId(current_user_id)})
+    if current_user:
+        following_count = await db.follows.count_documents({"follower_id": current_user_id})
+        followers_count = await db.follows.count_documents({"following_id": current_user_id})
+        await db.users.update_one(
+            {"_id": ObjectId(current_user_id)},
+            {"$set": {"following_count": following_count, "followers_count": followers_count}}
+        )
+    
+    blocked_following_count = await db.follows.count_documents({"follower_id": blocked_user_id})
+    blocked_followers_count = await db.follows.count_documents({"following_id": blocked_user_id})
+    await db.users.update_one(
+        {"_id": ObjectId(blocked_user_id)},
+        {"$set": {"following_count": blocked_following_count, "followers_count": blocked_followers_count}}
+    )
+    
+    logger.info(f"User {current_user_id} blocked user {blocked_user_id}")
+    
+    return {
+        "success": True,
+        "message": "User blocked successfully. They will no longer appear in your feed."
+    }
+
+@api_router.delete("/moderation/block/{blocked_user_id}")
+async def unblock_user(
+    blocked_user_id: str,
+    current_user_id: str = Depends(get_current_user)
+):
+    """Unblock a previously blocked user"""
+    
+    result = await db.user_blocks.delete_one({
+        "blocker_id": current_user_id,
+        "blocked_id": blocked_user_id
+    })
+    
+    if result.deleted_count == 0:
+        raise HTTPException(status_code=404, detail="Block not found")
+    
+    logger.info(f"User {current_user_id} unblocked user {blocked_user_id}")
+    
+    return {
+        "success": True,
+        "message": "User unblocked successfully"
+    }
+
+@api_router.get("/moderation/blocked-users")
+async def get_blocked_users(
+    current_user_id: str = Depends(get_current_user)
+):
+    """Get list of users blocked by current user"""
+    
+    blocks = await db.user_blocks.find({
+        "blocker_id": current_user_id
+    }).sort("created_at", -1).to_list(100)
+    
+    blocked_users = []
+    for block in blocks:
+        user = await db.users.find_one({"_id": ObjectId(block["blocked_id"])})
+        if user:
+            blocked_users.append({
+                "id": str(block["_id"]),
+                "blocked_user_id": block["blocked_id"],
+                "blocked_username": user.get("username", "Unknown"),
+                "blocked_name": user.get("name", ""),
+                "blocked_avatar": user.get("avatar"),
+                "blocked_at": block["created_at"].isoformat()
+            })
+    
+    return {"blocked_users": blocked_users}
+
+@api_router.get("/moderation/is-blocked/{user_id}")
+async def check_if_blocked(
+    user_id: str,
+    current_user_id: str = Depends(get_current_user)
+):
+    """Check if a user is blocked (mutual check)"""
+    
+    # Check if current user blocked them OR they blocked current user
+    block = await db.user_blocks.find_one({
+        "$or": [
+            {"blocker_id": current_user_id, "blocked_id": user_id},
+            {"blocker_id": user_id, "blocked_id": current_user_id}
+        ]
+    })
+    
+    return {
+        "is_blocked": block is not None,
+        "blocked_by_me": block is not None and block.get("blocker_id") == current_user_id,
+        "blocked_by_them": block is not None and block.get("blocker_id") == user_id
+    }
+
+# Helper function to get blocked user IDs for feed filtering
+async def get_blocked_user_ids(user_id: str) -> set:
+    """Get all user IDs that should be filtered from a user's feed (mutual blocks)"""
+    blocks = await db.user_blocks.find({
+        "$or": [
+            {"blocker_id": user_id},
+            {"blocked_id": user_id}
+        ]
+    }).to_list(1000)
+    
+    blocked_ids = set()
+    for block in blocks:
+        if block["blocker_id"] == user_id:
+            blocked_ids.add(block["blocked_id"])
+        else:
+            blocked_ids.add(block["blocker_id"])
+    
+    return blocked_ids
+
+# ============================================
+# ADMIN MODERATION ENDPOINTS
+# ============================================
+
+@api_router.get("/moderation/admin/reports")
+async def get_pending_reports(
+    status: str = "pending",
+    limit: int = 50,
+    current_user_id: str = Depends(get_current_user)
+):
+    """Get content reports for admin review"""
+    
+    # Check if user is admin
+    user = await db.users.find_one({"_id": ObjectId(current_user_id)})
+    if not user or not user.get("is_admin"):
+        raise HTTPException(status_code=403, detail="Admin access required")
+    
+    query = {}
+    if status != "all":
+        query["status"] = status
+    
+    reports = await db.content_reports.find(query).sort("created_at", -1).limit(limit).to_list(limit)
+    
+    result = []
+    for report in reports:
+        # Get reporter info
+        reporter = await db.users.find_one({"_id": ObjectId(report["reporter_id"])})
+        
+        # Get content info
+        content_preview = None
+        content_author = None
+        
+        if report["content_type"] == "post":
+            post = await db.posts.find_one({"_id": ObjectId(report["content_id"])})
+            if post:
+                content_preview = post.get("caption", "")[:100]
+                author_id = post.get("author_id") or post.get("user_id")
+                if author_id:
+                    author = await db.users.find_one({"_id": ObjectId(author_id)})
+                    content_author = author.get("username") if author else "Unknown"
+        elif report["content_type"] == "comment":
+            comment = await db.comments.find_one({"_id": ObjectId(report["content_id"])})
+            if comment:
+                content_preview = comment.get("text", "")[:100]
+                if comment.get("user_id"):
+                    author = await db.users.find_one({"_id": ObjectId(comment["user_id"])})
+                    content_author = author.get("username") if author else "Unknown"
+        elif report["content_type"] == "profile":
+            profile = await db.users.find_one({"_id": ObjectId(report["content_id"])})
+            if profile:
+                content_preview = f"Profile: {profile.get('username', 'Unknown')}"
+                content_author = profile.get("username")
+        
+        # Calculate time since report
+        time_since = datetime.now(timezone.utc) - report["created_at"].replace(tzinfo=timezone.utc)
+        hours_pending = time_since.total_seconds() / 3600
+        is_urgent = hours_pending > 20  # Flag if approaching 24 hour deadline
+        
+        result.append({
+            "id": str(report["_id"]),
+            "reporter_username": reporter.get("username") if reporter else "Unknown",
+            "content_type": report["content_type"],
+            "content_id": report["content_id"],
+            "content_preview": content_preview,
+            "content_author": content_author,
+            "content_author_id": report.get("content_author_id"),
+            "category": report["category"],
+            "reason": report.get("reason"),
+            "status": report["status"],
+            "created_at": report["created_at"].isoformat(),
+            "hours_pending": round(hours_pending, 1),
+            "is_urgent": is_urgent,
+            "reviewed_at": report.get("reviewed_at").isoformat() if report.get("reviewed_at") else None,
+            "action_taken": report.get("action_taken")
+        })
+    
+    # Get counts
+    pending_count = await db.content_reports.count_documents({"status": "pending"})
+    urgent_count = await db.content_reports.count_documents({
+        "status": "pending",
+        "created_at": {"$lt": datetime.now(timezone.utc) - timedelta(hours=20)}
+    })
+    
+    return {
+        "reports": result,
+        "pending_count": pending_count,
+        "urgent_count": urgent_count
+    }
+
+@api_router.get("/moderation/admin/blocks")
+async def get_block_notifications(
+    status: str = "pending_review",
+    limit: int = 50,
+    current_user_id: str = Depends(get_current_user)
+):
+    """Get user block notifications for admin review"""
+    
+    # Check if user is admin
+    user = await db.users.find_one({"_id": ObjectId(current_user_id)})
+    if not user or not user.get("is_admin"):
+        raise HTTPException(status_code=403, detail="Admin access required")
+    
+    query = {"type": "user_blocked"}
+    if status != "all":
+        query["status"] = status
+    
+    notifications = await db.admin_notifications.find(query).sort("created_at", -1).limit(limit).to_list(limit)
+    
+    result = []
+    for notif in notifications:
+        blocker = await db.users.find_one({"_id": ObjectId(notif["blocker_id"])})
+        blocked = await db.users.find_one({"_id": ObjectId(notif["blocked_id"])})
+        
+        result.append({
+            "id": str(notif["_id"]),
+            "blocker_username": blocker.get("username") if blocker else "Unknown",
+            "blocker_id": notif["blocker_id"],
+            "blocked_username": blocked.get("username") if blocked else "Unknown",
+            "blocked_id": notif["blocked_id"],
+            "reason": notif.get("reason"),
+            "status": notif["status"],
+            "created_at": notif["created_at"].isoformat(),
+            "reviewed_at": notif.get("reviewed_at").isoformat() if notif.get("reviewed_at") else None
+        })
+    
+    return {"notifications": result}
+
+@api_router.post("/moderation/admin/reports/{report_id}/action")
+async def take_action_on_report(
+    report_id: str,
+    action_data: dict,
+    current_user_id: str = Depends(get_current_user)
+):
+    """Take action on a content report (remove content, ban user, or dismiss)"""
+    
+    # Check if user is admin
+    user = await db.users.find_one({"_id": ObjectId(current_user_id)})
+    if not user or not user.get("is_admin"):
+        raise HTTPException(status_code=403, detail="Admin access required")
+    
+    action = action_data.get("action")  # "remove_content", "ban_user", "dismiss"
+    
+    if action not in ["remove_content", "ban_user", "dismiss", "remove_and_ban"]:
+        raise HTTPException(status_code=400, detail="Invalid action")
+    
+    report = await db.content_reports.find_one({"_id": ObjectId(report_id)})
+    if not report:
+        raise HTTPException(status_code=404, detail="Report not found")
+    
+    action_taken = []
+    
+    if action in ["remove_content", "remove_and_ban"]:
+        # Remove the content
+        if report["content_type"] == "post":
+            await db.posts.delete_one({"_id": ObjectId(report["content_id"])})
+            # Also delete comments on this post
+            await db.comments.delete_many({"post_id": report["content_id"]})
+            # Delete likes
+            await db.likes.delete_many({"post_id": report["content_id"]})
+            action_taken.append("content_removed")
+        elif report["content_type"] == "comment":
+            await db.comments.delete_one({"_id": ObjectId(report["content_id"])})
+            action_taken.append("content_removed")
+    
+    if action in ["ban_user", "remove_and_ban"]:
+        # Ban the content author
+        content_author_id = report.get("content_author_id")
+        if content_author_id:
+            await db.users.update_one(
+                {"_id": ObjectId(content_author_id)},
+                {
+                    "$set": {
+                        "is_banned": True,
+                        "banned_at": datetime.now(timezone.utc),
+                        "banned_by": current_user_id,
+                        "ban_reason": f"Content violation: {report['category']}"
+                    }
+                }
+            )
+            action_taken.append("user_banned")
+    
+    if action == "dismiss":
+        action_taken.append("dismissed")
+    
+    # Update report status
+    new_status = "action_taken" if action != "dismiss" else "dismissed"
+    await db.content_reports.update_one(
+        {"_id": ObjectId(report_id)},
+        {
+            "$set": {
+                "status": new_status,
+                "reviewed_at": datetime.now(timezone.utc),
+                "reviewed_by": current_user_id,
+                "action_taken": ", ".join(action_taken)
+            }
+        }
+    )
+    
+    logger.info(f"Admin {current_user_id} took action '{action}' on report {report_id}")
+    
+    return {
+        "success": True,
+        "action_taken": action_taken,
+        "message": f"Action completed: {', '.join(action_taken)}"
+    }
+
+@api_router.get("/moderation/admin/stats")
+async def get_moderation_stats(
+    current_user_id: str = Depends(get_current_user)
+):
+    """Get moderation statistics for admin dashboard"""
+    
+    # Check if user is admin
+    user = await db.users.find_one({"_id": ObjectId(current_user_id)})
+    if not user or not user.get("is_admin"):
+        raise HTTPException(status_code=403, detail="Admin access required")
+    
+    now = datetime.now(timezone.utc)
+    last_24h = now - timedelta(hours=24)
+    last_7d = now - timedelta(days=7)
+    
+    # Report stats
+    pending_reports = await db.content_reports.count_documents({"status": "pending"})
+    urgent_reports = await db.content_reports.count_documents({
+        "status": "pending",
+        "created_at": {"$lt": now - timedelta(hours=20)}
+    })
+    reports_24h = await db.content_reports.count_documents({"created_at": {"$gte": last_24h}})
+    reports_7d = await db.content_reports.count_documents({"created_at": {"$gte": last_7d}})
+    resolved_24h = await db.content_reports.count_documents({
+        "reviewed_at": {"$gte": last_24h},
+        "status": {"$in": ["action_taken", "dismissed"]}
+    })
+    
+    # Block stats
+    blocks_24h = await db.user_blocks.count_documents({"created_at": {"$gte": last_24h}})
+    blocks_7d = await db.user_blocks.count_documents({"created_at": {"$gte": last_7d}})
+    total_blocks = await db.user_blocks.count_documents({})
+    
+    # Banned users
+    banned_users = await db.users.count_documents({"is_banned": True})
+    
+    # Reports by category
+    category_pipeline = [
+        {"$match": {"created_at": {"$gte": last_7d}}},
+        {"$group": {"_id": "$category", "count": {"$sum": 1}}},
+        {"$sort": {"count": -1}}
+    ]
+    category_stats = await db.content_reports.aggregate(category_pipeline).to_list(10)
+    
+    return {
+        "reports": {
+            "pending": pending_reports,
+            "urgent": urgent_reports,
+            "last_24h": reports_24h,
+            "last_7d": reports_7d,
+            "resolved_24h": resolved_24h
+        },
+        "blocks": {
+            "last_24h": blocks_24h,
+            "last_7d": blocks_7d,
+            "total": total_blocks
+        },
+        "banned_users": banned_users,
+        "reports_by_category": {item["_id"]: item["count"] for item in category_stats}
+    }
+
+# Content filtering on post creation - update the existing post endpoint
+# This is a helper that will be called before creating posts
+
+async def check_content_before_post(caption: str) -> dict:
+    """Check content before allowing post creation"""
+    result = check_content(caption, strict=True)
+    return result
+
 # Include router in main app
 app.include_router(api_router)
 
