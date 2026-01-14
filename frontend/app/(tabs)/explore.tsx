@@ -62,6 +62,22 @@ interface SearchUser {
   is_self: boolean;
 }
 
+interface Notification {
+  id: string;
+  type: 'like' | 'comment' | 'follow';
+  user: {
+    id: string;
+    username: string;
+    name: string;
+    avatar: string | null;
+  };
+  post_id?: string;
+  post_preview?: string | null;
+  comment_text?: string;
+  created_at: string;
+  message: string;
+}
+
 export default function Explore() {
   // Track screen time
   useScreenTime('Explore');
