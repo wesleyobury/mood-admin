@@ -3322,7 +3322,12 @@ async def check_following_status(
         raise HTTPException(status_code=404, detail="User not found")
 
 @api_router.get("/users/{user_id}/followers")
-async def get_user_followers(user_id: str, limit: int = 50, skip: int = 0):
+async def get_user_followers(
+    user_id: str, 
+    limit: int = 50, 
+    skip: int = 0,
+    current_user_id: Optional[str] = Depends(get_optional_current_user)
+):
     """Get list of user's followers"""
     try:
         user_object_id = ObjectId(user_id)
@@ -3349,26 +3354,43 @@ async def get_user_followers(user_id: str, limit: int = 50, skip: int = 0):
         result = []
         for follow in follows:
             follower = follow["follower"]
-            result.append(UserResponse(
-                id=str(follower["_id"]),
-                username=follower["username"],
-                email=follower["email"],
-                name=follower.get("name"),
-                bio=follower.get("bio", ""),
-                avatar=follower.get("avatar", ""),
-                followers_count=follower.get("followers_count", 0),
-                following_count=follower.get("following_count", 0),
-                workouts_count=follower.get("workouts_count", 0),
-                current_streak=follower.get("current_streak", 0),
-                created_at=follower["created_at"]
-            ))
+            follower_id = str(follower["_id"])
+            
+            # Check if current user is following this follower
+            is_following = False
+            is_self = False
+            if current_user_id:
+                is_self = follower_id == current_user_id
+                if not is_self:
+                    follow_check = await db.follows.find_one({
+                        "follower_id": ObjectId(current_user_id),
+                        "following_id": follower["_id"]
+                    })
+                    is_following = follow_check is not None
+            
+            result.append({
+                "id": follower_id,
+                "username": follower["username"],
+                "name": follower.get("name", ""),
+                "bio": follower.get("bio", ""),
+                "avatar": follower.get("avatar", ""),
+                "followers_count": follower.get("followers_count", 0),
+                "following_count": follower.get("following_count", 0),
+                "is_following": is_following,
+                "is_self": is_self
+            })
         
-        return result
+        return {"users": result}
     except:
         raise HTTPException(status_code=404, detail="User not found")
 
 @api_router.get("/users/{user_id}/following")
-async def get_user_following(user_id: str, limit: int = 50, skip: int = 0):
+async def get_user_following(
+    user_id: str, 
+    limit: int = 50, 
+    skip: int = 0,
+    current_user_id: Optional[str] = Depends(get_optional_current_user)
+):
     """Get list of users that this user is following"""
     try:
         user_object_id = ObjectId(user_id)
@@ -3395,21 +3417,33 @@ async def get_user_following(user_id: str, limit: int = 50, skip: int = 0):
         result = []
         for follow in follows:
             following = follow["following"]
-            result.append(UserResponse(
-                id=str(following["_id"]),
-                username=following["username"],
-                email=following["email"],
-                name=following.get("name"),
-                bio=following.get("bio", ""),
-                avatar=following.get("avatar", ""),
-                followers_count=following.get("followers_count", 0),
-                following_count=following.get("following_count", 0),
-                workouts_count=following.get("workouts_count", 0),
-                current_streak=following.get("current_streak", 0),
-                created_at=following["created_at"]
-            ))
+            following_id = str(following["_id"])
+            
+            # Check if current user is following this user
+            is_following = False
+            is_self = False
+            if current_user_id:
+                is_self = following_id == current_user_id
+                if not is_self:
+                    follow_check = await db.follows.find_one({
+                        "follower_id": ObjectId(current_user_id),
+                        "following_id": following["_id"]
+                    })
+                    is_following = follow_check is not None
+            
+            result.append({
+                "id": following_id,
+                "username": following["username"],
+                "name": following.get("name", ""),
+                "bio": following.get("bio", ""),
+                "avatar": following.get("avatar", ""),
+                "followers_count": following.get("followers_count", 0),
+                "following_count": following.get("following_count", 0),
+                "is_following": is_following,
+                "is_self": is_self
+            })
         
-        return result
+        return {"users": result}
     except:
         raise HTTPException(status_code=404, detail="User not found")
 
