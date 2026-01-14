@@ -1,94 +1,117 @@
 <analysis>
 
 **original_problem_statement**:
-The user's initial request was to implement a Guest Mode to comply with an App Store rejection. This involved allowing users to browse certain features without creating an account and prompting them to sign up for restricted actions. This core task expanded significantly to include:
+The user initially requested features to comply with App Store guidelines, which evolved into a comprehensive content moderation and user experience enhancement project. The key requirements implemented in this session include:
 
-1.  **Media Reliability (Critical Fix)**: The user reported that images and videos were disappearing over time. This was diagnosed as a fundamental issue with media being stored on a non-persistent local filesystem. The user requested a migration to a permanent cloud storage solution (Cloudinary).
-2.  **Guest Analytics & Identity Aliasing**: The user requested that all guest activity be tracked and then seamlessly merged into their user profile upon registration (identity aliasing).
-3.  **Advanced Admin Dashboard Features**:
-    *   Track and display new metrics like Workouts Added and Guest Sign-ins.
-    *   Aggregate metrics for both registered users and guests, with a filter to view them combined or separately.
-    *   Make engagement summary widgets clickable, opening a modal with a bar chart breakdown (by day, week, month).
-    *   Fix a bug where the guest conversion count was incorrect.
-4.  **Bug Fixes & Polish**:
-    *   Fix the Explore page not loading for guests.
-    *   Fix a crash related to the  module on the web.
-    *   Fix UI centering issues on the guest profile view.
-    *   Update the iOS build number.
+1.  **Production Deployment Fixes (Critical)**: The session began with fixing a series of critical production deployment failures. This involved diagnosing and fixing a server crash due to a missing  environment variable and clarifying the production vs. development backend URL configurations.
+2.  **Content Moderation Suite (App Store Compliance)**:
+    *   A method for automatically filtering objectionable content (posts and comments) based on a keyword list.
+    *   A mechanism for users to flag/report objectionable content (posts, comments, profiles) with predefined reasons.
+    *   A mechanism for users to block/unblock other users, which removes the blocked user's content from their feed.
+    *   A placeholder section in the Admin Dashboard to review reports.
+3.  **User Experience and Feature Enhancements**:
+    *   A dedicated **Notifications Tab** on the Explore page, showing likes, comments, and new followers, with a badge for unread notifications.
+    *   The ability to view any user's **Followers and Following lists**.
+    *   A **first comment preview** displayed under posts on the Explore page.
+    *   A **3-dot menu on posts** (on Explore and Post Detail pages) to allow saving and reporting.
+    *   New user settings for viewing their **blocked list** and managing a **manual keyword filter**.
+4.  **Legal & Compliance**:
+    *   Creation of a **Terms of Service** page with a required fitness disclaimer.
+    *   Updates to the **Privacy Policy** to include details on analytics, UGC storage (Cloudinary), login usage, and push notifications.
+5.  **UI/UX Polish**:
+    *   Redesigned the Explore page tabs to have a bell icon for notifications.
+    *   Removed the Share icon from posts.
+    *   Adjusted content margins for better visual alignment.
+    *   Incremented the iOS build number to **18**.
 
 **User's preferred language**: English
 
 **what currently exists?**
-The application now has a full-featured Guest Mode. A major infrastructure change was completed by migrating media storage from the local filesystem to Cloudinary. The analytics system has been significantly enhanced to track guests, merge their activity on sign-up, and provide advanced, filterable data visualizations in the admin dashboard.
+The application now has a robust suite of content moderation features. The backend can filter content, handle user reports and blocks, and serve notifications. The frontend has been significantly updated with a new notifications tab, modals for reporting and blocking, new settings pages for blocked users and content filtering, and a 3-dot menu on posts for quick actions. The critical production deployment issues from the beginning of the session have been resolved.
 
 **Frontend:**
--   **Guest Mode**: Implemented across the app.
-    -    now manages a  state.
-    -    has a Continue as Guest button.
-    -   A reusable  component was created to block access to restricted features (saving workouts, posting, liking, commenting, following, viewing profiles).
-    -    shows a dedicated, centered Guest Profile view.
--   **Cloudinary Integration**: The frontend now correctly handles absolute URLs returned by Cloudinary for all media.
--   **Analytics**:
-    -    now generates a persistent  for guests, tracks their events via a new unauthenticated endpoint, and handles aliasing on login.
--   **Admin Dashboard ()**:
-    -   A User Type filter (, , ) has been added to aggregate or separate data.
-    -   New Guest Activity and Workouts Added widgets are present.
-    -   Engagement Summary cards (Likes, Comments, etc.) are now clickable, opening a modal with a bar chart showing trend data.
--   **Build Number**:  has been updated to iOS build number **16**.
+-   **Content Moderation UI**:
+    -    and  components created for reporting content/users and confirming blocks.
+    -    has a menu for reporting/blocking a user.
+    -    has a 3-dot menu on each post to trigger saving or reporting.
+    -    is being updated to include the same 3-dot menu.
+-   **Settings**:
+    -    now links to new  and  pages.
+    -    and an updated  are complete and linked.
+-   **Explore Page ()**:
+    -   Heavily modified to include a three-tab layout: For You, Following, and a bell icon for Notifications.
+    -   The Notifications tab fetches and displays all historic notifications (likes, comments, follows) and shows a badge with a count of new notifications since the last view.
+    -   Posts now display a preview of the first comment.
+-   **Followers/Following**:
+    -   A new  page was created to display any user's follower or following lists.
+-   **Admin Dashboard**:
+    -   A placeholder Content Moderation section has been added to the UI.
 
 **Backend:**
--   **Cloudinary Integration**: The backend now uses the  library for all media uploads (, ). It no longer saves files to the local filesystem. Cloudinary credentials have been added to the  file.
--   **Guest Access**: A new public endpoint, , allows guests to view the Explore feed.
--   **Analytics & Aliasing**:
-    -   A new unauthenticated endpoint, , ingests guest events.
-    -   The login/registration process now includes logic to find events by  and merge them to a .
-    -   The comprehensive stats endpoint () now accepts a  filter to aggregate data correctly and includes new metrics for  and  (calculated by unique devices).
-    -   New chart data endpoints were added for engagement metric drill-downs.
+-   **Deployment Fix**: The server startup logic in  was made more robust by using  with default values, preventing crashes from missing environment variables like .
+-   **Content Moderation Logic**:
+    -   A new  module with a function to check text against a list of keywords. This is used in post and comment creation.
+    -   New DB collections for  and .
+    -   New API endpoints: , , , , .
+-   **Notifications**:
+    -   New endpoints  (to get all historic notifications) and  (which accepts a  parameter).
+    -   The aggregation logic was fixed to correctly query for likes, comments, and follows, resolving a bug where likes were not appearing. The fix involved converting string IDs to ObjectIds for the query.
+-   **API Enhancements**:
+    -   The  endpoint was updated to include  data.
+    -   The  and  endpoints were updated to return  and  flags to improve frontend experience.
 
 **Last working item**:
-    - Last item agent was working: Diagnosing a series of production deployment failures. The agent successfully identified that the deployed backend was crashing due to missing Cloudinary environment variables. The agent also confirmed the development environment is fully functional and ready for deployment once the production environment is correctly configured.
-    - Status: BLOCKED
-    - Agent Testing Done: Y
-    - Which testing method agent to use? Manual testing by user after deployment.
+    - Last item agent was working: The user requested the ability to report and save posts when viewing them from the profile grid. The agent identified that this opens a  page and began adding a 3-dot menu (with save/report functionality) to that page.
+    - Status: IN PROGRESS
+    - Agent Testing Done: N
+    - Which testing method agent to use? frontend testing agent
     - User Testing Done: N
 
 **All Pending/In progress Issue list**:
-  Issue 1: (P0) The production deployment is broken and inaccessible.
-  Issue 2: (P1) The newly implemented Guest Mode, Cloudinary integration, and extensive analytics features have not been verified by the user in a working environment.
+  Issue 1: (P0) Implement Report/Save menu on post-detail page.
+  Issue 2: (P1) Users cannot like or comment on posts from the user profile grid view.
   Issue 3: (P2) Home screen carousel Save button is not visible or functional.
   Issue 4: (P3) Unfollow analytics tracking is not working.
 
   Issues Detail:
   - Issue 1: 
-     - Attempted fixes: The agent correctly diagnosed the root cause by checking production health endpoints. The backend is running the latest code but crashes when it tries to access Cloudinary functionality because the required environment variables (CLOUDINARY_CLOUD_NAME, CLOUDINARY_API_KEY, CLOUDINARY_API_SECRET) are not set in the production environment. The frontend app tunnel (ngrok) is also offline.
-     - Next debug checklist: **This is a user action.** The user must:
-        1. Add the Cloudinary credentials to their production environment variables through the Emergent deployment platform.
-        2. Redeploy the application using the Deploy button. This will restart the services with the correct variables and generate a new, working app URL.
-     - Why fix this issue and what will be achieved with the fix? This is a critical blocker. Fixing it will bring the application back online with all the latest features and bug fixes, including the mandatory media reliability fix.
-     - Status:  BLOCKED
+     - Attempted fixes: The agent has started adding the necessary state, UI elements (3-dot menu), and modals () to . Several  actions have been performed.
+     - Next debug checklist:
+        1.  Verify the state for modals (, ) is correctly managed in .
+        2.  Implement the  and  functions within .
+        3.  Ensure the UI renders correctly and the modals are functional.
+        4.  Test the full flow: navigate from a user's profile -> tap a post -> open  -> use the 3-dot menu to save or report.
+     - Why fix this issue and what will be achieved with the fix? To provide consistent functionality and meet the user's requirement for content moderation on all post views.
+     - Status:  IN PROGRESS
      - Is recurring issue? N
-     - Should Test frontend/backend/both after fix? Both
+     - Should Test frontend/backend/both after fix? Frontend
      - Blocked on other issue: None
   - Issue 2: 
-     - Attempted fixes: NA
-     - Next debug checklist: Once the production deployment is fixed (Issue 1), the user needs to perform a full regression test of all the new functionality.
-     - Why fix this issue and what will be achieved with the fix? To confirm that the new features meet the user's requirements and are bug-free before final submission to the App Store.
+     - Attempted fixes: None. The agent acknowledged the user's report but prioritized other tasks.
+     - Next debug checklist:
+        1.  Analyze . The current implementation renders posts in a simple grid () that only navigates to  on press.
+        2.  Decide on a UX approach:
+            a. Enhance the  page to be fully interactive (like/comment buttons).
+            b. Change the profile view to be a list instead of a grid, reusing the post component from .
+            c. Implement a modal that opens on top of the profile, showing the full interactive post.
+        3.  Implement the chosen approach. This will likely involve significant changes to  and/or .
+     - Why fix this issue and what will be achieved with the fix? This is a significant gap in user experience. Users expect to be able to interact with content they are viewing.
      - Status:  NOT STARTED
      - Is recurring issue? N
-     - Should Test frontend/backend/both after fix? Both
-     - Blocked on other issue: Issue 1: Production Deployment is Broken.
+     - Should Test frontend/backend/both after fix? Frontend
+     - Blocked on other issue: None
   - Issue 3: 
-     - Attempted fixes: None in this session. This is a carry-over issue.
-     - Next debug checklist: Inspect the rendering logic and styles in  and the  component. Check for conditional rendering or style issues hiding the button.
-     - Why fix this issue and what will be achieved with the fix? Restores a core user interaction on the app's home screen.
+     - Attempted fixes: None in this session.
+     - Next debug checklist: Inspect  and the  component for rendering logic issues.
+     - Why fix this issue and what will be achieved with the fix? Restores a core user interaction on the home screen.
      - Status:  NOT STARTED
      - Is recurring issue? Y
      - Should Test frontend/backend/both after fix? Frontend
      - Blocked on other issue: None
   - Issue 4: 
-     - Attempted fixes: None in this session. This is a carry-over issue.
-     - Next debug checklist: Inspect the Unfollow button's  handler in  and trace the analytics tracking call.
-     - Why fix this issue and what will be achieved with the fix? Ensures complete and accurate user behavior tracking for the admin dashboard.
+     - Attempted fixes: None in this session.
+     - Next debug checklist: Inspect the Unfollow button's  handler in .
+     - Why fix this issue and what will be achieved with the fix? Ensures complete analytics tracking.
      - Status:  NOT STARTED
      - Is recurring issue? Y
      - Should Test frontend/backend/both after fix? Both
@@ -99,118 +122,133 @@ The application now has a full-featured Guest Mode. A major infrastructure chang
 
 **Upcoming and Future Tasks**
 - **Upcoming Tasks**:
-    - **P0: Guide user to fix production deployment**: The immediate next step is to instruct the user on how to add the Cloudinary environment variables to their production environment and redeploy the app.
-    - **P1: User verification of all new features**: Once production is working, guide the user to test Guest Mode, media uploads (verifying they persist), and the new admin dashboard analytics.
+    - **P0: Complete interactive posts on profile page**: Address Issue #1 and #2. Make posts viewed from a user's profile fully interactive (like, comment, save, report). This is the highest priority feature gap.
+    - **P1: Implement Admin Dashboard moderation tools**: The admin dashboard has a placeholder section. This needs to be built out to allow an admin to view reported content and take action (e.g., delete content, ban user).
 - **Future Tasks**:
     - Refactor Hardcoded Workout Data
     - Refactor Styles
-    - Refactor  (While many features were added, the component itself is now even larger and would benefit from being broken down).
+    - Refactor  (now even more critical as it will contain moderation logic).
 
 **Completed work in this session**
-- **Feature - Guest Mode Implementation**:
-  - Implemented a complete guest user flow, allowing browsing while restricting authenticated actions with a sign-up modal.
-- **CRITICAL FIX - Media Storage Migration to Cloudinary**:
-  - Replaced the entire backend local file storage system with Cloudinary for persistent image and video hosting. This resolves the media reliability issue.
-- **Feature - Guest Analytics & Identity Aliasing**:
-  - Built a system to track guest activity using a device ID and merge it with a user's account upon sign-up.
-- **Feature - Admin Dashboard Enhancements**:
-  - Added a Guest Activity widget and Workouts Added metric.
-  - Implemented an aggregate data view with a filter for , , and  users.
-  - Made engagement metrics clickable, showing a bar chart trend in a modal.
-- **Bug Fix - Guest Conversion Count**:
-  - Fixed the logic to correctly count unique guest-to-user conversions instead of total merged events.
-- **Bug Fix - UI Centering**:
-  - Corrected the alignment of the guest profile view and its header.
+- **CRITICAL FIX - Production Deployment**: Resolved server crash by adding a default value for  environment variable.
+- **CRITICAL FIX - Notifications Likes Bug**: Fixed a bug where like notifications were not appearing by correcting the backend query to handle  types.
+- **Feature - Content Moderation Suite**:
+  - Implemented backend and frontend for reporting posts/comments/users and blocking users.
+- **Feature - Notifications Tab**:
+  - Added a new Notifications tab to the Explore page with a complete history and a smart badge for new activity.
+- **Feature - View Others' Follow Lists**:
+  - Created a new page and updated the backend to allow viewing any user's followers and following lists.
+- **Feature - User Settings**:
+  - Added pages for Blocked Users and Content Keyword Filter accessible from the settings menu.
+- **Feature - Post Interaction Menu**:
+  - Added a 3-dot menu to posts on the Explore page for saving and reporting.
+- **Feature - First Comment Preview**:
+  - Updated the backend and frontend to show the first comment under a post on the Explore page.
+- **Legal - TOS & Privacy Policy**:
+  - Created a Terms of Service page and updated the Privacy Policy with user-requested clauses.
 - **Build Management**:
-  - Incremented the iOS build number in  to **16**.
+  - Incremented iOS build number to **18**.
+- **UI Polish**:
+  - Redesigned Explore page tabs, removed the share button, and fixed UI margins.
 
 **Earlier issues found/mentioned but not fixed**
-   - Issue 1: Home screen carousel Save button is not visible/functional.
-   - Issue 2: Unfollow analytics tracking is not working.
+   - Issue 1: Users cannot like or comment on posts viewed from the user profile page. This was explicitly mentioned by the user but has not been implemented yet.
+   - Issue 2: Home screen carousel Save button is not visible/functional. (Carried over)
+   - Issue 3: Unfollow analytics tracking is not working. (Carried over)
 
 **Known issue recurrence from previous fork**
-  - **Issue recurrence in previous fork**: The white screen on cold start bug was confirmed as fixed at the beginning of this session.
-  - **Recurrence count**: 0 (in this session)
-  - **Status**: RESOLVED
+  - None.
 
 **Code Architecture**
 
 
 **Key Technical Concepts**
--   **Persistent Cloud Media Storage**: Migrated from a volatile local filesystem to Cloudinary for robust, production-grade image and video hosting. All new media is now uploaded directly to Cloudinary, and permanent, absolute URLs are stored.
--   **Guest Mode & Feature Flagging**: Implemented a system-wide guest mode using React Context ( state). This allows for granular control over feature access, conditionally rendering UI elements or blocking actions based on user authentication status.
--   **Analytics Identity Aliasing**: Created a flow to track anonymous user (guest) actions by a persistent  stored in . Upon login or registration, this  is sent to the backend to re-attribute all past guest events to the new .
--   **Advanced Backend Aggregation (MongoDB)**: Wrote complex MongoDB aggregation pipelines in the backend to calculate new analytics metrics, such as unique guest conversions (using  and  on ) and filterable stats based on user type.
--   **Interactive Data Visualization**: Enhanced the admin dashboard to be more interactive by making summary statistics clickable, which triggers API calls to fetch detailed trend data and display it in a modal bar chart.
+-   **Content Moderation System**: A full-stack implementation for reporting, blocking, and filtering content. Involves new backend endpoints, new database collections (, ), and new frontend modals and settings pages.
+-   **Real-time Notification System**: A backend/frontend system to deliver notifications for likes, comments, and follows. Features a smart badge that uses  and timestamps () to only show a count of truly new notifications.
+-   **Robust Backend Error Handling**: Fixed a critical server crash by using  with default values instead of direct key access, making the server resilient to missing environment variables.
+-   **Complex MongoDB Aggregation**:
+    -   Used  to join posts with comments to fetch the .
+    -   Fixed a notification query by converting a list of string IDs to s within the pipeline to correctly match documents in another collection.
+-   **Dynamic Follower/Following Lists**: Created a reusable screen () that takes a  as a parameter to display different users' social graphs.
+-   **Stateful UI Components**: Heavy use of , , and  in  to manage multiple states (active tab, posts, notifications, modals, search, unread counts).
 
 **key DB schema**
--   **user_events**: No schema change, but the collection is now used to store guest events. Guest events have a  and a  of . Upon aliasing, the  field of these events is updated.
--   **posts**: No schema change, but the  now store absolute, permanent URLs from Cloudinary instead of relative local paths.
+-   **reports** (New): 
+-   **blocked_users** (New): 
+-   **post_likes**: Schema is . Queries were fixed to handle  conversion.
+-   **posts**: No schema change, but queries were updated to  .
+-   **notifications**: This is not a real collection; it's an aggregation of , , and  (for follows) performed at runtime by the  endpoint.
 
 **changes in tech stack**
--   ****: The Python library () was added to the backend for media uploads.
+-   None.
 
 **All files of reference**
--   ****: The heart of most new backend logic (Cloudinary, Guest Analytics, Dashboard endpoints).
--   ****: Contains all the new UI for the advanced analytics features.
--   ****: Core of the frontend guest mode and identity aliasing logic.
--   ****: Handles guest device ID and event tracking on the client side.
--   ****: The new, reusable UI for blocking guest actions.
--   ****: Contains the updated build number ().
+-   ****: The core of all new backend logic.
+-   ****: The most heavily modified frontend file, containing the new tabs, notification logic, and post menu.
+-   ****: The file currently being worked on.
+-   ****: Modified to add block/report user functionality.
+-   ****: The hub for new moderation and legal pages.
+-   ****: Key reusable component for reporting.
+-   ****: Contains the latest build number ().
 
 **Areas that need refactoring**:
--  has grown extremely large and complex. It should be broken down into smaller components for each section (e.g., KeyMetrics, EngagementSummary, UserGrowthChart) and its data-fetching logic moved to custom hooks.
+-    is now extremely large and complex, managing state for three different tabs, modals, search, and periodic fetching. It should be broken down into smaller components (e.g., , , ) and custom hooks for data fetching (, ).
 
 **key api endpoints**
-- **NEW (Public)**:
-    - : Fetches explore feed posts for guests (no auth).
-    - : Tracks events from guest users (no auth).
+- **NEW**:
+    - : Report a post, comment, or user.
+    - : Get list of report categories.
+    - : Block a user.
+    - : Unblock a user.
+    - : Get the current user's blocked list.
+    - : Get aggregated notifications for the current user.
+    - : Get count of new notifications since a given timestamp.
 - **MODIFIED**:
-    - : Re-implemented to upload media to Cloudinary instead of local storage.
-    - : Re-implemented to upload avatars to Cloudinary.
-    - : Now accepts a  query parameter and returns new metrics (, , ).
-    - : Added new  options for engagement metrics (, , etc.).
+    - : Integrated content filtering.
+    - : Integrated content filtering.
+    - : Now includes  data.
+    - , : Now include  and  flags.
 
 **Critical Info for New Agent**
-1.  **PRODUCTION IS BROKEN AND REQUIRES USER ACTION.** The highest priority is to guide the user to fix their deployment. They **must** add the Cloudinary credentials to their production environment variables and then redeploy the app. The old deployment URL is dead.
-2.  **Cloudinary is the Source of Truth for Media.** All new image and video uploads are now handled by Cloudinary. The local  directory is no longer used.
-3.  **Guest vs. Registered Analytics.** The admin dashboard now has a filter to switch between , , and  users. Be aware that most metrics will change based on this filter. The Guest Activity widget is the only one that *always* shows guest-specific data.
-4.  **Verify Everything After Deployment.** Once the user gets the production environment working, a full end-to-end test of all the new features (Guest Mode, media uploads, and all dashboard widgets/charts) is required.
+1.  **High-Priority Feature Gap**: The user has reported that liking/commenting from the user profile post grid is not possible. This is a major UX issue that should be addressed immediately after finishing the current task. The current work on  is the first step toward this.
+2.  **Complex Frontend State**: Be very careful when modifying . It handles a lot of state and effects. Consider refactoring if making significant changes.
+3.  **Backend ID Types**: Be mindful of ID types in the backend. The agent fixed a critical bug where string IDs from one query needed to be converted to s for a subsequent query. This pattern may exist elsewhere.
+4.  The user provides frequent, iterative feedback. Implement a feature, summarize it, and ask for the next steps.
 
 **documents created in this job**
  - None.
 
 **Last 10 User Messages and any pending HUMAN messages** 
- - **User (Msg 671):** Asked agent to restart and health check the backend. **Status:** COMPLETED.
- - **User (Msg 664):** Stated they deployed 7 mins ago but the URL is the same. **Status:** RESOLVED (Agent clarified it was the backend URL).
- - **User (Msg 661):** Stated they have already deployed. **Status:** ADDRESSED (Agent explained a new URL should be generated).
- - **User (Msg 656):** Reported the same ngrok tunnel offline error for the live deployment. **Status:** ADDRESSED (Agent confirmed it's a deployment issue).
- - **User (Msg 651):** Asked agent to confirm Cloudinary ENV VARS are set in production. **Status:** ADDRESSED (Agent confirmed they are NOT set).
- - **User (Msg 646):** Reported an ERR_NGROK_3200 error for the deployed app. **Status:** ADDRESSED (Agent identified it as a deployment issue).
- - **User (Msg 631):** Reported endpoint offline when viewing the live deployment. **Status:** ADDRESSED (Agent investigated and found a backend crash).
- - **User (Msg 610):** Reported guest conversion count is wrong and asked if Cloudinary is live. **Status:** COMPLETED (Agent fixed conversion count and confirmed Cloudinary is NOT live).
- - **User (Msg 593):** Reported guest profile view is still off-center and requested a build number update. **Status:** COMPLETED.
- - **User (Msg 576):** Reported the guest profile view is off-center. **Status:** COMPLETED.
+ -  **User (Msg 500):** Requested 3 fixes: add 3-dot menu to posts in profile grid, remove share icon on explore page, fix first comment margin. **Status:** IN PROGRESS (Share icon and margin are fixed; 3-dot menu is being implemented).
+ -  **User (Msg 485):** Reported a bug where the notification badge kept reappearing incorrectly. **Status:** COMPLETED (Agent fixed the timestamp comparison logic).
+ -  **User (Msg 458):** Requested that the notification tab show all history, while the badge only shows new alerts. **Status:** COMPLETED.
+ -  **User (Msg 427):** Reported a bug where like notifications were not appearing in the notifications tab. **Status:** COMPLETED (Agent fixed the backend query logic).
+ -  **User (Msg 410):** Requested a red notification bubble on the bell icon with a count of new notifications. **Status:** COMPLETED.
+ -  **User (Msg 383):** Reported 3 issues: can't like/comment from profile page, likes not in notifications, and requested a UI tweak for explore tabs. **Status:** PARTIALLY COMPLETED (Likes & UI fixed; like/comment from profile is pending).
+ -  **User (Msg 346):** Requested that the first comment be shown under posts on the explore page. **Status:** COMPLETED.
+ -  **User (Msg 338):** Requested an update to the privacy policy regarding push notifications. **Status:** COMPLETED.
+ -  **User (Msg 281):** Requested a new Notifications tab on the explore page. **Status:** COMPLETED.
+ -  **User (Msg 262):** Requested an update to the Terms of Service. **Status:** COMPLETED.
 
 **Project Health Check:**
 - **Broken**:
-    - **Production Deployment**: The entire production application is inaccessible. The backend crashes on media-related routes due to missing Cloudinary credentials, and the frontend app tunnel is offline.
+    - None. The application is stable, and production deployment is working.
 - **Mocked**:
     - None.
-- **Completed (Awaiting Deployment & Verification)**:
-    - Guest Mode (Frontend/Backend)
-    - Cloudinary Media Migration (Frontend/Backend)
-    - Guest Analytics & Identity Aliasing (Frontend/Backend)
-    - Advanced Admin Dashboard Analytics (Frontend/Backend)
+- **Functional Gaps**:
+    - Inability to interact (like/comment) with posts from the user profile grid view is a significant functional gap.
 
 **3rd Party Integrations**
-- **Cloudinary (Image & Video Management)** — requires User API Key. This is a new, critical integration.
+- **Cloudinary (Image & Video Management)** — requires User API Key.
+- **Expo**: Core mobile application framework.
+- **FastAPI**: Backend framework.
+- **MongoDB**: Database.
 
 **Testing status**
-  - Testing agent used after significant changes: YES (For backend Cloudinary integration, which passed).
-  - Troubleshoot agent used after agent stuck in loop: NO
+  - Testing agent used after significant changes: NO
+  - Troubleshoot agent used after agent stuck in loop: YES (Used early in the session to diagnose a deployment issue).
   - Test files created: []
-  - Known regressions: None in the development environment. The production environment is not running the latest stable code.
+  - Known regressions: Inability to like/comment from profile page could be considered a regression or feature gap from user expectation.
 
 **Credentials to test flow:**
 - **Admin User**:
@@ -225,6 +263,6 @@ The application now has a full-featured Guest Mode. A major infrastructure chang
     - **API_SECRET**: 
 
 **What agent forgot to execute**
-- The long-standing, low-priority issues (Save button on home screen carousel, Unfollow analytics tracking) were correctly de-prioritized in favor of the user's new, critical feature requests and bug fixes. No high-priority tasks were missed.
+- The agent did not forget but postponed addressing the user's report (in Msg 383) that liking and commenting on posts from the user profile page is not working. This is the most critical pending item from the user's perspective.
 
 </analysis>
