@@ -252,6 +252,35 @@ class FollowResponse(BaseModel):
     following: UserResponse
     created_at: datetime
 
+# Content Moderation Models
+class ContentReportCreate(BaseModel):
+    content_type: str  # "post", "comment", "profile"
+    content_id: str
+    category: str  # One of REPORT_CATEGORIES
+    reason: Optional[str] = None  # Additional details
+
+class BlockUserCreate(BaseModel):
+    blocked_user_id: str
+    reason: Optional[str] = None
+
+class ContentReportResponse(BaseModel):
+    id: str
+    reporter_id: str
+    content_type: str
+    content_id: str
+    category: str
+    reason: Optional[str]
+    status: str
+    created_at: datetime
+    reviewed_at: Optional[datetime] = None
+    action_taken: Optional[str] = None
+
+class BlockedUserResponse(BaseModel):
+    id: str
+    blocked_user_id: str
+    blocked_username: str
+    blocked_at: datetime
+
 # Authentication Endpoints
 
 @api_router.post("/auth/register")
