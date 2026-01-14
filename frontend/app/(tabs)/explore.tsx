@@ -1505,6 +1505,18 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     borderBottomColor: 'rgba(255, 215, 0, 0.1)',
     paddingHorizontal: 16,
+    alignItems: 'center',
+  },
+  mainTabsContainer: {
+    flex: 1,
+    flexDirection: 'row',
+  },
+  mainTab: {
+    flex: 1,
+    paddingVertical: 12,
+    alignItems: 'center',
+    borderBottomWidth: 2,
+    borderBottomColor: 'transparent',
   },
   tab: {
     flex: 1,
@@ -1515,6 +1527,14 @@ const styles = StyleSheet.create({
   },
   activeTab: {
     borderBottomColor: '#FFD700',
+  },
+  notificationTab: {
+    paddingVertical: 12,
+    paddingHorizontal: 12,
+    marginLeft: 8,
+  },
+  notificationTabActive: {
+    // Active state handled by icon color
   },
   tabText: {
     fontSize: 15,
