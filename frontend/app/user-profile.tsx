@@ -2,6 +2,8 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { useAuth } from '../contexts/AuthContext';
 import { Analytics } from '../utils/analytics';
 import GuestPromptModal from '../components/GuestPromptModal';
+import ReportModal from '../components/ReportModal';
+import BlockUserModal from '../components/BlockUserModal';
 import {
   View,
   Text,
@@ -55,6 +57,9 @@ export default function UserProfile() {
   const [loading, setLoading] = useState(true);
   const { token, isGuest } = useAuth();
   const [showGuestPrompt, setShowGuestPrompt] = useState(false);
+  const [showReportModal, setShowReportModal] = useState(false);
+  const [showBlockModal, setShowBlockModal] = useState(false);
+  const [showMoreOptions, setShowMoreOptions] = useState(false);
 
   const handleGoBack = useCallback(() => {
     if (router.canGoBack()) {
