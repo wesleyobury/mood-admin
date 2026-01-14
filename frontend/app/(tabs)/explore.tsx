@@ -1003,6 +1003,106 @@ export default function Explore() {
         )}
       </ScrollView>}
 
+      {/* Notifications Tab Content */}
+      {activeTab === 'notifications' && !showSearch && (
+        <ScrollView
+          style={styles.notificationsContainer}
+          contentContainerStyle={styles.notificationsContent}
+          refreshControl={
+            <RefreshControl
+              refreshing={notificationsRefreshing}
+              onRefresh={onRefreshNotifications}
+              tintColor="#FFD700"
+              colors={['#FFD700']}
+            />
+          }
+        >
+          {notificationsLoading ? (
+            <View style={styles.notificationsLoading}>
+              <ActivityIndicator size="large" color="#FFD700" />
+            </View>
+          ) : notifications.length === 0 ? (
+            <View style={styles.notificationsEmpty}>
+              <Ionicons name="notifications-outline" size={64} color="#333" />
+              <Text style={styles.notificationsEmptyTitle}>No Notifications</Text>
+              <Text style={styles.notificationsEmptyText}>
+                When someone likes, comments on your posts, or follows you, you'll see it here.
+              </Text>
+            </View>
+          ) : (
+            notifications.map((notification) => (
+              <TouchableOpacity
+                key={notification.id}
+                style={styles.notificationItem}
+                onPress={() => {
+                  if (notification.type === 'follow') {
+                    handleProfile(notification.user.id);
+                  } else if (notification.post_id) {
+                    // Could navigate to post detail
+                    handleProfile(notification.user.id);
+                  }
+                }}
+              >
+                {/* User Avatar */}
+                <View style={styles.notificationAvatarContainer}>
+                  {notification.user.avatar ? (
+                    <Image
+                      source={{
+                        uri: notification.user.avatar.startsWith('http')
+                          ? notification.user.avatar
+                          : `${API_URL}${notification.user.avatar}`
+                      }}
+                      style={styles.notificationAvatar}
+                      contentFit="cover"
+                    />
+                  ) : (
+                    <View style={[styles.notificationAvatar, styles.notificationAvatarPlaceholder]}>
+                      <Ionicons name="person" size={20} color="#666" />
+                    </View>
+                  )}
+                  <View style={[
+                    styles.notificationIconBadge,
+                    { backgroundColor: getNotificationIconColor(notification.type) }
+                  ]}>
+                    <Ionicons 
+                      name={getNotificationIcon(notification.type) as any} 
+                      size={10} 
+                      color="#fff" 
+                    />
+                  </View>
+                </View>
+
+                {/* Notification Content */}
+                <View style={styles.notificationContent}>
+                  <Text style={styles.notificationText}>
+                    <Text style={styles.notificationUsername}>
+                      {notification.user.username}
+                    </Text>
+                    {' '}{notification.message}
+                  </Text>
+                  <Text style={styles.notificationTime}>
+                    {formatTimeAgo(notification.created_at)}
+                  </Text>
+                </View>
+
+                {/* Post Preview Thumbnail */}
+                {notification.post_preview && (
+                  <Image
+                    source={{
+                      uri: notification.post_preview.startsWith('http')
+                        ? notification.post_preview
+                        : `${API_URL}${notification.post_preview}`
+                    }}
+                    style={styles.notificationPostPreview}
+                    contentFit="cover"
+                  />
+                )}
+              </TouchableOpacity>
+            ))
+          )}
+        </ScrollView>
+      )}
+
       {/* Comments Bottom Sheet */}
       <Modal
         visible={showComments}
