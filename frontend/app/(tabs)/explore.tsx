@@ -305,7 +305,7 @@ export default function Explore() {
     if (!token || isGuest) return;
     
     try {
-      // Get the last time user viewed notifications
+      // Get the last time user viewed notifications (stored as timestamp ms)
       const lastViewedStr = await AsyncStorage.getItem(LAST_NOTIFICATION_VIEW_KEY);
       
       const response = await fetch(`${API_URL}/api/notifications`, {
@@ -326,13 +326,12 @@ export default function Explore() {
           return;
         }
         
-        const lastViewedTime = new Date(lastViewedStr).getTime();
+        const lastViewedTime = parseInt(lastViewedStr, 10);
         
         // Count notifications newer than last viewed time
-        // Add a small buffer (5 seconds) to prevent race conditions
         const newCount = allNotifications.filter((n: Notification) => {
           const notifTime = new Date(n.created_at).getTime();
-          return notifTime > lastViewedTime + 5000; // 5 second buffer
+          return notifTime > lastViewedTime;
         }).length;
         
         // Only update if not currently viewing notifications
