@@ -565,6 +565,58 @@ const styles = StyleSheet.create({
   headerRight: {
     width: 40,
   },
+  moreButton: {
+    padding: 4,
+    width: 40,
+    alignItems: 'flex-end',
+  },
+  optionsOverlay: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    backgroundColor: 'rgba(0,0,0,0.5)',
+    zIndex: 100,
+    justifyContent: 'flex-end',
+  },
+  optionsMenu: {
+    backgroundColor: '#1a1a1a',
+    borderTopLeftRadius: 20,
+    borderTopRightRadius: 20,
+    padding: 8,
+    paddingBottom: 30,
+  },
+  optionItem: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    padding: 16,
+    gap: 12,
+    borderRadius: 12,
+  },
+  optionItemDanger: {
+    // styling for danger items
+  },
+  optionText: {
+    fontSize: 16,
+    color: '#fff',
+    fontWeight: '500',
+  },
+  optionTextDanger: {
+    color: '#FF4444',
+  },
+  optionItemCancel: {
+    alignItems: 'center',
+    padding: 16,
+    marginTop: 8,
+    borderTopWidth: 1,
+    borderTopColor: 'rgba(255,255,255,0.1)',
+  },
+  optionTextCancel: {
+    fontSize: 16,
+    color: 'rgba(255,255,255,0.6)',
+    fontWeight: '500',
+  },
   loadingContainer: {
     flex: 1,
     justifyContent: 'center',
