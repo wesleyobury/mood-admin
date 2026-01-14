@@ -287,8 +287,8 @@ export default function Explore() {
       if (response.ok) {
         const data = await response.json();
         setNotifications(data.notifications || []);
-        // Save the current timestamp as last viewed
-        await AsyncStorage.setItem(LAST_NOTIFICATION_VIEW_KEY, new Date().toISOString());
+        // Save the current timestamp as last viewed (use timestamp ms for reliable comparison)
+        await AsyncStorage.setItem(LAST_NOTIFICATION_VIEW_KEY, Date.now().toString());
         // Clear unread count when viewing notifications
         setUnreadNotificationCount(0);
       }
