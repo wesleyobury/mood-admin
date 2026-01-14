@@ -127,6 +127,7 @@ export default function Explore() {
   const [notifications, setNotifications] = useState<Notification[]>([]);
   const [notificationsLoading, setNotificationsLoading] = useState(false);
   const [notificationsRefreshing, setNotificationsRefreshing] = useState(false);
+  const [unreadNotificationCount, setUnreadNotificationCount] = useState(0);
 
   // Double tap to like functionality
   const lastTap = useRef<number>(0);
