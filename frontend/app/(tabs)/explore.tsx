@@ -765,6 +765,17 @@ export default function Explore() {
             Following
           </Text>
         </TouchableOpacity>
+        <TouchableOpacity
+          style={[styles.tab, activeTab === 'notifications' && styles.activeTab]}
+          onPress={() => setActiveTab('notifications')}
+        >
+          <Text style={[
+            styles.tabText,
+            activeTab === 'notifications' && styles.activeTabText
+          ]}>
+            Notifications
+          </Text>
+        </TouchableOpacity>
       </View>}
 
       {!showSearch && <ScrollView
