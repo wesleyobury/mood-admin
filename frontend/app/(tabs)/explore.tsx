@@ -326,12 +326,13 @@ export default function Explore() {
           return;
         }
         
-        const lastViewed = new Date(lastViewedStr);
+        const lastViewedTime = new Date(lastViewedStr).getTime();
         
         // Count notifications newer than last viewed time
+        // Add a small buffer (5 seconds) to prevent race conditions
         const newCount = allNotifications.filter((n: Notification) => {
-          const notifTime = new Date(n.created_at);
-          return notifTime > lastViewed;
+          const notifTime = new Date(n.created_at).getTime();
+          return notifTime > lastViewedTime + 5000; // 5 second buffer
         }).length;
         
         // Only update if not currently viewing notifications
