@@ -5249,7 +5249,7 @@ async def get_unread_notifications_count(
     user_post_ids = [str(post["_id"]) for post in user_posts]
     
     # Count likes in last 24 hours
-    likes_count = await db.likes.count_documents({
+    likes_count = await db.post_likes.count_documents({
         "post_id": {"$in": user_post_ids},
         "user_id": {"$ne": current_user_id},
         "created_at": {"$gte": twenty_four_hours_ago}
