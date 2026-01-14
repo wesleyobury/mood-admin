@@ -263,7 +263,9 @@ export default function PostDetail() {
             )}
           </TouchableOpacity>
         ) : (
-          <View style={{ width: 24 }} />
+          <TouchableOpacity onPress={() => setShowPostMenu(true)}>
+            <Ionicons name="ellipsis-horizontal" size={24} color="#fff" />
+          </TouchableOpacity>
         )}
       </View>
 
