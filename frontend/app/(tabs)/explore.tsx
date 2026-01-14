@@ -285,6 +285,8 @@ export default function Explore() {
       if (response.ok) {
         const data = await response.json();
         setNotifications(data.notifications || []);
+        // Clear unread count when viewing notifications
+        setUnreadNotificationCount(0);
       }
     } catch (error) {
       console.error('Error fetching notifications:', error);
@@ -293,6 +295,39 @@ export default function Explore() {
       setNotificationsRefreshing(false);
     }
   };
+
+  // Fetch unread notification count
+  const fetchUnreadCount = async () => {
+    if (!token || isGuest) return;
+    
+    try {
+      const response = await fetch(`${API_URL}/api/notifications/unread-count`, {
+        headers: {
+          'Authorization': `Bearer ${token}`,
+        },
+      });
+      
+      if (response.ok) {
+        const data = await response.json();
+        // Only update if not currently viewing notifications
+        if (activeTab !== 'notifications') {
+          setUnreadNotificationCount(data.unread_count || 0);
+        }
+      }
+    } catch (error) {
+      console.error('Error fetching unread count:', error);
+    }
+  };
+
+  // Fetch unread count on mount and periodically
+  useEffect(() => {
+    if (token && !isGuest) {
+      fetchUnreadCount();
+      // Refresh count every 30 seconds
+      const interval = setInterval(fetchUnreadCount, 30000);
+      return () => clearInterval(interval);
+    }
+  }, [token, isGuest]);
 
   // Fetch notifications when tab changes to notifications
   useEffect(() => {
