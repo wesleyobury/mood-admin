@@ -89,6 +89,11 @@ export default function Explore() {
   const PAGE_SIZE = 20;
   const [showGuestPrompt, setShowGuestPrompt] = useState(false);
   const [guestAction, setGuestAction] = useState('');
+  
+  // Post options menu state
+  const [showPostMenu, setShowPostMenu] = useState(false);
+  const [selectedMenuPost, setSelectedMenuPost] = useState<Post | null>(null);
+  const [showReportModal, setShowReportModal] = useState(false);
 
   // Double tap to like functionality
   const lastTap = useRef<number>(0);
