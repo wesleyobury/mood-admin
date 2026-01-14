@@ -163,6 +163,42 @@ async def get_current_user(credentials: HTTPAuthorizationCredentials = Depends(s
     except jwt.InvalidTokenError:
         raise HTTPException(status_code=401, detail="Invalid token")
 
+async def get_optional_current_user(authorization: Optional[str] = Header(None)) -> Optional[str]:
+    """Optional authentication - returns user_id if token is valid, None otherwise"""
+    if not authorization:
+        return None
+    
+    try:
+        # Remove 'Bearer ' prefix if present
+        token = authorization.replace("Bearer ", "") if authorization.startswith("Bearer ") else authorization
+        
+        payload = jwt.decode(token, JWT_SECRET, algorithms=[JWT_ALGORITHM])
+        user_id = payload.get('user_id')
+        if not user_id:
+            return None
+        
+        # Handle both ObjectId format and custom user_id format (for OAuth users)
+        user = None
+        
+        # First try to find by custom user_id field
+        user = await db.users.find_one({"user_id": user_id})
+        
+        # If not found, try ObjectId (for legacy users)
+        if not user:
+            try:
+                user = await db.users.find_one({"_id": ObjectId(user_id)})
+            except:
+                pass  # Invalid ObjectId format, skip
+        
+        if not user:
+            return None
+        
+        # ALWAYS return the MongoDB ObjectId for consistency across all operations
+        return str(user["_id"])
+    except:
+        return None
+
+
 # Pydantic Models
 
 class UserCreate(BaseModel):
