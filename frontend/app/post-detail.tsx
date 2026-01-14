@@ -336,6 +336,90 @@ export default function PostDetail() {
           })}
         </Text>
       </ScrollView>
+
+      {/* Post Menu Modal */}
+      <Modal
+        visible={showPostMenu}
+        transparent={true}
+        animationType="fade"
+        onRequestClose={() => setShowPostMenu(false)}
+      >
+        <Pressable 
+          style={styles.modalOverlay}
+          onPress={() => setShowPostMenu(false)}
+        >
+          <View style={styles.postMenuContainer}>
+            <TouchableOpacity 
+              style={styles.menuItem}
+              onPress={() => {
+                setShowPostMenu(false);
+                if (isGuest) {
+                  setGuestAction('save posts');
+                  setShowGuestPrompt(true);
+                } else {
+                  handleSave();
+                }
+              }}
+            >
+              <Ionicons 
+                name={post.is_saved ? "bookmark" : "bookmark-outline"} 
+                size={22} 
+                color="#fff" 
+              />
+              <Text style={styles.menuItemText}>
+                {post.is_saved ? 'Unsave' : 'Save'}
+              </Text>
+            </TouchableOpacity>
+
+            <View style={styles.menuDivider} />
+
+            <TouchableOpacity 
+              style={styles.menuItem}
+              onPress={() => {
+                setShowPostMenu(false);
+                if (isGuest) {
+                  setGuestAction('report content');
+                  setShowGuestPrompt(true);
+                } else {
+                  setShowReportModal(true);
+                }
+              }}
+            >
+              <Ionicons name="flag-outline" size={22} color="#FF6B6B" />
+              <Text style={[styles.menuItemText, { color: '#FF6B6B' }]}>
+                Report
+              </Text>
+            </TouchableOpacity>
+
+            <View style={styles.menuDivider} />
+
+            <TouchableOpacity 
+              style={styles.menuItem}
+              onPress={() => setShowPostMenu(false)}
+            >
+              <Ionicons name="close" size={22} color="#888" />
+              <Text style={[styles.menuItemText, { color: '#888' }]}>
+                Cancel
+              </Text>
+            </TouchableOpacity>
+          </View>
+        </Pressable>
+      </Modal>
+
+      {/* Report Modal */}
+      <ReportModal
+        visible={showReportModal}
+        onClose={() => setShowReportModal(false)}
+        onSubmit={handleReportPost}
+        contentType="post"
+      />
+
+      {/* Guest Prompt Modal */}
+      <GuestPromptModal
+        visible={showGuestPrompt}
+        onClose={() => setShowGuestPrompt(false)}
+        actionDescription={guestAction}
+      />
     </SafeAreaView>
   );
 }
