@@ -3910,7 +3910,16 @@ async def upload_multiple_files(
 
 @api_router.post("/posts")
 async def create_post(post_data: PostCreate, current_user_id: str = Depends(get_current_user)):
-    """Create a new social media post"""
+    """Create a new social media post with content filtering"""
+    
+    # Check content for objectionable material
+    content_check = check_content(post_data.caption, strict=True)
+    if not content_check["is_clean"]:
+        raise HTTPException(
+            status_code=400, 
+            detail=f"Your post contains inappropriate content and cannot be published. Please revise and try again."
+        )
+    
     post_doc = {
         **post_data.dict(),
         "author_id": ObjectId(current_user_id),
