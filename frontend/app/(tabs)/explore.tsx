@@ -257,6 +257,75 @@ export default function Explore() {
     });
   };
 
+  // Fetch notifications
+  const fetchNotifications = async () => {
+    if (!token || isGuest) return;
+    
+    setNotificationsLoading(true);
+    try {
+      const response = await fetch(`${API_URL}/api/notifications`, {
+        headers: {
+          'Authorization': `Bearer ${token}`,
+        },
+      });
+      
+      if (response.ok) {
+        const data = await response.json();
+        setNotifications(data.notifications || []);
+      }
+    } catch (error) {
+      console.error('Error fetching notifications:', error);
+    } finally {
+      setNotificationsLoading(false);
+      setNotificationsRefreshing(false);
+    }
+  };
+
+  // Fetch notifications when tab changes to notifications
+  useEffect(() => {
+    if (activeTab === 'notifications' && !isGuest) {
+      fetchNotifications();
+    }
+  }, [activeTab, token]);
+
+  const onRefreshNotifications = () => {
+    setNotificationsRefreshing(true);
+    fetchNotifications();
+  };
+
+  // Format time ago for notifications
+  const formatTimeAgo = (dateString: string) => {
+    const date = new Date(dateString);
+    const now = new Date();
+    const seconds = Math.floor((now.getTime() - date.getTime()) / 1000);
+    
+    if (seconds < 60) return 'just now';
+    if (seconds < 3600) return `${Math.floor(seconds / 60)}m`;
+    if (seconds < 86400) return `${Math.floor(seconds / 3600)}h`;
+    if (seconds < 604800) return `${Math.floor(seconds / 86400)}d`;
+    return `${Math.floor(seconds / 604800)}w`;
+  };
+
+  // Get notification icon based on type
+  const getNotificationIcon = (type: string) => {
+    switch (type) {
+      case 'like': return 'heart';
+      case 'comment': return 'chatbubble';
+      case 'follow': return 'person-add';
+      default: return 'notifications';
+    }
+  };
+
+  // Get notification icon color based on type
+  const getNotificationIconColor = (type: string) => {
+    switch (type) {
+      case 'like': return '#FF4444';
+      case 'comment': return '#4A90D9';
+      case 'follow': return '#FFD700';
+      default: return '#888';
+    }
+  };
+
   const onRefresh = async () => {
     setRefreshing(true);
     await fetchPosts();
