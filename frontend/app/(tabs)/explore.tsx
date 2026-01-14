@@ -110,6 +110,11 @@ export default function Explore() {
   const [showPostMenu, setShowPostMenu] = useState(false);
   const [selectedMenuPost, setSelectedMenuPost] = useState<Post | null>(null);
   const [showReportModal, setShowReportModal] = useState(false);
+  
+  // Notifications state
+  const [notifications, setNotifications] = useState<Notification[]>([]);
+  const [notificationsLoading, setNotificationsLoading] = useState(false);
+  const [notificationsRefreshing, setNotificationsRefreshing] = useState(false);
 
   // Double tap to like functionality
   const lastTap = useRef<number>(0);
