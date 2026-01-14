@@ -287,6 +287,8 @@ export default function Explore() {
       if (response.ok) {
         const data = await response.json();
         setNotifications(data.notifications || []);
+        // Save the current timestamp as last viewed
+        await AsyncStorage.setItem(LAST_NOTIFICATION_VIEW_KEY, new Date().toISOString());
         // Clear unread count when viewing notifications
         setUnreadNotificationCount(0);
       }
@@ -298,12 +300,15 @@ export default function Explore() {
     }
   };
 
-  // Fetch unread notification count
+  // Fetch unread notification count (count notifications newer than last view)
   const fetchUnreadCount = async () => {
     if (!token || isGuest) return;
     
     try {
-      const response = await fetch(`${API_URL}/api/notifications/unread-count`, {
+      // Get the last time user viewed notifications
+      const lastViewedStr = await AsyncStorage.getItem(LAST_NOTIFICATION_VIEW_KEY);
+      
+      const response = await fetch(`${API_URL}/api/notifications`, {
         headers: {
           'Authorization': `Bearer ${token}`,
         },
@@ -311,9 +316,27 @@ export default function Explore() {
       
       if (response.ok) {
         const data = await response.json();
+        const allNotifications = data.notifications || [];
+        
+        // If user has never viewed notifications, count all as unread
+        if (!lastViewedStr) {
+          if (activeTab !== 'notifications') {
+            setUnreadNotificationCount(allNotifications.length);
+          }
+          return;
+        }
+        
+        const lastViewed = new Date(lastViewedStr);
+        
+        // Count notifications newer than last viewed time
+        const newCount = allNotifications.filter((n: Notification) => {
+          const notifTime = new Date(n.created_at);
+          return notifTime > lastViewed;
+        }).length;
+        
         // Only update if not currently viewing notifications
         if (activeTab !== 'notifications') {
-          setUnreadNotificationCount(data.unread_count || 0);
+          setUnreadNotificationCount(newCount);
         }
       }
     } catch (error) {
