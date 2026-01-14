@@ -176,9 +176,40 @@ export default function PostDetail() {
           ...post,
           is_saved: data.is_saved,
         });
+        Alert.alert('Success', data.is_saved ? 'Post saved!' : 'Post removed from saved');
       }
     } catch (error) {
       console.error('Error saving post:', error);
+    }
+  };
+
+  const handleReportPost = async (reason: string, details?: string) => {
+    if (!post || !token) return;
+
+    try {
+      const response = await fetch(`${API_URL}/api/moderation/report`, {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${token}`,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          content_id: post.id,
+          content_type: 'post',
+          reason: reason,
+          details: details,
+        }),
+      });
+
+      if (response.ok) {
+        Alert.alert('Report Submitted', 'Thank you for helping keep our community safe.');
+      } else {
+        const data = await response.json();
+        Alert.alert('Error', data.detail || 'Failed to submit report');
+      }
+    } catch (error) {
+      console.error('Error reporting post:', error);
+      Alert.alert('Error', 'Failed to submit report. Please try again.');
     }
   };
 
