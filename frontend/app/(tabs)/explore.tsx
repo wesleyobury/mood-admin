@@ -1469,6 +1469,18 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
     marginTop: 8,
   },
+  firstCommentContainer: {
+    marginBottom: 6,
+  },
+  firstCommentText: {
+    fontSize: 14,
+    color: '#fff',
+    lineHeight: 20,
+  },
+  firstCommentUsername: {
+    fontWeight: '600',
+    color: '#fff',
+  },
   timestamp: {
     fontSize: 11,
     color: '#666',
