@@ -37,6 +37,17 @@ interface Author {
   avatar: string;
 }
 
+interface FirstComment {
+  id: string;
+  text: string;
+  author: {
+    id: string;
+    username: string;
+    avatar: string | null;
+  };
+  created_at: string;
+}
+
 interface Post {
   id: string;
   author: Author;
@@ -48,6 +59,7 @@ interface Post {
   is_saved: boolean;
   created_at: string;
   workout?: any;
+  first_comment?: FirstComment | null;
 }
 
 interface SearchUser {
