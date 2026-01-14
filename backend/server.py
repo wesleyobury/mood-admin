@@ -5112,7 +5112,7 @@ async def get_user_notifications(
         {"$unwind": "$post"}
     ]
     
-    likes = await db.likes.aggregate(likes_pipeline).to_list(100)
+    likes = await db.post_likes.aggregate(likes_pipeline).to_list(100)
     
     for like in likes:
         notifications.append({
