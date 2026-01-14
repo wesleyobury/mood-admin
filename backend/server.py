@@ -5151,7 +5151,7 @@ async def get_user_notifications(
                 "avatar": like["user"].get("avatar")
             },
             "post_id": str(like["post_id"]),
-            "post_preview": like["post"].get("media_urls", [])[0] if like["post"].get("media_urls") else None,
+            "post_preview": get_post_preview_url(like.get("post")),
             "created_at": like["created_at"].isoformat(),
             "message": "liked your post"
         })
