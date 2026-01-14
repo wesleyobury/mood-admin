@@ -5122,13 +5122,13 @@ async def get_user_notifications(
             "message": "liked your post"
         })
     
-    # Get comments on user's posts
+    # Get comments on user's posts (all time)
+    user_post_ids_str = [str(pid) for pid in user_post_ids]  # Comments use string post_id
     comments_pipeline = [
         {
             "$match": {
-                "post_id": {"$in": user_post_ids},
-                "author_id": {"$ne": current_user_id},
-                "created_at": {"$gte": seven_days_ago}
+                "post_id": {"$in": user_post_ids_str},
+                "author_id": {"$ne": current_user_id}
             }
         },
         {"$sort": {"created_at": -1}},
