@@ -1535,10 +1535,11 @@ const styles = StyleSheet.create({
     fontSize: 13,
     color: '#888',
     paddingHorizontal: 16,
-    marginTop: 8,
+    marginTop: 4,
   },
   firstCommentContainer: {
-    marginBottom: 6,
+    marginBottom: 4,
+    paddingHorizontal: 16,
   },
   firstCommentText: {
     fontSize: 14,
