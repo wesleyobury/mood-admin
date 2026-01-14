@@ -5059,6 +5059,40 @@ async def get_unread_count(
 # USER NOTIFICATIONS ENDPOINTS
 # ============================================
 
+def get_post_preview_url(post: dict) -> Optional[str]:
+    """Get the best preview URL for a post - prefer images over videos, use thumbnail for videos"""
+    if not post:
+        return None
+    
+    # Check for thumbnail_url first (usually set for video posts)
+    thumbnail = post.get("thumbnail_url")
+    if thumbnail:
+        return thumbnail
+    
+    media_urls = post.get("media_urls", [])
+    if not media_urls:
+        return None
+    
+    # Look for first image URL
+    video_extensions = ['.mov', '.mp4', '.avi', '.webm', '.mkv', '.m4v']
+    
+    for url in media_urls:
+        url_lower = url.lower()
+        is_video = any(ext in url_lower for ext in video_extensions)
+        
+        if not is_video:
+            # This is likely an image, use it
+            return url
+        elif 'cloudinary' in url_lower:
+            # For Cloudinary videos, generate a thumbnail URL
+            # Transform video URL to get first frame as image
+            # Example: .../video/upload/... -> .../video/upload/so_0/...
+            if '/video/upload/' in url:
+                return url.replace('/video/upload/', '/video/upload/so_0,f_jpg/')
+    
+    # No image found, return first URL (might be video - frontend will handle)
+    return media_urls[0] if media_urls else None
+
 @api_router.get("/notifications")
 async def get_user_notifications(
     limit: int = 50,
