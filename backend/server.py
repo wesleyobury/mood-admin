@@ -5068,22 +5068,18 @@ async def get_user_notifications(
     """Get user notifications for likes, comments, and follows"""
     notifications = []
     
-    # Get likes on user's posts (last 7 days)
-    seven_days_ago = datetime.now(timezone.utc) - timedelta(days=7)
-    
     # Get user's post IDs as ObjectIds
     user_posts = await db.posts.find(
         {"author_id": ObjectId(current_user_id)}
     ).to_list(1000)
     user_post_ids = [post["_id"] for post in user_posts]  # Keep as ObjectId
     
-    # Get likes on user's posts
+    # Get likes on user's posts (all time, limited by count)
     likes_pipeline = [
         {
             "$match": {
                 "post_id": {"$in": user_post_ids},
-                "user_id": {"$ne": ObjectId(current_user_id)},
-                "created_at": {"$gte": seven_days_ago}
+                "user_id": {"$ne": ObjectId(current_user_id)}
             }
         },
         {"$sort": {"created_at": -1}},
