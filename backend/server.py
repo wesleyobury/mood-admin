@@ -4306,8 +4306,16 @@ async def like_post(post_id: str, current_user_id: str = Depends(get_current_use
 
 @api_router.post("/comments")
 async def create_comment(comment_data: CommentCreate, current_user_id: str = Depends(get_current_user)):
-    """Create a comment on a post"""
+    """Create a comment on a post with content filtering"""
     try:
+        # Check content for objectionable material
+        content_check = check_content(comment_data.text, strict=True)
+        if not content_check["is_clean"]:
+            raise HTTPException(
+                status_code=400, 
+                detail="Your comment contains inappropriate content and cannot be published."
+            )
+        
         comment_doc = {
             **comment_data.dict(),
             "author_id": current_user_id,
@@ -4323,6 +4331,8 @@ async def create_comment(comment_data: CommentCreate, current_user_id: str = Dep
         )
         
         return {"message": "Comment created successfully", "id": str(result.inserted_id)}
+    except HTTPException:
+        raise
     except:
         raise HTTPException(status_code=404, detail="Post not found")
 
