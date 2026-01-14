@@ -59,6 +59,14 @@ from user_analytics import (
     get_workout_funnel_detail,
     EVENT_TYPES,
 )
+from content_moderation import (
+    check_content,
+    filter_content,
+    is_valid_report_category,
+    get_report_categories,
+    REPORT_CATEGORIES,
+    REPORT_STATUS,
+)
 
 ROOT_DIR = Path(__file__).parent
 load_dotenv(ROOT_DIR / '.env')
