@@ -124,6 +124,11 @@ export default function PostDetail() {
   };
 
   const handleLike = async () => {
+    if (isGuest) {
+      setGuestAction('like posts');
+      setShowGuestPrompt(true);
+      return;
+    }
     if (!post || !token) return;
 
     try {
@@ -144,6 +149,34 @@ export default function PostDetail() {
       }
     } catch (error) {
       console.error('Error liking post:', error);
+    }
+  };
+
+  const handleSave = async () => {
+    if (isGuest) {
+      setGuestAction('save posts');
+      setShowGuestPrompt(true);
+      return;
+    }
+    if (!post || !token) return;
+
+    try {
+      const response = await fetch(`${API_URL}/api/posts/${post.id}/save`, {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${token}`,
+        },
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        setPost({
+          ...post,
+          is_saved: data.is_saved,
+        });
+      }
+    } catch (error) {
+      console.error('Error saving post:', error);
     }
   };
 
