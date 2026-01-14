@@ -930,6 +930,98 @@ export default function Explore() {
         onClose={() => setShowGuestPrompt(false)}
         action={guestAction}
       />
+
+      {/* Post Options Menu */}
+      {showPostMenu && selectedMenuPost && (
+        <TouchableOpacity 
+          style={styles.postMenuOverlay} 
+          activeOpacity={1} 
+          onPress={() => setShowPostMenu(false)}
+        >
+          <View style={styles.postMenuContainer}>
+            <View style={styles.postMenuHeader}>
+              <View style={styles.postMenuHandle} />
+            </View>
+            
+            {/* Save Post */}
+            <TouchableOpacity 
+              style={styles.postMenuItem}
+              onPress={() => {
+                setShowPostMenu(false);
+                handleSave(selectedMenuPost.id);
+              }}
+            >
+              <Ionicons 
+                name={selectedMenuPost.is_saved ? 'bookmark' : 'bookmark-outline'} 
+                size={24} 
+                color={selectedMenuPost.is_saved ? '#FFD700' : '#fff'} 
+              />
+              <Text style={styles.postMenuItemText}>
+                {selectedMenuPost.is_saved ? 'Unsave Post' : 'Save Post'}
+              </Text>
+            </TouchableOpacity>
+
+            {/* Report Post - only show for other users' posts */}
+            {user && user.id !== selectedMenuPost.author.id && (
+              <TouchableOpacity 
+                style={styles.postMenuItem}
+                onPress={() => {
+                  if (isGuest) {
+                    setShowPostMenu(false);
+                    setGuestAction('report content');
+                    setShowGuestPrompt(true);
+                  } else {
+                    setShowPostMenu(false);
+                    setShowReportModal(true);
+                  }
+                }}
+              >
+                <Ionicons name="flag-outline" size={24} color="#FF9500" />
+                <Text style={[styles.postMenuItemText, { color: '#FF9500' }]}>Report Post</Text>
+              </TouchableOpacity>
+            )}
+
+            {/* Delete Post - only show for own posts */}
+            {user && user.id === selectedMenuPost.author.id && (
+              <TouchableOpacity 
+                style={styles.postMenuItem}
+                onPress={() => {
+                  setShowPostMenu(false);
+                  handleDeletePost(selectedMenuPost.id);
+                }}
+                disabled={deletingPostId === selectedMenuPost.id}
+              >
+                {deletingPostId === selectedMenuPost.id ? (
+                  <ActivityIndicator size="small" color="#FF4444" />
+                ) : (
+                  <Ionicons name="trash-outline" size={24} color="#FF4444" />
+                )}
+                <Text style={[styles.postMenuItemText, { color: '#FF4444' }]}>Delete Post</Text>
+              </TouchableOpacity>
+            )}
+
+            {/* Cancel */}
+            <TouchableOpacity 
+              style={styles.postMenuCancelItem}
+              onPress={() => setShowPostMenu(false)}
+            >
+              <Text style={styles.postMenuCancelText}>Cancel</Text>
+            </TouchableOpacity>
+          </View>
+        </TouchableOpacity>
+      )}
+
+      {/* Report Modal */}
+      <ReportModal
+        visible={showReportModal}
+        onClose={() => {
+          setShowReportModal(false);
+          setSelectedMenuPost(null);
+        }}
+        contentType="post"
+        contentId={selectedMenuPost?.id || ''}
+        token={token}
+      />
     </View>
   );
 }
