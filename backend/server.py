@@ -4233,7 +4233,7 @@ async def get_posts(current_user_id: str = Depends(get_current_user), limit: int
                             "as": "comment_author"
                         }
                     },
-                    {"$unwind": {"path": "$comment_author", "preserveNullAndEmptyArrays": true}}
+                    {"$unwind": {"path": "$comment_author", "preserveNullAndEmptyArrays": True}}
                 ],
                 "as": "first_comment"
             }
