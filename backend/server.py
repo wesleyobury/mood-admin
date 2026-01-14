@@ -5204,7 +5204,7 @@ async def get_user_notifications(
                 "avatar": comment["user"].get("avatar")
             },
             "post_id": comment["post_id"],
-            "post_preview": comment["post"].get("media_urls", [])[0] if comment["post"].get("media_urls") else None,
+            "post_preview": get_post_preview_url(comment.get("post")),
             "comment_text": comment.get("text", "")[:50],
             "created_at": comment["created_at"].isoformat(),
             "message": f"commented: \"{comment.get('text', '')[:30]}{'...' if len(comment.get('text', '')) > 30 else ''}\""
