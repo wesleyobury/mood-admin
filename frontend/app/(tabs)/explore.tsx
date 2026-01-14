@@ -819,11 +819,20 @@ export default function Explore() {
           style={[styles.notificationTab, activeTab === 'notifications' && styles.notificationTabActive]}
           onPress={() => setActiveTab('notifications')}
         >
-          <Ionicons 
-            name={activeTab === 'notifications' ? 'notifications' : 'notifications-outline'} 
-            size={22} 
-            color={activeTab === 'notifications' ? '#FFD700' : '#888'} 
-          />
+          <View>
+            <Ionicons 
+              name={activeTab === 'notifications' ? 'notifications' : 'notifications-outline'} 
+              size={22} 
+              color={activeTab === 'notifications' ? '#FFD700' : '#888'} 
+            />
+            {unreadNotificationCount > 0 && activeTab !== 'notifications' && (
+              <View style={styles.notificationBadge}>
+                <Text style={styles.notificationBadgeText}>
+                  {unreadNotificationCount > 99 ? '99+' : unreadNotificationCount}
+                </Text>
+              </View>
+            )}
+          </View>
         </TouchableOpacity>
       </View>}
 
