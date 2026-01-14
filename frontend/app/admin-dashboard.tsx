@@ -776,6 +776,84 @@ export default function AdminDashboard() {
           )}
         </View>
 
+        {/* Content Moderation Section */}
+        <View style={styles.section}>
+          <View style={styles.sectionHeader}>
+            <Text style={styles.sectionTitle}>Content Moderation</Text>
+            <View style={[styles.guestBadge, { backgroundColor: 'rgba(255, 87, 34, 0.15)' }]}>
+              <Ionicons name="shield-checkmark" size={12} color="#FF5722" />
+              <Text style={[styles.guestBadgeText, { color: '#FF5722' }]}>Safety</Text>
+            </View>
+          </View>
+          <Text style={styles.sectionSubtitle}>
+            Reports, blocks, and content safety actions
+          </Text>
+          
+          <View style={styles.moderationGrid}>
+            <View style={styles.moderationCard}>
+              <View style={[styles.moderationIcon, { backgroundColor: 'rgba(244, 67, 54, 0.15)' }]}>
+                <Ionicons name="flag" size={20} color="#F44336" />
+              </View>
+              <Text style={styles.moderationValue}>0</Text>
+              <Text style={styles.moderationLabel}>Pending Reports</Text>
+              <View style={styles.moderationStatus}>
+                <Ionicons name="checkmark-circle" size={14} color="#4CAF50" />
+                <Text style={styles.moderationStatusText}>All clear</Text>
+              </View>
+            </View>
+            
+            <View style={styles.moderationCard}>
+              <View style={[styles.moderationIcon, { backgroundColor: 'rgba(255, 152, 0, 0.15)' }]}>
+                <Ionicons name="alert-circle" size={20} color="#FF9800" />
+              </View>
+              <Text style={styles.moderationValue}>0</Text>
+              <Text style={styles.moderationLabel}>Urgent (24h)</Text>
+              <View style={styles.moderationStatus}>
+                <Ionicons name="time-outline" size={14} color="#888" />
+                <Text style={styles.moderationStatusText}>None due</Text>
+              </View>
+            </View>
+            
+            <View style={styles.moderationCard}>
+              <View style={[styles.moderationIcon, { backgroundColor: 'rgba(156, 39, 176, 0.15)' }]}>
+                <Ionicons name="ban" size={20} color="#9C27B0" />
+              </View>
+              <Text style={styles.moderationValue}>0</Text>
+              <Text style={styles.moderationLabel}>User Blocks</Text>
+              <View style={styles.moderationStatus}>
+                <Ionicons name="shield-outline" size={14} color="#888" />
+                <Text style={styles.moderationStatusText}>This week</Text>
+              </View>
+            </View>
+          </View>
+
+          {/* Moderation Actions Placeholder */}
+          <View style={styles.moderationActions}>
+            <TouchableOpacity style={styles.moderationActionButton}>
+              <Ionicons name="list-outline" size={18} color="#FFD700" />
+              <Text style={styles.moderationActionText}>View All Reports</Text>
+              <View style={styles.moderationBadge}>
+                <Text style={styles.moderationBadgeText}>0</Text>
+              </View>
+            </TouchableOpacity>
+            
+            <TouchableOpacity style={styles.moderationActionButton}>
+              <Ionicons name="people-outline" size={18} color="#FFD700" />
+              <Text style={styles.moderationActionText}>Block Notifications</Text>
+              <View style={styles.moderationBadge}>
+                <Text style={styles.moderationBadgeText}>0</Text>
+              </View>
+            </TouchableOpacity>
+          </View>
+
+          <View style={styles.moderationNote}>
+            <Ionicons name="information-circle-outline" size={16} color="#666" />
+            <Text style={styles.moderationNoteText}>
+              Reports require action within 24 hours per App Store guidelines
+            </Text>
+          </View>
+        </View>
+
         {/* Top Pages Visited */}
         <View style={styles.section}>
           <View style={styles.sectionHeader}>
