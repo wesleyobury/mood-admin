@@ -354,7 +354,9 @@ async def register(user_data: UserCreate):
         "total_workouts": 0,
         "following": [],
         "followers": [],
-        "created_at": datetime.now(timezone.utc)
+        "created_at": datetime.now(timezone.utc),
+        "terms_accepted_at": datetime.now(timezone.utc),  # Record when user accepted terms
+        "privacy_accepted_at": datetime.now(timezone.utc),  # Record when user accepted privacy policy
     }
     
     result = await db.users.insert_one(user_doc)
