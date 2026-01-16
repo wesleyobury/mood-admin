@@ -125,7 +125,7 @@ export default function Welcome() {
       await AsyncStorage.setItem(PRIVACY_ACCEPTED_KEY, 'true');
       setHasAcceptedPrivacy(true);
       setShowPrivacyModal(false);
-      // Navigate to login after accepting privacy policy
+      // Navigate to login after accepting privacy policy and terms
       router.push('/auth/login');
     } catch (error) {
       console.error('Error saving privacy acceptance:', error);
@@ -135,6 +135,11 @@ export default function Welcome() {
   const handleViewFullPolicy = () => {
     setShowPrivacyModal(false);
     router.push('/privacy-policy');
+  };
+
+  const handleViewTerms = () => {
+    setShowPrivacyModal(false);
+    router.push('/terms-of-service');
   };
 
   const handleGetStarted = () => {
