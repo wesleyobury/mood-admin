@@ -234,6 +234,10 @@ const styles = StyleSheet.create({
     borderRadius: 24,
     backgroundColor: '#333',
   },
+  avatarPlaceholder: {
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
   userInfo: {
     flex: 1,
     marginLeft: 12,
