@@ -81,19 +81,40 @@ export default function FollowListModal({
     router.push(`/user-profile?userId=${user.id}`);
   };
 
-  const renderUser = ({ item }: { item: User }) => (
-    <TouchableOpacity
-      style={styles.userItem}
-      onPress={() => handleUserPress(item)}
-    >
-      <Image source={{ uri: item.avatar }} style={styles.avatar} />
-      <View style={styles.userInfo}>
-        <Text style={styles.username}>{item.username}</Text>
-        {item.name && <Text style={styles.name}>{item.name}</Text>}
-      </View>
-      <Ionicons name="chevron-forward" size={20} color="#666" />
-    </TouchableOpacity>
-  );
+  const getAvatarUri = (avatar: string | undefined | null) => {
+    if (!avatar) {
+      return null;
+    }
+    if (avatar.startsWith('http')) {
+      return avatar;
+    }
+    // Handle relative URLs
+    return `${API_URL}${avatar}`;
+  };
+
+  const renderUser = ({ item }: { item: User }) => {
+    const avatarUri = getAvatarUri(item.avatar);
+    
+    return (
+      <TouchableOpacity
+        style={styles.userItem}
+        onPress={() => handleUserPress(item)}
+      >
+        {avatarUri ? (
+          <Image source={{ uri: avatarUri }} style={styles.avatar} />
+        ) : (
+          <View style={[styles.avatar, styles.avatarPlaceholder]}>
+            <Ionicons name="person" size={24} color="#666" />
+          </View>
+        )}
+        <View style={styles.userInfo}>
+          <Text style={styles.username}>{item.username}</Text>
+          {item.name && <Text style={styles.name}>{item.name}</Text>}
+        </View>
+        <Ionicons name="chevron-forward" size={20} color="#666" />
+      </TouchableOpacity>
+    );
+  };
 
   return (
     <Modal
