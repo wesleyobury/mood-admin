@@ -155,6 +155,31 @@ export default function TermsOfServiceScreen() {
           </View>
         </View>
 
+        {/* Explicit Content Prohibition */}
+        <View style={[styles.section, styles.zeroToleranceSection]}>
+          <View style={styles.warningHeader}>
+            <Ionicons name="ban" size={24} color="#FF3B30" />
+            <Text style={styles.zeroToleranceTitle}>Prohibited Sexual Content</Text>
+          </View>
+          <Text style={styles.paragraph}>
+            The following content is STRICTLY PROHIBITED and will result in immediate account termination:
+          </Text>
+          <View style={styles.bulletList}>
+            <Text style={styles.bulletItem}>• Pornographic or sexually explicit images, videos, or text</Text>
+            <Text style={styles.bulletItem}>• Nudity or partial nudity intended to be sexual</Text>
+            <Text style={styles.bulletItem}>• Sexual solicitation or offers of sexual services</Text>
+            <Text style={styles.bulletItem}>• Content depicting sexual acts or fetishes</Text>
+            <Text style={styles.bulletItem}>• Sexually suggestive content involving minors (ZERO TOLERANCE - reported to authorities)</Text>
+            <Text style={styles.bulletItem}>• Links to pornographic websites or adult content</Text>
+            <Text style={styles.bulletItem}>• Sexual harassment or unsolicited sexual messages</Text>
+            <Text style={styles.bulletItem}>• Content promoting or glorifying non-consensual sexual activity</Text>
+          </View>
+          <Text style={styles.zeroToleranceWarning}>
+            We use automated filtering and human moderation to detect and remove prohibited content. 
+            Attempting to bypass our filters will result in permanent account suspension.
+          </Text>
+        </View>
+
         {/* Content Moderation */}
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>Content Moderation</Text>
