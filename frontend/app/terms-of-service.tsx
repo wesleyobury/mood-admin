@@ -33,6 +33,34 @@ export default function TermsOfServiceScreen() {
       >
         <Text style={styles.lastUpdated}>Last Updated: January 2025</Text>
 
+        {/* Zero Tolerance Policy - CRITICAL FOR APP STORE */}
+        <View style={[styles.section, styles.zeroToleranceSection]}>
+          <View style={styles.warningHeader}>
+            <Ionicons name="shield-checkmark" size={24} color="#FF3B30" />
+            <Text style={styles.zeroToleranceTitle}>Zero Tolerance Policy</Text>
+          </View>
+          <Text style={styles.zeroToleranceParagraph}>
+            WE HAVE ZERO TOLERANCE FOR OBJECTIONABLE CONTENT OR ABUSIVE USERS.
+          </Text>
+          <Text style={styles.paragraph}>
+            By using this app, you agree that you will NOT post, share, or engage in any of the following:
+          </Text>
+          <View style={styles.bulletList}>
+            <Text style={styles.bulletItem}>• Content that is offensive, abusive, or promotes violence</Text>
+            <Text style={styles.bulletItem}>• Harassment, bullying, or threatening behavior towards any user</Text>
+            <Text style={styles.bulletItem}>• Hate speech, discrimination, or content targeting any group</Text>
+            <Text style={styles.bulletItem}>• Sexually explicit or pornographic material</Text>
+            <Text style={styles.bulletItem}>• Content promoting illegal activities or substances</Text>
+            <Text style={styles.bulletItem}>• Spam, scams, or deceptive content</Text>
+            <Text style={styles.bulletItem}>• Content that infringes on others' rights or privacy</Text>
+          </View>
+          <Text style={styles.zeroToleranceWarning}>
+            Violation of this policy will result in immediate account suspension or permanent ban. 
+            We actively monitor content and investigate all reports. Severe violations may be reported 
+            to law enforcement authorities.
+          </Text>
+        </View>
+
         {/* Introduction */}
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>Introduction</Text>
