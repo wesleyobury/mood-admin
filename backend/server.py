@@ -4436,12 +4436,30 @@ async def like_post(post_id: str, current_user_id: str = Depends(get_current_use
 async def create_comment(comment_data: CommentCreate, current_user_id: str = Depends(get_current_user)):
     """Create a comment on a post with content filtering"""
     try:
-        # Check content for objectionable material
-        content_check = check_content(comment_data.text, strict=True)
+        # Check content for objectionable material (pre-submission filtering)
+        content_check = check_content(
+            comment_data.text, 
+            strict=True,
+            user_id=current_user_id,
+            content_type="comment"
+        )
         if not content_check["is_clean"]:
+            # Log rejected attempt to database for moderation review
+            await db.moderation_logs.insert_one({
+                "user_id": current_user_id,
+                "content_type": "comment",
+                "action": "rejected",
+                "reason": "content_filter",
+                "category": content_check.get("category"),
+                "flagged_words": content_check.get("flagged_words", []),
+                "flagged_phrases": content_check.get("flagged_phrases", []),
+                "text_preview": comment_data.text[:200] if comment_data.text else "",
+                "post_id": comment_data.post_id,
+                "created_at": datetime.now(timezone.utc)
+            })
             raise HTTPException(
                 status_code=400, 
-                detail="Your comment contains inappropriate content and cannot be published."
+                detail="This content violates our community guidelines."
             )
         
         comment_doc = {
