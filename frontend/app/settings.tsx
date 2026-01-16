@@ -335,7 +335,7 @@ export default function Settings() {
           
           <TouchableOpacity 
             style={styles.settingsItem}
-            onPress={() => openExternalUrl(EXTERNAL_URLS.termsOfService, 'Unable to open Terms of Service. Please try again later.')}
+            onPress={() => router.push('/terms-of-service')}
           >
             <View style={styles.settingsItemLeft}>
               <Ionicons name="document-text-outline" size={20} color="#FFD700" />
@@ -344,12 +344,12 @@ export default function Settings() {
                 <Text style={styles.settingsItemSubtext}>View our terms and conditions</Text>
               </View>
             </View>
-            <Ionicons name="open-outline" size={18} color="#666" />
+            <Ionicons name="chevron-forward" size={18} color="#666" />
           </TouchableOpacity>
 
           <TouchableOpacity 
             style={styles.settingsItem}
-            onPress={() => openExternalUrl(EXTERNAL_URLS.privacyPolicy, 'Unable to open Privacy Policy. Please try again later.')}
+            onPress={() => router.push('/privacy-policy')}
           >
             <View style={styles.settingsItemLeft}>
               <Ionicons name="shield-checkmark-outline" size={20} color="#FFD700" />
@@ -358,7 +358,7 @@ export default function Settings() {
                 <Text style={styles.settingsItemSubtext}>How we handle your data</Text>
               </View>
             </View>
-            <Ionicons name="open-outline" size={18} color="#666" />
+            <Ionicons name="chevron-forward" size={18} color="#666" />
           </TouchableOpacity>
         </View>
 
