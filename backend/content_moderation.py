@@ -4,40 +4,121 @@ Handles content filtering, user reporting, and blocking functionality
 """
 
 import re
-from typing import List, Optional, Set
+import logging
+from typing import List, Optional, Tuple
 from datetime import datetime, timezone
 
-# Profanity/Objectionable content word list
-# This is a basic list - can be extended as needed
-BLOCKED_WORDS = {
-    # Slurs and hate speech (various categories)
-    'nigger', 'nigga', 'faggot', 'fag', 'retard', 'retarded', 'spic', 'chink', 
-    'kike', 'wetback', 'beaner', 'gook', 'coon', 'dyke', 'tranny',
-    
-    # Extreme profanity
-    'fuck', 'fucking', 'fucked', 'fucker', 'motherfucker', 'motherfucking',
-    'shit', 'shitting', 'bullshit', 'horseshit', 'shitty',
-    'cunt', 'cock', 'dick', 'pussy', 'asshole', 'ass', 'bitch', 'bitches',
-    'whore', 'slut', 'bastard', 'damn', 'goddamn',
-    
-    # Sexual content
-    'porn', 'pornography', 'xxx', 'nude', 'nudes', 'naked', 'sex', 'sexual',
-    'penis', 'vagina', 'boobs', 'tits', 'dildo', 'masturbate', 'orgasm',
-    
-    # Violence related
-    'kill', 'murder', 'rape', 'suicide', 'terrorist', 'bomb', 'shoot',
-    
-    # Drug references
-    'cocaine', 'heroin', 'meth', 'crack',
+# Set up logging for moderation
+moderation_logger = logging.getLogger('content_moderation')
+moderation_logger.setLevel(logging.INFO)
+
+# Comprehensive banned keyword list for content filtering
+# Categories: Harassment, Hate Speech, Sexual Content, Violence, Drugs
+
+# === HATE SPEECH & SLURS ===
+HATE_SPEECH_WORDS = {
+    'nigger', 'nigga', 'faggot', 'fag', 'retard', 'retarded', 'spic', 'chink',
+    'kike', 'wetback', 'beaner', 'gook', 'coon', 'dyke', 'tranny', 'shemale',
+    'towelhead', 'raghead', 'jap', 'cracker', 'honky', 'gringo', 'paki',
+    'negro', 'darkie', 'slope', 'zipperhead', 'halfbreed', 'mongrel',
 }
+
+# === HARASSMENT & BULLYING ===
+HARASSMENT_WORDS = {
+    'kys', 'kill yourself', 'go die', 'neck yourself', 'drink bleach',
+    'hope you die', 'worthless', 'pathetic loser', 'ugly bitch',
+    'fat pig', 'fat ass', 'whale', 'landwhale', 'fatso',
+}
+
+# === SEXUAL & PORNOGRAPHIC CONTENT ===
+SEXUAL_CONTENT_WORDS = {
+    # Pornographic terms
+    'porn', 'porno', 'pornography', 'xxx', 'xxxx', 'hardcore',
+    'hentai', 'milf', 'gilf', 'dilf', 'pawg', 'bbc', 'bwc',
+    'gangbang', 'gang bang', 'bukkake', 'creampie', 'cumshot',
+    'blowjob', 'blow job', 'handjob', 'hand job', 'footjob',
+    'deepthroat', 'deep throat', 'facial', 'anal', 'analsex',
+    'threesome', 'foursome', 'orgy', 'swingers', 'dogging',
+    'cuckold', 'hotwife', 'slutwife', 'onlyfans', 'fansly',
+    
+    # Nudity and body parts (explicit context)
+    'nude', 'nudes', 'naked', 'nudity', 'topless', 'bottomless',
+    'penis', 'cock', 'dick', 'schlong', 'dong', 'boner', 'erection',
+    'vagina', 'pussy', 'cunt', 'twat', 'cooch', 'cooter', 'snatch',
+    'boobs', 'tits', 'titties', 'breasts', 'nipples', 'areola',
+    'ass', 'asshole', 'anus', 'butthole', 'butt plug',
+    'balls', 'testicles', 'scrotum', 'nutsack',
+    'clitoris', 'clit', 'labia', 'vulva',
+    
+    # Sexual acts
+    'sex', 'sexual', 'sexting', 'sext',
+    'fuck', 'fucking', 'fucked', 'fucker', 'fucks',
+    'masturbate', 'masturbation', 'jerk off', 'jack off', 'wank',
+    'orgasm', 'cum', 'cumming', 'ejaculate', 'ejaculation',
+    'dildo', 'vibrator', 'fleshlight', 'sex toy', 'sextoy',
+    'horny', 'aroused', 'turned on', 'getting off',
+    'rape', 'raping', 'rapist', 'molest', 'molestation',
+    'incest', 'pedophile', 'pedo', 'child porn', 'cp',
+    'bdsm', 'bondage', 'domination', 'submission', 'sadism',
+    
+    # Prostitution
+    'prostitute', 'hooker', 'escort', 'call girl', 'whore', 'slut',
+    'hoe', 'thot', 'skank', 'tramp', 'streetwalker',
+}
+
+# === VIOLENCE & THREATS ===
+VIOLENCE_WORDS = {
+    'kill', 'murder', 'assassinate', 'execute', 'slaughter',
+    'shoot', 'stab', 'strangle', 'choke', 'suffocate',
+    'bomb', 'bombing', 'terrorist', 'terrorism', 'jihad',
+    'massacre', 'genocide', 'holocaust',
+    'torture', 'mutilate', 'dismember', 'decapitate', 'behead',
+}
+
+# === DRUG REFERENCES ===
+DRUG_WORDS = {
+    'cocaine', 'coke', 'crack', 'heroin', 'meth', 'methamphetamine',
+    'fentanyl', 'opioid', 'mdma', 'ecstasy', 'molly',
+    'lsd', 'acid', 'shrooms', 'psilocybin', 'dmt',
+    'ketamine', 'pcp', 'angel dust', 'bath salts',
+}
+
+# === PROFANITY (General) ===
+PROFANITY_WORDS = {
+    'shit', 'shitting', 'bullshit', 'horseshit', 'shitty', 'shithead',
+    'bitch', 'bitches', 'bitchy', 'son of a bitch',
+    'bastard', 'damn', 'goddamn', 'damnit',
+    'motherfucker', 'motherfucking', 'mofo',
+    'piss', 'pissed', 'pissing',
+}
+
+# Combine all blocked words
+BLOCKED_WORDS = (
+    HATE_SPEECH_WORDS | 
+    HARASSMENT_WORDS | 
+    SEXUAL_CONTENT_WORDS | 
+    VIOLENCE_WORDS | 
+    DRUG_WORDS | 
+    PROFANITY_WORDS
+)
+
+# Multi-word phrases that should be blocked
+BLOCKED_PHRASES = [
+    'kill yourself', 'go die', 'neck yourself', 'drink bleach',
+    'hope you die', 'gang bang', 'blow job', 'hand job',
+    'deep throat', 'child porn', 'sex toy', 'jerk off',
+    'jack off', 'turned on', 'getting off', 'call girl',
+    'son of a bitch', 'bath salts', 'angel dust',
+]
 
 # Words that are okay in fitness context but flagged elsewhere
 FITNESS_CONTEXT_WORDS = {
-    'ass',  # as in "kick ass workout"
     'burn',  # as in "feel the burn"
     'killer',  # as in "killer workout"
     'beast',  # as in "beast mode"
     'crush',  # as in "crush your goals"
+    'destroy',  # as in "destroy that workout"
+    'smash',  # as in "smash your goals"
 }
 
 # Report categories
@@ -48,6 +129,8 @@ REPORT_CATEGORIES = [
     "nudity_sexual_content",
     "violence",
     "misinformation",
+    "scam_fraud",
+    "self_harm",
     "other"
 ]
 
