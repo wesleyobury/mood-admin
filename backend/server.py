@@ -3151,6 +3151,41 @@ async def update_credentials(
         logger.error(f"Error updating credentials: {str(e)}")
         raise HTTPException(status_code=500, detail="Failed to update credentials")
 
+@api_router.post("/users/me/accept-terms")
+async def accept_terms(current_user_id: str = Depends(get_current_user)):
+    """Record user's acceptance of Terms of Service and Privacy Policy"""
+    try:
+        now = datetime.now(timezone.utc)
+        
+        result = await db.users.update_one(
+            {"_id": ObjectId(current_user_id)},
+            {
+                "$set": {
+                    "terms_accepted_at": now,
+                    "privacy_accepted_at": now,
+                }
+            }
+        )
+        
+        if result.modified_count == 0:
+            # If not modified, check if user exists
+            user = await db.users.find_one({"_id": ObjectId(current_user_id)})
+            if not user:
+                raise HTTPException(status_code=404, detail="User not found")
+        
+        logger.info(f"✅ Terms accepted by user: {current_user_id}")
+        
+        return {
+            "message": "Terms acceptance recorded",
+            "terms_accepted_at": now.isoformat(),
+            "privacy_accepted_at": now.isoformat()
+        }
+    except HTTPException:
+        raise
+    except Exception as e:
+        logger.error(f"Error recording terms acceptance: {str(e)}")
+        raise HTTPException(status_code=500, detail="Failed to record terms acceptance")
+
 @api_router.delete("/users/me")
 async def delete_user_account(current_user_id: str = Depends(get_current_user)):
     """Delete user account and all associated data"""
