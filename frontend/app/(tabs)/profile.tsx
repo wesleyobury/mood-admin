@@ -698,7 +698,7 @@ export default function Profile() {
             <View style={styles.guestLegalLinks}>
               <TouchableOpacity 
                 style={styles.guestLegalButton}
-                onPress={() => Linking.openURL(EXTERNAL_URLS.termsOfService)}
+                onPress={() => router.push('/terms-of-service')}
               >
                 <Ionicons name="document-text-outline" size={16} color="#888" />
                 <Text style={styles.guestLegalText}>Terms of Service</Text>
@@ -706,7 +706,7 @@ export default function Profile() {
 
               <TouchableOpacity 
                 style={styles.guestLegalButton}
-                onPress={() => Linking.openURL(EXTERNAL_URLS.privacyPolicy)}
+                onPress={() => router.push('/privacy-policy')}
               >
                 <Ionicons name="shield-checkmark-outline" size={16} color="#888" />
                 <Text style={styles.guestLegalText}>Privacy Policy</Text>
