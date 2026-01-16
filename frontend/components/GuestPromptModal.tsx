@@ -138,6 +138,45 @@ export default function GuestPromptModal({ visible, onClose, action = 'use this 
           >
             <Text style={styles.continueGuestText}>Continue browsing as guest</Text>
           </TouchableOpacity>
+
+          {/* Legal Links */}
+          <View style={styles.legalLinksContainer}>
+            <View style={styles.legalDivider} />
+            <View style={styles.legalLinks}>
+              <TouchableOpacity 
+                style={styles.legalLinkButton}
+                onPress={() => {
+                  onClose();
+                  router.push('/terms-of-service');
+                }}
+              >
+                <Ionicons name="document-text-outline" size={16} color="#888" />
+                <Text style={styles.legalLinkText}>Terms of Service</Text>
+              </TouchableOpacity>
+
+              <TouchableOpacity 
+                style={styles.legalLinkButton}
+                onPress={() => {
+                  onClose();
+                  router.push('/privacy-policy');
+                }}
+              >
+                <Ionicons name="shield-checkmark-outline" size={16} color="#888" />
+                <Text style={styles.legalLinkText}>Privacy Policy</Text>
+              </TouchableOpacity>
+
+              <TouchableOpacity 
+                style={styles.legalLinkButton}
+                onPress={() => {
+                  onClose();
+                  router.push('/terms-of-service');
+                }}
+              >
+                <Ionicons name="people-outline" size={16} color="#888" />
+                <Text style={styles.legalLinkText}>Community Guidelines</Text>
+              </TouchableOpacity>
+            </View>
+          </View>
         </View>
       </View>
     </Modal>
