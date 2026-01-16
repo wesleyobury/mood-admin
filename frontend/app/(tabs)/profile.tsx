@@ -698,7 +698,7 @@ export default function Profile() {
             <View style={styles.guestLegalLinks}>
               <TouchableOpacity 
                 style={styles.guestLegalButton}
-                onPress={() => router.push('/terms-of-service')}
+                onPress={() => Linking.openURL(EXTERNAL_URLS.termsOfService)}
               >
                 <Ionicons name="document-text-outline" size={16} color="#888" />
                 <Text style={styles.guestLegalText}>Terms of Service</Text>
@@ -706,7 +706,7 @@ export default function Profile() {
 
               <TouchableOpacity 
                 style={styles.guestLegalButton}
-                onPress={() => router.push('/privacy-policy')}
+                onPress={() => Linking.openURL(EXTERNAL_URLS.privacyPolicy)}
               >
                 <Ionicons name="shield-checkmark-outline" size={16} color="#888" />
                 <Text style={styles.guestLegalText}>Privacy Policy</Text>
@@ -714,10 +714,10 @@ export default function Profile() {
 
               <TouchableOpacity 
                 style={styles.guestLegalButton}
-                onPress={() => router.push('/terms-of-service')}
+                onPress={() => Linking.openURL(EXTERNAL_URLS.support)}
               >
-                <Ionicons name="people-outline" size={16} color="#888" />
-                <Text style={styles.guestLegalText}>Community Guidelines</Text>
+                <Ionicons name="help-circle-outline" size={16} color="#888" />
+                <Text style={styles.guestLegalText}>Help Center</Text>
               </TouchableOpacity>
             </View>
           </View>
