@@ -51,7 +51,7 @@ SEXUAL_CONTENT_WORDS = {
     'clitoris', 'clit', 'labia', 'vulva',
     
     # Sexual acts
-    'sex', 'sexual', 'sexting', 'sext',
+    'sex', 'sexual', 'sexting', 'sext', 'sexy',
     'fuck', 'fucking', 'fucked', 'fucker', 'fucks',
     'masturbate', 'masturbation', 'jerk off', 'jack off', 'wank',
     'orgasm', 'cum', 'cumming', 'ejaculate', 'ejaculation',
