@@ -327,38 +327,57 @@ export default function Settings() {
             </View>
             <Ionicons name="chevron-forward" size={18} color="#666" />
           </TouchableOpacity>
+        </View>
+
+        {/* Legal Section */}
+        <View style={styles.section}>
+          <Text style={styles.sectionTitle}>Legal</Text>
           
           <TouchableOpacity 
             style={styles.settingsItem}
-            onPress={() => setShowTerms(true)}
+            onPress={() => openExternalUrl(EXTERNAL_URLS.termsOfService, 'Unable to open Terms of Service. Please try again later.')}
           >
             <View style={styles.settingsItemLeft}>
               <Ionicons name="document-text-outline" size={20} color="#FFD700" />
-              <Text style={styles.settingsItemText}>Terms of Service</Text>
+              <View>
+                <Text style={styles.settingsItemText}>Terms of Service</Text>
+                <Text style={styles.settingsItemSubtext}>View our terms and conditions</Text>
+              </View>
             </View>
-            <Ionicons name="chevron-forward" size={18} color="#666" />
+            <Ionicons name="open-outline" size={18} color="#666" />
           </TouchableOpacity>
 
           <TouchableOpacity 
             style={styles.settingsItem}
-            onPress={() => router.push('/privacy-policy')}
+            onPress={() => openExternalUrl(EXTERNAL_URLS.privacyPolicy, 'Unable to open Privacy Policy. Please try again later.')}
           >
             <View style={styles.settingsItemLeft}>
               <Ionicons name="shield-checkmark-outline" size={20} color="#FFD700" />
-              <Text style={styles.settingsItemText}>Privacy Policy</Text>
+              <View>
+                <Text style={styles.settingsItemText}>Privacy Policy</Text>
+                <Text style={styles.settingsItemSubtext}>How we handle your data</Text>
+              </View>
             </View>
-            <Ionicons name="chevron-forward" size={18} color="#666" />
+            <Ionicons name="open-outline" size={18} color="#666" />
           </TouchableOpacity>
+        </View>
+
+        {/* Help & Support Section */}
+        <View style={styles.section}>
+          <Text style={styles.sectionTitle}>Help & Support</Text>
 
           <TouchableOpacity 
             style={styles.settingsItem}
-            onPress={() => router.push('/terms-of-service')}
+            onPress={() => openExternalUrl(EXTERNAL_URLS.support, 'Unable to open Support page. Please try again later.')}
           >
             <View style={styles.settingsItemLeft}>
-              <Ionicons name="document-text-outline" size={20} color="#FFD700" />
-              <Text style={styles.settingsItemText}>Terms of Service</Text>
+              <Ionicons name="help-circle-outline" size={20} color="#FFD700" />
+              <View>
+                <Text style={styles.settingsItemText}>Help Center</Text>
+                <Text style={styles.settingsItemSubtext}>FAQs and support resources</Text>
+              </View>
             </View>
-            <Ionicons name="chevron-forward" size={18} color="#666" />
+            <Ionicons name="open-outline" size={18} color="#666" />
           </TouchableOpacity>
 
           <TouchableOpacity 
