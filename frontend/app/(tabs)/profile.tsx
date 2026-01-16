@@ -1992,4 +1992,32 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     color: '#FFD700',
   },
+  guestLegalContainer: {
+    marginTop: 24,
+    width: '100%',
+  },
+  guestLegalDivider: {
+    height: 1,
+    backgroundColor: 'rgba(255, 255, 255, 0.1)',
+    marginBottom: 16,
+  },
+  guestLegalLinks: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    flexWrap: 'wrap',
+    gap: 8,
+  },
+  guestLegalButton: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingVertical: 8,
+    paddingHorizontal: 12,
+    borderRadius: 8,
+    backgroundColor: 'rgba(255, 255, 255, 0.05)',
+    gap: 6,
+  },
+  guestLegalText: {
+    fontSize: 12,
+    color: '#888',
+  },
 });
