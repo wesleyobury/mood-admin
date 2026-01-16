@@ -1524,6 +1524,124 @@ async def get_difficulties_breakdown_endpoint(
     return await get_difficulty_selections_breakdown(db, days)
 
 
+# ============================================
+# ADMIN CONTENT MODERATION ENDPOINTS
+# ============================================
+
+@api_router.get("/admin/moderation-logs")
+async def get_moderation_logs(
+    limit: int = 50,
+    skip: int = 0,
+    category: Optional[str] = None,
+    current_user_id: str = Depends(get_current_user)
+):
+    """Get content moderation logs for admin review (rejected content attempts)"""
+    try:
+        # Build query
+        query = {}
+        if category:
+            query["category"] = category
+        
+        # Get logs with pagination
+        logs = await db.moderation_logs.find(query).sort("created_at", -1).skip(skip).limit(limit).to_list(length=limit)
+        
+        # Get user info for each log
+        result = []
+        for log in logs:
+            user = await db.users.find_one({"_id": ObjectId(log["user_id"])})
+            result.append({
+                "id": str(log["_id"]),
+                "user_id": log["user_id"],
+                "username": user.get("username", "Unknown") if user else "Deleted User",
+                "content_type": log.get("content_type"),
+                "action": log.get("action"),
+                "reason": log.get("reason"),
+                "category": log.get("category"),
+                "flagged_words": log.get("flagged_words", []),
+                "flagged_phrases": log.get("flagged_phrases", []),
+                "text_preview": log.get("text_preview", ""),
+                "created_at": log.get("created_at").isoformat() if log.get("created_at") else None
+            })
+        
+        # Get total count
+        total = await db.moderation_logs.count_documents(query)
+        
+        return {
+            "logs": result,
+            "total": total,
+            "limit": limit,
+            "skip": skip
+        }
+    except Exception as e:
+        logger.error(f"Error fetching moderation logs: {str(e)}")
+        raise HTTPException(status_code=500, detail="Failed to fetch moderation logs")
+
+@api_router.get("/admin/moderation-stats")
+async def get_moderation_stats(
+    days: int = 30,
+    current_user_id: str = Depends(get_current_user)
+):
+    """Get content moderation statistics for admin dashboard"""
+    try:
+        cutoff_date = datetime.now(timezone.utc) - timedelta(days=days)
+        
+        # Aggregate stats by category
+        pipeline = [
+            {"$match": {"created_at": {"$gte": cutoff_date}}},
+            {"$group": {
+                "_id": "$category",
+                "count": {"$sum": 1}
+            }},
+            {"$sort": {"count": -1}}
+        ]
+        
+        category_stats = await db.moderation_logs.aggregate(pipeline).to_list(100)
+        
+        # Aggregate by content type
+        type_pipeline = [
+            {"$match": {"created_at": {"$gte": cutoff_date}}},
+            {"$group": {
+                "_id": "$content_type",
+                "count": {"$sum": 1}
+            }}
+        ]
+        
+        type_stats = await db.moderation_logs.aggregate(type_pipeline).to_list(100)
+        
+        # Total rejections
+        total = await db.moderation_logs.count_documents({"created_at": {"$gte": cutoff_date}})
+        
+        # Repeat offenders (users with multiple rejections)
+        repeat_pipeline = [
+            {"$match": {"created_at": {"$gte": cutoff_date}}},
+            {"$group": {
+                "_id": "$user_id",
+                "count": {"$sum": 1}
+            }},
+            {"$match": {"count": {"$gte": 3}}},
+            {"$sort": {"count": -1}},
+            {"$limit": 10}
+        ]
+        
+        repeat_offenders = await db.moderation_logs.aggregate(repeat_pipeline).to_list(10)
+        
+        # Get user info for repeat offenders
+        for offender in repeat_offenders:
+            user = await db.users.find_one({"_id": ObjectId(offender["_id"])})
+            offender["username"] = user.get("username", "Unknown") if user else "Deleted User"
+        
+        return {
+            "period_days": days,
+            "total_rejections": total,
+            "by_category": {stat["_id"]: stat["count"] for stat in category_stats},
+            "by_content_type": {stat["_id"]: stat["count"] for stat in type_stats},
+            "repeat_offenders": repeat_offenders
+        }
+    except Exception as e:
+        logger.error(f"Error fetching moderation stats: {str(e)}")
+        raise HTTPException(status_code=500, detail="Failed to fetch moderation stats")
+
+
 @api_router.get("/analytics/admin/exercises")
 async def get_exercises_breakdown_endpoint(
     days: int = 30,
