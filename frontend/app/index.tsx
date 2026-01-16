@@ -152,7 +152,7 @@ export default function Welcome() {
   
   return (
     <View style={styles.container}>
-      {/* Privacy Policy Modal */}
+      {/* Privacy Policy & Terms Modal */}
       <Modal
         visible={showPrivacyModal}
         animationType="slide"
@@ -165,13 +165,25 @@ export default function Welcome() {
               <View style={styles.modalIconContainer}>
                 <Ionicons name="shield-checkmark" size={32} color="#FFD700" />
               </View>
-              <Text style={styles.modalTitle}>Privacy Policy</Text>
+              <Text style={styles.modalTitle}>Terms & Privacy</Text>
               <Text style={styles.modalSubtitle}>
-                Before you continue, please review our privacy practices
+                Please review our terms and privacy practices
               </Text>
             </View>
 
             <ScrollView style={styles.modalScroll} showsVerticalScrollIndicator={false}>
+              {/* Zero Tolerance Notice */}
+              <View style={styles.zeroToleranceNotice}>
+                <View style={styles.zeroToleranceHeader}>
+                  <Ionicons name="warning" size={20} color="#FF3B30" />
+                  <Text style={styles.zeroToleranceTitle}>Community Guidelines</Text>
+                </View>
+                <Text style={styles.zeroToleranceText}>
+                  We have <Text style={styles.boldText}>zero tolerance</Text> for objectionable content or abusive users. 
+                  Violations result in immediate account suspension or ban.
+                </Text>
+              </View>
+
               <View style={styles.privacySummarySection}>
                 <Text style={styles.privacySummaryTitle}>What we collect:</Text>
                 
@@ -221,13 +233,28 @@ export default function Welcome() {
             </ScrollView>
 
             <View style={styles.modalActions}>
-              <TouchableOpacity 
-                style={styles.viewPolicyButton}
-                onPress={handleViewFullPolicy}
-              >
-                <Ionicons name="document-text-outline" size={18} color="#FFD700" />
-                <Text style={styles.viewPolicyText}>View Full Policy</Text>
-              </TouchableOpacity>
+              <View style={styles.policyLinksRow}>
+                <TouchableOpacity 
+                  style={styles.viewPolicyButton}
+                  onPress={handleViewFullPolicy}
+                >
+                  <Ionicons name="document-text-outline" size={16} color="#FFD700" />
+                  <Text style={styles.viewPolicyText}>Privacy Policy</Text>
+                </TouchableOpacity>
+
+                <TouchableOpacity 
+                  style={styles.viewPolicyButton}
+                  onPress={handleViewTerms}
+                >
+                  <Ionicons name="reader-outline" size={16} color="#FFD700" />
+                  <Text style={styles.viewPolicyText}>Terms of Service</Text>
+                </TouchableOpacity>
+              </View>
+
+              <Text style={styles.agreementText}>
+                By tapping "Accept & Continue", you agree to our Terms of Service and Privacy Policy, 
+                including our zero tolerance policy for objectionable content.
+              </Text>
 
               <TouchableOpacity 
                 style={styles.acceptButton}
