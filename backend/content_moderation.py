@@ -153,7 +153,7 @@ def normalize_text(text: str) -> str:
     # Common letter substitutions used to bypass filters
     substitutions = {
         '0': 'o',
-        '1': 'i',
+        '1': 'i', 
         '3': 'e',
         '4': 'a',
         '5': 's',
@@ -166,65 +166,166 @@ def normalize_text(text: str) -> str:
         '_': '',
         '-': '',
         '.': '',
+        '|': 'i',
+        '¡': 'i',
+        '€': 'e',
     }
     
     for old, new in substitutions.items():
         text = text.replace(old, new)
     
     # Remove repeated characters (e.g., "fuuuuck" -> "fuck")
-    text = re.sub(r'(.)\1{2,}', r'\1', text)
+    text = re.sub(r'(.)\1{2,}', r'\1\1', text)
+    
+    # Remove spaces between letters that might be obfuscation (e.g., "f u c k")
+    # But be careful not to break normal words
     
     return text
 
-def check_content(text: str, strict: bool = True) -> dict:
+def check_content(text: str, strict: bool = True, user_id: str = None, content_type: str = "unknown") -> dict:
     """
-    Check content for objectionable material
+    Check content for objectionable material (pre-submission filtering)
+    
+    Args:
+        text: The text content to check
+        strict: If True, applies stricter filtering
+        user_id: Optional user ID for logging purposes
+        content_type: Type of content (post, comment, etc.) for logging
     
     Returns:
         dict with:
         - is_clean: bool - True if content passes filter
         - flagged_words: list - Words that triggered the filter
+        - flagged_phrases: list - Phrases that triggered the filter
         - confidence: str - 'high', 'medium', 'low'
+        - category: str - Category of violation if any
     """
     if not text:
-        return {"is_clean": True, "flagged_words": [], "confidence": "high"}
+        return {
+            "is_clean": True, 
+            "flagged_words": [], 
+            "flagged_phrases": [],
+            "confidence": "high",
+            "category": None
+        }
     
+    original_text = text
     normalized = normalize_text(text)
     words = set(re.findall(r'\b\w+\b', normalized))
     
-    flagged = []
+    flagged_words = []
+    flagged_phrases = []
+    categories_found = set()
     
+    # Check for blocked phrases first (multi-word)
+    for phrase in BLOCKED_PHRASES:
+        if phrase in normalized:
+            flagged_phrases.append(phrase)
+            # Determine category
+            if phrase in ['kill yourself', 'go die', 'neck yourself', 'drink bleach', 'hope you die']:
+                categories_found.add('harassment')
+            elif phrase in ['gang bang', 'blow job', 'hand job', 'deep throat', 'child porn', 'sex toy', 'jerk off', 'jack off', 'turned on', 'getting off', 'call girl']:
+                categories_found.add('sexual_content')
+    
+    # Check individual words
     for word in words:
         if word in BLOCKED_WORDS:
             # Check if it's a fitness context word that might be acceptable
             if word in FITNESS_CONTEXT_WORDS and not strict:
                 continue
-            flagged.append(word)
+            flagged_words.append(word)
+            
+            # Categorize the violation
+            if word in HATE_SPEECH_WORDS:
+                categories_found.add('hate_speech')
+            elif word in HARASSMENT_WORDS:
+                categories_found.add('harassment')
+            elif word in SEXUAL_CONTENT_WORDS:
+                categories_found.add('sexual_content')
+            elif word in VIOLENCE_WORDS:
+                categories_found.add('violence')
+            elif word in DRUG_WORDS:
+                categories_found.add('drugs')
+            elif word in PROFANITY_WORDS:
+                categories_found.add('profanity')
     
-    # Also check for partial matches (e.g., "f*ck" variations)
+    # Also check for partial/obfuscated matches (e.g., "f*ck" variations)
     for blocked in BLOCKED_WORDS:
         if len(blocked) >= 4:  # Only check longer words for partials
-            pattern = re.compile(r'\b' + ''.join([f'{c}+' for c in blocked]) + r'\b')
-            if pattern.search(normalized) and blocked not in flagged:
-                flagged.append(blocked)
+            # Create pattern allowing characters between letters
+            pattern_str = r'\b' + r'[\s\W]*'.join(list(blocked)) + r'\b'
+            pattern = re.compile(pattern_str)
+            if pattern.search(normalized) and blocked not in flagged_words:
+                flagged_words.append(blocked)
     
-    is_clean = len(flagged) == 0
+    is_clean = len(flagged_words) == 0 and len(flagged_phrases) == 0
     
-    # Determine confidence
-    if len(flagged) == 0:
+    # Determine confidence and primary category
+    total_flags = len(flagged_words) + len(flagged_phrases)
+    if total_flags == 0:
         confidence = "high"
-    elif len(flagged) == 1 and flagged[0] in FITNESS_CONTEXT_WORDS:
+        category = None
+    elif total_flags == 1 and len(flagged_words) == 1 and flagged_words[0] in FITNESS_CONTEXT_WORDS:
         confidence = "low"
-    elif len(flagged) >= 3:
+        category = "profanity"
+    elif total_flags >= 3:
         confidence = "high"
+        category = list(categories_found)[0] if categories_found else "unknown"
     else:
         confidence = "medium"
+        category = list(categories_found)[0] if categories_found else "unknown"
+    
+    # Log rejected content for moderation review
+    if not is_clean:
+        log_rejected_content(
+            user_id=user_id,
+            content_type=content_type,
+            original_text=original_text,
+            flagged_words=flagged_words,
+            flagged_phrases=flagged_phrases,
+            category=category,
+            confidence=confidence
+        )
     
     return {
         "is_clean": is_clean,
-        "flagged_words": flagged,
+        "flagged_words": flagged_words,
+        "flagged_phrases": flagged_phrases,
+        "confidence": confidence,
+        "category": category
+    }
+
+def log_rejected_content(
+    user_id: str,
+    content_type: str,
+    original_text: str,
+    flagged_words: List[str],
+    flagged_phrases: List[str],
+    category: str,
+    confidence: str
+):
+    """Log rejected content attempts for moderation review"""
+    timestamp = datetime.now(timezone.utc).isoformat()
+    
+    # Truncate text for logging (don't log full potentially harmful content)
+    truncated_text = original_text[:100] + "..." if len(original_text) > 100 else original_text
+    
+    log_entry = {
+        "timestamp": timestamp,
+        "user_id": user_id or "anonymous",
+        "content_type": content_type,
+        "text_preview": truncated_text,
+        "flagged_words": flagged_words,
+        "flagged_phrases": flagged_phrases,
+        "category": category,
         "confidence": confidence
     }
+    
+    # Log to file for moderation review
+    moderation_logger.warning(
+        f"CONTENT_REJECTED | user={user_id} | type={content_type} | "
+        f"category={category} | words={flagged_words} | phrases={flagged_phrases}"
+    )
 
 def filter_content(text: str) -> tuple[str, bool]:
     """
