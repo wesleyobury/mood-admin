@@ -161,10 +161,7 @@ export default function GuestPromptModal({ visible, onClose, action = 'use this 
             <View style={styles.legalLinks}>
               <TouchableOpacity 
                 style={styles.legalLinkButton}
-                onPress={() => {
-                  onClose();
-                  router.push('/terms-of-service');
-                }}
+                onPress={() => openExternalUrl(EXTERNAL_URLS.termsOfService)}
               >
                 <Ionicons name="document-text-outline" size={16} color="#888" />
                 <Text style={styles.legalLinkText}>Terms of Service</Text>
@@ -172,10 +169,7 @@ export default function GuestPromptModal({ visible, onClose, action = 'use this 
 
               <TouchableOpacity 
                 style={styles.legalLinkButton}
-                onPress={() => {
-                  onClose();
-                  router.push('/privacy-policy');
-                }}
+                onPress={() => openExternalUrl(EXTERNAL_URLS.privacyPolicy)}
               >
                 <Ionicons name="shield-checkmark-outline" size={16} color="#888" />
                 <Text style={styles.legalLinkText}>Privacy Policy</Text>
@@ -183,13 +177,10 @@ export default function GuestPromptModal({ visible, onClose, action = 'use this 
 
               <TouchableOpacity 
                 style={styles.legalLinkButton}
-                onPress={() => {
-                  onClose();
-                  router.push('/terms-of-service');
-                }}
+                onPress={() => openExternalUrl(EXTERNAL_URLS.support)}
               >
-                <Ionicons name="people-outline" size={16} color="#888" />
-                <Text style={styles.legalLinkText}>Community Guidelines</Text>
+                <Ionicons name="help-circle-outline" size={16} color="#888" />
+                <Text style={styles.legalLinkText}>Help Center</Text>
               </TouchableOpacity>
             </View>
           </View>
