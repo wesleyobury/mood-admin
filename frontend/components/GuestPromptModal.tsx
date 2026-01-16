@@ -6,6 +6,7 @@ import {
   Modal,
   TouchableOpacity,
   Dimensions,
+  Linking,
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
@@ -16,6 +17,13 @@ import { GuestAnalytics } from '../utils/analytics';
 
 const { width } = Dimensions.get('window');
 
+// External URLs for legal pages
+const EXTERNAL_URLS = {
+  termsOfService: 'https://sites.google.com/d/1IPxI-2TCXeIgIKQKjxcRcoUJNHNBjXHD/p/17nmyUORjDmp4upUwI8cMvfIRkuX_0oCv/edit',
+  privacyPolicy: 'https://sites.google.com/d/1IPxI-2TCXeIgIKQKjxcRcoUJNHNBjXHD/p/11e7szlqI_qIfmgCEeE8yOhX5lJrAHwYb/edit',
+  support: 'https://sites.google.com/d/1IPxI-2TCXeIgIKQKjxcRcoUJNHNBjXHD/p/1XhjibxEnt0V15xx32MICmpK3BnO4cNFh/edit',
+};
+
 interface GuestPromptModalProps {
   visible: boolean;
   onClose: () => void;
@@ -25,6 +33,14 @@ interface GuestPromptModalProps {
 export default function GuestPromptModal({ visible, onClose, action = 'use this feature' }: GuestPromptModalProps) {
   const insets = useSafeAreaInsets();
   const { exitGuestMode } = useAuth();
+
+  const openExternalUrl = async (url: string) => {
+    try {
+      await Linking.openURL(url);
+    } catch (error) {
+      console.error('Error opening URL:', error);
+    }
+  };
 
   // Track when the modal is shown
   useEffect(() => {
