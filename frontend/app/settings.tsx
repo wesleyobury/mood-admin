@@ -146,6 +146,19 @@ export default function Settings() {
     }
   };
 
+  const openExternalUrl = async (url: string, fallbackMessage: string) => {
+    try {
+      const canOpen = await Linking.canOpenURL(url);
+      if (canOpen) {
+        await Linking.openURL(url);
+      } else {
+        Alert.alert('Unable to Open', fallbackMessage);
+      }
+    } catch (error) {
+      Alert.alert('Error', 'Unable to open the link. Please try again.');
+    }
+  };
+
   const handleSubmitFeedback = async () => {
     const subject = encodeURIComponent('MOOD feedback');
     const body = encodeURIComponent(`Hi,\n\nI'd like to share the following feedback:\n\n\n---\nUser: ${user?.username || 'Unknown'}\nApp Version: 1.0.0`);
