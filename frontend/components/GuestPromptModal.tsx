@@ -161,7 +161,10 @@ export default function GuestPromptModal({ visible, onClose, action = 'use this 
             <View style={styles.legalLinks}>
               <TouchableOpacity 
                 style={styles.legalLinkButton}
-                onPress={() => openExternalUrl(EXTERNAL_URLS.termsOfService)}
+                onPress={() => {
+                  onClose();
+                  router.push('/terms-of-service');
+                }}
               >
                 <Ionicons name="document-text-outline" size={16} color="#888" />
                 <Text style={styles.legalLinkText}>Terms of Service</Text>
@@ -169,7 +172,10 @@ export default function GuestPromptModal({ visible, onClose, action = 'use this 
 
               <TouchableOpacity 
                 style={styles.legalLinkButton}
-                onPress={() => openExternalUrl(EXTERNAL_URLS.privacyPolicy)}
+                onPress={() => {
+                  onClose();
+                  router.push('/privacy-policy');
+                }}
               >
                 <Ionicons name="shield-checkmark-outline" size={16} color="#888" />
                 <Text style={styles.legalLinkText}>Privacy Policy</Text>
