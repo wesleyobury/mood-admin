@@ -23,6 +23,13 @@ import { useAuth } from '../contexts/AuthContext';
 const API_URL = process.env.EXPO_PUBLIC_BACKEND_URL || Constants.expoConfig?.extra?.EXPO_PUBLIC_BACKEND_URL || '';
 const SUPPORT_EMAIL = 'wesleyogsbury@gmail.com';
 
+// External URLs for legal pages
+const EXTERNAL_URLS = {
+  termsOfService: 'https://sites.google.com/d/1IPxI-2TCXeIgIKQKjxcRcoUJNHNBjXHD/p/17nmyUORjDmp4upUwI8cMvfIRkuX_0oCv/edit',
+  privacyPolicy: 'https://sites.google.com/d/1IPxI-2TCXeIgIKQKjxcRcoUJNHNBjXHD/p/11e7szlqI_qIfmgCEeE8yOhX5lJrAHwYb/edit',
+  support: 'https://sites.google.com/d/1IPxI-2TCXeIgIKQKjxcRcoUJNHNBjXHD/p/1XhjibxEnt0V15xx32MICmpK3BnO4cNFh/edit',
+};
+
 export default function Settings() {
   const router = useRouter();
   const insets = useSafeAreaInsets();
