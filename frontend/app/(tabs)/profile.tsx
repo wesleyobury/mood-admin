@@ -683,6 +683,36 @@ export default function Profile() {
           <TouchableOpacity style={styles.guestSignInButton} onPress={handleGuestSignIn}>
             <Text style={styles.guestSignInButtonText}>I already have an account</Text>
           </TouchableOpacity>
+
+          {/* Legal Links */}
+          <View style={styles.guestLegalContainer}>
+            <View style={styles.guestLegalDivider} />
+            <View style={styles.guestLegalLinks}>
+              <TouchableOpacity 
+                style={styles.guestLegalButton}
+                onPress={() => router.push('/terms-of-service')}
+              >
+                <Ionicons name="document-text-outline" size={16} color="#888" />
+                <Text style={styles.guestLegalText}>Terms of Service</Text>
+              </TouchableOpacity>
+
+              <TouchableOpacity 
+                style={styles.guestLegalButton}
+                onPress={() => router.push('/privacy-policy')}
+              >
+                <Ionicons name="shield-checkmark-outline" size={16} color="#888" />
+                <Text style={styles.guestLegalText}>Privacy Policy</Text>
+              </TouchableOpacity>
+
+              <TouchableOpacity 
+                style={styles.guestLegalButton}
+                onPress={() => router.push('/terms-of-service')}
+              >
+                <Ionicons name="people-outline" size={16} color="#888" />
+                <Text style={styles.guestLegalText}>Community Guidelines</Text>
+              </TouchableOpacity>
+            </View>
+          </View>
         </View>
       </View>
     );
