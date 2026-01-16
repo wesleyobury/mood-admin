@@ -287,4 +287,31 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: '#666',
   },
+  legalLinksContainer: {
+    marginTop: 8,
+  },
+  legalDivider: {
+    height: 1,
+    backgroundColor: 'rgba(255, 255, 255, 0.1)',
+    marginBottom: 16,
+  },
+  legalLinks: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    flexWrap: 'wrap',
+    gap: 8,
+  },
+  legalLinkButton: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingVertical: 8,
+    paddingHorizontal: 12,
+    borderRadius: 8,
+    backgroundColor: 'rgba(255, 255, 255, 0.05)',
+    gap: 6,
+  },
+  legalLinkText: {
+    fontSize: 12,
+    color: '#888',
+  },
 });
