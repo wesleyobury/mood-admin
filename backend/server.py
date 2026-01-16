@@ -3982,12 +3982,29 @@ async def upload_multiple_files(
 async def create_post(post_data: PostCreate, current_user_id: str = Depends(get_current_user)):
     """Create a new social media post with content filtering"""
     
-    # Check content for objectionable material
-    content_check = check_content(post_data.caption, strict=True)
+    # Check content for objectionable material (pre-submission filtering)
+    content_check = check_content(
+        post_data.caption, 
+        strict=True, 
+        user_id=current_user_id, 
+        content_type="post"
+    )
     if not content_check["is_clean"]:
+        # Log rejected attempt to database for moderation review
+        await db.moderation_logs.insert_one({
+            "user_id": current_user_id,
+            "content_type": "post",
+            "action": "rejected",
+            "reason": "content_filter",
+            "category": content_check.get("category"),
+            "flagged_words": content_check.get("flagged_words", []),
+            "flagged_phrases": content_check.get("flagged_phrases", []),
+            "text_preview": post_data.caption[:200] if post_data.caption else "",
+            "created_at": datetime.now(timezone.utc)
+        })
         raise HTTPException(
             status_code=400, 
-            detail=f"Your post contains inappropriate content and cannot be published. Please revise and try again."
+            detail="This content violates our community guidelines."
         )
     
     post_doc = {
