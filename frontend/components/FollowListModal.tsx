@@ -64,7 +64,8 @@ export default function FollowListModal({
 
       if (response.ok) {
         const data = await response.json();
-        setUsers(data);
+        // API returns { users: [...] }, not just the array
+        setUsers(data.users || data || []);
       } else {
         console.error(`Failed to fetch ${type}:`, response.status);
       }
