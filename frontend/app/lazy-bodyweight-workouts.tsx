@@ -64,12 +64,12 @@ const workoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'body',
               title: 'Light form',
-              description: 'Shoulders down; light arms; short strides, quick feet'
+              description: 'Keep shoulders relaxed and down, swing arms lightly, and use short quick strides to maintain momentum without overexertion'
             },
             {
               icon: 'leaf',
               title: 'Calm breathing',
-              description: 'RPE 3 easy; RPE 4 brisk; breathe nose–mouth calmly'
+              description: 'At RPE 3 breathe through your nose; at RPE 4 add mouth breathing while staying calm and controlled throughout'
             }
           ]
         },
@@ -84,12 +84,12 @@ const workoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'trending-up',
               title: 'Proper incline',
-              description: 'Set 3–5% incline; stay tall; no rail leaning'
+              description: 'Set treadmill to 3–5% grade, maintain upright posture, and avoid grabbing rails which reduces workout effectiveness'
             },
             {
               icon: 'footsteps',
               title: 'Quiet steps',
-              description: 'Shorten stride slightly; keep steps quiet and even'
+              description: 'Take shorter strides on the incline to keep footfalls quiet and even, reducing impact on joints'
             }
           ]
         }
@@ -106,12 +106,12 @@ const workoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'eye',
               title: 'Form focus',
-              description: 'Eyes forward; hands relaxed; quick foot turnover'
+              description: 'Keep your gaze forward at horizon level, hands relaxed not clenched, and focus on quick foot turnover during surges'
             },
             {
               icon: 'volume-low',
               title: 'Quiet contacts',
-              description: 'Surges RPE 5; recover RPE 3; keep belt contacts quiet'
+              description: 'During RPE 5 surges, aim to keep your footsteps quiet on the belt; recover fully at RPE 3 before the next burst'
             }
           ]
         },
@@ -126,12 +126,12 @@ const workoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'body',
               title: 'Stay tall',
-              description: 'Keep torso tall; reduce stride length uphill'
+              description: 'Maintain an upright torso throughout and shorten your stride length when the incline increases'
             },
             {
               icon: 'hand-right',
               title: 'No rails',
-              description: 'Keep breathing calm; avoid holding rails'
+              description: 'Keep breathing calm and rhythmic; avoid holding the rails as this reduces calorie burn and core engagement'
             }
           ]
         }
@@ -148,12 +148,12 @@ const workoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'footsteps',
               title: 'Soft landings',
-              description: 'Land softly; quiet steps; jog at conversational pace'
+              description: 'Focus on landing softly with quiet steps during jog intervals; maintain a pace where you could still hold a conversation'
             },
             {
               icon: 'refresh',
               title: 'Stay flexible',
-              description: 'If needed: longer walk, shorter jog; stay relaxed'
+              description: 'Listen to your body—if needed, extend the walk portion or shorten the jog; the goal is to stay relaxed throughout'
             }
           ]
         },
@@ -168,12 +168,12 @@ const workoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'trending-up',
               title: 'Uphill technique',
-              description: 'Uphill: shorten stride; keep cadence steady'
+              description: 'When climbing, shorten your stride and keep cadence steady; lean slightly forward from the ankles, not the waist'
             },
             {
               icon: 'leaf',
               title: 'Relax and breathe',
-              description: 'Exhale on hill; relax jaw; shake arms loose on flats'
+              description: 'Exhale fully during hill efforts, relax your jaw and facial muscles, and shake out your arms on flat sections'
             }
           ]
         }
@@ -196,12 +196,12 @@ const workoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'hand-right',
               title: 'Soft hands',
-              description: 'Soft hands; even pedal circles; sit tall'
+              description: 'Keep a relaxed grip on the handlebars, pedal in smooth circles, and sit tall with shoulders away from ears'
             },
             {
               icon: 'leaf',
               title: 'Easy breathing',
-              description: 'Keep RPE ~3; breathe steadily and smoothly'
+              description: 'Maintain RPE around 3—you should be able to breathe steadily and smoothly through your nose'
             }
           ]
         },
@@ -216,12 +216,12 @@ const workoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'speedometer',
               title: 'Light resistance',
-              description: 'Keep resistance light; avoid bouncing'
+              description: 'Keep resistance low during fast-leg bursts to focus on speed rather than power; avoid bouncing in the saddle'
             },
             {
               icon: 'refresh',
               title: 'Fast legs',
-              description: 'Fast legs ~95–105 rpm; relax shoulders'
+              description: 'Aim for 95–105 rpm during fast portions while keeping your shoulders relaxed and upper body still'
             }
           ]
         }
@@ -238,12 +238,12 @@ const workoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'speedometer',
               title: 'Keep RPM up',
-              description: 'Keep ≥80 rpm on moderate minute'
+              description: 'Maintain at least 80 rpm even during the moderate-resistance minute; adjust gear rather than slowing cadence'
             },
             {
               icon: 'leaf',
               title: 'Rhythmic breath',
-              description: 'Relax hands; keep breath rhythmic'
+              description: 'Keep your hands relaxed on the bars and sync breathing with pedal strokes for a rhythmic, meditative feel'
             }
           ]
         },
@@ -258,12 +258,12 @@ const workoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'settings',
               title: 'Stay seated',
-              description: 'Stay seated; no grinding; adjust gear to feel'
+              description: 'Remain seated during surges; avoid grinding a heavy gear—instead increase cadence to raise intensity'
             },
             {
               icon: 'leaf',
               title: 'Belly breathing',
-              description: 'Inhale belly; long exhale during surges'
+              description: 'Breathe deep into your belly and use a long exhale during surges to help manage effort and stay relaxed'
             }
           ]
         }
@@ -280,12 +280,12 @@ const workoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'speedometer',
               title: 'Moderate pace',
-              description: 'Moderate means RPE 5 steady, not all-out'
+              description: 'Keep work intervals at a steady RPE 5—a sustainable effort, not an all-out sprint; consistency is key'
             },
             {
               icon: 'refresh',
               title: 'Reset between',
-              description: 'Use 1-min easy resets between each moderate set'
+              description: 'Use each 1-minute easy period to fully reset your breathing and shake out any tension before the next effort'
             }
           ]
         },
@@ -300,12 +300,12 @@ const workoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'body',
               title: 'Core engaged',
-              description: 'Core tight; light hands; steady rpm standing'
+              description: 'When standing, engage your core, keep hands light on the bars, and maintain steady rpm without swaying'
             },
             {
               icon: 'settings',
               title: 'Smooth transitions',
-              description: 'Sit softly; avoid over-gearing during stands'
+              description: 'Return to seated position softly; avoid using too heavy a gear during standing portions to protect your knees'
             }
           ]
         }
@@ -328,12 +328,12 @@ const workoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'footsteps',
               title: 'Light touch',
-              description: 'Heels light; gentle arm drive'
+              description: 'Keep your heels light on the pedals and use a gentle push-pull motion with the arm handles'
             },
             {
               icon: 'leaf',
               title: 'Steady breathing',
-              description: 'RPE ~3; breathe slow and even'
+              description: 'Maintain RPE around 3 with slow, even breathing; this should feel like a comfortable warm-up pace'
             }
           ]
         },
@@ -348,12 +348,12 @@ const workoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'settings',
               title: 'Light resistance',
-              description: 'Keep resistance light; avoid stomping'
+              description: 'Keep resistance low during quick bursts—focus on speed and smooth motion rather than power output'
             },
             {
               icon: 'eye',
               title: 'Stay relaxed',
-              description: 'Eyes forward; shoulders relaxed'
+              description: 'Keep your eyes forward at horizon level and shoulders relaxed throughout both quick and easy segments'
             }
           ]
         }
@@ -370,12 +370,12 @@ const workoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'footsteps',
               title: 'Adapt stride',
-              description: 'Shorten stride as ramp rises'
+              description: 'As the ramp increases, naturally shorten your stride length to maintain smooth and controlled motion'
             },
             {
               icon: 'leaf',
               title: 'Calm breathing',
-              description: 'Keep breathing calm and rhythmic'
+              description: 'Focus on keeping your breathing calm and rhythmic even as the incline changes; avoid holding your breath'
             }
           ]
         },
@@ -390,12 +390,12 @@ const workoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'body',
               title: 'Core engaged',
-              description: 'Core braced; elbows soft; no overgrip'
+              description: 'Brace your core lightly, keep elbows soft, and avoid gripping the handles too tightly during arm focus'
             },
             {
               icon: 'refresh',
               title: 'Keep flowing',
-              description: 'Keep legs flowing during arm-focus burst'
+              description: 'Maintain continuous leg movement during arm-focus bursts; let upper and lower body work together smoothly'
             }
           ]
         }
@@ -412,12 +412,12 @@ const workoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'body',
               title: 'Good form',
-              description: "Posture tall; feet quiet; don't overstride"
+              description: 'Keep posture tall throughout, feet quiet on the pedals, and avoid overstriding which wastes energy'
             },
             {
               icon: 'refresh',
               title: 'Easy return',
-              description: 'Tempo RPE 6; return to easy at RPE 3'
+              description: 'Push to RPE 6 during tempo then drop back to a comfortable RPE 3 easy pace for full recovery'
             }
           ]
         },
@@ -432,12 +432,12 @@ const workoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'footsteps',
               title: 'Adapt stride',
-              description: 'Shorten stride as elevation increases'
+              description: 'Naturally shorten your stride length as the elevation increases to maintain efficient movement'
             },
             {
               icon: 'speedometer',
               title: 'Steady cadence',
-              description: 'Keep cadence constant; adjust resistance modestly'
+              description: 'Keep your cadence consistent throughout; adjust resistance modestly rather than dramatically changing speed'
             }
           ]
         }
@@ -460,12 +460,12 @@ const workoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'body',
               title: 'Good posture',
-              description: 'Stand tall; avoid leaning on rails'
+              description: 'Stand tall with your spine neutral; avoid leaning heavily on the rails which reduces the workout effectiveness'
             },
             {
               icon: 'footsteps',
               title: 'Quiet steps',
-              description: 'Short steps; quiet landings; RPE ~3'
+              description: 'Use short controlled steps and land quietly; maintain RPE around 3 for a comfortable sustainable pace'
             }
           ]
         },
@@ -480,12 +480,12 @@ const workoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'speedometer',
               title: 'Even cadence',
-              description: 'Keep cadence even; soft knees; breathe calmly'
+              description: 'Keep your stepping cadence even throughout, maintain soft knees, and breathe calmly and steadily'
             },
             {
               icon: 'refresh',
               title: 'Reset breaks',
-              description: 'Use 30s slow steps to relax breath and posture'
+              description: 'Use the 30-second slow-step periods to relax your breath, reset your posture, and prepare for the next round'
             }
           ]
         }
@@ -502,12 +502,12 @@ const workoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'body',
               title: 'Tall posture',
-              description: "Keep posture tall; don't bottom out steps"
+              description: 'Maintain tall posture throughout; avoid letting the steps bottom out by using controlled, complete motions'
             },
             {
               icon: 'leaf',
               title: 'Even breathing',
-              description: 'Brisk RPE 5; easy RPE 3; breathe evenly'
+              description: 'At brisk RPE 5, breathing should be elevated but controlled; drop to easy RPE 3 with relaxed even breaths'
             }
           ]
         },
@@ -522,12 +522,12 @@ const workoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'trending-up',
               title: 'Double-step',
-              description: 'Double-step: skip a step; plant foot two steps higher'
+              description: 'For double-steps, skip one step and plant your foot two steps higher—this activates glutes and hip flexors'
             },
             {
               icon: 'hand-right',
               title: 'Use rails lightly',
-              description: 'Smooth, controlled; use rails lightly if needed'
+              description: 'Keep movements smooth and controlled; lightly touch rails for balance only if needed during double-steps'
             }
           ]
         }
@@ -544,12 +544,12 @@ const workoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'resize',
               title: 'Small side steps',
-              description: 'Small side steps; hips level; rails for balance'
+              description: 'Use small controlled side steps with hips level; hold the rails lightly for balance during lateral movement'
             },
             {
               icon: 'refresh',
               title: 'Smooth movement',
-              description: 'Lateral RPE 5; forward RPE 4; move smoothly'
+              description: 'Lateral portions at RPE 5 should feel engaging; forward steps at RPE 4 are recovery—move smoothly between both'
             }
           ]
         },
@@ -564,12 +564,12 @@ const workoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'body',
               title: 'Stay tall',
-              description: 'Stay tall; even steps; soft landings'
+              description: 'Maintain tall posture even during harder minutes; use even steps and soft landings throughout'
             },
             {
               icon: 'leaf',
               title: 'Exhale effort',
-              description: 'Exhale on effort minute; relax shoulders'
+              description: 'Exhale fully during the higher-intensity minute, relax your shoulders, and keep your jaw unclenched'
             }
           ]
         }
@@ -592,12 +592,12 @@ const workoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'refresh',
               title: 'Proper sequence',
-              description: 'Sequence: legs → body → arms; reverse on return'
+              description: 'Follow the sequence: legs push first, then body swings back, finally arms pull; reverse this on the return'
             },
             {
               icon: 'hand-right',
               title: 'Light grip',
-              description: 'Light grip; shoulders down; long exhales'
+              description: 'Keep a light relaxed grip on the handle, shoulders down away from ears, and breathe with long exhales'
             }
           ]
         },
@@ -612,12 +612,12 @@ const workoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'hand-right',
               title: 'Arms-only',
-              description: 'Arms-only: pull in/out with arms only'
+              description: 'During arms-only, keep legs straight and just pull the handle in and out using arm movement only'
             },
             {
               icon: 'body',
               title: 'Add body',
-              description: 'Arms+Body: add torso swing; legs quiet'
+              description: 'For arms+body, add a gentle torso swing forward and back while keeping legs quiet and extended'
             }
           ]
         }
@@ -634,12 +634,12 @@ const workoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'speedometer',
               title: 'Focus rhythm',
-              description: 'Keep split modest; focus rhythm and length'
+              description: 'Keep your split time modest during rate increases; focus on rhythm and stroke length rather than power'
             },
             {
               icon: 'hand-right',
               title: 'Smooth recovery',
-              description: 'Relax grip; smooth slide recovery'
+              description: 'Relax your grip on the recovery and slide smoothly back to the catch position with control'
             }
           ]
         },
@@ -654,12 +654,12 @@ const workoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'refresh',
               title: 'Clean sequence',
-              description: 'Legs push, body swing, arms finish'
+              description: 'Maintain proper sequence: legs push, body swings, arms finish—even when picking up the tempo'
             },
             {
               icon: 'speedometer',
               title: 'Light pressure',
-              description: 'Light pressure; consistent sequence'
+              description: 'Keep pressure light and consistent; the tempo increase comes from quicker turnover, not harder pulling'
             }
           ]
         }
@@ -676,12 +676,12 @@ const workoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'refresh',
               title: 'Keep form crisp',
-              description: "Keep form crisp under sprinkle; don't chase PR"
+              description: 'Maintain crisp technique during the 500m piece; this is steady effort, not a personal record attempt'
             },
             {
               icon: 'leaf',
               title: 'Recover easy',
-              description: 'Recover easy after; breathe long and slow'
+              description: 'After the 500m, drop back to easy pace and focus on long slow breaths to recover fully'
             }
           ]
         },
@@ -696,12 +696,12 @@ const workoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'speedometer',
               title: 'Rate only',
-              description: 'Pressure stays easy; change rate only'
+              description: 'Keep pressure easy throughout; only the stroke rate changes—not the power or effort level'
             },
             {
               icon: 'body',
               title: 'Good posture',
-              description: 'Sit tall; long finish; smooth slide'
+              description: 'Sit tall with strong posture, achieve a long finish position, and maintain a smooth controlled slide'
             }
           ]
         }
@@ -724,12 +724,12 @@ const workoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'body',
               title: 'Hinge pattern',
-              description: 'Hips then arms; stand tall on return'
+              description: 'Initiate each pull with a hip hinge, then drive with arms; stand tall on the return to reset position'
             },
             {
               icon: 'hand-right',
               title: 'Light grip',
-              description: 'Light grip; exhale on each pull'
+              description: 'Keep a relaxed grip on the handles and exhale fully on each pull to engage your core naturally'
             }
           ]
         },
@@ -744,12 +744,12 @@ const workoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'body',
               title: 'No yanking',
-              description: 'Keep shoulders down; hinge small; no yank'
+              description: 'Keep shoulders down throughout; use a small controlled hinge and avoid yanking or jerking the handles'
             },
             {
               icon: 'refresh',
               title: 'Smooth recovery',
-              description: 'Smooth acceleration; relaxed recovery'
+              description: 'Accelerate smoothly during quick bursts and return with relaxed controlled recovery'
             }
           ]
         }
@@ -766,12 +766,12 @@ const workoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'speedometer',
               title: 'Power modest',
-              description: 'Keep power modest; focus timing and rhythm'
+              description: 'Keep power output modest throughout; focus on timing and rhythm rather than maximum effort'
             },
             {
               icon: 'leaf',
               title: 'Long exhales',
-              description: 'Long exhales on each effort minute'
+              description: 'Use long exhales during the higher-rate minutes to stay relaxed and maintain smooth movement'
             }
           ]
         },
@@ -786,12 +786,12 @@ const workoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'body',
               title: 'Hinge leads',
-              description: 'Core braced; hips drive first; arms finish'
+              description: 'Keep core braced throughout; let the hip hinge drive the movement first, then arms follow and finish'
             },
             {
               icon: 'hand-right',
               title: 'Stay tall',
-              description: 'Return tall; elbows in; maintain soft grip'
+              description: 'Return to tall standing position, keep elbows in close, and maintain a soft relaxed grip'
             }
           ]
         }
@@ -808,12 +808,12 @@ const workoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'refresh',
               title: 'Clean stroke',
-              description: 'Keep stroke clean; no rushing recovery'
+              description: 'Keep each stroke clean and controlled; avoid rushing the recovery portion between pulls'
             },
             {
               icon: 'leaf',
               title: 'Rhythmic breath',
-              description: 'Breathe rhythmically throughout each effort'
+              description: 'Breathe rhythmically throughout each effort interval; exhale on the pull, inhale on recovery'
             }
           ]
         },
@@ -828,12 +828,12 @@ const workoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'body',
               title: 'Tall posture',
-              description: 'Tall posture; hinge small; ribs stacked'
+              description: 'Maintain tall posture, use a small controlled hinge, and keep your ribs stacked over your hips'
             },
             {
               icon: 'hand-right',
               title: 'Smooth return',
-              description: 'Relax grip; elbows in; smooth return'
+              description: 'Relax your grip, keep elbows in close to your body, and return smoothly to the start position'
             }
           ]
         }
@@ -856,12 +856,12 @@ const workoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'hand-right',
               title: 'Wrist turns',
-              description: 'Turn from wrists; elbows in; tiny jumps'
+              description: 'Turn the rope from your wrists not shoulders, keep elbows close to your sides, and use tiny jumps'
             },
             {
               icon: 'footsteps',
               title: 'Quiet feet',
-              description: 'Quiet feet; steady breathing cadence'
+              description: 'Land softly with quiet feet and maintain a steady breathing cadence throughout each interval'
             }
           ]
         },
@@ -876,12 +876,12 @@ const workoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'body',
               title: 'Stay tall',
-              description: 'Stay tall; soft landings; eyes forward'
+              description: 'Maintain tall posture with soft knees on each landing, keeping your gaze forward at eye level'
             },
             {
               icon: 'refresh',
               title: 'Even rope',
-              description: 'Rope path low and even; breathe calm'
+              description: 'Keep the rope path low and even; breathe calmly and let the rhythm become almost meditative'
             }
           ]
         }
@@ -898,12 +898,12 @@ const workoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'eye',
               title: 'Eyes forward',
-              description: 'Eyes forward; wrists relaxed; tiny jumps'
+              description: 'Keep your gaze forward at horizon level, wrists relaxed, and use tiny efficient jumps'
             },
             {
               icon: 'leaf',
               title: 'Conserve energy',
-              description: 'Conserve energy; steady exhale rhythm'
+              description: 'Conserve energy by minimizing jump height; maintain a steady exhale rhythm throughout'
             }
           ]
         },
@@ -918,12 +918,12 @@ const workoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'footsteps',
               title: 'Keep feet low',
-              description: 'Keep feet low; quick taps; relax jaw'
+              description: 'Keep feet close to the ground with quick light taps; relax your jaw and facial muscles'
             },
             {
               icon: 'leaf',
               title: 'Breathing cadence',
-              description: 'Maintain breathing cadence; stay light'
+              description: 'Maintain a steady breathing cadence and stay light on your feet throughout the lateral movement'
             }
           ]
         }
@@ -940,12 +940,12 @@ const workoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'hand-right',
               title: 'Stay relaxed',
-              description: 'Stay relaxed; tiny jumps; quick wrists'
+              description: 'Stay relaxed even during fast bursts; use tiny jumps and quick wrist rotation for speed'
             },
             {
               icon: 'leaf',
               title: 'Quiet shoulders',
-              description: 'Shoulders quiet; steady breath between bursts'
+              description: 'Keep shoulders quiet and stable; maintain steady breathing between intensity bursts'
             }
           ]
         },
@@ -960,12 +960,12 @@ const workoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'body',
               title: 'Keep doubles sparse',
-              description: 'Keep doubles sparse; stay relaxed and tall'
+              description: 'Sprinkle in just 5–10 double-unders per round; stay relaxed and tall throughout'
             },
             {
               icon: 'refresh',
               title: 'Reset timing',
-              description: 'Land soft; reset timing after doubles'
+              description: 'Land softly after each double-under and reset your timing before continuing with singles'
             }
           ]
         }
@@ -988,12 +988,12 @@ const workoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'footsteps',
               title: 'Whole foot',
-              description: 'Whole foot on box; stand tall; control down'
+              description: 'Place your whole foot on the box, stand tall at the top, and control the step down'
             },
             {
               icon: 'refresh',
               title: 'Alternate legs',
-              description: 'Alternate lead leg every 5–10 reps'
+              description: 'Switch your lead leg every 5–10 reps to keep the workout balanced and prevent fatigue'
             }
           ]
         },
@@ -1008,12 +1008,12 @@ const workoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'body',
               title: 'Good position',
-              description: 'Shins fairly upright; chest tall; no plop'
+              description: 'Keep shins fairly upright, chest tall, and gently tap the box without plopping down'
             },
             {
               icon: 'leaf',
               title: 'Breath control',
-              description: 'Breathe out on stand; in on sit'
+              description: 'Breathe out as you stand up from the box; inhale as you lower back down to seated'
             }
           ]
         }
@@ -1030,12 +1030,12 @@ const workoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'hand-right',
               title: 'No pulling',
-              description: "Don't pull on rails; soft lockout"
+              description: 'Avoid pulling yourself up using a rail; drive through your lead leg and use a soft lockout at the top'
             },
             {
               icon: 'settings',
               title: 'Choose height',
-              description: 'Choose height you can own smoothly'
+              description: 'Select a box height that you can own smoothly with good form throughout the entire round'
             }
           ]
         },
@@ -1050,12 +1050,12 @@ const workoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'speedometer',
               title: 'Consistent depth',
-              description: 'Keep depth consistent; pulse small'
+              description: 'Maintain consistent squat depth on each rep with small controlled pulses at the bottom'
             },
             {
               icon: 'leaf',
               title: 'Steady breath',
-              description: 'Steady breath; avoid knee cave'
+              description: 'Keep breathing steady throughout; avoid holding your breath and prevent knee caving inward'
             }
           ]
         }
@@ -1072,12 +1072,12 @@ const workoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'trending-up',
               title: 'Good jump form',
-              description: 'Big arm swing; land mid-foot; hold stick 1–2s'
+              description: 'Use a big arm swing to generate momentum, land on mid-foot, and hold your stick for 1–2 seconds'
             },
             {
               icon: 'refresh',
               title: 'Substitute if needed',
-              description: 'If joints complain, sub Step-Up + Knee'
+              description: 'If your joints complain, substitute with Step-Up + Knee instead to reduce impact'
             }
           ]
         },
@@ -1092,12 +1092,12 @@ const workoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'eye',
               title: 'Consistent form',
-              description: 'Same dip; eyes forward; quiet feet'
+              description: 'Use the same dip depth each time, keep eyes forward, and land with quiet feet'
             },
             {
               icon: 'speedometer',
               title: 'Use timer',
-              description: 'Use timer; keep jump height consistent'
+              description: 'Use a timer to track your 10s rest; keep jump height consistent rather than increasing'
             }
           ]
         }
@@ -1120,12 +1120,12 @@ const workoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'speedometer',
               title: 'Smooth movement',
-              description: 'Move smooth; keep reps submax'
+              description: 'Move smoothly through each exercise; keep reps sub-maximal to maintain good form throughout'
             },
             {
               icon: 'leaf',
               title: 'Stop if needed',
-              description: 'Breathe steady; stop if anything pinches'
+              description: 'Breathe steadily and stop immediately if anything pinches or causes discomfort'
             }
           ]
         },
@@ -1140,12 +1140,12 @@ const workoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'hand-right',
               title: 'Use support',
-              description: 'Use chair/wall for balance'
+              description: 'Use a chair or wall for balance during lunges and calf raises if needed'
             },
             {
               icon: 'leaf',
               title: 'Light core',
-              description: 'Keep core light; shallow breathing'
+              description: 'Keep your core lightly engaged throughout with steady controlled breathing'
             }
           ]
         },
@@ -1160,12 +1160,12 @@ const workoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'speedometer',
               title: 'Precise reps',
-              description: 'Slow, precise reps; long exhales'
+              description: 'Perform slow precise reps with long exhales; quality of movement matters more than quantity'
             },
             {
               icon: 'body',
               title: 'Ribs down',
-              description: 'Keep ribs down; neck relaxed'
+              description: 'Keep ribs drawn down toward hips and neck relaxed throughout all core exercises'
             }
           ]
         },
@@ -1180,12 +1180,12 @@ const workoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'speedometer',
               title: 'Control depth',
-              description: 'Control depth; smooth cadence'
+              description: 'Control your depth on lunges and squats; maintain a smooth cadence throughout'
             },
             {
               icon: 'refresh',
               title: 'Shake out',
-              description: 'Shake out arms/legs between moves'
+              description: 'Use rest periods to shake out arms and legs to release any built-up tension'
             }
           ]
         }
@@ -1202,12 +1202,12 @@ const workoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'speedometer',
               title: 'Quality over speed',
-              description: 'Quality over speed; smooth reps'
+              description: 'Prioritize quality over speed; perform smooth controlled reps rather than rushing through'
             },
             {
               icon: 'body',
               title: 'Plank form',
-              description: 'Keep plank ribs down; glutes lightly on'
+              description: 'During plank, keep ribs drawn down and glutes lightly engaged to protect your lower back'
             }
           ]
         },
@@ -1222,12 +1222,12 @@ const workoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'body',
               title: 'Hinge from hips',
-              description: 'Hinge from hips; spine long'
+              description: 'Hinge from your hips with a soft knee bend; maintain a long neutral spine throughout'
             },
             {
               icon: 'leaf',
               title: 'Stay relaxed',
-              description: 'Breathe out on effort; stay relaxed'
+              description: 'Breathe out on the effort portion of each exercise; stay relaxed between movements'
             }
           ]
         },
@@ -1242,12 +1242,12 @@ const workoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'refresh',
               title: 'Substitute if needed',
-              description: 'If joints disagree, do body squats'
+              description: 'If your joints disagree with hops, substitute regular body squats to stay low-impact'
             },
             {
               icon: 'footsteps',
               title: 'Quiet hops',
-              description: 'Quiet feet; tiny hops; tall posture'
+              description: 'Land with quiet feet during hops, use tiny controlled jumps, and maintain tall posture'
             }
           ]
         },
@@ -1262,12 +1262,12 @@ const workoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'body',
               title: 'Ribs down',
-              description: 'Keep ribs down in planks'
+              description: 'Keep ribs drawn down toward hips in all plank positions to protect your spine'
             },
             {
               icon: 'hand-right',
               title: 'Small movements',
-              description: 'Small scap motion; elbows locked on taps'
+              description: 'Use small controlled scapular movements; keep elbows locked during shoulder taps'
             }
           ]
         }
@@ -1284,12 +1284,12 @@ const workoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'footsteps',
               title: 'Soft landings',
-              description: 'Land soft; mid-foot; quiet feet'
+              description: 'Focus on landing softly on mid-foot with quiet feet to protect your joints'
             },
             {
               icon: 'refresh',
               title: 'Substitute if needed',
-              description: 'Swap to body squats if knees complain'
+              description: 'Swap to regular body squats if your knees complain during jump squats'
             }
           ]
         },
@@ -1304,12 +1304,12 @@ const workoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'refresh',
               title: 'Smooth burpees',
-              description: 'Keep burpees smooth; step back if needed'
+              description: 'Keep burpees smooth and controlled; step back instead of jumping back if needed'
             },
             {
               icon: 'leaf',
               title: 'Control breathing',
-              description: 'Stay relaxed; control breathing'
+              description: 'Stay relaxed and control your breathing throughout; avoid holding your breath'
             }
           ]
         },
@@ -1324,12 +1324,12 @@ const workoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'speedometer',
               title: 'Quality reps',
-              description: 'Quality reps; break early if form dips'
+              description: 'Focus on quality reps; break early if your form starts to deteriorate'
             },
             {
               icon: 'refresh',
               title: 'Crisp V-ups',
-              description: 'Keep V-ups crisp; or sub controlled tuck-ups'
+              description: 'Keep V-ups crisp and controlled; substitute with controlled tuck-ups if needed'
             }
           ]
         },
@@ -1344,12 +1344,12 @@ const workoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'footsteps',
               title: 'Low amplitude',
-              description: 'Low amplitude jumps; quiet sticks'
+              description: 'Use low amplitude jumps with quiet controlled landings to protect your joints'
             },
             {
               icon: 'body',
               title: 'Ribs down taps',
-              description: 'Keep ribs down on taps; steady breath'
+              description: 'Keep ribs drawn down during shoulder taps and maintain steady breathing throughout'
             }
           ]
         }
@@ -1372,12 +1372,12 @@ const workoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'hand-right',
               title: 'Soft grip',
-              description: 'Soft grip; shoulders down; even strokes'
+              description: 'Keep a soft relaxed grip on the handles, shoulders down, and use even arm and leg strokes'
             },
             {
               icon: 'chatbubble',
               title: 'Stay conversational',
-              description: 'Keep RPE ~3; stay conversational'
+              description: 'Maintain RPE around 3; you should be able to hold a conversation comfortably'
             }
           ]
         },
@@ -1392,12 +1392,12 @@ const workoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'body',
               title: 'Stay seated',
-              description: 'Stay seated; quick turnover; relaxed arms and hands'
+              description: 'Stay seated throughout, focus on quick turnover, and keep arms and hands relaxed'
             },
             {
               icon: 'speedometer',
               title: 'Fluid cadence',
-              description: 'Keep cadence fluid; avoid heavy mashing'
+              description: 'Keep cadence fluid and avoid heavy mashing; speed comes from rpm not resistance'
             }
           ]
         }
@@ -1414,12 +1414,12 @@ const workoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'body',
               title: 'Match arms/legs',
-              description: 'Match arms/legs; sit tall; light grip'
+              description: 'Coordinate your arms and legs in rhythm, sit tall, and keep a light grip on the handles'
             },
             {
               icon: 'leaf',
               title: 'Control breath',
-              description: 'Brisk RPE 5; easy RPE 3; control breath'
+              description: 'At brisk RPE 5, breathing should be elevated; at easy RPE 3, focus on controlled recovery breaths'
             }
           ]
         },
@@ -1434,12 +1434,12 @@ const workoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'speedometer',
               title: 'Steady RPM',
-              description: 'Keep RPM steady; increase pressure on pushes'
+              description: 'Keep RPM steady throughout; increase pressure and arm effort during push intervals'
             },
             {
               icon: 'leaf',
               title: 'Relax shoulders',
-              description: 'Relax shoulders; exhale long during pushes'
+              description: 'Relax your shoulders away from ears and use long exhales during push efforts'
             }
           ]
         }
@@ -1456,12 +1456,12 @@ const workoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'pulse',
               title: 'Comfortably hard',
-              description: '"Comfortably hard" = RPE 7; stay smooth'
+              description: 'Comfortably hard means RPE 7—challenging but sustainable; keep form smooth not frantic'
             },
             {
               icon: 'leaf',
               title: 'Deep nasal exhales',
-              description: 'Deep nasal exhales on recovery segments'
+              description: 'During recovery segments, use deep nasal exhales to lower heart rate and reset'
             }
           ]
         },
@@ -1476,12 +1476,12 @@ const workoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'speedometer',
               title: 'Fluid cadence',
-              description: 'Keep cadence fluid; avoid wild spikes in power'
+              description: 'Keep cadence fluid throughout; avoid wild spikes in power that waste energy'
             },
             {
               icon: 'body',
               title: 'Sit tall',
-              description: 'Sit tall; soft hands; long exhales'
+              description: 'Sit tall with soft hands on the handles and use long controlled exhales during efforts'
             }
           ]
         }
@@ -1691,37 +1691,21 @@ export default function LazyBodyweightWorkoutsScreen() {
   const router = useRouter();
   const params = useLocalSearchParams();
   const insets = useSafeAreaInsets();
-
+  
   // Parse URL parameters
   const rawMoodTitle = params.mood as string || "I'm feeling lazy";
   const moodTitle = rawMoodTitle;
-  const workoutType = params.workoutType as string || 'Just move your body';
-  const equipmentParam = params.equipment as string || '';
+  const equipmentParam = params.equipment as string || 'all';
   const difficulty = params.difficulty as string || 'beginner';
   
-  // Cart hooks (removed addedItems to prevent button flashing)
+  // Parse selected equipment from URL
+  const selectedEquipmentNames = equipmentParam === 'all' 
+    ? workoutDatabase.map(e => e.equipment)
+    : equipmentParam.split(',').map(e => decodeURIComponent(e.trim()));
+
+  // Cart hooks
   const { addToCart, isInCart } = useCart();
   const { token } = useAuth();
-  
-  // Parse selected equipment from comma-separated string
-  const selectedEquipmentNames = equipmentParam.split(',').filter(name => name.trim() !== '');
-  
-  console.log('Lazy Bodyweight Debug:', {
-    equipmentParam,
-    selectedEquipmentNames,
-    difficulty,
-    workoutType,
-    moodTitle
-  });
-
-  // Get workout data for selected equipment
-  const selectedWorkoutData = workoutDatabase.filter(eq => 
-    selectedEquipmentNames.some(name => 
-      eq.equipment.toLowerCase().trim() === name.toLowerCase().trim()
-    )
-  );
-
-  console.log('Selected workout data count:', selectedWorkoutData.length);
 
   // Cart helper functions
   const createWorkoutId = (workout: Workout, equipment: string, difficulty: string) => {
@@ -1746,7 +1730,7 @@ export default function LazyBodyweightWorkoutsScreen() {
       intensityReason: workout.intensityReason,
       equipment: equipment,
       difficulty: difficulty,
-      workoutType: `I'm feeling lazy - ${workoutType}`,
+      workoutType: `I'm feeling lazy - Cardio`,
       moodCard: moodTitle,
       moodTips: workout.moodTips || [],
     };
@@ -1762,18 +1746,16 @@ export default function LazyBodyweightWorkoutsScreen() {
     addToCart(workoutItem);
   };
 
-  const handleGoBack = () => {
-    router.back();
-  };
-
   const handleStartWorkout = (workout: Workout, equipment: string, difficulty: string) => {
     try {
-      console.log('🚀 Starting workout:', workout.name, 'on', equipment);
-      
-      if (!workout.name || !equipment || !difficulty) {
-        console.error('❌ Missing required parameters for workout navigation');
-        return;
-      }
+      console.log('✅ Starting workout navigation with params:', {
+        workoutName: workout.name,
+        equipment: equipment,
+        description: workout.description,
+        battlePlan: workout.battlePlan,
+        duration: workout.duration,
+        difficulty: difficulty,
+      });
       
       router.push({
         pathname: '/workout-guidance',
@@ -1784,7 +1766,7 @@ export default function LazyBodyweightWorkoutsScreen() {
           battlePlan: workout.battlePlan || '',
           duration: workout.duration || '20 min',
           difficulty: difficulty,
-          workoutType: workoutType,
+          workoutType: 'Cardio',
           moodTips: encodeURIComponent(JSON.stringify(workout.moodTips || []))
         }
       });
@@ -1799,16 +1781,20 @@ export default function LazyBodyweightWorkoutsScreen() {
   const createProgressRows = () => {
     const steps = [
       { key: 'mood', icon: 'bed', text: moodTitle },
-      { key: 'bodyPart', icon: 'walk', text: workoutType },
-      { key: 'difficulty', icon: 'speedometer', text: difficulty === 'intermediate' ? 'Intermed.' : difficulty.charAt(0).toUpperCase() + difficulty.slice(1) },
-      { key: 'equipment', icon: 'construct', text: `${selectedEquipmentNames.length} Equipment` },
+      { key: 'type', icon: 'walk', text: 'Cardio' },
+      { key: 'difficulty', icon: 'fitness', text: difficulty === 'intermediate' ? 'Intermed.' : difficulty.charAt(0).toUpperCase() + difficulty.slice(1) },
+      { key: 'equipment', icon: 'construct', text: selectedEquipmentNames.length > 2 ? 'Multiple' : selectedEquipmentNames.join(', ') },
     ];
 
     // Return single row
     return [steps];
   };
 
-  // Workout Card Component matching bodyweight explosiveness format exactly
+  const handleGoBack = () => {
+    router.back();
+  };
+
+  const progressRows = createProgressRows();
 
   return (
     <SafeAreaView style={[styles.container, { paddingTop: insets.top }]}>
@@ -1829,29 +1815,28 @@ export default function LazyBodyweightWorkoutsScreen() {
 
       {/* Progress Bar */}
       <View style={styles.progressContainer}>
-        <View style={styles.progressContent}>
-          {createProgressRows()[0].map((step, index) => (
-            <View key={step.key} style={styles.progressRow}>
-              <View style={styles.progressStep}>
-                <View style={[
-                  styles.progressStepCircle,
-                  styles.progressStepActive
-                ]}>
-                  <Ionicons name={step.icon as keyof typeof Ionicons.glyphMap} size={14} color="#000000" />
+        {progressRows.map((row, rowIndex) => (
+          <View key={rowIndex} style={styles.progressRow}>
+            {row.map((step, stepIndex) => (
+              <React.Fragment key={step.key}>
+                <View style={styles.progressStep}>
+                  <View style={styles.progressStepActive}>
+                    <Ionicons name={step.icon} size={12} color="#000000" />
+                  </View>
+                  <Text style={styles.progressStepText}>{step.text}</Text>
                 </View>
-                <Text style={styles.progressStepText}>{step.text}</Text>
-              </View>
-              {index < createProgressRows()[0].length - 1 && (
-                <View style={styles.progressConnector} />
-              )}
-            </View>
-          ))}
-        </View>
+                {stepIndex < row.length - 1 && <View style={styles.progressConnector} />}
+              </React.Fragment>
+            ))}
+          </View>
+        ))}
       </View>
 
       <ScrollView style={styles.scrollView} showsVerticalScrollIndicator={false}>
-        {selectedWorkoutData.length > 0 ? (
-          selectedWorkoutData.map((equipmentData) => {
+        {/* Generate workout cards for selected equipment */}
+        {workoutDatabase
+          .filter(eq => selectedEquipmentNames.includes(eq.equipment))
+          .map((equipmentData) => {
             const workoutsForDifficulty = equipmentData.workouts[difficulty as keyof typeof equipmentData.workouts] || [];
             
             if (workoutsForDifficulty.length === 0) {
@@ -1871,16 +1856,7 @@ export default function LazyBodyweightWorkoutsScreen() {
                 handleStartWorkout={handleStartWorkout}
               />
             );
-          })
-        ) : (
-          <View style={styles.noWorkoutsContainer}>
-            <Ionicons name="information-circle" size={48} color="#FFD700" />
-            <Text style={styles.noWorkoutsTitle}>No workouts available</Text>
-            <Text style={styles.noWorkoutsText}>
-              Please select equipment and difficulty level to see your personalized workouts.
-            </Text>
-          </View>
-        )}
+          })}
       </ScrollView>
     </SafeAreaView>
   );
@@ -1895,7 +1871,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     paddingHorizontal: 24,
-    paddingVertical: 8,
+    paddingVertical: 16,
     borderBottomWidth: 1,
     borderBottomColor: 'rgba(255, 215, 0, 0.2)',
   },
@@ -1932,57 +1908,44 @@ const styles = StyleSheet.create({
     backgroundColor: '#111111',
     borderBottomWidth: 1,
     borderBottomColor: 'rgba(255, 215, 0, 0.2)',
-    paddingVertical: 8,
-    paddingHorizontal: 20,
-  },
-  progressContent: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    paddingHorizontal: 24,
-    maxWidth: '100%',
-    overflow: 'visible',
+    paddingVertical: 12,
+    paddingHorizontal: 16,
   },
   progressRow: {
     flexDirection: 'row',
     alignItems: 'center',
+    justifyContent: 'center',
+    marginVertical: 4,
   },
   progressStep: {
     alignItems: 'center',
-    width: 60,
-    maxWidth: 60,
-  },
-  progressStepCircle: {
-    width: 32,
-    height: 32,
-    borderRadius: 16,
-    backgroundColor: '#333333',
-    borderWidth: 2,
-    borderColor: 'rgba(255, 215, 0, 0.3)',
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginBottom: 8,
+    minWidth: 60,
   },
   progressStepActive: {
+    width: 28,
+    height: 28,
+    borderRadius: 14,
     backgroundColor: '#FFD700',
+    borderWidth: 2,
     borderColor: '#FFD700',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginBottom: 6,
   },
   progressStepText: {
-    fontSize: 10,
-    color: 'rgba(255, 255, 255, 0.7)',
+    fontSize: 9,
+    color: 'rgba(255, 255, 255, 0.8)',
     textAlign: 'center',
     fontWeight: '500',
-    lineHeight: 12,
-    marginTop: 4,
-    paddingHorizontal: 2,
+    maxWidth: 60,
+    lineHeight: 11,
   },
   progressConnector: {
-    width: 16,
+    width: 20,
     height: 2,
     backgroundColor: 'rgba(255, 215, 0, 0.3)',
-    marginHorizontal: 6,
-    marginTop: -24,
-    alignSelf: 'center',
+    marginHorizontal: 4,
+    marginBottom: 20,
   },
   scrollView: {
     flex: 1,
@@ -1990,16 +1953,16 @@ const styles = StyleSheet.create({
   },
   workoutCard: {
     backgroundColor: '#111111',
+    overflow: 'hidden',
     borderRadius: 20,
     marginTop: 24,
     marginBottom: 16,
     borderWidth: 2,
     borderColor: 'rgba(255, 215, 0, 0.3)',
-    overflow: 'hidden',
     shadowColor: '#FFD700',
     shadowOffset: { width: 0, height: 0 },
     shadowOpacity: 0.3,
-    shadowRadius: 15,
+    shadowRadius: 10,
     elevation: 8,
   },
   equipmentHeader: {
@@ -2022,33 +1985,32 @@ const styles = StyleSheet.create({
     marginRight: 12,
   },
   equipmentName: {
+    flex: 1,
     fontSize: 18,
     fontWeight: 'bold',
     color: '#ffffff',
-    flex: 1,
     textShadowColor: 'rgba(255, 215, 0, 0.2)',
     textShadowOffset: { width: 1, height: 1 },
     textShadowRadius: 3,
   },
   workoutIndicator: {
     backgroundColor: 'rgba(255, 215, 0, 0.2)',
+    borderRadius: 12,
     paddingHorizontal: 12,
     paddingVertical: 6,
-    borderRadius: 12,
     borderWidth: 1,
-    borderColor: 'rgba(255, 215, 0, 0.3)',
+    borderColor: 'rgba(255, 215, 0, 0.4)',
   },
   workoutCount: {
-    fontSize: 14,
-    fontWeight: '600',
+    fontSize: 12,
+    fontWeight: 'bold',
     color: '#ffffff',
   },
   workoutList: {
-    height: 380,
-    marginBottom: 16,
+    height: 381,
   },
   workoutSlide: {
-    paddingHorizontal: 20,
+    paddingHorizontal: 15,
     paddingTop: 12,
     paddingBottom: 4,
   },
@@ -2058,6 +2020,7 @@ const styles = StyleSheet.create({
     borderRadius: 12,
     overflow: 'hidden',
     marginBottom: 16,
+    backgroundColor: '#222222',
     position: 'relative',
   },
   workoutImage: {
@@ -2070,7 +2033,7 @@ const styles = StyleSheet.create({
     left: 0,
     right: 0,
     bottom: 0,
-    backgroundColor: 'rgba(0, 0, 0, 0.4)',
+    backgroundColor: 'rgba(0, 0, 0, 0.3)',
   },
   swipeIndicator: {
     position: 'absolute',
@@ -2078,11 +2041,10 @@ const styles = StyleSheet.create({
     right: 8,
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: 'rgba(0, 0, 0, 0.7)',
+    backgroundColor: 'rgba(0, 0, 0, 0.6)',
+    borderRadius: 12,
     paddingHorizontal: 8,
     paddingVertical: 4,
-    borderRadius: 12,
-    zIndex: 10,
   },
   swipeText: {
     fontSize: 11,
@@ -2100,6 +2062,9 @@ const styles = StyleSheet.create({
     color: '#ffffff',
     marginBottom: 6,
     paddingHorizontal: 6,
+    textShadowColor: 'rgba(255, 215, 0, 0.2)',
+    textShadowOffset: { width: 1, height: 1 },
+    textShadowRadius: 3,
   },
   durationIntensityRow: {
     flexDirection: 'row',
@@ -2114,10 +2079,14 @@ const styles = StyleSheet.create({
     color: '#ffffff',
   },
   difficultyBadge: {
-    paddingHorizontal: 8,
+    borderRadius: 12,
+    paddingHorizontal: 10,
     paddingVertical: 4,
-    borderRadius: 8,
-    alignSelf: 'flex-start',
+    shadowColor: '#FFD700',
+    shadowOffset: { width: 0, height: 0 },
+    shadowOpacity: 0.4,
+    shadowRadius: 6,
+    elevation: 3,
   },
   difficultyBadgeText: {
     fontSize: 10,
@@ -2140,12 +2109,13 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   workoutDescriptionContainer: {
-    marginBottom: 10,
+    marginBottom: 5,
   },
   workoutDescription: {
-    fontSize: 14,
+    fontSize: 13,
     color: 'rgba(255, 255, 255, 0.8)',
-    lineHeight: 20,
+    lineHeight: 18,
+    paddingHorizontal: 6,
   },
   startWorkoutButton: {
     backgroundColor: '#FFD700',
@@ -2156,6 +2126,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     gap: 8,
+    marginBottom: 1,
     shadowColor: '#FFD700',
     shadowOffset: { width: 0, height: 0 },
     shadowOpacity: 0.4,
@@ -2169,28 +2140,26 @@ const styles = StyleSheet.create({
   },
   dotsContainer: {
     alignItems: 'center',
-    paddingVertical: 13,
+    paddingVertical: 10,
     marginTop: -6,
     backgroundColor: 'rgba(255, 215, 0, 0.05)',
   },
   dotsLabel: {
     fontSize: 11,
     color: 'rgba(255, 255, 255, 0.6)',
-    marginBottom: 8,
+    marginBottom: 6,
     fontWeight: '500',
   },
   dotsRow: {
     flexDirection: 'row',
-    justifyContent: 'center',
-    gap: 12,
+    alignItems: 'center',
+    gap: 8,
   },
   dot: {
     width: 12,
     height: 12,
     borderRadius: 6,
-    backgroundColor: 'rgba(255, 255, 255, 0.3)',
-    borderWidth: 2,
-    borderColor: 'rgba(255, 215, 0, 0.3)',
+    backgroundColor: 'rgba(255, 215, 0, 0.3)',
   },
   activeDot: {
     backgroundColor: '#FFD700',
@@ -2199,26 +2168,6 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.8,
     shadowRadius: 6,
     elevation: 4,
-  },
-  noWorkoutsContainer: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    paddingVertical: 60,
-    paddingHorizontal: 40,
-  },
-  noWorkoutsTitle: {
-    fontSize: 20,
-    fontWeight: 'bold',
-    color: '#ffffff',
-    marginTop: 16,
-    marginBottom: 8,
-    textAlign: 'center',
-  },
-  noWorkoutsText: {
-    fontSize: 16,
-    color: 'rgba(255, 255, 255, 0.7)',
-    textAlign: 'center',
-    lineHeight: 22,
   },
   dotTouchArea: {
     padding: 8,
