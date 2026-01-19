@@ -258,12 +258,12 @@ export const lightWeightsDatabase: EquipmentWorkouts[] = [
             {
               icon: 'refresh',
               title: 'Flow positions smoothly',
-              description: 'Flow positions smoothly'
+              description: 'Transition between movements with control and rhythm'
             },
             {
               icon: 'body',
               title: 'Keep bell close; core on',
-              description: 'Keep bell close; core on'
+              description: 'Hold the kettlebell tight to your body with engaged core'
             }
           ]
         },
