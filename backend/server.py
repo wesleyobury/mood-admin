@@ -5552,6 +5552,8 @@ async def report_content(
     current_user_id: str = Depends(get_current_user)
 ):
     """Report objectionable content (post, comment, or profile)"""
+    # Check if user has accepted terms
+    await check_terms_accepted(current_user_id)
     
     # Validate content type
     if report_data.content_type not in ["post", "comment", "profile"]:
