@@ -256,12 +256,12 @@ const fullBodyWorkoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'body',
               title: 'Push hips back on hinge',
-              description: 'Push hips back on hinge'
+              description: 'Initiate the RDL movement by pushing your hips backward while keeping your spine neutral and shoulders back'
             },
             {
               icon: 'arrow-down',
               title: 'Elbows drive back on row',
-              description: 'Elbows drive back on row'
+              description: 'Focus on driving your elbows straight back during rows rather than shrugging or pulling upward'
             }
           ]
         },
@@ -276,12 +276,12 @@ const fullBodyWorkoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'body',
               title: 'Neutral neck on hinges',
-              description: 'Neutral neck on hinges'
+              description: 'Keep your neck in line with your spine during back extensions—avoid looking up or tucking your chin'
             },
             {
               icon: 'body',
               title: 'Tall chest on pulldown',
-              description: 'Tall chest on pulldown'
+              description: 'Maintain an upright chest position during pulldowns; slight lean back is okay but avoid excessive arching'
             }
           ]
         },
@@ -296,12 +296,12 @@ const fullBodyWorkoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'body',
               title: 'Hips back; shins quiet',
-              description: 'Hips back; shins quiet'
+              description: 'Push your hips back during pull-throughs while keeping your shins vertical—don\'t let knees drift forward'
             },
             {
               icon: 'arrow-down',
               title: 'Ribs down on crunch sets',
-              description: 'Ribs down on crunch sets'
+              description: 'Draw your ribcage down toward your pelvis during crunches to fully engage your abs'
             }
           ]
         }
@@ -318,12 +318,12 @@ const fullBodyWorkoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'body',
               title: 'Bar tracks thighs; brace',
-              description: 'Bar tracks thighs; brace'
+              description: 'Keep the bar path close to your thighs throughout the RDL movement while maintaining a braced core'
             },
             {
               icon: 'time',
               title: 'Smooth 3s eccentrics',
-              description: 'Smooth 3s eccentrics'
+              description: 'Control the lowering phase over 3 seconds on each exercise to maximize muscle tension and growth'
             }
           ]
         },
@@ -338,12 +338,12 @@ const fullBodyWorkoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'body',
               title: 'Extend to neutral only',
-              description: 'Extend to neutral only'
+              description: 'During back extensions, raise your torso only to neutral spine alignment—don\'t hyperextend'
             },
             {
               icon: 'arrow-down',
               title: 'Drive elbows down on pulls',
-              description: 'Drive elbows down on pulls'
+              description: 'Think about driving your elbows down toward your hips during pulldowns for optimal lat engagement'
             }
           ]
         },
@@ -358,12 +358,12 @@ const fullBodyWorkoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'body',
               title: 'Hips back; neutral spine',
-              description: 'Hips back; neutral spine'
+              description: 'Push hips back while maintaining a flat neutral spine throughout the pull-through movement'
             },
             {
               icon: 'refresh',
               title: 'Chop: rotate from ribs',
-              description: 'Chop: rotate from ribs'
+              description: 'During cable chops, initiate rotation from your ribcage while keeping your hips relatively stable'
             }
           ]
         }
@@ -380,12 +380,12 @@ const fullBodyWorkoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'flash',
               title: 'Swift pin moves between',
-              description: 'Swift pin moves between'
+              description: 'Change the weight pin quickly between drop sets to minimize rest and maintain muscle fatigue'
             },
             {
               icon: 'remove-circle',
               title: 'Avoid torso heave on rows',
-              description: 'Avoid torso heave on rows'
+              description: 'Keep your torso stable during rows—don\'t rock back and forth to cheat the weight up'
             }
           ]
         },
@@ -400,12 +400,12 @@ const fullBodyWorkoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'leaf',
               title: '15s breaths in clusters',
-              description: '15s breaths in clusters'
+              description: 'Use the 15-second mini-rests to take deep breaths and reset your focus before the next mini-set'
             },
             {
               icon: 'body',
               title: 'Chest glued to pad on rows',
-              description: 'Chest glued to pad on rows'
+              description: 'Keep your chest firmly pressed against the pad during chest-supported rows to isolate your back muscles'
             }
           ]
         },
@@ -420,12 +420,12 @@ const fullBodyWorkoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'time',
               title: '1s squeeze; 3s return',
-              description: '1s squeeze; 3s return'
+              description: 'Hold a 1-second squeeze at the top of each rep, then take 3 seconds to lower for maximum tension'
             },
             {
               icon: 'body',
               title: 'Keep hips square on holds',
-              description: 'Keep hips square on holds'
+              description: 'During anti-rotation holds, keep your hips facing forward and resist the cable\'s pull to rotate'
             }
           ]
         }
