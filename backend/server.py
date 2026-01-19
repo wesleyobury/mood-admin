@@ -199,6 +199,30 @@ async def get_optional_current_user(authorization: Optional[str] = Header(None))
         return None
 
 
+async def check_terms_accepted(user_id: str) -> bool:
+    """Check if user has accepted terms of service. Returns True if accepted, raises HTTPException if not."""
+    try:
+        user = await db.users.find_one({"_id": ObjectId(user_id)})
+        if not user:
+            raise HTTPException(status_code=404, detail="User not found")
+        
+        terms_accepted = user.get("terms_accepted_at")
+        if not terms_accepted:
+            raise HTTPException(
+                status_code=403, 
+                detail={
+                    "code": "TERMS_NOT_ACCEPTED",
+                    "message": "You must accept the Terms of Service and Community Guidelines before performing this action."
+                }
+            )
+        return True
+    except HTTPException:
+        raise
+    except Exception as e:
+        logger.error(f"Error checking terms acceptance: {str(e)}")
+        raise HTTPException(status_code=500, detail="Failed to verify terms acceptance")
+
+
 # Pydantic Models
 
 class UserCreate(BaseModel):
