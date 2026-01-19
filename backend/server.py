@@ -3974,6 +3974,9 @@ async def upload_file(
     current_user_id: str = Depends(get_current_user)
 ):
     """Upload a single media file (image or video) to Cloudinary cloud storage"""
+    # Check if user has accepted terms
+    await check_terms_accepted(current_user_id)
+    
     try:
         # Validate file type - handle missing/empty filename
         allowed_image_types = {'image/jpeg', 'image/jpg', 'image/png', 'image/gif'}
