@@ -4718,6 +4718,9 @@ async def get_post_comments(post_id: str, limit: int = 50):
 @api_router.post("/users/{user_id}/follow")
 async def follow_user(user_id: str, current_user_id: str = Depends(get_current_user)):
     """Follow or unfollow a user"""
+    # Check if user has accepted terms
+    await check_terms_accepted(current_user_id)
+    
     if user_id == current_user_id:
         raise HTTPException(status_code=400, detail="Cannot follow yourself")
     
