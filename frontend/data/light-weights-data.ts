@@ -438,12 +438,12 @@ export const lightWeightsDatabase: EquipmentWorkouts[] = [
             {
               icon: 'body',
               title: 'Wall balls: chest tall',
-              description: 'Wall balls: chest tall'
+              description: 'Keep torso upright throughout squat and throw phases'
             },
             {
               icon: 'flash',
               title: 'Slams: hinge; hips drive',
-              description: 'Slams: hinge; hips drive'
+              description: 'Generate power from hip snap, not just arms'
             }
           ]
         },
@@ -458,12 +458,12 @@ export const lightWeightsDatabase: EquipmentWorkouts[] = [
             {
               icon: 'fitness',
               title: 'Chest pass: engage pecs',
-              description: 'Chest pass: engage pecs'
+              description: 'Drive force from chest muscles for powerful throws'
             },
             {
               icon: 'trending-up',
               title: 'Overhead: legs drive up',
-              description: 'Overhead: legs drive up'
+              description: 'Use leg power to launch ball overhead explosively'
             }
           ]
         }
@@ -480,12 +480,12 @@ export const lightWeightsDatabase: EquipmentWorkouts[] = [
             {
               icon: 'hand-right',
               title: 'Lock elbows on overhead lunges',
-              description: 'Lock elbows on overhead lunges'
+              description: 'Keep arms fully extended to stabilize ball overhead'
             },
             {
               icon: 'flash',
               title: 'Exhale sharply on slams',
-              description: 'Exhale sharply on slams'
+              description: 'Use explosive breath to power ball into ground'
             }
           ]
         },
@@ -500,12 +500,12 @@ export const lightWeightsDatabase: EquipmentWorkouts[] = [
             {
               icon: 'checkmark',
               title: 'Reset chest up each catch',
-              description: 'Reset chest up each catch'
+              description: 'Return to upright position after catching ball'
             },
             {
               icon: 'body',
               title: 'Pivot hips on rotations',
-              description: 'Pivot hips on rotations'
+              description: 'Rotate through hips for full rotational power'
             }
           ]
         }
@@ -522,12 +522,12 @@ export const lightWeightsDatabase: EquipmentWorkouts[] = [
             {
               icon: 'body',
               title: 'Rotate from hips, not knees',
-              description: 'Rotate from hips, not knees'
+              description: 'Drive rotation through hip pivot to protect knees'
             },
             {
               icon: 'hand-right',
               title: 'Neutral spine on pickups',
-              description: 'Neutral spine on pickups'
+              description: 'Keep back flat when retrieving ball from ground'
             }
           ]
         },
@@ -542,12 +542,12 @@ export const lightWeightsDatabase: EquipmentWorkouts[] = [
             {
               icon: 'fitness',
               title: 'Hug ball tight while sprinting',
-              description: 'Hug ball tight while sprinting'
+              description: 'Secure ball against chest for stability during runs'
             },
             {
               icon: 'body',
               title: 'Reset stance before throws',
-              description: 'Reset stance before throws'
+              description: 'Set feet in proper position before each throw'
             }
           ]
         }
@@ -570,12 +570,12 @@ export const lightWeightsDatabase: EquipmentWorkouts[] = [
             {
               icon: 'body',
               title: 'Squat to pick ball up',
-              description: 'Squat to pick ball up'
+              description: 'Use proper squat form when retrieving ball'
             },
             {
               icon: 'fitness',
               title: 'Keep ball close on lunges',
-              description: 'Keep ball close on lunges'
+              description: 'Hold ball tight to chest for stability'
             }
           ]
         },
@@ -590,12 +590,12 @@ export const lightWeightsDatabase: EquipmentWorkouts[] = [
             {
               icon: 'trending-up',
               title: 'Overhead: no back arch',
-              description: 'Overhead: no back arch'
+              description: 'Keep core braced to prevent lower back hyperextension'
             },
             {
               icon: 'body',
               title: 'Twist from torso, not arms',
-              description: 'Twist from torso, not arms'
+              description: 'Rotate through core muscles, not shoulder joints'
             }
           ]
         }
@@ -612,12 +612,12 @@ export const lightWeightsDatabase: EquipmentWorkouts[] = [
             {
               icon: 'body',
               title: 'Pivot hips on lateral slams',
-              description: 'Pivot hips on lateral slams'
+              description: 'Rotate through hips for side-to-side power'
             },
             {
               icon: 'fitness',
               title: 'Land jumps softly, stacked',
-              description: 'Land jumps softly, stacked'
+              description: 'Absorb landing with bent knees and aligned spine'
             }
           ]
         },
@@ -632,12 +632,12 @@ export const lightWeightsDatabase: EquipmentWorkouts[] = [
             {
               icon: 'body',
               title: 'Place ball centered for burpee',
-              description: 'Place ball centered for burpee'
+              description: 'Position ball between feet before dropping down'
             },
             {
               icon: 'trending-up',
               title: 'Exhale on overhead drive',
-              description: 'Exhale on overhead drive'
+              description: 'Use sharp breath to power ball overhead'
             }
           ]
         }
@@ -654,12 +654,12 @@ export const lightWeightsDatabase: EquipmentWorkouts[] = [
             {
               icon: 'body',
               title: 'Lateral: target obliques',
-              description: 'Lateral: target obliques'
+              description: 'Focus on engaging side core muscles during throws'
             },
             {
               icon: 'trending-up',
               title: 'Overhead: hips drive first',
-              description: 'Overhead: hips drive first'
+              description: 'Initiate throw with hip extension before arms'
             }
           ]
         },
@@ -674,12 +674,12 @@ export const lightWeightsDatabase: EquipmentWorkouts[] = [
             {
               icon: 'fitness',
               title: 'Hug ball during sprints',
-              description: 'Hug ball during sprints'
+              description: 'Hold ball securely against body while running'
             },
             {
               icon: 'body',
               title: 'Reset stance after slams',
-              description: 'Reset stance after slams'
+              description: 'Establish proper footing before starting sprint'
             }
           ]
         }
@@ -702,12 +702,12 @@ export const lightWeightsDatabase: EquipmentWorkouts[] = [
             {
               icon: 'body',
               title: 'Brace core; knees bent',
-              description: 'Brace core; knees bent'
+              description: 'Maintain athletic stance with engaged midsection'
             },
             {
               icon: 'flash',
               title: 'Exhale on each slam',
-              description: 'Exhale on each slam'
+              description: 'Use sharp breath to power each downward throw'
             }
           ]
         },
@@ -722,12 +722,12 @@ export const lightWeightsDatabase: EquipmentWorkouts[] = [
             {
               icon: 'git-branch',
               title: 'Keep steady rope slack',
-              description: 'Keep steady rope slack'
+              description: 'Maintain consistent tension in ropes throughout'
             },
             {
               icon: 'body',
               title: 'Relax shoulders; no shrug',
-              description: 'Relax shoulders; no shrug'
+              description: 'Keep shoulders down and away from ears'
             }
           ]
         }
@@ -744,12 +744,12 @@ export const lightWeightsDatabase: EquipmentWorkouts[] = [
             {
               icon: 'body',
               title: 'Drive force from hips and core',
-              description: 'Drive force from hips and core'
+              description: 'Generate rope power from lower body, not just arms'
             },
             {
               icon: 'flash',
               title: 'Short, powerful bursts',
-              description: 'Short, powerful bursts'
+              description: 'Focus on intensity over duration for each interval'
             }
           ]
         },
@@ -764,12 +764,12 @@ export const lightWeightsDatabase: EquipmentWorkouts[] = [
             {
               icon: 'refresh',
               title: 'Transition rope to burpee fluidly',
-              description: 'Transition rope to burpee fluidly'
+              description: 'Move smoothly between exercises without hesitation'
             },
             {
               icon: 'fitness',
               title: 'Land burpees softly, absorb impact',
-              description: 'Land burpees softly, absorb impact'
+              description: 'Use bent knees to cushion landing and protect joints'
             }
           ]
         }
@@ -786,12 +786,12 @@ export const lightWeightsDatabase: EquipmentWorkouts[] = [
             {
               icon: 'speedometer',
               title: 'Keep rhythm constant throughout',
-              description: 'Keep rhythm constant throughout'
+              description: 'Maintain steady pace across all rope movements'
             },
             {
               icon: 'leaf',
               title: 'Sync breathing with wave rhythm',
-              description: 'Sync breathing with wave rhythm'
+              description: 'Match inhale/exhale pattern to rope oscillations'
             }
           ]
         },
@@ -806,12 +806,12 @@ export const lightWeightsDatabase: EquipmentWorkouts[] = [
             {
               icon: 'walk',
               title: 'Sprint upright, strong arm drive',
-              description: 'Sprint upright, strong arm drive'
+              description: 'Run tall with powerful arm pumping motion'
             },
             {
               icon: 'flash',
               title: 'Max rope effort before running',
-              description: 'Max rope effort before running'
+              description: 'Give full intensity on ropes before transitioning'
             }
           ]
         }
@@ -834,12 +834,12 @@ export const lightWeightsDatabase: EquipmentWorkouts[] = [
             {
               icon: 'body',
               title: 'Push with 45° lean, arms straight',
-              description: 'Push with 45° lean, arms straight'
+              description: 'Angle body forward and extend arms for power transfer'
             },
             {
               icon: 'walk',
               title: 'Pull with short, fast steps',
-              description: 'Pull with short, fast steps'
+              description: 'Use quick choppy strides when moving backward'
             }
           ]
         },
@@ -854,12 +854,12 @@ export const lightWeightsDatabase: EquipmentWorkouts[] = [
             {
               icon: 'walk',
               title: 'Heel‑to‑toe push, core braced',
-              description: 'Heel‑to‑toe push, core braced'
+              description: 'Roll through foot while keeping midsection tight'
             },
             {
               icon: 'body',
               title: 'Upright chest while pulling',
-              description: 'Upright chest while pulling'
+              description: 'Stay tall and avoid hunching during backward pulls'
             }
           ]
         }
@@ -876,12 +876,12 @@ export const lightWeightsDatabase: EquipmentWorkouts[] = [
             {
               icon: 'flash',
               title: 'Explode with leg drive',
-              description: 'Explode with leg drive'
+              description: 'Push forcefully through ground with each step'
             },
             {
               icon: 'walk',
               title: 'Keep stride short and quick',
-              description: 'Keep stride short and quick'
+              description: 'Use rapid choppy steps for maximum power output'
             }
           ]
         },
@@ -896,12 +896,12 @@ export const lightWeightsDatabase: EquipmentWorkouts[] = [
             {
               icon: 'walk',
               title: 'Lateral: hips square, steps controlled',
-              description: 'Lateral: hips square, steps controlled'
+              description: 'Keep hips facing forward during sideways movement'
             },
             {
               icon: 'body',
               title: 'Drag: knees bent, chest tall',
-              description: 'Drag: knees bent, chest tall'
+              description: 'Maintain athletic posture while pulling backward'
             }
           ]
         }
@@ -918,12 +918,12 @@ export const lightWeightsDatabase: EquipmentWorkouts[] = [
             {
               icon: 'body',
               title: 'Heavy pushes: glute/ham drive',
-              description: 'Heavy pushes: glute/ham drive'
+              description: 'Power heavy loads through posterior chain muscles'
             },
             {
               icon: 'flash',
               title: 'Move fast between transitions',
-              description: 'Move fast between transitions'
+              description: 'Minimize rest time when switching directions'
             }
           ]
         },
@@ -938,12 +938,12 @@ export const lightWeightsDatabase: EquipmentWorkouts[] = [
             {
               icon: 'fitness',
               title: 'Burpees: core tight, hips level',
-              description: 'Burpees: core tight, hips level'
+              description: 'Keep body aligned during the plank portion'
             },
             {
               icon: 'flash',
               title: 'Push explosively after burpees',
-              description: 'Push explosively after burpees'
+              description: 'Channel elevated heart rate into powerful sled push'
             }
           ]
         }
@@ -966,12 +966,12 @@ export const lightWeightsDatabase: EquipmentWorkouts[] = [
             {
               icon: 'hand-right',
               title: 'Slide top hand down handle',
-              description: 'Slide top hand down handle'
+              description: 'Let top hand travel down shaft for maximum power'
             },
             {
               icon: 'walk',
               title: 'Place whole foot on tire',
-              description: 'Place whole foot on tire'
+              description: 'Step fully onto tire surface for stability'
             }
           ]
         },
@@ -986,12 +986,12 @@ export const lightWeightsDatabase: EquipmentWorkouts[] = [
             {
               icon: 'body',
               title: 'Hips whip to generate speed',
-              description: 'Hips whip to generate speed'
+              description: 'Rotate hips explosively to power hammer swing'
             },
             {
               icon: 'walk',
               title: 'Toe taps: fast, rhythmic',
-              description: 'Toe taps: fast, rhythmic'
+              description: 'Alternate feet quickly with light touches'
             }
           ]
         }
@@ -1008,12 +1008,12 @@ export const lightWeightsDatabase: EquipmentWorkouts[] = [
             {
               icon: 'body',
               title: 'Rotate hips; snap wrists',
-              description: 'Rotate hips; snap wrists'
+              description: 'Combine hip rotation with wrist snap for power'
             },
             {
               icon: 'fitness',
               title: 'Land softly on tire',
-              description: 'Land softly on tire'
+              description: 'Absorb landing through bent knees on jumps'
             }
           ]
         },
@@ -1028,12 +1028,12 @@ export const lightWeightsDatabase: EquipmentWorkouts[] = [
             {
               icon: 'body',
               title: 'Aggressive hip snap on strikes',
-              description: 'Aggressive hip snap on strikes'
+              description: 'Drive power from explosive hip rotation each rep'
             },
             {
               icon: 'flash',
               title: 'Exhale sharply each swing',
-              description: 'Exhale sharply each swing'
+              description: 'Use forceful breath to add power to strikes'
             }
           ]
         }
@@ -1050,12 +1050,12 @@ export const lightWeightsDatabase: EquipmentWorkouts[] = [
             {
               icon: 'body',
               title: 'Brace core during flips',
-              description: 'Brace core during flips'
+              description: 'Engage midsection to protect spine on heavy lifts'
             },
             {
               icon: 'fitness',
               title: 'Land lightly on jumps',
-              description: 'Land lightly on jumps'
+              description: 'Use soft landings to protect knees and ankles'
             }
           ]
         },
@@ -1070,12 +1070,12 @@ export const lightWeightsDatabase: EquipmentWorkouts[] = [
             {
               icon: 'hand-right',
               title: 'Reset grip each strike',
-              description: 'Reset grip each strike'
+              description: 'Reposition hands properly before each swing'
             },
             {
               icon: 'walk',
               title: 'Sprint tall; full arm drive',
-              description: 'Sprint tall; full arm drive'
+              description: 'Run upright with powerful arm pumping'
             }
           ]
         }
@@ -1098,12 +1098,12 @@ export const lightWeightsDatabase: EquipmentWorkouts[] = [
             {
               icon: 'body',
               title: 'Chest tight to tire; drive hips',
-              description: 'Chest tight to tire; drive hips'
+              description: 'Keep body close and use hip power to flip'
             },
             {
               icon: 'walk',
               title: 'Full foot on tire for steps',
-              description: 'Full foot on tire for steps'
+              description: 'Place entire foot on tire surface for stability'
             }
           ]
         },
@@ -1118,12 +1118,12 @@ export const lightWeightsDatabase: EquipmentWorkouts[] = [
             {
               icon: 'body',
               title: 'Full hip extension on flips',
-              description: 'Full hip extension on flips'
+              description: 'Drive hips fully forward to complete each flip'
             },
             {
               icon: 'walk',
               title: 'Toe taps: quick and light',
-              description: 'Toe taps: quick and light'
+              description: 'Alternate feet rapidly with minimal contact time'
             }
           ]
         }
@@ -1140,12 +1140,12 @@ export const lightWeightsDatabase: EquipmentWorkouts[] = [
             {
               icon: 'body',
               title: 'Keep back flat on flips',
-              description: 'Keep back flat on flips'
+              description: 'Maintain neutral spine throughout lifting motion'
             },
             {
               icon: 'fitness',
               title: 'Land softly, knees bent',
-              description: 'Land softly, knees bent'
+              description: 'Absorb jump landings through flexed knees'
             }
           ]
         },
@@ -1160,12 +1160,12 @@ export const lightWeightsDatabase: EquipmentWorkouts[] = [
             {
               icon: 'hand-right',
               title: 'Push‑ups: hands wide, stable',
-              description: 'Push‑ups: hands wide, stable'
+              description: 'Place hands on tire edges for solid base'
             },
             {
               icon: 'fitness',
               title: 'Lateral jumps: compact, quick',
-              description: 'Lateral jumps: compact, quick'
+              description: 'Keep jumps controlled with rapid side-to-side motion'
             }
           ]
         }
@@ -1182,12 +1182,12 @@ export const lightWeightsDatabase: EquipmentWorkouts[] = [
             {
               icon: 'body',
               title: 'Core braced; drive with legs',
-              description: 'Core braced; drive with legs'
+              description: 'Use leg power with tight core for safe flipping'
             },
             {
               icon: 'fitness',
               title: 'Control burpee pace',
-              description: 'Control burpee pace'
+              description: 'Maintain steady rhythm to manage fatigue'
             }
           ]
         },
@@ -1202,12 +1202,12 @@ export const lightWeightsDatabase: EquipmentWorkouts[] = [
             {
               icon: 'body',
               title: 'Grip low under tire; chest close',
-              description: 'Grip low under tire; chest close'
+              description: 'Position hands low and stay tight to tire'
             },
             {
               icon: 'walk',
               title: 'Sprint tall, relaxed after flips',
-              description: 'Sprint tall, relaxed after flips'
+              description: 'Run upright and loose following heavy lifts'
             }
           ]
         }

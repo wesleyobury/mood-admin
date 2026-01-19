@@ -373,12 +373,12 @@ export const additionalWorkoutDatabase = [
             {
               icon: 'body',
               title: 'Pause mid, smooth return',
-              description: 'Pause mid, smooth return'
+              description: 'Hold briefly at the halfway point before completing the rep'
             },
             {
               icon: 'body',
               title: 'Keep hips from swaying',
-              description: 'Keep hips from swaying'
+              description: 'Engage obliques to prevent lateral hip movement during rolls'
             }
           ]
         }
