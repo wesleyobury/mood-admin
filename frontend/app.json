@@ -16,10 +16,10 @@
       "infoPlist": {
         "UIViewControllerBasedStatusBarAppearance": false,
         "UIStatusBarStyle": "UIStatusBarStyleLightContent",
-        "NSCameraUsageDescription": "MOOD needs camera access to capture workout photos and videos",
-        "NSPhotoLibraryUsageDescription": "MOOD needs photo library access to share your workout progress",
-        "NSPhotoLibraryAddUsageDescription": "MOOD needs permission to save photos to your library",
-        "NSMicrophoneUsageDescription": "MOOD uses the microphone to record audio for workout videos you create and share with the community",
+        "NSCameraUsageDescription": "Take photos and videos of your workouts",
+        "NSPhotoLibraryUsageDescription": "Share your workout progress photos",
+        "NSPhotoLibraryAddUsageDescription": "Save workout photos to your library",
+        "NSMicrophoneUsageDescription": "Record audio for your workout videos",
         "ITSAppUsesNonExemptEncryption": false
       }
     },
