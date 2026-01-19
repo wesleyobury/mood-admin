@@ -204,19 +204,25 @@ async def get_optional_current_user(authorization: Optional[str] = Header(None))
 
 
 async def check_terms_accepted(user_id: str) -> bool:
-    """Check if user has accepted terms of service. Returns True if accepted, raises HTTPException if not."""
+    """Check if user has accepted the current version of terms of service.
+    Returns True if accepted, raises HTTPException with TERMS_NOT_ACCEPTED if not.
+    """
     try:
         user = await db.users.find_one({"_id": ObjectId(user_id)})
         if not user:
             raise HTTPException(status_code=404, detail="User not found")
         
-        terms_accepted = user.get("terms_accepted_at")
-        if not terms_accepted:
+        terms_accepted_at = user.get("terms_accepted_at")
+        terms_accepted_version = user.get("terms_accepted_version")
+        
+        # Check if user has accepted terms AND the version matches current version
+        if not terms_accepted_at or terms_accepted_version != CURRENT_TERMS_VERSION:
             raise HTTPException(
                 status_code=403, 
                 detail={
                     "code": "TERMS_NOT_ACCEPTED",
-                    "message": "You must accept the Terms of Service and Community Guidelines before performing this action."
+                    "message": "You must accept the Terms of Service and Community Guidelines before performing this action.",
+                    "required_version": CURRENT_TERMS_VERSION
                 }
             )
         return True
