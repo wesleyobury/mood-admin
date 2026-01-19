@@ -3318,6 +3318,7 @@ async def accept_terms(current_user_id: str = Depends(get_current_user)):
             {
                 "$set": {
                     "terms_accepted_at": now,
+                    "terms_accepted_version": CURRENT_TERMS_VERSION,
                     "privacy_accepted_at": now,
                 }
             }
@@ -3329,11 +3330,12 @@ async def accept_terms(current_user_id: str = Depends(get_current_user)):
             if not user:
                 raise HTTPException(status_code=404, detail="User not found")
         
-        logger.info(f"✅ Terms accepted by user: {current_user_id}")
+        logger.info(f"✅ Terms accepted by user: {current_user_id} (version: {CURRENT_TERMS_VERSION})")
         
         return {
             "message": "Terms acceptance recorded",
             "terms_accepted_at": now.isoformat(),
+            "terms_accepted_version": CURRENT_TERMS_VERSION,
             "privacy_accepted_at": now.isoformat()
         }
     except HTTPException:
