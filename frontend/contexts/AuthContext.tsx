@@ -50,6 +50,10 @@ export function AuthProvider({ children }: AuthProviderProps) {
   const [token, setToken] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [isGuest, setIsGuest] = useState(false);
+  const [showTermsModal, setShowTermsModal] = useState(false);
+
+  // Derived state: Check if user has accepted terms
+  const hasAcceptedTerms = Boolean(user?.terms_accepted_at);
 
   useEffect(() => {
     // Auto-login or load stored session
