@@ -4,6 +4,10 @@ import Constants from 'expo-constants';
 import { trackEvent, aliasGuestToUser, GuestAnalytics } from '../utils/analytics';
 import TermsAcceptanceModal from '../components/TermsAcceptanceModal';
 
+// Terms version must match backend CURRENT_TERMS_VERSION
+// Update this when terms change to force re-acceptance for all users
+const CURRENT_TERMS_VERSION = "2025-01-19";
+
 interface User {
   id: string;
   username: string;
@@ -16,6 +20,8 @@ interface User {
   workouts_count: number;
   current_streak: number;
   terms_accepted_at?: string | null;
+  terms_accepted_version?: string | null;
+  current_terms_version?: string; // From backend - what version is required
 }
 
 interface AuthContextType {
