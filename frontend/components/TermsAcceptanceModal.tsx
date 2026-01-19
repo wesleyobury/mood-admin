@@ -243,13 +243,13 @@ const styles = StyleSheet.create({
   zeroToleranceText: {
     fontSize: 15,
     fontWeight: '700',
-    color: '#FF3B30',
+    color: '#FFD700',
     textAlign: 'center',
     marginBottom: 4,
   },
   zeroToleranceSubtext: {
     fontSize: 12,
-    color: '#ccc',
+    color: '#aaa',
     textAlign: 'center',
   },
   summarySection: {
