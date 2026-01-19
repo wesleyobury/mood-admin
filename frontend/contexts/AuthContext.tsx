@@ -58,8 +58,12 @@ export function AuthProvider({ children }: AuthProviderProps) {
   const [isGuest, setIsGuest] = useState(false);
   const [showTermsModal, setShowTermsModal] = useState(false);
 
-  // Derived state: Check if user has accepted terms
-  const hasAcceptedTerms = Boolean(user?.terms_accepted_at);
+  // Derived state: Check if user has accepted the CURRENT version of terms
+  // User must have accepted terms AND their version must match current version
+  const hasAcceptedTerms = Boolean(
+    user?.terms_accepted_at && 
+    user?.terms_accepted_version === CURRENT_TERMS_VERSION
+  );
 
   useEffect(() => {
     // Auto-login or load stored session
