@@ -2,6 +2,7 @@ import React, { createContext, useContext, useState, useEffect, useRef, ReactNod
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import Constants from 'expo-constants';
 import { trackEvent, aliasGuestToUser, GuestAnalytics } from '../utils/analytics';
+import TermsAcceptanceModal from '../components/TermsAcceptanceModal';
 
 interface User {
   id: string;
@@ -14,6 +15,7 @@ interface User {
   following_count: number;
   workouts_count: number;
   current_streak: number;
+  terms_accepted_at?: string | null;
 }
 
 interface AuthContextType {
@@ -21,6 +23,8 @@ interface AuthContextType {
   token: string | null;
   isLoading: boolean;
   isGuest: boolean;
+  hasAcceptedTerms: boolean;
+  showTermsModal: boolean;
   login: (username: string, password: string) => Promise<void>;
   register: (username: string, email: string, password: string, name?: string) => Promise<void>;
   logout: () => Promise<void>;
@@ -28,6 +32,8 @@ interface AuthContextType {
   refreshAuth: () => Promise<void>;
   continueAsGuest: () => void;
   exitGuestMode: () => void;
+  acceptTerms: () => Promise<void>;
+  promptTermsAcceptance: () => void;
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
