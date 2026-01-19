@@ -4078,6 +4078,9 @@ async def upload_multiple_files(
     current_user_id: str = Depends(get_current_user)
 ):
     """Upload multiple media files (up to 5) to Cloudinary cloud storage"""
+    # Check if user has accepted terms
+    await check_terms_accepted(current_user_id)
+    
     if len(files) > 5:
         raise HTTPException(status_code=400, detail="Maximum 5 files allowed")
     
