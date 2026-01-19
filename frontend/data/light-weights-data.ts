@@ -306,12 +306,12 @@ export const lightWeightsDatabase: EquipmentWorkouts[] = [
             {
               icon: 'body',
               title: 'Deadlift: bar close, hinge hips',
-              description: 'Deadlift: bar close, hinge hips'
+              description: 'Keep bar against shins and drive from hip hinge'
             },
             {
               icon: 'fitness',
               title: 'Front squat: elbows tall',
-              description: 'Front squat: elbows tall'
+              description: 'Keep elbows high to maintain rack position'
             }
           ]
         },
@@ -326,12 +326,12 @@ export const lightWeightsDatabase: EquipmentWorkouts[] = [
             {
               icon: 'body',
               title: 'Clean: tall chest on catch',
-              description: 'Clean: tall chest on catch'
+              description: 'Stay upright when receiving the bar in front rack'
             },
             {
               icon: 'hand-right',
               title: 'Row: flat back; elbows to ribs',
-              description: 'Row: flat back; elbows to ribs'
+              description: 'Maintain neutral spine and pull elbows toward body'
             }
           ]
         }
@@ -348,12 +348,12 @@ export const lightWeightsDatabase: EquipmentWorkouts[] = [
             {
               icon: 'hand-right',
               title: 'Use hook grip to reduce fatigue',
-              description: 'Use hook grip to reduce fatigue'
+              description: 'Wrap thumb under fingers for secure barbell grip'
             },
             {
               icon: 'flash',
               title: 'Exhale hard on presses, squats',
-              description: 'Exhale hard on presses, squats'
+              description: 'Use forceful exhale to brace core during effort'
             }
           ]
         },
@@ -368,12 +368,12 @@ export const lightWeightsDatabase: EquipmentWorkouts[] = [
             {
               icon: 'fitness',
               title: 'Thrusters: rebound into press',
-              description: 'Thrusters: rebound into press'
+              description: 'Use squat momentum to power the overhead press'
             },
             {
               icon: 'trending-up',
               title: 'High pulls: elbows high, bar close',
-              description: 'High pulls: elbows high, bar close'
+              description: 'Lead with elbows and keep bar traveling close to body'
             }
           ]
         }
@@ -390,12 +390,12 @@ export const lightWeightsDatabase: EquipmentWorkouts[] = [
             {
               icon: 'hand-right',
               title: 'Clean: catch low, chest tall',
-              description: 'Clean: catch low, chest tall'
+              description: 'Receive the bar in a deep position with upright torso'
             },
             {
               icon: 'fitness',
               title: 'Burpees: efficient footwork',
-              description: 'Burpees: efficient footwork'
+              description: 'Minimize steps and jump directly over the bar'
             }
           ]
         },
@@ -410,12 +410,12 @@ export const lightWeightsDatabase: EquipmentWorkouts[] = [
             {
               icon: 'barbell',
               title: 'Keep bar path consistent',
-              description: 'Keep bar path consistent'
+              description: 'Maintain straight vertical bar path for efficiency'
             },
             {
               icon: 'fitness',
               title: 'Breathe steady on burpees',
-              description: 'Breathe steady on burpees'
+              description: 'Establish breathing rhythm to manage heart rate'
             }
           ]
         }
