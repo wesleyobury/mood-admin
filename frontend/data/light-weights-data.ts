@@ -42,12 +42,12 @@ export const lightWeightsDatabase: EquipmentWorkouts[] = [
             {
               icon: 'body',
               title: 'Chest tall; knees track toes',
-              description: 'Chest tall; knees track toes'
+              description: 'Maintain upright posture and proper knee alignment over feet'
             },
             {
               icon: 'fitness',
               title: 'Exhale hard on push press',
-              description: 'Exhale hard on push press'
+              description: 'Use a forceful exhale to brace core during the pressing motion'
             }
           ]
         },
@@ -62,12 +62,12 @@ export const lightWeightsDatabase: EquipmentWorkouts[] = [
             {
               icon: 'body',
               title: 'Neutral spine on rows',
-              description: 'Neutral spine on rows'
+              description: 'Keep back flat and hinge from hips during rowing movements'
             },
             {
               icon: 'refresh',
               title: 'Keep transitions smooth',
-              description: 'Keep transitions smooth'
+              description: 'Flow between exercises without rushing or losing control'
             }
           ]
         }
@@ -84,12 +84,12 @@ export const lightWeightsDatabase: EquipmentWorkouts[] = [
             {
               icon: 'refresh',
               title: 'Reset stance and grip each move',
-              description: 'Reset stance and grip each move'
+              description: 'Take a brief moment to set proper position between exercises'
             },
             {
               icon: 'flash',
               title: 'Exhale sharply on push press',
-              description: 'Exhale sharply on push press'
+              description: 'Power the press with an explosive breath to drive the weight'
             }
           ]
         },
@@ -104,12 +104,12 @@ export const lightWeightsDatabase: EquipmentWorkouts[] = [
             {
               icon: 'flash',
               title: 'Thrusters: drive with hips',
-              description: 'Thrusters: drive with hips'
+              description: 'Use explosive hip extension to power the weight overhead'
             },
             {
               icon: 'body',
               title: 'Rows: keep hips square',
-              description: 'Rows: keep hips square'
+              description: 'Prevent rotation by bracing core and keeping hips level'
             }
           ]
         }
