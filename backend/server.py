@@ -80,6 +80,10 @@ db = client[os.environ.get('DB_NAME', 'mood_app')]
 JWT_SECRET = os.environ.get('JWT_SECRET', 'mood-app-secret-key-2025')
 JWT_ALGORITHM = 'HS256'
 
+# Terms of Service Version - Update this when terms change to force re-acceptance
+# Format: YYYY-MM-DD
+CURRENT_TERMS_VERSION = "2025-01-19"
+
 # Cloudinary Configuration
 cloudinary.config(
     cloud_name=os.environ.get('CLOUDINARY_CLOUD_NAME'),
