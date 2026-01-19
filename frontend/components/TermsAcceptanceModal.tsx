@@ -71,7 +71,7 @@ export default function TermsAcceptanceModal({
             {/* Zero Tolerance Notice - CRITICAL FOR APP STORE */}
             <View style={styles.zeroToleranceBox}>
               <View style={styles.zeroToleranceHeader}>
-                <Ionicons name="warning" size={24} color="#FF3B30" />
+                <Ionicons name="shield-checkmark" size={24} color="#FFD700" />
                 <Text style={styles.zeroToleranceTitle}>Zero Tolerance Policy</Text>
               </View>
               <Text style={styles.zeroToleranceText}>
