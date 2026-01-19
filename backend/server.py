@@ -390,6 +390,7 @@ async def register(user_data: UserCreate):
         "followers": [],
         "created_at": datetime.now(timezone.utc),
         "terms_accepted_at": datetime.now(timezone.utc),  # Record when user accepted terms
+        "terms_accepted_version": CURRENT_TERMS_VERSION,  # Record which version they accepted
         "privacy_accepted_at": datetime.now(timezone.utc),  # Record when user accepted privacy policy
     }
     
