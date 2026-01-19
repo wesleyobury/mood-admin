@@ -4951,6 +4951,9 @@ async def save_post(
     current_user_id: str = Depends(get_current_user)
 ):
     """Save a post to user's saved posts"""
+    # Check if user has accepted terms
+    await check_terms_accepted(current_user_id)
+    
     # Check if post exists
     post = await db.posts.find_one({"_id": ObjectId(post_id)})
     if not post:
