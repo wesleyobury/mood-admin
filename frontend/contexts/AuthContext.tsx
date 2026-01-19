@@ -95,6 +95,12 @@ export function AuthProvider({ children }: AuthProviderProps) {
               setUser(userData);
               console.log('✅ Restored session for:', userData.username);
               
+              // Check if user needs to accept terms (show modal after login)
+              if (!userData.terms_accepted_at) {
+                console.log('⚠️ User has not accepted terms, showing modal...');
+                setShowTermsModal(true);
+              }
+              
               // Track app session start on successful restore
               trackEvent(storedToken, 'app_session_start', {
                 restored_session: true,
