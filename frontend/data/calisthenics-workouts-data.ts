@@ -401,12 +401,12 @@ export const additionalWorkoutDatabase = [
             {
               icon: 'hand-right',
               title: 'Hands stacked under shoulders',
-              description: 'Hands stacked under shoulders'
+              description: 'Position hands directly beneath shoulders for optimal pressing mechanics'
             },
             {
               icon: 'arrow-forward',
               title: 'Elbows 30–45° path',
-              description: 'Elbows 30–45° path'
+              description: 'Track elbows at 30-45 degrees to protect shoulders and engage chest'
             }
           ]
         },
@@ -421,12 +421,12 @@ export const additionalWorkoutDatabase = [
             {
               icon: 'body',
               title: 'Ribs down; no sway',
-              description: 'Ribs down; no sway'
+              description: 'Keep ribs pulled down and core tight to prevent back arching'
             },
             {
               icon: 'time',
               title: 'Slow 2–1–3 tempo',
-              description: 'Slow 2–1–3 tempo'
+              description: 'Use 2 seconds down, 1 second pause, 3 seconds up for control'
             }
           ]
         },
@@ -441,12 +441,12 @@ export const additionalWorkoutDatabase = [
             {
               icon: 'arrow-forward',
               title: 'Protract, then lean',
-              description: 'Protract, then lean'
+              description: 'Push shoulders forward first, then shift weight into lean position'
             },
             {
               icon: 'body',
               title: 'Keep elbows soft, not locked',
-              description: 'Keep elbows soft, not locked'
+              description: 'Maintain slight elbow bend to protect joints under tension'
             }
           ]
         }
@@ -463,12 +463,12 @@ export const additionalWorkoutDatabase = [
             {
               icon: 'body',
               title: 'Touch chest between bars',
-              description: 'Touch chest between bars'
+              description: 'Lower chest fully between bars to maximize range of motion'
             },
             {
               icon: 'body',
               title: 'Keep scap packed and down',
-              description: 'Keep scap packed and down'
+              description: 'Retract and depress shoulder blades throughout the movement'
             }
           ]
         },
@@ -483,12 +483,12 @@ export const additionalWorkoutDatabase = [
             {
               icon: 'arrow-forward',
               title: 'Protract; elbows soft',
-              description: 'Protract; elbows soft'
+              description: 'Push shoulders forward while maintaining slight elbow bend'
             },
             {
               icon: 'body',
               title: 'Rock smooth; ribs down',
-              description: 'Rock smooth; ribs down'
+              description: 'Keep hollow rocks controlled with ribs pulled toward hips'
             }
           ]
         },
@@ -503,12 +503,12 @@ export const additionalWorkoutDatabase = [
             {
               icon: 'hand-right',
               title: 'Keep forearms vertical',
-              description: 'Keep forearms vertical'
+              description: 'Stack forearms perpendicular to floor for efficient pressing'
             },
             {
               icon: 'body',
               title: 'Reach long; hips stacked',
-              description: 'Reach long; hips stacked'
+              description: 'Extend fully through the reach while keeping hips aligned'
             }
           ]
         }
@@ -525,12 +525,12 @@ export const additionalWorkoutDatabase = [
             {
               icon: 'body',
               title: 'Stack hips over hands',
-              description: 'Stack hips over hands'
+              description: 'Align hips directly above hands for proper vertical pressing'
             },
             {
               icon: 'arrow-up',
               title: 'Press tall; no elbow flare',
-              description: 'Press tall; no elbow flare'
+              description: 'Drive straight up keeping elbows tracking forward'
             }
           ]
         },
@@ -545,12 +545,12 @@ export const additionalWorkoutDatabase = [
             {
               icon: 'time',
               title: 'Move slow; chest between bars',
-              description: 'Move slow; chest between bars'
+              description: 'Control descent and touch chest between bars at bottom'
             },
             {
               icon: 'pause',
               title: 'Row: pause 1s at top',
-              description: 'Row: pause 1s at top'
+              description: 'Hold peak contraction for 1 second on each row rep'
             }
           ]
         },
@@ -565,12 +565,12 @@ export const additionalWorkoutDatabase = [
             {
               icon: 'pause',
               title: 'Pause mid; smooth return',
-              description: 'Pause mid; smooth return'
+              description: 'Hold briefly at mid-point then return with control'
             },
             {
               icon: 'body',
               title: 'Long spine, neck relaxed',
-              description: 'Long spine, neck relaxed'
+              description: 'Maintain neutral spine with relaxed neck throughout'
             }
           ]
         }
