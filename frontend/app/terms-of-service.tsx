@@ -36,7 +36,7 @@ export default function TermsOfServiceScreen() {
         {/* Zero Tolerance Policy - CRITICAL FOR APP STORE */}
         <View style={[styles.section, styles.zeroToleranceSection]}>
           <View style={styles.warningHeader}>
-            <Ionicons name="shield-checkmark" size={24} color="#FF3B30" />
+            <Ionicons name="shield-checkmark" size={24} color="#FFD700" />
             <Text style={styles.zeroToleranceTitle}>Zero Tolerance Policy</Text>
           </View>
           <Text style={styles.zeroToleranceParagraph}>
@@ -73,7 +73,7 @@ export default function TermsOfServiceScreen() {
         {/* Health Disclaimer - IMPORTANT */}
         <View style={[styles.section, styles.warningSection]}>
           <View style={styles.warningHeader}>
-            <Ionicons name="warning" size={24} color="#FF9500" />
+            <Ionicons name="fitness" size={24} color="#FFD700" />
             <Text style={styles.warningSectionTitle}>Health & Fitness Disclaimer</Text>
           </View>
           <Text style={styles.warningParagraph}>
@@ -158,7 +158,7 @@ export default function TermsOfServiceScreen() {
         {/* Explicit Content Prohibition */}
         <View style={[styles.section, styles.zeroToleranceSection]}>
           <View style={styles.warningHeader}>
-            <Ionicons name="ban" size={24} color="#FF3B30" />
+            <Ionicons name="ban" size={24} color="#FFD700" />
             <Text style={styles.zeroToleranceTitle}>Prohibited Sexual Content</Text>
           </View>
           <Text style={styles.paragraph}>

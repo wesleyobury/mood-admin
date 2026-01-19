@@ -11,7 +11,7 @@
     "newArchEnabled": true,
     "ios": {
       "bundleIdentifier": "com.official.moodapp",
-      "buildNumber": "20",
+      "buildNumber": "21",
       "supportsTablet": true,
       "infoPlist": {
         "UIViewControllerBasedStatusBarAppearance": false,
@@ -19,6 +19,7 @@
         "NSCameraUsageDescription": "MOOD needs camera access to capture workout photos and videos",
         "NSPhotoLibraryUsageDescription": "MOOD needs photo library access to share your workout progress",
         "NSPhotoLibraryAddUsageDescription": "MOOD needs permission to save photos to your library",
+        "NSMicrophoneUsageDescription": "MOOD uses the microphone to record audio for workout videos you create and share with the community",
         "ITSAppUsesNonExemptEncryption": false
       }
     },
