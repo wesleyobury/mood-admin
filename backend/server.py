@@ -3059,7 +3059,7 @@ async def find_user_by_id(user_id: str):
     
     return user
 
-@api_router.get("/users/me", response_model=UserResponse)
+@api_router.get("/users/me")
 async def get_current_user_info(current_user_id: str = Depends(get_current_user)):
     user = await find_user_by_id(current_user_id)
     if not user:
@@ -3083,19 +3083,21 @@ async def get_current_user_info(current_user_id: str = Depends(get_current_user)
                 {"$set": {"current_streak": current_streak}}
             )
     
-    return UserResponse(
-        id=str(user["_id"]),  # Always use MongoDB _id for consistency
-        username=user["username"],
-        email=user.get("email", ""),
-        name=user.get("name"),
-        bio=user.get("bio", ""),
-        avatar=user.get("avatar", ""),
-        followers_count=user.get("followers_count", 0),
-        following_count=user.get("following_count", 0),
-        workouts_count=user.get("workouts_count", 0),
-        current_streak=current_streak,
-        created_at=user.get("created_at", datetime.now(timezone.utc))
-    )
+    # Return user data including terms acceptance status
+    return {
+        "id": str(user["_id"]),
+        "username": user["username"],
+        "email": user.get("email", ""),
+        "name": user.get("name"),
+        "bio": user.get("bio", ""),
+        "avatar": user.get("avatar", ""),
+        "followers_count": user.get("followers_count", 0),
+        "following_count": user.get("following_count", 0),
+        "workouts_count": user.get("workouts_count", 0),
+        "current_streak": current_streak,
+        "created_at": user.get("created_at", datetime.now(timezone.utc)).isoformat() if user.get("created_at") else datetime.now(timezone.utc).isoformat(),
+        "terms_accepted_at": user.get("terms_accepted_at").isoformat() if user.get("terms_accepted_at") else None
+    }
 
 
 @api_router.get("/users/me/stats")
