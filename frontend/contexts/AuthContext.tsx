@@ -156,6 +156,12 @@ export function AuthProvider({ children }: AuthProviderProps) {
       if (response.ok) {
         const userData = await response.json();
         setUser(userData);
+        
+        // Check if user needs to accept terms (show modal after login)
+        if (!userData.terms_accepted_at) {
+          console.log('⚠️ User has not accepted terms, showing modal...');
+          setShowTermsModal(true);
+        }
       } else {
         // Token is invalid, clear it
         await logout();
