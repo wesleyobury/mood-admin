@@ -37,12 +37,12 @@ export const additionalWorkoutDatabase = [
             {
               icon: 'body',
               title: 'Move just shoulder blades',
-              description: 'Move just shoulder blades'
+              description: 'Isolate scapular movement without bending elbows or using momentum'
             },
             {
               icon: 'body',
               title: 'Ribs down and quiet',
-              description: 'Ribs down and quiet'
+              description: 'Maintain core engagement to prevent rib flare and spine extension'
             }
           ]
         },
@@ -57,12 +57,12 @@ export const additionalWorkoutDatabase = [
             {
               icon: 'body',
               title: 'Set feet to control load',
-              description: 'Set feet to control load'
+              description: 'Move feet closer to reduce difficulty or farther away to increase challenge'
             },
             {
               icon: 'body',
               title: 'Ring pushups: elbows 45°',
-              description: 'Ring pushups: elbows 45°'
+              description: 'Keep elbows at 45-degree angle to protect shoulders and engage chest'
             }
           ]
         }
@@ -79,12 +79,12 @@ export const additionalWorkoutDatabase = [
             {
               icon: 'hand-right',
               title: 'Squeeze rings lightly',
-              description: 'Squeeze rings lightly'
+              description: 'A light grip activates forearms without excess tension or fatigue'
             },
             {
               icon: 'body',
               title: 'Keep shoulders packed',
-              description: 'Keep shoulders packed'
+              description: 'Pull shoulder blades down and back to create stable pressing position'
             }
           ]
         },
@@ -99,12 +99,12 @@ export const additionalWorkoutDatabase = [
             {
               icon: 'body',
               title: 'Press through working hand',
-              description: 'Press through working hand'
+              description: 'Drive force through the main arm to build unilateral strength'
             },
             {
               icon: 'body',
               title: 'Assist lightly with other',
-              description: 'Assist lightly with other'
+              description: 'Use the assisting arm for balance only, not primary force production'
             }
           ]
         },
@@ -119,12 +119,12 @@ export const additionalWorkoutDatabase = [
             {
               icon: 'leaf',
               title: 'Keep tempo smooth',
-              description: 'Keep tempo smooth'
+              description: 'Control the movement pace to maximize time under tension'
             },
             {
               icon: 'body',
               title: 'Avoid overflaring rings',
-              description: 'Avoid overflaring rings'
+              description: 'Keep rings parallel to prevent excessive shoulder external rotation'
             }
           ]
         }
@@ -141,12 +141,12 @@ export const additionalWorkoutDatabase = [
             {
               icon: 'body',
               title: 'Straight arm stays passive',
-              description: 'Straight arm stays passive'
+              description: 'Let the extended arm guide balance without contributing force'
             },
             {
               icon: 'leaf',
               title: 'Breathe through tension',
-              description: 'Breathe through tension'
+              description: 'Maintain steady breathing to prevent breath-holding under load'
             }
           ]
         },
@@ -161,12 +161,12 @@ export const additionalWorkoutDatabase = [
             {
               icon: 'hand-right',
               title: 'Deep false grip patience',
-              description: 'Deep false grip patience'
+              description: 'Master the false grip position before attempting muscle-up transitions'
             },
             {
               icon: 'flash',
               title: 'Explosive ring pull',
-              description: 'Explosive ring pull'
+              description: 'Generate maximum power through hip drive and aggressive lat engagement'
             }
           ]
         },
@@ -181,12 +181,12 @@ export const additionalWorkoutDatabase = [
             {
               icon: 'body',
               title: 'Maintain form all reps',
-              description: 'Maintain form all reps'
+              description: 'Prioritize technique quality over rep count as fatigue increases'
             },
             {
               icon: 'leaf',
               title: 'Steady breathing rhythm',
-              description: 'Steady breathing rhythm'
+              description: 'Sync breath with movement to optimize oxygen delivery and performance'
             }
           ]
         }
