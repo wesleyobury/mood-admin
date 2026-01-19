@@ -448,12 +448,12 @@ const fullBodyWorkoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'settings',
               title: 'Note seat/bar settings',
-              description: 'Note seat/bar settings'
+              description: 'Record your machine settings to ensure consistent positioning and reduce setup time next session'
             },
             {
               icon: 'time',
               title: 'Smooth 2–1–3 tempo',
-              description: 'Smooth 2–1–3 tempo'
+              description: 'Use a controlled tempo: 2 seconds lifting, 1 second pause, 3 seconds lowering for optimal muscle engagement'
             }
           ]
         },
@@ -468,12 +468,12 @@ const fullBodyWorkoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'body',
               title: 'Heels down on hack',
-              description: 'Heels down on hack'
+              description: 'Keep your heels firmly planted on the platform throughout the hack squat to properly target your quads'
             },
             {
               icon: 'remove-circle',
               title: 'Don\'t arch on press',
-              description: 'Don\'t arch on press'
+              description: 'Avoid excessive lower back arching during shoulder press by engaging your core and keeping ribs down'
             }
           ]
         },
@@ -488,12 +488,12 @@ const fullBodyWorkoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'body',
               title: 'Ribs stacked over hips',
-              description: 'Ribs stacked over hips'
+              description: 'Maintain a neutral spine by keeping your ribcage aligned directly over your pelvis throughout each movement'
             },
             {
               icon: 'expand',
               title: 'Own small ranges calmly',
-              description: 'Own small ranges calmly'
+              description: 'Focus on controlling a comfortable range of motion—quality reps matter more than depth when starting out'
             }
           ]
         }
@@ -510,12 +510,12 @@ const fullBodyWorkoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'body',
               title: 'Track knee and elbow lines',
-              description: 'Track knee and elbow lines'
+              description: 'Monitor your joint alignment—knees should track over toes on leg press, elbows at consistent angles on presses'
             },
             {
               icon: 'time',
               title: 'Control eccentrics 3s',
-              description: 'Control eccentrics 3s'
+              description: 'Use a controlled 3-second lowering phase on all exercises to maximize muscle engagement and growth'
             }
           ]
         },
@@ -530,12 +530,12 @@ const fullBodyWorkoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'body',
               title: 'Heels planted; quiet knees',
-              description: 'Heels planted; quiet knees'
+              description: 'Keep heels firmly on the platform and avoid any knee wobbling during hack squats for proper quad engagement'
             },
             {
               icon: 'body',
               title: 'Tall chest on pulldown',
-              description: 'Tall chest on pulldown'
+              description: 'Maintain an upright, proud chest position during pulldowns to maximize lat activation and minimize shoulder strain'
             }
           ]
         },
@@ -550,12 +550,12 @@ const fullBodyWorkoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'body',
               title: 'Brace light; ribs stacked',
-              description: 'Brace light; ribs stacked'
+              description: 'Engage your core gently and keep your ribcage aligned over your pelvis for proper spinal positioning'
             },
             {
               icon: 'leaf',
               title: 'Exhale on effort segments',
-              description: 'Exhale on effort segments'
+              description: 'Breathe out during the pushing or pulling phase of each exercise to maintain core stability and control'
             }
           ]
         }
@@ -572,12 +572,12 @@ const fullBodyWorkoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'flash',
               title: 'Swift pin changes',
-              description: 'Swift pin changes'
+              description: 'Move quickly between drop sets by changing the weight pin efficiently to maintain muscle fatigue'
             },
             {
               icon: 'time',
               title: 'Keep tempo consistent',
-              description: 'Keep tempo consistent'
+              description: 'Maintain the same controlled tempo throughout all drop set portions for consistent muscle stimulus'
             }
           ]
         },
@@ -592,12 +592,12 @@ const fullBodyWorkoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'leaf',
               title: '15s rests in clusters',
-              description: '15s rests in clusters'
+              description: 'Use the brief 15-second mini-rests to take 2-3 deep breaths and reset your focus before continuing'
             },
             {
               icon: 'barbell',
               title: 'Same load within cluster',
-              description: 'Same load within cluster'
+              description: 'Keep the weight constant throughout all mini-sets within each cluster for consistent training stimulus'
             }
           ]
         },
@@ -612,12 +612,12 @@ const fullBodyWorkoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'time',
               title: '1s squeeze at peak',
-              description: '1s squeeze at peak'
+              description: 'Hold a 1-second squeeze at the peak contraction of each rep to maximize muscle engagement and tension'
             },
             {
               icon: 'time',
               title: 'Control 3s returns',
-              description: 'Control 3s returns'
+              description: 'Lower the weight slowly over 3 seconds during 1.5 reps to increase time under tension and build strength'
             }
           ]
         }
