@@ -209,12 +209,12 @@ export const additionalWorkoutDatabase = [
             {
               icon: 'body',
               title: 'Ribs down; small ranges',
-              description: 'Ribs down; small ranges'
+              description: 'Keep core engaged and start with limited range to build safely'
             },
             {
               icon: 'body',
               title: 'Hips glide with torso',
-              description: 'Hips glide with torso'
+              description: 'Move hips and torso as one unit to protect lower back'
             }
           ]
         },
@@ -229,12 +229,12 @@ export const additionalWorkoutDatabase = [
             {
               icon: 'body',
               title: '4s lowers; 1s pause',
-              description: '4s lowers; 1s pause'
+              description: 'Use a 4-second eccentric phase with brief pause at bottom'
             },
             {
               icon: 'body',
               title: 'Keep low back quiet',
-              description: 'Keep low back quiet'
+              description: 'Avoid lumbar extension by engaging core throughout movement'
             }
           ]
         },
@@ -249,12 +249,12 @@ export const additionalWorkoutDatabase = [
             {
               icon: 'body',
               title: 'Add inches slowly',
-              description: 'Add inches slowly'
+              description: 'Gradually extend range as strength and control improve'
             },
             {
               icon: 'body',
               title: 'Keep hips tucked slightly',
-              description: 'Keep hips tucked slightly'
+              description: 'Maintain posterior pelvic tilt to protect lower spine'
             }
           ]
         }
@@ -271,12 +271,12 @@ export const additionalWorkoutDatabase = [
             {
               icon: 'body',
               title: 'Smooth 3s lowers',
-              description: 'Smooth 3s lowers'
+              description: 'Control the eccentric for 3 seconds to maximize tension'
             },
             {
               icon: 'leaf',
               title: 'Exhale pulling back',
-              description: 'Exhale pulling back'
+              description: 'Breathe out forcefully during concentric to aid core stability'
             }
           ]
         },
@@ -291,12 +291,12 @@ export const additionalWorkoutDatabase = [
             {
               icon: 'body',
               title: 'Keep ribs stacked',
-              description: 'Keep ribs stacked'
+              description: 'Maintain rib-hip connection to avoid hyperextension'
             },
             {
               icon: 'body',
               title: 'Move only as range allows',
-              description: 'Move only as range allows'
+              description: 'Stop before form breaks down to prevent injury'
             }
           ]
         },
@@ -311,12 +311,12 @@ export const additionalWorkoutDatabase = [
             {
               icon: 'body',
               title: 'Small angle changes',
-              description: 'Small angle changes'
+              description: 'Work obliques with slight diagonal movements for variety'
             },
             {
               icon: 'body',
               title: 'Keep hips square level',
-              description: 'Keep hips square level'
+              description: 'Prevent hip rotation to isolate core muscles effectively'
             }
           ]
         }
@@ -333,12 +333,12 @@ export const additionalWorkoutDatabase = [
             {
               icon: 'body',
               title: 'Control end range',
-              description: 'Control end range'
+              description: 'Maintain tension at full extension without losing form'
             },
             {
               icon: 'body',
               title: 'Avoid lumbar extension',
-              description: 'Avoid lumbar extension'
+              description: 'Keep core braced to prevent lower back arching'
             }
           ]
         },
@@ -353,12 +353,12 @@ export const additionalWorkoutDatabase = [
             {
               icon: 'body',
               title: 'Stay stacked, glutes on',
-              description: 'Stay stacked, glutes on'
+              description: 'Engage glutes and maintain aligned posture throughout'
             },
             {
               icon: 'leaf',
               title: 'Nose breathe; calm rhythm',
-              description: 'Nose breathe; calm rhythm'
+              description: 'Nasal breathing helps maintain core tension and focus'
             }
           ]
         },
