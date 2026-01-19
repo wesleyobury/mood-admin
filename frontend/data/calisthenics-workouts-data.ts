@@ -17,12 +17,12 @@ export const additionalWorkoutDatabase = [
             {
               icon: 'body',
               title: 'Rings close to body',
-              description: 'Rings close to body'
+              description: 'Keep rings tight to your sides for better stability and control'
             },
             {
               icon: 'hand-right',
               title: 'Keep wrists neutral',
-              description: 'Keep wrists neutral'
+              description: 'Avoid bending wrists to prevent strain and maintain proper alignment'
             }
           ]
         },
