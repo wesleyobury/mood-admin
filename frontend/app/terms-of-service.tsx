@@ -308,23 +308,23 @@ const styles = StyleSheet.create({
     marginBottom: 24,
   },
   warningSection: {
-    backgroundColor: 'rgba(255, 149, 0, 0.1)',
+    backgroundColor: 'rgba(255, 215, 0, 0.08)',
     borderRadius: 12,
     padding: 16,
     borderWidth: 1,
-    borderColor: 'rgba(255, 149, 0, 0.3)',
+    borderColor: 'rgba(255, 215, 0, 0.25)',
   },
   zeroToleranceSection: {
-    backgroundColor: 'rgba(255, 59, 48, 0.1)',
+    backgroundColor: 'rgba(255, 215, 0, 0.08)',
     borderRadius: 12,
     padding: 16,
     borderWidth: 1,
-    borderColor: 'rgba(255, 59, 48, 0.3)',
+    borderColor: 'rgba(255, 215, 0, 0.25)',
   },
   zeroToleranceTitle: {
     fontSize: 18,
     fontWeight: '700',
-    color: '#FF3B30',
+    color: '#FFD700',
   },
   zeroToleranceParagraph: {
     fontSize: 15,
@@ -337,7 +337,7 @@ const styles = StyleSheet.create({
   zeroToleranceWarning: {
     fontSize: 13,
     lineHeight: 20,
-    color: '#FF6B6B',
+    color: '#FF3B30',
     fontWeight: '600',
     marginTop: 12,
     fontStyle: 'italic',
@@ -351,12 +351,12 @@ const styles = StyleSheet.create({
   warningSectionTitle: {
     fontSize: 18,
     fontWeight: '700',
-    color: '#FF9500',
+    color: '#FFD700',
   },
   warningParagraph: {
     fontSize: 14,
     lineHeight: 22,
-    color: '#FF9500',
+    color: '#ccc',
     fontWeight: '600',
     marginBottom: 12,
   },
