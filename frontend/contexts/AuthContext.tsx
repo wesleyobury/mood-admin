@@ -105,9 +105,15 @@ export function AuthProvider({ children }: AuthProviderProps) {
               setUser(userData);
               console.log('✅ Restored session for:', userData.username);
               
-              // Check if user needs to accept terms (show modal after login)
-              if (!userData.terms_accepted_at) {
-                console.log('⚠️ User has not accepted terms, showing modal...');
+              // Check if user needs to accept current terms version (show modal after login)
+              // Show modal if: no terms accepted OR version doesn't match current version
+              const needsTermsAcceptance = !userData.terms_accepted_at || 
+                userData.terms_accepted_version !== CURRENT_TERMS_VERSION;
+              
+              if (needsTermsAcceptance) {
+                console.log('⚠️ User has not accepted current terms version, showing modal...');
+                console.log('  User version:', userData.terms_accepted_version);
+                console.log('  Current version:', CURRENT_TERMS_VERSION);
                 setShowTermsModal(true);
               }
               
