@@ -64,12 +64,12 @@ const lowerBodyWorkoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'body',
               title: 'Seat tight; feet mid-sled; full foot contact',
-              description: 'Seat tight; feet mid-sled; full foot contact'
+              description: 'Position your seat snugly and place feet in the middle of the sled with full foot contact for optimal quad engagement'
             },
             {
               icon: 'time',
               title: 'Smooth 2–1–3 tempo; stop shy of lock',
-              description: 'Smooth 2–1–3 tempo; stop shy of lock'
+              description: 'Use a controlled tempo of 2 seconds up, 1 second pause, 3 seconds down—avoid fully locking out your knees'
             }
           ]
         },
@@ -84,12 +84,12 @@ const lowerBodyWorkoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'body',
               title: 'Knees align with machine axis',
-              description: 'Knees align with machine axis'
+              description: 'Adjust the machine so your knee joint lines up with the pivot point for proper biomechanics and safety'
             },
             {
               icon: 'contract',
               title: 'Full squeeze top; slow lower control',
-              description: 'Full squeeze top; slow lower control'
+              description: 'Squeeze your quads fully at the top of each rep, then lower slowly with control for maximum muscle engagement'
             }
           ]
         },
@@ -104,12 +104,12 @@ const lowerBodyWorkoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'body',
               title: 'Back flat; feet shoulder-width',
-              description: 'Back flat; feet shoulder-width'
+              description: 'Keep your back flat against the pad and position feet shoulder-width apart for stable, effective squatting'
             },
             {
               icon: 'expand',
               title: 'Small depth you own; quiet knees',
-              description: 'Small depth you own; quiet knees'
+              description: 'Work within a range of motion you can control—keep knees stable without wobbling or caving inward'
             }
           ]
         }
@@ -126,12 +126,12 @@ const lowerBodyWorkoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'body',
               title: 'Mid-stance; track knees over toes',
-              description: 'Mid-stance; track knees over toes'
+              description: 'Use a mid-width stance and ensure your knees track directly over your toes throughout each rep'
             },
             {
               icon: 'time',
               title: 'Own the bottom; 2–1–3 tempo',
-              description: 'Own the bottom; 2–1–3 tempo'
+              description: 'Control the bottom position of each rep using a 2-1-3 tempo for optimal muscle tension and safety'
             }
           ]
         },
@@ -146,12 +146,12 @@ const lowerBodyWorkoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'body',
               title: 'Keep heels planted; soft lockouts',
-              description: 'Keep heels planted; soft lockouts'
+              description: 'Maintain heel contact with the platform throughout and avoid locking knees completely at the top'
             },
             {
               icon: 'time',
               title: 'Smooth descent; steady torso angle',
-              description: 'Smooth descent; steady torso angle'
+              description: 'Lower slowly with control while keeping your torso at a consistent angle against the pad'
             }
           ]
         },
@@ -166,12 +166,12 @@ const lowerBodyWorkoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'body',
               title: 'Bar high chest; small stance',
-              description: 'Bar high chest; small stance'
+              description: 'Position the bar high on your chest/shoulders and use a narrower stance to emphasize quad recruitment'
             },
             {
               icon: 'expand',
               title: 'Knees track; ribs stacked and tall',
-              description: 'Knees track; ribs stacked and tall'
+              description: 'Let knees travel forward over toes while keeping your ribcage stacked and torso upright throughout'
             }
           ]
         }
@@ -188,12 +188,12 @@ const lowerBodyWorkoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'flash',
               title: 'Quick pin drops ~15%',
-              description: 'Quick pin drops ~15%'
+              description: 'Reduce the weight by approximately 15% quickly between drops to maintain intensity and muscle fatigue'
             },
             {
               icon: 'remove-circle',
               title: 'No bouncing; control bottom',
-              description: 'No bouncing; control bottom'
+              description: 'Avoid bouncing at the bottom of the press—maintain control throughout the entire range of motion'
             }
           ]
         },
@@ -208,12 +208,12 @@ const lowerBodyWorkoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'leaf',
               title: '15s breaths in clusters',
-              description: '15s breaths in clusters'
+              description: 'Use the 15-second mini-rests to take 2-3 deep breaths and reset your focus before continuing'
             },
             {
               icon: 'barbell',
               title: 'Same load within clusters',
-              description: 'Same load within clusters'
+              description: 'Keep the weight constant throughout all mini-sets within each cluster for consistent training stimulus'
             }
           ]
         },
@@ -228,12 +228,12 @@ const lowerBodyWorkoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'body',
               title: 'Short stance; heel down',
-              description: 'Short stance; heel down'
+              description: 'Use a shorter split stance and keep your front heel firmly planted to maximize quad engagement'
             },
             {
               icon: 'expand',
               title: 'Soft knee touch; tall torso',
-              description: 'Soft knee touch; tall torso'
+              description: 'Lower until your rear knee nearly touches the ground while maintaining an upright torso throughout'
             }
           ]
         }
@@ -256,12 +256,12 @@ const lowerBodyWorkoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'body',
               title: 'Keep hips square; soft ribs',
-              description: 'Keep hips square; soft ribs'
+              description: 'Maintain level hips throughout each movement and keep your ribcage relaxed to avoid overarching'
             },
             {
               icon: 'time',
               title: 'Long hamstring stretch; calm pace',
-              description: 'Long hamstring stretch; calm pace'
+              description: 'Focus on feeling a full hamstring stretch during the lowering phase while maintaining a controlled tempo'
             }
           ]
         },
@@ -276,12 +276,12 @@ const lowerBodyWorkoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'body',
               title: 'Ankles dorsiflexed on curl',
-              description: 'Ankles dorsiflexed on curl'
+              description: 'Keep your ankles flexed (toes pulled toward shins) during leg curls to maximize hamstring engagement'
             },
             {
               icon: 'arrow-down',
               title: 'Drive through heels on thrusts',
-              description: 'Drive through heels on thrusts'
+              description: 'Push through your heels during hip thrusts to activate your glutes fully rather than your quads'
             }
           ]
         },
@@ -296,12 +296,12 @@ const lowerBodyWorkoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'body',
               title: 'Hinge from hips; neutral neck',
-              description: 'Hinge from hips; neutral neck'
+              description: 'Initiate the back extension from your hips while keeping your neck in a neutral position throughout'
             },
             {
               icon: 'contract',
               title: 'Squeeze glutes at top briefly',
-              description: 'Squeeze glutes at top briefly'
+              description: 'At the top of each rep, squeeze your glutes for a brief moment to maximize muscle activation'
             }
           ]
         }
@@ -318,12 +318,12 @@ const lowerBodyWorkoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'body',
               title: 'Pad aligned with knee axis',
-              description: 'Pad aligned with knee axis'
+              description: 'Adjust the machine pad so it aligns with your knee joint for proper mechanics and reduced strain'
             },
             {
               icon: 'time',
               title: 'Control 3s lower on curls',
-              description: 'Control 3s lower on curls'
+              description: 'Lower the weight over 3 seconds on each curl rep to maximize time under tension and hamstring growth'
             }
           ]
         },
@@ -338,12 +338,12 @@ const lowerBodyWorkoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'body',
               title: 'Bar tracks thighs; soft knees',
-              description: 'Bar tracks thighs; soft knees'
+              description: 'Keep the bar path close to your thighs throughout the RDL while maintaining a slight bend in your knees'
             },
             {
               icon: 'expand',
               title: 'Long hamstring line; neutral back',
-              description: 'Long hamstring line; neutral back'
+              description: 'Feel a full stretch through your hamstrings while keeping your back flat and spine neutral'
             }
           ]
         },
@@ -358,12 +358,12 @@ const lowerBodyWorkoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'body',
               title: 'Hips back; shins quiet',
-              description: 'Hips back; shins quiet'
+              description: 'Push your hips back while keeping your shins vertical—don\'t let your knees drift forward'
             },
             {
               icon: 'expand',
               title: 'Abduction: small range, steady pace',
-              description: 'Abduction: small range, steady pace'
+              description: 'Use a controlled range of motion on abductions at a steady tempo for optimal glute activation'
             }
           ]
         }
@@ -380,12 +380,12 @@ const lowerBodyWorkoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'flash',
               title: 'Quick pin drops ~15%',
-              description: 'Quick pin drops ~15%'
+              description: 'Change the weight pin quickly between drops to minimize rest and maintain muscle fatigue throughout'
             },
             {
               icon: 'body',
               title: 'No hip hike; stay squared',
-              description: 'No hip hike; stay squared'
+              description: 'Keep your hips level and squared throughout—avoid hiking one side up during curls'
             }
           ]
         },
@@ -400,12 +400,12 @@ const lowerBodyWorkoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'leaf',
               title: '15s breaths in clusters',
-              description: '15s breaths in clusters'
+              description: 'Use the 15-second mini-rests to take deep breaths and reset your focus before the next mini-set'
             },
             {
               icon: 'body',
               title: 'Shins vertical; hinge pure',
-              description: 'Shins vertical; hinge pure'
+              description: 'Keep your shins vertical throughout the RDL to ensure a pure hip hinge pattern'
             }
           ]
         },
@@ -420,12 +420,12 @@ const lowerBodyWorkoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'time',
               title: '1s squeeze; 3s return',
-              description: '1s squeeze; 3s return'
+              description: 'Hold a 1-second squeeze at peak contraction, then take 3 seconds to lower for maximum muscle tension'
             },
             {
               icon: 'body',
               title: 'Hips back; torso steady',
-              description: 'Hips back; torso steady'
+              description: 'Push your hips back during pull-throughs while keeping your torso at a consistent angle'
             }
           ]
         }
@@ -448,12 +448,12 @@ const lowerBodyWorkoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'settings',
               title: 'Note seat settings for repeat',
-              description: 'Note seat settings for repeat'
+              description: 'Record your machine seat positions to ensure consistent setup and save time in future sessions'
             },
             {
               icon: 'time',
               title: 'Smooth 2–1–3 tempo throughout',
-              description: 'Smooth 2–1–3 tempo throughout'
+              description: 'Use a controlled tempo: 2 seconds lifting, 1 second pause, 3 seconds lowering on all exercises'
             }
           ]
         },
@@ -468,12 +468,12 @@ const lowerBodyWorkoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'expand',
               title: 'Own range you can control',
-              description: 'Own range you can control'
+              description: 'Work within a range of motion you can control completely—quality reps matter more than depth'
             },
             {
               icon: 'leaf',
               title: 'Breathe steady; no tempo rush',
-              description: 'Breathe steady; no tempo rush'
+              description: 'Maintain steady breathing throughout and avoid rushing the tempo even when fatigued'
             }
           ]
         },
@@ -488,12 +488,12 @@ const lowerBodyWorkoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'body',
               title: 'Brace light; ribs stacked',
-              description: 'Brace light; ribs stacked'
+              description: 'Engage your core gently and keep your ribcage aligned over your pelvis for proper spinal positioning'
             },
             {
               icon: 'expand',
               title: 'Small ranges are okay',
-              description: 'Small ranges are okay'
+              description: 'Focus on controlling a comfortable range of motion—smaller controlled reps beat sloppy deep ones'
             }
           ]
         }
@@ -510,12 +510,12 @@ const lowerBodyWorkoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'body',
               title: 'Track knee alignment',
-              description: 'Track knee alignment'
+              description: 'Monitor your knee tracking throughout—ensure knees move in line with your toes on all exercises'
             },
             {
               icon: 'time',
               title: 'Control all eccentrics',
-              description: 'Control all eccentrics'
+              description: 'Focus on controlling the lowering phase of every exercise to maximize muscle engagement and growth'
             }
           ]
         },
@@ -530,12 +530,12 @@ const lowerBodyWorkoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'body',
               title: 'Heels down; quiet knees',
-              description: 'Heels down; quiet knees'
+              description: 'Keep heels planted firmly and avoid any knee wobbling or caving during hack squats'
             },
             {
               icon: 'contract',
               title: 'Squeeze glutes at top',
-              description: 'Squeeze glutes at top'
+              description: 'At the top of each hip thrust, squeeze your glutes firmly for maximum muscle activation'
             }
           ]
         },
@@ -550,12 +550,12 @@ const lowerBodyWorkoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'body',
               title: 'Bar track vertical; brace light',
-              description: 'Bar track vertical; brace light'
+              description: 'Let the Smith bar travel in its vertical path while engaging your core gently for support'
             },
             {
               icon: 'expand',
               title: 'Hips back on RDL; shins still',
-              description: 'Hips back on RDL; shins still'
+              description: 'Push your hips back during the RDL while keeping your shins vertical throughout the movement'
             }
           ]
         }
@@ -572,12 +572,12 @@ const lowerBodyWorkoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'flash',
               title: 'Efficient pin moves',
-              description: 'Efficient pin moves'
+              description: 'Change the weight pin quickly and efficiently between drops to maintain training intensity'
             },
             {
               icon: 'time',
               title: 'Keep tempo consistent',
-              description: 'Keep tempo consistent'
+              description: 'Maintain the same controlled tempo throughout all drop set portions for consistent muscle stimulus'
             }
           ]
         },
@@ -592,12 +592,12 @@ const lowerBodyWorkoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'leaf',
               title: '15s rests inside clusters',
-              description: '15s rests inside clusters'
+              description: 'Use the brief 15-second mini-rests to take deep breaths and reset your focus before continuing'
             },
             {
               icon: 'barbell',
               title: 'Same load within cluster',
-              description: 'Same load within cluster'
+              description: 'Keep the weight constant throughout all mini-sets within each cluster for consistent training effect'
             }
           ]
         },
@@ -612,12 +612,12 @@ const lowerBodyWorkoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'body',
               title: 'Pull-through: hips back',
-              description: 'Pull-through: hips back'
+              description: 'Push your hips back during pull-throughs to maximize glute and hamstring engagement'
             },
             {
               icon: 'expand',
               title: 'Goblet: ribs down, tall',
-              description: 'Goblet: ribs down, tall'
+              description: 'Keep your ribcage down and torso tall during goblet squats for optimal core engagement'
             }
           ]
         }
