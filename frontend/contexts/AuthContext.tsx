@@ -332,11 +332,58 @@ export function AuthProvider({ children }: AuthProviderProps) {
     }
   };
 
+  // Accept terms of service - called when user agrees to terms
+  const acceptTerms = async () => {
+    if (!token) {
+      throw new Error('User must be logged in to accept terms');
+    }
+    
+    try {
+      console.log('📜 Accepting terms of service...');
+      const response = await fetch(`${API_URL}/api/users/me/accept-terms`, {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${token}`,
+          'Content-Type': 'application/json',
+        },
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to accept terms');
+      }
+
+      const data = await response.json();
+      
+      // Update local user state with terms acceptance
+      if (user) {
+        setUser({
+          ...user,
+          terms_accepted_at: data.terms_accepted_at,
+        });
+      }
+      
+      // Hide the modal
+      setShowTermsModal(false);
+      
+      console.log('✅ Terms accepted successfully');
+    } catch (error) {
+      console.error('Error accepting terms:', error);
+      throw error;
+    }
+  };
+
+  // Prompt the user to accept terms (for guest->interaction flows)
+  const promptTermsAcceptance = () => {
+    setShowTermsModal(true);
+  };
+
   const value: AuthContextType = {
     user,
     token,
     isLoading,
     isGuest,
+    hasAcceptedTerms,
+    showTermsModal,
     login,
     register,
     logout,
@@ -344,11 +391,18 @@ export function AuthProvider({ children }: AuthProviderProps) {
     refreshAuth,
     continueAsGuest,
     exitGuestMode,
+    acceptTerms,
+    promptTermsAcceptance,
   };
 
   return (
     <AuthContext.Provider value={value}>
       {children}
+      {/* Terms Acceptance Modal - shown after login if terms not accepted */}
+      <TermsAcceptanceModal
+        visible={showTermsModal && !!user && !hasAcceptedTerms}
+        onAccept={acceptTerms}
+      />
     </AuthContext.Provider>
   );
 }
