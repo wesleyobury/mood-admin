@@ -4572,6 +4572,9 @@ async def get_single_post(post_id: str, current_user_id: str = Depends(get_curre
 @api_router.post("/posts/{post_id}/like")
 async def like_post(post_id: str, current_user_id: str = Depends(get_current_user)):
     """Like or unlike a post"""
+    # Check if user has accepted terms
+    await check_terms_accepted(current_user_id)
+    
     try:
         post_object_id = ObjectId(post_id)
         user_object_id = ObjectId(current_user_id)
