@@ -64,12 +64,12 @@ const upperBodyWorkoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'body',
               title: 'Shoulders down; soft lockouts',
-              description: 'Shoulders down; soft lockouts'
+              description: 'Keep your shoulders depressed throughout and avoid fully locking out your elbows at the top of presses'
             },
             {
               icon: 'leaf',
               title: 'Breathe out on effort',
-              description: 'Breathe out on effort, in on return'
+              description: 'Exhale during the pushing phase of each movement, inhale on the return for proper breathing mechanics'
             }
           ]
         },
@@ -84,12 +84,12 @@ const upperBodyWorkoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'body',
               title: 'Chest up; elbows 30–45°',
-              description: 'Chest up; elbows 30–45°'
+              description: 'Keep your chest proud and position your elbows at a 30-45 degree angle from your torso for shoulder safety'
             },
             {
               icon: 'arrow-down',
               title: 'Ribs down on triceps overhead',
-              description: 'Ribs down on triceps overhead'
+              description: 'Draw your ribcage down during overhead triceps to prevent lower back arching and target the triceps fully'
             }
           ]
         },
@@ -104,12 +104,12 @@ const upperBodyWorkoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'hand-right',
               title: 'Elbows under grips; no arch',
-              description: 'Elbows under grips; no arch'
+              description: 'Position your elbows directly under your hands and avoid arching your lower back during presses'
             },
             {
               icon: 'arrow-down',
               title: 'Control depth on dip assist',
-              description: 'Control depth on dip assist'
+              description: 'Lower yourself with control on assisted dips—don\'t drop into the bottom position'
             }
           ]
         }
@@ -126,12 +126,12 @@ const upperBodyWorkoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'time',
               title: '2–1–3 tempo; soft lock',
-              description: '2–1–3 tempo; soft lock'
+              description: 'Use a controlled tempo of 2 seconds up, 1 second pause, 3 seconds down with soft lockouts'
             },
             {
               icon: 'pause',
               title: 'Pause mid-arc on fly',
-              description: 'Pause mid-arc on fly'
+              description: 'Hold briefly at the mid-point of the fly movement to maximize chest stretch and engagement'
             }
           ]
         },
@@ -146,12 +146,12 @@ const upperBodyWorkoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'arrow-up',
               title: 'Upright row: lead elbows',
-              description: 'Upright row: lead elbows'
+              description: 'Lead with your elbows during upright rows, pulling them high while keeping the bar close to your body'
             },
             {
               icon: 'contract',
               title: 'Narrow elbows on OH tris',
-              description: 'Narrow elbows on OH tris'
+              description: 'Keep your elbows narrow and close to your head during overhead triceps extensions for proper isolation'
             }
           ]
         },
@@ -166,12 +166,12 @@ const upperBodyWorkoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'fitness',
               title: 'Elbows ~45° on decline',
-              description: 'Elbows ~45° on decline'
+              description: 'Keep your elbows at approximately 45 degrees from your torso during decline press for optimal chest engagement'
             },
             {
               icon: 'remove-circle',
               title: 'No shrugging on laterals',
-              description: 'No shrugging on laterals'
+              description: 'Avoid shrugging your shoulders during lateral raises—keep traps relaxed to target the medial deltoids'
             }
           ]
         }
@@ -188,12 +188,12 @@ const upperBodyWorkoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'flash',
               title: 'Drop ~15% quickly',
-              description: 'Drop ~15% quickly'
+              description: 'Reduce the weight by approximately 15% quickly between drops to maintain intensity and muscle fatigue'
             },
             {
               icon: 'time',
               title: 'Control 3s lowers on fly',
-              description: 'Control 3s lowers on fly'
+              description: 'Lower the cables over 3 seconds during flys to maximize chest stretch and time under tension'
             }
           ]
         },
@@ -208,12 +208,12 @@ const upperBodyWorkoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'leaf',
               title: '15s breaths in clusters',
-              description: '15s breaths in clusters'
+              description: 'Use the 15-second mini-rests to take 2-3 deep breaths and reset your focus before the next mini-set'
             },
             {
               icon: 'barbell',
               title: 'Same load within cluster',
-              description: 'Same load within cluster'
+              description: 'Keep the weight constant throughout all mini-sets within each cluster for consistent training stimulus'
             }
           ]
         },
@@ -228,12 +228,12 @@ const upperBodyWorkoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'body',
               title: 'Keep chest lifted',
-              description: 'Keep chest lifted'
+              description: 'Maintain a proud, lifted chest position throughout cable flys to maximize pectoral engagement'
             },
             {
               icon: 'time',
               title: '1s squeeze; 3s return',
-              description: '1s squeeze; 3s return'
+              description: 'Hold a 1-second squeeze at peak contraction, then take 3 seconds to return for maximum tension'
             }
           ]
         }
@@ -256,12 +256,12 @@ const upperBodyWorkoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'arrow-down',
               title: 'Elbows drive down/back',
-              description: 'Elbows drive down/back'
+              description: 'Think about driving your elbows down and back during pulldowns and rows for optimal lat engagement'
             },
             {
               icon: 'body',
               title: 'Chin tucked on face pulls',
-              description: 'Chin tucked on face pulls'
+              description: 'Keep your chin slightly tucked during face pulls to maintain proper neck position and target rear delts'
             }
           ]
         },
@@ -276,12 +276,12 @@ const upperBodyWorkoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'body',
               title: 'Chest to pad; no heave',
-              description: 'Chest to pad; no heave'
+              description: 'Keep your chest pressed against the pad throughout—avoid rocking or using momentum to cheat reps'
             },
             {
               icon: 'hand-right',
               title: 'Long arms on straight-arm',
-              description: 'Long arms on straight-arm'
+              description: 'Maintain nearly straight arms during the pulldown, focusing on the lat stretch and contraction'
             }
           ]
         },
@@ -296,12 +296,12 @@ const upperBodyWorkoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'arrow-up',
               title: 'Row to collarbone line',
-              description: 'Row to collarbone line'
+              description: 'Pull the cable toward your collarbone level to target the upper back and rear deltoids effectively'
             },
             {
               icon: 'hand-right',
               title: 'Wrists quiet on curls',
-              description: 'Wrists quiet on curls'
+              description: 'Keep your wrists in a neutral position during curls—avoid flexing or extending them during the movement'
             }
           ]
         }
@@ -318,12 +318,12 @@ const upperBodyWorkoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'body',
               title: 'Tall chest on pulldowns',
-              description: 'Tall chest on pulldowns'
+              description: 'Maintain a proud, upright chest position during pulldowns to maximize lat engagement and minimize shoulder strain'
             },
             {
               icon: 'fitness',
               title: 'Hinge slight on straight-arm',
-              description: 'Hinge slight on straight-arm'
+              description: 'Allow a slight hip hinge during straight-arm pulldowns to fully stretch the lats at the top'
             }
           ]
         },
@@ -338,12 +338,12 @@ const upperBodyWorkoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'contract',
               title: 'Squeeze 1–2s on row',
-              description: 'Squeeze 1–2s on row'
+              description: 'Hold a 1-2 second squeeze at the peak contraction of each row to maximize mid-back engagement'
             },
             {
               icon: 'hand-right',
               title: 'Elbows soft on rear delts',
-              description: 'Elbows soft on rear delts'
+              description: 'Maintain a slight bend in your elbows during reverse flys—don\'t lock them straight'
             }
           ]
         },
@@ -358,12 +358,12 @@ const upperBodyWorkoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'fitness',
               title: 'Elbows 45–60° path',
-              description: 'Elbows 45–60° path'
+              description: 'Pull your elbows in a 45-60 degree path during high rows to target the upper back and rear deltoids'
             },
             {
               icon: 'expand',
               title: 'Full stretch on preacher',
-              description: 'Full stretch on preacher'
+              description: 'Allow a full stretch at the bottom of preacher curls before curling up for complete bicep engagement'
             }
           ]
         }
@@ -380,12 +380,12 @@ const upperBodyWorkoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'flash',
               title: 'Quick pin changes',
-              description: 'Quick pin changes'
+              description: 'Change the weight pin quickly between drops to minimize rest and maintain the intensity of the drop set'
             },
             {
               icon: 'remove-circle',
               title: 'Avoid torso heave',
-              description: 'Avoid torso heave'
+              description: 'Keep your torso stable throughout—don\'t use momentum or body English to pull the weight down'
             }
           ]
         },
@@ -400,12 +400,12 @@ const upperBodyWorkoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'body',
               title: 'Chest glued to pad',
-              description: 'Chest glued to pad'
+              description: 'Keep your chest firmly pressed against the pad throughout cluster rows to maintain proper form'
             },
             {
               icon: 'leaf',
               title: '15s breaths in clusters',
-              description: '15s breaths in clusters'
+              description: 'Use the 15-second mini-rests to take deep breaths and reset your focus before the next mini-set'
             }
           ]
         },
@@ -420,12 +420,12 @@ const upperBodyWorkoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'hand-right',
               title: 'Thumbs back; 1s hold',
-              description: 'Thumbs back; 1s hold'
+              description: 'Rotate your thumbs back at peak contraction of face pulls and hold for 1 second to maximize rear delt engagement'
             },
             {
               icon: 'time',
               title: 'Smooth 3s returns',
-              description: 'Smooth 3s returns'
+              description: 'Control the return phase over 3 seconds to increase time under tension and muscle development'
             }
           ]
         }
@@ -448,12 +448,12 @@ const upperBodyWorkoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'barbell',
               title: 'Press/row: soft lock',
-              description: 'Press/row: soft lock'
+              description: 'Use soft lockouts on both presses and rows—avoid fully extending your elbows at end ranges'
             },
             {
               icon: 'body',
               title: 'Keep neck long, shoulders down',
-              description: 'Keep neck long, shoulders down'
+              description: 'Maintain a long neck position and keep your shoulders depressed throughout all exercises'
             }
           ]
         },
@@ -468,12 +468,12 @@ const upperBodyWorkoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'hand-right',
               title: 'Elbows under on press',
-              description: 'Elbows under on press'
+              description: 'Position your elbows directly under your hands during shoulder press for optimal mechanics'
             },
             {
               icon: 'arrow-down',
               title: 'Elbows down on pulldown',
-              description: 'Elbows down on pulldown'
+              description: 'Drive your elbows down toward your hips during pulldowns to maximize lat engagement'
             }
           ]
         },
@@ -488,12 +488,12 @@ const upperBodyWorkoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'arrow-down',
               title: 'Ribs down on presses',
-              description: 'Ribs down on presses'
+              description: 'Draw your ribcage down during cable presses to prevent lower back arching and engage your core'
             },
             {
               icon: 'contract',
               title: 'Squeeze 1s on rows',
-              description: 'Squeeze 1s on rows'
+              description: 'Hold a 1-second squeeze at peak contraction during rows to maximize mid-back engagement'
             }
           ]
         }
@@ -510,12 +510,12 @@ const upperBodyWorkoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'settings',
               title: 'Note seat settings',
-              description: 'Note seat settings'
+              description: 'Record your machine seat positions to ensure consistent setup and save time in future sessions'
             },
             {
               icon: 'time',
               title: 'Keep tempos controlled',
-              description: 'Keep tempos controlled'
+              description: 'Maintain controlled tempos on all exercises—avoid rushing or using momentum to complete reps'
             }
           ]
         },
@@ -530,12 +530,12 @@ const upperBodyWorkoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'remove-circle',
               title: 'Don\'t arch on press',
-              description: 'Don\'t arch on press'
+              description: 'Avoid excessive lower back arching during shoulder press by bracing your core and keeping ribs down'
             },
             {
               icon: 'body',
               title: 'Tall chest on pulldown',
-              description: 'Tall chest on pulldown'
+              description: 'Maintain a proud, upright chest during pulldowns to maximize lat engagement and minimize shoulder strain'
             }
           ]
         },
@@ -550,12 +550,12 @@ const upperBodyWorkoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'arrow-down',
               title: 'Press: ribs down',
-              description: 'Press: ribs down'
+              description: 'Draw your ribcage down during cable presses to maintain core engagement and prevent lower back arching'
             },
             {
               icon: 'hand-right',
               title: 'Rear delts: soft elbows',
-              description: 'Rear delts: soft elbows'
+              description: 'Maintain a slight bend in your elbows during reverse pec deck—don\'t lock them straight'
             }
           ]
         }
@@ -572,12 +572,12 @@ const upperBodyWorkoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'flash',
               title: 'Swift pin changes',
-              description: 'Swift pin changes'
+              description: 'Change the weight pin quickly between drops to minimize rest and maintain the intensity throughout'
             },
             {
               icon: 'checkmark-circle',
               title: 'Keep reps smooth',
-              description: 'Keep reps smooth'
+              description: 'Maintain smooth, controlled rep quality throughout all drop set portions—avoid getting sloppy as you fatigue'
             }
           ]
         },
@@ -592,12 +592,12 @@ const upperBodyWorkoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'time',
               title: '15s mini-rests',
-              description: '15s mini-rests'
+              description: 'Use the 15-second mini-rests to take 2-3 deep breaths and reset your focus before continuing'
             },
             {
               icon: 'barbell',
               title: 'Same load in clusters',
-              description: 'Same load in clusters'
+              description: 'Keep the weight constant throughout all mini-sets within each cluster for consistent training stimulus'
             }
           ]
         },
@@ -612,12 +612,12 @@ const upperBodyWorkoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'contract',
               title: '1s squeeze on peak',
-              description: '1s squeeze on peak'
+              description: 'Hold a 1-second squeeze at peak contraction on all exercises to maximize muscle engagement'
             },
             {
               icon: 'time',
               title: 'Control 3s returns',
-              description: 'Control 3s returns'
+              description: 'Lower the weight slowly over 3 seconds on all movements to increase time under tension and build strength'
             }
           ]
         }
