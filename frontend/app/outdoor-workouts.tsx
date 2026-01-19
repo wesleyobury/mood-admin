@@ -20,6 +20,8 @@ import { useAuth } from '../contexts/AuthContext';
 import { Analytics } from '../utils/analytics';
 import WigglingAddButton from '../components/WigglingAddButton';
 
+import { outdoorRunWorkoutDatabase } from '../data/outdoor-workouts-data';
+
 const { width } = Dimensions.get('window');
 
 interface Workout {
@@ -45,8 +47,6 @@ interface EquipmentWorkouts {
     advanced: Workout[];
   };
 }
-
-import { outdoorRunWorkoutDatabase } from '../data/outdoor-workouts-data';
 
 // Outdoor workout database
 const workoutDatabase: EquipmentWorkouts[] = outdoorRunWorkoutDatabase;

@@ -1,120 +1,485 @@
 <analysis>
-
 **original_problem_statement**:
-The user initially requested features to comply with App Store guidelines, which evolved into a comprehensive content moderation and user experience enhancement project. The key requirements implemented in this session include:
-
-1.  **Production Deployment Fixes (Critical)**: The session began with fixing a series of critical production deployment failures. This involved diagnosing and fixing a server crash due to a missing  environment variable and clarifying the production vs. development backend URL configurations.
-2.  **Content Moderation Suite (App Store Compliance)**:
-    *   A method for automatically filtering objectionable content (posts and comments) based on a keyword list.
-    *   A mechanism for users to flag/report objectionable content (posts, comments, profiles) with predefined reasons.
-    *   A mechanism for users to block/unblock other users, which removes the blocked user's content from their feed.
-    *   A placeholder section in the Admin Dashboard to review reports.
-3.  **User Experience and Feature Enhancements**:
-    *   A dedicated **Notifications Tab** on the Explore page, showing likes, comments, and new followers, with a badge for unread notifications.
-    *   The ability to view any user's **Followers and Following lists**.
-    *   A **first comment preview** displayed under posts on the Explore page.
-    *   A **3-dot menu on posts** (on Explore and Post Detail pages) to allow saving and reporting.
-    *   New user settings for viewing their **blocked list** and managing a **manual keyword filter**.
-4.  **Legal & Compliance**:
-    *   Creation of a **Terms of Service** page with a required fitness disclaimer.
-    *   Updates to the **Privacy Policy** to include details on analytics, UGC storage (Cloudinary), login usage, and push notifications.
-5.  **UI/UX Polish**:
-    *   Redesigned the Explore page tabs to have a bell icon for notifications.
-    *   Removed the Share icon from posts.
-    *   Adjusted content margins for better visual alignment.
-    *   Incremented the iOS build number to **18**.
+The user requested a series of updates to pass App Store review and improve user experience.
+1.  **TOS Styling**: The user disliked the red and orange warning colors in the Terms of Service page and the new EULA modal. They requested the styling be updated to match the app's on-brand gold/black theme, while still ensuring the compliance policies were prominent.
+2.  **Apple Guideline 5.1.1 (Microphone Usage)**: The app was rejected because the microphone permission string was insufficient. The user requested an update to the purpose string to clearly explain why the microphone is needed, including a specific example.
+3.  **Apple Guideline 1.2 (UGC & EULA)**: The app was rejected for not having a robust, non-bypassable End-User License Agreement (EULA). The user required a comprehensive system to gate all User-Generated Content (UGC) actions (posts, comments, likes, follows, uploads, reports) until a user explicitly accepts the terms. This included storing acceptance on the backend and showing a non-dismissible modal.
+4.  **Terms Versioning**: To ensure even existing test accounts (like Apple's reviewers) are forced to re-accept terms, the user requested a versioning system. This system requires defining a  and checking it against a  field on the user's record. If the versions do not match, the EULA modal must be shown, blocking all app interaction until the latest terms are accepted.
 
 **User's preferred language**: English
 
 **what currently exists?**
-The application now has a robust suite of content moderation features. The backend can filter content, handle user reports and blocks, and serve notifications. The frontend has been significantly updated with a new notifications tab, modals for reporting and blocking, new settings pages for blocked users and content filtering, and a 3-dot menu on posts for quick actions. The critical production deployment issues from the beginning of the session have been resolved.
+The application now has a robust, version-controlled EULA and content moderation system. All UGC-related API endpoints on the backend are gated, requiring users to have accepted the *current* version of the Terms of Service. A  constant is defined in . The user record in the database now stores  and .
 
-**Frontend:**
--   **Content Moderation UI**:
-    -    and  components created for reporting content/users and confirming blocks.
-    -    has a menu for reporting/blocking a user.
-    -    has a 3-dot menu on each post to trigger saving or reporting.
-    -    is being updated to include the same 3-dot menu.
--   **Settings**:
-    -    now links to new  and  pages.
-    -    and an updated  are complete and linked.
--   **Explore Page ()**:
-    -   Heavily modified to include a three-tab layout: For You, Following, and a bell icon for Notifications.
-    -   The Notifications tab fetches and displays all historic notifications (likes, comments, follows) and shows a badge with a count of new notifications since the last view.
-    -   Posts now display a preview of the first comment.
--   **Followers/Following**:
-    -   A new  page was created to display any user's follower or following lists.
--   **Admin Dashboard**:
-    -   A placeholder Content Moderation section has been added to the UI.
-
-**Backend:**
--   **Deployment Fix**: The server startup logic in  was made more robust by using  with default values, preventing crashes from missing environment variables like .
--   **Content Moderation Logic**:
-    -   A new  module with a function to check text against a list of keywords. This is used in post and comment creation.
-    -   New DB collections for  and .
-    -   New API endpoints: , , , , .
--   **Notifications**:
-    -   New endpoints  (to get all historic notifications) and  (which accepts a  parameter).
-    -   The aggregation logic was fixed to correctly query for likes, comments, and follows, resolving a bug where likes were not appearing. The fix involved converting string IDs to ObjectIds for the query.
--   **API Enhancements**:
-    -   The  endpoint was updated to include  data.
-    -   The  and  endpoints were updated to return  and  flags to improve frontend experience.
+On the frontend, the  has been significantly enhanced to check the user's terms acceptance status and version against the backend's requirements upon login or app start. If a user has not accepted the latest terms, a non-dismissible  is displayed, blocking all other interactions until they agree. The styling of the TOS page and the acceptance modal has been updated to an on-brand gold theme, removing the previous red/orange colors. The iOS microphone permission string in  has been updated to be compliant with App Store guidelines, and the build number has been incremented to **23**.
 
 **Last working item**:
-    - Last item agent was working: The user requested the ability to report and save posts when viewing them from the profile grid. The agent identified that this opens a  page and began adding a 3-dot menu (with save/report functionality) to that page.
-    - Status: IN PROGRESS
+    - Last item agent was working: Implementing the Terms Versioning feature. This involved adding a  constant on the backend, updating the user model to include , and modifying both backend (UGC endpoint gating) and frontend () logic to check for version mismatches and force re-acceptance via the EULA modal.
+    - Status: USER VERIFICATION PENDING
     - Agent Testing Done: N
-    - Which testing method agent to use? frontend testing agent
+    - Which testing method agent to use? both
     - User Testing Done: N
 
 **All Pending/In progress Issue list**:
-  Issue 1: (P0) Implement Report/Save menu on post-detail page.
-  Issue 2: (P1) Users cannot like or comment on posts from the user profile grid view.
-  Issue 3: (P2) Home screen carousel Save button is not visible or functional.
+  Issue 1: (P0) Verify Terms Versioning EULA Flow
+  Issue 2: (P1) Users cannot interact (like/comment) with posts on the post detail screen.
+  Issue 3: (P2) Home screen carousel Save button is not functional.
   Issue 4: (P3) Unfollow analytics tracking is not working.
+  Issue 5: (P4) ESLint parsing errors for TypeScript  keyword.
 
   Issues Detail:
   - Issue 1: 
-     - Attempted fixes: The agent has started adding the necessary state, UI elements (3-dot menu), and modals () to . Several  actions have been performed.
-     - Next debug checklist:
-        1.  Verify the state for modals (, ) is correctly managed in .
-        2.  Implement the  and  functions within .
-        3.  Ensure the UI renders correctly and the modals are functional.
-        4.  Test the full flow: navigate from a user's profile -> tap a post -> open  -> use the 3-dot menu to save or report.
-     - Why fix this issue and what will be achieved with the fix? To provide consistent functionality and meet the user's requirement for content moderation on all post views.
-     - Status:  IN PROGRESS
+     - Attempted fixes: The agent has implemented all required code changes on the frontend and backend.
+     - Next debug checklist: 
+        1. Test with an existing user account that has *not* accepted the latest terms. Verify the non-dismissible modal appears on login.
+        2. Accept the terms and verify the modal disappears and the user record () is updated on the backend.
+        3. Verify that UGC actions (e.g., liking a post) are now permitted.
+        4. Test with a new user registration to ensure the version is set correctly from the start.
+     - Why fix this issue and what will be achieved with the fix? This is the final step to ensure compliance with Apple's Guideline 1.2 and is critical for the next App Store submission.
+     - Status:  USER VERIFICATION PENDING
      - Is recurring issue? N
-     - Should Test frontend/backend/both after fix? Frontend
+     - Should Test frontend/backend/both after fix? both
      - Blocked on other issue: None
   - Issue 2: 
-     - Attempted fixes: None. The agent acknowledged the user's report but prioritized other tasks.
-     - Next debug checklist:
-        1.  Analyze . The current implementation renders posts in a simple grid () that only navigates to  on press.
-        2.  Decide on a UX approach:
-            a. Enhance the  page to be fully interactive (like/comment buttons).
-            b. Change the profile view to be a list instead of a grid, reusing the post component from .
-            c. Implement a modal that opens on top of the profile, showing the full interactive post.
-        3.  Implement the chosen approach. This will likely involve significant changes to  and/or .
-     - Why fix this issue and what will be achieved with the fix? This is a significant gap in user experience. Users expect to be able to interact with content they are viewing.
+     - Attempted fixes: None in this session. This is a carry-over issue.
+     - Next debug checklist: 
+        1. Analyze  to add interactive UI elements (Like button, Comment button/input).
+        2. Wire up these buttons to the appropriate backend API calls.
+        3. Ensure the component's state updates correctly after an interaction.
+     - Why fix this issue and what will be achieved with the fix? This is a major gap in the user experience, preventing a core interaction.
      - Status:  NOT STARTED
-     - Is recurring issue? N
+     - Is recurring issue? Y
      - Should Test frontend/backend/both after fix? Frontend
      - Blocked on other issue: None
   - Issue 3: 
-     - Attempted fixes: None in this session.
-     - Next debug checklist: Inspect  and the  component for rendering logic issues.
+     - Attempted fixes: None in this session. This is a carry-over issue.
+     - Next debug checklist: Inspect  and the  component to find why the Save button is not rendering or is non-functional.
      - Why fix this issue and what will be achieved with the fix? Restores a core user interaction on the home screen.
      - Status:  NOT STARTED
      - Is recurring issue? Y
      - Should Test frontend/backend/both after fix? Frontend
      - Blocked on other issue: None
   - Issue 4: 
-     - Attempted fixes: None in this session.
-     - Next debug checklist: Inspect the Unfollow button's  handler in .
-     - Why fix this issue and what will be achieved with the fix? Ensures complete analytics tracking.
+     - Attempted fixes: None in this session. This is a carry-over issue.
+     - Next debug checklist: Inspect the Unfollow button's  handler in  to ensure the analytics event is being tracked.
+     - Why fix this issue and what will be achieved with the fix? Ensures complete and accurate analytics tracking.
      - Status:  NOT STARTED
      - Is recurring issue? Y
-     - Should Test frontend/backend/both after fix? Both
+     - Should Test frontend/backend/both after fix? Frontend
+     - Blocked on other issue: None
+  - Issue 5: 
+     - Attempted fixes: None. The agent observed the error but decided it was a non-blocking configuration issue.
+     - Next debug checklist: 
+        1. Check the  or equivalent configuration file.
+        2. Ensure the parser () is correctly configured for  files.
+        3. Run 
+/app/frontend/app/(tabs)/_layout.tsx
+  2:17  warning  'useEffect' is defined but never used  @typescript-eslint/no-unused-vars
+
+/app/frontend/app/(tabs)/explore.tsx
+     1:46  warning  'useCallback' is defined but never used                                                                                                @typescript-eslint/no-unused-vars
+     1:59  warning  'memo' is defined but never used                                                                                                       @typescript-eslint/no-unused-vars
+     8:3   warning  'SafeAreaView' is defined but never used                                                                                               @typescript-eslint/no-unused-vars
+    15:3   warning  'FlatList' is defined but never used                                                                                                   @typescript-eslint/no-unused-vars
+   141:6   warning  React Hook useEffect has a missing dependency: 'fetchPosts'. Either include it or remove the dependency array                          react-hooks/exhaustive-deps
+   355:6   warning  React Hook useEffect has a missing dependency: 'fetchUnreadCount'. Either include it or remove the dependency array                    react-hooks/exhaustive-deps
+   362:6   warning  React Hook useEffect has missing dependencies: 'fetchNotifications' and 'isGuest'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+   501:9   warning  'handleDoubleTap' is assigned a value but never used                                                                                   @typescript-eslint/no-unused-vars
+  1091:52  error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`                                                                        react/no-unescaped-entities
+  1119:80  error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`                                                                        react/no-unescaped-entities
+
+/app/frontend/app/(tabs)/index.tsx
+   22:13  warning  'WebBrowser' is defined but never used                                                                                                                              @typescript-eslint/no-unused-vars
+  206:6   warning  React Hook useEffect has a missing dependency: 'animatedValues'. Either include it or remove the dependency array                                                   react-hooks/exhaustive-deps
+  292:6   warning  React Hook useEffect has missing dependencies: 'rotateAnim' and 'scaleAnim'. Either include them or remove the dependency array                                     react-hooks/exhaustive-deps
+  393:10  warning  'greeting' is assigned a value but never used                                                                                                                       @typescript-eslint/no-unused-vars
+  635:6   warning  React Hook useCallback has missing dependencies: 'handleSaveFeaturedWorkout' and 'handleUnsaveFeaturedWorkout'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+  727:14  warning  'error' is defined but never used                                                                                                                                   @typescript-eslint/no-unused-vars
+
+/app/frontend/app/(tabs)/profile.tsx
+    1:51  warning  'memo' is defined but never used                                                                                                                                         @typescript-eslint/no-unused-vars
+    8:3   warning  'SafeAreaView' is defined but never used                                                                                                                                 @typescript-eslint/no-unused-vars
+   13:3   warning  'Alert' is defined but never used                                                                                                                                        @typescript-eslint/no-unused-vars
+   22:13  warning  'VideoThumbnails' is defined but never used                                                                                                                              @typescript-eslint/no-unused-vars
+   29:10  warning  'GridItemSkeleton' is defined but never used                                                                                                                             @typescript-eslint/no-unused-vars
+   29:28  warning  'ProfileHeaderSkeleton' is defined but never used                                                                                                                        @typescript-eslint/no-unused-vars
+   30:8   warning  'GuestPromptModal' is defined but never used                                                                                                                             @typescript-eslint/no-unused-vars
+  150:10  warning  'recentWorkouts' is assigned a value but never used                                                                                                                      @typescript-eslint/no-unused-vars
+  157:10  warning  'loadingProfile' is assigned a value but never used                                                                                                                      @typescript-eslint/no-unused-vars
+  183:6   warning  React Hook useCallback has missing dependencies: 'fetchUnreadCount', 'fetchUserPosts', and 'fetchUserProfile'. Either include them or remove the dependency array        react-hooks/exhaustive-deps
+  207:6   warning  React Hook useEffect has missing dependencies: 'fetchUnreadCount' and 'fetchUserProfile'. Either include them or remove the dependency array                             react-hooks/exhaustive-deps
+  220:8   warning  React Hook React.useCallback has missing dependencies: 'fetchUnreadCount', 'fetchUserPosts', and 'fetchUserProfile'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+  254:6   warning  React Hook useEffect has a missing dependency: 'fetchWorkoutCards'. Either include it or remove the dependency array                                                     react-hooks/exhaustive-deps
+  262:6   warning  React Hook useEffect has missing dependencies: 'fetchSavedPosts' and 'fetchSavedWorkouts'. Either include them or remove the dependency array                            react-hooks/exhaustive-deps
+  269:6   warning  React Hook useEffect has a missing dependency: 'fetchUserPosts'. Either include it or remove the dependency array                                                        react-hooks/exhaustive-deps
+  663:46  error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`                                                                                                          react/no-unescaped-entities
+
+/app/frontend/app/_layout.tsx
+   93:10  warning  'appReady' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  107:14  warning  'e' is defined but never used                  @typescript-eslint/no-unused-vars
+  126:18  warning  'e' is defined but never used                  @typescript-eslint/no-unused-vars
+
+/app/frontend/app/abs-workout-display.tsx
+  989:21  error  Component definition is missing display name  react/display-name
+
+/app/frontend/app/adjustable-bench-workout-display.tsx
+    1:27  warning  'useRef' is defined but never used                     @typescript-eslint/no-unused-vars
+   11:3   warning  'FlatList' is defined but never used                   @typescript-eslint/no-unused-vars
+  184:10  warning  'showIndicator' is assigned a value but never used     @typescript-eslint/no-unused-vars
+  184:25  warning  'setShowIndicator' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+/app/frontend/app/admin-dashboard.tsx
+  250:6   warning  React Hook useEffect has a missing dependency: 'router'. Either include it or remove the dependency array                                                                        react-hooks/exhaustive-deps
+  418:22  warning  'error' is defined but never used                                                                                                                                                @typescript-eslint/no-unused-vars
+  463:6   warning  React Hook useEffect has missing dependencies: 'engagementChartType', 'fetchEngagementChartData', and 'showEngagementChart'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+  483:14  warning  'error' is defined but never used                                                                                                                                                @typescript-eslint/no-unused-vars
+  566:9   warning  'totalMoodSelections' is assigned a value but never used                                                                                                                         @typescript-eslint/no-unused-vars
+
+/app/frontend/app/analytics-detail.tsx
+   10:3  warning  'FlatList' is defined but never used                                                                          @typescript-eslint/no-unused-vars
+  145:6  warning  React Hook useEffect has a missing dependency: 'fetchData'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+/app/frontend/app/auth/login.tsx
+   11:14  warning  'RNLinking' is defined but never used                                                                                   @typescript-eslint/no-unused-vars
+  121:6   warning  React Hook useEffect has a missing dependency: 'handleOAuthCallback'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  418:48  error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`                                                         react/no-unescaped-entities
+
+/app/frontend/app/back-workout-display.tsx
+  1861:9  warning  'getEquipmentIcon' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+/app/frontend/app/blocked-users.tsx
+  88:22  warning  'error' is defined but never used  @typescript-eslint/no-unused-vars
+
+/app/frontend/app/bodyweight-explosiveness-workouts.tsx
+  1409:21  error    Component definition is missing display name                                                                      react/display-name
+  1678:6   warning  React Hook React.useCallback has a missing dependency: 'token'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  1776:24  error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`                                                   react/no-unescaped-entities
+
+/app/frontend/app/calisthenics-equipment.tsx
+  143:9  warning  'params' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+/app/frontend/app/calisthenics-workouts.tsx
+  706:21  error    Component definition is missing display name                 react/display-name
+  799:9   warning  'onViewableItemsChanged' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  805:9   warning  'onScroll' is assigned a value but never used                @typescript-eslint/no-unused-vars
+
+/app/frontend/app/cart.tsx
+   25:16  warning  'SCREEN_WIDTH' is assigned a value but never used                                                                          @typescript-eslint/no-unused-vars
+  197:6   warning  React Hook React.useEffect has a missing dependency: 'cartItems.length'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+/app/frontend/app/chat.tsx
+    1:46  warning  'useCallback' is defined but never used                                                                                                                                   @typescript-eslint/no-unused-vars
+   16:43  warning  'useFocusEffect' is defined but never used                                                                                                                                @typescript-eslint/no-unused-vars
+  126:6   warning  React Hook useEffect has missing dependencies: 'activeConversationId', 'fetchMessages', and 'initializeConversation'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+  132:6   warning  React Hook useEffect has a missing dependency: 'fetchMessages'. Either include it or remove the dependency array                                                          react-hooks/exhaustive-deps
+
+/app/frontend/app/chest-workout-display-backup-beforecart.tsx
+  1498:9  warning  'getEquipmentIcon' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+/app/frontend/app/chest-workout-display-backup-current.tsx
+  1:27  warning  'useRef' is defined but never used  @typescript-eslint/no-unused-vars
+
+/app/frontend/app/chest-workout-display-backup.tsx
+  1:27  warning  'useRef' is defined but never used  @typescript-eslint/no-unused-vars
+
+/app/frontend/app/chest-workout-display.tsx
+  1597:9  warning  'getEquipmentIcon' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+/app/frontend/app/compound-workout-display-updated.tsx
+    1:8   warning  'React' is defined but never used                             @typescript-eslint/no-unused-vars
+    1:17  warning  'useState' is defined but never used                          @typescript-eslint/no-unused-vars
+    1:27  warning  'useRef' is defined but never used                            @typescript-eslint/no-unused-vars
+    3:3   warning  'View' is defined but never used                              @typescript-eslint/no-unused-vars
+    4:3   warning  'Text' is defined but never used                              @typescript-eslint/no-unused-vars
+    5:3   warning  'StyleSheet' is defined but never used                        @typescript-eslint/no-unused-vars
+    6:3   warning  'TouchableOpacity' is defined but never used                  @typescript-eslint/no-unused-vars
+    7:3   warning  'SafeAreaView' is defined but never used                      @typescript-eslint/no-unused-vars
+    8:3   warning  'ScrollView' is defined but never used                        @typescript-eslint/no-unused-vars
+   10:3   warning  'Image' is defined but never used                             @typescript-eslint/no-unused-vars
+   13:10  warning  'useRouter' is defined but never used                         @typescript-eslint/no-unused-vars
+   13:21  warning  'useLocalSearchParams' is defined but never used              @typescript-eslint/no-unused-vars
+   14:10  warning  'useSafeAreaInsets' is defined but never used                 @typescript-eslint/no-unused-vars
+   16:9   warning  'width' is assigned a value but never used                    @typescript-eslint/no-unused-vars
+   43:7   warning  'glutesWorkoutDatabase' is assigned a value but never used    @typescript-eslint/no-unused-vars
+  575:7   warning  'compoundWorkoutDatabase' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+/app/frontend/app/compound-workout-display.tsx
+  2811:11  warning  'viewSize' is assigned a value but never used          @typescript-eslint/no-unused-vars
+  3026:9   warning  'getEquipmentIcon' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+/app/frontend/app/content-filter.tsx
+   59:14  warning  'error' is defined but never used                                @typescript-eslint/no-unused-vars
+  136:43  error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+/app/frontend/app/create-post.tsx
+   20:53  warning  'globalRouter' is defined but never used                    @typescript-eslint/no-unused-vars
+   33:7   warning  'SCREEN_WIDTH' is assigned a value but never used           @typescript-eslint/no-unused-vars
+   36:7   warning  'isVideoUri' is assigned a value but never used             @typescript-eslint/no-unused-vars
+   63:44  warning  'exitGuestMode' is assigned a value but never used          @typescript-eslint/no-unused-vars
+   70:10  warning  'saveButtonPressed' is assigned a value but never used      @typescript-eslint/no-unused-vars
+   70:29  warning  'setSaveButtonPressed' is assigned a value but never used   @typescript-eslint/no-unused-vars
+   72:10  warning  'showMediaPicker' is assigned a value but never used        @typescript-eslint/no-unused-vars
+   72:27  warning  'setShowMediaPicker' is assigned a value but never used     @typescript-eslint/no-unused-vars
+   80:10  warning  'showCoverPicker' is assigned a value but never used        @typescript-eslint/no-unused-vars
+   81:10  warning  'coverPickerVideoIndex' is assigned a value but never used  @typescript-eslint/no-unused-vars
+   86:10  warning  'cropSource' is assigned a value but never used             @typescript-eslint/no-unused-vars
+  345:9   warning  'openCoverPicker' is assigned a value but never used        @typescript-eslint/no-unused-vars
+
+/app/frontend/app/decline-bench-workout-display.tsx
+    1:27  warning  'useRef' is defined but never used                     @typescript-eslint/no-unused-vars
+  183:10  warning  'showIndicator' is assigned a value but never used     @typescript-eslint/no-unused-vars
+  183:25  warning  'setShowIndicator' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+/app/frontend/app/edit-profile.tsx
+  34:10  warning  'user' is assigned a value but never used                                                                            @typescript-eslint/no-unused-vars
+  51:6   warning  React Hook useEffect has a missing dependency: 'fetchUserProfile'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+/app/frontend/app/explosiveness-type.tsx
+  41:7  warning  'ExplosivenessTypeOption' is already defined  @typescript-eslint/no-redeclare
+
+/app/frontend/app/featured-workout-detail.tsx
+  424:6  warning  React Hook useEffect has a missing dependency: 'checkIfSaved'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+/app/frontend/app/flat-bench-workout-display.tsx
+    1:27  warning  'useRef' is defined but never used                     @typescript-eslint/no-unused-vars
+  183:10  warning  'showIndicator' is assigned a value but never used     @typescript-eslint/no-unused-vars
+  183:25  warning  'setShowIndicator' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+/app/frontend/app/incline-bench-workout-display.tsx
+    1:27  warning  'useRef' is defined but never used                     @typescript-eslint/no-unused-vars
+  183:10  warning  'showIndicator' is assigned a value but never used     @typescript-eslint/no-unused-vars
+  183:25  warning  'setShowIndicator' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+/app/frontend/app/index.tsx
+   19:9   warning  'width' is assigned a value but never used                                                                                                 @typescript-eslint/no-unused-vars
+   67:6   warning  React Hook useEffect has missing dependencies: 'delay', 'rotateAnim', and 'scaleAnim'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+  255:28  error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`                                                                            react/no-unescaped-entities
+  255:46  error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`                                                                            react/no-unescaped-entities
+
+/app/frontend/app/lazy-bodyweight-equipment.tsx
+  147:9  warning  'params' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+/app/frontend/app/lazy-bodyweight-workouts.tsx
+  1494:21  error  Component definition is missing display name  react/display-name
+
+/app/frontend/app/lazy-full-body-workouts.tsx
+  630:21  error    Component definition is missing display name                                                                react/display-name
+  839:9   warning  'selectedEquipmentNames' is assigned a value but never used                                                 @typescript-eslint/no-unused-vars
+  883:6   warning  React Hook useCallback has a missing dependency: 'token'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+/app/frontend/app/lazy-lower-body-workouts.tsx
+  630:21  error    Component definition is missing display name                                                                react/display-name
+  837:9   warning  'selectedEquipmentNames' is assigned a value but never used                                                 @typescript-eslint/no-unused-vars
+  881:6   warning  React Hook useCallback has a missing dependency: 'token'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+/app/frontend/app/lazy-training-type.tsx
+  41:7  warning  'LazyTrainingTypeOption' is already defined  @typescript-eslint/no-redeclare
+
+/app/frontend/app/lazy-upper-body-workouts.tsx
+  630:21  error    Component definition is missing display name                                                                react/display-name
+  837:9   warning  'selectedEquipmentNames' is assigned a value but never used                                                 @typescript-eslint/no-unused-vars
+  881:6   warning  React Hook useCallback has a missing dependency: 'token'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+/app/frontend/app/lazy-weight-selection.tsx
+  139:9  warning  'params' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+/app/frontend/app/legs-equipment.tsx
+  288:13  warning  'isCompoundSelected' is assigned a value but never used      @typescript-eslint/no-unused-vars
+  289:13  warning  'isGlutesSelected' is assigned a value but never used        @typescript-eslint/no-unused-vars
+  290:13  warning  'isHamstringsSelected' is assigned a value but never used    @typescript-eslint/no-unused-vars
+  291:13  warning  'isQuadsSelected' is assigned a value but never used         @typescript-eslint/no-unused-vars
+  292:13  warning  'isCalvesSelected' is assigned a value but never used        @typescript-eslint/no-unused-vars
+  293:13  warning  'hasCompoundEquipment' is assigned a value but never used    @typescript-eslint/no-unused-vars
+  294:13  warning  'hasGlutesEquipment' is assigned a value but never used      @typescript-eslint/no-unused-vars
+  295:13  warning  'hasHamstringsEquipment' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  296:13  warning  'hasQuadsEquipment' is assigned a value but never used       @typescript-eslint/no-unused-vars
+  297:13  warning  'hasCalvesEquipment' is assigned a value but never used      @typescript-eslint/no-unused-vars
+  325:9   warning  'isCompoundSelected' is assigned a value but never used      @typescript-eslint/no-unused-vars
+  326:9   warning  'isGlutesSelected' is assigned a value but never used        @typescript-eslint/no-unused-vars
+  327:9   warning  'isHamstringsSelected' is assigned a value but never used    @typescript-eslint/no-unused-vars
+  328:9   warning  'isQuadsSelected' is assigned a value but never used         @typescript-eslint/no-unused-vars
+  329:9   warning  'isCalvesSelected' is assigned a value but never used        @typescript-eslint/no-unused-vars
+  330:9   warning  'hasCompoundEquipment' is assigned a value but never used    @typescript-eslint/no-unused-vars
+  333:9   warning  'hasGlutesEquipment' is assigned a value but never used      @typescript-eslint/no-unused-vars
+  336:9   warning  'hasHamstringsEquipment' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  339:9   warning  'hasQuadsEquipment' is assigned a value but never used       @typescript-eslint/no-unused-vars
+  342:9   warning  'hasCalvesEquipment' is assigned a value but never used      @typescript-eslint/no-unused-vars
+  347:9   warning  'needsIntensity' is assigned a value but never used          @typescript-eslint/no-unused-vars
+
+/app/frontend/app/legs-workout-display.tsx
+  8:3  warning  'ScrollView' is defined but never used  @typescript-eslint/no-unused-vars
+
+/app/frontend/app/light-weights-workouts.tsx
+  55:21  error  Component definition is missing display name  react/display-name
+
+/app/frontend/app/messages.tsx
+    1:27  warning  'useEffect' is defined but never used                                                                                    @typescript-eslint/no-unused-vars
+   66:8   warning  React Hook useCallback has a missing dependency: 'fetchConversations'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  160:53  error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`                                                          react/no-unescaped-entities
+
+/app/frontend/app/outdoor-equipment.tsx
+  143:9  warning  'params' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+/app/frontend/app/outdoor-workouts.tsx
+   68:21  error  Component definition is missing display name                     react/display-name
+  411:51  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+/app/frontend/app/post-detail.tsx
+  63:6  warning  React Hook useEffect has a missing dependency: 'fetchPost'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+/app/frontend/app/privacy-policy.tsx
+    1:17   warning  'useState' is defined but never used                             @typescript-eslint/no-unused-vars
+   77:57   error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+   77:106  error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  157:96   error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  189:83   error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  225:53   error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  237:77   error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  237:90   error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  246:39   error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+/app/frontend/app/settings.tsx
+  140:14   warning  'error' is defined but never used                                @typescript-eslint/no-unused-vars
+  157:14   warning  'error' is defined but never used                                @typescript-eslint/no-unused-vars
+  178:14   warning  'error' is defined but never used                                @typescript-eslint/no-unused-vars
+  418:74   error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  518:64   error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  518:68   error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  533:226  error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  620:57   error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  723:46   error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+/app/frontend/app/shoulders-workout-display-backup-beforecart.tsx
+  1631:9  warning  'getEquipmentIcon' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+/app/frontend/app/shoulders-workout-display.tsx
+  1730:9  warning  'getEquipmentIcon' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+/app/frontend/app/terms-of-service.tsx
+   55:79  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  152:81  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  215:33  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  215:39  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  254:98  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+/app/frontend/app/time-series-analytics.tsx
+  140:6  warning  React Hook useEffect has a missing dependency: 'fetchData'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+/app/frontend/app/triceps-workout-display.tsx
+  1474:9  warning  'getEquipmentIcon' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+/app/frontend/app/user-profile.tsx
+  18:3  warning  'Alert' is defined but never used                                                                                                                                    @typescript-eslint/no-unused-vars
+  94:6  warning  React Hook useEffect has missing dependencies: 'checkFollowingStatus', 'fetchUserPosts', and 'fetchUserProfile'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+
+/app/frontend/app/user-stats.tsx
+  83:6  warning  React Hook useEffect has a missing dependency: 'fetchStats'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+/app/frontend/app/weight-based-workouts.tsx
+  65:21  error  Component definition is missing display name  react/display-name
+
+/app/frontend/app/workout-display-backup.tsx
+  1:27  warning  'useRef' is defined but never used  @typescript-eslint/no-unused-vars
+
+/app/frontend/app/workout-guidance.tsx
+  727:7  warning  'getDifficultyColor' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+/app/frontend/app/workout-session.tsx
+  9:3  warning  'Image' is defined but never used  @typescript-eslint/no-unused-vars
+
+/app/frontend/app/workout-type.tsx
+  41:7  warning  'WorkoutTypeOption' is already defined  @typescript-eslint/no-redeclare
+
+/app/frontend/components/AppBootstrap.tsx
+   2:81  warning  'AppState' is defined but never used                                                                          @typescript-eslint/no-unused-vars
+   2:91  warning  'Platform' is defined but never used                                                                          @typescript-eslint/no-unused-vars
+  66:6   warning  React Hook useEffect has a missing dependency: 'pulseAnim'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+/app/frontend/components/BlockUserModal.tsx
+   63:14  warning  'error' is defined but never used                                @typescript-eslint/no-unused-vars
+   88:51  error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+   92:50  error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  141:86  error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+/app/frontend/components/CommentsBottomSheet.tsx
+  13:3  warning  'Keyboard' is defined but never used                                                                              @typescript-eslint/no-unused-vars
+  51:6  warning  React Hook useEffect has a missing dependency: 'fetchComments'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+/app/frontend/components/FloatingCart.tsx
+  22:18  error  React Hook "useRouter" is called conditionally. React Hooks must be called in the exact same order in every component render  react-hooks/rules-of-hooks
+
+/app/frontend/components/FollowListModal.tsx
+  48:6  warning  React Hook useEffect has a missing dependency: 'fetchUsers'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+/app/frontend/components/GuestPromptModal.tsx
+  18:9  warning  'width' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+/app/frontend/components/ImageCarousel.tsx
+  21:23  error  Component definition is missing display name  react/display-name
+
+/app/frontend/components/ImageCropModal.tsx
+   10:3   warning  'Image' is defined but never used                                                                                                     @typescript-eslint/no-unused-vars
+   17:38  warning  'SCREEN_HEIGHT' is assigned a value but never used                                                                                    @typescript-eslint/no-unused-vars
+   80:6   warning  React Hook useEffect has a missing dependency: 'scale'. Either include it or remove the dependency array                              react-hooks/exhaustive-deps
+   91:6   warning  React Hook useEffect has missing dependencies: 'pan' and 'scale'. Either include them or remove the dependency array                  react-hooks/exhaustive-deps
+  195:7   warning  React Hook useMemo has missing dependencies: 'clampPosition', 'pan', and 'scale'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+
+/app/frontend/components/MediaCarousel.tsx
+   12:3   warning  'Platform' is defined but never used                                                                                                                                                                                                                             @typescript-eslint/no-unused-vars
+   52:21  error    Component definition is missing display name                                                                                                                                                                                                                     react/display-name
+   78:18  warning  The ref value 'videoRef.current' will likely have changed by the time this effect cleanup function runs. If this ref points to a node rendered by React, copy 'videoRef.current' to a variable inside the effect, and use that variable in the cleanup function  react-hooks/exhaustive-deps
+  136:9   warning  'handleSeekStart' is assigned a value but never used                                                                                                                                                                                                             @typescript-eslint/no-unused-vars
+  140:9   warning  'handleSeekComplete' is assigned a value but never used                                                                                                                                                                                                          @typescript-eslint/no-unused-vars
+  147:9   warning  'formatTime' is assigned a value but never used                                                                                                                                                                                                                  @typescript-eslint/no-unused-vars
+  235:23  error    Component definition is missing display name                                                                                                                                                                                                                     react/display-name
+
+/app/frontend/components/OptimizedImage.tsx
+  38:12  warning  'e' is defined but never used                 @typescript-eslint/no-unused-vars
+  46:55  error    Component definition is missing display name  react/display-name
+
+/app/frontend/components/ReportModal.tsx
+  74:14  warning  'error' is defined but never used  @typescript-eslint/no-unused-vars
+
+/app/frontend/components/Skeleton.tsx
+  36:6  warning  React Hook React.useEffect has a missing dependency: 'animatedValue'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+/app/frontend/components/TermsAcceptanceModal.tsx
+  10:3  warning  'Linking' is defined but never used  @typescript-eslint/no-unused-vars
+
+/app/frontend/components/Toast.tsx
+  46:6  warning  React Hook useEffect has missing dependencies: 'duration', 'hideToast', 'opacity', and 'translateY'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+
+/app/frontend/components/VideoThumbnail.tsx
+  16:55  error    Component definition is missing display name                                                                          react/display-name
+  45:6   warning  React Hook useEffect has a missing dependency: 'generateThumbnail'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  60:14  warning  'e' is defined but never used                                                                                         @typescript-eslint/no-unused-vars
+
+/app/frontend/components/WigglingAddButton.tsx
+  2:56  warning  'View' is defined but never used  @typescript-eslint/no-unused-vars
+
+/app/frontend/contexts/AuthContext.tsx
+    1:65  warning  'useRef' is defined but never used                   @typescript-eslint/no-unused-vars
+  150:9   warning  'loadStoredAuth' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  210:35  warning  'user_id' is assigned a value but never used         @typescript-eslint/no-unused-vars
+  249:35  warning  'user_id' is assigned a value but never used         @typescript-eslint/no-unused-vars
+
+/app/frontend/data/explosiveness-weights-data.ts
+  28:7  warning  'EXPLOSIVE_IMAGE' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+/app/frontend/hooks/useScreenTime.ts
+  11:10  warning  'Analytics' is defined but never used  @typescript-eslint/no-unused-vars
+
+/app/frontend/plugins/withCxx17Fix.js
+  1:27  warning  'withPlugins' is assigned a value but never used  no-unused-vars
+
+/app/frontend/utils/analytics.ts
+  38:12  warning  'error' is defined but never used  @typescript-eslint/no-unused-vars
+
+✖ 240 problems (48 errors, 192 warnings) to see if it can be auto-resolved.
+     - Why fix this issue and what will be achieved with the fix? Fixes maintain a clean and reliable development environment, preventing potential future tooling conflicts.
+     - Status:  NOT STARTED
+     - Is recurring issue? N
+     - Should Test frontend/backend/both after fix? Frontend
      - Blocked on other issue: None
 
 **In progress Task List**:
@@ -122,121 +487,94 @@ The application now has a robust suite of content moderation features. The backe
 
 **Upcoming and Future Tasks**
 - **Upcoming Tasks**:
-    - **P0: Complete interactive posts on profile page**: Address Issue #1 and #2. Make posts viewed from a user's profile fully interactive (like, comment, save, report). This is the highest priority feature gap.
-    - **P1: Implement Admin Dashboard moderation tools**: The admin dashboard has a placeholder section. This needs to be built out to allow an admin to view reported content and take action (e.g., delete content, ban user).
+    - **P0: Implement Admin Dashboard moderation tools**: Build the UI for the  endpoint.
 - **Future Tasks**:
     - Refactor Hardcoded Workout Data
-    - Refactor Styles
-    - Refactor  (now even more critical as it will contain moderation logic).
+    - Refactor 
+    - Refactor  into smaller components.
 
 **Completed work in this session**
-- **CRITICAL FIX - Production Deployment**: Resolved server crash by adding a default value for  environment variable.
-- **CRITICAL FIX - Notifications Likes Bug**: Fixed a bug where like notifications were not appearing by correcting the backend query to handle  types.
-- **Feature - Content Moderation Suite**:
-  - Implemented backend and frontend for reporting posts/comments/users and blocking users.
-- **Feature - Notifications Tab**:
-  - Added a new Notifications tab to the Explore page with a complete history and a smart badge for new activity.
-- **Feature - View Others' Follow Lists**:
-  - Created a new page and updated the backend to allow viewing any user's followers and following lists.
-- **Feature - User Settings**:
-  - Added pages for Blocked Users and Content Keyword Filter accessible from the settings menu.
-- **Feature - Post Interaction Menu**:
-  - Added a 3-dot menu to posts on the Explore page for saving and reporting.
-- **Feature - First Comment Preview**:
-  - Updated the backend and frontend to show the first comment under a post on the Explore page.
-- **Legal - TOS & Privacy Policy**:
-  - Created a Terms of Service page and updated the Privacy Policy with user-requested clauses.
+- **Feature - EULA & Terms Versioning (Guideline 1.2)**:
+    - Implemented a backend constant .
+    - Gated all UGC endpoints in  to require acceptance of the current terms version.
+    - Updated user registration and the  endpoint to set .
+    - Created a non-dismissible  component.
+    - Heavily modified  to manage and enforce terms versioning on app start/login.
+- **Feature - App Store Compliance (Guideline 5.1.1)**:
+    - Updated  with a compliant  string for iOS.
+- **UX/Styling**:
+    - Re-styled  and the new  to use an on-brand gold theme instead of red/orange.
 - **Build Management**:
-  - Incremented iOS build number to **18**.
-- **UI Polish**:
-  - Redesigned Explore page tabs, removed the share button, and fixed UI margins.
+    - Incremented the iOS build number to **23** in .
 
 **Earlier issues found/mentioned but not fixed**
-   - Issue 1: Users cannot like or comment on posts viewed from the user profile page. This was explicitly mentioned by the user but has not been implemented yet.
-   - Issue 2: Home screen carousel Save button is not visible/functional. (Carried over)
-   - Issue 3: Unfollow analytics tracking is not working. (Carried over)
+   - The agent saw ESLint parsing errors for the  keyword in  files but dismissed them as non-blocking. This should be fixed for code hygiene. This is captured in the All Pending/In progress Issue list.
 
 **Known issue recurrence from previous fork**
-  - None.
+  - The issues regarding the Home screen Save button and Unfollow analytics tracking are recurring.
 
 **Code Architecture**
 
 
 **Key Technical Concepts**
--   **Content Moderation System**: A full-stack implementation for reporting, blocking, and filtering content. Involves new backend endpoints, new database collections (, ), and new frontend modals and settings pages.
--   **Real-time Notification System**: A backend/frontend system to deliver notifications for likes, comments, and follows. Features a smart badge that uses  and timestamps () to only show a count of truly new notifications.
--   **Robust Backend Error Handling**: Fixed a critical server crash by using  with default values instead of direct key access, making the server resilient to missing environment variables.
--   **Complex MongoDB Aggregation**:
-    -   Used  to join posts with comments to fetch the .
-    -   Fixed a notification query by converting a list of string IDs to s within the pipeline to correctly match documents in another collection.
--   **Dynamic Follower/Following Lists**: Created a reusable screen () that takes a  as a parameter to display different users' social graphs.
--   **Stateful UI Components**: Heavy use of , , and  in  to manage multiple states (active tab, posts, notifications, modals, search, unread counts).
+-   **Terms Versioning**: A compliance pattern to force user re-consent for updated legal policies. Implemented by comparing a backend-defined  with a  stored on the user's record.
+-   **Declarative API Security (FastAPI Dependencies)**: Used  with a custom helper function () to declaratively protect multiple UGC endpoints, ensuring the security logic is reusable and consistently applied.
+-   **Global State-driven Forced UI**: Leveraged React Context () to manage a global state that determines if a mandatory, non-dismissible modal should be displayed, effectively blocking the app's UI until a condition (terms acceptance) is met.
+-   **Conditional Auth Flow**: Modified core authentication functions (, ) to incorporate business logic (terms checking) that alters the user flow immediately after authentication.
 
 **key DB schema**
--   **reports** (New): 
--   **blocked_users** (New): 
--   **post_likes**: Schema is . Queries were fixed to handle  conversion.
--   **posts**: No schema change, but queries were updated to  .
--   **notifications**: This is not a real collection; it's an aggregation of , , and  (for follows) performed at runtime by the  endpoint.
+-   **users**: Utilized and now consistently populates  and .
 
 **changes in tech stack**
 -   None.
 
 **All files of reference**
--   ****: The core of all new backend logic.
--   ****: The most heavily modified frontend file, containing the new tabs, notification logic, and post menu.
--   ****: The file currently being worked on.
--   ****: Modified to add block/report user functionality.
--   ****: The hub for new moderation and legal pages.
--   ****: Key reusable component for reporting.
--   ****: Contains the latest build number ().
+-   ****: Contains the core logic for terms versioning and UGC endpoint gating.
+-   ****: Contains the frontend logic for checking term versions and displaying the mandatory modal.
+-   ****: The new UI component for the EULA modal.
+-   ****: Contains the updated build number (23) and microphone permission string.
+-   ****: Contains the updated styling for the TOS page.
 
 **Areas that need refactoring**:
--    is now extremely large and complex, managing state for three different tabs, modals, search, and periodic fetching. It should be broken down into smaller components (e.g., , , ) and custom hooks for data fetching (, ).
+- None new identified in this session.
 
 **key api endpoints**
-- **NEW**:
-    - : Report a post, comment, or user.
-    - : Get list of report categories.
-    - : Block a user.
-    - : Unblock a user.
-    - : Get the current user's blocked list.
-    - : Get aggregated notifications for the current user.
-    - : Get count of new notifications since a given timestamp.
 - **MODIFIED**:
-    - : Integrated content filtering.
-    - : Integrated content filtering.
-    - : Now includes  data.
-    - , : Now include  and  flags.
+    - All UGC endpoints are now protected by the  dependency which also checks for versioning. This includes:
+        - 
+        - 
+        - 
+        - 
+        - 
+        - 
+        - 
+        - 
+    - : Now sets both  and .
+    - : Now sets  on new user creation.
+    - : Now returns  in the response payload.
 
 **Critical Info for New Agent**
-1.  **High-Priority Feature Gap**: The user has reported that liking/commenting from the user profile post grid is not possible. This is a major UX issue that should be addressed immediately after finishing the current task. The current work on  is the first step toward this.
-2.  **Complex Frontend State**: Be very careful when modifying . It handles a lot of state and effects. Consider refactoring if making significant changes.
-3.  **Backend ID Types**: Be mindful of ID types in the backend. The agent fixed a critical bug where string IDs from one query needed to be converted to s for a subsequent query. This pattern may exist elsewhere.
-4.  The user provides frequent, iterative feedback. Implement a feature, summarize it, and ask for the next steps.
+1.  **Top Priority: Verify EULA Flow**: The most critical task is to thoroughly test the new terms versioning system. This is the primary reason for the last set of changes and is essential for the next App Store submission. Test with both new and existing user accounts.
+2.  **Original UX Gaps Still Exist**: The high-priority user-facing issues from the start of the session (inability to like/comment on , broken Save button, and broken Unfollow analytics) have not been addressed. The user may want to prioritize these after the compliance work is verified.
+3.  **Compliance is Key**: All recent work has been driven by App Store rejections. Be mindful that any new feature or change must align with these strict UGC and legal compliance requirements.
 
 **documents created in this job**
- - None.
+- /app/frontend/components/TermsAcceptanceModal.tsx
 
-**Last 10 User Messages and any pending HUMAN messages** 
- -  **User (Msg 500):** Requested 3 fixes: add 3-dot menu to posts in profile grid, remove share icon on explore page, fix first comment margin. **Status:** IN PROGRESS (Share icon and margin are fixed; 3-dot menu is being implemented).
- -  **User (Msg 485):** Reported a bug where the notification badge kept reappearing incorrectly. **Status:** COMPLETED (Agent fixed the timestamp comparison logic).
- -  **User (Msg 458):** Requested that the notification tab show all history, while the badge only shows new alerts. **Status:** COMPLETED.
- -  **User (Msg 427):** Reported a bug where like notifications were not appearing in the notifications tab. **Status:** COMPLETED (Agent fixed the backend query logic).
- -  **User (Msg 410):** Requested a red notification bubble on the bell icon with a count of new notifications. **Status:** COMPLETED.
- -  **User (Msg 383):** Reported 3 issues: can't like/comment from profile page, likes not in notifications, and requested a UI tweak for explore tabs. **Status:** PARTIALLY COMPLETED (Likes & UI fixed; like/comment from profile is pending).
- -  **User (Msg 346):** Requested that the first comment be shown under posts on the explore page. **Status:** COMPLETED.
- -  **User (Msg 338):** Requested an update to the privacy policy regarding push notifications. **Status:** COMPLETED.
- -  **User (Msg 281):** Requested a new Notifications tab on the explore page. **Status:** COMPLETED.
- -  **User (Msg 262):** Requested an update to the Terms of Service. **Status:** COMPLETED.
+**Last 10 User Messages and any pending HUMAN messages**
+- **User (Msg 125):** Requested Terms Versioning to force re-acceptance from existing users, including Apple reviewers. **Status:** IN PROGRESS (Coding complete, verification pending).
+- **User (Msg 116):** Requested to change the red color in the acceptance modal to be on-brand. **Status:** COMPLETED.
+- **User (Msg 19):** Requested a robust, non-bypassable EULA flow to comply with Guideline 1.2. **Status:** COMPLETED.
+- **User (Msg 5):** Requested to fix the styling of the Terms of Service page and update the microphone permission string for App Store compliance. **Status:** COMPLETED.
 
 **Project Health Check:**
 - **Broken**:
-    - None. The application is stable, and production deployment is working.
+    - Home screen carousel Save button functionality.
 - **Mocked**:
     - None.
 - **Functional Gaps**:
-    - Inability to interact (like/comment) with posts from the user profile grid view is a significant functional gap.
+    - Inability to like or comment on posts from the  screen.
+    - Admin Dashboard has no UI to view moderation logs.
 
 **3rd Party Integrations**
 - **Cloudinary (Image & Video Management)** — requires User API Key.
@@ -246,9 +584,9 @@ The application now has a robust suite of content moderation features. The backe
 
 **Testing status**
   - Testing agent used after significant changes: NO
-  - Troubleshoot agent used after agent stuck in loop: YES (Used early in the session to diagnose a deployment issue).
+  - Troubleshoot agent used after agent stuck in loop: NO
   - Test files created: []
-  - Known regressions: Inability to like/comment from profile page could be considered a regression or feature gap from user expectation.
+  - Known regressions: None introduced in this session. Existing ones are noted.
 
 **Credentials to test flow:**
 - **Admin User**:
@@ -257,12 +595,8 @@ The application now has a robust suite of content moderation features. The backe
 - **Demo User**:
     - **Username**: 
     - **Password**: 
-- **Cloudinary**:
-    - **CLOUD_NAME**: 
-    - **API_KEY**: 
-    - **API_SECRET**: 
 
 **What agent forgot to execute**
-- The agent did not forget but postponed addressing the user's report (in Msg 383) that liking and commenting on posts from the user profile page is not working. This is the most critical pending item from the user's perspective.
+- The agent noticed ESLint parsing errors () but dismissed them as non-blocking configuration issues. While the app may compile, these linting errors should be fixed to maintain code quality and prevent potential tooling issues.
 
 </analysis>

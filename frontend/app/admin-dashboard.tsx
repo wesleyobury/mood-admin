@@ -73,9 +73,9 @@ interface ComprehensiveStats {
   users_with_activity: number;
   total_sessions: number;
   total_screen_views: number;
-  top_pages: Array<{ page: string; views: number; unique_users: number }>;
+  top_pages: { page: string; views: number; unique_users: number }[];
   total_mood_selections: number;
-  top_mood_cards: Array<{ mood: string; mood_id: string; selections: number; unique_users: number }>;
+  top_mood_cards: { mood: string; mood_id: string; selections: number; unique_users: number }[];
   workouts_added: number;
   workouts_started: number;
   workouts_completed: number;
@@ -143,7 +143,7 @@ interface UserReport {
     workout_completion_rate: number;
     total_screen_views: number;
     unique_screens_viewed: number;
-    top_screens: Array<{ screen: string; views: number; percentage?: number }>;
+    top_screens: { screen: string; views: number; percentage?: number }[];
     app_sessions: number;
     total_time_seconds: number;
     time_spent_formatted: string;

@@ -77,12 +77,12 @@ interface Post {
 
 interface WorkoutCard {
   id: string;
-  workouts: Array<{
+  workouts: {
     workoutName: string;
     equipment: string;
     duration: string;
     difficulty: string;
-  }>;
+  }[];
   totalDuration: number;
   completedAt: string;
   created_at: string;
@@ -91,7 +91,7 @@ interface WorkoutCard {
 interface SavedWorkout {
   id: string;
   name: string;
-  workouts: Array<{
+  workouts: {
     name: string;
     equipment: string;
     duration: string;
@@ -103,7 +103,7 @@ interface SavedWorkout {
     workoutType?: string;
     moodCard?: string;
     moodTips?: any[];
-  }>;
+  }[];
   total_duration: number;
   source: string;
   featured_workout_id?: string;

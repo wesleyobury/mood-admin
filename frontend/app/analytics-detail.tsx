@@ -83,7 +83,7 @@ interface EquipmentItem {
   selection_count: number;
   unique_users: number;
   percentage: number;
-  top_mood_paths?: Array<{ mood: string; count: number }>;
+  top_mood_paths?: { mood: string; count: number }[];
 }
 
 interface DifficultyItem {

@@ -46,13 +46,13 @@ interface MediaItem {
 }
 
 interface WorkoutStats {
-  workouts: Array<{
+  workouts: {
     workoutTitle: string;
     workoutName: string;
     equipment: string;
     duration: string;
     difficulty: string;
-  }>;
+  }[];
   totalDuration: number;
   completedAt: string;
 }

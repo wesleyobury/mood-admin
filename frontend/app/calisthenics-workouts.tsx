@@ -20,6 +20,8 @@ import { useAuth } from '../contexts/AuthContext';
 import { Analytics } from '../utils/analytics';
 import WigglingAddButton from '../components/WigglingAddButton';
 
+import { additionalWorkoutDatabase } from '../data/calisthenics-workouts-data';
+
 const { width } = Dimensions.get('window');
 
 interface Workout {
@@ -45,8 +47,6 @@ interface EquipmentWorkouts {
     advanced: Workout[];
   };
 }
-
-import { additionalWorkoutDatabase } from '../data/calisthenics-workouts-data';
 
 // Comprehensive calisthenics workout database
 const workoutDatabase: EquipmentWorkouts[] = [
