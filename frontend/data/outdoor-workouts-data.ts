@@ -17,12 +17,12 @@ export const outdoorRunWorkoutDatabase = [
             {
               icon: 'body',
               title: 'Keep tall posture; slight lean from ankles; eyes on horizon',
-              description: 'Keep tall posture; slight lean from ankles; eyes on horizon'
+              description: 'Maintain upright form with forward lean originating from feet, not waist'
             },
             {
               icon: 'walk',
               title: 'Land under hips with quiet steps to reduce impact and strain',
-              description: 'Land under hips with quiet steps to reduce impact and strain'
+              description: 'Position foot strike beneath your center of mass for efficient running'
             }
           ]
         },
@@ -37,12 +37,12 @@ export const outdoorRunWorkoutDatabase = [
             {
               icon: 'hand-left',
               title: 'Relax shoulders; light hands "hold chips"; steady arm swing',
-              description: 'Relax shoulders; light hands "hold chips"; steady arm swing'
+              description: 'Keep upper body loose with hands gently cupped and arms moving naturally'
             },
             {
               icon: 'leaf',
               title: 'Use 3-3 breathing; if form slips, slow to reset smooth rhythm',
-              description: 'Use 3-3 breathing; if form slips, slow to reset smooth rhythm'
+              description: 'Breathe in for 3 steps, out for 3 steps; reduce pace if technique degrades'
             }
           ]
         },
@@ -57,12 +57,12 @@ export const outdoorRunWorkoutDatabase = [
             {
               icon: 'walk',
               title: 'Maintain light cadence; avoid overstriding to protect knees',
-              description: 'Maintain light cadence; avoid overstriding to protect knees'
+              description: 'Keep steps quick and short rather than reaching out with each stride'
             },
             {
               icon: 'body',
               title: 'Keep chin level; engage core gently to stabilize torso posture',
-              description: 'Keep chin level; engage core gently to stabilize torso posture'
+              description: 'Look straight ahead with light abdominal bracing for stability'
             }
           ]
         }
@@ -79,12 +79,12 @@ export const outdoorRunWorkoutDatabase = [
             {
               icon: 'walk',
               title: 'Midfoot land; elbows drive back; keep hands relaxed and quiet',
-              description: 'Midfoot land; elbows drive back; keep hands relaxed and quiet'
+              description: 'Strike with midfoot, pump elbows rearward, and maintain loose fists'
             },
             {
               icon: 'body',
               title: 'Torso stays stacked; limit side sway for better energy transfer',
-              description: 'Torso stays stacked; limit side sway for better energy transfer'
+              description: 'Keep shoulders over hips with minimal lateral movement for efficiency'
             }
           ]
         },
@@ -99,12 +99,12 @@ export const outdoorRunWorkoutDatabase = [
             {
               icon: 'trending-up',
               title: 'Pace the effort, not speed; adjust smoothly for terrain changes',
-              description: 'Pace the effort, not speed; adjust smoothly for terrain changes'
+              description: 'Focus on consistent exertion level rather than watching pace numbers'
             },
             {
               icon: 'cloud',
               title: 'Float recoveries; reset posture and breathing every easy rep',
-              description: 'Float recoveries; reset posture and breathing every easy rep'
+              description: 'Use recovery intervals to restore form and catch breath fully'
             }
           ]
         },
@@ -119,12 +119,12 @@ export const outdoorRunWorkoutDatabase = [
             {
               icon: 'trending-up',
               title: 'Keep effort even; relax on mild inclines; avoid unnecessary surges',
-              description: 'Keep effort even; relax on mild inclines; avoid unnecessary surges'
+              description: 'Maintain consistent work output by adjusting pace to terrain'
             },
             {
               icon: 'body',
               title: 'Shoulders down; check form every five minutes to stay efficient',
-              description: 'Shoulders down; check form every five minutes to stay efficient'
+              description: 'Periodically scan body for tension and reset relaxed posture'
             }
           ]
         }
@@ -141,12 +141,12 @@ export const outdoorRunWorkoutDatabase = [
             {
               icon: 'walk',
               title: 'Keep cadence quick; avoid overstriding as fatigue accumulates',
-              description: 'Keep cadence quick; avoid overstriding as fatigue accumulates'
+              description: 'Maintain turnover rate even when tired to prevent injury'
             },
             {
               icon: 'leaf',
               title: 'Breathe rhythmically; relax jaw and hands to save upper body',
-              description: 'Breathe rhythmically; relax jaw and hands to save upper body'
+              description: 'Sync breath to stride and release tension in face and grip'
             }
           ]
         },
@@ -161,12 +161,12 @@ export const outdoorRunWorkoutDatabase = [
             {
               icon: 'body',
               title: 'Drive arms during surges; keep chest tall and hips forward',
-              description: 'Drive arms during surges; keep chest tall and hips forward'
+              description: 'Power arm swing and maintain proud posture through hard efforts'
             },
             {
               icon: 'walk',
               title: 'Make easy minutes truly easy to protect form and quality',
-              description: 'Make easy minutes truly easy to protect form and quality'
+              description: 'Genuinely recover during rest intervals for better next effort'
             }
           ]
         },
@@ -181,12 +181,12 @@ export const outdoorRunWorkoutDatabase = [
             {
               icon: 'trending-up',
               title: 'Increase effort smoothly; avoid abrupt pace jumps or surging',
-              description: 'Increase effort smoothly; avoid abrupt pace jumps or surging'
+              description: 'Transition between intensities gradually without sudden changes'
             },
             {
               icon: 'body',
               title: 'Maintain midline stability; minimize torso twist as speed rises',
-              description: 'Maintain midline stability; minimize torso twist as speed rises'
+              description: 'Keep core engaged to prevent excessive rotation at faster paces'
             }
           ]
         }
@@ -209,12 +209,12 @@ export const outdoorRunWorkoutDatabase = [
             {
               icon: 'bicycle',
               title: 'Knees track straight; light grip; relax shoulders and neck',
-              description: 'Knees track straight; light grip; relax shoulders and neck'
+              description: 'Align knees over pedals with loose hands and dropped shoulders'
             },
             {
               icon: 'leaf',
               title: 'Maintain neutral spine; breathe deep to reduce tension',
-              description: 'Maintain neutral spine; breathe deep to reduce tension'
+              description: 'Keep back in natural curve and use full breaths for relaxation'
             }
           ]
         },
@@ -229,12 +229,12 @@ export const outdoorRunWorkoutDatabase = [
             {
               icon: 'bicycle',
               title: 'Smooth pedal circles; avoid mashing low cadence under load',
-              description: 'Smooth pedal circles; avoid mashing low cadence under load'
+              description: 'Spin evenly through full rotation instead of stomping down'
             },
             {
               icon: 'body',
               title: 'Breathe deep; keep hips steady to protect lower back',
-              description: 'Breathe deep; keep hips steady to protect lower back'
+              description: 'Use diaphragm breathing while keeping pelvis stable on saddle'
             }
           ]
         },
@@ -249,12 +249,12 @@ export const outdoorRunWorkoutDatabase = [
             {
               icon: 'body',
               title: 'Hips stable; gently brace core to limit side rocking',
-              description: 'Hips stable; gently brace core to limit side rocking'
+              description: 'Engage abs lightly to prevent hip swaying side to side'
             },
             {
               icon: 'leaf',
               title: 'Relax neck and drop shoulders to reduce fatigue',
-              description: 'Relax neck and drop shoulders to reduce fatigue'
+              description: 'Release upper body tension to conserve energy over distance'
             }
           ]
         }
@@ -271,12 +271,12 @@ export const outdoorRunWorkoutDatabase = [
             {
               icon: 'bicycle',
               title: 'Keep cadence steady; avoid mashing big gears that stress knees',
-              description: 'Keep cadence steady; avoid mashing big gears that stress knees'
+              description: 'Maintain consistent RPM and select appropriate gear ratios'
             },
             {
               icon: 'body',
               title: 'Soft elbows; quiet torso to improve power transfer and comfort',
-              description: 'Soft elbows; quiet torso to improve power transfer and comfort'
+              description: 'Bend arms slightly and minimize upper body movement for efficiency'
             }
           ]
         },
@@ -291,12 +291,12 @@ export const outdoorRunWorkoutDatabase = [
             {
               icon: 'leaf',
               title: 'Breathe through surges; brace core to stabilize pelvis',
-              description: 'Breathe through surges; brace core to stabilize pelvis'
+              description: 'Maintain breathing rhythm and engage abs during harder segments'
             },
             {
               icon: 'bicycle',
               title: 'Avoid power spikes when exiting hard segments; stay smooth',
-              description: 'Avoid power spikes when exiting hard segments; stay smooth'
+              description: 'Transition gradually between effort levels without jerky changes'
             }
           ]
         },
@@ -311,12 +311,12 @@ export const outdoorRunWorkoutDatabase = [
             {
               icon: 'body',
               title: 'Drive through heels; keep hips steady; avoid side rocking',
-              description: 'Drive through heels; keep hips steady; avoid side rocking'
+              description: 'Press down through back of foot and stabilize pelvis'
             },
             {
               icon: 'bicycle',
               title: 'Knees track forward; no collapse inward under higher torque',
-              description: 'Knees track forward; no collapse inward under higher torque'
+              description: 'Maintain knee alignment over pedals during low-cadence efforts'
             }
           ]
         }
@@ -333,12 +333,12 @@ export const outdoorRunWorkoutDatabase = [
             {
               icon: 'body',
               title: 'Chest proud; brace core; avoid excessive handlebar tension',
-              description: 'Chest proud; brace core; avoid excessive handlebar tension'
+              description: 'Keep chest open with engaged abs and light grip on bars'
             },
             {
               icon: 'bicycle',
               title: 'Ease into first 10 seconds; prevent spiky torque surges',
-              description: 'Ease into first 10 seconds; prevent spiky torque surges'
+              description: 'Build into hard efforts gradually to avoid wasted energy'
             }
           ]
         },
@@ -353,12 +353,12 @@ export const outdoorRunWorkoutDatabase = [
             {
               icon: 'bicycle',
               title: 'If safe, hold aero; relax hands and jaw to save energy',
-              description: 'If safe, hold aero; relax hands and jaw to save energy'
+              description: 'Maintain aerodynamic position with released tension in extremities'
             },
             {
               icon: 'leaf',
               title: 'Pace by effort; exit reps smoothly without surging',
-              description: 'Pace by effort; exit reps smoothly without surging'
+              description: 'Focus on internal sensation and transition cleanly between intervals'
             }
           ]
         },
@@ -373,12 +373,12 @@ export const outdoorRunWorkoutDatabase = [
             {
               icon: 'body',
               title: 'Slight chest forward; stable hips; avoid heavy front load',
-              description: 'Slight chest forward; stable hips; avoid heavy front load'
+              description: 'Lean forward slightly while keeping pelvis anchored to saddle'
             },
             {
               icon: 'bicycle',
               title: 'Explode then settle cadence to reduce wasted movement',
-              description: 'Explode then settle cadence to reduce wasted movement'
+              description: 'Burst hard then quickly return to smooth, efficient spinning'
             }
           ]
         }
@@ -401,12 +401,12 @@ export const outdoorRunWorkoutDatabase = [
             {
               icon: 'leaf',
               title: 'Exhale fully underwater; avoid breath holding to relax stroke',
-              description: 'Exhale fully underwater; avoid breath holding to relax stroke'
+              description: 'Release air steadily through nose/mouth to stay calm and efficient'
             },
             {
               icon: 'water',
               title: 'Eyes down; hips high; gentle kick to spare lower back strain',
-              description: 'Eyes down; hips high; gentle kick to spare lower back strain'
+              description: 'Look at pool bottom, keep hips near surface with light flutter kick'
             }
           ]
         },
@@ -421,12 +421,12 @@ export const outdoorRunWorkoutDatabase = [
             {
               icon: 'hand-left',
               title: 'Gentle hand entry; avoid crossing midline to protect shoulders',
-              description: 'Gentle hand entry; avoid crossing midline to protect shoulders'
+              description: 'Enter water in line with shoulder, not across body centerline'
             },
             {
               icon: 'water',
               title: 'Soft kick; toes pointed; relaxed ankles for efficient propulsion',
-              description: 'Soft kick; toes pointed; relaxed ankles for efficient propulsion'
+              description: 'Flutter with loose ankles and extended toes for smooth propulsion'
             }
           ]
         },
@@ -441,12 +441,12 @@ export const outdoorRunWorkoutDatabase = [
             {
               icon: 'water',
               title: 'Count strokes per length; keep it steady to gauge efficiency',
-              description: 'Count strokes per length; keep it steady to gauge efficiency'
+              description: 'Track stroke count each lap to monitor technique consistency'
             },
             {
               icon: 'body',
               title: 'Head still; rotate from torso; avoid lifting face to breathe',
-              description: 'Head still; rotate from torso; avoid lifting face to breathe'
+              description: 'Turn body as unit for breath instead of craning neck upward'
             }
           ]
         }
@@ -463,12 +463,12 @@ export const outdoorRunWorkoutDatabase = [
             {
               icon: 'hand-left',
               title: 'Early vertical forearm; patient catch to protect shoulders',
-              description: 'Early vertical forearm; patient catch to protect shoulders'
+              description: 'Set forearm perpendicular early in pull with controlled timing'
             },
             {
               icon: 'body',
               title: 'Streamline off walls; brace core lightly to keep hips afloat',
-              description: 'Streamline off walls; brace core lightly to keep hips afloat'
+              description: 'Push off tight and use gentle ab tension for body position'
             }
           ]
         },
@@ -483,12 +483,12 @@ export const outdoorRunWorkoutDatabase = [
             {
               icon: 'body',
               title: 'Backstroke: neutral head, steady hip-driven roll for alignment',
-              description: 'Backstroke: neutral head, steady hip-driven roll for alignment'
+              description: 'Keep head still and initiate rotation from hips, not shoulders'
             },
             {
               icon: 'water',
               title: 'Breaststroke: glide briefly; gentle knee flex to spare joints',
-              description: 'Breaststroke: glide briefly; gentle knee flex to spare joints'
+              description: 'Hold streamline momentarily and avoid pulling knees too wide'
             }
           ]
         },
@@ -503,12 +503,12 @@ export const outdoorRunWorkoutDatabase = [
             {
               icon: 'leaf',
               title: 'Breathe bilaterally only if comfortable; prioritize relaxed rhythm',
-              description: 'Breathe bilaterally only if comfortable; prioritize relaxed rhythm'
+              description: 'Alternate breathing sides only when it feels natural and easy'
             },
             {
               icon: 'water',
               title: 'Keep kick light; save shoulders by avoiding overreaching pulls',
-              description: 'Keep kick light; save shoulders by avoiding overreaching pulls'
+              description: 'Use gentle flutter and moderate arm extension to preserve energy'
             }
           ]
         }
@@ -525,12 +525,12 @@ export const outdoorRunWorkoutDatabase = [
             {
               icon: 'hand-left',
               title: 'Fast hand exit; avoid crossing centerline to protect shoulders',
-              description: 'Fast hand exit; avoid crossing centerline to protect shoulders'
+              description: 'Clear hand from water quickly along shoulder line for safety'
             },
             {
               icon: 'body',
               title: 'Neutral neck; minimal lifting; sight only as needed for comfort',
-              description: 'Neutral neck; minimal lifting; sight only as needed for comfort'
+              description: 'Keep head aligned with spine and look forward only when necessary'
             }
           ]
         },
@@ -545,12 +545,12 @@ export const outdoorRunWorkoutDatabase = [
             {
               icon: 'body',
               title: 'Backstroke: hip-driven roll, straight entry line to reduce drag',
-              description: 'Backstroke: hip-driven roll, straight entry line to reduce drag'
+              description: 'Rotate from hips and enter hand directly above shoulder'
             },
             {
               icon: 'water',
               title: 'Breaststroke: controlled kick; avoid knee overflex to save joints',
-              description: 'Breaststroke: controlled kick; avoid knee overflex to save joints'
+              description: 'Keep knees within hip width and limit excessive bending'
             }
           ]
         },
@@ -565,12 +565,12 @@ export const outdoorRunWorkoutDatabase = [
             {
               icon: 'leaf',
               title: 'Hold steady stroke counts; adjust breath timing as distance grows',
-              description: 'Hold steady stroke counts; adjust breath timing as distance grows'
+              description: 'Maintain technique consistency and modify breathing for longer swims'
             },
             {
               icon: 'body',
               title: 'Maintain long body line; minimize sway for better propulsion',
-              description: 'Maintain long body line; minimize sway for better propulsion'
+              description: 'Stay streamlined from fingertips to toes with minimal wiggle'
             }
           ]
         }
@@ -593,12 +593,12 @@ export const outdoorRunWorkoutDatabase = [
             {
               icon: 'body',
               title: 'Short steps; land under hips; keep chest tall to protect knees',
-              description: 'Short steps; land under hips; keep chest tall to protect knees'
+              description: 'Use compact strides with upright posture to reduce joint stress'
             },
             {
               icon: 'trending-up',
               title: 'Side shuffle with toes forward; soft knees to avoid valgus',
-              description: 'Side shuffle with toes forward; soft knees to avoid valgus'
+              description: 'Point feet uphill and maintain slight knee bend to prevent collapse'
             }
           ]
         },
@@ -613,12 +613,12 @@ export const outdoorRunWorkoutDatabase = [
             {
               icon: 'body',
               title: 'March tall; ribs over hips; drive knee straight ahead',
-              description: 'March tall; ribs over hips; drive knee straight ahead'
+              description: 'Stand upright with stacked torso and forward knee drive'
             },
             {
               icon: 'walk',
               title: 'Backpedal small steps; eyes forward to protect balance',
-              description: 'Backpedal small steps; eyes forward to protect balance'
+              description: 'Take short steps backward while looking ahead for safety'
             }
           ]
         },
@@ -633,12 +633,12 @@ export const outdoorRunWorkoutDatabase = [
             {
               icon: 'body',
               title: 'Karaoke: rotate from hips, not knees; torso tall and relaxed',
-              description: 'Karaoke: rotate from hips, not knees; torso tall and relaxed'
+              description: 'Initiate crossover movement from hip rotation with upright stance'
             },
             {
               icon: 'walk',
               title: 'Jog upright; stable ankles; avoid rolling outward on contact',
-              description: 'Jog upright; stable ankles; avoid rolling outward on contact'
+              description: 'Run tall with secure foot placement to prevent ankle rolls'
             }
           ]
         },
@@ -653,12 +653,12 @@ export const outdoorRunWorkoutDatabase = [
             {
               icon: 'trending-up',
               title: 'Explode then relax; quick steps; posture tall; arms drive back',
-              description: 'Explode then relax; quick steps; posture tall; arms drive back'
+              description: 'Burst powerfully then settle into smooth form with arm drive'
             },
             {
               icon: 'body',
               title: 'Stop early if technique fades; protect calves and hamstrings',
-              description: 'Stop early if technique fades; protect calves and hamstrings'
+              description: 'End rep if form degrades to prevent muscle strain injuries'
             }
           ]
         }
@@ -675,12 +675,12 @@ export const outdoorRunWorkoutDatabase = [
             {
               icon: 'trending-up',
               title: 'Bounds: knee drive then hip extend; stick landings under control',
-              description: 'Bounds: knee drive then hip extend; stick landings under control'
+              description: 'Drive knee high, extend hip fully, and land with stability'
             },
             {
               icon: 'walk',
               title: 'Avoid heel striking uphill; keep cadence snappy and forward',
-              description: 'Avoid heel striking uphill; keep cadence snappy and forward'
+              description: 'Land on midfoot with quick turnover for uphill efficiency'
             }
           ]
         },
@@ -695,12 +695,12 @@ export const outdoorRunWorkoutDatabase = [
             {
               icon: 'body',
               title: 'Torso tall; no side lean; keep steps quick to reduce slip risk',
-              description: 'Torso tall; no side lean; keep steps quick to reduce slip risk'
+              description: 'Stay upright with rapid footwork to maintain traction'
             },
             {
               icon: 'walk',
               title: 'Backpedal toes up; short steps; maintain center over feet',
-              description: 'Backpedal toes up; short steps; maintain center over feet'
+              description: 'Lift toes slightly and keep weight balanced during backward movement'
             }
           ]
         },
@@ -715,12 +715,12 @@ export const outdoorRunWorkoutDatabase = [
             {
               icon: 'body',
               title: 'Lunges: knee over mid-foot; upright torso; no inward collapse',
-              description: 'Lunges: knee over mid-foot; upright torso; no inward collapse'
+              description: 'Align knee with foot center while staying tall without knee cave'
             },
             {
               icon: 'trending-up',
               title: 'Broad jumps: swing arms; land softly; stabilize before sprint',
-              description: 'Broad jumps: swing arms; land softly; stabilize before sprint'
+              description: 'Use arm momentum, absorb landing, then set before running'
             }
           ]
         },
@@ -735,12 +735,12 @@ export const outdoorRunWorkoutDatabase = [
             {
               icon: 'trending-up',
               title: 'Drive arms; chin level; tall posture; quick ground contacts',
-              description: 'Drive arms; chin level; tall posture; quick ground contacts'
+              description: 'Pump arms powerfully with head neutral and fast foot turnover'
             },
             {
               icon: 'body',
               title: 'If hamstrings tighten, reduce volume to protect from strain',
-              description: 'If hamstrings tighten, reduce volume to protect from strain'
+              description: 'Cut reps short if back of legs feel tight to prevent injury'
             }
           ]
         }
@@ -757,12 +757,12 @@ export const outdoorRunWorkoutDatabase = [
             {
               icon: 'body',
               title: 'Crisp contacts; avoid overreaching; keep hips tall and aligned',
-              description: 'Crisp contacts; avoid overreaching; keep hips tall and aligned'
+              description: 'Land quick and precise without overstretching stride length'
             },
             {
               icon: 'trending-up',
               title: 'Take full walkbacks; quality first to protect tendons and calves',
-              description: 'Take full walkbacks; quality first to protect tendons and calves'
+              description: 'Allow complete recovery between reps to maintain form quality'
             }
           ]
         },
@@ -777,12 +777,12 @@ export const outdoorRunWorkoutDatabase = [
             {
               icon: 'body',
               title: 'Bear crawl: hips low; knees under hips; keep spine neutral',
-              description: 'Bear crawl: hips low; knees under hips; keep spine neutral'
+              description: 'Stay low with knees close to ground and flat back'
             },
             {
               icon: 'walk',
               title: 'Backpedal: short steps; eyes forward to maintain safe balance',
-              description: 'Backpedal: short steps; eyes forward to maintain safe balance'
+              description: 'Take compact steps backward while looking ahead'
             }
           ]
         },
@@ -797,12 +797,12 @@ export const outdoorRunWorkoutDatabase = [
             {
               icon: 'trending-up',
               title: 'Use strong arm swing; knees track; stick landings before moving',
-              description: 'Use strong arm swing; knees track; stick landings before moving'
+              description: 'Drive arms powerfully, align knees, and stabilize on landing'
             },
             {
               icon: 'body',
               title: 'Keep volume crisp; if landings get loud, cut reps to protect joints',
-              description: 'Keep volume crisp; if landings get loud, cut reps to protect joints'
+              description: 'Reduce sets if impact noise increases to prevent joint stress'
             }
           ]
         },
@@ -817,12 +817,12 @@ export const outdoorRunWorkoutDatabase = [
             {
               icon: 'trending-up',
               title: 'Explode then relax; quick turnover; hips tall; arms powerful',
-              description: 'Explode then relax; quick turnover; hips tall; arms powerful'
+              description: 'Burst from start then settle into efficient form with arm drive'
             },
             {
               icon: 'body',
               title: 'End early if form fades; prioritize tendon and calf protection',
-              description: 'End early if form fades; prioritize tendon and calf protection'
+              description: 'Stop the set if technique breaks down to prevent strain'
             }
           ]
         }
@@ -845,12 +845,12 @@ export const outdoorRunWorkoutDatabase = [
             {
               icon: 'body',
               title: 'Squats: sit back; knees track over mid-foot; even foot pressure',
-              description: 'Squats: sit back; knees track over mid-foot; even foot pressure'
+              description: 'Hinge at hips with knees aligned and weight distributed evenly'
             },
             {
               icon: 'leaf',
               title: 'Dips: shoulders down; slight forward lean; avoid shrugging',
-              description: 'Dips: shoulders down; slight forward lean; avoid shrugging'
+              description: 'Depress shoulders and tilt slightly forward to protect joints'
             }
           ]
         },
@@ -865,12 +865,12 @@ export const outdoorRunWorkoutDatabase = [
             {
               icon: 'trending-up',
               title: 'Step-ups: full foot on bench; control descent to protect knees',
-              description: 'Step-ups: full foot on bench; control descent to protect knees'
+              description: 'Place entire foot on surface and lower with control'
             },
             {
               icon: 'body',
               title: 'Rows: pull shoulder blades first; keep neck long and relaxed',
-              description: 'Rows: pull shoulder blades first; keep neck long and relaxed'
+              description: 'Initiate pull with scapular retraction while keeping neck neutral'
             }
           ]
         },
@@ -885,12 +885,12 @@ export const outdoorRunWorkoutDatabase = [
             {
               icon: 'body',
               title: 'Lunges: upright torso; knee follows toes; avoid inward collapse',
-              description: 'Lunges: upright torso; knee follows toes; avoid inward collapse'
+              description: 'Stay tall with knee tracking in line with foot, not caving in'
             },
             {
               icon: 'leaf',
               title: 'Push-ups: straight line ears-to-ankles; no low-back sagging',
-              description: 'Push-ups: straight line ears-to-ankles; no low-back sagging'
+              description: 'Maintain plank alignment from head to heels throughout'
             }
           ]
         }
@@ -907,12 +907,12 @@ export const outdoorRunWorkoutDatabase = [
             {
               icon: 'body',
               title: 'Rows: ribs down; avoid flaring; elbows track for shoulder safety',
-              description: 'Rows: ribs down; avoid flaring; elbows track for shoulder safety'
+              description: 'Keep ribs pulled in with elbows moving along your sides'
             },
             {
               icon: 'leaf',
               title: 'Dips: slight forward lean; keep elbows near body; full control',
-              description: 'Dips: slight forward lean; keep elbows near body; full control'
+              description: 'Tilt forward slightly with elbows close and smooth movement'
             }
           ]
         },
@@ -927,12 +927,12 @@ export const outdoorRunWorkoutDatabase = [
             {
               icon: 'trending-up',
               title: 'Bench jumps: land softly; knees stacked; absorb through hips',
-              description: 'Bench jumps: land softly; knees stacked; absorb through hips'
+              description: 'Touch down gently with aligned knees and hip absorption'
             },
             {
               icon: 'body',
               title: 'Push-ups: elbows ~45°; shoulder blades glide; avoid flares',
-              description: 'Push-ups: elbows ~45°; shoulder blades glide; avoid flares'
+              description: 'Keep elbows at moderate angle with smooth scapular movement'
             }
           ]
         },
@@ -947,12 +947,12 @@ export const outdoorRunWorkoutDatabase = [
             {
               icon: 'body',
               title: 'Squats: tripod foot; knees track; maintain even depth each rep',
-              description: 'Squats: tripod foot; knees track; maintain even depth each rep'
+              description: 'Distribute weight across foot with consistent squat depth'
             },
             {
               icon: 'leaf',
               title: 'Rows: neutral neck; engage lats first; avoid shrugging tension',
-              description: 'Rows: neutral neck; engage lats first; avoid shrugging tension'
+              description: 'Keep head aligned and initiate pull with back muscles'
             }
           ]
         }
@@ -969,12 +969,12 @@ export const outdoorRunWorkoutDatabase = [
             {
               icon: 'body',
               title: 'Decline push-ups: brace core; avoid lumbar sway; even tempo',
-              description: 'Decline push-ups: brace core; avoid lumbar sway; even tempo'
+              description: 'Engage abs to prevent back arching and use steady pace'
             },
             {
               icon: 'trending-up',
               title: 'Bench jumps: toe-ball landings; soft knees; stabilize before move',
-              description: 'Bench jumps: toe-ball landings; soft knees; stabilize before move'
+              description: 'Land on forefoot with bent knees and pause before next rep'
             }
           ]
         },
@@ -989,12 +989,12 @@ export const outdoorRunWorkoutDatabase = [
             {
               icon: 'trending-up',
               title: 'Sprint tall; quick contacts; relax jaw; shorten steps slightly',
-              description: 'Sprint tall; quick contacts; relax jaw; shorten steps slightly'
+              description: 'Run upright with fast turnover, loose face, and compact stride'
             },
             {
               icon: 'body',
               title: 'Dips: stop before shoulder pinch; keep scapulae moving freely',
-              description: 'Dips: stop before shoulder pinch; keep scapulae moving freely'
+              description: 'Limit depth to prevent impingement and allow natural blade movement'
             }
           ]
         },
@@ -1009,12 +1009,12 @@ export const outdoorRunWorkoutDatabase = [
             {
               icon: 'body',
               title: 'Burpees: solid plank line; step out if low back feels stressed',
-              description: 'Burpees: solid plank line; step out if low back feels stressed'
+              description: 'Maintain plank alignment and modify to step-downs if needed'
             },
             {
               icon: 'leaf',
               title: 'Dips: elbows track; avoid bouncing; prioritize full, stable range',
-              description: 'Dips: elbows track; avoid bouncing; prioritize full, stable range'
+              description: 'Keep elbows aligned with controlled movement through full range'
             }
           ]
         }
@@ -1037,12 +1037,12 @@ export const outdoorRunWorkoutDatabase = [
             {
               icon: 'body',
               title: 'Stay tall; lean from ankles; hips stacked under ribcage alignment',
-              description: 'Stay tall; lean from ankles; hips stacked under ribcage alignment'
+              description: 'Maintain upright posture with forward lean originating from feet'
             },
             {
               icon: 'walk',
               title: 'Land under hips; quick off ground to reduce braking and impact',
-              description: 'Land under hips; quick off ground to reduce braking and impact'
+              description: 'Place feet beneath body and lift quickly to minimize ground time'
             }
           ]
         },
@@ -1057,12 +1057,12 @@ export const outdoorRunWorkoutDatabase = [
             {
               icon: 'trending-up',
               title: 'Bounds: soft land; knee tracks forward; avoid excessive reach',
-              description: 'Bounds: soft land; knee tracks forward; avoid excessive reach'
+              description: 'Touch down gently with aligned knee and moderate stride length'
             },
             {
               icon: 'body',
               title: 'Skips: coordinated arm drive; tall posture for smooth rhythm',
-              description: 'Skips: coordinated arm drive; tall posture for smooth rhythm'
+              description: 'Sync arm swing with leg action while staying upright'
             }
           ]
         },
@@ -1077,12 +1077,12 @@ export const outdoorRunWorkoutDatabase = [
             {
               icon: 'trending-up',
               title: 'Build first 10 m; avoid lunging; keep chin level and relaxed',
-              description: 'Build first 10 m; avoid lunging; keep chin level and relaxed'
+              description: 'Accelerate gradually without overreaching and stay loose'
             },
             {
               icon: 'walk',
               title: 'Short, fast steps under hips; arms punch back, not across body',
-              description: 'Short, fast steps under hips; arms punch back, not across body'
+              description: 'Take quick compact strides with arm drive straight back'
             }
           ]
         },
@@ -1097,12 +1097,12 @@ export const outdoorRunWorkoutDatabase = [
             {
               icon: 'ellipse-outline',
               title: 'Lean subtly through turns from ankles; keep posture upright',
-              description: 'Lean subtly through turns from ankles; keep posture upright'
+              description: 'Tilt into curves from feet while maintaining tall stance'
             },
             {
               icon: 'body',
               title: 'Knees lift; feet recover quickly under body; avoid overstride',
-              description: 'Knees lift; feet recover quickly under body; avoid overstride'
+              description: 'Drive knees up and place feet beneath you without reaching out'
             }
           ]
         }
@@ -1119,12 +1119,12 @@ export const outdoorRunWorkoutDatabase = [
             {
               icon: 'body',
               title: 'Keep torso quiet; elbows drive straight; avoid crossing midline',
-              description: 'Keep torso quiet; elbows drive straight; avoid crossing midline'
+              description: 'Minimize upper body movement with arms swinging forward-back'
             },
             {
               icon: 'ellipse-outline',
               title: 'On 150s, relax face and jaw; hold tall hips as pace increases',
-              description: 'On 150s, relax face and jaw; hold tall hips as pace increases'
+              description: 'Release facial tension and maintain hip height through faster running'
             }
           ]
         },
@@ -1139,12 +1139,12 @@ export const outdoorRunWorkoutDatabase = [
             {
               icon: 'trending-up',
               title: 'Smooth acceleration; avoid sudden lean; keep hips stacked tall',
-              description: 'Smooth acceleration; avoid sudden lean; keep hips stacked tall'
+              description: 'Build speed gradually without jerky forward tilt'
             },
             {
               icon: 'walk',
               title: 'Quick steps; no braking; land under center to save joints',
-              description: 'Quick steps; no braking; land under center to save joints'
+              description: 'Turnover fast with foot placement beneath body'
             }
           ]
         },
@@ -1159,12 +1159,12 @@ export const outdoorRunWorkoutDatabase = [
             {
               icon: 'body',
               title: 'Stack ribs over pelvis; reduce overreach for safer ground contact',
-              description: 'Stack ribs over pelvis; reduce overreach for safer ground contact'
+              description: 'Align torso over hips with compact strides for protection'
             },
             {
               icon: 'trending-up',
               title: 'Light, springy contacts; push back, not up; keep cadence smooth',
-              description: 'Light, springy contacts; push back, not up; keep cadence smooth'
+              description: 'Land softly and drive backward with consistent rhythm'
             }
           ]
         },
@@ -1179,12 +1179,12 @@ export const outdoorRunWorkoutDatabase = [
             {
               icon: 'ellipse-outline',
               title: 'Float curves with relaxed cadence; avoid over-leaning torso',
-              description: 'Float curves with relaxed cadence; avoid over-leaning torso'
+              description: 'Ease through turns with loose stride and upright body'
             },
             {
               icon: 'body',
               title: 'Toe-off under center mass; arms drive straight back consistently',
-              description: 'Toe-off under center mass; arms drive straight back consistently'
+              description: 'Push from beneath you with arm movement parallel to track'
             }
           ]
         }
@@ -1201,12 +1201,12 @@ export const outdoorRunWorkoutDatabase = [
             {
               icon: 'body',
               title: 'Relax jaw and hands; tall hips; avoid collapsing into steps',
-              description: 'Relax jaw and hands; tall hips; avoid collapsing into steps'
+              description: 'Release facial and hand tension while maintaining hip height'
             },
             {
               icon: 'trending-up',
               title: 'Drive elbows back; keep contacts quick and under the body',
-              description: 'Drive elbows back; keep contacts quick and under the body'
+              description: 'Pump arms rearward with fast, centered foot placement'
             }
           ]
         },
@@ -1221,12 +1221,12 @@ export const outdoorRunWorkoutDatabase = [
             {
               icon: 'body',
               title: 'Knees punch up; feet recover under hips; avoid casting forward',
-              description: 'Knees punch up; feet recover under hips; avoid casting forward'
+              description: 'Drive knees high and place feet beneath you without reaching'
             },
             {
               icon: 'trending-up',
               title: 'Strong posture with slight ankle lean; no waist bend at speed',
-              description: 'Strong posture with slight ankle lean; no waist bend at speed'
+              description: 'Stay tall with forward tilt from ankles, not hip hinge'
             }
           ]
         },
@@ -1241,12 +1241,12 @@ export const outdoorRunWorkoutDatabase = [
             {
               icon: 'ellipse-outline',
               title: 'Smooth lean through curve from ankles; avoid inside foot collapse',
-              description: 'Smooth lean through curve from ankles; avoid inside foot collapse'
+              description: 'Tilt into turn from feet and keep inside foot stable'
             },
             {
               icon: 'walk',
               title: 'Quick contacts; no overstride; maintain tall posture throughout',
-              description: 'Quick contacts; no overstride; maintain tall posture throughout'
+              description: 'Land fast with compact stride and upright body position'
             }
           ]
         },
@@ -1261,12 +1261,12 @@ export const outdoorRunWorkoutDatabase = [
             {
               icon: 'trending-up',
               title: 'Build each rep smoothly; avoid blasting first step or overreach',
-              description: 'Build each rep smoothly; avoid blasting first step or overreach'
+              description: 'Accelerate gradually without explosive start or long stride'
             },
             {
               icon: 'body',
               title: 'Hips tall; midfoot contacts; prevent heel striking under fatigue',
-              description: 'Hips tall; midfoot contacts; prevent heel striking under fatigue'
+              description: 'Keep pelvis high with forefoot landing especially when tired'
             }
           ]
         }
