@@ -4161,6 +4161,9 @@ async def upload_multiple_files(
 async def create_post(post_data: PostCreate, current_user_id: str = Depends(get_current_user)):
     """Create a new social media post with content filtering"""
     
+    # Check if user has accepted terms
+    await check_terms_accepted(current_user_id)
+    
     # Check content for objectionable material (pre-submission filtering)
     content_check = check_content(
         post_data.caption, 
