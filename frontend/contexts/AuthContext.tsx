@@ -368,6 +368,8 @@ export function AuthProvider({ children }: AuthProviderProps) {
     
     try {
       console.log('📜 Accepting terms of service...');
+      console.log('  Version being accepted:', CURRENT_TERMS_VERSION);
+      
       const response = await fetch(`${API_URL}/api/users/me/accept-terms`, {
         method: 'POST',
         headers: {
@@ -382,11 +384,12 @@ export function AuthProvider({ children }: AuthProviderProps) {
 
       const data = await response.json();
       
-      // Update local user state with terms acceptance
+      // Update local user state with terms acceptance AND version
       if (user) {
         setUser({
           ...user,
           terms_accepted_at: data.terms_accepted_at,
+          terms_accepted_version: data.terms_accepted_version || CURRENT_TERMS_VERSION,
         });
       }
       
@@ -394,6 +397,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
       setShowTermsModal(false);
       
       console.log('✅ Terms accepted successfully');
+      console.log('  Version:', data.terms_accepted_version || CURRENT_TERMS_VERSION);
     } catch (error) {
       console.error('Error accepting terms:', error);
       throw error;
