@@ -126,12 +126,12 @@ export const lightWeightsDatabase: EquipmentWorkouts[] = [
             {
               icon: 'hand-right',
               title: 'Catch DBs close to shoulders',
-              description: 'Catch DBs close to shoulders'
+              description: 'Receive dumbbells in rack position against your shoulders'
             },
             {
               icon: 'fitness',
               title: 'Land burpees soft and stacked',
-              description: 'Land burpees soft and stacked'
+              description: 'Absorb landing with bent knees and aligned body'
             }
           ]
         },
@@ -146,12 +146,12 @@ export const lightWeightsDatabase: EquipmentWorkouts[] = [
             {
               icon: 'flash',
               title: 'Snatch from hips, lockout clean',
-              description: 'Snatch from hips, lockout clean'
+              description: 'Drive power from hips and finish with full arm extension'
             },
             {
               icon: 'fitness',
               title: 'Land jump squats softly',
-              description: 'Land jump squats softly'
+              description: 'Absorb impact through bent knees to protect joints'
             }
           ]
         }
@@ -174,12 +174,12 @@ export const lightWeightsDatabase: EquipmentWorkouts[] = [
             {
               icon: 'body',
               title: 'Hinge; snap hips on swings',
-              description: 'Hinge; snap hips on swings'
+              description: 'Power the movement from hip thrust, not arms'
             },
             {
               icon: 'walk',
               title: 'Shoulders back on carries',
-              description: 'Shoulders back on carries'
+              description: 'Keep shoulder blades retracted during farmer walks'
             }
           ]
         },
@@ -194,12 +194,12 @@ export const lightWeightsDatabase: EquipmentWorkouts[] = [
             {
               icon: 'body',
               title: 'Elbows tucked on presses',
-              description: 'Elbows tucked on presses'
+              description: 'Keep elbows at 45 degrees to protect shoulders'
             },
             {
               icon: 'flash',
               title: 'Control swing arc; no yank',
-              description: 'Control swing arc; no yank'
+              description: 'Let the bell float at top without jerky motions'
             }
           ]
         }
@@ -216,12 +216,12 @@ export const lightWeightsDatabase: EquipmentWorkouts[] = [
             {
               icon: 'hand-right',
               title: 'Rotate wrist under on cleans',
-              description: 'Rotate wrist under on cleans'
+              description: 'Turn wrist under the bell as you catch it'
             },
             {
               icon: 'flash',
               title: 'Exhale at top of snatch/press',
-              description: 'Exhale at top of snatch/press'
+              description: 'Breathe out forcefully at lockout for core stability'
             }
           ]
         },
@@ -236,12 +236,12 @@ export const lightWeightsDatabase: EquipmentWorkouts[] = [
             {
               icon: 'body',
               title: 'Neutral spine when fatigued',
-              description: 'Neutral spine when fatigued'
+              description: 'Prioritize back position over speed when tired'
             },
             {
               icon: 'fitness',
               title: 'Drive legs on squats/lunges',
-              description: 'Drive legs on squats/lunges'
+              description: 'Push through floor with leg power, not momentum'
             }
           ]
         }
@@ -278,12 +278,12 @@ export const lightWeightsDatabase: EquipmentWorkouts[] = [
             {
               icon: 'flash',
               title: 'Double swings: engage lats',
-              description: 'Double swings: engage lats'
+              description: 'Pull shoulders back to protect spine during swings'
             },
             {
               icon: 'walk',
               title: 'TGU: stack joints; move slow',
-              description: 'TGU: stack joints; move slow'
+              description: 'Align joints vertically and move through each phase deliberately'
             }
           ]
         }
