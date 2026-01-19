@@ -4620,6 +4620,9 @@ async def like_post(post_id: str, current_user_id: str = Depends(get_current_use
 @api_router.post("/comments")
 async def create_comment(comment_data: CommentCreate, current_user_id: str = Depends(get_current_user)):
     """Create a comment on a post with content filtering"""
+    # Check if user has accepted terms
+    await check_terms_accepted(current_user_id)
+    
     try:
         # Check content for objectionable material (pre-submission filtering)
         content_check = check_content(
