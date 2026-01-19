@@ -16,10 +16,10 @@
       "infoPlist": {
         "UIViewControllerBasedStatusBarAppearance": false,
         "UIStatusBarStyle": "UIStatusBarStyleLightContent",
-        "NSCameraUsageDescription": "Take photos and videos of your workouts",
+        "NSCameraUsageDescription": "The camera is used to record photos and videos when you create workout posts or share fitness content.",
         "NSPhotoLibraryUsageDescription": "Share your workout progress photos",
         "NSPhotoLibraryAddUsageDescription": "Save workout photos to your library",
-        "NSMicrophoneUsageDescription": "Record audio for your workout videos",
+        "NSMicrophoneUsageDescription": "The microphone is used to record audio when you create and upload videos or posts. For example, audio is captured when recording a workout video.",
         "ITSAppUsesNonExemptEncryption": false
       }
     },
