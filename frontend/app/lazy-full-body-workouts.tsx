@@ -64,12 +64,12 @@ const fullBodyWorkoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'body',
               title: 'Soft lockouts; heels planted',
-              description: 'Soft lockouts; heels planted'
+              description: 'Avoid locking knees completely at the top of leg press; keep your heels firmly on the platform throughout'
             },
             {
               icon: 'leaf',
               title: 'Exhale on press and crunch',
-              description: 'Exhale on press and crunch'
+              description: 'Breathe out during the effort phase of each movement to engage your core and maintain stability'
             }
           ]
         },
@@ -84,12 +84,12 @@ const fullBodyWorkoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'body',
               title: 'Heels down on hack squat',
-              description: 'Heels down on hack squat'
+              description: 'Keep your heels firmly planted on the platform throughout the movement to target quads properly'
             },
             {
               icon: 'arrow-down',
               title: 'Ribs down on overhead press',
-              description: 'Ribs down on overhead press'
+              description: 'Draw your ribcage down to prevent excessive lower back arching during shoulder press'
             }
           ]
         },
@@ -104,12 +104,12 @@ const fullBodyWorkoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'body',
               title: 'Brace light; tall torso',
-              description: 'Brace light; tall torso'
+              description: 'Engage your core lightly and maintain an upright torso throughout squats for proper form'
             },
             {
               icon: 'hand-right',
               title: 'Press: bar over mid-chest',
-              description: 'Press: bar over mid-chest'
+              description: 'Position the bar path to travel directly over your mid-chest for optimal pressing mechanics'
             }
           ]
         }
@@ -126,12 +126,12 @@ const fullBodyWorkoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'body',
               title: 'Track knee and elbow lines',
-              description: 'Track knee and elbow lines'
+              description: 'Watch your joint alignment throughout each rep—knees track over toes, elbows at consistent angles'
             },
             {
               icon: 'time',
               title: 'Control 3s lowers each set',
-              description: 'Control 3s lowers each set'
+              description: 'Use a slow 3-second lowering phase on each exercise to maximize muscle engagement and control'
             }
           ]
         },
@@ -146,12 +146,12 @@ const fullBodyWorkoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'body',
               title: 'Quiet knees; heels planted',
-              description: 'Quiet knees; heels planted'
+              description: 'Keep knees stable without wobbling and maintain heel contact with the platform at all times'
             },
             {
               icon: 'remove-circle',
               title: 'Don\'t arch on overhead work',
-              description: 'Don\'t arch on overhead work'
+              description: 'Avoid excessive lower back arching during shoulder press by bracing your core and keeping ribs down'
             }
           ]
         },
@@ -166,12 +166,12 @@ const fullBodyWorkoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'body',
               title: 'Brace; ribs stacked neutral',
-              description: 'Brace; ribs stacked neutral'
+              description: 'Engage your core lightly and stack your ribcage over your pelvis for proper spinal alignment'
             },
             {
               icon: 'time',
               title: 'Smooth 2–1–3 cadence',
-              description: 'Smooth 2–1–3 cadence'
+              description: 'Use a tempo of 2 seconds up, 1 second pause, and 3 seconds down for optimal control'
             }
           ]
         }
@@ -188,12 +188,12 @@ const fullBodyWorkoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'flash',
               title: 'Drop ~15% swiftly',
-              description: 'Drop ~15% swiftly'
+              description: 'Reduce the weight by approximately 15% quickly between drop sets to maintain intensity and momentum'
             },
             {
               icon: 'remove-circle',
               title: 'Brace hard; don\'t bounce',
-              description: 'Brace hard; don\'t bounce'
+              description: 'Keep your core tight throughout and avoid bouncing at the bottom of movements for safety'
             }
           ]
         },
@@ -208,12 +208,12 @@ const fullBodyWorkoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'leaf',
               title: '15s breaths inside sets',
-              description: '15s breaths inside sets'
+              description: 'Use the 15-second mini-rests to take 2-3 deep breaths and reset your focus before continuing'
             },
             {
               icon: 'barbell',
               title: 'Same load within cluster',
-              description: 'Same load within cluster'
+              description: 'Keep the weight constant throughout all mini-sets within each cluster for consistent stimulus'
             }
           ]
         },
@@ -228,12 +228,12 @@ const fullBodyWorkoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'time',
               title: '1s squeeze at peak',
-              description: '1s squeeze at peak'
+              description: 'Hold a 1-second squeeze at the peak contraction of each rep to maximize muscle engagement'
             },
             {
               icon: 'time',
               title: 'Control 3s returns',
-              description: 'Control 3s returns'
+              description: 'Lower the weight slowly over 3 seconds to increase time under tension and build strength'
             }
           ]
         }
