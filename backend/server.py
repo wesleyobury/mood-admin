@@ -5045,7 +5045,7 @@ async def delete_post(
         raise
     except Exception as e:
         logger.error(f"Error deleting post: {str(e)}")
-        raise HTTPException(status_code=500, detail="Failed to delete post"}
+        raise HTTPException(status_code=500, detail="Failed to delete post")
 
 
 @api_router.delete("/admin/posts/bulk")
