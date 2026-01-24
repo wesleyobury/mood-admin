@@ -5007,16 +5007,20 @@ async def delete_post(
     post_id: str,
     current_user_id: str = Depends(get_current_user)
 ):
-    """Delete a post (only owner can delete)"""
+    """Delete a post (owner or admin can delete)"""
     try:
-        # Find the post and verify ownership
+        # Find the post
         post = await db.posts.find_one({"_id": ObjectId(post_id)})
         
         if not post:
             raise HTTPException(status_code=404, detail="Post not found")
         
-        # Check if the current user is the author
-        if str(post.get("author_id")) != current_user_id:
+        # Check if user is admin
+        current_user = await db.users.find_one({"_id": ObjectId(current_user_id)})
+        is_admin = current_user and current_user.get("username", "").lower() == "officialmoodapp"
+        
+        # Check if the current user is the author or admin
+        if str(post.get("author_id")) != current_user_id and not is_admin:
             raise HTTPException(status_code=403, detail="You can only delete your own posts")
         
         # Delete the post
@@ -5030,7 +5034,10 @@ async def delete_post(
         await db.comments.delete_many({"post_id": post_id})
         await db.saved_posts.delete_many({"post_id": post_id})
         
-        logger.info(f"Post {post_id} deleted by user {current_user_id}")
+        if is_admin and str(post.get("author_id")) != current_user_id:
+            logger.info(f"Post {post_id} deleted by ADMIN {current_user_id}")
+        else:
+            logger.info(f"Post {post_id} deleted by user {current_user_id}")
         
         return {"message": "Post deleted successfully"}
         
@@ -5038,7 +5045,144 @@ async def delete_post(
         raise
     except Exception as e:
         logger.error(f"Error deleting post: {str(e)}")
-        raise HTTPException(status_code=500, detail="Failed to delete post")
+        raise HTTPException(status_code=500, detail="Failed to delete post"}
+
+
+@api_router.delete("/admin/posts/bulk")
+async def admin_bulk_delete_posts(
+    username: Optional[str] = None,
+    user_id: Optional[str] = None,
+    current_user_id: str = Depends(get_current_user)
+):
+    """
+    Admin endpoint to bulk delete posts by username or user_id.
+    Only admin (officialmoodapp) can use this endpoint.
+    """
+    try:
+        # Verify admin
+        admin_user = await db.users.find_one({"_id": ObjectId(current_user_id)})
+        if not admin_user or admin_user.get("username", "").lower() != "officialmoodapp":
+            raise HTTPException(status_code=403, detail="Admin access required")
+        
+        if not username and not user_id:
+            raise HTTPException(status_code=400, detail="Must provide username or user_id")
+        
+        # Build query
+        query = {}
+        target_user = None
+        
+        if user_id:
+            query["author_id"] = user_id
+            target_user = await db.users.find_one({"_id": ObjectId(user_id)})
+        elif username:
+            # Find user by username (case-insensitive)
+            target_user = await db.users.find_one({
+                "username": {"$regex": f"^{username}$", "$options": "i"}
+            })
+            if target_user:
+                query["author_id"] = str(target_user["_id"])
+            else:
+                # Also check by display_name or username in posts directly
+                query["$or"] = [
+                    {"username": {"$regex": f"^{username}$", "$options": "i"}},
+                    {"author_username": {"$regex": f"^{username}$", "$options": "i"}}
+                ]
+        
+        # Get posts to delete
+        posts_to_delete = await db.posts.find(query).to_list(1000)
+        post_ids = [str(post["_id"]) for post in posts_to_delete]
+        
+        if not posts_to_delete:
+            return {
+                "message": "No posts found matching criteria",
+                "deleted_count": 0,
+                "username": username,
+                "user_id": user_id
+            }
+        
+        # Delete posts
+        result = await db.posts.delete_many(query)
+        
+        # Delete related data for each post
+        for post_id in post_ids:
+            await db.likes.delete_many({"post_id": post_id})
+            await db.comments.delete_many({"post_id": post_id})
+            await db.saved_posts.delete_many({"post_id": post_id})
+        
+        logger.info(f"ADMIN bulk delete: {result.deleted_count} posts deleted for username={username}, user_id={user_id}")
+        
+        return {
+            "message": f"Successfully deleted {result.deleted_count} posts",
+            "deleted_count": result.deleted_count,
+            "username": username or (target_user.get("username") if target_user else None),
+            "user_id": user_id or (str(target_user["_id"]) if target_user else None),
+            "post_ids_deleted": post_ids
+        }
+        
+    except HTTPException:
+        raise
+    except Exception as e:
+        logger.error(f"Error in admin bulk delete: {str(e)}")
+        raise HTTPException(status_code=500, detail=f"Failed to delete posts: {str(e)}")
+
+
+@api_router.get("/admin/posts/list")
+async def admin_list_all_posts(
+    limit: int = 50,
+    skip: int = 0,
+    username: Optional[str] = None,
+    current_user_id: str = Depends(get_current_user)
+):
+    """
+    Admin endpoint to list all posts with user info.
+    Only admin (officialmoodapp) can use this endpoint.
+    """
+    try:
+        # Verify admin
+        admin_user = await db.users.find_one({"_id": ObjectId(current_user_id)})
+        if not admin_user or admin_user.get("username", "").lower() != "officialmoodapp":
+            raise HTTPException(status_code=403, detail="Admin access required")
+        
+        # Build query
+        query = {}
+        if username:
+            query["$or"] = [
+                {"username": {"$regex": username, "$options": "i"}},
+                {"author_username": {"$regex": username, "$options": "i"}}
+            ]
+        
+        # Get total count
+        total = await db.posts.count_documents(query)
+        
+        # Get posts
+        posts = await db.posts.find(query).sort("created_at", -1).skip(skip).limit(limit).to_list(limit)
+        
+        # Format response
+        posts_list = []
+        for post in posts:
+            posts_list.append({
+                "id": str(post["_id"]),
+                "author_id": post.get("author_id"),
+                "username": post.get("username") or post.get("author_username"),
+                "caption": (post.get("caption") or "")[:100],
+                "media_url": post.get("media_url") or (post.get("media_urls", [None])[0] if post.get("media_urls") else None),
+                "likes_count": post.get("likes_count", 0),
+                "comments_count": post.get("comments_count", 0),
+                "created_at": post.get("created_at")
+            })
+        
+        return {
+            "total": total,
+            "posts": posts_list,
+            "limit": limit,
+            "skip": skip
+        }
+        
+    except HTTPException:
+        raise
+    except Exception as e:
+        logger.error(f"Error listing posts: {str(e)}")
+        raise HTTPException(status_code=500, detail=f"Failed to list posts: {str(e)}")
 
 @api_router.delete("/posts/{post_id}/save")
 async def unsave_post(
