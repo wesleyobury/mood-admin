@@ -191,6 +191,13 @@ export const Analytics = {
     comment_length?: number;
   }) => trackEvent(token, 'post_commented', metadata),
 
+  workoutReplicated: (token: string, metadata: {
+    source_post_id: string;
+    source_author: string;
+    exercises_count: number;
+    mood_category?: string;
+  }) => trackEvent(token, 'workout_replicated', metadata),
+
   userFollowed: (token: string, metadata: {
     followed_user_id: string;
   }) => trackEvent(token, 'user_followed', metadata),
