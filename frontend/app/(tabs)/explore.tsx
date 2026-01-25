@@ -1209,7 +1209,6 @@ export default function Explore() {
                         source={{ uri: previewUri }}
                         style={styles.notificationPostPreview}
                         contentFit="cover"
-                        placeholder={require('../../assets/images/placeholder.png')}
                         transition={200}
                       />
                     );
