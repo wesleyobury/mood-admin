@@ -713,6 +713,66 @@ export default function Explore() {
     fetchPosts();
   };
 
+  // Handle replicating a workout from a post
+  const handleReplicateWorkout = (post: Post) => {
+    if (!post.workout_data || !post.workout_data.workouts.length) {
+      Alert.alert('No Workout Data', 'This post does not have workout data to replicate.');
+      return;
+    }
+
+    // Block guests from replicating workouts
+    if (isGuest) {
+      setGuestAction('replicate workouts');
+      setShowGuestPrompt(true);
+      return;
+    }
+
+    // Clear existing cart and add all workouts from this post
+    clearCart();
+    
+    let addedCount = 0;
+    post.workout_data.workouts.forEach((exercise, index) => {
+      // Convert the workout exercise data to CartItem format
+      const workoutItem: WorkoutItem = {
+        id: `replicated-${post.id}-${index}-${Date.now()}`,
+        name: exercise.workoutTitle || exercise.workoutName,
+        duration: exercise.duration,
+        description: '', // Not available in post data
+        battlePlan: '', // Not available in post data
+        imageUrl: '',
+        intensityReason: '',
+        equipment: exercise.equipment,
+        difficulty: exercise.difficulty,
+        workoutType: exercise.moodCategory || post.workout_data?.moodCategory || 'Unknown',
+        moodCard: exercise.moodCategory || post.workout_data?.moodCategory || 'Unknown',
+        moodTips: [], // Not available in post data
+      };
+      
+      addToCart(workoutItem);
+      addedCount++;
+    });
+
+    // Track analytics
+    if (token) {
+      Analytics.workoutReplicated(token, {
+        source_post_id: post.id,
+        source_author: post.author.username,
+        exercises_count: addedCount,
+        mood_category: post.workout_data.moodCategory || 'Unknown',
+      });
+    }
+
+    // Show success and navigate to cart
+    Alert.alert(
+      'Workout Added!',
+      `${addedCount} exercise${addedCount > 1 ? 's' : ''} added to your cart. Ready to start?`,
+      [
+        { text: 'View Cart', onPress: () => router.push('/cart') },
+        { text: 'Later', style: 'cancel' },
+      ]
+    );
+  };
+
   const handleDeletePost = (postId: string) => {
     Alert.alert(
       'Delete Post',
