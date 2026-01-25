@@ -170,15 +170,23 @@ export default function CommentsBottomSheet({ postId, authToken, onClose, onComm
             <Text style={styles.emptySubtext}>Be the first to comment!</Text>
           </View>
         ) : (
-          comments.map((comment) => (
+          comments.map((comment) => {
+            // Build full avatar URL if needed
+            const avatarUrl = comment.author?.avatar 
+              ? (comment.author.avatar.startsWith('http') 
+                  ? comment.author.avatar 
+                  : `${API_URL}${comment.author.avatar}`)
+              : null;
+            
+            return (
             <View key={comment.id} style={styles.commentContainer}>
               <TouchableOpacity 
                 onPress={() => onUserPress && onUserPress(comment.author.id)}
                 activeOpacity={0.7}
               >
-                {comment.author.avatar ? (
+                {avatarUrl ? (
                   <Image 
-                    source={{ uri: comment.author.avatar }} 
+                    source={{ uri: avatarUrl }} 
                     style={styles.commentAvatar}
                   />
                 ) : (
@@ -193,14 +201,15 @@ export default function CommentsBottomSheet({ postId, authToken, onClose, onComm
                     onPress={() => onUserPress && onUserPress(comment.author.id)}
                     activeOpacity={0.7}
                   >
-                    <Text style={styles.commentUsername}>{comment.author.username}</Text>
+                    <Text style={styles.commentUsername}>{comment.author?.username || 'Unknown'}</Text>
                   </TouchableOpacity>
                   <Text style={styles.commentTime}>{formatTimeAgo(comment.created_at)}</Text>
                 </View>
                 <Text style={styles.commentText}>{comment.text}</Text>
               </View>
             </View>
-          ))
+            );
+          })
         )}
       </ScrollView>
 
