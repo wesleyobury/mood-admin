@@ -223,7 +223,7 @@ export default function CartScreen() {
         workoutType: firstWorkout.workoutType,
         moodCard: firstWorkout.moodCard,
         sessionWorkouts: JSON.stringify(cartItems.map(item => ({
-          name: item.name,
+          workoutName: item.name, // Use workoutName for consistency with SessionWorkout interface
           equipment: item.equipment,
           description: item.description,
           battlePlan: item.battlePlan,
@@ -231,7 +231,7 @@ export default function CartScreen() {
           difficulty: item.difficulty,
           workoutType: item.workoutType,
           moodCard: item.moodCard,
-          moodTips: item.moodTips || [],
+          moodTips: JSON.stringify(item.moodTips || []), // Stringify for consistency
           imageUrl: item.imageUrl || '',
           intensityReason: item.intensityReason || '',
         }))),
