@@ -53,6 +53,7 @@ export default function PostDetail() {
   const [showReportModal, setShowReportModal] = useState(false);
   const [showGuestPrompt, setShowGuestPrompt] = useState(false);
   const [guestAction, setGuestAction] = useState('');
+  const [showComments, setShowComments] = useState(false);
 
   // Check if current user is the post author
   const isOwnPost = post && user && post.author.id === user.id;
