@@ -286,12 +286,27 @@ class UserWorkoutCreate(BaseModel):
     mood_before: Optional[str] = None
     mood_after: Optional[str] = None
 
+class WorkoutExerciseData(BaseModel):
+    workoutTitle: str
+    workoutName: str
+    equipment: str
+    duration: str
+    difficulty: str
+    moodCategory: Optional[str] = None
+
+class WorkoutCardData(BaseModel):
+    workouts: List[WorkoutExerciseData]
+    totalDuration: int
+    completedAt: str
+    moodCategory: Optional[str] = None
+
 class PostCreate(BaseModel):
     workout_id: Optional[str] = None
     caption: str
     media_urls: List[str] = []  # URLs to uploaded media files
     hashtags: List[str] = []
     cover_urls: Optional[dict] = None  # Map of media index to cover image URL
+    workout_data: Optional[WorkoutCardData] = None  # Embedded workout card data for replication
 
 class CredentialsUpdate(BaseModel):
     current_password: str
