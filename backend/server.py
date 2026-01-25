@@ -293,6 +293,11 @@ class WorkoutExerciseData(BaseModel):
     duration: str
     difficulty: str
     moodCategory: Optional[str] = None
+    imageUrl: Optional[str] = None
+    description: Optional[str] = None
+    battlePlan: Optional[str] = None
+    intensityReason: Optional[str] = None
+    moodTips: Optional[List[dict]] = None
 
 class WorkoutCardData(BaseModel):
     workouts: List[WorkoutExerciseData]
