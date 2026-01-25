@@ -1098,7 +1098,15 @@ export default function AdminDashboard() {
         {/* Footer */}
         <View style={styles.footer}>
           <Text style={styles.footerText}>
-            Data generated at {new Date().toLocaleString()}
+            Data generated at {new Date().toLocaleString('en-US', {
+              timeZone: 'America/Chicago',
+              month: 'short',
+              day: 'numeric',
+              year: 'numeric',
+              hour: '2-digit',
+              minute: '2-digit',
+              hour12: true
+            })} CT
           </Text>
           <Text style={styles.footerText}>
             Active user tracking: 5-minute heartbeat interval
