@@ -1,10 +1,11 @@
-import React from 'react';
-import { View, Text, StyleSheet, Dimensions } from 'react-native';
+import React, { useEffect, useRef } from 'react';
+import { View, Text, StyleSheet, Dimensions, Animated, Easing } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+import { LinearGradient } from 'expo-linear-gradient';
 
 const { width } = Dimensions.get('window');
-const CARD_WIDTH = width * 0.88; // 88% of screen width
-const CARD_HEIGHT = CARD_WIDTH * 1.25; // Match 4:5 aspect ratio of carousel
+const CARD_WIDTH = width * 0.88;
+const CARD_HEIGHT = CARD_WIDTH * 1.25;
 
 interface WorkoutStatsCardProps {
   workouts: {
@@ -16,263 +17,392 @@ interface WorkoutStatsCardProps {
   }[];
   totalDuration: number;
   completedAt: string;
+  moodCategory?: string; // e.g., "I want to sweat", "Muscle Gainer", etc.
 }
 
 export default function WorkoutStatsCard({ 
   workouts, 
   totalDuration, 
-  completedAt 
+  completedAt,
+  moodCategory = "Workout"
 }: WorkoutStatsCardProps) {
+  // Animation values
+  const glowAnim = useRef(new Animated.Value(0)).current;
+  const pulseAnim = useRef(new Animated.Value(1)).current;
+  const fadeAnim = useRef(new Animated.Value(0)).current;
+  const statScale1 = useRef(new Animated.Value(0.8)).current;
+  const statScale2 = useRef(new Animated.Value(0.8)).current;
+  const statScale3 = useRef(new Animated.Value(0.8)).current;
+
+  useEffect(() => {
+    // Initial card fade in
+    Animated.timing(fadeAnim, {
+      toValue: 1,
+      duration: 600,
+      useNativeDriver: true,
+      easing: Easing.out(Easing.cubic),
+    }).start();
+
+    // Glow pulse animation - intensifies then settles
+    Animated.sequence([
+      Animated.timing(glowAnim, {
+        toValue: 1,
+        duration: 800,
+        useNativeDriver: false,
+        easing: Easing.out(Easing.cubic),
+      }),
+      Animated.timing(glowAnim, {
+        toValue: 0.3,
+        duration: 1200,
+        useNativeDriver: false,
+        easing: Easing.inOut(Easing.cubic),
+      }),
+    ]).start();
+
+    // Breathing pulse for the indicator dot
+    Animated.loop(
+      Animated.sequence([
+        Animated.timing(pulseAnim, {
+          toValue: 1.3,
+          duration: 1500,
+          useNativeDriver: true,
+          easing: Easing.inOut(Easing.sin),
+        }),
+        Animated.timing(pulseAnim, {
+          toValue: 1,
+          duration: 1500,
+          useNativeDriver: true,
+          easing: Easing.inOut(Easing.sin),
+        }),
+      ])
+    ).start();
+
+    // Staggered stat animations
+    Animated.stagger(150, [
+      Animated.spring(statScale1, {
+        toValue: 1,
+        friction: 6,
+        tension: 100,
+        useNativeDriver: true,
+      }),
+      Animated.spring(statScale2, {
+        toValue: 1,
+        friction: 6,
+        tension: 100,
+        useNativeDriver: true,
+      }),
+      Animated.spring(statScale3, {
+        toValue: 1,
+        friction: 6,
+        tension: 100,
+        useNativeDriver: true,
+      }),
+    ]).start();
+  }, []);
+
+  // Interpolate glow opacity
+  const glowOpacity = glowAnim.interpolate({
+    inputRange: [0, 1],
+    outputRange: [0.05, 0.15],
+  });
+
+  // Format mood category for display
+  const formatMoodCategory = (category: string) => {
+    if (!category) return "Workout";
+    // Extract the main mood type
+    const moodTypes: { [key: string]: string } = {
+      "i want to sweat": "Sweat Session",
+      "i'm feeling lazy": "Easy Flow",
+      "muscle gainer": "Muscle Builder",
+      "outdoor": "Outdoor",
+      "lift weights": "Lift Weights",
+      "calisthenics": "Calisthenics",
+    };
+    const lowerCategory = category.toLowerCase();
+    for (const [key, value] of Object.entries(moodTypes)) {
+      if (lowerCategory.includes(key)) return value;
+    }
+    return category.split(' ').slice(0, 2).join(' ');
+  };
+
+  const displayMoodCategory = formatMoodCategory(moodCategory);
+  const estimatedCalories = Math.round(totalDuration * 8);
+
   return (
-    <View style={[styles.container, { width: CARD_WIDTH, height: CARD_HEIGHT }]}>
-      {/* Background Gradient Effect */}
-      <View style={styles.gradientOverlay} />
+    <Animated.View style={[
+      styles.container, 
+      { width: CARD_WIDTH, height: CARD_HEIGHT, opacity: fadeAnim }
+    ]}>
+      {/* Outer Aura Glow */}
+      <Animated.View style={[styles.outerGlow, { opacity: glowOpacity }]} />
       
-      {/* Compact Header - Trophy next to text */}
-      <View style={styles.header}>
-        <View style={styles.iconContainer}>
-          <Ionicons name="trophy" size={18} color="#FFD700" />
-        </View>
-        <View style={styles.headerTextContainer}>
-          <Text style={styles.headerTitle}>Workout Complete!</Text>
-          <Text style={styles.headerSubtitle}>Amazing work today 💪</Text>
-        </View>
-      </View>
+      {/* Inner Container with Gradient */}
+      <View style={styles.innerContainer}>
+        {/* Radial gradient background effect */}
+        <LinearGradient
+          colors={['rgba(255, 190, 50, 0.08)', 'rgba(255, 170, 30, 0.02)', 'transparent']}
+          style={styles.radialGradient}
+          start={{ x: 0.5, y: 0 }}
+          end={{ x: 0.5, y: 0.6 }}
+        />
 
-      {/* Stats Grid */}
-      <View style={styles.statsSection}>
-        <View style={styles.statsGrid}>
-          <View style={styles.statBox}>
-            <Ionicons name="fitness" size={18} color="#FFD700" />
-            <Text style={styles.statValue}>{workouts.length}</Text>
-            <Text style={styles.statLabel}>Exercises</Text>
-          </View>
+        {/* Header Section */}
+        <View style={styles.header}>
+          {/* Breathing Pulse Indicator */}
+          <Animated.View style={[
+            styles.pulseIndicator,
+            { transform: [{ scale: pulseAnim }] }
+          ]}>
+            <View style={styles.pulseCore} />
+          </Animated.View>
           
-          <View style={styles.statBox}>
-            <Ionicons name="time" size={18} color="#FFD700" />
-            <Text style={styles.statValue}>{totalDuration}</Text>
-            <Text style={styles.statLabel}>Minutes</Text>
-          </View>
-          
-          <View style={styles.statBox}>
-            <Ionicons name="flame" size={18} color="#FF6B6B" />
-            <Text style={styles.statValue}>{Math.round(totalDuration * 8)}</Text>
-            <Text style={styles.statLabel}>Cal (Est.)</Text>
+          <View style={styles.headerText}>
+            <Text style={styles.moodCategory}>{displayMoodCategory} Complete</Text>
+            <Text style={styles.subtitle}>A M A Z I N G   W O R K</Text>
           </View>
         </View>
-      </View>
 
-      {/* Workout List Section - Compact */}
-      <View style={styles.workoutsSection}>
-        <Text style={styles.workoutsTitle}>Exercises</Text>
-        <View style={styles.workoutsList}>
-          {workouts.slice(0, 3).map((workout, index) => (
-            <View key={index} style={styles.workoutItem}>
-              <View style={styles.workoutNumberContainer}>
-                <Text style={styles.workoutNumber}>{index + 1}</Text>
-              </View>
-              <View style={styles.workoutDetails}>
-                <View style={styles.workoutMeta}>
-                  <Text style={styles.workoutMetaText} numberOfLines={1}>
-                    {workout.workoutTitle || workout.workoutName}
-                  </Text>
-                  <Text style={styles.workoutDot}>•</Text>
-                  <Text style={styles.workoutMetaText}>{workout.equipment}</Text>
-                  <Text style={styles.workoutDot}>•</Text>
-                  <Text style={styles.workoutMetaText}>{workout.difficulty}</Text>
-                </View>
-              </View>
+        {/* Stats Section - Floating Orbs */}
+        <View style={styles.statsSection}>
+          <Animated.View style={[styles.statOrb, { transform: [{ scale: statScale1 }] }]}>
+            <View style={styles.statOrbInner}>
+              <Text style={styles.statValue}>{totalDuration}</Text>
+              <Text style={styles.statLabel}>minutes</Text>
+            </View>
+            <View style={styles.statGlow} />
+          </Animated.View>
+
+          <Animated.View style={[styles.statOrb, styles.statOrbCenter, { transform: [{ scale: statScale2 }] }]}>
+            <View style={styles.statOrbInner}>
+              <Text style={[styles.statValue, styles.statValueLarge]}>{estimatedCalories}</Text>
+              <Text style={styles.statLabel}>calories</Text>
+            </View>
+            <View style={[styles.statGlow, styles.statGlowCenter]} />
+          </Animated.View>
+
+          <Animated.View style={[styles.statOrb, { transform: [{ scale: statScale3 }] }]}>
+            <View style={styles.statOrbInner}>
+              <Text style={styles.statValue}>{workouts.length}</Text>
+              <Text style={styles.statLabel}>exercises</Text>
+            </View>
+            <View style={styles.statGlow} />
+          </Animated.View>
+        </View>
+
+        {/* Exercises List - Subtle */}
+        <View style={styles.exercisesSection}>
+          {workouts.slice(0, 4).map((workout, index) => (
+            <View key={index} style={styles.exerciseRow}>
+              <View style={styles.exerciseDot} />
+              <Text style={styles.exerciseName} numberOfLines={1}>
+                {workout.workoutTitle || workout.workoutName}
+              </Text>
+              <Text style={styles.exerciseMeta}>
+                {workout.equipment}
+              </Text>
             </View>
           ))}
-          {workouts.length > 3 && (
-            <Text style={styles.moreText}>+{workouts.length - 3} more</Text>
+          {workouts.length > 4 && (
+            <Text style={styles.moreExercises}>
+              +{workouts.length - 4} more
+            </Text>
           )}
         </View>
-      </View>
 
-      {/* Footer */}
-      <View style={styles.footer}>
-        <View style={styles.dateContainer}>
-          <Ionicons name="calendar-outline" size={11} color="rgba(255, 255, 255, 0.5)" />
+        {/* Footer - Minimal */}
+        <View style={styles.footer}>
           <Text style={styles.dateText}>{completedAt}</Text>
+          <Text style={styles.brandText}>MOOD</Text>
         </View>
-        <Text style={styles.brandText}>MOOD</Text>
       </View>
-    </View>
+    </Animated.View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#0a0a0a',
-    borderRadius: 14,
-    overflow: 'hidden',
-    borderWidth: 1.5,
-    borderColor: 'rgba(255, 215, 0, 0.3)',
+    borderRadius: 24,
+    overflow: 'visible',
     position: 'relative',
   },
-  gradientOverlay: {
+  outerGlow: {
+    position: 'absolute',
+    top: -8,
+    left: -8,
+    right: -8,
+    bottom: -8,
+    borderRadius: 32,
+    backgroundColor: 'rgba(255, 185, 50, 0.08)',
+    shadowColor: '#FFB832',
+    shadowOffset: { width: 0, height: 0 },
+    shadowOpacity: 0.3,
+    shadowRadius: 30,
+  },
+  innerContainer: {
+    flex: 1,
+    backgroundColor: '#0a0a0a',
+    borderRadius: 24,
+    overflow: 'hidden',
+    position: 'relative',
+  },
+  radialGradient: {
     position: 'absolute',
     top: 0,
     left: 0,
     right: 0,
-    height: '30%',
-    backgroundColor: 'rgba(255, 215, 0, 0.04)',
+    height: '60%',
   },
   header: {
     flexDirection: 'row',
     alignItems: 'center',
-    paddingTop: 20,
-    paddingHorizontal: 20,
-    paddingBottom: 12,
+    paddingTop: 28,
+    paddingHorizontal: 24,
+    paddingBottom: 8,
   },
-  iconContainer: {
-    width: 36,
-    height: 36,
-    borderRadius: 18,
-    backgroundColor: 'rgba(255, 215, 0, 0.12)',
+  pulseIndicator: {
+    width: 12,
+    height: 12,
+    borderRadius: 6,
+    backgroundColor: 'rgba(255, 185, 50, 0.3)',
     justifyContent: 'center',
     alignItems: 'center',
-    marginRight: 10,
-    borderWidth: 1.5,
-    borderColor: 'rgba(255, 215, 0, 0.25)',
+    marginRight: 12,
   },
-  headerTextContainer: {
+  pulseCore: {
+    width: 6,
+    height: 6,
+    borderRadius: 3,
+    backgroundColor: '#FFB832',
+    shadowColor: '#FFB832',
+    shadowOffset: { width: 0, height: 0 },
+    shadowOpacity: 0.8,
+    shadowRadius: 4,
+  },
+  headerText: {
     flex: 1,
   },
-  headerTitle: {
-    fontSize: 16,
-    fontWeight: 'bold',
+  moodCategory: {
+    fontSize: 20,
+    fontWeight: '600',
     color: '#FFFFFF',
-  },
-  headerSubtitle: {
-    fontSize: 11,
-    color: 'rgba(255, 255, 255, 0.6)',
-    marginTop: 2,
-  },
-  statsSection: {
-    paddingHorizontal: 20,
-    paddingVertical: 12,
-  },
-  statsGrid: {
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    gap: 8,
-  },
-  statBox: {
-    flex: 1,
-    backgroundColor: 'rgba(255, 215, 0, 0.06)',
-    borderRadius: 10,
-    padding: 10,
-    alignItems: 'center',
-    borderWidth: 1,
-    borderColor: 'rgba(255, 215, 0, 0.15)',
-  },
-  statValue: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    color: '#ffffff',
-    marginTop: 4,
-    marginBottom: 2,
-  },
-  statLabel: {
-    fontSize: 9,
-    color: 'rgba(255, 255, 255, 0.5)',
-    textTransform: 'uppercase',
     letterSpacing: 0.3,
   },
-  workoutsSection: {
-    flex: 1,
-    paddingHorizontal: 20,
-    paddingTop: 12,
-  },
-  workoutsTitle: {
-    fontSize: 12,
-    fontWeight: 'bold',
-    color: '#FFFFFF',
-    marginBottom: 8,
-    textTransform: 'uppercase',
-    letterSpacing: 0.4,
-  },
-  workoutsList: {
-    flex: 1,
-  },
-  workoutItem: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    backgroundColor: 'rgba(255, 255, 255, 0.02)',
-    borderRadius: 8,
-    padding: 8,
-    marginBottom: 5,
-    borderWidth: 1,
-    borderColor: 'rgba(255, 255, 255, 0.06)',
-  },
-  workoutNumberContainer: {
-    width: 22,
-    height: 22,
-    borderRadius: 11,
-    backgroundColor: 'rgba(255, 215, 0, 0.15)',
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginRight: 8,
-  },
-  workoutNumber: {
-    fontSize: 11,
-    fontWeight: 'bold',
-    color: '#FFFFFF',
-  },
-  workoutDetails: {
-    flex: 1,
-  },
-  workoutName: {
-    fontSize: 11,
-    fontWeight: '600',
-    color: '#ffffff',
-    marginBottom: 2,
-  },
-  workoutMeta: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    flexWrap: 'wrap',
-  },
-  workoutMetaText: {
-    fontSize: 9,
-    color: 'rgba(255, 255, 255, 0.45)',
-  },
-  workoutDot: {
-    fontSize: 9,
-    color: 'rgba(255, 255, 255, 0.25)',
-    marginHorizontal: 4,
-  },
-  moreText: {
+  subtitle: {
     fontSize: 10,
-    color: 'rgba(255, 255, 255, 0.6)',
-    fontStyle: 'italic',
-    textAlign: 'center',
+    color: 'rgba(255, 255, 255, 0.4)',
+    letterSpacing: 3,
     marginTop: 4,
+    fontWeight: '300',
+  },
+  statsSection: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'flex-end',
+    paddingHorizontal: 16,
+    paddingTop: 20,
+    paddingBottom: 16,
+    gap: 12,
+  },
+  statOrb: {
+    flex: 1,
+    alignItems: 'center',
+    position: 'relative',
+  },
+  statOrbCenter: {
+    flex: 1.2,
+  },
+  statOrbInner: {
+    alignItems: 'center',
+    paddingVertical: 16,
+    paddingHorizontal: 8,
+  },
+  statGlow: {
+    position: 'absolute',
+    bottom: 0,
+    left: '20%',
+    right: '20%',
+    height: 2,
+    backgroundColor: 'rgba(255, 185, 50, 0.4)',
+    borderRadius: 1,
+    shadowColor: '#FFB832',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.5,
+    shadowRadius: 8,
+  },
+  statGlowCenter: {
+    backgroundColor: 'rgba(255, 135, 50, 0.5)',
+    shadowColor: '#FF8732',
+  },
+  statValue: {
+    fontSize: 32,
+    fontWeight: '200',
+    color: '#FFFFFF',
+    letterSpacing: -1,
+  },
+  statValueLarge: {
+    fontSize: 36,
+    color: '#FFD070',
+  },
+  statLabel: {
+    fontSize: 10,
+    color: 'rgba(255, 255, 255, 0.4)',
+    textTransform: 'lowercase',
+    letterSpacing: 1,
+    marginTop: 2,
+  },
+  exercisesSection: {
+    flex: 1,
+    paddingHorizontal: 24,
+    paddingTop: 8,
+  },
+  exerciseRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingVertical: 8,
+    borderBottomWidth: 1,
+    borderBottomColor: 'rgba(255, 255, 255, 0.03)',
+  },
+  exerciseDot: {
+    width: 4,
+    height: 4,
+    borderRadius: 2,
+    backgroundColor: 'rgba(255, 185, 50, 0.5)',
+    marginRight: 12,
+  },
+  exerciseName: {
+    flex: 1,
+    fontSize: 13,
+    color: 'rgba(255, 255, 255, 0.6)',
+    fontWeight: '400',
+  },
+  exerciseMeta: {
+    fontSize: 11,
+    color: 'rgba(255, 255, 255, 0.25)',
+    fontWeight: '300',
+  },
+  moreExercises: {
+    fontSize: 11,
+    color: 'rgba(255, 255, 255, 0.3)',
+    textAlign: 'center',
+    marginTop: 8,
+    fontStyle: 'italic',
   },
   footer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    paddingHorizontal: 20,
-    paddingVertical: 12,
-    borderTopWidth: 1,
-    borderTopColor: 'rgba(255, 255, 255, 0.06)',
-  },
-  dateContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 4,
+    paddingHorizontal: 24,
+    paddingVertical: 16,
   },
   dateText: {
-    fontSize: 9,
-    color: 'rgba(255, 255, 255, 0.5)',
+    fontSize: 10,
+    color: 'rgba(255, 255, 255, 0.3)',
+    letterSpacing: 0.5,
   },
   brandText: {
-    fontSize: 9,
-    color: 'rgba(255, 255, 255, 0.5)',
+    fontSize: 11,
+    color: 'rgba(255, 185, 50, 0.4)',
     fontWeight: '600',
-    letterSpacing: 1,
+    letterSpacing: 2,
   },
 });
