@@ -438,7 +438,7 @@ export default function Login() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#0c0c0c',
+    backgroundColor: '#000000',
   },
   keyboardView: {
     flex: 1,
