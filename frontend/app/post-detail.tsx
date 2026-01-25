@@ -328,7 +328,7 @@ export default function PostDetail() {
               color={post.is_liked ? '#FF6B6B' : '#fff'}
             />
           </TouchableOpacity>
-          <TouchableOpacity style={styles.actionButton}>
+          <TouchableOpacity style={styles.actionButton} onPress={handleComment}>
             <Ionicons name="chatbubble-outline" size={26} color="#fff" />
           </TouchableOpacity>
         </View>
@@ -337,6 +337,15 @@ export default function PostDetail() {
         <Text style={styles.likesText}>
           {post.likes_count} {post.likes_count === 1 ? 'like' : 'likes'}
         </Text>
+
+        {/* Comments Count - Tappable */}
+        {post.comments_count > 0 && (
+          <TouchableOpacity onPress={handleComment}>
+            <Text style={styles.commentsText}>
+              View all {post.comments_count} {post.comments_count === 1 ? 'comment' : 'comments'}
+            </Text>
+          </TouchableOpacity>
+        )}
 
         {/* Caption */}
         {post.caption && (
