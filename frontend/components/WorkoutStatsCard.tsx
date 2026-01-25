@@ -132,35 +132,37 @@ export default function WorkoutStatsCard({
     return dominantCategory;
   };
 
-  // Format mood category for display - compact version that fits on one line
-  const formatMoodCategoryCompact = (category: string): string => {
-    if (!category) return "Workout";
+  // Format mood category for display - use actual mood card names
+  const formatMoodCategoryDisplay = (category: string): string => {
+    if (!category || category.toLowerCase() === 'workout' || category.toLowerCase() === 'unknown') {
+      return ""; // Return empty to just show "Workout Complete"
+    }
+    
     const lowerCategory = category.toLowerCase();
     
-    // Map to shorter, single-line friendly names
-    const moodTypes: { [key: string]: string } = {
-      "i want to sweat": "Sweat",
-      "i'm feeling lazy": "Easy",
+    // Map to proper mood card titles (capitalized properly)
+    const moodCardTitles: { [key: string]: string } = {
+      "i want to sweat": "I Want to Sweat",
+      "i'm feeling lazy": "I'm Feeling Lazy",
       "muscle gainer": "Muscle Gainer",
       "outdoor": "Outdoor",
-      "lift weights": "Lift",
+      "lift weights": "Lift Weights",
       "calisthenics": "Calisthenics",
     };
     
-    for (const [key, value] of Object.entries(moodTypes)) {
+    for (const [key, value] of Object.entries(moodCardTitles)) {
       if (lowerCategory.includes(key)) return value;
     }
     
     // Capitalize first letter of each word for unknown categories
     return category
       .split(' ')
-      .slice(0, 2) // Max 2 words
       .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
       .join(' ');
   };
 
   const dominantCategory = getDominantMoodCategory();
-  const displayMoodCategory = formatMoodCategoryCompact(dominantCategory);
+  const displayMoodCategory = formatMoodCategoryDisplay(dominantCategory);
   const estimatedCalories = Math.round(totalDuration * 8);
 
   return (
