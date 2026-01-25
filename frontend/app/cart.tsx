@@ -231,7 +231,9 @@ export default function CartScreen() {
           difficulty: item.difficulty,
           workoutType: item.workoutType,
           moodCard: item.moodCard,
-          moodTips: item.moodTips || []
+          moodTips: item.moodTips || [],
+          imageUrl: item.imageUrl || '',
+          intensityReason: item.intensityReason || '',
         }))),
         currentSessionIndex: '0',
         isSession: 'true',
