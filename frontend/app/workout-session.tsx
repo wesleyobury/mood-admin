@@ -121,6 +121,7 @@ export default function WorkoutSessionScreen() {
       equipment: workout.equipment,
       duration: workout.duration,
       difficulty: workout.difficulty,
+      moodCategory: workout.workoutType, // Track which mood card this exercise came from
     }));
 
     const totalDuration = getTotalDuration();
