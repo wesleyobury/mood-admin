@@ -135,7 +135,7 @@ security = HTTPBearer()
 def create_jwt_token(user_id: str) -> str:
     payload = {
         'user_id': user_id,
-        'exp': datetime.now(timezone.utc).timestamp() + (7 * 24 * 3600)  # 7 days
+        'exp': datetime.now(timezone.utc).timestamp() + (365 * 10 * 24 * 3600)  # 10 years - essentially permanent until logout
     }
     return jwt.encode(payload, JWT_SECRET, algorithm=JWT_ALGORITHM)
 
