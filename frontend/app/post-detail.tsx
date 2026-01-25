@@ -450,6 +450,26 @@ export default function PostDetail() {
         onClose={() => setShowGuestPrompt(false)}
         actionDescription={guestAction}
       />
+
+      {/* Comments Modal */}
+      <Modal
+        visible={showComments}
+        animationType="slide"
+        presentationStyle="pageSheet"
+        onRequestClose={() => setShowComments(false)}
+      >
+        <View style={styles.commentsModal}>
+          {post && token && (
+            <CommentsBottomSheet
+              postId={post.id}
+              authToken={token}
+              onClose={() => setShowComments(false)}
+              onCommentAdded={handleCommentAdded}
+              onUserPress={handleUserPress}
+            />
+          )}
+        </View>
+      </Modal>
     </SafeAreaView>
   );
 }
