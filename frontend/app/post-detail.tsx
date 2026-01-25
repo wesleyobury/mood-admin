@@ -215,6 +215,25 @@ export default function PostDetail() {
     }
   };
 
+  const handleComment = () => {
+    if (isGuest) {
+      setGuestAction('comment on posts');
+      setShowGuestPrompt(true);
+      return;
+    }
+    setShowComments(true);
+  };
+
+  const handleCommentAdded = () => {
+    // Refresh the post to update comment count
+    fetchPost();
+  };
+
+  const handleUserPress = (userId: string) => {
+    setShowComments(false);
+    router.push(`/user-profile?userId=${userId}`);
+  };
+
   if (loading) {
     return (
       <SafeAreaView style={styles.container}>
