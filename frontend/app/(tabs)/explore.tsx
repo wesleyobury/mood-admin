@@ -721,6 +721,36 @@ export default function Explore() {
   // Default placeholder image for workouts without images
   const DEFAULT_WORKOUT_IMAGE = 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=400&h=300&fit=crop';
 
+  // Format mood category for display (e.g., "I Want to Sweat" or "Muscle Gainer")
+  const formatMoodDisplay = (moodCategory: string): string => {
+    if (!moodCategory || moodCategory === 'Workout' || moodCategory === 'Unknown') {
+      return 'Custom';
+    }
+    
+    // If it contains " - ", it's a full path like "I Want to Sweat - Cardio Based"
+    // Extract the first part as the mood card name
+    if (moodCategory.includes(' - ')) {
+      return moodCategory.split(' - ')[0];
+    }
+    
+    // Known mood card titles - capitalize properly
+    const moodTitles: { [key: string]: string } = {
+      'i want to sweat': 'I Want to Sweat',
+      'i\'m feeling lazy': "I'm Feeling Lazy",
+      'muscle gainer': 'Muscle Gainer',
+      'outdoor': 'Outdoor',
+      'lift weights': 'Lift Weights',
+      'calisthenics': 'Calisthenics',
+    };
+    
+    const lowerMood = moodCategory.toLowerCase();
+    for (const [key, value] of Object.entries(moodTitles)) {
+      if (lowerMood.includes(key)) return value;
+    }
+    
+    return moodCategory;
+  };
+
   // Handle replicating a workout from a post
   const handleReplicateWorkout = (post: Post) => {
     if (!post.workout_data || !post.workout_data.workouts.length) {
@@ -738,8 +768,15 @@ export default function Explore() {
     // Clear existing cart and add all workouts from this post
     clearCart();
     
+    // Get the mood category for display
+    const rawMoodCategory = post.workout_data.moodCategory || post.workout_data.workouts[0]?.moodCategory || 'Workout';
+    const moodCardName = formatMoodDisplay(rawMoodCategory);
+    
     let addedCount = 0;
     post.workout_data.workouts.forEach((exercise, index) => {
+      // Get the workout type - preserve the full path if available
+      const exerciseMoodCategory = exercise.moodCategory || rawMoodCategory;
+      
       // Convert the workout exercise data to CartItem format
       const workoutItem: WorkoutItem = {
         id: `replicated-${post.id}-${index}-${Date.now()}`,
@@ -751,8 +788,8 @@ export default function Explore() {
         intensityReason: exercise.intensityReason || '',
         equipment: exercise.equipment,
         difficulty: exercise.difficulty,
-        workoutType: exercise.moodCategory || post.workout_data?.moodCategory || 'Workout',
-        moodCard: exercise.moodCategory || post.workout_data?.moodCategory || 'Workout',
+        workoutType: exerciseMoodCategory, // Full path like "I Want to Sweat - Cardio Based"
+        moodCard: moodCardName, // Display name like "I Want to Sweat"
         moodTips: exercise.moodTips || [],
       };
       
@@ -766,7 +803,7 @@ export default function Explore() {
         source_post_id: post.id,
         source_author: post.author.username,
         exercises_count: addedCount,
-        mood_category: post.workout_data.moodCategory || 'Unknown',
+        mood_category: moodCardName,
       });
     }
 
