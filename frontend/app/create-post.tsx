@@ -52,10 +52,11 @@ interface WorkoutStats {
     equipment: string;
     duration: string;
     difficulty: string;
+    moodCategory?: string; // Track which mood card this exercise came from
   }[];
   totalDuration: number;
   completedAt: string;
-  moodCategory?: string;
+  moodCategory?: string; // Fallback/legacy mood category
 }
 
 export default function CreatePost() {
