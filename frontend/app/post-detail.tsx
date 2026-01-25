@@ -18,6 +18,7 @@ import { useAuth } from '../contexts/AuthContext';
 import MediaCarousel from '../components/MediaCarousel';
 import ReportModal from '../components/ReportModal';
 import GuestPromptModal from '../components/GuestPromptModal';
+import CommentsBottomSheet from '../components/CommentsBottomSheet';
 import Constants from 'expo-constants';
 
 const API_URL = process.env.EXPO_PUBLIC_BACKEND_URL || Constants.expoConfig?.extra?.EXPO_PUBLIC_BACKEND_URL || '';
