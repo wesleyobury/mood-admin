@@ -1104,6 +1104,21 @@ export default function Explore() {
                       })}
                       isPostVisible={visiblePostId === post.id}
                     />
+                    
+                    {/* Try This Workout Button - Overlay on workout card images */}
+                    {post.workout_data && post.workout_data.workouts && post.workout_data.workouts.length > 0 && (
+                      <TouchableOpacity 
+                        style={styles.tryWorkoutButton}
+                        onPress={() => handleReplicateWorkout(post)}
+                        activeOpacity={0.9}
+                      >
+                        <View style={styles.tryWorkoutButtonInner}>
+                          <Ionicons name="fitness-outline" size={16} color="#000" />
+                          <Text style={styles.tryWorkoutButtonText}>Try this workout</Text>
+                        </View>
+                      </TouchableOpacity>
+                    )}
+                    
                     {likeAnimations[post.id] && (
                       <Animated.View
                         style={[
