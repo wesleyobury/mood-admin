@@ -26,6 +26,8 @@ interface SessionWorkout {
   difficulty: string;
   workoutType: string;
   moodTips: string;
+  imageUrl?: string;
+  intensityReason?: string;
 }
 
 export default function WorkoutSessionScreen() {
