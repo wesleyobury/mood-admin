@@ -718,6 +718,9 @@ export default function Explore() {
     fetchPosts();
   };
 
+  // Default placeholder image for workouts without images
+  const DEFAULT_WORKOUT_IMAGE = 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=400&h=300&fit=crop';
+
   // Handle replicating a workout from a post
   const handleReplicateWorkout = (post: Post) => {
     if (!post.workout_data || !post.workout_data.workouts.length) {
@@ -742,15 +745,15 @@ export default function Explore() {
         id: `replicated-${post.id}-${index}-${Date.now()}`,
         name: exercise.workoutTitle || exercise.workoutName,
         duration: exercise.duration,
-        description: '', // Not available in post data
-        battlePlan: '', // Not available in post data
-        imageUrl: '',
-        intensityReason: '',
+        description: exercise.description || '',
+        battlePlan: exercise.battlePlan || '',
+        imageUrl: exercise.imageUrl || DEFAULT_WORKOUT_IMAGE,
+        intensityReason: exercise.intensityReason || '',
         equipment: exercise.equipment,
         difficulty: exercise.difficulty,
-        workoutType: exercise.moodCategory || post.workout_data?.moodCategory || 'Unknown',
-        moodCard: exercise.moodCategory || post.workout_data?.moodCategory || 'Unknown',
-        moodTips: [], // Not available in post data
+        workoutType: exercise.moodCategory || post.workout_data?.moodCategory || 'Workout',
+        moodCard: exercise.moodCategory || post.workout_data?.moodCategory || 'Workout',
+        moodTips: exercise.moodTips || [],
       };
       
       addToCart(workoutItem);
@@ -767,15 +770,8 @@ export default function Explore() {
       });
     }
 
-    // Show success and navigate to cart
-    Alert.alert(
-      'Workout Added!',
-      `${addedCount} exercise${addedCount > 1 ? 's' : ''} added to your cart. Ready to start?`,
-      [
-        { text: 'View Cart', onPress: () => router.push('/cart') },
-        { text: 'Later', style: 'cancel' },
-      ]
-    );
+    // Navigate directly to cart
+    router.push('/cart');
   };
 
   const handleDeletePost = (postId: string) => {
