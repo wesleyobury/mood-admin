@@ -598,4 +598,14 @@ const styles = StyleSheet.create({
     backgroundColor: '#333',
     marginHorizontal: 8,
   },
+  commentsText: {
+    fontSize: 14,
+    color: '#888',
+    paddingHorizontal: 16,
+    marginBottom: 8,
+  },
+  commentsModal: {
+    flex: 1,
+    backgroundColor: '#000',
+  },
 });
