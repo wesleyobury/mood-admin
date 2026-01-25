@@ -226,7 +226,7 @@ export default function WorkoutStatsCard({
 
         {/* Exercises List - Subtle */}
         <View style={styles.exercisesSection}>
-          {workouts.slice(0, 4).map((workout, index) => (
+          {workouts.slice(0, 5).map((workout, index) => (
             <View key={index} style={styles.exerciseRow}>
               <View style={styles.exerciseDot} />
               <Text style={styles.exerciseName} numberOfLines={1}>
@@ -237,9 +237,9 @@ export default function WorkoutStatsCard({
               </Text>
             </View>
           ))}
-          {workouts.length > 4 && (
+          {workouts.length > 5 && (
             <Text style={styles.moreExercises}>
-              +{workouts.length - 4} more
+              +{workouts.length - 5} more
             </Text>
           )}
         </View>
