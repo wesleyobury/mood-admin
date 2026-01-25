@@ -1196,6 +1196,19 @@ export default function Explore() {
                   </Text>
                 </TouchableOpacity>
 
+                {/* Replicate Workout Button - Only shown for posts with workout data */}
+                {post.workout_data && post.workout_data.workouts && post.workout_data.workouts.length > 0 && (
+                  <TouchableOpacity 
+                    style={styles.replicateButton}
+                    onPress={() => handleReplicateWorkout(post)}
+                  >
+                    <Ionicons name="copy-outline" size={16} color="#FFD700" />
+                    <Text style={styles.replicateButtonText}>
+                      Replicate Workout ({post.workout_data.workouts.length} exercise{post.workout_data.workouts.length > 1 ? 's' : ''})
+                    </Text>
+                  </TouchableOpacity>
+                )}
+
                 {/* Timestamp */}
                 <Text style={styles.timestamp}>
                   {new Date(post.created_at).toLocaleDateString()}
