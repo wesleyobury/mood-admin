@@ -4573,10 +4573,25 @@ async def get_posts(current_user_id: str = Depends(get_current_user), limit: int
                 "created_at": fc.get("created_at").isoformat() if fc.get("created_at") else None
             }
         
+        # Get embedded workout card data for replication
+        embedded_workout_data = None
+        if post.get("workout_data"):
+            try:
+                raw_data = post["workout_data"]
+                embedded_workout_data = {
+                    "workouts": raw_data.get("workouts", []),
+                    "totalDuration": raw_data.get("totalDuration", 0),
+                    "completedAt": raw_data.get("completedAt", ""),
+                    "moodCategory": raw_data.get("moodCategory")
+                }
+            except Exception as e:
+                print(f"Error parsing workout_data: {e}")
+        
         post_data = {
             "id": str(post["_id"]),
             "author": author_data.dict(),
             "workout": workout_data.dict() if workout_data else None,
+            "workout_data": embedded_workout_data,
             "caption": post["caption"],
             "media_urls": post.get("media_urls", []),
             "hashtags": post.get("hashtags", []),
