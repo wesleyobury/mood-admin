@@ -721,34 +721,44 @@ export default function Explore() {
   // Default placeholder image for workouts without images
   const DEFAULT_WORKOUT_IMAGE = 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=400&h=300&fit=crop';
 
-  // Format mood category for display (e.g., "I Want to Sweat" or "Muscle Gainer")
-  const formatMoodDisplay = (moodCategory: string): string => {
-    if (!moodCategory || moodCategory === 'Workout' || moodCategory === 'Unknown') {
-      return 'Custom';
+  // Extract the main mood card name from workoutType or moodCategory
+  // workoutType might be "Calisthenics - Bodyweight exercises" or "Muscle Gainer - Shoulders"
+  const extractMoodCardName = (category: string): string => {
+    if (!category || category.toLowerCase() === 'workout' || category.toLowerCase() === 'unknown' || category.toLowerCase() === 'custom') {
+      return "Custom";
     }
     
-    // If it contains " - ", it's a full path like "I Want to Sweat - Cardio Based"
-    // Extract the first part as the mood card name
-    if (moodCategory.includes(' - ')) {
-      return moodCategory.split(' - ')[0];
+    // If it contains " - ", extract the first part (mood card name)
+    if (category.includes(' - ')) {
+      const moodCardPart = category.split(' - ')[0].trim();
+      // Capitalize properly
+      return moodCardPart
+        .split(' ')
+        .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+        .join(' ');
     }
     
-    // Known mood card titles - capitalize properly
-    const moodTitles: { [key: string]: string } = {
-      'i want to sweat': 'I Want to Sweat',
-      'i\'m feeling lazy': "I'm Feeling Lazy",
-      'muscle gainer': 'Muscle Gainer',
-      'outdoor': 'Outdoor',
-      'lift weights': 'Lift Weights',
-      'calisthenics': 'Calisthenics',
+    // Known mood card titles - check if category matches or contains these
+    const moodCardTitles: { [key: string]: string } = {
+      "i want to sweat": "I Want to Sweat",
+      "i'm feeling lazy": "I'm Feeling Lazy",
+      "muscle gainer": "Muscle Gainer",
+      "outdoor": "Outdoor",
+      "lift weights": "Lift Weights",
+      "calisthenics": "Calisthenics",
+      "bodyweight": "Calisthenics", // Map bodyweight to Calisthenics
     };
     
-    const lowerMood = moodCategory.toLowerCase();
-    for (const [key, value] of Object.entries(moodTitles)) {
-      if (lowerMood.includes(key)) return value;
+    const lowerCategory = category.toLowerCase();
+    for (const [key, value] of Object.entries(moodCardTitles)) {
+      if (lowerCategory.includes(key)) return value;
     }
     
-    return moodCategory;
+    // If nothing matches, return the original (capitalized)
+    return category
+      .split(' ')
+      .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+      .join(' ');
   };
 
   // Handle replicating a workout from a post
