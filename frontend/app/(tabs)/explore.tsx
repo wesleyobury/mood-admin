@@ -1151,13 +1151,16 @@ export default function Explore() {
                         return url;
                       })}
                       isPostVisible={visiblePostId === post.id}
+                      onIndexChange={(index) => {
+                        setCarouselIndexes(prev => ({ ...prev, [post.id]: index }));
+                      }}
                     />
                     
-                    {/* Try This Workout Button - Only show on single-image workout completion posts */}
+                    {/* Try This Workout Button - Only show on workout completion card (last slide) */}
                     {post.workout_data && 
                      post.workout_data.workouts && 
                      post.workout_data.workouts.length > 0 && 
-                     post.media_urls.length === 1 && (
+                     (carouselIndexes[post.id] ?? 0) === post.media_urls.length - 1 && (
                       <TouchableOpacity 
                         style={styles.tryWorkoutButton}
                         onPress={() => handleReplicateWorkout(post)}
