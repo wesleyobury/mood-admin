@@ -261,14 +261,58 @@ export default function CartScreen() {
     }, 0);
   };
 
+  // Extract the main mood card name from workoutType
+  const extractMoodCardName = (category: string): string => {
+    if (!category || category.toLowerCase() === 'workout' || category.toLowerCase() === 'unknown' || category.toLowerCase() === 'custom') {
+      return "Custom";
+    }
+    
+    // If it contains " - ", extract the first part (mood card name)
+    if (category.includes(' - ')) {
+      const moodCardPart = category.split(' - ')[0].trim();
+      return moodCardPart
+        .split(' ')
+        .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+        .join(' ');
+    }
+    
+    // Known mood card titles
+    const moodCardTitles: { [key: string]: string } = {
+      "i want to sweat": "I Want to Sweat",
+      "i'm feeling lazy": "I'm Feeling Lazy",
+      "muscle gainer": "Muscle Gainer",
+      "outdoor": "Outdoor",
+      "lift weights": "Lift Weights",
+      "calisthenics": "Calisthenics",
+      "bodyweight": "Calisthenics",
+    };
+    
+    const lowerCategory = category.toLowerCase();
+    for (const [key, value] of Object.entries(moodCardTitles)) {
+      if (lowerCategory.includes(key)) return value;
+    }
+    
+    return category
+      .split(' ')
+      .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+      .join(' ');
+  };
+
   // Get the first workout's mood card for display
   const getMoodInfo = () => {
     if (cartItems.length === 0) return { mood: 'Workout', type: 'Cart' };
     const firstItem = cartItems[0];
     
-    // moodCard contains the full mood title (e.g., "I Want to Sweat")
-    // workoutType may contain "Mood Card - Sub Path" format or just the mood category
-    const moodCard = firstItem.moodCard || 'Custom';
+    // Use moodCard if available, otherwise extract from workoutType
+    let mood = firstItem.moodCard || 'Custom';
+    
+    // If moodCard looks like a sub-path or equipment, try extracting from workoutType
+    if (mood.toLowerCase() === 'custom' || mood.toLowerCase() === 'workout') {
+      mood = extractMoodCardName(firstItem.workoutType || '');
+    } else {
+      // Verify moodCard is a proper mood card name, not equipment
+      mood = extractMoodCardName(mood) || extractMoodCardName(firstItem.workoutType || '') || 'Custom';
+    }
     
     // Try to extract sub-path from workoutType if it contains " - "
     let subPath = 'Workout';
@@ -280,7 +324,7 @@ export default function CartScreen() {
     }
     
     return {
-      mood: moodCard,
+      mood: mood,
       type: subPath
     };
   };
