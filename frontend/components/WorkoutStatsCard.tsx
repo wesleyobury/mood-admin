@@ -132,15 +132,20 @@ export default function WorkoutStatsCard({
     return dominantCategory;
   };
 
-  // Format mood category for display - use actual mood card names
-  const formatMoodCategoryDisplay = (category: string): string => {
+  // Extract the main mood card name from workoutType or moodCategory
+  // workoutType might be "Calisthenics - Bodyweight exercises" or "Muscle Gainer - Shoulders"
+  const extractMoodCardName = (category: string): string => {
     if (!category || category.toLowerCase() === 'workout' || category.toLowerCase() === 'unknown') {
-      return ""; // Return empty to just show "Workout Complete"
+      return "";
     }
     
-    const lowerCategory = category.toLowerCase();
+    // If it contains " - ", extract the first part (mood card name)
+    if (category.includes(' - ')) {
+      const moodCardPart = category.split(' - ')[0].trim();
+      return moodCardPart;
+    }
     
-    // Map to proper mood card titles (capitalized properly)
+    // Known mood card titles - check if category matches or contains these
     const moodCardTitles: { [key: string]: string } = {
       "i want to sweat": "I Want to Sweat",
       "i'm feeling lazy": "I'm Feeling Lazy",
@@ -148,13 +153,15 @@ export default function WorkoutStatsCard({
       "outdoor": "Outdoor",
       "lift weights": "Lift Weights",
       "calisthenics": "Calisthenics",
+      "bodyweight": "Calisthenics", // Map bodyweight to Calisthenics
     };
     
+    const lowerCategory = category.toLowerCase();
     for (const [key, value] of Object.entries(moodCardTitles)) {
       if (lowerCategory.includes(key)) return value;
     }
     
-    // Capitalize first letter of each word for unknown categories
+    // If nothing matches, return the original (capitalized)
     return category
       .split(' ')
       .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
@@ -162,7 +169,7 @@ export default function WorkoutStatsCard({
   };
 
   const dominantCategory = getDominantMoodCategory();
-  const displayMoodCategory = formatMoodCategoryDisplay(dominantCategory);
+  const displayMoodCategory = extractMoodCardName(dominantCategory);
   const estimatedCalories = Math.round(totalDuration * 8);
 
   return (
