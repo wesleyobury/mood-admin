@@ -565,6 +565,7 @@ export default function FeaturedWorkoutDetail() {
     
     // Format exercises for the workout guidance session - matching cart format exactly
     const sessionWorkouts = exercises.map(exercise => ({
+      workoutName: exercise.name, // Use workoutName for consistency
       name: exercise.name,
       equipment: exercise.equipment,
       description: exercise.description,
@@ -573,7 +574,9 @@ export default function FeaturedWorkoutDetail() {
       difficulty: exercise.difficulty,
       workoutType: exercise.workoutType,
       moodCard: exercise.moodCard,
-      moodTips: exercise.moodTips
+      moodTips: exercise.moodTips,
+      imageUrl: exercise.imageUrl || '', // Include image URL for replication
+      intensityReason: exercise.intensityReason || '',
     }));
     
     // Navigate to workout guidance with the first exercise - same as cart.tsx
