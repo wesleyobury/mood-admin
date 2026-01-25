@@ -50,6 +50,22 @@ interface FirstComment {
   created_at: string;
 }
 
+interface WorkoutExercise {
+  workoutTitle: string;
+  workoutName: string;
+  equipment: string;
+  duration: string;
+  difficulty: string;
+  moodCategory?: string;
+}
+
+interface WorkoutCardData {
+  workouts: WorkoutExercise[];
+  totalDuration: number;
+  completedAt: string;
+  moodCategory?: string;
+}
+
 interface Post {
   id: string;
   author: Author;
@@ -61,6 +77,7 @@ interface Post {
   is_saved: boolean;
   created_at: string;
   workout?: any;
+  workout_data?: WorkoutCardData;
   first_comment?: FirstComment | null;
 }
 
