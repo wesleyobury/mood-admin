@@ -58,6 +58,11 @@ interface WorkoutExercise {
   duration: string;
   difficulty: string;
   moodCategory?: string;
+  imageUrl?: string;
+  description?: string;
+  battlePlan?: string;
+  intensityReason?: string;
+  moodTips?: { icon: string; title: string; description: string }[];
 }
 
 interface WorkoutCardData {
