@@ -53,18 +53,36 @@ export default function CommentsBottomSheet({ postId, authToken, onClose, onComm
 
   const fetchComments = async () => {
     try {
+      console.log(`[CommentsBottomSheet] Fetching comments for post: ${postId}`);
+      console.log(`[CommentsBottomSheet] API_URL: ${API_URL}`);
+      
       const response = await fetch(`${API_URL}/api/posts/${postId}/comments`, {
         headers: {
           'Authorization': `Bearer ${authToken}`,
         },
       });
 
+      console.log(`[CommentsBottomSheet] Response status: ${response.status}`);
+
       if (response.ok) {
         const data = await response.json();
-        setComments(data);
+        console.log(`[CommentsBottomSheet] Received ${data?.length || 0} comments`);
+        
+        // Ensure data is an array
+        if (Array.isArray(data)) {
+          setComments(data);
+        } else {
+          console.warn('[CommentsBottomSheet] Response is not an array:', data);
+          setComments([]);
+        }
+      } else {
+        const errorText = await response.text();
+        console.error(`[CommentsBottomSheet] Error response: ${errorText}`);
+        setComments([]);
       }
     } catch (error) {
-      console.error('Error fetching comments:', error);
+      console.error('[CommentsBottomSheet] Error fetching comments:', error);
+      setComments([]);
     } finally {
       setLoading(false);
     }
