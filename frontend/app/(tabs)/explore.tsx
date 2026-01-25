@@ -133,6 +133,7 @@ export default function Explore() {
   const [searchLoading, setSearchLoading] = useState(false);
   const [visiblePostId, setVisiblePostId] = useState<string | null>(null);
   const [deletingPostId, setDeletingPostId] = useState<string | null>(null);
+  const [carouselIndexes, setCarouselIndexes] = useState<{ [postId: string]: number }>({});
   const router = useRouter();
   const { token, user, isGuest } = useAuth();
   const { addToCart, clearCart } = useCart();
