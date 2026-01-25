@@ -42,6 +42,7 @@ const isVideoUrl = (url: string): boolean => {
 interface MediaCarouselProps {
   media: string[];
   isPostVisible?: boolean;
+  onIndexChange?: (index: number) => void;
 }
 
 interface VideoPlayerProps {
