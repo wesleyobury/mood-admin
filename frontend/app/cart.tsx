@@ -265,9 +265,23 @@ export default function CartScreen() {
   const getMoodInfo = () => {
     if (cartItems.length === 0) return { mood: 'Workout', type: 'Cart' };
     const firstItem = cartItems[0];
+    
+    // moodCard contains the full mood title (e.g., "I Want to Sweat")
+    // workoutType may contain "Mood Card - Sub Path" format or just the mood category
+    const moodCard = firstItem.moodCard || 'Custom';
+    
+    // Try to extract sub-path from workoutType if it contains " - "
+    let subPath = 'Workout';
+    if (firstItem.workoutType && firstItem.workoutType.includes(' - ')) {
+      subPath = firstItem.workoutType.split(' - ')[1] || 'Workout';
+    } else if (firstItem.equipment) {
+      // Use equipment as fallback for sub-path
+      subPath = firstItem.equipment;
+    }
+    
     return {
-      mood: firstItem.moodCard || 'Custom',
-      type: firstItem.workoutType?.split(' - ')[1] || 'Workout'
+      mood: moodCard,
+      type: subPath
     };
   };
 
