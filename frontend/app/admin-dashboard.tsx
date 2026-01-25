@@ -404,7 +404,15 @@ export default function AdminDashboard() {
                 const data = await response.json();
                 Alert.alert(
                   'User Deleted',
-                  `${username} has been deleted.\n\nRecoverable until: ${new Date(data.recoverable_until).toLocaleDateString()}`,
+                  `${username} has been deleted.\n\nRecoverable until: ${new Date(data.recoverable_until).toLocaleString('en-US', {
+                    timeZone: 'America/Chicago',
+                    month: 'short',
+                    day: 'numeric',
+                    year: 'numeric',
+                    hour: '2-digit',
+                    minute: '2-digit',
+                    hour12: true
+                  })} CT`,
                   [{ text: 'OK' }]
                 );
                 // Refresh user list
