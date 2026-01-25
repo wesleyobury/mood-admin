@@ -130,6 +130,7 @@ export default function Explore() {
   const [deletingPostId, setDeletingPostId] = useState<string | null>(null);
   const router = useRouter();
   const { token, user, isGuest } = useAuth();
+  const { addToCart, clearCart } = useCart();
   const scrollViewRef = useRef<ScrollView>(null);
   const insets = useSafeAreaInsets();
   const searchTimeoutRef = useRef<NodeJS.Timeout | null>(null);
