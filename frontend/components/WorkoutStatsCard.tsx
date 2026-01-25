@@ -195,7 +195,7 @@ export default function WorkoutStatsCard({
           
           <View style={styles.headerText}>
             <Text style={styles.moodCategory} numberOfLines={1} adjustsFontSizeToFit minimumFontScale={0.7}>
-              {displayMoodCategory} Workout Complete
+              {displayMoodCategory ? `${displayMoodCategory} Workout Complete` : 'Workout Complete'}
             </Text>
             <Text style={styles.subtitle}>A M A Z I N G   W O R K</Text>
           </View>
