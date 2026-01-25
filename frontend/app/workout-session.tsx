@@ -130,10 +130,15 @@ export default function WorkoutSessionScreen() {
       year: 'numeric' 
     });
 
+    // Get mood category from first workout
+    const firstWorkout = sessionWorkouts[0];
+    const moodCategory = firstWorkout?.workoutType || firstWorkout?.moodCard || 'Workout';
+
     const workoutStatsData = {
       workouts: completedWorkouts,
       totalDuration,
       completedAt,
+      moodCategory,
     };
 
     console.log('Workout stats data:', workoutStatsData);
