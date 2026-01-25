@@ -887,18 +887,31 @@ export default function CreatePost() {
       
       const hashtags = extractHashtags(caption);
 
+      // Prepare post data including workout data for replication
+      const postPayload: any = {
+        caption: caption.trim(),
+        media_urls: mediaUrls,
+        hashtags,
+        cover_urls: Object.keys(coverUrls).length > 0 ? coverUrls : null,
+      };
+      
+      // Include workout data if present (for workout card replication feature)
+      if (workoutStats) {
+        postPayload.workout_data = {
+          workouts: workoutStats.workouts,
+          totalDuration: workoutStats.totalDuration,
+          completedAt: workoutStats.completedAt,
+          moodCategory: workoutStats.moodCategory,
+        };
+      }
+
       const response = await fetch(`${API_URL}/api/posts`, {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`,
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({
-          caption: caption.trim(),
-          media_urls: mediaUrls,
-          hashtags,
-          cover_urls: Object.keys(coverUrls).length > 0 ? coverUrls : null,
-        }),
+        body: JSON.stringify(postPayload),
       });
 
       console.log('Post response status:', response.status);
