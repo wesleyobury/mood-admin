@@ -3855,10 +3855,25 @@ async def get_user_posts(
                     created_at=workout["created_at"]
                 )
             
+            # Get embedded workout card data for replication
+            embedded_workout_data = None
+            if post.get("workout_data"):
+                try:
+                    raw_data = post["workout_data"]
+                    embedded_workout_data = WorkoutCardData(
+                        workouts=[WorkoutExerciseData(**w) for w in raw_data.get("workouts", [])],
+                        totalDuration=raw_data.get("totalDuration", 0),
+                        completedAt=raw_data.get("completedAt", ""),
+                        moodCategory=raw_data.get("moodCategory")
+                    )
+                except Exception as e:
+                    print(f"Error parsing workout_data: {e}")
+            
             result.append(PostResponse(
                 id=str(post["_id"]),
                 author=author_data,
                 workout=workout_data,
+                workout_data=embedded_workout_data,
                 caption=post["caption"],
                 media_urls=post.get("media_urls", []),
                 hashtags=post.get("hashtags", []),
@@ -4329,10 +4344,25 @@ async def get_following_posts(
                     created_at=workout["created_at"]
                 )
             
+            # Get embedded workout card data for replication
+            embedded_workout_data = None
+            if post.get("workout_data"):
+                try:
+                    raw_data = post["workout_data"]
+                    embedded_workout_data = WorkoutCardData(
+                        workouts=[WorkoutExerciseData(**w) for w in raw_data.get("workouts", [])],
+                        totalDuration=raw_data.get("totalDuration", 0),
+                        completedAt=raw_data.get("completedAt", ""),
+                        moodCategory=raw_data.get("moodCategory")
+                    )
+                except Exception as e:
+                    print(f"Error parsing workout_data: {e}")
+            
             result.append(PostResponse(
                 id=str(post["_id"]),
                 author=author_data,
                 workout=workout_data,
+                workout_data=embedded_workout_data,
                 caption=post["caption"],
                 media_urls=post.get("media_urls", []),
                 hashtags=post.get("hashtags", []),
