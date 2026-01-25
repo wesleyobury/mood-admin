@@ -333,14 +333,37 @@ export default function WorkoutGuidanceScreen() {
         try {
           const sessionWorkouts = JSON.parse(sessionWorkoutsParam);
           
-          // Prepare workout completion data
-          const completedWorkouts = sessionWorkouts.map((workout: any) => ({
-            workoutTitle: workout.name || workout.workoutName, // The workout title (e.g., "Triple Extension Heave")
-            workoutName: workout.name || workout.workoutName, // Keep for backward compatibility
-            equipment: workout.equipment,
-            duration: workout.duration,
-            difficulty: workout.difficulty,
-          }));
+          // Get the first workout for mood category info
+          const firstWorkout = sessionWorkouts[0];
+          const overallMoodCategory = firstWorkout?.workoutType || firstWorkout?.moodCard || 'Workout';
+          
+          // Prepare workout completion data with FULL workout details for replication
+          const completedWorkouts = sessionWorkouts.map((workout: any) => {
+            // Handle moodTips - could be string or array
+            let parsedMoodTips = workout.moodTips || [];
+            if (typeof parsedMoodTips === 'string') {
+              try {
+                parsedMoodTips = JSON.parse(parsedMoodTips);
+              } catch (e) {
+                parsedMoodTips = [];
+              }
+            }
+            
+            return {
+              workoutTitle: workout.workoutName || workout.name,
+              workoutName: workout.workoutName || workout.name,
+              equipment: workout.equipment,
+              duration: workout.duration,
+              difficulty: workout.difficulty,
+              // Include full workout data for replication feature
+              moodCategory: workout.workoutType || workout.moodCard || overallMoodCategory,
+              imageUrl: workout.imageUrl || '',
+              description: workout.description || '',
+              battlePlan: workout.battlePlan || '',
+              intensityReason: workout.intensityReason || '',
+              moodTips: parsedMoodTips,
+            };
+          });
 
           const totalDuration = sessionWorkouts.reduce((total: number, workout: any) => {
             const duration = parseInt(workout.duration.split(' ')[0]) || 0;
@@ -357,14 +380,13 @@ export default function WorkoutGuidanceScreen() {
             workouts: completedWorkouts,
             totalDuration,
             completedAt,
+            moodCategory: overallMoodCategory, // Include top-level mood category
           };
 
           console.log('Workout stats prepared:', workoutStatsData);
           
           // Track workout completion analytics
           if (token) {
-            const firstWorkout = sessionWorkouts[0];
-            
             // Check if this is a featured workout
             const featuredWorkoutId = params.featuredWorkoutId as string;
             const featuredWorkoutTitle = params.featuredWorkoutTitle as string;
@@ -374,7 +396,7 @@ export default function WorkoutGuidanceScreen() {
               Analytics.featuredWorkoutCompleted(token, {
                 workout_id: featuredWorkoutId,
                 workout_title: featuredWorkoutTitle || 'Unknown',
-                mood_category: firstWorkout.workoutType || firstWorkout.moodCard || 'Unknown',
+                mood_category: overallMoodCategory,
                 exercises_completed: sessionWorkouts.length,
                 duration_minutes: totalDuration,
               });
@@ -383,9 +405,9 @@ export default function WorkoutGuidanceScreen() {
             
             // Track general workout completion
             Analytics.workoutCompleted(token, {
-              mood_category: firstWorkout.workoutType || firstWorkout.moodCard || 'Unknown',
-              difficulty: firstWorkout.difficulty,
-              equipment: firstWorkout.equipment,
+              mood_category: overallMoodCategory,
+              difficulty: firstWorkout?.difficulty,
+              equipment: firstWorkout?.equipment,
               duration_minutes: totalDuration,
               exercises_completed: sessionWorkouts.length,
             });
