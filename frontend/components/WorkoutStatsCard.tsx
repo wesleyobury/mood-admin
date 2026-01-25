@@ -380,17 +380,17 @@ const styles = StyleSheet.create({
     shadowColor: '#FFD700',
   },
   statValue: {
-    fontSize: 32,
+    fontSize: 26,
     fontWeight: '200',
     color: '#FFFFFF',
     letterSpacing: -1,
   },
   statValueLarge: {
-    fontSize: 36,
+    fontSize: 30,
     color: '#FFD700',
   },
   statLabel: {
-    fontSize: 10,
+    fontSize: 9,
     color: 'rgba(255, 255, 255, 0.4)',
     textTransform: 'lowercase',
     letterSpacing: 1,
