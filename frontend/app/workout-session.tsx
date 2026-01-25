@@ -116,14 +116,20 @@ export default function WorkoutSessionScreen() {
   const handleFinishSession = () => {
     console.log('=== FINISH SESSION CALLED ===');
     
-    // Prepare workout completion data
+    // Prepare workout completion data with full details for replication
     const completedWorkouts = sessionWorkouts.map(workout => ({
-      workoutTitle: workout.workoutName, // The workout title (e.g., "Triple Extension Heave")
-      workoutName: workout.workoutName, // Keep for backward compatibility
+      workoutTitle: workout.workoutName,
+      workoutName: workout.workoutName,
       equipment: workout.equipment,
       duration: workout.duration,
       difficulty: workout.difficulty,
-      moodCategory: workout.workoutType, // Track which mood card this exercise came from
+      moodCategory: workout.workoutType,
+      // Include additional data for workout replication
+      imageUrl: workout.imageUrl || '',
+      description: workout.description || '',
+      battlePlan: workout.battlePlan || '',
+      intensityReason: workout.intensityReason || '',
+      moodTips: workout.moodTips ? JSON.parse(workout.moodTips) : [],
     }));
 
     const totalDuration = getTotalDuration();
