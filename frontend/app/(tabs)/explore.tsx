@@ -1182,13 +1182,20 @@ export default function Explore() {
                 {/* Post Preview Thumbnail */}
                 {notification.post_preview && notification.type !== 'follow' && (
                   (() => {
-                    const isVideo = notification.post_preview.match(/\.(mov|mp4|avi|webm|mkv|m4v)$/i);
+                    // Check if original URL is a video (before any transformations)
+                    // Cloudinary transformed video thumbnails contain /so_0,f_jpg/ or similar
+                    const isCloudinaryVideoThumbnail = notification.post_preview.includes('/so_0') || 
+                                                        notification.post_preview.includes('f_jpg') ||
+                                                        notification.post_preview.includes('f_png');
+                    const isRawVideo = !isCloudinaryVideoThumbnail && 
+                                       notification.post_preview.match(/\.(mov|mp4|avi|webm|mkv|m4v)(\?|$)/i);
+                    
                     const previewUri = notification.post_preview.startsWith('http')
                       ? notification.post_preview
                       : `${API_URL}${notification.post_preview}`;
                     
-                    if (isVideo) {
-                      // Show video icon placeholder for video content
+                    if (isRawVideo) {
+                      // Show video icon placeholder for raw video URLs
                       return (
                         <View style={[styles.notificationPostPreview, styles.videoPlaceholder]}>
                           <Ionicons name="play-circle" size={24} color="#666" />
@@ -1196,11 +1203,14 @@ export default function Explore() {
                       );
                     }
                     
+                    // Show image (including cloudinary video thumbnails)
                     return (
                       <Image
                         source={{ uri: previewUri }}
                         style={styles.notificationPostPreview}
                         contentFit="cover"
+                        placeholder={require('../../assets/images/placeholder.png')}
+                        transition={200}
                       />
                     );
                   })()
