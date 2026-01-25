@@ -1162,7 +1162,12 @@ export default function AdminDashboard() {
                   <View style={styles.activeUserInfo}>
                     <Text style={styles.activeUserName}>{item.username}</Text>
                     <Text style={styles.activeUserTime}>
-                      Last active: {item.last_active ? new Date(item.last_active).toLocaleTimeString() : 'Just now'}
+                      Last active: {item.last_active ? new Date(item.last_active).toLocaleTimeString('en-US', {
+                        timeZone: 'America/Chicago',
+                        hour: '2-digit',
+                        minute: '2-digit',
+                        hour12: true
+                      }) + ' CT' : 'Just now'}
                     </Text>
                   </View>
                 </View>
