@@ -21,6 +21,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import Constants from 'expo-constants';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useAuth } from '../../contexts/AuthContext';
+import { useCart, WorkoutItem } from '../../contexts/CartContext';
 import MediaCarousel from '../../components/MediaCarousel';
 import CommentsBottomSheet from '../../components/CommentsBottomSheet';
 import { Analytics } from '../../utils/analytics';
