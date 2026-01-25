@@ -780,7 +780,7 @@ export default function Explore() {
     
     // Get the mood category for display
     const rawMoodCategory = post.workout_data.moodCategory || post.workout_data.workouts[0]?.moodCategory || 'Workout';
-    const moodCardName = formatMoodDisplay(rawMoodCategory);
+    const moodCardName = extractMoodCardName(rawMoodCategory);
     
     let addedCount = 0;
     post.workout_data.workouts.forEach((exercise, index) => {
