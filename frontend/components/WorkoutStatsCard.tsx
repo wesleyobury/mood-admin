@@ -228,7 +228,7 @@ export default function WorkoutStatsCard({
             <Text style={styles.moodCategory} numberOfLines={1} adjustsFontSizeToFit minimumFontScale={0.7}>
               {displayMoodCategory ? displayMoodCategory.toUpperCase() : 'WORKOUT COMPLETE'}
             </Text>
-            <Text style={styles.subtitle}>A M A Z I N G   W O R K</Text>
+            <Text style={styles.subtitle}>{motivationalPhrase}</Text>
           </View>
         </View>
 
