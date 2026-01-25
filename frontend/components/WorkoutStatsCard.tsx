@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useMemo } from 'react';
 import { View, Text, StyleSheet, Dimensions, Animated, Easing } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
@@ -6,6 +6,25 @@ import { LinearGradient } from 'expo-linear-gradient';
 const { width } = Dimensions.get('window');
 const CARD_WIDTH = width * 0.88;
 const CARD_HEIGHT = CARD_WIDTH * 1.25;
+
+// Motivational phrases that rotate randomly
+const MOTIVATIONAL_PHRASES = [
+  'A M A Z I N G   W O R K',
+  'M I S S I O N   C O M P L E T E',
+  'E X C E L L E N T   J O B',
+  'Y O U   C R U S H E D   I T',
+  'B E A S T   M O D E',
+  'U N S T O P P A B L E',
+  'N E W   P E R S O N A L   B E S T',
+  'P U R E   D E D I C A T I O N',
+  'G O A L S   A C H I E V E D',
+  'S T R O N G E R   T O D A Y',
+  'K E E P   W I N N I N G',
+  'L E G E N D A R Y',
+  'P E A K   P E R F O R M A N C E',
+  'C H A M P I O N   M O V E',
+  'F L A W L E S S   E X E C U T I O N',
+];
 
 interface WorkoutStatsCardProps {
   workouts: {
@@ -27,6 +46,11 @@ export default function WorkoutStatsCard({
   completedAt,
   moodCategory = "Workout"
 }: WorkoutStatsCardProps) {
+  // Select a random motivational phrase (memoized so it doesn't change on re-renders)
+  const motivationalPhrase = useMemo(() => {
+    return MOTIVATIONAL_PHRASES[Math.floor(Math.random() * MOTIVATIONAL_PHRASES.length)];
+  }, []);
+
   // Animation values
   const glowAnim = useRef(new Animated.Value(0)).current;
   const pulseAnim = useRef(new Animated.Value(1)).current;
