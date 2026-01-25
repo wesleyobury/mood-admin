@@ -1126,9 +1126,13 @@ export default function Explore() {
                 style={styles.notificationItem}
                 onPress={() => {
                   if (notification.type === 'follow') {
+                    // For follow notifications, go to user profile
                     handleProfile(notification.user.id);
                   } else if (notification.post_id) {
-                    // Could navigate to post detail
+                    // For like/comment notifications, go to the post
+                    router.push(`/post-detail?postId=${notification.post_id}`);
+                  } else {
+                    // Fallback to user profile
                     handleProfile(notification.user.id);
                   }
                 }}
