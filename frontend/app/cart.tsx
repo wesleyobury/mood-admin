@@ -231,7 +231,7 @@ export default function CartScreen() {
           difficulty: item.difficulty,
           workoutType: item.workoutType,
           moodCard: item.moodCard,
-          moodTips: JSON.stringify(item.moodTips || []), // Stringify for consistency
+          moodTips: item.moodTips || [], // Keep as array - will be stringified by JSON.stringify
           imageUrl: item.imageUrl || '',
           intensityReason: item.intensityReason || '',
         }))),
