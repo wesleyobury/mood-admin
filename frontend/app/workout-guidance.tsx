@@ -296,10 +296,20 @@ export default function WorkoutGuidanceScreen() {
         const featuredWorkoutId = params.featuredWorkoutId as string;
         const featuredWorkoutTitle = params.featuredWorkoutTitle as string;
         
+        // Handle moodTips - could be string or array depending on source
+        let nextMoodTips = nextWorkout.moodTips || [];
+        if (typeof nextMoodTips === 'string') {
+          try {
+            nextMoodTips = JSON.parse(nextMoodTips);
+          } catch (e) {
+            nextMoodTips = [];
+          }
+        }
+        
         router.push({
           pathname: '/workout-guidance',
           params: {
-            workoutName: nextWorkout.name,
+            workoutName: nextWorkout.workoutName || nextWorkout.name,
             equipment: nextWorkout.equipment,
             description: nextWorkout.description,
             battlePlan: nextWorkout.battlePlan,
@@ -310,7 +320,7 @@ export default function WorkoutGuidanceScreen() {
             sessionWorkouts: sessionWorkoutsParam,
             currentSessionIndex: nextIndex.toString(),
             isSession: 'true',
-            moodTips: encodeURIComponent(JSON.stringify(nextWorkout.moodTips || [])),
+            moodTips: encodeURIComponent(JSON.stringify(nextMoodTips)),
             // Pass along featured workout info for tracking
             ...(featuredWorkoutId && { featuredWorkoutId }),
             ...(featuredWorkoutTitle && { featuredWorkoutTitle }),
