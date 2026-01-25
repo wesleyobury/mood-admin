@@ -348,7 +348,7 @@ const styles = StyleSheet.create({
   },
   simplifiedGradient: {
     flex: 1,
-    backgroundColor: '#0c0c0c', // Use solid color instead of gradient for better performance
+    backgroundColor: '#000000',
   },
   content: {
     flex: 1,
