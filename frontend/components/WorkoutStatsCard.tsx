@@ -107,25 +107,60 @@ export default function WorkoutStatsCard({
     outputRange: [0.05, 0.15],
   });
 
-  // Format mood category for display
-  const formatMoodCategory = (category: string) => {
+  // Calculate dominant mood category from workouts
+  const getDominantMoodCategory = (): string => {
+    // Count occurrences of each mood category from workouts
+    const categoryCounts: { [key: string]: number } = {};
+    
+    workouts.forEach(workout => {
+      const category = workout.moodCategory || moodCategory || 'Workout';
+      const normalizedCategory = category.toLowerCase();
+      categoryCounts[normalizedCategory] = (categoryCounts[normalizedCategory] || 0) + 1;
+    });
+    
+    // Find the category with the most exercises
+    let dominantCategory = moodCategory || 'Workout';
+    let maxCount = 0;
+    
+    for (const [category, count] of Object.entries(categoryCounts)) {
+      if (count > maxCount) {
+        maxCount = count;
+        dominantCategory = category;
+      }
+    }
+    
+    return dominantCategory;
+  };
+
+  // Format mood category for display - compact version that fits on one line
+  const formatMoodCategoryCompact = (category: string): string => {
     if (!category) return "Workout";
+    const lowerCategory = category.toLowerCase();
+    
+    // Map to shorter, single-line friendly names
     const moodTypes: { [key: string]: string } = {
-      "i want to sweat": "Sweat Session",
-      "i'm feeling lazy": "Easy Flow",
-      "muscle gainer": "Muscle Builder",
+      "i want to sweat": "Sweat",
+      "i'm feeling lazy": "Easy",
+      "muscle gainer": "Muscle Gainer",
       "outdoor": "Outdoor",
-      "lift weights": "Lift Weights",
+      "lift weights": "Lift",
       "calisthenics": "Calisthenics",
     };
-    const lowerCategory = category.toLowerCase();
+    
     for (const [key, value] of Object.entries(moodTypes)) {
       if (lowerCategory.includes(key)) return value;
     }
-    return category.split(' ').slice(0, 2).join(' ');
+    
+    // Capitalize first letter of each word for unknown categories
+    return category
+      .split(' ')
+      .slice(0, 2) // Max 2 words
+      .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+      .join(' ');
   };
 
-  const displayMoodCategory = formatMoodCategory(moodCategory);
+  const dominantCategory = getDominantMoodCategory();
+  const displayMoodCategory = formatMoodCategoryCompact(dominantCategory);
   const estimatedCalories = Math.round(totalDuration * 8);
 
   return (
