@@ -233,7 +233,7 @@ const VideoPlayer = memo(({ uri, isActive }: VideoPlayerProps) => {
   );
 });
 
-const MediaCarousel = memo(({ media, isPostVisible = true }: MediaCarouselProps) => {
+const MediaCarousel = memo(({ media, isPostVisible = true, onIndexChange }: MediaCarouselProps) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [loadingStates, setLoadingStates] = useState<{ [key: number]: boolean }>({});
   const [errorStates, setErrorStates] = useState<{ [key: number]: boolean }>({});
@@ -245,6 +245,7 @@ const MediaCarousel = memo(({ media, isPostVisible = true }: MediaCarouselProps)
     const index = Math.round(offset / slideSize);
     if (index !== activeIndex && index >= 0 && index < media.length) {
       setActiveIndex(index);
+      onIndexChange?.(index);
     }
   };
 
