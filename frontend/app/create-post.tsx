@@ -55,6 +55,7 @@ interface WorkoutStats {
   }[];
   totalDuration: number;
   completedAt: string;
+  moodCategory?: string;
 }
 
 export default function CreatePost() {
