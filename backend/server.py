@@ -4724,7 +4724,9 @@ async def get_post_comments(post_id: str, limit: int = 50):
                     "author": {
                         "id": {"$toString": "$author._id"},
                         "username": "$author.username",
-                        "avatar": "$author.avatar"
+                        "avatar": {
+                            "$ifNull": ["$author.avatar_url", "$author.avatar"]
+                        }
                     },
                     "_id": 0
                 }
@@ -4732,8 +4734,10 @@ async def get_post_comments(post_id: str, limit: int = 50):
         ]
         
         comments = await db.comments.aggregate(pipeline).to_list(length=limit)
+        logger.info(f"Retrieved {len(comments)} comments for post {post_id}")
         return comments
-    except:
+    except Exception as e:
+        logger.error(f"Error fetching comments for post {post_id}: {str(e)}")
         raise HTTPException(status_code=404, detail="Post not found")
 
 # Social Features - Follow System
