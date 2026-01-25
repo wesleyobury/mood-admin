@@ -5,7 +5,7 @@ import { LinearGradient } from 'expo-linear-gradient';
 
 const { width } = Dimensions.get('window');
 const CARD_WIDTH = width * 0.88;
-const CARD_HEIGHT = CARD_WIDTH * 1.25;
+const CARD_HEIGHT = CARD_WIDTH * 1.2;
 
 interface WorkoutStatsCardProps {
   workouts: {
@@ -17,7 +17,7 @@ interface WorkoutStatsCardProps {
   }[];
   totalDuration: number;
   completedAt: string;
-  moodCategory?: string; // e.g., "I want to sweat", "Muscle Gainer", etc.
+  moodCategory?: string;
 }
 
 export default function WorkoutStatsCard({ 
@@ -27,96 +27,77 @@ export default function WorkoutStatsCard({
   moodCategory = "Workout"
 }: WorkoutStatsCardProps) {
   // Animation values
-  const glowAnim = useRef(new Animated.Value(0)).current;
-  const pulseAnim = useRef(new Animated.Value(1)).current;
   const fadeAnim = useRef(new Animated.Value(0)).current;
-  const statScale1 = useRef(new Animated.Value(0.8)).current;
-  const statScale2 = useRef(new Animated.Value(0.8)).current;
-  const statScale3 = useRef(new Animated.Value(0.8)).current;
+  const glowAnim = useRef(new Animated.Value(0)).current;
+  const statScale1 = useRef(new Animated.Value(0.9)).current;
+  const statScale2 = useRef(new Animated.Value(0.9)).current;
+  const statScale3 = useRef(new Animated.Value(0.9)).current;
 
   useEffect(() => {
-    // Initial card fade in
+    // Card fade in
     Animated.timing(fadeAnim, {
       toValue: 1,
-      duration: 600,
+      duration: 500,
       useNativeDriver: true,
       easing: Easing.out(Easing.cubic),
     }).start();
 
-    // Glow pulse animation - intensifies then settles
+    // Top bar glow pulse
     Animated.sequence([
       Animated.timing(glowAnim, {
         toValue: 1,
-        duration: 800,
+        duration: 600,
         useNativeDriver: false,
         easing: Easing.out(Easing.cubic),
       }),
       Animated.timing(glowAnim, {
-        toValue: 0.3,
-        duration: 1200,
+        toValue: 0.4,
+        duration: 800,
         useNativeDriver: false,
         easing: Easing.inOut(Easing.cubic),
       }),
     ]).start();
 
-    // Breathing pulse for the indicator dot
-    Animated.loop(
-      Animated.sequence([
-        Animated.timing(pulseAnim, {
-          toValue: 1.3,
-          duration: 1500,
-          useNativeDriver: true,
-          easing: Easing.inOut(Easing.sin),
-        }),
-        Animated.timing(pulseAnim, {
-          toValue: 1,
-          duration: 1500,
-          useNativeDriver: true,
-          easing: Easing.inOut(Easing.sin),
-        }),
-      ])
-    ).start();
-
     // Staggered stat animations
-    Animated.stagger(150, [
+    Animated.stagger(120, [
       Animated.spring(statScale1, {
         toValue: 1,
-        friction: 6,
+        friction: 7,
         tension: 100,
         useNativeDriver: true,
       }),
       Animated.spring(statScale2, {
         toValue: 1,
-        friction: 6,
+        friction: 7,
         tension: 100,
         useNativeDriver: true,
       }),
       Animated.spring(statScale3, {
         toValue: 1,
-        friction: 6,
+        friction: 7,
         tension: 100,
         useNativeDriver: true,
       }),
     ]).start();
   }, []);
 
-  // Interpolate glow opacity
-  const glowOpacity = glowAnim.interpolate({
+  // Glow opacity for top bar
+  const topGlowOpacity = glowAnim.interpolate({
     inputRange: [0, 1],
-    outputRange: [0.05, 0.15],
+    outputRange: [0.3, 0.8],
   });
 
   // Format mood category for display
   const formatMoodCategory = (category: string) => {
     if (!category) return "Workout";
-    // Extract the main mood type
     const moodTypes: { [key: string]: string } = {
       "i want to sweat": "Sweat Session",
       "i'm feeling lazy": "Easy Flow",
       "muscle gainer": "Muscle Builder",
-      "outdoor": "Outdoor",
-      "lift weights": "Lift Weights",
+      "outdoor": "Outdoor Session",
+      "lift weights": "Lift Session",
       "calisthenics": "Calisthenics",
+      "light weights": "Light Weights",
     };
     const lowerCategory = category.toLowerCase();
     for (const [key, value] of Object.entries(moodTypes)) {
@@ -133,83 +114,64 @@ export default function WorkoutStatsCard({
       styles.container, 
       { width: CARD_WIDTH, height: CARD_HEIGHT, opacity: fadeAnim }
     ]}>
-      {/* Outer Aura Glow */}
-      <Animated.View style={[styles.outerGlow, { opacity: glowOpacity }]} />
-      
-      {/* Inner Container with Gradient */}
-      <View style={styles.innerContainer}>
-        {/* Radial gradient background effect */}
+      {/* Top Gold Gradient Bar with Glow */}
+      <View style={styles.topBarContainer}>
         <LinearGradient
-          colors={['rgba(255, 190, 50, 0.08)', 'rgba(255, 170, 30, 0.02)', 'transparent']}
-          style={styles.radialGradient}
-          start={{ x: 0.5, y: 0 }}
-          end={{ x: 0.5, y: 0.6 }}
+          colors={['#FFD700', '#DAA520', '#B8860B']}
+          start={{ x: 0, y: 0 }}
+          end={{ x: 1, y: 0 }}
+          style={styles.topBar}
         />
+        <Animated.View style={[styles.topBarGlow, { opacity: topGlowOpacity }]} />
+      </View>
 
-        {/* Header Section */}
+      {/* Main Content */}
+      <View style={styles.content}>
+        {/* Header */}
         <View style={styles.header}>
-          {/* Breathing Pulse Indicator */}
-          <Animated.View style={[
-            styles.pulseIndicator,
-            { transform: [{ scale: pulseAnim }] }
-          ]}>
-            <View style={styles.pulseCore} />
-          </Animated.View>
-          
-          <View style={styles.headerText}>
-            <Text style={styles.moodCategory}>{displayMoodCategory} Complete</Text>
-            <Text style={styles.subtitle}>A M A Z I N G   W O R K</Text>
-          </View>
+          <Text style={styles.moodCategory}>{displayMoodCategory}</Text>
+          <Text style={styles.completeText}>Complete</Text>
         </View>
 
-        {/* Stats Section - Floating Orbs */}
-        <View style={styles.statsSection}>
-          <Animated.View style={[styles.statOrb, { transform: [{ scale: statScale1 }] }]}>
-            <View style={styles.statOrbInner}>
-              <Text style={styles.statValue}>{totalDuration}</Text>
-              <Text style={styles.statLabel}>minutes</Text>
-            </View>
-            <View style={styles.statGlow} />
+        {/* Stats Row */}
+        <View style={styles.statsRow}>
+          <Animated.View style={[styles.statItem, { transform: [{ scale: statScale1 }] }]}>
+            <Text style={styles.statValue}>{totalDuration}</Text>
+            <Text style={styles.statLabel}>minutes</Text>
           </Animated.View>
 
-          <Animated.View style={[styles.statOrb, styles.statOrbCenter, { transform: [{ scale: statScale2 }] }]}>
-            <View style={styles.statOrbInner}>
-              <Text style={[styles.statValue, styles.statValueLarge]}>{estimatedCalories}</Text>
-              <Text style={styles.statLabel}>calories</Text>
-            </View>
-            <View style={[styles.statGlow, styles.statGlowCenter]} />
+          <View style={styles.statDivider} />
+
+          <Animated.View style={[styles.statItem, { transform: [{ scale: statScale2 }] }]}>
+            <Text style={[styles.statValue, styles.statValueHighlight]}>{estimatedCalories}</Text>
+            <Text style={styles.statLabel}>calories</Text>
           </Animated.View>
 
-          <Animated.View style={[styles.statOrb, { transform: [{ scale: statScale3 }] }]}>
-            <View style={styles.statOrbInner}>
-              <Text style={styles.statValue}>{workouts.length}</Text>
-              <Text style={styles.statLabel}>exercises</Text>
-            </View>
-            <View style={styles.statGlow} />
+          <View style={styles.statDivider} />
+
+          <Animated.View style={[styles.statItem, { transform: [{ scale: statScale3 }] }]}>
+            <Text style={styles.statValue}>{workouts.length}</Text>
+            <Text style={styles.statLabel}>exercises</Text>
           </Animated.View>
         </View>
 
-        {/* Exercises List - Subtle */}
-        <View style={styles.exercisesSection}>
+        {/* Exercises List */}
+        <View style={styles.exercisesList}>
           {workouts.slice(0, 4).map((workout, index) => (
             <View key={index} style={styles.exerciseRow}>
               <View style={styles.exerciseDot} />
               <Text style={styles.exerciseName} numberOfLines={1}>
                 {workout.workoutTitle || workout.workoutName}
               </Text>
-              <Text style={styles.exerciseMeta}>
-                {workout.equipment}
-              </Text>
+              <Text style={styles.exerciseMeta}>{workout.equipment}</Text>
             </View>
           ))}
           {workouts.length > 4 && (
-            <Text style={styles.moreExercises}>
-              +{workouts.length - 4} more
-            </Text>
+            <Text style={styles.moreText}>+{workouts.length - 4} more</Text>
           )}
         </View>
 
-        {/* Footer - Minimal */}
+        {/* Footer */}
         <View style={styles.footer}>
           <Text style={styles.dateText}>{completedAt}</Text>
           <Text style={styles.brandText}>MOOD</Text>
@@ -221,188 +183,134 @@ export default function WorkoutStatsCard({
 
 const styles = StyleSheet.create({
   container: {
-    borderRadius: 24,
-    overflow: 'visible',
-    position: 'relative',
-  },
-  outerGlow: {
-    position: 'absolute',
-    top: -8,
-    left: -8,
-    right: -8,
-    bottom: -8,
-    borderRadius: 32,
-    backgroundColor: 'rgba(255, 185, 50, 0.08)',
-    shadowColor: '#FFB832',
-    shadowOffset: { width: 0, height: 0 },
-    shadowOpacity: 0.3,
-    shadowRadius: 30,
-  },
-  innerContainer: {
-    flex: 1,
     backgroundColor: '#0a0a0a',
-    borderRadius: 24,
+    borderRadius: 4,
     overflow: 'hidden',
+  },
+  topBarContainer: {
     position: 'relative',
   },
-  radialGradient: {
+  topBar: {
+    height: 3,
+    width: '100%',
+  },
+  topBarGlow: {
     position: 'absolute',
-    top: 0,
+    top: 3,
     left: 0,
     right: 0,
-    height: '60%',
+    height: 20,
+    backgroundColor: 'transparent',
+    shadowColor: '#FFD700',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.4,
+    shadowRadius: 12,
+  },
+  content: {
+    flex: 1,
+    paddingHorizontal: 20,
+    paddingTop: 20,
+    paddingBottom: 16,
   },
   header: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    paddingTop: 28,
-    paddingHorizontal: 24,
-    paddingBottom: 8,
-  },
-  pulseIndicator: {
-    width: 12,
-    height: 12,
-    borderRadius: 6,
-    backgroundColor: 'rgba(255, 185, 50, 0.3)',
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginRight: 12,
-  },
-  pulseCore: {
-    width: 6,
-    height: 6,
-    borderRadius: 3,
-    backgroundColor: '#FFB832',
-    shadowColor: '#FFB832',
-    shadowOffset: { width: 0, height: 0 },
-    shadowOpacity: 0.8,
-    shadowRadius: 4,
-  },
-  headerText: {
-    flex: 1,
+    marginBottom: 20,
   },
   moodCategory: {
-    fontSize: 20,
+    fontSize: 24,
     fontWeight: '600',
     color: '#FFFFFF',
     letterSpacing: 0.3,
   },
-  subtitle: {
-    fontSize: 10,
-    color: 'rgba(255, 255, 255, 0.4)',
-    letterSpacing: 3,
-    marginTop: 4,
-    fontWeight: '300',
-  },
-  statsSection: {
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'flex-end',
-    paddingHorizontal: 16,
-    paddingTop: 20,
-    paddingBottom: 16,
-    gap: 12,
-  },
-  statOrb: {
-    flex: 1,
-    alignItems: 'center',
-    position: 'relative',
-  },
-  statOrbCenter: {
-    flex: 1.2,
-  },
-  statOrbInner: {
-    alignItems: 'center',
-    paddingVertical: 16,
-    paddingHorizontal: 8,
-  },
-  statGlow: {
-    position: 'absolute',
-    bottom: 0,
-    left: '20%',
-    right: '20%',
-    height: 2,
-    backgroundColor: 'rgba(255, 185, 50, 0.4)',
-    borderRadius: 1,
-    shadowColor: '#FFB832',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.5,
-    shadowRadius: 8,
-  },
-  statGlowCenter: {
-    backgroundColor: 'rgba(255, 135, 50, 0.5)',
-    shadowColor: '#FF8732',
-  },
-  statValue: {
-    fontSize: 32,
-    fontWeight: '200',
-    color: '#FFFFFF',
-    letterSpacing: -1,
-  },
-  statValueLarge: {
-    fontSize: 36,
-    color: '#FFD070',
-  },
-  statLabel: {
-    fontSize: 10,
-    color: 'rgba(255, 255, 255, 0.4)',
-    textTransform: 'lowercase',
+  completeText: {
+    fontSize: 14,
+    color: '#FFD700',
+    fontWeight: '500',
     letterSpacing: 1,
     marginTop: 2,
   },
-  exercisesSection: {
+  statsRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingVertical: 16,
+    marginBottom: 16,
+  },
+  statItem: {
     flex: 1,
-    paddingHorizontal: 24,
-    paddingTop: 8,
+    alignItems: 'center',
+  },
+  statDivider: {
+    width: 1,
+    height: 36,
+    backgroundColor: 'rgba(255, 215, 0, 0.15)',
+  },
+  statValue: {
+    fontSize: 28,
+    fontWeight: '300',
+    color: '#FFFFFF',
+    letterSpacing: -0.5,
+  },
+  statValueHighlight: {
+    color: '#FFD700',
+  },
+  statLabel: {
+    fontSize: 11,
+    color: 'rgba(255, 255, 255, 0.5)',
+    textTransform: 'lowercase',
+    letterSpacing: 0.5,
+    marginTop: 4,
+  },
+  exercisesList: {
+    flex: 1,
   },
   exerciseRow: {
     flexDirection: 'row',
     alignItems: 'center',
     paddingVertical: 8,
-    borderBottomWidth: 1,
-    borderBottomColor: 'rgba(255, 255, 255, 0.03)',
   },
   exerciseDot: {
     width: 4,
     height: 4,
     borderRadius: 2,
-    backgroundColor: 'rgba(255, 185, 50, 0.5)',
+    backgroundColor: '#FFD700',
     marginRight: 12,
+    opacity: 0.6,
   },
   exerciseName: {
     flex: 1,
-    fontSize: 13,
-    color: 'rgba(255, 255, 255, 0.6)',
+    fontSize: 14,
+    color: 'rgba(255, 255, 255, 0.7)',
     fontWeight: '400',
   },
   exerciseMeta: {
-    fontSize: 11,
-    color: 'rgba(255, 255, 255, 0.25)',
+    fontSize: 12,
+    color: 'rgba(255, 255, 255, 0.35)',
     fontWeight: '300',
   },
-  moreExercises: {
-    fontSize: 11,
-    color: 'rgba(255, 255, 255, 0.3)',
-    textAlign: 'center',
-    marginTop: 8,
+  moreText: {
+    fontSize: 12,
+    color: 'rgba(255, 255, 255, 0.4)',
+    marginTop: 4,
     fontStyle: 'italic',
   },
   footer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    paddingHorizontal: 24,
-    paddingVertical: 16,
+    paddingTop: 12,
+    borderTopWidth: 1,
+    borderTopColor: 'rgba(255, 255, 255, 0.05)',
   },
   dateText: {
-    fontSize: 10,
-    color: 'rgba(255, 255, 255, 0.3)',
-    letterSpacing: 0.5,
+    fontSize: 11,
+    color: 'rgba(255, 255, 255, 0.4)',
+    letterSpacing: 0.3,
   },
   brandText: {
-    fontSize: 11,
-    color: 'rgba(255, 185, 50, 0.4)',
+    fontSize: 12,
+    color: '#FFD700',
     fontWeight: '600',
     letterSpacing: 2,
+    opacity: 0.6,
   },
 });
