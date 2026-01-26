@@ -3554,6 +3554,13 @@ const styles = StyleSheet.create({
     width: '100%',
     height: '100%',
   },
+  imageGradient: {
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    bottom: 0,
+    height: '50%',
+  },
   imageOverlay: {
     position: 'absolute',
     top: 0,
