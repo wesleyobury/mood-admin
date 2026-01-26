@@ -315,12 +315,58 @@ export default function CartScreen() {
       mood = extractMoodCardName(mood) || extractMoodCardName(firstItem.workoutType || '') || 'Custom';
     }
     
-    // Try to extract sub-path from workoutType if it contains " - "
+    // Determine sub-path based on mood card type
     let subPath = 'Workout';
-    if (firstItem.workoutType && firstItem.workoutType.includes(' - ')) {
-      subPath = firstItem.workoutType.split(' - ')[1] || 'Workout';
+    const moodLower = mood.toLowerCase();
+    const workoutType = firstItem.workoutType || '';
+    const workoutTypeLower = workoutType.toLowerCase();
+    
+    // Calisthenics & Outdoor always show "Workout"
+    if (moodLower.includes('calisthenics') || moodLower.includes('outdoor') || moodLower.includes('get outside')) {
+      subPath = 'Workout';
+    }
+    // Sweat / Burn Fat - show "Cardio Based" or "Light Weights"
+    else if (moodLower.includes('sweat') || moodLower.includes('burn fat')) {
+      if (workoutTypeLower.includes('cardio')) {
+        subPath = 'Cardio Based';
+      } else if (workoutTypeLower.includes('light weight')) {
+        subPath = 'Light Weights';
+      } else if (workoutType.includes(' - ')) {
+        subPath = workoutType.split(' - ')[1] || 'Workout';
+      }
+    }
+    // Muscle Gainer - show selected muscle group
+    else if (moodLower.includes('muscle')) {
+      if (workoutType.includes(' - ')) {
+        subPath = workoutType.split(' - ')[1] || 'Workout';
+      } else if (firstItem.equipment) {
+        subPath = firstItem.equipment;
+      }
+    }
+    // Build Explosion - show "Bodyweight" or "Weight Based"
+    else if (moodLower.includes('explosion') || moodLower.includes('explosive')) {
+      if (workoutTypeLower.includes('bodyweight') || workoutTypeLower.includes('body weight')) {
+        subPath = 'Bodyweight';
+      } else if (workoutTypeLower.includes('weight')) {
+        subPath = 'Weight Based';
+      } else if (workoutType.includes(' - ')) {
+        subPath = workoutType.split(' - ')[1] || 'Workout';
+      }
+    }
+    // I'm Feeling Lazy - show "Move Your Body" or "Lift Weights"
+    else if (moodLower.includes('lazy')) {
+      if (workoutTypeLower.includes('move') || workoutTypeLower.includes('bodyweight')) {
+        subPath = 'Move Your Body';
+      } else if (workoutTypeLower.includes('lift') || workoutTypeLower.includes('weight')) {
+        subPath = 'Lift Weights';
+      } else if (workoutType.includes(' - ')) {
+        subPath = workoutType.split(' - ')[1] || 'Workout';
+      }
+    }
+    // Default: try to extract from workoutType
+    else if (workoutType.includes(' - ')) {
+      subPath = workoutType.split(' - ')[1] || 'Workout';
     } else if (firstItem.equipment) {
-      // Use equipment as fallback for sub-path
       subPath = firstItem.equipment;
     }
     
