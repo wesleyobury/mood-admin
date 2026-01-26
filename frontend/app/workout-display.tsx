@@ -2984,11 +2984,10 @@ const WorkoutCard = ({ equipment, icon, workouts, difficulty, difficultyColor, w
           style={styles.workoutImage}
           resizeMode="cover"
         />
-        <View style={styles.imageOverlay} />
-        <View style={styles.swipeIndicator}>
-          <Ionicons name="swap-horizontal" size={20} color="#FFD700" />
-          <Text style={styles.swipeText}>Swipe for more</Text>
-        </View>
+        <LinearGradient
+          colors={['transparent', 'rgba(0,0,0,0.8)']}
+          style={styles.imageGradient}
+        />
       </View>
 
       {/* Workout Content */}
