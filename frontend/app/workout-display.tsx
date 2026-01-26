@@ -3022,9 +3022,12 @@ const WorkoutCard = ({ equipment, icon, workouts, difficulty, difficultyColor, w
             <Ionicons 
               name={(isInCart(createWorkoutId(item, equipment, difficulty)) || addedItems.has(createWorkoutId(item, equipment, difficulty))) ? "checkmark" : "add"} 
               size={18} 
-              color="#fff" 
+              color={(isInCart(createWorkoutId(item, equipment, difficulty)) || addedItems.has(createWorkoutId(item, equipment, difficulty))) ? "#4CAF50" : "#FFD700"} 
             />
-            <Text style={styles.addWorkoutButtonText}>
+            <Text style={[
+              styles.addWorkoutButtonText,
+              (isInCart(createWorkoutId(item, equipment, difficulty)) || addedItems.has(createWorkoutId(item, equipment, difficulty))) && styles.addWorkoutButtonTextAdded
+            ]}>
               {(isInCart(createWorkoutId(item, equipment, difficulty)) || addedItems.has(createWorkoutId(item, equipment, difficulty))) ? "Added" : "Add workout"}
             </Text>
           </TouchableOpacity>
