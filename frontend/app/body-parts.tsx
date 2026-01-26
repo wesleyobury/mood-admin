@@ -74,17 +74,38 @@ const bodyParts: BodyPart[] = [
   }
 ];
 
+// Selection type to track both body part and sub-option
+interface Selection {
+  bodyPart: string;
+  subOption?: string;
+}
+
 export default function BodyPartsScreen() {
   const router = useRouter();
   const insets = useSafeAreaInsets();
   const params = useLocalSearchParams();
-  const [selectedBodyPart, setSelectedBodyPart] = useState<string>('');
-  const [selectedSubOption, setSelectedSubOption] = useState<string>('');
+  const [selectedBodyParts, setSelectedBodyParts] = useState<Selection[]>([]);
   const [expandedBodyPart, setExpandedBodyPart] = useState<string>('');
   const scaleAnim = useRef(new Animated.Value(1)).current;
   const expandAnim = useRef(new Animated.Value(0)).current;
 
   const { mood } = params;
+
+  // Check if a body part is selected
+  const isBodyPartSelected = (bodyPartName: string) => {
+    return selectedBodyParts.some(s => s.bodyPart === bodyPartName);
+  };
+
+  // Check if a sub-option is selected
+  const isSubOptionSelected = (bodyPartName: string, subOptionName: string) => {
+    return selectedBodyParts.some(s => s.bodyPart === bodyPartName && s.subOption === subOptionName);
+  };
+
+  // Get sub-option for a body part if selected
+  const getSelectedSubOption = (bodyPartName: string) => {
+    const selection = selectedBodyParts.find(s => s.bodyPart === bodyPartName);
+    return selection?.subOption;
+  };
 
   const handleBodyPartSelect = (bodyPartName: string) => {
     // Animate button press
@@ -106,8 +127,6 @@ export default function BodyPartsScreen() {
       if (expandedBodyPart === 'Arms') {
         // Collapse Arms if already expanded
         setExpandedBodyPart('');
-        setSelectedBodyPart('');
-        setSelectedSubOption('');
         Animated.timing(expandAnim, {
           toValue: 0,
           duration: 300,
@@ -116,8 +135,6 @@ export default function BodyPartsScreen() {
       } else {
         // Expand Arms to show Biceps and Triceps
         setExpandedBodyPart('Arms');
-        setSelectedBodyPart('');
-        setSelectedSubOption('');
         Animated.timing(expandAnim, {
           toValue: 1,
           duration: 300,
@@ -125,109 +142,110 @@ export default function BodyPartsScreen() {
         }).start();
       }
     } else {
-      // Handle regular body parts
-      if (selectedBodyPart === bodyPartName) {
-        setSelectedBodyPart(''); // Deselect if already selected
+      // Handle regular body parts - toggle selection
+      if (isBodyPartSelected(bodyPartName)) {
+        // Deselect
+        setSelectedBodyParts(prev => prev.filter(s => s.bodyPart !== bodyPartName));
       } else {
-        setSelectedBodyPart(bodyPartName); // Select new body part
-        setExpandedBodyPart(''); // Collapse Arms if another body part is selected
-        setSelectedSubOption('');
-        Animated.timing(expandAnim, {
-          toValue: 0,
-          duration: 300,
-          useNativeDriver: false,
-        }).start();
+        // Add to selection
+        setSelectedBodyParts(prev => [...prev, { bodyPart: bodyPartName }]);
       }
     }
   };
 
   const handleSubOptionSelect = (subOptionName: string) => {
-    if (selectedSubOption === subOptionName) {
-      setSelectedSubOption(''); // Deselect if already selected
+    const fullName = subOptionName === "Bi's" ? 'Biceps' : 'Triceps';
+    
+    if (isSubOptionSelected('Arms', subOptionName)) {
+      // Deselect this sub-option
+      setSelectedBodyParts(prev => prev.filter(s => !(s.bodyPart === 'Arms' && s.subOption === subOptionName)));
     } else {
-      setSelectedSubOption(subOptionName); // Select sub-option
-      setSelectedBodyPart('Arms'); // Set Arms as the main selection
+      // Add this sub-option (allow multiple arm selections)
+      setSelectedBodyParts(prev => [...prev, { bodyPart: 'Arms', subOption: subOptionName }]);
     }
   };
 
   const handleContinue = () => {
-    if (selectedBodyPart) {
-      console.log('Selected body part:', selectedBodyPart);
-      console.log('Selected sub-option:', selectedSubOption);
+    if (selectedBodyParts.length > 0) {
+      console.log('Selected body parts:', selectedBodyParts);
       
-      if (selectedBodyPart === 'Chest') {
-        // Navigate to chest equipment screen
-        router.push({
-          pathname: '/chest-equipment',
-          params: {
-            mood: mood,
-            bodyPart: selectedBodyPart,
-          }
-        });
-      } else if (selectedBodyPart === 'Shoulders') {
-        // Navigate to shoulders equipment screen
-        router.push({
-          pathname: '/shoulders-equipment',
-          params: {
-            mood: mood,
-            bodyPart: selectedBodyPart,
-          }
-        });
-      } else if (selectedBodyPart === 'Back') {
-        // Navigate to back equipment screen
-        router.push({
-          pathname: '/back-equipment',
-          params: {
-            mood: mood,
-            bodyPart: selectedBodyPart,
-          }
-        });
-      } else if (selectedBodyPart === 'Arms' && selectedSubOption) {
-        // Navigate to arms equipment screen with sub-option
-        if (selectedSubOption === "Bi's") {
-          router.push({
-            pathname: '/biceps-equipment',
-            params: {
-              mood: mood,
-              bodyPart: 'Biceps',
-            }
-          });
-        } else if (selectedSubOption === "Tri's") {
-          router.push({
-            pathname: '/triceps-equipment',
-            params: {
-              mood: mood,
-              bodyPart: 'Triceps',
-            }
-          });
+      // Convert selections to a queue format for navigation
+      const muscleQueue = selectedBodyParts.map(selection => {
+        if (selection.bodyPart === 'Arms' && selection.subOption) {
+          return {
+            name: selection.subOption === "Bi's" ? 'Biceps' : 'Triceps',
+            displayName: selection.subOption === "Bi's" ? 'Biceps' : 'Triceps',
+            equipment: selection.subOption === "Bi's" ? 'biceps-equipment' : 'triceps-equipment'
+          };
         }
-      } else if (selectedBodyPart === 'Legs') {
-        // Navigate to legs muscle groups screen
-        router.push({
-          pathname: '/legs-muscle-groups',
-          params: {
-            mood: mood,
-            bodyPart: selectedBodyPart,
-          }
-        });
-      } else if (selectedBodyPart === 'Abs') {
-        // Navigate to abs equipment screen
-        router.push({
-          pathname: '/abs-equipment',
-          params: {
-            mood: mood,
-            bodyPart: selectedBodyPart,
-          }
-        });
-      } else {
-        // TODO: Navigate to other body part screens when implemented
-        console.log(`Navigation for ${selectedBodyPart} will be implemented later`);
+        return {
+          name: selection.bodyPart,
+          displayName: selection.bodyPart,
+          equipment: `${selection.bodyPart.toLowerCase()}-equipment`
+        };
+      });
+
+      // Navigate to first muscle group's equipment screen with the full queue
+      const firstMuscle = muscleQueue[0];
+      const remainingQueue = muscleQueue.slice(1);
+      
+      let pathname = '';
+      switch (firstMuscle.name) {
+        case 'Chest':
+          pathname = '/chest-equipment';
+          break;
+        case 'Shoulders':
+          pathname = '/shoulders-equipment';
+          break;
+        case 'Back':
+          pathname = '/back-equipment';
+          break;
+        case 'Biceps':
+          pathname = '/biceps-equipment';
+          break;
+        case 'Triceps':
+          pathname = '/triceps-equipment';
+          break;
+        case 'Legs':
+          pathname = '/legs-muscle-groups';
+          break;
+        case 'Abs':
+          pathname = '/abs-equipment';
+          break;
+        default:
+          console.log(`Navigation for ${firstMuscle.name} not implemented`);
+          return;
       }
+
+      router.push({
+        pathname: pathname as any,
+        params: {
+          mood: mood,
+          bodyPart: firstMuscle.name,
+          muscleQueue: JSON.stringify(remainingQueue),
+          currentMuscleIndex: '0',
+          totalMuscles: muscleQueue.length.toString(),
+        }
+      });
     }
   };
 
   const handleBack = () => {
     router.back();
+  };
+
+  // Get selection count display text
+  const getSelectionText = () => {
+    if (selectedBodyParts.length === 0) return '';
+    
+    const names = selectedBodyParts.map(s => {
+      if (s.subOption) {
+        return s.subOption === "Bi's" ? 'Biceps' : 'Triceps';
+      }
+      return s.bodyPart;
+    });
+    
+    return names.join(', ');
   };
 
   return (
@@ -237,7 +255,7 @@ export default function BodyPartsScreen() {
         <TouchableOpacity onPress={handleBack} style={styles.backButton}>
           <Ionicons name="chevron-back" size={24} color="#FFD700" />
         </TouchableOpacity>
-        <Text style={styles.headerTitle}>Select Body Parts</Text>
+        <Text style={styles.headerTitle}>Select Muscle Groups</Text>
         <HomeButton />
       </View>
 
@@ -260,16 +278,16 @@ export default function BodyPartsScreen() {
           <View style={styles.progressStep}>
             <View style={[
               styles.progressStepCircle,
-              selectedBodyPart && styles.progressStepActive
+              selectedBodyParts.length > 0 && styles.progressStepActive
             ]}>
-              {selectedBodyPart ? (
-                <Ionicons name="checkmark" size={14} color="#000000" />
+              {selectedBodyParts.length > 0 ? (
+                <Text style={styles.progressStepNumberActive}>{selectedBodyParts.length}</Text>
               ) : (
                 <Text style={styles.progressStepNumber}>2</Text>
               )}
             </View>
             <Text style={styles.progressStepText}>
-              {selectedBodyPart ? selectedBodyPart : 'Muscle Group'}
+              {selectedBodyParts.length > 0 ? `${selectedBodyParts.length} Selected` : 'Muscle Groups'}
             </Text>
           </View>
         </ScrollView>
@@ -278,12 +296,13 @@ export default function BodyPartsScreen() {
       {/* Body Parts Grid */}
       <ScrollView style={styles.content} showsVerticalScrollIndicator={false}>
         <Text style={styles.subtitle}>
-          Select one muscle group to focus on. Return to this screen to work another muscle group.
+          Select one or more muscle groups to work on.{'\n'}
+          <Text style={styles.subtitleHighlight}>Tap multiple to build your workout!</Text>
         </Text>
         
         <View style={styles.bodyPartsGrid}>
           {bodyParts.map((bodyPart) => {
-            const isSelected = selectedBodyPart === bodyPart.name;
+            const isSelected = isBodyPartSelected(bodyPart.name);
             const isExpanded = expandedBodyPart === bodyPart.name;
             
             return (
@@ -326,7 +345,7 @@ export default function BodyPartsScreen() {
                     </Text>
                     {isSelected && !isExpanded && (
                       <View style={styles.checkmark}>
-                        <Ionicons name="checkmark-circle" size={20} color="#000" />
+                        <Ionicons name="checkmark-circle" size={24} color="#FFD700" />
                       </View>
                     )}
                     {bodyPart.name === 'Arms' && (
@@ -352,7 +371,7 @@ export default function BodyPartsScreen() {
                     {/* Centered Sub-options within the same card */}
                     <View style={styles.centeredSubOptions}>
                       {bodyPart.subOptions?.map((subOption) => {
-                        const isSubSelected = selectedSubOption === subOption.name;
+                        const isSubSelected = isSubOptionSelected('Arms', subOption.name);
                         return (
                           <TouchableOpacity
                             key={subOption.name}
@@ -382,7 +401,7 @@ export default function BodyPartsScreen() {
                             </View>
                             {isSubSelected && (
                               <View style={styles.centeredCheckmark}>
-                                <Ionicons name="checkmark-circle" size={16} color="#FFD700" />
+                                <Ionicons name="checkmark-circle" size={20} color="#FFD700" />
                               </View>
                             )}
                           </TouchableOpacity>
@@ -404,23 +423,26 @@ export default function BodyPartsScreen() {
           })}
         </View>
 
-        {selectedBodyPart && (
+        {selectedBodyParts.length > 0 && (
           <View style={styles.selectionSummary}>
+            <Text style={styles.selectionLabel}>Your workout will include:</Text>
             <Text style={styles.selectionText}>
-              Selected: {selectedBodyPart}{selectedSubOption ? ` > ${selectedSubOption}` : ''}
+              {getSelectionText()}
             </Text>
           </View>
         )}
       </ScrollView>
 
       {/* Continue Button */}
-      {(selectedBodyPart && (selectedBodyPart !== 'Arms' || selectedSubOption)) && (
+      {selectedBodyParts.length > 0 && (
         <View style={styles.bottomContainer}>
           <TouchableOpacity 
             style={styles.continueButton}
             onPress={handleContinue}
           >
-            <Text style={styles.continueButtonText}>Continue</Text>
+            <Text style={styles.continueButtonText}>
+              Continue with {selectedBodyParts.length} muscle group{selectedBodyParts.length > 1 ? 's' : ''}
+            </Text>
             <Ionicons name="arrow-forward" size={20} color="#000" style={styles.buttonIcon} />
           </TouchableOpacity>
         </View>
@@ -500,6 +522,8 @@ const styles = StyleSheet.create({
     color: 'rgba(255, 255, 255, 0.6)',
   },
   progressStepNumberActive: {
+    fontSize: 14,
+    fontWeight: 'bold',
     color: '#000000',
   },
   progressStepText: {
@@ -525,7 +549,11 @@ const styles = StyleSheet.create({
     color: '#ccc',
     marginBottom: 24,
     textAlign: 'center',
-    lineHeight: 22,
+    lineHeight: 24,
+  },
+  subtitleHighlight: {
+    color: '#FFD700',
+    fontWeight: '600',
   },
   bodyPartsGrid: {
     flexDirection: 'row',
@@ -535,7 +563,7 @@ const styles = StyleSheet.create({
   },
   bodyPartCard: {
     width: (width - 60) / 2,
-    height: 160, // Fixed height for consistent layout
+    height: 160,
     backgroundColor: '#1a1a1a',
     borderRadius: 16,
     borderWidth: 2,
@@ -630,7 +658,7 @@ const styles = StyleSheet.create({
   buttonContent: {
     flex: 1,
     marginLeft: 4,
-    marginRight: 24, // Space for checkmark
+    marginRight: 24,
   },
   cornerBackButton: {
     position: 'absolute',
@@ -692,12 +720,20 @@ const styles = StyleSheet.create({
     padding: 16,
     marginTop: 20,
     marginBottom: 20,
+    borderWidth: 1,
+    borderColor: 'rgba(255, 215, 0, 0.3)',
+  },
+  selectionLabel: {
+    fontSize: 12,
+    color: '#888',
+    textAlign: 'center',
+    marginBottom: 4,
   },
   selectionText: {
-    fontSize: 14,
+    fontSize: 16,
     color: '#FFD700',
     textAlign: 'center',
-    fontWeight: '500',
+    fontWeight: '600',
   },
   bottomContainer: {
     paddingHorizontal: 20,
