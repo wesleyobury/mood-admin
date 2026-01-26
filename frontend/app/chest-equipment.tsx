@@ -203,7 +203,11 @@ export default function ChestEquipmentScreen() {
           mood: moodTitle,
           workoutType: workoutType,
           equipment: encodeURIComponent(equipmentNamesString),
-          difficulty: selectedDifficulty.id
+          difficulty: selectedDifficulty.id,
+          // Pass muscle queue for multi-muscle workflows
+          muscleQueue: JSON.stringify(muscleQueue),
+          currentMuscleIndex: currentMuscleIndex.toString(),
+          totalMuscles: totalMuscles.toString(),
         }
       });
     }
