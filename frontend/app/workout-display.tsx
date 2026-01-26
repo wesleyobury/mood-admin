@@ -3659,13 +3659,16 @@ const styles = StyleSheet.create({
     marginTop: 4,
   },
   addWorkoutButtonAdded: {
-    backgroundColor: '#1a3a1a',
-    borderColor: '#4CAF50',
+    backgroundColor: '#1a1a1a',
+    borderColor: '#333',
   },
   addWorkoutButtonText: {
     fontSize: 14,
     fontWeight: '600',
-    color: '#fff',
+    color: '#FFD700',
+  },
+  addWorkoutButtonTextAdded: {
+    color: '#4CAF50',
   },
   previewButton: {
     backgroundColor: '#1a1a1a',
@@ -3680,7 +3683,7 @@ const styles = StyleSheet.create({
     borderColor: '#333',
   },
   previewButtonText: {
-    color: '#fff',
+    color: '#FFD700',
     fontSize: 12,
     fontWeight: '600',
   },
