@@ -799,7 +799,7 @@ const styles = StyleSheet.create({
     height: 32,
     alignItems: 'center',
     justifyContent: 'center',
-    paddingBottom: 5,
+    paddingBottom: 10,
     backgroundColor: 'transparent',
   },
   dotsLabel: {
