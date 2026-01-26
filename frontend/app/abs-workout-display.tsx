@@ -1810,4 +1810,28 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     color: '#FFD700',
   },
+  // Bottom navigation button styles
+  bottomButtonContainer: {
+    paddingHorizontal: 20,
+    paddingVertical: 16,
+    paddingBottom: 24,
+    backgroundColor: '#000000',
+    borderTopWidth: 1,
+    borderTopColor: 'rgba(255, 215, 0, 0.2)',
+  },
+  nextMuscleButton: {
+    backgroundColor: '#FFD700',
+    borderRadius: 12,
+    paddingVertical: 16,
+    paddingHorizontal: 24,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: 8,
+  },
+  nextMuscleButtonText: {
+    fontSize: 16,
+    fontWeight: '600',
+    color: '#000000',
+  },
 });
