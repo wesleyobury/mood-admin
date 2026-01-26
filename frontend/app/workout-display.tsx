@@ -3697,7 +3697,7 @@ const styles = StyleSheet.create({
     height: 32,
     alignItems: 'center',
     justifyContent: 'center',
-    paddingBottom: 15,
+    paddingBottom: 20,
     backgroundColor: 'transparent',
   },
   dotsLabel: {
