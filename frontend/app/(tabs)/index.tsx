@@ -39,7 +39,7 @@ const CARD_WIDTH = SCREEN_WIDTH - (CAROUSEL_PADDING * 2);
 const featuredWorkouts = [
   {
     id: '1',
-    mood: 'I Want to Sweat',
+    mood: 'Sweat / Burn Fat',
     title: 'Cardio Based',
     duration: '25–35 min',
     badge: 'Top pick',
@@ -68,7 +68,7 @@ const featuredWorkouts = [
   },
   {
     id: '6',
-    mood: 'I Want to Sweat',
+    mood: 'Sweat / Burn Fat',
     title: 'HIIT - Intense Full Body',
     duration: '45–55 min',
     badge: 'Intense',
@@ -344,7 +344,7 @@ const AnimatedMoodCard = ({ mood, index, onPress }: {
 const moodCards: MoodCard[] = [
   {
     id: 'sweat',
-    title: 'I want to sweat',
+    title: 'Sweat / burn fat',
     subtitle: 'High intensity cardio',
     icon: 'flame',
     gradient: ['#FF6B6B', '#FF8E53'],

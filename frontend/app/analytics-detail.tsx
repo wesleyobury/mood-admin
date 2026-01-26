@@ -37,7 +37,7 @@ const getDisplayScreenName = (screenName: string): string => {
 
 // Mood name mapping for user-friendly display
 const moodNameMap: { [key: string]: string } = {
-  'sweat': 'I Want to Sweat',
+  'sweat': 'Sweat / Burn Fat',
   'muscle': 'Muscle Gainer',
   'outdoor': 'Get Outside',
   'calisthenics': 'Calisthenics',

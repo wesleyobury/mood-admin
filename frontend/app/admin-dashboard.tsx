@@ -37,7 +37,7 @@ const TIME_PERIODS = [
 
 // Mood colors - EXACT match from home screen mood cards gradients (first color)
 const MOOD_COLORS: Record<string, string> = {
-  'sweat': '#FF6B6B',      // I want to sweat - flame gradient
+  'sweat': '#FF6B6B',      // Sweat / burn fat - flame gradient
   'muscle': '#4ECDC4',     // Muscle gainer - teal gradient  
   'explosive': '#FFD93D',  // Build explosion - yellow gradient
   'lazy': '#D299C2',       // Feeling lazy - purple/pink gradient
@@ -47,7 +47,7 @@ const MOOD_COLORS: Record<string, string> = {
 
 // Mood icons - EXACT match from home screen mood cards
 const MOOD_ICONS: Record<string, string> = {
-  'sweat': 'flame',        // I want to sweat
+  'sweat': 'flame',        // Sweat / burn fat
   'muscle': 'barbell',     // Muscle gainer
   'explosive': 'flash',    // Build explosion
   'lazy': 'bed',           // Feeling lazy
@@ -57,7 +57,7 @@ const MOOD_ICONS: Record<string, string> = {
 
 // Display names for moods
 const MOOD_DISPLAY_NAMES: Record<string, string> = {
-  'sweat': 'I want to sweat',
+  'sweat': 'Sweat / burn fat',
   'muscle': 'Muscle gainer',
   'explosive': 'Build explosion',
   'lazy': "I'm feeling lazy",
