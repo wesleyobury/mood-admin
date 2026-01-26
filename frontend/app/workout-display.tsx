@@ -3693,8 +3693,8 @@ const styles = StyleSheet.create({
   },
   dotsContainer: {
     alignItems: 'center',
-    paddingVertical: 10,
-    marginTop: -6,
+    height: 44,
+    paddingVertical: 8,
     backgroundColor: 'transparent',
   },
   dotsLabel: {
