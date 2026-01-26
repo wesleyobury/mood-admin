@@ -3672,10 +3672,10 @@ const styles = StyleSheet.create({
   addWorkoutButtonText: {
     fontSize: 14,
     fontWeight: '600',
-    color: '#FFD700',
+    color: '#ffffff',
   },
   addWorkoutButtonTextAdded: {
-    color: '#4CAF50',
+    color: '#ffffff',
   },
   previewButton: {
     backgroundColor: '#1a1a1a',
@@ -3690,7 +3690,7 @@ const styles = StyleSheet.create({
     borderColor: '#333',
   },
   previewButtonText: {
-    color: '#FFD700',
+    color: '#ffffff',
     fontSize: 12,
     fontWeight: '600',
   },
