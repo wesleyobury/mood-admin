@@ -3694,10 +3694,10 @@ const styles = StyleSheet.create({
     fontWeight: '600',
   },
   dotsContainer: {
-    height: 32,
+    height: 50,
     alignItems: 'center',
-    justifyContent: 'center',
-    paddingBottom: 23,
+    justifyContent: 'flex-start',
+    paddingTop: 4,
     backgroundColor: 'transparent',
   },
   dotsLabel: {
