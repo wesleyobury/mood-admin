@@ -1184,6 +1184,12 @@ export default function AbsWorkoutDisplayScreen() {
   const equipmentParam = params.equipment as string || '';
   const difficulty = params.difficulty as string || 'beginner';
   
+  // Multi-muscle group queue support
+  const muscleQueue = params.muscleQueue ? JSON.parse(params.muscleQueue as string) : [];
+  const currentMuscleIndex = parseInt(params.currentMuscleIndex as string || '0');
+  const totalMuscles = parseInt(params.totalMuscles as string || '1');
+  const hasMoreMuscles = muscleQueue.length > 0;
+  
   // Cart hooks (removed addedItems to prevent button flashing)
   const { addToCart, isInCart } = useCart();
   const { token } = useAuth();
