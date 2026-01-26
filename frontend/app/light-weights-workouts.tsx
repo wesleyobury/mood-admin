@@ -777,7 +777,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingVertical: 10,
     marginTop: -6,
-    backgroundColor: 'rgba(255, 215, 0, 0.05)',
+    backgroundColor: 'transparent',
   },
   dotsLabel: {
     fontSize: 11,
