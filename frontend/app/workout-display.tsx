@@ -3642,7 +3642,9 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   workoutDescriptionContainer: {
-    marginBottom: 12,
+    height: 40,
+    marginBottom: 8,
+    overflow: 'hidden',
   },
   workoutDescription: {
     fontSize: 14,
@@ -3650,9 +3652,9 @@ const styles = StyleSheet.create({
     lineHeight: 20,
   },
   addWorkoutButton: {
+    height: 40,
     backgroundColor: '#1a1a1a',
     borderRadius: 8,
-    paddingVertical: 10,
     paddingHorizontal: 16,
     flexDirection: 'row',
     alignItems: 'center',
@@ -3660,7 +3662,7 @@ const styles = StyleSheet.create({
     gap: 6,
     borderWidth: 1,
     borderColor: '#333',
-    marginBottom: 12,
+    marginBottom: 8,
   },
   addWorkoutButtonAdded: {
     backgroundColor: '#1a1a1a',
@@ -3692,9 +3694,9 @@ const styles = StyleSheet.create({
     fontWeight: '600',
   },
   dotsContainer: {
+    height: 32,
     alignItems: 'center',
-    height: 44,
-    paddingVertical: 8,
+    justifyContent: 'center',
     backgroundColor: 'transparent',
   },
   dotsLabel: {
