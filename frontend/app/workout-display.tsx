@@ -3643,7 +3643,7 @@ const styles = StyleSheet.create({
   },
   workoutDescriptionContainer: {
     height: 40,
-    marginBottom: 8,
+    marginBottom: 12,
     overflow: 'hidden',
   },
   workoutDescription: {
@@ -3662,7 +3662,6 @@ const styles = StyleSheet.create({
     gap: 6,
     borderWidth: 1,
     borderColor: '#333',
-    marginBottom: 8,
   },
   addWorkoutButtonAdded: {
     backgroundColor: '#1a1a1a',
@@ -3694,7 +3693,8 @@ const styles = StyleSheet.create({
     fontWeight: '600',
   },
   dotsContainer: {
-    height: 50,
+    height: 40,
+    marginTop: 12,
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: 'transparent',
