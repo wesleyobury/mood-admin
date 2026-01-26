@@ -171,7 +171,8 @@ export default function WorkoutStatsCard({
     
     // Known mood card titles - check if category matches or contains these
     const moodCardTitles: { [key: string]: string } = {
-      "i want to sweat": "I Want to Sweat",
+      "i want to sweat": "Sweat / Burn Fat",
+      "sweat / burn fat": "Sweat / Burn Fat",
       "i'm feeling lazy": "I'm Feeling Lazy",
       "muscle gainer": "Muscle Gainer",
       "outdoor": "Outdoor",

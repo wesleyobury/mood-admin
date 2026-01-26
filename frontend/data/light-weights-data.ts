@@ -24,7 +24,7 @@ interface EquipmentWorkouts {
   };
 }
 
-// Light weights workout database for "I want to sweat > Light weights" path
+// Light weights workout database for "Sweat / burn fat > Light weights" path
 export const lightWeightsDatabase: EquipmentWorkouts[] = [
   {
     equipment: 'Dumbbells',

@@ -1726,7 +1726,7 @@ export default function BodyweightExplosivenessWorkoutsScreen() {
     return [steps];
   };
 
-  // Workout Card Component matching I want to sweat format
+  // Workout Card Component matching Sweat / burn fat format
 
   return (
     <SafeAreaView style={[styles.container, { paddingTop: insets.top }]}>
