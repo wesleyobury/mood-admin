@@ -1313,6 +1313,12 @@ export default function TricepsWorkoutDisplayScreen() {
   const moodTitle = params.mood as string || 'Muscle gainer';
   const workoutType = 'Triceps';
   
+  // Multi-muscle group queue support
+  const muscleQueue = params.muscleQueue ? JSON.parse(params.muscleQueue as string) : [];
+  const currentMuscleIndex = parseInt(params.currentMuscleIndex as string || '0');
+  const totalMuscles = parseInt(params.totalMuscles as string || '1');
+  const hasMoreMuscles = muscleQueue.length > 0;
+  
   console.log('Parsed parameters:', { selectedEquipmentNames, difficulty, moodTitle, workoutType });
 
   // Cart and animation hooks
@@ -1458,6 +1464,54 @@ export default function TricepsWorkoutDisplayScreen() {
     router.back();
   };
 
+  // Navigate to next muscle group or view cart
+  const handleNextMuscleGroup = () => {
+    if (hasMoreMuscles) {
+      const nextMuscle = muscleQueue[0];
+      const remainingQueue = muscleQueue.slice(1);
+      
+      let pathname = '';
+      switch (nextMuscle.name) {
+        case 'Chest':
+          pathname = '/chest-equipment';
+          break;
+        case 'Shoulders':
+          pathname = '/shoulders-equipment';
+          break;
+        case 'Back':
+          pathname = '/back-equipment';
+          break;
+        case 'Biceps':
+          pathname = '/biceps-equipment';
+          break;
+        case 'Triceps':
+          pathname = '/triceps-equipment';
+          break;
+        case 'Legs':
+          pathname = '/legs-muscle-groups';
+          break;
+        case 'Abs':
+          pathname = '/abs-equipment';
+          break;
+        default:
+          pathname = '/cart';
+      }
+
+      router.push({
+        pathname: pathname as any,
+        params: {
+          mood: moodTitle,
+          bodyPart: nextMuscle.name,
+          muscleQueue: JSON.stringify(remainingQueue),
+          currentMuscleIndex: (currentMuscleIndex + 1).toString(),
+          totalMuscles: totalMuscles.toString(),
+        }
+      });
+    } else {
+      router.push('/cart');
+    }
+  };
+
   // Create progress bar - single row with requested order
   const createProgressRows = () => {
     const steps = [
@@ -1561,6 +1615,28 @@ export default function TricepsWorkoutDisplayScreen() {
           </View>
         )}
       </ScrollView>
+
+      {/* Bottom Navigation Button */}
+      {totalMuscles > 1 && (
+        <View style={styles.bottomButtonContainer}>
+          <TouchableOpacity 
+            style={styles.nextMuscleButton}
+            onPress={handleNextMuscleGroup}
+          >
+            <Text style={styles.nextMuscleButtonText}>
+              {hasMoreMuscles 
+                ? `Next: ${muscleQueue[0]?.name || 'Muscle Group'} (${currentMuscleIndex + 1}/${totalMuscles})`
+                : 'View Cart'
+              }
+            </Text>
+            <Ionicons 
+              name={hasMoreMuscles ? "arrow-forward" : "cart"} 
+              size={20} 
+              color="#000" 
+            />
+          </TouchableOpacity>
+        </View>
+      )}
     </SafeAreaView>
   );
 }
@@ -1926,5 +2002,28 @@ const styles = StyleSheet.create({
   activeDotTouchArea: {
     padding: 8,
     marginHorizontal: 4,
+  },
+  bottomButtonContainer: {
+    paddingHorizontal: 20,
+    paddingVertical: 16,
+    paddingBottom: 24,
+    backgroundColor: '#000000',
+    borderTopWidth: 1,
+    borderTopColor: 'rgba(255, 215, 0, 0.2)',
+  },
+  nextMuscleButton: {
+    backgroundColor: '#FFD700',
+    borderRadius: 12,
+    paddingVertical: 16,
+    paddingHorizontal: 24,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: 8,
+  },
+  nextMuscleButtonText: {
+    fontSize: 16,
+    fontWeight: '600',
+    color: '#000000',
   },
 });
