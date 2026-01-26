@@ -151,6 +151,11 @@ export default function AbsEquipmentScreen() {
   
   const moodTitle = params.mood as string || 'Muscle gainer';
   const workoutType = params.bodyPart as string || 'Abs';
+  
+  // Multi-muscle group queue support
+  const muscleQueue = params.muscleQueue ? JSON.parse(params.muscleQueue as string) : [];
+  const currentMuscleIndex = parseInt(params.currentMuscleIndex as string || '0');
+  const totalMuscles = parseInt(params.totalMuscles as string || '1');
 
   const handleEquipmentSelect = (equipment: EquipmentOption) => {
     setSelectedEquipment(prev => {
