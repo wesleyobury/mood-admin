@@ -3003,35 +3003,29 @@ const WorkoutCard = ({ equipment, icon, workouts, difficulty, difficultyColor, w
           </View>
         </View>
 
-        {/* Intensity Reason */}
-        <View style={styles.intensityContainer}>
-          <Ionicons name="information-circle" size={16} color="#FFD700" />
-          <Text style={styles.intensityReason}>{item.intensityReason}</Text>
-        </View>
-
         {/* Workout Description */}
         <View style={styles.workoutDescriptionContainer}>
           <Text style={styles.workoutDescription}>{item.description}</Text>
         </View>
 
-        {/* Add to Cart Button */}
+        {/* Add Workout Button */}
         <Animated.View style={{ transform: [{ scale: scaleAnim }] }}>
           <TouchableOpacity 
             style={[
-              styles.addToCartMainButton,
-              (isInCart(createWorkoutId(item, equipment, difficulty)) || addedItems.has(createWorkoutId(item, equipment, difficulty))) && styles.addToCartMainButtonAdded
+              styles.addWorkoutButton,
+              (isInCart(createWorkoutId(item, equipment, difficulty)) || addedItems.has(createWorkoutId(item, equipment, difficulty))) && styles.addWorkoutButtonAdded
             ]}
             onPress={() => handleAddToCart(item, equipment)}
             activeOpacity={0.8}
             disabled={isInCart(createWorkoutId(item, equipment, difficulty)) || addedItems.has(createWorkoutId(item, equipment, difficulty))}
           >
             <Ionicons 
-              name={(isInCart(createWorkoutId(item, equipment, difficulty)) || addedItems.has(createWorkoutId(item, equipment, difficulty))) ? "checkmark" : "cart"} 
-              size={20} 
-              color={(isInCart(createWorkoutId(item, equipment, difficulty)) || addedItems.has(createWorkoutId(item, equipment, difficulty))) ? "#000000" : "#000000"} 
+              name={(isInCart(createWorkoutId(item, equipment, difficulty)) || addedItems.has(createWorkoutId(item, equipment, difficulty))) ? "checkmark" : "add"} 
+              size={18} 
+              color="#fff" 
             />
-            <Text style={styles.addToCartMainButtonText}>
-              {(isInCart(createWorkoutId(item, equipment, difficulty)) || addedItems.has(createWorkoutId(item, equipment, difficulty))) ? "Added to Cart" : "Add to Cart"}
+            <Text style={styles.addWorkoutButtonText}>
+              {(isInCart(createWorkoutId(item, equipment, difficulty)) || addedItems.has(createWorkoutId(item, equipment, difficulty))) ? "Added" : "Add workout"}
             </Text>
           </TouchableOpacity>
         </Animated.View>
