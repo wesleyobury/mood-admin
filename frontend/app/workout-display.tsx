@@ -3015,14 +3015,24 @@ const WorkoutCard = ({ equipment, icon, workouts, difficulty, difficultyColor, w
           <Text style={styles.workoutDescription}>{item.description}</Text>
         </View>
 
-        {/* Start Workout Button */}
+        {/* Add to Cart Button */}
         <TouchableOpacity 
-          style={styles.startWorkoutButton}
-          onPress={() => onStartWorkout(item, equipment, difficulty)}
+          style={[
+            styles.addToCartMainButton,
+            (isInCart(createWorkoutId(item, equipment, difficulty)) || addedItems.has(createWorkoutId(item, equipment, difficulty))) && styles.addToCartMainButtonAdded
+          ]}
+          onPress={() => handleAddToCart(item, equipment)}
           activeOpacity={0.8}
+          disabled={isInCart(createWorkoutId(item, equipment, difficulty)) || addedItems.has(createWorkoutId(item, equipment, difficulty))}
         >
-          <Ionicons name="play" size={20} color="#000000" />
-          <Text style={styles.startWorkoutButtonText}>Start Workout</Text>
+          <Ionicons 
+            name={(isInCart(createWorkoutId(item, equipment, difficulty)) || addedItems.has(createWorkoutId(item, equipment, difficulty))) ? "checkmark" : "cart"} 
+            size={20} 
+            color={(isInCart(createWorkoutId(item, equipment, difficulty)) || addedItems.has(createWorkoutId(item, equipment, difficulty))) ? "#000000" : "#000000"} 
+          />
+          <Text style={styles.addToCartMainButtonText}>
+            {(isInCart(createWorkoutId(item, equipment, difficulty)) || addedItems.has(createWorkoutId(item, equipment, difficulty))) ? "Added to Cart" : "Add to Cart"}
+          </Text>
         </TouchableOpacity>
       </View>
     </View>
