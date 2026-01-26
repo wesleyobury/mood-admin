@@ -152,6 +152,11 @@ export default function BackEquipmentScreen() {
   
   const moodTitle = params.mood as string || 'Muscle gainer';
   const workoutType = params.workoutType as string || 'Back';
+  
+  // Multi-muscle group queue support
+  const muscleQueue = params.muscleQueue ? JSON.parse(params.muscleQueue as string) : [];
+  const currentMuscleIndex = parseInt(params.currentMuscleIndex as string || '0');
+  const totalMuscles = parseInt(params.totalMuscles as string || '1');
 
   const handleEquipmentSelect = (equipment: EquipmentOption) => {
     setSelectedEquipment(prev => {
