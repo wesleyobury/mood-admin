@@ -3660,7 +3660,7 @@ const styles = StyleSheet.create({
     gap: 6,
     borderWidth: 1,
     borderColor: '#333',
-    marginTop: 4,
+    marginBottom: 12,
   },
   addWorkoutButtonAdded: {
     backgroundColor: '#1a1a1a',
