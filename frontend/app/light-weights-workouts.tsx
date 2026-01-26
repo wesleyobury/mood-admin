@@ -265,7 +265,7 @@ const LightWeightsWorkoutsScreen = memo(function LightWeightsWorkoutsScreen() {
   const insets = useSafeAreaInsets();
 
   // Parse URL parameters
-  const moodTitle = params.mood as string || 'I want to sweat';
+  const moodTitle = params.mood as string || 'Sweat / burn fat';
   const workoutType = params.workoutType as string || 'Light weights';
   const equipmentParam = params.equipment as string || '';
   const difficulty = params.difficulty as string || 'beginner';

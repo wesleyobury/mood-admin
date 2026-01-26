@@ -669,7 +669,7 @@ export default function WorkoutsHome() {
     }
     
     if (mood.id === 'sweat') {
-      // Navigate to workout type selection for "I want to sweat"
+      // Navigate to workout type selection for "Sweat / burn fat"
       router.push({
         pathname: '/workout-type',
         params: { mood: mood.title }

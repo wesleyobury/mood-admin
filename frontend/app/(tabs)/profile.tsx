@@ -42,9 +42,9 @@ const EXTERNAL_URLS = {
 
 // Mapping of featured workout names to their IDs
 const FEATURED_WORKOUT_IDS: { [key: string]: string } = {
-  'I Want to Sweat - Cardio Based': '1',
+  'Sweat / Burn Fat - Cardio Based': '1',
   'Muscle Gainer - Back & Bis Volume': '2',
-  'I Want to Sweat - HIIT - Intense Full Body': '6',
+  'Sweat / Burn Fat - HIIT - Intense Full Body': '6',
   'Build Explosion - Power Lifting': '3',
   'Calisthenics - Pulls & Dips': '4',
   'Get Outside - Hill Workout': '5',

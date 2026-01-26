@@ -741,7 +741,8 @@ export default function Explore() {
     
     // Known mood card titles - check if category matches or contains these
     const moodCardTitles: { [key: string]: string } = {
-      "i want to sweat": "I Want to Sweat",
+      "i want to sweat": "Sweat / Burn Fat",
+      "sweat / burn fat": "Sweat / Burn Fat",
       "i'm feeling lazy": "I'm Feeling Lazy",
       "muscle gainer": "Muscle Gainer",
       "outdoor": "Outdoor",
@@ -799,8 +800,8 @@ export default function Explore() {
         intensityReason: exercise.intensityReason || '',
         equipment: exercise.equipment,
         difficulty: exercise.difficulty,
-        workoutType: exerciseMoodCategory, // Full path like "I Want to Sweat - Cardio Based"
-        moodCard: moodCardName, // Display name like "I Want to Sweat"
+        workoutType: exerciseMoodCategory, // Full path like "Sweat / Burn Fat - Cardio Based"
+        moodCard: moodCardName, // Display name like "Sweat / Burn Fat"
         moodTips: exercise.moodTips || [],
       };
       
