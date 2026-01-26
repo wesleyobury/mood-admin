@@ -113,11 +113,10 @@ const WorkoutCard = React.memo(({
           style={styles.workoutImage}
           resizeMode="cover"
         />
-        <View style={styles.imageOverlay} />
-        <View style={styles.swipeIndicator}>
-          <Ionicons name="swap-horizontal" size={20} color="#FFD700" />
-          <Text style={styles.swipeText}>Swipe for more</Text>
-        </View>
+        <LinearGradient
+          colors={['transparent', 'rgba(0,0,0,0.8)']}
+          style={styles.imageGradient}
+        />
       </View>
 
       {/* Workout Content */}
@@ -133,26 +132,29 @@ const WorkoutCard = React.memo(({
           </View>
         </View>
 
-        {/* Intensity Reason */}
-        <View style={styles.intensityContainer}>
-          <Ionicons name="information-circle" size={16} color="#FFD700" />
-          <Text style={styles.intensityReason}>{item.intensityReason}</Text>
-        </View>
-
         {/* Workout Description */}
         <View style={styles.workoutDescriptionContainer}>
           <Text style={styles.workoutDescription}>{item.description}</Text>
         </View>
 
-        {/* Start Workout Button */}
-        <TouchableOpacity 
-          style={styles.startWorkoutButton}
-          onPress={() => onStartWorkout(item, equipment, difficulty)}
-          activeOpacity={0.8}
-        >
-          <Text style={styles.startWorkoutButtonText}>Start Workout</Text>
-          <Ionicons name="play" size={16} color="#000000" />
-        </TouchableOpacity>
+        {/* Add Workout Button */}
+        <Animated.View style={{ transform: [{ scale: localScaleAnim }] }}>
+          <TouchableOpacity 
+            style={styles.addWorkoutButton}
+            onPress={() => handleAddToCartWithAnimation(item)}
+            activeOpacity={0.8}
+            disabled={isInCart(createWorkoutId(item, equipment, difficulty))}
+          >
+            <Ionicons 
+              name={isInCart(createWorkoutId(item, equipment, difficulty)) ? "checkmark" : "add"} 
+              size={18} 
+              color="#FFD700"
+            />
+            <Text style={styles.addWorkoutButtonText}>
+              {isInCart(createWorkoutId(item, equipment, difficulty)) ? "Added" : "Add workout"}
+            </Text>
+          </TouchableOpacity>
+        </Animated.View>
       </View>
     </View>
   );
