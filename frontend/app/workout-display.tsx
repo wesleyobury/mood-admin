@@ -3696,8 +3696,7 @@ const styles = StyleSheet.create({
   dotsContainer: {
     height: 50,
     alignItems: 'center',
-    justifyContent: 'flex-start',
-    paddingTop: 4,
+    justifyContent: 'center',
     backgroundColor: 'transparent',
   },
   dotsLabel: {
