@@ -42,7 +42,7 @@ const featuredWorkoutData: Record<string, {
   exercises: WorkoutExercise[];
 }> = {
   '1': {
-    mood: 'I Want to Sweat',
+    mood: 'Sweat / Burn Fat',
     title: 'Cardio Based',
     duration: '25–35 min',
     image: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=800&h=600&fit=crop',
@@ -56,8 +56,8 @@ const featuredWorkoutData: Record<string, {
         imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-app-ui/artifacts/fbe3z3jx_download%20%281%29.png',
         intensityReason: 'Hill climbs build leg strength while sprints maximize calorie burn',
         difficulty: 'intermediate',
-        workoutType: 'I Want to Sweat - Cardio Based',
-        moodCard: 'I Want to Sweat',
+        workoutType: 'Sweat / Burn Fat - Cardio Based',
+        moodCard: 'Sweat / Burn Fat',
         moodTips: [
           { icon: 'speedometer', title: 'Maintain Cadence', description: 'Keep your pedaling cadence consistent during climbs for better muscle engagement.' },
           { icon: 'heart', title: 'Heart Rate Zone', description: 'Aim for 70-85% max heart rate during sprints, recover at 60% between intervals.' }
@@ -72,8 +72,8 @@ const featuredWorkoutData: Record<string, {
         imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-app-ui/artifacts/yjdyjdsw_sm.avif',
         intensityReason: 'Variable intensity stair climbing maximizes cardio adaptation',
         difficulty: 'intermediate',
-        workoutType: 'I Want to Sweat - Cardio Based',
-        moodCard: 'I Want to Sweat',
+        workoutType: 'Sweat / Burn Fat - Cardio Based',
+        moodCard: 'Sweat / Burn Fat',
         moodTips: [
           { icon: 'body', title: 'Posture Check', description: 'Stand tall with slight forward lean. Avoid hunching over the machine.' },
           { icon: 'flame', title: 'Glute Activation', description: 'Press through your heels to maximize glute engagement on each step.' }
@@ -343,7 +343,7 @@ const featuredWorkoutData: Record<string, {
     ],
   },
   '6': {
-    mood: 'I Want to Sweat',
+    mood: 'Sweat / Burn Fat',
     title: 'HIIT - Intense Full Body',
     duration: '45–55 min',
     image: 'https://customer-assets.emergentagent.com/job_3f3e12c6-013b-4158-b2e9-29980fb2b4f9/artifacts/p7pyg0r0_download%20%289%29.png',
@@ -358,7 +358,7 @@ const featuredWorkoutData: Record<string, {
         intensityReason: 'Maximum intensity AMRAP combining power, agility, and complex movement patterns.',
         difficulty: 'advanced',
         workoutType: 'HIIT - Intense Full Body',
-        moodCard: 'I Want to Sweat',
+        moodCard: 'Sweat / Burn Fat',
         moodTips: [
           { icon: 'flash', title: 'Double Swing Power', description: 'Double swings—engage lats, keep wrists neutral throughout the movement.' },
           { icon: 'body', title: 'Turkish Get-up Control', description: 'Go slow on get-ups, stack joints overhead at each position.' }
@@ -374,7 +374,7 @@ const featuredWorkoutData: Record<string, {
         intensityReason: 'Extended high-intensity gauntlet testing advanced cardiovascular capacity and rope mastery.',
         difficulty: 'advanced',
         workoutType: 'HIIT - Intense Full Body',
-        moodCard: 'I Want to Sweat',
+        moodCard: 'Sweat / Burn Fat',
         moodTips: [
           { icon: 'refresh', title: 'Rhythm Control', description: 'Keep steady rhythm across all rope patterns, even when fatigued.' },
           { icon: 'flash', title: 'Breathing Technique', description: 'Sync breathing pattern with wave count—exhale on each wave peak.' }
@@ -390,7 +390,7 @@ const featuredWorkoutData: Record<string, {
         intensityReason: 'Ultimate challenge combining heavy sled work with burpees for maximum conditioning stress.',
         difficulty: 'advanced',
         workoutType: 'HIIT - Intense Full Body',
-        moodCard: 'I Want to Sweat',
+        moodCard: 'Sweat / Burn Fat',
         moodTips: [
           { icon: 'body', title: 'Burpee Transition', description: 'Drop tight into burpees—no sagging hips. Keep core braced.' },
           { icon: 'flash', title: 'Reset Power', description: 'Push explosively out of burpees and into the sled immediately.' }
