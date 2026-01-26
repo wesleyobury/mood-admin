@@ -3149,7 +3149,7 @@ export default function WorkoutDisplayScreen() {
   }
   
   const difficulty = (params.difficulty as string || 'beginner').toLowerCase();
-  const moodTitle = params.mood as string || 'I want to sweat';
+  const moodTitle = params.mood as string || 'Sweat / burn fat';
   const workoutType = params.workoutType as string || 'Cardio Based';
   
   console.log('Parsed parameters:', { selectedEquipmentNames, difficulty, moodTitle, workoutType });

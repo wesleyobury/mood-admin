@@ -105,7 +105,7 @@ export default function WorkoutTypeScreen() {
   const insets = useSafeAreaInsets();
   const [selectedOption, setSelectedOption] = useState<WorkoutTypeOption | null>(null);
   
-  const moodTitle = params.mood as string || 'I want to sweat';
+  const moodTitle = params.mood as string || 'Sweat / burn fat';
 
   const handleWorkoutTypeSelect = (option: WorkoutTypeOption) => {
     console.log('Selected workout type:', option.title, 'for mood:', moodTitle);

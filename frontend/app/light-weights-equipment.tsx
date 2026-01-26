@@ -153,7 +153,7 @@ export default function LightWeightsEquipmentScreen() {
   const [selectedEquipment, setSelectedEquipment] = useState<EquipmentOption[]>([]);
   const [selectedDifficulty, setSelectedDifficulty] = useState<DifficultyLevel | null>(null);
   
-  const moodTitle = params.mood as string || 'I want to sweat';
+  const moodTitle = params.mood as string || 'Sweat / burn fat';
   const workoutType = params.workoutType as string || 'Light weights';
 
   const handleEquipmentSelect = (equipment: EquipmentOption) => {

@@ -182,7 +182,7 @@ export default function WorkoutGuidanceScreen() {
   if (workoutType === 'Body Weight' || workoutType === 'Weight Based') {
     moodTitle = 'Build explosion';
   } else if (workoutType.toLowerCase().includes('cardio') || workoutType.toLowerCase().includes('sweat')) {
-    moodTitle = 'I want to sweat';
+    moodTitle = 'Sweat / burn fat';
   } else if (workoutType.toLowerCase().includes('lazy') || workoutType.toLowerCase().includes('light')) {
     moodTitle = 'Light movement';
   } else if (workoutType.toLowerCase().includes('outdoor')) {
