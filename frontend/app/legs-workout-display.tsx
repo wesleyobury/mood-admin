@@ -277,6 +277,12 @@ export default function LegsWorkoutDisplayScreen() {
   const workoutType = params.workoutType as string || 'Legs';
   const muscleGroupsParam = params.muscleGroups as string || '';
   
+  // Multi-muscle group queue support
+  const muscleQueue = params.muscleQueue ? JSON.parse(params.muscleQueue as string) : [];
+  const currentMuscleIndex = parseInt(params.currentMuscleIndex as string || '0');
+  const totalMuscles = parseInt(params.totalMuscles as string || '1');
+  const hasMoreMuscles = muscleQueue.length > 0;
+  
   // Decode and parse muscle groups
   const muscleGroupNames = muscleGroupsParam ? decodeURIComponent(muscleGroupsParam).split(',') : [];
   
