@@ -1276,6 +1276,55 @@ export default function AbsWorkoutDisplayScreen() {
     router.back();
   };
 
+  // Navigate to next muscle group or view cart
+  const handleNextMuscleGroup = () => {
+    if (hasMoreMuscles) {
+      const nextMuscle = muscleQueue[0];
+      const remainingQueue = muscleQueue.slice(1);
+      
+      let pathname = '';
+      switch (nextMuscle.name) {
+        case 'Chest':
+          pathname = '/chest-equipment';
+          break;
+        case 'Shoulders':
+          pathname = '/shoulders-equipment';
+          break;
+        case 'Back':
+          pathname = '/back-equipment';
+          break;
+        case 'Biceps':
+          pathname = '/biceps-equipment';
+          break;
+        case 'Triceps':
+          pathname = '/triceps-equipment';
+          break;
+        case 'Legs':
+          pathname = '/legs-muscle-groups';
+          break;
+        case 'Abs':
+          pathname = '/abs-equipment';
+          break;
+        default:
+          pathname = '/cart';
+      }
+
+      router.push({
+        pathname: pathname as any,
+        params: {
+          mood: moodTitle,
+          bodyPart: nextMuscle.name,
+          muscleQueue: JSON.stringify(remainingQueue),
+          currentMuscleIndex: (currentMuscleIndex + 1).toString(),
+          totalMuscles: totalMuscles.toString(),
+        }
+      });
+    } else {
+      // No more muscles, go to cart
+      router.push('/cart');
+    }
+  };
+
   // Create progress bar - single row with requested order
   const createProgressRows = () => {
     const steps = [
