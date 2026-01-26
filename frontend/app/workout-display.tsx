@@ -3649,7 +3649,7 @@ const styles = StyleSheet.create({
     color: 'rgba(255, 255, 255, 0.9)',
     lineHeight: 20,
   },
-  startWorkoutButton: {
+  addToCartMainButton: {
     backgroundColor: '#FFD700',
     borderRadius: 12,
     paddingVertical: 12,
@@ -3666,10 +3666,31 @@ const styles = StyleSheet.create({
     marginTop: 0,
     marginBottom: 1,
   },
-  startWorkoutButtonText: {
+  addToCartMainButtonAdded: {
+    backgroundColor: '#4CAF50',
+    shadowColor: '#4CAF50',
+  },
+  addToCartMainButtonText: {
     fontSize: 16,
     fontWeight: 'bold',
     color: '#000000',
+  },
+  previewButton: {
+    backgroundColor: '#333333',
+    borderRadius: 16,
+    paddingVertical: 6,
+    paddingHorizontal: 12,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: 4,
+    borderWidth: 1,
+    borderColor: '#FFD700',
+  },
+  previewButtonText: {
+    color: '#FFD700',
+    fontSize: 12,
+    fontWeight: '600',
   },
   dotsContainer: {
     alignItems: 'center',
