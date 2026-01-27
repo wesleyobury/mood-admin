@@ -1184,14 +1184,41 @@ export default function Explore() {
                      post.workout_data.workouts && 
                      post.workout_data.workouts.length > 0 && 
                      (carouselIndexes[post.id] ?? 0) === post.media_urls.length - 1 && (
-                      <TouchableOpacity 
-                        style={styles.tryWorkoutButton}
-                        onPress={() => handleReplicateWorkout(post)}
-                        activeOpacity={0.8}
+                      <Animated.View
+                        style={[
+                          styles.tryWorkoutButtonContainer,
+                          {
+                            opacity: tryWorkoutAnimations[post.id] || 1,
+                            transform: [
+                              {
+                                scale: tryWorkoutAnimations[post.id] 
+                                  ? tryWorkoutAnimations[post.id].interpolate({
+                                      inputRange: [0, 0.5, 1],
+                                      outputRange: [0.8, 1.05, 1],
+                                    })
+                                  : 1,
+                              },
+                              {
+                                translateX: tryWorkoutAnimations[post.id]
+                                  ? tryWorkoutAnimations[post.id].interpolate({
+                                      inputRange: [0, 1],
+                                      outputRange: [20, 0],
+                                    })
+                                  : 0,
+                              },
+                            ],
+                          },
+                        ]}
                       >
-                        <Ionicons name="chevron-forward" size={14} color="#FFD700" />
-                        <Text style={styles.tryWorkoutButtonText}>Try this workout</Text>
-                      </TouchableOpacity>
+                        <TouchableOpacity 
+                          style={styles.tryWorkoutButton}
+                          onPress={() => handleReplicateWorkout(post)}
+                          activeOpacity={0.8}
+                        >
+                          <Ionicons name="chevron-forward" size={14} color="#FFD700" />
+                          <Text style={styles.tryWorkoutButtonText}>Try this workout</Text>
+                        </TouchableOpacity>
+                      </Animated.View>
                     )}
                     
                     {likeAnimations[post.id] && (
