@@ -7,23 +7,29 @@ const { width } = Dimensions.get('window');
 const CARD_WIDTH = width * 0.88;
 const CARD_HEIGHT = CARD_WIDTH * 1.25;
 
-// Motivational phrases that rotate randomly
-const MOTIVATIONAL_PHRASES = [
-  'A M A Z I N G   W O R K',
-  'M I S S I O N   C O M P L E T E',
-  'E X C E L L E N T   J O B',
-  'Y O U   C R U S H E D   I T',
-  'B E A S T   M O D E',
-  'U N S T O P P A B L E',
-  'N E W   P E R S O N A L   B E S T',
-  'P U R E   D E D I C A T I O N',
-  'G O A L S   A C H I E V E D',
-  'S T R O N G E R   T O D A Y',
-  'K E E P   W I N N I N G',
-  'L E G E N D A R Y',
-  'P E A K   P E R F O R M A N C E',
-  'C H A M P I O N   M O V E',
-  'F L A W L E S S   E X E C U T I O N',
+// Mood-specific phrases based on workout type
+const MOOD_PHRASES: { [key: string]: string } = {
+  'sweat': 'In the MOOD to sweat.',
+  'burn': 'In the MOOD to sweat.',
+  'cardio': 'In the MOOD to sweat.',
+  'muscle': 'In the MOOD for gains.',
+  'gainer': 'In the MOOD for gains.',
+  'strength': 'In the MOOD for gains.',
+  'explosion': 'In an explosive MOOD.',
+  'explosive': 'In an explosive MOOD.',
+  'power': 'In an explosive MOOD.',
+  'lazy': 'In a lazy MOOD.',
+  'calisthenics': 'In a calisthenics MOOD.',
+  'bodyweight': 'In a calisthenics MOOD.',
+  'outdoor': 'In the MOOD to get outside.',
+  'outside': 'In the MOOD to get outside.',
+};
+
+// Fallback motivational phrases
+const FALLBACK_PHRASES = [
+  'In the MOOD to move.',
+  'In the MOOD for progress.',
+  'In the MOOD to conquer.',
 ];
 
 interface WorkoutStatsCardProps {
@@ -33,24 +39,21 @@ interface WorkoutStatsCardProps {
     equipment: string;
     duration: string;
     difficulty: string;
-    moodCategory?: string; // Track which mood card this exercise came from
+    moodCategory?: string;
   }[];
   totalDuration: number;
   completedAt: string;
-  moodCategory?: string; // Fallback/legacy mood category
+  moodCategory?: string;
+  transparent?: boolean; // For Instagram export version
 }
 
 export default function WorkoutStatsCard({ 
   workouts, 
   totalDuration, 
   completedAt,
-  moodCategory = "Workout"
+  moodCategory = "Workout",
+  transparent = false
 }: WorkoutStatsCardProps) {
-  // Select a random motivational phrase (memoized so it doesn't change on re-renders)
-  const motivationalPhrase = useMemo(() => {
-    return MOTIVATIONAL_PHRASES[Math.floor(Math.random() * MOTIVATIONAL_PHRASES.length)];
-  }, []);
-
   // Animation values
   const glowAnim = useRef(new Animated.Value(0)).current;
   const pulseAnim = useRef(new Animated.Value(1)).current;
@@ -58,6 +61,84 @@ export default function WorkoutStatsCard({
   const statScale1 = useRef(new Animated.Value(0.8)).current;
   const statScale2 = useRef(new Animated.Value(0.8)).current;
   const statScale3 = useRef(new Animated.Value(0.8)).current;
+
+  // Calculate dominant mood category from workouts
+  const getDominantMoodCategory = (): string => {
+    const categoryCounts: { [key: string]: number } = {};
+    
+    workouts.forEach(workout => {
+      const category = workout.moodCategory || moodCategory || 'Workout';
+      const normalizedCategory = category.toLowerCase();
+      categoryCounts[normalizedCategory] = (categoryCounts[normalizedCategory] || 0) + 1;
+    });
+    
+    let dominantCategory = moodCategory || 'Workout';
+    let maxCount = 0;
+    
+    for (const [category, count] of Object.entries(categoryCounts)) {
+      if (count > maxCount) {
+        maxCount = count;
+        dominantCategory = category;
+      }
+    }
+    
+    return dominantCategory;
+  };
+
+  // Get mood-specific phrase based on workout category
+  const getMoodPhrase = (category: string): string => {
+    const lowerCategory = category.toLowerCase();
+    
+    // Check for mood keywords in category
+    for (const [keyword, phrase] of Object.entries(MOOD_PHRASES)) {
+      if (lowerCategory.includes(keyword)) {
+        return phrase;
+      }
+    }
+    
+    // Return a random fallback phrase
+    return FALLBACK_PHRASES[Math.floor(Math.random() * FALLBACK_PHRASES.length)];
+  };
+
+  // Extract the main mood card name from workoutType or moodCategory
+  const extractMoodCardName = (category: string): string => {
+    if (!category || category.toLowerCase() === 'workout' || category.toLowerCase() === 'unknown') {
+      return "";
+    }
+    
+    if (category.includes(' - ')) {
+      const moodCardPart = category.split(' - ')[0].trim();
+      return moodCardPart;
+    }
+    
+    const moodCardTitles: { [key: string]: string } = {
+      "i want to sweat": "Sweat / Burn Fat",
+      "sweat / burn fat": "Sweat / Burn Fat",
+      "i'm feeling lazy": "I'm Feeling Lazy",
+      "muscle gainer": "Muscle Gainer",
+      "outdoor": "Outdoor",
+      "lift weights": "Lift Weights",
+      "calisthenics": "Calisthenics",
+      "bodyweight": "Calisthenics",
+      "build explosion": "Build Explosion",
+      "explosive": "Build Explosion",
+    };
+    
+    const lowerCategory = category.toLowerCase();
+    for (const [key, value] of Object.entries(moodCardTitles)) {
+      if (lowerCategory.includes(key)) return value;
+    }
+    
+    return category
+      .split(' ')
+      .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+      .join(' ');
+  };
+
+  const dominantCategory = getDominantMoodCategory();
+  const displayMoodCategory = extractMoodCardName(dominantCategory);
+  const moodPhrase = useMemo(() => getMoodPhrase(dominantCategory), [dominantCategory]);
+  const estimatedCalories = Math.round(totalDuration * 8);
 
   useEffect(() => {
     // Initial card fade in
@@ -131,72 +212,70 @@ export default function WorkoutStatsCard({
     outputRange: [0.05, 0.15],
   });
 
-  // Calculate dominant mood category from workouts
-  const getDominantMoodCategory = (): string => {
-    // Count occurrences of each mood category from workouts
-    const categoryCounts: { [key: string]: number } = {};
-    
-    workouts.forEach(workout => {
-      const category = workout.moodCategory || moodCategory || 'Workout';
-      const normalizedCategory = category.toLowerCase();
-      categoryCounts[normalizedCategory] = (categoryCounts[normalizedCategory] || 0) + 1;
-    });
-    
-    // Find the category with the most exercises
-    let dominantCategory = moodCategory || 'Workout';
-    let maxCount = 0;
-    
-    for (const [category, count] of Object.entries(categoryCounts)) {
-      if (count > maxCount) {
-        maxCount = count;
-        dominantCategory = category;
-      }
-    }
-    
-    return dominantCategory;
-  };
+  // Transparent version for Instagram Stories export
+  if (transparent) {
+    return (
+      <View style={[styles.transparentContainer, { width: CARD_WIDTH, height: CARD_HEIGHT }]}>
+        {/* Header Section - MOOD text on left */}
+        <View style={styles.transparentHeader}>
+          <Text style={styles.transparentBrandText}>MOOD</Text>
+          
+          {/* Breathing Pulse Indicator */}
+          <View style={styles.transparentPulseIndicator}>
+            <View style={styles.transparentPulseCore} />
+          </View>
+        </View>
 
-  // Extract the main mood card name from workoutType or moodCategory
-  // workoutType might be "Calisthenics - Bodyweight exercises" or "Muscle Gainer - Shoulders"
-  const extractMoodCardName = (category: string): string => {
-    if (!category || category.toLowerCase() === 'workout' || category.toLowerCase() === 'unknown') {
-      return "";
-    }
-    
-    // If it contains " - ", extract the first part (mood card name)
-    if (category.includes(' - ')) {
-      const moodCardPart = category.split(' - ')[0].trim();
-      return moodCardPart;
-    }
-    
-    // Known mood card titles - check if category matches or contains these
-    const moodCardTitles: { [key: string]: string } = {
-      "i want to sweat": "Sweat / Burn Fat",
-      "sweat / burn fat": "Sweat / Burn Fat",
-      "i'm feeling lazy": "I'm Feeling Lazy",
-      "muscle gainer": "Muscle Gainer",
-      "outdoor": "Outdoor",
-      "lift weights": "Lift Weights",
-      "calisthenics": "Calisthenics",
-      "bodyweight": "Calisthenics", // Map bodyweight to Calisthenics
-    };
-    
-    const lowerCategory = category.toLowerCase();
-    for (const [key, value] of Object.entries(moodCardTitles)) {
-      if (lowerCategory.includes(key)) return value;
-    }
-    
-    // If nothing matches, return the original (capitalized)
-    return category
-      .split(' ')
-      .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
-      .join(' ');
-  };
+        {/* Mood Category & Phrase */}
+        <View style={styles.transparentTitleSection}>
+          <Text style={styles.transparentMoodCategory} numberOfLines={1}>
+            {displayMoodCategory ? displayMoodCategory.toUpperCase() : 'WORKOUT COMPLETE'}
+          </Text>
+          <Text style={styles.transparentSubtitle}>{moodPhrase}</Text>
+        </View>
 
-  const dominantCategory = getDominantMoodCategory();
-  const displayMoodCategory = extractMoodCardName(dominantCategory);
-  const estimatedCalories = Math.round(totalDuration * 8);
+        {/* Stats Section */}
+        <View style={styles.transparentStatsSection}>
+          <View style={styles.transparentStatOrb}>
+            <Text style={styles.transparentStatValue}>{totalDuration}</Text>
+            <Text style={styles.transparentStatLabel}>minutes</Text>
+          </View>
 
+          <View style={[styles.transparentStatOrb, styles.transparentStatOrbCenter]}>
+            <Text style={[styles.transparentStatValue, styles.transparentStatValueLarge]}>{estimatedCalories}</Text>
+            <Text style={styles.transparentStatLabel}>calories</Text>
+          </View>
+
+          <View style={styles.transparentStatOrb}>
+            <Text style={styles.transparentStatValue}>{workouts.length}</Text>
+            <Text style={styles.transparentStatLabel}>exercises</Text>
+          </View>
+        </View>
+
+        {/* Exercises List */}
+        <View style={styles.transparentExercisesSection}>
+          {workouts.slice(0, 5).map((workout, index) => (
+            <View key={index} style={styles.transparentExerciseRow}>
+              <View style={styles.transparentExerciseDot} />
+              <Text style={styles.transparentExerciseName} numberOfLines={1}>
+                {workout.workoutTitle || workout.workoutName}
+              </Text>
+              <Text style={styles.transparentExerciseMeta}>
+                {workout.equipment}
+              </Text>
+            </View>
+          ))}
+          {workouts.length > 5 && (
+            <Text style={styles.transparentMoreExercises}>
+              +{workouts.length - 5} more
+            </Text>
+          )}
+        </View>
+      </View>
+    );
+  }
+
+  // Standard card version with background
   return (
     <Animated.View style={[
       styles.container, 
@@ -229,7 +308,7 @@ export default function WorkoutStatsCard({
             <Text style={styles.moodCategory} numberOfLines={1} adjustsFontSizeToFit minimumFontScale={0.7}>
               {displayMoodCategory ? displayMoodCategory.toUpperCase() : 'WORKOUT COMPLETE'}
             </Text>
-            <Text style={styles.subtitle}>{motivationalPhrase}</Text>
+            <Text style={styles.subtitle}>{moodPhrase}</Text>
           </View>
         </View>
 
@@ -359,11 +438,12 @@ const styles = StyleSheet.create({
     letterSpacing: 0.3,
   },
   subtitle: {
-    fontSize: 10,
-    color: 'rgba(255, 255, 255, 0.4)',
-    letterSpacing: 3,
+    fontSize: 12,
+    color: 'rgba(255, 215, 0, 0.8)',
+    letterSpacing: 0.5,
     marginTop: 4,
-    fontWeight: '300',
+    fontWeight: '500',
+    fontStyle: 'italic',
   },
   statsSection: {
     flexDirection: 'row',
@@ -475,5 +555,155 @@ const styles = StyleSheet.create({
     color: 'rgba(255, 215, 0, 0.4)',
     fontWeight: '600',
     letterSpacing: 2,
+  },
+
+  // ===============================================
+  // TRANSPARENT VERSION STYLES (for Instagram export)
+  // ===============================================
+  transparentContainer: {
+    position: 'relative',
+  },
+  transparentHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingTop: 28,
+    paddingHorizontal: 24,
+    paddingBottom: 8,
+  },
+  transparentBrandText: {
+    fontSize: 14,
+    color: '#FFFFFF',
+    fontWeight: '700',
+    letterSpacing: 3,
+    textShadowColor: 'rgba(0, 0, 0, 0.8)',
+    textShadowOffset: { width: 0, height: 1 },
+    textShadowRadius: 4,
+    marginRight: 12,
+  },
+  transparentPulseIndicator: {
+    width: 12,
+    height: 12,
+    borderRadius: 6,
+    backgroundColor: 'rgba(255, 215, 0, 0.5)',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  transparentPulseCore: {
+    width: 6,
+    height: 6,
+    borderRadius: 3,
+    backgroundColor: '#FFD700',
+  },
+  transparentTitleSection: {
+    paddingHorizontal: 24,
+    paddingBottom: 16,
+  },
+  transparentMoodCategory: {
+    fontSize: 22,
+    fontWeight: '700',
+    color: '#FFFFFF',
+    letterSpacing: 0.5,
+    textShadowColor: 'rgba(0, 0, 0, 0.8)',
+    textShadowOffset: { width: 0, height: 2 },
+    textShadowRadius: 6,
+  },
+  transparentSubtitle: {
+    fontSize: 14,
+    color: '#FFD700',
+    letterSpacing: 0.5,
+    marginTop: 6,
+    fontWeight: '600',
+    fontStyle: 'italic',
+    textShadowColor: 'rgba(0, 0, 0, 0.8)',
+    textShadowOffset: { width: 0, height: 1 },
+    textShadowRadius: 4,
+  },
+  transparentStatsSection: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'flex-end',
+    paddingHorizontal: 16,
+    paddingTop: 16,
+    paddingBottom: 16,
+    gap: 16,
+  },
+  transparentStatOrb: {
+    flex: 1,
+    alignItems: 'center',
+  },
+  transparentStatOrbCenter: {
+    flex: 1.2,
+  },
+  transparentStatValue: {
+    fontSize: 28,
+    fontWeight: '300',
+    color: '#FFFFFF',
+    letterSpacing: -1,
+    textShadowColor: 'rgba(0, 0, 0, 0.8)',
+    textShadowOffset: { width: 0, height: 2 },
+    textShadowRadius: 6,
+  },
+  transparentStatValueLarge: {
+    fontSize: 34,
+    color: '#FFD700',
+    fontWeight: '400',
+  },
+  transparentStatLabel: {
+    fontSize: 10,
+    color: 'rgba(255, 255, 255, 0.9)',
+    textTransform: 'lowercase',
+    letterSpacing: 1,
+    marginTop: 4,
+    textShadowColor: 'rgba(0, 0, 0, 0.8)',
+    textShadowOffset: { width: 0, height: 1 },
+    textShadowRadius: 3,
+  },
+  transparentExercisesSection: {
+    flex: 1,
+    paddingHorizontal: 24,
+    paddingTop: 8,
+  },
+  transparentExerciseRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingVertical: 8,
+  },
+  transparentExerciseDot: {
+    width: 6,
+    height: 6,
+    borderRadius: 3,
+    backgroundColor: '#FFD700',
+    marginRight: 12,
+    shadowColor: '#FFD700',
+    shadowOffset: { width: 0, height: 0 },
+    shadowOpacity: 0.6,
+    shadowRadius: 4,
+  },
+  transparentExerciseName: {
+    flex: 1,
+    fontSize: 14,
+    color: '#FFFFFF',
+    fontWeight: '500',
+    textShadowColor: 'rgba(0, 0, 0, 0.8)',
+    textShadowOffset: { width: 0, height: 1 },
+    textShadowRadius: 3,
+  },
+  transparentExerciseMeta: {
+    fontSize: 12,
+    color: 'rgba(255, 255, 255, 0.8)',
+    fontWeight: '400',
+    textShadowColor: 'rgba(0, 0, 0, 0.8)',
+    textShadowOffset: { width: 0, height: 1 },
+    textShadowRadius: 3,
+  },
+  transparentMoreExercises: {
+    fontSize: 12,
+    color: 'rgba(255, 255, 255, 0.9)',
+    textAlign: 'center',
+    marginTop: 8,
+    fontStyle: 'italic',
+    textShadowColor: 'rgba(0, 0, 0, 0.8)',
+    textShadowOffset: { width: 0, height: 1 },
+    textShadowRadius: 3,
   },
 });
