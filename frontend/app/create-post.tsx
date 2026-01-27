@@ -1236,30 +1236,56 @@ export default function CreatePost() {
                   <Ionicons name="trophy" size={16} color="#FFD700" />
                   <Text style={styles.attachmentType}>Workout Achievement</Text>
                 </View>
-                <Animated.View style={{ transform: [{ scale: saveScaleAnim }] }}>
+                <View style={styles.actionButtonsRow}>
+                  {/* Instagram Share Button */}
                   <TouchableOpacity 
-                    onPress={handleSaveCard} 
-                    disabled={cardSaved}
-                    style={[
-                      styles.saveCardButton,
-                      cardSaved && styles.saveCardButtonSaved
-                    ]}
+                    onPress={handleShareToInstagram} 
+                    disabled={isExportingToInstagram}
+                    style={styles.instagramButton}
                     activeOpacity={0.7}
                   >
-                    {cardSaved ? (
-                      <Text style={styles.savedText}>Saved to profile</Text>
+                    {isExportingToInstagram ? (
+                      <ActivityIndicator size="small" color="#E1306C" />
                     ) : (
                       <>
-                        <Ionicons name="bookmark-outline" size={18} color="#FFD700" />
-                        <Text style={styles.saveButtonText}>Save</Text>
+                        <Ionicons name="logo-instagram" size={18} color="#E1306C" />
+                        <Text style={styles.instagramButtonText}>Stories</Text>
                       </>
                     )}
                   </TouchableOpacity>
-                </Animated.View>
+                  
+                  {/* Save Button */}
+                  <Animated.View style={{ transform: [{ scale: saveScaleAnim }] }}>
+                    <TouchableOpacity 
+                      onPress={handleSaveCard} 
+                      disabled={cardSaved}
+                      style={[
+                        styles.saveCardButton,
+                        cardSaved && styles.saveCardButtonSaved
+                      ]}
+                      activeOpacity={0.7}
+                    >
+                      {cardSaved ? (
+                        <Text style={styles.savedText}>Saved</Text>
+                      ) : (
+                        <>
+                          <Ionicons name="bookmark-outline" size={18} color="#FFD700" />
+                          <Text style={styles.saveButtonText}>Save</Text>
+                        </>
+                      )}
+                    </TouchableOpacity>
+                  </Animated.View>
+                </View>
               </View>
               <View style={styles.statsCardWrapper} ref={statsCardRef} collapsable={false}>
                 <WorkoutStatsCard {...workoutStats} />
               </View>
+              
+              {/* Hidden transparent card for Instagram export */}
+              <View style={styles.hiddenCardContainer} ref={transparentCardRef} collapsable={false}>
+                <WorkoutStatsCard {...workoutStats} transparent={true} />
+              </View>
+              
               <View style={styles.saveExplanation}>
                 <Ionicons name="information-circle-outline" size={14} color="rgba(255, 215, 0, 0.7)" />
                 <Text style={styles.saveExplanationText}>
