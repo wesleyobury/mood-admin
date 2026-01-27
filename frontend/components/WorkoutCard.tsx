@@ -117,6 +117,9 @@ const WorkoutCard = React.memo(({
             </Text>
           </TouchableOpacity>
         </Animated.View>
+
+        {/* Swipe for more text */}
+        <Text style={styles.swipeForMoreText}>swipe for more</Text>
       </View>
     </View>
   );
