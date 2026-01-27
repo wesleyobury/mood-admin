@@ -1,0 +1,1326 @@
+import { EquipmentWorkouts } from '../types/workout';
+
+export const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
+  {
+    equipment: 'Dumbbells',
+    icon: 'barbell',
+    workouts: {
+      beginner: [
+        {
+          name: 'Shoulder Builder',
+          duration: '12–15 min',
+          description: 'Builds foundational shoulder strength with seated presses and lateral raises. ',
+          battlePlan: '3 rounds:\n• 12 seated dumbbell press\n• 12 seated lateral raise\nRest 60s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/d2gkwhep_download%20%282%29.png',
+          intensityReason: 'Perfect introduction to shoulder pressing and isolation.',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Press: Drive thumbs toward ceiling',
+              description: 'Keeps shoulders in safe position and maximizes deltoid recruitment.'
+            },
+            {
+              icon: 'trending-up',
+              title: 'Lateral raise: Lead with pinkies',
+              description: 'Creates better deltoid isolation and prevents shoulder impingement.'
+            }
+          ]
+        },
+        {
+          name: 'Shoulder Flow',
+          duration: '10–12 min',
+          description: 'Dynamic shoulder warm-up building mobility and activation through multiple planes. ',
+          battlePlan: '3 rounds:\n• 10 arm circles forward\n• 10 arm circles backward\n• 10 shoulder shrugs\nRest 45s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/jyl947na_download%20%2810%29.png',
+          intensityReason: 'Gentle mobility-focused warm-up for shoulder preparation.',
+          moodTips: [
+            {
+              icon: 'refresh',
+              title: 'Circles: Keep arms straight and controlled',
+              description: 'Focus on smooth, full range motion to activate all shoulder muscles.'
+            },
+            {
+              icon: 'body',
+              title: 'Shrugs: Squeeze shoulder blades together',
+              description: 'Activates rear delts and improves posture before pressing.'
+            }
+          ]
+        }
+      ],
+      intermediate: [
+        {
+          name: 'Arnold Power',
+          duration: '15–18 min',
+          description: 'Arnold press and lateral raise combo for intermediate shoulder strength. ',
+          battlePlan: '4 rounds:\n• 10 Arnold press\n• 12 lateral raises\n• 10 front raises\nRest 75s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/z5yngcpg_incline%20arnold.jpeg',
+          intensityReason: 'Dynamic Arnold press challenges all shoulder planes.',
+          moodTips: [
+            {
+              icon: 'refresh',
+              title: 'Arnold press: Rotate palms during movement',
+              description: 'Start palms facing you, finish facing forward for complete deltoid activation.'
+            },
+            {
+              icon: 'flash',
+              title: 'Raises: Control the negative',
+              description: 'Slow descent builds time under tension and prevents momentum.'
+            }
+          ]
+        },
+        {
+          name: 'Circuit',
+          duration: '12–15 min',
+          description: 'High-rep shoulder circuit for endurance and metabolic conditioning. ',
+          battlePlan: '3 rounds:\n• 15 shoulder press\n• 15 lateral raise\n• 15 rear delt fly\nRest 90s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/jyl947na_download%20%2810%29.png',
+          intensityReason: 'High-volume circuit for intermediate shoulder conditioning.',
+          moodTips: [
+            {
+              icon: 'timer',
+              title: 'High reps: Focus on form over speed',
+              description: 'Maintain perfect technique even as fatigue sets in.'
+            },
+            {
+              icon: 'trending-up',
+              title: 'Rear delt fly: Squeeze shoulder blades',
+              description: 'Emphasizes posterior deltoid and improves posture.'
+            }
+          ]
+        }
+      ],
+      advanced: [
+        {
+          name: 'Press Builder',
+          duration: '18–22 min',
+          description: 'Heavy shoulder press with drop setsfor advanced strength development. ',
+          battlePlan: '4 rounds:\n• 8 heavy shoulder press\n• Drop to 12 moderate\n• Drop to 15 light\nRest 2 min',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/d2gkwhep_download%20%282%29.png',
+          intensityReason: 'Advanced drop set protocol for maximum shoulder hypertrophy.',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Heavy set: Push to near failure',
+              description: 'Challenge your strength limits while maintaining perfect form.'
+            },
+            {
+              icon: 'speedometer',
+              title: 'Drop sets: No rest between weights',
+              description: 'Quick transitions maximize metabolic stress and growth stimulus.'
+            }
+          ]
+        },
+        {
+          name: 'Power Flow',
+          duration: '16–20 min',
+          description: 'Advanced dumbbell complex targeting all three deltoid heads intensively. ',
+          battlePlan: '3 rounds:\n• 6 push press\n• 8 lateral raise\n• 10 rear delt fly\n• 12 front raise\nRest 2 min',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/jyl947na_download%20%2810%29.png',
+          intensityReason: 'Complete shoulder complex for advanced muscle development.',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Push press: Use leg drive',
+              description: 'Explosive leg drive allows heavier weights for shoulder overload.'
+            },
+            {
+              icon: 'body',
+              title: 'Complex: Minimal rest between exercises',
+              description: 'Continuous tension maximizes shoulder pump and growth.'
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    equipment: 'Barbells',
+    icon: 'barbell',
+    workouts: {
+      beginner: [
+        {
+          name: 'Press Builder',
+          duration: '12–15 min',
+          description: 'Basic barbell shoulder press foundation with light weight and perfect form. ',
+          battlePlan: '3 rounds:\n• 10 standing barbell press\n• 12 upright rows\nRest 75s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/z1k5w5av_download.png',
+          intensityReason: 'Safe introduction to barbell overhead pressing.',
+          moodTips: [
+            {
+              icon: 'construct',
+              title: 'Grip: Hands just outside shoulders',
+              description: 'Proper grip width prevents wrist strain and maximizes power transfer.'
+            },
+            {
+              icon: 'body',
+              title: 'Core: Brace tight throughout movement',
+              description: 'Strong core prevents back arch and maintains safe pressing position.'
+            }
+          ]
+        },
+        {
+          name: 'Shoulder Flow',
+          duration: '10–12 min',
+          description: 'Introductory barbell flow combining presses and rows for balance. ',
+          battlePlan: '3 rounds:\n• 8 behind neck press (light)\n• 10 upright rows\n• 8 bent over rows\nRest 60s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/mgsrjngk_download%20%285%29.png',
+          intensityReason: 'Beginner barbell complex for shoulder and upper back balance.',
+          moodTips: [
+            {
+              icon: 'construct',
+              title: 'Behind neck: Very light weight only',
+              description: 'Requires excellent mobility; skip if shoulders feel tight.'
+            },
+            {
+              icon: 'trending-up',
+              title: 'Upright rows: Keep elbows below wrists',
+              description: 'Prevents shoulder impingement while targeting side delts.'
+            }
+          ]
+        }
+      ],
+      intermediate: [
+        {
+          name: 'Power Combo',
+          duration: '15–18 min',
+          description: 'Power press and upright row combination for intermediate strength and size. ',
+          battlePlan: '4 rounds:\n• 8 push press\n• 12 upright rows\n• 10 bent over rows\nRest 90s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/z1k5w5av_download.png',
+          intensityReason: 'Explosive pressing with targeted isolation work.',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Push press: Drive with legs first',
+              description: 'Explosive leg drive transfers more power to shoulder muscles.'
+            },
+            {
+              icon: 'body',
+              title: 'Rows: Pull elbows back and up',
+              description: 'Emphasizes rear delts for balanced shoulder development.'
+            }
+          ]
+        },
+        {
+          name: 'Circuit',
+          duration: '12–15 min',
+          description: 'Barbell shoulder circuit with minimal rest for conditioning and strength. ',
+          battlePlan: '3 rounds:\n• 10 barbell press\n• 15 upright rows\n• 12 high pulls\nRest 90s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/mgsrjngk_download%20%285%29.png',
+          intensityReason: 'High-volume barbell circuit for intermediate conditioning.',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'High pulls: Explosive hip drive',
+              description: 'Focus on power from hips, not just arms, for maximum effect.'
+            },
+            {
+              icon: 'timer',
+              title: 'Circuit: Maintain steady rhythm',
+              description: 'Consistent tempo builds endurance while maintaining strength gains.'
+            }
+          ]
+        }
+      ],
+      advanced: [
+        {
+          name: 'Barbell Max',
+          duration: '18–22 min',
+          description: 'Advanced barbell complex with heavyloads for maximum shoulder development. ',
+          battlePlan: '4 rounds:\n• 6 heavy push press\n• 8 behind neck press\n• 10 upright rows\n• 12 high pulls\nRest 2–3 min',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/5895zxha_bbhp.jpg',
+          intensityReason: 'Advanced barbell complex for complete shoulder development.',
+          moodTips: [
+            {
+              icon: 'construct',
+              title: 'Heavy push press: Focus on lockout',
+              description: 'Strong overhead lockout builds stability and pressing strength.'
+            },
+            {
+              icon: 'shield',
+              title: 'Behind neck: Perfect mobility required',
+              description: 'Skip if any shoulder discomfort; front press is equally effective.'
+            }
+          ]
+        },
+        {
+          name: 'Power Max',
+          duration: '16–20 min',
+          description: 'High-intensity barbell power complex for explosive shoulder strength. ',
+          battlePlan: '3 rounds:\n• 5 heavy barbell press\n• 6 push press\n• 8 high pulls\n• 10 upright rows\nRest 2–3 min',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/mgsrjngk_download%20%285%29.png',
+          intensityReason: 'Maximum intensity barbell training for advanced athletes.',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Heavy press: Grind through sticking points',
+              description: 'Mental toughness and technique refinement at heavy loads.'
+            },
+            {
+              icon: 'trending-up',
+              title: 'Power movements: Think speed and force',
+              description: 'Explosive intent builds both strength and power simultaneously.'
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    equipment: 'Kettlebells',
+    icon: 'fitness',
+    workouts: {
+      beginner: [
+        {
+          name: 'Shoulder Builder',
+          duration: '12–15 min',
+          description: 'Kettlebell shoulder foundation with presses and basic movement patterns. ',
+          battlePlan: '3 rounds:\n• 8 kettlebell press (each arm)\n• 10 kettlebell swings\n• 8 halos (each direction)\nRest 60s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/t4q8qc3k_dbkbp.webp',
+          intensityReason: 'Perfect introduction to kettlebell shoulder training.',
+          moodTips: [
+            {
+              icon: 'construct',
+              title: 'KB press: Keep wrist straight and strong',
+              description: 'Kettlebell weight distribution requires extra wrist stability.'
+            },
+            {
+              icon: 'refresh',
+              title: 'Halos: Move slowly with control',
+              description: 'Builds shoulder mobility and stability in all planes of motion.'
+            }
+          ]
+        },
+        {
+          name: 'Flow Starter',
+          duration: '10–12 min',
+          description: 'Gentle kettlebell flow building shoulder mobility and basic strength patterns. ',
+          battlePlan: '3 rounds:\n• 6 around the world (each direction)\n• 8 overhead carries (20 steps)\n• 10 arm swings\nRest 45s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/8p6cuez9_download.png',
+          intensityReason: 'Mobility-focused kettlebell introduction for shoulder health.',
+          moodTips: [
+            {
+              icon: 'body',
+              title: 'Around world: Keep core engaged',
+              description: 'Stable core allows shoulders to move freely and safely.'
+            },
+            {
+              icon: 'trending-up',
+              title: 'Overhead carry: Perfect posture',
+              description: 'Head up, shoulders down, core braced for optimal shoulder position.'
+            }
+          ]
+        }
+      ],
+      intermediate: [
+        {
+          name: 'Double Press',
+          duration: '15–18 min',
+          description: 'Double kettlebell pressing for increased strength and core stability demands. ',
+          battlePlan: '4 rounds:\n• 8 double KB press\n• 10 single arm swings (each)\n• 8 bottoms up press (each)\nRest 90s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/t4q8qc3k_dbkbp.webp',
+          intensityReason: 'Double kettlebell training for intermediate strength development.',
+          moodTips: [
+            {
+              icon: 'fitness',
+              title: 'Double press: Synchronize both arms',
+              description: 'Even pressing builds balanced strength and coordination.'
+            },
+            {
+              icon: 'construct',
+              title: 'Bottoms up: Squeeze handle tight',
+              description: 'Inverted kettlebell position challenges grip and shoulder stability.'
+            }
+          ]
+        },
+        {
+          name: 'KB Flow',
+          duration: '12–15 min',
+          description: 'Flowing kettlebell sequence combining strength and dynamic movements. ',
+          battlePlan: '3 rounds:\n• 6 clean and press (each)\n• 8 windmills (each)\n• 10 high pulls (each)\nRest 90s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/8p6cuez9_download.png',
+          intensityReason: 'Dynamic kettlebell flow for intermediate functional strength.',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Clean and press: Smooth hip drive',
+              description: 'Power comes from hips, not just arms, for efficient movement.'
+            },
+            {
+              icon: 'body',
+              title: 'Windmills: Keep eyes on kettlebell',
+              description: 'Visual tracking helps maintain balance and shoulder stability.'
+            }
+          ]
+        }
+      ],
+      advanced: [
+        {
+          name: 'KB Max',
+          duration: '18–22 min',
+          description: 'Heavy kettlebell complex for advancedshoulder strength and power development. ',
+          battlePlan: '4 rounds:\n• 5 heavy double KB press\n• 6 single arm jerks (each)\n• 8 bottoms up press (each)\n• 10 windmills (each)\nRest 2 min',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/n333i01m_download%20%283%29.png',
+          intensityReason: 'Advanced kettlebell complex for maximum shoulder development.',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Heavy doubles: Perfect timing',
+              description: 'Synchronized pressing with heavy bells requires focus and power.'
+            },
+            {
+              icon: 'trending-up',
+              title: 'Jerks: Explosive leg drive',
+              description: 'Quick dip and drive generates power for overhead lockout.'
+            }
+          ]
+        },
+        {
+          name: 'KB Power',
+          duration: '16–20 min',
+          description: 'High-intensity kettlebell power complex for explosive shoulder development. ',
+          battlePlan: '3 rounds:\n• 4 double KB clean and press\n• 5 single arm snatches (each)\n• 6 double KB swings\n• 8 Turkish get-up (partial)\nRest 2–3 min',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/8p6cuez9_download.png',
+          intensityReason: 'Maximum intensity kettlebell training for advanced athletes.',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Snatches: One fluid motion',
+              description: 'Hip drive, high pull, and punch through in seamless sequence.'
+            },
+            {
+              icon: 'construct',
+              title: 'Get-ups: Slow and controlled',
+              description: 'Each position builds shoulder stability and total body strength.'
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    equipment: 'Adjustable Bench',
+    icon: 'square',
+    workouts: {
+      beginner: [
+        {
+          name: 'Angle Press',
+          duration: '12–15 min',
+          description: 'Seated angle press building foundation strength across multiple pressing angles. ',
+          battlePlan: '3 rounds:\n• 10 seated press (45°)\n• 12 lateral raises\n• 10 rear delt fly\nRest 60s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/d2gkwhep_download%20%282%29.png',
+          intensityReason: 'Perfect seated pressing introduction with back support.',
+          moodTips: [
+            {
+              icon: 'construct',
+              title: 'Bench angle: 45° for optimal pressing',
+              description: 'Reduces lower back stress while maintaining shoulder activation.'
+            },
+            {
+              icon: 'body',
+              title: 'Back support: Keep contact throughout',
+              description: 'Use bench support to focus purely on shoulder movement.'
+            }
+          ]
+        },
+        {
+          name: 'Bench Flow',
+          duration: '10–12 min',
+          description: 'Adjustable bench flow targeting all three deltoid heads systematically. ',
+          battlePlan: '3 rounds:\n• 8 incline press (60°)\n• 10 lateral raise\n• 8 incline rear delt fly\nRest 60s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/jyl947na_download%20%2810%29.png',
+          intensityReason: 'Systematic targeting of all deltoid heads with bench support.',
+          moodTips: [
+            {
+              icon: 'trending-up',
+              title: 'Incline angle: Adjust for comfort',
+              description: 'Find angle that allows full range without shoulder pinching.'
+            },
+            {
+              icon: 'body',
+              title: 'Rear delt fly: Chest supported',
+              description: 'Bench support isolates rear delts and prevents cheating.'
+            }
+          ]
+        }
+      ],
+      intermediate: [
+        {
+          name: 'Arnold + Fly',
+          duration: '15–18 min',
+          description: 'Arnold press and fly combination with adjustable bench support angles. ',
+          battlePlan: '4 rounds:\n• 10 Arnold press (45°)\n• 12 incline lateral raise\n• 10 chest-supported rear fly\nRest 90s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/6ajddf8n_incline%20arnold.jpeg',
+          intensityReason: 'Intermediate pressing with isolation work using bench angles.',
+          moodTips: [
+            {
+              icon: 'refresh',
+              title: 'Arnold press: Full rotation',
+              description: 'Complete palm rotation activates all deltoid fibers effectively.'
+            },
+            {
+              icon: 'body',
+              title: 'Incline raises: Use bench for back support',
+              description: 'Prevents momentum and isolates lateral deltoid perfectly.'
+            }
+          ]
+        },
+        {
+          name: 'Circuit',
+          duration: '12–15 min',
+          description: 'Seated shoulder circuit maximizing bench angles for complete development. ',
+          battlePlan: '3 rounds:\n• 12 seated press (30°)\n• 15 lateral raise\n• 12 rear delt fly (45°)\n• 10 front raise\nRest 90s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/jyl947na_download%20%2810%29.png',
+          intensityReason: 'High-volume circuit utilizing multiple bench angles.',
+          moodTips: [
+            {
+              icon: 'timer',
+              title: 'Circuit pace: Steady and controlled',
+              description: 'Focus on form over speed during high-rep sequences.'
+            },
+            {
+              icon: 'construct',
+              title: 'Angle changes: Quick transitions',
+              description: 'Efficient bench adjustments maintain workout intensity.'
+            }
+          ]
+        }
+      ],
+      advanced: [
+        {
+          name: 'Bench Max',
+          duration: '18–22 min',
+          description: 'Complete bench shoulder builder usingall angles for maximum development. ',
+          battlePlan: '4 rounds:\n• 8 heavy press (45°)\n• 10 Arnold press (30°)\n• 12 lateral raise\n• 10 rear fly (60°)\nRest 2 min',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/d2gkwhep_download%20%282%29.png',
+          intensityReason: 'Advanced bench utilization for complete shoulder development.',
+          moodTips: [
+            {
+              icon: 'construct',
+              title: 'Multiple angles: Target all fibers',
+              description: 'Each angle emphasizes different deltoid fiber groups.'
+            },
+            {
+              icon: 'flash',
+              title: 'Heavy press: Challenge strength',
+              description: 'Bench support allows heavier loads safely.'
+            }
+          ]
+        },
+        {
+          name: 'Giant Set',
+          duration: '16–20 min',
+          description: 'Shoulder giant set utilizing every bench angle for ultimate burnout. ',
+          battlePlan: '3 rounds:\n• 6 press (15°)\n• 8 press (45°)\n• 10 press (75°)\n• 12 lateral raise\n• 15 rear fly\nRest 3 min',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/jyl947na_download%20%2810%29.png',
+          intensityReason: 'Ultimate shoulder giant set using all bench positions.',
+          moodTips: [
+            {
+              icon: 'trending-up',
+              title: 'Angle progression: Low to high',
+              description: 'Start more vertical, progress to more challenging angles.'
+            },
+            {
+              icon: 'timer',
+              title: 'Giant set: Mental toughness required',
+              description: 'Push through fatigue for maximum shoulder development.'
+            }
+          ]
+        }
+      ]
+    }
+  },
+
+
+  {
+    equipment: 'Rear Delt Fly Machine',
+    icon: 'contract',
+    workouts: {
+      beginner: [
+        {
+          name: 'Rear Delt Focus',
+          duration: '12–14 min',
+          description: 'Machine rear delt flys and reverse flys for posterior chain activation. ',
+          battlePlan: '3 rounds:\n• 12 rear delt fly\n• 10 reverse fly (chest supported)\nRest 60s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/jmracrsi_focused-rear-delt-fly-machine-260nw-2619940467.webp',
+          intensityReason: 'Perfect introduction to machine rear delt training.',
+          moodTips: [
+            {
+              icon: 'construct',
+              title: 'Adjust seat height properly',
+              description: 'Arms should be parallel to floor at shoulder height.'
+            },
+            {
+              icon: 'body',
+              title: 'Squeeze shoulder blades',
+              description: 'Focus on bringing shoulder blades together, not just moving arms.'
+            }
+          ]
+        },
+        {
+          name: 'Posture Fix',
+          duration: '10–12 min',
+          description: 'Rear delt strengthening circuit for posture improvement and balance. ',
+          battlePlan: '3 rounds:\n• 10 rear delt fly\n• 8 reverse fly\n• 6 face pulls (if available)\nRest 60–75s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/tav7fwye_rear-delt-fly-machine.gif',
+          intensityReason: 'Focused posterior deltoid training for posture correction.',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Focus on the squeeze',
+              description: 'Contract rear delts hard as arms come together behind you.'
+            },
+            {
+              icon: 'timer',
+              title: 'Control the movement',
+              description: 'Slow, controlled reps build better mind-muscle connection.'
+            }
+          ]
+        }
+      ],
+      intermediate: [
+        {
+          name: 'Rear Delt Max',
+          duration: '16–18 min',
+          description: 'Heavy-to-light rear delt pyramid for posterior deltoid development. ',
+          battlePlan: '4 rounds:\n• 12 light rear delt fly\n• 10 moderate rear delt fly\n• 8 heavy rear delt fly\nRest 75s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/jmracrsi_focused-rear-delt-fly-machine-260nw-2619940467.webp',
+          intensityReason: 'Progressive loading across different rep ranges.',
+          moodTips: [
+            {
+              icon: 'trending-up',
+              title: 'Increase weight progressively',
+              description: 'Each set should challenge you at the target rep range.'
+            },
+            {
+              icon: 'body',
+              title: 'Feel the rear delts working',
+              description: 'Mind-muscle connection is crucial for isolation work.'
+            }
+          ]
+        },
+        {
+          name: 'Burnout',
+          duration: '14–15 min',
+          description: 'Rear delt pre-exhaustion with compound movements for balance. ',
+          battlePlan: '3 rounds:\n• 15 rear delt fly\n• 10 reverse fly (immediately after)\n• 8 face pulls\nRest 90s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/tav7fwye_rear-delt-fly-machine.gif',
+          intensityReason: 'Pre-exhaustion protocol for posterior deltoid development.',
+          moodTips: [
+            {
+              icon: 'refresh',
+              title: 'No rest between exercises',
+              description: 'Move immediately from one exercise to the next.'
+            },
+            {
+              icon: 'flash',
+              title: 'Push through fatigue',
+              description: 'Rear delts will be pre-fatigued, focus on quality reps.'
+            }
+          ]
+        }
+      ],
+      advanced: [
+        {
+          name: 'Rear Delt AMRAP',
+          duration: '10 min',
+          description: 'Max rear delt fly reps in 10 minutes for ultimate posterior burnout. ',
+          battlePlan: '3 rounds:\n• 12 heavy rear delt fly\n• Drop → 15 moderate\n• Drop → 20 light\nRest 90–120s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/jmracrsi_focused-rear-delt-fly-machine-260nw-2619940467.webp',
+          intensityReason: 'Advanced drop set protocol for maximum rear delt development.',
+          moodTips: [
+            {
+              icon: 'speedometer',
+              title: 'Quick weight adjustments',
+              description: 'Minimize rest time between drop set weights.'
+            },
+            {
+              icon: 'timer',
+              title: 'Time under tension focus',
+              description: 'Slow eccentrics even under fatigue for maximum growth.'
+            }
+          ]
+        },
+        {
+          name: 'Elite',
+          duration: '15–18 min',
+          description: 'Advanced rear delt complex with variations for elite development. ',
+          battlePlan: '2 rounds:\n• 25 rear delt fly\n• 20 reverse fly\n• 15 face pulls\n• Max single-arm fly\nRest 2–3 min',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/tav7fwye_rear-delt-fly-machine.gif',
+          intensityReason: 'High-volume rear delt finisher for maximum posterior development.',
+          moodTips: [
+            {
+              icon: 'refresh',
+              title: 'Maintain perfect form',
+              description: 'Even under fatigue, prioritize form over speed.'
+            },
+            {
+              icon: 'flash',
+              title: 'Push through the burn',
+              description: 'Mental toughness required for high-volume training.'
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    equipment: 'Cable Crossover Machine',
+    icon: 'reorder-three',
+    workouts: {
+      beginner: [
+        {
+          name: 'Cable Basics',
+          duration: '12–14 min',
+          description: 'Cable shoulder foundation with lateral raises and face pulls. ',
+          battlePlan: '3 rounds:\n• 10 cable lateral raise\n• 8 cable face pulls\n• 6 cable front raise\nRest 60–75s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/uzw2rwl7_download%20%284%29.png',
+          intensityReason: 'Perfect introduction to cable shoulder training.',
+          moodTips: [
+            {
+              icon: 'construct',
+              title: 'Adjust cable height properly',
+              description: 'Mid-chest height for lateral raises, high for face pulls.'
+            },
+            {
+              icon: 'body',
+              title: 'Maintain slight forward lean',
+              description: 'Stable stance with one foot forward for balance.'
+            }
+          ]
+        },
+        {
+          name: 'Cable Flow',
+          duration: '12–14 min',
+          description: 'Standing cable shoulder flow for stability and coordination. ',
+          battlePlan: '3 rounds:\n• 8 cable shoulder press\n• 10 single-arm cable raise\n• 8 cable reverse fly\nRest 60–75s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/oau5jji4_download%20%287%29.png',
+          intensityReason: 'Functional cable training for shoulder stability.',
+          moodTips: [
+            {
+              icon: 'fitness',
+              title: 'Engage core throughout',
+              description: 'Standing position requires core stability for balance.'
+            },
+            {
+              icon: 'flash',
+              title: 'Control the cables',
+              description: 'Smooth movement prevents momentum and maximizes tension.'
+            }
+          ]
+        }
+      ],
+      intermediate: [
+        {
+          name: 'Cable Power',
+          duration: '14–16 min',
+          description: 'Multi-angle cable training hitting all deltoid heads systematically. ',
+          battlePlan: '3 rounds:\n• 8 high cable raise\n• 8 mid cable raise\n• 8 low cable raise\n• 10 cable upright row\nRest 90s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/jzmrn7li_download%20%2811%29.png',
+          intensityReason: 'Comprehensive cable training targeting all shoulder angles.',
+          moodTips: [
+            {
+              icon: 'trending-up',
+              title: 'Different angles target different fibers',
+              description: 'High = upper, mid = middle, low = lower deltoid emphasis.'
+            },
+            {
+              icon: 'refresh',
+              title: 'Smooth transitions between angles',
+              description: 'Keep muscles under constant tension for growth stimulus.'
+            }
+          ]
+        },
+        {
+          name: 'Cable Complex',
+          duration: '14–16 min',
+          description: 'Cable press and raise sequencefor shoulder hypertrophy focus. ',
+          battlePlan: '3 rounds:\n• 8 cable shoulder press\n• 10 single-arm cable raise\n• 8 cable rear delt fly\nRest 90s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/oau5jji4_download%20%287%29.png',
+          intensityReason: 'Strength-focused cable training with unilateral work.',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Press with control',
+              description: 'Controlled eccentric maximizes time under tension.'
+            },
+            {
+              icon: 'fitness',
+              title: 'Single-arm challenges stability',
+              description: 'Maintain stable torso during unilateral movements.'
+            }
+          ]
+        }
+      ],
+      advanced: [
+        {
+          name: 'Cable Max',
+          duration: '15–18 min',
+          description: 'Advanced cable complex with drop sets for maximum development. ',
+          battlePlan: '3 rounds:\n• 8 heavy cable press\n• Drop → 10 moderate\n• Drop → 12 light\n• 8 cable face pulls\nRest 90–120s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/jzmrn7li_download%20%2811%29.png',
+          intensityReason: 'Advanced drop set training with constant cable tension.',
+          moodTips: [
+            {
+              icon: 'timer',
+              title: 'Time under tension focus',
+              description: 'Slow eccentrics on drop sets for maximum muscle growth.'
+            },
+            {
+              icon: 'flash',
+              title: 'Peak contraction emphasis',
+              description: 'Hold squeeze for 1s at peak contraction on every rep.'
+            }
+          ]
+        },
+        {
+          name: 'Cable Elite',
+          duration: '16–18 min',
+          description: 'Ultimate cable shoulder finisher for elite shoulder development. ',
+          battlePlan: '2 rounds:\n• 15 cable lateral raise\n• 12 cable front raise\n• 10 cable rear delt fly\n• 8 cable upright row\nRest 2–3 min',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/oau5jji4_download%20%287%29.png',
+          intensityReason: 'High-volume cable finisher for maximum shoulder pump.',
+          moodTips: [
+            {
+              icon: 'refresh',
+              title: 'Maintain perfect form',
+              description: 'Even under fatigue, prioritize form over speed.'
+            },
+            {
+              icon: 'body',
+              title: 'Feel all deltoids working',
+              description: 'Mind-muscle connection crucial for high-volume training.'
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    equipment: 'Landmine Attachment',
+    icon: 'rocket',
+    workouts: {
+      beginner: [
+        {
+          name: 'Landmine Press',
+          duration: '12–15 min',
+          description: 'Landmine shoulder press building foundation strength with barbell setup. ',
+          battlePlan: '3 rounds:\n• 10 landmine press (each arm)\n• 8 landmine upright rows\nRest 60s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/rnromyq4_download%20%283%29.png',
+          intensityReason: 'Perfect introduction to landmine shoulder training.',
+          moodTips: [
+            {
+              icon: 'construct',
+              title: 'Landmine setup: Secure one end of barbell',
+              description: 'Ensure barbell is properly secured in landmine attachment.'
+            },
+            {
+              icon: 'body',
+              title: 'Core engagement: Maintain stability',
+              description: 'Keep core braced throughout all landmine movements.'
+            }
+          ]
+        },
+        {
+          name: 'Landmine Flow',
+          duration: '10–12 min',
+          description: 'Basic landmine movement flow for shoulder mobility and strength. ',
+          battlePlan: '3 rounds:\n• 8 landmine press\n• 6 landmine lateral raise\n• 8 landmine rainbow\nRest 60s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/d7twwdls_lp.webp',
+          intensityReason: 'Functional landmine movements for shoulder development.',
+          moodTips: [
+            {
+              icon: 'refresh',
+              title: 'Rainbow motion: Full arc movement',
+              description: 'Move barbell in smooth arc from side to side overhead.'
+            },
+            {
+              icon: 'flash',
+              title: 'Control the weight: Smooth movements',
+              description: 'Focus on controlled motion rather than speed.'
+            }
+          ]
+        }
+      ],
+      intermediate: [
+        {
+          name: 'Power Press',
+          duration: '15–18 min',
+          description: 'Landmine power pressing with increased load and complexity. ',
+          battlePlan: '4 rounds:\n• 8 single-arm landmine press\n• 10 landmine upright rows\n• 6 landmine thrusters\nRest 90s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/rnromyq4_download%20%283%29.png',
+          intensityReason: 'Intermediate landmine training for power development.',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Thrusters: Combine squat and press',
+              description: 'Explosive movement from squat position to overhead press.'
+            },
+            {
+              icon: 'trending-up',
+              title: 'Single-arm work: Unilateral strength',
+              description: 'Builds core stability and addresses muscle imbalances.'
+            }
+          ]
+        },
+        {
+          name: 'Complex',
+          duration: '12–15 min',
+          description: 'Landmine shoulder complex combining multiple movement patterns. ',
+          battlePlan: '3 rounds:\n• 6 landmine clean and press\n• 8 landmine halos\n• 10 landmine rotations\nRest 90s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/d7twwdls_lp.webp',
+          intensityReason: 'Dynamic landmine complex for functional strength.',
+          moodTips: [
+            {
+              icon: 'refresh',
+              title: 'Halos: Complete circles around head',
+              description: 'Move barbell in controlled circles around your head.'
+            },
+            {
+              icon: 'body',
+              title: 'Rotations: Core and shoulder integration',
+              description: 'Rotational movements build functional strength patterns.'
+            }
+          ]
+        }
+      ],
+      advanced: [
+        {
+          name: 'Landmine Max',
+          duration: '18–22 min',
+          description: 'Advanced landmine training for maximum shoulder power development. ',
+          battlePlan: '4 rounds:\n• 6 heavy landmine press\n• 8 landmine clean and jerk\n• 10 landmine windmills\n• 12 landmine switches\nRest 2 min',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/rnromyq4_download%20%283%29.png',
+          intensityReason: 'Advanced landmine complex for elite shoulder development.',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Clean and jerk: Explosive power movement',
+              description: 'Full-body power transfer to overhead position.'
+            },
+            {
+              icon: 'trending-up',
+              title: 'Windmills: Core stability challenge',
+              description: 'Advanced movement requiring excellent mobility and control.'
+            }
+          ]
+        },
+        {
+          name: 'Elite Flow',
+          duration: '16–20 min',
+          description: 'Ultimate landmine flow for elite shoulder conditioning. ',
+          battlePlan: '3 rounds:\n• 5 landmine snatches\n• 8 single-arm thrusters\n• 10 landmine rotational press\n• 12 landmine spirals\nRest 3 min',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/d7twwdls_lp.webp',
+          intensityReason: 'Ultimate landmine challenge for elite athletes.',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Snatches: One fluid motion to overhead',
+              description: 'Explosive full-body movement requiring perfect technique.'
+            },
+            {
+              icon: 'body',
+              title: 'Spirals: Three-dimensional movement',
+              description: 'Advanced pattern combining rotation and vertical movement.'
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    equipment: 'Powerlifting Platform',
+    icon: 'grid',
+    workouts: {
+      beginner: [
+        {
+          name: 'Platform Press',
+          duration: '12–15 min',
+          description: 'Platform overhead pressing with solid foundation and form focus. ',
+          battlePlan: '3 rounds:\n• 8 overhead press\n• 10 push press\n• 6 strict press\nRest 75s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/gojjuow1_download%20%285%29.png',
+          intensityReason: 'Perfect introduction to platform overhead pressing.',
+          moodTips: [
+            {
+              icon: 'construct',
+              title: 'Platform setup: Use proper rack height',
+              description: 'Set bar at appropriate height for safe unracking.'
+            },
+            {
+              icon: 'body',
+              title: 'Foot position: Stable base for pressing',
+              description: 'Maintain stable foot position throughout all presses.'
+            }
+          ]
+        },
+        {
+          name: 'Power Base',
+          duration: '10–12 min',
+          description: 'Foundation power movements on platform for shoulder development. ',
+          battlePlan: '3 rounds:\n• 6 military press\n• 8 behind neck press (light)\n• 10 front raises\nRest 60s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/0eviojnw_behind%20neck%20press.png',
+          intensityReason: 'Fundamental platform movements for shoulder strength.',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Military press: Strict form required',
+              description: 'No leg drive, pure shoulder and core strength.'
+            },
+            {
+              icon: 'shield',
+              title: 'Behind neck: Only if flexible',
+              description: 'Skip if any shoulder discomfort or limited mobility.'
+            }
+          ]
+        }
+      ],
+      intermediate: [
+        {
+          name: 'Platform Power',
+          duration: '15–18 min',
+          description: 'Intermediate platform training with power movements and heavier loads. ',
+          battlePlan: '4 rounds:\n• 6 push press\n• 8 strict press\n• 10 upright rows\n• 8 high pulls\nRest 90s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/cx834bjk_download%20%286%29.png',
+          intensityReason: 'Intermediate platform training for power development.',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Push press: Use leg drive efficiently',
+              description: 'Explosive leg extension transfers power to shoulders.'
+            },
+            {
+              icon: 'trending-up',
+              title: 'High pulls: Power from hips',
+              description: 'Generate force from hip drive, not just arms.'
+            }
+          ]
+        },
+        {
+          name: 'Strength Base',
+          duration: '12–15 min',
+          description: 'Platform strength building with compound movement combinations. ',
+          battlePlan: '3 rounds:\n• 5 heavy press\n• 8 push press\n• 10 upright rows\n• 12 shrugs\nRest 2 min',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/gz687kqk_download%20%286%29.png',
+          intensityReason: 'Strength-focused platform training for muscle development.',
+          moodTips: [
+            {
+              icon: 'construct',
+              title: 'Heavy press: Focus on technique',
+              description: 'Maintain perfect form even at heavier weights.'
+            },
+            {
+              icon: 'body',
+              title: 'Shrugs: Trap activation',
+              description: 'Complete shoulder development with trap emphasis.'
+            }
+          ]
+        }
+      ],
+      advanced: [
+        {
+          name: 'Platform Max',
+          duration: '18–22 min',
+          description: 'Advanced platform training for maximum shoulder strength and power. ',
+          battlePlan: '4 rounds:\n• 3 max effort press\n• 5 push press\n• 6 jerk\n• 8 high pulls\nRest 3 min',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/ixckk97w_download%20%287%29.png',
+          intensityReason: 'Advanced platform training for maximum strength development.',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Max effort: Challenge your limits',
+              description: 'Push maximum weights while maintaining perfect form.'
+            },
+            {
+              icon: 'trending-up',
+              title: 'Jerk: Technical precision required',
+              description: 'Advanced Olympic lift technique for explosive power.'
+            }
+          ]
+        },
+        {
+          name: 'Elite Power',
+          duration: '16–20 min',
+          description: 'Ultimate platform workout for elite shoulder power and strength. ',
+          battlePlan: '3 rounds:\n• 2 max press singles\n• 4 split jerks\n• 6 snatch grip press\n• 8 muscle snatches\nRest 3–4 min',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/7iwt7hcg_download%20%288%29.png',
+          intensityReason: 'Ultimate platform challenge for elite athletes.',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Max singles: Peak strength testing',
+              description: 'Test maximum strength capabilities with single reps.'
+            },
+            {
+              icon: 'construct',
+              title: 'Olympic variations: Technical mastery',
+              description: 'Advanced Olympic lift variations requiring years of practice.'
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    equipment: 'Shoulder Press Machine',
+    icon: 'triangle',
+    workouts: {
+      beginner: [
+        {
+          name: 'Machine Press',
+          duration: '12–15 min',
+          description: 'Machine shoulder press foundation with guided movement patterns. ',
+          battlePlan: '3 rounds:\n• 12 seated machine press\n• 10 single-arm machine press\nRest 60s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/4tfizieb_download%20%288%29.png',
+          intensityReason: 'Perfect introduction to machine shoulder pressing.',
+          moodTips: [
+            {
+              icon: 'construct',
+              title: 'Seat adjustment: Proper height alignment',
+              description: 'Adjust seat so handles are at shoulder level.'
+            },
+            {
+              icon: 'body',
+              title: 'Back support: Maintain contact',
+              description: 'Keep back pressed against pad throughout movement.'
+            }
+          ]
+        },
+        {
+          name: 'Press Basics',
+          duration: '10–12 min',
+          description: 'Basic machine pressing with form focus and progression. ',
+          battlePlan: '3 rounds:\n• 10 machine press\n• 8 partial reps (top half)\n• 6 slow negatives\nRest 75s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/0sr4xno3_download%20%284%29.png',
+          intensityReason: 'Form-focused machine training for proper technique.',
+          moodTips: [
+            {
+              icon: 'timer',
+              title: 'Slow negatives: Control the descent',
+              description: 'Take 3-4 seconds to lower weight for muscle building.'
+            },
+            {
+              icon: 'trending-up',
+              title: 'Partial reps: Focus on sticking points',
+              description: 'Work on the most challenging portion of the movement.'
+            }
+          ]
+        }
+      ],
+      intermediate: [
+        {
+          name: 'Machine Power',
+          duration: '15–18 min',
+          description: 'Intermediate machine training with varied rep ranges and intensities. ',
+          battlePlan: '4 rounds:\n• 8 machine press\n• 10 single-arm alternating\n• 12 high rep burns\nRest 90s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/4tfizieb_download%20%288%29.png',
+          intensityReason: 'Intermediate machine training for strength and endurance.',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Alternating arms: Unilateral focus',
+              description: 'Single-arm work challenges stability and balance.'
+            },
+            {
+              icon: 'timer',
+              title: 'High rep burns: Push through fatigue',
+              description: 'Mental toughness and muscular endurance challenge.'
+            }
+          ]
+        },
+        {
+          name: 'Complex',
+          duration: '12–15 min',
+          description: 'Machine press complex with drop sets and intensity techniques. ',
+          battlePlan: '3 rounds:\n• 8 heavy machine press\n• Drop to 12 moderate\n• Drop to 16 light\nRest 2 min',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/0sr4xno3_download%20%284%29.png',
+          intensityReason: 'Drop set protocol for maximum machine press development.',
+          moodTips: [
+            {
+              icon: 'speedometer',
+              title: 'Quick weight changes: Minimal rest',
+              description: 'Efficient machine adjustments maximize training effect.'
+            },
+            {
+              icon: 'flash',
+              title: 'Push through burn: Mental toughness',
+              description: 'Drop sets create intense muscle fatigue and growth.'
+            }
+          ]
+        }
+      ],
+      advanced: [
+        {
+          name: 'Machine Max',
+          duration: '18–22 min',
+          description: 'Advanced machine training for maximum shoulder development. ',
+          battlePlan: '4 rounds:\n• 6 max weight press\n• 8 tempo press (3-1-3)\n• 10 explosive press\n• 12 burnout reps\nRest 3 min',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/4tfizieb_download%20%288%29.png',
+          intensityReason: 'Advanced machine protocol for elite shoulder development.',
+          moodTips: [
+            {
+              icon: 'timer',
+              title: 'Tempo work: Time under tension',
+              description: '3 seconds down, 1 second pause, 3 seconds up.'
+            },
+            {
+              icon: 'flash',
+              title: 'Explosive press: Maximum force production',
+              description: 'Push with maximum speed while maintaining control.'
+            }
+          ]
+        },
+        {
+          name: 'Elite Machine',
+          duration: '16–20 min',
+          description: 'Ultimate machine shoulder workout for elite strength and endurance. ',
+          battlePlan: '3 rounds:\n• 4 max effort singles\n• 6 cluster sets (pause reps)\n• 8 1.5 rep method\n• Max reps to failure\nRest 4 min',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/0sr4xno3_download%20%284%29.png',
+          intensityReason: 'Ultimate machine challenge for elite athletes.',
+          moodTips: [
+            {
+              icon: 'construct',
+              title: '1.5 reps: Bottom half plus full rep',
+              description: 'Advanced technique combining partial and full range motion.'
+            },
+            {
+              icon: 'trending-up',
+              title: 'Cluster sets: Short rest between reps',
+              description: 'Brief pause between reps allows heavier weight usage.'
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    equipment: 'Smith Machine',
+    icon: 'hardware-chip',
+    workouts: {
+      beginner: [
+        {
+          name: 'Smith Press',
+          duration: '12–15 min',
+          description: 'Smith machine shoulder press with guided bar path for safety. ',
+          battlePlan: '3 rounds:\n• 10 smith machine press\n• 8 behind neck press (light)\n• 12 upright rows\nRest 75s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/6jtrgr30_download%20%289%29.png',
+          intensityReason: 'Perfect introduction to Smith machine shoulder training.',
+          moodTips: [
+            {
+              icon: 'construct',
+              title: 'Bar position: Centered on shoulders',
+              description: 'Ensure bar is properly centered before pressing.'
+            },
+            {
+              icon: 'shield',
+              title: 'Safety hooks: Set appropriate height',
+              description: 'Position safety hooks just below lowest point.'
+            }
+          ]
+        },
+        {
+          name: 'Smith Basics',
+          duration: '10–12 min',
+          description: 'Basic Smith machine movements for shoulder strength foundation. ',
+          battlePlan: '3 rounds:\n• 8 seated smith press\n• 10 smith upright rows\n• 6 smith shrugs\nRest 60s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/civ6xh4i_Smith-Machine-Shoulder-Press.webp',
+          intensityReason: 'Foundational Smith machine training for safe progression.',
+          moodTips: [
+            {
+              icon: 'body',
+              title: 'Seated position: Back support',
+              description: 'Use bench back support for seated pressing variations.'
+            },
+            {
+              icon: 'flash',
+              title: 'Controlled movement: Use the guide rails',
+              description: 'Take advantage of guided bar path for perfect form.'
+            }
+          ]
+        }
+      ],
+      intermediate: [
+        {
+          name: 'Smith Power',
+          duration: '15–18 min',
+          description: 'Intermediate Smith machine training with power and strength focus. ',
+          battlePlan: '4 rounds:\n• 8 smith push press\n• 10 standing smith press\n• 8 smith high pulls\n• 12 smith rows\nRest 90s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/6jtrgr30_download%20%289%29.png',
+          intensityReason: 'Intermediate Smith machine training for power development.',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Push press: Use leg drive',
+              description: 'Generate power from legs to assist shoulder press.'
+            },
+            {
+              icon: 'trending-up',
+              title: 'Standing press: Core engagement',
+              description: 'Standing position challenges core stability more.'
+            }
+          ]
+        },
+        {
+          name: 'Smith Complex',
+          duration: '12–15 min',
+          description: 'Smith machine shoulder complex for comprehensive development. ',
+          battlePlan: '3 rounds:\n• 6 smith press\n• 8 smith behind neck\n• 10 smith upright rows\n• 12 smith front raise\nRest 90s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/civ6xh4i_Smith-Machine-Shoulder-Press.webp',
+          intensityReason: 'Comprehensive Smith machine complex for all deltoid heads.',
+          moodTips: [
+            {
+              icon: 'body',
+              title: 'Behind neck: Only if mobile',
+              description: 'Skip behind neck pressing if any shoulder discomfort.'
+            },
+            {
+              icon: 'construct',
+              title: 'Front raises: Light weight',
+              description: 'Use lighter weight for isolation movements.'
+            }
+          ]
+        }
+      ],
+      advanced: [
+        {
+          name: 'Smith Max',
+          duration: '18–22 min',
+          description: 'Advanced Smith machine training for maximum shoulder development. ',
+          battlePlan: '4 rounds:\n• 5 max smith press\n• 6 smith push press\n• 8 smith muscle cleans\n• 10 smith high pulls\nRest 2–3 min',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/6jtrgr30_download%20%289%29.png',
+          intensityReason: 'Advanced Smith machine training for maximum strength.',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Muscle cleans: Power development',
+              description: 'Explosive pulling movement to shoulder level.'
+            },
+            {
+              icon: 'construct',
+              title: 'Max press: Challenge limits safely',
+              description: 'Smith machine allows for heavier pressing safely.'
+            }
+          ]
+        },
+        {
+          name: 'Elite Smith',
+          duration: '16–20 min',
+          description: 'Ultimate Smith machine workout for elite shoulder power and size. ',
+          battlePlan: '3 rounds:\n• 3 max effort singles\n• 5 cluster press\n• 8 tempo press (4-1-2)\n• Max reps burnout\nRest 3–4 min',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/civ6xh4i_Smith-Machine-Shoulder-Press.webp',
+          intensityReason: 'Ultimate Smith machine challenge for elite athletes.',
+          moodTips: [
+            {
+              icon: 'timer',
+              title: 'Tempo press: Maximize time under tension',
+              description: '4 seconds down, 1 second pause, 2 seconds up.'
+            },
+            {
+              icon: 'trending-up',
+              title: 'Cluster press: Rest-pause technique',
+              description: 'Brief rest between reps allows heavier loads.'
+            }
+          ]
+        }
+      ]
+    }
+  }
+];
