@@ -310,7 +310,7 @@ const styles = StyleSheet.create({
   scrollContentContainer: { paddingTop: 16, paddingBottom: 10, overflow: 'visible' },
   muscleGroupSection: { marginBottom: 24 },
   sectionHeader: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', paddingHorizontal: 24, marginBottom: 16 },
-  sectionTitle: { fontSize: 18, fontWeight: 'bold', color: '#FFD700' },
+  sectionTitle: { fontSize: 20, fontWeight: 'bold', color: '#ffffff' },
   sectionBadge: { backgroundColor: 'rgba(255, 215, 0, 0.15)', paddingHorizontal: 12, paddingVertical: 4, borderRadius: 12 },
   sectionBadgeText: { fontSize: 12, color: '#FFD700', fontWeight: '600' },
   emptyState: { flex: 1, justifyContent: 'center', alignItems: 'center', paddingHorizontal: 40 },
