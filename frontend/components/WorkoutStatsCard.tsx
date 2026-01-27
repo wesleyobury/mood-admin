@@ -7,29 +7,31 @@ const { width } = Dimensions.get('window');
 const CARD_WIDTH = width * 0.88;
 const CARD_HEIGHT = CARD_WIDTH * 1.25;
 
-// Mood-specific phrases based on workout type (for spaced letter format)
-const MOOD_PHRASES: { [key: string]: string } = {
-  'sweat': 'IN THE MOOD TO SWEAT',
-  'burn': 'IN THE MOOD TO SWEAT',
-  'cardio': 'IN THE MOOD TO SWEAT',
-  'muscle': 'IN THE MOOD FOR GAINS',
-  'gainer': 'IN THE MOOD FOR GAINS',
-  'strength': 'IN THE MOOD FOR GAINS',
-  'explosion': 'IN AN EXPLOSIVE MOOD',
-  'explosive': 'IN AN EXPLOSIVE MOOD',
-  'power': 'IN AN EXPLOSIVE MOOD',
-  'lazy': 'IN A LAZY MOOD',
-  'calisthenics': 'IN A CALISTHENICS MOOD',
-  'bodyweight': 'IN A CALISTHENICS MOOD',
-  'outdoor': 'IN THE MOOD TO GET OUTSIDE',
-  'outside': 'IN THE MOOD TO GET OUTSIDE',
+// Motivational phrases per mood category
+const MOOD_PHRASES: { [key: string]: string[] } = {
+  'sweat': ['Burn it down', 'Sweat it out', 'Torch calories', 'No comfort zone', 'Earn the sweat'],
+  'burn': ['Burn it down', 'Sweat it out', 'Torch calories', 'No comfort zone', 'Earn the sweat'],
+  'cardio': ['Burn it down', 'Sweat it out', 'Torch calories', 'No comfort zone', 'Earn the sweat'],
+  'muscle': ['Build real muscle', 'Chase the pump', 'Lift with intent', 'Strength mode on', 'Gains over excuses'],
+  'gainer': ['Build real muscle', 'Chase the pump', 'Lift with intent', 'Strength mode on', 'Gains over excuses'],
+  'strength': ['Build real muscle', 'Chase the pump', 'Lift with intent', 'Strength mode on', 'Gains over excuses'],
+  'explosion': ['Explode with power', 'Fast and forceful', 'Train explosive today', 'Power meets speed', 'Move violently fast'],
+  'explosive': ['Explode with power', 'Fast and forceful', 'Train explosive today', 'Power meets speed', 'Move violently fast'],
+  'power': ['Explode with power', 'Fast and forceful', 'Train explosive today', 'Power meets speed', 'Move violently fast'],
+  'lazy': ['Just move today', 'Low effort wins', 'Ease into motion', 'Start where you are', 'Movement beats nothing'],
+  'calisthenics': ['Control your body', 'Strength, no weights', 'Bodyweight mastery', 'Move with control', 'Own every rep'],
+  'bodyweight': ['Control your body', 'Strength, no weights', 'Bodyweight mastery', 'Move with control', 'Own every rep'],
+  'outdoor': ['Move in daylight', 'Fresh air reps', 'Outside hits different', 'Train beyond walls', 'Take it outside'],
+  'outside': ['Move in daylight', 'Fresh air reps', 'Outside hits different', 'Train beyond walls', 'Take it outside'],
 };
 
 // Fallback motivational phrases
 const FALLBACK_PHRASES = [
-  'IN THE MOOD TO MOVE',
-  'IN THE MOOD FOR PROGRESS',
-  'IN THE MOOD TO CONQUER',
+  'Keep moving forward',
+  'One rep at a time',
+  'Progress over perfection',
+  'Show up for yourself',
+  'Every rep counts',
 ];
 
 interface WorkoutStatsCardProps {
@@ -45,15 +47,9 @@ interface WorkoutStatsCardProps {
   completedAt: string;
   moodCategory?: string;
   transparent?: boolean;
-  // Editable values
   editedDuration?: number;
   editedCalories?: number;
 }
-
-// Convert text to spaced letter format
-const toSpacedLetters = (text: string): string => {
-  return text.split('').join(' ');
-};
 
 export default function WorkoutStatsCard({ 
   workouts, 
@@ -99,13 +95,13 @@ export default function WorkoutStatsCard({
     return dominantCategory;
   };
 
-  // Get mood-specific phrase based on workout category
+  // Get random motivational phrase based on workout category
   const getMoodPhrase = (category: string): string => {
     const lowerCategory = category.toLowerCase();
     
-    for (const [keyword, phrase] of Object.entries(MOOD_PHRASES)) {
+    for (const [keyword, phrases] of Object.entries(MOOD_PHRASES)) {
       if (lowerCategory.includes(keyword)) {
-        return phrase;
+        return phrases[Math.floor(Math.random() * phrases.length)];
       }
     }
     
@@ -128,7 +124,8 @@ export default function WorkoutStatsCard({
       "sweat / burn fat": "Sweat / Burn Fat",
       "i'm feeling lazy": "I'm Feeling Lazy",
       "muscle gainer": "Muscle Gainer",
-      "outdoor": "Outdoor",
+      "outdoor": "Get Outside",
+      "outside": "Get Outside",
       "lift weights": "Lift Weights",
       "calisthenics": "Calisthenics",
       "bodyweight": "Calisthenics",
@@ -150,7 +147,6 @@ export default function WorkoutStatsCard({
   const dominantCategory = getDominantMoodCategory();
   const displayMoodCategory = extractMoodCardName(dominantCategory);
   const moodPhrase = useMemo(() => getMoodPhrase(dominantCategory), [dominantCategory]);
-  const spacedMoodPhrase = useMemo(() => toSpacedLetters(moodPhrase), [moodPhrase]);
 
   useEffect(() => {
     // Initial card fade in
@@ -239,9 +235,7 @@ export default function WorkoutStatsCard({
             <Text style={styles.transparentMoodCategory} numberOfLines={1}>
               {displayMoodCategory ? displayMoodCategory.toUpperCase() : 'WORKOUT COMPLETE'}
             </Text>
-            <Text style={styles.transparentSubtitle} numberOfLines={1} adjustsFontSizeToFit minimumFontScale={0.5}>
-              {spacedMoodPhrase}
-            </Text>
+            <Text style={styles.transparentSubtitle}>{moodPhrase}</Text>
           </View>
         </View>
 
@@ -263,16 +257,13 @@ export default function WorkoutStatsCard({
           </View>
         </View>
 
-        {/* Exercises List - Left aligned */}
+        {/* Exercises List */}
         <View style={styles.transparentExercisesSection}>
           {workouts.slice(0, 5).map((workout, index) => (
             <View key={index} style={styles.transparentExerciseRow}>
               <View style={styles.transparentExerciseDot} />
-              <Text style={styles.transparentExerciseName} numberOfLines={1}>
-                {workout.workoutTitle || workout.workoutName}
-              </Text>
-              <Text style={styles.transparentExerciseMeta}>
-                {workout.equipment}
+              <Text style={styles.transparentExerciseText} numberOfLines={1}>
+                {workout.workoutTitle || workout.workoutName} | {workout.equipment}
               </Text>
             </View>
           ))}
@@ -283,7 +274,7 @@ export default function WorkoutStatsCard({
           )}
         </View>
 
-        {/* Footer - MOOD on right only */}
+        {/* Footer - MOOD on left */}
         <View style={styles.transparentFooter}>
           <Text style={styles.transparentBrandText}>MOOD</Text>
         </View>
@@ -324,9 +315,7 @@ export default function WorkoutStatsCard({
             <Text style={styles.moodCategory} numberOfLines={1} adjustsFontSizeToFit minimumFontScale={0.7}>
               {displayMoodCategory ? displayMoodCategory.toUpperCase() : 'WORKOUT COMPLETE'}
             </Text>
-            <Text style={styles.subtitle} numberOfLines={1} adjustsFontSizeToFit minimumFontScale={0.5}>
-              {spacedMoodPhrase}
-            </Text>
+            <Text style={styles.subtitle}>{moodPhrase}</Text>
           </View>
         </View>
 
@@ -357,16 +346,15 @@ export default function WorkoutStatsCard({
           </Animated.View>
         </View>
 
-        {/* Exercises List - Left aligned with minimal gap */}
+        {/* Exercises List */}
         <View style={styles.exercisesSection}>
           {workouts.slice(0, 5).map((workout, index) => (
             <View key={index} style={styles.exerciseRow}>
               <View style={styles.exerciseDot} />
-              <Text style={styles.exerciseName} numberOfLines={1}>
-                {workout.workoutTitle || workout.workoutName}
-              </Text>
-              <Text style={styles.exerciseMeta}>
-                {workout.equipment}
+              <Text style={styles.exerciseText} numberOfLines={1}>
+                <Text style={styles.exerciseName}>{workout.workoutTitle || workout.workoutName}</Text>
+                <Text style={styles.exerciseDivider}> | </Text>
+                <Text style={styles.exerciseMeta}>{workout.equipment}</Text>
               </Text>
             </View>
           ))}
@@ -377,9 +365,8 @@ export default function WorkoutStatsCard({
           )}
         </View>
 
-        {/* Footer - MOOD on right only */}
+        {/* Footer - MOOD on left */}
         <View style={styles.footer}>
-          <View />
           <Text style={styles.brandText}>MOOD</Text>
         </View>
       </View>
@@ -456,11 +443,11 @@ const styles = StyleSheet.create({
     letterSpacing: 0.3,
   },
   subtitle: {
-    fontSize: 10,
-    color: 'rgba(255, 255, 255, 0.4)',
-    letterSpacing: 3,
+    fontSize: 12,
+    color: 'rgba(255, 255, 255, 0.5)',
+    letterSpacing: 0.5,
     marginTop: 4,
-    fontWeight: '300',
+    fontWeight: '400',
   },
   statsSection: {
     flexDirection: 'row',
@@ -537,17 +524,20 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(255, 215, 0, 0.5)',
     marginRight: 12,
   },
-  exerciseName: {
+  exerciseText: {
     flex: 1,
     fontSize: 13,
+  },
+  exerciseName: {
     color: 'rgba(255, 255, 255, 0.6)',
     fontWeight: '400',
   },
+  exerciseDivider: {
+    color: 'rgba(255, 255, 255, 0.25)',
+  },
   exerciseMeta: {
-    fontSize: 11,
     color: 'rgba(255, 255, 255, 0.25)',
     fontWeight: '300',
-    marginLeft: 8,
   },
   moreExercises: {
     fontSize: 11,
@@ -558,7 +548,7 @@ const styles = StyleSheet.create({
   },
   footer: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
+    justifyContent: 'flex-start',
     alignItems: 'center',
     paddingHorizontal: 24,
     paddingVertical: 16,
@@ -611,11 +601,11 @@ const styles = StyleSheet.create({
     textShadowRadius: 6,
   },
   transparentSubtitle: {
-    fontSize: 8,
-    color: 'rgba(255, 255, 255, 0.6)',
-    letterSpacing: 2,
-    marginTop: 6,
-    fontWeight: '300',
+    fontSize: 12,
+    color: 'rgba(255, 255, 255, 0.8)',
+    letterSpacing: 0.5,
+    marginTop: 4,
+    fontWeight: '400',
     textShadowColor: 'rgba(0, 0, 0, 0.8)',
     textShadowOffset: { width: 0, height: 1 },
     textShadowRadius: 4,
@@ -681,20 +671,11 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.6,
     shadowRadius: 4,
   },
-  transparentExerciseName: {
+  transparentExerciseText: {
     flex: 1,
     fontSize: 14,
     color: '#FFFFFF',
-    fontWeight: '500',
-    textShadowColor: 'rgba(0, 0, 0, 0.8)',
-    textShadowOffset: { width: 0, height: 1 },
-    textShadowRadius: 3,
-  },
-  transparentExerciseMeta: {
-    fontSize: 12,
-    color: 'rgba(255, 255, 255, 0.8)',
     fontWeight: '400',
-    marginLeft: 8,
     textShadowColor: 'rgba(0, 0, 0, 0.8)',
     textShadowOffset: { width: 0, height: 1 },
     textShadowRadius: 3,
@@ -711,7 +692,7 @@ const styles = StyleSheet.create({
   },
   transparentFooter: {
     flexDirection: 'row',
-    justifyContent: 'flex-end',
+    justifyContent: 'flex-start',
     alignItems: 'center',
     paddingHorizontal: 24,
     paddingVertical: 16,
