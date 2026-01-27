@@ -30,15 +30,9 @@ const LazyLowerBodyWorkoutsScreen = memo(function LazyLowerBodyWorkoutsScreen() 
   const moodTitle = params.mood as string || "I'm feeling lazy";
   const workoutType = params.workoutType as string || 'Lower Body';
   const bodyPart = params.bodyPart as string || 'Lower Body';
-  const equipmentParam = params.equipment as string || '';
   const difficulty = params.difficulty as string || 'beginner';
   
-  // Parse selected equipment from comma-separated string
-  const selectedEquipmentNames = equipmentParam.split(',').filter(name => name.trim() !== '');
-  
   console.log('Lazy Lower Body Debug:', {
-    equipmentParam,
-    selectedEquipmentNames,
     difficulty,
     workoutType,
     bodyPart,
@@ -46,14 +40,10 @@ const LazyLowerBodyWorkoutsScreen = memo(function LazyLowerBodyWorkoutsScreen() 
     workoutDatabaseEquipment: workoutDatabase.map(w => w.equipment),
   });
 
-  // Get workout data for selected equipment
-  const userWorkouts = workoutDatabase.filter(item => 
-    selectedEquipmentNames.some(name => 
-      item.equipment.toLowerCase().trim() === name.toLowerCase().trim()
-    )
-  );
+  // For lazy weight screens, show ALL equipment workouts (no filtering)
+  const userWorkouts = workoutDatabase;
 
-  console.log('Selected workout data count:', userWorkouts.length);
+  console.log('Workout data count:', userWorkouts.length);
 
   // Cart hooks
   const { addToCart, isInCart } = useCart();
