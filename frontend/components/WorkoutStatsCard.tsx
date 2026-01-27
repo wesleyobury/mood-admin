@@ -560,7 +560,7 @@ const styles = StyleSheet.create({
   },
   brandText: {
     fontSize: 11,
-    color: 'rgba(255, 215, 0, 0.4)',
+    color: '#FFD700',
     fontWeight: '600',
     letterSpacing: 2,
   },
