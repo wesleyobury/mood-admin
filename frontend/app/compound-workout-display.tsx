@@ -22,23 +22,31 @@ import { calvesWorkoutDatabase } from '../data/calves-workouts-data';
 import { compoundLegsWorkoutDatabase } from '../data/compound-legs-workouts-data';
 import { Workout, EquipmentWorkouts } from '../types/workout';
 
-// Map muscle group ID to database
+// Map muscle group name to database
 const muscleGroupDatabases: Record<string, EquipmentWorkouts[]> = {
-  glutes: glutesWorkoutDatabase,
-  hammies: hamstringsWorkoutDatabase,
-  quads: quadsWorkoutDatabase,
-  calfs: calvesWorkoutDatabase,
-  compound: compoundLegsWorkoutDatabase,
+  Compound: compoundLegsWorkoutDatabase,
+  Glutes: glutesWorkoutDatabase,
+  Hammies: hamstringsWorkoutDatabase,
+  Quads: quadsWorkoutDatabase,
+  Calfs: calvesWorkoutDatabase,
 };
 
-// Map muscle group ID to display name
-const muscleGroupNames: Record<string, string> = {
-  glutes: 'Glutes',
-  hammies: 'Hamstrings',
-  quads: 'Quadriceps',
-  calfs: 'Calves',
-  compound: 'Compound',
+// Map muscle group name to display name
+const muscleGroupDisplayNames: Record<string, string> = {
+  Compound: 'Compound Legs',
+  Glutes: 'Glutes',
+  Hammies: 'Hamstrings',
+  Quads: 'Quadriceps',
+  Calfs: 'Calves',
 };
+
+interface EquipmentPerGroup {
+  Compound: string[];
+  Glutes: string[];
+  Hammies: string[];
+  Quads: string[];
+  Calfs: string[];
+}
 
 const CompoundWorkoutDisplayScreen = memo(function CompoundWorkoutDisplayScreen() {
   const router = useRouter();
@@ -46,30 +54,36 @@ const CompoundWorkoutDisplayScreen = memo(function CompoundWorkoutDisplayScreen(
   const insets = useSafeAreaInsets();
 
   const moodTitle = params.mood as string || 'Muscle Gainer';
-  const muscleGroup = params.muscleGroup as string || 'compound';
-  const equipmentParam = params.equipment as string || '';
+  const muscleGroupsParam = params.muscleGroups as string || '';
+  const equipmentPerGroupParam = params.equipmentPerGroup as string || '';
   const difficulty = params.difficulty as string || 'beginner';
   
-  const selectedEquipmentNames = equipmentParam.split(',').filter(name => name.trim() !== '');
-  const muscleGroupDisplayName = muscleGroupNames[muscleGroup] || 'Legs';
+  // Parse muscle groups
+  const muscleGroups = muscleGroupsParam ? decodeURIComponent(muscleGroupsParam).split(',') : [];
   
-  // Get the appropriate database for this muscle group
-  const workoutDatabase = muscleGroupDatabases[muscleGroup] || compoundLegsWorkoutDatabase;
+  // Parse equipment per group
+  let equipmentPerGroup: EquipmentPerGroup = {
+    Compound: [],
+    Glutes: [],
+    Hammies: [],
+    Quads: [],
+    Calfs: [],
+  };
+  
+  try {
+    if (equipmentPerGroupParam) {
+      equipmentPerGroup = JSON.parse(decodeURIComponent(equipmentPerGroupParam));
+    }
+  } catch (e) {
+    console.error('Error parsing equipmentPerGroup:', e);
+  }
   
   console.log('Compound/Legs Workout Debug:', {
-    muscleGroup,
-    equipmentParam,
-    selectedEquipmentNames,
+    muscleGroups,
+    equipmentPerGroup,
     difficulty,
     moodTitle,
-    databaseSize: workoutDatabase.length,
   });
-
-  const userWorkouts = workoutDatabase.filter(item => 
-    selectedEquipmentNames.some(name => 
-      item.equipment.toLowerCase().trim() === name.toLowerCase().trim()
-    )
-  );
 
   const { addToCart, isInCart } = useCart();
   const { token } = useAuth();
@@ -82,7 +96,7 @@ const CompoundWorkoutDisplayScreen = memo(function CompoundWorkoutDisplayScreen(
     return `${workout.name}-${equipment}-${diff}`;
   };
 
-  const handleAddToCart = (workout: Workout, equipment: string) => {
+  const handleAddToCart = (workout: Workout, equipment: string, muscleGroup: string) => {
     const workoutId = createWorkoutId(workout, equipment, difficulty);
     
     if (isInCart(workoutId)) {
@@ -99,7 +113,7 @@ const CompoundWorkoutDisplayScreen = memo(function CompoundWorkoutDisplayScreen(
       intensityReason: workout.intensityReason,
       equipment: equipment,
       difficulty: difficulty,
-      workoutType: muscleGroupDisplayName,
+      workoutType: muscleGroupDisplayNames[muscleGroup] || muscleGroup,
       moodCard: moodTitle,
       moodTips: workout.moodTips || [],
     };
@@ -115,7 +129,7 @@ const CompoundWorkoutDisplayScreen = memo(function CompoundWorkoutDisplayScreen(
     addToCart(workoutItem);
   };
 
-  const handleStartWorkout = (workout: Workout, equipment: string, diff: string) => {
+  const handleStartWorkout = (workout: Workout, equipment: string, diff: string, muscleGroup: string) => {
     try {
       router.push({
         pathname: '/workout-guidance',
@@ -126,7 +140,7 @@ const CompoundWorkoutDisplayScreen = memo(function CompoundWorkoutDisplayScreen(
           battlePlan: workout.battlePlan || '',
           duration: workout.duration || '20 min',
           difficulty: diff,
-          workoutType: muscleGroupDisplayName,
+          workoutType: muscleGroupDisplayNames[muscleGroup] || muscleGroup,
           moodTips: encodeURIComponent(JSON.stringify(workout.moodTips || []))
         }
       });
@@ -138,14 +152,39 @@ const CompoundWorkoutDisplayScreen = memo(function CompoundWorkoutDisplayScreen(
   const createProgressRows = () => {
     const steps = [
       { key: 'mood', icon: 'fitness' as keyof typeof Ionicons.glyphMap, text: 'Muscle' },
-      { key: 'muscle', icon: 'body' as keyof typeof Ionicons.glyphMap, text: muscleGroupDisplayName },
+      { key: 'muscle', icon: 'body' as keyof typeof Ionicons.glyphMap, text: 'Legs' },
+      { key: 'groups', icon: 'layers' as keyof typeof Ionicons.glyphMap, text: `${muscleGroups.length} Groups` },
       { key: 'difficulty', icon: 'speedometer' as keyof typeof Ionicons.glyphMap, text: difficulty === 'intermediate' ? 'Intermed.' : difficulty.charAt(0).toUpperCase() + difficulty.slice(1) },
-      { key: 'equipment', icon: 'construct' as keyof typeof Ionicons.glyphMap, text: `${selectedEquipmentNames.length} Equip.` },
     ];
     return [steps];
   };
 
-  if (userWorkouts.length === 0) {
+  // Get workouts for each selected muscle group with their equipment
+  const getWorkoutsForMuscleGroup = (muscleGroup: string): EquipmentWorkouts[] => {
+    const database = muscleGroupDatabases[muscleGroup] || [];
+    const equipment = equipmentPerGroup[muscleGroup as keyof EquipmentPerGroup] || [];
+    
+    if (equipment.length === 0) {
+      return [];
+    }
+    
+    return database.filter(item => 
+      equipment.some(eqName => 
+        item.equipment.toLowerCase().trim() === eqName.toLowerCase().trim()
+      )
+    );
+  };
+
+  // Check if there are any workouts to display
+  const hasAnyWorkouts = muscleGroups.some(group => {
+    const workouts = getWorkoutsForMuscleGroup(group);
+    return workouts.some(eq => {
+      const difficultyWorkouts = eq.workouts[difficulty as keyof typeof eq.workouts] || [];
+      return difficultyWorkouts.length > 0;
+    });
+  });
+
+  if (!hasAnyWorkouts) {
     return (
       <SafeAreaView style={[styles.container, { paddingTop: insets.top }]}>
         <View style={styles.header}>
@@ -153,7 +192,7 @@ const CompoundWorkoutDisplayScreen = memo(function CompoundWorkoutDisplayScreen(
             <Ionicons name="chevron-back" size={24} color="#FFD700" />
           </TouchableOpacity>
           <View style={styles.headerTextContainer}>
-            <Text style={styles.headerTitle}>{muscleGroupDisplayName} Workouts</Text>
+            <Text style={styles.headerTitle}>Legs Workouts</Text>
             <Text style={styles.headerSubtitle}>{moodTitle}</Text>
           </View>
           <HomeButton />
@@ -203,22 +242,46 @@ const CompoundWorkoutDisplayScreen = memo(function CompoundWorkoutDisplayScreen(
         </View>
 
         <ScrollView style={styles.scrollView} showsVerticalScrollIndicator={false} contentContainerStyle={styles.scrollContentContainer}>
-          {userWorkouts.map((equipmentData) => {
-            const workouts = equipmentData.workouts[difficulty as keyof typeof equipmentData.workouts] || [];
-            if (workouts.length === 0) return null;
+          {muscleGroups.map((muscleGroup) => {
+            const workoutsForGroup = getWorkoutsForMuscleGroup(muscleGroup);
+            
+            // Filter to only show equipment with workouts for this difficulty
+            const equipmentWithWorkouts = workoutsForGroup.filter(eq => {
+              const difficultyWorkouts = eq.workouts[difficulty as keyof typeof eq.workouts] || [];
+              return difficultyWorkouts.length > 0;
+            });
+            
+            if (equipmentWithWorkouts.length === 0) {
+              return null;
+            }
             
             return (
-              <WorkoutCard
-                key={equipmentData.equipment}
-                equipment={equipmentData.equipment}
-                icon={equipmentData.icon}
-                workouts={workouts}
-                difficulty={difficulty}
-                isInCart={isInCart}
-                createWorkoutId={createWorkoutId}
-                handleAddToCart={handleAddToCart}
-                onStartWorkout={handleStartWorkout}
-              />
+              <View key={muscleGroup} style={styles.muscleGroupSection}>
+                <View style={styles.sectionHeader}>
+                  <Text style={styles.sectionTitle}>{muscleGroupDisplayNames[muscleGroup] || muscleGroup}</Text>
+                  <View style={styles.sectionBadge}>
+                    <Text style={styles.sectionBadgeText}>{equipmentWithWorkouts.length} equipment</Text>
+                  </View>
+                </View>
+                
+                {equipmentWithWorkouts.map((equipmentData) => {
+                  const workouts = equipmentData.workouts[difficulty as keyof typeof equipmentData.workouts] || [];
+                  
+                  return (
+                    <WorkoutCard
+                      key={`${muscleGroup}-${equipmentData.equipment}`}
+                      equipment={equipmentData.equipment}
+                      icon={equipmentData.icon}
+                      workouts={workouts}
+                      difficulty={difficulty}
+                      isInCart={isInCart}
+                      createWorkoutId={createWorkoutId}
+                      handleAddToCart={(workout, equipment) => handleAddToCart(workout, equipment, muscleGroup)}
+                      onStartWorkout={(workout, equipment, diff) => handleStartWorkout(workout, equipment, diff, muscleGroup)}
+                    />
+                  );
+                })}
+              </View>
             );
           })}
         </ScrollView>
@@ -244,7 +307,12 @@ const styles = StyleSheet.create({
   progressStepText: { fontSize: 10, color: 'rgba(255, 255, 255, 0.8)', textAlign: 'center', fontWeight: '500', maxWidth: 70 },
   progressConnector: { width: 16, height: 2, backgroundColor: 'rgba(255, 215, 0, 0.3)', marginHorizontal: 8, marginTop: 16 },
   scrollView: { flex: 1, overflow: 'visible' },
-  scrollContentContainer: { paddingTop: 24, paddingBottom: 10, overflow: 'visible' },
+  scrollContentContainer: { paddingTop: 16, paddingBottom: 10, overflow: 'visible' },
+  muscleGroupSection: { marginBottom: 24 },
+  sectionHeader: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', paddingHorizontal: 24, marginBottom: 16 },
+  sectionTitle: { fontSize: 18, fontWeight: 'bold', color: '#FFD700' },
+  sectionBadge: { backgroundColor: 'rgba(255, 215, 0, 0.15)', paddingHorizontal: 12, paddingVertical: 4, borderRadius: 12 },
+  sectionBadgeText: { fontSize: 12, color: '#FFD700', fontWeight: '600' },
   emptyState: { flex: 1, justifyContent: 'center', alignItems: 'center', paddingHorizontal: 40 },
   emptyStateText: { fontSize: 18, color: 'rgba(255, 255, 255, 0.8)', textAlign: 'center', marginTop: 16, marginBottom: 8 },
   emptyStateSubtext: { fontSize: 14, color: 'rgba(255, 255, 255, 0.5)', textAlign: 'center' },
