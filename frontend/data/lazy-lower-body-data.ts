@@ -1,6 +1,7 @@
 import { EquipmentWorkouts } from '../types/workout';
 
 export const lazyLowerBodyDatabase: EquipmentWorkouts[] = [
+  {
     equipment: 'Push',
     icon: 'arrow-up',
     workouts: {

@@ -1,6 +1,7 @@
 import { EquipmentWorkouts } from '../types/workout';
 
 export const lazyBodyweightDatabase: EquipmentWorkouts[] = [
+  {
     equipment: 'Treadmill',
     icon: 'walk',
     workouts: {
