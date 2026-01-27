@@ -69,6 +69,19 @@ EVENT_TYPES = {
     "filter_applied": "feature"
 }
 
+# Excluded user IDs for analytics (admin/test accounts)
+EXCLUDED_USER_IDS = [
+    "695c956938cfc491f1b71940",  # officialmoodapp
+    "695c9fa0e58a04344db951e5",  # OgeeezzburyTester
+    "693f94d29a560edaab674fd5",  # old officialmoodapp ID
+]
+
+EXCLUDED_USERNAMES = [
+    "officialmoodapp",
+    "ogeeezzburytester",
+    "ogeeezzbury",
+]
+
 
 async def track_user_event(
     db: AsyncIOMotorDatabase,
@@ -81,6 +94,11 @@ async def track_user_event(
     Track a user activity event
     """
     try:
+        # Skip tracking for excluded admin/test accounts
+        if user_id in EXCLUDED_USER_IDS:
+            logger.debug(f"Skipping analytics for excluded user {user_id}")
+            return
+        
         event_category = EVENT_TYPES.get(event_type, "other")
         
         event = {
