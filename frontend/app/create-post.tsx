@@ -1238,7 +1238,7 @@ export default function CreatePost() {
               <View style={styles.attachmentHeader}>
                 <View style={styles.attachmentLabelContainer}>
                   <Ionicons name="trophy" size={16} color="#FFD700" />
-                  <Text style={styles.attachmentType}>Workout Achievement</Text>
+                  <Text style={styles.attachmentType}>Achievement</Text>
                 </View>
                 <View style={styles.actionButtonsRow}>
                   {/* Instagram Share Button */}
