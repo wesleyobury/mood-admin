@@ -1597,6 +1597,21 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     color: '#fff',
   },
+  editableStatsHintRow: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginBottom: 4,
+  },
+  editableStatsHint: {
+    fontSize: 10,
+    color: 'rgba(255, 255, 255, 0.3)',
+  },
+  editableStatsOptional: {
+    fontSize: 10,
+    color: 'rgba(255, 255, 255, 0.25)',
+    fontStyle: 'italic',
+  },
   editableStatsRow: {
     flexDirection: 'row',
     justifyContent: 'center',
@@ -1609,30 +1624,24 @@ const styles = StyleSheet.create({
   editableStat: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 8,
+    gap: 6,
   },
   editableStatLabel: {
-    fontSize: 12,
+    fontSize: 11,
     color: 'rgba(255, 255, 255, 0.4)',
   },
   editableStatInput: {
-    fontSize: 14,
+    fontSize: 13,
     fontWeight: '500',
     color: '#fff',
     textAlign: 'center',
-    paddingHorizontal: 8,
+    paddingHorizontal: 6,
     paddingVertical: 4,
     borderWidth: 1,
     borderColor: 'rgba(255, 255, 255, 0.15)',
-    borderRadius: 6,
+    borderRadius: 4,
     backgroundColor: 'rgba(255, 255, 255, 0.05)',
-    minWidth: 50,
-  },
-  editableStatsHint: {
-    fontSize: 10,
-    color: 'rgba(255, 255, 255, 0.3)',
-    textAlign: 'center',
-    marginBottom: 8,
+    width: 40,
   },
   hiddenCardContainer: {
     position: 'absolute',
