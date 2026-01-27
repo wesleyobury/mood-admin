@@ -429,12 +429,6 @@ const styles = StyleSheet.create({
   muscleGroupNameSelected: {
     color: '#ffffff',
   },
-  muscleGroupDescription: {
-    display: 'none',
-  },
-  muscleGroupDescriptionSelected: {
-    display: 'none',
-  },
   muscleGroupIndicator: {
     width: 20,
     height: 20,
