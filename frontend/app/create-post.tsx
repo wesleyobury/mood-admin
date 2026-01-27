@@ -1283,9 +1283,10 @@ export default function CreatePost() {
               </View>
               
               {/* Editable Stats Row */}
+              <Text style={styles.editableStatsHint}>adjust minutes & calories</Text>
               <View style={styles.editableStatsRow}>
                 <View style={styles.editableStat}>
-                  <Text style={styles.editableStatLabel}>Minutes</Text>
+                  <Text style={styles.editableStatLabel}>Min</Text>
                   <TextInput
                     style={styles.editableStatInput}
                     value={String(editedDuration !== undefined ? editedDuration : workoutStats.totalDuration)}
@@ -1298,7 +1299,7 @@ export default function CreatePost() {
                   />
                 </View>
                 <View style={styles.editableStat}>
-                  <Text style={styles.editableStatLabel}>Calories</Text>
+                  <Text style={styles.editableStatLabel}>Cal</Text>
                   <TextInput
                     style={styles.editableStatInput}
                     value={String(editedCalories !== undefined ? editedCalories : Math.round(workoutStats.totalDuration * 8))}
