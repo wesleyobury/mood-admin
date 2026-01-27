@@ -1,31 +1,4 @@
-import { Ionicons } from '@expo/vector-icons';
-
-interface Workout {
-  name: string;
-  duration: string;
-  description: string;
-  battlePlan: string;
-  imageUrl: string;
-  intensityReason: string;
-  moodTips: {
-    icon: keyof typeof Ionicons.glyphMap;
-    title: string;
-    description: string;
-  }[];
-}
-
-interface EquipmentWorkouts {
-  equipment: string;
-  icon: keyof typeof Ionicons.glyphMap;
-  workouts: {
-    beginner: Workout[];
-    intermediate: Workout[];
-    advanced: Workout[];
-  };
-}
-
-// Placeholder image for explosive training
-const EXPLOSIVE_IMAGE = 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxwb3dlciUyMHRyYWluaW5nfGVufDB8fHx8MTcwNTM4MjM3MHww&ixlib=rb-4.1.0&q=85';
+import { EquipmentWorkouts } from '../types/workout';
 
 export const explosivenessWeightsDatabase: EquipmentWorkouts[] = [
   // Power Lifting Platform - 4 workouts per intensity
