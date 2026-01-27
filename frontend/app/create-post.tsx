@@ -1283,7 +1283,10 @@ export default function CreatePost() {
               </View>
               
               {/* Editable Stats Row */}
-              <Text style={styles.editableStatsHint}>adjust minutes & calories</Text>
+              <View style={styles.editableStatsHintRow}>
+                <Text style={styles.editableStatsHint}>Adjust minutes & calories </Text>
+                <Text style={styles.editableStatsOptional}>(optional)</Text>
+              </View>
               <View style={styles.editableStatsRow}>
                 <View style={styles.editableStat}>
                   <Text style={styles.editableStatLabel}>Min</Text>
@@ -1295,7 +1298,7 @@ export default function CreatePost() {
                       setEditedDuration(num);
                     }}
                     keyboardType="numeric"
-                    maxLength={4}
+                    maxLength={3}
                   />
                 </View>
                 <View style={styles.editableStat}>
@@ -1308,7 +1311,7 @@ export default function CreatePost() {
                       setEditedCalories(num);
                     }}
                     keyboardType="numeric"
-                    maxLength={5}
+                    maxLength={4}
                   />
                 </View>
               </View>
