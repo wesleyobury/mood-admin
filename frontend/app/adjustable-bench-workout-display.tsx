@@ -569,11 +569,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     marginBottom: 6,
-    
-    
-    
-    
-    
   },
   progressStepNumberActive: {
     fontSize: 14,
