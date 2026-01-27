@@ -1167,6 +1167,7 @@ export default function Explore() {
                         onPress={() => handleReplicateWorkout(post)}
                         activeOpacity={0.8}
                       >
+                        <Ionicons name="chevron-forward" size={14} color="#FFD700" />
                         <Text style={styles.tryWorkoutButtonText}>Try this workout</Text>
                       </TouchableOpacity>
                     )}
@@ -1783,18 +1784,21 @@ const styles = StyleSheet.create({
     position: 'absolute',
     bottom: 12,
     right: 12,
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
-    paddingVertical: 6,
+    height: 32,
+    backgroundColor: '#1a1a1a',
+    borderRadius: 8,
     paddingHorizontal: 12,
-    borderRadius: 16,
-    borderWidth: 0.5,
-    borderColor: 'rgba(255, 255, 255, 0.2)',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: 6,
+    borderWidth: 1,
+    borderColor: '#333',
   },
   tryWorkoutButtonText: {
     fontSize: 12,
-    fontWeight: '500',
-    color: 'rgba(255, 255, 255, 0.9)',
-    letterSpacing: 0.2,
+    fontWeight: '600',
+    color: '#ffffff',
   },
   modalOverlay: {
     flex: 1,

@@ -282,7 +282,7 @@ const styles = StyleSheet.create({
   headerTitle: {
     fontSize: 20,
     fontWeight: 'bold',
-    color: '#FFD700',
+    color: '#ffffff',
     textAlign: 'center',
   },
   headerSubtitle: {
@@ -386,7 +386,7 @@ const styles = StyleSheet.create({
     gap: 12,
   },
   muscleGroupCard: {
-    height: 48,
+    height: 56,
     backgroundColor: '#1a1a1a',
     borderRadius: 8,
     paddingHorizontal: 16,
