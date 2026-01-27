@@ -707,7 +707,7 @@ const styles = StyleSheet.create({
   },
   transparentBrandText: {
     fontSize: 14,
-    color: '#FFFFFF',
+    color: '#FFD700',
     fontWeight: '700',
     letterSpacing: 3,
     textShadowColor: 'rgba(0, 0, 0, 0.8)',
