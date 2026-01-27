@@ -1249,10 +1249,10 @@ export default function CreatePost() {
                     activeOpacity={0.7}
                   >
                     {isExportingToInstagram ? (
-                      <ActivityIndicator size="small" color="#888" />
+                      <ActivityIndicator size="small" color="#fff" />
                     ) : (
                       <>
-                        <Ionicons name="logo-instagram" size={18} color="#888" />
+                        <Ionicons name="logo-instagram" size={18} color="#fff" />
                         <Text style={styles.instagramButtonText}>Stories</Text>
                       </>
                     )}
