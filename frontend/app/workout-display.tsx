@@ -3100,7 +3100,6 @@ const WorkoutCard = ({ equipment, icon, workouts, difficulty, difficultyColor, w
 
       {/* Workout Indicator Dots */}
       <View style={styles.dotsContainer}>
-        <Text style={styles.dotsLabel}>Swipe to explore</Text>
         <View style={styles.dotsRow}>
           {workouts.map((_, index) => (
             <TouchableOpacity
