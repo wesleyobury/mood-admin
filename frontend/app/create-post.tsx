@@ -1249,10 +1249,10 @@ export default function CreatePost() {
                     activeOpacity={0.7}
                   >
                     {isExportingToInstagram ? (
-                      <ActivityIndicator size="small" color="#E1306C" />
+                      <ActivityIndicator size="small" color="#888" />
                     ) : (
                       <>
-                        <Ionicons name="logo-instagram" size={18} color="#E1306C" />
+                        <Ionicons name="logo-instagram" size={18} color="#888" />
                         <Text style={styles.instagramButtonText}>Stories</Text>
                       </>
                     )}
@@ -1281,13 +1281,53 @@ export default function CreatePost() {
                   </Animated.View>
                 </View>
               </View>
+              
+              {/* Editable Stats Row */}
+              <View style={styles.editableStatsRow}>
+                <View style={styles.editableStat}>
+                  <Text style={styles.editableStatLabel}>Minutes</Text>
+                  <TextInput
+                    style={styles.editableStatInput}
+                    value={String(editedDuration !== undefined ? editedDuration : workoutStats.totalDuration)}
+                    onChangeText={(text) => {
+                      const num = parseInt(text) || 0;
+                      setEditedDuration(num);
+                    }}
+                    keyboardType="numeric"
+                    maxLength={4}
+                  />
+                </View>
+                <View style={styles.editableStat}>
+                  <Text style={styles.editableStatLabel}>Calories</Text>
+                  <TextInput
+                    style={styles.editableStatInput}
+                    value={String(editedCalories !== undefined ? editedCalories : Math.round(workoutStats.totalDuration * 8))}
+                    onChangeText={(text) => {
+                      const num = parseInt(text) || 0;
+                      setEditedCalories(num);
+                    }}
+                    keyboardType="numeric"
+                    maxLength={5}
+                  />
+                </View>
+              </View>
+              
               <View style={styles.statsCardWrapper} ref={statsCardRef} collapsable={false}>
-                <WorkoutStatsCard {...workoutStats} />
+                <WorkoutStatsCard 
+                  {...workoutStats} 
+                  editedDuration={editedDuration}
+                  editedCalories={editedCalories}
+                />
               </View>
               
               {/* Hidden transparent card for Instagram export */}
               <View style={styles.hiddenCardContainer} ref={transparentCardRef} collapsable={false}>
-                <WorkoutStatsCard {...workoutStats} transparent={true} />
+                <WorkoutStatsCard 
+                  {...workoutStats} 
+                  transparent={true}
+                  editedDuration={editedDuration}
+                  editedCalories={editedCalories}
+                />
               </View>
               
               <View style={styles.saveExplanation}>
