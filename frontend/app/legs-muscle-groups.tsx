@@ -428,29 +428,26 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   muscleGroupName: {
-    fontSize: 18,
-    fontWeight: 'bold',
+    fontSize: 14,
+    fontWeight: '600',
     color: '#ffffff',
-    marginBottom: 4,
   },
   muscleGroupNameSelected: {
     color: '#ffffff',
   },
   muscleGroupDescription: {
-    fontSize: 14,
-    color: 'rgba(255, 255, 255, 0.7)',
+    display: 'none',
   },
   muscleGroupDescriptionSelected: {
-    color: 'rgba(255, 255, 255, 0.8)',
+    display: 'none',
   },
   muscleGroupIndicator: {
-    width: 28,
-    height: 28,
-    borderRadius: 14,
-    backgroundColor: 'rgba(255, 215, 0, 0.15)',
+    width: 20,
+    height: 20,
+    borderRadius: 10,
+    backgroundColor: 'rgba(255, 215, 0, 0.2)',
     justifyContent: 'center',
     alignItems: 'center',
-    marginLeft: 12,
   },
   footer: {
     paddingHorizontal: 24,
