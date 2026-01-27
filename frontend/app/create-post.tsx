@@ -82,6 +82,10 @@ export default function CreatePost() {
   const [showMediaPicker, setShowMediaPicker] = useState(false);
   const [showGuestPrompt, setShowGuestPrompt] = useState(false);
   
+  // Editable stats
+  const [editedDuration, setEditedDuration] = useState<number | undefined>(undefined);
+  const [editedCalories, setEditedCalories] = useState<number | undefined>(undefined);
+  
   // Permission notice modal state
   const [showPermissionModal, setShowPermissionModal] = useState(false);
   const [permissionType, setPermissionType] = useState<'camera' | 'library'>('camera');
