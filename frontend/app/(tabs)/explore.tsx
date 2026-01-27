@@ -1829,10 +1829,12 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
     marginTop: 4,
   },
-  tryWorkoutButton: {
+  tryWorkoutButtonContainer: {
     position: 'absolute',
     bottom: 12,
     right: 12,
+  },
+  tryWorkoutButton: {
     height: 32,
     backgroundColor: '#1a1a1a',
     borderRadius: 8,
