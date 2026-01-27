@@ -2096,6 +2096,7 @@ export const cardioWorkoutsDatabase: EquipmentWorkouts[] = [
           name: 'Med Ball Sprint Circuit',
           duration: '20–25 min',
           description: 'Sprint circuit: wall balls, slams, and sprints with the ball.\n\n ',
+          battlePlan: '• 5 min dynamic warm-up\n• 3 rounds:\n  - 10 wall balls\n  - 10 slams\n  - 20m sprint with ball\n  - 30 sec rest\n• 5 min cool-down',
           imageUrl: 'https://images.unsplash.com/photo-1517838277536-f5f99be501cd?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw2fHxtZWRpY2luZSUyMGJhbGwlMjBzcHJpbnR8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Peak circuit integrates medicine ball power with sprints.',
           moodTips: [
