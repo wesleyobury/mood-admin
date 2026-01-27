@@ -98,6 +98,10 @@ export default function CreatePost() {
   // Success animation state (inline button animation like "Add workout")
   const [cardSaved, setCardSaved] = useState(false);
   const [saveScaleAnim] = useState(new Animated.Value(1));
+  
+  // Transparent card ref for Instagram export
+  const transparentCardRef = useRef(null);
+  const [isExportingToInstagram, setIsExportingToInstagram] = useState(false);
 
   // Legacy support - map selectedImages to selectedMedia
   const selectedImages = selectedMedia.map(m => m.uri);
