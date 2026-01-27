@@ -570,6 +570,9 @@ const styles = StyleSheet.create({
   // ===============================================
   transparentContainer: {
     position: 'relative',
+    backgroundColor: 'rgba(0, 0, 0, 0.75)',
+    borderRadius: 20,
+    overflow: 'hidden',
   },
   transparentHeader: {
     flexDirection: 'row',
