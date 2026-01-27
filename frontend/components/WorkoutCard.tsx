@@ -369,6 +369,12 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     color: '#ffffff',
   },
+  swipeForMoreText: {
+    fontSize: 12,
+    color: '#ffffff',
+    textAlign: 'center',
+    marginTop: 12,
+  },
   dotsContainer: {
     height: 40,
     marginTop: 12,
