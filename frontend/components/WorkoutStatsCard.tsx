@@ -320,7 +320,7 @@ export default function WorkoutStatsCard({
             <Text style={styles.moodCategory} numberOfLines={1} adjustsFontSizeToFit minimumFontScale={0.7}>
               {displayMoodCategory ? displayMoodCategory.toUpperCase() : 'WORKOUT COMPLETE'}
             </Text>
-            <Text style={styles.subtitle}>{moodPhrase}</Text>
+            <Text style={styles.subtitle}>{spacedMoodPhrase}</Text>
           </View>
         </View>
 
