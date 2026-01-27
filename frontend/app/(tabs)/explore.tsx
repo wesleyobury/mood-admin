@@ -1157,6 +1157,25 @@ export default function Explore() {
                       isPostVisible={visiblePostId === post.id}
                       onIndexChange={(index) => {
                         setCarouselIndexes(prev => ({ ...prev, [post.id]: index }));
+                        
+                        // Trigger animation when swiping to the last slide (workout completion card)
+                        if (post.workout_data && 
+                            post.workout_data.workouts && 
+                            post.workout_data.workouts.length > 0 && 
+                            index === post.media_urls.length - 1) {
+                          // Create animation if it doesn't exist
+                          if (!tryWorkoutAnimations[post.id]) {
+                            tryWorkoutAnimations[post.id] = new Animated.Value(0);
+                          }
+                          // Reset and play animation
+                          tryWorkoutAnimations[post.id].setValue(0);
+                          Animated.spring(tryWorkoutAnimations[post.id], {
+                            toValue: 1,
+                            useNativeDriver: true,
+                            tension: 50,
+                            friction: 7,
+                          }).start();
+                        }
                       }}
                     />
                     
