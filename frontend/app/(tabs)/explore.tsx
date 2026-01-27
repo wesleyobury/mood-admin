@@ -159,6 +159,9 @@ export default function Explore() {
   // Double tap to like functionality
   const lastTap = useRef<number>(0);
   const [likeAnimations] = useState<{ [key: string]: Animated.Value }>({});
+  
+  // Try workout button animations
+  const [tryWorkoutAnimations] = useState<{ [key: string]: Animated.Value }>({});
 
   useEffect(() => {
     // Fetch posts for both authenticated users and guests
