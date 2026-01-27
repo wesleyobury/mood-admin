@@ -147,6 +147,11 @@ export default function WorkoutStatsCard({
   const dominantCategory = getDominantMoodCategory();
   const displayMoodCategory = extractMoodCardName(dominantCategory);
   const moodPhrase = useMemo(() => getMoodPhrase(dominantCategory), [dominantCategory]);
+  
+  // Convert to spaced letter format: "BURN IT DOWN" -> "B U R N  I T  D O W N"
+  const spacedMoodPhrase = useMemo(() => {
+    return moodPhrase.toUpperCase().split(' ').map(word => word.split('').join(' ')).join('   ');
+  }, [moodPhrase]);
 
   useEffect(() => {
     // Initial card fade in
