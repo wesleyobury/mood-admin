@@ -2,7 +2,6 @@ import { EquipmentWorkouts } from '../types/workout';
 
 export const bicepsWorkoutDatabase: EquipmentWorkouts[] = [
   {
-  {
     equipment: 'Dumbbell',
     icon: 'barbell',
     workouts: {
