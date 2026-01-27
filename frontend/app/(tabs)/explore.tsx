@@ -1252,28 +1252,34 @@ export default function Explore() {
                       style={styles.actionButton}
                       onPress={() => handleLike(post.id)}
                     >
-                      <Ionicons
-                        name={post.is_liked ? 'heart' : 'heart-outline'}
-                        size={26}
-                        color={post.is_liked ? '#FF6B6B' : '#fff'}
-                      />
+                      <View style={styles.socialIconContainer}>
+                        <Ionicons
+                          name={post.is_liked ? 'heart' : 'heart-outline'}
+                          size={22}
+                          color={post.is_liked ? '#FF6B6B' : '#FFD700'}
+                        />
+                      </View>
                     </TouchableOpacity>
                     <TouchableOpacity
                       style={styles.actionButton}
                       onPress={() => handleComments(post.id)}
                     >
-                      <Ionicons name="chatbubble-outline" size={24} color="#fff" />
+                      <View style={styles.socialIconContainer}>
+                        <Ionicons name="chatbubble-outline" size={20} color="#FFD700" />
+                      </View>
                     </TouchableOpacity>
                   </View>
                   <TouchableOpacity 
                     style={styles.actionButton}
                     onPress={() => handleSave(post.id)}
                   >
-                    <Ionicons 
-                      name={post.is_saved ? 'bookmark' : 'bookmark-outline'} 
-                      size={24} 
-                      color={post.is_saved ? '#FFD700' : '#fff'} 
-                    />
+                    <View style={styles.socialIconContainer}>
+                      <Ionicons 
+                        name={post.is_saved ? 'bookmark' : 'bookmark-outline'} 
+                        size={20} 
+                        color={post.is_saved ? '#FFD700' : '#FFD700'} 
+                      />
+                    </View>
                   </TouchableOpacity>
                 </View>
 
