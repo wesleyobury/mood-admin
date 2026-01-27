@@ -1788,6 +1788,14 @@ const styles = StyleSheet.create({
   actionButton: {
     padding: 4,
   },
+  socialIconContainer: {
+    width: 36,
+    height: 36,
+    borderRadius: 18,
+    backgroundColor: '#333333',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
   likesSection: {
     paddingHorizontal: 16,
     marginTop: 8,
