@@ -228,7 +228,6 @@ const WorkoutCard = React.memo(({
 
       {/* Navigation Dots */}
       <View style={styles.dotsContainer}>
-        <Text style={styles.dotsLabel}>Swipe to explore</Text>
         <View style={styles.dotsRow}>
           {workouts.map((_, index) => (
             <TouchableOpacity
