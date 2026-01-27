@@ -1,0 +1,856 @@
+import { EquipmentWorkouts } from '../types/workout';
+
+export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
+  {
+    equipment: 'Dumbbells',
+    icon: 'barbell',
+    workouts: {
+      beginner: [
+        {
+          name: 'Goblet Squat',
+          duration: '10–12 min',
+          description: 'Simple squat variation teaches control and balance with front load support.',
+          battlePlan: '3 rounds\n• 10-12 goblet squats\nRest 75s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-media-fix/artifacts/iq16b1nm_download.png',
+          intensityReason: 'Front load squat builds posture and safe depth.',
+          moodTips: [
+            {
+              icon: 'body',
+              title: 'Hold dumbbell at chest to keep torso upright',
+              description: 'Chest up, core tight for proper spinal alignment during movement.'
+            },
+            {
+              icon: 'trending-down',
+              title: 'Push knees out, sit hips down under control',
+              description: 'Slow descent builds strength and prevents knee valgus collapse.'
+            }
+          ]
+        },
+        {
+          name: 'DB RDL',
+          duration: '10–12 min',
+          description: 'Dumbbell hinge builds strength safely for beginners with proper form.',
+          battlePlan: '3 rounds\n• 8-10 dumbbell RDLs\nRest 75s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-media-fix/artifacts/5v2oyit3_dbrdl.webp',
+          intensityReason: 'Hip hinge pattern develops hamstrings + glutes.',
+          moodTips: [
+            {
+              icon: 'construct',
+              title: 'Keep back flat, hinge hips not spine',
+              description: 'Neutral spine protects back while maximizing hamstring engagement.'
+            },
+            {
+              icon: 'flash',
+              title: 'Glide DBs down thighs until hamstring stretch',
+              description: 'Feel the stretch in hamstrings before driving hips forward to stand.'
+            }
+          ]
+        }
+      ],
+      intermediate: [
+        {
+          name: 'Bulgarian Split Squat',
+          duration: '14–16 min',
+          description: 'Advanced split squat builds quads and glute drive with elevated rear foot.',
+          battlePlan: '4 rounds\n• 8-10 bulgarian split squats per leg\nRest 75-90s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-media-fix/artifacts/mxfs858v_dbbss.jpg',
+          intensityReason: 'Rear foot elevated squat raises ROM + intensity.',
+          moodTips: [
+            {
+              icon: 'construct',
+              title: 'Front shin vertical, stay upright',
+              description: 'Avoid leaning forward; keep torso tall for proper quad loading.'
+            },
+            {
+              icon: 'timer',
+              title: 'Descend slow, avoid bouncing knee',
+              description: 'Control prevents injury and maximizes muscle activation.'
+            }
+          ]
+        },
+        {
+          name: 'Lateral Lunge',
+          duration: '14–16 min',
+          description: 'Trains quads, glutes, and groin through lateral range of motion.',
+          battlePlan: '3 rounds\n• 8 per side Lateral Lunges\nRest 90s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-media-fix/artifacts/hiyqkn20_db%20lat%20lunge.jpg',
+          intensityReason: 'Side lunge develops stability and hip strength.',
+          moodTips: [
+            {
+              icon: 'trending-down',
+              title: 'Step wide, sit hips over working leg',
+              description: 'Load the working side while keeping opposite leg straight.'
+            },
+            {
+              icon: 'body',
+              title: 'Keep chest tall, toes forward entire set',
+              description: 'Maintain posture to prevent compensations and maximize effectiveness.'
+            }
+          ]
+        }
+      ],
+      advanced: [
+        {
+          name: 'Squat + RDL Superset',
+          duration: '16–18 min',
+          description: 'Superset floods quads + hamstrings with volume for complete development.',
+          battlePlan: '4 rounds\n• 8 DB Squats\n• 8 DB RDLs\nRest 90s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/elc9qz74_download%20%2813%29.png',
+          intensityReason: 'Push pull pairing overloads full lower body range.',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Perform squats fast, RDLs slow and strict',
+              description: 'Different tempos maximize both power and muscle tension.'
+            },
+            {
+              icon: 'timer',
+              title: 'Transition quickly to maintain time under tension',
+              description: 'Minimal rest between exercises keeps muscles working continuously.'
+            }
+          ]
+        },
+        {
+          name: 'Squat Iso Hold + Pulses',
+          duration: '16–18 min',
+          description: 'Brutal high tension squat burns and builds depth strength.',
+          battlePlan: '3 rounds\n• 10 Squats + 10s Hold + 6 Pulses\nRest 90s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-media-fix/artifacts/zkmq6vqh_download%20%281%29.png',
+          intensityReason: 'Long isos with pulses maximize quad fatigue.',
+          moodTips: [
+            {
+              icon: 'timer',
+              title: 'Hold bottom squat 10s, then pulse small reps',
+              description: 'Isometric hold followed by mini-reps creates intense muscle burn.'
+            },
+            {
+              icon: 'construct',
+              title: 'Keep heels planted, chest upright whole time',
+              description: 'Maintain proper position throughout hold and pulses for safety.'
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    equipment: 'Squat Rack',
+    icon: 'square-outline',
+    workouts: {
+      beginner: [
+        {
+          name: 'Back Squat',
+          duration: '10–12 min',
+          description: 'Classic barbell squat lays foundation for leg strength and control.',
+          battlePlan: '3 rounds\n• 8-10 back squats\nRest 90s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/gxoxkpbs_download%20%285%29.png',
+          intensityReason: 'Foundational squat builds strength + control.',
+          moodTips: [
+            {
+              icon: 'shield',
+              title: 'Brace core, grip bar tight, chest lifted',
+              description: 'Create full-body tension before descending for stability and power.'
+            },
+            {
+              icon: 'trending-down',
+              title: 'Sit hips back, knees out, heels planted',
+              description: 'Proper movement pattern prevents knee stress and maximizes power.'
+            }
+          ]
+        },
+        {
+          name: 'Reverse Lunge',
+          duration: '10–12 min',
+          description: 'Reverse lunge reduces strain while building single leg strength.',
+          battlePlan: '3 rounds\n• 8 per leg Reverse Lunges\nRest 75-90s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/a96gl1sh_download%20%287%29.png',
+          intensityReason: 'Teaches single leg balance with less knee stress.',
+          moodTips: [
+            {
+              icon: 'construct',
+              title: 'Step backward, front shin vertical',
+              description: 'Reverse pattern is easier on knees than forward lunges.'
+            },
+            {
+              icon: 'fitness',
+              title: 'Keep torso upright, drive through front heel',
+              description: 'Front leg does the work while maintaining proper posture.'
+            }
+          ]
+        },
+        {
+          name: 'Rack RDL',
+          duration: '10–12 min',
+          description: 'Beginner hinge teaches depth and hamstring control with barbell.',
+          battlePlan: '3 rounds\n• 8-10 rack rdls\nRest 75-90s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/cj6gx8ak_download%20%286%29.png',
+          intensityReason: 'Barbell hinge pattern develops glutes + hams.',
+          moodTips: [
+            {
+              icon: 'construct',
+              title: 'Bar close to legs, hinge hips not spine',
+              description: 'Keep barbell path straight and spine neutral throughout.'
+            },
+            {
+              icon: 'shield',
+              title: 'Stop at stretch, don\'t let back round',
+              description: 'Maintain back position - flexibility comes with time and practice.'
+            }
+          ]
+        }
+      ],
+      intermediate: [
+        {
+          name: 'Front Squat',
+          duration: '14–16 min',
+          description: 'Front squat builds quads while demanding upright posture.',
+          battlePlan: '4 rounds\n• 6-8 front squats\nRest 90s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-media-fix/artifacts/wag3ztrn_bbfs.jpg',
+          intensityReason: 'Upright bar placement drives quad and core load.',
+          moodTips: [
+            {
+              icon: 'trending-up',
+              title: 'Elbows high, bar on shoulders not wrists',
+              description: 'Proper rack position distributes load safely across shoulders.'
+            },
+            {
+              icon: 'construct',
+              title: 'Stay upright, descend slow, drive up',
+              description: 'Front load forces good posture - lean forward and you\'ll drop the bar.'
+            }
+          ]
+        },
+        {
+          name: 'Bulgarian Split Squat',
+          duration: '14–16 min',
+          description: 'Advanced unilateral builder with deeper range and balance challenge.',
+          battlePlan: '4 rounds\n• 8-10 bulgarians per side\nRest 90s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-media-fix/artifacts/8m6t0a7f_Screenshot%202025-12-06%20at%207.08.54%E2%80%AFPM.png',
+          intensityReason: 'Rear foot squat overloads quads and balance.',
+          moodTips: [
+            {
+              icon: 'construct',
+              title: 'Rear foot on bench, front shin vertical',
+              description: 'Setup position determines effectiveness - get positioning right first.'
+            },
+            {
+              icon: 'fitness',
+              title: 'Lower straight down — avoid hip shift',
+              description: 'Keep hips square and descend vertically for maximum quad activation.'
+            }
+          ]
+        },
+        {
+          name: 'Rack Deficit RDL',
+          duration: '14–16 min',
+          description: 'Longer range hinge boosts hamstring hypertrophy with elevated position.',
+          battlePlan: '3 rounds\n• 8-10 deficit rdls\nRest 90s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-media-fix/artifacts/pmaididt_deficit%20rdl.jpg',
+          intensityReason: 'Standing on plates increases hamstring stretch.',
+          moodTips: [
+            {
+              icon: 'construct',
+              title: 'Hinge hips back, spine neutral',
+              description: 'Longer range requires even more attention to back position.'
+            },
+            {
+              icon: 'timer',
+              title: 'Slow 2–3s lower, drive up fast',
+              description: 'Eccentric control with explosive concentric maximizes development.'
+            }
+          ]
+        }
+      ],
+      advanced: [
+        {
+          name: 'Pause Back Squat',
+          duration: '16–18 min',
+          description: 'Keeps muscles under control in deepest range with bottom pause.',
+          battlePlan: '4 rounds\n• 6 Pause Back Squats\nRest 90s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/gxoxkpbs_download%20%285%29.png',
+          intensityReason: 'Bottom pause builds strength and eliminates bounce.',
+          moodTips: [
+            {
+              icon: 'timer',
+              title: 'Sit into depth, 2s pause, don\'t relax core',
+              description: 'Maintain tension throughout pause - don\'t let core go soft.'
+            },
+            {
+              icon: 'flash',
+              title: 'Explode upward with controlled breath',
+              description: 'Drive up fast after pause while maintaining breathing pattern.'
+            }
+          ]
+        },
+        {
+          name: 'Walking Lunges',
+          duration: '16–18 min',
+          description: 'Combination of strength, balance, and conditioning challenge.',
+          battlePlan: '3 rounds\n• 20 steps total Walking Lunges\nRest 90s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/a96gl1sh_download%20%287%29.png',
+          intensityReason: 'Continuous walking pattern overloads endurance.',
+          moodTips: [
+            {
+              icon: 'fitness',
+              title: 'Long deliberate steps, plant heel fully',
+              description: 'Quality steps with full foot contact for stability and power.'
+            },
+            {
+              icon: 'construct',
+              title: 'Keep torso tall, slow controlled descent',
+              description: 'Don\'t rush - control each step for maximum effectiveness.'
+            }
+          ]
+        },
+        {
+          name: 'Squat + RDL Superset',
+          duration: '16–18 min',
+          description: 'Hybrid superset crushes quads, glutes, and hamstrings together.',
+          battlePlan: '4 rounds\n• 6 Back Squats\n• 6 Rack RDLs\nRest 90s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/cj6gx8ak_download%20%286%29.png',
+          intensityReason: 'Pair squat + hinge for full lower body overload.',
+          moodTips: [
+            {
+              icon: 'refresh',
+              title: 'Transition quickly; squats upright, RDLs hinging',
+              description: 'Opposite movement patterns work complementary muscle groups.'
+            },
+            {
+              icon: 'construct',
+              title: 'Breathe steady; stay tight on both',
+              description: 'Maintain core bracing throughout both exercises for safety.'
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    equipment: 'Leg Press Machine',
+    icon: 'hardware-chip',
+    workouts: {
+      beginner: [
+        {
+          name: 'Neutral Leg Press',
+          duration: '10–12 min',
+          description: 'Basic press builds safety, posture, and control with machine support.',
+          battlePlan: '3 rounds\n• 10-12 neutral leg press\nRest 75s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/l1ouzm6t_download%20%281%29.png',
+          intensityReason: 'Teaches full ROM with stable machine support.',
+          moodTips: [
+            {
+              icon: 'construct',
+              title: 'Feet shoulder width, push through heels',
+              description: 'Proper foot placement distributes force evenly across legs.'
+            },
+            {
+              icon: 'shield',
+              title: 'Avoid locking knees, control descent',
+              description: 'Soft lockout protects joints while maintaining muscle tension.'
+            }
+          ]
+        },
+        {
+          name: 'Narrow Stance Press',
+          duration: '10–12 min',
+          description: 'Targets quads more directly in safe range of motion.',
+          battlePlan: '3 rounds\n• 10-12 narrow stance press\nRest 75s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/nbzhkmy8_download%20%282%29.png',
+          intensityReason: 'Close foot stance emphasizes quad activation.',
+          moodTips: [
+            {
+              icon: 'construct',
+              title: 'Feet hip width, press knees in line with toes',
+              description: 'Narrower stance shifts emphasis to quadriceps muscles.'
+            },
+            {
+              icon: 'timer',
+              title: 'Keep reps slow; don\'t bounce at bottom',
+              description: 'Control prevents momentum and maximizes muscle tension.'
+            }
+          ]
+        }
+      ],
+      intermediate: [
+        {
+          name: 'Wide Glute Press',
+          duration: '14–16 min',
+          description: 'Outside placement recruits posterior chain harder than narrow stance.',
+          battlePlan: '4 rounds\n• 8-10 wide stance press\nRest 90s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/l1ouzm6t_download%20%281%29.png',
+          intensityReason: 'Wider stance shifts target to glutes + hamstrings.',
+          moodTips: [
+            {
+              icon: 'fitness',
+              title: 'Feet wide, press outward through heels',
+              description: 'Drive knees out in line with toes for glute activation.'
+            },
+            {
+              icon: 'construct',
+              title: 'Keep knees tracking over mid foot',
+              description: 'Proper alignment prevents knee stress and maximizes power.'
+            }
+          ]
+        },
+        {
+          name: 'Single Leg Press',
+          duration: '14–16 min',
+          description: 'One leg at a time reduces imbalances in strength development.',
+          battlePlan: '4 rounds\n• 8 per leg Single Leg Press\nRest 90s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-media-fix/artifacts/pfq28xzl_Screenshot%202025-12-06%20at%207.18.57%E2%80%AFPM.png',
+          intensityReason: 'Unilateral training balances quads + hamstrings.',
+          moodTips: [
+            {
+              icon: 'fitness',
+              title: 'Work one leg, keep other foot relaxed',
+              description: 'Let non-working leg rest while focusing on working side.'
+            },
+            {
+              icon: 'construct',
+              title: 'Don\'t let hips lift off pad',
+              description: 'Keep hips square and pressed into back pad throughout.'
+            }
+          ]
+        }
+      ],
+      advanced: [
+        {
+          name: 'Drop Set Press',
+          duration: '16–18 min',
+          description: 'Extends time under tension with progressive load reduction.',
+          battlePlan: '3 rounds\n• 8 Heavy Press → Drop x2 (6–8 reps each)\nRest 90s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/l1ouzm6t_download%20%281%29.png',
+          intensityReason: 'Strip weight quickly to overload muscle fatigue.',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Start heavy, drop 20% to continue without rest',
+              description: 'Quick weight changes maximize fatigue and muscle recruitment.'
+            },
+            {
+              icon: 'construct',
+              title: 'Keep range consistent all drops',
+              description: 'Don\'t shorten range as you fatigue - maintain quality reps.'
+            }
+          ]
+        },
+        {
+          name: 'Pause Press',
+          duration: '16–18 min',
+          description: 'Pausing forces muscles to do all the hard work without momentum.',
+          battlePlan: '4 rounds\n• 8 Leg Press Reps (2s pause at bottom)\nRest 90s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/nbzhkmy8_download%20%282%29.png',
+          intensityReason: 'Mid rep pause kills momentum and builds tension.',
+          moodTips: [
+            {
+              icon: 'timer',
+              title: 'Pause 2s at bottom, don\'t bounce knees',
+              description: 'Hold depth position while maintaining muscle tension throughout.'
+            },
+            {
+              icon: 'construct',
+              title: 'Push out smooth, no jerking stack',
+              description: 'Controlled movement from pause prevents joint stress.'
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    equipment: 'Hack Squat Machine',
+    icon: 'triangle',
+    workouts: {
+      beginner: [
+        {
+          name: 'Neutral Hack Squat',
+          duration: '10–12 min',
+          description: 'Basic hack squat introduces form and confidence with machine guidance.',
+          battlePlan: '3 rounds\n• 10-12 hack squats\nRest 75s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/k4t4lzbt_download.png',
+          intensityReason: 'Machine guidance builds squat mechanics safely.',
+          moodTips: [
+            {
+              icon: 'construct',
+              title: 'Stand tall, feet shoulder width, spine braced',
+              description: 'Proper setup position ensures safe and effective movement.'
+            },
+            {
+              icon: 'trending-down',
+              title: 'Lower until thighs parallel, push through heels',
+              description: 'Good depth with heel drive maximizes leg muscle activation.'
+            }
+          ]
+        },
+        {
+          name: 'Narrow Hack Squat',
+          duration: '10–12 min',
+          description: 'Builds quad dominant strength with stable machine support.',
+          battlePlan: '3 rounds\n• 8-10 narrow hack squats\nRest 75s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/ffi2msmn_hs.avif',
+          intensityReason: 'Narrow stance emphasizes quads more directly.',
+          moodTips: [
+            {
+              icon: 'construct',
+              title: 'Feet close, knees track forward with toes',
+              description: 'Narrow stance shifts load to quadriceps muscles.'
+            },
+            {
+              icon: 'shield',
+              title: 'Maintain upright back pressing into pad',
+              description: 'Use back pad for support while maintaining spine position.'
+            }
+          ]
+        }
+      ],
+      intermediate: [
+        {
+          name: 'Wide Hack Squat',
+          duration: '14–16 min',
+          description: 'Trains posterior chain through deeper ROM with wide stance.',
+          battlePlan: '4 rounds\n• 8-10 wide hack squats\nRest 90s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/k4t4lzbt_download.png',
+          intensityReason: 'Wide stance targets glute and hamstring drive.',
+          moodTips: [
+            {
+              icon: 'fitness',
+              title: 'Feet wider set, push knees outward',
+              description: 'Wide stance with knee tracking engages glutes more.'
+            },
+            {
+              icon: 'construct',
+              title: 'Sink into hips, don\'t lift heels',
+              description: 'Heel contact maintains stability and power transfer.'
+            }
+          ]
+        },
+        {
+          name: 'Hack Squat Calf Raise',
+          duration: '14–16 min',
+          description: 'Doubles lower leg work without switching machines for efficiency.',
+          battlePlan: '4 rounds\n• 8 Hack Squats\n• Immediately 12 Hack Calf Raises\nRest 90s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-media-fix/artifacts/igmrt7qu_hscr.jpg',
+          intensityReason: 'Add calf emphasis within heavy squat structure.',
+          moodTips: [
+            {
+              icon: 'fitness',
+              title: 'After squats, push only with calves in ROM',
+              description: 'Transition to calf-only movement using balls of feet.'
+            },
+            {
+              icon: 'shield',
+              title: 'Keep shoulders pinned hard to pad',
+              description: 'Maintain shoulder contact for stability during calf raises.'
+            }
+          ]
+        }
+      ],
+      advanced: [
+        {
+          name: '1½ Rep Hack Squat',
+          duration: '16–18 min',
+          description: 'Blends controlled pulses with full ROM squatting for hypertrophy.',
+          battlePlan: '3 rounds\n• 6-8 hack squats (1 full + ½ rep = 1 rep)\nRest 90s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/k4t4lzbt_download.png',
+          intensityReason: 'Partial + full reps increase hypertrophy tension.',
+          moodTips: [
+            {
+              icon: 'construct',
+              title: 'Lower fully, rise halfway, drop, then stand',
+              description: 'Complex rep pattern maximizes time under tension.'
+            },
+            {
+              icon: 'timer',
+              title: 'Move smoothly, no bouncing at bottom',
+              description: 'Control throughout entire rep sequence for safety and effectiveness.'
+            }
+          ]
+        },
+        {
+          name: 'Reverse Hack Squat',
+          duration: '16–18 min',
+          description: 'Reverse stance hack builds posterior chain strength and development.',
+          battlePlan: '4 rounds\n• 8-10 reverse hack squats\nRest 90s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-media-fix/artifacts/a9f6gtvn_rhs.jpg',
+          intensityReason: 'Facing pad emphasizes glutes and hamstrings.',
+          moodTips: [
+            {
+              icon: 'construct',
+              title: 'Face pad chest, hinge slightly forward',
+              description: 'Reverse position changes muscle emphasis to posterior chain.'
+            },
+            {
+              icon: 'fitness',
+              title: 'Push heels downward, squeeze glutes at top',
+              description: 'Focus on glute contraction for maximum muscle activation.'
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    equipment: 'Single Stack Cable Machine',
+    icon: 'reorder-three',
+    workouts: {
+      beginner: [
+        {
+          name: 'Cable Squat',
+          duration: '10–12 min',
+          description: 'Cable tension mimics goblet squat with safety and control.',
+          battlePlan: '3 rounds\n• 10-12 cable squats\nRest 75s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-media-fix/artifacts/s4c1d5ao_download%20%283%29.png',
+          intensityReason: 'Front loaded setup controls posture + squat form.',
+          moodTips: [
+            {
+              icon: 'construct',
+              title: 'Hold bar/rope close, chest tall, brace core',
+              description: 'Front load helps maintain upright posture throughout movement.'
+            },
+            {
+              icon: 'trending-down',
+              title: 'Hips down, knees out, control down + up',
+              description: 'Proper squat mechanics with cable assistance for learning.'
+            }
+          ]
+        },
+        {
+          name: 'Cable Step Through',
+          duration: '10–12 min',
+          description: 'Crossover cable step engages quads + glutes together with unilateral work.',
+          battlePlan: '3 rounds\n• 8 per side Step Throughs\nRest 75s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-media-fix/artifacts/yt6adjli_image.png',
+          intensityReason: 'Split stance improves single leg drive and balance.',
+          moodTips: [
+            {
+              icon: 'fitness',
+              title: 'Step forward strongly, keep torso upright',
+              description: 'Drive through front leg while maintaining posture against cable.'
+            },
+            {
+              icon: 'construct',
+              title: 'Push front heel, let cable guide back',
+              description: 'Cable provides assistance returning to start position.'
+            }
+          ]
+        }
+      ],
+      intermediate: [
+        {
+          name: 'Cable RDL',
+          duration: '14–16 min',
+          description: 'Cable variation keeps constant load on posterior chain throughout ROM.',
+          battlePlan: '4 rounds\n• 8-10 cable rdls\nRest 90s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-media-fix/artifacts/btaq9it2_cable%20rdl.jpg',
+          intensityReason: 'Hip hinge move teaches tension through hamstrings.',
+          moodTips: [
+            {
+              icon: 'construct',
+              title: 'Step a foot back from weight stack for tension',
+              description: 'Distance from stack creates pre-tension for better muscle activation.'
+            },
+            {
+              icon: 'fitness',
+              title: 'Hinge hips back, pull cable tight each rep',
+              description: 'Maintain cable tension while performing hip hinge pattern.'
+            }
+          ]
+        },
+        {
+          name: 'Cable Split Squat',
+          duration: '14–16 min',
+          description: 'Great hypertrophy builder with guided constant tension throughout movement.',
+          battlePlan: '4 rounds\n• 8-10 cable split squats per leg\nRest 90s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-media-fix/artifacts/rnzpjsna_Screenshot%202025-12-06%20at%207.23.45%E2%80%AFPM.png',
+          intensityReason: 'Unilateral squat keeps quads under stable load.',
+          moodTips: [
+            {
+              icon: 'construct',
+              title: 'Hold handle chest height tight, stand tall',
+              description: 'Cable helps maintain upright posture during split squat.'
+            },
+            {
+              icon: 'fitness',
+              title: 'Drop rear knee close, drive evenly upward',
+              description: 'Controlled descent with powerful drive through front leg.'
+            }
+          ]
+        }
+      ],
+      advanced: [
+        {
+          name: 'Cable Front Squat',
+          duration: '16–18 min',
+          description: 'Replicates barbell front squat with cable constant tension loading.',
+          battlePlan: '4 rounds\n• 6-8 heavy cable front squats\nRest 90s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-media-fix/artifacts/s4c1d5ao_download%20%283%29.png',
+          intensityReason: 'Heavy stack front squat overloads safe quads.',
+          moodTips: [
+            {
+              icon: 'construct',
+              title: 'Stand tall, hands under bar attachment',
+              description: 'Proper grip and posture essential for heavy cable front squats.'
+            },
+            {
+              icon: 'shield',
+              title: 'Keep upright torso even under heavier load',
+              description: 'Cable front load helps maintain position but requires core strength.'
+            }
+          ]
+        },
+        {
+          name: 'Cable Squat to RDL',
+          duration: '16–18 min',
+          description: 'Superset blend targets both push + hinge chains with constant tension.',
+          battlePlan: '4 rounds\n• 8 Cable Squats\n• 8 Cable RDLs\nRest 90s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/il3x97qs_download%20%283%29.png',
+          intensityReason: 'Combo pairing keeps full leg tension loading.',
+          moodTips: [
+            {
+              icon: 'refresh',
+              title: 'Keep squats smooth; hinge immediately after',
+              description: 'Quick transition maintains muscle tension throughout superset.'
+            },
+            {
+              icon: 'construct',
+              title: 'Stay close to stack for strong pull angle',
+              description: 'Positioning relative to cable stack affects resistance curve.'
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    equipment: 'Trap Bar',
+    icon: 'remove',
+    workouts: {
+      beginner: [
+        {
+          name: 'Trap Bar Deadlift Squat',
+          duration: '10–12 min',
+          description: 'Full‑body squat/deadlift hybrid builds foundation',
+          battlePlan: '3 rounds\n• 8–10 Deadlift‑Style Trap Bar Squats\nRest 75–90s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/3cnpyyx1_tbss.webp',
+          intensityReason: 'Safest trap bar squat teaches form and posture',
+          moodTips: [
+            {
+              icon: 'body',
+              title: 'Stand tall inside bar, chest up',
+              description: 'Maintain upright posture throughout the movement for proper form.'
+            },
+            {
+              icon: 'arrow-down',
+              title: 'Push floor evenly, lock out fully',
+              description: 'Drive through both feet equally and complete full extension at top.'
+            }
+          ]
+        },
+        {
+          name: 'Neutral Grip Trap Bar Squat',
+          duration: '10–12 min',
+          description: 'Neutral foot placement encourages steady control',
+          battlePlan: '3 rounds\n• 8–10 Neutral Squats\nRest 75–90s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/sbumk4mn_tbs.jpeg',
+          intensityReason: 'Balanced stance builds quads and glutes evenly',
+          moodTips: [
+            {
+              icon: 'resize-outline',
+              title: 'Feet shoulder width, toes slightly out',
+              description: 'Proper foot positioning ensures balanced muscle activation.'
+            },
+            {
+              icon: 'trending-down',
+              title: 'Keep spine tall, descend under control',
+              description: 'Controlled descent maximizes muscle engagement and safety.'
+            }
+          ]
+        }
+      ],
+      intermediate: [
+        {
+          name: 'Wide Stance Trap Bar Squat',
+          duration: '14–16 min',
+          description: 'Builds hip strength and glute drive through stance',
+          battlePlan: '4 rounds\n• 6–8 Wide Stance Squats\nRest 90s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/3cnpyyx1_tbss.webp',
+          intensityReason: 'wider base targets hips and glutes with a stronger emphasis',
+          moodTips: [
+            {
+              icon: 'resize',
+              title: 'Feet wider, push knees out strongly',
+              description: 'Wide stance activates glutes more effectively than narrow stance.'
+            },
+            {
+              icon: 'arrow-forward',
+              title: 'Drive hips forward to finish rep',
+              description: 'Hip drive ensures complete glute activation at top of movement.'
+            }
+          ]
+        },
+        {
+          name: 'Tempo Trap Bar Squat',
+          duration: '14–16 min',
+          description: 'Slow descent builds control and hypertrophy for greater muscle growth',
+          battlePlan: '4 rounds\n• 6–8 Squats (3–4s eccentric)\nRest 90s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/sbumk4mn_tbs.jpeg',
+          intensityReason: 'Extended eccentrics increase muscle time under tension',
+          moodTips: [
+            {
+              icon: 'time',
+              title: 'Lower in 3–4s, keep chest upright',
+              description: 'Slow tempo increases time under tension for muscle growth.'
+            },
+            {
+              icon: 'construct',
+              title: 'Controlled pace — no collapse at depth',
+              description: 'Maintain tension throughout range of motion for safety.'
+            }
+          ]
+        }
+      ],
+      advanced: [
+        {
+          name: 'Pause Trap Bar Squat',
+          duration: '16–18 min',
+          description: 'Builds stability and power out of squat bottom',
+          battlePlan: '4 rounds\n• 6 Paused Squats (2s)\nRest 90s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/3cnpyyx1_tbss.webp',
+          intensityReason: '2s pause eliminates momentum, loads glutes/quads',
+          moodTips: [
+            {
+              icon: 'pause',
+              title: 'Hold depth 2s, keep core braced',
+              description: 'Pause eliminates stretch reflex, requiring pure strength to ascend.'
+            },
+            {
+              icon: 'rocket',
+              title: 'Explode upward from pause each rep',
+              description: 'Rapid acceleration from pause develops explosive power.'
+            }
+          ]
+        },
+        {
+          name: '1½ Rep Trap Bar Squat',
+          duration: '16–18 min',
+          description: 'Doubles workload while keeping constant tension',
+          battlePlan: '3 rounds\n• 6–8 1½ Rep Trap Bar Squats\nRest 90s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/sbumk4mn_tbs.jpeg',
+          intensityReason: 'Half + full rep combo extends quad fatigue for greater challenge',
+          moodTips: [
+            {
+              icon: 'repeat',
+              title: 'Lower full, rise half, drop, then stand',
+              description: 'Complete sequence: full down, half up, full down, full up.'
+            },
+            {
+              icon: 'trending-up',
+              title: 'Stay smooth — no bouncing between halves',
+              description: 'Controlled movement pattern prevents momentum and maintains tension.'
+            }
+          ]
+        }
+      ]
+    }
+  }
+];
