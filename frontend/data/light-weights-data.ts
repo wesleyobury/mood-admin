@@ -1,28 +1,4 @@
-import { Ionicons } from '@expo/vector-icons';
-
-interface Workout {
-  name: string;
-  duration: string;
-  description: string;
-  battlePlan: string;
-  imageUrl: string;
-  intensityReason: string;
-  moodTips: {
-    icon: keyof typeof Ionicons.glyphMap;
-    title: string;
-    description: string;
-  }[];
-}
-
-interface EquipmentWorkouts {
-  equipment: string;
-  icon: keyof typeof Ionicons.glyphMap;
-  workouts: {
-    beginner: Workout[];
-    intermediate: Workout[];
-    advanced: Workout[];
-  };
-}
+import { EquipmentWorkouts } from '../types/workout';
 
 // Light weights workout database for "Sweat / burn fat > Light weights" path
 export const lightWeightsDatabase: EquipmentWorkouts[] = [
