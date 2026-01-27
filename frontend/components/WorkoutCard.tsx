@@ -119,7 +119,7 @@ const WorkoutCard = React.memo(({
         </Animated.View>
 
         {/* Swipe for more text */}
-        <Text style={styles.swipeForMoreText}>swipe for more</Text>
+        <Text style={styles.swipeForMoreText}>Swipe for more</Text>
       </View>
     </View>
   );
@@ -370,8 +370,8 @@ const styles = StyleSheet.create({
     color: '#ffffff',
   },
   swipeForMoreText: {
-    fontSize: 12,
-    color: '#ffffff',
+    fontSize: 10,
+    color: 'rgba(255, 255, 255, 0.6)',
     textAlign: 'center',
     marginTop: 12,
   },
