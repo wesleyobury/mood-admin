@@ -1,8 +1,7 @@
 import { EquipmentWorkouts } from '../types/workout';
 
 // Complete cardio workout database with all 12 equipment types and MOOD tips
-export const cardioWorkoutsDatabase: EquipmentWorkouts[] = 
-const workoutDatabase: EquipmentWorkouts[] = [
+export const cardioWorkoutsDatabase: EquipmentWorkouts[] = [
   {
     equipment: 'Treadmill',
     icon: 'walk',
