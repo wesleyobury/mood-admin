@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { memo } from 'react';
 import {
   View,
   Text,
@@ -6,1710 +6,63 @@ import {
   TouchableOpacity,
   SafeAreaView,
   ScrollView,
-  Dimensions,
-  Image,
-  FlatList,
-  Animated,
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { useRouter, useLocalSearchParams } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import HomeButton from '../components/HomeButton';
+import WorkoutCard from '../components/WorkoutCard';
 import { useCart, WorkoutItem } from '../contexts/CartContext';
 import { useAuth } from '../contexts/AuthContext';
 import { Analytics } from '../utils/analytics';
-import WigglingAddButton from '../components/WigglingAddButton';
+import { lazyBodyweightDatabase } from '../data/lazy-bodyweight-data';
+import { Workout, EquipmentWorkouts } from '../types/workout';
 
-const { width } = Dimensions.get('window');
+// Use imported lazy bodyweight workout database
+const workoutDatabase: EquipmentWorkouts[] = lazyBodyweightDatabase;
 
-interface Workout {
-  name: string;
-  duration: string;
-  description: string;
-  battlePlan: string;
-  imageUrl: string;
-  intensityReason: string;
-  moodTips: {
-    icon: keyof typeof Ionicons.glyphMap;
-    title: string;
-    description: string;
-  }[];
-}
-
-interface EquipmentWorkouts {
-  equipment: string;
-  icon: keyof typeof Ionicons.glyphMap;
-  workouts: {
-    beginner: Workout[];
-    intermediate: Workout[];
-    advanced: Workout[];
-  };
-}
-
-// Lazy bodyweight workout database with all equipment workouts
-const workoutDatabase: EquipmentWorkouts[] = [
-  {
-    equipment: 'Treadmill',
-    icon: 'walk',
-    workouts: {
-      beginner: [
-        {
-          name: 'Easy Walk Intervals',
-          duration: '8–10 min',
-          description: 'Easy base with brief brisk pops; smooth steps and breaths.',
-          battlePlan: '3 rounds\n• 2 min Easy Walk (RPE 3)\n• 1 min Brisk Walk (RPE 4)\nNo extra rest; repeat sequence continuously',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-images/artifacts/0jyalb2d_download%20%2826%29.png',
-          intensityReason: 'Gentle surges raise HR without impact or joint strain.',
-          moodTips: [
-            {
-              icon: 'body',
-              title: 'Light form',
-              description: 'Keep shoulders relaxed and down, swing arms lightly, and use short quick strides to maintain momentum without overexertion'
-            },
-            {
-              icon: 'leaf',
-              title: 'Calm breathing',
-              description: 'At RPE 3 breathe through your nose; at RPE 4 add mouth breathing while staying calm and controlled throughout'
-            }
-          ]
-        },
-        {
-          name: 'Incline Cruise',
-          duration: '8–10 min',
-          description: 'Steady incline walk; relaxed shoulders; even cadence.',
-          battlePlan: '1 set\n• 8–10 min Walk @ 3–5% incline (RPE 3–4)',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-images/artifacts/lcrp3pfp_download%20%2827%29.png',
-          intensityReason: 'Mild grade adds work quietly with stable mechanics.',
-          moodTips: [
-            {
-              icon: 'trending-up',
-              title: 'Proper incline',
-              description: 'Set treadmill to 3–5% grade, maintain upright posture, and avoid grabbing rails which reduces workout effectiveness'
-            },
-            {
-              icon: 'footsteps',
-              title: 'Quiet steps',
-              description: 'Take shorter strides on the incline to keep footfalls quiet and even, reducing impact on joints'
-            }
-          ]
-        }
-      ],
-      intermediate: [
-        {
-          name: 'Brisk Walk Pops',
-          duration: '10–12 min',
-          description: 'Easy base with 30s surges; smooth recoveries between.',
-          battlePlan: '4 rounds\n• 2 min Easy (RPE 3)\n• 30s Brisk (RPE 5)\n• 30s Easy (RPE 3) to reset, then repeat',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-images/artifacts/0jyalb2d_download%20%2826%29.png',
-          intensityReason: 'Short brisk segments raise cadence and HR safely.',
-          moodTips: [
-            {
-              icon: 'eye',
-              title: 'Form focus',
-              description: 'Keep your gaze forward at horizon level, hands relaxed not clenched, and focus on quick foot turnover during surges'
-            },
-            {
-              icon: 'volume-low',
-              title: 'Quiet contacts',
-              description: 'During RPE 5 surges, aim to keep your footsteps quiet on the belt; recover fully at RPE 3 before the next burst'
-            }
-          ]
-        },
-        {
-          name: 'Incline Switch-Ups',
-          duration: '10–12 min',
-          description: 'Change incline each minute; maintain easy comfortable pace.',
-          battlePlan: '10–12 min continuous\n• Alternate each minute: 2% → 5% → 3% → 6% … (RPE 4–5)',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-images/artifacts/lcrp3pfp_download%20%2827%29.png',
-          intensityReason: 'Alternating grades keep interest without impact load.',
-          moodTips: [
-            {
-              icon: 'body',
-              title: 'Stay tall',
-              description: 'Maintain an upright torso throughout and shorten your stride length when the incline increases'
-            },
-            {
-              icon: 'hand-right',
-              title: 'No rails',
-              description: 'Keep breathing calm and rhythmic; avoid holding the rails as this reduces calorie burn and core engagement'
-            }
-          ]
-        }
-      ],
-      advanced: [
-        {
-          name: 'Walk–Jog Sprinkle',
-          duration: '12–14 min',
-          description: 'Easy walk base with tiny jog sprinkles and soft landings.',
-          battlePlan: '4 rounds\n• 2 min Easy Walk (RPE 3)\n• 30–45s Easy Jog (RPE 5–6)\nRepeat back-to-back; no extra rest',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-images/artifacts/0jyalb2d_download%20%2826%29.png',
-          intensityReason: 'Short jogs elevate HR while total fatigue stays low.',
-          moodTips: [
-            {
-              icon: 'footsteps',
-              title: 'Soft landings',
-              description: 'Focus on landing softly with quiet steps during jog intervals; maintain a pace where you could still hold a conversation'
-            },
-            {
-              icon: 'refresh',
-              title: 'Stay flexible',
-              description: 'Listen to your body—if needed, extend the walk portion or shorten the jog; the goal is to stay relaxed throughout'
-            }
-          ]
-        },
-        {
-          name: 'Hill Breeze',
-          duration: '12–14 min',
-          description: 'One-minute hill efforts with flat recoveries; breathe calm.',
-          battlePlan: '6 cycles continuous\n• 1 min @ 5–6% (RPE 5)\n• 1 min flat (RPE 3–4)',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-images/artifacts/lcrp3pfp_download%20%2827%29.png',
-          intensityReason: 'Short hill rises engage legs gently without heavy load.',
-          moodTips: [
-            {
-              icon: 'trending-up',
-              title: 'Uphill technique',
-              description: 'When climbing, shorten your stride and keep cadence steady; lean slightly forward from the ankles, not the waist'
-            },
-            {
-              icon: 'leaf',
-              title: 'Relax and breathe',
-              description: 'Exhale fully during hill efforts, relax your jaw and facial muscles, and shake out your arms on flat sections'
-            }
-          ]
-        }
-      ]
-    }
-  },
-  {
-    equipment: 'Stationary bike',
-    icon: 'bicycle',
-    workouts: {
-      beginner: [
-        {
-          name: 'Cruise Spin',
-          duration: '8–10 min',
-          description: 'Light resistance 80–90 rpm; shoulders relaxed and tall.',
-          battlePlan: '1 set\n• 8–10 min Easy Spin (RPE 3)',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-images/artifacts/8k8d6fo4_download%20%2824%29.png',
-          intensityReason: 'Easy spin boosts circulation with very low muscular load.',
-          moodTips: [
-            {
-              icon: 'hand-right',
-              title: 'Soft hands',
-              description: 'Keep a relaxed grip on the handlebars, pedal in smooth circles, and sit tall with shoulders away from ears'
-            },
-            {
-              icon: 'leaf',
-              title: 'Easy breathing',
-              description: 'Maintain RPE around 3—you should be able to breathe steadily and smoothly through your nose'
-            }
-          ]
-        },
-        {
-          name: 'Cadence Teasers',
-          duration: '8–10 min',
-          description: 'Easy spin punctuated by quick fast-leg bursts; reset easy.',
-          battlePlan: '3 rounds\n• 2 min Easy (RPE 3)\n• 20s Fast Legs / 40s Easy (repeat 1× = 1 block)\nComplete both intervals back-to-back to finish each round',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-images/artifacts/jx5sn8pf_download%20%2825%29.png',
-          intensityReason: 'Short fast legs nudge HR without accumulating fatigue.',
-          moodTips: [
-            {
-              icon: 'speedometer',
-              title: 'Light resistance',
-              description: 'Keep resistance low during fast-leg bursts to focus on speed rather than power; avoid bouncing in the saddle'
-            },
-            {
-              icon: 'refresh',
-              title: 'Fast legs',
-              description: 'Aim for 95–105 rpm during fast portions while keeping your shoulders relaxed and upper body still'
-            }
-          ]
-        }
-      ],
-      intermediate: [
-        {
-          name: 'Gear Nudge',
-          duration: '10–12 min',
-          description: 'Alternate light and moderate minutes at steady cadence.',
-          battlePlan: '10–12 min continuous\n• 1 min Light (RPE 3)\n• 1 min Moderate (RPE 5)\nRepeat sequence',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-images/artifacts/8k8d6fo4_download%20%2824%29.png',
-          intensityReason: 'Slight resistance bumps engage muscles yet stay comfy.',
-          moodTips: [
-            {
-              icon: 'speedometer',
-              title: 'Keep RPM up',
-              description: 'Maintain at least 80 rpm even during the moderate-resistance minute; adjust gear rather than slowing cadence'
-            },
-            {
-              icon: 'leaf',
-              title: 'Rhythmic breath',
-              description: 'Keep your hands relaxed on the bars and sync breathing with pedal strokes for a rhythmic, meditative feel'
-            }
-          ]
-        },
-        {
-          name: 'Mini Surges',
-          duration: '10–12 min',
-          description: 'Thirty-second surge, ninety seconds easy; smooth cycles.',
-          battlePlan: '6 cycles continuous\n• 30s Surge (RPE 6)\n• 90s Easy (RPE 3)',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-images/artifacts/jx5sn8pf_download%20%2825%29.png',
-          intensityReason: 'Short controlled pushes lift HR then settle cleanly.',
-          moodTips: [
-            {
-              icon: 'settings',
-              title: 'Stay seated',
-              description: 'Remain seated during surges; avoid grinding a heavy gear—instead increase cadence to raise intensity'
-            },
-            {
-              icon: 'leaf',
-              title: 'Belly breathing',
-              description: 'Breathe deep into your belly and use a long exhale during surges to help manage effort and stay relaxed'
-            }
-          ]
-        }
-      ],
-      advanced: [
-        {
-          name: 'Pyramid Spin',
-          duration: '12–14 min',
-          description: '1–2–3–2–1 @ RPE 5 with 1-min easy recoveries between.',
-          battlePlan: '1 set\n• 2 min Easy\n• 1 min @ RPE 5 → 1 min Easy\n• 2 min @ RPE 5 → 1 min Easy\n• 3 min @ RPE 5 → 1 min Easy\n• 2 min @ RPE 5 → 1 min Easy\n• 1 min @ RPE 5 → 2 min Easy finish',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-images/artifacts/8k8d6fo4_download%20%2824%29.png',
-          intensityReason: 'Build and drop ladder sustains focus without strain.',
-          moodTips: [
-            {
-              icon: 'speedometer',
-              title: 'Moderate pace',
-              description: 'Keep work intervals at a steady RPE 5—a sustainable effort, not an all-out sprint; consistency is key'
-            },
-            {
-              icon: 'refresh',
-              title: 'Reset between',
-              description: 'Use each 1-minute easy period to fully reset your breathing and shake out any tension before the next effort'
-            }
-          ]
-        },
-        {
-          name: 'Stand Sprinkles',
-          duration: '12–14 min',
-          description: 'Seated easy with short stands; return to seat smoothly.',
-          battlePlan: '5 rounds\n• 2 min Easy (RPE 3)\n• 15–20s Standing (RPE 6)\nRepeat; no extra rest between rounds',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-images/artifacts/jx5sn8pf_download%20%2825%29.png',
-          intensityReason: 'Brief standing bouts add variety with mild leg load.',
-          moodTips: [
-            {
-              icon: 'body',
-              title: 'Core engaged',
-              description: 'When standing, engage your core, keep hands light on the bars, and maintain steady rpm without swaying'
-            },
-            {
-              icon: 'settings',
-              title: 'Smooth transitions',
-              description: 'Return to seated position softly; avoid using too heavy a gear during standing portions to protect your knees'
-            }
-          ]
-        }
-      ]
-    }
-  },
-  {
-    equipment: 'Elliptical',
-    icon: 'infinite',
-    workouts: {
-      beginner: [
-        {
-          name: 'Glide Easy',
-          duration: '8–10 min',
-          description: 'Light resistance; smooth strides; relaxed upright posture.',
-          battlePlan: '1 set\n• 8–10 min Easy Glide (RPE 3)',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-images/artifacts/1b8gmmf3_download%20%2811%29.png',
-          intensityReason: 'Low-impact glide increases flow with minimal stress.',
-          moodTips: [
-            {
-              icon: 'footsteps',
-              title: 'Light touch',
-              description: 'Keep your heels light on the pedals and use a gentle push-pull motion with the arm handles'
-            },
-            {
-              icon: 'leaf',
-              title: 'Steady breathing',
-              description: 'Maintain RPE around 3 with slow, even breathing; this should feel like a comfortable warm-up pace'
-            }
-          ]
-        },
-        {
-          name: 'Stride Pops',
-          duration: '8–10 min',
-          description: '20s quicker strides with 40s easy glides; repeat calm.',
-          battlePlan: '3 rounds\n• 2 min Easy\n• 3 × (20s Quick, 40s Easy) done back-to-back\nRecovery is the 40s Easy within each trio',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-images/artifacts/c5a1o86a_download%20%2812%29.png',
-          intensityReason: 'Short tempo lifts add spark while effort stays easy.',
-          moodTips: [
-            {
-              icon: 'settings',
-              title: 'Light resistance',
-              description: 'Keep resistance low during quick bursts—focus on speed and smooth motion rather than power output'
-            },
-            {
-              icon: 'eye',
-              title: 'Stay relaxed',
-              description: 'Keep your eyes forward at horizon level and shoulders relaxed throughout both quick and easy segments'
-            }
-          ]
-        }
-      ],
-      intermediate: [
-        {
-          name: 'Ramp Waves',
-          duration: '10–12 min',
-          description: 'Alternate low and high ramp minutes; steady cadence.',
-          battlePlan: '10–12 min continuous\n• 1 min Low Ramp (RPE 3–4)\n• 1 min High Ramp (RPE 5)\nRepeat sequence',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-images/artifacts/1b8gmmf3_download%20%2811%29.png',
-          intensityReason: 'Mild ramp changes add novelty without taxing joints.',
-          moodTips: [
-            {
-              icon: 'footsteps',
-              title: 'Adapt stride',
-              description: 'As the ramp increases, naturally shorten your stride length to maintain smooth and controlled motion'
-            },
-            {
-              icon: 'leaf',
-              title: 'Calm breathing',
-              description: 'Focus on keeping your breathing calm and rhythmic even as the incline changes; avoid holding your breath'
-            }
-          ]
-        },
-        {
-          name: 'Push–Pull Focus',
-          duration: '10–12 min',
-          description: '30s arm focus paired with 60s easy stride; smooth flow.',
-          battlePlan: '6 cycles continuous\n• 30s Arm Focus (RPE 5)\n• 60s Easy (RPE 3)',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-images/artifacts/c5a1o86a_download%20%2812%29.png',
-          intensityReason: 'Upper-body emphasis spreads load while staying light.',
-          moodTips: [
-            {
-              icon: 'body',
-              title: 'Core engaged',
-              description: 'Brace your core lightly, keep elbows soft, and avoid gripping the handles too tightly during arm focus'
-            },
-            {
-              icon: 'refresh',
-              title: 'Keep flowing',
-              description: 'Maintain continuous leg movement during arm-focus bursts; let upper and lower body work together smoothly'
-            }
-          ]
-        }
-      ],
-      advanced: [
-        {
-          name: 'Tempo Sprinkle',
-          duration: '12–14 min',
-          description: 'Two minutes easy then one-minute tempo; repeat smooth.',
-          battlePlan: '5 cycles continuous\n• 2 min Easy (RPE 3)\n• 1 min Tempo (RPE 6)',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-images/artifacts/1b8gmmf3_download%20%2811%29.png',
-          intensityReason: 'Short tempo bouts lift HR gently without impact.',
-          moodTips: [
-            {
-              icon: 'body',
-              title: 'Good form',
-              description: 'Keep posture tall throughout, feet quiet on the pedals, and avoid overstriding which wastes energy'
-            },
-            {
-              icon: 'refresh',
-              title: 'Easy return',
-              description: 'Push to RPE 6 during tempo then drop back to a comfortable RPE 3 easy pace for full recovery'
-            }
-          ]
-        },
-        {
-          name: 'Ramp Pyramid',
-          duration: '12–14 min',
-          description: 'Climb every two minutes; descend smoothly to finish.',
-          battlePlan: '1 set\n• 2 min Easy\n• 2 min Ramp 3 → 2 min Ramp 6 → 2 min Ramp 9\n• 2 min Ramp 6 → 2 min Ramp 3\n• 2 min Easy',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-images/artifacts/c5a1o86a_download%20%2812%29.png',
-          intensityReason: 'Gradual ramp build challenges, then eases smoothly.',
-          moodTips: [
-            {
-              icon: 'footsteps',
-              title: 'Adapt stride',
-              description: 'Naturally shorten your stride length as the elevation increases to maintain efficient movement'
-            },
-            {
-              icon: 'speedometer',
-              title: 'Steady cadence',
-              description: 'Keep your cadence consistent throughout; adjust resistance modestly rather than dramatically changing speed'
-            }
-          ]
-        }
-      ]
-    }
-  },
-  {
-    equipment: 'Stair stepper',
-    icon: 'walk',
-    workouts: {
-      beginner: [
-        {
-          name: 'Easy Steps',
-          duration: '8–10 min',
-          description: 'Low level, smooth steps, light hands, steady breathing.',
-          battlePlan: '1 set\n• 8–10 min Level 1–3 (RPE 3)',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-images/artifacts/891czvrs_download%20%2822%29.png',
-          intensityReason: 'Gentle stepping raises HR with clean, safe mechanics.',
-          moodTips: [
-            {
-              icon: 'body',
-              title: 'Good posture',
-              description: 'Stand tall with your spine neutral; avoid leaning heavily on the rails which reduces the workout effectiveness'
-            },
-            {
-              icon: 'footsteps',
-              title: 'Quiet steps',
-              description: 'Use short controlled steps and land quietly; maintain RPE around 3 for a comfortable sustainable pace'
-            }
-          ]
-        },
-        {
-          name: 'Step and Pause',
-          duration: '8–10 min',
-          description: 'Two minutes steady work with 30s very easy reset bouts.',
-          battlePlan: '3 rounds\n• 2 min Steady (RPE 4)\n• 30s Very Easy (RPE 2–3)\nRepeat continuous; no extra rest',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-images/artifacts/4vr4kipb_download%20%2823%29.png',
-          intensityReason: 'Cadence dips ensure control while preventing fatigue.',
-          moodTips: [
-            {
-              icon: 'speedometer',
-              title: 'Even cadence',
-              description: 'Keep your stepping cadence even throughout, maintain soft knees, and breathe calmly and steadily'
-            },
-            {
-              icon: 'refresh',
-              title: 'Reset breaks',
-              description: 'Use the 30-second slow-step periods to relax your breath, reset your posture, and prepare for the next round'
-            }
-          ]
-        }
-      ],
-      intermediate: [
-        {
-          name: 'Alternating Cadence',
-          duration: '10–12 min',
-          description: 'One minute brisk stepping, one minute easy; repeat flow.',
-          battlePlan: '10–12 min continuous\n• 1 min Brisk (RPE 5)\n• 1 min Easy (RPE 3)',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-images/artifacts/891czvrs_download%20%2822%29.png',
-          intensityReason: 'Cadence shifts add variety without heavy muscular load.',
-          moodTips: [
-            {
-              icon: 'body',
-              title: 'Tall posture',
-              description: 'Maintain tall posture throughout; avoid letting the steps bottom out by using controlled, complete motions'
-            },
-            {
-              icon: 'leaf',
-              title: 'Even breathing',
-              description: 'At brisk RPE 5, breathing should be elevated but controlled; drop to easy RPE 3 with relaxed even breaths'
-            }
-          ]
-        },
-        {
-          name: 'Two-Step Rhythm',
-          duration: '10–12 min',
-          description: 'Insert five double-steps at 30s mark each minute set.',
-          battlePlan: '6 cycles\n• 1 min Normal Steps (RPE 4)\n• At 30s within each minute: perform 5 double-steps',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-images/artifacts/4vr4kipb_download%20%2823%29.png',
-          intensityReason: 'Occasional double-steps wake hips and balance safely.',
-          moodTips: [
-            {
-              icon: 'trending-up',
-              title: 'Double-step',
-              description: 'For double-steps, skip one step and plant your foot two steps higher—this activates glutes and hip flexors'
-            },
-            {
-              icon: 'hand-right',
-              title: 'Use rails lightly',
-              description: 'Keep movements smooth and controlled; lightly touch rails for balance only if needed during double-steps'
-            }
-          ]
-        }
-      ],
-      advanced: [
-        {
-          name: 'Side-Step Sprinkle',
-          duration: '12–14 min',
-          description: 'Mostly forward steps with 30s lateral work each minute.',
-          battlePlan: '6 cycles\n• 90s Forward (RPE 4)\n• 30s Side-Steps L/R (RPE 5)',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-images/artifacts/891czvrs_download%20%2822%29.png',
-          intensityReason: 'Light lateral steps add variety with modest intensity.',
-          moodTips: [
-            {
-              icon: 'resize',
-              title: 'Small side steps',
-              description: 'Use small controlled side steps with hips level; hold the rails lightly for balance during lateral movement'
-            },
-            {
-              icon: 'refresh',
-              title: 'Smooth movement',
-              description: 'Lateral portions at RPE 5 should feel engaging; forward steps at RPE 4 are recovery—move smoothly between both'
-            }
-          ]
-        },
-        {
-          name: 'Mini Climb Waves',
-          duration: '12–14 min',
-          description: 'Two minutes level 3–4, one minute level 5–6; repeat flow.',
-          battlePlan: '4 rounds\n• 2 min Level 3–4 (RPE 4)\n• 1 min Level 5–6 (RPE 6)',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-images/artifacts/4vr4kipb_download%20%2823%29.png',
-          intensityReason: 'Slight level waves lift HR then settle it smoothly again.',
-          moodTips: [
-            {
-              icon: 'body',
-              title: 'Stay tall',
-              description: 'Maintain tall posture even during harder minutes; use even steps and soft landings throughout'
-            },
-            {
-              icon: 'leaf',
-              title: 'Exhale effort',
-              description: 'Exhale fully during the higher-intensity minute, relax your shoulders, and keep your jaw unclenched'
-            }
-          ]
-        }
-      ]
-    }
-  },
-  {
-    equipment: 'Rowing machine',
-    icon: 'boat',
-    workouts: {
-      beginner: [
-        {
-          name: 'Easy Row Flow',
-          duration: '8–10 min',
-          description: 'Smooth 18–20 spm, gentle pressure, relaxed breathing.',
-          battlePlan: '1 set\n• 8–10 min @ 18–20 spm, RPE 3',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-images/artifacts/6b87wtzw_download%20%2820%29.png',
-          intensityReason: 'Light strokes increase flow with minimal joint loading.',
-          moodTips: [
-            {
-              icon: 'refresh',
-              title: 'Proper sequence',
-              description: 'Follow the sequence: legs push first, then body swings back, finally arms pull; reverse this on the return'
-            },
-            {
-              icon: 'hand-right',
-              title: 'Light grip',
-              description: 'Keep a light relaxed grip on the handle, shoulders down away from ears, and breathe with long exhales'
-            }
-          ]
-        },
-        {
-          name: 'Pick Drill Lite',
-          duration: '8–10 min',
-          description: 'Arms-only, arms+body, then full strokes; crisp sequence.',
-          battlePlan: '1 set\n• 2 min Arms-only (RPE 2–3)\n• 3 min Arms+Body (RPE 3)\n• 3–5 min Full Stroke (RPE 3–4)',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-images/artifacts/zxa3naw1_download%20%2821%29.png',
-          intensityReason: 'Technique segments build rhythm at very easy effort.',
-          moodTips: [
-            {
-              icon: 'hand-right',
-              title: 'Arms-only',
-              description: 'During arms-only, keep legs straight and just pull the handle in and out using arm movement only'
-            },
-            {
-              icon: 'body',
-              title: 'Add body',
-              description: 'For arms+body, add a gentle torso swing forward and back while keeping legs quiet and extended'
-            }
-          ]
-        }
-      ],
-      intermediate: [
-        {
-          name: 'Rate Pops',
-          duration: '10–12 min',
-          description: 'One minute 18 spm, 30s 24 spm; smooth easy pressure.',
-          battlePlan: '6 cycles continuous\n• 1 min @ 18 spm (RPE 3–4)\n• 30s @ 24 spm (RPE 5)\n• 30s @ 18 spm reset',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-images/artifacts/6b87wtzw_download%20%2820%29.png',
-          intensityReason: 'Short rate lifts nudge HR while technique stays clean.',
-          moodTips: [
-            {
-              icon: 'speedometer',
-              title: 'Focus rhythm',
-              description: 'Keep your split time modest during rate increases; focus on rhythm and stroke length rather than power'
-            },
-            {
-              icon: 'hand-right',
-              title: 'Smooth recovery',
-              description: 'Relax your grip on the recovery and slide smoothly back to the catch position with control'
-            }
-          ]
-        },
-        {
-          name: 'Technique Tempo',
-          duration: '10–12 min',
-          description: 'Two minutes easy, one-minute tempo; controlled repeats.',
-          battlePlan: '4 rounds\n• 2 min Easy (RPE 3)\n• 1 min Tempo (RPE 5)\nNo extra rest; continuous flow',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-images/artifacts/zxa3naw1_download%20%2821%29.png',
-          intensityReason: 'Slight tempo raises HR while mechanics remain crisp.',
-          moodTips: [
-            {
-              icon: 'refresh',
-              title: 'Clean sequence',
-              description: 'Maintain proper sequence: legs push, body swings, arms finish—even when picking up the tempo'
-            },
-            {
-              icon: 'speedometer',
-              title: 'Light pressure',
-              description: 'Keep pressure light and consistent; the tempo increase comes from quicker turnover, not harder pulling'
-            }
-          ]
-        }
-      ],
-      advanced: [
-        {
-          name: '500m Sprinkle',
-          duration: '12–14 min',
-          description: 'Easy row blocks surrounding one controlled 500m piece.',
-          battlePlan: '1 set\n• 4 min Easy (RPE 3)\n• 500m Steady (RPE 6)\n• 4–6 min Easy (RPE 3)',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-images/artifacts/6b87wtzw_download%20%2820%29.png',
-          intensityReason: 'Short 500m adds spice while total load remains easy.',
-          moodTips: [
-            {
-              icon: 'refresh',
-              title: 'Keep form crisp',
-              description: 'Maintain crisp technique during the 500m piece; this is steady effort, not a personal record attempt'
-            },
-            {
-              icon: 'leaf',
-              title: 'Recover easy',
-              description: 'After the 500m, drop back to easy pace and focus on long slow breaths to recover fully'
-            }
-          ]
-        },
-        {
-          name: 'Ladder Rate',
-          duration: '12–14 min',
-          description: '2 min each at 18, 20, 22 spm, then descend back down.',
-          battlePlan: '1 set\n• 2 min @ 18 spm → 2 @ 20 → 2 @ 22\n• 2 @ 20 → 2 @ 18\nAll at RPE 4–5 max',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-images/artifacts/zxa3naw1_download%20%2821%29.png',
-          intensityReason: 'Rate ladder entertains without adding heavy intensity.',
-          moodTips: [
-            {
-              icon: 'speedometer',
-              title: 'Rate only',
-              description: 'Keep pressure easy throughout; only the stroke rate changes—not the power or effort level'
-            },
-            {
-              icon: 'body',
-              title: 'Good posture',
-              description: 'Sit tall with strong posture, achieve a long finish position, and maintain a smooth controlled slide'
-            }
-          ]
-        }
-      ]
-    }
-  },
-  {
-    equipment: 'SkiErg',
-    icon: 'snow',
-    workouts: {
-      beginner: [
-        {
-          name: 'Easy Glide Pulls',
-          duration: '8–10 min',
-          description: 'Smooth hinge and arm drive; stable cadence; calm breath.',
-          battlePlan: '1 set\n• 8–10 min Easy (RPE 3)',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-images/artifacts/1zo355rz_skiierg.jpg',
-          intensityReason: 'Gentle pulls engage lats/core with low joint loading.',
-          moodTips: [
-            {
-              icon: 'body',
-              title: 'Hinge pattern',
-              description: 'Initiate each pull with a hip hinge, then drive with arms; stand tall on the return to reset position'
-            },
-            {
-              icon: 'hand-right',
-              title: 'Light grip',
-              description: 'Keep a relaxed grip on the handles and exhale fully on each pull to engage your core naturally'
-            }
-          ]
-        },
-        {
-          name: 'Pull Pops',
-          duration: '8–10 min',
-          description: '15s quicker pulls with 45s easy glides; repeat smooth.',
-          battlePlan: '3 rounds\n• 2 min Easy\n• 3 × (15s Quick, 45s Easy) back-to-back\nThe 45s Easy is the rest; no extra pause',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-images/artifacts/7ynxfrel_ski1.jpg',
-          intensityReason: 'Short pick-ups wake rhythm while keeping effort light.',
-          moodTips: [
-            {
-              icon: 'body',
-              title: 'No yanking',
-              description: 'Keep shoulders down throughout; use a small controlled hinge and avoid yanking or jerking the handles'
-            },
-            {
-              icon: 'refresh',
-              title: 'Smooth recovery',
-              description: 'Accelerate smoothly during quick bursts and return with relaxed controlled recovery'
-            }
-          ]
-        }
-      ],
-      intermediate: [
-        {
-          name: 'Rate Waves',
-          duration: '10–12 min',
-          description: 'Alternate 1 min @ 20 spm and 1 min @ 24 spm; easy power.',
-          battlePlan: '10–12 min continuous\n• 1 min @ 20 spm (RPE 3–4)\n• 1 min @ 24 spm (RPE 5)',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-images/artifacts/1zo355rz_skiierg.jpg',
-          intensityReason: 'Small rate changes add interest without added strain.',
-          moodTips: [
-            {
-              icon: 'speedometer',
-              title: 'Power modest',
-              description: 'Keep power output modest throughout; focus on timing and rhythm rather than maximum effort'
-            },
-            {
-              icon: 'leaf',
-              title: 'Long exhales',
-              description: 'Use long exhales during the higher-rate minutes to stay relaxed and maintain smooth movement'
-            }
-          ]
-        },
-        {
-          name: 'Hinge Focus',
-          duration: '10–12 min',
-          description: '30s hinge-led pulls with 60s easy glide; repeat calm.',
-          battlePlan: '6 cycles continuous\n• 30s Focus (RPE 5)\n• 60s Easy (RPE 3)',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-images/artifacts/7ynxfrel_ski1.jpg',
-          intensityReason: 'Technique emphasis spreads work while staying easy.',
-          moodTips: [
-            {
-              icon: 'body',
-              title: 'Hinge leads',
-              description: 'Keep core braced throughout; let the hip hinge drive the movement first, then arms follow and finish'
-            },
-            {
-              icon: 'hand-right',
-              title: 'Stay tall',
-              description: 'Return to tall standing position, keep elbows in close, and maintain a soft relaxed grip'
-            }
-          ]
-        }
-      ],
-      advanced: [
-        {
-          name: 'Short Effort Ladder',
-          duration: '12–14 min',
-          description: '20–30–40s pulls with equal easy; keep stroke smooth.',
-          battlePlan: '3 cycles continuous\n• 20s Pull / 20s Easy\n• 30s Pull / 30s Easy\n• 40s Pull / 40s Easy',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-images/artifacts/1zo355rz_skiierg.jpg',
-          intensityReason: 'Small builds keep fun up without heavy fatigue buildup.',
-          moodTips: [
-            {
-              icon: 'refresh',
-              title: 'Clean stroke',
-              description: 'Keep each stroke clean and controlled; avoid rushing the recovery portion between pulls'
-            },
-            {
-              icon: 'leaf',
-              title: 'Rhythmic breath',
-              description: 'Breathe rhythmically throughout each effort interval; exhale on the pull, inhale on recovery'
-            }
-          ]
-        },
-        {
-          name: 'Technique Tempo',
-          duration: '12–14 min',
-          description: '2 min easy then 1 min tempo pulls; repeat smoothly.',
-          battlePlan: '5 cycles continuous\n• 2 min Easy (RPE 3)\n• 1 min Tempo (RPE 6)',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-images/artifacts/7ynxfrel_ski1.jpg',
-          intensityReason: 'Slight tempo keeps interest while mechanics stay crisp.',
-          moodTips: [
-            {
-              icon: 'body',
-              title: 'Tall posture',
-              description: 'Maintain tall posture, use a small controlled hinge, and keep your ribs stacked over your hips'
-            },
-            {
-              icon: 'hand-right',
-              title: 'Smooth return',
-              description: 'Relax your grip, keep elbows in close to your body, and return smoothly to the start position'
-            }
-          ]
-        }
-      ]
-    }
-  },
-  {
-    equipment: 'Jump rope',
-    icon: 'remove',
-    workouts: {
-      beginner: [
-        {
-          name: 'Easy Singles',
-          duration: '6–8 min',
-          description: 'Simple singles; short contacts; relaxed quiet shoulders.',
-          battlePlan: '3 rounds\n• 40s Jump / 20s Rest (RPE 3–4)',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-images/artifacts/hx5xzvml_download%20%2814%29.png',
-          intensityReason: 'Light rhythm warms calves and lungs with minimal stress.',
-          moodTips: [
-            {
-              icon: 'hand-right',
-              title: 'Wrist turns',
-              description: 'Turn the rope from your wrists not shoulders, keep elbows close to your sides, and use tiny jumps'
-            },
-            {
-              icon: 'footsteps',
-              title: 'Quiet feet',
-              description: 'Land softly with quiet feet and maintain a steady breathing cadence throughout each interval'
-            }
-          ]
-        },
-        {
-          name: 'Box Step Rope',
-          duration: '6–8 min',
-          description: 'Alternating steps under rope; easy beat; relaxed flow.',
-          battlePlan: '3 rounds\n• 45s Step Rope / 15s Rest (RPE 3–4)',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-images/artifacts/vjbmjg1y_jr%20singles.webp',
-          intensityReason: 'Step pattern lowers impact and keeps rhythm friendly.',
-          moodTips: [
-            {
-              icon: 'body',
-              title: 'Stay tall',
-              description: 'Maintain tall posture with soft knees on each landing, keeping your gaze forward at eye level'
-            },
-            {
-              icon: 'refresh',
-              title: 'Even rope',
-              description: 'Keep the rope path low and even; breathe calmly and let the rhythm become almost meditative'
-            }
-          ]
-        }
-      ],
-      intermediate: [
-        {
-          name: 'Tempo Singles',
-          duration: '8–10 min',
-          description: '50s steady singles and 10s rest; repeat calm rhythm.',
-          battlePlan: '8–10 min\n• 50s Jump / 10s Rest (RPE 5)',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-images/artifacts/hx5xzvml_download%20%2814%29.png',
-          intensityReason: 'Slight tempo raises HR while remaining comfortable.',
-          moodTips: [
-            {
-              icon: 'eye',
-              title: 'Eyes forward',
-              description: 'Keep your gaze forward at horizon level, wrists relaxed, and use tiny efficient jumps'
-            },
-            {
-              icon: 'leaf',
-              title: 'Conserve energy',
-              description: 'Conserve energy by minimizing jump height; maintain a steady exhale rhythm throughout'
-            }
-          ]
-        },
-        {
-          name: 'Side-to-Side Steps',
-          duration: '8–10 min',
-          description: 'Small side shuffles under rope; smooth even rhythm.',
-          battlePlan: '5 rounds\n• 40s Lateral Steps / 20s Rest (RPE 4–5)',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-images/artifacts/vjbmjg1y_jr%20singles.webp',
-          intensityReason: 'Mild lateral steps add variety and light coordination.',
-          moodTips: [
-            {
-              icon: 'footsteps',
-              title: 'Keep feet low',
-              description: 'Keep feet close to the ground with quick light taps; relax your jaw and facial muscles'
-            },
-            {
-              icon: 'leaf',
-              title: 'Breathing cadence',
-              description: 'Maintain a steady breathing cadence and stay light on your feet throughout the lateral movement'
-            }
-          ]
-        }
-      ],
-      advanced: [
-        {
-          name: 'Mixed Rhythm',
-          duration: '10–12 min',
-          description: '40s singles plus 20s fast singles; high cadence for appropriate challenge',
-          battlePlan: '6 cycles\n• 40s Singles (RPE 4)\n• 20s Fast Singles (RPE 6)\n• 30s Easy Rest between cycles',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-images/artifacts/7xdwafzn_download%20%2815%29.png',
-          intensityReason: 'Short rhythm changes stimulate without heavy strain.',
-          moodTips: [
-            {
-              icon: 'hand-right',
-              title: 'Stay relaxed',
-              description: 'Stay relaxed even during fast bursts; use tiny jumps and quick wrist rotation for speed'
-            },
-            {
-              icon: 'leaf',
-              title: 'Quiet shoulders',
-              description: 'Keep shoulders quiet and stable; maintain steady breathing between intensity bursts'
-            }
-          ]
-        },
-        {
-          name: 'Sprinkle Doubles',
-          duration: '10–12 min',
-          description: 'Singles base with 5–10 double-unders sprinkled in calmly.',
-          battlePlan: '5 rounds\n• 60s Singles; add 5–10 DU anywhere (RPE 5–6)\n• 30–45s Rest',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-images/artifacts/nj4p5yh5_download%20%2816%29.png',
-          intensityReason: 'Occasional doubles add challenge while volume stays low.',
-          moodTips: [
-            {
-              icon: 'body',
-              title: 'Keep doubles sparse',
-              description: 'Sprinkle in just 5–10 double-unders per round; stay relaxed and tall throughout'
-            },
-            {
-              icon: 'refresh',
-              title: 'Reset timing',
-              description: 'Land softly after each double-under and reset your timing before continuing with singles'
-            }
-          ]
-        }
-      ]
-    }
-  },
-  {
-    equipment: 'Plyo box',
-    icon: 'cube',
-    workouts: {
-      beginner: [
-        {
-          name: 'Step-Ups Easy',
-          duration: '8–10 min',
-          description: 'Steady step-ups; alternate leads; smooth controlled pace.',
-          battlePlan: '1 set\n• 8–10 min Continuous Step-Ups (RPE 3–4)',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-images/artifacts/43a622qp_download%20%2817%29.png',
-          intensityReason: 'Low step work moves legs with minimal joint impact.',
-          moodTips: [
-            {
-              icon: 'footsteps',
-              title: 'Whole foot',
-              description: 'Place your whole foot on the box, stand tall at the top, and control the step down'
-            },
-            {
-              icon: 'refresh',
-              title: 'Alternate legs',
-              description: 'Switch your lead leg every 5–10 reps to keep the workout balanced and prevent fatigue'
-            }
-          ]
-        },
-        {
-          name: 'Low Box Squat-to-Stand',
-          duration: '8–10 min',
-          description: 'Light tap to box; stand tall; relaxed smooth rhythm.',
-          battlePlan: '3 rounds\n• 60s Squat-to-Stand\n• 30s Easy Step-Ups\nNo extra rest',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-images/artifacts/dgbd4a69_download%20%2818%29.png',
-          intensityReason: 'Box target keeps depth safe with comfortable cadence.',
-          moodTips: [
-            {
-              icon: 'body',
-              title: 'Good position',
-              description: 'Keep shins fairly upright, chest tall, and gently tap the box without plopping down'
-            },
-            {
-              icon: 'leaf',
-              title: 'Breath control',
-              description: 'Breathe out as you stand up from the box; inhale as you lower back down to seated'
-            }
-          ]
-        }
-      ],
-      intermediate: [
-        {
-          name: 'Step-Up + Knee',
-          duration: '10–12 min',
-          description: 'Step-up with gentle knee lift; alternate legs; control.',
-          battlePlan: '4 rounds\n• 60s Step-Up + Knee (RPE 5)\n• 60s Easy Step-Ups (RPE 3–4)',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-images/artifacts/43a622qp_download%20%2817%29.png',
-          intensityReason: 'Small knee drive lifts HR without jumping impact.',
-          moodTips: [
-            {
-              icon: 'hand-right',
-              title: 'No pulling',
-              description: 'Avoid pulling yourself up using a rail; drive through your lead leg and use a soft lockout at the top'
-            },
-            {
-              icon: 'settings',
-              title: 'Choose height',
-              description: 'Select a box height that you can own smoothly with good form throughout the entire round'
-            }
-          ]
-        },
-        {
-          name: 'Box Squat Pulses',
-          duration: '10–12 min',
-          description: 'Tap box, two pulses, stand tall; repeat with control.',
-          battlePlan: '4 rounds\n• 45s Squat 2-Pulse + Stand\n• 45s Step-Ups Easy\nRepeat flow',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-images/artifacts/ikffehr2_download%20%2819%29.png',
-          intensityReason: 'Light pulses increase time under tension comfortably.',
-          moodTips: [
-            {
-              icon: 'speedometer',
-              title: 'Consistent depth',
-              description: 'Maintain consistent squat depth on each rep with small controlled pulses at the bottom'
-            },
-            {
-              icon: 'leaf',
-              title: 'Steady breath',
-              description: 'Keep breathing steady throughout; avoid holding your breath and prevent knee caving inward'
-            }
-          ]
-        }
-      ],
-      advanced: [
-        {
-          name: 'Low Box Jumps',
-          duration: '12–14 min',
-          description: 'Small jumps; quiet sticks; step down; reset each rep.',
-          battlePlan: '5 rounds\n• 30s Box Jumps (low)\n• 60s Step-Ups Easy\n• 30s Rest',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-images/artifacts/ikffehr2_download%20%2819%29.png',
-          intensityReason: 'Low jumps keep playful intent with soft controlled landings.',
-          moodTips: [
-            {
-              icon: 'trending-up',
-              title: 'Good jump form',
-              description: 'Use a big arm swing to generate momentum, land on mid-foot, and hold your stick for 1–2 seconds'
-            },
-            {
-              icon: 'refresh',
-              title: 'Substitute if needed',
-              description: 'If your joints complain, substitute with Step-Up + Knee instead to reduce impact'
-            }
-          ]
-        },
-        {
-          name: 'Box Jump Clusters',
-          duration: '12–14 min',
-          description: 'Two jumps, 10s rest, two jumps; step down always.',
-          battlePlan: '5 rounds\n• Cluster: 2 Jumps → 10s rest → 2 Jumps\n• Then 60s Easy Step-Ups\nRepeat; total RPE 5–6',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-images/artifacts/qj1k6asd_bj.webp',
-          intensityReason: 'Clusters sustain jump quality with brief micro-rests.',
-          moodTips: [
-            {
-              icon: 'eye',
-              title: 'Consistent form',
-              description: 'Use the same dip depth each time, keep eyes forward, and land with quiet feet'
-            },
-            {
-              icon: 'speedometer',
-              title: 'Use timer',
-              description: 'Use a timer to track your 10s rest; keep jump height consistent rather than increasing'
-            }
-          ]
-        }
-      ]
-    }
-  },
-  {
-    equipment: 'Body weight only',
-    icon: 'body',
-    workouts: {
-      beginner: [
-        {
-          name: 'Easy Body Circuit A',
-          duration: '10–12 min',
-          description: 'Squats, wall pushups, glute bridges, dead bugs; steady.',
-          battlePlan: '3 rounds\n• 30s Squats\n• 30s Wall Pushups\n• 30s Glute Bridges\n• 30s Dead Bug\n• 30s Rest',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-images/artifacts/gwmz0zxk_download%20%283%29.png',
-          intensityReason: 'Simple moves elevate flow with low joint and back stress.',
-          moodTips: [
-            {
-              icon: 'speedometer',
-              title: 'Smooth movement',
-              description: 'Move smoothly through each exercise; keep reps sub-maximal to maintain good form throughout'
-            },
-            {
-              icon: 'leaf',
-              title: 'Stop if needed',
-              description: 'Breathe steadily and stop immediately if anything pinches or causes discomfort'
-            }
-          ]
-        },
-        {
-          name: 'Easy Body Circuit B',
-          duration: '10–12 min',
-          description: 'Reverse lunges, plank, hip hinges, calf raises; calm.',
-          battlePlan: '3 rounds\n• 30s Reverse Lunges (alt)\n• 30s Forearm Plank\n• 30s Hip Hinge Good Mornings\n• 30s Calf Raises\n• 30s Rest',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-images/artifacts/lz6xvlc5_download%20%284%29.png',
-          intensityReason: 'Gentle full-body mix builds heat without large fatigue.',
-          moodTips: [
-            {
-              icon: 'hand-right',
-              title: 'Use support',
-              description: 'Use a chair or wall for balance during lunges and calf raises if needed'
-            },
-            {
-              icon: 'leaf',
-              title: 'Light core',
-              description: 'Keep your core lightly engaged throughout with steady controlled breathing'
-            }
-          ]
-        },
-        {
-          name: 'Core + Hips Flow',
-          duration: '10–13 min',
-          description: 'Bird dogs, side planks, clamshells, hollow holds; smooth.',
-          battlePlan: '2 rounds\n• 30s Bird Dogs (alt)\n• 30s Side Plank L\n• 30s Side Plank R\n• 30s Clamshells L\n• 30s Clamshells R\n• 30s Hollow Hold\n• 60s Rest',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-images/artifacts/04x6jgb3_download%20%285%29.png',
-          intensityReason: 'Light core and hip work supports posture and ease.',
-          moodTips: [
-            {
-              icon: 'speedometer',
-              title: 'Precise reps',
-              description: 'Perform slow precise reps with long exhales; quality of movement matters more than quantity'
-            },
-            {
-              icon: 'body',
-              title: 'Ribs down',
-              description: 'Keep ribs drawn down toward hips and neck relaxed throughout all core exercises'
-            }
-          ]
-        },
-        {
-          name: 'Low-Bounce Burner',
-          duration: '10–12 min',
-          description: 'Step-back lunges, knee pushups, squat holds, core.',
-          battlePlan: '3 rounds\n• 30s Step-Back Lunges (alt)\n• 30s Incline or Knee Pushups\n• 30s Squat Hold (comfortable depth)\n• 30s Dead Bug\n• 30s Rest',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-images/artifacts/e0xo73cq_download%20%286%29.png',
-          intensityReason: 'Low-impact pace warms body without jumping stress.',
-          moodTips: [
-            {
-              icon: 'speedometer',
-              title: 'Control depth',
-              description: 'Control your depth on lunges and squats; maintain a smooth cadence throughout'
-            },
-            {
-              icon: 'refresh',
-              title: 'Shake out',
-              description: 'Use rest periods to shake out arms and legs to release any built-up tension'
-            }
-          ]
-        }
-      ],
-      intermediate: [
-        {
-          name: 'Lazy Sweat A',
-          duration: '12–15 min',
-          description: 'Squats, pushups, alternating lunges, plank; steady flow.',
-          battlePlan: '3 rounds\n• 40s Squats\n• 30s Pushups (incline if needed)\n• 40s Alternating Lunges\n• 30s Forearm Plank\n• 30s Rest',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-images/artifacts/gwmz0zxk_download%20%283%29.png',
-          intensityReason: 'Short sets raise HR while pace stays conversational.',
-          moodTips: [
-            {
-              icon: 'speedometer',
-              title: 'Quality over speed',
-              description: 'Prioritize quality over speed; perform smooth controlled reps rather than rushing through'
-            },
-            {
-              icon: 'body',
-              title: 'Plank form',
-              description: 'During plank, keep ribs drawn down and glutes lightly engaged to protect your lower back'
-            }
-          ]
-        },
-        {
-          name: 'Lazy Sweat B',
-          duration: '12–15 min',
-          description: 'Good mornings, reverse lunges, dead bugs, side planks.',
-          battlePlan: '3 rounds\n• 40s Hip Hinge Good Mornings\n• 40s Reverse Lunges (alt)\n• 30s Dead Bug\n• 30s Side Plank (switch at 15s)\n• 30s Rest',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-images/artifacts/lz6xvlc5_download%20%284%29.png',
-          intensityReason: 'Hinge, core, balance blend with easy controlled pacing.',
-          moodTips: [
-            {
-              icon: 'body',
-              title: 'Hinge from hips',
-              description: 'Hinge from your hips with a soft knee bend; maintain a long neutral spine throughout'
-            },
-            {
-              icon: 'leaf',
-              title: 'Stay relaxed',
-              description: 'Breathe out on the effort portion of each exercise; stay relaxed between movements'
-            }
-          ]
-        },
-        {
-          name: 'Low Hop Mix',
-          duration: '12–15 min',
-          description: 'Small squat hops, step-back lunges, pushups, hollow.',
-          battlePlan: '3 rounds\n• 30s Small Squat Hops (or Squats)\n• 40s Step-Back Lunges (alt)\n• 30s Pushups\n• 30s Hollow Hold\n• 30s Rest',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-images/artifacts/04x6jgb3_download%20%285%29.png',
-          intensityReason: 'Tiny hops add pop while impact stays manageable.',
-          moodTips: [
-            {
-              icon: 'refresh',
-              title: 'Substitute if needed',
-              description: 'If your joints disagree with hops, substitute regular body squats to stay low-impact'
-            },
-            {
-              icon: 'footsteps',
-              title: 'Quiet hops',
-              description: 'Land with quiet feet during hops, use tiny controlled jumps, and maintain tall posture'
-            }
-          ]
-        },
-        {
-          name: 'Core + Shoulders',
-          duration: '12–15 min',
-          description: 'Plank taps, pike holds, dead bugs, scapular pushups.',
-          battlePlan: '3 rounds\n• 30s High Plank Shoulder Taps\n• 20–30s Pike Hold (hips high)\n• 30s Dead Bug\n• 30s Scapular Pushups\n• 30s Rest',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-images/artifacts/e0xo73cq_download%20%286%29.png',
-          intensityReason: 'Gentle core and shoulder work adds tone without strain.',
-          moodTips: [
-            {
-              icon: 'body',
-              title: 'Ribs down',
-              description: 'Keep ribs drawn down toward hips in all plank positions to protect your spine'
-            },
-            {
-              icon: 'hand-right',
-              title: 'Small movements',
-              description: 'Use small controlled scapular movements; keep elbows locked during shoulder taps'
-            }
-          ]
-        }
-      ],
-      advanced: [
-        {
-          name: 'Jump Flow A',
-          duration: '15–18 min',
-          description: 'Jump squats, alternating lunges, pushups, plank; flow.',
-          battlePlan: '4 rounds\n• 20s Jump Squats → 40s Squats\n• 40s Alternating Lunges\n• 30s Pushups\n• 30s Plank\n• 30s Rest',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-images/artifacts/jurt20jc_download%20%287%29.png',
-          intensityReason: 'Short jump sets lift HR; total impact stays moderate.',
-          moodTips: [
-            {
-              icon: 'footsteps',
-              title: 'Soft landings',
-              description: 'Focus on landing softly on mid-foot with quiet feet to protect your joints'
-            },
-            {
-              icon: 'refresh',
-              title: 'Substitute if needed',
-              description: 'Swap to regular body squats if your knees complain during jump squats'
-            }
-          ]
-        },
-        {
-          name: 'Burpee Sprinkle',
-          duration: '15–18 min',
-          description: 'Few burpees per minute; squats and core fill remaining.',
-          battlePlan: 'EMOM 12 min\nOdd: 4–6 Burpees, then Squats till minute\nEven: 20s Hollow Hold, then Lunges till minute',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-images/artifacts/560zzeug_download%20%288%29.png',
-          intensityReason: 'Sparse burpees add spice while rest moves stay easy.',
-          moodTips: [
-            {
-              icon: 'refresh',
-              title: 'Smooth burpees',
-              description: 'Keep burpees smooth and controlled; step back instead of jumping back if needed'
-            },
-            {
-              icon: 'leaf',
-              title: 'Control breathing',
-              description: 'Stay relaxed and control your breathing throughout; avoid holding your breath'
-            }
-          ]
-        },
-        {
-          name: 'Push–Core Ladder',
-          duration: '15–18 min',
-          description: 'Pushups and V-ups ladder; lunges fill rest time segments.',
-          battlePlan: '1 set flow\n• 6 Pushups → 10 V-ups\n• 8 Pushups → 12 V-ups\n• 10 Pushups → 14 V-ups\n• Between rungs: 20s Alternating Lunges',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-images/artifacts/r5b5c9ea_download%20%289%29.png',
-          intensityReason: 'Short ladders challenge without heavy fatigue buildup.',
-          moodTips: [
-            {
-              icon: 'speedometer',
-              title: 'Quality reps',
-              description: 'Focus on quality reps; break early if your form starts to deteriorate'
-            },
-            {
-              icon: 'refresh',
-              title: 'Crisp V-ups',
-              description: 'Keep V-ups crisp and controlled; substitute with controlled tuck-ups if needed'
-            }
-          ]
-        },
-        {
-          name: 'Jump Flow B',
-          duration: '15–18 min',
-          description: 'Split jumps, squat jumps, pike shoulder taps, planks.',
-          battlePlan: '4 rounds\n• 20s Split Jumps → 40s Reverse Lunges\n• 20s Squat Jumps → 40s Squats\n• 30s Pike Shoulder Taps\n• 30s Side Plank (switch at 15s)\n• 30s Rest',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-images/artifacts/fx9b15hc_download%20%2810%29.png',
-          intensityReason: 'Mixed jumps challenge safely with soft controlled landings.',
-          moodTips: [
-            {
-              icon: 'footsteps',
-              title: 'Low amplitude',
-              description: 'Use low amplitude jumps with quiet controlled landings to protect your joints'
-            },
-            {
-              icon: 'body',
-              title: 'Ribs down taps',
-              description: 'Keep ribs drawn down during shoulder taps and maintain steady breathing throughout'
-            }
-          ]
-        }
-      ]
-    }
-  },
-  {
-    equipment: 'Assault Bike',
-    icon: 'bicycle',
-    workouts: {
-      beginner: [
-        {
-          name: 'Breeze Pedal',
-          duration: '8–10 min',
-          description: 'Light pace, gentle arm swing, calm nasal–mouth breathing.',
-          battlePlan: '1 set\n• 8–10 min Easy (RPE 3)',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-images/artifacts/j0sczg6l_download%20%282%29.png',
-          intensityReason: 'Easy spin moves blood with very low systemic stress.',
-          moodTips: [
-            {
-              icon: 'hand-right',
-              title: 'Soft grip',
-              description: 'Keep a soft relaxed grip on the handles, shoulders down, and use even arm and leg strokes'
-            },
-            {
-              icon: 'chatbubble',
-              title: 'Stay conversational',
-              description: 'Maintain RPE around 3; you should be able to hold a conversation comfortably'
-            }
-          ]
-        },
-        {
-          name: 'Short Spins',
-          duration: '8–10 min',
-          description: '20s quick spin with 40s easy reset; repeat smoothly.',
-          battlePlan: '3 rounds\n• 2 min Easy\n• 3 × (20s Quick, 40s Easy) back-to-back\nThe 40s Easy is the rest; no extra pause',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-images/artifacts/m4tsgs02_download%20%281%29.png',
-          intensityReason: 'Brief pickups add spark without accumulating fatigue.',
-          moodTips: [
-            {
-              icon: 'body',
-              title: 'Stay seated',
-              description: 'Stay seated throughout, focus on quick turnover, and keep arms and hands relaxed'
-            },
-            {
-              icon: 'speedometer',
-              title: 'Fluid cadence',
-              description: 'Keep cadence fluid and avoid heavy mashing; speed comes from rpm not resistance'
-            }
-          ]
-        }
-      ],
-      intermediate: [
-        {
-          name: 'Cadence Waves',
-          duration: '10–12 min',
-          description: 'One minute brisk, one minute easy; repeat balanced.',
-          battlePlan: '10–12 min continuous\n• 1 min Brisk (RPE 5)\n• 1 min Easy (RPE 3)',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-images/artifacts/j0sczg6l_download%20%282%29.png',
-          intensityReason: 'Oscillations lift HR while the ride stays comfortable.',
-          moodTips: [
-            {
-              icon: 'body',
-              title: 'Match arms/legs',
-              description: 'Coordinate your arms and legs in rhythm, sit tall, and keep a light grip on the handles'
-            },
-            {
-              icon: 'leaf',
-              title: 'Control breath',
-              description: 'At brisk RPE 5, breathing should be elevated; at easy RPE 3, focus on controlled recovery breaths'
-            }
-          ]
-        },
-        {
-          name: 'Gear Nudge',
-          duration: '10–12 min',
-          description: '90s easy then 30s firmer push; repeat controlled cycles.',
-          battlePlan: '6 cycles continuous\n• 90s Easy (RPE 3)\n• 30s Push (RPE 6)',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-images/artifacts/m4tsgs02_download%20%281%29.png',
-          intensityReason: 'Resistance shifts add variety under steady cadence.',
-          moodTips: [
-            {
-              icon: 'speedometer',
-              title: 'Steady RPM',
-              description: 'Keep RPM steady throughout; increase pressure and arm effort during push intervals'
-            },
-            {
-              icon: 'leaf',
-              title: 'Relax shoulders',
-              description: 'Relax your shoulders away from ears and use long exhales during push efforts'
-            }
-          ]
-        }
-      ],
-      advanced: [
-        {
-          name: 'Mini-Tabata Lite',
-          duration: '12–14 min',
-          description: '6 rounds 10s hard/20s easy with long easy bookends.',
-          battlePlan: '1 set\n• 4 min Easy\n• 6 rounds: 10s Hard (RPE 7) / 20s Easy\n• 4–6 min Easy finish',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-images/artifacts/j0sczg6l_download%20%282%29.png',
-          intensityReason: 'Very short efforts spice an otherwise easy ride safely.',
-          moodTips: [
-            {
-              icon: 'pulse',
-              title: 'Comfortably hard',
-              description: 'Comfortably hard means RPE 7—challenging but sustainable; keep form smooth not frantic'
-            },
-            {
-              icon: 'leaf',
-              title: 'Deep nasal exhales',
-              description: 'During recovery segments, use deep nasal exhales to lower heart rate and reset'
-            }
-          ]
-        },
-        {
-          name: 'Pyramid Sprinkle',
-          duration: '12–14 min',
-          description: '20–30–40s push with equal easy; relaxed steady cadence.',
-          battlePlan: '3 cycles continuous\n• 20s Push / 20s Easy\n• 30s Push / 30s Easy\n• 40s Push / 40s Easy',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-images/artifacts/m4tsgs02_download%20%281%29.png',
-          intensityReason: 'Short building pushes lift HR without overreaching.',
-          moodTips: [
-            {
-              icon: 'speedometer',
-              title: 'Fluid cadence',
-              description: 'Keep cadence fluid throughout; avoid wild spikes in power that waste energy'
-            },
-            {
-              icon: 'body',
-              title: 'Sit tall',
-              description: 'Sit tall with soft hands on the handles and use long controlled exhales during efforts'
-            }
-          ]
-        }
-      ]
-    }
-  }
-];
-
-
-const WorkoutCard = React.memo(({ 
-  equipment, 
-  icon, 
-  workouts, 
-  difficulty,
-  isInCart,
-  createWorkoutId,
-  handleAddToCart,
-  handleStartWorkout,
-}: { 
-  equipment: string; 
-  icon: keyof typeof Ionicons.glyphMap; 
-  workouts: Workout[]; 
-  difficulty: string;
-  isInCart: (workoutId: string) => boolean;
-  createWorkoutId: (workout: Workout, equipment: string, difficulty: string) => string;
-  handleAddToCart: (workout: Workout, equipment: string) => void;
-  handleStartWorkout: (workout: Workout, equipment: string, difficulty: string) => void;
-}) => {
-  const [currentWorkoutIndex, setCurrentWorkoutIndex] = useState(0);
-  const [localScaleAnim] = useState(new Animated.Value(1));
-  const flatListRef = useRef<FlatList>(null);
-
-  const handleAddToCartWithAnimation = (workout: Workout) => {
-    // Animate locally without affecting parent
-    Animated.sequence([
-      Animated.timing(localScaleAnim, {
-        toValue: 0.8,
-        duration: 100,
-        useNativeDriver: true,
-      }),
-      Animated.timing(localScaleAnim, {
-        toValue: 1.2,
-        duration: 200,
-        useNativeDriver: true,
-      }),
-      Animated.timing(localScaleAnim, {
-        toValue: 1,
-        duration: 100,
-        useNativeDriver: true,
-      }),
-    ]).start();
-
-    // Call parent handler
-    handleAddToCart(workout, equipment);
-  };
-
-  const renderWorkout = ({ item, index }: { item: Workout; index: number }) => (
-    <View style={[styles.workoutSlide, { width: width - 48 }]}>
-      {/* Workout Image */}
-      <View style={styles.workoutImageContainer}>
-        <Image 
-          source={{ uri: item.imageUrl }}
-          style={styles.workoutImage}
-          resizeMode="cover"
-        />
-        <View style={styles.imageOverlay} />
-        <View style={styles.swipeIndicator}>
-          <Ionicons name="swap-horizontal" size={20} color="#FFD700" />
-          <Text style={styles.swipeText}>Swipe for more</Text>
-        </View>
-      </View>
-
-      {/* Workout Content */}
-      <View style={styles.workoutContent}>
-        {/* Workout Name */}
-        <Text style={styles.workoutName}>{item.name}</Text>
-        
-        {/* Duration and Intensity on same line */}
-        <View style={styles.durationIntensityRow}>
-          <Text style={styles.workoutDuration}>{item.duration}</Text>
-          <View style={[styles.difficultyBadge, { backgroundColor: '#FFD700' }]}>
-            <Text style={styles.difficultyBadgeText}>{(difficulty === 'intermediate' ? 'INTERMED.' : difficulty).toUpperCase()}</Text>
-          </View>
-        </View>
-
-        {/* Intensity Reason */}
-        <View style={styles.intensityContainer}>
-          <Ionicons name="information-circle" size={16} color="#FFD700" />
-          <Text style={styles.intensityReason}>{item.intensityReason}</Text>
-        </View>
-
-        {/* Workout Description */}
-        <View style={styles.workoutDescriptionContainer}>
-          <Text style={styles.workoutDescription} numberOfLines={2}>{item.description}</Text>
-        </View>
-
-        {/* Start Workout Button */}
-        <TouchableOpacity 
-          style={styles.startWorkoutButton}
-          onPress={() => handleStartWorkout(item, equipment, difficulty)}
-          activeOpacity={0.8}
-        >
-          <Ionicons name="play" size={20} color="#000000" />
-          <Text style={styles.startWorkoutButtonText}>Start Workout</Text>
-        </TouchableOpacity>
-      </View>
-    </View>
-  );
-
-  return (
-    <View style={styles.workoutCard}>
-      {/* Equipment Header */}
-      <View style={styles.equipmentHeader}>
-        <View style={styles.equipmentIconContainer}>
-          <Ionicons name={icon} size={24} color="#FFD700" />
-        </View>
-        <Text style={styles.equipmentName}>{equipment}</Text>
-        <WigglingAddButton
-          isInCart={isInCart(createWorkoutId(workouts[currentWorkoutIndex], equipment, difficulty))}
-          onPress={() => handleAddToCartWithAnimation(workouts[currentWorkoutIndex])}
-          scaleAnim={localScaleAnim}
-        />
-      </View>
-
-      {/* Workout List - Native Swipe Enabled */}
-      <View style={[styles.workoutList, { height: 355 }]}>
-        <FlatList
-          ref={flatListRef}
-          data={workouts}
-          renderItem={renderWorkout}
-          horizontal
-          pagingEnabled
-          snapToInterval={width - 48}
-          decelerationRate="fast"
-          showsHorizontalScrollIndicator={false}
-          scrollEventThrottle={16}
-          onScroll={(event) => {
-            const slideSize = width - 48;
-            const offset = event.nativeEvent.contentOffset.x;
-            const index = Math.round(offset / slideSize);
-            const boundedIndex = Math.max(0, Math.min(index, workouts.length - 1));
-            if (boundedIndex !== currentWorkoutIndex) {
-              setCurrentWorkoutIndex(boundedIndex);
-            }
-          }}
-          onMomentumScrollEnd={(event) => {
-            const slideSize = width - 48;
-            const offset = event.nativeEvent.contentOffset.x;
-            const index = Math.round(offset / slideSize);
-            const boundedIndex = Math.max(0, Math.min(index, workouts.length - 1));
-            setCurrentWorkoutIndex(boundedIndex);
-          }}
-          onScrollEndDrag={(event) => {
-            const slideSize = width - 48;
-            const offset = event.nativeEvent.contentOffset.x;
-            const index = Math.round(offset / slideSize);
-            const boundedIndex = Math.max(0, Math.min(index, workouts.length - 1));
-            setCurrentWorkoutIndex(boundedIndex);
-          }}
-          initialScrollIndex={0}
-          getItemLayout={(data, index) => ({
-            length: width - 48,
-            offset: (width - 48) * index,
-            index,
-          })}
-          keyExtractor={(item, index) => `${equipment}-${difficulty}-${index}`}
-        />
-      </View>
-
-      {/* Workout Indicator Dots */}
-      <View style={styles.dotsContainer}>
-        <Text style={styles.dotsLabel}>Swipe to explore</Text>
-        <View style={styles.dotsRow}>
-          {workouts.map((_, index) => (
-            <TouchableOpacity
-              key={index}
-              style={[
-                styles.dotTouchArea,
-                index === currentWorkoutIndex && styles.activeDotTouchArea
-              ]}
-              onPress={() => {
-                console.log(`Dot clicked: ${index}, Current: ${currentWorkoutIndex}`);
-                setCurrentWorkoutIndex(index);
-                // Use scrollToOffset for more reliable behavior
-                const slideSize = width - 48;
-                flatListRef.current?.scrollToOffset({
-                  offset: index * slideSize,
-                  animated: true
-                });
-              }}
-              activeOpacity={0.7}
-              hitSlop={{top: 10, bottom: 10, left: 10, right: 10}}
-            >
-              <View style={[
-                styles.dot,
-                index === currentWorkoutIndex && styles.activeDot,
-              ]} />
-            </TouchableOpacity>
-          ))}
-        </View>
-      </View>
-    </View>
-  );
-});
-
-export default function LazyBodyweightWorkoutsScreen() {
+const LazyBodyweightWorkoutsScreen = memo(function LazyBodyweightWorkoutsScreen() {
   const router = useRouter();
   const params = useLocalSearchParams();
   const insets = useSafeAreaInsets();
-  
+
   // Parse URL parameters
-  const rawMoodTitle = params.mood as string || "I'm feeling lazy";
-  const moodTitle = rawMoodTitle;
-  const equipmentParam = params.equipment as string || 'all';
+  const moodTitle = params.mood as string || "I'm feeling lazy";
+  const workoutType = params.workoutType as string || 'Move your body';
+  const equipmentParam = params.equipment as string || '';
   const difficulty = params.difficulty as string || 'beginner';
   
-  // Parse selected equipment from URL
-  const selectedEquipmentNames = equipmentParam === 'all' 
-    ? workoutDatabase.map(e => e.equipment)
-    : equipmentParam.split(',').map(e => decodeURIComponent(e.trim()));
+  // Parse selected equipment from comma-separated string
+  const selectedEquipmentNames = equipmentParam.split(',').filter(name => name.trim() !== '');
+  
+  console.log('Lazy Bodyweight Debug:', {
+    equipmentParam,
+    selectedEquipmentNames,
+    difficulty,
+    workoutType,
+    moodTitle,
+    workoutDatabaseEquipment: workoutDatabase.map(w => w.equipment),
+  });
+
+  // Get workout data for selected equipment
+  const userWorkouts = workoutDatabase.filter(item => 
+    selectedEquipmentNames.some(name => 
+      item.equipment.toLowerCase().trim() === name.toLowerCase().trim()
+    )
+  );
+
+  console.log('Selected workout data count:', userWorkouts.length);
 
   // Cart hooks
   const { addToCart, isInCart } = useCart();
   const { token } = useAuth();
 
-  // Cart helper functions
-  const createWorkoutId = (workout: Workout, equipment: string, difficulty: string) => {
-    return `${workout.name}-${equipment}-${difficulty}`;
+  const handleGoBack = () => {
+    router.back();
+  };
+
+  const createWorkoutId = (workout: Workout, equipment: string, diff: string) => {
+    return `${workout.name}-${equipment}-${diff}`;
   };
 
   const handleAddToCart = (workout: Workout, equipment: string) => {
@@ -1730,12 +83,12 @@ export default function LazyBodyweightWorkoutsScreen() {
       intensityReason: workout.intensityReason,
       equipment: equipment,
       difficulty: difficulty,
-      workoutType: `I'm feeling lazy - Cardio`,
+      workoutType: workoutType,
       moodCard: moodTitle,
       moodTips: workout.moodTips || [],
     };
 
-    // Add to cart
+    // Track workout added to cart
     if (token) {
       Analytics.workoutAddedToCart(token, {
         workout_name: workout.name,
@@ -1743,19 +96,19 @@ export default function LazyBodyweightWorkoutsScreen() {
         equipment: equipment,
       });
     }
+
+    // Add to cart
     addToCart(workoutItem);
   };
 
-  const handleStartWorkout = (workout: Workout, equipment: string, difficulty: string) => {
+  const handleStartWorkout = (workout: Workout, equipment: string, diff: string) => {
     try {
-      console.log('✅ Starting workout navigation with params:', {
-        workoutName: workout.name,
-        equipment: equipment,
-        description: workout.description,
-        battlePlan: workout.battlePlan,
-        duration: workout.duration,
-        difficulty: difficulty,
-      });
+      console.log('🚀 Starting workout:', workout.name, 'on', equipment);
+      
+      if (!workout.name || !equipment || !diff) {
+        console.error('❌ Missing required parameters for workout navigation');
+        return;
+      }
       
       router.push({
         pathname: '/workout-guidance',
@@ -1765,8 +118,8 @@ export default function LazyBodyweightWorkoutsScreen() {
           description: workout.description || '',
           battlePlan: workout.battlePlan || '',
           duration: workout.duration || '20 min',
-          difficulty: difficulty,
-          workoutType: 'Cardio',
+          difficulty: diff,
+          workoutType: workoutType,
           moodTips: encodeURIComponent(JSON.stringify(workout.moodTips || []))
         }
       });
@@ -1780,87 +133,123 @@ export default function LazyBodyweightWorkoutsScreen() {
   // Create progress bar - single row with requested order
   const createProgressRows = () => {
     const steps = [
-      { key: 'mood', icon: 'bed', text: moodTitle },
-      { key: 'type', icon: 'walk', text: 'Cardio' },
-      { key: 'difficulty', icon: 'fitness', text: difficulty === 'intermediate' ? 'Intermed.' : difficulty.charAt(0).toUpperCase() + difficulty.slice(1) },
-      { key: 'equipment', icon: 'construct', text: selectedEquipmentNames.length > 2 ? 'Multiple' : selectedEquipmentNames.join(', ') },
+      { key: 'mood', icon: 'bed' as keyof typeof Ionicons.glyphMap, text: 'Lazy' },
+      { key: 'type', icon: 'body' as keyof typeof Ionicons.glyphMap, text: 'Move Body' },
+      { key: 'difficulty', icon: 'speedometer' as keyof typeof Ionicons.glyphMap, text: difficulty === 'intermediate' ? 'Intermed.' : difficulty.charAt(0).toUpperCase() + difficulty.slice(1) },
+      { key: 'equipment', icon: 'construct' as keyof typeof Ionicons.glyphMap, text: `${selectedEquipmentNames.length} Equipment` },
     ];
 
-    // Return single row
     return [steps];
   };
 
-  const handleGoBack = () => {
-    router.back();
-  };
-
-  const progressRows = createProgressRows();
+  if (userWorkouts.length === 0) {
+    return (
+      <SafeAreaView style={[styles.container, { paddingTop: insets.top }]}>
+        <View style={styles.header}>
+          <TouchableOpacity 
+            style={styles.backButton}
+            onPress={handleGoBack}
+          >
+            <Ionicons name="chevron-back" size={24} color="#FFD700" />
+          </TouchableOpacity>
+          <View style={styles.headerTextContainer}>
+            <Text style={styles.headerTitle}>Lazy Workouts</Text>
+            <Text style={styles.headerSubtitle}>{moodTitle}</Text>
+          </View>
+          <HomeButton />
+        </View>
+        <View style={styles.emptyState}>
+          <Ionicons name="bed" size={64} color="rgba(255, 215, 0, 0.3)" />
+          <Text style={styles.emptyStateText}>No workouts found for selected equipment</Text>
+          <Text style={styles.emptyStateSubtext}>Try selecting different equipment or difficulty level</Text>
+        </View>
+      </SafeAreaView>
+    );
+  }
 
   return (
-    <SafeAreaView style={[styles.container, { paddingTop: insets.top }]}>
-      {/* Header */}
-      <View style={styles.header}>
-        <TouchableOpacity 
-          style={styles.backButton}
-          onPress={handleGoBack}
-        >
-          <Ionicons name="chevron-back" size={24} color="#FFD700" />
-        </TouchableOpacity>
-        <View style={styles.headerTextContainer}>
-          <Text style={styles.headerTitle}>Your Workouts</Text>
-          <Text style={styles.headerSubtitle}>{moodTitle}</Text>
-        </View>
-        <HomeButton />
-      </View>
-
-      {/* Progress Bar */}
-      <View style={styles.progressContainer}>
-        {progressRows.map((row, rowIndex) => (
-          <View key={rowIndex} style={styles.progressRow}>
-            {row.map((step, stepIndex) => (
-              <React.Fragment key={step.key}>
-                <View style={styles.progressStep}>
-                  <View style={styles.progressStepActive}>
-                    <Ionicons name={step.icon} size={12} color="#000000" />
-                  </View>
-                  <Text style={styles.progressStepText}>{step.text}</Text>
-                </View>
-                {stepIndex < row.length - 1 && <View style={styles.progressConnector} />}
-              </React.Fragment>
-            ))}
+    <View style={{ flex: 1, backgroundColor: '#000000' }}>
+      {/* Status bar background - covers the notch/status bar area */}
+      <View style={{ 
+        position: 'absolute', 
+        top: 0, 
+        left: 0, 
+        right: 0, 
+        height: insets.top, 
+        backgroundColor: '#000000', 
+        zIndex: 100 
+      }} />
+      <SafeAreaView style={[styles.container, { paddingTop: insets.top }]}>
+        {/* Header */}
+        <View style={styles.header}>
+          <TouchableOpacity 
+            style={styles.backButton}
+            onPress={handleGoBack}
+          >
+            <Ionicons name="chevron-back" size={24} color="#FFD700" />
+          </TouchableOpacity>
+          <View style={styles.headerTextContainer}>
+            <Text style={styles.headerTitle}>Your Workouts</Text>
+            <Text style={styles.headerSubtitle}>{moodTitle}</Text>
           </View>
-        ))}
-      </View>
+          <HomeButton />
+        </View>
 
-      <ScrollView style={styles.scrollView} showsVerticalScrollIndicator={false}>
-        {/* Generate workout cards for selected equipment */}
-        {workoutDatabase
-          .filter(eq => selectedEquipmentNames.includes(eq.equipment))
-          .map((equipmentData) => {
-            const workoutsForDifficulty = equipmentData.workouts[difficulty as keyof typeof equipmentData.workouts] || [];
+        {/* Progress Bar */}
+        <View style={styles.progressContainer}>
+          <View style={styles.progressContent}>
+            <View style={styles.progressRow}>
+              {createProgressRows()[0].map((step, stepIndex) => (
+                <React.Fragment key={step.key}>
+                  <View style={styles.progressStep}>
+                    <View style={styles.progressStepActive}>
+                      <Ionicons name={step.icon} size={10} color="#000000" />
+                    </View>
+                    <Text style={styles.progressStepText}>{step.text}</Text>
+                  </View>
+                  {stepIndex < createProgressRows()[0].length - 1 && (
+                    <View style={styles.progressConnector} />
+                  )}
+                </React.Fragment>
+              ))}
+            </View>
+          </View>
+        </View>
+
+        {/* Equipment Workout Cards */}
+        <ScrollView 
+          style={styles.scrollView} 
+          showsVerticalScrollIndicator={false}
+          contentContainerStyle={styles.scrollContentContainer}
+        >
+          {userWorkouts.map((equipmentData) => {
+            const workouts = equipmentData.workouts[difficulty as keyof typeof equipmentData.workouts] || [];
             
-            if (workoutsForDifficulty.length === 0) {
+            if (workouts.length === 0) {
               return null;
             }
-
+            
             return (
               <WorkoutCard
                 key={equipmentData.equipment}
                 equipment={equipmentData.equipment}
                 icon={equipmentData.icon}
-                workouts={workoutsForDifficulty}
+                workouts={workouts}
                 difficulty={difficulty}
                 isInCart={isInCart}
                 createWorkoutId={createWorkoutId}
                 handleAddToCart={handleAddToCart}
-                handleStartWorkout={handleStartWorkout}
+                onStartWorkout={handleStartWorkout}
               />
             );
           })}
-      </ScrollView>
-    </SafeAreaView>
+        </ScrollView>
+      </SafeAreaView>
+    </View>
   );
-}
+});
+
+export default LazyBodyweightWorkoutsScreen;
 
 const styles = StyleSheet.create({
   container: {
@@ -1874,6 +263,8 @@ const styles = StyleSheet.create({
     paddingVertical: 16,
     borderBottomWidth: 1,
     borderBottomColor: 'rgba(255, 215, 0, 0.2)',
+    backgroundColor: '#000000',
+    zIndex: 10,
   },
   backButton: {
     width: 40,
@@ -1901,21 +292,22 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     marginTop: 2,
   },
-  headerSpacer: {
-    width: 40,
-  },
   progressContainer: {
     backgroundColor: '#111111',
     borderBottomWidth: 1,
     borderBottomColor: 'rgba(255, 215, 0, 0.2)',
     paddingVertical: 12,
     paddingHorizontal: 16,
+    zIndex: 10,
+  },
+  progressContent: {
+    alignItems: 'center',
   },
   progressRow: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    marginVertical: 4,
+    marginBottom: 12,
   },
   progressStep: {
     alignItems: 'center',
@@ -1930,285 +322,52 @@ const styles = StyleSheet.create({
     borderColor: '#FFD700',
     justifyContent: 'center',
     alignItems: 'center',
-    marginBottom: 6,
-  },
-  progressStepText: {
-    fontSize: 9,
-    color: 'rgba(255, 255, 255, 0.8)',
-    textAlign: 'center',
-    fontWeight: '500',
-    maxWidth: 60,
-    lineHeight: 11,
-  },
-  progressConnector: {
-    width: 20,
-    height: 2,
-    backgroundColor: 'rgba(255, 215, 0, 0.3)',
-    marginHorizontal: 4,
-    marginBottom: 20,
-  },
-  scrollView: {
-    flex: 1,
-    paddingHorizontal: 24,
-  },
-  workoutCard: {
-    backgroundColor: '#111111',
-    overflow: 'hidden',
-    borderRadius: 20,
-    marginTop: 24,
-    marginBottom: 16,
-    borderWidth: 2,
-    borderColor: 'rgba(255, 215, 0, 0.3)',
+    marginBottom: 8,
     shadowColor: '#FFD700',
     shadowOffset: { width: 0, height: 0 },
-    shadowOpacity: 0.3,
-    shadowRadius: 10,
-    elevation: 8,
-  },
-  equipmentHeader: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    paddingHorizontal: 20,
-    paddingVertical: 18,
-    backgroundColor: 'rgba(255, 215, 0, 0.1)',
-    borderBottomWidth: 1,
-    borderBottomColor: 'rgba(255, 215, 0, 0.2)',
-    overflow: 'visible',
-  },
-  equipmentIconContainer: {
-    width: 40,
-    height: 40,
-    borderRadius: 20,
-    backgroundColor: 'rgba(255, 215, 0, 0.2)',
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginRight: 12,
-  },
-  equipmentName: {
-    flex: 1,
-    fontSize: 18,
-    fontWeight: 'bold',
-    color: '#ffffff',
-    textShadowColor: 'rgba(255, 215, 0, 0.2)',
-    textShadowOffset: { width: 1, height: 1 },
-    textShadowRadius: 3,
-  },
-  workoutIndicator: {
-    backgroundColor: 'rgba(255, 215, 0, 0.2)',
-    borderRadius: 12,
-    paddingHorizontal: 12,
-    paddingVertical: 6,
-    borderWidth: 1,
-    borderColor: 'rgba(255, 215, 0, 0.4)',
-  },
-  workoutCount: {
-    fontSize: 12,
-    fontWeight: 'bold',
-    color: '#ffffff',
-  },
-  workoutList: {
-    height: 381,
-  },
-  workoutSlide: {
-    paddingHorizontal: 15,
-    paddingTop: 12,
-    paddingBottom: 4,
-  },
-  workoutImageContainer: {
-    marginTop: 1,
-    height: 120,
-    borderRadius: 12,
-    overflow: 'hidden',
-    marginBottom: 16,
-    backgroundColor: '#222222',
-    position: 'relative',
-  },
-  workoutImage: {
-    width: '100%',
-    height: '100%',
-  },
-  imageOverlay: {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
-    backgroundColor: 'rgba(0, 0, 0, 0.3)',
-  },
-  swipeIndicator: {
-    position: 'absolute',
-    top: 8,
-    right: 8,
-    flexDirection: 'row',
-    alignItems: 'center',
-    backgroundColor: 'rgba(0, 0, 0, 0.6)',
-    borderRadius: 12,
-    paddingHorizontal: 8,
-    paddingVertical: 4,
-  },
-  swipeText: {
-    fontSize: 11,
-    color: '#FFD700',
-    marginLeft: 4,
-    fontWeight: '500',
-  },
-  workoutContent: {
-    flex: 1,
-    paddingHorizontal: 0,
-  },
-  workoutName: {
-    fontSize: 16,
-    fontWeight: 'bold',
-    color: '#ffffff',
-    marginBottom: 6,
-    paddingHorizontal: 6,
-    textShadowColor: 'rgba(255, 215, 0, 0.2)',
-    textShadowOffset: { width: 1, height: 1 },
-    textShadowRadius: 3,
-  },
-  durationIntensityRow: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    marginBottom: 12,
-    paddingHorizontal: 6,
-  },
-  workoutDuration: {
-    fontSize: 14,
-    fontWeight: 'bold',
-    color: '#ffffff',
-  },
-  difficultyBadge: {
-    borderRadius: 12,
-    paddingHorizontal: 10,
-    paddingVertical: 4,
-    shadowColor: '#FFD700',
-    shadowOffset: { width: 0, height: 0 },
-    shadowOpacity: 0.4,
-    shadowRadius: 6,
-    elevation: 3,
-  },
-  difficultyBadgeText: {
-    fontSize: 10,
-    fontWeight: 'bold',
-    color: '#000000',
-  },
-  intensityContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginBottom: 12,
-    paddingHorizontal: 12,
-    paddingVertical: 8,
-    backgroundColor: 'rgba(255, 215, 0, 0.1)',
-    borderRadius: 8,
-  },
-  intensityReason: {
-    fontSize: 12,
-    color: 'rgba(255, 255, 255, 0.8)',
-    marginLeft: 8,
-    flex: 1,
-  },
-  workoutDescriptionContainer: {
-    marginBottom: 5,
-  },
-  workoutDescription: {
-    fontSize: 13,
-    color: 'rgba(255, 255, 255, 0.8)',
-    lineHeight: 18,
-    paddingHorizontal: 6,
-  },
-  startWorkoutButton: {
-    backgroundColor: '#FFD700',
-    borderRadius: 12,
-    paddingVertical: 12,
-    paddingHorizontal: 16,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    gap: 8,
-    marginBottom: 1,
-    shadowColor: '#FFD700',
-    shadowOffset: { width: 0, height: 0 },
-    shadowOpacity: 0.4,
+    shadowOpacity: 0.6,
     shadowRadius: 8,
     elevation: 6,
   },
-  startWorkoutButtonText: {
-    fontSize: 16,
-    fontWeight: 'bold',
-    color: '#000000',
-  },
-  dotsContainer: {
-    alignItems: 'center',
-    paddingVertical: 10,
-    marginTop: -6,
-    backgroundColor: 'rgba(255, 215, 0, 0.05)',
-  },
-  dotsLabel: {
-    fontSize: 11,
-    color: 'rgba(255, 255, 255, 0.6)',
-    marginBottom: 6,
+  progressStepText: {
+    fontSize: 10,
+    color: 'rgba(255, 255, 255, 0.8)',
+    textAlign: 'center',
     fontWeight: '500',
+    maxWidth: 70,
   },
-  dotsRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 8,
-  },
-  dot: {
-    width: 12,
-    height: 12,
-    borderRadius: 6,
+  progressConnector: {
+    width: 16,
+    height: 2,
     backgroundColor: 'rgba(255, 215, 0, 0.3)',
+    marginHorizontal: 8,
+    marginTop: 16,
   },
-  activeDot: {
-    backgroundColor: '#FFD700',
-    shadowColor: '#FFD700',
-    shadowOffset: { width: 0, height: 0 },
-    shadowOpacity: 0.8,
-    shadowRadius: 6,
-    elevation: 4,
+  scrollView: {
+    flex: 1,
+    overflow: 'visible',
   },
-  dotTouchArea: {
-    padding: 8,
+  scrollContentContainer: {
+    paddingTop: 24,
+    paddingBottom: 10,
+    overflow: 'visible',
+  },
+  emptyState: {
+    flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    minWidth: 32,
-    minHeight: 32,
-    borderRadius: 16,
+    paddingHorizontal: 40,
   },
-  activeDotTouchArea: {
-    padding: 8,
-    justifyContent: 'center',
-    alignItems: 'center',
-    minWidth: 32,
-    minHeight: 32,
-    borderRadius: 16,
-    backgroundColor: 'rgba(255, 215, 0, 0.1)',
+  emptyStateText: {
+    fontSize: 18,
+    color: 'rgba(255, 255, 255, 0.8)',
+    textAlign: 'center',
+    marginTop: 16,
+    marginBottom: 8,
   },
-  addButtonWrapper: {
-    position: 'relative',
-  },
-  addToCartButton: {
-    backgroundColor: 'rgba(70, 70, 70, 0.9)',
-    borderRadius: 12,
-    paddingHorizontal: 8,
-    paddingVertical: 6,
-    borderWidth: 1,
-    borderColor: '#FFD700',
-  },
-  addToCartButtonAdded: {
-    backgroundColor: 'rgba(70, 70, 70, 0.9)',
-    borderColor: '#FFD700',
-  },
-  addToCartButtonContent: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 4,
-  },
-  addToCartButtonText: {
-    fontSize: 11,
-    fontWeight: '600',
-    color: '#FFD700',
+  emptyStateSubtext: {
+    fontSize: 14,
+    color: 'rgba(255, 255, 255, 0.5)',
+    textAlign: 'center',
   },
 });
