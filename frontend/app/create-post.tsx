@@ -538,6 +538,67 @@ export default function CreatePost() {
     }
   };
 
+  const handleShareToInstagram = async () => {
+    if (!workoutStats || !transparentCardRef.current) {
+      showAlert('Error', 'Unable to share. Please try again.');
+      return;
+    }
+    
+    setIsExportingToInstagram(true);
+    
+    try {
+      // Capture the transparent card as PNG
+      let imageUri: string;
+      
+      if (Platform.OS === 'web') {
+        // For web, use html2canvas
+        const html2canvas = (await import('html2canvas')).default;
+        const canvas = await html2canvas(transparentCardRef.current, {
+          backgroundColor: null, // Transparent background
+          scale: 2,
+          logging: false,
+          useCORS: true,
+        });
+        imageUri = canvas.toDataURL('image/png');
+        
+        // On web, download the image
+        const link = document.createElement('a');
+        link.download = `mood_workout_${Date.now()}.png`;
+        link.href = imageUri;
+        link.click();
+        
+        showAlert('Image Downloaded', 'Your workout overlay has been downloaded. Open Instagram Stories and add it as a sticker on your photo!');
+      } else {
+        // For native, capture and share
+        imageUri = await captureRef(transparentCardRef.current, {
+          format: 'png',
+          quality: 1,
+          result: 'tmpfile',
+        });
+        
+        // Check if Instagram is available
+        const canShare = await Sharing.isAvailableAsync();
+        
+        if (canShare) {
+          // Share to Instagram Stories if available
+          await Sharing.shareAsync(imageUri, {
+            mimeType: 'image/png',
+            dialogTitle: 'Share to Instagram Stories',
+            UTI: 'public.png',
+          });
+        } else {
+          // Fallback: Save to camera roll
+          showAlert('Sharing not available', 'Please save the image and share it manually to Instagram.');
+        }
+      }
+    } catch (error) {
+      console.error('Error sharing to Instagram:', error);
+      showAlert('Error', 'Failed to create Instagram share image. Please try again.');
+    } finally {
+      setIsExportingToInstagram(false);
+    }
+  };
+
   const navigateToHome = () => {
     console.log('navigateToHome called - starting navigation...');
     try {
