@@ -1730,8 +1730,7 @@ const styles = StyleSheet.create({
   hiddenCardContainer: {
     position: 'absolute',
     left: -9999,
-    top: -9999,
-    opacity: 0,
+    top: 0,
   },
   saveCardButton: {
     flexDirection: 'row',
