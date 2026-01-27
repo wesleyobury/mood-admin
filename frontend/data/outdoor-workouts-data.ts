@@ -1,6 +1,7 @@
-// Comprehensive outdoor workout data with detailed specifications
+import { EquipmentWorkouts } from '../types/workout';
 
-export const outdoorRunWorkoutDatabase = [
+// Comprehensive outdoor workout data with detailed specifications
+export const outdoorRunWorkoutDatabase: EquipmentWorkouts[] = [
   {
     equipment: 'Outdoor Run',
     icon: 'walk',
