@@ -382,7 +382,7 @@ const styles = StyleSheet.create({
   progressStepText: { fontSize: 10, color: 'rgba(255, 255, 255, 0.8)', textAlign: 'center', fontWeight: '500', maxWidth: 70 },
   progressConnector: { width: 16, height: 2, backgroundColor: 'rgba(255, 215, 0, 0.3)', marginHorizontal: 8, marginTop: 16 },
   scrollView: { flex: 1, overflow: 'visible' },
-  scrollContentContainer: { paddingTop: 16, paddingBottom: 100, overflow: 'visible' },
+  scrollContentContainer: { paddingTop: 16, paddingBottom: 20, overflow: 'visible' },
   muscleGroupSection: { marginBottom: 24 },
   sectionHeader: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', paddingHorizontal: 24, marginBottom: 16 },
   sectionTitle: { fontSize: 20, fontWeight: 'bold', color: '#ffffff' },
