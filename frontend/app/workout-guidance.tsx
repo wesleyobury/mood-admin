@@ -780,23 +780,43 @@ export default function WorkoutGuidanceScreen() {
         </View>
       </ScrollView>
 
-      {/* Completed Workout Button - Fixed at Bottom */}
+      {/* Bottom Button - Fixed at Bottom */}
       <View style={styles.completedButtonContainer}>
-        <TouchableOpacity 
-          style={styles.completedButton}
-          onPress={handleCompletedWorkout}
-          activeOpacity={0.8}
-        >
-          <Ionicons name="checkmark-circle" size={24} color="#000000" />
-          <Text style={styles.completedButtonText}>
-            {isSession 
-              ? (currentSessionIndex < sessionWorkouts.length - 1 
-                  ? "Next Workout" 
-                  : "Complete & Go Home")
-              : "Completed Workout"
-            }
-          </Text>
-        </TouchableOpacity>
+        {isSession ? (
+          // Session mode: Show Next Workout / Complete & Go Home
+          <TouchableOpacity 
+            style={styles.completedButton}
+            onPress={handleCompletedWorkout}
+            activeOpacity={0.8}
+          >
+            <Ionicons name="checkmark-circle" size={24} color="#000000" />
+            <Text style={styles.completedButtonText}>
+              {currentSessionIndex < sessionWorkouts.length - 1 
+                ? "Next Workout" 
+                : "Complete & Go Home"}
+            </Text>
+          </TouchableOpacity>
+        ) : (
+          // Preview mode: Show Add workout / Added button
+          <TouchableOpacity 
+            style={[
+              styles.addWorkoutButton,
+              isWorkoutInCart && styles.addWorkoutButtonAdded
+            ]}
+            onPress={handleAddWorkoutToCart}
+            activeOpacity={0.8}
+            disabled={isWorkoutInCart}
+          >
+            <Ionicons 
+              name={isWorkoutInCart ? "checkmark" : "add"} 
+              size={20} 
+              color="#FFD700" 
+            />
+            <Text style={styles.addWorkoutButtonText}>
+              {isWorkoutInCart ? 'Added' : 'Add workout'}
+            </Text>
+          </TouchableOpacity>
+        )}
       </View>
       
       {/* Toast Notification */}
