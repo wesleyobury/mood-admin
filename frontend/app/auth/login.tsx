@@ -410,7 +410,14 @@ export default function Login() {
             </View>
 
             <TouchableOpacity style={styles.loginButton} onPress={handleLogin}>
-              <Text style={styles.loginButtonText}>Login</Text>
+              <LinearGradient
+                colors={['#FFD700', '#FFA500']}
+                style={styles.loginButtonGradient}
+                start={{ x: 0, y: 0 }}
+                end={{ x: 1, y: 0 }}
+              >
+                <Text style={styles.loginButtonText}>Login</Text>
+              </LinearGradient>
             </TouchableOpacity>
           </View>
 
