@@ -1332,4 +1332,25 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: '#000000',
   },
+  addWorkoutButton: {
+    backgroundColor: 'rgba(255, 215, 0, 0.15)',
+    borderRadius: 16,
+    paddingVertical: 14,
+    paddingHorizontal: 20,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: 8,
+    borderWidth: 1,
+    borderColor: 'rgba(255, 215, 0, 0.3)',
+  },
+  addWorkoutButtonAdded: {
+    backgroundColor: 'rgba(255, 215, 0, 0.25)',
+    borderColor: 'rgba(255, 215, 0, 0.5)',
+  },
+  addWorkoutButtonText: {
+    fontSize: 14,
+    fontWeight: '600',
+    color: '#FFD700',
+  },
 });
