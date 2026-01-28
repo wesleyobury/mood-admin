@@ -396,6 +396,9 @@ export default function DeclineBenchWorkoutDisplayScreen() {
           duration: workout.duration || '15 min',
           difficulty: difficulty,
           workoutType: workoutType,
+          imageUrl: workout.imageUrl || '',
+          intensityReason: workout.intensityReason || '',
+          moodCard: 'Muscle Gainer',
           // Pass MOOD tips as properly encoded JSON string
           moodTips: encodeURIComponent(JSON.stringify(workout.moodTips || []))
         }
