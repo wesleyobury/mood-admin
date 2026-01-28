@@ -114,9 +114,15 @@ const ChestWorkoutDisplayScreen = memo(function ChestWorkoutDisplayScreen() {
     });
   };
 
-  // Navigate to cart/continue
+  // Navigate to next muscle group or workout session
   const handleContinue = () => {
-    router.push('/workout-session' as any);
+    // If there are more muscle groups, go to next one
+    if (hasMoreMuscles) {
+      handleNextMuscleGroup();
+    } else {
+      // All muscle groups done, go to workout session
+      router.push('/cart' as any);
+    }
   };
 
   const createWorkoutId = (workout: Workout, equipment: string, diff: string) => {
