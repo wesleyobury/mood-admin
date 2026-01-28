@@ -224,6 +224,11 @@ export default function LegsEquipmentScreen() {
   const workoutType = params.workoutType as string || 'Legs';
   const muscleGroupsParam = params.muscleGroups as string || '';
   
+  // Multi-muscle group queue support
+  const muscleQueue = params.muscleQueue ? JSON.parse(params.muscleQueue as string) : [];
+  const currentMuscleIndex = parseInt(params.currentMuscleIndex as string || '0');
+  const totalMuscles = parseInt(params.totalMuscles as string || '1');
+  
   // Parse the muscle groups from the previous screen
   const muscleGroupNames = muscleGroupsParam ? decodeURIComponent(muscleGroupsParam).split(',') : [];
   
