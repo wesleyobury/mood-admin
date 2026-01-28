@@ -175,6 +175,9 @@ const ChestWorkoutDisplayScreen = memo(function ChestWorkoutDisplayScreen() {
           duration: workout.duration || '20 min',
           difficulty: diff,
           workoutType: workoutType,
+          imageUrl: workout.imageUrl || '',
+          intensityReason: workout.intensityReason || '',
+          moodCard: 'Muscle Gainer',
           moodTips: encodeURIComponent(JSON.stringify(workout.moodTips || []))
         }
       });
