@@ -311,14 +311,18 @@ export default function CalisthenicsEquipmentScreen() {
           disabled={!canContinue}
           activeOpacity={0.8}
         >
-          <Text style={[
-            styles.continueButtonText,
-            canContinue && styles.continueButtonTextActive
-          ]}>
-            Continue
-          </Text>
-          {canContinue && (
-            <Ionicons name="chevron-forward" size={20} color="#000000" />
+          {canContinue ? (
+            <LinearGradient
+              colors={['#FFD700', '#FFA500']}
+              style={styles.continueButtonGradient}
+              start={{ x: 0, y: 0 }}
+              end={{ x: 1, y: 0 }}
+            >
+              <Text style={styles.continueButtonTextActive}>Continue</Text>
+              <Ionicons name="chevron-forward" size={20} color="#0c0c0c" />
+            </LinearGradient>
+          ) : (
+            <Text style={styles.continueButtonText}>Continue</Text>
           )}
         </TouchableOpacity>
       </View>

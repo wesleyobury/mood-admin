@@ -331,14 +331,18 @@ export default function BicepsEquipmentScreen() {
           disabled={!canContinue}
           activeOpacity={0.8}
         >
-          <Text style={[
-            styles.continueButtonText,
-            canContinue && styles.continueButtonTextActive
-          ]}>
-            Continue
-          </Text>
-          {canContinue && (
-            <Ionicons name="chevron-forward" size={20} color="#000000" />
+          {canContinue ? (
+            <LinearGradient
+              colors={['#FFD700', '#FFA500']}
+              style={styles.continueButtonGradient}
+              start={{ x: 0, y: 0 }}
+              end={{ x: 1, y: 0 }}
+            >
+              <Text style={styles.continueButtonTextActive}>Continue</Text>
+              <Ionicons name="chevron-forward" size={20} color="#0c0c0c" />
+            </LinearGradient>
+          ) : (
+            <Text style={styles.continueButtonText}>Continue</Text>
           )}
         </TouchableOpacity>
       </View>
@@ -570,30 +574,36 @@ const styles = StyleSheet.create({
   continueButton: {
     backgroundColor: '#333333',
     borderRadius: 16,
-    paddingVertical: 16,
-    paddingHorizontal: 24,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
+    overflow: 'hidden',
     borderWidth: 2,
     borderColor: 'rgba(255, 215, 0, 0.3)',
-    gap: 8,
   },
   continueButtonActive: {
-    backgroundColor: '#FFD700',
-    borderColor: '#FFD700',
+    borderWidth: 0,
     shadowColor: '#FFD700',
     shadowOffset: { width: 0, height: 0 },
     shadowOpacity: 0.6,
     shadowRadius: 12,
     elevation: 8,
   },
+  continueButtonGradient: {
+    paddingVertical: 16,
+    paddingHorizontal: 24,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: 8,
+  },
   continueButtonText: {
     fontSize: 18,
     fontWeight: 'bold',
     color: 'rgba(255, 255, 255, 0.5)',
+    paddingVertical: 16,
+    paddingHorizontal: 24,
   },
   continueButtonTextActive: {
-    color: '#000000',
+    fontSize: 18,
+    fontWeight: 'bold',
+    color: '#0c0c0c',
   },
 });
