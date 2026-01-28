@@ -35,10 +35,14 @@ const CartItemComponent: React.FC<{
   isFirst: boolean;
   isLast: boolean;
 }> = ({ item, index, onRemove, onMoveUp, onMoveDown, isFirst, isLast }) => {
+  // Default placeholder image for workouts without images
+  const placeholderImage = 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=200&h=200&fit=crop';
+  const imageSource = item.imageUrl && item.imageUrl.length > 0 ? item.imageUrl : placeholderImage;
+  
   return (
     <View style={styles.exerciseCard}>
       <Image 
-        source={{ uri: item.imageUrl }}
+        source={{ uri: imageSource }}
         style={styles.exerciseImage}
         resizeMode="cover"
       />
