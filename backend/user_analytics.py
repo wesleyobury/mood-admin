@@ -448,64 +448,81 @@ async def get_admin_analytics(
 ) -> Dict[str, Any]:
     """
     Get platform-wide analytics (admin view)
+    Excludes admin/test accounts from all metrics
     """
     try:
         start_date = datetime.now(timezone.utc) - timedelta(days=days)
         today = datetime.now(timezone.utc).replace(hour=0, minute=0, second=0, microsecond=0)
         
-        # Total users
-        total_users = await db.users.count_documents({})
+        # Base filter to exclude admin/test accounts
+        exclude_filter = {"user_id": {"$nin": EXCLUDED_USER_IDS}}
         
-        # Active users (users with events in period)
-        active_users = len(await db.user_events.distinct("user_id", {
-            "timestamp": {"$gte": start_date}
-        }))
+        # Total users (excluding admin accounts)
+        # First get the usernames to exclude from users collection
+        excluded_users_query = {"username": {"$regex": f"^({'|'.join(EXCLUDED_USERNAMES)})$", "$options": "i"}}
+        total_users = await db.users.count_documents({"$nor": [excluded_users_query]})
+        
+        # Active users (users with events in period, excluding admins)
+        active_users_list = await db.user_events.distinct("user_id", {
+            "timestamp": {"$gte": start_date},
+            **exclude_filter
+        })
+        active_users = len([u for u in active_users_list if u not in EXCLUDED_USER_IDS])
         
         # Daily active users (today)
-        dau = len(await db.user_events.distinct("user_id", {
-            "timestamp": {"$gte": today}
-        }))
+        dau_list = await db.user_events.distinct("user_id", {
+            "timestamp": {"$gte": today},
+            **exclude_filter
+        })
+        dau = len([u for u in dau_list if u not in EXCLUDED_USER_IDS])
         
         # Total workouts completed
         total_workouts = await db.user_events.count_documents({
             "event_type": "workout_completed",
-            "timestamp": {"$gte": start_date}
+            "timestamp": {"$gte": start_date},
+            **exclude_filter
         })
         
         # Total posts created
         total_posts = await db.user_events.count_documents({
             "event_type": "post_created",
-            "timestamp": {"$gte": start_date}
+            "timestamp": {"$gte": start_date},
+            **exclude_filter
         })
         
         # Total likes
         total_likes = await db.user_events.count_documents({
             "event_type": "post_liked",
-            "timestamp": {"$gte": start_date}
+            "timestamp": {"$gte": start_date},
+            **exclude_filter
         })
         
         # Total comments
         total_comments = await db.user_events.count_documents({
             "event_type": "post_commented",
-            "timestamp": {"$gte": start_date}
+            "timestamp": {"$gte": start_date},
+            **exclude_filter
         })
         
         # Total follows
         total_follows = await db.user_events.count_documents({
             "event_type": "user_followed",
-            "timestamp": {"$gte": start_date}
+            "timestamp": {"$gte": start_date},
+            **exclude_filter
         })
         
         # Total unfollows
         total_unfollows = await db.user_events.count_documents({
             "event_type": "user_unfollowed",
-            "timestamp": {"$gte": start_date}
+            "timestamp": {"$gte": start_date},
+            **exclude_filter
         })
         
         # Workouts started (for completion rate)
         workouts_started = await db.user_events.count_documents({
             "event_type": "workout_started",
-            "timestamp": {"$gte": start_date}
+            "timestamp": {"$gte": start_date},
+            **exclude_filter
         })
         
         # Workouts skipped
