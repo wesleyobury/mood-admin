@@ -285,6 +285,25 @@ export default function WorkoutGuidanceScreen() {
       return;
     }
     
+    // Animate the button
+    Animated.sequence([
+      Animated.timing(addButtonScaleAnim, {
+        toValue: 0.8,
+        duration: 100,
+        useNativeDriver: true,
+      }),
+      Animated.timing(addButtonScaleAnim, {
+        toValue: 1.2,
+        duration: 200,
+        useNativeDriver: true,
+      }),
+      Animated.timing(addButtonScaleAnim, {
+        toValue: 1,
+        duration: 100,
+        useNativeDriver: true,
+      }),
+    ]).start();
+    
     // Parse moodTips back to array
     let parsedMoodTips: { icon: string; title: string; description: string; }[] = [];
     try {
