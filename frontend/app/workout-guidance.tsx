@@ -152,6 +152,9 @@ export default function WorkoutGuidanceScreen() {
   const workoutId = `${workoutName}-${equipment}-${difficulty}`.toLowerCase().replace(/\s+/g, '-');
   const isWorkoutInCart = isInCart(workoutId);
   
+  // Animation for add workout button
+  const [addButtonScaleAnim] = useState(new Animated.Value(1));
+  
   // Format workout type to show proper type  
   const displayWorkoutType = workoutType;
   
