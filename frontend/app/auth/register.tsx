@@ -169,7 +169,14 @@ export default function Register() {
               </View>
 
               <TouchableOpacity style={styles.registerButton} onPress={handleRegister}>
-                <Text style={styles.registerButtonText}>Create Account</Text>
+                <LinearGradient
+                  colors={['#FFD700', '#FFA500']}
+                  style={styles.registerButtonGradient}
+                  start={{ x: 0, y: 0 }}
+                  end={{ x: 1, y: 0 }}
+                >
+                  <Text style={styles.registerButtonText}>Create Account</Text>
+                </LinearGradient>
               </TouchableOpacity>
             </View>
 
