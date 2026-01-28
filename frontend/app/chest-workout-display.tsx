@@ -112,6 +112,11 @@ const ChestWorkoutDisplayScreen = memo(function ChestWorkoutDisplayScreen() {
     });
   };
 
+  // Navigate to cart/continue
+  const handleContinue = () => {
+    router.push('/workout-session' as any);
+  };
+
   const createWorkoutId = (workout: Workout, equipment: string, diff: string) => {
     return `${workout.name}-${equipment}-${diff}`;
   };
