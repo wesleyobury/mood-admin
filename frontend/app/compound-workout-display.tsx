@@ -348,17 +348,24 @@ const CompoundWorkoutDisplayScreen = memo(function CompoundWorkoutDisplayScreen(
             style={styles.nextMuscleButton}
             onPress={handleNextMuscleGroup}
           >
-            <Text style={styles.nextMuscleButtonText}>
-              {hasMoreMuscles 
-                ? `Next: ${muscleQueue[0]?.displayName || muscleQueue[0]?.name || 'Muscle Group'}`
-                : 'View Cart'
-              }
-            </Text>
-            <Ionicons 
-              name={hasMoreMuscles ? "arrow-forward" : "cart"} 
-              size={20} 
-              color="#000" 
-            />
+            <LinearGradient
+              colors={['#FFD700', '#FFA500']}
+              style={styles.nextMuscleButtonGradient}
+              start={{ x: 0, y: 0 }}
+              end={{ x: 1, y: 0 }}
+            >
+              <Text style={styles.nextMuscleButtonText}>
+                {hasMoreMuscles 
+                  ? `Next: ${muscleQueue[0]?.displayName || muscleQueue[0]?.name || 'Muscle Group'}`
+                  : 'View Cart'
+                }
+              </Text>
+              <Ionicons 
+                name={hasMoreMuscles ? "arrow-forward" : "cart"} 
+                size={20} 
+                color="#0c0c0c" 
+              />
+            </LinearGradient>
           </TouchableOpacity>
         </View>
       </SafeAreaView>
