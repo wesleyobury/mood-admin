@@ -570,12 +570,14 @@ const styles = StyleSheet.create({
     padding: 4,
   },
   loginButton: {
-    backgroundColor: '#FFD700',
     borderRadius: 12,
+    overflow: 'hidden',
+    marginTop: 8,
+  },
+  loginButtonGradient: {
     height: 50,
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop: 8,
   },
   loginButtonText: {
     fontSize: 16,
