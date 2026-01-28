@@ -236,6 +236,15 @@ const ChestWorkoutDisplayScreen = memo(function ChestWorkoutDisplayScreen() {
         </View>
 
         <ScrollView style={styles.scrollView} showsVerticalScrollIndicator={false} contentContainerStyle={styles.scrollContentContainer}>
+          {/* Muscle Group Indicator */}
+          {totalMuscles > 1 && (
+            <View style={styles.muscleIndicator}>
+              <Text style={styles.muscleIndicatorText}>
+                Muscle Group {currentMuscleIndex + 1} of {totalMuscles}: <Text style={styles.muscleIndicatorHighlight}>{workoutType}</Text>
+              </Text>
+            </View>
+          )}
+          
           {userWorkouts.map((equipmentData) => {
             const workouts = equipmentData.workouts[difficulty as keyof typeof equipmentData.workouts] || [];
             if (workouts.length === 0) return null;
@@ -254,6 +263,25 @@ const ChestWorkoutDisplayScreen = memo(function ChestWorkoutDisplayScreen() {
               />
             );
           })}
+          
+          {/* Next Muscle Group Button */}
+          {hasMoreMuscles && (
+            <View style={styles.nextMuscleContainer}>
+              <TouchableOpacity 
+                style={styles.nextMuscleButton}
+                onPress={handleNextMuscleGroup}
+              >
+                <View style={styles.nextMuscleContent}>
+                  <Text style={styles.nextMuscleLabel}>Next muscle group</Text>
+                  <Text style={styles.nextMuscleName}>{muscleQueue[0]?.displayName || muscleQueue[0]?.name}</Text>
+                </View>
+                <View style={styles.nextMuscleIndicatorBadge}>
+                  <Text style={styles.nextMuscleIndicatorText}>{currentMuscleIndex + 2}/{totalMuscles}</Text>
+                </View>
+                <Ionicons name="arrow-forward" size={20} color="#000" />
+              </TouchableOpacity>
+            </View>
+          )}
         </ScrollView>
       </SafeAreaView>
     </View>
