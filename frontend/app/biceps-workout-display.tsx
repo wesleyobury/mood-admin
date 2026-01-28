@@ -8,6 +8,7 @@ import {
   ScrollView,
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+import { LinearGradient } from 'expo-linear-gradient';
 import { useRouter, useLocalSearchParams } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import HomeButton from '../components/HomeButton';
@@ -283,8 +284,9 @@ const styles = StyleSheet.create({
   nextMuscleIndicatorBadge: { backgroundColor: 'rgba(0, 0, 0, 0.15)', paddingHorizontal: 10, paddingVertical: 4, borderRadius: 12, marginRight: 12 },
   nextMuscleIndicatorText: { fontSize: 12, fontWeight: '600', color: '#000' },
   continueButtonContainer: { position: 'absolute', bottom: 0, left: 0, right: 0, padding: 16, backgroundColor: 'rgba(0, 0, 0, 0.95)', borderTopWidth: 1, borderTopColor: 'rgba(255, 215, 0, 0.2)' },
-  continueButton: { backgroundColor: '#FFD700', borderRadius: 12, padding: 16, flexDirection: 'row', alignItems: 'center', justifyContent: 'center' },
-  continueButtonText: { fontSize: 16, fontWeight: '600', color: '#000', marginRight: 8 },
+  continueButton: { borderRadius: 12, overflow: 'hidden' },
+  continueButtonGradient: { padding: 16, flexDirection: 'row', alignItems: 'center', justifyContent: 'center' },
+  continueButtonText: { fontSize: 16, fontWeight: 'bold', color: '#0c0c0c', marginRight: 8 },
   cartBadge: { backgroundColor: 'rgba(0, 0, 0, 0.2)', paddingHorizontal: 8, paddingVertical: 2, borderRadius: 10, marginRight: 8 },
-  cartBadgeText: { fontSize: 12, fontWeight: '600', color: '#000' },
+  cartBadgeText: { fontSize: 12, fontWeight: '600', color: '#0c0c0c' },
 });
