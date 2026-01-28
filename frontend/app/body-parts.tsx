@@ -297,8 +297,8 @@ export default function BodyPartsScreen() {
       {/* Body Parts Grid */}
       <ScrollView style={styles.content} showsVerticalScrollIndicator={false}>
         <Text style={styles.subtitle}>
-          Choose your focus areas{'\n'}
-          <Text style={styles.subtitleHighlight}>Multi-select to customize your session</Text>
+          {'\n'}
+          <Text style={styles.subtitleHighlight}>Select desired muscle group(s)</Text>
         </Text>
         
         <View style={styles.bodyPartsGrid}>
