@@ -30,6 +30,12 @@ const ChestWorkoutDisplayScreen = memo(function ChestWorkoutDisplayScreen() {
   const equipmentParam = params.equipment as string || '';
   const difficulty = params.difficulty as string || 'beginner';
   
+  // Multi-muscle group queue support
+  const muscleQueue = params.muscleQueue ? JSON.parse(params.muscleQueue as string) : [];
+  const currentMuscleIndex = parseInt(params.currentMuscleIndex as string || '0');
+  const totalMuscles = parseInt(params.totalMuscles as string || '1');
+  const hasMoreMuscles = muscleQueue.length > 0;
+  
   const selectedEquipmentNames = equipmentParam.split(',').filter(name => name.trim() !== '');
   
   console.log('Chest Workout Debug:', {
@@ -38,6 +44,9 @@ const ChestWorkoutDisplayScreen = memo(function ChestWorkoutDisplayScreen() {
     difficulty,
     workoutType,
     moodTitle,
+    muscleQueue,
+    currentMuscleIndex,
+    totalMuscles,
   });
 
   const userWorkouts = workoutDatabase.filter(item => 
