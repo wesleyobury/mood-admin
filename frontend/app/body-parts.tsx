@@ -744,8 +744,10 @@ const styles = StyleSheet.create({
     paddingTop: 10,
   },
   continueButton: {
-    backgroundColor: '#FFD700',
     borderRadius: 12,
+    overflow: 'hidden',
+  },
+  continueButtonGradient: {
     padding: 16,
     flexDirection: 'row',
     alignItems: 'center',
@@ -753,8 +755,8 @@ const styles = StyleSheet.create({
   },
   continueButtonText: {
     fontSize: 16,
-    fontWeight: '600',
-    color: '#000',
+    fontWeight: 'bold',
+    color: '#0c0c0c',
     marginRight: 8,
   },
   buttonIcon: {
