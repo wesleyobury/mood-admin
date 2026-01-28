@@ -393,15 +393,19 @@ export default function FlatBenchWorkoutDisplayScreen() {
           workoutName: workout.name,
           equipment: equipment,
           description: workout.description || '',
+          battlePlan: workout.battlePlan || '',
           duration: workout.duration || '15 min',
           difficulty: difficulty,
           workoutType: workoutType,
+          imageUrl: workout.imageUrl || '',
+          intensityReason: workout.intensityReason || '',
+          moodCard: 'Muscle Gainer',
           // Pass MOOD tips as properly encoded JSON string
           moodTips: encodeURIComponent(JSON.stringify(workout.moodTips || []))
         }
       });
       
-      console.log('✅ Navigation completed - using simplified parameters');
+      console.log('✅ Navigation completed - using full parameters');
     } catch (error) {
       console.error('❌ Error starting workout:', error);
     }
