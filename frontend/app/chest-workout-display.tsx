@@ -55,8 +55,9 @@ const ChestWorkoutDisplayScreen = memo(function ChestWorkoutDisplayScreen() {
     )
   );
 
-  const { addToCart, isInCart } = useCart();
+  const { addToCart, isInCart, cartItems } = useCart();
   const { token } = useAuth();
+  const hasItemsInCart = cartItems.length > 0;
 
   const handleGoBack = () => {
     router.back();
