@@ -441,10 +441,17 @@ export default function BodyPartsScreen() {
             style={styles.continueButton}
             onPress={handleContinue}
           >
-            <Text style={styles.continueButtonText}>
-              Continue with {selectedBodyParts.length} muscle group{selectedBodyParts.length > 1 ? 's' : ''}
-            </Text>
-            <Ionicons name="arrow-forward" size={20} color="#000" style={styles.buttonIcon} />
+            <LinearGradient
+              colors={['#FFD700', '#FFA500']}
+              style={styles.continueButtonGradient}
+              start={{ x: 0, y: 0 }}
+              end={{ x: 1, y: 0 }}
+            >
+              <Text style={styles.continueButtonText}>
+                Continue with {selectedBodyParts.length} muscle group{selectedBodyParts.length > 1 ? 's' : ''}
+              </Text>
+              <Ionicons name="arrow-forward" size={20} color="#0c0c0c" style={styles.buttonIcon} />
+            </LinearGradient>
           </TouchableOpacity>
         </View>
       )}
