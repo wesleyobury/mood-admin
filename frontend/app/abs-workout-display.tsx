@@ -37,17 +37,6 @@ const AbsWorkoutDisplayScreen = memo(function AbsWorkoutDisplayScreen() {
   const hasMoreMuscles = muscleQueue.length > 0;
   
   const selectedEquipmentNames = equipmentParam.split(',').filter(name => name.trim() !== '');
-  
-  console.log('Abs Workout Debug:', {
-    equipmentParam,
-    selectedEquipmentNames,
-    difficulty,
-    workoutType,
-    moodTitle,
-    muscleQueue,
-    currentMuscleIndex,
-    totalMuscles,
-  });
 
   const userWorkouts = workoutDatabase.filter(item => 
     selectedEquipmentNames.some(name => 
@@ -55,8 +44,9 @@ const AbsWorkoutDisplayScreen = memo(function AbsWorkoutDisplayScreen() {
     )
   );
 
-  const { addToCart, isInCart } = useCart();
+  const { addToCart, isInCart, cartItems } = useCart();
   const { token } = useAuth();
+  const hasItemsInCart = cartItems.length > 0;
 
   const handleGoBack = () => {
     router.back();
@@ -94,49 +84,46 @@ const AbsWorkoutDisplayScreen = memo(function AbsWorkoutDisplayScreen() {
     });
   };
 
+  // Navigate to cart/continue
+  const handleContinue = () => {
+    router.push('/workout-session' as any);
+  };
+
   const createWorkoutId = (workout: Workout, equipment: string, diff: string) => {
     return `${workout.name}-${equipment}-${diff}`;
   };
 
   const handleAddToCart = (workout: Workout, equipment: string) => {
     const workoutId = createWorkoutId(workout, equipment, difficulty);
-    
-    if (isInCart(workoutId)) {
-      return;
-    }
-
-    const workoutItem: WorkoutItem = {
+    const cartItem: WorkoutItem = {
       id: workoutId,
       name: workout.name,
       duration: workout.duration,
-      description: workout.description,
-      battlePlan: workout.battlePlan,
-      imageUrl: workout.imageUrl,
-      intensityReason: workout.intensityReason,
+      description: workout.description || '',
+      battlePlan: workout.battlePlan || '',
+      imageUrl: workout.imageUrl || '',
+      intensityReason: workout.intensityReason || '',
       equipment: equipment,
       difficulty: difficulty,
       workoutType: workoutType,
       moodCard: moodTitle,
       moodTips: workout.moodTips || [],
     };
-
+    addToCart(cartItem);
+    
     if (token) {
-      Analytics.workoutAddedToCart(token, {
-        workout_name: workout.name,
-        mood_category: moodTitle,
-        equipment: equipment,
-      });
+      Analytics.trackWorkoutAdded(workoutId, workout.name, equipment, difficulty);
     }
-
-    addToCart(workoutItem);
   };
 
-  const handleStartWorkout = (workout: Workout, equipment: string, diff: string) => {
+  const handleStartWorkout = (workout: Workout, equipment: string) => {
     try {
+      const diff = difficulty;
       router.push({
-        pathname: '/workout-guidance',
+        pathname: '/workout-guidance' as any,
         params: {
           workoutName: workout.name,
+          workoutId: createWorkoutId(workout, equipment, diff),
           equipment: equipment,
           description: workout.description || '',
           battlePlan: workout.battlePlan || '',
@@ -219,6 +206,15 @@ const AbsWorkoutDisplayScreen = memo(function AbsWorkoutDisplayScreen() {
         </View>
 
         <ScrollView style={styles.scrollView} showsVerticalScrollIndicator={false} contentContainerStyle={styles.scrollContentContainer}>
+          {/* Muscle Group Indicator */}
+          {totalMuscles > 1 && (
+            <View style={styles.muscleIndicator}>
+              <Text style={styles.muscleIndicatorText}>
+                Muscle Group {currentMuscleIndex + 1} of {totalMuscles}: <Text style={styles.muscleIndicatorHighlight}>{workoutType}</Text>
+              </Text>
+            </View>
+          )}
+          
           {userWorkouts.map((equipmentData) => {
             const workouts = equipmentData.workouts[difficulty as keyof typeof equipmentData.workouts] || [];
             if (workouts.length === 0) return null;
@@ -237,7 +233,39 @@ const AbsWorkoutDisplayScreen = memo(function AbsWorkoutDisplayScreen() {
               />
             );
           })}
+          
+          {/* Next Muscle Group Button */}
+          {hasMoreMuscles && (
+            <View style={styles.nextMuscleContainer}>
+              <TouchableOpacity 
+                style={styles.nextMuscleButton}
+                onPress={handleNextMuscleGroup}
+              >
+                <View style={styles.nextMuscleContent}>
+                  <Text style={styles.nextMuscleLabel}>Next muscle group</Text>
+                  <Text style={styles.nextMuscleName}>{muscleQueue[0]?.displayName || muscleQueue[0]?.name}</Text>
+                </View>
+                <View style={styles.nextMuscleIndicatorBadge}>
+                  <Text style={styles.nextMuscleIndicatorText}>{currentMuscleIndex + 2}/{totalMuscles}</Text>
+                </View>
+                <Ionicons name="arrow-forward" size={20} color="#000" />
+              </TouchableOpacity>
+            </View>
+          )}
         </ScrollView>
+        
+        {/* Continue Button - Shows when items in cart */}
+        {hasItemsInCart && (
+          <View style={styles.continueButtonContainer}>
+            <TouchableOpacity style={styles.continueButton} onPress={handleContinue}>
+              <Text style={styles.continueButtonText}>Continue</Text>
+              <View style={styles.cartBadge}>
+                <Text style={styles.cartBadgeText}>{cartItems.length}</Text>
+              </View>
+              <Ionicons name="arrow-forward" size={20} color="#000" />
+            </TouchableOpacity>
+          </View>
+        )}
       </SafeAreaView>
     </View>
   );
@@ -260,8 +288,26 @@ const styles = StyleSheet.create({
   progressStepText: { fontSize: 10, color: 'rgba(255, 255, 255, 0.8)', textAlign: 'center', fontWeight: '500', maxWidth: 70 },
   progressConnector: { width: 16, height: 2, backgroundColor: 'rgba(255, 215, 0, 0.3)', marginHorizontal: 8, marginTop: 16 },
   scrollView: { flex: 1, overflow: 'visible' },
-  scrollContentContainer: { paddingTop: 24, paddingBottom: 10, overflow: 'visible' },
+  scrollContentContainer: { paddingTop: 24, paddingBottom: 100, overflow: 'visible' },
   emptyState: { flex: 1, justifyContent: 'center', alignItems: 'center', paddingHorizontal: 40 },
   emptyStateText: { fontSize: 18, color: 'rgba(255, 255, 255, 0.8)', textAlign: 'center', marginTop: 16, marginBottom: 8 },
   emptyStateSubtext: { fontSize: 14, color: 'rgba(255, 255, 255, 0.5)', textAlign: 'center' },
+  // Muscle Group Indicator
+  muscleIndicator: { backgroundColor: 'rgba(255, 215, 0, 0.1)', paddingVertical: 10, paddingHorizontal: 16, marginHorizontal: 24, marginBottom: 16, borderRadius: 8, borderWidth: 1, borderColor: 'rgba(255, 215, 0, 0.2)' },
+  muscleIndicatorText: { fontSize: 13, color: 'rgba(255, 255, 255, 0.7)', textAlign: 'center' },
+  muscleIndicatorHighlight: { color: '#FFD700', fontWeight: '600' },
+  // Next Muscle Group Button
+  nextMuscleContainer: { paddingHorizontal: 24, paddingTop: 16, paddingBottom: 24 },
+  nextMuscleButton: { backgroundColor: '#FFD700', borderRadius: 12, padding: 16, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' },
+  nextMuscleContent: { flex: 1 },
+  nextMuscleLabel: { fontSize: 12, color: 'rgba(0, 0, 0, 0.6)', marginBottom: 2 },
+  nextMuscleName: { fontSize: 16, fontWeight: '600', color: '#000' },
+  nextMuscleIndicatorBadge: { backgroundColor: 'rgba(0, 0, 0, 0.15)', paddingHorizontal: 10, paddingVertical: 4, borderRadius: 12, marginRight: 12 },
+  nextMuscleIndicatorText: { fontSize: 12, fontWeight: '600', color: '#000' },
+  // Continue Button
+  continueButtonContainer: { position: 'absolute', bottom: 0, left: 0, right: 0, padding: 16, backgroundColor: 'rgba(0, 0, 0, 0.95)', borderTopWidth: 1, borderTopColor: 'rgba(255, 215, 0, 0.2)' },
+  continueButton: { backgroundColor: '#FFD700', borderRadius: 12, padding: 16, flexDirection: 'row', alignItems: 'center', justifyContent: 'center' },
+  continueButtonText: { fontSize: 16, fontWeight: '600', color: '#000', marginRight: 8 },
+  cartBadge: { backgroundColor: 'rgba(0, 0, 0, 0.2)', paddingHorizontal: 8, paddingVertical: 2, borderRadius: 10, marginRight: 8 },
+  cartBadgeText: { fontSize: 12, fontWeight: '600', color: '#000' },
 });
