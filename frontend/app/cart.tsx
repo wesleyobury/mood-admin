@@ -764,22 +764,24 @@ const styles = StyleSheet.create({
   },
   startButton: {
     flex: 1,
+    borderRadius: 30,
+    overflow: 'hidden',
+  },
+  startButtonGradient: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#FFD700',
     paddingHorizontal: 24,
     paddingVertical: 14,
-    borderRadius: 30,
     gap: 8,
   },
   startButtonDisabled: {
-    backgroundColor: 'rgba(255, 215, 0, 0.5)',
+    opacity: 0.5,
   },
   startButtonText: {
     fontSize: 16,
     fontWeight: '700',
-    color: '#000',
+    color: '#0c0c0c',
   },
   // Empty State Styles
   emptyHeader: {
