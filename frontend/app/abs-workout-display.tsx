@@ -30,6 +30,12 @@ const AbsWorkoutDisplayScreen = memo(function AbsWorkoutDisplayScreen() {
   const equipmentParam = params.equipment as string || '';
   const difficulty = params.difficulty as string || 'beginner';
   
+  // Multi-muscle group queue support
+  const muscleQueue = params.muscleQueue ? JSON.parse(params.muscleQueue as string) : [];
+  const currentMuscleIndex = parseInt(params.currentMuscleIndex as string || '0');
+  const totalMuscles = parseInt(params.totalMuscles as string || '1');
+  const hasMoreMuscles = muscleQueue.length > 0;
+  
   const selectedEquipmentNames = equipmentParam.split(',').filter(name => name.trim() !== '');
   
   console.log('Abs Workout Debug:', {
@@ -38,6 +44,9 @@ const AbsWorkoutDisplayScreen = memo(function AbsWorkoutDisplayScreen() {
     difficulty,
     workoutType,
     moodTitle,
+    muscleQueue,
+    currentMuscleIndex,
+    totalMuscles,
   });
 
   const userWorkouts = workoutDatabase.filter(item => 
@@ -51,6 +60,38 @@ const AbsWorkoutDisplayScreen = memo(function AbsWorkoutDisplayScreen() {
 
   const handleGoBack = () => {
     router.back();
+  };
+
+  // Navigate to next muscle group in queue
+  const handleNextMuscleGroup = () => {
+    if (muscleQueue.length === 0) return;
+    
+    const nextMuscle = muscleQueue[0];
+    const remainingQueue = muscleQueue.slice(1);
+    const nextIndex = currentMuscleIndex + 1;
+    
+    let pathname = '';
+    switch (nextMuscle.name) {
+      case 'Chest': pathname = '/chest-equipment'; break;
+      case 'Shoulders': pathname = '/shoulders-equipment'; break;
+      case 'Back': pathname = '/back-equipment'; break;
+      case 'Biceps': pathname = '/biceps-equipment'; break;
+      case 'Triceps': pathname = '/triceps-equipment'; break;
+      case 'Legs': pathname = '/legs-muscle-groups'; break;
+      case 'Abs': pathname = '/abs-equipment'; break;
+      default: return;
+    }
+    
+    router.push({
+      pathname: pathname as any,
+      params: {
+        mood: moodTitle,
+        bodyPart: nextMuscle.name,
+        muscleQueue: JSON.stringify(remainingQueue),
+        currentMuscleIndex: nextIndex.toString(),
+        totalMuscles: totalMuscles.toString(),
+      }
+    });
   };
 
   const createWorkoutId = (workout: Workout, equipment: string, diff: string) => {
