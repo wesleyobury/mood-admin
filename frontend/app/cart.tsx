@@ -498,10 +498,17 @@ export default function CartScreen() {
             disabled={isStarting}
             onPress={handleStartWorkoutSession}
           >
-            <Text style={styles.startButtonText}>
-              {isStarting ? 'Starting...' : 'Start Workout'}
-            </Text>
-            <Ionicons name="arrow-forward" size={20} color="#000" />
+            <LinearGradient
+              colors={['#FFD700', '#FFA500']}
+              style={styles.startButtonGradient}
+              start={{ x: 0, y: 0 }}
+              end={{ x: 1, y: 0 }}
+            >
+              <Text style={styles.startButtonText}>
+                {isStarting ? 'Starting...' : 'Start Workout'}
+              </Text>
+              <Ionicons name="arrow-forward" size={20} color="#0c0c0c" />
+            </LinearGradient>
           </TouchableOpacity>
         </View>
       </View>
