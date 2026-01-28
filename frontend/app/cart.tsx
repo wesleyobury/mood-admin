@@ -639,7 +639,7 @@ const styles = StyleSheet.create({
     gap: 6,
   },
   durationText: {
-    color: '#FFD700',
+    color: '#FFFFFF',
     fontSize: 14,
     fontWeight: '600',
   },
