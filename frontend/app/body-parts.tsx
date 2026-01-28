@@ -556,7 +556,7 @@ const styles = StyleSheet.create({
     letterSpacing: 0.3,
   },
   subtitleHighlight: {
-    color: '#FFD700',
+    color: '#FFFFFF',
     fontWeight: '600',
   },
   bodyPartsGrid: {
