@@ -231,21 +231,6 @@ const ShouldersWorkoutDisplayScreen = memo(function ShouldersWorkoutDisplayScree
               />
             );
           })}
-          
-          {hasMoreMuscles && (
-            <View style={styles.nextMuscleContainer}>
-              <TouchableOpacity style={styles.nextMuscleButton} onPress={handleNextMuscleGroup}>
-                <View style={styles.nextMuscleContent}>
-                  <Text style={styles.nextMuscleLabel}>Next muscle group</Text>
-                  <Text style={styles.nextMuscleName}>{muscleQueue[0]?.displayName || muscleQueue[0]?.name}</Text>
-                </View>
-                <View style={styles.nextMuscleIndicatorBadge}>
-                  <Text style={styles.nextMuscleIndicatorText}>{currentMuscleIndex + 2}/{totalMuscles}</Text>
-                </View>
-                <Ionicons name="arrow-forward" size={20} color="#000" />
-              </TouchableOpacity>
-            </View>
-          )}
         </ScrollView>
         
         {hasItemsInCart && (
