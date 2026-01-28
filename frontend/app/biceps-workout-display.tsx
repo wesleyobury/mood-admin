@@ -237,13 +237,20 @@ const BicepsWorkoutDisplayScreen = memo(function BicepsWorkoutDisplayScreen() {
         {hasItemsInCart && (
           <View style={styles.continueButtonContainer}>
             <TouchableOpacity style={styles.continueButton} onPress={handleContinue}>
-              <Text style={styles.continueButtonText}>
-                {hasMoreMuscles ? `Next: ${muscleQueue[0]?.displayName || muscleQueue[0]?.name}` : 'View Cart'}
-              </Text>
-              <View style={styles.cartBadge}>
-                <Text style={styles.cartBadgeText}>{cartItems.length}</Text>
-              </View>
-              <Ionicons name="arrow-forward" size={20} color="#000" />
+              <LinearGradient
+                colors={['#FFD700', '#FFA500']}
+                style={styles.continueButtonGradient}
+                start={{ x: 0, y: 0 }}
+                end={{ x: 1, y: 0 }}
+              >
+                <Text style={styles.continueButtonText}>
+                  {hasMoreMuscles ? `Next: ${muscleQueue[0]?.displayName || muscleQueue[0]?.name}` : 'View Cart'}
+                </Text>
+                <View style={styles.cartBadge}>
+                  <Text style={styles.cartBadgeText}>{cartItems.length}</Text>
+                </View>
+                <Ionicons name="arrow-forward" size={20} color="#0c0c0c" />
+              </LinearGradient>
             </TouchableOpacity>
           </View>
         )}
