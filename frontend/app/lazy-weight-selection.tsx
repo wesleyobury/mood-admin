@@ -589,8 +589,13 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: 'rgba(255, 215, 0, 0.7)',
     marginRight: 8,
+    paddingVertical: 16,
+    paddingHorizontal: 24,
   },
   continueButtonTextActive: {
-    color: '#000000',
+    fontSize: 18,
+    fontWeight: 'bold',
+    color: '#0c0c0c',
+    marginRight: 8,
   },
 });
