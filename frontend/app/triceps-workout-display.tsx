@@ -35,7 +35,9 @@ const TricepsWorkoutDisplayScreen = memo(function TricepsWorkoutDisplayScreen() 
   const totalMuscles = parseInt(params.totalMuscles as string || '1');
   const hasMoreMuscles = muscleQueue.length > 0;
   
-  const selectedEquipmentNames = equipmentParam.split(',').filter(name => name.trim() !== '');
+  // Decode the equipment parameter since it was URL encoded
+  const decodedEquipmentParam = decodeURIComponent(equipmentParam);
+  const selectedEquipmentNames = decodedEquipmentParam.split(',').filter(name => name.trim() !== '');
 
   const userWorkouts = workoutDatabase.filter(item => 
     selectedEquipmentNames.some(name => 
