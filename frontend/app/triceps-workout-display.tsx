@@ -251,7 +251,9 @@ const TricepsWorkoutDisplayScreen = memo(function TricepsWorkoutDisplayScreen() 
         {hasItemsInCart && (
           <View style={styles.continueButtonContainer}>
             <TouchableOpacity style={styles.continueButton} onPress={handleContinue}>
-              <Text style={styles.continueButtonText}>Continue</Text>
+              <Text style={styles.continueButtonText}>
+                {hasMoreMuscles ? `Next: ${muscleQueue[0]?.displayName || muscleQueue[0]?.name}` : 'View Cart'}
+              </Text>
               <View style={styles.cartBadge}>
                 <Text style={styles.cartBadgeText}>{cartItems.length}</Text>
               </View>
