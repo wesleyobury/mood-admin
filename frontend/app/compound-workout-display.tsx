@@ -382,7 +382,7 @@ const styles = StyleSheet.create({
   progressStepText: { fontSize: 10, color: 'rgba(255, 255, 255, 0.8)', textAlign: 'center', fontWeight: '500', maxWidth: 70 },
   progressConnector: { width: 16, height: 2, backgroundColor: 'rgba(255, 215, 0, 0.3)', marginHorizontal: 8, marginTop: 16 },
   scrollView: { flex: 1, overflow: 'visible' },
-  scrollContentContainer: { paddingTop: 16, paddingBottom: 10, overflow: 'visible' },
+  scrollContentContainer: { paddingTop: 16, paddingBottom: 100, overflow: 'visible' },
   muscleGroupSection: { marginBottom: 24 },
   sectionHeader: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', paddingHorizontal: 24, marginBottom: 16 },
   sectionTitle: { fontSize: 20, fontWeight: 'bold', color: '#ffffff' },
@@ -391,4 +391,7 @@ const styles = StyleSheet.create({
   emptyState: { flex: 1, justifyContent: 'center', alignItems: 'center', paddingHorizontal: 40 },
   emptyStateText: { fontSize: 18, color: 'rgba(255, 255, 255, 0.8)', textAlign: 'center', marginTop: 16, marginBottom: 8 },
   emptyStateSubtext: { fontSize: 14, color: 'rgba(255, 255, 255, 0.5)', textAlign: 'center' },
+  bottomButtonContainer: { paddingHorizontal: 20, paddingVertical: 16, paddingBottom: 24, backgroundColor: '#000000', borderTopWidth: 1, borderTopColor: 'rgba(255, 215, 0, 0.2)' },
+  nextMuscleButton: { backgroundColor: '#FFD700', borderRadius: 12, paddingVertical: 16, paddingHorizontal: 24, flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 8 },
+  nextMuscleButtonText: { fontSize: 16, fontWeight: '600', color: '#000000' },
 });
