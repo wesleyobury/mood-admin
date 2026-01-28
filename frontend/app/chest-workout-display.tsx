@@ -305,8 +305,20 @@ const styles = StyleSheet.create({
   progressStepText: { fontSize: 10, color: 'rgba(255, 255, 255, 0.8)', textAlign: 'center', fontWeight: '500', maxWidth: 70 },
   progressConnector: { width: 16, height: 2, backgroundColor: 'rgba(255, 215, 0, 0.3)', marginHorizontal: 8, marginTop: 16 },
   scrollView: { flex: 1, overflow: 'visible' },
-  scrollContentContainer: { paddingTop: 24, paddingBottom: 10, overflow: 'visible' },
+  scrollContentContainer: { paddingTop: 24, paddingBottom: 100, overflow: 'visible' },
   emptyState: { flex: 1, justifyContent: 'center', alignItems: 'center', paddingHorizontal: 40 },
   emptyStateText: { fontSize: 18, color: 'rgba(255, 255, 255, 0.8)', textAlign: 'center', marginTop: 16, marginBottom: 8 },
   emptyStateSubtext: { fontSize: 14, color: 'rgba(255, 255, 255, 0.5)', textAlign: 'center' },
+  // Muscle Group Indicator
+  muscleIndicator: { backgroundColor: 'rgba(255, 215, 0, 0.1)', paddingVertical: 10, paddingHorizontal: 16, marginHorizontal: 24, marginBottom: 16, borderRadius: 8, borderWidth: 1, borderColor: 'rgba(255, 215, 0, 0.2)' },
+  muscleIndicatorText: { fontSize: 13, color: 'rgba(255, 255, 255, 0.7)', textAlign: 'center' },
+  muscleIndicatorHighlight: { color: '#FFD700', fontWeight: '600' },
+  // Next Muscle Group Button
+  nextMuscleContainer: { paddingHorizontal: 24, paddingTop: 16, paddingBottom: 24 },
+  nextMuscleButton: { backgroundColor: '#FFD700', borderRadius: 12, padding: 16, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' },
+  nextMuscleContent: { flex: 1 },
+  nextMuscleLabel: { fontSize: 12, color: 'rgba(0, 0, 0, 0.6)', marginBottom: 2 },
+  nextMuscleName: { fontSize: 16, fontWeight: '600', color: '#000' },
+  nextMuscleIndicatorBadge: { backgroundColor: 'rgba(0, 0, 0, 0.15)', paddingHorizontal: 10, paddingVertical: 4, borderRadius: 12, marginRight: 12 },
+  nextMuscleIndicatorText: { fontSize: 12, fontWeight: '600', color: '#000' },
 });
