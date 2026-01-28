@@ -263,12 +263,14 @@ const styles = StyleSheet.create({
     padding: 4,
   },
   registerButton: {
-    backgroundColor: '#FFD700',
     borderRadius: 12,
+    overflow: 'hidden',
+    marginTop: 8,
+  },
+  registerButtonGradient: {
     height: 50,
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop: 8,
   },
   registerButtonText: {
     fontSize: 16,
