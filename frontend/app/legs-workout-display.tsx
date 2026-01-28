@@ -638,27 +638,25 @@ export default function LegsWorkoutDisplayScreen() {
         }}
       />
 
-      {/* Bottom Navigation Button */}
-      {totalMuscles > 1 && (
-        <View style={styles.bottomButtonContainer}>
-          <TouchableOpacity 
-            style={styles.nextMuscleButton}
-            onPress={handleNextMuscleGroup}
-          >
-            <Text style={styles.nextMuscleButtonText}>
-              {hasMoreMuscles 
-                ? `Next: ${muscleQueue[0]?.name || 'Muscle Group'} (${currentMuscleIndex + 1}/${totalMuscles})`
-                : 'View Cart'
-              }
-            </Text>
-            <Ionicons 
-              name={hasMoreMuscles ? "arrow-forward" : "cart"} 
-              size={20} 
-              color="#000" 
-            />
-          </TouchableOpacity>
-        </View>
-      )}
+      {/* Bottom Navigation Button - Always show for cart access */}
+      <View style={styles.bottomButtonContainer}>
+        <TouchableOpacity 
+          style={styles.nextMuscleButton}
+          onPress={handleNextMuscleGroup}
+        >
+          <Text style={styles.nextMuscleButtonText}>
+            {hasMoreMuscles 
+              ? `Next: ${muscleQueue[0]?.displayName || muscleQueue[0]?.name || 'Muscle Group'}`
+              : 'View Cart'
+            }
+          </Text>
+          <Ionicons 
+            name={hasMoreMuscles ? "arrow-forward" : "cart"} 
+            size={20} 
+            color="#000" 
+          />
+        </TouchableOpacity>
+      </View>
     </SafeAreaView>
   );
 }
