@@ -123,7 +123,7 @@ export default function WorkoutGuidanceScreen() {
   const router = useRouter();
   const params = useLocalSearchParams();
   const insets = useSafeAreaInsets();
-  const { clearCart } = useCart();
+  const { clearCart, addToCart, isInCart } = useCart();
   
   const workoutName = params.workoutName as string || 'Workout';
   const equipment = params.equipment as string || 'Equipment';
@@ -132,6 +132,9 @@ export default function WorkoutGuidanceScreen() {
   const duration = params.duration as string || '20 min';
   const difficulty = params.difficulty as string || 'beginner';
   const workoutType = params.workoutType as string || 'Strength Based';
+  const imageUrl = params.imageUrl as string || '';
+  const intensityReason = params.intensityReason as string || '';
+  const moodCard = params.moodCard as string || '';
   
   // Session handling
   const isSession = params.isSession === 'true';
@@ -143,6 +146,10 @@ export default function WorkoutGuidanceScreen() {
   } catch (error) {
     console.error('Error parsing session workouts:', error);
   }
+  
+  // Generate workout ID for cart checking
+  const workoutId = `${workoutName}-${equipment}-${difficulty}`.toLowerCase().replace(/\s+/g, '-');
+  const isWorkoutInCart = isInCart(workoutId);
   
   // Format workout type to show proper type  
   const displayWorkoutType = workoutType;
