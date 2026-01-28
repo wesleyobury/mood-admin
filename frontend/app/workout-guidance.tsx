@@ -274,6 +274,53 @@ export default function WorkoutGuidanceScreen() {
     setToastVisible(true);
   };
   
+  // Handle adding workout to cart (for preview mode)
+  const handleAddWorkoutToCart = () => {
+    if (isWorkoutInCart) {
+      showToast('Workout already in cart!');
+      return;
+    }
+    
+    // Parse moodTips back to array
+    let parsedMoodTips: { icon: string; title: string; description: string; }[] = [];
+    try {
+      parsedMoodTips = moodTips.map(tip => ({
+        icon: tip.icon as string,
+        title: tip.title,
+        description: tip.description,
+      }));
+    } catch (e) {
+      console.error('Error parsing moodTips for cart:', e);
+    }
+    
+    const workoutItem = {
+      id: workoutId,
+      name: workoutName,
+      duration: duration,
+      description: description,
+      battlePlan: battlePlan,
+      imageUrl: imageUrl,
+      intensityReason: intensityReason,
+      equipment: equipment,
+      difficulty: difficulty,
+      workoutType: workoutType,
+      moodCard: moodCard,
+      moodTips: parsedMoodTips,
+    };
+    
+    addToCart(workoutItem);
+    showToast('Added to cart!');
+    
+    // Track analytics
+    if (token) {
+      Analytics.workoutAddedToCart(token, {
+        workout_name: workoutName,
+        equipment: equipment,
+        difficulty: difficulty,
+      });
+    }
+  };
+  
   const handleCompletedWorkout = async () => {
     console.log('🎯 handleCompletedWorkout called');
     console.log('🎯 isSession:', isSession);
