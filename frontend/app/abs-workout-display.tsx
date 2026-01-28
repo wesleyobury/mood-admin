@@ -86,9 +86,13 @@ const AbsWorkoutDisplayScreen = memo(function AbsWorkoutDisplayScreen() {
     });
   };
 
-  // Navigate to cart/continue
+  // Navigate to next muscle group or cart
   const handleContinue = () => {
-    router.push('/workout-session' as any);
+    if (hasMoreMuscles) {
+      handleNextMuscleGroup();
+    } else {
+      router.push('/cart' as any);
+    }
   };
 
   const createWorkoutId = (workout: Workout, equipment: string, diff: string) => {
