@@ -316,7 +316,11 @@ export default function LegsEquipmentScreen() {
             muscleGroups: encodeURIComponent(muscleGroupNames.join(',')),
             equipment: equipmentNamesString,
             equipmentPerGroup: encodeURIComponent(JSON.stringify(equipmentPerGroup)),
-            difficulty: selectedIntensity.id
+            difficulty: selectedIntensity.id,
+            // Pass muscle queue for multi-muscle workflows
+            muscleQueue: JSON.stringify(muscleQueue),
+            currentMuscleIndex: currentMuscleIndex.toString(),
+            totalMuscles: totalMuscles.toString(),
           }
         });
       }
