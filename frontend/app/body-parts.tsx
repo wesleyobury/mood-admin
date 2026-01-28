@@ -548,11 +548,12 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
   },
   subtitle: {
-    fontSize: 16,
-    color: '#ccc',
+    fontSize: 15,
+    color: 'rgba(255, 255, 255, 0.7)',
     marginBottom: 24,
     textAlign: 'center',
-    lineHeight: 24,
+    lineHeight: 22,
+    letterSpacing: 0.3,
   },
   subtitleHighlight: {
     color: '#FFD700',
