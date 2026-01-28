@@ -98,6 +98,55 @@ const CompoundWorkoutDisplayScreen = memo(function CompoundWorkoutDisplayScreen(
     router.back();
   };
 
+  // Navigate to next muscle group or cart
+  const handleNextMuscleGroup = () => {
+    if (hasMoreMuscles) {
+      const nextMuscle = muscleQueue[0];
+      const remainingQueue = muscleQueue.slice(1);
+      const nextIndex = currentMuscleIndex + 1;
+      
+      let pathname = '';
+      switch (nextMuscle.name) {
+        case 'Chest':
+          pathname = '/chest-equipment';
+          break;
+        case 'Shoulders':
+          pathname = '/shoulders-equipment';
+          break;
+        case 'Back':
+          pathname = '/back-equipment';
+          break;
+        case 'Biceps':
+          pathname = '/biceps-equipment';
+          break;
+        case 'Triceps':
+          pathname = '/triceps-equipment';
+          break;
+        case 'Legs':
+          pathname = '/legs-muscle-groups';
+          break;
+        case 'Abs':
+          pathname = '/abs-equipment';
+          break;
+        default:
+          pathname = '/cart';
+      }
+
+      router.push({
+        pathname: pathname as any,
+        params: {
+          mood: moodTitle,
+          bodyPart: nextMuscle.name,
+          muscleQueue: JSON.stringify(remainingQueue),
+          currentMuscleIndex: nextIndex.toString(),
+          totalMuscles: totalMuscles.toString(),
+        }
+      });
+    } else {
+      router.push('/cart' as any);
+    }
+  };
+
   const createWorkoutId = (workout: Workout, equipment: string, diff: string) => {
     return `${workout.name}-${equipment}-${diff}`;
   };
