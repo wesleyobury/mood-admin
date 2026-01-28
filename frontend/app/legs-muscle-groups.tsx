@@ -143,7 +143,11 @@ export default function LegsMuscleGroupsScreen() {
         params: { 
           mood: moodTitle,
           workoutType: workoutType,
-          muscleGroups: encodeURIComponent(muscleGroupNamesString)
+          muscleGroups: encodeURIComponent(muscleGroupNamesString),
+          // Pass muscle queue for multi-muscle workflows
+          muscleQueue: JSON.stringify(muscleQueue),
+          currentMuscleIndex: currentMuscleIndex.toString(),
+          totalMuscles: totalMuscles.toString(),
         }
       });
     }
