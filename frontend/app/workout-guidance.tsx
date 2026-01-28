@@ -821,24 +821,26 @@ export default function WorkoutGuidanceScreen() {
           </TouchableOpacity>
         ) : (
           // Preview mode: Show Add workout / Added button
-          <TouchableOpacity 
-            style={[
-              styles.addWorkoutButton,
-              isWorkoutInCart && styles.addWorkoutButtonAdded
-            ]}
-            onPress={handleAddWorkoutToCart}
-            activeOpacity={0.8}
-            disabled={isWorkoutInCart}
-          >
-            <Ionicons 
-              name={isWorkoutInCart ? "checkmark" : "add"} 
-              size={20} 
-              color="#FFD700" 
-            />
-            <Text style={styles.addWorkoutButtonText}>
-              {isWorkoutInCart ? 'Added' : 'Add workout'}
-            </Text>
-          </TouchableOpacity>
+          <Animated.View style={{ transform: [{ scale: addButtonScaleAnim }] }}>
+            <TouchableOpacity 
+              style={[
+                styles.addWorkoutButton,
+                isWorkoutInCart && styles.addWorkoutButtonAdded
+              ]}
+              onPress={handleAddWorkoutToCart}
+              activeOpacity={0.8}
+              disabled={isWorkoutInCart}
+            >
+              <Ionicons 
+                name={isWorkoutInCart ? "checkmark" : "add"} 
+                size={18} 
+                color="#FFD700" 
+              />
+              <Text style={styles.addWorkoutButtonText}>
+                {isWorkoutInCart ? 'Added' : 'Add workout'}
+              </Text>
+            </TouchableOpacity>
+          </Animated.View>
         )}
       </View>
       
