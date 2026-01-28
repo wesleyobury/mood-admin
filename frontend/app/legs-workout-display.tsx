@@ -412,14 +412,21 @@ export default function LegsWorkoutDisplayScreen() {
   const handleStartWorkout = (workout: Workout, muscleGroupName: string) => {
     console.log('🚀 Starting workout:', workout.name);
     
-    // Navigate to workout guidance with simplified parameters
+    // Navigate to workout guidance with full parameters
     const params = {
       workoutName: workout.name,
       muscleGroup: muscleGroupName,
+      equipment: muscleGroupName,
       description: workout.description,
       duration: workout.duration,
+      difficulty: workout.intensity?.toLowerCase() || 'beginner',
       intensity: workout.intensity,
       battlePlan: workout.battlePlan.join('\n'),
+      workoutType: 'Strength Based',
+      imageUrl: workout.imageUrl || '',
+      intensityReason: workout.intensityReason || '',
+      moodCard: 'Muscle Gainer',
+      moodTips: encodeURIComponent(JSON.stringify(workout.moodTips || [])),
       moodTipsCount: workout.moodTips.length.toString()
     };
     
@@ -431,7 +438,7 @@ export default function LegsWorkoutDisplayScreen() {
         pathname: '/workout-guidance',
         params
       });
-      console.log('✅ Navigation completed - using simplified parameters');
+      console.log('✅ Navigation completed - using full parameters');
     } catch (error) {
       console.error('❌ Navigation failed:', error);
     }
