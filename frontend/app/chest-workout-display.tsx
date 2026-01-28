@@ -289,6 +289,19 @@ const ChestWorkoutDisplayScreen = memo(function ChestWorkoutDisplayScreen() {
             </View>
           )}
         </ScrollView>
+        
+        {/* Continue Button - Shows when items in cart */}
+        {hasItemsInCart && (
+          <View style={styles.continueButtonContainer}>
+            <TouchableOpacity style={styles.continueButton} onPress={handleContinue}>
+              <Text style={styles.continueButtonText}>Continue</Text>
+              <View style={styles.cartBadge}>
+                <Text style={styles.cartBadgeText}>{cartItems.length}</Text>
+              </View>
+              <Ionicons name="arrow-forward" size={20} color="#000" />
+            </TouchableOpacity>
+          </View>
+        )}
       </SafeAreaView>
     </View>
   );
