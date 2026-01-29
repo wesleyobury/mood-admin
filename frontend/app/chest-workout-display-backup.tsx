@@ -147,7 +147,7 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Drop Set',
           duration: '16-20 min',
-          description: "2 rounds:\n• 10 heavy press (any angle)\n• Drop → 10 moderate\n• Drop → 10 light\n• Rest 90-120s\n\nTips:\n• Don't save energy-heavy set should be all-out near failure.\n• Focus on time under tension during final drops for growth.',
+          description: "2 rounds:\n• 10 heavy press (any angle)\n• Drop → 10 moderate\n• Drop → 10 light\n• Rest 90-120s\n\nTips:\n• Don't save energy-heavy set should be all-out near failure.\n• Focus on time under tension during final drops for growth.",
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MTc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'High-intensity drop sets push muscle failure across multiple weight ranges with focus on time under tension for advanced hypertrophy.',
           moodTips: [
@@ -718,7 +718,7 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Machine Press Pyramid',
           duration: '14-16 min',
-          description: '4 rounds:\n• 12 light chest press\n• 10 moderate chest press\n• 8 heavy chest press\n• Rest 75s\n\nTips:\n• Progressive loading: Each weight should challenge you within the rep range-no wasted reps.\n• Heavy set: Focus on eccentric control (3s down) to maximize muscle damage and growth.',
+          description: '4 rounds:\n• 12 light chest press\n• 10 moderate chest press\n• 8 heavy chest press\n• Rest 75s\n\nTips:\n• Progressive loading: Each weight should challenge you within the rep range-no wasted reps.\n• Heavy set: Focus on eccentric control (3s down) to maximize muscle damage and growth.",
           imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHc0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Progressive loading pyramid that builds strength across different rep ranges for intermediate development.',
           moodTips: [
