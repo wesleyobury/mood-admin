@@ -997,7 +997,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'trending-up',
               title: 'Output Building',
-              description: 'Build output slowly during longer 'hard' sets.'
+              description: "Build output slowly during longer 'hard' sets."
             },
             {
               icon: 'timer',
