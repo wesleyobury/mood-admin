@@ -190,7 +190,7 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'body',
               title: 'Push-ups: Push through hands',
-              description: "As if you're "wrapping chest around ribcage" for better activation."
+              description: "As if you're wrapping chest around ribcage for better activation."
             },
             {
               icon: 'trending-up',
