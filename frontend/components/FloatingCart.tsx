@@ -6,6 +6,7 @@ import {
   StyleSheet,
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+import { LinearGradient } from 'expo-linear-gradient';
 import { useCart } from '../contexts/CartContext';
 import { useRouter, useRootNavigationState } from 'expo-router';
 
@@ -36,7 +37,14 @@ const FloatingCart: React.FC = () => {
         onPress={handleCartPress}
         activeOpacity={0.8}
       >
-        <Ionicons name="fitness" size={24} color="#000000" />
+        <LinearGradient
+          colors={['#FFD700', '#FFA500']}
+          style={styles.gradientButton}
+          start={{ x: 0, y: 0 }}
+          end={{ x: 1, y: 1 }}
+        >
+          <Ionicons name="fitness" size={24} color="#0c0c0c" />
+        </LinearGradient>
         <View style={styles.badge}>
           <Text style={styles.badgeText}>{cartCount}</Text>
         </View>
@@ -56,16 +64,18 @@ const styles = StyleSheet.create({
     width: 56,
     height: 56,
     borderRadius: 28,
-    backgroundColor: '#FFD700',
-    justifyContent: 'center',
-    alignItems: 'center',
+    overflow: 'hidden',
     shadowColor: '#FFD700',
     shadowOffset: { width: 0, height: 4 },
     shadowOpacity: 0.6,
     shadowRadius: 12,
     elevation: 8,
-    borderWidth: 2,
-    borderColor: '#FFF',
+  },
+  gradientButton: {
+    width: '100%',
+    height: '100%',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   badge: {
     position: 'absolute',
