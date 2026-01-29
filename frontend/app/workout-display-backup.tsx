@@ -532,7 +532,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'trophy',
               title: 'Effort Pacing',
-              description: 'Pace 'hard' sections; drive through heels on standing climbs.'
+              description: "Pace 'hard' sections; drive through heels on standing climbs."
             },
             {
               icon: 'refresh',
