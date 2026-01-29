@@ -120,11 +120,14 @@ const LazyBodyweightWorkoutsScreen = memo(function LazyBodyweightWorkoutsScreen(
           duration: workout.duration || '20 min',
           difficulty: diff,
           workoutType: workoutType,
+          imageUrl: workout.imageUrl || '',
+          intensityReason: workout.intensityReason || '',
+          moodCard: moodTitle,
           moodTips: encodeURIComponent(JSON.stringify(workout.moodTips || []))
         }
       });
       
-      console.log('✅ Navigation completed - using simplified parameters');
+      console.log('✅ Navigation completed');
     } catch (error) {
       console.error('❌ Error starting workout:', error);
     }
