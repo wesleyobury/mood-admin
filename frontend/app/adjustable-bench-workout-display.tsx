@@ -102,7 +102,7 @@ const adjustableBenchDatabase: EquipmentWorkouts[] = [
             },
             {
               icon: 'timer',
-              title: 'Don't rush - feel pec stretch',
+              title: "Don't rush - feel pec stretch",
               description: 'On each angle for maximum muscle activation and growth.'
             }
           ]
@@ -156,7 +156,7 @@ const adjustableBenchDatabase: EquipmentWorkouts[] = [
           moodTips: [
             {
               icon: 'flash',
-              title: 'Don't save energy',
+              title: "Don't save energy",
               description: 'Heavy set should be all-out near failure for maximum recruitment.'
             },
             {

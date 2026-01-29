@@ -99,7 +99,7 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
             },
             {
               icon: 'timer',
-              title: 'Don't rush-feel pec stretch',
+              title: "Don't rush-feel pec stretch",
               description: 'On each angle for maximum muscle activation and growth.'
             }
           ]
@@ -153,7 +153,7 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
           moodTips: [
             {
               icon: 'flash',
-              title: 'Don't save energy',
+              title: "Don't save energy",
               description: 'Heavy set should be all-out near failure for maximum recruitment.'
             },
             {
@@ -239,7 +239,7 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
           moodTips: [
             {
               icon: 'refresh',
-              title: 'Fly → press transition, don't rest',
+              title: "Fly → press transition, don't rest",
               description: 'Overloads pecs by hitting both stretch and contraction.'
             },
             {
@@ -307,7 +307,7 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'body',
               title: 'Push-ups: Push through hands',
-              description: 'As if you're wrapping chest around ribcage for better activation.'
+              description: "As if you're wrapping chest around ribcage for better activation."
             },
             {
               icon: 'trending-up',
@@ -411,7 +411,7 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'shield',
               title: 'Keep scapula pinned',
-              description: 'Don't let shoulders roll forward under fatigue for safety and effectiveness.'
+              description: "Don't let shoulders roll forward under fatigue for safety and effectiveness."
             }
           ]
         }
@@ -492,7 +492,7 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'refresh',
               title: 'Pump-style sequence',
-              description: 'Don't rack weights; keep pecs loaded for maximum effect.'
+              description: "Don't rack weights; keep pecs loaded for maximum effect."
             },
             {
               icon: 'hand-left',
