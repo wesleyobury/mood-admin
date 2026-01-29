@@ -49,7 +49,7 @@ const flatBenchDatabase: EquipmentWorkouts[] = [
       beginner: [
         {
           name: 'Bench Push-Up Circuit',
-          duration: '10–12 min',
+          duration: '10-12 min',
           description: '3 rounds:\n• 10 push-ups (hands on bench)\n• 10 bench dips\n• Rest 60s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8MTc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Perfect beginner introduction combining bench-assisted push-ups with dips to build foundational chest and tricep strength.',
@@ -68,8 +68,8 @@ const flatBenchDatabase: EquipmentWorkouts[] = [
         },
         {
           name: 'Bench Chest Press',
-          duration: '12–15 min',
-          description: '3 rounds:\n• 12 light dumbbell or Smith bench press\n• 10 dumbbell bench fly\n• Rest 60–75s',
+          duration: '12-15 min',
+          description: '3 rounds:\n• 12 light dumbbell or Smith bench press\n• 10 dumbbell bench fly\n• Rest 60-75s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Combines pressing and isolation movements to teach proper bench technique while building chest strength.',
           moodTips: [
@@ -89,8 +89,8 @@ const flatBenchDatabase: EquipmentWorkouts[] = [
       intermediate: [
         {
           name: 'Bench Plyo Push-Ups',
-          duration: '14–16 min',
-          description: '4 rounds:\n• 8 explosive push-ups (hands on bench)\n• 10 single-arm bench press\n• Rest 60–75s',
+          duration: '14-16 min',
+          description: '4 rounds:\n• 8 explosive push-ups (hands on bench)\n• 10 single-arm bench press\n• Rest 60-75s',
           imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Explosive plyometric training combined with unilateral strength work for intermediate power development.',
           moodTips: [
@@ -108,7 +108,7 @@ const flatBenchDatabase: EquipmentWorkouts[] = [
         },
         {
           name: 'Bench Chest Flow',
-          duration: '12–15 min',
+          duration: '12-15 min',
           description: '3 rounds:\n• 10 bench press\n• 10 fly\n• 10 close-grip bench press\n• Rest 90s',
           imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
           intensityReason: 'Continuous flow training that overloads pecs through combined pressing and isolation movements.',
@@ -129,7 +129,7 @@ const flatBenchDatabase: EquipmentWorkouts[] = [
       advanced: [
         {
           name: 'Bench Complex',
-          duration: '15–18 min',
+          duration: '15-18 min',
           description: '3 rounds:\n• 8 bench press\n• 8 bench fly\n• 8 plyo push-ups (hands on bench)\n• 8 dips\n• Rest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmd8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Advanced complex training combining pressing, isolation, plyometric, and bodyweight movements for maximum chest development.',
@@ -148,14 +148,14 @@ const flatBenchDatabase: EquipmentWorkouts[] = [
         },
         {
           name: 'Bench Drop Set',
-          duration: '16–20 min',
-          description: '2 rounds:\n• 10 heavy bench press\n• Drop → 10 moderate\n• Drop → 10 light\n• Rest 90–120s',
+          duration: '16-20 min',
+          description: '2 rounds:\n• 10 heavy bench press\n• Drop → 10 moderate\n• Drop → 10 light\n• Rest 90-120s',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MTc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'High-intensity drop sets push muscle failure across multiple weight ranges for advanced hypertrophy.',
           moodTips: [
             {
               icon: 'shield',
-              title: 'Keep reps 0–1 shy of failure',
+              title: 'Keep reps 0-1 shy of failure',
               description: 'Maximize recruitment without burnout for optimal results.'
             },
             {

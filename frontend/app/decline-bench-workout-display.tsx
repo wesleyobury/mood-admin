@@ -49,7 +49,7 @@ const declineBenchDatabase: EquipmentWorkouts[] = [
       beginner: [
         {
           name: 'Decline Push-Up Circuit',
-          duration: '10–12 min',
+          duration: '10-12 min',
           description: '3 rounds:\n• 8 decline push-ups (feet on bench)\n• 10 decline bench press (light)\n• Rest 60s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8MTc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Perfect beginner introduction to decline training targeting lower chest development with bodyweight and light resistance.',
@@ -68,14 +68,14 @@ const declineBenchDatabase: EquipmentWorkouts[] = [
         },
         {
           name: 'Decline Chest Press',
-          duration: '12–15 min',
-          description: '3 rounds:\n• 12 decline press\n• 10 decline fly\n• Rest 60–75s',
+          duration: '12-15 min',
+          description: '3 rounds:\n• 12 decline press\n• 10 decline fly\n• Rest 60-75s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Combines decline pressing and isolation to build lower chest strength and definition for beginners.',
           moodTips: [
             {
               icon: 'construct',
-              title: 'Set bench 20–30° decline',
+              title: 'Set bench 20-30° decline',
               description: 'For optimal lower pec activation and muscle targeting.'
             },
             {
@@ -89,7 +89,7 @@ const declineBenchDatabase: EquipmentWorkouts[] = [
       intermediate: [
         {
           name: 'Decline Plyo Push-Ups',
-          duration: '14–15 min',
+          duration: '14-15 min',
           description: '4 rounds:\n• 6 explosive feet-elevated push-ups\n• 10 single-arm decline press\n• Rest 75s',
           imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Explosive plyometric training combined with unilateral decline work for intermediate lower chest power development.',
@@ -108,7 +108,7 @@ const declineBenchDatabase: EquipmentWorkouts[] = [
         },
         {
           name: 'Decline Chest Flow',
-          duration: '12–15 min',
+          duration: '12-15 min',
           description: '3 rounds:\n• 10 decline press\n• 10 decline fly\n• 10 close-grip press\n• Rest 90s',
           imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
           intensityReason: 'Continuous flow training that overloads lower chest through combined pressing, isolation, and close-grip movements.',
@@ -129,7 +129,7 @@ const declineBenchDatabase: EquipmentWorkouts[] = [
       advanced: [
         {
           name: 'Decline Complex',
-          duration: '15–18 min',
+          duration: '15-18 min',
           description: '3 rounds:\n• 8 decline press\n• 8 decline fly\n• 8 decline plyo push-ups\n• 8 dips\n• Rest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmd8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Advanced complex training combining decline pressing, isolation, plyometric, and dip movements for maximum lower chest development.',
@@ -148,8 +148,8 @@ const declineBenchDatabase: EquipmentWorkouts[] = [
         },
         {
           name: 'Decline Drop Set',
-          duration: '16–20 min',
-          description: '2 rounds:\n• 10 heavy decline press\n• Drop → 10 moderate\n• Drop → 10 light\n• Rest 90–120s',
+          duration: '16-20 min',
+          description: '2 rounds:\n• 10 heavy decline press\n• Drop → 10 moderate\n• Drop → 10 light\n• Rest 90-120s',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MTc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'High-intensity decline drop sets push lower chest muscle failure across multiple weight ranges for advanced hypertrophy.',
           moodTips: [

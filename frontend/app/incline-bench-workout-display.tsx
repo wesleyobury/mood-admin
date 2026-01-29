@@ -49,7 +49,7 @@ const inclineBenchDatabase: EquipmentWorkouts[] = [
       beginner: [
         {
           name: 'Incline Push-Up Circuit',
-          duration: '10–12 min',
+          duration: '10-12 min',
           description: '3 rounds:\n• 10 incline push-ups\n• 10 light incline bench press\n• Rest 60s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8MTc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Perfect beginner introduction to incline training targeting upper chest development with bodyweight and light resistance.',
@@ -68,8 +68,8 @@ const inclineBenchDatabase: EquipmentWorkouts[] = [
         },
         {
           name: 'Incline Chest Press',
-          duration: '12–15 min',
-          description: '3 rounds:\n• 12 incline bench press (light)\n• 10 incline fly\n• Rest 60–75s',
+          duration: '12-15 min',
+          description: '3 rounds:\n• 12 incline bench press (light)\n• 10 incline fly\n• Rest 60-75s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Combines incline pressing and isolation to build upper chest strength and definition for beginners.',
           moodTips: [
@@ -89,8 +89,8 @@ const inclineBenchDatabase: EquipmentWorkouts[] = [
       intermediate: [
         {
           name: 'Incline Plyo Push-Ups',
-          duration: '14–16 min',
-          description: '4 rounds:\n• 8 incline plyo push-ups\n• 10 single-arm incline press\n• Rest 60–75s',
+          duration: '14-16 min',
+          description: '4 rounds:\n• 8 incline plyo push-ups\n• 10 single-arm incline press\n• Rest 60-75s',
           imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Explosive plyometric training combined with unilateral incline work for intermediate upper chest power development.',
           moodTips: [
@@ -108,7 +108,7 @@ const inclineBenchDatabase: EquipmentWorkouts[] = [
         },
         {
           name: 'Incline Chest Flow',
-          duration: '12–15 min',
+          duration: '12-15 min',
           description: '3 rounds:\n• 10 incline bench press\n• 10 incline fly\n• 10 close-grip incline press\n• Rest 90s',
           imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
           intensityReason: 'Continuous flow training that overloads upper chest through combined pressing, isolation, and close-grip movements.',
@@ -129,7 +129,7 @@ const inclineBenchDatabase: EquipmentWorkouts[] = [
       advanced: [
         {
           name: 'Incline Complex',
-          duration: '15–18 min',
+          duration: '15-18 min',
           description: '3 rounds:\n• 8 incline bench press\n• 8 incline fly\n• 8 incline plyo push-ups\n• 8 dips\n• Rest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmd8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Advanced complex training combining incline pressing, isolation, plyometric, and dip movements for maximum upper chest development.',
@@ -148,8 +148,8 @@ const inclineBenchDatabase: EquipmentWorkouts[] = [
         },
         {
           name: 'Incline Drop Set',
-          duration: '16–20 min',
-          description: '2 rounds:\n• 10 heavy incline press\n• Drop → 10 moderate\n• Drop → 10 light\n• Rest 90–120s',
+          duration: '16-20 min',
+          description: '2 rounds:\n• 10 heavy incline press\n• Drop → 10 moderate\n• Drop → 10 light\n• Rest 90-120s',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MTc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'High-intensity incline drop sets push upper chest muscle failure across multiple weight ranges for advanced hypertrophy.',
           moodTips: [
