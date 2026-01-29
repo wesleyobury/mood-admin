@@ -60,7 +60,7 @@ const MOOD_DISPLAY_NAMES: Record<string, string> = {
   'sweat': 'Sweat / burn fat',
   'muscle': 'Muscle gainer',
   'explosive': 'Build explosion',
-  'lazy': "I'm feeling lazy',
+  'lazy': "I'm feeling lazy",
   'calisthenics': 'Calisthenics',
   'outdoor': 'Get outside',
 };
