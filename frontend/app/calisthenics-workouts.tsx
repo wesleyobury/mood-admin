@@ -84,6 +84,9 @@ const CalisthenicsWorkoutsScreen = memo(function CalisthenicsWorkoutsScreen() {
       equipment: equipment,
       difficulty: difficulty,
       workoutType: workoutType,
+          imageUrl: workout.imageUrl || "",
+          intensityReason: workout.intensityReason || "",
+          moodCard: moodTitle,
       moodCard: moodTitle,
       moodTips: workout.moodTips || [],
     };
@@ -120,6 +123,9 @@ const CalisthenicsWorkoutsScreen = memo(function CalisthenicsWorkoutsScreen() {
           duration: workout.duration || '20 min',
           difficulty: diff,
           workoutType: workoutType,
+          imageUrl: workout.imageUrl || "",
+          intensityReason: workout.intensityReason || "",
+          moodCard: moodTitle,
           moodTips: encodeURIComponent(JSON.stringify(workout.moodTips || []))
         }
       });

@@ -112,6 +112,9 @@ const LazyLowerBodyWorkoutsScreen = memo(function LazyLowerBodyWorkoutsScreen() 
           duration: workout.duration || '20 min',
           difficulty: diff,
           workoutType: workoutType,
+          imageUrl: workout.imageUrl || "",
+          intensityReason: workout.intensityReason || "",
+          moodCard: moodTitle,
           moodTips: encodeURIComponent(JSON.stringify(workout.moodTips || []))
         }
       });
