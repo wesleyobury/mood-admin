@@ -1011,13 +1011,16 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   timerButton: {
+    borderRadius: 8,
+    overflow: 'hidden',
+    minWidth: 80,
+  },
+  timerButtonGradient: {
     flexDirection: 'row',
     alignItems: 'center',
     paddingHorizontal: 12,
     paddingVertical: 8,
-    borderRadius: 8,
     gap: 4,
-    minWidth: 80,
     justifyContent: 'center',
   },
   primaryButton: {
