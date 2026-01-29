@@ -991,7 +991,7 @@ export default function CreatePost() {
           currentStep++;
           setUploadProgress((currentStep / totalSteps) * 100);
           
-          console.log('Uploading workout card...");
+          console.log('Uploading workout card...');
           // Upload the workout card
           const formData = new FormData();
           const filename = `workout_card_${Date.now()}.png`;
@@ -1077,7 +1077,7 @@ export default function CreatePost() {
       console.log('Post response status:', response.status);
       if (response.ok) {
         setUploadProgress(100);
-        console.log('Post created successfully!");
+        console.log('Post created successfully!');
         
         // Track post created event
         if (token) {
