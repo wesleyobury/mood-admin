@@ -1688,7 +1688,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Kettlebell Swing & Carry',
           duration: '15 min',
-          description: 'Perform 5 rounds:\n• 20s swings\n• 40s farmer's carry\n1 min rest',
+          description: "Perform 5 rounds:\n• 20s swings\n• 40s farmer's carry\n1 min rest",
           imageUrl: 'https://images.unsplash.com/photo-1566241134850-541012f1d4cf?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxrZXR0bGViZWxsJTIwd29ya291dHxlbnwwfHx8fDE3NTY4ODMyMzd8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Basic kettlebell introduction combining hip hinge movement with stability training.',
           moodTips: [

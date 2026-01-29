@@ -42,12 +42,12 @@ const bodyParts: BodyPart[] = [
     description: 'Biceps, triceps & forearms',
     subOptions: [
       {
-        name: 'Bi's',
+        name: "Bi's",
         icon: 'fitness',
         description: 'Front arm muscles'
       },
       {
-        name: 'Tri's',
+        name: "Tri's",
         icon: 'magnet',
         description: 'Back arm muscles'
       }
