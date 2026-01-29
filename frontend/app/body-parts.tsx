@@ -155,7 +155,7 @@ export default function BodyPartsScreen() {
   };
 
   const handleSubOptionSelect = (subOptionName: string) => {
-    const fullName = subOptionName === 'Bi's' ? 'Biceps' : 'Triceps';
+    const fullName = subOptionName === "Bi's" ? 'Biceps' : 'Triceps';
     
     if (isSubOptionSelected('Arms', subOptionName)) {
       // Deselect this sub-option
