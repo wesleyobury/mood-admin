@@ -73,8 +73,8 @@ export default function WorkoutSessionScreen() {
         [
           { text: "Cancel", style: "cancel" },
           { 
-            text: "Leave', 
-            style: 'destructive', 
+            text: "Leave", 
+            style: "destructive", 
             onPress: () => {
               // Track workout abandoned event
               if (token && currentWorkout) {
