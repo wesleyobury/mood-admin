@@ -702,7 +702,7 @@ export default function CreatePost() {
     } catch (error) {
       console.error('Navigation error:', error);
       if (router.canGoBack()) {
-        console.log('Trying router.back()");
+        console.log('Trying router.back()');
         router.back();
       }
     }
