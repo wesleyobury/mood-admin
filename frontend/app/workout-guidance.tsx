@@ -700,7 +700,7 @@ export default function WorkoutGuidanceScreen() {
             >
               <Ionicons 
                 name={!isRunning ? "play" : isPaused ? "play" : "pause"} 
-                size={16} 
+                size={14} 
                 color="#0c0c0c" 
               />
               <Text style={styles.primaryButtonText}>
@@ -709,12 +709,18 @@ export default function WorkoutGuidanceScreen() {
             </LinearGradient>
           </TouchableOpacity>
           <TouchableOpacity 
-            style={[styles.timerButton, styles.secondaryButton]}
+            style={styles.resetButton}
             onPress={handleResetTimer}
             activeOpacity={0.8}
           >
-            <Ionicons name="refresh" size={16} color="#FFD700" />
-            <Text style={styles.secondaryButtonText}>Reset</Text>
+            <LinearGradient
+              colors={['#FFA500', '#FF8C00']}
+              style={styles.resetButtonGradient}
+              start={{ x: 0, y: 0 }}
+              end={{ x: 1, y: 0 }}
+            >
+              <Ionicons name="refresh" size={14} color="#0c0c0c" />
+            </LinearGradient>
           </TouchableOpacity>
         </View>
       </View>
