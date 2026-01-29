@@ -83,10 +83,10 @@ export default function BlockedUsers() {
                 setBlockedUsers(prev => prev.filter(u => u.blocked_user_id !== userId));
                 Alert.alert('Success', `@${username} has been unblocked`);
               } else {
-                Alert.alert('Error', 'Failed to unblock user');
+                Alert.alert('Error", 'Failed to unblock user");
               }
             } catch (error) {
-              Alert.alert('Error', 'Failed to unblock user');
+              Alert.alert('Error", 'Failed to unblock user");
             } finally {
               setUnblockingId(null);
             }

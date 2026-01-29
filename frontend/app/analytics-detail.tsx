@@ -19,16 +19,16 @@ const API_URL = process.env.EXPO_PUBLIC_BACKEND_URL || Constants.expoConfig?.ext
 
 // Screen name mapping for user-friendly display
 const screenNameMap: { [key: string]: string } = {
-  'index': 'Home',
-  'explore': 'Explore',
-  'profile': 'Profile',
-  'cart': 'Workout Cart',
-  'workout-session': 'Workout Session',
-  'create-post': 'Create Post',
-  'admin-dashboard': 'Admin Dashboard',
-  'featured-workout-detail': 'Featured Workout',
-  'user-profile': 'User Profile',
-  'settings': 'Settings',
+  'index": 'Home",
+  'explore": 'Explore",
+  'profile": 'Profile",
+  'cart": 'Workout Cart",
+  'workout-session": 'Workout Session",
+  'create-post": 'Create Post",
+  'admin-dashboard": 'Admin Dashboard",
+  'featured-workout-detail": 'Featured Workout",
+  'user-profile": 'User Profile",
+  'settings": 'Settings",
 };
 
 const getDisplayScreenName = (screenName: string): string => {
@@ -37,12 +37,12 @@ const getDisplayScreenName = (screenName: string): string => {
 
 // Mood name mapping for user-friendly display
 const moodNameMap: { [key: string]: string } = {
-  'sweat': 'Sweat / Burn Fat',
-  'muscle': 'Muscle Gainer',
-  'outdoor': 'Get Outside',
-  'calisthenics': 'Calisthenics',
-  'lazy': 'Feeling Lazy',
-  'explosive': 'Get Explosive',
+  'sweat": 'Sweat / Burn Fat",
+  'muscle": 'Muscle Gainer",
+  'outdoor": 'Get Outside",
+  'calisthenics": 'Calisthenics",
+  'lazy": 'Feeling Lazy",
+  'explosive": 'Get Explosive",
 };
 
 const getDisplayMoodName = (moodId: string): string => {
@@ -128,9 +128,9 @@ export default function AnalyticsDetailScreen() {
   
   const subtitles: Record<string, string> = {
     users: 'All registered accounts on the platform',
-    activeUsers: `Users who have used the app in the last ${days} ${days === 1 ? 'day' : 'days'}`,
+    activeUsers: `Users who have used the app in the last ${days} ${days === 1 ? 'day" : 'days"}`,
     dailyActiveUsers: 'Users who were active in the last 24 hours',
-    newUsers: `Users who signed up in the last ${days} ${days === 1 ? 'day' : 'days'}`,
+    newUsers: `Users who signed up in the last ${days} ${days === 1 ? 'day" : 'days"}`,
     screens: 'Most viewed screens in the app',
     moods: 'Workout mood preferences selected by users',
     equipment: 'Equipment types selected by users',

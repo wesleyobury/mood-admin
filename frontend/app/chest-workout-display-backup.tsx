@@ -1384,7 +1384,7 @@ export default function ChestWorkoutDisplayScreen() {
 
   const handleStartWorkout = (workout: Workout, equipment: string, difficulty: string) => {
     try {
-      console.log('🚀 Starting workout:', workout.name, 'on', equipment);
+      console.log('🚀 Starting workout:", workout.name, 'on", equipment);
       
       // Validate required parameters
       if (!workout.name || !equipment || !difficulty) {
@@ -1470,15 +1470,15 @@ export default function ChestWorkoutDisplayScreen() {
             // Get appropriate icon for each equipment type
             const getEquipmentIcon = (equipmentName: string) => {
               const equipmentIconMap: { [key: string]: keyof typeof Ionicons.glyphMap } = {
-                'Adjustable bench': 'square',
-                'Flat bench': 'square',
-                'Incline bench': 'trending-up',
-                'Decline bench': 'trending-down',
-                'Cable crossover': 'reorder-three',
-                'Chest press machine': 'hardware-chip',
-                'Dip station': 'remove',
-                'Pec dec machine': 'contract',
-                'Smith machine': 'barbell'
+                'Adjustable bench": 'square",
+                'Flat bench": 'square",
+                'Incline bench": 'trending-up",
+                'Decline bench": 'trending-down",
+                'Cable crossover": 'reorder-three",
+                'Chest press machine": 'hardware-chip",
+                'Dip station": 'remove",
+                'Pec dec machine": 'contract",
+                'Smith machine": 'barbell"
               };
               return equipmentIconMap[equipmentName] || 'fitness';
             };

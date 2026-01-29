@@ -379,7 +379,7 @@ export default function DeclineBenchWorkoutDisplayScreen() {
 
   const handleStartWorkout = (workout: Workout, equipment: string, difficulty: string) => {
     try {
-      console.log('🚀 Starting workout:', workout.name, 'on', equipment);
+      console.log('🚀 Starting workout:", workout.name, 'on", equipment);
       
       // Validate required parameters
       if (!workout.name || !equipment || !difficulty) {
@@ -474,7 +474,7 @@ export default function DeclineBenchWorkoutDisplayScreen() {
             // Get appropriate icon for each equipment type
             const getEquipmentIcon = (equipmentName: string) => {
               const equipmentIconMap: { [key: string]: keyof typeof Ionicons.glyphMap } = {
-                'Decline bench': 'trending-down'
+                'Decline bench": 'trending-down"
               };
               return equipmentIconMap[equipmentName] || 'fitness';
             };

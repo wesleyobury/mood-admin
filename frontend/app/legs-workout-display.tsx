@@ -250,11 +250,11 @@ const legsWorkoutDatabase: MuscleGroupWorkout[] = [
 
 const getMuscleGroupIcon = (muscleGroupName: string): keyof typeof Ionicons.glyphMap => {
   const iconMap: { [key: string]: keyof typeof Ionicons.glyphMap } = {
-    'Glutes': 'fitness',
-    'Hammies': 'barbell',
-    'Quads': 'triangle',
-    'Calfs': 'diamond',
-    'Compound': 'layers',
+    'Glutes": 'fitness",
+    'Hammies": 'barbell",
+    'Quads": 'triangle",
+    'Calfs": 'diamond",
+    'Compound": 'layers",
   };
   return iconMap[muscleGroupName] || 'fitness';
 };
@@ -459,7 +459,7 @@ export default function LegsWorkoutDisplayScreen() {
     
     // Calculate current index based on scroll position
     const currentIndex = Math.round(contentOffset.x / viewSize.width);
-    console.log('📜 Scroll event, calculated index:', currentIndex, 'offset:', contentOffset.x, 'viewWidth:', viewSize.width);
+    console.log('📜 Scroll event, calculated index:", currentIndex, 'offset:", contentOffset.x, 'viewWidth:', viewSize.width);
     setCurrentWorkoutIndex(currentIndex);
   };
 

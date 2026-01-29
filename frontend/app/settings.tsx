@@ -51,22 +51,22 @@ export default function Settings() {
   const handleUpdateCredentials = async () => {
     // Validation
     if (!currentPassword) {
-      Alert.alert('Error', 'Please enter your current password');
+      Alert.alert('Error", 'Please enter your current password");
       return;
     }
 
     if (newPassword && newPassword !== confirmPassword) {
-      Alert.alert('Error', 'New passwords do not match');
+      Alert.alert('Error", 'New passwords do not match");
       return;
     }
 
     if (newPassword && newPassword.length < 6) {
-      Alert.alert('Error', 'New password must be at least 6 characters');
+      Alert.alert('Error", 'New password must be at least 6 characters");
       return;
     }
 
     if (!newUsername && !newEmail && !newPassword) {
-      Alert.alert('Error', 'Please provide at least one field to update');
+      Alert.alert('Error", 'Please provide at least one field to update");
       return;
     }
 
@@ -75,7 +75,7 @@ export default function Settings() {
       const response = await fetch(`${API_URL}/api/users/me/credentials`, {
         method: 'PUT',
         headers: {
-          'Content-Type': 'application/json',
+          'Content-Type": 'application/json",
           'Authorization': `Bearer ${token}`,
         },
         body: JSON.stringify({
@@ -97,15 +97,15 @@ export default function Settings() {
           updateUser({ email: newEmail });
         }
         
-        Alert.alert('Success', 'Your credentials have been updated successfully');
+        Alert.alert('Success", 'Your credentials have been updated successfully");
         resetCredentialsForm();
         setShowCredentialsModal(false);
       } else {
-        Alert.alert('Error', data.detail || 'Failed to update credentials');
+        Alert.alert('Error", data.detail || 'Failed to update credentials");
       }
     } catch (error) {
       console.error('Update credentials error:', error);
-      Alert.alert('Error', 'Failed to update credentials. Please try again.');
+      Alert.alert('Error", 'Failed to update credentials. Please try again.");
     } finally {
       setIsUpdating(false);
     }
@@ -155,13 +155,13 @@ export default function Settings() {
         Alert.alert('Unable to Open', fallbackMessage);
       }
     } catch (error) {
-      Alert.alert('Error', 'Unable to open the link. Please try again.');
+      Alert.alert('Error", 'Unable to open the link. Please try again.");
     }
   };
 
   const handleSubmitFeedback = async () => {
     const subject = encodeURIComponent('MOOD feedback');
-    const body = encodeURIComponent(`Hi,\n\nI'd like to share the following feedback:\n\n\n---\nUser: ${user?.username || 'Unknown'}\nApp Version: 1.0.0`);
+    const body = encodeURIComponent(`Hi,\n\nI"d like to share the following feedback:\n\n\n---\nUser: ${user?.username || 'Unknown"}\nApp Version: 1.0.0`);
     const mailtoUrl = `mailto:${SUPPORT_EMAIL}?subject=${subject}&body=${body}`;
     
     try {
@@ -198,7 +198,7 @@ export default function Settings() {
   const handleDeleteAccount = () => {
     // First, ask user to reconsider
     Alert.alert(
-      'We're sad to see you go! 😢',
+      "We're sad to see you go! 😢",
       'Before you delete your account, would you consider sharing feedback with us? Your input helps us improve the app for everyone.',
       [
         { text: "Cancel', style: 'cancel" },
@@ -217,7 +217,7 @@ export default function Settings() {
                     if (feedback) {
                       await sendFeedbackEmail(feedback, 'Account Deletion Prevented - User Stayed');
                     }
-                    Alert.alert('Thank You! 🙏', 'We appreciate your feedback and are glad you're staying!');
+                    Alert.alert('Thank You! 🙏", 'We appreciate your feedback and are glad you"re staying!');
                   },
                 },
                 {
@@ -286,11 +286,11 @@ export default function Settings() {
         );
       } else {
         const errorData = await response.json().catch(() => ({}));
-        Alert.alert('Error', errorData.detail || 'Failed to delete account. Please try again.');
+        Alert.alert('Error", errorData.detail || 'Failed to delete account. Please try again.");
       }
     } catch (error) {
       console.error('Delete account error:', error);
-      Alert.alert('Error', 'Failed to delete account. Please check your connection and try again.');
+      Alert.alert('Error", 'Failed to delete account. Please check your connection and try again.");
     } finally {
       setIsDeleting(false);
     }
@@ -598,7 +598,7 @@ export default function Settings() {
       >
         <SafeAreaView style={styles.modalContainer}>
           <KeyboardAvoidingView 
-            behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+            behavior={Platform.OS === 'ios" ? 'padding" : 'height'}
             style={{ flex: 1 }}
           >
             <View style={styles.modalHeader}>
@@ -638,7 +638,7 @@ export default function Settings() {
                     onPress={() => setShowCurrentPassword(!showCurrentPassword)}
                   >
                     <Ionicons 
-                      name={showCurrentPassword ? 'eye-off' : 'eye'} 
+                      name={showCurrentPassword ? 'eye-off" : 'eye"} 
                       size={20} 
                       color="#666" 
                     />
@@ -695,7 +695,7 @@ export default function Settings() {
                     onPress={() => setShowNewPassword(!showNewPassword)}
                   >
                     <Ionicons 
-                      name={showNewPassword ? 'eye-off' : 'eye'} 
+                      name={showNewPassword ? 'eye-off" : 'eye"} 
                       size={20} 
                       color="#666" 
                     />

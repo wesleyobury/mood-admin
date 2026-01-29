@@ -379,7 +379,7 @@ export default function FlatBenchWorkoutDisplayScreen() {
 
   const handleStartWorkout = (workout: Workout, equipment: string, difficulty: string) => {
     try {
-      console.log('🚀 Starting workout:', workout.name, 'on', equipment);
+      console.log('🚀 Starting workout:", workout.name, 'on", equipment);
       
       // Validate required parameters
       if (!workout.name || !equipment || !difficulty) {
@@ -475,7 +475,7 @@ export default function FlatBenchWorkoutDisplayScreen() {
             // Get appropriate icon for each equipment type
             const getEquipmentIcon = (equipmentName: string) => {
               const equipmentIconMap: { [key: string]: keyof typeof Ionicons.glyphMap } = {
-                'Flat bench': 'square'
+                'Flat bench": 'square"
               };
               return equipmentIconMap[equipmentName] || 'fitness';
             };

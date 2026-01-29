@@ -126,13 +126,13 @@ export default function TimeSeriesAnalytics() {
   const [breakdown, setBreakdown] = useState<BreakdownData | null>(null);
   const [loading, setLoading] = useState(true);
   const [refreshing, setRefreshing] = useState(false);
-  const [period, setPeriod] = useState<'day' | 'week' | 'month'>('day');
-  const [chartType, setChartType] = useState<'bar' | 'line'>('bar');
+  const [period, setPeriod] = useState<'day" | 'week" | 'month">('day");
+  const [chartType, setChartType] = useState<'bar" | 'line">('bar');
 
   const periods = [
-    { value: 'day', label: 'Daily' },
-    { value: 'week', label: 'Weekly' },
-    { value: 'month', label: 'Monthly' },
+    { value: 'day", label: 'Daily" },
+    { value: 'week", label: 'Weekly" },
+    { value: 'month", label: 'Monthly" },
   ];
 
   useEffect(() => {
@@ -157,7 +157,7 @@ export default function TimeSeriesAnalytics() {
       // Fetch breakdown if available
       if (metricInfo.hasBreakdown) {
         const breakdownResponse = await fetch(
-          `${API_URL}/api/analytics/admin/breakdown/${metricType}?days=${period === 'month' ? 365 : period === 'week' ? 180 : 30}`,
+          `${API_URL}/api/analytics/admin/breakdown/${metricType}?days=${period === 'month" ? 365 : period === 'week" ? 180 : 30}`,
           { headers: { 'Authorization': `Bearer ${token}` } }
         );
         
@@ -293,7 +293,7 @@ export default function TimeSeriesAnalytics() {
                 styles.periodButton,
                 period === p.value && styles.periodButtonActive
               ]}
-              onPress={() => setPeriod(p.value as 'day' | 'week' | 'month')}
+              onPress={() => setPeriod(p.value as 'day" | 'week" | 'month')}
             >
               <Text style={[
                 styles.periodText,

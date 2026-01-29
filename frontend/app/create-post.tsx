@@ -44,7 +44,7 @@ const isVideoUri = (uri: string): boolean => {
 
 interface MediaItem {
   uri: string;
-  type: 'image' | 'video';
+  type: 'image" | 'video";
   coverUri?: string;  // Custom cover image for videos
 }
 
@@ -88,7 +88,7 @@ export default function CreatePost() {
   
   // Permission notice modal state
   const [showPermissionModal, setShowPermissionModal] = useState(false);
-  const [permissionType, setPermissionType] = useState<'camera' | 'library'>('camera');
+  const [permissionType, setPermissionType] = useState<'camera" | 'library">('camera');
   
   // Cover photo selection state
   const [showCoverPicker, setShowCoverPicker] = useState(false);
@@ -97,7 +97,7 @@ export default function CreatePost() {
   // Image crop modal state
   const [showCropModal, setShowCropModal] = useState(false);
   const [imageToCrop, setImageToCrop] = useState<{uri: string, width: number, height: number} | null>(null);
-  const [cropSource, setCropSource] = useState<'library' | 'camera'>('library');
+  const [cropSource, setCropSource] = useState<'library" | 'camera">('library');
   
   // Success animation state (inline button animation like "Add workout")
   const [cardSaved, setCardSaved] = useState(false);
@@ -221,14 +221,14 @@ export default function CreatePost() {
       if (status === 'granted') {
         await launchCamera();
       } else {
-        showAlert('Permission Denied', 'Camera access is required to take photos. Please enable it in your device settings.');
+        showAlert('Permission Denied", 'Camera access is required to take photos. Please enable it in your device settings.");
       }
     } else {
       const { status } = await ImagePicker.requestMediaLibraryPermissionsAsync();
       if (status === 'granted') {
         await launchImageLibrary();
       } else {
-        showAlert('Permission Denied', 'Photo library access is required to select images. Please enable it in your device settings.');
+        showAlert('Permission Denied", 'Photo library access is required to select images. Please enable it in your device settings.");
       }
     }
   };
@@ -333,7 +333,7 @@ export default function CreatePost() {
     const { status } = await ImagePicker.requestMediaLibraryPermissionsAsync();
     
     if (status !== 'granted') {
-      showAlert('Permission Required', 'We need photo library access to select a cover image');
+      showAlert('Permission Required", 'We need photo library access to select a cover image");
       return;
     }
 
@@ -376,7 +376,7 @@ export default function CreatePost() {
     const { status } = await ImagePicker.requestCameraPermissionsAsync();
     
     if (status !== 'granted') {
-      showAlert('Permission Required', 'Sorry, we need camera permissions to record videos!');
+      showAlert('Permission Required", 'Sorry, we need camera permissions to record videos!");
       return;
     }
 
@@ -394,7 +394,7 @@ export default function CreatePost() {
         
         // Check video duration if available
         if (asset.duration && asset.duration > 60000) { // 60 seconds in ms
-          showAlert('Video Too Long', 'Please record a video under 60 seconds');
+          showAlert('Video Too Long", 'Please record a video under 60 seconds");
           return;
         }
         
@@ -403,7 +403,7 @@ export default function CreatePost() {
       }
     } catch (error: any) {
       console.error('Video recording error:', error);
-      showAlert('Error', 'Failed to record video. Please try again.');
+      showAlert('Error", 'Failed to record video. Please try again.");
     }
   };
 
@@ -418,7 +418,7 @@ export default function CreatePost() {
     const { status } = await ImagePicker.requestMediaLibraryPermissionsAsync();
     
     if (status !== 'granted') {
-      showAlert('Permission Required', 'Sorry, we need camera roll permissions to select videos!');
+      showAlert('Permission Required", 'Sorry, we need camera roll permissions to select videos!");
       return;
     }
 
@@ -440,7 +440,7 @@ export default function CreatePost() {
         
         // Check video duration if available
         if (asset.duration && asset.duration > 60000) { // 60 seconds in ms
-          showAlert('Video Too Long', 'Please select a video under 60 seconds');
+          showAlert('Video Too Long", 'Please select a video under 60 seconds");
           return;
         }
         
@@ -456,7 +456,7 @@ export default function CreatePost() {
           'Unable to process this video. It may be corrupted or in an unsupported format. Try selecting a different video or recording a new one.'
         );
       } else {
-        showAlert('Error', 'Failed to select video. Please try again.');
+        showAlert('Error", 'Failed to select video. Please try again.");
       }
     }
   };
@@ -492,13 +492,13 @@ export default function CreatePost() {
     });
     
     if (isLoading) {
-      showAlert('Please wait', 'Loading authentication...');
+      showAlert('Please wait", 'Loading authentication...");
       return;
     }
     
     if (!token) {
       console.error('❌ No auth token available!');
-      showAlert('Authentication Error', 'Please wait a moment and try again. If the problem persists, try refreshing the app.');
+      showAlert('Authentication Error", 'Please wait a moment and try again. If the problem persists, try refreshing the app.");
       return;
     }
     
@@ -521,7 +521,7 @@ export default function CreatePost() {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`,
-          'Content-Type': 'application/json',
+          'Content-Type": 'application/json",
         },
         body: JSON.stringify(cardData),
       });
@@ -534,17 +534,17 @@ export default function CreatePost() {
       } else {
         const errorData = await response.json();
         console.error('Save error:', errorData);
-        showAlert('Error', 'Failed to save workout card.');
+        showAlert('Error", 'Failed to save workout card.");
       }
     } catch (error) {
       console.error('Error saving workout card:', error);
-      showAlert('Error', 'Something went wrong while saving the card.');
+      showAlert('Error", 'Something went wrong while saving the card.");
     }
   };
 
   const handleShareToInstagram = async () => {
     if (!workoutStats || !transparentCardRef.current) {
-      showAlert('Error', 'Unable to share. Please try again.');
+      showAlert('Error", 'Unable to share. Please try again.");
       return;
     }
     
@@ -571,7 +571,7 @@ export default function CreatePost() {
         link.href = imageUri;
         link.click();
         
-        showAlert('Image Downloaded', 'Your workout overlay has been downloaded. Open Instagram Stories and add it as a sticker on your photo!');
+        showAlert('Image Downloaded", 'Your workout overlay has been downloaded. Open Instagram Stories and add it as a sticker on your photo!");
       } else {
         // For native (iOS/Android), capture the image
         imageUri = await captureRef(transparentCardRef.current, {
@@ -594,13 +594,13 @@ export default function CreatePost() {
               UTI: 'public.png',
             });
           } else {
-            showAlert('Sharing not available', 'Please save the image and share it manually to Instagram.');
+            showAlert('Sharing not available", 'Please save the image and share it manually to Instagram.");
           }
         }
       }
     } catch (error) {
       console.error('Error sharing to Instagram:', error);
-      showAlert('Error', 'Failed to create Instagram share image. Please try again.');
+      showAlert('Error", 'Failed to create Instagram share image. Please try again.");
     } finally {
       setIsExportingToInstagram(false);
     }
@@ -690,7 +690,7 @@ export default function CreatePost() {
   const navigateToHome = () => {
     console.log('navigateToHome called - starting navigation...');
     try {
-      if (Platform.OS === 'web' && typeof window !== 'undefined') {
+      if (Platform.OS === 'web" && typeof window !== 'undefined") {
         console.log('Platform is web, using window.location');
         console.log('Current URL:', window.location.href);
         // Navigate to the mood cards screen (tabs/index)
@@ -848,7 +848,7 @@ export default function CreatePost() {
 
       try {
         const formData = new FormData();
-        let filename = mediaItem.uri.split('/').pop() || (mediaItem.type === 'video' ? 'video.mp4' : 'image.jpg');
+        let filename = mediaItem.uri.split('/").pop() || (mediaItem.type === 'video" ? 'video.mp4" : 'image.jpg");
         
         // Ensure filename has extension
         if (!filename.includes('.')) {
@@ -862,12 +862,12 @@ export default function CreatePost() {
           // Determine video MIME type
           const ext = match ? match[1].toLowerCase() : 'mp4';
           const videoTypes: { [key: string]: string } = {
-            'mp4': 'video/mp4',
-            'mov': 'video/quicktime',
-            'avi': 'video/x-msvideo',
-            'webm': 'video/webm',
-            'mkv': 'video/x-matroska',
-            'm4v': 'video/x-m4v',
+            'mp4": 'video/mp4",
+            'mov": 'video/quicktime",
+            'avi": 'video/x-msvideo",
+            'webm": 'video/webm",
+            'mkv": 'video/x-matroska",
+            'm4v": 'video/x-m4v",
           };
           type = videoTypes[ext] || 'video/mp4';
         } else {
@@ -960,7 +960,7 @@ export default function CreatePost() {
 
   const handleCreatePost = async () => {
     if (selectedMedia.length === 0 && !caption.trim() && !hasStatsCard) {
-      showAlert('Empty Post', 'Please add at least an image, video, caption, or workout card');
+      showAlert('Empty Post", 'Please add at least an image, video, caption, or workout card");
       return;
     }
 
@@ -986,7 +986,7 @@ export default function CreatePost() {
         await new Promise(resolve => setTimeout(resolve, 100));
         
         const cardUri = await captureWorkoutCard();
-        console.log('Workout card captured:', cardUri ? 'YES' : 'NO', 'Ref:', !!statsCardRef.current);
+        console.log('Workout card captured:", cardUri ? 'YES" : 'NO", 'Ref:", !!statsCardRef.current);
         
         if (cardUri) {
           currentStep++;
@@ -1070,7 +1070,7 @@ export default function CreatePost() {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`,
-          'Content-Type': 'application/json',
+          'Content-Type": 'application/json",
         },
         body: JSON.stringify(postPayload),
       });
@@ -1106,13 +1106,13 @@ export default function CreatePost() {
         console.error('Post failed:', response.status, errorText);
         setUploading(false);
         setUploadProgress(0);
-        showAlert('Error', 'Failed to create post. Please try again.');
+        showAlert('Error", 'Failed to create post. Please try again.");
       }
     } catch (error) {
       console.error('Error creating post:', error);
       setUploading(false);
       setUploadProgress(0);
-      showAlert('Error', 'Something went wrong. Please try again.');
+      showAlert('Error", 'Something went wrong. Please try again.");
     }
   };
 
@@ -1120,7 +1120,7 @@ export default function CreatePost() {
     <SafeAreaView style={styles.container}>
       <KeyboardAvoidingView 
         style={styles.container}
-        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+        behavior={Platform.OS === 'ios" ? 'padding" : 'height'}
       >
         {/* Header */}
         <View style={styles.header}>
@@ -1249,7 +1249,7 @@ export default function CreatePost() {
                       >
                         <Ionicons name="image-outline" size={14} color="#000" />
                         <Text style={styles.setCoverButtonText}>
-                          {media.coverUri ? 'Change' : 'Cover'}
+                          {media.coverUri ? 'Change" : 'Cover"}
                         </Text>
                       </TouchableOpacity>
                     </View>
@@ -1497,7 +1497,7 @@ export default function CreatePost() {
             {/* Icon */}
             <View style={styles.permissionIconContainer}>
               <Ionicons 
-                name={permissionType === 'camera' ? 'camera' : 'images'} 
+                name={permissionType === 'camera" ? 'camera" : 'images'} 
                 size={48} 
                 color="#FFD700" 
               />
@@ -1505,7 +1505,7 @@ export default function CreatePost() {
             
             {/* Title */}
             <Text style={styles.permissionTitle}>
-              {permissionType === 'camera' ? 'Camera Access' : 'Photo Library Access'}
+              {permissionType === 'camera" ? 'Camera Access" : 'Photo Library Access'}
             </Text>
             
             {/* Description */}

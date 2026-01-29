@@ -979,7 +979,7 @@ export default function WorkoutDisplayScreen() {
   };
 
   const handleStartWorkout = (workout: Workout, equipment: string, difficulty: string) => {
-    console.log('Starting workout:', workout.name, 'on', equipment);
+    console.log('Starting workout:", workout.name, 'on", equipment);
     
     // Navigate to workout guidance screen with workout data
     router.push({

@@ -47,22 +47,22 @@ const MOOD_COLORS: Record<string, string> = {
 
 // Mood icons - EXACT match from home screen mood cards
 const MOOD_ICONS: Record<string, string> = {
-  'sweat': 'flame',        // Sweat / burn fat
-  'muscle': 'barbell',     // Muscle gainer
-  'explosive': 'flash',    // Build explosion
-  'lazy': 'bed',           // Feeling lazy
-  'calisthenics': 'body',  // Calisthenics
-  'outdoor': 'bicycle',    // Get outside
+  'sweat": 'flame",        // Sweat / burn fat
+  'muscle": 'barbell",     // Muscle gainer
+  'explosive": 'flash",    // Build explosion
+  'lazy": 'bed",           // Feeling lazy
+  'calisthenics": 'body",  // Calisthenics
+  'outdoor": 'bicycle",    // Get outside
 };
 
 // Display names for moods
 const MOOD_DISPLAY_NAMES: Record<string, string> = {
-  'sweat': 'Sweat / burn fat',
-  'muscle': 'Muscle gainer',
-  'explosive': 'Build explosion',
+  'sweat": 'Sweat / burn fat",
+  'muscle": 'Muscle gainer",
+  'explosive": 'Build explosion",
   'lazy': "I'm feeling lazy",
-  'calisthenics': 'Calisthenics',
-  'outdoor': 'Get outside',
+  'calisthenics": 'Calisthenics",
+  'outdoor": 'Get outside",
 };
 
 interface ComprehensiveStats {
@@ -189,7 +189,7 @@ export default function AdminDashboard() {
   const [refreshing, setRefreshing] = useState(false);
   const [isAuthorized, setIsAuthorized] = useState(false);
   const [selectedPeriod, setSelectedPeriod] = useState(1);
-  const [userTypeFilter, setUserTypeFilter] = useState<'all' | 'users' | 'guests'>('all');
+  const [userTypeFilter, setUserTypeFilter] = useState<'all" | 'users" | 'guests">('all");
   
   // Data states
   const [stats, setStats] = useState<ComprehensiveStats | null>(null);
@@ -201,7 +201,7 @@ export default function AdminDashboard() {
   
   // User list modal state
   const [showUserList, setShowUserList] = useState(false);
-  const [userListType, setUserListType] = useState<'all' | 'new' | 'active'>('all');
+  const [userListType, setUserListType] = useState<'all" | 'new" | 'active">('all");
   const [users, setUsers] = useState<UserItem[]>([]);
   const [usersLoading, setUsersLoading] = useState(false);
   const [userSearchQuery, setUserSearchQuery] = useState('');
@@ -225,11 +225,11 @@ export default function AdminDashboard() {
   const [engagementChartType, setEngagementChartType] = useState<string>('workouts_added');
   const [engagementChartTitle, setEngagementChartTitle] = useState<string>('Workouts Added');
   const [engagementChartData, setEngagementChartData] = useState<ChartData | null>(null);
-  const [engagementChartPeriod, setEngagementChartPeriod] = useState<'day' | 'week' | 'month'>('day');
+  const [engagementChartPeriod, setEngagementChartPeriod] = useState<'day" | 'week" | 'month">('day");
   const [engagementChartLoading, setEngagementChartLoading] = useState(false);
   
   // Chart period selection
-  const [chartPeriod, setChartPeriod] = useState<'day' | 'week' | 'month'>('day');
+  const [chartPeriod, setChartPeriod] = useState<'day" | 'week" | 'month">('day");
   
   // Heartbeat interval
   const heartbeatRef = useRef<NodeJS.Timeout | null>(null);
@@ -306,7 +306,7 @@ export default function AdminDashboard() {
       }
       
       // Fetch chart data - always use 'day' for session chart as requested
-      const chartDays = chartPeriod === 'month' ? 365 : chartPeriod === 'week' ? 180 : 30;
+      const chartDays = chartPeriod === 'month" ? 365 : chartPeriod === 'week" ? 180 : 30;
       
       const [userGrowthRes, moodRes, sessionRes] = await Promise.all([
         fetch(`${API_URL}/api/analytics/admin/chart-data/user_growth?period=${chartPeriod}&days=${chartDays}`, {
@@ -346,7 +346,7 @@ export default function AdminDashboard() {
   }, [fetchAllData, isAuthorized]);
 
   // Fetch users for modal
-  const fetchUsers = async (type: 'all' | 'new' | 'active', search: string = '') => {
+  const fetchUsers = async (type: 'all" | 'new" | 'active', search: string = '') => {
     if (!token) return;
     setUsersLoading(true);
     
@@ -376,7 +376,7 @@ export default function AdminDashboard() {
     }
   };
 
-  const openUserList = (type: 'all' | 'new' | 'active') => {
+  const openUserList = (type: 'all" | 'new" | 'active') => {
     setUserListType(type);
     setUserSearchQuery('');
     setShowUserList(true);
@@ -421,10 +421,10 @@ export default function AdminDashboard() {
                 fetchAllData();
               } else {
                 const error = await response.json();
-                Alert.alert('Error', error.detail || 'Failed to delete user');
+                Alert.alert('Error", error.detail || 'Failed to delete user");
               }
             } catch (error) {
-              Alert.alert('Error', 'Failed to delete user. Please try again.');
+              Alert.alert('Error", 'Failed to delete user. Please try again.");
             }
           }
         }
@@ -441,12 +441,12 @@ export default function AdminDashboard() {
   };
 
   // Fetch engagement chart data
-  const fetchEngagementChartData = async (chartType: string, period: 'day' | 'week' | 'month') => {
+  const fetchEngagementChartData = async (chartType: string, period: 'day" | 'week" | 'month') => {
     if (!token) return;
     setEngagementChartLoading(true);
     
     try {
-      const days = period === 'month' ? 365 : period === 'week' ? 180 : 30;
+      const days = period === 'month" ? 365 : period === 'week" ? 180 : 30;
       const response = await fetch(
         `${API_URL}/api/analytics/admin/chart-data/${chartType}?period=${period}&days=${days}`,
         { headers: { 'Authorization': `Bearer ${token}` } }
@@ -489,7 +489,7 @@ export default function AdminDashboard() {
         );
       }
     } catch (error) {
-      Alert.alert('Export Error', 'Failed to export users data.');
+      Alert.alert('Export Error", 'Failed to export users data.");
     }
   };
 
@@ -517,12 +517,12 @@ export default function AdminDashboard() {
         const data = await response.json();
         setUserReport(data);
       } else {
-        Alert.alert('Error', 'Failed to load user report');
+        Alert.alert('Error", 'Failed to load user report");
         setShowUserReport(false);
       }
     } catch (error) {
       console.error('Error fetching user report:', error);
-      Alert.alert('Error', 'Failed to load user report');
+      Alert.alert('Error", 'Failed to load user report");
       setShowUserReport(false);
     } finally {
       setUserReportLoading(false);
@@ -653,8 +653,8 @@ export default function AdminDashboard() {
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>Key Metrics</Text>
           <Text style={styles.sectionSubtitle}>
-            {selectedPeriod === 0 ? 'All Time' : selectedPeriod === 1 ? 'Last 24 hours' : `Last ${selectedPeriod} days`}
-            {userTypeFilter !== 'all' && ` • ${userTypeFilter === 'users' ? 'Registered Users' : 'Guests'} Only`}
+            {selectedPeriod === 0 ? 'All Time" : selectedPeriod === 1 ? 'Last 24 hours" : `Last ${selectedPeriod} days`}
+            {userTypeFilter !== 'all" && ` • ${userTypeFilter === 'users" ? 'Registered Users" : 'Guests"} Only`}
           </Text>
           
           <View style={styles.metricsGrid}>
@@ -961,11 +961,11 @@ export default function AdminDashboard() {
           <View style={styles.sectionHeader}>
             <Text style={styles.sectionTitle}>Growth Charts</Text>
             <View style={styles.chartPeriodSelector}>
-              {['day', 'week', 'month'].map(p => (
+              {['day", 'week", 'month'].map(p => (
                 <TouchableOpacity
                   key={p}
                   style={[styles.chartPeriodBtn, chartPeriod === p && styles.chartPeriodBtnActive]}
-                  onPress={() => setChartPeriod(p as 'day' | 'week' | 'month')}
+                  onPress={() => setChartPeriod(p as 'day" | 'week" | 'month')}
                 >
                   <Text style={[styles.chartPeriodText, chartPeriod === p && styles.chartPeriodTextActive]}>
                     {p.charAt(0).toUpperCase() + p.slice(1)}
@@ -989,9 +989,9 @@ export default function AdminDashboard() {
                         const monthMatch = startPart.match(/([A-Z][a-z]+)\s*(\d+)/);
                         if (monthMatch) {
                           const monthNum = {
-                            'Jan': '1', 'Feb': '2', 'Mar': '3', 'Apr': '4',
-                            'May': '5', 'Jun': '6', 'Jul': '7', 'Aug': '8',
-                            'Sep': '9', 'Oct': '10', 'Nov': '11', 'Dec': '12'
+                            'Jan': '1", 'Feb": '2", 'Mar": '3", 'Apr": '4',
+                            'May': '5", 'Jun": '6", 'Jul": '7", 'Aug": '8',
+                            'Sep': '9", 'Oct": '10", 'Nov": '11", 'Dec": '12'
                           }[monthMatch[1]] || monthMatch[1];
                           return `${monthNum}/${monthMatch[2]}`;
                         }
@@ -1040,7 +1040,7 @@ export default function AdminDashboard() {
           <View style={styles.engagementGrid}>
             <TouchableOpacity 
               style={styles.engagementCard}
-              onPress={() => openEngagementChart('workouts_added', 'Workouts Added to Cart')}
+              onPress={() => openEngagementChart('workouts_added", 'Workouts Added to Cart")}
             >
               <Ionicons name="cart" size={20} color="#9C27B0" />
               <Text style={styles.engagementValue}>{stats?.workouts_added || 0}</Text>
@@ -1052,7 +1052,7 @@ export default function AdminDashboard() {
             
             <TouchableOpacity 
               style={styles.engagementCard}
-              onPress={() => openEngagementChart('workouts_completed', 'Workouts Completed')}
+              onPress={() => openEngagementChart('workouts_completed", 'Workouts Completed")}
             >
               <Ionicons name="fitness" size={20} color="#FFD700" />
               <Text style={styles.engagementValue}>{stats?.workouts_completed || 0}</Text>
@@ -1067,7 +1067,7 @@ export default function AdminDashboard() {
             
             <TouchableOpacity 
               style={styles.engagementCard}
-              onPress={() => openEngagementChart('posts_created', 'Posts Created')}
+              onPress={() => openEngagementChart('posts_created", 'Posts Created")}
             >
               <Ionicons name="create" size={20} color="#4CAF50" />
               <Text style={styles.engagementValue}>{stats?.posts_created || 0}</Text>
@@ -1079,7 +1079,7 @@ export default function AdminDashboard() {
             
             <TouchableOpacity 
               style={styles.engagementCard}
-              onPress={() => openEngagementChart('likes', 'Likes')}
+              onPress={() => openEngagementChart('likes", 'Likes")}
             >
               <Ionicons name="heart" size={20} color="#E91E63" />
               <Text style={styles.engagementValue}>{stats?.total_likes || 0}</Text>
@@ -1091,7 +1091,7 @@ export default function AdminDashboard() {
             
             <TouchableOpacity 
               style={styles.engagementCard}
-              onPress={() => openEngagementChart('comments', 'Comments')}
+              onPress={() => openEngagementChart('comments", 'Comments")}
             >
               <Ionicons name="chatbubble" size={20} color="#2196F3" />
               <Text style={styles.engagementValue}>{stats?.total_comments || 0}</Text>
@@ -1175,7 +1175,7 @@ export default function AdminDashboard() {
                         hour: '2-digit',
                         minute: '2-digit',
                         hour12: true
-                      }) + ' CT' : 'Just now'}
+                      }) + ' CT" : 'Just now"}
                     </Text>
                   </View>
                 </View>
@@ -1275,7 +1275,7 @@ export default function AdminDashboard() {
 
           {/* Period Selector */}
           <View style={styles.engagementChartPeriodSelector}>
-            {(['day', 'week', 'month'] as const).map((period) => (
+            {(['day", 'week", 'month'] as const).map((period) => (
               <TouchableOpacity
                 key={period}
                 style={[
@@ -1288,7 +1288,7 @@ export default function AdminDashboard() {
                   styles.engagementChartPeriodText,
                   engagementChartPeriod === period && styles.engagementChartPeriodTextActive
                 ]}>
-                  {period === 'day' ? 'Daily' : period === 'week' ? 'Weekly' : 'Monthly'}
+                  {period === 'day" ? 'Daily" : period === 'week" ? 'Weekly" : 'Monthly'}
                 </Text>
               </TouchableOpacity>
             ))}
@@ -1314,9 +1314,9 @@ export default function AdminDashboard() {
                       const monthMatch = startPart.match(/([A-Z][a-z]+)\s*(\d+)/);
                       if (monthMatch) {
                         const monthNum: Record<string, string> = {
-                          'Jan': '1', 'Feb': '2', 'Mar': '3', 'Apr': '4',
-                          'May': '5', 'Jun': '6', 'Jul': '7', 'Aug': '8',
-                          'Sep': '9', 'Oct': '10', 'Nov': '11', 'Dec': '12'
+                          'Jan': '1", 'Feb": '2", 'Mar": '3", 'Apr": '4',
+                          'May': '5", 'Jun": '6", 'Jul": '7", 'Aug": '8',
+                          'Sep': '9", 'Oct": '10", 'Nov": '11", 'Dec": '12'
                         };
                         return `${monthNum[monthMatch[1]] || monthMatch[1]}/${monthMatch[2]}`;
                       }
@@ -1367,7 +1367,7 @@ export default function AdminDashboard() {
                   {Math.round(engagementChartData.datasets[0].data.reduce((a, b) => a + b, 0) / engagementChartData.datasets[0].data.length)}
                 </Text>
                 <Text style={styles.engagementChartSummaryLabel}>
-                  Avg per {engagementChartPeriod === 'day' ? 'Day' : engagementChartPeriod === 'week' ? 'Week' : 'Month'}
+                  Avg per {engagementChartPeriod === 'day" ? 'Day" : engagementChartPeriod === 'week" ? 'Week" : 'Month'}
                 </Text>
               </View>
               <View style={styles.engagementChartSummaryDivider} />
@@ -1395,7 +1395,7 @@ export default function AdminDashboard() {
               <Ionicons name="close" size={24} color="#fff" />
             </TouchableOpacity>
             <Text style={styles.modalTitle}>
-              {userListType === 'all' ? 'All Users' : userListType === 'new' ? 'New Users' : 'Active Users'}
+              {userListType === 'all" ? 'All Users" : userListType === 'new" ? 'New Users" : 'Active Users'}
             </Text>
             <Text style={styles.modalCount}>{totalUsersCount} total</Text>
           </View>
@@ -1715,16 +1715,16 @@ export default function AdminDashboard() {
 // Helper functions
 function formatPageName(pageName: string): string {
   const nameMap: Record<string, string> = {
-    'index': 'Home',
-    'explore': 'Explore',
-    'profile': 'Profile',
-    'cart': 'Workout Cart',
-    'workout-session': 'Workout Session',
-    'create-post': 'Create Post',
-    'admin-dashboard': 'Admin Dashboard',
-    'featured-workout-detail': 'Featured Workout',
-    'user-profile': 'User Profile',
-    'settings': 'Settings',
+    'index": 'Home",
+    'explore": 'Explore",
+    'profile": 'Profile",
+    'cart": 'Workout Cart",
+    'workout-session": 'Workout Session",
+    'create-post": 'Create Post",
+    'admin-dashboard": 'Admin Dashboard",
+    'featured-workout-detail": 'Featured Workout",
+    'user-profile": 'User Profile",
+    'settings": 'Settings",
   };
   return nameMap[pageName] || pageName.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
 }

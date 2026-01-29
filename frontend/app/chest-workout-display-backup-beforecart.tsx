@@ -1452,7 +1452,7 @@ export default function ChestWorkoutDisplayScreen() {
 
   const handleStartWorkout = (workout: Workout, equipment: string, difficulty: string) => {
     try {
-      console.log('🚀 Starting workout:', workout.name, 'on', equipment);
+      console.log('🚀 Starting workout:", workout.name, 'on", equipment);
       
       // Validate required parameters
       if (!workout.name || !equipment || !difficulty) {
@@ -1485,10 +1485,10 @@ export default function ChestWorkoutDisplayScreen() {
   // Create progress bar - single row with requested order
   const createProgressRows = () => {
     const steps = [
-      { key: 'mood', icon: 'flame', text: moodTitle },
-      { key: 'bodyPart', icon: 'fitness', text: workoutType },
-      { key: 'difficulty', icon: 'speedometer', text: difficulty.charAt(0).toUpperCase() + difficulty.slice(1) },
-      { key: 'equipment', icon: 'construct', text: `${selectedEquipmentNames.length} Equipment` },
+      { key: 'mood", icon: 'flame", text: moodTitle },
+      { key: 'bodyPart", icon: 'fitness", text: workoutType },
+      { key: 'difficulty", icon: 'speedometer", text: difficulty.charAt(0).toUpperCase() + difficulty.slice(1) },
+      { key: 'equipment", icon: 'construct", text: `${selectedEquipmentNames.length} Equipment` },
     ];
 
     // Return single row
@@ -1497,15 +1497,15 @@ export default function ChestWorkoutDisplayScreen() {
 
   const getEquipmentIcon = (equipmentName: string): keyof typeof Ionicons.glyphMap => {
     const equipmentIconMap: { [key: string]: keyof typeof Ionicons.glyphMap } = {
-      'Adjustable bench': 'square',
-      'Cable crossover': 'reorder-three',
-      'Chest press machine': 'hardware-chip',
-      'Decline bench': 'trending-down',
-      'Dip station': 'remove',
-      'Flat bench': 'square',
-      'Incline bench': 'trending-up',
-      'Pec dec machine': 'contract',
-      'Smith machine': 'barbell'
+      'Adjustable bench": 'square",
+      'Cable crossover": 'reorder-three",
+      'Chest press machine": 'hardware-chip",
+      'Decline bench": 'trending-down",
+      'Dip station": 'remove",
+      'Flat bench": 'square",
+      'Incline bench": 'trending-up",
+      'Pec dec machine": 'contract",
+      'Smith machine": 'barbell"
     };
     return equipmentIconMap[equipmentName] || 'fitness';
   };

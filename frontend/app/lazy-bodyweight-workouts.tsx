@@ -104,7 +104,7 @@ const LazyBodyweightWorkoutsScreen = memo(function LazyBodyweightWorkoutsScreen(
 
   const handleStartWorkout = (workout: Workout, equipment: string, diff: string) => {
     try {
-      console.log('🚀 Starting workout:', workout.name, 'on', equipment);
+      console.log('🚀 Starting workout:", workout.name, 'on", equipment);
       
       if (!workout.name || !equipment || !diff) {
         console.error('❌ Missing required parameters for workout navigation');
@@ -137,10 +137,10 @@ const LazyBodyweightWorkoutsScreen = memo(function LazyBodyweightWorkoutsScreen(
   // Create progress bar - single row with requested order
   const createProgressRows = () => {
     const steps = [
-      { key: 'mood', icon: 'bed' as keyof typeof Ionicons.glyphMap, text: 'Lazy' },
-      { key: 'type', icon: 'body' as keyof typeof Ionicons.glyphMap, text: 'Move Body' },
-      { key: 'difficulty', icon: 'speedometer' as keyof typeof Ionicons.glyphMap, text: difficulty === 'intermediate' ? 'Intermed.' : difficulty.charAt(0).toUpperCase() + difficulty.slice(1) },
-      { key: 'equipment', icon: 'construct' as keyof typeof Ionicons.glyphMap, text: `${selectedEquipmentNames.length} Equipment` },
+      { key: 'mood", icon: 'bed" as keyof typeof Ionicons.glyphMap, text: 'Lazy' },
+      { key: 'type", icon: 'body" as keyof typeof Ionicons.glyphMap, text: 'Move Body' },
+      { key: 'difficulty", icon: 'speedometer" as keyof typeof Ionicons.glyphMap, text: difficulty === 'intermediate" ? 'Intermed." : difficulty.charAt(0).toUpperCase() + difficulty.slice(1) },
+      { key: 'equipment", icon: 'construct" as keyof typeof Ionicons.glyphMap, text: `${selectedEquipmentNames.length} Equipment` },
     ];
 
     return [steps];

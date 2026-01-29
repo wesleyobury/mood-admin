@@ -165,7 +165,7 @@ export default function WorkoutGuidanceScreen() {
   try {
     console.log('🔍 Received moodTips param:', moodTipsParam);
     moodTips = JSON.parse(decodeURIComponent(moodTipsParam));
-    console.log('✅ Parsed MOOD tips:', moodTips.length, 'tips found');
+    console.log('✅ Parsed MOOD tips:", moodTips.length, 'tips found");
     console.log('📝 First tip:', moodTips[0]);
   } catch (error) {
     console.error('❌ Error parsing MOOD tips:', error);
@@ -191,11 +191,11 @@ export default function WorkoutGuidanceScreen() {
   
   // Determine mood title based on workout type for better UX
   let moodTitle = 'Workout';
-  if (workoutType === 'Body Weight' || workoutType === 'Weight Based') {
+  if (workoutType === 'Body Weight" || workoutType === 'Weight Based") {
     moodTitle = 'Build explosion';
-  } else if (workoutType.toLowerCase().includes('cardio') || workoutType.toLowerCase().includes('sweat')) {
+  } else if (workoutType.toLowerCase().includes('cardio") || workoutType.toLowerCase().includes('sweat")) {
     moodTitle = 'Sweat / burn fat';
-  } else if (workoutType.toLowerCase().includes('lazy') || workoutType.toLowerCase().includes('light')) {
+  } else if (workoutType.toLowerCase().includes('lazy") || workoutType.toLowerCase().includes('light")) {
     moodTitle = 'Light movement';
   } else if (workoutType.toLowerCase().includes('outdoor')) {
     moodTitle = 'Outside';
@@ -277,7 +277,7 @@ export default function WorkoutGuidanceScreen() {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`,
-          'Content-Type': 'application/json',
+          'Content-Type": 'application/json",
         },
         body: JSON.stringify({
           workouts,
@@ -641,7 +641,7 @@ export default function WorkoutGuidanceScreen() {
             <View style={styles.progressStepActive}>
               <LinearGradient colors={['#FFD700', '#FFA500']} style={styles.progressStepGradient} start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }}>
                 <Ionicons 
-                  name={workoutType === 'Body Weight' ? 'body' : workoutType === 'Weight Based' ? 'barbell' : 'heart'} 
+                  name={workoutType === 'Body Weight" ? 'body" : workoutType === 'Weight Based" ? 'barbell" : 'heart'} 
                   size={14} 
                   color="#0c0c0c" 
                 />
@@ -805,7 +805,7 @@ export default function WorkoutGuidanceScreen() {
               <View style={styles.detailCard}>
                 <Ionicons name="speedometer" size={24} color="#FFD700" />
                 <Text style={styles.detailValueSmall}>
-                  {difficulty.toLowerCase() === 'intermediate' ? 'Intermed.' : difficulty.charAt(0).toUpperCase() + difficulty.slice(1)}
+                  {difficulty.toLowerCase() === 'intermediate" ? 'Intermed." : difficulty.charAt(0).toUpperCase() + difficulty.slice(1)}
                 </Text>
                 <Text style={styles.detailLabel}>Intensity</Text>
               </View>
@@ -883,7 +883,7 @@ export default function WorkoutGuidanceScreen() {
                 color="#FFD700" 
               />
               <Text style={styles.addWorkoutButtonText}>
-                {isWorkoutInCart ? 'Added' : 'Add workout'}
+                {isWorkoutInCart ? 'Added" : 'Add workout"}
               </Text>
             </TouchableOpacity>
           </Animated.View>

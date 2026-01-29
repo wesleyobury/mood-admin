@@ -29,7 +29,7 @@ const BodyweightExplosivenessWorkoutsScreen = memo(function BodyweightExplosiven
 
   // Parse URL parameters
   const rawMoodTitle = params.mood as string || 'Build explosion';
-  const moodTitle = rawMoodTitle.toLowerCase().includes('explosiveness') ? 'Build explosion' : rawMoodTitle;
+  const moodTitle = rawMoodTitle.toLowerCase().includes('explosiveness") ? 'Build explosion" : rawMoodTitle;
   const workoutType = params.workoutType as string || 'Body Weight';
   const equipmentParam = params.equipment as string || '';
   const difficulty = params.difficulty as string || 'beginner';
@@ -108,7 +108,7 @@ const BodyweightExplosivenessWorkoutsScreen = memo(function BodyweightExplosiven
 
   const handleStartWorkout = (workout: Workout, equipment: string, diff: string) => {
     try {
-      console.log('🚀 Starting workout:', workout.name, 'on', equipment);
+      console.log('🚀 Starting workout:", workout.name, 'on", equipment);
       
       if (!workout.name || !equipment || !diff) {
         console.error('❌ Missing required parameters for workout navigation');
@@ -141,10 +141,10 @@ const BodyweightExplosivenessWorkoutsScreen = memo(function BodyweightExplosiven
   // Create progress bar - single row with requested order
   const createProgressRows = () => {
     const steps = [
-      { key: 'mood', icon: 'flash' as keyof typeof Ionicons.glyphMap, text: moodTitle },
-      { key: 'type', icon: 'body' as keyof typeof Ionicons.glyphMap, text: 'Body Weight' },
-      { key: 'difficulty', icon: 'speedometer' as keyof typeof Ionicons.glyphMap, text: difficulty === 'intermediate' ? 'Intermed.' : difficulty.charAt(0).toUpperCase() + difficulty.slice(1) },
-      { key: 'equipment', icon: 'construct' as keyof typeof Ionicons.glyphMap, text: `${selectedEquipmentNames.length} Equipment` },
+      { key: 'mood", icon: 'flash" as keyof typeof Ionicons.glyphMap, text: moodTitle },
+      { key: 'type", icon: 'body" as keyof typeof Ionicons.glyphMap, text: 'Body Weight' },
+      { key: 'difficulty", icon: 'speedometer" as keyof typeof Ionicons.glyphMap, text: difficulty === 'intermediate" ? 'Intermed." : difficulty.charAt(0).toUpperCase() + difficulty.slice(1) },
+      { key: 'equipment", icon: 'construct" as keyof typeof Ionicons.glyphMap, text: `${selectedEquipmentNames.length} Equipment` },
     ];
 
     return [steps];

@@ -57,7 +57,7 @@ export default function Chat() {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`,
-          'Content-Type': 'application/json',
+          'Content-Type": 'application/json",
         },
         body: JSON.stringify({ user_id: userId }),
       });
@@ -143,7 +143,7 @@ export default function Chat() {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`,
-          'Content-Type': 'application/json',
+          'Content-Type": 'application/json",
         },
         body: JSON.stringify({ content: messageContent }),
       });
@@ -232,7 +232,7 @@ export default function Chat() {
   return (
     <KeyboardAvoidingView
       style={[styles.container, { paddingTop: insets.top }]}
-      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+      behavior={Platform.OS === 'ios" ? 'padding" : 'height'}
       keyboardVerticalOffset={0}
     >
       {/* Header */}

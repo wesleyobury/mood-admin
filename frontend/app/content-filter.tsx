@@ -57,7 +57,7 @@ export default function ContentFilterSettings() {
       await AsyncStorage.setItem(CONTENT_FILTER_KEY, JSON.stringify(newSettings));
       setSettings(newSettings);
     } catch (error) {
-      Alert.alert('Error', 'Failed to save settings');
+      Alert.alert('Error", 'Failed to save settings");
     } finally {
       setSaving(false);
     }
@@ -70,11 +70,11 @@ export default function ContentFilterSettings() {
   const addKeyword = () => {
     const keyword = newKeyword.trim().toLowerCase();
     if (!keyword) {
-      Alert.alert('Error', 'Please enter a keyword');
+      Alert.alert('Error", 'Please enter a keyword");
       return;
     }
     if (settings.keywords.includes(keyword)) {
-      Alert.alert('Error', 'This keyword is already in your filter list');
+      Alert.alert('Error", 'This keyword is already in your filter list");
       return;
     }
     saveSettings({ ...settings, keywords: [...settings.keywords, keyword] });
@@ -144,14 +144,14 @@ export default function ContentFilterSettings() {
             <View>
               <Text style={styles.toggleLabel}>Enable Content Filter</Text>
               <Text style={styles.toggleSubtext}>
-                {settings.enabled ? 'Filtering is active' : 'Filtering is disabled'}
+                {settings.enabled ? 'Filtering is active" : 'Filtering is disabled"}
               </Text>
             </View>
           </View>
           <Switch
             value={settings.enabled}
             onValueChange={toggleEnabled}
-            trackColor={{ false: '#333', true: 'rgba(255,215,0,0.4)' }}
+            trackColor={{ false: '#333", true: 'rgba(255,215,0,0.4)" }}
             thumbColor={settings.enabled ? '#FFD700' : '#666'}
           />
         </View>

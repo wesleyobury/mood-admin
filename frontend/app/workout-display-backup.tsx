@@ -3024,7 +3024,7 @@ export default function WorkoutDisplayScreen() {
 
   const handleStartWorkout = (workout: Workout, equipment: string, difficulty: string) => {
     try {
-      console.log('🚀 Starting workout:', workout.name, 'on', equipment);
+      console.log('🚀 Starting workout:", workout.name, 'on", equipment);
       
       // Validate required parameters
       if (!workout.name || !equipment || !difficulty) {
@@ -3110,18 +3110,18 @@ export default function WorkoutDisplayScreen() {
             // Get appropriate icon for each equipment type
             const getEquipmentIcon = (equipmentName: string) => {
               const equipmentIconMap: { [key: string]: keyof typeof Ionicons.glyphMap } = {
-                'Treadmill': 'walk',
-                'Elliptical': 'ellipse',
-                'Arm bicycle': 'bicycle',
-                'Stationary bike': 'bicycle',
-                'Assault bike': 'bicycle',
-                'Row machine': 'boat',
-                'Stair master': 'trending-up',
-                'Ski machine': 'snow',
-                'Curve treadmill': 'walk',
-                'Punching bag': 'hand-left',
-                'Vertical Climber': 'triangle',
-                'Jump rope': 'git-compare'
+                'Treadmill": 'walk",
+                'Elliptical": 'ellipse",
+                'Arm bicycle": 'bicycle",
+                'Stationary bike": 'bicycle",
+                'Assault bike": 'bicycle",
+                'Row machine": 'boat",
+                'Stair master": 'trending-up",
+                'Ski machine": 'snow",
+                'Curve treadmill": 'walk",
+                'Punching bag": 'hand-left",
+                'Vertical Climber": 'triangle",
+                'Jump rope": 'git-compare"
               };
               return equipmentIconMap[equipmentName] || 'fitness';
             };

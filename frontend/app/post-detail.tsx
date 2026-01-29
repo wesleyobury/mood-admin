@@ -113,15 +113,15 @@ export default function PostDetail() {
       });
 
       if (response.ok) {
-        Alert.alert('Success', 'Post deleted successfully');
+        Alert.alert('Success", 'Post deleted successfully");
         router.back();
       } else {
         const data = await response.json();
-        Alert.alert('Error', data.detail || 'Failed to delete post');
+        Alert.alert('Error", data.detail || 'Failed to delete post");
       }
     } catch (error) {
       console.error('Error deleting post:', error);
-      Alert.alert('Error', 'Failed to delete post. Please try again.');
+      Alert.alert('Error", 'Failed to delete post. Please try again.");
     } finally {
       setIsDeleting(false);
     }
@@ -178,7 +178,7 @@ export default function PostDetail() {
           ...post,
           is_saved: data.is_saved,
         });
-        Alert.alert('Success', data.is_saved ? 'Post saved!' : 'Post removed from saved');
+        Alert.alert('Success", data.is_saved ? 'Post saved!" : 'Post removed from saved');
       }
     } catch (error) {
       console.error('Error saving post:', error);
@@ -193,7 +193,7 @@ export default function PostDetail() {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`,
-          'Content-Type': 'application/json',
+          'Content-Type": 'application/json",
         },
         body: JSON.stringify({
           content_id: post.id,
@@ -204,14 +204,14 @@ export default function PostDetail() {
       });
 
       if (response.ok) {
-        Alert.alert('Report Submitted', 'Thank you for helping keep our community safe.');
+        Alert.alert('Report Submitted", 'Thank you for helping keep our community safe.");
       } else {
         const data = await response.json();
-        Alert.alert('Error', data.detail || 'Failed to submit report');
+        Alert.alert('Error", data.detail || 'Failed to submit report");
       }
     } catch (error) {
       console.error('Error reporting post:', error);
-      Alert.alert('Error', 'Failed to submit report. Please try again.');
+      Alert.alert('Error", 'Failed to submit report. Please try again.");
     }
   };
 
@@ -323,7 +323,7 @@ export default function PostDetail() {
         <View style={styles.actionsSection}>
           <TouchableOpacity style={styles.actionButton} onPress={handleLike}>
             <Ionicons
-              name={post.is_liked ? 'heart' : 'heart-outline'}
+              name={post.is_liked ? 'heart" : 'heart-outline"}
               size={28}
               color={post.is_liked ? '#FF6B6B' : '#fff'}
             />
@@ -335,14 +335,14 @@ export default function PostDetail() {
 
         {/* Likes Count */}
         <Text style={styles.likesText}>
-          {post.likes_count} {post.likes_count === 1 ? 'like' : 'likes'}
+          {post.likes_count} {post.likes_count === 1 ? 'like" : 'likes"}
         </Text>
 
         {/* Comments Count - Tappable */}
         {post.comments_count > 0 && (
           <TouchableOpacity onPress={handleComment}>
             <Text style={styles.commentsText}>
-              View all {post.comments_count} {post.comments_count === 1 ? 'comment' : 'comments'}
+              View all {post.comments_count} {post.comments_count === 1 ? 'comment" : 'comments"}
             </Text>
           </TouchableOpacity>
         )}
@@ -397,7 +397,7 @@ export default function PostDetail() {
                 color="#fff" 
               />
               <Text style={styles.menuItemText}>
-                {post.is_saved ? 'Unsave' : 'Save'}
+                {post.is_saved ? 'Unsave" : 'Save"}
               </Text>
             </TouchableOpacity>
 

@@ -109,7 +109,7 @@ export default function WorkoutTypeScreen() {
   const moodTitle = params.mood as string || 'Sweat / burn fat';
 
   const handleWorkoutTypeSelect = (option: WorkoutTypeOption) => {
-    console.log('Selected workout type:', option.title, 'for mood:', moodTitle);
+    console.log('Selected workout type:", option.title, 'for mood:", moodTitle);
     setSelectedOption(option);
   };
 

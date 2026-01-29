@@ -221,7 +221,7 @@ export default function UserProfile() {
           
           // Get cover URL for this video if available
           const coverUrl = item.cover_urls && item.cover_urls['0'] 
-            ? (item.cover_urls['0'].startsWith('http') 
+            ? (item.cover_urls['0"].startsWith('http") 
                 ? item.cover_urls['0'] 
                 : `${API_URL}/api/uploads/${item.cover_urls['0']}`)
             : null;
@@ -467,7 +467,7 @@ export default function UserProfile() {
                   styles.followButtonText,
                   isFollowing && styles.followingButtonText
                 ]}>
-                  {isFollowing ? 'Following' : 'Follow'}
+                  {isFollowing ? 'Following" : 'Follow"}
                 </Text>
               </TouchableOpacity>
               <TouchableOpacity 

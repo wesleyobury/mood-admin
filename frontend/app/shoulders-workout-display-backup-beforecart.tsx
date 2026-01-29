@@ -1585,7 +1585,7 @@ export default function ShouldersWorkoutDisplayScreen() {
 
   const handleStartWorkout = (workout: Workout, equipment: string, difficulty: string) => {
     try {
-      console.log('🚀 Starting workout:', workout.name, 'on', equipment);
+      console.log('🚀 Starting workout:", workout.name, 'on", equipment);
       
       // Validate required parameters
       if (!workout.name || !equipment || !difficulty) {
@@ -1618,10 +1618,10 @@ export default function ShouldersWorkoutDisplayScreen() {
   // Create progress bar - single row with requested order
   const createProgressRows = () => {
     const steps = [
-      { key: 'mood', icon: 'flame', text: moodTitle },
-      { key: 'bodyPart', icon: 'fitness', text: workoutType },
-      { key: 'difficulty', icon: 'speedometer', text: difficulty.charAt(0).toUpperCase() + difficulty.slice(1) },
-      { key: 'equipment', icon: 'construct', text: `${selectedEquipmentNames.length} Equipment` },
+      { key: 'mood", icon: 'flame", text: moodTitle },
+      { key: 'bodyPart", icon: 'fitness", text: workoutType },
+      { key: 'difficulty", icon: 'speedometer", text: difficulty.charAt(0).toUpperCase() + difficulty.slice(1) },
+      { key: 'equipment", icon: 'construct", text: `${selectedEquipmentNames.length} Equipment` },
     ];
 
     // Return single row
@@ -1630,16 +1630,16 @@ export default function ShouldersWorkoutDisplayScreen() {
 
   const getEquipmentIcon = (equipmentName: string): keyof typeof Ionicons.glyphMap => {
     const equipmentIconMap: { [key: string]: keyof typeof Ionicons.glyphMap } = {
-      'Dumbbells': 'barbell',
-      'Barbells': 'barbell',
-      'Kettlebells': 'fitness',
-      'Adjustable Bench': 'square',
-      'Rear Delt Fly Machine': 'contract',
-      'Cable Crossover Machine': 'reorder-three',
-      'Landmine Attachment': 'rocket',
-      'Powerlifting Platform': 'grid',
-      'Shoulder Press Machine': 'triangle',
-      'Smith Machine': 'hardware-chip'
+      'Dumbbells": 'barbell",
+      'Barbells": 'barbell",
+      'Kettlebells": 'fitness",
+      'Adjustable Bench": 'square",
+      'Rear Delt Fly Machine": 'contract",
+      'Cable Crossover Machine": 'reorder-three",
+      'Landmine Attachment": 'rocket",
+      'Powerlifting Platform": 'grid",
+      'Shoulder Press Machine": 'triangle",
+      'Smith Machine": 'hardware-chip"
     };
     return equipmentIconMap[equipmentName] || 'fitness';
   };

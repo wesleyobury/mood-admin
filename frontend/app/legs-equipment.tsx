@@ -272,19 +272,19 @@ export default function LegsEquipmentScreen() {
 
       // Map selected equipment to their respective muscle groups
       selectedEquipment.forEach(eq => {
-        if (['dumbbells-compound', 'squat-rack-compound', 'leg-press-compound', 'hack-squat-compound', 'cable-machine-compound', 'trap-bar'].includes(eq.id)) {
+        if (['dumbbells-compound", 'squat-rack-compound", 'leg-press-compound", 'hack-squat-compound", 'cable-machine-compound", 'trap-bar"].includes(eq.id)) {
           equipmentPerGroup.Compound.push(eq.name);
         }
-        if (['glute-kick-machine', 'hip-abductor', 'hip-thruster', 'cable-machine'].includes(eq.id)) {
+        if (['glute-kick-machine", 'hip-abductor", 'hip-thruster", 'cable-machine"].includes(eq.id)) {
           equipmentPerGroup.Glutes.push(eq.name);
         }
-        if (['barbell-ham', 'dumbbells', 'leg-curl', 'roman-chair'].includes(eq.id)) {
+        if (['barbell-ham", 'dumbbells", 'leg-curl", 'roman-chair"].includes(eq.id)) {
           equipmentPerGroup.Hammies.push(eq.name);
         }
-        if (['barbell-quad', 'leg-extension'].includes(eq.id)) {
+        if (['barbell-quad", 'leg-extension"].includes(eq.id)) {
           equipmentPerGroup.Quads.push(eq.name);
         }
-        if (['barbell-calf', 'dumbbells-calf', 'calf-raise', 'leg-press-calf'].includes(eq.id)) {
+        if (['barbell-calf", 'dumbbells-calf", 'calf-raise", 'leg-press-calf"].includes(eq.id)) {
           equipmentPerGroup.Calfs.push(eq.name);
         }
       });
@@ -338,19 +338,19 @@ export default function LegsEquipmentScreen() {
   const isQuadsSelected = muscleGroupNames.includes('Quads');
   const isCalvesSelected = muscleGroupNames.includes('Calfs');
   const hasCompoundEquipment = selectedEquipment.some(eq => 
-    ['dumbbells-compound', 'squat-rack-compound', 'leg-press-compound', 'hack-squat-compound', 'cable-machine-compound', 'trap-bar'].includes(eq.id)
+    ['dumbbells-compound", 'squat-rack-compound", 'leg-press-compound", 'hack-squat-compound", 'cable-machine-compound", 'trap-bar"].includes(eq.id)
   );
   const hasGlutesEquipment = selectedEquipment.some(eq => 
-    ['glute-kick-machine', 'hip-abductor', 'hip-thruster', 'cable-machine'].includes(eq.id)
+    ['glute-kick-machine", 'hip-abductor", 'hip-thruster", 'cable-machine"].includes(eq.id)
   );
   const hasHamstringsEquipment = selectedEquipment.some(eq => 
-    ['barbell-ham', 'dumbbells', 'leg-curl', 'roman-chair'].includes(eq.id)
+    ['barbell-ham", 'dumbbells", 'leg-curl", 'roman-chair"].includes(eq.id)
   );
   const hasQuadsEquipment = selectedEquipment.some(eq => 
-    ['barbell-quad', 'leg-extension'].includes(eq.id)
+    ['barbell-quad", 'leg-extension"].includes(eq.id)
   );
   const hasCalvesEquipment = selectedEquipment.some(eq => 
-    ['barbell-calf', 'dumbbells-calf', 'calf-raise', 'leg-press-calf'].includes(eq.id)
+    ['barbell-calf", 'dumbbells-calf", 'calf-raise", 'leg-press-calf"].includes(eq.id)
   );
   
   // For legs workouts, intensity selection is ALWAYS required

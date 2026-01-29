@@ -155,7 +155,7 @@ export default function BodyPartsScreen() {
   };
 
   const handleSubOptionSelect = (subOptionName: string) => {
-    const fullName = subOptionName === "Bi's" ? 'Biceps' : 'Triceps';
+    const fullName = subOptionName === "Bi"s" ? 'Biceps" : 'Triceps';
     
     if (isSubOptionSelected('Arms', subOptionName)) {
       // Deselect this sub-option
@@ -174,9 +174,9 @@ export default function BodyPartsScreen() {
       const muscleQueue = selectedBodyParts.map(selection => {
         if (selection.bodyPart === 'Arms' && selection.subOption) {
           return {
-            name: selection.subOption === "Bi's" ? 'Biceps' : 'Triceps',
-            displayName: selection.subOption === "Bi's" ? 'Biceps' : 'Triceps',
-            equipment: selection.subOption === "Bi's" ? 'biceps-equipment' : 'triceps-equipment'
+            name: selection.subOption === "Bi"s" ? 'Biceps" : 'Triceps',
+            displayName: selection.subOption === "Bi"s" ? 'Biceps" : 'Triceps',
+            equipment: selection.subOption === "Bi"s" ? 'biceps-equipment" : 'triceps-equipment'
           };
         }
         return {
@@ -241,7 +241,7 @@ export default function BodyPartsScreen() {
     
     const names = selectedBodyParts.map(s => {
       if (s.subOption) {
-        return s.subOption === "Bi's" ? 'Biceps' : 'Triceps';
+        return s.subOption === "Bi"s" ? 'Biceps" : 'Triceps';
       }
       return s.bodyPart;
     });
