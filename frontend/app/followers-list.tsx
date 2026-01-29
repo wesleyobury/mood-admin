@@ -195,7 +195,7 @@ export default function FollowersList() {
       </Text>
       <Text style={styles.emptyText}>
         {activeTab === 'followers' 
-          ? 'When people follow this account, they'll appear here.'
+          ? "When people follow this account, they'll appear here."
           : "When this account follows people, they'll appear here."}
       </Text>
     </View>
