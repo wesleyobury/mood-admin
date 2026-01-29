@@ -231,7 +231,7 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
           moodTips: [
             {
               icon: 'flash',
-              title: 'Plyo push-ups: Think 'fast hands'',
+              title: "Plyo push-ups: Think 'fast hands'",
               description: 'Maximal intent recruits more fibers for better development.'
             },
             {
