@@ -150,7 +150,7 @@ export default function WorkoutGuidanceScreen() {
   }
   
   // Generate workout ID for cart checking
-  const workoutId = `${workoutName}-${equipment}-${difficulty}`.toLowerCase().replace(/\s+/g, '-");
+  const workoutId = `${workoutName}-${equipment}-${difficulty}`.toLowerCase().replace(/\s+/g, '-');
   const isWorkoutInCart = isInCart(workoutId);
   
   // Animation for add workout button
