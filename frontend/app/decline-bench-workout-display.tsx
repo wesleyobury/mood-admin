@@ -116,7 +116,7 @@ const declineBenchDatabase: EquipmentWorkouts[] = [
             {
               icon: 'refresh',
               title: 'Pump-style sequence',
-              description: 'Don't rack weights; keep pecs loaded for maximum effect.'
+              description: "Don't rack weights; keep pecs loaded for maximum effect."
             },
             {
               icon: 'hand-left',

@@ -791,7 +791,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'time',
               title: 'Pacing Strategy',
-              description: 'Each 5-minute segment has a purpose - respect the progression and don't go too hard too early.'
+              description: "Each 5-minute segment has a purpose - respect the progression and don't go too hard too early."
             }
           ]
         }
