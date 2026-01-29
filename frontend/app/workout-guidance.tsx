@@ -688,18 +688,25 @@ export default function WorkoutGuidanceScreen() {
           <Text style={styles.timerLabel}>Timer:</Text>
           <Text style={styles.timerDisplay}>{formatTime(elapsedTime)}</Text>
           <TouchableOpacity 
-            style={[styles.timerButton, styles.primaryButton]}
+            style={styles.timerButton}
             onPress={handleStartPauseTimer}
             activeOpacity={0.8}
           >
-            <Ionicons 
-              name={!isRunning ? "play" : isPaused ? "play" : "pause"} 
-              size={16} 
-              color="#000000" 
-            />
-            <Text style={styles.primaryButtonText}>
-              {!isRunning ? "Start" : isPaused ? "Resume" : "Pause"}
-            </Text>
+            <LinearGradient
+              colors={['#FFD700', '#FFA500']}
+              style={styles.timerButtonGradient}
+              start={{ x: 0, y: 0 }}
+              end={{ x: 1, y: 0 }}
+            >
+              <Ionicons 
+                name={!isRunning ? "play" : isPaused ? "play" : "pause"} 
+                size={16} 
+                color="#0c0c0c" 
+              />
+              <Text style={styles.primaryButtonText}>
+                {!isRunning ? "Start" : isPaused ? "Resume" : "Pause"}
+              </Text>
+            </LinearGradient>
           </TouchableOpacity>
           <TouchableOpacity 
             style={[styles.timerButton, styles.secondaryButton]}
