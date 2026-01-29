@@ -807,7 +807,7 @@ export default function CreatePost() {
     }
     
     try {
-      if (Platform.OS === 'web") {
+      if (Platform.OS === 'web') {
         // Use html2canvas for web
         const html2canvas = (await import('html2canvas')).default;
         const canvas = await html2canvas(statsCardRef.current, {
@@ -913,7 +913,7 @@ export default function CreatePost() {
                 const coverFormData = new FormData();
                 const coverFilename = `cover_${Date.now()}.jpg`;
                 
-                if (Platform.OS === 'web") {
+                if (Platform.OS === 'web') {
                   const coverResponse = await fetch(mediaItem.coverUri);
                   const coverBlob = await coverResponse.blob();
                   coverFormData.append('file', coverBlob, coverFilename);
