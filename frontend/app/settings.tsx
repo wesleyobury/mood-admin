@@ -198,7 +198,7 @@ export default function Settings() {
   const handleDeleteAccount = () => {
     // First, ask user to reconsider
     Alert.alert(
-      'We\'re sad to see you go! 😢',
+      'We're sad to see you go! 😢',
       'Before you delete your account, would you consider sharing feedback with us? Your input helps us improve the app for everyone.',
       [
         { text: "Cancel', style: 'cancel" },
@@ -217,7 +217,7 @@ export default function Settings() {
                     if (feedback) {
                       await sendFeedbackEmail(feedback, 'Account Deletion Prevented - User Stayed');
                     }
-                    Alert.alert('Thank You! 🙏', 'We appreciate your feedback and are glad you\'re staying!');
+                    Alert.alert('Thank You! 🙏', 'We appreciate your feedback and are glad you're staying!');
                   },
                 },
                 {
