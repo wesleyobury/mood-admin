@@ -450,7 +450,7 @@ export default function CreatePost() {
     } catch (error: any) {
       console.error('Video picker error:', error);
       // Handle PHPhotos errors gracefully
-      if (error?.message?.includes('PHPhotos') || error?.message?.includes('3164') || error?.message?.includes('couldn't be completed')) {
+      if (error?.message?.includes('PHPhotos') || error?.message?.includes('3164') || error?.message?.includes("couldn't be completed")) {
         showAlert(
           'Video Processing Issue', 
           'Unable to process this video. It may be corrupted or in an unsupported format. Try selecting a different video or recording a new one.'
