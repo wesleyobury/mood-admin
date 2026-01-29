@@ -232,7 +232,7 @@ export default function TimeSeriesAnalytics() {
         data={chartData}
         width={screenWidth - 48}
         height={220}
-        yAxisLabel='"
+        yAxisLabel=""
         yAxisSuffix=""
         chartConfig={chartConfig}
         style={styles.chart}
