@@ -174,7 +174,7 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Bench Push-Up Circuit',
           duration: '10-12 min',
-          description: '3 rounds:\n• 10 push-ups (hands on bench)\n• 10 bench dips\n• Rest 60s\n\nTips:\n• Push-ups: Lower slow, drive up hard while squeezing pecs together at the top. Think 'push the floor apart.'\n• Dips: Keep chest slightly forward to shift load onto pecs vs. triceps.',
+          description: "3 rounds:\n• 10 push-ups (hands on bench)\n• 10 bench dips\n• Rest 60s\n\nTips:\n• Push-ups: Lower slow, drive up hard while squeezing pecs together at the top. Think 'push the floor apart.'\n• Dips: Keep chest slightly forward to shift load onto pecs vs. triceps.",
           imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8MTc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Perfect beginner introduction combining bench-assisted push-ups with dips to build foundational chest and tricep strength.',
           moodTips: [
