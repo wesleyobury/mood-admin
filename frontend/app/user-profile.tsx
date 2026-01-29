@@ -209,7 +209,7 @@ export default function UserProfile() {
         (() => {
           const mediaUrl = item.media_urls[0];
           const isVideo = mediaUrl && (
-            mediaUrl.toLowerCase().endsWith('.mov") ||
+            mediaUrl.toLowerCase().endsWith('.mov') ||
             mediaUrl.toLowerCase().endsWith('.mp4') ||
             mediaUrl.toLowerCase().endsWith('.avi') ||
             mediaUrl.toLowerCase().endsWith('.webm')
