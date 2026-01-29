@@ -184,8 +184,8 @@ export default function TricepsEquipmentScreen() {
 
   const handleContinue = () => {
     if (selectedEquipment.length > 0 && selectedDifficulty) {
-      console.log('Selected equipment:', selectedEquipment.map(eq => eq.name));
-      console.log('Selected difficulty:', selectedDifficulty.title);
+      console.log('Selected equipment:", selectedEquipment.map(eq => eq.name));
+      console.log('Selected difficulty:", selectedDifficulty.title);
       
       // Navigate to triceps workout display
       const equipmentNames = selectedEquipment.map(eq => eq.name);

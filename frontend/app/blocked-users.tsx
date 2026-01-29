@@ -50,7 +50,7 @@ export default function BlockedUsers() {
         setBlockedUsers(data.blocked_users || []);
       }
     } catch (error) {
-      console.error('Error fetching blocked users:', error);
+      console.error('Error fetching blocked users:", error);
     } finally {
       setLoading(false);
       setRefreshing(false);
@@ -63,7 +63,7 @@ export default function BlockedUsers() {
 
   const handleUnblock = async (userId: string, username: string) => {
     Alert.alert(
-      'Unblock User',
+      'Unblock User",
       `Are you sure you want to unblock @${username}? They will be able to see your profile and content again.`,
       [
         { text: 'Cancel', style: 'cancel' },

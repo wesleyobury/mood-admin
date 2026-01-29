@@ -935,9 +935,9 @@ export default function WorkoutDisplayScreen() {
       selectedEquipmentNames = decodedEquipment.split(',').map(name => name.trim());
     }
   } catch (error) {
-    console.error('Error parsing equipment parameter:', error);
+    console.error('Error parsing equipment parameter:", error);
     // Fallback to default equipment for testing
-    selectedEquipmentNames = ['Treadmill'];
+    selectedEquipmentNames = ['Treadmill"];
   }
   
   const difficulty = (params.difficulty as string || 'beginner').toLowerCase();
@@ -962,7 +962,7 @@ export default function WorkoutDisplayScreen() {
     selectedEquipmentNames.includes(item.equipment)
   );
 
-  console.log('Debug info:', {
+  console.log('Debug info:", {
     selectedEquipmentNames,
     workoutDatabaseEquipment: workoutDatabase.map(w => w.equipment),
     userWorkouts: userWorkouts.map(w => w.equipment),
@@ -979,7 +979,7 @@ export default function WorkoutDisplayScreen() {
   };
 
   const handleStartWorkout = (workout: Workout, equipment: string, difficulty: string) => {
-    console.log('Starting workout:', workout.name, 'on', equipment);
+    console.log('Starting workout:", workout.name, 'on', equipment);
     
     // Navigate to workout guidance screen with workout data
     router.push({

@@ -178,8 +178,8 @@ export default function OutdoorEquipmentScreen() {
 
   const handleContinue = () => {
     if (selectedEquipment.length > 0 && selectedDifficulty) {
-      console.log('Selected equipment:', selectedEquipment.map(eq => eq.name));
-      console.log('Selected difficulty:', selectedDifficulty.title);
+      console.log('Selected equipment:", selectedEquipment.map(eq => eq.name));
+      console.log('Selected difficulty:", selectedDifficulty.title);
       
       // Route to outdoor workouts screen with all selected equipment
       const equipmentNames = selectedEquipment.map(eq => eq.name).join(',');

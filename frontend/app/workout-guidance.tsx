@@ -146,11 +146,11 @@ export default function WorkoutGuidanceScreen() {
   try {
     sessionWorkouts = JSON.parse(sessionWorkoutsParam);
   } catch (error) {
-    console.error('Error parsing session workouts:', error);
+    console.error('Error parsing session workouts:", error);
   }
   
   // Generate workout ID for cart checking
-  const workoutId = `${workoutName}-${equipment}-${difficulty}`.toLowerCase().replace(/\s+/g, '-');
+  const workoutId = `${workoutName}-${equipment}-${difficulty}`.toLowerCase().replace(/\s+/g, '-");
   const isWorkoutInCart = isInCart(workoutId);
   
   // Animation for add workout button
@@ -163,12 +163,12 @@ export default function WorkoutGuidanceScreen() {
   const moodTipsParam = params.moodTips as string || '[]';
   let moodTips: MOODTip[] = [];
   try {
-    console.log('🔍 Received moodTips param:', moodTipsParam);
+    console.log('🔍 Received moodTips param:", moodTipsParam);
     moodTips = JSON.parse(decodeURIComponent(moodTipsParam));
-    console.log('✅ Parsed MOOD tips:', moodTips.length, 'tips found');
-    console.log('📝 First tip:', moodTips[0]);
+    console.log('✅ Parsed MOOD tips:", moodTips.length, 'tips found');
+    console.log('📝 First tip:", moodTips[0]);
   } catch (error) {
-    console.error('❌ Error parsing MOOD tips:', error);
+    console.error('❌ Error parsing MOOD tips:", error);
     console.log('🔄 Using fallback tips');
     // Fallback tips
     moodTips = [
@@ -290,11 +290,11 @@ export default function WorkoutGuidanceScreen() {
         console.log('✅ Workout card saved successfully');
         return true;
       } else {
-        console.error('❌ Failed to save workout card:', response.status);
+        console.error('❌ Failed to save workout card:", response.status);
         return false;
       }
     } catch (error) {
-      console.error('❌ Error saving workout card:', error);
+      console.error('❌ Error saving workout card:", error);
       return false;
     }
   };
@@ -339,7 +339,7 @@ export default function WorkoutGuidanceScreen() {
         description: tip.description,
       }));
     } catch (e) {
-      console.error('Error parsing moodTips for cart:', e);
+      console.error('Error parsing moodTips for cart:", e);
     }
     
     const workoutItem = {
@@ -358,7 +358,7 @@ export default function WorkoutGuidanceScreen() {
     };
     
     addToCart(workoutItem);
-    showToast('Added to cart!');
+    showToast('Added to cart!");
     
     // Track analytics
     if (token) {
@@ -372,9 +372,9 @@ export default function WorkoutGuidanceScreen() {
   
   const handleCompletedWorkout = async () => {
     console.log('🎯 handleCompletedWorkout called');
-    console.log('🎯 isSession:', isSession);
-    console.log('🎯 sessionWorkouts.length:', sessionWorkouts.length);
-    console.log('🎯 currentSessionIndex:', currentSessionIndex);
+    console.log('🎯 isSession:", isSession);
+    console.log('🎯 sessionWorkouts.length:", sessionWorkouts.length);
+    console.log('🎯 currentSessionIndex:", currentSessionIndex);
     
     // Track current exercise completion
     if (token) {
@@ -383,16 +383,16 @@ export default function WorkoutGuidanceScreen() {
         sets: 1,
         reps: 1,
       });
-      console.log('📊 Tracked exercise completed:', workoutName);
+      console.log('📊 Tracked exercise completed:", workoutName);
     }
     
     if (isSession && sessionWorkouts.length > 0) {
       const nextIndex = currentSessionIndex + 1;
-      console.log('🎯 nextIndex:', nextIndex);
+      console.log('🎯 nextIndex:", nextIndex);
       
       if (nextIndex < sessionWorkouts.length) {
         // Move to next workout in session
-        console.log('🎯 Moving to next workout');
+        console.log('🎯 Moving to next workout");
         const nextWorkout = sessionWorkouts[nextIndex];
         
         // Get featured workout params to pass along
@@ -486,7 +486,7 @@ export default function WorkoutGuidanceScreen() {
             moodCategory: overallMoodCategory, // Include top-level mood category
           };
 
-          console.log('Workout stats prepared:', workoutStatsData);
+          console.log('Workout stats prepared:", workoutStatsData);
           
           // Track workout completion analytics
           if (token) {
@@ -498,12 +498,12 @@ export default function WorkoutGuidanceScreen() {
               // Track featured workout completion
               Analytics.featuredWorkoutCompleted(token, {
                 workout_id: featuredWorkoutId,
-                workout_title: featuredWorkoutTitle || 'Unknown',
+                workout_title: featuredWorkoutTitle || 'Unknown",
                 mood_category: overallMoodCategory,
                 exercises_completed: sessionWorkouts.length,
                 duration_minutes: totalDuration,
               });
-              console.log('📊 Tracked featured workout completed:', featuredWorkoutId);
+              console.log('📊 Tracked featured workout completed:", featuredWorkoutId);
             }
             
             // Track general workout completion
@@ -514,7 +514,7 @@ export default function WorkoutGuidanceScreen() {
               duration_minutes: totalDuration,
               exercises_completed: sessionWorkouts.length,
             });
-            console.log('📊 Tracked workout completed');
+            console.log('📊 Tracked workout completed");
           }
           
           console.log('🧹 Clearing cart...');

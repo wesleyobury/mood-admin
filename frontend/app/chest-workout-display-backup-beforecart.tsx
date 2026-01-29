@@ -1410,9 +1410,9 @@ export default function ChestWorkoutDisplayScreen() {
       selectedEquipmentNames = decodedEquipment.split(',').map(name => name.trim());
     }
   } catch (error) {
-    console.error('Error parsing equipment parameter:', error);
+    console.error('Error parsing equipment parameter:", error);
     // Fallback to default equipment for testing
-    selectedEquipmentNames = ['Adjustable bench'];
+    selectedEquipmentNames = ['Adjustable bench"];
   }
   
   const difficulty = (params.difficulty as string || 'beginner').toLowerCase();
@@ -1433,7 +1433,7 @@ export default function ChestWorkoutDisplayScreen() {
     selectedEquipmentNames.includes(item.equipment)
   );
 
-  console.log('Debug info:', {
+  console.log('Debug info:", {
     selectedEquipmentNames,
     chestWorkoutDatabaseEquipment: chestWorkoutDatabase.map(w => w.equipment),
     userWorkouts: userWorkouts.map(w => w.equipment),
@@ -1452,7 +1452,7 @@ export default function ChestWorkoutDisplayScreen() {
 
   const handleStartWorkout = (workout: Workout, equipment: string, difficulty: string) => {
     try {
-      console.log('🚀 Starting workout:', workout.name, 'on', equipment);
+      console.log('🚀 Starting workout:", workout.name, 'on', equipment);
       
       // Validate required parameters
       if (!workout.name || !equipment || !difficulty) {
@@ -1478,14 +1478,14 @@ export default function ChestWorkoutDisplayScreen() {
       
       console.log('✅ Navigation completed - using simplified parameters');
     } catch (error) {
-      console.error('❌ Error starting workout:', error);
+      console.error('❌ Error starting workout:", error);
     }
   };
 
   // Create progress bar - single row with requested order
   const createProgressRows = () => {
     const steps = [
-      { key: 'mood', icon: 'flame', text: moodTitle },
+      { key: 'mood", icon: 'flame', text: moodTitle },
       { key: 'bodyPart', icon: 'fitness', text: workoutType },
       { key: 'difficulty', icon: 'speedometer', text: difficulty.charAt(0).toUpperCase() + difficulty.slice(1) },
       { key: 'equipment', icon: 'construct', text: `${selectedEquipmentNames.length} Equipment` },

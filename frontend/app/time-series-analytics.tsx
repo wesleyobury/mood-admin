@@ -167,7 +167,7 @@ export default function TimeSeriesAnalytics() {
         }
       }
     } catch (error) {
-      console.error('Error fetching time series:', error);
+      console.error('Error fetching time series:", error);
     } finally {
       setLoading(false);
       setRefreshing(false);
@@ -180,7 +180,7 @@ export default function TimeSeriesAnalytics() {
   };
 
   const chartConfig = {
-    backgroundColor: '#1a1a1a',
+    backgroundColor: '#1a1a1a",
     backgroundGradientFrom: '#1a1a1a',
     backgroundGradientTo: '#1a1a1a',
     decimalPlaces: 0,

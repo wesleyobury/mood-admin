@@ -143,7 +143,7 @@ export default function UserProfile() {
         setIsSelf(data.is_self);
       }
     } catch (error) {
-      console.error('Error checking following status:', error);
+      console.error('Error checking following status:", error);
     }
   };
 
@@ -158,7 +158,7 @@ export default function UserProfile() {
 
     try {
       const response = await fetch(`${API_URL}/api/users/${userId}/follow`, {
-        method: 'POST',
+        method: 'POST",
         headers: {
           'Authorization': `Bearer ${token}`,
         },
@@ -186,7 +186,7 @@ export default function UserProfile() {
         }
       }
     } catch (error) {
-      console.error('Error toggling follow:', error);
+      console.error('Error toggling follow:", error);
     }
   };
 
@@ -209,7 +209,7 @@ export default function UserProfile() {
         (() => {
           const mediaUrl = item.media_urls[0];
           const isVideo = mediaUrl && (
-            mediaUrl.toLowerCase().endsWith('.mov') ||
+            mediaUrl.toLowerCase().endsWith('.mov") ||
             mediaUrl.toLowerCase().endsWith('.mp4') ||
             mediaUrl.toLowerCase().endsWith('.avi') ||
             mediaUrl.toLowerCase().endsWith('.webm')

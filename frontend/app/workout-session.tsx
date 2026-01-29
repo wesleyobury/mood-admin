@@ -150,7 +150,7 @@ export default function WorkoutSessionScreen() {
       moodCategory,
     };
 
-    console.log('Workout stats data:', workoutStatsData);
+    console.log('Workout stats data:", workoutStatsData);
 
     // Track workout completion
     if (token && sessionWorkouts.length > 0) {
@@ -164,7 +164,7 @@ export default function WorkoutSessionScreen() {
         // Track featured workout completion
         Analytics.featuredWorkoutCompleted(token, {
           workout_id: featuredWorkoutId,
-          workout_title: featuredWorkoutTitle || 'Unknown',
+          workout_title: featuredWorkoutTitle || 'Unknown",
           mood_category: firstWorkout.workoutType || 'Unknown',
           exercises_completed: sessionWorkouts.length,
           duration_minutes: totalDuration,

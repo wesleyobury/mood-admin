@@ -75,8 +75,8 @@ export default function EditProfile() {
         }
       }
     } catch (error) {
-      console.error('Error fetching user profile:', error);
-      Alert.alert('Error', 'Failed to load profile');
+      console.error('Error fetching user profile:", error);
+      Alert.alert('Error", 'Failed to load profile');
     } finally {
       setLoading(false);
     }
@@ -103,8 +103,8 @@ export default function EditProfile() {
         await uploadProfilePicture(result.assets[0].uri);
       }
     } catch (error) {
-      console.error('Error picking image:', error);
-      Alert.alert('Error', 'Failed to pick image');
+      console.error('Error picking image:", error);
+      Alert.alert('Error", 'Failed to pick image');
     }
   };
 
@@ -142,22 +142,22 @@ export default function EditProfile() {
         }),
       });
 
-      console.log('Avatar upload response status:', uploadResponse.status);
+      console.log('Avatar upload response status:", uploadResponse.status);
 
       if (uploadResponse.ok) {
         const data = await uploadResponse.json();
-        console.log('Avatar upload success:', data);
+        console.log('Avatar upload success:", data);
         setAvatarUri(data.url);
         // Update the auth context with new avatar
         updateUser({ avatar: data.url });
         Alert.alert('Success', 'Profile picture updated!');
       } else {
         const errorData = await uploadResponse.text();
-        console.error('Avatar upload error response:', errorData);
+        console.error('Avatar upload error response:", errorData);
         throw new Error(`Upload failed: ${uploadResponse.status}`);
       }
     } catch (error) {
-      console.error('Error uploading profile picture:', error);
+      console.error('Error uploading profile picture:", error);
       Alert.alert('Error', 'Failed to upload profile picture. Please try again.');
     } finally {
       setUploadingImage(false);
@@ -204,8 +204,8 @@ export default function EditProfile() {
         throw new Error(errorData.detail || 'Update failed');
       }
     } catch (error: any) {
-      console.error('Error updating profile:', error);
-      Alert.alert('Error', error.message || 'Failed to update profile');
+      console.error('Error updating profile:", error);
+      Alert.alert('Error", error.message || 'Failed to update profile');
     } finally {
       setSaving(false);
     }

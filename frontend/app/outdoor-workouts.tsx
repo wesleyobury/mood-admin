@@ -36,7 +36,7 @@ const OutdoorWorkoutsScreen = memo(function OutdoorWorkoutsScreen() {
   // Parse selected equipment from comma-separated string
   const selectedEquipmentNames = equipmentParam.split(',').filter(name => name.trim() !== '');
   
-  console.log('Outdoor Debug:', {
+  console.log('Outdoor Debug:", {
     equipmentParam,
     selectedEquipmentNames,
     difficulty,
@@ -52,7 +52,7 @@ const OutdoorWorkoutsScreen = memo(function OutdoorWorkoutsScreen() {
     )
   );
 
-  console.log('Selected workout data count:', userWorkouts.length);
+  console.log('Selected workout data count:", userWorkouts.length);
 
   // Cart hooks
   const { addToCart, isInCart } = useCart();
@@ -85,8 +85,8 @@ const OutdoorWorkoutsScreen = memo(function OutdoorWorkoutsScreen() {
       equipment: equipment,
       difficulty: difficulty,
       workoutType: workoutType,
-          imageUrl: workout.imageUrl || '",
-          intensityReason: workout.intensityReason || "',
+          imageUrl: workout.imageUrl || '',
+          intensityReason: workout.intensityReason || '',
           moodCard: moodTitle,
       moodCard: moodTitle,
       moodTips: workout.moodTips || [],
@@ -107,7 +107,7 @@ const OutdoorWorkoutsScreen = memo(function OutdoorWorkoutsScreen() {
 
   const handleStartWorkout = (workout: Workout, equipment: string, diff: string) => {
     try {
-      console.log('🚀 Starting workout:', workout.name, 'on', equipment);
+      console.log('🚀 Starting workout:", workout.name, 'on", equipment);
       
       if (!workout.name || !equipment || !diff) {
         console.error('❌ Missing required parameters for workout navigation');
@@ -124,8 +124,8 @@ const OutdoorWorkoutsScreen = memo(function OutdoorWorkoutsScreen() {
           duration: workout.duration || '20 min',
           difficulty: diff,
           workoutType: workoutType,
-          imageUrl: workout.imageUrl || '",
-          intensityReason: workout.intensityReason || "',
+          imageUrl: workout.imageUrl || '',
+          intensityReason: workout.intensityReason || '',
           moodCard: moodTitle,
           moodTips: encodeURIComponent(JSON.stringify(workout.moodTips || []))
         }
@@ -133,14 +133,14 @@ const OutdoorWorkoutsScreen = memo(function OutdoorWorkoutsScreen() {
       
       console.log('✅ Navigation completed - using simplified parameters');
     } catch (error) {
-      console.error('❌ Error starting workout:', error);
+      console.error('❌ Error starting workout:", error);
     }
   };
 
   // Create progress bar - single row with requested order
   const createProgressRows = () => {
     const steps = [
-      { key: 'mood', icon: 'sunny' as keyof typeof Ionicons.glyphMap, text: 'Outside' },
+      { key: 'mood", icon: 'sunny' as keyof typeof Ionicons.glyphMap, text: 'Outside' },
       { key: 'difficulty', icon: 'speedometer' as keyof typeof Ionicons.glyphMap, text: difficulty === 'intermediate' ? 'Intermed.' : difficulty.charAt(0).toUpperCase() + difficulty.slice(1) },
       { key: 'equipment', icon: 'construct' as keyof typeof Ionicons.glyphMap, text: `${selectedEquipmentNames.length} Activity` },
     ];

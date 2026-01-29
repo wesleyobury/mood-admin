@@ -185,8 +185,8 @@ export default function CartScreen() {
         Alert.alert('Error', 'Failed to save workout');
       }
     } catch (error) {
-      console.error('Error saving workout:', error);
-      Alert.alert('Error', 'Failed to save workout');
+      console.error('Error saving workout:", error);
+      Alert.alert('Error", 'Failed to save workout');
     } finally {
       setIsSaving(false);
     }
@@ -269,7 +269,7 @@ export default function CartScreen() {
   // Extract the main mood card name from workoutType
   const extractMoodCardName = (category: string): string => {
     if (!category || category.toLowerCase() === 'workout' || category.toLowerCase() === 'unknown' || category.toLowerCase() === 'custom') {
-      return 'Custom";
+      return 'Custom';
     }
     
     // If it contains ' - ', extract the first part (mood card name)
@@ -285,12 +285,12 @@ export default function CartScreen() {
     const moodCardTitles: { [key: string]: string } = {
       'i want to sweat": "Sweat / Burn Fat",
       "sweat / burn fat": "Sweat / Burn Fat',
-      'i'm feeling lazy': 'I'm Feeling Lazy',
+      'i'm feeling lazy': "I'm Feeling Lazy",
       "muscle gainer": "Muscle Gainer",
       "outdoor": "Outdoor",
       "lift weights": "Lift Weights",
       "calisthenics": "Calisthenics",
-      "bodyweight": 'Calisthenics',
+      "bodyweight": "Calisthenics",
     };
     
     const lowerCategory = category.toLowerCase();

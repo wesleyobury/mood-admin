@@ -1544,9 +1544,9 @@ export default function ShouldersWorkoutDisplayScreen() {
       selectedEquipmentNames = decodedEquipment.split(',').map(name => name.trim());
     }
   } catch (error) {
-    console.error('Error parsing equipment parameter:', error);
+    console.error('Error parsing equipment parameter:", error);
     // Fallback to default equipment for testing
-    selectedEquipmentNames = ['Dumbbells'];
+    selectedEquipmentNames = ['Dumbbells"];
   }
   
   const difficulty = (params.difficulty as string || 'beginner').toLowerCase();
@@ -1572,20 +1572,20 @@ export default function ShouldersWorkoutDisplayScreen() {
     index === self.findIndex(t => t.equipment === item.equipment)
   );
 
-  console.log('Final unique workouts to display:', uniqueUserWorkouts.length);
+  console.log('Final unique workouts to display:", uniqueUserWorkouts.length);
 
   const handleGoBack = () => {
     try {
-      console.log('🔄 Going back from shoulders workout display...');
+      console.log('🔄 Going back from shoulders workout display...");
       router.back();
     } catch (error) {
-      console.error('❌ Error going back:', error);
+      console.error('❌ Error going back:", error);
     }
   };
 
   const handleStartWorkout = (workout: Workout, equipment: string, difficulty: string) => {
     try {
-      console.log('🚀 Starting workout:', workout.name, 'on', equipment);
+      console.log('🚀 Starting workout:", workout.name, 'on', equipment);
       
       // Validate required parameters
       if (!workout.name || !equipment || !difficulty) {
@@ -1611,14 +1611,14 @@ export default function ShouldersWorkoutDisplayScreen() {
       
       console.log('✅ Navigation completed - using simplified parameters');
     } catch (error) {
-      console.error('❌ Error starting workout:', error);
+      console.error('❌ Error starting workout:", error);
     }
   };
 
   // Create progress bar - single row with requested order
   const createProgressRows = () => {
     const steps = [
-      { key: 'mood', icon: 'flame', text: moodTitle },
+      { key: 'mood", icon: 'flame', text: moodTitle },
       { key: 'bodyPart', icon: 'fitness', text: workoutType },
       { key: 'difficulty', icon: 'speedometer', text: difficulty.charAt(0).toUpperCase() + difficulty.slice(1) },
       { key: 'equipment', icon: 'construct', text: `${selectedEquipmentNames.length} Equipment` },

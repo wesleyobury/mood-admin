@@ -33,7 +33,7 @@ const LazyLowerBodyWorkoutsScreen = memo(function LazyLowerBodyWorkoutsScreen() 
   const bodyPart = params.bodyPart as string || 'Lower Body';
   const difficulty = params.difficulty as string || 'beginner';
   
-  console.log('Lazy Lower Body Debug:', {
+  console.log('Lazy Lower Body Debug:", {
     difficulty,
     workoutType,
     bodyPart,
@@ -44,7 +44,7 @@ const LazyLowerBodyWorkoutsScreen = memo(function LazyLowerBodyWorkoutsScreen() 
   // For lazy weight screens, show ALL equipment workouts (no filtering)
   const userWorkouts = workoutDatabase;
 
-  console.log('Workout data count:', userWorkouts.length);
+  console.log('Workout data count:", userWorkouts.length);
 
   // Cart hooks
   const { addToCart, isInCart } = useCart();
@@ -96,7 +96,7 @@ const LazyLowerBodyWorkoutsScreen = memo(function LazyLowerBodyWorkoutsScreen() 
 
   const handleStartWorkout = (workout: Workout, equipment: string, diff: string) => {
     try {
-      console.log('🚀 Starting workout:', workout.name, 'on', equipment);
+      console.log('🚀 Starting workout:", workout.name, 'on", equipment);
       
       if (!workout.name || !equipment || !diff) {
         console.error('❌ Missing required parameters for workout navigation');
@@ -113,8 +113,8 @@ const LazyLowerBodyWorkoutsScreen = memo(function LazyLowerBodyWorkoutsScreen() 
           duration: workout.duration || '20 min',
           difficulty: diff,
           workoutType: workoutType,
-          imageUrl: workout.imageUrl || '",
-          intensityReason: workout.intensityReason || "',
+          imageUrl: workout.imageUrl || '',
+          intensityReason: workout.intensityReason || '',
           moodCard: moodTitle,
           moodTips: encodeURIComponent(JSON.stringify(workout.moodTips || []))
         }
@@ -122,14 +122,14 @@ const LazyLowerBodyWorkoutsScreen = memo(function LazyLowerBodyWorkoutsScreen() 
       
       console.log('✅ Navigation completed - using simplified parameters');
     } catch (error) {
-      console.error('❌ Error starting workout:', error);
+      console.error('❌ Error starting workout:", error);
     }
   };
 
   // Create progress bar - single row with requested order
   const createProgressRows = () => {
     const steps = [
-      { key: 'mood', icon: 'bed' as keyof typeof Ionicons.glyphMap, text: 'Lazy' },
+      { key: 'mood", icon: 'bed' as keyof typeof Ionicons.glyphMap, text: 'Lazy' },
       { key: 'type', icon: 'barbell' as keyof typeof Ionicons.glyphMap, text: 'Lift' },
       { key: 'bodyPart', icon: 'body' as keyof typeof Ionicons.glyphMap, text: bodyPart },
       { key: 'difficulty', icon: 'speedometer' as keyof typeof Ionicons.glyphMap, text: difficulty === 'intermediate' ? 'Intermed.' : difficulty.charAt(0).toUpperCase() + difficulty.slice(1) },

@@ -521,8 +521,8 @@ export default function AdminDashboard() {
         setShowUserReport(false);
       }
     } catch (error) {
-      console.error('Error fetching user report:', error);
-      Alert.alert('Error', 'Failed to load user report');
+      console.error('Error fetching user report:", error);
+      Alert.alert('Error", 'Failed to load user report');
       setShowUserReport(false);
     } finally {
       setUserReportLoading(false);

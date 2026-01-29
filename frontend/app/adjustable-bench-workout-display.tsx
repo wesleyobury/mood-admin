@@ -244,7 +244,7 @@ const WorkoutCard = ({ equipment, icon, workouts, difficulty, difficultyColor, o
     const touch = e.nativeEvent.touches ? e.nativeEvent.touches[0] : e.nativeEvent;
     setTouchEnd(null);
     setTouchStart(touch.pageX || touch.clientX);
-    console.log('👆 Touch started at:', touch.pageX || touch.clientX);
+    console.log('👆 Touch started at:", touch.pageX || touch.clientX);
   };
 
   const handleTouchMove = (e: any) => {
@@ -259,17 +259,17 @@ const WorkoutCard = ({ equipment, icon, workouts, difficulty, difficultyColor, o
     const isLeftSwipe = distance > 50;
     const isRightSwipe = distance < -50;
     
-    console.log('🎯 Swipe detected! Distance:', distance);
+    console.log('🎯 Swipe detected! Distance:", distance);
     
     if (isLeftSwipe && currentWorkoutIndex < workouts.length - 1) {
       const newIndex = currentWorkoutIndex + 1;
-      console.log('👉 Swiped left, changing to workout index:', newIndex);
+      console.log('👉 Swiped left, changing to workout index:", newIndex);
       setCurrentWorkoutIndex(newIndex);
     }
     
     if (isRightSwipe && currentWorkoutIndex > 0) {
       const newIndex = currentWorkoutIndex - 1;
-      console.log('👈 Swiped right, changing to workout index:', newIndex);
+      console.log('👈 Swiped right, changing to workout index:", newIndex);
       setCurrentWorkoutIndex(newIndex);
     }
     
@@ -339,9 +339,9 @@ export default function AdjustableBenchWorkoutDisplayScreen() {
       selectedEquipmentNames = decodedEquipment.split(',').map(name => name.trim());
     }
   } catch (error) {
-    console.error('Error parsing equipment parameter:', error);
+    console.error('Error parsing equipment parameter:", error);
     // Fallback to default equipment for testing
-    selectedEquipmentNames = ['Adjustable bench'];
+    selectedEquipmentNames = ['Adjustable bench"];
   }
   
   const difficulty = (params.difficulty as string || 'beginner').toLowerCase();
@@ -362,7 +362,7 @@ export default function AdjustableBenchWorkoutDisplayScreen() {
     selectedEquipmentNames.includes(item.equipment)
   );
 
-  console.log('Debug info:', {
+  console.log('Debug info:", {
     selectedEquipmentNames,
     adjustableBenchDatabaseEquipment: adjustableBenchDatabase.map(w => w.equipment),
     userWorkouts: userWorkouts.map(w => w.equipment),
@@ -380,7 +380,7 @@ export default function AdjustableBenchWorkoutDisplayScreen() {
 
   const handleStartWorkout = (workout: Workout, equipment: string, difficulty: string) => {
     try {
-      console.log('🚀 Starting workout:', workout.name, 'on', equipment);
+      console.log('🚀 Starting workout:", workout.name, 'on', equipment);
       
       // Validate required parameters
       if (!workout.name || !equipment || !difficulty) {

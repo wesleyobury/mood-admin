@@ -191,8 +191,8 @@ export default function ChestEquipmentScreen() {
 
   const handleContinue = () => {
     if (selectedEquipment.length > 0 && selectedDifficulty) {
-      console.log('Selected equipment:', selectedEquipment.map(eq => eq.name));
-      console.log('Selected difficulty:', selectedDifficulty.title);
+      console.log('Selected equipment:", selectedEquipment.map(eq => eq.name));
+      console.log('Selected difficulty:", selectedDifficulty.title);
       
       // Navigate to unified chest workout display for all equipment selections
       const equipmentNames = selectedEquipment.map(eq => eq.name);

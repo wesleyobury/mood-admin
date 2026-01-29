@@ -110,7 +110,7 @@ export default function FollowersList() {
         ));
       }
     } catch (error) {
-      console.error('Error following/unfollowing:', error);
+      console.error('Error following/unfollowing:", error);
     } finally {
       setFollowingInProgress(null);
     }
@@ -118,7 +118,7 @@ export default function FollowersList() {
 
   const handleUserPress = (targetUserId: string) => {
     if (user && targetUserId === user.id) {
-      router.push('/(tabs)/profile');
+      router.push('/(tabs)/profile");
     } else {
       router.push(`/user-profile?userId=${targetUserId}`);
     }
@@ -196,8 +196,7 @@ export default function FollowersList() {
       <Text style={styles.emptyText}>
         {activeTab === 'followers' 
           ? 'When people follow this account, they'll appear here.'
-          : 'When this account follows people, they'll appear here.'
-        }
+          : "When this account follows people, they'll appear here."}
       </Text>
     </View>
   );

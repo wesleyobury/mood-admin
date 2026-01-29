@@ -302,19 +302,19 @@ export default function LegsEquipmentScreen() {
       const hasQuadsEquipment = equipmentPerGroup.Quads.length > 0;
       const hasCalvesEquipment = equipmentPerGroup.Calfs.length > 0;
       
-      console.log('Equipment per group:', equipmentPerGroup);
-      console.log('Selected muscle groups:', muscleGroupNames);
-      console.log('Selected intensity:', selectedIntensity?.id);
+      console.log('Equipment per group:", equipmentPerGroup);
+      console.log('Selected muscle groups:", muscleGroupNames);
+      console.log('Selected intensity:", selectedIntensity?.id);
       
       // For legs workouts, always navigate to compound-workout-display with intensity
       if (selectedIntensity) {
         // Navigate to compound workout display with equipment mapping
         router.push({
-          pathname: '/compound-workout-display',
+          pathname: '/compound-workout-display",
           params: { 
             mood: moodTitle,
-            workoutType: 'Legs',
-            muscleGroups: encodeURIComponent(muscleGroupNames.join(',')),
+            workoutType: "Legs',
+            muscleGroups: encodeURIComponent(muscleGroupNames.join(",')),
             equipment: equipmentNamesString,
             equipmentPerGroup: encodeURIComponent(JSON.stringify(equipmentPerGroup)),
             difficulty: selectedIntensity.id,

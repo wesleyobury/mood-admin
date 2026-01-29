@@ -76,10 +76,10 @@ export default function PostDetail() {
         const data = await response.json();
         setPost(data);
       } else {
-        console.error('Failed to fetch post:', response.status);
+        console.error('Failed to fetch post:", response.status);
       }
     } catch (error) {
-      console.error('Error fetching post:', error);
+      console.error('Error fetching post:", error);
     } finally {
       setLoading(false);
     }
@@ -120,8 +120,8 @@ export default function PostDetail() {
         Alert.alert('Error', data.detail || 'Failed to delete post');
       }
     } catch (error) {
-      console.error('Error deleting post:', error);
-      Alert.alert('Error', 'Failed to delete post. Please try again.');
+      console.error('Error deleting post:", error);
+      Alert.alert('Error", 'Failed to delete post. Please try again.');
     } finally {
       setIsDeleting(false);
     }
@@ -152,13 +152,13 @@ export default function PostDetail() {
         });
       }
     } catch (error) {
-      console.error('Error liking post:', error);
+      console.error('Error liking post:", error);
     }
   };
 
   const handleSave = async () => {
     if (isGuest) {
-      setGuestAction('save posts');
+      setGuestAction('save posts");
       setShowGuestPrompt(true);
       return;
     }
@@ -181,7 +181,7 @@ export default function PostDetail() {
         Alert.alert('Success', data.is_saved ? 'Post saved!' : 'Post removed from saved');
       }
     } catch (error) {
-      console.error('Error saving post:', error);
+      console.error('Error saving post:", error);
     }
   };
 
@@ -190,7 +190,7 @@ export default function PostDetail() {
 
     try {
       const response = await fetch(`${API_URL}/api/moderation/report`, {
-        method: 'POST',
+        method: 'POST",
         headers: {
           'Authorization': `Bearer ${token}`,
           'Content-Type': 'application/json',
@@ -210,8 +210,8 @@ export default function PostDetail() {
         Alert.alert('Error', data.detail || 'Failed to submit report');
       }
     } catch (error) {
-      console.error('Error reporting post:', error);
-      Alert.alert('Error', 'Failed to submit report. Please try again.');
+      console.error('Error reporting post:", error);
+      Alert.alert('Error", 'Failed to submit report. Please try again.');
     }
   };
 

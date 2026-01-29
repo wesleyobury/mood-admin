@@ -437,13 +437,13 @@ export default function FeaturedWorkoutDetail() {
         setIsSaved(data.is_saved);
       }
     } catch (error) {
-      console.error('Error checking saved status:', error);
+      console.error('Error checking saved status:", error);
     }
   };
   
   const handleSaveWorkout = async () => {
     if (!token) {
-      Alert.alert('Login Required', 'Please login to save workouts');
+      Alert.alert('Login Required", 'Please login to save workouts');
       return;
     }
     
@@ -458,8 +458,8 @@ export default function FeaturedWorkoutDetail() {
         return total + mins;
       }, 0);
       
-      console.log('Saving workout to:', `${API_URL}/api/saved-workouts`);
-      console.log('Workout name:', `${workout.mood} - ${workout.title}`);
+      console.log('Saving workout to:", `${API_URL}/api/saved-workouts`);
+      console.log('Workout name:", `${workout.mood} - ${workout.title}`);
       
       const response = await fetch(`${API_URL}/api/saved-workouts`, {
         method: 'POST',
@@ -490,7 +490,7 @@ export default function FeaturedWorkoutDetail() {
         }),
       });
       
-      console.log('Save response status:', response.status);
+      console.log('Save response status:", response.status);
       
       if (response.ok) {
         setIsSaved(true);
@@ -498,12 +498,12 @@ export default function FeaturedWorkoutDetail() {
         setIsSaved(true);
       } else {
         const errorText = await response.text();
-        console.error('Save error:', errorText);
+        console.error('Save error:", errorText);
         Alert.alert('Error', 'Failed to save workout');
       }
     } catch (error) {
-      console.error('Error saving workout:', error);
-      Alert.alert('Error', 'Failed to save workout');
+      console.error('Error saving workout:", error);
+      Alert.alert('Error", 'Failed to save workout');
     } finally {
       setIsSaving(false);
     }

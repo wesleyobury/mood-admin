@@ -241,12 +241,12 @@ export default function BodyPartsScreen() {
     
     const names = selectedBodyParts.map(s => {
       if (s.subOption) {
-        return s.subOption === "Bi's" ? 'Biceps' : 'Triceps';
+        return s.subOption === "Bi's" ? 'Biceps' : "Triceps';
       }
       return s.bodyPart;
     });
     
-    return names.join(', ');
+    return names.join(", ');
   };
 
   return (
