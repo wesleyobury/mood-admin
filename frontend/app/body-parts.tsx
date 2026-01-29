@@ -246,7 +246,7 @@ export default function BodyPartsScreen() {
       return s.bodyPart;
     });
     
-    return names.join(", ');
+    return names.join(', ');
   };
 
   return (

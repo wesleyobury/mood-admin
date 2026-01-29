@@ -290,7 +290,7 @@ export default function CartScreen() {
       "outdoor": "Outdoor",
       "lift weights": "Lift Weights",
       "calisthenics": "Calisthenics",
-      "bodyweight": "Calisthenics",
+      "bodyweight": "Calisthenics',
     };
     
     const lowerCategory = category.toLowerCase();

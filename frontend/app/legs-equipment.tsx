@@ -314,7 +314,7 @@ export default function LegsEquipmentScreen() {
           params: { 
             mood: moodTitle,
             workoutType: "Legs',
-            muscleGroups: encodeURIComponent(muscleGroupNames.join(",')),
+            muscleGroups: encodeURIComponent(muscleGroupNames.join(',')),
             equipment: equipmentNamesString,
             equipmentPerGroup: encodeURIComponent(JSON.stringify(equipmentPerGroup)),
             difficulty: selectedIntensity.id,

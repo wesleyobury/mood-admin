@@ -283,7 +283,7 @@ const CompoundWorkoutDisplayScreen = memo(function CompoundWorkoutDisplayScreen(
               {createProgressRows()[0].map((step, stepIndex) => (
                 <React.Fragment key={step.key}>
                   <View style={styles.progressStep}>
-                    <View style={styles.progressStepActive}><LinearGradient colors={["#FFD700", "#FFA500"]} style={styles.progressStepGradient} start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }}>
+                    <View style={styles.progressStepActive}><LinearGradient colors={["#FFD700', "#FFA500"]} style={styles.progressStepGradient} start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }}>
                       <Ionicons name={step.icon} size={10} color='#0c0c0c' /></LinearGradient>
                     </View>
                     <Text style={styles.progressStepText}>{step.text}</Text>
