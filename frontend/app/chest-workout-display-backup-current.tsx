@@ -239,7 +239,7 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
           moodTips: [
             {
               icon: 'refresh',
-              title: "Fly → press transition, don't rest',
+              title: "Fly → press transition, don't rest",
               description: 'Overloads pecs by hitting both stretch and contraction.'
             },
             {
