@@ -29,12 +29,12 @@ interface DifficultyLevel {
 }
 
 const equipmentOptions: EquipmentOption[] = [
-  { id: 'biceps-curl-machine', name: "Biceps Curl Machine', icon: 'fitness" },
-  { id: 'cable-machine', name: "Cable Machine', icon: 'swap-vertical" },
-  { id: 'dumbbell', name: "Dumbbell', icon: 'barbell" },
-  { id: 'ez-curl-bar', name: "EZ Curl Bar', icon: 'remove" },
-  { id: 'preacher-curl-machine', name: "Preacher Curl Machine', icon: 'desktop" },
-  { id: 'pull-up-bar', name: "Pull Up Bar', icon: 'remove-outline" },
+  { id: 'biceps-curl-machine', name: 'Biceps Curl Machine', icon: 'fitness' },
+  { id: 'cable-machine', name: 'Cable Machine', icon: 'swap-vertical' },
+  { id: 'dumbbell', name: 'Dumbbell', icon: 'barbell' },
+  { id: 'ez-curl-bar', name: 'EZ Curl Bar', icon: 'remove' },
+  { id: 'preacher-curl-machine', name: 'Preacher Curl Machine', icon: 'desktop' },
+  { id: 'pull-up-bar', name: 'Pull Up Bar', icon: 'remove-outline' },
 ];
 
 const difficultyLevels: DifficultyLevel[] = [
@@ -83,7 +83,7 @@ const EquipmentCard = ({
         <Ionicons 
           name={equipment.icon} 
           size={20} 
-          color={isSelected ? "#FFD700" : "#FFFFFF"} 
+          color={isSelected ? '#FFD700" : "#FFFFFF"} 
         />
       </View>
       <Text style={[
@@ -213,7 +213,7 @@ export default function BicepsEquipmentScreen() {
           style={styles.backButton}
           onPress={handleGoBack}
         >
-          <Ionicons name="chevron-back" size={24} color="#FFD700" />
+          <Ionicons name='chevron-back" size={24} color="#FFD700" />
         </TouchableOpacity>
         <View style={styles.headerTextContainer}>
           <Text style={styles.headerTitle}>Biceps Equipment</Text>
@@ -237,7 +237,7 @@ export default function BicepsEquipmentScreen() {
                 start={{ x: 0, y: 0 }}
                 end={{ x: 1, y: 1 }}
               >
-                <Ionicons name="flame" size={14} color="#0c0c0c" />
+                <Ionicons name='flame" size={14} color="#0c0c0c" />
               </LinearGradient>
             </View>
             <Text style={styles.progressStepText}>{moodTitle}</Text>
@@ -253,7 +253,7 @@ export default function BicepsEquipmentScreen() {
                 start={{ x: 0, y: 0 }}
                 end={{ x: 1, y: 1 }}
               >
-                <Ionicons name="fitness" size={14} color="#0c0c0c" />
+                <Ionicons name='fitness" size={14} color="#0c0c0c" />
               </LinearGradient>
             </View>
             <Text style={styles.progressStepText}>{workoutType}</Text>
@@ -302,7 +302,7 @@ export default function BicepsEquipmentScreen() {
                   start={{ x: 0, y: 0 }}
                   end={{ x: 1, y: 1 }}
                 >
-                  <Ionicons name="checkmark" size={14} color="#0c0c0c" />
+                  <Ionicons name='checkmark" size={14} color="#0c0c0c" />
                 </LinearGradient>
               ) : (
                 <Text style={styles.progressStepNumber}>4</Text>
@@ -370,7 +370,7 @@ export default function BicepsEquipmentScreen() {
               end={{ x: 1, y: 0 }}
             >
               <Text style={styles.continueButtonTextActive}>Continue</Text>
-              <Ionicons name="chevron-forward" size={20} color="#0c0c0c" />
+              <Ionicons name='chevron-forward" size={20} color="#0c0c0c" />
             </LinearGradient>
           ) : (
             <Text style={styles.continueButtonText}>Continue</Text>

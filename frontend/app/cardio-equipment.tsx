@@ -29,18 +29,18 @@ interface DifficultyLevel {
 }
 
 const equipmentOptions: EquipmentOption[] = [
-  { id: 'arm-bicycle', name: "Arm bicycle', icon: 'bicycle" },
-  { id: 'assault-bike', name: "Assault bike', icon: 'bicycle" },
-  { id: 'curve-treadmill', name: "Curve treadmill', icon: 'walk" },
-  { id: 'elliptical', name: "Elliptical', icon: 'ellipse" },
-  { id: 'jump-rope', name: "Jump rope', icon: 'git-compare" },
-  { id: 'punching-bag', name: "Punching bag', icon: 'hand-left" },
-  { id: 'row-machine', name: "Row machine', icon: 'boat" },
-  { id: 'ski-machine', name: "Ski machine', icon: 'snow" },
-  { id: 'stair-master', name: "Stair master', icon: 'trending-up" },
-  { id: 'stationary-bike', name: "Stationary bike', icon: 'bicycle" },
-  { id: 'treadmill', name: "Treadmill', icon: 'walk" },
-  { id: 'vertical-climber', name: "Vertical Climber', icon: 'triangle" },
+  { id: 'arm-bicycle', name: 'Arm bicycle', icon: 'bicycle' },
+  { id: 'assault-bike', name: 'Assault bike', icon: 'bicycle' },
+  { id: 'curve-treadmill', name: 'Curve treadmill', icon: 'walk' },
+  { id: 'elliptical', name: 'Elliptical', icon: 'ellipse' },
+  { id: 'jump-rope', name: 'Jump rope', icon: 'git-compare' },
+  { id: 'punching-bag', name: 'Punching bag', icon: 'hand-left' },
+  { id: 'row-machine', name: 'Row machine', icon: 'boat' },
+  { id: 'ski-machine', name: 'Ski machine', icon: 'snow' },
+  { id: 'stair-master', name: 'Stair master', icon: 'trending-up' },
+  { id: 'stationary-bike', name: 'Stationary bike', icon: 'bicycle' },
+  { id: 'treadmill', name: 'Treadmill', icon: 'walk' },
+  { id: 'vertical-climber', name: 'Vertical Climber', icon: 'triangle' },
 ];
 
 const difficultyLevels: DifficultyLevel[] = [
@@ -90,7 +90,7 @@ const EquipmentCard = ({
           <Ionicons 
             name={equipment.icon} 
             size={20} 
-            color={isSelected ? "#FFD700" : "#FFFFFF"} 
+            color={isSelected ? '#FFD700" : "#FFFFFF"} 
           />
         </View>
         <Text style={[
@@ -218,7 +218,7 @@ export default function CardioEquipmentScreen() {
           style={styles.backButton}
           onPress={handleGoBack}
         >
-          <Ionicons name="chevron-back" size={24} color="#FFD700" />
+          <Ionicons name='chevron-back" size={24} color="#FFD700" />
         </TouchableOpacity>
         <View style={styles.headerTextContainer}>
           <Text style={styles.headerTitle}>Cardio Equipment</Text>
@@ -242,7 +242,7 @@ export default function CardioEquipmentScreen() {
                 start={{ x: 0, y: 0 }}
                 end={{ x: 1, y: 1 }}
               >
-                <Ionicons name="flame" size={14} color="#0c0c0c" />
+                <Ionicons name='flame" size={14} color="#0c0c0c" />
               </LinearGradient>
             </View>
             <Text style={styles.progressStepText}>{moodTitle}</Text>
@@ -258,7 +258,7 @@ export default function CardioEquipmentScreen() {
                 start={{ x: 0, y: 0 }}
                 end={{ x: 1, y: 1 }}
               >
-                <Ionicons name="heart" size={14} color="#0c0c0c" />
+                <Ionicons name='heart" size={14} color="#0c0c0c" />
               </LinearGradient>
             </View>
             <Text style={styles.progressStepText}>{workoutType}</Text>
@@ -307,7 +307,7 @@ export default function CardioEquipmentScreen() {
                   start={{ x: 0, y: 0 }}
                   end={{ x: 1, y: 1 }}
                 >
-                  <Ionicons name="checkmark" size={14} color="#0c0c0c" />
+                  <Ionicons name='checkmark" size={14} color="#0c0c0c" />
                 </LinearGradient>
               ) : (
                 <Text style={styles.progressStepNumber}>4</Text>
@@ -375,7 +375,7 @@ export default function CardioEquipmentScreen() {
               end={{ x: 1, y: 0 }}
             >
               <Text style={styles.continueButtonTextActive}>Continue</Text>
-              <Ionicons name="chevron-forward" size={20} color="#0c0c0c" />
+              <Ionicons name='chevron-forward" size={20} color="#0c0c0c" />
             </LinearGradient>
           ) : (
             <Text style={styles.continueButtonText}>Continue</Text>

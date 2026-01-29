@@ -29,16 +29,16 @@ interface DifficultyLevel {
 }
 
 const equipmentOptions: EquipmentOption[] = [
-  { id: 'adjustable-bench', name: "Adjustable Bench', icon: 'square" },
-  { id: 'barbells', name: "Barbells', icon: 'barbell" },
-  { id: 'cable-crossover-machine', name: "Cable Crossover Machine', icon: 'reorder-three" },
-  { id: 'dumbbells', name: "Dumbbells', icon: 'barbell" },
-  { id: 'kettlebells', name: "Kettlebells', icon: 'diamond" },
-  { id: 'landmine-attachment', name: "Landmine Attachment', icon: 'rocket" },
-  { id: 'rear-delt-fly-machine', name: "Rear Delt Fly Machine', icon: 'contract" },
-  { id: 'powerlifting-platform', name: "Powerlifting Platform', icon: 'grid" },
-  { id: 'shoulder-press-machine', name: "Shoulder Press Machine', icon: 'triangle" },
-  { id: 'smith-machine', name: "Smith Machine', icon: 'hardware-chip" },
+  { id: 'adjustable-bench', name: 'Adjustable Bench', icon: 'square' },
+  { id: 'barbells', name: 'Barbells', icon: 'barbell' },
+  { id: 'cable-crossover-machine', name: 'Cable Crossover Machine', icon: 'reorder-three' },
+  { id: 'dumbbells', name: 'Dumbbells', icon: 'barbell' },
+  { id: 'kettlebells', name: 'Kettlebells', icon: 'diamond' },
+  { id: 'landmine-attachment', name: 'Landmine Attachment', icon: 'rocket' },
+  { id: 'rear-delt-fly-machine', name: 'Rear Delt Fly Machine', icon: 'contract' },
+  { id: 'powerlifting-platform', name: 'Powerlifting Platform', icon: 'grid' },
+  { id: 'shoulder-press-machine', name: 'Shoulder Press Machine', icon: 'triangle' },
+  { id: 'smith-machine', name: 'Smith Machine', icon: 'hardware-chip' },
 ];
 
 const difficultyLevels: DifficultyLevel[] = [
@@ -87,7 +87,7 @@ const EquipmentCard = ({
         <Ionicons 
           name={equipment.icon} 
           size={20} 
-          color={isSelected ? "#FFD700" : "#FFFFFF"} 
+          color={isSelected ? '#FFD700" : "#FFFFFF"} 
         />
       </View>
       <Text style={[
@@ -223,7 +223,7 @@ export default function ShouldersEquipmentScreen() {
           style={styles.backButton}
           onPress={handleGoBack}
         >
-          <Ionicons name="chevron-back" size={24} color="#FFD700" />
+          <Ionicons name='chevron-back" size={24} color="#FFD700" />
         </TouchableOpacity>
         <View style={styles.headerTextContainer}>
           <Text style={styles.headerTitle}>Shoulders Equipment</Text>
@@ -247,7 +247,7 @@ export default function ShouldersEquipmentScreen() {
                 start={{ x: 0, y: 0 }}
                 end={{ x: 1, y: 1 }}
               >
-                <Ionicons name="flame" size={14} color="#0c0c0c" />
+                <Ionicons name='flame" size={14} color="#0c0c0c" />
               </LinearGradient>
             </View>
             <Text style={styles.progressStepText}>{moodTitle}</Text>
@@ -263,7 +263,7 @@ export default function ShouldersEquipmentScreen() {
                 start={{ x: 0, y: 0 }}
                 end={{ x: 1, y: 1 }}
               >
-                <Ionicons name="diamond-outline" size={14} color="#0c0c0c" />
+                <Ionicons name='diamond-outline" size={14} color="#0c0c0c" />
               </LinearGradient>
             </View>
             <Text style={styles.progressStepText}>{workoutType}</Text>
@@ -312,7 +312,7 @@ export default function ShouldersEquipmentScreen() {
                   start={{ x: 0, y: 0 }}
                   end={{ x: 1, y: 1 }}
                 >
-                  <Ionicons name="checkmark" size={14} color="#0c0c0c" />
+                  <Ionicons name='checkmark" size={14} color="#0c0c0c" />
                 </LinearGradient>
               ) : (
                 <Text style={styles.progressStepNumber}>4</Text>
@@ -380,7 +380,7 @@ export default function ShouldersEquipmentScreen() {
               end={{ x: 1, y: 0 }}
             >
               <Text style={styles.continueButtonTextActive}>Continue</Text>
-              <Ionicons name="chevron-forward" size={20} color="#0c0c0c" />
+              <Ionicons name='chevron-forward" size={20} color="#0c0c0c" />
             </LinearGradient>
           ) : (
             <Text style={styles.continueButtonText}>Continue</Text>

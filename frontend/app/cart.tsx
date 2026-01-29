@@ -44,7 +44,7 @@ const CartItemComponent: React.FC<{
       <Image 
         source={{ uri: imageSource }}
         style={styles.exerciseImage}
-        resizeMode="cover"
+        resizeMode='cover"
       />
       <View style={styles.exerciseInfo}>
         <Text style={styles.exerciseEquipment}>{item.equipment}</Text>
@@ -72,7 +72,7 @@ const CartItemComponent: React.FC<{
             activeOpacity={0.8}
           >
             <Ionicons 
-              name="chevron-down" 
+              name='chevron-down" 
               size={18} 
               color={isLast ? 'rgba(255, 255, 255, 0.3)' : '#fff'} 
             />
@@ -83,7 +83,7 @@ const CartItemComponent: React.FC<{
           onPress={() => onRemove(item.id)}
           activeOpacity={0.7}
         >
-          <Ionicons name="remove-circle" size={28} color="#FF4444" />
+          <Ionicons name='remove-circle" size={28} color="#FF4444" />
         </TouchableOpacity>
       </View>
     </View>
@@ -122,12 +122,12 @@ export default function CartScreen() {
 
   const handleSaveWorkout = async () => {
     if (!token) {
-      Alert.alert('Login Required", 'Please login to save workouts");
+      Alert.alert('Login Required', 'Please login to save workouts');
       return;
     }
     
     if (cartItems.length === 0) {
-      Alert.alert('Empty Cart", 'Add some exercises to save a workout");
+      Alert.alert('Empty Cart', 'Add some exercises to save a workout');
       return;
     }
     
@@ -138,7 +138,7 @@ export default function CartScreen() {
 
   const handleConfirmSave = async () => {
     if (!workoutName || workoutName.trim() === '') {
-      Alert.alert('Error", 'Please enter a workout name");
+      Alert.alert('Error', 'Please enter a workout name');
       return;
     }
     
@@ -153,7 +153,7 @@ export default function CartScreen() {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`,
-          'Content-Type": 'application/json",
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify({
           name: workoutName.trim(),
@@ -178,15 +178,15 @@ export default function CartScreen() {
       setSaveModalVisible(false);
       
       if (response.ok) {
-        Alert.alert('Saved!", 'Workout saved to your profile");
+        Alert.alert('Saved!', 'Workout saved to your profile');
       } else if (response.status === 400) {
-        Alert.alert('Already Exists", 'A workout with this name already exists");
+        Alert.alert('Already Exists', 'A workout with this name already exists');
       } else {
-        Alert.alert('Error", 'Failed to save workout");
+        Alert.alert('Error', 'Failed to save workout');
       }
     } catch (error) {
       console.error('Error saving workout:', error);
-      Alert.alert('Error", 'Failed to save workout");
+      Alert.alert('Error', 'Failed to save workout');
     } finally {
       setIsSaving(false);
     }
@@ -268,8 +268,8 @@ export default function CartScreen() {
 
   // Extract the main mood card name from workoutType
   const extractMoodCardName = (category: string): string => {
-    if (!category || category.toLowerCase() === 'workout" || category.toLowerCase() === 'unknown" || category.toLowerCase() === 'custom') {
-      return "Custom";
+    if (!category || category.toLowerCase() === 'workout' || category.toLowerCase() === 'unknown' || category.toLowerCase() === 'custom') {
+      return 'Custom";
     }
     
     // If it contains " - ", extract the first part (mood card name)
@@ -283,9 +283,9 @@ export default function CartScreen() {
     
     // Known mood card titles
     const moodCardTitles: { [key: string]: string } = {
-      "i want to sweat": "Sweat / Burn Fat",
+      'i want to sweat": "Sweat / Burn Fat",
       "sweat / burn fat": "Sweat / Burn Fat",
-      "i'm feeling lazy": "I'm Feeling Lazy",
+      "i'm feeling lazy': "I'm Feeling Lazy',
       "muscle gainer": "Muscle Gainer",
       "outdoor": "Outdoor",
       "lift weights": "Lift Weights",
@@ -306,18 +306,18 @@ export default function CartScreen() {
 
   // Get the first workout's mood card for display
   const getMoodInfo = () => {
-    if (cartItems.length === 0) return { mood: 'Workout", type: 'Cart" };
+    if (cartItems.length === 0) return { mood: 'Workout', type: 'Cart' };
     const firstItem = cartItems[0];
     
     // Use moodCard if available, otherwise extract from workoutType
     let mood = firstItem.moodCard || 'Custom';
     
     // If moodCard looks like a sub-path or equipment, try extracting from workoutType
-    if (mood.toLowerCase() === 'custom" || mood.toLowerCase() === 'workout") {
+    if (mood.toLowerCase() === 'custom' || mood.toLowerCase() === 'workout') {
       mood = extractMoodCardName(firstItem.workoutType || '');
     } else {
       // Verify moodCard is a proper mood card name, not equipment
-      mood = extractMoodCardName(mood) || extractMoodCardName(firstItem.workoutType || '") || 'Custom";
+      mood = extractMoodCardName(mood) || extractMoodCardName(firstItem.workoutType || '") || 'Custom';
     }
     
     // Determine sub-path based on mood card type
@@ -326,51 +326,51 @@ export default function CartScreen() {
     const workoutType = firstItem.workoutType || '';
     const workoutTypeLower = workoutType.toLowerCase();
     
-    // Calisthenics & Outdoor always show "Workout"
-    if (moodLower.includes('calisthenics") || moodLower.includes('outdoor") || moodLower.includes('get outside')) {
+    // Calisthenics & Outdoor always show 'Workout"
+    if (moodLower.includes('calisthenics') || moodLower.includes('outdoor') || moodLower.includes('get outside')) {
       subPath = 'Workout';
     }
-    // Sweat / Burn Fat - show "Cardio Based" or "Light Weights"
-    else if (moodLower.includes('sweat") || moodLower.includes('burn fat")) {
+    // Sweat / Burn Fat - show 'Cardio Based" or "Light Weights"
+    else if (moodLower.includes('sweat') || moodLower.includes('burn fat')) {
       if (workoutTypeLower.includes('cardio')) {
         subPath = 'Cardio Based';
       } else if (workoutTypeLower.includes('light weight')) {
         subPath = 'Light Weights';
       } else if (workoutType.includes(' - ')) {
-        subPath = workoutType.split(' - ")[1] || 'Workout";
+        subPath = workoutType.split(' - ')[1] || 'Workout';
       }
     }
     // Muscle Gainer - show selected muscle group
     else if (moodLower.includes('muscle')) {
       if (workoutType.includes(' - ')) {
-        subPath = workoutType.split(' - ")[1] || 'Workout";
+        subPath = workoutType.split(' - ')[1] || 'Workout';
       } else if (firstItem.equipment) {
         subPath = firstItem.equipment;
       }
     }
     // Build Explosion - show "Bodyweight" or "Weight Based"
-    else if (moodLower.includes('explosion") || moodLower.includes('explosive")) {
-      if (workoutTypeLower.includes('bodyweight") || workoutTypeLower.includes('body weight")) {
+    else if (moodLower.includes('explosion') || moodLower.includes('explosive')) {
+      if (workoutTypeLower.includes('bodyweight') || workoutTypeLower.includes('body weight')) {
         subPath = 'Bodyweight';
       } else if (workoutTypeLower.includes('weight')) {
         subPath = 'Weight Based';
       } else if (workoutType.includes(' - ')) {
-        subPath = workoutType.split(' - ")[1] || 'Workout";
+        subPath = workoutType.split(' - ')[1] || 'Workout';
       }
     }
-    // I'm Feeling Lazy - show "Move Your Body" or "Lift Weights"
+    // I'm Feeling Lazy - show 'Move Your Body" or "Lift Weights"
     else if (moodLower.includes('lazy')) {
-      if (workoutTypeLower.includes('move") || workoutTypeLower.includes('bodyweight")) {
+      if (workoutTypeLower.includes('move') || workoutTypeLower.includes('bodyweight')) {
         subPath = 'Move Your Body';
-      } else if (workoutTypeLower.includes('lift") || workoutTypeLower.includes('weight")) {
+      } else if (workoutTypeLower.includes('lift') || workoutTypeLower.includes('weight')) {
         subPath = 'Lift Weights';
       } else if (workoutType.includes(' - ')) {
-        subPath = workoutType.split(' - ")[1] || 'Workout";
+        subPath = workoutType.split(' - ')[1] || 'Workout';
       }
     }
     // Default: try to extract from workoutType
     else if (workoutType.includes(' - ')) {
-      subPath = workoutType.split(' - ")[1] || 'Workout";
+      subPath = workoutType.split(' - ')[1] || 'Workout';
     } else if (firstItem.equipment) {
       subPath = firstItem.equipment;
     }
@@ -491,7 +491,7 @@ export default function CartScreen() {
           >
             <Ionicons name="bookmark-outline" size={20} color="#FFD700" />
             <Text style={styles.saveButtonText}>
-              {isSaving ? 'Saving..." : 'Save"}
+              {isSaving ? 'Saving...' : 'Save'}
             </Text>
           </TouchableOpacity>
           <TouchableOpacity 
@@ -509,7 +509,7 @@ export default function CartScreen() {
               end={{ x: 1, y: 0 }}
             >
               <Text style={styles.startButtonText}>
-                {isStarting ? 'Starting..." : 'Start Workout"}
+                {isStarting ? 'Starting...' : 'Start Workout'}
               </Text>
               <Ionicons name="arrow-forward" size={20} color="#0c0c0c" />
             </LinearGradient>
@@ -525,7 +525,7 @@ export default function CartScreen() {
         onRequestClose={() => setSaveModalVisible(false)}
       >
         <KeyboardAvoidingView 
-          behavior={Platform.OS === 'ios" ? 'padding" : 'height'}
+          behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
           style={styles.modalOverlay}
         >
           <View style={styles.saveModalContent}>
@@ -538,7 +538,7 @@ export default function CartScreen() {
               style={styles.saveModalInput}
               value={workoutName}
               onChangeText={setWorkoutName}
-              placeholder="Workout name"
+              placeholder='Workout name"
               placeholderTextColor="#666"
               autoFocus
             />
@@ -557,7 +557,7 @@ export default function CartScreen() {
               >
                 <Ionicons name="bookmark" size={18} color="#000" />
                 <Text style={styles.saveModalSaveText}>
-                  {isSaving ? 'Saving..." : 'Save"}
+                  {isSaving ? 'Saving...' : 'Save'}
                 </Text>
               </TouchableOpacity>
             </View>

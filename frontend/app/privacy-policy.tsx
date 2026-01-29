@@ -25,7 +25,7 @@ export default function PrivacyPolicyScreen() {
       {/* Header */}
       <View style={styles.header}>
         <TouchableOpacity style={styles.backButton} onPress={() => router.back()}>
-          <Ionicons name="chevron-back" size={24} color="#FFD700" />
+          <Ionicons name='chevron-back" size={24} color="#FFD700" />
         </TouchableOpacity>
         <Text style={styles.headerTitle}>Privacy Policy</Text>
         <View style={styles.headerSpacer} />
@@ -470,7 +470,7 @@ export default function PrivacyPolicyScreen() {
             We may update this Privacy Policy from time to time. When we make changes:
           </Text>
           <View style={styles.bulletList}>
-            <Text style={styles.bulletItem}>• We will update the "Last Updated" date at the top of this policy</Text>
+            <Text style={styles.bulletItem}>• We will update the 'Last Updated" date at the top of this policy</Text>
             <Text style={styles.bulletItem}>• For material changes, we will notify you via in-app notification or email</Text>
             <Text style={styles.bulletItem}>• Continued use of the app after changes constitutes acceptance of the updated policy</Text>
           </View>

@@ -35,9 +35,9 @@ export default function FollowersList() {
   const { token, user, isGuest } = useAuth();
   
   const userId = params.userId as string;
-  const initialType = (params.type as 'followers" | 'following") || 'followers';
+  const initialType = (params.type as 'followers' | 'following') || 'followers';
   
-  const [activeTab, setActiveTab] = useState<'followers" | 'following">(initialType);
+  const [activeTab, setActiveTab] = useState<'followers' | 'following'>(initialType);
   const [users, setUsers] = useState<FollowUser[]>([]);
   const [loading, setLoading] = useState(true);
   const [refreshing, setRefreshing] = useState(false);
@@ -94,7 +94,7 @@ export default function FollowersList() {
     
     setFollowingInProgress(targetUserId);
     try {
-      const method = isCurrentlyFollowing ? 'DELETE" : 'POST";
+      const method = isCurrentlyFollowing ? 'DELETE' : 'POST';
       const response = await fetch(`${API_URL}/api/users/${targetUserId}/follow`, {
         method,
         headers: {
@@ -147,7 +147,7 @@ export default function FollowersList() {
           />
         ) : (
           <View style={[styles.avatar, styles.avatarPlaceholder]}>
-            <Ionicons name="person" size={24} color="#666" />
+            <Ionicons name='person" size={24} color="#666" />
           </View>
         )}
         <View style={styles.userDetails}>
@@ -175,7 +175,7 @@ export default function FollowersList() {
               styles.followButtonText,
               item.is_following && styles.followingButtonText
             ]}>
-              {item.is_following ? 'Following" : 'Follow"}
+              {item.is_following ? 'Following' : 'Follow'}
             </Text>
           )}
         </TouchableOpacity>
@@ -186,17 +186,17 @@ export default function FollowersList() {
   const renderEmpty = () => (
     <View style={styles.emptyContainer}>
       <Ionicons 
-        name={activeTab === 'followers" ? 'people-outline" : 'person-add-outline'} 
+        name={activeTab === 'followers' ? 'people-outline' : 'person-add-outline'} 
         size={64} 
-        color="#333" 
+        color='#333" 
       />
       <Text style={styles.emptyTitle}>
-        {activeTab === 'followers" ? 'No Followers Yet" : 'Not Following Anyone'}
+        {activeTab === 'followers' ? 'No Followers Yet' : 'Not Following Anyone'}
       </Text>
       <Text style={styles.emptyText}>
         {activeTab === 'followers' 
-          ? "When people follow this account, they'll appear here."
-          : "When this account follows people, they'll appear here."
+          ? 'When people follow this account, they'll appear here.'
+          : "When this account follows people, they'll appear here.'
         }
       </Text>
     </View>
@@ -239,7 +239,7 @@ export default function FollowersList() {
 
       {loading ? (
         <View style={styles.loadingContainer}>
-          <ActivityIndicator size="large" color="#FFD700" />
+          <ActivityIndicator size='large" color="#FFD700" />
         </View>
       ) : (
         <FlatList

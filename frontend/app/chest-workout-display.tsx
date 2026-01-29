@@ -188,10 +188,10 @@ const ChestWorkoutDisplayScreen = memo(function ChestWorkoutDisplayScreen() {
 
   const createProgressRows = () => {
     const steps = [
-      { key: 'mood", icon: 'fitness" as keyof typeof Ionicons.glyphMap, text: 'Muscle' },
-      { key: 'muscle", icon: 'body" as keyof typeof Ionicons.glyphMap, text: 'Chest' },
-      { key: 'difficulty", icon: 'speedometer" as keyof typeof Ionicons.glyphMap, text: difficulty === 'intermediate" ? 'Intermed." : difficulty.charAt(0).toUpperCase() + difficulty.slice(1) },
-      { key: 'equipment", icon: 'construct" as keyof typeof Ionicons.glyphMap, text: `${selectedEquipmentNames.length} Equip.` },
+      { key: 'mood', icon: 'fitness' as keyof typeof Ionicons.glyphMap, text: 'Muscle' },
+      { key: 'muscle', icon: 'body' as keyof typeof Ionicons.glyphMap, text: 'Chest' },
+      { key: 'difficulty', icon: 'speedometer' as keyof typeof Ionicons.glyphMap, text: difficulty === 'intermediate' ? 'Intermed.' : difficulty.charAt(0).toUpperCase() + difficulty.slice(1) },
+      { key: 'equipment', icon: 'construct' as keyof typeof Ionicons.glyphMap, text: `${selectedEquipmentNames.length} Equip.` },
     ];
     return [steps];
   };
@@ -201,7 +201,7 @@ const ChestWorkoutDisplayScreen = memo(function ChestWorkoutDisplayScreen() {
       <SafeAreaView style={[styles.container, { paddingTop: insets.top }]}>
         <View style={styles.header}>
           <TouchableOpacity style={styles.backButton} onPress={handleGoBack}>
-            <Ionicons name="chevron-back" size={24} color="#FFD700" />
+            <Ionicons name='chevron-back" size={24} color="#FFD700" />
           </TouchableOpacity>
           <View style={styles.headerTextContainer}>
             <Text style={styles.headerTitle}>Chest Workouts</Text>
@@ -224,7 +224,7 @@ const ChestWorkoutDisplayScreen = memo(function ChestWorkoutDisplayScreen() {
       <SafeAreaView style={[styles.container, { paddingTop: insets.top }]}>
         <View style={styles.header}>
           <TouchableOpacity style={styles.backButton} onPress={handleGoBack}>
-            <Ionicons name="chevron-back" size={24} color="#FFD700" />
+            <Ionicons name='chevron-back" size={24} color="#FFD700" />
           </TouchableOpacity>
           <View style={styles.headerTextContainer}>
             <Text style={styles.headerTitle}>Your Workouts</Text>
@@ -299,7 +299,7 @@ const ChestWorkoutDisplayScreen = memo(function ChestWorkoutDisplayScreen() {
                 <View style={styles.cartBadge}>
                   <Text style={styles.cartBadgeText}>{cartItems.length}</Text>
                 </View>
-                <Ionicons name="arrow-forward" size={20} color="#0c0c0c" />
+                <Ionicons name='arrow-forward" size={20} color="#0c0c0c" />
               </LinearGradient>
             </TouchableOpacity>
           </View>
@@ -313,40 +313,40 @@ export default ChestWorkoutDisplayScreen;
 
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: '#000000' },
-  header: { flexDirection: 'row", alignItems: 'center", paddingHorizontal: 24, paddingVertical: 16, borderBottomWidth: 1, borderBottomColor: 'rgba(255, 215, 0, 0.2)', backgroundColor: '#000000', zIndex: 10 },
-  backButton: { width: 40, height: 40, borderRadius: 20, backgroundColor: 'rgba(255, 215, 0, 0.1)", justifyContent: 'center", alignItems: 'center", borderWidth: 2, borderColor: 'rgba(255, 215, 0, 0.3)" },
+  header: { flexDirection: 'row', alignItems: 'center', paddingHorizontal: 24, paddingVertical: 16, borderBottomWidth: 1, borderBottomColor: 'rgba(255, 215, 0, 0.2)', backgroundColor: '#000000', zIndex: 10 },
+  backButton: { width: 40, height: 40, borderRadius: 20, backgroundColor: 'rgba(255, 215, 0, 0.1)', justifyContent: 'center', alignItems: 'center', borderWidth: 2, borderColor: 'rgba(255, 215, 0, 0.3)' },
   headerTextContainer: { flex: 1, alignItems: 'center' },
-  headerTitle: { fontSize: 20, fontWeight: 'bold', color: '#ffffff", textAlign: 'center" },
-  headerSubtitle: { fontSize: 14, color: 'rgba(255, 255, 255, 0.7)", textAlign: 'center", marginTop: 2 },
-  progressContainer: { backgroundColor: '#111111", borderBottomWidth: 1, borderBottomColor: 'rgba(255, 215, 0, 0.2)", paddingVertical: 12, paddingHorizontal: 16, zIndex: 10 },
+  headerTitle: { fontSize: 20, fontWeight: 'bold', color: '#ffffff', textAlign: 'center' },
+  headerSubtitle: { fontSize: 14, color: 'rgba(255, 255, 255, 0.7)', textAlign: 'center', marginTop: 2 },
+  progressContainer: { backgroundColor: '#111111', borderBottomWidth: 1, borderBottomColor: 'rgba(255, 215, 0, 0.2)', paddingVertical: 12, paddingHorizontal: 16, zIndex: 10 },
   progressContent: { alignItems: 'center' },
-  progressRow: { flexDirection: 'row", alignItems: 'center", justifyContent: 'center', marginBottom: 12 },
+  progressRow: { flexDirection: 'row', alignItems: 'center', justifyContent: 'center', marginBottom: 12 },
   progressStep: { alignItems: 'center', minWidth: 60 },
   progressStepActive: { width: 28, height: 28, borderRadius: 14, overflow: 'hidden', marginBottom: 8 },
-  progressStepGradient: { width: '100%', height: '100%", justifyContent: 'center", alignItems: 'center' },
-  progressStepText: { fontSize: 10, color: 'rgba(255, 255, 255, 0.8)", textAlign: 'center", fontWeight: '500', maxWidth: 70 },
+  progressStepGradient: { width: '100%', height: '100%', justifyContent: 'center', alignItems: 'center' },
+  progressStepText: { fontSize: 10, color: 'rgba(255, 255, 255, 0.8)', textAlign: 'center', fontWeight: '500', maxWidth: 70 },
   progressConnector: { width: 16, height: 2, backgroundColor: 'rgba(255, 215, 0, 0.3)', marginHorizontal: 8, marginTop: 16 },
   scrollView: { flex: 1, overflow: 'visible' },
   scrollContentContainer: { paddingTop: 24, paddingBottom: 100, overflow: 'visible' },
-  emptyState: { flex: 1, justifyContent: 'center", alignItems: 'center", paddingHorizontal: 40 },
-  emptyStateText: { fontSize: 18, color: 'rgba(255, 255, 255, 0.8)", textAlign: 'center", marginTop: 16, marginBottom: 8 },
-  emptyStateSubtext: { fontSize: 14, color: 'rgba(255, 255, 255, 0.5)", textAlign: 'center" },
+  emptyState: { flex: 1, justifyContent: 'center', alignItems: 'center', paddingHorizontal: 40 },
+  emptyStateText: { fontSize: 18, color: 'rgba(255, 255, 255, 0.8)', textAlign: 'center', marginTop: 16, marginBottom: 8 },
+  emptyStateSubtext: { fontSize: 14, color: 'rgba(255, 255, 255, 0.5)', textAlign: 'center' },
   // Muscle Group Indicator
-  muscleIndicator: { backgroundColor: 'rgba(255, 215, 0, 0.1)", paddingVertical: 10, paddingHorizontal: 16, marginHorizontal: 24, marginBottom: 16, borderRadius: 8, borderWidth: 1, borderColor: 'rgba(255, 215, 0, 0.2)" },
-  muscleIndicatorText: { fontSize: 13, color: 'rgba(255, 255, 255, 0.7)", textAlign: 'center" },
+  muscleIndicator: { backgroundColor: 'rgba(255, 215, 0, 0.1)', paddingVertical: 10, paddingHorizontal: 16, marginHorizontal: 24, marginBottom: 16, borderRadius: 8, borderWidth: 1, borderColor: 'rgba(255, 215, 0, 0.2)' },
+  muscleIndicatorText: { fontSize: 13, color: 'rgba(255, 255, 255, 0.7)', textAlign: 'center' },
   muscleIndicatorHighlight: { color: '#FFD700', fontWeight: '600' },
   // Next Muscle Group Button
   nextMuscleContainer: { paddingHorizontal: 24, paddingTop: 16, paddingBottom: 24 },
-  nextMuscleButton: { backgroundColor: '#FFD700", borderRadius: 12, padding: 16, flexDirection: 'row", alignItems: 'center", justifyContent: 'space-between" },
+  nextMuscleButton: { backgroundColor: '#FFD700', borderRadius: 12, padding: 16, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' },
   nextMuscleContent: { flex: 1 },
   nextMuscleLabel: { fontSize: 12, color: 'rgba(0, 0, 0, 0.6)', marginBottom: 2 },
   nextMuscleName: { fontSize: 16, fontWeight: '600', color: '#000' },
   nextMuscleIndicatorBadge: { backgroundColor: 'rgba(0, 0, 0, 0.15)', paddingHorizontal: 10, paddingVertical: 4, borderRadius: 12, marginRight: 12 },
   nextMuscleIndicatorText: { fontSize: 12, fontWeight: '600', color: '#000' },
   // Continue Button
-  continueButtonContainer: { position: 'absolute", bottom: 0, left: 0, right: 0, padding: 16, backgroundColor: 'rgba(0, 0, 0, 0.95)", borderTopWidth: 1, borderTopColor: 'rgba(255, 215, 0, 0.2)' },
+  continueButtonContainer: { position: 'absolute', bottom: 0, left: 0, right: 0, padding: 16, backgroundColor: 'rgba(0, 0, 0, 0.95)', borderTopWidth: 1, borderTopColor: 'rgba(255, 215, 0, 0.2)' },
   continueButton: { borderRadius: 12, overflow: 'hidden' },
-  continueButtonGradient: { padding: 16, flexDirection: 'row", alignItems: 'center", justifyContent: 'center' },
+  continueButtonGradient: { padding: 16, flexDirection: 'row', alignItems: 'center', justifyContent: 'center' },
   continueButtonText: { fontSize: 16, fontWeight: 'bold', color: '#0c0c0c', marginRight: 8 },
   cartBadge: { backgroundColor: 'rgba(0, 0, 0, 0.2)', paddingHorizontal: 8, paddingVertical: 2, borderRadius: 10, marginRight: 8 },
   cartBadgeText: { fontSize: 12, fontWeight: '600', color: '#0c0c0c' },

@@ -29,12 +29,12 @@ interface DifficultyLevel {
 }
 
 const equipmentOptions: EquipmentOption[] = [
-  { id: 'dumbbells', name: "Dumbbells', icon: 'barbell" },
-  { id: 'squat-rack', name: "Squat Rack', icon: 'square-outline" },
-  { id: 'leg-press-machine', name: "Leg Press Machine', icon: 'hardware-chip" },
-  { id: 'hack-squat-machine', name: "Hack Squat Machine', icon: 'triangle" },
-  { id: 'single-stack-cable', name: "Single Stack Cable', icon: 'reorder-three" },
-  { id: 'trap-bar', name: "Trap Bar', icon: 'remove" },
+  { id: 'dumbbells', name: 'Dumbbells', icon: 'barbell' },
+  { id: 'squat-rack', name: 'Squat Rack', icon: 'square-outline' },
+  { id: 'leg-press-machine', name: 'Leg Press Machine', icon: 'hardware-chip' },
+  { id: 'hack-squat-machine', name: 'Hack Squat Machine', icon: 'triangle' },
+  { id: 'single-stack-cable', name: 'Single Stack Cable', icon: 'reorder-three' },
+  { id: 'trap-bar', name: 'Trap Bar', icon: 'remove' },
 ];
 
 const difficultyLevels: DifficultyLevel[] = [
@@ -83,7 +83,7 @@ const EquipmentCard = ({
         <Ionicons 
           name={equipment.icon} 
           size={24} 
-          color={isSelected ? "#FFD700" : "#FFFFFF"} 
+          color={isSelected ? '#FFD700" : "#FFFFFF"} 
         />
       </View>
       <Text style={[
@@ -205,7 +205,7 @@ export default function CompoundEquipmentScreen() {
           style={styles.backButton}
           onPress={handleGoBack}
         >
-          <Ionicons name="chevron-back" size={24} color="#FFD700" />
+          <Ionicons name='chevron-back" size={24} color="#FFD700" />
         </TouchableOpacity>
         <View style={styles.headerTextContainer}>
           <Text style={styles.headerTitle}>Compound Equipment</Text>
@@ -229,7 +229,7 @@ export default function CompoundEquipmentScreen() {
                 start={{ x: 0, y: 0 }}
                 end={{ x: 1, y: 1 }}
               >
-                <Ionicons name="flame" size={14} color="#0c0c0c" />
+                <Ionicons name='flame" size={14} color="#0c0c0c" />
               </LinearGradient>
             </View>
             <Text style={styles.progressStepText}>{moodTitle}</Text>
@@ -245,7 +245,7 @@ export default function CompoundEquipmentScreen() {
                 start={{ x: 0, y: 0 }}
                 end={{ x: 1, y: 1 }}
               >
-                <Ionicons name="walk" size={14} color="#0c0c0c" />
+                <Ionicons name='walk" size={14} color="#0c0c0c" />
               </LinearGradient>
             </View>
             <Text style={styles.progressStepText}>Legs</Text>
@@ -261,7 +261,7 @@ export default function CompoundEquipmentScreen() {
                 start={{ x: 0, y: 0 }}
                 end={{ x: 1, y: 1 }}
               >
-                <Ionicons name="layers" size={14} color="#0c0c0c" />
+                <Ionicons name='layers" size={14} color="#0c0c0c" />
               </LinearGradient>
             </View>
             <Text style={styles.progressStepText}>{workoutType}</Text>
@@ -310,7 +310,7 @@ export default function CompoundEquipmentScreen() {
                   start={{ x: 0, y: 0 }}
                   end={{ x: 1, y: 1 }}
                 >
-                  <Ionicons name="checkmark" size={14} color="#0c0c0c" />
+                  <Ionicons name='checkmark" size={14} color="#0c0c0c" />
                 </LinearGradient>
               ) : (
                 <Text style={styles.progressStepNumber}>5</Text>
@@ -378,7 +378,7 @@ export default function CompoundEquipmentScreen() {
               end={{ x: 1, y: 0 }}
             >
               <Text style={styles.continueButtonTextActive}>Continue</Text>
-              <Ionicons name="chevron-forward" size={20} color="#0c0c0c" />
+              <Ionicons name='chevron-forward" size={20} color="#0c0c0c" />
             </LinearGradient>
           ) : (
             <Text style={styles.continueButtonText}>Continue</Text>

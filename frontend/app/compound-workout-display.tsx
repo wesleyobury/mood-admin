@@ -207,10 +207,10 @@ const CompoundWorkoutDisplayScreen = memo(function CompoundWorkoutDisplayScreen(
 
   const createProgressRows = () => {
     const steps = [
-      { key: 'mood", icon: 'fitness" as keyof typeof Ionicons.glyphMap, text: 'Muscle' },
-      { key: 'muscle", icon: 'body" as keyof typeof Ionicons.glyphMap, text: 'Legs' },
-      { key: 'groups", icon: 'layers" as keyof typeof Ionicons.glyphMap, text: `${muscleGroups.length} Groups` },
-      { key: 'difficulty", icon: 'speedometer" as keyof typeof Ionicons.glyphMap, text: difficulty === 'intermediate" ? 'Intermed." : difficulty.charAt(0).toUpperCase() + difficulty.slice(1) },
+      { key: 'mood', icon: 'fitness' as keyof typeof Ionicons.glyphMap, text: 'Muscle' },
+      { key: 'muscle', icon: 'body' as keyof typeof Ionicons.glyphMap, text: 'Legs' },
+      { key: 'groups', icon: 'layers' as keyof typeof Ionicons.glyphMap, text: `${muscleGroups.length} Groups` },
+      { key: 'difficulty', icon: 'speedometer' as keyof typeof Ionicons.glyphMap, text: difficulty === 'intermediate' ? 'Intermed.' : difficulty.charAt(0).toUpperCase() + difficulty.slice(1) },
     ];
     return [steps];
   };
@@ -268,7 +268,7 @@ const CompoundWorkoutDisplayScreen = memo(function CompoundWorkoutDisplayScreen(
       <SafeAreaView style={[styles.container, { paddingTop: insets.top }]}>
         <View style={styles.header}>
           <TouchableOpacity style={styles.backButton} onPress={handleGoBack}>
-            <Ionicons name="chevron-back" size={24} color="#FFD700" />
+            <Ionicons name='chevron-back" size={24} color="#FFD700" />
           </TouchableOpacity>
           <View style={styles.headerTextContainer}>
             <Text style={styles.headerTitle}>Your Workouts</Text>
@@ -361,7 +361,7 @@ const CompoundWorkoutDisplayScreen = memo(function CompoundWorkoutDisplayScreen(
                 }
               </Text>
               <Ionicons 
-                name={hasMoreMuscles ? "arrow-forward" : "cart"} 
+                name={hasMoreMuscles ? 'arrow-forward" : "cart"} 
                 size={20} 
                 color="#0c0c0c" 
               />
@@ -377,31 +377,31 @@ export default CompoundWorkoutDisplayScreen;
 
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: '#000000' },
-  header: { flexDirection: 'row", alignItems: 'center", paddingHorizontal: 24, paddingVertical: 16, borderBottomWidth: 1, borderBottomColor: 'rgba(255, 215, 0, 0.2)', backgroundColor: '#000000', zIndex: 10 },
-  backButton: { width: 40, height: 40, borderRadius: 20, backgroundColor: 'rgba(255, 215, 0, 0.1)", justifyContent: 'center", alignItems: 'center", borderWidth: 2, borderColor: 'rgba(255, 215, 0, 0.3)" },
+  header: { flexDirection: 'row', alignItems: 'center', paddingHorizontal: 24, paddingVertical: 16, borderBottomWidth: 1, borderBottomColor: 'rgba(255, 215, 0, 0.2)', backgroundColor: '#000000', zIndex: 10 },
+  backButton: { width: 40, height: 40, borderRadius: 20, backgroundColor: 'rgba(255, 215, 0, 0.1)', justifyContent: 'center', alignItems: 'center', borderWidth: 2, borderColor: 'rgba(255, 215, 0, 0.3)' },
   headerTextContainer: { flex: 1, alignItems: 'center' },
-  headerTitle: { fontSize: 20, fontWeight: 'bold', color: '#ffffff", textAlign: 'center" },
-  headerSubtitle: { fontSize: 14, color: 'rgba(255, 255, 255, 0.7)", textAlign: 'center", marginTop: 2 },
-  progressContainer: { backgroundColor: '#111111", borderBottomWidth: 1, borderBottomColor: 'rgba(255, 215, 0, 0.2)", paddingVertical: 12, paddingHorizontal: 16, zIndex: 10 },
+  headerTitle: { fontSize: 20, fontWeight: 'bold', color: '#ffffff', textAlign: 'center' },
+  headerSubtitle: { fontSize: 14, color: 'rgba(255, 255, 255, 0.7)', textAlign: 'center', marginTop: 2 },
+  progressContainer: { backgroundColor: '#111111', borderBottomWidth: 1, borderBottomColor: 'rgba(255, 215, 0, 0.2)', paddingVertical: 12, paddingHorizontal: 16, zIndex: 10 },
   progressContent: { alignItems: 'center' },
-  progressRow: { flexDirection: 'row", alignItems: 'center", justifyContent: 'center', marginBottom: 12 },
+  progressRow: { flexDirection: 'row', alignItems: 'center', justifyContent: 'center', marginBottom: 12 },
   progressStep: { alignItems: 'center', minWidth: 60 },
   progressStepActive: { width: 28, height: 28, borderRadius: 14, overflow: 'hidden', marginBottom: 8 },
-  progressStepGradient: { width: '100%', height: '100%", justifyContent: 'center", alignItems: 'center' },
-  progressStepText: { fontSize: 10, color: 'rgba(255, 255, 255, 0.8)", textAlign: 'center", fontWeight: '500', maxWidth: 70 },
+  progressStepGradient: { width: '100%', height: '100%', justifyContent: 'center', alignItems: 'center' },
+  progressStepText: { fontSize: 10, color: 'rgba(255, 255, 255, 0.8)', textAlign: 'center', fontWeight: '500', maxWidth: 70 },
   progressConnector: { width: 16, height: 2, backgroundColor: 'rgba(255, 215, 0, 0.3)', marginHorizontal: 8, marginTop: 16 },
   scrollView: { flex: 1, overflow: 'visible' },
   scrollContentContainer: { paddingTop: 16, paddingBottom: 20, overflow: 'visible' },
   muscleGroupSection: { marginBottom: 24 },
-  sectionHeader: { flexDirection: 'row", alignItems: 'center", justifyContent: 'space-between', paddingHorizontal: 24, marginBottom: 16 },
+  sectionHeader: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', paddingHorizontal: 24, marginBottom: 16 },
   sectionTitle: { fontSize: 20, fontWeight: 'bold', color: '#ffffff' },
   sectionBadge: { backgroundColor: 'rgba(255, 215, 0, 0.15)', paddingHorizontal: 12, paddingVertical: 4, borderRadius: 12 },
   sectionBadgeText: { fontSize: 12, color: '#FFD700', fontWeight: '600' },
-  emptyState: { flex: 1, justifyContent: 'center", alignItems: 'center", paddingHorizontal: 40 },
-  emptyStateText: { fontSize: 18, color: 'rgba(255, 255, 255, 0.8)", textAlign: 'center", marginTop: 16, marginBottom: 8 },
-  emptyStateSubtext: { fontSize: 14, color: 'rgba(255, 255, 255, 0.5)", textAlign: 'center" },
-  bottomButtonContainer: { paddingHorizontal: 20, paddingVertical: 16, paddingBottom: 24, backgroundColor: '#000000", borderTopWidth: 1, borderTopColor: 'rgba(255, 215, 0, 0.2)" },
+  emptyState: { flex: 1, justifyContent: 'center', alignItems: 'center', paddingHorizontal: 40 },
+  emptyStateText: { fontSize: 18, color: 'rgba(255, 255, 255, 0.8)', textAlign: 'center', marginTop: 16, marginBottom: 8 },
+  emptyStateSubtext: { fontSize: 14, color: 'rgba(255, 255, 255, 0.5)', textAlign: 'center' },
+  bottomButtonContainer: { paddingHorizontal: 20, paddingVertical: 16, paddingBottom: 24, backgroundColor: '#000000', borderTopWidth: 1, borderTopColor: 'rgba(255, 215, 0, 0.2)' },
   nextMuscleButton: { borderRadius: 12, overflow: 'hidden' },
-  nextMuscleButtonGradient: { paddingVertical: 16, paddingHorizontal: 24, flexDirection: 'row", alignItems: 'center", justifyContent: 'center', gap: 8 },
+  nextMuscleButtonGradient: { paddingVertical: 16, paddingHorizontal: 24, flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 8 },
   nextMuscleButtonText: { fontSize: 16, fontWeight: 'bold', color: '#0c0c0c' },
 });

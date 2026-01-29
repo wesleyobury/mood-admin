@@ -19,16 +19,16 @@ const API_URL = process.env.EXPO_PUBLIC_BACKEND_URL || Constants.expoConfig?.ext
 
 // Screen name mapping for user-friendly display
 const screenNameMap: { [key: string]: string } = {
-  'index": 'Home",
-  'explore": 'Explore",
-  'profile": 'Profile",
-  'cart": 'Workout Cart",
-  'workout-session": 'Workout Session",
-  'create-post": 'Create Post",
-  'admin-dashboard": 'Admin Dashboard",
-  'featured-workout-detail": 'Featured Workout",
-  'user-profile": 'User Profile",
-  'settings": 'Settings",
+  'index': 'Home',
+  'explore': 'Explore',
+  'profile': 'Profile',
+  'cart': 'Workout Cart',
+  'workout-session': 'Workout Session',
+  'create-post': 'Create Post',
+  'admin-dashboard': 'Admin Dashboard',
+  'featured-workout-detail': 'Featured Workout',
+  'user-profile': 'User Profile',
+  'settings': 'Settings',
 };
 
 const getDisplayScreenName = (screenName: string): string => {
@@ -37,12 +37,12 @@ const getDisplayScreenName = (screenName: string): string => {
 
 // Mood name mapping for user-friendly display
 const moodNameMap: { [key: string]: string } = {
-  'sweat": 'Sweat / Burn Fat",
-  'muscle": 'Muscle Gainer",
-  'outdoor": 'Get Outside",
-  'calisthenics": 'Calisthenics",
-  'lazy": 'Feeling Lazy",
-  'explosive": 'Get Explosive",
+  'sweat': 'Sweat / Burn Fat',
+  'muscle': 'Muscle Gainer',
+  'outdoor': 'Get Outside',
+  'calisthenics': 'Calisthenics',
+  'lazy': 'Feeling Lazy',
+  'explosive': 'Get Explosive',
 };
 
 const getDisplayMoodName = (moodId: string): string => {
@@ -128,9 +128,9 @@ export default function AnalyticsDetailScreen() {
   
   const subtitles: Record<string, string> = {
     users: 'All registered accounts on the platform',
-    activeUsers: `Users who have used the app in the last ${days} ${days === 1 ? 'day" : 'days"}`,
+    activeUsers: `Users who have used the app in the last ${days} ${days === 1 ? 'day' : 'days'}`,
     dailyActiveUsers: 'Users who were active in the last 24 hours',
-    newUsers: `Users who signed up in the last ${days} ${days === 1 ? 'day" : 'days"}`,
+    newUsers: `Users who signed up in the last ${days} ${days === 1 ? 'day' : 'days'}`,
     screens: 'Most viewed screens in the app',
     moods: 'Workout mood preferences selected by users',
     equipment: 'Equipment types selected by users',
@@ -188,7 +188,7 @@ export default function AnalyticsDetailScreen() {
           <Image source={{ uri: `${API_URL}${item.avatar_url}` }} style={styles.avatar} />
         ) : (
           <View style={[styles.avatar, styles.avatarPlaceholder]}>
-            <Ionicons name="person" size={20} color="#666" />
+            <Ionicons name='person" size={20} color="#666" />
           </View>
         )}
       </View>
@@ -340,7 +340,7 @@ export default function AnalyticsDetailScreen() {
     return (
       <View key={item.difficulty} style={styles.listItem}>
         <View style={[styles.rankBadge, { backgroundColor: colors[item.difficulty] || '#FFD700' }]}>
-          <Ionicons name="speedometer" size={16} color="#fff" />
+          <Ionicons name='speedometer" size={16} color="#fff" />
         </View>
         <View style={styles.itemContent}>
           <Text style={styles.itemTitle}>{item.difficulty.charAt(0).toUpperCase() + item.difficulty.slice(1)}</Text>
@@ -424,7 +424,7 @@ export default function AnalyticsDetailScreen() {
     if (loading) {
       return (
         <View style={styles.loadingContainer}>
-          <ActivityIndicator size="large" color="#FFD700" />
+          <ActivityIndicator size='large" color="#FFD700" />
         </View>
       );
     }
@@ -495,7 +495,7 @@ export default function AnalyticsDetailScreen() {
       {/* Header */}
       <View style={styles.header}>
         <TouchableOpacity style={styles.backButton} onPress={() => router.back()}>
-          <Ionicons name="chevron-back" size={24} color="#FFD700" />
+          <Ionicons name='chevron-back" size={24} color="#FFD700" />
         </TouchableOpacity>
         <View style={styles.headerTextContainer}>
           <Text style={styles.headerTitle}>{titles[type] || 'Details'}</Text>

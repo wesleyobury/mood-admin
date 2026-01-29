@@ -30,12 +30,12 @@ interface DifficultyLevel {
 
 // Explosiveness weight equipment options (alphabetical order)
 const equipmentOptions: EquipmentOption[] = [
-  { id: 'chains-bands', name: "Chains / Bands', icon: 'git-network" },
-  { id: 'dumbbells', name: "Dumbbells', icon: 'fitness" },
-  { id: 'kettlebells', name: "Kettlebells', icon: 'fitness" },
-  { id: 'landmine', name: "Landmine Attachment', icon: 'analytics" },
-  { id: 'power-lifting', name: "Power Lifting Platform', icon: 'barbell" },
-  { id: 'trap-bar', name: "Trap Hex Bar', icon: 'stop" },
+  { id: 'chains-bands', name: 'Chains / Bands', icon: 'git-network' },
+  { id: 'dumbbells', name: 'Dumbbells', icon: 'fitness' },
+  { id: 'kettlebells', name: 'Kettlebells', icon: 'fitness' },
+  { id: 'landmine', name: 'Landmine Attachment', icon: 'analytics' },
+  { id: 'power-lifting', name: 'Power Lifting Platform', icon: 'barbell' },
+  { id: 'trap-bar', name: 'Trap Hex Bar', icon: 'stop' },
 ];
 
 // Difficulty levels with explosiveness-appropriate descriptions
@@ -86,7 +86,7 @@ const EquipmentCard = ({
           <Ionicons 
             name={equipment.icon} 
             size={20} 
-            color={isSelected ? "#FFD700" : "#FFFFFF"} 
+            color={isSelected ? '#FFD700" : "#FFFFFF"} 
           />
         </View>
         <Text style={[
@@ -213,7 +213,7 @@ export default function WeightEquipmentScreen() {
           style={styles.backButton}
           onPress={handleGoBack}
         >
-          <Ionicons name="chevron-back" size={24} color="#FFD700" />
+          <Ionicons name='chevron-back" size={24} color="#FFD700" />
         </TouchableOpacity>
         <View style={styles.headerTextContainer}>
           <Text style={styles.headerTitle}>Weight Equipment</Text>
@@ -237,7 +237,7 @@ export default function WeightEquipmentScreen() {
                 start={{ x: 0, y: 0 }}
                 end={{ x: 1, y: 1 }}
               >
-                <Ionicons name="flash" size={14} color="#0c0c0c" />
+                <Ionicons name='flash" size={14} color="#0c0c0c" />
               </LinearGradient>
             </View>
             <Text style={styles.progressStepText}>{moodTitle}</Text>
@@ -253,7 +253,7 @@ export default function WeightEquipmentScreen() {
                 start={{ x: 0, y: 0 }}
                 end={{ x: 1, y: 1 }}
               >
-                <Ionicons name="barbell" size={14} color="#0c0c0c" />
+                <Ionicons name='barbell" size={14} color="#0c0c0c" />
               </LinearGradient>
             </View>
             <Text style={styles.progressStepText}>{workoutType}</Text>
@@ -302,7 +302,7 @@ export default function WeightEquipmentScreen() {
                   start={{ x: 0, y: 0 }}
                   end={{ x: 1, y: 1 }}
                 >
-                  <Ionicons name="checkmark" size={14} color="#0c0c0c" />
+                  <Ionicons name='checkmark" size={14} color="#0c0c0c" />
                 </LinearGradient>
               ) : (
                 <Text style={styles.progressStepNumber}>4</Text>
@@ -370,7 +370,7 @@ export default function WeightEquipmentScreen() {
               end={{ x: 1, y: 0 }}
             >
               <Text style={styles.continueButtonTextActive}>Continue</Text>
-              <Ionicons name="chevron-forward" size={20} color="#0c0c0c" />
+              <Ionicons name='chevron-forward" size={20} color="#0c0c0c" />
             </LinearGradient>
           ) : (
             <Text style={styles.continueButtonText}>Continue</Text>

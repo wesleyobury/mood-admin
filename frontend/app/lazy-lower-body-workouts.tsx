@@ -28,7 +28,7 @@ const LazyLowerBodyWorkoutsScreen = memo(function LazyLowerBodyWorkoutsScreen() 
   const insets = useSafeAreaInsets();
 
   // Parse URL parameters
-  const moodTitle = params.mood as string || "I'm feeling lazy";
+  const moodTitle = params.mood as string || 'I'm feeling lazy';
   const workoutType = params.workoutType as string || 'Lower Body';
   const bodyPart = params.bodyPart as string || 'Lower Body';
   const difficulty = params.difficulty as string || 'beginner';
@@ -96,7 +96,7 @@ const LazyLowerBodyWorkoutsScreen = memo(function LazyLowerBodyWorkoutsScreen() 
 
   const handleStartWorkout = (workout: Workout, equipment: string, diff: string) => {
     try {
-      console.log('🚀 Starting workout:", workout.name, 'on", equipment);
+      console.log('🚀 Starting workout:', workout.name, 'on', equipment);
       
       if (!workout.name || !equipment || !diff) {
         console.error('❌ Missing required parameters for workout navigation');
@@ -113,7 +113,7 @@ const LazyLowerBodyWorkoutsScreen = memo(function LazyLowerBodyWorkoutsScreen() 
           duration: workout.duration || '20 min',
           difficulty: diff,
           workoutType: workoutType,
-          imageUrl: workout.imageUrl || "",
+          imageUrl: workout.imageUrl || '",
           intensityReason: workout.intensityReason || "",
           moodCard: moodTitle,
           moodTips: encodeURIComponent(JSON.stringify(workout.moodTips || []))
@@ -129,10 +129,10 @@ const LazyLowerBodyWorkoutsScreen = memo(function LazyLowerBodyWorkoutsScreen() 
   // Create progress bar - single row with requested order
   const createProgressRows = () => {
     const steps = [
-      { key: 'mood", icon: 'bed" as keyof typeof Ionicons.glyphMap, text: 'Lazy' },
-      { key: 'type", icon: 'barbell" as keyof typeof Ionicons.glyphMap, text: 'Lift' },
-      { key: 'bodyPart", icon: 'body" as keyof typeof Ionicons.glyphMap, text: bodyPart },
-      { key: 'difficulty", icon: 'speedometer" as keyof typeof Ionicons.glyphMap, text: difficulty === 'intermediate" ? 'Intermed." : difficulty.charAt(0).toUpperCase() + difficulty.slice(1) },
+      { key: 'mood', icon: 'bed' as keyof typeof Ionicons.glyphMap, text: 'Lazy' },
+      { key: 'type', icon: 'barbell' as keyof typeof Ionicons.glyphMap, text: 'Lift' },
+      { key: 'bodyPart', icon: 'body' as keyof typeof Ionicons.glyphMap, text: bodyPart },
+      { key: 'difficulty', icon: 'speedometer' as keyof typeof Ionicons.glyphMap, text: difficulty === 'intermediate' ? 'Intermed.' : difficulty.charAt(0).toUpperCase() + difficulty.slice(1) },
     ];
 
     return [steps];
@@ -182,7 +182,7 @@ const LazyLowerBodyWorkoutsScreen = memo(function LazyLowerBodyWorkoutsScreen() 
             style={styles.backButton}
             onPress={handleGoBack}
           >
-            <Ionicons name="chevron-back" size={24} color="#FFD700" />
+            <Ionicons name='chevron-back" size={24} color="#FFD700" />
           </TouchableOpacity>
           <View style={styles.headerTextContainer}>
             <Text style={styles.headerTitle}>Your Workouts</Text>

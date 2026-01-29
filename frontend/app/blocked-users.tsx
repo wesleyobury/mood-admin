@@ -66,7 +66,7 @@ export default function BlockedUsers() {
       'Unblock User',
       `Are you sure you want to unblock @${username}? They will be able to see your profile and content again.`,
       [
-        { text: "Cancel', style: 'cancel" },
+        { text: 'Cancel', style: 'cancel' },
         {
           text: 'Unblock',
           onPress: async () => {
@@ -83,10 +83,10 @@ export default function BlockedUsers() {
                 setBlockedUsers(prev => prev.filter(u => u.blocked_user_id !== userId));
                 Alert.alert('Success', `@${username} has been unblocked`);
               } else {
-                Alert.alert('Error", 'Failed to unblock user");
+                Alert.alert('Error', 'Failed to unblock user');
               }
             } catch (error) {
-              Alert.alert('Error", 'Failed to unblock user");
+              Alert.alert('Error', 'Failed to unblock user');
             } finally {
               setUnblockingId(null);
             }
@@ -124,7 +124,7 @@ export default function BlockedUsers() {
           />
         ) : (
           <View style={[styles.avatar, styles.avatarPlaceholder]}>
-            <Ionicons name="person" size={24} color="#666" />
+            <Ionicons name='person" size={24} color="#666" />
           </View>
         )}
         <View style={styles.userDetails}>

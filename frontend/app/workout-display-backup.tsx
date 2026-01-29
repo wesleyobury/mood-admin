@@ -326,7 +326,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'refresh',
               title: 'Pull Technique',
-              description: "Pull, don't just push, in reverse sets."
+              description: 'Pull, don't just push, in reverse sets.'
             },
             {
               icon: 'body',
@@ -518,7 +518,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'refresh',
               title: 'Recovery Control',
-              description: "Control breathing during recovery; don't fully relax."
+              description: 'Control breathing during recovery; don't fully relax.'
             }
           ]
         },
@@ -532,7 +532,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'trophy',
               title: 'Effort Pacing',
-              description: 'Pace "hard" sections; drive through heels on standing climbs.'
+              description: 'Pace 'hard" sections; drive through heels on standing climbs.'
             },
             {
               icon: 'refresh',
@@ -599,12 +599,12 @@ const workoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'flash',
               title: 'All-Out Effort',
-              description: "Go all out on sprints; don't hold back."
+              description: 'Go all out on sprints; don't hold back.'
             },
             {
               icon: 'refresh',
               title: 'RPM Control',
-              description: "Steady RPM in recovery; don't slow too much."
+              description: 'Steady RPM in recovery; don't slow too much.'
             }
           ]
         },
@@ -644,7 +644,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'refresh',
               title: 'Active Phases',
-              description: "Don't coast; easy phases should still move."
+              description: 'Don't coast; easy phases should still move.'
             }
           ]
         },
@@ -876,7 +876,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'trending-up',
               title: 'Pace Maintenance',
-              description: "Don't let steady pace drift; maintain effort."
+              description: 'Don't let steady pace drift; maintain effort.'
             }
           ]
         }
@@ -997,7 +997,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'trending-up',
               title: 'Output Building',
-              description: 'Build output slowly during longer "hard" sets.'
+              description: 'Build output slowly during longer 'hard" sets.'
             },
             {
               icon: 'timer',
@@ -1023,7 +1023,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'flash',
               title: 'Stroke Completion',
-              description: "Quick rhythm, but don't cut the pull short."
+              description: 'Quick rhythm, but don't cut the pull short.'
             }
           ]
         },
@@ -1190,7 +1190,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'body',
               title: 'Hip Rotation',
-              description: "Rotate hips with punches; don't just arm-swing."
+              description: 'Rotate hips with punches; don't just arm-swing.'
             },
             {
               icon: 'shield',
@@ -1294,7 +1294,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'body',
               title: 'Head Movement',
-              description: "Constant head movement; don't stay static."
+              description: 'Constant head movement; don't stay static.'
             }
           ]
         }
@@ -1356,7 +1356,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'trending-up',
               title: 'High Knees',
-              description: 'High knees in "hard" phase for power.'
+              description: 'High knees in 'hard" phase for power.'
             },
             {
               icon: 'body',
@@ -1415,7 +1415,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'timer',
               title: 'Pacing Control',
-              description: "Pace yourself; don't peak early."
+              description: 'Pace yourself; don't peak early.'
             },
             {
               icon: 'hand-right',
@@ -1461,7 +1461,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'trending-up',
               title: 'High Knees Form',
-              description: "Lift knees for high knees; don't kick heels back."
+              description: 'Lift knees for high knees; don't kick heels back.'
             },
             {
               icon: 'timer',
@@ -1593,7 +1593,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'flash',
               title: 'Movement Flow',
-              description: "Smooth transitions-don't drop dumbbells between moves."
+              description: 'Smooth transitions-don't drop dumbbells between moves.'
             }
           ]
         }
@@ -1628,7 +1628,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'flash',
               title: 'Hip Drive',
-              description: "Thrusters-hips drive press, don't isolate arms."
+              description: 'Thrusters-hips drive press, don't isolate arms.'
             },
             {
               icon: 'body',
@@ -1688,7 +1688,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Kettlebell Swing & Carry',
           duration: '15 min',
-          description: "Perform 5 rounds:\n• 20s swings\n• 40s farmer's carry\n1 min rest",
+          description: 'Perform 5 rounds:\n• 20s swings\n• 40s farmer's carry\n1 min rest',
           imageUrl: 'https://images.unsplash.com/photo-1566241134850-541012f1d4cf?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxrZXR0bGViZWxsJTIwd29ya291dHxlbnwwfHx8fDE3NTY4ODMyMzd8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Basic kettlebell introduction combining hip hinge movement with stability training.',
           moodTips: [
@@ -1700,7 +1700,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'body',
               title: 'Posture Control',
-              description: "Farmer's carry-shoulders back, core tight."
+              description: 'Farmer's carry-shoulders back, core tight.'
             }
           ]
         },
@@ -1925,7 +1925,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'flash',
               title: 'Breathing Management',
-              description: "Burpees-steady breathing, don't over gas."
+              description: 'Burpees-steady breathing, don't over gas.'
             }
           ]
         }
@@ -2536,7 +2536,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'body',
               title: 'Recoil Management',
-              description: "Don't let band snap on release to prevent injury."
+              description: 'Don't let band snap on release to prevent injury.'
             }
           ]
         },
@@ -2835,7 +2835,7 @@ const WorkoutCard = ({ equipment, icon, workouts, difficulty, difficultyColor, o
         <Image 
           source={{ uri: item.imageUrl }}
           style={styles.workoutImage}
-          resizeMode="cover"
+          resizeMode='cover"
         />
         <View style={styles.imageOverlay} />
         <View style={styles.swipeIndicator}>
@@ -2926,7 +2926,7 @@ const WorkoutCard = ({ equipment, icon, workouts, difficulty, difficultyColor, o
       {/* Equipment Header */}
       <View style={styles.equipmentHeader}>
         <View style={styles.equipmentIconContainer}>
-          <Ionicons name={icon} size={24} color="#FFD700" />
+          <Ionicons name={icon} size={24} color='#FFD700" />
         </View>
         <Text style={styles.equipmentName}>{equipment}</Text>
         <View style={styles.workoutIndicator}>
@@ -3024,7 +3024,7 @@ export default function WorkoutDisplayScreen() {
 
   const handleStartWorkout = (workout: Workout, equipment: string, difficulty: string) => {
     try {
-      console.log('🚀 Starting workout:", workout.name, 'on", equipment);
+      console.log('🚀 Starting workout:', workout.name, 'on', equipment);
       
       // Validate required parameters
       if (!workout.name || !equipment || !difficulty) {
@@ -3061,7 +3061,7 @@ export default function WorkoutDisplayScreen() {
           style={styles.backButton}
           onPress={handleGoBack}
         >
-          <Ionicons name="chevron-back" size={24} color="#FFD700" />
+          <Ionicons name='chevron-back" size={24} color="#FFD700" />
         </TouchableOpacity>
         <View style={styles.headerTextContainer}>
           <Text style={styles.headerTitle}>Your Workouts</Text>
@@ -3110,18 +3110,18 @@ export default function WorkoutDisplayScreen() {
             // Get appropriate icon for each equipment type
             const getEquipmentIcon = (equipmentName: string) => {
               const equipmentIconMap: { [key: string]: keyof typeof Ionicons.glyphMap } = {
-                'Treadmill": 'walk",
-                'Elliptical": 'ellipse",
-                'Arm bicycle": 'bicycle",
-                'Stationary bike": 'bicycle",
-                'Assault bike": 'bicycle",
-                'Row machine": 'boat",
-                'Stair master": 'trending-up",
-                'Ski machine": 'snow",
-                'Curve treadmill": 'walk",
-                'Punching bag": 'hand-left",
-                'Vertical Climber": 'triangle",
-                'Jump rope": 'git-compare"
+                'Treadmill': 'walk',
+                'Elliptical': 'ellipse',
+                'Arm bicycle': 'bicycle',
+                'Stationary bike': 'bicycle',
+                'Assault bike': 'bicycle',
+                'Row machine': 'boat',
+                'Stair master': 'trending-up',
+                'Ski machine': 'snow',
+                'Curve treadmill': 'walk',
+                'Punching bag': 'hand-left',
+                'Vertical Climber': 'triangle',
+                'Jump rope': 'git-compare'
               };
               return equipmentIconMap[equipmentName] || 'fitness';
             };
@@ -3130,7 +3130,7 @@ export default function WorkoutDisplayScreen() {
               <React.Fragment key={equipment}>
                 <View style={styles.progressStep}>
                   <View style={styles.progressStepActive}>
-                    <Ionicons name={getEquipmentIcon(equipment)} size={12} color="#000000" />
+                    <Ionicons name={getEquipmentIcon(equipment)} size={12} color='#000000" />
                   </View>
                   <Text style={styles.progressStepText}>{equipment}</Text>
                 </View>

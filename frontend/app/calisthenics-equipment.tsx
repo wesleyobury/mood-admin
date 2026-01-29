@@ -30,12 +30,12 @@ interface DifficultyLevel {
 
 // Calisthenics equipment options (alphabetically ordered)
 const equipmentOptions: EquipmentOption[] = [
-  { id: 'ab-wheel', name: "Ab wheel', icon: 'ellipse" },
-  { id: 'gymnast-rings', name: "Gymnast rings', icon: 'radio-button-off" },
-  { id: 'parallel-bars', name: "Parallel bars / dip station', icon: 'remove" },
-  { id: 'pull-up-bar', name: "Pull up bar', icon: 'remove-outline" },
-  { id: 'pure-bodyweight', name: "Pure bodyweight', icon: 'body" },
-  { id: 'pushup-bars', name: "Pushup bars / parallettes', icon: 'reorder-three" },
+  { id: 'ab-wheel', name: 'Ab wheel', icon: 'ellipse' },
+  { id: 'gymnast-rings', name: 'Gymnast rings', icon: 'radio-button-off' },
+  { id: 'parallel-bars', name: 'Parallel bars / dip station', icon: 'remove' },
+  { id: 'pull-up-bar', name: 'Pull up bar', icon: 'remove-outline' },
+  { id: 'pure-bodyweight', name: 'Pure bodyweight', icon: 'body' },
+  { id: 'pushup-bars', name: 'Pushup bars / parallettes', icon: 'reorder-three' },
 ];
 
 // Difficulty levels with calisthenics-appropriate descriptions
@@ -85,7 +85,7 @@ const EquipmentCard = ({
         <Ionicons 
           name={equipment.icon} 
           size={20} 
-          color={isSelected ? "#FFD700" : "#FFFFFF"} 
+          color={isSelected ? '#FFD700" : "#FFFFFF"} 
         />
       </View>
       <Text style={[
@@ -210,7 +210,7 @@ export default function CalisthenicsEquipmentScreen() {
           style={styles.backButton}
           onPress={handleGoBack}
         >
-          <Ionicons name="chevron-back" size={24} color="#FFD700" />
+          <Ionicons name='chevron-back" size={24} color="#FFD700" />
         </TouchableOpacity>
         <View style={styles.headerTextContainer}>
           <Text style={styles.headerTitle}>Calisthenics Equipment</Text>
@@ -230,7 +230,7 @@ export default function CalisthenicsEquipmentScreen() {
                 start={{ x: 0, y: 0 }}
                 end={{ x: 1, y: 1 }}
               >
-                <Ionicons name="body" size={14} color="#0c0c0c" />
+                <Ionicons name='body" size={14} color="#0c0c0c" />
               </LinearGradient>
             </View>
             <Text style={styles.progressStepText}>Calisthenics</Text>
@@ -271,7 +271,7 @@ export default function CalisthenicsEquipmentScreen() {
               selectedDifficulty && styles.progressStepActive
             ]}>
               <Ionicons 
-                name={selectedDifficulty ? "checkmark" : "star"} 
+                name={selectedDifficulty ? 'checkmark" : "star"} 
                 size={14} 
                 color={selectedDifficulty ? "#000000" : "rgba(255, 215, 0, 0.7)"} 
               />
@@ -336,7 +336,7 @@ export default function CalisthenicsEquipmentScreen() {
               end={{ x: 1, y: 0 }}
             >
               <Text style={styles.continueButtonTextActive}>Continue</Text>
-              <Ionicons name="chevron-forward" size={20} color="#0c0c0c" />
+              <Ionicons name='chevron-forward" size={20} color="#0c0c0c" />
             </LinearGradient>
           ) : (
             <Text style={styles.continueButtonText}>Continue</Text>

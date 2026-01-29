@@ -57,7 +57,7 @@ export default function ContentFilterSettings() {
       await AsyncStorage.setItem(CONTENT_FILTER_KEY, JSON.stringify(newSettings));
       setSettings(newSettings);
     } catch (error) {
-      Alert.alert('Error", 'Failed to save settings");
+      Alert.alert('Error', 'Failed to save settings');
     } finally {
       setSaving(false);
     }
@@ -70,11 +70,11 @@ export default function ContentFilterSettings() {
   const addKeyword = () => {
     const keyword = newKeyword.trim().toLowerCase();
     if (!keyword) {
-      Alert.alert('Error", 'Please enter a keyword");
+      Alert.alert('Error', 'Please enter a keyword');
       return;
     }
     if (settings.keywords.includes(keyword)) {
-      Alert.alert('Error", 'This keyword is already in your filter list");
+      Alert.alert('Error', 'This keyword is already in your filter list');
       return;
     }
     saveSettings({ ...settings, keywords: [...settings.keywords, keyword] });
@@ -93,7 +93,7 @@ export default function ContentFilterSettings() {
       'Clear All Keywords',
       'Are you sure you want to remove all filter keywords?',
       [
-        { text: "Cancel', style: 'cancel" },
+        { text: 'Cancel', style: 'cancel' },
         { 
           text: 'Clear All', 
           style: 'destructive',
@@ -107,7 +107,7 @@ export default function ContentFilterSettings() {
     return (
       <SafeAreaView style={styles.container}>
         <View style={styles.loadingContainer}>
-          <ActivityIndicator size="large" color="#FFD700" />
+          <ActivityIndicator size='large" color="#FFD700" />
         </View>
       </SafeAreaView>
     );
@@ -140,18 +140,18 @@ export default function ContentFilterSettings() {
         {/* Enable Toggle */}
         <View style={styles.toggleSection}>
           <View style={styles.toggleLeft}>
-            <Ionicons name="filter" size={22} color="#FFD700" />
+            <Ionicons name='filter" size={22} color="#FFD700" />
             <View>
               <Text style={styles.toggleLabel}>Enable Content Filter</Text>
               <Text style={styles.toggleSubtext}>
-                {settings.enabled ? 'Filtering is active" : 'Filtering is disabled"}
+                {settings.enabled ? 'Filtering is active' : 'Filtering is disabled'}
               </Text>
             </View>
           </View>
           <Switch
             value={settings.enabled}
             onValueChange={toggleEnabled}
-            trackColor={{ false: '#333", true: 'rgba(255,215,0,0.4)" }}
+            trackColor={{ false: '#333', true: 'rgba(255,215,0,0.4)' }}
             thumbColor={settings.enabled ? '#FFD700' : '#666'}
           />
         </View>
@@ -162,7 +162,7 @@ export default function ContentFilterSettings() {
           <View style={styles.inputRow}>
             <TextInput
               style={styles.input}
-              placeholder="Enter word or phrase..."
+              placeholder='Enter word or phrase..."
               placeholderTextColor="rgba(255,255,255,0.4)"
               value={newKeyword}
               onChangeText={setNewKeyword}

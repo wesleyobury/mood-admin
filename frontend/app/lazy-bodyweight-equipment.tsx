@@ -30,16 +30,16 @@ interface DifficultyLevel {
 
 // Lazy bodyweight equipment options
 const equipmentOptions: EquipmentOption[] = [
-  { id: 'assault-bike', name: "Assault Bike', icon: 'bicycle" },
-  { id: 'bodyweight-only', name: "Body weight only', icon: 'body" },
-  { id: 'elliptical', name: "Elliptical', icon: 'infinite" },
-  { id: 'jump-rope', name: "Jump rope', icon: 'remove" },
-  { id: 'plyo-box', name: "Plyo box', icon: 'cube" },
-  { id: 'rowing-machine', name: "Rowing machine', icon: 'boat" },
-  { id: 'skierg', name: "SkiErg', icon: 'snow" },
-  { id: 'stair-stepper', name: "Stair stepper', icon: 'walk" },
-  { id: 'stationary-bike', name: "Stationary bike', icon: 'bicycle" },
-  { id: 'treadmill', name: "Treadmill', icon: 'walk" },
+  { id: 'assault-bike', name: 'Assault Bike', icon: 'bicycle' },
+  { id: 'bodyweight-only', name: 'Body weight only', icon: 'body' },
+  { id: 'elliptical', name: 'Elliptical', icon: 'infinite' },
+  { id: 'jump-rope', name: 'Jump rope', icon: 'remove' },
+  { id: 'plyo-box', name: 'Plyo box', icon: 'cube' },
+  { id: 'rowing-machine', name: 'Rowing machine', icon: 'boat' },
+  { id: 'skierg', name: 'SkiErg', icon: 'snow' },
+  { id: 'stair-stepper', name: 'Stair stepper', icon: 'walk' },
+  { id: 'stationary-bike', name: 'Stationary bike', icon: 'bicycle' },
+  { id: 'treadmill', name: 'Treadmill', icon: 'walk' },
 ];
 
 // Difficulty levels with lazy-appropriate descriptions
@@ -89,7 +89,7 @@ const EquipmentCard = ({
         <Ionicons 
           name={equipment.icon} 
           size={20} 
-          color={isSelected ? "#FFD700" : "#FFFFFF"} 
+          color={isSelected ? '#FFD700" : "#FFFFFF"} 
         />
       </View>
       <Text style={[
@@ -152,7 +152,7 @@ export default function LazyBodyweightEquipmentScreen() {
   const [selectedEquipment, setSelectedEquipment] = useState<EquipmentOption[]>([]);
   const [selectedDifficulty, setSelectedDifficulty] = useState<DifficultyLevel | null>(null);
   
-  const moodTitle = "I'm feeling lazy";
+  const moodTitle = "I'm feeling lazy';
   const workoutType = 'Just move your body';
 
   const handleEquipmentSelect = (equipment: EquipmentOption) => {
@@ -214,7 +214,7 @@ export default function LazyBodyweightEquipmentScreen() {
           style={styles.backButton}
           onPress={handleGoBack}
         >
-          <Ionicons name="chevron-back" size={24} color="#FFD700" />
+          <Ionicons name='chevron-back" size={24} color="#FFD700" />
         </TouchableOpacity>
         <View style={styles.headerTextContainer}>
           <Text style={styles.headerTitle}>Movement Equipment</Text>
@@ -234,7 +234,7 @@ export default function LazyBodyweightEquipmentScreen() {
                 start={{ x: 0, y: 0 }}
                 end={{ x: 1, y: 1 }}
               >
-                <Ionicons name="bed" size={14} color="#0c0c0c" />
+                <Ionicons name='bed" size={14} color="#0c0c0c" />
               </LinearGradient>
             </View>
             <Text style={styles.progressStepText}>Feeling lazy</Text>
@@ -250,7 +250,7 @@ export default function LazyBodyweightEquipmentScreen() {
                 start={{ x: 0, y: 0 }}
                 end={{ x: 1, y: 1 }}
               >
-                <Ionicons name="walk" size={14} color="#0c0c0c" />
+                <Ionicons name='walk" size={14} color="#0c0c0c" />
               </LinearGradient>
             </View>
             <Text style={styles.progressStepText}>Move body</Text>
@@ -340,7 +340,7 @@ export default function LazyBodyweightEquipmentScreen() {
               end={{ x: 1, y: 0 }}
             >
               <Text style={styles.continueButtonTextActive}>Continue</Text>
-              <Ionicons name="chevron-forward" size={20} color="#0c0c0c" />
+              <Ionicons name='chevron-forward" size={20} color="#0c0c0c" />
             </LinearGradient>
           ) : (
             <Text style={styles.continueButtonText}>Continue</Text>

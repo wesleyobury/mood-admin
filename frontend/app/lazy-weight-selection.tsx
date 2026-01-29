@@ -28,9 +28,9 @@ interface DifficultyLevel {
 
 // Lazy weight body part options
 const bodyPartOptions: BodyPartOption[] = [
-  { id: 'upper-body', name: "Upper body', icon: 'body" },
-  { id: 'lower-body', name: "Lower body', icon: 'walk" },
-  { id: 'full-body', name: "Full body', icon: 'fitness" },
+  { id: 'upper-body', name: 'Upper body', icon: 'body' },
+  { id: 'lower-body', name: 'Lower body', icon: 'walk' },
+  { id: 'full-body', name: 'Full body', icon: 'fitness' },
 ];
 
 // Difficulty levels with lazy-appropriate descriptions
@@ -80,7 +80,7 @@ const BodyPartCard = ({
         <Ionicons 
           name={bodyPart.icon} 
           size={16} 
-          color={isSelected ? "#FFD700" : "rgba(255, 255, 255, 0.7)"} 
+          color={isSelected ? '#FFD700" : "rgba(255, 255, 255, 0.7)"} 
         />
       </View>
       <Text style={[
@@ -143,7 +143,7 @@ export default function LazyWeightSelectionScreen() {
   const [selectedBodyPart, setSelectedBodyPart] = useState<BodyPartOption | null>(null);
   const [selectedDifficulty, setSelectedDifficulty] = useState<DifficultyLevel | null>(null);
   
-  const moodTitle = "I'm feeling lazy";
+  const moodTitle = "I'm feeling lazy';
   const workoutType = 'Lift weights';
 
   const handleBodyPartSelect = (bodyPart: BodyPartOption) => {
@@ -213,7 +213,7 @@ export default function LazyWeightSelectionScreen() {
           style={styles.backButton}
           onPress={handleGoBack}
         >
-          <Ionicons name="chevron-back" size={24} color="#FFD700" />
+          <Ionicons name='chevron-back" size={24} color="#FFD700" />
         </TouchableOpacity>
         <View style={styles.headerTextContainer}>
           <Text style={styles.headerTitle}>Weight Training</Text>
@@ -233,7 +233,7 @@ export default function LazyWeightSelectionScreen() {
                 start={{ x: 0, y: 0 }}
                 end={{ x: 1, y: 1 }}
               >
-                <Ionicons name="bed" size={14} color="#0c0c0c" />
+                <Ionicons name='bed" size={14} color="#0c0c0c" />
               </LinearGradient>
             </View>
             <Text style={styles.progressStepText}>Feeling lazy</Text>
@@ -249,7 +249,7 @@ export default function LazyWeightSelectionScreen() {
                 start={{ x: 0, y: 0 }}
                 end={{ x: 1, y: 1 }}
               >
-                <Ionicons name="barbell" size={14} color="#0c0c0c" />
+                <Ionicons name='barbell" size={14} color="#0c0c0c" />
               </LinearGradient>
             </View>
             <Text style={styles.progressStepText}>Lift weights</Text>
@@ -335,7 +335,7 @@ export default function LazyWeightSelectionScreen() {
               end={{ x: 1, y: 0 }}
             >
               <Text style={styles.continueButtonTextActive}>Continue</Text>
-              <Ionicons name="chevron-forward" size={20} color="#0c0c0c" />
+              <Ionicons name='chevron-forward" size={20} color="#0c0c0c" />
             </LinearGradient>
           ) : (
             <Text style={styles.continueButtonText}>Continue</Text>

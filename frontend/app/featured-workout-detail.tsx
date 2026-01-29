@@ -60,8 +60,8 @@ const featuredWorkoutData: Record<string, {
         workoutType: 'Sweat / Burn Fat - Cardio Based',
         moodCard: 'Sweat / Burn Fat',
         moodTips: [
-          { icon: 'speedometer', title: "Maintain Cadence', description: 'Keep your pedaling cadence consistent during climbs for better muscle engagement." },
-          { icon: 'heart', title: "Heart Rate Zone', description: 'Aim for 70-85% max heart rate during sprints, recover at 60% between intervals." }
+          { icon: 'speedometer', title: 'Maintain Cadence', description: 'Keep your pedaling cadence consistent during climbs for better muscle engagement.' },
+          { icon: 'heart', title: 'Heart Rate Zone', description: 'Aim for 70-85% max heart rate during sprints, recover at 60% between intervals.' }
         ]
       },
       { 
@@ -76,8 +76,8 @@ const featuredWorkoutData: Record<string, {
         workoutType: 'Sweat / Burn Fat - Cardio Based',
         moodCard: 'Sweat / Burn Fat',
         moodTips: [
-          { icon: 'body', title: "Posture Check', description: 'Stand tall with slight forward lean. Avoid hunching over the machine." },
-          { icon: 'flame', title: "Glute Activation', description: 'Press through your heels to maximize glute engagement on each step." }
+          { icon: 'body', title: 'Posture Check', description: 'Stand tall with slight forward lean. Avoid hunching over the machine.' },
+          { icon: 'flame', title: 'Glute Activation', description: 'Press through your heels to maximize glute engagement on each step.' }
         ]
       },
     ],
@@ -101,8 +101,8 @@ const featuredWorkoutData: Record<string, {
         workoutType: 'Muscle Gainer - Back & Bis Volume',
         moodCard: 'Muscle Gainer',
         moodTips: [
-          { icon: 'flash", title: "Don't yank dumbbells-steady elbows driving back.", description: "Controlled elbow drive maximizes lat activation over momentum.' },
-          { icon: 'timer', title: "Go light on reverse fly, pause 1s at top.', description: 'Peak contraction pause enhances rear delt development." }
+          { icon: 'flash', title: "Don't yank dumbbells-steady elbows driving back.', description: "Controlled elbow drive maximizes lat activation over momentum.' },
+          { icon: 'timer', title: 'Go light on reverse fly, pause 1s at top.', description: 'Peak contraction pause enhances rear delt development.' }
         ]
       },
       // Back - T-Bar Row Machine - Slow Neg Row (Intermediate)
@@ -118,8 +118,8 @@ const featuredWorkoutData: Record<string, {
         workoutType: 'Muscle Gainer - Back & Bis Volume',
         moodCard: 'Muscle Gainer',
         moodTips: [
-          { icon: 'trending-up', title: "Explode to chest, lower slow & steady.', description: 'Fast concentric, slow eccentric maximizes muscle stimulus." },
-          { icon: 'timer', title: "Keep weight lighter to maintain control.', description: 'Reduced load allows proper tempo execution and form." }
+          { icon: 'trending-up', title: 'Explode to chest, lower slow & steady.', description: 'Fast concentric, slow eccentric maximizes muscle stimulus.' },
+          { icon: 'timer', title: 'Keep weight lighter to maintain control.', description: 'Reduced load allows proper tempo execution and form.' }
         ]
       },
       // Back - Straight Pull Up Bar - Pull Up + Hold (Intermediate)
@@ -135,8 +135,8 @@ const featuredWorkoutData: Record<string, {
         workoutType: 'Muscle Gainer - Back & Bis Volume',
         moodCard: 'Muscle Gainer',
         moodTips: [
-          { icon: 'trending-up', title: "Aim for unassisted reps. If form breaks, use minimal assistance.', description: 'Progressive overload with isometric challenge builds strength." },
-          { icon: 'timer', title: "Hold chin above bar for 3 seconds at the top of each final rep.', description: 'Isometric hold maximizes time under tension and strength gains." }
+          { icon: 'trending-up', title: 'Aim for unassisted reps. If form breaks, use minimal assistance.', description: 'Progressive overload with isometric challenge builds strength.' },
+          { icon: 'timer', title: 'Hold chin above bar for 3 seconds at the top of each final rep.', description: 'Isometric hold maximizes time under tension and strength gains.' }
         ]
       },
       // Biceps - Cable Machine - Cable Negatives (Intermediate)
@@ -152,8 +152,8 @@ const featuredWorkoutData: Record<string, {
         workoutType: 'Muscle Gainer - Back & Bis Volume',
         moodCard: 'Muscle Gainer',
         moodTips: [
-          { icon: 'flash', title: "Drive up powerfully, lower 3s', description: 'Explosive concentric, controlled eccentric." },
-          { icon: 'fitness', title: "Elbows fixed at torso sides', description: 'Locked elbows ensure bicep isolation." }
+          { icon: 'flash', title: 'Drive up powerfully, lower 3s', description: 'Explosive concentric, controlled eccentric.' },
+          { icon: 'fitness', title: 'Elbows fixed at torso sides', description: 'Locked elbows ensure bicep isolation.' }
         ]
       },
       // Biceps - EZ Curl Bar - Narrow Curl (Intermediate)
@@ -169,8 +169,8 @@ const featuredWorkoutData: Record<string, {
         workoutType: 'Muscle Gainer - Back & Bis Volume',
         moodCard: 'Muscle Gainer',
         moodTips: [
-          { icon: 'hand-left', title: "Keep palms inward, elbows close', description: 'Narrow grip targets inner biceps." },
-          { icon: 'trending-up', title: "Pull bar to upper chest line', description: 'Full range maximizes muscle fiber recruitment." }
+          { icon: 'hand-left', title: 'Keep palms inward, elbows close', description: 'Narrow grip targets inner biceps.' },
+          { icon: 'trending-up', title: 'Pull bar to upper chest line', description: 'Full range maximizes muscle fiber recruitment.' }
         ]
       },
     ],
@@ -193,8 +193,8 @@ const featuredWorkoutData: Record<string, {
         workoutType: 'Build Explosion - Power Lifting',
         moodCard: 'Build Explosion',
         moodTips: [
-          { icon: 'flash', title: "Hip Drive First', description: 'The power comes from snapping your hips forward, not pulling with arms." },
-          { icon: 'body', title: "Triple Extension', description: 'Extend ankles, knees, and hips simultaneously for maximum power." }
+          { icon: 'flash', title: 'Hip Drive First', description: 'The power comes from snapping your hips forward, not pulling with arms.' },
+          { icon: 'body', title: 'Triple Extension', description: 'Extend ankles, knees, and hips simultaneously for maximum power.' }
         ]
       },
       { 
@@ -209,8 +209,8 @@ const featuredWorkoutData: Record<string, {
         workoutType: 'Build Explosion - Power Lifting',
         moodCard: 'Build Explosion',
         moodTips: [
-          { icon: 'trending-up', title: "Vertical Path', description: 'Push your head through once the bar passes your face for proper lockout." },
-          { icon: 'flash', title: "Speed Matters', description: 'The faster the dip-drive, the more weight you can move." }
+          { icon: 'trending-up', title: 'Vertical Path', description: 'Push your head through once the bar passes your face for proper lockout.' },
+          { icon: 'flash', title: 'Speed Matters', description: 'The faster the dip-drive, the more weight you can move.' }
         ]
       },
       { 
@@ -225,8 +225,8 @@ const featuredWorkoutData: Record<string, {
         workoutType: 'Build Explosion - Power Lifting',
         moodCard: 'Build Explosion',
         moodTips: [
-          { icon: 'body', title: "Soft Landing', description: 'Land with bent knees to absorb impact. Reset fully before each jump." },
-          { icon: 'flash', title: "Max Intent', description: 'Jump as high as possible on every rep. Submaximal effort = submaximal results." }
+          { icon: 'body', title: 'Soft Landing', description: 'Land with bent knees to absorb impact. Reset fully before each jump.' },
+          { icon: 'flash', title: 'Max Intent', description: 'Jump as high as possible on every rep. Submaximal effort = submaximal results.' }
         ]
       },
       { 
@@ -241,8 +241,8 @@ const featuredWorkoutData: Record<string, {
         workoutType: 'Build Explosion - Power Lifting',
         moodCard: 'Build Explosion',
         moodTips: [
-          { icon: 'body', title: "Core Stability', description: 'Brace your core to prevent rotation. The landmine wants to twist you." },
-          { icon: 'flash', title: "Reactive Power', description: 'Minimize time on the ground between reps for plyometric benefits." }
+          { icon: 'body', title: 'Core Stability', description: 'Brace your core to prevent rotation. The landmine wants to twist you.' },
+          { icon: 'flash', title: 'Reactive Power', description: 'Minimize time on the ground between reps for plyometric benefits.' }
         ]
       },
     ],
@@ -265,8 +265,8 @@ const featuredWorkoutData: Record<string, {
         workoutType: 'Calisthenics - Pulls & Dips',
         moodCard: 'Calisthenics',
         moodTips: [
-          { icon: 'timer', title: "Consistency', description: 'Each rep should take the same time. Dont speed up as you fatigue." },
-          { icon: 'fitness', title: "Shoulder Engagement', description: 'Keep shoulders engaged even at the bottom. Dont just hang on joints." }
+          { icon: 'timer', title: 'Consistency', description: 'Each rep should take the same time. Dont speed up as you fatigue.' },
+          { icon: 'fitness', title: 'Shoulder Engagement', description: 'Keep shoulders engaged even at the bottom. Dont just hang on joints.' }
         ]
       },
       { 
@@ -281,8 +281,8 @@ const featuredWorkoutData: Record<string, {
         workoutType: 'Calisthenics - Pulls & Dips',
         moodCard: 'Calisthenics',
         moodTips: [
-          { icon: 'body', title: "Dead Stop', description: 'Come to complete stop at bottom. No bouncing out of the hang." },
-          { icon: 'fitness', title: "Elbow Path', description: 'Pull elbows down and back, not out to the sides." }
+          { icon: 'body', title: 'Dead Stop', description: 'Come to complete stop at bottom. No bouncing out of the hang.' },
+          { icon: 'fitness', title: 'Elbow Path', description: 'Pull elbows down and back, not out to the sides.' }
         ]
       },
       { 
@@ -297,8 +297,8 @@ const featuredWorkoutData: Record<string, {
         workoutType: 'Calisthenics - Pulls & Dips',
         moodCard: 'Calisthenics',
         moodTips: [
-          { icon: 'body', title: "Depth', description: 'Lower until shoulders are below elbows for full range of motion." },
-          { icon: 'flash', title: "Explosive Push', description: 'Drive hard out of the bottom. Speed on the way up builds power." }
+          { icon: 'body', title: 'Depth', description: 'Lower until shoulders are below elbows for full range of motion.' },
+          { icon: 'flash', title: 'Explosive Push', description: 'Drive hard out of the bottom. Speed on the way up builds power.' }
         ]
       },
     ],
@@ -321,8 +321,8 @@ const featuredWorkoutData: Record<string, {
         workoutType: 'Get Outside - Hill Workout',
         moodCard: 'Get Outside',
         moodTips: [
-          { icon: 'body', title: "Knee Drive', description: 'Lift knees high to engage hip flexors and glutes on the climb." },
-          { icon: 'heart', title: "Recovery', description: 'Walk all the way down. Jogging down adds fatigue without building power." }
+          { icon: 'body', title: 'Knee Drive', description: 'Lift knees high to engage hip flexors and glutes on the climb.' },
+          { icon: 'heart', title: 'Recovery', description: 'Walk all the way down. Jogging down adds fatigue without building power.' }
         ]
       },
       { 
@@ -337,8 +337,8 @@ const featuredWorkoutData: Record<string, {
         workoutType: 'Get Outside - Hill Workout',
         moodCard: 'Get Outside',
         moodTips: [
-          { icon: 'flash', title: "Max Effort', description: '30 seconds is short. Give it everything you have, every rep." },
-          { icon: 'timer', title: "Full Recovery', description: 'Take the full 90 seconds. Partial recovery = partial effort on the next sprint." }
+          { icon: 'flash', title: 'Max Effort', description: '30 seconds is short. Give it everything you have, every rep.' },
+          { icon: 'timer', title: 'Full Recovery', description: 'Take the full 90 seconds. Partial recovery = partial effort on the next sprint.' }
         ]
       },
     ],
@@ -361,8 +361,8 @@ const featuredWorkoutData: Record<string, {
         workoutType: 'HIIT - Intense Full Body',
         moodCard: 'Sweat / Burn Fat',
         moodTips: [
-          { icon: 'flash', title: "Double Swing Power', description: 'Double swings-engage lats, keep wrists neutral throughout the movement." },
-          { icon: 'body', title: "Turkish Get-up Control', description: 'Go slow on get-ups, stack joints overhead at each position." }
+          { icon: 'flash', title: 'Double Swing Power', description: 'Double swings-engage lats, keep wrists neutral throughout the movement.' },
+          { icon: 'body', title: 'Turkish Get-up Control', description: 'Go slow on get-ups, stack joints overhead at each position.' }
         ]
       },
       { 
@@ -377,8 +377,8 @@ const featuredWorkoutData: Record<string, {
         workoutType: 'HIIT - Intense Full Body',
         moodCard: 'Sweat / Burn Fat',
         moodTips: [
-          { icon: 'refresh', title: "Rhythm Control', description: 'Keep steady rhythm across all rope patterns, even when fatigued." },
-          { icon: 'flash', title: "Breathing Technique', description: 'Sync breathing pattern with wave count-exhale on each wave peak." }
+          { icon: 'refresh', title: 'Rhythm Control', description: 'Keep steady rhythm across all rope patterns, even when fatigued.' },
+          { icon: 'flash', title: 'Breathing Technique', description: 'Sync breathing pattern with wave count-exhale on each wave peak.' }
         ]
       },
       { 
@@ -393,8 +393,8 @@ const featuredWorkoutData: Record<string, {
         workoutType: 'HIIT - Intense Full Body',
         moodCard: 'Sweat / Burn Fat',
         moodTips: [
-          { icon: 'body', title: "Burpee Transition', description: 'Drop tight into burpees-no sagging hips. Keep core braced." },
-          { icon: 'flash', title: "Reset Power', description: 'Push explosively out of burpees and into the sled immediately." }
+          { icon: 'body', title: 'Burpee Transition', description: 'Drop tight into burpees-no sagging hips. Keep core braced.' },
+          { icon: 'flash', title: 'Reset Power', description: 'Push explosively out of burpees and into the sled immediately.' }
         ]
       },
     ],
@@ -443,7 +443,7 @@ export default function FeaturedWorkoutDetail() {
   
   const handleSaveWorkout = async () => {
     if (!token) {
-      Alert.alert('Login Required", 'Please login to save workouts");
+      Alert.alert('Login Required', 'Please login to save workouts');
       return;
     }
     
@@ -465,7 +465,7 @@ export default function FeaturedWorkoutDetail() {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`,
-          'Content-Type": 'application/json",
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify({
           name: `${workout.mood} - ${workout.title}`,
@@ -499,11 +499,11 @@ export default function FeaturedWorkoutDetail() {
       } else {
         const errorText = await response.text();
         console.error('Save error:', errorText);
-        Alert.alert('Error", 'Failed to save workout");
+        Alert.alert('Error', 'Failed to save workout');
       }
     } catch (error) {
       console.error('Error saving workout:', error);
-      Alert.alert('Error", 'Failed to save workout");
+      Alert.alert('Error', 'Failed to save workout');
     } finally {
       setIsSaving(false);
     }
@@ -610,7 +610,7 @@ export default function FeaturedWorkoutDetail() {
         <Image
           source={{ uri: exercises[0]?.imageUrl || workout.image }}
           style={styles.heroImage}
-          resizeMode="cover"
+          resizeMode='cover"
         />
         <View style={styles.heroOverlay} />
         
@@ -699,7 +699,7 @@ export default function FeaturedWorkoutDetail() {
                     activeOpacity={0.8}
                   >
                     <Ionicons 
-                      name="chevron-down" 
+                      name='chevron-down" 
                       size={18} 
                       color={index === exercises.length - 1 ? 'rgba(255, 255, 255, 0.3)' : '#fff'} 
                     />
@@ -710,7 +710,7 @@ export default function FeaturedWorkoutDetail() {
                   onPress={() => removeExercise(index)}
                   activeOpacity={0.7}
                 >
-                  <Ionicons name="remove-circle" size={28} color="#FF4444" />
+                  <Ionicons name='remove-circle" size={28} color="#FF4444" />
                 </TouchableOpacity>
               </View>
             </View>
@@ -740,7 +740,7 @@ export default function FeaturedWorkoutDetail() {
             end={{ x: 1, y: 0 }}
           >
             <Text style={styles.startButtonText}>Start Workout</Text>
-            <Ionicons name="arrow-forward" size={20} color="#0c0c0c" />
+            <Ionicons name='arrow-forward" size={20} color="#0c0c0c" />
           </LinearGradient>
         </TouchableOpacity>
       </View>

@@ -57,7 +57,7 @@ export default function Chat() {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`,
-          'Content-Type": 'application/json",
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify({ user_id: userId }),
       });
@@ -143,7 +143,7 @@ export default function Chat() {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`,
-          'Content-Type": 'application/json",
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify({ content: messageContent }),
       });
@@ -232,13 +232,13 @@ export default function Chat() {
   return (
     <KeyboardAvoidingView
       style={[styles.container, { paddingTop: insets.top }]}
-      behavior={Platform.OS === 'ios" ? 'padding" : 'height'}
+      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
       keyboardVerticalOffset={0}
     >
       {/* Header */}
       <View style={styles.header}>
         <TouchableOpacity onPress={() => router.back()} style={styles.backButton}>
-          <Ionicons name="arrow-back" size={24} color="#fff" />
+          <Ionicons name='arrow-back" size={24} color="#fff" />
         </TouchableOpacity>
         <TouchableOpacity 
           style={styles.headerUser}
@@ -251,7 +251,7 @@ export default function Chat() {
             <Image source={{ uri: avatarUri }} style={styles.headerAvatar} />
           ) : (
             <View style={[styles.headerAvatar, styles.avatarPlaceholder]}>
-              <Ionicons name="person" size={18} color="#666" />
+              <Ionicons name='person" size={18} color="#666" />
             </View>
           )}
           <View style={styles.headerInfo}>

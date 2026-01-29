@@ -58,7 +58,7 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'flash',
               title: 'Push-ups: Lower slow, drive up hard',
-              description: 'Squeeze pecs together at the top. Think "push the floor apart."'
+              description: 'Squeeze pecs together at the top. Think 'push the floor apart."'
             },
             {
               icon: 'body',
@@ -119,7 +119,7 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
           moodTips: [
             {
               icon: 'refresh',
-              title: "Fly → press transition, don't rest",
+              title: 'Fly → press transition, don't rest',
               description: 'Overloads pecs by hitting both stretch and contraction.'
             },
             {
@@ -190,7 +190,7 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'body',
               title: 'Push-ups: Push through hands',
-              description: "As if you're wrapping chest around ribcage for better activation."
+              description: 'As if you're wrapping chest around ribcage for better activation.'
             },
             {
               icon: 'trending-up',
@@ -231,7 +231,7 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
           moodTips: [
             {
               icon: 'flash',
-              title: 'Plyo push-ups: Think "fast hands"',
+              title: 'Plyo push-ups: Think 'fast hands"',
               description: 'Maximal intent recruits more fibers for better development.'
             },
             {
@@ -299,7 +299,7 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'shield',
               title: 'Keep scapula pinned',
-              description: "Don't let shoulders roll forward under fatigue for safety and effectiveness."
+              description: 'Don't let shoulders roll forward under fatigue for safety and effectiveness.'
             }
           ]
         }
@@ -368,7 +368,7 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
             },
             {
               icon: 'timer',
-              title: "Don't rush-feel pec stretch",
+              title: 'Don't rush-feel pec stretch',
               description: 'On each angle for maximum muscle activation and growth.'
             }
           ]
@@ -425,7 +425,7 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
           moodTips: [
             {
               icon: 'flash',
-              title: "Don't save energy",
+              title: 'Don't save energy',
               description: 'Heavy set should be all-out near failure for maximum recruitment.'
             },
             {
@@ -1254,7 +1254,7 @@ const WorkoutCard = ({ equipment, icon, workouts, difficulty, difficultyColor, o
         <Image 
           source={{ uri: item.imageUrl }}
           style={styles.workoutImage}
-          resizeMode="cover"
+          resizeMode='cover"
         />
         <View style={styles.imageOverlay} />
         <View style={styles.swipeIndicator}>
@@ -1452,7 +1452,7 @@ export default function ChestWorkoutDisplayScreen() {
 
   const handleStartWorkout = (workout: Workout, equipment: string, difficulty: string) => {
     try {
-      console.log('🚀 Starting workout:", workout.name, 'on", equipment);
+      console.log('🚀 Starting workout:', workout.name, 'on', equipment);
       
       // Validate required parameters
       if (!workout.name || !equipment || !difficulty) {
@@ -1485,10 +1485,10 @@ export default function ChestWorkoutDisplayScreen() {
   // Create progress bar - single row with requested order
   const createProgressRows = () => {
     const steps = [
-      { key: 'mood", icon: 'flame", text: moodTitle },
-      { key: 'bodyPart", icon: 'fitness", text: workoutType },
-      { key: 'difficulty", icon: 'speedometer", text: difficulty.charAt(0).toUpperCase() + difficulty.slice(1) },
-      { key: 'equipment", icon: 'construct", text: `${selectedEquipmentNames.length} Equipment` },
+      { key: 'mood', icon: 'flame', text: moodTitle },
+      { key: 'bodyPart', icon: 'fitness', text: workoutType },
+      { key: 'difficulty', icon: 'speedometer', text: difficulty.charAt(0).toUpperCase() + difficulty.slice(1) },
+      { key: 'equipment', icon: 'construct', text: `${selectedEquipmentNames.length} Equipment` },
     ];
 
     // Return single row
@@ -1497,15 +1497,15 @@ export default function ChestWorkoutDisplayScreen() {
 
   const getEquipmentIcon = (equipmentName: string): keyof typeof Ionicons.glyphMap => {
     const equipmentIconMap: { [key: string]: keyof typeof Ionicons.glyphMap } = {
-      'Adjustable bench": 'square",
-      'Cable crossover": 'reorder-three",
-      'Chest press machine": 'hardware-chip",
-      'Decline bench": 'trending-down",
-      'Dip station": 'remove",
-      'Flat bench": 'square",
-      'Incline bench": 'trending-up",
-      'Pec dec machine": 'contract",
-      'Smith machine": 'barbell"
+      'Adjustable bench': 'square',
+      'Cable crossover': 'reorder-three',
+      'Chest press machine': 'hardware-chip',
+      'Decline bench': 'trending-down',
+      'Dip station': 'remove',
+      'Flat bench': 'square',
+      'Incline bench': 'trending-up',
+      'Pec dec machine': 'contract',
+      'Smith machine': 'barbell'
     };
     return equipmentIconMap[equipmentName] || 'fitness';
   };
@@ -1518,7 +1518,7 @@ export default function ChestWorkoutDisplayScreen() {
           style={styles.backButton}
           onPress={handleGoBack}
         >
-          <Ionicons name="chevron-back" size={24} color="#FFD700" />
+          <Ionicons name='chevron-back" size={24} color="#FFD700" />
         </TouchableOpacity>
         <View style={styles.headerTextContainer}>
           <Text style={styles.headerTitle}>Your Workouts</Text>

@@ -99,7 +99,7 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
             },
             {
               icon: 'timer',
-              title: "Don't rush-feel pec stretch",
+              title: 'Don't rush-feel pec stretch',
               description: 'On each angle for maximum muscle activation and growth.'
             }
           ]
@@ -153,7 +153,7 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
           moodTips: [
             {
               icon: 'flash',
-              title: "Don't save energy",
+              title: 'Don't save energy',
               description: 'Heavy set should be all-out near failure for maximum recruitment.'
             },
             {
@@ -181,7 +181,7 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'flash',
               title: 'Push-ups: Lower slow, drive up hard',
-              description: 'Squeeze pecs together at the top. Think "push the floor apart."'
+              description: 'Squeeze pecs together at the top. Think 'push the floor apart."'
             },
             {
               icon: 'body',
@@ -239,7 +239,7 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
           moodTips: [
             {
               icon: 'refresh',
-              title: "Fly → press transition, don't rest",
+              title: 'Fly → press transition, don't rest',
               description: 'Overloads pecs by hitting both stretch and contraction.'
             },
             {
@@ -307,7 +307,7 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'body',
               title: 'Push-ups: Push through hands',
-              description: "As if you're wrapping chest around ribcage for better activation."
+              description: 'As if you're wrapping chest around ribcage for better activation.'
             },
             {
               icon: 'trending-up',
@@ -346,7 +346,7 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
           moodTips: [
             {
               icon: 'flash',
-              title: 'Plyo push-ups: Think "fast hands"',
+              title: 'Plyo push-ups: Think 'fast hands"',
               description: 'Maximal intent recruits more fibers for better development.'
             },
             {
@@ -411,7 +411,7 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'shield',
               title: 'Keep scapula pinned',
-              description: "Don't let shoulders roll forward under fatigue for safety and effectiveness."
+              description: 'Don't let shoulders roll forward under fatigue for safety and effectiveness.'
             }
           ]
         }
@@ -492,7 +492,7 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'refresh',
               title: 'Pump-style sequence',
-              description: "Don't rack weights; keep pecs loaded for maximum effect."
+              description: 'Don't rack weights; keep pecs loaded for maximum effect.'
             },
             {
               icon: 'hand-left',
@@ -1195,7 +1195,7 @@ const WorkoutCard = ({ equipment, icon, workouts, difficulty, difficultyColor, o
         <Image 
           source={{ uri: item.imageUrl }}
           style={styles.workoutImage}
-          resizeMode="cover"
+          resizeMode='cover"
         />
         <View style={styles.imageOverlay} />
         <View style={styles.swipeIndicator}>
@@ -1286,7 +1286,7 @@ const WorkoutCard = ({ equipment, icon, workouts, difficulty, difficultyColor, o
       {/* Equipment Header */}
       <View style={styles.equipmentHeader}>
         <View style={styles.equipmentIconContainer}>
-          <Ionicons name={icon} size={24} color="#FFD700" />
+          <Ionicons name={icon} size={24} color='#FFD700" />
         </View>
         <Text style={styles.equipmentName}>{equipment}</Text>
         <View style={styles.workoutIndicator}>
@@ -1384,7 +1384,7 @@ export default function ChestWorkoutDisplayScreen() {
 
   const handleStartWorkout = (workout: Workout, equipment: string, difficulty: string) => {
     try {
-      console.log('🚀 Starting workout:", workout.name, 'on", equipment);
+      console.log('🚀 Starting workout:', workout.name, 'on', equipment);
       
       // Validate required parameters
       if (!workout.name || !equipment || !difficulty) {
@@ -1421,7 +1421,7 @@ export default function ChestWorkoutDisplayScreen() {
           style={styles.backButton}
           onPress={handleGoBack}
         >
-          <Ionicons name="chevron-back" size={24} color="#FFD700" />
+          <Ionicons name='chevron-back" size={24} color="#FFD700" />
         </TouchableOpacity>
         <View style={styles.headerTextContainer}>
           <Text style={styles.headerTitle}>Your Workouts</Text>
@@ -1470,15 +1470,15 @@ export default function ChestWorkoutDisplayScreen() {
             // Get appropriate icon for each equipment type
             const getEquipmentIcon = (equipmentName: string) => {
               const equipmentIconMap: { [key: string]: keyof typeof Ionicons.glyphMap } = {
-                'Adjustable bench": 'square",
-                'Flat bench": 'square",
-                'Incline bench": 'trending-up",
-                'Decline bench": 'trending-down",
-                'Cable crossover": 'reorder-three",
-                'Chest press machine": 'hardware-chip",
-                'Dip station": 'remove",
-                'Pec dec machine": 'contract",
-                'Smith machine": 'barbell"
+                'Adjustable bench': 'square',
+                'Flat bench': 'square',
+                'Incline bench': 'trending-up',
+                'Decline bench': 'trending-down',
+                'Cable crossover': 'reorder-three',
+                'Chest press machine': 'hardware-chip',
+                'Dip station': 'remove',
+                'Pec dec machine': 'contract',
+                'Smith machine': 'barbell'
               };
               return equipmentIconMap[equipmentName] || 'fitness';
             };
@@ -1487,7 +1487,7 @@ export default function ChestWorkoutDisplayScreen() {
               <React.Fragment key={equipment}>
                 <View style={styles.progressStep}>
                   <View style={styles.progressStepActive}>
-                    <Ionicons name={getEquipmentIcon(equipment)} size={12} color="#000000" />
+                    <Ionicons name={getEquipmentIcon(equipment)} size={12} color='#000000" />
                   </View>
                   <Text style={styles.progressStepText}>{equipment}</Text>
                 </View>

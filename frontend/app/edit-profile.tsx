@@ -76,7 +76,7 @@ export default function EditProfile() {
       }
     } catch (error) {
       console.error('Error fetching user profile:', error);
-      Alert.alert('Error", 'Failed to load profile");
+      Alert.alert('Error', 'Failed to load profile');
     } finally {
       setLoading(false);
     }
@@ -87,7 +87,7 @@ export default function EditProfile() {
       const { status } = await ImagePicker.requestMediaLibraryPermissionsAsync();
       
       if (status !== 'granted') {
-        Alert.alert('Permission required", 'Please grant photo library access to change your profile picture.");
+        Alert.alert('Permission required', 'Please grant photo library access to change your profile picture.');
         return;
       }
 
@@ -104,7 +104,7 @@ export default function EditProfile() {
       }
     } catch (error) {
       console.error('Error picking image:', error);
-      Alert.alert('Error", 'Failed to pick image");
+      Alert.alert('Error', 'Failed to pick image');
     }
   };
 
@@ -135,7 +135,7 @@ export default function EditProfile() {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`,
-          'Content-Type": 'application/json",
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify({
           image_data: base64Data,
@@ -150,7 +150,7 @@ export default function EditProfile() {
         setAvatarUri(data.url);
         // Update the auth context with new avatar
         updateUser({ avatar: data.url });
-        Alert.alert('Success", 'Profile picture updated!");
+        Alert.alert('Success', 'Profile picture updated!');
       } else {
         const errorData = await uploadResponse.text();
         console.error('Avatar upload error response:', errorData);
@@ -158,7 +158,7 @@ export default function EditProfile() {
       }
     } catch (error) {
       console.error('Error uploading profile picture:', error);
-      Alert.alert('Error", 'Failed to upload profile picture. Please try again.");
+      Alert.alert('Error', 'Failed to upload profile picture. Please try again.');
     } finally {
       setUploadingImage(false);
     }
@@ -169,7 +169,7 @@ export default function EditProfile() {
 
     // Validate username
     if (!username || username.trim() === '') {
-      Alert.alert('Error", 'Username cannot be empty");
+      Alert.alert('Error', 'Username cannot be empty');
       return;
     }
 
@@ -179,7 +179,7 @@ export default function EditProfile() {
         method: 'PUT',
         headers: {
           'Authorization': `Bearer ${token}`,
-          'Content-Type": 'application/json",
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify({
           username: username.trim(),
@@ -197,7 +197,7 @@ export default function EditProfile() {
         
         // Show success message after navigation
         setTimeout(() => {
-          Alert.alert('Success", 'Profile updated successfully!");
+          Alert.alert('Success', 'Profile updated successfully!');
         }, 300);
       } else {
         const errorData = await response.json();
@@ -205,7 +205,7 @@ export default function EditProfile() {
       }
     } catch (error: any) {
       console.error('Error updating profile:', error);
-      Alert.alert('Error", error.message || 'Failed to update profile");
+      Alert.alert('Error', error.message || 'Failed to update profile');
     } finally {
       setSaving(false);
     }
@@ -242,13 +242,13 @@ export default function EditProfile() {
           disabled={saving}
         >
           <Text style={styles.saveButtonText}>
-            {saving ? 'Saving..." : 'Save"}
+            {saving ? 'Saving...' : 'Save'}
           </Text>
         </TouchableOpacity>
       </View>
 
       <KeyboardAvoidingView
-        behavior={Platform.OS === 'ios" ? 'padding" : 'height'}
+        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
         style={styles.keyboardView}
       >
         <ScrollView style={styles.scrollView} showsVerticalScrollIndicator={false}>
@@ -259,7 +259,7 @@ export default function EditProfile() {
                 <Image source={{ uri: avatarUri }} style={styles.avatar} />
               ) : (
                 <View style={[styles.avatar, styles.placeholderAvatar]}>
-                  <Ionicons name="person" size={60} color="#666" />
+                  <Ionicons name='person" size={60} color="#666" />
                 </View>
               )}
               {uploadingImage && (
@@ -274,7 +274,7 @@ export default function EditProfile() {
               disabled={uploadingImage}
             >
               <Text style={styles.changePhotoText}>
-                {uploadingImage ? 'Uploading..." : 'Change Profile Photo"}
+                {uploadingImage ? 'Uploading...' : 'Change Profile Photo'}
               </Text>
             </TouchableOpacity>
           </View>

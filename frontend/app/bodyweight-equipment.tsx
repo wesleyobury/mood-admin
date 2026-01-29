@@ -30,13 +30,13 @@ interface DifficultyLevel {
 
 // Bodyweight explosiveness equipment options
 const equipmentOptions: EquipmentOption[] = [
-  { id: 'battle-ropes', name: "Battle Ropes', icon: 'remove" },
-  { id: 'body-weight-only', name: "Body Weight Only', icon: 'body" },
-  { id: 'kettle-bell', name: "Kettle Bell', icon: 'fitness" },
-  { id: 'med-ball', name: "Med Ball', icon: 'basketball" },
-  { id: 'plyo-box', name: "Plyo Box', icon: 'cube" },
-  { id: 'sand-bag', name: "Sand Bag', icon: 'bag" },
-  { id: 'sled', name: "Sled', icon: 'car-sport" },
+  { id: 'battle-ropes', name: 'Battle Ropes', icon: 'remove' },
+  { id: 'body-weight-only', name: 'Body Weight Only', icon: 'body' },
+  { id: 'kettle-bell', name: 'Kettle Bell', icon: 'fitness' },
+  { id: 'med-ball', name: 'Med Ball', icon: 'basketball' },
+  { id: 'plyo-box', name: 'Plyo Box', icon: 'cube' },
+  { id: 'sand-bag', name: 'Sand Bag', icon: 'bag' },
+  { id: 'sled', name: 'Sled', icon: 'car-sport' },
 ];
 
 // Difficulty levels with explosiveness-appropriate descriptions
@@ -86,7 +86,7 @@ const EquipmentCard = ({
         <Ionicons 
           name={equipment.icon} 
           size={20} 
-          color={isSelected ? "#FFD700" : "#FFFFFF"} 
+          color={isSelected ? '#FFD700" : "#FFFFFF"} 
         />
       </View>
       <Text style={[
@@ -213,7 +213,7 @@ export default function BodyweightEquipmentScreen() {
           style={styles.backButton}
           onPress={handleGoBack}
         >
-          <Ionicons name="chevron-back" size={24} color="#FFD700" />
+          <Ionicons name='chevron-back" size={24} color="#FFD700" />
         </TouchableOpacity>
         <View style={styles.headerTextContainer}>
           <Text style={styles.headerTitle}>Bodyweight Equipment</Text>
@@ -237,7 +237,7 @@ export default function BodyweightEquipmentScreen() {
                 start={{ x: 0, y: 0 }}
                 end={{ x: 1, y: 1 }}
               >
-                <Ionicons name="flash" size={14} color="#0c0c0c" />
+                <Ionicons name='flash" size={14} color="#0c0c0c" />
               </LinearGradient>
             </View>
             <Text style={styles.progressStepText}>{moodTitle}</Text>
@@ -253,7 +253,7 @@ export default function BodyweightEquipmentScreen() {
                 start={{ x: 0, y: 0 }}
                 end={{ x: 1, y: 1 }}
               >
-                <Ionicons name="body" size={14} color="#0c0c0c" />
+                <Ionicons name='body" size={14} color="#0c0c0c" />
               </LinearGradient>
             </View>
             <Text style={styles.progressStepText}>{workoutType}</Text>
@@ -302,7 +302,7 @@ export default function BodyweightEquipmentScreen() {
                   start={{ x: 0, y: 0 }}
                   end={{ x: 1, y: 1 }}
                 >
-                  <Ionicons name="checkmark" size={14} color="#0c0c0c" />
+                  <Ionicons name='checkmark" size={14} color="#0c0c0c" />
                 </LinearGradient>
               ) : (
                 <Text style={styles.progressStepNumber}>4</Text>
@@ -370,7 +370,7 @@ export default function BodyweightEquipmentScreen() {
               end={{ x: 1, y: 0 }}
             >
               <Text style={styles.continueButtonTextActive}>Continue</Text>
-              <Ionicons name="chevron-forward" size={20} color="#0c0c0c" />
+              <Ionicons name='chevron-forward" size={20} color="#0c0c0c" />
             </LinearGradient>
           ) : (
             <Text style={styles.continueButtonText}>Continue</Text>

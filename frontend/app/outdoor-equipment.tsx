@@ -30,12 +30,12 @@ interface DifficultyLevel {
 
 // Outdoor activity options
 const equipmentOptions: EquipmentOption[] = [
-  { id: 'bike', name: "Bike', icon: 'bicycle" },
-  { id: 'hills', name: "Hills', icon: 'trending-up" },
-  { id: 'outdoor-run', name: "Outdoor Run', icon: 'walk" },
-  { id: 'park-workout', name: "Park workout', icon: 'leaf" },
-  { id: 'swim', name: "Swim', icon: 'water" },
-  { id: 'track-workout', name: "Track workout', icon: 'ellipse-outline" },
+  { id: 'bike', name: 'Bike', icon: 'bicycle' },
+  { id: 'hills', name: 'Hills', icon: 'trending-up' },
+  { id: 'outdoor-run', name: 'Outdoor Run', icon: 'walk' },
+  { id: 'park-workout', name: 'Park workout', icon: 'leaf' },
+  { id: 'swim', name: 'Swim', icon: 'water' },
+  { id: 'track-workout', name: 'Track workout', icon: 'ellipse-outline' },
 ];
 
 // Difficulty levels with outdoor-appropriate descriptions
@@ -85,7 +85,7 @@ const EquipmentCard = ({
         <Ionicons 
           name={equipment.icon} 
           size={20} 
-          color={isSelected ? "#FFD700" : "#FFFFFF"} 
+          color={isSelected ? '#FFD700" : "#FFFFFF"} 
         />
       </View>
       <Text style={[
@@ -211,7 +211,7 @@ export default function OutdoorEquipmentScreen() {
           style={styles.backButton}
           onPress={handleGoBack}
         >
-          <Ionicons name="chevron-back" size={24} color="#FFD700" />
+          <Ionicons name='chevron-back" size={24} color="#FFD700" />
         </TouchableOpacity>
         <View style={styles.headerTextContainer}>
           <Text style={styles.headerTitle}>Outdoor Activities</Text>
@@ -231,7 +231,7 @@ export default function OutdoorEquipmentScreen() {
                 start={{ x: 0, y: 0 }}
                 end={{ x: 1, y: 1 }}
               >
-                <Ionicons name="bicycle" size={14} color="#0c0c0c" />
+                <Ionicons name='bicycle" size={14} color="#0c0c0c" />
               </LinearGradient>
             </View>
             <Text style={styles.progressStepText}>Outside</Text>
@@ -272,7 +272,7 @@ export default function OutdoorEquipmentScreen() {
               selectedDifficulty && styles.progressStepActive
             ]}>
               <Ionicons 
-                name={selectedDifficulty ? "checkmark" : "star"} 
+                name={selectedDifficulty ? 'checkmark" : "star"} 
                 size={14} 
                 color={selectedDifficulty ? "#000000" : "rgba(255, 215, 0, 0.7)"} 
               />
@@ -337,7 +337,7 @@ export default function OutdoorEquipmentScreen() {
               end={{ x: 1, y: 0 }}
             >
               <Text style={styles.continueButtonTextActive}>Continue</Text>
-              <Ionicons name="chevron-forward" size={20} color="#0c0c0c" />
+              <Ionicons name='chevron-forward" size={20} color="#0c0c0c" />
             </LinearGradient>
           ) : (
             <Text style={styles.continueButtonText}>Continue</Text>

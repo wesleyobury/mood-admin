@@ -85,7 +85,7 @@ const CalisthenicsWorkoutsScreen = memo(function CalisthenicsWorkoutsScreen() {
       equipment: equipment,
       difficulty: difficulty,
       workoutType: workoutType,
-          imageUrl: workout.imageUrl || "",
+          imageUrl: workout.imageUrl || '",
           intensityReason: workout.intensityReason || "",
           moodCard: moodTitle,
       moodCard: moodTitle,
@@ -107,7 +107,7 @@ const CalisthenicsWorkoutsScreen = memo(function CalisthenicsWorkoutsScreen() {
 
   const handleStartWorkout = (workout: Workout, equipment: string, diff: string) => {
     try {
-      console.log('🚀 Starting workout:", workout.name, 'on", equipment);
+      console.log('🚀 Starting workout:', workout.name, 'on', equipment);
       
       if (!workout.name || !equipment || !diff) {
         console.error('❌ Missing required parameters for workout navigation');
@@ -124,7 +124,7 @@ const CalisthenicsWorkoutsScreen = memo(function CalisthenicsWorkoutsScreen() {
           duration: workout.duration || '20 min',
           difficulty: diff,
           workoutType: workoutType,
-          imageUrl: workout.imageUrl || "",
+          imageUrl: workout.imageUrl || '",
           intensityReason: workout.intensityReason || "",
           moodCard: moodTitle,
           moodTips: encodeURIComponent(JSON.stringify(workout.moodTips || []))
@@ -140,9 +140,9 @@ const CalisthenicsWorkoutsScreen = memo(function CalisthenicsWorkoutsScreen() {
   // Create progress bar - single row with requested order
   const createProgressRows = () => {
     const steps = [
-      { key: 'mood", icon: 'body" as keyof typeof Ionicons.glyphMap, text: moodTitle },
-      { key: 'difficulty", icon: 'speedometer" as keyof typeof Ionicons.glyphMap, text: difficulty === 'intermediate" ? 'Intermed." : difficulty.charAt(0).toUpperCase() + difficulty.slice(1) },
-      { key: 'equipment", icon: 'construct" as keyof typeof Ionicons.glyphMap, text: `${selectedEquipmentNames.length} Equipment` },
+      { key: 'mood', icon: 'body' as keyof typeof Ionicons.glyphMap, text: moodTitle },
+      { key: 'difficulty', icon: 'speedometer' as keyof typeof Ionicons.glyphMap, text: difficulty === 'intermediate' ? 'Intermed.' : difficulty.charAt(0).toUpperCase() + difficulty.slice(1) },
+      { key: 'equipment', icon: 'construct' as keyof typeof Ionicons.glyphMap, text: `${selectedEquipmentNames.length} Equipment` },
     ];
 
     return [steps];
@@ -156,7 +156,7 @@ const CalisthenicsWorkoutsScreen = memo(function CalisthenicsWorkoutsScreen() {
             style={styles.backButton}
             onPress={handleGoBack}
           >
-            <Ionicons name="chevron-back" size={24} color="#FFD700" />
+            <Ionicons name='chevron-back" size={24} color="#FFD700" />
           </TouchableOpacity>
           <View style={styles.headerTextContainer}>
             <Text style={styles.headerTitle}>Calisthenics</Text>
@@ -192,7 +192,7 @@ const CalisthenicsWorkoutsScreen = memo(function CalisthenicsWorkoutsScreen() {
             style={styles.backButton}
             onPress={handleGoBack}
           >
-            <Ionicons name="chevron-back" size={24} color="#FFD700" />
+            <Ionicons name='chevron-back" size={24} color="#FFD700" />
           </TouchableOpacity>
           <View style={styles.headerTextContainer}>
             <Text style={styles.headerTitle}>Your Workouts</Text>

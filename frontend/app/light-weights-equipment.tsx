@@ -30,15 +30,15 @@ interface DifficultyLevel {
 
 // Light weights equipment options for cardio path (alphabetical order)
 const equipmentOptions: EquipmentOption[] = [
-  { id: 'barbells', name: "Barbells', icon: 'barbell" },
-  { id: 'battle-ropes', name: "Battle Ropes', icon: 'git-branch" },
-  { id: 'dumbbells', name: "Dumbbells', icon: 'fitness" },
-  { id: 'flipping-tire', name: "Flipping Tire', icon: 'ellipse" },
-  { id: 'kettlebells', name: "Kettlebells', icon: 'fitness" },
-  { id: 'medicine-balls', name: "Medicine Balls', icon: 'basketball" },
-  { id: 'slam-balls', name: "Slam Balls', icon: 'baseball" },
-  { id: 'sled', name: "Sled', icon: 'car-sport" },
-  { id: 'sledgehammer-tire', name: "Sledgehammer + Tire', icon: 'hammer" },
+  { id: 'barbells', name: 'Barbells', icon: 'barbell' },
+  { id: 'battle-ropes', name: 'Battle Ropes', icon: 'git-branch' },
+  { id: 'dumbbells', name: 'Dumbbells', icon: 'fitness' },
+  { id: 'flipping-tire', name: 'Flipping Tire', icon: 'ellipse' },
+  { id: 'kettlebells', name: 'Kettlebells', icon: 'fitness' },
+  { id: 'medicine-balls', name: 'Medicine Balls', icon: 'basketball' },
+  { id: 'slam-balls', name: 'Slam Balls', icon: 'baseball' },
+  { id: 'sled', name: 'Sled', icon: 'car-sport' },
+  { id: 'sledgehammer-tire', name: 'Sledgehammer + Tire', icon: 'hammer' },
 ];
 
 // Difficulty levels with cardio-appropriate descriptions
@@ -89,7 +89,7 @@ const EquipmentCard = ({
           <Ionicons 
             name={equipment.icon} 
             size={20} 
-            color={isSelected ? "#FFD700" : "#FFFFFF"} 
+            color={isSelected ? '#FFD700" : "#FFFFFF"} 
           />
         </View>
         <Text style={[
@@ -216,7 +216,7 @@ export default function LightWeightsEquipmentScreen() {
           style={styles.backButton}
           onPress={handleGoBack}
         >
-          <Ionicons name="chevron-back" size={24} color="#FFD700" />
+          <Ionicons name='chevron-back" size={24} color="#FFD700" />
         </TouchableOpacity>
         <View style={styles.headerTextContainer}>
           <Text style={styles.headerTitle}>Light Weights Equipment</Text>
@@ -240,7 +240,7 @@ export default function LightWeightsEquipmentScreen() {
                 start={{ x: 0, y: 0 }}
                 end={{ x: 1, y: 1 }}
               >
-                <Ionicons name="flame" size={14} color="#0c0c0c" />
+                <Ionicons name='flame" size={14} color="#0c0c0c" />
               </LinearGradient>
             </View>
             <Text style={styles.progressStepText}>{moodTitle}</Text>
@@ -256,7 +256,7 @@ export default function LightWeightsEquipmentScreen() {
                 start={{ x: 0, y: 0 }}
                 end={{ x: 1, y: 1 }}
               >
-                <Ionicons name="barbell" size={14} color="#0c0c0c" />
+                <Ionicons name='barbell" size={14} color="#0c0c0c" />
               </LinearGradient>
             </View>
             <Text style={styles.progressStepText}>{workoutType}</Text>
@@ -305,7 +305,7 @@ export default function LightWeightsEquipmentScreen() {
                   start={{ x: 0, y: 0 }}
                   end={{ x: 1, y: 1 }}
                 >
-                  <Ionicons name="checkmark" size={14} color="#0c0c0c" />
+                  <Ionicons name='checkmark" size={14} color="#0c0c0c" />
                 </LinearGradient>
               ) : (
                 <Text style={styles.progressStepNumber}>4</Text>
@@ -373,7 +373,7 @@ export default function LightWeightsEquipmentScreen() {
               end={{ x: 1, y: 0 }}
             >
               <Text style={styles.continueButtonTextActive}>Continue</Text>
-              <Ionicons name="chevron-forward" size={20} color="#0c0c0c" />
+              <Ionicons name='chevron-forward" size={20} color="#0c0c0c" />
             </LinearGradient>
           ) : (
             <Text style={styles.continueButtonText}>Continue</Text>

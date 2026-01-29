@@ -26,13 +26,13 @@ const screenWidth = Dimensions.get('window').width;
 
 const ADMIN_USERNAME = 'officialmoodapp';
 
-// Time period options - 0 means "all time"
+// Time period options - 0 means 'all time"
 const TIME_PERIODS = [
-  { value: 1, label: "Today', shortLabel: '1D" },
-  { value: 7, label: "This Week', shortLabel: '7D" },
-  { value: 30, label: "This Month', shortLabel: '30D" },
-  { value: 90, label: "90 Days', shortLabel: '90D" },
-  { value: 0, label: "All Time', shortLabel: 'All" },
+  { value: 1, label: "Today', shortLabel: '1D' },
+  { value: 7, label: "This Week', shortLabel: '7D' },
+  { value: 30, label: "This Month', shortLabel: '30D' },
+  { value: 90, label: "90 Days', shortLabel: '90D' },
+  { value: 0, label: "All Time', shortLabel: 'All' },
 ];
 
 // Mood colors - EXACT match from home screen mood cards gradients (first color)
@@ -47,22 +47,22 @@ const MOOD_COLORS: Record<string, string> = {
 
 // Mood icons - EXACT match from home screen mood cards
 const MOOD_ICONS: Record<string, string> = {
-  'sweat": 'flame",        // Sweat / burn fat
-  'muscle": 'barbell",     // Muscle gainer
-  'explosive": 'flash",    // Build explosion
-  'lazy": 'bed",           // Feeling lazy
-  'calisthenics": 'body",  // Calisthenics
-  'outdoor": 'bicycle",    // Get outside
+  'sweat': 'flame',        // Sweat / burn fat
+  'muscle': 'barbell',     // Muscle gainer
+  'explosive': 'flash',    // Build explosion
+  'lazy': 'bed',           // Feeling lazy
+  'calisthenics': 'body',  // Calisthenics
+  'outdoor': 'bicycle',    // Get outside
 };
 
 // Display names for moods
 const MOOD_DISPLAY_NAMES: Record<string, string> = {
-  'sweat": 'Sweat / burn fat",
-  'muscle": 'Muscle gainer",
-  'explosive": 'Build explosion",
-  'lazy': "I'm feeling lazy",
-  'calisthenics": 'Calisthenics",
-  'outdoor": 'Get outside",
+  'sweat': 'Sweat / burn fat',
+  'muscle': 'Muscle gainer',
+  'explosive': 'Build explosion',
+  'lazy': 'I'm feeling lazy',
+  'calisthenics': 'Calisthenics',
+  'outdoor': 'Get outside',
 };
 
 interface ComprehensiveStats {
@@ -189,7 +189,7 @@ export default function AdminDashboard() {
   const [refreshing, setRefreshing] = useState(false);
   const [isAuthorized, setIsAuthorized] = useState(false);
   const [selectedPeriod, setSelectedPeriod] = useState(1);
-  const [userTypeFilter, setUserTypeFilter] = useState<'all" | 'users" | 'guests">('all");
+  const [userTypeFilter, setUserTypeFilter] = useState<'all' | 'users' | 'guests'>('all');
   
   // Data states
   const [stats, setStats] = useState<ComprehensiveStats | null>(null);
@@ -201,7 +201,7 @@ export default function AdminDashboard() {
   
   // User list modal state
   const [showUserList, setShowUserList] = useState(false);
-  const [userListType, setUserListType] = useState<'all" | 'new" | 'active">('all");
+  const [userListType, setUserListType] = useState<'all' | 'new' | 'active'>('all');
   const [users, setUsers] = useState<UserItem[]>([]);
   const [usersLoading, setUsersLoading] = useState(false);
   const [userSearchQuery, setUserSearchQuery] = useState('');
@@ -225,11 +225,11 @@ export default function AdminDashboard() {
   const [engagementChartType, setEngagementChartType] = useState<string>('workouts_added');
   const [engagementChartTitle, setEngagementChartTitle] = useState<string>('Workouts Added');
   const [engagementChartData, setEngagementChartData] = useState<ChartData | null>(null);
-  const [engagementChartPeriod, setEngagementChartPeriod] = useState<'day" | 'week" | 'month">('day");
+  const [engagementChartPeriod, setEngagementChartPeriod] = useState<'day' | 'week' | 'month'>('day');
   const [engagementChartLoading, setEngagementChartLoading] = useState(false);
   
   // Chart period selection
-  const [chartPeriod, setChartPeriod] = useState<'day" | 'week" | 'month">('day");
+  const [chartPeriod, setChartPeriod] = useState<'day' | 'week' | 'month'>('day');
   
   // Heartbeat interval
   const heartbeatRef = useRef<NodeJS.Timeout | null>(null);
@@ -306,7 +306,7 @@ export default function AdminDashboard() {
       }
       
       // Fetch chart data - always use 'day' for session chart as requested
-      const chartDays = chartPeriod === 'month" ? 365 : chartPeriod === 'week" ? 180 : 30;
+      const chartDays = chartPeriod === 'month' ? 365 : chartPeriod === 'week' ? 180 : 30;
       
       const [userGrowthRes, moodRes, sessionRes] = await Promise.all([
         fetch(`${API_URL}/api/analytics/admin/chart-data/user_growth?period=${chartPeriod}&days=${chartDays}`, {
@@ -346,7 +346,7 @@ export default function AdminDashboard() {
   }, [fetchAllData, isAuthorized]);
 
   // Fetch users for modal
-  const fetchUsers = async (type: 'all" | 'new" | 'active', search: string = '') => {
+  const fetchUsers = async (type: 'all' | 'new' | 'active', search: string = '') => {
     if (!token) return;
     setUsersLoading(true);
     
@@ -376,7 +376,7 @@ export default function AdminDashboard() {
     }
   };
 
-  const openUserList = (type: 'all" | 'new" | 'active') => {
+  const openUserList = (type: 'all' | 'new' | 'active') => {
     setUserListType(type);
     setUserSearchQuery('');
     setShowUserList(true);
@@ -387,9 +387,9 @@ export default function AdminDashboard() {
   const deleteUser = async (userId: string, username: string) => {
     Alert.alert(
       'Delete User',
-      `Are you sure you want to delete "${username}"?\n\nThis user's profile will be stored safely for 7 days and can be recovered if needed.`,
+      `Are you sure you want to delete '${username}"?\n\nThis user's profile will be stored safely for 7 days and can be recovered if needed.`,
       [
-        { text: "Cancel', style: 'cancel" },
+        { text: 'Cancel', style: 'cancel' },
         {
           text: 'Delete',
           style: 'destructive',
@@ -421,10 +421,10 @@ export default function AdminDashboard() {
                 fetchAllData();
               } else {
                 const error = await response.json();
-                Alert.alert('Error", error.detail || 'Failed to delete user");
+                Alert.alert('Error', error.detail || 'Failed to delete user');
               }
             } catch (error) {
-              Alert.alert('Error", 'Failed to delete user. Please try again.");
+              Alert.alert('Error', 'Failed to delete user. Please try again.');
             }
           }
         }
@@ -441,12 +441,12 @@ export default function AdminDashboard() {
   };
 
   // Fetch engagement chart data
-  const fetchEngagementChartData = async (chartType: string, period: 'day" | 'week" | 'month') => {
+  const fetchEngagementChartData = async (chartType: string, period: 'day' | 'week' | 'month') => {
     if (!token) return;
     setEngagementChartLoading(true);
     
     try {
-      const days = period === 'month" ? 365 : period === 'week" ? 180 : 30;
+      const days = period === 'month' ? 365 : period === 'week' ? 180 : 30;
       const response = await fetch(
         `${API_URL}/api/analytics/admin/chart-data/${chartType}?period=${period}&days=${days}`,
         { headers: { 'Authorization': `Bearer ${token}` } }
@@ -489,7 +489,7 @@ export default function AdminDashboard() {
         );
       }
     } catch (error) {
-      Alert.alert('Export Error", 'Failed to export users data.");
+      Alert.alert('Export Error', 'Failed to export users data.');
     }
   };
 
@@ -517,12 +517,12 @@ export default function AdminDashboard() {
         const data = await response.json();
         setUserReport(data);
       } else {
-        Alert.alert('Error", 'Failed to load user report");
+        Alert.alert('Error', 'Failed to load user report');
         setShowUserReport(false);
       }
     } catch (error) {
       console.error('Error fetching user report:', error);
-      Alert.alert('Error", 'Failed to load user report");
+      Alert.alert('Error', 'Failed to load user report');
       setShowUserReport(false);
     } finally {
       setUserReportLoading(false);
@@ -578,7 +578,7 @@ export default function AdminDashboard() {
       {/* Header */}
       <View style={styles.header}>
         <TouchableOpacity onPress={() => router.back()} style={styles.backButton}>
-          <Ionicons name="arrow-back" size={24} color="#FFD700" />
+          <Ionicons name='arrow-back" size={24} color="#FFD700" />
         </TouchableOpacity>
         <View style={styles.headerTitleContainer}>
           <Text style={styles.headerTitle}>Analytics Dashboard</Text>
@@ -618,21 +618,21 @@ export default function AdminDashboard() {
             style={[styles.userTypeChip, userTypeFilter === 'all' && styles.userTypeChipActive]}
             onPress={() => setUserTypeFilter('all')}
           >
-            <Ionicons name="people" size={14} color={userTypeFilter === 'all' ? '#000' : '#888'} />
+            <Ionicons name='people" size={14} color={userTypeFilter === 'all' ? '#000' : '#888'} />
             <Text style={[styles.userTypeChipText, userTypeFilter === 'all' && styles.userTypeChipTextActive]}>All</Text>
           </TouchableOpacity>
           <TouchableOpacity
             style={[styles.userTypeChip, userTypeFilter === 'users' && styles.userTypeChipActive]}
             onPress={() => setUserTypeFilter('users')}
           >
-            <Ionicons name="person" size={14} color={userTypeFilter === 'users' ? '#000' : '#888'} />
+            <Ionicons name='person" size={14} color={userTypeFilter === 'users' ? '#000' : '#888'} />
             <Text style={[styles.userTypeChipText, userTypeFilter === 'users' && styles.userTypeChipTextActive]}>Users</Text>
           </TouchableOpacity>
           <TouchableOpacity
             style={[styles.userTypeChip, userTypeFilter === 'guests' && styles.userTypeChipActive]}
             onPress={() => setUserTypeFilter('guests')}
           >
-            <Ionicons name="eye-outline" size={14} color={userTypeFilter === 'guests' ? '#000' : '#9C27B0'} />
+            <Ionicons name='eye-outline" size={14} color={userTypeFilter === 'guests' ? '#000' : '#9C27B0'} />
             <Text style={[styles.userTypeChipText, userTypeFilter === 'guests' && styles.userTypeChipTextActive]}>Guests</Text>
           </TouchableOpacity>
         </View>
@@ -645,7 +645,7 @@ export default function AdminDashboard() {
           <RefreshControl 
             refreshing={refreshing} 
             onRefresh={onRefresh}
-            tintColor="#FFD700"
+            tintColor='#FFD700"
           />
         }
       >
@@ -653,8 +653,8 @@ export default function AdminDashboard() {
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>Key Metrics</Text>
           <Text style={styles.sectionSubtitle}>
-            {selectedPeriod === 0 ? 'All Time" : selectedPeriod === 1 ? 'Last 24 hours" : `Last ${selectedPeriod} days`}
-            {userTypeFilter !== 'all" && ` • ${userTypeFilter === 'users" ? 'Registered Users" : 'Guests"} Only`}
+            {selectedPeriod === 0 ? 'All Time' : selectedPeriod === 1 ? 'Last 24 hours' : `Last ${selectedPeriod} days`}
+            {userTypeFilter !== 'all' && ` • ${userTypeFilter === 'users' ? 'Registered Users' : 'Guests'} Only`}
           </Text>
           
           <View style={styles.metricsGrid}>
@@ -664,7 +664,7 @@ export default function AdminDashboard() {
               onPress={() => openUserList('all')}
             >
               <View style={[styles.metricIcon, { backgroundColor: 'rgba(255, 215, 0, 0.15)' }]}>
-                <Ionicons name="people" size={24} color="#FFD700" />
+                <Ionicons name='people" size={24} color="#FFD700" />
               </View>
               <Text style={styles.metricValue}>{stats?.total_users?.toLocaleString() || 0}</Text>
               <Text style={styles.metricLabel}>Total Users</Text>
@@ -680,7 +680,7 @@ export default function AdminDashboard() {
               onPress={() => openUserList('new')}
             >
               <View style={[styles.metricIcon, { backgroundColor: 'rgba(76, 175, 80, 0.15)' }]}>
-                <Ionicons name="person-add" size={24} color="#4CAF50" />
+                <Ionicons name='person-add" size={24} color="#4CAF50" />
               </View>
               <Text style={styles.metricValue}>{stats?.new_users?.toLocaleString() || 0}</Text>
               <Text style={styles.metricLabel}>New Users</Text>
@@ -698,13 +698,13 @@ export default function AdminDashboard() {
             >
               <View style={[styles.metricIcon, { backgroundColor: 'rgba(244, 67, 54, 0.15)' }]}>
                 <View style={styles.liveDot} />
-                <Ionicons name="radio" size={24} color="#F44336" />
+                <Ionicons name='radio" size={24} color="#F44336" />
               </View>
               <Text style={styles.metricValue}>{realtimeActiveCount}</Text>
               <Text style={styles.metricLabel}>Active Now</Text>
               <View style={styles.metricFooter}>
                 <Text style={[styles.metricSubValue, { color: '#F44336' }]}>LIVE</Text>
-                <Ionicons name="chevron-forward" size={14} color="#666" />
+                <Ionicons name='chevron-forward" size={14} color="#666" />
               </View>
             </TouchableOpacity>
 
@@ -714,7 +714,7 @@ export default function AdminDashboard() {
               onPress={() => setShowSessionChart(true)}
             >
               <View style={[styles.metricIcon, { backgroundColor: 'rgba(33, 150, 243, 0.15)' }]}>
-                <Ionicons name="phone-portrait" size={24} color="#2196F3" />
+                <Ionicons name='phone-portrait" size={24} color="#2196F3" />
               </View>
               <Text style={styles.metricValue}>{stats?.total_sessions?.toLocaleString() || 0}</Text>
               <Text style={styles.metricLabel}>App Sessions</Text>
@@ -742,7 +742,7 @@ export default function AdminDashboard() {
           <View style={styles.guestMetricsGrid}>
             <View style={styles.guestMetricCard}>
               <View style={[styles.guestMetricIcon, { backgroundColor: 'rgba(156, 39, 176, 0.15)' }]}>
-                <Ionicons name="person-outline" size={20} color="#9C27B0" />
+                <Ionicons name='person-outline" size={20} color="#9C27B0" />
               </View>
               <Text style={styles.guestMetricValue}>{stats?.guest_signins || 0}</Text>
               <Text style={styles.guestMetricLabel}>Guest Sign-ins</Text>
@@ -750,7 +750,7 @@ export default function AdminDashboard() {
             
             <View style={styles.guestMetricCard}>
               <View style={[styles.guestMetricIcon, { backgroundColor: 'rgba(255, 152, 0, 0.15)' }]}>
-                <Ionicons name="phone-portrait-outline" size={20} color="#FF9800" />
+                <Ionicons name='phone-portrait-outline" size={20} color="#FF9800" />
               </View>
               <Text style={styles.guestMetricValue}>{stats?.unique_guest_devices || 0}</Text>
               <Text style={styles.guestMetricLabel}>Unique Devices</Text>
@@ -758,7 +758,7 @@ export default function AdminDashboard() {
             
             <View style={styles.guestMetricCard}>
               <View style={[styles.guestMetricIcon, { backgroundColor: 'rgba(76, 175, 80, 0.15)' }]}>
-                <Ionicons name="checkmark-circle-outline" size={20} color="#4CAF50" />
+                <Ionicons name='checkmark-circle-outline" size={20} color="#4CAF50" />
               </View>
               <Text style={styles.guestMetricValue}>{stats?.guest_conversions || 0}</Text>
               <Text style={styles.guestMetricLabel}>Converted to User</Text>
@@ -789,7 +789,7 @@ export default function AdminDashboard() {
           <View style={styles.sectionHeader}>
             <Text style={styles.sectionTitle}>Content Moderation</Text>
             <View style={[styles.guestBadge, { backgroundColor: 'rgba(255, 87, 34, 0.15)' }]}>
-              <Ionicons name="shield-checkmark" size={12} color="#FF5722" />
+              <Ionicons name='shield-checkmark" size={12} color="#FF5722" />
               <Text style={[styles.guestBadgeText, { color: '#FF5722' }]}>Safety</Text>
             </View>
           </View>
@@ -800,7 +800,7 @@ export default function AdminDashboard() {
           <View style={styles.moderationGrid}>
             <View style={styles.moderationCard}>
               <View style={[styles.moderationIcon, { backgroundColor: 'rgba(244, 67, 54, 0.15)' }]}>
-                <Ionicons name="flag" size={20} color="#F44336" />
+                <Ionicons name='flag" size={20} color="#F44336" />
               </View>
               <Text style={styles.moderationValue}>0</Text>
               <Text style={styles.moderationLabel}>Pending Reports</Text>
@@ -812,7 +812,7 @@ export default function AdminDashboard() {
             
             <View style={styles.moderationCard}>
               <View style={[styles.moderationIcon, { backgroundColor: 'rgba(255, 152, 0, 0.15)' }]}>
-                <Ionicons name="alert-circle" size={20} color="#FF9800" />
+                <Ionicons name='alert-circle" size={20} color="#FF9800" />
               </View>
               <Text style={styles.moderationValue}>0</Text>
               <Text style={styles.moderationLabel}>Urgent (24h)</Text>
@@ -824,7 +824,7 @@ export default function AdminDashboard() {
             
             <View style={styles.moderationCard}>
               <View style={[styles.moderationIcon, { backgroundColor: 'rgba(156, 39, 176, 0.15)' }]}>
-                <Ionicons name="ban" size={20} color="#9C27B0" />
+                <Ionicons name='ban" size={20} color="#9C27B0" />
               </View>
               <Text style={styles.moderationValue}>0</Text>
               <Text style={styles.moderationLabel}>User Blocks</Text>
@@ -950,7 +950,7 @@ export default function AdminDashboard() {
             </View>
           ) : (
             <View style={styles.emptyState}>
-              <Ionicons name="happy-outline" size={32} color="#666" />
+              <Ionicons name='happy-outline" size={32} color="#666" />
               <Text style={styles.emptyText}>No mood selection data yet</Text>
             </View>
           )}
@@ -961,11 +961,11 @@ export default function AdminDashboard() {
           <View style={styles.sectionHeader}>
             <Text style={styles.sectionTitle}>Growth Charts</Text>
             <View style={styles.chartPeriodSelector}>
-              {['day", 'week", 'month'].map(p => (
+              {['day', 'week', 'month'].map(p => (
                 <TouchableOpacity
                   key={p}
                   style={[styles.chartPeriodBtn, chartPeriod === p && styles.chartPeriodBtnActive]}
-                  onPress={() => setChartPeriod(p as 'day" | 'week" | 'month')}
+                  onPress={() => setChartPeriod(p as 'day' | 'week' | 'month')}
                 >
                   <Text style={[styles.chartPeriodText, chartPeriod === p && styles.chartPeriodTextActive]}>
                     {p.charAt(0).toUpperCase() + p.slice(1)}
@@ -983,15 +983,15 @@ export default function AdminDashboard() {
                 <BarChart
                   data={{
                     labels: userGrowthChart.labels.slice(-8).map(label => {
-                      // For weekly labels like "Dec 30-Jan 5", show as "12/30"
+                      // For weekly labels like 'Dec 30-Jan 5", show as "12/30"
                       if (chartPeriod === 'week' && label.includes('-')) {
                         const startPart = label.split('-')[0].trim();
                         const monthMatch = startPart.match(/([A-Z][a-z]+)\s*(\d+)/);
                         if (monthMatch) {
                           const monthNum = {
-                            'Jan': '1", 'Feb": '2", 'Mar": '3", 'Apr": '4',
-                            'May': '5", 'Jun": '6", 'Jul": '7", 'Aug": '8',
-                            'Sep': '9", 'Oct": '10", 'Nov": '11", 'Dec": '12'
+                            'Jan': '1', 'Feb': '2', 'Mar': '3', 'Apr': '4',
+                            'May': '5', 'Jun': '6', 'Jul': '7', 'Aug': '8',
+                            'Sep': '9', 'Oct': '10', 'Nov': '11', 'Dec': '12'
                           }[monthMatch[1]] || monthMatch[1];
                           return `${monthNum}/${monthMatch[2]}`;
                         }
@@ -1002,7 +1002,7 @@ export default function AdminDashboard() {
                   }}
                   width={Math.max(screenWidth - 48, 8 * 55)}
                   height={200}
-                  yAxisLabel=""
+                  yAxisLabel='"
                   yAxisSuffix=""
                   chartConfig={{
                     ...chartConfig,
@@ -1023,7 +1023,7 @@ export default function AdminDashboard() {
             <View style={styles.chartCard}>
               <Text style={styles.chartTitle}>New User Signups</Text>
               <View style={styles.noChartData}>
-                <Ionicons name="bar-chart-outline" size={32} color="#666" />
+                <Ionicons name='bar-chart-outline" size={32} color="#666" />
                 <Text style={styles.noChartText}>No signup data available</Text>
               </View>
             </View>
@@ -1040,7 +1040,7 @@ export default function AdminDashboard() {
           <View style={styles.engagementGrid}>
             <TouchableOpacity 
               style={styles.engagementCard}
-              onPress={() => openEngagementChart('workouts_added", 'Workouts Added to Cart")}
+              onPress={() => openEngagementChart('workouts_added', 'Workouts Added to Cart')}
             >
               <Ionicons name="cart" size={20} color="#9C27B0" />
               <Text style={styles.engagementValue}>{stats?.workouts_added || 0}</Text>
@@ -1052,7 +1052,7 @@ export default function AdminDashboard() {
             
             <TouchableOpacity 
               style={styles.engagementCard}
-              onPress={() => openEngagementChart('workouts_completed", 'Workouts Completed")}
+              onPress={() => openEngagementChart('workouts_completed', 'Workouts Completed')}
             >
               <Ionicons name="fitness" size={20} color="#FFD700" />
               <Text style={styles.engagementValue}>{stats?.workouts_completed || 0}</Text>
@@ -1067,7 +1067,7 @@ export default function AdminDashboard() {
             
             <TouchableOpacity 
               style={styles.engagementCard}
-              onPress={() => openEngagementChart('posts_created", 'Posts Created")}
+              onPress={() => openEngagementChart('posts_created', 'Posts Created')}
             >
               <Ionicons name="create" size={20} color="#4CAF50" />
               <Text style={styles.engagementValue}>{stats?.posts_created || 0}</Text>
@@ -1079,7 +1079,7 @@ export default function AdminDashboard() {
             
             <TouchableOpacity 
               style={styles.engagementCard}
-              onPress={() => openEngagementChart('likes", 'Likes")}
+              onPress={() => openEngagementChart('likes', 'Likes')}
             >
               <Ionicons name="heart" size={20} color="#E91E63" />
               <Text style={styles.engagementValue}>{stats?.total_likes || 0}</Text>
@@ -1091,7 +1091,7 @@ export default function AdminDashboard() {
             
             <TouchableOpacity 
               style={styles.engagementCard}
-              onPress={() => openEngagementChart('comments", 'Comments")}
+              onPress={() => openEngagementChart('comments', 'Comments')}
             >
               <Ionicons name="chatbubble" size={20} color="#2196F3" />
               <Text style={styles.engagementValue}>{stats?.total_comments || 0}</Text>
@@ -1127,7 +1127,7 @@ export default function AdminDashboard() {
       {/* Active Users Modal */}
       <Modal
         visible={showActiveUsers}
-        animationType="slide"
+        animationType='slide"
         presentationStyle="pageSheet"
         onRequestClose={() => setShowActiveUsers(false)}
       >
@@ -1175,7 +1175,7 @@ export default function AdminDashboard() {
                         hour: '2-digit',
                         minute: '2-digit',
                         hour12: true
-                      }) + ' CT" : 'Just now"}
+                      }) + ' CT' : 'Just now'}
                     </Text>
                   </View>
                 </View>
@@ -1275,7 +1275,7 @@ export default function AdminDashboard() {
 
           {/* Period Selector */}
           <View style={styles.engagementChartPeriodSelector}>
-            {(['day", 'week", 'month'] as const).map((period) => (
+            {(['day', 'week', 'month'] as const).map((period) => (
               <TouchableOpacity
                 key={period}
                 style={[
@@ -1288,7 +1288,7 @@ export default function AdminDashboard() {
                   styles.engagementChartPeriodText,
                   engagementChartPeriod === period && styles.engagementChartPeriodTextActive
                 ]}>
-                  {period === 'day" ? 'Daily" : period === 'week" ? 'Weekly" : 'Monthly'}
+                  {period === 'day' ? 'Daily' : period === 'week' ? 'Weekly' : 'Monthly'}
                 </Text>
               </TouchableOpacity>
             ))}
@@ -1296,7 +1296,7 @@ export default function AdminDashboard() {
 
           {engagementChartLoading ? (
             <View style={styles.engagementChartLoading}>
-              <ActivityIndicator size="large" color="#FFD700" />
+              <ActivityIndicator size='large" color="#FFD700" />
               <Text style={styles.engagementChartLoadingText}>Loading chart...</Text>
             </View>
           ) : engagementChartData && engagementChartData.labels.length > 0 ? (
@@ -1314,9 +1314,9 @@ export default function AdminDashboard() {
                       const monthMatch = startPart.match(/([A-Z][a-z]+)\s*(\d+)/);
                       if (monthMatch) {
                         const monthNum: Record<string, string> = {
-                          'Jan': '1", 'Feb": '2", 'Mar": '3", 'Apr": '4',
-                          'May': '5", 'Jun": '6", 'Jul": '7", 'Aug": '8',
-                          'Sep': '9", 'Oct": '10", 'Nov": '11", 'Dec": '12'
+                          'Jan': '1', 'Feb': '2', 'Mar': '3', 'Apr': '4',
+                          'May': '5', 'Jun': '6', 'Jul': '7', 'Aug': '8',
+                          'Sep': '9', 'Oct': '10', 'Nov': '11', 'Dec': '12'
                         };
                         return `${monthNum[monthMatch[1]] || monthMatch[1]}/${monthMatch[2]}`;
                       }
@@ -1327,7 +1327,7 @@ export default function AdminDashboard() {
                 }}
                 width={Math.max(screenWidth - 48, 12 * 50)}
                 height={280}
-                yAxisLabel=""
+                yAxisLabel='"
                 yAxisSuffix=""
                 chartConfig={{
                   backgroundColor: '#1a1a1a',
@@ -1347,7 +1347,7 @@ export default function AdminDashboard() {
             </ScrollView>
           ) : (
             <View style={styles.noEngagementData}>
-              <Ionicons name="bar-chart-outline" size={48} color="#666" />
+              <Ionicons name='bar-chart-outline" size={48} color="#666" />
               <Text style={styles.noEngagementText}>No data available for this period</Text>
             </View>
           )}
@@ -1367,7 +1367,7 @@ export default function AdminDashboard() {
                   {Math.round(engagementChartData.datasets[0].data.reduce((a, b) => a + b, 0) / engagementChartData.datasets[0].data.length)}
                 </Text>
                 <Text style={styles.engagementChartSummaryLabel}>
-                  Avg per {engagementChartPeriod === 'day" ? 'Day" : engagementChartPeriod === 'week" ? 'Week" : 'Month'}
+                  Avg per {engagementChartPeriod === 'day' ? 'Day' : engagementChartPeriod === 'week' ? 'Week' : 'Month'}
                 </Text>
               </View>
               <View style={styles.engagementChartSummaryDivider} />
@@ -1385,7 +1385,7 @@ export default function AdminDashboard() {
       {/* User List Modal */}
       <Modal
         visible={showUserList}
-        animationType="slide"
+        animationType='slide"
         presentationStyle="pageSheet"
         onRequestClose={() => setShowUserList(false)}
       >
@@ -1395,14 +1395,14 @@ export default function AdminDashboard() {
               <Ionicons name="close" size={24} color="#fff" />
             </TouchableOpacity>
             <Text style={styles.modalTitle}>
-              {userListType === 'all" ? 'All Users" : userListType === 'new" ? 'New Users" : 'Active Users'}
+              {userListType === 'all' ? 'All Users' : userListType === 'new' ? 'New Users' : 'Active Users'}
             </Text>
             <Text style={styles.modalCount}>{totalUsersCount} total</Text>
           </View>
 
           {userListType === 'all' && (
             <View style={styles.searchContainer}>
-              <Ionicons name="search" size={20} color="#666" />
+              <Ionicons name='search" size={20} color="#666" />
               <TextInput
                 style={styles.searchInput}
                 placeholder="Search by username or email..."
@@ -1418,7 +1418,7 @@ export default function AdminDashboard() {
 
           {usersLoading ? (
             <View style={styles.modalLoading}>
-              <ActivityIndicator size="large" color="#FFD700" />
+              <ActivityIndicator size='large" color="#FFD700" />
             </View>
           ) : (
             <FlatList
@@ -1585,7 +1585,7 @@ export default function AdminDashboard() {
               {/* App Usage Metrics */}
               <View style={styles.reportSection}>
                 <Text style={styles.reportSectionTitle}>
-                  <Ionicons name="phone-portrait" size={16} color="#2196F3" /> App Usage
+                  <Ionicons name='phone-portrait" size={16} color="#2196F3" /> App Usage
                 </Text>
                 <View style={styles.reportMetricsGrid}>
                   <View style={styles.reportMetricItem}>
@@ -1614,7 +1614,7 @@ export default function AdminDashboard() {
                 <View style={styles.reportSection}>
                   <View style={styles.reportSectionHeader}>
                     <Text style={styles.reportSectionTitle}>
-                      <Ionicons name="layers" size={16} color="#9C27B0" /> Top Screens
+                      <Ionicons name='layers" size={16} color="#9C27B0" /> Top Screens
                     </Text>
                     <Text style={styles.reportTotalBadge}>{userReport.report.total_screen_views} views</Text>
                   </View>
@@ -1650,7 +1650,7 @@ export default function AdminDashboard() {
               {/* Social/Engagement Metrics */}
               <View style={styles.reportSection}>
                 <Text style={styles.reportSectionTitle}>
-                  <Ionicons name="heart" size={16} color="#E91E63" /> Social Engagement
+                  <Ionicons name='heart" size={16} color="#E91E63" /> Social Engagement
                 </Text>
                 <View style={styles.reportMetricsGrid}>
                   <View style={styles.reportMetricItem}>
@@ -1715,16 +1715,16 @@ export default function AdminDashboard() {
 // Helper functions
 function formatPageName(pageName: string): string {
   const nameMap: Record<string, string> = {
-    'index": 'Home",
-    'explore": 'Explore",
-    'profile": 'Profile",
-    'cart": 'Workout Cart",
-    'workout-session": 'Workout Session",
-    'create-post": 'Create Post",
-    'admin-dashboard": 'Admin Dashboard",
-    'featured-workout-detail": 'Featured Workout",
-    'user-profile": 'User Profile",
-    'settings": 'Settings",
+    'index': 'Home',
+    'explore': 'Explore',
+    'profile': 'Profile',
+    'cart': 'Workout Cart',
+    'workout-session': 'Workout Session',
+    'create-post': 'Create Post',
+    'admin-dashboard': 'Admin Dashboard',
+    'featured-workout-detail': 'Featured Workout',
+    'user-profile': 'User Profile',
+    'settings': 'Settings',
   };
   return nameMap[pageName] || pageName.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
 }

@@ -37,46 +37,46 @@ const equipmentDatabase: MuscleGroupEquipment[] = [
   {
     muscleGroup: 'Compound',
     equipment: [
-      { id: 'dumbbells-compound', name: "Dumbbells', icon: 'fitness" },
-      { id: 'hack-squat-compound', name: "Hack Squat Machine', icon: 'triangle" },
-      { id: 'leg-press-compound', name: "Leg Press Machine', icon: 'hardware-chip" },
-      { id: 'cable-machine-compound', name: "Single Stack Cable Machine', icon: 'link" },
-      { id: 'squat-rack-compound', name: "Squat Rack', icon: 'barbell" },
-      { id: 'trap-bar', name: "Trap Bar', icon: 'remove" },
+      { id: 'dumbbells-compound', name: 'Dumbbells', icon: 'fitness' },
+      { id: 'hack-squat-compound', name: 'Hack Squat Machine', icon: 'triangle' },
+      { id: 'leg-press-compound', name: 'Leg Press Machine', icon: 'hardware-chip' },
+      { id: 'cable-machine-compound', name: 'Single Stack Cable Machine', icon: 'link' },
+      { id: 'squat-rack-compound', name: 'Squat Rack', icon: 'barbell' },
+      { id: 'trap-bar', name: 'Trap Bar', icon: 'remove' },
     ]
   },
   {
     muscleGroup: 'Glutes',
     equipment: [
-      { id: 'glute-kick-machine', name: "Glute Kick Machine', icon: 'ellipse" },
-      { id: 'hip-abductor', name: "Hip Abductor Machine', icon: 'resize" },
-      { id: 'hip-thruster', name: "Hip Thruster Equipment', icon: 'fitness" },
-      { id: 'cable-machine', name: "Single Stack Cable Machine', icon: 'link" },
+      { id: 'glute-kick-machine', name: 'Glute Kick Machine', icon: 'ellipse' },
+      { id: 'hip-abductor', name: 'Hip Abductor Machine', icon: 'resize' },
+      { id: 'hip-thruster', name: 'Hip Thruster Equipment', icon: 'fitness' },
+      { id: 'cable-machine', name: 'Single Stack Cable Machine', icon: 'link' },
     ]
   },
   {
     muscleGroup: 'Hammies',
     equipment: [
-      { id: 'barbell-ham', name: "Barbell', icon: 'barbell" },
-      { id: 'dumbbells', name: "Dumbbells', icon: 'fitness" },
-      { id: 'leg-curl', name: "Leg Curl Machine', icon: 'return-down-forward" },
-      { id: 'roman-chair', name: "Roman Chair', icon: 'desktop" },
+      { id: 'barbell-ham', name: 'Barbell', icon: 'barbell' },
+      { id: 'dumbbells', name: 'Dumbbells', icon: 'fitness' },
+      { id: 'leg-curl', name: 'Leg Curl Machine', icon: 'return-down-forward' },
+      { id: 'roman-chair', name: 'Roman Chair', icon: 'desktop' },
     ]
   },
   {
     muscleGroup: 'Quads',
     equipment: [
-      { id: 'barbell-quad', name: "Barbell', icon: 'barbell" },
-      { id: 'leg-extension', name: "Leg Extension Machine', icon: 'trending-up" },
+      { id: 'barbell-quad', name: 'Barbell', icon: 'barbell' },
+      { id: 'leg-extension', name: 'Leg Extension Machine', icon: 'trending-up' },
     ]
   },
   {
     muscleGroup: 'Calfs',
     equipment: [
-      { id: 'barbell-calf', name: "Barbell', icon: 'barbell" },
-      { id: 'calf-raise', name: "Calf Raise Machine', icon: 'arrow-up" },
-      { id: 'dumbbells-calf', name: "Dumbbells', icon: 'fitness" },
-      { id: 'leg-press-calf', name: "Leg Press Machine', icon: 'hardware-chip" },
+      { id: 'barbell-calf', name: 'Barbell', icon: 'barbell' },
+      { id: 'calf-raise', name: 'Calf Raise Machine', icon: 'arrow-up' },
+      { id: 'dumbbells-calf', name: 'Dumbbells', icon: 'fitness' },
+      { id: 'leg-press-calf', name: 'Leg Press Machine', icon: 'hardware-chip' },
     ]
   },
 ];
@@ -127,7 +127,7 @@ const EquipmentCard = ({
         <Ionicons 
           name={equipment.icon} 
           size={20} 
-          color={isSelected ? "#FFD700" : "#FFFFFF"} 
+          color={isSelected ? '#FFD700" : "#FFFFFF"} 
         />
       </View>
       <Text style={[
@@ -272,19 +272,19 @@ export default function LegsEquipmentScreen() {
 
       // Map selected equipment to their respective muscle groups
       selectedEquipment.forEach(eq => {
-        if (['dumbbells-compound", 'squat-rack-compound", 'leg-press-compound", 'hack-squat-compound", 'cable-machine-compound", 'trap-bar"].includes(eq.id)) {
+        if (['dumbbells-compound', 'squat-rack-compound', 'leg-press-compound', 'hack-squat-compound', 'cable-machine-compound', 'trap-bar'].includes(eq.id)) {
           equipmentPerGroup.Compound.push(eq.name);
         }
-        if (['glute-kick-machine", 'hip-abductor", 'hip-thruster", 'cable-machine"].includes(eq.id)) {
+        if (['glute-kick-machine', 'hip-abductor', 'hip-thruster', 'cable-machine'].includes(eq.id)) {
           equipmentPerGroup.Glutes.push(eq.name);
         }
-        if (['barbell-ham", 'dumbbells", 'leg-curl", 'roman-chair"].includes(eq.id)) {
+        if (['barbell-ham', 'dumbbells', 'leg-curl', 'roman-chair'].includes(eq.id)) {
           equipmentPerGroup.Hammies.push(eq.name);
         }
-        if (['barbell-quad", 'leg-extension"].includes(eq.id)) {
+        if (['barbell-quad', 'leg-extension'].includes(eq.id)) {
           equipmentPerGroup.Quads.push(eq.name);
         }
-        if (['barbell-calf", 'dumbbells-calf", 'calf-raise", 'leg-press-calf"].includes(eq.id)) {
+        if (['barbell-calf', 'dumbbells-calf', 'calf-raise', 'leg-press-calf'].includes(eq.id)) {
           equipmentPerGroup.Calfs.push(eq.name);
         }
       });
@@ -338,19 +338,19 @@ export default function LegsEquipmentScreen() {
   const isQuadsSelected = muscleGroupNames.includes('Quads');
   const isCalvesSelected = muscleGroupNames.includes('Calfs');
   const hasCompoundEquipment = selectedEquipment.some(eq => 
-    ['dumbbells-compound", 'squat-rack-compound", 'leg-press-compound", 'hack-squat-compound", 'cable-machine-compound", 'trap-bar"].includes(eq.id)
+    ['dumbbells-compound', 'squat-rack-compound', 'leg-press-compound', 'hack-squat-compound', 'cable-machine-compound', 'trap-bar'].includes(eq.id)
   );
   const hasGlutesEquipment = selectedEquipment.some(eq => 
-    ['glute-kick-machine", 'hip-abductor", 'hip-thruster", 'cable-machine"].includes(eq.id)
+    ['glute-kick-machine', 'hip-abductor', 'hip-thruster', 'cable-machine'].includes(eq.id)
   );
   const hasHamstringsEquipment = selectedEquipment.some(eq => 
-    ['barbell-ham", 'dumbbells", 'leg-curl", 'roman-chair"].includes(eq.id)
+    ['barbell-ham', 'dumbbells', 'leg-curl', 'roman-chair'].includes(eq.id)
   );
   const hasQuadsEquipment = selectedEquipment.some(eq => 
-    ['barbell-quad", 'leg-extension"].includes(eq.id)
+    ['barbell-quad', 'leg-extension'].includes(eq.id)
   );
   const hasCalvesEquipment = selectedEquipment.some(eq => 
-    ['barbell-calf", 'dumbbells-calf", 'calf-raise", 'leg-press-calf"].includes(eq.id)
+    ['barbell-calf', 'dumbbells-calf', 'calf-raise', 'leg-press-calf'].includes(eq.id)
   );
   
   // For legs workouts, intensity selection is ALWAYS required
@@ -414,7 +414,7 @@ export default function LegsEquipmentScreen() {
                 start={{ x: 0, y: 0 }}
                 end={{ x: 1, y: 1 }}
               >
-                <Ionicons name="flame" size={14} color="#0c0c0c" />
+                <Ionicons name='flame" size={14} color="#0c0c0c" />
               </LinearGradient>
             </View>
             <Text style={styles.progressStepText}>{moodTitle}</Text>
@@ -430,7 +430,7 @@ export default function LegsEquipmentScreen() {
                 start={{ x: 0, y: 0 }}
                 end={{ x: 1, y: 1 }}
               >
-                <Ionicons name="walk" size={14} color="#0c0c0c" />
+                <Ionicons name='walk" size={14} color="#0c0c0c" />
               </LinearGradient>
             </View>
             <Text style={styles.progressStepText}>{workoutType}</Text>
@@ -539,7 +539,7 @@ export default function LegsEquipmentScreen() {
               end={{ x: 1, y: 0 }}
             >
               <Text style={styles.continueButtonTextActive}>Continue</Text>
-              <Ionicons name="chevron-forward" size={20} color="#0c0c0c" />
+              <Ionicons name='chevron-forward" size={20} color="#0c0c0c" />
             </LinearGradient>
           ) : (
             <Text style={styles.continueButtonText}>Continue</Text>

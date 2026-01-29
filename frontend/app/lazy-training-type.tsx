@@ -79,7 +79,7 @@ const LazyTrainingTypeOption = ({
             <Ionicons 
               name={option.icon} 
               size={32} 
-              color={isSelected ? "#FFD700" : "#FFD700"} 
+              color={isSelected ? '#FFD700" : "#FFD700"} 
             />
           </View>
           <View style={styles.textContainer}>
@@ -106,10 +106,10 @@ export default function LazyTrainingTypeScreen() {
   const insets = useSafeAreaInsets();
   const [selectedOption, setSelectedOption] = useState<LazyTrainingTypeOption | null>(null);
   
-  const moodTitle = params.mood as string || "I'm feeling lazy";
+  const moodTitle = params.mood as string || "I'm feeling lazy';
 
   const handleLazyTrainingTypeSelect = (option: LazyTrainingTypeOption) => {
-    console.log('Selected lazy training type:", option.title, 'for mood:", moodTitle);
+    console.log('Selected lazy training type:', option.title, 'for mood:', moodTitle);
     setSelectedOption(option);
   };
 
@@ -143,7 +143,7 @@ export default function LazyTrainingTypeScreen() {
           style={styles.backButton}
           onPress={handleGoBack}
         >
-          <Ionicons name="chevron-back" size={24} color="#FFD700" />
+          <Ionicons name='chevron-back" size={24} color="#FFD700" />
         </TouchableOpacity>
         <View style={styles.headerTextContainer}>
           <Text style={styles.headerTitle}>Training Type</Text>
@@ -197,7 +197,7 @@ export default function LazyTrainingTypeScreen() {
               end={{ x: 1, y: 0 }}
             >
               <Text style={styles.continueButtonText}>Continue</Text>
-              <Ionicons name="arrow-forward" size={20} color="#0c0c0c" style={styles.buttonIcon} />
+              <Ionicons name='arrow-forward" size={20} color="#0c0c0c" style={styles.buttonIcon} />
             </LinearGradient>
           </TouchableOpacity>
         </View>

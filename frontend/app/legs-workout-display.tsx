@@ -250,11 +250,11 @@ const legsWorkoutDatabase: MuscleGroupWorkout[] = [
 
 const getMuscleGroupIcon = (muscleGroupName: string): keyof typeof Ionicons.glyphMap => {
   const iconMap: { [key: string]: keyof typeof Ionicons.glyphMap } = {
-    'Glutes": 'fitness",
-    'Hammies": 'barbell",
-    'Quads": 'triangle",
-    'Calfs": 'diamond",
-    'Compound": 'layers",
+    'Glutes': 'fitness',
+    'Hammies': 'barbell',
+    'Quads': 'triangle',
+    'Calfs': 'diamond',
+    'Compound': 'layers',
   };
   return iconMap[muscleGroupName] || 'fitness';
 };
@@ -303,7 +303,7 @@ export default function LegsWorkoutDisplayScreen() {
       return; // Already in cart
     }
 
-    // Create proper workout type with muscle group (e.g., "Legs - Glutes", "Legs - Hammies")
+    // Create proper workout type with muscle group (e.g., 'Legs - Glutes", "Legs - Hammies")
     const displayWorkoutType = `${workoutType} - ${muscleGroupName}`;
 
     // Create WorkoutItem from current workout
@@ -459,7 +459,7 @@ export default function LegsWorkoutDisplayScreen() {
     
     // Calculate current index based on scroll position
     const currentIndex = Math.round(contentOffset.x / viewSize.width);
-    console.log('📜 Scroll event, calculated index:", currentIndex, 'offset:", contentOffset.x, 'viewWidth:', viewSize.width);
+    console.log('📜 Scroll event, calculated index:', currentIndex, 'offset:', contentOffset.x, 'viewWidth:', viewSize.width);
     setCurrentWorkoutIndex(currentIndex);
   };
 
@@ -475,7 +475,7 @@ export default function LegsWorkoutDisplayScreen() {
             style={styles.backButton}
             onPress={handleBack}
           >
-            <Ionicons name="chevron-back" size={24} color="#FFD700" />
+            <Ionicons name='chevron-back" size={24} color="#FFD700" />
           </TouchableOpacity>
           <View style={styles.headerTextContainer}>
             <Text style={styles.headerTitle}>No Workouts Found</Text>
@@ -515,7 +515,7 @@ export default function LegsWorkoutDisplayScreen() {
           <View style={styles.progressStep}>
             <View style={styles.progressStepActive}>
               <LinearGradient colors={['#FFD700', '#FFA500']} style={styles.progressStepGradient} start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }}>
-                <Ionicons name="flame" size={14} color="#0c0c0c" />
+                <Ionicons name='flame" size={14} color="#0c0c0c" />
               </LinearGradient>
             </View>
             <Text style={styles.progressStepText}>{mood}</Text>
@@ -526,7 +526,7 @@ export default function LegsWorkoutDisplayScreen() {
           <View style={styles.progressStep}>
             <View style={styles.progressStepActive}>
               <LinearGradient colors={['#FFD700', '#FFA500']} style={styles.progressStepGradient} start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }}>
-                <Ionicons name="walk" size={14} color="#0c0c0c" />
+                <Ionicons name='walk" size={14} color="#0c0c0c" />
               </LinearGradient>
             </View>
             <Text style={styles.progressStepText}>{workoutType}</Text>
@@ -606,7 +606,7 @@ export default function LegsWorkoutDisplayScreen() {
                     <Ionicons 
                       name={getMuscleGroupIcon(muscleGroup.muscleGroupName)} 
                       size={24} 
-                      color="#FFD700" 
+                      color='#FFD700" 
                     />
                   </View>
                   <Text style={styles.muscleGroupName}>{muscleGroup.muscleGroupName}</Text>
@@ -665,7 +665,7 @@ export default function LegsWorkoutDisplayScreen() {
             }
           </Text>
           <Ionicons 
-            name={hasMoreMuscles ? "arrow-forward" : "cart"} 
+            name={hasMoreMuscles ? 'arrow-forward" : "cart"} 
             size={20} 
             color="#000" 
           />

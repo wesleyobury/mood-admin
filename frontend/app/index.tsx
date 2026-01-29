@@ -85,7 +85,7 @@ const AnimatedFeatureItem = ({ icon, title, description, delay = 0 }: {
           }
         ]}
       >
-        <Ionicons name={icon} size={24} color="#FFD700" />
+        <Ionicons name={icon} size={24} color='#FFD700" />
       </Animated.View>
       <View style={styles.featureContent}>
         <Text style={styles.featureTitle}>{title}</Text>
@@ -155,7 +155,7 @@ export default function Welcome() {
       {/* Privacy Policy & Terms Modal */}
       <Modal
         visible={showPrivacyModal}
-        animationType="slide"
+        animationType='slide"
         transparent={true}
         onRequestClose={() => {}}
       >
@@ -282,7 +282,7 @@ export default function Welcome() {
               <Image 
                 source={require('../assets/images/header-logo.png')}
                 style={styles.logoImage}
-                resizeMode="contain"
+                resizeMode='contain"
               />
             </View>
 
@@ -300,7 +300,7 @@ export default function Welcome() {
           {/* Features */}
           <View style={styles.featuresSection}>
             <AnimatedFeatureItem
-              icon="heart"
+              icon='heart"
               title="Mood-Based Workouts"
               description="Six carefully curated mood profiles"
               delay={0}

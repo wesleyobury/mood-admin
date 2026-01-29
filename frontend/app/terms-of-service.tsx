@@ -20,7 +20,7 @@ export default function TermsOfServiceScreen() {
       {/* Header */}
       <View style={styles.header}>
         <TouchableOpacity style={styles.backButton} onPress={() => router.back()}>
-          <Ionicons name="chevron-back" size={24} color="#FFD700" />
+          <Ionicons name='chevron-back" size={24} color="#FFD700" />
         </TouchableOpacity>
         <Text style={styles.headerTitle}>Terms of Service</Text>
         <View style={styles.headerSpacer} />
@@ -73,7 +73,7 @@ export default function TermsOfServiceScreen() {
         {/* Health Disclaimer - IMPORTANT */}
         <View style={[styles.section, styles.warningSection]}>
           <View style={styles.warningHeader}>
-            <Ionicons name="fitness" size={24} color="#FFD700" />
+            <Ionicons name='fitness" size={24} color="#FFD700" />
             <Text style={styles.warningSectionTitle}>Health & Fitness Disclaimer</Text>
           </View>
           <Text style={styles.warningParagraph}>
@@ -158,7 +158,7 @@ export default function TermsOfServiceScreen() {
         {/* Explicit Content Prohibition */}
         <View style={[styles.section, styles.zeroToleranceSection]}>
           <View style={styles.warningHeader}>
-            <Ionicons name="ban" size={24} color="#FFD700" />
+            <Ionicons name='ban" size={24} color="#FFD700" />
             <Text style={styles.zeroToleranceTitle}>Prohibited Sexual Content</Text>
           </View>
           <Text style={styles.paragraph}>

@@ -53,7 +53,7 @@ function NavigationStack() {
         animation: 'default'
       }}
     >
-      <Stack.Screen name="index" options={{ headerShown: false }} />
+      <Stack.Screen name='index" options={{ headerShown: false }} />
       <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
       <Stack.Screen name="auth/login" options={{ headerShown: false }} />
       <Stack.Screen name="auth/register" options={{ headerShown: false }} />
@@ -138,7 +138,7 @@ export default function RootLayout() {
 
   return (
     <GestureHandlerRootView style={styles.rootContainer}>
-      <StatusBar style="light" backgroundColor="#000000" translucent={false} />
+      <StatusBar style='light" backgroundColor="#000000" translucent={false} />
       <SafeAreaProvider style={styles.rootContainer}>
         <ErrorBoundary key={retryKey} onRetry={handleRetry}>
           <AppProviders>
