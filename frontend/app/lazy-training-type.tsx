@@ -91,7 +91,7 @@ const LazyTrainingTypeOption = ({
             {isSelected ? (
               <Ionicons name="checkmark-circle" size={24} color="#FFD700" />
             ) : (
-              <Ionicons name="chevron-forward" size={20} color="rgba(255, 255, 255, 0.3)' />
+              <Ionicons name="chevron-forward" size={20} color="rgba(255, 255, 255, 0.3)" />
             )}
           </View>
         </View>
