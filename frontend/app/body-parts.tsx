@@ -269,7 +269,14 @@ export default function BodyPartsScreen() {
         >
           <View style={styles.progressStep}>
             <View style={styles.progressStepActive}>
-              <Ionicons name="barbell" size={14} color="#0c0c0c" />
+              <LinearGradient
+                colors={['#FFD700', '#FFA500']}
+                style={styles.progressStepGradient}
+                start={{ x: 0, y: 0 }}
+                end={{ x: 1, y: 1 }}
+              >
+                <Ionicons name="barbell" size={14} color="#0c0c0c" />
+              </LinearGradient>
             </View>
             <Text style={styles.progressStepText}>{mood}</Text>
           </View>
@@ -282,7 +289,14 @@ export default function BodyPartsScreen() {
               selectedBodyParts.length > 0 && styles.progressStepActive
             ]}>
               {selectedBodyParts.length > 0 ? (
-                <Text style={styles.progressStepNumberActive}>{selectedBodyParts.length}</Text>
+                <LinearGradient
+                  colors={['#FFD700', '#FFA500']}
+                  style={styles.progressStepGradient}
+                  start={{ x: 0, y: 0 }}
+                  end={{ x: 1, y: 1 }}
+                >
+                  <Text style={styles.progressStepNumberActive}>{selectedBodyParts.length}</Text>
+                </LinearGradient>
               ) : (
                 <Text style={styles.progressStepNumber}>2</Text>
               )}
