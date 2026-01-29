@@ -137,7 +137,7 @@ export default function LegsMuscleGroupsScreen() {
       
       // Always navigate to unified legs equipment screen
       const muscleGroupNames = selectedMuscleGroups.map(mg => mg.name);
-      const muscleGroupNamesString = muscleGroupNames.join(',");
+      const muscleGroupNamesString = muscleGroupNames.join(',');
       
       router.push({
         pathname: '/legs-equipment',
