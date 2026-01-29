@@ -182,7 +182,14 @@ export default function LegsMuscleGroupsScreen() {
         <View style={styles.progressContent}>
           <View style={styles.progressStep}>
             <View style={styles.progressStepActive}>
-              <Ionicons name="flame" size={14} color="#0c0c0c" />
+              <LinearGradient
+                colors={['#FFD700', '#FFA500']}
+                style={styles.progressStepGradient}
+                start={{ x: 0, y: 0 }}
+                end={{ x: 1, y: 1 }}
+              >
+                <Ionicons name="flame" size={14} color="#0c0c0c" />
+              </LinearGradient>
             </View>
             <Text style={styles.progressStepText}>{moodTitle}</Text>
           </View>
@@ -191,7 +198,14 @@ export default function LegsMuscleGroupsScreen() {
           
           <View style={styles.progressStep}>
             <View style={styles.progressStepActive}>
-              <Ionicons name="walk" size={14} color="#0c0c0c" />
+              <LinearGradient
+                colors={['#FFD700', '#FFA500']}
+                style={styles.progressStepGradient}
+                start={{ x: 0, y: 0 }}
+                end={{ x: 1, y: 1 }}
+              >
+                <Ionicons name="walk" size={14} color="#0c0c0c" />
+              </LinearGradient>
             </View>
             <Text style={styles.progressStepText}>{workoutType}</Text>
           </View>
@@ -203,12 +217,22 @@ export default function LegsMuscleGroupsScreen() {
               styles.progressStepCircle,
               selectedMuscleGroups.length > 0 && styles.progressStepActive
             ]}>
-              <Text style={[
-                styles.progressStepNumber,
-                selectedMuscleGroups.length > 0 && styles.progressStepNumberActive
-              ]}>
-                {selectedMuscleGroups.length}
-              </Text>
+              {selectedMuscleGroups.length > 0 ? (
+                <LinearGradient
+                  colors={['#FFD700', '#FFA500']}
+                  style={styles.progressStepGradient}
+                  start={{ x: 0, y: 0 }}
+                  end={{ x: 1, y: 1 }}
+                >
+                  <Text style={styles.progressStepNumberActive}>
+                    {selectedMuscleGroups.length}
+                  </Text>
+                </LinearGradient>
+              ) : (
+                <Text style={styles.progressStepNumber}>
+                  {selectedMuscleGroups.length}
+                </Text>
+              )}
             </View>
             <Text style={styles.progressStepText}>
               Muscle Groups {selectedMuscleGroups.length > 0 && `(${selectedMuscleGroups.length})`}
