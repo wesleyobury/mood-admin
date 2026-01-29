@@ -719,13 +719,11 @@ const styles = StyleSheet.create({
     right: 8,
   },
   selectionSummary: {
-    backgroundColor: '#1a1a1a',
+    backgroundColor: 'transparent',
     borderRadius: 12,
     padding: 16,
     marginTop: 20,
     marginBottom: 20,
-    borderWidth: 1,
-    borderColor: 'rgba(255, 215, 0, 0.3)',
   },
   selectionLabel: {
     fontSize: 12,
