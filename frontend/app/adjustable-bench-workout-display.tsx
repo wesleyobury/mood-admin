@@ -50,8 +50,8 @@ const adjustableBenchDatabase: EquipmentWorkouts[] = [
       beginner: [
         {
           name: 'Adjustable Press Circuit',
-          duration: '15–18 min',
-          description: '3 rounds:\n• 10 flat press\n• 10 incline press\n• 10 decline press (light)\n• Rest 60–75s',
+          duration: '15-18 min',
+          description: '3 rounds:\n• 10 flat press\n• 10 incline press\n• 10 decline press (light)\n• Rest 60-75s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8MTc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Perfect beginner introduction targeting pecs from multiple angles with flat = mid, incline = upper, decline = lower chest development.',
           moodTips: [
@@ -69,7 +69,7 @@ const adjustableBenchDatabase: EquipmentWorkouts[] = [
         },
         {
           name: 'Fly Flow',
-          duration: '12–15 min',
+          duration: '12-15 min',
           description: '3 rounds:\n• 10 flat fly\n• 10 incline fly\n• 10 decline fly (light)\n• Rest 60s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Gentle fly progression that teaches proper chest isolation across multiple angles for comprehensive beginners development.',
@@ -82,7 +82,7 @@ const adjustableBenchDatabase: EquipmentWorkouts[] = [
             {
               icon: 'flash',
               title: 'Bring dumbbells together until they meet',
-              description: 'Not just overhead—to force full contraction and muscle activation.'
+              description: 'Not just overhead-to force full contraction and muscle activation.'
             }
           ]
         }
@@ -90,7 +90,7 @@ const adjustableBenchDatabase: EquipmentWorkouts[] = [
       intermediate: [
         {
           name: 'Angle Ladder',
-          duration: '14–16 min',
+          duration: '14-16 min',
           description: '3 rounds:\n• 8 flat press\n• 8 incline press\n• 8 decline press\n• Rest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Progressive recruitment training that starts more pec-dominant and progresses to fatigue lower range for intermediate development.',
@@ -102,14 +102,14 @@ const adjustableBenchDatabase: EquipmentWorkouts[] = [
             },
             {
               icon: 'timer',
-              title: 'Don't rush—feel pec stretch',
+              title: 'Don't rush - feel pec stretch',
               description: 'On each angle for maximum muscle activation and growth.'
             }
           ]
         },
         {
           name: 'Bench Plyo Push-Ups',
-          duration: '14–16 min',
+          duration: '14-16 min',
           description: '4 rounds:\n• 8 explosive plyo push-ups (vary bench angle each round)\n• 10 single-arm press\n• Rest 75s',
           imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
           intensityReason: 'Explosive plyometric work with varied angles forces pec adaptation for greater growth stimulus.',
@@ -130,7 +130,7 @@ const adjustableBenchDatabase: EquipmentWorkouts[] = [
       advanced: [
         {
           name: 'Adjustable Complex',
-          duration: '15–20 min',
+          duration: '15-20 min',
           description: '3 rounds:\n• 8 flat press\n• 8 incline press\n• 8 decline press\n• 8 fly (choose angle)\n• Rest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmd8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Advanced hypertrophy density training with near-failure at each angle and minimal rest for maximum chest development.',
@@ -149,8 +149,8 @@ const adjustableBenchDatabase: EquipmentWorkouts[] = [
         },
         {
           name: 'Drop Set',
-          duration: '16–20 min',
-          description: '2 rounds:\n• 10 heavy press (any angle)\n• Drop → 10 moderate\n• Drop → 10 light\n• Rest 90–120s',
+          duration: '16-20 min',
+          description: '2 rounds:\n• 10 heavy press (any angle)\n• Drop → 10 moderate\n• Drop → 10 light\n• Rest 90-120s',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MTc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'High-intensity drop sets push muscle failure across multiple weight ranges with focus on time under tension for advanced hypertrophy.',
           moodTips: [
