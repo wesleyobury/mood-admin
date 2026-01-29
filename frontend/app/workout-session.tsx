@@ -203,7 +203,7 @@ export default function WorkoutSessionScreen() {
       [
         { text: "Cancel", style: "cancel" },
         { 
-          text: "Skip', 
+          text: "Skip", 
           style: 'default', 
           onPress: () => {
             // Track workout skipped event
