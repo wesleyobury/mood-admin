@@ -57,7 +57,7 @@ const inclineBenchDatabase: EquipmentWorkouts[] = [
             {
               icon: 'body',
               title: 'Push-ups: Push through hands',
-              description: 'As if you\'re "wrapping chest around ribcage" for better activation.'
+              description: 'As if you're "wrapping chest around ribcage" for better activation.'
             },
             {
               icon: 'trending-up',
@@ -161,7 +161,7 @@ const inclineBenchDatabase: EquipmentWorkouts[] = [
             {
               icon: 'shield',
               title: 'Keep scapula pinned',
-              description: 'Don\'t let shoulders roll forward under fatigue for safety and effectiveness.'
+              description: 'Don't let shoulders roll forward under fatigue for safety and effectiveness.'
             }
           ]
         }
@@ -434,7 +434,7 @@ export default function InclineBenchWorkoutDisplayScreen() {
           {/* Step 1: Mood Selection */}
           <View style={styles.progressStep}>
             <View style={styles.progressStepActive}>
-              <LinearGradient colors={[\'#FFD700\', \'#FFA500\']} style={styles.progressStepGradient} start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }}>
+              <LinearGradient colors={['#FFD700', '#FFA500']} style={styles.progressStepGradient} start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }}>
                 <Ionicons name="flame" size={12} color="#0c0c0c" />
               </LinearGradient>
             </View>
@@ -446,7 +446,7 @@ export default function InclineBenchWorkoutDisplayScreen() {
           {/* Step 2: Workout Type */}
           <View style={styles.progressStep}>
             <View style={styles.progressStepActive}>
-              <LinearGradient colors={[\'#FFD700\', \'#FFA500\']} style={styles.progressStepGradient} start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }}>
+              <LinearGradient colors={['#FFD700', '#FFA500']} style={styles.progressStepGradient} start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }}>
                 <Ionicons name="fitness" size={12} color="#0c0c0c" />
               </LinearGradient>
             </View>
@@ -458,7 +458,7 @@ export default function InclineBenchWorkoutDisplayScreen() {
           {/* Step 3: Intensity Level */}
           <View style={styles.progressStep}>
             <View style={styles.progressStepActive}>
-              <LinearGradient colors={[\'#FFD700\', \'#FFA500\']} style={styles.progressStepGradient} start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }}>
+              <LinearGradient colors={['#FFD700', '#FFA500']} style={styles.progressStepGradient} start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }}>
                 <Ionicons name="speedometer" size={12} color="#0c0c0c" />
               </LinearGradient>
             </View>
@@ -483,7 +483,7 @@ export default function InclineBenchWorkoutDisplayScreen() {
               <React.Fragment key={equipment}>
                 <View style={styles.progressStep}>
                   <View style={styles.progressStepActive}>
-                    <LinearGradient colors={[\'#FFD700\', \'#FFA500\']} style={styles.progressStepGradient} start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }}>
+                    <LinearGradient colors={['#FFD700', '#FFA500']} style={styles.progressStepGradient} start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }}>
                       <Ionicons name={getEquipmentIcon(equipment)} size={12} color="#0c0c0c" />
                     </LinearGradient>
                   </View>

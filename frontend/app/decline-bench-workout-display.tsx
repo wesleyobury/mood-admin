@@ -116,7 +116,7 @@ const declineBenchDatabase: EquipmentWorkouts[] = [
             {
               icon: 'refresh',
               title: 'Pump-style sequence',
-              description: 'Don\'t rack weights; keep pecs loaded for maximum effect.'
+              description: 'Don't rack weights; keep pecs loaded for maximum effect.'
             },
             {
               icon: 'hand-left',
@@ -434,7 +434,7 @@ export default function DeclineBenchWorkoutDisplayScreen() {
           {/* Step 1: Mood Selection */}
           <View style={styles.progressStep}>
             <View style={styles.progressStepActive}>
-              <LinearGradient colors={[\'#FFD700\', \'#FFA500\']} style={styles.progressStepGradient} start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }}>
+              <LinearGradient colors={['#FFD700', '#FFA500']} style={styles.progressStepGradient} start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }}>
                 <Ionicons name="flame" size={12} color="#0c0c0c" />
               </LinearGradient>
             </View>
@@ -446,7 +446,7 @@ export default function DeclineBenchWorkoutDisplayScreen() {
           {/* Step 2: Workout Type */}
           <View style={styles.progressStep}>
             <View style={styles.progressStepActive}>
-              <LinearGradient colors={[\'#FFD700\', \'#FFA500\']} style={styles.progressStepGradient} start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }}>
+              <LinearGradient colors={['#FFD700', '#FFA500']} style={styles.progressStepGradient} start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }}>
                 <Ionicons name="fitness" size={12} color="#0c0c0c" />
               </LinearGradient>
             </View>
@@ -458,7 +458,7 @@ export default function DeclineBenchWorkoutDisplayScreen() {
           {/* Step 3: Intensity Level */}
           <View style={styles.progressStep}>
             <View style={styles.progressStepActive}>
-              <LinearGradient colors={[\'#FFD700\', \'#FFA500\']} style={styles.progressStepGradient} start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }}>
+              <LinearGradient colors={['#FFD700', '#FFA500']} style={styles.progressStepGradient} start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }}>
                 <Ionicons name="speedometer" size={12} color="#0c0c0c" />
               </LinearGradient>
             </View>
@@ -483,7 +483,7 @@ export default function DeclineBenchWorkoutDisplayScreen() {
               <React.Fragment key={equipment}>
                 <View style={styles.progressStep}>
                   <View style={styles.progressStepActive}>
-                    <LinearGradient colors={[\'#FFD700\', \'#FFA500\']} style={styles.progressStepGradient} start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }}>
+                    <LinearGradient colors={['#FFD700', '#FFA500']} style={styles.progressStepGradient} start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }}>
                       <Ionicons name={getEquipmentIcon(equipment)} size={12} color="#0c0c0c" />
                     </LinearGradient>
                   </View>
