@@ -238,7 +238,7 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
           intensityReason: 'Continuous flow training that overloads pecs through combined pressing and isolation movements.',
           moodTips: [
             {
-              icon: 'refresh",
+              icon: 'refresh',
               title: "Fly → press transition, don't rest",
               description: 'Overloads pecs by hitting both stretch and contraction.'
             },
