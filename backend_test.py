@@ -14,7 +14,7 @@ import sys
 import os
 
 # Configuration
-BACKEND_URL = "https://determined-bhaskara-2.preview.emergentagent.com"
+BACKEND_URL = "https://app-styling-upgrade.preview.emergentagent.com"
 API_BASE = f"{BACKEND_URL}/api"
 
 # Test credentials from review request
