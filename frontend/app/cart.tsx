@@ -283,14 +283,14 @@ export default function CartScreen() {
     
     // Known mood card titles
     const moodCardTitles: { [key: string]: string } = {
-      'i want to sweat": "Sweat / Burn Fat',
-      "sweat / burn fat": "Sweat / Burn Fat',
-      'i'm feeling lazy': "I'm Feeling Lazy',
-      "muscle gainer": "Muscle Gainer",
-      "outdoor": "Outdoor",
-      "lift weights": "Lift Weights",
-      "calisthenics": "Calisthenics",
-      "bodyweight": "Calisthenics',
+      'i want to sweat': 'Sweat / Burn Fat',
+      'sweat / burn fat': 'Sweat / Burn Fat',
+      "i'm feeling lazy": "I'm Feeling Lazy",
+      'muscle gainer': 'Muscle Gainer',
+      'outdoor': 'Outdoor',
+      'lift weights': 'Lift Weights',
+      'calisthenics': 'Calisthenics',
+      'bodyweight': 'Calisthenics',
     };
     
     const lowerCategory = category.toLowerCase();
