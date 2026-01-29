@@ -358,7 +358,7 @@ export default function WorkoutGuidanceScreen() {
     };
     
     addToCart(workoutItem);
-    showToast('Added to cart!");
+    showToast('Added to cart!');
     
     // Track analytics
     if (token) {
