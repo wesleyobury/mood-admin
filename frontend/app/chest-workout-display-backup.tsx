@@ -306,7 +306,7 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
           moodTips: [
             {
               icon: 'body',
-              title: 'Push-ups: Push through hands",
+              title: 'Push-ups: Push through hands',
               description: "As if you're wrapping chest around ribcage for better activation."
             },
             {
@@ -410,7 +410,7 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
             },
             {
               icon: 'shield',
-              title: 'Keep scapula pinned",
+              title: 'Keep scapula pinned',
               description: "Don't let shoulders roll forward under fatigue for safety and effectiveness."
             }
           ]
@@ -491,7 +491,7 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
           moodTips: [
             {
               icon: 'refresh',
-              title: 'Pump-style sequence",
+              title: 'Pump-style sequence',
               description: "Don't rack weights; keep pecs loaded for maximum effect."
             },
             {

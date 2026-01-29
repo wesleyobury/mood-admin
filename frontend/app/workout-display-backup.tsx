@@ -1699,7 +1699,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
             },
             {
               icon: 'body',
-              title: 'Posture Control",
+              title: 'Posture Control',
               description: "Farmer's carry-shoulders back, core tight."}
           ]
         },
