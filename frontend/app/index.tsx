@@ -85,7 +85,7 @@ const AnimatedFeatureItem = ({ icon, title, description, delay = 0 }: {
           }
         ]}
       >
-        <Ionicons name={icon} size={24} color="#FFD700" />
+        <Ionicons name={icon} size={24} color='#FFD700' />
       </Animated.View>
       <View style={styles.featureContent}>
         <Text style={styles.featureTitle}>{title}</Text>
@@ -252,7 +252,7 @@ export default function Welcome() {
               </View>
 
               <Text style={styles.agreementText}>
-                By tapping "Accept & Continue", you agree to our Terms of Service and Privacy Policy, 
+                By tapping 'Accept & Continue', you agree to our Terms of Service and Privacy Policy, 
                 including our zero tolerance policy for objectionable content.
               </Text>
 
@@ -282,7 +282,7 @@ export default function Welcome() {
               <Image 
                 source={require('../assets/images/header-logo.png')}
                 style={styles.logoImage}
-                resizeMode="contain"
+                resizeMode='contain'
               />
             </View>
 
@@ -314,7 +314,7 @@ export default function Welcome() {
             <AnimatedFeatureItem
               icon="trending-up"
               title="Track Progress"
-              description="Monitor streaks and achievements"
+              description='Monitor streaks and achievements'
               delay={3000}
             />
           </View>

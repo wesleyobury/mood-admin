@@ -112,7 +112,7 @@ export default function Messages() {
         />
       ) : (
         <View style={[styles.avatar, styles.avatarPlaceholder]}>
-          <Ionicons name="person" size={24} color="#666" />
+          <Ionicons name="person" size={24} color='#666' />
         </View>
       )}
       <View style={styles.conversationContent}>
@@ -154,7 +154,7 @@ export default function Messages() {
         </View>
       ) : conversations.length === 0 ? (
         <View style={styles.emptyContainer}>
-          <Ionicons name="chatbubbles-outline" size={64} color="#666" />
+          <Ionicons name="chatbubbles-outline" size={64} color='#666' />
           <Text style={styles.emptyTitle}>No Messages Yet</Text>
           <Text style={styles.emptySubtitle}>
             Start a conversation by visiting someone's profile
@@ -170,7 +170,7 @@ export default function Messages() {
             <RefreshControl
               refreshing={refreshing}
               onRefresh={onRefresh}
-              tintColor="#FFD700"
+              tintColor='#FFD700'
             />
           }
         />

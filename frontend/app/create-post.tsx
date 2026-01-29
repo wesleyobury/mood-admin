@@ -99,7 +99,7 @@ export default function CreatePost() {
   const [imageToCrop, setImageToCrop] = useState<{uri: string, width: number, height: number} | null>(null);
   const [cropSource, setCropSource] = useState<'library' | 'camera'>('library');
   
-  // Success animation state (inline button animation like 'Add workout")
+  // Success animation state (inline button animation like 'Add workout')
   const [cardSaved, setCardSaved] = useState(false);
   const [saveScaleAnim] = useState(new Animated.Value(1));
   
@@ -462,7 +462,7 @@ export default function CreatePost() {
   };
 
   const showSaveAnimation = () => {
-    // Same animation as "Add workout" button
+    // Same animation as 'Add workout' button
     Animated.sequence([
       Animated.timing(saveScaleAnim, {
         toValue: 0.8,
@@ -1219,7 +1219,7 @@ export default function CreatePost() {
                 disabled={selectedMedia.length >= (hasStatsCard ? 4 : 5)}
               >
                 <View style={styles.addImageIconContainer}>
-                  <Ionicons name="film" size={18} color="rgba(255, 255, 255, 0.7)" />
+                  <Ionicons name="film" size={18} color='rgba(255, 255, 255, 0.7)' />
                 </View>
                 <Text style={styles.addImageText}>Video</Text>
               </TouchableOpacity>
@@ -1247,7 +1247,7 @@ export default function CreatePost() {
                         style={styles.setCoverButton}
                         onPress={() => selectCoverPhoto(index)}
                       >
-                        <Ionicons name="image-outline" size={14} color="#000" />
+                        <Ionicons name="image-outline" size={14} color='#000' />
                         <Text style={styles.setCoverButtonText}>
                           {media.coverUri ? 'Change' : 'Cover'}
                         </Text>
@@ -1260,7 +1260,7 @@ export default function CreatePost() {
                     style={styles.removeImageButton}
                     onPress={() => removeMedia(index)}
                   >
-                    <Ionicons name="close-circle" size={22} color="#FF4444" />
+                    <Ionicons name="close-circle" size={22} color='#FF4444' />
                   </TouchableOpacity>
                   <View style={[styles.imageNumber, media.type === 'video' && styles.videoNumber]}>
                     {media.type === 'video' ? (
@@ -1489,7 +1489,7 @@ export default function CreatePost() {
       <Modal
         visible={showPermissionModal}
         transparent={true}
-        animationType="fade"
+        animationType='fade'
         onRequestClose={() => setShowPermissionModal(false)}
       >
         <View style={styles.permissionModalOverlay}>
@@ -1499,7 +1499,7 @@ export default function CreatePost() {
               <Ionicons 
                 name={permissionType === 'camera' ? 'camera' : 'images'} 
                 size={48} 
-                color="#FFD700" 
+                color='#FFD700' 
               />
             </View>
             
@@ -1564,7 +1564,7 @@ export default function CreatePost() {
           setShowGuestPrompt(false);
           router.back();
         }}
-        action="create posts"
+        action='create posts'
       />
     </SafeAreaView>
   );

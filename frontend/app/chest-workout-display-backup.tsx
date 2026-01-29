@@ -174,14 +174,14 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Bench Push-Up Circuit',
           duration: '10-12 min',
-          description: '3 rounds:\n• 10 push-ups (hands on bench)\n• 10 bench dips\n• Rest 60s\n\nTips:\n• Push-ups: Lower slow, drive up hard while squeezing pecs together at the top. Think 'push the floor apart."\n• Dips: Keep chest slightly forward to shift load onto pecs vs. triceps.',
+          description: '3 rounds:\n• 10 push-ups (hands on bench)\n• 10 bench dips\n• Rest 60s\n\nTips:\n• Push-ups: Lower slow, drive up hard while squeezing pecs together at the top. Think 'push the floor apart.'\n• Dips: Keep chest slightly forward to shift load onto pecs vs. triceps.',
           imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8MTc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Perfect beginner introduction combining bench-assisted push-ups with dips to build foundational chest and tricep strength.',
           moodTips: [
             {
               icon: 'flash',
               title: 'Push-ups: Lower slow, drive up hard',
-              description: 'Squeeze pecs together at the top. Think 'push the floor apart."'
+              description: 'Squeeze pecs together at the top. Think 'push the floor apart.''
             },
             {
               icon: 'body',
@@ -340,13 +340,13 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Incline Plyo Push-Ups',
           duration: '14-16 min',
-          description: '4 rounds:\n• 8 incline plyo push-ups\n• 10 single-arm incline press\n• Rest 60-75s\n\nTips:\n• Plyo push-ups: Think 'fast hands"-maximal intent recruits more fibers.\n• Single-arm press: Press toward midline, not straight up, for maximum pec contraction.',
+          description: '4 rounds:\n• 8 incline plyo push-ups\n• 10 single-arm incline press\n• Rest 60-75s\n\nTips:\n• Plyo push-ups: Think 'fast hands'-maximal intent recruits more fibers.\n• Single-arm press: Press toward midline, not straight up, for maximum pec contraction.',
           imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Explosive plyometric training combined with unilateral incline work for intermediate upper chest power development.',
           moodTips: [
             {
               icon: 'flash',
-              title: 'Plyo push-ups: Think 'fast hands"',
+              title: 'Plyo push-ups: Think 'fast hands'',
               description: 'Maximal intent recruits more fibers for better development.'
             },
             {
@@ -1233,7 +1233,7 @@ const WorkoutCard = ({ equipment, icon, workouts, difficulty, difficultyColor, o
           onPress={() => onStartWorkout(item, equipment, difficulty)}
           activeOpacity={0.8}
         >
-          <Ionicons name="play" size={20} color="#000000" />
+          <Ionicons name="play" size={20} color='#000000' />
           <Text style={styles.startWorkoutButtonText}>Start Workout</Text>
         </TouchableOpacity>
       </View>
@@ -1286,7 +1286,7 @@ const WorkoutCard = ({ equipment, icon, workouts, difficulty, difficultyColor, o
       {/* Equipment Header */}
       <View style={styles.equipmentHeader}>
         <View style={styles.equipmentIconContainer}>
-          <Ionicons name={icon} size={24} color="#FFD700" />
+          <Ionicons name={icon} size={24} color='#FFD700' />
         </View>
         <Text style={styles.equipmentName}>{equipment}</Text>
         <View style={styles.workoutIndicator}>
@@ -1456,7 +1456,7 @@ export default function ChestWorkoutDisplayScreen() {
           {/* Step 3: Intensity Level */}
           <View style={styles.progressStep}>
             <View style={styles.progressStepActive}>
-              <Ionicons name="speedometer" size={12} color="#000000" />
+              <Ionicons name="speedometer" size={12} color='#000000' />
             </View>
             <Text style={styles.progressStepText}>
               {difficulty.charAt(0).toUpperCase() + difficulty.slice(1)}
@@ -1487,7 +1487,7 @@ export default function ChestWorkoutDisplayScreen() {
               <React.Fragment key={equipment}>
                 <View style={styles.progressStep}>
                   <View style={styles.progressStepActive}>
-                    <Ionicons name={getEquipmentIcon(equipment)} size={12} color="#000000" />
+                    <Ionicons name={getEquipmentIcon(equipment)} size={12} color='#000000' />
                   </View>
                   <Text style={styles.progressStepText}>{equipment}</Text>
                 </View>

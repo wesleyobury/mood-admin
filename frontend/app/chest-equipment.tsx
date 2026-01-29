@@ -134,7 +134,7 @@ const DifficultyCard = ({
       </View>
       {isSelected && (
         <View style={styles.difficultyIndicator}>
-          <Ionicons name="checkmark" size={20} color="#000000" />
+          <Ionicons name="checkmark" size={20} color='#000000' />
         </View>
       )}
     </TouchableOpacity>
@@ -228,7 +228,7 @@ export default function ChestEquipmentScreen() {
           style={styles.backButton}
           onPress={handleGoBack}
         >
-          <Ionicons name="chevron-back" size={24} color="#FFD700" />
+          <Ionicons name="chevron-back" size={24} color='#FFD700' />
         </TouchableOpacity>
         <View style={styles.headerTextContainer}>
           <Text style={styles.headerTitle}>Chest Equipment</Text>
@@ -252,7 +252,7 @@ export default function ChestEquipmentScreen() {
                 start={{ x: 0, y: 0 }}
                 end={{ x: 1, y: 1 }}
               >
-                <Ionicons name="flame" size={14} color="#0c0c0c" />
+                <Ionicons name="flame" size={14} color='#0c0c0c' />
               </LinearGradient>
             </View>
             <Text style={styles.progressStepText}>{moodTitle}</Text>
@@ -268,7 +268,7 @@ export default function ChestEquipmentScreen() {
                 start={{ x: 0, y: 0 }}
                 end={{ x: 1, y: 1 }}
               >
-                <Ionicons name="fitness" size={14} color="#0c0c0c" />
+                <Ionicons name="fitness" size={14} color='#0c0c0c' />
               </LinearGradient>
             </View>
             <Text style={styles.progressStepText}>{workoutType}</Text>
@@ -317,7 +317,7 @@ export default function ChestEquipmentScreen() {
                   start={{ x: 0, y: 0 }}
                   end={{ x: 1, y: 1 }}
                 >
-                  <Ionicons name="checkmark" size={14} color="#0c0c0c" />
+                  <Ionicons name="checkmark" size={14} color='#0c0c0c' />
                 </LinearGradient>
               ) : (
                 <Text style={styles.progressStepNumber}>4</Text>
@@ -385,7 +385,7 @@ export default function ChestEquipmentScreen() {
               end={{ x: 1, y: 0 }}
             >
               <Text style={styles.continueButtonTextActive}>Continue</Text>
-              <Ionicons name="chevron-forward" size={20} color="#0c0c0c" />
+              <Ionicons name="chevron-forward" size={20} color='#0c0c0c' />
             </LinearGradient>
           ) : (
             <Text style={styles.continueButtonText}>Continue</Text>

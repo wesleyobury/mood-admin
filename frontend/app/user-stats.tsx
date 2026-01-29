@@ -243,7 +243,7 @@ export default function UserStatsScreen() {
               <Text style={styles.summaryValue}>{activityStats?.total_comments || 0}</Text>
             </View>
             <View style={styles.summaryRow}>
-              <Ionicons name="heart" size={20} color="#FFD700" />
+              <Ionicons name="heart" size={20} color='#FFD700' />
               <Text style={styles.summaryLabel}>Likes</Text>
               <Text style={styles.summaryValue}>{activityStats?.total_likes || 0}</Text>
             </View>

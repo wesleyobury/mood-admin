@@ -1458,7 +1458,7 @@ const WorkoutCard = ({ equipment, icon, workouts, difficulty, difficultyColor, o
       {/* Equipment Header */}
       <View style={styles.equipmentHeader}>
         <View style={styles.equipmentIconContainer}>
-          <Ionicons name={icon} size={24} color="#FFD700" />
+          <Ionicons name={icon} size={24} color='#FFD700' />
         </View>
         <Text style={styles.equipmentName}>{equipment}</Text>
         <View style={styles.workoutIndicator}>
@@ -1703,7 +1703,7 @@ export default function ShouldersWorkoutDisplayScreen() {
           })
         ) : (
           <View style={styles.noWorkoutsContainer}>
-            <Ionicons name="fitness" size={48} color="#FFD700" />
+            <Ionicons name="fitness" size={48} color='#FFD700' />
             <Text style={styles.noWorkoutsTitle}>No Workouts Found</Text>
             <Text style={styles.noWorkoutsSubtitle}>
               Please select different equipment or go back to make new selections.

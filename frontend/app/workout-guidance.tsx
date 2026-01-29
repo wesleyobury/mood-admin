@@ -591,7 +591,7 @@ export default function WorkoutGuidanceScreen() {
         'Are you sure you want to go back? Your progress will be lost.',
         [
           { text: 'Cancel', style: 'cancel' },
-          { text: "Go Back', style: 'destructive', onPress: () => router.back() }
+          { text: 'Go Back', style: 'destructive', onPress: () => router.back() }
         ]
       );
     } else {
@@ -611,7 +611,7 @@ export default function WorkoutGuidanceScreen() {
         </TouchableOpacity>
         <View style={styles.headerTextContainer}>
           <Text style={styles.headerTitle}>
-            {isSession ? "Workout Session" : "Workout Guidance"}
+            {isSession ? "Workout Session" : 'Workout Guidance'}
           </Text>
           <Text style={styles.headerSubtitle}>
             {isSession 
@@ -629,7 +629,7 @@ export default function WorkoutGuidanceScreen() {
           <View style={styles.progressStep}>
             <View style={styles.progressStepActive}>
               <LinearGradient colors={['#FFD700', '#FFA500']} style={styles.progressStepGradient} start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }}>
-                <Ionicons name="flame" size={14} color="#0c0c0c" />
+                <Ionicons name="flame" size={14} color='#0c0c0c' />
               </LinearGradient>
             </View>
             <Text style={styles.progressStepText}>{moodTitle}</Text>
@@ -643,7 +643,7 @@ export default function WorkoutGuidanceScreen() {
                 <Ionicons 
                   name={workoutType === 'Body Weight' ? 'body' : workoutType === 'Weight Based' ? 'barbell' : 'heart'} 
                   size={14} 
-                  color="#0c0c0c" 
+                  color='#0c0c0c' 
                 />
               </LinearGradient>
             </View>
@@ -657,7 +657,7 @@ export default function WorkoutGuidanceScreen() {
               <View style={styles.progressStep}>
                 <View style={styles.progressStepActive}>
                   <LinearGradient colors={['#FFD700', '#FFA500']} style={styles.progressStepGradient} start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }}>
-                    <Ionicons name="fitness" size={14} color="#0c0c0c" />
+                    <Ionicons name="fitness" size={14} color='#0c0c0c' />
                   </LinearGradient>
                 </View>
                 <Text style={styles.progressStepText}>{equipmentName}</Text>
@@ -671,7 +671,7 @@ export default function WorkoutGuidanceScreen() {
           <View style={styles.progressStep}>
             <View style={styles.progressStepActive}>
               <LinearGradient colors={['#FFD700', '#FFA500']} style={styles.progressStepGradient} start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }}>
-                <Ionicons name="checkmark" size={14} color="#0c0c0c" />
+                <Ionicons name="checkmark" size={14} color='#0c0c0c' />
               </LinearGradient>
             </View>
             <Text style={styles.progressStepText}>
@@ -719,7 +719,7 @@ export default function WorkoutGuidanceScreen() {
             activeOpacity={0.8}
           >
             <View style={styles.resetButtonInner}>
-              <Ionicons name="refresh" size={16} color="#ffffff" />
+              <Ionicons name="refresh" size={16} color='#ffffff' />
             </View>
           </TouchableOpacity>
         </View>
@@ -766,7 +766,7 @@ export default function WorkoutGuidanceScreen() {
         <View style={styles.moodTipsContainer}>
           <View style={styles.sectionHeader}>
             <View style={styles.iconContainer}>
-              <Ionicons name="bulb" size={24} color="#FFD700" />
+              <Ionicons name="bulb" size={24} color='#FFD700' />
             </View>
             <Text style={styles.sectionTitle}>MOOD Tips</Text>
             <View style={styles.headerAccent} />
@@ -803,7 +803,7 @@ export default function WorkoutGuidanceScreen() {
               </View>
               
               <View style={styles.detailCard}>
-                <Ionicons name="speedometer" size={24} color="#FFD700" />
+                <Ionicons name="speedometer" size={24} color='#FFD700' />
                 <Text style={styles.detailValueSmall}>
                   {difficulty.toLowerCase() === 'intermediate' ? 'Intermed.' : difficulty.charAt(0).toUpperCase() + difficulty.slice(1)}
                 </Text>
@@ -833,7 +833,7 @@ export default function WorkoutGuidanceScreen() {
                   <Text style={styles.preparationText}>Start with light warm-up movements</Text>
                 </View>
                 <View style={styles.preparationItem}>
-                  <Ionicons name="timer" size={16} color="#FFD700" />
+                  <Ionicons name="timer" size={16} color='#FFD700' />
                   <Text style={styles.preparationText}>Focus on proper form over speed</Text>
                 </View>
               </View>
@@ -880,7 +880,7 @@ export default function WorkoutGuidanceScreen() {
               <Ionicons 
                 name={isWorkoutInCart ? "checkmark" : "add"} 
                 size={18} 
-                color="#FFD700" 
+                color='#FFD700' 
               />
               <Text style={styles.addWorkoutButtonText}>
                 {isWorkoutInCart ? 'Added' : 'Add workout'}
@@ -895,7 +895,7 @@ export default function WorkoutGuidanceScreen() {
         message={toastMessage}
         visible={toastVisible}
         onHide={() => setToastVisible(false)}
-        type="success"
+        type='success'
       />
     </SafeAreaView>
   );

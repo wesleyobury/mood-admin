@@ -233,7 +233,7 @@ export default function EditProfile() {
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
         <TouchableOpacity onPress={() => router.back()} style={styles.backButton}>
-          <Ionicons name="arrow-back" size={24} color="#FFD700" />
+          <Ionicons name="arrow-back" size={24} color='#FFD700' />
         </TouchableOpacity>
         <Text style={styles.headerTitle}>Edit Profile</Text>
         <TouchableOpacity 
@@ -264,7 +264,7 @@ export default function EditProfile() {
               )}
               {uploadingImage && (
                 <View style={styles.uploadingOverlay}>
-                  <ActivityIndicator size="large" color="#FFD700" />
+                  <ActivityIndicator size="large" color='#FFD700' />
                 </View>
               )}
             </View>
@@ -319,7 +319,7 @@ export default function EditProfile() {
               multiline
               numberOfLines={4}
               maxLength={150}
-              textAlignVertical="top"
+              textAlignVertical='top'
             />
             <Text style={styles.charCount}>{bio.length}/150</Text>
           </View>

@@ -876,7 +876,7 @@ const WorkoutCard = ({ equipment, icon, workouts, difficulty, difficultyColor, o
       {/* Equipment Header */}
       <View style={styles.equipmentHeader}>
         <View style={styles.equipmentIconContainer}>
-          <Ionicons name={icon} size={24} color="#FFD700" />
+          <Ionicons name={icon} size={24} color='#FFD700' />
         </View>
         <Text style={styles.equipmentName}>{equipment}</Text>
         <View style={styles.workoutIndicator}>
@@ -1003,7 +1003,7 @@ export default function WorkoutDisplayScreen() {
           style={styles.backButton}
           onPress={handleGoBack}
         >
-          <Ionicons name="chevron-back" size={24} color="#FFD700" />
+          <Ionicons name="chevron-back" size={24} color='#FFD700' />
         </TouchableOpacity>
         <View style={styles.headerTextContainer}>
           <Text style={styles.headerTitle}>Your Workouts</Text>
@@ -1022,7 +1022,7 @@ export default function WorkoutDisplayScreen() {
           <View style={styles.progressStep}>
             <View style={styles.progressStepActive}>
               <LinearGradient colors={['#FFD700', '#FFA500']} style={styles.progressStepGradient} start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }}>
-                <Ionicons name="flame" size={14} color="#0c0c0c" />
+                <Ionicons name="flame" size={14} color='#0c0c0c' />
               </LinearGradient>
             </View>
             <Text style={styles.progressStepText}>{moodTitle}</Text>
@@ -1033,7 +1033,7 @@ export default function WorkoutDisplayScreen() {
           <View style={styles.progressStep}>
             <View style={styles.progressStepActive}>
               <LinearGradient colors={['#FFD700', '#FFA500']} style={styles.progressStepGradient} start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }}>
-                <Ionicons name="heart" size={14} color="#0c0c0c" />
+                <Ionicons name="heart" size={14} color='#0c0c0c' />
               </LinearGradient>
             </View>
             <Text style={styles.progressStepText}>Cardio Based</Text>
@@ -1059,7 +1059,7 @@ export default function WorkoutDisplayScreen() {
           <View style={styles.progressStep}>
             <View style={styles.progressStepActive}>
               <LinearGradient colors={['#FFD700', '#FFA500']} style={styles.progressStepGradient} start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }}>
-                <Ionicons name="checkmark" size={14} color="#0c0c0c" />
+                <Ionicons name="checkmark" size={14} color='#0c0c0c' />
               </LinearGradient>
             </View>
             <Text style={styles.progressStepText}>
@@ -1072,7 +1072,7 @@ export default function WorkoutDisplayScreen() {
           <View style={styles.progressStep}>
             <View style={styles.progressStepActive}>
               <LinearGradient colors={['#FFD700', '#FFA500']} style={styles.progressStepGradient} start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }}>
-                <Ionicons name="fitness" size={14} color="#0c0c0c" />
+                <Ionicons name="fitness" size={14} color='#0c0c0c' />
               </LinearGradient>
             </View>
             <Text style={styles.progressStepText}>Workouts</Text>

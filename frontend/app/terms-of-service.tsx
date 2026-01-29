@@ -36,7 +36,7 @@ export default function TermsOfServiceScreen() {
         {/* Zero Tolerance Policy - CRITICAL FOR APP STORE */}
         <View style={[styles.section, styles.zeroToleranceSection]}>
           <View style={styles.warningHeader}>
-            <Ionicons name="shield-checkmark" size={24} color="#FFD700" />
+            <Ionicons name="shield-checkmark" size={24} color='#FFD700' />
             <Text style={styles.zeroToleranceTitle}>Zero Tolerance Policy</Text>
           </View>
           <Text style={styles.zeroToleranceParagraph}>
@@ -73,7 +73,7 @@ export default function TermsOfServiceScreen() {
         {/* Health Disclaimer - IMPORTANT */}
         <View style={[styles.section, styles.warningSection]}>
           <View style={styles.warningHeader}>
-            <Ionicons name="fitness" size={24} color="#FFD700" />
+            <Ionicons name="fitness" size={24} color='#FFD700' />
             <Text style={styles.warningSectionTitle}>Health & Fitness Disclaimer</Text>
           </View>
           <Text style={styles.warningParagraph}>
@@ -212,7 +212,7 @@ export default function TermsOfServiceScreen() {
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>Disclaimer of Warranties</Text>
           <Text style={styles.paragraph}>
-            THE APP IS PROVIDED "AS IS" WITHOUT WARRANTIES OF ANY KIND. WE DO NOT GUARANTEE THAT 
+            THE APP IS PROVIDED 'AS IS' WITHOUT WARRANTIES OF ANY KIND. WE DO NOT GUARANTEE THAT 
             THE APP WILL BE ERROR-FREE, SECURE, OR CONTINUOUSLY AVAILABLE. FITNESS RESULTS ARE 
             NOT GUARANTEED AND DEPEND ON INDIVIDUAL EFFORT AND CIRCUMSTANCES.
           </Text>

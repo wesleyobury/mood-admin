@@ -246,7 +246,7 @@ export default function UserProfile() {
         })()
       ) : (
         <View style={[styles.postImage, styles.noImagePost]}>
-          <Ionicons name="image-outline" size={40} color="#666" />
+          <Ionicons name="image-outline" size={40} color='#666' />
         </View>
       )}
       
@@ -385,7 +385,7 @@ export default function UserProfile() {
       <ReportModal
         visible={showReportModal}
         onClose={() => setShowReportModal(false)}
-        contentType="profile"
+        contentType='profile'
         contentId={userId}
         token={token}
       />
@@ -421,7 +421,7 @@ export default function UserProfile() {
                 />
               ) : (
                 <View style={[styles.profileImage, styles.placeholderAvatar]}>
-                  <Ionicons name="person" size={40} color="#666" />
+                  <Ionicons name="person" size={40} color='#666' />
                 </View>
               )}
             </View>
@@ -507,7 +507,7 @@ export default function UserProfile() {
           
           {posts.length === 0 ? (
             <View style={styles.emptyState}>
-              <Ionicons name="images-outline" size={48} color="#666" />
+              <Ionicons name="images-outline" size={48} color='#666' />
               <Text style={styles.emptyTitle}>No posts yet</Text>
               <Text style={styles.emptySubtitle}>
                 {isSelf ? 'Share your fitness journey!' : `${user.username} hasn't posted yet`}
@@ -533,7 +533,7 @@ export default function UserProfile() {
           setShowGuestPrompt(false);
           handleGoBack();
         }}
-        action="view profiles"
+        action='view profiles'
       />
     </SafeAreaView>
   );

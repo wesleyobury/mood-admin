@@ -238,7 +238,7 @@ export default function Chat() {
       {/* Header */}
       <View style={styles.header}>
         <TouchableOpacity onPress={() => router.back()} style={styles.backButton}>
-          <Ionicons name="arrow-back" size={24} color="#fff" />
+          <Ionicons name="arrow-back" size={24} color='#fff' />
         </TouchableOpacity>
         <TouchableOpacity 
           style={styles.headerUser}
@@ -302,7 +302,7 @@ export default function Chat() {
           {sending ? (
             <ActivityIndicator size="small" color="#000" />
           ) : (
-            <Ionicons name="send" size={20} color={newMessage.trim() ? '#000' : '#666'} />
+            <Ionicons name='send' size={20} color={newMessage.trim() ? '#000' : '#666'} />
           )}
         </TouchableOpacity>
       </View>

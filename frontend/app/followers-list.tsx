@@ -169,7 +169,7 @@ export default function FollowersList() {
           disabled={followingInProgress === item.id}
         >
           {followingInProgress === item.id ? (
-            <ActivityIndicator size="small" color={item.is_following ? '#FFD700' : '#000'} />
+            <ActivityIndicator size='small' color={item.is_following ? '#FFD700' : '#000'} />
           ) : (
             <Text style={[
               styles.followButtonText,
@@ -188,7 +188,7 @@ export default function FollowersList() {
       <Ionicons 
         name={activeTab === 'followers' ? 'people-outline' : 'person-add-outline'} 
         size={64} 
-        color="#333" 
+        color='#333' 
       />
       <Text style={styles.emptyTitle}>
         {activeTab === 'followers' ? 'No Followers Yet' : 'Not Following Anyone'}
@@ -196,7 +196,7 @@ export default function FollowersList() {
       <Text style={styles.emptyText}>
         {activeTab === 'followers' 
           ? 'When people follow this account, they'll appear here.'
-          : "When this account follows people, they'll appear here.'
+          : 'When this account follows people, they'll appear here.'
         }
       </Text>
     </View>
@@ -209,7 +209,7 @@ export default function FollowersList() {
           style={styles.backButton}
           onPress={() => router.back()}
         >
-          <Ionicons name="chevron-back" size={28} color="#fff" />
+          <Ionicons name="chevron-back" size={28} color='#fff' />
         </TouchableOpacity>
         <Text style={styles.headerTitle}>
           {targetUsername ? `@${targetUsername}` : 'Profile'}
@@ -252,7 +252,7 @@ export default function FollowersList() {
             <RefreshControl
               refreshing={refreshing}
               onRefresh={onRefresh}
-              tintColor="#FFD700"
+              tintColor='#FFD700'
             />
           }
         />

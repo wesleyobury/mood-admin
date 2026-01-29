@@ -58,7 +58,7 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'flash',
               title: 'Push-ups: Lower slow, drive up hard',
-              description: 'Squeeze pecs together at the top. Think 'push the floor apart."'
+              description: 'Squeeze pecs together at the top. Think 'push the floor apart.''
             },
             {
               icon: 'body',
@@ -231,7 +231,7 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
           moodTips: [
             {
               icon: 'flash',
-              title: 'Plyo push-ups: Think 'fast hands"',
+              title: 'Plyo push-ups: Think 'fast hands'',
               description: 'Maximal intent recruits more fibers for better development.'
             },
             {
@@ -1324,7 +1324,7 @@ const WorkoutCard = ({ equipment, icon, workouts, difficulty, difficultyColor, o
       {/* Equipment Header */}
       <View style={styles.equipmentHeader}>
         <View style={styles.equipmentIconContainer}>
-          <Ionicons name={icon} size={16} color="#FFD700" />
+          <Ionicons name={icon} size={16} color='#FFD700' />
         </View>
         <Text style={styles.equipmentName}>{equipment}</Text>
         <View style={styles.workoutIndicator}>
@@ -1573,7 +1573,7 @@ export default function ChestWorkoutDisplayScreen() {
           })
         ) : (
           <View style={styles.noWorkoutsContainer}>
-            <Ionicons name="fitness" size={48} color="#FFD700" />
+            <Ionicons name="fitness" size={48} color='#FFD700' />
             <Text style={styles.noWorkoutsTitle}>No Workouts Found</Text>
             <Text style={styles.noWorkoutsSubtitle}>
               Please select different equipment or go back to make new selections.

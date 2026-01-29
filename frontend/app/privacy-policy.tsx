@@ -43,7 +43,7 @@ export default function PrivacyPolicyScreen() {
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>1. Introduction</Text>
           <Text style={styles.paragraph}>
-            Welcome to MOOD ("we," "our," or "us"). We are committed to protecting your privacy and ensuring 
+            Welcome to MOOD ("we," "our," or 'us'). We are committed to protecting your privacy and ensuring 
             you understand how we collect, use, store, and safeguard your personal information. This Privacy 
             Policy explains our practices regarding data collection and usage in compliance with applicable 
             privacy laws, including the California Consumer Privacy Act (CCPA), General Data Protection 
@@ -470,7 +470,7 @@ export default function PrivacyPolicyScreen() {
             We may update this Privacy Policy from time to time. When we make changes:
           </Text>
           <View style={styles.bulletList}>
-            <Text style={styles.bulletItem}>• We will update the 'Last Updated" date at the top of this policy</Text>
+            <Text style={styles.bulletItem}>• We will update the 'Last Updated' date at the top of this policy</Text>
             <Text style={styles.bulletItem}>• For material changes, we will notify you via in-app notification or email</Text>
             <Text style={styles.bulletItem}>• Continued use of the app after changes constitutes acceptance of the updated policy</Text>
           </View>

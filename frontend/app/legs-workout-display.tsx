@@ -303,7 +303,7 @@ export default function LegsWorkoutDisplayScreen() {
       return; // Already in cart
     }
 
-    // Create proper workout type with muscle group (e.g., 'Legs - Glutes", "Legs - Hammies")
+    // Create proper workout type with muscle group (e.g., 'Legs - Glutes", 'Legs - Hammies')
     const displayWorkoutType = `${workoutType} - ${muscleGroupName}`;
 
     // Create WorkoutItem from current workout
@@ -500,7 +500,7 @@ export default function LegsWorkoutDisplayScreen() {
           style={styles.backButton}
           onPress={handleBack}
         >
-          <Ionicons name="chevron-back" size={24} color="#FFD700" />
+          <Ionicons name="chevron-back" size={24} color='#FFD700' />
         </TouchableOpacity>
         <View style={styles.headerTextContainer}>
           <Text style={styles.headerTitle}>Legs Workouts</Text>
@@ -515,7 +515,7 @@ export default function LegsWorkoutDisplayScreen() {
           <View style={styles.progressStep}>
             <View style={styles.progressStepActive}>
               <LinearGradient colors={['#FFD700', '#FFA500']} style={styles.progressStepGradient} start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }}>
-                <Ionicons name="flame" size={14} color="#0c0c0c" />
+                <Ionicons name="flame" size={14} color='#0c0c0c' />
               </LinearGradient>
             </View>
             <Text style={styles.progressStepText}>{mood}</Text>
@@ -526,7 +526,7 @@ export default function LegsWorkoutDisplayScreen() {
           <View style={styles.progressStep}>
             <View style={styles.progressStepActive}>
               <LinearGradient colors={['#FFD700', '#FFA500']} style={styles.progressStepGradient} start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }}>
-                <Ionicons name="walk" size={14} color="#0c0c0c" />
+                <Ionicons name="walk" size={14} color='#0c0c0c' />
               </LinearGradient>
             </View>
             <Text style={styles.progressStepText}>{workoutType}</Text>
@@ -643,7 +643,7 @@ export default function LegsWorkoutDisplayScreen() {
                     activeOpacity={0.8}
                   >
                     <Text style={styles.startWorkoutButtonText}>Start Workout</Text>
-                    <Ionicons name="play" size={20} color="#0c0c0c" />
+                    <Ionicons name="play" size={20} color='#0c0c0c' />
                   </TouchableOpacity>
                 </View>
               )}
@@ -667,7 +667,7 @@ export default function LegsWorkoutDisplayScreen() {
           <Ionicons 
             name={hasMoreMuscles ? 'arrow-forward' : "cart"} 
             size={20} 
-            color="#000" 
+            color='#000' 
           />
         </TouchableOpacity>
       </View>

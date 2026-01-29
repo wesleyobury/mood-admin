@@ -155,7 +155,7 @@ export default function BodyPartsScreen() {
   };
 
   const handleSubOptionSelect = (subOptionName: string) => {
-    const fullName = subOptionName === 'Bi"s" ? 'Biceps' : 'Triceps';
+    const fullName = subOptionName === 'Bi's' ? 'Biceps' : 'Triceps';
     
     if (isSubOptionSelected('Arms', subOptionName)) {
       // Deselect this sub-option
@@ -174,9 +174,9 @@ export default function BodyPartsScreen() {
       const muscleQueue = selectedBodyParts.map(selection => {
         if (selection.bodyPart === 'Arms' && selection.subOption) {
           return {
-            name: selection.subOption === 'Bi"s" ? 'Biceps' : 'Triceps',
-            displayName: selection.subOption === 'Bi"s" ? 'Biceps' : 'Triceps',
-            equipment: selection.subOption === 'Bi"s" ? 'biceps-equipment' : 'triceps-equipment'
+            name: selection.subOption === 'Bi's' ? 'Biceps' : 'Triceps',
+            displayName: selection.subOption === 'Bi's' ? 'Biceps' : 'Triceps',
+            equipment: selection.subOption === 'Bi's' ? 'biceps-equipment' : 'triceps-equipment'
           };
         }
         return {
@@ -241,7 +241,7 @@ export default function BodyPartsScreen() {
     
     const names = selectedBodyParts.map(s => {
       if (s.subOption) {
-        return s.subOption === 'Bi"s" ? 'Biceps' : 'Triceps';
+        return s.subOption === 'Bi's' ? 'Biceps' : 'Triceps';
       }
       return s.bodyPart;
     });
@@ -254,7 +254,7 @@ export default function BodyPartsScreen() {
       {/* Header */}
       <View style={styles.header}>
         <TouchableOpacity onPress={handleBack} style={styles.backButton}>
-          <Ionicons name="chevron-back" size={24} color="#FFD700" />
+          <Ionicons name="chevron-back" size={24} color='#FFD700' />
         </TouchableOpacity>
         <Text style={styles.headerTitle}>Select Muscle Groups</Text>
         <HomeButton />
@@ -275,7 +275,7 @@ export default function BodyPartsScreen() {
                 start={{ x: 0, y: 0 }}
                 end={{ x: 1, y: 1 }}
               >
-                <Ionicons name="barbell" size={14} color="#0c0c0c" />
+                <Ionicons name="barbell" size={14} color='#0c0c0c' />
               </LinearGradient>
             </View>
             <Text style={styles.progressStepText}>{mood}</Text>
@@ -360,7 +360,7 @@ export default function BodyPartsScreen() {
                     </Text>
                     {isSelected && !isExpanded && (
                       <View style={styles.checkmark}>
-                        <Ionicons name="checkmark-circle" size={24} color="#FFD700" />
+                        <Ionicons name="checkmark-circle" size={24} color='#FFD700' />
                       </View>
                     )}
                     {bodyPart.name === 'Arms' && (
@@ -368,7 +368,7 @@ export default function BodyPartsScreen() {
                         <Ionicons 
                           name="chevron-down" 
                           size={16} 
-                          color="#999" 
+                          color='#999' 
                         />
                       </View>
                     )}
@@ -416,7 +416,7 @@ export default function BodyPartsScreen() {
                             </View>
                             {isSubSelected && (
                               <View style={styles.centeredCheckmark}>
-                                <Ionicons name="checkmark-circle" size={20} color="#FFD700" />
+                                <Ionicons name="checkmark-circle" size={20} color='#FFD700' />
                               </View>
                             )}
                           </TouchableOpacity>
@@ -429,7 +429,7 @@ export default function BodyPartsScreen() {
                       style={styles.cornerBackButton}
                       onPress={() => handleBodyPartSelect('Arms')}
                     >
-                      <Ionicons name="chevron-back" size={14} color="#888" />
+                      <Ionicons name="chevron-back" size={14} color='#888' />
                     </TouchableOpacity>
                   </Animated.View>
                 )}
@@ -464,7 +464,7 @@ export default function BodyPartsScreen() {
               <Text style={styles.continueButtonText}>
                 Continue with {selectedBodyParts.length} muscle group{selectedBodyParts.length > 1 ? 's' : ''}
               </Text>
-              <Ionicons name="arrow-forward" size={20} color="#0c0c0c" style={styles.buttonIcon} />
+              <Ionicons name="arrow-forward" size={20} color='#0c0c0c' style={styles.buttonIcon} />
             </LinearGradient>
           </TouchableOpacity>
         </View>

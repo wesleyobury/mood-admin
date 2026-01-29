@@ -129,7 +129,7 @@ export default function ContentFilterSettings() {
       <ScrollView style={styles.content} showsVerticalScrollIndicator={false}>
         {/* Info Section */}
         <View style={styles.infoCard}>
-          <Ionicons name="shield-checkmark" size={32} color="#FFD700" />
+          <Ionicons name="shield-checkmark" size={32} color='#FFD700' />
           <Text style={styles.infoTitle}>Custom Content Filter</Text>
           <Text style={styles.infoText}>
             Hide posts and comments containing specific words or phrases from your feed. 
@@ -140,7 +140,7 @@ export default function ContentFilterSettings() {
         {/* Enable Toggle */}
         <View style={styles.toggleSection}>
           <View style={styles.toggleLeft}>
-            <Ionicons name="filter" size={22} color="#FFD700" />
+            <Ionicons name="filter" size={22} color='#FFD700' />
             <View>
               <Text style={styles.toggleLabel}>Enable Content Filter</Text>
               <Text style={styles.toggleSubtext}>
@@ -238,7 +238,7 @@ export default function ContentFilterSettings() {
 
         {saving && (
           <View style={styles.savingIndicator}>
-            <ActivityIndicator size="small" color="#FFD700" />
+            <ActivityIndicator size="small" color='#FFD700' />
             <Text style={styles.savingText}>Saving...</Text>
           </View>
         )}

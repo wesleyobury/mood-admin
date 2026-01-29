@@ -74,7 +74,7 @@ export default function WorkoutSessionScreen() {
           { text: "Cancel", style: "cancel" },
           { 
             text: "Leave", 
-            style: "destructive", 
+            style: 'destructive', 
             onPress: () => {
               // Track workout abandoned event
               if (token && currentWorkout) {
@@ -204,7 +204,7 @@ export default function WorkoutSessionScreen() {
         { text: "Cancel", style: "cancel" },
         { 
           text: "Skip", 
-          style: "default", 
+          style: 'default', 
           onPress: () => {
             // Track workout skipped event
             if (token && currentWorkout) {
@@ -361,7 +361,7 @@ export default function WorkoutSessionScreen() {
             activeOpacity={0.8}
           >
             <Ionicons 
-              name="chevron-back" 
+              name='chevron-back' 
               size={20} 
               color={isFirstWorkout ? 'rgba(255, 255, 255, 0.3)' : '#FFD700'} 
             />
@@ -398,7 +398,7 @@ export default function WorkoutSessionScreen() {
         {!isLastWorkout && (
           <View style={styles.upcomingContainer}>
             <View style={styles.sectionHeader}>
-              <Ionicons name="time-outline" size={20} color="#FFD700" />
+              <Ionicons name="time-outline" size={20} color='#FFD700' />
               <Text style={styles.sectionTitle}>Up Next</Text>
             </View>
             {sessionWorkouts.slice(currentIndex + 1, currentIndex + 3).map((workout, index) => (

@@ -325,7 +325,7 @@ export default function Settings() {
                 <Text style={styles.settingsItemSubtext}>Update username, email, or password</Text>
               </View>
             </View>
-            <Ionicons name="chevron-forward" size={18} color="#666" />
+            <Ionicons name="chevron-forward" size={18} color='#666' />
           </TouchableOpacity>
         </View>
 
@@ -344,7 +344,7 @@ export default function Settings() {
                 <Text style={styles.settingsItemSubtext}>View our terms and conditions</Text>
               </View>
             </View>
-            <Ionicons name="chevron-forward" size={18} color="#666" />
+            <Ionicons name="chevron-forward" size={18} color='#666' />
           </TouchableOpacity>
 
           <TouchableOpacity 
@@ -358,7 +358,7 @@ export default function Settings() {
                 <Text style={styles.settingsItemSubtext}>How we handle your data</Text>
               </View>
             </View>
-            <Ionicons name="chevron-forward" size={18} color="#666" />
+            <Ionicons name="chevron-forward" size={18} color='#666' />
           </TouchableOpacity>
         </View>
 
@@ -399,7 +399,7 @@ export default function Settings() {
               <Ionicons name="mail-outline" size={20} color="#FFD700" />
               <Text style={styles.settingsItemText}>Contact Support</Text>
             </View>
-            <Ionicons name="chevron-forward" size={18} color="#666" />
+            <Ionicons name="chevron-forward" size={18} color='#666' />
           </TouchableOpacity>
         </View>
 
@@ -412,13 +412,13 @@ export default function Settings() {
             onPress={() => router.push('/blocked-users')}
           >
             <View style={styles.settingsItemLeft}>
-              <Ionicons name="ban-outline" size={20} color="#FFD700" />
+              <Ionicons name="ban-outline" size={20} color='#FFD700' />
               <View>
                 <Text style={styles.settingsItemText}>Blocked Users</Text>
                 <Text style={styles.settingsItemSubtext}>Manage users you've blocked</Text>
               </View>
             </View>
-            <Ionicons name="chevron-forward" size={18} color="#666" />
+            <Ionicons name="chevron-forward" size={18} color='#666' />
           </TouchableOpacity>
 
           <TouchableOpacity 
@@ -456,7 +456,7 @@ export default function Settings() {
                 <Text style={styles.settingsItemSubtext}>Remove your account and all data</Text>
               </View>
             </View>
-            <Ionicons name="chevron-forward" size={18} color="#666" />
+            <Ionicons name="chevron-forward" size={18} color='#666' />
           </TouchableOpacity>
         </View>
 
@@ -515,7 +515,7 @@ export default function Settings() {
             
             <Text style={styles.termsHeading}>1. Acceptance of Terms</Text>
             <Text style={styles.termsText}>
-              By accessing and using this fitness application ("App"), you accept and agree to be bound by the terms and provisions of this agreement. If you do not agree to these terms, please do not use the App.
+              By accessing and using this fitness application ('App'), you accept and agree to be bound by the terms and provisions of this agreement. If you do not agree to these terms, please do not use the App.
             </Text>
 
             <Text style={styles.termsHeading}>2. Description of Service</Text>
@@ -590,7 +590,7 @@ export default function Settings() {
       <Modal
         visible={showCredentialsModal}
         animationType="slide"
-        presentationStyle="pageSheet"
+        presentationStyle='pageSheet'
         onRequestClose={() => {
           resetCredentialsForm();
           setShowCredentialsModal(false);
@@ -609,7 +609,7 @@ export default function Settings() {
                   setShowCredentialsModal(false);
                 }}
               >
-                <Ionicons name="close" size={28} color="#fff" />
+                <Ionicons name="close" size={28} color='#fff' />
               </TouchableOpacity>
               <Text style={styles.modalTitle}>Change Credentials</Text>
               <View style={styles.placeholder} />
@@ -631,7 +631,7 @@ export default function Settings() {
                     secureTextEntry={!showCurrentPassword}
                     value={currentPassword}
                     onChangeText={setCurrentPassword}
-                    autoCapitalize="none"
+                    autoCapitalize='none'
                   />
                   <TouchableOpacity 
                     style={styles.eyeButton}
@@ -688,7 +688,7 @@ export default function Settings() {
                     secureTextEntry={!showNewPassword}
                     value={newPassword}
                     onChangeText={setNewPassword}
-                    autoCapitalize="none"
+                    autoCapitalize='none'
                   />
                   <TouchableOpacity 
                     style={styles.eyeButton}
@@ -714,7 +714,7 @@ export default function Settings() {
                     secureTextEntry={!showNewPassword}
                     value={confirmPassword}
                     onChangeText={setConfirmPassword}
-                    autoCapitalize="none"
+                    autoCapitalize='none'
                   />
                 </View>
               ) : null}
@@ -733,7 +733,7 @@ export default function Settings() {
                 disabled={!currentPassword || isUpdating}
               >
                 {isUpdating ? (
-                  <ActivityIndicator size="small" color="#000" />
+                  <ActivityIndicator size="small" color='#000' />
                 ) : (
                   <Text style={styles.updateButtonText}>Update Credentials</Text>
                 )}

@@ -148,7 +148,7 @@ export default function CalisthenicsEquipmentScreen() {
   const [selectedEquipment, setSelectedEquipment] = useState<EquipmentOption[]>([]);
   const [selectedDifficulty, setSelectedDifficulty] = useState<DifficultyLevel | null>(null);
   
-  const moodTitle = "I want to do calisthenics";
+  const moodTitle = 'I want to do calisthenics';
   const workoutType = 'Bodyweight exercises';
 
   const handleEquipmentSelect = (equipment: EquipmentOption) => {
@@ -210,7 +210,7 @@ export default function CalisthenicsEquipmentScreen() {
           style={styles.backButton}
           onPress={handleGoBack}
         >
-          <Ionicons name="chevron-back" size={24} color="#FFD700" />
+          <Ionicons name="chevron-back" size={24} color='#FFD700' />
         </TouchableOpacity>
         <View style={styles.headerTextContainer}>
           <Text style={styles.headerTitle}>Calisthenics Equipment</Text>
@@ -230,7 +230,7 @@ export default function CalisthenicsEquipmentScreen() {
                 start={{ x: 0, y: 0 }}
                 end={{ x: 1, y: 1 }}
               >
-                <Ionicons name="body" size={14} color="#0c0c0c" />
+                <Ionicons name="body" size={14} color='#0c0c0c' />
               </LinearGradient>
             </View>
             <Text style={styles.progressStepText}>Calisthenics</Text>
@@ -271,9 +271,9 @@ export default function CalisthenicsEquipmentScreen() {
               selectedDifficulty && styles.progressStepActive
             ]}>
               <Ionicons 
-                name={selectedDifficulty ? 'checkmark" : "star"} 
+                name={selectedDifficulty ? 'checkmark" : "star'} 
                 size={14} 
-                color={selectedDifficulty ? "#000000' : "rgba(255, 215, 0, 0.7)"} 
+                color={selectedDifficulty ? '#000000' : 'rgba(255, 215, 0, 0.7)'} 
               />
             </View>
             <Text style={styles.progressStepText}>Difficulty</Text>
@@ -336,7 +336,7 @@ export default function CalisthenicsEquipmentScreen() {
               end={{ x: 1, y: 0 }}
             >
               <Text style={styles.continueButtonTextActive}>Continue</Text>
-              <Ionicons name="chevron-forward" size={20} color="#0c0c0c" />
+              <Ionicons name="chevron-forward" size={20} color='#0c0c0c' />
             </LinearGradient>
           ) : (
             <Text style={styles.continueButtonText}>Continue</Text>

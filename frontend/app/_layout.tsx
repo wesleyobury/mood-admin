@@ -59,7 +59,7 @@ function NavigationStack() {
       <Stack.Screen name="auth/register" options={{ headerShown: false }} />
       <Stack.Screen name="privacy-policy" options={{ headerShown: false }} />
       <Stack.Screen name="cart" options={{ headerShown: false }} />
-      <Stack.Screen name="workout-session" options={{ headerShown: false }} />
+      <Stack.Screen name='workout-session' options={{ headerShown: false }} />
     </Stack>
   );
 }
@@ -138,7 +138,7 @@ export default function RootLayout() {
 
   return (
     <GestureHandlerRootView style={styles.rootContainer}>
-      <StatusBar style="light" backgroundColor="#000000" translucent={false} />
+      <StatusBar style="light" backgroundColor='#000000' translucent={false} />
       <SafeAreaProvider style={styles.rootContainer}>
         <ErrorBoundary key={retryKey} onRetry={handleRetry}>
           <AppProviders>

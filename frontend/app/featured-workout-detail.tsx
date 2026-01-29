@@ -101,7 +101,7 @@ const featuredWorkoutData: Record<string, {
         workoutType: 'Muscle Gainer - Back & Bis Volume',
         moodCard: 'Muscle Gainer',
         moodTips: [
-          { icon: 'flash', title: "Don't yank dumbbells-steady elbows driving back.', description: "Controlled elbow drive maximizes lat activation over momentum.' },
+          { icon: 'flash', title: 'Don't yank dumbbells-steady elbows driving back.', description: 'Controlled elbow drive maximizes lat activation over momentum.' },
           { icon: 'timer', title: 'Go light on reverse fly, pause 1s at top.', description: 'Peak contraction pause enhances rear delt development.' }
         ]
       },
@@ -687,7 +687,7 @@ export default function FeaturedWorkoutDetail() {
                     activeOpacity={0.8}
                   >
                     <Ionicons 
-                      name="chevron-up" 
+                      name='chevron-up' 
                       size={18} 
                       color={index === 0 ? 'rgba(255, 255, 255, 0.3)' : '#fff'} 
                     />
@@ -699,7 +699,7 @@ export default function FeaturedWorkoutDetail() {
                     activeOpacity={0.8}
                   >
                     <Ionicons 
-                      name="chevron-down" 
+                      name='chevron-down' 
                       size={18} 
                       color={index === exercises.length - 1 ? 'rgba(255, 255, 255, 0.3)' : '#fff'} 
                     />
@@ -710,7 +710,7 @@ export default function FeaturedWorkoutDetail() {
                   onPress={() => removeExercise(index)}
                   activeOpacity={0.7}
                 >
-                  <Ionicons name="remove-circle" size={28} color="#FF4444" />
+                  <Ionicons name="remove-circle" size={28} color='#FF4444' />
                 </TouchableOpacity>
               </View>
             </View>
@@ -740,7 +740,7 @@ export default function FeaturedWorkoutDetail() {
             end={{ x: 1, y: 0 }}
           >
             <Text style={styles.startButtonText}>Start Workout</Text>
-            <Ionicons name="arrow-forward" size={20} color="#0c0c0c" />
+            <Ionicons name="arrow-forward" size={20} color='#0c0c0c' />
           </LinearGradient>
         </TouchableOpacity>
       </View>

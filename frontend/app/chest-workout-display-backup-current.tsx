@@ -181,7 +181,7 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'flash',
               title: 'Push-ups: Lower slow, drive up hard',
-              description: 'Squeeze pecs together at the top. Think 'push the floor apart."'
+              description: 'Squeeze pecs together at the top. Think 'push the floor apart.''
             },
             {
               icon: 'body',
@@ -346,7 +346,7 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
           moodTips: [
             {
               icon: 'flash',
-              title: 'Plyo push-ups: Think 'fast hands"',
+              title: 'Plyo push-ups: Think 'fast hands'',
               description: 'Maximal intent recruits more fibers for better development.'
             },
             {
@@ -1233,7 +1233,7 @@ const WorkoutCard = ({ equipment, icon, workouts, difficulty, difficultyColor, o
           onPress={() => onStartWorkout(item, equipment, difficulty)}
           activeOpacity={0.8}
         >
-          <Ionicons name="play" size={20} color="#000000" />
+          <Ionicons name="play" size={20} color='#000000' />
           <Text style={styles.startWorkoutButtonText}>Start Workout</Text>
         </TouchableOpacity>
       </View>
@@ -1286,7 +1286,7 @@ const WorkoutCard = ({ equipment, icon, workouts, difficulty, difficultyColor, o
       {/* Equipment Header */}
       <View style={styles.equipmentHeader}>
         <View style={styles.equipmentIconContainer}>
-          <Ionicons name={icon} size={24} color="#FFD700" />
+          <Ionicons name={icon} size={24} color='#FFD700' />
         </View>
         <Text style={styles.equipmentName}>{equipment}</Text>
         <View style={styles.workoutIndicator}>
@@ -1456,7 +1456,7 @@ export default function ChestWorkoutDisplayScreen() {
           {/* Step 3: Intensity Level */}
           <View style={styles.progressStep}>
             <View style={styles.progressStepActive}>
-              <Ionicons name="speedometer" size={12} color="#000000" />
+              <Ionicons name="speedometer" size={12} color='#000000' />
             </View>
             <Text style={styles.progressStepText}>
               {difficulty.charAt(0).toUpperCase() + difficulty.slice(1)}
@@ -1487,7 +1487,7 @@ export default function ChestWorkoutDisplayScreen() {
               <React.Fragment key={equipment}>
                 <View style={styles.progressStep}>
                   <View style={styles.progressStepActive}>
-                    <Ionicons name={getEquipmentIcon(equipment)} size={12} color="#000000" />
+                    <Ionicons name={getEquipmentIcon(equipment)} size={12} color='#000000' />
                   </View>
                   <Text style={styles.progressStepText}>{equipment}</Text>
                 </View>

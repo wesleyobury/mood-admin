@@ -297,7 +297,7 @@ export default function PostDetail() {
             <Image source={{ uri: post.author.avatar }} style={styles.avatar} />
           ) : (
             <View style={[styles.avatar, styles.avatarPlaceholder]}>
-              <Ionicons name="person" size={20} color="#666" />
+              <Ionicons name="person" size={20} color='#666' />
             </View>
           )}
           <View>
@@ -329,7 +329,7 @@ export default function PostDetail() {
             />
           </TouchableOpacity>
           <TouchableOpacity style={styles.actionButton} onPress={handleComment}>
-            <Ionicons name="chatbubble-outline" size={26} color="#fff" />
+            <Ionicons name="chatbubble-outline" size={26} color='#fff' />
           </TouchableOpacity>
         </View>
 
@@ -371,7 +371,7 @@ export default function PostDetail() {
       <Modal
         visible={showPostMenu}
         transparent={true}
-        animationType="fade"
+        animationType='fade'
         onRequestClose={() => setShowPostMenu(false)}
       >
         <Pressable 
@@ -394,7 +394,7 @@ export default function PostDetail() {
               <Ionicons 
                 name={post.is_saved ? 'bookmark' : "bookmark-outline"} 
                 size={22} 
-                color="#fff" 
+                color='#fff' 
               />
               <Text style={styles.menuItemText}>
                 {post.is_saved ? 'Unsave' : 'Save'}
@@ -415,7 +415,7 @@ export default function PostDetail() {
                 }
               }}
             >
-              <Ionicons name="flag-outline" size={22} color="#FF6B6B" />
+              <Ionicons name="flag-outline" size={22} color='#FF6B6B' />
               <Text style={[styles.menuItemText, { color: '#FF6B6B' }]}>
                 Report
               </Text>
@@ -427,7 +427,7 @@ export default function PostDetail() {
               style={styles.menuItem}
               onPress={() => setShowPostMenu(false)}
             >
-              <Ionicons name="close" size={22} color="#888" />
+              <Ionicons name="close" size={22} color='#888' />
               <Text style={[styles.menuItemText, { color: '#888' }]}>
                 Cancel
               </Text>
@@ -455,7 +455,7 @@ export default function PostDetail() {
       <Modal
         visible={showComments}
         animationType="slide"
-        presentationStyle="pageSheet"
+        presentationStyle='pageSheet'
         onRequestClose={() => setShowComments(false)}
       >
         <View style={styles.commentsModal}>

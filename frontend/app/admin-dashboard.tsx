@@ -26,13 +26,13 @@ const screenWidth = Dimensions.get('window').width;
 
 const ADMIN_USERNAME = 'officialmoodapp';
 
-// Time period options - 0 means 'all time"
+// Time period options - 0 means 'all time'
 const TIME_PERIODS = [
-  { value: 1, label: "Today', shortLabel: '1D' },
-  { value: 7, label: "This Week', shortLabel: '7D' },
-  { value: 30, label: "This Month', shortLabel: '30D' },
-  { value: 90, label: "90 Days', shortLabel: '90D' },
-  { value: 0, label: "All Time', shortLabel: 'All' },
+  { value: 1, label: 'Today', shortLabel: '1D' },
+  { value: 7, label: 'This Week', shortLabel: '7D' },
+  { value: 30, label: 'This Month', shortLabel: '30D' },
+  { value: 90, label: '90 Days', shortLabel: '90D' },
+  { value: 0, label: 'All Time', shortLabel: 'All' },
 ];
 
 // Mood colors - EXACT match from home screen mood cards gradients (first color)
@@ -387,7 +387,7 @@ export default function AdminDashboard() {
   const deleteUser = async (userId: string, username: string) => {
     Alert.alert(
       'Delete User',
-      `Are you sure you want to delete '${username}"?\n\nThis user's profile will be stored safely for 7 days and can be recovered if needed.`,
+      `Are you sure you want to delete '${username}'?\n\nThis user's profile will be stored safely for 7 days and can be recovered if needed.`,
       [
         { text: 'Cancel', style: 'cancel' },
         {
@@ -548,7 +548,7 @@ export default function AdminDashboard() {
   if (loading) {
     return (
       <View style={[styles.container, styles.centerContent]}>
-        <ActivityIndicator size="large" color="#FFD700" />
+        <ActivityIndicator size="large" color='#FFD700' />
         <Text style={styles.loadingText}>Loading Analytics...</Text>
       </View>
     );
@@ -585,7 +585,7 @@ export default function AdminDashboard() {
           <Text style={styles.headerSubtitle}>Board-Ready Insights</Text>
         </View>
         <TouchableOpacity onPress={exportUsers} style={styles.exportButton}>
-          <Ionicons name="download-outline" size={22} color="#FFD700" />
+          <Ionicons name="download-outline" size={22} color='#FFD700' />
         </TouchableOpacity>
       </View>
 
@@ -618,21 +618,21 @@ export default function AdminDashboard() {
             style={[styles.userTypeChip, userTypeFilter === 'all' && styles.userTypeChipActive]}
             onPress={() => setUserTypeFilter('all')}
           >
-            <Ionicons name="people" size={14} color={userTypeFilter === 'all' ? '#000' : '#888'} />
+            <Ionicons name='people' size={14} color={userTypeFilter === 'all' ? '#000' : '#888'} />
             <Text style={[styles.userTypeChipText, userTypeFilter === 'all' && styles.userTypeChipTextActive]}>All</Text>
           </TouchableOpacity>
           <TouchableOpacity
             style={[styles.userTypeChip, userTypeFilter === 'users' && styles.userTypeChipActive]}
             onPress={() => setUserTypeFilter('users')}
           >
-            <Ionicons name="person" size={14} color={userTypeFilter === 'users' ? '#000' : '#888'} />
+            <Ionicons name='person' size={14} color={userTypeFilter === 'users' ? '#000' : '#888'} />
             <Text style={[styles.userTypeChipText, userTypeFilter === 'users' && styles.userTypeChipTextActive]}>Users</Text>
           </TouchableOpacity>
           <TouchableOpacity
             style={[styles.userTypeChip, userTypeFilter === 'guests' && styles.userTypeChipActive]}
             onPress={() => setUserTypeFilter('guests')}
           >
-            <Ionicons name="eye-outline" size={14} color={userTypeFilter === 'guests' ? '#000' : '#9C27B0'} />
+            <Ionicons name='eye-outline' size={14} color={userTypeFilter === 'guests' ? '#000' : '#9C27B0'} />
             <Text style={[styles.userTypeChipText, userTypeFilter === 'guests' && styles.userTypeChipTextActive]}>Guests</Text>
           </TouchableOpacity>
         </View>
@@ -645,7 +645,7 @@ export default function AdminDashboard() {
           <RefreshControl 
             refreshing={refreshing} 
             onRefresh={onRefresh}
-            tintColor="#FFD700"
+            tintColor='#FFD700'
           />
         }
       >
@@ -669,7 +669,7 @@ export default function AdminDashboard() {
               <Text style={styles.metricValue}>{stats?.total_users?.toLocaleString() || 0}</Text>
               <Text style={styles.metricLabel}>Total Users</Text>
               <View style={styles.metricFooter}>
-                <Ionicons name="chevron-forward" size={14} color="#666" />
+                <Ionicons name="chevron-forward" size={14} color='#666' />
                 <Text style={styles.metricHint}>View all users</Text>
               </View>
             </TouchableOpacity>
@@ -680,7 +680,7 @@ export default function AdminDashboard() {
               onPress={() => openUserList('new')}
             >
               <View style={[styles.metricIcon, { backgroundColor: 'rgba(76, 175, 80, 0.15)' }]}>
-                <Ionicons name="person-add" size={24} color="#4CAF50" />
+                <Ionicons name="person-add" size={24} color='#4CAF50' />
               </View>
               <Text style={styles.metricValue}>{stats?.new_users?.toLocaleString() || 0}</Text>
               <Text style={styles.metricLabel}>New Users</Text>
@@ -698,13 +698,13 @@ export default function AdminDashboard() {
             >
               <View style={[styles.metricIcon, { backgroundColor: 'rgba(244, 67, 54, 0.15)' }]}>
                 <View style={styles.liveDot} />
-                <Ionicons name="radio" size={24} color="#F44336" />
+                <Ionicons name="radio" size={24} color='#F44336' />
               </View>
               <Text style={styles.metricValue}>{realtimeActiveCount}</Text>
               <Text style={styles.metricLabel}>Active Now</Text>
               <View style={styles.metricFooter}>
                 <Text style={[styles.metricSubValue, { color: '#F44336' }]}>LIVE</Text>
-                <Ionicons name="chevron-forward" size={14} color="#666" />
+                <Ionicons name="chevron-forward" size={14} color='#666' />
               </View>
             </TouchableOpacity>
 
@@ -731,7 +731,7 @@ export default function AdminDashboard() {
           <View style={styles.sectionHeader}>
             <Text style={styles.sectionTitle}>Guest Activity</Text>
             <View style={styles.guestBadge}>
-              <Ionicons name="eye-outline" size={12} color="#9C27B0" />
+              <Ionicons name="eye-outline" size={12} color='#9C27B0' />
               <Text style={styles.guestBadgeText}>Browsing Mode</Text>
             </View>
           </View>
@@ -742,7 +742,7 @@ export default function AdminDashboard() {
           <View style={styles.guestMetricsGrid}>
             <View style={styles.guestMetricCard}>
               <View style={[styles.guestMetricIcon, { backgroundColor: 'rgba(156, 39, 176, 0.15)' }]}>
-                <Ionicons name="person-outline" size={20} color="#9C27B0" />
+                <Ionicons name="person-outline" size={20} color='#9C27B0' />
               </View>
               <Text style={styles.guestMetricValue}>{stats?.guest_signins || 0}</Text>
               <Text style={styles.guestMetricLabel}>Guest Sign-ins</Text>
@@ -750,7 +750,7 @@ export default function AdminDashboard() {
             
             <View style={styles.guestMetricCard}>
               <View style={[styles.guestMetricIcon, { backgroundColor: 'rgba(255, 152, 0, 0.15)' }]}>
-                <Ionicons name="phone-portrait-outline" size={20} color="#FF9800" />
+                <Ionicons name="phone-portrait-outline" size={20} color='#FF9800' />
               </View>
               <Text style={styles.guestMetricValue}>{stats?.unique_guest_devices || 0}</Text>
               <Text style={styles.guestMetricLabel}>Unique Devices</Text>
@@ -758,7 +758,7 @@ export default function AdminDashboard() {
             
             <View style={styles.guestMetricCard}>
               <View style={[styles.guestMetricIcon, { backgroundColor: 'rgba(76, 175, 80, 0.15)' }]}>
-                <Ionicons name="checkmark-circle-outline" size={20} color="#4CAF50" />
+                <Ionicons name="checkmark-circle-outline" size={20} color='#4CAF50' />
               </View>
               <Text style={styles.guestMetricValue}>{stats?.guest_conversions || 0}</Text>
               <Text style={styles.guestMetricLabel}>Converted to User</Text>
@@ -789,7 +789,7 @@ export default function AdminDashboard() {
           <View style={styles.sectionHeader}>
             <Text style={styles.sectionTitle}>Content Moderation</Text>
             <View style={[styles.guestBadge, { backgroundColor: 'rgba(255, 87, 34, 0.15)' }]}>
-              <Ionicons name="shield-checkmark" size={12} color="#FF5722" />
+              <Ionicons name="shield-checkmark" size={12} color='#FF5722' />
               <Text style={[styles.guestBadgeText, { color: '#FF5722' }]}>Safety</Text>
             </View>
           </View>
@@ -805,7 +805,7 @@ export default function AdminDashboard() {
               <Text style={styles.moderationValue}>0</Text>
               <Text style={styles.moderationLabel}>Pending Reports</Text>
               <View style={styles.moderationStatus}>
-                <Ionicons name="checkmark-circle" size={14} color="#4CAF50" />
+                <Ionicons name="checkmark-circle" size={14} color='#4CAF50' />
                 <Text style={styles.moderationStatusText}>All clear</Text>
               </View>
             </View>
@@ -817,7 +817,7 @@ export default function AdminDashboard() {
               <Text style={styles.moderationValue}>0</Text>
               <Text style={styles.moderationLabel}>Urgent (24h)</Text>
               <View style={styles.moderationStatus}>
-                <Ionicons name="time-outline" size={14} color="#888" />
+                <Ionicons name="time-outline" size={14} color='#888' />
                 <Text style={styles.moderationStatusText}>None due</Text>
               </View>
             </View>
@@ -898,7 +898,7 @@ export default function AdminDashboard() {
             </View>
           ) : (
             <View style={styles.emptyState}>
-              <Ionicons name="analytics-outline" size={32} color="#666" />
+              <Ionicons name="analytics-outline" size={32} color='#666' />
               <Text style={styles.emptyText}>No page view data yet</Text>
             </View>
           )}
@@ -950,7 +950,7 @@ export default function AdminDashboard() {
             </View>
           ) : (
             <View style={styles.emptyState}>
-              <Ionicons name="happy-outline" size={32} color="#666" />
+              <Ionicons name="happy-outline" size={32} color='#666' />
               <Text style={styles.emptyText}>No mood selection data yet</Text>
             </View>
           )}
@@ -983,7 +983,7 @@ export default function AdminDashboard() {
                 <BarChart
                   data={{
                     labels: userGrowthChart.labels.slice(-8).map(label => {
-                      // For weekly labels like 'Dec 30-Jan 5", show as "12/30"
+                      // For weekly labels like 'Dec 30-Jan 5", show as '12/30'
                       if (chartPeriod === 'week' && label.includes('-')) {
                         const startPart = label.split('-')[0].trim();
                         const monthMatch = startPart.match(/([A-Z][a-z]+)\s*(\d+)/);
@@ -1003,7 +1003,7 @@ export default function AdminDashboard() {
                   width={Math.max(screenWidth - 48, 8 * 55)}
                   height={200}
                   yAxisLabel='"
-                  yAxisSuffix=""
+                  yAxisSuffix="'
                   chartConfig={{
                     ...chartConfig,
                     propsForLabels: {
@@ -1023,7 +1023,7 @@ export default function AdminDashboard() {
             <View style={styles.chartCard}>
               <Text style={styles.chartTitle}>New User Signups</Text>
               <View style={styles.noChartData}>
-                <Ionicons name="bar-chart-outline" size={32} color="#666" />
+                <Ionicons name="bar-chart-outline" size={32} color='#666' />
                 <Text style={styles.noChartText}>No signup data available</Text>
               </View>
             </View>
@@ -1046,7 +1046,7 @@ export default function AdminDashboard() {
               <Text style={styles.engagementValue}>{stats?.workouts_added || 0}</Text>
               <Text style={styles.engagementLabel}>Workouts Added</Text>
               <View style={styles.engagementChartHint}>
-                <Ionicons name="bar-chart-outline" size={12} color="#666" />
+                <Ionicons name="bar-chart-outline" size={12} color='#666' />
               </View>
             </TouchableOpacity>
             
@@ -1061,7 +1061,7 @@ export default function AdminDashboard() {
                 <Text style={styles.engagementSub}>{stats.workout_completion_rate}%</Text>
               ) : null}
               <View style={styles.engagementChartHint}>
-                <Ionicons name="bar-chart-outline" size={12} color="#666" />
+                <Ionicons name="bar-chart-outline" size={12} color='#666' />
               </View>
             </TouchableOpacity>
             
@@ -1073,7 +1073,7 @@ export default function AdminDashboard() {
               <Text style={styles.engagementValue}>{stats?.posts_created || 0}</Text>
               <Text style={styles.engagementLabel}>Posts Created</Text>
               <View style={styles.engagementChartHint}>
-                <Ionicons name="bar-chart-outline" size={12} color="#666" />
+                <Ionicons name="bar-chart-outline" size={12} color='#666' />
               </View>
             </TouchableOpacity>
             
@@ -1085,7 +1085,7 @@ export default function AdminDashboard() {
               <Text style={styles.engagementValue}>{stats?.total_likes || 0}</Text>
               <Text style={styles.engagementLabel}>Likes</Text>
               <View style={styles.engagementChartHint}>
-                <Ionicons name="bar-chart-outline" size={12} color="#666" />
+                <Ionicons name="bar-chart-outline" size={12} color='#666' />
               </View>
             </TouchableOpacity>
             
@@ -1097,7 +1097,7 @@ export default function AdminDashboard() {
               <Text style={styles.engagementValue}>{stats?.total_comments || 0}</Text>
               <Text style={styles.engagementLabel}>Comments</Text>
               <View style={styles.engagementChartHint}>
-                <Ionicons name="bar-chart-outline" size={12} color="#666" />
+                <Ionicons name="bar-chart-outline" size={12} color='#666' />
               </View>
             </TouchableOpacity>
           </View>
@@ -1163,7 +1163,7 @@ export default function AdminDashboard() {
                         style={styles.avatarImage} 
                       />
                     ) : (
-                      <Ionicons name="person" size={24} color="#666" />
+                      <Ionicons name="person" size={24} color='#666' />
                     )}
                     <View style={styles.onlineDot} />
                   </View>
@@ -1267,7 +1267,7 @@ export default function AdminDashboard() {
         <View style={[styles.modalContainer, { paddingTop: insets.top }]}>
           <View style={styles.modalHeader}>
             <TouchableOpacity onPress={() => setShowEngagementChart(false)} style={styles.modalClose}>
-              <Ionicons name="close" size={24} color="#fff" />
+              <Ionicons name="close" size={24} color='#fff' />
             </TouchableOpacity>
             <Text style={styles.modalTitle}>{engagementChartTitle}</Text>
             <View style={{ width: 24 }} />
@@ -1296,7 +1296,7 @@ export default function AdminDashboard() {
 
           {engagementChartLoading ? (
             <View style={styles.engagementChartLoading}>
-              <ActivityIndicator size="large" color="#FFD700" />
+              <ActivityIndicator size="large" color='#FFD700' />
               <Text style={styles.engagementChartLoadingText}>Loading chart...</Text>
             </View>
           ) : engagementChartData && engagementChartData.labels.length > 0 ? (
@@ -1328,7 +1328,7 @@ export default function AdminDashboard() {
                 width={Math.max(screenWidth - 48, 12 * 50)}
                 height={280}
                 yAxisLabel='"
-                yAxisSuffix=""
+                yAxisSuffix="'
                 chartConfig={{
                   backgroundColor: '#1a1a1a',
                   backgroundGradientFrom: '#1a1a1a',
@@ -1347,7 +1347,7 @@ export default function AdminDashboard() {
             </ScrollView>
           ) : (
             <View style={styles.noEngagementData}>
-              <Ionicons name="bar-chart-outline" size={48} color="#666" />
+              <Ionicons name="bar-chart-outline" size={48} color='#666' />
               <Text style={styles.noEngagementText}>No data available for this period</Text>
             </View>
           )}
@@ -1392,7 +1392,7 @@ export default function AdminDashboard() {
         <View style={[styles.modalContainer, { paddingTop: insets.top }]}>
           <View style={styles.modalHeader}>
             <TouchableOpacity onPress={() => setShowUserList(false)} style={styles.modalClose}>
-              <Ionicons name="close" size={24} color="#fff" />
+              <Ionicons name="close" size={24} color='#fff' />
             </TouchableOpacity>
             <Text style={styles.modalTitle}>
               {userListType === 'all' ? 'All Users' : userListType === 'new' ? 'New Users' : 'Active Users'}
@@ -1406,7 +1406,7 @@ export default function AdminDashboard() {
               <TextInput
                 style={styles.searchInput}
                 placeholder="Search by username or email..."
-                placeholderTextColor="#666"
+                placeholderTextColor='#666'
                 value={userSearchQuery}
                 onChangeText={(text) => {
                   setUserSearchQuery(text);
@@ -1558,7 +1558,7 @@ export default function AdminDashboard() {
               {/* Workout Metrics */}
               <View style={styles.reportSection}>
                 <Text style={styles.reportSectionTitle}>
-                  <Ionicons name="fitness" size={16} color="#FFD700" /> Workout Activity
+                  <Ionicons name="fitness" size={16} color='#FFD700' /> Workout Activity
                 </Text>
                 <View style={styles.reportMetricsGrid}>
                   <View style={styles.reportMetricItem}>
@@ -1585,7 +1585,7 @@ export default function AdminDashboard() {
               {/* App Usage Metrics */}
               <View style={styles.reportSection}>
                 <Text style={styles.reportSectionTitle}>
-                  <Ionicons name="phone-portrait" size={16} color="#2196F3" /> App Usage
+                  <Ionicons name="phone-portrait" size={16} color='#2196F3' /> App Usage
                 </Text>
                 <View style={styles.reportMetricsGrid}>
                   <View style={styles.reportMetricItem}>
@@ -1614,7 +1614,7 @@ export default function AdminDashboard() {
                 <View style={styles.reportSection}>
                   <View style={styles.reportSectionHeader}>
                     <Text style={styles.reportSectionTitle}>
-                      <Ionicons name="layers" size={16} color="#9C27B0" /> Top Screens
+                      <Ionicons name="layers" size={16} color='#9C27B0' /> Top Screens
                     </Text>
                     <Text style={styles.reportTotalBadge}>{userReport.report.total_screen_views} views</Text>
                   </View>
@@ -1696,7 +1696,7 @@ export default function AdminDashboard() {
               {/* Last Active */}
               {userReport.report.last_active && (
                 <View style={styles.reportLastActive}>
-                  <Ionicons name="time-outline" size={14} color="#888" />
+                  <Ionicons name="time-outline" size={14} color='#888' />
                   <Text style={styles.reportLastActiveText}>
                     Last active: {formatDateToCST(userReport.report.last_active)}
                   </Text>

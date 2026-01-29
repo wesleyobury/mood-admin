@@ -86,7 +86,7 @@ const OutdoorWorkoutsScreen = memo(function OutdoorWorkoutsScreen() {
       difficulty: difficulty,
       workoutType: workoutType,
           imageUrl: workout.imageUrl || '",
-          intensityReason: workout.intensityReason || "",
+          intensityReason: workout.intensityReason || "',
           moodCard: moodTitle,
       moodCard: moodTitle,
       moodTips: workout.moodTips || [],
@@ -125,7 +125,7 @@ const OutdoorWorkoutsScreen = memo(function OutdoorWorkoutsScreen() {
           difficulty: diff,
           workoutType: workoutType,
           imageUrl: workout.imageUrl || '",
-          intensityReason: workout.intensityReason || "",
+          intensityReason: workout.intensityReason || "',
           moodCard: moodTitle,
           moodTips: encodeURIComponent(JSON.stringify(workout.moodTips || []))
         }
@@ -165,7 +165,7 @@ const OutdoorWorkoutsScreen = memo(function OutdoorWorkoutsScreen() {
           <HomeButton />
         </View>
         <View style={styles.emptyState}>
-          <Ionicons name="bicycle" size={64} color="rgba(255, 215, 0, 0.3)" />
+          <Ionicons name="bicycle" size={64} color='rgba(255, 215, 0, 0.3)' />
           <Text style={styles.emptyStateText}>No activities found for selected options</Text>
           <Text style={styles.emptyStateSubtext}>Try selecting different activities or difficulty level</Text>
         </View>
@@ -209,7 +209,7 @@ const OutdoorWorkoutsScreen = memo(function OutdoorWorkoutsScreen() {
                 <React.Fragment key={step.key}>
                   <View style={styles.progressStep}>
                     <View style={styles.progressStepActive}><LinearGradient colors={["#FFD700", "#FFA500"]} style={styles.progressStepGradient} start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }}>
-                      <Ionicons name={step.icon} size={10} color="#0c0c0c" /></LinearGradient>
+                      <Ionicons name={step.icon} size={10} color='#0c0c0c' /></LinearGradient>
                     </View>
                     <Text style={styles.progressStepText}>{step.text}</Text>
                   </View>

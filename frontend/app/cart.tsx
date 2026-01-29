@@ -60,7 +60,7 @@ const CartItemComponent: React.FC<{
             activeOpacity={0.8}
           >
             <Ionicons 
-              name="chevron-up" 
+              name='chevron-up' 
               size={18} 
               color={isFirst ? 'rgba(255, 255, 255, 0.3)' : '#fff'} 
             />
@@ -72,7 +72,7 @@ const CartItemComponent: React.FC<{
             activeOpacity={0.8}
           >
             <Ionicons 
-              name="chevron-down" 
+              name='chevron-down' 
               size={18} 
               color={isLast ? 'rgba(255, 255, 255, 0.3)' : '#fff'} 
             />
@@ -83,7 +83,7 @@ const CartItemComponent: React.FC<{
           onPress={() => onRemove(item.id)}
           activeOpacity={0.7}
         >
-          <Ionicons name="remove-circle" size={28} color="#FF4444" />
+          <Ionicons name="remove-circle" size={28} color='#FF4444' />
         </TouchableOpacity>
       </View>
     </View>
@@ -272,7 +272,7 @@ export default function CartScreen() {
       return 'Custom";
     }
     
-    // If it contains " - ", extract the first part (mood card name)
+    // If it contains ' - ', extract the first part (mood card name)
     if (category.includes(' - ')) {
       const moodCardPart = category.split(' - ')[0].trim();
       return moodCardPart
@@ -284,13 +284,13 @@ export default function CartScreen() {
     // Known mood card titles
     const moodCardTitles: { [key: string]: string } = {
       'i want to sweat": "Sweat / Burn Fat",
-      "sweat / burn fat": "Sweat / Burn Fat",
-      "i'm feeling lazy': "I'm Feeling Lazy',
+      "sweat / burn fat": "Sweat / Burn Fat',
+      'i'm feeling lazy': 'I'm Feeling Lazy',
       "muscle gainer": "Muscle Gainer",
       "outdoor": "Outdoor",
       "lift weights": "Lift Weights",
       "calisthenics": "Calisthenics",
-      "bodyweight": "Calisthenics",
+      "bodyweight": 'Calisthenics',
     };
     
     const lowerCategory = category.toLowerCase();
@@ -317,7 +317,7 @@ export default function CartScreen() {
       mood = extractMoodCardName(firstItem.workoutType || '');
     } else {
       // Verify moodCard is a proper mood card name, not equipment
-      mood = extractMoodCardName(mood) || extractMoodCardName(firstItem.workoutType || '") || 'Custom';
+      mood = extractMoodCardName(mood) || extractMoodCardName(firstItem.workoutType || '') || 'Custom';
     }
     
     // Determine sub-path based on mood card type
@@ -326,11 +326,11 @@ export default function CartScreen() {
     const workoutType = firstItem.workoutType || '';
     const workoutTypeLower = workoutType.toLowerCase();
     
-    // Calisthenics & Outdoor always show 'Workout"
+    // Calisthenics & Outdoor always show 'Workout'
     if (moodLower.includes('calisthenics') || moodLower.includes('outdoor') || moodLower.includes('get outside')) {
       subPath = 'Workout';
     }
-    // Sweat / Burn Fat - show 'Cardio Based" or "Light Weights"
+    // Sweat / Burn Fat - show 'Cardio Based" or 'Light Weights'
     else if (moodLower.includes('sweat') || moodLower.includes('burn fat')) {
       if (workoutTypeLower.includes('cardio')) {
         subPath = 'Cardio Based';
@@ -348,7 +348,7 @@ export default function CartScreen() {
         subPath = firstItem.equipment;
       }
     }
-    // Build Explosion - show "Bodyweight" or "Weight Based"
+    // Build Explosion - show "Bodyweight" or 'Weight Based'
     else if (moodLower.includes('explosion') || moodLower.includes('explosive')) {
       if (workoutTypeLower.includes('bodyweight') || workoutTypeLower.includes('body weight')) {
         subPath = 'Bodyweight';
@@ -358,7 +358,7 @@ export default function CartScreen() {
         subPath = workoutType.split(' - ')[1] || 'Workout';
       }
     }
-    // I'm Feeling Lazy - show 'Move Your Body" or "Lift Weights"
+    // I'm Feeling Lazy - show 'Move Your Body" or 'Lift Weights'
     else if (moodLower.includes('lazy')) {
       if (workoutTypeLower.includes('move') || workoutTypeLower.includes('bodyweight')) {
         subPath = 'Move Your Body';
@@ -489,7 +489,7 @@ export default function CartScreen() {
             onPress={handleSaveWorkout}
             disabled={isSaving}
           >
-            <Ionicons name="bookmark-outline" size={20} color="#FFD700" />
+            <Ionicons name="bookmark-outline" size={20} color='#FFD700' />
             <Text style={styles.saveButtonText}>
               {isSaving ? 'Saving...' : 'Save'}
             </Text>
@@ -521,7 +521,7 @@ export default function CartScreen() {
       <Modal
         visible={saveModalVisible}
         transparent
-        animationType="fade"
+        animationType='fade'
         onRequestClose={() => setSaveModalVisible(false)}
       >
         <KeyboardAvoidingView 
@@ -555,7 +555,7 @@ export default function CartScreen() {
                 onPress={handleConfirmSave}
                 disabled={isSaving}
               >
-                <Ionicons name="bookmark" size={18} color="#000" />
+                <Ionicons name="bookmark" size={18} color='#000' />
                 <Text style={styles.saveModalSaveText}>
                   {isSaving ? 'Saving...' : 'Save'}
                 </Text>

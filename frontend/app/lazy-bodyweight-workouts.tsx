@@ -163,7 +163,7 @@ const LazyBodyweightWorkoutsScreen = memo(function LazyBodyweightWorkoutsScreen(
           <HomeButton />
         </View>
         <View style={styles.emptyState}>
-          <Ionicons name="bed" size={64} color="rgba(255, 215, 0, 0.3)" />
+          <Ionicons name="bed" size={64} color='rgba(255, 215, 0, 0.3)' />
           <Text style={styles.emptyStateText}>No workouts found for selected equipment</Text>
           <Text style={styles.emptyStateSubtext}>Try selecting different equipment or difficulty level</Text>
         </View>
@@ -207,7 +207,7 @@ const LazyBodyweightWorkoutsScreen = memo(function LazyBodyweightWorkoutsScreen(
                 <React.Fragment key={step.key}>
                   <View style={styles.progressStep}>
                     <View style={styles.progressStepActive}><LinearGradient colors={["#FFD700", "#FFA500"]} style={styles.progressStepGradient} start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }}>
-                      <Ionicons name={step.icon} size={10} color="#0c0c0c" /></LinearGradient>
+                      <Ionicons name={step.icon} size={10} color='#0c0c0c' /></LinearGradient>
                     </View>
                     <Text style={styles.progressStepText}>{step.text}</Text>
                   </View>

@@ -179,7 +179,7 @@ const IntensityCard = ({
       </View>
       {isSelected && (
         <View style={styles.intensityIndicator}>
-          <Ionicons name="checkmark" size={20} color="#0c0c0c" />
+          <Ionicons name="checkmark" size={20} color='#0c0c0c' />
         </View>
       )}
     </TouchableOpacity>
@@ -390,7 +390,7 @@ export default function LegsEquipmentScreen() {
           style={styles.backButton}
           onPress={handleGoBack}
         >
-          <Ionicons name="chevron-back" size={24} color="#FFD700" />
+          <Ionicons name="chevron-back" size={24} color='#FFD700' />
         </TouchableOpacity>
         <View style={styles.headerTextContainer}>
           <Text style={styles.headerTitle}>Select Equipment</Text>
@@ -414,7 +414,7 @@ export default function LegsEquipmentScreen() {
                 start={{ x: 0, y: 0 }}
                 end={{ x: 1, y: 1 }}
               >
-                <Ionicons name="flame" size={14} color="#0c0c0c" />
+                <Ionicons name="flame" size={14} color='#0c0c0c' />
               </LinearGradient>
             </View>
             <Text style={styles.progressStepText}>{moodTitle}</Text>
@@ -430,7 +430,7 @@ export default function LegsEquipmentScreen() {
                 start={{ x: 0, y: 0 }}
                 end={{ x: 1, y: 1 }}
               >
-                <Ionicons name="walk" size={14} color="#0c0c0c" />
+                <Ionicons name="walk" size={14} color='#0c0c0c' />
               </LinearGradient>
             </View>
             <Text style={styles.progressStepText}>{workoutType}</Text>
@@ -539,7 +539,7 @@ export default function LegsEquipmentScreen() {
               end={{ x: 1, y: 0 }}
             >
               <Text style={styles.continueButtonTextActive}>Continue</Text>
-              <Ionicons name="chevron-forward" size={20} color="#0c0c0c" />
+              <Ionicons name="chevron-forward" size={20} color='#0c0c0c' />
             </LinearGradient>
           ) : (
             <Text style={styles.continueButtonText}>Continue</Text>

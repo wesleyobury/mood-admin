@@ -187,7 +187,7 @@ export default function BlockedUsers() {
             <RefreshControl
               refreshing={refreshing}
               onRefresh={onRefresh}
-              tintColor="#FFD700"
+              tintColor='#FFD700'
             />
           }
         />
