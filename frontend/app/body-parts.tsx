@@ -735,7 +735,7 @@ const styles = StyleSheet.create({
   },
   selectionText: {
     fontSize: 16,
-    color: '#FFD700',
+    color: '#FFFFFF',
     textAlign: 'center',
     fontWeight: '600',
   },
