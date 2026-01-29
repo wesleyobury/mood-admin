@@ -156,7 +156,7 @@ const adjustableBenchDatabase: EquipmentWorkouts[] = [
           moodTips: [
             {
               icon: 'flash',
-              title: 'Don't save energy',
+              title: "Don't save energy",
               description: 'Heavy set should be all-out near failure for maximum recruitment.'
             },
             {
