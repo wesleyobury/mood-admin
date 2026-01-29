@@ -109,7 +109,7 @@ export default function ExplosivenessTypeScreen() {
   const moodTitle = params.mood as string || 'Build explosion';
 
   const handleExplosivenessTypeSelect = (option: ExplosivenessTypeOption) => {
-    console.log('Selected explosiveness type:', option.title, 'for mood:", moodTitle);
+    console.log('Selected explosiveness type:', option.title, 'for mood:', moodTitle);
     setSelectedOption(option);
   };
 

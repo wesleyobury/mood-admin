@@ -146,7 +146,7 @@ export default function WorkoutGuidanceScreen() {
   try {
     sessionWorkouts = JSON.parse(sessionWorkoutsParam);
   } catch (error) {
-    console.error('Error parsing session workouts:", error);
+    console.error('Error parsing session workouts:', error);
   }
   
   // Generate workout ID for cart checking
@@ -168,7 +168,7 @@ export default function WorkoutGuidanceScreen() {
     console.log('✅ Parsed MOOD tips:', moodTips.length, 'tips found');
     console.log('📝 First tip:', moodTips[0]);
   } catch (error) {
-    console.error('❌ Error parsing MOOD tips:", error);
+    console.error('❌ Error parsing MOOD tips:', error);
     console.log('🔄 Using fallback tips');
     // Fallback tips
     moodTips = [
@@ -290,11 +290,11 @@ export default function WorkoutGuidanceScreen() {
         console.log('✅ Workout card saved successfully');
         return true;
       } else {
-        console.error('❌ Failed to save workout card:", response.status);
+        console.error('❌ Failed to save workout card:', response.status);
         return false;
       }
     } catch (error) {
-      console.error('❌ Error saving workout card:", error);
+      console.error('❌ Error saving workout card:', error);
       return false;
     }
   };
@@ -339,7 +339,7 @@ export default function WorkoutGuidanceScreen() {
         description: tip.description,
       }));
     } catch (e) {
-      console.error('Error parsing moodTips for cart:", e);
+      console.error('Error parsing moodTips for cart:', e);
     }
     
     const workoutItem = {
@@ -498,7 +498,7 @@ export default function WorkoutGuidanceScreen() {
               // Track featured workout completion
               Analytics.featuredWorkoutCompleted(token, {
                 workout_id: featuredWorkoutId,
-                workout_title: featuredWorkoutTitle || 'Unknown",
+                workout_title: featuredWorkoutTitle || 'Unknown',
                 mood_category: overallMoodCategory,
                 exercises_completed: sessionWorkouts.length,
                 duration_minutes: totalDuration,

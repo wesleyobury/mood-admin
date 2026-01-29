@@ -48,8 +48,8 @@ const legsWorkoutDatabase: MuscleGroupWorkout[] = [
         intensity: 'Intermediate',
         description: 'Hip thrust variations focusing on glute activation',
         battlePlan: [
-          '3 rounds of:",
-          '• 15 glute bridges",
+          '3 rounds of:',
+          '• 15 glute bridges',
           '• 12 single-leg bridges',
           '• 20 clamshells each side',
           'Rest 90 sec between rounds'
@@ -66,8 +66,8 @@ const legsWorkoutDatabase: MuscleGroupWorkout[] = [
         intensity: 'Advanced',
         description: 'Advanced glute strengthening with resistance variations',
         battlePlan: [
-          '4 rounds of:",
-          '• 20 weighted hip thrusts",
+          '4 rounds of:',
+          '• 20 weighted hip thrusts',
           '• 15 Bulgarian split squats each leg',
           '• 25 lateral band walks each direction',
           'Rest 2 min between rounds'
@@ -89,8 +89,8 @@ const legsWorkoutDatabase: MuscleGroupWorkout[] = [
         intensity: 'Beginner',
         description: 'Basic hamstring strengthening movements',
         battlePlan: [
-          '3 rounds of:",
-          '• 12 Romanian deadlifts",
+          '3 rounds of:',
+          '• 12 Romanian deadlifts',
           '• 15 lying leg curls',
           '• 10 good mornings',
           'Rest 75 sec between rounds'
@@ -107,8 +107,8 @@ const legsWorkoutDatabase: MuscleGroupWorkout[] = [
         intensity: 'Advanced',
         description: 'Explosive hamstring training with plyometric elements',
         battlePlan: [
-          '5 rounds of:",
-          '• 8 single-leg Romanian deadlifts each leg",
+          '5 rounds of:',
+          '• 8 single-leg Romanian deadlifts each leg',
           '• 12 Nordic hamstring curls',
           '• 10 jump squats with pause',
           'Rest 2.5 min between rounds'
@@ -130,8 +130,8 @@ const legsWorkoutDatabase: MuscleGroupWorkout[] = [
         intensity: 'Intermediate',
         description: 'Comprehensive quadriceps development workout',
         battlePlan: [
-          '4 rounds of:",
-          '• 15 goblet squats",
+          '4 rounds of:',
+          '• 15 goblet squats',
           '• 12 lunges each leg',
           '• 20 leg extensions',
           'Rest 90 sec between rounds'
@@ -148,8 +148,8 @@ const legsWorkoutDatabase: MuscleGroupWorkout[] = [
         intensity: 'Advanced',
         description: 'High-intensity quadriceps training with heavy loads',
         battlePlan: [
-          '5 rounds of:",
-          '• 10 front squats",
+          '5 rounds of:',
+          '• 10 front squats',
           '• 8 pistol squats each leg',
           '• 15 jump lunges each leg',
           'Rest 3 min between rounds'
@@ -171,8 +171,8 @@ const legsWorkoutDatabase: MuscleGroupWorkout[] = [
         intensity: 'Beginner',
         description: 'Basic calf muscle strengthening',
         battlePlan: [
-          '3 rounds of:",
-          '• 20 standing calf raises",
+          '3 rounds of:',
+          '• 20 standing calf raises',
           '• 15 seated calf raises',
           '• 12 single-leg calf raises each leg',
           'Rest 60 sec between rounds'
@@ -189,8 +189,8 @@ const legsWorkoutDatabase: MuscleGroupWorkout[] = [
         intensity: 'Advanced',
         description: 'Plyometric calf training for power and explosiveness',
         battlePlan: [
-          '4 rounds of:",
-          '• 15 jump calf raises",
+          '4 rounds of:',
+          '• 15 jump calf raises',
           '• 20 pogo hops',
           '• 10 single-leg bounds each leg',
           'Rest 2 min between rounds'
@@ -212,8 +212,8 @@ const legsWorkoutDatabase: MuscleGroupWorkout[] = [
         intensity: 'Intermediate',
         description: 'Complete leg workout targeting all major muscle groups',
         battlePlan: [
-          '4 rounds of:",
-          '• 12 squats",
+          '4 rounds of:',
+          '• 12 squats',
           '• 10 deadlifts',
           '• 15 lunges each leg',
           '• 20 calf raises',
@@ -231,8 +231,8 @@ const legsWorkoutDatabase: MuscleGroupWorkout[] = [
         intensity: 'Advanced',
         description: 'Advanced compound leg training for maximum strength and size',
         battlePlan: [
-          '5 rounds of:",
-          '• 8 back squats",
+          '5 rounds of:',
+          '• 8 back squats',
           '• 6 Romanian deadlifts',
           '• 10 Bulgarian split squats each leg',
           '• 15 jump squats',
@@ -303,7 +303,7 @@ export default function LegsWorkoutDisplayScreen() {
       return; // Already in cart
     }
 
-    // Create proper workout type with muscle group (e.g., 'Legs - Glutes", 'Legs - Hammies')
+    // Create proper workout type with muscle group (e.g., 'Legs - Glutes', 'Legs - Hammies')
     const displayWorkoutType = `${workoutType} - ${muscleGroupName}`;
 
     // Create WorkoutItem from current workout
@@ -420,7 +420,7 @@ export default function LegsWorkoutDisplayScreen() {
       equipment: muscleGroupName,
       description: workout.description,
       duration: workout.duration,
-      difficulty: workout.intensity?.toLowerCase() || 'beginner",
+      difficulty: workout.intensity?.toLowerCase() || 'beginner',
       intensity: workout.intensity,
       battlePlan: workout.battlePlan.join('\n'),
       workoutType: 'Strength Based',
@@ -441,7 +441,7 @@ export default function LegsWorkoutDisplayScreen() {
       });
       console.log('✅ Navigation completed - using full parameters');
     } catch (error) {
-      console.error('❌ Navigation failed:", error);
+      console.error('❌ Navigation failed:', error);
     }
   };
 
@@ -459,7 +459,7 @@ export default function LegsWorkoutDisplayScreen() {
     
     // Calculate current index based on scroll position
     const currentIndex = Math.round(contentOffset.x / viewSize.width);
-    console.log('📜 Scroll event, calculated index:', currentIndex, 'offset:", contentOffset.x, 'viewWidth:', viewSize.width);
+    console.log('📜 Scroll event, calculated index:', currentIndex, 'offset:', contentOffset.x, 'viewWidth:', viewSize.width);
     setCurrentWorkoutIndex(currentIndex);
   };
 

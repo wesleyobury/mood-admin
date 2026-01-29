@@ -250,7 +250,7 @@ const glutesWorkoutDatabase: EquipmentWorkouts[] = [
           moodTips: [
             {
               icon: 'construct',
-              title: "Keep pelvis level, don't rotate hips down",
+              title: "Keep pelvis level, don't rotate hips down',
               description: 'Pelvic stability ensures proper muscle activation and prevents injury.'
             },
             {
@@ -457,7 +457,7 @@ const glutesWorkoutDatabase: EquipmentWorkouts[] = [
             },
             {
               icon: 'shield',
-              title: "Don't slam pads together when resting",
+              title: "Don't slam pads together when resting',
               description: 'Controlled return prevents momentum and maintains muscle tension.'
             }
           ]
@@ -561,7 +561,7 @@ const glutesWorkoutDatabase: EquipmentWorkouts[] = [
             },
             {
               icon: 'construct',
-              title: "Don't lean, keep torso locked tall",
+              title: "Don't lean, keep torso locked tall',
               description: 'Immediate transition maintains fatigue and training intensity.'
             }
           ]

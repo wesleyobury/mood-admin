@@ -101,7 +101,7 @@ const featuredWorkoutData: Record<string, {
         workoutType: 'Muscle Gainer - Back & Bis Volume',
         moodCard: 'Muscle Gainer',
         moodTips: [
-          { icon: 'flash', title: "Don't yank dumbbells-steady elbows driving back.", description: 'Controlled elbow drive maximizes lat activation over momentum.' },
+          { icon: 'flash', title: "Don't yank dumbbells-steady elbows driving back.', description: 'Controlled elbow drive maximizes lat activation over momentum.' },
           { icon: 'timer', title: 'Go light on reverse fly, pause 1s at top.', description: 'Peak contraction pause enhances rear delt development.' }
         ]
       },
@@ -437,13 +437,13 @@ export default function FeaturedWorkoutDetail() {
         setIsSaved(data.is_saved);
       }
     } catch (error) {
-      console.error('Error checking saved status:", error);
+      console.error('Error checking saved status:', error);
     }
   };
   
   const handleSaveWorkout = async () => {
     if (!token) {
-      Alert.alert('Login Required", 'Please login to save workouts');
+      Alert.alert('Login Required', 'Please login to save workouts');
       return;
     }
     
@@ -498,12 +498,12 @@ export default function FeaturedWorkoutDetail() {
         setIsSaved(true);
       } else {
         const errorText = await response.text();
-        console.error('Save error:", errorText);
+        console.error('Save error:', errorText);
         Alert.alert('Error', 'Failed to save workout');
       }
     } catch (error) {
-      console.error('Error saving workout:", error);
-      Alert.alert('Error", 'Failed to save workout');
+      console.error('Error saving workout:', error);
+      Alert.alert('Error', 'Failed to save workout');
     } finally {
       setIsSaving(false);
     }

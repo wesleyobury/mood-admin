@@ -138,7 +138,7 @@ export default function CreatePost() {
         setHasStatsCard(true);
         setCaption(`Just crushed a ${stats.totalDuration} min workout! 💪 #workout #fitness #mood`);
       } catch (error) {
-        console.error('Error parsing workout stats:", error);
+        console.error('Error parsing workout stats:', error);
       }
     }
   }, [params.workoutStats]);
@@ -270,7 +270,7 @@ export default function CreatePost() {
       );
       return manipulated.uri;
     } catch (error) {
-      console.error('Error cropping image:", error);
+      console.error('Error cropping image:', error);
       return uri; // Return original if crop fails
     }
   };
@@ -279,7 +279,7 @@ export default function CreatePost() {
     const maxMedia = hasStatsCard ? 4 : 5;
     
     if (selectedMedia.length >= maxMedia) {
-      showAlert('Limit Reached", `You can only select up to ${maxMedia} items`);
+      showAlert('Limit Reached', `You can only select up to ${maxMedia} items`);
       return;
     }
 
@@ -402,8 +402,8 @@ export default function CreatePost() {
         setSelectedMedia([...selectedMedia, newMedia].slice(0, maxMedia));
       }
     } catch (error: any) {
-      console.error('Video recording error:", error);
-      showAlert('Error", 'Failed to record video. Please try again.');
+      console.error('Video recording error:', error);
+      showAlert('Error', 'Failed to record video. Please try again.');
     }
   };
 
@@ -448,7 +448,7 @@ export default function CreatePost() {
         setSelectedMedia([...selectedMedia, newMedia].slice(0, maxMedia));
       }
     } catch (error: any) {
-      console.error('Video picker error:", error);
+      console.error('Video picker error:', error);
       // Handle PHPhotos errors gracefully
       if (error?.message?.includes('PHPhotos") || error?.message?.includes('3164') || error?.message?.includes('couldn't be completed')) {
         showAlert(
@@ -532,12 +532,12 @@ export default function CreatePost() {
         showSaveAnimation();
       } else {
         const errorData = await response.json();
-        console.error('Save error:", errorData);
-        showAlert('Error", 'Failed to save workout card.');
+        console.error('Save error:', errorData);
+        showAlert('Error', 'Failed to save workout card.');
       }
     } catch (error) {
-      console.error('Error saving workout card:", error);
-      showAlert('Error", 'Something went wrong while saving the card.');
+      console.error('Error saving workout card:', error);
+      showAlert('Error', 'Something went wrong while saving the card.');
     }
   };
 
@@ -598,8 +598,8 @@ export default function CreatePost() {
         }
       }
     } catch (error) {
-      console.error('Error sharing to Instagram:", error);
-      showAlert('Error", 'Failed to create Instagram share image. Please try again.');
+      console.error('Error sharing to Instagram:', error);
+      showAlert('Error', 'Failed to create Instagram share image. Please try again.');
     } finally {
       setIsExportingToInstagram(false);
     }
@@ -681,7 +681,7 @@ export default function CreatePost() {
       
       return false;
     } catch (error) {
-      console.error('Error in shareToInstagramStories:", error);
+      console.error('Error in shareToInstagramStories:', error);
       return false;
     }
   };
@@ -700,7 +700,7 @@ export default function CreatePost() {
         router.replace('/(tabs)');
       }
     } catch (error) {
-      console.error('Navigation error:", error);
+      console.error('Navigation error:', error);
       if (router.canGoBack()) {
         console.log('Trying router.back()");
         router.back();
@@ -822,14 +822,14 @@ export default function CreatePost() {
       } else {
         // Use react-native-view-shot for native
         const uri = await captureRef(statsCardRef.current, {
-          format: 'png",
+          format: 'png',
           quality: 0.8,
         });
         console.log('✅ Native capture successful:', uri);
         return uri;
       }
     } catch (error) {
-      console.error('❌ Error capturing workout card:", error);
+      console.error('❌ Error capturing workout card:', error);
       return null;
     }
   };
@@ -939,16 +939,16 @@ export default function CreatePost() {
                   console.log('Cover uploaded:', coverData.url);
                 }
               } catch (coverError) {
-                console.error('Error uploading cover:", coverError);
+                console.error('Error uploading cover:', coverError);
               }
             }
           }
         } else {
           const errorText = await uploadResponse.text();
-          console.error('Upload failed:", uploadResponse.status, errorText);
+          console.error('Upload failed:', uploadResponse.status, errorText);
         }
       } catch (error) {
-        console.error('Error uploading media:", error);
+        console.error('Error uploading media:', error);
       }
     }
 
@@ -985,7 +985,7 @@ export default function CreatePost() {
         await new Promise(resolve => setTimeout(resolve, 100));
         
         const cardUri = await captureWorkoutCard();
-        console.log('Workout card captured:', cardUri ? 'YES' : 'NO', 'Ref:", !!statsCardRef.current);
+        console.log('Workout card captured:', cardUri ? 'YES' : 'NO', 'Ref:', !!statsCardRef.current);
         
         if (cardUri) {
           currentStep++;
@@ -1001,7 +1001,7 @@ export default function CreatePost() {
             if (cardUri.startsWith('data:")) {
               const response = await fetch(cardUri);
               const blob = await response.blob();
-              formData.append('file", blob, filename);
+              formData.append('file', blob, filename);
             } else {
               // If it's already a URL
               const response = await fetch(cardUri);
@@ -1031,13 +1031,13 @@ export default function CreatePost() {
             mediaUrls.push(data.url); // Add workout card as last item
           } else {
             const errorText = await uploadResponse.text();
-            console.error('❌ Workout card upload failed:", errorText);
+            console.error('❌ Workout card upload failed:', errorText);
           }
         } else {
-          console.error('❌ Failed to capture workout card. Ref current:", statsCardRef.current);
+          console.error('❌ Failed to capture workout card. Ref current:', statsCardRef.current);
         }
       } else {
-        console.log('No workout card to capture (hasStatsCard:', hasStatsCard, ', workoutStats:", !!workoutStats, ')');
+        console.log('No workout card to capture (hasStatsCard:', hasStatsCard, ', workoutStats:', !!workoutStats, ')');
       }
       
       console.log('📤 Final mediaUrls for post:', mediaUrls);
@@ -1066,7 +1066,7 @@ export default function CreatePost() {
       }
 
       const response = await fetch(`${API_URL}/api/posts`, {
-        method: 'POST",
+        method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`,
           'Content-Type': 'application/json',
@@ -1102,16 +1102,16 @@ export default function CreatePost() {
         setUploadProgress(0);
       } else {
         const errorText = await response.text();
-        console.error('Post failed:", response.status, errorText);
+        console.error('Post failed:', response.status, errorText);
         setUploading(false);
         setUploadProgress(0);
-        showAlert('Error", 'Failed to create post. Please try again.');
+        showAlert('Error', 'Failed to create post. Please try again.');
       }
     } catch (error) {
-      console.error('Error creating post:", error);
+      console.error('Error creating post:', error);
       setUploading(false);
       setUploadProgress(0);
-      showAlert('Error", 'Something went wrong. Please try again.');
+      showAlert('Error', 'Something went wrong. Please try again.');
     }
   };
 

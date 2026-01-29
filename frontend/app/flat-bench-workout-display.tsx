@@ -115,7 +115,7 @@ const flatBenchDatabase: EquipmentWorkouts[] = [
           moodTips: [
             {
               icon: 'refresh',
-              title: "Fly → press transition, don't rest",
+              title: "Fly → press transition, don't rest',
               description: 'Overloads pecs by hitting both stretch and contraction.'
             },
             {
@@ -338,7 +338,7 @@ export default function FlatBenchWorkoutDisplayScreen() {
       selectedEquipmentNames = decodedEquipment.split(',').map(name => name.trim());
     }
   } catch (error) {
-    console.error('Error parsing equipment parameter:", error);
+    console.error('Error parsing equipment parameter:', error);
     // Fallback to default equipment for testing
     selectedEquipmentNames = ['Flat bench"];
   }

@@ -104,8 +104,8 @@ export default function Settings() {
         Alert.alert('Error', data.detail || 'Failed to update credentials');
       }
     } catch (error) {
-      console.error('Update credentials error:", error);
-      Alert.alert('Error", 'Failed to update credentials. Please try again.');
+      console.error('Update credentials error:', error);
+      Alert.alert('Error', 'Failed to update credentials. Please try again.');
     } finally {
       setIsUpdating(false);
     }
@@ -289,8 +289,8 @@ export default function Settings() {
         Alert.alert('Error', errorData.detail || 'Failed to delete account. Please try again.');
       }
     } catch (error) {
-      console.error('Delete account error:", error);
-      Alert.alert('Error", 'Failed to delete account. Please check your connection and try again.');
+      console.error('Delete account error:', error);
+      Alert.alert('Error', 'Failed to delete account. Please check your connection and try again.');
     } finally {
       setIsDeleting(false);
     }

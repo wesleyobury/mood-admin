@@ -185,8 +185,8 @@ export default function CartScreen() {
         Alert.alert('Error', 'Failed to save workout');
       }
     } catch (error) {
-      console.error('Error saving workout:", error);
-      Alert.alert('Error", 'Failed to save workout');
+      console.error('Error saving workout:', error);
+      Alert.alert('Error', 'Failed to save workout');
     } finally {
       setIsSaving(false);
     }
@@ -283,9 +283,9 @@ export default function CartScreen() {
     
     // Known mood card titles
     const moodCardTitles: { [key: string]: string } = {
-      'i want to sweat": "Sweat / Burn Fat",
+      'i want to sweat": "Sweat / Burn Fat',
       "sweat / burn fat": "Sweat / Burn Fat',
-      'i'm feeling lazy': "I'm Feeling Lazy",
+      'i'm feeling lazy': "I'm Feeling Lazy',
       "muscle gainer": "Muscle Gainer",
       "outdoor": "Outdoor",
       "lift weights": "Lift Weights",

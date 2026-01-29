@@ -133,7 +133,7 @@ export default function LegsMuscleGroupsScreen() {
       const individualMuscleGroups = selectedMuscleGroups.filter(mg => mg.id !== 'compound');
       
       console.log('Selected muscle groups:', selectedMuscleGroups.map(mg => mg.name));
-      console.log('Has compound:', isCompoundSelected, 'Individual groups:", individualMuscleGroups.map(mg => mg.name));
+      console.log('Has compound:', isCompoundSelected, 'Individual groups:', individualMuscleGroups.map(mg => mg.name));
       
       // Always navigate to unified legs equipment screen
       const muscleGroupNames = selectedMuscleGroups.map(mg => mg.name);

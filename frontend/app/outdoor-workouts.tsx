@@ -107,7 +107,7 @@ const OutdoorWorkoutsScreen = memo(function OutdoorWorkoutsScreen() {
 
   const handleStartWorkout = (workout: Workout, equipment: string, diff: string) => {
     try {
-      console.log('🚀 Starting workout:', workout.name, 'on", equipment);
+      console.log('🚀 Starting workout:', workout.name, 'on', equipment);
       
       if (!workout.name || !equipment || !diff) {
         console.error('❌ Missing required parameters for workout navigation');
@@ -133,14 +133,14 @@ const OutdoorWorkoutsScreen = memo(function OutdoorWorkoutsScreen() {
       
       console.log('✅ Navigation completed - using simplified parameters');
     } catch (error) {
-      console.error('❌ Error starting workout:", error);
+      console.error('❌ Error starting workout:', error);
     }
   };
 
   // Create progress bar - single row with requested order
   const createProgressRows = () => {
     const steps = [
-      { key: 'mood", icon: 'sunny' as keyof typeof Ionicons.glyphMap, text: 'Outside' },
+      { key: 'mood', icon: 'sunny' as keyof typeof Ionicons.glyphMap, text: 'Outside' },
       { key: 'difficulty', icon: 'speedometer' as keyof typeof Ionicons.glyphMap, text: difficulty === 'intermediate' ? 'Intermed.' : difficulty.charAt(0).toUpperCase() + difficulty.slice(1) },
       { key: 'equipment', icon: 'construct' as keyof typeof Ionicons.glyphMap, text: `${selectedEquipmentNames.length} Activity` },
     ];

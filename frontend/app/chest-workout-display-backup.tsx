@@ -88,7 +88,7 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Angle Ladder',
           duration: '14-16 min',
-          description: "3 rounds:\n• 8 flat press\n• 8 incline press\n• 8 decline press\n• Rest 90s\n\nTips:\n• Think progressive recruitment: start more pec-dominant, progress to fatigue lower range.\n• Don't rush-feel pec stretch on each angle.",
+          description: "3 rounds:\n• 8 flat press\n• 8 incline press\n• 8 decline press\n• Rest 90s\n\nTips:\n• Think progressive recruitment: start more pec-dominant, progress to fatigue lower range.\n• Don't rush-feel pec stretch on each angle.',
           imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Progressive recruitment training that starts more pec-dominant and progresses to fatigue lower range for intermediate development.',
           moodTips: [
@@ -99,7 +99,7 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
             },
             {
               icon: 'timer',
-              title: "Don't rush-feel pec stretch",
+              title: "Don't rush-feel pec stretch',
               description: 'On each angle for maximum muscle activation and growth.'
             }
           ]
@@ -153,7 +153,7 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
           moodTips: [
             {
               icon: 'flash',
-              title: "Don't save energy",
+              title: "Don't save energy',
               description: 'Heavy set should be all-out near failure for maximum recruitment.'
             },
             {
@@ -193,7 +193,7 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Bench Chest Press',
           duration: '12-15 min',
-          description: "3 rounds:\n• 12 light dumbbell or Smith bench press\n• 10 dumbbell bench fly\n• Rest 60-75s\n\nTips:\n• Bench press: Drag elbows slightly in toward midline as you press-max pec activation.\n• Fly: Focus on stretching fibers at the bottom, then forcefully contract chest to bring dumbbells together (don't just move arms).",
+          description: "3 rounds:\n• 12 light dumbbell or Smith bench press\n• 10 dumbbell bench fly\n• Rest 60-75s\n\nTips:\n• Bench press: Drag elbows slightly in toward midline as you press-max pec activation.\n• Fly: Focus on stretching fibers at the bottom, then forcefully contract chest to bring dumbbells together (don't just move arms).',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Combines pressing and isolation movements to teach proper bench technique while building chest strength.',
           moodTips: [
@@ -239,7 +239,7 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
           moodTips: [
             {
               icon: 'refresh',
-              title: "Fly → press transition, don't rest",
+              title: "Fly → press transition, don't rest',
               description: 'Overloads pecs by hitting both stretch and contraction.'
             },
             {
@@ -399,7 +399,7 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Incline Drop Set',
           duration: '16-20 min',
-          description: "2 rounds:\n• 10 heavy incline press\n• Drop → 10 moderate\n• Drop → 10 light\n• Rest 90-120s\n\nTips:\n• Use explosive concentric on heavy sets; on light sets, slow eccentric + peak contraction squeeze.\n• Keep scapula pinned-don't let shoulders roll forward under fatigue.",
+          description: "2 rounds:\n• 10 heavy incline press\n• Drop → 10 moderate\n• Drop → 10 light\n• Rest 90-120s\n\nTips:\n• Use explosive concentric on heavy sets; on light sets, slow eccentric + peak contraction squeeze.\n• Keep scapula pinned-don't let shoulders roll forward under fatigue.',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'High-intensity incline drop sets push upper chest muscle failure across multiple weight ranges for advanced hypertrophy.',
           moodTips: [
@@ -1343,7 +1343,7 @@ export default function ChestWorkoutDisplayScreen() {
       selectedEquipmentNames = decodedEquipment.split(',').map(name => name.trim());
     }
   } catch (error) {
-    console.error('Error parsing equipment parameter:", error);
+    console.error('Error parsing equipment parameter:', error);
     // Fallback to default equipment for testing
     selectedEquipmentNames = ['Adjustable bench"];
   }

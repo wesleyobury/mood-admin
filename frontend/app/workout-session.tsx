@@ -68,7 +68,7 @@ export default function WorkoutSessionScreen() {
       router.back();
     } else {
       Alert.alert(
-        'Leave Session",
+        'Leave Session',
         "Are you sure you want to leave the workout session?",
         [
           { text: "Cancel", style: "cancel" },
@@ -164,7 +164,7 @@ export default function WorkoutSessionScreen() {
         // Track featured workout completion
         Analytics.featuredWorkoutCompleted(token, {
           workout_id: featuredWorkoutId,
-          workout_title: featuredWorkoutTitle || 'Unknown",
+          workout_title: featuredWorkoutTitle || 'Unknown',
           mood_category: firstWorkout.workoutType || 'Unknown',
           exercises_completed: sessionWorkouts.length,
           duration_minutes: totalDuration,
@@ -198,7 +198,7 @@ export default function WorkoutSessionScreen() {
 
   const handleSkipWorkout = () => {
     Alert.alert(
-      'Skip Workout",
+      'Skip Workout',
       "Skip this workout and move to the next one?",
       [
         { text: "Cancel", style: "cancel" },

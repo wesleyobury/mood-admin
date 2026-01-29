@@ -89,7 +89,7 @@ export default function Chat() {
         setMessages(data);
       }
     } catch (error) {
-      console.error('Error fetching messages:", error);
+      console.error('Error fetching messages:', error);
     } finally {
       setLoading(false);
     }
@@ -158,7 +158,7 @@ export default function Chat() {
         }, 100);
       }
     } catch (error) {
-      console.error('Error sending message:", error);
+      console.error('Error sending message:', error);
       setNewMessage(messageContent); // Restore message on error
     } finally {
       setSending(false);
@@ -167,7 +167,7 @@ export default function Chat() {
 
   const formatTime = (dateString: string) => {
     const date = new Date(dateString);
-    return date.toLocaleTimeString([], { hour: '2-digit", minute: '2-digit' });
+    return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
   };
 
   const formatDate = (dateString: string) => {

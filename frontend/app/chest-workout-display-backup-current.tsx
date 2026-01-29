@@ -99,7 +99,7 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
             },
             {
               icon: 'timer',
-              title: "Don't rush-feel pec stretch",
+              title: "Don't rush-feel pec stretch',
               description: 'On each angle for maximum muscle activation and growth.'
             }
           ]
@@ -153,7 +153,7 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
           moodTips: [
             {
               icon: 'flash',
-              title: "Don't save energy",
+              title: "Don't save energy',
               description: 'Heavy set should be all-out near failure for maximum recruitment.'
             },
             {
@@ -239,7 +239,7 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
           moodTips: [
             {
               icon: 'refresh',
-              title: "Fly → press transition, don't rest",
+              title: "Fly → press transition, don't rest',
               description: 'Overloads pecs by hitting both stretch and contraction.'
             },
             {
@@ -1343,7 +1343,7 @@ export default function ChestWorkoutDisplayScreen() {
       selectedEquipmentNames = decodedEquipment.split(',').map(name => name.trim());
     }
   } catch (error) {
-    console.error('Error parsing equipment parameter:", error);
+    console.error('Error parsing equipment parameter:', error);
     // Fallback to default equipment for testing
     selectedEquipmentNames = ['Adjustable bench"];
   }

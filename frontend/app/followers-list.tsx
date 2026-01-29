@@ -110,7 +110,7 @@ export default function FollowersList() {
         ));
       }
     } catch (error) {
-      console.error('Error following/unfollowing:", error);
+      console.error('Error following/unfollowing:', error);
     } finally {
       setFollowingInProgress(null);
     }

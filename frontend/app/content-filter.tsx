@@ -41,7 +41,7 @@ export default function ContentFilterSettings() {
         setSettings(JSON.parse(stored));
       }
     } catch (error) {
-      console.error('Error loading filter settings:", error);
+      console.error('Error loading filter settings:', error);
     } finally {
       setLoading(false);
     }
@@ -57,7 +57,7 @@ export default function ContentFilterSettings() {
       await AsyncStorage.setItem(CONTENT_FILTER_KEY, JSON.stringify(newSettings));
       setSettings(newSettings);
     } catch (error) {
-      Alert.alert('Error", 'Failed to save settings');
+      Alert.alert('Error', 'Failed to save settings');
     } finally {
       setSaving(false);
     }

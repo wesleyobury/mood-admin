@@ -310,7 +310,7 @@ export default function LegsEquipmentScreen() {
       if (selectedIntensity) {
         // Navigate to compound workout display with equipment mapping
         router.push({
-          pathname: '/compound-workout-display",
+          pathname: '/compound-workout-display',
           params: { 
             mood: moodTitle,
             workoutType: "Legs',

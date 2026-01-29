@@ -182,13 +182,13 @@ const ChestWorkoutDisplayScreen = memo(function ChestWorkoutDisplayScreen() {
         }
       });
     } catch (error) {
-      console.error('Error starting workout:", error);
+      console.error('Error starting workout:', error);
     }
   };
 
   const createProgressRows = () => {
     const steps = [
-      { key: 'mood", icon: 'fitness' as keyof typeof Ionicons.glyphMap, text: 'Muscle' },
+      { key: 'mood', icon: 'fitness' as keyof typeof Ionicons.glyphMap, text: 'Muscle' },
       { key: 'muscle', icon: 'body' as keyof typeof Ionicons.glyphMap, text: 'Chest' },
       { key: 'difficulty', icon: 'speedometer' as keyof typeof Ionicons.glyphMap, text: difficulty === 'intermediate' ? 'Intermed.' : difficulty.charAt(0).toUpperCase() + difficulty.slice(1) },
       { key: 'equipment', icon: 'construct' as keyof typeof Ionicons.glyphMap, text: `${selectedEquipmentNames.length} Equip.` },

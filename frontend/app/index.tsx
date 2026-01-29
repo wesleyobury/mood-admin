@@ -114,7 +114,7 @@ export default function Welcome() {
         setShowPrivacyModal(true);
       }
     } catch (error) {
-      console.error('Error checking privacy acceptance:", error);
+      console.error('Error checking privacy acceptance:', error);
       setHasAcceptedPrivacy(false);
       setShowPrivacyModal(true);
     }
@@ -128,7 +128,7 @@ export default function Welcome() {
       // Navigate to login after accepting privacy policy and terms
       router.push('/auth/login');
     } catch (error) {
-      console.error('Error saving privacy acceptance:", error);
+      console.error('Error saving privacy acceptance:', error);
     }
   };
 

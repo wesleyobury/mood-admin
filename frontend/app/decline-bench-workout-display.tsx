@@ -338,7 +338,7 @@ export default function DeclineBenchWorkoutDisplayScreen() {
       selectedEquipmentNames = decodedEquipment.split(',').map(name => name.trim());
     }
   } catch (error) {
-    console.error('Error parsing equipment parameter:", error);
+    console.error('Error parsing equipment parameter:', error);
     // Fallback to default equipment for testing
     selectedEquipmentNames = ['Decline bench"];
   }

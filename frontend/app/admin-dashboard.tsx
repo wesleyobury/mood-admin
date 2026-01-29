@@ -60,7 +60,7 @@ const MOOD_DISPLAY_NAMES: Record<string, string> = {
   'sweat': 'Sweat / burn fat',
   'muscle': 'Muscle gainer',
   'explosive': 'Build explosion',
-  'lazy': "I'm feeling lazy",
+  'lazy': "I'm feeling lazy',
   'calisthenics': 'Calisthenics',
   'outdoor': 'Get outside',
 };
@@ -521,8 +521,8 @@ export default function AdminDashboard() {
         setShowUserReport(false);
       }
     } catch (error) {
-      console.error('Error fetching user report:", error);
-      Alert.alert('Error", 'Failed to load user report');
+      console.error('Error fetching user report:', error);
+      Alert.alert('Error', 'Failed to load user report');
       setShowUserReport(false);
     } finally {
       setUserReportLoading(false);
@@ -983,7 +983,7 @@ export default function AdminDashboard() {
                 <BarChart
                   data={{
                     labels: userGrowthChart.labels.slice(-8).map(label => {
-                      // For weekly labels like 'Dec 30-Jan 5", show as '12/30'
+                      // For weekly labels like 'Dec 30-Jan 5', show as '12/30'
                       if (chartPeriod === 'week' && label.includes('-')) {
                         const startPart = label.split('-')[0].trim();
                         const monthMatch = startPart.match(/([A-Z][a-z]+)\s*(\d+)/);

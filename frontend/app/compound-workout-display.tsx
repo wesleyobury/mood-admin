@@ -82,7 +82,7 @@ const CompoundWorkoutDisplayScreen = memo(function CompoundWorkoutDisplayScreen(
       equipmentPerGroup = JSON.parse(decodeURIComponent(equipmentPerGroupParam));
     }
   } catch (e) {
-    console.error('Error parsing equipmentPerGroup:", e);
+    console.error('Error parsing equipmentPerGroup:', e);
   }
   
   console.log('Compound/Legs Workout Debug:', {
@@ -201,13 +201,13 @@ const CompoundWorkoutDisplayScreen = memo(function CompoundWorkoutDisplayScreen(
         }
       });
     } catch (error) {
-      console.error('Error starting workout:", error);
+      console.error('Error starting workout:', error);
     }
   };
 
   const createProgressRows = () => {
     const steps = [
-      { key: 'mood", icon: 'fitness' as keyof typeof Ionicons.glyphMap, text: 'Muscle' },
+      { key: 'mood', icon: 'fitness' as keyof typeof Ionicons.glyphMap, text: 'Muscle' },
       { key: 'muscle', icon: 'body' as keyof typeof Ionicons.glyphMap, text: 'Legs' },
       { key: 'groups', icon: 'layers' as keyof typeof Ionicons.glyphMap, text: `${muscleGroups.length} Groups` },
       { key: 'difficulty', icon: 'speedometer' as keyof typeof Ionicons.glyphMap, text: difficulty === 'intermediate' ? 'Intermed.' : difficulty.charAt(0).toUpperCase() + difficulty.slice(1) },

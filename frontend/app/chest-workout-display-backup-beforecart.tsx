@@ -119,7 +119,7 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
           moodTips: [
             {
               icon: 'refresh',
-              title: "Fly → press transition, don't rest",
+              title: "Fly → press transition, don't rest',
               description: 'Overloads pecs by hitting both stretch and contraction.'
             },
             {
@@ -368,7 +368,7 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
             },
             {
               icon: 'timer',
-              title: "Don't rush-feel pec stretch",
+              title: "Don't rush-feel pec stretch',
               description: 'On each angle for maximum muscle activation and growth.'
             }
           ]
@@ -425,7 +425,7 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
           moodTips: [
             {
               icon: 'flash',
-              title: "Don't save energy",
+              title: "Don't save energy',
               description: 'Heavy set should be all-out near failure for maximum recruitment.'
             },
             {
@@ -1410,7 +1410,7 @@ export default function ChestWorkoutDisplayScreen() {
       selectedEquipmentNames = decodedEquipment.split(',').map(name => name.trim());
     }
   } catch (error) {
-    console.error('Error parsing equipment parameter:", error);
+    console.error('Error parsing equipment parameter:', error);
     // Fallback to default equipment for testing
     selectedEquipmentNames = ['Adjustable bench"];
   }
@@ -1478,14 +1478,14 @@ export default function ChestWorkoutDisplayScreen() {
       
       console.log('✅ Navigation completed - using simplified parameters');
     } catch (error) {
-      console.error('❌ Error starting workout:", error);
+      console.error('❌ Error starting workout:', error);
     }
   };
 
   // Create progress bar - single row with requested order
   const createProgressRows = () => {
     const steps = [
-      { key: 'mood", icon: 'flame', text: moodTitle },
+      { key: 'mood', icon: 'flame', text: moodTitle },
       { key: 'bodyPart', icon: 'fitness', text: workoutType },
       { key: 'difficulty', icon: 'speedometer', text: difficulty.charAt(0).toUpperCase() + difficulty.slice(1) },
       { key: 'equipment', icon: 'construct', text: `${selectedEquipmentNames.length} Equipment` },
