@@ -118,7 +118,7 @@ export default function FollowersList() {
 
   const handleUserPress = (targetUserId: string) => {
     if (user && targetUserId === user.id) {
-      router.push('/(tabs)/profile");
+      router.push('/(tabs)/profile');
     } else {
       router.push(`/user-profile?userId=${targetUserId}`);
     }

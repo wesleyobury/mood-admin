@@ -134,7 +134,7 @@ export default function Welcome() {
 
   const handleViewFullPolicy = () => {
     setShowPrivacyModal(false);
-    router.push('/privacy-policy");
+    router.push('/privacy-policy');
   };
 
   const handleViewTerms = () => {
