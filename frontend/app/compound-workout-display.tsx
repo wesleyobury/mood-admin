@@ -283,8 +283,8 @@ const CompoundWorkoutDisplayScreen = memo(function CompoundWorkoutDisplayScreen(
               {createProgressRows()[0].map((step, stepIndex) => (
                 <React.Fragment key={step.key}>
                   <View style={styles.progressStep}>
-                    <View style={styles.progressStepActive}>
-                      <Ionicons name={step.icon} size={10} color="#000000" />
+                    <View style={styles.progressStepActive}><LinearGradient colors={["#FFD700", "#FFA500"]} style={styles.progressStepGradient} start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }}>
+                      <Ionicons name={step.icon} size={10} color="#0c0c0c" /></LinearGradient>
                     </View>
                     <Text style={styles.progressStepText}>{step.text}</Text>
                   </View>
@@ -386,7 +386,8 @@ const styles = StyleSheet.create({
   progressContent: { alignItems: 'center' },
   progressRow: { flexDirection: 'row', alignItems: 'center', justifyContent: 'center', marginBottom: 12 },
   progressStep: { alignItems: 'center', minWidth: 60 },
-  progressStepActive: { width: 28, height: 28, borderRadius: 14, backgroundColor: '#FFD700', borderWidth: 2, borderColor: '#FFD700', justifyContent: 'center', alignItems: 'center', marginBottom: 8 },
+  progressStepActive: { width: 28, height: 28, borderRadius: 14, overflow: 'hidden', marginBottom: 8 },
+  progressStepGradient: { width: '100%', height: '100%', justifyContent: 'center', alignItems: 'center' },
   progressStepText: { fontSize: 10, color: 'rgba(255, 255, 255, 0.8)', textAlign: 'center', fontWeight: '500', maxWidth: 70 },
   progressConnector: { width: 16, height: 2, backgroundColor: 'rgba(255, 215, 0, 0.3)', marginHorizontal: 8, marginTop: 16 },
   scrollView: { flex: 1, overflow: 'visible' },
