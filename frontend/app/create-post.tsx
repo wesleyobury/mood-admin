@@ -527,7 +527,7 @@ export default function CreatePost() {
 
       console.log('Save response status:', response.status);
       if (response.ok) {
-        console.log('✅ Card saved successfully! Showing button animation...");
+        console.log('✅ Card saved successfully! Showing button animation...');
         setCardSaved(true);
         showSaveAnimation();
       } else {
