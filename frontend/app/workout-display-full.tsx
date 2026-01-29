@@ -11,6 +11,7 @@ import {
   Image,
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+import { LinearGradient } from 'expo-linear-gradient';
 import { useRouter, useLocalSearchParams } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
@@ -857,7 +858,7 @@ const WorkoutCard = ({ equipment, icon, workouts, difficulty, difficultyColor, o
           onPress={() => onStartWorkout(item, equipment, difficulty)}
           activeOpacity={0.8}
         >
-          <Ionicons name="play" size={20} color="#000000" />
+          <Ionicons name="play" size={20} color="#0c0c0c" />
           <Text style={styles.startWorkoutButtonText}>Start Workout</Text>
         </TouchableOpacity>
       </View>
@@ -1020,7 +1021,7 @@ export default function WorkoutDisplayScreen() {
         >
           <View style={styles.progressStep}>
             <View style={styles.progressStepActive}>
-              <Ionicons name="flame" size={14} color="#000000" />
+              <Ionicons name="flame" size={14} color="#0c0c0c" />
             </View>
             <Text style={styles.progressStepText}>{moodTitle}</Text>
           </View>
@@ -1029,7 +1030,7 @@ export default function WorkoutDisplayScreen() {
           
           <View style={styles.progressStep}>
             <View style={styles.progressStepActive}>
-              <Ionicons name="heart" size={14} color="#000000" />
+              <Ionicons name="heart" size={14} color="#0c0c0c" />
             </View>
             <Text style={styles.progressStepText}>Cardio Based</Text>
           </View>
@@ -1051,7 +1052,7 @@ export default function WorkoutDisplayScreen() {
           
           <View style={styles.progressStep}>
             <View style={styles.progressStepActive}>
-              <Ionicons name="checkmark" size={14} color="#000000" />
+              <Ionicons name="checkmark" size={14} color="#0c0c0c" />
             </View>
             <Text style={styles.progressStepText}>
               {difficulty.charAt(0).toUpperCase() + difficulty.slice(1)}
@@ -1062,7 +1063,7 @@ export default function WorkoutDisplayScreen() {
           
           <View style={styles.progressStep}>
             <View style={styles.progressStepActive}>
-              <Ionicons name="fitness" size={14} color="#000000" />
+              <Ionicons name="fitness" size={14} color="#0c0c0c" />
             </View>
             <Text style={styles.progressStepText}>Workouts</Text>
           </View>

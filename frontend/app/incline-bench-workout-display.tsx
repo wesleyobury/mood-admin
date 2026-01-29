@@ -10,6 +10,7 @@ import {
   Image,
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+import { LinearGradient } from 'expo-linear-gradient';
 import { useRouter, useLocalSearchParams } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import HomeButton from '../components/HomeButton';
@@ -227,7 +228,7 @@ const WorkoutCard = ({ equipment, icon, workouts, difficulty, difficultyColor, o
           onPress={() => onStartWorkout(item, equipment, difficulty)}
           activeOpacity={0.8}
         >
-          <Ionicons name="play" size={20} color="#000000" />
+          <Ionicons name="play" size={20} color="#0c0c0c" />
           <Text style={styles.startWorkoutButtonText}>Start Workout</Text>
         </TouchableOpacity>
       </View>
@@ -433,7 +434,9 @@ export default function InclineBenchWorkoutDisplayScreen() {
           {/* Step 1: Mood Selection */}
           <View style={styles.progressStep}>
             <View style={styles.progressStepActive}>
-              <Ionicons name="flame" size={12} color="#000000" />
+              <LinearGradient colors={[\'#FFD700\', \'#FFA500\']} style={styles.progressStepGradient} start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }}>
+                <Ionicons name="flame" size={12} color="#0c0c0c" />
+              </LinearGradient>
             </View>
             <Text style={styles.progressStepText}>{moodTitle}</Text>
           </View>
@@ -443,7 +446,9 @@ export default function InclineBenchWorkoutDisplayScreen() {
           {/* Step 2: Workout Type */}
           <View style={styles.progressStep}>
             <View style={styles.progressStepActive}>
-              <Ionicons name="fitness" size={12} color="#000000" />
+              <LinearGradient colors={[\'#FFD700\', \'#FFA500\']} style={styles.progressStepGradient} start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }}>
+                <Ionicons name="fitness" size={12} color="#0c0c0c" />
+              </LinearGradient>
             </View>
             <Text style={styles.progressStepText}>{workoutType}</Text>
           </View>
@@ -453,7 +458,9 @@ export default function InclineBenchWorkoutDisplayScreen() {
           {/* Step 3: Intensity Level */}
           <View style={styles.progressStep}>
             <View style={styles.progressStepActive}>
-              <Ionicons name="speedometer" size={12} color="#000000" />
+              <LinearGradient colors={[\'#FFD700\', \'#FFA500\']} style={styles.progressStepGradient} start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }}>
+                <Ionicons name="speedometer" size={12} color="#0c0c0c" />
+              </LinearGradient>
             </View>
             <Text style={styles.progressStepText}>
               {difficulty.charAt(0).toUpperCase() + difficulty.slice(1)}
@@ -476,7 +483,9 @@ export default function InclineBenchWorkoutDisplayScreen() {
               <React.Fragment key={equipment}>
                 <View style={styles.progressStep}>
                   <View style={styles.progressStepActive}>
-                    <Ionicons name={getEquipmentIcon(equipment)} size={12} color="#000000" />
+                    <LinearGradient colors={[\'#FFD700\', \'#FFA500\']} style={styles.progressStepGradient} start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }}>
+                      <Ionicons name={getEquipmentIcon(equipment)} size={12} color="#0c0c0c" />
+                    </LinearGradient>
                   </View>
                   <Text style={styles.progressStepText}>{equipment}</Text>
                 </View>
@@ -565,12 +574,14 @@ const styles = StyleSheet.create({
     width: 28,
     height: 28,
     borderRadius: 14,
-    backgroundColor: '#FFD700',
-    borderWidth: 2,
-    borderColor: '#FFD700',
+    overflow: 'hidden',
+    marginBottom: 6,
+  },
+  progressStepGradient: {
+    width: '100%',
+    height: '100%',
     justifyContent: 'center',
     alignItems: 'center',
-    marginBottom: 6,
   },
   progressStepNumberActive: {
     fontSize: 14,

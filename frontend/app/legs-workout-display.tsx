@@ -11,6 +11,7 @@ import {
   Animated,
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+import { LinearGradient } from 'expo-linear-gradient';
 import { useRouter, useLocalSearchParams } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import HomeButton from '../components/HomeButton';
@@ -513,7 +514,7 @@ export default function LegsWorkoutDisplayScreen() {
         <View style={styles.progressContent}>
           <View style={styles.progressStep}>
             <View style={styles.progressStepActive}>
-              <Ionicons name="flame" size={14} color="#000000" />
+              <Ionicons name="flame" size={14} color="#0c0c0c" />
             </View>
             <Text style={styles.progressStepText}>{mood}</Text>
           </View>
@@ -522,7 +523,7 @@ export default function LegsWorkoutDisplayScreen() {
           
           <View style={styles.progressStep}>
             <View style={styles.progressStepActive}>
-              <Ionicons name="walk" size={14} color="#000000" />
+              <Ionicons name="walk" size={14} color="#0c0c0c" />
             </View>
             <Text style={styles.progressStepText}>{workoutType}</Text>
           </View>
@@ -636,7 +637,7 @@ export default function LegsWorkoutDisplayScreen() {
                     activeOpacity={0.8}
                   >
                     <Text style={styles.startWorkoutButtonText}>Start Workout</Text>
-                    <Ionicons name="play" size={20} color="#000000" />
+                    <Ionicons name="play" size={20} color="#0c0c0c" />
                   </TouchableOpacity>
                 </View>
               )}
