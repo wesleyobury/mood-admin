@@ -962,7 +962,7 @@ export default function WorkoutDisplayScreen() {
     selectedEquipmentNames.includes(item.equipment)
   );
 
-  console.log('Debug info:", {
+  console.log('Debug info:', {
     selectedEquipmentNames,
     workoutDatabaseEquipment: workoutDatabase.map(w => w.equipment),
     userWorkouts: userWorkouts.map(w => w.equipment),
@@ -979,7 +979,7 @@ export default function WorkoutDisplayScreen() {
   };
 
   const handleStartWorkout = (workout: Workout, equipment: string, difficulty: string) => {
-    console.log('Starting workout:", workout.name, 'on', equipment);
+    console.log('Starting workout:', workout.name, 'on', equipment);
     
     // Navigate to workout guidance screen with workout data
     router.push({

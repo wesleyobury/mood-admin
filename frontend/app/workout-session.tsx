@@ -150,7 +150,7 @@ export default function WorkoutSessionScreen() {
       moodCategory,
     };
 
-    console.log('Workout stats data:", workoutStatsData);
+    console.log('Workout stats data:', workoutStatsData);
 
     // Track workout completion
     if (token && sessionWorkouts.length > 0) {

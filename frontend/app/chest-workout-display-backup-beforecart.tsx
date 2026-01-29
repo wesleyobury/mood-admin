@@ -1433,7 +1433,7 @@ export default function ChestWorkoutDisplayScreen() {
     selectedEquipmentNames.includes(item.equipment)
   );
 
-  console.log('Debug info:", {
+  console.log('Debug info:', {
     selectedEquipmentNames,
     chestWorkoutDatabaseEquipment: chestWorkoutDatabase.map(w => w.equipment),
     userWorkouts: userWorkouts.map(w => w.equipment),
@@ -1452,7 +1452,7 @@ export default function ChestWorkoutDisplayScreen() {
 
   const handleStartWorkout = (workout: Workout, equipment: string, difficulty: string) => {
     try {
-      console.log('🚀 Starting workout:", workout.name, 'on', equipment);
+      console.log('🚀 Starting workout:', workout.name, 'on', equipment);
       
       // Validate required parameters
       if (!workout.name || !equipment || !difficulty) {

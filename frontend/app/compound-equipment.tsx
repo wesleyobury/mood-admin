@@ -172,8 +172,8 @@ export default function CompoundEquipmentScreen() {
 
   const handleContinue = () => {
     if (selectedEquipment.length > 0 && selectedDifficulty) {
-      console.log('Selected equipment:", selectedEquipment.map(eq => eq.name));
-      console.log('Selected difficulty:", selectedDifficulty.title);
+      console.log('Selected equipment:', selectedEquipment.map(eq => eq.name));
+      console.log('Selected difficulty:', selectedDifficulty.title);
       
       // Navigate to compound workout display for all equipment selections
       const equipmentNames = selectedEquipment.map(eq => eq.name);

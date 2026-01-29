@@ -411,7 +411,7 @@ export default function LegsWorkoutDisplayScreen() {
   };
 
   const handleStartWorkout = (workout: Workout, muscleGroupName: string) => {
-    console.log('🚀 Starting workout:", workout.name);
+    console.log('🚀 Starting workout:', workout.name);
     
     // Navigate to workout guidance with full parameters
     const params = {
@@ -431,8 +431,8 @@ export default function LegsWorkoutDisplayScreen() {
       moodTipsCount: workout.moodTips.length.toString()
     };
     
-    console.log('📝 Workout data:", params);
-    console.log('🔄 Navigation params:", params);
+    console.log('📝 Workout data:', params);
+    console.log('🔄 Navigation params:', params);
     
     try {
       router.push({
@@ -448,7 +448,7 @@ export default function LegsWorkoutDisplayScreen() {
   const onViewableItemsChanged = useRef(({ viewableItems }: any) => {
     if (viewableItems.length > 0) {
       const newIndex = viewableItems[0].index || 0;
-      console.log('👁️ Viewable items changed, new index:", newIndex);
+      console.log('👁️ Viewable items changed, new index:', newIndex);
       setCurrentWorkoutIndex(newIndex);
     }
   }).current;
@@ -459,7 +459,7 @@ export default function LegsWorkoutDisplayScreen() {
     
     // Calculate current index based on scroll position
     const currentIndex = Math.round(contentOffset.x / viewSize.width);
-    console.log('📜 Scroll event, calculated index:", currentIndex, 'offset:", contentOffset.x, 'viewWidth:', viewSize.width);
+    console.log('📜 Scroll event, calculated index:', currentIndex, 'offset:", contentOffset.x, 'viewWidth:', viewSize.width);
     setCurrentWorkoutIndex(currentIndex);
   };
 

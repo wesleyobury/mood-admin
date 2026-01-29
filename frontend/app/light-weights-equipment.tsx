@@ -184,8 +184,8 @@ export default function LightWeightsEquipmentScreen() {
 
   const handleContinue = () => {
     if (selectedEquipment.length > 0 && selectedDifficulty) {
-      console.log('Selected equipment:", selectedEquipment.map(eq => eq.name));
-      console.log('Selected difficulty:", selectedDifficulty.title);
+      console.log('Selected equipment:', selectedEquipment.map(eq => eq.name));
+      console.log('Selected difficulty:', selectedDifficulty.title);
       
       // Route to light-weights-workouts screen with all selected equipment
       const equipmentNames = selectedEquipment.map(eq => eq.name).join(',');

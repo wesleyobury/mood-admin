@@ -156,8 +156,8 @@ export default function LazyWeightSelectionScreen() {
 
   const handleContinue = () => {
     if (selectedBodyPart && selectedDifficulty) {
-      console.log('Selected body part:", selectedBodyPart.name);
-      console.log('Selected difficulty:", selectedDifficulty.title);
+      console.log('Selected body part:', selectedBodyPart.name);
+      console.log('Selected difficulty:', selectedDifficulty.title);
       
       if (selectedBodyPart.id === 'upper-body') {
         // Route to upper body workouts screen for all difficulty levels

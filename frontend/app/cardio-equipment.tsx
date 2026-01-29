@@ -185,8 +185,8 @@ export default function CardioEquipmentScreen() {
 
   const handleContinue = () => {
     if (selectedEquipment.length > 0 && selectedDifficulty) {
-      console.log('Selected equipment:", selectedEquipment.map(eq => eq.name));
-      console.log('Selected difficulty:", selectedDifficulty.title);
+      console.log('Selected equipment:', selectedEquipment.map(eq => eq.name));
+      console.log('Selected difficulty:', selectedDifficulty.title);
       
       // Navigate to workout display screen with selected equipment and difficulty
       // Convert equipment array to comma-separated string and properly encode for URL

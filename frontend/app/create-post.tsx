@@ -112,7 +112,7 @@ export default function CreatePost() {
 
   // Debug auth state
   useEffect(() => {
-    console.log('🔍 Auth state:", { 
+    console.log('🔍 Auth state:', { 
       hasToken: !!token, 
       hasUser: !!user, 
       isLoading,
@@ -484,7 +484,7 @@ export default function CreatePost() {
 
   const handleSaveCard = async () => {
     console.log('handleSaveCard called');
-    console.log('Current auth state:", { 
+    console.log('Current auth state:', { 
       hasWorkoutStats: !!workoutStats, 
       hasToken: !!token, 
       isLoading,
@@ -525,7 +525,7 @@ export default function CreatePost() {
         body: JSON.stringify(cardData),
       });
 
-      console.log('Save response status:", response.status);
+      console.log('Save response status:', response.status);
       if (response.ok) {
         console.log('✅ Card saved successfully! Showing button animation...");
         setCardSaved(true);
@@ -649,7 +649,7 @@ export default function CreatePost() {
           // This requires expo-media-library, but for now we'll rely on the temp file
           return true;
         } catch (e) {
-          console.log('Failed to open Instagram Stories URL:", e);
+          console.log('Failed to open Instagram Stories URL:', e);
           return false;
         }
       } else if (Platform.OS === 'android") {
@@ -674,7 +674,7 @@ export default function CreatePost() {
             return true;
           }
         } catch (e) {
-          console.log('Failed to open Instagram on Android:", e);
+          console.log('Failed to open Instagram on Android:', e);
         }
         return false;
       }
@@ -802,7 +802,7 @@ export default function CreatePost() {
 
   const captureWorkoutCard = async (): Promise<string | null> => {
     if (!workoutStats || !statsCardRef.current) {
-      console.log('❌ No stats or ref:", { hasStats: !!workoutStats, hasRef: !!statsCardRef.current });
+      console.log('❌ No stats or ref:', { hasStats: !!workoutStats, hasRef: !!statsCardRef.current });
       return null;
     }
     
@@ -817,7 +817,7 @@ export default function CreatePost() {
           useCORS: true,
         });
         const uri = canvas.toDataURL('image/png', 0.9); // 90% quality
-        console.log('✅ Web capture successful, data URL length:", uri.length);
+        console.log('✅ Web capture successful, data URL length:', uri.length);
         return uri;
       } else {
         // Use react-native-view-shot for native
@@ -825,7 +825,7 @@ export default function CreatePost() {
           format: 'png",
           quality: 0.8,
         });
-        console.log('✅ Native capture successful:", uri);
+        console.log('✅ Native capture successful:', uri);
         return uri;
       }
     } catch (error) {
@@ -895,10 +895,10 @@ export default function CreatePost() {
           body: formData,
         });
 
-        console.log('Upload response status:", uploadResponse.status);
+        console.log('Upload response status:', uploadResponse.status);
         if (uploadResponse.ok) {
           const data = await uploadResponse.json();
-          console.log('Upload success:", data);
+          console.log('Upload success:', data);
           uploadedUrls.push(data.url);
           
           // If this is a video, check for Cloudinary thumbnail_url or custom cover
@@ -906,7 +906,7 @@ export default function CreatePost() {
             if (data.thumbnail_url) {
               // Use Cloudinary auto-generated thumbnail
               coverUrls[uploadedUrls.length - 1] = data.thumbnail_url;
-              console.log('Using Cloudinary thumbnail:", data.thumbnail_url);
+              console.log('Using Cloudinary thumbnail:', data.thumbnail_url);
             } else if (mediaItem.coverUri) {
               // Upload custom cover image
               try {
@@ -936,7 +936,7 @@ export default function CreatePost() {
                 if (coverUploadResponse.ok) {
                   const coverData = await coverUploadResponse.json();
                   coverUrls[uploadedUrls.length - 1] = coverData.url;
-                  console.log('Cover uploaded:", coverData.url);
+                  console.log('Cover uploaded:', coverData.url);
                 }
               } catch (coverError) {
                 console.error('Error uploading cover:", coverError);
@@ -952,8 +952,8 @@ export default function CreatePost() {
       }
     }
 
-    console.log('All uploaded URLs:", uploadedUrls);
-    console.log('Cover URLs:", coverUrls);
+    console.log('All uploaded URLs:', uploadedUrls);
+    console.log('Cover URLs:', coverUrls);
     return { urls: uploadedUrls, coverUrls };
   };
 
@@ -974,8 +974,8 @@ export default function CreatePost() {
       const uploadResult = await uploadMedia();
       let mediaUrls = uploadResult.urls;
       const coverUrls = uploadResult.coverUrls;
-      console.log('Uploaded media:", mediaUrls);
-      console.log('Cover URLs:", coverUrls);
+      console.log('Uploaded media:', mediaUrls);
+      console.log('Cover URLs:', coverUrls);
       
       // Capture and upload workout card if it exists
       if (hasStatsCard && workoutStats) {
@@ -1024,10 +1024,10 @@ export default function CreatePost() {
             body: formData,
           });
           
-          console.log('Workout card upload status:", uploadResponse.status);
+          console.log('Workout card upload status:', uploadResponse.status);
           if (uploadResponse.ok) {
             const data = await uploadResponse.json();
-            console.log('✅ Workout card uploaded:", data.url);
+            console.log('✅ Workout card uploaded:', data.url);
             mediaUrls.push(data.url); // Add workout card as last item
           } else {
             const errorText = await uploadResponse.text();
@@ -1037,10 +1037,10 @@ export default function CreatePost() {
           console.error('❌ Failed to capture workout card. Ref current:", statsCardRef.current);
         }
       } else {
-        console.log('No workout card to capture (hasStatsCard:", hasStatsCard, ', workoutStats:", !!workoutStats, ')');
+        console.log('No workout card to capture (hasStatsCard:', hasStatsCard, ', workoutStats:", !!workoutStats, ')');
       }
       
-      console.log('📤 Final mediaUrls for post:", mediaUrls);
+      console.log('📤 Final mediaUrls for post:', mediaUrls);
       
       currentStep++;
       setUploadProgress((currentStep / totalSteps) * 100);
@@ -1074,7 +1074,7 @@ export default function CreatePost() {
         body: JSON.stringify(postPayload),
       });
 
-      console.log('Post response status:", response.status);
+      console.log('Post response status:', response.status);
       if (response.ok) {
         setUploadProgress(100);
         console.log('Post created successfully!");

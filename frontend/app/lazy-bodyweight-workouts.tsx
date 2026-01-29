@@ -36,7 +36,7 @@ const LazyBodyweightWorkoutsScreen = memo(function LazyBodyweightWorkoutsScreen(
   // Parse selected equipment from comma-separated string
   const selectedEquipmentNames = equipmentParam.split(',').filter(name => name.trim() !== '');
   
-  console.log('Lazy Bodyweight Debug:", {
+  console.log('Lazy Bodyweight Debug:', {
     equipmentParam,
     selectedEquipmentNames,
     difficulty,
@@ -52,7 +52,7 @@ const LazyBodyweightWorkoutsScreen = memo(function LazyBodyweightWorkoutsScreen(
     )
   );
 
-  console.log('Selected workout data count:", userWorkouts.length);
+  console.log('Selected workout data count:', userWorkouts.length);
 
   // Cart hooks
   const { addToCart, isInCart } = useCart();
@@ -104,7 +104,7 @@ const LazyBodyweightWorkoutsScreen = memo(function LazyBodyweightWorkoutsScreen(
 
   const handleStartWorkout = (workout: Workout, equipment: string, diff: string) => {
     try {
-      console.log('🚀 Starting workout:", workout.name, 'on", equipment);
+      console.log('🚀 Starting workout:', workout.name, 'on", equipment);
       
       if (!workout.name || !equipment || !diff) {
         console.error('❌ Missing required parameters for workout navigation');

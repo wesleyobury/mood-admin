@@ -109,7 +109,7 @@ export default function LazyTrainingTypeScreen() {
   const moodTitle = params.mood as string || 'I'm feeling lazy';
 
   const handleLazyTrainingTypeSelect = (option: LazyTrainingTypeOption) => {
-    console.log('Selected lazy training type:", option.title, 'for mood:", moodTitle);
+    console.log('Selected lazy training type:', option.title, 'for mood:", moodTitle);
     setSelectedOption(option);
   };
 

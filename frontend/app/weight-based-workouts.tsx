@@ -38,7 +38,7 @@ const WeightBasedWorkoutsScreen = memo(function WeightBasedWorkoutsScreen() {
     ? decodeURIComponent(equipmentParam).split(',')
     : [];
   
-  console.log('Weight Based Explosiveness Debug:", {
+  console.log('Weight Based Explosiveness Debug:', {
     equipmentParam,
     selectedEquipmentNames,
     difficulty,
@@ -59,7 +59,7 @@ const WeightBasedWorkoutsScreen = memo(function WeightBasedWorkoutsScreen() {
     index === self.findIndex((w) => w.equipment === workout.equipment)
   );
 
-  console.log('Selected workout data count:", uniqueUserWorkouts.length);
+  console.log('Selected workout data count:', uniqueUserWorkouts.length);
 
   // Cart hooks
   const { addToCart, isInCart } = useCart();
@@ -111,7 +111,7 @@ const WeightBasedWorkoutsScreen = memo(function WeightBasedWorkoutsScreen() {
 
   const handleStartWorkout = (workout: Workout, equipment: string, diff: string) => {
     try {
-      console.log('🚀 Starting workout:", workout.name, 'on", equipment);
+      console.log('🚀 Starting workout:', workout.name, 'on", equipment);
       
       if (!workout.name || !equipment || !diff) {
         console.error('❌ Missing required parameters for workout navigation');

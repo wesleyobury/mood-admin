@@ -33,7 +33,7 @@ const LazyFullBodyWorkoutsScreen = memo(function LazyFullBodyWorkoutsScreen() {
   const bodyPart = params.bodyPart as string || 'Full Body';
   const difficulty = params.difficulty as string || 'beginner';
   
-  console.log('Lazy Full Body Debug:", {
+  console.log('Lazy Full Body Debug:', {
     difficulty,
     workoutType,
     bodyPart,
@@ -44,7 +44,7 @@ const LazyFullBodyWorkoutsScreen = memo(function LazyFullBodyWorkoutsScreen() {
   // For lazy weight screens, show ALL equipment workouts (no filtering)
   const userWorkouts = workoutDatabase;
 
-  console.log('Workout data count:", userWorkouts.length);
+  console.log('Workout data count:', userWorkouts.length);
 
   // Cart hooks
   const { addToCart, isInCart } = useCart();
@@ -96,7 +96,7 @@ const LazyFullBodyWorkoutsScreen = memo(function LazyFullBodyWorkoutsScreen() {
 
   const handleStartWorkout = (workout: Workout, equipment: string, diff: string) => {
     try {
-      console.log('🚀 Starting workout:", workout.name, 'on", equipment);
+      console.log('🚀 Starting workout:', workout.name, 'on", equipment);
       
       if (!workout.name || !equipment || !diff) {
         console.error('❌ Missing required parameters for workout navigation');

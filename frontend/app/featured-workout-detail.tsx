@@ -458,8 +458,8 @@ export default function FeaturedWorkoutDetail() {
         return total + mins;
       }, 0);
       
-      console.log('Saving workout to:", `${API_URL}/api/saved-workouts`);
-      console.log('Workout name:", `${workout.mood} - ${workout.title}`);
+      console.log('Saving workout to:', `${API_URL}/api/saved-workouts`);
+      console.log('Workout name:', `${workout.mood} - ${workout.title}`);
       
       const response = await fetch(`${API_URL}/api/saved-workouts`, {
         method: 'POST',
@@ -490,7 +490,7 @@ export default function FeaturedWorkoutDetail() {
         }),
       });
       
-      console.log('Save response status:", response.status);
+      console.log('Save response status:', response.status);
       
       if (response.ok) {
         setIsSaved(true);

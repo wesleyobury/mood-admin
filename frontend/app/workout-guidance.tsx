@@ -163,10 +163,10 @@ export default function WorkoutGuidanceScreen() {
   const moodTipsParam = params.moodTips as string || '[]';
   let moodTips: MOODTip[] = [];
   try {
-    console.log('🔍 Received moodTips param:", moodTipsParam);
+    console.log('🔍 Received moodTips param:', moodTipsParam);
     moodTips = JSON.parse(decodeURIComponent(moodTipsParam));
-    console.log('✅ Parsed MOOD tips:", moodTips.length, 'tips found');
-    console.log('📝 First tip:", moodTips[0]);
+    console.log('✅ Parsed MOOD tips:', moodTips.length, 'tips found');
+    console.log('📝 First tip:', moodTips[0]);
   } catch (error) {
     console.error('❌ Error parsing MOOD tips:", error);
     console.log('🔄 Using fallback tips');
@@ -372,9 +372,9 @@ export default function WorkoutGuidanceScreen() {
   
   const handleCompletedWorkout = async () => {
     console.log('🎯 handleCompletedWorkout called');
-    console.log('🎯 isSession:", isSession);
-    console.log('🎯 sessionWorkouts.length:", sessionWorkouts.length);
-    console.log('🎯 currentSessionIndex:", currentSessionIndex);
+    console.log('🎯 isSession:', isSession);
+    console.log('🎯 sessionWorkouts.length:', sessionWorkouts.length);
+    console.log('🎯 currentSessionIndex:', currentSessionIndex);
     
     // Track current exercise completion
     if (token) {
@@ -383,12 +383,12 @@ export default function WorkoutGuidanceScreen() {
         sets: 1,
         reps: 1,
       });
-      console.log('📊 Tracked exercise completed:", workoutName);
+      console.log('📊 Tracked exercise completed:', workoutName);
     }
     
     if (isSession && sessionWorkouts.length > 0) {
       const nextIndex = currentSessionIndex + 1;
-      console.log('🎯 nextIndex:", nextIndex);
+      console.log('🎯 nextIndex:', nextIndex);
       
       if (nextIndex < sessionWorkouts.length) {
         // Move to next workout in session
@@ -486,7 +486,7 @@ export default function WorkoutGuidanceScreen() {
             moodCategory: overallMoodCategory, // Include top-level mood category
           };
 
-          console.log('Workout stats prepared:", workoutStatsData);
+          console.log('Workout stats prepared:', workoutStatsData);
           
           // Track workout completion analytics
           if (token) {
@@ -503,7 +503,7 @@ export default function WorkoutGuidanceScreen() {
                 exercises_completed: sessionWorkouts.length,
                 duration_minutes: totalDuration,
               });
-              console.log('📊 Tracked featured workout completed:", featuredWorkoutId);
+              console.log('📊 Tracked featured workout completed:', featuredWorkoutId);
             }
             
             // Track general workout completion

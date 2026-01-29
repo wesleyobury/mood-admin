@@ -36,7 +36,7 @@ const CalisthenicsWorkoutsScreen = memo(function CalisthenicsWorkoutsScreen() {
   // Parse selected equipment from comma-separated string
   const selectedEquipmentNames = equipmentParam.split(',').filter(name => name.trim() !== '');
   
-  console.log('Calisthenics Debug:", {
+  console.log('Calisthenics Debug:', {
     equipmentParam,
     selectedEquipmentNames,
     difficulty,
@@ -52,7 +52,7 @@ const CalisthenicsWorkoutsScreen = memo(function CalisthenicsWorkoutsScreen() {
     )
   );
 
-  console.log('Selected workout data count:", userWorkouts.length);
+  console.log('Selected workout data count:', userWorkouts.length);
 
   // Cart hooks
   const { addToCart, isInCart } = useCart();
@@ -107,7 +107,7 @@ const CalisthenicsWorkoutsScreen = memo(function CalisthenicsWorkoutsScreen() {
 
   const handleStartWorkout = (workout: Workout, equipment: string, diff: string) => {
     try {
-      console.log('🚀 Starting workout:", workout.name, 'on", equipment);
+      console.log('🚀 Starting workout:', workout.name, 'on", equipment);
       
       if (!workout.name || !equipment || !diff) {
         console.error('❌ Missing required parameters for workout navigation');

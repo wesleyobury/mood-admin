@@ -85,7 +85,7 @@ const CompoundWorkoutDisplayScreen = memo(function CompoundWorkoutDisplayScreen(
     console.error('Error parsing equipmentPerGroup:", e);
   }
   
-  console.log('Compound/Legs Workout Debug:", {
+  console.log('Compound/Legs Workout Debug:', {
     muscleGroups,
     equipmentPerGroup,
     difficulty,

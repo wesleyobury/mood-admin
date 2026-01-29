@@ -142,11 +142,11 @@ export default function EditProfile() {
         }),
       });
 
-      console.log('Avatar upload response status:", uploadResponse.status);
+      console.log('Avatar upload response status:', uploadResponse.status);
 
       if (uploadResponse.ok) {
         const data = await uploadResponse.json();
-        console.log('Avatar upload success:", data);
+        console.log('Avatar upload success:', data);
         setAvatarUri(data.url);
         // Update the auth context with new avatar
         updateUser({ avatar: data.url });

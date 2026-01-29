@@ -1572,7 +1572,7 @@ export default function ShouldersWorkoutDisplayScreen() {
     index === self.findIndex(t => t.equipment === item.equipment)
   );
 
-  console.log('Final unique workouts to display:", uniqueUserWorkouts.length);
+  console.log('Final unique workouts to display:', uniqueUserWorkouts.length);
 
   const handleGoBack = () => {
     try {
@@ -1585,7 +1585,7 @@ export default function ShouldersWorkoutDisplayScreen() {
 
   const handleStartWorkout = (workout: Workout, equipment: string, difficulty: string) => {
     try {
-      console.log('🚀 Starting workout:", workout.name, 'on', equipment);
+      console.log('🚀 Starting workout:', workout.name, 'on', equipment);
       
       // Validate required parameters
       if (!workout.name || !equipment || !difficulty) {

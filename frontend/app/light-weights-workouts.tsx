@@ -36,7 +36,7 @@ const LightWeightsWorkoutsScreen = memo(function LightWeightsWorkoutsScreen() {
   // Parse selected equipment from comma-separated string
   const selectedEquipmentNames = equipmentParam.split(',').filter(name => name.trim() !== '');
   
-  console.log('Light Weights Debug:", {
+  console.log('Light Weights Debug:', {
     equipmentParam,
     selectedEquipmentNames,
     difficulty,
@@ -51,7 +51,7 @@ const LightWeightsWorkoutsScreen = memo(function LightWeightsWorkoutsScreen() {
     )
   );
 
-  console.log('Selected workout data count:", selectedWorkoutData.length);
+  console.log('Selected workout data count:', selectedWorkoutData.length);
 
   // Cart hooks
   const { addToCart, isInCart } = useCart();
@@ -106,7 +106,7 @@ const LightWeightsWorkoutsScreen = memo(function LightWeightsWorkoutsScreen() {
 
   const handleStartWorkout = (workout: Workout, equipment: string, diff: string) => {
     try {
-      console.log('🚀 Starting workout:", workout.name, 'on", equipment);
+      console.log('🚀 Starting workout:', workout.name, 'on", equipment);
       
       if (!workout.name || !equipment || !diff) {
         console.error('❌ Missing required parameters for workout navigation');

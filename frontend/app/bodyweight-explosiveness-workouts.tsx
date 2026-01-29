@@ -37,7 +37,7 @@ const BodyweightExplosivenessWorkoutsScreen = memo(function BodyweightExplosiven
   // Parse selected equipment from comma-separated string
   const selectedEquipmentNames = equipmentParam.split(',').filter(name => name.trim() !== '');
   
-  console.log('Bodyweight Explosiveness Debug:", {
+  console.log('Bodyweight Explosiveness Debug:', {
     equipmentParam,
     selectedEquipmentNames,
     difficulty,
@@ -53,7 +53,7 @@ const BodyweightExplosivenessWorkoutsScreen = memo(function BodyweightExplosiven
     )
   );
 
-  console.log('Selected workout data count:", userWorkouts.length);
+  console.log('Selected workout data count:', userWorkouts.length);
 
   // Cart hooks
   const { addToCart, isInCart } = useCart();
@@ -106,7 +106,7 @@ const BodyweightExplosivenessWorkoutsScreen = memo(function BodyweightExplosiven
 
   const handleStartWorkout = (workout: Workout, equipment: string, diff: string) => {
     try {
-      console.log('🚀 Starting workout:", workout.name, 'on", equipment);
+      console.log('🚀 Starting workout:', workout.name, 'on", equipment);
       
       if (!workout.name || !equipment || !diff) {
         console.error('❌ Missing required parameters for workout navigation');
