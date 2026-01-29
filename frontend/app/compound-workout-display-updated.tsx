@@ -250,7 +250,7 @@ const glutesWorkoutDatabase: EquipmentWorkouts[] = [
           moodTips: [
             {
               icon: 'construct',
-              title: "Keep pelvis level, don't rotate hips down',
+              title: "Keep pelvis level, don't rotate hips down",
               description: 'Pelvic stability ensures proper muscle activation and prevents injury.'
             },
             {
