@@ -86,9 +86,7 @@ const BodyweightExplosivenessWorkoutsScreen = memo(function BodyweightExplosiven
       equipment: equipment,
       difficulty: difficulty,
       workoutType: workoutType,
-          imageUrl: workout.imageUrl || '",
-          intensityReason: workout.intensityReason || "',
-          moodCard: moodTitle,
+      imageUrl: workout.imageUrl || '',
       moodCard: moodTitle,
       moodTips: workout.moodTips || [],
     };
