@@ -152,7 +152,7 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
           intensityReason: 'High-intensity drop sets push muscle failure across multiple weight ranges with focus on time under tension for advanced hypertrophy.',
           moodTips: [
             {
-              icon: 'flash",
+              icon: 'flash',
               title: "Don't save energy",
               description: 'Heavy set should be all-out near failure for maximum recruitment.'
             },
