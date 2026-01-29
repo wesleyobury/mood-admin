@@ -29,15 +29,15 @@ interface DifficultyLevel {
 }
 
 const equipmentOptions: EquipmentOption[] = [
-  { id: 'adjustable-bench', name: 'Adjustable bench', icon: 'square' },
-  { id: 'cable-crossover', name: 'Cable crossover', icon: 'reorder-three' },
-  { id: 'chest-press-machine', name: 'Chest press machine', icon: 'hardware-chip' },
-  { id: 'decline-bench', name: 'Decline bench', icon: 'trending-down' },
-  { id: 'dip-station', name: 'Dip station', icon: 'remove' },
-  { id: 'flat-bench', name: 'Flat bench', icon: 'square' },
-  { id: 'incline-bench', name: 'Incline bench', icon: 'trending-up' },
-  { id: 'pec-dec-machine', name: 'Pec dec machine', icon: 'contract' },
-  { id: 'smith-machine', name: 'Smith machine', icon: 'barbell' },
+  { id: 'adjustable-bench', name: "Adjustable bench', icon: 'square" },
+  { id: 'cable-crossover', name: "Cable crossover', icon: 'reorder-three" },
+  { id: 'chest-press-machine', name: "Chest press machine', icon: 'hardware-chip" },
+  { id: 'decline-bench', name: "Decline bench', icon: 'trending-down" },
+  { id: 'dip-station', name: "Dip station', icon: 'remove" },
+  { id: 'flat-bench', name: "Flat bench', icon: 'square" },
+  { id: 'incline-bench', name: "Incline bench', icon: 'trending-up" },
+  { id: 'pec-dec-machine', name: "Pec dec machine', icon: 'contract" },
+  { id: 'smith-machine', name: "Smith machine', icon: 'barbell" },
 ];
 
 const difficultyLevels: DifficultyLevel[] = [

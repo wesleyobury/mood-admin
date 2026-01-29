@@ -90,7 +90,7 @@ export default function PostDetail() {
       'Delete Post',
       'Are you sure you want to delete this post? This action cannot be undone.',
       [
-        { text: 'Cancel', style: 'cancel' },
+        { text: "Cancel', style: 'cancel" },
         { 
           text: 'Delete', 
           style: 'destructive',

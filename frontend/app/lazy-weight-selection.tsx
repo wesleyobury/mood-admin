@@ -28,9 +28,9 @@ interface DifficultyLevel {
 
 // Lazy weight body part options
 const bodyPartOptions: BodyPartOption[] = [
-  { id: 'upper-body', name: 'Upper body', icon: 'body' },
-  { id: 'lower-body', name: 'Lower body', icon: 'walk' },
-  { id: 'full-body', name: 'Full body', icon: 'fitness' },
+  { id: 'upper-body', name: "Upper body', icon: 'body" },
+  { id: 'lower-body', name: "Lower body', icon: 'walk" },
+  { id: 'full-body', name: "Full body', icon: 'fitness" },
 ];
 
 // Difficulty levels with lazy-appropriate descriptions

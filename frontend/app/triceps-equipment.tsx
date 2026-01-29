@@ -29,14 +29,14 @@ interface DifficultyLevel {
 }
 
 const equipmentOptions: EquipmentOption[] = [
-  { id: 'cable-crossover-machine', name: 'Cable crossover machine', icon: 'reorder-three' },
-  { id: 'dip-station', name: 'Dip station / machine', icon: 'remove' },
-  { id: 'dumbbell', name: 'Dumbbell', icon: 'barbell' },
-  { id: 'ez-bar', name: 'EZ bar', icon: 'remove' },
-  { id: 'kettle-bell', name: 'Kettle bell', icon: 'diamond' },
-  { id: 'single-extension-cable', name: 'Single extension cable', icon: 'fitness' },
-  { id: 'tricep-pushdown-machine', name: 'Tricep pushdown machine', icon: 'swap-vertical' },
-  { id: 'trx-bands', name: 'TRX bands', icon: 'link' },
+  { id: 'cable-crossover-machine', name: "Cable crossover machine', icon: 'reorder-three" },
+  { id: 'dip-station', name: "Dip station / machine', icon: 'remove" },
+  { id: 'dumbbell', name: "Dumbbell', icon: 'barbell" },
+  { id: 'ez-bar', name: "EZ bar', icon: 'remove" },
+  { id: 'kettle-bell', name: "Kettle bell', icon: 'diamond" },
+  { id: 'single-extension-cable', name: "Single extension cable', icon: 'fitness" },
+  { id: 'tricep-pushdown-machine', name: "Tricep pushdown machine', icon: 'swap-vertical" },
+  { id: 'trx-bands', name: "TRX bands', icon: 'link" },
 ];
 
 const difficultyLevels: DifficultyLevel[] = [

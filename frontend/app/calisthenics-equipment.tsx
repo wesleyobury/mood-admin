@@ -30,12 +30,12 @@ interface DifficultyLevel {
 
 // Calisthenics equipment options (alphabetically ordered)
 const equipmentOptions: EquipmentOption[] = [
-  { id: 'ab-wheel', name: 'Ab wheel', icon: 'ellipse' },
-  { id: 'gymnast-rings', name: 'Gymnast rings', icon: 'radio-button-off' },
-  { id: 'parallel-bars', name: 'Parallel bars / dip station', icon: 'remove' },
-  { id: 'pull-up-bar', name: 'Pull up bar', icon: 'remove-outline' },
-  { id: 'pure-bodyweight', name: 'Pure bodyweight', icon: 'body' },
-  { id: 'pushup-bars', name: 'Pushup bars / parallettes', icon: 'reorder-three' },
+  { id: 'ab-wheel', name: "Ab wheel', icon: 'ellipse" },
+  { id: 'gymnast-rings', name: "Gymnast rings', icon: 'radio-button-off" },
+  { id: 'parallel-bars', name: "Parallel bars / dip station', icon: 'remove" },
+  { id: 'pull-up-bar', name: "Pull up bar', icon: 'remove-outline" },
+  { id: 'pure-bodyweight', name: "Pure bodyweight', icon: 'body" },
+  { id: 'pushup-bars', name: "Pushup bars / parallettes', icon: 'reorder-three" },
 ];
 
 // Difficulty levels with calisthenics-appropriate descriptions

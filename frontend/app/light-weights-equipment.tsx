@@ -30,15 +30,15 @@ interface DifficultyLevel {
 
 // Light weights equipment options for cardio path (alphabetical order)
 const equipmentOptions: EquipmentOption[] = [
-  { id: 'barbells', name: 'Barbells', icon: 'barbell' },
-  { id: 'battle-ropes', name: 'Battle Ropes', icon: 'git-branch' },
-  { id: 'dumbbells', name: 'Dumbbells', icon: 'fitness' },
-  { id: 'flipping-tire', name: 'Flipping Tire', icon: 'ellipse' },
-  { id: 'kettlebells', name: 'Kettlebells', icon: 'fitness' },
-  { id: 'medicine-balls', name: 'Medicine Balls', icon: 'basketball' },
-  { id: 'slam-balls', name: 'Slam Balls', icon: 'baseball' },
-  { id: 'sled', name: 'Sled', icon: 'car-sport' },
-  { id: 'sledgehammer-tire', name: 'Sledgehammer + Tire', icon: 'hammer' },
+  { id: 'barbells', name: "Barbells', icon: 'barbell" },
+  { id: 'battle-ropes', name: "Battle Ropes', icon: 'git-branch" },
+  { id: 'dumbbells', name: "Dumbbells', icon: 'fitness" },
+  { id: 'flipping-tire', name: "Flipping Tire', icon: 'ellipse" },
+  { id: 'kettlebells', name: "Kettlebells', icon: 'fitness" },
+  { id: 'medicine-balls', name: "Medicine Balls', icon: 'basketball" },
+  { id: 'slam-balls', name: "Slam Balls', icon: 'baseball" },
+  { id: 'sled', name: "Sled', icon: 'car-sport" },
+  { id: 'sledgehammer-tire', name: "Sledgehammer + Tire', icon: 'hammer" },
 ];
 
 // Difficulty levels with cardio-appropriate descriptions

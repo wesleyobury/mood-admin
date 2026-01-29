@@ -29,12 +29,12 @@ interface DifficultyLevel {
 }
 
 const equipmentOptions: EquipmentOption[] = [
-  { id: 'biceps-curl-machine', name: 'Biceps Curl Machine', icon: 'fitness' },
-  { id: 'cable-machine', name: 'Cable Machine', icon: 'swap-vertical' },
-  { id: 'dumbbell', name: 'Dumbbell', icon: 'barbell' },
-  { id: 'ez-curl-bar', name: 'EZ Curl Bar', icon: 'remove' },
-  { id: 'preacher-curl-machine', name: 'Preacher Curl Machine', icon: 'desktop' },
-  { id: 'pull-up-bar', name: 'Pull Up Bar', icon: 'remove-outline' },
+  { id: 'biceps-curl-machine', name: "Biceps Curl Machine', icon: 'fitness" },
+  { id: 'cable-machine', name: "Cable Machine', icon: 'swap-vertical" },
+  { id: 'dumbbell', name: "Dumbbell', icon: 'barbell" },
+  { id: 'ez-curl-bar', name: "EZ Curl Bar', icon: 'remove" },
+  { id: 'preacher-curl-machine', name: "Preacher Curl Machine', icon: 'desktop" },
+  { id: 'pull-up-bar', name: "Pull Up Bar', icon: 'remove-outline" },
 ];
 
 const difficultyLevels: DifficultyLevel[] = [

@@ -93,7 +93,7 @@ export default function ContentFilterSettings() {
       'Clear All Keywords',
       'Are you sure you want to remove all filter keywords?',
       [
-        { text: 'Cancel', style: 'cancel' },
+        { text: "Cancel', style: 'cancel" },
         { 
           text: 'Clear All', 
           style: 'destructive',

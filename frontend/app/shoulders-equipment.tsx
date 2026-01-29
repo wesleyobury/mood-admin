@@ -29,16 +29,16 @@ interface DifficultyLevel {
 }
 
 const equipmentOptions: EquipmentOption[] = [
-  { id: 'adjustable-bench', name: 'Adjustable Bench', icon: 'square' },
-  { id: 'barbells', name: 'Barbells', icon: 'barbell' },
-  { id: 'cable-crossover-machine', name: 'Cable Crossover Machine', icon: 'reorder-three' },
-  { id: 'dumbbells', name: 'Dumbbells', icon: 'barbell' },
-  { id: 'kettlebells', name: 'Kettlebells', icon: 'diamond' },
-  { id: 'landmine-attachment', name: 'Landmine Attachment', icon: 'rocket' },
-  { id: 'rear-delt-fly-machine', name: 'Rear Delt Fly Machine', icon: 'contract' },
-  { id: 'powerlifting-platform', name: 'Powerlifting Platform', icon: 'grid' },
-  { id: 'shoulder-press-machine', name: 'Shoulder Press Machine', icon: 'triangle' },
-  { id: 'smith-machine', name: 'Smith Machine', icon: 'hardware-chip' },
+  { id: 'adjustable-bench', name: "Adjustable Bench', icon: 'square" },
+  { id: 'barbells', name: "Barbells', icon: 'barbell" },
+  { id: 'cable-crossover-machine', name: "Cable Crossover Machine', icon: 'reorder-three" },
+  { id: 'dumbbells', name: "Dumbbells', icon: 'barbell" },
+  { id: 'kettlebells', name: "Kettlebells', icon: 'diamond" },
+  { id: 'landmine-attachment', name: "Landmine Attachment', icon: 'rocket" },
+  { id: 'rear-delt-fly-machine', name: "Rear Delt Fly Machine', icon: 'contract" },
+  { id: 'powerlifting-platform', name: "Powerlifting Platform', icon: 'grid" },
+  { id: 'shoulder-press-machine', name: "Shoulder Press Machine', icon: 'triangle" },
+  { id: 'smith-machine', name: "Smith Machine', icon: 'hardware-chip" },
 ];
 
 const difficultyLevels: DifficultyLevel[] = [

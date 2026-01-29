@@ -66,7 +66,7 @@ export default function BlockedUsers() {
       'Unblock User',
       `Are you sure you want to unblock @${username}? They will be able to see your profile and content again.`,
       [
-        { text: 'Cancel', style: 'cancel' },
+        { text: "Cancel', style: 'cancel" },
         {
           text: 'Unblock',
           onPress: async () => {

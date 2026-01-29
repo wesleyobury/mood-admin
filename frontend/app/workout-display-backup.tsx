@@ -326,7 +326,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'refresh',
               title: 'Pull Technique',
-              description: 'Pull, don\'t just push, in reverse sets.'
+              description: "Pull, don\'t just push, in reverse sets."
             },
             {
               icon: 'body',
@@ -518,7 +518,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'refresh',
               title: 'Recovery Control',
-              description: 'Control breathing during recovery; don\'t fully relax.'
+              description: "Control breathing during recovery; don\'t fully relax."
             }
           ]
         },
@@ -599,12 +599,12 @@ const workoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'flash',
               title: 'All-Out Effort',
-              description: 'Go all out on sprints; don\'t hold back.'
+              description: "Go all out on sprints; don\'t hold back."
             },
             {
               icon: 'refresh',
               title: 'RPM Control',
-              description: 'Steady RPM in recovery; don\'t slow too much.'
+              description: "Steady RPM in recovery; don\'t slow too much."
             }
           ]
         },
@@ -644,7 +644,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'refresh',
               title: 'Active Phases',
-              description: 'Don\'t coast; easy phases should still move.'
+              description: "Don\'t coast; easy phases should still move."
             }
           ]
         },
@@ -876,7 +876,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'trending-up',
               title: 'Pace Maintenance',
-              description: 'Don\'t let steady pace drift; maintain effort.'
+              description: "Don\'t let steady pace drift; maintain effort."
             }
           ]
         }
@@ -1023,7 +1023,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'flash',
               title: 'Stroke Completion',
-              description: 'Quick rhythm, but don\'t cut the pull short.'
+              description: "Quick rhythm, but don\'t cut the pull short."
             }
           ]
         },
@@ -1190,7 +1190,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'body',
               title: 'Hip Rotation',
-              description: 'Rotate hips with punches; don\'t just arm-swing.'
+              description: "Rotate hips with punches; don\'t just arm-swing."
             },
             {
               icon: 'shield',
@@ -1294,7 +1294,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'body',
               title: 'Head Movement',
-              description: 'Constant head movement; don\'t stay static.'
+              description: "Constant head movement; don\'t stay static."
             }
           ]
         }
@@ -1415,7 +1415,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'timer',
               title: 'Pacing Control',
-              description: 'Pace yourself; don\'t peak early.'
+              description: "Pace yourself; don\'t peak early."
             },
             {
               icon: 'hand-right',
@@ -1461,7 +1461,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'trending-up',
               title: 'High Knees Form',
-              description: 'Lift knees for high knees; don\'t kick heels back.'
+              description: "Lift knees for high knees; don\'t kick heels back."
             },
             {
               icon: 'timer',
@@ -1593,7 +1593,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'flash',
               title: 'Movement Flow',
-              description: 'Smooth transitions—don\'t drop dumbbells between moves.'
+              description: "Smooth transitions-don\'t drop dumbbells between moves."
             }
           ]
         }
@@ -1601,7 +1601,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
       intermediate: [
         {
           name: 'Dumbbell Complex',
-          duration: '28–30 min',
+          duration: '28-30 min',
           description: 'Perform 4 rounds:\n• 6 deadlifts\n• 6 hang cleans\n• 6 front squats\n• 6 push presses\n• 6 reverse lunges\n• Rest 1 min',
           imageUrl: 'https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwzfHxkdW1iYmVsbCUyMGNvbXBsZXh8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Challenging complex that combines multiple movement patterns for increased strength and conditioning.',
@@ -1628,12 +1628,12 @@ const workoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'flash',
               title: 'Hip Drive',
-              description: 'Thrusters—hips drive press, don\'t isolate arms.'
+              description: "Thrusters-hips drive press, don\'t isolate arms."
             },
             {
               icon: 'body',
               title: 'Core Stability',
-              description: 'Renegade rows—hips stable, no twisting.'
+              description: 'Renegade rows-hips stable, no twisting.'
             }
           ]
         }
@@ -1641,8 +1641,8 @@ const workoutDatabase: EquipmentWorkouts[] = [
       advanced: [
         {
           name: 'Dumbbell Ladder',
-          duration: '20–24 min',
-          description: 'Perform ladder sequence:\n• 10–8–6–4–2 reps\n• Squat clean\n• Push press\n• Burpee over dumbbell\nRest as needed. Complete all 5 sets.',
+          duration: '20-24 min',
+          description: 'Perform ladder sequence:\n• 10-8-6-4-2 reps\n• Squat clean\n• Push press\n• Burpee over dumbbell\nRest as needed. Complete all 5 sets.',
           imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw1fHxkdW1iYmVsbCUyMGFkdmFuY2VkfGVufDB8fHx8MTc1Njg4MzIzN3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Descending ladder format with complex movements demands advanced strength, power, and conditioning.',
           moodTips: [
@@ -1654,7 +1654,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'body',
               title: 'Landing Control',
-              description: 'Controlled burpee jump—tight core, avoid sloppy landings.'
+              description: 'Controlled burpee jump-tight core, avoid sloppy landings.'
             }
           ]
         },
@@ -1668,7 +1668,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'flash',
               title: 'Snatch Power',
-              description: 'Snatches—hips drive, lock arms overhead.'
+              description: 'Snatches-hips drive, lock arms overhead.'
             },
             {
               icon: 'body',
@@ -1688,25 +1688,25 @@ const workoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Kettlebell Swing & Carry',
           duration: '15 min',
-          description: 'Perform 5 rounds:\n• 20s swings\n• 40s farmer\'s carry\n1 min rest',
+          description: "Perform 5 rounds:\n• 20s swings\n• 40s farmer\'s carry\n1 min rest",
           imageUrl: 'https://images.unsplash.com/photo-1566241134850-541012f1d4cf?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxrZXR0bGViZWxsJTIwd29ya291dHxlbnwwfHx8fDE3NTY4ODMyMzd8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Basic kettlebell introduction combining hip hinge movement with stability training.',
           moodTips: [
             {
               icon: 'flash',
               title: 'Hip Hinge Technique',
-              description: 'Swings—hinge hips, power from glutes.'
+              description: 'Swings-hinge hips, power from glutes.'
             },
             {
               icon: 'body',
               title: 'Posture Control',
-              description: 'Farmer\'s carry—shoulders back, core tight.'
+              description: "Farmer\'s carry-shoulders back, core tight."
             }
           ]
         },
         {
           name: 'Kettlebell Cardio Flow',
-          duration: '12–15 min',
+          duration: '12-15 min',
           description: 'Perform 3 rounds:\n• 8 goblet squats\n• 8 single-arm swings (each side)\n• 8 overhead presses (each side)\n1 min rest',
           imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwyfHxrZXR0bGViZWxsJTIwZmxvd3xlbnwwfHx8fDE3NTY4ODMyMzd8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Progressive flow that builds kettlebell familiarity with controlled movement patterns.',
@@ -1727,7 +1727,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
       intermediate: [
         {
           name: 'Kettlebell Ladder',
-          duration: '20–24 min',
+          duration: '20-24 min',
           description: 'Perform 4 rounds:\n• 10 swings\n• 8 cleans (4/side)\n• 6 snatches (3/side)\n• 4 goblet squats\n• 2 push presses (each side)\nRest 1 min',
           imageUrl: 'https://images.unsplash.com/photo-1517838277536-f5f99be501cd?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwzfHxrZXR0bGViZWxsJTIwdHJhaW5pbmd8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Complex ladder format challenging coordination and strength across multiple kettlebell movements.',
@@ -1767,7 +1767,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
       advanced: [
         {
           name: 'Kettlebell Complex',
-          duration: '25–26 min',
+          duration: '25-26 min',
           description: 'Perform 5 rounds (6 reps each, per side, no rest between moves):\n• Swing\n• Clean\n• Front squat\n• Push press\n• Snatch\nRest 1 min between rounds.',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw1fHxrZXR0bGViZWxsJTIwYWR2YW5jZWR8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Advanced complex demanding mastery of all major kettlebell movements with minimal rest.',
@@ -1794,12 +1794,12 @@ const workoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'flash',
               title: 'Double Swing Power',
-              description: 'Double swings—engage lats, neutral wrists.'
+              description: 'Double swings-engage lats, neutral wrists.'
             },
             {
               icon: 'body',
               title: 'Turkish Get-up Control',
-              description: 'Turkish get-up—go slow, stack joints overhead.'
+              description: 'Turkish get-up-go slow, stack joints overhead.'
             }
           ]
         }
@@ -1813,7 +1813,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
       beginner: [
         {
           name: 'Barbell Metcon',
-          duration: '12–15 min',
+          duration: '12-15 min',
           description: 'Perform 3 rounds (light weight):\n• 8 deadlifts\n• 8 front squats\n• 8 push presses\nRest 1 min',
           imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxiYXJiZWxsJTIwd29ya291dHxlbnwwfHx8fDE3NTY4ODMyMzd8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Light barbell introduction focusing on proper movement patterns and form development.',
@@ -1821,18 +1821,18 @@ const workoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'body',
               title: 'Deadlift Form',
-              description: 'Deadlift—bar close, hips hinge, not squat.'
+              description: 'Deadlift-bar close, hips hinge, not squat.'
             },
             {
               icon: 'fitness',
               title: 'Front Squat Technique',
-              description: 'Front squat—elbows high, bar rests on shoulders.'
+              description: 'Front squat-elbows high, bar rests on shoulders.'
             }
           ]
         },
         {
           name: 'Barbell Cardio Flow',
-          duration: '14–16 min',
+          duration: '14-16 min',
           description: 'Perform 3 rounds:\n• 6 hang cleans\n• 6 push presses\n• 6 back squats\n• 6 bent-over rows\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwyfHxiYXJiZWxsJTIwZmxvd3xlbnwwfHx8fDE3NTY4ODMyMzd8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Smooth barbell flow that teaches coordination between major compound movements.',
@@ -1840,12 +1840,12 @@ const workoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'flash',
               title: 'Clean Technique',
-              description: 'Cleans—triple extension, chest tall on catch.'
+              description: 'Cleans-triple extension, chest tall on catch.'
             },
             {
               icon: 'body',
               title: 'Row Form',
-              description: 'Rows—flat back, elbows sweep to ribs.'
+              description: 'Rows-flat back, elbows sweep to ribs.'
             }
           ]
         }
@@ -1853,7 +1853,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
       intermediate: [
         {
           name: 'Barbell Complex',
-          duration: '28–30 min',
+          duration: '28-30 min',
           description: 'Perform 4 rounds, no rest between moves:\n• 5 deadlifts\n• 5 hang power cleans\n• 5 front squats\n• 5 push presses\n• 5 back squats\n• 5 bent-over rows\nRest 1 min',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwzfHxiYXJiZWxsJTIwY29tcGxleHxlbnwwfHx8fDE3NTY4ODMyMzd8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Challenging barbell complex requiring strength, endurance, and technical proficiency.',
@@ -1880,12 +1880,12 @@ const workoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'flash',
               title: 'Thruster Power',
-              description: 'Thrusters—ride squat bounce into press.'
+              description: 'Thrusters-ride squat bounce into press.'
             },
             {
               icon: 'trending-up',
               title: 'High Pull Technique',
-              description: 'High pulls—elbows above wrists, bar stays close.'
+              description: 'High pulls-elbows above wrists, bar stays close.'
             }
           ]
         }
@@ -1893,20 +1893,20 @@ const workoutDatabase: EquipmentWorkouts[] = [
       advanced: [
         {
           name: 'Barbell Ladder',
-          duration: '20–24 min',
-          description: 'Perform 10–8–6–4–2 reps:\n• Power clean\n• Push jerk\n• Front squat\n• Burpee over bar\nRest as needed to complete ladder.',
+          duration: '20-24 min',
+          description: 'Perform 10-8-6-4-2 reps:\n• Power clean\n• Push jerk\n• Front squat\n• Burpee over bar\nRest as needed to complete ladder.',
           imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw1fHxiYXJiZWxsJTIwYWR2YW5jZWR8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Advanced ladder requiring explosive power, strength, and conditioning with complex movements.',
           moodTips: [
             {
               icon: 'flash',
               title: 'Power Clean Form',
-              description: 'Power clean—catch low, chest tall, core braced.'
+              description: 'Power clean-catch low, chest tall, core braced.'
             },
             {
               icon: 'body',
               title: 'Burpee Control',
-              description: 'Burpees—land flat-foot, avoid toe springing.'
+              description: 'Burpees-land flat-foot, avoid toe springing.'
             }
           ]
         },
@@ -1925,7 +1925,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'flash',
               title: 'Breathing Management',
-              description: 'Burpees—steady breathing, don\'t over gas.'
+              description: "Burpees-steady breathing, don\'t over gas."
             }
           ]
         }
@@ -1939,7 +1939,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
       beginner: [
         {
           name: 'Cardio Circuit',
-          duration: '12–16 min',
+          duration: '12-16 min',
           description: 'Perform 3 rounds:\n• 10 wall balls\n• 10 slams\n• 10 Russian twists (each side)\nRest 1 min',
           imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxtZWRpY2luZSUyMGJhbGwlMjB3b3Jrb3V0fGVufDB8fHx8MTc1Njg4MzIzN3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Perfect beginner introduction to medicine ball training emphasizing proper throwing mechanics, core stability, and functional movement patterns with appropriate rest periods.',
@@ -1958,7 +1958,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
         },
         {
           name: 'Med Ball Flow',
-          duration: '12–15 min',
+          duration: '12-15 min',
           description: 'Perform 3 rounds:\n• 8 chest passes against wall\n• 8 overhead throws\n• 8 squat-to-press\nRest 1 min',
           imageUrl: 'https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwyfHxtZWRpY2luZSUyMGJhbGwlMjBmbG93fGVufDB8fHx8MTc1Njg4MzIzN3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Progressive movement flow that builds upper body power, coordination, and unilateral strength through varied medicine ball movement patterns.',
@@ -1971,7 +1971,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'refresh',
               title: 'Balance and Control',
-              description: 'Single-leg RDL—keep standing leg strong, control the descent and maintain neutral spine throughout entire range of motion.'
+              description: 'Single-leg RDL-keep standing leg strong, control the descent and maintain neutral spine throughout entire range of motion.'
             }
           ]
         }
@@ -2019,7 +2019,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
       advanced: [
         {
           name: 'Medicine Ball Complex',
-          duration: '16–20 min',
+          duration: '16-20 min',
           description: 'Perform 4 rounds:\n• 12 wall balls\n• 10 slams\n• 8 rotations (per side)\n• 6 burpee slams\nRest 1 min',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw1fHxtZWRpY2luZSUyMGJhbGwlMjBhZHZhbmNlZHxlbnwwfHx8fDE3NTY4ODMyMzd8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Elite-level complex demanding maximal power output, rotational strength, and metabolic conditioning through progressive ball weights and extended volume.',
@@ -2038,7 +2038,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
         },
         {
           name: 'Med Ball Sprint Circuit',
-          duration: '20–25 min',
+          duration: '20-25 min',
           description: 'Perform 5 rounds:\n• 10 wall balls\n• 20m sprint (with ball)\n• 10 slams\n• 20m sprint (with ball)\nRest 1 min',
           imageUrl: 'https://images.unsplash.com/photo-1517838277536-f5f99be501cd?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw2fHxtZWRpY2luZSUyMGJhbGwlMjBzcHJpbnR8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Peak-intensity circuit integrating medicine ball power movements with multi-directional sprint conditioning for complete athletic development.',
@@ -2065,7 +2065,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
       beginner: [
         {
           name: 'Slam Ball Basics',
-          duration: '12–16 min',
+          duration: '12-16 min',
           description: 'Perform 3 rounds:\n• 10 slams\n• 10 squat-to-press\n• 10 reverse lunges (ball at chest)\nRest 1 min',
           imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxzbGFtJTIwYmFsbCUyMHdvcmtvdXR8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Introduction to slam ball fundamentals focusing on proper lifting mechanics and control.',
@@ -2078,13 +2078,13 @@ const workoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'fitness',
               title: 'Lunge Position',
-              description: 'Lunges—ball close, posture upright.'
+              description: 'Lunges-ball close, posture upright.'
             }
           ]
         },
         {
           name: 'Slam Ball Flow',
-          duration: '12–15 min',
+          duration: '12-15 min',
           description: 'Perform 3 rounds:\n• 8 slams\n• 8 overhead throws\n• 8 Russian twists (per side)\nRest 1 min',
           imageUrl: 'https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwyfHxzbGFtJTIwYmFsbCUyMGZsb3d8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Movement progression adding overhead power and core rotation to basic slam patterns.',
@@ -2092,12 +2092,12 @@ const workoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'flash',
               title: 'Overhead Safety',
-              description: 'OH throw—legs drive, avoid spine arch.'
+              description: 'OH throw-legs drive, avoid spine arch.'
             },
             {
               icon: 'refresh',
               title: 'Core Rotation',
-              description: 'Twists—rotate torso, not just arms.'
+              description: 'Twists-rotate torso, not just arms.'
             }
           ]
         }
@@ -2113,7 +2113,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'flash',
               title: 'Lateral Slam Safety',
-              description: 'Lateral slams—pivot hips fully, protect knees.'
+              description: 'Lateral slams-pivot hips fully, protect knees.'
             },
             {
               icon: 'body',
@@ -2132,7 +2132,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'body',
               title: 'Burpee Form',
-              description: 'Burpee-slam—ball set dead center before drop.'
+              description: 'Burpee-slam-ball set dead center before drop.'
             },
             {
               icon: 'refresh',
@@ -2145,7 +2145,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
       advanced: [
         {
           name: 'Slam Ball Complex',
-          duration: '20–24 min',
+          duration: '20-24 min',
           description: 'Perform 4 rounds:\n• 12 slams\n• 10 lateral slams\n• 8 burpee slams\n• 6 overhead throws\nRest 1 min',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw1fHxzbGFtJTIwYmFsbCUyMGFkdmFuY2VkfGVufDB8fHx8MVc1Njg4MzIzN3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Advanced complex demanding maximum power output and conditioning with varied slam movements.',
@@ -2153,18 +2153,18 @@ const workoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'flash',
               title: 'Explosive Power',
-              description: 'Lateral slams—generate power from sides of core.'
+              description: 'Lateral slams-generate power from sides of core.'
             },
             {
               icon: 'body',
               title: 'Overhead Throw Power',
-              description: 'OH throw—hips snap, arms guide.'
+              description: 'OH throw-hips snap, arms guide.'
             }
           ]
         },
         {
           name: 'Slam Ball Sprint Circuit',
-          duration: '20–25 min',
+          duration: '20-25 min',
           description: 'Perform 5 rounds:\n• 10 slams\n• 20m sprint (with ball)\n• 10 lateral slams\n• 20m sprint (with ball)\nRest 1 min',
           imageUrl: 'https://images.unsplash.com/photo-1517838277536-f5f99be501cd?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw2fHxzbGFtJTIwYmFsbCUyMHNwcmludHxlbnwwfHx8fDE3NTY4ODMyMzd8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Peak performance circuit combining slam ball power with sprint conditioning.',
@@ -2191,7 +2191,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
       beginner: [
         {
           name: 'Rope Waves & Slams',
-          duration: '12–14 min',
+          duration: '12-14 min',
           description: 'Perform 5 rounds:\n• 20s alternating waves\n• 20s rest\n• 20s double slams\n• 20s rest',
           imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxiYXR0bGUlMjByb3BlcyUyMHdvcmtvdXR8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Introduction to battle rope fundamentals with manageable work-to-rest ratios.',
@@ -2210,7 +2210,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
         },
         {
           name: 'Rope Circuit',
-          duration: '12–15 min',
+          duration: '12-15 min',
           description: 'Perform 4 rounds:\n• 20s waves\n• 20s side-to-side waves\n• 20s slams\nRest 1 min',
           imageUrl: 'https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwyfHxiYXR0bGUlMjByb3BlcyUyMGNpcmN1aXR8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Varied rope movements building coordination and cardiovascular endurance.',
@@ -2244,13 +2244,13 @@ const workoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'refresh',
               title: 'Maintain Volume',
-              description: 'Keep efforts sharp—focus on short bursts.'
+              description: 'Keep efforts sharp-focus on short bursts.'
             }
           ]
         },
         {
           name: 'Rope & Burpee Combo',
-          duration: '20–22 min',
+          duration: '20-22 min',
           description: 'Perform 4 rounds:\n• 30s waves\n• 5 burpees\n• 30s slams\n• 5 burpees\nRest 1 min',
           imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxiYXR0bGUlMjByb3BlcyUyMGJ1cnBlZXxlbnwwfHx8fDE3NTY4ODMyMzd8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Combination training adding bodyweight movements to rope work for total body conditioning.',
@@ -2271,7 +2271,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
       advanced: [
         {
           name: 'Battle Rope Gauntlet',
-          duration: '24–26 min',
+          duration: '24-26 min',
           description: 'Perform 4 rounds:\n• 30s waves\n• 30s slams\n• 30s side-to-sides\n• 30s jacks\n• 30s circles\nRest 1 min',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw1fHxiYXR0bGUlMjByb3BlcyUyMGFkdmFuY2VkfGVufDB8fHx8MVc1Njg4MzIzN3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Extended high-intensity gauntlet testing advanced cardiovascular capacity and rope mastery.',
@@ -2290,7 +2290,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
         },
         {
           name: 'Rope & Sprint Circuit',
-          duration: '20–25 min',
+          duration: '20-25 min',
           description: 'Perform 5 rounds:\n• 20s waves\n• 20m sprint\n• 20s slams\n• 20m sprint\nRest 1 min',
           imageUrl: 'https://images.unsplash.com/photo-1517838277536-f5f99be501cd?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw2fHxiYXR0bGUlMjByb3BlcyUyMHNwcmludHxlbnwwfHx8fDE3NTY4ODMyMzd8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Ultimate conditioning circuit combining rope power with sprint speed for peak athletic performance.',
@@ -2298,7 +2298,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'flash',
               title: 'Sprint Form',
-              description: 'Sprints—tall posture, full arm drive.'
+              description: 'Sprints-tall posture, full arm drive.'
             },
             {
               icon: 'refresh',
@@ -2317,7 +2317,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
       beginner: [
         {
           name: 'Sled Push & Pull',
-          duration: '12–15 min',
+          duration: '12-15 min',
           description: 'Perform 5 rounds:\n• 10m push (light)\n• 10m backward pull\nRest 1 min',
           imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxzbGVkJTIwd29ya291dHxlbnwwfHx8fDE3NTY4ODMyMzd8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Introduction to sled training with light loads focusing on proper pushing and pulling mechanics.',
@@ -2330,13 +2330,13 @@ const workoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'flash',
               title: 'Pull Technique',
-              description: 'Backward pulls—fast, short steps.'
+              description: 'Backward pulls-fast, short steps.'
             }
           ]
         },
         {
           name: 'Sled March',
-          duration: '12–16 min',
+          duration: '12-16 min',
           description: 'Perform 4 rounds:\n• 15m slow push\n• 15m slow pull\nRest 1 min',
           imageUrl: 'https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwyfHxzbGVkJTIwbWFyY2h8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Controlled movement patterns building strength endurance and proper sled mechanics.',
@@ -2376,7 +2376,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
         },
         {
           name: 'Push & Drag Circuit',
-          duration: '20–22 min',
+          duration: '20-22 min',
           description: 'Perform 4 rounds:\n• 10m push (moderate)\n• 10m backward drag\n• 10m lateral push (sideways)\nRest 1 min',
           imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxzbGVkJTIwZHJhZ3xlbnwwfHx8fDE3NTY4ODMyMzd8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Multi-directional sled work challenging different movement patterns and muscle groups.',
@@ -2384,12 +2384,12 @@ const workoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'body',
               title: 'Sideways Technique',
-              description: 'Sideways—hips square, shuffles controlled.'
+              description: 'Sideways-hips square, shuffles controlled.'
             },
             {
               icon: 'refresh',
               title: 'Drag Position',
-              description: 'Backward drag—knees bent, chest tall.'
+              description: 'Backward drag-knees bent, chest tall.'
             }
           ]
         }
@@ -2397,7 +2397,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
       advanced: [
         {
           name: 'Sled Gauntlet',
-          duration: '24–28 min',
+          duration: '24-28 min',
           description: 'Perform 5 rounds:\n• 10m heavy push\n• 10m sprint push (light)\n• 10m backward drag\n• 10m lateral push\nRest 1 min',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw1fHxzbGVkJTIwYWR2YW5jZWR8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Advanced gauntlet combining maximum load with speed work for elite conditioning.',
@@ -2405,7 +2405,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'flash',
               title: 'Heavy Load Technique',
-              description: 'Heavy pushes—glutes and hamstrings drive.'
+              description: 'Heavy pushes-glutes and hamstrings drive.'
             },
             {
               icon: 'refresh',
@@ -2416,7 +2416,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
         },
         {
           name: 'Sled & Burpee Circuit',
-          duration: '24–26 min',
+          duration: '24-26 min',
           description: 'Perform 4 rounds:\n• 10m heavy push\n• 10 burpees\n• 10m backward drag\n• 10 burpees\nRest 1 min',
           imageUrl: 'https://images.unsplash.com/photo-1517838277536-f5f99be501cd?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHc2fHxzbGVkJTIwYnVycGVlfGVufDB8fHx8MTc1Njg4MzIzN3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Ultimate challenge combining heavy sled work with burpees for maximum conditioning stress.',
@@ -2424,7 +2424,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'body',
               title: 'Burpee Transition',
-              description: 'Drop tight into burpees—no sagging hips.'
+              description: 'Drop tight into burpees-no sagging hips.'
             },
             {
               icon: 'flash',
@@ -2443,7 +2443,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
       beginner: [
         {
           name: 'Band Cardio Circuit',
-          duration: '12–15 min',
+          duration: '12-15 min',
           description: 'Perform 3 rounds:\n• 10 banded squats (band around lower thighs, just above knees)\n• 10 band rows (anchor band at chest height, pull toward torso)\n• 10 band chest presses (anchor band behind you at chest level, press forward)\nRest 1 min',
           imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxyZXNpc3RhbmNlJTIwYmFuZCUyMHdvcmtvdXR8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Perfect introduction to resistance band training with simple movements that build fundamental strength patterns.',
@@ -2462,7 +2462,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
         },
         {
           name: 'Band Walks & Presses',
-          duration: '12–15 min',
+          duration: '12-15 min',
           description: 'Perform 3 rounds:\n• 10 lateral band walks (band around ankles)\n• 10 overhead presses (stand on middle of band, press handles/ends overhead)\nRest 1 min',
           imageUrl: 'https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwyfHxyZXNpc3RhbmNlJTIwYmFuZCUyMHdhbGt8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Focus on glute activation and shoulder stability through controlled lateral and vertical movements.',
@@ -2502,7 +2502,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
         },
         {
           name: 'Band Sprint Circuit',
-          duration: '20–22 min',
+          duration: '20-22 min',
           description: 'Perform 4 rounds:\n• 10 squat jumps (band around thighs)\n• 10 band sprints (band anchored behind you, loop around waist)\n• 10 band push-ups (band across upper back, anchored under palms)\nRest 1 min',
           imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxyZXNpc3RhbmNlJTIwYmFuZCUyMHNwcmludHxlbnwwfHx8fDE3NTY4ODMyMzd8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Power-focused circuit combining plyometrics with resisted sprint mechanics.',
@@ -2523,7 +2523,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
       advanced: [
         {
           name: 'Band Complex',
-          duration: '20–22 min',
+          duration: '20-22 min',
           description: 'Perform 4 rounds:\n• 12 squat jumps (band around thighs)\n• 10 push-ups (band across upper back, anchored under palms)\n• 8 sprints (band around waist, anchored behind you)\n• 6 burpees (optional: add light band loop around thighs for extra tension)\nRest 1 min',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw1fHxyZXNpc3RhbmNlJTIwYmFuZCUyMGFkdmFuY2VkfGVufDB8fHx8MVc1Njg4MzIzN3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Elite complex demanding maximal power output through progressive movement combinations.',
@@ -2536,13 +2536,13 @@ const workoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'body',
               title: 'Recoil Management',
-              description: 'Don\'t let band snap on release to prevent injury.'
+              description: "Don\'t let band snap on release to prevent injury."
             }
           ]
         },
         {
           name: 'Band & Plyo Circuit',
-          duration: '20–22 min',
+          duration: '20-22 min',
           description: 'Perform 4 rounds:\n• 10 jump lunges (band looped around thighs)\n• 10 mountain climbers (band anchored in front, looped around waist)\n• 10 rows (band anchored low, pull to ribs)\n• 10 push-ups (band across upper back, anchored under palms)\nRest 1 min',
           imageUrl: 'https://images.unsplash.com/photo-1517838277536-f5f99be501cd?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw2fHxyZXNpc3RhbmNlJTIwYmFuZCUyMHBseW98ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Advanced plyometric integration combining explosive movements with resistance training.',
@@ -2569,7 +2569,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
       beginner: [
         {
           name: 'Hammer Basics',
-          duration: '12–15 min',
+          duration: '12-15 min',
           description: 'Perform 3 rounds:\n• 10 hammer strikes (each side)\n• 10 tire step-ups\nRest 1 min',
           imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxzbGVkZ2VoYW1tZXIlMjB3b3Jrb3V0fGVufDB8fHx8TVc1Mjg4MzIzN3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Perfect introduction to sledgehammer training emphasizing proper striking mechanics and tire integration.',
@@ -2588,7 +2588,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
         },
         {
           name: 'Hammer & March',
-          duration: '12–16 min',
+          duration: '12-16 min',
           description: 'Perform 4 rounds:\n• 8 strikes (each side)\n• 8 tire toe taps\nRest 1 min',
           imageUrl: 'https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwyfHxzbGVkZ2VoYW1tZXIlMjBtYXJjaHxlbnwwfHx8fDE3NTY4ODMyMzd8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Progressive coordination workout building striking power and footwork agility.',
@@ -2609,7 +2609,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
       intermediate: [
         {
           name: 'Hammer & Burpee Circuit',
-          duration: '18–20 min',
+          duration: '18-20 min',
           description: 'Perform 4 rounds:\n• 10 strikes (each side)\n• 8 burpees\n• 10 tire jumps\nRest 1 min',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwzfHxzbGVkZ2VoYW1tZXIlMjBidXJwZWV8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Intermediate circuit combining sledgehammer power with plyometric and bodyweight movements.',
@@ -2628,8 +2628,8 @@ const workoutDatabase: EquipmentWorkouts[] = [
         },
         {
           name: 'Hammer Tabata',
-          duration: '16–18 min',
-          description: '20s strikes (switch side halfway) / 10s rest\n8 rounds = 4 min\nRest 1 min\nRepeat for 3 cycles (~16–18 min)',
+          duration: '16-18 min',
+          description: '20s strikes (switch side halfway) / 10s rest\n8 rounds = 4 min\nRest 1 min\nRepeat for 3 cycles (~16-18 min)',
           imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHc0fHxzbGVkZ2VoYW1tZXIlMjB0YWJhdGF8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'High-intensity Tabata intervals focused on developing sledgehammer-specific power endurance.',
           moodTips: [
@@ -2649,7 +2649,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
       advanced: [
         {
           name: 'Hammer Gauntlet',
-          duration: '20–24 min',
+          duration: '20-24 min',
           description: 'Perform 4 rounds:\n• 12 strikes (each side)\n• 10 tire jumps\n• 8 burpees\n• 6 tire flips\nRest 1 min',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw1fHxzbGVkZ2VoYW1tZXIlMjBhZHZhbmNlZHxlbnwwfHx8fDE3NTY4ODMyMzd8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Elite-level complex demanding maximum striking power and integrated strength movements.',
@@ -2668,7 +2668,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
         },
         {
           name: 'Hammer & Sprint Circuit',
-          duration: '20–25 min',
+          duration: '20-25 min',
           description: 'Perform 5 rounds:\n• 10 strikes (each side)\n• 20m sprint\n• 10 tire jumps\n• 20m sprint\nRest 1 min',
           imageUrl: 'https://images.unsplash.com/photo-1517838277536-f5f99be501cd?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw2fHxzbGVkZ2VoYW1tZXIlMjBzcHJpbnR8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Peak-intensity conditioning integrating sledgehammer power with sprint work for complete development.',
@@ -2695,7 +2695,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
       beginner: [
         {
           name: 'Tire Flip & Step',
-          duration: '12–15 min',
+          duration: '12-15 min',
           description: 'Perform 3 rounds:\n• 5 flips\n• 10 tire step-ups\nRest 1 min',
           imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHx0aXJlJTIwZmxpcCUyMHdvcmtvdXR8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Perfect introduction to tire flipping emphasizing proper lifting mechanics and complementary movements.',
@@ -2714,7 +2714,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
         },
         {
           name: 'Tire Flip & Tap',
-          duration: '12–16 min',
+          duration: '12-16 min',
           description: 'Perform 4 rounds:\n• 4 flips\n• 20 toe taps on tire\nRest 1 min',
           imageUrl: 'https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwyfHx0aXJlJTIwZmxpcCUyMHRhcHxlbnwwfHx8fDE3NTY4ODMyMzd8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Progressive strength and agility workout building tire flipping power with footwork conditioning.',
@@ -2735,7 +2735,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
       intermediate: [
         {
           name: 'Tire Flip & Jump',
-          duration: '14–16 min',
+          duration: '14-16 min',
           description: 'Perform 4 rounds:\n• 6 flips\n• 8 tire jumps\nRest 1 min',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwzfHx0aXJlJTIwZmxpcCUyMGp1bXB8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Intermediate circuit combining tire flipping power with plyometric jumping movements.',
@@ -2754,7 +2754,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
         },
         {
           name: 'Tire Flip Circuit',
-          duration: '14–18 min',
+          duration: '14-18 min',
           description: 'Perform 3 rounds:\n• 5 flips\n• 10 tire push-ups\n• 10 lateral jumps\nRest 1 min',
           imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHx0aXJlJTIwZmxpcCUyMGNpcmN1aXR8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Strength-focused circuit integrating tire manipulation with upper body and lateral movement patterns.',
@@ -2775,7 +2775,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
       advanced: [
         {
           name: 'Tire Flip Gauntlet',
-          duration: '20–22 min',
+          duration: '20-22 min',
           description: 'Perform 4 rounds:\n• 8 flips\n• 8 burpees\n• 8 tire jumps\n• 8 tire push-ups\nRest 1 min',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw1fHx0aXJlJTIwZmxpcCUyMGFkdmFuY2VkfGVufDB8fHx8TVc1Njg4MzIzN3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Elite-level complex demanding maximal tire flipping power and integrated conditioning movements.',
@@ -2794,7 +2794,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
         },
         {
           name: 'Tire Flip & Sprint',
-          duration: '20–22 min',
+          duration: '20-22 min',
           description: 'Perform 4 rounds:\n• 6 flips\n• 20m sprint\n• 6 flips\n• 20m sprint\nRest 1 min',
           imageUrl: 'https://images.unsplash.com/photo-1517838277536-f5f99be501cd?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw2fHx0aXJlJTIwZmxpcCUyMHNwcmludHxlbnwwfHx8fDE3NTY4ODMyMzd8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Peak-intensity conditioning integrating maximum tire manipulation with sprint work for complete development.',

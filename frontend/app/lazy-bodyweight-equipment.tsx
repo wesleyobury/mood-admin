@@ -30,16 +30,16 @@ interface DifficultyLevel {
 
 // Lazy bodyweight equipment options
 const equipmentOptions: EquipmentOption[] = [
-  { id: 'assault-bike', name: 'Assault Bike', icon: 'bicycle' },
-  { id: 'bodyweight-only', name: 'Body weight only', icon: 'body' },
-  { id: 'elliptical', name: 'Elliptical', icon: 'infinite' },
-  { id: 'jump-rope', name: 'Jump rope', icon: 'remove' },
-  { id: 'plyo-box', name: 'Plyo box', icon: 'cube' },
-  { id: 'rowing-machine', name: 'Rowing machine', icon: 'boat' },
-  { id: 'skierg', name: 'SkiErg', icon: 'snow' },
-  { id: 'stair-stepper', name: 'Stair stepper', icon: 'walk' },
-  { id: 'stationary-bike', name: 'Stationary bike', icon: 'bicycle' },
-  { id: 'treadmill', name: 'Treadmill', icon: 'walk' },
+  { id: 'assault-bike', name: "Assault Bike', icon: 'bicycle" },
+  { id: 'bodyweight-only', name: "Body weight only', icon: 'body" },
+  { id: 'elliptical', name: "Elliptical', icon: 'infinite" },
+  { id: 'jump-rope', name: "Jump rope', icon: 'remove" },
+  { id: 'plyo-box', name: "Plyo box', icon: 'cube" },
+  { id: 'rowing-machine', name: "Rowing machine', icon: 'boat" },
+  { id: 'skierg', name: "SkiErg', icon: 'snow" },
+  { id: 'stair-stepper', name: "Stair stepper', icon: 'walk" },
+  { id: 'stationary-bike', name: "Stationary bike', icon: 'bicycle" },
+  { id: 'treadmill', name: "Treadmill', icon: 'walk" },
 ];
 
 // Difficulty levels with lazy-appropriate descriptions

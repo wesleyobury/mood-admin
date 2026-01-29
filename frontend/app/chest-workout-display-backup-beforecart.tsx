@@ -49,7 +49,7 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
       beginner: [
         {
           name: 'Push-Up Circuit',
-          duration: '10–12 min',
+          duration: '10-12 min',
           description: 'Push-ups and dips using the bench to\nbuild beginner chest strength and control.\n ',
           battlePlan: '3 rounds:\n• 10 push-ups (hands on bench)\n• 10 bench dips\nRest 60s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8MTc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
@@ -69,9 +69,9 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
         },
         {
           name: 'Chest Press',
-          duration: '12–15 min',
+          duration: '12-15 min',
           description: 'Light bench press and fly pairing to\ndevelop chest contraction and stretch.\n ',
-          battlePlan: '3 rounds:\n• 12 light dumbbell or Smith bench press\n• 10 dumbbell bench fly\nRest 60–75s',
+          battlePlan: '3 rounds:\n• 12 light dumbbell or Smith bench press\n• 10 dumbbell bench fly\nRest 60-75s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Beginner-friendly pressing and isolation movement foundation.',
           moodTips: [
@@ -91,9 +91,9 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
       intermediate: [
         {
           name: 'Plyo Push-Ups',
-          duration: '14–16 min',
+          duration: '14-16 min',
           description: 'Explosive push-ups and single-arm presses\nfor power and unilateral strength.\n ',
-          battlePlan: '4 rounds:\n• 8 explosive push-ups (hands on bench)\n• 10 single-arm bench press\nRest 60–75s',
+          battlePlan: '4 rounds:\n• 8 explosive push-ups (hands on bench)\n• 10 single-arm bench press\nRest 60-75s',
           imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Explosive plyometric training with unilateral strength development.',
           moodTips: [
@@ -111,7 +111,7 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
         },
         {
           name: 'Chest Flow',
-          duration: '12–15 min',
+          duration: '12-15 min',
           description: 'Bench press, fly, and close-grip sequence\nfor balanced chest hypertrophy.\n ',
           battlePlan: '3 rounds:\n• 10 bench press\n• 10 fly\n• 10 close-grip bench press\nRest 90s',
           imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
@@ -119,7 +119,7 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
           moodTips: [
             {
               icon: 'refresh',
-              title: 'Fly → press transition, don\'t rest',
+              title: "Fly → press transition, don\'t rest",
               description: 'Overloads pecs by hitting both stretch and contraction.'
             },
             {
@@ -133,7 +133,7 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
       advanced: [
         {
           name: 'Bench Complex',
-          duration: '15–18 min',
+          duration: '15-18 min',
           description: 'Multi-move complex combining presses,\nflys, push-ups, and dips for overload.\n ',
           battlePlan: '3 rounds:\n• 8 bench press\n• 8 bench fly\n• 8 plyo push-ups (hands on bench)\n• 8 dips\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmc&ZW54MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
@@ -153,15 +153,15 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
         },
         {
           name: 'Drop Set',
-          duration: '16–20 min',
+          duration: '16-20 min',
           description: 'Heavy-to-light drop set presses to\nmaximize fatigue and muscle growth.\n ',
-          battlePlan: '2 rounds:\n• 10 heavy bench press\n• Drop → 10 moderate\n• Drop → 10 light\nRest 90–120s',
+          battlePlan: '2 rounds:\n• 10 heavy bench press\n• Drop → 10 moderate\n• Drop → 10 light\nRest 90-120s',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'High-intensity drop sets for advanced muscle failure.',
           moodTips: [
             {
               icon: 'shield',
-              title: 'Keep reps 0–1 shy of failure',
+              title: 'Keep reps 0-1 shy of failure',
               description: 'Maximize recruitment without burnout for optimal results.'
             },
             {
@@ -181,7 +181,7 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
       beginner: [
         {
           name: 'Push-Up Circuit',
-          duration: '10–12 min',
+          duration: '10-12 min',
           description: 'Incline push-ups and presses to\ntarget upper chest endurance.\n ',
           battlePlan: '3 rounds:\n• 10 incline push-ups\n• 10 light incline bench press\nRest 60s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8TVc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
@@ -190,7 +190,7 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'body',
               title: 'Push-ups: Push through hands',
-              description: 'As if you\'re "wrapping chest around ribcage" for better activation.'
+              description: "As if you\'re "wrapping chest around ribcage" for better activation."
             },
             {
               icon: 'trending-up',
@@ -201,9 +201,9 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
         },
         {
           name: 'Chest Press',
-          duration: '12–15 min',
+          duration: '12-15 min',
           description: 'Incline press and fly combo for\nupper pec activation.\n ',
-          battlePlan: '3 rounds:\n• 12 incline bench press (light)\n• 10 incline fly\nRest 60–75s',
+          battlePlan: '3 rounds:\n• 12 incline bench press (light)\n• 10 incline fly\nRest 60-75s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Beginner incline pressing and isolation combination.',
           moodTips: [
@@ -223,9 +223,9 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
       intermediate: [
         {
           name: 'Plyo Push-Ups',
-          duration: '14–16 min',
+          duration: '14-16 min',
           description: 'Plyo push-ups and single-arm presses\nfor explosive upper chest strength.\n ',
-          battlePlan: '4 rounds:\n• 8 incline plyo push-ups\n• 10 single-arm incline press\nRest 60–75s',
+          battlePlan: '4 rounds:\n• 8 incline plyo push-ups\n• 10 single-arm incline press\nRest 60-75s',
           imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Explosive training for intermediate upper chest power.',
           moodTips: [
@@ -243,7 +243,7 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
         },
         {
           name: 'Chest Flow',
-          duration: '12–15 min',
+          duration: '12-15 min',
           description: 'Incline press, fly, and close-grip press\nsequence for growth density.\n ',
           battlePlan: '3 rounds:\n• 10 incline bench press\n• 10 incline fly\n• 10 close-grip incline press\nRest 90s',
           imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
@@ -265,7 +265,7 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
       advanced: [
         {
           name: 'Incline Complex',
-          duration: '15–18 min',
+          duration: '15-18 min',
           description: 'Press, fly, push-ups, and dips for\ncomplete incline overload.\n ',
           battlePlan: '3 rounds:\n• 8 incline bench press\n• 8 incline fly\n• 8 incline plyo push-ups\n• 8 dips\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmc&ZW54MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
@@ -285,9 +285,9 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
         },
         {
           name: 'Drop Set',
-          duration: '16–20 min',
+          duration: '16-20 min',
           description: 'Heavy-to-light incline presses for\nmaximum fatigue and hypertrophy.\n ',
-          battlePlan: '2 rounds:\n• 10 heavy incline press\n• Drop → 10 moderate\n• Drop → 10 light\nRest 90–120s',
+          battlePlan: '2 rounds:\n• 10 heavy incline press\n• Drop → 10 moderate\n• Drop → 10 light\nRest 90-120s',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'High-intensity incline drop sets for advanced hypertrophy.',
           moodTips: [
@@ -299,7 +299,7 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'shield',
               title: 'Keep scapula pinned',
-              description: 'Don\'t let shoulders roll forward under fatigue for safety and effectiveness.'
+              description: "Don\'t let shoulders roll forward under fatigue for safety and effectiveness."
             }
           ]
         }
@@ -313,9 +313,9 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
       beginner: [
         {
           name: 'Press Circuit',
-          duration: '15–18 min',
+          duration: '15-18 min',
           description: 'Presses at flat, incline, and decline\nangles for full pec coverage.\n ',
-          battlePlan: '3 rounds:\n• 10 flat press\n• 10 incline press\n• 10 decline press (light)\nRest 60–75s',
+          battlePlan: '3 rounds:\n• 10 flat press\n• 10 incline press\n• 10 decline press (light)\nRest 60-75s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8MVc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Perfect multi-angle introduction targeting all pec areas.',
           moodTips: [
@@ -333,7 +333,7 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
         },
         {
           name: 'Fly Flow',
-          duration: '12–15 min',
+          duration: '12-15 min',
           description: 'Flat, incline, and decline flys for\nchest isolation from all angles.\n ',
           battlePlan: '3 rounds:\n• 10 flat fly\n• 10 incline fly\n• 10 decline fly (light)\nRest 60s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
@@ -347,7 +347,7 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'flash',
               title: 'Bring dumbbells together until they meet',
-              description: 'Not just overhead—to force full contraction and muscle activation.'
+              description: 'Not just overhead-to force full contraction and muscle activation.'
             }
           ]
         }
@@ -355,7 +355,7 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
       intermediate: [
         {
           name: 'Angle Ladder',
-          duration: '14–16 min',
+          duration: '14-16 min',
           description: 'Press progression across flat, incline,\nand decline angles for fiber recruitment.\n ',
           battlePlan: '3 rounds:\n• 8 flat press\n• 8 incline press\n• 8 decline press\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
@@ -368,14 +368,14 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
             },
             {
               icon: 'timer',
-              title: 'Don\'t rush—feel pec stretch',
+              title: "Don\'t rush-feel pec stretch",
               description: 'On each angle for maximum muscle activation and growth.'
             }
           ]
         },
         {
           name: 'Plyo Push-Ups',
-          duration: '14–16 min',
+          duration: '14-16 min',
           description: 'Explosive push-ups at varying angles\nplus single-arm presses for adaptation.\n ',
           battlePlan: '4 rounds:\n• 8 explosive plyo push-ups (vary bench angle each round)\n• 10 single-arm press\nRest 75s',
           imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
@@ -397,7 +397,7 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
       advanced: [
         {
           name: 'Complex',
-          duration: '15–20 min',
+          duration: '15-20 min',
           description: 'Multi-angle presses and fly for\nhypertrophy density.\n ',
           battlePlan: '3 rounds:\n• 8 flat press\n• 8 incline press\n• 8 decline press\n• 8 fly (choose angle)\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmc&ZW54MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
@@ -417,15 +417,15 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
         },
         {
           name: 'Drop Set',
-          duration: '16–20 min',
+          duration: '16-20 min',
           description: 'Heavy-to-light pressing at any angle\nfor intense chest burnout.\n ',
-          battlePlan: '2 rounds:\n• 10 heavy press (any angle)\n• Drop → 10 moderate\n• Drop → 10 light\nRest 90–120s',
+          battlePlan: '2 rounds:\n• 10 heavy press (any angle)\n• Drop → 10 moderate\n• Drop → 10 light\nRest 90-120s',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'High-intensity drop sets with time under tension focus.',
           moodTips: [
             {
               icon: 'flash',
-              title: 'Don\'t save energy',
+              title: "Don\'t save energy",
               description: 'Heavy set should be all-out near failure for maximum recruitment.'
             },
             {
@@ -445,7 +445,7 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
       beginner: [
         {
           name: 'Push-Up Circuit',
-          duration: '10–12 min',
+          duration: '10-12 min',
           description: 'Decline push-ups and presses for\nlower chest activation.\n ',
           battlePlan: '3 rounds:\n• 8 decline push-ups (feet on bench)\n• 10 decline bench press (light)\nRest 60s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHc5fHxyaW5nfGVufDB8fHx8MVc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
@@ -465,9 +465,9 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
         },
         {
           name: 'Chest Press',
-          duration: '12–15 min',
+          duration: '12-15 min',
           description: 'Decline press and fly combo for\nlower pec focus.\n ',
-          battlePlan: '3 rounds:\n• 12 decline bench press (light)\n• 10 decline fly\nRest 60–75s',
+          battlePlan: '3 rounds:\n• 12 decline bench press (light)\n• 10 decline fly\nRest 60-75s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Beginner decline pressing and isolation combination.',
           moodTips: [
@@ -487,9 +487,9 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
       intermediate: [
         {
           name: 'Plyo Push-Ups',
-          duration: '14–15 min',
+          duration: '14-15 min',
           description: 'Explosive decline push-ups and single-arm\npresses for power and tension.\n ',
-          battlePlan: '4 rounds:\n• 8 decline plyo push-ups\n• 10 single-arm decline press\nRest 60–75s',
+          battlePlan: '4 rounds:\n• 8 decline plyo push-ups\n• 10 single-arm decline press\nRest 60-75s',
           imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Explosive training for intermediate lower chest power.',
           moodTips: [
@@ -507,7 +507,7 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
         },
         {
           name: 'Chest Flow',
-          duration: '12–15 min',
+          duration: '12-15 min',
           description: 'Decline press, fly, and close-grip bench\npress for metabolic stress.\n ',
           battlePlan: '3 rounds:\n• 10 decline bench press\n• 10 decline fly\n• 10 close-grip decline press\nRest 90s',
           imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
@@ -529,7 +529,7 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
       advanced: [
         {
           name: 'Complex',
-          duration: '15–18 min',
+          duration: '15-18 min',
           description: 'Decline press, fly, push-ups, and dips\nfor complete chest overload.\n ',
           battlePlan: '3 rounds:\n• 8 decline bench press\n• 8 decline fly\n• 8 decline plyo push-ups\n• 8 dips\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmc&ZW54MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
@@ -549,9 +549,9 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
         },
         {
           name: 'Drop Set',
-          duration: '16–20 min',
+          duration: '16-20 min',
           description: 'Heavy-to-light decline presses for\nprogressive hypertrophy.\n ',
-          battlePlan: '2 rounds:\n• 10 heavy decline press\n• Drop → 10 moderate\n• Drop → 10 light\nRest 90–120s',
+          battlePlan: '2 rounds:\n• 10 heavy decline press\n• Drop → 10 moderate\n• Drop → 10 light\nRest 90-120s',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'High-intensity decline drop sets for advanced hypertrophy.',
           moodTips: [
@@ -577,9 +577,9 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
       beginner: [
         {
           name: 'Chest Press',
-          duration: '12–14 min',
+          duration: '12-14 min',
           description: 'Flat and incline Smith presses for\nguided pressing strength.\n ',
-          battlePlan: '3 rounds:\n• 10 Smith bench press\n• 8 Smith incline press\n• 10 push-ups\nRest 60–75s',
+          battlePlan: '3 rounds:\n• 10 Smith bench press\n• 8 Smith incline press\n• 10 push-ups\nRest 60-75s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHc5fHxyaW5nfGVufDB8fHx8MVc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Safe introduction to barbell movements with stability.',
           moodTips: [
@@ -597,7 +597,7 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
         },
         {
           name: 'Push-Up Circuit',
-          duration: '10–12 min',
+          duration: '10-12 min',
           description: 'Push-ups and close-grip Smith presses\nfor foundational chest endurance.\n ',
           battlePlan: '3 rounds:\n• 8 Smith bench press\n• 8 Smith close-grip press\nRest 60s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
@@ -619,7 +619,7 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
       intermediate: [
         {
           name: 'Angle Ladder',
-          duration: '14–15 min',
+          duration: '14-15 min',
           description: 'Flat, incline, and decline Smith presses\nto stress fibers at all angles.\n ',
           battlePlan: '4 rounds:\n• 8 Smith bench press\n• 6 Smith incline press\n• 8 Smith close-grip press\nRest 75s',
           imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHc0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
@@ -639,7 +639,7 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
         },
         {
           name: 'Plyo Push-Ups',
-          duration: '14–16 min',
+          duration: '14-16 min',
           description: 'Explosive bar push-ups and single-arm\npresses for power and hypertrophy.\n ',
           battlePlan: '3 rounds:\n• 6 Smith bench press\n• 8 Smith incline press\n• 10 push-ups\n• 8 dips\nRest 90s',
           imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
@@ -661,9 +661,9 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
       advanced: [
         {
           name: 'Complex',
-          duration: '15–18 min',
+          duration: '15-18 min',
           description: 'Pressing complex at multiple angles\nfor sustained chest tension.\n ',
-          battlePlan: '3 rounds:\n• 6 heavy Smith bench press\n• Drop → 8 moderate\n• Drop → 10 light\n• 8 Smith incline press\nRest 90–120s',
+          battlePlan: '3 rounds:\n• 6 heavy Smith bench press\n• Drop → 8 moderate\n• Drop → 10 light\n• 8 Smith incline press\nRest 90-120s',
           imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmc&ZW54MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Advanced drop set protocol using Smith machine safety.',
           moodTips: [
@@ -681,7 +681,7 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
         },
         {
           name: 'Drop Set',
-          duration: '16–20 min',
+          duration: '16-20 min',
           description: 'Heavy-to-light Smith pressing for\nchest fatigue and growth.\n ',
           battlePlan: '3 rounds:\n• 5 explosive Smith bench press\n• 6 controlled Smith bench press\n• 8 Smith incline press\n• 10 push-ups\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHc0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
@@ -709,9 +709,9 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
       beginner: [
         {
           name: 'Press Circuit',
-          duration: '12–14 min',
+          duration: '12-14 min',
           description: 'Machine press variations with close-grip\nfocus for controlled activation.\n ',
-          battlePlan: '3 rounds:\n• 12 chest press (light)\n• 10 wide grip press\n• 10 narrow grip press\nRest 60–75s',
+          battlePlan: '3 rounds:\n• 12 chest press (light)\n• 10 wide grip press\n• 10 narrow grip press\nRest 60-75s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHc5fHxyaW5nfGVufDB8fHx8MVc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Safe machine-based introduction with different grip positions.',
           moodTips: [
@@ -729,7 +729,7 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
         },
         {
           name: 'Press & Fly',
-          duration: '12–14 min',
+          duration: '12-14 min',
           description: 'Press and fly pairing for contraction\nand stretch under load.\n ',
           battlePlan: '3 rounds:\n• 10 chest press\n• 10 pec deck (if available)\nRest 60s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
@@ -751,7 +751,7 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
       intermediate: [
         {
           name: 'Drop Set',
-          duration: '16–18 min',
+          duration: '16-18 min',
           description: 'Heavy-to-light machine press drop set\nfor maximum pump.\n ',
           battlePlan: '4 rounds:\n• 12 light chest press\n• 10 moderate chest press\n• 8 heavy chest press\nRest 75s',
           imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
@@ -771,7 +771,7 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
         },
         {
           name: 'Ladder',
-          duration: '14–16 min',
+          duration: '14-16 min',
           description: 'Wide, neutral, and close grips to\ntarget full chest fibers.\n ',
           battlePlan: '3 rounds:\n• 8 heavy chest press\n• 10 single-arm chest press\n• 12 pec deck\nRest 90s',
           imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
@@ -795,7 +795,7 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
           name: 'AMRAP',
           duration: '10 min',
           description: '10-minute maximum volume chest\npress challenge.\n ',
-          battlePlan: '3 rounds:\n• 8 heavy chest press\n• Drop → 10 moderate\n• Drop → 12 light\n• 10 pec deck\nRest 90–120s',
+          battlePlan: '3 rounds:\n• 8 heavy chest press\n• Drop → 10 moderate\n• Drop → 12 light\n• 10 pec deck\nRest 90-120s',
           imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmc&ZW54MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Advanced drop set protocol using machine safety.',
           moodTips: [
@@ -813,7 +813,7 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
         },
         {
           name: 'Complex',
-          duration: '15–18 min',
+          duration: '15-18 min',
           description: 'Wide, close, and single-arm presses\nfor hypertrophy and stability.\n ',
           battlePlan: '3 rounds:\n• 6 explosive chest press\n• 8 controlled chest press\n• 10 pec deck\n• 8 single-arm press\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
@@ -841,7 +841,7 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
       beginner: [
         {
           name: 'Pec Dec Circuit',
-          duration: '12–14 min',
+          duration: '12-14 min',
           description: 'Pec fly and rear delt fly combo for\nchest-shoulder balance.\n ',
           battlePlan: '3 rounds:\n• 12 pec dec fly\n• 10 reverse pec dec (rear delts)\nRest 60s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHc5fHxyaW5nfGVufDB8fHx8MVc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
@@ -861,9 +861,9 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
         },
         {
           name: 'Pec Dec Hold',
-          duration: '10–12 min',
+          duration: '10-12 min',
           description: 'Pec flys with static holds for\ncontraction emphasis.\n ',
-          battlePlan: '3 rounds:\n• 10 pec dec fly\n• 8 chest press (if available)\n• 10 pec dec fly\nRest 60–75s',
+          battlePlan: '3 rounds:\n• 10 pec dec fly\n• 8 chest press (if available)\n• 10 pec dec fly\nRest 60-75s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Isolation-focused circuit combining pec dec with pressing.',
           moodTips: [
@@ -883,7 +883,7 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
       intermediate: [
         {
           name: 'Drop Set',
-          duration: '16–18 min',
+          duration: '16-18 min',
           description: 'Heavy-to-light pec deck flys for\nstretch and squeeze combo.\n ',
           battlePlan: '4 rounds:\n• 12 light pec dec\n• 10 moderate pec dec\n• 8 heavy pec dec\nRest 75s',
           imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
@@ -903,7 +903,7 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
         },
         {
           name: 'Ladder',
-          duration: '14–15 min',
+          duration: '14-15 min',
           description: 'Wide-to-close grip fly ladder for\nfull fiber recruitment.\n ',
           battlePlan: '3 rounds:\n• 12 pec dec fly\n• 8 chest press (immediately after)\n• 10 push-ups\nRest 90s',
           imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
@@ -927,7 +927,7 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
           name: 'AMRAP',
           duration: '10 min',
           description: 'Max pec deck fly reps in 10 minutes\nfor burnout.\n ',
-          battlePlan: '3 rounds:\n• 10 heavy pec dec\n• Drop → 12 moderate\n• Drop → 15 light\n• 8 chest press\nRest 90–120s',
+          battlePlan: '3 rounds:\n• 10 heavy pec dec\n• Drop → 12 moderate\n• Drop → 15 light\n• 8 chest press\nRest 90-120s',
           imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmc&ZW54MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Advanced drop set protocol maximizing chest isolation.',
           moodTips: [
@@ -945,9 +945,9 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
         },
         {
           name: 'Complex',
-          duration: '15–18 min',
+          duration: '15-18 min',
           description: 'Fly variations including rear delt and\nsingle-arm for chest/shoulder isolation.\n ',
-          battlePlan: '2 rounds:\n• 20 pec dec fly\n• 15 chest press\n• 20 pec dec fly\n• Max push-ups\nRest 2–3 min',
+          battlePlan: '2 rounds:\n• 20 pec dec fly\n• 15 chest press\n• 20 pec dec fly\n• Max push-ups\nRest 2-3 min',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'High-volume pec dec finisher for maximum chest pump.',
           moodTips: [
@@ -973,9 +973,9 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
       beginner: [
         {
           name: 'Fly Circuit',
-          duration: '12–14 min',
+          duration: '12-14 min',
           description: 'Cable flys at standing and low-to-high\nangles for tension and stretch.\n ',
-          battlePlan: '3 rounds:\n• 10 cable fly (high position)\n• 10 cable fly (low position)\n• 8 cable press\nRest 60–75s',
+          battlePlan: '3 rounds:\n• 10 cable fly (high position)\n• 10 cable fly (low position)\n• 8 cable press\nRest 60-75s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8TVc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Perfect introduction to cable chest training with angles.',
           moodTips: [
@@ -993,9 +993,9 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
         },
         {
           name: 'Press Circuit',
-          duration: '12–14 min',
+          duration: '12-14 min',
           description: 'Standing and single-arm presses with\ncables for chest isolation.\n ',
-          battlePlan: '3 rounds:\n• 10 standing cable press\n• 8 single-arm cable press (each arm)\n• 10 cable fly\nRest 60–75s',
+          battlePlan: '3 rounds:\n• 10 standing cable press\n• 8 single-arm cable press (each arm)\n• 10 cable fly\nRest 60-75s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlknwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Functional cable training combining bilateral and unilateral work.',
           moodTips: [
@@ -1015,7 +1015,7 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
       intermediate: [
         {
           name: 'Fly Ladder',
-          duration: '14–16 min',
+          duration: '14-16 min',
           description: 'High-to-low, low-to-high, and mid flys\nto hit pecs at every line.\n ',
           battlePlan: '3 rounds:\n• 8 high cable fly\n• 8 mid cable fly\n• 8 low cable fly\n• 10 cable press\nRest 90s',
           imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
@@ -1035,7 +1035,7 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
         },
         {
           name: 'Press & Fly',
-          duration: '14–16 min',
+          duration: '14-16 min',
           description: 'Press, fly, and single-arm fly sequence\nfor hypertrophy density.\n ',
           battlePlan: '3 rounds:\n• 8 explosive cable press\n• 10 single-arm cable fly\n• 8 cable punches\nRest 90s',
           imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
@@ -1057,9 +1057,9 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
       advanced: [
         {
           name: 'Complex',
-          duration: '15–18 min',
+          duration: '15-18 min',
           description: 'Multi-plane cable presses and flys\nfor total pec tension.\n ',
-          battlePlan: '3 rounds:\n• 8 heavy cable fly (all angles)\n• Drop → 10 moderate\n• Drop → 12 light\n• 8 cable press\nRest 90–120s',
+          battlePlan: '3 rounds:\n• 8 heavy cable fly (all angles)\n• Drop → 10 moderate\n• Drop → 12 light\n• 8 cable press\nRest 90-120s',
           imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmc&ZW54MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Advanced drop set training with constant cable tension.',
           moodTips: [
@@ -1077,9 +1077,9 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
         },
         {
           name: 'Drop Set',
-          duration: '16–18 min',
+          duration: '16-18 min',
           description: 'Heavy-to-light flys with holds for\ndeep chest pump.\n ',
-          battlePlan: '2 rounds:\n• 15 high cable fly\n• 15 mid cable fly\n• 15 low cable fly\n• 10 cable press\nRest 2–3 min',
+          battlePlan: '2 rounds:\n• 15 high cable fly\n• 15 mid cable fly\n• 15 low cable fly\n• 10 cable press\nRest 2-3 min',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'High-volume cable finisher for maximum chest pump.',
           moodTips: [
@@ -1105,7 +1105,7 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
       beginner: [
         {
           name: 'Assisted Dips',
-          duration: '12–14 min',
+          duration: '12-14 min',
           description: 'Assisted dips and bench dips for\nbeginner chest activation.\n ',
           battlePlan: '3 rounds:\n• 8 assisted dips (use band or machine)\n• 10 bench dips\nRest 60s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8MVc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
@@ -1125,9 +1125,9 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
         },
         {
           name: 'Dip & Push-Up',
-          duration: '10–12 min',
+          duration: '10-12 min',
           description: 'Dips and push-ups paired for\nchest pump endurance.\n ',
-          battlePlan: '3 rounds:\n• 6 assisted dips\n• 8 bench dips\n• 10 push-ups\nRest 60–75s',
+          battlePlan: '3 rounds:\n• 6 assisted dips\n• 8 bench dips\n• 10 push-ups\nRest 60-75s',
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Progressive dip training with complementary movements.',
           moodTips: [
@@ -1147,7 +1147,7 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
       intermediate: [
         {
           name: 'Dip Ladder',
-          duration: '14–15 min',
+          duration: '14-15 min',
           description: 'Standard, elevated, and negative dips\nfor progressive overload.\n ',
           battlePlan: '4 rounds:\n• 8 bodyweight dips\n• 10 bench dips\n• 8 diamond push-ups\nRest 75s',
           imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
@@ -1191,7 +1191,7 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
           name: 'Weighted Dips',
           duration: '10 min',
           description: 'Max dips in 10 minutes, adding\nweight if possible.\n ',
-          battlePlan: '3 rounds:\n• 8 weighted dips\n• 10 bodyweight dips\n• 12 bench dips\n• 10 push-ups\nRest 90–120s',
+          battlePlan: '3 rounds:\n• 8 weighted dips\n• 10 bodyweight dips\n• 12 bench dips\n• 10 push-ups\nRest 90-120s',
           imageUrl: 'https://images.unsplash.com/photo-1599058917212-d750089bc07e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxmaXRuZXNzJTIwdHJhaW5pbmc&ZW54MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Advanced weighted dip complex with descending difficulty.',
           moodTips: [
@@ -1209,9 +1209,9 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
         },
         {
           name: 'Complex',
-          duration: '15–18 min',
+          duration: '15-18 min',
           description: 'Dips, push-ups, plyo push-ups, and\nnegatives for chest finishing burnout.\n ',
-          battlePlan: '2 rounds:\n• Max bodyweight dips\n• 20 bench dips\n• 15 diamond push-ups\n• 20 regular push-ups\nRest 2–3 min',
+          battlePlan: '2 rounds:\n• Max bodyweight dips\n• 20 bench dips\n• 15 diamond push-ups\n• 20 regular push-ups\nRest 2-3 min',
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Advanced endurance challenge testing maximum dip capacity.',
           moodTips: [

@@ -30,13 +30,13 @@ interface DifficultyLevel {
 
 // Bodyweight explosiveness equipment options
 const equipmentOptions: EquipmentOption[] = [
-  { id: 'battle-ropes', name: 'Battle Ropes', icon: 'remove' },
-  { id: 'body-weight-only', name: 'Body Weight Only', icon: 'body' },
-  { id: 'kettle-bell', name: 'Kettle Bell', icon: 'fitness' },
-  { id: 'med-ball', name: 'Med Ball', icon: 'basketball' },
-  { id: 'plyo-box', name: 'Plyo Box', icon: 'cube' },
-  { id: 'sand-bag', name: 'Sand Bag', icon: 'bag' },
-  { id: 'sled', name: 'Sled', icon: 'car-sport' },
+  { id: 'battle-ropes', name: "Battle Ropes', icon: 'remove" },
+  { id: 'body-weight-only', name: "Body Weight Only', icon: 'body" },
+  { id: 'kettle-bell', name: "Kettle Bell', icon: 'fitness" },
+  { id: 'med-ball', name: "Med Ball', icon: 'basketball" },
+  { id: 'plyo-box', name: "Plyo Box', icon: 'cube" },
+  { id: 'sand-bag', name: "Sand Bag', icon: 'bag" },
+  { id: 'sled', name: "Sled', icon: 'car-sport" },
 ];
 
 // Difficulty levels with explosiveness-appropriate descriptions

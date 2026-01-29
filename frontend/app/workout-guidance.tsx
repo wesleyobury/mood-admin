@@ -590,8 +590,8 @@ export default function WorkoutGuidanceScreen() {
         'Workout in Progress',
         'Are you sure you want to go back? Your progress will be lost.',
         [
-          { text: 'Cancel', style: 'cancel' },
-          { text: 'Go Back', style: 'destructive', onPress: () => router.back() }
+          { text: "Cancel', style: 'cancel" },
+          { text: "Go Back', style: 'destructive", onPress: () => router.back() }
         ]
       );
     } else {

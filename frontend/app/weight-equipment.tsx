@@ -30,12 +30,12 @@ interface DifficultyLevel {
 
 // Explosiveness weight equipment options (alphabetical order)
 const equipmentOptions: EquipmentOption[] = [
-  { id: 'chains-bands', name: 'Chains / Bands', icon: 'git-network' },
-  { id: 'dumbbells', name: 'Dumbbells', icon: 'fitness' },
-  { id: 'kettlebells', name: 'Kettlebells', icon: 'fitness' },
-  { id: 'landmine', name: 'Landmine Attachment', icon: 'analytics' },
-  { id: 'power-lifting', name: 'Power Lifting Platform', icon: 'barbell' },
-  { id: 'trap-bar', name: 'Trap Hex Bar', icon: 'stop' },
+  { id: 'chains-bands', name: "Chains / Bands', icon: 'git-network" },
+  { id: 'dumbbells', name: "Dumbbells', icon: 'fitness" },
+  { id: 'kettlebells', name: "Kettlebells', icon: 'fitness" },
+  { id: 'landmine', name: "Landmine Attachment', icon: 'analytics" },
+  { id: 'power-lifting', name: "Power Lifting Platform', icon: 'barbell" },
+  { id: 'trap-bar', name: "Trap Hex Bar', icon: 'stop" },
 ];
 
 // Difficulty levels with explosiveness-appropriate descriptions

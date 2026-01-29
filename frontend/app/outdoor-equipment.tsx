@@ -30,12 +30,12 @@ interface DifficultyLevel {
 
 // Outdoor activity options
 const equipmentOptions: EquipmentOption[] = [
-  { id: 'bike', name: 'Bike', icon: 'bicycle' },
-  { id: 'hills', name: 'Hills', icon: 'trending-up' },
-  { id: 'outdoor-run', name: 'Outdoor Run', icon: 'walk' },
-  { id: 'park-workout', name: 'Park workout', icon: 'leaf' },
-  { id: 'swim', name: 'Swim', icon: 'water' },
-  { id: 'track-workout', name: 'Track workout', icon: 'ellipse-outline' },
+  { id: 'bike', name: "Bike', icon: 'bicycle" },
+  { id: 'hills', name: "Hills', icon: 'trending-up" },
+  { id: 'outdoor-run', name: "Outdoor Run', icon: 'walk" },
+  { id: 'park-workout', name: "Park workout', icon: 'leaf" },
+  { id: 'swim', name: "Swim', icon: 'water" },
+  { id: 'track-workout', name: "Track workout', icon: 'ellipse-outline" },
 ];
 
 // Difficulty levels with outdoor-appropriate descriptions

@@ -201,7 +201,7 @@ export default function Settings() {
       'We\'re sad to see you go! 😢',
       'Before you delete your account, would you consider sharing feedback with us? Your input helps us improve the app for everyone.',
       [
-        { text: 'Cancel', style: 'cancel' },
+        { text: "Cancel', style: 'cancel" },
         {
           text: 'Submit Feedback',
           onPress: () => {
@@ -210,7 +210,7 @@ export default function Settings() {
               'Share Your Feedback',
               'What could we do better? Your feedback is valuable to us.',
               [
-                { text: 'Cancel', style: 'cancel' },
+                { text: "Cancel', style: 'cancel" },
                 {
                   text: 'Submit & Stay',
                   onPress: async (feedback) => {
@@ -246,7 +246,7 @@ export default function Settings() {
               'Final Confirmation',
               'This action is permanent. All your posts, workouts, and data will be permanently deleted. Are you absolutely sure?',
               [
-                { text: 'Keep My Account', style: 'cancel' },
+                { text: "Keep My Account', style: 'cancel" },
                 {
                   text: 'Yes, Delete Everything',
                   style: 'destructive',
@@ -473,7 +473,7 @@ export default function Settings() {
               'Sign Out',
               'Are you sure you want to sign out?',
               [
-                { text: 'Cancel', style: 'cancel' },
+                { text: "Cancel', style: 'cancel" },
                 { 
                   text: 'Sign Out', 
                   style: 'destructive',

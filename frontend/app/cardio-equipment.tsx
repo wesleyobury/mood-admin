@@ -29,18 +29,18 @@ interface DifficultyLevel {
 }
 
 const equipmentOptions: EquipmentOption[] = [
-  { id: 'arm-bicycle', name: 'Arm bicycle', icon: 'bicycle' },
-  { id: 'assault-bike', name: 'Assault bike', icon: 'bicycle' },
-  { id: 'curve-treadmill', name: 'Curve treadmill', icon: 'walk' },
-  { id: 'elliptical', name: 'Elliptical', icon: 'ellipse' },
-  { id: 'jump-rope', name: 'Jump rope', icon: 'git-compare' },
-  { id: 'punching-bag', name: 'Punching bag', icon: 'hand-left' },
-  { id: 'row-machine', name: 'Row machine', icon: 'boat' },
-  { id: 'ski-machine', name: 'Ski machine', icon: 'snow' },
-  { id: 'stair-master', name: 'Stair master', icon: 'trending-up' },
-  { id: 'stationary-bike', name: 'Stationary bike', icon: 'bicycle' },
-  { id: 'treadmill', name: 'Treadmill', icon: 'walk' },
-  { id: 'vertical-climber', name: 'Vertical Climber', icon: 'triangle' },
+  { id: 'arm-bicycle', name: "Arm bicycle', icon: 'bicycle" },
+  { id: 'assault-bike', name: "Assault bike', icon: 'bicycle" },
+  { id: 'curve-treadmill', name: "Curve treadmill', icon: 'walk" },
+  { id: 'elliptical', name: "Elliptical', icon: 'ellipse" },
+  { id: 'jump-rope', name: "Jump rope', icon: 'git-compare" },
+  { id: 'punching-bag', name: "Punching bag', icon: 'hand-left" },
+  { id: 'row-machine', name: "Row machine', icon: 'boat" },
+  { id: 'ski-machine', name: "Ski machine', icon: 'snow" },
+  { id: 'stair-master', name: "Stair master', icon: 'trending-up" },
+  { id: 'stationary-bike', name: "Stationary bike', icon: 'bicycle" },
+  { id: 'treadmill', name: "Treadmill', icon: 'walk" },
+  { id: 'vertical-climber', name: "Vertical Climber', icon: 'triangle" },
 ];
 
 const difficultyLevels: DifficultyLevel[] = [
