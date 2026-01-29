@@ -271,7 +271,7 @@ export default function CalisthenicsEquipmentScreen() {
               selectedDifficulty && styles.progressStepActive
             ]}>
               <Ionicons 
-                name={selectedDifficulty ? 'checkmark" : "star'} 
+                name={selectedDifficulty ? 'checkmark' : 'star'} 
                 size={14} 
                 color={selectedDifficulty ? '#000000' : 'rgba(255, 215, 0, 0.7)'} 
               />
