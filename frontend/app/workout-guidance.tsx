@@ -831,18 +831,25 @@ export default function WorkoutGuidanceScreen() {
       {/* Bottom Button - Fixed at Bottom */}
       <View style={styles.completedButtonContainer}>
         {isSession ? (
-          // Session mode: Show Next Workout / Complete & Go Home
+          // Session mode: Show Next Workout / Finish and share!
           <TouchableOpacity 
             style={styles.completedButton}
             onPress={handleCompletedWorkout}
             activeOpacity={0.8}
           >
-            <Ionicons name="checkmark-circle" size={24} color="#000000" />
-            <Text style={styles.completedButtonText}>
-              {currentSessionIndex < sessionWorkouts.length - 1 
-                ? "Next Workout" 
-                : "Complete & Go Home"}
-            </Text>
+            <LinearGradient
+              colors={['#FFD700', '#FFA500']}
+              style={styles.completedButtonGradient}
+              start={{ x: 0, y: 0 }}
+              end={{ x: 1, y: 0 }}
+            >
+              <Ionicons name="checkmark-circle" size={24} color="#0c0c0c" />
+              <Text style={styles.completedButtonText}>
+                {currentSessionIndex < sessionWorkouts.length - 1 
+                  ? "Next Workout" 
+                  : "Finish and share!"}
+              </Text>
+            </LinearGradient>
           </TouchableOpacity>
         ) : (
           // Preview mode: Show Add workout / Added button
