@@ -200,7 +200,10 @@ export default function WorkoutGuidanceScreen() {
     moodTitle = 'Outside';
   }
   
-  const [elapsedTime, setElapsedTime] = useState(0); // Timer starts from 0:00
+  // Timer state - uses start timestamp for background persistence
+  const [startTimestamp, setStartTimestamp] = useState<number | null>(null);
+  const [pausedTime, setPausedTime] = useState(0); // Time accumulated before pause
+  const [elapsedTime, setElapsedTime] = useState(0);
   const [isRunning, setIsRunning] = useState(false);
   const [isPaused, setIsPaused] = useState(false);
   const [toastVisible, setToastVisible] = useState(false);
@@ -209,32 +212,54 @@ export default function WorkoutGuidanceScreen() {
   const { token } = useAuth();
   const API_URL = process.env.EXPO_PUBLIC_BACKEND_URL || Constants.expoConfig?.extra?.EXPO_PUBLIC_BACKEND_URL || '';
   
-  // Simple elapsed time timer
+  // Timer that calculates elapsed time from start timestamp
+  // This ensures timer continues even when app is in background
   useEffect(() => {
     let interval: number | null = null;
     
-    if (isRunning && !isPaused) {
-      interval = setInterval(() => {
-        setElapsedTime(prev => prev + 1);
-      }, 1000);
+    if (isRunning && !isPaused && startTimestamp) {
+      // Update elapsed time every second based on actual timestamp difference
+      const updateElapsed = () => {
+        const now = Date.now();
+        const elapsed = Math.floor((now - startTimestamp) / 1000) + pausedTime;
+        setElapsedTime(elapsed);
+      };
+      
+      // Update immediately
+      updateElapsed();
+      
+      // Then update every second
+      interval = setInterval(updateElapsed, 1000);
     }
     
     return () => {
       if (interval) clearInterval(interval);
     };
-  }, [isRunning, isPaused]);
+  }, [isRunning, isPaused, startTimestamp, pausedTime]);
   
   const handleStartPauseTimer = () => {
     if (!isRunning) {
+      // Starting fresh
+      setStartTimestamp(Date.now());
+      setPausedTime(0);
       setIsRunning(true);
       setIsPaused(false);
+    } else if (isPaused) {
+      // Resuming from pause - set new start timestamp and keep accumulated time
+      setStartTimestamp(Date.now());
+      setIsPaused(false);
     } else {
-      setIsPaused(!isPaused);
+      // Pausing - save current elapsed time and clear start timestamp
+      setPausedTime(elapsedTime);
+      setStartTimestamp(null);
+      setIsPaused(true);
     }
   };
   
   const handleResetTimer = () => {
     setElapsedTime(0);
+    setStartTimestamp(null);
+    setPausedTime(0);
     setIsRunning(false);
     setIsPaused(false);
   };
