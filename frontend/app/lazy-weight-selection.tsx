@@ -227,7 +227,14 @@ export default function LazyWeightSelectionScreen() {
         <View style={styles.progressContent}>
           <View style={styles.progressStep}>
             <View style={styles.progressStepActive}>
-              <Ionicons name="bed" size={14} color="#0c0c0c" />
+              <LinearGradient
+                colors={['#FFD700', '#FFA500']}
+                style={styles.progressStepGradient}
+                start={{ x: 0, y: 0 }}
+                end={{ x: 1, y: 1 }}
+              >
+                <Ionicons name="bed" size={14} color="#0c0c0c" />
+              </LinearGradient>
             </View>
             <Text style={styles.progressStepText}>Feeling lazy</Text>
           </View>
@@ -236,7 +243,14 @@ export default function LazyWeightSelectionScreen() {
           
           <View style={styles.progressStep}>
             <View style={styles.progressStepActive}>
-              <Ionicons name="barbell" size={14} color="#0c0c0c" />
+              <LinearGradient
+                colors={['#FFD700', '#FFA500']}
+                style={styles.progressStepGradient}
+                start={{ x: 0, y: 0 }}
+                end={{ x: 1, y: 1 }}
+              >
+                <Ionicons name="barbell" size={14} color="#0c0c0c" />
+              </LinearGradient>
             </View>
             <Text style={styles.progressStepText}>Lift weights</Text>
           </View>
@@ -248,12 +262,18 @@ export default function LazyWeightSelectionScreen() {
               styles.progressStepCircle,
               selectedBodyPart && styles.progressStepActive
             ]}>
-              <Text style={[
-                styles.progressStepNumber,
-                selectedBodyPart && styles.progressStepNumberActive
-              ]}>
-                {selectedBodyPart ? '1' : '0'}
-              </Text>
+              {selectedBodyPart ? (
+                <LinearGradient
+                  colors={['#FFD700', '#FFA500']}
+                  style={styles.progressStepGradient}
+                  start={{ x: 0, y: 0 }}
+                  end={{ x: 1, y: 1 }}
+                >
+                  <Text style={styles.progressStepNumberActive}>1</Text>
+                </LinearGradient>
+              ) : (
+                <Text style={styles.progressStepNumber}>0</Text>
+              )}
             </View>
             <Text style={styles.progressStepText}>Body part</Text>
           </View>
