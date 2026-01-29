@@ -720,10 +720,8 @@ const styles = StyleSheet.create({
   },
   selectionSummary: {
     backgroundColor: 'transparent',
-    borderRadius: 12,
-    padding: 16,
-    marginTop: 20,
-    marginBottom: 20,
+    marginTop: 16,
+    marginBottom: 12,
   },
   selectionLabel: {
     fontSize: 12,
