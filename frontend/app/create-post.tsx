@@ -488,7 +488,7 @@ export default function CreatePost() {
       hasWorkoutStats: !!workoutStats, 
       hasToken: !!token, 
       isLoading,
-      tokenPreview: token ? `${token.substring(0, 20)}...` : 'null"});
+      tokenPreview: token ? `${token.substring(0, 20)}...` : 'null'});
     
     if (isLoading) {
       showAlert('Please wait', 'Loading authentication...');
