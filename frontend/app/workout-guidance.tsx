@@ -392,7 +392,7 @@ export default function WorkoutGuidanceScreen() {
       
       if (nextIndex < sessionWorkouts.length) {
         // Move to next workout in session
-        console.log('🎯 Moving to next workout");
+        console.log('🎯 Moving to next workout');
         const nextWorkout = sessionWorkouts[nextIndex];
         
         // Get featured workout params to pass along
@@ -514,7 +514,7 @@ export default function WorkoutGuidanceScreen() {
               duration_minutes: totalDuration,
               exercises_completed: sessionWorkouts.length,
             });
-            console.log('📊 Tracked workout completed");
+            console.log('📊 Tracked workout completed');
           }
           
           console.log('🧹 Clearing cart...');

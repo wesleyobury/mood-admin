@@ -1576,7 +1576,7 @@ export default function ShouldersWorkoutDisplayScreen() {
 
   const handleGoBack = () => {
     try {
-      console.log('🔄 Going back from shoulders workout display...");
+      console.log('🔄 Going back from shoulders workout display...');
       router.back();
     } catch (error) {
       console.error('❌ Error going back:', error);
