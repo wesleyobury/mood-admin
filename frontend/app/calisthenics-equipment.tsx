@@ -224,7 +224,14 @@ export default function CalisthenicsEquipmentScreen() {
         <View style={styles.progressContent}>
           <View style={styles.progressStep}>
             <View style={styles.progressStepActive}>
-              <Ionicons name="body" size={14} color="#0c0c0c" />
+              <LinearGradient
+                colors={['#FFD700', '#FFA500']}
+                style={styles.progressStepGradient}
+                start={{ x: 0, y: 0 }}
+                end={{ x: 1, y: 1 }}
+              >
+                <Ionicons name="body" size={14} color="#0c0c0c" />
+              </LinearGradient>
             </View>
             <Text style={styles.progressStepText}>Calisthenics</Text>
           </View>
@@ -236,12 +243,22 @@ export default function CalisthenicsEquipmentScreen() {
               styles.progressStepCircle,
               selectedEquipment.length > 0 && styles.progressStepActive
             ]}>
-              <Text style={[
-                styles.progressStepNumber,
-                selectedEquipment.length > 0 && styles.progressStepNumberActive
-              ]}>
-                {selectedEquipment.length}
-              </Text>
+              {selectedEquipment.length > 0 ? (
+                <LinearGradient
+                  colors={['#FFD700', '#FFA500']}
+                  style={styles.progressStepGradient}
+                  start={{ x: 0, y: 0 }}
+                  end={{ x: 1, y: 1 }}
+                >
+                  <Text style={styles.progressStepNumberActive}>
+                    {selectedEquipment.length}
+                  </Text>
+                </LinearGradient>
+              ) : (
+                <Text style={styles.progressStepNumber}>
+                  {selectedEquipment.length}
+                </Text>
+              )}
             </View>
             <Text style={styles.progressStepText}>Equipment</Text>
           </View>
@@ -407,12 +424,14 @@ const styles = StyleSheet.create({
     width: 32,
     height: 32,
     borderRadius: 16,
-    backgroundColor: '#FFD700',
-    borderWidth: 2,
-    borderColor: '#FFD700',
+    overflow: 'hidden',
+    marginBottom: 8,
+  },
+  progressStepGradient: {
+    width: '100%',
+    height: '100%',
     justifyContent: 'center',
     alignItems: 'center',
-    marginBottom: 8,
   },
   progressStepNumber: {
     fontSize: 14,

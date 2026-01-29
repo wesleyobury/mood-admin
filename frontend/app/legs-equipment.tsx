@@ -408,7 +408,14 @@ export default function LegsEquipmentScreen() {
         >
           <View style={styles.progressStep}>
             <View style={styles.progressStepActive}>
-              <Ionicons name="flame" size={14} color="#0c0c0c" />
+              <LinearGradient
+                colors={['#FFD700', '#FFA500']}
+                style={styles.progressStepGradient}
+                start={{ x: 0, y: 0 }}
+                end={{ x: 1, y: 1 }}
+              >
+                <Ionicons name="flame" size={14} color="#0c0c0c" />
+              </LinearGradient>
             </View>
             <Text style={styles.progressStepText}>{moodTitle}</Text>
           </View>
@@ -417,7 +424,14 @@ export default function LegsEquipmentScreen() {
           
           <View style={styles.progressStep}>
             <View style={styles.progressStepActive}>
-              <Ionicons name="walk" size={14} color="#0c0c0c" />
+              <LinearGradient
+                colors={['#FFD700', '#FFA500']}
+                style={styles.progressStepGradient}
+                start={{ x: 0, y: 0 }}
+                end={{ x: 1, y: 1 }}
+              >
+                <Ionicons name="walk" size={14} color="#0c0c0c" />
+              </LinearGradient>
             </View>
             <Text style={styles.progressStepText}>{workoutType}</Text>
           </View>
@@ -442,12 +456,22 @@ export default function LegsEquipmentScreen() {
               styles.progressStepCircle,
               selectedEquipment.length > 0 && styles.progressStepActive
             ]}>
-              <Text style={[
-                styles.progressStepNumber,
-                selectedEquipment.length > 0 && styles.progressStepNumberActive
-              ]}>
-                {selectedEquipment.length}
-              </Text>
+              {selectedEquipment.length > 0 ? (
+                <LinearGradient
+                  colors={['#FFD700', '#FFA500']}
+                  style={styles.progressStepGradient}
+                  start={{ x: 0, y: 0 }}
+                  end={{ x: 1, y: 1 }}
+                >
+                  <Text style={styles.progressStepNumberActive}>
+                    {selectedEquipment.length}
+                  </Text>
+                </LinearGradient>
+              ) : (
+                <Text style={styles.progressStepNumber}>
+                  {selectedEquipment.length}
+                </Text>
+              )}
             </View>
             <Text style={styles.progressStepText}>
               Equipment {selectedEquipment.length > 0 && `(${selectedEquipment.length})`}

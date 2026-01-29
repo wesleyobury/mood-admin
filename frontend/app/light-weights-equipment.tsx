@@ -234,7 +234,14 @@ export default function LightWeightsEquipmentScreen() {
         >
           <View style={styles.progressStep}>
             <View style={styles.progressStepActive}>
-              <Ionicons name="flame" size={14} color="#0c0c0c" />
+              <LinearGradient
+                colors={['#FFD700', '#FFA500']}
+                style={styles.progressStepGradient}
+                start={{ x: 0, y: 0 }}
+                end={{ x: 1, y: 1 }}
+              >
+                <Ionicons name="flame" size={14} color="#0c0c0c" />
+              </LinearGradient>
             </View>
             <Text style={styles.progressStepText}>{moodTitle}</Text>
           </View>
@@ -243,7 +250,14 @@ export default function LightWeightsEquipmentScreen() {
           
           <View style={styles.progressStep}>
             <View style={styles.progressStepActive}>
-              <Ionicons name="barbell" size={14} color="#0c0c0c" />
+              <LinearGradient
+                colors={['#FFD700', '#FFA500']}
+                style={styles.progressStepGradient}
+                start={{ x: 0, y: 0 }}
+                end={{ x: 1, y: 1 }}
+              >
+                <Ionicons name="barbell" size={14} color="#0c0c0c" />
+              </LinearGradient>
             </View>
             <Text style={styles.progressStepText}>{workoutType}</Text>
           </View>
@@ -255,12 +269,22 @@ export default function LightWeightsEquipmentScreen() {
               styles.progressStepCircle,
               selectedEquipment.length > 0 && styles.progressStepActive
             ]}>
-              <Text style={[
-                styles.progressStepNumber,
-                selectedEquipment.length > 0 && styles.progressStepNumberActive
-              ]}>
-                {selectedEquipment.length}
-              </Text>
+              {selectedEquipment.length > 0 ? (
+                <LinearGradient
+                  colors={['#FFD700', '#FFA500']}
+                  style={styles.progressStepGradient}
+                  start={{ x: 0, y: 0 }}
+                  end={{ x: 1, y: 1 }}
+                >
+                  <Text style={styles.progressStepNumberActive}>
+                    {selectedEquipment.length}
+                  </Text>
+                </LinearGradient>
+              ) : (
+                <Text style={styles.progressStepNumber}>
+                  {selectedEquipment.length}
+                </Text>
+              )}
             </View>
             <Text style={styles.progressStepText}>
               Equipment {selectedEquipment.length > 0 && `(${selectedEquipment.length})`}
@@ -275,7 +299,14 @@ export default function LightWeightsEquipmentScreen() {
               selectedDifficulty && styles.progressStepActive
             ]}>
               {selectedDifficulty ? (
-                <Ionicons name="checkmark" size={14} color="#0c0c0c" />
+                <LinearGradient
+                  colors={['#FFD700', '#FFA500']}
+                  style={styles.progressStepGradient}
+                  start={{ x: 0, y: 0 }}
+                  end={{ x: 1, y: 1 }}
+                >
+                  <Ionicons name="checkmark" size={14} color="#0c0c0c" />
+                </LinearGradient>
               ) : (
                 <Text style={styles.progressStepNumber}>4</Text>
               )}
@@ -424,12 +455,14 @@ const styles = StyleSheet.create({
     width: 32,
     height: 32,
     borderRadius: 16,
-    backgroundColor: '#FFD700',
-    borderWidth: 2,
-    borderColor: '#FFD700',
+    overflow: 'hidden',
+    marginBottom: 8,
+  },
+  progressStepGradient: {
+    width: '100%',
+    height: '100%',
     justifyContent: 'center',
     alignItems: 'center',
-    marginBottom: 8,
   },
   progressStepNumber: {
     fontSize: 14,
