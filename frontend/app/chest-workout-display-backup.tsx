@@ -340,7 +340,7 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Incline Plyo Push-Ups',
           duration: '14-16 min',
-          description: '4 rounds:\n• 8 incline plyo push-ups\n• 10 single-arm incline press\n• Rest 60-75s\n\nTips:\n• Plyo push-ups: Think 'fast hands'-maximal intent recruits more fibers.\n• Single-arm press: Press toward midline, not straight up, for maximum pec contraction.',
+          description: "4 rounds:\n• 8 incline plyo push-ups\n• 10 single-arm incline press\n• Rest 60-75s\n\nTips:\n• Plyo push-ups: Think 'fast hands'-maximal intent recruits more fibers.\n• Single-arm press: Press toward midline, not straight up, for maximum pec contraction.",
           imageUrl: 'https://images.unsplash.com/photo-1590847330116-ea94fb93eac3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw0fHxydW5uaW5nJTIwZXhlcmNpc2V8ZW58MHx8fHwxNzU2ODgzMjMxfDA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Explosive plyometric training combined with unilateral incline work for intermediate upper chest power development.',
           moodTips: [
