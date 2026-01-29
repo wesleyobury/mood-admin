@@ -152,7 +152,7 @@ export default function LazyBodyweightEquipmentScreen() {
   const [selectedEquipment, setSelectedEquipment] = useState<EquipmentOption[]>([]);
   const [selectedDifficulty, setSelectedDifficulty] = useState<DifficultyLevel | null>(null);
   
-  const moodTitle = 'I'm feeling lazy';
+  const moodTitle = "I'm feeling lazy";
   const workoutType = 'Just move your body';
 
   const handleEquipmentSelect = (equipment: EquipmentOption) => {
