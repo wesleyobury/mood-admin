@@ -1356,7 +1356,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'trending-up',
               title: 'High Knees',
-              description: 'High knees in 'hard' phase for power.'
+              description: "High knees in 'hard' phase for power."
             },
             {
               icon: 'body',
