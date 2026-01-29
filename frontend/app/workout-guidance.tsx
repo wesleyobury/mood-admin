@@ -629,7 +629,7 @@ export default function WorkoutGuidanceScreen() {
           <View style={styles.progressStep}>
             <View style={styles.progressStepActive}>
               <LinearGradient colors={['#FFD700', '#FFA500']} style={styles.progressStepGradient} start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }}>
-                <Ionicons name='flame" size={14} color="#0c0c0c" />
+                <Ionicons name="flame" size={14} color="#0c0c0c" />
               </LinearGradient>
             </View>
             <Text style={styles.progressStepText}>{moodTitle}</Text>
@@ -643,7 +643,7 @@ export default function WorkoutGuidanceScreen() {
                 <Ionicons 
                   name={workoutType === 'Body Weight' ? 'body' : workoutType === 'Weight Based' ? 'barbell' : 'heart'} 
                   size={14} 
-                  color='#0c0c0c" 
+                  color="#0c0c0c" 
                 />
               </LinearGradient>
             </View>
@@ -657,7 +657,7 @@ export default function WorkoutGuidanceScreen() {
               <View style={styles.progressStep}>
                 <View style={styles.progressStepActive}>
                   <LinearGradient colors={['#FFD700', '#FFA500']} style={styles.progressStepGradient} start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }}>
-                    <Ionicons name='fitness" size={14} color="#0c0c0c" />
+                    <Ionicons name="fitness" size={14} color="#0c0c0c" />
                   </LinearGradient>
                 </View>
                 <Text style={styles.progressStepText}>{equipmentName}</Text>
@@ -671,7 +671,7 @@ export default function WorkoutGuidanceScreen() {
           <View style={styles.progressStep}>
             <View style={styles.progressStepActive}>
               <LinearGradient colors={['#FFD700', '#FFA500']} style={styles.progressStepGradient} start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }}>
-                <Ionicons name='checkmark" size={14} color="#0c0c0c" />
+                <Ionicons name="checkmark" size={14} color="#0c0c0c" />
               </LinearGradient>
             </View>
             <Text style={styles.progressStepText}>
@@ -684,7 +684,7 @@ export default function WorkoutGuidanceScreen() {
           <View style={styles.progressStep}>
             <View style={styles.progressStepActive}>
               <LinearGradient colors={['#FFD700', '#FFA500']} style={styles.progressStepGradient} start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }}>
-                <Ionicons name='play" size={14} color="#0c0c0c" />
+                <Ionicons name="play" size={14} color="#0c0c0c" />
               </LinearGradient>
             </View>
             <Text style={styles.progressStepText}>In Progress</Text>
@@ -766,7 +766,7 @@ export default function WorkoutGuidanceScreen() {
         <View style={styles.moodTipsContainer}>
           <View style={styles.sectionHeader}>
             <View style={styles.iconContainer}>
-              <Ionicons name='bulb" size={24} color="#FFD700" />
+              <Ionicons name="bulb" size={24} color="#FFD700" />
             </View>
             <Text style={styles.sectionTitle}>MOOD Tips</Text>
             <View style={styles.headerAccent} />
@@ -777,7 +777,7 @@ export default function WorkoutGuidanceScreen() {
               <View key={index} style={styles.tipCard}>
                 <View style={styles.tipCardHeader}>
                   <View style={styles.tipIconContainer}>
-                    <Ionicons name={(tip.icon as any) || 'fitness'} size={20} color='#FFD700" />
+                    <Ionicons name={(tip.icon as any) || 'fitness'} size={20} color="#FFD700" />
                   </View>
                 </View>
                 <View style={{ flex: 1 }}>
@@ -857,7 +857,7 @@ export default function WorkoutGuidanceScreen() {
               start={{ x: 0, y: 0 }}
               end={{ x: 1, y: 0 }}
             >
-              <Ionicons name='checkmark-circle" size={24} color="#0c0c0c" />
+              <Ionicons name="checkmark-circle" size={24} color="#0c0c0c" />
               <Text style={styles.completedButtonText}>
                 {currentSessionIndex < sessionWorkouts.length - 1 
                   ? "Next Workout" 

@@ -240,7 +240,7 @@ export default function UserProfile() {
             <Image 
               source={{ uri: fullUrl }} 
               style={styles.postImage}
-              resizeMode='cover"
+              resizeMode="cover"
             />
           );
         })()
@@ -258,7 +258,7 @@ export default function UserProfile() {
         item.media_urls[0].toLowerCase().endsWith('.webm')
       ) && (
         <View style={styles.videoIndicator}>
-          <Ionicons name='videocam" size={14} color="#fff" />
+          <Ionicons name="videocam" size={14} color="#fff" />
         </View>
       )}
       
@@ -421,7 +421,7 @@ export default function UserProfile() {
                 />
               ) : (
                 <View style={[styles.profileImage, styles.placeholderAvatar]}>
-                  <Ionicons name='person" size={40} color="#666" />
+                  <Ionicons name="person" size={40} color="#666" />
                 </View>
               )}
             </View>
@@ -482,7 +482,7 @@ export default function UserProfile() {
                   }
                 })}
               >
-                <Ionicons name='chatbubble-outline" size={20} color="#fff" />
+                <Ionicons name="chatbubble-outline" size={20} color="#fff" />
               </TouchableOpacity>
             </View>
           )}
@@ -533,7 +533,7 @@ export default function UserProfile() {
           setShowGuestPrompt(false);
           handleGoBack();
         }}
-        action='view profiles"
+        action="view profiles"
       />
     </SafeAreaView>
   );

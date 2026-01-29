@@ -475,7 +475,7 @@ export default function LegsWorkoutDisplayScreen() {
             style={styles.backButton}
             onPress={handleBack}
           >
-            <Ionicons name='chevron-back" size={24} color="#FFD700" />
+            <Ionicons name="chevron-back" size={24} color="#FFD700" />
           </TouchableOpacity>
           <View style={styles.headerTextContainer}>
             <Text style={styles.headerTitle}>No Workouts Found</Text>
@@ -515,7 +515,7 @@ export default function LegsWorkoutDisplayScreen() {
           <View style={styles.progressStep}>
             <View style={styles.progressStepActive}>
               <LinearGradient colors={['#FFD700', '#FFA500']} style={styles.progressStepGradient} start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }}>
-                <Ionicons name='flame" size={14} color="#0c0c0c" />
+                <Ionicons name="flame" size={14} color="#0c0c0c" />
               </LinearGradient>
             </View>
             <Text style={styles.progressStepText}>{mood}</Text>
@@ -526,7 +526,7 @@ export default function LegsWorkoutDisplayScreen() {
           <View style={styles.progressStep}>
             <View style={styles.progressStepActive}>
               <LinearGradient colors={['#FFD700', '#FFA500']} style={styles.progressStepGradient} start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }}>
-                <Ionicons name='walk" size={14} color="#0c0c0c" />
+                <Ionicons name="walk" size={14} color="#0c0c0c" />
               </LinearGradient>
             </View>
             <Text style={styles.progressStepText}>{workoutType}</Text>
@@ -606,7 +606,7 @@ export default function LegsWorkoutDisplayScreen() {
                     <Ionicons 
                       name={getMuscleGroupIcon(muscleGroup.muscleGroupName)} 
                       size={24} 
-                      color='#FFD700" 
+                      color="#FFD700" 
                     />
                   </View>
                   <Text style={styles.muscleGroupName}>{muscleGroup.muscleGroupName}</Text>

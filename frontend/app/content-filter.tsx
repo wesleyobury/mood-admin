@@ -107,7 +107,7 @@ export default function ContentFilterSettings() {
     return (
       <SafeAreaView style={styles.container}>
         <View style={styles.loadingContainer}>
-          <ActivityIndicator size='large" color="#FFD700" />
+          <ActivityIndicator size="large" color="#FFD700" />
         </View>
       </SafeAreaView>
     );
@@ -140,7 +140,7 @@ export default function ContentFilterSettings() {
         {/* Enable Toggle */}
         <View style={styles.toggleSection}>
           <View style={styles.toggleLeft}>
-            <Ionicons name='filter" size={22} color="#FFD700" />
+            <Ionicons name="filter" size={22} color="#FFD700" />
             <View>
               <Text style={styles.toggleLabel}>Enable Content Filter</Text>
               <Text style={styles.toggleSubtext}>
@@ -162,7 +162,7 @@ export default function ContentFilterSettings() {
           <View style={styles.inputRow}>
             <TextInput
               style={styles.input}
-              placeholder='Enter word or phrase..."
+              placeholder="Enter word or phrase..."
               placeholderTextColor="rgba(255,255,255,0.4)"
               value={newKeyword}
               onChangeText={setNewKeyword}

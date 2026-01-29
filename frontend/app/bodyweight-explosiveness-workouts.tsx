@@ -158,7 +158,7 @@ const BodyweightExplosivenessWorkoutsScreen = memo(function BodyweightExplosiven
             style={styles.backButton}
             onPress={handleGoBack}
           >
-            <Ionicons name='chevron-back" size={24} color="#FFD700" />
+            <Ionicons name="chevron-back" size={24} color="#FFD700" />
           </TouchableOpacity>
           <View style={styles.headerTextContainer}>
             <Text style={styles.headerTitle}>Explosiveness</Text>
@@ -194,7 +194,7 @@ const BodyweightExplosivenessWorkoutsScreen = memo(function BodyweightExplosiven
             style={styles.backButton}
             onPress={handleGoBack}
           >
-            <Ionicons name='chevron-back" size={24} color="#FFD700" />
+            <Ionicons name="chevron-back" size={24} color="#FFD700" />
           </TouchableOpacity>
           <View style={styles.headerTextContainer}>
             <Text style={styles.headerTitle}>Your Workouts</Text>

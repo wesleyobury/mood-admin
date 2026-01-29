@@ -259,7 +259,7 @@ export default function EditProfile() {
                 <Image source={{ uri: avatarUri }} style={styles.avatar} />
               ) : (
                 <View style={[styles.avatar, styles.placeholderAvatar]}>
-                  <Ionicons name='person" size={60} color="#666" />
+                  <Ionicons name="person" size={60} color="#666" />
                 </View>
               )}
               {uploadingImage && (

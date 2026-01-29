@@ -143,7 +143,7 @@ export default function WorkoutTypeScreen() {
           style={styles.backButton}
           onPress={handleGoBack}
         >
-          <Ionicons name='chevron-back" size={24} color="#FFD700" />
+          <Ionicons name="chevron-back" size={24} color="#FFD700" />
         </TouchableOpacity>
         <View style={styles.headerTextContainer}>
           <Text style={styles.headerTitle}>Workout Type</Text>
@@ -197,7 +197,7 @@ export default function WorkoutTypeScreen() {
               end={{ x: 1, y: 0 }}
             >
               <Text style={styles.continueButtonText}>Continue</Text>
-              <Ionicons name='arrow-forward" size={20} color="#0c0c0c" style={styles.buttonIcon} />
+              <Ionicons name="arrow-forward" size={20} color="#0c0c0c" style={styles.buttonIcon} />
             </LinearGradient>
           </TouchableOpacity>
         </View>

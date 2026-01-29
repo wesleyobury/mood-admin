@@ -44,7 +44,7 @@ const CartItemComponent: React.FC<{
       <Image 
         source={{ uri: imageSource }}
         style={styles.exerciseImage}
-        resizeMode='cover"
+        resizeMode="cover"
       />
       <View style={styles.exerciseInfo}>
         <Text style={styles.exerciseEquipment}>{item.equipment}</Text>
@@ -72,7 +72,7 @@ const CartItemComponent: React.FC<{
             activeOpacity={0.8}
           >
             <Ionicons 
-              name='chevron-down" 
+              name="chevron-down" 
               size={18} 
               color={isLast ? 'rgba(255, 255, 255, 0.3)' : '#fff'} 
             />
@@ -83,7 +83,7 @@ const CartItemComponent: React.FC<{
           onPress={() => onRemove(item.id)}
           activeOpacity={0.7}
         >
-          <Ionicons name='remove-circle" size={28} color="#FF4444" />
+          <Ionicons name="remove-circle" size={28} color="#FF4444" />
         </TouchableOpacity>
       </View>
     </View>
@@ -538,7 +538,7 @@ export default function CartScreen() {
               style={styles.saveModalInput}
               value={workoutName}
               onChangeText={setWorkoutName}
-              placeholder='Workout name"
+              placeholder="Workout name"
               placeholderTextColor="#666"
               autoFocus
             />

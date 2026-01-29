@@ -239,7 +239,7 @@ export default function PostDetail() {
       <SafeAreaView style={styles.container}>
         <View style={styles.header}>
           <TouchableOpacity onPress={() => router.back()}>
-            <Ionicons name='arrow-back" size={24} color="#FFD700" />
+            <Ionicons name="arrow-back" size={24} color="#FFD700" />
           </TouchableOpacity>
           <Text style={styles.headerTitle}>Post</Text>
           <View style={{ width: 24 }} />
@@ -329,7 +329,7 @@ export default function PostDetail() {
             />
           </TouchableOpacity>
           <TouchableOpacity style={styles.actionButton} onPress={handleComment}>
-            <Ionicons name='chatbubble-outline" size={26} color="#fff" />
+            <Ionicons name="chatbubble-outline" size={26} color="#fff" />
           </TouchableOpacity>
         </View>
 
@@ -371,7 +371,7 @@ export default function PostDetail() {
       <Modal
         visible={showPostMenu}
         transparent={true}
-        animationType='fade"
+        animationType="fade"
         onRequestClose={() => setShowPostMenu(false)}
       >
         <Pressable 
@@ -415,7 +415,7 @@ export default function PostDetail() {
                 }
               }}
             >
-              <Ionicons name='flag-outline" size={22} color="#FF6B6B" />
+              <Ionicons name="flag-outline" size={22} color="#FF6B6B" />
               <Text style={[styles.menuItemText, { color: '#FF6B6B' }]}>
                 Report
               </Text>
@@ -427,7 +427,7 @@ export default function PostDetail() {
               style={styles.menuItem}
               onPress={() => setShowPostMenu(false)}
             >
-              <Ionicons name='close" size={22} color="#888" />
+              <Ionicons name="close" size={22} color="#888" />
               <Text style={[styles.menuItemText, { color: '#888' }]}>
                 Cancel
               </Text>
@@ -441,7 +441,7 @@ export default function PostDetail() {
         visible={showReportModal}
         onClose={() => setShowReportModal(false)}
         onSubmit={handleReportPost}
-        contentType='post"
+        contentType="post"
       />
 
       {/* Guest Prompt Modal */}

@@ -1129,7 +1129,7 @@ export default function CreatePost() {
             onPress={handleCancel}
             activeOpacity={0.7}
           >
-            <Ionicons name='close" size={28} color="#fff" />
+            <Ionicons name="close" size={28} color="#fff" />
           </TouchableOpacity>
           <View style={styles.headerCenter}>
             <Text style={styles.headerTitle}>Share Your Achievement</Text>
@@ -1240,7 +1240,7 @@ export default function CreatePost() {
                         />
                       )}
                       <View style={styles.videoOverlay}>
-                        <Ionicons name='play-circle" size={32} color="#fff" />
+                        <Ionicons name="play-circle" size={32} color="#fff" />
                       </View>
                       {/* Cover photo button for videos */}
                       <TouchableOpacity 
@@ -1264,7 +1264,7 @@ export default function CreatePost() {
                   </TouchableOpacity>
                   <View style={[styles.imageNumber, media.type === 'video' && styles.videoNumber]}>
                     {media.type === 'video' ? (
-                      <Ionicons name='videocam" size={10} color="#000" />
+                      <Ionicons name="videocam" size={10} color="#000" />
                     ) : (
                       <Text style={styles.imageNumberText}>{index + 1}</Text>
                     )}
@@ -1499,7 +1499,7 @@ export default function CreatePost() {
               <Ionicons 
                 name={permissionType === 'camera' ? 'camera' : 'images'} 
                 size={48} 
-                color='#FFD700" 
+                color="#FFD700" 
               />
             </View>
             
@@ -1518,7 +1518,7 @@ export default function CreatePost() {
             
             {/* Privacy Note */}
             <View style={styles.permissionPrivacyNote}>
-              <Ionicons name='shield-checkmark" size={16} color="#4CAF50" />
+              <Ionicons name="shield-checkmark" size={16} color="#4CAF50" />
               <Text style={styles.permissionPrivacyText}>
                 Your privacy is important to us
               </Text>

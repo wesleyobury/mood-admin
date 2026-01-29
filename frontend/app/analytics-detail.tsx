@@ -188,7 +188,7 @@ export default function AnalyticsDetailScreen() {
           <Image source={{ uri: `${API_URL}${item.avatar_url}` }} style={styles.avatar} />
         ) : (
           <View style={[styles.avatar, styles.avatarPlaceholder]}>
-            <Ionicons name='person" size={20} color="#666" />
+            <Ionicons name="person" size={20} color="#666" />
           </View>
         )}
       </View>
@@ -340,7 +340,7 @@ export default function AnalyticsDetailScreen() {
     return (
       <View key={item.difficulty} style={styles.listItem}>
         <View style={[styles.rankBadge, { backgroundColor: colors[item.difficulty] || '#FFD700' }]}>
-          <Ionicons name='speedometer" size={16} color="#fff" />
+          <Ionicons name="speedometer" size={16} color="#fff" />
         </View>
         <View style={styles.itemContent}>
           <Text style={styles.itemTitle}>{item.difficulty.charAt(0).toUpperCase() + item.difficulty.slice(1)}</Text>
@@ -424,7 +424,7 @@ export default function AnalyticsDetailScreen() {
     if (loading) {
       return (
         <View style={styles.loadingContainer}>
-          <ActivityIndicator size='large" color="#FFD700" />
+          <ActivityIndicator size="large" color="#FFD700" />
         </View>
       );
     }
@@ -495,7 +495,7 @@ export default function AnalyticsDetailScreen() {
       {/* Header */}
       <View style={styles.header}>
         <TouchableOpacity style={styles.backButton} onPress={() => router.back()}>
-          <Ionicons name='chevron-back" size={24} color="#FFD700" />
+          <Ionicons name="chevron-back" size={24} color="#FFD700" />
         </TouchableOpacity>
         <View style={styles.headerTextContainer}>
           <Text style={styles.headerTitle}>{titles[type] || 'Details'}</Text>

@@ -578,7 +578,7 @@ export default function AdminDashboard() {
       {/* Header */}
       <View style={styles.header}>
         <TouchableOpacity onPress={() => router.back()} style={styles.backButton}>
-          <Ionicons name='arrow-back" size={24} color="#FFD700" />
+          <Ionicons name="arrow-back" size={24} color="#FFD700" />
         </TouchableOpacity>
         <View style={styles.headerTitleContainer}>
           <Text style={styles.headerTitle}>Analytics Dashboard</Text>
@@ -618,21 +618,21 @@ export default function AdminDashboard() {
             style={[styles.userTypeChip, userTypeFilter === 'all' && styles.userTypeChipActive]}
             onPress={() => setUserTypeFilter('all')}
           >
-            <Ionicons name='people" size={14} color={userTypeFilter === 'all' ? '#000' : '#888'} />
+            <Ionicons name="people" size={14} color={userTypeFilter === 'all' ? '#000' : '#888'} />
             <Text style={[styles.userTypeChipText, userTypeFilter === 'all' && styles.userTypeChipTextActive]}>All</Text>
           </TouchableOpacity>
           <TouchableOpacity
             style={[styles.userTypeChip, userTypeFilter === 'users' && styles.userTypeChipActive]}
             onPress={() => setUserTypeFilter('users')}
           >
-            <Ionicons name='person" size={14} color={userTypeFilter === 'users' ? '#000' : '#888'} />
+            <Ionicons name="person" size={14} color={userTypeFilter === 'users' ? '#000' : '#888'} />
             <Text style={[styles.userTypeChipText, userTypeFilter === 'users' && styles.userTypeChipTextActive]}>Users</Text>
           </TouchableOpacity>
           <TouchableOpacity
             style={[styles.userTypeChip, userTypeFilter === 'guests' && styles.userTypeChipActive]}
             onPress={() => setUserTypeFilter('guests')}
           >
-            <Ionicons name='eye-outline" size={14} color={userTypeFilter === 'guests' ? '#000' : '#9C27B0'} />
+            <Ionicons name="eye-outline" size={14} color={userTypeFilter === 'guests' ? '#000' : '#9C27B0'} />
             <Text style={[styles.userTypeChipText, userTypeFilter === 'guests' && styles.userTypeChipTextActive]}>Guests</Text>
           </TouchableOpacity>
         </View>
@@ -645,7 +645,7 @@ export default function AdminDashboard() {
           <RefreshControl 
             refreshing={refreshing} 
             onRefresh={onRefresh}
-            tintColor='#FFD700"
+            tintColor="#FFD700"
           />
         }
       >
@@ -664,7 +664,7 @@ export default function AdminDashboard() {
               onPress={() => openUserList('all')}
             >
               <View style={[styles.metricIcon, { backgroundColor: 'rgba(255, 215, 0, 0.15)' }]}>
-                <Ionicons name='people" size={24} color="#FFD700" />
+                <Ionicons name="people" size={24} color="#FFD700" />
               </View>
               <Text style={styles.metricValue}>{stats?.total_users?.toLocaleString() || 0}</Text>
               <Text style={styles.metricLabel}>Total Users</Text>
@@ -680,7 +680,7 @@ export default function AdminDashboard() {
               onPress={() => openUserList('new')}
             >
               <View style={[styles.metricIcon, { backgroundColor: 'rgba(76, 175, 80, 0.15)' }]}>
-                <Ionicons name='person-add" size={24} color="#4CAF50" />
+                <Ionicons name="person-add" size={24} color="#4CAF50" />
               </View>
               <Text style={styles.metricValue}>{stats?.new_users?.toLocaleString() || 0}</Text>
               <Text style={styles.metricLabel}>New Users</Text>
@@ -698,13 +698,13 @@ export default function AdminDashboard() {
             >
               <View style={[styles.metricIcon, { backgroundColor: 'rgba(244, 67, 54, 0.15)' }]}>
                 <View style={styles.liveDot} />
-                <Ionicons name='radio" size={24} color="#F44336" />
+                <Ionicons name="radio" size={24} color="#F44336" />
               </View>
               <Text style={styles.metricValue}>{realtimeActiveCount}</Text>
               <Text style={styles.metricLabel}>Active Now</Text>
               <View style={styles.metricFooter}>
                 <Text style={[styles.metricSubValue, { color: '#F44336' }]}>LIVE</Text>
-                <Ionicons name='chevron-forward" size={14} color="#666" />
+                <Ionicons name="chevron-forward" size={14} color="#666" />
               </View>
             </TouchableOpacity>
 
@@ -714,7 +714,7 @@ export default function AdminDashboard() {
               onPress={() => setShowSessionChart(true)}
             >
               <View style={[styles.metricIcon, { backgroundColor: 'rgba(33, 150, 243, 0.15)' }]}>
-                <Ionicons name='phone-portrait" size={24} color="#2196F3" />
+                <Ionicons name="phone-portrait" size={24} color="#2196F3" />
               </View>
               <Text style={styles.metricValue}>{stats?.total_sessions?.toLocaleString() || 0}</Text>
               <Text style={styles.metricLabel}>App Sessions</Text>
@@ -742,7 +742,7 @@ export default function AdminDashboard() {
           <View style={styles.guestMetricsGrid}>
             <View style={styles.guestMetricCard}>
               <View style={[styles.guestMetricIcon, { backgroundColor: 'rgba(156, 39, 176, 0.15)' }]}>
-                <Ionicons name='person-outline" size={20} color="#9C27B0" />
+                <Ionicons name="person-outline" size={20} color="#9C27B0" />
               </View>
               <Text style={styles.guestMetricValue}>{stats?.guest_signins || 0}</Text>
               <Text style={styles.guestMetricLabel}>Guest Sign-ins</Text>
@@ -750,7 +750,7 @@ export default function AdminDashboard() {
             
             <View style={styles.guestMetricCard}>
               <View style={[styles.guestMetricIcon, { backgroundColor: 'rgba(255, 152, 0, 0.15)' }]}>
-                <Ionicons name='phone-portrait-outline" size={20} color="#FF9800" />
+                <Ionicons name="phone-portrait-outline" size={20} color="#FF9800" />
               </View>
               <Text style={styles.guestMetricValue}>{stats?.unique_guest_devices || 0}</Text>
               <Text style={styles.guestMetricLabel}>Unique Devices</Text>
@@ -758,7 +758,7 @@ export default function AdminDashboard() {
             
             <View style={styles.guestMetricCard}>
               <View style={[styles.guestMetricIcon, { backgroundColor: 'rgba(76, 175, 80, 0.15)' }]}>
-                <Ionicons name='checkmark-circle-outline" size={20} color="#4CAF50" />
+                <Ionicons name="checkmark-circle-outline" size={20} color="#4CAF50" />
               </View>
               <Text style={styles.guestMetricValue}>{stats?.guest_conversions || 0}</Text>
               <Text style={styles.guestMetricLabel}>Converted to User</Text>
@@ -789,7 +789,7 @@ export default function AdminDashboard() {
           <View style={styles.sectionHeader}>
             <Text style={styles.sectionTitle}>Content Moderation</Text>
             <View style={[styles.guestBadge, { backgroundColor: 'rgba(255, 87, 34, 0.15)' }]}>
-              <Ionicons name='shield-checkmark" size={12} color="#FF5722" />
+              <Ionicons name="shield-checkmark" size={12} color="#FF5722" />
               <Text style={[styles.guestBadgeText, { color: '#FF5722' }]}>Safety</Text>
             </View>
           </View>
@@ -800,7 +800,7 @@ export default function AdminDashboard() {
           <View style={styles.moderationGrid}>
             <View style={styles.moderationCard}>
               <View style={[styles.moderationIcon, { backgroundColor: 'rgba(244, 67, 54, 0.15)' }]}>
-                <Ionicons name='flag" size={20} color="#F44336" />
+                <Ionicons name="flag" size={20} color="#F44336" />
               </View>
               <Text style={styles.moderationValue}>0</Text>
               <Text style={styles.moderationLabel}>Pending Reports</Text>
@@ -812,7 +812,7 @@ export default function AdminDashboard() {
             
             <View style={styles.moderationCard}>
               <View style={[styles.moderationIcon, { backgroundColor: 'rgba(255, 152, 0, 0.15)' }]}>
-                <Ionicons name='alert-circle" size={20} color="#FF9800" />
+                <Ionicons name="alert-circle" size={20} color="#FF9800" />
               </View>
               <Text style={styles.moderationValue}>0</Text>
               <Text style={styles.moderationLabel}>Urgent (24h)</Text>
@@ -824,7 +824,7 @@ export default function AdminDashboard() {
             
             <View style={styles.moderationCard}>
               <View style={[styles.moderationIcon, { backgroundColor: 'rgba(156, 39, 176, 0.15)' }]}>
-                <Ionicons name='ban" size={20} color="#9C27B0" />
+                <Ionicons name="ban" size={20} color="#9C27B0" />
               </View>
               <Text style={styles.moderationValue}>0</Text>
               <Text style={styles.moderationLabel}>User Blocks</Text>
@@ -950,7 +950,7 @@ export default function AdminDashboard() {
             </View>
           ) : (
             <View style={styles.emptyState}>
-              <Ionicons name='happy-outline" size={32} color="#666" />
+              <Ionicons name="happy-outline" size={32} color="#666" />
               <Text style={styles.emptyText}>No mood selection data yet</Text>
             </View>
           )}
@@ -1023,7 +1023,7 @@ export default function AdminDashboard() {
             <View style={styles.chartCard}>
               <Text style={styles.chartTitle}>New User Signups</Text>
               <View style={styles.noChartData}>
-                <Ionicons name='bar-chart-outline" size={32} color="#666" />
+                <Ionicons name="bar-chart-outline" size={32} color="#666" />
                 <Text style={styles.noChartText}>No signup data available</Text>
               </View>
             </View>
@@ -1127,7 +1127,7 @@ export default function AdminDashboard() {
       {/* Active Users Modal */}
       <Modal
         visible={showActiveUsers}
-        animationType='slide"
+        animationType="slide"
         presentationStyle="pageSheet"
         onRequestClose={() => setShowActiveUsers(false)}
       >
@@ -1296,7 +1296,7 @@ export default function AdminDashboard() {
 
           {engagementChartLoading ? (
             <View style={styles.engagementChartLoading}>
-              <ActivityIndicator size='large" color="#FFD700" />
+              <ActivityIndicator size="large" color="#FFD700" />
               <Text style={styles.engagementChartLoadingText}>Loading chart...</Text>
             </View>
           ) : engagementChartData && engagementChartData.labels.length > 0 ? (
@@ -1347,7 +1347,7 @@ export default function AdminDashboard() {
             </ScrollView>
           ) : (
             <View style={styles.noEngagementData}>
-              <Ionicons name='bar-chart-outline" size={48} color="#666" />
+              <Ionicons name="bar-chart-outline" size={48} color="#666" />
               <Text style={styles.noEngagementText}>No data available for this period</Text>
             </View>
           )}
@@ -1385,7 +1385,7 @@ export default function AdminDashboard() {
       {/* User List Modal */}
       <Modal
         visible={showUserList}
-        animationType='slide"
+        animationType="slide"
         presentationStyle="pageSheet"
         onRequestClose={() => setShowUserList(false)}
       >
@@ -1402,7 +1402,7 @@ export default function AdminDashboard() {
 
           {userListType === 'all' && (
             <View style={styles.searchContainer}>
-              <Ionicons name='search" size={20} color="#666" />
+              <Ionicons name="search" size={20} color="#666" />
               <TextInput
                 style={styles.searchInput}
                 placeholder="Search by username or email..."
@@ -1418,7 +1418,7 @@ export default function AdminDashboard() {
 
           {usersLoading ? (
             <View style={styles.modalLoading}>
-              <ActivityIndicator size='large" color="#FFD700" />
+              <ActivityIndicator size="large" color="#FFD700" />
             </View>
           ) : (
             <FlatList
@@ -1585,7 +1585,7 @@ export default function AdminDashboard() {
               {/* App Usage Metrics */}
               <View style={styles.reportSection}>
                 <Text style={styles.reportSectionTitle}>
-                  <Ionicons name='phone-portrait" size={16} color="#2196F3" /> App Usage
+                  <Ionicons name="phone-portrait" size={16} color="#2196F3" /> App Usage
                 </Text>
                 <View style={styles.reportMetricsGrid}>
                   <View style={styles.reportMetricItem}>
@@ -1614,7 +1614,7 @@ export default function AdminDashboard() {
                 <View style={styles.reportSection}>
                   <View style={styles.reportSectionHeader}>
                     <Text style={styles.reportSectionTitle}>
-                      <Ionicons name='layers" size={16} color="#9C27B0" /> Top Screens
+                      <Ionicons name="layers" size={16} color="#9C27B0" /> Top Screens
                     </Text>
                     <Text style={styles.reportTotalBadge}>{userReport.report.total_screen_views} views</Text>
                   </View>
@@ -1650,7 +1650,7 @@ export default function AdminDashboard() {
               {/* Social/Engagement Metrics */}
               <View style={styles.reportSection}>
                 <Text style={styles.reportSectionTitle}>
-                  <Ionicons name='heart" size={16} color="#E91E63" /> Social Engagement
+                  <Ionicons name="heart" size={16} color="#E91E63" /> Social Engagement
                 </Text>
                 <View style={styles.reportMetricsGrid}>
                   <View style={styles.reportMetricItem}>

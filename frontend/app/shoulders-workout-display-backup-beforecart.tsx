@@ -1388,7 +1388,7 @@ const WorkoutCard = ({ equipment, icon, workouts, difficulty, difficultyColor, o
         <Image 
           source={{ uri: item.imageUrl }}
           style={styles.workoutImage}
-          resizeMode='cover"
+          resizeMode="cover"
         />
         <View style={styles.imageOverlay} />
         <View style={styles.swipeIndicator}>
@@ -1652,7 +1652,7 @@ export default function ShouldersWorkoutDisplayScreen() {
           style={styles.backButton}
           onPress={handleGoBack}
         >
-          <Ionicons name='chevron-back" size={24} color="#FFD700" />
+          <Ionicons name="chevron-back" size={24} color="#FFD700" />
         </TouchableOpacity>
         <View style={styles.headerTextContainer}>
           <Text style={styles.headerTitle}>Your Workouts</Text>

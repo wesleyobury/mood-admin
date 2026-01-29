@@ -157,7 +157,7 @@ const WorkoutDisplayScreen = memo(function WorkoutDisplayScreen() {
             style={styles.backButton}
             onPress={handleGoBack}
           >
-            <Ionicons name='chevron-back" size={24} color="#FFD700" />
+            <Ionicons name="chevron-back" size={24} color="#FFD700" />
           </TouchableOpacity>
           <View style={styles.headerTextContainer}>
             <Text style={styles.headerTitle}>Cardio Based</Text>
@@ -193,7 +193,7 @@ const WorkoutDisplayScreen = memo(function WorkoutDisplayScreen() {
             style={styles.backButton}
             onPress={handleGoBack}
           >
-            <Ionicons name='chevron-back" size={24} color="#FFD700" />
+            <Ionicons name="chevron-back" size={24} color="#FFD700" />
           </TouchableOpacity>
           <View style={styles.headerTextContainer}>
             <Text style={styles.headerTitle}>Cardio Based</Text>

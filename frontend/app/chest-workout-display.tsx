@@ -201,7 +201,7 @@ const ChestWorkoutDisplayScreen = memo(function ChestWorkoutDisplayScreen() {
       <SafeAreaView style={[styles.container, { paddingTop: insets.top }]}>
         <View style={styles.header}>
           <TouchableOpacity style={styles.backButton} onPress={handleGoBack}>
-            <Ionicons name='chevron-back" size={24} color="#FFD700" />
+            <Ionicons name="chevron-back" size={24} color="#FFD700" />
           </TouchableOpacity>
           <View style={styles.headerTextContainer}>
             <Text style={styles.headerTitle}>Chest Workouts</Text>
@@ -224,7 +224,7 @@ const ChestWorkoutDisplayScreen = memo(function ChestWorkoutDisplayScreen() {
       <SafeAreaView style={[styles.container, { paddingTop: insets.top }]}>
         <View style={styles.header}>
           <TouchableOpacity style={styles.backButton} onPress={handleGoBack}>
-            <Ionicons name='chevron-back" size={24} color="#FFD700" />
+            <Ionicons name="chevron-back" size={24} color="#FFD700" />
           </TouchableOpacity>
           <View style={styles.headerTextContainer}>
             <Text style={styles.headerTitle}>Your Workouts</Text>
@@ -299,7 +299,7 @@ const ChestWorkoutDisplayScreen = memo(function ChestWorkoutDisplayScreen() {
                 <View style={styles.cartBadge}>
                   <Text style={styles.cartBadgeText}>{cartItems.length}</Text>
                 </View>
-                <Ionicons name='arrow-forward" size={20} color="#0c0c0c" />
+                <Ionicons name="arrow-forward" size={20} color="#0c0c0c" />
               </LinearGradient>
             </TouchableOpacity>
           </View>

@@ -25,7 +25,7 @@ export default function PrivacyPolicyScreen() {
       {/* Header */}
       <View style={styles.header}>
         <TouchableOpacity style={styles.backButton} onPress={() => router.back()}>
-          <Ionicons name='chevron-back" size={24} color="#FFD700" />
+          <Ionicons name="chevron-back" size={24} color="#FFD700" />
         </TouchableOpacity>
         <Text style={styles.headerTitle}>Privacy Policy</Text>
         <View style={styles.headerSpacer} />

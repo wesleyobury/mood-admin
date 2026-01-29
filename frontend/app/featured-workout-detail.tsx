@@ -610,7 +610,7 @@ export default function FeaturedWorkoutDetail() {
         <Image
           source={{ uri: exercises[0]?.imageUrl || workout.image }}
           style={styles.heroImage}
-          resizeMode='cover"
+          resizeMode="cover"
         />
         <View style={styles.heroOverlay} />
         
@@ -699,7 +699,7 @@ export default function FeaturedWorkoutDetail() {
                     activeOpacity={0.8}
                   >
                     <Ionicons 
-                      name='chevron-down" 
+                      name="chevron-down" 
                       size={18} 
                       color={index === exercises.length - 1 ? 'rgba(255, 255, 255, 0.3)' : '#fff'} 
                     />
@@ -710,7 +710,7 @@ export default function FeaturedWorkoutDetail() {
                   onPress={() => removeExercise(index)}
                   activeOpacity={0.7}
                 >
-                  <Ionicons name='remove-circle" size={28} color="#FF4444" />
+                  <Ionicons name="remove-circle" size={28} color="#FF4444" />
                 </TouchableOpacity>
               </View>
             </View>
@@ -740,7 +740,7 @@ export default function FeaturedWorkoutDetail() {
             end={{ x: 1, y: 0 }}
           >
             <Text style={styles.startButtonText}>Start Workout</Text>
-            <Ionicons name='arrow-forward" size={20} color="#0c0c0c" />
+            <Ionicons name="arrow-forward" size={20} color="#0c0c0c" />
           </LinearGradient>
         </TouchableOpacity>
       </View>

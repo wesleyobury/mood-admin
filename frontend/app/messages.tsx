@@ -112,7 +112,7 @@ export default function Messages() {
         />
       ) : (
         <View style={[styles.avatar, styles.avatarPlaceholder]}>
-          <Ionicons name='person" size={24} color="#666" />
+          <Ionicons name="person" size={24} color="#666" />
         </View>
       )}
       <View style={styles.conversationContent}>
@@ -142,7 +142,7 @@ export default function Messages() {
       {/* Header */}
       <View style={styles.header}>
         <TouchableOpacity onPress={() => router.back()} style={styles.backButton}>
-          <Ionicons name='arrow-back" size={24} color="#fff" />
+          <Ionicons name="arrow-back" size={24} color="#fff" />
         </TouchableOpacity>
         <Text style={styles.headerTitle}>Messages</Text>
         <View style={styles.headerRight} />
@@ -170,7 +170,7 @@ export default function Messages() {
             <RefreshControl
               refreshing={refreshing}
               onRefresh={onRefresh}
-              tintColor='#FFD700"
+              tintColor="#FFD700"
             />
           }
         />

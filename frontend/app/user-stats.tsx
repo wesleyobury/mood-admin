@@ -90,7 +90,7 @@ export default function UserStatsScreen() {
   if (loading) {
     return (
       <View style={styles.loadingContainer}>
-        <ActivityIndicator size='large" color="#FFD700" />
+        <ActivityIndicator size="large" color="#FFD700" />
       </View>
     );
   }

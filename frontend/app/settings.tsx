@@ -338,7 +338,7 @@ export default function Settings() {
             onPress={() => router.push('/terms-of-service')}
           >
             <View style={styles.settingsItemLeft}>
-              <Ionicons name='document-text-outline" size={20} color="#FFD700" />
+              <Ionicons name="document-text-outline" size={20} color="#FFD700" />
               <View>
                 <Text style={styles.settingsItemText}>Terms of Service</Text>
                 <Text style={styles.settingsItemSubtext}>View our terms and conditions</Text>
@@ -352,7 +352,7 @@ export default function Settings() {
             onPress={() => router.push('/privacy-policy')}
           >
             <View style={styles.settingsItemLeft}>
-              <Ionicons name='shield-checkmark-outline" size={20} color="#FFD700" />
+              <Ionicons name="shield-checkmark-outline" size={20} color="#FFD700" />
               <View>
                 <Text style={styles.settingsItemText}>Privacy Policy</Text>
                 <Text style={styles.settingsItemSubtext}>How we handle your data</Text>
@@ -371,7 +371,7 @@ export default function Settings() {
             onPress={() => openExternalUrl(EXTERNAL_URLS.support, 'Unable to open Support page. Please try again later.')}
           >
             <View style={styles.settingsItemLeft}>
-              <Ionicons name='help-circle-outline" size={20} color="#FFD700" />
+              <Ionicons name="help-circle-outline" size={20} color="#FFD700" />
               <View>
                 <Text style={styles.settingsItemText}>Help Center</Text>
                 <Text style={styles.settingsItemSubtext}>FAQs and support resources</Text>
@@ -412,13 +412,13 @@ export default function Settings() {
             onPress={() => router.push('/blocked-users')}
           >
             <View style={styles.settingsItemLeft}>
-              <Ionicons name='ban-outline" size={20} color="#FFD700" />
+              <Ionicons name="ban-outline" size={20} color="#FFD700" />
               <View>
                 <Text style={styles.settingsItemText}>Blocked Users</Text>
                 <Text style={styles.settingsItemSubtext}>Manage users you've blocked</Text>
               </View>
             </View>
-            <Ionicons name='chevron-forward" size={18} color="#666" />
+            <Ionicons name="chevron-forward" size={18} color="#666" />
           </TouchableOpacity>
 
           <TouchableOpacity 
@@ -426,7 +426,7 @@ export default function Settings() {
             onPress={() => router.push('/content-filter')}
           >
             <View style={styles.settingsItemLeft}>
-              <Ionicons name='filter-outline" size={20} color="#FFD700" />
+              <Ionicons name="filter-outline" size={20} color="#FFD700" />
               <View>
                 <Text style={styles.settingsItemText}>Content Filter</Text>
                 <Text style={styles.settingsItemSubtext}>Hide content with specific keywords</Text>
@@ -486,7 +486,7 @@ export default function Settings() {
             );
           }}
         >
-          <Ionicons name='log-out-outline" size={18} color="#FFD700" />
+          <Ionicons name="log-out-outline" size={18} color="#FFD700" />
           <Text style={styles.signOutButtonText}>Sign Out</Text>
         </TouchableOpacity>
       </ScrollView>
@@ -589,7 +589,7 @@ export default function Settings() {
       {/* Change Credentials Modal */}
       <Modal
         visible={showCredentialsModal}
-        animationType='slide"
+        animationType="slide"
         presentationStyle="pageSheet"
         onRequestClose={() => {
           resetCredentialsForm();
@@ -609,7 +609,7 @@ export default function Settings() {
                   setShowCredentialsModal(false);
                 }}
               >
-                <Ionicons name='close" size={28} color="#fff" />
+                <Ionicons name="close" size={28} color="#fff" />
               </TouchableOpacity>
               <Text style={styles.modalTitle}>Change Credentials</Text>
               <View style={styles.placeholder} />
@@ -626,7 +626,7 @@ export default function Settings() {
                 <View style={styles.passwordInputContainer}>
                   <TextInput
                     style={styles.credentialInput}
-                    placeholder='Enter current password"
+                    placeholder="Enter current password"
                     placeholderTextColor="#666"
                     secureTextEntry={!showCurrentPassword}
                     value={currentPassword}
@@ -733,7 +733,7 @@ export default function Settings() {
                 disabled={!currentPassword || isUpdating}
               >
                 {isUpdating ? (
-                  <ActivityIndicator size='small" color="#000" />
+                  <ActivityIndicator size="small" color="#000" />
                 ) : (
                   <Text style={styles.updateButtonText}>Update Credentials</Text>
                 )}

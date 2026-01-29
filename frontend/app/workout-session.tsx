@@ -265,7 +265,7 @@ export default function WorkoutSessionScreen() {
           style={styles.backButton}
           onPress={handleGoBack}
         >
-          <Ionicons name='chevron-back" size={24} color="#FFD700" />
+          <Ionicons name="chevron-back" size={24} color="#FFD700" />
         </TouchableOpacity>
         <View style={styles.headerTextContainer}>
           <Text style={styles.headerTitle}>Workout Session</Text>
@@ -379,7 +379,7 @@ export default function WorkoutSessionScreen() {
               onPress={handleFinishSession}
               activeOpacity={0.8}
             >
-              <Ionicons name='checkmark-circle" size={20} color="#000000" />
+              <Ionicons name="checkmark-circle" size={20} color="#000000" />
               <Text style={styles.finishButtonText}>Finish Session</Text>
             </TouchableOpacity>
           ) : (

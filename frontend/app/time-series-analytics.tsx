@@ -198,7 +198,7 @@ export default function TimeSeriesAnalytics() {
     if (!data || data.values.length === 0) {
       return (
         <View style={styles.noDataContainer}>
-          <Ionicons name='bar-chart-outline" size={48} color="#666" />
+          <Ionicons name="bar-chart-outline" size={48} color="#666" />
           <Text style={styles.noDataText}>No data available for this period</Text>
         </View>
       );
@@ -311,13 +311,13 @@ export default function TimeSeriesAnalytics() {
             style={[styles.toggleButton, chartType === 'bar' && styles.toggleButtonActive]}
             onPress={() => setChartType('bar')}
           >
-            <Ionicons name='bar-chart" size={18} color={chartType === 'bar' ? '#FFD700' : '#666'} />
+            <Ionicons name="bar-chart" size={18} color={chartType === 'bar' ? '#FFD700' : '#666'} />
           </TouchableOpacity>
           <TouchableOpacity
             style={[styles.toggleButton, chartType === 'line' && styles.toggleButtonActive]}
             onPress={() => setChartType('line')}
           >
-            <Ionicons name='trending-up" size={18} color={chartType === 'line' ? '#FFD700' : '#666'} />
+            <Ionicons name="trending-up" size={18} color={chartType === 'line' ? '#FFD700' : '#666'} />
           </TouchableOpacity>
         </View>
 

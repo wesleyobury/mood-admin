@@ -147,7 +147,7 @@ export default function FollowersList() {
           />
         ) : (
           <View style={[styles.avatar, styles.avatarPlaceholder]}>
-            <Ionicons name='person" size={24} color="#666" />
+            <Ionicons name="person" size={24} color="#666" />
           </View>
         )}
         <View style={styles.userDetails}>
@@ -188,7 +188,7 @@ export default function FollowersList() {
       <Ionicons 
         name={activeTab === 'followers' ? 'people-outline' : 'person-add-outline'} 
         size={64} 
-        color='#333" 
+        color="#333" 
       />
       <Text style={styles.emptyTitle}>
         {activeTab === 'followers' ? 'No Followers Yet' : 'Not Following Anyone'}
@@ -239,7 +239,7 @@ export default function FollowersList() {
 
       {loading ? (
         <View style={styles.loadingContainer}>
-          <ActivityIndicator size='large" color="#FFD700" />
+          <ActivityIndicator size="large" color="#FFD700" />
         </View>
       ) : (
         <FlatList

@@ -124,7 +124,7 @@ export default function BlockedUsers() {
           />
         ) : (
           <View style={[styles.avatar, styles.avatarPlaceholder]}>
-            <Ionicons name='person" size={24} color="#666" />
+            <Ionicons name="person" size={24} color="#666" />
           </View>
         )}
         <View style={styles.userDetails}>

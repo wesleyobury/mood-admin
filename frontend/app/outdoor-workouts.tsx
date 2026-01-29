@@ -156,7 +156,7 @@ const OutdoorWorkoutsScreen = memo(function OutdoorWorkoutsScreen() {
             style={styles.backButton}
             onPress={handleGoBack}
           >
-            <Ionicons name='chevron-back" size={24} color="#FFD700" />
+            <Ionicons name="chevron-back" size={24} color="#FFD700" />
           </TouchableOpacity>
           <View style={styles.headerTextContainer}>
             <Text style={styles.headerTitle}>Outdoor Activities</Text>
@@ -192,7 +192,7 @@ const OutdoorWorkoutsScreen = memo(function OutdoorWorkoutsScreen() {
             style={styles.backButton}
             onPress={handleGoBack}
           >
-            <Ionicons name='chevron-back" size={24} color="#FFD700" />
+            <Ionicons name="chevron-back" size={24} color="#FFD700" />
           </TouchableOpacity>
           <View style={styles.headerTextContainer}>
             <Text style={styles.headerTitle}>Outdoor Activities</Text>

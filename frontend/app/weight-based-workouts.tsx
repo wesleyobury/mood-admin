@@ -161,7 +161,7 @@ const WeightBasedWorkoutsScreen = memo(function WeightBasedWorkoutsScreen() {
             style={styles.backButton}
             onPress={handleGoBack}
           >
-            <Ionicons name='chevron-back" size={24} color="#FFD700" />
+            <Ionicons name="chevron-back" size={24} color="#FFD700" />
           </TouchableOpacity>
           <View style={styles.headerTextContainer}>
             <Text style={styles.headerTitle}>Explosiveness</Text>
@@ -197,7 +197,7 @@ const WeightBasedWorkoutsScreen = memo(function WeightBasedWorkoutsScreen() {
             style={styles.backButton}
             onPress={handleGoBack}
           >
-            <Ionicons name='chevron-back" size={24} color="#FFD700" />
+            <Ionicons name="chevron-back" size={24} color="#FFD700" />
           </TouchableOpacity>
           <View style={styles.headerTextContainer}>
             <Text style={styles.headerTitle}>Your Workouts</Text>
