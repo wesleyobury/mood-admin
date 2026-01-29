@@ -1546,7 +1546,7 @@ export default function ShouldersWorkoutDisplayScreen() {
   } catch (error) {
     console.error('Error parsing equipment parameter:', error);
     // Fallback to default equipment for testing
-    selectedEquipmentNames = ['Dumbbells"];
+    selectedEquipmentNames = ['Dumbbells'];
   }
   
   const difficulty = (params.difficulty as string || 'beginner').toLowerCase();

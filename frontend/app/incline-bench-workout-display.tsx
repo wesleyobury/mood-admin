@@ -340,7 +340,7 @@ export default function InclineBenchWorkoutDisplayScreen() {
   } catch (error) {
     console.error('Error parsing equipment parameter:', error);
     // Fallback to default equipment for testing
-    selectedEquipmentNames = ['Incline bench"];
+    selectedEquipmentNames = ['Incline bench'];
   }
   
   const difficulty = (params.difficulty as string || 'beginner').toLowerCase();

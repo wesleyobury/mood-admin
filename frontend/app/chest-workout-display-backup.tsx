@@ -1345,7 +1345,7 @@ export default function ChestWorkoutDisplayScreen() {
   } catch (error) {
     console.error('Error parsing equipment parameter:', error);
     // Fallback to default equipment for testing
-    selectedEquipmentNames = ['Adjustable bench"];
+    selectedEquipmentNames = ['Adjustable bench'];
   }
   
   const difficulty = (params.difficulty as string || 'beginner').toLowerCase();

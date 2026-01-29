@@ -340,7 +340,7 @@ export default function FlatBenchWorkoutDisplayScreen() {
   } catch (error) {
     console.error('Error parsing equipment parameter:', error);
     // Fallback to default equipment for testing
-    selectedEquipmentNames = ['Flat bench"];
+    selectedEquipmentNames = ['Flat bench'];
   }
   
   const difficulty = (params.difficulty as string || 'beginner').toLowerCase();

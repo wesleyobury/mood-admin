@@ -937,7 +937,7 @@ export default function WorkoutDisplayScreen() {
   } catch (error) {
     console.error('Error parsing equipment parameter:', error);
     // Fallback to default equipment for testing
-    selectedEquipmentNames = ['Treadmill"];
+    selectedEquipmentNames = ['Treadmill'];
   }
   
   const difficulty = (params.difficulty as string || 'beginner').toLowerCase();

@@ -340,7 +340,7 @@ export default function DeclineBenchWorkoutDisplayScreen() {
   } catch (error) {
     console.error('Error parsing equipment parameter:', error);
     // Fallback to default equipment for testing
-    selectedEquipmentNames = ['Decline bench"];
+    selectedEquipmentNames = ['Decline bench'];
   }
   
   const difficulty = (params.difficulty as string || 'beginner').toLowerCase();
