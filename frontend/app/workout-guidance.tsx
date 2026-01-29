@@ -969,12 +969,14 @@ const styles = StyleSheet.create({
     width: 32,
     height: 32,
     borderRadius: 16,
-    backgroundColor: '#FFD700',
-    borderWidth: 2,
-    borderColor: '#FFD700',
+    overflow: 'hidden',
+    marginBottom: 8,
+  },
+  progressStepGradient: {
+    width: '100%',
+    height: '100%',
     justifyContent: 'center',
     alignItems: 'center',
-    marginBottom: 8,
   },
   progressStepText: {
     fontSize: 12,
