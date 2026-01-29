@@ -998,7 +998,7 @@ export default function CreatePost() {
           
           if (Platform.OS === 'web') {
             // Convert data URL to blob for web
-            if (cardUri.startsWith('data:")) {
+            if (cardUri.startsWith('data:')) {
               const response = await fetch(cardUri);
               const blob = await response.blob();
               formData.append('file', blob, filename);
