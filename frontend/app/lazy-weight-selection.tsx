@@ -80,7 +80,7 @@ const BodyPartCard = ({
         <Ionicons 
           name={bodyPart.icon} 
           size={16} 
-          color={isSelected ? '#FFD700" : "rgba(255, 255, 255, 0.7)"} 
+          color={isSelected ? '#FFD700' : "rgba(255, 255, 255, 0.7)"} 
         />
       </View>
       <Text style={[

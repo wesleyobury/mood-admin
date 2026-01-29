@@ -85,7 +85,7 @@ const EquipmentCard = ({
         <Ionicons 
           name={equipment.icon} 
           size={20} 
-          color={isSelected ? '#FFD700" : "#FFFFFF"} 
+          color={isSelected ? '#FFD700' : '#FFFFFF'} 
         />
       </View>
       <Text style={[
@@ -273,7 +273,7 @@ export default function CalisthenicsEquipmentScreen() {
               <Ionicons 
                 name={selectedDifficulty ? 'checkmark" : "star"} 
                 size={14} 
-                color={selectedDifficulty ? "#000000" : "rgba(255, 215, 0, 0.7)"} 
+                color={selectedDifficulty ? "#000000' : "rgba(255, 215, 0, 0.7)"} 
               />
             </View>
             <Text style={styles.progressStepText}>Difficulty</Text>

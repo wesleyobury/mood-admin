@@ -392,7 +392,7 @@ export default function PostDetail() {
               }}
             >
               <Ionicons 
-                name={post.is_saved ? 'bookmark" : "bookmark-outline"} 
+                name={post.is_saved ? 'bookmark' : "bookmark-outline"} 
                 size={22} 
                 color="#fff" 
               />

@@ -665,7 +665,7 @@ export default function LegsWorkoutDisplayScreen() {
             }
           </Text>
           <Ionicons 
-            name={hasMoreMuscles ? 'arrow-forward" : "cart"} 
+            name={hasMoreMuscles ? 'arrow-forward' : "cart"} 
             size={20} 
             color="#000" 
           />

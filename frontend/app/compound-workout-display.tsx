@@ -361,7 +361,7 @@ const CompoundWorkoutDisplayScreen = memo(function CompoundWorkoutDisplayScreen(
                 }
               </Text>
               <Ionicons 
-                name={hasMoreMuscles ? 'arrow-forward" : "cart"} 
+                name={hasMoreMuscles ? 'arrow-forward' : "cart"} 
                 size={20} 
                 color="#0c0c0c" 
               />

@@ -79,7 +79,7 @@ const LazyTrainingTypeOption = ({
             <Ionicons 
               name={option.icon} 
               size={32} 
-              color={isSelected ? '#FFD700" : "#FFD700"} 
+              color={isSelected ? '#FFD700' : '#FFD700'} 
             />
           </View>
           <View style={styles.textContainer}>
