@@ -193,7 +193,7 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Bench Chest Press',
           duration: '12-15 min',
-          description: "3 rounds:\n• 12 light dumbbell or Smith bench press\n• 10 dumbbell bench fly\n• Rest 60-75s\n\nTips:\n• Bench press: Drag elbows slightly in toward midline as you press-max pec activation.\n• Fly: Focus on stretching fibers at the bottom, then forcefully contract chest to bring dumbbells together (don't just move arms).',
+          description: "3 rounds:\n• 12 light dumbbell or Smith bench press\n• 10 dumbbell bench fly\n• Rest 60-75s\n\nTips:\n• Bench press: Drag elbows slightly in toward midline as you press-max pec activation.\n• Fly: Focus on stretching fibers at the bottom, then forcefully contract chest to bring dumbbells together (don't just move arms).",
           imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxlbGxpcHRpY2FsJTIwd29ya291dHxlbnwxfHx8fDE3NTY4ODMyMjN8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Combines pressing and isolation movements to teach proper bench technique while building chest strength.',
           moodTips: [
@@ -233,7 +233,7 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Bench Chest Flow',
           duration: '12-15 min",
-          description: "3 rounds:\n• 10 bench press\n• 10 fly\n• 10 close-grip bench press\n• Rest 90s\n\nTips:\n• In the fly → press transition, don't rest-this overloads pecs by hitting both stretch and contraction.\n• On the close-grip, actively press your palms inward into the bar/dumbbells to increase pec activation.',
+          description: "3 rounds:\n• 10 bench press\n• 10 fly\n• 10 close-grip bench press\n• Rest 90s\n\nTips:\n• In the fly → press transition, don't rest-this overloads pecs by hitting both stretch and contraction.\n• On the close-grip, actively press your palms inward into the bar/dumbbells to increase pec activation.",
           imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
           intensityReason: 'Continuous flow training that overloads pecs through combined pressing and isolation movements.',
           moodTips: [
@@ -300,7 +300,7 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Incline Push-Up Circuit',
           duration: '10-12 min',
-          description: "3 rounds:\n• 10 incline push-ups\n• 10 light incline bench press\n• Rest 60s\n\nTips:\n• Push-ups: Push through hands as if you're wrapping chest around ribcage.\n• Incline press: Bring bar/bells slightly below clavicles, elbows just inside wrists-better upper pec stretch.',
+          description: "3 rounds:\n• 10 incline push-ups\n• 10 light incline bench press\n• Rest 60s\n\nTips:\n• Push-ups: Push through hands as if you're wrapping chest around ribcage.\n• Incline press: Bring bar/bells slightly below clavicles, elbows just inside wrists-better upper pec stretch.",
           imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8MTc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Perfect beginner introduction to incline training targeting upper chest development with bodyweight and light resistance.',
           moodTips: [
@@ -399,7 +399,7 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Incline Drop Set',
           duration: '16-20 min',
-          description: "2 rounds:\n• 10 heavy incline press\n• Drop → 10 moderate\n• Drop → 10 light\n• Rest 90-120s\n\nTips:\n• Use explosive concentric on heavy sets; on light sets, slow eccentric + peak contraction squeeze.\n• Keep scapula pinned-don't let shoulders roll forward under fatigue.',
+          description: "2 rounds:\n• 10 heavy incline press\n• Drop → 10 moderate\n• Drop → 10 light\n• Rest 90-120s\n\nTips:\n• Use explosive concentric on heavy sets; on light sets, slow eccentric + peak contraction squeeze.\n• Keep scapula pinned-don't let shoulders roll forward under fatigue.",
           imageUrl: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjB3b3Jrb3V0fGVufDF8fHx8MVc1Nijg4MzIyM3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'High-intensity incline drop sets push upper chest muscle failure across multiple weight ranges for advanced hypertrophy.',
           moodTips: [
@@ -485,7 +485,7 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Decline Chest Flow',
           duration: '12-15 min',
-          description: "3 rounds:\n• 10 decline press\n• 10 decline fly\n• 10 close-grip press\n• Rest 90s\n\nTips:\n• Pump-style sequence-don't rack weights; keep pecs loaded.\n• Close-grip: squeeze chest by pushing hands inward.',
+          description: "3 rounds:\n• 10 decline press\n• 10 decline fly\n• 10 close-grip press\n• Rest 90s\n\nTips:\n• Pump-style sequence-don't rack weights; keep pecs loaded.\n• Close-grip: squeeze chest by pushing hands inward.",
           imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
           intensityReason: 'Continuous flow training that overloads lower chest through combined pressing, isolation, and close-grip movements.',
           moodTips: [
