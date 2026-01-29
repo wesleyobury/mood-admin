@@ -97,7 +97,7 @@ const EquipmentCard = ({
       </Text>
       {isSelected && (
         <View style={styles.equipmentIndicator}>
-          <Ionicons name="checkmark" size={16} color="#000000" />
+          <Ionicons name="checkmark" size={16} color="#0c0c0c" />
         </View>
       )}
     </TouchableOpacity>
@@ -134,7 +134,7 @@ const DifficultyCard = ({
       </View>
       {isSelected && (
         <View style={styles.difficultyIndicator}>
-          <Ionicons name="checkmark" size={20} color="#000000" />
+          <Ionicons name="checkmark" size={20} color="#0c0c0c" />
         </View>
       )}
     </TouchableOpacity>
@@ -240,7 +240,7 @@ export default function AbsEquipmentScreen() {
         >
           <View style={styles.progressStep}>
             <View style={styles.progressStepActive}>
-              <Ionicons name="flame" size={14} color="#000000" />
+              <Ionicons name="flame" size={14} color="#0c0c0c" />
             </View>
             <Text style={styles.progressStepText}>{moodTitle}</Text>
           </View>
@@ -249,7 +249,7 @@ export default function AbsEquipmentScreen() {
           
           <View style={styles.progressStep}>
             <View style={styles.progressStepActive}>
-              <Ionicons name="fitness" size={14} color="#000000" />
+              <Ionicons name="fitness" size={14} color="#0c0c0c" />
             </View>
             <Text style={styles.progressStepText}>{workoutType}</Text>
           </View>
@@ -281,7 +281,7 @@ export default function AbsEquipmentScreen() {
               selectedDifficulty && styles.progressStepActive
             ]}>
               {selectedDifficulty ? (
-                <Ionicons name="checkmark" size={14} color="#000000" />
+                <Ionicons name="checkmark" size={14} color="#0c0c0c" />
               ) : (
                 <Text style={styles.progressStepNumber}>4</Text>
               )}

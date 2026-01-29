@@ -91,7 +91,7 @@ const BodyPartCard = ({
       </Text>
       {isSelected && (
         <View style={styles.bodyPartIndicator}>
-          <Ionicons name="checkmark" size={16} color="#000000" />
+          <Ionicons name="checkmark" size={16} color="#0c0c0c" />
         </View>
       )}
     </TouchableOpacity>
@@ -128,7 +128,7 @@ const DifficultyCard = ({
       </View>
       {isSelected && (
         <View style={styles.difficultyIndicator}>
-          <Ionicons name="checkmark" size={20} color="#000000" />
+          <Ionicons name="checkmark" size={20} color="#0c0c0c" />
         </View>
       )}
     </TouchableOpacity>
@@ -227,7 +227,7 @@ export default function LazyWeightSelectionScreen() {
         <View style={styles.progressContent}>
           <View style={styles.progressStep}>
             <View style={styles.progressStepActive}>
-              <Ionicons name="bed" size={14} color="#000000" />
+              <Ionicons name="bed" size={14} color="#0c0c0c" />
             </View>
             <Text style={styles.progressStepText}>Feeling lazy</Text>
           </View>
@@ -236,7 +236,7 @@ export default function LazyWeightSelectionScreen() {
           
           <View style={styles.progressStep}>
             <View style={styles.progressStepActive}>
-              <Ionicons name="barbell" size={14} color="#000000" />
+              <Ionicons name="barbell" size={14} color="#0c0c0c" />
             </View>
             <Text style={styles.progressStepText}>Lift weights</Text>
           </View>

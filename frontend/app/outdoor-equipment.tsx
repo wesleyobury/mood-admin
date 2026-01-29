@@ -96,7 +96,7 @@ const EquipmentCard = ({
       </Text>
       {isSelected && (
         <View style={styles.equipmentIndicator}>
-          <Ionicons name="checkmark" size={16} color="#000000" />
+          <Ionicons name="checkmark" size={16} color="#0c0c0c" />
         </View>
       )}
     </TouchableOpacity>
@@ -132,7 +132,7 @@ const DifficultyCard = ({
       </View>
       {isSelected && (
         <View style={styles.difficultyIndicator}>
-          <Ionicons name="checkmark" size={20} color="#000000" />
+          <Ionicons name="checkmark" size={20} color="#0c0c0c" />
         </View>
       )}
     </TouchableOpacity>
@@ -225,7 +225,7 @@ export default function OutdoorEquipmentScreen() {
         <View style={styles.progressContent}>
           <View style={styles.progressStep}>
             <View style={styles.progressStepActive}>
-              <Ionicons name="bicycle" size={14} color="#000000" />
+              <Ionicons name="bicycle" size={14} color="#0c0c0c" />
             </View>
             <Text style={styles.progressStepText}>Outside</Text>
           </View>

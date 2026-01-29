@@ -269,7 +269,7 @@ export default function BodyPartsScreen() {
         >
           <View style={styles.progressStep}>
             <View style={styles.progressStepActive}>
-              <Ionicons name="barbell" size={14} color="#000000" />
+              <Ionicons name="barbell" size={14} color="#0c0c0c" />
             </View>
             <Text style={styles.progressStepText}>{mood}</Text>
           </View>

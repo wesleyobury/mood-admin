@@ -182,7 +182,7 @@ export default function LegsMuscleGroupsScreen() {
         <View style={styles.progressContent}>
           <View style={styles.progressStep}>
             <View style={styles.progressStepActive}>
-              <Ionicons name="flame" size={14} color="#000000" />
+              <Ionicons name="flame" size={14} color="#0c0c0c" />
             </View>
             <Text style={styles.progressStepText}>{moodTitle}</Text>
           </View>
@@ -191,7 +191,7 @@ export default function LegsMuscleGroupsScreen() {
           
           <View style={styles.progressStep}>
             <View style={styles.progressStepActive}>
-              <Ionicons name="walk" size={14} color="#000000" />
+              <Ionicons name="walk" size={14} color="#0c0c0c" />
             </View>
             <Text style={styles.progressStepText}>{workoutType}</Text>
           </View>
