@@ -278,7 +278,7 @@ export default function TimeSeriesAnalytics() {
             <Text style={styles.summaryLabel}>Total {metricInfo.unit}</Text>
           </View>
           <View style={styles.summaryCard}>
-            <Ionicons name="analytics" size={24} color='#4CAF50' />
+            <Ionicons name="analytics" size={24} color="#4CAF50" />
             <Text style={styles.summaryValue}>{data?.average?.toLocaleString() || 0}</Text>
             <Text style={styles.summaryLabel}>Avg per {period}</Text>
           </View>
