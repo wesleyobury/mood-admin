@@ -154,7 +154,7 @@ const workoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'trending-up',
               title: 'Tempo Control',
-              description: ''Comfortably hard' tempo; set incline changes beforehand.'
+              description: "'Comfortably hard' tempo; set incline changes beforehand."
             },
             {
               icon: 'refresh',
