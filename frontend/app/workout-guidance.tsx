@@ -692,35 +692,25 @@ export default function WorkoutGuidanceScreen() {
             onPress={handleStartPauseTimer}
             activeOpacity={0.8}
           >
-            <LinearGradient
-              colors={['#FFD700', '#FFA500']}
-              style={styles.timerButtonGradient}
-              start={{ x: 0, y: 0 }}
-              end={{ x: 1, y: 0 }}
-            >
+            <View style={styles.timerButtonCharcoal}>
               <Ionicons 
                 name={!isRunning ? "play" : isPaused ? "play" : "pause"} 
-                size={14} 
-                color="#0c0c0c" 
+                size={16} 
+                color="#ffffff" 
               />
-              <Text style={styles.primaryButtonText}>
+              <Text style={styles.timerButtonTextCharcoal}>
                 {!isRunning ? "Start" : isPaused ? "Resume" : "Pause"}
               </Text>
-            </LinearGradient>
+            </View>
           </TouchableOpacity>
           <TouchableOpacity 
-            style={styles.resetButton}
+            style={styles.resetButtonCharcoal}
             onPress={handleResetTimer}
             activeOpacity={0.8}
           >
-            <LinearGradient
-              colors={['#FFA500', '#FF8C00']}
-              style={styles.resetButtonGradient}
-              start={{ x: 0, y: 0 }}
-              end={{ x: 1, y: 0 }}
-            >
-              <Ionicons name="refresh" size={14} color="#0c0c0c" />
-            </LinearGradient>
+            <View style={styles.resetButtonInner}>
+              <Ionicons name="refresh" size={16} color="#ffffff" />
+            </View>
           </TouchableOpacity>
         </View>
       </View>
