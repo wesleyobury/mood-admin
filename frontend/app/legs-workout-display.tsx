@@ -514,7 +514,9 @@ export default function LegsWorkoutDisplayScreen() {
         <View style={styles.progressContent}>
           <View style={styles.progressStep}>
             <View style={styles.progressStepActive}>
-              <Ionicons name="flame" size={14} color="#0c0c0c" />
+              <LinearGradient colors={['#FFD700', '#FFA500']} style={styles.progressStepGradient} start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }}>
+                <Ionicons name="flame" size={14} color="#0c0c0c" />
+              </LinearGradient>
             </View>
             <Text style={styles.progressStepText}>{mood}</Text>
           </View>
@@ -523,7 +525,9 @@ export default function LegsWorkoutDisplayScreen() {
           
           <View style={styles.progressStep}>
             <View style={styles.progressStepActive}>
-              <Ionicons name="walk" size={14} color="#0c0c0c" />
+              <LinearGradient colors={['#FFD700', '#FFA500']} style={styles.progressStepGradient} start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }}>
+                <Ionicons name="walk" size={14} color="#0c0c0c" />
+              </LinearGradient>
             </View>
             <Text style={styles.progressStepText}>{workoutType}</Text>
           </View>
@@ -532,7 +536,9 @@ export default function LegsWorkoutDisplayScreen() {
           
           <View style={styles.progressStep}>
             <View style={styles.progressStepActive}>
-              <Text style={styles.progressStepBadgeText}>{muscleGroupNames.length}</Text>
+              <LinearGradient colors={['#FFD700', '#FFA500']} style={styles.progressStepGradient} start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }}>
+                <Text style={styles.progressStepBadgeText}>{muscleGroupNames.length}</Text>
+              </LinearGradient>
             </View>
             <Text style={styles.progressStepText}>Muscle Groups</Text>
           </View>
