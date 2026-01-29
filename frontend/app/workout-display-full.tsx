@@ -1021,7 +1021,9 @@ export default function WorkoutDisplayScreen() {
         >
           <View style={styles.progressStep}>
             <View style={styles.progressStepActive}>
-              <Ionicons name="flame" size={14} color="#0c0c0c" />
+              <LinearGradient colors={['#FFD700', '#FFA500']} style={styles.progressStepGradient} start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }}>
+                <Ionicons name="flame" size={14} color="#0c0c0c" />
+              </LinearGradient>
             </View>
             <Text style={styles.progressStepText}>{moodTitle}</Text>
           </View>
@@ -1030,7 +1032,9 @@ export default function WorkoutDisplayScreen() {
           
           <View style={styles.progressStep}>
             <View style={styles.progressStepActive}>
-              <Ionicons name="heart" size={14} color="#0c0c0c" />
+              <LinearGradient colors={['#FFD700', '#FFA500']} style={styles.progressStepGradient} start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }}>
+                <Ionicons name="heart" size={14} color="#0c0c0c" />
+              </LinearGradient>
             </View>
             <Text style={styles.progressStepText}>Cardio Based</Text>
           </View>
@@ -1039,9 +1043,11 @@ export default function WorkoutDisplayScreen() {
           
           <View style={styles.progressStep}>
             <View style={styles.progressStepActive}>
-              <Text style={styles.progressStepNumberActive}>
-                {selectedEquipmentNames.length}
-              </Text>
+              <LinearGradient colors={['#FFD700', '#FFA500']} style={styles.progressStepGradient} start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }}>
+                <Text style={styles.progressStepNumberActive}>
+                  {selectedEquipmentNames.length}
+                </Text>
+              </LinearGradient>
             </View>
             <Text style={styles.progressStepText}>
               Equipment ({selectedEquipmentNames.length})
@@ -1052,7 +1058,9 @@ export default function WorkoutDisplayScreen() {
           
           <View style={styles.progressStep}>
             <View style={styles.progressStepActive}>
-              <Ionicons name="checkmark" size={14} color="#0c0c0c" />
+              <LinearGradient colors={['#FFD700', '#FFA500']} style={styles.progressStepGradient} start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }}>
+                <Ionicons name="checkmark" size={14} color="#0c0c0c" />
+              </LinearGradient>
             </View>
             <Text style={styles.progressStepText}>
               {difficulty.charAt(0).toUpperCase() + difficulty.slice(1)}
@@ -1063,7 +1071,9 @@ export default function WorkoutDisplayScreen() {
           
           <View style={styles.progressStep}>
             <View style={styles.progressStepActive}>
-              <Ionicons name="fitness" size={14} color="#0c0c0c" />
+              <LinearGradient colors={['#FFD700', '#FFA500']} style={styles.progressStepGradient} start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }}>
+                <Ionicons name="fitness" size={14} color="#0c0c0c" />
+              </LinearGradient>
             </View>
             <Text style={styles.progressStepText}>Workouts</Text>
           </View>
