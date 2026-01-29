@@ -122,7 +122,7 @@ export default function Welcome() {
 
   const handleAcceptPrivacy = async () => {
     try {
-      await AsyncStorage.setItem(PRIVACY_ACCEPTED_KEY, 'true");
+      await AsyncStorage.setItem(PRIVACY_ACCEPTED_KEY, 'true');
       setHasAcceptedPrivacy(true);
       setShowPrivacyModal(false);
       // Navigate to login after accepting privacy policy and terms
