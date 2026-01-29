@@ -102,7 +102,7 @@ const adjustableBenchDatabase: EquipmentWorkouts[] = [
             },
             {
               icon: 'timer',
-              title: 'Don't rush - feel pec stretch',
+              title: "Don't rush - feel pec stretch",
               description: 'On each angle for maximum muscle activation and growth.'
             }
           ]
