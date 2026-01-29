@@ -136,7 +136,7 @@ const DifficultyCard = ({
       </View>
       {isSelected && (
         <View style={styles.difficultyIndicator}>
-          <Ionicons name="checkmark" size={20} color="#0c0c0c' />
+          <Ionicons name="checkmark" size={20} color="#0c0c0c" />
         </View>
       )}
     </TouchableOpacity>
@@ -234,7 +234,7 @@ export default function LazyBodyweightEquipmentScreen() {
                 start={{ x: 0, y: 0 }}
                 end={{ x: 1, y: 1 }}
               >
-                <Ionicons name="bed" size={14} color='#0c0c0c' />
+                <Ionicons name="bed" size={14} color="#0c0c0c" />
               </LinearGradient>
             </View>
             <Text style={styles.progressStepText}>Feeling lazy</Text>
@@ -250,7 +250,7 @@ export default function LazyBodyweightEquipmentScreen() {
                 start={{ x: 0, y: 0 }}
                 end={{ x: 1, y: 1 }}
               >
-                <Ionicons name="walk" size={14} color='#0c0c0c' />
+                <Ionicons name="walk" size={14} color="#0c0c0c" />
               </LinearGradient>
             </View>
             <Text style={styles.progressStepText}>Move body</Text>
@@ -340,7 +340,7 @@ export default function LazyBodyweightEquipmentScreen() {
               end={{ x: 1, y: 0 }}
             >
               <Text style={styles.continueButtonTextActive}>Continue</Text>
-              <Ionicons name="chevron-forward" size={20} color='#0c0c0c' />
+              <Ionicons name="chevron-forward" size={20} color="#0c0c0c" />
             </LinearGradient>
           ) : (
             <Text style={styles.continueButtonText}>Continue</Text>
