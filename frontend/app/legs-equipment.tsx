@@ -313,7 +313,7 @@ export default function LegsEquipmentScreen() {
           pathname: '/compound-workout-display',
           params: { 
             mood: moodTitle,
-            workoutType: "Legs',
+            workoutType: 'Legs',
             muscleGroups: encodeURIComponent(muscleGroupNames.join(',')),
             equipment: equipmentNamesString,
             equipmentPerGroup: encodeURIComponent(JSON.stringify(equipmentPerGroup)),
