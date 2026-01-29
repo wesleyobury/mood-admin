@@ -136,7 +136,7 @@ export default function Chat() {
 
     setSending(true);
     const messageContent = newMessage.trim();
-    setNewMessage('");
+    setNewMessage('');
 
     try {
       const response = await fetch(`${API_URL}/api/conversations/${activeConversationId}/messages`, {
