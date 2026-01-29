@@ -57,7 +57,7 @@ const flatBenchDatabase: EquipmentWorkouts[] = [
             {
               icon: 'flash',
               title: 'Push-ups: Lower slow, drive up hard',
-              description: 'Squeeze pecs together at the top. Think 'push the floor apart.''
+              description: "Squeeze pecs together at the top. Think 'push the floor apart.'"
             },
             {
               icon: 'body',
