@@ -158,7 +158,7 @@ export default function PostDetail() {
 
   const handleSave = async () => {
     if (isGuest) {
-      setGuestAction('save posts");
+      setGuestAction('save posts');
       setShowGuestPrompt(true);
       return;
     }
