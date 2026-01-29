@@ -232,7 +232,7 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
         },
         {
           name: 'Bench Chest Flow',
-          duration: '12-15 min",
+          duration: '12-15 min',
           description: "3 rounds:\n• 10 bench press\n• 10 fly\n• 10 close-grip bench press\n• Rest 90s\n\nTips:\n• In the fly → press transition, don't rest-this overloads pecs by hitting both stretch and contraction.\n• On the close-grip, actively press your palms inward into the bar/dumbbells to increase pec activation.",
           imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
           intensityReason: 'Continuous flow training that overloads pecs through combined pressing and isolation movements.',
