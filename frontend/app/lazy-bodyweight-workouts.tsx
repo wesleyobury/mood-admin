@@ -28,7 +28,7 @@ const LazyBodyweightWorkoutsScreen = memo(function LazyBodyweightWorkoutsScreen(
   const insets = useSafeAreaInsets();
 
   // Parse URL parameters
-  const moodTitle = params.mood as string || 'I'm feeling lazy';
+  const moodTitle = params.mood as string || "I'm feeling lazy";
   const workoutType = params.workoutType as string || 'Move your body';
   const equipmentParam = params.equipment as string || '';
   const difficulty = params.difficulty as string || 'beginner';

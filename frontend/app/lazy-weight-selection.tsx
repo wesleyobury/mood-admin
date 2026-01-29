@@ -143,7 +143,7 @@ export default function LazyWeightSelectionScreen() {
   const [selectedBodyPart, setSelectedBodyPart] = useState<BodyPartOption | null>(null);
   const [selectedDifficulty, setSelectedDifficulty] = useState<DifficultyLevel | null>(null);
   
-  const moodTitle = 'I'm feeling lazy';
+  const moodTitle = "I'm feeling lazy";
   const workoutType = 'Lift weights';
 
   const handleBodyPartSelect = (bodyPart: BodyPartOption) => {

@@ -106,7 +106,7 @@ export default function LazyTrainingTypeScreen() {
   const insets = useSafeAreaInsets();
   const [selectedOption, setSelectedOption] = useState<LazyTrainingTypeOption | null>(null);
   
-  const moodTitle = params.mood as string || 'I'm feeling lazy';
+  const moodTitle = params.mood as string || "I'm feeling lazy";
 
   const handleLazyTrainingTypeSelect = (option: LazyTrainingTypeOption) => {
     console.log('Selected lazy training type:', option.title, 'for mood:', moodTitle);
