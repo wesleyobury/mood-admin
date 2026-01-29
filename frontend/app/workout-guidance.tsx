@@ -1019,7 +1019,6 @@ const styles = StyleSheet.create({
   timerButton: {
     borderRadius: 8,
     overflow: 'hidden',
-    minWidth: 80,
   },
   timerButtonGradient: {
     flexDirection: 'row',
@@ -1028,6 +1027,18 @@ const styles = StyleSheet.create({
     paddingVertical: 8,
     gap: 4,
     justifyContent: 'center',
+  },
+  resetButton: {
+    borderRadius: 8,
+    overflow: 'hidden',
+    width: 36,
+    height: 36,
+  },
+  resetButtonGradient: {
+    width: '100%',
+    height: '100%',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   primaryButton: {
     backgroundColor: '#FFD700',
