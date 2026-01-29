@@ -300,7 +300,7 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Incline Push-Up Circuit',
           duration: '10-12 min',
-          description: "3 rounds:\n• 10 incline push-ups\n• 10 light incline bench press\n• Rest 60s\n\nTips:\n• Push-ups: Push through hands as if you're "wrapping chest around ribcage."\n• Incline press: Bring bar/bells slightly below clavicles, elbows just inside wrists-better upper pec stretch.",
+          description: "3 rounds:\n• 10 incline push-ups\n• 10 light incline bench press\n• Rest 60s\n\nTips:\n• Push-ups: Push through hands as if you're wrapping chest around ribcage.\n• Incline press: Bring bar/bells slightly below clavicles, elbows just inside wrists-better upper pec stretch.",
           imageUrl: 'https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHw5fHxyaW5nfGVufDB8fHx8MTc1MzA5MTY0M3ww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Perfect beginner introduction to incline training targeting upper chest development with bodyweight and light resistance.',
           moodTips: [
