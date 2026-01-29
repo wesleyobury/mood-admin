@@ -318,6 +318,7 @@ export default function ChestEquipmentScreen() {
                   end={{ x: 1, y: 1 }}
                 >
                   <Ionicons name="checkmark" size={14} color="#0c0c0c" />
+                </LinearGradient>
               ) : (
                 <Text style={styles.progressStepNumber}>4</Text>
               )}
