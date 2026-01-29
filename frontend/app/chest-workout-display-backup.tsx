@@ -152,7 +152,7 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
           intensityReason: 'High-intensity drop sets push muscle failure across multiple weight ranges with focus on time under tension for advanced hypertrophy.',
           moodTips: [
             {
-              icon: 'flash',
+              icon: 'flash",
               title: "Don't save energy",
               description: 'Heavy set should be all-out near failure for maximum recruitment.'
             },
@@ -232,13 +232,13 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
         },
         {
           name: 'Bench Chest Flow',
-          duration: '12-15 min',
+          duration: '12-15 min",
           description: "3 rounds:\n• 10 bench press\n• 10 fly\n• 10 close-grip bench press\n• Rest 90s\n\nTips:\n• In the fly → press transition, don't rest-this overloads pecs by hitting both stretch and contraction.\n• On the close-grip, actively press your palms inward into the bar/dumbbells to increase pec activation.',
           imageUrl: 'https://images.pexels.com/photos/6551174/pexels-photo-6551174.jpeg',
           intensityReason: 'Continuous flow training that overloads pecs through combined pressing and isolation movements.',
           moodTips: [
             {
-              icon: 'refresh',
+              icon: 'refresh",
               title: "Fly → press transition, don't rest",
               description: 'Overloads pecs by hitting both stretch and contraction.'
             },
@@ -306,7 +306,7 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
           moodTips: [
             {
               icon: 'body',
-              title: 'Push-ups: Push through hands',
+              title: 'Push-ups: Push through hands",
               description: "As if you're wrapping chest around ribcage for better activation."
             },
             {
@@ -410,7 +410,7 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
             },
             {
               icon: 'shield',
-              title: 'Keep scapula pinned',
+              title: 'Keep scapula pinned",
               description: "Don't let shoulders roll forward under fatigue for safety and effectiveness."
             }
           ]
@@ -491,7 +491,7 @@ const chestWorkoutDatabase: EquipmentWorkouts[] = [
           moodTips: [
             {
               icon: 'refresh',
-              title: 'Pump-style sequence',
+              title: 'Pump-style sequence",
               description: "Don't rack weights; keep pecs loaded for maximum effect."
             },
             {
