@@ -575,12 +575,14 @@ const styles = StyleSheet.create({
     width: 28,
     height: 28,
     borderRadius: 14,
-    backgroundColor: '#FFD700',
-    borderWidth: 2,
-    borderColor: '#FFD700',
+    overflow: 'hidden',
+    marginBottom: 6,
+  },
+  progressStepGradient: {
+    width: '100%',
+    height: '100%',
     justifyContent: 'center',
     alignItems: 'center',
-    marginBottom: 6,
   },
   progressStepNumberActive: {
     fontSize: 14,
