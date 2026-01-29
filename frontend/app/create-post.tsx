@@ -652,7 +652,7 @@ export default function CreatePost() {
           console.log('Failed to open Instagram Stories URL:', e);
           return false;
         }
-      } else if (Platform.OS === 'android") {
+      } else if (Platform.OS === 'android') {
         // Android: Use Intent to share directly to Instagram Stories
         try {
           // For Android, we can use the share intent with Instagram package
