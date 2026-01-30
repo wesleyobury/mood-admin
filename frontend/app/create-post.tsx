@@ -95,6 +95,10 @@ export default function CreatePost() {
   const [showCoverPicker, setShowCoverPicker] = useState(false);
   const [coverPickerVideoIndex, setCoverPickerVideoIndex] = useState<number>(-1);
   
+  // Video frame selector state
+  const [showVideoFrameSelector, setShowVideoFrameSelector] = useState(false);
+  const [videoForFrameSelection, setVideoForFrameSelection] = useState<{uri: string, index: number} | null>(null);
+  
   // Image crop modal state
   const [showCropModal, setShowCropModal] = useState(false);
   const [imageToCrop, setImageToCrop] = useState<{uri: string, width: number, height: number} | null>(null);
