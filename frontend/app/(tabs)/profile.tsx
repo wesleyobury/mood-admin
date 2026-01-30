@@ -1998,13 +1998,17 @@ const styles = StyleSheet.create({
     marginTop: -60,  // Offset for visual centering (accounts for header)
   },
   guestIconContainer: {
-    width: 120,
-    height: 120,
-    borderRadius: 60,
-    backgroundColor: 'rgba(255, 215, 0, 0.1)',
+    width: 100,
+    height: 100,
+    borderRadius: 50,
+    overflow: 'hidden',
+    marginBottom: 24,
+  },
+  guestIconGradient: {
+    width: '100%',
+    height: '100%',
     justifyContent: 'center',
     alignItems: 'center',
-    marginBottom: 24,
   },
   guestTitle: {
     fontSize: 22,
@@ -2029,6 +2033,18 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginBottom: 16,
   },
+  guestBenefitIconContainer: {
+    width: 28,
+    height: 28,
+    borderRadius: 14,
+    overflow: 'hidden',
+  },
+  guestBenefitIconGradient: {
+    width: '100%',
+    height: '100%',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
   guestBenefitText: {
     fontSize: 15,
     color: '#ccc',
@@ -2036,11 +2052,13 @@ const styles = StyleSheet.create({
   },
   guestSignUpButton: {
     width: '100%',
-    backgroundColor: '#FFD700',
     borderRadius: 12,
+    overflow: 'hidden',
+    marginBottom: 12,
+  },
+  guestSignUpGradient: {
     paddingVertical: 16,
     alignItems: 'center',
-    marginBottom: 12,
   },
   guestSignUpButtonText: {
     fontSize: 16,
@@ -2049,11 +2067,18 @@ const styles = StyleSheet.create({
   },
   guestSignInButton: {
     width: '100%',
+    borderRadius: 12,
+    overflow: 'hidden',
+  },
+  guestSignInBorder: {
+    padding: 2,
+    borderRadius: 12,
+  },
+  guestSignInInner: {
+    backgroundColor: '#0c0c0c',
+    borderRadius: 10,
     paddingVertical: 14,
     alignItems: 'center',
-    borderWidth: 1,
-    borderColor: 'rgba(255, 215, 0, 0.3)',
-    borderRadius: 12,
   },
   guestSignInButtonText: {
     fontSize: 15,
