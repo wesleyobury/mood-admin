@@ -266,7 +266,7 @@ const WorkoutCard = React.memo(({
           onPress={() => handleOpenCustomModal(workouts[currentWorkoutIndex])}
           activeOpacity={0.8}
         >
-          <Ionicons name="pencil" size={18} color="#ffffff" />
+          <Ionicons name="pencil" size={18} color="#FFD700" />
         </TouchableOpacity>
         
         {/* First-time Tooltip */}
