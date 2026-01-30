@@ -401,6 +401,21 @@ const featuredWorkoutData: Record<string, {
   },
 };
 
+// Convert API workout format to local exercise format
+const convertApiExerciseToLocal = (ex: any): WorkoutExercise => ({
+  name: ex.name || '',
+  equipment: ex.equipment || '',
+  description: ex.description || '',
+  battlePlan: ex.battlePlan || '',
+  duration: ex.duration || '',
+  imageUrl: ex.imageUrl || '',
+  intensityReason: ex.intensityReason || '',
+  difficulty: ex.difficulty || 'intermediate',
+  workoutType: ex.workoutType || '',
+  moodCard: ex.moodCard || '',
+  moodTips: ex.moodTips || [],
+});
+
 export default function FeaturedWorkoutDetail() {
   const router = useRouter();
   const params = useLocalSearchParams();
@@ -408,14 +423,71 @@ export default function FeaturedWorkoutDetail() {
   const { token } = useAuth();
   
   const workoutId = params.id as string;
-  const workout = featuredWorkoutData[workoutId];
   
-  // Initialize exercises state with all exercises
-  const [exercises, setExercises] = useState<WorkoutExercise[]>(
-    workout ? [...workout.exercises] : []
-  );
+  // State for workout data
+  const [workoutData, setWorkoutData] = useState<{
+    mood: string;
+    title: string;
+    duration: string;
+    image: string;
+    exercises: WorkoutExercise[];
+  } | null>(null);
+  const [loading, setLoading] = useState(true);
+  
+  // Initialize exercises state
+  const [exercises, setExercises] = useState<WorkoutExercise[]>([]);
   const [isSaved, setIsSaved] = useState(false);
   const [isSaving, setIsSaving] = useState(false);
+  
+  // Fetch workout data - first try API, fallback to hardcoded
+  useEffect(() => {
+    const fetchWorkout = async () => {
+      setLoading(true);
+      
+      // First try to fetch from API (for new MongoDB IDs)
+      try {
+        const response = await fetch(`${API_URL}/api/featured/workouts/batch`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify([workoutId]),
+        });
+        
+        if (response.ok) {
+          const data = await response.json();
+          if (data.workouts && data.workouts.length > 0) {
+            const apiWorkout = data.workouts[0];
+            const convertedWorkout = {
+              mood: apiWorkout.mood,
+              title: apiWorkout.title,
+              duration: apiWorkout.duration || `${apiWorkout.durationMin || 30} min`,
+              image: apiWorkout.heroImageUrl || apiWorkout.exercises[0]?.imageUrl || '',
+              exercises: apiWorkout.exercises.map(convertApiExerciseToLocal),
+            };
+            setWorkoutData(convertedWorkout);
+            setExercises(convertedWorkout.exercises);
+            setLoading(false);
+            return;
+          }
+        }
+      } catch (error) {
+        console.log('API fetch failed, trying hardcoded data:', error);
+      }
+      
+      // Fallback to hardcoded data for old IDs (backward compatibility)
+      const hardcodedWorkout = featuredWorkoutData[workoutId];
+      if (hardcodedWorkout) {
+        setWorkoutData(hardcodedWorkout);
+        setExercises([...hardcodedWorkout.exercises]);
+      }
+      
+      setLoading(false);
+    };
+    
+    fetchWorkout();
+  }, [workoutId]);
+  
+  // Alias for backward compatibility
+  const workout = workoutData;
   
   // Check if workout is already saved
   useEffect(() => {
