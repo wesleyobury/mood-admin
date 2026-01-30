@@ -805,7 +805,8 @@ export default function WorkoutGuidanceScreen() {
           </View>
         </View>
 
-        {/* MOOD Tips Section - Enhanced */}
+        {/* MOOD Tips Section - Enhanced (Hidden for Custom workouts) */}
+        {moodTips && moodTips.length > 0 && workoutType !== 'Custom' && (
         <View style={styles.moodTipsContainer}>
           <View style={styles.sectionHeader}>
             <View style={styles.iconContainer}>
