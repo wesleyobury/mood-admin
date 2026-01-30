@@ -681,7 +681,7 @@ const styles = StyleSheet.create({
   muscleGroupTitle: {
     fontSize: 18,
     fontWeight: 'bold',
-    color: '#FFD700',
+    color: '#FFFFFF',
     marginBottom: 16,
     textAlign: 'left',
   },
