@@ -709,7 +709,26 @@ const styles = StyleSheet.create({
     fontSize: 15,
     fontWeight: '700',
     color: '#fff',
+    flex: 1,
+  },
+  exerciseNameRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
     marginBottom: 4,
+    gap: 8,
+  },
+  customBadge: {
+    backgroundColor: 'rgba(255, 165, 0, 0.2)',
+    paddingHorizontal: 6,
+    paddingVertical: 2,
+    borderRadius: 4,
+  },
+  customBadgeText: {
+    fontSize: 9,
+    color: '#FFA500',
+    fontWeight: '700',
+    textTransform: 'uppercase',
+    letterSpacing: 0.5,
   },
   exerciseDuration: {
     fontSize: 12,
