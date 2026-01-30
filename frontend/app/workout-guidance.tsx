@@ -789,7 +789,10 @@ export default function WorkoutGuidanceScreen() {
                 </View>
                 <View style={{ flex: 1 }}>
                   <Text style={styles.tipTitle}>{tip.title}</Text>
-                  <Text style={styles.tipDescription}>{tip.description}</Text>
+                  <TextWithTermLinks 
+                    text={tip.description} 
+                    baseStyle={styles.tipDescription}
+                  />
                 </View>
               </View>
             ))}
