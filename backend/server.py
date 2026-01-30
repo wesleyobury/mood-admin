@@ -6251,6 +6251,248 @@ async def take_action_on_report(
         "message": f"Action completed: {', '.join(action_taken)}"
     }
 
+# ==================== EXERCISE LOOKUP API ====================
+
+class ExerciseCreate(BaseModel):
+    name: str
+    aliases: List[str] = []
+    equipment: List[str] = []
+    thumbnail_url: str = ""
+    video_url: str = ""
+    cues: List[str] = []
+    mistakes: Optional[List[str]] = []
+
+@api_router.get("/exercises/search")
+async def search_exercises(
+    q: str = "",
+    limit: int = 10
+):
+    """
+    Search exercises by name and aliases.
+    Case-insensitive, partial match, returns top results.
+    """
+    if not q.strip():
+        return {"exercises": []}
+    
+    # Sanitize and prepare search query
+    search_query = q.strip().lower()
+    
+    # Build search pipeline - search in name and aliases
+    pipeline = [
+        {
+            "$match": {
+                "$or": [
+                    {"name": {"$regex": search_query, "$options": "i"}},
+                    {"aliases": {"$elemMatch": {"$regex": search_query, "$options": "i"}}}
+                ]
+            }
+        },
+        {
+            "$addFields": {
+                # Score by exact match in name (higher priority)
+                "name_match_score": {
+                    "$cond": [
+                        {"$regexMatch": {"input": {"$toLower": "$name"}, "regex": f"^{search_query}"}},
+                        2,  # Starts with query - highest score
+                        {"$cond": [
+                            {"$regexMatch": {"input": {"$toLower": "$name"}, "regex": search_query}},
+                            1,  # Contains query
+                            0
+                        ]}
+                    ]
+                }
+            }
+        },
+        {"$sort": {"name_match_score": -1, "name": 1}},
+        {"$limit": limit},
+        {
+            "$project": {
+                "_id": {"$toString": "$_id"},
+                "name": 1,
+                "aliases": 1,
+                "equipment": 1,
+                "thumbnail_url": 1,
+                "video_url": 1,
+                "cues": 1,
+                "mistakes": 1
+            }
+        }
+    ]
+    
+    exercises = await db.exercises.aggregate(pipeline).to_list(limit)
+    
+    return {"exercises": exercises, "count": len(exercises)}
+
+@api_router.get("/exercises/popular")
+async def get_popular_exercises(limit: int = 6):
+    """Get popular/common exercises"""
+    popular_names = ["Squat", "Bench Press", "Barbell Row", "Deadlift", "Lunge", "Lat Pulldown"]
+    
+    exercises = await db.exercises.find(
+        {"name": {"$in": popular_names}}
+    ).limit(limit).to_list(limit)
+    
+    # Format response
+    result = []
+    for ex in exercises:
+        result.append({
+            "_id": str(ex["_id"]),
+            "name": ex.get("name", ""),
+            "aliases": ex.get("aliases", []),
+            "equipment": ex.get("equipment", []),
+            "thumbnail_url": ex.get("thumbnail_url", ""),
+            "video_url": ex.get("video_url", ""),
+            "cues": ex.get("cues", []),
+            "mistakes": ex.get("mistakes", [])
+        })
+    
+    return {"exercises": result}
+
+@api_router.get("/exercises/{exercise_id}")
+async def get_exercise_by_id(exercise_id: str):
+    """Get a single exercise by ID"""
+    try:
+        exercise = await db.exercises.find_one({"_id": ObjectId(exercise_id)})
+        if not exercise:
+            raise HTTPException(status_code=404, detail="Exercise not found")
+        
+        return {
+            "_id": str(exercise["_id"]),
+            "name": exercise.get("name", ""),
+            "aliases": exercise.get("aliases", []),
+            "equipment": exercise.get("equipment", []),
+            "thumbnail_url": exercise.get("thumbnail_url", ""),
+            "video_url": exercise.get("video_url", ""),
+            "cues": exercise.get("cues", []),
+            "mistakes": exercise.get("mistakes", [])
+        }
+    except Exception as e:
+        raise HTTPException(status_code=400, detail=f"Invalid exercise ID: {str(e)}")
+
+@api_router.post("/exercises")
+async def create_exercise(
+    exercise: ExerciseCreate,
+    current_user_id: str = Depends(get_current_user)
+):
+    """Create a new exercise (admin only)"""
+    # Check if user is admin
+    user = await db.users.find_one({"_id": ObjectId(current_user_id)})
+    if not user or not user.get("is_admin"):
+        raise HTTPException(status_code=403, detail="Admin access required")
+    
+    exercise_doc = {
+        "name": exercise.name,
+        "aliases": exercise.aliases,
+        "equipment": exercise.equipment,
+        "thumbnail_url": exercise.thumbnail_url,
+        "video_url": exercise.video_url,
+        "cues": exercise.cues,
+        "mistakes": exercise.mistakes or [],
+        "created_at": datetime.now(timezone.utc),
+        "created_by": current_user_id
+    }
+    
+    result = await db.exercises.insert_one(exercise_doc)
+    
+    return {
+        "success": True,
+        "exercise_id": str(result.inserted_id),
+        "message": "Exercise created successfully"
+    }
+
+@api_router.post("/exercises/bulk")
+async def create_exercises_bulk(
+    exercises: List[ExerciseCreate],
+    current_user_id: str = Depends(get_current_user)
+):
+    """Bulk create exercises (admin only)"""
+    # Check if user is admin
+    user = await db.users.find_one({"_id": ObjectId(current_user_id)})
+    if not user or not user.get("is_admin"):
+        raise HTTPException(status_code=403, detail="Admin access required")
+    
+    exercise_docs = []
+    for exercise in exercises:
+        exercise_docs.append({
+            "name": exercise.name,
+            "aliases": exercise.aliases,
+            "equipment": exercise.equipment,
+            "thumbnail_url": exercise.thumbnail_url,
+            "video_url": exercise.video_url,
+            "cues": exercise.cues,
+            "mistakes": exercise.mistakes or [],
+            "created_at": datetime.now(timezone.utc),
+            "created_by": current_user_id
+        })
+    
+    result = await db.exercises.insert_many(exercise_docs)
+    
+    return {
+        "success": True,
+        "count": len(result.inserted_ids),
+        "message": f"Created {len(result.inserted_ids)} exercises"
+    }
+
+@api_router.put("/exercises/{exercise_id}")
+async def update_exercise(
+    exercise_id: str,
+    exercise: ExerciseCreate,
+    current_user_id: str = Depends(get_current_user)
+):
+    """Update an exercise (admin only)"""
+    # Check if user is admin
+    user = await db.users.find_one({"_id": ObjectId(current_user_id)})
+    if not user or not user.get("is_admin"):
+        raise HTTPException(status_code=403, detail="Admin access required")
+    
+    try:
+        result = await db.exercises.update_one(
+            {"_id": ObjectId(exercise_id)},
+            {
+                "$set": {
+                    "name": exercise.name,
+                    "aliases": exercise.aliases,
+                    "equipment": exercise.equipment,
+                    "thumbnail_url": exercise.thumbnail_url,
+                    "video_url": exercise.video_url,
+                    "cues": exercise.cues,
+                    "mistakes": exercise.mistakes or [],
+                    "updated_at": datetime.now(timezone.utc),
+                    "updated_by": current_user_id
+                }
+            }
+        )
+        
+        if result.matched_count == 0:
+            raise HTTPException(status_code=404, detail="Exercise not found")
+        
+        return {"success": True, "message": "Exercise updated successfully"}
+    except Exception as e:
+        raise HTTPException(status_code=400, detail=f"Error updating exercise: {str(e)}")
+
+@api_router.delete("/exercises/{exercise_id}")
+async def delete_exercise(
+    exercise_id: str,
+    current_user_id: str = Depends(get_current_user)
+):
+    """Delete an exercise (admin only)"""
+    # Check if user is admin
+    user = await db.users.find_one({"_id": ObjectId(current_user_id)})
+    if not user or not user.get("is_admin"):
+        raise HTTPException(status_code=403, detail="Admin access required")
+    
+    try:
+        result = await db.exercises.delete_one({"_id": ObjectId(exercise_id)})
+        
+        if result.deleted_count == 0:
+            raise HTTPException(status_code=404, detail="Exercise not found")
+        
+        return {"success": True, "message": "Exercise deleted successfully"}
+    except Exception as e:
+        raise HTTPException(status_code=400, detail=f"Error deleting exercise: {str(e)}")
+
+# ==================== END EXERCISE LOOKUP API ====================
+
 @api_router.get("/moderation/admin/stats")
 async def get_moderation_stats(
     current_user_id: str = Depends(get_current_user)
