@@ -473,24 +473,26 @@ export default function CreatePost() {
       });
 
       if (!result.canceled && result.assets && result.assets.length > 0) {
-        // Show processing indicator AFTER selecting (during transcoding/loading)
-        setIsProcessingVideo(true);
-        
         const asset = result.assets[0];
         
         // Check video duration if available
         if (asset.duration && asset.duration > 30000) { // 30 seconds in ms
-          setIsProcessingVideo(false);
           showAlert('Video Too Long', 'Please select a video under 30 seconds');
           return;
         }
         
         const newMedia: MediaItem = { uri: asset.uri, type: 'video' };
-        setSelectedMedia([...selectedMedia, newMedia].slice(0, maxMedia));
-        setIsProcessingVideo(false);
+        const newIndex = selectedMedia.length;
+        const updatedMedia = [...selectedMedia, newMedia].slice(0, maxMedia);
+        setSelectedMedia(updatedMedia);
+        
+        // Auto-open cover selector for the newly added video
+        setTimeout(() => {
+          setVideoForFrameSelection({ uri: asset.uri, index: newIndex });
+          setShowVideoFrameSelector(true);
+        }, 300);
       }
     } catch (error: any) {
-      setIsProcessingVideo(false);
       console.error('Video picker error:', error);
       // Handle PHPhotos errors gracefully
       if (error?.message?.includes('PHPhotos') || error?.message?.includes('3164') || error?.message?.includes("couldn't be completed")) {
