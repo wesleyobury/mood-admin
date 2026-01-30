@@ -1071,6 +1071,22 @@ const styles = StyleSheet.create({
     backgroundColor: '#000',
     borderTopWidth: 1,
     borderTopColor: 'rgba(255, 255, 255, 0.1)',
+    gap: 12,
+  },
+  addToCartButton: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: 'rgba(255, 255, 255, 0.1)',
+    paddingVertical: 14,
+    borderRadius: 30,
+    gap: 8,
+  },
+  addToCartText: {
+    fontSize: 15,
+    fontWeight: '600',
+    color: '#fff',
   },
   exerciseCount: {
     flex: 1,
