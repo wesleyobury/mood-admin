@@ -54,6 +54,11 @@ export const TERM_DEFINITIONS: Record<string, { title: string; definition: strin
     definition: 'A series of exercises performed one after another with minimal rest between them.\n\n• 5-10 different exercises\n• Perform each for time or reps\n• Move to next exercise immediately\n• Rest after completing full circuit\n• Repeat 2-4 rounds\n\nGreat for full-body conditioning and keeping heart rate elevated!',
     icon: 'sync',
   },
+  RPM: {
+    title: 'RPM - Revolutions Per Minute',
+    definition: 'The number of complete pedal rotations per minute on a bike or elliptical.\n\n• 60-70 RPM: Heavy resistance/climbing\n• 80-90 RPM: Optimal efficiency zone\n• 90-100 RPM: High cadence/speed work\n• 100+ RPM: Sprint cadence\n\nHigher RPM with lower resistance = cardio focus. Lower RPM with higher resistance = strength focus.',
+    icon: 'speedometer',
+  },
 };
 
 // All supported term types
