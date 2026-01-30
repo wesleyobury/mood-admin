@@ -83,9 +83,6 @@ export default function CreatePost() {
   const [showMediaPicker, setShowMediaPicker] = useState(false);
   const [showGuestPrompt, setShowGuestPrompt] = useState(false);
   
-  // Video processing state
-  const [isProcessingVideo, setIsProcessingVideo] = useState(false);
-  
   // Editable stats
   const [editedDuration, setEditedDuration] = useState<number | undefined>(undefined);
   const [editedCalories, setEditedCalories] = useState<number | undefined>(undefined);
