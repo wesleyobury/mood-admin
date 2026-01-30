@@ -56,8 +56,11 @@ export const TERM_DEFINITIONS: Record<string, { title: string; definition: strin
   },
 };
 
+// All supported term types
+export type TermType = 'RPE' | 'SPM' | 'AMRAP' | 'EMOM' | 'HIIT' | 'Tabata' | 'Superset' | 'Circuit';
+
 interface TermDefinitionPopupProps {
-  term: 'RPE' | 'SPM';
+  term: TermType;
   children?: React.ReactNode;
   style?: object;
 }
