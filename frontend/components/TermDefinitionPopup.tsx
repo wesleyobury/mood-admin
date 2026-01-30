@@ -249,20 +249,15 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   gotItButton: {
-    backgroundColor: '#FFD700',
+    backgroundColor: '#4a4a4a',
     borderRadius: 12,
     paddingVertical: 14,
     alignItems: 'center',
-    shadowColor: '#FFD700',
-    shadowOffset: { width: 0, height: 0 },
-    shadowOpacity: 0.4,
-    shadowRadius: 8,
-    elevation: 6,
   },
   gotItButtonText: {
     fontSize: 16,
     fontWeight: 'bold',
-    color: '#000000',
+    color: '#ffffff',
   },
 });
 
