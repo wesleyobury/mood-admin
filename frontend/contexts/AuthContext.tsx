@@ -66,13 +66,23 @@ export function AuthProvider({ children }: AuthProviderProps) {
   );
 
   useEffect(() => {
-    // Auto-login or load stored session
+    // Auth initialization timeout - never block app startup
+    const AUTH_INIT_TIMEOUT = 5000; // 5 seconds max for auth init
+    
+    // Auto-login or load stored session with timeout protection
     const initAuth = async () => {
+      let timeoutId: NodeJS.Timeout | null = null;
+      
       try {
         console.log('🔐 Initializing auth...');
         console.log('API_URL:', API_URL);
         
-        // Check if user is in guest mode
+        // Safety timeout - ensure we never hang
+        const timeoutPromise = new Promise<'timeout'>((resolve) => {
+          timeoutId = setTimeout(() => resolve('timeout'), AUTH_INIT_TIMEOUT);
+        });
+        
+        // Check if user is in guest mode (fast local check)
         const guestMode = await AsyncStorage.getItem('is_guest');
         if (guestMode === 'true') {
           console.log('🚶 User is in guest mode');
@@ -80,54 +90,88 @@ export function AuthProvider({ children }: AuthProviderProps) {
           setUser(null);
           setToken(null);
           setIsLoading(false);
+          if (timeoutId) clearTimeout(timeoutId);
           return;
         }
         
-        // Try to get stored token first
+        // Try to get stored token first (fast local check)
         const storedToken = await AsyncStorage.getItem('auth_token');
         if (storedToken) {
-          console.log('Found stored token, validating...');
+          console.log('Found stored token, validating with timeout...');
           
-          // Validate token by fetching user
-          const userResp = await fetch(`${API_URL}/api/users/me`, {
-            headers: { 'Authorization': `Bearer ${storedToken}` },
-          });
+          // Create abort controller for fetch timeout
+          const controller = new AbortController();
+          const fetchTimeoutId = setTimeout(() => controller.abort(), AUTH_INIT_TIMEOUT - 1000);
           
-          if (userResp.ok) {
-            const userData = await userResp.json();
-            // Check if it's the correct demo user, if not clear and re-login
-            if (userData.username === 'Ogeeezzbury') {
-              console.log('Old demo user detected, clearing and re-logging...');
-              await AsyncStorage.removeItem('auth_token');
-              // Continue to auto-login below
-            } else {
+          try {
+            // Validate token by fetching user with timeout
+            const userResp = await Promise.race([
+              fetch(`${API_URL}/api/users/me`, {
+                headers: { 'Authorization': `Bearer ${storedToken}` },
+                signal: controller.signal,
+              }),
+              timeoutPromise,
+            ]);
+            
+            clearTimeout(fetchTimeoutId);
+            
+            if (userResp === 'timeout') {
+              console.warn('🕐 Auth token validation timed out, proceeding without validation');
+              // Set token optimistically - will be validated on next API call
               setToken(storedToken);
-              setUser(userData);
-              console.log('✅ Restored session for:', userData.username);
-              
-              // Check if user needs to accept current terms version (show modal after login)
-              // Show modal if: no terms accepted OR version doesn't match current version
-              const needsTermsAcceptance = !userData.terms_accepted_at || 
-                userData.terms_accepted_version !== CURRENT_TERMS_VERSION;
-              
-              if (needsTermsAcceptance) {
-                console.log('⚠️ User has not accepted current terms version, showing modal...');
-                console.log('  User version:', userData.terms_accepted_version);
-                console.log('  Current version:', CURRENT_TERMS_VERSION);
-                setShowTermsModal(true);
-              }
-              
-              // Track app session start on successful restore
-              trackEvent(storedToken, 'app_session_start', {
-                restored_session: true,
-              });
-              
               setIsLoading(false);
+              if (timeoutId) clearTimeout(timeoutId);
               return;
             }
-          } else {
-            console.log('Stored token invalid, clearing...');
-            await AsyncStorage.removeItem('auth_token');
+            
+            if (userResp.ok) {
+              const userData = await userResp.json();
+              // Check if it's the correct demo user, if not clear and re-login
+              if (userData.username === 'Ogeeezzbury') {
+                console.log('Old demo user detected, clearing and re-logging...');
+                await AsyncStorage.removeItem('auth_token');
+                // Continue to auto-login below
+              } else {
+                setToken(storedToken);
+                setUser(userData);
+                console.log('✅ Restored session for:', userData.username);
+                
+                // Check if user needs to accept current terms version (show modal after login)
+                // Show modal if: no terms accepted OR version doesn't match current version
+                const needsTermsAcceptance = !userData.terms_accepted_at || 
+                  userData.terms_accepted_version !== CURRENT_TERMS_VERSION;
+                
+                if (needsTermsAcceptance) {
+                  console.log('⚠️ User has not accepted current terms version, showing modal...');
+                  console.log('  User version:', userData.terms_accepted_version);
+                  console.log('  Current version:', CURRENT_TERMS_VERSION);
+                  setShowTermsModal(true);
+                }
+                
+                // Track app session start on successful restore (non-blocking)
+                trackEvent(storedToken, 'app_session_start', {
+                  restored_session: true,
+                }).catch(() => {}); // Ignore tracking errors
+                
+                setIsLoading(false);
+                if (timeoutId) clearTimeout(timeoutId);
+                return;
+              }
+            } else {
+              console.log('Stored token invalid, clearing...');
+              await AsyncStorage.removeItem('auth_token');
+            }
+          } catch (fetchError: any) {
+            clearTimeout(fetchTimeoutId);
+            if (fetchError.name === 'AbortError') {
+              console.warn('🕐 Auth fetch aborted (timeout), proceeding without validation');
+              // Set token optimistically
+              setToken(storedToken);
+            } else {
+              console.warn('⚠️ Auth validation network error:', fetchError.message);
+              // Clear potentially invalid token
+              await AsyncStorage.removeItem('auth_token');
+            }
           }
         }
         
@@ -135,15 +179,18 @@ export function AuthProvider({ children }: AuthProviderProps) {
         console.log('No valid session found, user needs to authenticate');
         setUser(null);
         setToken(null);
+        
+        if (timeoutId) clearTimeout(timeoutId);
       } catch (err) {
         console.error('❌ Auth error:', err);
+        if (timeoutId) clearTimeout(timeoutId);
       } finally {
         setIsLoading(false);
       }
     };
 
-    // Delay to ensure component is mounted
-    const timer = setTimeout(initAuth, 100);
+    // Start auth init with minimal delay
+    const timer = setTimeout(initAuth, 50);
     return () => clearTimeout(timer);
   }, []); // Only run once
 
