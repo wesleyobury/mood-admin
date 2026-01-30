@@ -1,9 +1,9 @@
 /**
- * Featured Workouts Admin Editor (Simplified)
+ * Featured Workouts Admin Editor
  * 
  * - View/reorder featured carousel
- * - Edit existing workouts (view in cart format)
- * - Create new → redirects to home to build from scratch
+ * - Create new featured workouts from saved workouts
+ * - View workout exercises in cart format
  */
 
 import React, { useState, useEffect, useCallback } from 'react';
@@ -18,6 +18,7 @@ import {
   Modal,
   Platform,
   Image,
+  TextInput,
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { useRouter } from 'expo-router';
@@ -41,11 +42,23 @@ interface FeaturedWorkout {
   created_at?: string;
 }
 
+interface SavedWorkout {
+  id: string;
+  name: string;
+  workouts: any[];
+  total_duration: number;
+  source?: string;
+  mood?: string;
+  title?: string;
+  created_at: string;
+}
+
 interface FeaturedConfig {
   featuredWorkoutIds: string[];
   ttlHours: number;
-  updatedAt?: string;
 }
+
+const BADGE_OPTIONS = ['', 'Top pick', 'Trending', 'Popular', 'Staff pick', 'New', 'Intense'];
 
 export default function FeaturedWorkoutsEditor() {
   const router = useRouter();
@@ -57,11 +70,18 @@ export default function FeaturedWorkoutsEditor() {
   const [config, setConfig] = useState<FeaturedConfig>({ featuredWorkoutIds: [], ttlHours: 12 });
   const [allWorkouts, setAllWorkouts] = useState<FeaturedWorkout[]>([]);
   const [featuredWorkouts, setFeaturedWorkouts] = useState<FeaturedWorkout[]>([]);
+  const [savedWorkouts, setSavedWorkouts] = useState<SavedWorkout[]>([]);
   const [hasChanges, setHasChanges] = useState(false);
   
   // Modal states
   const [showAddToFeatured, setShowAddToFeatured] = useState(false);
+  const [showCreateFromSaved, setShowCreateFromSaved] = useState(false);
   const [viewingWorkout, setViewingWorkout] = useState<FeaturedWorkout | null>(null);
+  
+  // Create from saved form
+  const [selectedSavedWorkout, setSelectedSavedWorkout] = useState<SavedWorkout | null>(null);
+  const [newBadge, setNewBadge] = useState('');
+  const [newHeroImage, setNewHeroImage] = useState('');
 
   // Fetch all data
   const fetchData = useCallback(async () => {
@@ -69,10 +89,12 @@ export default function FeaturedWorkoutsEditor() {
     
     setLoading(true);
     try {
+      // Fetch featured config
       const configRes = await fetch(`${API_URL}/api/featured/config`);
       const configData = await configRes.json();
       setConfig(configData);
       
+      // Fetch all featured workouts (admin)
       const workoutsRes = await fetch(`${API_URL}/api/featured/workouts`, {
         headers: { Authorization: `Bearer ${token}` },
       });
@@ -86,12 +108,22 @@ export default function FeaturedWorkoutsEditor() {
       const workoutsData = await workoutsRes.json();
       setAllWorkouts(workoutsData.workouts || []);
       
+      // Build featured list in order
       const featuredIds = configData.featuredWorkoutIds || [];
       const workoutMap = new Map((workoutsData.workouts || []).map((w: FeaturedWorkout) => [w._id, w]));
       const orderedFeatured = featuredIds
         .map((id: string) => workoutMap.get(id))
         .filter(Boolean) as FeaturedWorkout[];
       setFeaturedWorkouts(orderedFeatured);
+      
+      // Fetch admin's saved workouts
+      const savedRes = await fetch(`${API_URL}/api/saved-workouts`, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      if (savedRes.ok) {
+        const savedData = await savedRes.json();
+        setSavedWorkouts(savedData || []);
+      }
       
     } catch (error) {
       console.error('Error fetching data:', error);
@@ -162,7 +194,7 @@ export default function FeaturedWorkoutsEditor() {
     ]);
   };
 
-  // Add to featured
+  // Add existing workout to featured
   const handleAddToFeatured = (workout: FeaturedWorkout) => {
     if (featuredWorkouts.find(w => w._id === workout._id)) {
       Alert.alert('Already Featured', 'This workout is already in the featured list.');
@@ -202,19 +234,69 @@ export default function FeaturedWorkoutsEditor() {
     ]);
   };
 
-  // Create new - go to home screen
-  const handleCreateNew = () => {
-    Alert.alert(
-      'Create New Featured Workout',
-      'You\'ll be taken to the home screen to build a workout from scratch. After completing it, you can save it as a featured workout.',
-      [
-        { text: 'Cancel', style: 'cancel' },
-        {
-          text: 'Go to Home',
-          onPress: () => router.push('/(tabs)'),
+  // Create featured workout from saved workout
+  const handleCreateFromSaved = async () => {
+    if (!selectedSavedWorkout) return;
+    
+    // Parse mood and title from saved workout name (format: "Mood - Title")
+    const nameParts = selectedSavedWorkout.name.split(' - ');
+    const mood = nameParts[0] || 'Workout';
+    const title = nameParts.slice(1).join(' - ') || selectedSavedWorkout.name;
+    
+    // Convert saved workout exercises to featured workout format
+    const exercises = selectedSavedWorkout.workouts.map((ex, index) => ({
+      exerciseId: '',
+      order: index,
+      name: ex.name || '',
+      equipment: ex.equipment || '',
+      description: ex.description || '',
+      battlePlan: ex.battlePlan || '',
+      duration: ex.duration || '',
+      imageUrl: ex.imageUrl || '',
+      intensityReason: ex.intensityReason || '',
+      difficulty: ex.difficulty || 'intermediate',
+      workoutType: ex.workoutType || `${mood} - ${title}`,
+      moodCard: ex.moodCard || mood,
+      moodTips: ex.moodTips || [],
+    }));
+    
+    const workoutData = {
+      title,
+      mood,
+      duration: `${selectedSavedWorkout.total_duration} min`,
+      badge: newBadge || undefined,
+      difficulty: 'Intermediate',
+      heroImageUrl: newHeroImage || exercises[0]?.imageUrl || undefined,
+      exercises,
+    };
+    
+    setSaving(true);
+    try {
+      const response = await fetch(`${API_URL}/api/featured/workouts`, {
+        method: 'POST',
+        headers: {
+          Authorization: `Bearer ${token}`,
+          'Content-Type': 'application/json',
         },
-      ]
-    );
+        body: JSON.stringify(workoutData),
+      });
+      
+      if (response.ok) {
+        setShowCreateFromSaved(false);
+        setSelectedSavedWorkout(null);
+        setNewBadge('');
+        setNewHeroImage('');
+        fetchData();
+        Alert.alert('Success', 'Featured workout created from saved workout!');
+      } else {
+        const errorData = await response.json();
+        Alert.alert('Error', errorData.detail || 'Failed to create');
+      }
+    } catch (error) {
+      Alert.alert('Error', 'Failed to create workout');
+    } finally {
+      setSaving(false);
+    }
   };
 
   // Render featured item
@@ -257,7 +339,6 @@ export default function FeaturedWorkoutsEditor() {
     </ScaleDecorator>
   );
 
-  // Loading
   if (loading) {
     return (
       <View style={[styles.container, { paddingTop: insets.top }]}>
@@ -332,13 +413,13 @@ export default function FeaturedWorkoutsEditor() {
             )}
           </View>
 
-          {/* All Workouts */}
+          {/* All Featured Workouts */}
           <View style={styles.section}>
             <View style={styles.sectionHeader}>
-              <Text style={styles.sectionTitle}>All Workouts ({allWorkouts.length})</Text>
-              <TouchableOpacity style={styles.addButton} onPress={handleCreateNew}>
+              <Text style={styles.sectionTitle}>All Featured ({allWorkouts.length})</Text>
+              <TouchableOpacity style={styles.addButton} onPress={() => setShowCreateFromSaved(true)}>
                 <Ionicons name="add" size={20} color="#fff" />
-                <Text style={styles.addButtonText}>Create New</Text>
+                <Text style={styles.addButtonText}>Create from Saved</Text>
               </TouchableOpacity>
             </View>
             
@@ -363,6 +444,13 @@ export default function FeaturedWorkoutsEditor() {
                 </TouchableOpacity>
               </TouchableOpacity>
             ))}
+            
+            {allWorkouts.length === 0 && (
+              <View style={styles.emptyState}>
+                <Text style={styles.emptyStateText}>No featured workouts created yet</Text>
+                <Text style={styles.emptyStateHint}>Create one from your saved workouts</Text>
+              </View>
+            )}
           </View>
         </ScrollView>
 
@@ -373,7 +461,7 @@ export default function FeaturedWorkoutsEditor() {
               <TouchableOpacity onPress={() => setShowAddToFeatured(false)}>
                 <Text style={styles.modalCancel}>Cancel</Text>
               </TouchableOpacity>
-              <Text style={styles.modalTitle}>Add to Featured</Text>
+              <Text style={styles.modalTitle}>Add to Carousel</Text>
               <View style={{ width: 60 }} />
             </View>
             
@@ -400,14 +488,134 @@ export default function FeaturedWorkoutsEditor() {
               
               {allWorkouts.filter(w => !featuredWorkouts.find(f => f._id === w._id)).length === 0 && (
                 <View style={styles.emptyState}>
-                  <Text style={styles.emptyStateText}>All workouts are already featured</Text>
+                  <Text style={styles.emptyStateText}>All workouts are already in carousel</Text>
                 </View>
               )}
             </ScrollView>
           </View>
         </Modal>
 
-        {/* View Workout Modal (Cart Format) */}
+        {/* Create from Saved Workout Modal */}
+        <Modal visible={showCreateFromSaved} animationType="slide" presentationStyle="pageSheet">
+          <View style={[styles.modalContainer, { paddingTop: Platform.OS === 'ios' ? 20 : 0 }]}>
+            <View style={styles.modalHeader}>
+              <TouchableOpacity onPress={() => {
+                setShowCreateFromSaved(false);
+                setSelectedSavedWorkout(null);
+                setNewBadge('');
+                setNewHeroImage('');
+              }}>
+                <Text style={styles.modalCancel}>Cancel</Text>
+              </TouchableOpacity>
+              <Text style={styles.modalTitle}>Create from Saved</Text>
+              {selectedSavedWorkout ? (
+                <TouchableOpacity onPress={handleCreateFromSaved} disabled={saving}>
+                  {saving ? (
+                    <ActivityIndicator size="small" color="#4A90D9" />
+                  ) : (
+                    <Text style={styles.modalSave}>Create</Text>
+                  )}
+                </TouchableOpacity>
+              ) : (
+                <View style={{ width: 60 }} />
+              )}
+            </View>
+            
+            <ScrollView style={styles.modalContent}>
+              {!selectedSavedWorkout ? (
+                <>
+                  <Text style={styles.selectLabel}>Select a saved workout:</Text>
+                  {savedWorkouts.length === 0 ? (
+                    <View style={styles.emptyState}>
+                      <Ionicons name="bookmark-outline" size={48} color="#666" />
+                      <Text style={styles.emptyStateText}>No saved workouts</Text>
+                      <Text style={styles.emptyStateHint}>Save workouts from your workout sessions first</Text>
+                    </View>
+                  ) : (
+                    savedWorkouts.map((sw) => (
+                      <TouchableOpacity
+                        key={sw.id}
+                        style={styles.selectableWorkout}
+                        onPress={() => setSelectedSavedWorkout(sw)}
+                      >
+                        <View style={styles.selectableWorkoutContent}>
+                          <Text style={styles.selectableWorkoutTitle}>{sw.name}</Text>
+                          <Text style={styles.selectableWorkoutMeta}>
+                            {sw.workouts?.length || 0} exercises • {sw.total_duration} min
+                          </Text>
+                        </View>
+                        <Ionicons name="chevron-forward" size={20} color="#666" />
+                      </TouchableOpacity>
+                    ))
+                  )}
+                </>
+              ) : (
+                <>
+                  {/* Selected workout preview */}
+                  <View style={styles.selectedPreview}>
+                    <Text style={styles.selectedPreviewTitle}>{selectedSavedWorkout.name}</Text>
+                    <Text style={styles.selectedPreviewMeta}>
+                      {selectedSavedWorkout.workouts?.length || 0} exercises • {selectedSavedWorkout.total_duration} min
+                    </Text>
+                    <TouchableOpacity 
+                      style={styles.changeButton}
+                      onPress={() => setSelectedSavedWorkout(null)}
+                    >
+                      <Text style={styles.changeButtonText}>Change</Text>
+                    </TouchableOpacity>
+                  </View>
+                  
+                  {/* Optional settings */}
+                  <Text style={styles.inputLabel}>Badge (optional)</Text>
+                  <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.chipScroll}>
+                    {BADGE_OPTIONS.map((badge) => (
+                      <TouchableOpacity
+                        key={badge || 'none'}
+                        style={[styles.chip, newBadge === badge && styles.chipSelected]}
+                        onPress={() => setNewBadge(badge)}
+                      >
+                        <Text style={[styles.chipText, newBadge === badge && styles.chipTextSelected]}>
+                          {badge || 'None'}
+                        </Text>
+                      </TouchableOpacity>
+                    ))}
+                  </ScrollView>
+                  
+                  <Text style={styles.inputLabel}>Hero Image URL (optional)</Text>
+                  <TextInput
+                    style={styles.textInput}
+                    value={newHeroImage}
+                    onChangeText={setNewHeroImage}
+                    placeholder="https://example.com/image.jpg"
+                    placeholderTextColor="#666"
+                    autoCapitalize="none"
+                  />
+                  <Text style={styles.inputHint}>
+                    Leave empty to use the first exercise's image
+                  </Text>
+                  
+                  {/* Exercises preview */}
+                  <Text style={styles.exercisesHeader}>
+                    Exercises ({selectedSavedWorkout.workouts?.length || 0})
+                  </Text>
+                  {selectedSavedWorkout.workouts?.map((ex, index) => (
+                    <View key={index} style={styles.exercisePreview}>
+                      <View style={styles.exerciseNumber}>
+                        <Text style={styles.exerciseNumberText}>{index + 1}</Text>
+                      </View>
+                      <View style={styles.exercisePreviewContent}>
+                        <Text style={styles.exercisePreviewName}>{ex.name}</Text>
+                        <Text style={styles.exercisePreviewEquipment}>{ex.equipment}</Text>
+                      </View>
+                    </View>
+                  ))}
+                </>
+              )}
+            </ScrollView>
+          </View>
+        </Modal>
+
+        {/* View Workout Modal */}
         <Modal visible={!!viewingWorkout} animationType="slide" presentationStyle="fullScreen">
           <View style={[styles.modalContainer, { paddingTop: insets.top }]}>
             <View style={styles.modalHeader}>
@@ -445,7 +653,7 @@ export default function FeaturedWorkoutsEditor() {
                 </View>
               </View>
               
-              {/* Exercises (Cart Format) */}
+              {/* Exercises */}
               <Text style={styles.exercisesHeader}>
                 Exercises ({viewingWorkout?.exercises?.length || 0})
               </Text>
@@ -600,8 +808,15 @@ const styles = StyleSheet.create({
     borderRadius: 12,
   },
   emptyStateText: {
-    color: '#666',
+    color: '#888',
     fontSize: 15,
+    marginTop: 8,
+  },
+  emptyStateHint: {
+    color: '#666',
+    fontSize: 13,
+    marginTop: 4,
+    textAlign: 'center',
   },
   featuredItem: {
     flexDirection: 'row',
@@ -697,9 +912,19 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: '#888',
   },
+  modalSave: {
+    fontSize: 16,
+    color: '#4A90D9',
+    fontWeight: '600',
+  },
   modalContent: {
     flex: 1,
     padding: 16,
+  },
+  selectLabel: {
+    fontSize: 14,
+    color: '#888',
+    marginBottom: 12,
   },
   selectableWorkout: {
     flexDirection: 'row',
@@ -723,7 +948,123 @@ const styles = StyleSheet.create({
     marginTop: 2,
   },
   
-  // Workout View
+  // Create from saved
+  selectedPreview: {
+    backgroundColor: '#1a1a1a',
+    borderRadius: 12,
+    padding: 16,
+    marginBottom: 20,
+    borderWidth: 1,
+    borderColor: '#4A90D9',
+  },
+  selectedPreviewTitle: {
+    fontSize: 17,
+    fontWeight: '700',
+    color: '#fff',
+  },
+  selectedPreviewMeta: {
+    fontSize: 13,
+    color: '#888',
+    marginTop: 4,
+  },
+  changeButton: {
+    marginTop: 12,
+  },
+  changeButtonText: {
+    fontSize: 14,
+    color: '#4A90D9',
+    fontWeight: '600',
+  },
+  inputLabel: {
+    fontSize: 14,
+    fontWeight: '600',
+    color: '#ccc',
+    marginBottom: 8,
+  },
+  inputHint: {
+    fontSize: 12,
+    color: '#666',
+    marginTop: 4,
+    marginBottom: 16,
+  },
+  textInput: {
+    backgroundColor: '#1a1a1a',
+    borderRadius: 8,
+    padding: 12,
+    fontSize: 15,
+    color: '#fff',
+    borderWidth: 1,
+    borderColor: '#333',
+  },
+  chipScroll: {
+    flexDirection: 'row',
+    marginBottom: 16,
+  },
+  chip: {
+    backgroundColor: '#1a1a1a',
+    paddingHorizontal: 14,
+    paddingVertical: 8,
+    borderRadius: 20,
+    marginRight: 8,
+    borderWidth: 1,
+    borderColor: '#333',
+  },
+  chipSelected: {
+    backgroundColor: '#4A90D9',
+    borderColor: '#4A90D9',
+  },
+  chipText: {
+    color: '#999',
+    fontSize: 13,
+  },
+  chipTextSelected: {
+    color: '#fff',
+    fontWeight: '600',
+  },
+  exercisesHeader: {
+    fontSize: 16,
+    fontWeight: '700',
+    color: '#fff',
+    marginBottom: 12,
+    marginTop: 8,
+  },
+  exercisePreview: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: '#1a1a1a',
+    borderRadius: 8,
+    padding: 10,
+    marginBottom: 6,
+  },
+  exerciseNumber: {
+    width: 28,
+    height: 28,
+    borderRadius: 14,
+    backgroundColor: '#333',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginRight: 12,
+  },
+  exerciseNumberText: {
+    fontSize: 13,
+    fontWeight: '700',
+    color: '#fff',
+  },
+  exercisePreviewContent: {
+    flex: 1,
+  },
+  exercisePreviewName: {
+    fontSize: 14,
+    fontWeight: '600',
+    color: '#fff',
+  },
+  exercisePreviewEquipment: {
+    fontSize: 12,
+    color: '#888',
+    marginTop: 2,
+  },
+  
+  // View workout
   workoutInfoCard: {
     backgroundColor: '#1a1a1a',
     borderRadius: 12,
@@ -769,32 +1110,12 @@ const styles = StyleSheet.create({
     color: '#fff',
     fontWeight: '600',
   },
-  exercisesHeader: {
-    fontSize: 16,
-    fontWeight: '700',
-    color: '#fff',
-    marginBottom: 12,
-  },
   exerciseCard: {
     flexDirection: 'row',
     backgroundColor: '#1a1a1a',
     borderRadius: 12,
     padding: 12,
     marginBottom: 8,
-  },
-  exerciseNumber: {
-    width: 28,
-    height: 28,
-    borderRadius: 14,
-    backgroundColor: '#333',
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginRight: 12,
-  },
-  exerciseNumberText: {
-    fontSize: 13,
-    fontWeight: '700',
-    color: '#fff',
   },
   exerciseContent: {
     flex: 1,
