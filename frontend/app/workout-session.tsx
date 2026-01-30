@@ -418,6 +418,12 @@ export default function WorkoutSessionScreen() {
           </View>
         )}
       </ScrollView>
+      
+      {/* Exercise Lookup Bottom Sheet */}
+      <ExerciseLookupSheet
+        visible={exerciseLookupVisible}
+        onClose={() => setExerciseLookupVisible(false)}
+      />
     </SafeAreaView>
   );
 }
