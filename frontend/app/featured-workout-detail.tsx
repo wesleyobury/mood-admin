@@ -862,7 +862,7 @@ export default function FeaturedWorkoutDetail() {
             start={{ x: 0, y: 0 }}
             end={{ x: 1, y: 0 }}
           >
-            <Text style={styles.startButtonText}>{exercises.length}</Text>
+            <Text style={styles.startButtonText}>Start Workout</Text>
             <Ionicons name="arrow-forward" size={20} color='#0c0c0c' />
           </LinearGradient>
         </TouchableOpacity>
