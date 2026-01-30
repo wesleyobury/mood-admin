@@ -718,15 +718,15 @@ const styles = StyleSheet.create({
     gap: 8,
   },
   customBadge: {
-    backgroundColor: 'rgba(255, 165, 0, 0.2)',
+    backgroundColor: '#4a4a4a',
     paddingHorizontal: 6,
     paddingVertical: 2,
     borderRadius: 4,
   },
   customBadgeText: {
     fontSize: 9,
-    color: '#FFA500',
-    fontWeight: '700',
+    color: '#ffffff',
+    fontWeight: '600',
     textTransform: 'uppercase',
     letterSpacing: 0.5,
   },
