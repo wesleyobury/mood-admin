@@ -447,6 +447,7 @@ export default function FeaturedWorkoutDetail() {
   useEffect(() => {
     const fetchWorkout = async () => {
       setLoading(true);
+      console.log('Fetching workout with ID:', workoutId);
       
       // First try to fetch from API (for new MongoDB IDs)
       try {
@@ -456,8 +457,12 @@ export default function FeaturedWorkoutDetail() {
           body: JSON.stringify([workoutId]),
         });
         
+        console.log('API response status:', response.status);
+        
         if (response.ok) {
           const data = await response.json();
+          console.log('API response data:', data.workouts?.length, 'workouts');
+          
           if (data.workouts && data.workouts.length > 0) {
             const apiWorkout = data.workouts[0];
             const convertedWorkout = {
@@ -471,6 +476,8 @@ export default function FeaturedWorkoutDetail() {
             setExercises(convertedWorkout.exercises);
             setLoading(false);
             return;
+          } else {
+            console.log('No workouts returned from API for ID:', workoutId);
           }
         }
       } catch (error) {
@@ -480,8 +487,11 @@ export default function FeaturedWorkoutDetail() {
       // Fallback to hardcoded data for old IDs (backward compatibility)
       const hardcodedWorkout = featuredWorkoutData[workoutId];
       if (hardcodedWorkout) {
+        console.log('Using hardcoded workout data');
         setWorkoutData(hardcodedWorkout);
         setExercises([...hardcodedWorkout.exercises]);
+      } else {
+        console.log('No hardcoded workout found for ID:', workoutId);
       }
       
       setLoading(false);
