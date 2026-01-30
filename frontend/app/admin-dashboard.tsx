@@ -1011,8 +1011,8 @@ export default function AdminDashboard() {
                   }}
                   width={Math.max(screenWidth - 48, 8 * 55)}
                   height={200}
-                  yAxisLabel='"
-                  yAxisSuffix="'
+                  yAxisLabel=""
+                  yAxisSuffix=""
                   chartConfig={{
                     ...chartConfig,
                     propsForLabels: {
