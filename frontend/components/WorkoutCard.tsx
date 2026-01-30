@@ -39,7 +39,14 @@ const WorkoutCard = React.memo(({
 }: WorkoutCardProps) => {
   const [currentWorkoutIndex, setCurrentWorkoutIndex] = useState(0);
   const [localScaleAnim] = useState(new Animated.Value(1));
+  const [customModalVisible, setCustomModalVisible] = useState(false);
+  const [selectedWorkoutForEdit, setSelectedWorkoutForEdit] = useState<Workout | null>(null);
   const flatListRef = useRef<FlatList>(null);
+
+  const handleOpenCustomModal = (workout: Workout) => {
+    setSelectedWorkoutForEdit(workout);
+    setCustomModalVisible(true);
+  };
 
   const handleAddToCartWithAnimation = (workout: Workout) => {
     // Animate locally without affecting parent
