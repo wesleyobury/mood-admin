@@ -133,7 +133,7 @@ interface ParsedTextProps {
 
 export const TextWithTermLinks: React.FC<ParsedTextProps> = ({ text, baseStyle, linkStyle }) => {
   // Regex to match all supported fitness terms (case-sensitive for acronyms, case-insensitive for Tabata/Superset/Circuit)
-  const termRegex = /\b(RPE|SPM|AMRAP|EMOM|HIIT|Tabata|Superset|Circuit)\b/gi;
+  const termRegex = /\b(RPE|SPM|AMRAP|EMOM|HIIT|Tabata|Superset|Circuit|RPM)\b/gi;
   
   const parts: (string | { term: TermType; key: number })[] = [];
   let lastIndex = 0;
