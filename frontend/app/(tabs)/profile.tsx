@@ -659,7 +659,14 @@ export default function Profile() {
         
         <View style={styles.guestProfileContainer}>
           <View style={styles.guestIconContainer}>
-            <Ionicons name="person-outline" size={64} color="#FFD700" />
+            <LinearGradient
+              colors={['#FFD700', '#FFA500']}
+              style={styles.guestIconGradient}
+              start={{ x: 0, y: 0 }}
+              end={{ x: 1, y: 1 }}
+            >
+              <Ionicons name="person-outline" size={48} color="#0c0c0c" />
+            </LinearGradient>
           </View>
           <Text style={styles.guestTitle}>You're browsing as a Guest</Text>
           <Text style={styles.guestSubtitle}>
@@ -668,29 +675,81 @@ export default function Profile() {
           
           <View style={styles.guestBenefits}>
             <View style={styles.guestBenefitItem}>
-              <Ionicons name="bookmark" size={20} color="#FFD700" />
+              <View style={styles.guestBenefitIconContainer}>
+                <LinearGradient
+                  colors={['#FFD700', '#FFA500']}
+                  style={styles.guestBenefitIconGradient}
+                  start={{ x: 0, y: 0 }}
+                  end={{ x: 1, y: 1 }}
+                >
+                  <Ionicons name="bookmark" size={14} color="#0c0c0c" />
+                </LinearGradient>
+              </View>
               <Text style={styles.guestBenefitText}>Save your favorite workouts</Text>
             </View>
             <View style={styles.guestBenefitItem}>
-              <Ionicons name="trending-up" size={20} color="#FFD700" />
+              <View style={styles.guestBenefitIconContainer}>
+                <LinearGradient
+                  colors={['#FFD700', '#FFA500']}
+                  style={styles.guestBenefitIconGradient}
+                  start={{ x: 0, y: 0 }}
+                  end={{ x: 1, y: 1 }}
+                >
+                  <Ionicons name="trending-up" size={14} color="#0c0c0c" />
+                </LinearGradient>
+              </View>
               <Text style={styles.guestBenefitText}>Track your progress & streaks</Text>
             </View>
             <View style={styles.guestBenefitItem}>
-              <Ionicons name="people" size={20} color="#FFD700" />
+              <View style={styles.guestBenefitIconContainer}>
+                <LinearGradient
+                  colors={['#FFD700', '#FFA500']}
+                  style={styles.guestBenefitIconGradient}
+                  start={{ x: 0, y: 0 }}
+                  end={{ x: 1, y: 1 }}
+                >
+                  <Ionicons name="people" size={14} color="#0c0c0c" />
+                </LinearGradient>
+              </View>
               <Text style={styles.guestBenefitText}>Connect with the community</Text>
             </View>
             <View style={styles.guestBenefitItem}>
-              <Ionicons name="camera" size={20} color="#FFD700" />
+              <View style={styles.guestBenefitIconContainer}>
+                <LinearGradient
+                  colors={['#FFD700', '#FFA500']}
+                  style={styles.guestBenefitIconGradient}
+                  start={{ x: 0, y: 0 }}
+                  end={{ x: 1, y: 1 }}
+                >
+                  <Ionicons name="camera" size={14} color="#0c0c0c" />
+                </LinearGradient>
+              </View>
               <Text style={styles.guestBenefitText}>Share your fitness journey</Text>
             </View>
           </View>
           
           <TouchableOpacity style={styles.guestSignUpButton} onPress={handleGuestSignUp}>
-            <Text style={styles.guestSignUpButtonText}>Create Account</Text>
+            <LinearGradient
+              colors={['#FFD700', '#FFA500']}
+              style={styles.guestSignUpGradient}
+              start={{ x: 0, y: 0 }}
+              end={{ x: 1, y: 0 }}
+            >
+              <Text style={styles.guestSignUpButtonText}>Create Account</Text>
+            </LinearGradient>
           </TouchableOpacity>
           
           <TouchableOpacity style={styles.guestSignInButton} onPress={handleGuestSignIn}>
-            <Text style={styles.guestSignInButtonText}>I already have an account</Text>
+            <LinearGradient
+              colors={['#FFD700', '#FFA500']}
+              style={styles.guestSignInBorder}
+              start={{ x: 0, y: 0 }}
+              end={{ x: 1, y: 0 }}
+            >
+              <View style={styles.guestSignInInner}>
+                <Text style={styles.guestSignInButtonText}>I already have an account</Text>
+              </View>
+            </LinearGradient>
           </TouchableOpacity>
 
           {/* Legal Links */}
