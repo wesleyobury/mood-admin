@@ -436,7 +436,15 @@ export default function CreatePost() {
         }
         
         const newMedia: MediaItem = { uri: asset.uri, type: 'video' };
-        setSelectedMedia([...selectedMedia, newMedia].slice(0, maxMedia));
+        const newIndex = selectedMedia.length;
+        const updatedMedia = [...selectedMedia, newMedia].slice(0, maxMedia);
+        setSelectedMedia(updatedMedia);
+        
+        // Auto-open cover selector for the newly recorded video
+        setTimeout(() => {
+          setVideoForFrameSelection({ uri: asset.uri, index: newIndex });
+          setShowVideoFrameSelector(true);
+        }, 300);
       }
     } catch (error: any) {
       console.error('Video recording error:', error);
