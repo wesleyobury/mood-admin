@@ -45,7 +45,33 @@ const WorkoutCard = React.memo(({
   const [localScaleAnim] = useState(new Animated.Value(1));
   const [customModalVisible, setCustomModalVisible] = useState(false);
   const [selectedWorkoutForEdit, setSelectedWorkoutForEdit] = useState<Workout | null>(null);
+  const [showTooltip, setShowTooltip] = useState(false);
   const flatListRef = useRef<FlatList>(null);
+
+  // Check if tooltip should be shown (first time users)
+  useEffect(() => {
+    const checkTooltipStatus = async () => {
+      try {
+        const hasSeenTooltip = await AsyncStorage.getItem(TOOLTIP_SHOWN_KEY);
+        if (!hasSeenTooltip) {
+          // Small delay to let the screen render first
+          setTimeout(() => setShowTooltip(true), 1500);
+        }
+      } catch (error) {
+        console.log('Error checking tooltip status:', error);
+      }
+    };
+    checkTooltipStatus();
+  }, []);
+
+  const dismissTooltip = async () => {
+    setShowTooltip(false);
+    try {
+      await AsyncStorage.setItem(TOOLTIP_SHOWN_KEY, 'true');
+    } catch (error) {
+      console.log('Error saving tooltip status:', error);
+    }
+  };
 
   const handleOpenCustomModal = (workout: Workout) => {
     setSelectedWorkoutForEdit(workout);
