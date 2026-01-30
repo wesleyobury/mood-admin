@@ -253,7 +253,7 @@ export default function ExerciseLookupSheet({ visible, onClose }: ExerciseLookup
               <Text style={styles.sectionTitle}>Common Mistakes</Text>
               {selectedExercise.mistakes.map((mistake, idx) => (
                 <View key={idx} style={styles.mistakeItem}>
-                  <Ionicons name="alert-circle" size={16} color="#FF6B6B" />
+                  <Ionicons name="alert-circle" size={16} color="rgba(255,255,255,0.5)" />
                   <Text style={styles.mistakeText}>{mistake}</Text>
                 </View>
               ))}
