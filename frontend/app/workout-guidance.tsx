@@ -211,6 +211,7 @@ export default function WorkoutGuidanceScreen() {
   const [isPaused, setIsPaused] = useState(false);
   const [toastVisible, setToastVisible] = useState(false);
   const [toastMessage, setToastMessage] = useState('');
+  const [exerciseLookupVisible, setExerciseLookupVisible] = useState(false);
   
   const { token } = useAuth();
   const API_URL = process.env.EXPO_PUBLIC_BACKEND_URL || Constants.expoConfig?.extra?.EXPO_PUBLIC_BACKEND_URL || '';
