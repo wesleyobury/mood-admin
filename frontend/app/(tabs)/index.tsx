@@ -25,6 +25,7 @@ import { useAuth } from '../../contexts/AuthContext';
 import { Analytics } from '../../utils/analytics';
 import { useScreenTime } from '../../hooks/useScreenTime';
 import GuestPromptModal from '../../components/GuestPromptModal';
+import { useFeaturedWorkouts, FeaturedWorkout } from '../../hooks/useFeaturedWorkouts';
 
 // Prioritize process.env for development/preview environments
 const API_URL = process.env.EXPO_PUBLIC_BACKEND_URL || Constants.expoConfig?.extra?.EXPO_PUBLIC_BACKEND_URL || '';
@@ -34,95 +35,26 @@ const CAROUSEL_PADDING = 16;
 const CARD_GAP = 12;
 const CARD_WIDTH = SCREEN_WIDTH - (CAROUSEL_PADDING * 2);
 
-// Workout carousel data - 5 featured workouts with mood + workout format
-// Images provided by user for carousel display
-const featuredWorkouts = [
-  {
-    id: '1',
-    mood: 'Sweat / Burn Fat',
-    title: 'Cardio Based',
-    duration: '25–35 min',
-    badge: 'Top pick',
-    exercises: [
-      'Stationary Bike - Hill & Sprint',
-      'Stair Master - Hill Climb',
-    ],
-    // Cardio Based Sweat image
-    image: 'https://customer-assets.emergentagent.com/job_3f3e12c6-013b-4158-b2e9-29980fb2b4f9/artifacts/tfdiqbfo_download.png',
-  },
-  {
-    id: '2',
-    mood: 'Muscle Gainer',
-    title: 'Back & Bis Volume',
-    duration: '45–60 min',
-    badge: 'Trending',
-    exercises: [
-      'Adjustable Bench - Chest Support Row',
-      'T-Bar Row Machine - Slow Neg Row',
-      'Pull Up Bar - Pull Up + Hold',
-      'Cable Machine - Cable Negatives',
-      'EZ Curl Bar - Narrow Curl',
-    ],
-    // First exercise: Chest-Support Row - Adjustable bench
-    image: 'https://customer-assets.emergentagent.com/job_0b65e409-b210-4730-af62-16b022c37685/artifacts/q6jestgn_download.png',
-  },
-  {
-    id: '6',
-    mood: 'Sweat / Burn Fat',
-    title: 'HIIT - Intense Full Body',
-    duration: '45–55 min',
-    badge: 'Intense',
-    exercises: [
-      'Kettlebells - AMRAP 15',
-      'Battle Ropes - Gauntlet',
-      'Sled - Sled & Burpee Circuit',
-    ],
-    // Kettlebell AMRAP 15 image
-    image: 'https://customer-assets.emergentagent.com/job_3f3e12c6-013b-4158-b2e9-29980fb2b4f9/artifacts/p7pyg0r0_download%20%289%29.png',
-  },
-  {
-    id: '3',
-    mood: 'Build Explosion',
-    title: 'Power Lifting',
-    duration: '30–40 min',
-    badge: 'Popular',
-    exercises: [
-      'Power Lifting Platform - Hang Clean Pull to Tall Shrug',
-      'Power Lifting Platform - Push Press Launch',
-      'Trap Hex Bar - Trap Bar Jump',
-      'Landmine Attachment - Hacksquat Jump',
-    ],
-    // Power Lifting image
-    image: 'https://customer-assets.emergentagent.com/job_3f3e12c6-013b-4158-b2e9-29980fb2b4f9/artifacts/o0vkrre5_download%20%289%29.png',
-  },
-  {
-    id: '4',
-    mood: 'Calisthenics',
-    title: 'Pulls & Dips',
-    duration: '25–35 min',
-    badge: 'Staff pick',
-    exercises: [
-      'Pull Up Bar - Eccentric Lines',
-      'Pull Up Bar - Strict Pull',
-      'Parallel Bars Dip Station - Eccentric Power',
-    ],
-    // Calisthenics image - updated
-    image: 'https://customer-assets.emergentagent.com/job_healthtracker-133/artifacts/jiw9nz1m_download%20%282%29.png',
-  },
-  {
-    id: '5',
-    mood: 'Get Outside',
-    title: 'Hill Workout',
-    duration: '30–40 min',
-    badge: 'New',
-    exercises: [
-      'Hills - Power Mix',
-      'Hills - Sprint Only 30s',
-    ],
-    // First exercise: Hill Power Mix - Hills
-    image: 'https://customer-assets.emergentagent.com/job_exercise-library-12/artifacts/zqqramht_download%20%2813%29.png',
-  },
-];
+// Transform FeaturedWorkout to carousel format
+interface CarouselWorkout {
+  id: string;
+  mood: string;
+  title: string;
+  duration: string;
+  badge: string;
+  exercises: string[];
+  image: string;
+}
+
+const transformWorkoutForCarousel = (workout: FeaturedWorkout): CarouselWorkout => ({
+  id: workout._id,
+  mood: workout.mood,
+  title: workout.title,
+  duration: workout.duration || `${workout.durationMin || 30} min`,
+  badge: workout.badge || 'Featured',
+  exercises: workout.exercises.map(ex => ex.name ? `${ex.equipment} - ${ex.name}` : ex.exerciseId),
+  image: workout.heroImageUrl || workout.exercises[0]?.imageUrl || '',
+});
 
 // Workout Carousel Card Component
 const WorkoutCarouselCard = ({ 
