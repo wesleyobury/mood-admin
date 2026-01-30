@@ -8,16 +8,21 @@ import {
   ActivityIndicator,
   Dimensions,
   Platform,
+  PanResponder,
+  Animated,
 } from 'react-native';
 import { Image } from 'expo-image';
 import * as VideoThumbnails from 'expo-video-thumbnails';
 import { Ionicons } from '@expo/vector-icons';
 import { Video, ResizeMode, AVPlaybackStatus } from 'expo-av';
-import Slider from '@react-native-community/slider';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { LinearGradient } from 'expo-linear-gradient';
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
-const FRAME_WIDTH = 60;
-const FRAME_HEIGHT = 75; // 4:5 aspect ratio
+const FILMSTRIP_HEIGHT = 52;
+const FRAME_COUNT = 8; // Number of frames in filmstrip
+const FRAME_WIDTH = (SCREEN_WIDTH - 32) / FRAME_COUNT;
+const SCRUBBER_WIDTH = 3;
 
 interface VideoFrameSelectorProps {
   videoUri: string;
@@ -37,55 +42,61 @@ const VideoFrameSelector: React.FC<VideoFrameSelectorProps> = memo(({
   onCancel,
   currentCover,
 }) => {
+  const insets = useSafeAreaInsets();
   const videoRef = useRef<Video>(null);
   const [isVideoReady, setIsVideoReady] = useState(false);
   const [duration, setDuration] = useState(0);
   const [position, setPosition] = useState(0);
-  const [isSeeking, setIsSeeking] = useState(false);
-  const [isCapturing, setIsCapturing] = useState(false);
-  const [previewFrames, setPreviewFrames] = useState<Frame[]>([]);
-  const [framesLoading, setFramesLoading] = useState(true);
+  const [filmstripFrames, setFilmstripFrames] = useState<Frame[]>([]);
+  const [isLoadingFrames, setIsLoadingFrames] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [isCapturing, setIsCapturing] = useState(false);
   
-  // Current captured frame for preview
-  const [capturedFrame, setCapturedFrame] = useState<string | null>(null);
+  // For pan gesture on filmstrip
+  const scrubberPosition = useRef(new Animated.Value(0)).current;
+  const filmstripWidth = SCREEN_WIDTH - 32;
+  
+  // Track if we have a selected frame ready
+  const [selectedFrameUri, setSelectedFrameUri] = useState<string | null>(null);
 
-  // Generate preview frames for quick selection
+  // Generate filmstrip frames when video loads
   useEffect(() => {
-    generatePreviewFrames();
-  }, [videoUri]);
+    if (duration > 0) {
+      generateFilmstripFrames();
+    }
+  }, [duration, videoUri]);
 
-  const generatePreviewFrames = async () => {
+  const generateFilmstripFrames = async () => {
     if (Platform.OS === 'web') {
-      setFramesLoading(false);
+      setIsLoadingFrames(false);
       return;
     }
 
     try {
-      setFramesLoading(true);
+      setIsLoadingFrames(true);
       const frames: Frame[] = [];
+      const interval = duration / FRAME_COUNT;
       
-      // Generate frames at various timestamps (0s to 30s max)
-      const timestamps = [0, 1000, 2000, 3000, 5000, 8000, 10000, 15000, 20000, 30000];
-      
-      for (const timestamp of timestamps) {
+      for (let i = 0; i < FRAME_COUNT; i++) {
+        const timestamp = Math.floor(i * interval);
         try {
           const { uri } = await VideoThumbnails.getThumbnailAsync(videoUri, {
             time: timestamp,
-            quality: 0.6,
+            quality: 0.5,
           });
           frames.push({ uri, timestamp });
         } catch (e) {
-          // Video might be shorter than this timestamp
-          break;
+          console.log(`Could not generate frame at ${timestamp}ms`);
+          // Add placeholder
+          frames.push({ uri: '', timestamp });
         }
       }
 
-      setPreviewFrames(frames);
+      setFilmstripFrames(frames);
     } catch (err) {
-      console.error('Error generating preview frames:', err);
+      console.error('Error generating filmstrip:', err);
     } finally {
-      setFramesLoading(false);
+      setIsLoadingFrames(false);
     }
   };
 
@@ -95,67 +106,105 @@ const VideoFrameSelector: React.FC<VideoFrameSelectorProps> = memo(({
       if (status.durationMillis) {
         setDuration(status.durationMillis);
       }
-      if (!isSeeking && status.positionMillis !== undefined) {
-        setPosition(status.positionMillis);
-      }
-    }
-  }, [isSeeking]);
-
-  const handleSliderValueChange = useCallback((value: number) => {
-    setPosition(value);
-  }, []);
-
-  const handleSliderSlidingStart = useCallback(() => {
-    setIsSeeking(true);
-    // Pause video while seeking for smoother experience
-    videoRef.current?.pauseAsync();
-  }, []);
-
-  const handleSliderSlidingComplete = useCallback(async (value: number) => {
-    if (videoRef.current) {
-      await videoRef.current.setPositionAsync(value);
-    }
-    setPosition(value);
-    setIsSeeking(false);
-  }, []);
-
-  const handlePreviewFrameTap = useCallback(async (frame: Frame) => {
-    // Seek video to this timestamp
-    if (videoRef.current) {
-      await videoRef.current.setPositionAsync(frame.timestamp);
-      setPosition(frame.timestamp);
     }
   }, []);
+
+  // Pan responder for scrubbing through filmstrip
+  const panResponder = useRef(
+    PanResponder.create({
+      onStartShouldSetPanResponder: () => true,
+      onMoveShouldSetPanResponder: () => true,
+      onPanResponderGrant: (evt) => {
+        // Get initial touch position
+        const touchX = evt.nativeEvent.locationX;
+        handleScrub(touchX);
+      },
+      onPanResponderMove: (evt, gestureState) => {
+        // Calculate position from gesture
+        const touchX = Math.max(0, Math.min(gestureState.moveX - 16, filmstripWidth));
+        handleScrub(touchX);
+      },
+      onPanResponderRelease: () => {
+        // Capture frame on release
+        captureCurrentFrame();
+      },
+    })
+  ).current;
+
+  const handleScrub = useCallback((touchX: number) => {
+    const clampedX = Math.max(0, Math.min(touchX, filmstripWidth));
+    const percentage = clampedX / filmstripWidth;
+    const newPosition = Math.floor(percentage * duration);
+    
+    scrubberPosition.setValue(clampedX);
+    setPosition(newPosition);
+    
+    // Seek video to this position
+    if (videoRef.current && duration > 0) {
+      videoRef.current.setPositionAsync(newPosition);
+    }
+  }, [duration, filmstripWidth]);
+
+  // Handle tap on filmstrip
+  const handleFilmstripTap = useCallback((evt: any) => {
+    const touchX = evt.nativeEvent.locationX;
+    handleScrub(touchX);
+    // Auto-capture on tap
+    setTimeout(() => captureCurrentFrame(), 100);
+  }, [handleScrub]);
 
   const captureCurrentFrame = async () => {
-    if (Platform.OS === 'web') {
-      setError('Frame capture is not available on web');
-      return;
-    }
+    if (Platform.OS === 'web' || isCapturing) return;
 
     setIsCapturing(true);
+    setError(null);
+    
     try {
-      // Pause video to get exact frame
+      // Pause video first
       await videoRef.current?.pauseAsync();
       
-      // Generate thumbnail at current position
-      const { uri } = await VideoThumbnails.getThumbnailAsync(videoUri, {
-        time: position,
-        quality: 0.9,
-      });
+      // Small delay to ensure video is paused at exact frame
+      await new Promise(resolve => setTimeout(resolve, 50));
       
-      setCapturedFrame(uri);
+      // Try multiple quality levels to avoid failures
+      let capturedUri: string | null = null;
+      const qualities = [0.8, 0.6, 0.4];
+      
+      for (const quality of qualities) {
+        try {
+          const { uri } = await VideoThumbnails.getThumbnailAsync(videoUri, {
+            time: position,
+            quality,
+          });
+          capturedUri = uri;
+          break;
+        } catch (e) {
+          console.log(`Failed at quality ${quality}, trying lower...`);
+        }
+      }
+      
+      if (capturedUri) {
+        setSelectedFrameUri(capturedUri);
+      } else {
+        // Fallback: try to get frame from nearest filmstrip frame
+        const nearestFrame = filmstripFrames.find(f => Math.abs(f.timestamp - position) < 500);
+        if (nearestFrame && nearestFrame.uri) {
+          setSelectedFrameUri(nearestFrame.uri);
+        } else {
+          setError('Could not capture this frame. Try a different position.');
+        }
+      }
     } catch (err) {
       console.error('Error capturing frame:', err);
-      setError('Failed to capture frame. Try a different position.');
+      setError('Failed to capture frame. Try moving to a different position.');
     } finally {
       setIsCapturing(false);
     }
   };
 
   const handleConfirm = () => {
-    if (capturedFrame) {
-      onFrameSelected(capturedFrame);
+    if (selectedFrameUri) {
+      onFrameSelected(selectedFrameUri);
     }
   };
 
@@ -166,178 +215,202 @@ const VideoFrameSelector: React.FC<VideoFrameSelectorProps> = memo(({
     return `${minutes}:${seconds.toString().padStart(2, '0')}`;
   };
 
+  // Update scrubber position when position changes
+  useEffect(() => {
+    if (duration > 0) {
+      const percentage = position / duration;
+      const newX = percentage * filmstripWidth;
+      scrubberPosition.setValue(newX);
+    }
+  }, [position, duration]);
+
   if (Platform.OS === 'web') {
     return (
-      <View style={styles.container}>
+      <View style={[styles.container, { paddingTop: insets.top }]}>
         <View style={styles.header}>
           <TouchableOpacity onPress={onCancel} style={styles.headerButton}>
-            <Ionicons name="close" size={24} color="#fff" />
+            <Ionicons name="close" size={28} color="#fff" />
           </TouchableOpacity>
-          <Text style={styles.headerTitle}>Select Cover Frame</Text>
+          <Text style={styles.headerTitle}>Cover</Text>
           <View style={styles.headerButton} />
         </View>
         <View style={styles.errorContainer}>
           <Ionicons name="alert-circle-outline" size={48} color="#FF6B6B" />
-          <Text style={styles.errorText}>Frame selection is only available on mobile devices</Text>
-          <TouchableOpacity style={styles.cancelButton} onPress={onCancel}>
-            <Text style={styles.cancelButtonText}>Go Back</Text>
-          </TouchableOpacity>
+          <Text style={styles.errorText}>Cover selection is only available on mobile</Text>
         </View>
       </View>
     );
   }
 
   return (
-    <View style={styles.container}>
-      {/* Header */}
+    <View style={[styles.container, { paddingTop: insets.top }]}>
+      {/* Header - Instagram Style */}
       <View style={styles.header}>
         <TouchableOpacity onPress={onCancel} style={styles.headerButton}>
-          <Ionicons name="close" size={24} color="#fff" />
+          <Ionicons name="close" size={28} color="#fff" />
         </TouchableOpacity>
-        <Text style={styles.headerTitle}>Select Cover Frame</Text>
+        <Text style={styles.headerTitle}>Cover</Text>
         <TouchableOpacity 
           onPress={handleConfirm} 
           style={styles.headerButton}
-          disabled={!capturedFrame}
+          disabled={!selectedFrameUri}
         >
           <Text style={[
             styles.doneText,
-            !capturedFrame && styles.doneTextDisabled
+            !selectedFrameUri && styles.doneTextDisabled
           ]}>
             Done
           </Text>
         </TouchableOpacity>
       </View>
 
-      {/* Video Preview */}
-      <View style={styles.videoContainer}>
-        <Video
-          ref={videoRef}
-          source={{ uri: videoUri }}
-          style={styles.video}
-          resizeMode={ResizeMode.CONTAIN}
-          shouldPlay={false}
-          isLooping={false}
-          isMuted={true}
-          onPlaybackStatusUpdate={handlePlaybackStatusUpdate}
-          onError={(error) => {
-            console.error('Video error:', error);
-            setError('Failed to load video');
-          }}
-        />
-        
-        {!isVideoReady && (
-          <View style={styles.videoLoadingOverlay}>
-            <ActivityIndicator size="large" color="#FFD700" />
-            <Text style={styles.loadingText}>Loading video...</Text>
-          </View>
-        )}
-
-        {/* Current time indicator */}
-        <View style={styles.timeIndicator}>
-          <Ionicons name="time-outline" size={14} color="#fff" />
-          <Text style={styles.timeText}>{formatTime(position)}</Text>
-        </View>
-      </View>
-
-      {/* Scrubber / Timeline */}
-      <View style={styles.scrubberContainer}>
-        <Text style={styles.scrubberLabel}>Drag to find the perfect frame</Text>
-        <View style={styles.sliderRow}>
-          <Text style={styles.timeLabel}>{formatTime(0)}</Text>
-          <Slider
-            style={styles.slider}
-            minimumValue={0}
-            maximumValue={duration || 1}
-            value={position}
-            onValueChange={handleSliderValueChange}
-            onSlidingStart={handleSliderSlidingStart}
-            onSlidingComplete={handleSliderSlidingComplete}
-            minimumTrackTintColor="#FFD700"
-            maximumTrackTintColor="rgba(255, 255, 255, 0.3)"
-            thumbTintColor="#FFD700"
+      {/* Video Preview - Large, centered */}
+      <View style={styles.videoSection}>
+        <View style={styles.videoContainer}>
+          <Video
+            ref={videoRef}
+            source={{ uri: videoUri }}
+            style={styles.video}
+            resizeMode={ResizeMode.CONTAIN}
+            shouldPlay={false}
+            isLooping={false}
+            isMuted={true}
+            onPlaybackStatusUpdate={handlePlaybackStatusUpdate}
+            onError={(error) => {
+              console.error('Video error:', error);
+              setError('Failed to load video');
+            }}
           />
-          <Text style={styles.timeLabel}>{formatTime(duration)}</Text>
+          
+          {!isVideoReady && (
+            <View style={styles.videoLoadingOverlay}>
+              <ActivityIndicator size="large" color="#FFD700" />
+              <Text style={styles.loadingText}>Loading video...</Text>
+            </View>
+          )}
+        </View>
+
+        {/* Current time badge */}
+        <View style={styles.timeBadge}>
+          <Text style={styles.timeBadgeText}>{formatTime(position)}</Text>
         </View>
       </View>
 
-      {/* Capture Button */}
+      {/* Selected Frame Preview */}
+      {selectedFrameUri && (
+        <View style={styles.selectedPreviewContainer}>
+          <Image
+            source={{ uri: selectedFrameUri }}
+            style={styles.selectedPreviewImage}
+            contentFit="cover"
+          />
+          <View style={styles.selectedBadge}>
+            <Ionicons name="checkmark-circle" size={14} color="#4CAF50" />
+            <Text style={styles.selectedBadgeText}>Selected</Text>
+          </View>
+        </View>
+      )}
+
+      {/* Filmstrip Scrubber - Instagram Style */}
+      <View style={styles.filmstripSection}>
+        <Text style={styles.filmstripLabel}>Drag to select cover</Text>
+        
+        <View 
+          style={styles.filmstripContainer}
+          {...panResponder.panHandlers}
+        >
+          {/* Filmstrip frames background */}
+          <View style={styles.filmstrip}>
+            {isLoadingFrames ? (
+              <View style={styles.filmstripLoading}>
+                <ActivityIndicator size="small" color="#FFD700" />
+              </View>
+            ) : (
+              filmstripFrames.map((frame, index) => (
+                <View key={index} style={styles.filmstripFrame}>
+                  {frame.uri ? (
+                    <Image
+                      source={{ uri: frame.uri }}
+                      style={styles.filmstripFrameImage}
+                      contentFit="cover"
+                    />
+                  ) : (
+                    <View style={styles.filmstripFramePlaceholder} />
+                  )}
+                </View>
+              ))
+            )}
+          </View>
+
+          {/* Gradient Scrubber Handle */}
+          <Animated.View 
+            style={[
+              styles.scrubberContainer,
+              { transform: [{ translateX: scrubberPosition }] }
+            ]}
+          >
+            <LinearGradient
+              colors={['#FFD700', '#FF8C00']}
+              start={{ x: 0, y: 0 }}
+              end={{ x: 0, y: 1 }}
+              style={styles.scrubberLine}
+            />
+            <LinearGradient
+              colors={['#FFD700', '#FF8C00']}
+              start={{ x: 0, y: 0 }}
+              end={{ x: 1, y: 1 }}
+              style={styles.scrubberHandle}
+            >
+              <View style={styles.scrubberHandleInner} />
+            </LinearGradient>
+          </Animated.View>
+        </View>
+
+        {/* Time indicators */}
+        <View style={styles.timeIndicators}>
+          <Text style={styles.timeIndicatorText}>0:00</Text>
+          <Text style={styles.timeIndicatorText}>{formatTime(duration)}</Text>
+        </View>
+      </View>
+
+      {/* Capture Button with Gradient */}
       <View style={styles.captureSection}>
         <TouchableOpacity 
-          style={[styles.captureButton, isCapturing && styles.captureButtonDisabled]}
+          style={styles.captureButtonContainer}
           onPress={captureCurrentFrame}
           disabled={isCapturing || !isVideoReady}
+          activeOpacity={0.8}
         >
-          {isCapturing ? (
-            <ActivityIndicator size="small" color="#000" />
-          ) : (
-            <>
-              <Ionicons name="camera" size={20} color="#000" />
-              <Text style={styles.captureButtonText}>Capture This Frame</Text>
-            </>
-          )}
+          <LinearGradient
+            colors={isCapturing ? ['#666', '#444'] : ['#FFD700', '#FF8C00']}
+            start={{ x: 0, y: 0 }}
+            end={{ x: 1, y: 0 }}
+            style={styles.captureButton}
+          >
+            {isCapturing ? (
+              <ActivityIndicator size="small" color="#fff" />
+            ) : (
+              <>
+                <Ionicons name="camera" size={20} color="#000" />
+                <Text style={styles.captureButtonText}>Capture This Frame</Text>
+              </>
+            )}
+          </LinearGradient>
         </TouchableOpacity>
-        
-        {capturedFrame && (
-          <View style={styles.capturedPreview}>
-            <Image
-              source={{ uri: capturedFrame }}
-              style={styles.capturedImage}
-              contentFit="cover"
-            />
-            <View style={styles.capturedBadge}>
-              <Ionicons name="checkmark-circle" size={16} color="#4CAF50" />
-              <Text style={styles.capturedText}>Selected</Text>
-            </View>
-          </View>
-        )}
       </View>
 
-      {/* Quick Select Frames */}
-      {previewFrames.length > 0 && (
-        <View style={styles.quickSelectContainer}>
-          <Text style={styles.quickSelectLabel}>Or quick select:</Text>
-          <ScrollView
-            horizontal
-            showsHorizontalScrollIndicator={false}
-            contentContainerStyle={styles.framesScrollContent}
-          >
-            {previewFrames.map((frame, index) => (
-              <TouchableOpacity
-                key={`frame-${index}`}
-                style={styles.frameItem}
-                onPress={() => handlePreviewFrameTap(frame)}
-                activeOpacity={0.7}
-              >
-                <Image
-                  source={{ uri: frame.uri }}
-                  style={styles.frameImage}
-                  contentFit="cover"
-                />
-                <View style={styles.frameTimestamp}>
-                  <Text style={styles.frameTimestampText}>
-                    {formatTime(frame.timestamp)}
-                  </Text>
-                </View>
-              </TouchableOpacity>
-            ))}
-          </ScrollView>
-        </View>
-      )}
-
-      {framesLoading && (
-        <View style={styles.framesLoadingContainer}>
-          <ActivityIndicator size="small" color="#FFD700" />
-          <Text style={styles.framesLoadingText}>Loading preview frames...</Text>
-        </View>
-      )}
-
+      {/* Error Banner */}
       {error && (
         <View style={styles.errorBanner}>
           <Ionicons name="warning-outline" size={16} color="#FF6B6B" />
           <Text style={styles.errorBannerText}>{error}</Text>
         </View>
       )}
+
+      {/* Hint */}
+      <Text style={styles.hintText}>
+        This cover will be shown in the feed before the video plays
+      </Text>
     </View>
   );
 });
@@ -351,13 +424,15 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    paddingHorizontal: 16,
+    paddingHorizontal: 8,
     paddingVertical: 12,
-    borderBottomWidth: 1,
+    borderBottomWidth: StyleSheet.hairlineWidth,
     borderBottomColor: 'rgba(255, 255, 255, 0.1)',
   },
   headerButton: {
     width: 60,
+    height: 44,
+    justifyContent: 'center',
     alignItems: 'center',
   },
   headerTitle: {
@@ -371,13 +446,21 @@ const styles = StyleSheet.create({
     color: '#FFD700',
   },
   doneTextDisabled: {
-    color: '#666',
+    color: '#555',
+  },
+  videoSection: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingHorizontal: 16,
   },
   videoContainer: {
-    width: SCREEN_WIDTH,
-    height: SCREEN_WIDTH * 0.75, // 4:3 for video preview
+    width: '100%',
+    aspectRatio: 4 / 5,
+    maxHeight: SCREEN_WIDTH * 1.1,
     backgroundColor: '#1a1a1a',
-    position: 'relative',
+    borderRadius: 12,
+    overflow: 'hidden',
   },
   video: {
     width: '100%',
@@ -387,157 +470,154 @@ const styles = StyleSheet.create({
     ...StyleSheet.absoluteFillObject,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'rgba(0, 0, 0, 0.7)',
+    backgroundColor: 'rgba(0, 0, 0, 0.8)',
   },
   loadingText: {
     marginTop: 12,
     color: '#888',
     fontSize: 14,
   },
-  timeIndicator: {
+  timeBadge: {
     position: 'absolute',
     top: 12,
-    right: 12,
-    flexDirection: 'row',
-    alignItems: 'center',
+    right: 28,
     backgroundColor: 'rgba(0, 0, 0, 0.7)',
     paddingHorizontal: 10,
-    paddingVertical: 6,
-    borderRadius: 16,
-    gap: 4,
+    paddingVertical: 5,
+    borderRadius: 12,
   },
-  timeText: {
+  timeBadgeText: {
     color: '#fff',
     fontSize: 13,
     fontWeight: '600',
+    fontVariant: ['tabular-nums'],
   },
-  scrubberContainer: {
+  selectedPreviewContainer: {
+    position: 'absolute',
+    bottom: 200,
+    right: 24,
+    alignItems: 'center',
+  },
+  selectedPreviewImage: {
+    width: 56,
+    height: 70,
+    borderRadius: 6,
+    borderWidth: 2,
+    borderColor: '#4CAF50',
+  },
+  selectedBadge: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginTop: 4,
+    gap: 2,
+  },
+  selectedBadgeText: {
+    fontSize: 10,
+    color: '#4CAF50',
+    fontWeight: '600',
+  },
+  filmstripSection: {
     paddingHorizontal: 16,
-    paddingVertical: 16,
-    borderBottomWidth: 1,
-    borderBottomColor: 'rgba(255, 255, 255, 0.1)',
+    paddingTop: 16,
+    paddingBottom: 8,
   },
-  scrubberLabel: {
+  filmstripLabel: {
     fontSize: 13,
     color: 'rgba(255, 255, 255, 0.5)',
     textAlign: 'center',
     marginBottom: 12,
   },
-  sliderRow: {
+  filmstripContainer: {
+    height: FILMSTRIP_HEIGHT + 20,
+    position: 'relative',
+    justifyContent: 'center',
+  },
+  filmstrip: {
     flexDirection: 'row',
-    alignItems: 'center',
-    gap: 8,
+    height: FILMSTRIP_HEIGHT,
+    borderRadius: 6,
+    overflow: 'hidden',
+    backgroundColor: '#1a1a1a',
   },
-  slider: {
+  filmstripLoading: {
     flex: 1,
-    height: 40,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
-  timeLabel: {
-    fontSize: 12,
-    color: '#888',
-    width: 40,
-    textAlign: 'center',
+  filmstripFrame: {
+    width: FRAME_WIDTH,
+    height: FILMSTRIP_HEIGHT,
+  },
+  filmstripFrameImage: {
+    width: '100%',
+    height: '100%',
+  },
+  filmstripFramePlaceholder: {
+    width: '100%',
+    height: '100%',
+    backgroundColor: '#2a2a2a',
+  },
+  scrubberContainer: {
+    position: 'absolute',
+    top: 0,
+    height: FILMSTRIP_HEIGHT + 20,
+    alignItems: 'center',
+    marginLeft: -1.5,
+  },
+  scrubberLine: {
+    width: SCRUBBER_WIDTH,
+    height: FILMSTRIP_HEIGHT + 10,
+    marginTop: 5,
+    borderRadius: 1.5,
+  },
+  scrubberHandle: {
+    width: 18,
+    height: 18,
+    borderRadius: 9,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: -4,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.3,
+    shadowRadius: 3,
+    elevation: 5,
+  },
+  scrubberHandleInner: {
+    width: 6,
+    height: 6,
+    borderRadius: 3,
+    backgroundColor: '#000',
+  },
+  timeIndicators: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginTop: 8,
+  },
+  timeIndicatorText: {
+    fontSize: 11,
+    color: '#666',
+    fontVariant: ['tabular-nums'],
   },
   captureSection: {
-    padding: 16,
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 16,
+    paddingHorizontal: 16,
+    paddingVertical: 12,
+  },
+  captureButtonContainer: {
+    borderRadius: 12,
+    overflow: 'hidden',
   },
   captureButton: {
-    flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#FFD700',
     paddingVertical: 14,
-    borderRadius: 12,
     gap: 8,
-  },
-  captureButtonDisabled: {
-    opacity: 0.6,
   },
   captureButtonText: {
     color: '#000',
     fontSize: 15,
-    fontWeight: '600',
-  },
-  capturedPreview: {
-    position: 'relative',
-  },
-  capturedImage: {
-    width: 70,
-    height: 87.5, // 4:5 aspect ratio
-    borderRadius: 8,
-    borderWidth: 2,
-    borderColor: '#4CAF50',
-  },
-  capturedBadge: {
-    position: 'absolute',
-    bottom: -8,
-    left: 0,
-    right: 0,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    gap: 2,
-  },
-  capturedText: {
-    fontSize: 10,
-    color: '#4CAF50',
-    fontWeight: '600',
-  },
-  quickSelectContainer: {
-    paddingVertical: 12,
-    borderTopWidth: 1,
-    borderTopColor: 'rgba(255, 255, 255, 0.1)',
-  },
-  quickSelectLabel: {
-    fontSize: 12,
-    color: 'rgba(255, 255, 255, 0.4)',
-    paddingHorizontal: 16,
-    marginBottom: 10,
-  },
-  framesScrollContent: {
-    paddingHorizontal: 12,
-  },
-  frameItem: {
-    width: FRAME_WIDTH,
-    height: FRAME_HEIGHT,
-    marginHorizontal: 4,
-    borderRadius: 6,
-    overflow: 'hidden',
-    borderWidth: 1,
-    borderColor: 'rgba(255, 255, 255, 0.2)',
-  },
-  frameImage: {
-    width: '100%',
-    height: '100%',
-  },
-  frameTimestamp: {
-    position: 'absolute',
-    bottom: 2,
-    left: 2,
-    backgroundColor: 'rgba(0, 0, 0, 0.7)',
-    paddingHorizontal: 4,
-    paddingVertical: 1,
-    borderRadius: 3,
-  },
-  frameTimestampText: {
-    color: '#fff',
-    fontSize: 9,
-    fontWeight: '500',
-  },
-  framesLoadingContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    paddingVertical: 12,
-    gap: 8,
-  },
-  framesLoadingText: {
-    color: '#888',
-    fontSize: 12,
+    fontWeight: '700',
   },
   errorContainer: {
     flex: 1,
@@ -551,32 +631,27 @@ const styles = StyleSheet.create({
     fontSize: 14,
     textAlign: 'center',
   },
-  cancelButton: {
-    marginTop: 24,
-    paddingHorizontal: 32,
-    paddingVertical: 12,
-    backgroundColor: 'rgba(255, 255, 255, 0.1)',
-    borderRadius: 8,
-  },
-  cancelButtonText: {
-    color: '#fff',
-    fontSize: 14,
-    fontWeight: '500',
-  },
   errorBanner: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: 'rgba(255, 107, 107, 0.1)',
+    backgroundColor: 'rgba(255, 107, 107, 0.15)',
     paddingVertical: 10,
     paddingHorizontal: 16,
-    gap: 8,
     marginHorizontal: 16,
     borderRadius: 8,
+    gap: 8,
   },
   errorBannerText: {
     color: '#FF6B6B',
     fontSize: 13,
+  },
+  hintText: {
+    fontSize: 12,
+    color: 'rgba(255, 255, 255, 0.35)',
+    textAlign: 'center',
+    paddingHorizontal: 32,
+    paddingBottom: 16,
   },
 });
 
