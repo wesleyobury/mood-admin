@@ -639,7 +639,6 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: '#ffffff',
     marginBottom: 16,
-    textAlign: 'left',
     textShadowColor: 'rgba(0,0,0,0.5)',
     textShadowOffset: { width: 0, height: 1 },
     textShadowRadius: 3,
@@ -651,15 +650,16 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     textTransform: 'uppercase',
     letterSpacing: 0.5,
-    textAlign: 'left',
   },
   overlayCuesContainer: {
     marginBottom: 16,
+    width: '100%',
   },
   overlayCueItem: {
     flexDirection: 'row',
     alignItems: 'flex-start',
     marginBottom: 8,
+    width: '100%',
   },
   overlayCueNumber: {
     width: 22,
@@ -669,6 +669,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     marginRight: 10,
+    flexShrink: 0,
   },
   overlayCueNumberText: {
     fontSize: 11,
@@ -676,27 +677,29 @@ const styles = StyleSheet.create({
     color: '#ffffff',
   },
   overlayCueText: {
-    flex: 1,
     fontSize: 14,
     color: 'rgba(255,255,255,0.95)',
     lineHeight: 20,
-    textAlign: 'left',
+    flexShrink: 1,
+    flexWrap: 'wrap',
   },
   overlayMistakesContainer: {
     marginBottom: 10,
+    width: '100%',
   },
   overlayMistakeItem: {
     flexDirection: 'row',
     alignItems: 'flex-start',
     marginBottom: 6,
-    gap: 8,
+    width: '100%',
   },
   overlayMistakeText: {
-    flex: 1,
     fontSize: 13,
     color: 'rgba(255,255,255,0.7)',
     lineHeight: 18,
-    textAlign: 'left',
+    marginLeft: 8,
+    flexShrink: 1,
+    flexWrap: 'wrap',
   },
   // Legacy styles kept for search results
   detailBackButton: {
