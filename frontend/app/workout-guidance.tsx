@@ -21,6 +21,7 @@ import Toast from '../components/Toast';
 import { Analytics } from '../utils/analytics';
 import ExerciseLookupSheet from '../components/ExerciseLookupSheet';
 import ExerciseLookupTrigger from '../components/ExerciseLookupTrigger';
+import { TextWithTermLinks } from '../components/TermDefinitionPopup';
 
 interface MOODTip {
   icon: keyof typeof Ionicons.glyphMap;
