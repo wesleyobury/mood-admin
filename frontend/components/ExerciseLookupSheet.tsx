@@ -335,8 +335,8 @@ export default function ExerciseLookupSheet({ visible, onClose }: ExerciseLookup
                 <TextInput
                   ref={searchInputRef}
                   style={styles.searchInput}
-                  placeholder="Search an exercise..."
-                  placeholderTextColor="rgba(255,255,255,0.4)"
+                  placeholder="Find visuals"
+                  placeholderTextColor="rgba(255,255,255,0.5)"
                   value={searchQuery}
                   onChangeText={handleSearchChange}
                   autoCapitalize="none"
