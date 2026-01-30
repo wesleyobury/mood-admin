@@ -141,7 +141,15 @@ export default function CreatePost() {
         const stats = JSON.parse(params.workoutStats as string);
         setWorkoutStats(stats);
         setHasStatsCard(true);
-        setCaption(`Just crushed a ${stats.totalDuration} min workout! 💪 #workout #fitness #mood`);
+        
+        // Randomized workout emojis
+        const workoutEmojis = ['⚡', '💪', '🏋️', '🏃', '💦', '🔥', '🎯', '✨', '🚀', '💥'];
+        const randomEmoji = workoutEmojis[Math.floor(Math.random() * workoutEmojis.length)];
+        
+        // Format caption with calories and minutes
+        const calories = stats.totalCalories || 0;
+        const minutes = stats.totalDuration || 0;
+        setCaption(`${calories} cals and ${minutes} minutes today ${randomEmoji}`);
       } catch (error) {
         console.error('Error parsing workout stats:', error);
       }
