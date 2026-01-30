@@ -222,23 +222,31 @@ const CustomWorkoutModal: React.FC<CustomWorkoutModalProps> = ({
                 </View>
               </ScrollView>
 
-              {/* Save Button */}
+              {/* Save Button with Orange Gradient */}
               <TouchableOpacity
-                style={[
-                  styles.saveButton,
-                  !isFormValid && styles.saveButtonDisabled
-                ]}
+                style={styles.saveButtonWrapper}
                 onPress={handleSave}
                 disabled={!isFormValid}
                 activeOpacity={0.8}
               >
-                <Ionicons name="add-circle" size={20} color={isFormValid ? "#000" : "#666"} />
-                <Text style={[
-                  styles.saveButtonText,
-                  !isFormValid && styles.saveButtonTextDisabled
-                ]}>
-                  Add to Cart
-                </Text>
+                {isFormValid ? (
+                  <LinearGradient
+                    colors={['#FFD700', '#FFA500']}
+                    style={styles.saveButton}
+                    start={{ x: 0, y: 0 }}
+                    end={{ x: 1, y: 0 }}
+                  >
+                    <Ionicons name="add-circle" size={20} color="#000" />
+                    <Text style={styles.saveButtonText}>Add to Cart</Text>
+                  </LinearGradient>
+                ) : (
+                  <View style={[styles.saveButton, styles.saveButtonDisabled]}>
+                    <Ionicons name="add-circle" size={20} color="#666" />
+                    <Text style={[styles.saveButtonText, styles.saveButtonTextDisabled]}>
+                      Add to Cart
+                    </Text>
+                  </View>
+                )}
               </TouchableOpacity>
             </>
           )}
