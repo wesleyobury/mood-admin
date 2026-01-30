@@ -556,11 +556,12 @@ const styles = StyleSheet.create({
   },
   videoContainer: {
     width: '100%',
-    height: 220,
+    aspectRatio: 9 / 16,
     borderRadius: 16,
     overflow: 'hidden',
     backgroundColor: '#000',
     marginBottom: 20,
+    maxHeight: 400,
   },
   video: {
     width: '100%',
