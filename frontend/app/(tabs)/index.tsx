@@ -514,6 +514,9 @@ export default function WorkoutsHome() {
       clearInterval(autoScrollTimer.current);
     }
     
+    // Don't auto-scroll if no workouts
+    if (featuredWorkouts.length === 0) return;
+    
     autoScrollTimer.current = setInterval(() => {
       setActiveCarouselIndex((prevIndex) => {
         const nextIndex = (prevIndex + 1) % featuredWorkouts.length;
@@ -524,17 +527,19 @@ export default function WorkoutsHome() {
         return nextIndex;
       });
     }, 4000);
-  }, []);
+  }, [featuredWorkouts.length]);
 
   useEffect(() => {
-    startAutoScroll();
+    if (featuredWorkouts.length > 0) {
+      startAutoScroll();
+    }
 
     return () => {
       if (autoScrollTimer.current) {
         clearInterval(autoScrollTimer.current);
       }
     };
-  }, [startAutoScroll]);
+  }, [startAutoScroll, featuredWorkouts.length]);
 
   // Handle carousel scroll end to update active index and reset timer
   const onCarouselScroll = useCallback((event: NativeSyntheticEvent<NativeScrollEvent>) => {
@@ -545,10 +550,10 @@ export default function WorkoutsHome() {
       // Reset the auto-scroll timer when user manually swipes
       startAutoScroll();
     }
-  }, [activeCarouselIndex, startAutoScroll]);
+  }, [activeCarouselIndex, startAutoScroll, featuredWorkouts.length]);
 
   // Render carousel item
-  const renderCarouselItem = useCallback(({ item }: { item: typeof featuredWorkouts[0] }) => {
+  const renderCarouselItem = useCallback(({ item }: { item: CarouselWorkout }) => {
     return (
       <WorkoutCarouselCard 
         workout={item} 
