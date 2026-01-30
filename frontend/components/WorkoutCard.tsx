@@ -389,8 +389,8 @@ const styles = StyleSheet.create({
   },
   editButton: {
     position: 'absolute',
-    top: -5,
-    right: 16,
+    top: -10,
+    right: 21,
     width: 36,
     height: 36,
     borderRadius: 18,
