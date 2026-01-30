@@ -1084,7 +1084,7 @@ const styles = StyleSheet.create({
     gap: 6,
   },
   addToCartText: {
-    fontSize: 13,
+    fontSize: 14,
     fontWeight: '600',
     color: '#fff',
   },
@@ -1097,7 +1097,7 @@ const styles = StyleSheet.create({
     fontWeight: '500',
   },
   startButton: {
-    flex: 3,
+    flex: 1,
     borderRadius: 30,
     overflow: 'hidden',
   },
