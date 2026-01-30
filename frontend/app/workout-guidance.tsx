@@ -903,6 +903,12 @@ export default function WorkoutGuidanceScreen() {
         onHide={() => setToastVisible(false)}
         type='success'
       />
+      
+      {/* Exercise Lookup Bottom Sheet */}
+      <ExerciseLookupSheet
+        visible={exerciseLookupVisible}
+        onClose={() => setExerciseLookupVisible(false)}
+      />
     </SafeAreaView>
   );
 }
