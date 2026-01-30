@@ -1081,10 +1081,10 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(255, 255, 255, 0.1)',
     paddingVertical: 14,
     borderRadius: 30,
-    gap: 8,
+    gap: 6,
   },
   addToCartText: {
-    fontSize: 15,
+    fontSize: 13,
     fontWeight: '600',
     color: '#fff',
   },
@@ -1104,7 +1104,7 @@ const styles = StyleSheet.create({
   startButtonGradient: {
     flexDirection: 'row',
     alignItems: 'center',
-    paddingHorizontal: 24,
+    justifyContent: 'center',
     paddingVertical: 14,
     gap: 8,
   },
