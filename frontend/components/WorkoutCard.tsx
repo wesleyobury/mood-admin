@@ -279,11 +279,6 @@ const WorkoutCard = React.memo(({
             </View>
           </Pressable>
         )}
-                <Text style={styles.tooltipDismissText}>Got it</Text>
-              </TouchableOpacity>
-            </View>
-          </Pressable>
-        )}
       </View>
 
       {/* Custom Workout Modal */}
