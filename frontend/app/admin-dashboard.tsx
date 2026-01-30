@@ -43,6 +43,7 @@ const MOOD_COLORS: Record<string, string> = {
   'lazy': '#D299C2',       // Feeling lazy - purple/pink gradient
   'calisthenics': '#667eea', // Calisthenics - purple/indigo gradient
   'outdoor': '#56ab2f',    // Get outside - green gradient
+  'ringer': '#888888',     // Take me through the ringer - dark/skull
 };
 
 // Mood icons - EXACT match from home screen mood cards
@@ -53,6 +54,7 @@ const MOOD_ICONS: Record<string, string> = {
   'lazy': 'bed',           // Feeling lazy
   'calisthenics': 'body',  // Calisthenics
   'outdoor': 'bicycle',    // Get outside
+  'ringer': 'skull',       // Take me through the ringer
 };
 
 // Display names for moods
@@ -63,6 +65,7 @@ const MOOD_DISPLAY_NAMES: Record<string, string> = {
   'lazy': "I'm feeling lazy",
   'calisthenics': 'Calisthenics',
   'outdoor': 'Get outside',
+  'ringer': 'Through the Ringer',
 };
 
 interface ComprehensiveStats {
