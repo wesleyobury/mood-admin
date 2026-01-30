@@ -238,6 +238,19 @@ const WorkoutCard = React.memo(({
           ))}
         </View>
       </View>
+
+      {/* Custom Workout Modal */}
+      <CustomWorkoutModal
+        visible={customModalVisible}
+        onClose={() => {
+          setCustomModalVisible(false);
+          setSelectedWorkoutForEdit(null);
+        }}
+        imageUrl={selectedWorkoutForEdit?.imageUrl || workouts[currentWorkoutIndex]?.imageUrl || ''}
+        equipment={equipment}
+        difficulty={difficulty}
+        defaultWorkoutName={selectedWorkoutForEdit?.name || ''}
+      />
     </View>
   );
 });
