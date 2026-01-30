@@ -96,7 +96,14 @@ export default function GuestPromptModal({ visible, onClose, action = 'use this 
           {/* Header */}
           <View style={styles.header}>
             <View style={styles.iconContainer}>
-              <Ionicons name="lock-closed" size={32} color="#FFD700" />
+              <LinearGradient
+                colors={['#FFD700', '#FFA500']}
+                style={styles.headerIconGradient}
+                start={{ x: 0, y: 0 }}
+                end={{ x: 1, y: 1 }}
+              >
+                <Ionicons name="lock-closed" size={28} color="#0c0c0c" />
+              </LinearGradient>
             </View>
             <Text style={styles.title}>Create an Account</Text>
             <Text style={styles.subtitle}>
@@ -107,19 +114,55 @@ export default function GuestPromptModal({ visible, onClose, action = 'use this 
           {/* Benefits list */}
           <View style={styles.benefitsList}>
             <View style={styles.benefitItem}>
-              <Ionicons name="bookmark" size={20} color="#FFD700" />
+              <View style={styles.benefitIconContainer}>
+                <LinearGradient
+                  colors={['#FFD700', '#FFA500']}
+                  style={styles.benefitIconGradient}
+                  start={{ x: 0, y: 0 }}
+                  end={{ x: 1, y: 1 }}
+                >
+                  <Ionicons name="bookmark" size={14} color="#0c0c0c" />
+                </LinearGradient>
+              </View>
               <Text style={styles.benefitText}>Save your favorite workouts</Text>
             </View>
             <View style={styles.benefitItem}>
-              <Ionicons name="trending-up" size={20} color="#FFD700" />
+              <View style={styles.benefitIconContainer}>
+                <LinearGradient
+                  colors={['#FFD700', '#FFA500']}
+                  style={styles.benefitIconGradient}
+                  start={{ x: 0, y: 0 }}
+                  end={{ x: 1, y: 1 }}
+                >
+                  <Ionicons name="trending-up" size={14} color="#0c0c0c" />
+                </LinearGradient>
+              </View>
               <Text style={styles.benefitText}>Track your progress & streaks</Text>
             </View>
             <View style={styles.benefitItem}>
-              <Ionicons name="people" size={20} color="#FFD700" />
+              <View style={styles.benefitIconContainer}>
+                <LinearGradient
+                  colors={['#FFD700', '#FFA500']}
+                  style={styles.benefitIconGradient}
+                  start={{ x: 0, y: 0 }}
+                  end={{ x: 1, y: 1 }}
+                >
+                  <Ionicons name="people" size={14} color="#0c0c0c" />
+                </LinearGradient>
+              </View>
               <Text style={styles.benefitText}>Connect with the community</Text>
             </View>
             <View style={styles.benefitItem}>
-              <Ionicons name="heart" size={20} color="#FFD700" />
+              <View style={styles.benefitIconContainer}>
+                <LinearGradient
+                  colors={['#FFD700', '#FFA500']}
+                  style={styles.benefitIconGradient}
+                  start={{ x: 0, y: 0 }}
+                  end={{ x: 1, y: 1 }}
+                >
+                  <Ionicons name="heart" size={14} color="#0c0c0c" />
+                </LinearGradient>
+              </View>
               <Text style={styles.benefitText}>Like, comment & follow others</Text>
             </View>
           </View>
