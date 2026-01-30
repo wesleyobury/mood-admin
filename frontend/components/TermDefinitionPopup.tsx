@@ -127,10 +127,10 @@ interface ParsedTextProps {
 }
 
 export const TextWithTermLinks: React.FC<ParsedTextProps> = ({ text, baseStyle, linkStyle }) => {
-  // Regex to match RPE or SPM (with optional surrounding context like numbers)
-  const termRegex = /\b(RPE|SPM)\b/g;
+  // Regex to match all supported fitness terms (case-sensitive for acronyms, case-insensitive for Tabata/Superset/Circuit)
+  const termRegex = /\b(RPE|SPM|AMRAP|EMOM|HIIT|Tabata|Superset|Circuit)\b/gi;
   
-  const parts: (string | { term: 'RPE' | 'SPM'; key: number })[] = [];
+  const parts: (string | { term: TermType; key: number })[] = [];
   let lastIndex = 0;
   let match;
   let keyCounter = 0;
