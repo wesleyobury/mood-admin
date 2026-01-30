@@ -42,6 +42,7 @@ export default function WorkoutSessionScreen() {
   const [sessionWorkouts, setSessionWorkouts] = useState<SessionWorkout[]>([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
+  const [exerciseLookupVisible, setExerciseLookupVisible] = useState(false);
 
   useEffect(() => {
     try {
