@@ -105,6 +105,46 @@ const parseWorkoutDescription = (description: string): string[] => {
   return steps.length > 1 ? steps : [cleanedDescription];
 };
 
+// Component to render step text with band placement styling and RPE/SPM links
+const StepTextWithLinks: React.FC<{ step: string; style: object; }> = ({ step, style }) => {
+  const { TextWithTermLinks } = require('../components/TermDefinitionPopup');
+  
+  // Check if the step contains parenthetical text (band placement)
+  const parts = step.split(/(\([^)]+\))/);
+  
+  if (parts.length === 1) {
+    // No parenthetical text, just use TextWithTermLinks
+    return <TextWithTermLinks text={step} baseStyle={style} />;
+  }
+  
+  // Has parenthetical text - render with mixed styles
+  return (
+    <Text style={style}>
+      {parts.map((part, index) => {
+        if (part.startsWith('(') && part.endsWith(')')) {
+          // This is parenthetical text - render with smaller, italic style and term links
+          return (
+            <TextWithTermLinks 
+              key={index} 
+              text={part} 
+              baseStyle={styles.bandPlacementText}
+            />
+          );
+        } else {
+          // Regular text with term links
+          return (
+            <TextWithTermLinks 
+              key={index} 
+              text={part} 
+              baseStyle={style}
+            />
+          );
+        }
+      })}
+    </Text>
+  );
+};
+
 const renderStepWithBandPlacement = (step: string) => {
   // Check if the step contains parenthetical text (band placement)
   const parts = step.split(/(\([^)]+\))/);
