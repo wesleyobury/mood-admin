@@ -16,6 +16,8 @@ if env_path.exists():
             line = line.strip()
             if line and not line.startswith('#') and '=' in line:
                 key, value = line.split('=', 1)
+                # Remove quotes from value
+                value = value.strip('"').strip("'")
                 os.environ[key] = value
 
 # Configure Cloudinary
