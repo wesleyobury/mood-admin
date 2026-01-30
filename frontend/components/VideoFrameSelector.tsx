@@ -7,10 +7,9 @@ import {
   ActivityIndicator,
   Dimensions,
   Platform,
-  PanResponder,
   Animated,
+  Image as RNImage,
 } from 'react-native';
-import { Image } from 'expo-image';
 import * as VideoThumbnails from 'expo-video-thumbnails';
 import { Ionicons } from '@expo/vector-icons';
 import { Video, ResizeMode, AVPlaybackStatus } from 'expo-av';
@@ -20,7 +19,9 @@ import { LinearGradient } from 'expo-linear-gradient';
 const SCREEN_WIDTH = Dimensions.get('window').width;
 const FILMSTRIP_HEIGHT = 52;
 const FRAME_COUNT = 8;
+const TOTAL_FRAMES = 24;
 const FRAME_WIDTH = (SCREEN_WIDTH - 32) / FRAME_COUNT;
+const FILMSTRIP_WIDTH = SCREEN_WIDTH - 32;
 
 interface VideoFrameSelectorProps {
   videoUri: string;
@@ -45,26 +46,25 @@ const VideoFrameSelector: React.FC<VideoFrameSelectorProps> = memo(({
   const [isVideoReady, setIsVideoReady] = useState(false);
   const [duration, setDuration] = useState(0);
   const [position, setPosition] = useState(0);
-  const [filmstripFrames, setFilmstripFrames] = useState<Frame[]>([]);
+  const [allFrames, setAllFrames] = useState<Frame[]>([]);
   const [isLoadingFrames, setIsLoadingFrames] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [isCapturing, setIsCapturing] = useState(false);
   
-  // For pan gesture on filmstrip
-  const scrubberPosition = useRef(new Animated.Value(0)).current;
-  const filmstripWidth = SCREEN_WIDTH - 32;
-  
-  // Track which filmstrip frame index to show
+  // Current frame index for preview
   const [currentFrameIndex, setCurrentFrameIndex] = useState(0);
+  
+  // Scrubber position for animation
+  const [scrubberX, setScrubberX] = useState(0);
 
-  // Generate filmstrip frames when video loads
+  // Generate all frames when video loads
   useEffect(() => {
-    if (duration > 0) {
-      generateFilmstripFrames();
+    if (duration > 0 && allFrames.length === 0) {
+      generateAllFrames();
     }
-  }, [duration, videoUri]);
+  }, [duration]);
 
-  const generateFilmstripFrames = async () => {
+  const generateAllFrames = async () => {
     if (Platform.OS === 'web') {
       setIsLoadingFrames(false);
       return;
@@ -73,137 +73,80 @@ const VideoFrameSelector: React.FC<VideoFrameSelectorProps> = memo(({
     try {
       setIsLoadingFrames(true);
       const frames: Frame[] = [];
-      const interval = duration / FRAME_COUNT;
+      const frameInterval = duration / TOTAL_FRAMES;
       
-      // Generate more frames for smoother scrubbing (24 frames)
-      const totalFrames = 24;
-      const frameInterval = duration / totalFrames;
+      console.log(`Generating ${TOTAL_FRAMES} frames for video duration ${duration}ms`);
       
-      for (let i = 0; i < totalFrames; i++) {
+      for (let i = 0; i < TOTAL_FRAMES; i++) {
         const timestamp = Math.floor(i * frameInterval);
         try {
           const { uri } = await VideoThumbnails.getThumbnailAsync(videoUri, {
             time: timestamp,
-            quality: i < FRAME_COUNT ? 0.6 : 0.5, // Higher quality for visible filmstrip
+            quality: 0.6,
           });
           frames.push({ uri, timestamp });
+          console.log(`Generated frame ${i} at ${timestamp}ms`);
         } catch (e) {
           console.log(`Could not generate frame at ${timestamp}ms`);
-          // Use previous frame as fallback
           if (frames.length > 0) {
             frames.push({ uri: frames[frames.length - 1].uri, timestamp });
-          } else {
-            frames.push({ uri: '', timestamp });
           }
         }
       }
 
-      setFilmstripFrames(frames);
+      console.log(`Total frames generated: ${frames.length}`);
+      setAllFrames(frames);
     } catch (err) {
-      console.error('Error generating filmstrip:', err);
+      console.error('Error generating frames:', err);
     } finally {
       setIsLoadingFrames(false);
     }
   };
 
   const handlePlaybackStatusUpdate = useCallback((status: AVPlaybackStatus) => {
-    if (status.isLoaded) {
+    if (status.isLoaded && status.durationMillis) {
       setIsVideoReady(true);
-      if (status.durationMillis) {
-        setDuration(status.durationMillis);
-      }
+      setDuration(status.durationMillis);
     }
   }, []);
 
-  // Find the closest frame index for a given position
-  const getClosestFrameIndex = useCallback((pos: number): number => {
-    if (filmstripFrames.length === 0) return 0;
-    
-    let closestIndex = 0;
-    let closestDiff = Math.abs(filmstripFrames[0].timestamp - pos);
-    
-    for (let i = 1; i < filmstripFrames.length; i++) {
-      const diff = Math.abs(filmstripFrames[i].timestamp - pos);
-      if (diff < closestDiff) {
-        closestDiff = diff;
-        closestIndex = i;
-      }
-    }
-    
-    return closestIndex;
-  }, [filmstripFrames]);
+  // Handle touch on filmstrip
+  const handleFilmstripTouch = (evt: any) => {
+    const touchX = evt.nativeEvent.locationX;
+    updatePositionFromTouch(touchX);
+  };
 
-  // Pan responder for scrubbing through filmstrip
-  const panResponder = useRef(
-    PanResponder.create({
-      onStartShouldSetPanResponder: () => true,
-      onMoveShouldSetPanResponder: () => true,
-      onPanResponderGrant: (evt) => {
-        const touchX = evt.nativeEvent.locationX;
-        handleScrub(touchX);
-      },
-      onPanResponderMove: (evt, gestureState) => {
-        const touchX = Math.max(0, Math.min(gestureState.moveX - 16, filmstripWidth));
-        handleScrub(touchX);
-      },
-      onPanResponderRelease: () => {
-        // Nothing special on release
-      },
-    })
-  ).current;
+  const handleFilmstripMove = (evt: any) => {
+    const touchX = evt.nativeEvent.locationX;
+    updatePositionFromTouch(touchX);
+  };
 
-  const handleScrub = useCallback((touchX: number) => {
-    const clampedX = Math.max(0, Math.min(touchX, filmstripWidth));
-    const percentage = clampedX / filmstripWidth;
+  const updatePositionFromTouch = (touchX: number) => {
+    if (allFrames.length === 0 || duration === 0) return;
+    
+    const clampedX = Math.max(0, Math.min(touchX, FILMSTRIP_WIDTH));
+    const percentage = clampedX / FILMSTRIP_WIDTH;
     const newPosition = Math.floor(percentage * duration);
     
-    scrubberPosition.setValue(clampedX);
+    // Find closest frame
+    const frameIndex = Math.min(
+      Math.floor(percentage * allFrames.length),
+      allFrames.length - 1
+    );
+    
+    console.log(`Touch at ${clampedX}, percentage ${percentage}, frameIndex ${frameIndex}`);
+    
+    setScrubberX(clampedX);
     setPosition(newPosition);
-    
-    // Update the frame index to show
-    const frameIndex = getClosestFrameIndex(newPosition);
     setCurrentFrameIndex(frameIndex);
-  }, [duration, filmstripWidth, getClosestFrameIndex]);
+  };
 
-  // Update scrubber and frame when position changes
-  useEffect(() => {
-    if (duration > 0 && filmstripFrames.length > 0) {
-      const percentage = position / duration;
-      const newX = percentage * filmstripWidth;
-      scrubberPosition.setValue(newX);
-      
-      const frameIndex = getClosestFrameIndex(position);
-      setCurrentFrameIndex(frameIndex);
-    }
-  }, [position, duration, filmstripFrames]);
-
-  // Capture current frame and return it
-  const captureAndConfirm = async () => {
-    if (Platform.OS === 'web') {
-      setError('Frame capture is not available on web');
-      return;
-    }
-
-    // Use the current frame from filmstrip if available
-    if (filmstripFrames.length > 0 && filmstripFrames[currentFrameIndex]?.uri) {
-      onFrameSelected(filmstripFrames[currentFrameIndex].uri);
-      return;
-    }
-
-    setIsCapturing(true);
-    setError(null);
-    
-    try {
-      const { uri } = await VideoThumbnails.getThumbnailAsync(videoUri, {
-        time: position,
-        quality: 0.8,
-      });
-      onFrameSelected(uri);
-    } catch (err) {
-      console.error('Error capturing frame:', err);
-      setError('Failed to capture frame. Try a different position.');
-    } finally {
-      setIsCapturing(false);
+  const captureAndConfirm = () => {
+    if (allFrames.length > 0 && allFrames[currentFrameIndex]?.uri) {
+      console.log(`Selecting frame ${currentFrameIndex}: ${allFrames[currentFrameIndex].uri}`);
+      onFrameSelected(allFrames[currentFrameIndex].uri);
+    } else {
+      setError('No frame available to select');
     }
   };
 
@@ -214,8 +157,11 @@ const VideoFrameSelector: React.FC<VideoFrameSelectorProps> = memo(({
     return `${minutes}:${seconds.toString().padStart(2, '0')}`;
   };
 
-  // Get the current preview frame URI
-  const currentPreviewUri = filmstripFrames[currentFrameIndex]?.uri || '';
+  // Get current preview URI
+  const currentPreviewUri = allFrames[currentFrameIndex]?.uri || '';
+  
+  // Get filmstrip frames (first 8 of the 24)
+  const filmstripFrames = allFrames.filter((_, i) => i % 3 === 0).slice(0, FRAME_COUNT);
 
   if (Platform.OS === 'web') {
     return (
@@ -228,7 +174,6 @@ const VideoFrameSelector: React.FC<VideoFrameSelectorProps> = memo(({
           <View style={styles.headerButton} />
         </View>
         <View style={styles.errorContainer}>
-          <Ionicons name="alert-circle-outline" size={48} color="#FF6B6B" />
           <Text style={styles.errorText}>Cover selection is only available on mobile</Text>
         </View>
       </View>
@@ -246,14 +191,14 @@ const VideoFrameSelector: React.FC<VideoFrameSelectorProps> = memo(({
         <TouchableOpacity 
           onPress={captureAndConfirm} 
           style={styles.headerButton}
-          disabled={isCapturing || isLoadingFrames}
+          disabled={isCapturing || isLoadingFrames || allFrames.length === 0}
         >
           {isCapturing ? (
             <ActivityIndicator size="small" color="#FFD700" />
           ) : (
             <Text style={[
               styles.doneText,
-              (isLoadingFrames) && styles.doneTextDisabled
+              (isLoadingFrames || allFrames.length === 0) && styles.doneTextDisabled
             ]}>
               Done
             </Text>
@@ -270,59 +215,69 @@ const VideoFrameSelector: React.FC<VideoFrameSelectorProps> = memo(({
               <Text style={styles.loadingText}>Preparing frames...</Text>
             </View>
           ) : currentPreviewUri ? (
-            <Image
-              key={`preview-${currentFrameIndex}`}
+            <RNImage
+              key={`preview-frame-${currentFrameIndex}`}
               source={{ uri: currentPreviewUri }}
               style={styles.previewImage}
-              contentFit="contain"
-              cachePolicy="none"
+              resizeMode="contain"
             />
           ) : (
             <View style={styles.previewLoading}>
-              <ActivityIndicator size="large" color="#FFD700" />
+              <Text style={styles.loadingText}>No preview available</Text>
             </View>
           )}
         </View>
 
-        {/* Current time badge */}
-        <View style={styles.timeBadge}>
-          <Text style={styles.timeBadgeText}>{formatTime(position)}</Text>
-        </View>
+        {/* Time badge */}
+        {!isLoadingFrames && (
+          <View style={styles.timeBadge}>
+            <Text style={styles.timeBadgeText}>{formatTime(position)}</Text>
+          </View>
+        )}
+        
+        {/* Debug info */}
+        {__DEV__ && (
+          <View style={styles.debugInfo}>
+            <Text style={styles.debugText}>Frame: {currentFrameIndex}/{allFrames.length}</Text>
+          </View>
+        )}
       </View>
 
-      {/* Hidden video for duration detection */}
+      {/* Hidden video for duration */}
       <Video
         ref={videoRef}
         source={{ uri: videoUri }}
-        style={{ width: 0, height: 0, position: 'absolute', opacity: 0 }}
+        style={styles.hiddenVideo}
         resizeMode={ResizeMode.CONTAIN}
         shouldPlay={false}
         isMuted={true}
         onPlaybackStatusUpdate={handlePlaybackStatusUpdate}
       />
 
-      {/* Filmstrip Scrubber */}
+      {/* Filmstrip */}
       <View style={styles.filmstripSection}>
         <Text style={styles.filmstripLabel}>Drag to select cover frame</Text>
         
         <View 
           style={styles.filmstripContainer}
-          {...panResponder.panHandlers}
+          onStartShouldSetResponder={() => true}
+          onMoveShouldSetResponder={() => true}
+          onResponderGrant={handleFilmstripTouch}
+          onResponderMove={handleFilmstripMove}
         >
-          {/* Filmstrip frames - show only first 8 frames */}
           <View style={styles.filmstrip}>
             {isLoadingFrames ? (
               <View style={styles.filmstripLoading}>
                 <ActivityIndicator size="small" color="#FFD700" />
               </View>
             ) : (
-              filmstripFrames.slice(0, FRAME_COUNT).map((frame, index) => (
-                <View key={index} style={styles.filmstripFrame}>
+              filmstripFrames.map((frame, index) => (
+                <View key={`filmstrip-${index}`} style={styles.filmstripFrame}>
                   {frame.uri ? (
-                    <Image
+                    <RNImage
                       source={{ uri: frame.uri }}
                       style={styles.filmstripFrameImage}
-                      contentFit="cover"
+                      resizeMode="cover"
                     />
                   ) : (
                     <View style={styles.filmstripFramePlaceholder} />
@@ -332,40 +287,30 @@ const VideoFrameSelector: React.FC<VideoFrameSelectorProps> = memo(({
             )}
           </View>
 
-          {/* Gradient Scrubber Handle */}
-          {!isLoadingFrames && (
-            <Animated.View 
-              style={[
-                styles.scrubberContainer,
-                { transform: [{ translateX: scrubberPosition }] }
-              ]}
-            >
+          {/* Scrubber */}
+          {!isLoadingFrames && allFrames.length > 0 && (
+            <View style={[styles.scrubberContainer, { left: scrubberX - 1.5 }]}>
               <LinearGradient
                 colors={['#FFD700', '#FF8C00']}
-                start={{ x: 0, y: 0 }}
-                end={{ x: 0, y: 1 }}
                 style={styles.scrubberLine}
               />
               <LinearGradient
                 colors={['#FFD700', '#FF8C00']}
-                start={{ x: 0, y: 0 }}
-                end={{ x: 1, y: 1 }}
                 style={styles.scrubberHandle}
               >
                 <View style={styles.scrubberHandleInner} />
               </LinearGradient>
-            </Animated.View>
+            </View>
           )}
         </View>
 
-        {/* Time indicators */}
         <View style={styles.timeIndicators}>
           <Text style={styles.timeIndicatorText}>0:00</Text>
           <Text style={styles.timeIndicatorText}>{formatTime(duration)}</Text>
         </View>
       </View>
 
-      {/* Error Banner */}
+      {/* Error */}
       {error && (
         <View style={styles.errorBanner}>
           <Ionicons name="warning-outline" size={16} color="#FF6B6B" />
@@ -373,7 +318,6 @@ const VideoFrameSelector: React.FC<VideoFrameSelectorProps> = memo(({
         </View>
       )}
 
-      {/* Hint */}
       <Text style={styles.hintText}>
         This image will show as the cover in your feed
       </Text>
@@ -427,7 +371,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#1a1a1a',
     borderRadius: 12,
     overflow: 'hidden',
-    position: 'relative',
   },
   previewImage: {
     width: '100%',
@@ -456,7 +399,25 @@ const styles = StyleSheet.create({
     color: '#fff',
     fontSize: 13,
     fontWeight: '600',
-    fontVariant: ['tabular-nums'],
+  },
+  debugInfo: {
+    position: 'absolute',
+    bottom: 12,
+    left: 28,
+    backgroundColor: 'rgba(0, 0, 0, 0.7)',
+    paddingHorizontal: 10,
+    paddingVertical: 5,
+    borderRadius: 12,
+  },
+  debugText: {
+    color: '#FFD700',
+    fontSize: 11,
+  },
+  hiddenVideo: {
+    width: 1,
+    height: 1,
+    position: 'absolute',
+    opacity: 0,
   },
   filmstripSection: {
     paddingHorizontal: 16,
@@ -504,7 +465,6 @@ const styles = StyleSheet.create({
     top: 0,
     height: FILMSTRIP_HEIGHT + 20,
     alignItems: 'center',
-    marginLeft: -1.5,
   },
   scrubberLine: {
     width: 3,
@@ -519,11 +479,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     marginTop: -4,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.3,
-    shadowRadius: 3,
-    elevation: 5,
   },
   scrubberHandleInner: {
     width: 6,
@@ -539,7 +494,6 @@ const styles = StyleSheet.create({
   timeIndicatorText: {
     fontSize: 11,
     color: '#666',
-    fontVariant: ['tabular-nums'],
   },
   errorContainer: {
     flex: 1,
@@ -548,7 +502,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: 32,
   },
   errorText: {
-    marginTop: 16,
     color: '#888',
     fontSize: 14,
     textAlign: 'center',
