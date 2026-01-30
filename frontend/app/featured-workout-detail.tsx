@@ -1097,6 +1097,7 @@ const styles = StyleSheet.create({
     fontWeight: '500',
   },
   startButton: {
+    flex: 3,
     borderRadius: 30,
     overflow: 'hidden',
   },
