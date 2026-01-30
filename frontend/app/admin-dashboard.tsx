@@ -837,6 +837,15 @@ export default function AdminDashboard() {
 
           {/* Moderation Actions Placeholder */}
           <View style={styles.moderationActions}>
+            <TouchableOpacity 
+              style={styles.moderationActionButton}
+              onPress={() => router.push('/admin-featured-workouts')}
+            >
+              <Ionicons name="fitness-outline" size={18} color="#4A90D9" />
+              <Text style={styles.moderationActionText}>Featured Workouts</Text>
+              <Ionicons name="chevron-forward" size={14} color="#666" />
+            </TouchableOpacity>
+            
             <TouchableOpacity style={styles.moderationActionButton}>
               <Ionicons name="list-outline" size={18} color="#FFD700" />
               <Text style={styles.moderationActionText}>View All Reports</Text>
