@@ -1429,15 +1429,15 @@ const styles = StyleSheet.create({
     marginBottom: 24,
   },
   customBadgeGuidance: {
-    backgroundColor: 'rgba(255, 165, 0, 0.2)',
+    backgroundColor: '#4a4a4a',
     paddingHorizontal: 8,
     paddingVertical: 4,
     borderRadius: 6,
   },
   customBadgeGuidanceText: {
     fontSize: 11,
-    color: '#FFA500',
-    fontWeight: '700',
+    color: '#ffffff',
+    fontWeight: '600',
     textTransform: 'uppercase',
     letterSpacing: 0.5,
   },
