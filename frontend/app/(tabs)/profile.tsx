@@ -1304,13 +1304,56 @@ export default function Profile() {
                     ))}
                   </View>
                   
-                  <TouchableOpacity
-                    style={styles.loadWorkoutButton}
-                    onPress={() => selectedSavedWorkout && handleLoadSavedWorkout(selectedSavedWorkout)}
-                  >
-                    <Ionicons name="play" size={20} color="#000" />
-                    <Text style={styles.loadWorkoutButtonText}>Load to Cart</Text>
-                  </TouchableOpacity>
+                  <View style={styles.savedModalButtons}>
+                    <TouchableOpacity
+                      style={styles.addToCartButtonSaved}
+                      onPress={() => selectedSavedWorkout && handleLoadSavedWorkout(selectedSavedWorkout)}
+                    >
+                      <Ionicons name="cart-outline" size={20} color="#fff" />
+                      <Text style={styles.addToCartButtonTextSaved}>Add to Cart</Text>
+                    </TouchableOpacity>
+                    
+                    <TouchableOpacity
+                      style={styles.startWorkoutButtonSaved}
+                      onPress={() => {
+                        if (selectedSavedWorkout) {
+                          // Add to cart first
+                          selectedSavedWorkout.workouts.forEach(exercise => {
+                            addToCart({
+                              id: `${exercise.name}-${Date.now()}-${Math.random()}`,
+                              name: exercise.name,
+                              duration: exercise.duration,
+                              description: exercise.description || '',
+                              battlePlan: exercise.battlePlan || '',
+                              imageUrl: exercise.imageUrl || '',
+                              intensityReason: exercise.intensityReason || '',
+                              equipment: exercise.equipment,
+                              difficulty: exercise.difficulty,
+                              workoutType: exercise.workoutType || '',
+                              moodCard: exercise.moodCard || '',
+                              moodTips: exercise.moodTips || [],
+                            });
+                          });
+                          
+                          setSavedModalVisible(false);
+                          setSelectedSavedWorkout(null);
+                          
+                          // Navigate to workout guidance
+                          router.push({
+                            pathname: '/workout-guidance',
+                            params: {
+                              workouts: JSON.stringify(selectedSavedWorkout.workouts),
+                              moodTitle: selectedSavedWorkout.name.split(' - ')[0] || 'Workout',
+                              workoutTitle: selectedSavedWorkout.name.split(' - ').slice(1).join(' - ') || selectedSavedWorkout.name,
+                            },
+                          });
+                        }
+                      }}
+                    >
+                      <Text style={styles.startWorkoutButtonTextSaved}>Start Workout</Text>
+                      <Ionicons name="arrow-forward" size={20} color="#0c0c0c" />
+                    </TouchableOpacity>
+                  </View>
                 </View>
               )}
             </ScrollView>
