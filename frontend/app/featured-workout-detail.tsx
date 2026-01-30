@@ -839,11 +839,15 @@ export default function FeaturedWorkoutDetail() {
 
       {/* Bottom Action Bar */}
       <View style={[styles.bottomBar, { paddingBottom: Math.max(insets.bottom, 20) }]}>
-        <View style={styles.exerciseCount}>
-          <Text style={styles.exerciseCountText}>
-            {exercises.length} exercise{exercises.length !== 1 ? 's' : ''} ready
-          </Text>
-        </View>
+        <TouchableOpacity 
+          style={styles.addToCartButton}
+          onPress={handleAddAllToCart}
+          disabled={exercises.length === 0}
+        >
+          <Ionicons name="cart-outline" size={20} color="#fff" />
+          <Text style={styles.addToCartText}>Add to Cart</Text>
+        </TouchableOpacity>
+        
         <TouchableOpacity 
           style={[
             styles.startButton,
@@ -858,7 +862,7 @@ export default function FeaturedWorkoutDetail() {
             start={{ x: 0, y: 0 }}
             end={{ x: 1, y: 0 }}
           >
-            <Text style={styles.startButtonText}>Start Workout</Text>
+            <Text style={styles.startButtonText}>{exercises.length}</Text>
             <Ionicons name="arrow-forward" size={20} color='#0c0c0c' />
           </LinearGradient>
         </TouchableOpacity>
