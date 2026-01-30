@@ -253,7 +253,7 @@ const ChestWorkoutDisplayScreen = memo(function ChestWorkoutDisplayScreen() {
           </View>
         </View>
 
-        <ScrollView style={styles.scrollView} showsVerticalScrollIndicator={false} contentContainerStyle={styles.scrollContentContainer}>
+        <ScrollView style={styles.scrollView} showsVerticalScrollIndicator={false} contentContainerStyle={[styles.scrollContentContainer, { paddingBottom: hasItemsInCart ? 100 : 24 }]}>
           {/* Muscle Group Indicator */}
           {totalMuscles > 1 && (
             <View style={styles.muscleIndicator}>
