@@ -15,12 +15,16 @@ import { Ionicons } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
 import { Image } from 'expo-image';
 import { Video, ResizeMode, AVPlaybackStatus } from 'expo-av';
+import * as VideoThumbnails from 'expo-video-thumbnails';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import Constants from 'expo-constants';
 
 const { width, height } = Dimensions.get('window');
 const SHEET_HEIGHT = height * 0.85;
+
+// Thumbnail cache
+const thumbnailCache: { [key: string]: string } = {};
 
 // Types
 export interface Exercise {
