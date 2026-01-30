@@ -77,6 +77,7 @@ interface Post {
   author: Author;
   caption: string;
   media_urls: string[];
+  cover_urls?: { [key: number]: string } | null; // Map of media index to cover URL
   likes_count: number;
   comments_count: number;
   is_liked: boolean;
