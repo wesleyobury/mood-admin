@@ -148,7 +148,7 @@ export const TextWithTermLinks: React.FC<ParsedTextProps> = ({ text, baseStyle, 
     // Normalize term to match dictionary keys (handle case variations)
     let normalizedTerm = match[1];
     // Uppercase acronyms stay uppercase, others get proper casing
-    if (['rpe', 'spm', 'amrap', 'emom', 'hiit'].includes(normalizedTerm.toLowerCase())) {
+    if (['rpe', 'spm', 'amrap', 'emom', 'hiit', 'rpm'].includes(normalizedTerm.toLowerCase())) {
       normalizedTerm = normalizedTerm.toUpperCase();
     } else {
       // Capitalize first letter for Tabata, Superset, Circuit
