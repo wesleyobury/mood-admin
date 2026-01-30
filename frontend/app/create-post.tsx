@@ -1527,19 +1527,16 @@ export default function CreatePost() {
         </Modal>
       )}
 
-      {/* Video Processing Loading Overlay */}
+      {/* Video Processing Loading Overlay - Minimal style */}
       {isProcessingVideo && (
         <Modal
           visible={isProcessingVideo}
           transparent
           animationType="fade"
         >
-          <View style={styles.loadingOverlay}>
-            <View style={styles.loadingContent}>
-              <ActivityIndicator size={40} color="#FFD700" />
-              <Text style={styles.loadingTitle}>Processing Video</Text>
-              <Text style={styles.videoProcessingSubtext}>This may take a moment...</Text>
-            </View>
+          <View style={styles.videoProcessingOverlay}>
+            <ActivityIndicator size={36} color="#FFD700" />
+            <Text style={styles.videoProcessingText}>Processing Video</Text>
           </View>
         </Modal>
       )}
