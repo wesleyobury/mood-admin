@@ -5541,16 +5541,26 @@ async def get_unread_count(
 # ============================================
 
 def get_post_preview_url(post: dict) -> Optional[str]:
-    """Get the best preview URL for a post - prefer images over videos, use thumbnail for videos"""
+    """Get the best preview URL for a post - prefer user-selected cover, then images, then video thumbnail"""
     if not post:
         return None
     
-    # Check for thumbnail_url first (usually set for video posts)
+    media_urls = post.get("media_urls", [])
+    cover_urls = post.get("cover_urls", {})
+    
+    # First check for user-selected cover URL (highest priority)
+    if cover_urls:
+        # cover_urls is a dict mapping media index to cover URL
+        # For preview, use the first cover (index 0 or "0")
+        first_cover = cover_urls.get(0) or cover_urls.get("0") or cover_urls.get('0')
+        if first_cover:
+            return first_cover
+    
+    # Check for thumbnail_url (usually set for video posts uploaded to Cloudinary)
     thumbnail = post.get("thumbnail_url")
     if thumbnail:
         return thumbnail
     
-    media_urls = post.get("media_urls", [])
     if not media_urls:
         return None
     
