@@ -62,7 +62,7 @@ export const TERM_DEFINITIONS: Record<string, { title: string; definition: strin
 };
 
 // All supported term types
-export type TermType = 'RPE' | 'SPM' | 'AMRAP' | 'EMOM' | 'HIIT' | 'Tabata' | 'Superset' | 'Circuit';
+export type TermType = 'RPE' | 'SPM' | 'AMRAP' | 'EMOM' | 'HIIT' | 'Tabata' | 'Superset' | 'Circuit' | 'RPM';
 
 interface TermDefinitionPopupProps {
   term: TermType;
