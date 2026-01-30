@@ -1336,8 +1336,8 @@ export default function AdminDashboard() {
                 }}
                 width={Math.max(screenWidth - 48, 12 * 50)}
                 height={280}
-                yAxisLabel='"
-                yAxisSuffix="'
+                yAxisLabel=""
+                yAxisSuffix=""
                 chartConfig={{
                   backgroundColor: '#1a1a1a',
                   backgroundGradientFrom: '#1a1a1a',
