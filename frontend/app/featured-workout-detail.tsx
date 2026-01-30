@@ -425,6 +425,9 @@ export default function FeaturedWorkoutDetail() {
   
   const workoutId = params.id as string;
   
+  // Cart context for adding exercises
+  const { addToCart, cartItems } = useCart();
+  
   // State for workout data
   const [workoutData, setWorkoutData] = useState<{
     mood: string;
