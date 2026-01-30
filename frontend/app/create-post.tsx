@@ -2175,19 +2175,6 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(255, 255, 255, 0.7)',
     borderRadius: 2,
   },
-  // Minimal video processing overlay - just spinner and text
-  videoProcessingOverlay: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: 'rgba(0, 0, 0, 0.6)',
-  },
-  videoProcessingText: {
-    fontSize: 15,
-    fontWeight: '500',
-    color: '#fff',
-    marginTop: 12,
-  },
   // Permission Modal Styles
   permissionModalOverlay: {
     flex: 1,
