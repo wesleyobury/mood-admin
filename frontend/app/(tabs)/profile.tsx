@@ -550,8 +550,15 @@ export default function Profile() {
     setSavedModalVisible(false);
     setSelectedSavedWorkout(null);
     
-    // Navigate to cart
-    router.push('/cart');
+    // Show confirmation alert like featured workouts
+    Alert.alert(
+      'Added to Cart',
+      `${savedWorkout.workouts.length} exercise${savedWorkout.workouts.length !== 1 ? 's' : ''} added to your cart. You can now customize your workout.`,
+      [
+        { text: 'View Cart', onPress: () => router.push('/cart') },
+        { text: 'Continue', style: 'cancel' },
+      ]
+    );
   };
 
   const handleDeleteCard = async (cardId: string) => {
