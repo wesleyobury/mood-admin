@@ -845,12 +845,12 @@ const WorkoutCard = ({ equipment, icon, workouts, difficulty, difficultyColor, o
         {/* Intensity Reason */}
         <View style={styles.intensityContainer}>
           <Ionicons name="information-circle" size={16} color="#FFD700" />
-          <Text style={styles.intensityReason}>{item.intensityReason}</Text>
+          <TextWithTermLinks text={item.intensityReason} baseStyle={styles.intensityReason} />
         </View>
 
         {/* Workout Description */}
         <ScrollView style={styles.workoutDescriptionContainer} showsVerticalScrollIndicator={false}>
-          <Text style={styles.workoutDescription}>{item.description}</Text>
+          <TextWithTermLinks text={item.description} baseStyle={styles.workoutDescription} />
         </ScrollView>
 
         {/* Start Workout Button */}
