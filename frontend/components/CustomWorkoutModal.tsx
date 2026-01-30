@@ -383,14 +383,15 @@ const styles = StyleSheet.create({
     color: '#ccc',
     fontWeight: '500',
   },
+  saveButtonWrapper: {
+    marginHorizontal: 20,
+    marginVertical: 20,
+  },
   saveButton: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
     gap: 8,
-    backgroundColor: '#FFD700',
-    marginHorizontal: 20,
-    marginVertical: 20,
     paddingVertical: 16,
     borderRadius: 12,
   },
@@ -406,16 +407,16 @@ const styles = StyleSheet.create({
     color: '#666',
   },
   successContainer: {
+    flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    paddingVertical: 60,
-  },
-  successIconContainer: {
-    marginBottom: 16,
+    gap: 10,
+    paddingVertical: 24,
+    paddingHorizontal: 20,
   },
   successText: {
-    fontSize: 20,
-    fontWeight: '700',
+    fontSize: 16,
+    fontWeight: '600',
     color: '#ffffff',
   },
 });
