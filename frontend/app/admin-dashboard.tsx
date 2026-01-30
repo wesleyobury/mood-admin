@@ -1148,6 +1148,46 @@ export default function AdminDashboard() {
           </View>
         </View>
 
+        {/* Completions by Mood Widget */}
+        <View style={styles.section}>
+          <View style={styles.sectionHeader}>
+            <Text style={styles.sectionTitle}>Workout Completions by Mood</Text>
+            <TouchableOpacity 
+              style={styles.expandButton}
+              onPress={() => {
+                setShowCompletionsByMoodModal(true);
+                fetchCompletionsByMoodData(completionsByMoodPeriod);
+              }}
+            >
+              <Text style={styles.expandButtonText}>View Chart</Text>
+              <Ionicons name="expand-outline" size={14} color="#FFD700" />
+            </TouchableOpacity>
+          </View>
+          
+          <Text style={styles.sectionSubtitle}>
+            Track which mood cards lead to completed workouts
+          </Text>
+          
+          {/* Quick Stats Grid */}
+          <View style={styles.moodCompletionsGrid}>
+            {Object.entries(MOOD_DISPLAY_NAMES).map(([moodId, displayName]) => {
+              const color = MOOD_COLORS[moodId] || '#FFD700';
+              const icon = MOOD_ICONS[moodId] || 'fitness';
+              const completions = stats?.top_mood_cards?.find(m => m.mood_id === moodId)?.selections || 0;
+              
+              return (
+                <View key={moodId} style={styles.moodCompletionCard}>
+                  <View style={[styles.moodCompletionIcon, { backgroundColor: `${color}20` }]}>
+                    <Ionicons name={icon as any} size={18} color={color} />
+                  </View>
+                  <Text style={[styles.moodCompletionValue, { color }]}>{completions}</Text>
+                  <Text style={styles.moodCompletionLabel} numberOfLines={1}>{displayName.split(' ')[0]}</Text>
+                </View>
+              );
+            })}
+          </View>
+        </View>
+
         {/* Footer */}
         <View style={styles.footer}>
           <Text style={styles.footerText}>
