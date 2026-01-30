@@ -476,6 +476,36 @@ export default function AdminDashboard() {
     }
   }, [engagementChartPeriod]);
 
+  // Fetch completions by mood data
+  const fetchCompletionsByMoodData = async (period: 'day' | 'week' | 'month') => {
+    if (!token) return;
+    setCompletionsByMoodLoading(true);
+    
+    try {
+      const days = period === 'month' ? 365 : period === 'week' ? 180 : 30;
+      const response = await fetch(
+        `${API_URL}/api/analytics/admin/chart-data/completions_by_mood?period=${period}&days=${days}`,
+        { headers: { 'Authorization': `Bearer ${token}` } }
+      );
+      
+      if (response.ok) {
+        const data = await response.json();
+        setCompletionsByMoodData(data);
+      }
+    } catch (error) {
+      console.error('Error fetching completions by mood:', error);
+    } finally {
+      setCompletionsByMoodLoading(false);
+    }
+  };
+
+  // Handle completions by mood period change
+  useEffect(() => {
+    if (showCompletionsByMoodModal) {
+      fetchCompletionsByMoodData(completionsByMoodPeriod);
+    }
+  }, [completionsByMoodPeriod, showCompletionsByMoodModal]);
+
   // Export users as CSV
   const exportUsers = async () => {
     if (!token) return;
