@@ -65,7 +65,7 @@ const WorkoutCarouselCard = ({
   isSaved,
   isSaving 
 }: { 
-  workout: typeof featuredWorkouts[0]; 
+  workout: CarouselWorkout; 
   onPress: () => void;
   onSave: () => void;
   onUnsave: () => void;
