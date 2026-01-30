@@ -260,13 +260,13 @@ const WorkoutCard = React.memo(({
           ))}
         </View>
         
-        {/* Edit Button - Bottom Right of Card */}
+        {/* Edit Button - Right side, aligned with dots */}
         <TouchableOpacity
           style={styles.editButton}
           onPress={() => handleOpenCustomModal(workouts[currentWorkoutIndex])}
           activeOpacity={0.8}
         >
-          <Ionicons name="pencil" size={16} color="#FFD700" />
+          <Ionicons name="pencil" size={18} color="#ffffff" />
         </TouchableOpacity>
         
         {/* First-time Tooltip */}
