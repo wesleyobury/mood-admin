@@ -650,10 +650,11 @@ const styles = StyleSheet.create({
   },
   overlayContentWrapper: {
     position: 'absolute',
-    top: '50%',
+    top: 0,
     left: 0,
     right: 0,
-    transform: [{ translateY: -50 }],
+    bottom: 0,
+    justifyContent: 'center',
     paddingHorizontal: 24,
     zIndex: 10,
   },
