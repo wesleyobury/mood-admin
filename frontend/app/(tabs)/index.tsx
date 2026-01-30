@@ -121,9 +121,14 @@ const WorkoutCarouselCard = ({
 
 // Animated Carousel Pagination Dots
 const CarouselDots = ({ activeIndex, total }: { activeIndex: number; total: number }) => {
-  const animatedValues = useRef(
-    Array.from({ length: total }, () => new Animated.Value(0))
-  ).current;
+  const [animatedValues, setAnimatedValues] = useState<Animated.Value[]>([]);
+
+  // Update animated values when total changes
+  useEffect(() => {
+    if (total > 0) {
+      setAnimatedValues(Array.from({ length: total }, () => new Animated.Value(0)));
+    }
+  }, [total]);
 
   useEffect(() => {
     // Animate all dots
@@ -135,7 +140,11 @@ const CarouselDots = ({ activeIndex, total }: { activeIndex: number; total: numb
         friction: 7,
       }).start();
     });
-  }, [activeIndex]);
+  }, [activeIndex, animatedValues]);
+
+  if (total === 0 || animatedValues.length === 0) {
+    return null;
+  }
 
   return (
     <View style={styles.dotsContainer}>
