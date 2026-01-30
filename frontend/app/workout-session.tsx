@@ -16,6 +16,8 @@ import HomeButton from '../components/HomeButton';
 import { useCart } from '../contexts/CartContext';
 import { useAuth } from '../contexts/AuthContext';
 import { Analytics } from '../utils/analytics';
+import ExerciseLookupSheet from '../components/ExerciseLookupSheet';
+import ExerciseLookupTrigger from '../components/ExerciseLookupTrigger';
 
 interface SessionWorkout {
   workoutName: string;
