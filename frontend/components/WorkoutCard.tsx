@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import {
   View,
   Text,
@@ -8,13 +8,17 @@ import {
   Image,
   FlatList,
   Animated,
+  Modal,
+  Pressable,
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
 import { Workout } from '../types/workout';
 import CustomWorkoutModal from './CustomWorkoutModal';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const { width } = Dimensions.get('window');
+const TOOLTIP_SHOWN_KEY = 'custom_workout_tooltip_shown';
 
 export interface WorkoutCardProps {
   equipment: string;
