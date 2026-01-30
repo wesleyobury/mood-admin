@@ -609,7 +609,7 @@ const styles = StyleSheet.create({
   equipmentChip: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: 'rgba(255,215,0,0.1)',
+    backgroundColor: 'rgba(255,255,255,0.1)',
     paddingHorizontal: 12,
     paddingVertical: 6,
     borderRadius: 16,
@@ -617,7 +617,7 @@ const styles = StyleSheet.create({
   },
   equipmentText: {
     fontSize: 13,
-    color: '#FFD700',
+    color: 'rgba(255,255,255,0.8)',
     fontWeight: '500',
   },
   sectionTitle: {
