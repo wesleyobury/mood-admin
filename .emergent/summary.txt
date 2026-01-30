@@ -1,154 +1,154 @@
 <analysis>
 
 **original_problem_statement**:
-The user requested to refactor two workout screen components that were nearly identical:  (Cardio path) and  (Light Weights path).
-
-The tasks were:
-1.  **Initial Cleanup:** Before refactoring, remove the swipe to explore text from the bottom of the workout cards in both files.
-2.  **Component Consolidation:** Create a single, reusable  component to replace the duplicated logic and UI in the two files. This involved:
-    *   Creating a shared types file ().
-    *   Extracting the hardcoded workout data from  into its own file ().
-    *   Rewriting both  and  to use the new shared component, passing in data via props.
-3.  **New Feature/UI Iteration:** After the refactor, add new text back to the card.
-    *   Add text that says Swipe for more.
-    *   Position it as an overlay, 12px below the Add workout button.
-    *   Iteratively style the text to be slightly gray, with a font size of 10px.
+The user wants to optimize video performance in the app's feed and enhance the post creation process.
+1.  **Feed Optimization**: Autoplaying videos in the feed causes high bandwidth usage. The desired behavior is to show a thumbnail by default and only load/play the full video when the post is tapped or has been ~85% visible on screen for 500ms. Playback should stop immediately when the video is no longer centered.
+2.  **Custom Video Thumbnails**: Users should be able to select a specific frame from an uploaded video to be used as its thumbnail. Currently, they can only select a photo from their library. This user-selected frame should be used as the thumbnail across the entire app (Explore feed, Profile page, Notifications).
+3.  **UX/UI Improvements for Thumbnail Selection**:
+    *   The thumbnail selection UI should mimic Instagram's, allowing users to scroll through the video to find the exact frame.
+    *   The preview of the selected frame should update in real-time as the user scrubs through the video.
+    *   The UI needs to respect safe areas on iOS to prevent buttons from being hidden by the system UI.
+    *   Add the ability for users to crop their selected thumbnail.
+    *   The Capture this frame button and the scrubber/slider should have the app's standard orange gradient.
+4.  **Post Creation Flow Improvements**:
+    *   Reduce the maximum allowed video upload duration to 30 seconds.
+    *   Add a loading indicator while a selected video is being processed and prepared for the upload screen, as this can take a few seconds.
+    *   Automatically prompt the user to select a thumbnail right after a video has been successfully added to a post.
 
 **User's preferred language**: English
 
 **what currently exists?**
-The agent successfully completed the entire refactoring process.
-- A new reusable component exists at  which now renders the workout cards for both the Cardio and Light Weights paths.
-- The  and  screen files have been significantly simplified to just import and use this new component.
-- The hardcoded cardio workout data has been moved to .
-- A shared types file, , has been created.
-- The new Swipe for more text has been added to the  component and styled according to the user's latest request.
+The agent has implemented a multi-iteration  component and integrated it into the  screen. This includes logic to automatically open the frame selector after a video is added. The max video duration has been limited to 30 seconds.
+
+The agent also traced the data flow for custom thumbnails () and fixed two critical bugs:
+1.  A backend bug in  where the function generating thumbnails for notifications () was ignoring the user-selected cover.
+2.  A frontend bug in  where a default thumbnail from Cloudinary was incorrectly taking precedence over the user's custom-selected frame during the upload process.
+
+The implementation of the live preview in the frame selector has been very problematic, with multiple rewrites attempting to solve an issue where the preview image would not update while scrubbing. The latest attempt involved fixing a  stale closure.
 
 **Last working item**:
-    - Last item agent was working: The agent was applying the final styling changes to the Swipe for more text within the shared  component. The user requested the text be made slightly gray, have the 'S' capitalized, and the font size set to 10. The agent implemented this by changing the text in the JSX and updating the  style in the .
-    - Status: USER VERIFICATION PENDING
-    - Agent Testing Done: N
-    - Which testing method agent to use? Frontend testing agent or screenshot tool to visually verify the final appearance of the Swipe for more text on the workout cards.
+    - Last item agent was working: Debugging why the user-selected cover photo was not appearing as the thumbnail on the Explore, Profile, and Notification pages. The agent identified and fixed a logical error in the  function in . The fix ensures that the user's selected  is prioritized over any default thumbnail URL returned by Cloudinary.
+    - Status: IN PROGRESS
+    - Agent Testing Done: N (The agent implemented the fix and added logging but did not functionally test the end-to-end flow).
+    - Which testing method agent to use? Manual testing by the user is required. The flow is complex and involves UI interaction on a device: 1. Upload a video in . 2. Select a specific frame as a cover. 3. Publish the post. 4. Verify the thumbnail appears correctly on the Explore page, the user's Profile page, and in a notification (e.g., from a comment).
     - User Testing Done: N
 
-**All Pending/In progress Issue list**:  (Carried over from previous session, not addressed)
-  Issue 1: (P1) Home screen carousel Save button is not functional.
-  Issue 2: (P2) Unfollow analytics tracking is not working.
-  Issue 3: (P3) ESLint parsing errors for TypeScript  keyword.
-  Issue 4: (P3) Multiple pre-existing TypeScript errors in files like  were observed during the build process.
-
+**All Pending/In progress Issue list**:
+  Issue 1: (P0) User-selected cover photo does not appear as thumbnail.
+  Issue 2: (P1) Live frame preview in  is not working.
+  Issue 3: (P2)  UI is not respecting iOS safe areas.
+  
   Issues Detail:
   - Issue 1: 
-     - Attempted fixes: None in this session.
-     - Next debug checklist: Inspect , find the Save button's  handler, and trace its functionality.
-     - Why fix this issue and what will be achieved with the fix? Fixes a broken core user feature.
+     - Attempted fixes: The agent found that  was prioritizing Cloudinary's auto-generated thumbnail over the user's choice. A fix has been implemented to reverse this priority. The agent also fixed a backend function in  that was not using the custom cover for notification previews.
+     - Next debug checklist: The fix in  needs to be verified by the user through manual end-to-end testing. Check the logs for the Using custom cover URI message that the agent added. If it still fails, re-examine the  and  functions in .
+     - Why fix this issue and what will be achieved with the fix? This is the core requirement of the user's request. Fixing it will allow users to have full control over their post's appearance across the app.
+     - Status:  IN PROGRESS
+     - Is recurring issue? Y
+     - Should Test frontend/backend/both after fix? Both (Frontend flow and Backend data integrity).
+     - Blocked on other issue: None.
+
+  - Issue 2: 
+     - Attempted fixes: The agent has rewritten the  component three times with different strategies (generating thumbnails on the fly, using a playing video, pre-generating a filmstrip). The user consistently reported the preview was frozen on the first frame. The last fix attempted to resolve a stale closure issue in the .
+     - Next debug checklist: 
+        1. User needs to test the latest implementation.
+        2. Ask the user to check the debug number overlay (Frame: X/24) that the agent added. If the number changes while dragging but the image doesn't, the issue is with rendering the image. If the number doesn't change, the issue is with the  gesture handling.
+        3. If it still fails, consider using a dedicated, well-maintained library for video scrubbing/trimming instead of a custom  implementation.
+     - Why fix this issue and what will be achieved with the fix? It's a critical UX failure. Users cannot accurately select a frame if they cannot see what they are selecting.
+     - Status:  IN PROGRESS
+     - Is recurring issue? Y
+     - Should Test frontend/backend/both after fix? Frontend
+     - Blocked on other issue: None.
+
+  - Issue 3: 
+     - Attempted fixes: None. This was reported by the user but not yet addressed.
+     - Next debug checklist: Wrap the main content of  in a  from  or apply padding based on the  hook.
+     - Why fix this issue and what will be achieved with the fix? This is a basic UI/UX requirement for iOS apps. It will make the feature usable on iPhones with a notch.
      - Status:  NOT STARTED
      - Is recurring issue? N
      - Should Test frontend/backend/both after fix? Frontend
-     - Blocked on other issue: None
-  - Issue 2: 
-     - Attempted fixes: None in this session.
-     - Next debug checklist: Locate the Unfollow button, examine its  handler and the analytics event dispatched. Check backend logs.
-     - Why fix this issue and what will be achieved with the fix? Ensures product metrics are accurate.
-     - Status:  NOT STARTED
-     - Is recurring issue? N
-     - Should Test frontend/backend/both after fix? Both
-     - Blocked on other issue: None
-  - Issue 3 & 4: 
-     - Attempted fixes: None. The agent identified these as pre-existing configuration/code issues and worked around them.
-     - Next debug checklist: For ESLint, review . For TS errors, inspect the specific files reported by the compiler (e.g., ) and fix the type mismatches.
-     - Why fix this issue and what will be achieved with the fix? Improves developer experience, enables reliable linting, and ensures type safety.
-     - Status:  NOT STARTED
-     - Is recurring issue? Y
-     - Should Test frontend/backend/both after fix? N/A
-     - Blocked on other issue: None
+     - Blocked on other issue: None.
 
 **In progress Task List**:
-  - None.
+  Task 1: (P0) Finalize and verify the Custom Video Thumbnail feature.
+ Task Detail:
+  - Task 1: 
+     - Where to resume: The agent just implemented a potential fix for the thumbnail not being saved correctly. The next step is to ask the user to test this entire flow. Based on the user's feedback, the agent will either confirm completion or move on to fix the remaining issues (live preview, safe area).
+     - What will be achieved with this? A fully functional, user-friendly way to select and display custom video thumbnails, improving user engagement and content quality.
+     - Status:  IN PROGRESS
+     - Should Test frontend/backend/both after fix? Both
+     - Blocked on something: User verification.
 
 **Upcoming and Future Tasks**
 - **Upcoming Tasks**:
-    - **P0: User must create a new EAS Build.** (Carried over).
-    - **P1: Verify Terms Versioning EULA flow.** (Carried over).
-- **Future Tasks**:
-    - **P0: Refactor other duplicated workout screens.** The pattern established by creating  should be applied to other similar screens (e.g., calisthenics, outdoor) to further reduce code duplication and improve maintainability.
-    - Refactor hardcoded Workout Data from any remaining  files.
-    - Refactor  into smaller components.
-    - Refactor .
+    - **P0: Fix  UI issues:** Address the iOS safe area problem so buttons are not hidden. (file: )
+    - **P1: Implement Thumbnail Cropping:** Add functionality to allow users to select a crop area for the chosen thumbnail frame. (This will likely require significant changes to  and potentially a new library for image manipulation).
 
 **Completed work in this session**
-- Removed the old swipe to explore text from  and .
-- **Major Component Refactoring:**
-  - Created a reusable component: .
-  - Created a shared types file: .
-  - Extracted hardcoded data into .
-  - Updated  to use the new shared types.
-  - Rewrote  and  to use the new  component, reducing their line counts from ~3800 to ~370 and ~900 to ~370, respectively.
-- **Bug Fix:** Resolved a TypeScript error in the newly created  by adding a missing  property.
-- **New UI Feature:** Added Swipe for more text to the  component.
-- **UI Polish:** Iteratively updated the style (color, font size) and content (Swipe for more) of the new text based on user feedback.
+- **Video Duration Limit**: Limited video uploads to 30 seconds in .
+- **Automatic Cover Selection Prompt**: Implemented logic in  to automatically open the  modal after a video is processed.
+- **Backend Notification Thumbnail Fix**: Updated the  function in  to correctly use the user-selected cover URL for notification thumbnails.
+- **Frontend Upload Priority Fix**: Corrected the upload logic in  to prioritize the user's selected frame () over default thumbnails from Cloudinary.
+- **Video Processing UI**: Initially added a loading modal for video processing, but then correctly identified that the native media picker blocks the UI thread, making the modal ineffective. The feature was then removed, and the learning was documented.
 
 **Earlier issues found/mentioned but not fixed**
-   - Issue 1: Home screen carousel Save button is not functional.
-   - Issue 2: Unfollow analytics tracking is not working.
-   - Issue 3: ESLint parsing errors for TypeScript  keyword.
-   - Issue 4: Pre-existing TypeScript errors in various files.
+   - Issue 1:  UI elements are positioned behind the iOS status bar.
+   - Issue 2: Users should be able to crop the selected thumbnail.
 
 **Known issue recurrence from previous fork**
-  - The ESLint parsing error and general TypeScript errors are recurring issues from previous sessions.
+  - None for this session.
 
 **Code Architecture**
 
 
 **Key Technical Concepts**
-- **Component Refactoring:** The core of the session was abstracting duplicated JSX and logic into a single, reusable React component.
-- **Data Externalization:** Moving hardcoded data from a component file () into a dedicated data file () to separate concerns.
-- **Shared Typing:** Creating a central  file to enforce consistent data structures across the application.
-- **Props-based-customization:** The new  component is designed to be configured via props, making it flexible for use in different contexts.
-
-**key DB schema**
-  - No database schema changes were made in this session.
-
-**changes in tech stack**
-  - None.
+- **Video Frame Extraction**: Using 's  to capture specific frames from a video file.
+- **Complex Gesture Handling with **: The agent built a custom scrubber using . Debugging this was complex, leading to the discovery of stale closure issues that prevent state updates during gesture events.
+- **UI Thread Blocking on iOS**: A critical discovery was that  on iOS can block the main UI thread while transcoding a selected video, making it impossible to show a React Native-based loading indicator during that specific period.
+- **End-to-End Data Flow Tracing**: The agent successfully debugged a feature by tracing a piece of data () from its creation in the frontend (), to the backend (), and back to multiple display points in the frontend (, , notifications).
 
 **All files of reference**
-- **Created:**
-    - : The new, reusable workout card component.
-    - : Contains the shared , , etc., interfaces.
-    - : Contains the workout data previously hardcoded in .
-- **Updated/Refactored:**
-    - : Drastically simplified to use .
-    - : Drastically simplified to use .
-    - : Modified to import types from the new  file.
+- **Created/Modified Files**:
+  - : Created and heavily modified to implement the frame selection UI and logic.
+  - : Heavily modified to integrate the frame selector, limit video duration, and fix the cover upload logic.
+  - : Modified to ensure notification previews use the custom thumbnail.
+  - : Modified to support thumbnail-first loading.
+- **Referenced Files**:
+  - 
+  - 
+  - 
 
 **Areas that need refactoring**:
-- The successful refactoring of the two workout screens has created a clear pattern. This pattern should now be applied to other workout screens (e.g., calisthenics, outdoor) that likely contain similar duplicated code.
-
-**key api endpoints**
-- No API endpoints were created or modified in this session.
+- : This component has been rewritten multiple times and is fragile. If the current  logic still fails, it should be replaced with a more robust, battle-tested community library for video trimming/scrubbing to improve stability and maintainability.
 
 **Critical Info for New Agent**
-1.  **Verify Final UI Change:** The immediate next step is to confirm with the user that the final styling of the Swipe for more text (gray, 10px font) in  is correct.
-2.  **Leverage the New Component:** You are now equipped with a reusable . If asked to make changes to workout cards, you should only need to edit this one file. Be aware of this to avoid re-introducing inconsistencies.
-3.  **Refactoring Pattern:** The work done in this session serves as a blueprint for improving other parts of the app. When you see duplicated UI, propose a similar refactoring strategy: extract logic to a reusable component, externalize data, and create shared types.
+1.  **VERIFY THE CORE FIX**: Your first action should be to confirm with the user if the latest change works. Ask them to test the full video upload flow and check if their selected thumbnail now appears correctly on all pages. The fix was in  to prioritize .
+2.  **THE LIVE PREVIEW IS LIKELY STILL BROKEN**: The user has repeatedly stated that the frame preview does not update when they scrub. The agent's last fix was for the . Be prepared to debug this further. If the debug number overlay updates but the image doesn't, the problem is re-rendering. If the number doesn't update, the  is still broken. Consider replacing the custom implementation with a library.
+3.  **DO NOT TRY TO FIX THE 'BLANK SCREEN'**: The agent correctly determined that the blank screen that appears for a few seconds after selecting a video is an unfixable limitation of the iOS  blocking the UI thread. Do not waste time trying to add a loading spinner there. The correct behavior is to auto-open the frame selector *after* this blocking operation is complete.
+4.  **PENDING UI/UX TASKS**: Remember to address the Safe Area issue in  and discuss the implementation of the thumbnail cropping feature with the user once the current bugs are resolved.
 
 **documents created in this job**
 - None.
 
-**Last 10 User Messages and any pending HUMAN messages** 
- - **User**: make that text slightly gray, and capitalize the S. and font size 10 - **Status: COMPLETED (USER VERIFICATION PENDING)**
- - **User**: in a similar format, add white text that says swipe for more as an overlay on the workout cards, it should be 12px below the add workout button - **Status: COMPLETED**
- - **User**: These two workout components are basically the same. Please consolidate them into a single reusable WorkoutCard component... - **Status: COMPLETED**
+**Last 10 User Messages and any pending HUMAN messages**
+- : the cover photo im selecting isnt the photo appearing as the thumbnail on the explore, profile, and im assuming the notifications tab as well - **Status: IN PROGRESS** (Agent implemented a fix, pending verification).
+- : the thumbnail selected should show as the thumbnail on the profile page and the thumbnail on the notifications tab and explore page. make sure its the exact frame selected by the user - **Status: IN PROGRESS** (Agent investigated and fixed a backend and frontend bug related to this).
+- : the thumbnail number is not changing when i drag - **Status: IN PROGRESS** (Agent implemented a debug fix for the PanResponder, pending verification).
+- : its still frozen on the first frame in the video when i try to drag the bar across the video timeline - **Status: IN PROGRESS** (This is the recurring live-preview bug).
+- : its still not working. when i drag im seeing a loading icon flash on screen then dissapear, but the image in view stays the same - **Status: IN PROGRESS** (Live preview bug report).
+- : when im dragging to select cover frame, im not seeing a live version of the frame im looking at, just the first frame of the video - **Status: IN PROGRESS** (Live preview bug report).
+- : Summary of multiple issues: remove green box, live preview not working, auto-prompt for thumbnail, blank screen issue - **Status: PARTIALLY ADDRESSED** (Agent addressed most, but live preview remains an issue).
+- : the processing video popup should only be shown after i select a video from my library and its loading into the upload media section. it should also just be the spinner and processing video text, remove the other text and border/background - **Status: COMPLETED** (Agent implemented this, then removed it after discovering the UI-blocking issue).
+- : A list of many UI/UX improvements for the frame selector (safe area, cropping, loading indicators, styling, instagram-like UI) - **Status: PARTIALLY ADDRESSED**.
+- : when picking a thumbnail from a video, allow users to scroll through the video to get the exact frame they want - **Status: IN PROGRESS**.
 
 **Project Health Check:**
-- **Broken**:
-    - Home screen carousel Save button functionality.
-    - Unfollow analytics tracking functionality.
-- **Mocked**:
-    - None.
+- **Broken**: The core functionality of selecting and displaying a custom video thumbnail is likely broken or has been intermittently broken. The live preview feature in the  is not working as intended.
+- **Mocked**: No.
 
 **3rd Party Integrations**
+- **@react-native-community/slider**: Added to implement a scrubber in the .
+- **expo-video-thumbnails**: Used to generate frame images from video files.
 - **Cloudinary**: Image & Video Management — requires User API Key.
 - **Expo**: Core mobile application framework.
 - **FastAPI**: Backend framework.
@@ -158,7 +158,7 @@ The agent successfully completed the entire refactoring process.
   - Testing agent used after significant changes: NO
   - Troubleshoot agent used after agent stuck in loop: NO
   - Test files created: []
-  - Known regressions: None identified.
+  - Known regressions: The live preview functionality in the  has regressed multiple times or never fully worked.
 
 **Credentials to test flow:**
 - **Admin User**:
@@ -167,8 +167,11 @@ The agent successfully completed the entire refactoring process.
 - **Demo User**:
     - **Username**: 
     - **Password**: 
+- **Guest User**:
+    - No credentials needed. Log out to test guest flows.
 
 **What agent forgot to execute**
-- The agent successfully executed all user requests for this session. The pre-existing backlog items were not addressed, as the focus was on the user's immediate refactoring request.
+- The agent has not yet addressed the user's report that the  UI does not respect iOS Safe Areas, causing buttons to be hidden.
+- The agent has not started implementing the requested thumbnail cropping feature.
 
 </analysis>
