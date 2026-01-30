@@ -690,6 +690,38 @@ export default function FeaturedWorkoutDetail() {
     });
   };
 
+  // Add all exercises to cart
+  const handleAddAllToCart = () => {
+    let addedCount = 0;
+    exercises.forEach((exercise, index) => {
+      const cartItem: WorkoutItem = {
+        id: `featured-${workoutId}-${index}-${Date.now()}`,
+        name: exercise.name,
+        duration: exercise.duration,
+        description: exercise.description,
+        battlePlan: exercise.battlePlan,
+        imageUrl: exercise.imageUrl,
+        intensityReason: exercise.intensityReason,
+        equipment: exercise.equipment,
+        difficulty: exercise.difficulty,
+        workoutType: exercise.workoutType,
+        moodCard: exercise.moodCard,
+        moodTips: exercise.moodTips,
+      };
+      addToCart(cartItem);
+      addedCount++;
+    });
+    
+    Alert.alert(
+      'Added to Cart',
+      `${addedCount} exercise${addedCount !== 1 ? 's' : ''} added to your cart. You can now customize your workout.`,
+      [
+        { text: 'View Cart', onPress: () => router.push('/cart') },
+        { text: 'Continue', style: 'cancel' },
+      ]
+    );
+  };
+
   return (
     <View style={styles.container}>
       {/* Hero Image - Uses first exercise's image */}
