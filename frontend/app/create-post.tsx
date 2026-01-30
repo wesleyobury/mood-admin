@@ -1278,7 +1278,7 @@ export default function CreatePost() {
                       {/* Cover photo button for videos */}
                       <TouchableOpacity 
                         style={styles.setCoverButton}
-                        onPress={() => selectCoverPhoto(index)}
+                        onPress={() => openCoverPicker(index)}
                       >
                         <Ionicons name="image-outline" size={14} color='#000' />
                         <Text style={styles.setCoverButtonText}>
