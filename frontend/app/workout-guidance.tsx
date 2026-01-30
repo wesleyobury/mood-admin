@@ -761,6 +761,9 @@ export default function WorkoutGuidanceScreen() {
                   </View>
                 ))}
               </View>
+              
+              {/* Exercise Lookup Trigger */}
+              <ExerciseLookupTrigger onPress={() => setExerciseLookupVisible(true)} />
             </View>
           </View>
         </View>
