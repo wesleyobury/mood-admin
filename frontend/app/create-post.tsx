@@ -146,9 +146,9 @@ export default function CreatePost() {
         const workoutEmojis = ['⚡', '💪', '🏋️', '🏃', '💦', '🔥', '🎯', '✨', '🚀', '💥'];
         const randomEmoji = workoutEmojis[Math.floor(Math.random() * workoutEmojis.length)];
         
-        // Format caption with calories and minutes
-        const calories = stats.totalCalories || 0;
+        // Calculate calories (same formula as stats card: duration * 8)
         const minutes = stats.totalDuration || 0;
+        const calories = Math.round(minutes * 8);
         setCaption(`${calories} cals and ${minutes} minutes today ${randomEmoji}`);
       } catch (error) {
         console.error('Error parsing workout stats:', error);
