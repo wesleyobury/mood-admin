@@ -419,7 +419,7 @@ export default function CreatePost() {
       const result = await ImagePicker.launchCameraAsync({
         mediaTypes: ['videos'],
         allowsEditing: false,
-        videoMaxDuration: 60, // 60 seconds max
+        videoMaxDuration: 30, // 30 seconds max
         videoQuality: ImagePicker.UIImagePickerControllerQualityType.Medium,
       });
 
@@ -427,8 +427,8 @@ export default function CreatePost() {
         const asset = result.assets[0];
         
         // Check video duration if available
-        if (asset.duration && asset.duration > 60000) { // 60 seconds in ms
-          showAlert('Video Too Long', 'Please record a video under 60 seconds');
+        if (asset.duration && asset.duration > 30000) { // 30 seconds in ms
+          showAlert('Video Too Long', 'Please record a video under 30 seconds');
           return;
         }
         
