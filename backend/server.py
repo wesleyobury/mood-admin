@@ -6493,6 +6493,319 @@ async def delete_exercise(
 
 # ==================== END EXERCISE LOOKUP API ====================
 
+# ==================== FEATURED WORKOUTS API ====================
+
+# Pydantic models for Featured Workouts
+class FeaturedWorkoutExercise(BaseModel):
+    exerciseId: str
+    order: int
+    sets: Optional[int] = None
+    reps: Optional[str] = None
+    restSec: Optional[int] = None
+    notes: Optional[str] = None
+    # Allow inline exercise data (for backwards compatibility)
+    name: Optional[str] = None
+    equipment: Optional[str] = None
+    description: Optional[str] = None
+    battlePlan: Optional[str] = None
+    duration: Optional[str] = None
+    imageUrl: Optional[str] = None
+    intensityReason: Optional[str] = None
+    difficulty: Optional[str] = None
+    workoutType: Optional[str] = None
+    moodCard: Optional[str] = None
+    moodTips: Optional[List[Dict[str, str]]] = None
+
+class FeaturedWorkoutCreate(BaseModel):
+    title: str
+    subtitle: Optional[str] = None
+    mood: str
+    difficulty: Optional[str] = "Intermediate"
+    durationMin: Optional[int] = None
+    duration: Optional[str] = None
+    badge: Optional[str] = None
+    heroImageUrl: Optional[str] = None
+    exercises: List[FeaturedWorkoutExercise]
+
+class FeaturedWorkoutUpdate(BaseModel):
+    title: Optional[str] = None
+    subtitle: Optional[str] = None
+    mood: Optional[str] = None
+    difficulty: Optional[str] = None
+    durationMin: Optional[int] = None
+    duration: Optional[str] = None
+    badge: Optional[str] = None
+    heroImageUrl: Optional[str] = None
+    exercises: Optional[List[FeaturedWorkoutExercise]] = None
+
+class FeaturedConfigUpdate(BaseModel):
+    featuredWorkoutIds: List[str]
+    ttlHours: Optional[int] = 12
+
+# Public endpoint - no auth required for clients to fetch featured config
+@api_router.get("/featured/config")
+async def get_featured_config():
+    """Get the current featured workouts configuration (public endpoint)"""
+    config = await db.featured_config.find_one({"_id": "main"})
+    
+    if not config:
+        # Return default/empty config
+        return {
+            "schemaVersion": 1,
+            "featuredWorkoutIds": [],
+            "ttlHours": 12,
+            "updatedAt": None
+        }
+    
+    return {
+        "schemaVersion": config.get("schemaVersion", 1),
+        "featuredWorkoutIds": config.get("featuredWorkoutIds", []),
+        "ttlHours": config.get("ttlHours", 12),
+        "updatedAt": config.get("updatedAt")
+    }
+
+# Public endpoint - fetch workouts by IDs
+@api_router.post("/featured/workouts/batch")
+async def get_featured_workouts_batch(ids: List[str]):
+    """Fetch multiple featured workouts by their IDs (public endpoint)"""
+    if not ids:
+        return {"workouts": []}
+    
+    # Convert string IDs to ObjectIds, filter invalid ones
+    object_ids = []
+    for id_str in ids:
+        try:
+            object_ids.append(ObjectId(id_str))
+        except:
+            continue
+    
+    workouts = await db.featured_workouts.find(
+        {"_id": {"$in": object_ids}}
+    ).to_list(50)
+    
+    # Maintain order from input IDs
+    id_to_workout = {}
+    for w in workouts:
+        w["_id"] = str(w["_id"])
+        id_to_workout[w["_id"]] = w
+    
+    ordered_workouts = []
+    for id_str in ids:
+        if id_str in id_to_workout:
+            ordered_workouts.append(id_to_workout[id_str])
+    
+    return {"workouts": ordered_workouts}
+
+# Admin endpoint - update featured config (order of featured workouts)
+@api_router.put("/featured/config")
+async def update_featured_config(
+    config: FeaturedConfigUpdate,
+    current_user_id: str = Depends(get_current_user)
+):
+    """Update the featured workouts configuration (admin only)"""
+    # Check if user is admin
+    user = await db.users.find_one({"_id": ObjectId(current_user_id)})
+    if not user or not user.get("is_admin"):
+        raise HTTPException(status_code=403, detail="Admin access required")
+    
+    # Validate that all workout IDs exist
+    for workout_id in config.featuredWorkoutIds:
+        try:
+            workout = await db.featured_workouts.find_one({"_id": ObjectId(workout_id)})
+            if not workout:
+                raise HTTPException(
+                    status_code=400, 
+                    detail=f"Workout ID {workout_id} not found"
+                )
+        except Exception as e:
+            raise HTTPException(
+                status_code=400, 
+                detail=f"Invalid workout ID {workout_id}: {str(e)}"
+            )
+    
+    # Update or create config
+    update_doc = {
+        "schemaVersion": 1,
+        "featuredWorkoutIds": config.featuredWorkoutIds,
+        "ttlHours": config.ttlHours or 12,
+        "updatedAt": datetime.now(timezone.utc),
+        "updatedBy": current_user_id
+    }
+    
+    await db.featured_config.update_one(
+        {"_id": "main"},
+        {"$set": update_doc},
+        upsert=True
+    )
+    
+    return {
+        "success": True,
+        "message": "Featured config updated successfully",
+        "config": update_doc
+    }
+
+# Admin endpoint - list all featured workouts
+@api_router.get("/featured/workouts")
+async def list_featured_workouts(
+    current_user_id: str = Depends(get_current_user)
+):
+    """List all featured workouts (admin only)"""
+    user = await db.users.find_one({"_id": ObjectId(current_user_id)})
+    if not user or not user.get("is_admin"):
+        raise HTTPException(status_code=403, detail="Admin access required")
+    
+    workouts = await db.featured_workouts.find().sort("created_at", -1).to_list(100)
+    
+    result = []
+    for w in workouts:
+        w["_id"] = str(w["_id"])
+        result.append(w)
+    
+    return {"workouts": result}
+
+# Admin endpoint - create a new featured workout
+@api_router.post("/featured/workouts")
+async def create_featured_workout(
+    workout: FeaturedWorkoutCreate,
+    current_user_id: str = Depends(get_current_user)
+):
+    """Create a new featured workout (admin only)"""
+    user = await db.users.find_one({"_id": ObjectId(current_user_id)})
+    if not user or not user.get("is_admin"):
+        raise HTTPException(status_code=403, detail="Admin access required")
+    
+    # Validate exercises have either exerciseId or inline data
+    for ex in workout.exercises:
+        if not ex.exerciseId and not ex.name:
+            raise HTTPException(
+                status_code=400,
+                detail="Each exercise must have either exerciseId or inline name"
+            )
+    
+    workout_doc = {
+        "title": workout.title,
+        "subtitle": workout.subtitle,
+        "mood": workout.mood,
+        "difficulty": workout.difficulty,
+        "durationMin": workout.durationMin,
+        "duration": workout.duration,
+        "badge": workout.badge,
+        "heroImageUrl": workout.heroImageUrl,
+        "exercises": [ex.dict() for ex in workout.exercises],
+        "created_at": datetime.now(timezone.utc),
+        "created_by": current_user_id,
+        "updated_at": datetime.now(timezone.utc)
+    }
+    
+    result = await db.featured_workouts.insert_one(workout_doc)
+    
+    return {
+        "success": True,
+        "workout_id": str(result.inserted_id),
+        "message": "Featured workout created successfully"
+    }
+
+# Admin endpoint - get a single featured workout
+@api_router.get("/featured/workouts/{workout_id}")
+async def get_featured_workout(
+    workout_id: str,
+    current_user_id: str = Depends(get_current_user)
+):
+    """Get a single featured workout (admin only)"""
+    user = await db.users.find_one({"_id": ObjectId(current_user_id)})
+    if not user or not user.get("is_admin"):
+        raise HTTPException(status_code=403, detail="Admin access required")
+    
+    try:
+        workout = await db.featured_workouts.find_one({"_id": ObjectId(workout_id)})
+        if not workout:
+            raise HTTPException(status_code=404, detail="Workout not found")
+        
+        workout["_id"] = str(workout["_id"])
+        return {"workout": workout}
+    except Exception as e:
+        raise HTTPException(status_code=400, detail=f"Error: {str(e)}")
+
+# Admin endpoint - update a featured workout
+@api_router.put("/featured/workouts/{workout_id}")
+async def update_featured_workout(
+    workout_id: str,
+    workout: FeaturedWorkoutUpdate,
+    current_user_id: str = Depends(get_current_user)
+):
+    """Update an existing featured workout (admin only)"""
+    user = await db.users.find_one({"_id": ObjectId(current_user_id)})
+    if not user or not user.get("is_admin"):
+        raise HTTPException(status_code=403, detail="Admin access required")
+    
+    try:
+        existing = await db.featured_workouts.find_one({"_id": ObjectId(workout_id)})
+        if not existing:
+            raise HTTPException(status_code=404, detail="Workout not found")
+        
+        update_doc = {"updated_at": datetime.now(timezone.utc)}
+        
+        if workout.title is not None:
+            update_doc["title"] = workout.title
+        if workout.subtitle is not None:
+            update_doc["subtitle"] = workout.subtitle
+        if workout.mood is not None:
+            update_doc["mood"] = workout.mood
+        if workout.difficulty is not None:
+            update_doc["difficulty"] = workout.difficulty
+        if workout.durationMin is not None:
+            update_doc["durationMin"] = workout.durationMin
+        if workout.duration is not None:
+            update_doc["duration"] = workout.duration
+        if workout.badge is not None:
+            update_doc["badge"] = workout.badge
+        if workout.heroImageUrl is not None:
+            update_doc["heroImageUrl"] = workout.heroImageUrl
+        if workout.exercises is not None:
+            update_doc["exercises"] = [ex.dict() for ex in workout.exercises]
+        
+        await db.featured_workouts.update_one(
+            {"_id": ObjectId(workout_id)},
+            {"$set": update_doc}
+        )
+        
+        return {"success": True, "message": "Workout updated successfully"}
+    except Exception as e:
+        raise HTTPException(status_code=400, detail=f"Error: {str(e)}")
+
+# Admin endpoint - delete a featured workout
+@api_router.delete("/featured/workouts/{workout_id}")
+async def delete_featured_workout(
+    workout_id: str,
+    current_user_id: str = Depends(get_current_user)
+):
+    """Delete a featured workout (admin only)"""
+    user = await db.users.find_one({"_id": ObjectId(current_user_id)})
+    if not user or not user.get("is_admin"):
+        raise HTTPException(status_code=403, detail="Admin access required")
+    
+    try:
+        # Check if workout is in featured config
+        config = await db.featured_config.find_one({"_id": "main"})
+        if config and workout_id in config.get("featuredWorkoutIds", []):
+            raise HTTPException(
+                status_code=400,
+                detail="Cannot delete workout that is currently featured. Remove from featured list first."
+            )
+        
+        result = await db.featured_workouts.delete_one({"_id": ObjectId(workout_id)})
+        
+        if result.deleted_count == 0:
+            raise HTTPException(status_code=404, detail="Workout not found")
+        
+        return {"success": True, "message": "Workout deleted successfully"}
+    except HTTPException:
+        raise
+    except Exception as e:
+        raise HTTPException(status_code=400, detail=f"Error: {str(e)}")
+
+# ==================== END FEATURED WORKOUTS API ====================
+
 @api_router.get("/moderation/admin/stats")
 async def get_moderation_stats(
     current_user_id: str = Depends(get_current_user)
