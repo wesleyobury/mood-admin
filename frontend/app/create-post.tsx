@@ -951,15 +951,12 @@ export default function CreatePost() {
           console.log('Upload success:', data);
           uploadedUrls.push(data.url);
           
-          // If this is a video, check for Cloudinary thumbnail_url or custom cover
+          // If this is a video, prioritize user-selected cover over Cloudinary auto-generated
           if (mediaItem.type === 'video') {
-            if (data.thumbnail_url) {
-              // Use Cloudinary auto-generated thumbnail
-              coverUrls[uploadedUrls.length - 1] = data.thumbnail_url;
-              console.log('Using Cloudinary thumbnail:', data.thumbnail_url);
-            } else if (mediaItem.coverUri) {
-              // Upload custom cover image
+            if (mediaItem.coverUri) {
+              // User selected a custom cover - upload it (HIGHEST PRIORITY)
               try {
+                console.log('Uploading user-selected cover:', mediaItem.coverUri);
                 const coverFormData = new FormData();
                 const coverFilename = `cover_${Date.now()}.jpg`;
                 
@@ -986,11 +983,24 @@ export default function CreatePost() {
                 if (coverUploadResponse.ok) {
                   const coverData = await coverUploadResponse.json();
                   coverUrls[uploadedUrls.length - 1] = coverData.url;
-                  console.log('Cover uploaded:', coverData.url);
+                  console.log('✅ User cover uploaded:', coverData.url);
+                } else {
+                  console.error('Cover upload failed, falling back to Cloudinary thumbnail');
+                  if (data.thumbnail_url) {
+                    coverUrls[uploadedUrls.length - 1] = data.thumbnail_url;
+                  }
                 }
               } catch (coverError) {
                 console.error('Error uploading cover:', coverError);
+                // Fallback to Cloudinary thumbnail if cover upload fails
+                if (data.thumbnail_url) {
+                  coverUrls[uploadedUrls.length - 1] = data.thumbnail_url;
+                }
               }
+            } else if (data.thumbnail_url) {
+              // No user cover, use Cloudinary auto-generated thumbnail
+              coverUrls[uploadedUrls.length - 1] = data.thumbnail_url;
+              console.log('Using Cloudinary thumbnail:', data.thumbnail_url);
             }
           }
         } else {
