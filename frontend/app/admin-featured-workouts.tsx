@@ -238,10 +238,12 @@ export default function FeaturedWorkoutsEditor() {
   const handleCreateFromSaved = async () => {
     if (!selectedSavedWorkout) return;
     
-    // Parse mood and title from saved workout name (format: "Mood - Title")
-    const nameParts = selectedSavedWorkout.name.split(' - ');
-    const mood = nameParts[0] || 'Workout';
-    const title = nameParts.slice(1).join(' - ') || selectedSavedWorkout.name;
+    // Get mood from first exercise's moodCard, fallback to parsing from name
+    const firstExercise = selectedSavedWorkout.workouts[0];
+    const mood = firstExercise?.moodCard || selectedSavedWorkout.name.split(' - ')[0] || 'Workout';
+    
+    // Title is the full saved workout name (what admin named it)
+    const title = selectedSavedWorkout.name;
     
     // Convert saved workout exercises to featured workout format
     const exercises = selectedSavedWorkout.workouts.map((ex, index) => ({
