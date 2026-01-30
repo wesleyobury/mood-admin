@@ -24,6 +24,36 @@ export const TERM_DEFINITIONS: Record<string, { title: string; definition: strin
     definition: 'The number of rowing strokes completed in one minute. It measures your rowing cadence/pace.\n\n• 18-22 SPM: Recovery/easy pace\n• 22-26 SPM: Steady state/moderate\n• 26-30 SPM: Race pace/hard effort\n• 30+ SPM: Sprint/maximum effort\n\nHigher SPM doesn\'t always mean more power - focus on strong, controlled strokes.',
     icon: 'boat',
   },
+  AMRAP: {
+    title: 'AMRAP - As Many Rounds As Possible',
+    definition: 'A workout format where you complete as many rounds of a set of exercises as possible within a time limit.\n\n• Set a timer (e.g., 10, 15, or 20 minutes)\n• Perform the prescribed exercises in order\n• Once you finish all exercises, that\'s 1 round\n• Repeat until time runs out\n\nGreat for building endurance and tracking progress over time!',
+    icon: 'repeat',
+  },
+  EMOM: {
+    title: 'EMOM - Every Minute On the Minute',
+    definition: 'A workout format where you perform a specific exercise at the start of every minute, then rest for the remainder.\n\n• At 0:00 - Do prescribed reps\n• Rest until 1:00\n• At 1:00 - Do prescribed reps again\n• Continue for set duration\n\nThe faster you finish, the more rest you get. Keeps intensity high and workouts efficient!',
+    icon: 'timer',
+  },
+  HIIT: {
+    title: 'HIIT - High Intensity Interval Training',
+    definition: 'A training method alternating between intense bursts of activity and fixed periods of less-intense activity or rest.\n\n• Work intervals: 20-60 seconds at 80-95% max effort\n• Rest intervals: Equal or longer than work time\n• Total duration: Usually 15-30 minutes\n\nBurns more calories in less time and keeps your metabolism elevated for hours after!',
+    icon: 'flash',
+  },
+  Tabata: {
+    title: 'Tabata - 20/10 Interval Protocol',
+    definition: 'A specific high-intensity interval training format developed by Dr. Izumi Tabata.\n\n• 20 seconds: Maximum effort work\n• 10 seconds: Complete rest\n• Repeat: 8 rounds (4 minutes total)\n\nOne of the most efficient workout protocols - just 4 minutes can significantly improve both aerobic and anaerobic fitness!',
+    icon: 'stopwatch',
+  },
+  Superset: {
+    title: 'Superset - Back-to-Back Exercises',
+    definition: 'Performing two exercises back-to-back with no rest in between.\n\n• Antagonist superset: Opposite muscles (biceps + triceps)\n• Compound superset: Same muscle group\n• Upper/Lower superset: Alternating body parts\n\nSaves time and increases workout intensity. Rest after completing both exercises.',
+    icon: 'swap-horizontal',
+  },
+  Circuit: {
+    title: 'Circuit - Exercise Rotation',
+    definition: 'A series of exercises performed one after another with minimal rest between them.\n\n• 5-10 different exercises\n• Perform each for time or reps\n• Move to next exercise immediately\n• Rest after completing full circuit\n• Repeat 2-4 rounds\n\nGreat for full-body conditioning and keeping heart rate elevated!',
+    icon: 'sync',
+  },
 };
 
 interface TermDefinitionPopupProps {
