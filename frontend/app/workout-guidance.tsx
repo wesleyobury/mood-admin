@@ -1420,7 +1420,26 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: '#ffffff',
     textAlign: 'center',
+  },
+  workoutTitleRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: 10,
     marginBottom: 24,
+  },
+  customBadgeGuidance: {
+    backgroundColor: 'rgba(255, 165, 0, 0.2)',
+    paddingHorizontal: 8,
+    paddingVertical: 4,
+    borderRadius: 6,
+  },
+  customBadgeGuidanceText: {
+    fontSize: 11,
+    color: '#FFA500',
+    fontWeight: '700',
+    textTransform: 'uppercase',
+    letterSpacing: 0.5,
   },
   stepsContainer: {
     marginTop: 8,
