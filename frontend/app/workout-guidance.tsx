@@ -774,8 +774,15 @@ export default function WorkoutGuidanceScreen() {
         {/* Workout Instructions - Simplified */}
         <View style={styles.instructionsContainer}>
           <View style={styles.workoutCard}>
-            {/* Centered Workout Title */}
-            <Text style={styles.centeredWorkoutTitle}>{workoutName}</Text>
+            {/* Centered Workout Title with Custom Badge */}
+            <View style={styles.workoutTitleRow}>
+              <Text style={styles.centeredWorkoutTitle}>{workoutName}</Text>
+              {workoutType === 'Custom' && (
+                <View style={styles.customBadgeGuidance}>
+                  <Text style={styles.customBadgeGuidanceText}>Custom</Text>
+                </View>
+              )}
+            </View>
             
             {/* Step-by-Step Instructions - User Friendly Format */}
             <View style={styles.stepsContainer}>
