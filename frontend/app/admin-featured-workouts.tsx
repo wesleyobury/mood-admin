@@ -1,10 +1,9 @@
 /**
- * Featured Workouts Admin Editor
+ * Featured Workouts Admin Editor (Simplified)
  * 
- * Admin-only screen to manage featured workouts:
- * - View/reorder featured carousel order
- * - Create/edit/delete featured workouts
- * - Publish changes to featured_config
+ * - View/reorder featured carousel
+ * - Edit existing workouts (view in cart format)
+ * - Create new → redirects to home to build from scratch
  */
 
 import React, { useState, useEffect, useCallback } from 'react';
@@ -17,9 +16,8 @@ import {
   ActivityIndicator,
   Alert,
   Modal,
-  TextInput,
-  Dimensions,
   Platform,
+  Image,
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { useRouter } from 'expo-router';
@@ -30,7 +28,6 @@ import DraggableFlatList, { RenderItemParams, ScaleDecorator } from 'react-nativ
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
 const API_URL = process.env.EXPO_PUBLIC_BACKEND_URL || Constants.expoConfig?.extra?.EXPO_PUBLIC_BACKEND_URL || '';
-const { width: SCREEN_WIDTH } = Dimensions.get('window');
 
 interface FeaturedWorkout {
   _id: string;
@@ -50,19 +47,6 @@ interface FeaturedConfig {
   updatedAt?: string;
 }
 
-// Mood options for workout creation
-const MOOD_OPTIONS = [
-  'Sweat / Burn Fat',
-  'Muscle Gainer',
-  'Build Explosion',
-  'Calisthenics',
-  'Get Outside',
-  "I'm Feeling Lazy",
-];
-
-const DIFFICULTY_OPTIONS = ['Beginner', 'Intermediate', 'Advanced', 'Beginner–Intermediate'];
-const BADGE_OPTIONS = ['Top pick', 'Trending', 'Popular', 'Staff pick', 'New', 'Intense'];
-
 export default function FeaturedWorkoutsEditor() {
   const router = useRouter();
   const insets = useSafeAreaInsets();
@@ -76,21 +60,8 @@ export default function FeaturedWorkoutsEditor() {
   const [hasChanges, setHasChanges] = useState(false);
   
   // Modal states
-  const [showWorkoutBuilder, setShowWorkoutBuilder] = useState(false);
   const [showAddToFeatured, setShowAddToFeatured] = useState(false);
-  const [editingWorkout, setEditingWorkout] = useState<FeaturedWorkout | null>(null);
-  
-  // Workout builder form
-  const [formTitle, setFormTitle] = useState('');
-  const [formMood, setFormMood] = useState(MOOD_OPTIONS[0]);
-  const [formDuration, setFormDuration] = useState('30-40 min');
-  const [formBadge, setFormBadge] = useState('');
-  const [formDifficulty, setFormDifficulty] = useState('Intermediate');
-  const [formHeroImage, setFormHeroImage] = useState('');
-  const [formExercises, setFormExercises] = useState<any[]>([]);
-  
-  // Validation errors
-  const [errors, setErrors] = useState<string[]>([]);
+  const [viewingWorkout, setViewingWorkout] = useState<FeaturedWorkout | null>(null);
 
   // Fetch all data
   const fetchData = useCallback(async () => {
@@ -98,18 +69,16 @@ export default function FeaturedWorkoutsEditor() {
     
     setLoading(true);
     try {
-      // Fetch config
       const configRes = await fetch(`${API_URL}/api/featured/config`);
       const configData = await configRes.json();
       setConfig(configData);
       
-      // Fetch all workouts (admin only)
       const workoutsRes = await fetch(`${API_URL}/api/featured/workouts`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       
       if (workoutsRes.status === 403) {
-        Alert.alert('Access Denied', 'You must be an admin to access this page.');
+        Alert.alert('Access Denied', 'Admin access required.');
         router.back();
         return;
       }
@@ -117,7 +86,6 @@ export default function FeaturedWorkoutsEditor() {
       const workoutsData = await workoutsRes.json();
       setAllWorkouts(workoutsData.workouts || []);
       
-      // Build featured list in order
       const featuredIds = configData.featuredWorkoutIds || [];
       const workoutMap = new Map((workoutsData.workouts || []).map((w: FeaturedWorkout) => [w._id, w]));
       const orderedFeatured = featuredIds
@@ -127,7 +95,7 @@ export default function FeaturedWorkoutsEditor() {
       
     } catch (error) {
       console.error('Error fetching data:', error);
-      Alert.alert('Error', 'Failed to load featured workouts data');
+      Alert.alert('Error', 'Failed to load data');
     } finally {
       setLoading(false);
     }
@@ -137,33 +105,10 @@ export default function FeaturedWorkoutsEditor() {
     fetchData();
   }, [fetchData]);
 
-  // Validate before publish
-  const validateConfig = (): string[] => {
-    const validationErrors: string[] = [];
-    
-    if (featuredWorkouts.length === 0) {
-      validationErrors.push('Featured list cannot be empty');
-    }
-    
-    featuredWorkouts.forEach((workout, index) => {
-      if (!workout.exercises || workout.exercises.length === 0) {
-        validationErrors.push(`"${workout.title}" has no exercises`);
-      }
-    });
-    
-    return validationErrors;
-  };
-
   // Publish featured config
   const handlePublish = async () => {
-    const validationErrors = validateConfig();
-    if (validationErrors.length > 0) {
-      setErrors(validationErrors);
-      Alert.alert(
-        'Validation Failed',
-        validationErrors.join('\n'),
-        [{ text: 'OK' }]
-      );
+    if (featuredWorkouts.length === 0) {
+      Alert.alert('Error', 'Featured list cannot be empty');
       return;
     }
     
@@ -183,22 +128,20 @@ export default function FeaturedWorkoutsEditor() {
       
       if (response.ok) {
         setHasChanges(false);
-        setErrors([]);
-        Alert.alert('Success', 'Featured workouts published successfully!');
+        Alert.alert('Success', 'Featured workouts published!');
         fetchData();
       } else {
         const errorData = await response.json();
         Alert.alert('Error', errorData.detail || 'Failed to publish');
       }
     } catch (error) {
-      console.error('Error publishing:', error);
-      Alert.alert('Error', 'Failed to publish featured workouts');
+      Alert.alert('Error', 'Failed to publish');
     } finally {
       setSaving(false);
     }
   };
 
-  // Reorder featured workouts
+  // Reorder
   const handleDragEnd = ({ data }: { data: FeaturedWorkout[] }) => {
     setFeaturedWorkouts(data);
     setHasChanges(true);
@@ -206,21 +149,17 @@ export default function FeaturedWorkoutsEditor() {
 
   // Remove from featured
   const handleRemoveFromFeatured = (workoutId: string) => {
-    Alert.alert(
-      'Remove from Featured',
-      'This workout will be removed from the featured carousel but not deleted.',
-      [
-        { text: 'Cancel', style: 'cancel' },
-        {
-          text: 'Remove',
-          style: 'destructive',
-          onPress: () => {
-            setFeaturedWorkouts(prev => prev.filter(w => w._id !== workoutId));
-            setHasChanges(true);
-          },
+    Alert.alert('Remove from Featured', 'Remove this workout from the carousel?', [
+      { text: 'Cancel', style: 'cancel' },
+      {
+        text: 'Remove',
+        style: 'destructive',
+        onPress: () => {
+          setFeaturedWorkouts(prev => prev.filter(w => w._id !== workoutId));
+          setHasChanges(true);
         },
-      ]
-    );
+      },
+    ]);
   };
 
   // Add to featured
@@ -234,209 +173,70 @@ export default function FeaturedWorkoutsEditor() {
     setShowAddToFeatured(false);
   };
 
-  // Delete workout entirely
+  // Delete workout
   const handleDeleteWorkout = async (workoutId: string) => {
+    Alert.alert('Delete Workout', 'Permanently delete this workout?', [
+      { text: 'Cancel', style: 'cancel' },
+      {
+        text: 'Delete',
+        style: 'destructive',
+        onPress: async () => {
+          try {
+            const response = await fetch(`${API_URL}/api/featured/workouts/${workoutId}`, {
+              method: 'DELETE',
+              headers: { Authorization: `Bearer ${token}` },
+            });
+            
+            if (response.ok) {
+              fetchData();
+              Alert.alert('Deleted', 'Workout removed');
+            } else {
+              const errorData = await response.json();
+              Alert.alert('Error', errorData.detail || 'Failed to delete');
+            }
+          } catch (error) {
+            Alert.alert('Error', 'Failed to delete');
+          }
+        },
+      },
+    ]);
+  };
+
+  // Create new - go to home screen
+  const handleCreateNew = () => {
     Alert.alert(
-      'Delete Workout',
-      'This will permanently delete the workout. Are you sure?',
+      'Create New Featured Workout',
+      'You\'ll be taken to the home screen to build a workout from scratch. After completing it, you can save it as a featured workout.',
       [
         { text: 'Cancel', style: 'cancel' },
         {
-          text: 'Delete',
-          style: 'destructive',
-          onPress: async () => {
-            try {
-              const response = await fetch(`${API_URL}/api/featured/workouts/${workoutId}`, {
-                method: 'DELETE',
-                headers: { Authorization: `Bearer ${token}` },
-              });
-              
-              if (response.ok) {
-                fetchData();
-                Alert.alert('Success', 'Workout deleted');
-              } else {
-                const errorData = await response.json();
-                Alert.alert('Error', errorData.detail || 'Failed to delete');
-              }
-            } catch (error) {
-              Alert.alert('Error', 'Failed to delete workout');
-            }
-          },
+          text: 'Go to Home',
+          onPress: () => router.push('/(tabs)'),
         },
       ]
     );
   };
 
-  // Open workout builder for new workout
-  const openNewWorkoutBuilder = () => {
-    setEditingWorkout(null);
-    setFormTitle('');
-    setFormMood(MOOD_OPTIONS[0]);
-    setFormDuration('30-40 min');
-    setFormBadge('');
-    setFormDifficulty('Intermediate');
-    setFormHeroImage('');
-    setFormExercises([{
-      name: '',
-      equipment: '',
-      description: '',
-      battlePlan: '',
-      duration: '10 min',
-      imageUrl: '',
-      intensityReason: '',
-      difficulty: 'intermediate',
-      workoutType: '',
-      moodCard: '',
-      moodTips: [],
-    }]);
-    setShowWorkoutBuilder(true);
-  };
-
-  // Open workout builder for editing
-  const openEditWorkout = (workout: FeaturedWorkout) => {
-    setEditingWorkout(workout);
-    setFormTitle(workout.title);
-    setFormMood(workout.mood);
-    setFormDuration(workout.duration || '30-40 min');
-    setFormBadge(workout.badge || '');
-    setFormDifficulty(workout.difficulty || 'Intermediate');
-    setFormHeroImage(workout.heroImageUrl || '');
-    setFormExercises(workout.exercises.length > 0 ? workout.exercises : [{
-      name: '',
-      equipment: '',
-      description: '',
-      battlePlan: '',
-      duration: '10 min',
-      imageUrl: '',
-      intensityReason: '',
-      difficulty: 'intermediate',
-      workoutType: '',
-      moodCard: '',
-      moodTips: [],
-    }]);
-    setShowWorkoutBuilder(true);
-  };
-
-  // Save workout
-  const handleSaveWorkout = async () => {
-    if (!formTitle.trim()) {
-      Alert.alert('Error', 'Please enter a workout title');
-      return;
-    }
-    
-    if (formExercises.length === 0 || !formExercises[0].name) {
-      Alert.alert('Error', 'Please add at least one exercise');
-      return;
-    }
-    
-    setSaving(true);
-    try {
-      const workoutData = {
-        title: formTitle,
-        mood: formMood,
-        duration: formDuration,
-        badge: formBadge || undefined,
-        difficulty: formDifficulty,
-        heroImageUrl: formHeroImage || undefined,
-        exercises: formExercises.filter(ex => ex.name).map((ex, index) => ({
-          ...ex,
-          exerciseId: ex.exerciseId || '',
-          order: index,
-          moodCard: formMood,
-          workoutType: `${formMood} - ${formTitle}`,
-        })),
-      };
-      
-      let response;
-      if (editingWorkout) {
-        response = await fetch(`${API_URL}/api/featured/workouts/${editingWorkout._id}`, {
-          method: 'PUT',
-          headers: {
-            Authorization: `Bearer ${token}`,
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(workoutData),
-        });
-      } else {
-        response = await fetch(`${API_URL}/api/featured/workouts`, {
-          method: 'POST',
-          headers: {
-            Authorization: `Bearer ${token}`,
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(workoutData),
-        });
-      }
-      
-      if (response.ok) {
-        setShowWorkoutBuilder(false);
-        fetchData();
-        Alert.alert('Success', editingWorkout ? 'Workout updated' : 'Workout created');
-      } else {
-        const errorData = await response.json();
-        Alert.alert('Error', errorData.detail || 'Failed to save workout');
-      }
-    } catch (error) {
-      console.error('Error saving workout:', error);
-      Alert.alert('Error', 'Failed to save workout');
-    } finally {
-      setSaving(false);
-    }
-  };
-
-  // Add exercise to form
-  const addExerciseToForm = () => {
-    setFormExercises(prev => [...prev, {
-      name: '',
-      equipment: '',
-      description: '',
-      battlePlan: '',
-      duration: '10 min',
-      imageUrl: '',
-      intensityReason: '',
-      difficulty: 'intermediate',
-      workoutType: '',
-      moodCard: '',
-      moodTips: [],
-    }]);
-  };
-
-  // Update exercise in form
-  const updateFormExercise = (index: number, field: string, value: string) => {
-    setFormExercises(prev => {
-      const updated = [...prev];
-      updated[index] = { ...updated[index], [field]: value };
-      return updated;
-    });
-  };
-
-  // Remove exercise from form
-  const removeFormExercise = (index: number) => {
-    if (formExercises.length <= 1) {
-      Alert.alert('Error', 'Workout must have at least one exercise');
-      return;
-    }
-    setFormExercises(prev => prev.filter((_, i) => i !== index));
-  };
-
-  // Render featured workout item (draggable)
+  // Render featured item
   const renderFeaturedItem = ({ item, drag, isActive }: RenderItemParams<FeaturedWorkout>) => (
     <ScaleDecorator>
       <TouchableOpacity
         activeOpacity={0.9}
         onLongPress={drag}
         disabled={isActive}
-        style={[
-          styles.featuredItem,
-          isActive && styles.featuredItemActive,
-        ]}
+        style={[styles.featuredItem, isActive && styles.featuredItemActive]}
       >
         <View style={styles.dragHandle}>
           <Ionicons name="reorder-three" size={24} color="#666" />
         </View>
         
-        <View style={styles.featuredItemContent}>
-          <Text style={styles.featuredItemTitle}>{item.mood} - {item.title}</Text>
+        <TouchableOpacity 
+          style={styles.featuredItemContent}
+          onPress={() => setViewingWorkout(item)}
+        >
+          <Text style={styles.featuredItemTitle} numberOfLines={1}>
+            {item.mood} - {item.title}
+          </Text>
           <Text style={styles.featuredItemMeta}>
             {item.exercises?.length || 0} exercises • {item.duration || 'No duration'}
           </Text>
@@ -445,27 +245,19 @@ export default function FeaturedWorkoutsEditor() {
               <Text style={styles.badgeText}>{item.badge}</Text>
             </View>
           )}
-        </View>
+        </TouchableOpacity>
         
-        <View style={styles.featuredItemActions}>
-          <TouchableOpacity
-            style={styles.actionButton}
-            onPress={() => openEditWorkout(item)}
-          >
-            <Ionicons name="create-outline" size={20} color="#4A90D9" />
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={styles.actionButton}
-            onPress={() => handleRemoveFromFeatured(item._id)}
-          >
-            <Ionicons name="remove-circle-outline" size={20} color="#FF6B6B" />
-          </TouchableOpacity>
-        </View>
+        <TouchableOpacity
+          style={styles.actionButton}
+          onPress={() => handleRemoveFromFeatured(item._id)}
+        >
+          <Ionicons name="close-circle" size={24} color="#FF6B6B" />
+        </TouchableOpacity>
       </TouchableOpacity>
     </ScaleDecorator>
   );
 
-  // Render loading
+  // Loading
   if (loading) {
     return (
       <View style={[styles.container, { paddingTop: insets.top }]}>
@@ -474,11 +266,10 @@ export default function FeaturedWorkoutsEditor() {
             <Ionicons name="arrow-back" size={24} color="#fff" />
           </TouchableOpacity>
           <Text style={styles.headerTitle}>Featured Workouts</Text>
-          <View style={{ width: 40 }} />
+          <View style={{ width: 80 }} />
         </View>
         <View style={styles.loadingContainer}>
           <ActivityIndicator size="large" color="#4A90D9" />
-          <Text style={styles.loadingText}>Loading...</Text>
         </View>
       </View>
     );
@@ -496,10 +287,7 @@ export default function FeaturedWorkoutsEditor() {
           <TouchableOpacity
             onPress={handlePublish}
             disabled={!hasChanges || saving}
-            style={[
-              styles.publishButton,
-              (!hasChanges || saving) && styles.publishButtonDisabled,
-            ]}
+            style={[styles.publishButton, (!hasChanges || saving) && styles.publishButtonDisabled]}
           >
             {saving ? (
               <ActivityIndicator size="small" color="#fff" />
@@ -509,16 +297,6 @@ export default function FeaturedWorkoutsEditor() {
           </TouchableOpacity>
         </View>
 
-        {/* Validation Errors */}
-        {errors.length > 0 && (
-          <View style={styles.errorsContainer}>
-            {errors.map((error, index) => (
-              <Text key={index} style={styles.errorText}>• {error}</Text>
-            ))}
-          </View>
-        )}
-
-        {/* Changes indicator */}
         {hasChanges && (
           <View style={styles.changesIndicator}>
             <Ionicons name="alert-circle" size={16} color="#FFD700" />
@@ -527,26 +305,21 @@ export default function FeaturedWorkoutsEditor() {
         )}
 
         <ScrollView style={styles.scrollView} contentContainerStyle={styles.scrollContent}>
-          {/* Featured Carousel Section */}
+          {/* Featured Carousel */}
           <View style={styles.section}>
             <View style={styles.sectionHeader}>
-              <Text style={styles.sectionTitle}>Featured Carousel Order</Text>
-              <TouchableOpacity
-                style={styles.addButton}
-                onPress={() => setShowAddToFeatured(true)}
-              >
+              <Text style={styles.sectionTitle}>Carousel Order</Text>
+              <TouchableOpacity style={styles.addButton} onPress={() => setShowAddToFeatured(true)}>
                 <Ionicons name="add" size={20} color="#fff" />
                 <Text style={styles.addButtonText}>Add</Text>
               </TouchableOpacity>
             </View>
             
-            <Text style={styles.sectionHint}>Long press and drag to reorder</Text>
+            <Text style={styles.hint}>Long press to drag & reorder • Tap to view</Text>
             
             {featuredWorkouts.length === 0 ? (
               <View style={styles.emptyState}>
-                <Ionicons name="albums-outline" size={48} color="#666" />
                 <Text style={styles.emptyStateText}>No featured workouts</Text>
-                <Text style={styles.emptyStateHint}>Add workouts to the featured carousel</Text>
               </View>
             ) : (
               <DraggableFlatList
@@ -559,53 +332,42 @@ export default function FeaturedWorkoutsEditor() {
             )}
           </View>
 
-          {/* All Workouts Section */}
+          {/* All Workouts */}
           <View style={styles.section}>
             <View style={styles.sectionHeader}>
               <Text style={styles.sectionTitle}>All Workouts ({allWorkouts.length})</Text>
-              <TouchableOpacity
-                style={styles.addButton}
-                onPress={openNewWorkoutBuilder}
-              >
+              <TouchableOpacity style={styles.addButton} onPress={handleCreateNew}>
                 <Ionicons name="add" size={20} color="#fff" />
                 <Text style={styles.addButtonText}>Create New</Text>
               </TouchableOpacity>
             </View>
             
             {allWorkouts.map((workout) => (
-              <View key={workout._id} style={styles.workoutListItem}>
+              <TouchableOpacity 
+                key={workout._id} 
+                style={styles.workoutListItem}
+                onPress={() => setViewingWorkout(workout)}
+              >
                 <View style={styles.workoutListContent}>
                   <Text style={styles.workoutListTitle}>{workout.mood} - {workout.title}</Text>
                   <Text style={styles.workoutListMeta}>
-                    {workout.exercises?.length || 0} exercises • {workout.duration || 'No duration'}
+                    {workout.exercises?.length || 0} exercises • {workout.duration}
                   </Text>
                 </View>
                 
-                <View style={styles.workoutListActions}>
-                  <TouchableOpacity
-                    style={styles.actionButton}
-                    onPress={() => openEditWorkout(workout)}
-                  >
-                    <Ionicons name="create-outline" size={20} color="#4A90D9" />
-                  </TouchableOpacity>
-                  <TouchableOpacity
-                    style={styles.actionButton}
-                    onPress={() => handleDeleteWorkout(workout._id)}
-                  >
-                    <Ionicons name="trash-outline" size={20} color="#FF6B6B" />
-                  </TouchableOpacity>
-                </View>
-              </View>
+                <TouchableOpacity
+                  style={styles.actionButton}
+                  onPress={() => handleDeleteWorkout(workout._id)}
+                >
+                  <Ionicons name="trash-outline" size={20} color="#FF6B6B" />
+                </TouchableOpacity>
+              </TouchableOpacity>
             ))}
           </View>
         </ScrollView>
 
         {/* Add to Featured Modal */}
-        <Modal
-          visible={showAddToFeatured}
-          animationType="slide"
-          presentationStyle="pageSheet"
-        >
+        <Modal visible={showAddToFeatured} animationType="slide" presentationStyle="pageSheet">
           <View style={[styles.modalContainer, { paddingTop: Platform.OS === 'ios' ? 20 : 0 }]}>
             <View style={styles.modalHeader}>
               <TouchableOpacity onPress={() => setShowAddToFeatured(false)}>
@@ -645,207 +407,90 @@ export default function FeaturedWorkoutsEditor() {
           </View>
         </Modal>
 
-        {/* Workout Builder Modal */}
-        <Modal
-          visible={showWorkoutBuilder}
-          animationType="slide"
-          presentationStyle="fullScreen"
-        >
+        {/* View Workout Modal (Cart Format) */}
+        <Modal visible={!!viewingWorkout} animationType="slide" presentationStyle="fullScreen">
           <View style={[styles.modalContainer, { paddingTop: insets.top }]}>
             <View style={styles.modalHeader}>
-              <TouchableOpacity onPress={() => setShowWorkoutBuilder(false)}>
-                <Text style={styles.modalCancel}>Cancel</Text>
+              <TouchableOpacity onPress={() => setViewingWorkout(null)}>
+                <Ionicons name="close" size={24} color="#fff" />
               </TouchableOpacity>
-              <Text style={styles.modalTitle}>
-                {editingWorkout ? 'Edit Workout' : 'Create Workout'}
+              <Text style={styles.modalTitle} numberOfLines={1}>
+                {viewingWorkout?.mood} - {viewingWorkout?.title}
               </Text>
-              <TouchableOpacity onPress={handleSaveWorkout} disabled={saving}>
-                {saving ? (
-                  <ActivityIndicator size="small" color="#4A90D9" />
-                ) : (
-                  <Text style={styles.modalSave}>Save</Text>
-                )}
-              </TouchableOpacity>
+              <View style={{ width: 24 }} />
             </View>
             
-            <ScrollView style={styles.modalContent} keyboardShouldPersistTaps="handled">
-              {/* Title */}
-              <Text style={styles.inputLabel}>Title *</Text>
-              <TextInput
-                style={styles.textInput}
-                value={formTitle}
-                onChangeText={setFormTitle}
-                placeholder="e.g., Back & Bis Volume"
-                placeholderTextColor="#666"
-              />
-              
-              {/* Mood */}
-              <Text style={styles.inputLabel}>Mood Category *</Text>
-              <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.chipScroll}>
-                {MOOD_OPTIONS.map((mood) => (
-                  <TouchableOpacity
-                    key={mood}
-                    style={[styles.chip, formMood === mood && styles.chipSelected]}
-                    onPress={() => setFormMood(mood)}
-                  >
-                    <Text style={[styles.chipText, formMood === mood && styles.chipTextSelected]}>
-                      {mood}
+            <ScrollView style={styles.modalContent}>
+              {/* Workout Info */}
+              <View style={styles.workoutInfoCard}>
+                {viewingWorkout?.heroImageUrl && (
+                  <Image 
+                    source={{ uri: viewingWorkout.heroImageUrl }} 
+                    style={styles.workoutHeroImage}
+                  />
+                )}
+                <View style={styles.workoutInfoContent}>
+                  <Text style={styles.workoutInfoTitle}>{viewingWorkout?.title}</Text>
+                  <Text style={styles.workoutInfoMood}>{viewingWorkout?.mood}</Text>
+                  <View style={styles.workoutInfoRow}>
+                    <Text style={styles.workoutInfoMeta}>
+                      <Ionicons name="time-outline" size={14} color="#888" /> {viewingWorkout?.duration}
                     </Text>
-                  </TouchableOpacity>
-                ))}
-              </ScrollView>
-              
-              {/* Duration */}
-              <Text style={styles.inputLabel}>Duration</Text>
-              <TextInput
-                style={styles.textInput}
-                value={formDuration}
-                onChangeText={setFormDuration}
-                placeholder="e.g., 30-40 min"
-                placeholderTextColor="#666"
-              />
-              
-              {/* Badge */}
-              <Text style={styles.inputLabel}>Badge (optional)</Text>
-              <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.chipScroll}>
-                <TouchableOpacity
-                  style={[styles.chip, !formBadge && styles.chipSelected]}
-                  onPress={() => setFormBadge('')}
-                >
-                  <Text style={[styles.chipText, !formBadge && styles.chipTextSelected]}>None</Text>
-                </TouchableOpacity>
-                {BADGE_OPTIONS.map((badge) => (
-                  <TouchableOpacity
-                    key={badge}
-                    style={[styles.chip, formBadge === badge && styles.chipSelected]}
-                    onPress={() => setFormBadge(badge)}
-                  >
-                    <Text style={[styles.chipText, formBadge === badge && styles.chipTextSelected]}>
-                      {badge}
-                    </Text>
-                  </TouchableOpacity>
-                ))}
-              </ScrollView>
-              
-              {/* Difficulty */}
-              <Text style={styles.inputLabel}>Difficulty</Text>
-              <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.chipScroll}>
-                {DIFFICULTY_OPTIONS.map((diff) => (
-                  <TouchableOpacity
-                    key={diff}
-                    style={[styles.chip, formDifficulty === diff && styles.chipSelected]}
-                    onPress={() => setFormDifficulty(diff)}
-                  >
-                    <Text style={[styles.chipText, formDifficulty === diff && styles.chipTextSelected]}>
-                      {diff}
-                    </Text>
-                  </TouchableOpacity>
-                ))}
-              </ScrollView>
-              
-              {/* Hero Image URL */}
-              <Text style={styles.inputLabel}>Hero Image URL (optional)</Text>
-              <TextInput
-                style={styles.textInput}
-                value={formHeroImage}
-                onChangeText={setFormHeroImage}
-                placeholder="https://example.com/image.jpg"
-                placeholderTextColor="#666"
-                autoCapitalize="none"
-              />
-              
-              {/* Exercises */}
-              <View style={styles.exercisesHeader}>
-                <Text style={styles.inputLabel}>Exercises *</Text>
-                <TouchableOpacity style={styles.addExerciseButton} onPress={addExerciseToForm}>
-                  <Ionicons name="add" size={18} color="#4A90D9" />
-                  <Text style={styles.addExerciseText}>Add Exercise</Text>
-                </TouchableOpacity>
+                    {viewingWorkout?.badge && (
+                      <View style={styles.workoutBadge}>
+                        <Text style={styles.workoutBadgeText}>{viewingWorkout.badge}</Text>
+                      </View>
+                    )}
+                  </View>
+                </View>
               </View>
               
-              {formExercises.map((exercise, index) => (
-                <View key={index} style={styles.exerciseForm}>
-                  <View style={styles.exerciseFormHeader}>
-                    <Text style={styles.exerciseFormTitle}>Exercise {index + 1}</Text>
-                    {formExercises.length > 1 && (
-                      <TouchableOpacity onPress={() => removeFormExercise(index)}>
-                        <Ionicons name="trash-outline" size={20} color="#FF6B6B" />
-                      </TouchableOpacity>
+              {/* Exercises (Cart Format) */}
+              <Text style={styles.exercisesHeader}>
+                Exercises ({viewingWorkout?.exercises?.length || 0})
+              </Text>
+              
+              {viewingWorkout?.exercises?.map((exercise, index) => (
+                <View key={index} style={styles.exerciseCard}>
+                  <View style={styles.exerciseNumber}>
+                    <Text style={styles.exerciseNumberText}>{index + 1}</Text>
+                  </View>
+                  
+                  <View style={styles.exerciseContent}>
+                    <Text style={styles.exerciseName}>{exercise.name}</Text>
+                    <Text style={styles.exerciseEquipment}>{exercise.equipment}</Text>
+                    
+                    {exercise.duration && (
+                      <View style={styles.exerciseMetaRow}>
+                        <Ionicons name="time-outline" size={12} color="#666" />
+                        <Text style={styles.exerciseMetaText}>{exercise.duration}</Text>
+                      </View>
+                    )}
+                    
+                    {exercise.description && (
+                      <Text style={styles.exerciseDescription} numberOfLines={2}>
+                        {exercise.description}
+                      </Text>
+                    )}
+                    
+                    {exercise.battlePlan && (
+                      <View style={styles.battlePlanContainer}>
+                        <Text style={styles.battlePlanLabel}>Battle Plan:</Text>
+                        <Text style={styles.battlePlanText}>{exercise.battlePlan}</Text>
+                      </View>
                     )}
                   </View>
                   
-                  <TextInput
-                    style={styles.exerciseInput}
-                    value={exercise.name}
-                    onChangeText={(v) => updateFormExercise(index, 'name', v)}
-                    placeholder="Exercise Name *"
-                    placeholderTextColor="#666"
-                  />
-                  
-                  <TextInput
-                    style={styles.exerciseInput}
-                    value={exercise.equipment}
-                    onChangeText={(v) => updateFormExercise(index, 'equipment', v)}
-                    placeholder="Equipment"
-                    placeholderTextColor="#666"
-                  />
-                  
-                  <TextInput
-                    style={[styles.exerciseInput, styles.multilineInput]}
-                    value={exercise.description}
-                    onChangeText={(v) => updateFormExercise(index, 'description', v)}
-                    placeholder="Description"
-                    placeholderTextColor="#666"
-                    multiline
-                  />
-                  
-                  <TextInput
-                    style={[styles.exerciseInput, styles.multilineInput]}
-                    value={exercise.battlePlan}
-                    onChangeText={(v) => updateFormExercise(index, 'battlePlan', v)}
-                    placeholder="Battle Plan / Instructions"
-                    placeholderTextColor="#666"
-                    multiline
-                  />
-                  
-                  <View style={styles.exerciseRow}>
-                    <TextInput
-                      style={[styles.exerciseInput, { flex: 1, marginRight: 8 }]}
-                      value={exercise.duration}
-                      onChangeText={(v) => updateFormExercise(index, 'duration', v)}
-                      placeholder="Duration"
-                      placeholderTextColor="#666"
+                  {exercise.imageUrl && (
+                    <Image 
+                      source={{ uri: exercise.imageUrl }} 
+                      style={styles.exerciseImage}
                     />
-                    <TextInput
-                      style={[styles.exerciseInput, { flex: 1 }]}
-                      value={exercise.difficulty}
-                      onChangeText={(v) => updateFormExercise(index, 'difficulty', v)}
-                      placeholder="Difficulty"
-                      placeholderTextColor="#666"
-                    />
-                  </View>
-                  
-                  <TextInput
-                    style={styles.exerciseInput}
-                    value={exercise.imageUrl}
-                    onChangeText={(v) => updateFormExercise(index, 'imageUrl', v)}
-                    placeholder="Image URL"
-                    placeholderTextColor="#666"
-                    autoCapitalize="none"
-                  />
-                  
-                  <TextInput
-                    style={[styles.exerciseInput, styles.multilineInput]}
-                    value={exercise.intensityReason}
-                    onChangeText={(v) => updateFormExercise(index, 'intensityReason', v)}
-                    placeholder="Intensity Reason"
-                    placeholderTextColor="#666"
-                    multiline
-                  />
+                  )}
                 </View>
               ))}
               
-              <View style={{ height: 100 }} />
+              <View style={{ height: 40 }} />
             </ScrollView>
           </View>
         </Modal>
@@ -897,24 +542,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  loadingText: {
-    color: '#999',
-    marginTop: 12,
-  },
-  errorsContainer: {
-    backgroundColor: 'rgba(255, 107, 107, 0.1)',
-    borderLeftWidth: 3,
-    borderLeftColor: '#FF6B6B',
-    padding: 12,
-    margin: 16,
-    marginBottom: 0,
-    borderRadius: 4,
-  },
-  errorText: {
-    color: '#FF6B6B',
-    fontSize: 13,
-    marginBottom: 4,
-  },
   changesIndicator: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -940,15 +567,15 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    marginBottom: 12,
+    marginBottom: 8,
   },
   sectionTitle: {
     fontSize: 18,
     fontWeight: '700',
     color: '#fff',
   },
-  sectionHint: {
-    fontSize: 13,
+  hint: {
+    fontSize: 12,
     color: '#666',
     marginBottom: 12,
   },
@@ -973,14 +600,8 @@ const styles = StyleSheet.create({
     borderRadius: 12,
   },
   emptyStateText: {
-    color: '#999',
-    fontSize: 15,
-    marginTop: 12,
-  },
-  emptyStateHint: {
     color: '#666',
-    fontSize: 13,
-    marginTop: 4,
+    fontSize: 15,
   },
   featuredItem: {
     flexDirection: 'row',
@@ -997,10 +618,11 @@ const styles = StyleSheet.create({
     borderColor: '#4A90D9',
   },
   dragHandle: {
-    paddingRight: 12,
+    paddingRight: 8,
   },
   featuredItemContent: {
     flex: 1,
+    paddingRight: 8,
   },
   featuredItemTitle: {
     fontSize: 15,
@@ -1010,7 +632,7 @@ const styles = StyleSheet.create({
   featuredItemMeta: {
     fontSize: 13,
     color: '#888',
-    marginTop: 4,
+    marginTop: 2,
   },
   badgeContainer: {
     backgroundColor: '#4A90D9',
@@ -1018,18 +640,15 @@ const styles = StyleSheet.create({
     paddingVertical: 2,
     borderRadius: 4,
     alignSelf: 'flex-start',
-    marginTop: 6,
+    marginTop: 4,
   },
   badgeText: {
-    fontSize: 11,
+    fontSize: 10,
     color: '#fff',
     fontWeight: '600',
   },
-  featuredItemActions: {
-    flexDirection: 'row',
-  },
   actionButton: {
-    padding: 8,
+    padding: 4,
   },
   workoutListItem: {
     flexDirection: 'row',
@@ -1050,13 +669,10 @@ const styles = StyleSheet.create({
   workoutListMeta: {
     fontSize: 13,
     color: '#888',
-    marginTop: 4,
-  },
-  workoutListActions: {
-    flexDirection: 'row',
+    marginTop: 2,
   },
   
-  // Modal styles
+  // Modal
   modalContainer: {
     flex: 1,
     backgroundColor: '#0c0c0c',
@@ -1074,15 +690,12 @@ const styles = StyleSheet.create({
     fontSize: 17,
     fontWeight: '700',
     color: '#fff',
+    flex: 1,
+    textAlign: 'center',
   },
   modalCancel: {
     fontSize: 16,
     color: '#888',
-  },
-  modalSave: {
-    fontSize: 16,
-    color: '#4A90D9',
-    fontWeight: '600',
   },
   modalContent: {
     flex: 1,
@@ -1107,101 +720,133 @@ const styles = StyleSheet.create({
   selectableWorkoutMeta: {
     fontSize: 13,
     color: '#888',
-    marginTop: 4,
+    marginTop: 2,
   },
   
-  // Form styles
-  inputLabel: {
-    fontSize: 14,
-    fontWeight: '600',
-    color: '#ccc',
-    marginBottom: 8,
-    marginTop: 16,
-  },
-  textInput: {
+  // Workout View
+  workoutInfoCard: {
     backgroundColor: '#1a1a1a',
-    borderRadius: 8,
-    padding: 12,
-    fontSize: 15,
+    borderRadius: 12,
+    overflow: 'hidden',
+    marginBottom: 16,
+  },
+  workoutHeroImage: {
+    width: '100%',
+    height: 150,
+    backgroundColor: '#222',
+  },
+  workoutInfoContent: {
+    padding: 16,
+  },
+  workoutInfoTitle: {
+    fontSize: 20,
+    fontWeight: '700',
     color: '#fff',
-    borderWidth: 1,
-    borderColor: '#333',
   },
-  chipScroll: {
+  workoutInfoMood: {
+    fontSize: 14,
+    color: '#4A90D9',
+    marginTop: 4,
+  },
+  workoutInfoRow: {
     flexDirection: 'row',
-    marginBottom: 8,
+    alignItems: 'center',
+    marginTop: 8,
+    gap: 12,
   },
-  chip: {
-    backgroundColor: '#1a1a1a',
-    paddingHorizontal: 14,
-    paddingVertical: 8,
-    borderRadius: 20,
-    marginRight: 8,
-    borderWidth: 1,
-    borderColor: '#333',
-  },
-  chipSelected: {
-    backgroundColor: '#4A90D9',
-    borderColor: '#4A90D9',
-  },
-  chipText: {
-    color: '#999',
+  workoutInfoMeta: {
     fontSize: 13,
+    color: '#888',
   },
-  chipTextSelected: {
+  workoutBadge: {
+    backgroundColor: '#4A90D9',
+    paddingHorizontal: 10,
+    paddingVertical: 3,
+    borderRadius: 4,
+  },
+  workoutBadgeText: {
+    fontSize: 11,
     color: '#fff',
     fontWeight: '600',
   },
   exercisesHeader: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    marginTop: 24,
-  },
-  addExerciseButton: {
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-  addExerciseText: {
-    color: '#4A90D9',
-    fontSize: 14,
-    fontWeight: '600',
-    marginLeft: 4,
-  },
-  exerciseForm: {
-    backgroundColor: '#1a1a1a',
-    borderRadius: 12,
-    padding: 16,
-    marginTop: 12,
-    borderWidth: 1,
-    borderColor: '#333',
-  },
-  exerciseFormHeader: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
+    fontSize: 16,
+    fontWeight: '700',
+    color: '#fff',
     marginBottom: 12,
   },
-  exerciseFormTitle: {
+  exerciseCard: {
+    flexDirection: 'row',
+    backgroundColor: '#1a1a1a',
+    borderRadius: 12,
+    padding: 12,
+    marginBottom: 8,
+  },
+  exerciseNumber: {
+    width: 28,
+    height: 28,
+    borderRadius: 14,
+    backgroundColor: '#333',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginRight: 12,
+  },
+  exerciseNumberText: {
+    fontSize: 13,
+    fontWeight: '700',
+    color: '#fff',
+  },
+  exerciseContent: {
+    flex: 1,
+  },
+  exerciseName: {
     fontSize: 15,
     fontWeight: '600',
     color: '#fff',
   },
-  exerciseInput: {
-    backgroundColor: '#0c0c0c',
+  exerciseEquipment: {
+    fontSize: 13,
+    color: '#4A90D9',
+    marginTop: 2,
+  },
+  exerciseMetaRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginTop: 4,
+    gap: 4,
+  },
+  exerciseMetaText: {
+    fontSize: 12,
+    color: '#666',
+  },
+  exerciseDescription: {
+    fontSize: 12,
+    color: '#888',
+    marginTop: 6,
+    lineHeight: 16,
+  },
+  battlePlanContainer: {
+    backgroundColor: '#222',
     borderRadius: 8,
     padding: 10,
-    fontSize: 14,
-    color: '#fff',
-    borderWidth: 1,
-    borderColor: '#222',
-    marginBottom: 8,
+    marginTop: 8,
   },
-  multilineInput: {
-    minHeight: 80,
-    textAlignVertical: 'top',
+  battlePlanLabel: {
+    fontSize: 11,
+    fontWeight: '600',
+    color: '#4A90D9',
+    marginBottom: 4,
   },
-  exerciseRow: {
-    flexDirection: 'row',
+  battlePlanText: {
+    fontSize: 12,
+    color: '#ccc',
+    lineHeight: 18,
+  },
+  exerciseImage: {
+    width: 60,
+    height: 60,
+    borderRadius: 8,
+    backgroundColor: '#222',
+    marginLeft: 12,
   },
 });
