@@ -19,6 +19,8 @@ import { useCart } from '../contexts/CartContext';
 import { useAuth } from '../contexts/AuthContext';
 import Toast from '../components/Toast';
 import { Analytics } from '../utils/analytics';
+import ExerciseLookupSheet from '../components/ExerciseLookupSheet';
+import ExerciseLookupTrigger from '../components/ExerciseLookupTrigger';
 
 interface MOODTip {
   icon: keyof typeof Ionicons.glyphMap;
