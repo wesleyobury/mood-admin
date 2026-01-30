@@ -295,10 +295,14 @@ const styles = StyleSheet.create({
     width: 64,
     height: 64,
     borderRadius: 32,
-    backgroundColor: 'rgba(255, 215, 0, 0.1)',
+    overflow: 'hidden',
+    marginBottom: 16,
+  },
+  headerIconGradient: {
+    width: '100%',
+    height: '100%',
     justifyContent: 'center',
     alignItems: 'center',
-    marginBottom: 16,
   },
   title: {
     fontSize: 24,
@@ -323,6 +327,18 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginBottom: 14,
   },
+  benefitIconContainer: {
+    width: 28,
+    height: 28,
+    borderRadius: 14,
+    overflow: 'hidden',
+  },
+  benefitIconGradient: {
+    width: '100%',
+    height: '100%',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
   benefitText: {
     fontSize: 15,
     color: '#ccc',
@@ -346,16 +362,28 @@ const styles = StyleSheet.create({
     color: '#0c0c0c',
   },
   signInButton: {
+    borderRadius: 12,
+    overflow: 'hidden',
+  },
+  signInBorder: {
+    padding: 2,
+    borderRadius: 12,
+  },
+  signInInner: {
+    backgroundColor: '#0c0c0c',
+    borderRadius: 10,
     paddingVertical: 14,
     alignItems: 'center',
-    borderWidth: 1,
-    borderColor: 'rgba(255, 215, 0, 0.3)',
-    borderRadius: 12,
   },
   signInText: {
     fontSize: 15,
     fontWeight: '600',
     color: '#FFD700',
+  },
+  signInTextMask: {
+    fontSize: 15,
+    fontWeight: '600',
+    textAlign: 'center',
   },
   continueGuestButton: {
     paddingVertical: 12,
