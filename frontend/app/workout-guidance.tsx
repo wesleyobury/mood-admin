@@ -834,8 +834,11 @@ export default function WorkoutGuidanceScreen() {
               </View>
             ))}
           </View>
-          
-          {/* Enhanced Workout Details */}
+        </View>
+        )}
+
+        {/* Enhanced Workout Details - Always Show */}
+        <View style={styles.moodTipsContainer}>
           <View style={styles.workoutDetailsBlock}>
             <View style={styles.detailsHeader}>
               <Ionicons name="clipboard" size={20} color="#FFD700" />
