@@ -1534,20 +1534,6 @@ export default function CreatePost() {
         </Modal>
       )}
 
-      {/* Video Processing Loading Overlay - Minimal style */}
-      {isProcessingVideo && (
-        <Modal
-          visible={isProcessingVideo}
-          transparent
-          animationType="fade"
-        >
-          <View style={styles.videoProcessingOverlay}>
-            <ActivityIndicator size={36} color="#FFD700" />
-            <Text style={styles.videoProcessingText}>Processing Video</Text>
-          </View>
-        </Modal>
-      )}
-
       {/* Permission Request Modal */}
       <Modal
         visible={showPermissionModal}
