@@ -12,6 +12,7 @@ import {
 import { Ionicons } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
 import { Workout } from '../types/workout';
+import CustomWorkoutModal from './CustomWorkoutModal';
 
 const { width } = Dimensions.get('window');
 
