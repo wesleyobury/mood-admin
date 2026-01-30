@@ -109,10 +109,8 @@ const CustomWorkoutModal: React.FC<CustomWorkoutModalProps> = ({
         <View style={styles.modalContent}>
           {showSuccess ? (
             <View style={styles.successContainer}>
-              <View style={styles.successIconContainer}>
-                <Ionicons name="checkmark-circle" size={64} color="#FFD700" />
-              </View>
-              <Text style={styles.successText}>Added to Cart!</Text>
+              <Ionicons name="checkmark-circle" size={32} color="#FFD700" />
+              <Text style={styles.successText}>Added</Text>
             </View>
           ) : (
             <>
