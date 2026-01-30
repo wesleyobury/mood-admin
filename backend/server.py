@@ -3031,6 +3031,59 @@ async def get_chart_data(
                 "datasets": [{"label": "Guest Sign-ins", "data": [r["count"] for r in results]}]
             }
         
+        elif chart_type == "completions_by_mood":
+            # Workout completions grouped by mood card and time period
+            # This tracks which mood categories are completing workouts over time
+            mood_display_names = {
+                "sweat": "Sweat",
+                "muscle": "Muscle", 
+                "outdoor": "Outdoor",
+                "calisthenics": "Calisthenics",
+                "lazy": "Lazy",
+                "explosive": "Explosive"
+            }
+            
+            # Get all moods that have completions
+            mood_pipeline = [
+                {"$match": {"event_type": "workout_completed", "timestamp": {"$gte": cutoff}}},
+                {"$group": {"_id": "$metadata.mood_category"}},
+            ]
+            moods = await db.user_events.aggregate(mood_pipeline).to_list(20)
+            mood_list = [m["_id"] for m in moods if m["_id"]]
+            
+            # Get completions by date for each mood
+            all_dates = set()
+            mood_data = {}
+            
+            for mood in mood_list:
+                pipeline = [
+                    {"$match": {"event_type": "workout_completed", "metadata.mood_category": mood, "timestamp": {"$gte": cutoff}}},
+                    {"$group": {"_id": {"$dateToString": {"format": date_format, "date": "$timestamp"}}, "count": {"$sum": 1}}},
+                    {"$sort": {"_id": 1}}
+                ]
+                results = await db.user_events.aggregate(pipeline).to_list(100)
+                mood_data[mood] = {r["_id"]: r["count"] for r in results}
+                all_dates.update(mood_data[mood].keys())
+            
+            sorted_dates = sorted(all_dates)
+            labels = [format_label(date_key, period) for date_key in sorted_dates]
+            
+            # Build datasets for each mood
+            datasets = []
+            for mood in mood_list:
+                data = [mood_data[mood].get(d, 0) for d in sorted_dates]
+                datasets.append({
+                    "label": mood_display_names.get(mood, mood or "Unknown"),
+                    "data": data,
+                    "mood_id": mood
+                })
+            
+            return {
+                "chart_type": chart_type,
+                "labels": labels,
+                "datasets": datasets
+            }
+        
         return {"chart_type": chart_type, "labels": [], "datasets": []}
         
     except Exception as e:
