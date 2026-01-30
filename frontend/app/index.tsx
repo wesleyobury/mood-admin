@@ -288,7 +288,18 @@ export default function Welcome() {
               />
             </View>
 
-            <Text style={styles.title}>MOOD</Text>
+            <MaskedView
+              maskElement={
+                <Text style={styles.title}>MOOD</Text>
+              }
+            >
+              <LinearGradient
+                colors={['#FFD700', '#FFA500']}
+                start={{ x: 0, y: 0 }}
+                end={{ x: 1, y: 0 }}
+                style={{ width: 200, height: 70 }}
+              />
+            </MaskedView>
             <Text style={styles.subtitle}>
               Workouts that match your{'\n'}
               <Text style={styles.highlightText}>mood</Text>
