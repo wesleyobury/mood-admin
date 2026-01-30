@@ -464,7 +464,7 @@ export default function CreatePost() {
         mediaTypes: ['videos'],
         allowsMultipleSelection: false,
         allowsEditing: false,
-        videoMaxDuration: 60, // 60 seconds max
+        videoMaxDuration: 30, // 30 seconds max
         // Enable transcoding to H.264 - this handles slow-mo, ProRes, HEVC videos
         videoExportPreset: ImagePicker.VideoExportPreset.HighestQuality,
       });
@@ -473,8 +473,8 @@ export default function CreatePost() {
         const asset = result.assets[0];
         
         // Check video duration if available
-        if (asset.duration && asset.duration > 60000) { // 60 seconds in ms
-          showAlert('Video Too Long', 'Please select a video under 60 seconds');
+        if (asset.duration && asset.duration > 30000) { // 30 seconds in ms
+          showAlert('Video Too Long', 'Please select a video under 30 seconds');
           return;
         }
         
