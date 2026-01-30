@@ -1156,6 +1156,7 @@ export default function Explore() {
                         return url;
                       })}
                       isPostVisible={visiblePostId === post.id}
+                      coverUrls={post.cover_urls}
                       onIndexChange={(index) => {
                         setCarouselIndexes(prev => ({ ...prev, [post.id]: index }));
                         
