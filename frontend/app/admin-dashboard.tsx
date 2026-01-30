@@ -1467,6 +1467,138 @@ export default function AdminDashboard() {
         </View>
       </Modal>
 
+      {/* Completions by Mood Chart Modal */}
+      <Modal
+        visible={showCompletionsByMoodModal}
+        animationType="slide"
+        presentationStyle="pageSheet"
+        onRequestClose={() => setShowCompletionsByMoodModal(false)}
+      >
+        <View style={[styles.modalContainer, { paddingTop: insets.top }]}>
+          <View style={styles.modalHeader}>
+            <TouchableOpacity onPress={() => setShowCompletionsByMoodModal(false)} style={styles.modalClose}>
+              <Ionicons name="close" size={24} color='#fff' />
+            </TouchableOpacity>
+            <Text style={styles.modalTitle}>Completions by Mood</Text>
+            <View style={{ width: 24 }} />
+          </View>
+
+          {/* Period Selector */}
+          <View style={styles.engagementChartPeriodSelector}>
+            {(['day', 'week', 'month'] as const).map((period) => (
+              <TouchableOpacity
+                key={period}
+                style={[
+                  styles.engagementChartPeriodBtn,
+                  completionsByMoodPeriod === period && styles.engagementChartPeriodBtnActive
+                ]}
+                onPress={() => setCompletionsByMoodPeriod(period)}
+              >
+                <Text style={[
+                  styles.engagementChartPeriodText,
+                  completionsByMoodPeriod === period && styles.engagementChartPeriodTextActive
+                ]}>
+                  {period === 'day' ? 'Daily' : period === 'week' ? 'Weekly' : 'Monthly'}
+                </Text>
+              </TouchableOpacity>
+            ))}
+          </View>
+
+          {completionsByMoodLoading ? (
+            <View style={styles.engagementChartLoading}>
+              <ActivityIndicator size="large" color='#FFD700' />
+              <Text style={styles.engagementChartLoadingText}>Loading chart...</Text>
+            </View>
+          ) : completionsByMoodData && completionsByMoodData.labels.length > 0 ? (
+            <ScrollView style={{ flex: 1 }} showsVerticalScrollIndicator={false}>
+              {/* Legend */}
+              <View style={styles.moodChartLegend}>
+                {completionsByMoodData.datasets.map((dataset, index) => {
+                  const moodId = (dataset as any).mood_id || '';
+                  const color = MOOD_COLORS[moodId] || '#FFD700';
+                  return (
+                    <View key={index} style={styles.moodLegendItem}>
+                      <View style={[styles.moodLegendColor, { backgroundColor: color }]} />
+                      <Text style={styles.moodLegendText}>{dataset.label}</Text>
+                    </View>
+                  );
+                })}
+              </View>
+              
+              {/* Stacked Bar Chart - one bar per mood */}
+              {completionsByMoodData.datasets.map((dataset, index) => {
+                const moodId = (dataset as any).mood_id || '';
+                const color = MOOD_COLORS[moodId] || '#FFD700';
+                const total = dataset.data.reduce((a, b) => a + b, 0);
+                
+                return (
+                  <View key={index} style={styles.moodChartRow}>
+                    <View style={styles.moodChartLabel}>
+                      <View style={[styles.moodChartIcon, { backgroundColor: `${color}30` }]}>
+                        <Ionicons name={MOOD_ICONS[moodId] as any || 'fitness'} size={16} color={color} />
+                      </View>
+                      <Text style={styles.moodChartLabelText}>{dataset.label}</Text>
+                    </View>
+                    <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.moodChartBarsContainer}>
+                      <BarChart
+                        data={{
+                          labels: completionsByMoodData.labels.slice(-12),
+                          datasets: [{ data: dataset.data.slice(-12).map(v => v || 0) }]
+                        }}
+                        width={Math.max(screenWidth - 150, 12 * 40)}
+                        height={80}
+                        yAxisLabel=""
+                        yAxisSuffix=""
+                        chartConfig={{
+                          backgroundColor: 'transparent',
+                          backgroundGradientFrom: '#1a1a1a',
+                          backgroundGradientTo: '#1a1a1a',
+                          decimalPlaces: 0,
+                          color: () => color,
+                          labelColor: () => '#888',
+                          barPercentage: 0.6,
+                          propsForLabels: { fontSize: 8 },
+                        }}
+                        style={{ marginLeft: -20 }}
+                        showValuesOnTopOfBars
+                        fromZero
+                        withHorizontalLabels={false}
+                      />
+                    </ScrollView>
+                    <Text style={[styles.moodChartTotal, { color }]}>{total}</Text>
+                  </View>
+                );
+              })}
+              
+              {/* Summary */}
+              <View style={styles.engagementChartSummary}>
+                <View style={styles.engagementChartSummaryItem}>
+                  <Text style={styles.engagementChartSummaryValue}>
+                    {completionsByMoodData.datasets.reduce((sum, ds) => sum + ds.data.reduce((a, b) => a + b, 0), 0)}
+                  </Text>
+                  <Text style={styles.engagementChartSummaryLabel}>Total Completions</Text>
+                </View>
+                <View style={styles.engagementChartSummaryDivider} />
+                <View style={styles.engagementChartSummaryItem}>
+                  <Text style={styles.engagementChartSummaryValue}>
+                    {completionsByMoodData.datasets.length}
+                  </Text>
+                  <Text style={styles.engagementChartSummaryLabel}>Active Moods</Text>
+                </View>
+              </View>
+              
+              <View style={{ height: 40 }} />
+            </ScrollView>
+          ) : (
+            <View style={styles.noEngagementData}>
+              <Ionicons name="bar-chart-outline" size={48} color='#666' />
+              <Text style={styles.noEngagementText}>No completion data available</Text>
+              <Text style={styles.noEngagementSubtext}>Complete some workouts to see data here</Text>
+            </View>
+          )}
+        </View>
+      </Modal>
+
       {/* User List Modal */}
       <Modal
         visible={showUserList}
