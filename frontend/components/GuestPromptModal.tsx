@@ -367,11 +367,6 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     color: '#FFD700',
   },
-  signInTextMask: {
-    fontSize: 15,
-    fontWeight: '600',
-    textAlign: 'center',
-  },
   continueGuestButton: {
     paddingVertical: 12,
     alignItems: 'center',
