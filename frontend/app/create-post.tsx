@@ -2185,6 +2185,12 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(255, 255, 255, 0.7)',
     borderRadius: 2,
   },
+  videoProcessingSubtext: {
+    fontSize: 13,
+    fontWeight: '400',
+    color: 'rgba(255, 255, 255, 0.5)',
+    marginTop: 4,
+  },
   // Permission Modal Styles
   permissionModalOverlay: {
     flex: 1,
