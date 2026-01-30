@@ -186,7 +186,7 @@ export default function ExerciseLookupSheet({ visible, onClose }: ExerciseLookup
         {/* Full-screen Video Player */}
         <View style={styles.fullScreenVideoContainer}>
           {videoError ? (
-            <TouchableOpacity style={styles.videoErrorContainer} onPress={handleRetryVideo}>
+            <TouchableOpacity style={styles.videoErrorContainer} onPress={handleRetryVideo} activeOpacity={0.9}>
               <Image
                 source={{ uri: selectedExercise.thumbnail_url }}
                 style={styles.fullScreenVideo}
@@ -215,59 +215,61 @@ export default function ExerciseLookupSheet({ visible, onClose }: ExerciseLookup
           
           {/* Gradient Overlay for text readability */}
           <LinearGradient
-            colors={['rgba(0,0,0,0.6)', 'transparent', 'transparent', 'rgba(0,0,0,0.8)']}
-            locations={[0, 0.25, 0.5, 1]}
+            colors={['rgba(0,0,0,0.5)', 'transparent', 'rgba(0,0,0,0.7)']}
+            locations={[0, 0.4, 1]}
             style={styles.videoGradientOverlay}
+            pointerEvents="none"
           />
           
           {/* Back button - top left */}
-          <TouchableOpacity style={styles.overlayBackButton} onPress={handleBackToList}>
+          <TouchableOpacity 
+            style={styles.overlayBackButton} 
+            onPress={handleBackToList}
+            activeOpacity={0.7}
+            hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }}
+          >
             <Ionicons name="chevron-back" size={28} color="#fff" />
           </TouchableOpacity>
           
-          {/* Equipment - top center */}
-          {selectedExercise.equipment.length > 0 && (
-            <View style={styles.overlayEquipmentContainer}>
-              {selectedExercise.equipment.map((eq, idx) => (
-                <View key={idx} style={styles.overlayEquipmentChip}>
-                  <Ionicons name="barbell-outline" size={12} color="rgba(255,255,255,0.9)" />
-                  <Text style={styles.overlayEquipmentText}>{eq}</Text>
-                </View>
-              ))}
-            </View>
-          )}
-          
-          {/* Content Overlay - bottom left aligned */}
-          <ScrollView 
-            style={styles.overlayContent} 
-            showsVerticalScrollIndicator={false}
-            contentContainerStyle={styles.overlayContentInner}
-          >
-            {/* Exercise Title */}
-            <Text style={styles.overlayTitle}>{selectedExercise.name}</Text>
-            
-            {/* Cues */}
-            {selectedExercise.cues.length > 0 && (
-              <View style={styles.overlayCuesContainer}>
-                <Text style={styles.overlaySectionTitle}>Key Cues</Text>
-                {selectedExercise.cues.map((cue, idx) => (
-                  <View key={idx} style={styles.overlayCueItem}>
-                    <View style={styles.overlayCueNumber}>
-                      <Text style={styles.overlayCueNumberText}>{idx + 1}</Text>
+          {/* Content Overlay - center aligned vertically */}
+          <View style={styles.overlayContentWrapper}>
+            <View style={styles.overlayContentInner}>
+              {/* Exercise Title */}
+              <Text style={styles.overlayTitle}>{selectedExercise.name}</Text>
+              
+              {/* Cues */}
+              {selectedExercise.cues.length > 0 && (
+                <View style={styles.overlayCuesContainer}>
+                  <Text style={styles.overlaySectionTitle}>Key Cues</Text>
+                  {selectedExercise.cues.map((cue, idx) => (
+                    <View key={idx} style={styles.overlayCueItem}>
+                      <View style={styles.overlayCueNumber}>
+                        <Text style={styles.overlayCueNumberText}>{idx + 1}</Text>
+                      </View>
+                      <Text style={styles.overlayCueText}>{cue}</Text>
                     </View>
-                    <Text style={styles.overlayCueText}>{cue}</Text>
-                  </View>
-                ))}
-              </View>
-            )}
+                  ))}
+                </View>
+              )}
 
-            {/* Common Mistakes */}
-            {selectedExercise.mistakes && selectedExercise.mistakes.length > 0 && (
-              <View style={styles.overlayMistakesContainer}>
-                <Text style={styles.overlaySectionTitle}>Common Mistakes</Text>
-                {selectedExercise.mistakes.map((mistake, idx) => (
-                  <View key={idx} style={styles.overlayMistakeItem}>
-                    <Ionicons name="close-circle" size={14} color="rgba(255,255,255,0.6)" />
+              {/* Common Mistakes */}
+              {selectedExercise.mistakes && selectedExercise.mistakes.length > 0 && (
+                <View style={styles.overlayMistakesContainer}>
+                  <Text style={styles.overlaySectionTitle}>Common Mistakes</Text>
+                  {selectedExercise.mistakes.map((mistake, idx) => (
+                    <View key={idx} style={styles.overlayMistakeItem}>
+                      <Ionicons name="close-circle" size={14} color="rgba(255,255,255,0.6)" />
+                      <Text style={styles.overlayMistakeText}>{mistake}</Text>
+                    </View>
+                  ))}
+                </View>
+              )}
+            </View>
+          </View>
+        </View>
+      </View>
+    );
+  };
                     <Text style={styles.overlayMistakeText}>{mistake}</Text>
                   </View>
                 ))}
