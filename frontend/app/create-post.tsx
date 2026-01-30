@@ -460,6 +460,9 @@ export default function CreatePost() {
     }
 
     try {
+      // Show processing indicator before picking
+      setIsProcessingVideo(true);
+      
       // Pick video with transcoding enabled to handle slow-mo and ProRes videos
       // Using HighestQuality export preset to transcode problematic formats to H.264
       // This converts slow-mo, ProRes, and HEVC videos to standard H.264 format
@@ -477,6 +480,7 @@ export default function CreatePost() {
         
         // Check video duration if available
         if (asset.duration && asset.duration > 30000) { // 30 seconds in ms
+          setIsProcessingVideo(false);
           showAlert('Video Too Long', 'Please select a video under 30 seconds');
           return;
         }
@@ -484,7 +488,9 @@ export default function CreatePost() {
         const newMedia: MediaItem = { uri: asset.uri, type: 'video' };
         setSelectedMedia([...selectedMedia, newMedia].slice(0, maxMedia));
       }
+      setIsProcessingVideo(false);
     } catch (error: any) {
+      setIsProcessingVideo(false);
       console.error('Video picker error:', error);
       // Handle PHPhotos errors gracefully
       if (error?.message?.includes('PHPhotos') || error?.message?.includes('3164') || error?.message?.includes("couldn't be completed")) {
