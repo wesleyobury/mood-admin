@@ -183,24 +183,18 @@ export default function ExerciseLookupSheet({ visible, onClose }: ExerciseLookup
 
     return (
       <View style={styles.detailContainer}>
-        {/* Back button */}
-        <TouchableOpacity style={styles.detailBackButton} onPress={handleBackToList}>
-          <Ionicons name="chevron-back" size={24} color="#FFD700" />
-          <Text style={styles.detailBackText}>Back</Text>
-        </TouchableOpacity>
-
-        {/* Video Player */}
-        <View style={styles.videoContainer}>
+        {/* Full-screen Video Player */}
+        <View style={styles.fullScreenVideoContainer}>
           {videoError ? (
             <TouchableOpacity style={styles.videoErrorContainer} onPress={handleRetryVideo}>
               <Image
                 source={{ uri: selectedExercise.thumbnail_url }}
-                style={styles.videoThumbnail}
+                style={styles.fullScreenVideo}
                 contentFit="cover"
                 cachePolicy="memory-disk"
               />
               <View style={styles.videoErrorOverlay}>
-                <Ionicons name="refresh" size={32} color="#FFD700" />
+                <Ionicons name="refresh" size={32} color="#fff" />
                 <Text style={styles.videoErrorText}>Tap to retry</Text>
               </View>
             </TouchableOpacity>
@@ -208,7 +202,7 @@ export default function ExerciseLookupSheet({ visible, onClose }: ExerciseLookup
             <Video
               ref={videoRef}
               source={{ uri: selectedExercise.video_url }}
-              style={styles.video}
+              style={styles.fullScreenVideo}
               resizeMode={ResizeMode.COVER}
               isLooping
               isMuted
@@ -218,52 +212,69 @@ export default function ExerciseLookupSheet({ visible, onClose }: ExerciseLookup
               usePoster
             />
           )}
-        </View>
-
-        {/* Exercise Info */}
-        <ScrollView style={styles.detailContent} showsVerticalScrollIndicator={false}>
-          <Text style={styles.exerciseTitle}>{selectedExercise.name}</Text>
           
-          {/* Equipment */}
+          {/* Gradient Overlay for text readability */}
+          <LinearGradient
+            colors={['rgba(0,0,0,0.6)', 'transparent', 'transparent', 'rgba(0,0,0,0.8)']}
+            locations={[0, 0.25, 0.5, 1]}
+            style={styles.videoGradientOverlay}
+          />
+          
+          {/* Back button - top left */}
+          <TouchableOpacity style={styles.overlayBackButton} onPress={handleBackToList}>
+            <Ionicons name="chevron-back" size={28} color="#fff" />
+          </TouchableOpacity>
+          
+          {/* Equipment - top center */}
           {selectedExercise.equipment.length > 0 && (
-            <View style={styles.equipmentRow}>
+            <View style={styles.overlayEquipmentContainer}>
               {selectedExercise.equipment.map((eq, idx) => (
-                <View key={idx} style={styles.equipmentChip}>
-                  <Ionicons name="barbell-outline" size={12} color="rgba(255,255,255,0.7)" />
-                  <Text style={styles.equipmentText}>{eq}</Text>
+                <View key={idx} style={styles.overlayEquipmentChip}>
+                  <Ionicons name="barbell-outline" size={12} color="rgba(255,255,255,0.9)" />
+                  <Text style={styles.overlayEquipmentText}>{eq}</Text>
                 </View>
               ))}
             </View>
           )}
-
-          {/* Cues */}
-          {selectedExercise.cues.length > 0 && (
-            <View style={styles.cuesContainer}>
-              <Text style={styles.sectionTitle}>Key Cues</Text>
-              {selectedExercise.cues.map((cue, idx) => (
-                <View key={idx} style={styles.cueItem}>
-                  <View style={styles.cueNumber}>
-                    <Text style={styles.cueNumberText}>{idx + 1}</Text>
+          
+          {/* Content Overlay - bottom left aligned */}
+          <ScrollView 
+            style={styles.overlayContent} 
+            showsVerticalScrollIndicator={false}
+            contentContainerStyle={styles.overlayContentInner}
+          >
+            {/* Exercise Title */}
+            <Text style={styles.overlayTitle}>{selectedExercise.name}</Text>
+            
+            {/* Cues */}
+            {selectedExercise.cues.length > 0 && (
+              <View style={styles.overlayCuesContainer}>
+                <Text style={styles.overlaySectionTitle}>Key Cues</Text>
+                {selectedExercise.cues.map((cue, idx) => (
+                  <View key={idx} style={styles.overlayCueItem}>
+                    <View style={styles.overlayCueNumber}>
+                      <Text style={styles.overlayCueNumberText}>{idx + 1}</Text>
+                    </View>
+                    <Text style={styles.overlayCueText}>{cue}</Text>
                   </View>
-                  <Text style={styles.cueText}>{cue}</Text>
-                </View>
-              ))}
-            </View>
-          )}
+                ))}
+              </View>
+            )}
 
-          {/* Common Mistakes */}
-          {selectedExercise.mistakes && selectedExercise.mistakes.length > 0 && (
-            <View style={styles.mistakesContainer}>
-              <Text style={styles.sectionTitle}>Common Mistakes</Text>
-              {selectedExercise.mistakes.map((mistake, idx) => (
-                <View key={idx} style={styles.mistakeItem}>
-                  <Ionicons name="alert-circle" size={16} color="rgba(255,255,255,0.5)" />
-                  <Text style={styles.mistakeText}>{mistake}</Text>
-                </View>
-              ))}
-            </View>
-          )}
-        </ScrollView>
+            {/* Common Mistakes */}
+            {selectedExercise.mistakes && selectedExercise.mistakes.length > 0 && (
+              <View style={styles.overlayMistakesContainer}>
+                <Text style={styles.overlaySectionTitle}>Common Mistakes</Text>
+                {selectedExercise.mistakes.map((mistake, idx) => (
+                  <View key={idx} style={styles.overlayMistakeItem}>
+                    <Ionicons name="close-circle" size={14} color="rgba(255,255,255,0.6)" />
+                    <Text style={styles.overlayMistakeText}>{mistake}</Text>
+                  </View>
+                ))}
+              </View>
+            )}
+          </ScrollView>
+        </View>
       </View>
     );
   };
