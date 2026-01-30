@@ -210,7 +210,7 @@ const BackWorkoutDisplayScreen = memo(function BackWorkoutDisplayScreen() {
           </View>
         </View>
 
-        <ScrollView style={styles.scrollView} showsVerticalScrollIndicator={false} contentContainerStyle={styles.scrollContentContainer}>
+        <ScrollView style={styles.scrollView} showsVerticalScrollIndicator={false} contentContainerStyle={[styles.scrollContentContainer, { paddingBottom: hasItemsInCart ? 100 : 24 }]}>
           {totalMuscles > 1 && (
             <View style={styles.muscleIndicator}>
               <Text style={styles.muscleIndicatorText}>
