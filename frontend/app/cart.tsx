@@ -39,6 +39,9 @@ const CartItemComponent: React.FC<{
   const placeholderImage = 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=200&h=200&fit=crop';
   const imageSource = item.imageUrl && item.imageUrl.length > 0 ? item.imageUrl : placeholderImage;
   
+  // Check if it's a custom workout
+  const isCustomWorkout = item.workoutType === 'Custom' || item.id?.startsWith('custom-');
+  
   return (
     <View style={styles.exerciseCard}>
       <Image 
@@ -48,7 +51,14 @@ const CartItemComponent: React.FC<{
       />
       <View style={styles.exerciseInfo}>
         <Text style={styles.exerciseEquipment}>{item.equipment}</Text>
-        <Text style={styles.exerciseName}>{item.name}</Text>
+        <View style={styles.exerciseNameRow}>
+          <Text style={styles.exerciseName} numberOfLines={1}>{item.name}</Text>
+          {isCustomWorkout && (
+            <View style={styles.customBadge}>
+              <Text style={styles.customBadgeText}>Custom</Text>
+            </View>
+          )}
+        </View>
         <Text style={styles.exerciseDuration}>{item.duration}</Text>
       </View>
       <View style={styles.exerciseActions}>
