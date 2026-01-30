@@ -12,6 +12,7 @@ import {
   Dimensions,
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+import { LinearGradient } from 'expo-linear-gradient';
 import { useCart, WorkoutItem } from '../contexts/CartContext';
 
 const { width, height } = Dimensions.get('window');
