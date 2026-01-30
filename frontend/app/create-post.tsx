@@ -376,6 +376,7 @@ export default function CreatePost() {
   };
 
   const handleFrameSelected = (frameUri: string) => {
+    console.log('🎬 Frame selected:', frameUri);
     if (videoForFrameSelection) {
       // Update the video item with the selected frame as cover
       const updatedMedia = [...selectedMedia];
@@ -383,6 +384,7 @@ export default function CreatePost() {
         ...updatedMedia[videoForFrameSelection.index],
         coverUri: frameUri,
       };
+      console.log('🎬 Updated media with coverUri:', updatedMedia[videoForFrameSelection.index]);
       setSelectedMedia(updatedMedia);
     }
     setShowVideoFrameSelector(false);
