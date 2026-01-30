@@ -113,7 +113,11 @@ const BackWorkoutDisplayScreen = memo(function BackWorkoutDisplayScreen() {
     };
     addToCart(cartItem);
     if (token) {
-      Analytics.trackWorkoutAdded(workoutId, workout.name, equipment, difficulty);
+      Analytics.workoutAddedToCart(token, {
+        workout_name: workout.name,
+        mood_category: moodTitle,
+        equipment: equipment,
+      });
     }
   };
 
