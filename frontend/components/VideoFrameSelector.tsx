@@ -2,7 +2,6 @@ import React, { useState, useEffect, useRef, memo, useCallback } from 'react';
 import {
   View,
   StyleSheet,
-  ScrollView,
   TouchableOpacity,
   Text,
   ActivityIndicator,
@@ -20,9 +19,8 @@ import { LinearGradient } from 'expo-linear-gradient';
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
 const FILMSTRIP_HEIGHT = 52;
-const FRAME_COUNT = 8; // Number of frames in filmstrip
+const FRAME_COUNT = 8;
 const FRAME_WIDTH = (SCREEN_WIDTH - 32) / FRAME_COUNT;
-const SCRUBBER_WIDTH = 3;
 
 interface VideoFrameSelectorProps {
   videoUri: string;
@@ -55,9 +53,6 @@ const VideoFrameSelector: React.FC<VideoFrameSelectorProps> = memo(({
   // For pan gesture on filmstrip
   const scrubberPosition = useRef(new Animated.Value(0)).current;
   const filmstripWidth = SCREEN_WIDTH - 32;
-  
-  // Track if we have a selected frame ready
-  const [selectedFrameUri, setSelectedFrameUri] = useState<string | null>(null);
 
   // Generate filmstrip frames when video loads
   useEffect(() => {
@@ -87,7 +82,6 @@ const VideoFrameSelector: React.FC<VideoFrameSelectorProps> = memo(({
           frames.push({ uri, timestamp });
         } catch (e) {
           console.log(`Could not generate frame at ${timestamp}ms`);
-          // Add placeholder
           frames.push({ uri: '', timestamp });
         }
       }
@@ -109,24 +103,32 @@ const VideoFrameSelector: React.FC<VideoFrameSelectorProps> = memo(({
     }
   }, []);
 
+  // Seek video to position - this updates the video preview in real-time
+  const seekToPosition = useCallback(async (newPosition: number) => {
+    if (videoRef.current && duration > 0) {
+      try {
+        await videoRef.current.setPositionAsync(newPosition);
+      } catch (e) {
+        console.log('Seek error:', e);
+      }
+    }
+  }, [duration]);
+
   // Pan responder for scrubbing through filmstrip
   const panResponder = useRef(
     PanResponder.create({
       onStartShouldSetPanResponder: () => true,
       onMoveShouldSetPanResponder: () => true,
       onPanResponderGrant: (evt) => {
-        // Get initial touch position
         const touchX = evt.nativeEvent.locationX;
         handleScrub(touchX);
       },
       onPanResponderMove: (evt, gestureState) => {
-        // Calculate position from gesture
         const touchX = Math.max(0, Math.min(gestureState.moveX - 16, filmstripWidth));
         handleScrub(touchX);
       },
       onPanResponderRelease: () => {
-        // Capture frame on release
-        captureCurrentFrame();
+        // Don't auto-capture on release - user will tap Done
       },
     })
   ).current;
@@ -139,22 +141,16 @@ const VideoFrameSelector: React.FC<VideoFrameSelectorProps> = memo(({
     scrubberPosition.setValue(clampedX);
     setPosition(newPosition);
     
-    // Seek video to this position
-    if (videoRef.current && duration > 0) {
-      videoRef.current.setPositionAsync(newPosition);
+    // Seek video to show real-time preview
+    seekToPosition(newPosition);
+  }, [duration, filmstripWidth, seekToPosition]);
+
+  // Capture current frame and return it
+  const captureAndConfirm = async () => {
+    if (Platform.OS === 'web') {
+      setError('Frame capture is not available on web');
+      return;
     }
-  }, [duration, filmstripWidth]);
-
-  // Handle tap on filmstrip
-  const handleFilmstripTap = useCallback((evt: any) => {
-    const touchX = evt.nativeEvent.locationX;
-    handleScrub(touchX);
-    // Auto-capture on tap
-    setTimeout(() => captureCurrentFrame(), 100);
-  }, [handleScrub]);
-
-  const captureCurrentFrame = async () => {
-    if (Platform.OS === 'web' || isCapturing) return;
 
     setIsCapturing(true);
     setError(null);
@@ -184,12 +180,12 @@ const VideoFrameSelector: React.FC<VideoFrameSelectorProps> = memo(({
       }
       
       if (capturedUri) {
-        setSelectedFrameUri(capturedUri);
+        onFrameSelected(capturedUri);
       } else {
         // Fallback: try to get frame from nearest filmstrip frame
-        const nearestFrame = filmstripFrames.find(f => Math.abs(f.timestamp - position) < 500);
+        const nearestFrame = filmstripFrames.find(f => Math.abs(f.timestamp - position) < 1000);
         if (nearestFrame && nearestFrame.uri) {
-          setSelectedFrameUri(nearestFrame.uri);
+          onFrameSelected(nearestFrame.uri);
         } else {
           setError('Could not capture this frame. Try a different position.');
         }
@@ -199,12 +195,6 @@ const VideoFrameSelector: React.FC<VideoFrameSelectorProps> = memo(({
       setError('Failed to capture frame. Try moving to a different position.');
     } finally {
       setIsCapturing(false);
-    }
-  };
-
-  const handleConfirm = () => {
-    if (selectedFrameUri) {
-      onFrameSelected(selectedFrameUri);
     }
   };
 
@@ -251,20 +241,24 @@ const VideoFrameSelector: React.FC<VideoFrameSelectorProps> = memo(({
         </TouchableOpacity>
         <Text style={styles.headerTitle}>Cover</Text>
         <TouchableOpacity 
-          onPress={handleConfirm} 
+          onPress={captureAndConfirm} 
           style={styles.headerButton}
-          disabled={!selectedFrameUri}
+          disabled={isCapturing || !isVideoReady}
         >
-          <Text style={[
-            styles.doneText,
-            !selectedFrameUri && styles.doneTextDisabled
-          ]}>
-            Done
-          </Text>
+          {isCapturing ? (
+            <ActivityIndicator size="small" color="#FFD700" />
+          ) : (
+            <Text style={[
+              styles.doneText,
+              (!isVideoReady) && styles.doneTextDisabled
+            ]}>
+              Done
+            </Text>
+          )}
         </TouchableOpacity>
       </View>
 
-      {/* Video Preview - Large, centered */}
+      {/* Video Preview - Shows real-time frame as you scrub */}
       <View style={styles.videoSection}>
         <View style={styles.videoContainer}>
           <Video
@@ -296,24 +290,9 @@ const VideoFrameSelector: React.FC<VideoFrameSelectorProps> = memo(({
         </View>
       </View>
 
-      {/* Selected Frame Preview */}
-      {selectedFrameUri && (
-        <View style={styles.selectedPreviewContainer}>
-          <Image
-            source={{ uri: selectedFrameUri }}
-            style={styles.selectedPreviewImage}
-            contentFit="cover"
-          />
-          <View style={styles.selectedBadge}>
-            <Ionicons name="checkmark-circle" size={14} color="#4CAF50" />
-            <Text style={styles.selectedBadgeText}>Selected</Text>
-          </View>
-        </View>
-      )}
-
       {/* Filmstrip Scrubber - Instagram Style */}
       <View style={styles.filmstripSection}>
-        <Text style={styles.filmstripLabel}>Drag to select cover</Text>
+        <Text style={styles.filmstripLabel}>Drag to select cover frame</Text>
         
         <View 
           style={styles.filmstripContainer}
@@ -373,32 +352,6 @@ const VideoFrameSelector: React.FC<VideoFrameSelectorProps> = memo(({
         </View>
       </View>
 
-      {/* Capture Button with Gradient */}
-      <View style={styles.captureSection}>
-        <TouchableOpacity 
-          style={styles.captureButtonContainer}
-          onPress={captureCurrentFrame}
-          disabled={isCapturing || !isVideoReady}
-          activeOpacity={0.8}
-        >
-          <LinearGradient
-            colors={isCapturing ? ['#666', '#444'] : ['#FFD700', '#FF8C00']}
-            start={{ x: 0, y: 0 }}
-            end={{ x: 1, y: 0 }}
-            style={styles.captureButton}
-          >
-            {isCapturing ? (
-              <ActivityIndicator size="small" color="#fff" />
-            ) : (
-              <>
-                <Ionicons name="camera" size={20} color="#000" />
-                <Text style={styles.captureButtonText}>Capture This Frame</Text>
-              </>
-            )}
-          </LinearGradient>
-        </TouchableOpacity>
-      </View>
-
       {/* Error Banner */}
       {error && (
         <View style={styles.errorBanner}>
@@ -409,7 +362,7 @@ const VideoFrameSelector: React.FC<VideoFrameSelectorProps> = memo(({
 
       {/* Hint */}
       <Text style={styles.hintText}>
-        This cover will be shown in the feed before the video plays
+        This image will show as the cover in your feed
       </Text>
     </View>
   );
@@ -492,30 +445,6 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     fontVariant: ['tabular-nums'],
   },
-  selectedPreviewContainer: {
-    position: 'absolute',
-    bottom: 200,
-    right: 24,
-    alignItems: 'center',
-  },
-  selectedPreviewImage: {
-    width: 56,
-    height: 70,
-    borderRadius: 6,
-    borderWidth: 2,
-    borderColor: '#4CAF50',
-  },
-  selectedBadge: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginTop: 4,
-    gap: 2,
-  },
-  selectedBadgeText: {
-    fontSize: 10,
-    color: '#4CAF50',
-    fontWeight: '600',
-  },
   filmstripSection: {
     paddingHorizontal: 16,
     paddingTop: 16,
@@ -565,7 +494,7 @@ const styles = StyleSheet.create({
     marginLeft: -1.5,
   },
   scrubberLine: {
-    width: SCRUBBER_WIDTH,
+    width: 3,
     height: FILMSTRIP_HEIGHT + 10,
     marginTop: 5,
     borderRadius: 1.5,
@@ -598,26 +527,6 @@ const styles = StyleSheet.create({
     fontSize: 11,
     color: '#666',
     fontVariant: ['tabular-nums'],
-  },
-  captureSection: {
-    paddingHorizontal: 16,
-    paddingVertical: 12,
-  },
-  captureButtonContainer: {
-    borderRadius: 12,
-    overflow: 'hidden',
-  },
-  captureButton: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    paddingVertical: 14,
-    gap: 8,
-  },
-  captureButtonText: {
-    color: '#000',
-    fontSize: 15,
-    fontWeight: '700',
   },
   errorContainer: {
     flex: 1,
