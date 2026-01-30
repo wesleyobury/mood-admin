@@ -13,9 +13,37 @@ interface VideoThumbnailProps {
 // Cache for generated thumbnails to avoid regenerating
 const thumbnailCache: { [key: string]: string } = {};
 
+/**
+ * Convert Cloudinary video URL to thumbnail URL
+ * Cloudinary can generate thumbnails server-side which is much faster
+ */
+const getCloudinaryThumbnail = (videoUrl: string): string | null => {
+  // Check if it's a Cloudinary URL
+  if (!videoUrl.includes('res.cloudinary.com') && !videoUrl.includes('cloudinary.com')) {
+    return null;
+  }
+  
+  // Transform video URL to image thumbnail
+  // Format: .../video/upload/... -> .../video/upload/so_1,f_jpg,w_400,h_400,c_fill/...
+  try {
+    // Add transformation parameters for thumbnail
+    const transformedUrl = videoUrl
+      .replace('/upload/', '/upload/so_1,f_jpg,w_400,h_400,c_fill,q_70/')
+      .replace(/\.(mov|mp4|webm|avi)$/i, '.jpg');
+    return transformedUrl;
+  } catch {
+    return null;
+  }
+};
+
 const VideoThumbnail: React.FC<VideoThumbnailProps> = memo(({ videoUrl, coverUrl, style }) => {
-  const [thumbnail, setThumbnail] = useState<string | null>(coverUrl || thumbnailCache[videoUrl] || null);
-  const [loading, setLoading] = useState(!coverUrl && !thumbnailCache[videoUrl]);
+  // Try to get Cloudinary thumbnail first (instant)
+  const cloudinaryThumb = getCloudinaryThumbnail(videoUrl);
+  
+  const [thumbnail, setThumbnail] = useState<string | null>(
+    coverUrl || cloudinaryThumb || thumbnailCache[videoUrl] || null
+  );
+  const [loading, setLoading] = useState(!coverUrl && !cloudinaryThumb && !thumbnailCache[videoUrl]);
   const [error, setError] = useState(false);
 
   useEffect(() => {
@@ -27,7 +55,15 @@ const VideoThumbnail: React.FC<VideoThumbnailProps> = memo(({ videoUrl, coverUrl
       return;
     }
     
-    // Check cache first
+    // If we have a Cloudinary thumbnail, use it (instant)
+    if (cloudinaryThumb) {
+      setThumbnail(cloudinaryThumb);
+      setLoading(false);
+      setError(false);
+      return;
+    }
+    
+    // Check cache
     if (thumbnailCache[videoUrl]) {
       setThumbnail(thumbnailCache[videoUrl]);
       setLoading(false);
@@ -35,14 +71,14 @@ const VideoThumbnail: React.FC<VideoThumbnailProps> = memo(({ videoUrl, coverUrl
       return;
     }
     
-    // Generate thumbnail on native platforms
+    // Generate thumbnail on native platforms for non-Cloudinary videos
     if (Platform.OS !== 'web') {
       generateThumbnail();
     } else {
       setLoading(false);
       setError(true);
     }
-  }, [videoUrl, coverUrl]);
+  }, [videoUrl, coverUrl, cloudinaryThumb]);
 
   const generateThumbnail = async () => {
     try {
@@ -51,7 +87,7 @@ const VideoThumbnail: React.FC<VideoThumbnailProps> = memo(({ videoUrl, coverUrl
       
       const { uri } = await VideoThumbnails.getThumbnailAsync(videoUrl, {
         time: 1000,
-        quality: 0.7, // Slightly higher quality for better appearance
+        quality: 0.7,
       });
       
       // Cache the generated thumbnail
