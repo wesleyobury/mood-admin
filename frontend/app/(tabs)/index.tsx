@@ -322,6 +322,12 @@ export default function WorkoutsHome() {
   // Track screen time
   useScreenTime('Home');
   
+  // Fetch remote-driven featured workouts
+  const { workouts: remoteFeaturedWorkouts, loading: featuredLoading, refresh: refreshFeatured } = useFeaturedWorkouts();
+  
+  // Transform to carousel format
+  const featuredWorkouts = remoteFeaturedWorkouts.map(transformWorkoutForCarousel);
+  
   const [greeting, setGreeting] = useState('');
   const [userStats, setUserStats] = useState({ workouts: 0, minutes: 0, streak: 0 });
   const [activeCarouselIndex, setActiveCarouselIndex] = useState(0);
@@ -370,13 +376,15 @@ export default function WorkoutsHome() {
     } catch (error) {
       console.log('Error checking saved workouts:', error);
     }
-  }, [token]);
+  }, [token, featuredWorkouts]);
 
   // Refresh saved workouts when screen comes into focus
   useFocusEffect(
     useCallback(() => {
       checkSavedWorkouts();
-    }, [checkSavedWorkouts])
+      // Also refresh featured workouts on focus
+      refreshFeatured();
+    }, [checkSavedWorkouts, refreshFeatured])
   );
 
   // Save a featured workout
