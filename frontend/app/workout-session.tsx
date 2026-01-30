@@ -333,6 +333,9 @@ export default function WorkoutSessionScreen() {
               <Text style={styles.sectionTitle}>Battle Plan</Text>
             </View>
             <Text style={styles.battlePlanText}>{currentWorkout.battlePlan}</Text>
+            
+            {/* Exercise Lookup Trigger */}
+            <ExerciseLookupTrigger onPress={() => setExerciseLookupVisible(true)} />
           </View>
 
           {/* MOOD Tips */}
