@@ -268,6 +268,55 @@ export default function ExerciseLookupSheet({ visible, onClose }: ExerciseLookup
     );
   };
 
+  // Video Thumbnail component with auto-generation
+  const VideoThumbnailItem = ({ videoUrl, style }: { videoUrl: string; style: any }) => {
+    const [thumbnailUri, setThumbnailUri] = useState<string | null>(thumbnailCache[videoUrl] || null);
+    const [isLoading, setIsLoading] = useState(!thumbnailCache[videoUrl]);
+
+    useEffect(() => {
+      if (thumbnailCache[videoUrl]) {
+        setThumbnailUri(thumbnailCache[videoUrl]);
+        setIsLoading(false);
+        return;
+      }
+
+      const generateThumbnail = async () => {
+        try {
+          const { uri } = await VideoThumbnails.getThumbnailAsync(videoUrl, {
+            time: 0, // First frame
+            quality: 0.5,
+          });
+          thumbnailCache[videoUrl] = uri;
+          setThumbnailUri(uri);
+        } catch (error) {
+          console.log('Thumbnail generation failed:', error);
+        } finally {
+          setIsLoading(false);
+        }
+      };
+
+      generateThumbnail();
+    }, [videoUrl]);
+
+    if (isLoading) {
+      return (
+        <View style={[style, { backgroundColor: 'rgba(255,255,255,0.05)', justifyContent: 'center', alignItems: 'center' }]}>
+          <ActivityIndicator size="small" color="rgba(255,255,255,0.3)" />
+        </View>
+      );
+    }
+
+    return (
+      <Image
+        source={{ uri: thumbnailUri || undefined }}
+        style={style}
+        contentFit="cover"
+        cachePolicy="memory-disk"
+        transition={200}
+      />
+    );
+  };
+
   // Render exercise list item
   const renderExerciseItem = ({ item }: { item: Exercise }) => (
     <TouchableOpacity
@@ -275,14 +324,7 @@ export default function ExerciseLookupSheet({ visible, onClose }: ExerciseLookup
       onPress={() => handleExerciseSelect(item)}
       activeOpacity={0.7}
     >
-      <Image
-        source={{ uri: item.thumbnail_url }}
-        style={styles.exerciseThumbnail}
-        contentFit="cover"
-        cachePolicy="memory-disk"
-        placeholder={require('../assets/images/icon.png')}
-        transition={200}
-      />
+      <VideoThumbnailItem videoUrl={item.video_url} style={styles.exerciseThumbnail} />
       <View style={styles.exerciseInfo}>
         <Text style={styles.exerciseName}>{item.name}</Text>
         {item.equipment.length > 0 && (
