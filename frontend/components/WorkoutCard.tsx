@@ -229,7 +229,7 @@ const WorkoutCard = React.memo(({
         />
       </View>
 
-      {/* Navigation Dots */}
+      {/* Navigation Dots with Edit Button */}
       <View style={styles.dotsContainer}>
         <View style={styles.dotsRow}>
           {workouts.map((_, index) => (
@@ -259,6 +259,30 @@ const WorkoutCard = React.memo(({
             </TouchableOpacity>
           ))}
         </View>
+        
+        {/* Edit Button - Bottom Right of Card */}
+        <TouchableOpacity
+          style={styles.editButton}
+          onPress={() => handleOpenCustomModal(workouts[currentWorkoutIndex])}
+          activeOpacity={0.8}
+        >
+          <Ionicons name="pencil" size={14} color="#FFD700" />
+        </TouchableOpacity>
+        
+        {/* First-time Tooltip */}
+        {showTooltip && (
+          <Pressable style={styles.tooltipOverlay} onPress={dismissTooltip}>
+            <View style={styles.tooltip}>
+              <View style={styles.tooltipArrow} />
+              <Text style={styles.tooltipText}>
+                Tap here to add custom exercises to your workout
+              </Text>
+              <TouchableOpacity style={styles.tooltipDismiss} onPress={dismissTooltip}>
+                <Text style={styles.tooltipDismissText}>Got it</Text>
+              </TouchableOpacity>
+            </View>
+          </Pressable>
+        )}
       </View>
 
       {/* Custom Workout Modal */}
