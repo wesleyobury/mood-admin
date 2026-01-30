@@ -1599,6 +1599,93 @@ export default function CreatePost() {
         }}
         action='create posts'
       />
+
+      {/* Cover Options Modal */}
+      <Modal
+        visible={showCoverPicker && coverPickerVideoIndex >= 0}
+        transparent={true}
+        animationType="fade"
+        onRequestClose={() => {
+          setShowCoverPicker(false);
+          setCoverPickerVideoIndex(-1);
+        }}
+      >
+        <TouchableOpacity 
+          style={styles.coverModalOverlay}
+          activeOpacity={1}
+          onPress={() => {
+            setShowCoverPicker(false);
+            setCoverPickerVideoIndex(-1);
+          }}
+        >
+          <View style={styles.coverModalContent}>
+            <View style={styles.coverModalHeader}>
+              <View style={styles.coverModalHandle} />
+              <Text style={styles.coverModalTitle}>Choose Cover Image</Text>
+            </View>
+
+            {/* Option 1: Select from Video */}
+            {Platform.OS !== 'web' && (
+              <TouchableOpacity 
+                style={styles.coverOption}
+                onPress={() => selectCoverFromVideo(coverPickerVideoIndex)}
+              >
+                <View style={styles.coverOptionIcon}>
+                  <Ionicons name="film-outline" size={24} color="#FFD700" />
+                </View>
+                <View style={styles.coverOptionText}>
+                  <Text style={styles.coverOptionTitle}>Select from Video</Text>
+                  <Text style={styles.coverOptionSubtitle}>Choose a frame from your video</Text>
+                </View>
+                <Ionicons name="chevron-forward" size={20} color="#666" />
+              </TouchableOpacity>
+            )}
+
+            {/* Option 2: Choose from Library */}
+            <TouchableOpacity 
+              style={styles.coverOption}
+              onPress={() => selectCoverFromLibrary(coverPickerVideoIndex)}
+            >
+              <View style={styles.coverOptionIcon}>
+                <Ionicons name="images-outline" size={24} color="#FFD700" />
+              </View>
+              <View style={styles.coverOptionText}>
+                <Text style={styles.coverOptionTitle}>Choose from Library</Text>
+                <Text style={styles.coverOptionSubtitle}>Select a photo from your gallery</Text>
+              </View>
+              <Ionicons name="chevron-forward" size={20} color="#666" />
+            </TouchableOpacity>
+
+            {/* Cancel Button */}
+            <TouchableOpacity 
+              style={styles.coverCancelButton}
+              onPress={() => {
+                setShowCoverPicker(false);
+                setCoverPickerVideoIndex(-1);
+              }}
+            >
+              <Text style={styles.coverCancelText}>Cancel</Text>
+            </TouchableOpacity>
+          </View>
+        </TouchableOpacity>
+      </Modal>
+
+      {/* Video Frame Selector Modal */}
+      <Modal
+        visible={showVideoFrameSelector && videoForFrameSelection !== null}
+        animationType="slide"
+        presentationStyle="fullScreen"
+        onRequestClose={handleFrameSelectorCancel}
+      >
+        {videoForFrameSelection && (
+          <VideoFrameSelector
+            videoUri={videoForFrameSelection.uri}
+            onFrameSelected={handleFrameSelected}
+            onCancel={handleFrameSelectorCancel}
+            currentCover={selectedMedia[videoForFrameSelection.index]?.coverUri}
+          />
+        )}
+      </Modal>
     </SafeAreaView>
   );
 }
