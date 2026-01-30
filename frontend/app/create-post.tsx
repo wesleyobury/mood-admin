@@ -333,8 +333,8 @@ export default function CreatePost() {
     }
   };
 
-  const selectCoverPhoto = async (videoIndex: number) => {
-    // Launch image picker to select cover photo
+  const selectCoverFromLibrary = async (videoIndex: number) => {
+    // Launch image picker to select cover photo from library
     const { status } = await ImagePicker.requestMediaLibraryPermissionsAsync();
     
     if (status !== 'granted') {
@@ -363,6 +363,35 @@ export default function CreatePost() {
       setShowCoverPicker(false);
       setCoverPickerVideoIndex(-1);
     }
+  };
+
+  const selectCoverFromVideo = (videoIndex: number) => {
+    // Open video frame selector
+    const video = selectedMedia[videoIndex];
+    if (video && video.type === 'video') {
+      setVideoForFrameSelection({ uri: video.uri, index: videoIndex });
+      setShowCoverPicker(false);
+      setShowVideoFrameSelector(true);
+    }
+  };
+
+  const handleFrameSelected = (frameUri: string) => {
+    if (videoForFrameSelection) {
+      // Update the video item with the selected frame as cover
+      const updatedMedia = [...selectedMedia];
+      updatedMedia[videoForFrameSelection.index] = {
+        ...updatedMedia[videoForFrameSelection.index],
+        coverUri: frameUri,
+      };
+      setSelectedMedia(updatedMedia);
+    }
+    setShowVideoFrameSelector(false);
+    setVideoForFrameSelection(null);
+  };
+
+  const handleFrameSelectorCancel = () => {
+    setShowVideoFrameSelector(false);
+    setVideoForFrameSelection(null);
   };
 
   const openCoverPicker = (index: number) => {
