@@ -395,6 +395,12 @@ const styles = StyleSheet.create({
     color: '#fff',
     marginBottom: 16,
     letterSpacing: 2,
+    textAlign: 'center',
+  },
+  titleContainer: {
+    width: '100%',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   subtitle: {
     fontSize: 24,
@@ -404,7 +410,7 @@ const styles = StyleSheet.create({
     lineHeight: 32,
   },
   highlightText: {
-    color: '#FFD700',
+    color: '#ffffff',
     fontWeight: 'bold',
   },
   description: {
