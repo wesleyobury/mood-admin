@@ -581,6 +581,17 @@ export default function FeaturedWorkoutDetail() {
     }
   };
   
+  // Show loading state
+  if (loading) {
+    return (
+      <SafeAreaView style={styles.container}>
+        <View style={styles.errorContainer}>
+          <Text style={styles.errorText}>Loading workout...</Text>
+        </View>
+      </SafeAreaView>
+    );
+  }
+  
   if (!workout) {
     return (
       <SafeAreaView style={styles.container}>
