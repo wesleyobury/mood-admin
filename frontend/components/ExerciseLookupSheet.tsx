@@ -225,7 +225,7 @@ export default function ExerciseLookupSheet({ visible, onClose }: ExerciseLookup
             <View style={styles.equipmentRow}>
               {selectedExercise.equipment.map((eq, idx) => (
                 <View key={idx} style={styles.equipmentChip}>
-                  <Ionicons name="barbell-outline" size={12} color="#FFD700" />
+                  <Ionicons name="barbell-outline" size={12} color="rgba(255,255,255,0.7)" />
                   <Text style={styles.equipmentText}>{eq}</Text>
                 </View>
               ))}
