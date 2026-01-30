@@ -270,16 +270,6 @@ export default function ExerciseLookupSheet({ visible, onClose }: ExerciseLookup
       </View>
     );
   };
-                    <Text style={styles.overlayMistakeText}>{mistake}</Text>
-                  </View>
-                ))}
-              </View>
-            )}
-          </ScrollView>
-        </View>
-      </View>
-    );
-  };
 
   // Video Thumbnail component with auto-generation
   const VideoThumbnailItem = ({ videoUrl, style }: { videoUrl: string; style: any }) => {
