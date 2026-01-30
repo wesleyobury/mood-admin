@@ -85,6 +85,14 @@ const WorkoutCard = React.memo(({
           colors={['transparent', 'rgba(0,0,0,0.8)']}
           style={styles.imageGradient}
         />
+        {/* Edit Button - Bottom Right */}
+        <TouchableOpacity
+          style={styles.editButton}
+          onPress={() => handleOpenCustomModal(item)}
+          activeOpacity={0.8}
+        >
+          <Ionicons name="pencil" size={16} color="#FFD700" />
+        </TouchableOpacity>
       </View>
 
       {/* Workout Content */}
