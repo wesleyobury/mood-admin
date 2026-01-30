@@ -229,47 +229,45 @@ const WorkoutCard = React.memo(({
         />
       </View>
 
-      {/* Navigation Dots with Edit Button */}
+      {/* Navigation Dots - Centered */}
       <View style={styles.dotsContainer}>
-        <View style={styles.dotsAndEditRow}>
-          <View style={styles.dotsRow}>
-            {workouts.map((_, index) => (
-              <TouchableOpacity
-                key={index}
+        <View style={styles.dotsRow}>
+          {workouts.map((_, index) => (
+            <TouchableOpacity
+              key={index}
+              style={[
+                styles.dotTouchArea,
+                currentWorkoutIndex === index && styles.activeDotTouchArea,
+              ]}
+              onPress={() => {
+                const offset = (width - 48) * index;
+                flatListRef.current?.scrollToOffset({
+                  offset: offset,
+                  animated: true,
+                });
+                setCurrentWorkoutIndex(index);
+              }}
+              activeOpacity={0.7}
+              hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }}
+            >
+              <View
                 style={[
-                  styles.dotTouchArea,
-                  currentWorkoutIndex === index && styles.activeDotTouchArea,
+                  styles.dot,
+                  currentWorkoutIndex === index && styles.activeDot,
                 ]}
-                onPress={() => {
-                  const offset = (width - 48) * index;
-                  flatListRef.current?.scrollToOffset({
-                    offset: offset,
-                    animated: true,
-                  });
-                  setCurrentWorkoutIndex(index);
-                }}
-                activeOpacity={0.7}
-                hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }}
-              >
-                <View
-                  style={[
-                    styles.dot,
-                    currentWorkoutIndex === index && styles.activeDot,
-                  ]}
-                />
-              </TouchableOpacity>
-            ))}
-          </View>
-          
-          {/* Edit Button - Inline with dots */}
-          <TouchableOpacity
-            style={styles.editButton}
-            onPress={() => handleOpenCustomModal(workouts[currentWorkoutIndex])}
-            activeOpacity={0.8}
-          >
-            <Ionicons name="pencil" size={12} color="#FFD700" />
-          </TouchableOpacity>
+              />
+            </TouchableOpacity>
+          ))}
         </View>
+        
+        {/* Edit Button - Bottom Right of Card */}
+        <TouchableOpacity
+          style={styles.editButton}
+          onPress={() => handleOpenCustomModal(workouts[currentWorkoutIndex])}
+          activeOpacity={0.8}
+        >
+          <Ionicons name="pencil" size={16} color="#FFD700" />
+        </TouchableOpacity>
         
         {/* First-time Tooltip */}
         {showTooltip && (
