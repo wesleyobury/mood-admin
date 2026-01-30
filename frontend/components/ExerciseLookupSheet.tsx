@@ -638,7 +638,7 @@ const styles = StyleSheet.create({
     width: 24,
     height: 24,
     borderRadius: 12,
-    backgroundColor: 'rgba(255,215,0,0.15)',
+    backgroundColor: 'rgba(255,255,255,0.15)',
     justifyContent: 'center',
     alignItems: 'center',
     marginRight: 12,
@@ -646,7 +646,7 @@ const styles = StyleSheet.create({
   cueNumberText: {
     fontSize: 12,
     fontWeight: 'bold',
-    color: '#FFD700',
+    color: 'rgba(255,255,255,0.9)',
   },
   cueText: {
     flex: 1,
