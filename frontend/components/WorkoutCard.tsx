@@ -417,20 +417,6 @@ const styles = StyleSheet.create({
     color: 'rgba(255, 255, 255, 0.9)',
     fontWeight: '500',
   },
-  tooltipText: {
-    fontSize: 13,
-    color: '#ffffff',
-    lineHeight: 18,
-    marginBottom: 10,
-  },
-  tooltipDismiss: {
-    alignSelf: 'flex-end',
-  },
-  tooltipDismissText: {
-    fontSize: 12,
-    color: '#FFD700',
-    fontWeight: '600',
-  },
   workoutContent: {
     flex: 1,
   },
