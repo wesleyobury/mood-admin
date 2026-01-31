@@ -185,7 +185,7 @@ export default function WorkoutTypeScreen() {
         <GeneratedWorkoutView
           carts={generatedCarts}
           moodTitle={moodTitle}
-          workoutType={chooseForMeType === 'cardio' ? 'Cardio Based' : 'Light Weights'}
+          workoutType="Mixed Workout"
           onStartWorkout={handleStartWorkout}
           onClose={handleCloseGeneratedWorkout}
         />
