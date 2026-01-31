@@ -7,6 +7,7 @@ import {
   Animated,
   Dimensions,
   ScrollView,
+  Image,
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
@@ -25,7 +26,8 @@ const DAILY_CHALLENGES = [
     id: 'four-corners-of-regret',
     name: 'Four Corners of Regret',
     duration: '60 min',
-    description: `4 Stations — 15 min each
+    description: 'Light weight. Long grind. No place to hide.',
+    battlePlan: `4 Stations — 15 min each
 Rotate in order. No preset rest.
 
 Station 1
@@ -43,22 +45,22 @@ Light weight; smooth, repeatable reps
 Station 4
 • Burpee Box Jumps
 Step down; rhythm over height`,
-    summary: 'Light weight. Long grind. No place to hide.',
     moodTips: [
       {
-        icon: 'barbell' as const,
+        icon: 'barbell',
         title: 'Keep loads light and cycleable',
         description: 'You should move continuously for 3–5 minutes without redlining',
       },
       {
-        icon: 'flame' as const,
+        icon: 'flame',
         title: 'Work at a sustainable burn',
         description: '~70% effort beats sprint–crash–recover',
       },
     ],
     imageUrl: 'https://res.cloudinary.com/dmeolrzzm/image/upload/v1738012917/HIIT1_xnvxl5.png',
     equipment: 'Gym Equipment',
-    difficulty: 'Advanced',
+    difficulty: 'advanced',
+    intensityReason: 'This is a grueling 60-minute endurance challenge that tests mental fortitude as much as physical capacity.',
   },
 ];
 
@@ -76,7 +78,7 @@ export default function RingerChallenge() {
   const router = useRouter();
   const params = useLocalSearchParams();
   const insets = useSafeAreaInsets();
-  const { addToCart, cartItems } = useCart();
+  const { addToCart, cartItems, isInCart } = useCart();
   const { token } = useAuth();
   
   const [isLoading, setIsLoading] = useState(true);
@@ -90,8 +92,13 @@ export default function RingerChallenge() {
   const cardOpacity = useRef(new Animated.Value(0)).current;
   const cardTranslateY = useRef(new Animated.Value(100)).current;
   const cardScale = useRef(new Animated.Value(0.8)).current;
+  const [addButtonScaleAnim] = useState(new Animated.Value(1));
   
   const todaysChallenge = getTodaysChallenge();
+  
+  // Generate workout ID for cart checking
+  const workoutId = `ringer-${todaysChallenge.id}`;
+  const isWorkoutInCart = isInCart(workoutId);
   
   // Skull rotation animation during loading
   useEffect(() => {
@@ -163,46 +170,68 @@ export default function RingerChallenge() {
     outputRange: ['-15deg', '15deg', '-15deg'],
   });
   
-  const isInCart = () => {
-    return cartItems.some(item => item.id === `ringer-${todaysChallenge.id}`);
-  };
-  
   const handleAddToCart = () => {
-    if (isInCart()) {
+    if (isWorkoutInCart) {
       setToastMessage('Already in cart');
       setShowToast(true);
       return;
     }
     
+    // Animate the button
+    Animated.sequence([
+      Animated.timing(addButtonScaleAnim, {
+        toValue: 0.8,
+        duration: 100,
+        useNativeDriver: true,
+      }),
+      Animated.timing(addButtonScaleAnim, {
+        toValue: 1.2,
+        duration: 200,
+        useNativeDriver: true,
+      }),
+      Animated.timing(addButtonScaleAnim, {
+        toValue: 1,
+        duration: 100,
+        useNativeDriver: true,
+      }),
+    ]).start();
+    
     addToCart({
-      id: `ringer-${todaysChallenge.id}`,
+      id: workoutId,
       workoutTitle: todaysChallenge.name,
       workoutName: todaysChallenge.name,
+      name: todaysChallenge.name,
       equipment: todaysChallenge.equipment,
       duration: todaysChallenge.duration,
       difficulty: todaysChallenge.difficulty,
       moodCategory: 'ringer',
       description: todaysChallenge.description,
+      battlePlan: todaysChallenge.battlePlan,
       moodTips: todaysChallenge.moodTips,
-      summary: todaysChallenge.summary,
+      imageUrl: todaysChallenge.imageUrl,
+      intensityReason: todaysChallenge.intensityReason,
+      workoutType: 'Ringer Challenge',
     });
     
-    setToastMessage('Added to cart');
+    setToastMessage('Workout added');
     setShowToast(true);
   };
   
   const handleStartWorkout = () => {
     router.push({
-      pathname: '/ringer-workout-guidance',
+      pathname: '/workout-guidance',
       params: {
-        workoutId: todaysChallenge.id,
         workoutName: todaysChallenge.name,
-        duration: todaysChallenge.duration,
-        description: todaysChallenge.description,
         equipment: todaysChallenge.equipment,
+        description: todaysChallenge.description,
+        battlePlan: todaysChallenge.battlePlan,
+        duration: todaysChallenge.duration,
         difficulty: todaysChallenge.difficulty,
-        summary: todaysChallenge.summary,
-        moodTips: JSON.stringify(todaysChallenge.moodTips),
+        workoutType: 'Ringer Challenge',
+        imageUrl: todaysChallenge.imageUrl,
+        intensityReason: todaysChallenge.intensityReason,
+        moodCard: 'ringer',
+        moodTips: encodeURIComponent(JSON.stringify(todaysChallenge.moodTips)),
       },
     });
   };
@@ -222,7 +251,7 @@ export default function RingerChallenge() {
         >
           {/* Back button */}
           <TouchableOpacity 
-            style={styles.backButton}
+            style={styles.backButtonLoading}
             onPress={() => router.back()}
           >
             <Ionicons name="chevron-back" size={28} color="#FFD700" />
@@ -274,7 +303,7 @@ export default function RingerChallenge() {
     );
   }
   
-  // Challenge Card Screen
+  // Challenge Card Screen - using WorkoutCard style
   return (
     <View style={[styles.container, { paddingTop: insets.top }]}>
       {/* Header */}
@@ -297,7 +326,7 @@ export default function RingerChallenge() {
         contentContainerStyle={styles.scrollContent}
         showsVerticalScrollIndicator={false}
       >
-        {/* Animated Workout Card */}
+        {/* Animated Workout Card - Matching WorkoutCard component style */}
         <Animated.View 
           style={[
             styles.workoutCardContainer,
@@ -310,73 +339,96 @@ export default function RingerChallenge() {
             }
           ]}
         >
-          <LinearGradient
-            colors={['#1a1a1a', '#2a2a2a']}
-            style={styles.workoutCard}
-          >
-            {/* Card Header with X behind skull */}
-            <View style={styles.cardHeader}>
-              <View style={styles.cardIconContainer}>
-                <Ionicons name="close" size={50} color="rgba(255, 215, 0, 0.2)" style={styles.xBehind} />
-                <Ionicons name="skull" size={32} color="#FFD700" />
+          <View style={styles.workoutCard}>
+            {/* Equipment Header - Matching WorkoutCard */}
+            <View style={styles.equipmentHeader}>
+              <View style={styles.equipmentIconContainer}>
+                <Ionicons name="skull" size={24} color="#FFD700" />
               </View>
-              <View style={styles.cardTitleContainer}>
-                <Text style={styles.cardTitle}>{todaysChallenge.name}</Text>
-                <View style={styles.cardBadges}>
-                  <View style={styles.badge}>
-                    <Ionicons name="time-outline" size={12} color="#FFD700" />
-                    <Text style={styles.badgeText}>{todaysChallenge.duration}</Text>
-                  </View>
-                  <View style={[styles.badge, styles.difficultyBadge]}>
-                    <Text style={styles.badgeText}>{todaysChallenge.difficulty}</Text>
+              <Text style={styles.equipmentName}>Daily Ringer</Text>
+              <TouchableOpacity
+                style={styles.previewButton}
+                onPress={handleStartWorkout}
+                activeOpacity={0.8}
+              >
+                <Ionicons name="eye" size={14} color="#FFD700" />
+                <Text style={styles.previewButtonText}>Preview</Text>
+              </TouchableOpacity>
+            </View>
+
+            {/* Workout Slide - Matching WorkoutCard */}
+            <View style={styles.workoutSlide}>
+              {/* Workout Image */}
+              <View style={styles.workoutImageContainer}>
+                <Image
+                  source={{ uri: todaysChallenge.imageUrl }}
+                  style={styles.workoutImage}
+                  resizeMode="cover"
+                />
+                <LinearGradient
+                  colors={['transparent', 'rgba(0,0,0,0.8)']}
+                  style={styles.imageGradient}
+                />
+              </View>
+
+              {/* Workout Content */}
+              <View style={styles.workoutContent}>
+                {/* Workout Name */}
+                <Text style={styles.workoutName}>{todaysChallenge.name}</Text>
+
+                {/* Duration and Intensity on same line */}
+                <View style={styles.durationIntensityRow}>
+                  <Text style={styles.workoutDuration}>{todaysChallenge.duration}</Text>
+                  <View style={[styles.difficultyBadge, { backgroundColor: '#FFD700' }]}>
+                    <Text style={styles.difficultyBadgeText}>
+                      {todaysChallenge.difficulty.toUpperCase()}
+                    </Text>
                   </View>
                 </View>
+
+                {/* Workout Description */}
+                <View style={styles.workoutDescriptionContainer}>
+                  <Text style={styles.workoutDescription}>{todaysChallenge.description}</Text>
+                </View>
+
+                {/* Add Workout Button */}
+                <Animated.View style={{ transform: [{ scale: addButtonScaleAnim }] }}>
+                  <TouchableOpacity
+                    style={styles.addWorkoutButton}
+                    onPress={handleAddToCart}
+                    activeOpacity={0.8}
+                    disabled={isWorkoutInCart}
+                  >
+                    <Ionicons
+                      name={isWorkoutInCart ? 'checkmark' : 'add'}
+                      size={18}
+                      color="#FFD700"
+                    />
+                    <Text style={styles.addWorkoutButtonText}>
+                      {isWorkoutInCart ? 'Added' : 'Add workout'}
+                    </Text>
+                  </TouchableOpacity>
+                </Animated.View>
+
+                {/* Start Workout Button */}
+                <TouchableOpacity
+                  style={styles.startWorkoutButton}
+                  onPress={handleStartWorkout}
+                  activeOpacity={0.8}
+                >
+                  <LinearGradient
+                    colors={['#FF8C00', '#FF6B00']}
+                    style={styles.startWorkoutGradient}
+                    start={{ x: 0, y: 0 }}
+                    end={{ x: 1, y: 0 }}
+                  >
+                    <Ionicons name="play" size={18} color="#fff" />
+                    <Text style={styles.startWorkoutText}>Start Workout</Text>
+                  </LinearGradient>
+                </TouchableOpacity>
               </View>
             </View>
-            
-            {/* Summary */}
-            <View style={styles.summaryContainer}>
-              <Text style={styles.summaryText}>{todaysChallenge.summary}</Text>
-            </View>
-            
-            {/* Equipment */}
-            <View style={styles.equipmentContainer}>
-              <Ionicons name="barbell-outline" size={16} color="#888" />
-              <Text style={styles.equipmentText}>{todaysChallenge.equipment}</Text>
-            </View>
-            
-            {/* Action Buttons */}
-            <View style={styles.actionButtons}>
-              <TouchableOpacity 
-                style={[styles.addButton, isInCart() && styles.addedButton]}
-                onPress={handleAddToCart}
-              >
-                <Ionicons 
-                  name={isInCart() ? "checkmark" : "add"} 
-                  size={20} 
-                  color={isInCart() ? "#4CAF50" : "#FFD700"} 
-                />
-                <Text style={[styles.addButtonText, isInCart() && styles.addedButtonText]}>
-                  {isInCart() ? 'Added' : 'Add to Cart'}
-                </Text>
-              </TouchableOpacity>
-              
-              <TouchableOpacity 
-                style={styles.startButton}
-                onPress={handleStartWorkout}
-              >
-                <LinearGradient
-                  colors={['#FF8C00', '#FF6B00']}
-                  style={styles.startButtonGradient}
-                  start={{ x: 0, y: 0 }}
-                  end={{ x: 1, y: 0 }}
-                >
-                  <Ionicons name="play" size={20} color="#fff" />
-                  <Text style={styles.startButtonText}>Start</Text>
-                </LinearGradient>
-              </TouchableOpacity>
-            </View>
-          </LinearGradient>
+          </View>
         </Animated.View>
         
         {/* Daily Reset Info */}
@@ -415,7 +467,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingHorizontal: 40,
   },
-  backButton: {
+  backButtonLoading: {
     position: 'absolute',
     top: 10,
     left: 16,
@@ -476,6 +528,9 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     borderBottomColor: 'rgba(255, 215, 0, 0.1)',
   },
+  backButton: {
+    padding: 4,
+  },
   headerCenter: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -490,129 +545,144 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   scrollContent: {
-    padding: 20,
+    padding: 16,
     paddingBottom: 40,
   },
   workoutCardContainer: {
-    marginTop: 20,
+    marginTop: 8,
   },
+  // WorkoutCard matching styles
   workoutCard: {
-    borderRadius: 20,
-    padding: 20,
+    backgroundColor: '#1a1a1a',
+    borderRadius: 16,
+    overflow: 'hidden',
     borderWidth: 1,
-    borderColor: 'rgba(255, 215, 0, 0.2)',
+    borderColor: 'rgba(255, 215, 0, 0.15)',
   },
-  cardHeader: {
+  equipmentHeader: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 16,
-    marginBottom: 16,
+    paddingHorizontal: 16,
+    paddingVertical: 12,
+    borderBottomWidth: 1,
+    borderBottomColor: 'rgba(255, 255, 255, 0.08)',
   },
-  cardIconContainer: {
-    width: 60,
-    height: 60,
-    borderRadius: 30,
-    backgroundColor: 'rgba(255, 215, 0, 0.1)',
+  equipmentIconContainer: {
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+    backgroundColor: 'rgba(255, 215, 0, 0.15)',
     justifyContent: 'center',
     alignItems: 'center',
+    marginRight: 12,
   },
-  xBehind: {
-    position: 'absolute',
-  },
-  cardTitleContainer: {
+  equipmentName: {
     flex: 1,
-  },
-  cardTitle: {
-    fontSize: 22,
-    fontWeight: '700',
+    fontSize: 16,
+    fontWeight: '600',
     color: '#fff',
-    marginBottom: 8,
   },
-  cardBadges: {
-    flexDirection: 'row',
-    gap: 8,
-  },
-  badge: {
+  previewButton: {
     flexDirection: 'row',
     alignItems: 'center',
     gap: 4,
-    backgroundColor: 'rgba(255, 215, 0, 0.15)',
-    paddingHorizontal: 10,
-    paddingVertical: 4,
-    borderRadius: 12,
+    backgroundColor: 'rgba(255, 215, 0, 0.1)',
+    paddingHorizontal: 12,
+    paddingVertical: 6,
+    borderRadius: 14,
   },
-  difficultyBadge: {
-    backgroundColor: 'rgba(255, 68, 68, 0.15)',
-  },
-  badgeText: {
+  previewButtonText: {
     fontSize: 12,
     color: '#FFD700',
     fontWeight: '500',
   },
-  summaryContainer: {
-    backgroundColor: 'rgba(255, 255, 255, 0.05)',
-    borderRadius: 12,
-    padding: 14,
-    marginBottom: 12,
+  workoutSlide: {
+    width: '100%',
   },
-  summaryText: {
-    fontSize: 15,
-    color: 'rgba(255, 255, 255, 0.9)',
-    fontStyle: 'italic',
-    lineHeight: 22,
+  workoutImageContainer: {
+    height: 180,
+    width: '100%',
+    position: 'relative',
   },
-  equipmentContainer: {
+  workoutImage: {
+    width: '100%',
+    height: '100%',
+  },
+  imageGradient: {
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    right: 0,
+    height: 100,
+  },
+  workoutContent: {
+    padding: 16,
+  },
+  workoutName: {
+    fontSize: 20,
+    fontWeight: '700',
+    color: '#fff',
+    marginBottom: 8,
+  },
+  durationIntensityRow: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 6,
-    marginBottom: 20,
+    gap: 10,
+    marginBottom: 12,
   },
-  equipmentText: {
-    fontSize: 13,
+  workoutDuration: {
+    fontSize: 14,
     color: '#888',
   },
-  actionButtons: {
-    flexDirection: 'row',
-    gap: 12,
+  difficultyBadge: {
+    paddingHorizontal: 10,
+    paddingVertical: 4,
+    borderRadius: 10,
   },
-  addButton: {
-    flex: 1,
+  difficultyBadgeText: {
+    fontSize: 10,
+    fontWeight: '700',
+    color: '#000',
+  },
+  workoutDescriptionContainer: {
+    marginBottom: 16,
+  },
+  workoutDescription: {
+    fontSize: 14,
+    color: 'rgba(255, 255, 255, 0.8)',
+    fontStyle: 'italic',
+    lineHeight: 20,
+  },
+  addWorkoutButton: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
     gap: 6,
     backgroundColor: 'rgba(255, 215, 0, 0.1)',
     borderRadius: 12,
-    paddingVertical: 14,
+    paddingVertical: 12,
     borderWidth: 1,
     borderColor: 'rgba(255, 215, 0, 0.3)',
+    marginBottom: 10,
   },
-  addedButton: {
-    backgroundColor: 'rgba(76, 175, 80, 0.1)',
-    borderColor: 'rgba(76, 175, 80, 0.3)',
-  },
-  addButtonText: {
+  addWorkoutButtonText: {
     fontSize: 14,
     fontWeight: '600',
     color: '#FFD700',
   },
-  addedButtonText: {
-    color: '#4CAF50',
-  },
-  startButton: {
-    flex: 1,
+  startWorkoutButton: {
     borderRadius: 12,
     overflow: 'hidden',
   },
-  startButtonGradient: {
+  startWorkoutGradient: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    gap: 6,
+    gap: 8,
     paddingVertical: 14,
   },
-  startButtonText: {
-    fontSize: 14,
+  startWorkoutText: {
+    fontSize: 15,
     fontWeight: '700',
     color: '#fff',
   },
@@ -621,7 +691,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     gap: 8,
-    marginTop: 30,
+    marginTop: 24,
   },
   resetText: {
     fontSize: 13,
