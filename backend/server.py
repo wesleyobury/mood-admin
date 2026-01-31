@@ -6941,18 +6941,18 @@ async def record_choose_for_me_usage(
     user = await db.users.find_one({"_id": ObjectId(current_user_id)})
     is_admin = user and user.get("username") == "officialmoodapp"
     
+    # Get current usage count
+    usage_count = await db.choose_for_me_usage.count_documents({
+        "user_id": current_user_id,
+        "created_at": {"$gte": today_start}
+    })
+    
     # Check usage limit (skip for admin)
-    if not is_admin:
-        usage_count = await db.choose_for_me_usage.count_documents({
-            "user_id": current_user_id,
-            "created_at": {"$gte": today_start}
-        })
-        
-        if usage_count >= 3:
-            raise HTTPException(
-                status_code=429,
-                detail="Daily limit reached. You can only use Choose for Me 3 times per day."
-            )
+    if not is_admin and usage_count >= 3:
+        raise HTTPException(
+            status_code=429,
+            detail="Daily limit reached. You can only use Build for Me 3 times per day."
+        )
     
     # Record the usage
     usage_record = {
@@ -6973,10 +6973,14 @@ async def record_choose_for_me_usage(
     }
     result = await db.generated_workouts.insert_one(workout_record)
     
+    # Return appropriate remaining uses based on admin status
+    new_usage_count = usage_count + 1
+    remaining = 999 if is_admin else max(0, 3 - new_usage_count)
+    
     return {
         "success": True,
-        "usage_count": usage_count + 1,
-        "remaining_uses": max(0, 2 - usage_count),
+        "usage_count": new_usage_count,
+        "remaining_uses": remaining,
         "generated_workout_id": str(result.inserted_id)
     }
 
