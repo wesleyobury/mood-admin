@@ -232,6 +232,21 @@ const styles = StyleSheet.create({
     color: '#888',
     textAlign: 'center',
   },
+  usageLimitBadge: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: 'rgba(255, 255, 255, 0.05)',
+    paddingHorizontal: 12,
+    paddingVertical: 6,
+    borderRadius: 16,
+    marginTop: 12,
+    gap: 6,
+  },
+  usageLimitText: {
+    fontSize: 12,
+    color: '#888',
+    fontWeight: '500',
+  },
   optionsContainer: {
     gap: 12,
     marginBottom: 24,
