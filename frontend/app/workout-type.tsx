@@ -274,6 +274,14 @@ export default function WorkoutTypeScreen() {
           </TouchableOpacity>
         </View>
       )}
+
+      {/* Intensity Selection Modal */}
+      <IntensitySelectionModal
+        visible={showIntensityModal}
+        onClose={() => setShowIntensityModal(false)}
+        onSelect={handleIntensitySelect}
+        moodTitle={moodTitle}
+      />
     </SafeAreaView>
   );
 }
