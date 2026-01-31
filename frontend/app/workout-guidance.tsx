@@ -206,12 +206,29 @@ export default function WorkoutGuidanceScreen() {
   const moodTipsParam = params.moodTips as string || '[]';
   let moodTips: MOODTip[] = [];
   try {
-    console.log('🔍 Received moodTips param:', moodTipsParam);
-    moodTips = JSON.parse(decodeURIComponent(moodTipsParam));
-    console.log('✅ Parsed MOOD tips:', moodTips.length, 'tips found');
-    console.log('📝 First tip:', moodTips[0]);
+    // First try to decode, but handle malformed URI gracefully
+    let decodedParam = moodTipsParam;
+    try {
+      decodedParam = decodeURIComponent(moodTipsParam);
+    } catch (decodeError) {
+      // If decodeURIComponent fails, try using the raw param
+      // It might already be decoded or have invalid encoding
+      console.log('⚠️ decodeURIComponent failed, using raw param');
+      decodedParam = moodTipsParam;
+    }
+    
+    // Handle case where param might already be an array (not stringified)
+    if (Array.isArray(decodedParam)) {
+      moodTips = decodedParam;
+    } else if (typeof decodedParam === 'string' && decodedParam.trim()) {
+      moodTips = JSON.parse(decodedParam);
+    }
+    
+    // Validate that we got an array
+    if (!Array.isArray(moodTips)) {
+      moodTips = [];
+    }
   } catch (error) {
-    console.error('❌ Error parsing MOOD tips:', error);
     console.log('🔄 Using fallback tips');
     // Fallback tips
     moodTips = [
