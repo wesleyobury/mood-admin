@@ -112,12 +112,56 @@ export default function WorkoutTypeScreen() {
   const params = useLocalSearchParams();
   const insets = useSafeAreaInsets();
   const [selectedOption, setSelectedOption] = useState<WorkoutTypeOption | null>(null);
+  const [showIntensityModal, setShowIntensityModal] = useState(false);
+  const [generatedCarts, setGeneratedCarts] = useState<GeneratedCart[]>([]);
+  const [showGeneratedWorkout, setShowGeneratedWorkout] = useState(false);
+  const [chooseForMeType, setChooseForMeType] = useState<'cardio' | 'light-weights' | null>(null);
+  const { addToCart, clearCart } = useCart();
   
   const moodTitle = params.mood as string || 'Sweat / burn fat';
 
   const handleWorkoutTypeSelect = (option: WorkoutTypeOption) => {
     console.log('Selected workout type:', option.title, 'for mood:', moodTitle);
     setSelectedOption(option);
+  };
+
+  const handleChooseForMe = (type: 'cardio' | 'light-weights') => {
+    setChooseForMeType(type);
+    setShowIntensityModal(true);
+  };
+
+  const handleIntensitySelect = (intensity: IntensityLevel) => {
+    setShowIntensityModal(false);
+    
+    // Generate workout carts based on the selected type
+    let carts: GeneratedCart[] = [];
+    if (chooseForMeType === 'cardio') {
+      carts = generateCardioCarts(intensity, moodTitle, 'Cardio Based');
+    } else {
+      carts = generateLightWeightsCarts(intensity, moodTitle, 'Light Weights');
+    }
+    
+    if (carts.length > 0) {
+      setGeneratedCarts(carts);
+      setShowGeneratedWorkout(true);
+    }
+  };
+
+  const handleStartWorkout = (cart: GeneratedCart) => {
+    // Clear current cart and add generated workouts
+    clearCart();
+    cart.workouts.forEach(workout => {
+      addToCart(workout);
+    });
+    
+    // Navigate to cart screen
+    setShowGeneratedWorkout(false);
+    router.push('/cart');
+  };
+
+  const handleCloseGeneratedWorkout = () => {
+    setShowGeneratedWorkout(false);
+    setGeneratedCarts([]);
   };
 
   const handleContinue = () => {
@@ -141,6 +185,21 @@ export default function WorkoutTypeScreen() {
   const handleGoBack = () => {
     router.back();
   };
+
+  // Show generated workout view as modal
+  if (showGeneratedWorkout && generatedCarts.length > 0) {
+    return (
+      <Modal visible={true} animationType="slide" presentationStyle="fullScreen">
+        <GeneratedWorkoutView
+          carts={generatedCarts}
+          moodTitle={moodTitle}
+          workoutType={chooseForMeType === 'cardio' ? 'Cardio Based' : 'Light Weights'}
+          onStartWorkout={handleStartWorkout}
+          onClose={handleCloseGeneratedWorkout}
+        />
+      </Modal>
+    );
+  }
 
   return (
     <SafeAreaView style={[styles.container, { paddingTop: insets.top }]}>
