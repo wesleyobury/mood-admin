@@ -252,10 +252,16 @@ export default function LazyTrainingTypeScreen() {
             {lazyTrainingTypeOptions.map((option, index) => (
               <View key={option.id}>
                 <LazyTrainingTypeOption
-                option={option}
-                onPress={handleLazyTrainingTypeSelect}
-                isSelected={selectedOption?.id === option.id}
-              />
+                  option={option}
+                  onPress={handleLazyTrainingTypeSelect}
+                  isSelected={selectedOption?.id === option.id}
+                />
+                {index === 1 && (
+                  <View style={styles.chooseForMeContainer}>
+                    <ChooseForMeButton onPress={handleBuildForMe} />
+                  </View>
+                )}
+              </View>
             ))}
           </View>
         </View>
@@ -280,6 +286,12 @@ export default function LazyTrainingTypeScreen() {
           </TouchableOpacity>
         </View>
       )}
+
+      {/* Intensity Selection Modal */}
+      <IntensitySelectionModal visible={showIntensityModal} onClose={() => setShowIntensityModal(false)} onSelect={handleIntensitySelect} moodTitle={moodTitle} remainingUses={remainingUses} />
+
+      {/* Guest Prompt Modal */}
+      <GuestPromptModal visible={showGuestPrompt} onClose={() => setShowGuestPrompt(false)} action="use Build for Me" />
     </SafeAreaView>
   );
 }
