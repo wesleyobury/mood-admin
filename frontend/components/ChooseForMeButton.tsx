@@ -35,7 +35,7 @@ export default function ChooseForMeButton({ onPress, disabled = false, style }: 
             color={disabled ? '#666' : '#FFFFFF'} 
           />
           <Text style={[styles.text, disabled && styles.textDisabled]}>
-            Choose for me
+            Build for me
           </Text>
         </View>
       </LinearGradient>
