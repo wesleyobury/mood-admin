@@ -327,6 +327,12 @@ export default function ExplosivenessTypeScreen() {
         </TouchableOpacity>
       </View>
     )}
+
+    {/* Intensity Selection Modal */}
+    <IntensitySelectionModal visible={showIntensityModal} onClose={() => setShowIntensityModal(false)} onSelect={handleIntensitySelect} moodTitle={moodTitle} remainingUses={remainingUses} />
+
+    {/* Guest Prompt Modal */}
+    <GuestPromptModal visible={showGuestPrompt} onClose={() => setShowGuestPrompt(false)} action="use Build for Me" />
   </SafeAreaView>
   );
 }
