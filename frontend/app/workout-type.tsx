@@ -387,7 +387,7 @@ export default function WorkoutTypeScreen() {
       <ScrollView style={styles.scrollView} showsVerticalScrollIndicator={false}>
         <View style={styles.content}>
           <View style={styles.instructionContainer}>
-            <Text style={styles.instructionTitle}>Choose Your Focus</Text>
+            <Text style={styles.instructionTitle}>Build Your Workout</Text>
             <Text style={styles.instructionText}>
               Select the type of workout that matches your goals today
             </Text>
