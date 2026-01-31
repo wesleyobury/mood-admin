@@ -7,6 +7,7 @@ import {
   ScrollView,
   Image,
   Dimensions,
+  Alert,
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
@@ -28,6 +29,9 @@ interface GeneratedWorkoutViewProps {
   workoutType: string;
   onStartWorkout: (cart: GeneratedCart) => void;
   onClose: () => void;
+  onSkip?: () => Promise<boolean>; // Returns true if skip was successful (had generations left)
+  onSave?: (cart: GeneratedCart) => Promise<void>;
+  remainingGenerations?: number;
 }
 
 // Exercise card component matching normal cart styling
