@@ -220,31 +220,21 @@ export default function WorkoutTypeScreen() {
             </Text>
           </View>
 
-          <View style={styles.optionsContainer}>
-            {workoutTypeOptions.map((option) => (
-              <View key={option.id}>
-                <WorkoutTypeOption
-                  option={option}
-                  onPress={handleWorkoutTypeSelect}
-                  isSelected={selectedOption?.id === option.id}
-                />
-                {/* Choose for Me button under each option */}
-                <View style={styles.chooseForMeContainer}>
-                  <ChooseForMeButton
-                    onPress={() => handleChooseForMe(option.id === 'cardio' ? 'cardio' : 'light-weights')}
-                  />
-                </View>
-              </View>
-            ))}
+          {/* Single Choose for Me button at the top */}
+          <View style={styles.chooseForMeContainer}>
+            <ChooseForMeButton onPress={handleChooseForMe} />
           </View>
 
-          {selectedOption && (
-            <View style={styles.selectionSummary}>
-              <Text style={styles.selectionText}>
-                Selected: {selectedOption.title}
-              </Text>
-            </View>
-          )}
+          <View style={styles.optionsContainer}>
+            {workoutTypeOptions.map((option) => (
+              <WorkoutTypeOption
+                key={option.id}
+                option={option}
+                onPress={handleWorkoutTypeSelect}
+                isSelected={selectedOption?.id === option.id}
+              />
+            ))}
+          </View>
         </View>
       </ScrollView>
 
