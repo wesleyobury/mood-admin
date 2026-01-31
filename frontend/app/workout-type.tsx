@@ -435,19 +435,6 @@ const styles = StyleSheet.create({
   selectedOptionDescription: {
     color: 'rgba(255, 255, 255, 0.8)',
   },
-  selectionSummary: {
-    backgroundColor: '#1a1a1a',
-    borderRadius: 12,
-    padding: 16,
-    marginTop: 20,
-    marginBottom: 20,
-  },
-  selectionText: {
-    fontSize: 14,
-    color: '#FFD700',
-    textAlign: 'center',
-    fontWeight: '500',
-  },
   bottomContainer: {
     paddingHorizontal: 20,
     paddingBottom: 20,
