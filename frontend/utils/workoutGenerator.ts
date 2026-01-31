@@ -1,6 +1,12 @@
 import { WorkoutItem } from '../contexts/CartContext';
 import { lightWeightsDatabase } from '../data/light-weights-data';
 import { cardioWorkoutsDatabase } from '../data/cardio-workouts-data';
+import { bodyweightExplosivenessDatabase } from '../data/bodyweight-explosiveness-data';
+import { explosivenessWeightsDatabase } from '../data/explosiveness-weights-data';
+import { lazyBodyweightDatabase } from '../data/lazy-bodyweight-data';
+import { lazyUpperBodyDatabase } from '../data/lazy-upper-body-data';
+import { lazyLowerBodyDatabase } from '../data/lazy-lower-body-data';
+import { lazyFullBodyDatabase } from '../data/lazy-full-body-data';
 import { Workout, EquipmentWorkouts } from '../types/workout';
 import { IntensityLevel } from '../components/IntensitySelectionModal';
 import { GeneratedCart } from '../components/GeneratedWorkoutView';
