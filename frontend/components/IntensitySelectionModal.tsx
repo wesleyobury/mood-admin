@@ -250,6 +250,12 @@ const styles = StyleSheet.create({
     color: '#888',
     fontWeight: '500',
   },
+  usageNote: {
+    fontSize: 11,
+    color: '#666',
+    marginTop: 6,
+    fontStyle: 'italic',
+  },
   optionsContainer: {
     gap: 12,
     marginBottom: 24,
