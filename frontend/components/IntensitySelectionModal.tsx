@@ -94,6 +94,13 @@ export default function IntensitySelectionModal({
             </View>
             <Text style={styles.title}>Choose Intensity</Text>
             <Text style={styles.subtitle}>How hard do you want to work today?</Text>
+            {/* Usage limit message */}
+            <View style={styles.usageLimitBadge}>
+              <Ionicons name="information-circle-outline" size={14} color="#888" />
+              <Text style={styles.usageLimitText}>
+                {remainingUses} of 3 uses remaining today
+              </Text>
+            </View>
           </View>
 
           {/* Options */}
