@@ -678,6 +678,9 @@ const styles = StyleSheet.create({
     fontSize: 11,
     fontWeight: 'bold',
     color: '#ffffff',
+    textShadowColor: 'rgba(0,0,0,0.5)',
+    textShadowOffset: { width: 0, height: 1 },
+    textShadowRadius: 2,
   },
   overlayCueText: {
     fontSize: 14,
@@ -685,6 +688,9 @@ const styles = StyleSheet.create({
     lineHeight: 20,
     flexShrink: 1,
     flexWrap: 'wrap',
+    textShadowColor: 'rgba(0,0,0,0.5)',
+    textShadowOffset: { width: 0, height: 1 },
+    textShadowRadius: 3,
   },
   overlayMistakesContainer: {
     marginBottom: 10,
