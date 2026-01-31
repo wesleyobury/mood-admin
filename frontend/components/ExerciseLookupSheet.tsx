@@ -709,6 +709,9 @@ const styles = StyleSheet.create({
     marginLeft: 8,
     flexShrink: 1,
     flexWrap: 'wrap',
+    textShadowColor: 'rgba(0,0,0,0.5)',
+    textShadowOffset: { width: 0, height: 1 },
+    textShadowRadius: 3,
   },
   // Legacy styles kept for search results
   detailBackButton: {
