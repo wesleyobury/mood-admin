@@ -325,13 +325,14 @@ const moodCards: MoodCard[] = [
     icon: 'bicycle',
     gradient: ['#56ab2f', '#a8e6cf'],
   },
-  {
-    id: 'ringer',
-    title: 'Take me through the ringer',
-    subtitle: 'Brutal fitness challenges',
-    icon: 'skull',
-    gradient: ['#1a1a1a', '#4a4a4a'],
-  },
+  // Hidden for now - will be enabled later
+  // {
+  //   id: 'ringer',
+  //   title: 'Take me through the ringer',
+  //   subtitle: 'Brutal fitness challenges',
+  //   icon: 'skull',
+  //   gradient: ['#1a1a1a', '#4a4a4a'],
+  // },
 ];
 
 export default function WorkoutsHome() {
