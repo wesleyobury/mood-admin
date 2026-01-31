@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import {
   View,
   Text,
@@ -7,12 +7,24 @@ import {
   SafeAreaView,
   ScrollView,
   Animated,
+  Modal,
+  Alert,
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useRouter, useLocalSearchParams } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import Constants from 'expo-constants';
 import HomeButton from '../components/HomeButton';
+import ChooseForMeButton from '../components/ChooseForMeButton';
+import IntensitySelectionModal, { IntensityLevel } from '../components/IntensitySelectionModal';
+import GeneratedWorkoutView, { GeneratedCart } from '../components/GeneratedWorkoutView';
+import GuestPromptModal from '../components/GuestPromptModal';
+import { generateLazyCarts } from '../utils/workoutGenerator';
+import { useCart } from '../contexts/CartContext';
+import { useAuth } from '../contexts/AuthContext';
+
+const API_URL = process.env.EXPO_PUBLIC_BACKEND_URL || Constants.expoConfig?.extra?.EXPO_PUBLIC_BACKEND_URL || '';
 
 interface LazyTrainingTypeOption {
   id: string;
