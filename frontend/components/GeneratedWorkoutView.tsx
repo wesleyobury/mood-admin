@@ -103,19 +103,69 @@ export default function GeneratedWorkoutView({
   workoutType,
   onStartWorkout,
   onClose,
+  onSkip,
+  onSave,
+  remainingGenerations = 3,
 }: GeneratedWorkoutViewProps) {
   const [currentCartIndex, setCurrentCartIndex] = useState(0);
   const [currentCart, setCurrentCart] = useState(carts[0]);
+  const [isSaved, setIsSaved] = useState(false);
+  const [isSaving, setIsSaving] = useState(false);
+  const [localRemainingGenerations, setLocalRemainingGenerations] = useState(remainingGenerations);
   const insets = useSafeAreaInsets();
 
   const isLastCart = currentCartIndex === carts.length - 1;
   const cartsRemaining = carts.length - currentCartIndex - 1;
 
-  const handleSkip = () => {
+  const handleSkip = async () => {
     if (!isLastCart) {
+      // Check if we have generations left
+      if (localRemainingGenerations <= 0) {
+        Alert.alert(
+          'No Generations Left',
+          'You have used all your daily generations. Each skip uses 1 generation.',
+          [{ text: 'OK' }]
+        );
+        return;
+      }
+
+      // Call onSkip callback to record the generation usage
+      if (onSkip) {
+        const success = await onSkip();
+        if (!success) {
+          Alert.alert(
+            'No Generations Left',
+            'You have used all your daily generations.',
+            [{ text: 'OK' }]
+          );
+          return;
+        }
+        setLocalRemainingGenerations(prev => Math.max(0, prev - 1));
+      }
+
       const newIndex = currentCartIndex + 1;
       setCurrentCartIndex(newIndex);
       setCurrentCart(carts[newIndex]);
+      setIsSaved(false); // Reset saved state for new cart
+    }
+  };
+
+  const handleSave = async () => {
+    if (onSave && !isSaved) {
+      setIsSaving(true);
+      try {
+        await onSave(currentCart);
+        setIsSaved(true);
+        Alert.alert(
+          'Workout Saved!',
+          'You can access this workout from your saved workouts.',
+          [{ text: 'OK' }]
+        );
+      } catch (error) {
+        Alert.alert('Error', 'Failed to save workout. Please try again.');
+      } finally {
+        setIsSaving(false);
+      }
     }
   };
 
