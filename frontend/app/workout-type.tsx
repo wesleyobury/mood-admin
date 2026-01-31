@@ -7,12 +7,19 @@ import {
   SafeAreaView,
   ScrollView,
   Animated,
+  Modal,
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useRouter, useLocalSearchParams } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import HomeButton from '../components/HomeButton';
+import ChooseForMeButton from '../components/ChooseForMeButton';
+import IntensitySelectionModal, { IntensityLevel } from '../components/IntensitySelectionModal';
+import GeneratedWorkoutView, { GeneratedCart } from '../components/GeneratedWorkoutView';
+import { generateLightWeightsCarts, generateWorkoutCarts } from '../utils/workoutGenerator';
+import { useCart } from '../contexts/CartContext';
+import { cardioDatabase } from '../data/cardio-data';
 
 interface WorkoutTypeOption {
   id: string;
