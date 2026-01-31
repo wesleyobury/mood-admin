@@ -313,7 +313,7 @@ export default function WorkoutTypeScreen() {
     try {
       // Save as a regular saved workout
       const workoutData = {
-        name: `${workoutType} - Generated`,
+        name: `Mixed Workout - Generated`,
         workouts: cart.workouts.map(w => ({
           name: w.name,
           duration: w.duration,
