@@ -114,7 +114,6 @@ export default function WorkoutTypeScreen() {
   const [showIntensityModal, setShowIntensityModal] = useState(false);
   const [generatedCarts, setGeneratedCarts] = useState<GeneratedCart[]>([]);
   const [showGeneratedWorkout, setShowGeneratedWorkout] = useState(false);
-  const [chooseForMeType, setChooseForMeType] = useState<'cardio' | 'light-weights' | null>(null);
   const { addToCart, clearCart } = useCart();
   
   const moodTitle = params.mood as string || 'Sweat / burn fat';
@@ -124,21 +123,15 @@ export default function WorkoutTypeScreen() {
     setSelectedOption(option);
   };
 
-  const handleChooseForMe = (type: 'cardio' | 'light-weights') => {
-    setChooseForMeType(type);
+  const handleChooseForMe = () => {
     setShowIntensityModal(true);
   };
 
   const handleIntensitySelect = (intensity: IntensityLevel) => {
     setShowIntensityModal(false);
     
-    // Generate workout carts based on the selected type
-    let carts: GeneratedCart[] = [];
-    if (chooseForMeType === 'cardio') {
-      carts = generateCardioCarts(intensity, moodTitle, 'Cardio Based');
-    } else {
-      carts = generateLightWeightsCarts(intensity, moodTitle, 'Light Weights');
-    }
+    // Generate combined workout carts from cardio + light weights
+    const carts = generateSweatBurnFatCarts(intensity, moodTitle, 'Mixed Workout');
     
     if (carts.length > 0) {
       setGeneratedCarts(carts);
