@@ -17,7 +17,7 @@ import HomeButton from '../components/HomeButton';
 import ChooseForMeButton from '../components/ChooseForMeButton';
 import IntensitySelectionModal, { IntensityLevel } from '../components/IntensitySelectionModal';
 import GeneratedWorkoutView, { GeneratedCart } from '../components/GeneratedWorkoutView';
-import { generateLightWeightsCarts, generateCardioCarts } from '../utils/workoutGenerator';
+import { generateSweatBurnFatCarts } from '../utils/workoutGenerator';
 import { useCart } from '../contexts/CartContext';
 
 interface WorkoutTypeOption {
