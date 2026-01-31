@@ -242,16 +242,37 @@ export default function GeneratedWorkoutView({
       {/* Content Section */}
       <View style={styles.contentContainer}>
         <View style={styles.sectionHeader}>
-          <Text style={styles.sectionTitle}>Your Workout</Text>
-          {!isLastCart && (
-            <Text style={styles.skipHint}>{cartsRemaining} more option{cartsRemaining > 1 ? 's' : ''} available</Text>
+          <View style={styles.sectionHeaderLeft}>
+            <Text style={styles.sectionTitle}>Your Workout</Text>
+            {!isLastCart && (
+              <Text style={styles.skipHint}>
+                {cartsRemaining} more • Skip uses 1 generation
+              </Text>
+            )}
+          </View>
+          {/* Save Button */}
+          {onSave && (
+            <TouchableOpacity
+              style={[styles.saveButton, isSaved && styles.saveButtonSaved]}
+              onPress={handleSave}
+              disabled={isSaved || isSaving}
+            >
+              <Ionicons 
+                name={isSaved ? "bookmark" : "bookmark-outline"} 
+                size={18} 
+                color={isSaved ? "#FFD700" : "#888"} 
+              />
+              <Text style={[styles.saveButtonText, isSaved && styles.saveButtonTextSaved]}>
+                {isSaved ? 'Saved' : 'Save'}
+              </Text>
+            </TouchableOpacity>
           )}
         </View>
 
         <ScrollView
           style={styles.exerciseList}
           showsVerticalScrollIndicator={false}
-          contentContainerStyle={{ paddingBottom: 140 }}
+          contentContainerStyle={{ paddingBottom: 160 }}
         >
           {currentCart.workouts.map((workout, index) => (
             <ExerciseCard
@@ -269,14 +290,34 @@ export default function GeneratedWorkoutView({
 
       {/* Bottom Action Bar */}
       <View style={[styles.bottomBar, { paddingBottom: Math.max(insets.bottom, 20) }]}>
+        {/* Remaining generations indicator */}
+        <View style={styles.generationsIndicator}>
+          <Ionicons name="sparkles" size={12} color="#888" />
+          <Text style={styles.generationsText}>
+            {localRemainingGenerations} generation{localRemainingGenerations !== 1 ? 's' : ''} left today
+          </Text>
+        </View>
         <View style={styles.bottomActions}>
           {!isLastCart ? (
             <TouchableOpacity
-              style={styles.skipButton}
+              style={[
+                styles.skipButton,
+                localRemainingGenerations <= 0 && styles.skipButtonDisabled
+              ]}
               onPress={handleSkip}
+              disabled={localRemainingGenerations <= 0}
             >
-              <Ionicons name="shuffle" size={18} color="#FFD700" />
-              <Text style={styles.skipButtonText}>Skip</Text>
+              <Ionicons 
+                name="shuffle" 
+                size={18} 
+                color={localRemainingGenerations <= 0 ? "#666" : "#FFD700"} 
+              />
+              <Text style={[
+                styles.skipButtonText,
+                localRemainingGenerations <= 0 && styles.skipButtonTextDisabled
+              ]}>
+                Skip
+              </Text>
             </TouchableOpacity>
           ) : (
             <View style={styles.lastCartIndicator}>
