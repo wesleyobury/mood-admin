@@ -1,5 +1,6 @@
 import { WorkoutItem } from '../contexts/CartContext';
 import { lightWeightsDatabase } from '../data/light-weights-data';
+import { cardioWorkoutsDatabase } from '../data/cardio-workouts-data';
 import { Workout, EquipmentWorkouts } from '../types/workout';
 import { IntensityLevel } from '../components/IntensitySelectionModal';
 import { GeneratedCart } from '../components/GeneratedWorkoutView';
