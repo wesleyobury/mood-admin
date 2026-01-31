@@ -120,9 +120,39 @@ export default function WorkoutTypeScreen() {
   const [showIntensityModal, setShowIntensityModal] = useState(false);
   const [generatedCarts, setGeneratedCarts] = useState<GeneratedCart[]>([]);
   const [showGeneratedWorkout, setShowGeneratedWorkout] = useState(false);
+  const [showGuestPrompt, setShowGuestPrompt] = useState(false);
+  const [remainingUses, setRemainingUses] = useState(3);
+  const [isLoadingUsage, setIsLoadingUsage] = useState(false);
   const { addToCart, clearCart } = useCart();
+  const { isGuest, token } = useAuth();
   
   const moodTitle = params.mood as string || 'Sweat / burn fat';
+
+  // Fetch usage on mount for logged-in users
+  useEffect(() => {
+    const fetchUsage = async () => {
+      if (isGuest || !token) return;
+      
+      setIsLoadingUsage(true);
+      try {
+        const response = await fetch(`${API_URL}/api/choose-for-me/usage`, {
+          headers: {
+            'Authorization': `Bearer ${token}`,
+          },
+        });
+        if (response.ok) {
+          const data = await response.json();
+          setRemainingUses(data.remaining_uses);
+        }
+      } catch (error) {
+        console.error('Error fetching usage:', error);
+      } finally {
+        setIsLoadingUsage(false);
+      }
+    };
+    
+    fetchUsage();
+  }, [isGuest, token]);
 
   const handleWorkoutTypeSelect = (option: WorkoutTypeOption) => {
     console.log('Selected workout type:', option.title, 'for mood:', moodTitle);
@@ -130,16 +160,77 @@ export default function WorkoutTypeScreen() {
   };
 
   const handleChooseForMe = () => {
+    // Show guest prompt if user is a guest
+    if (isGuest) {
+      setShowGuestPrompt(true);
+      return;
+    }
+    
+    // Check if user has remaining uses
+    if (remainingUses <= 0) {
+      Alert.alert(
+        'Daily Limit Reached',
+        'You can only use Choose for Me 3 times per day. Try again tomorrow!',
+        [{ text: 'OK' }]
+      );
+      return;
+    }
+    
     setShowIntensityModal(true);
   };
 
-  const handleIntensitySelect = (intensity: IntensityLevel) => {
+  const handleIntensitySelect = async (intensity: IntensityLevel) => {
     setShowIntensityModal(false);
     
     // Generate combined workout carts from cardio + light weights
     const carts = generateSweatBurnFatCarts(intensity, moodTitle, 'Mixed Workout');
     
     if (carts.length > 0) {
+      // Save to backend
+      if (!isGuest && token) {
+        try {
+          const response = await fetch(`${API_URL}/api/choose-for-me/generate`, {
+            method: 'POST',
+            headers: {
+              'Authorization': `Bearer ${token}`,
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              carts: carts.map(cart => ({
+                id: cart.id,
+                workouts: cart.workouts.map(w => ({
+                  name: w.name,
+                  duration: w.duration,
+                  equipment: w.equipment,
+                  description: w.description,
+                  imageUrl: w.imageUrl,
+                })),
+                totalDuration: cart.totalDuration,
+                intensity: cart.intensity,
+                moodCard: moodTitle,
+                workoutType: 'Mixed Workout',
+              })),
+              moodCard: moodTitle,
+              intensity: intensity,
+            }),
+          });
+          
+          if (response.ok) {
+            const data = await response.json();
+            setRemainingUses(data.remaining_uses);
+          } else if (response.status === 429) {
+            Alert.alert(
+              'Daily Limit Reached',
+              'You can only use Choose for Me 3 times per day. Try again tomorrow!',
+              [{ text: 'OK' }]
+            );
+            return;
+          }
+        } catch (error) {
+          console.error('Error saving generated workout:', error);
+        }
+      }
+      
       setGeneratedCarts(carts);
       setShowGeneratedWorkout(true);
     }
