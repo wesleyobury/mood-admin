@@ -317,19 +317,21 @@ export default function WorkoutTypeScreen() {
             </Text>
           </View>
 
-          {/* Single Choose for Me button at the top */}
-          <View style={styles.chooseForMeContainer}>
-            <ChooseForMeButton onPress={handleChooseForMe} />
-          </View>
-
           <View style={styles.optionsContainer}>
-            {workoutTypeOptions.map((option) => (
-              <WorkoutTypeOption
-                key={option.id}
-                option={option}
-                onPress={handleWorkoutTypeSelect}
-                isSelected={selectedOption?.id === option.id}
-              />
+            {workoutTypeOptions.map((option, index) => (
+              <View key={option.id}>
+                <WorkoutTypeOption
+                  option={option}
+                  onPress={handleWorkoutTypeSelect}
+                  isSelected={selectedOption?.id === option.id}
+                />
+                {/* Place Choose for Me button after the second option (Light Weights) */}
+                {index === 1 && (
+                  <View style={styles.chooseForMeContainer}>
+                    <ChooseForMeButton onPress={handleChooseForMe} />
+                  </View>
+                )}
+              </View>
             ))}
           </View>
         </View>
@@ -361,6 +363,14 @@ export default function WorkoutTypeScreen() {
         onClose={() => setShowIntensityModal(false)}
         onSelect={handleIntensitySelect}
         moodTitle={moodTitle}
+        remainingUses={remainingUses}
+      />
+
+      {/* Guest Prompt Modal */}
+      <GuestPromptModal
+        visible={showGuestPrompt}
+        onClose={() => setShowGuestPrompt(false)}
+        action="use Choose for Me"
       />
     </SafeAreaView>
   );
