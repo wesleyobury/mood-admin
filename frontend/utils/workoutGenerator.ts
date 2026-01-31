@@ -226,3 +226,14 @@ export function generateCardioCarts(
 ): GeneratedCart[] {
   return generateWorkoutCarts(intensity, moodCard, workoutType, cardioWorkoutsDatabase);
 }
+
+// Export for combined Sweat/burn fat path (cardio + light weights)
+export function generateSweatBurnFatCarts(
+  intensity: IntensityLevel,
+  moodCard: string = 'Sweat / burn fat',
+  workoutType: string = 'Mixed'
+): GeneratedCart[] {
+  // Combine both cardio and light weights databases
+  const combinedDatabase = [...cardioWorkoutsDatabase, ...lightWeightsDatabase];
+  return generateWorkoutCarts(intensity, moodCard, workoutType, combinedDatabase);
+}
