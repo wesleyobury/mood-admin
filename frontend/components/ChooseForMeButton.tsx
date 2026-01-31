@@ -30,18 +30,13 @@ export default function ChooseForMeButton({ onPress, disabled = false, style }: 
       >
         <View style={styles.content}>
           <Ionicons 
-            name="shuffle" 
+            name="sparkles" 
             size={18} 
             color={disabled ? '#666' : '#FFFFFF'} 
           />
           <Text style={[styles.text, disabled && styles.textDisabled]}>
             Choose for me
           </Text>
-          <Ionicons 
-            name="sparkles" 
-            size={14} 
-            color={disabled ? '#666' : '#FFFFFF'} 
-          />
         </View>
       </LinearGradient>
     </TouchableOpacity>
