@@ -450,7 +450,7 @@ const styles = StyleSheet.create({
     gap: 20,
   },
   chooseForMeContainer: {
-    marginBottom: 24,
+    marginTop: 16,
   },
   optionContainer: {
     marginBottom: 0,
