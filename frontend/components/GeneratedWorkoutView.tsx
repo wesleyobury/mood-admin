@@ -459,15 +459,39 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     borderBottomColor: 'rgba(255, 255, 255, 0.1)',
   },
+  sectionHeaderLeft: {
+    flex: 1,
+  },
   sectionTitle: {
     fontSize: 18,
     fontWeight: '700',
     color: '#fff',
   },
   skipHint: {
-    fontSize: 12,
-    color: '#FFD700',
+    fontSize: 11,
+    color: '#888',
     fontWeight: '500',
+    marginTop: 2,
+  },
+  saveButton: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: 'rgba(255, 255, 255, 0.08)',
+    paddingHorizontal: 12,
+    paddingVertical: 8,
+    borderRadius: 8,
+    gap: 4,
+  },
+  saveButtonSaved: {
+    backgroundColor: 'rgba(255, 215, 0, 0.1)',
+  },
+  saveButtonText: {
+    fontSize: 13,
+    fontWeight: '600',
+    color: '#888',
+  },
+  saveButtonTextSaved: {
+    color: '#FFD700',
   },
   exerciseList: {
     flex: 1,
