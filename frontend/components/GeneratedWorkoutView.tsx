@@ -562,10 +562,22 @@ const styles = StyleSheet.create({
     left: 0,
     right: 0,
     paddingHorizontal: 20,
-    paddingTop: 16,
+    paddingTop: 12,
     backgroundColor: 'rgba(0, 0, 0, 0.95)',
     borderTopWidth: 1,
     borderTopColor: 'rgba(255, 255, 255, 0.1)',
+  },
+  generationsIndicator: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: 6,
+    marginBottom: 12,
+  },
+  generationsText: {
+    fontSize: 11,
+    color: '#888',
+    fontWeight: '500',
   },
   bottomActions: {
     flexDirection: 'row',
@@ -583,10 +595,17 @@ const styles = StyleSheet.create({
     borderColor: 'rgba(255, 215, 0, 0.3)',
     gap: 6,
   },
+  skipButtonDisabled: {
+    backgroundColor: 'rgba(255, 255, 255, 0.05)',
+    borderColor: 'rgba(255, 255, 255, 0.1)',
+  },
   skipButtonText: {
     fontSize: 14,
     fontWeight: '600',
     color: '#FFD700',
+  },
+  skipButtonTextDisabled: {
+    color: '#666',
   },
   lastCartIndicator: {
     flexDirection: 'row',
