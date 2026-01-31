@@ -6889,6 +6889,10 @@ async def get_choose_for_me_usage(
     now = datetime.now(timezone.utc)
     today_start = now.replace(hour=0, minute=0, second=0, microsecond=0)
     
+    # Check if user is admin (officialmoodapp) - unlimited generations
+    user = await db.users.find_one({"_id": ObjectId(current_user_id)})
+    is_admin = user and user.get("username") == "officialmoodapp"
+    
     # Count today's usage
     usage_count = await db.choose_for_me_usage.count_documents({
         "user_id": current_user_id,
@@ -6904,6 +6908,17 @@ async def get_choose_for_me_usage(
     # Convert ObjectId to string
     for workout in generated_workouts:
         workout["_id"] = str(workout["_id"])
+    
+    # Admin gets unlimited
+    if is_admin:
+        return {
+            "usage_count": usage_count,
+            "remaining_uses": 999,
+            "can_generate": True,
+            "is_admin": True,
+            "generated_workouts": generated_workouts,
+            "reset_time": (today_start + timedelta(days=1)).isoformat()
+        }
     
     return {
         "usage_count": usage_count,
@@ -6922,17 +6937,22 @@ async def record_choose_for_me_usage(
     now = datetime.now(timezone.utc)
     today_start = now.replace(hour=0, minute=0, second=0, microsecond=0)
     
-    # Check usage limit
-    usage_count = await db.choose_for_me_usage.count_documents({
-        "user_id": current_user_id,
-        "created_at": {"$gte": today_start}
-    })
+    # Check if user is admin (officialmoodapp) - unlimited generations
+    user = await db.users.find_one({"_id": ObjectId(current_user_id)})
+    is_admin = user and user.get("username") == "officialmoodapp"
     
-    if usage_count >= 3:
-        raise HTTPException(
-            status_code=429,
-            detail="Daily limit reached. You can only use Choose for Me 3 times per day."
-        )
+    # Check usage limit (skip for admin)
+    if not is_admin:
+        usage_count = await db.choose_for_me_usage.count_documents({
+            "user_id": current_user_id,
+            "created_at": {"$gte": today_start}
+        })
+        
+        if usage_count >= 3:
+            raise HTTPException(
+                status_code=429,
+                detail="Daily limit reached. You can only use Choose for Me 3 times per day."
+            )
     
     # Record the usage
     usage_record = {
