@@ -243,3 +243,30 @@ export function generateSweatBurnFatCarts(
   const combinedDatabase = [...cardioWorkoutsDatabase, ...lightWeightsDatabase];
   return generateWorkoutCarts(intensity, moodCard, workoutType, combinedDatabase);
 }
+
+// Export for Build Explosion path (bodyweight + weights)
+export function generateExplosivenessCarts(
+  intensity: IntensityLevel,
+  moodCard: string = 'I want to build explosion',
+  workoutType: string = 'Mixed Explosive'
+): GeneratedCart[] {
+  // Combine both bodyweight and weight-based explosiveness databases
+  const combinedDatabase = [...bodyweightExplosivenessDatabase, ...explosivenessWeightsDatabase];
+  return generateWorkoutCarts(intensity, moodCard, workoutType, combinedDatabase);
+}
+
+// Export for I'm Feeling Lazy path (all lazy workouts combined)
+export function generateLazyCarts(
+  intensity: IntensityLevel,
+  moodCard: string = "I'm feeling lazy",
+  workoutType: string = 'Mixed Lazy'
+): GeneratedCart[] {
+  // Combine all lazy databases
+  const combinedDatabase = [
+    ...lazyBodyweightDatabase,
+    ...lazyUpperBodyDatabase,
+    ...lazyLowerBodyDatabase,
+    ...lazyFullBodyDatabase
+  ];
+  return generateWorkoutCarts(intensity, moodCard, workoutType, combinedDatabase);
+}
