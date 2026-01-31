@@ -11,7 +11,6 @@ import {
 import { Ionicons } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { useRouter } from 'expo-router';
 import { WorkoutItem } from '../contexts/CartContext';
 
 const { width: SCREEN_WIDTH } = Dimensions.get('window');
@@ -31,6 +30,69 @@ interface GeneratedWorkoutViewProps {
   onClose: () => void;
 }
 
+// Exercise card component matching normal cart styling
+const ExerciseCard = ({
+  item,
+  index,
+  onMoveUp,
+  onMoveDown,
+  isFirst,
+  isLast,
+}: {
+  item: WorkoutItem;
+  index: number;
+  onMoveUp: (index: number) => void;
+  onMoveDown: (index: number) => void;
+  isFirst: boolean;
+  isLast: boolean;
+}) => {
+  const placeholderImage = 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=200&h=200&fit=crop';
+  const imageSource = item.imageUrl && item.imageUrl.length > 0 ? item.imageUrl : placeholderImage;
+
+  return (
+    <View style={styles.exerciseCard}>
+      <Image
+        source={{ uri: imageSource }}
+        style={styles.exerciseImage}
+        resizeMode="cover"
+      />
+      <View style={styles.exerciseInfo}>
+        <Text style={styles.exerciseEquipment}>{item.equipment}</Text>
+        <Text style={styles.exerciseName} numberOfLines={1}>{item.name}</Text>
+        <Text style={styles.exerciseDuration}>{item.duration}</Text>
+      </View>
+      <View style={styles.exerciseActions}>
+        <View style={styles.reorderButtons}>
+          <TouchableOpacity
+            style={[styles.reorderButton, isFirst && styles.reorderButtonDisabled]}
+            onPress={() => !isFirst && onMoveUp(index)}
+            disabled={isFirst}
+            activeOpacity={0.8}
+          >
+            <Ionicons
+              name="chevron-up"
+              size={18}
+              color={isFirst ? 'rgba(255, 255, 255, 0.3)' : '#fff'}
+            />
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={[styles.reorderButton, isLast && styles.reorderButtonDisabled]}
+            onPress={() => !isLast && onMoveDown(index)}
+            disabled={isLast}
+            activeOpacity={0.8}
+          >
+            <Ionicons
+              name="chevron-down"
+              size={18}
+              color={isLast ? 'rgba(255, 255, 255, 0.3)' : '#fff'}
+            />
+          </TouchableOpacity>
+        </View>
+      </View>
+    </View>
+  );
+};
+
 export default function GeneratedWorkoutView({
   carts,
   moodTitle,
@@ -39,16 +101,33 @@ export default function GeneratedWorkoutView({
   onClose,
 }: GeneratedWorkoutViewProps) {
   const [currentCartIndex, setCurrentCartIndex] = useState(0);
+  const [currentCart, setCurrentCart] = useState(carts[0]);
   const insets = useSafeAreaInsets();
-  const router = useRouter();
 
-  const currentCart = carts[currentCartIndex];
   const isLastCart = currentCartIndex === carts.length - 1;
   const cartsRemaining = carts.length - currentCartIndex - 1;
 
   const handleSkip = () => {
     if (!isLastCart) {
-      setCurrentCartIndex(prev => prev + 1);
+      const newIndex = currentCartIndex + 1;
+      setCurrentCartIndex(newIndex);
+      setCurrentCart(carts[newIndex]);
+    }
+  };
+
+  const handleMoveUp = (index: number) => {
+    if (index > 0) {
+      const newWorkouts = [...currentCart.workouts];
+      [newWorkouts[index - 1], newWorkouts[index]] = [newWorkouts[index], newWorkouts[index - 1]];
+      setCurrentCart({ ...currentCart, workouts: newWorkouts });
+    }
+  };
+
+  const handleMoveDown = (index: number) => {
+    if (index < currentCart.workouts.length - 1) {
+      const newWorkouts = [...currentCart.workouts];
+      [newWorkouts[index], newWorkouts[index + 1]] = [newWorkouts[index + 1], newWorkouts[index]];
+      setCurrentCart({ ...currentCart, workouts: newWorkouts });
     }
   };
 
@@ -73,7 +152,7 @@ export default function GeneratedWorkoutView({
           resizeMode="cover"
         />
         <View style={styles.heroOverlay} />
-        
+
         {/* Close Button */}
         <TouchableOpacity
           style={[styles.closeButton, { top: insets.top + 10 }]}
@@ -106,7 +185,7 @@ export default function GeneratedWorkoutView({
         </View>
       </View>
 
-      {/* Exercise List */}
+      {/* Content Section */}
       <View style={styles.contentContainer}>
         <View style={styles.sectionHeader}>
           <Text style={styles.sectionTitle}>Your Workout</Text>
@@ -121,21 +200,15 @@ export default function GeneratedWorkoutView({
           contentContainerStyle={{ paddingBottom: 140 }}
         >
           {currentCart.workouts.map((workout, index) => (
-            <View key={workout.id} style={styles.exerciseCard}>
-              <View style={styles.exerciseNumber}>
-                <Text style={styles.exerciseNumberText}>{index + 1}</Text>
-              </View>
-              <Image
-                source={{ uri: workout.imageUrl || 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=200' }}
-                style={styles.exerciseImage}
-                resizeMode="cover"
-              />
-              <View style={styles.exerciseInfo}>
-                <Text style={styles.exerciseEquipment}>{workout.equipment}</Text>
-                <Text style={styles.exerciseName} numberOfLines={1}>{workout.name}</Text>
-                <Text style={styles.exerciseDuration}>{workout.duration}</Text>
-              </View>
-            </View>
+            <ExerciseCard
+              key={workout.id}
+              item={workout}
+              index={index}
+              onMoveUp={handleMoveUp}
+              onMoveDown={handleMoveDown}
+              isFirst={index === 0}
+              isLast={index === currentCart.workouts.length - 1}
+            />
           ))}
         </ScrollView>
       </View>
@@ -305,6 +378,7 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingHorizontal: 16,
   },
+  // Exercise Card styles - matching cart.tsx exactly
   exerciseCard: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -315,27 +389,9 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: 'rgba(255, 255, 255, 0.1)',
   },
-  exerciseNumber: {
-    width: 32,
-    height: '100%',
-    backgroundColor: 'rgba(255, 215, 0, 0.1)',
-    justifyContent: 'center',
-    alignItems: 'center',
-    position: 'absolute',
-    left: 0,
-    top: 0,
-    bottom: 0,
-    zIndex: 1,
-  },
-  exerciseNumberText: {
-    fontSize: 14,
-    fontWeight: '700',
-    color: '#FFD700',
-  },
   exerciseImage: {
     width: 80,
     height: 80,
-    marginLeft: 32,
   },
   exerciseInfo: {
     flex: 1,
@@ -360,6 +416,27 @@ const styles = StyleSheet.create({
     fontSize: 12,
     color: 'rgba(255, 255, 255, 0.6)',
   },
+  exerciseActions: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingRight: 12,
+  },
+  reorderButtons: {
+    flexDirection: 'column',
+    gap: 2,
+  },
+  reorderButton: {
+    width: 28,
+    height: 28,
+    borderRadius: 14,
+    backgroundColor: 'rgba(255, 255, 255, 0.1)',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  reorderButtonDisabled: {
+    backgroundColor: 'rgba(255, 255, 255, 0.05)',
+  },
+  // Bottom Bar styles
   bottomBar: {
     position: 'absolute',
     bottom: 0,
