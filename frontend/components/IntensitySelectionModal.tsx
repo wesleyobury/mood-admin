@@ -50,6 +50,7 @@ interface IntensitySelectionModalProps {
   onClose: () => void;
   onSelect: (intensity: IntensityLevel) => void;
   moodTitle?: string;
+  remainingUses?: number;
 }
 
 export default function IntensitySelectionModal({
@@ -57,6 +58,7 @@ export default function IntensitySelectionModal({
   onClose,
   onSelect,
   moodTitle = 'Workout',
+  remainingUses = 3,
 }: IntensitySelectionModalProps) {
   const [selectedIntensity, setSelectedIntensity] = useState<IntensityLevel | null>(null);
 
