@@ -6859,6 +6859,157 @@ async def delete_featured_workout(
 
 # ==================== END FEATURED WORKOUTS API ====================
 
+# ==================== CHOOSE FOR ME API ====================
+
+class GeneratedWorkoutItem(BaseModel):
+    name: str
+    duration: str
+    equipment: str
+    description: Optional[str] = None
+    imageUrl: Optional[str] = None
+
+class GeneratedCartData(BaseModel):
+    id: str
+    workouts: List[GeneratedWorkoutItem]
+    totalDuration: int
+    intensity: str
+    moodCard: str
+    workoutType: str
+
+class SaveGeneratedWorkoutsRequest(BaseModel):
+    carts: List[GeneratedCartData]
+    moodCard: str
+    intensity: str
+
+@api_router.get("/choose-for-me/usage")
+async def get_choose_for_me_usage(
+    current_user_id: str = Depends(get_current_user)
+):
+    """Get the user's Choose for Me usage for today and their generated workouts"""
+    now = datetime.now(timezone.utc)
+    today_start = now.replace(hour=0, minute=0, second=0, microsecond=0)
+    
+    # Count today's usage
+    usage_count = await db.choose_for_me_usage.count_documents({
+        "user_id": current_user_id,
+        "created_at": {"$gte": today_start}
+    })
+    
+    # Get today's generated workouts
+    generated_workouts = await db.generated_workouts.find({
+        "user_id": current_user_id,
+        "created_at": {"$gte": today_start}
+    }).sort("created_at", -1).to_list(10)
+    
+    # Convert ObjectId to string
+    for workout in generated_workouts:
+        workout["_id"] = str(workout["_id"])
+    
+    return {
+        "usage_count": usage_count,
+        "remaining_uses": max(0, 3 - usage_count),
+        "can_generate": usage_count < 3,
+        "generated_workouts": generated_workouts,
+        "reset_time": (today_start + timedelta(days=1)).isoformat()
+    }
+
+@api_router.post("/choose-for-me/generate")
+async def record_choose_for_me_usage(
+    request: SaveGeneratedWorkoutsRequest,
+    current_user_id: str = Depends(get_current_user)
+):
+    """Record a Choose for Me usage and save the generated workouts"""
+    now = datetime.now(timezone.utc)
+    today_start = now.replace(hour=0, minute=0, second=0, microsecond=0)
+    
+    # Check usage limit
+    usage_count = await db.choose_for_me_usage.count_documents({
+        "user_id": current_user_id,
+        "created_at": {"$gte": today_start}
+    })
+    
+    if usage_count >= 3:
+        raise HTTPException(
+            status_code=429,
+            detail="Daily limit reached. You can only use Choose for Me 3 times per day."
+        )
+    
+    # Record the usage
+    usage_record = {
+        "user_id": current_user_id,
+        "mood_card": request.moodCard,
+        "intensity": request.intensity,
+        "created_at": now
+    }
+    await db.choose_for_me_usage.insert_one(usage_record)
+    
+    # Save the generated workouts
+    workout_record = {
+        "user_id": current_user_id,
+        "mood_card": request.moodCard,
+        "intensity": request.intensity,
+        "carts": [cart.dict() for cart in request.carts],
+        "created_at": now
+    }
+    result = await db.generated_workouts.insert_one(workout_record)
+    
+    return {
+        "success": True,
+        "usage_count": usage_count + 1,
+        "remaining_uses": max(0, 2 - usage_count),
+        "generated_workout_id": str(result.inserted_id)
+    }
+
+@api_router.get("/choose-for-me/history")
+async def get_generated_workouts_history(
+    current_user_id: str = Depends(get_current_user),
+    limit: int = 10
+):
+    """Get the user's generated workouts history"""
+    now = datetime.now(timezone.utc)
+    today_start = now.replace(hour=0, minute=0, second=0, microsecond=0)
+    
+    # Get generated workouts from today (accessible ones)
+    generated_workouts = await db.generated_workouts.find({
+        "user_id": current_user_id,
+        "created_at": {"$gte": today_start}
+    }).sort("created_at", -1).to_list(limit)
+    
+    # Convert ObjectId to string
+    for workout in generated_workouts:
+        workout["_id"] = str(workout["_id"])
+    
+    return {
+        "workouts": generated_workouts,
+        "count": len(generated_workouts)
+    }
+
+@api_router.get("/choose-for-me/workout/{workout_id}")
+async def get_generated_workout(
+    workout_id: str,
+    current_user_id: str = Depends(get_current_user)
+):
+    """Get a specific generated workout by ID"""
+    now = datetime.now(timezone.utc)
+    today_start = now.replace(hour=0, minute=0, second=0, microsecond=0)
+    
+    try:
+        workout = await db.generated_workouts.find_one({
+            "_id": ObjectId(workout_id),
+            "user_id": current_user_id,
+            "created_at": {"$gte": today_start}  # Only today's workouts are accessible
+        })
+        
+        if not workout:
+            raise HTTPException(status_code=404, detail="Generated workout not found or no longer accessible")
+        
+        workout["_id"] = str(workout["_id"])
+        return workout
+    except Exception as e:
+        raise HTTPException(status_code=400, detail=f"Invalid workout ID: {str(e)}")
+
+# ==================== END CHOOSE FOR ME API ====================
+
 @api_router.get("/moderation/admin/stats")
 async def get_moderation_stats(
     current_user_id: str = Depends(get_current_user)
