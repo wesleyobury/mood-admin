@@ -217,3 +217,12 @@ export function generateLightWeightsCarts(
 ): GeneratedCart[] {
   return generateWorkoutCarts(intensity, moodCard, workoutType, lightWeightsDatabase);
 }
+
+// Export for cardio path
+export function generateCardioCarts(
+  intensity: IntensityLevel,
+  moodCard: string = 'Sweat / burn fat',
+  workoutType: string = 'Cardio Based'
+): GeneratedCart[] {
+  return generateWorkoutCarts(intensity, moodCard, workoutType, cardioWorkoutsDatabase);
+}
