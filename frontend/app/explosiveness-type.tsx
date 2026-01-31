@@ -172,14 +172,6 @@ export default function ExplosivenessTypeScreen() {
             />
           ))}
         </View>
-
-        {selectedOption && (
-          <View style={styles.selectionSummary}>
-            <Text style={styles.selectionText}>
-              Selected: {selectedOption.title}
-            </Text>
-          </View>
-        )}
       </View>
     </ScrollView>
 
