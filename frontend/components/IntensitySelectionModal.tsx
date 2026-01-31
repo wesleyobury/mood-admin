@@ -98,9 +98,12 @@ export default function IntensitySelectionModal({
             <View style={styles.usageLimitBadge}>
               <Ionicons name="information-circle-outline" size={14} color="#888" />
               <Text style={styles.usageLimitText}>
-                {remainingUses} of 3 uses remaining today
+                {remainingUses} of 3 generations remaining today
               </Text>
             </View>
+            <Text style={styles.usageNote}>
+              Note: Skipping a workout uses 1 generation
+            </Text>
           </View>
 
           {/* Options */}
