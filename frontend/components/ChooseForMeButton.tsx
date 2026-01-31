@@ -32,7 +32,7 @@ export default function ChooseForMeButton({ onPress, disabled = false, style }: 
           <Ionicons 
             name="shuffle" 
             size={18} 
-            color={disabled ? '#666' : '#FFD700'} 
+            color={disabled ? '#666' : '#FFFFFF'} 
           />
           <Text style={[styles.text, disabled && styles.textDisabled]}>
             Choose for me
@@ -40,7 +40,7 @@ export default function ChooseForMeButton({ onPress, disabled = false, style }: 
           <Ionicons 
             name="sparkles" 
             size={14} 
-            color={disabled ? '#666' : '#FFD700'} 
+            color={disabled ? '#666' : '#FFFFFF'} 
           />
         </View>
       </LinearGradient>
@@ -71,7 +71,7 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 15,
     fontWeight: '600',
-    color: '#FFD700',
+    color: '#FFFFFF',
     letterSpacing: 0.3,
   },
   textDisabled: {
