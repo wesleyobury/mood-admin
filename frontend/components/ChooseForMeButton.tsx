@@ -14,16 +14,30 @@ interface ChooseForMeButtonProps {
   onPress: () => void;
   disabled?: boolean;
   style?: object;
+  variant?: 'workoutType' | 'equipment'; // workoutType for sweat/explosion/lazy, equipment for calisthenics/outdoor
 }
 
 const GOLD_COLOR = '#C9A44C';
 const BORDER_RADIUS = 12;
 
-export default function ChooseForMeButton({ onPress, disabled = false, style }: ChooseForMeButtonProps) {
+// Background colors matching the respective screens
+const COLORS = {
+  workoutType: '#1a1a1a', // Matches workout type buttons on sweat/explosion/lazy
+  equipment: '#111111',   // Matches equipment buttons on calisthenics/outdoor
+};
+
+export default function ChooseForMeButton({ 
+  onPress, 
+  disabled = false, 
+  style,
+  variant = 'workoutType' 
+}: ChooseForMeButtonProps) {
   const fadeAnim = useRef(new Animated.Value(0)).current;
   const scaleAnim = useRef(new Animated.Value(1)).current;
   const glowRotation = useRef(new Animated.Value(0)).current;
   const [isPressed, setIsPressed] = useState(false);
+
+  const backgroundColor = COLORS[variant];
 
   // Fade-in on mount with 2200ms delay and slower fade
   useEffect(() => {
@@ -129,7 +143,11 @@ export default function ChooseForMeButton({ onPress, disabled = false, style }: 
       
       {/* Main button content */}
       <TouchableOpacity
-        style={[styles.button, disabled && styles.buttonDisabled]}
+        style={[
+          styles.button, 
+          { backgroundColor },
+          disabled && styles.buttonDisabled
+        ]}
         onPress={onPress}
         onPressIn={handlePressIn}
         onPressOut={handlePressOut}
@@ -180,11 +198,10 @@ const styles = StyleSheet.create({
   },
   button: {
     borderRadius: BORDER_RADIUS,
-    backgroundColor: 'rgba(10, 10, 10, 0.98)',
     overflow: 'hidden',
   },
   buttonDisabled: {
-    backgroundColor: 'rgba(10, 10, 10, 0.98)',
+    opacity: 0.5,
   },
   content: {
     flexDirection: 'row',
@@ -193,7 +210,6 @@ const styles = StyleSheet.create({
     paddingVertical: 18,
     paddingHorizontal: 24,
     gap: 10,
-    backgroundColor: 'rgba(201, 164, 76, 0.03)',
   },
   text: {
     fontSize: 15,
