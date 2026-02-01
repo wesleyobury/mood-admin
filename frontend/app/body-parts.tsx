@@ -520,14 +520,12 @@ export default function BodyPartsScreen() {
           })}
         </View>
 
-        {selectedBodyParts.length > 0 && (
-          <View style={styles.selectionSummary}>
-            <Text style={styles.selectionLabel}>Your workout will include:</Text>
-            <Text style={styles.selectionText}>
-              {getSelectionText()}
-            </Text>
-          </View>
-        )}
+        {/* Build for me button - below the muscle group grid */}
+        <ChooseForMeButton 
+          onPress={handleBuildForMePress}
+          disabled={remainingUses <= 0 && !isGuest}
+          variant="muscleGroup"
+        />
       </ScrollView>
 
       {/* Continue Button */}
