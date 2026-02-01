@@ -562,7 +562,7 @@ export default function BodyPartsScreen() {
       <GuestPromptModal
         visible={showGuestPrompt}
         onClose={() => setShowGuestPrompt(false)}
-        message="Sign up or log in to use Build for Me and get personalized workouts!"
+        action="use Build for Me and get personalized workouts"
       />
     </SafeAreaView>
   );
