@@ -264,7 +264,7 @@ export default function LazyTrainingTypeScreen() {
       )}
 
       {/* Intensity Selection Modal */}
-      <IntensitySelectionModal visible={showIntensityModal} onClose={() => setShowIntensityModal(false)} onSelect={handleIntensitySelect} moodTitle={moodTitle} remainingUses={remainingUses} />
+      <IntensitySelectionModal visible={showIntensityModal} onClose={() => setShowIntensityModal(false)} onSelectIntensity={handleIntensitySelect} moodTitle={moodTitle} remainingUses={remainingUses} />
 
       {/* Guest Prompt Modal */}
       <GuestPromptModal visible={showGuestPrompt} onClose={() => setShowGuestPrompt(false)} action="use Build for Me" />
