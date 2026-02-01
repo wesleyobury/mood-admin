@@ -804,7 +804,7 @@ export default function WorkoutsHome() {
             activeOpacity={0.7}
           >
             <Ionicons name="search" size={18} color="rgba(255,255,255,0.5)" />
-            <Text style={styles.exerciseSearchText}>Find visuals</Text>
+            <Text style={styles.exerciseSearchText}>Search workout library</Text>
           </TouchableOpacity>
         </View>
       </ScrollView>
