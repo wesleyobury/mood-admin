@@ -25,16 +25,16 @@ export default function ChooseForMeButton({ onPress, disabled = false, style }: 
   const glowRotation = useRef(new Animated.Value(0)).current;
   const [isPressed, setIsPressed] = useState(false);
 
-  // Fade-in on mount with 400ms delay
+  // Fade-in on mount with 1200ms delay and slower fade
   useEffect(() => {
     const timer = setTimeout(() => {
       Animated.timing(fadeAnim, {
         toValue: 1,
-        duration: 600,
+        duration: 1000, // Slower fade in
         easing: Easing.out(Easing.ease),
         useNativeDriver: true,
       }).start();
-    }, 400);
+    }, 1200);
     
     return () => clearTimeout(timer);
   }, []);
