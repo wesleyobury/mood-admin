@@ -22,7 +22,6 @@ import { useCart } from '../contexts/CartContext';
 import { useAuth } from '../contexts/AuthContext';
 
 const API_URL = Constants.expoConfig?.extra?.EXPO_BACKEND_URL || '';
-import { useAuth } from '../contexts/AuthContext';
 import { Analytics } from '../utils/analytics';
 
 interface EquipmentOption {
