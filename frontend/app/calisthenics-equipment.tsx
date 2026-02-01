@@ -226,12 +226,51 @@ export default function CalisthenicsEquipmentScreen() {
         } catch (error) { console.error('Error saving generated workout:', error); }
       }
       
-      // Go directly to cart
-      const selectedCart = carts[0];
-      clearCart();
-      selectedCart.workouts.forEach(workout => addToCart(workout));
-      router.push('/cart');
+      // Show the generated workout view with skip functionality
+      setGeneratedCarts(carts);
+      setShowGeneratedWorkout(true);
     }
+  };
+
+  // Handle starting a generated workout
+  const handleStartWorkout = (cart: GeneratedCart) => {
+    clearCart();
+    cart.workouts.forEach(workout => addToCart(workout));
+    setShowGeneratedWorkout(false);
+    router.push('/cart');
+  };
+
+  // Handle skip (costs 1 generation)
+  const handleSkip = async (): Promise<boolean> => {
+    if (!token || isGuest) return false;
+    try {
+      const response = await fetch(`${API_URL}/api/choose-for-me/generate`, {
+        method: 'POST',
+        headers: { 'Authorization': `Bearer ${token}`, 'Content-Type': 'application/json' },
+        body: JSON.stringify({ carts: [], moodCard: moodTitle, intensity: 'skip' }),
+      });
+      if (response.ok) {
+        const data = await response.json();
+        setRemainingUses(data.remaining_uses);
+        return true;
+      }
+    } catch (error) { console.error('Error recording skip:', error); }
+    return false;
+  };
+
+  // Handle save workout
+  const handleSaveWorkout = async (cart: GeneratedCart): Promise<void> => {
+    if (!token || isGuest) return;
+    const response = await fetch(`${API_URL}/api/saved-workouts`, {
+      method: 'POST',
+      headers: { 'Authorization': `Bearer ${token}`, 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        name: `Calisthenics - Generated`,
+        workouts: cart.workouts.map(w => ({ name: w.name, duration: w.duration, equipment: w.equipment, description: w.description || '', imageUrl: w.imageUrl || '', difficulty: w.difficulty || cart.intensity, moodCard: moodTitle, workoutType })),
+        totalDuration: cart.totalDuration, isGenerated: true, generatedIntensity: cart.intensity, moodCard: moodTitle,
+      }),
+    });
+    if (!response.ok) throw new Error('Failed to save workout');
   };
 
   const handleEquipmentSelect = (equipment: EquipmentOption) => {
