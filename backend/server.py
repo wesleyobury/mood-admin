@@ -3084,6 +3084,81 @@ async def get_chart_data(
                 "datasets": datasets
             }
         
+        elif chart_type == "build_for_me_generations":
+            # Track Build for Me generations from choose_for_me_usage collection
+            pipeline = [
+                {"$match": {"created_at": {"$gte": cutoff}}},
+                {"$group": {"_id": {"$dateToString": {"format": date_format, "date": "$created_at"}}, "count": {"$sum": 1}}},
+                {"$sort": {"_id": 1}}
+            ]
+            
+            results = await db.choose_for_me_usage.aggregate(pipeline).to_list(100)
+            labels = [format_label(r["_id"], period) for r in results]
+            
+            return {
+                "chart_type": chart_type,
+                "labels": labels,
+                "datasets": [{"label": "Build for Me", "data": [r["count"] for r in results]}]
+            }
+        
+        elif chart_type == "build_for_me_by_mood":
+            # Build for Me generations grouped by mood card
+            mood_display_names = {
+                "sweat": "Sweat",
+                "Sweat / burn fat": "Sweat",
+                "muscle": "Muscle", 
+                "Muscle gainer": "Muscle",
+                "outdoor": "Outdoor",
+                "Get outside": "Outdoor",
+                "calisthenics": "Calisthenics",
+                "Calisthenics": "Calisthenics",
+                "lazy": "Lazy",
+                "I'm feeling lazy": "Lazy",
+                "explosive": "Explosive",
+                "Build explosion": "Explosive",
+                "ringer": "Ringer",
+                "Take me through the ringer": "Ringer"
+            }
+            
+            # Get all moods that have generations
+            mood_pipeline = [
+                {"$match": {"created_at": {"$gte": cutoff}}},
+                {"$group": {"_id": "$mood_card", "count": {"$sum": 1}}},
+                {"$sort": {"count": -1}}
+            ]
+            results = await db.choose_for_me_usage.aggregate(mood_pipeline).to_list(20)
+            
+            labels = []
+            data = []
+            for r in results:
+                mood = r["_id"] or "Unknown"
+                display_name = mood_display_names.get(mood, mood.split('/')[0].strip() if mood else "Unknown")
+                labels.append(display_name)
+                data.append(r["count"])
+            
+            return {
+                "chart_type": chart_type,
+                "labels": labels,
+                "datasets": [{"label": "Generations", "data": data}]
+            }
+        
+        elif chart_type == "custom_workouts_added":
+            # Custom workouts (non-build-for-me) added to cart
+            pipeline = [
+                {"$match": {"event_type": "cart_item_added", "timestamp": {"$gte": cutoff}, "metadata.source": {"$ne": "build_for_me"}}},
+                {"$group": {"_id": {"$dateToString": {"format": date_format, "date": "$timestamp"}}, "count": {"$sum": 1}}},
+                {"$sort": {"_id": 1}}
+            ]
+            
+            results = await db.user_events.aggregate(pipeline).to_list(100)
+            labels = [format_label(r["_id"], period) for r in results]
+            
+            return {
+                "chart_type": chart_type,
+                "labels": labels,
+                "datasets": [{"label": "Custom Workouts", "data": [r["count"] for r in results]}]
+            }
+        
         return {"chart_type": chart_type, "labels": [], "datasets": []}
         
     except Exception as e:
