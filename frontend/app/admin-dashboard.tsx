@@ -1322,6 +1322,63 @@ export default function AdminDashboard() {
           )}
         </View>
 
+        {/* Custom Workouts Added to Cart Widget */}
+        <View style={styles.section}>
+          <View style={styles.sectionHeader}>
+            <Text style={styles.sectionTitle}>Custom Workouts Added</Text>
+          </View>
+          
+          <Text style={styles.sectionSubtitle}>
+            Manually selected workouts (not AI-generated)
+          </Text>
+          
+          {/* Quick Stats Row */}
+          <View style={styles.customWorkoutsQuickStats}>
+            <View style={styles.customWorkoutsStatCard}>
+              <View style={[styles.customWorkoutsIcon, { backgroundColor: 'rgba(156, 39, 176, 0.2)' }]}>
+                <Ionicons name="cart" size={20} color="#9C27B0" />
+              </View>
+              <Text style={styles.customWorkoutsStatValue}>{customWorkoutsStats?.total_custom_workouts || 0}</Text>
+              <Text style={styles.customWorkoutsStatLabel}>Total Added</Text>
+            </View>
+            
+            <View style={styles.customWorkoutsStatCard}>
+              <View style={[styles.customWorkoutsIcon, { backgroundColor: 'rgba(33, 150, 243, 0.2)' }]}>
+                <Ionicons name="people" size={20} color="#2196F3" />
+              </View>
+              <Text style={styles.customWorkoutsStatValue}>{customWorkoutsStats?.unique_users || 0}</Text>
+              <Text style={styles.customWorkoutsStatLabel}>Unique Users</Text>
+            </View>
+          </View>
+          
+          {/* By Mood Breakdown */}
+          {customWorkoutsStats?.by_mood_card && customWorkoutsStats.by_mood_card.length > 0 && (
+            <View style={styles.buildForMeMoodBreakdown}>
+              <Text style={styles.buildForMeMoodTitle}>By Mood Card</Text>
+              {customWorkoutsStats.by_mood_card.slice(0, 5).map((item, index) => {
+                const moodKey = item.mood?.toLowerCase().split('/')[0].trim() || 'unknown';
+                const color = MOOD_COLORS[moodKey] || '#9C27B0';
+                const icon = MOOD_ICONS[moodKey] || 'fitness';
+                const maxCount = customWorkoutsStats.by_mood_card[0]?.count || 1;
+                const barWidth = (item.count / maxCount) * 100;
+                
+                return (
+                  <View key={index} style={styles.buildForMeMoodRow}>
+                    <View style={styles.buildForMeMoodInfo}>
+                      <Ionicons name={icon as any} size={14} color={color} />
+                      <Text style={styles.buildForMeMoodName}>{item.mood?.split('/')[0].trim() || 'Unknown'}</Text>
+                    </View>
+                    <View style={styles.buildForMeMoodBarContainer}>
+                      <View style={[styles.buildForMeMoodBar, { width: `${barWidth}%`, backgroundColor: color }]} />
+                    </View>
+                    <Text style={styles.buildForMeMoodCount}>{item.count}</Text>
+                  </View>
+                );
+              })}
+            </View>
+          )}
+        </View>
+
         {/* Footer */}
         <View style={styles.footer}>
           <Text style={styles.footerText}>
