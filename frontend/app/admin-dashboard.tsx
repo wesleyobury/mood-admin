@@ -259,6 +259,9 @@ export default function AdminDashboard() {
   const [buildForMeLoading, setBuildForMeLoading] = useState(false);
   const [showBuildForMeModal, setShowBuildForMeModal] = useState(false);
   
+  // Custom Workouts stats widget state
+  const [customWorkoutsStats, setCustomWorkoutsStats] = useState<CustomWorkoutsStats | null>(null);
+  
   // Chart period selection
   const [chartPeriod, setChartPeriod] = useState<'day' | 'week' | 'month'>('day');
   
