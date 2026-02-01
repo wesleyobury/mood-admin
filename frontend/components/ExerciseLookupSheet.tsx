@@ -208,8 +208,8 @@ export default function ExerciseLookupSheet({ visible, onClose }: ExerciseLookup
               isMuted
               shouldPlay
               onError={handleVideoError}
-              posterSource={{ uri: selectedExercise.thumbnail_url }}
-              usePoster
+              posterSource={selectedExercise.thumbnail_url ? { uri: selectedExercise.thumbnail_url } : undefined}
+              usePoster={!!selectedExercise.thumbnail_url}
             />
           )}
           
