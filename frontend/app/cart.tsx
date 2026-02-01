@@ -102,13 +102,71 @@ const CartItemComponent: React.FC<{
 
 export default function CartScreen() {
   const router = useRouter();
+  const params = useLocalSearchParams();
   const insets = useSafeAreaInsets();
-  const { cartItems, removeFromCart, clearCart, reorderCart } = useCart();
+  const { cartItems, removeFromCart, clearCart, reorderCart, addToCart } = useCart();
   const { token } = useAuth();
   const [isStarting, setIsStarting] = useState(false);
   const [isSaving, setIsSaving] = useState(false);
   const [saveModalVisible, setSaveModalVisible] = useState(false);
   const [workoutName, setWorkoutName] = useState('');
+  
+  // Generated carts state for skip functionality
+  const [generatedCarts, setGeneratedCarts] = useState<any[]>([]);
+  const [currentCartIndex, setCurrentCartIndex] = useState(0);
+  const [isGeneratedWorkout, setIsGeneratedWorkout] = useState(false);
+  const [moodCard, setMoodCard] = useState('');
+
+  // Parse generated carts from params on mount
+  useEffect(() => {
+    if (params.generatedCarts) {
+      try {
+        const carts = JSON.parse(params.generatedCarts as string);
+        setGeneratedCarts(carts);
+        setCurrentCartIndex(0);
+        setIsGeneratedWorkout(true);
+        if (params.moodCard) {
+          setMoodCard(params.moodCard as string);
+        }
+      } catch (e) {
+        console.error('Error parsing generated carts:', e);
+      }
+    }
+  }, [params.generatedCarts]);
+
+  // Handle skip to next generated cart
+  const handleSkip = async () => {
+    if (currentCartIndex < generatedCarts.length - 1) {
+      // Record skip usage
+      if (token) {
+        try {
+          await fetch(`${API_URL}/api/choose-for-me/generate`, {
+            method: 'POST',
+            headers: { 'Authorization': `Bearer ${token}`, 'Content-Type': 'application/json' },
+            body: JSON.stringify({ carts: [], moodCard: moodCard, intensity: 'skip' }),
+          });
+        } catch (error) {
+          console.error('Error recording skip:', error);
+        }
+      }
+      
+      // Load next cart
+      const nextIndex = currentCartIndex + 1;
+      const nextCart = generatedCarts[nextIndex];
+      setCurrentCartIndex(nextIndex);
+      
+      // Update cart with next workout
+      clearCart();
+      nextCart.workouts.forEach((workout: WorkoutItem) => {
+        addToCart(workout);
+      });
+    } else {
+      Alert.alert('No More Workouts', 'You have seen all generated workouts.');
+    }
+  };
+
+  // Check if skip is available
+  const canSkip = isGeneratedWorkout && currentCartIndex < generatedCarts.length - 1;
 
   const handleGoBack = () => {
     router.back();
