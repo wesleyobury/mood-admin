@@ -17,8 +17,6 @@ interface ChooseForMeButtonProps {
   variant?: 'workoutType' | 'equipment' | 'muscleGroup';
 }
 
-const GOLD_COLOR = '#C9A44C';
-const GOLD_WARM = '#D4A84B';
 const BORDER_RADIUS = 12;
 
 // Background colors matching the respective screens
@@ -44,7 +42,6 @@ export default function ChooseForMeButton({
   // Fade-in on mount - no delay for muscleGroup variant
   useEffect(() => {
     if (variant === 'muscleGroup') {
-      // Start orbit immediately for muscleGroup
       startOrbitAnimation();
       return;
     }
@@ -54,7 +51,7 @@ export default function ChooseForMeButton({
         toValue: 1,
         duration: 1000,
         easing: Easing.out(Easing.ease),
-        useNativeDriver: true,
+        useNativeDriver: false,
       }).start();
       startOrbitAnimation();
     }, 2200);
@@ -67,9 +64,9 @@ export default function ChooseForMeButton({
     Animated.loop(
       Animated.timing(orbitAnim, {
         toValue: 1,
-        duration: 6000, // Slow 6-second orbit
+        duration: 8000, // Very slow 8-second orbit
         easing: Easing.linear,
-        useNativeDriver: true,
+        useNativeDriver: false,
       }),
       { iterations: -1 }
     ).start();
@@ -93,10 +90,27 @@ export default function ChooseForMeButton({
     }).start();
   };
 
-  // Rotation for the glow elements
-  const rotation = orbitAnim.interpolate({
-    inputRange: [0, 1],
-    outputRange: ['0deg', '360deg'],
+  // Calculate positions for orbiting glows
+  // Orb 1 starts at top center, Orb 2 starts at bottom center (opposite)
+  const orb1Left = orbitAnim.interpolate({
+    inputRange: [0, 0.25, 0.5, 0.75, 1],
+    outputRange: ['50%', '100%', '50%', '0%', '50%'],
+  });
+  
+  const orb1Top = orbitAnim.interpolate({
+    inputRange: [0, 0.25, 0.5, 0.75, 1],
+    outputRange: ['0%', '50%', '100%', '50%', '0%'],
+  });
+  
+  // Orb 2 is offset by 180 degrees (0.5)
+  const orb2Left = orbitAnim.interpolate({
+    inputRange: [0, 0.25, 0.5, 0.75, 1],
+    outputRange: ['50%', '0%', '50%', '100%', '50%'],
+  });
+  
+  const orb2Top = orbitAnim.interpolate({
+    inputRange: [0, 0.25, 0.5, 0.75, 1],
+    outputRange: ['100%', '50%', '0%', '50%', '100%'],
   });
 
   return (
@@ -119,55 +133,47 @@ export default function ChooseForMeButton({
 
       {/* Button wrapper */}
       <View style={styles.buttonWrapper}>
-        {/* Orbiting glow container - rotates around the button */}
+        {/* Orbiting welder glows */}
         {!disabled && (
-          <Animated.View
-            style={[
-              styles.orbitContainer,
-              {
-                opacity: isPressed ? 0.3 : 1,
-                transform: [{ rotate: rotation }],
-              }
-            ]}
-          >
-            {/* First warm glow streak - top */}
-            <View style={styles.glowPositionTop}>
-              <LinearGradient
-                colors={[
-                  'transparent',
-                  'rgba(212, 168, 75, 0.03)',
-                  'rgba(212, 168, 75, 0.15)',
-                  'rgba(212, 168, 75, 0.4)',
-                  'rgba(212, 168, 75, 0.15)',
-                  'rgba(212, 168, 75, 0.03)',
-                  'transparent',
-                ]}
-                locations={[0, 0.15, 0.3, 0.5, 0.7, 0.85, 1]}
-                start={{ x: 0, y: 0.5 }}
-                end={{ x: 1, y: 0.5 }}
-                style={styles.glowStreak}
-              />
-            </View>
+          <>
+            {/* Orb 1 - Welder glow */}
+            <Animated.View
+              style={[
+                styles.welderOrb,
+                {
+                  left: orb1Left,
+                  top: orb1Top,
+                  opacity: isPressed ? 0.2 : 0.85,
+                }
+              ]}
+            >
+              {/* Outer soft glow */}
+              <View style={styles.welderGlowOuter} />
+              {/* Middle warm glow */}
+              <View style={styles.welderGlowMiddle} />
+              {/* Inner hot core */}
+              <View style={styles.welderGlowCore} />
+            </Animated.View>
             
-            {/* Second warm glow streak - bottom (opposite) */}
-            <View style={styles.glowPositionBottom}>
-              <LinearGradient
-                colors={[
-                  'transparent',
-                  'rgba(212, 168, 75, 0.03)',
-                  'rgba(212, 168, 75, 0.15)',
-                  'rgba(212, 168, 75, 0.4)',
-                  'rgba(212, 168, 75, 0.15)',
-                  'rgba(212, 168, 75, 0.03)',
-                  'transparent',
-                ]}
-                locations={[0, 0.15, 0.3, 0.5, 0.7, 0.85, 1]}
-                start={{ x: 0, y: 0.5 }}
-                end={{ x: 1, y: 0.5 }}
-                style={styles.glowStreak}
-              />
-            </View>
-          </Animated.View>
+            {/* Orb 2 - Welder glow (opposite side) */}
+            <Animated.View
+              style={[
+                styles.welderOrb,
+                {
+                  left: orb2Left,
+                  top: orb2Top,
+                  opacity: isPressed ? 0.2 : 0.85,
+                }
+              ]}
+            >
+              {/* Outer soft glow */}
+              <View style={styles.welderGlowOuter} />
+              {/* Middle warm glow */}
+              <View style={styles.welderGlowMiddle} />
+              {/* Inner hot core */}
+              <View style={styles.welderGlowCore} />
+            </Animated.View>
+          </>
         )}
         
         {/* Subtle static border */}
@@ -227,39 +233,37 @@ const styles = StyleSheet.create({
   },
   buttonWrapper: {
     position: 'relative',
-    overflow: 'hidden',
-    borderRadius: BORDER_RADIUS,
   },
-  orbitContainer: {
+  welderOrb: {
     position: 'absolute',
-    top: -30,
-    left: -30,
-    right: -30,
-    bottom: -30,
-    zIndex: 1,
-  },
-  glowPositionTop: {
-    position: 'absolute',
-    top: 30,
-    left: 0,
-    right: 0,
-    height: 4,
+    width: 24,
+    height: 24,
+    marginLeft: -12,
+    marginTop: -12,
+    zIndex: 10,
     alignItems: 'center',
     justifyContent: 'center',
   },
-  glowPositionBottom: {
+  welderGlowOuter: {
     position: 'absolute',
-    bottom: 30,
-    left: 0,
-    right: 0,
-    height: 4,
-    alignItems: 'center',
-    justifyContent: 'center',
+    width: 28,
+    height: 28,
+    borderRadius: 14,
+    backgroundColor: 'rgba(255, 160, 60, 0.15)',
   },
-  glowStreak: {
-    width: 120,
-    height: 4,
-    borderRadius: 2,
+  welderGlowMiddle: {
+    position: 'absolute',
+    width: 16,
+    height: 16,
+    borderRadius: 8,
+    backgroundColor: 'rgba(255, 200, 100, 0.4)',
+  },
+  welderGlowCore: {
+    position: 'absolute',
+    width: 6,
+    height: 6,
+    borderRadius: 3,
+    backgroundColor: 'rgba(255, 250, 220, 0.9)',
   },
   borderGlow: {
     position: 'absolute',
@@ -269,7 +273,7 @@ const styles = StyleSheet.create({
     bottom: 0,
     borderRadius: BORDER_RADIUS,
     borderWidth: 1,
-    borderColor: 'rgba(201, 164, 76, 0.15)',
+    borderColor: 'rgba(201, 164, 76, 0.2)',
     zIndex: 0,
   },
   borderGlowDisabled: {
