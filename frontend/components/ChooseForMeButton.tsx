@@ -52,7 +52,7 @@ export default function ChooseForMeButton({ onPress, disabled = false, style }: 
           })
         );
         animation.start();
-      }, 400);
+      }, 1200);
       
       return () => clearTimeout(timer);
     }
