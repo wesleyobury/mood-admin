@@ -626,131 +626,311 @@ export const chestWorkoutDatabase: EquipmentWorkouts[] = [
     }
   },
   {
-    equipment: 'Adjustable bench',
-    icon: 'square',
+    equipment: 'Dumbbells',
+    icon: 'barbell',
     workouts: {
       beginner: [
         {
-          name: 'Press Circuit',
-          duration: '15–18 min',
-          description: 'Presses at flat, incline, and decline angles for full pec coverage.',
-          battlePlan: '3 rounds:\n• 10 flat press\n• 10 incline press\n• 10 decline press (light)\nRest 60–75s',
+          name: 'Dumbbell Foundations',
+          duration: '12–15 min',
+          description: 'Foundational dumbbell pressing to build chest control.',
+          battlePlan: 'Instructions: Use a load you could complete for 2 more reps.\nSets: 4\nRest: 75–90s\n\n• DB Flat Press — 4 × 10',
           imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/avrgfl1y_download%20%2818%29.png',
-          intensityReason: 'Perfect multi-angle introduction targeting all pec areas.',
+          intensityReason: 'Foundational dumbbell pressing to build chest control.',
           moodTips: [
             {
-              icon: 'construct',
-              title: 'Think of targeting pecs from multiple angles',
-              description: 'Flat = mid, incline = upper, decline = lower for complete development.'
+              icon: 'hand-left',
+              title: 'Grip the bells hard',
+              description: 'Tension in the hands stabilizes the shoulders.'
             },
             {
-              icon: 'trending-up',
-              title: 'Drive elbows slightly inward',
-              description: 'On all presses to maximize chest fiber recruitment and activation.'
+              icon: 'arrow-forward',
+              title: 'Press slightly inward',
+              description: 'Think "together," not just "up."'
+            },
+            {
+              icon: 'checkmark-circle',
+              title: 'No spotter needed',
+              description: 'Choose control over load.'
             }
           ]
         },
         {
-          name: 'Fly Flow',
-          duration: '12–15 min',
-          description: 'Flat, incline, and decline flys for chest isolation from all angles.',
-          battlePlan: '3 rounds:\n• 10 flat fly\n• 10 incline fly\n• 10 decline fly (light)\nRest 60s',
+          name: 'Paused Dumbbell Control',
+          duration: '12–16 min',
+          description: 'Paused dumbbell reps to reinforce chest stability.',
+          battlePlan: 'Instructions: Pause 1 second at the bottom of each rep.\nSets: 4\nRest: 90s\n\n• Paused DB Press — 4 × 8',
           imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/qt834fch_idbf.webp',
-          intensityReason: 'Gentle fly progression across multiple angles.',
+          intensityReason: 'Paused dumbbell reps to reinforce chest stability.',
           moodTips: [
             {
-              icon: 'timer',
-              title: 'Pause at stretch position 1s',
-              description: 'To expand pec fibers and maximize muscle growth stimulus.'
+              icon: 'pause',
+              title: 'Pause deep',
+              description: 'Let the chest load fully at the bottom.'
             },
             {
-              icon: 'flash',
-              title: 'Bring dumbbells together until they meet',
-              description: 'Not just overhead—to force full contraction and muscle activation.'
+              icon: 'body',
+              title: 'Elbows stay under wrists',
+              description: 'Stability first.'
+            },
+            {
+              icon: 'trending-down',
+              title: 'Lower carefully',
+              description: 'Dumbbells demand control when fatigued.'
+            }
+          ]
+        },
+        {
+          name: 'Slow Dumbbell Press',
+          duration: '12–15 min',
+          description: 'Slow eccentrics to improve control and chest awareness.',
+          battlePlan: 'Instructions: Lower for 4 seconds each rep.\nSets: 3\nRest: 90s\n\n• DB Flat Press — 3 × 8 (4s eccentric)',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/avrgfl1y_download%20%2818%29.png',
+          intensityReason: 'Slow eccentrics to improve control and chest awareness.',
+          moodTips: [
+            {
+              icon: 'trending-down',
+              title: 'Own the descent',
+              description: 'Dumbbells magnify time under tension.'
+            },
+            {
+              icon: 'hand-left',
+              title: 'Smooth touch',
+              description: 'No bouncing at the bottom.'
+            },
+            {
+              icon: 'people',
+              title: 'Spotter optional',
+              description: 'Helpful for heavier bells.'
+            }
+          ]
+        },
+        {
+          name: 'Dumbbell Burn',
+          duration: '10–14 min',
+          description: 'High-rep dumbbell pressing for chest endurance.',
+          battlePlan: 'Instructions: Choose light bells and move continuously.\nSets: 3\nRest: 60s\n\n• DB Flat Press — 3 × 15–20',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/qt834fch_idbf.webp',
+          intensityReason: 'High-rep dumbbell pressing for chest endurance.',
+          moodTips: [
+            {
+              icon: 'flame',
+              title: 'Light and relentless',
+              description: 'Keep tension the whole set.'
+            },
+            {
+              icon: 'repeat',
+              title: 'Same arc every rep',
+              description: 'No shortening range.'
+            },
+            {
+              icon: 'shield',
+              title: 'Drop bells safely',
+              description: 'Don\'t fight the last rep down.'
             }
           ]
         }
       ],
       intermediate: [
         {
-          name: 'Angle Ladder',
-          duration: '14–16 min',
-          description: 'Press progression across flat, incline, and decline angles for fiber recruitment.',
-          battlePlan: '3 rounds:\n• 8 flat press\n• 8 incline press\n• 8 decline press\nRest 90s',
+          name: 'Dumbbell Clusters',
+          duration: '14–18 min',
+          description: 'Dumbbell clusters to maintain pressing power.',
+          battlePlan: 'Instructions: 15s breaths between mini-sets.\nSets: 4\nRest: 2:00 between clusters\n\n• DB Flat Press — 4 × (5 / 5 / 5)',
           imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/avrgfl1y_download%20%2818%29.png',
-          intensityReason: 'Progressive recruitment training across all chest angles.',
+          intensityReason: 'Dumbbell clusters to maintain pressing power.',
           moodTips: [
             {
-              icon: 'trending-up',
-              title: 'Think progressive recruitment',
-              description: 'Start more pec-dominant, progress to fatigue lower range.'
+              icon: 'refresh',
+              title: 'Reset your brace',
+              description: 'Every mini-set starts clean.'
             },
             {
-              icon: 'timer',
-              title: 'Don\'t rush—feel pec stretch',
-              description: 'On each angle for maximum muscle activation and growth.'
+              icon: 'pulse',
+              title: 'Short breaths only',
+              description: 'Stay mentally locked in.'
+            },
+            {
+              icon: 'alert-circle',
+              title: 'Clear space',
+              description: 'Dumbbells fatigue faster than barbells.'
             }
           ]
         },
         {
-          name: 'Plyo Push-Ups',
-          duration: '14–16 min',
-          description: 'Explosive push-ups at varying angles plus single-arm presses for adaptation.',
-          battlePlan: '4 rounds:\n• 8 explosive plyo push-ups (vary bench angle each round)\n• 10 single-arm press\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/w699t364_download%20%287%29.png',
-          intensityReason: 'Explosive multi-angle training for pec adaptation.',
+          name: 'Working Dumbbells',
+          duration: '14–18 min',
+          description: 'Traditional dumbbell pressing with meaningful load.',
+          battlePlan: 'Instructions: Increase weight only if reps stay clean.\nSets: 5\nRest: 90s\n\n• DB Flat Press — 5 × 8',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/qt834fch_idbf.webp',
+          intensityReason: 'Traditional dumbbell pressing with meaningful load.',
           moodTips: [
             {
-              icon: 'refresh',
-              title: 'Varying angle forces pec adaptation',
-              description: 'Greater growth stimulus through multi-angle training.'
+              icon: 'barbell',
+              title: 'Reps should challenge control',
+              description: 'Last reps slow slightly.'
             },
             {
-              icon: 'trending-up',
-              title: 'Press across midline with single-arm',
-              description: 'For deeper chest contraction and unilateral strength.'
+              icon: 'arrow-forward',
+              title: 'Press inward at the top',
+              description: 'Finish with chest intent.'
+            },
+            {
+              icon: 'people',
+              title: 'Spotter optional',
+              description: 'Useful for heavier sets.'
+            }
+          ]
+        },
+        {
+          name: 'Dumbbell Holds',
+          duration: '14–18 min',
+          description: 'Paused dumbbell pressing with strong squeeze finish.',
+          battlePlan: 'Instructions: Final rep includes a 6–8s squeeze at the top.\nSets: 4\nRest: 2:00\n\n• Paused DB Press — 4 × 6\nFinal rep: 6–8s squeeze',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/avrgfl1y_download%20%2818%29.png',
+          intensityReason: 'Paused dumbbell pressing with strong squeeze finish.',
+          moodTips: [
+            {
+              icon: 'pause',
+              title: 'Pause deep',
+              description: 'Let the chest stretch under control.'
+            },
+            {
+              icon: 'flash',
+              title: 'Finish hard',
+              description: 'Long squeeze reinforces contraction.'
+            },
+            {
+              icon: 'trending-down',
+              title: 'Lower bells carefully',
+              description: 'Fatigue changes control quickly.'
+            }
+          ]
+        },
+        {
+          name: 'Press & Drive',
+          duration: '15–18 min',
+          description: 'Dumbbell pressing paired with chest-focused push-ups.',
+          battlePlan: 'Instructions: Move directly from bench to floor.\nSets: 4\nRest: 90s after push-ups\n\n• DB Flat Press — 4 × 8\n• Chest-Biased Push-Ups — 4 × 15–20',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/qt834fch_idbf.webp',
+          intensityReason: 'Dumbbell pressing paired with chest-focused push-ups.',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Press first, then push',
+              description: 'Compound into bodyweight.'
+            },
+            {
+              icon: 'body',
+              title: 'Chest leads both moves',
+              description: 'No shoulder takeover.'
+            },
+            {
+              icon: 'alert-circle',
+              title: 'Clear floor space',
+              description: 'Transitions stay fast.'
             }
           ]
         }
       ],
       advanced: [
         {
-          name: 'Complex',
-          duration: '15–20 min',
-          description: 'Multi-angle presses and fly for hypertrophy density.',
-          battlePlan: '3 rounds:\n• 8 flat press\n• 8 incline press\n• 8 decline press\n• 8 fly (choose angle)\nRest 90s',
+          name: 'Heavy Dumbbell Clusters',
+          duration: '16–20 min',
+          description: 'Heavy dumbbell clusters to sustain chest output.',
+          battlePlan: 'Instructions: Short breaths, full recovery between sets.\nSets: 5\nRest: 2:00\n\n• DB Flat Press — 5 × (4 / 4 / 4)',
           imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/avrgfl1y_download%20%2818%29.png',
-          intensityReason: 'Advanced hypertrophy density training with multi-angle work.',
+          intensityReason: 'Heavy dumbbell clusters to sustain chest output.',
           moodTips: [
             {
-              icon: 'flash',
-              title: 'Go for hypertrophy density',
-              description: 'Aim for near-failure each angle, minimal rest for growth.'
+              icon: 'barbell',
+              title: 'Precision under fatigue',
+              description: 'Every rep mirrors the first.'
             },
             {
-              icon: 'body',
-              title: 'On fly, think chest-to-chest squeeze',
-              description: 'At top for maximum muscle contraction and activation.'
+              icon: 'refresh',
+              title: 'Reset fully',
+              description: 'Don\'t rush the bells back up.'
+            },
+            {
+              icon: 'people',
+              title: 'Spotter recommended',
+              description: 'Heavy dumbbells get unstable fast.'
             }
           ]
         },
         {
-          name: 'Drop Set',
+          name: 'Heavy Dumbbells',
           duration: '16–20 min',
-          description: 'Heavy-to-light pressing at any angle for intense chest burnout.',
-          battlePlan: '2 rounds:\n• 10 heavy press (any angle)\n• Drop → 10 moderate\n• Drop → 10 light\nRest 90–120s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/23ok9no5_download%20%2819%29.png',
-          intensityReason: 'High-intensity drop sets with time under tension focus.',
+          description: 'Heavy dumbbell pressing focused on chest strength.',
+          battlePlan: 'Instructions: Challenging load, zero sloppy reps.\nSets: 5\nRest: 2:00\n\n• DB Flat Press — 5 × 6',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/qt834fch_idbf.webp',
+          intensityReason: 'Heavy dumbbell pressing focused on chest strength.',
           moodTips: [
             {
-              icon: 'flash',
-              title: 'Don\'t save energy',
-              description: 'Heavy set should be all-out near failure for maximum recruitment.'
+              icon: 'checkmark-done',
+              title: 'Every rep deliberate',
+              description: 'No rushed setup.'
             },
             {
               icon: 'timer',
-              title: 'Focus on time under tension',
-              description: 'During final drops for growth and muscle development.'
+              title: 'Rest with intent',
+              description: 'Strength lives in recovery.'
+            },
+            {
+              icon: 'people',
+              title: 'Spotter recommended',
+              description: 'Especially for final sets.'
+            }
+          ]
+        },
+        {
+          name: 'Dumbbell Drop Cascade',
+          duration: '15–20 min',
+          description: 'Multi-stage dumbbell drops for deep chest fatigue.',
+          battlePlan: 'Instructions: Drop weight immediately between stages.\nSets: 3\nRest: 2:30\n\n• DB Press (Heavy) — max reps\n• Drop 1 (Medium) — max reps\n• Drop 2 (Light) — 15–20 reps',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/avrgfl1y_download%20%2818%29.png',
+          intensityReason: 'Multi-stage dumbbell drops for deep chest fatigue.',
+          moodTips: [
+            {
+              icon: 'flame',
+              title: 'Heavy earns fatigue',
+              description: 'First bells reach true failure.'
+            },
+            {
+              icon: 'flash',
+              title: 'No rest between drops',
+              description: 'Bells change, tension stays.'
+            },
+            {
+              icon: 'people',
+              title: 'Spotter strongly recommended',
+              description: 'Fatigue rises fast.'
+            }
+          ]
+        },
+        {
+          name: 'Press & Explode',
+          duration: '15–20 min',
+          description: 'Heavy dumbbell pressing paired with plyometric push-ups.',
+          battlePlan: 'Instructions: Move quickly but under control.\nSets: 4\nRest: 2:00 after push-ups\n\n• DB Flat Press — 4 × 6\n• Clap Push-Ups — 4 × 6–10',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/qt834fch_idbf.webp',
+          intensityReason: 'Heavy dumbbell pressing paired with plyometric push-ups.',
+          moodTips: [
+            {
+              icon: 'barbell',
+              title: 'Heavy then fast',
+              description: 'Contrast sharpens output.'
+            },
+            {
+              icon: 'flash',
+              title: 'Push-ups stay crisp',
+              description: 'Power without chaos.'
+            },
+            {
+              icon: 'alert-circle',
+              title: 'Clear area first',
+              description: 'Plyos need space.'
             }
           ]
         }
