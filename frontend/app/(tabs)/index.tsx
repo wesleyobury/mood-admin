@@ -795,6 +795,18 @@ export default function WorkoutsHome() {
             ))}
           </View>
         </View>
+
+        {/* Exercise Visual Search Section */}
+        <View style={styles.exerciseSearchSection}>
+          <TouchableOpacity
+            style={styles.exerciseSearchTrigger}
+            onPress={() => setExerciseLookupVisible(true)}
+            activeOpacity={0.7}
+          >
+            <Ionicons name="search" size={18} color="rgba(255,255,255,0.5)" />
+            <Text style={styles.exerciseSearchText}>Find visuals</Text>
+          </TouchableOpacity>
+        </View>
       </ScrollView>
       </View>
       
@@ -803,6 +815,12 @@ export default function WorkoutsHome() {
         visible={showGuestPrompt}
         onClose={() => setShowGuestPrompt(false)}
         action={guestAction}
+      />
+
+      {/* Exercise Lookup Bottom Sheet */}
+      <ExerciseLookupSheet
+        visible={exerciseLookupVisible}
+        onClose={() => setExerciseLookupVisible(false)}
       />
     </View>
   );
