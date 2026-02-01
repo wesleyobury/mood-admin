@@ -7,126 +7,306 @@ export const chestWorkoutDatabase: EquipmentWorkouts[] = [
     workouts: {
       beginner: [
         {
-          name: 'Push-Up Circuit',
-          duration: '10–12 min',
-          description: 'Push-ups and dips using the bench to build beginner chest strength and control.',
-          battlePlan: '3 rounds:\n• 10 push-ups (hands on bench)\n• 10 bench dips\nRest 60s',
+          name: 'Bench Fundamentals',
+          duration: '12–15 min',
+          description: 'Foundational bench reps to build pressing confidence.',
+          battlePlan: 'Instructions: Use a load you could complete for 2 more reps.\nSets: 4\nRest: 75–90s\n\n• Barbell Bench Press — 4 × 8',
           imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/hs5s9gux_download%20%286%29.png',
-          intensityReason: 'Perfect bench-assisted introduction to chest and tricep strength.',
+          intensityReason: 'Foundational bench reps to build pressing confidence.',
           moodTips: [
             {
-              icon: 'flash',
-              title: 'Push-ups: Lower slow, drive up hard',
-              description: 'Squeeze pecs together at the top. Think "push the floor apart."'
+              icon: 'body',
+              title: 'Same setup every set',
+              description: 'Feet rooted, shoulder blades pinned before unrack.'
             },
             {
-              icon: 'body',
-              title: 'Dips: Keep chest slightly forward',
-              description: 'Shift load onto pecs vs. triceps for better chest activation.'
+              icon: 'shield-checkmark',
+              title: 'Leave reps in reserve',
+              description: 'Finish each set feeling confident, not rushed.'
+            },
+            {
+              icon: 'checkmark-circle',
+              title: 'No spotter needed',
+              description: 'This should feel controlled, not risky.'
             }
           ]
         },
         {
-          name: 'Chest Press',
-          duration: '12–15 min',
-          description: 'Light bench press and fly pairing to develop chest contraction and stretch.',
-          battlePlan: '3 rounds:\n• 12 light dumbbell or Smith bench press\n• 10 dumbbell bench fly\nRest 60–75s',
+          name: 'Pause & Control',
+          duration: '12–16 min',
+          description: 'Paused reps to reinforce control and chest tension.',
+          battlePlan: 'Instructions: Pause for a full 1 second on the chest.\nSets: 4\nRest: 90s\n\n• Paused Barbell Bench Press — 4 × 5',
           imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/1yb66xch_download%20%285%29.png',
-          intensityReason: 'Beginner-friendly pressing and isolation movement foundation.',
+          intensityReason: 'Paused reps to reinforce control and chest tension.',
           moodTips: [
             {
-              icon: 'trending-up',
-              title: 'Bench press: Drag elbows slightly in',
-              description: 'Move toward midline as you press for max pec activation.'
+              icon: 'pause',
+              title: 'Kill momentum completely',
+              description: 'Let the bar settle softly on the chest.'
             },
             {
-              icon: 'body',
-              title: 'Fly: Focus on stretching fibers',
-              description: 'Stretch at bottom, then forcefully contract chest to bring dumbbells together.'
+              icon: 'flame',
+              title: 'Tension never leaves',
+              description: 'Chest stays active before and after the pause.'
+            },
+            {
+              icon: 'shield',
+              title: 'Use safeties if alone',
+              description: 'Pauses increase time under load.'
+            }
+          ]
+        },
+        {
+          name: 'Slow Confidence',
+          duration: '12–15 min',
+          description: 'Slow eccentrics reinforce form and chest awareness.',
+          battlePlan: 'Instructions: Lower the bar for 4 seconds each rep.\nSets: 3\nRest: 90s\n\n• Barbell Bench Press — 3 × 6 (4s eccentric)',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/hs5s9gux_download%20%286%29.png',
+          intensityReason: 'Slow eccentrics reinforce form and chest awareness.',
+          moodTips: [
+            {
+              icon: 'trending-down',
+              title: 'Own the descent',
+              description: 'Resist gravity for the full negative.'
+            },
+            {
+              icon: 'hand-left',
+              title: 'Soft touch only',
+              description: 'No bounce or collapse at the bottom.'
+            },
+            {
+              icon: 'people',
+              title: 'Spotter optional',
+              description: 'Use one if fatigue causes loss of control.'
+            }
+          ]
+        },
+        {
+          name: 'Light Bar Burn',
+          duration: '10–14 min',
+          description: 'High-rep benching to build endurance and comfort.',
+          battlePlan: 'Instructions: Choose a light load and move continuously.\nSets: 3\nRest: 60s\n\n• Barbell Bench Press — 3 × 15–20',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/1yb66xch_download%20%285%29.png',
+          intensityReason: 'High-rep benching to build endurance and comfort.',
+          moodTips: [
+            {
+              icon: 'heart',
+              title: 'Ego stays out',
+              description: 'Light weight keeps chest engaged nonstop.'
+            },
+            {
+              icon: 'repeat',
+              title: 'Every rep identical',
+              description: 'Bar path never changes.'
+            },
+            {
+              icon: 'shield',
+              title: 'Have safeties set',
+              description: 'High-rep fatigue sneaks up fast.'
             }
           ]
         }
       ],
       intermediate: [
         {
-          name: 'Plyo Push-Ups',
-          duration: '14–16 min',
-          description: 'Explosive push-ups and single-arm presses for power and unilateral strength.',
-          battlePlan: '4 rounds:\n• 8 explosive push-ups (hands on bench)\n• 10 single-arm bench press\nRest 60–75s',
+          name: 'Cluster Control',
+          duration: '14–18 min',
+          description: 'Cluster benching to maintain power and bar speed.',
+          battlePlan: 'Instructions: 15s breaths between mini-sets.\nSets: 4\nRest: 2:00 between clusters\n\n• Barbell Bench Press — 4 × (4 / 4 / 4)',
           imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/hs5s9gux_download%20%286%29.png',
-          intensityReason: 'Explosive plyometric training with unilateral strength development.',
+          intensityReason: 'Cluster benching to maintain power and bar speed.',
           moodTips: [
             {
-              icon: 'flash',
-              title: 'Plyo push-ups: Push off with max intent',
-              description: 'Builds fast-twitch fiber recruitment for growth every rep.'
+              icon: 'fitness',
+              title: 'Each rep earns focus',
+              description: 'Reset your brace before every mini-set.'
             },
             {
-              icon: 'fitness',
-              title: 'Single-arm press: Lock shoulders down',
-              description: 'Bring dumbbell in slight inward arc to increase inner-chest tension.'
+              icon: 'pulse',
+              title: 'Short breaths only',
+              description: 'Stay mentally locked in.'
+            },
+            {
+              icon: 'people',
+              title: 'Spotter recommended',
+              description: 'Fatigue accumulates quickly in clusters.'
             }
           ]
         },
         {
-          name: 'Chest Flow',
-          duration: '12–15 min',
-          description: 'Bench press, fly, and close-grip sequence for balanced chest hypertrophy.',
-          battlePlan: '3 rounds:\n• 10 bench press\n• 10 fly\n• 10 close-grip bench press\nRest 90s',
+          name: 'Working Sets',
+          duration: '14–18 min',
+          description: 'Traditional working bench sets with meaningful load.',
+          battlePlan: 'Instructions: Increase load only if all reps stay clean.\nSets: 5\nRest: 90s\n\n• Barbell Bench Press — 5 × 6',
           imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/1yb66xch_download%20%285%29.png',
-          intensityReason: 'Continuous flow training for chest overload and development.',
+          intensityReason: 'Traditional working bench sets with meaningful load.',
           moodTips: [
             {
-              icon: 'refresh',
-              title: 'Fly → press transition, don\'t rest',
-              description: 'Overloads pecs by hitting both stretch and contraction.'
+              icon: 'barbell',
+              title: 'Reps should challenge control',
+              description: 'Bar speed slows slightly, form doesn\'t.'
             },
             {
+              icon: 'body',
+              title: 'Same setup every set',
+              description: 'Consistency drives progress.'
+            },
+            {
+              icon: 'people',
+              title: 'Spotter optional',
+              description: 'Useful on final sets as load climbs.'
+            }
+          ]
+        },
+        {
+          name: 'Strength Pauses',
+          duration: '14–18 min',
+          description: 'Paused benching with a strong contraction finish.',
+          battlePlan: 'Instructions: Final rep includes a 6–8s squeeze at lockout.\nSets: 4\nRest: 2:00\n\n• Paused Barbell Bench Press — 4 × 4\nFinal rep: 6–8s squeeze',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/hs5s9gux_download%20%286%29.png',
+          intensityReason: 'Paused benching with a strong contraction finish.',
+          moodTips: [
+            {
+              icon: 'pause',
+              title: 'Pause where strength fades',
+              description: 'Bottom position exposes weakness.'
+            },
+            {
+              icon: 'flash',
+              title: 'Finish with intent',
+              description: 'Lockout squeeze reinforces chest dominance.'
+            },
+            {
+              icon: 'people',
+              title: 'Spotter advised',
+              description: 'Long pauses increase fatigue per rep.'
+            }
+          ]
+        },
+        {
+          name: 'Press & Fire',
+          duration: '15–18 min',
+          description: 'Close-grip bench paired with explosive push-ups.',
+          battlePlan: 'Instructions: Move immediately from bar to floor.\nSets: 4\nRest: 90s after push-ups\n\n• Close-Grip Bench Press — 4 × 6\n• Explosive Push-Ups — 4 × 12–15',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/1yb66xch_download%20%285%29.png',
+          intensityReason: 'Close-grip bench paired with explosive push-ups.',
+          moodTips: [
+            {
               icon: 'hand-left',
-              title: 'Close-grip: Press palms inward',
-              description: 'Into bar/dumbbells to increase pec activation.'
+              title: 'Grip shift changes demand',
+              description: 'Close grip increases control emphasis.'
+            },
+            {
+              icon: 'flash',
+              title: 'Explode cleanly',
+              description: 'Push-ups stay athletic, not sloppy.'
+            },
+            {
+              icon: 'alert-circle',
+              title: 'Clear space first',
+              description: 'Fast transitions matter for safety.'
             }
           ]
         }
       ],
       advanced: [
         {
-          name: 'Bench Complex',
-          duration: '15–18 min',
-          description: 'Multi-move complex combining presses, flys, push-ups, and dips for overload.',
-          battlePlan: '3 rounds:\n• 8 bench press\n• 8 bench fly\n• 8 plyo push-ups (hands on bench)\n• 8 dips\nRest 90s',
+          name: 'Heavy Clusters',
+          duration: '16–20 min',
+          description: 'Heavy cluster benching to sustain power output.',
+          battlePlan: 'Instructions: Short breaths, full recovery between sets.\nSets: 5\nRest: 2:00\n\n• Barbell Bench Press — 5 × (3 / 3 / 3)',
           imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/hs5s9gux_download%20%286%29.png',
-          intensityReason: 'Advanced complex training for maximum chest development.',
+          intensityReason: 'Heavy cluster benching to sustain power output.',
           moodTips: [
             {
-              icon: 'timer',
-              title: 'Bench press: Use slight pause at bottom',
-              description: 'Kill momentum and force pec drive for better activation.'
+              icon: 'barbell',
+              title: 'Precision under load',
+              description: 'Heavy reps stay calm and repeatable.'
             },
             {
-              icon: 'trending-down',
-              title: 'Dips: Lean forward, chest toward floor',
-              description: 'Shifts tension from triceps into pec stretch/contraction.'
+              icon: 'refresh',
+              title: 'Reset fully',
+              description: 'Treat each mini-set as its own effort.'
+            },
+            {
+              icon: 'people',
+              title: 'Spotter strongly recommended',
+              description: 'Output stays high under fatigue.'
             }
           ]
         },
         {
-          name: 'Drop Set',
+          name: 'Heavy Precision',
           duration: '16–20 min',
-          description: 'Heavy-to-light drop set presses to maximize fatigue and muscle growth.',
-          battlePlan: '2 rounds:\n• 10 heavy bench press\n• Drop → 10 moderate\n• Drop → 10 light\nRest 90–120s',
+          description: 'Heavy benching focused on precision and output.',
+          battlePlan: 'Instructions: Challenging load, zero missed reps.\nSets: 5\nRest: 2:00\n\n• Barbell Bench Press — 5 × 4',
           imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/1yb66xch_download%20%285%29.png',
-          intensityReason: 'High-intensity drop sets for advanced muscle failure.',
+          intensityReason: 'Heavy benching focused on precision and output.',
           moodTips: [
             {
-              icon: 'shield',
-              title: 'Keep reps 0–1 shy of failure',
-              description: 'Maximize recruitment without burnout for optimal results.'
+              icon: 'checkmark-done',
+              title: 'Every rep deliberate',
+              description: 'No rushed unracks or sloppy lockouts.'
             },
             {
-              icon: 'speedometer',
-              title: 'Lighter sets: slow eccentric',
-              description: '3s descent to maximize muscle tension and growth.'
+              icon: 'timer',
+              title: 'Rest with intent',
+              description: 'Power lives in recovery.'
+            },
+            {
+              icon: 'people',
+              title: 'Spotter recommended',
+              description: 'Especially on final sets.'
+            }
+          ]
+        },
+        {
+          name: 'Bench Drop Authority',
+          duration: '15–20 min',
+          description: 'Four-stage bench drop set for maximal chest fatigue.',
+          battlePlan: 'Instructions: Strip weight immediately between stages.\nSets: 3\nRest: 2:30\n\n• Bench Press (Heavy) — max reps\n• Drop 1 (Medium) — max reps\n• Drop 2 (Light) — 12–15 reps\n• Drop 3 (Very Light) — burnout',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/hs5s9gux_download%20%286%29.png',
+          intensityReason: 'Four-stage bench drop set for maximal chest fatigue.',
+          moodTips: [
+            {
+              icon: 'flame',
+              title: 'Heavy earns the drop',
+              description: 'First weight should reach true fatigue.'
+            },
+            {
+              icon: 'flash',
+              title: 'No rest between stages',
+              description: 'Weight moves fast, tension stays on.'
+            },
+            {
+              icon: 'alert',
+              title: 'Spotter required',
+              description: 'This set pushes close to failure.'
+            }
+          ]
+        },
+        {
+          name: 'Press & Explode',
+          duration: '15–20 min',
+          description: 'Heavy benching paired with explosive plyo push-ups.',
+          battlePlan: 'Instructions: Move quickly but under control.\nSets: 4\nRest: 2:00 after push-ups\n\n• Bench Press — 4 × 4\n• Clap Push-Ups — 4 × 6–10',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/1yb66xch_download%20%285%29.png',
+          intensityReason: 'Heavy benching paired with explosive plyo push-ups.',
+          moodTips: [
+            {
+              icon: 'barbell',
+              title: 'Heavy then fast',
+              description: 'Contrast preserves power under fatigue.'
+            },
+            {
+              icon: 'flash',
+              title: 'Claps stay crisp',
+              description: 'Quality beats height.'
+            },
+            {
+              icon: 'alert-circle',
+              title: 'Clear the area',
+              description: 'Plyos demand space and focus.'
             }
           ]
         }
