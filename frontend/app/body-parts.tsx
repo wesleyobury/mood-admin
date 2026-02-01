@@ -523,12 +523,14 @@ export default function BodyPartsScreen() {
           })}
         </View>
 
-        {/* Build for me button - below the muscle group grid */}
-        <ChooseForMeButton 
-          onPress={handleBuildForMePress}
-          disabled={remainingUses <= 0 && !isGuest}
-          variant="muscleGroup"
-        />
+        {/* Build for me button - only appears when muscle groups are selected */}
+        {selectedBodyParts.length > 0 && (
+          <ChooseForMeButton 
+            onPress={handleBuildForMePress}
+            disabled={remainingUses <= 0 && !isGuest}
+            variant="muscleGroup"
+          />
+        )}
       </ScrollView>
 
       {/* Continue Button */}
