@@ -403,8 +403,6 @@ export default function CalisthenicsEquipmentScreen() {
             ))}
           </View>
         </View>
-
-        <View style={{ height: 20 }} />
       </ScrollView>
 
       {/* Continue Button */}
