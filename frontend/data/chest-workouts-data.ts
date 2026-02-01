@@ -319,126 +319,306 @@ export const chestWorkoutDatabase: EquipmentWorkouts[] = [
     workouts: {
       beginner: [
         {
-          name: 'Push-Up Circuit',
-          duration: '10–12 min',
-          description: 'Incline push-ups and presses to target upper chest endurance.',
-          battlePlan: '3 rounds:\n• 10 incline push-ups\n• 10 light incline bench press\nRest 60s',
+          name: 'Upper Chest Foundations',
+          duration: '12–15 min',
+          description: 'Foundational incline pressing to build upper chest confidence.',
+          battlePlan: 'Instructions: Use a load you could complete for 2 more reps.\nSets: 4\nRest: 75–90s\n\n• Incline Barbell Press — 4 × 8',
           imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/jz7j4fdt_download%20%287%29.png',
-          intensityReason: 'Perfect introduction to upper chest development training.',
+          intensityReason: 'Foundational incline pressing to build upper chest confidence.',
           moodTips: [
             {
-              icon: 'body',
-              title: 'Push-ups: Push through hands',
-              description: 'As if you\'re "wrapping chest around ribcage" for better activation.'
+              icon: 'construct',
+              title: 'Set the angle first',
+              description: 'Moderate incline keeps work in the chest, not shoulders.'
             },
             {
-              icon: 'trending-up',
-              title: 'Incline press: Bring bar/bells below clavicles',
-              description: 'Elbows just inside wrists for better upper pec stretch.'
+              icon: 'refresh',
+              title: 'Move smoothly',
+              description: 'Each rep should feel controlled and repeatable.'
+            },
+            {
+              icon: 'checkmark-circle',
+              title: 'No spotter needed',
+              description: 'This should feel confident, not risky.'
             }
           ]
         },
         {
-          name: 'Chest Press',
-          duration: '12–15 min',
-          description: 'Incline press and fly combo for upper pec activation.',
-          battlePlan: '3 rounds:\n• 12 incline bench press (light)\n• 10 incline fly\nRest 60–75s',
+          name: 'Incline Control',
+          duration: '12–16 min',
+          description: 'Paused incline reps to reinforce upper chest control.',
+          battlePlan: 'Instructions: Pause softly for 1 second on the chest.\nSets: 4\nRest: 90s\n\n• Paused Incline Press — 4 × 5',
           imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/lnd9yph3_ibp.webp',
-          intensityReason: 'Beginner incline pressing and isolation combination.',
+          intensityReason: 'Paused incline reps to reinforce upper chest control.',
           moodTips: [
             {
-              icon: 'flash',
-              title: 'Exhale and squeeze pecs hard',
-              description: 'As dumbbells come together; imagine bringing elbows to midline.'
+              icon: 'pause',
+              title: 'Pause where tension peaks',
+              description: 'Upper chest stays loaded at the bottom.'
             },
             {
-              icon: 'construct',
-              title: 'Keep bench angle at ~30°',
-              description: 'To avoid shoulder takeover and maximize chest activation.'
+              icon: 'body',
+              title: 'Stay stacked',
+              description: 'Wrists over elbows, elbows under the bar.'
+            },
+            {
+              icon: 'shield',
+              title: 'Use safeties if solo',
+              description: 'Pauses increase time under load.'
+            }
+          ]
+        },
+        {
+          name: 'Slow Incline',
+          duration: '12–15 min',
+          description: 'Slow eccentrics increase upper chest awareness and tension.',
+          battlePlan: 'Instructions: Lower the bar for 4 seconds each rep.\nSets: 3\nRest: 90s\n\n• Incline Press — 3 × 6 (4s eccentric)',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/jz7j4fdt_download%20%287%29.png',
+          intensityReason: 'Slow eccentrics increase upper chest awareness and tension.',
+          moodTips: [
+            {
+              icon: 'trending-down',
+              title: 'Own the descent',
+              description: 'Resist gravity for the full negative.'
+            },
+            {
+              icon: 'hand-left',
+              title: 'Soft touch only',
+              description: 'No collapse into the bottom position.'
+            },
+            {
+              icon: 'people',
+              title: 'Spotter optional',
+              description: 'Helpful if control fades late.'
+            }
+          ]
+        },
+        {
+          name: 'Incline Burn',
+          duration: '10–14 min',
+          description: 'High-rep incline pressing to build upper chest endurance.',
+          battlePlan: 'Instructions: Choose a light load and move continuously.\nSets: 3\nRest: 60s\n\n• Incline Press — 3 × 15–20',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/lnd9yph3_ibp.webp',
+          intensityReason: 'High-rep incline pressing to build upper chest endurance.',
+          moodTips: [
+            {
+              icon: 'flame',
+              title: 'Light and relentless',
+              description: 'Chest stays active nonstop.'
+            },
+            {
+              icon: 'lock-closed',
+              title: 'No lockout rest',
+              description: 'Tension stays on the pecs.'
+            },
+            {
+              icon: 'shield',
+              title: 'Set safeties',
+              description: 'Fatigue builds fast at high reps.'
             }
           ]
         }
       ],
       intermediate: [
         {
-          name: 'Plyo Push-Ups',
-          duration: '14–16 min',
-          description: 'Plyo push-ups and single-arm presses for explosive upper chest strength.',
-          battlePlan: '4 rounds:\n• 8 incline plyo push-ups\n• 10 single-arm incline press\nRest 60–75s',
+          name: 'Incline Clusters',
+          duration: '14–18 min',
+          description: 'Cluster incline pressing to maintain power and bar speed.',
+          battlePlan: 'Instructions: 15s breaths between mini-sets.\nSets: 4\nRest: 2:00 between clusters\n\n• Incline Press — 4 × (4 / 4 / 4)',
           imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/jz7j4fdt_download%20%287%29.png',
-          intensityReason: 'Explosive training for intermediate upper chest power.',
+          intensityReason: 'Cluster incline pressing to maintain power and bar speed.',
           moodTips: [
             {
-              icon: 'flash',
-              title: 'Plyo push-ups: Think "fast hands"',
-              description: 'Maximal intent recruits more fibers for better development.'
+              icon: 'fitness',
+              title: 'Each rep deserves focus',
+              description: 'Reset your brace before every mini-set.'
             },
             {
-              icon: 'trending-up',
-              title: 'Single-arm press: Press toward midline',
-              description: 'Not straight up, for maximum pec contraction and activation.'
+              icon: 'pulse',
+              title: 'Short breaths only',
+              description: 'Stay tight and present.'
+            },
+            {
+              icon: 'people',
+              title: 'Spotter recommended',
+              description: 'Fatigue accumulates quickly.'
             }
           ]
         },
         {
-          name: 'Chest Flow',
-          duration: '12–15 min',
-          description: 'Incline press, fly, and close-grip press sequence for growth density.',
-          battlePlan: '3 rounds:\n• 10 incline bench press\n• 10 incline fly\n• 10 close-grip incline press\nRest 90s',
+          name: 'Working Incline',
+          duration: '14–18 min',
+          description: 'Traditional incline benching with meaningful working weight.',
+          battlePlan: 'Instructions: Increase load only if all reps stay clean.\nSets: 5\nRest: 90s\n\n• Incline Press — 5 × 6',
           imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/lnd9yph3_ibp.webp',
-          intensityReason: 'Continuous flow training for upper chest overload.',
+          intensityReason: 'Traditional incline benching with meaningful working weight.',
           moodTips: [
             {
-              icon: 'refresh',
-              title: 'Minimal rest transitions overload pecs',
-              description: 'Forces metabolic stress, a key growth driver for muscle development.'
+              icon: 'barbell',
+              title: 'Reps should challenge control',
+              description: 'Bar speed slows slightly, form doesn\'t.'
             },
             {
-              icon: 'hand-left',
-              title: 'Close-grip: Apply inward force',
-              description: 'On dumbbells/bar to emphasize chest squeeze and contraction.'
+              icon: 'construct',
+              title: 'Same angle every set',
+              description: 'Consistency drives progress.'
+            },
+            {
+              icon: 'people',
+              title: 'Spotter optional',
+              description: 'Useful on later sets.'
+            }
+          ]
+        },
+        {
+          name: 'Upper Chest Holds',
+          duration: '14–18 min',
+          description: 'Paused incline pressing with a strong contraction finish.',
+          battlePlan: 'Instructions: Final rep includes a 6–8s squeeze at lockout.\nSets: 4\nRest: 2:00\n\n• Paused Incline Press — 4 × 4\nFinal rep: 6–8s squeeze',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/jz7j4fdt_download%20%287%29.png',
+          intensityReason: 'Paused incline pressing with a strong contraction finish.',
+          moodTips: [
+            {
+              icon: 'pause',
+              title: 'Pause where strength fades',
+              description: 'Bottom position exposes weakness.'
+            },
+            {
+              icon: 'flash',
+              title: 'Finish with intent',
+              description: 'Lockout squeeze reinforces chest dominance.'
+            },
+            {
+              icon: 'people',
+              title: 'Spotter advised',
+              description: 'Long pauses increase fatigue per rep.'
+            }
+          ]
+        },
+        {
+          name: 'Incline & Fire',
+          duration: '15–18 min',
+          description: 'Incline pressing paired with explosive push-ups.',
+          battlePlan: 'Instructions: Move directly from bar to floor.\nSets: 4\nRest: 90s after push-ups\n\n• Incline Press — 4 × 6\n• Explosive Push-Ups — 4 × 12–15',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/lnd9yph3_ibp.webp',
+          intensityReason: 'Incline pressing paired with explosive push-ups.',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Press then explode',
+              description: 'Contrast keeps intensity high.'
+            },
+            {
+              icon: 'body',
+              title: 'Chest leads the push',
+              description: 'Push-ups stay chest-biased.'
+            },
+            {
+              icon: 'alert-circle',
+              title: 'Clear space first',
+              description: 'Fast transitions require focus.'
             }
           ]
         }
       ],
       advanced: [
         {
-          name: 'Incline Complex',
-          duration: '15–18 min',
-          description: 'Press, fly, push-ups, and dips for complete incline overload.',
-          battlePlan: '3 rounds:\n• 8 incline bench press\n• 8 incline fly\n• 8 incline plyo push-ups\n• 8 dips\nRest 90s',
+          name: 'Heavy Incline Clusters',
+          duration: '16–20 min',
+          description: 'Heavy incline clusters to sustain upper chest power.',
+          battlePlan: 'Instructions: Short breaths, full recovery between sets.\nSets: 5\nRest: 2:00\n\n• Incline Press — 5 × (3 / 3 / 3)',
           imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/jz7j4fdt_download%20%287%29.png',
-          intensityReason: 'Advanced complex training for maximum upper chest development.',
+          intensityReason: 'Heavy incline clusters to sustain upper chest power.',
           moodTips: [
             {
-              icon: 'trending-up',
-              title: 'Incline presses: Drive bar/dumbbells',
-              description: 'In straight bar path angled slightly toward nose for max chest fiber alignment.'
+              icon: 'barbell',
+              title: 'Precision under load',
+              description: 'Heavy reps stay calm and repeatable.'
             },
             {
-              icon: 'body',
-              title: 'Dips: Aim chin slightly down',
-              description: 'Chest forward, elbows flared slightly = deep pec stretch and activation.'
+              icon: 'refresh',
+              title: 'Reset fully',
+              description: 'Treat each mini-set as a first rep.'
+            },
+            {
+              icon: 'people',
+              title: 'Spotter strongly recommended',
+              description: 'Output stays high under fatigue.'
             }
           ]
         },
         {
-          name: 'Drop Set',
+          name: 'Heavy Incline',
           duration: '16–20 min',
-          description: 'Heavy-to-light incline presses for maximum fatigue and hypertrophy.',
-          battlePlan: '2 rounds:\n• 10 heavy incline press\n• Drop → 10 moderate\n• Drop → 10 light\nRest 90–120s',
+          description: 'Heavy incline pressing focused on upper chest strength.',
+          battlePlan: 'Instructions: Challenging load, zero missed reps.\nSets: 5\nRest: 2:00\n\n• Incline Press — 5 × 4',
           imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/lnd9yph3_ibp.webp',
-          intensityReason: 'High-intensity incline drop sets for advanced hypertrophy.',
+          intensityReason: 'Heavy incline pressing focused on upper chest strength.',
           moodTips: [
             {
-              icon: 'flash',
-              title: 'Explosive concentric on heavy sets',
-              description: 'On light sets, slow eccentric + peak contraction squeeze for growth.'
+              icon: 'checkmark-done',
+              title: 'Every rep deliberate',
+              description: 'No rushed unracks or loose lockouts.'
             },
             {
-              icon: 'shield',
-              title: 'Keep scapula pinned',
-              description: 'Don\'t let shoulders roll forward under fatigue for safety and effectiveness.'
+              icon: 'timer',
+              title: 'Rest with intent',
+              description: 'Power lives in recovery.'
+            },
+            {
+              icon: 'people',
+              title: 'Spotter recommended',
+              description: 'Especially on final sets.'
+            }
+          ]
+        },
+        {
+          name: 'Incline Drop Cascade',
+          duration: '15–20 min',
+          description: 'Four-stage incline drop set for deep upper chest fatigue.',
+          battlePlan: 'Instructions: Strip weight immediately between stages.\nSets: 3\nRest: 2:30\n\n• Incline Press (Heavy) — max reps\n• Drop 1 (Medium) — max reps\n• Drop 2 (Light) — 12–15 reps\n• Drop 3 (Very Light) — burnout',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/jz7j4fdt_download%20%287%29.png',
+          intensityReason: 'Four-stage incline drop set for deep upper chest fatigue.',
+          moodTips: [
+            {
+              icon: 'flame',
+              title: 'Heavy earns fatigue',
+              description: 'First stage should reach true failure.'
+            },
+            {
+              icon: 'flash',
+              title: 'No rest between drops',
+              description: 'Plates move, tension stays.'
+            },
+            {
+              icon: 'alert',
+              title: 'Spotter required',
+              description: 'This set pushes close to failure.'
+            }
+          ]
+        },
+        {
+          name: 'Press & Explode',
+          duration: '15–20 min',
+          description: 'Heavy incline pressing paired with explosive plyo push-ups.',
+          battlePlan: 'Instructions: Move quickly but under control.\nSets: 4\nRest: 2:00 after push-ups\n\n• Incline Press — 4 × 4\n• Clap Push-Ups — 4 × 6–10',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/lnd9yph3_ibp.webp',
+          intensityReason: 'Heavy incline pressing paired with explosive plyo push-ups.',
+          moodTips: [
+            {
+              icon: 'barbell',
+              title: 'Heavy then fast',
+              description: 'Contrast preserves power under fatigue.'
+            },
+            {
+              icon: 'flash',
+              title: 'Claps stay crisp',
+              description: 'Quality over height.'
+            },
+            {
+              icon: 'alert-circle',
+              title: 'Clear the area',
+              description: 'Plyos demand space and focus.'
             }
           ]
         }
