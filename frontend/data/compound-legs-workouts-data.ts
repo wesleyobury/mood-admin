@@ -164,6 +164,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           description: 'Reverse lunge reduces strain while building single leg strength.',
           battlePlan: '3 rounds\n• 8 per leg Reverse Lunges\nRest 75-90s',
           imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/a96gl1sh_download%20%287%29.png',
+          videoUrl: 'https://customer-assets.emergentagent.com/job_954e4402-4776-4c5b-9208-0cdb91a40358/artifacts/jv2445o7_BB%20lunge.mov',
           intensityReason: 'Teaches single leg balance with less knee stress.',
           moodTips: [
             {
@@ -206,6 +207,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           description: 'Front squat builds quads while demanding upright posture.',
           battlePlan: '4 rounds\n• 6-8 front squats\nRest 90s',
           imageUrl: 'https://customer-assets.emergentagent.com/job_workout-media-fix/artifacts/wag3ztrn_bbfs.jpg',
+          videoUrl: 'https://customer-assets.emergentagent.com/job_954e4402-4776-4c5b-9208-0cdb91a40358/artifacts/wxe55iww_BB%20front%20squat.mov',
           intensityReason: 'Upright bar placement drives quad and core load.',
           moodTips: [
             {
