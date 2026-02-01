@@ -7,7 +7,6 @@ import {
   Animated,
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
-import { LinearGradient } from 'expo-linear-gradient';
 
 interface ChooseForMeButtonProps {
   onPress: () => void;
@@ -16,139 +15,104 @@ interface ChooseForMeButtonProps {
 }
 
 export default function ChooseForMeButton({ onPress, disabled = false, style }: ChooseForMeButtonProps) {
-  const glowAnim = useRef(new Animated.Value(0.3)).current;
+  const fadeAnim = useRef(new Animated.Value(0)).current;
+  const scaleAnim = useRef(new Animated.Value(1)).current;
 
+  // Subtle fade-in on mount with 400ms delay
   useEffect(() => {
-    if (!disabled) {
-      Animated.loop(
-        Animated.sequence([
-          Animated.timing(glowAnim, {
-            toValue: 0.6,
-            duration: 2000,
-            useNativeDriver: false,
-          }),
-          Animated.timing(glowAnim, {
-            toValue: 0.3,
-            duration: 2000,
-            useNativeDriver: false,
-          }),
-        ])
-      ).start();
-    }
-  }, [disabled]);
+    const timer = setTimeout(() => {
+      Animated.timing(fadeAnim, {
+        toValue: 1,
+        duration: 400,
+        useNativeDriver: true,
+      }).start();
+    }, 400);
+    
+    return () => clearTimeout(timer);
+  }, []);
 
-  const glowOpacity = glowAnim.interpolate({
-    inputRange: [0.3, 0.6],
-    outputRange: [0.3, 0.6],
-  });
+  // Handle press animation - subtle scale down
+  const handlePressIn = () => {
+    Animated.timing(scaleAnim, {
+      toValue: 0.98,
+      duration: 120,
+      useNativeDriver: true,
+    }).start();
+  };
+
+  const handlePressOut = () => {
+    Animated.timing(scaleAnim, {
+      toValue: 1,
+      duration: 150,
+      useNativeDriver: true,
+    }).start();
+  };
 
   return (
-    <View style={[styles.outerContainer, style]}>
-      {/* Subtle glow effect behind the button */}
-      {!disabled && (
-        <Animated.View 
-          style={[
-            styles.glowEffect,
-            { opacity: glowOpacity }
-          ]} 
-        />
-      )}
+    <Animated.View 
+      style={[
+        styles.outerContainer, 
+        style,
+        { 
+          opacity: fadeAnim,
+          transform: [{ scale: scaleAnim }]
+        }
+      ]}
+    >
       <TouchableOpacity
         style={[styles.container, disabled && styles.containerDisabled]}
         onPress={onPress}
+        onPressIn={handlePressIn}
+        onPressOut={handlePressOut}
         disabled={disabled}
-        activeOpacity={0.85}
+        activeOpacity={1}
       >
-        <LinearGradient
-          colors={disabled 
-            ? ['#1a1a1a', '#111111'] 
-            : ['rgba(255, 215, 0, 0.08)', 'rgba(255, 180, 0, 0.12)', 'rgba(255, 215, 0, 0.08)']
-          }
-          style={styles.gradient}
-          start={{ x: 0, y: 0 }}
-          end={{ x: 1, y: 0 }}
-        >
-          <View style={styles.content}>
-            <View style={[styles.iconWrapper, disabled && styles.iconWrapperDisabled]}>
-              <Ionicons 
-                name="sparkles" 
-                size={16} 
-                color={disabled ? '#444' : '#FFD700'} 
-              />
-            </View>
-            <Text style={[styles.text, disabled && styles.textDisabled]}>
-              Build for me
-            </Text>
-            <View style={styles.arrowWrapper}>
-              <Ionicons 
-                name="chevron-forward" 
-                size={16} 
-                color={disabled ? '#333' : 'rgba(255, 215, 0, 0.6)'} 
-              />
-            </View>
-          </View>
-        </LinearGradient>
+        <View style={styles.content}>
+          <Ionicons 
+            name="sparkles" 
+            size={16} 
+            color={disabled ? '#444' : 'rgba(240, 235, 220, 0.85)'} 
+          />
+          <Text style={[styles.text, disabled && styles.textDisabled]}>
+            Build for me
+          </Text>
+        </View>
       </TouchableOpacity>
-    </View>
+    </Animated.View>
   );
 }
 
 const styles = StyleSheet.create({
   outerContainer: {
-    position: 'relative',
-  },
-  glowEffect: {
-    position: 'absolute',
-    top: -4,
-    left: -4,
-    right: -4,
-    bottom: -4,
-    borderRadius: 18,
-    backgroundColor: '#FFD700',
-    opacity: 0.15,
+    marginTop: 24,
+    marginBottom: 16,
   },
   container: {
-    borderRadius: 14,
+    borderRadius: 12,
     overflow: 'hidden',
     borderWidth: 1,
-    borderColor: 'rgba(255, 215, 0, 0.25)',
-    backgroundColor: '#0a0a0a',
+    borderColor: 'rgba(201, 164, 76, 0.5)', // Muted gold #C9A44C at ~50% opacity
+    backgroundColor: 'rgba(201, 164, 76, 0.06)', // Very subtle gold tint fill (~6% opacity)
   },
   containerDisabled: {
     borderColor: 'rgba(255, 255, 255, 0.08)',
-    backgroundColor: '#0a0a0a',
-  },
-  gradient: {
-    paddingVertical: 16,
-    paddingHorizontal: 24,
+    backgroundColor: 'rgba(255, 255, 255, 0.02)',
   },
   content: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
+    paddingVertical: 18,
+    paddingHorizontal: 24,
     gap: 10,
-  },
-  iconWrapper: {
-    width: 28,
-    height: 28,
-    borderRadius: 14,
-    backgroundColor: 'rgba(255, 215, 0, 0.12)',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  iconWrapperDisabled: {
-    backgroundColor: 'rgba(255, 255, 255, 0.05)',
   },
   text: {
     fontSize: 15,
-    fontWeight: '600',
-    color: '#FFFFFF',
-    letterSpacing: 0.5,
+    fontWeight: '500', // Medium weight, not bold
+    color: 'rgba(240, 235, 220, 0.9)', // Off-white
+    letterSpacing: 0.3,
   },
   textDisabled: {
     color: '#444',
-  },
-  arrowWrapper: {
-    marginLeft: 4,
   },
 });
