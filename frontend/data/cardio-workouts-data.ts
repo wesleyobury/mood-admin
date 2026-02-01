@@ -2737,7 +2737,7 @@ export const cardioWorkoutsDatabase: EquipmentWorkouts[] = [
           duration: '20–24 min',
           description: 'Full-body gauntlet: strikes, tire jumps, burpees, and tire flips.\n\n ',
           battlePlan: 'Perform 4 rounds:\n• 15 hammer strikes (alternating sides)\n• 8 tire jumps\n• 6 burpees\n• 3 tire flips (small tire)\n• Rest 2 min\nFinish with stretching',
-          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw1fHxzbGVkZ2VoYW1tZXIlMjBhZHZhbmNlZHxlbnwwfHx8fDE3NTY4ODMyMzd8MA&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTYxODl8MHwxfHNlYXJjaHwzfHxjcm9zc2ZpdCUyMHNsZWRnZWhhbW1lcnxlbnwwfHx8fDE3Njk5MTU2NDJ8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Elite complex demands maximum striking power and strength.',
           moodTips: [
             {
