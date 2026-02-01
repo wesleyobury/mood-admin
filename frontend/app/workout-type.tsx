@@ -227,14 +227,21 @@ export default function WorkoutTypeScreen() {
         }
       }
       
-      // Skip the GeneratedWorkoutView and go directly to cart
-      // Use the first generated cart
+      // Go directly to cart with generated carts for skip functionality
       const selectedCart = carts[0];
       clearCart();
       selectedCart.workouts.forEach(workout => {
         addToCart(workout);
       });
-      router.push('/cart');
+      
+      // Pass generated carts as params for skip functionality
+      router.push({
+        pathname: '/cart',
+        params: {
+          generatedCarts: JSON.stringify(carts),
+          moodCard: moodTitle,
+        }
+      });
     }
   };
 
