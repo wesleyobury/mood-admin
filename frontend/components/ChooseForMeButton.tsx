@@ -14,7 +14,7 @@ interface ChooseForMeButtonProps {
   onPress: () => void;
   disabled?: boolean;
   style?: object;
-  variant?: 'workoutType' | 'equipment'; // workoutType for sweat/explosion/lazy, equipment for calisthenics/outdoor
+  variant?: 'workoutType' | 'equipment' | 'muscleGroup'; // workoutType for sweat/explosion/lazy, equipment for calisthenics/outdoor, muscleGroup for body-parts
 }
 
 const GOLD_COLOR = '#C9A44C';
@@ -24,6 +24,7 @@ const BORDER_RADIUS = 12;
 const COLORS = {
   workoutType: '#1a1a1a', // Matches workout type buttons on sweat/explosion/lazy
   equipment: '#111111',   // Matches equipment buttons on calisthenics/outdoor
+  muscleGroup: '#1a1a1a', // Matches muscle group buttons on body-parts
 };
 
 export default function ChooseForMeButton({ 
