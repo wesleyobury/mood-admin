@@ -644,18 +644,7 @@ const styles = StyleSheet.create({
   content: {
     flex: 1,
     paddingHorizontal: 20,
-  },
-  subtitle: {
-    fontSize: 15,
-    color: 'rgba(255, 255, 255, 0.7)',
-    marginBottom: 24,
-    textAlign: 'center',
-    lineHeight: 22,
-    letterSpacing: 0.3,
-  },
-  subtitleHighlight: {
-    color: '#FFFFFF',
-    fontWeight: '600',
+    paddingTop: 16,
   },
   bodyPartsGrid: {
     flexDirection: 'row',
