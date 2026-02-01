@@ -405,8 +405,6 @@ export default function OutdoorEquipmentScreen() {
             ))}
           </View>
         </View>
-
-        <View style={{ height: 20 }} />
       </ScrollView>
 
       {/* Continue Button */}
