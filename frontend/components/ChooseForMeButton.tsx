@@ -18,7 +18,7 @@ export default function ChooseForMeButton({ onPress, disabled = false, style }: 
   const fadeAnim = useRef(new Animated.Value(0)).current;
   const scaleAnim = useRef(new Animated.Value(1)).current;
 
-  // Subtle fade-in on mount with 400ms delay
+  // Subtle fade-in on mount with 1200ms delay
   useEffect(() => {
     const timer = setTimeout(() => {
       Animated.timing(fadeAnim, {
@@ -26,7 +26,7 @@ export default function ChooseForMeButton({ onPress, disabled = false, style }: 
         duration: 400,
         useNativeDriver: true,
       }).start();
-    }, 400);
+    }, 1200);
     
     return () => clearTimeout(timer);
   }, []);
