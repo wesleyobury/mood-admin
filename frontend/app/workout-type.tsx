@@ -231,7 +231,7 @@ export default function WorkoutTypeScreen() {
       const selectedCart = carts[0];
       clearCart();
       selectedCart.workouts.forEach(workout => {
-        addToCart(workout);
+        addToCart(workout, { source: 'build_for_me', token });
       });
       
       // Pass generated carts as params for skip functionality
