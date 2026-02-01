@@ -247,6 +247,11 @@ export default function AdminDashboard() {
   const [completionsByMoodLoading, setCompletionsByMoodLoading] = useState(false);
   const [showCompletionsByMoodModal, setShowCompletionsByMoodModal] = useState(false);
   
+  // Build for Me stats widget state
+  const [buildForMeStats, setBuildForMeStats] = useState<BuildForMeStats | null>(null);
+  const [buildForMeLoading, setBuildForMeLoading] = useState(false);
+  const [showBuildForMeModal, setShowBuildForMeModal] = useState(false);
+  
   // Chart period selection
   const [chartPeriod, setChartPeriod] = useState<'day' | 'week' | 'month'>('day');
   
