@@ -116,8 +116,6 @@ export default function WorkoutTypeScreen() {
   const insets = useSafeAreaInsets();
   const [selectedOption, setSelectedOption] = useState<WorkoutTypeOption | null>(null);
   const [showIntensityModal, setShowIntensityModal] = useState(false);
-  const [generatedCarts, setGeneratedCarts] = useState<GeneratedCart[]>([]);
-  const [showGeneratedWorkout, setShowGeneratedWorkout] = useState(false);
   const [showGuestPrompt, setShowGuestPrompt] = useState(false);
   const [remainingUses, setRemainingUses] = useState(3);
   const [isLoadingUsage, setIsLoadingUsage] = useState(false);
