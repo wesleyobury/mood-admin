@@ -775,6 +775,22 @@ export default function WorkoutsHome() {
           <CarouselDots activeIndex={activeCarouselIndex} total={featuredWorkouts.length} />
         </View>
 
+        {/* Quick Access - Exercise Library */}
+        <TouchableOpacity
+          style={styles.exerciseLibraryButton}
+          onPress={() => router.push('/video-library')}
+          activeOpacity={0.8}
+        >
+          <View style={styles.exerciseLibraryIcon}>
+            <Ionicons name="videocam" size={20} color="#FFD700" />
+          </View>
+          <View style={styles.exerciseLibraryTextContainer}>
+            <Text style={styles.exerciseLibraryTitle}>Exercise Library</Text>
+            <Text style={styles.exerciseLibrarySubtitle}>Watch how to perform exercises</Text>
+          </View>
+          <Ionicons name="chevron-forward" size={20} color="#666" />
+        </TouchableOpacity>
+
         {/* Mood Selection Section */}
         <View style={styles.moodCardsContainer}>
           <View style={styles.sectionTitleContainer}>
