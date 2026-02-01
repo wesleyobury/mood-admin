@@ -358,6 +358,7 @@ export default function WorkoutsHome() {
   const { token, isGuest } = useAuth();
   const [showGuestPrompt, setShowGuestPrompt] = useState(false);
   const [guestAction, setGuestAction] = useState('');
+  const [exerciseLookupVisible, setExerciseLookupVisible] = useState(false);
   
   useEffect(() => {
     const hour = new Date().getHours();
