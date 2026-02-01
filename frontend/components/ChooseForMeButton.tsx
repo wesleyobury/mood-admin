@@ -178,14 +178,15 @@ export default function ChooseForMeButton({
 
 const styles = StyleSheet.create({
   outerContainer: {
-    marginTop: 24,
-    marginBottom: 16,
+    marginTop: 8,
+    marginBottom: 8,
   },
   orDividerContainer: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    marginBottom: 16,
+    marginBottom: 12,
+    marginTop: 4,
   },
   orDividerLine: {
     width: 40,
