@@ -180,13 +180,10 @@ const styles = StyleSheet.create({
   },
   button: {
     borderRadius: BORDER_RADIUS,
-    borderWidth: 1,
-    borderColor: `rgba(201, 164, 76, 0.4)`,
     backgroundColor: 'rgba(10, 10, 10, 0.98)',
     overflow: 'hidden',
   },
   buttonDisabled: {
-    borderColor: 'rgba(255, 255, 255, 0.08)',
     backgroundColor: 'rgba(10, 10, 10, 0.98)',
   },
   content: {
