@@ -1386,4 +1386,25 @@ const styles = StyleSheet.create({
   streakIcon: {
     marginLeft: 4,
   },
+  // Exercise Search Section
+  exerciseSearchSection: {
+    marginTop: 32,
+    marginBottom: 20,
+    paddingHorizontal: 28,
+  },
+  exerciseSearchTrigger: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: 'rgba(255,255,255,0.1)',
+    borderRadius: 24,
+    paddingVertical: 14,
+    paddingHorizontal: 18,
+    gap: 12,
+  },
+  exerciseSearchText: {
+    flex: 1,
+    fontSize: 16,
+    color: 'rgba(255,255,255,0.5)',
+    fontWeight: '400',
+  },
 });
