@@ -54,24 +54,33 @@ export default function ChooseForMeButton({
     return () => clearTimeout(timer);
   }, []);
 
-  // Slow clockwise glow animation (4 seconds per loop)
+  // Continuous clockwise glow animation (4 seconds per loop) - never stops
   useEffect(() => {
-    if (!disabled) {
-      const timer = setTimeout(() => {
-        const animation = Animated.loop(
-          Animated.timing(glowRotation, {
-            toValue: 1,
-            duration: 4000,
-            easing: Easing.linear,
-            useNativeDriver: true,
-          })
-        );
-        animation.start();
-      }, 2200);
+    let animationRef: Animated.CompositeAnimation | null = null;
+    
+    const timer = setTimeout(() => {
+      // Reset to 0 before starting to ensure clean loop
+      glowRotation.setValue(0);
       
-      return () => clearTimeout(timer);
-    }
-  }, [disabled, glowRotation]);
+      animationRef = Animated.loop(
+        Animated.timing(glowRotation, {
+          toValue: 1,
+          duration: 4000,
+          easing: Easing.linear,
+          useNativeDriver: true,
+        }),
+        { iterations: -1 } // Infinite iterations
+      );
+      animationRef.start();
+    }, 2200);
+    
+    return () => {
+      clearTimeout(timer);
+      if (animationRef) {
+        animationRef.stop();
+      }
+    };
+  }, [glowRotation]);
 
   const handlePressIn = () => {
     setIsPressed(true);
