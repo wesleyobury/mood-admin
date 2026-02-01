@@ -8,6 +8,7 @@ import {
   Easing,
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+import Svg, { Defs, LinearGradient, Stop, Rect } from 'react-native-svg';
 
 interface ChooseForMeButtonProps {
   onPress: () => void;
@@ -15,17 +16,20 @@ interface ChooseForMeButtonProps {
   style?: object;
 }
 
+const AnimatedView = Animated.View;
+
 export default function ChooseForMeButton({ onPress, disabled = false, style }: ChooseForMeButtonProps) {
   const fadeAnim = useRef(new Animated.Value(0)).current;
   const scaleAnim = useRef(new Animated.Value(1)).current;
-  const glowPosition = useRef(new Animated.Value(0)).current;
+  const glowRotation = useRef(new Animated.Value(0)).current;
 
-  // Subtle fade-in on mount with 1200ms delay
+  // Slower fade-in on mount with 1200ms delay, longer duration
   useEffect(() => {
     const timer = setTimeout(() => {
       Animated.timing(fadeAnim, {
         toValue: 1,
-        duration: 400,
+        duration: 800, // Slower fade-in
+        easing: Easing.out(Easing.ease),
         useNativeDriver: true,
       }).start();
     }, 1200);
@@ -33,21 +37,21 @@ export default function ChooseForMeButton({ onPress, disabled = false, style }: 
     return () => clearTimeout(timer);
   }, []);
 
-  // Slow counterclockwise glow animation (12 seconds per rotation)
+  // Slow counterclockwise glow rotation (15 seconds per rotation)
   useEffect(() => {
     if (!disabled) {
       const animation = Animated.loop(
-        Animated.timing(glowPosition, {
-          toValue: 1,
-          duration: 12000,
+        Animated.timing(glowRotation, {
+          toValue: -1, // Negative for counterclockwise
+          duration: 15000,
           easing: Easing.linear,
-          useNativeDriver: false,
+          useNativeDriver: true,
         })
       );
       animation.start();
       return () => animation.stop();
     }
-  }, [disabled, glowPosition]);
+  }, [disabled, glowRotation]);
 
   // Handle press animation - subtle scale down
   const handlePressIn = () => {
@@ -66,20 +70,14 @@ export default function ChooseForMeButton({ onPress, disabled = false, style }: 
     }).start();
   };
 
-  // Calculate glow dot position (counterclockwise)
-  // Position goes: top-center -> top-left -> left -> bottom-left -> bottom -> bottom-right -> right -> top-right -> top-center
-  const dotTop = glowPosition.interpolate({
-    inputRange: [0, 0.125, 0.25, 0.375, 0.5, 0.625, 0.75, 0.875, 1],
-    outputRange: [0, 0, 22, 44, 44, 44, 22, 0, 0], // Counterclockwise Y positions
-  });
-
-  const dotLeft = glowPosition.interpolate({
-    inputRange: [0, 0.125, 0.25, 0.375, 0.5, 0.625, 0.75, 0.875, 1],
-    outputRange: ['50%', '25%', '0%', '25%', '50%', '75%', '100%', '75%', '50%'], // Counterclockwise X positions
+  // Rotation interpolation
+  const rotateStyle = glowRotation.interpolate({
+    inputRange: [-1, 0],
+    outputRange: ['-360deg', '0deg'],
   });
 
   return (
-    <Animated.View 
+    <AnimatedView 
       style={[
         styles.outerContainer, 
         style,
@@ -90,21 +88,22 @@ export default function ChooseForMeButton({ onPress, disabled = false, style }: 
       ]}
     >
       <View style={styles.buttonWrapper}>
-        {/* Animated glow dot */}
+        {/* Rotating glow gradient layer */}
         {!disabled && (
-          <Animated.View
+          <AnimatedView
             style={[
-              styles.glowDot,
+              styles.glowContainer,
               {
-                top: dotTop,
-                left: dotLeft,
-                marginLeft: -6, // Center the dot
-                marginTop: -6,
+                transform: [{ rotate: rotateStyle }],
               }
             ]}
-          />
+          >
+            {/* Large feathered glow spot */}
+            <View style={styles.glowSpot} />
+          </AnimatedView>
         )}
         
+        {/* Main button */}
         <TouchableOpacity
           style={[styles.container, disabled && styles.containerDisabled]}
           onPress={onPress}
@@ -125,7 +124,7 @@ export default function ChooseForMeButton({ onPress, disabled = false, style }: 
           </View>
         </TouchableOpacity>
       </View>
-    </Animated.View>
+    </AnimatedView>
   );
 }
 
@@ -136,30 +135,40 @@ const styles = StyleSheet.create({
   },
   buttonWrapper: {
     position: 'relative',
+    borderRadius: 12,
+    overflow: 'hidden',
   },
-  glowDot: {
+  glowContainer: {
     position: 'absolute',
-    width: 12,
-    height: 12,
-    borderRadius: 6,
+    top: -50,
+    left: -50,
+    right: -50,
+    bottom: -50,
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+  },
+  glowSpot: {
+    width: 80,
+    height: 80,
+    borderRadius: 40,
     backgroundColor: '#C9A44C',
+    opacity: 0.6,
+    // Heavy feathering with large shadow
     shadowColor: '#FFD700',
     shadowOffset: { width: 0, height: 0 },
-    shadowOpacity: 0.9,
-    shadowRadius: 8,
-    elevation: 8,
-    zIndex: 10,
+    shadowOpacity: 1,
+    shadowRadius: 40,
+    elevation: 20,
   },
   container: {
     borderRadius: 12,
-    overflow: 'hidden',
     borderWidth: 1,
     borderColor: 'rgba(201, 164, 76, 0.5)', // Muted gold #C9A44C at ~50% opacity
-    backgroundColor: 'rgba(201, 164, 76, 0.06)', // Very subtle gold tint fill (~6% opacity)
+    backgroundColor: 'rgba(10, 10, 10, 0.95)', // Near-black to hide glow inside
   },
   containerDisabled: {
     borderColor: 'rgba(255, 255, 255, 0.08)',
-    backgroundColor: 'rgba(255, 255, 255, 0.02)',
+    backgroundColor: 'rgba(10, 10, 10, 0.95)',
   },
   content: {
     flexDirection: 'row',
@@ -168,6 +177,8 @@ const styles = StyleSheet.create({
     paddingVertical: 18,
     paddingHorizontal: 24,
     gap: 10,
+    backgroundColor: 'rgba(201, 164, 76, 0.06)', // Very subtle gold tint
+    borderRadius: 11,
   },
   text: {
     fontSize: 15,
