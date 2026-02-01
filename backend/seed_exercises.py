@@ -213,9 +213,10 @@ EXERCISES = [
 async def seed_exercises():
     """Seed exercises into the database."""
     client = AsyncIOMotorClient(MONGO_URL)
-    db = client.mood_app
+    db = client[DB_NAME]
     
     print(f"Connected to MongoDB: {MONGO_URL}")
+    print(f"Database: {DB_NAME}")
     print(f"Seeding {len(EXERCISES)} exercises...")
     
     inserted_count = 0
