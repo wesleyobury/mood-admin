@@ -48,7 +48,7 @@ const intensityOptions: IntensityOption[] = [
 interface IntensitySelectionModalProps {
   visible: boolean;
   onClose: () => void;
-  onSelect: (intensity: IntensityLevel) => void;
+  onSelectIntensity: (intensity: IntensityLevel) => void;
   moodTitle?: string;
   remainingUses?: number;
 }
@@ -56,7 +56,7 @@ interface IntensitySelectionModalProps {
 export default function IntensitySelectionModal({
   visible,
   onClose,
-  onSelect,
+  onSelectIntensity,
   moodTitle = 'Workout',
   remainingUses = 3,
 }: IntensitySelectionModalProps) {
@@ -68,7 +68,7 @@ export default function IntensitySelectionModal({
 
   const handleConfirm = () => {
     if (selectedIntensity) {
-      onSelect(selectedIntensity);
+      onSelectIntensity(selectedIntensity);
       setSelectedIntensity(null);
     }
   };
