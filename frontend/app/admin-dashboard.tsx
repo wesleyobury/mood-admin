@@ -378,6 +378,19 @@ export default function AdminDashboard() {
         console.log('Build for Me stats fetch error:', bfmError);
       }
       
+      // Fetch Custom Workouts stats
+      try {
+        const customWorkoutsRes = await fetch(
+          `${API_URL}/api/analytics/admin/custom-workouts-stats?days=${selectedPeriod}`,
+          { headers: { 'Authorization': `Bearer ${token}` } }
+        );
+        if (customWorkoutsRes.ok) {
+          setCustomWorkoutsStats(await customWorkoutsRes.json());
+        }
+      } catch (cwError) {
+        console.log('Custom Workouts stats fetch error:', cwError);
+      }
+      
     } catch (error) {
       console.error('Error fetching dashboard data:', error);
     } finally {
