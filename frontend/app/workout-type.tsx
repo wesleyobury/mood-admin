@@ -427,7 +427,7 @@ const styles = StyleSheet.create({
     gap: 20,
   },
   chooseForMeContainer: {
-    marginTop: 16,
+    marginTop: 8,
   },
   optionContainer: {
     marginBottom: 0,
