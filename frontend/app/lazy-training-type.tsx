@@ -167,11 +167,14 @@ export default function LazyTrainingTypeScreen() {
         } catch (error) { console.error('Error saving generated workout:', error); }
       }
       
-      // Skip the GeneratedWorkoutView and go directly to cart
+      // Go directly to cart with generated carts for skip functionality
       const selectedCart = carts[0];
       clearCart();
       selectedCart.workouts.forEach(workout => addToCart(workout));
-      router.push('/cart');
+      router.push({
+        pathname: '/cart',
+        params: { generatedCarts: JSON.stringify(carts), moodCard: moodTitle }
+      });
     }
   };
 
