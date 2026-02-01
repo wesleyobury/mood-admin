@@ -169,8 +169,6 @@ const styles = StyleSheet.create({
   baseBorderGlow: {
     ...StyleSheet.absoluteFillObject,
     borderRadius: BORDER_RADIUS + 1,
-    borderWidth: 1,
-    borderColor: `rgba(201, 164, 76, 0.25)`, // Base glow ~25% opacity
   },
   rotatingGlowWrapper: {
     ...StyleSheet.absoluteFillObject,
