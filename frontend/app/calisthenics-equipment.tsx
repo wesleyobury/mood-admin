@@ -399,6 +399,12 @@ export default function CalisthenicsEquipmentScreen() {
 
       {/* Continue Button */}
       <View style={styles.footer}>
+        <ChooseForMeButton 
+          onPress={handleBuildForMePress}
+          remainingUses={remainingUses}
+          isGuest={isGuest}
+        />
+        
         <TouchableOpacity
           style={[
             styles.continueButton,
