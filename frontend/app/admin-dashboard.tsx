@@ -355,6 +355,19 @@ export default function AdminDashboard() {
         setSessionChart(await sessionRes.json());
       }
       
+      // Fetch Build for Me stats
+      try {
+        const buildForMeRes = await fetch(
+          `${API_URL}/api/analytics/admin/build-for-me-stats?days=${selectedPeriod}`,
+          { headers: { 'Authorization': `Bearer ${token}` } }
+        );
+        if (buildForMeRes.ok) {
+          setBuildForMeStats(await buildForMeRes.json());
+        }
+      } catch (bfmError) {
+        console.log('Build for Me stats fetch error:', bfmError);
+      }
+      
     } catch (error) {
       console.error('Error fetching dashboard data:', error);
     } finally {
