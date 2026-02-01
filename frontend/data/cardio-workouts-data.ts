@@ -1833,7 +1833,7 @@ export const cardioWorkoutsDatabase: EquipmentWorkouts[] = [
           duration: '15 min',
           description: 'AMRAP: double swings, snatches, jump squats, and Turkish get-ups.\n\n ',
           battlePlan: 'AMRAP for 15 minutes:\n• 10 double kettlebell swings\n• 8 alternating snatches (4 each)\n• 12 goblet jump squats\n• 2 Turkish get-ups (1 each side)\nScore total rounds + reps',
-          imageUrl: 'https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw2fHxrZXR0bGViZWxsJTIwYW1yYXB8ZW58MHx8fHwxNzU2ODgzMjM3fDA&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://images.unsplash.com/flagged/photo-1556895368-9d1eed826c58?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA2MDV8MHwxfHNlYXJjaHwxfHxrZXR0bGViZWxsJTIwd29ya291dHxlbnwwfHx8fDE3Njk5MTQ4MzZ8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Maximum intensity AMRAP combines power, agility, and movement.',
           moodTips: [
             {
