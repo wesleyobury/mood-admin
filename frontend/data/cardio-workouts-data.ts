@@ -2673,7 +2673,7 @@ export const cardioWorkoutsDatabase: EquipmentWorkouts[] = [
           duration: '12–16 min',
           description: 'Hammer strikes and tire toe taps for power and agility.\n\n ',
           battlePlan: 'Perform 4 rounds:\n• 8 hammer strikes (each side)\n• 20 tire toe taps\n• 6 tire step-overs\n• Rest 75 sec\nFinish with stretching',
-          imageUrl: 'https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwyfHxzbGVkZ2VoYW1tZXIlMjBtYXJjaHxlbnwwfHx8fDE3NTY4ODMyMzd8MA&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTYxODl8MHwxfHNlYXJjaHwyfHxjcm9zc2ZpdCUyMHNsZWRnZWhhbW1lcnxlbnwwfHx8fDE3Njk5MTU2NDJ8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Progressive coordination workout builds striking power.',
           moodTips: [
             {
