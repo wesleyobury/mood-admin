@@ -380,6 +380,12 @@ export default function OutdoorEquipmentScreen() {
           </View>
         </View>
 
+        {/* Build for me button - below activities */}
+        <ChooseForMeButton 
+          onPress={handleBuildForMePress}
+          disabled={remainingUses <= 0 && !isGuest}
+        />
+
         {/* Difficulty Selection */}
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>Select Difficulty</Text>
@@ -397,11 +403,6 @@ export default function OutdoorEquipmentScreen() {
           </View>
         </View>
 
-        {/* Build for me button */}
-        <ChooseForMeButton 
-          onPress={handleBuildForMePress}
-          disabled={remainingUses <= 0 && !isGuest}
-        />
         <View style={{ height: 20 }} />
       </ScrollView>
 
