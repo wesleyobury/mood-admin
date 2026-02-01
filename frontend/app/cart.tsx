@@ -858,7 +858,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: '#333',
     gap: 6,
-    minWidth: 85,
+    minWidth: 80,
   },
   saveButtonText: {
     fontSize: 14,
