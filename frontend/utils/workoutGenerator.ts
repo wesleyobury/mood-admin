@@ -7,6 +7,8 @@ import { lazyBodyweightDatabase } from '../data/lazy-bodyweight-data';
 import { lazyUpperBodyDatabase } from '../data/lazy-upper-body-data';
 import { lazyLowerBodyDatabase } from '../data/lazy-lower-body-data';
 import { lazyFullBodyDatabase } from '../data/lazy-full-body-data';
+import { additionalWorkoutDatabase as calisthenicsDatabase } from '../data/calisthenics-all-workouts-data';
+import { outdoorRunWorkoutDatabase } from '../data/outdoor-workouts-data';
 import { Workout, EquipmentWorkouts } from '../types/workout';
 import { IntensityLevel } from '../components/IntensitySelectionModal';
 import { GeneratedCart } from '../components/GeneratedWorkoutView';
