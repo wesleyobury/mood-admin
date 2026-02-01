@@ -874,16 +874,15 @@ const styles = StyleSheet.create({
     fontWeight: '500',
   },
   startButton: {
-    flex: 1,
     borderRadius: 30,
     overflow: 'hidden',
-    maxWidth: 120,
+    minWidth: 100,
   },
   startButtonGradient: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    paddingHorizontal: 20,
+    paddingHorizontal: 24,
     paddingVertical: 14,
   },
   startButtonDisabled: {
@@ -904,6 +903,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: '#333',
     gap: 4,
+    minWidth: 85,
   },
   skipButtonText: {
     fontSize: 14,
