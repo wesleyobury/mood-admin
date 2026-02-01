@@ -1255,126 +1255,306 @@ export const chestWorkoutDatabase: EquipmentWorkouts[] = [
     workouts: {
       beginner: [
         {
-          name: 'Chest Press',
-          duration: '12–14 min',
-          description: 'Flat and incline Smith presses for guided pressing strength.',
-          battlePlan: '3 rounds:\n• 10 Smith bench press\n• 8 Smith incline press\n• 10 push-ups\nRest 60–75s',
+          name: 'Smith Foundations',
+          duration: '12–15 min',
+          description: 'Stable Smith pressing to build chest confidence.',
+          battlePlan: 'Sets: 4\n\n• Smith Flat Press — 4 × 10',
           imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/wqpgrlpk_download%20%289%29.png',
-          intensityReason: 'Safe introduction to barbell movements with stability.',
+          intensityReason: 'Stable Smith pressing to build chest confidence.',
           moodTips: [
             {
               icon: 'construct',
-              title: 'Set safety bars properly',
-              description: 'Position safety bars just below chest level for protection.'
+              title: 'Lock the path in first',
+              description: 'Set feet and shoulders before unrack.'
             },
             {
-              icon: 'body',
-              title: 'Maintain natural arch',
-              description: 'Keep slight natural arch in back during pressing movements.'
+              icon: 'refresh',
+              title: 'Smooth reps only',
+              description: 'Let the rails guide consistency.'
+            },
+            {
+              icon: 'checkmark-circle',
+              title: 'No spotter needed',
+              description: 'Smith provides built-in safety.'
             }
           ]
         },
         {
-          name: 'Push-Up Circuit',
-          duration: '10–12 min',
-          description: 'Push-ups and close-grip Smith presses for foundational chest endurance.',
-          battlePlan: '3 rounds:\n• 8 Smith bench press\n• 8 Smith close-grip press\nRest 60s',
+          name: 'Smith Control',
+          duration: '12–16 min',
+          description: 'Paused Smith reps to reinforce chest engagement.',
+          battlePlan: 'Sets: 4\n\n• Paused Smith Press — 4 × 8',
           imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/pl1dkh7x_download%20%288%29.png',
-          intensityReason: 'Basic Smith machine pressing with grip variations.',
+          intensityReason: 'Paused Smith reps to reinforce chest engagement.',
           moodTips: [
             {
-              icon: 'hand-left',
-              title: 'Grip width matters',
-              description: 'Wide grip targets outer chest, close grip emphasizes inner chest.'
+              icon: 'pause',
+              title: 'Pause kills bounce',
+              description: 'Let the chest hold the load.'
             },
             {
-              icon: 'speedometer',
-              title: 'Control the tempo',
-              description: '2s down, 1s pause, 2s up for muscle control.'
+              icon: 'body',
+              title: 'Stay pinned',
+              description: 'Shoulder blades never drift.'
+            },
+            {
+              icon: 'shield',
+              title: 'Use safeties',
+              description: 'Extra time under tension adds fatigue.'
+            }
+          ]
+        },
+        {
+          name: 'Slow Smith Press',
+          duration: '12–15 min',
+          description: 'Slow negatives on Smith press for chest tension.',
+          battlePlan: 'Sets: 3\n\n• Smith Press — 3 × 8 (4s eccentric)',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/wqpgrlpk_download%20%289%29.png',
+          intensityReason: 'Slow negatives on Smith press for chest tension.',
+          moodTips: [
+            {
+              icon: 'trending-down',
+              title: 'Own the rails',
+              description: 'Control the descent fully.'
+            },
+            {
+              icon: 'hand-left',
+              title: 'Soft bottom touch',
+              description: 'No collapsing.'
+            },
+            {
+              icon: 'people',
+              title: 'Spotter optional',
+              description: 'Fatigue builds subtly.'
+            }
+          ]
+        },
+        {
+          name: 'Smith Burn',
+          duration: '10–14 min',
+          description: 'High-rep Smith pressing for chest endurance.',
+          battlePlan: 'Sets: 3\n\n• Smith Press — 3 × 15–20',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/pl1dkh7x_download%20%288%29.png',
+          intensityReason: 'High-rep Smith pressing for chest endurance.',
+          moodTips: [
+            {
+              icon: 'flame',
+              title: 'Light and nonstop',
+              description: 'Keep tension continuous.'
+            },
+            {
+              icon: 'lock-closed',
+              title: 'No lockout rest',
+              description: 'Stay in the work.'
+            },
+            {
+              icon: 'alert-circle',
+              title: 'Rack quickly',
+              description: 'High reps fatigue fast.'
             }
           ]
         }
       ],
       intermediate: [
         {
-          name: 'Angle Ladder',
-          duration: '14–15 min',
-          description: 'Flat, incline, and decline Smith presses to stress fibers at all angles.',
-          battlePlan: '4 rounds:\n• 8 Smith bench press\n• 6 Smith incline press\n• 8 Smith close-grip press\nRest 75s',
+          name: 'Smith Clusters',
+          duration: '14–18 min',
+          description: 'Smith cluster pressing to maintain power.',
+          battlePlan: 'Sets: 4\n\n• Smith Press — 4 × (5 / 5 / 5)',
           imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/wqpgrlpk_download%20%289%29.png',
-          intensityReason: 'Strength-focused Smith machine training with multiple angles.',
+          intensityReason: 'Smith cluster pressing to maintain power.',
           moodTips: [
             {
-              icon: 'trending-up',
-              title: 'Progressive overload',
-              description: 'Gradually increase weight as strength improves.'
+              icon: 'repeat',
+              title: 'Each rep identical',
+              description: 'Rails don\'t excuse slop.'
             },
             {
-              icon: 'construct',
-              title: 'Adjust bench angles',
-              description: 'Use different bench angles to target all areas of chest.'
+              icon: 'pulse',
+              title: 'Short breaths only',
+              description: 'Stay braced.'
+            },
+            {
+              icon: 'people',
+              title: 'Spotter optional',
+              description: 'Helpful at higher loads.'
             }
           ]
         },
         {
-          name: 'Plyo Push-Ups',
-          duration: '14–16 min',
-          description: 'Explosive bar push-ups and single-arm presses for power and hypertrophy.',
-          battlePlan: '3 rounds:\n• 6 Smith bench press\n• 8 Smith incline press\n• 10 push-ups\n• 8 dips\nRest 90s',
+          name: 'Working Smith',
+          duration: '14–18 min',
+          description: 'Traditional Smith pressing with meaningful load.',
+          battlePlan: 'Sets: 5\n\n• Smith Press — 5 × 8',
           imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/pl1dkh7x_download%20%288%29.png',
-          intensityReason: 'Complex training combining Smith machine with bodyweight.',
+          intensityReason: 'Traditional Smith pressing with meaningful load.',
           moodTips: [
             {
-              icon: 'refresh',
-              title: 'Smooth transitions',
-              description: 'Move efficiently between Smith machine and bodyweight exercises.'
+              icon: 'barbell',
+              title: 'Reps should work',
+              description: 'Controlled grind, no panic.'
+            },
+            {
+              icon: 'body',
+              title: 'Same foot position',
+              description: 'Consistency matters.'
+            },
+            {
+              icon: 'people',
+              title: 'Spotter optional',
+              description: 'Helpful on later sets.'
+            }
+          ]
+        },
+        {
+          name: 'Smith Holds',
+          duration: '14–18 min',
+          description: 'Paused Smith pressing with contraction finish.',
+          battlePlan: 'Sets: 4\n\n• Paused Smith Press — 4 × 6\nFinal rep: 6–8s squeeze',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/wqpgrlpk_download%20%289%29.png',
+          intensityReason: 'Paused Smith pressing with contraction finish.',
+          moodTips: [
+            {
+              icon: 'pause',
+              title: 'Pause under control',
+              description: 'Chest stays loaded.'
             },
             {
               icon: 'flash',
-              title: 'Maintain intensity',
-              description: 'Keep workout intensity high throughout entire circuit.'
+              title: 'Finish strong',
+              description: 'Long squeeze at lockout.'
+            },
+            {
+              icon: 'shield',
+              title: 'Use safeties',
+              description: 'Fatigue accumulates.'
+            }
+          ]
+        },
+        {
+          name: 'Smith & Push',
+          duration: '15–18 min',
+          description: 'Smith pressing paired with chest-focused push-ups.',
+          battlePlan: 'Sets: 4\n\n• Smith Press — 4 × 8\n• Push-Ups — 4 × 15–20',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/pl1dkh7x_download%20%288%29.png',
+          intensityReason: 'Smith pressing paired with chest-focused push-ups.',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Press then push',
+              description: 'Compound into bodyweight.'
+            },
+            {
+              icon: 'body',
+              title: 'Chest leads both',
+              description: 'Avoid shoulder takeover.'
+            },
+            {
+              icon: 'alert-circle',
+              title: 'Clear floor space',
+              description: 'Fast transitions matter.'
             }
           ]
         }
       ],
       advanced: [
         {
-          name: 'Complex',
-          duration: '15–18 min',
-          description: 'Pressing complex at multiple angles for sustained chest tension.',
-          battlePlan: '3 rounds:\n• 6 heavy Smith bench press\n• Drop → 8 moderate\n• Drop → 10 light\n• 8 Smith incline press\nRest 90–120s',
+          name: 'Heavy Smith Clusters',
+          duration: '16–20 min',
+          description: 'Heavy Smith clusters to sustain chest output.',
+          battlePlan: 'Sets: 5\n\n• Smith Press — 5 × (4 / 4 / 4)',
           imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/wqpgrlpk_download%20%289%29.png',
-          intensityReason: 'Advanced drop set protocol using Smith machine safety.',
+          intensityReason: 'Heavy Smith clusters to sustain chest output.',
           moodTips: [
             {
-              icon: 'speedometer',
-              title: 'Quick weight changes',
-              description: 'Practice efficient weight changes for minimal rest.'
+              icon: 'barbell',
+              title: 'Precision under load',
+              description: 'Rails demand discipline.'
             },
             {
-              icon: 'shield',
-              title: 'Safety first',
-              description: 'Use safety bars and proper form even under fatigue.'
+              icon: 'refresh',
+              title: 'Reset fully',
+              description: 'Treat each cluster clean.'
+            },
+            {
+              icon: 'people',
+              title: 'Spotter recommended',
+              description: 'Output stays high under fatigue.'
             }
           ]
         },
         {
-          name: 'Drop Set',
+          name: 'Heavy Smith',
           duration: '16–20 min',
-          description: 'Heavy-to-light Smith pressing for chest fatigue and growth.',
-          battlePlan: '3 rounds:\n• 5 explosive Smith bench press\n• 6 controlled Smith bench press\n• 8 Smith incline press\n• 10 push-ups\nRest 90s',
+          description: 'Heavy Smith pressing focused on chest strength.',
+          battlePlan: 'Sets: 5\n\n• Smith Press — 5 × 6',
           imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/pl1dkh7x_download%20%288%29.png',
-          intensityReason: 'Advanced power and control complex using Smith stability.',
+          intensityReason: 'Heavy Smith pressing focused on chest strength.',
           moodTips: [
             {
-              icon: 'flash',
-              title: 'Explosive concentric',
-              description: 'Drive the bar up with maximum speed and intent.'
+              icon: 'checkmark-done',
+              title: 'Every rep deliberate',
+              description: 'No rushed unrack.'
             },
             {
               icon: 'timer',
-              title: 'Controlled eccentric',
-              description: '3s descent for maximum time under tension.'
+              title: 'Rest fully',
+              description: 'Strength needs recovery.'
+            },
+            {
+              icon: 'people',
+              title: 'Spotter recommended',
+              description: 'Especially on final sets.'
+            }
+          ]
+        },
+        {
+          name: 'Smith Drop Cascade',
+          duration: '15–20 min',
+          description: 'Four-stage Smith drop set for deep chest fatigue.',
+          battlePlan: 'Sets: 3\n\n• Smith Press (Heavy) — max reps\n• Drop 1 (Medium) — max reps\n• Drop 2 (Light) — 12–15\n• Drop 3 (Very Light) — burnout',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/wqpgrlpk_download%20%289%29.png',
+          intensityReason: 'Four-stage Smith drop set for deep chest fatigue.',
+          moodTips: [
+            {
+              icon: 'flame',
+              title: 'Heavy earns fatigue',
+              description: 'First stage hits failure.'
+            },
+            {
+              icon: 'flash',
+              title: 'No rest between drops',
+              description: 'Weight moves fast.'
+            },
+            {
+              icon: 'alert',
+              title: 'Spotter required',
+              description: 'This set pushes hard.'
+            }
+          ]
+        },
+        {
+          name: 'Smith & Explode',
+          duration: '15–20 min',
+          description: 'Heavy Smith pressing paired with plyo push-ups.',
+          battlePlan: 'Sets: 4\n\n• Smith Press — 4 × 6\n• Clap Push-Ups — 4 × 6–10',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/pl1dkh7x_download%20%288%29.png',
+          intensityReason: 'Heavy Smith pressing paired with plyo push-ups.',
+          moodTips: [
+            {
+              icon: 'barbell',
+              title: 'Heavy then fast',
+              description: 'Contrast preserves output.'
+            },
+            {
+              icon: 'flash',
+              title: 'Claps stay crisp',
+              description: 'No sloppy reps.'
+            },
+            {
+              icon: 'alert-circle',
+              title: 'Clear area first',
+              description: 'Plyos demand space.'
             }
           ]
         }
@@ -1387,126 +1567,306 @@ export const chestWorkoutDatabase: EquipmentWorkouts[] = [
     workouts: {
       beginner: [
         {
-          name: 'Press Circuit',
-          duration: '12–14 min',
-          description: 'Machine press variations with close-grip focus for controlled activation.',
-          battlePlan: '3 rounds:\n• 12 chest press (light)\n• 10 wide grip press\n• 10 narrow grip press\nRest 60–75s',
+          name: 'Machine Foundations',
+          duration: '12–15 min',
+          description: 'Chest press machine reps for controlled chest work.',
+          battlePlan: 'Sets: 4\n\n• Chest Press Machine — 4 × 12',
           imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/etmzu51q_download%20%283%29.png',
-          intensityReason: 'Safe machine-based introduction with different grip positions.',
+          intensityReason: 'Chest press machine reps for controlled chest work.',
           moodTips: [
             {
               icon: 'construct',
-              title: 'Adjust seat height properly',
-              description: 'Handles should align with mid-chest for optimal pressing angle.'
+              title: 'Seat height matters',
+              description: 'Handles line up mid-chest.'
             },
             {
-              icon: 'body',
-              title: 'Keep back flat against pad',
-              description: 'Maintain contact throughout entire range of motion.'
+              icon: 'flash',
+              title: 'Smooth squeeze',
+              description: 'Control end range.'
+            },
+            {
+              icon: 'checkmark-circle',
+              title: 'No spotter needed',
+              description: 'Machine provides safety.'
             }
           ]
         },
         {
-          name: 'Press & Fly',
-          duration: '12–14 min',
-          description: 'Press and fly pairing for contraction and stretch under load.',
-          battlePlan: '3 rounds:\n• 10 chest press\n• 10 pec deck (if available)\nRest 60s',
+          name: 'Machine Control',
+          duration: '12–16 min',
+          description: 'Paused machine pressing for chest engagement.',
+          battlePlan: 'Sets: 4\n\n• Paused Chest Press — 4 × 10',
           imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/67nyth7l_download%20%282%29.png',
-          intensityReason: 'Simple machine circuit combining pressing and isolation.',
+          intensityReason: 'Paused machine pressing for chest engagement.',
           moodTips: [
             {
-              icon: 'speedometer',
-              title: 'Control the tempo',
-              description: '2s down, 1s pause, 2s up for muscle control.'
+              icon: 'pause',
+              title: 'Pause near full stretch',
+              description: 'Chest stays loaded.'
             },
             {
-              icon: 'flash',
-              title: 'Focus on chest squeeze',
-              description: 'Contract chest hard at the top of each press.'
+              icon: 'lock-closed',
+              title: 'No lockout rest',
+              description: 'Keep tension.'
+            },
+            {
+              icon: 'shield',
+              title: 'Safe but focused',
+              description: 'Machine allows intensity.'
+            }
+          ]
+        },
+        {
+          name: 'Slow Machine Press',
+          duration: '12–15 min',
+          description: 'Slow negatives on chest press machine.',
+          battlePlan: 'Sets: 3\n\n• Chest Press — 3 × 10 (4s eccentric)',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/etmzu51q_download%20%283%29.png',
+          intensityReason: 'Slow negatives on chest press machine.',
+          moodTips: [
+            {
+              icon: 'trending-down',
+              title: 'Slow return',
+              description: 'Machines reward control.'
+            },
+            {
+              icon: 'volume-mute',
+              title: 'No stack slam',
+              description: 'Quiet reps only.'
+            },
+            {
+              icon: 'body',
+              title: 'Seat locked in',
+              description: 'Stability first.'
+            }
+          ]
+        },
+        {
+          name: 'Machine Burn',
+          duration: '10–14 min',
+          description: 'High-rep machine pressing for chest endurance.',
+          battlePlan: 'Sets: 3\n\n• Chest Press — 3 × 15–20',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/67nyth7l_download%20%282%29.png',
+          intensityReason: 'High-rep machine pressing for chest endurance.',
+          moodTips: [
+            {
+              icon: 'flame',
+              title: 'Light and steady',
+              description: 'Chase the pump.'
+            },
+            {
+              icon: 'lock-closed',
+              title: 'No lockout pause',
+              description: 'Stay working.'
+            },
+            {
+              icon: 'pulse',
+              title: 'Breathe rhythmically',
+              description: 'Steady breathing pattern.'
             }
           ]
         }
       ],
       intermediate: [
         {
-          name: 'Drop Set',
-          duration: '16–18 min',
-          description: 'Heavy-to-light machine press drop set for maximum pump.',
-          battlePlan: '4 rounds:\n• 12 light chest press\n• 10 moderate chest press\n• 8 heavy chest press\nRest 75s',
+          name: 'Machine Clusters',
+          duration: '14–18 min',
+          description: 'Machine clusters to maintain pressing output.',
+          battlePlan: 'Sets: 4\n\n• Chest Press — 4 × (6 / 6 / 6)',
           imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/etmzu51q_download%20%283%29.png',
-          intensityReason: 'Progressive loading pyramid across different rep ranges.',
+          intensityReason: 'Machine clusters to maintain pressing output.',
           moodTips: [
             {
-              icon: 'trending-up',
-              title: 'Increase weight progressively',
-              description: 'Each set should challenge you at the target rep range.'
+              icon: 'refresh',
+              title: 'Each rep smooth',
+              description: 'Don\'t rush the handles.'
             },
             {
-              icon: 'timer',
-              title: 'Rest between weight changes',
-              description: 'Take time to adjust weight properly between sets.'
+              icon: 'pulse',
+              title: 'Short breaths only',
+              description: 'Stay seated and braced.'
+            },
+            {
+              icon: 'shield',
+              title: 'Safe but demanding',
+              description: 'Machine allows intensity.'
             }
           ]
         },
         {
-          name: 'Ladder',
-          duration: '14–16 min',
-          description: 'Wide, neutral, and close grips to target full chest fibers.',
-          battlePlan: '3 rounds:\n• 8 heavy chest press\n• 10 single-arm chest press\n• 12 pec deck\nRest 90s',
+          name: 'Working Machine',
+          duration: '14–18 min',
+          description: 'Traditional machine pressing with meaningful load.',
+          battlePlan: 'Sets: 5\n\n• Chest Press — 5 × 10',
           imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/67nyth7l_download%20%282%29.png',
-          intensityReason: 'Strength-focused machine training with unilateral work.',
+          intensityReason: 'Traditional machine pressing with meaningful load.',
           moodTips: [
             {
-              icon: 'fitness',
-              title: 'Single-arm challenges core',
-              description: 'Maintain stable torso during unilateral pressing.'
+              icon: 'barbell',
+              title: 'Reps should work',
+              description: 'Deep fatigue, clean reps.'
+            },
+            {
+              icon: 'construct',
+              title: 'Same seat height',
+              description: 'Consistency matters.'
+            },
+            {
+              icon: 'shield',
+              title: 'Push hard safely',
+              description: 'Machine provides safety.'
+            }
+          ]
+        },
+        {
+          name: 'Machine Holds',
+          duration: '14–18 min',
+          description: 'Paused machine pressing with contraction finish.',
+          battlePlan: 'Sets: 4\n\n• Paused Chest Press — 4 × 8\nFinal rep: 6–8s squeeze',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/etmzu51q_download%20%283%29.png',
+          intensityReason: 'Paused machine pressing with contraction finish.',
+          moodTips: [
+            {
+              icon: 'pause',
+              title: 'Pause deep',
+              description: 'Stretch stays controlled.'
+            },
+            {
+              icon: 'flash',
+              title: 'Finish strong',
+              description: 'Long squeeze at end range.'
+            },
+            {
+              icon: 'shield',
+              title: 'Safe to push hard',
+              description: 'Machine provides support.'
+            }
+          ]
+        },
+        {
+          name: 'Press & Burn',
+          duration: '15–18 min',
+          description: 'Machine pressing paired with push-ups for volume.',
+          battlePlan: 'Sets: 4\n\n• Chest Press — 4 × 10\n• Push-Ups — 4 × 15–25',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/67nyth7l_download%20%282%29.png',
+          intensityReason: 'Machine pressing paired with push-ups for volume.',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Machine then floor',
+              description: 'Compound into bodyweight.'
             },
             {
               icon: 'body',
-              title: 'Feel the stretch on pec deck',
-              description: 'Full range of motion for maximum muscle activation.'
+              title: 'Chest leads both',
+              description: 'Focus on chest engagement.'
+            },
+            {
+              icon: 'alert-circle',
+              title: 'Clear floor space',
+              description: 'Fast transitions matter.'
             }
           ]
         }
       ],
       advanced: [
         {
-          name: 'AMRAP',
-          duration: '10 min',
-          description: '10-minute maximum volume chest press challenge.',
-          battlePlan: '3 rounds:\n• 8 heavy chest press\n• Drop → 10 moderate\n• Drop → 12 light\n• 10 pec deck\nRest 90–120s',
+          name: 'Heavy Machine Clusters',
+          duration: '16–20 min',
+          description: 'Heavy machine clusters to maximize chest output.',
+          battlePlan: 'Sets: 5\n\n• Chest Press — 5 × (5 / 5 / 5)',
           imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/etmzu51q_download%20%283%29.png',
-          intensityReason: 'Advanced drop set protocol using machine safety.',
+          intensityReason: 'Heavy machine clusters to maximize chest output.',
           moodTips: [
             {
-              icon: 'flash',
-              title: 'Push to near failure',
-              description: 'Machines provide safety to train intensely.'
+              icon: 'barbell',
+              title: 'Controlled aggression',
+              description: 'Drive hard, return slow.'
             },
             {
-              icon: 'speedometer',
-              title: 'Quick weight adjustments',
-              description: 'Minimize rest between drop set weights.'
+              icon: 'refresh',
+              title: 'Reset posture',
+              description: 'Each cluster fresh.'
+            },
+            {
+              icon: 'shield',
+              title: 'Push safely',
+              description: 'Machine allows intensity.'
             }
           ]
         },
         {
-          name: 'Complex',
-          duration: '15–18 min',
-          description: 'Wide, close, and single-arm presses for hypertrophy and stability.',
-          battlePlan: '3 rounds:\n• 6 explosive chest press\n• 8 controlled chest press\n• 10 pec deck\n• 8 single-arm press\nRest 90s',
+          name: 'Heavy Machine',
+          duration: '16–20 min',
+          description: 'Heavy machine pressing for chest strength focus.',
+          battlePlan: 'Sets: 5\n\n• Chest Press — 5 × 8',
           imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/67nyth7l_download%20%282%29.png',
-          intensityReason: 'Advanced power and control complex using machine stability.',
+          intensityReason: 'Heavy machine pressing for chest strength focus.',
           moodTips: [
             {
-              icon: 'flash',
-              title: 'Explosive concentric',
-              description: 'Drive the weight up with maximum intent.'
+              icon: 'checkmark-done',
+              title: 'Every rep deliberate',
+              description: 'No stack bounce.'
             },
             {
               icon: 'timer',
-              title: 'Controlled eccentric',
-              description: '3s descent for maximum time under tension.'
+              title: 'Rest fully',
+              description: 'Power still needs recovery.'
+            },
+            {
+              icon: 'shield',
+              title: 'Safe heavy work',
+              description: 'Machine provides support.'
+            }
+          ]
+        },
+        {
+          name: 'Machine Drop Cascade',
+          duration: '15–20 min',
+          description: 'Four-stage machine drop set for chest overload.',
+          battlePlan: 'Sets: 3\n\n• Chest Press (Heavy) — max reps\n• Drop 1 (Medium) — max reps\n• Drop 2 (Light) — 12–15\n• Drop 3 (Very Light) — burnout',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/etmzu51q_download%20%283%29.png',
+          intensityReason: 'Four-stage machine drop set for chest overload.',
+          moodTips: [
+            {
+              icon: 'flame',
+              title: 'Heavy earns fatigue',
+              description: 'Push to real failure.'
+            },
+            {
+              icon: 'flash',
+              title: 'No rest between drops',
+              description: 'Pins move fast.'
+            },
+            {
+              icon: 'shield',
+              title: 'Safe to empty the tank',
+              description: 'Machine provides safety.'
+            }
+          ]
+        },
+        {
+          name: 'Press & Explode',
+          duration: '15–20 min',
+          description: 'Heavy machine pressing paired with explosive push-ups.',
+          battlePlan: 'Sets: 4\n\n• Chest Press — 4 × 8\n• Clap Push-Ups — 4 × 6–10',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/67nyth7l_download%20%282%29.png',
+          intensityReason: 'Heavy machine pressing paired with explosive push-ups.',
+          moodTips: [
+            {
+              icon: 'barbell',
+              title: 'Heavy then fast',
+              description: 'Contrast sharpens output.'
+            },
+            {
+              icon: 'flash',
+              title: 'Push-ups stay crisp',
+              description: 'Power without slop.'
+            },
+            {
+              icon: 'alert-circle',
+              title: 'Clear space',
+              description: 'Plyos need room.'
             }
           ]
         }
@@ -1519,126 +1879,306 @@ export const chestWorkoutDatabase: EquipmentWorkouts[] = [
     workouts: {
       beginner: [
         {
-          name: 'Pec Dec Circuit',
-          duration: '12–14 min',
-          description: 'Pec fly and rear delt fly combo for chest-shoulder balance.',
-          battlePlan: '3 rounds:\n• 12 pec dec fly\n• 10 reverse pec dec (rear delts)\nRest 60s',
+          name: 'Fly Foundations',
+          duration: '12–15 min',
+          description: 'Pec deck flyes to build chest awareness.',
+          battlePlan: 'Sets: 4\n\n• Pec Deck Fly — 4 × 12',
           imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/rf17lbcl_pmd2.jpg',
-          intensityReason: 'Perfect introduction to pec dec training and shoulder balance.',
+          intensityReason: 'Pec deck flyes to build chest awareness.',
           moodTips: [
             {
-              icon: 'construct',
-              title: 'Adjust seat height properly',
-              description: 'Upper arms should be parallel to floor at mid-chest level.'
+              icon: 'body',
+              title: 'Move from the pec',
+              description: 'Arms follow chest.'
             },
             {
-              icon: 'body',
-              title: 'Keep back flat against pad',
-              description: 'Maintain contact and avoid arching during the movement.'
+              icon: 'flash',
+              title: 'Smooth squeeze',
+              description: 'Control the end range.'
+            },
+            {
+              icon: 'checkmark-circle',
+              title: 'No spotter needed',
+              description: 'Machine provides safety.'
             }
           ]
         },
         {
-          name: 'Pec Dec Hold',
-          duration: '10–12 min',
-          description: 'Pec flys with static holds for contraction emphasis.',
-          battlePlan: '3 rounds:\n• 10 pec dec fly\n• 8 chest press (if available)\n• 10 pec dec fly\nRest 60–75s',
+          name: 'Fly Control',
+          duration: '12–16 min',
+          description: 'Paused flyes to reinforce chest control.',
+          battlePlan: 'Sets: 4\n\n• Paused Pec Deck — 4 × 10',
           imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/5hd3my3c_pdm.webp',
-          intensityReason: 'Isolation-focused circuit combining pec dec with pressing.',
+          intensityReason: 'Paused flyes to reinforce chest control.',
           moodTips: [
             {
-              icon: 'flash',
-              title: 'Focus on the squeeze',
-              description: 'Contract chest hard as pads come together.'
+              icon: 'pause',
+              title: 'Pause in stretch',
+              description: 'Let chest load fully.'
             },
             {
-              icon: 'timer',
-              title: 'Control the negative',
-              description: 'Slow descent to maximize muscle activation.'
+              icon: 'body',
+              title: 'No shoulder drift',
+              description: 'Stay tall.'
+            },
+            {
+              icon: 'hand-left',
+              title: 'Light weight preferred',
+              description: 'Focus on feeling the stretch.'
+            }
+          ]
+        },
+        {
+          name: 'Slow Fly',
+          duration: '12–15 min',
+          description: 'Slow eccentrics on pec deck for chest tension.',
+          battlePlan: 'Sets: 3\n\n• Pec Deck Fly — 3 × 10 (4s eccentric)',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/rf17lbcl_pmd2.jpg',
+          intensityReason: 'Slow eccentrics on pec deck for chest tension.',
+          moodTips: [
+            {
+              icon: 'trending-down',
+              title: 'Slow return',
+              description: 'Stretch builds growth.'
+            },
+            {
+              icon: 'body',
+              title: 'Stay relaxed in neck',
+              description: 'No tension creep.'
+            },
+            {
+              icon: 'volume-mute',
+              title: 'Quiet stack',
+              description: 'Control throughout.'
+            }
+          ]
+        },
+        {
+          name: 'Fly Burn',
+          duration: '10–14 min',
+          description: 'High-rep pec deck flyes for chest endurance.',
+          battlePlan: 'Sets: 3\n\n• Pec Deck Fly — 3 × 15–25',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/5hd3my3c_pdm.webp',
+          intensityReason: 'High-rep pec deck flyes for chest endurance.',
+          moodTips: [
+            {
+              icon: 'flame',
+              title: 'Light and endless',
+              description: 'Chase the pump.'
+            },
+            {
+              icon: 'lock-closed',
+              title: 'No resting closed',
+              description: 'Keep tension.'
+            },
+            {
+              icon: 'pulse',
+              title: 'Breathe steadily',
+              description: 'Rhythmic breathing.'
             }
           ]
         }
       ],
       intermediate: [
         {
-          name: 'Drop Set',
-          duration: '16–18 min',
-          description: 'Heavy-to-light pec deck flys for stretch and squeeze combo.',
-          battlePlan: '4 rounds:\n• 12 light pec dec\n• 10 moderate pec dec\n• 8 heavy pec dec\nRest 75s',
+          name: 'Fly Clusters',
+          duration: '14–18 min',
+          description: 'Pec deck clusters to maintain chest tension.',
+          battlePlan: 'Sets: 4\n\n• Pec Deck Fly — 4 × (6 / 6 / 6)',
           imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/rf17lbcl_pmd2.jpg',
-          intensityReason: 'Progressive loading across different rep ranges.',
+          intensityReason: 'Pec deck clusters to maintain chest tension.',
           moodTips: [
             {
-              icon: 'trending-up',
-              title: 'Increase weight progressively',
-              description: 'Each set should challenge you at the target rep range.'
+              icon: 'refresh',
+              title: 'Each rep smooth',
+              description: 'No jerking.'
+            },
+            {
+              icon: 'pulse',
+              title: 'Short breaths only',
+              description: 'Stay focused.'
             },
             {
               icon: 'body',
-              title: 'Feel the chest working',
-              description: 'Mind-muscle connection is crucial for isolation work.'
+              title: 'Control the stretch',
+              description: 'Full range of motion.'
             }
           ]
         },
         {
-          name: 'Ladder',
-          duration: '14–15 min',
-          description: 'Wide-to-close grip fly ladder for full fiber recruitment.',
-          battlePlan: '3 rounds:\n• 12 pec dec fly\n• 8 chest press (immediately after)\n• 10 push-ups\nRest 90s',
+          name: 'Working Flyes',
+          duration: '14–18 min',
+          description: 'Traditional pec deck flyes with meaningful load.',
+          battlePlan: 'Sets: 5\n\n• Pec Deck Fly — 5 × 12',
           imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/5hd3my3c_pdm.webp',
-          intensityReason: 'Pre-exhaustion protocol using pec dec to fatigue chest.',
+          intensityReason: 'Traditional pec deck flyes with meaningful load.',
           moodTips: [
             {
-              icon: 'refresh',
-              title: 'No rest between exercises',
-              description: 'Move immediately from pec dec to pressing movements.'
+              icon: 'flame',
+              title: 'Reps should burn',
+              description: 'Chest stays loaded.'
+            },
+            {
+              icon: 'construct',
+              title: 'Same seat height',
+              description: 'Consistency matters.'
+            },
+            {
+              icon: 'shield',
+              title: 'Push safely',
+              description: 'Machine provides support.'
+            }
+          ]
+        },
+        {
+          name: 'Fly Holds',
+          duration: '14–18 min',
+          description: 'Paused pec deck flyes with contraction finish.',
+          battlePlan: 'Sets: 4\n\n• Paused Pec Deck — 4 × 10\nFinal rep: 6–8s squeeze',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/rf17lbcl_pmd2.jpg',
+          intensityReason: 'Paused pec deck flyes with contraction finish.',
+          moodTips: [
+            {
+              icon: 'pause',
+              title: 'Pause open',
+              description: 'Stretch under control.'
             },
             {
               icon: 'flash',
-              title: 'Push through fatigue',
-              description: 'Chest will be pre-fatigued, focus on quality reps.'
+              title: 'Finish tight',
+              description: 'Long squeeze.'
+            },
+            {
+              icon: 'shield',
+              title: 'Safe to push hard',
+              description: 'Machine provides support.'
+            }
+          ]
+        },
+        {
+          name: 'Fly & Push',
+          duration: '15–18 min',
+          description: 'Pec deck flyes paired with push-ups.',
+          battlePlan: 'Sets: 4\n\n• Pec Deck Fly — 4 × 12\n• Push-Ups — 4 × 15–25',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/5hd3my3c_pdm.webp',
+          intensityReason: 'Pec deck flyes paired with push-ups.',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Isolate then press',
+              description: 'Compound into bodyweight.'
+            },
+            {
+              icon: 'body',
+              title: 'Chest leads both',
+              description: 'Focus on chest engagement.'
+            },
+            {
+              icon: 'alert-circle',
+              title: 'Quick transitions',
+              description: 'Keep intensity high.'
             }
           ]
         }
       ],
       advanced: [
         {
-          name: 'AMRAP',
-          duration: '10 min',
-          description: 'Max pec deck fly reps in 10 minutes for burnout.',
-          battlePlan: '3 rounds:\n• 10 heavy pec dec\n• Drop → 12 moderate\n• Drop → 15 light\n• 8 chest press\nRest 90–120s',
+          name: 'Heavy Fly Clusters',
+          duration: '16–20 min',
+          description: 'Heavy pec deck clusters for deep chest fatigue.',
+          battlePlan: 'Sets: 5\n\n• Pec Deck Fly — 5 × (5 / 5 / 5)',
           imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/rf17lbcl_pmd2.jpg',
-          intensityReason: 'Advanced drop set protocol maximizing chest isolation.',
+          intensityReason: 'Heavy pec deck clusters for deep chest fatigue.',
           moodTips: [
             {
-              icon: 'speedometer',
-              title: 'Quick weight adjustments',
-              description: 'Minimize rest time between drop set weights.'
+              icon: 'body',
+              title: 'Stretch stays controlled',
+              description: 'No sudden releases.'
             },
             {
-              icon: 'timer',
-              title: 'Time under tension focus',
-              description: 'Slow eccentrics even under fatigue for maximum growth.'
+              icon: 'refresh',
+              title: 'Reset posture',
+              description: 'Each cluster fresh.'
+            },
+            {
+              icon: 'shield',
+              title: 'Push safely',
+              description: 'Machine allows intensity.'
             }
           ]
         },
         {
-          name: 'Complex',
-          duration: '15–18 min',
-          description: 'Fly variations including rear delt and single-arm for chest/shoulder isolation.',
-          battlePlan: '2 rounds:\n• 20 pec dec fly\n• 15 chest press\n• 20 pec dec fly\n• Max push-ups\nRest 2–3 min',
+          name: 'Heavy Flyes',
+          duration: '16–20 min',
+          description: 'Heavy pec deck flyes for chest overload.',
+          battlePlan: 'Sets: 5\n\n• Pec Deck Fly — 5 × 10',
           imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/5hd3my3c_pdm.webp',
-          intensityReason: 'High-volume pec dec finisher for maximum chest pump.',
+          intensityReason: 'Heavy pec deck flyes for chest overload.',
           moodTips: [
             {
-              icon: 'refresh',
-              title: 'Maintain perfect form',
-              description: 'Even under fatigue, prioritize form over speed.'
+              icon: 'checkmark-done',
+              title: 'Every rep deliberate',
+              description: 'No momentum.'
+            },
+            {
+              icon: 'body',
+              title: 'No momentum',
+              description: 'Chest does the work.'
+            },
+            {
+              icon: 'shield',
+              title: 'Safe heavy isolation',
+              description: 'Machine provides support.'
+            }
+          ]
+        },
+        {
+          name: 'Fly Drop Cascade',
+          duration: '15–20 min',
+          description: 'Four-stage pec deck drop set for chest overload.',
+          battlePlan: 'Sets: 3\n\n• Pec Deck (Heavy) — max reps\n• Drop 1 — max reps\n• Drop 2 — 12–15\n• Drop 3 — burnout',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/rf17lbcl_pmd2.jpg',
+          intensityReason: 'Four-stage pec deck drop set for chest overload.',
+          moodTips: [
+            {
+              icon: 'flame',
+              title: 'Heavy earns fatigue',
+              description: 'Push to failure.'
             },
             {
               icon: 'flash',
-              title: 'Push through the burn',
-              description: 'Mental toughness required for high-volume training.'
+              title: 'No rest between drops',
+              description: 'Pins move fast.'
+            },
+            {
+              icon: 'shield',
+              title: 'Safe to empty tank',
+              description: 'Machine provides safety.'
+            }
+          ]
+        },
+        {
+          name: 'Fly & Explode',
+          duration: '15–20 min',
+          description: 'Pec deck flyes paired with plyometric push-ups.',
+          battlePlan: 'Sets: 4\n\n• Pec Deck Fly — 4 × 10\n• Clap Push-Ups — 4 × 6–10',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/5hd3my3c_pdm.webp',
+          intensityReason: 'Pec deck flyes paired with plyometric push-ups.',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Isolate then power',
+              description: 'Contrast training.'
+            },
+            {
+              icon: 'flash',
+              title: 'Push-ups sharp',
+              description: 'Quality over quantity.'
+            },
+            {
+              icon: 'alert-circle',
+              title: 'Clear space',
+              description: 'Plyos need room.'
             }
           ]
         }
@@ -1647,130 +2187,622 @@ export const chestWorkoutDatabase: EquipmentWorkouts[] = [
   },
   {
     equipment: 'Cable crossover',
-    icon: 'reorder-three',
+    icon: 'git-merge',
     workouts: {
       beginner: [
         {
-          name: 'Fly Circuit',
-          duration: '12–14 min',
-          description: 'Cable flys at standing and low-to-high angles for tension and stretch.',
-          battlePlan: '3 rounds:\n• 10 cable fly (high position)\n• 10 cable fly (low position)\n• 8 cable press\nRest 60–75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/4tqfn8rc_download.png',
-          intensityReason: 'Perfect introduction to cable chest training with angles.',
+          name: 'Cable Foundations',
+          duration: '12–15 min',
+          description: 'Cable flyes to build chest tension and control.',
+          battlePlan: 'Sets: 4\n\n• Cable Fly — 4 × 12',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/dojfj8y0_ccf.webp',
+          intensityReason: 'Cable flyes to build chest tension and control.',
           moodTips: [
             {
-              icon: 'construct',
-              title: 'Adjust cable height for target area',
-              description: 'High = upper chest, mid = middle chest, low = lower chest.'
+              icon: 'pulse',
+              title: 'Constant tension',
+              description: 'No slack at any point.'
             },
             {
               icon: 'body',
-              title: 'Maintain slight forward lean',
-              description: 'Stable stance with one foot forward for balance.'
+              title: 'Hug the midline',
+              description: 'Hands finish together.'
+            },
+            {
+              icon: 'checkmark-circle',
+              title: 'No spotter needed',
+              description: 'Cables are self-limiting.'
             }
           ]
         },
         {
-          name: 'Press Circuit',
-          duration: '12–14 min',
-          description: 'Standing and single-arm presses with cables for chest isolation.',
-          battlePlan: '3 rounds:\n• 10 standing cable press\n• 8 single-arm cable press (each arm)\n• 10 cable fly\nRest 60–75s',
+          name: 'Cable Control',
+          duration: '12–16 min',
+          description: 'Paused cable flyes for chest engagement.',
+          battlePlan: 'Sets: 4\n\n• Paused Cable Fly — 4 × 10',
           imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/cvzywaoh_download%20%281%29.png',
-          intensityReason: 'Functional cable training combining bilateral and unilateral work.',
+          intensityReason: 'Paused cable flyes for chest engagement.',
           moodTips: [
             {
-              icon: 'fitness',
-              title: 'Engage core throughout',
-              description: 'Standing position requires core stability for balance.'
+              icon: 'pause',
+              title: 'Pause at peak',
+              description: 'Chest fully contracted.'
             },
             {
-              icon: 'flash',
-              title: 'Control the cables',
-              description: 'Smooth movement prevents momentum and maximizes tension.'
+              icon: 'body',
+              title: 'Stay square',
+              description: 'No torso rotation.'
+            },
+            {
+              icon: 'hand-left',
+              title: 'Light weight preferred',
+              description: 'Focus on the squeeze.'
+            }
+          ]
+        },
+        {
+          name: 'Slow Cables',
+          duration: '12–15 min',
+          description: 'Slow eccentrics on cables for chest tension.',
+          battlePlan: 'Sets: 3\n\n• Cable Fly — 3 × 10 (4s eccentric)',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/dojfj8y0_ccf.webp',
+          intensityReason: 'Slow eccentrics on cables for chest tension.',
+          moodTips: [
+            {
+              icon: 'trending-down',
+              title: 'Slow open',
+              description: 'Stretch builds growth.'
+            },
+            {
+              icon: 'body',
+              title: 'Arms move evenly',
+              description: 'Symmetrical movement.'
+            },
+            {
+              icon: 'volume-mute',
+              title: 'Control the stacks',
+              description: 'Quiet throughout.'
+            }
+          ]
+        },
+        {
+          name: 'Cable Burn',
+          duration: '10–14 min',
+          description: 'High-rep cable flyes for chest endurance.',
+          battlePlan: 'Sets: 3\n\n• Cable Fly — 3 × 15–25',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/cvzywaoh_download%20%281%29.png',
+          intensityReason: 'High-rep cable flyes for chest endurance.',
+          moodTips: [
+            {
+              icon: 'flame',
+              title: 'Light and continuous',
+              description: 'No slack allowed.'
+            },
+            {
+              icon: 'body',
+              title: 'Short range ok late',
+              description: 'Maintain tension.'
+            },
+            {
+              icon: 'pulse',
+              title: 'Breathe steady',
+              description: 'Rhythmic breathing.'
             }
           ]
         }
       ],
       intermediate: [
         {
-          name: 'Fly Ladder',
-          duration: '14–16 min',
-          description: 'High-to-low, low-to-high, and mid flys to hit pecs at every line.',
-          battlePlan: '3 rounds:\n• 8 high cable fly\n• 8 mid cable fly\n• 8 low cable fly\n• 10 cable press\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/4tqfn8rc_download.png',
-          intensityReason: 'Comprehensive cable training targeting all chest angles.',
+          name: 'Cable Clusters',
+          duration: '14–18 min',
+          description: 'Cable clusters to maintain chest tension.',
+          battlePlan: 'Sets: 4\n\n• Cable Fly — 4 × (8 / 8 / 8)',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/dojfj8y0_ccf.webp',
+          intensityReason: 'Cable clusters to maintain chest tension.',
           moodTips: [
             {
-              icon: 'trending-up',
-              title: 'Different angles target different fibers',
-              description: 'High = upper, mid = middle, low = lower chest emphasis.'
+              icon: 'refresh',
+              title: 'Each rep smooth',
+              description: 'No jerking.'
             },
             {
-              icon: 'refresh',
-              title: 'Smooth transitions between angles',
-              description: 'Keep muscles under constant tension for growth stimulus.'
+              icon: 'pulse',
+              title: 'Short breaths only',
+              description: 'Stay focused.'
+            },
+            {
+              icon: 'body',
+              title: 'Control the stretch',
+              description: 'Full range.'
             }
           ]
         },
         {
-          name: 'Press & Fly',
-          duration: '14–16 min',
-          description: 'Press, fly, and single-arm fly sequence for hypertrophy density.',
-          battlePlan: '3 rounds:\n• 8 explosive cable press\n• 10 single-arm cable fly\n• 8 cable punches\nRest 90s',
+          name: 'Working Cables',
+          duration: '14–18 min',
+          description: 'Traditional cable flyes with meaningful load.',
+          battlePlan: 'Sets: 5\n\n• Cable Fly — 5 × 12',
           imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/cvzywaoh_download%20%281%29.png',
-          intensityReason: 'Power-focused cable training with explosive movements.',
+          intensityReason: 'Traditional cable flyes with meaningful load.',
+          moodTips: [
+            {
+              icon: 'flame',
+              title: 'Reps should burn',
+              description: 'Chest stays engaged.'
+            },
+            {
+              icon: 'construct',
+              title: 'Same pulley height',
+              description: 'Consistency matters.'
+            },
+            {
+              icon: 'shield',
+              title: 'Push safely',
+              description: 'Cables are forgiving.'
+            }
+          ]
+        },
+        {
+          name: 'Cable Holds',
+          duration: '14–18 min',
+          description: 'Paused cable flyes with contraction finish.',
+          battlePlan: 'Sets: 4\n\n• Paused Cable Fly — 4 × 10\nFinal rep: 6–8s squeeze',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/dojfj8y0_ccf.webp',
+          intensityReason: 'Paused cable flyes with contraction finish.',
+          moodTips: [
+            {
+              icon: 'pause',
+              title: 'Pause closed',
+              description: 'Maximum contraction.'
+            },
+            {
+              icon: 'flash',
+              title: 'Finish tight',
+              description: 'Long squeeze.'
+            },
+            {
+              icon: 'shield',
+              title: 'Safe to push',
+              description: 'Cables allow intensity.'
+            }
+          ]
+        },
+        {
+          name: 'Cable & Push',
+          duration: '15–18 min',
+          description: 'Cable flyes paired with push-ups.',
+          battlePlan: 'Sets: 4\n\n• Cable Fly — 4 × 12\n• Push-Ups — 4 × 15–25',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/cvzywaoh_download%20%281%29.png',
+          intensityReason: 'Cable flyes paired with push-ups.',
           moodTips: [
             {
               icon: 'flash',
-              title: 'Explosive press with control',
-              description: 'Fast concentric, controlled eccentric for power development.'
+              title: 'Isolate then press',
+              description: 'Compound into bodyweight.'
             },
             {
-              icon: 'fitness',
-              title: 'Cable punches: Full extension',
-              description: 'Drive through chest and maintain core stability.'
+              icon: 'body',
+              title: 'Chest leads both',
+              description: 'Focus on chest.'
+            },
+            {
+              icon: 'alert-circle',
+              title: 'Fast transitions',
+              description: 'Keep intensity high.'
             }
           ]
         }
       ],
       advanced: [
         {
-          name: 'Complex',
-          duration: '15–18 min',
-          description: 'Multi-plane cable presses and flys for total pec tension.',
-          battlePlan: '3 rounds:\n• 8 heavy cable fly (all angles)\n• Drop → 10 moderate\n• Drop → 12 light\n• 8 cable press\nRest 90–120s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/4tqfn8rc_download.png',
-          intensityReason: 'Advanced drop set training with constant cable tension.',
+          name: 'Heavy Cable Clusters',
+          duration: '16–20 min',
+          description: 'Heavy cable clusters for deep chest fatigue.',
+          battlePlan: 'Sets: 5\n\n• Cable Fly — 5 × (6 / 6 / 6)',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/dojfj8y0_ccf.webp',
+          intensityReason: 'Heavy cable clusters for deep chest fatigue.',
           moodTips: [
             {
-              icon: 'timer',
-              title: 'Time under tension focus',
-              description: 'Slow eccentrics on drop sets for maximum muscle growth.'
+              icon: 'pulse',
+              title: 'Constant tension',
+              description: 'No slack ever.'
             },
             {
-              icon: 'flash',
-              title: 'Peak contraction emphasis',
-              description: 'Hold squeeze for 1s at peak contraction on every rep.'
+              icon: 'refresh',
+              title: 'Reset posture',
+              description: 'Each cluster fresh.'
+            },
+            {
+              icon: 'shield',
+              title: 'Push hard safely',
+              description: 'Cables are forgiving.'
             }
           ]
         },
         {
-          name: 'Drop Set',
-          duration: '16–18 min',
-          description: 'Heavy-to-light flys with holds for deep chest pump.',
-          battlePlan: '2 rounds:\n• 15 high cable fly\n• 15 mid cable fly\n• 15 low cable fly\n• 10 cable press\nRest 2–3 min',
+          name: 'Heavy Cables',
+          duration: '16–20 min',
+          description: 'Heavy cable flyes for chest overload.',
+          battlePlan: 'Sets: 5\n\n• Cable Fly — 5 × 10',
           imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/cvzywaoh_download%20%281%29.png',
-          intensityReason: 'High-volume cable finisher for maximum chest pump.',
+          intensityReason: 'Heavy cable flyes for chest overload.',
           moodTips: [
             {
-              icon: 'refresh',
-              title: 'Maintain perfect form',
-              description: 'Even under fatigue, prioritize form over speed.'
+              icon: 'checkmark-done',
+              title: 'Every rep controlled',
+              description: 'No momentum.'
+            },
+            {
+              icon: 'pulse',
+              title: 'No slack ever',
+              description: 'Constant tension.'
+            },
+            {
+              icon: 'shield',
+              title: 'Safe heavy work',
+              description: 'Cables provide control.'
+            }
+          ]
+        },
+        {
+          name: 'Cable Drop Cascade',
+          duration: '15–20 min',
+          description: 'Four-stage cable drop set for chest overload.',
+          battlePlan: 'Sets: 3\n\n• Cable Fly (Heavy) — max reps\n• Drop 1 — max reps\n• Drop 2 — 12–15\n• Drop 3 — burnout',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/dojfj8y0_ccf.webp',
+          intensityReason: 'Four-stage cable drop set for chest overload.',
+          moodTips: [
+            {
+              icon: 'flame',
+              title: 'Heavy earns fatigue',
+              description: 'Push to failure.'
+            },
+            {
+              icon: 'flash',
+              title: 'No rest between drops',
+              description: 'Pins move fast.'
+            },
+            {
+              icon: 'shield',
+              title: 'Safe to empty tank',
+              description: 'Cables are forgiving.'
+            }
+          ]
+        },
+        {
+          name: 'Cable & Explode',
+          duration: '15–20 min',
+          description: 'Cable flyes paired with plyometric push-ups.',
+          battlePlan: 'Sets: 4\n\n• Cable Fly — 4 × 10\n• Clap Push-Ups — 4 × 6–10',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/cvzywaoh_download%20%281%29.png',
+          intensityReason: 'Cable flyes paired with plyometric push-ups.',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Isolate then power',
+              description: 'Contrast training.'
+            },
+            {
+              icon: 'flash',
+              title: 'Push-ups crisp',
+              description: 'Quality over quantity.'
+            },
+            {
+              icon: 'alert-circle',
+              title: 'Clear space',
+              description: 'Plyos need room.'
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    equipment: 'Dip station',
+    icon: 'remove',
+    workouts: {
+      beginner: [
+        {
+          name: 'Dip Foundations',
+          duration: '12–15 min',
+          description: 'Chest-focused dips to build pressing confidence.',
+          battlePlan: 'Sets: 4\n\n• Assisted / Bodyweight Dips — 4 × 6–10',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/sudzdwsx_download%20%283%29.png',
+          intensityReason: 'Chest-focused dips to build pressing confidence.',
+          moodTips: [
+            {
+              icon: 'trending-down',
+              title: 'Lean slightly forward',
+              description: 'Chest stays involved.'
             },
             {
               icon: 'body',
-              title: 'Feel the chest working',
-              description: 'Mind-muscle connection crucial for high-volume training.'
+              title: 'Smooth depth',
+              description: 'No bouncing.'
+            },
+            {
+              icon: 'shield',
+              title: 'Use assistance freely',
+              description: 'Build strength safely.'
+            }
+          ]
+        },
+        {
+          name: 'Dip Control',
+          duration: '12–16 min',
+          description: 'Paused dips to reinforce chest engagement.',
+          battlePlan: 'Sets: 4\n\n• Paused Dips — 4 × 6–8',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/i8tbsgyh_download%20%284%29.png',
+          intensityReason: 'Paused dips to reinforce chest engagement.',
+          moodTips: [
+            {
+              icon: 'pause',
+              title: 'Pause at depth',
+              description: 'Stretch stays controlled.'
+            },
+            {
+              icon: 'trending-down',
+              title: 'Chest stays forward',
+              description: 'Maintain lean.'
+            },
+            {
+              icon: 'shield',
+              title: 'Assistance encouraged',
+              description: 'Focus on form.'
+            }
+          ]
+        },
+        {
+          name: 'Slow Dips',
+          duration: '12–15 min',
+          description: 'Slow eccentrics on dips for chest control.',
+          battlePlan: 'Sets: 3\n\n• Dips — 3 × 6 (4s eccentric)',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/sudzdwsx_download%20%283%29.png',
+          intensityReason: 'Slow eccentrics on dips for chest control.',
+          moodTips: [
+            {
+              icon: 'trending-down',
+              title: 'Slow lower',
+              description: 'Control the stretch.'
+            },
+            {
+              icon: 'alert',
+              title: 'No shoulder pain',
+              description: 'Depth stops before strain.'
+            },
+            {
+              icon: 'shield',
+              title: 'Use assistance',
+              description: 'Build control safely.'
+            }
+          ]
+        },
+        {
+          name: 'Dip Burn',
+          duration: '10–14 min',
+          description: 'High-rep dips to build chest endurance.',
+          battlePlan: 'Sets: 3\n\n• Assisted Dips — 3 × 12–20',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/i8tbsgyh_download%20%284%29.png',
+          intensityReason: 'High-rep dips to build chest endurance.',
+          moodTips: [
+            {
+              icon: 'shield',
+              title: 'Light assistance ok',
+              description: 'Chase fatigue safely.'
+            },
+            {
+              icon: 'repeat',
+              title: 'Continuous reps',
+              description: 'Keep moving.'
+            },
+            {
+              icon: 'alert',
+              title: 'Stop before form breaks',
+              description: 'Quality over quantity.'
+            }
+          ]
+        }
+      ],
+      intermediate: [
+        {
+          name: 'Dip Clusters',
+          duration: '14–18 min',
+          description: 'Dip clusters to maintain chest output.',
+          battlePlan: 'Sets: 4\n\n• Dips — 4 × (5 / 5 / 5)',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/sudzdwsx_download%20%283%29.png',
+          intensityReason: 'Dip clusters to maintain chest output.',
+          moodTips: [
+            {
+              icon: 'body',
+              title: 'Each rep controlled',
+              description: 'No kipping.'
+            },
+            {
+              icon: 'pulse',
+              title: 'Short breaths only',
+              description: 'Stay focused.'
+            },
+            {
+              icon: 'shield',
+              title: 'Assistance allowed',
+              description: 'If needed for quality.'
+            }
+          ]
+        },
+        {
+          name: 'Working Dips',
+          duration: '14–18 min',
+          description: 'Traditional dips with meaningful volume.',
+          battlePlan: 'Sets: 5\n\n• Dips — 5 × 8–10',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/i8tbsgyh_download%20%284%29.png',
+          intensityReason: 'Traditional dips with meaningful volume.',
+          moodTips: [
+            {
+              icon: 'barbell',
+              title: 'Reps should work',
+              description: 'Challenge yourself.'
+            },
+            {
+              icon: 'trending-down',
+              title: 'Chest-forward lean',
+              description: 'Maintain form.'
+            },
+            {
+              icon: 'shield',
+              title: 'Add assistance if needed',
+              description: 'Quality over ego.'
+            }
+          ]
+        },
+        {
+          name: 'Dip Holds',
+          duration: '14–18 min',
+          description: 'Paused dips with contraction finish.',
+          battlePlan: 'Sets: 4\n\n• Paused Dips — 4 × 6\nFinal rep: 6–8s squeeze',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/sudzdwsx_download%20%283%29.png',
+          intensityReason: 'Paused dips with contraction finish.',
+          moodTips: [
+            {
+              icon: 'pause',
+              title: 'Pause deep',
+              description: 'Stretch under control.'
+            },
+            {
+              icon: 'flash',
+              title: 'Finish tall',
+              description: 'Lockout squeeze.'
+            },
+            {
+              icon: 'shield',
+              title: 'Assistance encouraged',
+              description: 'For quality reps.'
+            }
+          ]
+        },
+        {
+          name: 'Dip & Push',
+          duration: '15–18 min',
+          description: 'Dips paired with push-ups for chest volume.',
+          battlePlan: 'Sets: 4\n\n• Dips — 4 × 8\n• Push-Ups — 4 × 15–25',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/i8tbsgyh_download%20%284%29.png',
+          intensityReason: 'Dips paired with push-ups for chest volume.',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Compound then press',
+              description: 'Stack the volume.'
+            },
+            {
+              icon: 'body',
+              title: 'Chest leads both',
+              description: 'Focus on engagement.'
+            },
+            {
+              icon: 'alert-circle',
+              title: 'Clear space',
+              description: 'Fast transitions.'
+            }
+          ]
+        }
+      ],
+      advanced: [
+        {
+          name: 'Heavy Dip Clusters',
+          duration: '16–20 min',
+          description: 'Heavy dip clusters for chest overload.',
+          battlePlan: 'Sets: 5\n\n• Weighted Dips — 5 × (4 / 4 / 4)',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/sudzdwsx_download%20%283%29.png',
+          intensityReason: 'Heavy dip clusters for chest overload.',
+          moodTips: [
+            {
+              icon: 'barbell',
+              title: 'Precision first',
+              description: 'No sloppy reps.'
+            },
+            {
+              icon: 'refresh',
+              title: 'Reset between mini-sets',
+              description: 'Each cluster fresh.'
+            },
+            {
+              icon: 'shield',
+              title: 'Add weight only if clean',
+              description: 'Earn the load.'
+            }
+          ]
+        },
+        {
+          name: 'Heavy Dips',
+          duration: '16–20 min',
+          description: 'Heavy dips focused on chest strength.',
+          battlePlan: 'Sets: 5\n\n• Weighted Dips — 5 × 6–8',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/i8tbsgyh_download%20%284%29.png',
+          intensityReason: 'Heavy dips focused on chest strength.',
+          moodTips: [
+            {
+              icon: 'checkmark-done',
+              title: 'Every rep deliberate',
+              description: 'No rushing.'
+            },
+            {
+              icon: 'trending-down',
+              title: 'Chest-forward always',
+              description: 'Maintain lean.'
+            },
+            {
+              icon: 'people',
+              title: 'Spotter recommended',
+              description: 'For heavy sets.'
+            }
+          ]
+        },
+        {
+          name: 'Dip Drop Cascade',
+          duration: '15–20 min',
+          description: 'Cascading dip drops for deep chest fatigue.',
+          battlePlan: 'Sets: 3\n\n• Weighted Dips — max reps\n• Bodyweight Dips — max reps\n• Assisted Dips — burnout',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/sudzdwsx_download%20%283%29.png',
+          intensityReason: 'Cascading dip drops for deep chest fatigue.',
+          moodTips: [
+            {
+              icon: 'flame',
+              title: 'Heavy earns fatigue',
+              description: 'Push to failure.'
+            },
+            {
+              icon: 'flash',
+              title: 'Strip weight fast',
+              description: 'Keep intensity high.'
+            },
+            {
+              icon: 'shield',
+              title: 'Assistance ready',
+              description: 'For the burnout.'
+            }
+          ]
+        },
+        {
+          name: 'Dip & Explode',
+          duration: '15–20 min',
+          description: 'Heavy dips paired with plyometric push-ups.',
+          battlePlan: 'Sets: 4\n\n• Weighted Dips — 4 × 6\n• Clap Push-Ups — 4 × 6–10',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/i8tbsgyh_download%20%284%29.png',
+          intensityReason: 'Heavy dips paired with plyometric push-ups.',
+          moodTips: [
+            {
+              icon: 'barbell',
+              title: 'Heavy then fast',
+              description: 'Contrast training.'
+            },
+            {
+              icon: 'flash',
+              title: 'Push-ups crisp',
+              description: 'Power without chaos.'
+            },
+            {
+              icon: 'alert-circle',
+              title: 'Clear space',
+              description: 'Plyos need room.'
             }
           ]
         }
