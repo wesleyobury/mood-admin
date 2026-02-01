@@ -158,6 +158,8 @@ export default function CalisthenicsEquipmentScreen() {
   const [selectedDifficulty, setSelectedDifficulty] = useState<DifficultyLevel | null>(null);
   const [showIntensityModal, setShowIntensityModal] = useState(false);
   const [showGuestPrompt, setShowGuestPrompt] = useState(false);
+  const [showGeneratedWorkout, setShowGeneratedWorkout] = useState(false);
+  const [generatedCarts, setGeneratedCarts] = useState<GeneratedCart[]>([]);
   const [remainingUses, setRemainingUses] = useState(3);
   const { addToCart, clearCart } = useCart();
   const { isGuest, token } = useAuth();
