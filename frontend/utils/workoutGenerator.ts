@@ -272,3 +272,21 @@ export function generateLazyCarts(
   ];
   return generateWorkoutCarts(intensity, moodCard, workoutType, combinedDatabase);
 }
+
+// Export for Calisthenics path
+export function generateCalisthenicsCarts(
+  intensity: IntensityLevel,
+  moodCard: string = 'I want to do calisthenics',
+  workoutType: string = 'Calisthenics'
+): GeneratedCart[] {
+  return generateWorkoutCarts(intensity, moodCard, workoutType, calisthenicsDatabase);
+}
+
+// Export for Outdoor/Get Outside path
+export function generateOutdoorCarts(
+  intensity: IntensityLevel,
+  moodCard: string = 'Get outside',
+  workoutType: string = 'Outdoor'
+): GeneratedCart[] {
+  return generateWorkoutCarts(intensity, moodCard, workoutType, outdoorRunWorkoutDatabase);
+}
