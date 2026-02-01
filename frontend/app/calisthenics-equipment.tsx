@@ -394,16 +394,17 @@ export default function CalisthenicsEquipmentScreen() {
             ))}
           </View>
         </View>
+
+        {/* Build for me button */}
+        <ChooseForMeButton 
+          onPress={handleBuildForMePress}
+          disabled={remainingUses <= 0 && !isGuest}
+        />
+        <View style={{ height: 20 }} />
       </ScrollView>
 
       {/* Continue Button */}
       <View style={styles.footer}>
-        <ChooseForMeButton 
-          onPress={handleBuildForMePress}
-          remainingUses={remainingUses}
-          isGuest={isGuest}
-        />
-        
         <TouchableOpacity
           style={[
             styles.continueButton,
@@ -429,7 +430,7 @@ export default function CalisthenicsEquipmentScreen() {
         </TouchableOpacity>
       </View>
 
-      {/* Modals */}
+      {/* Intensity Selection Modal */}
       <IntensitySelectionModal
         visible={showIntensityModal}
         onClose={() => setShowIntensityModal(false)}
@@ -437,17 +438,11 @@ export default function CalisthenicsEquipmentScreen() {
         remainingUses={remainingUses}
       />
 
+      {/* Guest Prompt Modal */}
       <GuestPromptModal
         visible={showGuestPrompt}
         onClose={() => setShowGuestPrompt(false)}
-        onSignUp={() => {
-          setShowGuestPrompt(false);
-          router.push('/signup');
-        }}
-        onLogin={() => {
-          setShowGuestPrompt(false);
-          router.push('/login');
-        }}
+        message="Sign up or log in to use Build for Me and get personalized workouts!"
       />
     </SafeAreaView>
   );
