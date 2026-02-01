@@ -169,6 +169,13 @@ interface BuildForMeStats {
   avg_per_user: number;
 }
 
+interface CustomWorkoutsStats {
+  period_days: number;
+  total_custom_workouts: number;
+  unique_users: number;
+  by_mood_card: { mood: string; count: number }[];
+}
+
 // Helper to convert UTC to CST
 function formatDateToCST(dateStr?: string): string {
   if (!dateStr) return 'Unknown';
