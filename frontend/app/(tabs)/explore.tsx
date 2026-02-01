@@ -1258,7 +1258,7 @@ export default function Explore() {
                         <Ionicons
                           name={post.is_liked ? 'heart' : 'heart-outline'}
                           size={22}
-                          color={post.is_liked ? '#FF6B6B' : '#FFD700'}
+                          color={post.is_liked ? '#FF6B6B' : 'rgba(255,255,255,0.7)'}
                         />
                       </View>
                     </TouchableOpacity>
@@ -1267,7 +1267,7 @@ export default function Explore() {
                       onPress={() => handleComments(post.id)}
                     >
                       <View style={styles.socialIconContainer}>
-                        <Ionicons name="chatbubble-outline" size={20} color="#FFD700" />
+                        <Ionicons name="chatbubble-outline" size={20} color="rgba(255,255,255,0.7)" />
                       </View>
                     </TouchableOpacity>
                   </View>
@@ -1279,7 +1279,7 @@ export default function Explore() {
                       <Ionicons 
                         name={post.is_saved ? 'bookmark' : 'bookmark-outline'} 
                         size={20} 
-                        color={post.is_saved ? '#FFD700' : '#FFD700'} 
+                        color={post.is_saved ? '#FFD700' : 'rgba(255,255,255,0.7)'} 
                       />
                     </View>
                   </TouchableOpacity>
