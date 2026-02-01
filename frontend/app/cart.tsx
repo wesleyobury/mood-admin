@@ -551,6 +551,14 @@ export default function CartScreen() {
 
       {/* Bottom Action Bar */}
       <View style={[styles.bottomBar, { paddingBottom: Math.max(insets.bottom, 20) }]}>
+        {/* Workout indicator for generated workouts */}
+        {isGeneratedWorkout && (
+          <View style={styles.workoutIndicator}>
+            <Text style={styles.workoutIndicatorText}>
+              Workout {currentCartIndex + 1} of {generatedCarts.length}
+            </Text>
+          </View>
+        )}
         <View style={styles.bottomActions}>
           <TouchableOpacity 
             style={styles.saveButton}
@@ -562,6 +570,7 @@ export default function CartScreen() {
               {isSaving ? 'Saving...' : 'Save'}
             </Text>
           </TouchableOpacity>
+          
           <TouchableOpacity 
             style={[
               styles.startButton,
@@ -577,11 +586,20 @@ export default function CartScreen() {
               end={{ x: 1, y: 0 }}
             >
               <Text style={styles.startButtonText}>
-                {isStarting ? 'Starting...' : 'Start Workout'}
+                {isStarting ? '...' : 'Start'}
               </Text>
-              <Ionicons name="arrow-forward" size={20} color="#0c0c0c" />
             </LinearGradient>
           </TouchableOpacity>
+
+          {canSkip && (
+            <TouchableOpacity 
+              style={styles.skipButton}
+              onPress={handleSkip}
+            >
+              <Text style={styles.skipButtonText}>Skip</Text>
+              <Ionicons name="chevron-forward" size={18} color='#FFD700' />
+            </TouchableOpacity>
+          )}
         </View>
       </View>
 
