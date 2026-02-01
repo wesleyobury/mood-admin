@@ -322,20 +322,6 @@ export default function BodyPartsScreen() {
     router.back();
   };
 
-  // Get selection count display text
-  const getSelectionText = () => {
-    if (selectedBodyParts.length === 0) return '';
-    
-    const names = selectedBodyParts.map(s => {
-      if (s.subOption) {
-        return s.subOption === "Bi's" ? 'Biceps' : 'Triceps';
-      }
-      return s.bodyPart;
-    });
-    
-    return names.join(', ');
-  };
-
   return (
     <SafeAreaView style={[styles.container, { paddingTop: insets.top }]}>
       {/* Header */}
