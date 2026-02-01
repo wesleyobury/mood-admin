@@ -396,6 +396,13 @@ export default function OutdoorEquipmentScreen() {
             ))}
           </View>
         </View>
+
+        {/* Build for me button */}
+        <ChooseForMeButton 
+          onPress={handleBuildForMePress}
+          disabled={remainingUses <= 0 && !isGuest}
+        />
+        <View style={{ height: 20 }} />
       </ScrollView>
 
       {/* Continue Button */}
@@ -424,6 +431,21 @@ export default function OutdoorEquipmentScreen() {
           )}
         </TouchableOpacity>
       </View>
+
+      {/* Intensity Selection Modal */}
+      <IntensitySelectionModal
+        visible={showIntensityModal}
+        onClose={() => setShowIntensityModal(false)}
+        onSelectIntensity={handleIntensitySelect}
+        remainingUses={remainingUses}
+      />
+
+      {/* Guest Prompt Modal */}
+      <GuestPromptModal
+        visible={showGuestPrompt}
+        onClose={() => setShowGuestPrompt(false)}
+        message="Sign up or log in to use Build for Me and get personalized workouts!"
+      />
     </SafeAreaView>
   );
 }
