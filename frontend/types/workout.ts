@@ -6,6 +6,7 @@ export interface Workout {
   description: string;
   battlePlan: string;
   imageUrl: string;
+  videoUrl?: string;
   intensityReason: string;
   moodTips: {
     icon: keyof typeof Ionicons.glyphMap;
