@@ -238,23 +238,6 @@ export default function WorkoutTypeScreen() {
     }
   };
 
-  const handleStartWorkout = (cart: GeneratedCart) => {
-    // Clear current cart and add generated workouts
-    clearCart();
-    cart.workouts.forEach(workout => {
-      addToCart(workout);
-    });
-    
-    // Navigate to cart screen
-    setShowGeneratedWorkout(false);
-    router.push('/cart');
-  };
-
-  const handleCloseGeneratedWorkout = () => {
-    setShowGeneratedWorkout(false);
-    setGeneratedCarts([]);
-  };
-
   const handleContinue = () => {
     if (!selectedOption) return;
     
@@ -276,97 +259,6 @@ export default function WorkoutTypeScreen() {
   const handleGoBack = () => {
     router.back();
   };
-
-  // Handle skip (costs 1 generation)
-  const handleSkip = async (): Promise<boolean> => {
-    if (!token || isGuest) return false;
-    
-    try {
-      const response = await fetch(`${API_URL}/api/choose-for-me/generate`, {
-        method: 'POST',
-        headers: {
-          'Authorization': `Bearer ${token}`,
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          carts: [], // Empty for skip tracking
-          moodCard: moodTitle,
-          intensity: 'skip',
-        }),
-      });
-      
-      if (response.ok) {
-        const data = await response.json();
-        setRemainingUses(data.remaining_uses);
-        return true;
-      } else if (response.status === 429) {
-        return false;
-      }
-    } catch (error) {
-      console.error('Error recording skip:', error);
-    }
-    return false;
-  };
-
-  // Handle save workout to saved workouts
-  const handleSaveWorkout = async (cart: GeneratedCart): Promise<void> => {
-    if (!token || isGuest) return;
-    
-    try {
-      // Save as a regular saved workout
-      const workoutData = {
-        name: `Mixed Workout - Generated`,
-        workouts: cart.workouts.map(w => ({
-          name: w.name,
-          duration: w.duration,
-          equipment: w.equipment,
-          description: w.description || '',
-          imageUrl: w.imageUrl || '',
-          difficulty: w.difficulty || cart.intensity,
-          moodCard: moodTitle,
-          workoutType: 'Mixed Workout',
-        })),
-        totalDuration: cart.totalDuration,
-        isGenerated: true,
-        generatedIntensity: cart.intensity,
-        moodCard: moodTitle,
-      };
-      
-      const response = await fetch(`${API_URL}/api/saved-workouts`, {
-        method: 'POST',
-        headers: {
-          'Authorization': `Bearer ${token}`,
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(workoutData),
-      });
-      
-      if (!response.ok) {
-        throw new Error('Failed to save workout');
-      }
-    } catch (error) {
-      console.error('Error saving workout:', error);
-      throw error;
-    }
-  };
-
-  // Show generated workout view as modal
-  if (showGeneratedWorkout && generatedCarts.length > 0) {
-    return (
-      <Modal visible={true} animationType="slide" presentationStyle="fullScreen">
-        <GeneratedWorkoutView
-          carts={generatedCarts}
-          moodTitle={moodTitle}
-          workoutType="Mixed Workout"
-          onStartWorkout={handleStartWorkout}
-          onClose={handleCloseGeneratedWorkout}
-          onSkip={handleSkip}
-          onSave={handleSaveWorkout}
-          remainingGenerations={remainingUses}
-        />
-      </Modal>
-    );
-  }
 
   return (
     <SafeAreaView style={[styles.container, { paddingTop: insets.top }]}>
