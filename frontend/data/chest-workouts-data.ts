@@ -763,126 +763,306 @@ export const chestWorkoutDatabase: EquipmentWorkouts[] = [
     workouts: {
       beginner: [
         {
-          name: 'Push-Up Circuit',
-          duration: '10–12 min',
-          description: 'Decline push-ups and presses for lower chest activation.',
-          battlePlan: '3 rounds:\n• 8 decline push-ups (feet on bench)\n• 10 decline bench press (light)\nRest 60s',
+          name: 'Decline Foundations',
+          duration: '12–15 min',
+          description: 'Foundational decline pressing for lower chest confidence.',
+          battlePlan: 'Instructions: Use a load you could complete for 2 more reps.\nSets: 4\nRest: 75–90s\n\n• Decline Barbell Press — 4 × 8',
           imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/kd2t1cpd_dbpp.jpg',
-          intensityReason: 'Perfect introduction to lower chest development training.',
+          intensityReason: 'Foundational decline pressing for lower chest confidence.',
           moodTips: [
             {
-              icon: 'body',
-              title: 'Decline push-ups: Keep core tight',
-              description: 'Maintain straight line from head to feet throughout the movement.'
+              icon: 'trending-down',
+              title: 'Control the descent',
+              description: 'Lower chest stays loaded the whole rep.'
             },
             {
-              icon: 'trending-down',
-              title: 'Decline press: Lower to nipple line',
-              description: 'Focus on lower pec stretch and contraction for optimal activation.'
+              icon: 'body',
+              title: 'Chest stays tall',
+              description: 'Don\'t collapse into the bottom.'
+            },
+            {
+              icon: 'checkmark-circle',
+              title: 'No spotter needed',
+              description: 'This should feel stable and repeatable.'
             }
           ]
         },
         {
-          name: 'Chest Press',
-          duration: '12–15 min',
-          description: 'Decline press and fly combo for lower pec focus.',
-          battlePlan: '3 rounds:\n• 12 decline bench press (light)\n• 10 decline fly\nRest 60–75s',
+          name: 'Decline Control',
+          duration: '12–16 min',
+          description: 'Paused decline reps to reinforce chest tension.',
+          battlePlan: 'Instructions: Pause for 1 second on the chest.\nSets: 4\nRest: 90s\n\n• Paused Decline Press — 4 × 5',
           imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/r1uig0ll_download%20%284%29.png',
-          intensityReason: 'Beginner decline pressing and isolation combination.',
+          intensityReason: 'Paused decline reps to reinforce chest tension.',
           moodTips: [
             {
-              icon: 'flash',
-              title: 'Focus on lower pec squeeze',
-              description: 'At the top of each rep to maximize lower chest activation.'
+              icon: 'pause',
+              title: 'Pause softly',
+              description: 'Let tension settle in the lower chest.'
             },
             {
-              icon: 'construct',
-              title: 'Secure feet properly',
-              description: 'Good foot placement prevents sliding and ensures safety.'
+              icon: 'body',
+              title: 'Elbows track clean',
+              description: 'Avoid hard flaring.'
+            },
+            {
+              icon: 'shield',
+              title: 'Use safeties if solo',
+              description: 'Pauses extend time under load.'
+            }
+          ]
+        },
+        {
+          name: 'Slow Decline',
+          duration: '12–15 min',
+          description: 'Slow eccentrics increase lower chest time under tension.',
+          battlePlan: 'Instructions: Lower for 4 seconds each rep.\nSets: 3\nRest: 90s\n\n• Decline Press — 3 × 6 (4s eccentric)',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/kd2t1cpd_dbpp.jpg',
+          intensityReason: 'Slow eccentrics increase lower chest time under tension.',
+          moodTips: [
+            {
+              icon: 'trending-down',
+              title: 'Win the negative',
+              description: 'Control builds thickness.'
+            },
+            {
+              icon: 'lock-closed',
+              title: 'Stay tight',
+              description: 'No sinking into the bottom.'
+            },
+            {
+              icon: 'people',
+              title: 'Spotter optional',
+              description: 'Helpful as fatigue builds.'
+            }
+          ]
+        },
+        {
+          name: 'Decline Burn',
+          duration: '10–14 min',
+          description: 'High-rep decline pressing to build lower chest endurance.',
+          battlePlan: 'Instructions: Choose a light load and move continuously.\nSets: 3\nRest: 60s\n\n• Decline Press — 3 × 15–20',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/r1uig0ll_download%20%284%29.png',
+          intensityReason: 'High-rep decline pressing to build lower chest endurance.',
+          moodTips: [
+            {
+              icon: 'flame',
+              title: 'Light and steady',
+              description: 'No resting at lockout.'
+            },
+            {
+              icon: 'repeat',
+              title: 'Same bar path',
+              description: 'Consistency through fatigue.'
+            },
+            {
+              icon: 'shield',
+              title: 'Set safeties',
+              description: 'High-rep fatigue accumulates fast.'
             }
           ]
         }
       ],
       intermediate: [
         {
-          name: 'Plyo Push-Ups',
-          duration: '14–15 min',
-          description: 'Explosive decline push-ups and single-arm presses for power and tension.',
-          battlePlan: '4 rounds:\n• 8 decline plyo push-ups\n• 10 single-arm decline press\nRest 60–75s',
+          name: 'Decline Clusters',
+          duration: '14–18 min',
+          description: 'Cluster decline pressing to maintain output and control.',
+          battlePlan: 'Instructions: 15s breaths between mini-sets.\nSets: 4\nRest: 2:00 between clusters\n\n• Decline Press — 4 × (4 / 4 / 4)',
           imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/kd2t1cpd_dbpp.jpg',
-          intensityReason: 'Explosive training for intermediate lower chest power.',
+          intensityReason: 'Cluster decline pressing to maintain output and control.',
           moodTips: [
             {
               icon: 'flash',
-              title: 'Plyo push-ups: Explosive drive',
-              description: 'Push with maximum intent to recruit fast-twitch fibers.'
+              title: 'Power stays high',
+              description: 'Each rep stays sharp.'
             },
             {
-              icon: 'fitness',
-              title: 'Single-arm: Control the negative',
-              description: 'Slow descent creates more time under tension for growth.'
+              icon: 'pulse',
+              title: 'Short breaths only',
+              description: 'Stay braced throughout.'
+            },
+            {
+              icon: 'people',
+              title: 'Spotter recommended',
+              description: 'Fatigue builds quickly.'
             }
           ]
         },
         {
-          name: 'Chest Flow',
-          duration: '12–15 min',
-          description: 'Decline press, fly, and close-grip bench press for metabolic stress.',
-          battlePlan: '3 rounds:\n• 10 decline bench press\n• 10 decline fly\n• 10 close-grip decline press\nRest 90s',
+          name: 'Working Decline',
+          duration: '14–18 min',
+          description: 'Traditional decline benching with meaningful working load.',
+          battlePlan: 'Instructions: Increase load only if reps stay clean.\nSets: 5\nRest: 90s\n\n• Decline Press — 5 × 6',
           imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/r1uig0ll_download%20%284%29.png',
-          intensityReason: 'Continuous flow training for lower chest overload.',
+          intensityReason: 'Traditional decline benching with meaningful working load.',
           moodTips: [
             {
-              icon: 'refresh',
-              title: 'Flow training creates metabolic stress',
-              description: 'Key driver for lower chest hypertrophy and development.'
+              icon: 'barbell',
+              title: 'Reps should work',
+              description: 'Control never fades.'
             },
             {
-              icon: 'hand-left',
-              title: 'Close-grip: Focus on inner chest',
-              description: 'Emphasize adduction movement for maximum inner pec activation.'
+              icon: 'body',
+              title: 'Same touch point',
+              description: 'Bar path stays consistent.'
+            },
+            {
+              icon: 'people',
+              title: 'Spotter optional',
+              description: 'Useful on later sets.'
+            }
+          ]
+        },
+        {
+          name: 'Lower Chest Holds',
+          duration: '14–18 min',
+          description: 'Paused decline pressing with strong contraction finish.',
+          battlePlan: 'Instructions: Final rep includes a 6–8s squeeze.\nSets: 4\nRest: 2:00\n\n• Paused Decline Press — 4 × 4\nFinal rep: 6–8s squeeze',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/kd2t1cpd_dbpp.jpg',
+          intensityReason: 'Paused decline pressing with strong contraction finish.',
+          moodTips: [
+            {
+              icon: 'pause',
+              title: 'Pause where stretch peaks',
+              description: 'Bottom position challenges strength.'
+            },
+            {
+              icon: 'flash',
+              title: 'Finish strong',
+              description: 'Long lockout squeeze.'
+            },
+            {
+              icon: 'people',
+              title: 'Spotter advised',
+              description: 'Pauses amplify fatigue.'
+            }
+          ]
+        },
+        {
+          name: 'Decline & Drive',
+          duration: '15–18 min',
+          description: 'Decline pressing paired with chest-focused push-ups.',
+          battlePlan: 'Instructions: Move directly from bar to floor.\nSets: 4\nRest: 90s after push-ups\n\n• Decline Press — 4 × 6\n• Chest-Biased Push-Ups — 4 × 15–20',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/r1uig0ll_download%20%284%29.png',
+          intensityReason: 'Decline pressing paired with chest-focused push-ups.',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Press then push',
+              description: 'Compound into bodyweight.'
+            },
+            {
+              icon: 'body',
+              title: 'Chest-forward angle',
+              description: 'Push-ups stay chest-biased.'
+            },
+            {
+              icon: 'alert-circle',
+              title: 'Clear space first',
+              description: 'Fast transitions matter.'
             }
           ]
         }
       ],
       advanced: [
         {
-          name: 'Complex',
-          duration: '15–18 min',
-          description: 'Decline press, fly, push-ups, and dips for complete chest overload.',
-          battlePlan: '3 rounds:\n• 8 decline bench press\n• 8 decline fly\n• 8 decline plyo push-ups\n• 8 dips\nRest 90s',
+          name: 'Heavy Decline Clusters',
+          duration: '16–20 min',
+          description: 'Heavy decline clusters to sustain lower chest power.',
+          battlePlan: 'Instructions: Short breaths, full recovery between sets.\nSets: 5\nRest: 2:00\n\n• Decline Press — 5 × (3 / 3 / 3)',
           imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/kd2t1cpd_dbpp.jpg',
-          intensityReason: 'Advanced complex training for maximum lower chest development.',
+          intensityReason: 'Heavy decline clusters to sustain lower chest power.',
           moodTips: [
             {
-              icon: 'trending-down',
-              title: 'Decline angle maximizes lower chest',
-              description: 'Focus on lower pec contraction throughout all movements.'
+              icon: 'barbell',
+              title: 'Precision under load',
+              description: 'No sloppy reps.'
             },
             {
-              icon: 'body',
-              title: 'Dips complement decline work',
-              description: 'Similar angle targets lower chest fibers effectively.'
+              icon: 'refresh',
+              title: 'Reset fully',
+              description: 'Treat each cluster clean.'
+            },
+            {
+              icon: 'people',
+              title: 'Spotter strongly recommended',
+              description: 'Output stays high under fatigue.'
             }
           ]
         },
         {
-          name: 'Drop Set',
+          name: 'Heavy Decline',
           duration: '16–20 min',
-          description: 'Heavy-to-light decline presses for progressive hypertrophy.',
-          battlePlan: '2 rounds:\n• 10 heavy decline press\n• Drop → 10 moderate\n• Drop → 10 light\nRest 90–120s',
+          description: 'Heavy decline pressing focused on lower chest strength.',
+          battlePlan: 'Instructions: Challenging load, zero missed reps.\nSets: 5\nRest: 2:00\n\n• Decline Press — 5 × 4',
           imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/r1uig0ll_download%20%284%29.png',
-          intensityReason: 'High-intensity decline drop sets for advanced hypertrophy.',
+          intensityReason: 'Heavy decline pressing focused on lower chest strength.',
           moodTips: [
             {
-              icon: 'flash',
-              title: 'Heavy set: All-out effort',
-              description: 'Push to near failure for maximum muscle recruitment.'
+              icon: 'checkmark-done',
+              title: 'Every rep identical',
+              description: 'Setup never rushed.'
             },
             {
-              icon: 'speedometer',
-              title: 'Light sets: Focus on control',
-              description: 'Slow eccentrics maximize time under tension for growth.'
+              icon: 'timer',
+              title: 'Recover fully',
+              description: 'Strength lives in rest.'
+            },
+            {
+              icon: 'people',
+              title: 'Spotter recommended',
+              description: 'Especially on final sets.'
+            }
+          ]
+        },
+        {
+          name: 'Decline Drop Cascade',
+          duration: '15–20 min',
+          description: 'Four-stage decline drop set for deep chest fatigue.',
+          battlePlan: 'Instructions: Strip weight immediately between stages.\nSets: 3\nRest: 2:30\n\n• Decline Press (Heavy) — max reps\n• Drop 1 (Medium) — max reps\n• Drop 2 (Light) — 12–15 reps\n• Drop 3 (Very Light) — burnout',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/kd2t1cpd_dbpp.jpg',
+          intensityReason: 'Four-stage decline drop set for deep chest fatigue.',
+          moodTips: [
+            {
+              icon: 'flame',
+              title: 'Heavy earns fatigue',
+              description: 'First stage reaches true failure.'
+            },
+            {
+              icon: 'flash',
+              title: 'No rest between drops',
+              description: 'Plates move, tension stays.'
+            },
+            {
+              icon: 'alert',
+              title: 'Spotter required',
+              description: 'This set is pushed hard.'
+            }
+          ]
+        },
+        {
+          name: 'Press & Explode',
+          duration: '15–20 min',
+          description: 'Heavy decline pressing paired with explosive plyo push-ups.',
+          battlePlan: 'Instructions: Move quickly but under control.\nSets: 4\nRest: 2:00 after push-ups\n\n• Decline Press — 4 × 4\n• Clap Push-Ups — 4 × 6–10',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/r1uig0ll_download%20%284%29.png',
+          intensityReason: 'Heavy decline pressing paired with explosive plyo push-ups.',
+          moodTips: [
+            {
+              icon: 'barbell',
+              title: 'Heavy then fast',
+              description: 'Contrast keeps output high.'
+            },
+            {
+              icon: 'flash',
+              title: 'Claps stay crisp',
+              description: 'Power without chaos.'
+            },
+            {
+              icon: 'alert-circle',
+              title: 'Clear the area',
+              description: 'Plyos demand space.'
             }
           ]
         }
