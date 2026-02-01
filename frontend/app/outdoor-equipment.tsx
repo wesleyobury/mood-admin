@@ -233,11 +233,12 @@ export default function OutdoorEquipmentScreen() {
     }
   };
 
-  // Handle starting a generated workout
+  // Handle starting a generated workout - go directly to cart
   const handleStartWorkout = (cart: GeneratedCart) => {
     clearCart();
     cart.workouts.forEach(workout => addToCart(workout));
     setShowGeneratedWorkout(false);
+    setGeneratedCarts([]);
     router.push('/cart');
   };
 
