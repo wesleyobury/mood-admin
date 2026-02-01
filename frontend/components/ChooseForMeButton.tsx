@@ -192,6 +192,24 @@ const styles = StyleSheet.create({
     marginBottom: 16,
     position: 'relative',
   },
+  orDividerContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginBottom: 16,
+  },
+  orDividerLine: {
+    flex: 1,
+    height: 1,
+    backgroundColor: 'rgba(100, 100, 100, 0.4)',
+  },
+  orDividerText: {
+    color: 'rgba(150, 150, 150, 0.8)',
+    fontSize: 13,
+    fontWeight: '400',
+    paddingHorizontal: 16,
+    textTransform: 'lowercase',
+  },
   borderGlowWrapper: {
     position: 'absolute',
     top: -1,
