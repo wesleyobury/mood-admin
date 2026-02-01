@@ -301,3 +301,25 @@ export function generateOutdoorCarts(
 ): GeneratedCart[] {
   return generateWorkoutCarts(intensity, moodCard, workoutType, outdoorRunWorkoutDatabase);
 }
+
+// Export for Muscle Gainer path (combines all muscle group databases)
+export function generateMuscleGainerCarts(
+  intensity: IntensityLevel,
+  moodCard: string = 'I want to gain muscle',
+  workoutType: string = 'Muscle Building'
+): GeneratedCart[] {
+  // Combine all muscle group databases for a full-body muscle building approach
+  const combinedDatabase = [
+    ...chestWorkoutDatabase,
+    ...backWorkoutDatabase,
+    ...shouldersWorkoutDatabase,
+    ...bicepsWorkoutDatabase,
+    ...tricepsWorkoutDatabase,
+    ...absWorkoutDatabase,
+    ...quadsWorkoutDatabase,
+    ...hamstringsWorkoutDatabase,
+    ...glutesWorkoutDatabase,
+    ...calvesWorkoutDatabase
+  ];
+  return generateWorkoutCarts(intensity, moodCard, workoutType, combinedDatabase);
+}
