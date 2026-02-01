@@ -129,6 +129,20 @@ export default function BodyPartsScreen() {
     fetchUsage();
   }, [isGuest, token]);
 
+  // Helper function to get selected muscle group names for the generator
+  const getSelectedMuscleGroupNames = (): string[] => {
+    const names: string[] = [];
+    for (const selection of selectedBodyParts) {
+      if (selection.bodyPart === 'Arms' && selection.subOption) {
+        // Convert Bi's/Tri's to Biceps/Triceps
+        names.push(selection.subOption === "Bi's" ? 'Biceps' : 'Triceps');
+      } else if (selection.bodyPart !== 'Arms') {
+        names.push(selection.bodyPart);
+      }
+    }
+    return names;
+  };
+
   // Handle Build for me button press
   const handleBuildForMePress = () => {
     if (isGuest) {
@@ -141,7 +155,10 @@ export default function BodyPartsScreen() {
   // Handle intensity selection and generate workout
   const handleIntensitySelect = async (intensity: IntensityLevel) => {
     setShowIntensityModal(false);
-    const carts = generateMuscleGainerCarts(intensity, moodTitle, workoutType);
+    
+    // Get selected muscle group names
+    const selectedMuscleNames = getSelectedMuscleGroupNames();
+    const carts = generateMuscleGainerCarts(intensity, selectedMuscleNames, moodTitle, workoutType);
     
     if (carts.length > 0) {
       if (!isGuest && token) {
@@ -155,7 +172,7 @@ export default function BodyPartsScreen() {
                 workouts: cart.workouts.map(w => ({ name: w.name, duration: w.duration, equipment: w.equipment, description: w.description, imageUrl: w.imageUrl })),
                 totalDuration: cart.totalDuration, intensity: cart.intensity, moodCard: moodTitle, workoutType,
               })),
-              moodCard: moodTitle, intensity,
+              moodCard: moodTitle, intensity, selectedMuscleGroups: selectedMuscleNames,
             }),
           });
           if (response.ok) {
