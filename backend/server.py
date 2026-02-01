@@ -7109,6 +7109,165 @@ async def get_generated_workout(
 
 # ==================== END CHOOSE FOR ME API ====================
 
+# ==================== BUILD FOR ME ANALYTICS API ====================
+
+@api_router.get("/analytics/admin/build-for-me-stats")
+async def get_build_for_me_stats(
+    days: int = 30,
+    current_user_id: str = Depends(get_current_user)
+):
+    """Get comprehensive Build for Me statistics for admin dashboard"""
+    
+    cutoff = datetime.now(timezone.utc) - timedelta(days=days) if days > 0 else datetime.min.replace(tzinfo=timezone.utc)
+    
+    try:
+        # Total generations
+        total_generations = await db.choose_for_me_usage.count_documents(
+            {"created_at": {"$gte": cutoff}} if days > 0 else {}
+        )
+        
+        # Unique users who used Build for Me
+        unique_users_pipeline = [
+            {"$match": {"created_at": {"$gte": cutoff}}} if days > 0 else {"$match": {}},
+            {"$group": {"_id": "$user_id"}},
+            {"$count": "count"}
+        ]
+        unique_users_result = await db.choose_for_me_usage.aggregate(unique_users_pipeline).to_list(1)
+        unique_users = unique_users_result[0]["count"] if unique_users_result else 0
+        
+        # Generations by mood card
+        mood_pipeline = [
+            {"$match": {"created_at": {"$gte": cutoff}}} if days > 0 else {"$match": {}},
+            {"$group": {"_id": "$mood_card", "count": {"$sum": 1}, "unique_users": {"$addToSet": "$user_id"}}},
+            {"$project": {"_id": 1, "count": 1, "unique_users": {"$size": "$unique_users"}}},
+            {"$sort": {"count": -1}}
+        ]
+        mood_results = await db.choose_for_me_usage.aggregate(mood_pipeline).to_list(20)
+        
+        mood_display_names = {
+            "Sweat / burn fat": "Sweat",
+            "sweat": "Sweat",
+            "Muscle gainer": "Muscle",
+            "muscle": "Muscle",
+            "Get outside": "Outdoor",
+            "outdoor": "Outdoor",
+            "Calisthenics": "Calisthenics",
+            "calisthenics": "Calisthenics",
+            "I'm feeling lazy": "Lazy",
+            "lazy": "Lazy",
+            "Build explosion": "Explosive",
+            "explosive": "Explosive",
+            "Take me through the ringer": "Ringer",
+            "ringer": "Ringer"
+        }
+        
+        by_mood_card = []
+        for r in mood_results:
+            mood = r["_id"] or "Unknown"
+            display_name = mood_display_names.get(mood, mood.split('/')[0].strip() if mood else "Unknown")
+            by_mood_card.append({
+                "mood": mood,
+                "display_name": display_name,
+                "count": r["count"],
+                "unique_users": r["unique_users"]
+            })
+        
+        # Generations by intensity
+        intensity_pipeline = [
+            {"$match": {"created_at": {"$gte": cutoff}}} if days > 0 else {"$match": {}},
+            {"$group": {"_id": "$intensity", "count": {"$sum": 1}}},
+            {"$sort": {"count": -1}}
+        ]
+        intensity_results = await db.choose_for_me_usage.aggregate(intensity_pipeline).to_list(10)
+        by_intensity = [{"intensity": r["_id"] or "Unknown", "count": r["count"]} for r in intensity_results]
+        
+        # Today's generations
+        today_start = datetime.now(timezone.utc).replace(hour=0, minute=0, second=0, microsecond=0)
+        today_generations = await db.choose_for_me_usage.count_documents({"created_at": {"$gte": today_start}})
+        
+        return {
+            "period_days": days,
+            "total_generations": total_generations,
+            "unique_users": unique_users,
+            "today_generations": today_generations,
+            "by_mood_card": by_mood_card,
+            "by_intensity": by_intensity,
+            "avg_per_user": round(total_generations / unique_users, 1) if unique_users > 0 else 0
+        }
+        
+    except Exception as e:
+        logger.error(f"Error getting Build for Me stats: {e}")
+        return {
+            "period_days": days,
+            "total_generations": 0,
+            "unique_users": 0,
+            "today_generations": 0,
+            "by_mood_card": [],
+            "by_intensity": [],
+            "avg_per_user": 0
+        }
+
+@api_router.get("/analytics/admin/custom-workouts-stats")
+async def get_custom_workouts_stats(
+    days: int = 30,
+    current_user_id: str = Depends(get_current_user)
+):
+    """Get statistics for custom workouts added to cart (non-Build for Me)"""
+    
+    cutoff = datetime.now(timezone.utc) - timedelta(days=days) if days > 0 else datetime.min.replace(tzinfo=timezone.utc)
+    
+    try:
+        # Total custom workouts added
+        total_custom = await db.user_events.count_documents({
+            "event_type": "cart_item_added",
+            "timestamp": {"$gte": cutoff} if days > 0 else {"$exists": True},
+            "metadata.source": {"$ne": "build_for_me"}
+        })
+        
+        # By mood card
+        mood_pipeline = [
+            {"$match": {
+                "event_type": "cart_item_added",
+                "timestamp": {"$gte": cutoff} if days > 0 else {"$exists": True},
+                "metadata.source": {"$ne": "build_for_me"}
+            }},
+            {"$group": {"_id": "$metadata.moodCard", "count": {"$sum": 1}}},
+            {"$sort": {"count": -1}}
+        ]
+        mood_results = await db.user_events.aggregate(mood_pipeline).to_list(20)
+        by_mood = [{"mood": r["_id"] or "Unknown", "count": r["count"]} for r in mood_results]
+        
+        # Unique users
+        users_pipeline = [
+            {"$match": {
+                "event_type": "cart_item_added",
+                "timestamp": {"$gte": cutoff} if days > 0 else {"$exists": True},
+                "metadata.source": {"$ne": "build_for_me"}
+            }},
+            {"$group": {"_id": "$user_id"}},
+            {"$count": "count"}
+        ]
+        users_result = await db.user_events.aggregate(users_pipeline).to_list(1)
+        unique_users = users_result[0]["count"] if users_result else 0
+        
+        return {
+            "period_days": days,
+            "total_custom_workouts": total_custom,
+            "unique_users": unique_users,
+            "by_mood_card": by_mood
+        }
+        
+    except Exception as e:
+        logger.error(f"Error getting custom workouts stats: {e}")
+        return {
+            "period_days": days,
+            "total_custom_workouts": 0,
+            "unique_users": 0,
+            "by_mood_card": []
+        }
+
+# ==================== END BUILD FOR ME ANALYTICS API ====================
+
 @api_router.get("/moderation/admin/stats")
 async def get_moderation_stats(
     current_user_id: str = Depends(get_current_user)
