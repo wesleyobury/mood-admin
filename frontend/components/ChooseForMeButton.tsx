@@ -117,6 +117,13 @@ export default function ChooseForMeButton({
         }
       ]}
     >
+      {/* "or" divider with lines */}
+      <View style={styles.orDividerContainer}>
+        <View style={styles.orDividerLine} />
+        <Text style={styles.orDividerText}>or</Text>
+        <View style={styles.orDividerLine} />
+      </View>
+
       {/* Animated border glow container */}
       <View style={styles.borderGlowWrapper}>
         {/* Base subtle glow border */}
