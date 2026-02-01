@@ -99,8 +99,85 @@ export default function BodyPartsScreen() {
   const [expandedBodyPart, setExpandedBodyPart] = useState<string>('');
   const scaleAnim = useRef(new Animated.Value(1)).current;
   const expandAnim = useRef(new Animated.Value(0)).current;
+  const [showIntensityModal, setShowIntensityModal] = useState(false);
+  const [showGuestPrompt, setShowGuestPrompt] = useState(false);
+  const [remainingUses, setRemainingUses] = useState(3);
+  const { addToCart, clearCart } = useCart();
+  const { isGuest, token } = useAuth();
 
   const { mood } = params;
+  const moodTitle = mood as string || 'I want to gain muscle';
+  const workoutType = 'Muscle Building';
+
+  // Fetch usage on mount
+  useEffect(() => {
+    const fetchUsage = async () => {
+      if (!isGuest && token) {
+        try {
+          const response = await fetch(`${API_URL}/api/choose-for-me/usage`, {
+            headers: { 'Authorization': `Bearer ${token}` },
+          });
+          if (response.ok) {
+            const data = await response.json();
+            setRemainingUses(data.remaining_uses);
+          }
+        } catch (error) {
+          console.error('Error fetching usage:', error);
+        }
+      }
+    };
+    fetchUsage();
+  }, [isGuest, token]);
+
+  // Handle Build for me button press
+  const handleBuildForMePress = () => {
+    if (isGuest) {
+      setShowGuestPrompt(true);
+      return;
+    }
+    setShowIntensityModal(true);
+  };
+
+  // Handle intensity selection and generate workout
+  const handleIntensitySelect = async (intensity: IntensityLevel) => {
+    setShowIntensityModal(false);
+    const carts = generateMuscleGainerCarts(intensity, moodTitle, workoutType);
+    
+    if (carts.length > 0) {
+      if (!isGuest && token) {
+        try {
+          const response = await fetch(`${API_URL}/api/choose-for-me/generate`, {
+            method: 'POST',
+            headers: { 'Authorization': `Bearer ${token}`, 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              carts: carts.map(cart => ({
+                id: cart.id,
+                workouts: cart.workouts.map(w => ({ name: w.name, duration: w.duration, equipment: w.equipment, description: w.description, imageUrl: w.imageUrl })),
+                totalDuration: cart.totalDuration, intensity: cart.intensity, moodCard: moodTitle, workoutType,
+              })),
+              moodCard: moodTitle, intensity,
+            }),
+          });
+          if (response.ok) {
+            const data = await response.json();
+            setRemainingUses(data.remaining_uses);
+          } else if (response.status === 429) {
+            Alert.alert('Daily Limit Reached', 'You can only use Build for Me 3 times per day.', [{ text: 'OK' }]);
+            return;
+          }
+        } catch (error) { console.error('Error saving generated workout:', error); }
+      }
+      
+      // Go directly to cart with generated carts for skip functionality
+      const selectedCart = carts[0];
+      clearCart();
+      selectedCart.workouts.forEach(workout => addToCart(workout));
+      router.push({
+        pathname: '/cart',
+        params: { generatedCarts: JSON.stringify(carts), moodCard: moodTitle }
+      });
+    }
+  };
 
   // Check if a body part is selected
   const isBodyPartSelected = (bodyPartName: string) => {
