@@ -144,64 +144,67 @@ export default function ChooseForMeButton({
         <View style={styles.orDividerLine} />
       </View>
 
-      {/* Animated border glow container */}
-      <View style={styles.borderGlowWrapper}>
-        {/* Base subtle glow border */}
-        <View style={styles.baseBorderGlow} />
-        
-        {/* Rotating gradient highlight - only when not disabled and not pressed */}
-        {!disabled && (
-          <Animated.View
-            style={[
-              styles.rotatingGlowWrapper,
-              {
-                opacity: isPressed ? 0.15 : 1,
-                transform: [{ rotate: rotation }],
-              }
-            ]}
-          >
-            <LinearGradient
-              colors={[
-                'rgba(201, 164, 76, 0.5)',  // Highlight at top
-                'rgba(201, 164, 76, 0.08)', // Fade
-                'rgba(201, 164, 76, 0.02)', // Near invisible
-                'rgba(201, 164, 76, 0.02)', // Near invisible
-                'rgba(201, 164, 76, 0.08)', // Fade back in
-                'rgba(201, 164, 76, 0.5)',  // Highlight completes
+      {/* Button wrapper with glow effect */}
+      <View style={styles.buttonWrapper}>
+        {/* Animated border glow container - now positioned relative to button only */}
+        <View style={styles.borderGlowWrapper}>
+          {/* Base subtle glow border */}
+          <View style={styles.baseBorderGlow} />
+          
+          {/* Rotating gradient highlight - only when not disabled and not pressed */}
+          {!disabled && (
+            <Animated.View
+              style={[
+                styles.rotatingGlowWrapper,
+                {
+                  opacity: isPressed ? 0.15 : 1,
+                  transform: [{ rotate: rotation }],
+                }
               ]}
-              locations={[0, 0.15, 0.3, 0.7, 0.85, 1]}
-              start={{ x: 0.5, y: 0 }}
-              end={{ x: 0.5, y: 1 }}
-              style={styles.rotatingGradient}
-            />
-          </Animated.View>
-        )}
-      </View>
-      
-      {/* Main button content */}
-      <TouchableOpacity
-        style={[
-          styles.button, 
-          { backgroundColor },
-          disabled && styles.buttonDisabled
-        ]}
-        onPress={onPress}
-        onPressIn={handlePressIn}
-        onPressOut={handlePressOut}
-        disabled={disabled}
-        activeOpacity={1}
-      >
-        <View style={styles.content}>
-          <Ionicons 
-            name="sparkles" 
-            size={16} 
-            color={disabled ? '#444' : 'rgba(240, 235, 220, 0.85)'} 
-          />
-          <Text style={[styles.text, disabled && styles.textDisabled]}>
-            Build for me
-          </Text>
+            >
+              <LinearGradient
+                colors={[
+                  'rgba(201, 164, 76, 0.5)',  // Highlight at top
+                  'rgba(201, 164, 76, 0.08)', // Fade
+                  'rgba(201, 164, 76, 0.02)', // Near invisible
+                  'rgba(201, 164, 76, 0.02)', // Near invisible
+                  'rgba(201, 164, 76, 0.08)', // Fade back in
+                  'rgba(201, 164, 76, 0.5)',  // Highlight completes
+                ]}
+                locations={[0, 0.15, 0.3, 0.7, 0.85, 1]}
+                start={{ x: 0.5, y: 0 }}
+                end={{ x: 0.5, y: 1 }}
+                style={styles.rotatingGradient}
+              />
+            </Animated.View>
+          )}
         </View>
-      </TouchableOpacity>
+        
+        {/* Main button content */}
+        <TouchableOpacity
+          style={[
+            styles.button, 
+            { backgroundColor },
+            disabled && styles.buttonDisabled
+          ]}
+          onPress={onPress}
+          onPressIn={handlePressIn}
+          onPressOut={handlePressOut}
+          disabled={disabled}
+          activeOpacity={1}
+        >
+          <View style={styles.content}>
+            <Ionicons 
+              name="sparkles" 
+              size={16} 
+              color={disabled ? '#444' : 'rgba(240, 235, 220, 0.85)'} 
+            />
+            <Text style={[styles.text, disabled && styles.textDisabled]}>
+              Build for me
+            </Text>
+          </View>
+        </TouchableOpacity>
+      </View>
     </Animated.View>
   );
 }
