@@ -676,7 +676,7 @@ const styles = StyleSheet.create({
     lineHeight: 22,
   },
   muscleGroupSection: {
-    marginBottom: 32,
+    marginBottom: 16,
   },
   muscleGroupTitle: {
     fontSize: 18,
