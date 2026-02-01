@@ -7,7 +7,6 @@ import {
   SafeAreaView,
   ScrollView,
   Animated,
-  Modal,
   Alert,
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
@@ -18,7 +17,6 @@ import Constants from 'expo-constants';
 import HomeButton from '../components/HomeButton';
 import ChooseForMeButton from '../components/ChooseForMeButton';
 import IntensitySelectionModal, { IntensityLevel } from '../components/IntensitySelectionModal';
-import GeneratedWorkoutView, { GeneratedCart } from '../components/GeneratedWorkoutView';
 import GuestPromptModal from '../components/GuestPromptModal';
 import { generateSweatBurnFatCarts } from '../utils/workoutGenerator';
 import { useCart } from '../contexts/CartContext';
