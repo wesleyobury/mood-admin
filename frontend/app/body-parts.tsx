@@ -188,7 +188,7 @@ export default function BodyPartsScreen() {
       // Go directly to cart with generated carts for skip functionality
       const selectedCart = carts[0];
       clearCart();
-      selectedCart.workouts.forEach(workout => addToCart(workout));
+      selectedCart.workouts.forEach(workout => addToCart(workout, { source: 'build_for_me', token }));
       router.push({
         pathname: '/cart',
         params: { generatedCarts: JSON.stringify(carts), moodCard: moodTitle }
