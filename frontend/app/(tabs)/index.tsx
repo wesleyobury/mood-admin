@@ -1388,8 +1388,8 @@ const styles = StyleSheet.create({
   },
   // Exercise Search Section
   exerciseSearchSection: {
-    marginTop: 32,
-    marginBottom: 20,
+    marginTop: 24,
+    marginBottom: 8,
     paddingHorizontal: 28,
   },
   exerciseSearchTrigger: {
