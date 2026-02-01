@@ -9,6 +9,17 @@ import { lazyLowerBodyDatabase } from '../data/lazy-lower-body-data';
 import { lazyFullBodyDatabase } from '../data/lazy-full-body-data';
 import { additionalWorkoutDatabase as calisthenicsDatabase } from '../data/calisthenics-all-workouts-data';
 import { outdoorRunWorkoutDatabase } from '../data/outdoor-workouts-data';
+// Muscle gainer data imports
+import { chestWorkoutDatabase } from '../data/chest-workouts-data';
+import { backWorkoutDatabase } from '../data/back-workouts-data';
+import { shouldersWorkoutDatabase } from '../data/shoulders-workouts-data';
+import { bicepsWorkoutDatabase } from '../data/biceps-workouts-data';
+import { tricepsWorkoutDatabase } from '../data/triceps-workouts-data';
+import { absWorkoutDatabase } from '../data/abs-workouts-data';
+import { quadsWorkoutDatabase } from '../data/quads-workouts-data';
+import { hamstringsWorkoutDatabase } from '../data/hamstrings-workouts-data';
+import { glutesWorkoutDatabase } from '../data/glutes-workouts-data';
+import { calvesWorkoutDatabase } from '../data/calves-workouts-data';
 import { Workout, EquipmentWorkouts } from '../types/workout';
 import { IntensityLevel } from '../components/IntensitySelectionModal';
 import { GeneratedCart } from '../components/GeneratedWorkoutView';
