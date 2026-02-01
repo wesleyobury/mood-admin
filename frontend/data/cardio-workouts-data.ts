@@ -2869,7 +2869,7 @@ export const cardioWorkoutsDatabase: EquipmentWorkouts[] = [
           duration: '20–22 min',
           description: 'Full-body gauntlet: flips, burpees, jumps, and push-ups.\n\n ',
           battlePlan: 'Perform 4 rounds:\n• 8 tire flips\n• 6 burpees\n• 10 tire jumps\n• 8 tire push-ups\n• Rest 2 min\nFinish with stretching',
-          imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHw1fHx0aXJlJTIwZmxpcCUyMGFkdmFuY2VkfGVufDB8fHx8TVc1Njg4MzIzN3ww&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://images.unsplash.com/photo-1758875570256-6510adffb1de?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzl8MHwxfHNlYXJjaHwxfHx0aXJlJTIwZmxpcCUyMGNyb3NzZml0fGVufDB8fHx8MTc2OTkxNDg0MXww&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Elite complex demands maximal tire flipping power.',
           moodTips: [
             {
