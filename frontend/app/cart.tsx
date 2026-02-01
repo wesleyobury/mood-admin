@@ -845,6 +845,7 @@ const styles = StyleSheet.create({
   bottomActions: {
     flexDirection: 'row',
     alignItems: 'center',
+    justifyContent: 'center',
     gap: 12,
   },
   saveButton: {
@@ -857,6 +858,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: '#333',
     gap: 6,
+    minWidth: 85,
   },
   saveButtonText: {
     fontSize: 14,
