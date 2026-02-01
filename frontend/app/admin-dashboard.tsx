@@ -159,6 +159,16 @@ interface UserReport {
   };
 }
 
+interface BuildForMeStats {
+  period_days: number;
+  total_generations: number;
+  unique_users: number;
+  today_generations: number;
+  by_mood_card: { mood: string; display_name: string; count: number; unique_users: number }[];
+  by_intensity: { intensity: string; count: number }[];
+  avg_per_user: number;
+}
+
 // Helper to convert UTC to CST
 function formatDateToCST(dateStr?: string): string {
   if (!dateStr) return 'Unknown';
