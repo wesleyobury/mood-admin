@@ -153,13 +153,83 @@ export default function CalisthenicsEquipmentScreen() {
   const router = useRouter();
   const params = useLocalSearchParams();
   const insets = useSafeAreaInsets();
-  const { token } = useAuth();
-  
   const [selectedEquipment, setSelectedEquipment] = useState<EquipmentOption[]>([]);
   const [selectedDifficulty, setSelectedDifficulty] = useState<DifficultyLevel | null>(null);
+  const [showIntensityModal, setShowIntensityModal] = useState(false);
+  const [showGuestPrompt, setShowGuestPrompt] = useState(false);
+  const [remainingUses, setRemainingUses] = useState(3);
+  const { addToCart, clearCart } = useCart();
+  const { isGuest, token } = useAuth();
   
-  const moodTitle = 'I want to do calisthenics';
-  const workoutType = 'Bodyweight exercises';
+  const moodTitle = params.mood as string || 'I want to do calisthenics';
+  const workoutType = params.workoutType as string || 'Calisthenics';
+
+  // Fetch usage on mount
+  useEffect(() => {
+    const fetchUsage = async () => {
+      if (!isGuest && token) {
+        try {
+          const response = await fetch(`${API_URL}/api/choose-for-me/usage`, {
+            headers: { 'Authorization': `Bearer ${token}` },
+          });
+          if (response.ok) {
+            const data = await response.json();
+            setRemainingUses(data.remaining_uses);
+          }
+        } catch (error) {
+          console.error('Error fetching usage:', error);
+        }
+      }
+    };
+    fetchUsage();
+  }, [isGuest, token]);
+
+  // Handle Build for me button press
+  const handleBuildForMePress = () => {
+    if (isGuest) {
+      setShowGuestPrompt(true);
+      return;
+    }
+    setShowIntensityModal(true);
+  };
+
+  // Handle intensity selection and generate workout
+  const handleIntensitySelect = async (intensity: IntensityLevel) => {
+    setShowIntensityModal(false);
+    const carts = generateCalisthenicsCarts(intensity, moodTitle, workoutType);
+    
+    if (carts.length > 0) {
+      if (!isGuest && token) {
+        try {
+          const response = await fetch(`${API_URL}/api/choose-for-me/generate`, {
+            method: 'POST',
+            headers: { 'Authorization': `Bearer ${token}`, 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              carts: carts.map(cart => ({
+                id: cart.id,
+                workouts: cart.workouts.map(w => ({ name: w.name, duration: w.duration, equipment: w.equipment, description: w.description, imageUrl: w.imageUrl })),
+                totalDuration: cart.totalDuration, intensity: cart.intensity, moodCard: moodTitle, workoutType,
+              })),
+              moodCard: moodTitle, intensity,
+            }),
+          });
+          if (response.ok) {
+            const data = await response.json();
+            setRemainingUses(data.remaining_uses);
+          } else if (response.status === 429) {
+            Alert.alert('Daily Limit Reached', 'You can only use Build for Me 3 times per day.', [{ text: 'OK' }]);
+            return;
+          }
+        } catch (error) { console.error('Error saving generated workout:', error); }
+      }
+      
+      // Go directly to cart
+      const selectedCart = carts[0];
+      clearCart();
+      selectedCart.workouts.forEach(workout => addToCart(workout));
+      router.push('/cart');
+    }
+  };
 
   const handleEquipmentSelect = (equipment: EquipmentOption) => {
     setSelectedEquipment(prev => {
