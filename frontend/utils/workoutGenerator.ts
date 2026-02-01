@@ -302,24 +302,46 @@ export function generateOutdoorCarts(
   return generateWorkoutCarts(intensity, moodCard, workoutType, outdoorRunWorkoutDatabase);
 }
 
-// Export for Muscle Gainer path (combines all muscle group databases)
+// Mapping of muscle group names to their databases
+const muscleGroupDatabases: Record<string, EquipmentWorkouts[]> = {
+  'Chest': chestWorkoutDatabase,
+  'Back': backWorkoutDatabase,
+  'Shoulders': shouldersWorkoutDatabase,
+  'Biceps': bicepsWorkoutDatabase,
+  'Triceps': tricepsWorkoutDatabase,
+  'Abs': absWorkoutDatabase,
+  'Quads': quadsWorkoutDatabase,
+  'Hamstrings': hamstringsWorkoutDatabase,
+  'Glutes': glutesWorkoutDatabase,
+  'Calves': calvesWorkoutDatabase,
+  'Legs': [...quadsWorkoutDatabase, ...hamstringsWorkoutDatabase, ...glutesWorkoutDatabase, ...calvesWorkoutDatabase],
+};
+
+// Export for Muscle Gainer path (uses selected muscle groups only)
 export function generateMuscleGainerCarts(
   intensity: IntensityLevel,
+  selectedMuscleGroups: string[] = [],
   moodCard: string = 'I want to gain muscle',
   workoutType: string = 'Muscle Building'
 ): GeneratedCart[] {
-  // Combine all muscle group databases for a full-body muscle building approach
-  const combinedDatabase = [
-    ...chestWorkoutDatabase,
-    ...backWorkoutDatabase,
-    ...shouldersWorkoutDatabase,
-    ...bicepsWorkoutDatabase,
-    ...tricepsWorkoutDatabase,
-    ...absWorkoutDatabase,
-    ...quadsWorkoutDatabase,
-    ...hamstringsWorkoutDatabase,
-    ...glutesWorkoutDatabase,
-    ...calvesWorkoutDatabase
-  ];
+  // If no muscle groups selected, return empty
+  if (selectedMuscleGroups.length === 0) {
+    return [];
+  }
+
+  // Build database from selected muscle groups only
+  let combinedDatabase: EquipmentWorkouts[] = [];
+  
+  for (const muscleGroup of selectedMuscleGroups) {
+    const database = muscleGroupDatabases[muscleGroup];
+    if (database) {
+      combinedDatabase = [...combinedDatabase, ...database];
+    }
+  }
+
+  if (combinedDatabase.length === 0) {
+    return [];
+  }
+
   return generateWorkoutCarts(intensity, moodCard, workoutType, combinedDatabase);
 }
