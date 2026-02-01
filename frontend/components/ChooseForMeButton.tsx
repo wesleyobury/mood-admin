@@ -233,7 +233,7 @@ const styles = StyleSheet.create({
     zIndex: 1,
   },
   shimmerGradient: {
-    width: '50%',
+    width: '80%',
     height: '100%',
   },
   content: {
