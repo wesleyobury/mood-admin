@@ -903,7 +903,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: '#333',
     gap: 4,
-    minWidth: 85,
+    minWidth: 80,
   },
   skipButtonText: {
     fontSize: 14,
