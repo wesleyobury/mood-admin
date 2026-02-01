@@ -6397,7 +6397,8 @@ async def search_exercises(
 ):
     """
     Search exercises by name and aliases.
-    Case-insensitive, partial match, returns top results.
+    Only returns results when query matches at least one complete word.
+    Case-insensitive, word-boundary matching.
     """
     if not q.strip():
         return {"exercises": []}
@@ -6405,26 +6406,38 @@ async def search_exercises(
     # Sanitize and prepare search query
     search_query = q.strip().lower()
     
-    # Build search pipeline - search in name and aliases
+    # Require minimum 2 characters for search
+    if len(search_query) < 2:
+        return {"exercises": []}
+    
+    # Word boundary regex - matches whole words or word starts
+    # \b ensures we match word boundaries (start of word)
+    import re
+    escaped_query = re.escape(search_query)
+    word_regex = f"\\b{escaped_query}"
+    
+    # Build search pipeline - search in name and aliases with word boundaries
     pipeline = [
         {
             "$match": {
                 "$or": [
-                    {"name": {"$regex": search_query, "$options": "i"}},
-                    {"aliases": {"$elemMatch": {"$regex": search_query, "$options": "i"}}}
+                    {"name": {"$regex": word_regex, "$options": "i"}},
+                    {"aliases": {"$elemMatch": {"$regex": word_regex, "$options": "i"}}}
                 ]
             }
         },
         {
             "$addFields": {
-                # Score by exact match in name (higher priority)
+                # Score by exact word match in name (higher priority)
                 "name_match_score": {
                     "$cond": [
-                        {"$regexMatch": {"input": {"$toLower": "$name"}, "regex": f"^{search_query}"}},
-                        2,  # Starts with query - highest score
+                        # Exact match on a word in name
+                        {"$regexMatch": {"input": {"$toLower": "$name"}, "regex": f"\\b{escaped_query}\\b"}},
+                        3,  # Exact word match - highest score
                         {"$cond": [
-                            {"$regexMatch": {"input": {"$toLower": "$name"}, "regex": search_query}},
-                            1,  # Contains query
+                            # Word starts with query
+                            {"$regexMatch": {"input": {"$toLower": "$name"}, "regex": f"\\b{escaped_query}"}},
+                            2,  # Word starts with query
                             0
                         ]}
                     ]
