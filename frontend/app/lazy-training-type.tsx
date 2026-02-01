@@ -197,15 +197,6 @@ export default function LazyTrainingTypeScreen() {
     router.back();
   };
 
-  // Show generated workout view as modal
-  if (showGeneratedWorkout && generatedCarts.length > 0) {
-    return (
-      <Modal visible={true} animationType="slide" presentationStyle="fullScreen">
-        <GeneratedWorkoutView carts={generatedCarts} moodTitle={moodTitle} workoutType="Mixed Lazy" onStartWorkout={handleStartWorkout} onClose={() => { setShowGeneratedWorkout(false); setGeneratedCarts([]); }} onSkip={handleSkip} onSave={handleSaveWorkout} remainingGenerations={remainingUses} />
-      </Modal>
-    );
-  }
-
   return (
     <SafeAreaView style={[styles.container, { paddingTop: insets.top }]}>
       {/* Header */}
