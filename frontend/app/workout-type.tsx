@@ -231,8 +231,14 @@ export default function WorkoutTypeScreen() {
         }
       }
       
-      setGeneratedCarts(carts);
-      setShowGeneratedWorkout(true);
+      // Skip the GeneratedWorkoutView and go directly to cart
+      // Use the first generated cart
+      const selectedCart = carts[0];
+      clearCart();
+      selectedCart.workouts.forEach(workout => {
+        addToCart(workout);
+      });
+      router.push('/cart');
     }
   };
 
