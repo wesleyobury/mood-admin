@@ -331,7 +331,7 @@ export default function WorkoutTypeScreen() {
       <IntensitySelectionModal
         visible={showIntensityModal}
         onClose={() => setShowIntensityModal(false)}
-        onSelect={handleIntensitySelect}
+        onSelectIntensity={handleIntensitySelect}
         moodTitle={moodTitle}
         remainingUses={remainingUses}
       />
