@@ -385,6 +385,7 @@ export default function CalisthenicsEquipmentScreen() {
         <ChooseForMeButton 
           onPress={handleBuildForMePress}
           disabled={remainingUses <= 0 && !isGuest}
+          variant="equipment"
         />
 
         {/* Difficulty Selection */}
