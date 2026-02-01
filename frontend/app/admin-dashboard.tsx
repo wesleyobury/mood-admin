@@ -3480,4 +3480,38 @@ const styles = StyleSheet.create({
     width: 35,
     textAlign: 'right',
   },
+  // Custom Workouts Added Styles
+  customWorkoutsQuickStats: {
+    flexDirection: 'row',
+    gap: 12,
+    marginTop: 12,
+  },
+  customWorkoutsStatCard: {
+    flex: 1,
+    backgroundColor: '#1a1a1a',
+    borderRadius: 12,
+    padding: 14,
+    alignItems: 'center',
+    borderWidth: 1,
+    borderColor: 'rgba(156, 39, 176, 0.15)',
+  },
+  customWorkoutsIcon: {
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginBottom: 8,
+  },
+  customWorkoutsStatValue: {
+    fontSize: 22,
+    fontWeight: '700',
+    color: '#fff',
+    marginBottom: 4,
+  },
+  customWorkoutsStatLabel: {
+    fontSize: 11,
+    color: '#888',
+    textAlign: 'center',
+  },
 });
