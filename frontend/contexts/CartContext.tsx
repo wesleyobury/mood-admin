@@ -1,4 +1,7 @@
-import React, { createContext, useContext, useState, useCallback, ReactNode } from 'react';
+import React, { createContext, useContext, useState, useCallback, ReactNode, useRef } from 'react';
+import Constants from 'expo-constants';
+
+const API_URL = Constants.expoConfig?.extra?.EXPO_BACKEND_URL || '';
 
 export interface WorkoutItem {
   id: string;
@@ -17,11 +20,13 @@ export interface WorkoutItem {
     title: string;
     description: string;
   }[];
+  // Optional: track source for analytics
+  source?: 'custom' | 'build_for_me';
 }
 
 interface CartContextType {
   cartItems: WorkoutItem[];
-  addToCart: (workout: WorkoutItem) => void;
+  addToCart: (workout: WorkoutItem, options?: { source?: 'custom' | 'build_for_me', token?: string | null }) => void;
   removeFromCart: (workoutId: string) => void;
   clearCart: () => void;
   isInCart: (workoutId: string) => boolean;
@@ -44,14 +49,57 @@ interface CartProviderProps {
 
 export const CartProvider: React.FC<CartProviderProps> = ({ children }) => {
   const [cartItems, setCartItems] = useState<WorkoutItem[]>([]);
+  const tokenRef = useRef<string | null>(null);
 
-  const addToCart = (workout: WorkoutItem) => {
+  // Track cart item added event
+  const trackCartItemAdded = async (workout: WorkoutItem, source: 'custom' | 'build_for_me', token?: string | null) => {
+    const authToken = token || tokenRef.current;
+    if (!authToken) return; // Don't track for guests without token
+    
+    try {
+      await fetch(`${API_URL}/api/analytics/track`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${authToken}`,
+        },
+        body: JSON.stringify({
+          event_type: 'cart_item_added',
+          metadata: {
+            workout_id: workout.id,
+            workout_name: workout.name,
+            moodCard: workout.moodCard,
+            workoutType: workout.workoutType,
+            equipment: workout.equipment,
+            difficulty: workout.difficulty,
+            source: source, // 'custom' or 'build_for_me'
+          },
+        }),
+      });
+    } catch (error) {
+      console.log('Failed to track cart item:', error);
+    }
+  };
+
+  const addToCart = (workout: WorkoutItem, options?: { source?: 'custom' | 'build_for_me', token?: string | null }) => {
+    const source = options?.source || 'custom';
+    const token = options?.token;
+    
+    // Store token for future tracking
+    if (token) {
+      tokenRef.current = token;
+    }
+    
     setCartItems(prevItems => {
       const isAlreadyInCart = prevItems.some(item => item.id === workout.id);
       if (isAlreadyInCart) {
         return prevItems;
       }
-      return [...prevItems, workout];
+      
+      // Track the event
+      trackCartItemAdded({ ...workout, source }, source, token);
+      
+      return [...prevItems, { ...workout, source }];
     });
   };
 
