@@ -387,6 +387,7 @@ export default function OutdoorEquipmentScreen() {
         <ChooseForMeButton 
           onPress={handleBuildForMePress}
           disabled={remainingUses <= 0 && !isGuest}
+          variant="equipment"
         />
 
         {/* Difficulty Selection */}
