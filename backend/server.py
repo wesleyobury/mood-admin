@@ -6397,7 +6397,7 @@ async def search_exercises(
 ):
     """
     Search exercises by name and aliases.
-    Only returns results when query matches at least one complete word.
+    Only returns results when query matches at least one complete word or word prefix (min 3 chars).
     Case-insensitive, word-boundary matching.
     """
     if not q.strip():
@@ -6406,12 +6406,11 @@ async def search_exercises(
     # Sanitize and prepare search query
     search_query = q.strip().lower()
     
-    # Require minimum 2 characters for search
-    if len(search_query) < 2:
+    # Require minimum 3 characters for search to avoid too many partial matches
+    if len(search_query) < 3:
         return {"exercises": []}
     
     # Word boundary regex - matches whole words or word starts
-    # \b ensures we match word boundaries (start of word)
     import re
     escaped_query = re.escape(search_query)
     word_regex = f"\\b{escaped_query}"
