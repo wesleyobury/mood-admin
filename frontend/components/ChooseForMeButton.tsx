@@ -33,15 +33,32 @@ export default function ChooseForMeButton({
   style,
   variant = 'workoutType' 
 }: ChooseForMeButtonProps) {
-  const fadeAnim = useRef(new Animated.Value(0)).current;
+  const fadeAnim = useRef(new Animated.Value(variant === 'muscleGroup' ? 1 : 0)).current;
   const scaleAnim = useRef(new Animated.Value(1)).current;
   const glowRotation = useRef(new Animated.Value(0)).current;
   const [isPressed, setIsPressed] = useState(false);
 
   const backgroundColor = COLORS[variant];
 
-  // Fade-in on mount with 2200ms delay and slower fade
+  // Fade-in on mount - no delay for muscleGroup variant, 2200ms delay for others
   useEffect(() => {
+    // Skip animation for muscleGroup - already visible
+    if (variant === 'muscleGroup') {
+      // Start glow immediately for muscleGroup
+      glowRotation.setValue(0);
+      const animationRef = Animated.loop(
+        Animated.timing(glowRotation, {
+          toValue: 1,
+          duration: 4000,
+          easing: Easing.linear,
+          useNativeDriver: true,
+        }),
+        { iterations: -1 }
+      );
+      animationRef.start();
+      return () => animationRef.stop();
+    }
+    
     const timer = setTimeout(() => {
       Animated.timing(fadeAnim, {
         toValue: 1,
@@ -52,10 +69,13 @@ export default function ChooseForMeButton({
     }, 2200);
     
     return () => clearTimeout(timer);
-  }, []);
+  }, [variant]);
 
   // Continuous clockwise glow animation (4 seconds per loop) - never stops
+  // Only for non-muscleGroup variants (muscleGroup handled above)
   useEffect(() => {
+    if (variant === 'muscleGroup') return; // Handled in the other useEffect
+    
     let animationRef: Animated.CompositeAnimation | null = null;
     
     const timer = setTimeout(() => {
@@ -80,7 +100,7 @@ export default function ChooseForMeButton({
         animationRef.stop();
       }
     };
-  }, [glowRotation]);
+  }, [glowRotation, variant]);
 
   const handlePressIn = () => {
     setIsPressed(true);
