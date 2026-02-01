@@ -397,11 +397,6 @@ export default function BodyPartsScreen() {
 
       {/* Body Parts Grid */}
       <ScrollView style={styles.content} showsVerticalScrollIndicator={false}>
-        <Text style={styles.subtitle}>
-          {'\n'}
-          <Text style={styles.subtitleHighlight}>Select desired muscle group(s)</Text>
-        </Text>
-        
         <View style={styles.bodyPartsGrid}>
           {bodyParts.map((bodyPart) => {
             const isSelected = isBodyPartSelected(bodyPart.name);
