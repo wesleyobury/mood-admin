@@ -423,6 +423,27 @@ export default function CalisthenicsEquipmentScreen() {
           )}
         </TouchableOpacity>
       </View>
+
+      {/* Modals */}
+      <IntensitySelectionModal
+        visible={showIntensityModal}
+        onClose={() => setShowIntensityModal(false)}
+        onSelectIntensity={handleIntensitySelect}
+        remainingUses={remainingUses}
+      />
+
+      <GuestPromptModal
+        visible={showGuestPrompt}
+        onClose={() => setShowGuestPrompt(false)}
+        onSignUp={() => {
+          setShowGuestPrompt(false);
+          router.push('/signup');
+        }}
+        onLogin={() => {
+          setShowGuestPrompt(false);
+          router.push('/login');
+        }}
+      />
     </SafeAreaView>
   );
 }
