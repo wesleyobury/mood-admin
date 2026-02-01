@@ -1219,6 +1219,86 @@ export default function AdminDashboard() {
           </View>
         </View>
 
+        {/* Build for Me Analytics Widget */}
+        <View style={styles.section}>
+          <View style={styles.sectionHeader}>
+            <Text style={styles.sectionTitle}>Build for Me Analytics</Text>
+            <TouchableOpacity 
+              style={styles.expandButton}
+              onPress={() => setShowBuildForMeModal(true)}
+            >
+              <Text style={styles.expandButtonText}>Details</Text>
+              <Ionicons name="expand-outline" size={14} color="#FFD700" />
+            </TouchableOpacity>
+          </View>
+          
+          <Text style={styles.sectionSubtitle}>
+            AI workout generation usage statistics
+          </Text>
+          
+          {/* Quick Stats Row */}
+          <View style={styles.buildForMeQuickStats}>
+            <View style={styles.buildForMeStatCard}>
+              <View style={[styles.buildForMeIcon, { backgroundColor: 'rgba(201, 164, 76, 0.2)' }]}>
+                <Ionicons name="sparkles" size={20} color="#C9A44C" />
+              </View>
+              <Text style={styles.buildForMeStatValue}>{buildForMeStats?.total_generations || 0}</Text>
+              <Text style={styles.buildForMeStatLabel}>Total Generations</Text>
+            </View>
+            
+            <View style={styles.buildForMeStatCard}>
+              <View style={[styles.buildForMeIcon, { backgroundColor: 'rgba(76, 201, 150, 0.2)' }]}>
+                <Ionicons name="people" size={20} color="#4CC996" />
+              </View>
+              <Text style={styles.buildForMeStatValue}>{buildForMeStats?.unique_users || 0}</Text>
+              <Text style={styles.buildForMeStatLabel}>Unique Users</Text>
+            </View>
+            
+            <View style={styles.buildForMeStatCard}>
+              <View style={[styles.buildForMeIcon, { backgroundColor: 'rgba(76, 175, 255, 0.2)' }]}>
+                <Ionicons name="today" size={20} color="#4CAFFF" />
+              </View>
+              <Text style={styles.buildForMeStatValue}>{buildForMeStats?.today_generations || 0}</Text>
+              <Text style={styles.buildForMeStatLabel}>Today</Text>
+            </View>
+            
+            <View style={styles.buildForMeStatCard}>
+              <View style={[styles.buildForMeIcon, { backgroundColor: 'rgba(255, 152, 76, 0.2)' }]}>
+                <Ionicons name="trending-up" size={20} color="#FF984C" />
+              </View>
+              <Text style={styles.buildForMeStatValue}>{buildForMeStats?.avg_per_user || 0}</Text>
+              <Text style={styles.buildForMeStatLabel}>Avg/User</Text>
+            </View>
+          </View>
+          
+          {/* By Mood Breakdown */}
+          {buildForMeStats?.by_mood_card && buildForMeStats.by_mood_card.length > 0 && (
+            <View style={styles.buildForMeMoodBreakdown}>
+              <Text style={styles.buildForMeMoodTitle}>Generations by Mood</Text>
+              {buildForMeStats.by_mood_card.slice(0, 5).map((item, index) => {
+                const moodId = item.display_name.toLowerCase();
+                const color = MOOD_COLORS[moodId] || '#FFD700';
+                const icon = MOOD_ICONS[moodId] || 'fitness';
+                const maxCount = buildForMeStats.by_mood_card[0]?.count || 1;
+                const barWidth = (item.count / maxCount) * 100;
+                
+                return (
+                  <View key={index} style={styles.buildForMeMoodRow}>
+                    <View style={styles.buildForMeMoodInfo}>
+                      <Ionicons name={icon as any} size={14} color={color} />
+                      <Text style={styles.buildForMeMoodName}>{item.display_name}</Text>
+                    </View>
+                    <View style={styles.buildForMeMoodBarContainer}>
+                      <View style={[styles.buildForMeMoodBar, { width: `${barWidth}%`, backgroundColor: color }]} />
+                    </View>
+                    <Text style={styles.buildForMeMoodCount}>{item.count}</Text>
+                  </View>
+                );
+              })}
+            </View>
+          )}
+        </View>
+
         {/* Footer */}
         <View style={styles.footer}>
           <Text style={styles.footerText}>
