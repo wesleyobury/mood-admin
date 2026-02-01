@@ -542,13 +542,28 @@ export default function BodyPartsScreen() {
               end={{ x: 1, y: 0 }}
             >
               <Text style={styles.continueButtonText}>
-                Continue with {selectedBodyParts.length} muscle group{selectedBodyParts.length > 1 ? 's' : ''}
+                Continue
               </Text>
               <Ionicons name="arrow-forward" size={20} color='#0c0c0c' style={styles.buttonIcon} />
             </LinearGradient>
           </TouchableOpacity>
         </View>
       )}
+
+      {/* Intensity Selection Modal */}
+      <IntensitySelectionModal
+        visible={showIntensityModal}
+        onClose={() => setShowIntensityModal(false)}
+        onSelectIntensity={handleIntensitySelect}
+        remainingUses={remainingUses}
+      />
+
+      {/* Guest Prompt Modal */}
+      <GuestPromptModal
+        visible={showGuestPrompt}
+        onClose={() => setShowGuestPrompt(false)}
+        message="Sign up or log in to use Build for Me and get personalized workouts!"
+      />
     </SafeAreaView>
   );
 }
