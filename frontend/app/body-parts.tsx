@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import {
   View,
   Text,
@@ -8,12 +8,22 @@ import {
   ScrollView,
   Dimensions,
   Animated,
+  Alert,
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useRouter, useLocalSearchParams } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import Constants from 'expo-constants';
 import HomeButton from '../components/HomeButton';
+import ChooseForMeButton from '../components/ChooseForMeButton';
+import IntensitySelectionModal, { IntensityLevel } from '../components/IntensitySelectionModal';
+import GuestPromptModal from '../components/GuestPromptModal';
+import { generateMuscleGainerCarts } from '../utils/workoutGenerator';
+import { useCart } from '../contexts/CartContext';
+import { useAuth } from '../contexts/AuthContext';
+
+const API_URL = Constants.expoConfig?.extra?.EXPO_BACKEND_URL || '';
 
 const { width } = Dimensions.get('window');
 
