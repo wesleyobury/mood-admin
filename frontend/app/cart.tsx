@@ -876,13 +876,13 @@ const styles = StyleSheet.create({
   startButton: {
     borderRadius: 30,
     overflow: 'hidden',
-    minWidth: 100,
+    minWidth: 115,
   },
   startButtonGradient: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    paddingHorizontal: 24,
+    paddingHorizontal: 28,
     paddingVertical: 14,
   },
   startButtonDisabled: {
