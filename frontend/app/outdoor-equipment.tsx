@@ -20,7 +20,7 @@ import GuestPromptModal from '../components/GuestPromptModal';
 import { generateOutdoorCarts } from '../utils/workoutGenerator';
 import { useCart } from '../contexts/CartContext';
 import { useAuth } from '../contexts/AuthContext';
-import Analytics from '../utils/analytics';
+import { Analytics } from '../utils/analytics';
 
 const API_URL = Constants.expoConfig?.extra?.EXPO_BACKEND_URL || '';
 
