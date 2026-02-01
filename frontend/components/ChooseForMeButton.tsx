@@ -34,7 +34,7 @@ export default function ChooseForMeButton({
 }: ChooseForMeButtonProps) {
   const fadeAnim = useRef(new Animated.Value(variant === 'muscleGroup' ? 1 : 0)).current;
   const scaleAnim = useRef(new Animated.Value(1)).current;
-  const orbitAnim = useRef(new Animated.Value(0)).current;
+  const shimmerAnim = useRef(new Animated.Value(0)).current;
   const [isPressed, setIsPressed] = useState(false);
 
   const backgroundColor = COLORS[variant];
@@ -42,7 +42,7 @@ export default function ChooseForMeButton({
   // Fade-in on mount - no delay for muscleGroup variant
   useEffect(() => {
     if (variant === 'muscleGroup') {
-      startOrbitAnimation();
+      startShimmerAnimation();
       return;
     }
     
@@ -53,19 +53,19 @@ export default function ChooseForMeButton({
         easing: Easing.out(Easing.ease),
         useNativeDriver: false,
       }).start();
-      startOrbitAnimation();
+      startShimmerAnimation();
     }, 2200);
     
     return () => clearTimeout(timer);
   }, [variant]);
 
-  const startOrbitAnimation = () => {
-    orbitAnim.setValue(0);
+  const startShimmerAnimation = () => {
+    shimmerAnim.setValue(0);
     Animated.loop(
-      Animated.timing(orbitAnim, {
+      Animated.timing(shimmerAnim, {
         toValue: 1,
-        duration: 8000, // Very slow 8-second orbit
-        easing: Easing.linear,
+        duration: 3000,
+        easing: Easing.inOut(Easing.ease),
         useNativeDriver: false,
       }),
       { iterations: -1 }
@@ -90,27 +90,10 @@ export default function ChooseForMeButton({
     }).start();
   };
 
-  // Calculate positions for orbiting glows
-  // Orb 1 starts at top center, Orb 2 starts at bottom center (opposite)
-  const orb1Left = orbitAnim.interpolate({
-    inputRange: [0, 0.25, 0.5, 0.75, 1],
-    outputRange: ['50%', '100%', '50%', '0%', '50%'],
-  });
-  
-  const orb1Top = orbitAnim.interpolate({
-    inputRange: [0, 0.25, 0.5, 0.75, 1],
-    outputRange: ['0%', '50%', '100%', '50%', '0%'],
-  });
-  
-  // Orb 2 is offset by 180 degrees (0.5)
-  const orb2Left = orbitAnim.interpolate({
-    inputRange: [0, 0.25, 0.5, 0.75, 1],
-    outputRange: ['50%', '0%', '50%', '100%', '50%'],
-  });
-  
-  const orb2Top = orbitAnim.interpolate({
-    inputRange: [0, 0.25, 0.5, 0.75, 1],
-    outputRange: ['100%', '50%', '0%', '50%', '100%'],
+  // Shimmer position moves from left to right
+  const shimmerTranslate = shimmerAnim.interpolate({
+    inputRange: [0, 1],
+    outputRange: ['-100%', '200%'],
   });
 
   return (
@@ -133,50 +116,7 @@ export default function ChooseForMeButton({
 
       {/* Button wrapper */}
       <View style={styles.buttonWrapper}>
-        {/* Orbiting welder glows */}
-        {!disabled && (
-          <>
-            {/* Orb 1 - Welder glow */}
-            <Animated.View
-              style={[
-                styles.welderOrb,
-                {
-                  left: orb1Left,
-                  top: orb1Top,
-                  opacity: isPressed ? 0.2 : 0.85,
-                }
-              ]}
-            >
-              {/* Outer soft glow */}
-              <View style={styles.welderGlowOuter} />
-              {/* Middle warm glow */}
-              <View style={styles.welderGlowMiddle} />
-              {/* Inner hot core */}
-              <View style={styles.welderGlowCore} />
-            </Animated.View>
-            
-            {/* Orb 2 - Welder glow (opposite side) */}
-            <Animated.View
-              style={[
-                styles.welderOrb,
-                {
-                  left: orb2Left,
-                  top: orb2Top,
-                  opacity: isPressed ? 0.2 : 0.85,
-                }
-              ]}
-            >
-              {/* Outer soft glow */}
-              <View style={styles.welderGlowOuter} />
-              {/* Middle warm glow */}
-              <View style={styles.welderGlowMiddle} />
-              {/* Inner hot core */}
-              <View style={styles.welderGlowCore} />
-            </Animated.View>
-          </>
-        )}
-        
-        {/* Subtle static border */}
+        {/* Subtle border */}
         <View style={[styles.borderGlow, disabled && styles.borderGlowDisabled]} />
         
         {/* Main button content */}
@@ -192,6 +132,34 @@ export default function ChooseForMeButton({
           disabled={disabled}
           activeOpacity={1}
         >
+          {/* Glossy shimmer overlay */}
+          {!disabled && (
+            <Animated.View 
+              style={[
+                styles.shimmerContainer,
+                {
+                  opacity: isPressed ? 0 : 1,
+                  transform: [{ translateX: shimmerTranslate }],
+                }
+              ]}
+              pointerEvents="none"
+            >
+              <LinearGradient
+                colors={[
+                  'transparent',
+                  'rgba(255, 255, 255, 0.03)',
+                  'rgba(255, 255, 255, 0.08)',
+                  'rgba(255, 255, 255, 0.03)',
+                  'transparent',
+                ]}
+                locations={[0, 0.3, 0.5, 0.7, 1]}
+                start={{ x: 0, y: 0 }}
+                end={{ x: 1, y: 0 }}
+                style={styles.shimmerGradient}
+              />
+            </Animated.View>
+          )}
+          
           <View style={styles.content}>
             <Ionicons 
               name="sparkles" 
@@ -234,37 +202,6 @@ const styles = StyleSheet.create({
   buttonWrapper: {
     position: 'relative',
   },
-  welderOrb: {
-    position: 'absolute',
-    width: 24,
-    height: 24,
-    marginLeft: -12,
-    marginTop: -12,
-    zIndex: 10,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  welderGlowOuter: {
-    position: 'absolute',
-    width: 28,
-    height: 28,
-    borderRadius: 14,
-    backgroundColor: 'rgba(255, 160, 60, 0.15)',
-  },
-  welderGlowMiddle: {
-    position: 'absolute',
-    width: 16,
-    height: 16,
-    borderRadius: 8,
-    backgroundColor: 'rgba(255, 200, 100, 0.4)',
-  },
-  welderGlowCore: {
-    position: 'absolute',
-    width: 6,
-    height: 6,
-    borderRadius: 3,
-    backgroundColor: 'rgba(255, 250, 220, 0.9)',
-  },
   borderGlow: {
     position: 'absolute',
     top: 0,
@@ -273,7 +210,7 @@ const styles = StyleSheet.create({
     bottom: 0,
     borderRadius: BORDER_RADIUS,
     borderWidth: 1,
-    borderColor: 'rgba(201, 164, 76, 0.2)',
+    borderColor: 'rgba(201, 164, 76, 0.25)',
     zIndex: 0,
   },
   borderGlowDisabled: {
@@ -287,6 +224,18 @@ const styles = StyleSheet.create({
   buttonDisabled: {
     opacity: 0.5,
   },
+  shimmerContainer: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    zIndex: 1,
+  },
+  shimmerGradient: {
+    width: '50%',
+    height: '100%',
+  },
   content: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -294,6 +243,7 @@ const styles = StyleSheet.create({
     paddingVertical: 18,
     paddingHorizontal: 24,
     gap: 10,
+    zIndex: 2,
   },
   text: {
     fontSize: 15,
