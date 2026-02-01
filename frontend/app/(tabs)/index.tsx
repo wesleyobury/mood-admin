@@ -1366,38 +1366,4 @@ const styles = StyleSheet.create({
   streakIcon: {
     marginLeft: 4,
   },
-  exerciseLibraryButton: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    backgroundColor: 'rgba(255, 215, 0, 0.05)',
-    marginHorizontal: 24,
-    marginTop: 16,
-    marginBottom: 8,
-    borderRadius: 12,
-    padding: 14,
-    borderWidth: 1,
-    borderColor: 'rgba(255, 215, 0, 0.15)',
-  },
-  exerciseLibraryIcon: {
-    width: 40,
-    height: 40,
-    borderRadius: 20,
-    backgroundColor: 'rgba(255, 215, 0, 0.1)',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  exerciseLibraryTextContainer: {
-    flex: 1,
-    marginLeft: 12,
-  },
-  exerciseLibraryTitle: {
-    fontSize: 15,
-    fontWeight: '600',
-    color: '#fff',
-  },
-  exerciseLibrarySubtitle: {
-    fontSize: 12,
-    color: '#888',
-    marginTop: 2,
-  },
 });
