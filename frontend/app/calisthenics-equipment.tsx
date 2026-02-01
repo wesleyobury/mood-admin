@@ -20,6 +20,7 @@ import GuestPromptModal from '../components/GuestPromptModal';
 import { generateCalisthenicsCarts } from '../utils/workoutGenerator';
 import { useCart } from '../contexts/CartContext';
 import { useAuth } from '../contexts/AuthContext';
+import Analytics from '../utils/analytics';
 
 const API_URL = Constants.expoConfig?.extra?.EXPO_BACKEND_URL || '';
 
