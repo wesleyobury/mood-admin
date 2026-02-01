@@ -816,23 +816,6 @@ const styles = StyleSheet.create({
     top: 8,
     right: 8,
   },
-  selectionSummary: {
-    backgroundColor: 'transparent',
-    marginTop: 16,
-    marginBottom: 12,
-  },
-  selectionLabel: {
-    fontSize: 12,
-    color: '#888',
-    textAlign: 'center',
-    marginBottom: 4,
-  },
-  selectionText: {
-    fontSize: 16,
-    color: '#FFFFFF',
-    textAlign: 'center',
-    fontWeight: '600',
-  },
   bottomContainer: {
     paddingHorizontal: 20,
     paddingBottom: 20,
