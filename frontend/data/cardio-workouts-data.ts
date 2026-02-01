@@ -1729,7 +1729,7 @@ export const cardioWorkoutsDatabase: EquipmentWorkouts[] = [
           duration: '15 min',
           description: 'Cardio and strength: swings paired with farmer\'s carries.\n\n ',
           battlePlan: 'Perform 4 rounds:\n• 20 kettlebell swings\n• 30-sec farmer\'s carry (walk with 2 kettlebells)\n• Rest 60 sec\nFinish with 2 min stretching',
-          imageUrl: 'https://images.unsplash.com/photo-1566241134850-541012f1d4cf?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODF8MHwxfHNlYXJjaHwxfHxrZXR0bGViZWxsJTIwd29ya291dHxlbnwwfHx8fDE3NTY4ODMyMzd8MA&ixlib=rb-4.1.0&q=85',
+          imageUrl: 'https://images.unsplash.com/flagged/photo-1556895368-9d1eed826c58?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA2MDV8MHwxfHNlYXJjaHwxfHxrZXR0bGViZWxsJTIwd29ya291dHxlbnwwfHx8fDE3Njk5MTQ4MzZ8MA&ixlib=rb-4.1.0&q=85',
           intensityReason: 'Basic kettlebell introduction with hip hinge training.',
           moodTips: [
             {
