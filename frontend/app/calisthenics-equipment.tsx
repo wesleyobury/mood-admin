@@ -488,6 +488,22 @@ export default function CalisthenicsEquipmentScreen() {
         onClose={() => setShowGuestPrompt(false)}
         message="Sign up or log in to use Build for Me and get personalized workouts!"
       />
+
+      {/* Generated Workout View Modal */}
+      {showGeneratedWorkout && generatedCarts.length > 0 && (
+        <Modal visible={true} animationType="slide" presentationStyle="fullScreen">
+          <GeneratedWorkoutView
+            carts={generatedCarts}
+            moodTitle={moodTitle}
+            workoutType={workoutType}
+            onStartWorkout={handleStartWorkout}
+            onClose={() => { setShowGeneratedWorkout(false); setGeneratedCarts([]); }}
+            onSkip={handleSkip}
+            onSave={handleSaveWorkout}
+            remainingGenerations={remainingUses}
+          />
+        </Modal>
+      )}
     </SafeAreaView>
   );
 }
