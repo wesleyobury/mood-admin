@@ -16,8 +16,10 @@ import { LinearGradient } from 'expo-linear-gradient';
 import { Workout } from '../types/workout';
 import CustomWorkoutModal from './CustomWorkoutModal';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { useAuth } from '../contexts/AuthContext';
 
-const TOOLTIP_SHOWN_KEY = 'custom_workout_tooltip_shown_v3';
+const TOOLTIP_SHOWN_KEY = 'custom_workout_tooltip_shown_v4';
+const GUEST_TOOLTIP_SESSION_KEY = 'guest_tooltip_session_shown';
 
 const { width, height } = Dimensions.get('window');
 
