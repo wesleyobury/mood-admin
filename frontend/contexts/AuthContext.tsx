@@ -340,6 +340,9 @@ export function AuthProvider({ children }: AuthProviderProps) {
     try {
       await AsyncStorage.setItem('is_guest', 'true');
       
+      // Clear guest tooltip session key so it shows for each new guest session
+      await AsyncStorage.removeItem('guest_tooltip_session_shown');
+      
       // Track guest session start
       await GuestAnalytics.guestSessionStarted();
       console.log('📊 Guest session tracking started');
