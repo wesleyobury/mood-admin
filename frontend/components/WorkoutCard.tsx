@@ -219,10 +219,10 @@ const WorkoutCard = React.memo(({
           <Text style={styles.workoutDescription}>{item.description}</Text>
         </View>
 
-        {/* Add Workout Button - with direct glow and wiggle when highlighted */}
+        {/* Add Workout Button - with wiggle when highlighted, elevated above overlay */}
         <Animated.View 
           style={[
-            showHighlight && styles.glowingButton,
+            showHighlight && styles.elevatedButton,
             showHighlight && {
               transform: [{ rotate: wiggleAnim2.interpolate({
                 inputRange: [-1, 1],
@@ -233,10 +233,7 @@ const WorkoutCard = React.memo(({
         >
           <Animated.View style={{ transform: [{ scale: localScaleAnim }] }}>
             <TouchableOpacity
-              style={[
-                styles.addWorkoutButton,
-                showHighlight && styles.highlightedBorder,
-              ]}
+              style={styles.addWorkoutButton}
               onPress={() => handleAddToCartWithAnimation(item)}
               activeOpacity={0.8}
               disabled={isInCart(createWorkoutId(item, equipment, difficulty))}
