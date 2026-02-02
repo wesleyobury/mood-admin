@@ -17,7 +17,7 @@ import CustomWorkoutModal from './CustomWorkoutModal';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useAuth } from '../contexts/AuthContext';
 
-const TOOLTIP_SHOWN_KEY = 'custom_workout_tooltip_shown_v5';
+const TOOLTIP_SHOWN_KEY = 'custom_workout_tooltip_shown_v6';
 const GUEST_TOOLTIP_SESSION_KEY = 'guest_tooltip_session_shown';
 
 const { width, height } = Dimensions.get('window');
@@ -31,6 +31,9 @@ export interface WorkoutCardProps {
   createWorkoutId: (workout: Workout, equipment: string, difficulty: string) => string;
   handleAddToCart: (workout: Workout, equipment: string) => void;
   onStartWorkout: (workout: Workout, equipment: string, difficulty: string) => void;
+  // Optional prop to control highlight from parent
+  externalHighlight?: boolean;
+  onHighlightDismiss?: () => void;
 }
 
 const WorkoutCard = React.memo(({
@@ -42,16 +45,21 @@ const WorkoutCard = React.memo(({
   createWorkoutId,
   handleAddToCart,
   onStartWorkout,
+  externalHighlight,
+  onHighlightDismiss,
 }: WorkoutCardProps) => {
   const { isGuest, token } = useAuth();
   const [currentWorkoutIndex, setCurrentWorkoutIndex] = useState(0);
   const [localScaleAnim] = useState(new Animated.Value(1));
   const [customModalVisible, setCustomModalVisible] = useState(false);
   const [selectedWorkoutForEdit, setSelectedWorkoutForEdit] = useState<Workout | null>(null);
-  const [showHighlight, setShowHighlight] = useState(false);
+  const [internalHighlight, setInternalHighlight] = useState(false);
   const flatListRef = useRef<FlatList>(null);
   const isMounted = useRef(true);
   const highlightTimerRef = useRef<NodeJS.Timeout | null>(null);
+  
+  // Use external highlight if provided, otherwise use internal state
+  const showHighlight = externalHighlight !== undefined ? externalHighlight : internalHighlight;
   
   // Animation values for wiggle effect on each button
   const wiggleAnim1 = useRef(new Animated.Value(0)).current; // Pencil
