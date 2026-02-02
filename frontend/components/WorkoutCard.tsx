@@ -383,48 +383,64 @@ const WorkoutCard = React.memo(({
         </View>
         
         {/* Edit Button - Right side, aligned with dots */}
-        <TouchableOpacity
-          style={styles.editButton}
-          onPress={() => handleOpenCustomModal(workouts[currentWorkoutIndex])}
-          activeOpacity={0.8}
-        >
-          <Ionicons name="pencil" size={18} color="#FFD700" />
-        </TouchableOpacity>
+        <View ref={pencilButtonRef} collapsable={false}>
+          <TouchableOpacity
+            style={styles.editButton}
+            onPress={() => handleOpenCustomModal(workouts[currentWorkoutIndex])}
+            activeOpacity={0.8}
+          >
+            <Ionicons name="pencil" size={18} color="#FFD700" />
+          </TouchableOpacity>
+        </View>
       </View>
 
       {/* Tooltip Modal Overlay - appears above everything */}
       <Modal
-        visible={showTooltip}
+        visible={showTooltip && tooltipReady}
         transparent={true}
         animationType="fade"
         onRequestClose={dismissTooltip}
       >
         <Pressable style={styles.tooltipOverlay} onPress={dismissTooltip}>
-          {/* Pencil Tooltip - positioned near bottom right */}
-          <Animated.View 
-            style={[
-              styles.pencilTooltipContainer,
-              { transform: [{ translateY: bounceAnim1 }] }
-            ]}
-          >
-            <View style={styles.tooltipBubble}>
-              <Text style={styles.tooltipText}>Tap to customize</Text>
-            </View>
-            <View style={styles.tooltipArrowDown} />
-          </Animated.View>
+          {/* Pencil Tooltip - dynamically positioned above pencil button */}
+          {pencilPosition.y > 0 && (
+            <Animated.View 
+              style={[
+                styles.tooltipContainer,
+                { 
+                  position: 'absolute',
+                  top: pencilPosition.y - 70,
+                  left: pencilPosition.x + (pencilPosition.width / 2) - 75,
+                  transform: [{ translateY: bounceAnim1 }] 
+                }
+              ]}
+            >
+              <View style={styles.tooltipBubble}>
+                <Text style={styles.tooltipText}>Tap to customize</Text>
+              </View>
+              <View style={styles.tooltipArrowDown} />
+            </Animated.View>
+          )}
           
-          {/* Add Workout Tooltip - positioned center-ish */}
-          <Animated.View 
-            style={[
-              styles.addWorkoutTooltipContainer,
-              { transform: [{ translateY: bounceAnim2 }] }
-            ]}
-          >
-            <View style={styles.tooltipBubble}>
-              <Text style={styles.tooltipText}>Build a custom workout</Text>
-            </View>
-            <View style={styles.tooltipArrowDownCenter} />
-          </Animated.View>
+          {/* Add Workout Tooltip - dynamically positioned above add button */}
+          {addButtonPosition.y > 0 && (
+            <Animated.View 
+              style={[
+                styles.tooltipContainer,
+                { 
+                  position: 'absolute',
+                  top: addButtonPosition.y - 70,
+                  left: addButtonPosition.x + (addButtonPosition.width / 2) - 100,
+                  transform: [{ translateY: bounceAnim2 }] 
+                }
+              ]}
+            >
+              <View style={styles.tooltipBubble}>
+                <Text style={styles.tooltipText}>Build a custom workout</Text>
+              </View>
+              <View style={styles.tooltipArrowDownCenter} />
+            </Animated.View>
+          )}
         </Pressable>
       </Modal>
 
