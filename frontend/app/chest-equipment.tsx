@@ -29,7 +29,7 @@ interface DifficultyLevel {
 }
 
 const equipmentOptions: EquipmentOption[] = [
-  { id: 'adjustable-bench', name: 'Adjustable bench', icon: 'square' },
+  { id: 'dumbbells', name: 'Dumbbells', icon: 'barbell' },
   { id: 'cable-crossover', name: 'Cable crossover', icon: 'reorder-three' },
   { id: 'chest-press-machine', name: 'Chest press machine', icon: 'hardware-chip' },
   { id: 'decline-bench', name: 'Decline bench', icon: 'trending-down' },
