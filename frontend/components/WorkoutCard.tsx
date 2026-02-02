@@ -8,6 +8,8 @@ import {
   Image,
   FlatList,
   Animated,
+  Modal,
+  Pressable,
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
@@ -15,9 +17,9 @@ import { Workout } from '../types/workout';
 import CustomWorkoutModal from './CustomWorkoutModal';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-const TOOLTIP_SHOWN_KEY = 'custom_workout_tooltip_shown_v2';
+const TOOLTIP_SHOWN_KEY = 'custom_workout_tooltip_shown_v3';
 
-const { width } = Dimensions.get('window');
+const { width, height } = Dimensions.get('window');
 
 export interface WorkoutCardProps {
   equipment: string;
@@ -46,6 +48,10 @@ const WorkoutCard = React.memo(({
   const [selectedWorkoutForEdit, setSelectedWorkoutForEdit] = useState<Workout | null>(null);
   const [showTooltip, setShowTooltip] = useState(false);
   const flatListRef = useRef<FlatList>(null);
+  
+  // Animation values for bounce effect
+  const bounceAnim1 = useRef(new Animated.Value(0)).current;
+  const bounceAnim2 = useRef(new Animated.Value(0)).current;
 
   // Check if tooltip should be shown (first time users)
   useEffect(() => {
@@ -54,7 +60,10 @@ const WorkoutCard = React.memo(({
         const hasSeenTooltip = await AsyncStorage.getItem(TOOLTIP_SHOWN_KEY);
         if (!hasSeenTooltip) {
           // Small delay to let the screen render first
-          setTimeout(() => setShowTooltip(true), 1500);
+          setTimeout(() => {
+            setShowTooltip(true);
+            startBounceAnimation();
+          }, 1500);
         }
       } catch (error) {
         console.log('Error checking tooltip status:', error);
@@ -63,8 +72,35 @@ const WorkoutCard = React.memo(({
     checkTooltipStatus();
   }, []);
 
+  const startBounceAnimation = () => {
+    // Continuous bounce animation
+    const createBounce = (anim: Animated.Value, delay: number) => {
+      Animated.loop(
+        Animated.sequence([
+          Animated.delay(delay),
+          Animated.timing(anim, {
+            toValue: -8,
+            duration: 300,
+            useNativeDriver: true,
+          }),
+          Animated.timing(anim, {
+            toValue: 0,
+            duration: 300,
+            useNativeDriver: true,
+          }),
+          Animated.delay(1500),
+        ])
+      ).start();
+    };
+    
+    createBounce(bounceAnim1, 0);
+    createBounce(bounceAnim2, 150);
+  };
+
   const dismissTooltip = async () => {
     setShowTooltip(false);
+    bounceAnim1.stopAnimation();
+    bounceAnim2.stopAnimation();
     try {
       await AsyncStorage.setItem(TOOLTIP_SHOWN_KEY, 'true');
     } catch (error) {
