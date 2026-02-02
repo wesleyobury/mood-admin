@@ -8,14 +8,14 @@ import {
   Image,
   FlatList,
   Animated,
-  Modal,
-  Pressable,
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
 import { Workout } from '../types/workout';
 import CustomWorkoutModal from './CustomWorkoutModal';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+
+const TOOLTIP_SHOWN_KEY = 'custom_workout_tooltip_shown_v2';
 
 const { width } = Dimensions.get('window');
 const TOOLTIP_SHOWN_KEY = 'custom_workout_tooltip_shown';
