@@ -61,7 +61,7 @@ export const chestWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–15 min',
           description: 'Slow eccentrics reinforce form and chest awareness.',
           battlePlan: 'Instructions: Lower the bar for 4 seconds each rep.\nSets: 3\nRest: 90s\n\n• Barbell Bench Press — 3 × 6 (4s eccentric)',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/hs5s9gux_download%20%286%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_chest-workout-hub/artifacts/8vgsd11o_ChatGPT%20Image%20Feb%201%2C%202026%2C%2008_42_28%20PM.png',
           intensityReason: 'Slow eccentrics reinforce form and chest awareness.',
           moodTips: [
             {
@@ -86,7 +86,7 @@ export const chestWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–14 min',
           description: 'High-rep benching to build endurance and comfort.',
           battlePlan: 'Instructions: Choose a light load and move continuously.\nSets: 3\nRest: 60s\n\n• Barbell Bench Press — 3 × 15–20',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/1yb66xch_download%20%285%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_chest-workout-hub/artifacts/3w0gsy1c_ChatGPT%20Image%20Feb%201%2C%202026%2C%2008_35_12%20PM.png',
           intensityReason: 'High-rep benching to build endurance and comfort.',
           moodTips: [
             {
@@ -163,7 +163,7 @@ export const chestWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–18 min',
           description: 'Paused benching with a strong contraction finish.',
           battlePlan: 'Instructions: Final rep includes a 6–8s squeeze at lockout.\nSets: 4\nRest: 2:00\n\n• Paused Barbell Bench Press — 4 × 4\nFinal rep: 6–8s squeeze',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/hs5s9gux_download%20%286%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_chest-workout-hub/artifacts/8vgsd11o_ChatGPT%20Image%20Feb%201%2C%202026%2C%2008_42_28%20PM.png',
           intensityReason: 'Paused benching with a strong contraction finish.',
           moodTips: [
             {
@@ -188,7 +188,7 @@ export const chestWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '15–18 min',
           description: 'Close-grip bench paired with explosive push-ups.',
           battlePlan: 'Instructions: Move immediately from bar to floor.\nSets: 4\nRest: 90s after push-ups\n\n• Close-Grip Bench Press — 4 × 6\n• Explosive Push-Ups — 4 × 12–15',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/1yb66xch_download%20%285%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_chest-workout-hub/artifacts/3w0gsy1c_ChatGPT%20Image%20Feb%201%2C%202026%2C%2008_35_12%20PM.png',
           intensityReason: 'Close-grip bench paired with explosive push-ups.',
           moodTips: [
             {
@@ -265,7 +265,7 @@ export const chestWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '15–20 min',
           description: 'Four-stage bench drop set for maximal chest fatigue.',
           battlePlan: 'Instructions: Strip weight immediately between stages.\nSets: 3\nRest: 2:30\n\n• Bench Press (Heavy) — max reps\n• Drop 1 (Medium) — max reps\n• Drop 2 (Light) — 12–15 reps\n• Drop 3 (Very Light) — burnout',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/hs5s9gux_download%20%286%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_chest-workout-hub/artifacts/8vgsd11o_ChatGPT%20Image%20Feb%201%2C%202026%2C%2008_42_28%20PM.png',
           intensityReason: 'Four-stage bench drop set for maximal chest fatigue.',
           moodTips: [
             {
@@ -290,7 +290,7 @@ export const chestWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '15–20 min',
           description: 'Heavy benching paired with explosive plyo push-ups.',
           battlePlan: 'Instructions: Move quickly but under control.\nSets: 4\nRest: 2:00 after push-ups\n\n• Bench Press — 4 × 4\n• Clap Push-Ups — 4 × 6–10',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/1yb66xch_download%20%285%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_chest-workout-hub/artifacts/3w0gsy1c_ChatGPT%20Image%20Feb%201%2C%202026%2C%2008_35_12%20PM.png',
           intensityReason: 'Heavy benching paired with explosive plyo push-ups.',
           moodTips: [
             {
