@@ -553,6 +553,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     gap: 8,
   },
+  editButtonWrapper: {
+    position: 'absolute',
+    top: -10,
+    right: 21,
+  },
   editButton: {
     width: 36,
     height: 36,
