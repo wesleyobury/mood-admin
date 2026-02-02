@@ -2184,5 +2184,941 @@ export const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
         }
       ]
     }
+  },
+  {
+    equipment: 'Adjustable Bench',
+    icon: 'square',
+    workouts: {
+      beginner: [
+        {
+          name: 'Seated Shoulder Press Builder',
+          duration: '12–14 min',
+          description: 'Standard seated press workout using bench support for clean shoulder loading.',
+          battlePlan: 'Battle Plan — Standard Sets\n• 4×12 Seated Dumbbell Shoulder Press (bench ~80–85°) — standard reps\nRest 60s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/d2gkwhep_download%20%282%29.png',
+          intensityReason: 'Standard seated press workout using bench support for clean shoulder loading.',
+          moodTips: [
+            {
+              icon: 'body',
+              title: 'Sit tall with ribs down',
+              description: 'Bench support removes momentum.'
+            },
+            {
+              icon: 'timer',
+              title: 'Lower under control',
+              description: 'Stability beats heavier weight.'
+            },
+            {
+              icon: 'pause',
+              title: 'Press to contraction, not lockout',
+              description: 'Stop just short of straight arms and squeeze the delts.'
+            }
+          ]
+        },
+        {
+          name: 'Incline Lateral Raise Builder',
+          duration: '12–14 min',
+          description: 'Standard isolation workout using bench angle to bias side delts.',
+          battlePlan: 'Battle Plan — Standard Sets\n• 4×15 Incline Dumbbell Lateral Raise (bench ~30°) — standard reps\nRest 60s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/d2gkwhep_download%20%282%29.png',
+          intensityReason: 'Standard isolation workout using bench angle to bias side delts.',
+          moodTips: [
+            {
+              icon: 'body',
+              title: 'Chest stays supported',
+              description: 'Removes torso cheating.'
+            },
+            {
+              icon: 'hand-left',
+              title: 'Lead with elbows',
+              description: 'Keeps load on delts.'
+            },
+            {
+              icon: 'trending-down',
+              title: 'Let arms hang deep',
+              description: 'Longer stretch + clean raise = better pump.'
+            }
+          ]
+        },
+        {
+          name: 'Bench-Supported Front Raise',
+          duration: '12–14 min',
+          description: 'Standard anterior-delt workout with bench support to control swing.',
+          battlePlan: 'Battle Plan — Standard Sets\n• 4×12 Seated Front Raise (bench ~70°) — standard reps\nRest 60s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/d2gkwhep_download%20%282%29.png',
+          intensityReason: 'Standard anterior-delt workout with bench support to control swing.',
+          moodTips: [
+            {
+              icon: 'body',
+              title: 'Back stays glued to bench',
+              description: 'No momentum assistance.'
+            },
+            {
+              icon: 'checkmark-circle',
+              title: 'Raise to eye level only',
+              description: 'Keeps delts loaded.'
+            },
+            {
+              icon: 'trending-down',
+              title: 'Use lighter weight, longer range',
+              description: 'Front delts pump fast with clean reps.'
+            }
+          ]
+        },
+        {
+          name: 'Seated Press + Iso Finish',
+          duration: '12–14 min',
+          description: 'Standard press workout with squeeze-to-finish in the contracted range.',
+          battlePlan: 'Battle Plan — Standard + Isometric Finish\n• 4×10 Seated Shoulder Press — standard reps\n• Final set: squeeze to finish — hold just before lockout (peak delt contraction) 8–10s\nRest 60s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/d2gkwhep_download%20%282%29.png',
+          intensityReason: 'Standard press workout with squeeze-to-finish in the contracted range.',
+          moodTips: [
+            {
+              icon: 'hand-left',
+              title: 'Elbows stay slightly bent',
+              description: 'Keeps tension on delts.'
+            },
+            {
+              icon: 'body',
+              title: 'Brace into the bench',
+              description: 'Stability increases output.'
+            },
+            {
+              icon: 'flame',
+              title: 'Hold where delts work hardest',
+              description: 'Contracted position beats lockout.'
+            }
+          ]
+        }
+      ],
+      intermediate: [
+        {
+          name: 'Arnold Press Builder',
+          duration: '14–16 min',
+          description: 'Standard rotational press workout for full-delt recruitment.',
+          battlePlan: 'Battle Plan — Standard Sets\n• 5×10 Seated Arnold Press — standard reps\nRest 75s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/z5yngcpg_incline%20arnold.jpeg',
+          intensityReason: 'Standard rotational press workout for full-delt recruitment.',
+          moodTips: [
+            {
+              icon: 'refresh',
+              title: 'Rotate smoothly, no jerking',
+              description: 'Shoulder fibers load evenly.'
+            },
+            {
+              icon: 'trending-down',
+              title: 'Control the bottom',
+              description: 'Prevents shoulder dump.'
+            },
+            {
+              icon: 'pause',
+              title: 'Finish rotation before lockout',
+              description: 'Squeeze when delts are shortened.'
+            }
+          ]
+        },
+        {
+          name: 'Low-Incline Delt Fly',
+          duration: '14–16 min',
+          description: 'Standard isolation workout targeting front-to-side delt fibers.',
+          battlePlan: 'Battle Plan — Standard Sets\n• 4×12 Low-Incline Dumbbell Delt Fly (bench ~20–30°) — standard reps\nRest 75s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/d2gkwhep_download%20%282%29.png',
+          intensityReason: 'Standard isolation workout targeting front-to-side delt fibers.',
+          moodTips: [
+            {
+              icon: 'hand-left',
+              title: 'Arms slightly bent',
+              description: 'Maintains tension.'
+            },
+            {
+              icon: 'trending-up',
+              title: 'Wide arc, not straight up',
+              description: 'Keeps delts dominant.'
+            },
+            {
+              icon: 'trending-down',
+              title: 'Stretch deep at the bottom',
+              description: 'Long range = better pump.'
+            }
+          ]
+        },
+        {
+          name: 'Paused Seated Lateral Raise',
+          duration: '15–17 min',
+          description: 'Pause-rep isolation workout emphasizing top-end control.',
+          battlePlan: 'Battle Plan — Pause Sets\n• 4×12 Seated Dumbbell Lateral Raise — pause reps (1s top)\nRest 75s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/d2gkwhep_download%20%282%29.png',
+          intensityReason: 'Pause-rep isolation workout emphasizing top-end control.',
+          moodTips: [
+            {
+              icon: 'pause',
+              title: 'Pause kills momentum',
+              description: 'Honest delt output.'
+            },
+            {
+              icon: 'checkmark-circle',
+              title: 'Stop at shoulder height',
+              description: 'Avoids trap takeover.'
+            },
+            {
+              icon: 'flame',
+              title: 'Squeeze before lowering',
+              description: 'Contraction drives the pump.'
+            }
+          ]
+        },
+        {
+          name: 'Press + Raise Contrast',
+          duration: '15–17 min',
+          description: 'Superset workout pairing heavy pressing with isolation fatigue.',
+          battlePlan: 'Battle Plan — Superset\n• 4×10 Seated Dumbbell Shoulder Press — standard reps\nsuperset with\n• 12–15 Seated Lateral Raises\nRest 90s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/d2gkwhep_download%20%282%29.png',
+          intensityReason: 'Superset workout pairing heavy pressing with isolation fatigue.',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Press first while fresh',
+              description: 'Preserves strength.'
+            },
+            {
+              icon: 'body',
+              title: 'Raises extend fatigue safely',
+              description: 'No extra joint stress.'
+            },
+            {
+              icon: 'timer',
+              title: 'Slow the raises',
+              description: 'Time under tension = pump.'
+            }
+          ]
+        }
+      ],
+      advanced: [
+        {
+          name: 'Angle Progression Press',
+          duration: '18–20 min',
+          description: 'Standard press workout progressing through multiple bench angles.',
+          battlePlan: 'Battle Plan — Standard Sets\n• 3 rounds:\n  8 reps @ 85° → 8 reps @ 70° → 8 reps @ 60°\nRest 90s between rounds',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/d2gkwhep_download%20%282%29.png',
+          intensityReason: 'Standard press workout progressing through multiple bench angles.',
+          moodTips: [
+            {
+              icon: 'refresh',
+              title: 'Adjust bench, not stance',
+              description: 'Keeps pressing consistent.'
+            },
+            {
+              icon: 'trending-down',
+              title: 'Lower angle = more delt demand',
+              description: 'Fatigue stacks fast.'
+            },
+            {
+              icon: 'pause',
+              title: 'Squeeze at each angle',
+              description: 'Contracted delts finish every set.'
+            }
+          ]
+        },
+        {
+          name: 'Arnold Press Drop Cluster',
+          duration: '18–20 min',
+          description: 'Multi-drop rotational press workout driving mechanical fatigue.',
+          battlePlan: 'Battle Plan — Drop Cluster\n• Set 1: 10 reps — standard\n• Set 2: drop set — 10 → drop ~15% → 8\n• Set 3: triple drop set — 8 → drop ~20% → 6 → drop ~15% → 6\nRest 90s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/z5yngcpg_incline%20arnold.jpeg',
+          intensityReason: 'Multi-drop rotational press workout driving mechanical fatigue.',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Weight changes are immediate',
+              description: 'No more than ~10s between drops.'
+            },
+            {
+              icon: 'refresh',
+              title: 'Rotation stays smooth',
+              description: 'Sloppy turns kill tension.'
+            },
+            {
+              icon: 'pause',
+              title: 'End each drop with a squeeze',
+              description: 'Contracted position, not lockout.'
+            }
+          ]
+        },
+        {
+          name: 'Seated Lateral Raise Burnout',
+          duration: '18–20 min',
+          description: 'Burnout isolation workout for nonstop side-delt tension.',
+          battlePlan: 'Battle Plan — Burnout Sets\n• 4×20 Seated Dumbbell Lateral Raise — burnout reps\nRest 90s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/d2gkwhep_download%20%282%29.png',
+          intensityReason: 'Burnout isolation workout for nonstop side-delt tension.',
+          moodTips: [
+            {
+              icon: 'hand-left',
+              title: 'No swinging allowed',
+              description: 'Bench exposes cheats.'
+            },
+            {
+              icon: 'timer',
+              title: 'Short rest keeps tension high',
+              description: 'Fatigue stacks quickly.'
+            },
+            {
+              icon: 'flame',
+              title: 'Live in the mid-range',
+              description: "That's where delts stay pumped."
+            }
+          ]
+        },
+        {
+          name: 'Incline Fly + Iso Burn',
+          duration: '18–20 min',
+          description: 'Burnout + isometric workout emphasizing stretched-to-contracted control.',
+          battlePlan: 'Battle Plan — Burnout + Isometric\n• 4×15 Incline Dumbbell Delt Fly — burnout reps\n• Final set: squeeze to finish — hold arms wide and slightly raised (peak delt contraction) 10s\nRest 90s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/d2gkwhep_download%20%282%29.png',
+          intensityReason: 'Burnout + isometric workout emphasizing stretched-to-contracted control.',
+          moodTips: [
+            {
+              icon: 'hand-left',
+              title: "Open wide, don't over-bend elbows",
+              description: 'Keeps tension on delts.'
+            },
+            {
+              icon: 'timer',
+              title: 'Slow last reps',
+              description: 'Stretch + control amplify fatigue.'
+            },
+            {
+              icon: 'flame',
+              title: 'Hold where arms are hardest to keep up',
+              description: "That's the true contracted position."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    equipment: 'Kettlebells',
+    icon: 'fitness',
+    workouts: {
+      beginner: [
+        {
+          name: 'Single-Arm KB Press Builder',
+          duration: '12–14 min',
+          description: 'Standard unilateral press workout using kettlebell instability for delt activation.',
+          battlePlan: 'Battle Plan — Standard Sets\n• 4×10 Single-Arm Kettlebell Press — standard reps\nRest 60s per side',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/d2gkwhep_download%20%282%29.png',
+          intensityReason: 'Standard unilateral press workout using kettlebell instability for delt activation.',
+          moodTips: [
+            {
+              icon: 'hand-left',
+              title: 'Stack wrist over elbow',
+              description: 'Prevents energy leaks.'
+            },
+            {
+              icon: 'trending-up',
+              title: 'Press slightly forward',
+              description: 'Shoulder-friendly path.'
+            },
+            {
+              icon: 'pause',
+              title: 'Lower deep, finish short of lockout',
+              description: 'Squeeze where delts are shortened, not resting.'
+            }
+          ]
+        },
+        {
+          name: 'KB Front Raise Control',
+          duration: '12–14 min',
+          description: 'Standard isolation workout targeting anterior delts with offset load.',
+          battlePlan: 'Battle Plan — Standard Sets\n• 4×12 Kettlebell Front Raise — standard reps\nRest 60s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/d2gkwhep_download%20%282%29.png',
+          intensityReason: 'Standard isolation workout targeting anterior delts with offset load.',
+          moodTips: [
+            {
+              icon: 'hand-left',
+              title: 'Handle stays vertical',
+              description: 'Keeps load honest.'
+            },
+            {
+              icon: 'checkmark-circle',
+              title: 'Raise only to eye level',
+              description: 'Prevents trap dominance.'
+            },
+            {
+              icon: 'flame',
+              title: 'Light bell, long arc',
+              description: 'Front delts pump fast with tension.'
+            }
+          ]
+        },
+        {
+          name: 'KB Lateral Raise Builder',
+          duration: '12–14 min',
+          description: 'Standard isolation workout emphasizing side delts and grip control.',
+          battlePlan: 'Battle Plan — Standard Sets\n• 4×15 Kettlebell Lateral Raise — standard reps\nRest 60s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/d2gkwhep_download%20%282%29.png',
+          intensityReason: 'Standard isolation workout emphasizing side delts and grip control.',
+          moodTips: [
+            {
+              icon: 'hand-left',
+              title: 'Thumb slightly down',
+              description: 'Improves delt bias.'
+            },
+            {
+              icon: 'timer',
+              title: 'Slow on the way down',
+              description: 'Eccentric drives fatigue.'
+            },
+            {
+              icon: 'trending-down',
+              title: 'Start from full hang',
+              description: 'Longer stretch = better pump.'
+            }
+          ]
+        },
+        {
+          name: 'Press + Iso Finish',
+          duration: '12–14 min',
+          description: 'Standard press workout with squeeze-to-finish in the contracted range.',
+          battlePlan: 'Battle Plan — Standard + Isometric Finish\n• 4×10 Single-Arm KB Press — standard reps\n• Final set: squeeze to finish — hold just before lockout (peak delt contraction) 8–10s\nRest 60s per side',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/d2gkwhep_download%20%282%29.png',
+          intensityReason: 'Standard press workout with squeeze-to-finish in the contracted range.',
+          moodTips: [
+            {
+              icon: 'hand-left',
+              title: 'Elbow stays soft at the top',
+              description: 'Keeps tension on delts.'
+            },
+            {
+              icon: 'body',
+              title: 'Brace through the hold',
+              description: 'Stability matters.'
+            },
+            {
+              icon: 'timer',
+              title: 'Use lighter bell for the hold',
+              description: 'Longer contraction = stronger pump.'
+            }
+          ]
+        }
+      ],
+      intermediate: [
+        {
+          name: 'KB Arnold Press Builder',
+          duration: '14–16 min',
+          description: 'Standard rotational press workout for full-delt recruitment.',
+          battlePlan: 'Battle Plan — Standard Sets\n• 5×8 Kettlebell Arnold Press — standard reps\nRest 75s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/d2gkwhep_download%20%282%29.png',
+          intensityReason: 'Standard rotational press workout for full-delt recruitment.',
+          moodTips: [
+            {
+              icon: 'refresh',
+              title: 'Rotate smoothly, no snapping',
+              description: 'Even fiber loading.'
+            },
+            {
+              icon: 'trending-down',
+              title: 'Control the bottom',
+              description: 'Prevents shoulder dump.'
+            },
+            {
+              icon: 'pause',
+              title: 'Finish rotation before lockout',
+              description: 'Contracted delts > joint rest.'
+            }
+          ]
+        },
+        {
+          name: 'KB Upright Row Control',
+          duration: '14–16 min',
+          description: 'Standard pull-focused shoulder workout biasing delts over traps.',
+          battlePlan: 'Battle Plan — Standard Sets\n• 4×12 Kettlebell Upright Row — standard reps\nRest 75s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/d2gkwhep_download%20%282%29.png',
+          intensityReason: 'Standard pull-focused shoulder workout biasing delts over traps.',
+          moodTips: [
+            {
+              icon: 'trending-up',
+              title: 'Elbows high and wide',
+              description: 'Delt emphasis.'
+            },
+            {
+              icon: 'checkmark-circle',
+              title: 'Stop below chest height',
+              description: 'Avoids trap takeover.'
+            },
+            {
+              icon: 'refresh',
+              title: 'Moderate bell, smooth reps',
+              description: 'Upright rows pump best clean.'
+            }
+          ]
+        },
+        {
+          name: 'Paused KB Press',
+          duration: '14–16 min',
+          description: 'Paused-rep press workout removing momentum.',
+          battlePlan: 'Battle Plan — Pause Sets\n• 4×8 Single-Arm KB Press — pause reps (1s bottom)\nRest 75s per side',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/d2gkwhep_download%20%282%29.png',
+          intensityReason: 'Paused-rep press workout removing momentum.',
+          moodTips: [
+            {
+              icon: 'pause',
+              title: 'Pause kills bounce',
+              description: 'Pure shoulder output.'
+            },
+            {
+              icon: 'body',
+              title: 'Stay tall',
+              description: 'No lean-back.'
+            },
+            {
+              icon: 'flame',
+              title: 'Explode into contraction',
+              description: 'Smooth squeeze builds pump.'
+            }
+          ]
+        },
+        {
+          name: 'Press + Halo Contrast',
+          duration: '15–17 min',
+          description: 'Superset workout pairing pressing with controlled shoulder mobility.',
+          battlePlan: 'Battle Plan — Superset\n• 4×10 Single-Arm KB Press — standard reps\nsuperset with\n• 8–10 KB Halos (each direction)\nRest 90s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/d2gkwhep_download%20%282%29.png',
+          intensityReason: 'Superset workout pairing pressing with controlled shoulder mobility.',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Press first',
+              description: 'Preserve output.'
+            },
+            {
+              icon: 'refresh',
+              title: 'Halos slow and controlled',
+              description: 'Mobility under load.'
+            },
+            {
+              icon: 'checkmark-circle',
+              title: 'Smooth reps over heavy bells',
+              description: 'Flow builds pump.'
+            }
+          ]
+        }
+      ],
+      advanced: [
+        {
+          name: 'Heavy KB Push Press',
+          duration: '18–20 min',
+          description: 'Standard power-press workout allowing heavier loading.',
+          battlePlan: 'Battle Plan — Standard Sets\n• 6×6 Single-Arm KB Push Press — standard reps\nRest 90s per side',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/d2gkwhep_download%20%282%29.png',
+          intensityReason: 'Standard power-press workout allowing heavier loading.',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Legs initiate the rep',
+              description: 'Shoulder-friendly overload.'
+            },
+            {
+              icon: 'body',
+              title: 'Stabilize early',
+              description: 'Control matters.'
+            },
+            {
+              icon: 'timer',
+              title: 'Lower slow into stretch',
+              description: 'Eccentric fuels pump.'
+            }
+          ]
+        },
+        {
+          name: 'KB Upright Row Drop Cluster',
+          duration: '18–20 min',
+          description: 'Multi-drop pull workout driving shoulder fatigue safely.',
+          battlePlan: 'Battle Plan — Drop Cluster\n• Set 1: 12 reps — standard\n• Set 2: drop set — 12 → drop ~20% → 8\n• Set 3: triple drop set — 10 → drop ~15% → 8 → drop ~10% → 8\nRest 90s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/d2gkwhep_download%20%282%29.png',
+          intensityReason: 'Multi-drop pull workout driving shoulder fatigue safely.',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Drops are immediate',
+              description: 'No more than ~10s.'
+            },
+            {
+              icon: 'trending-up',
+              title: 'Elbows stay wide',
+              description: 'Keeps delts loaded.'
+            },
+            {
+              icon: 'body',
+              title: 'Shorten ROM late',
+              description: 'Partial reps preserve pump.'
+            }
+          ]
+        },
+        {
+          name: 'KB Lateral Raise Burnout',
+          duration: '18–20 min',
+          description: 'Burnout isolation workout for side-delt saturation.',
+          battlePlan: 'Battle Plan — Burnout Sets\n• 4×20 KB Lateral Raise — burnout reps\nRest 90s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/d2gkwhep_download%20%282%29.png',
+          intensityReason: 'Burnout isolation workout for side-delt saturation.',
+          moodTips: [
+            {
+              icon: 'checkmark-circle',
+              title: 'Light bell, nonstop reps',
+              description: 'Burnouts thrive on tension.'
+            },
+            {
+              icon: 'hand-left',
+              title: 'No swinging',
+              description: 'KBs punish cheats.'
+            },
+            {
+              icon: 'flame',
+              title: 'Live in mid-range',
+              description: "That's the pump zone."
+            }
+          ]
+        },
+        {
+          name: 'Offset Rack Hold + Press Burn',
+          duration: '18–20 min',
+          description: 'Burnout + isometric workout combining instability and contraction.',
+          battlePlan: 'Battle Plan — Burnout + Isometric\n• 4×12 KB Press — burnout reps\n• Final set: squeeze to finish — hold bell in front-rack, elbow forward (peak delt contraction) 10s\nRest 90s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/d2gkwhep_download%20%282%29.png',
+          intensityReason: 'Burnout + isometric workout combining instability and contraction.',
+          moodTips: [
+            {
+              icon: 'hand-left',
+              title: 'Rack stays tight',
+              description: 'Wrist + shoulder integrity.'
+            },
+            {
+              icon: 'body',
+              title: 'Breathe through the hold',
+              description: 'Stability under fatigue.'
+            },
+            {
+              icon: 'flame',
+              title: 'Hold where delts shake most',
+              description: 'True contraction point.'
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    equipment: 'Powerlifting Platform',
+    icon: 'grid',
+    workouts: {
+      beginner: [
+        {
+          name: 'Strict Overhead Press Builder',
+          duration: '12–14 min',
+          description: 'Standard barbell press workout building foundational shoulder strength.',
+          battlePlan: 'Battle Plan — Standard Sets\n• 4×10 Standing Barbell Overhead Press — standard reps\nRest 75s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/z1k5w5av_download.png',
+          intensityReason: 'Standard barbell press workout building foundational shoulder strength.',
+          moodTips: [
+            {
+              icon: 'trending-up',
+              title: 'Press straight up',
+              description: 'Keeps shoulders loaded.'
+            },
+            {
+              icon: 'body',
+              title: 'Brace before unrack',
+              description: 'Stability improves force.'
+            },
+            {
+              icon: 'pause',
+              title: 'Lower deep, squeeze before lockout',
+              description: 'Contracted delts > joint rest.'
+            }
+          ]
+        },
+        {
+          name: 'Tempo OHP Control',
+          duration: '12–14 min',
+          description: 'Eccentric-focused press workout emphasizing bar control.',
+          battlePlan: 'Battle Plan — Eccentric Sets\n• 4×8 Overhead Press — eccentric reps (3s down)\nRest 75s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/z1k5w5av_download.png',
+          intensityReason: 'Eccentric-focused press workout emphasizing bar control.',
+          moodTips: [
+            {
+              icon: 'timer',
+              title: 'Slow negatives build strength',
+              description: 'Less load, more stimulus.'
+            },
+            {
+              icon: 'hand-left',
+              title: 'Elbows slightly forward',
+              description: 'Shoulder-friendly position.'
+            },
+            {
+              icon: 'trending-down',
+              title: 'Stretch fully every rep',
+              description: 'Bottom tension drives pump.'
+            }
+          ]
+        },
+        {
+          name: 'Pause OHP Builder',
+          duration: '12–14 min',
+          description: 'Paused-rep press workout removing momentum.',
+          battlePlan: 'Battle Plan — Pause Sets\n• 4×8 Overhead Press — pause reps (1s bottom)\nRest 75s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/z1k5w5av_download.png',
+          intensityReason: 'Paused-rep press workout removing momentum.',
+          moodTips: [
+            {
+              icon: 'pause',
+              title: 'Pause kills bounce',
+              description: 'Honest strength.'
+            },
+            {
+              icon: 'shield',
+              title: 'Stay tight in the hole',
+              description: 'Prevents collapse.'
+            },
+            {
+              icon: 'flame',
+              title: 'Explode to contraction',
+              description: 'Smooth squeeze fuels pump.'
+            }
+          ]
+        },
+        {
+          name: 'OHP + Iso Finish',
+          duration: '12–14 min',
+          description: 'Standard press workout with squeeze-to-finish in the contracted range.',
+          battlePlan: 'Battle Plan — Standard + Isometric Finish\n• 4×8 Overhead Press — standard reps\n• Final set: squeeze to finish — hold bar just short of lockout (peak delt contraction) 8–10s\nRest 75s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/z1k5w5av_download.png',
+          intensityReason: 'Standard press workout with squeeze-to-finish in the contracted range.',
+          moodTips: [
+            {
+              icon: 'hand-left',
+              title: 'Soft elbows at the top',
+              description: 'Keeps tension on delts.'
+            },
+            {
+              icon: 'body',
+              title: 'Brace through the hold',
+              description: 'Stability matters.'
+            },
+            {
+              icon: 'timer',
+              title: 'Use lighter bar weight',
+              description: 'Longer hold = better pump.'
+            }
+          ]
+        }
+      ],
+      intermediate: [
+        {
+          name: 'Push Press Builder',
+          duration: '14–16 min',
+          description: 'Standard power-press workout increasing load tolerance.',
+          battlePlan: 'Battle Plan — Standard Sets\n• 5×6 Push Press — standard reps\nRest 90s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/z1k5w5av_download.png',
+          intensityReason: 'Standard power-press workout increasing load tolerance.',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Legs start, shoulders finish',
+              description: 'Efficient overload.'
+            },
+            {
+              icon: 'body',
+              title: 'Stabilize at the top',
+              description: 'Control matters.'
+            },
+            {
+              icon: 'timer',
+              title: 'Lower slow into stretch',
+              description: 'Eccentric builds pump.'
+            }
+          ]
+        },
+        {
+          name: 'High Pull Control',
+          duration: '14–16 min',
+          description: 'Standard explosive pull workout targeting delts and traps.',
+          battlePlan: 'Battle Plan — Standard Sets\n• 4×6 Barbell High Pull — standard reps\nRest 90s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/z1k5w5av_download.png',
+          intensityReason: 'Standard explosive pull workout targeting delts and traps.',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Jump, then pull',
+              description: 'Power comes from legs.'
+            },
+            {
+              icon: 'trending-up',
+              title: 'Elbows high and outside',
+              description: 'Shoulder bias.'
+            },
+            {
+              icon: 'checkmark-circle',
+              title: 'Pull to upper chest only',
+              description: 'Clean reps = better pump.'
+            }
+          ]
+        },
+        {
+          name: 'Density Push Press',
+          duration: '15–17 min',
+          description: 'High-density power press workout using moderate loads.',
+          battlePlan: 'Battle Plan — Standard Sets\n• 6×5 Push Press — standard reps\nRest 75s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/z1k5w5av_download.png',
+          intensityReason: 'High-density power press workout using moderate loads.',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Fast dip, fast drive',
+              description: 'Elastic power.'
+            },
+            {
+              icon: 'refresh',
+              title: 'Same bar path every rep',
+              description: 'Shoulder safety.'
+            },
+            {
+              icon: 'timer',
+              title: 'Lower slow into rack',
+              description: 'Stretch fuels pump.'
+            }
+          ]
+        },
+        {
+          name: 'Push Press + Pushup Contrast',
+          duration: '15–17 min',
+          description: 'Superset workout pairing barbell power with bodyweight fatigue.',
+          battlePlan: 'Battle Plan — Superset\n• 4×6 Push Press — standard reps\nsuperset with\n• 12–15 Pushups\nRest 90s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/z1k5w5av_download.png',
+          intensityReason: 'Superset workout pairing barbell power with bodyweight fatigue.',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Press first',
+              description: 'Preserve power.'
+            },
+            {
+              icon: 'body',
+              title: 'Pushups extend fatigue',
+              description: 'Safe volume.'
+            },
+            {
+              icon: 'timer',
+              title: 'Slow pushups down',
+              description: 'Stretch + tension pump.'
+            }
+          ]
+        }
+      ],
+      advanced: [
+        {
+          name: 'Heavy Strict Press Builder',
+          duration: '18–20 min',
+          description: 'Standard heavy press workout for advanced strength.',
+          battlePlan: 'Battle Plan — Standard Sets\n• 6×5 Strict Overhead Press — standard reps\nRest 120s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/z1k5w5av_download.png',
+          intensityReason: 'Standard heavy press workout for advanced strength.',
+          moodTips: [
+            {
+              icon: 'body',
+              title: 'Stay brutally strict',
+              description: 'No leg assist.'
+            },
+            {
+              icon: 'refresh',
+              title: 'Reset every rep',
+              description: 'Quality output.'
+            },
+            {
+              icon: 'pause',
+              title: 'Lower slow, squeeze early',
+              description: 'Contracted delts beat lockout.'
+            }
+          ]
+        },
+        {
+          name: 'Split Jerk Builder',
+          duration: '18–20 min',
+          description: 'Standard Olympic power movement emphasizing speed and coordination.',
+          battlePlan: 'Battle Plan — Standard Sets\n• 6×3 Split Jerk — standard reps\nRest 120s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/z1k5w5av_download.png',
+          intensityReason: 'Standard Olympic power movement emphasizing speed and coordination.',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: "Punch the bar, don't press",
+              description: 'Speed beats grind.'
+            },
+            {
+              icon: 'body',
+              title: 'Front knee tracks forward',
+              description: 'Stable catch.'
+            },
+            {
+              icon: 'lock-closed',
+              title: 'Catch tall with locked arms',
+              description: 'Overhead stability loads shoulders.'
+            }
+          ]
+        },
+        {
+          name: 'Push Jerk Drop Ladder',
+          duration: '18–20 min',
+          description: 'Multi-drop power workout combining speed and fatigue.',
+          battlePlan: 'Battle Plan — Drop Ladder\n• 3 rounds:\n  4 reps → drop ~15% → 4 reps → drop ~10% → AMRAP\nRest 120s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/z1k5w5av_download.png',
+          intensityReason: 'Multi-drop power workout combining speed and fatigue.',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Every rep explosive',
+              description: 'If speed dies, drop weight.'
+            },
+            {
+              icon: 'trending-down',
+              title: 'Smaller drops preserve power',
+              description: 'Quality reps.'
+            },
+            {
+              icon: 'body',
+              title: 'Short dip, violent drive',
+              description: 'Shoulder stimulus comes from speed.'
+            }
+          ]
+        },
+        {
+          name: 'Snatch-Grip Push Press',
+          duration: '18–20 min',
+          description: 'Wide-grip power press workout to switch up the range and path of motion.',
+          battlePlan: 'Battle Plan — Standard Sets\n• 5×5 Snatch-Grip Push Press — standard reps\nRest 120s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/z1k5w5av_download.png',
+          intensityReason: 'Wide-grip power press workout to switch up the range and path of motion.',
+          moodTips: [
+            {
+              icon: 'hand-left',
+              title: 'Grip wide but controlled',
+              description: 'Increased shoulder demand.'
+            },
+            {
+              icon: 'body',
+              title: 'Bar stays close to face',
+              description: 'Safe path.'
+            },
+            {
+              icon: 'pause',
+              title: 'Finish with a punch',
+              description: 'Contracted delts, not lockout rest.'
+            }
+          ]
+        }
+      ]
+    }
   }
 ];
