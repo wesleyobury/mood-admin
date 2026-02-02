@@ -146,7 +146,7 @@ const WorkoutCard = React.memo(({
               activeOpacity={0.9}
             >
               <Text style={styles.tooltipText}>Build a custom workout</Text>
-              <View style={styles.tooltipArrowDown} />
+              <View style={styles.tooltipArrowDownCenter} />
             </TouchableOpacity>
           )}
           <Animated.View style={{ transform: [{ scale: localScaleAnim }] }}>
