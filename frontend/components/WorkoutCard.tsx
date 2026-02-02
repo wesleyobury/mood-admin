@@ -219,11 +219,24 @@ const WorkoutCard = React.memo(({
           <Text style={styles.workoutDescription}>{item.description}</Text>
         </View>
 
-        {/* Add Workout Button */}
-        <View ref={addWorkoutButtonRef} collapsable={false}>
+        {/* Add Workout Button - with direct glow and wiggle when highlighted */}
+        <Animated.View 
+          style={[
+            showHighlight && styles.glowingButton,
+            showHighlight && {
+              transform: [{ rotate: wiggleAnim2.interpolate({
+                inputRange: [-1, 1],
+                outputRange: ['-2deg', '2deg']
+              })}]
+            }
+          ]}
+        >
           <Animated.View style={{ transform: [{ scale: localScaleAnim }] }}>
             <TouchableOpacity
-              style={styles.addWorkoutButton}
+              style={[
+                styles.addWorkoutButton,
+                showHighlight && styles.highlightedBorder,
+              ]}
               onPress={() => handleAddToCartWithAnimation(item)}
               activeOpacity={0.8}
               disabled={isInCart(createWorkoutId(item, equipment, difficulty))}
@@ -238,7 +251,7 @@ const WorkoutCard = React.memo(({
               </Text>
             </TouchableOpacity>
           </Animated.View>
-        </View>
+        </Animated.View>
 
         {/* Swipe for more text */}
         <Text style={styles.swipeForMoreText}>Swipe for more</Text>
@@ -258,16 +271,31 @@ const WorkoutCard = React.memo(({
           <Ionicons name={icon} size={24} color="#FFD700" />
         </View>
         <Text style={styles.equipmentName}>{equipment}</Text>
-        <View ref={previewButtonRef} collapsable={false}>
+        
+        {/* Preview Button - with direct glow and wiggle when highlighted */}
+        <Animated.View 
+          style={[
+            showHighlight && styles.glowingButton,
+            showHighlight && {
+              transform: [{ rotate: wiggleAnim3.interpolate({
+                inputRange: [-1, 1],
+                outputRange: ['-3deg', '3deg']
+              })}]
+            }
+          ]}
+        >
           <TouchableOpacity
-            style={styles.previewButton}
+            style={[
+              styles.previewButton,
+              showHighlight && styles.highlightedBorder,
+            ]}
             onPress={() => onStartWorkout(workouts[currentWorkoutIndex], equipment, difficulty)}
             activeOpacity={0.8}
           >
             <Ionicons name="eye" size={14} color="#FFD700" />
             <Text style={styles.previewButtonText}>Preview</Text>
           </TouchableOpacity>
-        </View>
+        </Animated.View>
       </View>
 
       {/* Workout List */}
