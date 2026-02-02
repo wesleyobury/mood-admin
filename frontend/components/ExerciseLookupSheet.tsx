@@ -367,7 +367,7 @@ export default function ExerciseLookupSheet({ visible, onClose }: ExerciseLookup
     <View style={[styles.overlay, { paddingTop: insets.top }]}>
       <TouchableOpacity style={styles.backdrop} onPress={onClose} activeOpacity={1} />
       
-      <View style={[styles.sheet, { paddingBottom: insets.bottom + 16 }]}>
+      <View style={[styles.sheet, { paddingBottom: selectedExercise ? 0 : insets.bottom + 16 }]}>
         {/* Handle */}
         <View style={styles.handleContainer}>
           <View style={styles.handle} />
