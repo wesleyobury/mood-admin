@@ -89,7 +89,7 @@ const WorkoutCard = React.memo(({
       let measured = 0;
       const checkDone = () => {
         measured++;
-        if (measured >= 2) resolve();
+        if (measured >= 3) resolve();
       };
 
       if (pencilButtonRef.current) {
@@ -104,6 +104,15 @@ const WorkoutCard = React.memo(({
       if (addWorkoutButtonRef.current) {
         addWorkoutButtonRef.current.measureInWindow((x, y, width, height) => {
           setAddButtonPosition({ x, y, width, height });
+          checkDone();
+        });
+      } else {
+        checkDone();
+      }
+
+      if (previewButtonRef.current) {
+        previewButtonRef.current.measureInWindow((x, y, width, height) => {
+          setPreviewPosition({ x, y, width, height });
           checkDone();
         });
       } else {
