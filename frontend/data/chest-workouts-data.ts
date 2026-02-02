@@ -685,7 +685,7 @@ export const chestWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–15 min',
           description: 'Slow eccentrics to improve chest awareness.',
           battlePlan: 'Instructions: Lower for 4 seconds each rep.\nSets: 3\nRest: 90s\n\n• DB Flat Press — 3 × 8 (4s eccentric)',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_chest-workout-hub/artifacts/th0hlzzs_download%20%2818%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_chest-workout-hub/artifacts/8vgsd11o_ChatGPT%20Image%20Feb%201%2C%202026%2C%2008_42_28%20PM.png',
           intensityReason: 'Slow eccentrics to improve chest awareness.',
           moodTips: [
             {
@@ -710,7 +710,7 @@ export const chestWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–14 min',
           description: 'High-rep dumbbell pressing for chest endurance.',
           battlePlan: 'Instructions: Choose light bells and move continuously.\nSets: 3\nRest: 60s\n\n• DB Incline Press — 3 × 15–20',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_chest-workout-hub/artifacts/msod5irt_download%20%2819%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_chest-workout-hub/artifacts/3w0gsy1c_ChatGPT%20Image%20Feb%201%2C%202026%2C%2008_35_12%20PM.png',
           intensityReason: 'High-rep dumbbell pressing for chest endurance.',
           moodTips: [
             {
