@@ -36,6 +36,9 @@ const equipmentOptions: EquipmentOption[] = [
   { id: 'dumbbells', name: 'Dumbbells', icon: 'barbell' },
   { id: 'barbell', name: 'Barbell', icon: 'barbell' },
   { id: 'landmine-attachment', name: 'Landmine Attachment', icon: 'rocket' },
+  { id: 'adjustable-bench', name: 'Adjustable Bench', icon: 'square' },
+  { id: 'kettlebells', name: 'Kettlebells', icon: 'fitness' },
+  { id: 'powerlifting-platform', name: 'Powerlifting Platform', icon: 'grid' },
 ];
 
 const difficultyLevels: DifficultyLevel[] = [
