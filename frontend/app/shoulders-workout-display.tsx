@@ -76,12 +76,9 @@ const ShouldersWorkoutDisplayScreen = memo(function ShouldersWorkoutDisplayScree
           shouldShow = !hasSeenHighlight;
         }
         
-        if (shouldShow) {
-          highlightTimerRef.current = setTimeout(() => {
-            if (isMounted.current) {
-              setShowHighlight(true);
-            }
-          }, 1500);
+        // Show immediately without delay
+        if (shouldShow && isMounted.current) {
+          setShowHighlight(true);
         }
       } catch (error) {
         console.log('Error checking highlight status:', error);
@@ -92,9 +89,6 @@ const ShouldersWorkoutDisplayScreen = memo(function ShouldersWorkoutDisplayScree
     
     return () => {
       isMounted.current = false;
-      if (highlightTimerRef.current) {
-        clearTimeout(highlightTimerRef.current);
-      }
     };
   }, [isGuest, token]);
 
