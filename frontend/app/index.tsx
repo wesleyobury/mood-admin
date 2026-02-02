@@ -303,19 +303,7 @@ export default function Welcome() {
               </MaskedView>
             </View>
             <Text style={styles.subtitle}>
-              Curated workouts.{'\n'}Matched to your{' '}
-              <MaskedView
-                maskElement={
-                  <Text style={styles.moodInlineText}>mood.</Text>
-                }
-              >
-                <LinearGradient
-                  colors={['#FFD700', '#FFA500']}
-                  start={{ x: 0, y: 0 }}
-                  end={{ x: 1, y: 0 }}
-                  style={{ width: 70, height: 28 }}
-                />
-              </MaskedView>
+              Curated workouts.{'\n'}Matched to your <Text style={styles.moodInlineText}>mood.</Text>
             </Text>
           </View>
 
