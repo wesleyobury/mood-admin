@@ -268,16 +268,22 @@ const WorkoutCard = React.memo(({
         >
           <Ionicons name="pencil" size={18} color="#FFD700" />
         </TouchableOpacity>
-        
-        {/* First-time Tooltip */}
-        {showTooltip && (
-          <Pressable style={styles.tooltipOverlay} onPress={dismissTooltip}>
-            <View style={styles.tooltip}>
-              <Text style={styles.tooltipText}>Tap to customize exercise</Text>
-            </View>
-          </Pressable>
-        )}
       </View>
+
+      {/* First-time Tooltip - Using Modal for iOS compatibility */}
+      <Modal
+        visible={showTooltip}
+        transparent={true}
+        animationType="fade"
+        onRequestClose={dismissTooltip}
+      >
+        <Pressable style={styles.tooltipModalOverlay} onPress={dismissTooltip}>
+          <View style={styles.tooltipModalContent}>
+            <Text style={styles.tooltipText}>Tap pencil icon to customize exercise</Text>
+            <View style={styles.tooltipArrow} />
+          </View>
+        </Pressable>
+      </Modal>
 
       {/* Custom Workout Modal */}
       <CustomWorkoutModal
