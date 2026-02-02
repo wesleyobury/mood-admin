@@ -403,17 +403,23 @@ const styles = StyleSheet.create({
     backgroundColor: '#3a3a3a',
     justifyContent: 'center',
     alignItems: 'center',
+    overflow: 'hidden',
   },
-  // Bright button style - elevated above overlay and slightly brighter
-  brightButton: {
-    backgroundColor: '#4a4a4a',
-    zIndex: 20,
-    elevation: 20,
+  shimmerContainer: {
+    position: 'relative',
+    width: 18,
+    height: 18,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
-  // Elevated wrapper for buttons when highlighted
-  elevatedWrapper: {
-    zIndex: 20,
-    elevation: 20,
+  shimmerOverlay: {
+    position: 'absolute',
+    top: -10,
+    left: -20,
+    width: 40,
+    height: 40,
+    backgroundColor: 'rgba(255, 255, 255, 0.4)',
+    transform: [{ rotate: '25deg' }],
   },
   workoutContent: {
     flex: 1,
