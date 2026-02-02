@@ -213,6 +213,8 @@ const WorkoutCard = React.memo(({
     setShowTooltip(false);
     bounceAnim1.stopAnimation();
     bounceAnim2.stopAnimation();
+    wiggleAnim1.stopAnimation();
+    wiggleAnim2.stopAnimation();
     try {
       if (isGuest) {
         // For guests: mark as seen for this session only
