@@ -54,7 +54,7 @@ export default function ChooseForMeButton({
         useNativeDriver: false,
       }).start();
       startShimmerAnimation();
-    }, 2200);
+    }, 1000);
     
     return () => clearTimeout(timer);
   }, [variant]);
