@@ -411,6 +411,7 @@ const WorkoutCard = React.memo(({
         <Animated.View 
           style={[
             styles.editButtonWrapper,
+            showHighlight && styles.elevatedWrapper,
             showHighlight && {
               transform: [{ rotate: wiggleAnim1.interpolate({
                 inputRange: [-1, 1],
