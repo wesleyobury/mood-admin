@@ -612,9 +612,9 @@ const styles = StyleSheet.create({
   highlightedButton: {
     shadowColor: '#FFD700',
     shadowOffset: { width: 0, height: 0 },
-    shadowOpacity: 0.8,
-    shadowRadius: 10,
-    elevation: 10,
+    shadowOpacity: 0.5,
+    shadowRadius: 6,
+    elevation: 6,
   },
   highlightedPencilButton: {
     width: 36,
@@ -623,7 +623,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#3a3a3a',
     justifyContent: 'center',
     alignItems: 'center',
-    borderWidth: 2,
+    borderWidth: 1.5,
     borderColor: '#FFD700',
   },
   highlightedAddButton: {
@@ -635,7 +635,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     gap: 6,
-    borderWidth: 2,
+    borderWidth: 1.5,
     borderColor: '#FFD700',
   },
   highlightedAddButtonText: {
