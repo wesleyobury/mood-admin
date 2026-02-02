@@ -58,18 +58,17 @@ const WorkoutCard = React.memo(({
   // Refs for measuring button positions
   const pencilButtonRef = useRef<View>(null);
   const addWorkoutButtonRef = useRef<View>(null);
+  const previewButtonRef = useRef<View>(null);
   
-  // State for tooltip positions (measured from actual button locations)
+  // State for button positions (measured from actual button locations)
   const [pencilPosition, setPencilPosition] = useState({ x: 0, y: 0, width: 0, height: 0 });
   const [addButtonPosition, setAddButtonPosition] = useState({ x: 0, y: 0, width: 0, height: 0 });
-  
-  // Animation values for bounce effect
-  const bounceAnim1 = useRef(new Animated.Value(0)).current;
-  const bounceAnim2 = useRef(new Animated.Value(0)).current;
+  const [previewPosition, setPreviewPosition] = useState({ x: 0, y: 0, width: 0, height: 0 });
   
   // Animation values for wiggle effect
   const wiggleAnim1 = useRef(new Animated.Value(0)).current;
   const wiggleAnim2 = useRef(new Animated.Value(0)).current;
+  const wiggleAnim3 = useRef(new Animated.Value(0)).current;
 
   // Track component mount/unmount to cancel tooltip if user leaves
   useEffect(() => {
