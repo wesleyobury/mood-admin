@@ -308,6 +308,7 @@ const WorkoutCard = React.memo(({
         {/* Preview Button - with wiggle when highlighted */}
         <Animated.View 
           style={[
+            showHighlight && styles.elevatedWrapper,
             showHighlight && {
               transform: [{ rotate: wiggleAnim3.interpolate({
                 inputRange: [-1, 1],
