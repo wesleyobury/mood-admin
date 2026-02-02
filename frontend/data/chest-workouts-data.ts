@@ -1933,7 +1933,7 @@ export const chestWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–15 min',
           description: 'Slow eccentrics on pec deck for chest tension.',
           battlePlan: 'Sets: 3\n\n• Pec Deck Fly — 3 × 10 (4s eccentric)',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/rf17lbcl_pmd2.jpg',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_chest-workout-hub/artifacts/gerfnpik_Screenshot%202026-02-01%20at%2010.26.17%E2%80%AFPM.png',
           intensityReason: 'Slow eccentrics on pec deck for chest tension.',
           moodTips: [
             {
@@ -1958,7 +1958,7 @@ export const chestWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–14 min',
           description: 'High-rep pec deck flyes for chest endurance.',
           battlePlan: 'Sets: 3\n\n• Pec Deck Fly — 3 × 15–25',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/5hd3my3c_pdm.webp',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_chest-workout-hub/artifacts/catnm0o6_download%20%288%29.png',
           intensityReason: 'High-rep pec deck flyes for chest endurance.',
           moodTips: [
             {
@@ -2035,7 +2035,7 @@ export const chestWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–18 min',
           description: 'Paused pec deck flyes with contraction finish.',
           battlePlan: 'Sets: 4\n\n• Paused Pec Deck — 4 × 10\nFinal rep: 6–8s squeeze',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/rf17lbcl_pmd2.jpg',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_chest-workout-hub/artifacts/gerfnpik_Screenshot%202026-02-01%20at%2010.26.17%E2%80%AFPM.png',
           intensityReason: 'Paused pec deck flyes with contraction finish.',
           moodTips: [
             {
@@ -2060,7 +2060,7 @@ export const chestWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '15–18 min',
           description: 'Pec deck flyes paired with push-ups.',
           battlePlan: 'Sets: 4\n\n• Pec Deck Fly — 4 × 12\n• Push-Ups — 4 × 15–25',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/5hd3my3c_pdm.webp',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_chest-workout-hub/artifacts/catnm0o6_download%20%288%29.png',
           intensityReason: 'Pec deck flyes paired with push-ups.',
           moodTips: [
             {
@@ -2137,7 +2137,7 @@ export const chestWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '15–20 min',
           description: 'Four-stage pec deck drop set for chest overload.',
           battlePlan: 'Sets: 3\n\n• Pec Deck (Heavy) — max reps\n• Drop 1 — max reps\n• Drop 2 — 12–15\n• Drop 3 — burnout',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/rf17lbcl_pmd2.jpg',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_chest-workout-hub/artifacts/gerfnpik_Screenshot%202026-02-01%20at%2010.26.17%E2%80%AFPM.png',
           intensityReason: 'Four-stage pec deck drop set for chest overload.',
           moodTips: [
             {
@@ -2162,7 +2162,7 @@ export const chestWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '15–20 min',
           description: 'Pec deck flyes paired with plyometric push-ups.',
           battlePlan: 'Sets: 4\n\n• Pec Deck Fly — 4 × 10\n• Clap Push-Ups — 4 × 6–10',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/5hd3my3c_pdm.webp',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_chest-workout-hub/artifacts/catnm0o6_download%20%288%29.png',
           intensityReason: 'Pec deck flyes paired with plyometric push-ups.',
           moodTips: [
             {
