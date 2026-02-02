@@ -78,9 +78,21 @@ const WorkoutCard = React.memo(({
     };
   }, []);
 
-  // Check if highlight should be shown
+  // Start wiggle animation when external highlight changes
+  useEffect(() => {
+    if (externalHighlight) {
+      startWiggleAnimation();
+    } else if (externalHighlight === false) {
+      stopWiggleAnimation();
+    }
+  }, [externalHighlight]);
+
+  // Check if highlight should be shown (only if not using external control)
   // Guests: show every session, Logged-in users: show only once
   useEffect(() => {
+    // Skip if using external highlight control
+    if (externalHighlight !== undefined) return;
+    
     const checkHighlightStatus = async () => {
       try {
         let shouldShow = false;
@@ -96,7 +108,7 @@ const WorkoutCard = React.memo(({
         if (shouldShow) {
           highlightTimerRef.current = setTimeout(() => {
             if (isMounted.current) {
-              setShowHighlight(true);
+              setInternalHighlight(true);
               startWiggleAnimation();
             }
           }, 1500);
@@ -112,7 +124,7 @@ const WorkoutCard = React.memo(({
         clearTimeout(highlightTimerRef.current);
       }
     };
-  }, [isGuest, token]);
+  }, [isGuest, token, externalHighlight]);
 
   const startWiggleAnimation = () => {
     const createWiggle = (anim: Animated.Value, delay: number) => {
@@ -144,14 +156,24 @@ const WorkoutCard = React.memo(({
     createWiggle(wiggleAnim3, 200);
   };
 
-  const dismissHighlight = async () => {
-    setShowHighlight(false);
+  const stopWiggleAnimation = () => {
     wiggleAnim1.stopAnimation();
     wiggleAnim2.stopAnimation();
     wiggleAnim3.stopAnimation();
     wiggleAnim1.setValue(0);
     wiggleAnim2.setValue(0);
     wiggleAnim3.setValue(0);
+  };
+
+  const dismissHighlight = async () => {
+    // If using external control, call the callback
+    if (onHighlightDismiss) {
+      onHighlightDismiss();
+      return;
+    }
+    
+    setInternalHighlight(false);
+    stopWiggleAnimation();
     try {
       if (isGuest) {
         await AsyncStorage.setItem(GUEST_TOOLTIP_SESSION_KEY, 'true');
