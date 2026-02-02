@@ -677,6 +677,22 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     color: '#FFD700',
   },
+  highlightedPreviewButton: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 4,
+    paddingHorizontal: 12,
+    paddingVertical: 8,
+    backgroundColor: 'rgba(255, 215, 0, 0.15)',
+    borderRadius: 16,
+    borderWidth: 1.5,
+    borderColor: '#FFD700',
+  },
+  highlightedPreviewButtonText: {
+    fontSize: 12,
+    fontWeight: '600',
+    color: '#FFD700',
+  },
   workoutContent: {
     flex: 1,
   },
