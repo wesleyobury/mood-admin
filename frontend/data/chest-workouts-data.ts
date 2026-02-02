@@ -1309,7 +1309,7 @@ export const chestWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–15 min',
           description: 'Slow negatives on Smith press for chest tension.',
           battlePlan: 'Instructions: Lower for 4 seconds.\nSets: 3\n\n• Smith Flat Press — 3 × 8 (4s eccentric)',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/wqpgrlpk_download%20%289%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_chest-workout-hub/artifacts/4b771hh1_download%20%2815%29.png',
           intensityReason: 'Slow negatives on Smith press for chest tension.',
           moodTips: [
             {
@@ -1334,7 +1334,7 @@ export const chestWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–14 min',
           description: 'High-rep Smith pressing for chest endurance.',
           battlePlan: 'Instructions: Choose light load.\nSets: 3\n\n• Smith Incline Press — 3 × 15–20',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/pl1dkh7x_download%20%288%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_chest-workout-hub/artifacts/hag08c16_download%20%2814%29.png',
           intensityReason: 'High-rep Smith pressing for chest endurance.',
           moodTips: [
             {
@@ -1411,7 +1411,7 @@ export const chestWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–18 min',
           description: 'Paused Smith pressing with contraction finish.',
           battlePlan: 'Instructions: Final rep 6–8s squeeze.\nSets: 4\n\n• Paused Smith Incline Press — 4 × 6',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/wqpgrlpk_download%20%289%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_chest-workout-hub/artifacts/4b771hh1_download%20%2815%29.png',
           intensityReason: 'Paused Smith pressing with contraction finish.',
           moodTips: [
             {
@@ -1436,7 +1436,7 @@ export const chestWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '15–18 min',
           description: 'Smith incline pressing paired with push-ups.',
           battlePlan: 'Instructions: Move quickly.\nSets: 4\n\n• Smith Incline Press — 4 × 8\n• Push-Ups — 4 × 15–20',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/pl1dkh7x_download%20%288%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_chest-workout-hub/artifacts/hag08c16_download%20%2814%29.png',
           intensityReason: 'Smith incline pressing paired with push-ups.',
           moodTips: [
             {
@@ -1513,7 +1513,7 @@ export const chestWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '15–20 min',
           description: 'Four-stage Smith drop set for deep chest fatigue.',
           battlePlan: 'Instructions: Strip plates immediately.\nSets: 3\n\n• Smith Press (Heavy) — max reps\n• Drop 1 (Medium) — max reps\n• Drop 2 (Light) — 12–15\n• Drop 3 (Very Light) — burnout',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/wqpgrlpk_download%20%289%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_chest-workout-hub/artifacts/4b771hh1_download%20%2815%29.png',
           intensityReason: 'Four-stage Smith drop set for deep chest fatigue.',
           moodTips: [
             {
@@ -1538,7 +1538,7 @@ export const chestWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '15–20 min',
           description: 'Heavy Smith pressing paired with plyometric push-ups.',
           battlePlan: 'Instructions: Fast transitions.\nSets: 4\n\n• Smith Flat Press — 4 × 6\n• Clap Push-Ups — 4 × 6–10',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/pl1dkh7x_download%20%288%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_chest-workout-hub/artifacts/hag08c16_download%20%2814%29.png',
           intensityReason: 'Heavy Smith pressing paired with plyometric push-ups.',
           moodTips: [
             {
