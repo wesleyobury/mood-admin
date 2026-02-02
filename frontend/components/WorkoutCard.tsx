@@ -260,30 +260,28 @@ const WorkoutCard = React.memo(({
           ))}
         </View>
         
-        {/* Edit Button - Right side, aligned with dots */}
-        <TouchableOpacity
-          style={styles.editButton}
-          onPress={() => handleOpenCustomModal(workouts[currentWorkoutIndex])}
-          activeOpacity={0.8}
-        >
-          <Ionicons name="pencil" size={18} color="#FFD700" />
-        </TouchableOpacity>
+        {/* Edit Button with Tooltip - Right side, aligned with dots */}
+        <View style={styles.editButtonContainer}>
+          {/* Pencil Tooltip - positioned above the pencil */}
+          {showTooltip && (
+            <TouchableOpacity 
+              style={styles.pencilTooltip} 
+              onPress={dismissTooltip}
+              activeOpacity={0.9}
+            >
+              <Text style={styles.tooltipText}>Tap to customize</Text>
+              <View style={styles.tooltipArrowDown} />
+            </TouchableOpacity>
+          )}
+          <TouchableOpacity
+            style={styles.editButton}
+            onPress={() => handleOpenCustomModal(workouts[currentWorkoutIndex])}
+            activeOpacity={0.8}
+          >
+            <Ionicons name="pencil" size={18} color="#FFD700" />
+          </TouchableOpacity>
+        </View>
       </View>
-
-      {/* First-time Tooltip - Using Modal for iOS compatibility */}
-      <Modal
-        visible={showTooltip}
-        transparent={true}
-        animationType="fade"
-        onRequestClose={dismissTooltip}
-      >
-        <Pressable style={styles.tooltipModalOverlay} onPress={dismissTooltip}>
-          <View style={styles.tooltipModalContent}>
-            <Text style={styles.tooltipText}>Tap pencil icon to customize exercise</Text>
-            <View style={styles.tooltipArrow} />
-          </View>
-        </Pressable>
-      </Modal>
 
       {/* Custom Workout Modal */}
       <CustomWorkoutModal
