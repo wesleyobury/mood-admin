@@ -51,10 +51,25 @@ const WorkoutCard = React.memo(({
   const [selectedWorkoutForEdit, setSelectedWorkoutForEdit] = useState<Workout | null>(null);
   const [showTooltip, setShowTooltip] = useState(false);
   const flatListRef = useRef<FlatList>(null);
+  const isMounted = useRef(true);
+  const tooltipTimerRef = useRef<NodeJS.Timeout | null>(null);
   
   // Animation values for bounce effect
   const bounceAnim1 = useRef(new Animated.Value(0)).current;
   const bounceAnim2 = useRef(new Animated.Value(0)).current;
+
+  // Track component mount/unmount to cancel tooltip if user leaves
+  useEffect(() => {
+    isMounted.current = true;
+    return () => {
+      isMounted.current = false;
+      // Clear any pending tooltip timer when component unmounts
+      if (tooltipTimerRef.current) {
+        clearTimeout(tooltipTimerRef.current);
+        tooltipTimerRef.current = null;
+      }
+    };
+  }, []);
 
   // Check if tooltip should be shown
   // Guests: show every session (using session storage key that gets cleared)
@@ -62,30 +77,39 @@ const WorkoutCard = React.memo(({
   useEffect(() => {
     const checkTooltipStatus = async () => {
       try {
+        let shouldShow = false;
+        
         if (isGuest) {
           // For guests: check session-based key (will show each new app session)
           const hasSeenThisSession = await AsyncStorage.getItem(GUEST_TOOLTIP_SESSION_KEY);
-          if (!hasSeenThisSession) {
-            setTimeout(() => {
-              setShowTooltip(true);
-              startBounceAnimation();
-            }, 1500);
-          }
+          shouldShow = !hasSeenThisSession;
         } else if (token) {
           // For logged-in users: check permanent key (show only once ever)
           const hasSeenTooltip = await AsyncStorage.getItem(TOOLTIP_SHOWN_KEY);
-          if (!hasSeenTooltip) {
-            setTimeout(() => {
+          shouldShow = !hasSeenTooltip;
+        }
+        
+        if (shouldShow) {
+          // Only show tooltip if user is still on this screen after delay
+          tooltipTimerRef.current = setTimeout(() => {
+            if (isMounted.current) {
               setShowTooltip(true);
               startBounceAnimation();
-            }, 1500);
-          }
+            }
+          }, 1500);
         }
       } catch (error) {
         console.log('Error checking tooltip status:', error);
       }
     };
     checkTooltipStatus();
+    
+    return () => {
+      // Cleanup timer if effect re-runs
+      if (tooltipTimerRef.current) {
+        clearTimeout(tooltipTimerRef.current);
+      }
+    };
   }, [isGuest, token]);
 
   const startBounceAnimation = () => {
