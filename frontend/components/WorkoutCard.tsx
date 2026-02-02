@@ -591,12 +591,6 @@ const styles = StyleSheet.create({
     bottom: 0,
     height: '50%',
   },
-  dotsRow: {
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
-    gap: 8,
-  },
   editButtonWrapper: {
     position: 'absolute',
     top: -10,
