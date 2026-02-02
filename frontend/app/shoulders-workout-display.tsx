@@ -1,4 +1,4 @@
-import React, { memo, useState, useEffect, useRef } from 'react';
+import React, { memo } from 'react';
 import {
   View,
   Text,
@@ -6,13 +6,11 @@ import {
   TouchableOpacity,
   SafeAreaView,
   ScrollView,
-  Pressable,
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useRouter, useLocalSearchParams } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import HomeButton from '../components/HomeButton';
 import WorkoutCard from '../components/WorkoutCard';
 import { useCart, WorkoutItem } from '../contexts/CartContext';
@@ -20,9 +18,6 @@ import { useAuth } from '../contexts/AuthContext';
 import { Analytics } from '../utils/analytics';
 import { shouldersWorkoutDatabase } from '../data/shoulders-workouts-data';
 import { Workout, EquipmentWorkouts } from '../types/workout';
-
-const HIGHLIGHT_SHOWN_KEY = 'workout_highlight_shown_v1';
-const GUEST_HIGHLIGHT_SESSION_KEY = 'guest_highlight_session_shown';
 
 const workoutDatabase: EquipmentWorkouts[] = shouldersWorkoutDatabase;
 
