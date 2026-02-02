@@ -2220,7 +2220,7 @@ export const chestWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–16 min',
           description: 'Paused cable flyes for chest engagement.',
           battlePlan: 'Instructions: Pause 1s at peak.\nSets: 4\n\n• High-to-Low Cable Fly — 4 × 10',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_chest-workout-hub/artifacts/zg677x0k_ChatGPT%20Image%20Feb%201%2C%202026%2C%2009_25_18%20PM.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_chest-workout-hub/artifacts/vlu2ckag_download%20%2811%29.png',
           intensityReason: 'Paused cable flyes for chest engagement.',
           moodTips: [
             {
@@ -2245,7 +2245,7 @@ export const chestWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–15 min',
           description: 'Slow eccentrics on cables for chest tension.',
           battlePlan: 'Instructions: 4s eccentric.\nSets: 3\n\n• Low-to-High Cable Fly — 3 × 10',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_chest-workout-hub/artifacts/qzdq0zi2_ChatGPT%20Image%20Feb%201%2C%202026%2C%2009_31_56%20PM.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_chest-workout-hub/artifacts/1jrl3snf_download%20%2810%29.png',
           intensityReason: 'Slow eccentrics on cables for chest tension.',
           moodTips: [
             {
@@ -2270,7 +2270,7 @@ export const chestWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–14 min',
           description: 'High-rep cable flyes for chest endurance.',
           battlePlan: 'Instructions: Light load.\nSets: 3\n\n• Mid Cable Fly — 3 × 15–25',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_chest-workout-hub/artifacts/zg677x0k_ChatGPT%20Image%20Feb%201%2C%202026%2C%2009_25_18%20PM.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_chest-workout-hub/artifacts/szkempjn_download%20%289%29.png',
           intensityReason: 'High-rep cable flyes for chest endurance.',
           moodTips: [
             {
@@ -2322,7 +2322,7 @@ export const chestWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–18 min',
           description: 'Traditional cable flyes with meaningful load.',
           battlePlan: 'Instructions: Increase load only if reps stay clean.\nSets: 5\n\n• Mid Cable Fly — 3 × 12\n• Low-to-High Cable Fly — 2 × 12',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_chest-workout-hub/artifacts/zg677x0k_ChatGPT%20Image%20Feb%201%2C%202026%2C%2009_25_18%20PM.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_chest-workout-hub/artifacts/vlu2ckag_download%20%2811%29.png',
           intensityReason: 'Traditional cable flyes with meaningful load.',
           moodTips: [
             {
@@ -2347,7 +2347,7 @@ export const chestWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–18 min',
           description: 'Paused cable flyes with contraction finish.',
           battlePlan: 'Instructions: Final rep 6–8s squeeze.\nSets: 4\n\n• High-to-Low Cable Fly — 4 × 10',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_chest-workout-hub/artifacts/qzdq0zi2_ChatGPT%20Image%20Feb%201%2C%202026%2C%2009_31_56%20PM.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_chest-workout-hub/artifacts/1jrl3snf_download%20%2810%29.png',
           intensityReason: 'Paused cable flyes with contraction finish.',
           moodTips: [
             {
@@ -2372,7 +2372,7 @@ export const chestWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '15–18 min',
           description: 'Cable flyes paired with push-ups.',
           battlePlan: 'Instructions: Move quickly.\nSets: 4\n\n• Low-to-High Cable Fly — 4 × 12\n• Push-Ups — 4 × 15–25',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_chest-workout-hub/artifacts/zg677x0k_ChatGPT%20Image%20Feb%201%2C%202026%2C%2009_25_18%20PM.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_chest-workout-hub/artifacts/szkempjn_download%20%289%29.png',
           intensityReason: 'Cable flyes paired with push-ups.',
           moodTips: [
             {
@@ -2424,7 +2424,7 @@ export const chestWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '16–20 min',
           description: 'Heavy cable flyes for chest overload.',
           battlePlan: 'Instructions: Challenging load.\nSets: 5\n\n• High-to-Low Cable Fly — 3 × 10\n• Low-to-High Cable Fly — 2 × 10',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_chest-workout-hub/artifacts/zg677x0k_ChatGPT%20Image%20Feb%201%2C%202026%2C%2009_25_18%20PM.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_chest-workout-hub/artifacts/vlu2ckag_download%20%2811%29.png',
           intensityReason: 'Heavy cable flyes for chest overload.',
           moodTips: [
             {
@@ -2449,7 +2449,7 @@ export const chestWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '15–20 min',
           description: 'Four-stage cable drop set for chest overload.',
           battlePlan: 'Instructions: Strip weight immediately.\nSets: 3\n\n• Cable Fly (Heavy) — max reps\n• Drop 1 — max reps\n• Drop 2 — 12–15\n• Drop 3 — burnout',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_chest-workout-hub/artifacts/qzdq0zi2_ChatGPT%20Image%20Feb%201%2C%202026%2C%2009_31_56%20PM.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_chest-workout-hub/artifacts/1jrl3snf_download%20%2810%29.png',
           intensityReason: 'Four-stage cable drop set for chest overload.',
           moodTips: [
             {
@@ -2474,7 +2474,7 @@ export const chestWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '15–20 min',
           description: 'Cable flyes paired with plyometric push-ups.',
           battlePlan: 'Instructions: Fast transitions.\nSets: 4\n\n• High-to-Low Cable Fly — 4 × 10\n• Clap Push-Ups — 4 × 6–10',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_chest-workout-hub/artifacts/zg677x0k_ChatGPT%20Image%20Feb%201%2C%202026%2C%2009_25_18%20PM.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_chest-workout-hub/artifacts/szkempjn_download%20%289%29.png',
           intensityReason: 'Cable flyes paired with plyometric push-ups.',
           moodTips: [
             {
