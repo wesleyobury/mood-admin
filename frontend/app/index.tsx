@@ -303,12 +303,8 @@ export default function Welcome() {
               </MaskedView>
             </View>
             <Text style={styles.subtitle}>
-              Workouts that match your{'\n'}
-              <Text style={styles.highlightText}>mood</Text>
-            </Text>
-
-            <Text style={styles.description}>
-              Access hundreds of curated workouts, intelligently filtered by your MOOD.
+              Curated workouts.{'\n'}
+              <Text style={styles.highlightText}>Matched to your mood.</Text>
             </Text>
           </View>
 
