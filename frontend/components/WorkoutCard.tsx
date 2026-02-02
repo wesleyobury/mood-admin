@@ -662,7 +662,7 @@ const styles = StyleSheet.create({
   },
   highlightedAddButton: {
     height: 40,
-    backgroundColor: '#1a1a1a',
+    backgroundColor: 'transparent',
     borderRadius: 8,
     paddingHorizontal: 16,
     flexDirection: 'row',
