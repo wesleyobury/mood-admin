@@ -327,10 +327,16 @@ export default function Welcome() {
               delay={1500}
             />
             <AnimatedFeatureItem
+              icon="videocam"
+              title="150+ Exercise Videos"
+              description="Visual guides with coaching cues"
+              delay={3000}
+            />
+            <AnimatedFeatureItem
               icon="trending-up"
               title="Track Progress"
               description='Monitor streaks and achievements'
-              delay={3000}
+              delay={4500}
             />
           </View>
 
