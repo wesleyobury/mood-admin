@@ -308,7 +308,7 @@ export default function Welcome() {
             </Text>
 
             <Text style={styles.description}>
-              Access hundreds of curated workouts, intelligently filtered by your mood, available equipment, and fitness goals.
+              Access hundreds of curated workouts, intelligently filtered by your MOOD.
             </Text>
           </View>
 
