@@ -35,6 +35,7 @@ const equipmentOptions: EquipmentOption[] = [
   { id: 'cable-crossover-machine', name: 'Cable Crossover Machine', icon: 'git-network' },
   { id: 'dumbbells', name: 'Dumbbells', icon: 'barbell' },
   { id: 'barbell', name: 'Barbell', icon: 'barbell' },
+  { id: 'landmine-attachment', name: 'Landmine Attachment', icon: 'rocket' },
 ];
 
 const difficultyLevels: DifficultyLevel[] = [
