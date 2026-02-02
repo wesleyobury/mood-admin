@@ -495,6 +495,32 @@ const WorkoutCard = React.memo(({
               </View>
             </Animated.View>
           )}
+          
+          {/* Highlighted Preview Button - positioned at exact location */}
+          {previewPosition.y > 0 && (
+            <Animated.View 
+              style={[
+                styles.highlightedButton,
+                { 
+                  position: 'absolute',
+                  top: previewPosition.y,
+                  left: previewPosition.x,
+                  width: previewPosition.width,
+                  height: previewPosition.height,
+                  borderRadius: 16,
+                  transform: [{ rotate: wiggleAnim3.interpolate({
+                    inputRange: [-1, 1],
+                    outputRange: ['-3deg', '3deg']
+                  })}]
+                }
+              ]}
+            >
+              <View style={styles.highlightedPreviewButton}>
+                <Ionicons name="eye" size={14} color="#FFD700" />
+                <Text style={styles.highlightedPreviewButtonText}>Preview</Text>
+              </View>
+            </Animated.View>
+          )}
         </Pressable>
       </Modal>
 
