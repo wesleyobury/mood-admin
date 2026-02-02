@@ -1621,7 +1621,7 @@ export const chestWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–15 min',
           description: 'Slow negatives on chest press machine.',
           battlePlan: 'Sets: 3\n\n• Chest Press — 3 × 10 (4s eccentric)',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/etmzu51q_download%20%283%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_chest-workout-hub/artifacts/baf95b3k_ChatGPT%20Image%20Feb%201%2C%202026%2C%2009_39_15%20PM.png',
           intensityReason: 'Slow negatives on chest press machine.',
           moodTips: [
             {
@@ -1646,7 +1646,7 @@ export const chestWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–14 min',
           description: 'High-rep machine pressing for chest endurance.',
           battlePlan: 'Sets: 3\n\n• Chest Press — 3 × 15–20',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/67nyth7l_download%20%282%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_chest-workout-hub/artifacts/vrqnhbou_ChatGPT%20Image%20Feb%201%2C%202026%2C%2009_36_59%20PM.png',
           intensityReason: 'High-rep machine pressing for chest endurance.',
           moodTips: [
             {
@@ -1723,7 +1723,7 @@ export const chestWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–18 min',
           description: 'Paused machine pressing with contraction finish.',
           battlePlan: 'Sets: 4\n\n• Paused Chest Press — 4 × 8\nFinal rep: 6–8s squeeze',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/etmzu51q_download%20%283%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_chest-workout-hub/artifacts/baf95b3k_ChatGPT%20Image%20Feb%201%2C%202026%2C%2009_39_15%20PM.png',
           intensityReason: 'Paused machine pressing with contraction finish.',
           moodTips: [
             {
@@ -1748,7 +1748,7 @@ export const chestWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '15–18 min',
           description: 'Machine pressing paired with push-ups for volume.',
           battlePlan: 'Sets: 4\n\n• Chest Press — 4 × 10\n• Push-Ups — 4 × 15–25',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/67nyth7l_download%20%282%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_chest-workout-hub/artifacts/vrqnhbou_ChatGPT%20Image%20Feb%201%2C%202026%2C%2009_36_59%20PM.png',
           intensityReason: 'Machine pressing paired with push-ups for volume.',
           moodTips: [
             {
@@ -1825,7 +1825,7 @@ export const chestWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '15–20 min',
           description: 'Four-stage machine drop set for chest overload.',
           battlePlan: 'Sets: 3\n\n• Chest Press (Heavy) — max reps\n• Drop 1 (Medium) — max reps\n• Drop 2 (Light) — 12–15\n• Drop 3 (Very Light) — burnout',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/etmzu51q_download%20%283%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_chest-workout-hub/artifacts/baf95b3k_ChatGPT%20Image%20Feb%201%2C%202026%2C%2009_39_15%20PM.png',
           intensityReason: 'Four-stage machine drop set for chest overload.',
           moodTips: [
             {
@@ -1850,7 +1850,7 @@ export const chestWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '15–20 min',
           description: 'Heavy machine pressing paired with explosive push-ups.',
           battlePlan: 'Sets: 4\n\n• Chest Press — 4 × 8\n• Clap Push-Ups — 4 × 6–10',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/67nyth7l_download%20%282%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_chest-workout-hub/artifacts/vrqnhbou_ChatGPT%20Image%20Feb%201%2C%202026%2C%2009_36_59%20PM.png',
           intensityReason: 'Heavy machine pressing paired with explosive push-ups.',
           moodTips: [
             {
