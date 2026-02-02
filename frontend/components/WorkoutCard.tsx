@@ -346,104 +346,39 @@ const WorkoutCard = React.memo(({
           ))}
         </View>
         
-        {/* Edit Button - Right side, aligned with dots */}
-        <View ref={pencilButtonRef} collapsable={false} style={styles.editButtonWrapper}>
+        {/* Edit Button - with direct glow and wiggle when highlighted */}
+        <Animated.View 
+          style={[
+            styles.editButtonWrapper,
+            showHighlight && styles.glowingButton,
+            showHighlight && {
+              transform: [{ rotate: wiggleAnim1.interpolate({
+                inputRange: [-1, 1],
+                outputRange: ['-5deg', '5deg']
+              })}]
+            }
+          ]}
+        >
           <TouchableOpacity
-            style={styles.editButton}
+            style={[
+              styles.editButton,
+              showHighlight && styles.highlightedBorder,
+            ]}
             onPress={() => handleOpenCustomModal(workouts[currentWorkoutIndex])}
             activeOpacity={0.8}
           >
             <Ionicons name="pencil" size={18} color="#FFD700" />
           </TouchableOpacity>
-        </View>
+        </Animated.View>
       </View>
 
-      {/* Highlight Overlay - covers everything except the buttons */}
-      <Modal
-        visible={showTooltip && tooltipReady}
-        transparent={true}
-        animationType="fade"
-        onRequestClose={dismissTooltip}
-      >
-        <Pressable style={styles.highlightOverlay} onPress={dismissTooltip}>
-          {/* Highlighted Pencil Button - positioned at exact location */}
-          {pencilPosition.y > 0 && (
-            <Animated.View 
-              style={[
-                styles.highlightedButton,
-                { 
-                  position: 'absolute',
-                  top: pencilPosition.y,
-                  left: pencilPosition.x,
-                  width: pencilPosition.width,
-                  height: pencilPosition.height,
-                  borderRadius: 18,
-                  transform: [{ rotate: wiggleAnim1.interpolate({
-                    inputRange: [-1, 1],
-                    outputRange: ['-5deg', '5deg']
-                  })}]
-                }
-              ]}
-            >
-              <View style={styles.highlightedPencilButton}>
-                <Ionicons name="pencil" size={18} color="#FFD700" />
-              </View>
-            </Animated.View>
-          )}
-          
-          {/* Highlighted Add Workout Button - positioned at exact location */}
-          {addButtonPosition.y > 0 && (
-            <Animated.View 
-              style={[
-                styles.highlightedButton,
-                { 
-                  position: 'absolute',
-                  top: addButtonPosition.y,
-                  left: addButtonPosition.x,
-                  width: addButtonPosition.width,
-                  height: addButtonPosition.height,
-                  borderRadius: 20,
-                  transform: [{ rotate: wiggleAnim2.interpolate({
-                    inputRange: [-1, 1],
-                    outputRange: ['-2deg', '2deg']
-                  })}]
-                }
-              ]}
-            >
-              <View style={styles.highlightedAddButton}>
-                <Ionicons name="add" size={18} color="#FFD700" />
-                <Text style={styles.highlightedAddButtonText}>Add workout</Text>
-              </View>
-            </Animated.View>
-          )}
-          
-          {/* Highlighted Preview Button - positioned at exact location */}
-          {previewPosition.y > 0 && (
-            <Animated.View 
-              style={[
-                styles.highlightedButton,
-                { 
-                  position: 'absolute',
-                  top: previewPosition.y,
-                  left: previewPosition.x,
-                  width: previewPosition.width,
-                  height: previewPosition.height,
-                  borderRadius: 16,
-                  transform: [{ rotate: wiggleAnim3.interpolate({
-                    inputRange: [-1, 1],
-                    outputRange: ['-3deg', '3deg']
-                  })}]
-                }
-              ]}
-            >
-              <View style={styles.highlightedPreviewButton}>
-                <Ionicons name="eye" size={14} color="#FFD700" />
-                <Text style={styles.highlightedPreviewButtonText}>Preview</Text>
-              </View>
-            </Animated.View>
-          )}
-        </Pressable>
-      </Modal>
+      {/* Semi-transparent overlay - tap to dismiss */}
+      {showHighlight && (
+        <Pressable 
+          style={styles.highlightOverlay} 
+          onPress={dismissHighlight}
+        />
+      )}
 
       {/* Custom Workout Modal */}
       <CustomWorkoutModal
