@@ -544,9 +544,16 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  // Bright button style - slightly brighter when highlighted
+  // Bright button style - elevated above overlay and slightly brighter
   brightButton: {
     backgroundColor: '#4a4a4a',
+    zIndex: 20,
+    elevation: 20,
+  },
+  // Elevated wrapper for buttons when highlighted
+  elevatedWrapper: {
+    zIndex: 20,
+    elevation: 20,
   },
   workoutContent: {
     flex: 1,
