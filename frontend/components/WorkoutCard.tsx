@@ -252,6 +252,7 @@ const WorkoutCard = React.memo(({
         {/* Add Workout Button - with wiggle when highlighted */}
         <Animated.View 
           style={[
+            showHighlight && styles.elevatedWrapper,
             showHighlight && {
               transform: [{ rotate: wiggleAnim2.interpolate({
                 inputRange: [-1, 1],
