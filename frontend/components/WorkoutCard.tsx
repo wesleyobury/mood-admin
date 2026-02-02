@@ -133,31 +133,17 @@ const WorkoutCard = React.memo(({
           <Text style={styles.workoutDescription}>{item.description}</Text>
         </View>
 
-        {/* Add Workout Button - with wiggle when highlighted */}
-        <Animated.View 
-          style={[
-            showHighlight && styles.elevatedWrapper,
-            showHighlight && {
-              transform: [{ rotate: wiggleAnim2.interpolate({
-                inputRange: [-1, 1],
-                outputRange: ['-2deg', '2deg']
-              })}]
-            }
-          ]}
-        >
-          <Animated.View style={{ transform: [{ scale: localScaleAnim }] }}>
-            <TouchableOpacity
-              style={[
-                styles.addWorkoutButton,
-                showHighlight && styles.brightButton,
-              ]}
-              onPress={() => handleAddToCartWithAnimation(item)}
-              activeOpacity={0.8}
-              disabled={isInCart(createWorkoutId(item, equipment, difficulty))}
-            >
-              <Ionicons
-                name={isInCart(createWorkoutId(item, equipment, difficulty)) ? 'checkmark' : 'add'}
-                size={18}
+        {/* Add Workout Button */}
+        <Animated.View style={{ transform: [{ scale: localScaleAnim }] }}>
+          <TouchableOpacity
+            style={styles.addWorkoutButton}
+            onPress={() => handleAddToCartWithAnimation(item)}
+            activeOpacity={0.8}
+            disabled={isInCart(createWorkoutId(item, equipment, difficulty))}
+          >
+            <Ionicons
+              name={isInCart(createWorkoutId(item, equipment, difficulty)) ? 'checkmark' : 'add'}
+              size={18}
                 color="#FFD700"
               />
               <Text style={styles.addWorkoutButtonText}>
