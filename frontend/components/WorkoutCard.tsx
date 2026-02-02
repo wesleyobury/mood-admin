@@ -8,7 +8,6 @@ import {
   Image,
   FlatList,
   Animated,
-  Modal,
   Pressable,
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
@@ -18,7 +17,7 @@ import CustomWorkoutModal from './CustomWorkoutModal';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useAuth } from '../contexts/AuthContext';
 
-const TOOLTIP_SHOWN_KEY = 'custom_workout_tooltip_shown_v4';
+const TOOLTIP_SHOWN_KEY = 'custom_workout_tooltip_shown_v5';
 const GUEST_TOOLTIP_SESSION_KEY = 'guest_tooltip_session_shown';
 
 const { width, height } = Dimensions.get('window');
@@ -49,26 +48,15 @@ const WorkoutCard = React.memo(({
   const [localScaleAnim] = useState(new Animated.Value(1));
   const [customModalVisible, setCustomModalVisible] = useState(false);
   const [selectedWorkoutForEdit, setSelectedWorkoutForEdit] = useState<Workout | null>(null);
-  const [showTooltip, setShowTooltip] = useState(false);
-  const [tooltipReady, setTooltipReady] = useState(false);
+  const [showHighlight, setShowHighlight] = useState(false);
   const flatListRef = useRef<FlatList>(null);
   const isMounted = useRef(true);
-  const tooltipTimerRef = useRef<NodeJS.Timeout | null>(null);
+  const highlightTimerRef = useRef<NodeJS.Timeout | null>(null);
   
-  // Refs for measuring button positions
-  const pencilButtonRef = useRef<View>(null);
-  const addWorkoutButtonRef = useRef<View>(null);
-  const previewButtonRef = useRef<View>(null);
-  
-  // State for button positions (measured from actual button locations)
-  const [pencilPosition, setPencilPosition] = useState({ x: 0, y: 0, width: 0, height: 0 });
-  const [addButtonPosition, setAddButtonPosition] = useState({ x: 0, y: 0, width: 0, height: 0 });
-  const [previewPosition, setPreviewPosition] = useState({ x: 0, y: 0, width: 0, height: 0 });
-  
-  // Animation values for wiggle effect
-  const wiggleAnim1 = useRef(new Animated.Value(0)).current;
-  const wiggleAnim2 = useRef(new Animated.Value(0)).current;
-  const wiggleAnim3 = useRef(new Animated.Value(0)).current;
+  // Animation values for wiggle effect on each button
+  const wiggleAnim1 = useRef(new Animated.Value(0)).current; // Pencil
+  const wiggleAnim2 = useRef(new Animated.Value(0)).current; // Add workout
+  const wiggleAnim3 = useRef(new Animated.Value(0)).current; // Preview
 
   // Track component mount/unmount to cancel tooltip if user leaves
   useEffect(() => {
