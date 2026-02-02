@@ -58,126 +58,83 @@ const WorkoutCard = React.memo(({
   const wiggleAnim2 = useRef(new Animated.Value(0)).current; // Add workout
   const wiggleAnim3 = useRef(new Animated.Value(0)).current; // Preview
 
-  // Track component mount/unmount to cancel tooltip if user leaves
+  // Track component mount/unmount to cancel highlight if user leaves
   useEffect(() => {
     isMounted.current = true;
     return () => {
       isMounted.current = false;
-      // Clear any pending tooltip timer when component unmounts
-      if (tooltipTimerRef.current) {
-        clearTimeout(tooltipTimerRef.current);
-        tooltipTimerRef.current = null;
+      if (highlightTimerRef.current) {
+        clearTimeout(highlightTimerRef.current);
+        highlightTimerRef.current = null;
       }
     };
   }, []);
 
-  // Measure button positions when tooltip is about to show
-  const measureButtonPositions = () => {
-    return new Promise<void>((resolve) => {
-      let measured = 0;
-      const checkDone = () => {
-        measured++;
-        if (measured >= 3) resolve();
-      };
-
-      if (pencilButtonRef.current) {
-        pencilButtonRef.current.measureInWindow((x, y, width, height) => {
-          setPencilPosition({ x, y, width, height });
-          checkDone();
-        });
-      } else {
-        checkDone();
-      }
-
-      if (addWorkoutButtonRef.current) {
-        addWorkoutButtonRef.current.measureInWindow((x, y, width, height) => {
-          setAddButtonPosition({ x, y, width, height });
-          checkDone();
-        });
-      } else {
-        checkDone();
-      }
-
-      if (previewButtonRef.current) {
-        previewButtonRef.current.measureInWindow((x, y, width, height) => {
-          setPreviewPosition({ x, y, width, height });
-          checkDone();
-        });
-      } else {
-        checkDone();
-      }
-    });
-  };
-
-  // Check if tooltip should be shown
-  // Guests: show every session (using session storage key that gets cleared)
-  // Logged-in users: show only once (persist permanently)
+  // Check if highlight should be shown
+  // Guests: show every session, Logged-in users: show only once
   useEffect(() => {
-    const checkTooltipStatus = async () => {
+    const checkHighlightStatus = async () => {
       try {
         let shouldShow = false;
         
         if (isGuest) {
-          // For guests: check session-based key (will show each new app session)
           const hasSeenThisSession = await AsyncStorage.getItem(GUEST_TOOLTIP_SESSION_KEY);
           shouldShow = !hasSeenThisSession;
         } else if (token) {
-          // For logged-in users: check permanent key (show only once ever)
-          const hasSeenTooltip = await AsyncStorage.getItem(TOOLTIP_SHOWN_KEY);
-          shouldShow = !hasSeenTooltip;
+          const hasSeenHighlight = await AsyncStorage.getItem(TOOLTIP_SHOWN_KEY);
+          shouldShow = !hasSeenHighlight;
         }
         
         if (shouldShow) {
-          // Only show tooltip if user is still on this screen after delay
-          tooltipTimerRef.current = setTimeout(async () => {
+          highlightTimerRef.current = setTimeout(() => {
             if (isMounted.current) {
-              // Small delay to ensure FlatList items are fully rendered
-              setTimeout(async () => {
-                if (isMounted.current) {
-                  // Measure button positions before showing tooltips
-                  await measureButtonPositions();
-                  setTooltipReady(true);
-                  setShowTooltip(true);
-                  startBounceAnimation();
-                }
-              }, 300);
+              setShowHighlight(true);
+              startWiggleAnimation();
             }
           }, 1500);
         }
       } catch (error) {
-        console.log('Error checking tooltip status:', error);
+        console.log('Error checking highlight status:', error);
       }
     };
-    checkTooltipStatus();
+    checkHighlightStatus();
     
     return () => {
-      // Cleanup timer if effect re-runs
-      if (tooltipTimerRef.current) {
-        clearTimeout(tooltipTimerRef.current);
+      if (highlightTimerRef.current) {
+        clearTimeout(highlightTimerRef.current);
       }
     };
   }, [isGuest, token]);
 
-  const startBounceAnimation = () => {
-    // Continuous bounce animation
-    const createBounce = (anim: Animated.Value, delay: number) => {
+  const startWiggleAnimation = () => {
+    const createWiggle = (anim: Animated.Value, delay: number) => {
       Animated.loop(
         Animated.sequence([
           Animated.delay(delay),
           Animated.timing(anim, {
-            toValue: -8,
-            duration: 300,
+            toValue: 1,
+            duration: 80,
+            useNativeDriver: true,
+          }),
+          Animated.timing(anim, {
+            toValue: -1,
+            duration: 160,
             useNativeDriver: true,
           }),
           Animated.timing(anim, {
             toValue: 0,
-            duration: 300,
+            duration: 80,
             useNativeDriver: true,
           }),
-          Animated.delay(1500),
+          Animated.delay(800),
         ])
       ).start();
     };
+    
+    createWiggle(wiggleAnim1, 0);
+    createWiggle(wiggleAnim2, 100);
+    createWiggle(wiggleAnim3, 200);
+  };
     
     // Continuous wiggle animation
     const createWiggle = (anim: Animated.Value, delay: number) => {
