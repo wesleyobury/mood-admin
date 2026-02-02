@@ -675,15 +675,16 @@ const styles = StyleSheet.create({
   highlightedAddButtonText: {
     fontSize: 14,
     fontWeight: '600',
-    color: '#FFD700',
+    color: '#ffffff',
   },
   highlightedPreviewButton: {
     flexDirection: 'row',
     alignItems: 'center',
+    justifyContent: 'center',
     gap: 4,
     paddingHorizontal: 12,
     paddingVertical: 8,
-    backgroundColor: 'rgba(255, 215, 0, 0.15)',
+    backgroundColor: 'transparent',
     borderRadius: 16,
     borderWidth: 1.5,
     borderColor: '#FFD700',
@@ -691,7 +692,7 @@ const styles = StyleSheet.create({
   highlightedPreviewButtonText: {
     fontSize: 12,
     fontWeight: '600',
-    color: '#FFD700',
+    color: '#ffffff',
   },
   workoutContent: {
     flex: 1,
