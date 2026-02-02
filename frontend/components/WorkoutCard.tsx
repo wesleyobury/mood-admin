@@ -178,8 +178,35 @@ const WorkoutCard = React.memo(({
       ).start();
     };
     
+    // Continuous wiggle animation
+    const createWiggle = (anim: Animated.Value, delay: number) => {
+      Animated.loop(
+        Animated.sequence([
+          Animated.delay(delay),
+          Animated.timing(anim, {
+            toValue: 1,
+            duration: 100,
+            useNativeDriver: true,
+          }),
+          Animated.timing(anim, {
+            toValue: -1,
+            duration: 200,
+            useNativeDriver: true,
+          }),
+          Animated.timing(anim, {
+            toValue: 0,
+            duration: 100,
+            useNativeDriver: true,
+          }),
+          Animated.delay(1200),
+        ])
+      ).start();
+    };
+    
     createBounce(bounceAnim1, 0);
     createBounce(bounceAnim2, 150);
+    createWiggle(wiggleAnim1, 300);
+    createWiggle(wiggleAnim2, 450);
   };
 
   const dismissTooltip = async () => {
