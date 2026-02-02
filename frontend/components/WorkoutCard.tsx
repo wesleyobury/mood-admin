@@ -44,6 +44,7 @@ const WorkoutCard = React.memo(({
   handleAddToCart,
   onStartWorkout,
 }: WorkoutCardProps) => {
+  const { isGuest, token } = useAuth();
   const [currentWorkoutIndex, setCurrentWorkoutIndex] = useState(0);
   const [localScaleAnim] = useState(new Animated.Value(1));
   const [customModalVisible, setCustomModalVisible] = useState(false);
@@ -55,24 +56,37 @@ const WorkoutCard = React.memo(({
   const bounceAnim1 = useRef(new Animated.Value(0)).current;
   const bounceAnim2 = useRef(new Animated.Value(0)).current;
 
-  // Check if tooltip should be shown (first time users)
+  // Check if tooltip should be shown
+  // Guests: show every session (using session storage key that gets cleared)
+  // Logged-in users: show only once (persist permanently)
   useEffect(() => {
     const checkTooltipStatus = async () => {
       try {
-        const hasSeenTooltip = await AsyncStorage.getItem(TOOLTIP_SHOWN_KEY);
-        if (!hasSeenTooltip) {
-          // Small delay to let the screen render first
-          setTimeout(() => {
-            setShowTooltip(true);
-            startBounceAnimation();
-          }, 1500);
+        if (isGuest) {
+          // For guests: check session-based key (will show each new app session)
+          const hasSeenThisSession = await AsyncStorage.getItem(GUEST_TOOLTIP_SESSION_KEY);
+          if (!hasSeenThisSession) {
+            setTimeout(() => {
+              setShowTooltip(true);
+              startBounceAnimation();
+            }, 1500);
+          }
+        } else if (token) {
+          // For logged-in users: check permanent key (show only once ever)
+          const hasSeenTooltip = await AsyncStorage.getItem(TOOLTIP_SHOWN_KEY);
+          if (!hasSeenTooltip) {
+            setTimeout(() => {
+              setShowTooltip(true);
+              startBounceAnimation();
+            }, 1500);
+          }
         }
       } catch (error) {
         console.log('Error checking tooltip status:', error);
       }
     };
     checkTooltipStatus();
-  }, []);
+  }, [isGuest, token]);
 
   const startBounceAnimation = () => {
     // Continuous bounce animation
