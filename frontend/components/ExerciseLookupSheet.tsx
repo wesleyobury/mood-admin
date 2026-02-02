@@ -625,7 +625,7 @@ const styles = StyleSheet.create({
   },
   overlayContentWrapper: {
     position: 'absolute',
-    bottom: 40,
+    bottom: 20,
     left: 0,
     right: 0,
     paddingHorizontal: 20,
