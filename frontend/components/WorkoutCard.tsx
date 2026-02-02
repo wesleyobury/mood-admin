@@ -258,30 +258,36 @@ const WorkoutCard = React.memo(({
           ))}
         </View>
         
-        {/* Edit Button - with wiggle when highlighted */}
-        <Animated.View 
-          style={[
-            styles.editButtonWrapper,
-            showHighlight && styles.elevatedWrapper,
-            showHighlight && {
-              transform: [{ rotate: wiggleAnim1.interpolate({
-                inputRange: [-1, 1],
-                outputRange: ['-5deg', '5deg']
-              })}]
-            }
-          ]}
-        >
+        {/* Edit Button with Shimmer Effect */}
+        <View style={styles.editButtonWrapper}>
           <TouchableOpacity
-            style={[
-              styles.editButton,
-              showHighlight && styles.brightButton,
-            ]}
+            style={styles.editButton}
             onPress={() => handleOpenCustomModal(workouts[currentWorkoutIndex])}
             activeOpacity={0.8}
           >
-            <Ionicons name="pencil" size={18} color="#FFD700" />
+            {/* Shimmer overlay on the pencil icon */}
+            <View style={styles.shimmerContainer}>
+              <Ionicons name="pencil" size={18} color="#FFD700" />
+              <Animated.View 
+                style={[
+                  styles.shimmerOverlay,
+                  {
+                    transform: [{
+                      translateX: shimmerAnim.interpolate({
+                        inputRange: [0, 1],
+                        outputRange: [-40, 40],
+                      })
+                    }],
+                    opacity: shimmerAnim.interpolate({
+                      inputRange: [0, 0.5, 1],
+                      outputRange: [0, 0.6, 0],
+                    }),
+                  }
+                ]}
+              />
+            </View>
           </TouchableOpacity>
-        </Animated.View>
+        </View>
       </View>
 
       {/* Custom Workout Modal */}
