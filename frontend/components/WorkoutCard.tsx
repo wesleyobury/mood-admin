@@ -512,13 +512,13 @@ const styles = StyleSheet.create({
   },
   pencilTooltipContainer: {
     position: 'absolute',
-    bottom: 140,
-    right: 45,
+    bottom: 115,
+    right: 20,
     alignItems: 'center',
   },
   addWorkoutTooltipContainer: {
     position: 'absolute',
-    bottom: 240,
+    bottom: 195,
     left: 0,
     right: 0,
     alignItems: 'center',
