@@ -21,7 +21,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import Constants from 'expo-constants';
 
 const { width, height } = Dimensions.get('window');
-const SHEET_HEIGHT = height * 0.85;
+const SHEET_HEIGHT = height * 0.70;
 
 // Thumbnail cache
 const thumbnailCache: { [key: string]: string } = {};
