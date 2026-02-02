@@ -427,13 +427,13 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
   },
   featuresSection: {
-    paddingTop: 32, // Top padding for features
-    paddingBottom: 16, // Reduced bottom padding to close gap with button
+    paddingTop: 20, // Reduced top padding for features
+    paddingBottom: 8, // Reduced bottom padding to close gap with button
   },
   featureItem: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginBottom: 16,
+    marginBottom: 12, // Reduced from 16
     paddingHorizontal: 20,
   },
   featureIcon: {
