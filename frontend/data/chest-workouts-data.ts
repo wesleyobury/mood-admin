@@ -373,7 +373,7 @@ export const chestWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–15 min',
           description: 'Slow eccentrics increase upper chest awareness and tension.',
           battlePlan: 'Instructions: Lower the bar for 4 seconds each rep.\nSets: 3\nRest: 90s\n\n• Incline Press — 3 × 6 (4s eccentric)',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/jz7j4fdt_download%20%287%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_chest-workout-hub/artifacts/6ssiv94d_download%20%284%29.png',
           intensityReason: 'Slow eccentrics increase upper chest awareness and tension.',
           moodTips: [
             {
@@ -398,7 +398,7 @@ export const chestWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–14 min',
           description: 'High-rep incline pressing to build upper chest endurance.',
           battlePlan: 'Instructions: Choose a light load and move continuously.\nSets: 3\nRest: 60s\n\n• Incline Press — 3 × 15–20',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/lnd9yph3_ibp.webp',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_chest-workout-hub/artifacts/fs4ku905_download%20%283%29.png',
           intensityReason: 'High-rep incline pressing to build upper chest endurance.',
           moodTips: [
             {
@@ -475,7 +475,7 @@ export const chestWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–18 min',
           description: 'Paused incline pressing with a strong contraction finish.',
           battlePlan: 'Instructions: Final rep includes a 6–8s squeeze at lockout.\nSets: 4\nRest: 2:00\n\n• Paused Incline Press — 4 × 4\nFinal rep: 6–8s squeeze',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/jz7j4fdt_download%20%287%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_chest-workout-hub/artifacts/6ssiv94d_download%20%284%29.png',
           intensityReason: 'Paused incline pressing with a strong contraction finish.',
           moodTips: [
             {
@@ -500,7 +500,7 @@ export const chestWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '15–18 min',
           description: 'Incline pressing paired with explosive push-ups.',
           battlePlan: 'Instructions: Move directly from bar to floor.\nSets: 4\nRest: 90s after push-ups\n\n• Incline Press — 4 × 6\n• Explosive Push-Ups — 4 × 12–15',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/lnd9yph3_ibp.webp',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_chest-workout-hub/artifacts/fs4ku905_download%20%283%29.png',
           intensityReason: 'Incline pressing paired with explosive push-ups.',
           moodTips: [
             {
@@ -577,7 +577,7 @@ export const chestWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '15–20 min',
           description: 'Four-stage incline drop set for deep upper chest fatigue.',
           battlePlan: 'Instructions: Strip weight immediately between stages.\nSets: 3\nRest: 2:30\n\n• Incline Press (Heavy) — max reps\n• Drop 1 (Medium) — max reps\n• Drop 2 (Light) — 12–15 reps\n• Drop 3 (Very Light) — burnout',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/jz7j4fdt_download%20%287%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_chest-workout-hub/artifacts/6ssiv94d_download%20%284%29.png',
           intensityReason: 'Four-stage incline drop set for deep upper chest fatigue.',
           moodTips: [
             {
@@ -602,7 +602,7 @@ export const chestWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '15–20 min',
           description: 'Heavy incline pressing paired with explosive plyo push-ups.',
           battlePlan: 'Instructions: Move quickly but under control.\nSets: 4\nRest: 2:00 after push-ups\n\n• Incline Press — 4 × 4\n• Clap Push-Ups — 4 × 6–10',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/lnd9yph3_ibp.webp',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_chest-workout-hub/artifacts/fs4ku905_download%20%283%29.png',
           intensityReason: 'Heavy incline pressing paired with explosive plyo push-ups.',
           moodTips: [
             {
