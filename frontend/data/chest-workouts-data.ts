@@ -2557,7 +2557,7 @@ export const chestWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–15 min',
           description: 'Slow eccentrics on dips for chest control.',
           battlePlan: 'Sets: 3\n\n• Dips — 3 × 6 (4s eccentric)',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/sudzdwsx_download%20%283%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_chest-workout-hub/artifacts/a1hm6idf_download%20%2813%29.png',
           intensityReason: 'Slow eccentrics on dips for chest control.',
           moodTips: [
             {
@@ -2582,7 +2582,7 @@ export const chestWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–14 min',
           description: 'High-rep dips to build chest endurance.',
           battlePlan: 'Sets: 3\n\n• Assisted Dips — 3 × 12–20',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/i8tbsgyh_download%20%284%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_chest-workout-hub/artifacts/lccg7x1a_download%20%2812%29.png',
           intensityReason: 'High-rep dips to build chest endurance.',
           moodTips: [
             {
@@ -2659,7 +2659,7 @@ export const chestWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–18 min',
           description: 'Paused dips with contraction finish.',
           battlePlan: 'Sets: 4\n\n• Paused Dips — 4 × 6\nFinal rep: 6–8s squeeze',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/sudzdwsx_download%20%283%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_chest-workout-hub/artifacts/a1hm6idf_download%20%2813%29.png',
           intensityReason: 'Paused dips with contraction finish.',
           moodTips: [
             {
@@ -2684,7 +2684,7 @@ export const chestWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '15–18 min',
           description: 'Dips paired with push-ups for chest volume.',
           battlePlan: 'Sets: 4\n\n• Dips — 4 × 8\n• Push-Ups — 4 × 15–25',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/i8tbsgyh_download%20%284%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_chest-workout-hub/artifacts/lccg7x1a_download%20%2812%29.png',
           intensityReason: 'Dips paired with push-ups for chest volume.',
           moodTips: [
             {
@@ -2761,7 +2761,7 @@ export const chestWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '15–20 min',
           description: 'Cascading dip drops for deep chest fatigue.',
           battlePlan: 'Sets: 3\n\n• Weighted Dips — max reps\n• Bodyweight Dips — max reps\n• Assisted Dips — burnout',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/sudzdwsx_download%20%283%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_chest-workout-hub/artifacts/a1hm6idf_download%20%2813%29.png',
           intensityReason: 'Cascading dip drops for deep chest fatigue.',
           moodTips: [
             {
@@ -2786,7 +2786,7 @@ export const chestWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '15–20 min',
           description: 'Heavy dips paired with plyometric push-ups.',
           battlePlan: 'Sets: 4\n\n• Weighted Dips — 4 × 6\n• Clap Push-Ups — 4 × 6–10',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/i8tbsgyh_download%20%284%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_chest-workout-hub/artifacts/lccg7x1a_download%20%2812%29.png',
           intensityReason: 'Heavy dips paired with plyometric push-ups.',
           moodTips: [
             {
