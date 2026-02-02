@@ -135,52 +135,23 @@ const WorkoutCard = React.memo(({
     createWiggle(wiggleAnim2, 100);
     createWiggle(wiggleAnim3, 200);
   };
-    
-    // Continuous wiggle animation
-    const createWiggle = (anim: Animated.Value, delay: number) => {
-      Animated.loop(
-        Animated.sequence([
-          Animated.delay(delay),
-          Animated.timing(anim, {
-            toValue: 1,
-            duration: 100,
-            useNativeDriver: true,
-          }),
-          Animated.timing(anim, {
-            toValue: -1,
-            duration: 200,
-            useNativeDriver: true,
-          }),
-          Animated.timing(anim, {
-            toValue: 0,
-            duration: 100,
-            useNativeDriver: true,
-          }),
-          Animated.delay(1200),
-        ])
-      ).start();
-    };
-    
-    createWiggle(wiggleAnim1, 0);
-    createWiggle(wiggleAnim2, 150);
-    createWiggle(wiggleAnim3, 300);
-  };
 
-  const dismissTooltip = async () => {
-    setShowTooltip(false);
+  const dismissHighlight = async () => {
+    setShowHighlight(false);
     wiggleAnim1.stopAnimation();
     wiggleAnim2.stopAnimation();
     wiggleAnim3.stopAnimation();
+    wiggleAnim1.setValue(0);
+    wiggleAnim2.setValue(0);
+    wiggleAnim3.setValue(0);
     try {
       if (isGuest) {
-        // For guests: mark as seen for this session only
         await AsyncStorage.setItem(GUEST_TOOLTIP_SESSION_KEY, 'true');
       } else {
-        // For logged-in users: mark as seen permanently
         await AsyncStorage.setItem(TOOLTIP_SHOWN_KEY, 'true');
       }
     } catch (error) {
-      console.log('Error saving tooltip status:', error);
+      console.log('Error saving highlight status:', error);
     }
   };
 
