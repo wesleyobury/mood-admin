@@ -302,7 +302,7 @@ const WorkoutCard = React.memo(({
         difficulty={difficulty}
         defaultWorkoutName={selectedWorkoutForEdit?.name || ''}
       />
-    </Pressable>
+    </View>
   );
 });
 
