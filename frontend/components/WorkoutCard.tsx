@@ -385,7 +385,7 @@ const WorkoutCard = React.memo(({
         </View>
         
         {/* Edit Button - Right side, aligned with dots */}
-        <View ref={pencilButtonRef} collapsable={false}>
+        <View ref={pencilButtonRef} collapsable={false} style={styles.editButtonWrapper}>
           <TouchableOpacity
             style={styles.editButton}
             onPress={() => handleOpenCustomModal(workouts[currentWorkoutIndex])}
