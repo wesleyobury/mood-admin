@@ -118,7 +118,13 @@ const WorkoutCard = React.memo(({
     bounceAnim1.stopAnimation();
     bounceAnim2.stopAnimation();
     try {
-      await AsyncStorage.setItem(TOOLTIP_SHOWN_KEY, 'true');
+      if (isGuest) {
+        // For guests: mark as seen for this session only
+        await AsyncStorage.setItem(GUEST_TOOLTIP_SESSION_KEY, 'true');
+      } else {
+        // For logged-in users: mark as seen permanently
+        await AsyncStorage.setItem(TOOLTIP_SHOWN_KEY, 'true');
+      }
     } catch (error) {
       console.log('Error saving tooltip status:', error);
     }
