@@ -544,20 +544,9 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  // Highlight Overlay - covers the entire screen
-  highlightOverlay: {
-    position: 'absolute',
-    top: -500,
-    left: -50,
-    right: -50,
-    bottom: -500,
-    backgroundColor: 'rgba(0, 0, 0, 0.4)',
-    zIndex: 5,
-  },
-  // Elevated button - appears above the overlay (brighter)
-  elevatedButton: {
-    zIndex: 10,
-    elevation: 10,
+  // Bright button style - slightly brighter when highlighted
+  brightButton: {
+    backgroundColor: '#4a4a4a',
   },
   workoutContent: {
     flex: 1,
