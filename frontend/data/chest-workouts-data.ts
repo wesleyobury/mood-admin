@@ -1258,14 +1258,14 @@ export const chestWorkoutDatabase: EquipmentWorkouts[] = [
           name: 'Smith Foundations',
           duration: '12–15 min',
           description: 'Stable Smith pressing to build chest confidence.',
-          battlePlan: 'Sets: 4\n\n• Smith Flat Press — 4 × 10',
+          battlePlan: 'Instructions: Use a load you could do for 2 more reps.\nSets: 4\n\n• Smith Flat Press — 2 × 10\n• Smith Incline Press — 2 × 8',
           imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/wqpgrlpk_download%20%289%29.png',
           intensityReason: 'Stable Smith pressing to build chest confidence.',
           moodTips: [
             {
               icon: 'construct',
-              title: 'Lock the path in first',
-              description: 'Set feet and shoulders before unrack.'
+              title: 'Lock your setup first',
+              description: 'Feet and shoulders fixed before unrack.'
             },
             {
               icon: 'refresh',
@@ -1283,7 +1283,7 @@ export const chestWorkoutDatabase: EquipmentWorkouts[] = [
           name: 'Smith Control',
           duration: '12–16 min',
           description: 'Paused Smith reps to reinforce chest engagement.',
-          battlePlan: 'Sets: 4\n\n• Paused Smith Press — 4 × 8',
+          battlePlan: 'Instructions: Pause 1 second on chest.\nSets: 4\n\n• Paused Smith Incline Press — 4 × 8',
           imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/pl1dkh7x_download%20%288%29.png',
           intensityReason: 'Paused Smith reps to reinforce chest engagement.',
           moodTips: [
@@ -1300,7 +1300,7 @@ export const chestWorkoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'shield',
               title: 'Use safeties',
-              description: 'Extra time under tension adds fatigue.'
+              description: 'Pauses increase fatigue.'
             }
           ]
         },
@@ -1308,7 +1308,7 @@ export const chestWorkoutDatabase: EquipmentWorkouts[] = [
           name: 'Slow Smith Press',
           duration: '12–15 min',
           description: 'Slow negatives on Smith press for chest tension.',
-          battlePlan: 'Sets: 3\n\n• Smith Press — 3 × 8 (4s eccentric)',
+          battlePlan: 'Instructions: Lower for 4 seconds.\nSets: 3\n\n• Smith Flat Press — 3 × 8 (4s eccentric)',
           imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/wqpgrlpk_download%20%289%29.png',
           intensityReason: 'Slow negatives on Smith press for chest tension.',
           moodTips: [
@@ -1320,7 +1320,7 @@ export const chestWorkoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'hand-left',
               title: 'Soft bottom touch',
-              description: 'No collapsing.'
+              description: 'No collapse.'
             },
             {
               icon: 'people',
@@ -1333,7 +1333,7 @@ export const chestWorkoutDatabase: EquipmentWorkouts[] = [
           name: 'Smith Burn',
           duration: '10–14 min',
           description: 'High-rep Smith pressing for chest endurance.',
-          battlePlan: 'Sets: 3\n\n• Smith Press — 3 × 15–20',
+          battlePlan: 'Instructions: Choose light load.\nSets: 3\n\n• Smith Incline Press — 3 × 15–20',
           imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/pl1dkh7x_download%20%288%29.png',
           intensityReason: 'High-rep Smith pressing for chest endurance.',
           moodTips: [
@@ -1350,7 +1350,7 @@ export const chestWorkoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'alert-circle',
               title: 'Rack quickly',
-              description: 'High reps fatigue fast.'
+              description: 'Fatigue builds fast.'
             }
           ]
         }
@@ -1359,15 +1359,15 @@ export const chestWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Smith Clusters',
           duration: '14–18 min',
-          description: 'Smith cluster pressing to maintain power.',
-          battlePlan: 'Sets: 4\n\n• Smith Press — 4 × (5 / 5 / 5)',
+          description: 'Smith cluster pressing to maintain output.',
+          battlePlan: 'Instructions: 15s breaths.\nSets: 4\n\n• Smith Flat Press — 4 × (5 / 5 / 5)',
           imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/wqpgrlpk_download%20%289%29.png',
-          intensityReason: 'Smith cluster pressing to maintain power.',
+          intensityReason: 'Smith cluster pressing to maintain output.',
           moodTips: [
             {
               icon: 'repeat',
-              title: 'Each rep identical',
-              description: 'Rails don\'t excuse slop.'
+              title: 'Rails don\'t excuse slop',
+              description: 'Every rep clean.'
             },
             {
               icon: 'pulse',
@@ -1385,14 +1385,14 @@ export const chestWorkoutDatabase: EquipmentWorkouts[] = [
           name: 'Working Smith',
           duration: '14–18 min',
           description: 'Traditional Smith pressing with meaningful load.',
-          battlePlan: 'Sets: 5\n\n• Smith Press — 5 × 8',
+          battlePlan: 'Instructions: Increase load only if reps stay clean.\nSets: 5\n\n• Smith Flat Press — 3 × 8\n• Smith Incline Press — 2 × 8',
           imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/pl1dkh7x_download%20%288%29.png',
           intensityReason: 'Traditional Smith pressing with meaningful load.',
           moodTips: [
             {
               icon: 'barbell',
               title: 'Reps should work',
-              description: 'Controlled grind, no panic.'
+              description: 'Control never fades.'
             },
             {
               icon: 'body',
@@ -1410,7 +1410,7 @@ export const chestWorkoutDatabase: EquipmentWorkouts[] = [
           name: 'Smith Holds',
           duration: '14–18 min',
           description: 'Paused Smith pressing with contraction finish.',
-          battlePlan: 'Sets: 4\n\n• Paused Smith Press — 4 × 6\nFinal rep: 6–8s squeeze',
+          battlePlan: 'Instructions: Final rep 6–8s squeeze.\nSets: 4\n\n• Paused Smith Incline Press — 4 × 6',
           imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/wqpgrlpk_download%20%289%29.png',
           intensityReason: 'Paused Smith pressing with contraction finish.',
           moodTips: [
@@ -1434,20 +1434,20 @@ export const chestWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Smith & Push',
           duration: '15–18 min',
-          description: 'Smith pressing paired with chest-focused push-ups.',
-          battlePlan: 'Sets: 4\n\n• Smith Press — 4 × 8\n• Push-Ups — 4 × 15–20',
+          description: 'Smith incline pressing paired with push-ups.',
+          battlePlan: 'Instructions: Move quickly.\nSets: 4\n\n• Smith Incline Press — 4 × 8\n• Push-Ups — 4 × 15–20',
           imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/pl1dkh7x_download%20%288%29.png',
-          intensityReason: 'Smith pressing paired with chest-focused push-ups.',
+          intensityReason: 'Smith incline pressing paired with push-ups.',
           moodTips: [
             {
-              icon: 'flash',
-              title: 'Press then push',
-              description: 'Compound into bodyweight.'
+              icon: 'trending-up',
+              title: 'Incline first',
+              description: 'Upper chest priority.'
             },
             {
               icon: 'body',
               title: 'Chest leads both',
-              description: 'Avoid shoulder takeover.'
+              description: 'Focus on engagement.'
             },
             {
               icon: 'alert-circle',
@@ -1462,7 +1462,7 @@ export const chestWorkoutDatabase: EquipmentWorkouts[] = [
           name: 'Heavy Smith Clusters',
           duration: '16–20 min',
           description: 'Heavy Smith clusters to sustain chest output.',
-          battlePlan: 'Sets: 5\n\n• Smith Press — 5 × (4 / 4 / 4)',
+          battlePlan: 'Instructions: Short breaths.\nSets: 5\n\n• Smith Flat Press — 5 × (4 / 4 / 4)',
           imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/wqpgrlpk_download%20%289%29.png',
           intensityReason: 'Heavy Smith clusters to sustain chest output.',
           moodTips: [
@@ -1474,7 +1474,7 @@ export const chestWorkoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'refresh',
               title: 'Reset fully',
-              description: 'Treat each cluster clean.'
+              description: 'Each cluster clean.'
             },
             {
               icon: 'people',
@@ -1487,14 +1487,14 @@ export const chestWorkoutDatabase: EquipmentWorkouts[] = [
           name: 'Heavy Smith',
           duration: '16–20 min',
           description: 'Heavy Smith pressing focused on chest strength.',
-          battlePlan: 'Sets: 5\n\n• Smith Press — 5 × 6',
+          battlePlan: 'Instructions: Challenging load.\nSets: 5\n\n• Smith Flat Press — 3 × 6\n• Smith Incline Press — 2 × 6',
           imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/pl1dkh7x_download%20%288%29.png',
           intensityReason: 'Heavy Smith pressing focused on chest strength.',
           moodTips: [
             {
               icon: 'checkmark-done',
               title: 'Every rep deliberate',
-              description: 'No rushed unrack.'
+              description: 'No rushed unracks.'
             },
             {
               icon: 'timer',
@@ -1512,7 +1512,7 @@ export const chestWorkoutDatabase: EquipmentWorkouts[] = [
           name: 'Smith Drop Cascade',
           duration: '15–20 min',
           description: 'Four-stage Smith drop set for deep chest fatigue.',
-          battlePlan: 'Sets: 3\n\n• Smith Press (Heavy) — max reps\n• Drop 1 (Medium) — max reps\n• Drop 2 (Light) — 12–15\n• Drop 3 (Very Light) — burnout',
+          battlePlan: 'Instructions: Strip plates immediately.\nSets: 3\n\n• Smith Press (Heavy) — max reps\n• Drop 1 (Medium) — max reps\n• Drop 2 (Light) — 12–15\n• Drop 3 (Very Light) — burnout',
           imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/wqpgrlpk_download%20%289%29.png',
           intensityReason: 'Four-stage Smith drop set for deep chest fatigue.',
           moodTips: [
@@ -1536,10 +1536,10 @@ export const chestWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Smith & Explode',
           duration: '15–20 min',
-          description: 'Heavy Smith pressing paired with plyo push-ups.',
-          battlePlan: 'Sets: 4\n\n• Smith Press — 4 × 6\n• Clap Push-Ups — 4 × 6–10',
+          description: 'Heavy Smith pressing paired with plyometric push-ups.',
+          battlePlan: 'Instructions: Fast transitions.\nSets: 4\n\n• Smith Flat Press — 4 × 6\n• Clap Push-Ups — 4 × 6–10',
           imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/pl1dkh7x_download%20%288%29.png',
-          intensityReason: 'Heavy Smith pressing paired with plyo push-ups.',
+          intensityReason: 'Heavy Smith pressing paired with plyometric push-ups.',
           moodTips: [
             {
               icon: 'barbell',
@@ -1548,13 +1548,13 @@ export const chestWorkoutDatabase: EquipmentWorkouts[] = [
             },
             {
               icon: 'flash',
-              title: 'Claps stay crisp',
+              title: 'Push-ups crisp',
               description: 'No sloppy reps.'
             },
             {
               icon: 'alert-circle',
-              title: 'Clear area first',
-              description: 'Plyos demand space.'
+              title: 'Clear space',
+              description: 'Plyos demand room.'
             }
           ]
         }
