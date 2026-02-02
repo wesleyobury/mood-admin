@@ -429,51 +429,62 @@ const WorkoutCard = React.memo(({
         </View>
       </View>
 
-      {/* Tooltip Modal Overlay - appears above everything */}
+      {/* Highlight Overlay - covers everything except the buttons */}
       <Modal
         visible={showTooltip && tooltipReady}
         transparent={true}
         animationType="fade"
         onRequestClose={dismissTooltip}
       >
-        <Pressable style={styles.tooltipOverlay} onPress={dismissTooltip}>
-          {/* Pencil Tooltip - dynamically positioned above pencil button */}
+        <Pressable style={styles.highlightOverlay} onPress={dismissTooltip}>
+          {/* Highlighted Pencil Button - positioned at exact location */}
           {pencilPosition.y > 0 && (
             <Animated.View 
               style={[
-                styles.tooltipContainer,
+                styles.highlightedButton,
                 { 
                   position: 'absolute',
-                  top: pencilPosition.y - 70,
-                  left: pencilPosition.x + (pencilPosition.width / 2) - 75,
-                  transform: [{ translateY: bounceAnim1 }] 
+                  top: pencilPosition.y,
+                  left: pencilPosition.x,
+                  width: pencilPosition.width,
+                  height: pencilPosition.height,
+                  borderRadius: 18,
+                  transform: [{ rotate: wiggleAnim1.interpolate({
+                    inputRange: [-1, 1],
+                    outputRange: ['-5deg', '5deg']
+                  })}]
                 }
               ]}
             >
-              <View style={styles.tooltipBubble}>
-                <Text style={styles.tooltipText}>Tap to customize</Text>
+              <View style={styles.highlightedPencilButton}>
+                <Ionicons name="pencil" size={18} color="#FFD700" />
               </View>
-              <View style={styles.tooltipArrowDown} />
             </Animated.View>
           )}
           
-          {/* Add Workout Tooltip - dynamically positioned above add button */}
+          {/* Highlighted Add Workout Button - positioned at exact location */}
           {addButtonPosition.y > 0 && (
             <Animated.View 
               style={[
-                styles.tooltipContainer,
+                styles.highlightedButton,
                 { 
                   position: 'absolute',
-                  top: addButtonPosition.y - 70,
-                  left: addButtonPosition.x + (addButtonPosition.width / 2) - 100,
-                  transform: [{ translateY: bounceAnim2 }] 
+                  top: addButtonPosition.y,
+                  left: addButtonPosition.x,
+                  width: addButtonPosition.width,
+                  height: addButtonPosition.height,
+                  borderRadius: 20,
+                  transform: [{ rotate: wiggleAnim2.interpolate({
+                    inputRange: [-1, 1],
+                    outputRange: ['-2deg', '2deg']
+                  })}]
                 }
               ]}
             >
-              <View style={styles.tooltipBubble}>
-                <Text style={styles.tooltipText}>Build a custom workout</Text>
+              <View style={styles.highlightedAddButton}>
+                <Ionicons name="add" size={18} color="#FFD700" />
+                <Text style={styles.highlightedAddButtonText}>Add workout</Text>
               </View>
-              <View style={styles.tooltipArrowDownCenter} />
             </Animated.View>
           )}
         </Pressable>
