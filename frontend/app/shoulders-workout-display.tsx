@@ -30,6 +30,12 @@ const ShouldersWorkoutDisplayScreen = memo(function ShouldersWorkoutDisplayScree
   const router = useRouter();
   const params = useLocalSearchParams();
   const insets = useSafeAreaInsets();
+  const { isGuest, token } = useAuth();
+  
+  // Highlight state for all workout cards
+  const [showHighlight, setShowHighlight] = useState(false);
+  const highlightTimerRef = useRef<NodeJS.Timeout | null>(null);
+  const isMounted = useRef(true);
 
   const moodTitle = params.mood as string || 'Muscle Gainer';
   const workoutType = params.workoutType as string || 'Shoulders';
@@ -52,8 +58,58 @@ const ShouldersWorkoutDisplayScreen = memo(function ShouldersWorkoutDisplayScree
   );
 
   const { addToCart, isInCart, cartItems } = useCart();
-  const { token } = useAuth();
   const hasItemsInCart = cartItems.length > 0;
+
+  // Check if highlight should be shown at screen level
+  useEffect(() => {
+    isMounted.current = true;
+    
+    const checkHighlightStatus = async () => {
+      try {
+        let shouldShow = false;
+        
+        if (isGuest) {
+          const hasSeenThisSession = await AsyncStorage.getItem(GUEST_HIGHLIGHT_SESSION_KEY);
+          shouldShow = !hasSeenThisSession;
+        } else if (token) {
+          const hasSeenHighlight = await AsyncStorage.getItem(HIGHLIGHT_SHOWN_KEY);
+          shouldShow = !hasSeenHighlight;
+        }
+        
+        if (shouldShow) {
+          highlightTimerRef.current = setTimeout(() => {
+            if (isMounted.current) {
+              setShowHighlight(true);
+            }
+          }, 1500);
+        }
+      } catch (error) {
+        console.log('Error checking highlight status:', error);
+      }
+    };
+    
+    checkHighlightStatus();
+    
+    return () => {
+      isMounted.current = false;
+      if (highlightTimerRef.current) {
+        clearTimeout(highlightTimerRef.current);
+      }
+    };
+  }, [isGuest, token]);
+
+  const handleDismissHighlight = async () => {
+    setShowHighlight(false);
+    try {
+      if (isGuest) {
+        await AsyncStorage.setItem(GUEST_HIGHLIGHT_SESSION_KEY, 'true');
+      } else {
+        await AsyncStorage.setItem(HIGHLIGHT_SHOWN_KEY, 'true');
+      }
+    } catch (error) {
+      console.log('Error saving highlight status:', error);
+    }
+  };
 
   const handleGoBack = () => {
     router.back();
