@@ -405,22 +405,16 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   subtitle: {
-    fontSize: 24,
-    color: '#ccc',
+    fontSize: 22,
+    color: '#aaa',
     textAlign: 'center',
-    marginBottom: 20,
-    lineHeight: 32,
+    marginBottom: 24,
+    lineHeight: 30,
+    letterSpacing: 0.5,
   },
   highlightText: {
-    color: '#ffffff',
-    fontWeight: 'bold',
-  },
-  description: {
-    fontSize: 16,
-    color: '#888',
-    textAlign: 'center',
-    lineHeight: 24,
-    paddingHorizontal: 20,
+    color: '#FFD700',
+    fontWeight: '600',
   },
   featuresSection: {
     paddingTop: 20, // Reduced top padding for features
