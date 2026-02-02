@@ -337,14 +337,16 @@ const WorkoutCard = React.memo(({
           <Ionicons name={icon} size={24} color="#FFD700" />
         </View>
         <Text style={styles.equipmentName}>{equipment}</Text>
-        <TouchableOpacity
-          style={styles.previewButton}
-          onPress={() => onStartWorkout(workouts[currentWorkoutIndex], equipment, difficulty)}
-          activeOpacity={0.8}
-        >
-          <Ionicons name="eye" size={14} color="#FFD700" />
-          <Text style={styles.previewButtonText}>Preview</Text>
-        </TouchableOpacity>
+        <View ref={previewButtonRef} collapsable={false}>
+          <TouchableOpacity
+            style={styles.previewButton}
+            onPress={() => onStartWorkout(workouts[currentWorkoutIndex], equipment, difficulty)}
+            activeOpacity={0.8}
+          >
+            <Ionicons name="eye" size={14} color="#FFD700" />
+            <Text style={styles.previewButtonText}>Preview</Text>
+          </TouchableOpacity>
+        </View>
       </View>
 
       {/* Workout List */}
