@@ -465,11 +465,12 @@ const styles = StyleSheet.create({
     color: '#888',
   },
   actionSection: {
-    paddingTop: 8, // Minimal top padding between features and button
-    paddingBottom: 10, // Bottom padding
+    paddingTop: 0,
+    paddingBottom: 20,
+    marginTop: -10,
   },
   primaryButton: {
-    marginBottom: 16,
+    marginBottom: 6,
     borderRadius: 12,
     overflow: 'hidden',
   },
