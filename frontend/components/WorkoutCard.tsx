@@ -403,7 +403,8 @@ const styles = StyleSheet.create({
     top: -45,
     right: 0,
     left: 0,
-    zIndex: 1000,
+    zIndex: 9999,
+    elevation: 9999,
   },
   tooltip: {
     position: 'absolute',
@@ -412,6 +413,11 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     paddingHorizontal: 12,
     paddingVertical: 8,
+    elevation: 10,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.25,
+    shadowRadius: 4,
   },
   tooltipText: {
     fontSize: 12,
