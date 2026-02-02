@@ -143,11 +143,16 @@ const WorkoutCard = React.memo(({
           // Only show tooltip if user is still on this screen after delay
           tooltipTimerRef.current = setTimeout(async () => {
             if (isMounted.current) {
-              // Measure button positions before showing tooltips
-              await measureButtonPositions();
-              setTooltipReady(true);
-              setShowTooltip(true);
-              startBounceAnimation();
+              // Small delay to ensure FlatList items are fully rendered
+              setTimeout(async () => {
+                if (isMounted.current) {
+                  // Measure button positions before showing tooltips
+                  await measureButtonPositions();
+                  setTooltipReady(true);
+                  setShowTooltip(true);
+                  startBounceAnimation();
+                }
+              }, 300);
             }
           }, 1500);
         }
