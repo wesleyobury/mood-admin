@@ -405,11 +405,10 @@ const WorkoutCard = React.memo(({
           ))}
         </View>
         
-        {/* Edit Button - with wiggle when highlighted, elevated above overlay */}
+        {/* Edit Button - with wiggle when highlighted */}
         <Animated.View 
           style={[
             styles.editButtonWrapper,
-            showHighlight && styles.elevatedButton,
             showHighlight && {
               transform: [{ rotate: wiggleAnim1.interpolate({
                 inputRange: [-1, 1],
@@ -419,7 +418,10 @@ const WorkoutCard = React.memo(({
           ]}
         >
           <TouchableOpacity
-            style={styles.editButton}
+            style={[
+              styles.editButton,
+              showHighlight && styles.brightButton,
+            ]}
             onPress={() => handleOpenCustomModal(workouts[currentWorkoutIndex])}
             activeOpacity={0.8}
           >
@@ -427,14 +429,6 @@ const WorkoutCard = React.memo(({
           </TouchableOpacity>
         </Animated.View>
       </View>
-
-      {/* Semi-transparent overlay - tap anywhere to dismiss */}
-      {showHighlight && (
-        <Pressable 
-          style={styles.highlightOverlay} 
-          onPress={dismissHighlight}
-        />
-      )}
 
       {/* Custom Workout Modal */}
       <CustomWorkoutModal
@@ -448,7 +442,7 @@ const WorkoutCard = React.memo(({
         difficulty={difficulty}
         defaultWorkoutName={selectedWorkoutForEdit?.name || ''}
       />
-    </View>
+    </Pressable>
   );
 });
 
