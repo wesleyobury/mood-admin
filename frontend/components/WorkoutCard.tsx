@@ -522,61 +522,29 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  // Highlight Overlay Styles
+  // Highlight Overlay - semi-transparent background
   highlightOverlay: {
-    flex: 1,
-    backgroundColor: 'rgba(0, 0, 0, 0.6)',
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    zIndex: 5,
   },
-  highlightedButton: {
+  // Glow effect for highlighted buttons
+  glowingButton: {
     shadowColor: '#FFD700',
     shadowOffset: { width: 0, height: 0 },
-    shadowOpacity: 0.5,
-    shadowRadius: 6,
-    elevation: 6,
+    shadowOpacity: 0.8,
+    shadowRadius: 8,
+    elevation: 10,
+    zIndex: 10,
   },
-  highlightedPencilButton: {
-    width: 36,
-    height: 36,
-    borderRadius: 18,
-    backgroundColor: '#3a3a3a',
-    justifyContent: 'center',
-    alignItems: 'center',
+  // Gold border for highlighted buttons
+  highlightedBorder: {
     borderWidth: 1.5,
     borderColor: '#FFD700',
-  },
-  highlightedAddButton: {
-    height: 40,
-    backgroundColor: 'transparent',
-    borderRadius: 8,
-    paddingHorizontal: 16,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    gap: 6,
-    borderWidth: 1.5,
-    borderColor: '#FFD700',
-  },
-  highlightedAddButtonText: {
-    fontSize: 14,
-    fontWeight: '600',
-    color: '#ffffff',
-  },
-  highlightedPreviewButton: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    gap: 4,
-    paddingHorizontal: 12,
-    paddingVertical: 8,
-    backgroundColor: 'transparent',
-    borderRadius: 16,
-    borderWidth: 1.5,
-    borderColor: '#FFD700',
-  },
-  highlightedPreviewButtonText: {
-    fontSize: 12,
-    fontWeight: '600',
-    color: '#ffffff',
   },
   workoutContent: {
     flex: 1,
