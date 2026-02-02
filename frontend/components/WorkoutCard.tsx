@@ -50,9 +50,18 @@ const WorkoutCard = React.memo(({
   const [customModalVisible, setCustomModalVisible] = useState(false);
   const [selectedWorkoutForEdit, setSelectedWorkoutForEdit] = useState<Workout | null>(null);
   const [showTooltip, setShowTooltip] = useState(false);
+  const [tooltipReady, setTooltipReady] = useState(false);
   const flatListRef = useRef<FlatList>(null);
   const isMounted = useRef(true);
   const tooltipTimerRef = useRef<NodeJS.Timeout | null>(null);
+  
+  // Refs for measuring button positions
+  const pencilButtonRef = useRef<View>(null);
+  const addWorkoutButtonRef = useRef<View>(null);
+  
+  // State for tooltip positions (measured from actual button locations)
+  const [pencilPosition, setPencilPosition] = useState({ x: 0, y: 0, width: 0, height: 0 });
+  const [addButtonPosition, setAddButtonPosition] = useState({ x: 0, y: 0, width: 0, height: 0 });
   
   // Animation values for bounce effect
   const bounceAnim1 = useRef(new Animated.Value(0)).current;
@@ -70,6 +79,35 @@ const WorkoutCard = React.memo(({
       }
     };
   }, []);
+
+  // Measure button positions when tooltip is about to show
+  const measureButtonPositions = () => {
+    return new Promise<void>((resolve) => {
+      let measured = 0;
+      const checkDone = () => {
+        measured++;
+        if (measured >= 2) resolve();
+      };
+
+      if (pencilButtonRef.current) {
+        pencilButtonRef.current.measureInWindow((x, y, width, height) => {
+          setPencilPosition({ x, y, width, height });
+          checkDone();
+        });
+      } else {
+        checkDone();
+      }
+
+      if (addWorkoutButtonRef.current) {
+        addWorkoutButtonRef.current.measureInWindow((x, y, width, height) => {
+          setAddButtonPosition({ x, y, width, height });
+          checkDone();
+        });
+      } else {
+        checkDone();
+      }
+    });
+  };
 
   // Check if tooltip should be shown
   // Guests: show every session (using session storage key that gets cleared)
@@ -91,8 +129,11 @@ const WorkoutCard = React.memo(({
         
         if (shouldShow) {
           // Only show tooltip if user is still on this screen after delay
-          tooltipTimerRef.current = setTimeout(() => {
+          tooltipTimerRef.current = setTimeout(async () => {
             if (isMounted.current) {
+              // Measure button positions before showing tooltips
+              await measureButtonPositions();
+              setTooltipReady(true);
               setShowTooltip(true);
               startBounceAnimation();
             }
