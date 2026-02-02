@@ -211,18 +211,16 @@ const WorkoutCard = React.memo(({
       ).start();
     };
     
-    createBounce(bounceAnim1, 0);
-    createBounce(bounceAnim2, 150);
-    createWiggle(wiggleAnim1, 300);
-    createWiggle(wiggleAnim2, 450);
+    createWiggle(wiggleAnim1, 0);
+    createWiggle(wiggleAnim2, 150);
+    createWiggle(wiggleAnim3, 300);
   };
 
   const dismissTooltip = async () => {
     setShowTooltip(false);
-    bounceAnim1.stopAnimation();
-    bounceAnim2.stopAnimation();
     wiggleAnim1.stopAnimation();
     wiggleAnim2.stopAnimation();
+    wiggleAnim3.stopAnimation();
     try {
       if (isGuest) {
         // For guests: mark as seen for this session only
