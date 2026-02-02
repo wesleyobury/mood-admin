@@ -417,24 +417,29 @@ const styles = StyleSheet.create({
   },
   subtitle: {
     fontSize: 22,
-    color: '#aaa',
+    color: '#ffffff',
     textAlign: 'center',
     marginBottom: 24,
     lineHeight: 30,
-    letterSpacing: 0.5,
+    letterSpacing: 0.3,
+  },
+  moodInlineText: {
+    fontSize: 22,
+    fontWeight: '600',
+    color: '#FFD700',
   },
   highlightText: {
     color: '#FFD700',
     fontWeight: '600',
   },
   featuresSection: {
-    paddingTop: 20, // Reduced top padding for features
-    paddingBottom: 8, // Reduced bottom padding to close gap with button
+    paddingTop: 16,
+    paddingBottom: 16,
   },
   featureItem: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginBottom: 12, // Reduced from 16
+    marginBottom: 18,
     paddingHorizontal: 20,
   },
   featureIcon: {
