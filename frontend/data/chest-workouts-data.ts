@@ -997,7 +997,7 @@ export const chestWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–15 min',
           description: 'Slow eccentrics increase lower chest time under tension.',
           battlePlan: 'Instructions: Lower for 4 seconds each rep.\nSets: 3\nRest: 90s\n\n• Decline Press — 3 × 6 (4s eccentric)',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/kd2t1cpd_dbpp.jpg',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_chest-workout-hub/artifacts/y22u5a5z_Screenshot%202026-02-01%20at%2010.11.43%E2%80%AFPM.png',
           intensityReason: 'Slow eccentrics increase lower chest time under tension.',
           moodTips: [
             {
@@ -1022,7 +1022,7 @@ export const chestWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–14 min',
           description: 'High-rep decline pressing to build lower chest endurance.',
           battlePlan: 'Instructions: Choose a light load and move continuously.\nSets: 3\nRest: 60s\n\n• Decline Press — 3 × 15–20',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/r1uig0ll_download%20%284%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_chest-workout-hub/artifacts/wu5otnku_Screenshot%202026-02-01%20at%2010.10.52%E2%80%AFPM.png',
           intensityReason: 'High-rep decline pressing to build lower chest endurance.',
           moodTips: [
             {
@@ -1099,7 +1099,7 @@ export const chestWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–18 min',
           description: 'Paused decline pressing with strong contraction finish.',
           battlePlan: 'Instructions: Final rep includes a 6–8s squeeze.\nSets: 4\nRest: 2:00\n\n• Paused Decline Press — 4 × 4\nFinal rep: 6–8s squeeze',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/kd2t1cpd_dbpp.jpg',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_chest-workout-hub/artifacts/y22u5a5z_Screenshot%202026-02-01%20at%2010.11.43%E2%80%AFPM.png',
           intensityReason: 'Paused decline pressing with strong contraction finish.',
           moodTips: [
             {
@@ -1124,7 +1124,7 @@ export const chestWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '15–18 min',
           description: 'Decline pressing paired with chest-focused push-ups.',
           battlePlan: 'Instructions: Move directly from bar to floor.\nSets: 4\nRest: 90s after push-ups\n\n• Decline Press — 4 × 6\n• Chest-Biased Push-Ups — 4 × 15–20',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/r1uig0ll_download%20%284%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_chest-workout-hub/artifacts/wu5otnku_Screenshot%202026-02-01%20at%2010.10.52%E2%80%AFPM.png',
           intensityReason: 'Decline pressing paired with chest-focused push-ups.',
           moodTips: [
             {
@@ -1201,7 +1201,7 @@ export const chestWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '15–20 min',
           description: 'Four-stage decline drop set for deep chest fatigue.',
           battlePlan: 'Instructions: Strip weight immediately between stages.\nSets: 3\nRest: 2:30\n\n• Decline Press (Heavy) — max reps\n• Drop 1 (Medium) — max reps\n• Drop 2 (Light) — 12–15 reps\n• Drop 3 (Very Light) — burnout',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/kd2t1cpd_dbpp.jpg',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_chest-workout-hub/artifacts/y22u5a5z_Screenshot%202026-02-01%20at%2010.11.43%E2%80%AFPM.png',
           intensityReason: 'Four-stage decline drop set for deep chest fatigue.',
           moodTips: [
             {
@@ -1226,7 +1226,7 @@ export const chestWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '15–20 min',
           description: 'Heavy decline pressing paired with explosive plyo push-ups.',
           battlePlan: 'Instructions: Move quickly but under control.\nSets: 4\nRest: 2:00 after push-ups\n\n• Decline Press — 4 × 4\n• Clap Push-Ups — 4 × 6–10',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/r1uig0ll_download%20%284%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_chest-workout-hub/artifacts/wu5otnku_Screenshot%202026-02-01%20at%2010.10.52%E2%80%AFPM.png',
           intensityReason: 'Heavy decline pressing paired with explosive plyo push-ups.',
           moodTips: [
             {
