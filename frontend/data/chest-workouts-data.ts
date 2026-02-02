@@ -61,7 +61,7 @@ export const chestWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–15 min',
           description: 'Slow eccentrics reinforce form and chest awareness.',
           battlePlan: 'Instructions: Lower the bar for 4 seconds each rep.\nSets: 3\nRest: 90s\n\n• Barbell Bench Press — 3 × 6 (4s eccentric)',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_chest-workout-hub/artifacts/8vgsd11o_ChatGPT%20Image%20Feb%201%2C%202026%2C%2008_42_28%20PM.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_chest-workout-hub/artifacts/5pvyffxc_download%20%286%29.png',
           intensityReason: 'Slow eccentrics reinforce form and chest awareness.',
           moodTips: [
             {
@@ -86,7 +86,7 @@ export const chestWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–14 min',
           description: 'High-rep benching to build endurance and comfort.',
           battlePlan: 'Instructions: Choose a light load and move continuously.\nSets: 3\nRest: 60s\n\n• Barbell Bench Press — 3 × 15–20',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_chest-workout-hub/artifacts/3w0gsy1c_ChatGPT%20Image%20Feb%201%2C%202026%2C%2008_35_12%20PM.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_chest-workout-hub/artifacts/ibf4t44u_download%20%285%29.png',
           intensityReason: 'High-rep benching to build endurance and comfort.',
           moodTips: [
             {
@@ -163,7 +163,7 @@ export const chestWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–18 min',
           description: 'Paused benching with a strong contraction finish.',
           battlePlan: 'Instructions: Final rep includes a 6–8s squeeze at lockout.\nSets: 4\nRest: 2:00\n\n• Paused Barbell Bench Press — 4 × 4\nFinal rep: 6–8s squeeze',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_chest-workout-hub/artifacts/8vgsd11o_ChatGPT%20Image%20Feb%201%2C%202026%2C%2008_42_28%20PM.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_chest-workout-hub/artifacts/5pvyffxc_download%20%286%29.png',
           intensityReason: 'Paused benching with a strong contraction finish.',
           moodTips: [
             {
@@ -188,7 +188,7 @@ export const chestWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '15–18 min',
           description: 'Close-grip bench paired with explosive push-ups.',
           battlePlan: 'Instructions: Move immediately from bar to floor.\nSets: 4\nRest: 90s after push-ups\n\n• Close-Grip Bench Press — 4 × 6\n• Explosive Push-Ups — 4 × 12–15',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_chest-workout-hub/artifacts/3w0gsy1c_ChatGPT%20Image%20Feb%201%2C%202026%2C%2008_35_12%20PM.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_chest-workout-hub/artifacts/ibf4t44u_download%20%285%29.png',
           intensityReason: 'Close-grip bench paired with explosive push-ups.',
           moodTips: [
             {
@@ -265,7 +265,7 @@ export const chestWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '15–20 min',
           description: 'Four-stage bench drop set for maximal chest fatigue.',
           battlePlan: 'Instructions: Strip weight immediately between stages.\nSets: 3\nRest: 2:30\n\n• Bench Press (Heavy) — max reps\n• Drop 1 (Medium) — max reps\n• Drop 2 (Light) — 12–15 reps\n• Drop 3 (Very Light) — burnout',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_chest-workout-hub/artifacts/8vgsd11o_ChatGPT%20Image%20Feb%201%2C%202026%2C%2008_42_28%20PM.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_chest-workout-hub/artifacts/5pvyffxc_download%20%286%29.png',
           intensityReason: 'Four-stage bench drop set for maximal chest fatigue.',
           moodTips: [
             {
@@ -290,7 +290,7 @@ export const chestWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '15–20 min',
           description: 'Heavy benching paired with explosive plyo push-ups.',
           battlePlan: 'Instructions: Move quickly but under control.\nSets: 4\nRest: 2:00 after push-ups\n\n• Bench Press — 4 × 4\n• Clap Push-Ups — 4 × 6–10',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_chest-workout-hub/artifacts/3w0gsy1c_ChatGPT%20Image%20Feb%201%2C%202026%2C%2008_35_12%20PM.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_chest-workout-hub/artifacts/ibf4t44u_download%20%285%29.png',
           intensityReason: 'Heavy benching paired with explosive plyo push-ups.',
           moodTips: [
             {
@@ -685,7 +685,7 @@ export const chestWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–15 min',
           description: 'Slow eccentrics to improve chest awareness.',
           battlePlan: 'Instructions: Lower for 4 seconds each rep.\nSets: 3\nRest: 90s\n\n• DB Flat Press — 3 × 8 (4s eccentric)',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_chest-workout-hub/artifacts/8vgsd11o_ChatGPT%20Image%20Feb%201%2C%202026%2C%2008_42_28%20PM.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_chest-workout-hub/artifacts/5pvyffxc_download%20%286%29.png',
           intensityReason: 'Slow eccentrics to improve chest awareness.',
           moodTips: [
             {
@@ -710,7 +710,7 @@ export const chestWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–14 min',
           description: 'High-rep dumbbell pressing for chest endurance.',
           battlePlan: 'Instructions: Choose light bells and move continuously.\nSets: 3\nRest: 60s\n\n• DB Incline Press — 3 × 15–20',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_chest-workout-hub/artifacts/3w0gsy1c_ChatGPT%20Image%20Feb%201%2C%202026%2C%2008_35_12%20PM.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_chest-workout-hub/artifacts/ibf4t44u_download%20%285%29.png',
           intensityReason: 'High-rep dumbbell pressing for chest endurance.',
           moodTips: [
             {
@@ -787,7 +787,7 @@ export const chestWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–18 min',
           description: 'Paused dumbbell pressing with strong squeeze finish.',
           battlePlan: 'Instructions: Final rep includes a 6–8s squeeze.\nSets: 4\nRest: 2:00\n\n• Paused DB Incline Press — 4 × 6\nFinal rep: 6–8s squeeze',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_chest-workout-hub/artifacts/8vgsd11o_ChatGPT%20Image%20Feb%201%2C%202026%2C%2008_42_28%20PM.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_chest-workout-hub/artifacts/5pvyffxc_download%20%286%29.png',
           intensityReason: 'Paused dumbbell pressing with strong squeeze finish.',
           moodTips: [
             {
@@ -812,7 +812,7 @@ export const chestWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '15–18 min',
           description: 'Incline dumbbell pressing paired with push-ups.',
           battlePlan: 'Instructions: Move directly from bench to floor.\nSets: 4\nRest: 90s after push-ups\n\n• DB Incline Press — 4 × 8\n• Chest-Biased Push-Ups — 4 × 15–20',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_chest-workout-hub/artifacts/3w0gsy1c_ChatGPT%20Image%20Feb%201%2C%202026%2C%2008_35_12%20PM.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_chest-workout-hub/artifacts/ibf4t44u_download%20%285%29.png',
           intensityReason: 'Incline dumbbell pressing paired with push-ups.',
           moodTips: [
             {
@@ -889,7 +889,7 @@ export const chestWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '15–20 min',
           description: 'Multi-stage dumbbell drops for deep chest fatigue.',
           battlePlan: 'Instructions: Drop weight immediately between stages.\nSets: 3\nRest: 2:30\n\n• DB Press (Heavy) — max reps\n• Drop 1 (Medium) — max reps\n• Drop 2 (Light) — 15–20 reps',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_chest-workout-hub/artifacts/8vgsd11o_ChatGPT%20Image%20Feb%201%2C%202026%2C%2008_42_28%20PM.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_chest-workout-hub/artifacts/5pvyffxc_download%20%286%29.png',
           intensityReason: 'Multi-stage dumbbell drops for deep chest fatigue.',
           moodTips: [
             {
@@ -914,7 +914,7 @@ export const chestWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '15–20 min',
           description: 'Heavy dumbbell pressing paired with plyometric push-ups.',
           battlePlan: 'Instructions: Move quickly but under control.\nSets: 4\nRest: 2:00 after push-ups\n\n• DB Flat Press — 4 × 6\n• Clap Push-Ups — 4 × 6–10',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_chest-workout-hub/artifacts/3w0gsy1c_ChatGPT%20Image%20Feb%201%2C%202026%2C%2008_35_12%20PM.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_chest-workout-hub/artifacts/ibf4t44u_download%20%285%29.png',
           intensityReason: 'Heavy dumbbell pressing paired with plyometric push-ups.',
           moodTips: [
             {
