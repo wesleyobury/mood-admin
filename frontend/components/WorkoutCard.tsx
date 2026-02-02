@@ -144,13 +144,12 @@ const WorkoutCard = React.memo(({
             <Ionicons
               name={isInCart(createWorkoutId(item, equipment, difficulty)) ? 'checkmark' : 'add'}
               size={18}
-                color="#FFD700"
-              />
-              <Text style={styles.addWorkoutButtonText}>
-                {isInCart(createWorkoutId(item, equipment, difficulty)) ? 'Added' : 'Add workout'}
-              </Text>
-            </TouchableOpacity>
-          </Animated.View>
+              color="#FFD700"
+            />
+            <Text style={styles.addWorkoutButtonText}>
+              {isInCart(createWorkoutId(item, equipment, difficulty)) ? 'Added' : 'Add workout'}
+            </Text>
+          </TouchableOpacity>
         </Animated.View>
 
         {/* Swipe for more text */}
