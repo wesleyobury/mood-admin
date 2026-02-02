@@ -513,19 +513,20 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  // Highlight Overlay - semi-transparent background that covers the card
+  // Highlight Overlay - covers the entire screen
   highlightOverlay: {
     position: 'absolute',
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
+    top: -500,
+    left: -50,
+    right: -50,
+    bottom: -500,
     backgroundColor: 'rgba(0, 0, 0, 0.4)',
     zIndex: 5,
   },
   // Elevated button - appears above the overlay (brighter)
   elevatedButton: {
     zIndex: 10,
+    elevation: 10,
   },
   workoutContent: {
     flex: 1,
