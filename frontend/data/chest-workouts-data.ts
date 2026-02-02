@@ -633,20 +633,20 @@ export const chestWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Dumbbell Foundations',
           duration: '12–15 min',
-          description: 'Foundational dumbbell pressing to build chest control.',
-          battlePlan: 'Instructions: Use a load you could complete for 2 more reps.\nSets: 4\nRest: 75–90s\n\n• DB Flat Press — 4 × 10',
+          description: 'Foundational dumbbell pressing for chest control.',
+          battlePlan: 'Instructions: Use a load you could do for 2 more reps.\nSets: 4\nRest: 75–90s\n\n• DB Flat Press — 2 × 10\n• DB Incline Press — 2 × 8',
           imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/avrgfl1y_download%20%2818%29.png',
-          intensityReason: 'Foundational dumbbell pressing to build chest control.',
+          intensityReason: 'Foundational dumbbell pressing for chest control.',
           moodTips: [
             {
               icon: 'hand-left',
-              title: 'Grip the bells hard',
-              description: 'Tension in the hands stabilizes the shoulders.'
+              title: 'Grip hard, press slightly inward',
+              description: 'Create tension through the chest.'
             },
             {
-              icon: 'arrow-forward',
-              title: 'Press slightly inward',
-              description: 'Think "together," not just "up."'
+              icon: 'repeat',
+              title: 'Same arc every rep',
+              description: 'Bells travel together, not straight up.'
             },
             {
               icon: 'checkmark-circle',
@@ -659,49 +659,49 @@ export const chestWorkoutDatabase: EquipmentWorkouts[] = [
           name: 'Paused Dumbbell Control',
           duration: '12–16 min',
           description: 'Paused dumbbell reps to reinforce chest stability.',
-          battlePlan: 'Instructions: Pause 1 second at the bottom of each rep.\nSets: 4\nRest: 90s\n\n• Paused DB Press — 4 × 8',
+          battlePlan: 'Instructions: Pause 1 second at the bottom of each rep.\nSets: 4\nRest: 90s\n\n• Paused DB Incline Press — 4 × 8',
           imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/qt834fch_idbf.webp',
           intensityReason: 'Paused dumbbell reps to reinforce chest stability.',
           moodTips: [
             {
               icon: 'pause',
               title: 'Pause deep',
-              description: 'Let the chest load fully at the bottom.'
+              description: 'Let the chest load fully before pressing.'
             },
             {
               icon: 'body',
               title: 'Elbows stay under wrists',
-              description: 'Stability first.'
+              description: 'Stability over speed.'
             },
             {
               icon: 'trending-down',
-              title: 'Lower carefully',
-              description: 'Dumbbells demand control when fatigued.'
+              title: 'Lower bells carefully',
+              description: 'Fatigue affects balance quickly.'
             }
           ]
         },
         {
           name: 'Slow Dumbbell Press',
           duration: '12–15 min',
-          description: 'Slow eccentrics to improve control and chest awareness.',
+          description: 'Slow eccentrics to improve chest awareness.',
           battlePlan: 'Instructions: Lower for 4 seconds each rep.\nSets: 3\nRest: 90s\n\n• DB Flat Press — 3 × 8 (4s eccentric)',
           imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/avrgfl1y_download%20%2818%29.png',
-          intensityReason: 'Slow eccentrics to improve control and chest awareness.',
+          intensityReason: 'Slow eccentrics to improve chest awareness.',
           moodTips: [
             {
               icon: 'trending-down',
               title: 'Own the descent',
-              description: 'Dumbbells magnify time under tension.'
+              description: 'Time under tension drives growth.'
             },
             {
               icon: 'hand-left',
-              title: 'Smooth touch',
-              description: 'No bouncing at the bottom.'
+              title: 'Soft bottom position',
+              description: 'No bouncing or collapsing.'
             },
             {
               icon: 'people',
               title: 'Spotter optional',
-              description: 'Helpful for heavier bells.'
+              description: 'Helpful as weights increase.'
             }
           ]
         },
@@ -709,24 +709,24 @@ export const chestWorkoutDatabase: EquipmentWorkouts[] = [
           name: 'Dumbbell Burn',
           duration: '10–14 min',
           description: 'High-rep dumbbell pressing for chest endurance.',
-          battlePlan: 'Instructions: Choose light bells and move continuously.\nSets: 3\nRest: 60s\n\n• DB Flat Press — 3 × 15–20',
+          battlePlan: 'Instructions: Choose light bells and move continuously.\nSets: 3\nRest: 60s\n\n• DB Incline Press — 3 × 15–20',
           imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/qt834fch_idbf.webp',
           intensityReason: 'High-rep dumbbell pressing for chest endurance.',
           moodTips: [
             {
               icon: 'flame',
               title: 'Light and relentless',
-              description: 'Keep tension the whole set.'
+              description: 'Chest stays active nonstop.'
             },
             {
               icon: 'repeat',
-              title: 'Same arc every rep',
-              description: 'No shortening range.'
+              title: 'Range stays honest',
+              description: 'No half reps late.'
             },
             {
               icon: 'shield',
               title: 'Drop bells safely',
-              description: 'Don\'t fight the last rep down.'
+              description: 'Don\'t fight fatigue down.'
             }
           ]
         }
@@ -742,8 +742,8 @@ export const chestWorkoutDatabase: EquipmentWorkouts[] = [
           moodTips: [
             {
               icon: 'refresh',
-              title: 'Reset your brace',
-              description: 'Every mini-set starts clean.'
+              title: 'Reset before every mini-set',
+              description: 'Each rep starts strong.'
             },
             {
               icon: 'pulse',
@@ -753,7 +753,7 @@ export const chestWorkoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'alert-circle',
               title: 'Clear space',
-              description: 'Dumbbells fatigue faster than barbells.'
+              description: 'Dumbbells demand control when tired.'
             }
           ]
         },
@@ -761,14 +761,14 @@ export const chestWorkoutDatabase: EquipmentWorkouts[] = [
           name: 'Working Dumbbells',
           duration: '14–18 min',
           description: 'Traditional dumbbell pressing with meaningful load.',
-          battlePlan: 'Instructions: Increase weight only if reps stay clean.\nSets: 5\nRest: 90s\n\n• DB Flat Press — 5 × 8',
+          battlePlan: 'Instructions: Increase weight only if reps stay clean.\nSets: 5\nRest: 90s\n\n• DB Flat Press — 3 × 8\n• DB Incline Press — 2 × 8',
           imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/qt834fch_idbf.webp',
           intensityReason: 'Traditional dumbbell pressing with meaningful load.',
           moodTips: [
             {
               icon: 'barbell',
               title: 'Reps should challenge control',
-              description: 'Last reps slow slightly.'
+              description: 'Slight slowdown is fine.'
             },
             {
               icon: 'arrow-forward',
@@ -786,14 +786,14 @@ export const chestWorkoutDatabase: EquipmentWorkouts[] = [
           name: 'Dumbbell Holds',
           duration: '14–18 min',
           description: 'Paused dumbbell pressing with strong squeeze finish.',
-          battlePlan: 'Instructions: Final rep includes a 6–8s squeeze at the top.\nSets: 4\nRest: 2:00\n\n• Paused DB Press — 4 × 6\nFinal rep: 6–8s squeeze',
+          battlePlan: 'Instructions: Final rep includes a 6–8s squeeze.\nSets: 4\nRest: 2:00\n\n• Paused DB Incline Press — 4 × 6\nFinal rep: 6–8s squeeze',
           imageUrl: 'https://customer-assets.emergentagent.com/job_workout-img-update/artifacts/avrgfl1y_download%20%2818%29.png',
           intensityReason: 'Paused dumbbell pressing with strong squeeze finish.',
           moodTips: [
             {
               icon: 'pause',
               title: 'Pause deep',
-              description: 'Let the chest stretch under control.'
+              description: 'Chest stretches under control.'
             },
             {
               icon: 'flash',
@@ -803,32 +803,32 @@ export const chestWorkoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'trending-down',
               title: 'Lower bells carefully',
-              description: 'Fatigue changes control quickly.'
+              description: 'Fatigue shifts balance fast.'
             }
           ]
         },
         {
           name: 'Press & Drive',
           duration: '15–18 min',
-          description: 'Dumbbell pressing paired with chest-focused push-ups.',
-          battlePlan: 'Instructions: Move directly from bench to floor.\nSets: 4\nRest: 90s after push-ups\n\n• DB Flat Press — 4 × 8\n• Chest-Biased Push-Ups — 4 × 15–20',
+          description: 'Incline dumbbell pressing paired with push-ups.',
+          battlePlan: 'Instructions: Move directly from bench to floor.\nSets: 4\nRest: 90s after push-ups\n\n• DB Incline Press — 4 × 8\n• Chest-Biased Push-Ups — 4 × 15–20',
           imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/qt834fch_idbf.webp',
-          intensityReason: 'Dumbbell pressing paired with chest-focused push-ups.',
+          intensityReason: 'Incline dumbbell pressing paired with push-ups.',
           moodTips: [
             {
-              icon: 'flash',
-              title: 'Press first, then push',
-              description: 'Compound into bodyweight.'
+              icon: 'trending-up',
+              title: 'Incline first',
+              description: 'Upper chest sets the tone.'
             },
             {
               icon: 'body',
-              title: 'Chest leads both moves',
-              description: 'No shoulder takeover.'
+              title: 'Chest leads both movements',
+              description: 'Push-ups stay chest-biased.'
             },
             {
               icon: 'alert-circle',
               title: 'Clear floor space',
-              description: 'Transitions stay fast.'
+              description: 'Fast transitions matter.'
             }
           ]
         }
@@ -850,7 +850,7 @@ export const chestWorkoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'refresh',
               title: 'Reset fully',
-              description: 'Don\'t rush the bells back up.'
+              description: 'Don\'t rush bells into position.'
             },
             {
               icon: 'people',
@@ -863,7 +863,7 @@ export const chestWorkoutDatabase: EquipmentWorkouts[] = [
           name: 'Heavy Dumbbells',
           duration: '16–20 min',
           description: 'Heavy dumbbell pressing focused on chest strength.',
-          battlePlan: 'Instructions: Challenging load, zero sloppy reps.\nSets: 5\nRest: 2:00\n\n• DB Flat Press — 5 × 6',
+          battlePlan: 'Instructions: Challenging load, zero sloppy reps.\nSets: 5\nRest: 2:00\n\n• DB Flat Press — 3 × 6\n• DB Incline Press — 2 × 6',
           imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/qt834fch_idbf.webp',
           intensityReason: 'Heavy dumbbell pressing focused on chest strength.',
           moodTips: [
@@ -875,7 +875,7 @@ export const chestWorkoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'timer',
               title: 'Rest with intent',
-              description: 'Strength lives in recovery.'
+              description: 'Strength needs recovery.'
             },
             {
               icon: 'people',
@@ -900,7 +900,7 @@ export const chestWorkoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'flash',
               title: 'No rest between drops',
-              description: 'Bells change, tension stays.'
+              description: 'Bells change fast.'
             },
             {
               icon: 'people',
@@ -924,12 +924,12 @@ export const chestWorkoutDatabase: EquipmentWorkouts[] = [
             },
             {
               icon: 'flash',
-              title: 'Push-ups stay crisp',
+              title: 'Push-ups crisp',
               description: 'Power without chaos.'
             },
             {
               icon: 'alert-circle',
-              title: 'Clear area first',
+              title: 'Clear space first',
               description: 'Plyos need space.'
             }
           ]
