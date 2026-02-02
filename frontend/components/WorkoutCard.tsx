@@ -66,6 +66,10 @@ const WorkoutCard = React.memo(({
   // Animation values for bounce effect
   const bounceAnim1 = useRef(new Animated.Value(0)).current;
   const bounceAnim2 = useRef(new Animated.Value(0)).current;
+  
+  // Animation values for wiggle effect
+  const wiggleAnim1 = useRef(new Animated.Value(0)).current;
+  const wiggleAnim2 = useRef(new Animated.Value(0)).current;
 
   // Track component mount/unmount to cancel tooltip if user leaves
   useEffect(() => {
