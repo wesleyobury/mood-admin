@@ -261,40 +261,35 @@ const ShouldersWorkoutDisplayScreen = memo(function ShouldersWorkoutDisplayScree
           </View>
         </View>
 
-        <Pressable 
-          style={{ flex: 1 }} 
-          onPress={showHighlight ? handleDismissHighlight : undefined}
-        >
-          <ScrollView style={styles.scrollView} showsVerticalScrollIndicator={false} contentContainerStyle={[styles.scrollContentContainer, { paddingBottom: hasItemsInCart ? 100 : 24 }]}>
-            {totalMuscles > 1 && (
-              <View style={styles.muscleIndicator}>
-                <Text style={styles.muscleIndicatorText}>
-                  Muscle Group {currentMuscleIndex + 1} of {totalMuscles}: <Text style={styles.muscleIndicatorHighlight}>{workoutType}</Text>
-                </Text>
-              </View>
-            )}
-            
-            {userWorkouts.map((equipmentData) => {
-              const workouts = equipmentData.workouts[difficulty as keyof typeof equipmentData.workouts] || [];
-              if (workouts.length === 0) return null;
-              return (
-                <WorkoutCard
-                  key={equipmentData.equipment}
-                  equipment={equipmentData.equipment}
-                  icon={equipmentData.icon}
-                  workouts={workouts}
-                  difficulty={difficulty}
-                  isInCart={isInCart}
-                  createWorkoutId={createWorkoutId}
-                  handleAddToCart={handleAddToCart}
-                  onStartWorkout={handleStartWorkout}
-                  externalHighlight={showHighlight}
-                  onHighlightDismiss={handleDismissHighlight}
-                />
-              );
-            })}
-          </ScrollView>
-        </Pressable>
+        <ScrollView style={styles.scrollView} showsVerticalScrollIndicator={false} contentContainerStyle={[styles.scrollContentContainer, { paddingBottom: hasItemsInCart ? 100 : 24 }]}>
+          {totalMuscles > 1 && (
+            <View style={styles.muscleIndicator}>
+              <Text style={styles.muscleIndicatorText}>
+                Muscle Group {currentMuscleIndex + 1} of {totalMuscles}: <Text style={styles.muscleIndicatorHighlight}>{workoutType}</Text>
+              </Text>
+            </View>
+          )}
+          
+          {userWorkouts.map((equipmentData) => {
+            const workouts = equipmentData.workouts[difficulty as keyof typeof equipmentData.workouts] || [];
+            if (workouts.length === 0) return null;
+            return (
+              <WorkoutCard
+                key={equipmentData.equipment}
+                equipment={equipmentData.equipment}
+                icon={equipmentData.icon}
+                workouts={workouts}
+                difficulty={difficulty}
+                isInCart={isInCart}
+                createWorkoutId={createWorkoutId}
+                handleAddToCart={handleAddToCart}
+                onStartWorkout={handleStartWorkout}
+                externalHighlight={showHighlight}
+                onHighlightDismiss={handleDismissHighlight}
+              />
+            );
+          })}
+        </ScrollView>
         
         {hasItemsInCart && (
           <View style={styles.continueButtonContainer}>
