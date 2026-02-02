@@ -513,29 +513,19 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  // Highlight Overlay - semi-transparent background
+  // Highlight Overlay - semi-transparent background that covers the card
   highlightOverlay: {
     position: 'absolute',
     top: 0,
     left: 0,
     right: 0,
     bottom: 0,
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    backgroundColor: 'rgba(0, 0, 0, 0.4)',
     zIndex: 5,
   },
-  // Glow effect for highlighted buttons
-  glowingButton: {
-    shadowColor: '#FFD700',
-    shadowOffset: { width: 0, height: 0 },
-    shadowOpacity: 0.8,
-    shadowRadius: 8,
-    elevation: 10,
+  // Elevated button - appears above the overlay (brighter)
+  elevatedButton: {
     zIndex: 10,
-  },
-  // Gold border for highlighted buttons
-  highlightedBorder: {
-    borderWidth: 1.5,
-    borderColor: '#FFD700',
   },
   workoutContent: {
     flex: 1,
