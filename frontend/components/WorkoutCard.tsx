@@ -291,7 +291,10 @@ const WorkoutCard = React.memo(({
   }
 
   return (
-    <View style={styles.workoutCard}>
+    <Pressable 
+      style={styles.workoutCard}
+      onPress={showHighlight ? dismissHighlight : undefined}
+    >
       {/* Equipment Header */}
       <View style={styles.equipmentHeader}>
         <View style={styles.equipmentIconContainer}>
@@ -299,10 +302,9 @@ const WorkoutCard = React.memo(({
         </View>
         <Text style={styles.equipmentName}>{equipment}</Text>
         
-        {/* Preview Button - with wiggle when highlighted, elevated above overlay */}
+        {/* Preview Button - with wiggle when highlighted */}
         <Animated.View 
           style={[
-            showHighlight && styles.elevatedButton,
             showHighlight && {
               transform: [{ rotate: wiggleAnim3.interpolate({
                 inputRange: [-1, 1],
@@ -312,7 +314,10 @@ const WorkoutCard = React.memo(({
           ]}
         >
           <TouchableOpacity
-            style={styles.previewButton}
+            style={[
+              styles.previewButton,
+              showHighlight && styles.brightButton,
+            ]}
             onPress={() => onStartWorkout(workouts[currentWorkoutIndex], equipment, difficulty)}
             activeOpacity={0.8}
           >
