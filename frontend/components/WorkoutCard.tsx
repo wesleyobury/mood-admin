@@ -308,28 +308,51 @@ const WorkoutCard = React.memo(({
           ))}
         </View>
         
-        {/* Edit Button with Tooltip - Right side, aligned with dots */}
-        <View style={styles.editButtonContainer}>
-          {/* Pencil Tooltip - positioned above the pencil */}
-          {showTooltip && (
-            <TouchableOpacity 
-              style={styles.pencilTooltip} 
-              onPress={dismissTooltip}
-              activeOpacity={0.9}
-            >
-              <Text style={styles.tooltipText}>Tap to customize</Text>
-              <View style={styles.tooltipArrowDown} />
-            </TouchableOpacity>
-          )}
-          <TouchableOpacity
-            style={styles.editButton}
-            onPress={() => handleOpenCustomModal(workouts[currentWorkoutIndex])}
-            activeOpacity={0.8}
-          >
-            <Ionicons name="pencil" size={18} color="#FFD700" />
-          </TouchableOpacity>
-        </View>
+        {/* Edit Button - Right side, aligned with dots */}
+        <TouchableOpacity
+          style={styles.editButton}
+          onPress={() => handleOpenCustomModal(workouts[currentWorkoutIndex])}
+          activeOpacity={0.8}
+        >
+          <Ionicons name="pencil" size={18} color="#FFD700" />
+        </TouchableOpacity>
       </View>
+
+      {/* Tooltip Modal Overlay - appears above everything */}
+      <Modal
+        visible={showTooltip}
+        transparent={true}
+        animationType="fade"
+        onRequestClose={dismissTooltip}
+      >
+        <Pressable style={styles.tooltipOverlay} onPress={dismissTooltip}>
+          {/* Pencil Tooltip - positioned near bottom right */}
+          <Animated.View 
+            style={[
+              styles.pencilTooltipContainer,
+              { transform: [{ translateY: bounceAnim1 }] }
+            ]}
+          >
+            <View style={styles.tooltipBubble}>
+              <Text style={styles.tooltipText}>Tap to customize</Text>
+            </View>
+            <View style={styles.tooltipArrowDown} />
+          </Animated.View>
+          
+          {/* Add Workout Tooltip - positioned center-ish */}
+          <Animated.View 
+            style={[
+              styles.addWorkoutTooltipContainer,
+              { transform: [{ translateY: bounceAnim2 }] }
+            ]}
+          >
+            <View style={styles.tooltipBubble}>
+              <Text style={styles.tooltipText}>Build a custom workout</Text>
+            </View>
+            <View style={styles.tooltipArrowDownCenter} />
+          </Animated.View>
+        </Pressable>
+      </Modal>
 
       {/* Custom Workout Modal */}
       <CustomWorkoutModal
