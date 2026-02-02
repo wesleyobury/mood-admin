@@ -8,19 +8,14 @@ import {
   Image,
   FlatList,
   Animated,
-  Pressable,
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
+import MaskedView from '@react-native-masked-view/masked-view';
 import { Workout } from '../types/workout';
 import CustomWorkoutModal from './CustomWorkoutModal';
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import { useAuth } from '../contexts/AuthContext';
 
-const TOOLTIP_SHOWN_KEY = 'custom_workout_tooltip_shown_v6';
-const GUEST_TOOLTIP_SESSION_KEY = 'guest_tooltip_session_shown';
-
-const { width, height } = Dimensions.get('window');
+const { width } = Dimensions.get('window');
 
 export interface WorkoutCardProps {
   equipment: string;
@@ -31,9 +26,6 @@ export interface WorkoutCardProps {
   createWorkoutId: (workout: Workout, equipment: string, difficulty: string) => string;
   handleAddToCart: (workout: Workout, equipment: string) => void;
   onStartWorkout: (workout: Workout, equipment: string, difficulty: string) => void;
-  // Optional prop to control highlight from parent
-  externalHighlight?: boolean;
-  onHighlightDismiss?: () => void;
 }
 
 const WorkoutCard = React.memo(({
@@ -45,19 +37,37 @@ const WorkoutCard = React.memo(({
   createWorkoutId,
   handleAddToCart,
   onStartWorkout,
-  externalHighlight,
-  onHighlightDismiss,
 }: WorkoutCardProps) => {
-  const { isGuest, token } = useAuth();
   const [currentWorkoutIndex, setCurrentWorkoutIndex] = useState(0);
   const [localScaleAnim] = useState(new Animated.Value(1));
   const [customModalVisible, setCustomModalVisible] = useState(false);
   const [selectedWorkoutForEdit, setSelectedWorkoutForEdit] = useState<Workout | null>(null);
-  const [internalHighlight, setInternalHighlight] = useState(false);
   const flatListRef = useRef<FlatList>(null);
-  const isMounted = useRef(true);
-  const highlightTimerRef = useRef<NodeJS.Timeout | null>(null);
   
+  // Shimmer animation for pencil icon
+  const shimmerAnim = useRef(new Animated.Value(0)).current;
+  
+  useEffect(() => {
+    // Start shimmer animation loop
+    const startShimmer = () => {
+      Animated.loop(
+        Animated.sequence([
+          Animated.timing(shimmerAnim, {
+            toValue: 1,
+            duration: 1500,
+            useNativeDriver: true,
+          }),
+          Animated.timing(shimmerAnim, {
+            toValue: 0,
+            duration: 0,
+            useNativeDriver: true,
+          }),
+          Animated.delay(2000),
+        ])
+      ).start();
+    };
+    startShimmer();
+  }, []);
   // Use external highlight if provided, otherwise use internal state
   const showHighlight = externalHighlight !== undefined ? externalHighlight : internalHighlight;
   
