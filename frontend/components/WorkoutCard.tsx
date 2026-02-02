@@ -18,7 +18,6 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 const TOOLTIP_SHOWN_KEY = 'custom_workout_tooltip_shown_v2';
 
 const { width } = Dimensions.get('window');
-const TOOLTIP_SHOWN_KEY = 'custom_workout_tooltip_shown';
 
 export interface WorkoutCardProps {
   equipment: string;
