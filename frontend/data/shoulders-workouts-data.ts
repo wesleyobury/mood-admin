@@ -1872,5 +1872,317 @@ export const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
         }
       ]
     }
+  },
+  {
+    equipment: 'Landmine Attachment',
+    icon: 'rocket',
+    workouts: {
+      beginner: [
+        {
+          name: 'Landmine Press Builder',
+          duration: '12–14 min',
+          description: 'Standard landmine press workout for shoulder-friendly overhead training.',
+          battlePlan: 'Battle Plan — Standard Sets\n• 4×12 Landmine Press — standard reps\nRest 60s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/d2gkwhep_download%20%282%29.png',
+          intensityReason: 'Standard landmine press workout for shoulder-friendly overhead training.',
+          moodTips: [
+            {
+              icon: 'trending-up',
+              title: 'Press at an angle',
+              description: 'Natural arc reduces shoulder stress.'
+            },
+            {
+              icon: 'body',
+              title: 'Stand tall, core braced',
+              description: 'Stability improves force transfer.'
+            },
+            {
+              icon: 'checkmark-circle',
+              title: 'Full range of motion',
+              description: 'Chest to full extension.'
+            }
+          ]
+        },
+        {
+          name: 'Single-Arm Landmine Press',
+          duration: '12–14 min',
+          description: 'Unilateral press workout targeting core stability and shoulder balance.',
+          battlePlan: 'Battle Plan — Standard Sets\n• 4×10 Single-Arm Landmine Press — standard reps\nRest 60s per side',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/d2gkwhep_download%20%282%29.png',
+          intensityReason: 'Unilateral press workout targeting core stability and shoulder balance.',
+          moodTips: [
+            {
+              icon: 'body',
+              title: 'Resist rotation',
+              description: 'Core works overtime.'
+            },
+            {
+              icon: 'hand-left',
+              title: 'Press from chest level',
+              description: 'Optimal starting position.'
+            },
+            {
+              icon: 'shield',
+              title: 'Control the descent',
+              description: 'Eccentric builds strength.'
+            }
+          ]
+        },
+        {
+          name: 'Landmine Lateral Raise',
+          duration: '12–14 min',
+          description: 'Isolation workout using landmine for constant side-delt tension.',
+          battlePlan: 'Battle Plan — Standard Sets\n• 4×15 Landmine Lateral Raise — standard reps\nRest 60s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/d2gkwhep_download%20%282%29.png',
+          intensityReason: 'Isolation workout using landmine for constant side-delt tension.',
+          moodTips: [
+            {
+              icon: 'trending-up',
+              title: 'Lift to shoulder height',
+              description: 'Peak delt activation.'
+            },
+            {
+              icon: 'timer',
+              title: 'Controlled tempo',
+              description: 'Smooth up, slower down.'
+            },
+            {
+              icon: 'flame',
+              title: 'Feel the burn',
+              description: 'Constant tension = pump.'
+            }
+          ]
+        },
+        {
+          name: 'Landmine Upright Row',
+          duration: '12–14 min',
+          description: 'Pull workout targeting delts and traps with natural bar path.',
+          battlePlan: 'Battle Plan — Standard Sets\n• 4×12 Landmine Upright Row — standard reps\nRest 60s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/d2gkwhep_download%20%282%29.png',
+          intensityReason: 'Pull workout targeting delts and traps with natural bar path.',
+          moodTips: [
+            {
+              icon: 'trending-up',
+              title: 'Pull elbows high',
+              description: 'Delt emphasis over traps.'
+            },
+            {
+              icon: 'refresh',
+              title: 'Natural arc path',
+              description: 'Landmine guides movement.'
+            },
+            {
+              icon: 'pause',
+              title: 'Squeeze at the top',
+              description: 'Peak contraction matters.'
+            }
+          ]
+        }
+      ],
+      intermediate: [
+        {
+          name: 'Landmine Press Tempo Control',
+          duration: '14–16 min',
+          description: 'Eccentric-focused press workout emphasizing control and stability.',
+          battlePlan: 'Battle Plan — Eccentric Sets\n• 4×10 Landmine Press — eccentric reps (3s down)\nRest 75s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/d2gkwhep_download%20%282%29.png',
+          intensityReason: 'Eccentric-focused press workout emphasizing control and stability.',
+          moodTips: [
+            {
+              icon: 'timer',
+              title: 'Slow negatives build strength',
+              description: 'More tension, less weight needed.'
+            },
+            {
+              icon: 'body',
+              title: 'Stay braced throughout',
+              description: 'Core stability is key.'
+            },
+            {
+              icon: 'trending-down',
+              title: 'Deep stretch at bottom',
+              description: 'Full range maximizes gains.'
+            }
+          ]
+        },
+        {
+          name: 'Alternating Landmine Press',
+          duration: '14–16 min',
+          description: 'Alternating press workout challenging stability and coordination.',
+          battlePlan: 'Battle Plan — Standard Sets\n• 5×8 Alternating Landmine Press — standard reps\nRest 75s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/d2gkwhep_download%20%282%29.png',
+          intensityReason: 'Alternating press workout challenging stability and coordination.',
+          moodTips: [
+            {
+              icon: 'refresh',
+              title: 'Alternate arms smoothly',
+              description: 'Rhythm builds coordination.'
+            },
+            {
+              icon: 'body',
+              title: 'Fight the rotation',
+              description: 'Core works constantly.'
+            },
+            {
+              icon: 'flash',
+              title: 'Press with intent',
+              description: 'Power through sticking points.'
+            }
+          ]
+        },
+        {
+          name: 'Landmine Raise Burnout',
+          duration: '15–17 min',
+          description: 'High-rep isolation workout for side-delt endurance.',
+          battlePlan: 'Battle Plan — Burnout Sets\n• 4×20 Landmine Lateral Raise — burnout reps\nRest 75s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/d2gkwhep_download%20%282%29.png',
+          intensityReason: 'High-rep isolation workout for side-delt endurance.',
+          moodTips: [
+            {
+              icon: 'flame',
+              title: 'High reps = big pump',
+              description: 'Endurance builds size.'
+            },
+            {
+              icon: 'lock-closed',
+              title: 'No momentum',
+              description: 'Strict form only.'
+            },
+            {
+              icon: 'timer',
+              title: 'Short rest periods',
+              description: 'Keep the burn alive.'
+            }
+          ]
+        },
+        {
+          name: 'Landmine Press + Row Contrast',
+          duration: '15–17 min',
+          description: 'Superset workout pairing pressing with pulling for balanced development.',
+          battlePlan: 'Battle Plan — Superset\n• 4×10 Landmine Press — standard reps\nsuperset with\n• 12 Landmine Upright Row\nRest 90s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/d2gkwhep_download%20%282%29.png',
+          intensityReason: 'Superset workout pairing pressing with pulling for balanced development.',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Press first while fresh',
+              description: 'Preserve power output.'
+            },
+            {
+              icon: 'shield-checkmark',
+              title: 'Rows balance shoulders',
+              description: 'Push-pull harmony.'
+            },
+            {
+              icon: 'refresh',
+              title: 'Smooth transitions',
+              description: 'Minimal rest between exercises.'
+            }
+          ]
+        }
+      ],
+      advanced: [
+        {
+          name: 'Heavy Landmine Press Builder',
+          duration: '18–20 min',
+          description: 'Standard heavy press workout for advanced shoulder strength.',
+          battlePlan: 'Battle Plan — Standard Sets\n• 6×6 Landmine Press — standard reps\nRest 90s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/d2gkwhep_download%20%282%29.png',
+          intensityReason: 'Standard heavy press workout for advanced shoulder strength.',
+          moodTips: [
+            {
+              icon: 'barbell',
+              title: 'Load the bar heavy',
+              description: 'Progressive overload drives strength.'
+            },
+            {
+              icon: 'body',
+              title: 'Brace like your life depends on it',
+              description: 'Heavy loads demand stability.'
+            },
+            {
+              icon: 'trending-up',
+              title: 'Explode through sticking points',
+              description: 'Speed builds power.'
+            }
+          ]
+        },
+        {
+          name: 'Landmine Press Drop Assault',
+          duration: '18–20 min',
+          description: 'Drop-set press workout driving mechanical fatigue.',
+          battlePlan: 'Battle Plan — Drop Set\n• 4×8 Landmine Press — standard reps\n• Final set: drop set — 2 drops, no rest\nRest 90s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/d2gkwhep_download%20%282%29.png',
+          intensityReason: 'Drop-set press workout driving mechanical fatigue.',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Strip plates immediately',
+              description: 'No more than 10 seconds between drops.'
+            },
+            {
+              icon: 'trending-down',
+              title: 'Drop 25-30% each time',
+              description: 'Enough to keep reps clean.'
+            },
+            {
+              icon: 'flame',
+              title: 'Push to true failure',
+              description: 'Final drop exhausts everything.'
+            }
+          ]
+        },
+        {
+          name: 'Single-Arm Landmine Strength Test',
+          duration: '18–20 min',
+          description: 'Unilateral strength workout exposing imbalances and building stability.',
+          battlePlan: 'Battle Plan — Standard Sets\n• 6×5 Single-Arm Landmine Press — standard reps\nRest 90s per side',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/d2gkwhep_download%20%282%29.png',
+          intensityReason: 'Unilateral strength workout exposing imbalances and building stability.',
+          moodTips: [
+            {
+              icon: 'body',
+              title: 'Anti-rotation is the goal',
+              description: 'Core works harder than shoulders.'
+            },
+            {
+              icon: 'shield',
+              title: 'Perfect form only',
+              description: 'Heavy singles demand precision.'
+            },
+            {
+              icon: 'trending-up',
+              title: 'Match both sides',
+              description: 'Balance builds real strength.'
+            }
+          ]
+        },
+        {
+          name: 'Landmine Complex Finisher',
+          duration: '18–20 min',
+          description: 'Complex workout combining multiple landmine movements for total shoulder fatigue.',
+          battlePlan: 'Battle Plan — Complex\n• 4 rounds:\n  6 Landmine Press → 8 Upright Row → 10 Lateral Raise\nRest 120s between rounds',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/d2gkwhep_download%20%282%29.png',
+          intensityReason: 'Complex workout combining multiple landmine movements for total shoulder fatigue.',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'No rest between exercises',
+              description: 'Complex = continuous work.'
+            },
+            {
+              icon: 'trending-down',
+              title: 'Start heavy, finish light',
+              description: 'Fatigue builds through the complex.'
+            },
+            {
+              icon: 'flame',
+              title: 'Final round is everything',
+              description: 'Leave nothing in the tank.'
+            }
+          ]
+        }
+      ]
+    }
   }
 ];
