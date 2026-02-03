@@ -681,6 +681,26 @@ export const absWorkoutDatabase: EquipmentWorkouts[] = [
               description: 'Stable hip position maintains proper muscle activation.'
             }
           ]
+        },
+        {
+          name: 'Alternating Knee Raises',
+          duration: '8–10 min',
+          description: 'Unilateral knee lifts improving control and reducing swing.',
+          battlePlan: '3 rounds\n• 12 per side Alternating Knee Raises\nRest 60s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/bvoxdf8z_download%20%2814%29.png',
+          intensityReason: 'One knee at a time reduces momentum for better activation',
+          moodTips: [
+            {
+              icon: 'construct',
+              title: 'One knee at a time',
+              description: 'Momentum reduced for better control.'
+            },
+            {
+              icon: 'timer',
+              title: 'Brief pause at top',
+              description: 'Better activation with each rep.'
+            }
+          ]
         }
       ],
       intermediate: [
