@@ -1284,7 +1284,7 @@ export const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Eccentric-focused workout using slow negatives to build strength safely.',
           battlePlan: 'Battle Plan — Eccentric Sets\n• 4×10 Seated Dumbbell Shoulder Press — eccentric reps (3s down)\nRest 60s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-data-hub-2/artifacts/cwihbei1_db%20shoulder%20press.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-data-hub-2/artifacts/2f5b0c4l_db_shoulder%20press.png',
           intensityReason: 'Eccentric-focused workout using slow negatives to build strength safely.',
           moodTips: [
             {
@@ -1596,7 +1596,7 @@ export const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Eccentric-focused press workout reinforcing control.',
           battlePlan: 'Battle Plan — Eccentric Sets\n• 4×8 Overhead Press — eccentric reps (3s down)\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-data-hub-2/artifacts/q6gtwvmb_bb%20shoulder%20press.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-data-hub-2/artifacts/dz69brtd_bb%20press%202.png',
           intensityReason: 'Eccentric-focused press workout reinforcing control.',
           moodTips: [
             {
@@ -1646,7 +1646,7 @@ export const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Standard press workout with squeeze-to-finish hold.',
           battlePlan: 'Battle Plan — Standard + Isometric Finish\n• 4×8 Overhead Press — standard reps\n• Final set: squeeze to finish — hold overhead 8–10s\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-data-hub-2/artifacts/q6gtwvmb_bb%20shoulder%20press.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-data-hub-2/artifacts/l4hch2z0_bb%20press%201.png',
           intensityReason: 'Standard press workout with squeeze-to-finish hold.',
           moodTips: [
             {
@@ -1825,7 +1825,7 @@ export const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '18–20 min',
           description: 'Burnout press workout to exhaust remaining fibers.',
           battlePlan: 'Battle Plan — Burnout Sets\n• 4×12 Overhead Press — burnout reps\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-data-hub-2/artifacts/q6gtwvmb_bb%20shoulder%20press.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-data-hub-2/artifacts/l4hch2z0_bb%20press%201.png',
           intensityReason: 'Burnout press workout to exhaust remaining fibers.',
           moodTips: [
             {
