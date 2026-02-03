@@ -1775,7 +1775,7 @@ export const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '18–20 min',
           description: 'Standard heavy power workout emphasizing max overhead output.',
           battlePlan: 'Battle Plan — Standard Sets\n• 6×4 Push Jerk — standard reps\nRest 90–120s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/z1k5w5av_download.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-data-hub-2/artifacts/4n1f2oy3_bb%20push%20press.png',
           intensityReason: 'Standard heavy power workout emphasizing max overhead output.',
           moodTips: [
             {
@@ -1800,7 +1800,7 @@ export const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '18–20 min',
           description: 'Single-exercise drop-set workout using strict presses.',
           battlePlan: 'Battle Plan — Drop Set\n• 4×6 Strict Press — standard reps\n• Final set: drop set — 2 drops, no rest\nRest 120s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/z1k5w5av_download.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-data-hub-2/artifacts/q6gtwvmb_bb%20shoulder%20press.png',
           intensityReason: 'Single-exercise drop-set workout using strict presses.',
           moodTips: [
             {
@@ -1825,7 +1825,7 @@ export const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '18–20 min',
           description: 'Burnout press workout to exhaust remaining fibers.',
           battlePlan: 'Battle Plan — Burnout Sets\n• 4×12 Overhead Press — burnout reps\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/z1k5w5av_download.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-data-hub-2/artifacts/q6gtwvmb_bb%20shoulder%20press.png',
           intensityReason: 'Burnout press workout to exhaust remaining fibers.',
           moodTips: [
             {
@@ -1850,7 +1850,7 @@ export const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '18–20 min',
           description: 'Paused-rep strength workout exposing true shoulder capacity.',
           battlePlan: 'Battle Plan — Pause Sets\n• 5×5 Overhead Press — pause reps (2s bottom)\nRest 120s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/z1k5w5av_download.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-data-hub-2/artifacts/q6gtwvmb_bb%20shoulder%20press.png',
           intensityReason: 'Paused-rep strength workout exposing true shoulder capacity.',
           moodTips: [
             {
