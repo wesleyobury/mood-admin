@@ -1386,7 +1386,7 @@ export const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Standard power-press workout increasing load tolerance.',
           battlePlan: 'Battle Plan — Standard Sets\n• 5×8 Push Press — standard reps\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/d2gkwhep_download%20%282%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-data-hub-2/artifacts/8rj9v297_db%20push%20press.png',
           intensityReason: 'Standard power-press workout increasing load tolerance.',
           moodTips: [
             {
@@ -1411,7 +1411,7 @@ export const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '15–17 min',
           description: 'Pulse-rep isolation workout for accumulated delt fatigue.',
           battlePlan: 'Battle Plan — Pulse Sets\n• 4×15 Dumbbell Lateral Raise — pulse reps (top ⅓)\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/d2gkwhep_download%20%282%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-data-hub-2/artifacts/zbplnvku_db%20lateral%20raise.png',
           intensityReason: 'Pulse-rep isolation workout for accumulated delt fatigue.',
           moodTips: [
             {
@@ -1436,7 +1436,7 @@ export const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '15–17 min',
           description: 'Superset workout pairing shoulder pressing with bodyweight fatigue.',
           battlePlan: 'Battle Plan — Superset\n• 4×10 Standing Dumbbell Shoulder Press — standard reps\nsuperset with\n• 12–15 Pushups\nRest 75s between rounds',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/d2gkwhep_download%20%282%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-data-hub-2/artifacts/geafno9z_shoulder%20press.png',
           intensityReason: 'Superset workout pairing shoulder pressing with bodyweight fatigue.',
           moodTips: [
             {
