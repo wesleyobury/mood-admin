@@ -873,6 +873,26 @@ export const absWorkoutDatabase: EquipmentWorkouts[] = [
               description: 'Peak contraction maximizes muscle activation.'
             }
           ]
+        },
+        {
+          name: 'Anti-Extension Neutral Hold',
+          duration: '8–10 min',
+          description: 'Static trunk hold resisting spinal extension.',
+          battlePlan: '3 rounds\n• 20–30s Holds\nRest 60s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_sweat-weights-images/artifacts/9xys14l8_download%20%289%29.png',
+          intensityReason: 'Core stabilizes spine in anti-extension position',
+          moodTips: [
+            {
+              icon: 'construct',
+              title: 'Brace like a plank',
+              description: 'Core stabilizes spine throughout hold.'
+            },
+            {
+              icon: 'shield',
+              title: 'Neck neutral',
+              description: 'Alignment matters for safety.'
+            }
+          ]
         }
       ],
       intermediate: [
