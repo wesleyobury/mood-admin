@@ -1381,6 +1381,46 @@ export const absWorkoutDatabase: EquipmentWorkouts[] = [
               description: 'Controlled flutter kicks maintain constant tension.'
             }
           ]
+        },
+        {
+          name: 'Weighted Decline Sit Up',
+          duration: '12–14 min',
+          description: 'Weighted movement builds advanced ab strength capacity.\n ',
+          battlePlan: '3 rounds\n• 8–10 Weighted Sit Ups\nRest 90s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_sweat-weights-images/artifacts/azdoubte_download%20%286%29.png',
+          intensityReason: 'Weight adds progressive ab load challenge',
+          moodTips: [
+            {
+              icon: 'shield',
+              title: 'Hug weight at chest',
+              description: 'Proper weight position prevents injury.'
+            },
+            {
+              icon: 'flash',
+              title: 'Squeeze hard both times',
+              description: 'Maximum contraction on way up and down.'
+            }
+          ]
+        },
+        {
+          name: 'Offset Load Decline Sit-Ups',
+          duration: '12–14 min',
+          description: 'Anti-rotation sit-ups using unbalanced loading.',
+          battlePlan: '4 rounds\n• 8 per side Offset Sit-Ups\nRest 90s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_sweat-weights-images/artifacts/lwwxsgl0_download%20%287%29.png',
+          intensityReason: 'Weight to one side forces core to resist twist',
+          moodTips: [
+            {
+              icon: 'construct',
+              title: 'Hold weight to one side',
+              description: 'Core resists twist throughout.'
+            },
+            {
+              icon: 'flash',
+              title: 'Alternate sides',
+              description: 'Balanced development for both sides.'
+            }
+          ]
         }
       ]
     }
