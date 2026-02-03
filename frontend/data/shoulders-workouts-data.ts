@@ -2736,7 +2736,7 @@ export const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '18–20 min',
           description: 'Multi-drop pull workout driving shoulder fatigue safely.',
           battlePlan: 'Battle Plan — Drop Cluster\n• Set 1: 12 reps — standard\n• Set 2: drop set — 12 → drop ~20% → 8\n• Set 3: triple drop set — 10 → drop ~15% → 8 → drop ~10% → 8\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/d2gkwhep_download%20%282%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-data-hub-2/artifacts/9btj6m9u_image.png',
           intensityReason: 'Multi-drop pull workout driving shoulder fatigue safely.',
           moodTips: [
             {
