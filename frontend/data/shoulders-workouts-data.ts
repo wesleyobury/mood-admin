@@ -3023,7 +3023,7 @@ export const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '18–20 min',
           description: 'Standard heavy press workout for advanced strength.',
           battlePlan: 'Battle Plan — Standard Sets\n• 6×5 Strict Overhead Press — standard reps\nRest 120s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/z1k5w5av_download.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-data-hub-2/artifacts/nqoj7ndk_strict%20press.png',
           intensityReason: 'Standard heavy press workout for advanced strength.',
           moodTips: [
             {
@@ -3048,7 +3048,7 @@ export const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '18–20 min',
           description: 'Standard Olympic power movement emphasizing speed and coordination.',
           battlePlan: 'Battle Plan — Standard Sets\n• 6×3 Split Jerk — standard reps\nRest 120s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/z1k5w5av_download.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-data-hub-2/artifacts/h2z9y5b7_split%20jerk.png',
           intensityReason: 'Standard Olympic power movement emphasizing speed and coordination.',
           moodTips: [
             {
@@ -3073,7 +3073,7 @@ export const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '18–20 min',
           description: 'Multi-drop power workout combining speed and fatigue.',
           battlePlan: 'Battle Plan — Drop Ladder\n• 3 rounds:\n  4 reps → drop ~15% → 4 reps → drop ~10% → AMRAP\nRest 120s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/z1k5w5av_download.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-data-hub-2/artifacts/yi9y3sr0_push%20press.png',
           intensityReason: 'Multi-drop power workout combining speed and fatigue.',
           moodTips: [
             {
@@ -3098,7 +3098,7 @@ export const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '18–20 min',
           description: 'Wide-grip power press workout to switch up the range and path of motion.',
           battlePlan: 'Battle Plan — Standard Sets\n• 5×5 Snatch-Grip Push Press — standard reps\nRest 120s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/z1k5w5av_download.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-data-hub-2/artifacts/ehcn1tsd_High%20pull.jpg',
           intensityReason: 'Wide-grip power press workout to switch up the range and path of motion.',
           moodTips: [
             {
