@@ -2819,7 +2819,7 @@ export const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Standard barbell press workout building foundational shoulder strength.',
           battlePlan: 'Battle Plan — Standard Sets\n• 4×10 Standing Barbell Overhead Press — standard reps\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-data-hub-2/artifacts/nqoj7ndk_strict%20press.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-data-hub-2/artifacts/0tjqvfc4_bb%20press%202.png',
           intensityReason: 'Standard barbell press workout building foundational shoulder strength.',
           moodTips: [
             {
@@ -2844,7 +2844,7 @@ export const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Eccentric-focused press workout emphasizing bar control.',
           battlePlan: 'Battle Plan — Eccentric Sets\n• 4×8 Overhead Press — eccentric reps (3s down)\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-data-hub-2/artifacts/nqoj7ndk_strict%20press.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-data-hub-2/artifacts/wpyi7rra_bb%20press%201.png',
           intensityReason: 'Eccentric-focused press workout emphasizing bar control.',
           moodTips: [
             {
@@ -2894,7 +2894,7 @@ export const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Standard press workout with squeeze-to-finish in the contracted range.',
           battlePlan: 'Battle Plan — Standard + Isometric Finish\n• 4×8 Overhead Press — standard reps\n• Final set: squeeze to finish — hold bar just short of lockout (peak delt contraction) 8–10s\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-data-hub-2/artifacts/ehcn1tsd_High%20pull.jpg',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-data-hub-2/artifacts/6wounjt1_bb%20press%203.png',
           intensityReason: 'Standard press workout with squeeze-to-finish in the contracted range.',
           moodTips: [
             {
@@ -2971,7 +2971,7 @@ export const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '15–17 min',
           description: 'High-density power press workout using moderate loads.',
           battlePlan: 'Battle Plan — Standard Sets\n• 6×5 Push Press — standard reps\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-data-hub-2/artifacts/nqoj7ndk_strict%20press.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-data-hub-2/artifacts/wpyi7rra_bb%20press%201.png',
           intensityReason: 'High-density power press workout using moderate loads.',
           moodTips: [
             {
@@ -2996,7 +2996,7 @@ export const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '15–17 min',
           description: 'Superset workout pairing barbell power with bodyweight fatigue.',
           battlePlan: 'Battle Plan — Superset\n• 4×6 Push Press — standard reps\nsuperset with\n• 12–15 Pushups\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-data-hub-2/artifacts/h2z9y5b7_split%20jerk.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-data-hub-2/artifacts/0tjqvfc4_bb%20press%202.png',
           intensityReason: 'Superset workout pairing barbell power with bodyweight fatigue.',
           moodTips: [
             {
@@ -3098,7 +3098,7 @@ export const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '18–20 min',
           description: 'Wide-grip power press workout to switch up the range and path of motion.',
           battlePlan: 'Battle Plan — Standard Sets\n• 5×5 Snatch-Grip Push Press — standard reps\nRest 120s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-data-hub-2/artifacts/ehcn1tsd_High%20pull.jpg',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-data-hub-2/artifacts/wxlcn70h_bb%20push%20press.png',
           intensityReason: 'Wide-grip power press workout to switch up the range and path of motion.',
           moodTips: [
             {
