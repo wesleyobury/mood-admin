@@ -476,7 +476,7 @@ export const tricepsWorkoutDatabase: EquipmentWorkouts[] = [
     }
   },
   {
-    equipment: 'EZ Bar',
+    equipment: 'EZ bar',
     icon: 'remove',
     workouts: {
       beginner: [
@@ -713,7 +713,7 @@ export const tricepsWorkoutDatabase: EquipmentWorkouts[] = [
     }
   },
   {
-    equipment: 'Single Extension Cable',
+    equipment: 'Single extension cable',
     icon: 'swap-vertical',
     workouts: {
       beginner: [
@@ -1082,7 +1082,7 @@ export const tricepsWorkoutDatabase: EquipmentWorkouts[] = [
     }
   },
   {
-    equipment: 'Tricep Pushdown Machine',
+    equipment: 'Tricep pushdown machine',
     icon: 'fitness',
     workouts: {
       beginner: [
@@ -1319,7 +1319,7 @@ export const tricepsWorkoutDatabase: EquipmentWorkouts[] = [
     }
   },
   {
-    equipment: 'Dip Station / Machine',
+    equipment: 'Dip station / machine',
     icon: 'remove',
     workouts: {
       beginner: [
@@ -1556,7 +1556,7 @@ export const tricepsWorkoutDatabase: EquipmentWorkouts[] = [
     }
   },
   {
-    equipment: 'TRX Bands',
+    equipment: 'TRX bands',
     icon: 'link',
     workouts: {
       beginner: [
