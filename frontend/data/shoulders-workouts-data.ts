@@ -2507,7 +2507,7 @@ export const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Standard unilateral press workout using kettlebell instability for delt activation.',
           battlePlan: 'Battle Plan — Standard Sets\n• 4×10 Single-Arm Kettlebell Press — standard reps\nRest 60s per side',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-data-hub-2/artifacts/ijanvd0e_kb%20shoulder%20press.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-data-hub-2/artifacts/y6ofpbdj_kb%20sa%20press%20v2.png',
           intensityReason: 'Standard unilateral press workout using kettlebell instability for delt activation.',
           moodTips: [
             {
@@ -2532,7 +2532,7 @@ export const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Standard isolation workout targeting anterior delts with offset load.',
           battlePlan: 'Battle Plan — Standard Sets\n• 4×12 Kettlebell Front Raise — standard reps\nRest 60s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-data-hub-2/artifacts/daoo7ik5_kb%20lat%20riase.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-data-hub-2/artifacts/hd1jejdj_kb%20front%20raise.jpg',
           intensityReason: 'Standard isolation workout targeting anterior delts with offset load.',
           moodTips: [
             {
@@ -2557,7 +2557,7 @@ export const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Standard isolation workout emphasizing side delts and grip control.',
           battlePlan: 'Battle Plan — Standard Sets\n• 4×15 Kettlebell Lateral Raise — standard reps\nRest 60s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-data-hub-2/artifacts/jjgy8pfh_KB%20upright%20row.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-data-hub-2/artifacts/nokhthfd_kb%20lat%20riase.png',
           intensityReason: 'Standard isolation workout emphasizing side delts and grip control.',
           moodTips: [
             {
@@ -2634,7 +2634,7 @@ export const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Standard pull-focused shoulder workout biasing delts over traps.',
           battlePlan: 'Battle Plan — Standard Sets\n• 4×12 Kettlebell Upright Row — standard reps\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-data-hub-2/artifacts/jjgy8pfh_KB%20upright%20row.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-data-hub-2/artifacts/yznqwyz0_kb%20upright%20row.png',
           intensityReason: 'Standard pull-focused shoulder workout biasing delts over traps.',
           moodTips: [
             {
@@ -2684,7 +2684,7 @@ export const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '15–17 min',
           description: 'Superset workout pairing pressing with controlled shoulder mobility.',
           battlePlan: 'Battle Plan — Superset\n• 4×10 Single-Arm KB Press — standard reps\nsuperset with\n• 8–10 KB Halos (each direction)\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-data-hub-2/artifacts/daoo7ik5_kb%20lat%20riase.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-data-hub-2/artifacts/xcrgse2b_kb%20halo.png',
           intensityReason: 'Superset workout pairing pressing with controlled shoulder mobility.',
           moodTips: [
             {
