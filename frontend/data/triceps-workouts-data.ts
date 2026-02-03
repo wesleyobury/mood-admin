@@ -1031,131 +1031,236 @@ export const tricepsWorkoutDatabase: EquipmentWorkouts[] = [
     }
   },
   {
-    equipment: 'TRX bands',
+    equipment: 'TRX Bands',
     icon: 'link',
     workouts: {
       beginner: [
         {
-          name: 'TRX Pushdown',
-          duration: '10–12 min',
-          description: 'Easy scale body angle to increase or reduce load',
-          battlePlan: '3 rounds\n• 10–12 TRX Pushdowns\nRest 60–75s',
+          name: 'TRX Tricep Extension Builder',
+          duration: '12–14 min',
+          description: 'Standard TRX extension workout introducing bodyweight triceps loading.',
+          battlePlan: 'Battle Plan — Standard Sets\n• 4×10 TRX Tricep Extensions — standard reps\nRest 60s',
           imageUrl: 'https://customer-assets.emergentagent.com/job_inspiring-euler/artifacts/8ci4ug40_trx_kneeling_tricep_extensions.jpg',
-          intensityReason: 'Body angled band push teaches triceps extension',
+          intensityReason: 'Body angle controls resistance for progressive loading',
           moodTips: [
             {
-              icon: 'hand-left',
-              title: 'Step forward deeper for more resistance',
-              description: 'Keep elbows pinned, hinge only forearms.'
+              icon: 'body',
+              title: 'Elbows stay high and fixed in space',
+              description: 'Think "hinge at the elbows," not "push hands"'
             },
             {
-              icon: 'body',
-              title: 'Control rope tension across full rep',
-              description: 'Fixed elbow position maximizes tricep isolation.'
+              icon: 'trending-down',
+              title: 'Lower your head forward between hands',
+              description: 'Body moves, straps stay still'
+            },
+            {
+              icon: 'flash',
+              title: 'Choose an angle you can fully lock out',
+              description: 'Clean extension creates the pump'
             }
           ]
         },
         {
-          name: 'TRX Overhead Ext',
-          duration: '10–12 min',
-          description: 'Overhead TRX extension increases stretch safely',
-          battlePlan: '3 rounds\n• 10–12 TRX Overhead Extensions\nRest 75s',
+          name: 'Incline TRX Extensions',
+          duration: '12–14 min',
+          description: 'Regression-based TRX workout using a more upright body angle.',
+          battlePlan: 'Battle Plan — Standard Sets\n• 4×12 TRX Extensions (more upright) — standard reps\nRest 60s',
           imageUrl: 'https://customer-assets.emergentagent.com/job_inspiring-euler/artifacts/e9mzj704_download%20%284%29.png',
-          intensityReason: 'Lean forward position stretches tricep long head',
+          intensityReason: 'Upright angle reduces load for form development',
           moodTips: [
             {
-              icon: 'timer',
-              title: 'Lean slightly forward, keep arms overhead',
-              description: 'Control rope tension across full rep.'
+              icon: 'trending-up',
+              title: 'Step closer to reduce load',
+              description: 'Angle controls difficulty'
             },
             {
-              icon: 'fitness',
-              title: 'Don\'t let straps slack mid rep',
-              description: 'Full body tension supports arm position.'
+              icon: 'body',
+              title: 'Body stays rigid like a plank',
+              description: 'Prevents shoulder takeover'
+            },
+            {
+              icon: 'flash',
+              title: 'Lock out arms hard every rep',
+              description: 'Shortened triceps pump fast'
+            }
+          ]
+        },
+        {
+          name: 'TRX Extension + Iso Finish',
+          duration: '12–14 min',
+          description: 'Standard TRX workout with squeeze-to-finish at full elbow extension.',
+          battlePlan: 'Battle Plan — Standard + Isometric Finish\n• 4×8 TRX Extensions — standard reps\n• Final set: squeeze to finish — hold arms fully straight 10s\nRest 60s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_inspiring-euler/artifacts/8ci4ug40_trx_kneeling_tricep_extensions.jpg',
+          intensityReason: 'Isometric finish maximizes triceps contraction',
+          moodTips: [
+            {
+              icon: 'body',
+              title: 'Brace core during the hold',
+              description: 'Stability keeps load on triceps'
+            },
+            {
+              icon: 'shield',
+              title: 'Elbows don\'t drift outward',
+              description: 'Shoulder motion = lost tension'
+            },
+            {
+              icon: 'flash',
+              title: 'Hold where arms are fully straight',
+              description: 'That\'s peak contraction'
             }
           ]
         }
       ],
       intermediate: [
         {
-          name: 'Incline TRX Ext',
-          duration: '12–14 min',
-          description: 'Body angle incline forces longer extension workload',
-          battlePlan: '4 rounds\n• 8–10 Incline TRX Extensions\nRest 75–90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_inspiring-euler/artifacts/8ci4ug40_trx_kneeling_tricep_extensions.jpg',
-          intensityReason: 'Sharper incline builds greater triceps range use',
+          name: 'Tempo TRX Extensions',
+          duration: '14–16 min',
+          description: 'Eccentric-focused TRX workout increasing time under tension.',
+          battlePlan: 'Battle Plan — Eccentric Sets\n• 4×8 TRX Extensions — eccentric reps (4s lower)\nRest 75s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_inspiring-euler/artifacts/e9mzj704_download%20%284%29.png',
+          intensityReason: 'Slow eccentrics maximize muscle fiber recruitment',
           moodTips: [
             {
-              icon: 'body',
-              title: 'Walk feet closer to anchor for load',
-              description: 'Bend elbows fully before locking out.'
+              icon: 'timer',
+              title: 'Lower body slowly as one unit',
+              description: 'Arms don\'t move, body does'
             },
             {
-              icon: 'trending-up',
-              title: 'Lower slowly for 3s with solid core',
-              description: 'Don\'t let straps slack mid rep.'
+              icon: 'body',
+              title: 'Elbows bend under control',
+              description: 'Keeps shoulders out'
+            },
+            {
+              icon: 'flash',
+              title: 'Extend hard at the top',
+              description: 'Full lockout builds pump'
             }
           ]
         },
         {
-          name: 'TRX Negatives',
-          duration: '12–14 min',
-          description: 'Controlled negatives raise extension efficiency',
-          battlePlan: '3 rounds\n• 8 TRX Extensions (3s eccentric)\nRest 75–90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_inspiring-euler/artifacts/e9mzj704_download%20%284%29.png',
-          intensityReason: '3s eccentric phases enhance hypertrophy tension',
+          name: 'Paused TRX Extensions',
+          duration: '14–16 min',
+          description: 'Pause-rep TRX workout eliminating momentum.',
+          battlePlan: 'Battle Plan — Pause Sets\n• 4×8 TRX Extensions — pause reps (1s bottom)\nRest 75s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_inspiring-euler/artifacts/8ci4ug40_trx_kneeling_tricep_extensions.jpg',
+          intensityReason: 'Pauses eliminate momentum for honest tension',
           moodTips: [
             {
               icon: 'timer',
-              title: 'Lower slowly for 3s with solid core',
-              description: 'Don\'t let straps slack mid rep.'
+              title: 'Pause with elbows bent, body frozen',
+              description: 'Don\'t sink into shoulders'
             },
             {
-              icon: 'fitness',
-              title: 'Brace entire body to stop strap sway',
-              description: 'Stable elbow position ensures tricep isolation.'
+              icon: 'trending-up',
+              title: 'Press body away by straightening arms',
+              description: 'Hands stay fixed'
+            },
+            {
+              icon: 'flash',
+              title: 'Pause + full lockout = pump',
+              description: 'Stretch then contraction wins'
+            }
+          ]
+        },
+        {
+          name: 'TRX Burn Builder',
+          duration: '15–17 min',
+          description: 'Burnout-style TRX workout extending fatigue through volume.',
+          battlePlan: 'Battle Plan — Burnout Sets\n• 4×AMRAP TRX Extensions — burnout reps\nRest 75s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_inspiring-euler/artifacts/e9mzj704_download%20%284%29.png',
+          intensityReason: 'Extended reps build endurance and pump',
+          moodTips: [
+            {
+              icon: 'timer',
+              title: 'Shorten rest each round',
+              description: 'Fatigue stacks fast'
+            },
+            {
+              icon: 'shield',
+              title: 'Partial reps allowed late',
+              description: 'Stay in the tension zone'
+            },
+            {
+              icon: 'flash',
+              title: 'Top-range dominance',
+              description: 'Triceps stay shortened and pumped'
             }
           ]
         }
       ],
       advanced: [
         {
-          name: 'TRX Ext Combo',
-          duration: '14–16 min',
-          description: 'Superset TRX pushes and overheads overload fibers',
-          battlePlan: '4 rounds\n• 8 TRX Overhead Extensions\n• 8 TRX Pushdowns\nRest 90s',
+          name: 'Decline TRX Extensions',
+          duration: '18–20 min',
+          description: 'Advanced TRX extension workout using feet elevation to increase load.',
+          battlePlan: 'Battle Plan — Standard Sets\n• 6×6 TRX Extensions (feet elevated) — standard reps\nRest 90s',
           imageUrl: 'https://customer-assets.emergentagent.com/job_inspiring-euler/artifacts/8ci4ug40_trx_kneeling_tricep_extensions.jpg',
-          intensityReason: 'Overhead plus pushdown adds training variety',
+          intensityReason: 'Feet elevation dramatically increases bodyweight load',
           moodTips: [
             {
-              icon: 'refresh',
-              title: 'Perform overhead stretch then pushdown strict',
-              description: 'Minimal time between moves keeps arms loaded.'
+              icon: 'trending-up',
+              title: 'Steeper body angle = heavier load',
+              description: 'Progress carefully'
             },
             {
-              icon: 'fitness',
-              title: 'Hold halfway extended for 10s, elbows locked in',
-              description: 'Each angle hits triceps differently.'
+              icon: 'body',
+              title: 'Descend by bending elbows only',
+              description: 'Shoulder movement is cheating'
+            },
+            {
+              icon: 'flash',
+              title: 'Lock out arms before feet touch down',
+              description: 'Peak extension under fatigue drives pump'
             }
           ]
         },
         {
-          name: 'TRX Iso Burn',
-          duration: '16–18 min',
-          description: 'Pause holds in mid rep create intense arm fatigue',
-          battlePlan: '3 rounds\n• 8 TRX Extensions\n• End with 10s Hold Mid Extension\nRest 90s',
+          name: 'TRX Extension Drop-Angle Ladder',
+          duration: '18–20 min',
+          description: 'Angle-based drop workout using body position instead of weight.',
+          battlePlan: 'Battle Plan — Drop Ladder\n• 3 rounds:\n  8 reps (feet elevated) → step forward → 8 reps → step forward → AMRAP\nRest 90s',
           imageUrl: 'https://customer-assets.emergentagent.com/job_inspiring-euler/artifacts/e9mzj704_download%20%284%29.png',
-          intensityReason: 'Static positions drive endurance under band load',
+          intensityReason: 'Angle changes extend set past failure without weight changes',
           moodTips: [
             {
-              icon: 'timer',
-              title: 'Hold halfway extended for 10s, elbows locked in',
-              description: 'Brace entire body to stop strap sway.'
+              icon: 'flash',
+              title: 'Angle changes are immediate',
+              description: 'No standing around'
             },
             {
-              icon: 'flame',
-              title: 'Brace entire body to stop strap sway',
-              description: 'Advanced training requires mental fortitude.'
+              icon: 'body',
+              title: 'Maintain elbow height throughout',
+              description: 'Keeps tension on triceps'
+            },
+            {
+              icon: 'timer',
+              title: 'Finish ladders fully extended',
+              description: 'Contraction seals the pump'
+            }
+          ]
+        },
+        {
+          name: 'TRX Burnout Hold',
+          duration: '18–20 min',
+          description: 'Burnout + isometric TRX workout for maximal triceps fatigue.',
+          battlePlan: 'Battle Plan — Burnout + Isometric\n• 4×AMRAP TRX Extensions — burnout reps\n• Final set: squeeze to finish — hold full extension 15s\nRest 90s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_inspiring-euler/artifacts/8ci4ug40_trx_kneeling_tricep_extensions.jpg',
+          intensityReason: 'Burnout with iso hold completely exhausts triceps',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Flex triceps hard during hold',
+              description: 'Neural drive matters'
+            },
+            {
+              icon: 'body',
+              title: 'Body stays rigid',
+              description: 'Prevents shoulder dump'
+            },
+            {
+              icon: 'timer',
+              title: 'Hold where arms are straight',
+              description: 'True shortened position'
             }
           ]
         }
