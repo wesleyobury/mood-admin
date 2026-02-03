@@ -2609,7 +2609,7 @@ export const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Standard rotational press workout for full-delt recruitment.',
           battlePlan: 'Battle Plan — Standard Sets\n• 5×8 Kettlebell Arnold Press — standard reps\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/d2gkwhep_download%20%282%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-data-hub-2/artifacts/zr277bch_kb%20press%20or%20offset%20rack%20hold.png',
           intensityReason: 'Standard rotational press workout for full-delt recruitment.',
           moodTips: [
             {
@@ -2634,7 +2634,7 @@ export const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Standard pull-focused shoulder workout biasing delts over traps.',
           battlePlan: 'Battle Plan — Standard Sets\n• 4×12 Kettlebell Upright Row — standard reps\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-data-hub-2/artifacts/9btj6m9u_image.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-data-hub-2/artifacts/jjgy8pfh_KB%20upright%20row.png',
           intensityReason: 'Standard pull-focused shoulder workout biasing delts over traps.',
           moodTips: [
             {
@@ -2659,7 +2659,7 @@ export const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Paused-rep press workout removing momentum.',
           battlePlan: 'Battle Plan — Pause Sets\n• 4×8 Single-Arm KB Press — pause reps (1s bottom)\nRest 75s per side',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/d2gkwhep_download%20%282%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-data-hub-2/artifacts/ijanvd0e_kb%20shoulder%20press.png',
           intensityReason: 'Paused-rep press workout removing momentum.',
           moodTips: [
             {
@@ -2684,7 +2684,7 @@ export const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '15–17 min',
           description: 'Superset workout pairing pressing with controlled shoulder mobility.',
           battlePlan: 'Battle Plan — Superset\n• 4×10 Single-Arm KB Press — standard reps\nsuperset with\n• 8–10 KB Halos (each direction)\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/d2gkwhep_download%20%282%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-data-hub-2/artifacts/daoo7ik5_kb%20lat%20riase.png',
           intensityReason: 'Superset workout pairing pressing with controlled shoulder mobility.',
           moodTips: [
             {
