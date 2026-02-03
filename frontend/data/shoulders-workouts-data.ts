@@ -1049,7 +1049,7 @@ export const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Pause-rep rear-delt and upper-back workout for shoulder balance.',
           battlePlan: 'Battle Plan — Pause Sets\n• 4×12 Face Pull — pause reps (1s squeeze)\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/8p6cuez9_download.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-data-hub-2/artifacts/hwr2ym9m_image.png',
           intensityReason: 'Pause-rep rear-delt and upper-back workout for shoulder balance.',
           moodTips: [
             {
@@ -1074,7 +1074,7 @@ export const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Standard unilateral press workout emphasizing shoulder stability.',
           battlePlan: 'Battle Plan — Standard Sets\n• 5×10 Single-Arm Cable Shoulder Press — standard reps\nRest 75s per side',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/8p6cuez9_download.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-data-hub-2/artifacts/7pnnumeo_image.png',
           intensityReason: 'Standard unilateral press workout emphasizing shoulder stability.',
           moodTips: [
             {
@@ -1099,7 +1099,7 @@ export const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '15–17 min',
           description: 'Pulse-rep isolation workout for extended time under tension.',
           battlePlan: 'Battle Plan — Pulse Sets\n• 4×15 Cable Lateral Raise — pulse reps (top ⅓)\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/8p6cuez9_download.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-data-hub-2/artifacts/ndk3n5nw_image.png',
           intensityReason: 'Pulse-rep isolation workout for extended time under tension.',
           moodTips: [
             {
@@ -1124,7 +1124,7 @@ export const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '15–17 min',
           description: 'Superset workout pairing lateral raises with rear-delt stability work.',
           battlePlan: 'Battle Plan — Superset\n• 4×12 Cable Lateral Raise (low → high) — standard reps\nsuperset with\n• 12–15 Face Pulls\nRest 90s between rounds',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/8p6cuez9_download.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-data-hub-2/artifacts/ndk3n5nw_image.png',
           intensityReason: 'Superset workout pairing lateral raises with rear-delt stability work.',
           moodTips: [
             {
