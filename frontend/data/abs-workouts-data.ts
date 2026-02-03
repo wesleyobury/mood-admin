@@ -551,6 +551,26 @@ export const absWorkoutDatabase: EquipmentWorkouts[] = [
               description: 'Controlled leg raises target lower abs effectively.'
             }
           ]
+        },
+        {
+          name: 'Top-Half Machine Crunch Pulses',
+          duration: '10–12 min',
+          description: 'Partial-range crunch focused on peak contraction.',
+          battlePlan: '4 rounds\n• 15 Top-Half Pulses\nRest 75s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_sweat-weights-images/artifacts/i706j2jh_abss.webp',
+          intensityReason: 'Constant tension in shortened position maximizes pump',
+          moodTips: [
+            {
+              icon: 'construct',
+              title: 'Stay in top third of motion',
+              description: 'Constant tension throughout range.'
+            },
+            {
+              icon: 'shield',
+              title: 'Small, controlled pulses',
+              description: 'No momentum — pure ab work.'
+            }
+          ]
         }
       ],
       advanced: [
