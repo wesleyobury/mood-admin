@@ -2,7 +2,7 @@ import { EquipmentWorkouts } from '../types/workout';
 
 export const tricepsWorkoutDatabase: EquipmentWorkouts[] = [
   {
-    equipment: 'Dumbbells',
+    equipment: 'Dumbbell',
     icon: 'barbell',
     workouts: {
       beginner: [
@@ -239,7 +239,7 @@ export const tricepsWorkoutDatabase: EquipmentWorkouts[] = [
     }
   },
   {
-    equipment: 'Kettlebells',
+    equipment: 'Kettle bell',
     icon: 'diamond',
     workouts: {
       beginner: [
