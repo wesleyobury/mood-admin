@@ -209,6 +209,46 @@ export const absWorkoutDatabase: EquipmentWorkouts[] = [
               description: 'Explosive movement with controlled landing.'
             }
           ]
+        },
+        {
+          name: 'Hanging Leg Raise Speed Sets',
+          duration: '12–14 min',
+          description: 'Fast, controlled hanging reps drive intense lower-ab fatigue.',
+          battlePlan: '4 rounds\n• 10 Hanging Leg Raises\n• 8 Hanging Knee-to-Chest\nRest 75–90s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/n5wg8sb5_download%20%2817%29.png',
+          intensityReason: 'High-tempo raises overload abs without long isometrics',
+          moodTips: [
+            {
+              icon: 'construct',
+              title: 'No swinging — abs initiate every rep',
+              description: 'Core-driven movement maximizes ab work.'
+            },
+            {
+              icon: 'flash',
+              title: 'Toes rise higher as fatigue builds',
+              description: 'Push through fatigue for maximum results.'
+            }
+          ]
+        },
+        {
+          name: 'Dragon Flag + V-Up Finisher',
+          duration: '12–14 min',
+          description: 'Brutal pairing of eccentric strength and speed.',
+          battlePlan: '3 rounds\n• 4–6 Dragon Flag Negatives\n• Immediately 12 V-Ups\nRest 90s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/n5wg8sb5_download%20%2817%29.png',
+          intensityReason: 'Extreme lever length + explosive flexion',
+          moodTips: [
+            {
+              icon: 'timer',
+              title: 'Control the dragon flag descent',
+              description: 'Slow eccentric builds incredible strength.'
+            },
+            {
+              icon: 'flash',
+              title: 'Snap fast into V-ups',
+              description: 'Explosive V-ups after slow eccentrics torch abs.'
+            }
+          ]
         }
       ]
     }
