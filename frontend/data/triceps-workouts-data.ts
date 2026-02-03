@@ -772,7 +772,7 @@ export const tricepsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Overhead cable workout with squeeze-to-finish at peak extension.',
           battlePlan: 'Battle Plan — Standard + Isometric Finish\n• 4×10 Overhead Cable Extensions (short bar) — standard reps\n• Final set: squeeze to finish — hold full extension overhead 10s\nRest 60s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_inspiring-euler/artifacts/lruescv6_download%20%281%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_1e4509cd-7b58-4b0c-b78f-c8a74434260e/artifacts/44n90zpn_OH%20tri%20ext.jpg',
           intensityReason: 'Isometric finish maximizes triceps contraction',
           moodTips: [
             {
@@ -901,7 +901,7 @@ export const tricepsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '18–20 min',
           description: 'Multi-drop overhead cable workout driving mechanical fatigue.',
           battlePlan: 'Battle Plan — Drop Cluster\n• Set 1: 10 reps\n• Set 2: drop — 10 → drop ~20% → 8\n• Set 3: triple drop — 8 → drop ~15% → 6 → drop ~10% → 6\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_inspiring-euler/artifacts/lruescv6_download%20%281%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_1e4509cd-7b58-4b0c-b78f-c8a74434260e/artifacts/44n90zpn_OH%20tri%20ext.jpg',
           intensityReason: 'Cable drops extend time under tension past failure',
           moodTips: [
             {
@@ -1063,7 +1063,7 @@ export const tricepsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '16–18 min',
           description: 'Overhead 21 style burns fibers through completion',
           battlePlan: '3 rounds\n• 7 Bottom Half Reps\n• 7 Top Half Reps\n• 7 Full Range Reps\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/fo2f287e_download%20%2821%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_1e4509cd-7b58-4b0c-b78f-c8a74434260e/artifacts/b4577jzi_cable%20oh%20ext.webp',
           intensityReason: 'Seven seven seven partials overload triceps range',
           moodTips: [
             {
@@ -1141,7 +1141,7 @@ export const tricepsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Standard pushdown workout with squeeze-to-finish at peak elbow extension.',
           battlePlan: 'Battle Plan — Standard + Isometric Finish\n• 4×10 Pushdowns — standard reps\n• Final set: squeeze to finish — hold full extension 10s\nRest 60s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_inspiring-euler/artifacts/ccill0t9_download%20%283%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_1e4509cd-7b58-4b0c-b78f-c8a74434260e/artifacts/7nj0ytab_tricep%20push%20down.jpg',
           intensityReason: 'Isometric finish maximizes triceps contraction',
           moodTips: [
             {
@@ -1218,7 +1218,7 @@ export const tricepsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '15–17 min',
           description: 'High-density pushdown workout with shortened rest.',
           battlePlan: 'Battle Plan — Standard Sets\n• 6×10 Pushdowns — standard reps\nRest 45–60s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_inspiring-euler/artifacts/yfoavc6k_download%20%282%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_1e4509cd-7b58-4b0c-b78f-c8a74434260e/artifacts/7nj0ytab_tricep%20push%20down.jpg',
           intensityReason: 'Short rest forces efficiency and stacks fatigue',
           moodTips: [
             {
@@ -1270,7 +1270,7 @@ export const tricepsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '18–20 min',
           description: 'Multi-drop pushdown workout driving mechanical fatigue on a fixed handle.',
           battlePlan: 'Battle Plan — Drop Cluster\n• Set 1: 10 reps\n• Set 2: drop set — 10 → drop ~20% → 8\n• Set 3: triple drop — 8 → drop ~15% → 6 → drop ~10% → 6\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_inspiring-euler/artifacts/ccill0t9_download%20%283%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_1e4509cd-7b58-4b0c-b78f-c8a74434260e/artifacts/7nj0ytab_tricep%20push%20down.jpg',
           intensityReason: 'Drop clusters extend time under tension past failure',
           moodTips: [
             {
@@ -1615,7 +1615,7 @@ export const tricepsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Standard TRX workout with squeeze-to-finish at full elbow extension.',
           battlePlan: 'Battle Plan — Standard + Isometric Finish\n• 4×8 TRX Extensions — standard reps\n• Final set: squeeze to finish — hold arms fully straight 10s\nRest 60s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_inspiring-euler/artifacts/8ci4ug40_trx_kneeling_tricep_extensions.jpg',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_1e4509cd-7b58-4b0c-b78f-c8a74434260e/artifacts/4d87b909_trx%20ext.jpg',
           intensityReason: 'Isometric finish maximizes triceps contraction',
           moodTips: [
             {
@@ -1692,7 +1692,7 @@ export const tricepsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '15–17 min',
           description: 'Burnout-style TRX workout extending fatigue through volume.',
           battlePlan: 'Battle Plan — Burnout Sets\n• 4×AMRAP TRX Extensions — burnout reps\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_inspiring-euler/artifacts/e9mzj704_download%20%284%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_1e4509cd-7b58-4b0c-b78f-c8a74434260e/artifacts/4d87b909_trx%20ext.jpg',
           intensityReason: 'Extended reps build endurance and pump',
           moodTips: [
             {
@@ -1719,7 +1719,7 @@ export const tricepsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '18–20 min',
           description: 'Advanced TRX extension workout using feet elevation to increase load.',
           battlePlan: 'Battle Plan — Standard Sets\n• 6×6 TRX Extensions (feet elevated) — standard reps\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_inspiring-euler/artifacts/8ci4ug40_trx_kneeling_tricep_extensions.jpg',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_1e4509cd-7b58-4b0c-b78f-c8a74434260e/artifacts/4x3zx4pl_trx%20ext%202.webp',
           intensityReason: 'Feet elevation dramatically increases bodyweight load',
           moodTips: [
             {
