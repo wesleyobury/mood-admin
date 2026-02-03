@@ -303,7 +303,7 @@ export const absWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '8–10 min',
           description: 'Negative-only rollouts building anti-extension strength safely.',
           battlePlan: '3 rounds\n• 8–10 Eccentric Rollouts\nRest 60s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_sweat-weights-images/artifacts/gw2t6eg7_download%20%281%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_ba98ecac-d9ff-4da8-8b26-c72f04702bfb/artifacts/kega9d81_ab%20wheel.png',
           intensityReason: 'Eccentric focus builds strength without strain',
           moodTips: [
             {
@@ -365,7 +365,7 @@ export const absWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Staggered hand position increases anti-rotation demand.',
           battlePlan: '4 rounds\n• 8 per side Offset Rollouts\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_sweat-weights-images/artifacts/gw2t6eg7_download%20%281%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_ba98ecac-d9ff-4da8-8b26-c72f04702bfb/artifacts/kega9d81_ab%20wheel.png',
           intensityReason: 'Uneven hands engage obliques and challenge stability',
           moodTips: [
             {
@@ -495,7 +495,7 @@ export const absWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '8–10 min',
           description: 'Controlled crunch emphasizing lengthened ab tension.',
           battlePlan: '3 rounds\n• 10 Slow Eccentric Crunches (4s down)\nRest 60s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_sweat-weights-images/artifacts/i706j2jh_abss.webp',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_ba98ecac-d9ff-4da8-8b26-c72f04702bfb/artifacts/g9c1g1gr_ab%20crunch%20machine.png',
           intensityReason: 'Eccentric time builds control and strength',
           moodTips: [
             {
@@ -557,7 +557,7 @@ export const absWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Partial-range crunch focused on peak contraction.',
           battlePlan: '4 rounds\n• 15 Top-Half Pulses\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_sweat-weights-images/artifacts/i706j2jh_abss.webp',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_ba98ecac-d9ff-4da8-8b26-c72f04702bfb/artifacts/g9c1g1gr_ab%20crunch%20machine.png',
           intensityReason: 'Constant tension in shortened position maximizes pump',
           moodTips: [
             {
@@ -687,7 +687,7 @@ export const absWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '8–10 min',
           description: 'Unilateral knee lifts improving control and reducing swing.',
           battlePlan: '3 rounds\n• 12 per side Alternating Knee Raises\nRest 60s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/bvoxdf8z_download%20%2814%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_ba98ecac-d9ff-4da8-8b26-c72f04702bfb/artifacts/azj4v9yc_cap%20chair%20alt%20knee%20riase.png',
           intensityReason: 'One knee at a time reduces momentum for better activation',
           moodTips: [
             {
@@ -749,7 +749,7 @@ export const absWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Partial straight-leg raises increasing lever length.',
           battlePlan: '4 rounds\n• 10 Extended-Knee Raises\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_sweat-weights-images/artifacts/0ga9gll0_download%20%285%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_ba98ecac-d9ff-4da8-8b26-c72f04702bfb/artifacts/9wb93wi2_cap%20chair%20leg%20raise.png',
           intensityReason: 'Stopping at 45° keeps abs loaded throughout',
           moodTips: [
             {
