@@ -864,7 +864,7 @@ export const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '18–20 min',
           description: 'Multi-drop isolation workout driving mechanical fatigue.',
           battlePlan: 'Battle Plan — Drop Cluster\n• 3 rounds:\n  12 reps → drop ~20% → 10 reps → drop ~15% → AMRAP\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/jyl947na_download%20%2810%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-data-hub-2/artifacts/2gc40bi1_download%20%285%29.png',
           intensityReason: 'Multi-drop isolation workout driving mechanical fatigue.',
           moodTips: [
             {
@@ -889,7 +889,7 @@ export const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '18–20 min',
           description: 'Burnout + isometric workout finishing with static tension.',
           battlePlan: 'Battle Plan — Burnout + Isometric\n• 4×15 Rear Delt Fly — burnout reps\n• Final set: squeeze to finish — hold back 10s\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/jyl947na_download%20%2810%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-data-hub-2/artifacts/kqdzk509_image.png',
           intensityReason: 'Burnout + isometric workout finishing with static tension.',
           moodTips: [
             {
@@ -914,7 +914,7 @@ export const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '18–20 min',
           description: 'Paused-rep isolation workout exposing true rear-delt control.',
           battlePlan: 'Battle Plan — Pause Sets\n• 5×10 Rear Delt Fly — pause reps (2s back)\nRest 120s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/jyl947na_download%20%2810%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-data-hub-2/artifacts/a6216mca_image.png',
           intensityReason: 'Paused-rep isolation workout exposing true rear-delt control.',
           moodTips: [
             {
