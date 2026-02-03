@@ -36,6 +36,7 @@ const equipmentOptions: EquipmentOption[] = [
   { id: 'captains-chair', name: "Captain's Chair", icon: 'desktop' },
   { id: 'decline-bench', name: 'Decline Bench', icon: 'trending-down' },
   { id: 'medicine-ball', name: 'Medicine Ball', icon: 'basketball' },
+  { id: 'pull-up-bar', name: 'Pull-Up Bar', icon: 'fitness' },
   { id: 'roman-hyperextension', name: 'Roman Hyperextension', icon: 'return-down-forward' },
 ];
 
