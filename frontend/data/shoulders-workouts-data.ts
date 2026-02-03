@@ -1309,7 +1309,7 @@ export const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Pause-rep isolation workout targeting side delts.',
           battlePlan: 'Battle Plan — Pause Sets\n• 4×15 Dumbbell Lateral Raise — pause reps (1s top)\nRest 60s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-data-hub-2/artifacts/zbplnvku_db%20lateral%20raise.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-data-hub-2/artifacts/no2mapks_Low%20%26%20incline%20delt%20fly.jpg',
           intensityReason: 'Pause-rep isolation workout targeting side delts.',
           moodTips: [
             {
@@ -2220,7 +2220,7 @@ export const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Standard isolation workout using bench angle to bias side delts.',
           battlePlan: 'Battle Plan — Standard Sets\n• 4×15 Incline Dumbbell Lateral Raise (bench ~30°) — standard reps\nRest 60s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-data-hub-2/artifacts/73grv174_db%20lateral%20raise.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-data-hub-2/artifacts/w1oc6g1w_incline%20db%20lat%20raise.png',
           intensityReason: 'Standard isolation workout using bench angle to bias side delts.',
           moodTips: [
             {
