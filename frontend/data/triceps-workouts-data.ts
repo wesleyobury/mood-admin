@@ -713,131 +713,236 @@ export const tricepsWorkoutDatabase: EquipmentWorkouts[] = [
     }
   },
   {
-    equipment: 'Single extension cable',
+    equipment: 'Single Extension Cable',
     icon: 'swap-vertical',
     workouts: {
       beginner: [
         {
-          name: 'Rope Pushdowns',
-          duration: '10–12 min',
-          description: 'Rope attachment separates arms, isolates better',
-          battlePlan: '3 rounds\n• 10–12 Rope Pushdowns\nRest 60–75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_inspiring-euler/artifacts/lruescv6_download%20%281%29.png',
-          intensityReason: 'Pushdowns teach elbow lockout form safely',
+          name: 'Overhead Rope Tricep Extension',
+          duration: '12–14 min',
+          description: 'Foundational overhead cable workout emphasizing long-head stretch.',
+          battlePlan: 'Battle Plan — Standard Sets\n• 4×12 Overhead Rope Extensions — standard reps\nRest 60s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/k3gdq2dy_download%20%281%29.png',
+          intensityReason: 'Overhead cable position maximizes long-head stretch',
           moodTips: [
             {
-              icon: 'hand-left',
-              title: 'Keep elbows tight; only forearms hinge down',
-              description: 'Spread rope ends apart fully at lockout.'
+              icon: 'body',
+              title: 'Elbows point slightly forward and stay fixed',
+              description: 'Long head stays loaded'
             },
             {
-              icon: 'body',
-              title: 'Upright stance, elbows glued to ribcage',
-              description: 'Full lockout down, slow reset up.'
+              icon: 'hand-left',
+              title: 'Allow rope to separate naturally',
+              description: 'Increases end-range contraction'
+            },
+            {
+              icon: 'flash',
+              title: 'Lock out overhead deliberately',
+              description: 'Shortened triceps pump fast'
             }
           ]
         },
         {
-          name: 'Straight Bar Push',
-          duration: '10–12 min',
-          description: 'Bar option builds controlled starting triceps form',
-          battlePlan: '3 rounds\n• 10–12 Straight Bar Pushdowns\nRest 75s',
+          name: 'Straight-Bar Cable Pushdowns',
+          duration: '12–14 min',
+          description: 'Standard cable pushdown workout introducing fixed-path elbow extension.',
+          battlePlan: 'Battle Plan — Standard Sets\n• 4×12 Straight-Bar Pushdowns — standard reps\nRest 60s',
           imageUrl: 'https://customer-assets.emergentagent.com/job_inspiring-euler/artifacts/lv1qz5u4_download.png',
           intensityReason: 'Straight bar teaches strict downward extension',
           moodTips: [
             {
-              icon: 'fitness',
-              title: 'Upright stance, elbows glued to ribcage',
-              description: 'Full lockout down, slow reset up.'
+              icon: 'body',
+              title: 'Elbows pinned slightly in front of ribs',
+              description: 'Prevents shoulder takeover'
+            },
+            {
+              icon: 'trending-down',
+              title: 'Press straight down, not forward',
+              description: 'Keeps path clean'
             },
             {
               icon: 'flash',
-              title: 'Press straight up with control',
-              description: 'Steady press pattern builds consistent strength.'
+              title: 'Finish each rep fully extended',
+              description: 'Cable tension rewards lockout'
+            }
+          ]
+        },
+        {
+          name: 'Overhead Cable Extension + Iso Finish',
+          duration: '12–14 min',
+          description: 'Overhead cable workout with squeeze-to-finish at peak extension.',
+          battlePlan: 'Battle Plan — Standard + Isometric Finish\n• 4×10 Overhead Cable Extensions (short bar) — standard reps\n• Final set: squeeze to finish — hold full extension overhead 10s\nRest 60s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_inspiring-euler/artifacts/lruescv6_download%20%281%29.png',
+          intensityReason: 'Isometric finish maximizes triceps contraction',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Flex triceps hard during hold',
+              description: 'Neural drive matters'
+            },
+            {
+              icon: 'hand-left',
+              title: 'Wrists neutral',
+              description: 'Elbow comfort'
+            },
+            {
+              icon: 'fitness',
+              title: 'Lighter pin for the hold',
+              description: 'Longer squeeze = deeper pump'
             }
           ]
         }
       ],
       intermediate: [
         {
-          name: 'Overhead Rope Ext',
-          duration: '12–14 min',
-          description: 'Rope overhead creates long head hypertrophy focus',
-          battlePlan: '4 rounds\n• 8–10 Overhead Rope Extensions\nRest 75–90s',
+          name: 'Paused Overhead Rope Extensions',
+          duration: '14–16 min',
+          description: 'Pause-rep overhead cable workout removing momentum.',
+          battlePlan: 'Battle Plan — Pause Sets\n• 4×10 Overhead Rope Extensions — pause reps (1s in stretch)\nRest 75s',
           imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/k3gdq2dy_download%20%281%29.png',
-          intensityReason: 'Overhead path lengthens triceps time under load',
+          intensityReason: 'Pauses in the stretch maximize long-head load',
           moodTips: [
             {
-              icon: 'body',
-              title: 'Step away, lean slightly forward for tension',
-              description: 'Elbows remain by ears, press rope forward/up.'
+              icon: 'timer',
+              title: 'Pause where elbows are bent',
+              description: 'Long-head emphasis'
             },
             {
-              icon: 'trending-up',
-              title: 'Keep constant rope tension, no slack',
-              description: 'Control the stretch for safety and effectiveness.'
+              icon: 'body',
+              title: 'Core lightly braced',
+              description: 'Prevents rib flare'
+            },
+            {
+              icon: 'flash',
+              title: 'Drive to full extension',
+              description: 'Stretch + lockout = pump'
             }
           ]
         },
         {
-          name: 'Negative Pushdown',
-          duration: '12–14 min',
-          description: 'Slow eccentrics keep stack tension constant longer',
-          battlePlan: '3 rounds\n• 8 Cable Pushdowns (3s eccentric)\nRest 75–90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_inspiring-euler/artifacts/lv1qz5u4_download.png',
-          intensityReason: '3s lowering phase enhances cable tension output',
+          name: 'High-to-Low Rope Extensions',
+          duration: '15–17 min',
+          description: 'Angle-adjusted cable workout changing resistance through ROM.',
+          battlePlan: 'Battle Plan — Standard Sets\n• 4×12 High-to-Low Rope Extensions — standard reps\nRest 75s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_inspiring-euler/artifacts/lruescv6_download%20%281%29.png',
+          intensityReason: 'High pulley angle alters loading curve',
           moodTips: [
             {
-              icon: 'timer',
-              title: 'Press down firmly, return bar in 3 slow seconds',
-              description: 'Keep stack plates off rest between reps.'
+              icon: 'trending-up',
+              title: 'Start elbows high',
+              description: 'Alters loading curve'
             },
             {
-              icon: 'fitness',
-              title: 'Elbows fixed at torso sides',
-              description: 'Stable elbow position ensures tricep isolation.'
+              icon: 'trending-down',
+              title: 'Pull down and slightly out',
+              description: 'Matches rope mechanics'
+            },
+            {
+              icon: 'flash',
+              title: 'Finish strong at lockout',
+              description: 'End-range contraction drives pump'
+            }
+          ]
+        },
+        {
+          name: 'Cable Burn Builder',
+          duration: '15–17 min',
+          description: 'Burnout-style cable workout maximizing time under tension.',
+          battlePlan: 'Battle Plan — Burnout Sets\n• 4×15–20 Cable Extensions (straight bar) — burnout reps\nRest 75s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_inspiring-euler/artifacts/lv1qz5u4_download.png',
+          intensityReason: 'Cables provide constant tension for pump work',
+          moodTips: [
+            {
+              icon: 'shield',
+              title: 'No rest at the top',
+              description: 'Continuous tension'
+            },
+            {
+              icon: 'refresh',
+              title: 'Smooth cadence',
+              description: 'Elbow-friendly'
+            },
+            {
+              icon: 'flash',
+              title: 'Moderate load, nonstop reps',
+              description: 'Cables shine for pump work'
             }
           ]
         }
       ],
       advanced: [
         {
-          name: 'Rope + Bar Combo',
-          duration: '14–16 min',
-          description: 'Superset challenges both control and arm strength',
-          battlePlan: '4 rounds\n• 8 Rope Pushdowns\n• 8 Straight Bar Pushdowns\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_inspiring-euler/artifacts/lruescv6_download%20%281%29.png',
-          intensityReason: 'Pair grips for full fiber recruitment and volume',
+          name: 'Heavy Overhead Cable Extension Builder',
+          duration: '18–20 min',
+          description: 'Heavy overhead cable workout emphasizing strict long-head loading.',
+          battlePlan: 'Battle Plan — Standard Sets\n• 6×8 Overhead Cable Extensions (short bar) — standard reps\nRest 90s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/k3gdq2dy_download%20%281%29.png',
+          intensityReason: 'Heavy loads with strict form build maximum strength',
           moodTips: [
             {
-              icon: 'hand-left',
-              title: 'Rope flare trains outer head, bar keeps line strict',
-              description: 'Transition smooth, elbows never leave side.'
+              icon: 'body',
+              title: 'No torso lean',
+              description: 'Load stays honest'
             },
             {
-              icon: 'fitness',
-              title: 'Focus on form as fatigue builds',
-              description: 'Quality reps more important than quantity.'
+              icon: 'trending-down',
+              title: 'Control negatives',
+              description: 'Cable eccentrics hit hard'
+            },
+            {
+              icon: 'flash',
+              title: 'Finish every rep locked out overhead',
+              description: 'Extension quality drives growth'
             }
           ]
         },
         {
-          name: 'Overhead Iso Burn',
-          duration: '16–18 min',
-          description: 'Rope overhead extension plus hold maximizes stress',
-          battlePlan: '4 rounds\n• 8 Overhead Rope Extensions\n• End each with 10s Hold Mid Rep\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_inspiring-euler/artifacts/lv1qz5u4_download.png',
-          intensityReason: 'Overhead with timeout hold creates total fatigue',
+          name: 'Overhead Cable Drop Cluster',
+          duration: '18–20 min',
+          description: 'Multi-drop overhead cable workout driving mechanical fatigue.',
+          battlePlan: 'Battle Plan — Drop Cluster\n• Set 1: 10 reps\n• Set 2: drop — 10 → drop ~20% → 8\n• Set 3: triple drop — 8 → drop ~15% → 6 → drop ~10% → 6\nRest 90s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_inspiring-euler/artifacts/lruescv6_download%20%281%29.png',
+          intensityReason: 'Cable drops extend time under tension past failure',
           moodTips: [
             {
-              icon: 'timer',
-              title: 'Hold halfway extended for 10s each superset',
-              description: 'Keep slight lean to maintain line of pull.'
+              icon: 'flash',
+              title: 'Pin changes immediate',
+              description: 'Stay under the cable'
             },
             {
-              icon: 'flame',
-              title: 'No rest between movements',
-              description: 'Continuous work for maximum growth stimulus.'
+              icon: 'shield',
+              title: 'Smaller drops protect elbows',
+              description: 'Clean reps matter'
+            },
+            {
+              icon: 'timer',
+              title: 'End each mini-set fully extended',
+              description: 'Lockout seals the pump'
+            }
+          ]
+        },
+        {
+          name: 'Rope Pushdown Burnout Hold',
+          duration: '18–20 min',
+          description: 'Burnout + isometric cable workout finishing in a shortened position.',
+          battlePlan: 'Battle Plan — Burnout + Isometric\n• 4×12 Rope Pushdowns — burnout reps\n• Final set: squeeze to finish — hold full extension 12–15s\nRest 90s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_inspiring-euler/artifacts/lv1qz5u4_download.png',
+          intensityReason: 'Burnout with iso hold completely exhausts triceps',
+          moodTips: [
+            {
+              icon: 'hand-left',
+              title: 'Split rope and flex hard',
+              description: 'Peak contraction'
+            },
+            {
+              icon: 'shield',
+              title: 'No resting on stack',
+              description: 'Tension stays high'
+            },
+            {
+              icon: 'fitness',
+              title: 'Lighter pin, longer hold',
+              description: 'Pump > ego'
             }
           ]
         }
