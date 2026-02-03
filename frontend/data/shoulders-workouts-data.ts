@@ -947,7 +947,7 @@ export const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Standard isolation workout using low-to-high cable laterals for constant delt tension.',
           battlePlan: 'Battle Plan — Standard Sets\n• 4×12 Cable Lateral Raise (low → high) — standard reps\nRest 60s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/8p6cuez9_download.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-data-hub-2/artifacts/ndk3n5nw_image.png',
           intensityReason: 'Standard isolation workout using low-to-high cable laterals for constant delt tension.',
           moodTips: [
             {
@@ -972,7 +972,7 @@ export const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Pause-rep single-arm isolation workout to clean up imbalances.',
           battlePlan: 'Battle Plan — Pause Sets\n• 4×12 Single-Arm Cable Lateral Raise — pause reps (1s top)\nRest 60s per side',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/8p6cuez9_download.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-data-hub-2/artifacts/gowvsmtm_image.png',
           intensityReason: 'Pause-rep single-arm isolation workout to clean up imbalances.',
           moodTips: [
             {
@@ -997,7 +997,7 @@ export const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Standard rear-delt isolation workout using constant cable tension.',
           battlePlan: 'Battle Plan — Standard Sets\n• 4×15 Cable Rear Delt Fly — standard reps\nRest 60s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/8p6cuez9_download.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-data-hub-2/artifacts/hwr2ym9m_image.png',
           intensityReason: 'Standard rear-delt isolation workout using constant cable tension.',
           moodTips: [
             {
@@ -1022,7 +1022,7 @@ export const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Standard anterior-delt workout using a pull-through cable path.',
           battlePlan: 'Battle Plan — Standard Sets\n• 4×12 Cable Front Raise\n(facing away, handle pulled through legs) — standard reps\nRest 60s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/8p6cuez9_download.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-data-hub-2/artifacts/d3k00azw_image.png',
           intensityReason: 'Standard anterior-delt workout using a pull-through cable path.',
           moodTips: [
             {
