@@ -1189,6 +1189,26 @@ export const absWorkoutDatabase: EquipmentWorkouts[] = [
               description: 'Full range toe touch maximizes ab contraction.'
             }
           ]
+        },
+        {
+          name: 'MB Overhead Hold Flutter Kicks',
+          duration: '12–14 min',
+          description: 'Long-lever flutter kicks under overhead load.',
+          battlePlan: '4 rounds\n• 20 Flutter Kicks (MB overhead)\nRest 90s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-pics/artifacts/cu85n2we_download%20%281%29.png',
+          intensityReason: 'Arms locked overhead maximizes lever and core demand',
+          moodTips: [
+            {
+              icon: 'construct',
+              title: 'Arms locked overhead',
+              description: 'Lever maximized for extreme challenge.'
+            },
+            {
+              icon: 'flash',
+              title: 'Small fast kicks',
+              description: 'Abs stay braced throughout.'
+            }
+          ]
         }
       ]
     }
