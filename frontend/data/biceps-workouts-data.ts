@@ -2,131 +2,311 @@ import { EquipmentWorkouts } from '../types/workout';
 
 export const bicepsWorkoutDatabase: EquipmentWorkouts[] = [
   {
-    equipment: 'Dumbbell',
+    equipment: 'Dumbbells',
     icon: 'barbell',
     workouts: {
       beginner: [
         {
-          name: 'DB Curl',
-          duration: '10–12 min',
-          description: 'Standard dumbbell curl increases beginner strength',
-          battlePlan: '3 rounds\n• 10–12 Dumbbell Curls\nRest 60–75s',
+          name: 'Alternating DB Curl Builder',
+          duration: '12–14 min',
+          description: 'Standard curl workout building foundational elbow-flexion strength.',
+          battlePlan: 'Battle Plan — Standard Sets\n• 4×12 Alternating Dumbbell Curl — standard reps\nRest 60s',
           imageUrl: 'https://customer-assets.emergentagent.com/job_de06d55d-ac38-4152-bbf5-479c53d1fb22/artifacts/azkbdoo3_download%20%282%29.png',
           intensityReason: 'Builds curl discipline with stable elbow position',
           moodTips: [
             {
               icon: 'hand-left',
-              title: 'Keep elbows pinned at sides',
-              description: 'Maintain strict form throughout movement.'
+              title: 'Elbows stay pinned',
+              description: 'Keeps tension on biceps'
+            },
+            {
+              icon: 'refresh',
+              title: 'Rotate smoothly into supination',
+              description: 'Improves peak contraction'
             },
             {
               icon: 'trending-down',
-              title: 'Lower weights slowly, avoid swinging',
-              description: 'Control the negative for better gains.'
+              title: 'Lower fully, squeeze hard at the top',
+              description: 'Full stretch + tight flex = pump'
             }
           ]
         },
         {
-          name: 'Hammer Curl',
-          duration: '10–12 min',
-          description: 'Hammer curl variation develops early arm thickness',
-          battlePlan: '3 rounds\n• 10–12 Hammer Curls\nRest 75s',
+          name: 'Seated DB Curl Control',
+          duration: '12–14 min',
+          description: 'Standard seated curl workout removing momentum.',
+          battlePlan: 'Battle Plan — Standard Sets\n• 4×12 Seated Dumbbell Curl — standard reps\nRest 60s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_de06d55d-ac38-4152-bbf5-479c53d1fb22/artifacts/azkbdoo3_download%20%282%29.png',
+          intensityReason: 'Seated position removes momentum for better isolation',
+          moodTips: [
+            {
+              icon: 'body',
+              title: 'Sit tall, no lean',
+              description: 'Zero cheating'
+            },
+            {
+              icon: 'trending-down',
+              title: 'Slow the negative',
+              description: 'Eccentric builds fatigue'
+            },
+            {
+              icon: 'hand-left',
+              title: 'Let arms hang fully',
+              description: 'Deeper stretch = better pump'
+            }
+          ]
+        },
+        {
+          name: 'Hammer Curl Builder',
+          duration: '12–14 min',
+          description: 'Standard neutral-grip curl workout targeting brachialis.',
+          battlePlan: 'Battle Plan — Standard Sets\n• 4×12 Hammer Curl — standard reps\nRest 60s',
           imageUrl: 'https://customer-assets.emergentagent.com/job_de06d55d-ac38-4152-bbf5-479c53d1fb22/artifacts/2j38bvu7_download%20%281%29.png',
           intensityReason: 'Neutral grip activates forearms and brachialis',
           moodTips: [
             {
               icon: 'hand-left',
-              title: 'Palms face each other all reps',
-              description: 'Neutral grip maximizes forearm engagement.'
+              title: 'Wrists stay neutral',
+              description: 'Transfers load correctly'
             },
             {
-              icon: 'timer',
-              title: 'Pause lightly at top of curl',
-              description: 'Brief pause increases muscle activation.'
+              icon: 'trending-up',
+              title: 'Curl straight up, not across',
+              description: 'Cleaner elbow path'
+            },
+            {
+              icon: 'flash',
+              title: 'Control the top squeeze',
+              description: 'Brachialis pumps fast when shortened'
+            }
+          ]
+        },
+        {
+          name: 'Curl + Iso Finish',
+          duration: '12–14 min',
+          description: 'Standard curl workout with squeeze-to-finish at peak flexion.',
+          battlePlan: 'Battle Plan — Standard + Isometric Finish\n• 4×10 Dumbbell Curl — standard reps\n• Final set: squeeze to finish — hold at top (elbow fully flexed) 8–10s\nRest 60s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_de06d55d-ac38-4152-bbf5-479c53d1fb22/artifacts/azkbdoo3_download%20%282%29.png',
+          intensityReason: 'Isometric finish maximizes muscle recruitment',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Flex as hard as possible',
+              description: 'Biceps respond to contraction'
+            },
+            {
+              icon: 'body',
+              title: 'Elbows stay still during hold',
+              description: 'Prevents shoulder takeover'
+            },
+            {
+              icon: 'fitness',
+              title: 'Use lighter weight for the hold',
+              description: 'Longer squeeze = better pump'
             }
           ]
         }
       ],
       intermediate: [
         {
-          name: 'Alternating Curl',
-          duration: '12–14 min',
-          description: 'Alternating curls sharpen balance and strict form',
-          battlePlan: '4 rounds\n• 8–10 per arm Alternating DB Curls\nRest 75–90s',
+          name: 'Incline DB Curl',
+          duration: '14–16 min',
+          description: 'Standard long-head curl workout using shoulder extension.',
+          battlePlan: 'Battle Plan — Standard Sets\n• 4×10 Incline Dumbbell Curl — standard reps\nRest 75s',
           imageUrl: 'https://customer-assets.emergentagent.com/job_de06d55d-ac38-4152-bbf5-479c53d1fb22/artifacts/azkbdoo3_download%20%282%29.png',
-          intensityReason: 'Alternating arms builds strength and discipline',
+          intensityReason: 'Incline position maximizes long-head stretch',
           moodTips: [
             {
-              icon: 'refresh',
-              title: 'Turn palms up fully at top',
-              description: 'Full supination maximizes bicep contraction.'
+              icon: 'body',
+              title: 'Shoulders stay back',
+              description: 'Maximizes long-head stretch'
             },
             {
-              icon: 'body',
-              title: 'Don\'t rotate torso when curling',
-              description: 'Keep core stable for isolated arm work.'
+              icon: 'timer',
+              title: 'Don\'t rush the bottom',
+              description: 'Stretch drives growth'
+            },
+            {
+              icon: 'trending-up',
+              title: 'Curl through full arc',
+              description: 'Long stretch → hard squeeze = pump'
             }
           ]
         },
         {
-          name: 'Negative Curl',
-          duration: '12–14 min',
-          description: 'Negative dumbbell curls extend training stimulus',
-          battlePlan: '3 rounds\n• 8 Dumbbell Curls (3s eccentric)\nRest 90s',
+          name: 'Paused DB Curl',
+          duration: '14–16 min',
+          description: 'Pause-rep curl workout removing momentum.',
+          battlePlan: 'Battle Plan — Pause Sets\n• 4×10 Dumbbell Curl — pause reps (1s halfway up)\nRest 75s',
           imageUrl: 'https://customer-assets.emergentagent.com/job_de06d55d-ac38-4152-bbf5-479c53d1fb22/artifacts/2j38bvu7_download%20%281%29.png',
-          intensityReason: 'Controlled eccentric adds greater hypertrophy load',
+          intensityReason: 'Pauses eliminate momentum for honest tension',
           moodTips: [
             {
               icon: 'timer',
-              title: 'Raise quickly, lower over 3s',
-              description: 'Extended negative phase builds strength.'
+              title: 'Pause kills bounce',
+              description: 'Honest tension'
+            },
+            {
+              icon: 'hand-left',
+              title: 'Grip tight throughout',
+              description: 'Improves neural drive'
+            },
+            {
+              icon: 'flash',
+              title: 'Finish with a hard top squeeze',
+              description: 'Shortened biceps pump best'
+            }
+          ]
+        },
+        {
+          name: 'Alternating Curl Burn Builder',
+          duration: '15–17 min',
+          description: 'Burnout-style curl workout extending time under tension.',
+          battlePlan: 'Battle Plan — Burnout Sets\n• 4×16 Alternating DB Curls — burnout reps\nRest 75s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_de06d55d-ac38-4152-bbf5-479c53d1fb22/artifacts/azkbdoo3_download%20%282%29.png',
+          intensityReason: 'Extended time under tension builds endurance and pump',
+          moodTips: [
+            {
+              icon: 'shield',
+              title: 'No swinging allowed',
+              description: 'Fatigue should stay local'
             },
             {
               icon: 'body',
-              title: 'Stay tall, don\'t lean',
-              description: 'Proper posture prevents momentum.'
+              title: 'Steady breathing',
+              description: 'Keeps rhythm clean'
+            },
+            {
+              icon: 'flash',
+              title: 'Light weight, nonstop reps',
+              description: 'Continuous tension = pump'
+            }
+          ]
+        },
+        {
+          name: 'Curl + Hammer Contrast',
+          duration: '15–17 min',
+          description: 'Superset workout pairing supinated and neutral curls.',
+          battlePlan: 'Battle Plan — Superset\n• 4×10 Dumbbell Curl — standard reps\nsuperset with\n• 10 Hammer Curls\nRest 90s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_de06d55d-ac38-4152-bbf5-479c53d1fb22/artifacts/2j38bvu7_download%20%281%29.png',
+          intensityReason: 'Two grip styles maximize total arm development',
+          moodTips: [
+            {
+              icon: 'refresh',
+              title: 'Supinated curl first',
+              description: 'Peak biceps output'
+            },
+            {
+              icon: 'fitness',
+              title: 'Hammers finish the arm',
+              description: 'Brachialis assists growth'
+            },
+            {
+              icon: 'flash',
+              title: 'Control both tops',
+              description: 'Two contractions = massive pump'
             }
           ]
         }
       ],
       advanced: [
         {
-          name: 'Curl + Hammer',
-          duration: '14–16 min',
-          description: 'Pairing curls with hammer expands overall growth',
-          battlePlan: '4 rounds\n• 8 Standard DB Curls\nRest 90s\n• 8 Hammer Curls\nRest 90s',
+          name: 'Heavy DB Curl Builder',
+          duration: '18–20 min',
+          description: 'Standard heavy curl workout emphasizing load control.',
+          battlePlan: 'Battle Plan — Standard Sets\n• 6×8 Dumbbell Curl — standard reps\nRest 90s',
           imageUrl: 'https://customer-assets.emergentagent.com/job_de06d55d-ac38-4152-bbf5-479c53d1fb22/artifacts/azkbdoo3_download%20%282%29.png',
-          intensityReason: 'Combining grips overloads arms with intensity',
+          intensityReason: 'Heavy loads with strict form build maximum strength',
           moodTips: [
             {
-              icon: 'fitness',
-              title: 'Keep form strict, reduce weight if swinging',
-              description: 'Quality over quantity for best results.'
+              icon: 'body',
+              title: 'No torso movement',
+              description: 'Load stays honest'
+            },
+            {
+              icon: 'trending-down',
+              title: 'Lower slower than you lift',
+              description: 'Eccentric overload'
             },
             {
               icon: 'flash',
-              title: 'Maintain tension, no resting at bottom',
-              description: 'Constant tension maximizes hypertrophy.'
+              title: 'Squeeze before elbow lockout',
+              description: 'Peak flexion is the goal'
             }
           ]
         },
         {
-          name: 'Curl Complex',
-          duration: '16–18 min',
-          description: 'Complex mix of curls and holds builds serious pump',
-          battlePlan: '4 rounds\n• 8 Alternating DB Curls\n• Immediately 8 Hammer Curls\n• End with 10s DB Curl Hold\nRest 120s',
+          name: 'DB Curl Drop Ladder',
+          duration: '18–20 min',
+          description: 'Multi-drop curl workout driving mechanical fatigue.',
+          battlePlan: 'Battle Plan — Drop Ladder\n• 3 rounds:\n  10 reps → drop ~20% → 8 reps → drop ~15% → AMRAP\nRest 90s',
           imageUrl: 'https://customer-assets.emergentagent.com/job_de06d55d-ac38-4152-bbf5-479c53d1fb22/artifacts/2j38bvu7_download%20%281%29.png',
-          intensityReason: 'Supersets and holds maximize tension duration',
+          intensityReason: 'Drop sets extend time under tension past failure',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Drops are immediate',
+              description: 'No rest between changes'
+            },
+            {
+              icon: 'shield',
+              title: 'Smaller drops preserve form',
+              description: 'Keep elbows pinned'
+            },
+            {
+              icon: 'timer',
+              title: 'End each mini-set with a squeeze',
+              description: 'Contracted biceps, not momentum'
+            }
+          ]
+        },
+        {
+          name: 'Incline Curl Burnout',
+          duration: '18–20 min',
+          description: 'Burnout long-head curl workout using stretch-bias.',
+          battlePlan: 'Battle Plan — Burnout Sets\n• 4×15 Incline DB Curl — burnout reps\nRest 90s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_de06d55d-ac38-4152-bbf5-479c53d1fb22/artifacts/azkbdoo3_download%20%282%29.png',
+          intensityReason: 'Stretch-biased burnout maximizes long-head hypertrophy',
+          moodTips: [
+            {
+              icon: 'body',
+              title: 'Arms stay behind torso',
+              description: 'Stretch bias maintained'
+            },
+            {
+              icon: 'shield',
+              title: 'No half reps',
+              description: 'Full ROM matters'
+            },
+            {
+              icon: 'flash',
+              title: 'Stretch deep, squeeze hard',
+              description: 'Long-to-short tension = pump'
+            }
+          ]
+        },
+        {
+          name: '21s + Iso Finish',
+          duration: '18–20 min',
+          description: 'Partial-range burnout workout finishing with peak contraction hold.',
+          battlePlan: 'Battle Plan — Burnout + Isometric\n• 3 rounds of 21s\n• Final set: squeeze to finish — hold top flex 10s\nRest 90s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_de06d55d-ac38-4152-bbf5-479c53d1fb22/artifacts/2j38bvu7_download%20%281%29.png',
+          intensityReason: '21s with iso hold completely exhausts biceps fibers',
           moodTips: [
             {
               icon: 'timer',
-              title: 'Hold at 90° to keep muscle fully engaged',
-              description: 'Isometric hold increases time under tension.'
+              title: 'Partials stay controlled',
+              description: 'No bouncing'
             },
             {
-              icon: 'flame',
-              title: 'Push through the burn — don\'t disengage',
-              description: 'Mental toughness builds physical results.'
+              icon: 'trending-up',
+              title: 'Top-range reps dominate',
+              description: 'Peak biceps tension'
+            },
+            {
+              icon: 'flash',
+              title: 'Hold the flex hard',
+              description: 'Shortened position seals the pump'
             }
           ]
         }
