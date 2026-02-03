@@ -662,131 +662,236 @@ export const tricepsWorkoutDatabase: EquipmentWorkouts[] = [
     }
   },
   {
-    equipment: 'Tricep pushdown machine',
+    equipment: 'Tricep Pushdown Machine',
     icon: 'fitness',
     workouts: {
       beginner: [
         {
-          name: 'Machine Pushdown',
-          duration: '10–12 min',
-          description: 'Basic guided pushdowns strengthen pressing muscles',
-          battlePlan: '3 rounds\n• 10–12 Machine Pushdowns\nRest 60–75s',
+          name: 'Pushdown Builder',
+          duration: '12–14 min',
+          description: 'Standard pushdown workout building foundational triceps strength using a fixed handle.',
+          battlePlan: 'Battle Plan — Standard Sets\n• 4×12 Tricep Pushdowns — standard reps\nRest 60s',
           imageUrl: 'https://customer-assets.emergentagent.com/job_inspiring-euler/artifacts/ccill0t9_download%20%283%29.png',
-          intensityReason: 'Fixed path helps learn stable elbow positioning',
+          intensityReason: 'Fixed path helps build strict elbow extension form',
           moodTips: [
             {
-              icon: 'fitness',
-              title: 'Sit upright, grip handles firm and neutral',
-              description: 'Extend fully down, don\'t lift shoulders.'
+              icon: 'body',
+              title: 'Elbows stay pinned slightly in front of ribs',
+              description: 'Keeps long head loaded, not shoulders'
             },
             {
-              icon: 'hand-left',
-              title: 'Keep elbows pressed tight inward',
-              description: 'Proper posture and grip maximize effectiveness.'
+              icon: 'trending-down',
+              title: 'Push straight down and slightly out',
+              description: 'Matches machine path and improves extension'
+            },
+            {
+              icon: 'flash',
+              title: 'Lock out under control',
+              description: 'Peak triceps contraction happens just before joints stack'
             }
           ]
         },
         {
-          name: 'Pause Pushdown',
-          duration: '10–12 min',
-          description: 'Hold at bottom teaches contraction and stability',
-          battlePlan: '3 rounds\n• 10 Machine Pushdowns (1–2s pause)\nRest 75s',
+          name: 'Tempo Pushdown Control',
+          duration: '12–14 min',
+          description: 'Eccentric-focused pushdown workout emphasizing control on a fixed path.',
+          battlePlan: 'Battle Plan — Eccentric Sets\n• 4×10 Pushdowns — eccentric reps (3s return)\nRest 60s',
           imageUrl: 'https://customer-assets.emergentagent.com/job_inspiring-euler/artifacts/yfoavc6k_download%20%282%29.png',
-          intensityReason: 'Paused lockout adds control and clear tension',
+          intensityReason: 'Slow eccentrics maximize triceps time under tension',
           moodTips: [
             {
               icon: 'timer',
-              title: 'Hold contraction 1–2s at lockout',
-              description: 'Keep elbows pressed tight inward.'
+              title: 'Slow return, smooth press',
+              description: 'Tension stays on triceps'
             },
             {
-              icon: 'trending-down',
-              title: 'Control return phase',
-              description: 'Slow negative enhances muscle development.'
+              icon: 'body',
+              title: 'Elbows never drift',
+              description: 'Static grip rewards precision'
+            },
+            {
+              icon: 'flash',
+              title: 'Fully extend every rep',
+              description: 'Shortened triceps = better pump'
+            }
+          ]
+        },
+        {
+          name: 'Pushdown + Iso Finish',
+          duration: '12–14 min',
+          description: 'Standard pushdown workout with squeeze-to-finish at peak elbow extension.',
+          battlePlan: 'Battle Plan — Standard + Isometric Finish\n• 4×10 Pushdowns — standard reps\n• Final set: squeeze to finish — hold full extension 10s\nRest 60s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_inspiring-euler/artifacts/ccill0t9_download%20%283%29.png',
+          intensityReason: 'Isometric finish maximizes triceps contraction',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Flex triceps hard during hold',
+              description: 'Neural drive matters'
+            },
+            {
+              icon: 'hand-left',
+              title: 'Wrists neutral, shoulders quiet',
+              description: 'Fixed handle means elbows do the work'
+            },
+            {
+              icon: 'fitness',
+              title: 'Use lighter pin for the hold',
+              description: 'Longer contraction = deeper pump'
             }
           ]
         }
       ],
       intermediate: [
         {
-          name: 'Heavy Pushdown',
-          duration: '12–14 min',
-          description: 'Solid heavy machine sets grow triceps size fast',
-          battlePlan: '4 rounds\n• 8–10 Heavy Pushdowns\nRest 75–90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_inspiring-euler/artifacts/ccill0t9_download%20%283%29.png',
-          intensityReason: 'Heavier loading promotes hypertrophy safely',
+          name: 'Paused Pushdowns',
+          duration: '14–16 min',
+          description: 'Pause-rep pushdown workout removing momentum on a fixed track.',
+          battlePlan: 'Battle Plan — Pause Sets\n• 4×10 Pushdowns — pause reps (1s at full extension)\nRest 75s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_inspiring-euler/artifacts/yfoavc6k_download%20%282%29.png',
+          intensityReason: 'Pauses eliminate rebound for pure elbow extension',
           moodTips: [
             {
-              icon: 'fitness',
-              title: 'Increase load slowly, keep range strict',
-              description: 'Don\'t jerk stack, smooth rep flow.'
+              icon: 'timer',
+              title: 'Pause kills rebound',
+              description: 'Pure elbow extension'
             },
             {
-              icon: 'refresh',
-              title: 'Perform with steady rhythm',
-              description: 'Consistent tempo maximizes muscle engagement.'
+              icon: 'body',
+              title: 'Brace lightly through torso',
+              description: 'Prevents shoulder compensation'
+            },
+            {
+              icon: 'flash',
+              title: 'Pause at full lockout',
+              description: 'Shortened triceps pump hardest'
             }
           ]
         },
         {
-          name: 'Negative Pushdown',
-          duration: '12–14 min',
-          description: 'Controlled negatives drive growth stimulation',
-          battlePlan: '3 rounds\n• 8 Negative Machine Pushdowns\nRest 75–90s',
+          name: 'Pushdown Burn Builder',
+          duration: '15–17 min',
+          description: 'Burnout-style pushdown workout extending time under tension.',
+          battlePlan: 'Battle Plan — Burnout Sets\n• 4×15–20 Pushdowns — burnout reps\nRest 75s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_inspiring-euler/artifacts/ccill0t9_download%20%283%29.png',
+          intensityReason: 'Extended reps build endurance and pump',
+          moodTips: [
+            {
+              icon: 'shield',
+              title: 'No resting at the top',
+              description: 'Continuous tension'
+            },
+            {
+              icon: 'refresh',
+              title: 'Smooth, repeatable cadence',
+              description: 'Keeps elbows healthy'
+            },
+            {
+              icon: 'flash',
+              title: 'Moderate load, nonstop reps',
+              description: 'Burnout = pump'
+            }
+          ]
+        },
+        {
+          name: 'Density Pushdowns',
+          duration: '15–17 min',
+          description: 'High-density pushdown workout with shortened rest.',
+          battlePlan: 'Battle Plan — Standard Sets\n• 6×10 Pushdowns — standard reps\nRest 45–60s',
           imageUrl: 'https://customer-assets.emergentagent.com/job_inspiring-euler/artifacts/yfoavc6k_download%20%282%29.png',
-          intensityReason: 'Slow 3s return emphasizes eccentric overload',
+          intensityReason: 'Short rest forces efficiency and stacks fatigue',
           moodTips: [
             {
               icon: 'timer',
-              title: 'Lower weight under strict 3s control',
-              description: 'Keep stack engaged, no rest mid set.'
+              title: 'Short rest forces efficiency',
+              description: 'Fatigue stacks quickly'
             },
             {
-              icon: 'fitness',
-              title: 'Keep pads tight to arms',
-              description: 'Proper pad contact ensures safety and isolation.'
+              icon: 'body',
+              title: 'Elbows stay fixed even when tired',
+              description: 'Prevents form breakdown'
+            },
+            {
+              icon: 'flash',
+              title: 'Finish reps clean',
+              description: 'Lockout quality drives pump'
             }
           ]
         }
       ],
       advanced: [
         {
-          name: 'Drop Set Pushdowns',
-          duration: '14–16 min',
-          description: 'Reduce weight in quick steps to extend tension',
-          battlePlan: '4 rounds\n• 8 Heavy Pushdowns\n• Drop 20% → 8 More Reps\nRest 90s',
+          name: 'Heavy Pushdown Builder',
+          duration: '18–20 min',
+          description: 'Standard heavy pushdown workout emphasizing strict elbow control.',
+          battlePlan: 'Battle Plan — Standard Sets\n• 6×8 Pushdowns — standard reps\nRest 90s',
           imageUrl: 'https://customer-assets.emergentagent.com/job_inspiring-euler/artifacts/ccill0t9_download%20%283%29.png',
-          intensityReason: 'Drops increase fatigue and hypertrophy workload',
+          intensityReason: 'Heavy loads with strict form build maximum strength',
           moodTips: [
             {
-              icon: 'flash',
-              title: 'Strip weight quickly after set',
-              description: 'Maintain range, never shorten strokes.'
+              icon: 'body',
+              title: 'No torso lean',
+              description: 'Load stays honest'
             },
             {
-              icon: 'trending-up',
-              title: 'Keep reps smooth each drop',
-              description: 'Maintain form through all weight reductions.'
+              icon: 'trending-down',
+              title: 'Control negatives',
+              description: 'Triceps love eccentrics'
+            },
+            {
+              icon: 'flash',
+              title: 'Finish every rep deliberately',
+              description: 'Extension, not momentum'
             }
           ]
         },
         {
-          name: 'Pushdown Iso Burn',
-          duration: '16–18 min',
-          description: 'Burnout with iso hold maximizes arm endurance',
-          battlePlan: '4 rounds\n• 8 Pushdowns\n• End each with 10s Iso Hold\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_inspiring-euler/artifacts/yfoavc6k_download%20%282%29.png',
-          intensityReason: 'Static finish creates greater fiber recruitment',
+          name: 'Pushdown Drop Cluster',
+          duration: '18–20 min',
+          description: 'Multi-drop pushdown workout driving mechanical fatigue on a fixed handle.',
+          battlePlan: 'Battle Plan — Drop Cluster\n• Set 1: 10 reps\n• Set 2: drop set — 10 → drop ~20% → 8\n• Set 3: triple drop — 8 → drop ~15% → 6 → drop ~10% → 6\nRest 90s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_inspiring-euler/artifacts/ccill0t9_download%20%283%29.png',
+          intensityReason: 'Drop clusters extend time under tension past failure',
           moodTips: [
             {
-              icon: 'timer',
-              title: 'Hold at lockout for 10s after last rep',
-              description: 'Keep shoulders relaxed, arms straight.'
+              icon: 'flash',
+              title: 'Pin changes are immediate',
+              description: 'Stay locked into position'
             },
             {
               icon: 'shield',
-              title: 'Control the weight throughout entire range',
-              description: 'Maintain form through metabolic stress.'
+              title: 'Smaller drops preserve form',
+              description: 'Fixed path punishes slop'
+            },
+            {
+              icon: 'timer',
+              title: 'End each mini-set fully extended',
+              description: 'Peak contraction seals the pump'
+            }
+          ]
+        },
+        {
+          name: 'Pushdown Burnout Hold',
+          duration: '18–20 min',
+          description: 'Burnout + isometric pushdown workout for maximal triceps fatigue.',
+          battlePlan: 'Battle Plan — Burnout + Isometric\n• 4×12 Pushdowns — burnout reps\n• Final set: squeeze to finish — hold full extension 12–15s\nRest 90s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_inspiring-euler/artifacts/yfoavc6k_download%20%282%29.png',
+          intensityReason: 'Burnout with iso hold completely exhausts triceps',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Flex triceps aggressively',
+              description: 'Neural drive matters'
+            },
+            {
+              icon: 'shield',
+              title: 'No resting on the stack',
+              description: 'Tension stays high'
+            },
+            {
+              icon: 'fitness',
+              title: 'Lighter pin, longer hold',
+              description: 'Pump > ego'
             }
           ]
         }
