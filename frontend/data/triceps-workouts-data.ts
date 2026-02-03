@@ -11,7 +11,7 @@ export const tricepsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Standard overhead extension workout emphasizing long-head triceps stretch.',
           battlePlan: 'Battle Plan — Standard Sets\n• 4×12 Seated DB Overhead Extensions — standard reps\nRest 60s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/d78e5qae_fdbsc.webp',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_e2f05db7-8caa-482a-a292-b60f552836b8/artifacts/4553zhn5_db%20overhead%20sc.jpg',
           intensityReason: 'Overhead position maximizes long-head triceps stretch',
           moodTips: [
             {
@@ -36,7 +36,7 @@ export const tricepsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Standard horizontal extension workout with stable positioning.',
           battlePlan: 'Battle Plan — Standard Sets\n• 4×12 DB Skullcrushers — standard reps\nRest 60s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/nworhx1b_idbsc.webp',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_e2f05db7-8caa-482a-a292-b60f552836b8/artifacts/4yj3bfg1_lying%20db%20sc.webp',
           intensityReason: 'Horizontal position provides stable triceps isolation',
           moodTips: [
             {
@@ -61,7 +61,7 @@ export const tricepsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Beginner-only isolation workout emphasizing peak contraction.',
           battlePlan: 'Battle Plan — Standard Sets\n• 4×15 DB Kickbacks — standard reps\nRest 60s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_inspiring-euler/artifacts/yyzj0dlo_download%20%281%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_e2f05db7-8caa-482a-a292-b60f552836b8/artifacts/lj8oy8ts_dumbell%20kickback.webp',
           intensityReason: 'Kickbacks emphasize peak triceps contraction',
           moodTips: [
             {
@@ -138,7 +138,7 @@ export const tricepsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '15–17 min',
           description: 'Superset workout pairing long-head stretch with horizontal extension.',
           battlePlan: 'Battle Plan — Superset\n• 4×10 DB Overhead Extensions — standard reps\nsuperset with\n• 10 DB Skullcrushers\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_inspiring-euler/artifacts/yyzj0dlo_download%20%281%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_e2f05db7-8caa-482a-a292-b60f552836b8/artifacts/4553zhn5_db%20overhead%20sc.jpg',
           intensityReason: 'Two angles maximize triceps fiber recruitment',
           moodTips: [
             {
@@ -215,7 +215,7 @@ export const tricepsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '18–20 min',
           description: 'Burnout + isometric skullcrusher workout emphasizing peak extension.',
           battlePlan: 'Battle Plan — Burnout + Isometric\n• 4×12 DB Skullcrushers — burnout reps\n• Final set: squeeze to finish — hold full elbow extension 12–15s\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_inspiring-euler/artifacts/5cjqt0fg_download.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_e2f05db7-8caa-482a-a292-b60f552836b8/artifacts/18sc3txx_flat%20db%20sc.jpg',
           intensityReason: 'Burnout with iso hold completely exhausts triceps',
           moodTips: [
             {
