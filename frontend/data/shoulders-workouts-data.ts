@@ -1259,7 +1259,7 @@ export const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Standard set workout building foundational shoulder strength.',
           battlePlan: 'Battle Plan — Standard Sets\n• 4×12 Seated Dumbbell Shoulder Press — standard reps\nRest 60s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/d2gkwhep_download%20%282%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-data-hub-2/artifacts/cwihbei1_db%20shoulder%20press.png',
           intensityReason: 'Standard set workout building foundational shoulder strength.',
           moodTips: [
             {
@@ -1284,7 +1284,7 @@ export const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Eccentric-focused workout using slow negatives to build strength safely.',
           battlePlan: 'Battle Plan — Eccentric Sets\n• 4×10 Seated Dumbbell Shoulder Press — eccentric reps (3s down)\nRest 60s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/d2gkwhep_download%20%282%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-data-hub-2/artifacts/cwihbei1_db%20shoulder%20press.png',
           intensityReason: 'Eccentric-focused workout using slow negatives to build strength safely.',
           moodTips: [
             {
@@ -1309,7 +1309,7 @@ export const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Pause-rep isolation workout targeting side delts.',
           battlePlan: 'Battle Plan — Pause Sets\n• 4×15 Dumbbell Lateral Raise — pause reps (1s top)\nRest 60s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/d2gkwhep_download%20%282%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-data-hub-2/artifacts/zbplnvku_db%20lateral%20raise.png',
           intensityReason: 'Pause-rep isolation workout targeting side delts.',
           moodTips: [
             {
@@ -1334,7 +1334,7 @@ export const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Standard press workout with squeeze-to-finish hold.',
           battlePlan: 'Battle Plan — Standard + Isometric Finish\n• 4×10 Standing Dumbbell Shoulder Press — standard reps\n• Final set: squeeze to finish — hold last rep overhead 8–10s\nRest 60s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/d2gkwhep_download%20%282%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-data-hub-2/artifacts/geafno9z_shoulder%20press.png',
           intensityReason: 'Standard press workout with squeeze-to-finish hold.',
           moodTips: [
             {
