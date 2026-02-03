@@ -839,7 +839,7 @@ export const absWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '8–10 min',
           description: 'Learns lateral bending to build oblique connection.\n ',
           battlePlan: '3 rounds\n• 10 per side Side Bends\nRest 60s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_sweat-weights-images/artifacts/9xys14l8_download%20%289%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_ba98ecac-d9ff-4da8-8b26-c72f04702bfb/artifacts/zqeon0lh_roman%20chair%20weighted%20side%20bend.png',
           intensityReason: 'Basic side crunch trains obliques with safe control',
           moodTips: [
             {
@@ -901,7 +901,7 @@ export const absWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Builds oblique thickness with controlled weighted reps.\n ',
           battlePlan: '4 rounds\n• 8–10 per side Weighted Bends\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_sweat-weights-images/artifacts/9xys14l8_download%20%289%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_ba98ecac-d9ff-4da8-8b26-c72f04702bfb/artifacts/zqeon0lh_roman%20chair%20weighted%20side%20bend.png',
           intensityReason: 'Progression adds resistance for lateral growth',
           moodTips: [
             {
@@ -941,7 +941,7 @@ export const absWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Controlled reach adding anti-rotation demand.',
           battlePlan: '4 rounds\n• 8 per side Alternating Reaches\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_sweat-weights-images/artifacts/9xys14l8_download%20%289%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_ba98ecac-d9ff-4da8-8b26-c72f04702bfb/artifacts/o590xw8i_roman%20chari%20alt%20reach.jpg',
           intensityReason: 'Opposite arm reach engages obliques with anti-rotation',
           moodTips: [
             {
@@ -1051,7 +1051,7 @@ export const absWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '8–10 min',
           description: 'Dynamic twisting strengthens side core stability.\n ',
           battlePlan: '3 rounds\n• 10 per side Twists\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-pics/artifacts/vv8j4fll_download.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_ba98ecac-d9ff-4da8-8b26-c72f04702bfb/artifacts/8o6c10d2_med%20bal%20crunch%20twists.png',
           intensityReason: 'Rotation works obliques with ball resistance control',
           moodTips: [
             {
@@ -1071,7 +1071,7 @@ export const absWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '8–10 min',
           description: 'Dead bug variation adding anterior load.',
           battlePlan: '3 rounds\n• 10 per side MB Dead Bugs\nRest 60s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-pics/artifacts/cu85n2we_download%20%281%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_ba98ecac-d9ff-4da8-8b26-c72f04702bfb/artifacts/sempfdbg_dead%20bug%20press.png',
           intensityReason: 'Pressing ball upward increases core engagement',
           moodTips: [
             {
@@ -1093,7 +1093,7 @@ export const absWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Long lever increases core demand and stretch tension.\n ',
           battlePlan: '4 rounds\n• 8–10 MB Sit Ups\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-pics/artifacts/cu85n2we_download%20%281%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_ba98ecac-d9ff-4da8-8b26-c72f04702bfb/artifacts/efsqbz6t_med%20ball%20overhead%20sit%20up.png',
           intensityReason: 'Lever arm extended overhead intensifies abs load',
           moodTips: [
             {
