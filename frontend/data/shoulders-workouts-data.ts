@@ -1361,7 +1361,7 @@ export const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Standard rotational press workout for full delt recruitment.',
           battlePlan: 'Battle Plan — Standard Sets\n• 5×10 Arnold Press — standard reps\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/z5yngcpg_incline%20arnold.jpeg',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-data-hub-2/artifacts/64d4m132_arnold%20press.png',
           intensityReason: 'Standard rotational press workout for full delt recruitment.',
           moodTips: [
             {
@@ -1488,7 +1488,7 @@ export const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '18–20 min',
           description: 'Single-exercise drop-set workout driving mechanical fatigue.',
           battlePlan: 'Battle Plan — Drop Set\n• 4×10 Arnold Press — standard reps\n• Final set: drop set — 2 drops, no rest\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/z5yngcpg_incline%20arnold.jpeg',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-data-hub-2/artifacts/64d4m132_arnold%20press.png',
           intensityReason: 'Single-exercise drop-set workout driving mechanical fatigue.',
           moodTips: [
             {
