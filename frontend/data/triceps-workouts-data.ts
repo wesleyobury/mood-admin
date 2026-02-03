@@ -1328,7 +1328,7 @@ export const tricepsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Standard assisted dip workout emphasizing elbow extension.',
           battlePlan: 'Battle Plan — Standard Sets\n• 4×8–10 Assisted Dips\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_inspiring-euler/artifacts/o9irqfer_download%20%284%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_e2f05db7-8caa-482a-a292-b60f552836b8/artifacts/0i8kr3ow_assisted%20dips.jpg',
           intensityReason: 'Assistance allows proper form development',
           moodTips: [
             {
@@ -1455,7 +1455,7 @@ export const tricepsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '15–17 min',
           description: 'Superset workout pairing bodyweight and machine isolation.',
           battlePlan: 'Battle Plan — Superset\n• 4×8 Dips\nsuperset with\n• 12 Pushdowns\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_inspiring-euler/artifacts/74stkm4f_download%20%283%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_e2f05db7-8caa-482a-a292-b60f552836b8/artifacts/d13967iu_reg%20dips.png',
           intensityReason: 'Compound + isolation maximizes triceps fatigue',
           moodTips: [
             {
@@ -1482,7 +1482,7 @@ export const tricepsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '18–20 min',
           description: 'Standard weighted dip workout for advanced loading.',
           battlePlan: 'Battle Plan — Standard Sets\n• 6×6 Weighted Dips\nRest 120s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_inspiring-euler/artifacts/o9irqfer_download%20%284%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_e2f05db7-8caa-482a-a292-b60f552836b8/artifacts/qfzwrr6j_weighted%20dips.png',
           intensityReason: 'Added weight builds serious pressing strength',
           moodTips: [
             {
