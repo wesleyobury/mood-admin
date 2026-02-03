@@ -1263,7 +1263,7 @@ export const absWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '8–10 min',
           description: 'Flat bench crunch focusing on controlled spinal flexion.',
           battlePlan: '3 rounds\n• 12–15 Flat Bench Crunches\nRest 60s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_sweat-weights-images/artifacts/lwwxsgl0_download%20%287%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_ba98ecac-d9ff-4da8-8b26-c72f04702bfb/artifacts/h4s4mo34_flat%20bench%20crunch.png',
           intensityReason: 'Flat bench removes decline to reduce difficulty',
           moodTips: [
             {
@@ -1285,7 +1285,7 @@ export const absWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Strengthens core wall with consistent loaded work.\n ',
           battlePlan: '4 rounds\n• 8 Sit Ups w/ Plate\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_sweat-weights-images/artifacts/lwwxsgl0_download%20%287%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_ba98ecac-d9ff-4da8-8b26-c72f04702bfb/artifacts/udgo880g_decline%20bench%20weighted%20sit%20up.webp',
           intensityReason: 'Holding plate increases progressive overload stress',
           moodTips: [
             {
@@ -1325,7 +1325,7 @@ export const absWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Long-lever sit-up increasing difficulty without weight.',
           battlePlan: '4 rounds\n• 10 Arms-Overhead Sit-Ups\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_sweat-weights-images/artifacts/lwwxsgl0_download%20%287%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_ba98ecac-d9ff-4da8-8b26-c72f04702bfb/artifacts/redekabo_delcine%20bench%20reach%20sit%20up.png',
           intensityReason: 'Arms straight overhead increases lever and load',
           moodTips: [
             {
