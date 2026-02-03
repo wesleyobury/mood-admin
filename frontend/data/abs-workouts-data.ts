@@ -195,7 +195,7 @@ export const absWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Brutal hybrid workout testing both dynamic and static abdominal strength capacity..\n ',
           battlePlan: '3 rounds\n• 20s Hollow Hold\n• Immediately 8 Stiff Leg Pike Jumps\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_sweat-weights-images/artifacts/x9dvjaa1_download%20%282%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_e2f05db7-8caa-482a-a292-b60f552836b8/artifacts/lel4saj0_Pike%20jump.jpg',
           intensityReason: 'Iso hold builds endurance, jumps build explosiveness',
           moodTips: [
             {
@@ -215,7 +215,7 @@ export const absWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Fast, controlled hanging reps drive intense lower-ab fatigue.',
           battlePlan: '4 rounds\n• 10 Hanging Leg Raises\n• 8 Hanging Knee-to-Chest\nRest 75–90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/n5wg8sb5_download%20%2817%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_e2f05db7-8caa-482a-a292-b60f552836b8/artifacts/btq4nw4n_Hanging%20leg%20raise.avif',
           intensityReason: 'High-tempo raises overload abs without long isometrics',
           moodTips: [
             {
