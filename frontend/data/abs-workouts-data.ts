@@ -127,6 +127,46 @@ export const absWorkoutDatabase: EquipmentWorkouts[] = [
               description: 'Constant tension maintains ab engagement throughout.'
             }
           ]
+        },
+        {
+          name: 'V-Up & Oblique Crunch Circuit',
+          duration: '10–12 min',
+          description: 'Fast circuit hitting upper, lower, and obliques.',
+          battlePlan: '3 rounds\n• 12 V-Ups\n• 16 Oblique Crunches (8/side)\n• 30 Alt Toe Taps\nRest 60s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/cesyx69b_download%20%2815%29.png',
+          intensityReason: 'Adds long lever flexion + rotation under fatigue',
+          moodTips: [
+            {
+              icon: 'construct',
+              title: 'Keep legs long on V-ups',
+              description: 'Extended legs maximize ab engagement.'
+            },
+            {
+              icon: 'flash',
+              title: 'Rotate shoulders, not elbows',
+              description: 'Proper rotation targets obliques effectively.'
+            }
+          ]
+        },
+        {
+          name: 'Sit-Up Density Burner',
+          duration: '10–12 min',
+          description: 'Minimal rest sit-up progression for ab stamina.',
+          battlePlan: '3 rounds\n• 15 Sit-Ups\n• 12 Sit-Ups\n• 10 Sit-Ups\nRest 60s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/cesyx69b_download%20%2815%29.png',
+          intensityReason: 'High rep sit-ups push flexion endurance',
+          moodTips: [
+            {
+              icon: 'construct',
+              title: 'Use abs to rise, not hip snap',
+              description: 'Core-driven movement builds true strength.'
+            },
+            {
+              icon: 'timer',
+              title: 'Control the descent every rep',
+              description: 'Eccentric control maximizes muscle development.'
+            }
+          ]
         }
       ],
       advanced: [
