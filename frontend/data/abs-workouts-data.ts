@@ -45,6 +45,46 @@ export const absWorkoutDatabase: EquipmentWorkouts[] = [
               description: 'Think about bracing for impact to engage deep core muscles.'
             }
           ]
+        },
+        {
+          name: 'Knee Tuck Crunch Circuit',
+          duration: '8–10 min',
+          description: 'Fast-paced floor circuit to build beginner ab endurance.',
+          battlePlan: '3 rounds\n• 15 Crunches\n• 12 Knee Tucks\n• 20 Alt Toe Taps\nRest 45s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/9ppti423_download%20%2811%29.png',
+          intensityReason: 'Combines flexion + knee tuck without long levers',
+          moodTips: [
+            {
+              icon: 'construct',
+              title: 'Pull knees in using abs, not momentum',
+              description: 'Focus on ab contraction to initiate movement.'
+            },
+            {
+              icon: 'shield',
+              title: 'Keep lower back lightly pressed into floor',
+              description: 'Proper back position protects spine and maximizes ab work.'
+            }
+          ]
+        },
+        {
+          name: 'High-Tempo Crunch Ladder',
+          duration: '8–10 min',
+          description: 'Simple but spicy crunch-based density workout.',
+          battlePlan: '4 rounds\n• 20 Crunches\n• 15 Crunches\n• 10 Crunches\nRest 30–45s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/9ppti423_download%20%2811%29.png',
+          intensityReason: 'Short rest + fast reps increase metabolic ab demand',
+          moodTips: [
+            {
+              icon: 'construct',
+              title: 'Small, fast crunches — don\'t yank neck',
+              description: 'Quick controlled movements protect your neck.'
+            },
+            {
+              icon: 'flash',
+              title: 'Exhale sharply each rep',
+              description: 'Sharp exhales enhance ab contraction.'
+            }
+          ]
         }
       ],
       intermediate: [
