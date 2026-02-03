@@ -1985,7 +1985,7 @@ export const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Paused-rep landmine workout removing momentum for true shoulder strength.',
           battlePlan: 'Battle Plan — Pause Sets\n• 5×8 Single-Arm Landmine Press — pause reps (1s bottom)\nRest 75s per side',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/d2gkwhep_download%20%282%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-data-hub-2/artifacts/e2d8369i_landmine%20sa%20press.webp',
           intensityReason: 'Paused-rep landmine workout removing momentum for true shoulder strength.',
           moodTips: [
             {
@@ -2010,7 +2010,7 @@ export const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Pulse-rep landmine workout keeping tension in the strongest range.',
           battlePlan: 'Battle Plan — Pulse Sets\n• 4×12 Single-Arm Landmine Press — pulse reps (top ⅓ of arc)\nRest 75s per side',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/d2gkwhep_download%20%282%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-data-hub-2/artifacts/cww4hl7b_landmine%20single%20arm%20press%202.jpg',
           intensityReason: 'Pulse-rep landmine workout keeping tension in the strongest range.',
           moodTips: [
             {
@@ -2035,7 +2035,7 @@ export const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '15–17 min',
           description: 'Standard power-press landmine workout allowing heavier overload.',
           battlePlan: 'Battle Plan — Standard Sets\n• 6×6 Single-Arm Landmine Push Press — standard reps\nRest 75–90s per side',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/d2gkwhep_download%20%282%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-data-hub-2/artifacts/40vv8ike_Landmine%20double%20arm%20press.jpg',
           intensityReason: 'Standard power-press landmine workout allowing heavier overload.',
           moodTips: [
             {
@@ -2060,7 +2060,7 @@ export const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '15–17 min',
           description: 'Superset workout pairing strict pressing with rotational pressing.',
           battlePlan: 'Battle Plan — Superset\n• 4×10 Single-Arm Landmine Press — standard reps\nsuperset with\n• 8 each side Landmine Rotational Press — standard reps\nRest 90s between rounds',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/d2gkwhep_download%20%282%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-data-hub-2/artifacts/hggocyeh_landmine%20rotation%20press.jpg',
           intensityReason: 'Superset workout pairing strict pressing with rotational pressing.',
           moodTips: [
             {
