@@ -997,6 +997,26 @@ export const absWorkoutDatabase: EquipmentWorkouts[] = [
               description: 'Maximum contraction during isometric phase.'
             }
           ]
+        },
+        {
+          name: 'Weighted Anti-Rotation Hold',
+          duration: '12–14 min',
+          description: 'Static hold resisting rotation under load.',
+          battlePlan: '4 rounds\n• 20–30s per side Weighted Holds\nRest 90s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_sweat-weights-images/artifacts/9xys14l8_download%20%289%29.png',
+          intensityReason: 'Offset load fires obliques under anti-rotation demand',
+          moodTips: [
+            {
+              icon: 'construct',
+              title: 'Weight offset to one side',
+              description: 'Obliques fire to resist rotation.'
+            },
+            {
+              icon: 'shield',
+              title: 'No hip shift',
+              description: 'Control the base throughout.'
+            }
+          ]
         }
       ]
     }
