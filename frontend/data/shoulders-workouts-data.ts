@@ -2711,7 +2711,7 @@ export const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '18–20 min',
           description: 'Standard power-press workout allowing heavier loading.',
           battlePlan: 'Battle Plan — Standard Sets\n• 6×6 Single-Arm KB Push Press — standard reps\nRest 90s per side',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/d2gkwhep_download%20%282%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-data-hub-2/artifacts/0zc5r7x4_kb%20push%20press.png',
           intensityReason: 'Standard power-press workout allowing heavier loading.',
           moodTips: [
             {
@@ -2736,7 +2736,7 @@ export const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '18–20 min',
           description: 'Multi-drop pull workout driving shoulder fatigue safely.',
           battlePlan: 'Battle Plan — Drop Cluster\n• Set 1: 12 reps — standard\n• Set 2: drop set — 12 → drop ~20% → 8\n• Set 3: triple drop set — 10 → drop ~15% → 8 → drop ~10% → 8\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-data-hub-2/artifacts/9btj6m9u_image.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-data-hub-2/artifacts/jjgy8pfh_KB%20upright%20row.png',
           intensityReason: 'Multi-drop pull workout driving shoulder fatigue safely.',
           moodTips: [
             {
@@ -2761,7 +2761,7 @@ export const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '18–20 min',
           description: 'Burnout isolation workout for side-delt saturation.',
           battlePlan: 'Battle Plan — Burnout Sets\n• 4×20 KB Lateral Raise — burnout reps\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/d2gkwhep_download%20%282%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-data-hub-2/artifacts/daoo7ik5_kb%20lat%20riase.png',
           intensityReason: 'Burnout isolation workout for side-delt saturation.',
           moodTips: [
             {
@@ -2786,7 +2786,7 @@ export const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '18–20 min',
           description: 'Burnout + isometric workout combining instability and contraction.',
           battlePlan: 'Battle Plan — Burnout + Isometric\n• 4×12 KB Press — burnout reps\n• Final set: squeeze to finish — hold bell in front-rack, elbow forward (peak delt contraction) 10s\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/d2gkwhep_download%20%282%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-data-hub-2/artifacts/zr277bch_kb%20press%20or%20offset%20rack%20hold.png',
           intensityReason: 'Burnout + isometric workout combining instability and contraction.',
           moodTips: [
             {
