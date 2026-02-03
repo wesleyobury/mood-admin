@@ -631,126 +631,306 @@ export const bicepsWorkoutDatabase: EquipmentWorkouts[] = [
     workouts: {
       beginner: [
         {
-          name: 'Straight Bar Curl',
-          duration: '10–12 min',
-          description: 'Straight bar curl develops controlled curling form',
-          battlePlan: '3 rounds\n• 10–12 Straight Bar Cable Curls\nRest 60s',
+          name: 'Standing Cable Curl Builder',
+          duration: '12–14 min',
+          description: 'Standard cable curl workout emphasizing constant tension.',
+          battlePlan: 'Battle Plan — Standard Sets\n• 4×12 Standing Cable Curl — standard reps\nRest 60s',
           imageUrl: 'https://customer-assets.emergentagent.com/job_de06d55d-ac38-4152-bbf5-479c53d1fb22/artifacts/3z2y67t7_cc.jpg',
-          intensityReason: 'Cable tension enforces strict and smooth curling',
+          intensityReason: 'Cables provide constant tension throughout the movement',
           moodTips: [
             {
-              icon: 'fitness',
-              title: 'Keep elbows tucked, bar path vertical',
-              description: 'Straight bar path maximizes bicep engagement.'
+              icon: 'body',
+              title: 'Elbows stay pinned',
+              description: 'Prevents shoulder takeover'
             },
             {
-              icon: 'body',
-              title: 'Don\'t lean back or swing',
-              description: 'Cable provides constant tension.'
+              icon: 'refresh',
+              title: 'Smooth pull, smooth return',
+              description: 'Cables reward control'
+            },
+            {
+              icon: 'trending-up',
+              title: 'Step back slightly for stretch',
+              description: 'Longer starting position = better pump'
             }
           ]
         },
         {
-          name: 'Rope Hammer Curl',
-          duration: '10–12 min',
-          description: 'Rope hammer curl adds overall forearm thickness',
-          battlePlan: '3 rounds\n• 10–12 Rope Hammer Curls\nRest 60–75s',
+          name: 'Rope Cable Curl',
+          duration: '12–14 min',
+          description: 'Standard neutral-grip curl workout for elbow-friendly loading.',
+          battlePlan: 'Battle Plan — Standard Sets\n• 4×12 Rope Cable Curl — standard reps\nRest 60s',
           imageUrl: 'https://customer-assets.emergentagent.com/job_de06d55d-ac38-4152-bbf5-479c53d1fb22/artifacts/jzrqwni6_download.png',
-          intensityReason: 'Neutral grip cable work hits brachialis harder for fuller arms',
+          intensityReason: 'Neutral grip with constant cable tension hits brachialis',
           moodTips: [
             {
               icon: 'hand-left',
-              title: 'Spread rope ends at the top',
-              description: 'Spreading rope increases peak contraction.'
+              title: 'Split the rope at the top',
+              description: 'Improves peak contraction'
+            },
+            {
+              icon: 'fitness',
+              title: 'Wrists stay neutral',
+              description: 'Brachialis engagement'
+            },
+            {
+              icon: 'flash',
+              title: 'Light load, full ROM',
+              description: 'Continuous tension = pump'
+            }
+          ]
+        },
+        {
+          name: 'Seated Low Cable Curl',
+          duration: '12–14 min',
+          description: 'Standard seated curl workout removing momentum.',
+          battlePlan: 'Battle Plan — Standard Sets\n• 4×12 Seated Low Cable Curl — standard reps\nRest 60s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_de06d55d-ac38-4152-bbf5-479c53d1fb22/artifacts/3z2y67t7_cc.jpg',
+          intensityReason: 'Seated position removes momentum for pure biceps isolation',
+          moodTips: [
+            {
+              icon: 'body',
+              title: 'Sit tall, don\'t lean',
+              description: 'Zero cheating'
             },
             {
               icon: 'trending-down',
-              title: 'Controlled lowering enhances result',
-              description: 'Slow negative builds strength.'
+              title: 'Let arms fully extend',
+              description: 'Cable stretch hits hard'
+            },
+            {
+              icon: 'flash',
+              title: 'Stretch deep, squeeze tight',
+              description: 'Long-to-short tension fuels pump'
+            }
+          ]
+        },
+        {
+          name: 'Curl + Iso Finish',
+          duration: '12–14 min',
+          description: 'Standard cable curl workout with squeeze-to-finish at peak flexion.',
+          battlePlan: 'Battle Plan — Standard + Isometric Finish\n• 4×10 Cable Curl — standard reps\n• Final set: squeeze to finish — hold handle at full elbow flexion 8–10s\nRest 60s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_de06d55d-ac38-4152-bbf5-479c53d1fb22/artifacts/jzrqwni6_download.png',
+          intensityReason: 'Isometric finish with cable tension maximizes pump',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Flex as hard as possible',
+              description: 'Biceps respond to intent'
+            },
+            {
+              icon: 'body',
+              title: 'Elbows frozen during hold',
+              description: 'Keeps tension local'
+            },
+            {
+              icon: 'fitness',
+              title: 'Reduce load for the hold',
+              description: 'Longer squeeze = bigger pump'
             }
           ]
         }
       ],
       intermediate: [
         {
-          name: 'EZ Bar Curl',
-          duration: '12–14 min',
-          description: 'Stronger sets develop hypertrophy with posture',
-          battlePlan: '4 rounds\n• 8–10 EZ Bar Cable Curls\nRest 75–90s',
+          name: 'Incline Cable Curl',
+          duration: '14–16 min',
+          description: 'Standard long-head curl workout using shoulder extension.',
+          battlePlan: 'Battle Plan — Standard Sets\n• 4×10 Incline Cable Curl — standard reps\nRest 75s',
           imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/qi05o2xg_download%20%2819%29.png',
-          intensityReason: 'Angled bar grip improves joint comfort heavy',
+          intensityReason: 'Incline position with cable creates extreme long-head stretch',
           moodTips: [
             {
               icon: 'body',
-              title: 'Stand tall, no torso swing',
-              description: 'Stable core isolates arm work.'
+              title: 'Bench low, arms back',
+              description: 'Long-head bias'
             },
             {
               icon: 'timer',
-              title: 'Lower bar slowly, keep tension',
-              description: 'Cable provides constant resistance.'
+              title: 'Don\'t rush the bottom',
+              description: 'Stretch drives growth'
+            },
+            {
+              icon: 'trending-up',
+              title: 'Lean back slightly',
+              description: 'Cable stretch amplifies pump'
             }
           ]
         },
         {
-          name: 'Cable Negatives',
-          duration: '12–14 min',
-          description: 'Negative bar curls grow size and total integrity with greater muscle fiber recruitment',
-          battlePlan: '3 rounds\n• 8 Cable Bar Curls (3s eccentric)\nRest 75–90s',
+          name: 'Paused Cable Curl',
+          duration: '14–16 min',
+          description: 'Pause-rep cable curl workout eliminating momentum.',
+          battlePlan: 'Battle Plan — Pause Sets\n• 4×10 Cable Curl — pause reps (1s halfway)\nRest 75s',
           imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/vqw55nvb_download%20%2818%29.png',
-          intensityReason: 'Slow eccentrics amplify hypertrophy adaptation',
+          intensityReason: 'Pauses eliminate cable rebound for honest tension',
           moodTips: [
             {
-              icon: 'flash',
-              title: 'Drive up powerfully, lower 3s',
-              description: 'Explosive concentric, controlled eccentric.'
+              icon: 'timer',
+              title: 'Pause kills cable rebound',
+              description: 'Honest tension'
             },
             {
-              icon: 'fitness',
-              title: 'Elbows fixed at torso sides',
-              description: 'Locked elbows ensure bicep isolation.'
+              icon: 'hand-left',
+              title: 'Grip stays tight',
+              description: 'Improves neural drive'
+            },
+            {
+              icon: 'flash',
+              title: 'Finish with a hard squeeze',
+              description: 'Shortened biceps pump best'
+            }
+          ]
+        },
+        {
+          name: 'Single-Arm Cable Curl Burn',
+          duration: '15–17 min',
+          description: 'Burnout-style unilateral curl workout for extended tension.',
+          battlePlan: 'Battle Plan — Burnout Sets\n• 4×14 Single-Arm Cable Curls — burnout reps\nRest 75s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/qi05o2xg_download%20%2819%29.png',
+          intensityReason: 'Unilateral work with continuous cable tension builds endurance',
+          moodTips: [
+            {
+              icon: 'refresh',
+              title: 'Alternate sides without rest',
+              description: 'Density increases fatigue'
+            },
+            {
+              icon: 'body',
+              title: 'No torso twist',
+              description: 'Isolates biceps'
+            },
+            {
+              icon: 'trending-up',
+              title: 'Step further back as fatigue rises',
+              description: 'Stretch keeps pump alive'
+            }
+          ]
+        },
+        {
+          name: 'Curl + Face-Away Curl Contrast',
+          duration: '15–17 min',
+          description: 'Superset workout pairing front-facing and face-away curls.',
+          battlePlan: 'Battle Plan — Superset\n• 4×10 Cable Curl (facing stack) — standard reps\nsuperset with\n• 10 Face-Away Cable Curls\nRest 90s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/vqw55nvb_download%20%2818%29.png',
+          intensityReason: 'Two angles maximize stretch and contraction phases',
+          moodTips: [
+            {
+              icon: 'trending-up',
+              title: 'Face-away curls stretch hardest',
+              description: 'Long-head emphasis'
+            },
+            {
+              icon: 'body',
+              title: 'Keep shoulders fixed',
+              description: 'Prevents cheating'
+            },
+            {
+              icon: 'flash',
+              title: 'Long stretch, hard squeeze',
+              description: 'Two angles = massive pump'
             }
           ]
         }
       ],
       advanced: [
         {
-          name: 'Rope + Bar Combo',
-          duration: '14–16 min',
-          description: 'Rope plus bar combo overloads total arm volume',
-          battlePlan: '4 rounds\n• 8 Rope Hammer Curls\nRest 60–75s\n• 8 Straight Bar Curls\nRest 75–90s',
+          name: 'Heavy Cable Curl Builder',
+          duration: '18–20 min',
+          description: 'Standard heavy cable curl workout emphasizing control.',
+          battlePlan: 'Battle Plan — Standard Sets\n• 6×8 Cable Curl — standard reps\nRest 90s',
           imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/waan6rau_download%20%2820%29.png',
-          intensityReason: 'Grip pairing works multiple arm muscle fibers',
+          intensityReason: 'Heavy cable loads with constant tension build strength',
           moodTips: [
             {
-              icon: 'refresh',
-              title: 'Rope = neutral, bar = strict supination',
-              description: 'Different grips target different fibers.'
+              icon: 'body',
+              title: 'No body sway',
+              description: 'Load stays honest'
+            },
+            {
+              icon: 'trending-down',
+              title: 'Slow negatives',
+              description: 'Cable eccentrics hit hard'
             },
             {
               icon: 'flash',
-              title: 'Focus pump control with each grip',
-              description: 'Mind-muscle connection is key.'
+              title: 'Finish every rep with intent',
+              description: 'Peak flexion matters'
             }
           ]
         },
         {
-          name: 'Cable Curl 21s',
-          duration: '16–18 min',
-          description: 'Seven seven seven set fully exhausts every curl',
-          battlePlan: '3 rounds\n• 7 Bottom Half Cable Curls\n• 7 Top Half Cable Curls\n• 7 Full Range Cable Curls\nRest 90s',
+          name: 'Cable Curl Drop Ladder',
+          duration: '18–20 min',
+          description: 'Multi-drop cable curl workout driving mechanical fatigue.',
+          battlePlan: 'Battle Plan — Drop Ladder\n• 3 rounds:\n  10 reps → drop ~15% → 8 reps → drop ~10% → AMRAP\nRest 90s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/waan6rau_download%20%2820%29.png',
+          intensityReason: 'Cable drop sets maintain tension without momentum',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Pin changes immediately',
+              description: 'No stepping away'
+            },
+            {
+              icon: 'shield',
+              title: 'Smaller drops keep tension high',
+              description: 'Cables don\'t need big drops'
+            },
+            {
+              icon: 'timer',
+              title: 'End ladders with a squeeze',
+              description: 'Contracted biceps seal the pump'
+            }
+          ]
+        },
+        {
+          name: 'Cable Curl Burnout Hold',
+          duration: '18–20 min',
+          description: 'Burnout + isometric cable curl workout.',
+          battlePlan: 'Battle Plan — Burnout + Isometric\n• 4×15 Cable Curl — burnout reps\n• Final set: squeeze to finish — hold at peak flexion 10s\nRest 90s',
           imageUrl: 'https://customer-assets.emergentagent.com/job_de06d55d-ac38-4152-bbf5-479c53d1fb22/artifacts/jzrqwni6_download.png',
-          intensityReason: 'Partial and full ranges maximize biceps fatigue',
+          intensityReason: 'Burnout with iso hold under cable tension exhausts biceps',
           moodTips: [
             {
               icon: 'shield',
-              title: 'Keep tension, no stack resting',
-              description: 'Constant tension throughout all 21 reps.'
+              title: 'Nonstop tension',
+              description: 'No resting on the stack'
+            },
+            {
+              icon: 'flash',
+              title: 'Flex aggressively',
+              description: 'Neural drive counts'
             },
             {
               icon: 'trending-up',
-              title: 'Smooth range in all three phases',
-              description: 'Control through partial and full ranges.'
+              title: 'Step back slightly',
+              description: 'Stretch + hold = pump'
+            }
+          ]
+        },
+        {
+          name: '1.5-Rep Cable Curl',
+          duration: '18–20 min',
+          description: 'Partial-range curl workout emphasizing the strongest range.',
+          battlePlan: 'Battle Plan — Standard Sets\n• 5×8 Cable Curl — 1.5 reps\nRest 90s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_de06d55d-ac38-4152-bbf5-479c53d1fb22/artifacts/3z2y67t7_cc.jpg',
+          intensityReason: '1.5 reps with cable tension double time under tension',
+          moodTips: [
+            {
+              icon: 'refresh',
+              title: 'Half rep stays near top',
+              description: 'Contracted bias'
+            },
+            {
+              icon: 'timer',
+              title: 'Smooth transitions',
+              description: 'No jerking'
+            },
+            {
+              icon: 'flash',
+              title: 'Top-range dominance',
+              description: 'Cables keep delts out, biceps pumped'
             }
           ]
         }
