@@ -51,7 +51,7 @@ export const absWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '8–10 min',
           description: 'Fast-paced floor circuit to build beginner ab endurance.',
           battlePlan: '3 rounds\n• 15 Crunches\n• 12 Knee Tucks\n• 20 Alt Toe Taps\nRest 45s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/9ppti423_download%20%2811%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_e2f05db7-8caa-482a-a292-b60f552836b8/artifacts/9b9bwjx3_Knee%20tuck%20crunch.webp',
           intensityReason: 'Combines flexion + knee tuck without long levers',
           moodTips: [
             {
@@ -71,7 +71,7 @@ export const absWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '8–10 min',
           description: 'Simple but spicy crunch-based density workout.',
           battlePlan: '4 rounds\n• 20 Crunches\n• 15 Crunches\n• 10 Crunches\nRest 30–45s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/9ppti423_download%20%2811%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_e2f05db7-8caa-482a-a292-b60f552836b8/artifacts/b2yevch7_crunch.png',
           intensityReason: 'Short rest + fast reps increase metabolic ab demand',
           moodTips: [
             {
@@ -133,7 +133,7 @@ export const absWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Fast circuit hitting upper, lower, and obliques.',
           battlePlan: '3 rounds\n• 12 V-Ups\n• 16 Oblique Crunches (8/side)\n• 30 Alt Toe Taps\nRest 60s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/cesyx69b_download%20%2815%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_e2f05db7-8caa-482a-a292-b60f552836b8/artifacts/cx3nv5hu_v%20up.png',
           intensityReason: 'Adds long lever flexion + rotation under fatigue',
           moodTips: [
             {
@@ -153,7 +153,7 @@ export const absWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Minimal rest sit-up progression for ab stamina.',
           battlePlan: '3 rounds\n• 15 Sit-Ups\n• 12 Sit-Ups\n• 10 Sit-Ups\nRest 60s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/cesyx69b_download%20%2815%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_e2f05db7-8caa-482a-a292-b60f552836b8/artifacts/fvyi5mpl_sit%20up.png',
           intensityReason: 'High rep sit-ups push flexion endurance',
           moodTips: [
             {
@@ -235,7 +235,7 @@ export const absWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Brutal pairing of eccentric strength and speed.',
           battlePlan: '3 rounds\n• 4–6 Dragon Flag Negatives\n• Immediately 12 V-Ups\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/n5wg8sb5_download%20%2817%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_e2f05db7-8caa-482a-a292-b60f552836b8/artifacts/rpa4a07t_dragon%20flag.webp',
           intensityReason: 'Extreme lever length + explosive flexion',
           moodTips: [
             {
