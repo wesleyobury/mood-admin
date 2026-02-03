@@ -743,6 +743,26 @@ export const absWorkoutDatabase: EquipmentWorkouts[] = [
               description: 'Stable torso isolates the twisting movement.'
             }
           ]
+        },
+        {
+          name: 'Extended-Knee Raises (45°)',
+          duration: '10–12 min',
+          description: 'Partial straight-leg raises increasing lever length.',
+          battlePlan: '4 rounds\n• 10 Extended-Knee Raises\nRest 75s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_sweat-weights-images/artifacts/0ga9gll0_download%20%285%29.png',
+          intensityReason: 'Stopping at 45° keeps abs loaded throughout',
+          moodTips: [
+            {
+              icon: 'construct',
+              title: 'Stop legs at 45°',
+              description: 'Abs stay loaded in this partial range.'
+            },
+            {
+              icon: 'timer',
+              title: 'Lower slow',
+              description: 'Eccentric matters for strength.'
+            }
+          ]
         }
       ],
       advanced: [
