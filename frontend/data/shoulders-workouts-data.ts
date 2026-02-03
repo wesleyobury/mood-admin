@@ -1673,7 +1673,7 @@ export const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Standard power-press workout increasing load tolerance.',
           battlePlan: 'Battle Plan — Standard Sets\n• 5×6 Push Press — standard reps\nRest 75–90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/z1k5w5av_download.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-data-hub-2/artifacts/4n1f2oy3_bb%20push%20press.png',
           intensityReason: 'Standard power-press workout increasing load tolerance.',
           moodTips: [
             {
@@ -1698,7 +1698,7 @@ export const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Pause-rep pull workout targeting delts and traps.',
           battlePlan: 'Battle Plan — Pause Sets\n• 4×10 Upright Row — pause reps (1s top)\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-data-hub-2/artifacts/9btj6m9u_image.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-data-hub-2/artifacts/3jble54r_Upright%20row.jpg',
           intensityReason: 'Pause-rep pull workout targeting delts and traps.',
           moodTips: [
             {
@@ -1723,7 +1723,7 @@ export const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '15–17 min',
           description: 'High-density standard press workout using moderate loads.',
           battlePlan: 'Battle Plan — Standard Sets\n• 6×6 Overhead Press — standard reps\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/z1k5w5av_download.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-data-hub-2/artifacts/q6gtwvmb_bb%20shoulder%20press.png',
           intensityReason: 'High-density standard press workout using moderate loads.',
           moodTips: [
             {
@@ -1748,7 +1748,7 @@ export const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '15–17 min',
           description: 'Superset workout pairing heavy barbell presses with bodyweight fatigue.',
           battlePlan: 'Battle Plan — Superset\n• 4×6 Push Press — standard reps\nsuperset with\n• 12–15 Pushups\nRest 90s between rounds',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/z1k5w5av_download.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-data-hub-2/artifacts/4n1f2oy3_bb%20push%20press.png',
           intensityReason: 'Superset workout pairing heavy barbell presses with bodyweight fatigue.',
           moodTips: [
             {
