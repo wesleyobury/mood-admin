@@ -273,7 +273,7 @@ export const tricepsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Flat-angle triceps extension workout using floor support.',
           battlePlan: 'Battle Plan — Standard Sets\n• 4×12 KB Floor Skullcrushers — standard reps\nRest 60s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_inspiring-euler/artifacts/uwwxoov7_download%20%284%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_e2f05db7-8caa-482a-a292-b60f552836b8/artifacts/knclvtk4_Flat%20kb%20sc.jpg',
           intensityReason: 'Floor provides consistent depth control',
           moodTips: [
             {
@@ -298,7 +298,7 @@ export const tricepsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Inclined KB extension workout with squeeze-to-finish.',
           battlePlan: 'Battle Plan — Standard + Isometric Finish\n• 4×10 Incline KB Tricep Extensions — standard reps\n• Final set: squeeze to finish — hold lockout 10s\nRest 60s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_inspiring-euler/artifacts/oei647bg_download%20%285%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_e2f05db7-8caa-482a-a292-b60f552836b8/artifacts/8346vntm_oh%20kb%20sc.png',
           intensityReason: 'Incline angle with iso hold maximizes triceps contraction',
           moodTips: [
             {
@@ -325,7 +325,7 @@ export const tricepsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Pause-rep overhead KB workout removing momentum.',
           battlePlan: 'Battle Plan — Pause Sets\n• 4×10 KB Overhead Extensions — pause reps (1s bottom)\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_inspiring-euler/artifacts/uwwxoov7_download%20%284%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_e2f05db7-8caa-482a-a292-b60f552836b8/artifacts/8346vntm_oh%20kb%20sc.png',
           intensityReason: 'Pauses in the stretch maximize long-head load',
           moodTips: [
             {
@@ -350,7 +350,7 @@ export const tricepsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '15–17 min',
           description: 'Angle-shifted skullcrusher workout altering resistance curve.',
           battlePlan: 'Battle Plan — Standard Sets\n• 4×12 Incline KB Skullcrushers — standard reps\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_inspiring-euler/artifacts/oei647bg_download%20%285%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_e2f05db7-8caa-482a-a292-b60f552836b8/artifacts/pyyiholy_incline%20kb%20sc.png',
           intensityReason: 'Incline angle changes resistance curve for varied stimulus',
           moodTips: [
             {
@@ -427,7 +427,7 @@ export const tricepsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '18–20 min',
           description: 'Multi-drop incline KB workout driving mechanical fatigue.',
           battlePlan: 'Battle Plan — Drop Cluster\n• Set 1: 10 reps\n• Set 2: drop — 10 → lighter bell → 8\n• Set 3: triple drop — 8 → lighter → 6 → lighter → 6\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_inspiring-euler/artifacts/uwwxoov7_download%20%284%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_e2f05db7-8caa-482a-a292-b60f552836b8/artifacts/8346vntm_oh%20kb%20sc.png',
           intensityReason: 'KB drops extend time under tension past failure',
           moodTips: [
             {
@@ -452,7 +452,7 @@ export const tricepsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '18–20 min',
           description: 'Burnout + isometric KB workout emphasizing peak extension.',
           battlePlan: 'Battle Plan — Burnout + Isometric\n• 4×12 KB Extensions — burnout reps\n• Final set: squeeze to finish — hold full extension 12–15s\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_inspiring-euler/artifacts/oei647bg_download%20%285%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_e2f05db7-8caa-482a-a292-b60f552836b8/artifacts/knclvtk4_Flat%20kb%20sc.jpg',
           intensityReason: 'Burnout with iso hold completely exhausts triceps',
           moodTips: [
             {
