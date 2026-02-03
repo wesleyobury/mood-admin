@@ -635,7 +635,7 @@ export const bicepsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Standard cable curl workout emphasizing constant tension.',
           battlePlan: 'Battle Plan — Standard Sets\n• 4×12 Standing Cable Curl — standard reps\nRest 60s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_de06d55d-ac38-4152-bbf5-479c53d1fb22/artifacts/3z2y67t7_cc.jpg',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_1e4509cd-7b58-4b0c-b78f-c8a74434260e/artifacts/yv5l5jby_cable%20curl.png',
           intensityReason: 'Cables provide constant tension throughout the movement',
           moodTips: [
             {
@@ -685,7 +685,7 @@ export const bicepsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Standard seated curl workout removing momentum.',
           battlePlan: 'Battle Plan — Standard Sets\n• 4×12 Seated Low Cable Curl — standard reps\nRest 60s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_de06d55d-ac38-4152-bbf5-479c53d1fb22/artifacts/3z2y67t7_cc.jpg',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_1e4509cd-7b58-4b0c-b78f-c8a74434260e/artifacts/lz1p2boy_seated%20low%20cable%20curl.jpg',
           intensityReason: 'Seated position removes momentum for pure biceps isolation',
           moodTips: [
             {
@@ -710,7 +710,7 @@ export const bicepsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Standard cable curl workout with squeeze-to-finish at peak flexion.',
           battlePlan: 'Battle Plan — Standard + Isometric Finish\n• 4×10 Cable Curl — standard reps\n• Final set: squeeze to finish — hold handle at full elbow flexion 8–10s\nRest 60s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_de06d55d-ac38-4152-bbf5-479c53d1fb22/artifacts/jzrqwni6_download.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_1e4509cd-7b58-4b0c-b78f-c8a74434260e/artifacts/f0ehglmc_cable%20curl%202.jpg',
           intensityReason: 'Isometric finish with cable tension maximizes pump',
           moodTips: [
             {
