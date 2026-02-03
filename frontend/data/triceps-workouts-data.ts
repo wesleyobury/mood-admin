@@ -371,131 +371,236 @@ export const tricepsWorkoutDatabase: EquipmentWorkouts[] = [
     }
   },
   {
-    equipment: 'EZ bar',
+    equipment: 'EZ Bar',
     icon: 'remove',
     workouts: {
       beginner: [
         {
-          name: 'Flat EZ Ext',
-          duration: '10–12 min',
-          description: 'Lying EZ extensions target long head efficiently',
-          battlePlan: '3 rounds\n• 10–12 Flat Bench EZ Extensions\nRest 60–75s',
+          name: 'EZ Skullcrusher Builder',
+          duration: '12–14 min',
+          description: 'Standard EZ-bar skullcrusher workout for joint-friendly loading.',
+          battlePlan: 'Battle Plan — Standard Sets\n• 4×12 EZ Skullcrushers — standard reps\nRest 60s',
           imageUrl: 'https://customer-assets.emergentagent.com/job_inspiring-euler/artifacts/ri9qkrqs_download%20%283%29.png',
-          intensityReason: 'Flat bench setup teaches safer pushing mechanics',
+          intensityReason: 'EZ bar angle reduces wrist strain for comfortable loading',
           moodTips: [
             {
-              icon: 'hand-left',
-              title: 'Flat support reduces arching, focusing stress on arms',
-              description: 'Lower EZ bar slowly, extend overhead in a straight track.'
+              icon: 'trending-down',
+              title: 'Lower bar behind forehead',
+              description: 'Shoulder-friendly'
             },
             {
               icon: 'body',
-              title: 'Wrists stay neutral, elbows drive straight upward',
-              description: 'EZ bar curve matches natural wrist position.'
+              title: 'Upper arms fixed',
+              description: 'Prevents cheating'
+            },
+            {
+              icon: 'flash',
+              title: 'Extend fully each rep',
+              description: 'Lockout fuels pump'
             }
           ]
         },
         {
-          name: 'Incline EZ Ext',
-          duration: '10–12 min',
-          description: 'EZ bar incline extension builds deeper triceps load',
-          battlePlan: '3 rounds\n• 10–12 Incline EZ Extensions\nRest 75s',
+          name: 'Close-Grip EZ Press',
+          duration: '12–14 min',
+          description: 'Standard compound triceps press using elbow-dominant grip.',
+          battlePlan: 'Battle Plan — Standard Sets\n• 4×10 Close-Grip EZ Press — standard reps\nRest 60s',
           imageUrl: 'https://customer-assets.emergentagent.com/job_inspiring-euler/artifacts/pa8x192c_download%20%282%29.png',
-          intensityReason: 'Incline increases long head activation via angle',
+          intensityReason: 'Close grip transfers load to triceps for compound pressing',
           moodTips: [
             {
-              icon: 'fitness',
-              title: 'Incline position intensifies stretch tension safely',
-              description: 'Wrists stay neutral, elbows drive straight upward.'
+              icon: 'hand-left',
+              title: 'Grip inside shoulder width',
+              description: 'Triceps bias'
+            },
+            {
+              icon: 'body',
+              title: 'Elbows track in',
+              description: 'Joint safety'
             },
             {
               icon: 'flash',
-              title: 'Keep elbows tight, no shoulder involvement',
-              description: 'Steady press pattern builds consistent strength.'
+              title: 'Press to full extension',
+              description: 'Compound lockout pumps hard'
+            }
+          ]
+        },
+        {
+          name: 'EZ Extension + Iso Finish',
+          duration: '12–14 min',
+          description: 'Standard EZ extension workout with squeeze-to-finish.',
+          battlePlan: 'Battle Plan — Standard + Isometric Finish\n• 4×10 EZ Extensions — standard reps\n• Final set: squeeze to finish — hold lockout 10s\nRest 60s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_inspiring-euler/artifacts/ri9qkrqs_download%20%283%29.png',
+          intensityReason: 'Isometric finish maximizes triceps contraction',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Flex triceps hard',
+              description: 'Neural drive'
+            },
+            {
+              icon: 'shield',
+              title: 'No elbow flare',
+              description: 'Keeps load honest'
+            },
+            {
+              icon: 'fitness',
+              title: 'Use lighter bar for hold',
+              description: 'Longer squeeze = pump'
             }
           ]
         }
       ],
       intermediate: [
         {
-          name: 'EZ Crushers',
-          duration: '12–14 min',
-          description: 'Benchmark triceps builder with strict execution',
-          battlePlan: '4 rounds\n• 8–10 EZ Skull Crushers\nRest 75–90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_inspiring-euler/artifacts/ri9qkrqs_download%20%283%29.png',
-          intensityReason: 'Skull crushers stretch and contract muscle fully',
+          name: 'Paused EZ Skullcrushers',
+          duration: '14–16 min',
+          description: 'Pause-rep EZ skullcrusher workout removing momentum.',
+          battlePlan: 'Battle Plan — Pause Sets\n• 4×10 Skullcrushers — pause reps (1s bottom)\nRest 75s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_inspiring-euler/artifacts/pa8x192c_download%20%282%29.png',
+          intensityReason: 'Pauses in the stretch maximize long-head load',
           moodTips: [
             {
-              icon: 'body',
-              title: 'With flat bench, lower bar near forehead for line',
-              description: 'Keep elbows tight, no shoulder involvement.'
+              icon: 'timer',
+              title: 'Pause in the stretch',
+              description: 'Long-head load'
             },
             {
-              icon: 'trending-up',
-              title: 'Lower bar over 3s, press up without bouncing',
-              description: 'Control the stretch for safety and effectiveness.'
+              icon: 'body',
+              title: 'Brace through torso',
+              description: 'Stability matters'
+            },
+            {
+              icon: 'flash',
+              title: 'Drive to full extension',
+              description: 'Stretch + squeeze = pump'
             }
           ]
         },
         {
-          name: 'Eccentric Crushers',
-          duration: '12–14 min',
-          description: 'Negatives extend overall time under triceps tension',
-          battlePlan: '3 rounds\n• 8 EZ Skull Crushers (3s eccentric)\nRest 75–90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_inspiring-euler/artifacts/pa8x192c_download%20%282%29.png',
-          intensityReason: '3s lower phase increases hypertrophy precision',
+          name: 'EZ Burn Builder',
+          duration: '15–17 min',
+          description: 'Burnout-style EZ extension workout extending time under tension.',
+          battlePlan: 'Battle Plan — Burnout Sets\n• 4×15 EZ Extensions — burnout reps\nRest 75s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_inspiring-euler/artifacts/ri9qkrqs_download%20%283%29.png',
+          intensityReason: 'Extended reps build endurance and pump',
           moodTips: [
             {
-              icon: 'timer',
-              title: 'Lower bar over 3s, press up without bouncing',
-              description: 'Incline bench option deepens long head involvement.'
+              icon: 'shield',
+              title: 'No lockout rest',
+              description: 'Constant tension'
             },
             {
-              icon: 'shield',
-              title: 'Keep elbows locked narrow both variations',
-              description: 'Never let the weight drop or bounce.'
+              icon: 'refresh',
+              title: 'Smooth cadence',
+              description: 'Elbow friendly'
+            },
+            {
+              icon: 'flash',
+              title: 'Moderate weight, nonstop reps',
+              description: 'Burnout = pump'
+            }
+          ]
+        },
+        {
+          name: 'Skullcrusher + Close-Grip Contrast',
+          duration: '15–17 min',
+          description: 'Superset workout pairing isolation and compound extension.',
+          battlePlan: 'Battle Plan — Superset\n• 4×10 EZ Skullcrushers\nsuperset with\n• 8 Close-Grip EZ Press\nRest 90s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_inspiring-euler/artifacts/pa8x192c_download%20%282%29.png',
+          intensityReason: 'Isolation + compound maximizes triceps fatigue',
+          moodTips: [
+            {
+              icon: 'trending-up',
+              title: 'Isolation first',
+              description: 'Fatigue fibers'
+            },
+            {
+              icon: 'fitness',
+              title: 'Compound finishes strong',
+              description: 'Load through lockout'
+            },
+            {
+              icon: 'flash',
+              title: 'Control both endings',
+              description: 'Two contractions = pump'
             }
           ]
         }
       ],
       advanced: [
         {
-          name: 'Ext Superset',
-          duration: '14–16 min',
-          description: 'Combo adds angles for complete triceps overload',
-          battlePlan: '4 rounds\n• 8 Flat EZ Extensions\n• 8 Incline EZ Extensions\nRest 90s',
+          name: 'Heavy EZ Skullcrusher',
+          duration: '18–20 min',
+          description: 'Standard heavy EZ skullcrusher workout emphasizing strict form.',
+          battlePlan: 'Battle Plan — Standard Sets\n• 6×8 EZ Skullcrushers\nRest 90s',
           imageUrl: 'https://customer-assets.emergentagent.com/job_inspiring-euler/artifacts/ri9qkrqs_download%20%283%29.png',
-          intensityReason: 'Pair flat extension with incline for volume boost',
+          intensityReason: 'Heavy loads with strict form build maximum strength',
           moodTips: [
             {
-              icon: 'refresh',
-              title: 'Perform flat reps strict, hit incline immediately',
-              description: 'Keep elbows locked narrow both variations.'
+              icon: 'shield',
+              title: 'No ego loading',
+              description: 'Elbow safety'
             },
             {
-              icon: 'fitness',
-              title: 'Control bar path entire round',
-              description: 'Each angle hits triceps differently.'
+              icon: 'trending-down',
+              title: 'Control negatives',
+              description: 'Triceps respond well'
+            },
+            {
+              icon: 'flash',
+              title: 'Finish reps locked out',
+              description: 'Peak extension matters'
             }
           ]
         },
         {
-          name: 'Crusher Burnout',
-          duration: '16–18 min',
-          description: 'Burnout ends with static hold for max triceps fatigue',
-          battlePlan: '4 rounds\n• 8 Incline EZ Skull Crushers\n• 8 Flat EZ Extensions\n• End with 10s Iso Hold Mid Rep\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_inspiring-euler/artifacts/pa8x192c_download%20%282%29.png',
-          intensityReason: 'Multi set pairing with iso hold taxes endurance',
+          name: 'EZ Extension Drop Cluster',
+          duration: '18–20 min',
+          description: 'Multi-drop EZ extension workout driving fatigue.',
+          battlePlan: 'Battle Plan — Drop Cluster\n• Set 1: 10 reps\n• Set 2: drop — 10 → drop ~20% → 8\n• Set 3: triple drop — 8 → drop ~15% → 6 → drop ~10% → 6\nRest 90s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_inspiring-euler/artifacts/ri9qkrqs_download%20%283%29.png',
+          intensityReason: 'Drop clusters extend time under tension past failure',
           moodTips: [
             {
-              icon: 'flame',
-              title: 'Final rep: hold halfway down for 10s',
-              description: 'Control bar path entire round.'
+              icon: 'flash',
+              title: 'Plate changes immediate',
+              description: 'Stay on bench'
             },
             {
-              icon: 'body',
-              title: 'Listen to your body',
-              description: 'Stop if form breaks down significantly.'
+              icon: 'shield',
+              title: 'Smaller drops protect elbows',
+              description: 'Clean reps'
+            },
+            {
+              icon: 'timer',
+              title: 'End sets fully extended',
+              description: 'Pump is in the lockout'
+            }
+          ]
+        },
+        {
+          name: 'EZ Burnout Hold',
+          duration: '18–20 min',
+          description: 'Burnout + isometric EZ extension workout.',
+          battlePlan: 'Battle Plan — Burnout + Isometric\n• 4×12 EZ Extensions\n• Final set: squeeze to finish — hold lockout 12–15s\nRest 90s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_inspiring-euler/artifacts/pa8x192c_download%20%282%29.png',
+          intensityReason: 'Burnout with iso hold completely exhausts triceps',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Flex aggressively',
+              description: 'Neural drive'
+            },
+            {
+              icon: 'shield',
+              title: 'No resting at top',
+              description: 'Tension stays high'
+            },
+            {
+              icon: 'fitness',
+              title: 'Lighter bar, longer hold',
+              description: 'Pump > ego'
             }
           ]
         }
