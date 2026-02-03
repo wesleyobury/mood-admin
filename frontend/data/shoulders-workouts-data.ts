@@ -2507,7 +2507,7 @@ export const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Standard unilateral press workout using kettlebell instability for delt activation.',
           battlePlan: 'Battle Plan — Standard Sets\n• 4×10 Single-Arm Kettlebell Press — standard reps\nRest 60s per side',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/d2gkwhep_download%20%282%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-data-hub-2/artifacts/ijanvd0e_kb%20shoulder%20press.png',
           intensityReason: 'Standard unilateral press workout using kettlebell instability for delt activation.',
           moodTips: [
             {
@@ -2532,7 +2532,7 @@ export const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Standard isolation workout targeting anterior delts with offset load.',
           battlePlan: 'Battle Plan — Standard Sets\n• 4×12 Kettlebell Front Raise — standard reps\nRest 60s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/d2gkwhep_download%20%282%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-data-hub-2/artifacts/daoo7ik5_kb%20lat%20riase.png',
           intensityReason: 'Standard isolation workout targeting anterior delts with offset load.',
           moodTips: [
             {
@@ -2557,7 +2557,7 @@ export const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Standard isolation workout emphasizing side delts and grip control.',
           battlePlan: 'Battle Plan — Standard Sets\n• 4×15 Kettlebell Lateral Raise — standard reps\nRest 60s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/d2gkwhep_download%20%282%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-data-hub-2/artifacts/jjgy8pfh_KB%20upright%20row.png',
           intensityReason: 'Standard isolation workout emphasizing side delts and grip control.',
           moodTips: [
             {
@@ -2582,7 +2582,7 @@ export const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Standard press workout with squeeze-to-finish in the contracted range.',
           battlePlan: 'Battle Plan — Standard + Isometric Finish\n• 4×10 Single-Arm KB Press — standard reps\n• Final set: squeeze to finish — hold just before lockout (peak delt contraction) 8–10s\nRest 60s per side',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/d2gkwhep_download%20%282%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-data-hub-2/artifacts/zr277bch_kb%20press%20or%20offset%20rack%20hold.png',
           intensityReason: 'Standard press workout with squeeze-to-finish in the contracted range.',
           moodTips: [
             {
