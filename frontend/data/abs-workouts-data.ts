@@ -935,6 +935,26 @@ export const absWorkoutDatabase: EquipmentWorkouts[] = [
               description: 'Peak contraction at each twist builds strength.'
             }
           ]
+        },
+        {
+          name: 'Alternating Reach Extensions',
+          duration: '10–12 min',
+          description: 'Controlled reach adding anti-rotation demand.',
+          battlePlan: '4 rounds\n• 8 per side Alternating Reaches\nRest 75s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_sweat-weights-images/artifacts/9xys14l8_download%20%289%29.png',
+          intensityReason: 'Opposite arm reach engages obliques with anti-rotation',
+          moodTips: [
+            {
+              icon: 'construct',
+              title: 'Opposite arm reach',
+              description: 'Obliques engage to stabilize.'
+            },
+            {
+              icon: 'shield',
+              title: 'Minimal torso shift',
+              description: 'Stability wins over movement.'
+            }
+          ]
         }
       ],
       advanced: [
