@@ -997,7 +997,7 @@ export const bicepsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Standard narrow-grip preacher curl biasing long head.',
           battlePlan: 'Battle Plan — Standard Sets\n• 4×12 Close-Grip Preacher Curl — standard reps\nRest 60s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_de06d55d-ac38-4152-bbf5-479c53d1fb22/artifacts/rmfkhn59_download%20%286%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_1e4509cd-7b58-4b0c-b78f-c8a74434260e/artifacts/otlde2yi_preacher%20curl%203.webp',
           intensityReason: 'Close grip on preacher targets long head effectively',
           moodTips: [
             {
@@ -1022,7 +1022,7 @@ export const bicepsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Standard preacher curl workout with squeeze-to-finish at peak flexion.',
           battlePlan: 'Battle Plan — Standard + Isometric Finish\n• 4×10 Preacher Curl — standard reps\n• Final set: squeeze to finish — hold top 8–10s\nRest 60s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_de06d55d-ac38-4152-bbf5-479c53d1fb22/artifacts/2h81ucwk_download%20%285%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_1e4509cd-7b58-4b0c-b78f-c8a74434260e/artifacts/g54uz2wp_preacher%20curl.webp',
           intensityReason: 'Isometric finish on preacher maximizes contraction',
           moodTips: [
             {
@@ -1099,7 +1099,7 @@ export const bicepsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '15–17 min',
           description: 'Burnout preacher curl workout emphasizing time under tension.',
           battlePlan: 'Battle Plan — Burnout Sets\n• 4×15 Preacher Curl — burnout reps\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_de06d55d-ac38-4152-bbf5-479c53d1fb22/artifacts/rmfkhn59_download%20%286%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_1e4509cd-7b58-4b0c-b78f-c8a74434260e/artifacts/otlde2yi_preacher%20curl%203.webp',
           intensityReason: 'Extended reps on preacher build endurance and pump',
           moodTips: [
             {
@@ -1124,7 +1124,7 @@ export const bicepsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '15–17 min',
           description: 'Superset workout pairing full ROM with top-range preacher reps.',
           battlePlan: 'Battle Plan — Superset\n• 4×10 Preacher Curl — standard reps\nsuperset with\n• 10 Top-Range Partial Preacher Curls\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_de06d55d-ac38-4152-bbf5-479c53d1fb22/artifacts/2h81ucwk_download%20%285%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_1e4509cd-7b58-4b0c-b78f-c8a74434260e/artifacts/g54uz2wp_preacher%20curl.webp',
           intensityReason: 'Full and partial reps maximize fiber recruitment',
           moodTips: [
             {
@@ -1201,7 +1201,7 @@ export const bicepsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '18–20 min',
           description: 'Burnout + isometric preacher curl workout.',
           battlePlan: 'Battle Plan — Burnout + Isometric\n• 4×12 Preacher Curl — burnout reps\n• Final set: squeeze to finish — hold top 10s\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_de06d55d-ac38-4152-bbf5-479c53d1fb22/artifacts/2h81ucwk_download%20%285%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_1e4509cd-7b58-4b0c-b78f-c8a74434260e/artifacts/otlde2yi_preacher%20curl%203.webp',
           intensityReason: 'Burnout with iso hold on preacher exhausts biceps completely',
           moodTips: [
             {
@@ -1226,7 +1226,7 @@ export const bicepsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '18–20 min',
           description: 'Partial-range preacher curl workout increasing time under tension.',
           battlePlan: 'Battle Plan — Standard Sets\n• 5×8 Preacher Curl — 1.5 reps\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_de06d55d-ac38-4152-bbf5-479c53d1fb22/artifacts/2h81ucwk_download%20%285%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_1e4509cd-7b58-4b0c-b78f-c8a74434260e/artifacts/g54uz2wp_preacher%20curl.webp',
           intensityReason: '1.5 reps on preacher double time under tension per rep',
           moodTips: [
             {
