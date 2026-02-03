@@ -2,131 +2,236 @@ import { EquipmentWorkouts } from '../types/workout';
 
 export const tricepsWorkoutDatabase: EquipmentWorkouts[] = [
   {
-    equipment: 'Dumbbell',
+    equipment: 'Dumbbells',
     icon: 'barbell',
     workouts: {
       beginner: [
         {
-          name: 'Flat DB Ext',
-          duration: '10–12 min',
-          description: 'Lying dumbbell extensions build safe, strict strength',
-          battlePlan: '3 rounds\n• 10–12 Flat Bench DB Extensions\nRest 60–75s',
+          name: 'Seated DB Overhead Extension',
+          duration: '12–14 min',
+          description: 'Standard overhead extension workout emphasizing long-head triceps stretch.',
+          battlePlan: 'Battle Plan — Standard Sets\n• 4×12 Seated DB Overhead Extensions — standard reps\nRest 60s',
           imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/d78e5qae_fdbsc.webp',
-          intensityReason: 'Stable flat bench isolates movement to triceps only',
+          intensityReason: 'Overhead position maximizes long-head triceps stretch',
           moodTips: [
             {
-              icon: 'flash',
-              title: 'Flat bench support reduces back strain and keeps core relaxed',
-              description: 'Lower DBs behind head for stretch, extend arms fully each rep.'
+              icon: 'body',
+              title: 'Elbows point slightly in',
+              description: 'Keeps tension on triceps'
             },
             {
-              icon: 'body',
-              title: 'Keep elbows fixed upward, no drifting outward during press',
-              description: 'Fixed elbow position maximizes tricep isolation.'
+              icon: 'trending-down',
+              title: 'Lower slow and deep',
+              description: 'Stretch drives activation'
+            },
+            {
+              icon: 'flash',
+              title: 'Lock out just before elbows stack',
+              description: 'Peak extension creates the pump'
             }
           ]
         },
         {
-          name: 'Incline DB Ext',
-          duration: '10–12 min',
-          description: 'Extended angle overhead hits fibers more intensely',
-          battlePlan: '3 rounds\n• 10–12 Incline Overhead DB Extensions\nRest 75s',
+          name: 'Lying DB Skullcrushers',
+          duration: '12–14 min',
+          description: 'Standard horizontal extension workout with stable positioning.',
+          battlePlan: 'Battle Plan — Standard Sets\n• 4×12 DB Skullcrushers — standard reps\nRest 60s',
           imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/nworhx1b_idbsc.webp',
-          intensityReason: 'Incline bench increases stretch on long triceps head',
+          intensityReason: 'Horizontal position provides stable triceps isolation',
+          moodTips: [
+            {
+              icon: 'hand-left',
+              title: 'Lower DBs beside temples',
+              description: 'Shoulder-friendly path'
+            },
+            {
+              icon: 'body',
+              title: 'Upper arms stay vertical',
+              description: 'Prevents shoulder drift'
+            },
+            {
+              icon: 'flash',
+              title: 'Extend fully, squeeze hard',
+              description: 'Shortened triceps pump best'
+            }
+          ]
+        },
+        {
+          name: 'DB Kickback Builder',
+          duration: '12–14 min',
+          description: 'Beginner-only isolation workout emphasizing peak contraction.',
+          battlePlan: 'Battle Plan — Standard Sets\n• 4×15 DB Kickbacks — standard reps\nRest 60s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_inspiring-euler/artifacts/yyzj0dlo_download%20%281%29.png',
+          intensityReason: 'Kickbacks emphasize peak triceps contraction',
           moodTips: [
             {
               icon: 'body',
-              title: 'Incline bench places arms behind torso for deeper stretch',
-              description: 'Keep elbows fixed upward, no drifting outward during press.'
+              title: 'Upper arm stays fixed',
+              description: 'Pure elbow extension'
             },
             {
-              icon: 'timer',
-              title: 'Control descent 3s, then snap lockout for crisp contraction',
-              description: 'Controlled eccentric movement builds strength and prevents injury.'
+              icon: 'trending-up',
+              title: 'Extend back, not up',
+              description: 'Keeps tension on triceps'
+            },
+            {
+              icon: 'flash',
+              title: 'Light weight, hard lockout',
+              description: 'Kickbacks pump from contraction'
             }
           ]
         }
       ],
       intermediate: [
         {
-          name: 'Eccentric Incline Ext',
-          duration: '12–14 min',
-          description: 'Incline bench enhances stretch with eccentric focus',
-          battlePlan: '4 rounds\n• 8–10 Incline Overhead DB Extensions (3s eccentric)\nRest 75–90s',
+          name: 'Paused Overhead DB Extension',
+          duration: '14–16 min',
+          description: 'Pause-rep overhead extension workout removing momentum.',
+          battlePlan: 'Battle Plan — Pause Sets\n• 4×10 Overhead DB Extensions — pause reps (1s bottom)\nRest 75s',
           imageUrl: 'https://customer-assets.emergentagent.com/job_inspiring-euler/artifacts/yyzj0dlo_download%20%281%29.png',
-          intensityReason: 'Three second negatives reinforce hypertrophy load',
+          intensityReason: 'Pauses in the stretch emphasize long-head load',
           moodTips: [
             {
-              icon: 'flash',
-              title: 'Use incline bench to safely deepen long head under load',
-              description: 'Control descent 3s, then snap lockout for crisp contraction.'
+              icon: 'timer',
+              title: 'Pause in the stretch',
+              description: 'Long-head emphasis'
             },
             {
-              icon: 'shield',
-              title: 'Pause 1–2s at bottom before powering extension upward',
-              description: 'Stable torso ensures triceps handle all resistance.'
+              icon: 'body',
+              title: 'Core tight',
+              description: 'Prevents rib flare'
+            },
+            {
+              icon: 'flash',
+              title: 'Drive to full extension',
+              description: 'Stretch + lockout = pump'
             }
           ]
         },
         {
-          name: 'Pause Skull Crusher',
-          duration: '12–14 min',
-          description: 'Incline position plus pause extends hypertrophy work',
-          battlePlan: '3 rounds\n• 8–10 Incline Skull Crushers w/2s Pause\nRest 75–90s',
+          name: 'DB Skullcrusher Burn Builder',
+          duration: '15–17 min',
+          description: 'Burnout-style skullcrusher workout extending time under tension.',
+          battlePlan: 'Battle Plan — Burnout Sets\n• 4×15 Skullcrushers — burnout reps\nRest 75s',
           imageUrl: 'https://customer-assets.emergentagent.com/job_inspiring-euler/artifacts/5cjqt0fg_download.png',
-          intensityReason: 'Skull crushers with pause build stronger end range',
+          intensityReason: 'Extended reps build endurance and pump',
           moodTips: [
             {
-              icon: 'timer',
-              title: 'Incline bench increases elbow flex angle for greater loading',
-              description: 'Pause 1–2s at bottom before powering extension upward.'
+              icon: 'refresh',
+              title: 'Smooth cadence',
+              description: 'Protects elbows'
+            },
+            {
+              icon: 'shield',
+              title: 'No lockout rest',
+              description: 'Continuous tension'
+            },
+            {
+              icon: 'flash',
+              title: 'Moderate load, nonstop reps',
+              description: 'Burnout = pump'
+            }
+          ]
+        },
+        {
+          name: 'Overhead Extension + Skullcrusher Contrast',
+          duration: '15–17 min',
+          description: 'Superset workout pairing long-head stretch with horizontal extension.',
+          battlePlan: 'Battle Plan — Superset\n• 4×10 DB Overhead Extensions — standard reps\nsuperset with\n• 10 DB Skullcrushers\nRest 90s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_inspiring-euler/artifacts/yyzj0dlo_download%20%281%29.png',
+          intensityReason: 'Two angles maximize triceps fiber recruitment',
+          moodTips: [
+            {
+              icon: 'trending-up',
+              title: 'Overhead work first',
+              description: 'Loads long head fully'
             },
             {
               icon: 'fitness',
-              title: 'Switch quickly to keep constant pressure on muscles',
-              description: 'Fixed elbows ensure triceps do all the work.'
+              title: 'Skullcrushers finish fibers',
+              description: 'Cleaner elbow extension'
+            },
+            {
+              icon: 'flash',
+              title: 'Control both lockouts',
+              description: 'Two contractions = pump'
             }
           ]
         }
       ],
       advanced: [
         {
-          name: 'Ext Superset',
-          duration: '14–16 min',
-          description: 'Two extension positions maximize complete training',
-          battlePlan: '4 rounds\n• 8 Flat DB Extensions\nRest 60s\n• 8 Incline Skull Crushers\nRest 75–90s',
+          name: 'Heavy DB Overhead Extension',
+          duration: '18–20 min',
+          description: 'Standard heavy overhead extension workout for advanced loading.',
+          battlePlan: 'Battle Plan — Standard Sets\n• 6×8 DB Overhead Extensions — standard reps\nRest 90s',
           imageUrl: 'https://customer-assets.emergentagent.com/job_inspiring-euler/artifacts/yyzj0dlo_download%20%281%29.png',
-          intensityReason: 'Flat and incline superset hits triceps from angles',
+          intensityReason: 'Heavy loads with strict form build maximum strength',
           moodTips: [
             {
-              icon: 'shield',
-              title: 'Flat bench = stability; incline = deeper stretch and fiber hit',
-              description: 'Switch quickly to keep constant pressure on muscles.'
+              icon: 'body',
+              title: 'Elbows tight',
+              description: 'Shoulder safety'
+            },
+            {
+              icon: 'trending-down',
+              title: 'Slow negatives',
+              description: 'Triceps love eccentrics'
             },
             {
               icon: 'flash',
-              title: 'Keep elbows locked narrow both variations',
-              description: 'Feel the muscle working through full range.'
+              title: 'Finish each rep fully extended',
+              description: 'Lockout drives pump'
             }
           ]
         },
         {
-          name: 'Iso Burn Ext',
-          duration: '16–18 min',
-          description: 'Incline curl then isometric hold finishes triceps hard',
-          battlePlan: '4 rounds\n• 8 Incline Overhead Extensions (3s eccentric)\n• 8 Incline Skull Crushers\n• End with 10s Hold Mid Rep\nRest 90s',
+          name: 'DB Extension Drop Cluster',
+          duration: '18–20 min',
+          description: 'Multi-drop overhead extension workout driving mechanical fatigue.',
+          battlePlan: 'Battle Plan — Drop Cluster\n• Set 1: 10 reps\n• Set 2: drop set — 10 → drop ~20% → 8\n• Set 3: triple drop — 8 → drop ~15% → 6 → drop ~10% → 6\nRest 90s',
           imageUrl: 'https://customer-assets.emergentagent.com/job_inspiring-euler/artifacts/5cjqt0fg_download.png',
-          intensityReason: 'Superset with eccentric and iso hold maximizes load',
+          intensityReason: 'Drop clusters extend time under tension past failure',
           moodTips: [
             {
-              icon: 'timer',
-              title: 'Combine deep incline stretch with slow eccentric lowering',
-              description: 'Finish every round with a 10s mid extension iso hold.'
+              icon: 'flash',
+              title: 'Drops are immediate',
+              description: 'No standing around'
             },
             {
-              icon: 'flame',
-              title: 'Control bar path entire round',
-              description: 'Mental toughness through metabolic stress builds strength.'
+              icon: 'shield',
+              title: 'Smaller drops preserve elbow health',
+              description: 'Clean reps matter'
+            },
+            {
+              icon: 'timer',
+              title: 'End every mini-set locked out',
+              description: 'Peak extension seals pump'
+            }
+          ]
+        },
+        {
+          name: 'Skullcrusher Burnout Hold',
+          duration: '18–20 min',
+          description: 'Burnout + isometric skullcrusher workout emphasizing peak extension.',
+          battlePlan: 'Battle Plan — Burnout + Isometric\n• 4×12 DB Skullcrushers — burnout reps\n• Final set: squeeze to finish — hold full elbow extension 12–15s\nRest 90s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_inspiring-euler/artifacts/5cjqt0fg_download.png',
+          intensityReason: 'Burnout with iso hold completely exhausts triceps',
+          moodTips: [
+            {
+              icon: 'body',
+              title: 'Upper arms fixed',
+              description: 'Isolation preserved'
+            },
+            {
+              icon: 'flash',
+              title: 'Flex aggressively',
+              description: 'Neural drive matters'
+            },
+            {
+              icon: 'fitness',
+              title: 'Moderate load, long hold',
+              description: 'Pump > ego'
             }
           ]
         }
