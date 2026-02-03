@@ -489,6 +489,26 @@ export const absWorkoutDatabase: EquipmentWorkouts[] = [
               description: 'Breathing coordination enhances contraction.'
             }
           ]
+        },
+        {
+          name: 'Slow Eccentric Machine Crunch',
+          duration: '8–10 min',
+          description: 'Controlled crunch emphasizing lengthened ab tension.',
+          battlePlan: '3 rounds\n• 10 Slow Eccentric Crunches (4s down)\nRest 60s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_sweat-weights-images/artifacts/i706j2jh_abss.webp',
+          intensityReason: 'Eccentric time builds control and strength',
+          moodTips: [
+            {
+              icon: 'timer',
+              title: 'Lower weight on a slow 4-count',
+              description: 'Slow eccentric builds incredible control.'
+            },
+            {
+              icon: 'construct',
+              title: 'Stop just before full stretch',
+              description: 'Keeps tension on abs throughout.'
+            }
+          ]
         }
       ],
       intermediate: [
