@@ -297,6 +297,26 @@ export const absWorkoutDatabase: EquipmentWorkouts[] = [
               description: 'Brief pause builds strength and control.'
             }
           ]
+        },
+        {
+          name: 'Eccentric-Only Kneeling Rollouts',
+          duration: '8–10 min',
+          description: 'Negative-only rollouts building anti-extension strength safely.',
+          battlePlan: '3 rounds\n• 8–10 Eccentric Rollouts\nRest 60s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_sweat-weights-images/artifacts/gw2t6eg7_download%20%281%29.png',
+          intensityReason: 'Eccentric focus builds strength without strain',
+          moodTips: [
+            {
+              icon: 'timer',
+              title: 'Lower slowly under control',
+              description: 'Slow eccentric builds strength safely.'
+            },
+            {
+              icon: 'construct',
+              title: 'Reset fully each rep',
+              description: 'No rebound — clean reps only.'
+            }
+          ]
         }
       ],
       intermediate: [
