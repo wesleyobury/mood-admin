@@ -1435,7 +1435,7 @@ export const absWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '8–10 min',
           description: 'Assisted knee raises to learn hanging core control.',
           battlePlan: '3 rounds\n• 8–10 Supported Hanging Knee Raises\nRest 60s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_e2f05db7-8caa-482a-a292-b60f552836b8/artifacts/btq4nw4n_Hanging%20leg%20raise.avif',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_ba98ecac-d9ff-4da8-8b26-c72f04702bfb/artifacts/7v92z8q8_hanging%20knee%201.png',
           intensityReason: 'Light support eliminates swing for proper form',
           moodTips: [
             {
@@ -1475,7 +1475,7 @@ export const absWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '8–10 min',
           description: 'Brief knee raise holds to practice ab activation.',
           battlePlan: '3 rounds\n• 6 Knee Raises with 1s Hold\nRest 60s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_e2f05db7-8caa-482a-a292-b60f552836b8/artifacts/btq4nw4n_Hanging%20leg%20raise.avif',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_ba98ecac-d9ff-4da8-8b26-c72f04702bfb/artifacts/j8odgh5l_hanging%20knee%202.png',
           intensityReason: 'Static top hold teaches proper contraction',
           moodTips: [
             {
@@ -1517,7 +1517,7 @@ export const absWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Combo reps extend time under tension in one set.',
           battlePlan: '3 rounds\n• 6 Straight-Leg Raises\n• Immediately 6 Knee Tucks\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_e2f05db7-8caa-482a-a292-b60f552836b8/artifacts/btq4nw4n_Hanging%20leg%20raise.avif',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_ba98ecac-d9ff-4da8-8b26-c72f04702bfb/artifacts/j8odgh5l_hanging%20knee%202.png',
           intensityReason: 'Combo extends time under tension per set',
           moodTips: [
             {
@@ -1537,7 +1537,7 @@ export const absWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Controlled knee-to-chest raises with slow negatives.',
           battlePlan: '3 rounds\n• 10 Knee-to-Chest Raises (3s down)\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_e2f05db7-8caa-482a-a292-b60f552836b8/artifacts/btq4nw4n_Hanging%20leg%20raise.avif',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_ba98ecac-d9ff-4da8-8b26-c72f04702bfb/artifacts/7v92z8q8_hanging%20knee%201.png',
           intensityReason: 'Slow eccentric builds strength through full range',
           moodTips: [
             {
