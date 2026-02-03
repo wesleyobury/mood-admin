@@ -943,126 +943,306 @@ export const bicepsWorkoutDatabase: EquipmentWorkouts[] = [
     workouts: {
       beginner: [
         {
-          name: 'Preacher Intro',
-          duration: '10–12 min',
-          description: 'Guided preacher curls isolate and strengthen arms',
-          battlePlan: '3 rounds\n• 10–12 Preacher Curls\nRest 60s',
+          name: 'Preacher Curl Builder',
+          duration: '12–14 min',
+          description: 'Standard preacher curl workout emphasizing strict elbow flexion.',
+          battlePlan: 'Battle Plan — Standard Sets\n• 4×12 Preacher Machine Curl — standard reps\nRest 60s',
           imageUrl: 'https://customer-assets.emergentagent.com/job_de06d55d-ac38-4152-bbf5-479c53d1fb22/artifacts/rmfkhn59_download%20%286%29.png',
-          intensityReason: 'Arm pad stabilizes curl motion and builds control',
+          intensityReason: 'Preacher pad eliminates cheating for pure biceps isolation',
           moodTips: [
             {
-              icon: 'fitness',
-              title: 'Keep arms locked to the pad',
-              description: 'Pad support ensures strict isolation.'
+              icon: 'body',
+              title: 'Upper arms glued to pad',
+              description: 'Zero momentum'
             },
             {
-              icon: 'shield',
-              title: 'Avoid bouncing at the bottom',
-              description: 'Controlled movement prevents injury.'
+              icon: 'trending-down',
+              title: 'Control the bottom',
+              description: 'Protects elbows'
+            },
+            {
+              icon: 'flash',
+              title: 'Stretch deep, squeeze hard',
+              description: 'Preacher pumps brutally'
             }
           ]
         },
         {
-          name: 'Slow Preacher',
-          duration: '10–12 min',
-          description: 'Tempo preacher curls enhance control and tension',
-          battlePlan: '3 rounds\n• 10 Preacher Curls (2–3s descent)\nRest 75s',
+          name: 'Tempo Preacher Curl',
+          duration: '12–14 min',
+          description: 'Eccentric-focused preacher curl workout emphasizing control.',
+          battlePlan: 'Battle Plan — Eccentric Sets\n• 4×10 Preacher Curl — eccentric reps (3s down)\nRest 60s',
           imageUrl: 'https://customer-assets.emergentagent.com/job_de06d55d-ac38-4152-bbf5-479c53d1fb22/artifacts/2h81ucwk_download%20%285%29.png',
-          intensityReason: 'Slowed cadence develops precision under load',
+          intensityReason: 'Slow eccentrics on preacher pad hit hard',
           moodTips: [
             {
-              icon: 'timer',
-              title: 'Lower in 2–3s each rep',
-              description: 'Slow tempo increases time under tension.'
+              icon: 'trending-down',
+              title: 'Slow negatives matter',
+              description: 'Preacher eccentrics hit hard'
+            },
+            {
+              icon: 'shield',
+              title: 'No lockout',
+              description: 'Keeps tension'
             },
             {
               icon: 'flash',
-              title: 'Pause and squeeze at top',
-              description: 'Peak contraction builds strength.'
+              title: 'Bottom stretch fuels pump',
+              description: 'Long range dominates'
+            }
+          ]
+        },
+        {
+          name: 'Close-Grip Preacher Curl',
+          duration: '12–14 min',
+          description: 'Standard narrow-grip preacher curl biasing long head.',
+          battlePlan: 'Battle Plan — Standard Sets\n• 4×12 Close-Grip Preacher Curl — standard reps\nRest 60s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_de06d55d-ac38-4152-bbf5-479c53d1fb22/artifacts/rmfkhn59_download%20%286%29.png',
+          intensityReason: 'Close grip on preacher targets long head effectively',
+          moodTips: [
+            {
+              icon: 'hand-left',
+              title: 'Hands narrow',
+              description: 'Long-head emphasis'
+            },
+            {
+              icon: 'fitness',
+              title: 'Wrists neutral',
+              description: 'Elbow comfort'
+            },
+            {
+              icon: 'flash',
+              title: 'Full ROM every rep',
+              description: 'Better pump than load'
+            }
+          ]
+        },
+        {
+          name: 'Curl + Iso Finish',
+          duration: '12–14 min',
+          description: 'Standard preacher curl workout with squeeze-to-finish at peak flexion.',
+          battlePlan: 'Battle Plan — Standard + Isometric Finish\n• 4×10 Preacher Curl — standard reps\n• Final set: squeeze to finish — hold top 8–10s\nRest 60s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_de06d55d-ac38-4152-bbf5-479c53d1fb22/artifacts/2h81ucwk_download%20%285%29.png',
+          intensityReason: 'Isometric finish on preacher maximizes contraction',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Flex hard',
+              description: 'Preacher removes cheating'
+            },
+            {
+              icon: 'body',
+              title: 'Elbows stay pressed into pad',
+              description: 'Keeps tension pure'
+            },
+            {
+              icon: 'fitness',
+              title: 'Use lighter load for hold',
+              description: 'Longer squeeze = better pump'
             }
           ]
         }
       ],
       intermediate: [
         {
-          name: 'Heavy Preacher',
-          duration: '12–14 min',
-          description: 'Heavier preacher curls grow arms with intensity',
-          battlePlan: '4 rounds\n• 8–10 Heavy Preacher Curls\nRest 75–90s',
+          name: 'Paused Preacher Curl',
+          duration: '14–16 min',
+          description: 'Pause-rep preacher curl workout removing momentum.',
+          battlePlan: 'Battle Plan — Pause Sets\n• 4×10 Preacher Curl — pause reps (1s bottom)\nRest 75s',
           imageUrl: 'https://customer-assets.emergentagent.com/job_de06d55d-ac38-4152-bbf5-479c53d1fb22/artifacts/rmfkhn59_download%20%286%29.png',
-          intensityReason: 'Stable preacher pad allows progressive overload',
+          intensityReason: 'Bottom pauses on preacher eliminate all momentum',
           moodTips: [
             {
-              icon: 'trending-up',
-              title: 'Drive bar smooth each rep',
-              description: 'Consistent tempo under heavy load.'
+              icon: 'timer',
+              title: 'Pause kills bounce',
+              description: 'Honest tension'
             },
             {
-              icon: 'fitness',
-              title: 'Maintain full pad contact',
-              description: 'Pad contact ensures proper isolation.'
+              icon: 'body',
+              title: 'Brace into pad',
+              description: 'Stability matters'
+            },
+            {
+              icon: 'flash',
+              title: 'Explode into contraction',
+              description: 'Smooth squeeze fuels pump'
             }
           ]
         },
         {
-          name: 'Negative Preacher',
-          duration: '12–14 min',
-          description: 'Slow negatives increase biceps time under tension',
-          battlePlan: '3 rounds\n• 8 Negative Preacher Curls (3s lowering)\nRest 75–90s',
+          name: 'Wide-Grip Preacher Curl',
+          duration: '14–16 min',
+          description: 'Standard preacher curl workout biasing short head.',
+          battlePlan: 'Battle Plan — Standard Sets\n• 4×10 Wide-Grip Preacher Curl — standard reps\nRest 75s',
           imageUrl: 'https://customer-assets.emergentagent.com/job_de06d55d-ac38-4152-bbf5-479c53d1fb22/artifacts/2h81ucwk_download%20%285%29.png',
-          intensityReason: '3 second eccentrics add enhanced hypertrophy load',
+          intensityReason: 'Wide grip on preacher targets short head for peak development',
           moodTips: [
             {
-              icon: 'flash',
-              title: 'Explode up, lower 3s down',
-              description: 'Fast up, slow down for growth.'
+              icon: 'hand-left',
+              title: 'Grip wide',
+              description: 'Short-head focus'
             },
             {
+              icon: 'body',
+              title: 'No shoulder lift',
+              description: 'Isolation preserved'
+            },
+            {
+              icon: 'flash',
+              title: 'Short-head pumps fast',
+              description: 'Lean into the burn'
+            }
+          ]
+        },
+        {
+          name: 'Preacher Burn Builder',
+          duration: '15–17 min',
+          description: 'Burnout preacher curl workout emphasizing time under tension.',
+          battlePlan: 'Battle Plan — Burnout Sets\n• 4×15 Preacher Curl — burnout reps\nRest 75s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_de06d55d-ac38-4152-bbf5-479c53d1fb22/artifacts/rmfkhn59_download%20%286%29.png',
+          intensityReason: 'Extended reps on preacher build endurance and pump',
+          moodTips: [
+            {
               icon: 'shield',
-              title: 'Control bar to avoid bounce',
-              description: 'Smooth transition at bottom protects elbows.'
+              title: 'No lockout allowed',
+              description: 'Constant tension'
+            },
+            {
+              icon: 'refresh',
+              title: 'Smooth cadence',
+              description: 'Elbow-friendly'
+            },
+            {
+              icon: 'flash',
+              title: 'Moderate load, nonstop reps',
+              description: 'Burnout = pump'
+            }
+          ]
+        },
+        {
+          name: 'Full + Partial Contrast',
+          duration: '15–17 min',
+          description: 'Superset workout pairing full ROM with top-range preacher reps.',
+          battlePlan: 'Battle Plan — Superset\n• 4×10 Preacher Curl — standard reps\nsuperset with\n• 10 Top-Range Partial Preacher Curls\nRest 90s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_de06d55d-ac38-4152-bbf5-479c53d1fb22/artifacts/2h81ucwk_download%20%285%29.png',
+          intensityReason: 'Full and partial reps maximize fiber recruitment',
+          moodTips: [
+            {
+              icon: 'trending-up',
+              title: 'Full reps first',
+              description: 'Fiber recruitment'
+            },
+            {
+              icon: 'timer',
+              title: 'Partials stay high',
+              description: 'Peak tension'
+            },
+            {
+              icon: 'flash',
+              title: 'Short-range burn seals pump',
+              description: 'Preacher excels here'
             }
           ]
         }
       ],
       advanced: [
         {
-          name: 'Wide + Narrow',
-          duration: '14–16 min',
-          description: 'Wide and narrow grips target both biceps heads',
-          battlePlan: '4 rounds\n• 8 Wide Grip Preachers\nRest 75s\n• 8 Narrow Grip Preachers\nRest 75–90s',
+          name: 'Heavy Preacher Curl Builder',
+          duration: '18–20 min',
+          description: 'Standard heavy preacher curl workout emphasizing control.',
+          battlePlan: 'Battle Plan — Standard Sets\n• 6×8 Preacher Curl — standard reps\nRest 90s',
           imageUrl: 'https://customer-assets.emergentagent.com/job_de06d55d-ac38-4152-bbf5-479c53d1fb22/artifacts/rmfkhn59_download%20%286%29.png',
-          intensityReason: 'Changing grips stresses variation in fiber lines',
+          intensityReason: 'Heavy loads on preacher build strength without cheating',
           moodTips: [
             {
-              icon: 'refresh',
-              title: 'Wide hits outer, narrow inner',
-              description: 'Different grips target different heads.'
+              icon: 'shield',
+              title: 'No ego loading',
+              description: 'Preacher punishes cheating'
             },
             {
-              icon: 'body',
-              title: 'Keep torso against the pad',
-              description: 'Body position maintains strict form.'
+              icon: 'trending-down',
+              title: 'Control negatives',
+              description: 'Elbow safety'
+            },
+            {
+              icon: 'flash',
+              title: 'Finish reps with intent',
+              description: 'Contracted biceps matter'
             }
           ]
         },
         {
-          name: 'Preacher Burnout',
-          duration: '16–18 min',
-          description: 'Burnout preacher curls finish arms under tension',
-          battlePlan: '4 rounds\n• 8–10 Preacher Curls\n• End with 10s Midpoint Hold\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_de06d55d-ac38-4152-bbf5-479c53d1fb22/artifacts/2h81ucwk_download%20%285%29.png',
-          intensityReason: 'Iso holds combined with sets maximize fatigue',
+          name: 'Preacher Drop Cluster',
+          duration: '18–20 min',
+          description: 'Multi-drop preacher curl workout driving fatigue.',
+          battlePlan: 'Battle Plan — Drop Cluster\n• Set 1: 10 reps\n• Set 2: drop set — 10 → drop ~20% → 8\n• Set 3: triple drop — 8 → drop ~15% → 6 → drop ~10% → 6\nRest 90s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_de06d55d-ac38-4152-bbf5-479c53d1fb22/artifacts/rmfkhn59_download%20%286%29.png',
+          intensityReason: 'Drop clusters on preacher extend time under tension',
           moodTips: [
             {
-              icon: 'timer',
-              title: 'Last rep hold 10s halfway',
-              description: 'Isometric hold fully exhausts muscle.'
+              icon: 'flash',
+              title: 'Drops are immediate',
+              description: 'Stay on the pad'
             },
             {
-              icon: 'flame',
-              title: 'Keep tension strict to end',
-              description: 'Mental toughness completes the set.'
+              icon: 'shield',
+              title: 'Smaller drops protect elbows',
+              description: 'Keep reps clean'
+            },
+            {
+              icon: 'timer',
+              title: 'End with a hard squeeze',
+              description: 'Peak contraction seals pump'
+            }
+          ]
+        },
+        {
+          name: 'Preacher Burnout Hold',
+          duration: '18–20 min',
+          description: 'Burnout + isometric preacher curl workout.',
+          battlePlan: 'Battle Plan — Burnout + Isometric\n• 4×12 Preacher Curl — burnout reps\n• Final set: squeeze to finish — hold top 10s\nRest 90s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_de06d55d-ac38-4152-bbf5-479c53d1fb22/artifacts/2h81ucwk_download%20%285%29.png',
+          intensityReason: 'Burnout with iso hold on preacher exhausts biceps completely',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Flex aggressively',
+              description: 'Preacher isolates brutally'
+            },
+            {
+              icon: 'shield',
+              title: 'No resting on pad',
+              description: 'Tension stays high'
+            },
+            {
+              icon: 'fitness',
+              title: 'Lighter load, longer hold',
+              description: 'Pump > ego'
+            }
+          ]
+        },
+        {
+          name: '1.5-Rep Preacher Curl',
+          duration: '18–20 min',
+          description: 'Partial-range preacher curl workout increasing time under tension.',
+          battlePlan: 'Battle Plan — Standard Sets\n• 5×8 Preacher Curl — 1.5 reps\nRest 90s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_de06d55d-ac38-4152-bbf5-479c53d1fb22/artifacts/2h81ucwk_download%20%285%29.png',
+          intensityReason: '1.5 reps on preacher double time under tension per rep',
+          moodTips: [
+            {
+              icon: 'refresh',
+              title: 'Half rep near top',
+              description: 'Contracted emphasis'
+            },
+            {
+              icon: 'timer',
+              title: 'Smooth transitions',
+              description: 'No bouncing'
+            },
+            {
+              icon: 'flash',
+              title: 'Preacher tension stays constant',
+              description: 'Biceps stay pumped'
             }
           ]
         }
