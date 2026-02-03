@@ -1571,7 +1571,7 @@ export const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Standard set workout building foundational vertical pressing strength.',
           battlePlan: 'Battle Plan — Standard Sets\n• 4×10 Standing Barbell Overhead Press — standard reps\nRest 60–75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-data-hub-2/artifacts/q6gtwvmb_bb%20shoulder%20press.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-data-hub-2/artifacts/kv2n6i9e_download.png',
           intensityReason: 'Standard set workout building foundational vertical pressing strength.',
           moodTips: [
             {
@@ -1748,7 +1748,7 @@ export const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '15–17 min',
           description: 'Superset workout pairing heavy barbell presses with bodyweight fatigue.',
           battlePlan: 'Battle Plan — Superset\n• 4×6 Push Press — standard reps\nsuperset with\n• 12–15 Pushups\nRest 90s between rounds',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-data-hub-2/artifacts/4n1f2oy3_bb%20push%20press.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-data-hub-2/artifacts/q0873m98_download%20%288%29.png',
           intensityReason: 'Superset workout pairing heavy barbell presses with bodyweight fatigue.',
           moodTips: [
             {
@@ -1775,7 +1775,7 @@ export const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '18–20 min',
           description: 'Standard heavy power workout emphasizing max overhead output.',
           battlePlan: 'Battle Plan — Standard Sets\n• 6×4 Push Jerk — standard reps\nRest 90–120s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-data-hub-2/artifacts/4n1f2oy3_bb%20push%20press.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-data-hub-2/artifacts/q0873m98_download%20%288%29.png',
           intensityReason: 'Standard heavy power workout emphasizing max overhead output.',
           moodTips: [
             {
@@ -1800,7 +1800,7 @@ export const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '18–20 min',
           description: 'Single-exercise drop-set workout using strict presses.',
           battlePlan: 'Battle Plan — Drop Set\n• 4×6 Strict Press — standard reps\n• Final set: drop set — 2 drops, no rest\nRest 120s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-data-hub-2/artifacts/q6gtwvmb_bb%20shoulder%20press.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-data-hub-2/artifacts/kv2n6i9e_download.png',
           intensityReason: 'Single-exercise drop-set workout using strict presses.',
           moodTips: [
             {
