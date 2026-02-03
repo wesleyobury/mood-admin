@@ -1109,131 +1109,236 @@ export const tricepsWorkoutDatabase: EquipmentWorkouts[] = [
     }
   },
   {
-    equipment: 'Dip station / machine',
+    equipment: 'Dip Station / Machine',
     icon: 'remove',
     workouts: {
       beginner: [
         {
-          name: 'Assisted Dips',
-          duration: '10–12 min',
-          description: 'Builds pressing power with reduced bodyweight load',
-          battlePlan: '3 rounds\n• 6–8 Assisted Dips\nRest 60–75s',
+          name: 'Assisted Dip Builder',
+          duration: '12–14 min',
+          description: 'Standard assisted dip workout emphasizing elbow extension.',
+          battlePlan: 'Battle Plan — Standard Sets\n• 4×8–10 Assisted Dips\nRest 75s',
           imageUrl: 'https://customer-assets.emergentagent.com/job_inspiring-euler/artifacts/o9irqfer_download%20%284%29.png',
-          intensityReason: 'Assistance teaches proper form and depth safely',
+          intensityReason: 'Assistance allows proper form development',
           moodTips: [
             {
               icon: 'body',
-              title: 'Keep torso vertical for max triceps',
-              description: 'Lower under control, don\'t bounce.'
+              title: 'Stay upright',
+              description: 'Triceps over chest'
             },
             {
-              icon: 'hand-left',
-              title: 'Hands behind hips, elbows drive straight back',
-              description: 'Don\'t let shoulders shrug, torso stays tall.'
+              icon: 'trending-up',
+              title: 'Elbows track back',
+              description: 'Shoulder safety'
+            },
+            {
+              icon: 'flash',
+              title: 'Lock out at the top',
+              description: 'Bodyweight pump hits fast'
             }
           ]
         },
         {
-          name: 'Bench Dips',
-          duration: '10–12 min',
-          description: 'Simple bench dip strengthens arms with low setup',
-          battlePlan: '3 rounds\n• 8–10 Bench Dips\nRest 75s',
+          name: 'Bench Dip Control',
+          duration: '12–14 min',
+          description: 'Regression-based dip workout for controlled loading.',
+          battlePlan: 'Battle Plan — Standard Sets\n• 4×12 Bench Dips\nRest 60s',
           imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/pkwqrz0u_bdips.webp',
-          intensityReason: 'Bench setup improves stability via shorter lever',
+          intensityReason: 'Bench position provides controlled bodyweight loading',
           moodTips: [
             {
-              icon: 'timer',
-              title: 'Hands behind hips, elbows drive straight back',
-              description: 'Don\'t let shoulders shrug, torso stays tall.'
+              icon: 'body',
+              title: 'Shoulders down and back',
+              description: 'Joint safety'
             },
             {
-              icon: 'fitness',
-              title: 'Stay upright for triceps, no leaning forward',
-              description: 'Bend to 90° elbow, press back up strong.'
+              icon: 'shield',
+              title: 'Depth controlled',
+              description: 'Avoids shoulder stress'
+            },
+            {
+              icon: 'flash',
+              title: 'Full extension every rep',
+              description: 'Shortened triceps pump best'
+            }
+          ]
+        },
+        {
+          name: 'Dip + Iso Finish',
+          duration: '12–14 min',
+          description: 'Standard dip workout with squeeze-to-finish.',
+          battlePlan: 'Battle Plan — Standard + Isometric Finish\n• 4×8 Dips\n• Final set: squeeze to finish — hold top support 10s\nRest 75s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_inspiring-euler/artifacts/o9irqfer_download%20%284%29.png',
+          intensityReason: 'Isometric hold maximizes triceps contraction',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Arms fully straight',
+              description: 'Peak contraction'
+            },
+            {
+              icon: 'body',
+              title: 'Shoulders stable',
+              description: 'No shrugging'
+            },
+            {
+              icon: 'timer',
+              title: 'Hold tall, not relaxed',
+              description: 'Isometric pump'
             }
           ]
         }
       ],
       intermediate: [
         {
-          name: 'Parallel Dips',
-          duration: '12–14 min',
-          description: 'Strict parallel bar dips overload pressing muscles',
-          battlePlan: '4 rounds\n• 6–8 Parallel Bar Dips\nRest 75–90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_inspiring-euler/artifacts/o9irqfer_download%20%284%29.png',
-          intensityReason: 'Bodyweight dips build compound triceps strength',
+          name: 'Tempo Dips',
+          duration: '14–16 min',
+          description: 'Eccentric-focused dip workout increasing time under tension.',
+          battlePlan: 'Battle Plan — Eccentric Sets\n• 4×8 Dips — 3s down\nRest 90s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_inspiring-euler/artifacts/74stkm4f_download%20%283%29.png',
+          intensityReason: 'Slow eccentrics maximize triceps loading',
           moodTips: [
             {
-              icon: 'body',
-              title: 'Stay upright for triceps, no leaning forward',
-              description: 'Bend to 90° elbow, press back up strong.'
+              icon: 'timer',
+              title: 'Slow descent',
+              description: 'Triceps load increases'
             },
             {
-              icon: 'trending-up',
-              title: 'Lower slowly for 3s each rep',
-              description: 'Press up fast, don\'t swing legs.'
+              icon: 'shield',
+              title: 'No bounce at bottom',
+              description: 'Joint safety'
+            },
+            {
+              icon: 'flash',
+              title: 'Drive to full extension',
+              description: 'Lockout builds pump'
             }
           ]
         },
         {
-          name: 'Dip Negatives',
-          duration: '12–14 min',
-          description: 'Dip negatives accelerate strength and growth gains',
-          battlePlan: '3 rounds\n• 6 Negative Dips (3s descent)\nRest 75–90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_inspiring-euler/artifacts/74stkm4f_download%20%283%29.png',
-          intensityReason: '3s controlled descent creates heavy eccentric load',
+          name: 'Dip Burn Builder',
+          duration: '15–17 min',
+          description: 'Burnout-style dip workout extending fatigue.',
+          battlePlan: 'Battle Plan — Burnout Sets\n• 4×AMRAP Dips\nRest 75s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_inspiring-euler/artifacts/o9irqfer_download%20%284%29.png',
+          intensityReason: 'Extended reps build endurance and pump',
           moodTips: [
             {
               icon: 'timer',
-              title: 'Lower slowly for 3s each rep',
-              description: 'Press up fast, don\'t swing legs.'
+              title: 'Shorter rest each round',
+              description: 'Fatigue stacks'
             },
             {
               icon: 'shield',
-              title: 'Control descent, never overload reps',
-              description: 'Smooth transition prevents joint stress.'
+              title: 'Partial reps allowed late',
+              description: 'Stay in tension'
+            },
+            {
+              icon: 'flash',
+              title: 'Top-range focus',
+              description: 'Triceps stay shortened'
+            }
+          ]
+        },
+        {
+          name: 'Dip + Pushdown Contrast',
+          duration: '15–17 min',
+          description: 'Superset workout pairing bodyweight and machine isolation.',
+          battlePlan: 'Battle Plan — Superset\n• 4×8 Dips\nsuperset with\n• 12 Pushdowns\nRest 90s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_inspiring-euler/artifacts/74stkm4f_download%20%283%29.png',
+          intensityReason: 'Compound + isolation maximizes triceps fatigue',
+          moodTips: [
+            {
+              icon: 'trending-up',
+              title: 'Dips first',
+              description: 'Compound load'
+            },
+            {
+              icon: 'fitness',
+              title: 'Pushdowns finish fibers',
+              description: 'Isolation pump'
+            },
+            {
+              icon: 'flash',
+              title: 'Control both lockouts',
+              description: 'Double contraction'
             }
           ]
         }
       ],
       advanced: [
         {
-          name: 'Weighted Dips',
-          duration: '14–16 min',
-          description: 'Weighted dipping expands pressing endurance power',
-          battlePlan: '4 rounds\n• 6–8 Weighted Dips\nRest 90s',
+          name: 'Weighted Dip Builder',
+          duration: '18–20 min',
+          description: 'Standard weighted dip workout for advanced loading.',
+          battlePlan: 'Battle Plan — Standard Sets\n• 6×6 Weighted Dips\nRest 120s',
           imageUrl: 'https://customer-assets.emergentagent.com/job_inspiring-euler/artifacts/o9irqfer_download%20%284%29.png',
-          intensityReason: 'Added external load enhances triceps hypertrophy',
+          intensityReason: 'Added weight builds serious pressing strength',
           moodTips: [
             {
               icon: 'construct',
-              title: 'Add plates via belt, keep body upright',
-              description: 'Control descent, never overload reps.'
+              title: 'Add weight conservatively',
+              description: 'Elbow safety'
             },
             {
-              icon: 'fitness',
-              title: 'Control descent, never overload reps',
-              description: 'Quality reps more important than quantity.'
+              icon: 'body',
+              title: 'Stay upright',
+              description: 'Triceps bias'
+            },
+            {
+              icon: 'flash',
+              title: 'Finish reps locked out',
+              description: 'Bodyweight pump hits hard'
             }
           ]
         },
         {
-          name: 'Dip + Hold',
-          duration: '16–18 min',
-          description: 'Weighted or strict dips end with static position hold',
-          battlePlan: '4 rounds\n• 6–8 Dips (bodyweight or weighted)\n• End with 10s Iso Hold\nRest 90s',
+          name: 'Dip Drop Ladder',
+          duration: '18–20 min',
+          description: 'Bodyweight drop workout using assistance changes.',
+          battlePlan: 'Battle Plan — Drop Ladder\n• 3 rounds:\n  6 weighted → bodyweight AMRAP → assisted AMRAP\nRest 120s',
           imageUrl: 'https://customer-assets.emergentagent.com/job_inspiring-euler/artifacts/74stkm4f_download%20%283%29.png',
-          intensityReason: 'Iso hold at midpoint deepens muscular fatigue',
+          intensityReason: 'Progressive drops extend set past failure',
           moodTips: [
             {
-              icon: 'timer',
-              title: 'Hold halfway down for 10s at last rep',
-              description: 'Elbows aligned straight back, chest tall.'
+              icon: 'flash',
+              title: 'Transitions immediate',
+              description: 'Stay on bars'
             },
             {
-              icon: 'flame',
-              title: 'Elbows aligned straight back, chest tall',
-              description: 'Advanced training requires mental fortitude.'
+              icon: 'shield',
+              title: 'Clean reps first',
+              description: 'Joint safety'
+            },
+            {
+              icon: 'timer',
+              title: 'Finish ladders locked out',
+              description: 'Pump seals the set'
+            }
+          ]
+        },
+        {
+          name: 'Dip Burnout Hold',
+          duration: '18–20 min',
+          description: 'Burnout + isometric dip workout.',
+          battlePlan: 'Battle Plan — Burnout + Isometric\n• 4×AMRAP Dips\n• Final set: squeeze to finish — hold top 15s\nRest 120s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_inspiring-euler/artifacts/o9irqfer_download%20%284%29.png',
+          intensityReason: 'Burnout with iso hold completely exhausts triceps',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Arms fully straight',
+              description: 'Peak extension'
+            },
+            {
+              icon: 'body',
+              title: 'Shoulders quiet',
+              description: 'Stability matters'
+            },
+            {
+              icon: 'timer',
+              title: 'Hold tall under fatigue',
+              description: 'True contraction'
             }
           ]
         }
