@@ -660,7 +660,7 @@ export const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Eccentric-focused isolation workout emphasizing control.',
           battlePlan: 'Battle Plan — Eccentric Sets\n• 4×12 Rear Delt Fly — eccentric reps (3s return)\nRest 60s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/jyl947na_download%20%2810%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-data-hub-2/artifacts/2gc40bi1_download%20%285%29.png',
           intensityReason: 'Eccentric-focused isolation workout emphasizing control.',
           moodTips: [
             {
@@ -685,7 +685,7 @@ export const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Pause-rep isolation workout locking in contraction.',
           battlePlan: 'Battle Plan — Pause Sets\n• 4×12 Rear Delt Fly — pause reps (1s back)\nRest 60s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/jyl947na_download%20%2810%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-data-hub-2/artifacts/kqdzk509_image.png',
           intensityReason: 'Pause-rep isolation workout locking in contraction.',
           moodTips: [
             {
@@ -710,7 +710,7 @@ export const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Burnout isolation workout for rear-delt endurance.',
           battlePlan: 'Battle Plan — Burnout Sets\n• 4×20 Rear Delt Fly — burnout reps\nRest 60s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/jyl947na_download%20%2810%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-data-hub-2/artifacts/a6216mca_image.png',
           intensityReason: 'Burnout isolation workout for rear-delt endurance.',
           moodTips: [
             {
@@ -762,7 +762,7 @@ export const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Extended pause-rep isolation workout emphasizing contraction.',
           battlePlan: 'Battle Plan — Pause Sets\n• 4×10 Rear Delt Fly — pause reps (2s back)\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/jyl947na_download%20%2810%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-data-hub-2/artifacts/2gc40bi1_download%20%285%29.png',
           intensityReason: 'Extended pause-rep isolation workout emphasizing contraction.',
           moodTips: [
             {
@@ -787,7 +787,7 @@ export const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '15–17 min',
           description: 'High-density isolation workout with moderate reps.',
           battlePlan: 'Battle Plan — Standard Sets\n• 6×10 Rear Delt Fly — standard reps\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/jyl947na_download%20%2810%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-data-hub-2/artifacts/kqdzk509_image.png',
           intensityReason: 'High-density isolation workout with moderate reps.',
           moodTips: [
             {
@@ -812,7 +812,7 @@ export const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '15–17 min',
           description: 'Superset workout pairing machine isolation with cable stability.',
           battlePlan: 'Battle Plan — Superset\n• 4×12 Rear Delt Fly — standard reps\nsuperset with\n• 12–15 Face Pulls\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/jyl947na_download%20%2810%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-data-hub-2/artifacts/a6216mca_image.png',
           intensityReason: 'Superset workout pairing machine isolation with cable stability.',
           moodTips: [
             {
