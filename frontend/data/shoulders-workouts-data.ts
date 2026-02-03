@@ -1124,7 +1124,7 @@ export const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '15–17 min',
           description: 'Superset workout pairing lateral raises with rear-delt stability work.',
           battlePlan: 'Battle Plan — Superset\n• 4×12 Cable Lateral Raise (low → high) — standard reps\nsuperset with\n• 12–15 Face Pulls\nRest 90s between rounds',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-data-hub-2/artifacts/ndk3n5nw_image.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-data-hub-2/artifacts/w8421t38_image.png',
           intensityReason: 'Superset workout pairing lateral raises with rear-delt stability work.',
           moodTips: [
             {
@@ -1825,7 +1825,7 @@ export const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '18–20 min',
           description: 'Burnout press workout to exhaust remaining fibers.',
           battlePlan: 'Battle Plan — Burnout Sets\n• 4×12 Overhead Press — burnout reps\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-data-hub-2/artifacts/l4hch2z0_bb%20press%201.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-data-hub-2/artifacts/sn9rtt8c_bb%20press%202.png',
           intensityReason: 'Burnout press workout to exhaust remaining fibers.',
           moodTips: [
             {
