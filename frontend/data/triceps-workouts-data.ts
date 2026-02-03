@@ -239,131 +239,236 @@ export const tricepsWorkoutDatabase: EquipmentWorkouts[] = [
     }
   },
   {
-    equipment: 'Kettle bell',
+    equipment: 'Kettlebells',
     icon: 'diamond',
     workouts: {
       beginner: [
         {
-          name: 'Flat KB Ext',
-          duration: '10–12 min',
-          description: 'Beginner kettlebell extensions build pressing base',
-          battlePlan: '3 rounds\n• 10–12 Flat Bench KB Extensions\nRest 60–75s',
+          name: 'Seated KB Overhead Extension (90°)',
+          duration: '12–14 min',
+          description: 'Foundational overhead KB workout introducing long-head loading.',
+          battlePlan: 'Battle Plan — Standard Sets\n• 4×12 Seated KB Overhead Extensions — standard reps\nRest 60s',
           imageUrl: 'https://customer-assets.emergentagent.com/job_inspiring-euler/artifacts/oei647bg_download%20%285%29.png',
-          intensityReason: 'Flat bench keeps posture stable, isolating triceps',
+          intensityReason: 'Seated position isolates triceps for clean overhead extension',
           moodTips: [
             {
-              icon: 'hand-left',
-              title: 'Flat bench stability prevents arching and strict isolates arms',
-              description: 'Lower bell behind head, drive up until full elbow lockout.'
+              icon: 'body',
+              title: 'Elbows slightly in',
+              description: 'Shoulder-friendly'
             },
             {
-              icon: 'body',
-              title: 'Keep elbows aligned upward, resist flaring outward',
-              description: 'Fixed elbow position despite challenging grip.'
+              icon: 'trending-down',
+              title: 'Lower slow and deep',
+              description: 'Stretch matters'
+            },
+            {
+              icon: 'flash',
+              title: 'Lock out under control',
+              description: 'KBs pump at extension'
             }
           ]
         },
         {
-          name: 'Incline KB Ext',
-          duration: '10–12 min',
-          description: 'Incline position loads arms with deeper extension',
-          battlePlan: '3 rounds\n• 10–12 Incline Overhead KB Extensions\nRest 75s',
+          name: 'Flat KB Floor Skullcrushers',
+          duration: '12–14 min',
+          description: 'Flat-angle triceps extension workout using floor support.',
+          battlePlan: 'Battle Plan — Standard Sets\n• 4×12 KB Floor Skullcrushers — standard reps\nRest 60s',
           imageUrl: 'https://customer-assets.emergentagent.com/job_inspiring-euler/artifacts/uwwxoov7_download%20%284%29.png',
-          intensityReason: 'Incline angle extends stretch on long triceps head',
+          intensityReason: 'Floor provides consistent depth control',
           moodTips: [
             {
-              icon: 'timer',
-              title: 'Incline back support creates longer lever for muscle growth',
-              description: 'Keep elbows aligned upward, resist flaring outward.'
+              icon: 'body',
+              title: 'Upper arms vertical',
+              description: 'Prevents shoulder drift'
             },
             {
-              icon: 'fitness',
-              title: 'Keep shoulders still, only forearms hinge during rep',
-              description: 'Full body tension supports arm position.'
+              icon: 'trending-down',
+              title: 'Touch bells lightly to floor',
+              description: 'Consistent depth'
+            },
+            {
+              icon: 'flash',
+              title: 'Extend fully each rep',
+              description: 'Peak contraction = pump'
+            }
+          ]
+        },
+        {
+          name: 'KB Extension + Iso Finish (45°)',
+          duration: '12–14 min',
+          description: 'Inclined KB extension workout with squeeze-to-finish.',
+          battlePlan: 'Battle Plan — Standard + Isometric Finish\n• 4×10 Incline KB Tricep Extensions — standard reps\n• Final set: squeeze to finish — hold lockout 10s\nRest 60s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_inspiring-euler/artifacts/oei647bg_download%20%285%29.png',
+          intensityReason: 'Incline angle with iso hold maximizes triceps contraction',
+          moodTips: [
+            {
+              icon: 'hand-left',
+              title: 'Crush handles lightly',
+              description: 'Improves control'
+            },
+            {
+              icon: 'body',
+              title: 'Elbows fixed',
+              description: 'Pure extension'
+            },
+            {
+              icon: 'flash',
+              title: 'Lighter bell for hold',
+              description: 'Longer squeeze = better pump'
             }
           ]
         }
       ],
       intermediate: [
         {
-          name: 'Eccentric Ext',
-          duration: '12–14 min',
-          description: 'Controlled eccentrics optimize fiber recruitment',
-          battlePlan: '4 rounds\n• 8–10 Incline KB Extensions (3s eccentric)\nRest 75–90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_inspiring-euler/artifacts/oei647bg_download%20%285%29.png',
-          intensityReason: 'Slow negatives increase hypertrophy efficiency',
+          name: 'Paused KB Overhead Extensions (90°)',
+          duration: '14–16 min',
+          description: 'Pause-rep overhead KB workout removing momentum.',
+          battlePlan: 'Battle Plan — Pause Sets\n• 4×10 KB Overhead Extensions — pause reps (1s bottom)\nRest 75s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_inspiring-euler/artifacts/uwwxoov7_download%20%284%29.png',
+          intensityReason: 'Pauses in the stretch maximize long-head load',
           moodTips: [
             {
-              icon: 'flash',
-              title: 'Use incline for safer elbow line, stretch 3s on descent',
-              description: 'Keep shoulders still, only forearms hinge during rep.'
+              icon: 'timer',
+              title: 'Pause in the stretch',
+              description: 'Long-head bias'
             },
             {
-              icon: 'shield',
-              title: 'Keep grip neutral, wrists aligned with elbows fully',
-              description: 'Control the bell behind head - kettlebell weight shifts require extra control.'
+              icon: 'body',
+              title: 'Brace core',
+              description: 'Prevents rib flare'
+            },
+            {
+              icon: 'flash',
+              title: 'Drive to full extension',
+              description: 'Stretch + lockout = pump'
             }
           ]
         },
         {
-          name: 'Pause Crusher',
-          duration: '12–14 min',
-          description: 'Incline crusher with pause stresses long head more',
-          battlePlan: '3 rounds\n• 8–10 Incline KB Skull Crushers (2s pause)\nRest 75–90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_inspiring-euler/artifacts/uwwxoov7_download%20%284%29.png',
-          intensityReason: 'Pausing at stretch prolongs muscular demand',
+          name: 'Incline KB Skullcrushers (45°)',
+          duration: '15–17 min',
+          description: 'Angle-shifted skullcrusher workout altering resistance curve.',
+          battlePlan: 'Battle Plan — Standard Sets\n• 4×12 Incline KB Skullcrushers — standard reps\nRest 75s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_inspiring-euler/artifacts/oei647bg_download%20%285%29.png',
+          intensityReason: 'Incline angle changes resistance curve for varied stimulus',
           moodTips: [
             {
-              icon: 'timer',
-              title: 'Pause 1–2s at bottom increases tension and control',
-              description: 'Keep grip neutral, wrists aligned with elbows fully.'
+              icon: 'hand-left',
+              title: 'Lower bells just outside temples',
+              description: 'Shoulder safety'
+            },
+            {
+              icon: 'refresh',
+              title: 'Smooth cadence',
+              description: 'Elbow-friendly'
+            },
+            {
+              icon: 'flash',
+              title: 'Finish each rep locked out',
+              description: 'End-range pump'
+            }
+          ]
+        },
+        {
+          name: 'KB Burn Builder (Flat)',
+          duration: '15–17 min',
+          description: 'Burnout-style flat KB workout extending time under tension.',
+          battlePlan: 'Battle Plan — Burnout Sets\n• 4×15 KB Floor Extensions — burnout reps\nRest 75s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_inspiring-euler/artifacts/uwwxoov7_download%20%284%29.png',
+          intensityReason: 'Extended reps build endurance and pump',
+          moodTips: [
+            {
+              icon: 'shield',
+              title: 'No lockout rest',
+              description: 'Constant tension'
             },
             {
               icon: 'fitness',
-              title: 'Move quickly bench to bench for constant pressure',
-              description: 'Fixed elbow position ensures tricep isolation.'
+              title: 'Moderate bell',
+              description: 'Fatigue not form failure'
+            },
+            {
+              icon: 'flash',
+              title: 'Nonstop reps',
+              description: 'Burnout = pump'
             }
           ]
         }
       ],
       advanced: [
         {
-          name: 'KB Ext Superset',
-          duration: '14–16 min',
-          description: 'Flat plus incline overloads fibers across ranges',
-          battlePlan: '4 rounds\n• 8 Flat KB Extensions\n• 8 Incline KB Skull Crushers\nRest 90s',
+          name: 'Heavy KB Overhead Extension (90°)',
+          duration: '18–20 min',
+          description: 'Heavy overhead KB workout emphasizing strict extension.',
+          battlePlan: 'Battle Plan — Standard Sets\n• 6×8 KB Overhead Extensions — standard reps\nRest 90s',
           imageUrl: 'https://customer-assets.emergentagent.com/job_inspiring-euler/artifacts/oei647bg_download%20%285%29.png',
-          intensityReason: 'Superset angles maximize triceps hypertrophy',
+          intensityReason: 'Heavy loads with strict form build maximum strength',
           moodTips: [
             {
-              icon: 'construct',
-              title: 'Move quickly bench to bench for constant pressure',
-              description: 'Flat = stability, incline = deep stretch.'
+              icon: 'body',
+              title: 'Elbows tight',
+              description: 'Shoulder safety'
             },
             {
-              icon: 'fitness',
-              title: 'Maintain technique under fatigue',
-              description: 'Form degradation reduces effectiveness.'
+              icon: 'trending-down',
+              title: 'Slow negatives',
+              description: 'Triceps respond well'
+            },
+            {
+              icon: 'flash',
+              title: 'Finish reps fully extended',
+              description: 'Lockout matters'
             }
           ]
         },
         {
-          name: 'Eccentric + Iso',
-          duration: '16–18 min',
-          description: 'Combo layering builds fibers with greater intensity and control.',
-          battlePlan: '4 rounds\n• 8 Incline KB Extensions (3s eccentric)\n• 8 Incline KB Skull Crushers\n• End with 10s Iso Hold Mid Rep\nRest 90s',
+          name: 'KB Extension Drop Cluster (45°)',
+          duration: '18–20 min',
+          description: 'Multi-drop incline KB workout driving mechanical fatigue.',
+          battlePlan: 'Battle Plan — Drop Cluster\n• Set 1: 10 reps\n• Set 2: drop — 10 → lighter bell → 8\n• Set 3: triple drop — 8 → lighter → 6 → lighter → 6\nRest 90s',
           imageUrl: 'https://customer-assets.emergentagent.com/job_inspiring-euler/artifacts/uwwxoov7_download%20%284%29.png',
-          intensityReason: 'Negatives plus holds prolong hypertrophy stress',
+          intensityReason: 'KB drops extend time under tension past failure',
           moodTips: [
             {
-              icon: 'timer',
-              title: 'Descend slowly, finish with 10s mid rep hold',
-              description: 'Incline support ensures safe stretch depth at long head.'
+              icon: 'flash',
+              title: 'Bell changes immediate',
+              description: 'Stay set'
             },
             {
-              icon: 'flame',
-              title: 'No rest between exercises',
-              description: 'Advanced training requires mental fortitude.'
+              icon: 'shield',
+              title: 'Smaller jumps protect elbows',
+              description: 'Clean reps'
+            },
+            {
+              icon: 'timer',
+              title: 'End sets locked out',
+              description: 'Contraction seals pump'
+            }
+          ]
+        },
+        {
+          name: 'KB Burnout Hold (Flat)',
+          duration: '18–20 min',
+          description: 'Burnout + isometric KB workout emphasizing peak extension.',
+          battlePlan: 'Battle Plan — Burnout + Isometric\n• 4×12 KB Extensions — burnout reps\n• Final set: squeeze to finish — hold full extension 12–15s\nRest 90s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_inspiring-euler/artifacts/oei647bg_download%20%285%29.png',
+          intensityReason: 'Burnout with iso hold completely exhausts triceps',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Flex aggressively',
+              description: 'Neural drive matters'
+            },
+            {
+              icon: 'fitness',
+              title: 'Stabilize bells',
+              description: 'Offset load increases fatigue'
+            },
+            {
+              icon: 'timer',
+              title: 'Lighter bell, longer hold',
+              description: 'Pump > ego'
             }
           ]
         }
