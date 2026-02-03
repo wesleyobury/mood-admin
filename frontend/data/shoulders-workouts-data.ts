@@ -1049,7 +1049,7 @@ export const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Pause-rep rear-delt and upper-back workout for shoulder balance.',
           battlePlan: 'Battle Plan — Pause Sets\n• 4×12 Face Pull — pause reps (1s squeeze)\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-data-hub-2/artifacts/hwr2ym9m_image.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-data-hub-2/artifacts/z8ycso14_face%20pull.webp',
           intensityReason: 'Pause-rep rear-delt and upper-back workout for shoulder balance.',
           moodTips: [
             {
