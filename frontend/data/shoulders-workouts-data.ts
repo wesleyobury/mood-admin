@@ -602,7 +602,7 @@ export const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '18–20 min',
           description: 'Paused-rep Smith workout exposing true shoulder capacity.',
           battlePlan: 'Battle Plan — Pause Sets\n• 5×6 Smith Shoulder Press — pause reps (2s bottom)\nRest 120s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/civ6xh4i_Smith-Machine-Shoulder-Press.webp',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-data-hub-2/artifacts/rmh1bypt_download%20%286%29.png',
           intensityReason: 'Paused-rep Smith workout exposing true shoulder capacity.',
           moodTips: [
             {
