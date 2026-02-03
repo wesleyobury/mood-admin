@@ -1698,7 +1698,7 @@ export const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Pause-rep pull workout targeting delts and traps.',
           battlePlan: 'Battle Plan — Pause Sets\n• 4×10 Upright Row — pause reps (1s top)\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/mgsrjngk_download%20%285%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-data-hub-2/artifacts/9btj6m9u_image.png',
           intensityReason: 'Pause-rep pull workout targeting delts and traps.',
           moodTips: [
             {
