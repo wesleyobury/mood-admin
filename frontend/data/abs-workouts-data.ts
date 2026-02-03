@@ -1127,6 +1127,26 @@ export const absWorkoutDatabase: EquipmentWorkouts[] = [
               description: 'Perfect plank form after dynamic movement.'
             }
           ]
+        },
+        {
+          name: 'MB Sit-Up to Press-Out',
+          duration: '10–12 min',
+          description: 'Sit-up finishing with press to extend tension.',
+          battlePlan: '4 rounds\n• 10 MB Sit-Up Press-Outs\nRest 75s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-pics/artifacts/cu85n2we_download%20%281%29.png',
+          intensityReason: 'Pressing ball at top keeps abs active longer',
+          moodTips: [
+            {
+              icon: 'construct',
+              title: 'Press ball at top',
+              description: 'Abs stay active through press.'
+            },
+            {
+              icon: 'timer',
+              title: 'Control both phases',
+              description: 'No momentum allowed.'
+            }
+          ]
         }
       ],
       advanced: [
