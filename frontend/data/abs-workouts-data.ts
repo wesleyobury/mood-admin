@@ -421,6 +421,26 @@ export const absWorkoutDatabase: EquipmentWorkouts[] = [
               description: 'Focus on smooth, controlled return movement.'
             }
           ]
+        },
+        {
+          name: 'Paused Mid-Range Rollouts',
+          duration: '12–14 min',
+          description: 'Rollouts paused halfway to maximize core tension.',
+          battlePlan: '3 rounds\n• 6–8 Paused Rollouts (2s mid-range)\nRest 90s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_sweat-weights-images/artifacts/gw2t6eg7_download%20%281%29.png',
+          intensityReason: 'Mid-range pause maximizes ab tension at hardest point',
+          moodTips: [
+            {
+              icon: 'timer',
+              title: 'Pause where abs shake',
+              description: 'Mid-range is the hardest position.'
+            },
+            {
+              icon: 'construct',
+              title: 'Resume smoothly',
+              description: 'Control keeps tension throughout.'
+            }
+          ]
         }
       ]
     }
