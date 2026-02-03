@@ -485,7 +485,7 @@ export const tricepsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Standard EZ-bar skullcrusher workout for joint-friendly loading.',
           battlePlan: 'Battle Plan — Standard Sets\n• 4×12 EZ Skullcrushers — standard reps\nRest 60s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_inspiring-euler/artifacts/ri9qkrqs_download%20%283%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_1e4509cd-7b58-4b0c-b78f-c8a74434260e/artifacts/4hcxd7ex_ez%20bar%20sc%202.avif',
           intensityReason: 'EZ bar angle reduces wrist strain for comfortable loading',
           moodTips: [
             {
@@ -510,7 +510,7 @@ export const tricepsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Standard compound triceps press using elbow-dominant grip.',
           battlePlan: 'Battle Plan — Standard Sets\n• 4×10 Close-Grip EZ Press — standard reps\nRest 60s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_inspiring-euler/artifacts/pa8x192c_download%20%282%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_1e4509cd-7b58-4b0c-b78f-c8a74434260e/artifacts/5hyynoy0_cg%20ez%20bar%20press.png',
           intensityReason: 'Close grip transfers load to triceps for compound pressing',
           moodTips: [
             {
@@ -535,7 +535,7 @@ export const tricepsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Standard EZ extension workout with squeeze-to-finish.',
           battlePlan: 'Battle Plan — Standard + Isometric Finish\n• 4×10 EZ Extensions — standard reps\n• Final set: squeeze to finish — hold lockout 10s\nRest 60s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_inspiring-euler/artifacts/ri9qkrqs_download%20%283%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_1e4509cd-7b58-4b0c-b78f-c8a74434260e/artifacts/sbl2u1ih_ez%20bar%20sc.webp',
           intensityReason: 'Isometric finish maximizes triceps contraction',
           moodTips: [
             {
@@ -612,7 +612,7 @@ export const tricepsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '15–17 min',
           description: 'Superset workout pairing isolation and compound extension.',
           battlePlan: 'Battle Plan — Superset\n• 4×10 EZ Skullcrushers\nsuperset with\n• 8 Close-Grip EZ Press\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_inspiring-euler/artifacts/pa8x192c_download%20%282%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_1e4509cd-7b58-4b0c-b78f-c8a74434260e/artifacts/4hcxd7ex_ez%20bar%20sc%202.avif',
           intensityReason: 'Isolation + compound maximizes triceps fatigue',
           moodTips: [
             {
@@ -639,7 +639,7 @@ export const tricepsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '18–20 min',
           description: 'Standard heavy EZ skullcrusher workout emphasizing strict form.',
           battlePlan: 'Battle Plan — Standard Sets\n• 6×8 EZ Skullcrushers\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_inspiring-euler/artifacts/ri9qkrqs_download%20%283%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_1e4509cd-7b58-4b0c-b78f-c8a74434260e/artifacts/sbl2u1ih_ez%20bar%20sc.webp',
           intensityReason: 'Heavy loads with strict form build maximum strength',
           moodTips: [
             {
@@ -664,7 +664,7 @@ export const tricepsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '18–20 min',
           description: 'Multi-drop EZ extension workout driving fatigue.',
           battlePlan: 'Battle Plan — Drop Cluster\n• Set 1: 10 reps\n• Set 2: drop — 10 → drop ~20% → 8\n• Set 3: triple drop — 8 → drop ~15% → 6 → drop ~10% → 6\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_inspiring-euler/artifacts/ri9qkrqs_download%20%283%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_1e4509cd-7b58-4b0c-b78f-c8a74434260e/artifacts/rqvfpdvu_ez%20bar%20sc%203.jpg',
           intensityReason: 'Drop clusters extend time under tension past failure',
           moodTips: [
             {
