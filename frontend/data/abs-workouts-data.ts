@@ -1065,6 +1065,26 @@ export const absWorkoutDatabase: EquipmentWorkouts[] = [
               description: 'Focus on oblique contraction with each twist.'
             }
           ]
+        },
+        {
+          name: 'MB Dead Bug Press',
+          duration: '8–10 min',
+          description: 'Dead bug variation adding anterior load.',
+          battlePlan: '3 rounds\n• 10 per side MB Dead Bugs\nRest 60s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-pics/artifacts/cu85n2we_download%20%281%29.png',
+          intensityReason: 'Pressing ball upward increases core engagement',
+          moodTips: [
+            {
+              icon: 'construct',
+              title: 'Press ball upward',
+              description: 'Core engagement increases with press.'
+            },
+            {
+              icon: 'timer',
+              title: 'Slow limb movement',
+              description: 'Stability first, speed later.'
+            }
+          ]
         }
       ],
       intermediate: [
