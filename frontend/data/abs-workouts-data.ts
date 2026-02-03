@@ -805,6 +805,26 @@ export const absWorkoutDatabase: EquipmentWorkouts[] = [
               description: 'Maintain muscle engagement throughout lowering.'
             }
           ]
+        },
+        {
+          name: 'L-Sit Hold (Captain\'s Chair)',
+          duration: '12–14 min',
+          description: 'Static compression hold demanding full core tension.',
+          battlePlan: '4 rounds\n• Max L-Sit Hold\nRest 90s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/9xx4tww6_Screenshot%202025-12-05%20at%206.17.40%E2%80%AFPM.png',
+          intensityReason: 'Legs parallel to floor demands maximum engagement',
+          moodTips: [
+            {
+              icon: 'construct',
+              title: 'Legs parallel to floor',
+              description: 'Maximum engagement throughout hold.'
+            },
+            {
+              icon: 'shield',
+              title: 'Shallow breathing',
+              description: 'Brace maintained throughout.'
+            }
+          ]
         }
       ]
     }
