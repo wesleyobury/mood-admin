@@ -2087,7 +2087,7 @@ export const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '18–20 min',
           description: 'Standard heavy landmine workout for advanced overload.',
           battlePlan: 'Battle Plan — Standard Sets\n• 6×8 Single-Arm Landmine Press — standard reps\nRest 90s per side',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/d2gkwhep_download%20%282%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-data-hub-2/artifacts/e2d8369i_landmine%20sa%20press.webp',
           intensityReason: 'Standard heavy landmine workout for advanced overload.',
           moodTips: [
             {
@@ -2112,7 +2112,7 @@ export const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '18–20 min',
           description: 'Multi-drop press workout driving mechanical fatigue.',
           battlePlan: 'Battle Plan — Drop Ladder\n• 3 rounds:\n  8 reps → drop ~20% → 8 reps → drop ~15% → AMRAP\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/d2gkwhep_download%20%282%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-data-hub-2/artifacts/cww4hl7b_landmine%20single%20arm%20press%202.jpg',
           intensityReason: 'Multi-drop press workout driving mechanical fatigue.',
           moodTips: [
             {
@@ -2137,7 +2137,7 @@ export const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '18–20 min',
           description: 'Burnout landmine workout for nonstop shoulder tension.',
           battlePlan: 'Battle Plan — Burnout Sets\n• 4×20 Two-Arm Landmine Press — burnout reps\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/d2gkwhep_download%20%282%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-data-hub-2/artifacts/40vv8ike_Landmine%20double%20arm%20press.jpg',
           intensityReason: 'Burnout landmine workout for nonstop shoulder tension.',
           moodTips: [
             {
@@ -2162,7 +2162,7 @@ export const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '18–20 min',
           description: 'Drop-set cluster workout with multiple drop-based sets.',
           battlePlan: 'Battle Plan — Drop Cluster\n• Set 1: 10 reps — standard\n• Set 2: drop set — 10 → drop ~15% → 6\n• Set 3: triple drop set — 8 → drop ~20% → 6 → drop ~15% → 6\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/d2gkwhep_download%20%282%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-data-hub-2/artifacts/hggocyeh_landmine%20rotation%20press.jpg',
           intensityReason: 'Drop-set cluster workout with multiple drop-based sets.',
           moodTips: [
             {
