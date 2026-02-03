@@ -1883,7 +1883,7 @@ export const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Standard landmine press workout using the arc path to build shoulder strength safely.',
           battlePlan: 'Battle Plan — Standard Sets\n• 4×10 Single-Arm Landmine Press — standard reps\nRest 60s per side',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/d2gkwhep_download%20%282%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-data-hub-2/artifacts/e2d8369i_landmine%20sa%20press.webp',
           intensityReason: 'Standard landmine press workout using the arc path to build shoulder strength safely.',
           moodTips: [
             {
@@ -1908,7 +1908,7 @@ export const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Standard two-arm press workout for stable, repeatable reps.',
           battlePlan: 'Battle Plan — Standard Sets\n• 4×12 Two-Arm Landmine Press — standard reps\nRest 60s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/d2gkwhep_download%20%282%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-data-hub-2/artifacts/40vv8ike_Landmine%20double%20arm%20press.jpg',
           intensityReason: 'Standard two-arm press workout for stable, repeatable reps.',
           moodTips: [
             {
@@ -1933,7 +1933,7 @@ export const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Eccentric-focused landmine workout to build control and tendon tolerance.',
           battlePlan: 'Battle Plan — Eccentric Sets\n• 4×8 Single-Arm Landmine Press — eccentric reps (3s down)\nRest 60–75s per side',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/d2gkwhep_download%20%282%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-data-hub-2/artifacts/cww4hl7b_landmine%20single%20arm%20press%202.jpg',
           intensityReason: 'Eccentric-focused landmine workout to build control and tendon tolerance.',
           moodTips: [
             {
@@ -1958,7 +1958,7 @@ export const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Standard press workout with squeeze-to-finish in the contracted range.',
           battlePlan: 'Battle Plan — Standard + Isometric Finish\n• 4×10 Single-Arm Landmine Press — standard reps\n• Final set: squeeze to finish — hold the bar just short of lockout (peak delt contraction) for 8–10s\nRest 60s per side',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/d2gkwhep_download%20%282%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-data-hub-2/artifacts/hggocyeh_landmine%20rotation%20press.jpg',
           intensityReason: 'Standard press workout with squeeze-to-finish in the contracted range.',
           moodTips: [
             {
