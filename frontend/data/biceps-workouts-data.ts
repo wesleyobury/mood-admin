@@ -1309,7 +1309,7 @@ export const bicepsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Standard narrow-grip curl workout biasing long head.',
           battlePlan: 'Battle Plan — Standard Sets\n• 4×12 Close-Grip Machine Curl — standard reps\nRest 60s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_de06d55d-ac38-4152-bbf5-479c53d1fb22/artifacts/um46qpzr_download%20%283%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_1e4509cd-7b58-4b0c-b78f-c8a74434260e/artifacts/tqfomss4_Screenshot%202026-02-02%20at%2011.52.43%E2%80%AFPM.png',
           intensityReason: 'Narrow grip on machine targets long head',
           moodTips: [
             {
@@ -1334,7 +1334,7 @@ export const bicepsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Standard machine curl workout with squeeze-to-finish at peak flexion.',
           battlePlan: 'Battle Plan — Standard + Isometric Finish\n• 4×10 Machine Curl — standard reps\n• Final set: squeeze to finish — hold handles at top 8–10s\nRest 60s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_de06d55d-ac38-4152-bbf5-479c53d1fb22/artifacts/h9obln9e_download%20%282%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_1e4509cd-7b58-4b0c-b78f-c8a74434260e/artifacts/qfupz5zv_bicep%20curl%20machine.jpg',
           intensityReason: 'Isometric finish on machine maximizes contraction',
           moodTips: [
             {
@@ -1411,7 +1411,7 @@ export const bicepsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '15–17 min',
           description: 'Burnout-style machine curl workout extending time under tension.',
           battlePlan: 'Battle Plan — Burnout Sets\n• 4×15 Machine Curl — burnout reps\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_de06d55d-ac38-4152-bbf5-479c53d1fb22/artifacts/um46qpzr_download%20%283%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_1e4509cd-7b58-4b0c-b78f-c8a74434260e/artifacts/tqfomss4_Screenshot%202026-02-02%20at%2011.52.43%E2%80%AFPM.png',
           intensityReason: 'Extended reps on machine build endurance and pump',
           moodTips: [
             {
@@ -1436,7 +1436,7 @@ export const bicepsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '15–17 min',
           description: 'Superset workout pairing full ROM with top-range partials.',
           battlePlan: 'Battle Plan — Superset\n• 4×10 Machine Curl — standard reps\nsuperset with\n• 10 Top-Range Partial Curls\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_de06d55d-ac38-4152-bbf5-479c53d1fb22/artifacts/h9obln9e_download%20%282%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_1e4509cd-7b58-4b0c-b78f-c8a74434260e/artifacts/qfupz5zv_bicep%20curl%20machine.jpg',
           intensityReason: 'Full and partial reps maximize fiber recruitment',
           moodTips: [
             {
@@ -1513,7 +1513,7 @@ export const bicepsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '18–20 min',
           description: 'Burnout + isometric machine curl workout.',
           battlePlan: 'Battle Plan — Burnout + Isometric\n• 4×12 Machine Curl — burnout reps\n• Final set: squeeze to finish — hold top 10s\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_de06d55d-ac38-4152-bbf5-479c53d1fb22/artifacts/h9obln9e_download%20%282%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_1e4509cd-7b58-4b0c-b78f-c8a74434260e/artifacts/tqfomss4_Screenshot%202026-02-02%20at%2011.52.43%E2%80%AFPM.png',
           intensityReason: 'Burnout with iso hold on machine exhausts biceps completely',
           moodTips: [
             {
@@ -1538,7 +1538,7 @@ export const bicepsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '18–20 min',
           description: 'Partial-range machine curl workout increasing time under tension.',
           battlePlan: 'Battle Plan — Standard Sets\n• 5×8 Machine Curl — 1.5 reps\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_de06d55d-ac38-4152-bbf5-479c53d1fb22/artifacts/h9obln9e_download%20%282%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_1e4509cd-7b58-4b0c-b78f-c8a74434260e/artifacts/qfupz5zv_bicep%20curl%20machine.jpg',
           intensityReason: '1.5 reps on machine double time under tension per rep',
           moodTips: [
             {
