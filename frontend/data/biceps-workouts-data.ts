@@ -1255,126 +1255,306 @@ export const bicepsWorkoutDatabase: EquipmentWorkouts[] = [
     workouts: {
       beginner: [
         {
-          name: 'Machine Curl',
-          duration: '10–12 min',
-          description: 'Standard machine curls build early strength base',
-          battlePlan: '3 rounds\n• 10–12 Machine Curls\nRest 60–75s',
+          name: 'Machine Curl Builder',
+          duration: '12–14 min',
+          description: 'Standard machine curl workout for clean biceps isolation.',
+          battlePlan: 'Battle Plan — Standard Sets\n• 4×12 Machine Biceps Curl — standard reps\nRest 60s',
           imageUrl: 'https://customer-assets.emergentagent.com/job_de06d55d-ac38-4152-bbf5-479c53d1fb22/artifacts/um46qpzr_download%20%283%29.png',
-          intensityReason: 'Fixed pathway ensures easier curling technique',
+          intensityReason: 'Fixed path machine provides perfect biceps isolation',
           moodTips: [
             {
-              icon: 'fitness',
-              title: 'Sit tall and grip handles tight',
-              description: 'Proper posture ensures effective movement.'
+              icon: 'body',
+              title: 'Seat height correct',
+              description: 'Elbows line up with pivot'
             },
             {
-              icon: 'shield',
-              title: 'Pull smooth without bounce',
-              description: 'Controlled reps prevent injury.'
+              icon: 'refresh',
+              title: 'Smooth cadence',
+              description: 'Machines reward control'
+            },
+            {
+              icon: 'flash',
+              title: 'Lower fully, squeeze hard',
+              description: 'Full ROM drives pump'
             }
           ]
         },
         {
-          name: 'Curl with Pause',
-          duration: '10–12 min',
-          description: 'Isometric hold improves mind muscle link early, with curl machine hyper extension',
-          battlePlan: '3 rounds\n• 10 Machine Curls (2s pause top)\nRest 75s',
+          name: 'Tempo Machine Curl',
+          duration: '12–14 min',
+          description: 'Eccentric-focused machine curl workout emphasizing control.',
+          battlePlan: 'Battle Plan — Eccentric Sets\n• 4×10 Machine Curl — eccentric reps (3s down)\nRest 60s',
           imageUrl: 'https://customer-assets.emergentagent.com/job_de06d55d-ac38-4152-bbf5-479c53d1fb22/artifacts/h9obln9e_download%20%282%29.png',
-          intensityReason: 'Peak pause builds muscle contraction strength',
+          intensityReason: 'Slow eccentrics on machine hit brutally hard',
           moodTips: [
             {
-              icon: 'timer',
-              title: 'Hold 2s at top of each rep',
-              description: 'Pause increases peak contraction.'
+              icon: 'trending-down',
+              title: 'Slow negatives',
+              description: 'Machine eccentrics are brutal'
             },
             {
-              icon: 'trending-down',
-              title: 'Control return phase',
-              description: 'Slow negative builds strength.'
+              icon: 'shield',
+              title: 'Don\'t lock out',
+              description: 'Keeps tension constant'
+            },
+            {
+              icon: 'flash',
+              title: 'Stretch deep, squeeze tight',
+              description: 'Machine pumps fast'
+            }
+          ]
+        },
+        {
+          name: 'Close-Grip Machine Curl',
+          duration: '12–14 min',
+          description: 'Standard narrow-grip curl workout biasing long head.',
+          battlePlan: 'Battle Plan — Standard Sets\n• 4×12 Close-Grip Machine Curl — standard reps\nRest 60s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_de06d55d-ac38-4152-bbf5-479c53d1fb22/artifacts/um46qpzr_download%20%283%29.png',
+          intensityReason: 'Narrow grip on machine targets long head',
+          moodTips: [
+            {
+              icon: 'hand-left',
+              title: 'Hands narrow',
+              description: 'Long-head emphasis'
+            },
+            {
+              icon: 'fitness',
+              title: 'Wrists neutral',
+              description: 'Elbow comfort'
+            },
+            {
+              icon: 'flash',
+              title: 'Full extension each rep',
+              description: 'Better pump than heavier load'
+            }
+          ]
+        },
+        {
+          name: 'Curl + Iso Finish',
+          duration: '12–14 min',
+          description: 'Standard machine curl workout with squeeze-to-finish at peak flexion.',
+          battlePlan: 'Battle Plan — Standard + Isometric Finish\n• 4×10 Machine Curl — standard reps\n• Final set: squeeze to finish — hold handles at top 8–10s\nRest 60s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_de06d55d-ac38-4152-bbf5-479c53d1fb22/artifacts/h9obln9e_download%20%282%29.png',
+          intensityReason: 'Isometric finish on machine maximizes contraction',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Flex hard during hold',
+              description: 'Neural drive matters'
+            },
+            {
+              icon: 'body',
+              title: 'Elbows stay planted',
+              description: 'Machine advantage'
+            },
+            {
+              icon: 'fitness',
+              title: 'Use lighter pin for hold',
+              description: 'Longer squeeze = better pump'
             }
           ]
         }
       ],
       intermediate: [
         {
-          name: 'Heavy Machine Curl',
-          duration: '12–14 min',
-          description: 'Stronger machine curls stimulate hypertrophy gains',
-          battlePlan: '4 rounds\n• 8–10 Heavy Machine Curls\nRest 75–90s',
+          name: 'Paused Machine Curl',
+          duration: '14–16 min',
+          description: 'Pause-rep machine curl workout eliminating momentum.',
+          battlePlan: 'Battle Plan — Pause Sets\n• 4×10 Machine Curl — pause reps (1s halfway)\nRest 75s',
           imageUrl: 'https://customer-assets.emergentagent.com/job_de06d55d-ac38-4152-bbf5-479c53d1fb22/artifacts/um46qpzr_download%20%283%29.png',
-          intensityReason: 'Safe machine setup supports heavier overload',
+          intensityReason: 'Pauses eliminate machine assist for pure biceps work',
           moodTips: [
             {
-              icon: 'fitness',
-              title: 'Lock elbows down to pad',
-              description: 'Fixed position maximizes isolation.'
+              icon: 'timer',
+              title: 'Pause kills assist',
+              description: 'Pure biceps'
             },
             {
-              icon: 'refresh',
-              title: 'Perform with steady rhythm',
-              description: 'Consistent tempo builds strength.'
+              icon: 'hand-left',
+              title: 'Grip stays tight',
+              description: 'Improves output'
+            },
+            {
+              icon: 'flash',
+              title: 'Finish each rep strong',
+              description: 'Contracted biceps dominate'
             }
           ]
         },
         {
-          name: 'Eccentric Curl',
-          duration: '12–14 min',
-          description: 'Negative machine curls deepen hypertrophy drive',
-          battlePlan: '3 rounds\n• 8 Curls (3s eccentric lowering)\nRest 75–90s',
+          name: 'Wide-Grip Machine Curl',
+          duration: '14–16 min',
+          description: 'Standard curl workout biasing short head.',
+          battlePlan: 'Battle Plan — Standard Sets\n• 4×10 Wide-Grip Machine Curl — standard reps\nRest 75s',
           imageUrl: 'https://customer-assets.emergentagent.com/job_de06d55d-ac38-4152-bbf5-479c53d1fb22/artifacts/h9obln9e_download%20%282%29.png',
-          intensityReason: 'Slower eccentric motion builds harder tension',
+          intensityReason: 'Wide grip on machine targets inner biceps',
           moodTips: [
             {
-              icon: 'timer',
-              title: 'Drive up then lower for 3s',
-              description: 'Extended negative phase builds size.'
+              icon: 'hand-left',
+              title: 'Grip wide',
+              description: 'Inner biceps focus'
             },
             {
-              icon: 'fitness',
-              title: 'Keep pads tight to arms',
-              description: 'Proper pad contact ensures isolation.'
+              icon: 'body',
+              title: 'No torso movement',
+              description: 'Isolation preserved'
+            },
+            {
+              icon: 'flash',
+              title: 'Short-head squeeze hits fast',
+              description: 'Pump builds quickly'
+            }
+          ]
+        },
+        {
+          name: 'Machine Curl Burn Builder',
+          duration: '15–17 min',
+          description: 'Burnout-style machine curl workout extending time under tension.',
+          battlePlan: 'Battle Plan — Burnout Sets\n• 4×15 Machine Curl — burnout reps\nRest 75s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_de06d55d-ac38-4152-bbf5-479c53d1fb22/artifacts/um46qpzr_download%20%283%29.png',
+          intensityReason: 'Extended reps on machine build endurance and pump',
+          moodTips: [
+            {
+              icon: 'shield',
+              title: 'No lockout allowed',
+              description: 'Constant tension'
+            },
+            {
+              icon: 'refresh',
+              title: 'Steady cadence',
+              description: 'Prevents joint stress'
+            },
+            {
+              icon: 'flash',
+              title: 'Moderate weight, nonstop reps',
+              description: 'Burnout = pump'
+            }
+          ]
+        },
+        {
+          name: 'Curl + Partial Contrast',
+          duration: '15–17 min',
+          description: 'Superset workout pairing full ROM with top-range partials.',
+          battlePlan: 'Battle Plan — Superset\n• 4×10 Machine Curl — standard reps\nsuperset with\n• 10 Top-Range Partial Curls\nRest 90s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_de06d55d-ac38-4152-bbf5-479c53d1fb22/artifacts/h9obln9e_download%20%282%29.png',
+          intensityReason: 'Full and partial reps maximize fiber recruitment',
+          moodTips: [
+            {
+              icon: 'trending-up',
+              title: 'Full reps first',
+              description: 'Max fiber recruitment'
+            },
+            {
+              icon: 'timer',
+              title: 'Partials stay high',
+              description: 'Peak tension'
+            },
+            {
+              icon: 'flash',
+              title: 'Short-range burn seals pump',
+              description: 'Machine excels here'
             }
           ]
         }
       ],
       advanced: [
         {
-          name: 'Drop Set Curls',
-          duration: '14–16 min',
-          description: 'Drop sets extend working time for biceps growth',
-          battlePlan: '4 rounds\n• 8 Heavy Machine Curls\n• Drop 20% → 8 More Reps\nRest 75–90s',
+          name: 'Heavy Machine Curl Builder',
+          duration: '18–20 min',
+          description: 'Standard heavy machine curl workout emphasizing strict form.',
+          battlePlan: 'Battle Plan — Standard Sets\n• 6×8 Machine Curl — standard reps\nRest 90s',
           imageUrl: 'https://customer-assets.emergentagent.com/job_de06d55d-ac38-4152-bbf5-479c53d1fb22/artifacts/um46qpzr_download%20%283%29.png',
-          intensityReason: 'Removing weight sustains prolonged curl strain',
+          intensityReason: 'Heavy loads on machine build strength without cheating',
           moodTips: [
             {
-              icon: 'flash',
-              title: 'Strip weight quickly after set',
-              description: 'Fast transition maximizes intensity.'
+              icon: 'shield',
+              title: 'No cheating possible',
+              description: 'Embrace the grind'
             },
             {
-              icon: 'trending-up',
-              title: 'Keep reps smooth each drop',
-              description: 'Maintain form through fatigue.'
+              icon: 'trending-down',
+              title: 'Control the negative',
+              description: 'Eccentric overload'
+            },
+            {
+              icon: 'flash',
+              title: 'Finish reps with intent',
+              description: 'Contracted biceps matter'
             }
           ]
         },
         {
-          name: 'Machine Curl Burn',
-          duration: '16–18 min',
-          description: 'Iso holds at midpoint greatly exhaust the biceps',
-          battlePlan: '4 rounds\n• 8 Machine Curls\n• End with 10s Mid Curl Hold\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_de06d55d-ac38-4152-bbf5-479c53d1fb22/artifacts/h9obln9e_download%20%282%29.png',
-          intensityReason: 'Static holds boost stimulus beyond normal sets',
+          name: 'Machine Curl Drop Cluster',
+          duration: '18–20 min',
+          description: 'Multi-drop machine curl workout driving fatigue.',
+          battlePlan: 'Battle Plan — Drop Cluster\n• Set 1: 10 reps\n• Set 2: drop set — 10 → drop ~20% → 8\n• Set 3: triple drop — 8 → drop ~15% → 6 → drop ~10% → 6\nRest 90s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_de06d55d-ac38-4152-bbf5-479c53d1fb22/artifacts/um46qpzr_download%20%283%29.png',
+          intensityReason: 'Drop clusters on machine extend time under tension',
           moodTips: [
             {
-              icon: 'timer',
-              title: 'After last rep, hold 10s mid',
-              description: 'Isometric position creates metabolic stress.'
+              icon: 'flash',
+              title: 'Pin changes immediately',
+              description: 'Don\'t stand up'
             },
             {
               icon: 'shield',
-              title: 'No stack slamming at bottom',
-              description: 'Control throughout maintains tension.'
+              title: 'Smaller drops keep tension',
+              description: 'Machines don\'t need big jumps'
+            },
+            {
+              icon: 'timer',
+              title: 'End sets with a squeeze',
+              description: 'Peak contraction seals pump'
+            }
+          ]
+        },
+        {
+          name: 'Machine Curl Burnout Hold',
+          duration: '18–20 min',
+          description: 'Burnout + isometric machine curl workout.',
+          battlePlan: 'Battle Plan — Burnout + Isometric\n• 4×12 Machine Curl — burnout reps\n• Final set: squeeze to finish — hold top 10s\nRest 90s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_de06d55d-ac38-4152-bbf5-479c53d1fb22/artifacts/h9obln9e_download%20%282%29.png',
+          intensityReason: 'Burnout with iso hold on machine exhausts biceps completely',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Flex aggressively',
+              description: 'Neural drive matters'
+            },
+            {
+              icon: 'shield',
+              title: 'No resting on stack',
+              description: 'Continuous tension'
+            },
+            {
+              icon: 'fitness',
+              title: 'Lighter pin, longer hold',
+              description: 'Pump > ego'
+            }
+          ]
+        },
+        {
+          name: '1.5-Rep Machine Curl',
+          duration: '18–20 min',
+          description: 'Partial-range machine curl workout increasing time under tension.',
+          battlePlan: 'Battle Plan — Standard Sets\n• 5×8 Machine Curl — 1.5 reps\nRest 90s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_de06d55d-ac38-4152-bbf5-479c53d1fb22/artifacts/h9obln9e_download%20%282%29.png',
+          intensityReason: '1.5 reps on machine double time under tension per rep',
+          moodTips: [
+            {
+              icon: 'refresh',
+              title: 'Half rep near top',
+              description: 'Contracted emphasis'
+            },
+            {
+              icon: 'timer',
+              title: 'Smooth transitions',
+              description: 'No bouncing'
+            },
+            {
+              icon: 'flash',
+              title: 'Machine tension stays high',
+              description: 'Biceps stay pumped'
             }
           ]
         }
