@@ -359,6 +359,26 @@ export const absWorkoutDatabase: EquipmentWorkouts[] = [
               description: 'Perfect plank form after rollouts challenges endurance.'
             }
           ]
+        },
+        {
+          name: 'Offset-Hand Kneeling Rollouts',
+          duration: '10–12 min',
+          description: 'Staggered hand position increases anti-rotation demand.',
+          battlePlan: '4 rounds\n• 8 per side Offset Rollouts\nRest 75s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_sweat-weights-images/artifacts/gw2t6eg7_download%20%281%29.png',
+          intensityReason: 'Uneven hands engage obliques and challenge stability',
+          moodTips: [
+            {
+              icon: 'construct',
+              title: 'Hands uneven on handles',
+              description: 'Staggered grip increases anti-rotation demand.'
+            },
+            {
+              icon: 'shield',
+              title: 'Hips stay square',
+              description: 'Resist rotation throughout movement.'
+            }
+          ]
         }
       ],
       advanced: [
