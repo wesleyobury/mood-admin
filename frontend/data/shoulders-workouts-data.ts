@@ -2195,7 +2195,7 @@ export const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Standard seated press workout using bench support for clean shoulder loading.',
           battlePlan: 'Battle Plan — Standard Sets\n• 4×12 Seated Dumbbell Shoulder Press (bench ~80–85°) — standard reps\nRest 60s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/d2gkwhep_download%20%282%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-data-hub-2/artifacts/idt8edgt_db%20shoulder%20press.png',
           intensityReason: 'Standard seated press workout using bench support for clean shoulder loading.',
           moodTips: [
             {
@@ -2220,7 +2220,7 @@ export const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Standard isolation workout using bench angle to bias side delts.',
           battlePlan: 'Battle Plan — Standard Sets\n• 4×15 Incline Dumbbell Lateral Raise (bench ~30°) — standard reps\nRest 60s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/d2gkwhep_download%20%282%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-data-hub-2/artifacts/73grv174_db%20lateral%20raise.png',
           intensityReason: 'Standard isolation workout using bench angle to bias side delts.',
           moodTips: [
             {
@@ -2245,7 +2245,7 @@ export const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Standard anterior-delt workout with bench support to control swing.',
           battlePlan: 'Battle Plan — Standard Sets\n• 4×12 Seated Front Raise (bench ~70°) — standard reps\nRest 60s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/d2gkwhep_download%20%282%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-data-hub-2/artifacts/9k5yy7z7_db%20chest%20supported%20front%20raise.jpg',
           intensityReason: 'Standard anterior-delt workout with bench support to control swing.',
           moodTips: [
             {
@@ -2270,7 +2270,7 @@ export const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Standard press workout with squeeze-to-finish in the contracted range.',
           battlePlan: 'Battle Plan — Standard + Isometric Finish\n• 4×10 Seated Shoulder Press — standard reps\n• Final set: squeeze to finish — hold just before lockout (peak delt contraction) 8–10s\nRest 60s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/d2gkwhep_download%20%282%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-data-hub-2/artifacts/61sfuskm_Low%20%26%20incline%20delt%20fly.jpg',
           intensityReason: 'Standard press workout with squeeze-to-finish in the contracted range.',
           moodTips: [
             {
