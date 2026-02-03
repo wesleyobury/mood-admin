@@ -1151,7 +1151,7 @@ export const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '18–20 min',
           description: 'High-density unilateral isolation workout for side-delt overload.',
           battlePlan: 'Battle Plan — Standard Sets\n• 6×10 Single-Arm Cable Delt Fly — standard reps\nRest 75s per side',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/8p6cuez9_download.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-data-hub-2/artifacts/gowvsmtm_image.png',
           intensityReason: 'High-density unilateral isolation workout for side-delt overload.',
           moodTips: [
             {
@@ -1176,7 +1176,7 @@ export const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '18–20 min',
           description: 'Single-exercise drop-set workout driving mechanical fatigue.',
           battlePlan: 'Battle Plan — Drop Set\n• 4×12 Cable Lateral Raise — standard reps\n• Final set: drop set — 2 drops, no rest\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/8p6cuez9_download.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-data-hub-2/artifacts/ndk3n5nw_image.png',
           intensityReason: 'Single-exercise drop-set workout driving mechanical fatigue.',
           moodTips: [
             {
@@ -1201,7 +1201,7 @@ export const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '18–20 min',
           description: 'Burnout isolation workout for rear-delt hypertrophy.',
           battlePlan: 'Battle Plan — Burnout Sets\n• 4×20 Cable Rear Delt Fly — burnout reps\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/8p6cuez9_download.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-data-hub-2/artifacts/hwr2ym9m_image.png',
           intensityReason: 'Burnout isolation workout for rear-delt hypertrophy.',
           moodTips: [
             {
@@ -1226,7 +1226,7 @@ export const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '18–20 min',
           description: 'Burnout + isometric workout targeting anterior delts.',
           battlePlan: 'Battle Plan — Burnout + Isometric\n• 4×15 Cable Front Raise (pull-through) — burnout reps\n• Final set: squeeze to finish — hold at eye level 8–10s\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/8p6cuez9_download.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-data-hub-2/artifacts/d3k00azw_image.png',
           intensityReason: 'Burnout + isometric workout targeting anterior delts.',
           moodTips: [
             {
