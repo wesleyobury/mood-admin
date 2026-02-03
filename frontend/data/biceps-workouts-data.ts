@@ -1562,131 +1562,311 @@ export const bicepsWorkoutDatabase: EquipmentWorkouts[] = [
     }
   },
   {
-    equipment: 'Pull Up Bar',
+    equipment: 'Pull-Up Bar',
     icon: 'remove-outline',
     workouts: {
       beginner: [
         {
-          name: 'Assisted Chins',
-          duration: '10–12 min',
-          description: 'Assisted chin ups help beginners build curl strength',
-          battlePlan: '3 rounds\n• 5 Assisted Chin Ups\nRest 60–75s',
+          name: 'Chin-Up Builder',
+          duration: '12–14 min',
+          description: 'Standard chin-up workout emphasizing elbow flexion under bodyweight.',
+          battlePlan: 'Battle Plan — Standard Sets\n• 4×AMRAP Chin-Ups — standard reps\nRest 90s',
           imageUrl: 'https://customer-assets.emergentagent.com/job_de06d55d-ac38-4152-bbf5-479c53d1fb22/artifacts/2h4qn95p_download.png',
-          intensityReason: 'Band or machine assistance teaches strict form',
+          intensityReason: 'Bodyweight chin-ups build functional pulling strength',
           moodTips: [
             {
               icon: 'hand-left',
-              title: 'Palms face you, elbows tucked',
-              description: 'Underhand grip targets biceps.'
+              title: 'Supinated grip',
+              description: 'Biceps bias'
             },
             {
-              icon: 'fitness',
-              title: 'Use band/machine as needed',
-              description: 'Assistance helps build strength gradually.'
+              icon: 'trending-up',
+              title: 'Pull chest to bar',
+              description: 'Full elbow flexion'
+            },
+            {
+              icon: 'trending-down',
+              title: 'Control the bottom hang',
+              description: 'Stretch loads the biceps'
             }
           ]
         },
         {
-          name: 'Negative Chins',
-          duration: '10–12 min',
-          description: 'Negative chin ups improve strength for real reps',
-          battlePlan: '3 rounds\n• 5 Negative Chin Ups\nRest 60–75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_de06d55d-ac38-4152-bbf5-479c53d1fb22/artifacts/iac5dn06_cups.jpeg',
-          intensityReason: 'Controlled descent builds stronger arm pulling',
+          name: 'Band-Assisted Chin-Ups',
+          duration: '12–14 min',
+          description: 'Assisted bodyweight curl workout reducing load for clean reps.',
+          battlePlan: 'Battle Plan — Standard Sets\n• 4×8–10 Assisted Chin-Ups — standard reps\nRest 90s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_de06d55d-ac38-4152-bbf5-479c53d1fb22/artifacts/2h4qn95p_download.png',
+          intensityReason: 'Band assistance allows proper form development',
           moodTips: [
             {
-              icon: 'timer',
-              title: 'Lower for 3–5s on each rep',
-              description: 'Slow negatives build eccentric strength.'
+              icon: 'fitness',
+              title: 'Use minimal assistance',
+              description: 'Biceps still work'
+            },
+            {
+              icon: 'shield',
+              title: 'No kipping',
+              description: 'Pure pull'
+            },
+            {
+              icon: 'flash',
+              title: 'Hang fully each rep',
+              description: 'Stretch builds pump'
+            }
+          ]
+        },
+        {
+          name: 'Negative Chin-Ups',
+          duration: '12–14 min',
+          description: 'Eccentric-focused bodyweight curl workout emphasizing control.',
+          battlePlan: 'Battle Plan — Eccentric Sets\n• 4×5 Chin-Ups — eccentric reps (5s down)\nRest 90s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_de06d55d-ac38-4152-bbf5-479c53d1fb22/artifacts/iac5dn06_cups.jpeg',
+          intensityReason: 'Slow negatives build eccentric strength for full reps',
+          moodTips: [
+            {
+              icon: 'trending-up',
+              title: 'Jump or step to top',
+              description: 'Save strength for negatives'
+            },
+            {
+              icon: 'trending-down',
+              title: 'Slow descent',
+              description: 'Eccentric overload'
+            },
+            {
+              icon: 'flash',
+              title: 'Full hang between reps',
+              description: 'Stretch intensifies pump'
+            }
+          ]
+        },
+        {
+          name: 'Chin-Up Hold Finish',
+          duration: '12–14 min',
+          description: 'Standard chin-up workout with squeeze-to-finish at peak flexion.',
+          battlePlan: 'Battle Plan — Standard + Isometric Finish\n• 4×6 Chin-Ups — standard reps\n• Final set: squeeze to finish — hold chin over bar 10s\nRest 90s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_de06d55d-ac38-4152-bbf5-479c53d1fb22/artifacts/iac5dn06_cups.jpeg',
+          intensityReason: 'Isometric hold at top maximizes biceps contraction',
+          moodTips: [
+            {
+              icon: 'trending-up',
+              title: 'Chest close to bar',
+              description: 'Max elbow flexion'
             },
             {
               icon: 'body',
-              title: 'Keep torso steady, no swing',
-              description: 'Strict form prevents momentum.'
+              title: 'Elbows tight',
+              description: 'Biceps dominate'
+            },
+            {
+              icon: 'flash',
+              title: 'Hold at hardest point',
+              description: 'Shortened biceps pump hardest'
             }
           ]
         }
       ],
       intermediate: [
         {
-          name: 'Strict Chins',
-          duration: '12–14 min',
-          description: 'Strict chin ups strengthen biceps and lats together',
-          battlePlan: '4 rounds\n• 6 Chin Ups\nRest 75–90s',
+          name: 'Tempo Chin-Ups',
+          duration: '14–16 min',
+          description: 'Tempo-controlled chin-up workout increasing time under tension.',
+          battlePlan: 'Battle Plan — Eccentric Sets\n• 4×6 Chin-Ups — eccentric reps (3s down)\nRest 90s',
           imageUrl: 'https://customer-assets.emergentagent.com/job_de06d55d-ac38-4152-bbf5-479c53d1fb22/artifacts/2h4qn95p_download.png',
-          intensityReason: 'Bodyweight movement grows pulling arm power',
+          intensityReason: 'Controlled tempo maximizes time under tension',
           moodTips: [
             {
-              icon: 'trending-up',
-              title: 'Pull chest high to bar line',
-              description: 'Full range maximizes muscle recruitment.'
+              icon: 'refresh',
+              title: 'Smooth cadence',
+              description: 'No bouncing'
             },
             {
-              icon: 'fitness',
-              title: 'Extend fully at bottom each rep',
-              description: 'Complete extension ensures full range.'
+              icon: 'trending-down',
+              title: 'Full extension each rep',
+              description: 'Stretch matters'
+            },
+            {
+              icon: 'flash',
+              title: 'Slow lowers build pump',
+              description: 'Bodyweight tension adds up'
             }
           ]
         },
         {
-          name: 'Chin + Hold',
-          duration: '12–14 min',
-          description: 'Isometric on bar builds tougher pulling strength',
-          battlePlan: '3 rounds\n• 6 Chin Ups\n• End with 3s Hold at Top\nRest 75–90s',
+          name: 'Close-Grip Chin-Ups',
+          duration: '14–16 min',
+          description: 'Grip-biased chin-up workout increasing elbow flexion demand.',
+          battlePlan: 'Battle Plan — Standard Sets\n• 4×AMRAP Close-Grip Chin-Ups — standard reps\nRest 90s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_de06d55d-ac38-4152-bbf5-479c53d1fb22/artifacts/2h4qn95p_download.png',
+          intensityReason: 'Close grip increases biceps demand',
+          moodTips: [
+            {
+              icon: 'hand-left',
+              title: 'Hands shoulder-width or closer',
+              description: 'Biceps bias'
+            },
+            {
+              icon: 'shield',
+              title: 'No swinging',
+              description: 'Clean pulls'
+            },
+            {
+              icon: 'flash',
+              title: 'Control top and bottom',
+              description: 'Stretch + squeeze = pump'
+            }
+          ]
+        },
+        {
+          name: 'Chin-Up Burn Builder',
+          duration: '15–17 min',
+          description: 'Burnout-style chin-up workout extending fatigue.',
+          battlePlan: 'Battle Plan — Burnout Sets\n• 5×AMRAP Chin-Ups — burnout reps\nRest 75s',
           imageUrl: 'https://customer-assets.emergentagent.com/job_de06d55d-ac38-4152-bbf5-479c53d1fb22/artifacts/iac5dn06_cups.jpeg',
-          intensityReason: 'Finishing hold improves control and endurance',
+          intensityReason: 'Short rest burnout builds endurance and pump',
           moodTips: [
             {
               icon: 'timer',
-              title: 'Hold top for 3s after last rep',
-              description: 'Isometric hold builds endurance.'
+              title: 'Shorter rest each set',
+              description: 'Fatigue stacks'
+            },
+            {
+              icon: 'shield',
+              title: 'Partial reps allowed late',
+              description: 'Stay in tension'
+            },
+            {
+              icon: 'flash',
+              title: 'Top-range focus',
+              description: 'Biceps stay loaded'
+            }
+          ]
+        },
+        {
+          name: 'Chin-Up + Iso Hang Contrast',
+          duration: '15–17 min',
+          description: 'Superset workout pairing reps with isometric holds.',
+          battlePlan: 'Battle Plan — Superset\n• 4×6 Chin-Ups — standard reps\nsuperset with\n• 20s Flexed-Arm Hang\nRest 90s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_de06d55d-ac38-4152-bbf5-479c53d1fb22/artifacts/iac5dn06_cups.jpeg',
+          intensityReason: 'Reps plus iso hang maximize biceps fatigue',
+          moodTips: [
+            {
+              icon: 'trending-up',
+              title: 'Chins first',
+              description: 'Preserve strength'
             },
             {
               icon: 'body',
-              title: 'Do not shrug shoulders up',
-              description: 'Keep shoulders down and engaged.'
+              title: 'Hang with elbows bent',
+              description: 'Peak biceps tension'
+            },
+            {
+              icon: 'flash',
+              title: 'Hold where shaking starts',
+              description: 'That\'s the pump zone'
             }
           ]
         }
       ],
       advanced: [
         {
-          name: 'Weighted Chins',
-          duration: '14–16 min',
-          description: 'Weighted chin ups grow mass with strict posture',
-          battlePlan: '4 rounds\n• 6–8 Weighted Chin Ups\nRest 90s',
+          name: 'Weighted Chin-Up Builder',
+          duration: '18–20 min',
+          description: 'Standard weighted chin-up workout for advanced biceps loading.',
+          battlePlan: 'Battle Plan — Standard Sets\n• 6×5 Weighted Chin-Ups — standard reps\nRest 120s',
           imageUrl: 'https://customer-assets.emergentagent.com/job_de06d55d-ac38-4152-bbf5-479c53d1fb22/artifacts/2h4qn95p_download.png',
-          intensityReason: 'Adding load forces stronger hypertrophy gains',
+          intensityReason: 'Added weight builds serious pulling strength',
           moodTips: [
             {
               icon: 'construct',
-              title: 'Add belt or dumbbell slowly',
-              description: 'Progressive overload builds strength.'
+              title: 'Add weight conservatively',
+              description: 'Form over ego'
             },
             {
-              icon: 'shield',
-              title: 'Never kip or swing body',
-              description: 'Strict form prevents injury.'
+              icon: 'trending-down',
+              title: 'Full ROM always',
+              description: 'Stretch protects elbows'
+            },
+            {
+              icon: 'flash',
+              title: 'Explode up, control down',
+              description: 'Tension builds pump'
             }
           ]
         },
         {
-          name: 'Chest Bar + Negs',
-          duration: '16–18 min',
-          description: 'High pulls combined with negatives boost strength',
-          battlePlan: '4 rounds\n• 6 Chest to Bar Pull Ups\n• 6 Negative Chin Ups\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_de06d55d-ac38-4152-bbf5-479c53d1fb22/artifacts/iac5dn06_cups.jpeg',
-          intensityReason: 'Chest to bar reps plus negatives overload arms',
+          name: 'Weighted Chin-Up Drop Ladder',
+          duration: '18–20 min',
+          description: 'Multi-drop bodyweight workout driving fatigue.',
+          battlePlan: 'Battle Plan — Drop Ladder\n• 3 rounds:\n  5 weighted reps → remove weight → AMRAP bodyweight → band-assist AMRAP\nRest 120s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_de06d55d-ac38-4152-bbf5-479c53d1fb22/artifacts/2h4qn95p_download.png',
+          intensityReason: 'Progressive drops extend set past failure',
           moodTips: [
             {
-              icon: 'trending-up',
-              title: 'Pull chest to bar every rep',
-              description: 'Full range maximizes development.'
+              icon: 'flash',
+              title: 'Weight changes immediate',
+              description: 'Stay on bar'
+            },
+            {
+              icon: 'shield',
+              title: 'Clean reps over grinding',
+              description: 'Elbow safety'
             },
             {
               icon: 'timer',
-              title: 'Descend 3–5s consistently',
-              description: 'Controlled negatives build strength.'
+              title: 'Finish each ladder with a flex',
+              description: 'Contracted biceps seal pump'
+            }
+          ]
+        },
+        {
+          name: 'Chin-Up Burnout Hold',
+          duration: '18–20 min',
+          description: 'Burnout + isometric chin-up workout.',
+          battlePlan: 'Battle Plan — Burnout + Isometric\n• 4×AMRAP Chin-Ups — burnout reps\n• Final set: squeeze to finish — hold top 10–15s\nRest 120s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_de06d55d-ac38-4152-bbf5-479c53d1fb22/artifacts/iac5dn06_cups.jpeg',
+          intensityReason: 'Burnout with iso hold exhausts biceps completely',
+          moodTips: [
+            {
+              icon: 'shield',
+              title: 'No half-ass reps',
+              description: 'Commit to each pull'
+            },
+            {
+              icon: 'flash',
+              title: 'Flex hard at the top',
+              description: 'Peak contraction'
+            },
+            {
+              icon: 'timer',
+              title: 'Hold where elbows are tightest',
+              description: 'True shortened position'
+            }
+          ]
+        },
+        {
+          name: '1.5-Rep Chin-Ups',
+          duration: '18–20 min',
+          description: 'Partial-range chin-up workout increasing time under tension.',
+          battlePlan: 'Battle Plan — Standard Sets\n• 5×4 Chin-Ups — 1.5 reps\nRest 120s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_de06d55d-ac38-4152-bbf5-479c53d1fb22/artifacts/iac5dn06_cups.jpeg',
+          intensityReason: '1.5 reps double time under tension per rep',
+          moodTips: [
+            {
+              icon: 'refresh',
+              title: 'Half rep stays near top',
+              description: 'Contracted emphasis'
+            },
+            {
+              icon: 'timer',
+              title: 'Smooth transitions',
+              description: 'No jerking'
+            },
+            {
+              icon: 'flash',
+              title: 'Top-range dominance',
+              description: 'Biceps stay pumped'
             }
           ]
         }
