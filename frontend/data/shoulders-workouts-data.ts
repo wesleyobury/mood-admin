@@ -635,7 +635,7 @@ export const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Standard isolation workout targeting rear delts.',
           battlePlan: 'Battle Plan — Standard Sets\n• 4×15 Rear Delt Fly — standard reps\nRest 60s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/jyl947na_download%20%2810%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-data-hub-2/artifacts/bvadq5vi_download%20%287%29.png',
           intensityReason: 'Standard isolation workout targeting rear delts.',
           moodTips: [
             {
@@ -737,7 +737,7 @@ export const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Standard unilateral isolation workout for balance.',
           battlePlan: 'Battle Plan — Standard Sets\n• 5×12 Single-Arm Rear Delt Fly — standard reps\nRest 75s per side',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/jyl947na_download%20%2810%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-data-hub-2/artifacts/gchfnmx0_image.png',
           intensityReason: 'Standard unilateral isolation workout for balance.',
           moodTips: [
             {
@@ -839,7 +839,7 @@ export const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '18–20 min',
           description: 'Standard isolation workout using heavier loads.',
           battlePlan: 'Battle Plan — Standard Sets\n• 6×10 Rear Delt Fly — standard reps\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/jyl947na_download%20%2810%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-data-hub-2/artifacts/bvadq5vi_download%20%287%29.png',
           intensityReason: 'Standard isolation workout using heavier loads.',
           moodTips: [
             {
