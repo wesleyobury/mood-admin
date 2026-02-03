@@ -323,7 +323,7 @@ export const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Standard Smith press workout with fixed-path stability.',
           battlePlan: 'Battle Plan — Standard Sets\n• 4×12 Smith Shoulder Press — standard reps\nRest 60s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/6jtrgr30_download%20%289%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-data-hub-2/artifacts/9btj6m9u_image.png',
           intensityReason: 'Standard Smith press workout with fixed-path stability.',
           moodTips: [
             {
@@ -348,7 +348,7 @@ export const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Eccentric-focused Smith workout reinforcing control.',
           battlePlan: 'Battle Plan — Eccentric Sets\n• 4×10 Smith Shoulder Press — eccentric reps (3s down)\nRest 60s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/civ6xh4i_Smith-Machine-Shoulder-Press.webp',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-data-hub-2/artifacts/9btj6m9u_image.png',
           intensityReason: 'Eccentric-focused Smith workout reinforcing control.',
           moodTips: [
             {
@@ -373,7 +373,7 @@ export const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Standard pull workout targeting delts and traps.',
           battlePlan: 'Battle Plan — Standard Sets\n• 4×12 Smith Upright Row — standard reps\nRest 60s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/6jtrgr30_download%20%289%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-data-hub-2/artifacts/9btj6m9u_image.png',
           intensityReason: 'Standard pull workout targeting delts and traps.',
           moodTips: [
             {
@@ -398,7 +398,7 @@ export const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Standard press workout with isometric finish.',
           battlePlan: 'Battle Plan — Standard + Isometric\n• 4×10 Smith Shoulder Press — standard reps\n• Final set: squeeze to finish — hold top 10s\nRest 60s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/civ6xh4i_Smith-Machine-Shoulder-Press.webp',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-data-hub-2/artifacts/rmh1bypt_download%20%286%29.png',
           intensityReason: 'Standard press workout with isometric finish.',
           moodTips: [
             {
