@@ -1257,6 +1257,26 @@ export const absWorkoutDatabase: EquipmentWorkouts[] = [
               description: 'Coordinate breathing for maximum muscle activation.'
             }
           ]
+        },
+        {
+          name: 'Decline Heel Slides',
+          duration: '8–10 min',
+          description: 'Controlled lower-ab movement minimizing hip flexor dominance.',
+          battlePlan: '3 rounds\n• 12 per side Heel Slides\nRest 60s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_sweat-weights-images/artifacts/lwwxsgl0_download%20%287%29.png',
+          intensityReason: 'Posterior pelvic tilt ensures lower abs fire',
+          moodTips: [
+            {
+              icon: 'timer',
+              title: 'Slide heels slowly',
+              description: 'Abs stay engaged throughout.'
+            },
+            {
+              icon: 'construct',
+              title: 'Posterior pelvic tilt',
+              description: 'Lower abs fire properly.'
+            }
+          ]
         }
       ],
       intermediate: [
