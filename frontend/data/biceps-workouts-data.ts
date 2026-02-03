@@ -319,126 +319,306 @@ export const bicepsWorkoutDatabase: EquipmentWorkouts[] = [
     workouts: {
       beginner: [
         {
-          name: 'Bar Curl',
-          duration: '10–12 min',
-          description: 'Straightforward curls build solid foundation form',
-          battlePlan: '3 rounds\n• 10–12 EZ Bar Curls\nRest 60–75s',
+          name: 'EZ Bar Curl Builder',
+          duration: '12–14 min',
+          description: 'Standard barbell curl workout for joint-friendly loading.',
+          battlePlan: 'Battle Plan — Standard Sets\n• 4×12 EZ Bar Curl — standard reps\nRest 60s',
           imageUrl: 'https://customer-assets.emergentagent.com/job_de06d55d-ac38-4152-bbf5-479c53d1fb22/artifacts/iskvqgub_download%20%284%29.png',
-          intensityReason: 'EZ bar reduces wrist stress for easier motion and more power',
+          intensityReason: 'EZ bar reduces wrist stress for comfortable curling',
           moodTips: [
             {
               icon: 'hand-left',
-              title: 'Grip the angled bar comfortably',
-              description: 'EZ bar angle protects wrists.'
+              title: 'Wrists stay neutral',
+              description: 'Elbow comfort'
             },
             {
-              icon: 'fitness',
-              title: 'Keep elbows locked at your sides',
-              description: 'Fixed elbow position isolates biceps.'
+              icon: 'trending-up',
+              title: 'Bar path straight up',
+              description: 'Prevents shoulder drift'
+            },
+            {
+              icon: 'flash',
+              title: 'Lower fully, squeeze hard at top',
+              description: 'Stretch + flex = pump'
             }
           ]
         },
         {
-          name: 'Wide Grip Curl',
-          duration: '10–12 min',
-          description: 'Wide grip curls improve control and arm balance',
-          battlePlan: '3 rounds\n• 10 Wide Grip EZ Curls\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_de06d55d-ac38-4152-bbf5-479c53d1fb22/artifacts/baaichm8_download%20%283%29.png',
-          intensityReason: 'Wide grip shifts stress toward the outer heads',
+          name: 'Tempo EZ Curl',
+          duration: '12–14 min',
+          description: 'Eccentric-focused curl workout emphasizing control.',
+          battlePlan: 'Battle Plan — Eccentric Sets\n• 4×10 EZ Curl — eccentric reps (3s down)\nRest 60s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_de06d55d-ac38-4152-bbf5-479c53d1fb22/artifacts/iskvqgub_download%20%284%29.png',
+          intensityReason: 'Slow eccentrics build strength through control',
           moodTips: [
             {
+              icon: 'trending-down',
+              title: 'Slow negatives matter',
+              description: 'Biceps respond well to eccentrics'
+            },
+            {
               icon: 'body',
-              title: 'Wide stance, no shoulder flare',
-              description: 'Stable base prevents momentum.'
+              title: 'Elbows don\'t drift forward',
+              description: 'Keeps tension local'
             },
             {
               icon: 'flash',
-              title: 'Squeeze at the top each rep',
-              description: 'Peak contraction builds definition.'
+              title: 'Stretch at bottom, flex fully',
+              description: 'Controlled range drives pump'
+            }
+          ]
+        },
+        {
+          name: 'Close-Grip EZ Curl',
+          duration: '12–14 min',
+          description: 'Standard close-grip curl workout biasing long head.',
+          battlePlan: 'Battle Plan — Standard Sets\n• 4×12 Close-Grip EZ Curl — standard reps\nRest 60s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_de06d55d-ac38-4152-bbf5-479c53d1fb22/artifacts/baaichm8_download%20%283%29.png',
+          intensityReason: 'Close grip emphasizes long head development',
+          moodTips: [
+            {
+              icon: 'hand-left',
+              title: 'Hands inside shoulder width',
+              description: 'Long-head bias'
+            },
+            {
+              icon: 'refresh',
+              title: 'Smooth tempo',
+              description: 'No jerking'
+            },
+            {
+              icon: 'flash',
+              title: 'Full ROM every rep',
+              description: 'Better pump than heavier load'
+            }
+          ]
+        },
+        {
+          name: 'Curl + Iso Finish',
+          duration: '12–14 min',
+          description: 'Standard curl workout with squeeze-to-finish at peak flexion.',
+          battlePlan: 'Battle Plan — Standard + Isometric Finish\n• 4×10 EZ Curl — standard reps\n• Final set: squeeze to finish — hold bar at top 8–10s\nRest 60s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_de06d55d-ac38-4152-bbf5-479c53d1fb22/artifacts/baaichm8_download%20%283%29.png',
+          intensityReason: 'Isometric finish maximizes muscle engagement',
+          moodTips: [
+            {
+              icon: 'body',
+              title: 'Elbows stay locked in place',
+              description: 'No shoulder help'
+            },
+            {
+              icon: 'flash',
+              title: 'Flex hard during the hold',
+              description: 'Neural drive matters'
+            },
+            {
+              icon: 'fitness',
+              title: 'Use lighter bar for the hold',
+              description: 'Longer contraction = pump'
             }
           ]
         }
       ],
       intermediate: [
         {
-          name: 'Narrow Curl',
-          duration: '12–14 min',
-          description: 'Close grip curls build stronger arm inner heads',
-          battlePlan: '4 rounds\n• 8–10 Narrow Grip EZ Curls\nRest 75–90s',
+          name: 'Wide-Grip EZ Curl',
+          duration: '14–16 min',
+          description: 'Standard curl workout biasing short head.',
+          battlePlan: 'Battle Plan — Standard Sets\n• 4×10 Wide-Grip EZ Curl — standard reps\nRest 75s',
           imageUrl: 'https://customer-assets.emergentagent.com/job_de06d55d-ac38-4152-bbf5-479c53d1fb22/artifacts/iskvqgub_download%20%284%29.png',
-          intensityReason: 'Narrow grip overloads the biceps inner portion',
+          intensityReason: 'Wide grip targets short head for peak development',
           moodTips: [
             {
               icon: 'hand-left',
-              title: 'Keep palms inward, elbows close',
-              description: 'Narrow grip targets inner biceps.'
+              title: 'Grip wider than shoulders',
+              description: 'Short-head emphasis'
             },
             {
-              icon: 'trending-up',
-              title: 'Pull bar to upper chest line',
-              description: 'Full range maximizes muscle fiber recruitment.'
+              icon: 'body',
+              title: 'No torso swing',
+              description: 'Keeps tension pure'
+            },
+            {
+              icon: 'flash',
+              title: 'Squeeze hard at top',
+              description: 'Short head pumps fast'
             }
           ]
         },
         {
-          name: 'Negative Curl',
-          duration: '12–14 min',
-          description: 'Controlled lowering builds growth development fast',
-          battlePlan: '3 rounds\n• 8 EZ Bar Curls (3s eccentric)\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_de06d55d-ac38-4152-bbf5-479c53d1fb22/artifacts/baaichm8_download%20%283%29.png',
-          intensityReason: 'Three second eccentric exaggerates curl tension',
+          name: 'Paused EZ Curl',
+          duration: '14–16 min',
+          description: 'Pause-rep curl workout eliminating momentum.',
+          battlePlan: 'Battle Plan — Pause Sets\n• 4×10 EZ Curl — pause reps (1s halfway)\nRest 75s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_de06d55d-ac38-4152-bbf5-479c53d1fb22/artifacts/iskvqgub_download%20%284%29.png',
+          intensityReason: 'Pauses eliminate momentum for honest loading',
           moodTips: [
             {
-              icon: 'flash',
-              title: 'Explode up, lower in 3s',
-              description: 'Fast concentric, slow eccentric.'
+              icon: 'timer',
+              title: 'Pause kills stretch reflex',
+              description: 'Honest loading'
             },
             {
-              icon: 'body',
-              title: 'Stay tall with posture locked',
-              description: 'Prevent body English for isolation.'
+              icon: 'hand-left',
+              title: 'Grip tight',
+              description: 'Improves force output'
+            },
+            {
+              icon: 'flash',
+              title: 'Finish each rep with intent',
+              description: 'Strong contraction = pump'
+            }
+          ]
+        },
+        {
+          name: 'EZ Curl Burn Builder',
+          duration: '15–17 min',
+          description: 'Burnout curl workout emphasizing time under tension.',
+          battlePlan: 'Battle Plan — Burnout Sets\n• 4×15 EZ Curl — burnout reps\nRest 75s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_de06d55d-ac38-4152-bbf5-479c53d1fb22/artifacts/baaichm8_download%20%283%29.png',
+          intensityReason: 'Extended reps build endurance and pump',
+          moodTips: [
+            {
+              icon: 'shield',
+              title: 'No lockout at bottom',
+              description: 'Constant tension'
+            },
+            {
+              icon: 'refresh',
+              title: 'Smooth cadence',
+              description: 'Keeps elbows happy'
+            },
+            {
+              icon: 'flash',
+              title: 'Moderate weight, nonstop reps',
+              description: 'Burnout = pump'
+            }
+          ]
+        },
+        {
+          name: 'Curl + Reverse Curl Contrast',
+          duration: '15–17 min',
+          description: 'Superset workout pairing supinated and pronated grips.',
+          battlePlan: 'Battle Plan — Superset\n• 4×10 EZ Curl — standard reps\nsuperset with\n• 10 Reverse EZ Curls\nRest 90s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_de06d55d-ac38-4152-bbf5-479c53d1fb22/artifacts/baaichm8_download%20%283%29.png',
+          intensityReason: 'Two grip styles maximize forearm and bicep development',
+          moodTips: [
+            {
+              icon: 'refresh',
+              title: 'Supinated first',
+              description: 'Max biceps output'
+            },
+            {
+              icon: 'fitness',
+              title: 'Reverse curls finish forearms',
+              description: 'Support elbow health'
+            },
+            {
+              icon: 'flash',
+              title: 'Control both tops',
+              description: 'Two squeezes = bigger pump'
             }
           ]
         }
       ],
       advanced: [
         {
-          name: 'Wide + Narrow',
-          duration: '14–16 min',
-          description: 'Wide and narrow grips develop balance and size',
-          battlePlan: '4 rounds\n• 8 Wide Grip Curl\nRest 90s\n• 8 Narrow Grip Curl\nRest 90s',
+          name: 'Heavy EZ Curl Builder',
+          duration: '18–20 min',
+          description: 'Standard heavy curl workout emphasizing control.',
+          battlePlan: 'Battle Plan — Standard Sets\n• 6×6 EZ Curl — standard reps\nRest 90s',
           imageUrl: 'https://customer-assets.emergentagent.com/job_de06d55d-ac38-4152-bbf5-479c53d1fb22/artifacts/iskvqgub_download%20%284%29.png',
-          intensityReason: 'Grip variance maximizes recruitment across arms',
+          intensityReason: 'Heavy loads with strict form build maximum strength',
           moodTips: [
             {
-              icon: 'shield',
-              title: 'Don\'t overload; stay controlled',
-              description: 'Form matters more than weight.'
+              icon: 'body',
+              title: 'No torso movement',
+              description: 'Load stays honest'
             },
             {
-              icon: 'fitness',
-              title: 'Keep elbows locked at sides',
-              description: 'Consistent elbow position ensures isolation.'
+              icon: 'trending-down',
+              title: 'Lower slower than you lift',
+              description: 'Eccentric overload'
+            },
+            {
+              icon: 'flash',
+              title: 'Finish reps with a squeeze',
+              description: 'Contracted biceps matter'
             }
           ]
         },
         {
-          name: 'Curl + Hold',
-          duration: '16–18 min',
-          description: 'Fast curls then iso hold fully exhaust the biceps',
-          battlePlan: '4 rounds\n• 8 Wide Grip EZ Curl\n• 8 Narrow Grip Curl\n• End with 10s Hold Mid Curl\nRest 120s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_de06d55d-ac38-4152-bbf5-479c53d1fb22/artifacts/baaichm8_download%20%283%29.png',
-          intensityReason: 'Static hold after volume increases muscle stress',
+          name: 'EZ Curl Drop Cluster',
+          duration: '18–20 min',
+          description: 'Multi-drop curl workout driving fatigue safely.',
+          battlePlan: 'Battle Plan — Drop Cluster\n• Set 1: 10 reps\n• Set 2: drop set — 10 → drop ~20% → 8\n• Set 3: triple drop — 8 → drop ~15% → 6 → drop ~10% → 6\nRest 90s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_de06d55d-ac38-4152-bbf5-479c53d1fb22/artifacts/iskvqgub_download%20%284%29.png',
+          intensityReason: 'Drop clusters extend time under tension past failure',
           moodTips: [
             {
-              icon: 'timer',
-              title: 'Hold mid curl for 10s each set',
-              description: 'Isometric position builds endurance.'
+              icon: 'flash',
+              title: 'Plate changes are immediate',
+              description: 'No walking away'
             },
             {
-              icon: 'body',
-              title: 'Keep posture strict under load',
-              description: 'Don\'t sacrifice form when fatigued.'
+              icon: 'shield',
+              title: 'Smaller drops preserve elbow comfort',
+              description: 'Keep reps clean'
+            },
+            {
+              icon: 'timer',
+              title: 'End each set with a flex',
+              description: 'Peak contraction seals pump'
+            }
+          ]
+        },
+        {
+          name: 'EZ Curl Burnout Hold',
+          duration: '18–20 min',
+          description: 'Burnout + isometric curl workout.',
+          battlePlan: 'Battle Plan — Burnout + Isometric\n• 4×12 EZ Curl — burnout reps\n• Final set: squeeze to finish — hold top 10s\nRest 90s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_de06d55d-ac38-4152-bbf5-479c53d1fb22/artifacts/baaichm8_download%20%283%29.png',
+          intensityReason: 'Burnout with iso hold completely exhausts biceps',
+          moodTips: [
+            {
+              icon: 'shield',
+              title: 'No cheating allowed',
+              description: 'Fatigue should be local'
+            },
+            {
+              icon: 'flash',
+              title: 'Flex hard during hold',
+              description: 'Neuromuscular demand'
+            },
+            {
+              icon: 'fitness',
+              title: 'Lighter bar, longer hold',
+              description: 'Pump > ego'
+            }
+          ]
+        },
+        {
+          name: '1.5-Rep EZ Curl',
+          duration: '18–20 min',
+          description: 'Partial-range curl workout extending time under tension.',
+          battlePlan: 'Battle Plan — Standard Sets\n• 5×8 EZ Curl — 1.5 reps\nRest 90s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_de06d55d-ac38-4152-bbf5-479c53d1fb22/artifacts/baaichm8_download%20%283%29.png',
+          intensityReason: '1.5 reps double time under tension per rep',
+          moodTips: [
+            {
+              icon: 'refresh',
+              title: 'Half rep stays near top',
+              description: 'Contracted range emphasized'
+            },
+            {
+              icon: 'timer',
+              title: 'Smooth transitions',
+              description: 'No bouncing'
+            },
+            {
+              icon: 'flash',
+              title: 'Top-range tension dominates',
+              description: 'Biceps stay pumped'
             }
           ]
         }
