@@ -1319,6 +1319,26 @@ export const absWorkoutDatabase: EquipmentWorkouts[] = [
               description: 'Maintain core tension throughout rotation.'
             }
           ]
+        },
+        {
+          name: 'Arms-Overhead Decline Sit-Ups',
+          duration: '10–12 min',
+          description: 'Long-lever sit-up increasing difficulty without weight.',
+          battlePlan: '4 rounds\n• 10 Arms-Overhead Sit-Ups\nRest 75s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_sweat-weights-images/artifacts/lwwxsgl0_download%20%287%29.png',
+          intensityReason: 'Arms straight overhead increases lever and load',
+          moodTips: [
+            {
+              icon: 'construct',
+              title: 'Arms stay straight',
+              description: 'Lever increases load on abs.'
+            },
+            {
+              icon: 'timer',
+              title: 'Control descent',
+              description: 'Tension maintained throughout.'
+            }
+          ]
         }
       ],
       advanced: [
