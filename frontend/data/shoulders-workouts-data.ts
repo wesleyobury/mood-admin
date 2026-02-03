@@ -527,7 +527,7 @@ export const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '18–20 min',
           description: 'Standard heavy Smith workout for controlled overload.',
           battlePlan: 'Battle Plan — Standard Sets\n• 6×8 Smith Shoulder Press — standard reps\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/6jtrgr30_download%20%289%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-data-hub-2/artifacts/9btj6m9u_image.png',
           intensityReason: 'Standard heavy Smith workout for controlled overload.',
           moodTips: [
             {
@@ -552,7 +552,7 @@ export const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '18–20 min',
           description: 'Extended drop-set workout for mechanical fatigue.',
           battlePlan: 'Battle Plan — Drop Cluster\n• 3 rounds:\n  10 reps → drop ~15% → 8 reps → drop ~15% → 6 reps\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/civ6xh4i_Smith-Machine-Shoulder-Press.webp',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-data-hub-2/artifacts/9btj6m9u_image.png',
           intensityReason: 'Extended drop-set workout for mechanical fatigue.',
           moodTips: [
             {
@@ -577,7 +577,7 @@ export const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '18–20 min',
           description: 'Burnout + isometric workout finishing with static tension.',
           battlePlan: 'Battle Plan — Burnout + Isometric\n• 4×15 Smith Shoulder Press — burnout reps\n• Final set: squeeze to finish — hold top 10s\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/6jtrgr30_download%20%289%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-data-hub-2/artifacts/9btj6m9u_image.png',
           intensityReason: 'Burnout + isometric workout finishing with static tension.',
           moodTips: [
             {
