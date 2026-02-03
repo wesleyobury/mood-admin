@@ -2399,7 +2399,7 @@ export const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '18–20 min',
           description: 'Standard press workout progressing through multiple bench angles.',
           battlePlan: 'Battle Plan — Standard Sets\n• 3 rounds:\n  8 reps @ 85° → 8 reps @ 70° → 8 reps @ 60°\nRest 90s between rounds',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/d2gkwhep_download%20%282%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-data-hub-2/artifacts/idt8edgt_db%20shoulder%20press.png',
           intensityReason: 'Standard press workout progressing through multiple bench angles.',
           moodTips: [
             {
@@ -2424,7 +2424,7 @@ export const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '18–20 min',
           description: 'Multi-drop rotational press workout driving mechanical fatigue.',
           battlePlan: 'Battle Plan — Drop Cluster\n• Set 1: 10 reps — standard\n• Set 2: drop set — 10 → drop ~15% → 8\n• Set 3: triple drop set — 8 → drop ~20% → 6 → drop ~15% → 6\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/z5yngcpg_incline%20arnold.jpeg',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-data-hub-2/artifacts/5i0ksrbr_arnold%20press.png',
           intensityReason: 'Multi-drop rotational press workout driving mechanical fatigue.',
           moodTips: [
             {
@@ -2449,7 +2449,7 @@ export const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '18–20 min',
           description: 'Burnout isolation workout for nonstop side-delt tension.',
           battlePlan: 'Battle Plan — Burnout Sets\n• 4×20 Seated Dumbbell Lateral Raise — burnout reps\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/d2gkwhep_download%20%282%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-data-hub-2/artifacts/73grv174_db%20lateral%20raise.png',
           intensityReason: 'Burnout isolation workout for nonstop side-delt tension.',
           moodTips: [
             {
@@ -2474,7 +2474,7 @@ export const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '18–20 min',
           description: 'Burnout + isometric workout emphasizing stretched-to-contracted control.',
           battlePlan: 'Battle Plan — Burnout + Isometric\n• 4×15 Incline Dumbbell Delt Fly — burnout reps\n• Final set: squeeze to finish — hold arms wide and slightly raised (peak delt contraction) 10s\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/d2gkwhep_download%20%282%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-data-hub-2/artifacts/61sfuskm_Low%20%26%20incline%20delt%20fly.jpg',
           intensityReason: 'Burnout + isometric workout emphasizing stretched-to-contracted control.',
           moodTips: [
             {
