@@ -425,7 +425,7 @@ export const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Paused-rep Smith workout removing momentum.',
           battlePlan: 'Battle Plan — Pause Sets\n• 4×8 Smith Shoulder Press — pause reps (1s bottom)\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/6jtrgr30_download%20%289%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-data-hub-2/artifacts/9btj6m9u_image.png',
           intensityReason: 'Paused-rep Smith workout removing momentum.',
           moodTips: [
             {
@@ -450,7 +450,7 @@ export const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Pause-rep pull workout emphasizing contraction.',
           battlePlan: 'Battle Plan — Pause Sets\n• 4×10 Smith Upright Row — pause reps (1s top)\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/civ6xh4i_Smith-Machine-Shoulder-Press.webp',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-data-hub-2/artifacts/9btj6m9u_image.png',
           intensityReason: 'Pause-rep pull workout emphasizing contraction.',
           moodTips: [
             {
@@ -475,7 +475,7 @@ export const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '15–17 min',
           description: 'Burnout press workout emphasizing time under tension.',
           battlePlan: 'Battle Plan — Burnout Sets\n• 4×15 Smith Shoulder Press — burnout reps\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/6jtrgr30_download%20%289%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-data-hub-2/artifacts/9btj6m9u_image.png',
           intensityReason: 'Burnout press workout emphasizing time under tension.',
           moodTips: [
             {
@@ -500,7 +500,7 @@ export const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '15–17 min',
           description: 'Superset workout pairing fixed-path pressing with bodyweight fatigue.',
           battlePlan: 'Battle Plan — Superset\n• 4×10 Smith Shoulder Press — standard reps\nsuperset with\n• 12–15 Pushups\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/civ6xh4i_Smith-Machine-Shoulder-Press.webp',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-data-hub-2/artifacts/rmh1bypt_download%20%286%29.png',
           intensityReason: 'Superset workout pairing fixed-path pressing with bodyweight fatigue.',
           moodTips: [
             {
