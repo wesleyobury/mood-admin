@@ -2297,7 +2297,7 @@ export const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Standard rotational press workout for full-delt recruitment.',
           battlePlan: 'Battle Plan — Standard Sets\n• 5×10 Seated Arnold Press — standard reps\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/z5yngcpg_incline%20arnold.jpeg',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-data-hub-2/artifacts/5i0ksrbr_arnold%20press.png',
           intensityReason: 'Standard rotational press workout for full-delt recruitment.',
           moodTips: [
             {
@@ -2322,7 +2322,7 @@ export const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Standard isolation workout targeting front-to-side delt fibers.',
           battlePlan: 'Battle Plan — Standard Sets\n• 4×12 Low-Incline Dumbbell Delt Fly (bench ~20–30°) — standard reps\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/d2gkwhep_download%20%282%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-data-hub-2/artifacts/61sfuskm_Low%20%26%20incline%20delt%20fly.jpg',
           intensityReason: 'Standard isolation workout targeting front-to-side delt fibers.',
           moodTips: [
             {
@@ -2347,7 +2347,7 @@ export const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '15–17 min',
           description: 'Pause-rep isolation workout emphasizing top-end control.',
           battlePlan: 'Battle Plan — Pause Sets\n• 4×12 Seated Dumbbell Lateral Raise — pause reps (1s top)\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/d2gkwhep_download%20%282%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-data-hub-2/artifacts/73grv174_db%20lateral%20raise.png',
           intensityReason: 'Pause-rep isolation workout emphasizing top-end control.',
           moodTips: [
             {
@@ -2372,7 +2372,7 @@ export const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '15–17 min',
           description: 'Superset workout pairing heavy pressing with isolation fatigue.',
           battlePlan: 'Battle Plan — Superset\n• 4×10 Seated Dumbbell Shoulder Press — standard reps\nsuperset with\n• 12–15 Seated Lateral Raises\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/d2gkwhep_download%20%282%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-data-hub-2/artifacts/idt8edgt_db%20shoulder%20press.png',
           intensityReason: 'Superset workout pairing heavy pressing with isolation fatigue.',
           moodTips: [
             {
