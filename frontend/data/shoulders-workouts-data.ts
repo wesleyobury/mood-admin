@@ -2634,7 +2634,7 @@ export const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Standard pull-focused shoulder workout biasing delts over traps.',
           battlePlan: 'Battle Plan — Standard Sets\n• 4×12 Kettlebell Upright Row — standard reps\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/d2gkwhep_download%20%282%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-data-hub-2/artifacts/9btj6m9u_image.png',
           intensityReason: 'Standard pull-focused shoulder workout biasing delts over traps.',
           moodTips: [
             {
