@@ -1463,7 +1463,7 @@ export const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '18–20 min',
           description: 'Standard heavy press workout for advanced overhead strength.',
           battlePlan: 'Battle Plan — Standard Sets\n• 6×5 Push Press — standard reps\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/d2gkwhep_download%20%282%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-data-hub-2/artifacts/8rj9v297_db%20push%20press.png',
           intensityReason: 'Standard heavy press workout for advanced overhead strength.',
           moodTips: [
             {
@@ -1513,7 +1513,7 @@ export const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '18–20 min',
           description: 'Burnout isolation workout finished with isometric hold.',
           battlePlan: 'Battle Plan — Burnout + Isometric\n• 4×20 Lateral Raise — burnout reps\n• Final set: squeeze to finish — hold top 10s\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/d2gkwhep_download%20%282%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-data-hub-2/artifacts/zbplnvku_db%20lateral%20raise.png',
           intensityReason: 'Burnout isolation workout finished with isometric hold.',
           moodTips: [
             {
@@ -1538,7 +1538,7 @@ export const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '18–20 min',
           description: 'Paused-rep strength workout removing all momentum.',
           battlePlan: 'Battle Plan — Pause Sets\n• 5×8 Standing Dumbbell Shoulder Press — pause reps (1s bottom)\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/d2gkwhep_download%20%282%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-data-hub-2/artifacts/cwihbei1_db%20shoulder%20press.png',
           intensityReason: 'Paused-rep strength workout removing all momentum.',
           moodTips: [
             {
