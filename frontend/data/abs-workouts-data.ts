@@ -1455,7 +1455,7 @@ export const absWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '8–10 min',
           description: 'Single-knee lifts to reduce load and improve control.',
           battlePlan: '3 rounds\n• 6 per side Alternating Assisted Knee Lifts\nRest 60s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_e2f05db7-8caa-482a-a292-b60f552836b8/artifacts/btq4nw4n_Hanging%20leg%20raise.avif',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_ba98ecac-d9ff-4da8-8b26-c72f04702bfb/artifacts/r3t36som_alt%20knee%20raise.jpg',
           intensityReason: 'Alternating knees halves the lever demand',
           moodTips: [
             {
@@ -1559,7 +1559,7 @@ export const absWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Loaded leg raises to overload lower ab strength.',
           battlePlan: '4 rounds\n• 8 Weighted Straight-Leg Raises\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_e2f05db7-8caa-482a-a292-b60f552836b8/artifacts/btq4nw4n_Hanging%20leg%20raise.avif',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_ba98ecac-d9ff-4da8-8b26-c72f04702bfb/artifacts/6ileh57d_weighted%20leg%20riase.png',
           intensityReason: 'Added weight overloads lower ab strength',
           moodTips: [
             {
@@ -1579,7 +1579,7 @@ export const absWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Full-range toes-to-bar with extended eccentric.',
           battlePlan: '3 rounds\n• 6–8 Toes-to-Bar (3–4s eccentric)\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_e2f05db7-8caa-482a-a292-b60f552836b8/artifacts/btq4nw4n_Hanging%20leg%20raise.avif',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_ba98ecac-d9ff-4da8-8b26-c72f04702bfb/artifacts/m1p9379o_hanging%20toe%20touch.jpg',
           intensityReason: 'Extended eccentric maximizes strength gains',
           moodTips: [
             {
@@ -1599,7 +1599,7 @@ export const absWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Dynamic front lever reps without full parallel holds.',
           battlePlan: '4 rounds\n• 4–6 Front Lever Reps (tuck, advanced tuck, or band-assisted)\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_e2f05db7-8caa-482a-a292-b60f552836b8/artifacts/btq4nw4n_Hanging%20leg%20raise.avif',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_ba98ecac-d9ff-4da8-8b26-c72f04702bfb/artifacts/0y6d4cli_front%20lever.png',
           intensityReason: 'Dynamic lever reps build incredible core strength',
           moodTips: [
             {
