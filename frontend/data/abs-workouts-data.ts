@@ -1424,5 +1424,197 @@ export const absWorkoutDatabase: EquipmentWorkouts[] = [
         }
       ]
     }
+  },
+  {
+    equipment: 'Pull-Up Bar',
+    icon: 'fitness',
+    workouts: {
+      beginner: [
+        {
+          name: 'Supported Hanging Knee Raises',
+          duration: '8–10 min',
+          description: 'Assisted knee raises to learn hanging core control.',
+          battlePlan: '3 rounds\n• 8–10 Supported Hanging Knee Raises\nRest 60s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_e2f05db7-8caa-482a-a292-b60f552836b8/artifacts/btq4nw4n_Hanging%20leg%20raise.avif',
+          intensityReason: 'Light support eliminates swing for proper form',
+          moodTips: [
+            {
+              icon: 'shield',
+              title: 'Stability first',
+              description: 'Use light foot or band support to eliminate swing.'
+            },
+            {
+              icon: 'construct',
+              title: 'Small lift counts',
+              description: 'Knees don\'t need to come high to work abs.'
+            }
+          ]
+        },
+        {
+          name: 'Alternating Assisted Knee Lifts',
+          duration: '8–10 min',
+          description: 'Single-knee lifts to reduce load and improve control.',
+          battlePlan: '3 rounds\n• 6 per side Alternating Assisted Knee Lifts\nRest 60s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_e2f05db7-8caa-482a-a292-b60f552836b8/artifacts/btq4nw4n_Hanging%20leg%20raise.avif',
+          intensityReason: 'Alternating knees halves the lever demand',
+          moodTips: [
+            {
+              icon: 'construct',
+              title: 'One side at a time',
+              description: 'Alternating knees halves the lever demand.'
+            },
+            {
+              icon: 'shield',
+              title: 'Torso stays quiet',
+              description: 'No rocking or leaning backward.'
+            }
+          ]
+        },
+        {
+          name: 'Knee Raise Holds (Short)',
+          duration: '8–10 min',
+          description: 'Brief knee raise holds to practice ab activation.',
+          battlePlan: '3 rounds\n• 6 Knee Raises with 1s Hold\nRest 60s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_e2f05db7-8caa-482a-a292-b60f552836b8/artifacts/btq4nw4n_Hanging%20leg%20raise.avif',
+          intensityReason: 'Static top hold teaches proper contraction',
+          moodTips: [
+            {
+              icon: 'timer',
+              title: 'Hold before lowering',
+              description: 'A 1s pause teaches contraction.'
+            },
+            {
+              icon: 'flash',
+              title: 'Exhale to lift',
+              description: 'Breathing helps abs initiate the movement.'
+            }
+          ]
+        }
+      ],
+      intermediate: [
+        {
+          name: 'Straight-Leg Raises (45°)',
+          duration: '10–12 min',
+          description: 'Straight-leg raises stopping below parallel for control.',
+          battlePlan: '4 rounds\n• 8 Straight-Leg Raises to ~45°\nRest 75–90s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_e2f05db7-8caa-482a-a292-b60f552836b8/artifacts/btq4nw4n_Hanging%20leg%20raise.avif',
+          intensityReason: 'Controlled range prevents swing and maximizes tension',
+          moodTips: [
+            {
+              icon: 'construct',
+              title: 'Legs move together',
+              description: 'Treat both legs as one long lever.'
+            },
+            {
+              icon: 'shield',
+              title: 'Range ends with control',
+              description: 'Stop before any swing appears.'
+            }
+          ]
+        },
+        {
+          name: 'Leg Raise → Knee Tuck Combo',
+          duration: '10–12 min',
+          description: 'Combo reps extend time under tension in one set.',
+          battlePlan: '3 rounds\n• 6 Straight-Leg Raises\n• Immediately 6 Knee Tucks\nRest 75s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_e2f05db7-8caa-482a-a292-b60f552836b8/artifacts/btq4nw4n_Hanging%20leg%20raise.avif',
+          intensityReason: 'Combo extends time under tension per set',
+          moodTips: [
+            {
+              icon: 'timer',
+              title: 'Smooth transitions',
+              description: 'No drop or bounce between reps.'
+            },
+            {
+              icon: 'construct',
+              title: 'Shoulders stay packed',
+              description: 'Keeps abs working, not lats.'
+            }
+          ]
+        },
+        {
+          name: 'Slow Hanging Knee-to-Chest',
+          duration: '10–12 min',
+          description: 'Controlled knee-to-chest raises with slow negatives.',
+          battlePlan: '3 rounds\n• 10 Knee-to-Chest Raises (3s down)\nRest 75s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_e2f05db7-8caa-482a-a292-b60f552836b8/artifacts/btq4nw4n_Hanging%20leg%20raise.avif',
+          intensityReason: 'Slow eccentric builds strength through full range',
+          moodTips: [
+            {
+              icon: 'timer',
+              title: 'Eccentric matters',
+              description: 'Lower knees for a full 3 seconds.'
+            },
+            {
+              icon: 'construct',
+              title: 'Pelvic tilt first',
+              description: 'Abs initiate before legs move.'
+            }
+          ]
+        }
+      ],
+      advanced: [
+        {
+          name: 'Weighted Hanging Leg Raises',
+          duration: '12–14 min',
+          description: 'Loaded leg raises to overload lower ab strength.',
+          battlePlan: '4 rounds\n• 8 Weighted Straight-Leg Raises\nRest 90s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_e2f05db7-8caa-482a-a292-b60f552836b8/artifacts/btq4nw4n_Hanging%20leg%20raise.avif',
+          intensityReason: 'Added weight overloads lower ab strength',
+          moodTips: [
+            {
+              icon: 'construct',
+              title: 'Light load only',
+              description: 'Ankle weights or DB held between feet.'
+            },
+            {
+              icon: 'shield',
+              title: 'No momentum allowed',
+              description: 'Reduce weight if swing appears.'
+            }
+          ]
+        },
+        {
+          name: 'Toes-to-Bar (Slow Eccentric)',
+          duration: '12–14 min',
+          description: 'Full-range toes-to-bar with extended eccentric.',
+          battlePlan: '3 rounds\n• 6–8 Toes-to-Bar (3–4s eccentric)\nRest 90s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_e2f05db7-8caa-482a-a292-b60f552836b8/artifacts/btq4nw4n_Hanging%20leg%20raise.avif',
+          intensityReason: 'Extended eccentric maximizes strength gains',
+          moodTips: [
+            {
+              icon: 'timer',
+              title: 'Control the descent',
+              description: '3–4s lowering is the challenge.'
+            },
+            {
+              icon: 'construct',
+              title: 'Ribs stay down',
+              description: 'Prevents cheating through arching.'
+            }
+          ]
+        },
+        {
+          name: 'Front Lever Reps',
+          duration: '12–14 min',
+          description: 'Dynamic front lever reps without full parallel holds.',
+          battlePlan: '4 rounds\n• 4–6 Front Lever Reps (tuck, advanced tuck, or band-assisted)\nRest 90s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_e2f05db7-8caa-482a-a292-b60f552836b8/artifacts/btq4nw4n_Hanging%20leg%20raise.avif',
+          intensityReason: 'Dynamic lever reps build incredible core strength',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Reps over holds',
+              description: 'Move through tuck or advanced-tuck instead of freezing.'
+            },
+            {
+              icon: 'construct',
+              title: 'Hollow body first',
+              description: 'Posterior pelvic tilt initiates every rep.'
+            }
+          ]
+        }
+      ]
+    }
   }
 ];
