@@ -61,7 +61,7 @@ export const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Standard neutral-grip workout biasing delts over triceps.',
           battlePlan: 'Battle Plan — Standard Sets\n• 4×15 Neutral-Grip Press — standard reps\nRest 60s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/4tfizieb_download%20%288%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-data-hub-2/artifacts/cc6w2q7t_download%20%283%29.png',
           intensityReason: 'Standard neutral-grip workout biasing delts over triceps.',
           moodTips: [
             {
@@ -86,7 +86,7 @@ export const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Drop-set press workout using early fatigue to drive volume.',
           battlePlan: 'Battle Plan — Drop Set (mid-workout)\n• Set 1–2: 10 reps — standard\n• Set 3: triple drop set — 10 reps → drop → 8 → drop → 6 (no rest)\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/0sr4xno3_download%20%284%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-data-hub-2/artifacts/dq10rl9d_download%20%284%29.png',
           intensityReason: 'Drop-set press workout using early fatigue to drive volume.',
           moodTips: [
             {
@@ -163,7 +163,7 @@ export const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '15–17 min',
           description: 'Burnout press workout emphasizing time under tension.',
           battlePlan: 'Battle Plan — Burnout Sets\n• 4×15 Shoulder Press — burnout reps\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/4tfizieb_download%20%288%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-data-hub-2/artifacts/cc6w2q7t_download%20%283%29.png',
           intensityReason: 'Burnout press workout emphasizing time under tension.',
           moodTips: [
             {
@@ -188,7 +188,7 @@ export const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '15–17 min',
           description: 'Superset workout pairing machine pressing with bodyweight fatigue.',
           battlePlan: 'Battle Plan — Superset\n• 4×10 Shoulder Press — standard reps\nsuperset with\n• 12–15 Pushups\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/0sr4xno3_download%20%284%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-data-hub-2/artifacts/dq10rl9d_download%20%284%29.png',
           intensityReason: 'Superset workout pairing machine pressing with bodyweight fatigue.',
           moodTips: [
             {
@@ -265,7 +265,7 @@ export const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '18–20 min',
           description: 'Burnout workout using shortened range for constant tension.',
           battlePlan: 'Battle Plan — Burnout Sets\n• 4×20 Top-half presses — burnout reps\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/4tfizieb_download%20%288%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-data-hub-2/artifacts/cc6w2q7t_download%20%283%29.png',
           intensityReason: 'Burnout workout using shortened range for constant tension.',
           moodTips: [
             {
@@ -290,7 +290,7 @@ export const shouldersWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '18–20 min',
           description: 'Paused-rep machine workout exposing true strength.',
           battlePlan: 'Battle Plan — Pause Sets\n• 5×6 Shoulder Press — pause reps (2s bottom)\nRest 120s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-asset-mgr/artifacts/0sr4xno3_download%20%284%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-data-hub-2/artifacts/dq10rl9d_download%20%284%29.png',
           intensityReason: 'Paused-rep machine workout exposing true strength.',
           moodTips: [
             {
