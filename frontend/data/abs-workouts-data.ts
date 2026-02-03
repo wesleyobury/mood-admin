@@ -613,6 +613,26 @@ export const absWorkoutDatabase: EquipmentWorkouts[] = [
               description: 'Maintain core tension throughout flutter kicks.'
             }
           ]
+        },
+        {
+          name: 'Iso-Hold Machine Crunch Ladder',
+          duration: '12–14 min',
+          description: 'Progressive isometric holds layered with reps.',
+          battlePlan: '4 rounds\n• 8 Crunches + Hold (5s/8s/10s/12s)\nRest 90s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_sweat-weights-images/artifacts/i706j2jh_abss.webp',
+          intensityReason: 'Increasing hold duration compounds fatigue each round',
+          moodTips: [
+            {
+              icon: 'timer',
+              title: 'Increase hold duration each round',
+              description: 'Fatigue compounds throughout workout.'
+            },
+            {
+              icon: 'shield',
+              title: 'Breathe shallow under load',
+              description: 'Abs stay braced throughout hold.'
+            }
+          ]
         }
       ]
     }
