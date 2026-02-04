@@ -2772,7 +2772,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Controlled rows emphasizing peak contraction and posture',
           battlePlan: '3 rounds\n• 12 Rows (2s pause)\nRest 60–75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/lmxixaaf_scsngr.webp',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-content/artifacts/m556b5a2_scsr%201.jpg',
           intensityReason: 'Paused reps reinforce form and mind-muscle connection',
           moodTips: [
             {
@@ -2797,7 +2797,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Short-range rows for endurance without form breakdown',
           battlePlan: '3 rounds\n• 20 Partial Rows\nRest 60s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/aod60178_scswgr.jpg',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-content/artifacts/511hj5j8_scsr.webp',
           intensityReason: 'Partial range builds endurance while maintaining strict form',
           moodTips: [
             {
@@ -2864,7 +2864,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Heavy rows extended using fast load reductions',
           battlePlan: '3 rounds\n• 8 Rows\n• Drop → 8 reps\n• Drop → 8 reps\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/pm9titrm_scsrgr.webp',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-content/artifacts/m556b5a2_scsr%201.jpg',
           intensityReason: 'Drop sets extend time under tension beyond failure',
           moodTips: [
             {
@@ -2889,7 +2889,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Time-under-tension rows using long eccentrics',
           battlePlan: '4 rounds\n• 8 Rows (4s eccentric)\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_0b65e409-b210-4730-af62-16b022c37685/artifacts/1uyss7y4_csrr.webp',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-content/artifacts/511hj5j8_scsr.webp',
           intensityReason: 'Extended eccentrics maximize strength development',
           moodTips: [
             {
@@ -2956,7 +2956,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '16–18 min',
           description: 'Heavy rows finished with long isometric contractions',
           battlePlan: '4 rounds\n• 8 Rows + 10s Hold\nRest 120s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_0b65e409-b210-4730-af62-16b022c37685/artifacts/ty987c3z_download%20%2814%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-content/artifacts/m556b5a2_scsr%201.jpg',
           intensityReason: 'Isometric holds build peak contraction strength',
           moodTips: [
             {
@@ -2981,7 +2981,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '18–20 min',
           description: 'Extended drop set to drive maximum pulling fatigue',
           battlePlan: '3 rounds\n• 6 Rows\n• Drop → 6\n• Drop → 6\n• Drop → 6\nRest 120s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_0b65e409-b210-4730-af62-16b022c37685/artifacts/1uyss7y4_csrr.webp',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-content/artifacts/511hj5j8_scsr.webp',
           intensityReason: 'Triple drops maximize muscle fatigue and pump',
           moodTips: [
             {
