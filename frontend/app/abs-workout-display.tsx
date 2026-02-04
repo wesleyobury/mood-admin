@@ -284,7 +284,7 @@ const styles = StyleSheet.create({
   progressStepActive: { width: 28, height: 28, borderRadius: 14, overflow: 'hidden', marginBottom: 4 },
   progressStepGradient: { width: '100%', height: '100%', justifyContent: 'center', alignItems: 'center' },
   progressStepText: { fontSize: 10, color: 'rgba(255, 255, 255, 0.8)', textAlign: 'center', fontWeight: '500', maxWidth: 70 },
-  progressConnector: { width: 16, height: 2, backgroundColor: 'rgba(255, 215, 0, 0.3)', marginHorizontal: 8, marginTop: 16 },
+  progressConnector: { width: 16, height: 2, backgroundColor: 'rgba(255, 215, 0, 0.3)', marginHorizontal: 8, marginTop: 14 },
   scrollView: { flex: 1, overflow: 'visible' },
   scrollContentContainer: { paddingTop: 24, paddingBottom: 100, overflow: 'visible' },
   emptyState: { flex: 1, justifyContent: 'center', alignItems: 'center', paddingHorizontal: 40 },
