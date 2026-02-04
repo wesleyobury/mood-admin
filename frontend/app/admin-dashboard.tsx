@@ -1655,27 +1655,6 @@ export default function AdminDashboard() {
               <Text style={styles.customWorkoutsStatLabel}>Avg Duration</Text>
             </View>
           </View>
-        </View>>
-              <View style={[styles.customWorkoutsIcon, { backgroundColor: 'rgba(139, 195, 74, 0.2)' }]}>
-                <Ionicons name="today" size={20} color="#8BC34A" />
-              </View>
-              <Text style={styles.customWorkoutsStatValue}>{sessionCompletionStats?.today_completions || 0}</Text>
-              <Text style={styles.customWorkoutsStatLabel}>Today</Text>
-            </View>
-            
-            <View style={styles.customWorkoutsStatCard}>
-              <View style={[styles.customWorkoutsIcon, { backgroundColor: 'rgba(103, 58, 183, 0.2)' }]}>
-                <Ionicons name="time" size={20} color="#673AB7" />
-              </View>
-              <Text style={styles.customWorkoutsStatValue}>
-                {sessionCompletionStats?.avg_duration_seconds 
-                  ? Math.round(sessionCompletionStats.avg_duration_seconds / 60) + 'm'
-                  : '0m'
-                }
-              </Text>
-              <Text style={styles.customWorkoutsStatLabel}>Avg Duration</Text>
-            </View>
-          </View>
         </View>
 
         {/* Footer */}
