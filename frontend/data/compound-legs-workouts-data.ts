@@ -2254,7 +2254,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Stationary split squats with guided bar path',
           battlePlan: '4 rounds\n• 8 Split Squats per leg\nRest 120s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-content/artifacts/15roxyzj_smith%20reverse%20lunge.jpg',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-content/artifacts/28os8gvb_smith%20split.png',
           intensityReason: 'Unilateral work builds balanced strength',
           moodTips: [
             {
@@ -2304,7 +2304,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Explosive squats using Smith track for safety',
           battlePlan: '4 rounds\n• 5–6 Jump Squats\nRest 120s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-content/artifacts/ynnuugau_smith%20squat.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-content/artifacts/eefeuowu_smith%20jump%20squat.webp',
           intensityReason: 'Guided path allows explosive focus',
           moodTips: [
             {
