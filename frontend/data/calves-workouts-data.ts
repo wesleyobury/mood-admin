@@ -51,7 +51,7 @@ export const calvesWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '8–10 min',
           description: 'Assisted calf raises improving balance and control',
           battlePlan: '3 rounds\n• 15 Raises\nRest 60s',
-          imageUrl: '',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_96d95d8c-bd6e-49a5-a6af-694c8a8f5c04/artifacts/h32rmzt1_db%20calf%20raise.png',
           intensityReason: 'Supported position allows focus on calf activation',
           moodTips: [
             {
@@ -118,7 +118,7 @@ export const calvesWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Unilateral raises increasing calf loading',
           battlePlan: '4 rounds\n• 10 Raises per leg\nRest 75s',
-          imageUrl: '',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_96d95d8c-bd6e-49a5-a6af-694c8a8f5c04/artifacts/h32rmzt1_db%20calf%20raise.png',
           intensityReason: 'Single-leg work doubles effective load per calf',
           moodTips: [
             {
@@ -185,7 +185,7 @@ export const calvesWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Descending ladder maximizing calf fatigue',
           battlePlan: '2–3 ladders\n• 20 → 15 → 10 Raises\nRest 120s',
-          imageUrl: '',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_96d95d8c-bd6e-49a5-a6af-694c8a8f5c04/artifacts/h32rmzt1_db%20calf%20raise.png',
           intensityReason: 'Ladder format accumulates high training volume',
           moodTips: [
             {
