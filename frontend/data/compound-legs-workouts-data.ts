@@ -1942,7 +1942,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Hip hinge emphasizing hamstrings and glutes',
           battlePlan: '4 rounds\n• 8–10 RDLs\nRest 120s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/gxoxkpbs_download%20%285%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-content/artifacts/bom80199_pit%20shark%20rdl.png',
           intensityReason: 'RDL pattern develops posterior chain',
           moodTips: [
             {
@@ -1967,7 +1967,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Extended squat sets using fast load reductions',
           battlePlan: '3 rounds\n• 8 Squats\n• Drop → 8\n• Drop → 8\nRest 150s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/gxoxkpbs_download%20%285%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-content/artifacts/zbfap5ab_pit%20shark%20squat%203.webp',
           intensityReason: 'Drop sets extend time under tension',
           moodTips: [
             {
@@ -1992,7 +1992,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Light explosive squats developing leg power',
           battlePlan: '3 rounds\n• 6–8 Jump Squats\nRest 120s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/gxoxkpbs_download%20%285%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-content/artifacts/9whvfgtz_pit%20shark%20squat.avif',
           intensityReason: 'Explosive work builds power output',
           moodTips: [
             {
