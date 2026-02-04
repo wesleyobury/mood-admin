@@ -813,13 +813,29 @@ export default function Explore() {
       addedCount++;
     });
 
-    // Track analytics
+    // Track analytics - "Try this workout" button clicked on Explore page
     if (token) {
+      Analytics.tryWorkoutClicked(token, {
+        workout_name: post.workout_data.workouts[0]?.workoutTitle || post.workout_data.workouts[0]?.workoutName || 'Unknown',
+        equipment: post.workout_data.workouts[0]?.equipment || '',
+        difficulty: post.workout_data.workouts[0]?.difficulty || '',
+        mood_category: moodCardName,
+        source: 'explore_completion_card',
+      });
+      
       Analytics.workoutReplicated(token, {
         source_post_id: post.id,
         source_author: post.author.username,
         exercises_count: addedCount,
         mood_category: moodCardName,
+      });
+    } else if (isGuest) {
+      GuestAnalytics.tryWorkoutClicked({
+        workout_name: post.workout_data.workouts[0]?.workoutTitle || post.workout_data.workouts[0]?.workoutName || 'Unknown',
+        equipment: post.workout_data.workouts[0]?.equipment || '',
+        difficulty: post.workout_data.workouts[0]?.difficulty || '',
+        mood_category: moodCardName,
+        source: 'explore_completion_card',
       });
     }
 
