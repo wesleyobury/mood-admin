@@ -179,6 +179,31 @@ export const calvesWorkoutDatabase: EquipmentWorkouts[] = [
               description: 'Plyometric finish develops power and completes muscle fatigue.'
             }
           ]
+        },
+        {
+          name: 'Dumbbell Calf Raise Ladder',
+          duration: '14–16 min',
+          description: 'Descending ladder maximizing calf fatigue',
+          battlePlan: '2–3 ladders\n• 20 → 15 → 10 Raises\nRest 120s',
+          imageUrl: '',
+          intensityReason: 'Ladder format accumulates high training volume',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'No rest between rungs',
+              description: 'Ladder keeps calves loaded.'
+            },
+            {
+              icon: 'resize',
+              title: 'Range never shortens',
+              description: 'Stretch and squeeze every rep.'
+            },
+            {
+              icon: 'flame',
+              title: 'Finish with burn',
+              description: 'Last rung should sting.'
+            }
+          ]
         }
       ]
     }
