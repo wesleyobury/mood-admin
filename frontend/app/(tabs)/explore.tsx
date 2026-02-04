@@ -2057,21 +2057,21 @@ const styles = StyleSheet.create({
   },
   feedTab: {
     flex: 1,
-    paddingVertical: 12,
+    paddingVertical: 14,
     alignItems: 'center',
     borderBottomWidth: 2,
     borderBottomColor: 'transparent',
   },
   feedTabActive: {
-    borderBottomColor: '#FFD700',
+    borderBottomColor: '#fff',
   },
   feedTabText: {
     fontSize: 15,
     fontWeight: '600',
-    color: '#888',
+    color: '#666',
   },
   feedTabTextActive: {
-    color: '#FFD700',
+    color: '#fff',
   },
   searchContainer: {
     paddingHorizontal: 16,
