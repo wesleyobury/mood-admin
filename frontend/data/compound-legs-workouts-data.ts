@@ -673,27 +673,27 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           ]
         },
         {
-          name: 'Narrow-Stance Leg Press',
+          name: 'Paused Leg Press + Iso Hold',
           duration: '10–12 min',
-          description: 'Quad-focused leg press with simple foot positioning',
-          battlePlan: '3 rounds\n• 12–15 Leg Press\nRest 75s',
+          description: 'Controlled leg press reps with pauses and static finish',
+          battlePlan: '3 rounds\n• 10 Leg Press Reps (2s pause at bottom)\n• Immediately 20–30s Iso Hold (halfway up sled)\nRest 90s',
           imageUrl: 'https://customer-assets.emergentagent.com/job_workout-content/artifacts/8gup9yxv_leg%20press.jpg',
-          intensityReason: 'Narrow stance maximizes quad involvement',
+          intensityReason: 'Pauses remove momentum and protect knees while iso holds extend time under tension',
           moodTips: [
             {
+              icon: 'pause',
+              title: 'Pause just above depth',
+              description: 'Two-second stop removes momentum and protects knees.'
+            },
+            {
               icon: 'footsteps',
-              title: 'Narrow stance shifts load forward',
-              description: 'Feet closer together increases quad involvement.'
+              title: 'Feet mid-platform',
+              description: 'Balanced quad and glute engagement.'
             },
             {
-              icon: 'trending-down',
-              title: 'Lower until thighs compress',
-              description: 'Safe depth without pelvis lifting off pad.'
-            },
-            {
-              icon: 'body',
-              title: 'Drive evenly through feet',
-              description: 'Prevents knee cave and uneven force output.'
+              icon: 'timer',
+              title: 'Iso hold to finish',
+              description: 'Hold keeps legs under tension without heavy load.'
             }
           ]
         },
