@@ -697,6 +697,240 @@ class NotificationService:
             metadata={"sender_username": sender.get("username")}
         )
     
+    async def trigger_like_notification(
+        self,
+        liker_id: str,
+        post_id: str,
+        post_author_id: str
+    ) -> Optional[str]:
+        """
+        Trigger notification when someone likes a post.
+        BUNDLED ONLY - no single-like spam.
+        If >3 likes in 10 min, bundle into one notification.
+        """
+        # Don't notify yourself
+        if liker_id == post_author_id:
+            return None
+        
+        now = datetime.now(timezone.utc)
+        ten_mins_ago = now - timedelta(minutes=10)
+        
+        # Check recent likes on this post from different users
+        recent_likes = await self.db.notifications.count_documents({
+            "user_id": post_author_id,
+            "type": NotificationType.LIKE.value,
+            "entity_id": post_id,
+            "created_at": {"$gte": ten_mins_ago}
+        })
+        
+        # Get liker info
+        liker = await self.db.users.find_one({"_id": ObjectId(liker_id)})
+        if not liker:
+            return None
+        
+        liker_name = liker.get("name") or liker.get("username", "Someone")
+        avatar = liker.get("avatar") or liker.get("avatar_url")
+        
+        # Bundle key for grouping
+        bundle_key = f"likes_{post_id}_{now.strftime('%Y%m%d%H')}"
+        
+        if recent_likes >= 3:
+            # Bundle: Update or create a bundled notification
+            existing_bundle = await self.db.notifications.find_one({
+                "user_id": post_author_id,
+                "type": NotificationType.LIKE.value,
+                "entity_id": post_id,
+                "group_key": bundle_key
+            })
+            
+            if existing_bundle:
+                # Update the bundled notification count
+                like_count = existing_bundle.get("metadata", {}).get("like_count", 3) + 1
+                await self.db.notifications.update_one(
+                    {"_id": existing_bundle["_id"]},
+                    {
+                        "$set": {
+                            "body": f"{liker_name} and {like_count - 1} others liked your post",
+                            "metadata.like_count": like_count,
+                            "metadata.last_liker": liker_name,
+                            "created_at": now,  # Bump to top
+                            "read_at": None  # Mark as unread again
+                        }
+                    }
+                )
+                return str(existing_bundle["_id"])
+            else:
+                # Create new bundled notification
+                return await self.create_notification(
+                    user_id=post_author_id,
+                    notification_type=NotificationType.LIKE,
+                    title="New Likes",
+                    body=f"{liker_name} and {recent_likes} others liked your post",
+                    actor_id=liker_id,
+                    entity_id=post_id,
+                    entity_type="post",
+                    image_url=avatar,
+                    group_key=bundle_key,
+                    metadata={"like_count": recent_likes + 1, "last_liker": liker_name},
+                    send_push=True
+                )
+        else:
+            # Not enough for bundle yet - store but DON'T push (likes only bundled)
+            return await self.create_notification(
+                user_id=post_author_id,
+                notification_type=NotificationType.LIKE,
+                title="New Like",
+                body=f"{liker_name} liked your post",
+                actor_id=liker_id,
+                entity_id=post_id,
+                entity_type="post",
+                image_url=avatar,
+                group_key=bundle_key,
+                metadata={"like_count": 1},
+                send_push=False  # Don't push single likes - only bundled
+            )
+    
+    async def trigger_workout_reminder(
+        self,
+        user_id: str,
+        custom_message: Optional[str] = None
+    ) -> Optional[str]:
+        """Trigger a workout reminder notification with motivational copy"""
+        import random
+        
+        # Pick random copy from library
+        copy = custom_message or random.choice(SUGGESTION_COPY_LIBRARY)
+        
+        return await self.create_notification(
+            user_id=user_id,
+            notification_type=NotificationType.WORKOUT_REMINDER,
+            title="Time to Move",
+            body=copy,
+            metadata={"copy_variant": copy}
+        )
+    
+    async def trigger_featured_workout_notification(
+        self,
+        user_id: str,
+        workout_id: str,
+        workout_name: str,
+        workout_image: Optional[str] = None
+    ) -> Optional[str]:
+        """Trigger notification for a new featured workout drop"""
+        return await self.create_notification(
+            user_id=user_id,
+            notification_type=NotificationType.FEATURED_WORKOUT,
+            title="New Featured Workout",
+            body=f'"{workout_name}" just dropped',
+            entity_id=workout_id,
+            entity_type="featured_workout",
+            image_url=workout_image,
+            metadata={"workout_name": workout_name}
+        )
+    
+    async def trigger_featured_suggestion(
+        self,
+        user_id: str,
+        custom_copy: Optional[str] = None
+    ) -> Optional[str]:
+        """Trigger a featured suggestion push with motivational copy"""
+        import random
+        
+        # Pick random copy from library
+        copy = custom_copy or random.choice(SUGGESTION_COPY_LIBRARY)
+        
+        return await self.create_notification(
+            user_id=user_id,
+            notification_type=NotificationType.FEATURED_SUGGESTION,
+            title="MOOD",
+            body=copy,
+            metadata={"copy_variant": copy}
+        )
+    
+    async def send_featured_workout_to_all(
+        self,
+        workout_id: str,
+        workout_name: str,
+        workout_image: Optional[str] = None,
+        target_user_ids: Optional[List[str]] = None
+    ) -> int:
+        """
+        Admin function: Send featured workout notification to all users
+        or a specific list of users.
+        Returns count of notifications sent.
+        """
+        if target_user_ids:
+            users = await self.db.users.find(
+                {"_id": {"$in": [ObjectId(uid) for uid in target_user_ids]}}
+            ).to_list(10000)
+        else:
+            # Get all users with notifications enabled
+            users = await self.db.users.find({
+                "is_banned": {"$ne": True}
+            }).to_list(10000)
+        
+        count = 0
+        for user in users:
+            user_id = str(user["_id"])
+            
+            # Check settings
+            settings = await self.get_user_settings(user_id)
+            if not settings.get("notifications_enabled") or not settings.get("featured_workouts_enabled"):
+                continue
+            
+            result = await self.trigger_featured_workout_notification(
+                user_id=user_id,
+                workout_id=workout_id,
+                workout_name=workout_name,
+                workout_image=workout_image
+            )
+            if result:
+                count += 1
+        
+        logger.info(f"📢 Sent featured workout notification to {count} users")
+        return count
+    
+    async def send_featured_suggestion_to_all(
+        self,
+        custom_copy: Optional[str] = None,
+        target_user_ids: Optional[List[str]] = None
+    ) -> int:
+        """
+        Admin function: Send featured suggestion to all users
+        or a specific list of users.
+        """
+        import random
+        
+        if target_user_ids:
+            users = await self.db.users.find(
+                {"_id": {"$in": [ObjectId(uid) for uid in target_user_ids]}}
+            ).to_list(10000)
+        else:
+            users = await self.db.users.find({
+                "is_banned": {"$ne": True}
+            }).to_list(10000)
+        
+        count = 0
+        for user in users:
+            user_id = str(user["_id"])
+            
+            settings = await self.get_user_settings(user_id)
+            if not settings.get("notifications_enabled") or not settings.get("featured_suggestions_enabled"):
+                continue
+            
+            # Use custom copy or pick random for each user
+            copy = custom_copy or random.choice(SUGGESTION_COPY_LIBRARY)
+            
+            result = await self.trigger_featured_suggestion(
+                user_id=user_id,
+                custom_copy=copy
+            )
+            if result:
+                count += 1
+        
+        logger.info(f"📢 Sent featured suggestion to {count} users")
+        return count
+    
     # ----------------------------------------
     # ANALYTICS TRACKING
     # ----------------------------------------
