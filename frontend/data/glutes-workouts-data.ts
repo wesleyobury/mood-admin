@@ -51,7 +51,7 @@ export const glutesWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Standing extensions reinforcing glute firing',
           battlePlan: '3 rounds\n• 12–15 Extensions per leg\nRest 60s',
-          imageUrl: '',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_96d95d8c-bd6e-49a5-a6af-694c8a8f5c04/artifacts/7v4ve2vi_cable%20hip%20ext.jpg',
           intensityReason: 'Cable resistance teaches proper hip extension pattern',
           moodTips: [
             {
@@ -76,7 +76,7 @@ export const glutesWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Static squat holds emphasizing glute tension',
           battlePlan: '3 rounds\n• 20–30s Holds\nRest 75s',
-          imageUrl: '',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_96d95d8c-bd6e-49a5-a6af-694c8a8f5c04/artifacts/j9bwfr8q_Cable%20squat%201.jpg',
           intensityReason: 'Isometric holds build glute endurance and stability',
           moodTips: [
             {
