@@ -181,7 +181,6 @@ export default function AdminExerciseLibrary() {
 
       if (!result.canceled && result.assets[0]) {
         setUploading(true);
-        const token = await SecureStore.getItemAsync('auth_token');
         
         // Create form data for upload
         const formDataUpload = new FormData();
