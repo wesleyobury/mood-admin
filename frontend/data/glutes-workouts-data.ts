@@ -984,6 +984,56 @@ export const glutesWorkoutDatabase: EquipmentWorkouts[] = [
               description: 'Torso stability ensures isolated glute medius activation.'
             }
           ]
+        },
+        {
+          name: 'Tempo Abduction',
+          duration: '14–16 min',
+          description: 'Slower eccentrics increasing glute med load',
+          battlePlan: '4 rounds\n• 12 Reps (3s eccentric)\nRest 90s',
+          imageUrl: '',
+          intensityReason: 'Tempo work maximizes time under tension',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Explode outward',
+              description: 'Maximize activation.'
+            },
+            {
+              icon: 'timer',
+              title: 'Three-second return',
+              description: 'Intensifies tension.'
+            },
+            {
+              icon: 'body',
+              title: 'No torso rocking',
+              description: 'Isolation stays clean.'
+            }
+          ]
+        },
+        {
+          name: 'Abduction Drop Set',
+          duration: '14–16 min',
+          description: 'Extended sets using rapid load reductions',
+          battlePlan: '3 rounds\n• 12 Reps\n• Drop → 10\n• Drop → 10\nRest 120s',
+          imageUrl: '',
+          intensityReason: 'Drop sets extend fatigue for enhanced hypertrophy',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Immediate drops',
+              description: 'Reduce ~25% without rest.'
+            },
+            {
+              icon: 'resize',
+              title: 'Consistent range',
+              description: 'Same spread every rep.'
+            },
+            {
+              icon: 'flame',
+              title: 'Burn should peak',
+              description: 'Fatigue accumulation is goal.'
+            }
+          ]
         }
       ],
       advanced: [
