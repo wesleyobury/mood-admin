@@ -1654,5 +1654,179 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
         }
       ]
     }
+  },
+  {
+    equipment: 'Pit Shark',
+    icon: 'triangle-outline',
+    workouts: {
+      beginner: [
+        {
+          name: 'Pit Shark Standard Squat',
+          duration: '10–12 min',
+          description: 'Controlled full-range squats building foundational leg strength',
+          battlePlan: '3 rounds\n• 10–12 Squats\nRest 75s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/gxoxkpbs_download%20%285%29.png',
+          intensityReason: 'Pit shark builds strength with natural squat mechanics',
+          moodTips: [
+            {
+              icon: 'arrow-down',
+              title: 'Sit straight down',
+              description: 'Vertical descent keeps knees and hips aligned.'
+            },
+            {
+              icon: 'body',
+              title: 'Stay tall under pads',
+              description: 'Upright torso shifts work into legs.'
+            },
+            {
+              icon: 'timer',
+              title: 'Smooth reps only',
+              description: 'No bouncing or rushing transitions.'
+            }
+          ]
+        }
+      ],
+      intermediate: [
+        {
+          name: 'Pit Shark Tempo Squat',
+          duration: '14–16 min',
+          description: 'Squats emphasizing controlled eccentric loading',
+          battlePlan: '4 rounds\n• 8 Squats (3s eccentric)\nRest 120s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/gxoxkpbs_download%20%285%29.png',
+          intensityReason: 'Tempo work increases time under tension',
+          moodTips: [
+            {
+              icon: 'timer',
+              title: 'Slow the descent',
+              description: 'Three-second lowering keeps legs under tension.'
+            },
+            {
+              icon: 'shield',
+              title: 'Brace before every rep',
+              description: 'Core stability improves force transfer.'
+            },
+            {
+              icon: 'flash',
+              title: 'Explode with control',
+              description: 'Power up without jerking.'
+            }
+          ]
+        }
+      ],
+      advanced: [
+        {
+          name: 'Pit Shark Pause Squat',
+          duration: '16–18 min',
+          description: 'Paused squats strengthening the bottom position',
+          battlePlan: '4 rounds\n• 5–6 Squats (2s pause)\nRest 150s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/gxoxkpbs_download%20%285%29.png',
+          intensityReason: 'Pauses eliminate momentum for greater muscle activation',
+          moodTips: [
+            {
+              icon: 'pause',
+              title: 'Pause just above depth',
+              description: 'Removes momentum without joint stress.'
+            },
+            {
+              icon: 'shield',
+              title: 'Stay tight in the pause',
+              description: 'No relaxing at the bottom.'
+            },
+            {
+              icon: 'people',
+              title: 'Spotter recommended',
+              description: 'Paused reps can fail unexpectedly.'
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    equipment: 'Smith Machine',
+    icon: 'grid-outline',
+    workouts: {
+      beginner: [
+        {
+          name: 'Smith Standard Squat',
+          duration: '10–12 min',
+          description: 'Guided squats reinforcing consistent movement path',
+          battlePlan: '3 rounds\n• 10–12 Squats\nRest 75s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/gxoxkpbs_download%20%285%29.png',
+          intensityReason: 'Smith machine builds strength with guided bar path',
+          moodTips: [
+            {
+              icon: 'footsteps',
+              title: 'Feet slightly forward',
+              description: 'Keeps bar over mid-foot throughout rep.'
+            },
+            {
+              icon: 'body',
+              title: 'Sit between hips',
+              description: 'Avoid excessive forward knee travel.'
+            },
+            {
+              icon: 'timer',
+              title: 'Controlled cadence',
+              description: 'Smith rewards precision over speed.'
+            }
+          ]
+        }
+      ],
+      intermediate: [
+        {
+          name: 'Smith Tempo Squat',
+          duration: '14–16 min',
+          description: 'Slow eccentric squats increasing time under tension',
+          battlePlan: '4 rounds\n• 8 Squats (3s eccentric)\nRest 120s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/gxoxkpbs_download%20%285%29.png',
+          intensityReason: 'Tempo work maximizes muscle engagement',
+          moodTips: [
+            {
+              icon: 'timer',
+              title: 'Three-second descent',
+              description: 'Maintains quad and glute loading.'
+            },
+            {
+              icon: 'construct',
+              title: 'Knees track with toes',
+              description: 'Prevents joint stress under fixed bar path.'
+            },
+            {
+              icon: 'arrow-up',
+              title: 'Drive evenly upward',
+              description: 'No hip shift or knee collapse.'
+            }
+          ]
+        }
+      ],
+      advanced: [
+        {
+          name: 'Smith Pause Squat',
+          duration: '16–18 min',
+          description: 'Paused squats reinforcing strength out of the bottom',
+          battlePlan: '4 rounds\n• 5–6 Squats (2s pause)\nRest 150s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/gxoxkpbs_download%20%285%29.png',
+          intensityReason: 'Pauses build raw strength from weakest position',
+          moodTips: [
+            {
+              icon: 'pause',
+              title: 'Pause above parallel',
+              description: 'Eliminates bounce without overloading joints.'
+            },
+            {
+              icon: 'shield',
+              title: 'Brace hard before ascent',
+              description: 'Fixed bar demands core control.'
+            },
+            {
+              icon: 'people',
+              title: 'Spotter or safeties required',
+              description: 'Paused squats can stall quickly.'
+            }
+          ]
+        }
+      ]
+    }
   }
 ];
