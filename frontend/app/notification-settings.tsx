@@ -96,7 +96,7 @@ export default function NotificationSettingsScreen() {
       <Switch
         value={settings?.[key] as boolean ?? false}
         onValueChange={(value) => updateSetting(key, value)}
-        trackColor={{ false: '#3a3a3a', true: '#3897f0' }}
+        trackColor={{ false: '#3a3a3a', true: '#FFD700' }}
         thumbColor="#fff"
         ios_backgroundColor="#3a3a3a"
         disabled={disabled || !settings}
