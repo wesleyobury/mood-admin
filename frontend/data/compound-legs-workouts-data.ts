@@ -794,7 +794,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Progressive drops extending quad fatigue',
           battlePlan: '3 rounds\n• 10 reps\n• Drop → 10\n• Drop → 10\nRest 150s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/l1ouzm6t_download%20%281%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-content/artifacts/2wjzuq6x_leg%20press%202.webp',
           intensityReason: 'Drop sets extend time under tension for maximum pump',
           moodTips: [
             {
@@ -821,7 +821,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '16–18 min',
           description: 'Extends time under tension with progressive load reduction.',
           battlePlan: '3 rounds\n• 8 Heavy Press → Drop x2 (6–8 reps each)\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/l1ouzm6t_download%20%281%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-content/artifacts/2wjzuq6x_leg%20press%202.webp',
           intensityReason: 'Strip weight quickly to overload muscle fatigue.',
           moodTips: [
             {
@@ -841,7 +841,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '16–18 min',
           description: 'Pausing forces muscles to do all the hard work without momentum.',
           battlePlan: '4 rounds\n• 8 Leg Press Reps (2s pause at bottom)\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/nbzhkmy8_download%20%282%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-content/artifacts/8gup9yxv_leg%20press.jpg',
           intensityReason: 'Mid rep pause kills momentum and builds tension.',
           moodTips: [
             {
@@ -861,7 +861,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '16–18 min',
           description: 'Max-strength leg pressing with heavy loads',
           battlePlan: '5 rounds\n• 5–6 Leg Press\nRest 150s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/l1ouzm6t_download%20%281%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-content/artifacts/2wjzuq6x_leg%20press%202.webp',
           intensityReason: 'Heavy load builds maximal leg strength',
           moodTips: [
             {
@@ -886,7 +886,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '18–20 min',
           description: 'High-rep finisher driving complete quad exhaustion',
           battlePlan: '3 rounds\n• 20–25 Leg Press\nRest 150s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/nbzhkmy8_download%20%282%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-content/artifacts/8gup9yxv_leg%20press.jpg',
           intensityReason: 'High reps push quads to complete fatigue',
           moodTips: [
             {
