@@ -45,6 +45,31 @@ export const calvesWorkoutDatabase: EquipmentWorkouts[] = [
               description: 'Smooth movement prevents injury and maintains muscle tension.'
             }
           ]
+        },
+        {
+          name: 'Dumbbell Supported Calf Raise',
+          duration: '8–10 min',
+          description: 'Assisted calf raises improving balance and control',
+          battlePlan: '3 rounds\n• 15 Raises\nRest 60s',
+          imageUrl: '',
+          intensityReason: 'Supported position allows focus on calf activation',
+          moodTips: [
+            {
+              icon: 'hand-left',
+              title: 'Hold support lightly',
+              description: 'Balance aid only.'
+            },
+            {
+              icon: 'resize',
+              title: 'Full heel drop',
+              description: 'Stretch calves completely.'
+            },
+            {
+              icon: 'timer',
+              title: 'Slow tempo',
+              description: 'Improves mind–muscle connection.'
+            }
+          ]
         }
       ],
       intermediate: [
