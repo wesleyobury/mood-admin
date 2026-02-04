@@ -137,6 +137,56 @@ export const glutesWorkoutDatabase: EquipmentWorkouts[] = [
               description: 'Pause at peak contraction maximizes muscle activation and control.'
             }
           ]
+        },
+        {
+          name: 'Cable Step-Up Drive',
+          duration: '14–16 min',
+          description: 'Elevated step-ups emphasizing glute drive',
+          battlePlan: '4 rounds\n• 8 Step-Ups per leg\nRest 90s',
+          imageUrl: '',
+          intensityReason: 'Step-ups with cable resistance build unilateral power',
+          moodTips: [
+            {
+              icon: 'trending-up',
+              title: 'High step height',
+              description: 'Knee starts above hip.'
+            },
+            {
+              icon: 'footsteps',
+              title: 'Back foot disengaged',
+              description: 'Front leg performs all work.'
+            },
+            {
+              icon: 'construct',
+              title: 'Cable close to body',
+              description: 'Prevents forward pull.'
+            }
+          ]
+        },
+        {
+          name: 'Cable Reverse Lunge Pause',
+          duration: '14–16 min',
+          description: 'Reverse lunges with bottom-position pauses',
+          battlePlan: '4 rounds\n• 8 Lunges per leg (2s pause)\nRest 90s',
+          imageUrl: '',
+          intensityReason: 'Paused lunges strengthen glutes in stretched position',
+          moodTips: [
+            {
+              icon: 'timer',
+              title: 'Pause low',
+              description: 'Strengthens glutes in stretch.'
+            },
+            {
+              icon: 'footsteps',
+              title: 'Front heel drives',
+              description: 'Glute initiates ascent.'
+            },
+            {
+              icon: 'body',
+              title: 'Torso upright',
+              description: 'Prevents hip shift.'
+            }
+          ]
         }
       ],
       advanced: [
