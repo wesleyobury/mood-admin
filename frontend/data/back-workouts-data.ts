@@ -51,7 +51,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Bench-supported rows to learn clean pulling mechanics',
           battlePlan: '3 rounds\n• 10 Single-Arm DB Rows (each side)\nRest 60s per side',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_0b65e409-b210-4730-af62-16b022c37685/artifacts/q6jestgn_download.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_ba98ecac-d9ff-4da8-8b26-c72f04702bfb/artifacts/2ctzlc7l_SA%20db%20row.webp',
           intensityReason: 'Supported setup teaches proper mechanics',
           moodTips: [
             {
@@ -76,7 +76,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Prone rows emphasizing mid-back control',
           battlePlan: '3 rounds\n• 12 Chest-Supported DB Rows\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/928yql53_download%20%2822%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_ba98ecac-d9ff-4da8-8b26-c72f04702bfb/artifacts/rw2y880d_chest%20supported%20db%20row.png',
           intensityReason: 'Chest support isolates mid-back muscles',
           moodTips: [
             {
@@ -143,7 +143,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'One-arm rows with extended peak contraction',
           battlePlan: '4 rounds\n• 8 DB Rows (2s pause, each side)\nRest 75–90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_0b65e409-b210-4730-af62-16b022c37685/artifacts/q6jestgn_download.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_ba98ecac-d9ff-4da8-8b26-c72f04702bfb/artifacts/2ctzlc7l_SA%20db%20row.webp',
           intensityReason: 'Paused reps maximize peak contraction time',
           moodTips: [
             {
@@ -168,7 +168,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Heavy rows extended using fast weight drops',
           battlePlan: '3 rounds\n• 8 DB Rows\n• Drop → 8\n• Drop → 8\nRest 120s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/k5agvaci_download%20%2823%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_ba98ecac-d9ff-4da8-8b26-c72f04702bfb/artifacts/rw2y880d_chest%20supported%20db%20row.png',
           intensityReason: 'Drop sets extend time under tension beyond failure',
           moodTips: [
             {
@@ -235,7 +235,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '16–18 min',
           description: 'Heavy unilateral rows for maximal lat loading',
           battlePlan: '4 rounds\n• 6 Heavy DB Rows (each side)\nRest 120s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_0b65e409-b210-4730-af62-16b022c37685/artifacts/q6jestgn_download.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_ba98ecac-d9ff-4da8-8b26-c72f04702bfb/artifacts/2ctzlc7l_SA%20db%20row.webp',
           intensityReason: 'Heavy loads maximize strength development',
           moodTips: [
             {
@@ -260,7 +260,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '18–20 min',
           description: 'Extended drop sets to fully exhaust back',
           battlePlan: '3 rounds\n• 6 Rows\n• Drop → 6\n• Drop → 6\n• Drop → 6\nRest 150s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_0b65e409-b210-4730-af62-16b022c37685/artifacts/e00z2xt6_download%20%281%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_ba98ecac-d9ff-4da8-8b26-c72f04702bfb/artifacts/rw2y880d_chest%20supported%20db%20row.png',
           intensityReason: 'Triple drops maximize muscle fatigue and pump',
           moodTips: [
             {
