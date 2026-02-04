@@ -1082,7 +1082,7 @@ export const glutesWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '18–20 min',
           description: 'High-tension abductions finished with long holds',
           battlePlan: '3 rounds\n• 15 Reps + 20s Hold\nRest 150s',
-          imageUrl: '',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_96d95d8c-bd6e-49a5-a6af-694c8a8f5c04/artifacts/746w3mny_hip%20abductor.png',
           intensityReason: 'Combined reps and holds maximize glute medius fatigue',
           moodTips: [
             {
@@ -1107,7 +1107,7 @@ export const glutesWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '18–20 min',
           description: 'Multi-drop abductions for full exhaustion',
           battlePlan: '2–3 rounds\n• 12 → 10 → 8 → 8\nRest 150s',
-          imageUrl: '',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_96d95d8c-bd6e-49a5-a6af-694c8a8f5c04/artifacts/swjfi31g_hip%20abductor%202.png',
           intensityReason: 'Triple drops ensure complete muscle fiber recruitment',
           moodTips: [
             {
