@@ -283,7 +283,6 @@ export default function AdminExerciseLibrary() {
           style: 'destructive',
           onPress: async () => {
             try {
-              const token = await SecureStore.getItemAsync('auth_token');
               const response = await fetch(`${API_URL}/api/exercises/${exercise._id}`, {
                 method: 'DELETE',
                 headers: { Authorization: `Bearer ${token}` },
