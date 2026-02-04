@@ -231,6 +231,7 @@ export default function Profile() {
       if (token) {
         fetchUserProfile();
         fetchUnreadCount();
+        fetchUnreadNotifications();
         // Also refetch posts if on posts tab
         if (activeTab === 'posts' && authUser?.id) {
           fetchUserPosts();
