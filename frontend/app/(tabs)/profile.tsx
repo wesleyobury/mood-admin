@@ -710,6 +710,19 @@ export default function Profile() {
         <View style={styles.headerRightButtons}>
           <TouchableOpacity 
             style={styles.messagesButton}
+            onPress={() => router.push('/notifications-inbox')}
+          >
+            <Ionicons name="notifications-outline" size={24} color="#fff" />
+            {unreadNotifications > 0 && (
+              <View style={styles.unreadBadge}>
+                <Text style={styles.unreadBadgeText}>
+                  {unreadNotifications > 99 ? '99+' : unreadNotifications}
+                </Text>
+              </View>
+            )}
+          </TouchableOpacity>
+          <TouchableOpacity 
+            style={styles.messagesButton}
             onPress={() => router.push('/messages')}
           >
             <Ionicons name="chatbubbles-outline" size={24} color="#fff" />
