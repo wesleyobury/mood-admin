@@ -651,13 +651,30 @@ export default function FeaturedWorkoutDetail() {
   const handleStartWorkout = () => {
     if (exercises.length === 0) return;
     
-    // Track featured workout started
+    // Track "try workout clicked" event
     if (token) {
+      Analytics.tryWorkoutClicked(token, {
+        workout_name: workout.title,
+        equipment: exercises[0]?.equipment || '',
+        difficulty: exercises[0]?.difficulty || '',
+        mood_category: workout.mood,
+        source: 'featured',
+      });
+      
       Analytics.featuredWorkoutStarted(token, {
         workout_id: workoutId,
         workout_title: workout.title,
         mood_category: workout.mood,
         exercise_count: exercises.length,
+      });
+    } else {
+      // Track for guest users
+      GuestAnalytics.tryWorkoutClicked({
+        workout_name: workout.title,
+        equipment: exercises[0]?.equipment || '',
+        difficulty: exercises[0]?.difficulty || '',
+        mood_category: workout.mood,
+        source: 'featured',
       });
     }
     
