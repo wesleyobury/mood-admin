@@ -2226,6 +2226,65 @@ const styles = StyleSheet.create({
     textAlign: 'right',
     marginTop: 6,
   },
+  // Saved Achievements Styles
+  savedAchievementsHint: {
+    color: 'rgba(255, 255, 255, 0.5)',
+    fontSize: 12,
+    marginBottom: 12,
+  },
+  savedAchievementsScroll: {
+    marginHorizontal: -4,
+  },
+  savedAchievementsContent: {
+    paddingHorizontal: 4,
+    gap: 12,
+  },
+  savedAchievementCard: {
+    width: 140,
+    backgroundColor: 'rgba(255, 215, 0, 0.08)',
+    borderRadius: 12,
+    padding: 14,
+    borderWidth: 1,
+    borderColor: 'rgba(255, 215, 0, 0.2)',
+    alignItems: 'center',
+  },
+  savedAchievementIcon: {
+    width: 48,
+    height: 48,
+    borderRadius: 24,
+    backgroundColor: 'rgba(255, 215, 0, 0.15)',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginBottom: 10,
+  },
+  savedAchievementDuration: {
+    color: '#FFD700',
+    fontSize: 18,
+    fontWeight: '700',
+    marginBottom: 2,
+  },
+  savedAchievementDate: {
+    color: 'rgba(255, 255, 255, 0.6)',
+    fontSize: 11,
+    marginBottom: 6,
+  },
+  savedAchievementExercises: {
+    color: 'rgba(255, 255, 255, 0.5)',
+    fontSize: 10,
+    textAlign: 'center',
+    lineHeight: 14,
+  },
+  loadingSavedContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: 10,
+    paddingVertical: 20,
+  },
+  loadingSavedText: {
+    color: 'rgba(255, 255, 255, 0.5)',
+    fontSize: 13,
+  },
   uploadProgressContainer: {
     marginHorizontal: 16,
     marginBottom: 16,
