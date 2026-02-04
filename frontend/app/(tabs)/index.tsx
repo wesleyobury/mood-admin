@@ -702,6 +702,16 @@ export default function WorkoutsHome() {
   return (
     <View style={styles.outerContainer}>
       <View style={styles.container}>
+        {/* Search Icon in Top Right */}
+        <View style={[styles.searchIconContainer, { top: insets.top + 8 }]}>
+          <TouchableOpacity 
+            style={styles.searchIconButton}
+            onPress={() => setExerciseLookupVisible(true)}
+          >
+            <Ionicons name="search" size={22} color="#fff" />
+          </TouchableOpacity>
+        </View>
+        
         <ScrollView 
           style={styles.fullScrollView}
           showsVerticalScrollIndicator={false}
