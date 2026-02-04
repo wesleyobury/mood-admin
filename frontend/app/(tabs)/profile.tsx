@@ -200,11 +200,28 @@ export default function Profile() {
     }
   };
 
+  // Fetch unread notification count
+  const fetchUnreadNotifications = async () => {
+    if (!token) return;
+    try {
+      const response = await fetch(`${API_URL}/api/notifications/unread-count`, {
+        headers: { 'Authorization': `Bearer ${token}` },
+      });
+      if (response.ok) {
+        const data = await response.json();
+        setUnreadNotifications(data.unread_count || 0);
+      }
+    } catch (error) {
+      console.error('Error fetching unread notifications:', error);
+    }
+  };
+
   // Load user profile when token is available
   useEffect(() => {
     if (token) {
       fetchUserProfile();
       fetchUnreadCount();
+      fetchUnreadNotifications();
     }
   }, [token]);
 
