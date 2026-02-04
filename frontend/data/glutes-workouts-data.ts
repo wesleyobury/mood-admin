@@ -419,6 +419,56 @@ export const glutesWorkoutDatabase: EquipmentWorkouts[] = [
               description: 'Focused single-leg drive develops unilateral strength and power.'
             }
           ]
+        },
+        {
+          name: 'Tempo Hip Thrust',
+          duration: '14–16 min',
+          description: 'Slow eccentrics increasing glute time under tension',
+          battlePlan: '4 rounds\n• 8–10 Thrusts (3s eccentric)\nRest 90s',
+          imageUrl: '',
+          intensityReason: 'Extended eccentric phase maximizes muscle fiber recruitment',
+          moodTips: [
+            {
+              icon: 'timer',
+              title: 'Three-second lower',
+              description: 'Slower descent intensifies loading.'
+            },
+            {
+              icon: 'pause',
+              title: 'Pause at lockout',
+              description: 'One-second squeeze reinforces contraction.'
+            },
+            {
+              icon: 'shield',
+              title: 'Core braced',
+              description: 'Prevents lower-back takeover.'
+            }
+          ]
+        },
+        {
+          name: 'Hip Thrust Drop Set',
+          duration: '14–16 min',
+          description: 'Extended thrust sets using fast load reductions',
+          battlePlan: '3 rounds\n• 8 Thrusts\n• Drop → 8\n• Drop → 8\nRest 120s',
+          imageUrl: '',
+          intensityReason: 'Drop sets extend time under tension for hypertrophy',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Immediate drops',
+              description: 'Reduce load ~25% without resting.'
+            },
+            {
+              icon: 'construct',
+              title: 'Same mechanics',
+              description: 'Range and tempo stay identical.'
+            },
+            {
+              icon: 'flame',
+              title: 'Chase deep burn',
+              description: 'Continuous tension is goal.'
+            }
+          ]
         }
       ],
       advanced: [
