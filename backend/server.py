@@ -6931,6 +6931,7 @@ async def create_exercise(
         "name": exercise.name,
         "aliases": exercise.aliases,
         "equipment": exercise.equipment,
+        "muscle_group": exercise.muscle_group,
         "thumbnail_url": exercise.thumbnail_url,
         "video_url": exercise.video_url,
         "cues": exercise.cues,
