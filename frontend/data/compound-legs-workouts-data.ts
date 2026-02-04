@@ -653,6 +653,56 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
               description: 'Use back pad for support while maintaining spine position.'
             }
           ]
+        },
+        {
+          name: 'Controlled Hack Squat',
+          duration: '10–12 min',
+          description: 'Machine-guided squat emphasizing depth and quad control',
+          battlePlan: '3 rounds\n• 10–12 Hack Squats\nRest 75s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/k4t4lzbt_download.png',
+          intensityReason: 'Controlled tempo builds strength and joint awareness',
+          moodTips: [
+            {
+              icon: 'footsteps',
+              title: 'Foot placement sets the stimulus',
+              description: 'Lower, shoulder-width feet bias quads without overloading knees.'
+            },
+            {
+              icon: 'timer',
+              title: 'Own the descent',
+              description: 'Slow 3-second lowering keeps constant tension on quads.'
+            },
+            {
+              icon: 'body',
+              title: 'Press through mid-foot',
+              description: 'Even pressure prevents knee drift and loss of balance.'
+            }
+          ]
+        },
+        {
+          name: 'Hack Squat Pause Reps',
+          duration: '10–12 min',
+          description: 'Paused squats building strength out of the bottom',
+          battlePlan: '3 rounds\n• 8–10 Hack Squats (2s pause)\nRest 90s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/ffi2msmn_hs.avif',
+          intensityReason: 'Pauses eliminate momentum for greater muscle activation',
+          moodTips: [
+            {
+              icon: 'pause',
+              title: 'Pause removes momentum',
+              description: 'Brief hold above depth forces quads to work harder.'
+            },
+            {
+              icon: 'shield',
+              title: 'Stay glued to the pad',
+              description: 'Full back contact maintains safe mechanics under load.'
+            },
+            {
+              icon: 'arrow-up',
+              title: 'Smooth drive upward',
+              description: 'Controlled ascent prevents joint stress and bouncing.'
+            }
+          ]
         }
       ],
       intermediate: [
@@ -695,6 +745,56 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
               description: 'Maintain shoulder contact for stability during calf raises.'
             }
           ]
+        },
+        {
+          name: 'Hack Squat Drop Set',
+          duration: '14–16 min',
+          description: 'Extended squat sets using rapid weight reductions',
+          battlePlan: '3 rounds\n• 8 Hack Squats\n• Drop → 8\n• Drop → 8\nRest 120s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/k4t4lzbt_download.png',
+          intensityReason: 'Drop sets extend time under tension for maximum pump',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Drops must be immediate',
+              description: 'Strip roughly 20–30% without resting between sets.'
+            },
+            {
+              icon: 'timer',
+              title: 'Keep rep tempo consistent',
+              description: 'Same speed on lighter weight maintains quad tension.'
+            },
+            {
+              icon: 'flame',
+              title: 'Expect deep quad burn',
+              description: 'Intense pump signals effective fatigue.'
+            }
+          ]
+        },
+        {
+          name: 'Heel-Elevated Hack Squat',
+          duration: '14–16 min',
+          description: 'Quad-biased squats using heel elevation',
+          battlePlan: '4 rounds\n• 8–10 Hack Squats\nRest 90s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/ffi2msmn_hs.avif',
+          intensityReason: 'Heel elevation shifts emphasis to quads',
+          moodTips: [
+            {
+              icon: 'arrow-up',
+              title: 'Heel lift increases knee travel',
+              description: 'More forward motion shifts load into quads.'
+            },
+            {
+              icon: 'shield',
+              title: 'Torso stays pinned',
+              description: 'Machine support maintains upright posture.'
+            },
+            {
+              icon: 'body',
+              title: 'Feel stretch before drive',
+              description: 'Bottom position primes quad contraction.'
+            }
+          ]
         }
       ],
       advanced: [
@@ -735,6 +835,56 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
               icon: 'fitness',
               title: 'Push heels downward, squeeze glutes at top',
               description: 'Focus on glute contraction for maximum muscle activation.'
+            }
+          ]
+        },
+        {
+          name: 'Heavy Hack Squat',
+          duration: '16–18 min',
+          description: 'Low-rep squats emphasizing maximal quad strength',
+          battlePlan: '4 rounds\n• 5–6 Hack Squats\nRest 150s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/k4t4lzbt_download.png',
+          intensityReason: 'Heavy load builds maximal strength',
+          moodTips: [
+            {
+              icon: 'shield',
+              title: 'Brace before unrack',
+              description: 'Heavy loads demand full core engagement.'
+            },
+            {
+              icon: 'timer',
+              title: 'Controlled eccentric matters',
+              description: 'Slow lowering improves strength and joint safety.'
+            },
+            {
+              icon: 'people',
+              title: 'Spotter strongly recommended',
+              description: 'Heavy hack squats can stall abruptly.'
+            }
+          ]
+        },
+        {
+          name: 'Hack Squat Burnout',
+          duration: '18–20 min',
+          description: 'High-rep finisher for complete quad exhaustion',
+          battlePlan: '3 rounds\n• 15–20 Hack Squats\nRest 150s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/ffi2msmn_hs.avif',
+          intensityReason: 'High reps push quads to complete fatigue',
+          moodTips: [
+            {
+              icon: 'repeat',
+              title: 'Constant motion required',
+              description: 'Avoid locking out to keep tension continuous.'
+            },
+            {
+              icon: 'barbell',
+              title: 'Moderate load only',
+              description: 'Weight should allow clean high-rep movement.'
+            },
+            {
+              icon: 'flame',
+              title: 'Quad shake is expected',
+              description: 'Fatigue confirms effective burnout.'
             }
           ]
         }
