@@ -45,6 +45,56 @@ export const glutesWorkoutDatabase: EquipmentWorkouts[] = [
               description: 'Hip drive ensures complete glute activation and power development.'
             }
           ]
+        },
+        {
+          name: 'Cable Hip Extension',
+          duration: '10–12 min',
+          description: 'Standing extensions reinforcing glute firing',
+          battlePlan: '3 rounds\n• 12–15 Extensions per leg\nRest 60s',
+          imageUrl: '',
+          intensityReason: 'Cable resistance teaches proper hip extension pattern',
+          moodTips: [
+            {
+              icon: 'construct',
+              title: 'Cable set low',
+              description: 'Resistance aligns with hip drive.'
+            },
+            {
+              icon: 'body',
+              title: 'Hips square',
+              description: 'No torso rotation.'
+            },
+            {
+              icon: 'refresh',
+              title: 'Smooth return',
+              description: 'Control both directions.'
+            }
+          ]
+        },
+        {
+          name: 'Cable Assisted Squat Hold',
+          duration: '10–12 min',
+          description: 'Static squat holds emphasizing glute tension',
+          battlePlan: '3 rounds\n• 20–30s Holds\nRest 75s',
+          imageUrl: '',
+          intensityReason: 'Isometric holds build glute endurance and stability',
+          moodTips: [
+            {
+              icon: 'resize',
+              title: 'Mid-depth hold',
+              description: 'Glutes stay loaded.'
+            },
+            {
+              icon: 'hand-left',
+              title: 'Cable assists balance',
+              description: 'Legs still do work.'
+            },
+            {
+              icon: 'pulse',
+              title: 'Steady breathing',
+              description: 'Avoid bracing fatigue.'
+            }
+          ]
         }
       ],
       intermediate: [
