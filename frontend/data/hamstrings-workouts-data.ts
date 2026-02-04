@@ -45,6 +45,56 @@ export const hamstringsWorkoutDatabase: EquipmentWorkouts[] = [
               description: 'Hip hinge pattern protects spine while loading hamstrings.'
             }
           ]
+        },
+        {
+          name: 'Dumbbell Suitcase RDL',
+          duration: '10–12 min',
+          description: 'Single-side RDLs reinforcing hamstring control',
+          battlePlan: '3 rounds\n• 10 RDLs per side\nRest 60s',
+          imageUrl: '',
+          intensityReason: 'Unilateral loading builds balanced hamstring strength',
+          moodTips: [
+            {
+              icon: 'body',
+              title: 'Bell tracks leg',
+              description: 'Keeps hinge symmetrical.'
+            },
+            {
+              icon: 'construct',
+              title: 'Hips square',
+              description: 'No rotation toward weight.'
+            },
+            {
+              icon: 'resize',
+              title: 'Stretch then stand',
+              description: 'Hamstrings load before glutes.'
+            }
+          ]
+        },
+        {
+          name: 'Dumbbell Hamstring Walkouts',
+          duration: '10–12 min',
+          description: 'Floor walkouts emphasizing eccentric hamstring control',
+          battlePlan: '3 rounds\n• 6–8 Walkouts\nRest 75s',
+          imageUrl: '',
+          intensityReason: 'Walkouts challenge hamstring control through full range',
+          moodTips: [
+            {
+              icon: 'body',
+              title: 'Hips stay lifted',
+              description: 'Bridge position stays locked.'
+            },
+            {
+              icon: 'footsteps',
+              title: 'Small heel steps',
+              description: 'Slower equals harder.'
+            },
+            {
+              icon: 'alert',
+              title: 'Stop before drop',
+              description: 'End set when hips fall.'
+            }
+          ]
         }
       ],
       intermediate: [
