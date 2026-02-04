@@ -702,6 +702,56 @@ export const glutesWorkoutDatabase: EquipmentWorkouts[] = [
               description: 'Controlled eccentric enhances muscle development and joint safety.'
             }
           ]
+        },
+        {
+          name: 'Tempo Kickback',
+          duration: '14–16 min',
+          description: 'Slow eccentrics extending glute fatigue',
+          battlePlan: '4 rounds\n• 10 Reps per leg (3s eccentric)\nRest 90s',
+          imageUrl: '',
+          intensityReason: 'Tempo work increases time under tension dramatically',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Drive back hard',
+              description: 'Explosive extension.'
+            },
+            {
+              icon: 'timer',
+              title: 'Three-second return',
+              description: 'Increases time under tension.'
+            },
+            {
+              icon: 'body',
+              title: 'Torso locked',
+              description: 'Upper body stays still.'
+            }
+          ]
+        },
+        {
+          name: 'Kickback Drop Set',
+          duration: '14–16 min',
+          description: 'Extended kickbacks with rapid load reductions',
+          battlePlan: '3 rounds\n• 10 Reps\n• Drop → 8\n• Drop → 8\nRest 120s',
+          imageUrl: '',
+          intensityReason: 'Drop sets extend fatigue without rest',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Immediate drops',
+              description: 'Reduce 20–30% fast.'
+            },
+            {
+              icon: 'construct',
+              title: 'Same path',
+              description: 'Range never shortens.'
+            },
+            {
+              icon: 'flame',
+              title: 'Burn over load',
+              description: 'Stop when extension weakens.'
+            }
+          ]
         }
       ],
       advanced: [
