@@ -1291,7 +1291,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Front-loaded squats using cable tension for stability',
           battlePlan: '3 rounds\n• 12 Cable Goblet Squats\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-media-fix/artifacts/s4c1d5ao_download%20%283%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-content/artifacts/p1po1v7d_cable%20goblet%20squat.jpg',
           intensityReason: 'Cable tension provides constant load for control',
           moodTips: [
             {
@@ -1316,7 +1316,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Assisted reverse lunges reducing balance demands',
           battlePlan: '3 rounds\n• 8 Reverse Lunges per leg\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-media-fix/artifacts/yt6adjli_image.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-content/artifacts/gqxv7zxa_cable%20reverse%20lunge.png',
           intensityReason: 'Cable assists balance while building leg strength',
           moodTips: [
             {
@@ -1343,7 +1343,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Cable variation keeps constant load on posterior chain throughout ROM.',
           battlePlan: '4 rounds\n• 8-10 cable rdls\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-media-fix/artifacts/btaq9it2_cable%20rdl.jpg',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-content/artifacts/h8lj3keb_cable%20rdl2.jpg',
           intensityReason: 'Hip hinge move teaches tension through hamstrings.',
           moodTips: [
             {
