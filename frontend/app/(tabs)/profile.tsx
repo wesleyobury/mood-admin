@@ -2143,23 +2143,15 @@ const styles = StyleSheet.create({
   },
   guestSignInButton: {
     width: '100%',
+    backgroundColor: '#333',
     borderRadius: 12,
-    overflow: 'hidden',
-  },
-  guestSignInBorder: {
-    padding: 2,
-    borderRadius: 12,
-  },
-  guestSignInInner: {
-    backgroundColor: '#0c0c0c',
-    borderRadius: 10,
     paddingVertical: 14,
     alignItems: 'center',
   },
   guestSignInButtonText: {
     fontSize: 15,
     fontWeight: '600',
-    color: '#FFD700',
+    color: '#ffffff',
   },
   guestLegalContainer: {
     marginTop: 24,
