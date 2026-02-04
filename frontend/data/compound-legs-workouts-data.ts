@@ -1815,7 +1815,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Controlled full-range squats building leg foundation',
           battlePlan: '3 rounds\n• 10–12 Squats\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/gxoxkpbs_download%20%285%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-content/artifacts/9whvfgtz_pit%20shark%20squat.avif',
           intensityReason: 'Pit shark builds strength with natural squat mechanics',
           moodTips: [
             {
@@ -1840,7 +1840,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Slow eccentrics reinforcing squat control',
           battlePlan: '3 rounds\n• 10 Squats (3s eccentric)\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/gxoxkpbs_download%20%285%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-content/artifacts/zbfap5ab_pit%20shark%20squat%203.webp',
           intensityReason: 'Tempo work builds control and muscle engagement',
           moodTips: [
             {
@@ -1865,7 +1865,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Paused squats strengthening bottom position',
           battlePlan: '3 rounds\n• 8–10 Squats (2s pause)\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/gxoxkpbs_download%20%285%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-content/artifacts/27jkyx8o_pit%20shark%20squat%202.webp',
           intensityReason: 'Pauses eliminate momentum for greater activation',
           moodTips: [
             {
@@ -1890,7 +1890,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Elevated step-ups emphasizing unilateral leg drive',
           battlePlan: '3 rounds\n• 8 Step-Ups per leg\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/gxoxkpbs_download%20%285%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-content/artifacts/hm30g4dw_pit%20shark%20step%20up.jpg',
           intensityReason: 'Unilateral work builds balanced leg strength',
           moodTips: [
             {
@@ -1917,7 +1917,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Lower-rep squats emphasizing leg strength',
           battlePlan: '4 rounds\n• 6–8 Squats\nRest 120s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/gxoxkpbs_download%20%285%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-content/artifacts/9whvfgtz_pit%20shark%20squat.avif',
           intensityReason: 'Heavier loads build raw strength',
           moodTips: [
             {
