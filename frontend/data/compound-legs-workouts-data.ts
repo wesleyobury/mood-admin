@@ -1051,7 +1051,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Extended squat sets using rapid weight reductions',
           battlePlan: '3 rounds\n• 8 Hack Squats\n• Drop → 8\n• Drop → 8\nRest 120s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/k4t4lzbt_download.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-content/artifacts/8g0a1brc_hack%20squat%202.avif',
           intensityReason: 'Drop sets extend time under tension for maximum pump',
           moodTips: [
             {
@@ -1076,7 +1076,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Quad-biased squats using heel elevation',
           battlePlan: '4 rounds\n• 8–10 Hack Squats\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/ffi2msmn_hs.avif',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-content/artifacts/t0da41os_hack%20squat.avif',
           intensityReason: 'Heel elevation shifts emphasis to quads',
           moodTips: [
             {
