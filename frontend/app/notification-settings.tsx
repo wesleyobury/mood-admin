@@ -588,7 +588,7 @@ const styles = StyleSheet.create({
   },
   timeText: {
     fontSize: 15,
-    color: '#3897f0',
+    color: '#FFD700',
     marginRight: 4,
   },
   quietHoursConfig: {
