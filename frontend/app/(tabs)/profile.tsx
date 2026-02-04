@@ -1194,6 +1194,34 @@ export default function Profile() {
               {selectedCard && (
                 <View style={styles.modalCardContainer}>
                   <WorkoutStatsCard {...selectedCard} />
+                  
+                  {/* Share/Post Button */}
+                  <TouchableOpacity
+                    style={styles.shareAchievementButton}
+                    onPress={() => {
+                      setModalVisible(false);
+                      // Navigate to create-post with workout stats
+                      router.push({
+                        pathname: '/create-post',
+                        params: {
+                          workoutStats: JSON.stringify({
+                            workouts: selectedCard.workouts.map(w => ({
+                              workoutTitle: w.workoutName,
+                              workoutName: w.workoutName,
+                              equipment: w.equipment,
+                              duration: w.duration,
+                              difficulty: w.difficulty,
+                            })),
+                            totalDuration: selectedCard.totalDuration,
+                            completedAt: selectedCard.completedAt,
+                          }),
+                        },
+                      });
+                    }}
+                  >
+                    <Ionicons name="share-social" size={20} color="#0c0c0c" />
+                    <Text style={styles.shareAchievementButtonText}>Share Achievement</Text>
+                  </TouchableOpacity>
                 </View>
               )}
             </ScrollView>
