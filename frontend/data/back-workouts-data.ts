@@ -1876,7 +1876,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Slow pulldowns building lat control and discipline',
           battlePlan: '3 rounds\n• 12 Pulldowns (3s eccentric)\nRest 60–75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_0b65e409-b210-4730-af62-16b022c37685/artifacts/diugpoq6_download%20%288%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_ba98ecac-d9ff-4da8-8b26-c72f04702bfb/artifacts/puai6ytk_lat%20pull.png',
           intensityReason: 'Controlled tempo builds lat activation and mind-muscle connection',
           moodTips: [
             {
@@ -1901,7 +1901,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Short-range reps focused on peak lat contraction',
           battlePlan: '3 rounds\n• 15 Partial Pulldowns\nRest 60s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/fkpr9mxh_lprg.jpg',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_ba98ecac-d9ff-4da8-8b26-c72f04702bfb/artifacts/3kbrum0a_lat%20pull%20down.png',
           intensityReason: 'Partial range maximizes peak contraction time',
           moodTips: [
             {
@@ -1968,7 +1968,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Rapid drops to extend sets past fatigue',
           battlePlan: '3 rounds\n• 8 Pulldowns\n• Drop → 8 reps\n• Drop → 8 reps\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/vydcatjw_nglp.webp',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_ba98ecac-d9ff-4da8-8b26-c72f04702bfb/artifacts/puai6ytk_lat%20pull.png',
           intensityReason: 'Drop sets extend time under tension beyond failure',
           moodTips: [
             {
@@ -1993,7 +1993,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Full reps followed by pulses in the contraction zone',
           battlePlan: '3 rounds\n• 12 Pulldowns\n• Immediately 10 Pulse Reps\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_0b65e409-b210-4730-af62-16b022c37685/artifacts/j967e9c7_download%20%289%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_ba98ecac-d9ff-4da8-8b26-c72f04702bfb/artifacts/3kbrum0a_lat%20pull%20down.png',
           intensityReason: 'Pulses extend peak contraction for maximum pump',
           moodTips: [
             {
@@ -2060,7 +2060,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '16–18 min',
           description: 'Full ROM pulldowns with extended 5s negatives',
           battlePlan: '4 rounds\n• 6 Pulldowns (5s eccentric)\nRest 120s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_0b65e409-b210-4730-af62-16b022c37685/artifacts/diugpoq6_download%20%288%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_ba98ecac-d9ff-4da8-8b26-c72f04702bfb/artifacts/puai6ytk_lat%20pull.png',
           intensityReason: 'Extended eccentrics maximize strength and hypertrophy',
           moodTips: [
             {
@@ -2085,7 +2085,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '18–20 min',
           description: 'Holds plus drops to build extreme lat fatigue',
           battlePlan: '3 rounds\n• 8 Pulldowns + 10s Hold\n• Drop → 8 reps\nRest 120s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_0b65e409-b210-4730-af62-16b022c37685/artifacts/j967e9c7_download%20%289%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_ba98ecac-d9ff-4da8-8b26-c72f04702bfb/artifacts/3kbrum0a_lat%20pull%20down.png',
           intensityReason: 'Combines isometric fatigue with mechanical drop sets',
           moodTips: [
             {
