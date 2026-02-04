@@ -1554,7 +1554,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Single movement to master seated row mechanics',
           battlePlan: '3 rounds\n• 12 Neutral Grip Cable Row\nRest 60–75s after set',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_0b65e409-b210-4730-af62-16b022c37685/artifacts/7hcpy4r7_download%20%2812%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_ba98ecac-d9ff-4da8-8b26-c72f04702bfb/artifacts/9zff190v_scr.webp',
           intensityReason: 'Neutral grip anchor builds confidence + control',
           moodTips: [
             {
@@ -1619,7 +1619,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Paused rows to reinforce contraction',
           battlePlan: '3 rounds\n• 10 Wide Grip Cable Rows (2s pause)\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/gdb1l44p_wgr.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_ba98ecac-d9ff-4da8-8b26-c72f04702bfb/artifacts/y3q3wbcv_seated%20cable%20row.jpg',
           intensityReason: 'Paused reps reinforce peak contraction awareness',
           moodTips: [
             {
@@ -1686,7 +1686,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Mechanical fatigue using quick pin drops',
           battlePlan: '3 rounds\n• 8 Cable Rows\n• Drop → 8 reps\n• Drop → 8 reps\nRest 120s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/4jf014no_rgr.jpg',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_ba98ecac-d9ff-4da8-8b26-c72f04702bfb/artifacts/9zff190v_scr.webp',
           intensityReason: 'Drop sets extend time under tension beyond failure',
           moodTips: [
             {
@@ -1711,7 +1711,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Rows with extended static holds',
           battlePlan: '4 rounds\n• 8 Cable Rows\n• Finish with 12s hold\nRest 120s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_0b65e409-b210-4730-af62-16b022c37685/artifacts/83ut7zg6_download%20%2813%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_ba98ecac-d9ff-4da8-8b26-c72f04702bfb/artifacts/y3q3wbcv_seated%20cable%20row.jpg',
           intensityReason: 'Isometric finisher maximizes time under tension',
           moodTips: [
             {
@@ -1778,7 +1778,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '16–18 min',
           description: 'Cable rows using extended negative tempo',
           battlePlan: '4 rounds\n• 6 Cable Rows (5s eccentric)\nRest 120s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_0b65e409-b210-4730-af62-16b022c37685/artifacts/7hcpy4r7_download%20%2812%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_ba98ecac-d9ff-4da8-8b26-c72f04702bfb/artifacts/y3q3wbcv_seated%20cable%20row.jpg',
           intensityReason: 'Extended eccentrics maximize strength and hypertrophy',
           moodTips: [
             {
@@ -1803,7 +1803,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '18–20 min',
           description: 'Extended drop sets to fully exhaust lats',
           battlePlan: '3 rounds\n• 6 Rows\n• Drop → 6\n• Drop → 6\n• Drop → 6\nRest 150s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/gdb1l44p_wgr.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_ba98ecac-d9ff-4da8-8b26-c72f04702bfb/artifacts/9zff190v_scr.webp',
           intensityReason: 'Triple drops maximize muscle fatigue and pump',
           moodTips: [
             {
