@@ -45,6 +45,56 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
               description: 'Feel the stretch in hamstrings before driving hips forward to stand.'
             }
           ]
+        },
+        {
+          name: 'Box Goblet Squat',
+          duration: '10–12 min',
+          description: 'Box-guided goblet squats reinforce depth and control',
+          battlePlan: '3 rounds\n• 10–12 Box Goblet Squats\nRest 75s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-media-fix/artifacts/iq16b1nm_download.png',
+          intensityReason: 'Box squat builds confidence and consistent depth',
+          moodTips: [
+            {
+              icon: 'construct',
+              title: 'Use the box as a guide',
+              description: 'Lightly tap the box to confirm depth, then stand immediately.'
+            },
+            {
+              icon: 'body',
+              title: 'Chest stays tall',
+              description: 'Let the dumbbell counterbalance so the torso stays upright.'
+            },
+            {
+              icon: 'timer',
+              title: 'Move slow and steady',
+              description: 'Smooth tempo builds confidence and joint control.'
+            }
+          ]
+        },
+        {
+          name: 'Supported Reverse Lunge',
+          duration: '10–12 min',
+          description: 'Assisted lunges reduce balance demand for beginners',
+          battlePlan: '3 rounds\n• 8 per leg Reverse Lunges\nRest 75s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-media-fix/artifacts/iq16b1nm_download.png',
+          intensityReason: 'Support reduces balance stress while building strength',
+          moodTips: [
+            {
+              icon: 'hand-left',
+              title: 'Hold support lightly',
+              description: 'Use it for balance, not to pull yourself up.'
+            },
+            {
+              icon: 'resize',
+              title: 'Step back long',
+              description: 'Longer step reduces knee stress and improves glute engagement.'
+            },
+            {
+              icon: 'flash',
+              title: 'Drive through front heel',
+              description: 'Feel quad and glute push you up together.'
+            }
+          ]
         }
       ],
       intermediate: [
@@ -87,6 +137,56 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
               description: 'Maintain posture to prevent compensations and maximize effectiveness.'
             }
           ]
+        },
+        {
+          name: 'Front-Foot Elevated Split Squat',
+          duration: '14–16 min',
+          description: 'Elevated front foot increases quad loading and depth',
+          battlePlan: '4 rounds\n• 8 per leg Split Squats\nRest 90s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-media-fix/artifacts/mxfs858v_dbbss.jpg',
+          intensityReason: 'Front elevation deepens range of motion for quads',
+          moodTips: [
+            {
+              icon: 'arrow-up',
+              title: 'Front heel elevated',
+              description: 'Allows deeper knee bend without heel lift.'
+            },
+            {
+              icon: 'body',
+              title: 'Torso stays vertical',
+              description: 'Keeps emphasis on quads instead of glutes.'
+            },
+            {
+              icon: 'timer',
+              title: 'Slow descent',
+              description: 'Take a controlled 3 seconds down to build tension.'
+            }
+          ]
+        },
+        {
+          name: 'Dumbbell Squat Drop Set',
+          duration: '14–16 min',
+          description: 'Squats extended using fast dumbbell weight drops',
+          battlePlan: '3 rounds\n• 8 DB Squats\n• Drop → 8\n• Drop → 8\nRest 120s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-media-fix/artifacts/iq16b1nm_download.png',
+          intensityReason: 'Drop sets extend time under tension for maximum pump',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Drops are immediate',
+              description: 'Change dumbbells quickly to maintain fatigue.'
+            },
+            {
+              icon: 'trending-down',
+              title: 'Reduce 20–30% per drop',
+              description: 'Enough to keep reps clean, not sloppy.'
+            },
+            {
+              icon: 'body',
+              title: 'Posture stays locked',
+              description: 'Chest tall and knees tracking forward throughout.'
+            }
+          ]
         }
       ],
       advanced: [
@@ -127,6 +227,56 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
               icon: 'construct',
               title: 'Keep heels planted, chest upright whole time',
               description: 'Maintain proper position throughout hold and pulses for safety.'
+            }
+          ]
+        },
+        {
+          name: 'Double Dumbbell Front Squat',
+          duration: '16–18 min',
+          description: 'Front-loaded squats demanding core and quad strength',
+          battlePlan: '4 rounds\n• 6–8 Front Squats\nRest 120s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-media-fix/artifacts/iq16b1nm_download.png',
+          intensityReason: 'Front load challenges core stability under heavy load',
+          moodTips: [
+            {
+              icon: 'barbell',
+              title: 'DBs racked at shoulders',
+              description: 'Elbows slightly forward to support upright posture.'
+            },
+            {
+              icon: 'shield',
+              title: 'Brace hard before descent',
+              description: 'Core pressure protects spine under heavy load.'
+            },
+            {
+              icon: 'people',
+              title: 'Spotter recommended',
+              description: 'Fatigue can hit suddenly in front-loaded positions.'
+            }
+          ]
+        },
+        {
+          name: 'Bulgarian Split Squat Burnout',
+          duration: '16–18 min',
+          description: 'High-fatigue unilateral squat finisher for quads',
+          battlePlan: '3 rounds\n• 12–15 Bulgarian Split Squats per leg\nRest 120s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-media-fix/artifacts/mxfs858v_dbbss.jpg',
+          intensityReason: 'High-rep unilateral work pushes quads to failure',
+          moodTips: [
+            {
+              icon: 'body',
+              title: 'Stay tall through torso',
+              description: 'Shifts stress toward quads instead of hips.'
+            },
+            {
+              icon: 'flame',
+              title: 'Continuous reps to failure',
+              description: 'No pausing at the top during the set.'
+            },
+            {
+              icon: 'alert',
+              title: 'Drop dumbbells if needed',
+              description: 'Finish set safely with bodyweight if balance fades.'
             }
           ]
         }
