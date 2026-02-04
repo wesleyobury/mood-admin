@@ -666,6 +666,31 @@ export const calvesWorkoutDatabase: EquipmentWorkouts[] = [
               description: 'Smooth movement maintains tension and prevents injury.'
             }
           ]
+        },
+        {
+          name: 'Machine Calf Raise',
+          duration: '8–10 min',
+          description: 'Guided calf raises reinforcing full range control',
+          battlePlan: '3 rounds\n• 15 Machine Raises\nRest 60s',
+          imageUrl: '',
+          intensityReason: 'Machine guidance ensures proper calf activation',
+          moodTips: [
+            {
+              icon: 'body',
+              title: 'Seat adjusted snug',
+              description: 'Hips locked to isolate calves.'
+            },
+            {
+              icon: 'footsteps',
+              title: 'Drive through big toe',
+              description: 'Improves calf fiber engagement.'
+            },
+            {
+              icon: 'timer',
+              title: 'Controlled stretch',
+              description: 'Heels lower slowly each rep.'
+            }
+          ]
         }
       ],
       intermediate: [
