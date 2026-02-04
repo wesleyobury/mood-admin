@@ -442,6 +442,56 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
               description: 'Controlled breathing maintains position without excessive strain.'
             }
           ]
+        },
+        {
+          name: 'Tempo Extensions',
+          duration: '10–12 min',
+          description: 'Slow tempo extensions emphasizing controlled spinal motion',
+          battlePlan: '3 rounds\n• 10 Back Extensions (3s eccentric)\nRest 60s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_0b65e409-b210-4730-af62-16b022c37685/artifacts/8tyq8yxs_download%20%2810%29.png',
+          intensityReason: 'Controlled tempo builds strength without excessive load',
+          moodTips: [
+            {
+              icon: 'timer',
+              title: 'Own the eccentric',
+              description: 'Lower for a full 3 seconds every rep.'
+            },
+            {
+              icon: 'construct',
+              title: 'Stay in tension',
+              description: 'Stop just before full lockout to keep load on the back.'
+            },
+            {
+              icon: 'body',
+              title: 'Drive with glutes',
+              description: 'Feel glutes/hamstrings initiate so low back doesn\'t take over.'
+            }
+          ]
+        },
+        {
+          name: 'Partial Extension Burn',
+          duration: '10–12 min',
+          description: 'Short-range extensions to build endurance safely',
+          battlePlan: '3 rounds\n• 20 Partial Back Extensions\nRest 60s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_0b65e409-b210-4730-af62-16b022c37685/artifacts/uud5nxsk_download%20%2811%29.png',
+          intensityReason: 'Partial range builds endurance without overextension',
+          moodTips: [
+            {
+              icon: 'construct',
+              title: 'Top-half only',
+              description: 'Work the upper half where you can stay strict.'
+            },
+            {
+              icon: 'flash',
+              title: 'No momentum',
+              description: 'Smooth continuous reps instead of swinging.'
+            },
+            {
+              icon: 'body',
+              title: 'Feel erectors working',
+              description: 'You should feel a tight "brace" through low back, not a hinge snap.'
+            }
+          ]
         }
       ],
       intermediate: [
@@ -484,6 +534,56 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
               description: 'Complete range of motion with peak contraction maximizes benefits.'
             }
           ]
+        },
+        {
+          name: 'Pause Extensions',
+          duration: '14–16 min',
+          description: 'Paused reps reinforce control and mid-range strength',
+          battlePlan: '4 rounds\n• 8 Back Extensions (2s pause)\nRest 75–90s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_0b65e409-b210-4730-af62-16b022c37685/artifacts/8tyq8yxs_download%20%2810%29.png',
+          intensityReason: 'Paused reps eliminate momentum and build control',
+          moodTips: [
+            {
+              icon: 'timer',
+              title: 'Pause at peak',
+              description: 'Hold 2 seconds at the top of every rep.'
+            },
+            {
+              icon: 'construct',
+              title: 'Brace before lowering',
+              description: 'Lock ribs down so spine stays neutral.'
+            },
+            {
+              icon: 'body',
+              title: 'Peak form looks flat',
+              description: 'Torso reaches parallel with glutes tight, no overextension.'
+            }
+          ]
+        },
+        {
+          name: 'Extension Drop Set',
+          duration: '14–16 min',
+          description: 'Mechanical fatigue using fast load reductions',
+          battlePlan: '3 rounds\n• 8 Weighted Extensions\n• Drop → 8 reps\n• Drop → 8 reps\nRest 90s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_0b65e409-b210-4730-af62-16b022c37685/artifacts/uud5nxsk_download%20%2811%29.png',
+          intensityReason: 'Drop sets extend time under tension past failure',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Drops are immediate',
+              description: 'Reduce weight fast without leaving the station.'
+            },
+            {
+              icon: 'construct',
+              title: 'Drop amount stays clean',
+              description: 'Aim ~25% reduction each drop to keep reps smooth.'
+            },
+            {
+              icon: 'timer',
+              title: 'Keep ROM identical',
+              description: 'Same depth and same top position through all drops.'
+            }
+          ]
         }
       ],
       advanced: [
@@ -524,6 +624,56 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
               icon: 'timer',
               title: 'Squeeze glutes during 20s hold to protect spine.',
               description: 'Glute activation provides spinal stability during isometric holds.'
+            }
+          ]
+        },
+        {
+          name: 'Heavy Eccentric Extensions',
+          duration: '18–20 min',
+          description: 'Overloaded eccentrics to build posterior strength',
+          battlePlan: '4 rounds\n• 6 Weighted Extensions (4s eccentric)\nRest 120s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_0b65e409-b210-4730-af62-16b022c37685/artifacts/8tyq8yxs_download%20%2810%29.png',
+          intensityReason: 'Extended eccentrics maximize strength development',
+          moodTips: [
+            {
+              icon: 'timer',
+              title: 'Lower slower than you lift',
+              description: 'Lift controlled, lower for 4 seconds.'
+            },
+            {
+              icon: 'construct',
+              title: 'Cut sets before breakdown',
+              description: 'If tempo slips or hips snap, end the set.'
+            },
+            {
+              icon: 'flash',
+              title: 'Chase tension, not ego',
+              description: 'Use straps/assistance if needed so back stays the limiter.'
+            }
+          ]
+        },
+        {
+          name: 'Extension Iso Burnout',
+          duration: '18–20 min',
+          description: 'Dynamic reps finished with a long isometric hold',
+          battlePlan: '3 rounds\n• 10 Weighted Extensions\n• Immediately 30s Roman Chair Hold\nRest 120s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_0b65e409-b210-4730-af62-16b022c37685/artifacts/uud5nxsk_download%20%2811%29.png',
+          intensityReason: 'Combines dynamic movement with isometric endurance',
+          moodTips: [
+            {
+              icon: 'construct',
+              title: 'Hold in neutral',
+              description: 'Lock torso near parallel without overextending.'
+            },
+            {
+              icon: 'body',
+              title: 'Squeeze glutes hard',
+              description: 'Protects spine and stabilizes the hold.'
+            },
+            {
+              icon: 'flash',
+              title: 'Peak contraction is rigid',
+              description: 'You should feel full-body bracing with zero swinging.'
             }
           ]
         }
