@@ -712,6 +712,56 @@ export const hamstringsWorkoutDatabase: EquipmentWorkouts[] = [
               description: 'Tempo control maximizes muscle activation and development.'
             }
           ]
+        },
+        {
+          name: 'Seated Curl Slow Return',
+          duration: '10–12 min',
+          description: 'Controlled curls emphasizing eccentric tension',
+          battlePlan: '3 rounds\n• 12–15 Curls\nRest 60s',
+          imageUrl: '',
+          intensityReason: 'Slow eccentrics build hamstring strength and control',
+          moodTips: [
+            {
+              icon: 'construct',
+              title: 'Pull smooth',
+              description: 'No jerking weight stack.'
+            },
+            {
+              icon: 'timer',
+              title: 'Three-second return',
+              description: 'Eccentric builds strength.'
+            },
+            {
+              icon: 'body',
+              title: 'Seat adjusted tight',
+              description: 'Hips stay locked.'
+            }
+          ]
+        },
+        {
+          name: 'Curl + Iso Hold',
+          duration: '10–12 min',
+          description: 'Standard curls finished with static contraction',
+          battlePlan: '3 rounds\n• 10 Curls + 10s Hold\nRest 75s',
+          imageUrl: '',
+          intensityReason: 'Isometric holds maximize hamstring activation',
+          moodTips: [
+            {
+              icon: 'timer',
+              title: 'Hold halfway up',
+              description: 'Mid-range maximizes tension.'
+            },
+            {
+              icon: 'construct',
+              title: 'Don\'t kick stack',
+              description: 'Keep reps strict.'
+            },
+            {
+              icon: 'pulse',
+              title: 'Feel behind knees',
+              description: 'Hamstrings should dominate.'
+            }
+          ]
         }
       ],
       intermediate: [
