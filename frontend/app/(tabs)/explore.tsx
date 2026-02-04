@@ -2028,6 +2028,24 @@ const styles = StyleSheet.create({
   activeTabText: {
     color: '#FFD700',
   },
+  feedTab: {
+    flex: 1,
+    paddingVertical: 12,
+    alignItems: 'center',
+    borderBottomWidth: 2,
+    borderBottomColor: 'transparent',
+  },
+  feedTabActive: {
+    borderBottomColor: '#FFD700',
+  },
+  feedTabText: {
+    fontSize: 15,
+    fontWeight: '600',
+    color: '#888',
+  },
+  feedTabTextActive: {
+    color: '#FFD700',
+  },
   searchContainer: {
     paddingHorizontal: 16,
     paddingVertical: 12,
