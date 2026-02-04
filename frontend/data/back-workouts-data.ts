@@ -616,7 +616,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Single-arm rows emphasizing control and balance',
           battlePlan: '3 rounds\n• 10 KB Rows (each side)\nRest 60s per side',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_0b65e409-b210-4730-af62-16b022c37685/artifacts/s9jbh6k2_download%20%286%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_ba98ecac-d9ff-4da8-8b26-c72f04702bfb/artifacts/h1hdn33y_kb%20cs%20row.jpg',
           intensityReason: 'Supported setup builds foundation for heavier work',
           moodTips: [
             {
@@ -641,7 +641,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Offset rows building stability and back control',
           battlePlan: '3 rounds\n• 8 Suitcase KB Rows (each side)\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_0b65e409-b210-4730-af62-16b022c37685/artifacts/s1nbakqw_download%20%287%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_ba98ecac-d9ff-4da8-8b26-c72f04702bfb/artifacts/9hjdvg6i_kb%20suitcase%20row.jpg',
           intensityReason: 'Offset load builds core stability alongside back strength',
           moodTips: [
             {
@@ -688,7 +688,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '16–18 min',
           description: 'Renegade, gorilla, high pulls for dense volume',
           battlePlan: '3 rounds\n• 8 Renegade Row (each side)\n• 8 Gorilla Row (each side)\n• 8 KB High Pull (each side)\nRest 90s after sequence',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/e9kn8lqs_download%20%285%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_ba98ecac-d9ff-4da8-8b26-c72f04702bfb/artifacts/kc1es3oi_kb%20gorilla%20row.webp',
           intensityReason: 'Combo flow hits lats, core, and traps together',
           moodTips: [
             {
@@ -708,7 +708,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Bilateral rows for increased loading',
           battlePlan: '4 rounds\n• 8 Double KB Rows\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/e9kn8lqs_download%20%285%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_ba98ecac-d9ff-4da8-8b26-c72f04702bfb/artifacts/9hjdvg6i_kb%20suitcase%20row.jpg',
           intensityReason: 'Double bells increase loading capacity',
           moodTips: [
             {
@@ -733,7 +733,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Alternating rows with constant tension',
           battlePlan: '3 rounds\n• 10 Gorilla Rows (each side)\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/e9kn8lqs_download%20%285%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_ba98ecac-d9ff-4da8-8b26-c72f04702bfb/artifacts/kc1es3oi_kb%20gorilla%20row.webp',
           intensityReason: 'Alternating pattern maintains constant tension',
           moodTips: [
             {
@@ -800,7 +800,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '16–18 min',
           description: 'Heavy bilateral rows for maximal overload',
           battlePlan: '4 rounds\n• 6 Double KB Rows\nRest 120s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_0b65e409-b210-4730-af62-16b022c37685/artifacts/s9jbh6k2_download%20%286%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_ba98ecac-d9ff-4da8-8b26-c72f04702bfb/artifacts/9hjdvg6i_kb%20suitcase%20row.jpg',
           intensityReason: 'Heavy loads maximize strength development',
           moodTips: [
             {
