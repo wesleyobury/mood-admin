@@ -252,6 +252,31 @@ export const calvesWorkoutDatabase: EquipmentWorkouts[] = [
               description: 'Extended range maximizes muscle activation and development.'
             }
           ]
+        },
+        {
+          name: 'Barbell Standing Calf Raise',
+          duration: '8–10 min',
+          description: 'Standing calf raises building basic ankle strength',
+          battlePlan: '3 rounds\n• 15 Standing Calf Raises\nRest 60s',
+          imageUrl: '',
+          intensityReason: 'Standing position maximizes gastrocnemius activation',
+          moodTips: [
+            {
+              icon: 'barbell',
+              title: 'Bar balanced mid-foot',
+              description: 'Even pressure prevents rocking.'
+            },
+            {
+              icon: 'resize',
+              title: 'Full stretch at bottom',
+              description: 'Heels drop under control.'
+            },
+            {
+              icon: 'timer',
+              title: 'Pause at top',
+              description: 'Brief squeeze improves activation.'
+            }
+          ]
         }
       ],
       intermediate: [
