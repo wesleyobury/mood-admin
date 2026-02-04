@@ -708,7 +708,7 @@ export default function WorkoutsHome() {
             style={styles.searchIconButton}
             onPress={() => setExerciseLookupVisible(true)}
           >
-            <Ionicons name="search" size={22} color="#fff" />
+            <Ionicons name="search" size={22} color="rgba(255, 255, 255, 0.6)" />
           </TouchableOpacity>
         </View>
         
