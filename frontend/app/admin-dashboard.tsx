@@ -302,20 +302,42 @@ export default function AdminDashboard() {
   // Heartbeat interval
   const heartbeatRef = useRef<NodeJS.Timeout | null>(null);
 
-  // Check authorization
+  // Check authorization via API
   useEffect(() => {
-    if (user) {
-      const authorized = user.username?.toLowerCase() === ADMIN_USERNAME.toLowerCase();
-      setIsAuthorized(authorized);
-      if (!authorized) {
-        Alert.alert(
-          'Access Denied',
-          'You do not have permission to access the admin dashboard.',
-          [{ text: 'OK', onPress: () => router.back() }]
-        );
+    const checkAdminStatus = async () => {
+      if (!token) {
+        setIsAuthorized(false);
+        return;
       }
-    }
-  }, [user]);
+      
+      try {
+        const response = await fetch(`${API_URL}/api/users/me`, {
+          headers: { 'Authorization': `Bearer ${token}` },
+        });
+        
+        if (response.ok) {
+          const data = await response.json();
+          const authorized = data.is_admin === true;
+          setIsAuthorized(authorized);
+          
+          if (!authorized) {
+            Alert.alert(
+              'Access Denied',
+              'You do not have permission to access the admin dashboard.',
+              [{ text: 'OK', onPress: () => router.back() }]
+            );
+          }
+        } else {
+          setIsAuthorized(false);
+        }
+      } catch (error) {
+        console.error('Error checking admin status:', error);
+        setIsAuthorized(false);
+      }
+    };
+    
+    checkAdminStatus();
+  }, [token]);
 
   // Send heartbeat for real-time tracking
   useEffect(() => {
