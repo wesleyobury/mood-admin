@@ -244,6 +244,31 @@ export const quadsWorkoutDatabase: EquipmentWorkouts[] = [
               description: 'Controlled movement maintains tension throughout range.'
             }
           ]
+        },
+        {
+          name: 'Pause Leg Extension',
+          duration: '12–14 min',
+          description: 'Paused reps reinforcing peak quad contraction',
+          battlePlan: '4 rounds\n• 10 Extensions (2s pause at top)\nRest 90s',
+          imageUrl: '',
+          intensityReason: 'Paused contractions maximize quad activation',
+          moodTips: [
+            {
+              icon: 'timer',
+              title: 'Pause at lockout',
+              description: 'Two-second hold intensifies quad activation.'
+            },
+            {
+              icon: 'footsteps',
+              title: 'Toes slightly up',
+              description: 'Encourages quad dominance.'
+            },
+            {
+              icon: 'construct',
+              title: 'Controlled eccentric',
+              description: 'No dropping the weight stack.'
+            }
+          ]
         }
       ],
       advanced: [
