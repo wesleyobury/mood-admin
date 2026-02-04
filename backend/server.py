@@ -73,6 +73,11 @@ from notifications import (
     get_notification_service,
     SUGGESTION_COPY_LIBRARY,
 )
+from notification_worker import (
+    get_notification_worker,
+    start_notification_worker,
+    stop_notification_worker,
+)
 
 ROOT_DIR = Path(__file__).parent
 load_dotenv(ROOT_DIR / '.env')
