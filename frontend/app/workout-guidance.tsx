@@ -684,71 +684,59 @@ export default function WorkoutGuidanceScreen() {
         <HomeButton />
       </View>
 
-      {/* Extended Progress Bar - Single Non-Scrolling Line */}
+      {/* Extended Progress Bar - 4 Steps: Mood > Type > Equipment > Intensity */}
       <View style={styles.extendedProgressContainer}>
         <View style={styles.extendedProgressContent}>
+          {/* Step 1: Mood Card */}
           <View style={styles.progressStep}>
             <View style={styles.progressStepActive}>
               <LinearGradient colors={['#FFD700', '#FFA500']} style={styles.progressStepGradient} start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }}>
-                <Ionicons name="flame" size={14} color='#0c0c0c' />
+                <Ionicons name="flame" size={12} color='#0c0c0c' />
               </LinearGradient>
             </View>
-            <Text style={styles.progressStepText}>{moodTitle}</Text>
+            <Text style={styles.progressStepText} numberOfLines={2}>{moodTitle}</Text>
           </View>
           
           <View style={styles.progressConnector} />
           
+          {/* Step 2: Workout/Training Type */}
           <View style={styles.progressStep}>
             <View style={styles.progressStepActive}>
               <LinearGradient colors={['#FFD700', '#FFA500']} style={styles.progressStepGradient} start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }}>
                 <Ionicons 
                   name={workoutType === 'Body Weight' ? 'body' : workoutType === 'Weight Based' ? 'barbell' : 'heart'} 
-                  size={14} 
+                  size={12} 
                   color='#0c0c0c' 
                 />
               </LinearGradient>
             </View>
-            <Text style={styles.progressStepText}>{displayWorkoutType}</Text>
+            <Text style={styles.progressStepText} numberOfLines={2}>{displayWorkoutType}</Text>
           </View>
           
           <View style={styles.progressConnector} />
           
-          {selectedEquipmentNames.map((equipmentName, index) => (
-            <React.Fragment key={equipmentName}>
-              <View style={styles.progressStep}>
-                <View style={styles.progressStepActive}>
-                  <LinearGradient colors={['#FFD700', '#FFA500']} style={styles.progressStepGradient} start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }}>
-                    <Ionicons name="fitness" size={14} color='#0c0c0c' />
-                  </LinearGradient>
-                </View>
-                <Text style={styles.progressStepText}>{equipmentName}</Text>
-              </View>
-              {index < selectedEquipmentNames.length - 1 && <View style={styles.progressConnector} />}
-            </React.Fragment>
-          ))}
-          
-          <View style={styles.progressConnector} />
-          
+          {/* Step 3: Equipment */}
           <View style={styles.progressStep}>
             <View style={styles.progressStepActive}>
               <LinearGradient colors={['#FFD700', '#FFA500']} style={styles.progressStepGradient} start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }}>
-                <Ionicons name="checkmark" size={14} color='#0c0c0c' />
+                <Ionicons name="fitness" size={12} color='#0c0c0c' />
               </LinearGradient>
             </View>
-            <Text style={styles.progressStepText}>
+            <Text style={styles.progressStepText} numberOfLines={2}>{equipment}</Text>
+          </View>
+          
+          <View style={styles.progressConnector} />
+          
+          {/* Step 4: Intensity */}
+          <View style={styles.progressStep}>
+            <View style={styles.progressStepActive}>
+              <LinearGradient colors={['#FFD700', '#FFA500']} style={styles.progressStepGradient} start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }}>
+                <Ionicons name="checkmark" size={12} color='#0c0c0c' />
+              </LinearGradient>
+            </View>
+            <Text style={styles.progressStepText} numberOfLines={2}>
               {difficulty.charAt(0).toUpperCase() + difficulty.slice(1)}
             </Text>
-          </View>
-          
-          <View style={styles.progressConnector} />
-          
-          <View style={styles.progressStep}>
-            <View style={styles.progressStepActive}>
-              <LinearGradient colors={['#FFD700', '#FFA500']} style={styles.progressStepGradient} start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }}>
-                <Ionicons name="play" size={14} color="#0c0c0c" />
-              </LinearGradient>
-            </View>
-            <Text style={styles.progressStepText}>In Progress</Text>
           </View>
         </View>
       </View>
