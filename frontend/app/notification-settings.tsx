@@ -561,7 +561,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   frequencyButtonActive: {
-    backgroundColor: '#3897f0',
+    backgroundColor: '#FFD700',
   },
   frequencyButtonText: {
     fontSize: 13,
@@ -569,7 +569,7 @@ const styles = StyleSheet.create({
     color: '#888',
   },
   frequencyButtonTextActive: {
-    color: '#fff',
+    color: '#0c0c0c',
   },
   timeSelector: {
     flexDirection: 'row',
