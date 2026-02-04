@@ -204,6 +204,56 @@ export const hamstringsWorkoutDatabase: EquipmentWorkouts[] = [
               description: 'Smooth rhythm prevents momentum and maintains muscle tension.'
             }
           ]
+        },
+        {
+          name: 'Dumbbell RDL Triple Drop',
+          duration: '18–20 min',
+          description: 'Extended RDL sets using three rapid drops',
+          battlePlan: '3 rounds\n• 8 RDLs\n• Drop → 6\n• Drop → 6\n• Drop → 6\nRest 150s',
+          imageUrl: '',
+          intensityReason: 'Triple drops maximize hamstring fatigue and hypertrophy',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Three drops straight',
+              description: 'Strip weight quickly.'
+            },
+            {
+              icon: 'resize',
+              title: 'Depth never shortens',
+              description: 'Same hinge every drop.'
+            },
+            {
+              icon: 'hand-left',
+              title: 'Grip straps allowed',
+              description: 'Hamstrings dictate failure.'
+            }
+          ]
+        },
+        {
+          name: 'Dumbbell Long-Pause RDL',
+          duration: '18–20 min',
+          description: 'Paused RDLs strengthening stretched hamstrings',
+          battlePlan: '4 rounds\n• 6 RDLs (3s pause)\nRest 150s',
+          imageUrl: '',
+          intensityReason: 'Long pauses build strength in lengthened position',
+          moodTips: [
+            {
+              icon: 'timer',
+              title: 'Pause below knees',
+              description: 'Hold longest hamstring length.'
+            },
+            {
+              icon: 'shield',
+              title: 'Brace hard',
+              description: 'Prevents spinal drift.'
+            },
+            {
+              icon: 'flame',
+              title: 'Expect deep fatigue',
+              description: 'Hamstrings fail first.'
+            }
+          ]
         }
       ]
     }
