@@ -724,6 +724,56 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
               description: 'Keep shoulders down and back to isolate target muscles.'
             }
           ]
+        },
+        {
+          name: 'Tempo T-Bar Rows',
+          duration: '10–12 min',
+          description: 'Controlled T-bar rows emphasizing slow negatives',
+          battlePlan: '3 rounds\n• 12 Neutral Grip T-Bar Rows (3s eccentric)\nRest 75s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_0b65e409-b210-4730-af62-16b022c37685/artifacts/figwdo7y_download%20%2817%29.png',
+          intensityReason: 'Tempo work builds control and mind-muscle connection',
+          moodTips: [
+            {
+              icon: 'timer',
+              title: 'Slow on the way down',
+              description: 'Lower for a full 3 seconds each rep.'
+            },
+            {
+              icon: 'construct',
+              title: 'Chest stays pinned',
+              description: 'No hip drive or torso lift.'
+            },
+            {
+              icon: 'flash',
+              title: 'Feel mid-back tighten',
+              description: 'Think squeezing shoulder blades together.'
+            }
+          ]
+        },
+        {
+          name: 'Peak Pause Rows',
+          duration: '10–12 min',
+          description: 'Paused rows reinforcing contraction awareness',
+          battlePlan: '3 rounds\n• 10 Wide Grip T-Bar Rows (2s pause)\nRest 75s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_0b65e409-b210-4730-af62-16b022c37685/artifacts/xdrugsxs_tr.jpg',
+          intensityReason: 'Paused reps reinforce peak contraction',
+          moodTips: [
+            {
+              icon: 'timer',
+              title: 'Pause every rep',
+              description: 'Hold 1–2s at full contraction.'
+            },
+            {
+              icon: 'construct',
+              title: 'Smooth return',
+              description: 'Control back to stretch, no drop.'
+            },
+            {
+              icon: 'flash',
+              title: 'Peak form feels compact',
+              description: 'Elbows tight, chest tall, no shrug.'
+            }
+          ]
         }
       ],
       intermediate: [
@@ -766,6 +816,56 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
               description: 'Reduced load allows proper tempo execution and form.'
             }
           ]
+        },
+        {
+          name: 'T-Bar Drop Set',
+          duration: '14–16 min',
+          description: 'Heavy rows extended with rapid load reductions',
+          battlePlan: '3 rounds\n• 8 T-Bar Rows\n• Drop → 8 reps\n• Drop → 8 reps\nRest 120s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_0b65e409-b210-4730-af62-16b022c37685/artifacts/figwdo7y_download%20%2817%29.png',
+          intensityReason: 'Drop sets extend time under tension beyond failure',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Drops are immediate',
+              description: 'Strip weight quickly, stay in position.'
+            },
+            {
+              icon: 'construct',
+              title: 'Drop amount stays moderate',
+              description: 'Reduce ~25% to keep reps strict.'
+            },
+            {
+              icon: 'body',
+              title: 'Straps encouraged here',
+              description: 'Keep lats as the limiting factor.'
+            }
+          ]
+        },
+        {
+          name: 'Iso-Finish Rows',
+          duration: '14–16 min',
+          description: 'Standard rows finished with long isometric holds',
+          battlePlan: '4 rounds\n• 8 T-Bar Rows\n• Finish with 10s hold\nRest 120s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_0b65e409-b210-4730-af62-16b022c37685/artifacts/xdrugsxs_tr.jpg',
+          intensityReason: 'Isometric finisher maximizes time under tension',
+          moodTips: [
+            {
+              icon: 'timer',
+              title: 'Hold the last rep',
+              description: 'Lock elbows back for 10 seconds.'
+            },
+            {
+              icon: 'construct',
+              title: 'No shoulder shrug',
+              description: 'Keep traps quiet, squeeze mid-back.'
+            },
+            {
+              icon: 'flash',
+              title: 'Peak contraction should burn',
+              description: 'That deep mid-back cramp is the goal.'
+            }
+          ]
         }
       ],
       advanced: [
@@ -806,6 +906,56 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
               icon: 'refresh',
               title: 'Squeezes: think small, controlled scap retractions.',
               description: 'Bodyweight squeezes enhance muscle activation and recovery.'
+            }
+          ]
+        },
+        {
+          name: 'Heavy Tempo Rows',
+          duration: '16–18 min',
+          description: 'Heavy T-bar rows with long controlled eccentrics',
+          battlePlan: '4 rounds\n• 6 T-Bar Rows (4s eccentric)\nRest 120s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_0b65e409-b210-4730-af62-16b022c37685/artifacts/figwdo7y_download%20%2817%29.png',
+          intensityReason: 'Extended eccentrics maximize strength and hypertrophy',
+          moodTips: [
+            {
+              icon: 'construct',
+              title: 'Weight stays honest',
+              description: 'Reduce load if tempo breaks.'
+            },
+            {
+              icon: 'timer',
+              title: 'Explode up, slow down',
+              description: '4s eccentric on every rep.'
+            },
+            {
+              icon: 'body',
+              title: 'Straps are acceptable',
+              description: 'Prioritize back overload over grip.'
+            }
+          ]
+        },
+        {
+          name: 'Triple Drop Grinder',
+          duration: '18–20 min',
+          description: 'Extended triple-drop sets for maximal fatigue',
+          battlePlan: '3 rounds\n• 6 Rows\n• Drop → 6\n• Drop → 6\n• Drop → 6\nRest 150s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_0b65e409-b210-4730-af62-16b022c37685/artifacts/xdrugsxs_tr.jpg',
+          intensityReason: 'Triple drops maximize muscle fatigue and pump',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Three drops, no rest',
+              description: 'Strip plates fast and keep moving.'
+            },
+            {
+              icon: 'construct',
+              title: 'Same pull path every drop',
+              description: 'Elbows drive low and back.'
+            },
+            {
+              icon: 'body',
+              title: 'Chase deep fatigue',
+              description: 'You should feel lats throb, not arms.'
             }
           ]
         }
