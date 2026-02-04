@@ -1572,8 +1572,8 @@ export default function Explore() {
               </TouchableOpacity>
             )}
 
-            {/* Delete Post - only show for own posts */}
-            {user && user.id === selectedMenuPost.author.id && (
+            {/* Delete Post - show for own posts OR for admin on any post */}
+            {user && (user.id === selectedMenuPost.author.id || isAdmin) && (
               <TouchableOpacity 
                 style={styles.postMenuItem}
                 onPress={() => {
@@ -1587,7 +1587,9 @@ export default function Explore() {
                 ) : (
                   <Ionicons name="trash-outline" size={24} color="#FF4444" />
                 )}
-                <Text style={[styles.postMenuItemText, { color: '#FF4444' }]}>Delete Post</Text>
+                <Text style={[styles.postMenuItemText, { color: '#FF4444' }]}>
+                  {isAdmin && user.id !== selectedMenuPost.author.id ? 'Delete Post (Admin)' : 'Delete Post'}
+                </Text>
               </TouchableOpacity>
             )}
 
