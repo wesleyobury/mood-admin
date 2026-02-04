@@ -258,7 +258,7 @@ export const calvesWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '8–10 min',
           description: 'Standing calf raises building basic ankle strength',
           battlePlan: '3 rounds\n• 15 Standing Calf Raises\nRest 60s',
-          imageUrl: '',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_96d95d8c-bd6e-49a5-a6af-694c8a8f5c04/artifacts/tzc8onjz_bb%20calf%20raise.png',
           intensityReason: 'Standing position maximizes gastrocnemius activation',
           moodTips: [
             {
@@ -325,7 +325,7 @@ export const calvesWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Slow eccentrics increasing calf time under tension',
           battlePlan: '4 rounds\n• 12 Calf Raises (3s eccentric)\nRest 75s',
-          imageUrl: '',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_96d95d8c-bd6e-49a5-a6af-694c8a8f5c04/artifacts/tzc8onjz_bb%20calf%20raise.png',
           intensityReason: 'Tempo work maximizes muscle fiber recruitment',
           moodTips: [
             {
@@ -392,7 +392,7 @@ export const calvesWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Extended standing raises using fast load reductions',
           battlePlan: '3 rounds\n• 10 Heavy Raises\n• Drop → 12\n• Drop → 15\nRest 120s',
-          imageUrl: '',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_96d95d8c-bd6e-49a5-a6af-694c8a8f5c04/artifacts/tzc8onjz_bb%20calf%20raise.png',
           intensityReason: 'Drop sets push calves to complete fatigue',
           moodTips: [
             {
