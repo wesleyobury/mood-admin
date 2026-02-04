@@ -177,6 +177,31 @@ export const quadsWorkoutDatabase: EquipmentWorkouts[] = [
               description: 'Controlled eccentric maximizes quad development.'
             }
           ]
+        },
+        {
+          name: 'Controlled Leg Extension',
+          duration: '10–12 min',
+          description: 'Smooth extensions building basic quad control',
+          battlePlan: '3 rounds\n• 12–15 Leg Extensions\nRest 60–75s',
+          imageUrl: '',
+          intensityReason: 'Controlled movement builds foundational quad strength',
+          moodTips: [
+            {
+              icon: 'barbell',
+              title: 'Light load first',
+              description: 'Prioritize control before increasing weight.'
+            },
+            {
+              icon: 'resize',
+              title: 'Full knee extension',
+              description: 'Lock out gently to fully shorten quads.'
+            },
+            {
+              icon: 'timer',
+              title: 'Slow return down',
+              description: 'Control keeps tension on the muscle.'
+            }
+          ]
         }
       ],
       intermediate: [
