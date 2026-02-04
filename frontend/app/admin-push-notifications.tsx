@@ -5,7 +5,6 @@ import {
   StyleSheet,
   TouchableOpacity,
   ScrollView,
-  TextInput,
   Alert,
   ActivityIndicator,
 } from 'react-native';
@@ -18,6 +17,14 @@ import Constants from 'expo-constants';
 
 const API_URL = process.env.EXPO_PUBLIC_BACKEND_URL || Constants.expoConfig?.extra?.EXPO_PUBLIC_BACKEND_URL || '';
 
+interface FeaturedWorkout {
+  id: string;
+  name: string;
+  description?: string;
+  image_url?: string;
+  mood?: string;
+}
+
 export default function AdminPushNotifications() {
   const router = useRouter();
   const insets = useSafeAreaInsets();
@@ -28,19 +35,26 @@ export default function AdminPushNotifications() {
   
   // Push form state
   const [pushType, setPushType] = useState<'featured_workout' | 'featured_suggestion'>('featured_suggestion');
-  const [workoutName, setWorkoutName] = useState('');
-  const [workoutId, setWorkoutId] = useState('');
+  const [selectedWorkout, setSelectedWorkout] = useState<FeaturedWorkout | null>(null);
   const [customCopy, setCustomCopy] = useState('');
   const [sending, setSending] = useState(false);
   
-  // Copy library
+  // Data
+  const [featuredWorkouts, setFeaturedWorkouts] = useState<FeaturedWorkout[]>([]);
   const [copyLibrary, setCopyLibrary] = useState<string[]>([]);
   const [selectedCopyIndex, setSelectedCopyIndex] = useState<number | null>(null);
+  const [loadingWorkouts, setLoadingWorkouts] = useState(false);
 
   useEffect(() => {
     checkAuthorization();
     fetchCopyLibrary();
   }, [token, user]);
+
+  useEffect(() => {
+    if (isAuthorized && pushType === 'featured_workout') {
+      fetchFeaturedWorkouts();
+    }
+  }, [isAuthorized, pushType]);
 
   const checkAuthorization = async () => {
     if (!token || !user) {
@@ -48,7 +62,6 @@ export default function AdminPushNotifications() {
       return;
     }
     
-    // Check if user is admin
     try {
       const response = await fetch(`${API_URL}/api/users/me`, {
         headers: { 'Authorization': `Bearer ${token}` },
@@ -65,6 +78,24 @@ export default function AdminPushNotifications() {
     }
   };
 
+  const fetchFeaturedWorkouts = async () => {
+    setLoadingWorkouts(true);
+    try {
+      const response = await fetch(`${API_URL}/api/featured-workouts`, {
+        headers: { 'Authorization': `Bearer ${token}` },
+      });
+      
+      if (response.ok) {
+        const data = await response.json();
+        setFeaturedWorkouts(data || []);
+      }
+    } catch (error) {
+      console.error('Error fetching featured workouts:', error);
+    } finally {
+      setLoadingWorkouts(false);
+    }
+  };
+
   const fetchCopyLibrary = async () => {
     try {
       const response = await fetch(`${API_URL}/api/notifications/copy-library`);
@@ -78,8 +109,8 @@ export default function AdminPushNotifications() {
   };
 
   const sendPush = async () => {
-    if (pushType === 'featured_workout' && (!workoutName || !workoutId)) {
-      Alert.alert('Error', 'Please enter workout name and ID');
+    if (pushType === 'featured_workout' && !selectedWorkout) {
+      Alert.alert('Error', 'Please select a featured workout');
       return;
     }
 
@@ -91,7 +122,11 @@ export default function AdminPushNotifications() {
         : '/api/admin/notifications/featured-suggestion';
       
       const body = pushType === 'featured_workout'
-        ? { workout_id: workoutId, workout_name: workoutName }
+        ? { 
+            workout_id: selectedWorkout!.id, 
+            workout_name: selectedWorkout!.name,
+            workout_image: selectedWorkout!.image_url 
+          }
         : { custom_copy: customCopy || null };
       
       const response = await fetch(`${API_URL}${endpoint}`, {
@@ -109,8 +144,7 @@ export default function AdminPushNotifications() {
           'Success',
           `${data.notifications_sent} notifications sent!`,
           [{ text: 'OK', onPress: () => {
-            setWorkoutName('');
-            setWorkoutId('');
+            setSelectedWorkout(null);
             setCustomCopy('');
             setSelectedCopyIndex(null);
           }}]
@@ -208,54 +242,62 @@ export default function AdminPushNotifications() {
           </View>
         </View>
 
-        {/* Featured Workout Form */}
+        {/* Featured Workout Selection */}
         {pushType === 'featured_workout' && (
           <View style={styles.section}>
-            <Text style={styles.sectionTitle}>Workout Details</Text>
-            <View style={styles.inputContainer}>
-              <Text style={styles.inputLabel}>Workout Name</Text>
-              <TextInput
-                style={styles.input}
-                value={workoutName}
-                onChangeText={setWorkoutName}
-                placeholder="e.g., Morning HIIT Blast"
-                placeholderTextColor="#666"
-              />
-            </View>
-            <View style={styles.inputContainer}>
-              <Text style={styles.inputLabel}>Workout ID</Text>
-              <TextInput
-                style={styles.input}
-                value={workoutId}
-                onChangeText={setWorkoutId}
-                placeholder="Enter workout ID"
-                placeholderTextColor="#666"
-              />
-            </View>
+            <Text style={styles.sectionTitle}>Select Featured Workout</Text>
+            {loadingWorkouts ? (
+              <ActivityIndicator size="small" color="#FFD700" style={{ marginVertical: 20 }} />
+            ) : featuredWorkouts.length === 0 ? (
+              <View style={styles.emptyState}>
+                <Ionicons name="fitness-outline" size={32} color="#666" />
+                <Text style={styles.emptyStateText}>No active featured workouts</Text>
+              </View>
+            ) : (
+              <View style={styles.workoutList}>
+                {featuredWorkouts.map((workout) => (
+                  <TouchableOpacity
+                    key={workout.id}
+                    style={[
+                      styles.workoutItem,
+                      selectedWorkout?.id === workout.id && styles.workoutItemSelected,
+                    ]}
+                    onPress={() => setSelectedWorkout(workout)}
+                  >
+                    <View style={styles.workoutItemContent}>
+                      <View style={styles.workoutItemIcon}>
+                        <Ionicons 
+                          name="flash" 
+                          size={18} 
+                          color={selectedWorkout?.id === workout.id ? '#FFD700' : '#888'} 
+                        />
+                      </View>
+                      <View style={styles.workoutItemInfo}>
+                        <Text style={[
+                          styles.workoutItemName,
+                          selectedWorkout?.id === workout.id && styles.workoutItemNameSelected,
+                        ]}>
+                          {workout.name}
+                        </Text>
+                        {workout.mood && (
+                          <Text style={styles.workoutItemMood}>{workout.mood}</Text>
+                        )}
+                      </View>
+                    </View>
+                    {selectedWorkout?.id === workout.id && (
+                      <Ionicons name="checkmark-circle" size={22} color="#FFD700" />
+                    )}
+                  </TouchableOpacity>
+                ))}
+              </View>
+            )}
           </View>
         )}
 
         {/* Featured Suggestion Form */}
         {pushType === 'featured_suggestion' && (
           <View style={styles.section}>
-            <Text style={styles.sectionTitle}>Message</Text>
-            <View style={styles.inputContainer}>
-              <Text style={styles.inputLabel}>Custom Copy (optional)</Text>
-              <TextInput
-                style={[styles.input, styles.inputMultiline]}
-                value={customCopy}
-                onChangeText={(text) => {
-                  setCustomCopy(text);
-                  setSelectedCopyIndex(null);
-                }}
-                placeholder="Leave empty for random"
-                placeholderTextColor="#666"
-                multiline
-                numberOfLines={2}
-              />
-            </View>
-            
-            <Text style={styles.copyLibraryTitle}>Or select from library:</Text>
+            <Text style={styles.sectionTitle}>Select Message</Text>
             <View style={styles.copyLibrary}>
               {copyLibrary.map((copy, index) => (
                 <TouchableOpacity
@@ -299,8 +341,13 @@ export default function AdminPushNotifications() {
             </View>
             <Text style={styles.previewBody}>
               {pushType === 'featured_workout' 
-                ? (workoutName ? `"${workoutName}" just dropped` : '"Workout Name" just dropped')
-                : (customCopy || 'Random motivational message')}
+                ? (selectedWorkout ? `"${selectedWorkout.name}" just dropped` : 'Select a workout above')
+                : (customCopy || 'Select a message above')}
+            </Text>
+            <Text style={styles.previewDeepLink}>
+              {pushType === 'featured_workout' 
+                ? '→ Opens workout cart' 
+                : '→ Opens home screen'}
             </Text>
           </View>
         </View>
@@ -309,7 +356,7 @@ export default function AdminPushNotifications() {
         <TouchableOpacity
           style={[styles.sendButton, sending && styles.sendButtonDisabled]}
           onPress={sendPush}
-          disabled={sending}
+          disabled={sending || (pushType === 'featured_workout' && !selectedWorkout) || (pushType === 'featured_suggestion' && !customCopy)}
         >
           <LinearGradient
             colors={['#FFD700', '#FFA500']}
@@ -430,32 +477,61 @@ const styles = StyleSheet.create({
   typeButtonTextActive: {
     color: '#0c0c0c',
   },
-  inputContainer: {
-    marginBottom: 16,
+  emptyState: {
+    alignItems: 'center',
+    paddingVertical: 30,
   },
-  inputLabel: {
-    fontSize: 13,
-    color: '#888',
-    marginBottom: 8,
+  emptyStateText: {
+    marginTop: 12,
+    fontSize: 14,
+    color: '#666',
   },
-  input: {
-    backgroundColor: 'rgba(255, 255, 255, 0.05)',
+  workoutList: {
+    gap: 8,
+  },
+  workoutItem: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    backgroundColor: 'rgba(255, 255, 255, 0.03)',
     borderRadius: 12,
     padding: 14,
-    fontSize: 15,
-    color: '#fff',
     borderWidth: 1,
-    borderColor: 'rgba(255, 255, 255, 0.1)',
+    borderColor: 'rgba(255, 255, 255, 0.05)',
   },
-  inputMultiline: {
-    minHeight: 60,
-    textAlignVertical: 'top',
+  workoutItemSelected: {
+    backgroundColor: 'rgba(255, 215, 0, 0.1)',
+    borderColor: 'rgba(255, 215, 0, 0.3)',
   },
-  copyLibraryTitle: {
-    fontSize: 13,
+  workoutItemContent: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    flex: 1,
+  },
+  workoutItemIcon: {
+    width: 36,
+    height: 36,
+    borderRadius: 18,
+    backgroundColor: 'rgba(255, 255, 255, 0.05)',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginRight: 12,
+  },
+  workoutItemInfo: {
+    flex: 1,
+  },
+  workoutItemName: {
+    fontSize: 15,
+    fontWeight: '500',
+    color: '#fff',
+  },
+  workoutItemNameSelected: {
+    color: '#FFD700',
+  },
+  workoutItemMood: {
+    fontSize: 12,
     color: '#888',
-    marginBottom: 12,
-    marginTop: 8,
+    marginTop: 2,
   },
   copyLibrary: {
     gap: 8,
@@ -510,6 +586,13 @@ const styles = StyleSheet.create({
     color: '#aaa',
     lineHeight: 20,
     marginLeft: 38,
+  },
+  previewDeepLink: {
+    fontSize: 12,
+    color: '#666',
+    marginLeft: 38,
+    marginTop: 8,
+    fontStyle: 'italic',
   },
   sendButton: {
     marginTop: 8,
