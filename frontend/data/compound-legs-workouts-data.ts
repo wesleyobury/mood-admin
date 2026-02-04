@@ -1573,7 +1573,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Neutral-grip deadlifts reducing spinal stress',
           battlePlan: '3 rounds\n• 8–10 Trap Bar Deadlifts\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/3cnpyyx1_tbss.webp',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-content/artifacts/4iszp6ah_trap%20bar%20dl%202.webp',
           intensityReason: 'Neutral grip reduces spinal loading',
           moodTips: [
             {
@@ -1598,7 +1598,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Controlled deadlifts emphasizing slow eccentrics',
           battlePlan: '3 rounds\n• 8 Trap Bar Deadlifts (3s eccentric)\nRest 120s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/sbumk4mn_tbs.jpeg',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-content/artifacts/4pazduz4_trab%20bar%20dl.jpg',
           intensityReason: 'Tempo work increases time under tension',
           moodTips: [
             {
@@ -1625,7 +1625,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Builds hip strength and glute drive through stance',
           battlePlan: '4 rounds\n• 6–8 Wide Stance Squats\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/3cnpyyx1_tbss.webp',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-content/artifacts/4iszp6ah_trap%20bar%20dl%202.webp',
           intensityReason: 'wider base targets hips and glutes with a stronger emphasis',
           moodTips: [
             {
