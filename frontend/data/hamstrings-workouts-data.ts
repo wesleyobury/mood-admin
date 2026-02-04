@@ -580,6 +580,56 @@ export const hamstringsWorkoutDatabase: EquipmentWorkouts[] = [
               description: 'Smooth movement prevents injury and maintains muscle tension.'
             }
           ]
+        },
+        {
+          name: 'Hamstring-Bias Extension',
+          duration: '10–12 min',
+          description: 'Short-range extensions emphasizing hamstring stretch',
+          battlePlan: '3 rounds\n• 12 Extensions\nRest 75s',
+          imageUrl: '',
+          intensityReason: 'Hamstring-focused movement builds posterior chain control',
+          moodTips: [
+            {
+              icon: 'trending-down',
+              title: 'Hinge not lift',
+              description: 'Movement comes from hips.'
+            },
+            {
+              icon: 'construct',
+              title: 'Stop before lockout',
+              description: 'Keeps tension posterior.'
+            },
+            {
+              icon: 'timer',
+              title: 'Slow tempo',
+              description: 'Control every rep.'
+            }
+          ]
+        },
+        {
+          name: 'Iso Hinge Hold',
+          duration: '10–12 min',
+          description: 'Static hinge holds reinforcing hamstring endurance',
+          battlePlan: '3 rounds\n• 20–30s Hold\nRest 75s',
+          imageUrl: '',
+          intensityReason: 'Isometric holds build hamstring endurance',
+          moodTips: [
+            {
+              icon: 'timer',
+              title: 'Hold mid-range',
+              description: 'Maximum hamstring tension.'
+            },
+            {
+              icon: 'shield',
+              title: 'Brace core tight',
+              description: 'Prevents back strain.'
+            },
+            {
+              icon: 'pulse',
+              title: 'Breathe steadily',
+              description: 'Avoid shaking out early.'
+            }
+          ]
         }
       ],
       intermediate: [
