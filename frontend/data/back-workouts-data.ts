@@ -1138,6 +1138,56 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
               description: 'Proper pull height maximizes upper back engagement.'
             }
           ]
+        },
+        {
+          name: 'Tempo Neutral Rows',
+          duration: '10–12 min',
+          description: 'Neutral cable rows emphasizing smooth control',
+          battlePlan: '3 rounds\n• 12 Neutral Grip Cable Rows (3s eccentric)\nRest 75s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_0b65e409-b210-4730-af62-16b022c37685/artifacts/7hcpy4r7_download%20%2812%29.png',
+          intensityReason: 'Tempo work builds control and mind-muscle connection',
+          moodTips: [
+            {
+              icon: 'timer',
+              title: 'Slow negatives matter',
+              description: 'Lower handle for 3 seconds.'
+            },
+            {
+              icon: 'construct',
+              title: 'Torso stays tall',
+              description: 'No rocking or leaning back.'
+            },
+            {
+              icon: 'flash',
+              title: 'Feel lats stretch',
+              description: 'Control the return fully.'
+            }
+          ]
+        },
+        {
+          name: 'Pause & Squeeze Rows',
+          duration: '10–12 min',
+          description: 'Paused rows to reinforce contraction',
+          battlePlan: '3 rounds\n• 10 Wide Grip Cable Rows (2s pause)\nRest 75s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/gdb1l44p_wgr.png',
+          intensityReason: 'Paused reps reinforce peak contraction awareness',
+          moodTips: [
+            {
+              icon: 'timer',
+              title: 'Pause every rep',
+              description: 'Hold 2s at chest.'
+            },
+            {
+              icon: 'construct',
+              title: 'Keep stack floating',
+              description: 'Don\'t let weight touch down.'
+            },
+            {
+              icon: 'flash',
+              title: 'Mid-back should light up',
+              description: 'Think shoulder blades pinching.'
+            }
+          ]
         }
       ],
       intermediate: [
@@ -1180,6 +1230,56 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
               description: 'Core engagement maintains proper spinal alignment.'
             }
           ]
+        },
+        {
+          name: 'Cable Row Drop Set',
+          duration: '14–16 min',
+          description: 'Mechanical fatigue using quick pin drops',
+          battlePlan: '3 rounds\n• 8 Cable Rows\n• Drop → 8 reps\n• Drop → 8 reps\nRest 120s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/4jf014no_rgr.jpg',
+          intensityReason: 'Drop sets extend time under tension beyond failure',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Drops are instant',
+              description: 'Change pin fast, no standing.'
+            },
+            {
+              icon: 'construct',
+              title: 'Drop size stays controlled',
+              description: '~20–30% each reduction.'
+            },
+            {
+              icon: 'body',
+              title: 'Straps welcome',
+              description: 'Keep grip from limiting volume.'
+            }
+          ]
+        },
+        {
+          name: 'Iso-Hold Cable Rows',
+          duration: '14–16 min',
+          description: 'Rows with extended static holds',
+          battlePlan: '4 rounds\n• 8 Cable Rows\n• Finish with 12s hold\nRest 120s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_0b65e409-b210-4730-af62-16b022c37685/artifacts/83ut7zg6_download%20%2813%29.png',
+          intensityReason: 'Isometric finisher maximizes time under tension',
+          moodTips: [
+            {
+              icon: 'timer',
+              title: 'Hold after final rep',
+              description: 'Lock in contraction for 12 seconds.'
+            },
+            {
+              icon: 'construct',
+              title: 'Chest stays proud',
+              description: 'Avoid rounding during hold.'
+            },
+            {
+              icon: 'flash',
+              title: 'Peak form feels compressed',
+              description: 'Tight squeeze between shoulder blades.'
+            }
+          ]
         }
       ],
       advanced: [
@@ -1220,6 +1320,56 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
               icon: 'refresh',
               title: 'Post-set back squeezes: keep tiny ROM, lats locked.',
               description: 'Small range squeezes enhance activation and recovery.'
+            }
+          ]
+        },
+        {
+          name: 'Long Eccentric Rows',
+          duration: '16–18 min',
+          description: 'Cable rows using extended negative tempo',
+          battlePlan: '4 rounds\n• 6 Cable Rows (5s eccentric)\nRest 120s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_0b65e409-b210-4730-af62-16b022c37685/artifacts/7hcpy4r7_download%20%2812%29.png',
+          intensityReason: 'Extended eccentrics maximize strength and hypertrophy',
+          moodTips: [
+            {
+              icon: 'timer',
+              title: 'Lower longer than you lift',
+              description: '5s eccentric each rep.'
+            },
+            {
+              icon: 'construct',
+              title: 'No stack touch allowed',
+              description: 'Keep tension constant.'
+            },
+            {
+              icon: 'body',
+              title: 'Straps keep lats primary',
+              description: 'Forearms shouldn\'t fail first.'
+            }
+          ]
+        },
+        {
+          name: 'Triple Drop Cable Burn',
+          duration: '18–20 min',
+          description: 'Extended drop sets to fully exhaust lats',
+          battlePlan: '3 rounds\n• 6 Rows\n• Drop → 6\n• Drop → 6\n• Drop → 6\nRest 150s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/gdb1l44p_wgr.png',
+          intensityReason: 'Triple drops maximize muscle fatigue and pump',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Three clean drops',
+              description: 'Reduce load fast, no pauses.'
+            },
+            {
+              icon: 'construct',
+              title: 'Elbow path stays identical',
+              description: 'Don\'t turn drops into shrugs.'
+            },
+            {
+              icon: 'body',
+              title: 'Chase lat pump',
+              description: 'Deep burn under armpits = success.'
             }
           ]
         }
