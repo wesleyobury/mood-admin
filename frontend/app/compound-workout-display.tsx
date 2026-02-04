@@ -342,31 +342,32 @@ const CompoundWorkoutDisplayScreen = memo(function CompoundWorkoutDisplayScreen(
           })}
         </ScrollView>
 
-        {/* Bottom Navigation Button - Only show when there are more muscles */}
-        {hasMoreMuscles && (
-          <View style={styles.bottomButtonContainer}>
-            <TouchableOpacity 
-              style={styles.nextMuscleButton}
-              onPress={handleNextMuscleGroup}
+        {/* Bottom Navigation Button - Always show, either next muscle or finish */}
+        <View style={[styles.bottomButtonContainer, { paddingBottom: Math.max(insets.bottom, 24) }]}>
+          <TouchableOpacity 
+            style={styles.nextMuscleButton}
+            onPress={handleNextMuscleGroup}
+          >
+            <LinearGradient
+              colors={['#FFD700', '#FFA500']}
+              style={styles.nextMuscleButtonGradient}
+              start={{ x: 0, y: 0 }}
+              end={{ x: 1, y: 0 }}
             >
-              <LinearGradient
-                colors={['#FFD700', '#FFA500']}
-                style={styles.nextMuscleButtonGradient}
-                start={{ x: 0, y: 0 }}
-                end={{ x: 1, y: 0 }}
-              >
-                <Text style={styles.nextMuscleButtonText}>
-                  {`Next: ${muscleQueue[0]?.displayName || muscleQueue[0]?.name || 'Muscle Group'}`}
-                </Text>
-                <Ionicons 
-                  name="arrow-forward"
-                  size={20} 
-                  color='#0c0c0c' 
-                />
-              </LinearGradient>
-            </TouchableOpacity>
-          </View>
-        )}
+              <Text style={styles.nextMuscleButtonText}>
+                {hasMoreMuscles 
+                  ? `Next: ${muscleQueue[0]?.displayName || muscleQueue[0]?.name || 'Muscle Group'}`
+                  : 'Finish and View Cart'
+                }
+              </Text>
+              <Ionicons 
+                name={hasMoreMuscles ? "arrow-forward" : "cart"}
+                size={20} 
+                color='#0c0c0c' 
+              />
+            </LinearGradient>
+          </TouchableOpacity>
+        </View>
       </SafeAreaView>
     </View>
   );
@@ -390,7 +391,7 @@ const styles = StyleSheet.create({
   progressStepText: { fontSize: 10, color: 'rgba(255, 255, 255, 0.8)', textAlign: 'center', fontWeight: '500', maxWidth: 70 },
   progressConnector: { width: 16, height: 2, backgroundColor: 'rgba(255, 215, 0, 0.3)', marginHorizontal: 8, marginTop: 14 },
   scrollView: { flex: 1, overflow: 'visible' },
-  scrollContentContainer: { paddingTop: 16, paddingBottom: 20, overflow: 'visible' },
+  scrollContentContainer: { paddingTop: 16, paddingBottom: 100, overflow: 'visible' },
   muscleGroupSection: { marginBottom: 24 },
   sectionHeader: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', paddingHorizontal: 24, marginBottom: 16 },
   sectionTitle: { fontSize: 20, fontWeight: 'bold', color: '#ffffff' },
@@ -399,7 +400,17 @@ const styles = StyleSheet.create({
   emptyState: { flex: 1, justifyContent: 'center', alignItems: 'center', paddingHorizontal: 40 },
   emptyStateText: { fontSize: 18, color: 'rgba(255, 255, 255, 0.8)', textAlign: 'center', marginTop: 16, marginBottom: 8 },
   emptyStateSubtext: { fontSize: 14, color: 'rgba(255, 255, 255, 0.5)', textAlign: 'center' },
-  bottomButtonContainer: { paddingHorizontal: 20, paddingVertical: 16, paddingBottom: 24, backgroundColor: '#000000', borderTopWidth: 1, borderTopColor: 'rgba(255, 215, 0, 0.2)' },
+  bottomButtonContainer: { 
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    right: 0,
+    paddingHorizontal: 20, 
+    paddingTop: 16, 
+    backgroundColor: '#000000', 
+    borderTopWidth: 1, 
+    borderTopColor: 'rgba(255, 215, 0, 0.2)' 
+  },
   nextMuscleButton: { borderRadius: 12, overflow: 'hidden' },
   nextMuscleButtonGradient: { paddingVertical: 16, paddingHorizontal: 24, flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 8 },
   nextMuscleButtonText: { fontSize: 16, fontWeight: 'bold', color: '#0c0c0c' },
