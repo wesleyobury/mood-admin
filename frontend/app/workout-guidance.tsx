@@ -575,7 +575,28 @@ export default function WorkoutGuidanceScreen() {
               duration_minutes: totalDuration,
               exercises_completed: sessionWorkouts.length,
             });
-            console.log('📊 Tracked workout completed');
+            
+            // Track workout session completed with elapsed time
+            Analytics.workoutSessionCompleted(token, {
+              workout_name: firstWorkout?.workoutName || firstWorkout?.name || 'Unknown',
+              equipment: firstWorkout?.equipment,
+              difficulty: firstWorkout?.difficulty,
+              mood_category: overallMoodCategory,
+              duration_seconds: elapsedTime,
+              source: featuredWorkoutId ? 'featured' : 'custom',
+            });
+            console.log('📊 Tracked workout session completed');
+          } else {
+            // Track for guest users
+            GuestAnalytics.workoutSessionCompleted({
+              workout_name: firstWorkout?.workoutName || firstWorkout?.name || 'Unknown',
+              equipment: firstWorkout?.equipment,
+              difficulty: firstWorkout?.difficulty,
+              mood_category: overallMoodCategory,
+              duration_seconds: elapsedTime,
+              source: params.featuredWorkoutId ? 'featured' : 'custom',
+            });
+            console.log('📊 Tracked guest workout session completed');
           }
           
           console.log('🧹 Clearing cart...');
