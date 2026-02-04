@@ -5907,6 +5907,22 @@ async def send_message(
         }
     )
     
+    # Trigger message notification
+    try:
+        # Find the other participant(s) to notify
+        other_participants = [p for p in conversation["participants"] if p != current_user_id]
+        notification_service = get_notification_service(db)
+        for recipient_id in other_participants:
+            await notification_service.trigger_message_notification(
+                sender_id=current_user_id,
+                recipient_id=recipient_id,
+                conversation_id=conversation_id,
+                message_text=content,
+                is_request=conversation.get("is_request", False)
+            )
+    except Exception as e:
+        logger.error(f"Failed to send message notification: {e}")
+    
     return {
         "id": str(result.inserted_id),
         "sender_id": current_user_id,
