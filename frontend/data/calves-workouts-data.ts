@@ -526,6 +526,31 @@ export const calvesWorkoutDatabase: EquipmentWorkouts[] = [
               description: 'High-rep finisher extends training beyond machine capacity.'
             }
           ]
+        },
+        {
+          name: 'Leg Press Calf Pause',
+          duration: '10–12 min',
+          description: 'Paused calf raises emphasizing top-end contraction',
+          battlePlan: '4 rounds\n• 12 Raises (2s pause)\nRest 75s',
+          imageUrl: '',
+          intensityReason: 'Paused contractions strengthen shortened position',
+          moodTips: [
+            {
+              icon: 'timer',
+              title: 'Two-second pause',
+              description: 'Strengthens shortened position.'
+            },
+            {
+              icon: 'body',
+              title: 'Knees slightly bent',
+              description: 'Reduces joint strain.'
+            },
+            {
+              icon: 'construct',
+              title: 'Consistent tempo',
+              description: 'Avoid rushing reps.'
+            }
+          ]
         }
       ],
       advanced: [
