@@ -459,6 +459,31 @@ export const calvesWorkoutDatabase: EquipmentWorkouts[] = [
               description: 'Full range with angle variation maximizes muscle activation.'
             }
           ]
+        },
+        {
+          name: 'Leg Press Calf Raise',
+          duration: '8–10 min',
+          description: 'Supported calf raises using leg press sled',
+          battlePlan: '3 rounds\n• 15 Raises\nRest 60s',
+          imageUrl: '',
+          intensityReason: 'Sled support allows focus on pure calf work',
+          moodTips: [
+            {
+              icon: 'construct',
+              title: 'Feet high on platform',
+              description: 'Allows full ankle movement.'
+            },
+            {
+              icon: 'footsteps',
+              title: 'Press through toes',
+              description: 'Calves initiate movement.'
+            },
+            {
+              icon: 'timer',
+              title: 'Slow controlled reps',
+              description: 'No bouncing off sled.'
+            }
+          ]
         }
       ],
       intermediate: [
