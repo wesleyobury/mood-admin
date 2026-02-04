@@ -845,12 +845,14 @@ const styles = StyleSheet.create({
   bottomActions: {
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'space-between',
     gap: 12,
   },
   saveButton: {
+    flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
+    justifyContent: 'center',
     backgroundColor: '#1a1a1a',
     paddingHorizontal: 16,
     paddingVertical: 14,
@@ -858,7 +860,6 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: '#333',
     gap: 6,
-    minWidth: 80,
   },
   saveButtonText: {
     fontSize: 14,
@@ -874,9 +875,9 @@ const styles = StyleSheet.create({
     fontWeight: '500',
   },
   startButton: {
+    flex: 1,
     borderRadius: 30,
     overflow: 'hidden',
-    minWidth: 115,
   },
   startButtonGradient: {
     flexDirection: 'row',
