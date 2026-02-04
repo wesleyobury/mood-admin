@@ -229,6 +229,56 @@ export const glutesWorkoutDatabase: EquipmentWorkouts[] = [
               description: 'Quality over quantity - maintain form even during high-rep burnout.'
             }
           ]
+        },
+        {
+          name: 'Cable Squat Burnout',
+          duration: '18–20 min',
+          description: 'High-rep squats under constant glute tension',
+          battlePlan: '3 rounds\n• 20 Squats\nRest 150s',
+          imageUrl: '',
+          intensityReason: 'High-rep cable squats maximize metabolic stress',
+          moodTips: [
+            {
+              icon: 'barbell',
+              title: 'Moderate load only',
+              description: 'Enables uninterrupted reps.'
+            },
+            {
+              icon: 'flash',
+              title: 'No lockout',
+              description: 'Glutes stay under tension.'
+            },
+            {
+              icon: 'pulse',
+              title: 'One breath per rep',
+              description: 'Controls pacing.'
+            }
+          ]
+        },
+        {
+          name: 'Cable RDL Drop Series',
+          duration: '18–20 min',
+          description: 'Hinges extended with multiple fast drops',
+          battlePlan: '3 rounds\n• 8 RDLs\n• Drop → 6\n• Drop → 6\nRest 150s',
+          imageUrl: '',
+          intensityReason: 'Drop series extends glute and hamstring fatigue',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Immediate drops',
+              description: 'Reduce load 20–25% quickly.'
+            },
+            {
+              icon: 'body',
+              title: 'Neutral spine',
+              description: 'No rounding under fatigue.'
+            },
+            {
+              icon: 'checkmark',
+              title: 'Glutes finish reps',
+              description: 'Strong squeeze every lockout.'
+            }
+          ]
         }
       ]
     }
