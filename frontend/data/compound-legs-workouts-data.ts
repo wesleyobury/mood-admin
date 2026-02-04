@@ -2019,7 +2019,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '18–20 min',
           description: 'Heavy squats for maximal leg strength',
           battlePlan: '5 rounds\n• 3–5 Squats\nRest 180s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/gxoxkpbs_download%20%285%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-content/artifacts/9whvfgtz_pit%20shark%20squat.avif',
           intensityReason: 'Heavy loads build maximal strength',
           moodTips: [
             {
@@ -2044,7 +2044,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '18–20 min',
           description: 'Loaded hinges emphasizing posterior chain strength',
           battlePlan: '4 rounds\n• 6–8 RDLs\nRest 150s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/gxoxkpbs_download%20%285%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-content/artifacts/bom80199_pit%20shark%20rdl.png',
           intensityReason: 'Heavy RDLs maximize hamstring development',
           moodTips: [
             {
@@ -2069,7 +2069,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '18–20 min',
           description: 'Extended triple-drop squats for total exhaustion',
           battlePlan: '3 rounds\n• 6 Squats\n• Drop → 6\n• Drop → 6\n• Drop → 6\nRest 180s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/gxoxkpbs_download%20%285%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-content/artifacts/27jkyx8o_pit%20shark%20squat%202.webp',
           intensityReason: 'Triple drops maximize muscle fatigue',
           moodTips: [
             {
@@ -2094,7 +2094,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '18–20 min',
           description: 'Explosive jump squats performed under fatigue',
           battlePlan: '3 rounds\n• 8–10 Jump Squats\nRest 150s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/gxoxkpbs_download%20%285%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-content/artifacts/zbfap5ab_pit%20shark%20squat%203.webp',
           intensityReason: 'Explosive burnout builds power endurance',
           moodTips: [
             {
