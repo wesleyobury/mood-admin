@@ -137,6 +137,62 @@ export default function CreatePost() {
     }
   }, [isGuest]);
 
+  // Fetch saved achievements when no workoutStats is passed
+  useEffect(() => {
+    if (!params.workoutStats && token && !isGuest) {
+      fetchSavedAchievements();
+    }
+  }, [params.workoutStats, token, isGuest]);
+
+  const fetchSavedAchievements = async () => {
+    if (!token) return;
+    
+    try {
+      setLoadingSavedAchievements(true);
+      const response = await fetch(`${API_URL}/api/workout-cards`, {
+        headers: { Authorization: `Bearer ${token}` }
+      });
+      
+      if (response.ok) {
+        const data = await response.json();
+        // Transform to match WorkoutStats format
+        const transformed = data.map((card: any) => ({
+          id: card.id,
+          workouts: card.workouts.map((w: any) => ({
+            workoutTitle: w.workout_name || w.workoutName,
+            workoutName: w.workout_name || w.workoutName,
+            equipment: w.equipment,
+            duration: w.duration,
+            difficulty: w.difficulty,
+          })),
+          totalDuration: card.total_duration,
+          completedAt: card.completed_at,
+        }));
+        setSavedAchievements(transformed);
+      }
+    } catch (error) {
+      console.error('Error fetching saved achievements:', error);
+    } finally {
+      setLoadingSavedAchievements(false);
+    }
+  };
+
+  const selectSavedAchievement = (achievement: any) => {
+    setWorkoutStats({
+      workouts: achievement.workouts,
+      totalDuration: achievement.totalDuration,
+      completedAt: achievement.completedAt,
+    });
+    setHasStatsCard(true);
+    
+    // Auto-generate caption
+    const workoutEmojis = ['⚡', '💪', '🏋️', '🏃', '💦', '🔥', '🎯', '✨', '🚀', '💥'];
+    const randomEmoji = workoutEmojis[Math.floor(Math.random() * workoutEmojis.length)];
+    const minutes = achievement.totalDuration || 0;
+    const calories = Math.round(minutes * 8);
+    setCaption(`${calories} cals and ${minutes} minutes today ${randomEmoji}`);
+  };
+
   // Load workout stats
   useEffect(() => {
     // Check if we have workout stats from completed workout
