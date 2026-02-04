@@ -643,28 +643,28 @@ export default function Profile() {
   };
 
   const insets = useSafeAreaInsets();
+  
+  // State for guest modal visibility
+  const [guestModalVisible, setGuestModalVisible] = useState(false);
+  
+  // Auto-show modal when guest visits profile
+  useEffect(() => {
+    if (isGuest) {
+      setGuestModalVisible(true);
+    }
+  }, [isGuest]);
 
-  // Guest Profile View
+  // Guest Profile View - shows modal over dark background
   if (isGuest) {
-    const handleGuestSignUp = async () => {
-      await exitGuestMode();
-      router.push('/auth/register');
-    };
-
-    const handleGuestSignIn = async () => {
-      await exitGuestMode();
-      router.push('/auth/login');
-    };
-
     return (
       <View style={styles.container}>
         <View style={[styles.header, { paddingTop: insets.top + 16 }]}>
           <View style={{ width: 32 }} />
-          <Text style={styles.username}>Guest</Text>
+          <Text style={styles.username}>Profile</Text>
           <View style={{ width: 32 }} />
         </View>
         
-        <View style={styles.guestProfileContainer}>
+        <View style={styles.guestBackgroundContainer}>
           <View style={styles.guestIconContainer}>
             <LinearGradient
               colors={['#FFD700', '#FFA500']}
@@ -675,111 +675,23 @@ export default function Profile() {
               <Ionicons name="person-outline" size={48} color="#0c0c0c" />
             </LinearGradient>
           </View>
-          <Text style={styles.guestTitle}>You're browsing as a Guest</Text>
+          <Text style={styles.guestTitle}>Welcome to Profile</Text>
           <Text style={styles.guestSubtitle}>
-            Create an account to unlock your profile and all features
+            Create an account to unlock your profile
           </Text>
-          
-          <View style={styles.guestBenefits}>
-            <View style={styles.guestBenefitItem}>
-              <View style={styles.guestBenefitIconContainer}>
-                <LinearGradient
-                  colors={['#FFD700', '#FFA500']}
-                  style={styles.guestBenefitIconGradient}
-                  start={{ x: 0, y: 0 }}
-                  end={{ x: 1, y: 1 }}
-                >
-                  <Ionicons name="bookmark" size={14} color="#0c0c0c" />
-                </LinearGradient>
-              </View>
-              <Text style={styles.guestBenefitText}>Save your favorite workouts</Text>
-            </View>
-            <View style={styles.guestBenefitItem}>
-              <View style={styles.guestBenefitIconContainer}>
-                <LinearGradient
-                  colors={['#FFD700', '#FFA500']}
-                  style={styles.guestBenefitIconGradient}
-                  start={{ x: 0, y: 0 }}
-                  end={{ x: 1, y: 1 }}
-                >
-                  <Ionicons name="trending-up" size={14} color="#0c0c0c" />
-                </LinearGradient>
-              </View>
-              <Text style={styles.guestBenefitText}>Track your progress & streaks</Text>
-            </View>
-            <View style={styles.guestBenefitItem}>
-              <View style={styles.guestBenefitIconContainer}>
-                <LinearGradient
-                  colors={['#FFD700', '#FFA500']}
-                  style={styles.guestBenefitIconGradient}
-                  start={{ x: 0, y: 0 }}
-                  end={{ x: 1, y: 1 }}
-                >
-                  <Ionicons name="people" size={14} color="#0c0c0c" />
-                </LinearGradient>
-              </View>
-              <Text style={styles.guestBenefitText}>Connect with the community</Text>
-            </View>
-            <View style={styles.guestBenefitItem}>
-              <View style={styles.guestBenefitIconContainer}>
-                <LinearGradient
-                  colors={['#FFD700', '#FFA500']}
-                  style={styles.guestBenefitIconGradient}
-                  start={{ x: 0, y: 0 }}
-                  end={{ x: 1, y: 1 }}
-                >
-                  <Ionicons name="camera" size={14} color="#0c0c0c" />
-                </LinearGradient>
-              </View>
-              <Text style={styles.guestBenefitText}>Share your fitness journey</Text>
-            </View>
-          </View>
-          
-          <TouchableOpacity style={styles.guestSignUpButton} onPress={handleGuestSignUp}>
-            <LinearGradient
-              colors={['#FFD700', '#FFA500']}
-              style={styles.guestSignUpGradient}
-              start={{ x: 0, y: 0 }}
-              end={{ x: 1, y: 0 }}
-            >
-              <Text style={styles.guestSignUpButtonText}>Create Account</Text>
-            </LinearGradient>
+          <TouchableOpacity 
+            style={styles.guestTapButton}
+            onPress={() => setGuestModalVisible(true)}
+          >
+            <Text style={styles.guestTapButtonText}>Tap to get started</Text>
           </TouchableOpacity>
-          
-          <TouchableOpacity style={styles.guestSignInButton} onPress={handleGuestSignIn}>
-            <Text style={styles.guestSignInButtonText}>I already have an account</Text>
-          </TouchableOpacity>
-
-          {/* Legal Links */}
-          <View style={styles.guestLegalContainer}>
-            <View style={styles.guestLegalDivider} />
-            <View style={styles.guestLegalLinks}>
-              <TouchableOpacity 
-                style={styles.guestLegalButton}
-                onPress={() => router.push('/terms-of-service')}
-              >
-                <Ionicons name="document-text-outline" size={16} color="#888" />
-                <Text style={styles.guestLegalText}>Terms of Service</Text>
-              </TouchableOpacity>
-
-              <TouchableOpacity 
-                style={styles.guestLegalButton}
-                onPress={() => router.push('/privacy-policy')}
-              >
-                <Ionicons name="shield-checkmark-outline" size={16} color="#888" />
-                <Text style={styles.guestLegalText}>Privacy Policy</Text>
-              </TouchableOpacity>
-
-              <TouchableOpacity 
-                style={styles.guestLegalButton}
-                onPress={() => Linking.openURL(EXTERNAL_URLS.support)}
-              >
-                <Ionicons name="help-circle-outline" size={16} color="#888" />
-                <Text style={styles.guestLegalText}>Help Center</Text>
-              </TouchableOpacity>
-            </View>
-          </View>
         </View>
+        
+        <GuestPromptModal
+          visible={guestModalVisible}
+          onClose={() => setGuestModalVisible(false)}
+          action="access your profile"
+        />
       </View>
     );
   }
