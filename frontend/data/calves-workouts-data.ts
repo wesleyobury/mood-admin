@@ -386,6 +386,31 @@ export const calvesWorkoutDatabase: EquipmentWorkouts[] = [
               description: 'Plyometric finish develops power and completes fatigue.'
             }
           ]
+        },
+        {
+          name: 'Barbell Calf Raise Drop Set',
+          duration: '14–16 min',
+          description: 'Extended standing raises using fast load reductions',
+          battlePlan: '3 rounds\n• 10 Heavy Raises\n• Drop → 12\n• Drop → 15\nRest 120s',
+          imageUrl: '',
+          intensityReason: 'Drop sets push calves to complete fatigue',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Immediate weight drops',
+              description: 'Reduce load 20–30% without rest.'
+            },
+            {
+              icon: 'resize',
+              title: 'Same range every rep',
+              description: 'Stretch and lockout unchanged.'
+            },
+            {
+              icon: 'flame',
+              title: 'Chase deep burn',
+              description: 'Calves should fatigue fully.'
+            }
+          ]
         }
       ]
     }
