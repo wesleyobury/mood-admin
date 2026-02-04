@@ -166,6 +166,29 @@ export default function Explore() {
   
   // Try workout button animations
   const [tryWorkoutAnimations] = useState<{ [key: string]: Animated.Value }>({});
+  
+  // Shimmer animation for try workout button
+  const shimmerAnim = useRef(new Animated.Value(0)).current;
+  
+  // Start continuous shimmer animation
+  useEffect(() => {
+    const shimmerLoop = Animated.loop(
+      Animated.sequence([
+        Animated.timing(shimmerAnim, {
+          toValue: 1,
+          duration: 1500,
+          useNativeDriver: true,
+        }),
+        Animated.timing(shimmerAnim, {
+          toValue: 0,
+          duration: 0,
+          useNativeDriver: true,
+        }),
+      ])
+    );
+    shimmerLoop.start();
+    return () => shimmerLoop.stop();
+  }, [shimmerAnim]);
 
   useEffect(() => {
     // Fetch posts for both authenticated users and guests
