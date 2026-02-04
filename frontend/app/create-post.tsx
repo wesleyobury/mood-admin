@@ -1450,7 +1450,7 @@ export default function CreatePost() {
             <View style={styles.attachmentCard}>
               <View style={styles.attachmentHeader}>
                 <View style={styles.attachmentLabelContainer}>
-                  <Ionicons name="bookmark" size={16} color="#FFD700" />
+                  <Ionicons name="trophy" size={16} color="#FFD700" />
                   <Text style={styles.attachmentType}>Saved Achievements ({savedAchievements.length})</Text>
                 </View>
               </View>
@@ -1465,28 +1465,56 @@ export default function CreatePost() {
                 style={styles.savedAchievementsScroll}
                 contentContainerStyle={styles.savedAchievementsContent}
               >
-                {savedAchievements.map((achievement, index) => (
-                  <TouchableOpacity
-                    key={achievement.id || index}
-                    style={styles.savedAchievementCard}
-                    onPress={() => selectSavedAchievement(achievement)}
-                    activeOpacity={0.7}
-                  >
-                    <View style={styles.savedAchievementIcon}>
-                      <Ionicons name="trophy" size={24} color="#FFD700" />
-                    </View>
-                    <Text style={styles.savedAchievementDuration}>
-                      {achievement.totalDuration} min
-                    </Text>
-                    <Text style={styles.savedAchievementDate}>
-                      {achievement.completedAt}
-                    </Text>
-                    <Text style={styles.savedAchievementExercises} numberOfLines={2}>
-                      {achievement.workouts.slice(0, 2).map((w: any) => w.workoutName).join(', ')}
-                      {achievement.workouts.length > 2 ? '...' : ''}
-                    </Text>
-                  </TouchableOpacity>
-                ))}
+                {savedAchievements.map((achievement, index) => {
+                  const estimatedCalories = Math.round(achievement.totalDuration * 8);
+                  return (
+                    <TouchableOpacity
+                      key={achievement.id || index}
+                      style={styles.savedAchievementCard}
+                      onPress={() => selectSavedAchievement(achievement)}
+                      activeOpacity={0.85}
+                    >
+                      {/* Top accent line */}
+                      <View style={styles.achievementAccentLine} />
+                      
+                      <View style={styles.achievementCardContent}>
+                        {/* Header row */}
+                        <View style={styles.achievementHeaderRow}>
+                          <Text style={styles.achievementDateLabel}>{achievement.completedAt}</Text>
+                          <View style={styles.achievementTrophyBadge}>
+                            <Ionicons name="trophy" size={10} color="#0c0c0c" />
+                          </View>
+                        </View>
+                        
+                        {/* Main duration */}
+                        <View style={styles.achievementMainStats}>
+                          <Text style={styles.achievementDurationValue}>{achievement.totalDuration}</Text>
+                          <Text style={styles.achievementDurationUnit}>min</Text>
+                        </View>
+                        
+                        {/* Stats pills */}
+                        <View style={styles.achievementStatsPills}>
+                          <View style={styles.achievementStatPill}>
+                            <Ionicons name="flame-outline" size={10} color="#FFD700" />
+                            <Text style={styles.achievementStatPillText}>{estimatedCalories}</Text>
+                          </View>
+                          <View style={styles.achievementStatPill}>
+                            <Ionicons name="barbell-outline" size={10} color="#FFD700" />
+                            <Text style={styles.achievementStatPillText}>{achievement.workouts.length}</Text>
+                          </View>
+                        </View>
+                        
+                        {/* Workout names */}
+                        <View style={styles.achievementWorkoutPreview}>
+                          <Text style={styles.achievementWorkoutName} numberOfLines={2}>
+                            {achievement.workouts.slice(0, 2).map((w: any) => w.workoutName).join(', ')}
+                            {achievement.workouts.length > 2 ? '...' : ''}
+                          </Text>
+                        </View>
+                      </View>
+                    </TouchableOpacity>
+                  );
+                })}
               </ScrollView>
             </View>
           )}
