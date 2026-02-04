@@ -849,7 +849,7 @@ const styles = StyleSheet.create({
     gap: 12,
   },
   saveButton: {
-    flex: 1,
+    flex: 0.8,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
@@ -875,7 +875,7 @@ const styles = StyleSheet.create({
     fontWeight: '500',
   },
   startButton: {
-    flex: 1,
+    flex: 1.2,
     borderRadius: 30,
     overflow: 'hidden',
   },
