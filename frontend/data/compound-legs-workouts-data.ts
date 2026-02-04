@@ -1168,7 +1168,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '16–18 min',
           description: 'Low-rep squats emphasizing maximal quad strength',
           battlePlan: '4 rounds\n• 5–6 Hack Squats\nRest 150s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/k4t4lzbt_download.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-content/artifacts/t0da41os_hack%20squat.avif',
           intensityReason: 'Heavy load builds maximal strength',
           moodTips: [
             {
@@ -1193,7 +1193,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '18–20 min',
           description: 'High-rep finisher for complete quad exhaustion',
           battlePlan: '3 rounds\n• 15–20 Hack Squats\nRest 150s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/ffi2msmn_hs.avif',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-content/artifacts/t0da41os_hack%20squat.avif',
           intensityReason: 'High reps push quads to complete fatigue',
           moodTips: [
             {
