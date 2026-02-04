@@ -51,7 +51,7 @@ export const hamstringsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Single-side RDLs reinforcing hamstring control',
           battlePlan: '3 rounds\n• 10 RDLs per side\nRest 60s',
-          imageUrl: '',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_96d95d8c-bd6e-49a5-a6af-694c8a8f5c04/artifacts/e4tblt9j_download%20%2818%29.png',
           intensityReason: 'Unilateral loading builds balanced hamstring strength',
           moodTips: [
             {
@@ -76,7 +76,7 @@ export const hamstringsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Floor walkouts emphasizing eccentric hamstring control',
           battlePlan: '3 rounds\n• 6–8 Walkouts\nRest 75s',
-          imageUrl: '',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_96d95d8c-bd6e-49a5-a6af-694c8a8f5c04/artifacts/wd5yzviz_db%20hamstring%20walkout.jpg',
           intensityReason: 'Walkouts challenge hamstring control through full range',
           moodTips: [
             {
@@ -143,7 +143,7 @@ export const hamstringsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Rear-foot-light RDL emphasizing lead hamstring',
           battlePlan: '4 rounds\n• 8 RDLs per leg\nRest 120s',
-          imageUrl: '',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_96d95d8c-bd6e-49a5-a6af-694c8a8f5c04/artifacts/djo9uunp_db%20rdl%202.png',
           intensityReason: 'Staggered stance isolates front leg hamstring',
           moodTips: [
             {
@@ -308,7 +308,7 @@ export const hamstringsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Light bar good mornings emphasizing hamstring stretch',
           battlePlan: '3 rounds\n• 12 Good Mornings\nRest 75s',
-          imageUrl: '',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_96d95d8c-bd6e-49a5-a6af-694c8a8f5c04/artifacts/9wufahvm_bb%20goodmorning.webp',
           intensityReason: 'Good mornings teach proper hip hinge mechanics',
           moodTips: [
             {
@@ -333,7 +333,7 @@ export const hamstringsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Isometric hinge holds reinforcing hamstring tension',
           battlePlan: '3 rounds\n• 20–30s Stiff-Leg Hold\nRest 75s',
-          imageUrl: '',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_96d95d8c-bd6e-49a5-a6af-694c8a8f5c04/artifacts/ry5w35jl_image.png',
           intensityReason: 'Isometric holds build hamstring endurance and control',
           moodTips: [
             {
