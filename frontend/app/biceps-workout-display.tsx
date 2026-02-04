@@ -234,7 +234,7 @@ const BicepsWorkoutDisplayScreen = memo(function BicepsWorkoutDisplayScreen() {
           })}
         </ScrollView>
         
-        {hasMoreMuscles && (
+        {/* Bottom Navigation Button - Always show, either next muscle or finish */}\n        {/* Always show button */ true && (
           <View style={styles.continueButtonContainer}>
             <TouchableOpacity style={styles.continueButton} onPress={handleContinue}>
               <LinearGradient

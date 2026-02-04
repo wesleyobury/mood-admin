@@ -284,7 +284,7 @@ const ChestWorkoutDisplayScreen = memo(function ChestWorkoutDisplayScreen() {
         </ScrollView>
         
         {/* Continue Button - Only shows when there are more muscles */}
-        {hasMoreMuscles && (
+        {/* Bottom Navigation Button - Always show, either next muscle or finish */}\n        {/* Always show button */ true && (
           <View style={styles.continueButtonContainer}>
             <TouchableOpacity style={styles.continueButton} onPress={handleContinue}>
               <LinearGradient
