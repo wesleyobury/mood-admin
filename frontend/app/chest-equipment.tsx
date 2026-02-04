@@ -468,7 +468,7 @@ const styles = StyleSheet.create({
     height: 32,
     borderRadius: 16,
     overflow: 'hidden',
-    marginBottom: 8,
+    marginBottom: 4,
   },
   progressStepGradient: {
     width: '100%',
