@@ -59,10 +59,20 @@ export const TERM_DEFINITIONS: Record<string, { title: string; definition: strin
     definition: 'The number of complete pedal rotations per minute on a bike or elliptical.\n\n• 60-70 RPM: Heavy resistance/climbing\n• 80-90 RPM: Optimal efficiency zone\n• 90-100 RPM: High cadence/speed work\n• 100+ RPM: Sprint cadence\n\nHigher RPM with lower resistance = cardio focus. Lower RPM with higher resistance = strength focus.',
     icon: 'speedometer',
   },
+  'Cluster Sets': {
+    title: 'Cluster Sets - Intra-Set Rest Training',
+    definition: 'A strength training technique where you break a single set into smaller "mini-sets" with brief rest periods (10-30 seconds) between them.\n\n• Example: Instead of 12 straight reps, do 4/4/4 with 15s rest between\n• Allows heavier loads or more total reps\n• Maintains bar speed and power output\n• Reduces fatigue accumulation\n\nGreat for building strength while keeping quality high on every rep!',
+    icon: 'layers',
+  },
+  Clusters: {
+    title: 'Cluster Sets - Intra-Set Rest Training',
+    definition: 'A strength training technique where you break a single set into smaller "mini-sets" with brief rest periods (10-30 seconds) between them.\n\n• Example: Instead of 12 straight reps, do 4/4/4 with 15s rest between\n• Allows heavier loads or more total reps\n• Maintains bar speed and power output\n• Reduces fatigue accumulation\n\nGreat for building strength while keeping quality high on every rep!',
+    icon: 'layers',
+  },
 };
 
 // All supported term types
-export type TermType = 'RPE' | 'SPM' | 'AMRAP' | 'EMOM' | 'HIIT' | 'Tabata' | 'Superset' | 'Circuit' | 'RPM';
+export type TermType = 'RPE' | 'SPM' | 'AMRAP' | 'EMOM' | 'HIIT' | 'Tabata' | 'Superset' | 'Circuit' | 'RPM' | 'Cluster Sets' | 'Clusters';
 
 interface TermDefinitionPopupProps {
   term: TermType;
