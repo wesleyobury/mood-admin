@@ -521,6 +521,56 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
               description: 'Control prevents momentum and maximizes muscle tension.'
             }
           ]
+        },
+        {
+          name: 'Narrow-Stance Leg Press',
+          duration: '10–12 min',
+          description: 'Quad-focused leg press with simple foot positioning',
+          battlePlan: '3 rounds\n• 12–15 Leg Press\nRest 75s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/nbzhkmy8_download%20%282%29.png',
+          intensityReason: 'Narrow stance maximizes quad involvement',
+          moodTips: [
+            {
+              icon: 'footsteps',
+              title: 'Narrow stance shifts load forward',
+              description: 'Feet closer together increases quad involvement.'
+            },
+            {
+              icon: 'trending-down',
+              title: 'Lower until thighs compress',
+              description: 'Safe depth without pelvis lifting off pad.'
+            },
+            {
+              icon: 'body',
+              title: 'Drive evenly through feet',
+              description: 'Prevents knee cave and uneven force output.'
+            }
+          ]
+        },
+        {
+          name: 'Tempo Leg Press',
+          duration: '10–12 min',
+          description: 'Controlled leg press emphasizing slow negatives',
+          battlePlan: '3 rounds\n• 12 Leg Press (3s eccentric)\nRest 90s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/l1ouzm6t_download%20%281%29.png',
+          intensityReason: 'Tempo work increases time under tension',
+          moodTips: [
+            {
+              icon: 'timer',
+              title: 'Slow descent builds tension',
+              description: 'Three-second lowering keeps quads loaded.'
+            },
+            {
+              icon: 'construct',
+              title: 'Knees track over toes',
+              description: 'Alignment protects joints and improves force transfer.'
+            },
+            {
+              icon: 'arrow-up',
+              title: 'Smooth press upward',
+              description: 'Avoid jerking the sled off the bottom.'
+            }
+          ]
         }
       ],
       intermediate: [
@@ -563,6 +613,56 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
               description: 'Keep hips square and pressed into back pad throughout.'
             }
           ]
+        },
+        {
+          name: 'Leg Press Pause Reps',
+          duration: '14–16 min',
+          description: 'Paused reps strengthening bottom-range leg drive',
+          battlePlan: '4 rounds\n• 8–10 Leg Press (2s pause)\nRest 120s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/nbzhkmy8_download%20%282%29.png',
+          intensityReason: 'Pauses eliminate momentum for greater muscle activation',
+          moodTips: [
+            {
+              icon: 'pause',
+              title: 'Pause near deepest position',
+              description: 'Two-second hold removes momentum completely.'
+            },
+            {
+              icon: 'shield',
+              title: 'Stay tight in hips',
+              description: 'Prevents butt lift and spinal stress.'
+            },
+            {
+              icon: 'flash',
+              title: 'Explode out of pause',
+              description: 'Builds power from the weakest range.'
+            }
+          ]
+        },
+        {
+          name: 'Leg Press Drop Ladder',
+          duration: '14–16 min',
+          description: 'Progressive drops extending quad fatigue',
+          battlePlan: '3 rounds\n• 10 reps\n• Drop → 10\n• Drop → 10\nRest 150s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/l1ouzm6t_download%20%281%29.png',
+          intensityReason: 'Drop sets extend time under tension for maximum pump',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Strip plates immediately',
+              description: 'Drops should happen without rest.'
+            },
+            {
+              icon: 'trending-down',
+              title: 'Reduce weight intentionally',
+              description: 'Roughly 25% per drop maintains rep quality.'
+            },
+            {
+              icon: 'body',
+              title: 'Breathing controls fatigue',
+              description: 'Strong exhales help push through later reps.'
+            }
+          ]
         }
       ],
       advanced: [
@@ -603,6 +703,56 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
               icon: 'construct',
               title: 'Push out smooth, no jerking stack',
               description: 'Controlled movement from pause prevents joint stress.'
+            }
+          ]
+        },
+        {
+          name: 'Heavy Low-Rep Leg Press',
+          duration: '16–18 min',
+          description: 'Max-strength leg pressing with heavy loads',
+          battlePlan: '5 rounds\n• 5–6 Leg Press\nRest 150s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/l1ouzm6t_download%20%281%29.png',
+          intensityReason: 'Heavy load builds maximal leg strength',
+          moodTips: [
+            {
+              icon: 'footsteps',
+              title: 'Foot placement stays consistent',
+              description: 'Mid-platform stance balances power and safety.'
+            },
+            {
+              icon: 'shield',
+              title: 'Brace core before descent',
+              description: 'Prevents hip shift under heavy sled loads.'
+            },
+            {
+              icon: 'people',
+              title: 'Spotter strongly recommended',
+              description: 'Heavy failures occur quickly on leg press.'
+            }
+          ]
+        },
+        {
+          name: 'Leg Press Burnout',
+          duration: '18–20 min',
+          description: 'High-rep finisher driving complete quad exhaustion',
+          battlePlan: '3 rounds\n• 20–25 Leg Press\nRest 150s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/nbzhkmy8_download%20%282%29.png',
+          intensityReason: 'High reps push quads to complete fatigue',
+          moodTips: [
+            {
+              icon: 'repeat',
+              title: 'No lockout at top',
+              description: 'Continuous tension maximizes metabolic stress.'
+            },
+            {
+              icon: 'barbell',
+              title: 'Moderate load only',
+              description: 'Weight must allow uninterrupted high reps.'
+            },
+            {
+              icon: 'flame',
+              title: 'Expect extreme quad pump',
+              description: 'Swelling and burn signal effective fatigue.'
             }
           ]
         }
