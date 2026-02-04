@@ -1978,6 +1978,13 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   // Guest Profile Styles
+  guestBackgroundContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingHorizontal: 32,
+    marginTop: -60,
+  },
   guestProfileContainer: {
     flex: 1,
     justifyContent: 'center',
@@ -2010,7 +2017,16 @@ const styles = StyleSheet.create({
     color: '#888',
     textAlign: 'center',
     lineHeight: 22,
-    marginBottom: 32,
+    marginBottom: 24,
+  },
+  guestTapButton: {
+    paddingVertical: 12,
+    paddingHorizontal: 24,
+  },
+  guestTapButtonText: {
+    fontSize: 14,
+    color: '#FFD700',
+    textDecorationLine: 'underline',
   },
   guestBenefits: {
     width: '100%',
