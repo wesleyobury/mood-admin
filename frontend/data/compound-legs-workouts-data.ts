@@ -2229,7 +2229,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Front-loaded squats emphasizing quads and core',
           battlePlan: '4 rounds\n• 6–8 Front Squats\nRest 120s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/gxoxkpbs_download%20%285%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-content/artifacts/e8vt7ayl_smith%20front%20squat.webp',
           intensityReason: 'Front load challenges core stability',
           moodTips: [
             {
@@ -2254,7 +2254,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Stationary split squats with guided bar path',
           battlePlan: '4 rounds\n• 8 Split Squats per leg\nRest 120s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/gxoxkpbs_download%20%285%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-content/artifacts/15roxyzj_smith%20reverse%20lunge.jpg',
           intensityReason: 'Unilateral work builds balanced strength',
           moodTips: [
             {
@@ -2279,7 +2279,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Extended squats using fast load reductions',
           battlePlan: '3 rounds\n• 8 Squats\n• Drop → 8\n• Drop → 8\nRest 150s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/gxoxkpbs_download%20%285%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-content/artifacts/le4l1rje_smith%20squat%202.png',
           intensityReason: 'Drop sets extend time under tension',
           moodTips: [
             {
@@ -2304,7 +2304,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Explosive squats using Smith track for safety',
           battlePlan: '4 rounds\n• 5–6 Jump Squats\nRest 120s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/gxoxkpbs_download%20%285%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-content/artifacts/ynnuugau_smith%20squat.png',
           intensityReason: 'Guided path allows explosive focus',
           moodTips: [
             {
@@ -2331,7 +2331,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '18–20 min',
           description: 'Heavy guided squats emphasizing maximal strength',
           battlePlan: '5 rounds\n• 3–5 Squats\nRest 180s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/gxoxkpbs_download%20%285%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-content/artifacts/ynnuugau_smith%20squat.png',
           intensityReason: 'Heavy loads build maximal strength',
           moodTips: [
             {
