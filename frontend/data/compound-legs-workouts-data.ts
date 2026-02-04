@@ -1665,7 +1665,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Deadlifts extended using fast weight reductions',
           battlePlan: '3 rounds\n• 6 Deadlifts\n• Drop → 6\n• Drop → 6\nRest 150s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/3cnpyyx1_tbss.webp',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-content/artifacts/4iszp6ah_trap%20bar%20dl%202.webp',
           intensityReason: 'Drop sets extend time under tension for maximum pump',
           moodTips: [
             {
@@ -1690,7 +1690,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Paused deadlifts strengthening bottom position',
           battlePlan: '4 rounds\n• 5–6 Deadlifts (2s pause)\nRest 150s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/sbumk4mn_tbs.jpeg',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-content/artifacts/4pazduz4_trab%20bar%20dl.jpg',
           intensityReason: 'Pauses eliminate momentum for greater muscle activation',
           moodTips: [
             {
@@ -1717,7 +1717,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '16–18 min',
           description: 'Builds stability and power out of squat bottom',
           battlePlan: '4 rounds\n• 6 Paused Squats (2s)\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/3cnpyyx1_tbss.webp',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-content/artifacts/4iszp6ah_trap%20bar%20dl%202.webp',
           intensityReason: '2s pause eliminates momentum, loads glutes/quads',
           moodTips: [
             {
@@ -1737,7 +1737,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '16–18 min',
           description: 'Doubles workload while keeping constant tension',
           battlePlan: '3 rounds\n• 6–8 1½ Rep Trap Bar Squats\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/sbumk4mn_tbs.jpeg',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-content/artifacts/4pazduz4_trab%20bar%20dl.jpg',
           intensityReason: 'Half + full rep combo extends quad fatigue for greater challenge',
           moodTips: [
             {
@@ -1757,7 +1757,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '18–20 min',
           description: 'Max-load deadlifts emphasizing total leg power',
           battlePlan: '5 rounds\n• 3–5 Deadlifts\nRest 180s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/3cnpyyx1_tbss.webp',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-content/artifacts/4iszp6ah_trap%20bar%20dl%202.webp',
           intensityReason: 'Heavy load builds maximal leg power',
           moodTips: [
             {
@@ -1782,7 +1782,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '18–20 min',
           description: 'High-rep finisher driving leg exhaustion',
           battlePlan: '3 rounds\n• 15 Deadlifts\nRest 180s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/sbumk4mn_tbs.jpeg',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-content/artifacts/4pazduz4_trab%20bar%20dl.jpg',
           intensityReason: 'High reps push legs to complete fatigue',
           moodTips: [
             {
