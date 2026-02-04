@@ -1383,7 +1383,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Squat-to-row pattern integrating legs and upper back',
           battlePlan: '4 rounds\n• 8 Squat to Rows\nRest 120s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-media-fix/artifacts/s4c1d5ao_download%20%283%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-content/artifacts/p1po1v7d_cable%20goblet%20squat.jpg',
           intensityReason: 'Compound movement trains legs and back together',
           moodTips: [
             {
@@ -1408,7 +1408,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Hip hinge emphasizing hamstrings under constant tension',
           battlePlan: '4 rounds\n• 10 Cable RDLs\nRest 120s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-media-fix/artifacts/btaq9it2_cable%20rdl.jpg',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-content/artifacts/h8lj3keb_cable%20rdl2.jpg',
           intensityReason: 'Constant cable tension maximizes hamstring engagement',
           moodTips: [
             {
@@ -1435,7 +1435,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '16–18 min',
           description: 'Replicates barbell front squat with cable constant tension loading.',
           battlePlan: '4 rounds\n• 6-8 heavy cable front squats\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-media-fix/artifacts/s4c1d5ao_download%20%283%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-content/artifacts/p1po1v7d_cable%20goblet%20squat.jpg',
           intensityReason: 'Heavy stack front squat overloads safe quads.',
           moodTips: [
             {
@@ -1455,7 +1455,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '16–18 min',
           description: 'Superset blend targets both push + hinge chains with constant tension.',
           battlePlan: '4 rounds\n• 8 Cable Squats\n• 8 Cable RDLs\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/il3x97qs_download%20%283%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-content/artifacts/h8lj3keb_cable%20rdl2.jpg',
           intensityReason: 'Combo pairing keeps full leg tension loading.',
           moodTips: [
             {
@@ -1475,7 +1475,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '18–20 min',
           description: 'Extended squats using rapid cable weight reductions',
           battlePlan: '3 rounds\n• 10 Cable Squats\n• Drop → 8\n• Drop → 8\nRest 150s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-media-fix/artifacts/s4c1d5ao_download%20%283%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-content/artifacts/p1po1v7d_cable%20goblet%20squat.jpg',
           intensityReason: 'Drop sets extend time under constant cable tension',
           moodTips: [
             {
