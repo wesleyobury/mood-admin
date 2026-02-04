@@ -195,7 +195,7 @@ export default function NotificationSettingsScreen() {
           <Switch
             value={masterEnabled}
             onValueChange={(value) => updateSetting('notifications_enabled', value)}
-            trackColor={{ false: '#3a3a3a', true: '#3897f0' }}
+            trackColor={{ false: '#3a3a3a', true: '#FFD700' }}
             thumbColor="#fff"
             ios_backgroundColor="#3a3a3a"
           />
