@@ -51,7 +51,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Box-guided goblet squats reinforce depth and control',
           battlePlan: '3 rounds\n• 10–12 Box Goblet Squats\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-media-fix/artifacts/iq16b1nm_download.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-content/artifacts/0t57iowy_db%20goblet%20squat.png',
           intensityReason: 'Box squat builds confidence and consistent depth',
           moodTips: [
             {
@@ -76,7 +76,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Assisted lunges reduce balance demand for beginners',
           battlePlan: '3 rounds\n• 8 per leg Reverse Lunges\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-media-fix/artifacts/iq16b1nm_download.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-content/artifacts/cnnnnm30_db%20reverse%20lunge.png',
           intensityReason: 'Support reduces balance stress while building strength',
           moodTips: [
             {
