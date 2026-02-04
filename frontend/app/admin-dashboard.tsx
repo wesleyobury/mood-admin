@@ -1429,11 +1429,11 @@ export default function AdminDashboard() {
         {/* Try Workout Clicks Widget */}
         <View style={styles.section}>
           <View style={styles.sectionHeader}>
-            <Text style={styles.sectionTitle}>Try Workout Clicks</Text>
+            <Text style={styles.sectionTitle}>Try This Workout (Explore)</Text>
           </View>
           
           <Text style={styles.sectionSubtitle}>
-            Users clicking "Start Workout" / "Try this workout" button
+            Users clicking "Try this workout" on completion cards in Explore feed
           </Text>
           
           {/* Quick Stats Row */}
