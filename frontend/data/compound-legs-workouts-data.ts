@@ -1417,6 +1417,56 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
               description: 'Controlled descent maximizes muscle engagement and safety.'
             }
           ]
+        },
+        {
+          name: 'Trap Bar Deadlift',
+          duration: '12–14 min',
+          description: 'Neutral-grip deadlifts reducing spinal stress',
+          battlePlan: '3 rounds\n• 8–10 Trap Bar Deadlifts\nRest 90s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/3cnpyyx1_tbss.webp',
+          intensityReason: 'Neutral grip reduces spinal loading',
+          moodTips: [
+            {
+              icon: 'body',
+              title: 'Chest tall at setup',
+              description: 'Balanced squat–hinge position.'
+            },
+            {
+              icon: 'arrow-down',
+              title: 'Push floor away',
+              description: 'Legs initiate the pull, not the back.'
+            },
+            {
+              icon: 'checkmark',
+              title: 'Lock out smoothly',
+              description: 'No jerking or hitching at the top.'
+            }
+          ]
+        },
+        {
+          name: 'Tempo Trap Bar Deadlift',
+          duration: '12–14 min',
+          description: 'Controlled deadlifts emphasizing slow eccentrics',
+          battlePlan: '3 rounds\n• 8 Trap Bar Deadlifts (3s eccentric)\nRest 120s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/sbumk4mn_tbs.jpeg',
+          intensityReason: 'Tempo work increases time under tension',
+          moodTips: [
+            {
+              icon: 'timer',
+              title: 'Lower under control',
+              description: 'Three-second descent builds hinge strength.'
+            },
+            {
+              icon: 'shield',
+              title: 'Stay braced throughout',
+              description: 'Core tension prevents spinal flexion.'
+            },
+            {
+              icon: 'body',
+              title: 'Feel hamstrings load',
+              description: 'Stretch signals correct positioning.'
+            }
+          ]
         }
       ],
       intermediate: [
@@ -1459,6 +1509,56 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
               description: 'Maintain tension throughout range of motion for safety.'
             }
           ]
+        },
+        {
+          name: 'Trap Bar Drop Set',
+          duration: '14–16 min',
+          description: 'Deadlifts extended using fast weight reductions',
+          battlePlan: '3 rounds\n• 6 Deadlifts\n• Drop → 6\n• Drop → 6\nRest 150s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/3cnpyyx1_tbss.webp',
+          intensityReason: 'Drop sets extend time under tension for maximum pump',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Drops are immediate',
+              description: 'Reduce roughly 25% without resting.'
+            },
+            {
+              icon: 'shield',
+              title: 'Re-brace every rep',
+              description: 'Reset posture before pulling again.'
+            },
+            {
+              icon: 'hand-right',
+              title: 'Grip can assist',
+              description: 'Legs and hips remain priority movers.'
+            }
+          ]
+        },
+        {
+          name: 'Trap Bar Pause Deadlift',
+          duration: '14–16 min',
+          description: 'Paused deadlifts strengthening bottom position',
+          battlePlan: '4 rounds\n• 5–6 Deadlifts (2s pause)\nRest 150s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/sbumk4mn_tbs.jpeg',
+          intensityReason: 'Pauses eliminate momentum for greater muscle activation',
+          moodTips: [
+            {
+              icon: 'pause',
+              title: 'Pause just off floor',
+              description: 'Two-second hold removes momentum.'
+            },
+            {
+              icon: 'shield',
+              title: 'Stay tight during pause',
+              description: 'No hip rise or slack loss.'
+            },
+            {
+              icon: 'flash',
+              title: 'Explode to lockout',
+              description: 'Power finishes the rep.'
+            }
+          ]
         }
       ],
       advanced: [
@@ -1499,6 +1599,56 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
               icon: 'trending-up',
               title: 'Stay smooth — no bouncing between halves',
               description: 'Controlled movement pattern prevents momentum and maintains tension.'
+            }
+          ]
+        },
+        {
+          name: 'Heavy Trap Bar Deadlift',
+          duration: '18–20 min',
+          description: 'Max-load deadlifts emphasizing total leg power',
+          battlePlan: '5 rounds\n• 3–5 Deadlifts\nRest 180s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/3cnpyyx1_tbss.webp',
+          intensityReason: 'Heavy load builds maximal leg power',
+          moodTips: [
+            {
+              icon: 'shield',
+              title: 'Brace like a squat',
+              description: 'Neutral grip still demands full tension.'
+            },
+            {
+              icon: 'body',
+              title: 'Smooth pull only',
+              description: 'No hitching or grinding.'
+            },
+            {
+              icon: 'people',
+              title: 'Spotter recommended',
+              description: 'Fatigue can accumulate quickly.'
+            }
+          ]
+        },
+        {
+          name: 'Trap Bar Burnout Pulls',
+          duration: '18–20 min',
+          description: 'High-rep finisher driving leg exhaustion',
+          battlePlan: '3 rounds\n• 15 Deadlifts\nRest 180s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/sbumk4mn_tbs.jpeg',
+          intensityReason: 'High reps push legs to complete fatigue',
+          moodTips: [
+            {
+              icon: 'barbell',
+              title: 'Moderate load only',
+              description: 'Weight must allow safe high reps.'
+            },
+            {
+              icon: 'body',
+              title: 'Short reset breaths',
+              description: 'Stay composed under fatigue.'
+            },
+            {
+              icon: 'alert',
+              title: 'Stop before form breaks',
+              description: 'Technique always comes first.'
             }
           ]
         }
