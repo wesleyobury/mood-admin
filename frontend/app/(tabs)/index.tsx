@@ -862,6 +862,19 @@ const styles = StyleSheet.create({
     paddingBottom: 25,
     marginBottom: 10,
   },
+  searchIconContainer: {
+    position: 'absolute',
+    right: 16,
+    zIndex: 100,
+  },
+  searchIconButton: {
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+    backgroundColor: '#1c1c1c',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
   centeredQuestionHeader: {
     alignItems: 'center',
     justifyContent: 'center',
