@@ -677,7 +677,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Quad-focused leg press with simple foot positioning',
           battlePlan: '3 rounds\n• 12–15 Leg Press\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/nbzhkmy8_download%20%282%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-content/artifacts/8gup9yxv_leg%20press.jpg',
           intensityReason: 'Narrow stance maximizes quad involvement',
           moodTips: [
             {
@@ -702,7 +702,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Controlled leg press emphasizing slow negatives',
           battlePlan: '3 rounds\n• 12 Leg Press (3s eccentric)\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/l1ouzm6t_download%20%281%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-content/artifacts/2wjzuq6x_leg%20press%202.webp',
           intensityReason: 'Tempo work increases time under tension',
           moodTips: [
             {
