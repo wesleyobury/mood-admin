@@ -5089,9 +5089,24 @@ async def like_post(post_id: str, current_user_id: str = Depends(get_current_use
                 {"_id": post_object_id},
                 {"$inc": {"likes_count": 1}}
             )
-            # Get updated likes count
+            # Get updated likes count and post author
             updated_post = await db.posts.find_one({"_id": post_object_id})
             likes_count = updated_post.get("likes_count", 0) if updated_post else 0
+            
+            # Trigger like notification (bundled only - no single-like spam)
+            if updated_post:
+                try:
+                    post_author_id = str(updated_post.get("author_id", ""))
+                    if post_author_id and post_author_id != current_user_id:
+                        notification_service = get_notification_service(db)
+                        await notification_service.trigger_like_notification(
+                            liker_id=current_user_id,
+                            post_id=post_id,
+                            post_author_id=post_author_id
+                        )
+                except Exception as e:
+                    logger.error(f"Failed to send like notification: {e}")
+            
             return {"message": "Post liked", "liked": True, "likes_count": likes_count}
     
     except:
