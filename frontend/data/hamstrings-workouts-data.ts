@@ -137,6 +137,31 @@ export const hamstringsWorkoutDatabase: EquipmentWorkouts[] = [
               description: 'Controlled movement prevents injury while maximizing benefit.'
             }
           ]
+        },
+        {
+          name: 'Dumbbell Staggered-Stance RDL',
+          duration: '14–16 min',
+          description: 'Rear-foot-light RDL emphasizing lead hamstring',
+          battlePlan: '4 rounds\n• 8 RDLs per leg\nRest 120s',
+          imageUrl: '',
+          intensityReason: 'Staggered stance isolates front leg hamstring',
+          moodTips: [
+            {
+              icon: 'body',
+              title: 'Front leg loads',
+              description: 'Back foot assists balance only.'
+            },
+            {
+              icon: 'trending-down',
+              title: 'Hinge over front hip',
+              description: 'Hamstring stretch should be unilateral.'
+            },
+            {
+              icon: 'timer',
+              title: 'Slow descent',
+              description: 'Control lengthened phase.'
+            }
+          ]
         }
       ],
       advanced: [
