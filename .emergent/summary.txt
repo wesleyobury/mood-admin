@@ -1,28 +1,44 @@
 <analysis>
-<original_problem_statement>
-The user continued a massive content and image overhaul, shifting focus from the Abs section to a comprehensive update of the Back workouts. The session involved:
-1.  Adding more images to various Abs workouts (Ab Crunch Machine, Captain's Chair, Ab Wheel, Medicine Ball, Roman Chair, Decline Bench, Pull-Up Bar).
-2.  Fixing a UI bug where the Pull-Up Bar button was not appearing in the Abs section.
-3.  Adding a very large number of new workouts to the Back section for multiple equipment types: Roman Chair, Lat Pulldown, Seated Chest-Supported Row, Straight Pull-Up Bar, T-Bar Row, Seated Cable Row, Barbells, Dumbbells, Kettlebells, and Grip Variation Pull-Up Bar.
-4.  Updating the UI to change an equipment button from Adjustable bench to Dumbbells.
-5.  Adding images for all the newly created Back workouts.
-</original_problem_statement>
+
+**original_problem_statement**: The user continued a massive content and image overhaul, this time focusing entirely on the Legs section.
+
+PRODUCT REQUIREMENTS:
+1.  **Update Back Workout Images**: Add images for 6 workouts in the Seated Chest-Supported Row category.
+2.  **Add New Leg Workouts (Compound)**:
+    *   Add 6 new workouts for Dumbbells.
+    *   Add 6 new workouts for Hack Squat Machine.
+    *   Add 6 new workouts for Leg Press.
+    *   Add 2 additional workouts for Hack Squat Machine.
+    *   Add 6 new workouts for Squat Rack.
+    *   Add 6 new workouts for Trap Bar.
+    *   Add two new equipment types, Pit Shark and Smith Machine, with 3 initial workouts each.
+    *   Replace the initial Pit Shark/Smith Machine workouts with a full set of 12 workouts each (4 per intensity level).
+    *   Add 6 new workouts for Single Stack Cable Machine.
+3.  **Fix UI Bug**: The newly added Pit Shark and Smith Machine workouts were not appearing on the workout selection screen.
+4.  **UI Refinement**:
+    *   Alphabetize the equipment buttons in the Compound Legs section.
+    *   Remove the View Cart button that appears at the bottom of all workout display screens when no more muscle groups are in the queue.
+5.  **Add New Leg Workout Images**: Add images for all the newly created Dumbbell, Squat Rack, Leg Press, Hack Squat, Trap Bar, Pit Shark, Smith Machine, and Cable Machine workouts.
+
+This session also carried over several critical, unfixed bugs from previous sessions, including issues with the video player, profile fetching, a broken web search sheet, and a broken admin widget.
 
 **User's preferred language**: English
 
 **what currently exists?**
-The agent has performed a second, massive session of content and image updates. The primary file modified was , which was heavily populated with dozens of new workout objects across 10 different equipment types. The agent also continued adding images to  and fixed a UI bug in  by adding the Pull-Up Bar to a hardcoded list. A similar UI change was made in .
+The agent has successfully performed another massive content and image update, this time completely overhauling the Compound Legs workouts. The file  was expanded by thousands of lines to include dozens of new workouts and image URLs across multiple new and existing equipment types.
+
+A critical bug was introduced and fixed in , where the agent initially forgot to map the new Pit Shark and Smith Machine equipment to the Compound muscle group. A UI enhancement was also implemented across all eight workout display files (e.g., ) to remove the View Cart button from the bottom of the screen.
 
 **Last working item**:
-    - Last item agent was working: Updating the final batch of images for the Straight Pull-Up Bar and Grip Variation Pull-Up Bar workouts in the  file. This concluded a long series of content and image updates.
+    - Last item agent was working: Updating the final batch of images for the Smith Machine and Single Stack Cable Machine workouts in . This concluded a long series of content and image updates for the Legs section.
     - Status: USER VERIFICATION PENDING
     - Agent Testing Done: N
-    - Which testing method agent to use? manual testing by user
+    - Which testing method agent to use? Manual user testing is required to verify all the new content and fixes.
     - User Testing Done: N
 
 **All Pending/In progress Issue list**:
-  Issue 1: (P0) Verify all Abs and Back content, workout, and image updates.
-  Issue 2: (P1) The user had to ask twice to get the Grip Variation Pull Up Bar workouts added, as the agent missed it the first time.
+  Issue 1: (P0) Verify all new Legs content, UI changes, and bug fixes.
+  Issue 2: (P1) The agent introduced a bug where new equipment workouts didn't appear because of a hardcoded mapping.
   Issue 3: (P2) Fix video player positioning bug.
   Issue 4: (P3) Investigate the recurring Failed to fetch profile error.
   Issue 5: (P4) The Home page search sheet () does not render correctly on the web.
@@ -30,12 +46,13 @@ The agent has performed a second, massive session of content and image updates. 
   
   Issues Detail:
   - Issue 1: 
-     - Attempted fixes: The agent has added/updated dozens of workouts and images in  and . A UI bug was fixed in  to show the Pull-Up Bar. A UI label was changed in .
-     - Next debug checklist: Ask the user to comprehensively review the Abs and Back sections in the app. Specifically, they should check:
-        1. All newly updated images in the Abs section are correct.
-        2. The Pull-Up Bar button now appears in the Abs section and all its workouts/images are correct.
-        3. The Back section now shows a Dumbbells button instead of Adjustable bench.
-        4. All newly added workouts and images for all 10 updated Back equipment types are present and correct.
+     - Attempted fixes: The agent has added dozens of workouts and images to . A UI bug was fixed in . The View Cart button was removed from all workout display screens.
+     - Next debug checklist: Ask the user to comprehensively review the Legs > Compound section in the app. Specifically, they should check:
+        1. All new equipment (Pit Shark, Smith Machine) and their workouts (12 each) are present and correct.
+        2. All other new workouts (Dumbbells, Squat Rack, etc.) are present and correct.
+        3. All newly added images for all leg workouts are correct.
+        4. The View Cart button no longer appears at the bottom of any workout screen after adding items.
+        5. The equipment buttons in Compound Legs are alphabetized.
      - Why fix this issue and what will be achieved with the fix? This will close out another massive content update task and confirm the UI fixes were successful.
      - Status:  USER VERIFICATION PENDING
      - Is recurring issue? N
@@ -43,60 +60,65 @@ The agent has performed a second, massive session of content and image updates. 
      - Blocked on other issue: None
 
   - Issue 2:
-     - Attempted fixes: The agent initially missed the user's request to add workouts to the Grip Variation Pull Up Bar and only added them to the Straight Pull Up Bar. After being prompted by the user twice, the agent correctly added the workouts.
-     - Next debug checklist: As part of the main verification (Issue 1), pay special attention to the Grip Variation Pull Up Bar section and confirm with the user that it now correctly contains 4 workouts per level as requested.
-     - Why fix this issue and what will be achieved with the fix? This resolves an oversight by the previous agent and ensures the user's request is fully met.
-     - Status:  RESOLVED (but requires user verification)
-     - Is recurring issue? Y (Agent has a tendency to miss details in large content requests).
+     - Attempted fixes: The user reported that Pit Shark/Smith Machine workouts were missing. The agent found that  contained a hardcoded array mapping equipment IDs to muscle groups, and the new equipment was missing from this array. The agent added the missing IDs to resolve the issue.
+     - Next debug checklist: As part of the main verification (Issue 1), confirm with the user that Pit Shark and Smith Machine workouts now display correctly.
+     - Why fix this issue and what will be achieved with the fix? This resolves the immediate bug, but highlights a deeper architectural flaw.
+     - Status:  USER VERIFICATION PENDING
+     - Is recurring issue? Y (This is the second session where a bug was caused by a hardcoded UI list not being in sync with the data source).
      - Should Test frontend/backend/both after fix? Frontend (manual user testing)
      - Blocked on other issue: None
 
   - Issue 3, 4, 5, 6:
-     - Attempted fixes: None. These are critical, long-standing issues carried over from previous sessions and were not addressed for the third consecutive session.
-     - Next debug checklist: Refer to the initial handover summary ( of the LLM history) for detailed debugging steps for each issue.
+     - Attempted fixes: None. These are critical, long-standing issues carried over from previous sessions and were not addressed for the fourth consecutive session.
+     - Next debug checklist: Refer to the initial handover summary for detailed debugging steps for each issue.
      - Why fix this issue and what will be achieved with the fix? Fixing these will address significant technical debt, improve core app functionality, enhance UI/UX, and restore broken admin features.
      - Status:  NOT STARTED
      - Is recurring issue? Y
-     - Should Test frontend/backend/both after fix? Varies by issue (see initial summary).
+     - Should Test frontend/backend/both after fix? Varies by issue.
      - Blocked on other issue: None
 
 **In progress Task List**:
 - None.
 
 **Upcoming and Future Tasks**
-- **(P0) Verify All Content Updates**: Get explicit confirmation from the user that all Abs and Back updates are correct and displaying as expected.
-- **(P1) Address High-Priority Technical Debt**: After user confirmation, you MUST proactively present the list of pending critical issues (Video player positioning, Profile fetch error, Broken search sheet, Broken admin widget) and ask the user to prioritize which one to tackle next. Three sessions have been spent entirely on content; it is critical to pivot back to fixing these bugs.
+- **(P0) Verify All Leg Content Updates**: Get explicit confirmation from the user that all Leg updates are correct and displaying as expected.
+- **(P1) Address High-Priority Technical Debt**: After user confirmation, you MUST proactively present the list of pending critical issues (Video player positioning, Profile fetch error, Broken search sheet, Broken admin widget) and ask the user to prioritize which one to tackle next. Four sessions have now been spent entirely on content; it is critical to pivot back to fixing these bugs.
+- **(P2) Refactor Equipment-to-Muscle-Group Mapping**: The bug fixed in  revealed a brittle architecture. The component should be refactored to derive its muscle group mappings dynamically from the data source () instead of relying on hardcoded arrays to prevent future synchronization issues.
 
 **Completed work in this session**
-- **Abs Content/Image Updates**:
-  - Updated images for workouts in: Ab Crunch Machine, Captain's Chair, Ab Wheel, Medicine Ball, Roman Chair, Decline Bench, and Pull-Up Bar.
+- **Back Content Update**:
+  - Updated 6 images for Seated Chest-Supported Row workouts.
   - **File Modified**: .
-- **Abs UI Fix**:
-  - Added Pull-Up Bar to the  array in  to make the button visible.
-- **Back Content Overhaul**:
-  - Added ~60 new workouts to  across 10 equipment types (Roman Chair, Lat Pulldown, Seated Row, Straight Pull-Up Bar, T-Bar Row, Seated Cable Row, Barbells, Dumbbells, Kettlebells, Grip Variation Pull-Up Bar).
-- **Back UI/Data Renaming**:
-  - Renamed Adjustable bench to Dumbbells in .
-  - Renamed  to  in .
-- **Back Image Updates**:
-  - Added images for all newly created back workouts.
+- **Legs Content Overhaul**:
+  - Added dozens of new workouts to  across Dumbbells, Hack Squat, Leg Press, Squat Rack, and Trap Bar.
+  - Added two new equipment sections, Pit Shark and Smith Machine, with 12 workouts each.
+  - Added new workouts to the Single Stack Cable Machine.
+- **Legs Image Updates**:
+  - Added images for all newly created leg workouts.
   - **File Modified**: .
+- **Legs UI Bug Fix**:
+  - Fixed an issue where Pit Shark and Smith Machine workouts were not displaying by adding their IDs to a hardcoded mapping array in .
+- **Global UI Enhancement**:
+  - Removed the View Cart button from the bottom of all 8 workout display screens when no more muscle groups are in the queue.
+  - **Files Modified**: , , , , , , , .
+- **Legs UI Refinement**:
+  - Reordered equipment buttons alphabetically in .
 
 **Earlier issues found/mentioned but not fixed**
-- **Issue 1**: The agent initially missed the request to add workouts for the Grip Variation Pull Up Bar and had to be prompted twice by the user before implementing it. This indicates a failure to carefully parse large user requests.
-- **Issue 2-5**: The critical bugs (Video Player, Profile Fetch, Web Search, Admin Widget, 429 errors) listed in the initial handover summary were ignored for a third straight session.
+- The critical bugs (Video Player, Profile Fetch, Web Search, Admin Widget, 429 errors) listed in the initial handover summary were ignored for a fourth straight session.
 
 **Known issue recurrence from previous fork**
   - All P2-P6 issues listed in the All Pending/In progress Issue list section were present in the initial handover summary and remain unfixed.
-  - Recurrence count: 10+
+  - The pattern of a hardcoded UI list causing a bug () is a recurrence of a similar issue fixed in  in a previous session.
+  - Recurrence count: 10+ (for unfixed bugs)
   - Status: NOT STARTED
 
 **Code Architecture**
 
 
 **Key Technical Concepts**
-- **Static Content Management**: All work involved editing large TypeScript data array files (, ). No backend or database interaction occurred.
-- **Fragile UI Dependencies**: The agent fixed a bug () caused by the UI having a hardcoded list of equipment names that was not in sync with the data file. It then replicated this pattern by changing another hardcoded label in .
+- **Static Content Management**: All work involved editing large TypeScript data array files. No backend or database interaction occurred.
+- **Brittle UI-Data Mapping**: A bug was caused by a hardcoded array in  that maps equipment IDs to muscle groups. This logic is not dynamic and is prone to breaking when new equipment is added, a pattern that has now occurred twice.
 
 **key DB schema**
 - No database schema changes were made.
@@ -105,36 +127,36 @@ The agent has performed a second, massive session of content and image updates. 
 - None.
 
 **All files of reference**
-- : Updated with new image URLs for various abs workouts.
-- : Heavily updated with dozens of new workouts and image URLs for the back section.
-- : Modified to add Pull-Up Bar to the list of equipment buttons.
-- : Modified to rename the Adjustable bench button to Dumbbells.
+- : Massively updated with new workouts and images for the Legs section.
+- : Modified to add Pit Shark and Smith Machine buttons, fix a mapping bug that prevented their workouts from showing, and alphabetize the button list.
+-  (8 files): All modified to conditionally hide the bottom button that previously said View Cart.
+- : Updated with new image URLs.
 
 **Areas that need refactoring**:
-- The equipment lists in  and  are hardcoded and not dynamically generated from the data files (, ). This is brittle and has already caused a bug this session. These components should be refactored to derive their equipment lists directly from the data source to prevent future synchronization issues.
+- ****: The hardcoded  and  arrays are extremely brittle. This component should be refactored to dynamically determine which muscle groups an equipment belongs to, possibly by adding a  property to the equipment data itself in  and having the UI read from there. This would prevent the same bug from happening a third time.
 
 **key api endpoints**
 - No API endpoints were used or modified.
 
 **Critical Info for New Agent**
-1.  **START HERE**: Your first task is to get confirmation from the user that all the extensive Abs and Back updates are correct. This is a massive amount of content, so be specific. Ask them to check the new workouts and images for all mentioned equipment categories in both sections.
-2.  **PIVOT TO BUG FIXES (CRITICAL)**: For three consecutive sessions, the agent has focused solely on content updates while major pre-existing bugs have been ignored. Once the user confirms the content is correct, you **must** pivot the conversation to addressing this technical debt. Present the list of high-priority bugs (Video Player, Profile Fetch, Web Search, Admin Widget) and ask the user which one you should fix next. Do not wait for the user to bring them up.
-3.  **READ CAREFULLY**: The previous agent missed a user request to add workouts to the Grip Variation Pull-Up Bar and had to be reminded twice. Pay close attention to the details of user requests, especially when they involve large amounts of content.
+1.  **START HERE**: Your first task is to get confirmation from the user that all the extensive **Legs** updates are correct. This is a massive amount of content. Ask them to check the new workouts (especially for Pit Shark and Smith Machine) and images, plus the UI fixes (alphabetical buttons, no View Cart button).
+2.  **PIVOT TO BUG FIXES (CRITICAL)**: For **four consecutive sessions**, the agent has focused solely on content updates while major pre-existing bugs have been ignored. Once the user confirms the content is correct, you **must** pivot the conversation to addressing this technical debt. Present the list of high-priority bugs (Video Player, Profile Fetch, Web Search, Admin Widget) and ask the user which one you should fix next. Do not wait for the user to bring them up.
+3.  **Architectural Flaw**: Be aware that the UI has a recurring issue of using hardcoded lists/arrays that get out of sync with the actual data (e.g., in ). After fixing the critical bugs, you should propose a refactor to make this logic more robust and data-driven.
 
 **documents created in this job**
 - None.
 
 **Last 10 User Messages and any pending HUMAN messages**
-- **User (last):** Provided the final batch of images for the Grip Variation Pull-Up Bar. (Status: Implemented, pending user verification).
-- **User:** Provided images for Straight Pull-Up Bar workouts. (Status: Implemented, pending user verification).
-- **User:** Provided images for Seated Cable Row and Lat Pulldown workouts. (Status: Implemented, pending user verification).
-- **User:** Provided images for T-Bar Row and Roman Chair workouts. (Status: Implemented, pending user verification).
-- **User:** Provided images for Kettlebell and Roman Chair workouts. (Status: Implemented, pending user verification).
-- **User:** Provided images for Dumbbell and Barbell back workouts. (Status: Implemented, pending user verification).
-- **User:** Provided the correct workouts for the Grip Variation Pull-Up Bar after the agent missed them. (Status: Implemented, pending user verification).
-- **User:** Pointed out that the grip variation pull-up workouts were still missing. (Status: Acknowledged, workouts requested).
-- **User:** Requested a UI button change and provided new workouts for Dumbbells and Kettlebells. (Status: Implemented, pending user verification).
-- **User:** Pointed out that the grip variation pull up bar workouts werent added. (Status: Acknowledged, clarification requested).
+- **User (last):** Provided the final batch of images for Smith Machine and Cable Machine workouts. (Status: Implemented, pending user verification).
+- **User:** Provided images for Pit Shark workouts. (Status: Implemented, pending user verification).
+- **User:** Provided images for Hack Squat and Trap Bar workouts. (Status: Implemented, pending user verification).
+- **User:** Provided more images for Dumbbell and Leg Press workouts. (Status: Implemented, pending user verification).
+- **User:** Provided the first batch of images for Dumbbell and Squat Rack workouts. (Status: Implemented, pending user verification).
+- **User:** Requested the removal of the View Cart button from all workout display screens. (Status: Implemented, pending user verification).
+- **User:** Reported that the Pit Shark and Smith machine workouts were still not visible after selecting the equipment. (Status: Bug acknowledged and fixed).
+- **User:** Requested that the equipment buttons in the compound legs section be alphabetized. (Status: Implemented, pending user verification).
+- **User:** Reported that no workout cards were visible for Pit Shark or Smith Machine. (Status: Bug acknowledged).
+- **User:** Requested adding workouts for the Single Stack Cable Machine. (Status: Implemented, pending user verification).
 
 **Project Health Check:**
 - **Broken**:
@@ -144,7 +166,7 @@ The agent has performed a second, massive session of content and image updates. 
     - **Profile Fetch (User-reported error)**
 - **Needs Improvement**:
     - **Video Player Layout (Positioning bug)**
-    - **Data/UI synchronisation** (Hardcoded equipment lists are brittle)
+    - **Data/UI synchronisation**: Hardcoded equipment-to-muscle-group mappings are brittle and a source of recurring bugs.
 
 **3rd Party Integrations**
 - No integrations were added or modified in this session.
@@ -156,9 +178,10 @@ The agent has performed a second, massive session of content and image updates. 
   - Known regressions: None from this session's work, but major pre-existing bugs remain unaddressed.
 
 **Credentials to test flow:**
-- Continue as a guest or log in, then navigate to the Abs and Back workout sections to view the extensive content and image updates.
+- Continue as a guest or log in, then navigate to the Legs > Compound section to view the extensive content/image updates and UI fixes.
 
 **What agent forgot to execute**
-- For the third consecutive session, the agent completely ignored the critical, pre-existing bugs that were explicitly listed in the initial handover summary.
-- The agent initially failed to add the Grip Variation Pull Up Bar workouts as requested, requiring the user to follow up twice. This demonstrates a lack of attention to detail when parsing large requests.
+- For the fourth consecutive session, the agent completely ignored the critical, pre-existing bugs that were explicitly listed in the initial handover summary.
+- The agent introduced a bug by not updating a hardcoded mapping file () when adding new equipment, which required a second round of debugging after the user reported the issue.
+
 </analysis>
