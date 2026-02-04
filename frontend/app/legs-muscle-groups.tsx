@@ -336,7 +336,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#111111',
     borderBottomWidth: 1,
     borderBottomColor: 'rgba(255, 215, 0, 0.2)',
-    paddingVertical: 12,
+    paddingVertical: 8,
     paddingHorizontal: 20,
   },
   progressContent: {

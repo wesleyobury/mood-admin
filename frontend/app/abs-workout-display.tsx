@@ -277,7 +277,7 @@ const styles = StyleSheet.create({
   headerTextContainer: { flex: 1, alignItems: 'center' },
   headerTitle: { fontSize: 20, fontWeight: 'bold', color: '#ffffff', textAlign: 'center' },
   headerSubtitle: { fontSize: 14, color: 'rgba(255, 255, 255, 0.7)', textAlign: 'center', marginTop: 2 },
-  progressContainer: { backgroundColor: '#111111', borderBottomWidth: 1, borderBottomColor: 'rgba(255, 215, 0, 0.2)', paddingVertical: 12, paddingHorizontal: 16, zIndex: 10 },
+  progressContainer: { backgroundColor: '#111111', borderBottomWidth: 1, borderBottomColor: 'rgba(255, 215, 0, 0.2)', paddingVertical: 8, paddingHorizontal: 16, zIndex: 10 },
   progressContent: { alignItems: 'center' },
   progressRow: { flexDirection: 'row', alignItems: 'center', justifyContent: 'center', marginBottom: 12 },
   progressStep: { alignItems: 'center', minWidth: 60 },
