@@ -452,6 +452,19 @@ export default function AdminDashboard() {
         console.log('Session Completion stats fetch error:', scError);
       }
       
+      // Fetch Workout Engagement Chart data
+      try {
+        const engagementChartRes = await fetch(
+          `${API_URL}/api/analytics/admin/workout-engagement-chart?period=${engagementChartPeriod}&days=${selectedPeriod}`,
+          { headers: { 'Authorization': `Bearer ${token}` } }
+        );
+        if (engagementChartRes.ok) {
+          setWorkoutEngagementChart(await engagementChartRes.json());
+        }
+      } catch (ecError) {
+        console.log('Workout engagement chart fetch error:', ecError);
+      }
+      
     } catch (error) {
       console.error('Error fetching dashboard data:', error);
     } finally {
