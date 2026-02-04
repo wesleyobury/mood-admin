@@ -7886,6 +7886,66 @@ async def admin_send_workout_reminder(
         "message": "Workout reminder sent" if result else "Failed to send reminder"
     }
 
+class MassWorkoutReminderPush(BaseModel):
+    custom_message: Optional[str] = None
+
+@api_router.post("/admin/notifications/mass-workout-reminder")
+async def admin_send_mass_workout_reminder(
+    data: MassWorkoutReminderPush,
+    current_user_id: str = Depends(get_current_user)
+):
+    """Admin: Send workout reminder to all eligible users"""
+    # Check if user is admin
+    user = await db.users.find_one({"_id": ObjectId(current_user_id)})
+    if not user or not user.get("is_admin"):
+        raise HTTPException(status_code=403, detail="Admin access required")
+    
+    worker = get_notification_worker(db)
+    count = await worker.trigger_mass_workout_reminder(data.custom_message)
+    
+    return {
+        "success": True,
+        "notifications_sent": count,
+        "message": f"Workout reminders sent to {count} users"
+    }
+
+@api_router.get("/admin/notifications/worker-status")
+async def admin_get_worker_status(
+    current_user_id: str = Depends(get_current_user)
+):
+    """Admin: Check notification worker status"""
+    # Check if user is admin
+    user = await db.users.find_one({"_id": ObjectId(current_user_id)})
+    if not user or not user.get("is_admin"):
+        raise HTTPException(status_code=403, detail="Admin access required")
+    
+    worker = get_notification_worker(db)
+    
+    return {
+        "running": worker.running,
+        "message": "Notification worker is running" if worker.running else "Notification worker is stopped"
+    }
+
+@api_router.post("/admin/notifications/trigger-digest")
+async def admin_trigger_digest(
+    user_id: str,
+    current_user_id: str = Depends(get_current_user)
+):
+    """Admin: Manually trigger digest for a specific user"""
+    # Check if user is admin
+    user = await db.users.find_one({"_id": ObjectId(current_user_id)})
+    if not user or not user.get("is_admin"):
+        raise HTTPException(status_code=403, detail="Admin access required")
+    
+    worker = get_notification_worker(db)
+    result = await worker._send_following_digest(user_id)
+    
+    return {
+        "success": result is not None,
+        "notification_id": result,
+        "message": "Digest sent" if result else "No activity to report or user has no following"
+    }
+
 # Include router in main app
 app.include_router(api_router)
 
