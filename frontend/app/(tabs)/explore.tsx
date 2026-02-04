@@ -1261,6 +1261,35 @@ export default function Explore() {
                           onPress={() => handleReplicateWorkout(post)}
                           activeOpacity={0.8}
                         >
+                          {/* Shimmer overlay */}
+                          <Animated.View
+                            style={[
+                              styles.shimmerOverlay,
+                              {
+                                transform: [
+                                  {
+                                    translateX: shimmerAnim.interpolate({
+                                      inputRange: [0, 1],
+                                      outputRange: [-150, 150],
+                                    }),
+                                  },
+                                ],
+                              },
+                            ]}
+                          >
+                            <LinearGradient
+                              colors={[
+                                'transparent',
+                                'rgba(255, 215, 0, 0.15)',
+                                'rgba(255, 255, 255, 0.25)',
+                                'rgba(255, 215, 0, 0.15)',
+                                'transparent',
+                              ]}
+                              start={{ x: 0, y: 0.5 }}
+                              end={{ x: 1, y: 0.5 }}
+                              style={styles.shimmerGradient}
+                            />
+                          </Animated.View>
                           <Ionicons name="chevron-forward" size={14} color="#FFD700" />
                           <Text style={styles.tryWorkoutButtonText}>Try this workout</Text>
                         </TouchableOpacity>
