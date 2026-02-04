@@ -363,9 +363,12 @@ export default function NotificationSettingsScreen() {
                         'Set Start Time',
                         'When should quiet hours begin?',
                         [
-                          { text: '9:00 PM', onPress: () => updateSetting('quiet_hours_start', '21:00') },
-                          { text: '10:00 PM', onPress: () => updateSetting('quiet_hours_start', '22:00') },
-                          { text: '11:00 PM', onPress: () => updateSetting('quiet_hours_start', '23:00') },
+                          { text: '12:00 AM', onPress: () => updateSetting('quiet_hours_start', '00:00') },
+                          { text: '4:00 AM', onPress: () => updateSetting('quiet_hours_start', '04:00') },
+                          { text: '8:00 AM', onPress: () => updateSetting('quiet_hours_start', '08:00') },
+                          { text: '12:00 PM', onPress: () => updateSetting('quiet_hours_start', '12:00') },
+                          { text: '4:00 PM', onPress: () => updateSetting('quiet_hours_start', '16:00') },
+                          { text: '8:00 PM', onPress: () => updateSetting('quiet_hours_start', '20:00') },
                           { text: 'Cancel', style: 'cancel' },
                         ]
                       );
@@ -387,9 +390,12 @@ export default function NotificationSettingsScreen() {
                         'Set End Time',
                         'When should quiet hours end?',
                         [
-                          { text: '7:00 AM', onPress: () => updateSetting('quiet_hours_end', '07:00') },
+                          { text: '12:00 AM', onPress: () => updateSetting('quiet_hours_end', '00:00') },
+                          { text: '4:00 AM', onPress: () => updateSetting('quiet_hours_end', '04:00') },
                           { text: '8:00 AM', onPress: () => updateSetting('quiet_hours_end', '08:00') },
-                          { text: '9:00 AM', onPress: () => updateSetting('quiet_hours_end', '09:00') },
+                          { text: '12:00 PM', onPress: () => updateSetting('quiet_hours_end', '12:00') },
+                          { text: '4:00 PM', onPress: () => updateSetting('quiet_hours_end', '16:00') },
+                          { text: '8:00 PM', onPress: () => updateSetting('quiet_hours_end', '20:00') },
                           { text: 'Cancel', style: 'cancel' },
                         ]
                       );
