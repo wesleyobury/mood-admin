@@ -319,6 +319,31 @@ export const calvesWorkoutDatabase: EquipmentWorkouts[] = [
               description: 'Complete range of motion ensures maximum muscle activation.'
             }
           ]
+        },
+        {
+          name: 'Barbell Tempo Calf Raise',
+          duration: '10–12 min',
+          description: 'Slow eccentrics increasing calf time under tension',
+          battlePlan: '4 rounds\n• 12 Calf Raises (3s eccentric)\nRest 75s',
+          imageUrl: '',
+          intensityReason: 'Tempo work maximizes muscle fiber recruitment',
+          moodTips: [
+            {
+              icon: 'timer',
+              title: 'Three-second lower',
+              description: 'Lengthened loading drives growth.'
+            },
+            {
+              icon: 'body',
+              title: 'Knees softly extended',
+              description: 'Biases gastrocnemius.'
+            },
+            {
+              icon: 'construct',
+              title: 'No bouncing reps',
+              description: 'Momentum kills tension.'
+            }
+          ]
         }
       ],
       advanced: [
