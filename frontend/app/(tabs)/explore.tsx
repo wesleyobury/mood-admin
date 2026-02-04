@@ -1058,50 +1058,29 @@ export default function Explore() {
         </ScrollView>
       )}
 
-      {/* Feed Type Tabs - Only show for authenticated users */}
-      {!showSearch && !isGuest && <View style={styles.tabContainer}>
-        <View style={styles.mainTabsContainer}>
-          <TouchableOpacity
-            style={[styles.mainTab, activeTab === 'forYou' && styles.activeTab]}
-            onPress={() => setActiveTab('forYou')}
-          >
-            <Text style={[
-              styles.tabText,
-              activeTab === 'forYou' && styles.activeTabText
-            ]}>
-              For You
-            </Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={[styles.mainTab, activeTab === 'following' && styles.activeTab]}
-            onPress={() => setActiveTab('following')}
-          >
-            <Text style={[
-              styles.tabText,
-              activeTab === 'following' && styles.activeTabText
-            ]}>
-              Following
-            </Text>
-          </TouchableOpacity>
-        </View>
+      {/* Feed Tabs - Equal Width */}
+      {!showSearch && <View style={styles.tabContainer}>
         <TouchableOpacity
-          style={[styles.notificationTab, activeTab === 'notifications' && styles.notificationTabActive]}
-          onPress={() => setActiveTab('notifications')}
+          style={[styles.feedTab, activeTab === 'forYou' && styles.feedTabActive]}
+          onPress={() => setActiveTab('forYou')}
         >
-          <View>
-            <Ionicons 
-              name={activeTab === 'notifications' ? 'notifications' : 'notifications-outline'} 
-              size={22} 
-              color={activeTab === 'notifications' ? '#FFD700' : '#888'} 
-            />
-            {unreadNotificationCount > 0 && activeTab !== 'notifications' && (
-              <View style={styles.notificationBadge}>
-                <Text style={styles.notificationBadgeText}>
-                  {unreadNotificationCount > 99 ? '99+' : unreadNotificationCount}
-                </Text>
-              </View>
-            )}
-          </View>
+          <Text style={[
+            styles.feedTabText,
+            activeTab === 'forYou' && styles.feedTabTextActive
+          ]}>
+            For You
+          </Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={[styles.feedTab, activeTab === 'following' && styles.feedTabActive]}
+          onPress={() => setActiveTab('following')}
+        >
+          <Text style={[
+            styles.feedTabText,
+            activeTab === 'following' && styles.feedTabTextActive
+          ]}>
+            Following
+          </Text>
         </TouchableOpacity>
       </View>}
 
