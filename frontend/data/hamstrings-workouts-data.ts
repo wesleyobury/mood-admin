@@ -896,6 +896,56 @@ export const hamstringsWorkoutDatabase: EquipmentWorkouts[] = [
               description: 'Maintain contraction against resistance throughout hold period.'
             }
           ]
+        },
+        {
+          name: 'Long-Eccentric Leg Curl',
+          duration: '18–20 min',
+          description: 'Slow eccentrics overloading hamstring length',
+          battlePlan: '4 rounds\n• 8 Curls (5s eccentric)\nRest 150s',
+          imageUrl: '',
+          intensityReason: 'Extended eccentrics maximize muscle damage and growth',
+          moodTips: [
+            {
+              icon: 'timer',
+              title: 'Five-second return',
+              description: 'Maximal tension.'
+            },
+            {
+              icon: 'construct',
+              title: 'Explode up gently',
+              description: 'Control stack.'
+            },
+            {
+              icon: 'alert',
+              title: 'Expect early fatigue',
+              description: 'Hamstrings fail fast here.'
+            }
+          ]
+        },
+        {
+          name: 'Triple Drop Curl Burnout',
+          duration: '18–20 min',
+          description: 'High-fatigue curls using three fast drops',
+          battlePlan: '3 rounds\n• 10 → 8 → 8 → 8\nRest 150s',
+          imageUrl: '',
+          intensityReason: 'Triple drops exhaust all muscle fibers',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Three drops no rest',
+              description: 'Strip weight rapidly.'
+            },
+            {
+              icon: 'construct',
+              title: 'Same tempo',
+              description: 'Light weight ≠ fast reps.'
+            },
+            {
+              icon: 'checkmark',
+              title: 'Stop at form loss',
+              description: 'Quality over numbers.'
+            }
+          ]
         }
       ]
     }
