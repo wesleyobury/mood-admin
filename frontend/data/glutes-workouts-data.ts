@@ -327,6 +327,56 @@ export const glutesWorkoutDatabase: EquipmentWorkouts[] = [
               description: 'Balanced heel drive prevents compensations and maximizes power.'
             }
           ]
+        },
+        {
+          name: 'Elevated Hip Thrust',
+          duration: '10–12 min',
+          description: 'Bench-elevated thrusts emphasizing full glute lockout',
+          battlePlan: '3 rounds\n• 12 Hip Thrusts\nRest 75s',
+          imageUrl: '',
+          intensityReason: 'Elevated position teaches proper hip extension mechanics',
+          moodTips: [
+            {
+              icon: 'body',
+              title: 'Shoulders anchored',
+              description: 'Upper back fixed to isolate hips.'
+            },
+            {
+              icon: 'trending-up',
+              title: 'Finish tall',
+              description: 'Full hip extension with glute squeeze.'
+            },
+            {
+              icon: 'arrow-down',
+              title: 'Controlled descent',
+              description: 'Slow lowering keeps tension on glutes.'
+            }
+          ]
+        },
+        {
+          name: 'Hip Thrust Pulse Reps',
+          duration: '10–12 min',
+          description: 'Short-range pulses maintaining constant glute tension',
+          battlePlan: '3 rounds\n• 15 Pulse Thrusts\nRest 75s',
+          imageUrl: '',
+          intensityReason: 'Continuous tension builds glute endurance and activation',
+          moodTips: [
+            {
+              icon: 'resize',
+              title: 'Top-half motion only',
+              description: 'Pulses stay near full extension.'
+            },
+            {
+              icon: 'construct',
+              title: 'Small controlled range',
+              description: 'Avoid bouncing or momentum.'
+            },
+            {
+              icon: 'flash',
+              title: 'Continuous tension',
+              description: 'Glutes never fully relax.'
+            }
+          ]
         }
       ],
       intermediate: [
