@@ -837,6 +837,20 @@ export default function AdminDashboard() {
           />
         }
       >
+        {/* Quick Actions */}
+        <View style={styles.quickActionsSection}>
+          <TouchableOpacity 
+            style={styles.quickActionButton}
+            onPress={() => router.push('/admin-push-notifications')}
+          >
+            <View style={styles.quickActionIcon}>
+              <Ionicons name="notifications" size={20} color="#FFD700" />
+            </View>
+            <Text style={styles.quickActionText}>Send Push Notification</Text>
+            <Ionicons name="chevron-forward" size={18} color="#666" />
+          </TouchableOpacity>
+        </View>
+
         {/* Key Metrics Section */}
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>Key Metrics</Text>
