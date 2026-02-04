@@ -672,7 +672,7 @@ export const calvesWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '8–10 min',
           description: 'Guided calf raises reinforcing full range control',
           battlePlan: '3 rounds\n• 15 Machine Raises\nRest 60s',
-          imageUrl: '',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_96d95d8c-bd6e-49a5-a6af-694c8a8f5c04/artifacts/elld3iw7_calf%20machine%20calf%20raise.png',
           intensityReason: 'Machine guidance ensures proper calf activation',
           moodTips: [
             {
@@ -739,7 +739,7 @@ export const calvesWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Paused raises reinforcing peak calf contraction',
           battlePlan: '4 rounds\n• 12 Raises (2s pause)\nRest 75s',
-          imageUrl: '',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_96d95d8c-bd6e-49a5-a6af-694c8a8f5c04/artifacts/elld3iw7_calf%20machine%20calf%20raise.png',
           intensityReason: 'Paused contractions maximize peak tension',
           moodTips: [
             {
@@ -806,7 +806,7 @@ export const calvesWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'High-rep calf raises pushing muscular endurance',
           battlePlan: '3 rounds\n• 25–30 Raises\nRest 120s',
-          imageUrl: '',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_96d95d8c-bd6e-49a5-a6af-694c8a8f5c04/artifacts/elld3iw7_calf%20machine%20calf%20raise.png',
           intensityReason: 'High-rep work maximizes calf endurance and pump',
           moodTips: [
             {
