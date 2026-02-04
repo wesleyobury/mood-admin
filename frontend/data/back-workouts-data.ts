@@ -2183,7 +2183,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Assisted pull-ups with controlled pauses at the top',
           battlePlan: '3 rounds\n• 5 Assisted Pull-Ups (1–2s top pause)\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/toza6up4_pu.avif',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_ba98ecac-d9ff-4da8-8b26-c72f04702bfb/artifacts/ntsbiqfh_assisted%20pull%20ups%201.webp',
           intensityReason: 'Pauses at peak contraction build control and strength',
           moodTips: [
             {
@@ -2275,7 +2275,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Full pull-ups finished with a static top hold',
           battlePlan: '3 rounds\n• 6 Pull-Ups\n• Finish with 10s chin-over-bar hold\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_ba98ecac-d9ff-4da8-8b26-c72f04702bfb/artifacts/iyoz9m2p_pull%20up.webp',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_ba98ecac-d9ff-4da8-8b26-c72f04702bfb/artifacts/ntsbiqfh_assisted%20pull%20ups%201.webp',
           intensityReason: 'Isometric finisher extends time under tension',
           moodTips: [
             {
@@ -2450,7 +2450,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Focuses on the neutral grip pull-up with support',
           battlePlan: '3 rounds\n• 5 Neutral Grip Pull-Ups (use band or assisted machine if needed)\nRest 60–75s after set',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/ve6lcl2d_Screenshot%202025-12-05%20at%2011.11.07%E2%80%AFPM.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_ba98ecac-d9ff-4da8-8b26-c72f04702bfb/artifacts/g4mpj66m_assisted%20neutral%20grip%20pullups.jpg',
           intensityReason: 'Neutral grip is often easiest, building initial pulling strength',
           moodTips: [
             {
@@ -2490,7 +2490,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Scapular pulls using neutral grip for control',
           battlePlan: '3 rounds\n• 8–10 Neutral Grip Scap Pulls\nRest 60s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/ve6lcl2d_Screenshot%202025-12-05%20at%2011.11.07%E2%80%AFPM.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_ba98ecac-d9ff-4da8-8b26-c72f04702bfb/artifacts/tmmvwgrx_neutral%20grip%20pull%20ups.avif',
           intensityReason: 'Scap pulls teach fundamental lat activation',
           moodTips: [
             {
@@ -2582,7 +2582,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Switching grips between sets for balanced loading',
           battlePlan: '4 rounds\n• 6 Neutral Grip Pull-Ups\n• Next set: 6 Chin-Ups\nAlternate each round\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_0b65e409-b210-4730-af62-16b022c37685/artifacts/knkswnzw_download%20%284%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_ba98ecac-d9ff-4da8-8b26-c72f04702bfb/artifacts/tmmvwgrx_neutral%20grip%20pull%20ups.avif',
           intensityReason: 'Grip switching targets different lat fibers',
           moodTips: [
             {
@@ -2607,7 +2607,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Side-to-side pulls with controlled pauses',
           battlePlan: '3 rounds\n• 6 Commando Pull-Ups (with 1s pause each side)\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/v94peb1z_Screenshot%202025-12-05%20at%2011.08.43%E2%80%AFPM.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_ba98ecac-d9ff-4da8-8b26-c72f04702bfb/artifacts/haxbdjj0_commando%20pull.png',
           intensityReason: 'Pauses increase time under tension unilaterally',
           moodTips: [
             {
@@ -2674,7 +2674,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Heavy neutral-grip pulls for lat thickness',
           battlePlan: '4 rounds\n• 5 Weighted Neutral Pull-Ups\nRest 120s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_0b65e409-b210-4730-af62-16b022c37685/artifacts/knkswnzw_download%20%284%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_ba98ecac-d9ff-4da8-8b26-c72f04702bfb/artifacts/f7ym9pmr_weighted%20neutral%20grip%20pull%20ups.png',
           intensityReason: 'Weighted work maximizes strength development',
           moodTips: [
             {
