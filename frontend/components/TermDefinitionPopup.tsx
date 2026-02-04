@@ -142,8 +142,9 @@ interface ParsedTextProps {
 }
 
 export const TextWithTermLinks: React.FC<ParsedTextProps> = ({ text, baseStyle, linkStyle }) => {
-  // Regex to match all supported fitness terms (case-sensitive for acronyms, case-insensitive for Tabata/Superset/Circuit)
-  const termRegex = /\b(RPE|SPM|AMRAP|EMOM|HIIT|Tabata|Superset|Circuit|RPM)\b/gi;
+  // Regex to match all supported fitness terms (case-sensitive for acronyms, case-insensitive for others)
+  // Note: "cluster sets" must come before "clusters" to match the longer phrase first
+  const termRegex = /\b(RPE|SPM|AMRAP|EMOM|HIIT|Tabata|Superset|Circuit|RPM|cluster\s+sets?|clusters?)\b/gi;
   
   const parts: (string | { term: TermType; key: number })[] = [];
   let lastIndex = 0;
@@ -160,6 +161,13 @@ export const TextWithTermLinks: React.FC<ParsedTextProps> = ({ text, baseStyle, 
     // Uppercase acronyms stay uppercase, others get proper casing
     if (['rpe', 'spm', 'amrap', 'emom', 'hiit', 'rpm'].includes(normalizedTerm.toLowerCase())) {
       normalizedTerm = normalizedTerm.toUpperCase();
+    } else if (normalizedTerm.toLowerCase().includes('cluster')) {
+      // Handle cluster variations - map to dictionary keys
+      if (normalizedTerm.toLowerCase().includes('set')) {
+        normalizedTerm = 'Cluster Sets';
+      } else {
+        normalizedTerm = 'Clusters';
+      }
     } else {
       // Capitalize first letter for Tabata, Superset, Circuit
       normalizedTerm = normalizedTerm.charAt(0).toUpperCase() + normalizedTerm.slice(1).toLowerCase();
