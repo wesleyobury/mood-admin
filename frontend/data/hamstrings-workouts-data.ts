@@ -177,6 +177,56 @@ export const hamstringsWorkoutDatabase: EquipmentWorkouts[] = [
               description: 'Hip hinge movement protects spine while loading hamstrings.'
             }
           ]
+        },
+        {
+          name: 'Barbell Hip Hinge Good Morning',
+          duration: '10–12 min',
+          description: 'Light bar good mornings emphasizing hamstring stretch',
+          battlePlan: '3 rounds\n• 12 Good Mornings\nRest 75s',
+          imageUrl: '',
+          intensityReason: 'Good mornings teach proper hip hinge mechanics',
+          moodTips: [
+            {
+              icon: 'body',
+              title: 'Soft knees always',
+              description: 'Slight bend protects joints and loads hamstrings.'
+            },
+            {
+              icon: 'arrow-back',
+              title: 'Hips move first',
+              description: 'Bar lowers as hips push straight back.'
+            },
+            {
+              icon: 'resize',
+              title: 'Stop at stretch',
+              description: 'Depth ends when hamstrings fully lengthen.'
+            }
+          ]
+        },
+        {
+          name: 'Barbell Stiff-Leg Iso Hold',
+          duration: '10–12 min',
+          description: 'Isometric hinge holds reinforcing hamstring tension',
+          battlePlan: '3 rounds\n• 20–30s Stiff-Leg Hold\nRest 75s',
+          imageUrl: '',
+          intensityReason: 'Isometric holds build hamstring endurance and control',
+          moodTips: [
+            {
+              icon: 'timer',
+              title: 'Hold mid-hinge',
+              description: 'Pause just past knee level.'
+            },
+            {
+              icon: 'shield',
+              title: 'Brace core tight',
+              description: 'Prevents lumbar takeover.'
+            },
+            {
+              icon: 'pulse',
+              title: 'Feel hamstrings shake',
+              description: 'Tension should live behind knees.'
+            }
+          ]
         }
       ],
       intermediate: [
