@@ -794,6 +794,56 @@ export const glutesWorkoutDatabase: EquipmentWorkouts[] = [
               description: 'Proper position prevents compensations during extended hold.'
             }
           ]
+        },
+        {
+          name: 'Heavy Kickback Pause',
+          duration: '18–20 min',
+          description: 'Loaded kickbacks with long peak holds',
+          battlePlan: '4 rounds\n• 8 Reps per leg (2s hold)\nRest 150s',
+          imageUrl: '',
+          intensityReason: 'Heavy paused kickbacks build peak glute strength',
+          moodTips: [
+            {
+              icon: 'timer',
+              title: 'Two-second squeeze',
+              description: 'Hold full extension deliberately.'
+            },
+            {
+              icon: 'shield',
+              title: 'Core braced',
+              description: 'Prevents lumbar takeover.'
+            },
+            {
+              icon: 'alert',
+              title: 'Unilateral fatigue expected',
+              description: 'One side may fail first.'
+            }
+          ]
+        },
+        {
+          name: 'Kickback Burnout Ladder',
+          duration: '18–20 min',
+          description: 'Descending ladder maximizing glute exhaustion',
+          battlePlan: '2–3 ladders\n• 15 → 12 → 10 Reps\nRest 150s',
+          imageUrl: '',
+          intensityReason: 'Ladder format accumulates maximum training volume',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'No rest between rungs',
+              description: 'Ladder keeps tension continuous.'
+            },
+            {
+              icon: 'resize',
+              title: 'Extension stays strong',
+              description: 'End set when range shortens.'
+            },
+            {
+              icon: 'timer',
+              title: 'Finish with long hold',
+              description: 'Final rep ends with 10s squeeze.'
+            }
+          ]
         }
       ]
     }
