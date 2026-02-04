@@ -898,7 +898,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Slow tempo extensions emphasizing controlled spinal motion',
           battlePlan: '3 rounds\n• 10 Back Extensions (3s eccentric)\nRest 60s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_ba98ecac-d9ff-4da8-8b26-c72f04702bfb/artifacts/ck79gna3_back%20ext.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_ba98ecac-d9ff-4da8-8b26-c72f04702bfb/artifacts/gafcn4c8_rc%20back%20ext%203.webp',
           intensityReason: 'Controlled tempo builds strength without excessive load',
           moodTips: [
             {
@@ -990,7 +990,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Paused reps reinforce control and mid-range strength',
           battlePlan: '4 rounds\n• 8 Back Extensions (2s pause)\nRest 75–90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_0b65e409-b210-4730-af62-16b022c37685/artifacts/8tyq8yxs_download%20%2810%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_ba98ecac-d9ff-4da8-8b26-c72f04702bfb/artifacts/gafcn4c8_rc%20back%20ext%203.webp',
           intensityReason: 'Paused reps eliminate momentum and build control',
           moodTips: [
             {
@@ -1107,7 +1107,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '18–20 min',
           description: 'Dynamic reps finished with a long isometric hold',
           battlePlan: '3 rounds\n• 10 Weighted Extensions\n• Immediately 30s Roman Chair Hold\nRest 120s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_0b65e409-b210-4730-af62-16b022c37685/artifacts/uud5nxsk_download%20%2811%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_ba98ecac-d9ff-4da8-8b26-c72f04702bfb/artifacts/gafcn4c8_rc%20back%20ext%203.webp',
           intensityReason: 'Combines dynamic movement with isometric endurance',
           moodTips: [
             {
