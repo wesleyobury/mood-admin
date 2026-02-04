@@ -51,8 +51,12 @@ const equipmentDatabase: MuscleGroupEquipment[] = [
     muscleGroup: 'Glutes',
     equipment: [
       { id: 'glute-kick-machine', name: 'Glute Kick Machine', icon: 'ellipse' },
+      { id: 'glute-kickback-machine', name: 'Glute Kickback Machine', icon: 'ellipse' },
+      { id: 'glutes-cable-machine', name: 'Glutes Cable Machine', icon: 'reorder-three' },
       { id: 'hip-abductor', name: 'Hip Abductor Machine', icon: 'resize' },
+      { id: 'hip-abductor-glutes', name: 'Hip Abductor Machine (Glutes)', icon: 'resize' },
       { id: 'hip-thruster', name: 'Hip Thruster Equipment', icon: 'fitness' },
+      { id: 'hip-thrust-glute-bridge', name: 'Hip Thrust / Glute Bridge Machine', icon: 'fitness' },
       { id: 'cable-machine', name: 'Single Stack Cable Machine', icon: 'link' },
     ]
   },
