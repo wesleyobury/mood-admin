@@ -230,7 +230,6 @@ export default function AdminExerciseLibrary() {
 
     try {
       setSaving(true);
-      const token = await SecureStore.getItemAsync('auth_token');
       
       const exerciseData = {
         name: formData.name.trim(),
