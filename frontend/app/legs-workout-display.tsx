@@ -653,7 +653,7 @@ export default function LegsWorkoutDisplayScreen() {
       />
 
       {/* Bottom Navigation Button - Only show when there are more muscles */}
-      {/* Bottom Navigation Button - Always show, either next muscle or finish */}\n        {/* Always show button */ true && (
+      {hasMoreMuscles && (
         <View style={styles.bottomButtonContainer}>
           <TouchableOpacity 
             style={styles.nextMuscleButton}

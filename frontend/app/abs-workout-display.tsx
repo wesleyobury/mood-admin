@@ -243,7 +243,7 @@ const AbsWorkoutDisplayScreen = memo(function AbsWorkoutDisplayScreen() {
         </ScrollView>
         
         {/* Continue Button - Only shows when there are more muscles */}
-        {/* Bottom Navigation Button - Always show, either next muscle or finish */}\n        {/* Always show button */ true && (
+        {hasMoreMuscles && (
           <View style={styles.continueButtonContainer}>
             <TouchableOpacity style={styles.continueButton} onPress={handleContinue}>
               <LinearGradient
