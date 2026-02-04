@@ -865,6 +865,17 @@ export default function AdminDashboard() {
             <Text style={styles.quickActionText}>Send Push Notification</Text>
             <Ionicons name="chevron-forward" size={18} color="#666" />
           </TouchableOpacity>
+          
+          <TouchableOpacity 
+            style={styles.quickActionButton}
+            onPress={() => router.push('/admin-exercise-library')}
+          >
+            <View style={styles.quickActionIcon}>
+              <Ionicons name="videocam" size={20} color="#FFD700" />
+            </View>
+            <Text style={styles.quickActionText}>Exercise Video Library</Text>
+            <Ionicons name="chevron-forward" size={18} color="#666" />
+          </TouchableOpacity>
         </View>
 
         {/* Key Metrics Section */}
