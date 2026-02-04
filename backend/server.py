@@ -7102,7 +7102,8 @@ async def list_featured_workouts(
 ):
     """List all featured workouts (admin only)"""
     user = await db.users.find_one({"_id": ObjectId(current_user_id)})
-    if not user or not user.get("is_admin"):
+    is_admin = user and user.get("username", "").lower() == "officialmoodapp"
+    if not is_admin:
         raise HTTPException(status_code=403, detail="Admin access required")
     
     workouts = await db.featured_workouts.find().sort("created_at", -1).to_list(100)
