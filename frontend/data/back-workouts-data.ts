@@ -178,6 +178,56 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
               description: 'Proper hip hinge pattern during good mornings.'
             }
           ]
+        },
+        {
+          name: 'Tempo Bent-Over Rows',
+          duration: '12–14 min',
+          description: 'Controlled barbell rows emphasizing strict tempo',
+          battlePlan: '3 rounds\n• 10 Bent-Over Rows (3s eccentric)\nRest 90s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_0b65e409-b210-4730-af62-16b022c37685/artifacts/x2wxwvpl_download%20%282%29.png',
+          intensityReason: 'Tempo work builds control and strength foundation',
+          moodTips: [
+            {
+              icon: 'construct',
+              title: 'Brace before pulling',
+              description: 'Lock core to protect spine.'
+            },
+            {
+              icon: 'timer',
+              title: 'Lower slow and steady',
+              description: '3s eccentric each rep.'
+            },
+            {
+              icon: 'body',
+              title: 'Back stays flat',
+              description: 'Think proud chest, neutral neck.'
+            }
+          ]
+        },
+        {
+          name: 'Pause Rows',
+          duration: '12–14 min',
+          description: 'Barbell rows with pauses at contraction',
+          battlePlan: '3 rounds\n• 8 Paused Bent-Over Rows\nRest 90s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/8q41tii0_download%20%281%29.png',
+          intensityReason: 'Paused reps reinforce form and peak contraction',
+          moodTips: [
+            {
+              icon: 'timer',
+              title: 'Pause every rep',
+              description: 'Hold bar against torso for 2s.'
+            },
+            {
+              icon: 'construct',
+              title: 'Reset between reps',
+              description: 'Dead stop removes momentum.'
+            },
+            {
+              icon: 'flash',
+              title: 'Feel mid-back squeeze',
+              description: 'Not arms, not hips.'
+            }
+          ]
         }
       ],
       intermediate: [
@@ -220,6 +270,56 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
               description: 'Reset form between exercises for safety and effectiveness.'
             }
           ]
+        },
+        {
+          name: 'Barbell Row Drop Set',
+          duration: '16–18 min',
+          description: 'Heavy rows extended using plate reductions',
+          battlePlan: '3 rounds\n• 6 Rows\n• Drop → 6\n• Drop → 6\nRest 150s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/5s4czjs3_download%20%283%29.png',
+          intensityReason: 'Drop sets extend time under tension beyond failure',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Drops are fast',
+              description: 'Strip plates immediately.'
+            },
+            {
+              icon: 'construct',
+              title: 'Moderate drops work best',
+              description: '~20% per reduction.'
+            },
+            {
+              icon: 'body',
+              title: 'Straps are allowed',
+              description: 'Grip shouldn\'t limit back loading.'
+            }
+          ]
+        },
+        {
+          name: 'Iso-Finish Rows',
+          duration: '16–18 min',
+          description: 'Rows finished with static bar holds',
+          battlePlan: '4 rounds\n• 8 Rows\n• Finish with 10s hold\nRest 120s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/a5y4znby_download%20%282%29.png',
+          intensityReason: 'Isometric finisher maximizes time under tension',
+          moodTips: [
+            {
+              icon: 'timer',
+              title: 'Hold at the top',
+              description: '10s contraction after last rep.'
+            },
+            {
+              icon: 'construct',
+              title: 'No torso lift',
+              description: 'Stay hinged, chest stable.'
+            },
+            {
+              icon: 'flash',
+              title: 'Peak form feels crushing',
+              description: 'Upper-back squeeze dominates.'
+            }
+          ]
         }
       ],
       advanced: [
@@ -260,6 +360,56 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
               icon: 'flash',
               title: 'Explode hips to drive bar fast',
               description: 'Hip drive generates power for explosive cleans.'
+            }
+          ]
+        },
+        {
+          name: 'Heavy Tempo Rows',
+          duration: '18–20 min',
+          description: 'Heavy barbell rows with long controlled eccentrics',
+          battlePlan: '4 rounds\n• 6 Rows (5s eccentric)\nRest 150s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_0b65e409-b210-4730-af62-16b022c37685/artifacts/x2wxwvpl_download%20%282%29.png',
+          intensityReason: 'Extended eccentrics maximize strength and hypertrophy',
+          moodTips: [
+            {
+              icon: 'construct',
+              title: 'Weight stays clean',
+              description: 'Reduce load if tempo breaks.'
+            },
+            {
+              icon: 'timer',
+              title: 'Explode up, crawl down',
+              description: '4–5s eccentric.'
+            },
+            {
+              icon: 'body',
+              title: 'Straps protect output',
+              description: 'Let back, not grip, fail.'
+            }
+          ]
+        },
+        {
+          name: 'Row Mechanical Drop',
+          duration: '20–22 min',
+          description: 'Grip-width changes to extend heavy sets',
+          battlePlan: '3 rounds\n• 6 Wide-Grip Rows\n• Immediately 6 Standard Rows\n• Immediately 6 Underhand Rows\nRest 150s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/hnesh89k_download.png',
+          intensityReason: 'Mechanical drops maximize volume and muscle fatigue',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Grip narrows as fatigue rises',
+              description: 'Mechanical advantage keeps reps moving.'
+            },
+            {
+              icon: 'construct',
+              title: 'Same bar, no reset',
+              description: 'Continuous tension.'
+            },
+            {
+              icon: 'body',
+              title: 'Chase lat density',
+              description: 'You should feel deep thickness building.'
             }
           ]
         }
