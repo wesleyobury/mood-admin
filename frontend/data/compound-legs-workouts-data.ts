@@ -143,7 +143,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Elevated front foot increases quad loading and depth',
           battlePlan: '4 rounds\n• 8 per leg Split Squats\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-media-fix/artifacts/mxfs858v_dbbss.jpg',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-content/artifacts/rvwet9i1_db%20elevated%20split%20squat.jpg',
           intensityReason: 'Front elevation deepens range of motion for quads',
           moodTips: [
             {
@@ -168,7 +168,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Squats extended using fast dumbbell weight drops',
           battlePlan: '3 rounds\n• 8 DB Squats\n• Drop → 8\n• Drop → 8\nRest 120s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-media-fix/artifacts/iq16b1nm_download.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-content/artifacts/p55uxvw3_db%20squat.jpg',
           intensityReason: 'Drop sets extend time under tension for maximum pump',
           moodTips: [
             {
