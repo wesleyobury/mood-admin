@@ -593,6 +593,31 @@ export const calvesWorkoutDatabase: EquipmentWorkouts[] = [
               description: 'Plyometric finish develops power and completes muscle fatigue.'
             }
           ]
+        },
+        {
+          name: 'Leg Press Calf Drop Set',
+          duration: '14–16 min',
+          description: 'Extended calf sets using rapid sled weight drops',
+          battlePlan: '3 rounds\n• 10 Raises\n• Drop → 15\n• Drop → 20\nRest 120s',
+          imageUrl: '',
+          intensityReason: 'Drop sets push calves to complete exhaustion',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Immediate sled unload',
+              description: 'Reduce resistance quickly.'
+            },
+            {
+              icon: 'resize',
+              title: 'Same ankle range',
+              description: 'Stretch stays consistent.'
+            },
+            {
+              icon: 'flame',
+              title: 'Expect deep burn',
+              description: 'Calves fatigue hard here.'
+            }
+          ]
         }
       ]
     }
