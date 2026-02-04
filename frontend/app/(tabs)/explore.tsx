@@ -934,23 +934,41 @@ export default function Explore() {
       <View style={[styles.header, { paddingTop: insets.top + 12 }]}>
         <Text style={styles.title}>Explore</Text>
         <View style={styles.headerActions}>
-          {/* Hide search for guests */}
+          {/* Search button */}
           {!isGuest && (
             <TouchableOpacity 
-              style={styles.searchButton}
+              style={styles.headerIconButton}
               onPress={() => setShowSearch(!showSearch)}
             >
-              <Ionicons name={showSearch ? "close" : "search"} size={24} color="#FFD700" />
+              <Ionicons name={showSearch ? "close" : "search"} size={22} color="#fff" />
             </TouchableOpacity>
           )}
-          {/* Hide create button for guests - they'll see prompt when tapping */}
+          {/* Notifications button */}
+          {!isGuest && (
+            <TouchableOpacity 
+              style={styles.headerIconButton}
+              onPress={() => setActiveTab('notifications')}
+            >
+              <Ionicons 
+                name={activeTab === 'notifications' ? 'notifications' : 'notifications-outline'} 
+                size={22} 
+                color="#fff" 
+              />
+              {unreadNotificationCount > 0 && activeTab !== 'notifications' && (
+                <View style={styles.headerNotificationBadge}>
+                  <Text style={styles.headerNotificationBadgeText}>
+                    {unreadNotificationCount > 99 ? '99+' : unreadNotificationCount}
+                  </Text>
+                </View>
+              )}
+            </TouchableOpacity>
+          )}
+          {/* Create post button */}
           <TouchableOpacity 
-            style={styles.createButton}
+            style={styles.headerIconButton}
             onPress={handleCreatePost}
           >
-            <View style={styles.createIconContainer}>
-              <Ionicons name="add" size={24} color="#000" />
-            </View>
+            <Ionicons name="add" size={24} color="#fff" />
           </TouchableOpacity>
         </View>
       </View>
