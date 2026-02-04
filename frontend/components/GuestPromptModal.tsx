@@ -186,16 +186,7 @@ export default function GuestPromptModal({ visible, onClose, action = 'use this 
               style={styles.signInButton}
               onPress={handleSignIn}
             >
-              <LinearGradient
-                colors={['#FFD700', '#FFA500']}
-                style={styles.signInBorder}
-                start={{ x: 0, y: 0 }}
-                end={{ x: 1, y: 0 }}
-              >
-                <View style={styles.signInInner}>
-                  <Text style={styles.signInText}>I already have an account</Text>
-                </View>
-              </LinearGradient>
+              <Text style={styles.signInText}>I already have an account</Text>
             </TouchableOpacity>
           </View>
 
