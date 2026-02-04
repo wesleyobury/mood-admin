@@ -111,6 +111,10 @@ export default function CreatePost() {
   // Transparent card ref for Instagram export
   const transparentCardRef = useRef(null);
   const [isExportingToInstagram, setIsExportingToInstagram] = useState(false);
+  
+  // Saved achievements state
+  const [savedAchievements, setSavedAchievements] = useState<any[]>([]);
+  const [loadingSavedAchievements, setLoadingSavedAchievements] = useState(false);
 
   // Legacy support - map selectedImages to selectedMedia
   const selectedImages = selectedMedia.map(m => m.uri);
