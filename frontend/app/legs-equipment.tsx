@@ -281,7 +281,7 @@ export default function LegsEquipmentScreen() {
         if (['dumbbells-compound', 'squat-rack-compound', 'leg-press-compound', 'hack-squat-compound', 'cable-machine-compound', 'trap-bar', 'pit-shark', 'smith-machine'].includes(eq.id)) {
           equipmentPerGroup.Compound.push(eq.name);
         }
-        if (['glute-kick-machine', 'hip-abductor', 'hip-thruster', 'cable-machine'].includes(eq.id)) {
+        if (['glute-kick-machine', 'glute-kickback-machine', 'glutes-cable-machine', 'hip-abductor', 'hip-abductor-glutes', 'hip-thruster', 'hip-thrust-glute-bridge', 'cable-machine'].includes(eq.id)) {
           equipmentPerGroup.Glutes.push(eq.name);
         }
         if (['barbell-ham', 'dumbbells', 'leg-curl', 'roman-chair'].includes(eq.id)) {
