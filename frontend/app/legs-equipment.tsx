@@ -40,11 +40,11 @@ const equipmentDatabase: MuscleGroupEquipment[] = [
       { id: 'dumbbells-compound', name: 'Dumbbells', icon: 'fitness' },
       { id: 'hack-squat-compound', name: 'Hack Squat Machine', icon: 'triangle' },
       { id: 'leg-press-compound', name: 'Leg Press Machine', icon: 'hardware-chip' },
+      { id: 'pit-shark', name: 'Pit Shark', icon: 'triangle-outline' },
       { id: 'cable-machine-compound', name: 'Single Stack Cable Machine', icon: 'link' },
+      { id: 'smith-machine', name: 'Smith Machine', icon: 'grid-outline' },
       { id: 'squat-rack-compound', name: 'Squat Rack', icon: 'barbell' },
       { id: 'trap-bar', name: 'Trap Bar', icon: 'remove' },
-      { id: 'pit-shark', name: 'Pit Shark', icon: 'triangle-outline' },
-      { id: 'smith-machine', name: 'Smith Machine', icon: 'grid-outline' },
     ]
   },
   {
