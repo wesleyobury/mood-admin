@@ -2356,7 +2356,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '16–18 min',
           description: 'Paused squats reinforcing bottom-end strength',
           battlePlan: '4 rounds\n• 5–6 Squats (2s pause)\nRest 150s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/gxoxkpbs_download%20%285%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-content/artifacts/le4l1rje_smith%20squat%202.png',
           intensityReason: 'Pauses build raw strength from weakest position',
           moodTips: [
             {
@@ -2381,7 +2381,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '18–20 min',
           description: 'Hinges extended with rapid load reductions',
           battlePlan: '3 rounds\n• 6 RDLs\n• Drop → 6\n• Drop → 6\nRest 150s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/gxoxkpbs_download%20%285%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-content/artifacts/6vr69tt8_smith%20rdl.webp',
           intensityReason: 'Drop sets maximize posterior chain fatigue',
           moodTips: [
             {
@@ -2406,7 +2406,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '18–20 min',
           description: 'High-rep finisher for total leg fatigue',
           battlePlan: '3 rounds\n• 20 Squats\nRest 180s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/gxoxkpbs_download%20%285%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-content/artifacts/le4l1rje_smith%20squat%202.png',
           intensityReason: 'High reps push legs to complete fatigue',
           moodTips: [
             {
