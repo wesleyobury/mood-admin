@@ -1180,7 +1180,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Controlled T-bar rows emphasizing slow negatives',
           battlePlan: '3 rounds\n• 12 Neutral Grip T-Bar Rows (3s eccentric)\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_0b65e409-b210-4730-af62-16b022c37685/artifacts/figwdo7y_download%20%2817%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_ba98ecac-d9ff-4da8-8b26-c72f04702bfb/artifacts/zwx4bge7_t%20bar%20row%202.png',
           intensityReason: 'Tempo work builds control and mind-muscle connection',
           moodTips: [
             {
@@ -1205,7 +1205,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Paused rows reinforcing contraction awareness',
           battlePlan: '3 rounds\n• 10 Wide Grip T-Bar Rows (2s pause)\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_0b65e409-b210-4730-af62-16b022c37685/artifacts/xdrugsxs_tr.jpg',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_ba98ecac-d9ff-4da8-8b26-c72f04702bfb/artifacts/64wlxchh_t%20bar%20row.webp',
           intensityReason: 'Paused reps reinforce peak contraction',
           moodTips: [
             {
@@ -1272,7 +1272,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Heavy rows extended with rapid load reductions',
           battlePlan: '3 rounds\n• 8 T-Bar Rows\n• Drop → 8 reps\n• Drop → 8 reps\nRest 120s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_0b65e409-b210-4730-af62-16b022c37685/artifacts/figwdo7y_download%20%2817%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_ba98ecac-d9ff-4da8-8b26-c72f04702bfb/artifacts/zwx4bge7_t%20bar%20row%202.png',
           intensityReason: 'Drop sets extend time under tension beyond failure',
           moodTips: [
             {
@@ -1297,7 +1297,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Standard rows finished with long isometric holds',
           battlePlan: '4 rounds\n• 8 T-Bar Rows\n• Finish with 10s hold\nRest 120s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_0b65e409-b210-4730-af62-16b022c37685/artifacts/xdrugsxs_tr.jpg',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_ba98ecac-d9ff-4da8-8b26-c72f04702bfb/artifacts/64wlxchh_t%20bar%20row.webp',
           intensityReason: 'Isometric finisher maximizes time under tension',
           moodTips: [
             {
@@ -1364,7 +1364,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '16–18 min',
           description: 'Heavy T-bar rows with long controlled eccentrics',
           battlePlan: '4 rounds\n• 6 T-Bar Rows (4s eccentric)\nRest 120s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_0b65e409-b210-4730-af62-16b022c37685/artifacts/figwdo7y_download%20%2817%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_ba98ecac-d9ff-4da8-8b26-c72f04702bfb/artifacts/zwx4bge7_t%20bar%20row%202.png',
           intensityReason: 'Extended eccentrics maximize strength and hypertrophy',
           moodTips: [
             {
@@ -1389,7 +1389,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '18–20 min',
           description: 'Extended triple-drop sets for maximal fatigue',
           battlePlan: '3 rounds\n• 6 Rows\n• Drop → 6\n• Drop → 6\n• Drop → 6\nRest 150s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_0b65e409-b210-4730-af62-16b022c37685/artifacts/xdrugsxs_tr.jpg',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_ba98ecac-d9ff-4da8-8b26-c72f04702bfb/artifacts/64wlxchh_t%20bar%20row.webp',
           intensityReason: 'Triple drops maximize muscle fatigue and pump',
           moodTips: [
             {
