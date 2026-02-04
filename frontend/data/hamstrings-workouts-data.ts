@@ -804,6 +804,56 @@ export const hamstringsWorkoutDatabase: EquipmentWorkouts[] = [
               description: 'Controlled eccentric maintains tension and prevents momentum.'
             }
           ]
+        },
+        {
+          name: '1½ Rep Leg Curl',
+          duration: '14–16 min',
+          description: 'Partial-plus-full reps extending hamstring time',
+          battlePlan: '4 rounds\n• 10 (1½-rep) Curls\nRest 90s',
+          imageUrl: '',
+          intensityReason: 'Extra half rep increases time under tension',
+          moodTips: [
+            {
+              icon: 'refresh',
+              title: 'Half rep at top',
+              description: 'Extra squeeze per rep.'
+            },
+            {
+              icon: 'construct',
+              title: 'Control descent',
+              description: 'No stack slam.'
+            },
+            {
+              icon: 'flash',
+              title: 'Hamstrings stay loaded',
+              description: 'Constant tension focus.'
+            }
+          ]
+        },
+        {
+          name: 'Leg Curl Drop Set',
+          duration: '14–16 min',
+          description: 'Extended curl sets using rapid load reductions',
+          battlePlan: '3 rounds\n• 10 Curls\n• Drop → 8\n• Drop → 8\nRest 120s',
+          imageUrl: '',
+          intensityReason: 'Drop sets extend fatigue for hypertrophy',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Immediate drops',
+              description: 'Reduce load ~25% quickly.'
+            },
+            {
+              icon: 'resize',
+              title: 'Same range',
+              description: 'No shortening reps.'
+            },
+            {
+              icon: 'flame',
+              title: 'Burn builds fast',
+              description: 'Fatigue is expected.'
+            }
+          ]
         }
       ],
       advanced: [
