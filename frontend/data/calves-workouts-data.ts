@@ -800,6 +800,31 @@ export const calvesWorkoutDatabase: EquipmentWorkouts[] = [
               description: 'Plyometric finish develops power and completes muscle fatigue.'
             }
           ]
+        },
+        {
+          name: 'Machine Calf Burnout Set',
+          duration: '14–16 min',
+          description: 'High-rep calf raises pushing muscular endurance',
+          battlePlan: '3 rounds\n• 25–30 Raises\nRest 120s',
+          imageUrl: '',
+          intensityReason: 'High-rep work maximizes calf endurance and pump',
+          moodTips: [
+            {
+              icon: 'barbell',
+              title: 'Moderate load only',
+              description: 'Enables long uninterrupted sets.'
+            },
+            {
+              icon: 'flash',
+              title: 'No rest at top',
+              description: 'Continuous tension focus.'
+            },
+            {
+              icon: 'flame',
+              title: 'Burn should peak late',
+              description: 'Finish set near true failure.'
+            }
+          ]
         }
       ]
     }
