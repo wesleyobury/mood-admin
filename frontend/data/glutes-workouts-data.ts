@@ -892,6 +892,56 @@ export const glutesWorkoutDatabase: EquipmentWorkouts[] = [
               description: 'Controlled movement ensures quality muscle activation.'
             }
           ]
+        },
+        {
+          name: 'Seated Abduction',
+          duration: '10–12 min',
+          description: 'Controlled abductions targeting outer glutes',
+          battlePlan: '3 rounds\n• 15 Abductions\nRest 60s',
+          imageUrl: '',
+          intensityReason: 'Seated position isolates glute medius effectively',
+          moodTips: [
+            {
+              icon: 'body',
+              title: 'Sit tall',
+              description: 'Upright posture improves targeting.'
+            },
+            {
+              icon: 'resize',
+              title: 'Even knee drive',
+              description: 'Both glutes fire equally.'
+            },
+            {
+              icon: 'arrow-back',
+              title: 'Slow return',
+              description: 'Maintains constant tension.'
+            }
+          ]
+        },
+        {
+          name: 'Abduction Hold Reps',
+          duration: '10–12 min',
+          description: 'Abductions with extended peak contractions',
+          battlePlan: '3 rounds\n• 12 Reps (2s hold)\nRest 75s',
+          imageUrl: '',
+          intensityReason: 'Isometric holds enhance mind-muscle connection',
+          moodTips: [
+            {
+              icon: 'timer',
+              title: 'Pause wide',
+              description: 'Hold end range deliberately.'
+            },
+            {
+              icon: 'construct',
+              title: 'Controlled closure',
+              description: 'Avoid snapping legs together.'
+            },
+            {
+              icon: 'pulse',
+              title: 'Steady breathing',
+              description: 'Keeps reps clean.'
+            }
+          ]
         }
       ],
       intermediate: [
