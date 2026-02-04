@@ -959,7 +959,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Machine-guided squat emphasizing depth and quad control',
           battlePlan: '3 rounds\n• 10–12 Hack Squats\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/k4t4lzbt_download.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-content/artifacts/8g0a1brc_hack%20squat%202.avif',
           intensityReason: 'Controlled tempo builds strength and joint awareness',
           moodTips: [
             {
@@ -984,7 +984,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Paused squats building strength out of the bottom',
           battlePlan: '3 rounds\n• 8–10 Hack Squats (2s pause)\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/ffi2msmn_hs.avif',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-content/artifacts/t0da41os_hack%20squat.avif',
           intensityReason: 'Pauses eliminate momentum for greater muscle activation',
           moodTips: [
             {
