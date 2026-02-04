@@ -6700,6 +6700,102 @@ class ExerciseCreate(BaseModel):
     video_url: str = ""
     cues: List[str] = []
     mistakes: Optional[List[str]] = []
+    muscle_group: Optional[str] = ""
+
+@api_router.get("/admin/exercises")
+async def get_all_exercises_admin(
+    current_user_id: str = Depends(get_current_user),
+    skip: int = 0,
+    limit: int = 200,
+    search: str = ""
+):
+    """Get all exercises for admin management (paginated)"""
+    # Check if user is admin
+    user = await db.users.find_one({"_id": ObjectId(current_user_id)})
+    if not user or not user.get("is_admin"):
+        raise HTTPException(status_code=403, detail="Admin access required")
+    
+    # Build query
+    query = {}
+    if search:
+        query["$or"] = [
+            {"name": {"$regex": search, "$options": "i"}},
+            {"muscle_group": {"$regex": search, "$options": "i"}},
+            {"equipment": {"$elemMatch": {"$regex": search, "$options": "i"}}}
+        ]
+    
+    # Get total count
+    total = await db.exercises.count_documents(query)
+    
+    # Get exercises
+    exercises = await db.exercises.find(query).sort("name", 1).skip(skip).limit(limit).to_list(limit)
+    
+    result = []
+    for ex in exercises:
+        result.append({
+            "_id": str(ex["_id"]),
+            "name": ex.get("name", ""),
+            "aliases": ex.get("aliases", []),
+            "equipment": ex.get("equipment", []),
+            "muscle_group": ex.get("muscle_group", ""),
+            "thumbnail_url": ex.get("thumbnail_url", ""),
+            "video_url": ex.get("video_url", ""),
+            "cues": ex.get("cues", []),
+            "mistakes": ex.get("mistakes", []),
+            "created_at": ex.get("created_at").isoformat() if ex.get("created_at") else None
+        })
+    
+    return {
+        "exercises": result,
+        "total": total,
+        "skip": skip,
+        "limit": limit
+    }
+
+@api_router.post("/admin/exercises/upload-video")
+async def upload_exercise_video(
+    file: UploadFile = File(...),
+    current_user_id: str = Depends(get_current_user)
+):
+    """Upload an exercise video to Cloudinary (admin only)"""
+    # Check if user is admin
+    user = await db.users.find_one({"_id": ObjectId(current_user_id)})
+    if not user or not user.get("is_admin"):
+        raise HTTPException(status_code=403, detail="Admin access required")
+    
+    try:
+        # Read file content
+        content = await file.read()
+        
+        # Generate a clean public_id from filename
+        import re
+        filename = file.filename or "exercise_video"
+        clean_name = re.sub(r'[^a-zA-Z0-9_-]', '_', filename.rsplit('.', 1)[0])
+        clean_name = re.sub(r'_+', '_', clean_name)[:80]
+        
+        public_id = f"exercise_library/{clean_name}"
+        
+        # Upload to Cloudinary
+        result = cloudinary.uploader.upload(
+            content,
+            public_id=public_id,
+            resource_type="video",
+            overwrite=True
+        )
+        
+        video_url = result.get("secure_url")
+        
+        # Generate thumbnail URL (frame at 2 seconds)
+        thumbnail_url = f"https://res.cloudinary.com/{os.environ.get('CLOUDINARY_CLOUD_NAME')}/video/upload/so_2.0,w_400,h_400,c_fill/{result['public_id']}.jpg"
+        
+        return {
+            "success": True,
+            "video_url": video_url,
+            "thumbnail_url": thumbnail_url,
+            "public_id": result["public_id"]
+        }
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Error uploading video: {str(e)}")
 
 @api_router.get("/exercises/search")
 async def search_exercises(
