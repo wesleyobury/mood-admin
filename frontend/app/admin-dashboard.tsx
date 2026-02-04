@@ -283,6 +283,20 @@ export default function AdminDashboard() {
   } | null>(null);
   const [showSessionCompletionModal, setShowSessionCompletionModal] = useState(false);
   
+  // Workout Engagement Chart state
+  const [workoutEngagementChart, setWorkoutEngagementChart] = useState<{
+    period: string;
+    days: number;
+    data: {
+      date: string;
+      try_clicks: number;
+      try_unique_users: number;
+      completions: number;
+      completion_unique_users: number;
+    }[];
+  } | null>(null);
+  const [engagementChartPeriod, setEngagementChartPeriod] = useState<'day' | 'week' | 'month'>('day');
+  
   // Chart period selection
   const [chartPeriod, setChartPeriod] = useState<'day' | 'week' | 'month'>('day');
   
