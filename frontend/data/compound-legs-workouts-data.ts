@@ -1062,6 +1062,31 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
               description: 'Fatigue confirms effective burnout.'
             }
           ]
+        },
+        {
+          name: 'Heavy Reverse Hack Squat',
+          duration: '16–18 min',
+          description: 'Heavy reverse hack squats for maximal leg loading',
+          battlePlan: '4 rounds\n• 5–6 Reverse Hack Squats\nRest 150s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-media-fix/artifacts/a9f6gtvn_rhs.jpg',
+          intensityReason: 'Heavy reverse loading maximizes leg strength',
+          moodTips: [
+            {
+              icon: 'shield',
+              title: 'Brace hard before unrack',
+              description: 'Reverse position still demands full core tension.'
+            },
+            {
+              icon: 'body',
+              title: 'Drive hips and knees together',
+              description: 'Smooth ascent prevents hip shoot-back.'
+            },
+            {
+              icon: 'people',
+              title: 'Spotter strongly recommended',
+              description: 'Heavy reverse hacks can stall without warning.'
+            }
+          ]
         }
       ]
     }
