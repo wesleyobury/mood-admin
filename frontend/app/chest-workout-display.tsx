@@ -283,8 +283,8 @@ const ChestWorkoutDisplayScreen = memo(function ChestWorkoutDisplayScreen() {
           })}
         </ScrollView>
         
-        {/* Continue Button - Shows when items in cart */}
-        {hasItemsInCart && (
+        {/* Continue Button - Only shows when there are more muscles */}
+        {hasMoreMuscles && (
           <View style={styles.continueButtonContainer}>
             <TouchableOpacity style={styles.continueButton} onPress={handleContinue}>
               <LinearGradient
@@ -294,7 +294,7 @@ const ChestWorkoutDisplayScreen = memo(function ChestWorkoutDisplayScreen() {
                 end={{ x: 1, y: 0 }}
               >
                 <Text style={styles.continueButtonText}>
-                  {hasMoreMuscles ? `Next: ${muscleQueue[0]?.displayName || muscleQueue[0]?.name}` : 'View Cart'}
+                  {`Next: ${muscleQueue[0]?.displayName || muscleQueue[0]?.name}`}
                 </Text>
                 <View style={styles.cartBadge}>
                   <Text style={styles.cartBadgeText}>{cartItems.length}</Text>
