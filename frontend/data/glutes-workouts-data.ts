@@ -529,15 +529,8 @@ export const glutesWorkoutDatabase: EquipmentWorkouts[] = [
         }
       ]
     }
-  },
-  {
-    equipment: 'Hip Thrust / Glute Bridge Machine',
-    icon: 'fitness',
-    workouts: {
-      beginner: [
-        {
-          name: 'Elevated Hip Thrust',
-          duration: '10–12 min',
+  }
+];
           description: 'Bench-elevated thrusts emphasizing full glute lockout',
           battlePlan: '3 rounds\n• 12 Hip Thrusts\nRest 75s',
           imageUrl: '',
