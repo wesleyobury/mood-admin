@@ -311,6 +311,31 @@ export const quadsWorkoutDatabase: EquipmentWorkouts[] = [
               description: 'Controlled movement prevents equipment damage and injury.'
             }
           ]
+        },
+        {
+          name: 'Drop Set Leg Extension',
+          duration: '16–18 min',
+          description: 'Extended quad isolation using fast weight drops',
+          battlePlan: '3 rounds\n• 8 Heavy Extensions\n• Drop → 10\n• Drop → 10\nRest 120s',
+          imageUrl: '',
+          intensityReason: 'Drop sets maximize quad fatigue and hypertrophy',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Immediate weight drops',
+              description: 'Reduce load 20–30% without resting.'
+            },
+            {
+              icon: 'timer',
+              title: 'Same rep tempo',
+              description: 'Lighter weight does not mean faster reps.'
+            },
+            {
+              icon: 'flame',
+              title: 'Chase quad pump',
+              description: 'Burn should peak above the knee.'
+            }
+          ]
         }
       ]
     }
