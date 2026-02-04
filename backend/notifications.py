@@ -460,7 +460,7 @@ class NotificationService:
                             error_msg = ticket.get("message", "Unknown error")
                             if "DeviceNotRegistered" in error_msg:
                                 await self.invalidate_token(tokens[i])
-                                logger.warning(f"Invalidated token: DeviceNotRegistered")
+                                logger.warning("Invalidated token: DeviceNotRegistered")
                             else:
                                 logger.error(f"Push error: {error_msg}")
                     
