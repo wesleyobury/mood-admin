@@ -290,6 +290,31 @@ export const hamstringsWorkoutDatabase: EquipmentWorkouts[] = [
               description: 'Hip drive with spine neutral maximizes safety and power.'
             }
           ]
+        },
+        {
+          name: 'Barbell Tempo Good Morning',
+          duration: '14–16 min',
+          description: 'Slow-eccentric good mornings for time under tension',
+          battlePlan: '4 rounds\n• 8 Good Mornings (3s eccentric)\nRest 120s',
+          imageUrl: '',
+          intensityReason: 'Tempo work maximizes hamstring time under tension',
+          moodTips: [
+            {
+              icon: 'timer',
+              title: 'Three-second descent',
+              description: 'Lengthens hamstrings under load.'
+            },
+            {
+              icon: 'body',
+              title: 'Neutral spine priority',
+              description: 'Back angle stays constant.'
+            },
+            {
+              icon: 'flash',
+              title: 'Drive hips through',
+              description: 'Glutes assist but hamstrings initiate.'
+            }
+          ]
         }
       ],
       advanced: [
