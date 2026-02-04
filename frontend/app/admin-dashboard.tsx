@@ -262,15 +262,6 @@ export default function AdminDashboard() {
   // Custom Workouts stats widget state
   const [customWorkoutsStats, setCustomWorkoutsStats] = useState<CustomWorkoutsStats | null>(null);
   
-  // Push Notification Admin state
-  const [showPushModal, setShowPushModal] = useState(false);
-  const [pushType, setPushType] = useState<'featured_workout' | 'featured_suggestion'>('featured_suggestion');
-  const [pushWorkoutName, setPushWorkoutName] = useState('');
-  const [pushWorkoutId, setPushWorkoutId] = useState('');
-  const [pushCustomCopy, setPushCustomCopy] = useState('');
-  const [pushSending, setPushSending] = useState(false);
-  const [copyLibrary, setCopyLibrary] = useState<string[]>([]);
-  
   // Try Workout Clicks widget state
   const [tryWorkoutStats, setTryWorkoutStats] = useState<{
     total_clicks: number;
