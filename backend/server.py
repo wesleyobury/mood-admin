@@ -5146,6 +5146,17 @@ async def create_comment(comment_data: CommentCreate, current_user_id: str = Dep
             {"$inc": {"comments_count": 1}}
         )
         
+        # Trigger comment notification
+        try:
+            notification_service = get_notification_service(db)
+            await notification_service.trigger_comment_notification(
+                commenter_id=current_user_id,
+                post_id=comment_data.post_id,
+                comment_text=comment_data.text
+            )
+        except Exception as e:
+            logger.error(f"Failed to send comment notification: {e}")
+        
         return {"message": "Comment created successfully", "id": str(result.inserted_id)}
     except HTTPException:
         raise
