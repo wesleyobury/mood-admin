@@ -2484,6 +2484,56 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
               description: 'Underhand grip engages biceps more for easier progression.'
             }
           ]
+        },
+        {
+          name: 'Neutral Grip Scap Pulls',
+          duration: '10–12 min',
+          description: 'Scapular pulls using neutral grip for control',
+          battlePlan: '3 rounds\n• 8–10 Neutral Grip Scap Pulls\nRest 60s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/ve6lcl2d_Screenshot%202025-12-05%20at%2011.11.07%E2%80%AFPM.png',
+          intensityReason: 'Scap pulls teach fundamental lat activation',
+          moodTips: [
+            {
+              icon: 'construct',
+              title: 'Neutral grip = safer start',
+              description: 'Reduces shoulder strain early.'
+            },
+            {
+              icon: 'body',
+              title: 'Move shoulders, not arms',
+              description: 'Elbows stay mostly straight.'
+            },
+            {
+              icon: 'flash',
+              title: 'Feel mid-back engage',
+              description: 'Activation should feel deep, not in biceps.'
+            }
+          ]
+        },
+        {
+          name: 'Assisted Neutral Pull-Ups (Tempo)',
+          duration: '10–12 min',
+          description: 'Assisted reps with slower lowering phase',
+          battlePlan: '3 rounds\n• 5 Assisted Neutral Pull-Ups (3s eccentric)\nRest 75s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/9ie9z8cd_chu.jpg',
+          intensityReason: 'Tempo work builds control and strength',
+          moodTips: [
+            {
+              icon: 'timer',
+              title: 'Slow on the way down',
+              description: 'Lower for 3 seconds each rep.'
+            },
+            {
+              icon: 'construct',
+              title: 'Minimal assistance',
+              description: 'Just enough help to stay strict.'
+            },
+            {
+              icon: 'flash',
+              title: 'Peak form = elbows to ribs',
+              description: 'Think pulling elbows down, not hands.'
+            }
+          ]
         }
       ],
       intermediate: [
@@ -2526,6 +2576,56 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
               description: 'Core tension maintains control during lateral movement.'
             }
           ]
+        },
+        {
+          name: 'Grip Switch Pull-Ups',
+          duration: '12–14 min',
+          description: 'Switching grips between sets for balanced loading',
+          battlePlan: '4 rounds\n• 6 Neutral Grip Pull-Ups\n• Next set: 6 Chin-Ups\nAlternate each round\nRest 90s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_0b65e409-b210-4730-af62-16b022c37685/artifacts/knkswnzw_download%20%284%29.png',
+          intensityReason: 'Grip switching targets different lat fibers',
+          moodTips: [
+            {
+              icon: 'construct',
+              title: 'One grip per set',
+              description: 'Don\'t change mid-set.'
+            },
+            {
+              icon: 'refresh',
+              title: 'Stay symmetrical',
+              description: 'Match reps across grips.'
+            },
+            {
+              icon: 'flash',
+              title: 'Notice grip-to-lat feel',
+              description: 'Different grips bias different lat fibers.'
+            }
+          ]
+        },
+        {
+          name: 'Commando Pause Pulls',
+          duration: '12–14 min',
+          description: 'Side-to-side pulls with controlled pauses',
+          battlePlan: '3 rounds\n• 6 Commando Pull-Ups (with 1s pause each side)\nRest 90s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/v94peb1z_Screenshot%202025-12-05%20at%2011.08.43%E2%80%AFPM.png',
+          intensityReason: 'Pauses increase time under tension unilaterally',
+          moodTips: [
+            {
+              icon: 'timer',
+              title: 'Pause each side',
+              description: '1s hold with chest to hand.'
+            },
+            {
+              icon: 'construct',
+              title: 'No torso twist',
+              description: 'Keep hips square.'
+            },
+            {
+              icon: 'flash',
+              title: 'Feel unilateral lat work',
+              description: 'One side should light up per rep.'
+            }
+          ]
         }
       ],
       advanced: [
@@ -2566,6 +2666,56 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
               icon: 'trending-up',
               title: 'Focus on pulling with one arm while the other provides minimal assistance.',
               description: 'Single-arm emphasis builds towards ultimate pulling strength.'
+            }
+          ]
+        },
+        {
+          name: 'Weighted Neutral Pull-Ups',
+          duration: '14–16 min',
+          description: 'Heavy neutral-grip pulls for lat thickness',
+          battlePlan: '4 rounds\n• 5 Weighted Neutral Pull-Ups\nRest 120s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_0b65e409-b210-4730-af62-16b022c37685/artifacts/knkswnzw_download%20%284%29.png',
+          intensityReason: 'Weighted work maximizes strength development',
+          moodTips: [
+            {
+              icon: 'construct',
+              title: 'Neutral allows heavier load',
+              description: 'Use this grip to push strength.'
+            },
+            {
+              icon: 'flash',
+              title: 'Stay explosive up',
+              description: 'Don\'t grind slow concentrics.'
+            },
+            {
+              icon: 'body',
+              title: 'Straps allowed if needed',
+              description: 'Keep lats as the limiter, not grip.'
+            }
+          ]
+        },
+        {
+          name: 'Archer Eccentrics',
+          duration: '16–18 min',
+          description: 'Archer pull-ups with slow unilateral negatives',
+          battlePlan: '3 rounds\n• 4 Archer Pull-Ups (slow eccentric each side)\nRest 120s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/yk99v1xl_archpu.jpg',
+          intensityReason: 'Extended eccentrics maximize unilateral strength',
+          moodTips: [
+            {
+              icon: 'timer',
+              title: 'Lower toward one arm',
+              description: 'Bias load to one side.'
+            },
+            {
+              icon: 'construct',
+              title: 'Control the descent',
+              description: '4–5s eccentric each rep.'
+            },
+            {
+              icon: 'flash',
+              title: 'Peak form is rigid',
+              description: 'Core tight, no swinging.'
             }
           ]
         }
