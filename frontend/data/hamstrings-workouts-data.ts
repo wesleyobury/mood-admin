@@ -672,6 +672,31 @@ export const hamstringsWorkoutDatabase: EquipmentWorkouts[] = [
               description: 'Hip stability prevents compensation and ensures proper targeting.'
             }
           ]
+        },
+        {
+          name: 'Extension + Pause',
+          duration: '14–16 min',
+          description: 'Extensions with pauses at stretched position',
+          battlePlan: '4 rounds\n• 8 Extensions (2s pause)\nRest 120s',
+          imageUrl: '',
+          intensityReason: 'Paused stretches strengthen hamstrings in lengthened position',
+          moodTips: [
+            {
+              icon: 'timer',
+              title: 'Pause near bottom',
+              description: 'Strengthens hamstrings long.'
+            },
+            {
+              icon: 'shield',
+              title: 'Stay braced',
+              description: 'No spinal collapse.'
+            },
+            {
+              icon: 'construct',
+              title: 'Controlled ascent',
+              description: 'Smooth return.'
+            }
+          ]
         }
       ],
       advanced: [
