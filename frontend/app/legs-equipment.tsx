@@ -470,14 +470,10 @@ export default function LegsEquipmentScreen() {
                   start={{ x: 0, y: 0 }}
                   end={{ x: 1, y: 1 }}
                 >
-                  <Text style={styles.progressStepNumberActive}>
-                    {selectedEquipment.length}
-                  </Text>
+                  <Ionicons name="fitness" size={14} color='#0c0c0c' />
                 </LinearGradient>
               ) : (
-                <Text style={styles.progressStepNumber}>
-                  {selectedEquipment.length}
-                </Text>
+                <Ionicons name="fitness" size={14} color='rgba(255, 255, 255, 0.5)' />
               )}
             </View>
             <Text style={styles.progressStepText}>
