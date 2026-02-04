@@ -1453,7 +1453,7 @@ export default function AdminDashboard() {
           )}
         </View>
 
-        {/* Try Workout Clicks Widget */}
+        {/* Try Workout Clicks Widget with Chart */}
         <View style={styles.section}>
           <View style={styles.sectionHeader}>
             <Text style={styles.sectionTitle}>Try This Workout (Explore)</Text>
@@ -1474,29 +1474,121 @@ export default function AdminDashboard() {
             </View>
             
             <View style={styles.customWorkoutsStatCard}>
+              <View style={[styles.customWorkoutsIcon, { backgroundColor: 'rgba(255, 87, 34, 0.2)' }]}>
+                <Ionicons name="checkmark-done-circle" size={20} color="#FF5722" />
+              </View>
+              <Text style={styles.customWorkoutsStatValue}>{sessionCompletionStats?.total_completions || 0}</Text>
+              <Text style={styles.customWorkoutsStatLabel}>Completions</Text>
+            </View>
+            
+            <View style={styles.customWorkoutsStatCard}>
               <View style={[styles.customWorkoutsIcon, { backgroundColor: 'rgba(33, 150, 243, 0.2)' }]}>
                 <Ionicons name="people" size={20} color="#2196F3" />
               </View>
               <Text style={styles.customWorkoutsStatValue}>{tryWorkoutStats?.unique_users || 0}</Text>
               <Text style={styles.customWorkoutsStatLabel}>Unique Users</Text>
             </View>
-            
-            <View style={styles.customWorkoutsStatCard}>
-              <View style={[styles.customWorkoutsIcon, { backgroundColor: 'rgba(255, 193, 7, 0.2)' }]}>
-                <Ionicons name="today" size={20} color="#FFC107" />
-              </View>
-              <Text style={styles.customWorkoutsStatValue}>{tryWorkoutStats?.today_clicks || 0}</Text>
-              <Text style={styles.customWorkoutsStatLabel}>Today</Text>
-            </View>
-            
-            <View style={styles.customWorkoutsStatCard}>
-              <View style={[styles.customWorkoutsIcon, { backgroundColor: 'rgba(156, 39, 176, 0.2)' }]}>
-                <Ionicons name="calendar" size={20} color="#9C27B0" />
-              </View>
-              <Text style={styles.customWorkoutsStatValue}>{tryWorkoutStats?.this_week_clicks || 0}</Text>
-              <Text style={styles.customWorkoutsStatLabel}>This Week</Text>
-            </View>
           </View>
+          
+          {/* Chart Period Selector */}
+          <View style={styles.chartPeriodSelector}>
+            <Text style={styles.chartPeriodLabel}>View by:</Text>
+            {(['day', 'week', 'month'] as const).map((period) => (
+              <TouchableOpacity
+                key={period}
+                style={[
+                  styles.chartPeriodButton,
+                  engagementChartPeriod === period && styles.chartPeriodButtonActive
+                ]}
+                onPress={() => setEngagementChartPeriod(period)}
+              >
+                <Text style={[
+                  styles.chartPeriodButtonText,
+                  engagementChartPeriod === period && styles.chartPeriodButtonTextActive
+                ]}>
+                  {period.charAt(0).toUpperCase() + period.slice(1)}
+                </Text>
+              </TouchableOpacity>
+            ))}
+          </View>
+          
+          {/* Line Chart */}
+          {workoutEngagementChart && workoutEngagementChart.data.length > 0 ? (
+            <View style={styles.engagementChartContainer}>
+              {/* Chart Legend */}
+              <View style={styles.chartLegend}>
+                <View style={styles.chartLegendItem}>
+                  <View style={[styles.chartLegendDot, { backgroundColor: '#4CAF50' }]} />
+                  <Text style={styles.chartLegendText}>Clicks</Text>
+                </View>
+                <View style={styles.chartLegendItem}>
+                  <View style={[styles.chartLegendDot, { backgroundColor: '#FF5722' }]} />
+                  <Text style={styles.chartLegendText}>Completions</Text>
+                </View>
+                <View style={styles.chartLegendItem}>
+                  <View style={[styles.chartLegendDot, { backgroundColor: '#2196F3' }]} />
+                  <Text style={styles.chartLegendText}>Unique Users</Text>
+                </View>
+              </View>
+              
+              {/* Simple Bar Chart Visualization */}
+              <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.chartScrollView}>
+                <View style={styles.chartBarsContainer}>
+                  {workoutEngagementChart.data.map((item, index) => {
+                    const maxValue = Math.max(
+                      ...workoutEngagementChart.data.map(d => Math.max(d.try_clicks, d.completions, d.try_unique_users))
+                    ) || 1;
+                    return (
+                      <View key={index} style={styles.chartBarGroup}>
+                        <View style={styles.chartBarsRow}>
+                          <View 
+                            style={[
+                              styles.chartBar, 
+                              { 
+                                height: Math.max(4, (item.try_clicks / maxValue) * 80),
+                                backgroundColor: '#4CAF50' 
+                              }
+                            ]} 
+                          />
+                          <View 
+                            style={[
+                              styles.chartBar, 
+                              { 
+                                height: Math.max(4, (item.completions / maxValue) * 80),
+                                backgroundColor: '#FF5722' 
+                              }
+                            ]} 
+                          />
+                          <View 
+                            style={[
+                              styles.chartBar, 
+                              { 
+                                height: Math.max(4, (item.try_unique_users / maxValue) * 80),
+                                backgroundColor: '#2196F3' 
+                              }
+                            ]} 
+                          />
+                        </View>
+                        <Text style={styles.chartBarLabel} numberOfLines={1}>
+                          {engagementChartPeriod === 'day' 
+                            ? item.date.slice(5) // Show MM-DD
+                            : engagementChartPeriod === 'week'
+                            ? item.date.slice(5) // Show W##
+                            : item.date.slice(2) // Show YY-MM
+                          }
+                        </Text>
+                      </View>
+                    );
+                  })}
+                </View>
+              </ScrollView>
+            </View>
+          ) : (
+            <View style={styles.noChartData}>
+              <Ionicons name="bar-chart-outline" size={40} color="rgba(255, 255, 255, 0.3)" />
+              <Text style={styles.noChartDataText}>No chart data available yet</Text>
+            </View>
+          )}
         </View>
 
         {/* Workout Session Completions Widget */}
@@ -1528,6 +1620,27 @@ export default function AdminDashboard() {
             </View>
             
             <View style={styles.customWorkoutsStatCard}>
+              <View style={[styles.customWorkoutsIcon, { backgroundColor: 'rgba(139, 195, 74, 0.2)' }]}>
+                <Ionicons name="today" size={20} color="#8BC34A" />
+              </View>
+              <Text style={styles.customWorkoutsStatValue}>{sessionCompletionStats?.today_completions || 0}</Text>
+              <Text style={styles.customWorkoutsStatLabel}>Today</Text>
+            </View>
+            
+            <View style={styles.customWorkoutsStatCard}>
+              <View style={[styles.customWorkoutsIcon, { backgroundColor: 'rgba(103, 58, 183, 0.2)' }]}>
+                <Ionicons name="time" size={20} color="#673AB7" />
+              </View>
+              <Text style={styles.customWorkoutsStatValue}>
+                {sessionCompletionStats?.avg_duration_seconds 
+                  ? Math.round(sessionCompletionStats.avg_duration_seconds / 60) + 'm'
+                  : '0m'
+                }
+              </Text>
+              <Text style={styles.customWorkoutsStatLabel}>Avg Duration</Text>
+            </View>
+          </View>
+        </View>>
               <View style={[styles.customWorkoutsIcon, { backgroundColor: 'rgba(139, 195, 74, 0.2)' }]}>
                 <Ionicons name="today" size={20} color="#8BC34A" />
               </View>
