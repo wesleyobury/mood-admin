@@ -301,7 +301,7 @@ const WorkoutCard = React.memo(({
           setCustomModalVisible(false);
           setSelectedWorkoutForEdit(null);
         }}
-        imageUrl={selectedWorkoutForEdit?.imageUrl || workouts[currentWorkoutIndex]?.imageUrl || ''}
+        imageUrl={selectedWorkoutForEdit?.imageUrl || shuffledWorkouts[currentWorkoutIndex]?.imageUrl || ''}
         equipment={equipment}
         difficulty={difficulty}
         defaultWorkoutName={selectedWorkoutForEdit?.name || ''}
