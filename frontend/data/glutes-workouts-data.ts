@@ -333,7 +333,7 @@ export const glutesWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Bench-elevated thrusts emphasizing full glute lockout',
           battlePlan: '3 rounds\n• 12 Hip Thrusts\nRest 75s',
-          imageUrl: '',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_96d95d8c-bd6e-49a5-a6af-694c8a8f5c04/artifacts/mr69uwpz_bb%20hip%20thrust.webp',
           intensityReason: 'Elevated position teaches proper hip extension mechanics',
           moodTips: [
             {
@@ -358,7 +358,7 @@ export const glutesWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Short-range pulses maintaining constant glute tension',
           battlePlan: '3 rounds\n• 15 Pulse Thrusts\nRest 75s',
-          imageUrl: '',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_96d95d8c-bd6e-49a5-a6af-694c8a8f5c04/artifacts/60kuhstx_hip%20thrust.webp',
           intensityReason: 'Continuous tension builds glute endurance and activation',
           moodTips: [
             {
@@ -616,7 +616,7 @@ export const glutesWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Straight-path kickbacks building glute control',
           battlePlan: '3 rounds\n• 12 Kickbacks per leg\nRest 60s',
-          imageUrl: '',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_96d95d8c-bd6e-49a5-a6af-694c8a8f5c04/artifacts/haz45wxi_glute%20kickback%202.png',
           intensityReason: 'Machine-guided movement teaches proper kickback form',
           moodTips: [
             {
@@ -641,7 +641,7 @@ export const glutesWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Short-range pulses keeping glutes loaded',
           battlePlan: '3 rounds\n• 15 Pulses per leg\nRest 75s',
-          imageUrl: '',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_96d95d8c-bd6e-49a5-a6af-694c8a8f5c04/artifacts/nyipzbcv_glute%20kickback.webp',
           intensityReason: 'Continuous tension builds glute endurance',
           moodTips: [
             {
