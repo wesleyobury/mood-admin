@@ -1076,6 +1076,56 @@ export const glutesWorkoutDatabase: EquipmentWorkouts[] = [
               description: 'Immediate transition maintains fatigue and training intensity.'
             }
           ]
+        },
+        {
+          name: 'Abduction Burnout Holds',
+          duration: '18–20 min',
+          description: 'High-tension abductions finished with long holds',
+          battlePlan: '3 rounds\n• 15 Reps + 20s Hold\nRest 150s',
+          imageUrl: '',
+          intensityReason: 'Combined reps and holds maximize glute medius fatigue',
+          moodTips: [
+            {
+              icon: 'resize',
+              title: 'Max spread hold',
+              description: 'Knees pushed wide under fatigue.'
+            },
+            {
+              icon: 'pulse',
+              title: 'Micro pulses only',
+              description: 'Tiny movements maintain tension.'
+            },
+            {
+              icon: 'flame',
+              title: 'Expect deep burn',
+              description: 'Glute med failure is goal.'
+            }
+          ]
+        },
+        {
+          name: 'Triple Drop Abduction',
+          duration: '18–20 min',
+          description: 'Multi-drop abductions for full exhaustion',
+          battlePlan: '2–3 rounds\n• 12 → 10 → 8 → 8\nRest 150s',
+          imageUrl: '',
+          intensityReason: 'Triple drops ensure complete muscle fiber recruitment',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Three drops straight',
+              description: 'Strip load without rest.'
+            },
+            {
+              icon: 'body',
+              title: 'Posture unchanged',
+              description: 'Upright torso always.'
+            },
+            {
+              icon: 'checkmark',
+              title: 'End when range shortens',
+              description: 'Quality over force.'
+            }
+          ]
         }
       ]
     }
