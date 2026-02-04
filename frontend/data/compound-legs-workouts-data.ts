@@ -334,7 +334,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Beginner hinge teaches depth and hamstring control with barbell.',
           battlePlan: '3 rounds\n• 8-10 rack rdls\nRest 75-90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/cj6gx8ak_download%20%286%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-content/artifacts/5q9lqk7k_bb%20rdl.png',
           intensityReason: 'Barbell hinge pattern develops glutes + hams.',
           moodTips: [
             {
@@ -354,7 +354,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Box-guided squats reinforcing depth and control',
           battlePlan: '3 rounds\n• 8–10 Box Back Squats\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/gxoxkpbs_download%20%285%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-content/artifacts/wwl8m04q_back%20squat.jpg',
           intensityReason: 'Box squat builds consistent depth and confidence',
           moodTips: [
             {
@@ -379,7 +379,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Slow eccentric squats building confidence and control',
           battlePlan: '3 rounds\n• 8 Back Squats (3s eccentric)\nRest 120s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/gxoxkpbs_download%20%285%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-content/artifacts/xfs748m6_bb%20back%20squat%202.png',
           intensityReason: 'Tempo work increases time under tension',
           moodTips: [
             {
