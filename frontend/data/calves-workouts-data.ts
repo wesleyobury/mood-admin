@@ -733,6 +733,31 @@ export const calvesWorkoutDatabase: EquipmentWorkouts[] = [
               description: 'High-rep finisher extends training beyond machine limit.'
             }
           ]
+        },
+        {
+          name: 'Pause Machine Calf Raise',
+          duration: '10–12 min',
+          description: 'Paused raises reinforcing peak calf contraction',
+          battlePlan: '4 rounds\n• 12 Raises (2s pause)\nRest 75s',
+          imageUrl: '',
+          intensityReason: 'Paused contractions maximize peak tension',
+          moodTips: [
+            {
+              icon: 'timer',
+              title: 'Two-second top hold',
+              description: 'Maximizes shortened position tension.'
+            },
+            {
+              icon: 'construct',
+              title: 'No knee lockout bounce',
+              description: 'Keeps calves loaded.'
+            },
+            {
+              icon: 'pulse',
+              title: 'Smooth breathing',
+              description: 'Helps sustain long sets.'
+            }
+          ]
         }
       ],
       advanced: [
