@@ -1580,6 +1580,138 @@ async def get_difficulties_breakdown_endpoint(
     return await get_difficulty_selections_breakdown(db, days)
 
 
+@api_router.get("/analytics/admin/try-workout-stats")
+async def get_try_workout_stats(
+    days: int = 30,
+    current_user_id: str = Depends(get_current_user)
+):
+    """Get stats for 'Try this workout' / 'Start Workout' button clicks"""
+    try:
+        cutoff_date = datetime.now(timezone.utc) - timedelta(days=days) if days > 0 else None
+        today_start = datetime.now(timezone.utc).replace(hour=0, minute=0, second=0, microsecond=0)
+        week_start = today_start - timedelta(days=7)
+        
+        # Build base query for try_workout_clicked events
+        base_query = {"event_type": "try_workout_clicked"}
+        if cutoff_date:
+            base_query["timestamp"] = {"$gte": cutoff_date}
+        
+        # Total clicks
+        total_clicks = await db.user_events.count_documents(base_query)
+        
+        # Unique users
+        unique_users_pipeline = [
+            {"$match": base_query},
+            {"$group": {"_id": "$user_id"}},
+            {"$count": "count"}
+        ]
+        unique_result = await db.user_events.aggregate(unique_users_pipeline).to_list(1)
+        unique_users = unique_result[0]["count"] if unique_result else 0
+        
+        # Today's clicks
+        today_query = {**base_query, "timestamp": {"$gte": today_start}}
+        today_clicks = await db.user_events.count_documents(today_query)
+        
+        # This week's clicks
+        week_query = {**base_query, "timestamp": {"$gte": week_start}}
+        this_week_clicks = await db.user_events.count_documents(week_query)
+        
+        # By source breakdown
+        by_source_pipeline = [
+            {"$match": base_query},
+            {"$group": {
+                "_id": "$metadata.source",
+                "clicks": {"$sum": 1}
+            }},
+            {"$sort": {"clicks": -1}}
+        ]
+        by_source_result = await db.user_events.aggregate(by_source_pipeline).to_list(10)
+        by_source = [{"source": item["_id"] or "unknown", "clicks": item["clicks"]} for item in by_source_result]
+        
+        return {
+            "total_clicks": total_clicks,
+            "unique_users": unique_users,
+            "today_clicks": today_clicks,
+            "this_week_clicks": this_week_clicks,
+            "by_source": by_source
+        }
+    except Exception as e:
+        logger.error(f"Error fetching try workout stats: {str(e)}")
+        raise HTTPException(status_code=500, detail="Failed to fetch try workout stats")
+
+
+@api_router.get("/analytics/admin/session-completion-stats")
+async def get_session_completion_stats(
+    days: int = 30,
+    current_user_id: str = Depends(get_current_user)
+):
+    """Get stats for workout session completions"""
+    try:
+        cutoff_date = datetime.now(timezone.utc) - timedelta(days=days) if days > 0 else None
+        today_start = datetime.now(timezone.utc).replace(hour=0, minute=0, second=0, microsecond=0)
+        week_start = today_start - timedelta(days=7)
+        
+        # Build base query for workout_session_completed events
+        base_query = {"event_type": "workout_session_completed"}
+        if cutoff_date:
+            base_query["timestamp"] = {"$gte": cutoff_date}
+        
+        # Total completions
+        total_completions = await db.user_events.count_documents(base_query)
+        
+        # Unique users
+        unique_users_pipeline = [
+            {"$match": base_query},
+            {"$group": {"_id": "$user_id"}},
+            {"$count": "count"}
+        ]
+        unique_result = await db.user_events.aggregate(unique_users_pipeline).to_list(1)
+        unique_users = unique_result[0]["count"] if unique_result else 0
+        
+        # Today's completions
+        today_query = {**base_query, "timestamp": {"$gte": today_start}}
+        today_completions = await db.user_events.count_documents(today_query)
+        
+        # This week's completions
+        week_query = {**base_query, "timestamp": {"$gte": week_start}}
+        this_week_completions = await db.user_events.count_documents(week_query)
+        
+        # Average duration
+        avg_duration_pipeline = [
+            {"$match": base_query},
+            {"$group": {
+                "_id": None,
+                "avg_duration": {"$avg": "$metadata.duration_seconds"}
+            }}
+        ]
+        avg_result = await db.user_events.aggregate(avg_duration_pipeline).to_list(1)
+        avg_duration_seconds = avg_result[0]["avg_duration"] if avg_result and avg_result[0]["avg_duration"] else 0
+        
+        # By difficulty breakdown
+        by_difficulty_pipeline = [
+            {"$match": base_query},
+            {"$group": {
+                "_id": "$metadata.difficulty",
+                "completions": {"$sum": 1}
+            }},
+            {"$sort": {"completions": -1}}
+        ]
+        by_difficulty_result = await db.user_events.aggregate(by_difficulty_pipeline).to_list(10)
+        by_difficulty = [{"difficulty": item["_id"] or "unknown", "completions": item["completions"]} for item in by_difficulty_result]
+        
+        return {
+            "total_completions": total_completions,
+            "unique_users": unique_users,
+            "today_completions": today_completions,
+            "this_week_completions": this_week_completions,
+            "avg_duration_seconds": avg_duration_seconds,
+            "by_difficulty": by_difficulty
+        }
+    except Exception as e:
+        logger.error(f"Error fetching session completion stats: {str(e)}")
+        raise HTTPException(status_code=500, detail="Failed to fetch session completion stats")
+
+
 # ============================================
 # ADMIN CONTENT MODERATION ENDPOINTS
 # ============================================
