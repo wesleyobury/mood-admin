@@ -412,6 +412,32 @@ export default function AdminDashboard() {
         console.log('Custom Workouts stats fetch error:', cwError);
       }
       
+      // Fetch Try Workout Clicks stats
+      try {
+        const tryWorkoutRes = await fetch(
+          `${API_URL}/api/analytics/admin/try-workout-stats?days=${selectedPeriod}`,
+          { headers: { 'Authorization': `Bearer ${token}` } }
+        );
+        if (tryWorkoutRes.ok) {
+          setTryWorkoutStats(await tryWorkoutRes.json());
+        }
+      } catch (twError) {
+        console.log('Try Workout stats fetch error:', twError);
+      }
+      
+      // Fetch Session Completion stats
+      try {
+        const sessionCompletionRes = await fetch(
+          `${API_URL}/api/analytics/admin/session-completion-stats?days=${selectedPeriod}`,
+          { headers: { 'Authorization': `Bearer ${token}` } }
+        );
+        if (sessionCompletionRes.ok) {
+          setSessionCompletionStats(await sessionCompletionRes.json());
+        }
+      } catch (scError) {
+        console.log('Session Completion stats fetch error:', scError);
+      }
+      
     } catch (error) {
       console.error('Error fetching dashboard data:', error);
     } finally {
