@@ -295,7 +295,6 @@ export default function AdminDashboard() {
       completion_unique_users: number;
     }[];
   } | null>(null);
-  const [engagementChartPeriod, setEngagementChartPeriod] = useState<'day' | 'week' | 'month'>('day');
   
   // Heartbeat interval
   const heartbeatRef = useRef<NodeJS.Timeout | null>(null);
