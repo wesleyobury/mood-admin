@@ -24,7 +24,7 @@ import { useAuth } from '../../contexts/AuthContext';
 import { useCart, WorkoutItem } from '../../contexts/CartContext';
 import MediaCarousel from '../../components/MediaCarousel';
 import CommentsBottomSheet from '../../components/CommentsBottomSheet';
-import { Analytics } from '../../utils/analytics';
+import { Analytics, GuestAnalytics } from '../../utils/analytics';
 import { useScreenTime } from '../../hooks/useScreenTime';
 import { PostSkeleton } from '../../components/Skeleton';
 import GuestPromptModal from '../../components/GuestPromptModal';
