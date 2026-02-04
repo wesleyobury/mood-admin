@@ -178,7 +178,7 @@ export default function Explore() {
       Animated.sequence([
         Animated.timing(shimmerAnim, {
           toValue: 1,
-          duration: 1500,
+          duration: 3000,
           useNativeDriver: true,
         }),
         Animated.timing(shimmerAnim, {
