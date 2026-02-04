@@ -340,7 +340,7 @@ export default function LegsEquipmentScreen() {
   const isQuadsSelected = muscleGroupNames.includes('Quads');
   const isCalvesSelected = muscleGroupNames.includes('Calfs');
   const hasCompoundEquipment = selectedEquipment.some(eq => 
-    ['dumbbells-compound', 'squat-rack-compound', 'leg-press-compound', 'hack-squat-compound', 'cable-machine-compound', 'trap-bar'].includes(eq.id)
+    ['dumbbells-compound', 'squat-rack-compound', 'leg-press-compound', 'hack-squat-compound', 'cable-machine-compound', 'trap-bar', 'pit-shark', 'smith-machine'].includes(eq.id)
   );
   const hasGlutesEquipment = selectedEquipment.some(eq => 
     ['glute-kick-machine', 'hip-abductor', 'hip-thruster', 'cable-machine'].includes(eq.id)
