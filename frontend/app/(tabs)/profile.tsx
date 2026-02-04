@@ -747,16 +747,7 @@ export default function Profile() {
           </TouchableOpacity>
           
           <TouchableOpacity style={styles.guestSignInButton} onPress={handleGuestSignIn}>
-            <LinearGradient
-              colors={['#FFD700', '#FFA500']}
-              style={styles.guestSignInBorder}
-              start={{ x: 0, y: 0 }}
-              end={{ x: 1, y: 0 }}
-            >
-              <View style={styles.guestSignInInner}>
-                <Text style={styles.guestSignInButtonText}>I already have an account</Text>
-              </View>
-            </LinearGradient>
+            <Text style={styles.guestSignInButtonText}>I already have an account</Text>
           </TouchableOpacity>
 
           {/* Legal Links */}
