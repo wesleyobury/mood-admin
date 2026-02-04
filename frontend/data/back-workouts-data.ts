@@ -2,8 +2,8 @@ import { EquipmentWorkouts } from '../types/workout';
 
 export const backWorkoutDatabase: EquipmentWorkouts[] = [
   {
-    equipment: 'Adjustable bench',
-    icon: 'trending-up-outline',
+    equipment: 'Dumbbells',
+    icon: 'fitness-outline',
     workouts: {
       beginner: [
         {
@@ -43,6 +43,56 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
               icon: 'construct',
               title: 'Keep forehead against pad for no neck strain.',
               description: 'Pad contact maintains neutral neck alignment throughout movement.'
+            }
+          ]
+        },
+        {
+          name: 'Supported One-Arm Rows',
+          duration: '12–14 min',
+          description: 'Bench-supported rows to learn clean pulling mechanics',
+          battlePlan: '3 rounds\n• 10 Single-Arm DB Rows (each side)\nRest 60s per side',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_0b65e409-b210-4730-af62-16b022c37685/artifacts/q6jestgn_download.png',
+          intensityReason: 'Supported setup teaches proper mechanics',
+          moodTips: [
+            {
+              icon: 'construct',
+              title: 'Support removes cheating',
+              description: 'Knee and hand on bench keep spine neutral.'
+            },
+            {
+              icon: 'flash',
+              title: 'Pull with the elbow',
+              description: 'Elbow drives past ribs, not dumbbell toward shoulder.'
+            },
+            {
+              icon: 'body',
+              title: 'Feel the lat stretch',
+              description: 'Let shoulder protract slightly at the bottom.'
+            }
+          ]
+        },
+        {
+          name: 'Chest-Supported Dumbbell Rows',
+          duration: '12–14 min',
+          description: 'Prone rows emphasizing mid-back control',
+          battlePlan: '3 rounds\n• 12 Chest-Supported DB Rows\nRest 75s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/928yql53_download%20%2822%29.png',
+          intensityReason: 'Chest support isolates mid-back muscles',
+          moodTips: [
+            {
+              icon: 'construct',
+              title: 'Chest stays glued',
+              description: 'No torso lift or momentum.'
+            },
+            {
+              icon: 'timer',
+              title: 'Pause at the squeeze',
+              description: '1–2s hold reinforces contraction.'
+            },
+            {
+              icon: 'flash',
+              title: 'Think shoulder blades first',
+              description: 'Arms follow scapular movement.'
             }
           ]
         }
@@ -87,6 +137,56 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
               description: 'Controlled tempo with depressed shoulders isolates target muscles.'
             }
           ]
+        },
+        {
+          name: 'Paused Dumbbell Rows',
+          duration: '14–16 min',
+          description: 'One-arm rows with extended peak contraction',
+          battlePlan: '4 rounds\n• 8 DB Rows (2s pause, each side)\nRest 75–90s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_0b65e409-b210-4730-af62-16b022c37685/artifacts/q6jestgn_download.png',
+          intensityReason: 'Paused reps maximize peak contraction time',
+          moodTips: [
+            {
+              icon: 'timer',
+              title: 'Pause every rep',
+              description: 'Hold 2s at the top.'
+            },
+            {
+              icon: 'construct',
+              title: 'No torso rotation',
+              description: 'Hips and shoulders stay square.'
+            },
+            {
+              icon: 'flash',
+              title: 'Peak form feels tight',
+              description: 'Lat and mid-back should cramp slightly.'
+            }
+          ]
+        },
+        {
+          name: 'Dumbbell Row Drop Set',
+          duration: '14–16 min',
+          description: 'Heavy rows extended using fast weight drops',
+          battlePlan: '3 rounds\n• 8 DB Rows\n• Drop → 8\n• Drop → 8\nRest 120s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/k5agvaci_download%20%2823%29.png',
+          intensityReason: 'Drop sets extend time under tension beyond failure',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Drops are immediate',
+              description: 'Reduce weight fast, no rest.'
+            },
+            {
+              icon: 'construct',
+              title: 'Drop size stays clean',
+              description: '~20–30% each drop.'
+            },
+            {
+              icon: 'body',
+              title: 'Straps are allowed',
+              description: 'Grip shouldn\'t cap back overload.'
+            }
+          ]
         }
       ],
       advanced: [
@@ -127,6 +227,56 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
               icon: 'timer',
               title: 'Breathe steady during high fatigue at end.',
               description: 'Controlled breathing maintains performance through fatigue.'
+            }
+          ]
+        },
+        {
+          name: 'Heavy Dumbbell Rows',
+          duration: '16–18 min',
+          description: 'Heavy unilateral rows for maximal lat loading',
+          battlePlan: '4 rounds\n• 6 Heavy DB Rows (each side)\nRest 120s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_0b65e409-b210-4730-af62-16b022c37685/artifacts/q6jestgn_download.png',
+          intensityReason: 'Heavy loads maximize strength development',
+          moodTips: [
+            {
+              icon: 'construct',
+              title: 'Load stays strict',
+              description: 'Reduce weight if torso twists.'
+            },
+            {
+              icon: 'flash',
+              title: 'Explode then control',
+              description: 'Fast pull, slow return.'
+            },
+            {
+              icon: 'body',
+              title: 'Straps encouraged',
+              description: 'Let lats fail before grip.'
+            }
+          ]
+        },
+        {
+          name: 'Triple Drop Dumbbell Rows',
+          duration: '18–20 min',
+          description: 'Extended drop sets to fully exhaust back',
+          battlePlan: '3 rounds\n• 6 Rows\n• Drop → 6\n• Drop → 6\n• Drop → 6\nRest 150s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_0b65e409-b210-4730-af62-16b022c37685/artifacts/e00z2xt6_download%20%281%29.png',
+          intensityReason: 'Triple drops maximize muscle fatigue and pump',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Three fast drops',
+              description: 'No rest between reductions.'
+            },
+            {
+              icon: 'construct',
+              title: 'Same pull pattern',
+              description: 'Elbow path stays identical.'
+            },
+            {
+              icon: 'body',
+              title: 'Chase deep lat pump',
+              description: 'Under-armpit burn is the goal.'
             }
           ]
         }
