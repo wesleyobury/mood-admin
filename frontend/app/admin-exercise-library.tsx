@@ -108,7 +108,6 @@ export default function AdminExerciseLibrary() {
   const loadExercises = async (search = '') => {
     try {
       setLoading(true);
-      const token = await SecureStore.getItemAsync('auth_token');
       
       const url = search 
         ? `${API_URL}/api/admin/exercises?search=${encodeURIComponent(search)}`
