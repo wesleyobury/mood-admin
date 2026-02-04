@@ -2063,7 +2063,7 @@ const styles = StyleSheet.create({
     borderBottomColor: 'transparent',
   },
   feedTabActive: {
-    borderBottomColor: '#fff',
+    borderBottomColor: '#FFD700',
   },
   feedTabText: {
     fontSize: 15,
@@ -2071,7 +2071,7 @@ const styles = StyleSheet.create({
     color: '#666',
   },
   feedTabTextActive: {
-    color: '#fff',
+    color: '#FFD700',
   },
   searchContainer: {
     paddingHorizontal: 16,
