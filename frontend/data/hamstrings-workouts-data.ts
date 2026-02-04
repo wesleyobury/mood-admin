@@ -739,6 +739,56 @@ export const hamstringsWorkoutDatabase: EquipmentWorkouts[] = [
               description: 'Consistent rhythm maintains muscle tension throughout set.'
             }
           ]
+        },
+        {
+          name: 'Heavy Extension Drop Set',
+          duration: '18–20 min',
+          description: 'Extended posterior work using rapid drops',
+          battlePlan: '3 rounds\n• 8 Extensions\n• Drop → 8\n• Drop → 8\nRest 150s',
+          imageUrl: '',
+          intensityReason: 'Drop sets maximize hamstring and posterior chain fatigue',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Drop load fast',
+              description: 'Reduce ~20–25%.'
+            },
+            {
+              icon: 'resize',
+              title: 'Same hinge depth',
+              description: 'No cheating range.'
+            },
+            {
+              icon: 'flame',
+              title: 'Posterior burn expected',
+              description: 'Stop before form breaks.'
+            }
+          ]
+        },
+        {
+          name: 'Long-Hold Extension Finisher',
+          duration: '18–20 min',
+          description: 'Isometric holds under heavy fatigue',
+          battlePlan: '3 rounds\n• 30–40s Hold\nRest 150s',
+          imageUrl: '',
+          intensityReason: 'Extended isometric holds maximize hamstring endurance',
+          moodTips: [
+            {
+              icon: 'timer',
+              title: 'Hold mid-range',
+              description: 'Peak hamstring tension.'
+            },
+            {
+              icon: 'shield',
+              title: 'Brace hard',
+              description: 'Protects spine.'
+            },
+            {
+              icon: 'alert',
+              title: 'End when shaking starts',
+              description: 'True failure point.'
+            }
+          ]
         }
       ]
     }
