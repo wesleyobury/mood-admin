@@ -17,8 +17,8 @@ import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context'
 import { Ionicons } from '@expo/vector-icons';
 import { useRouter } from 'expo-router';
 import * as ImagePicker from 'expo-image-picker';
-import * as SecureStore from 'expo-secure-store';
 import Constants from 'expo-constants';
+import { useAuth } from '../contexts/AuthContext';
 
 const API_URL = Constants.expoConfig?.extra?.EXPO_BACKEND_URL || 'https://alertio.preview.emergentagent.com';
 
