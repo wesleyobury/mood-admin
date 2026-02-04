@@ -44,6 +44,7 @@ const MUSCLE_GROUPS = [
 export default function AdminExerciseLibrary() {
   const router = useRouter();
   const insets = useSafeAreaInsets();
+  const { token, user } = useAuth();
   
   const [exercises, setExercises] = useState<Exercise[]>([]);
   const [loading, setLoading] = useState(true);
@@ -73,11 +74,10 @@ export default function AdminExerciseLibrary() {
 
   useEffect(() => {
     checkAdminAndLoad();
-  }, []);
+  }, [token]);
 
   const checkAdminAndLoad = async () => {
     try {
-      const token = await SecureStore.getItemAsync('auth_token');
       if (!token) {
         Alert.alert('Error', 'Please log in to access this page');
         router.back();
