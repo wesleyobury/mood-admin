@@ -1992,7 +1992,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Light explosive squats developing leg power',
           battlePlan: '3 rounds\n• 6–8 Jump Squats\nRest 120s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-content/artifacts/9whvfgtz_pit%20shark%20squat.avif',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_96d95d8c-bd6e-49a5-a6af-694c8a8f5c04/artifacts/ucxnrjme_pit%20shark%20jump%20squat.jpg',
           intensityReason: 'Explosive work builds power output',
           moodTips: [
             {
@@ -2094,7 +2094,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '18–20 min',
           description: 'Explosive jump squats performed under fatigue',
           battlePlan: '3 rounds\n• 8–10 Jump Squats\nRest 150s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-content/artifacts/zbfap5ab_pit%20shark%20squat%203.webp',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_96d95d8c-bd6e-49a5-a6af-694c8a8f5c04/artifacts/ucxnrjme_pit%20shark%20jump%20squat.jpg',
           intensityReason: 'Explosive burnout builds power endurance',
           moodTips: [
             {
