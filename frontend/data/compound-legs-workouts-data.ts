@@ -579,7 +579,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '18–20 min',
           description: 'Low-rep squats emphasizing maximal strength',
           battlePlan: '5 rounds\n• 3–5 Back Squats\nRest 180s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/gxoxkpbs_download%20%285%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-content/artifacts/xfs748m6_bb%20back%20squat%202.png',
           intensityReason: 'Heavy load builds maximal leg strength',
           moodTips: [
             {
@@ -604,7 +604,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '18–20 min',
           description: 'High-rep finisher driving full leg fatigue',
           battlePlan: '2–3 rounds\n• 15–20 Back Squats\nRest 180s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/gxoxkpbs_download%20%285%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-content/artifacts/wwl8m04q_back%20squat.jpg',
           intensityReason: 'High reps push legs to complete fatigue',
           moodTips: [
             {
