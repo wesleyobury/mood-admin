@@ -81,13 +81,21 @@ export default function AdminPushNotifications() {
   const fetchFeaturedWorkouts = async () => {
     setLoadingWorkouts(true);
     try {
-      const response = await fetch(`${API_URL}/api/featured-workouts`, {
+      const response = await fetch(`${API_URL}/api/featured/workouts`, {
         headers: { 'Authorization': `Bearer ${token}` },
       });
       
       if (response.ok) {
         const data = await response.json();
-        setFeaturedWorkouts(data || []);
+        // Map the response to our interface
+        const workouts = (data.workouts || []).map((w: any) => ({
+          id: w._id,
+          name: w.title,
+          description: w.subtitle,
+          image_url: w.heroImageUrl,
+          mood: w.mood,
+        }));
+        setFeaturedWorkouts(workouts);
       }
     } catch (error) {
       console.error('Error fetching featured workouts:', error);
