@@ -348,6 +348,56 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
               description: 'Maintain back position - flexibility comes with time and practice.'
             }
           ]
+        },
+        {
+          name: 'Box Back Squat',
+          duration: '12–14 min',
+          description: 'Box-guided squats reinforcing depth and control',
+          battlePlan: '3 rounds\n• 8–10 Box Back Squats\nRest 90s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/gxoxkpbs_download%20%285%29.png',
+          intensityReason: 'Box squat builds consistent depth and confidence',
+          moodTips: [
+            {
+              icon: 'cube',
+              title: 'Box sets consistent depth',
+              description: 'Light touch confirms depth without sitting fully.'
+            },
+            {
+              icon: 'shield',
+              title: 'Brace before every rep',
+              description: 'Core tension protects spine and improves force.'
+            },
+            {
+              icon: 'arrow-up',
+              title: 'Drive straight up',
+              description: 'Knees and hips rise together for clean mechanics.'
+            }
+          ]
+        },
+        {
+          name: 'Tempo Back Squat',
+          duration: '12–14 min',
+          description: 'Slow eccentric squats building confidence and control',
+          battlePlan: '3 rounds\n• 8 Back Squats (3s eccentric)\nRest 120s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/gxoxkpbs_download%20%285%29.png',
+          intensityReason: 'Tempo work increases time under tension',
+          moodTips: [
+            {
+              icon: 'timer',
+              title: 'Slow descent builds stability',
+              description: 'Three-second lowering keeps tension on legs.'
+            },
+            {
+              icon: 'footsteps',
+              title: 'Balance through mid-foot',
+              description: 'Prevents tipping forward or backward.'
+            },
+            {
+              icon: 'body',
+              title: 'Smooth ascent only',
+              description: 'No bouncing out of the bottom.'
+            }
+          ]
         }
       ],
       intermediate: [
@@ -411,6 +461,56 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
               description: 'Eccentric control with explosive concentric maximizes development.'
             }
           ]
+        },
+        {
+          name: 'Front Squat',
+          duration: '14–16 min',
+          description: 'Front-loaded squats increasing quad and core demand',
+          battlePlan: '4 rounds\n• 6–8 Front Squats\nRest 150s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-media-fix/artifacts/wag3ztrn_bbfs.jpg',
+          intensityReason: 'Front load challenges core stability under load',
+          moodTips: [
+            {
+              icon: 'trending-up',
+              title: 'Elbows stay high',
+              description: 'Prevents torso collapse under load.'
+            },
+            {
+              icon: 'shield',
+              title: 'Brace hard before descent',
+              description: 'Core pressure supports upright posture.'
+            },
+            {
+              icon: 'people',
+              title: 'Spotter recommended',
+              description: 'Front rack fatigue can end sets suddenly.'
+            }
+          ]
+        },
+        {
+          name: 'Back Squat Drop Set',
+          duration: '16–18 min',
+          description: 'Squats extended with rapid plate reductions',
+          battlePlan: '3 rounds\n• 6 Back Squats\n• Drop → 6\n• Drop → 6\nRest 180s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/gxoxkpbs_download%20%285%29.png',
+          intensityReason: 'Drop sets extend time under tension for maximum pump',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Strip plates immediately',
+              description: 'Drops should happen without resting.'
+            },
+            {
+              icon: 'trending-down',
+              title: 'Reduce load intelligently',
+              description: 'About 20–30% maintains rep quality.'
+            },
+            {
+              icon: 'alert',
+              title: 'Rack before form fails',
+              description: 'Safety always overrides completion.'
+            }
+          ]
         }
       ],
       advanced: [
@@ -471,6 +571,56 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
               icon: 'construct',
               title: 'Breathe steady; stay tight on both',
               description: 'Maintain core bracing throughout both exercises for safety.'
+            }
+          ]
+        },
+        {
+          name: 'Heavy Back Squat',
+          duration: '18–20 min',
+          description: 'Low-rep squats emphasizing maximal strength',
+          battlePlan: '5 rounds\n• 3–5 Back Squats\nRest 180s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/gxoxkpbs_download%20%285%29.png',
+          intensityReason: 'Heavy load builds maximal leg strength',
+          moodTips: [
+            {
+              icon: 'barbell',
+              title: 'Treat each rep as a single',
+              description: 'Full setup and brace every time.'
+            },
+            {
+              icon: 'trending-down',
+              title: 'Depth never shortens',
+              description: 'Consistent range ensures strength transfer.'
+            },
+            {
+              icon: 'people',
+              title: 'Spotter or safety bars required',
+              description: 'Mandatory for heavy loading.'
+            }
+          ]
+        },
+        {
+          name: 'Back Squat Burnout',
+          duration: '18–20 min',
+          description: 'High-rep finisher driving full leg fatigue',
+          battlePlan: '2–3 rounds\n• 15–20 Back Squats\nRest 180s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/gxoxkpbs_download%20%285%29.png',
+          intensityReason: 'High reps push legs to complete fatigue',
+          moodTips: [
+            {
+              icon: 'barbell',
+              title: 'Moderate load only',
+              description: 'Weight must allow continuous reps.'
+            },
+            {
+              icon: 'body',
+              title: 'Controlled breathing',
+              description: 'One breath per rep maintains rhythm.'
+            },
+            {
+              icon: 'alert',
+              title: 'End set before breakdown',
+              description: 'Stop when posture degrades.'
             }
           ]
         }
