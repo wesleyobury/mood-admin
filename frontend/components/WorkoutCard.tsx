@@ -234,7 +234,7 @@ const WorkoutCard = React.memo(({
       {/* Navigation Dots - Centered */}
       <View style={styles.dotsContainer}>
         <View style={styles.dotsRow}>
-          {workouts.map((_, index) => (
+          {shuffledWorkouts.map((_, index) => (
             <TouchableOpacity
               key={index}
               style={[
@@ -266,7 +266,7 @@ const WorkoutCard = React.memo(({
         <View style={styles.editButtonWrapper}>
           <TouchableOpacity
             style={styles.editButton}
-            onPress={() => handleOpenCustomModal(workouts[currentWorkoutIndex])}
+            onPress={() => handleOpenCustomModal(shuffledWorkouts[currentWorkoutIndex])}
             activeOpacity={0.8}
           >
             {/* Shimmer overlay on the pencil icon */}
