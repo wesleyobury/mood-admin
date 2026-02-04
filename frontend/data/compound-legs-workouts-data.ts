@@ -447,7 +447,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Longer range hinge boosts hamstring hypertrophy with elevated position.',
           battlePlan: '3 rounds\n• 8-10 deficit rdls\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-media-fix/artifacts/pmaididt_deficit%20rdl.jpg',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-content/artifacts/5q9lqk7k_bb%20rdl.png',
           intensityReason: 'Standing on plates increases hamstring stretch.',
           moodTips: [
             {
