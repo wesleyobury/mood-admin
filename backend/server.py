@@ -1712,6 +1712,118 @@ async def get_session_completion_stats(
         raise HTTPException(status_code=500, detail="Failed to fetch session completion stats")
 
 
+@api_router.get("/analytics/admin/workout-engagement-chart")
+async def get_workout_engagement_chart(
+    period: str = "day",
+    days: int = 30,
+    current_user_id: str = Depends(get_current_user)
+):
+    """Get chart data for try workout clicks and session completions over time"""
+    try:
+        cutoff_date = datetime.now(timezone.utc) - timedelta(days=days)
+        
+        # Determine date format based on period
+        if period == "day":
+            date_format = "%Y-%m-%d"
+            group_id = {"$dateToString": {"format": "%Y-%m-%d", "date": "$timestamp"}}
+        elif period == "week":
+            # Group by week number
+            group_id = {
+                "$concat": [
+                    {"$toString": {"$year": "$timestamp"}},
+                    "-W",
+                    {"$toString": {"$isoWeek": "$timestamp"}}
+                ]
+            }
+        else:  # month
+            date_format = "%Y-%m"
+            group_id = {"$dateToString": {"format": "%Y-%m", "date": "$timestamp"}}
+        
+        # Get try_workout_clicked data grouped by date
+        try_workout_pipeline = [
+            {"$match": {
+                "event_type": "try_workout_clicked",
+                "timestamp": {"$gte": cutoff_date}
+            }},
+            {"$group": {
+                "_id": group_id,
+                "clicks": {"$sum": 1},
+                "unique_users": {"$addToSet": "$user_id"}
+            }},
+            {"$project": {
+                "_id": 1,
+                "clicks": 1,
+                "unique_users": {"$size": "$unique_users"}
+            }},
+            {"$sort": {"_id": 1}}
+        ]
+        try_workout_result = await db.user_events.aggregate(try_workout_pipeline).to_list(100)
+        
+        # Get workout_session_completed data grouped by date
+        session_completed_pipeline = [
+            {"$match": {
+                "event_type": "workout_session_completed",
+                "timestamp": {"$gte": cutoff_date}
+            }},
+            {"$group": {
+                "_id": group_id,
+                "completions": {"$sum": 1},
+                "unique_users": {"$addToSet": "$user_id"}
+            }},
+            {"$project": {
+                "_id": 1,
+                "completions": 1,
+                "unique_users": {"$size": "$unique_users"}
+            }},
+            {"$sort": {"_id": 1}}
+        ]
+        session_completed_result = await db.user_events.aggregate(session_completed_pipeline).to_list(100)
+        
+        # Combine the data
+        all_dates = set()
+        try_workout_by_date = {}
+        session_completed_by_date = {}
+        
+        for item in try_workout_result:
+            date_key = item["_id"]
+            all_dates.add(date_key)
+            try_workout_by_date[date_key] = {
+                "clicks": item["clicks"],
+                "unique_users": item["unique_users"]
+            }
+        
+        for item in session_completed_result:
+            date_key = item["_id"]
+            all_dates.add(date_key)
+            session_completed_by_date[date_key] = {
+                "completions": item["completions"],
+                "unique_users": item["unique_users"]
+            }
+        
+        # Build combined chart data
+        chart_data = []
+        for date_key in sorted(all_dates):
+            try_data = try_workout_by_date.get(date_key, {"clicks": 0, "unique_users": 0})
+            session_data = session_completed_by_date.get(date_key, {"completions": 0, "unique_users": 0})
+            
+            chart_data.append({
+                "date": date_key,
+                "try_clicks": try_data["clicks"],
+                "try_unique_users": try_data["unique_users"],
+                "completions": session_data["completions"],
+                "completion_unique_users": session_data["unique_users"]
+            })
+        
+        return {
+            "period": period,
+            "days": days,
+            "data": chart_data
+        }
+    except Exception as e:
+        logger.error(f"Error fetching workout engagement chart: {str(e)}")
+        raise HTTPException(status_code=500, detail="Failed to fetch workout engagement chart")
+
+
 # ============================================
 # ADMIN CONTENT MODERATION ENDPOINTS
 # ============================================
