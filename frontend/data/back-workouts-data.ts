@@ -1402,6 +1402,56 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
               description: 'Core stability enhances control and safety during negatives.'
             }
           ]
+        },
+        {
+          name: 'Assisted Full-Range Pull-Ups',
+          duration: '10–12 min',
+          description: 'Assisted pull-ups reinforcing clean full-range mechanics',
+          battlePlan: '3 rounds\n• 6 Assisted Pull-Ups\nRest 75s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_0b65e409-b210-4730-af62-16b022c37685/artifacts/zpcds83n_download%20%2815%29.png',
+          intensityReason: 'Full-range assistance builds proper movement patterns',
+          moodTips: [
+            {
+              icon: 'construct',
+              title: 'Full stretch every rep',
+              description: 'Start from a dead hang with no bounce.'
+            },
+            {
+              icon: 'body',
+              title: 'Assistance supports form',
+              description: 'Use enough help to keep reps smooth.'
+            },
+            {
+              icon: 'flash',
+              title: 'Back initiates the pull',
+              description: 'Drive elbows down before arms bend.'
+            }
+          ]
+        },
+        {
+          name: 'Assisted Pause Pull-Ups',
+          duration: '10–12 min',
+          description: 'Assisted pull-ups with controlled pauses at the top',
+          battlePlan: '3 rounds\n• 5 Assisted Pull-Ups (1–2s top pause)\nRest 75s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/toza6up4_pu.avif',
+          intensityReason: 'Pauses at peak contraction build control and strength',
+          moodTips: [
+            {
+              icon: 'timer',
+              title: 'Pause with control',
+              description: 'Hold 1–2s with chin clearly over bar.'
+            },
+            {
+              icon: 'construct',
+              title: 'Stay tight at the top',
+              description: 'Shoulders down, chest tall.'
+            },
+            {
+              icon: 'trending-up',
+              title: 'Peak form is chest-led',
+              description: 'Chest rises toward bar before chin.'
+            }
+          ]
         }
       ],
       intermediate: [
@@ -1444,6 +1494,56 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
               description: 'Isometric hold maximizes time under tension and strength gains.'
             }
           ]
+        },
+        {
+          name: 'Tempo Pull-Ups',
+          duration: '12–14 min',
+          description: 'Strict pull-ups emphasizing slow controlled eccentrics',
+          battlePlan: '4 rounds\n• 6 Pull-Ups (3s eccentric)\nRest 90s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/fox3rjq4_chu.jpg',
+          intensityReason: 'Extended eccentrics maximize strength and control',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Explode up, control down',
+              description: 'Pull fast, lower for 3 seconds.'
+            },
+            {
+              icon: 'construct',
+              title: 'Reset tension each rep',
+              description: 'Brief dead hang before next pull.'
+            },
+            {
+              icon: 'body',
+              title: 'Feel the lat stretch',
+              description: 'Eccentrics should load the lats, not arms.'
+            }
+          ]
+        },
+        {
+          name: 'Pull-Ups + Iso Finisher',
+          duration: '12–14 min',
+          description: 'Full pull-ups finished with a static top hold',
+          battlePlan: '3 rounds\n• 6 Pull-Ups\n• Finish with 10s chin-over-bar hold\nRest 90s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/toza6up4_pu.avif',
+          intensityReason: 'Isometric finisher extends time under tension',
+          moodTips: [
+            {
+              icon: 'construct',
+              title: 'Reps stay strict',
+              description: 'Finish all reps before adding the hold.'
+            },
+            {
+              icon: 'trending-up',
+              title: 'Hold with intent',
+              description: 'Chest high, shoulders depressed.'
+            },
+            {
+              icon: 'timer',
+              title: 'Peak contraction is motionless',
+              description: 'No shaking, no bar drift.'
+            }
+          ]
         }
       ],
       advanced: [
@@ -1484,6 +1584,106 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
               icon: 'timer',
               title: 'Drive chest to bar, then control the 3-5 second negative.',
               description: 'Extended range with controlled eccentric maximizes strength gains.'
+            }
+          ]
+        },
+        {
+          name: 'Weighted Pull-Ups',
+          duration: '14–16 min',
+          description: 'Loaded pull-ups to overload back strength',
+          battlePlan: '4 rounds\n• 5 Weighted Pull-Ups\nRest 120s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_0b65e409-b210-4730-af62-16b022c37685/artifacts/zpcds83n_download%20%2815%29.png',
+          intensityReason: 'External load maximizes strength development',
+          moodTips: [
+            {
+              icon: 'construct',
+              title: 'Load stays honest',
+              description: 'Add weight only if reps stay strict.'
+            },
+            {
+              icon: 'body',
+              title: 'Dead hang matters',
+              description: 'Full lockout on every rep.'
+            },
+            {
+              icon: 'flash',
+              title: 'Straps are acceptable',
+              description: 'Don\'t let grip cap lat overload.'
+            }
+          ]
+        },
+        {
+          name: 'Eccentric Pull-Ups',
+          duration: '14–16 min',
+          description: 'Pull-ups emphasizing long controlled negatives',
+          battlePlan: '3 rounds\n• 5 Pull-Ups (5s eccentric)\nRest 120s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/toza6up4_pu.avif',
+          intensityReason: 'Extended eccentrics maximize strength adaptation',
+          moodTips: [
+            {
+              icon: 'timer',
+              title: 'Eccentric is the work',
+              description: 'Lower for a full 5 seconds.'
+            },
+            {
+              icon: 'construct',
+              title: 'Stop before breakdown',
+              description: 'End set when tempo slips.'
+            },
+            {
+              icon: 'body',
+              title: 'Peak form stays rigid',
+              description: 'Core tight, no swinging.'
+            }
+          ]
+        },
+        {
+          name: 'Burnout Pull-Up Ladder',
+          duration: '16–18 min',
+          description: 'Descending-rep ladder taken near strict failure',
+          battlePlan: 'Ladder format\n• 8 Pull-Ups\n• 6 Pull-Ups\n• 4 Pull-Ups\n• 2 Pull-Ups\nRest 30–45s between rungs',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/r3n8muv4_cbpu.webp',
+          intensityReason: 'Ladder format maximizes volume and fatigue',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Chase clean fatigue',
+              description: 'End sets when reps slow or kip appears.'
+            },
+            {
+              icon: 'timer',
+              title: 'Minimal rest matters',
+              description: 'Short breaks keep tension high.'
+            },
+            {
+              icon: 'body',
+              title: 'Back should fail first',
+              description: 'Strap up if grip limits output.'
+            }
+          ]
+        },
+        {
+          name: 'Muscle-Up Skill Sets',
+          duration: '18–20 min',
+          description: 'Explosive pull-to-transition muscle-up practice',
+          battlePlan: '4 rounds\n• 3–5 Muscle-Ups\n(strict, band-assisted, or low-kip)\nRest 120s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_0b65e409-b210-4730-af62-16b022c37685/artifacts/zpcds83n_download%20%2815%29.png',
+          intensityReason: 'Explosive pulling develops power and skill',
+          moodTips: [
+            {
+              icon: 'trending-up',
+              title: 'Pull higher than needed',
+              description: 'Chest must clear bar height.'
+            },
+            {
+              icon: 'flash',
+              title: 'Transition stays tight',
+              description: 'Elbows whip fast around bar.'
+            },
+            {
+              icon: 'construct',
+              title: 'Quality beats volume',
+              description: 'Stop before technique degrades.'
             }
           ]
         }
