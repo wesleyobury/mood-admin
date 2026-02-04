@@ -471,13 +471,32 @@ export default function AdminDashboard() {
       setLoading(false);
       setRefreshing(false);
     }
-  }, [token, isAuthorized, selectedPeriod, chartPeriod, userTypeFilter]);
+  }, [token, isAuthorized, selectedPeriod, chartPeriod, userTypeFilter, engagementChartPeriod]);
 
   useEffect(() => {
     if (isAuthorized) {
       fetchAllData();
     }
   }, [fetchAllData, isAuthorized]);
+
+  // Refetch engagement chart when period changes
+  useEffect(() => {
+    const fetchEngagementChart = async () => {
+      if (!token || !isAuthorized) return;
+      try {
+        const engagementChartRes = await fetch(
+          `${API_URL}/api/analytics/admin/workout-engagement-chart?period=${engagementChartPeriod}&days=${selectedPeriod}`,
+          { headers: { 'Authorization': `Bearer ${token}` } }
+        );
+        if (engagementChartRes.ok) {
+          setWorkoutEngagementChart(await engagementChartRes.json());
+        }
+      } catch (ecError) {
+        console.log('Workout engagement chart fetch error:', ecError);
+      }
+    };
+    fetchEngagementChart();
+  }, [engagementChartPeriod, token, isAuthorized, selectedPeriod]);
 
   // Fetch users for modal
   const fetchUsers = async (type: 'all' | 'new' | 'active', search: string = '') => {
