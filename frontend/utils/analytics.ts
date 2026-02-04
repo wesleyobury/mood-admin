@@ -277,6 +277,25 @@ export const Analytics = {
     duration_minutes?: number;
   }) => trackEvent(token, 'featured_workout_completed', metadata),
 
+  // Try This Workout Events
+  tryWorkoutClicked: (token: string, metadata: {
+    workout_name: string;
+    equipment?: string;
+    difficulty?: string;
+    mood_category?: string;
+    source?: string; // 'featured', 'custom', 'muscle_gainer', etc.
+  }) => trackEvent(token, 'try_workout_clicked', metadata),
+
+  // Workout Session Events
+  workoutSessionCompleted: (token: string, metadata: {
+    workout_name: string;
+    equipment?: string;
+    difficulty?: string;
+    mood_category?: string;
+    duration_seconds: number;
+    source?: string;
+  }) => trackEvent(token, 'workout_session_completed', metadata),
+
   // Workout Funnel Events
   workoutFunnelStep: (token: string, metadata: {
     step: string;
