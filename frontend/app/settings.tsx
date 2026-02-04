@@ -327,6 +327,20 @@ export default function Settings() {
             </View>
             <Ionicons name="chevron-forward" size={18} color='#666' />
           </TouchableOpacity>
+
+          <TouchableOpacity 
+            style={styles.settingsItem}
+            onPress={() => router.push('/notification-settings')}
+          >
+            <View style={styles.settingsItemLeft}>
+              <Ionicons name="notifications-outline" size={20} color="#FFD700" />
+              <View>
+                <Text style={styles.settingsItemText}>Notifications</Text>
+                <Text style={styles.settingsItemSubtext}>Manage push and in-app notifications</Text>
+              </View>
+            </View>
+            <Ionicons name="chevron-forward" size={18} color='#666' />
+          </TouchableOpacity>
         </View>
 
         {/* Legal Section */}
