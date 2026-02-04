@@ -1445,6 +1445,62 @@ export default function CreatePost() {
             <Text style={styles.captionCounter}>{caption.length}/500</Text>
           </View>
 
+          {/* Saved Achievements Section - Show when no workout stats */}
+          {!workoutStats && savedAchievements.length > 0 && (
+            <View style={styles.attachmentCard}>
+              <View style={styles.attachmentHeader}>
+                <View style={styles.attachmentLabelContainer}>
+                  <Ionicons name="bookmark" size={16} color="#FFD700" />
+                  <Text style={styles.attachmentType}>Saved Achievements ({savedAchievements.length})</Text>
+                </View>
+              </View>
+              
+              <Text style={styles.savedAchievementsHint}>
+                Tap to add a workout achievement to your post
+              </Text>
+              
+              <ScrollView 
+                horizontal 
+                showsHorizontalScrollIndicator={false}
+                style={styles.savedAchievementsScroll}
+                contentContainerStyle={styles.savedAchievementsContent}
+              >
+                {savedAchievements.map((achievement, index) => (
+                  <TouchableOpacity
+                    key={achievement.id || index}
+                    style={styles.savedAchievementCard}
+                    onPress={() => selectSavedAchievement(achievement)}
+                    activeOpacity={0.7}
+                  >
+                    <View style={styles.savedAchievementIcon}>
+                      <Ionicons name="trophy" size={24} color="#FFD700" />
+                    </View>
+                    <Text style={styles.savedAchievementDuration}>
+                      {achievement.totalDuration} min
+                    </Text>
+                    <Text style={styles.savedAchievementDate}>
+                      {achievement.completedAt}
+                    </Text>
+                    <Text style={styles.savedAchievementExercises} numberOfLines={2}>
+                      {achievement.workouts.slice(0, 2).map((w: any) => w.workoutName).join(', ')}
+                      {achievement.workouts.length > 2 ? '...' : ''}
+                    </Text>
+                  </TouchableOpacity>
+                ))}
+              </ScrollView>
+            </View>
+          )}
+
+          {/* Loading saved achievements */}
+          {!workoutStats && loadingSavedAchievements && (
+            <View style={styles.attachmentCard}>
+              <View style={styles.loadingSavedContainer}>
+                <ActivityIndicator size="small" color="#FFD700" />
+                <Text style={styles.loadingSavedText}>Loading saved achievements...</Text>
+              </View>
+            </View>
+          )}
+
           {/* 3. Workout Stats Card - LAST */}
           {workoutStats && (
             <View style={styles.attachmentCard}>
