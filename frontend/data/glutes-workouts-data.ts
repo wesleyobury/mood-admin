@@ -512,6 +512,56 @@ export const glutesWorkoutDatabase: EquipmentWorkouts[] = [
               description: 'Maintain position throughout hold for maximum effectiveness.'
             }
           ]
+        },
+        {
+          name: 'Heavy Hip Thrust Pause',
+          duration: '18–20 min',
+          description: 'Heavy thrusts with long lockout pauses',
+          battlePlan: '4 rounds\n• 5–6 Thrusts (2s pause)\nRest 150s',
+          imageUrl: '',
+          intensityReason: 'Paused heavy thrusts build peak glute strength',
+          moodTips: [
+            {
+              icon: 'timer',
+              title: 'Two-second hold',
+              description: 'Eliminates momentum completely.'
+            },
+            {
+              icon: 'body',
+              title: 'Ribs down',
+              description: 'Keeps extension in glutes, not spine.'
+            },
+            {
+              icon: 'people',
+              title: 'Spotter recommended',
+              description: 'Heavy pauses can stall suddenly.'
+            }
+          ]
+        },
+        {
+          name: 'Hip Thrust Burnout Ladder',
+          duration: '18–20 min',
+          description: 'Descending ladder maximizing glute fatigue',
+          battlePlan: '2–3 ladders\n• 12 → 10 → 8 → 6 Thrusts\nRest 150s',
+          imageUrl: '',
+          intensityReason: 'Ladder format accumulates massive training volume',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'No rest between rungs',
+              description: 'Ladder maintains nonstop tension.'
+            },
+            {
+              icon: 'barbell',
+              title: 'Weight stays fixed',
+              description: 'Only reps decrease.'
+            },
+            {
+              icon: 'checkmark',
+              title: 'Finish with squeeze',
+              description: 'Last rep ends with long hold.'
+            }
+          ]
         }
       ]
     }
