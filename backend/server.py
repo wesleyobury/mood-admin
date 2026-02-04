@@ -7905,6 +7905,25 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
+@app.on_event("startup")
+async def startup_db_client():
+    """Start background services on app startup"""
+    # Start notification background worker
+    try:
+        await start_notification_worker(db)
+        logger.info("🚀 Notification worker started successfully")
+    except Exception as e:
+        logger.error(f"Failed to start notification worker: {e}")
+
 @app.on_event("shutdown")
 async def shutdown_db_client():
+    """Clean up on app shutdown"""
+    # Stop notification worker
+    try:
+        await stop_notification_worker()
+        logger.info("🛑 Notification worker stopped")
+    except Exception as e:
+        logger.error(f"Error stopping notification worker: {e}")
+    
+    # Close database connection
     client.close()
