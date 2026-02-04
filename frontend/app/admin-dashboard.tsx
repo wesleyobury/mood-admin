@@ -3798,4 +3798,108 @@ const styles = StyleSheet.create({
     color: '#888',
     textAlign: 'center',
   },
+  // Chart Period Selector Styles
+  chartPeriodSelector: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginTop: 16,
+    marginBottom: 12,
+    gap: 8,
+  },
+  chartPeriodLabel: {
+    fontSize: 13,
+    color: '#888',
+    marginRight: 4,
+  },
+  chartPeriodButton: {
+    paddingHorizontal: 12,
+    paddingVertical: 6,
+    borderRadius: 16,
+    backgroundColor: '#2a2a2a',
+    borderWidth: 1,
+    borderColor: '#333',
+  },
+  chartPeriodButtonActive: {
+    backgroundColor: 'rgba(255, 215, 0, 0.2)',
+    borderColor: '#FFD700',
+  },
+  chartPeriodButtonText: {
+    fontSize: 12,
+    color: '#888',
+    fontWeight: '500',
+  },
+  chartPeriodButtonTextActive: {
+    color: '#FFD700',
+  },
+  // Engagement Chart Styles
+  engagementChartContainer: {
+    marginTop: 8,
+    backgroundColor: '#1a1a1a',
+    borderRadius: 12,
+    padding: 16,
+  },
+  chartLegend: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    gap: 16,
+    marginBottom: 16,
+  },
+  chartLegendItem: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 6,
+  },
+  chartLegendDot: {
+    width: 10,
+    height: 10,
+    borderRadius: 5,
+  },
+  chartLegendText: {
+    fontSize: 11,
+    color: '#888',
+  },
+  chartScrollView: {
+    maxHeight: 120,
+  },
+  chartBarsContainer: {
+    flexDirection: 'row',
+    alignItems: 'flex-end',
+    gap: 8,
+    paddingVertical: 8,
+  },
+  chartBarGroup: {
+    alignItems: 'center',
+    minWidth: 40,
+  },
+  chartBarsRow: {
+    flexDirection: 'row',
+    alignItems: 'flex-end',
+    gap: 2,
+    height: 80,
+  },
+  chartBar: {
+    width: 10,
+    borderRadius: 4,
+    minHeight: 4,
+  },
+  chartBarLabel: {
+    fontSize: 9,
+    color: '#666',
+    marginTop: 4,
+    textAlign: 'center',
+    maxWidth: 40,
+  },
+  noChartData: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingVertical: 40,
+    backgroundColor: '#1a1a1a',
+    borderRadius: 12,
+    marginTop: 8,
+  },
+  noChartDataText: {
+    fontSize: 13,
+    color: '#666',
+    marginTop: 8,
+  },
 });
