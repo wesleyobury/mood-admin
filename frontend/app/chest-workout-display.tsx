@@ -283,28 +283,30 @@ const ChestWorkoutDisplayScreen = memo(function ChestWorkoutDisplayScreen() {
           })}
         </ScrollView>
         
-        {/* Continue Button - Only shows when there are more muscles */}
-        {/* Bottom Navigation Button - Always show, either next muscle or finish */
-        {
-          <View style={styles.continueButtonContainer}>
-            <TouchableOpacity style={styles.continueButton} onPress={handleContinue}>
-              <LinearGradient
-                colors={['#FFD700', '#FFA500']}
-                style={styles.continueButtonGradient}
-                start={{ x: 0, y: 0 }}
-                end={{ x: 1, y: 0 }}
-              >
-                <Text style={styles.continueButtonText}>
-                  {`Next: ${muscleQueue[0]?.displayName || muscleQueue[0]?.name}`}
-                </Text>
+        {/* Bottom Navigation Button - Always show, either next muscle or finish */}
+        <View style={[styles.continueButtonContainer, { paddingBottom: Math.max(insets.bottom, 16) }]}>
+          <TouchableOpacity style={styles.continueButton} onPress={handleContinue}>
+            <LinearGradient
+              colors={['#FFD700', '#FFA500']}
+              style={styles.continueButtonGradient}
+              start={{ x: 0, y: 0 }}
+              end={{ x: 1, y: 0 }}
+            >
+              <Text style={styles.continueButtonText}>
+                {hasMoreMuscles 
+                  ? `Next: ${muscleQueue[0]?.displayName || muscleQueue[0]?.name}`
+                  : 'Finish and View Cart'
+                }
+              </Text>
+              {hasMoreMuscles && (
                 <View style={styles.cartBadge}>
                   <Text style={styles.cartBadgeText}>{cartItems.length}</Text>
                 </View>
-                <Ionicons name="arrow-forward" size={20} color='#0c0c0c' />
-              </LinearGradient>
-            </TouchableOpacity>
-          </View>
-        )}
+              )}
+              <Ionicons name={hasMoreMuscles ? "arrow-forward" : "cart"} size={20} color='#0c0c0c' />
+            </LinearGradient>
+          </TouchableOpacity>
+        </View>
       </SafeAreaView>
     </View>
   );
@@ -328,7 +330,7 @@ const styles = StyleSheet.create({
   progressStepText: { fontSize: 10, color: 'rgba(255, 255, 255, 0.8)', textAlign: 'center', fontWeight: '500', maxWidth: 70 },
   progressConnector: { width: 16, height: 2, backgroundColor: 'rgba(255, 215, 0, 0.3)', marginHorizontal: 8, marginTop: 14 },
   scrollView: { flex: 1, overflow: 'visible' },
-  scrollContentContainer: { paddingTop: 24, paddingBottom: 100, overflow: 'visible' },
+  scrollContentContainer: { paddingTop: 24, paddingBottom: 120, overflow: 'visible' },
   emptyState: { flex: 1, justifyContent: 'center', alignItems: 'center', paddingHorizontal: 40 },
   emptyStateText: { fontSize: 18, color: 'rgba(255, 255, 255, 0.8)', textAlign: 'center', marginTop: 16, marginBottom: 8 },
   emptyStateSubtext: { fontSize: 14, color: 'rgba(255, 255, 255, 0.5)', textAlign: 'center' },
@@ -345,7 +347,7 @@ const styles = StyleSheet.create({
   nextMuscleIndicatorBadge: { backgroundColor: 'rgba(0, 0, 0, 0.15)', paddingHorizontal: 10, paddingVertical: 4, borderRadius: 12, marginRight: 12 },
   nextMuscleIndicatorText: { fontSize: 12, fontWeight: '600', color: '#000' },
   // Continue Button
-  continueButtonContainer: { position: 'absolute', bottom: 0, left: 0, right: 0, padding: 16, backgroundColor: 'rgba(0, 0, 0, 0.95)', borderTopWidth: 1, borderTopColor: 'rgba(255, 215, 0, 0.2)' },
+  continueButtonContainer: { position: 'absolute', bottom: 0, left: 0, right: 0, paddingHorizontal: 16, paddingTop: 16, backgroundColor: '#000000', borderTopWidth: 1, borderTopColor: 'rgba(255, 215, 0, 0.2)' },
   continueButton: { borderRadius: 12, overflow: 'hidden' },
   continueButtonGradient: { padding: 16, flexDirection: 'row', alignItems: 'center', justifyContent: 'center' },
   continueButtonText: { fontSize: 16, fontWeight: 'bold', color: '#0c0c0c', marginRight: 8 },
