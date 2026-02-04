@@ -170,6 +170,7 @@ export default function Profile() {
 
   const [activeTab, setActiveTab] = useState<'posts' | 'saved' | 'cards'>('posts');
   const [unreadMessages, setUnreadMessages] = useState(0);
+  const [unreadNotifications, setUnreadNotifications] = useState(0);
   const router = useRouter();
 
   // Pull to refresh handler
