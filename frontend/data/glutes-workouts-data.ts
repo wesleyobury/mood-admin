@@ -610,6 +610,56 @@ export const glutesWorkoutDatabase: EquipmentWorkouts[] = [
               description: 'Pause at peak contraction enhances muscle activation.'
             }
           ]
+        },
+        {
+          name: 'Single-Leg Kickback',
+          duration: '10–12 min',
+          description: 'Straight-path kickbacks building glute control',
+          battlePlan: '3 rounds\n• 12 Kickbacks per leg\nRest 60s',
+          imageUrl: '',
+          intensityReason: 'Machine-guided movement teaches proper kickback form',
+          moodTips: [
+            {
+              icon: 'footsteps',
+              title: 'Drive heel back',
+              description: 'Think "push wall behind you".'
+            },
+            {
+              icon: 'body',
+              title: 'Hips stay square',
+              description: 'No rotation or sway.'
+            },
+            {
+              icon: 'timer',
+              title: 'Pause at extension',
+              description: 'One-second squeeze.'
+            }
+          ]
+        },
+        {
+          name: 'Kickback Pulse Reps',
+          duration: '10–12 min',
+          description: 'Short-range pulses keeping glutes loaded',
+          battlePlan: '3 rounds\n• 15 Pulses per leg\nRest 75s',
+          imageUrl: '',
+          intensityReason: 'Continuous tension builds glute endurance',
+          moodTips: [
+            {
+              icon: 'resize',
+              title: 'Top-third only',
+              description: 'Pulses stay near lockout.'
+            },
+            {
+              icon: 'construct',
+              title: 'Small motion',
+              description: 'Avoid swinging.'
+            },
+            {
+              icon: 'flash',
+              title: 'Constant tension',
+              description: 'Glutes never relax.'
+            }
+          ]
         }
       ],
       intermediate: [
