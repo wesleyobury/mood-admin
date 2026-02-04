@@ -1400,6 +1400,103 @@ export default function AdminDashboard() {
           )}
         </View>
 
+        {/* Try Workout Clicks Widget */}
+        <View style={styles.section}>
+          <View style={styles.sectionHeader}>
+            <Text style={styles.sectionTitle}>Try Workout Clicks</Text>
+          </View>
+          
+          <Text style={styles.sectionSubtitle}>
+            Users clicking "Start Workout" / "Try this workout" button
+          </Text>
+          
+          {/* Quick Stats Row */}
+          <View style={styles.customWorkoutsQuickStats}>
+            <View style={styles.customWorkoutsStatCard}>
+              <View style={[styles.customWorkoutsIcon, { backgroundColor: 'rgba(76, 175, 80, 0.2)' }]}>
+                <Ionicons name="play-circle" size={20} color="#4CAF50" />
+              </View>
+              <Text style={styles.customWorkoutsStatValue}>{tryWorkoutStats?.total_clicks || 0}</Text>
+              <Text style={styles.customWorkoutsStatLabel}>Total Clicks</Text>
+            </View>
+            
+            <View style={styles.customWorkoutsStatCard}>
+              <View style={[styles.customWorkoutsIcon, { backgroundColor: 'rgba(33, 150, 243, 0.2)' }]}>
+                <Ionicons name="people" size={20} color="#2196F3" />
+              </View>
+              <Text style={styles.customWorkoutsStatValue}>{tryWorkoutStats?.unique_users || 0}</Text>
+              <Text style={styles.customWorkoutsStatLabel}>Unique Users</Text>
+            </View>
+            
+            <View style={styles.customWorkoutsStatCard}>
+              <View style={[styles.customWorkoutsIcon, { backgroundColor: 'rgba(255, 193, 7, 0.2)' }]}>
+                <Ionicons name="today" size={20} color="#FFC107" />
+              </View>
+              <Text style={styles.customWorkoutsStatValue}>{tryWorkoutStats?.today_clicks || 0}</Text>
+              <Text style={styles.customWorkoutsStatLabel}>Today</Text>
+            </View>
+            
+            <View style={styles.customWorkoutsStatCard}>
+              <View style={[styles.customWorkoutsIcon, { backgroundColor: 'rgba(156, 39, 176, 0.2)' }]}>
+                <Ionicons name="calendar" size={20} color="#9C27B0" />
+              </View>
+              <Text style={styles.customWorkoutsStatValue}>{tryWorkoutStats?.this_week_clicks || 0}</Text>
+              <Text style={styles.customWorkoutsStatLabel}>This Week</Text>
+            </View>
+          </View>
+        </View>
+
+        {/* Workout Session Completions Widget */}
+        <View style={styles.section}>
+          <View style={styles.sectionHeader}>
+            <Text style={styles.sectionTitle}>Workout Session Completions</Text>
+          </View>
+          
+          <Text style={styles.sectionSubtitle}>
+            Users who completed a full workout session
+          </Text>
+          
+          {/* Quick Stats Row */}
+          <View style={styles.customWorkoutsQuickStats}>
+            <View style={styles.customWorkoutsStatCard}>
+              <View style={[styles.customWorkoutsIcon, { backgroundColor: 'rgba(255, 87, 34, 0.2)' }]}>
+                <Ionicons name="checkmark-done-circle" size={20} color="#FF5722" />
+              </View>
+              <Text style={styles.customWorkoutsStatValue}>{sessionCompletionStats?.total_completions || 0}</Text>
+              <Text style={styles.customWorkoutsStatLabel}>Total Done</Text>
+            </View>
+            
+            <View style={styles.customWorkoutsStatCard}>
+              <View style={[styles.customWorkoutsIcon, { backgroundColor: 'rgba(0, 188, 212, 0.2)' }]}>
+                <Ionicons name="people" size={20} color="#00BCD4" />
+              </View>
+              <Text style={styles.customWorkoutsStatValue}>{sessionCompletionStats?.unique_users || 0}</Text>
+              <Text style={styles.customWorkoutsStatLabel}>Unique Users</Text>
+            </View>
+            
+            <View style={styles.customWorkoutsStatCard}>
+              <View style={[styles.customWorkoutsIcon, { backgroundColor: 'rgba(139, 195, 74, 0.2)' }]}>
+                <Ionicons name="today" size={20} color="#8BC34A" />
+              </View>
+              <Text style={styles.customWorkoutsStatValue}>{sessionCompletionStats?.today_completions || 0}</Text>
+              <Text style={styles.customWorkoutsStatLabel}>Today</Text>
+            </View>
+            
+            <View style={styles.customWorkoutsStatCard}>
+              <View style={[styles.customWorkoutsIcon, { backgroundColor: 'rgba(103, 58, 183, 0.2)' }]}>
+                <Ionicons name="time" size={20} color="#673AB7" />
+              </View>
+              <Text style={styles.customWorkoutsStatValue}>
+                {sessionCompletionStats?.avg_duration_seconds 
+                  ? Math.round(sessionCompletionStats.avg_duration_seconds / 60) + 'm'
+                  : '0m'
+                }
+              </Text>
+              <Text style={styles.customWorkoutsStatLabel}>Avg Duration</Text>
+            </View>
+          </View>
+        </View>
+
         {/* Footer */}
         <View style={styles.footer}>
           <Text style={styles.footerText}>
