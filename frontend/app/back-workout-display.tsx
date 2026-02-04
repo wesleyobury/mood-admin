@@ -238,7 +238,7 @@ const BackWorkoutDisplayScreen = memo(function BackWorkoutDisplayScreen() {
           })}
         </ScrollView>
         
-        {hasItemsInCart && (
+        {hasMoreMuscles && (
           <View style={styles.continueButtonContainer}>
             <TouchableOpacity style={styles.continueButton} onPress={handleContinue}>
               <LinearGradient
@@ -248,7 +248,7 @@ const BackWorkoutDisplayScreen = memo(function BackWorkoutDisplayScreen() {
                 end={{ x: 1, y: 0 }}
               >
                 <Text style={styles.continueButtonText}>
-                  {hasMoreMuscles ? `Next: ${muscleQueue[0]?.displayName || muscleQueue[0]?.name}` : 'View Cart'}
+                  {`Next: ${muscleQueue[0]?.displayName || muscleQueue[0]?.name}`}
                 </Text>
                 <View style={styles.cartBadge}>
                   <Text style={styles.cartBadgeText}>{cartItems.length}</Text>
