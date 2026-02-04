@@ -30,7 +30,6 @@ export interface NotificationSettings {
   comments_enabled: boolean;
   comments_from_following_only: boolean;
   messages_enabled: boolean;
-  message_requests_enabled: boolean;
   follows_enabled: boolean;
   workout_reminders_enabled: boolean;
   featured_workouts_enabled: boolean;
