@@ -2158,7 +2158,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Assisted pull-ups reinforcing clean full-range mechanics',
           battlePlan: '3 rounds\n• 6 Assisted Pull-Ups\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_0b65e409-b210-4730-af62-16b022c37685/artifacts/zpcds83n_download%20%2815%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_ba98ecac-d9ff-4da8-8b26-c72f04702bfb/artifacts/3aciwkyi_assisted%20pull%20ups.png',
           intensityReason: 'Full-range assistance builds proper movement patterns',
           moodTips: [
             {
@@ -2250,7 +2250,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Strict pull-ups emphasizing slow controlled eccentrics',
           battlePlan: '4 rounds\n• 6 Pull-Ups (3s eccentric)\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/fox3rjq4_chu.jpg',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_ba98ecac-d9ff-4da8-8b26-c72f04702bfb/artifacts/67090cjn_pull%20up%202.avif',
           intensityReason: 'Extended eccentrics maximize strength and control',
           moodTips: [
             {
@@ -2275,7 +2275,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Full pull-ups finished with a static top hold',
           battlePlan: '3 rounds\n• 6 Pull-Ups\n• Finish with 10s chin-over-bar hold\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/toza6up4_pu.avif',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_ba98ecac-d9ff-4da8-8b26-c72f04702bfb/artifacts/iyoz9m2p_pull%20up.webp',
           intensityReason: 'Isometric finisher extends time under tension',
           moodTips: [
             {
@@ -2342,7 +2342,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Loaded pull-ups to overload back strength',
           battlePlan: '4 rounds\n• 5 Weighted Pull-Ups\nRest 120s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_0b65e409-b210-4730-af62-16b022c37685/artifacts/zpcds83n_download%20%2815%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_ba98ecac-d9ff-4da8-8b26-c72f04702bfb/artifacts/z868brwr_wighted%20pull%20up.png',
           intensityReason: 'External load maximizes strength development',
           moodTips: [
             {
@@ -2367,7 +2367,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Pull-ups emphasizing long controlled negatives',
           battlePlan: '3 rounds\n• 5 Pull-Ups (5s eccentric)\nRest 120s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/toza6up4_pu.avif',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_ba98ecac-d9ff-4da8-8b26-c72f04702bfb/artifacts/67090cjn_pull%20up%202.avif',
           intensityReason: 'Extended eccentrics maximize strength adaptation',
           moodTips: [
             {
@@ -2392,7 +2392,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '16–18 min',
           description: 'Descending-rep ladder taken near strict failure',
           battlePlan: 'Ladder format\n• 8 Pull-Ups\n• 6 Pull-Ups\n• 4 Pull-Ups\n• 2 Pull-Ups\nRest 30–45s between rungs',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/r3n8muv4_cbpu.webp',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_ba98ecac-d9ff-4da8-8b26-c72f04702bfb/artifacts/iyoz9m2p_pull%20up.webp',
           intensityReason: 'Ladder format maximizes volume and fatigue',
           moodTips: [
             {
@@ -2417,7 +2417,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '18–20 min',
           description: 'Explosive pull-to-transition muscle-up practice',
           battlePlan: '4 rounds\n• 3–5 Muscle-Ups\n(strict, band-assisted, or low-kip)\nRest 120s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_0b65e409-b210-4730-af62-16b022c37685/artifacts/zpcds83n_download%20%2815%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_ba98ecac-d9ff-4da8-8b26-c72f04702bfb/artifacts/bcw1iy96_Muscle%20ups.webp',
           intensityReason: 'Explosive pulling develops power and skill',
           moodTips: [
             {
