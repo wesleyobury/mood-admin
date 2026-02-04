@@ -183,7 +183,7 @@ export const quadsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Smooth extensions building basic quad control',
           battlePlan: '3 rounds\n• 12–15 Leg Extensions\nRest 60–75s',
-          imageUrl: '',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_96d95d8c-bd6e-49a5-a6af-694c8a8f5c04/artifacts/fnft7ru4_download%20%286%29.png',
           intensityReason: 'Controlled movement builds foundational quad strength',
           moodTips: [
             {
@@ -250,7 +250,7 @@ export const quadsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Paused reps reinforcing peak quad contraction',
           battlePlan: '4 rounds\n• 10 Extensions (2s pause at top)\nRest 90s',
-          imageUrl: '',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_96d95d8c-bd6e-49a5-a6af-694c8a8f5c04/artifacts/fnft7ru4_download%20%286%29.png',
           intensityReason: 'Paused contractions maximize quad activation',
           moodTips: [
             {
@@ -317,7 +317,7 @@ export const quadsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '16–18 min',
           description: 'Extended quad isolation using fast weight drops',
           battlePlan: '3 rounds\n• 8 Heavy Extensions\n• Drop → 10\n• Drop → 10\nRest 120s',
-          imageUrl: '',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_96d95d8c-bd6e-49a5-a6af-694c8a8f5c04/artifacts/fnft7ru4_download%20%286%29.png',
           intensityReason: 'Drop sets maximize quad fatigue and hypertrophy',
           moodTips: [
             {
