@@ -2037,6 +2037,23 @@ const styles = StyleSheet.create({
     padding: 20,
     alignItems: 'center',
   },
+  shareAchievementButton: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#D4AF37',
+    borderRadius: 12,
+    paddingVertical: 14,
+    paddingHorizontal: 24,
+    marginTop: 16,
+    gap: 8,
+    width: '100%',
+  },
+  shareAchievementButtonText: {
+    fontSize: 16,
+    fontWeight: '600',
+    color: '#0c0c0c',
+  },
   // Guest Profile Styles
   guestBackgroundContainer: {
     flex: 1,
