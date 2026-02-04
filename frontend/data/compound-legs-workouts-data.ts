@@ -2127,7 +2127,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Guided squats reinforcing consistent movement path',
           battlePlan: '3 rounds\n• 10–12 Squats\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/gxoxkpbs_download%20%285%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-content/artifacts/le4l1rje_smith%20squat%202.png',
           intensityReason: 'Smith machine builds strength with guided bar path',
           moodTips: [
             {
@@ -2152,7 +2152,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Slow eccentrics building leg control',
           battlePlan: '3 rounds\n• 10 Squats (3s eccentric)\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/gxoxkpbs_download%20%285%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-content/artifacts/ynnuugau_smith%20squat.png',
           intensityReason: 'Tempo work increases muscle engagement',
           moodTips: [
             {
@@ -2177,7 +2177,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Guided lunges reducing balance demand',
           battlePlan: '3 rounds\n• 8 Lunges per leg\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/gxoxkpbs_download%20%285%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-content/artifacts/15roxyzj_smith%20reverse%20lunge.jpg',
           intensityReason: 'Guided path allows focus on leg drive',
           moodTips: [
             {
@@ -2202,7 +2202,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Guided hip hinge emphasizing hamstring stretch',
           battlePlan: '3 rounds\n• 10 RDLs\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/gxoxkpbs_download%20%285%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-content/artifacts/6vr69tt8_smith%20rdl.webp',
           intensityReason: 'Guided RDL teaches hinge mechanics safely',
           moodTips: [
             {
