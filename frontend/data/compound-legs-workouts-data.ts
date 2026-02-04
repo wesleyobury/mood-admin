@@ -1285,6 +1285,56 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
               description: 'Cable provides assistance returning to start position.'
             }
           ]
+        },
+        {
+          name: 'Cable Goblet Squat',
+          duration: '10–12 min',
+          description: 'Front-loaded squats using cable tension for stability',
+          battlePlan: '3 rounds\n• 12 Cable Goblet Squats\nRest 75s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-media-fix/artifacts/s4c1d5ao_download%20%283%29.png',
+          intensityReason: 'Cable tension provides constant load for control',
+          moodTips: [
+            {
+              icon: 'body',
+              title: 'Hold handle close to chest',
+              description: 'Front load helps maintain upright torso.'
+            },
+            {
+              icon: 'arrow-down',
+              title: 'Sit straight down',
+              description: 'Vertical descent keeps knees tracking clean.'
+            },
+            {
+              icon: 'timer',
+              title: 'Smooth controlled reps',
+              description: 'Cable tension rewards steady movement.'
+            }
+          ]
+        },
+        {
+          name: 'Cable Reverse Lunge',
+          duration: '10–12 min',
+          description: 'Assisted reverse lunges reducing balance demands',
+          battlePlan: '3 rounds\n• 8 Reverse Lunges per leg\nRest 75s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-media-fix/artifacts/yt6adjli_image.png',
+          intensityReason: 'Cable assists balance while building leg strength',
+          moodTips: [
+            {
+              icon: 'arrow-back',
+              title: 'Step back deliberately',
+              description: 'Reverse motion protects knees.'
+            },
+            {
+              icon: 'link',
+              title: 'Cable assists balance only',
+              description: 'Legs should still drive the movement.'
+            },
+            {
+              icon: 'footsteps',
+              title: 'Front heel pushes floor',
+              description: 'Ensures quad and glute engagement.'
+            }
+          ]
         }
       ],
       intermediate: [
@@ -1327,6 +1377,56 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
               description: 'Controlled descent with powerful drive through front leg.'
             }
           ]
+        },
+        {
+          name: 'Cable Squat to Row',
+          duration: '14–16 min',
+          description: 'Squat-to-row pattern integrating legs and upper back',
+          battlePlan: '4 rounds\n• 8 Squat to Rows\nRest 120s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-media-fix/artifacts/s4c1d5ao_download%20%283%29.png',
+          intensityReason: 'Compound movement trains legs and back together',
+          moodTips: [
+            {
+              icon: 'layers',
+              title: 'Squat first, then row',
+              description: 'Legs initiate movement before pull.'
+            },
+            {
+              icon: 'body',
+              title: 'Stay tall at the bottom',
+              description: 'Prevents torso collapse.'
+            },
+            {
+              icon: 'timer',
+              title: 'Control cable return',
+              description: 'Slow return maintains tension.'
+            }
+          ]
+        },
+        {
+          name: 'Cable Romanian Deadlift',
+          duration: '14–16 min',
+          description: 'Hip hinge emphasizing hamstrings under constant tension',
+          battlePlan: '4 rounds\n• 10 Cable RDLs\nRest 120s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-media-fix/artifacts/btaq9it2_cable%20rdl.jpg',
+          intensityReason: 'Constant cable tension maximizes hamstring engagement',
+          moodTips: [
+            {
+              icon: 'arrow-back',
+              title: 'Hips push back first',
+              description: 'Cable tracks close to legs.'
+            },
+            {
+              icon: 'body',
+              title: 'Feel hamstring stretch',
+              description: 'Depth stops before back rounds.'
+            },
+            {
+              icon: 'flash',
+              title: 'Squeeze glutes to stand',
+              description: 'Hips finish the rep.'
+            }
+          ]
         }
       ],
       advanced: [
@@ -1367,6 +1467,56 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
               icon: 'construct',
               title: 'Stay close to stack for strong pull angle',
               description: 'Positioning relative to cable stack affects resistance curve.'
+            }
+          ]
+        },
+        {
+          name: 'Cable Squat Drop Set',
+          duration: '18–20 min',
+          description: 'Extended squats using rapid cable weight reductions',
+          battlePlan: '3 rounds\n• 10 Cable Squats\n• Drop → 8\n• Drop → 8\nRest 150s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-media-fix/artifacts/s4c1d5ao_download%20%283%29.png',
+          intensityReason: 'Drop sets extend time under constant cable tension',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Drop weight immediately',
+              description: 'Reduce load ~25% without resting.'
+            },
+            {
+              icon: 'body',
+              title: 'Same squat mechanics',
+              description: 'Tempo stays consistent as weight drops.'
+            },
+            {
+              icon: 'link',
+              title: 'Chase continuous tension',
+              description: 'Cable keeps legs loaded throughout.'
+            }
+          ]
+        },
+        {
+          name: 'Cable Split Squat Advanced',
+          duration: '18–20 min',
+          description: 'Front-loaded split squats emphasizing unilateral strength',
+          battlePlan: '4 rounds\n• 8 Split Squats per leg\nRest 150s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-media-fix/artifacts/rnzpjsna_Screenshot%202025-12-06%20at%207.23.45%E2%80%AFPM.png',
+          intensityReason: 'Heavy unilateral work builds balanced leg strength',
+          moodTips: [
+            {
+              icon: 'footsteps',
+              title: 'Front foot does the work',
+              description: 'Rear leg provides balance only.'
+            },
+            {
+              icon: 'link',
+              title: 'Cable stays close to body',
+              description: 'Prevents forward pulling.'
+            },
+            {
+              icon: 'shield',
+              title: 'Brace core throughout',
+              description: 'Single-leg work demands stability.'
             }
           ]
         }
