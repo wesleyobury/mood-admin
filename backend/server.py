@@ -7792,6 +7792,95 @@ async def get_suggestion_copy_library():
     """Get the copy library for featured suggestions (admin/debug)"""
     return {"copy": SUGGESTION_COPY_LIBRARY}
 
+# ============================================
+# ADMIN NOTIFICATION ENDPOINTS
+# ============================================
+
+class FeaturedWorkoutPush(BaseModel):
+    workout_id: str
+    workout_name: str
+    workout_image: Optional[str] = None
+    target_user_ids: Optional[List[str]] = None  # None = all users
+
+class FeaturedSuggestionPush(BaseModel):
+    custom_copy: Optional[str] = None  # None = random from library
+    target_user_ids: Optional[List[str]] = None  # None = all users
+
+class WorkoutReminderPush(BaseModel):
+    user_id: str
+    custom_message: Optional[str] = None  # None = random from library
+
+@api_router.post("/admin/notifications/featured-workout")
+async def admin_send_featured_workout(
+    data: FeaturedWorkoutPush,
+    current_user_id: str = Depends(get_current_user)
+):
+    """Admin: Send featured workout push to users"""
+    # Check if user is admin
+    user = await db.users.find_one({"_id": ObjectId(current_user_id)})
+    if not user or not user.get("is_admin"):
+        raise HTTPException(status_code=403, detail="Admin access required")
+    
+    notification_service = get_notification_service(db)
+    count = await notification_service.send_featured_workout_to_all(
+        workout_id=data.workout_id,
+        workout_name=data.workout_name,
+        workout_image=data.workout_image,
+        target_user_ids=data.target_user_ids
+    )
+    
+    return {
+        "success": True,
+        "notifications_sent": count,
+        "message": f"Featured workout notification sent to {count} users"
+    }
+
+@api_router.post("/admin/notifications/featured-suggestion")
+async def admin_send_featured_suggestion(
+    data: FeaturedSuggestionPush,
+    current_user_id: str = Depends(get_current_user)
+):
+    """Admin: Send featured suggestion push to users"""
+    # Check if user is admin
+    user = await db.users.find_one({"_id": ObjectId(current_user_id)})
+    if not user or not user.get("is_admin"):
+        raise HTTPException(status_code=403, detail="Admin access required")
+    
+    notification_service = get_notification_service(db)
+    count = await notification_service.send_featured_suggestion_to_all(
+        custom_copy=data.custom_copy,
+        target_user_ids=data.target_user_ids
+    )
+    
+    return {
+        "success": True,
+        "notifications_sent": count,
+        "message": f"Featured suggestion sent to {count} users"
+    }
+
+@api_router.post("/admin/notifications/workout-reminder")
+async def admin_send_workout_reminder(
+    data: WorkoutReminderPush,
+    current_user_id: str = Depends(get_current_user)
+):
+    """Admin: Send workout reminder to a specific user"""
+    # Check if user is admin
+    user = await db.users.find_one({"_id": ObjectId(current_user_id)})
+    if not user or not user.get("is_admin"):
+        raise HTTPException(status_code=403, detail="Admin access required")
+    
+    notification_service = get_notification_service(db)
+    result = await notification_service.trigger_workout_reminder(
+        user_id=data.user_id,
+        custom_message=data.custom_message
+    )
+    
+    return {
+        "success": result is not None,
+        "notification_id": result,
+        "message": "Workout reminder sent" if result else "Failed to send reminder"
+    }
+
 # Include router in main app
 app.include_router(api_router)
 
