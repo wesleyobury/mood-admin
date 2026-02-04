@@ -294,7 +294,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           description: 'Rows and deadlifts develop base power and muscle control.',
           battlePlan: '3 rounds:\n• 10 Barbell Bent-Over Row\nRest 60–75s after each set\n• 10 Barbell Deadlift\nRest 60–75s after each set',
           imageUrl: 'https://customer-assets.emergentagent.com/job_0b65e409-b210-4730-af62-16b022c37685/artifacts/x2wxwvpl_download%20%282%29.png',
-          videoUrl: 'https://customer-assets.emergentagent.com/job_954e4402-4776-4c5b-9208-0cdb91a40358/artifacts/kzlwio26_BB%20deadlift.mov',
+          videoUrl: 'https://res.cloudinary.com/dfsygar5c/video/upload/v1770240452/mood_app/workout_videos/BB_deadlift.mov',
           intensityReason: 'Builds foundational back strength with compound lifts.',
           moodTips: [
             {

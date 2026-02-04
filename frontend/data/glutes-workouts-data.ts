@@ -478,7 +478,7 @@ export const glutesWorkoutDatabase: EquipmentWorkouts[] = [
           description: 'Barbell lift grows strength and posterior hip power',
           battlePlan: '4 rounds\n• 6–8 Heavy Hip Thrusts\nRest 90s',
           imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/odvl0o6h_ht.webp',
-          videoUrl: 'https://customer-assets.emergentagent.com/job_954e4402-4776-4c5b-9208-0cdb91a40358/artifacts/j7wijuu5_BB%20hip%20thrust.mov',
+          videoUrl: 'https://res.cloudinary.com/dfsygar5c/video/upload/v1770240480/mood_app/workout_videos/BB_hip_thrust.mov',
           intensityReason: 'Heavy thrust progression maximizes glute overload',
           moodTips: [
             {

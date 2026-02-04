@@ -361,7 +361,7 @@ export const hamstringsWorkoutDatabase: EquipmentWorkouts[] = [
           description: 'Wide stance deadlift emphasizes inner hamstrings and glutes',
           battlePlan: '4 rounds\n• 8–10 Sumo Deadlifts\nRest 90s',
           imageUrl: 'https://customer-assets.emergentagent.com/job_85724e25-1f59-4628-b049-647d06432207/artifacts/46ki5rsl_download%20%2815%29.png',
-          videoUrl: 'https://customer-assets.emergentagent.com/job_954e4402-4776-4c5b-9208-0cdb91a40358/artifacts/wwxkoqjg_BB%20sumo%20deadlift.mov',
+          videoUrl: 'https://res.cloudinary.com/dfsygar5c/video/upload/v1770240483/mood_app/workout_videos/BB_sumo_deadlift.mov',
           intensityReason: 'Sumo stance recruits more inner thigh and glute drive',
           moodTips: [
             {
