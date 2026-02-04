@@ -5253,6 +5253,16 @@ async def follow_user(user_id: str, current_user_id: str = Depends(get_current_u
                 {"$inc": {"followers_count": 1}}
             )
             
+            # Trigger follow notification
+            try:
+                notification_service = get_notification_service(db)
+                await notification_service.trigger_follow_notification(
+                    follower_id=current_user_id,
+                    followed_user_id=user_id
+                )
+            except Exception as e:
+                logger.error(f"Failed to send follow notification: {e}")
+            
             return {"message": "User followed", "following": True}
     
     except:
