@@ -586,7 +586,7 @@ export const hamstringsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Short-range extensions emphasizing hamstring stretch',
           battlePlan: '3 rounds\n• 12 Extensions\nRest 75s',
-          imageUrl: '',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_96d95d8c-bd6e-49a5-a6af-694c8a8f5c04/artifacts/qscgkw62_back%20ext.png',
           intensityReason: 'Hamstring-focused movement builds posterior chain control',
           moodTips: [
             {
@@ -611,7 +611,7 @@ export const hamstringsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Static hinge holds reinforcing hamstring endurance',
           battlePlan: '3 rounds\n• 20–30s Hold\nRest 75s',
-          imageUrl: '',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_96d95d8c-bd6e-49a5-a6af-694c8a8f5c04/artifacts/oixv12p3_rc%20back%20ext%203.webp',
           intensityReason: 'Isometric holds build hamstring endurance',
           moodTips: [
             {
@@ -843,7 +843,7 @@ export const hamstringsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Controlled curls emphasizing eccentric tension',
           battlePlan: '3 rounds\n• 12–15 Curls\nRest 60s',
-          imageUrl: '',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_96d95d8c-bd6e-49a5-a6af-694c8a8f5c04/artifacts/pokwsf2m_leg%20curl.jpg',
           intensityReason: 'Slow eccentrics build hamstring strength and control',
           moodTips: [
             {
@@ -868,7 +868,7 @@ export const hamstringsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Standard curls finished with static contraction',
           battlePlan: '3 rounds\n• 10 Curls + 10s Hold\nRest 75s',
-          imageUrl: '',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_96d95d8c-bd6e-49a5-a6af-694c8a8f5c04/artifacts/jhs811y7_leg%20curl.png',
           intensityReason: 'Isometric holds maximize hamstring activation',
           moodTips: [
             {
