@@ -308,7 +308,7 @@ const styles = StyleSheet.create({
     zIndex: 10,
   },
   progressContent: {
-    alignItems: 'center',
+    alignItems: 'flex-start',
   },
   progressRow: {
     flexDirection: 'row',

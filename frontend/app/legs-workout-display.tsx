@@ -726,7 +726,7 @@ const styles = StyleSheet.create({
   },
   progressContent: {
     flexDirection: 'row',
-    alignItems: 'center',
+    alignItems: 'flex-start',
     justifyContent: 'space-evenly',
     width: '100%',
     maxWidth: 350,
