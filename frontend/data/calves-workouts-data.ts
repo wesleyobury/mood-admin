@@ -465,7 +465,7 @@ export const calvesWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '8–10 min',
           description: 'Supported calf raises using leg press sled',
           battlePlan: '3 rounds\n• 15 Raises\nRest 60s',
-          imageUrl: '',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_96d95d8c-bd6e-49a5-a6af-694c8a8f5c04/artifacts/ccewdems_leg%20press%20calf%20raise.jpg',
           intensityReason: 'Sled support allows focus on pure calf work',
           moodTips: [
             {
@@ -532,7 +532,7 @@ export const calvesWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Paused calf raises emphasizing top-end contraction',
           battlePlan: '4 rounds\n• 12 Raises (2s pause)\nRest 75s',
-          imageUrl: '',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_96d95d8c-bd6e-49a5-a6af-694c8a8f5c04/artifacts/ccewdems_leg%20press%20calf%20raise.jpg',
           intensityReason: 'Paused contractions strengthen shortened position',
           moodTips: [
             {
@@ -599,7 +599,7 @@ export const calvesWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Extended calf sets using rapid sled weight drops',
           battlePlan: '3 rounds\n• 10 Raises\n• Drop → 15\n• Drop → 20\nRest 120s',
-          imageUrl: '',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_96d95d8c-bd6e-49a5-a6af-694c8a8f5c04/artifacts/ccewdems_leg%20press%20calf%20raise.jpg',
           intensityReason: 'Drop sets push calves to complete exhaustion',
           moodTips: [
             {
