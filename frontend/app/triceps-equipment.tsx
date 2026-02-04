@@ -489,7 +489,7 @@ const styles = StyleSheet.create({
     height: 2,
     backgroundColor: 'rgba(255, 215, 0, 0.3)',
     marginHorizontal: 8,
-    marginTop: 16,
+    marginTop: 14,
   },
   scrollView: {
     flex: 1,
