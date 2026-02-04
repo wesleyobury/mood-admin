@@ -398,7 +398,7 @@ const styles = StyleSheet.create({
   },
   progressContent: {
     flexDirection: 'row',
-    alignItems: 'flex-start',
+    alignItems: 'center',
     justifyContent: 'space-evenly',
     width: '100%',
     maxWidth: 350,

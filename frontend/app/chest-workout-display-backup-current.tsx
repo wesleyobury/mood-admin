@@ -1616,7 +1616,7 @@ const styles = StyleSheet.create({
   },
   progressContent: {
     flexDirection: 'row',
-    alignItems: 'flex-start',
+    alignItems: 'center',
     justifyContent: 'center',
     flexWrap: 'wrap',
   },
