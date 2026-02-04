@@ -45,6 +45,9 @@ const WorkoutCard = React.memo(({
   const [selectedWorkoutForEdit, setSelectedWorkoutForEdit] = useState<Workout | null>(null);
   const flatListRef = useRef<FlatList>(null);
   
+  // Shuffle workouts once when the card mounts - stays consistent during the session
+  const shuffledWorkouts = useMemo(() => shuffleArray(workouts), []);
+  
   // Shimmer animation for pencil icon
   const shimmerAnim = useRef(new Animated.Value(0)).current;
   
