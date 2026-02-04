@@ -1,0 +1,444 @@
+/**
+ * MOOD Notifications Service
+ * Handles push notifications, device token registration, and notification settings
+ */
+
+import * as Notifications from 'expo-notifications';
+import * as Device from 'expo-device';
+import { Platform } from 'react-native';
+import Constants from 'expo-constants';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
+const API_URL = Constants.expoConfig?.extra?.EXPO_BACKEND_URL || 
+  process.env.EXPO_PUBLIC_BACKEND_URL || 
+  'https://fitness-ux-fixes.preview.emergentagent.com';
+
+// Configure notification handler
+Notifications.setNotificationHandler({
+  handleNotification: async () => ({
+    shouldShowAlert: true,
+    shouldPlaySound: true,
+    shouldSetBadge: true,
+  }),
+});
+
+// Types
+export interface NotificationSettings {
+  notifications_enabled: boolean;
+  likes_enabled: boolean;
+  likes_from_following_only: boolean;
+  comments_enabled: boolean;
+  comments_from_following_only: boolean;
+  messages_enabled: boolean;
+  message_requests_enabled: boolean;
+  follows_enabled: boolean;
+  workout_reminders_enabled: boolean;
+  featured_workouts_enabled: boolean;
+  following_digest_enabled: boolean;
+  following_digest_frequency: 'daily' | '3x_week' | 'off';
+  featured_suggestions_enabled: boolean;
+  quiet_hours_enabled: boolean;
+  quiet_hours_start: string;
+  quiet_hours_end: string;
+  digest_time: string;
+  timezone: string;
+}
+
+export interface Notification {
+  id: string;
+  type: string;
+  title: string;
+  body: string;
+  image_url?: string;
+  deep_link?: string;
+  entity_id?: string;
+  entity_type?: string;
+  created_at: string;
+  read_at?: string;
+  actor?: {
+    id: string;
+    username: string;
+    avatar?: string;
+    name?: string;
+  };
+}
+
+// Storage keys
+const PUSH_TOKEN_KEY = '@mood_push_token';
+const NOTIFICATION_PERMISSION_KEY = '@mood_notification_permission';
+
+class NotificationService {
+  private pushToken: string | null = null;
+  private notificationListener: Notifications.Subscription | null = null;
+  private responseListener: Notifications.Subscription | null = null;
+  private authToken: string | null = null;
+
+  /**
+   * Initialize notification service
+   */
+  async initialize(authToken: string): Promise<void> {
+    this.authToken = authToken;
+    
+    // Register for push notifications
+    await this.registerForPushNotifications();
+    
+    // Set up notification listeners
+    this.setupListeners();
+  }
+
+  /**
+   * Set auth token for API calls
+   */
+  setAuthToken(token: string): void {
+    this.authToken = token;
+  }
+
+  /**
+   * Register for push notifications and get token
+   */
+  async registerForPushNotifications(): Promise<string | null> {
+    if (!Device.isDevice) {
+      console.log('Push notifications require a physical device');
+      return null;
+    }
+
+    try {
+      // Check existing permission
+      const { status: existingStatus } = await Notifications.getPermissionsAsync();
+      let finalStatus = existingStatus;
+
+      // Request permission if not granted
+      if (existingStatus !== 'granted') {
+        const { status } = await Notifications.requestPermissionsAsync();
+        finalStatus = status;
+      }
+
+      if (finalStatus !== 'granted') {
+        console.log('Push notification permission not granted');
+        await AsyncStorage.setItem(NOTIFICATION_PERMISSION_KEY, 'denied');
+        return null;
+      }
+
+      await AsyncStorage.setItem(NOTIFICATION_PERMISSION_KEY, 'granted');
+
+      // Get Expo push token
+      const tokenData = await Notifications.getExpoPushTokenAsync({
+        projectId: Constants.expoConfig?.extra?.eas?.projectId,
+      });
+      
+      this.pushToken = tokenData.data;
+      await AsyncStorage.setItem(PUSH_TOKEN_KEY, this.pushToken);
+
+      // Register token with backend
+      if (this.authToken) {
+        await this.registerDeviceToken(this.pushToken);
+      }
+
+      // Configure Android channel
+      if (Platform.OS === 'android') {
+        await Notifications.setNotificationChannelAsync('default', {
+          name: 'MOOD Notifications',
+          importance: Notifications.AndroidImportance.MAX,
+          vibrationPattern: [0, 250, 250, 250],
+          lightColor: '#FFD700',
+        });
+      }
+
+      console.log('📱 Push token registered:', this.pushToken.substring(0, 20) + '...');
+      return this.pushToken;
+    } catch (error) {
+      console.error('Error registering for push notifications:', error);
+      return null;
+    }
+  }
+
+  /**
+   * Register device token with backend
+   */
+  async registerDeviceToken(token: string): Promise<boolean> {
+    if (!this.authToken) {
+      console.log('No auth token, skipping device registration');
+      return false;
+    }
+
+    try {
+      const response = await fetch(`${API_URL}/api/notifications/device-token`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${this.authToken}`,
+        },
+        body: JSON.stringify({
+          token,
+          platform: Platform.OS,
+          device_id: Device.modelId,
+        }),
+      });
+
+      if (response.ok) {
+        console.log('✅ Device token registered with backend');
+        return true;
+      } else {
+        console.error('Failed to register device token:', response.status);
+        return false;
+      }
+    } catch (error) {
+      console.error('Error registering device token:', error);
+      return false;
+    }
+  }
+
+  /**
+   * Unregister device token (logout)
+   */
+  async unregisterDeviceToken(): Promise<void> {
+    if (!this.pushToken || !this.authToken) return;
+
+    try {
+      await fetch(`${API_URL}/api/notifications/device-token?token=${this.pushToken}`, {
+        method: 'DELETE',
+        headers: {
+          'Authorization': `Bearer ${this.authToken}`,
+        },
+      });
+      
+      await AsyncStorage.removeItem(PUSH_TOKEN_KEY);
+      this.pushToken = null;
+      console.log('📱 Device token unregistered');
+    } catch (error) {
+      console.error('Error unregistering device token:', error);
+    }
+  }
+
+  /**
+   * Set up notification listeners
+   */
+  private setupListeners(): void {
+    // Listener for notifications received while app is foregrounded
+    this.notificationListener = Notifications.addNotificationReceivedListener(
+      (notification) => {
+        console.log('🔔 Notification received:', notification.request.content.title);
+      }
+    );
+
+    // Listener for user tapping on notification
+    this.responseListener = Notifications.addNotificationResponseReceivedListener(
+      (response) => {
+        const data = response.notification.request.content.data;
+        console.log('📲 Notification tapped:', data);
+        
+        // Handle deep link navigation
+        if (data?.deep_link) {
+          this.handleDeepLink(data.deep_link as string);
+        }
+      }
+    );
+  }
+
+  /**
+   * Handle deep link navigation
+   */
+  private handleDeepLink(deepLink: string): void {
+    // Parse and navigate to the correct screen
+    // This will be implemented with the app's navigation
+    console.log('🔗 Navigating to:', deepLink);
+    
+    // Example deep link parsing:
+    // mood://post/{id} -> navigate to post detail
+    // mood://profile/{id} -> navigate to user profile
+    // mood://chat/{id} -> navigate to chat conversation
+    // mood://featured-workout/{id} -> navigate to workout detail
+  }
+
+  /**
+   * Clean up listeners
+   */
+  cleanup(): void {
+    if (this.notificationListener) {
+      Notifications.removeNotificationSubscription(this.notificationListener);
+    }
+    if (this.responseListener) {
+      Notifications.removeNotificationSubscription(this.responseListener);
+    }
+  }
+
+  // =====================
+  // API Methods
+  // =====================
+
+  /**
+   * Get notification settings
+   */
+  async getSettings(): Promise<NotificationSettings | null> {
+    if (!this.authToken) return null;
+
+    try {
+      const response = await fetch(`${API_URL}/api/notifications/settings`, {
+        headers: {
+          'Authorization': `Bearer ${this.authToken}`,
+        },
+      });
+
+      if (response.ok) {
+        return await response.json();
+      }
+      return null;
+    } catch (error) {
+      console.error('Error fetching notification settings:', error);
+      return null;
+    }
+  }
+
+  /**
+   * Update notification settings
+   */
+  async updateSettings(settings: Partial<NotificationSettings>): Promise<NotificationSettings | null> {
+    if (!this.authToken) return null;
+
+    try {
+      const response = await fetch(`${API_URL}/api/notifications/settings`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${this.authToken}`,
+        },
+        body: JSON.stringify(settings),
+      });
+
+      if (response.ok) {
+        return await response.json();
+      }
+      return null;
+    } catch (error) {
+      console.error('Error updating notification settings:', error);
+      return null;
+    }
+  }
+
+  /**
+   * Get notifications (inbox)
+   */
+  async getNotifications(
+    limit: number = 50,
+    skip: number = 0,
+    unreadOnly: boolean = false
+  ): Promise<Notification[]> {
+    if (!this.authToken) return [];
+
+    try {
+      const params = new URLSearchParams({
+        limit: limit.toString(),
+        skip: skip.toString(),
+        unread_only: unreadOnly.toString(),
+      });
+
+      const response = await fetch(`${API_URL}/api/notifications?${params}`, {
+        headers: {
+          'Authorization': `Bearer ${this.authToken}`,
+        },
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        return data.notifications || [];
+      }
+      return [];
+    } catch (error) {
+      console.error('Error fetching notifications:', error);
+      return [];
+    }
+  }
+
+  /**
+   * Get unread notification count
+   */
+  async getUnreadCount(): Promise<number> {
+    if (!this.authToken) return 0;
+
+    try {
+      const response = await fetch(`${API_URL}/api/notifications/unread-count`, {
+        headers: {
+          'Authorization': `Bearer ${this.authToken}`,
+        },
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        return data.unread_count || 0;
+      }
+      return 0;
+    } catch (error) {
+      console.error('Error fetching unread count:', error);
+      return 0;
+    }
+  }
+
+  /**
+   * Mark notifications as read
+   */
+  async markAsRead(notificationIds: string[]): Promise<boolean> {
+    if (!this.authToken) return false;
+
+    try {
+      const response = await fetch(`${API_URL}/api/notifications/mark-read`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${this.authToken}`,
+        },
+        body: JSON.stringify({ notification_ids: notificationIds }),
+      });
+
+      return response.ok;
+    } catch (error) {
+      console.error('Error marking notifications as read:', error);
+      return false;
+    }
+  }
+
+  /**
+   * Mark all notifications as read
+   */
+  async markAllAsRead(): Promise<boolean> {
+    if (!this.authToken) return false;
+
+    try {
+      const response = await fetch(`${API_URL}/api/notifications/mark-all-read`, {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${this.authToken}`,
+        },
+      });
+
+      return response.ok;
+    } catch (error) {
+      console.error('Error marking all notifications as read:', error);
+      return false;
+    }
+  }
+
+  /**
+   * Delete a notification
+   */
+  async deleteNotification(notificationId: string): Promise<boolean> {
+    if (!this.authToken) return false;
+
+    try {
+      const response = await fetch(`${API_URL}/api/notifications/${notificationId}`, {
+        method: 'DELETE',
+        headers: {
+          'Authorization': `Bearer ${this.authToken}`,
+        },
+      });
+
+      return response.ok;
+    } catch (error) {
+      console.error('Error deleting notification:', error);
+      return false;
+    }
+  }
+}
+
+// Export singleton instance
+export const notificationService = new NotificationService();
+export default notificationService;
