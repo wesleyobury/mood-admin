@@ -3498,6 +3498,9 @@ async def get_current_user_info(current_user_id: str = Depends(get_current_user)
                 {"$set": {"current_streak": current_streak}}
             )
     
+    # Check if admin
+    is_admin = user.get("username", "").lower() == "officialmoodapp"
+    
     # Return user data including terms acceptance status
     return {
         "id": str(user["_id"]),
@@ -3510,6 +3513,7 @@ async def get_current_user_info(current_user_id: str = Depends(get_current_user)
         "following_count": user.get("following_count", 0),
         "workouts_count": user.get("workouts_count", 0),
         "current_streak": current_streak,
+        "is_admin": is_admin,
         "created_at": user.get("created_at", datetime.now(timezone.utc)).isoformat() if user.get("created_at") else datetime.now(timezone.utc).isoformat(),
         "terms_accepted_at": user.get("terms_accepted_at").isoformat() if user.get("terms_accepted_at") else None,
         "terms_accepted_version": user.get("terms_accepted_version"),
