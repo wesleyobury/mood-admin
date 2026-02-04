@@ -2254,28 +2254,101 @@ const styles = StyleSheet.create({
     textAlign: 'right',
     marginTop: 6,
   },
-  // Saved Achievements Styles
+  // Saved Achievements Styles - Premium Design
   savedAchievementsHint: {
     color: 'rgba(255, 255, 255, 0.5)',
     fontSize: 12,
-    marginBottom: 12,
+    marginBottom: 14,
+    letterSpacing: 0.2,
   },
   savedAchievementsScroll: {
     marginHorizontal: -4,
   },
   savedAchievementsContent: {
     paddingHorizontal: 4,
-    gap: 12,
+    gap: 10,
   },
   savedAchievementCard: {
-    width: 140,
-    backgroundColor: 'rgba(255, 215, 0, 0.08)',
-    borderRadius: 12,
-    padding: 14,
-    borderWidth: 1,
-    borderColor: 'rgba(255, 215, 0, 0.2)',
+    width: 130,
+    backgroundColor: '#111',
+    borderRadius: 14,
+    overflow: 'hidden',
+  },
+  achievementAccentLine: {
+    height: 2.5,
+    backgroundColor: '#FFD700',
+  },
+  achievementCardContent: {
+    padding: 12,
+    paddingTop: 10,
+  },
+  achievementHeaderRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: 6,
+  },
+  achievementDateLabel: {
+    color: 'rgba(255, 255, 255, 0.45)',
+    fontSize: 10,
+    fontWeight: '500',
+    letterSpacing: 0.2,
+  },
+  achievementTrophyBadge: {
+    width: 18,
+    height: 18,
+    borderRadius: 9,
+    backgroundColor: '#FFD700',
+    justifyContent: 'center',
     alignItems: 'center',
   },
+  achievementMainStats: {
+    flexDirection: 'row',
+    alignItems: 'baseline',
+    marginBottom: 6,
+  },
+  achievementDurationValue: {
+    fontSize: 28,
+    fontWeight: '700',
+    color: '#fff',
+    letterSpacing: -0.5,
+  },
+  achievementDurationUnit: {
+    fontSize: 12,
+    fontWeight: '500',
+    color: 'rgba(255, 255, 255, 0.45)',
+    marginLeft: 3,
+  },
+  achievementStatsPills: {
+    flexDirection: 'row',
+    gap: 6,
+    marginBottom: 10,
+  },
+  achievementStatPill: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: 'rgba(255, 215, 0, 0.1)',
+    paddingHorizontal: 6,
+    paddingVertical: 3,
+    borderRadius: 10,
+    gap: 3,
+  },
+  achievementStatPillText: {
+    color: 'rgba(255, 255, 255, 0.65)',
+    fontSize: 10,
+    fontWeight: '500',
+  },
+  achievementWorkoutPreview: {
+    borderTopWidth: 1,
+    borderTopColor: 'rgba(255, 255, 255, 0.06)',
+    paddingTop: 8,
+  },
+  achievementWorkoutName: {
+    color: 'rgba(255, 255, 255, 0.5)',
+    fontSize: 10,
+    lineHeight: 14,
+  },
+  // Legacy styles kept for compatibility
   savedAchievementIcon: {
     width: 48,
     height: 48,
