@@ -340,23 +340,15 @@ const styles = StyleSheet.create({
     color: '#0c0c0c',
   },
   signInButton: {
+    backgroundColor: '#333',
     borderRadius: 12,
-    overflow: 'hidden',
-  },
-  signInBorder: {
-    padding: 2,
-    borderRadius: 12,
-  },
-  signInInner: {
-    backgroundColor: '#0c0c0c',
-    borderRadius: 10,
     paddingVertical: 14,
     alignItems: 'center',
   },
   signInText: {
     fontSize: 15,
     fontWeight: '600',
-    color: '#FFD700',
+    color: '#ffffff',
   },
   continueGuestButton: {
     paddingVertical: 12,
