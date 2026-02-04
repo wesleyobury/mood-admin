@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, useMemo } from 'react';
 import {
   View,
   Text,
@@ -14,6 +14,7 @@ import { LinearGradient } from 'expo-linear-gradient';
 import MaskedView from '@react-native-masked-view/masked-view';
 import { Workout } from '../types/workout';
 import CustomWorkoutModal from './CustomWorkoutModal';
+import { shuffleArray } from '../utils/shuffle';
 
 const { width } = Dimensions.get('window');
 
