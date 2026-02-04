@@ -317,10 +317,12 @@ export default function NotificationSettingsScreen() {
                   'Set Digest Time',
                   'Choose when to receive your daily digest',
                   [
-                    { text: '6:00 PM', onPress: () => updateSetting('digest_time', '18:00') },
-                    { text: '7:00 PM', onPress: () => updateSetting('digest_time', '19:00') },
+                    { text: '12:00 AM', onPress: () => updateSetting('digest_time', '00:00') },
+                    { text: '4:00 AM', onPress: () => updateSetting('digest_time', '04:00') },
+                    { text: '8:00 AM', onPress: () => updateSetting('digest_time', '08:00') },
+                    { text: '12:00 PM', onPress: () => updateSetting('digest_time', '12:00') },
+                    { text: '4:00 PM', onPress: () => updateSetting('digest_time', '16:00') },
                     { text: '8:00 PM', onPress: () => updateSetting('digest_time', '20:00') },
-                    { text: '9:00 AM', onPress: () => updateSetting('digest_time', '09:00') },
                     { text: 'Cancel', style: 'cancel' },
                   ]
                 );
