@@ -297,9 +297,6 @@ export default function AdminDashboard() {
   } | null>(null);
   const [engagementChartPeriod, setEngagementChartPeriod] = useState<'day' | 'week' | 'month'>('day');
   
-  // Chart period selection
-  const [chartPeriod, setChartPeriod] = useState<'day' | 'week' | 'month'>('day');
-  
   // Heartbeat interval
   const heartbeatRef = useRef<NodeJS.Timeout | null>(null);
 
