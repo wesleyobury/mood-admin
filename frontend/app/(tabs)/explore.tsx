@@ -148,6 +148,9 @@ export default function Explore() {
   
   // Post options menu state
   const [showPostMenu, setShowPostMenu] = useState(false);
+  
+  // Check if current user is admin
+  const isAdmin = user?.username?.toLowerCase() === 'officialmoodapp';
   const [selectedMenuPost, setSelectedMenuPost] = useState<Post | null>(null);
   const [showReportModal, setShowReportModal] = useState(false);
   
