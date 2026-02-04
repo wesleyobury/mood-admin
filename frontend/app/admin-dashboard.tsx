@@ -262,6 +262,27 @@ export default function AdminDashboard() {
   // Custom Workouts stats widget state
   const [customWorkoutsStats, setCustomWorkoutsStats] = useState<CustomWorkoutsStats | null>(null);
   
+  // Try Workout Clicks widget state
+  const [tryWorkoutStats, setTryWorkoutStats] = useState<{
+    total_clicks: number;
+    unique_users: number;
+    today_clicks: number;
+    this_week_clicks: number;
+    by_source: { source: string; clicks: number }[];
+  } | null>(null);
+  const [showTryWorkoutModal, setShowTryWorkoutModal] = useState(false);
+  
+  // Workout Session Completions widget state
+  const [sessionCompletionStats, setSessionCompletionStats] = useState<{
+    total_completions: number;
+    unique_users: number;
+    today_completions: number;
+    this_week_completions: number;
+    avg_duration_seconds: number;
+    by_difficulty: { difficulty: string; completions: number }[];
+  } | null>(null);
+  const [showSessionCompletionModal, setShowSessionCompletionModal] = useState(false);
+  
   // Chart period selection
   const [chartPeriod, setChartPeriod] = useState<'day' | 'week' | 'month'>('day');
   
