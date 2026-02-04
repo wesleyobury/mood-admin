@@ -825,7 +825,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '18–20 min',
           description: 'Extended triple-drop sets for deep fatigue',
           battlePlan: '3 rounds\n• 6 Rows\n• Drop → 6\n• Drop → 6\n• Drop → 6\nRest 150s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/qcfdfm3u_download%20%284%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_ba98ecac-d9ff-4da8-8b26-c72f04702bfb/artifacts/h1hdn33y_kb%20cs%20row.jpg',
           intensityReason: 'Triple drops maximize muscle fatigue and pump',
           moodTips: [
             {
@@ -858,7 +858,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Bodyweight extensions paired with short static holds',
           battlePlan: '3 rounds\n• 12 Back Extensions\nRest 45–60s\n• 2 Roman Chair Holds (20s each)\nRest 60s after set',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_0b65e409-b210-4730-af62-16b022c37685/artifacts/8tyq8yxs_download%20%2810%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_ba98ecac-d9ff-4da8-8b26-c72f04702bfb/artifacts/ck79gna3_back%20ext.png',
           intensityReason: 'Introduces endurance and stability to lower back',
           moodTips: [
             {
@@ -898,7 +898,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Slow tempo extensions emphasizing controlled spinal motion',
           battlePlan: '3 rounds\n• 10 Back Extensions (3s eccentric)\nRest 60s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_0b65e409-b210-4730-af62-16b022c37685/artifacts/8tyq8yxs_download%20%2810%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_ba98ecac-d9ff-4da8-8b26-c72f04702bfb/artifacts/ck79gna3_back%20ext.png',
           intensityReason: 'Controlled tempo builds strength without excessive load',
           moodTips: [
             {
@@ -923,7 +923,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Short-range extensions to build endurance safely',
           battlePlan: '3 rounds\n• 20 Partial Back Extensions\nRest 60s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_0b65e409-b210-4730-af62-16b022c37685/artifacts/uud5nxsk_download%20%2811%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_ba98ecac-d9ff-4da8-8b26-c72f04702bfb/artifacts/ck79gna3_back%20ext.png',
           intensityReason: 'Partial range builds endurance without overextension',
           moodTips: [
             {
@@ -1082,7 +1082,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '18–20 min',
           description: 'Overloaded eccentrics to build posterior strength',
           battlePlan: '4 rounds\n• 6 Weighted Extensions (4s eccentric)\nRest 120s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_0b65e409-b210-4730-af62-16b022c37685/artifacts/8tyq8yxs_download%20%2810%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_ba98ecac-d9ff-4da8-8b26-c72f04702bfb/artifacts/3z6b1lhy_roman%20chair%20weighted%20ext.png',
           intensityReason: 'Extended eccentrics maximize strength development',
           moodTips: [
             {
