@@ -610,6 +610,56 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
               description: 'Maintain proud chest to avoid rounding and target glutes properly.'
             }
           ]
+        },
+        {
+          name: 'Supported Kettlebell Rows',
+          duration: '12–14 min',
+          description: 'Single-arm rows emphasizing control and balance',
+          battlePlan: '3 rounds\n• 10 KB Rows (each side)\nRest 60s per side',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_0b65e409-b210-4730-af62-16b022c37685/artifacts/s9jbh6k2_download%20%286%29.png',
+          intensityReason: 'Supported setup builds foundation for heavier work',
+          moodTips: [
+            {
+              icon: 'construct',
+              title: 'Brace before pulling',
+              description: 'Core tight keeps spine neutral.'
+            },
+            {
+              icon: 'flash',
+              title: 'Bell stays close',
+              description: 'Elbow skims ribs on each rep.'
+            },
+            {
+              icon: 'body',
+              title: 'Feel lat stretch first',
+              description: 'Controlled bottom position matters.'
+            }
+          ]
+        },
+        {
+          name: 'Suitcase Kettlebell Rows',
+          duration: '12–14 min',
+          description: 'Offset rows building stability and back control',
+          battlePlan: '3 rounds\n• 8 Suitcase KB Rows (each side)\nRest 75s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_0b65e409-b210-4730-af62-16b022c37685/artifacts/s1nbakqw_download%20%287%29.png',
+          intensityReason: 'Offset load builds core stability alongside back strength',
+          moodTips: [
+            {
+              icon: 'construct',
+              title: 'Resist the tilt',
+              description: 'Stay tall despite uneven load.'
+            },
+            {
+              icon: 'timer',
+              title: 'Slow, smooth reps',
+              description: 'Stability beats speed.'
+            },
+            {
+              icon: 'body',
+              title: 'Core assists the pull',
+              description: 'Obliques should help brace.'
+            }
+          ]
         }
       ],
       intermediate: [
@@ -652,6 +702,56 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
               description: 'High elbow position targets upper traps and rear delts effectively.'
             }
           ]
+        },
+        {
+          name: 'Double Kettlebell Rows',
+          duration: '14–16 min',
+          description: 'Bilateral rows for increased loading',
+          battlePlan: '4 rounds\n• 8 Double KB Rows\nRest 90s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/e9kn8lqs_download%20%285%29.png',
+          intensityReason: 'Double bells increase loading capacity',
+          moodTips: [
+            {
+              icon: 'construct',
+              title: 'Hinge stays fixed',
+              description: 'No torso rise between reps.'
+            },
+            {
+              icon: 'flash',
+              title: 'Drive elbows back',
+              description: 'Bells track tight to body.'
+            },
+            {
+              icon: 'body',
+              title: 'Mid-back should thicken',
+              description: 'Strong squeeze every rep.'
+            }
+          ]
+        },
+        {
+          name: 'Gorilla Rows',
+          duration: '14–16 min',
+          description: 'Alternating rows with constant tension',
+          battlePlan: '3 rounds\n• 10 Gorilla Rows (each side)\nRest 90s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/e9kn8lqs_download%20%285%29.png',
+          intensityReason: 'Alternating pattern maintains constant tension',
+          moodTips: [
+            {
+              icon: 'construct',
+              title: 'Hips stay level',
+              description: 'No rotation side to side.'
+            },
+            {
+              icon: 'timer',
+              title: 'Quick switch, slow pull',
+              description: 'Control each rep.'
+            },
+            {
+              icon: 'flash',
+              title: 'Alternate lat firing',
+              description: 'One side lights up at a time.'
+            }
+          ]
         }
       ],
       advanced: [
@@ -692,6 +792,56 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
               icon: 'flash',
               title: 'Keep spine solid in cleans, power from hips.',
               description: 'Hip drive generates force while spine stability protects back.'
+            }
+          ]
+        },
+        {
+          name: 'Heavy Double Kettlebell Rows',
+          duration: '16–18 min',
+          description: 'Heavy bilateral rows for maximal overload',
+          battlePlan: '4 rounds\n• 6 Double KB Rows\nRest 120s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_0b65e409-b210-4730-af62-16b022c37685/artifacts/s9jbh6k2_download%20%286%29.png',
+          intensityReason: 'Heavy loads maximize strength development',
+          moodTips: [
+            {
+              icon: 'construct',
+              title: 'Load stays honest',
+              description: 'Reduce weight if hinge breaks.'
+            },
+            {
+              icon: 'flash',
+              title: 'Explode then control',
+              description: 'Power up, slow down.'
+            },
+            {
+              icon: 'body',
+              title: 'Straps encouraged',
+              description: 'Grip shouldn\'t limit output.'
+            }
+          ]
+        },
+        {
+          name: 'Kettlebell Row Triple Drop',
+          duration: '18–20 min',
+          description: 'Extended triple-drop sets for deep fatigue',
+          battlePlan: '3 rounds\n• 6 Rows\n• Drop → 6\n• Drop → 6\n• Drop → 6\nRest 150s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/qcfdfm3u_download%20%284%29.png',
+          intensityReason: 'Triple drops maximize muscle fatigue and pump',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Three drops, no rest',
+              description: 'Bells change fast.'
+            },
+            {
+              icon: 'construct',
+              title: 'Same elbow path',
+              description: 'Don\'t cheat late reps.'
+            },
+            {
+              icon: 'body',
+              title: 'Chase lat pump',
+              description: 'Deep burn under armpits.'
             }
           ]
         }
