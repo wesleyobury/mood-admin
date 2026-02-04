@@ -67,6 +67,12 @@ from content_moderation import (
     REPORT_CATEGORIES,
     REPORT_STATUS,
 )
+from notifications import (
+    NotificationService,
+    NotificationType,
+    get_notification_service,
+    SUGGESTION_COPY_LIBRARY,
+)
 
 ROOT_DIR = Path(__file__).parent
 load_dotenv(ROOT_DIR / '.env')
