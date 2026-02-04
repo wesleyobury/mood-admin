@@ -68,15 +68,15 @@ SUGGESTION_COPY_LIBRARY = [
 
 # Deep link URL schemes
 DEEP_LINK_SCHEMES = {
-    NotificationType.LIKE: "mood://post/{entity_id}",
-    NotificationType.COMMENT: "mood://post/{entity_id}",
-    NotificationType.FOLLOW: "mood://profile/{actor_id}",
+    NotificationType.LIKE: "mood://notifications",  # Go to notifications tab
+    NotificationType.COMMENT: "mood://notifications",  # Go to notifications tab
+    NotificationType.FOLLOW: "mood://notifications",  # Go to notifications tab
     NotificationType.MESSAGE: "mood://chat/{entity_id}",
-    NotificationType.MESSAGE_REQUEST: "mood://chat/{entity_id}",
-    NotificationType.FEATURED_WORKOUT: "mood://featured-workout/{entity_id}",
-    NotificationType.WORKOUT_REMINDER: "mood://start-workout",
-    NotificationType.FEATURED_SUGGESTION: "mood://",
-    NotificationType.FOLLOWING_DIGEST: "mood://explore?filter=following",
+    NotificationType.FEATURED_WORKOUT: "mood://cart/{entity_id}",  # Go directly to cart
+    NotificationType.WORKOUT_REMINDER: "mood://home",  # Go to home
+    NotificationType.FEATURED_SUGGESTION: "mood://home",  # Go to home
+    NotificationType.FOLLOWING_DIGEST: "mood://notifications",
+    NotificationType.WHILE_AWAY_DIGEST: "mood://notifications",
 }
 
 
