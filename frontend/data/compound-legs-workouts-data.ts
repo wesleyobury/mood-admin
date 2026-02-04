@@ -1663,7 +1663,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
         {
           name: 'Pit Shark Standard Squat',
           duration: '10–12 min',
-          description: 'Controlled full-range squats building foundational leg strength',
+          description: 'Controlled full-range squats building leg foundation',
           battlePlan: '3 rounds\n• 10–12 Squats\nRest 75s',
           imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/gxoxkpbs_download%20%285%29.png',
           intensityReason: 'Pit shark builds strength with natural squat mechanics',
@@ -1681,61 +1681,286 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'timer',
               title: 'Smooth reps only',
-              description: 'No bouncing or rushing transitions.'
+              description: 'Avoid bouncing or rushing transitions.'
+            }
+          ]
+        },
+        {
+          name: 'Tempo Pit Shark Squat',
+          duration: '10–12 min',
+          description: 'Slow eccentrics reinforcing squat control',
+          battlePlan: '3 rounds\n• 10 Squats (3s eccentric)\nRest 90s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/gxoxkpbs_download%20%285%29.png',
+          intensityReason: 'Tempo work builds control and muscle engagement',
+          moodTips: [
+            {
+              icon: 'timer',
+              title: 'Slow the descent',
+              description: 'Three-second lowering keeps quads engaged.'
+            },
+            {
+              icon: 'shield',
+              title: 'Brace before every rep',
+              description: 'Core stability improves balance.'
+            },
+            {
+              icon: 'arrow-up',
+              title: 'Controlled ascent',
+              description: 'Stand smoothly without jerking.'
+            }
+          ]
+        },
+        {
+          name: 'Pit Shark Pause Squat',
+          duration: '10–12 min',
+          description: 'Paused squats strengthening bottom position',
+          battlePlan: '3 rounds\n• 8–10 Squats (2s pause)\nRest 90s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/gxoxkpbs_download%20%285%29.png',
+          intensityReason: 'Pauses eliminate momentum for greater activation',
+          moodTips: [
+            {
+              icon: 'pause',
+              title: 'Pause above depth',
+              description: 'Removes momentum without joint stress.'
+            },
+            {
+              icon: 'shield',
+              title: 'Stay tight in pause',
+              description: 'No relaxing at the bottom.'
+            },
+            {
+              icon: 'body',
+              title: 'Drive evenly upward',
+              description: 'Knees and hips rise together.'
+            }
+          ]
+        },
+        {
+          name: 'Pit Shark Step-Ups',
+          duration: '10–12 min',
+          description: 'Elevated step-ups emphasizing unilateral leg drive',
+          battlePlan: '3 rounds\n• 8 Step-Ups per leg\nRest 75s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/gxoxkpbs_download%20%285%29.png',
+          intensityReason: 'Unilateral work builds balanced leg strength',
+          moodTips: [
+            {
+              icon: 'trending-up',
+              title: 'Increase step height intentionally',
+              description: 'Plates or box should place knee above hip.'
+            },
+            {
+              icon: 'footsteps',
+              title: 'Back leg fully disengaged',
+              description: 'Front leg performs all the work.'
+            },
+            {
+              icon: 'flash',
+              title: 'Drive through lead heel',
+              description: 'Improves quad and glute activation.'
             }
           ]
         }
       ],
       intermediate: [
         {
-          name: 'Pit Shark Tempo Squat',
+          name: 'Heavy Pit Shark Squat',
           duration: '14–16 min',
-          description: 'Squats emphasizing controlled eccentric loading',
-          battlePlan: '4 rounds\n• 8 Squats (3s eccentric)\nRest 120s',
+          description: 'Lower-rep squats emphasizing leg strength',
+          battlePlan: '4 rounds\n• 6–8 Squats\nRest 120s',
           imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/gxoxkpbs_download%20%285%29.png',
-          intensityReason: 'Tempo work increases time under tension',
+          intensityReason: 'Heavier loads build raw strength',
           moodTips: [
             {
-              icon: 'timer',
-              title: 'Slow the descent',
-              description: 'Three-second lowering keeps legs under tension.'
+              icon: 'shield',
+              title: 'Brace before unrack',
+              description: 'Treat each rep as heavy.'
             },
             {
-              icon: 'shield',
-              title: 'Brace before every rep',
-              description: 'Core stability improves force transfer.'
+              icon: 'timer',
+              title: 'Control the eccentric',
+              description: 'Stability before power.'
+            },
+            {
+              icon: 'people',
+              title: 'Spotter recommended',
+              description: 'Fatigue can stall reps unexpectedly.'
+            }
+          ]
+        },
+        {
+          name: 'Pit Shark Romanian Deadlift',
+          duration: '14–16 min',
+          description: 'Hip hinge emphasizing hamstrings and glutes',
+          battlePlan: '4 rounds\n• 8–10 RDLs\nRest 120s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/gxoxkpbs_download%20%285%29.png',
+          intensityReason: 'RDL pattern develops posterior chain',
+          moodTips: [
+            {
+              icon: 'arrow-back',
+              title: 'Hips push straight back',
+              description: 'Minimal knee bend keeps hamstrings loaded.'
+            },
+            {
+              icon: 'body',
+              title: 'Lower until stretch is felt',
+              description: 'Stop before back rounds.'
             },
             {
               icon: 'flash',
-              title: 'Explode with control',
-              description: 'Power up without jerking.'
+              title: 'Glutes finish the lift',
+              description: 'Squeeze hips through at top.'
+            }
+          ]
+        },
+        {
+          name: 'Pit Shark Drop Set Squat',
+          duration: '14–16 min',
+          description: 'Extended squat sets using fast load reductions',
+          battlePlan: '3 rounds\n• 8 Squats\n• Drop → 8\n• Drop → 8\nRest 150s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/gxoxkpbs_download%20%285%29.png',
+          intensityReason: 'Drop sets extend time under tension',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Drops are immediate',
+              description: 'Reduce load 20–30% without rest.'
+            },
+            {
+              icon: 'timer',
+              title: 'Rep tempo unchanged',
+              description: 'Lighter weight does not mean faster reps.'
+            },
+            {
+              icon: 'flame',
+              title: 'Chase quad pump',
+              description: 'Continuous tension is the goal.'
+            }
+          ]
+        },
+        {
+          name: 'Pit Shark Jump Squat',
+          duration: '14–16 min',
+          description: 'Light explosive squats developing leg power',
+          battlePlan: '3 rounds\n• 6–8 Jump Squats\nRest 120s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/gxoxkpbs_download%20%285%29.png',
+          intensityReason: 'Explosive work builds power output',
+          moodTips: [
+            {
+              icon: 'barbell',
+              title: 'Use very light load',
+              description: 'Power output matters more than resistance.'
+            },
+            {
+              icon: 'arrow-up',
+              title: 'Jump vertically, land softly',
+              description: 'Absorb force quietly through mid-foot.'
+            },
+            {
+              icon: 'refresh',
+              title: 'Reset fully each rep',
+              description: 'Every jump should be explosive.'
             }
           ]
         }
       ],
       advanced: [
         {
-          name: 'Pit Shark Pause Squat',
-          duration: '16–18 min',
-          description: 'Paused squats strengthening the bottom position',
-          battlePlan: '4 rounds\n• 5–6 Squats (2s pause)\nRest 150s',
+          name: 'Max-Load Pit Shark Squat',
+          duration: '18–20 min',
+          description: 'Heavy squats for maximal leg strength',
+          battlePlan: '5 rounds\n• 3–5 Squats\nRest 180s',
           imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/gxoxkpbs_download%20%285%29.png',
-          intensityReason: 'Pauses eliminate momentum for greater muscle activation',
+          intensityReason: 'Heavy loads build maximal strength',
           moodTips: [
             {
-              icon: 'pause',
-              title: 'Pause just above depth',
-              description: 'Removes momentum without joint stress.'
+              icon: 'shield',
+              title: 'Brace aggressively',
+              description: 'Full-body tension before each rep.'
             },
             {
+              icon: 'trending-down',
+              title: 'Depth stays consistent',
+              description: 'No shortening range under load.'
+            },
+            {
+              icon: 'people',
+              title: 'Spotter required',
+              description: 'Heavy failures can occur suddenly.'
+            }
+          ]
+        },
+        {
+          name: 'Heavy Pit Shark RDL',
+          duration: '18–20 min',
+          description: 'Loaded hinges emphasizing posterior chain strength',
+          battlePlan: '4 rounds\n• 6–8 RDLs\nRest 150s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/gxoxkpbs_download%20%285%29.png',
+          intensityReason: 'Heavy RDLs maximize hamstring development',
+          moodTips: [
+            {
               icon: 'shield',
-              title: 'Stay tight in the pause',
-              description: 'No relaxing at the bottom.'
+              title: 'Brace before lowering',
+              description: 'Heavy hinges demand core stiffness.'
+            },
+            {
+              icon: 'arrow-down',
+              title: 'Bar path stays close',
+              description: 'Load should track straight down.'
             },
             {
               icon: 'people',
               title: 'Spotter recommended',
-              description: 'Paused reps can fail unexpectedly.'
+              description: 'Fatigue can compromise hinge mechanics.'
+            }
+          ]
+        },
+        {
+          name: 'Pit Shark Triple Drop Squat',
+          duration: '18–20 min',
+          description: 'Extended triple-drop squats for total exhaustion',
+          battlePlan: '3 rounds\n• 6 Squats\n• Drop → 6\n• Drop → 6\n• Drop → 6\nRest 180s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/gxoxkpbs_download%20%285%29.png',
+          intensityReason: 'Triple drops maximize muscle fatigue',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Three drops without rest',
+              description: 'Strip load rapidly.'
+            },
+            {
+              icon: 'body',
+              title: 'Same squat mechanics',
+              description: 'No shortcuts under fatigue.'
+            },
+            {
+              icon: 'flame',
+              title: 'Quad pump should peak',
+              description: 'Exhaustion is intentional.'
+            }
+          ]
+        },
+        {
+          name: 'Pit Shark Jump Squat Burnout',
+          duration: '18–20 min',
+          description: 'Explosive jump squats performed under fatigue',
+          battlePlan: '3 rounds\n• 8–10 Jump Squats\nRest 150s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/gxoxkpbs_download%20%285%29.png',
+          intensityReason: 'Explosive burnout builds power endurance',
+          moodTips: [
+            {
+              icon: 'barbell',
+              title: 'Light load only',
+              description: 'Jump height matters more than weight.'
+            },
+            {
+              icon: 'flash',
+              title: 'Short ground contact',
+              description: 'Quick rebounds maintain power.'
+            },
+            {
+              icon: 'alert',
+              title: 'Stop when jumps slow',
+              description: 'End set once explosiveness fades.'
             }
           ]
         }
@@ -1758,53 +1983,228 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'footsteps',
               title: 'Feet slightly forward',
-              description: 'Keeps bar over mid-foot throughout rep.'
+              description: 'Keeps bar over mid-foot.'
             },
             {
               icon: 'body',
               title: 'Sit between hips',
-              description: 'Avoid excessive forward knee travel.'
+              description: 'Avoid excessive knee drift.'
             },
             {
               icon: 'timer',
               title: 'Controlled cadence',
-              description: 'Smith rewards precision over speed.'
+              description: 'Precision over speed.'
+            }
+          ]
+        },
+        {
+          name: 'Tempo Smith Squat',
+          duration: '10–12 min',
+          description: 'Slow eccentrics building leg control',
+          battlePlan: '3 rounds\n• 10 Squats (3s eccentric)\nRest 90s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/gxoxkpbs_download%20%285%29.png',
+          intensityReason: 'Tempo work increases muscle engagement',
+          moodTips: [
+            {
+              icon: 'timer',
+              title: 'Three-second descent',
+              description: 'Maintains quad tension.'
+            },
+            {
+              icon: 'construct',
+              title: 'Knees track with toes',
+              description: 'Protects joints.'
+            },
+            {
+              icon: 'arrow-up',
+              title: 'Smooth ascent',
+              description: 'No bouncing.'
+            }
+          ]
+        },
+        {
+          name: 'Smith Reverse Lunge',
+          duration: '10–12 min',
+          description: 'Guided lunges reducing balance demand',
+          battlePlan: '3 rounds\n• 8 Lunges per leg\nRest 75s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/gxoxkpbs_download%20%285%29.png',
+          intensityReason: 'Guided path allows focus on leg drive',
+          moodTips: [
+            {
+              icon: 'arrow-back',
+              title: 'Step back deliberately',
+              description: 'Reverse motion protects knees.'
+            },
+            {
+              icon: 'body',
+              title: 'Torso stays upright',
+              description: 'Smith supports posture.'
+            },
+            {
+              icon: 'footsteps',
+              title: 'Front leg dominates',
+              description: 'Rear leg assists balance only.'
+            }
+          ]
+        },
+        {
+          name: 'Smith Romanian Deadlift',
+          duration: '10–12 min',
+          description: 'Guided hip hinge emphasizing hamstring stretch',
+          battlePlan: '3 rounds\n• 10 RDLs\nRest 90s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/gxoxkpbs_download%20%285%29.png',
+          intensityReason: 'Guided RDL teaches hinge mechanics safely',
+          moodTips: [
+            {
+              icon: 'body',
+              title: 'Soft knees throughout',
+              description: 'Avoid joint lockout.'
+            },
+            {
+              icon: 'arrow-back',
+              title: 'Hips initiate movement',
+              description: 'Bar lowers as hips travel back.'
+            },
+            {
+              icon: 'alert',
+              title: 'Stretch without rounding',
+              description: 'Depth stops before spine flexes.'
             }
           ]
         }
       ],
       intermediate: [
         {
-          name: 'Smith Tempo Squat',
+          name: 'Smith Front Squat',
           duration: '14–16 min',
-          description: 'Slow eccentric squats increasing time under tension',
-          battlePlan: '4 rounds\n• 8 Squats (3s eccentric)\nRest 120s',
+          description: 'Front-loaded squats emphasizing quads and core',
+          battlePlan: '4 rounds\n• 6–8 Front Squats\nRest 120s',
           imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/gxoxkpbs_download%20%285%29.png',
-          intensityReason: 'Tempo work maximizes muscle engagement',
+          intensityReason: 'Front load challenges core stability',
           moodTips: [
             {
-              icon: 'timer',
-              title: 'Three-second descent',
-              description: 'Maintains quad and glute loading.'
+              icon: 'footsteps',
+              title: 'Feet slightly forward',
+              description: 'Keeps torso upright.'
             },
             {
-              icon: 'construct',
-              title: 'Knees track with toes',
-              description: 'Prevents joint stress under fixed bar path.'
+              icon: 'trending-up',
+              title: 'Elbows stay high',
+              description: 'Prevents bar roll.'
+            },
+            {
+              icon: 'people',
+              title: 'Spotter recommended',
+              description: 'Front loading increases fatigue.'
+            }
+          ]
+        },
+        {
+          name: 'Smith Split Squat',
+          duration: '14–16 min',
+          description: 'Stationary split squats with guided bar path',
+          battlePlan: '4 rounds\n• 8 Split Squats per leg\nRest 120s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/gxoxkpbs_download%20%285%29.png',
+          intensityReason: 'Unilateral work builds balanced strength',
+          moodTips: [
+            {
+              icon: 'resize',
+              title: 'Long stance setup',
+              description: 'Improves hip and knee alignment.'
+            },
+            {
+              icon: 'arrow-down',
+              title: 'Back knee lowers straight down',
+              description: 'Avoid forward drift.'
+            },
+            {
+              icon: 'flash',
+              title: 'Front leg drives ascent',
+              description: 'Rear leg stabilizes only.'
+            }
+          ]
+        },
+        {
+          name: 'Smith Squat Drop Set',
+          duration: '14–16 min',
+          description: 'Extended squats using fast load reductions',
+          battlePlan: '3 rounds\n• 8 Squats\n• Drop → 8\n• Drop → 8\nRest 150s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/gxoxkpbs_download%20%285%29.png',
+          intensityReason: 'Drop sets extend time under tension',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Drops are immediate',
+              description: 'Reduce load 20–30% quickly.'
+            },
+            {
+              icon: 'timer',
+              title: 'Rep rhythm unchanged',
+              description: 'Same tempo on lighter weight.'
+            },
+            {
+              icon: 'flame',
+              title: 'Chase quad pump',
+              description: 'Continuous tension focus.'
+            }
+          ]
+        },
+        {
+          name: 'Smith Jump Squat',
+          duration: '14–16 min',
+          description: 'Explosive squats using Smith track for safety',
+          battlePlan: '4 rounds\n• 5–6 Jump Squats\nRest 120s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/gxoxkpbs_download%20%285%29.png',
+          intensityReason: 'Guided path allows explosive focus',
+          moodTips: [
+            {
+              icon: 'barbell',
+              title: 'Very light load only',
+              description: 'Speed and height are priorities.'
             },
             {
               icon: 'arrow-up',
-              title: 'Drive evenly upward',
-              description: 'No hip shift or knee collapse.'
+              title: 'Jump vertically',
+              description: 'Avoid forward drift.'
+            },
+            {
+              icon: 'refresh',
+              title: 'Reset each rep',
+              description: 'Explosiveness over fatigue.'
             }
           ]
         }
       ],
       advanced: [
         {
+          name: 'Heavy Smith Squat',
+          duration: '18–20 min',
+          description: 'Heavy guided squats emphasizing maximal strength',
+          battlePlan: '5 rounds\n• 3–5 Squats\nRest 180s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/gxoxkpbs_download%20%285%29.png',
+          intensityReason: 'Heavy loads build maximal strength',
+          moodTips: [
+            {
+              icon: 'shield',
+              title: 'Brace before unrack',
+              description: 'Heavy loads demand full tension.'
+            },
+            {
+              icon: 'trending-down',
+              title: 'Depth never shortens',
+              description: 'Consistent range under fatigue.'
+            },
+            {
+              icon: 'people',
+              title: 'Spotter or safeties required',
+              description: 'Mandatory for heavy loading.'
+            }
+          ]
+        },
+        {
           name: 'Smith Pause Squat',
           duration: '16–18 min',
-          description: 'Paused squats reinforcing strength out of the bottom',
+          description: 'Paused squats reinforcing bottom-end strength',
           battlePlan: '4 rounds\n• 5–6 Squats (2s pause)\nRest 150s',
           imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/gxoxkpbs_download%20%285%29.png',
           intensityReason: 'Pauses build raw strength from weakest position',
@@ -1812,17 +2212,67 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
             {
               icon: 'pause',
               title: 'Pause above parallel',
-              description: 'Eliminates bounce without overloading joints.'
+              description: 'Removes bounce assistance.'
             },
             {
               icon: 'shield',
-              title: 'Brace hard before ascent',
-              description: 'Fixed bar demands core control.'
+              title: 'Stay tight in pause',
+              description: 'No relaxation.'
             },
             {
-              icon: 'people',
-              title: 'Spotter or safeties required',
-              description: 'Paused squats can stall quickly.'
+              icon: 'arrow-up',
+              title: 'Drive evenly upward',
+              description: 'Prevents knee collapse.'
+            }
+          ]
+        },
+        {
+          name: 'Smith RDL Drop Set',
+          duration: '18–20 min',
+          description: 'Hinges extended with rapid load reductions',
+          battlePlan: '3 rounds\n• 6 RDLs\n• Drop → 6\n• Drop → 6\nRest 150s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/gxoxkpbs_download%20%285%29.png',
+          intensityReason: 'Drop sets maximize posterior chain fatigue',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Drops are immediate',
+              description: 'Reduce load 20–30% per drop.'
+            },
+            {
+              icon: 'body',
+              title: 'Hinge mechanics identical',
+              description: 'No rounding under fatigue.'
+            },
+            {
+              icon: 'hand-right',
+              title: 'Straps allowed',
+              description: 'Posterior chain should limit set.'
+            }
+          ]
+        },
+        {
+          name: 'Smith Squat Burnout',
+          duration: '18–20 min',
+          description: 'High-rep finisher for total leg fatigue',
+          battlePlan: '3 rounds\n• 20 Squats\nRest 180s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/gxoxkpbs_download%20%285%29.png',
+          intensityReason: 'High reps push legs to complete fatigue',
+          moodTips: [
+            {
+              icon: 'barbell',
+              title: 'Moderate load only',
+              description: 'Enables uninterrupted reps.'
+            },
+            {
+              icon: 'repeat',
+              title: 'No lockout at top',
+              description: 'Keeps tension on legs.'
+            },
+            {
+              icon: 'body',
+              title: 'Controlled breathing',
+              description: 'One breath per rep.'
             }
           ]
         }
