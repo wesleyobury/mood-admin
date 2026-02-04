@@ -618,9 +618,12 @@ export default function Profile() {
   };
 
   const renderWorkoutCard = ({ item }: { item: WorkoutCard }) => {
-    // Get up to 3 workout titles
-    const workoutTitles = item.workouts.slice(0, 3).map(w => w.workoutName);
-    const hasMore = item.workouts.length > 3;
+    // Get up to 2 workout titles for cleaner look
+    const workoutTitles = item.workouts.slice(0, 2).map(w => w.workoutName);
+    const hasMore = item.workouts.length > 2;
+    
+    // Calculate estimated calories
+    const estimatedCalories = Math.round(item.totalDuration * 8);
     
     return (
       <TouchableOpacity
@@ -629,33 +632,51 @@ export default function Profile() {
           setSelectedCard(item);
           setModalVisible(true);
         }}
+        activeOpacity={0.85}
       >
+        {/* Top accent line */}
+        <View style={styles.cardAccentLine} />
+        
         <View style={styles.cardThumbnailContent}>
-          <Ionicons name="trophy" size={20} color="#FFD700" />
+          {/* Header with date */}
+          <View style={styles.cardHeaderRow}>
+            <Text style={styles.cardDateLabel}>{item.completedAt}</Text>
+            <View style={styles.cardTrophyBadge}>
+              <Ionicons name="trophy" size={12} color="#0c0c0c" />
+            </View>
+          </View>
           
-          {/* Workout titles - up to 3 */}
-          <View style={styles.workoutTitlesContainer}>
+          {/* Main stats */}
+          <View style={styles.cardMainStats}>
+            <Text style={styles.cardDurationValue}>{item.totalDuration}</Text>
+            <Text style={styles.cardDurationUnit}>min</Text>
+          </View>
+          
+          {/* Secondary stats row */}
+          <View style={styles.cardSecondaryStats}>
+            <View style={styles.cardStatPill}>
+              <Ionicons name="flame-outline" size={11} color="#FFD700" />
+              <Text style={styles.cardStatPillText}>{estimatedCalories} cal</Text>
+            </View>
+            <View style={styles.cardStatPill}>
+              <Ionicons name="barbell-outline" size={11} color="#FFD700" />
+              <Text style={styles.cardStatPillText}>{item.workouts.length}</Text>
+            </View>
+          </View>
+          
+          {/* Workout preview */}
+          <View style={styles.cardWorkoutPreview}>
             {workoutTitles.map((title, index) => (
-              <Text key={index} style={styles.savedWorkoutTitle} numberOfLines={1}>
+              <Text key={index} style={styles.cardWorkoutName} numberOfLines={1}>
                 {title}
               </Text>
             ))}
             {hasMore && (
-              <Text style={styles.workoutTitleMore}>
-                +{item.workouts.length - 3} more
+              <Text style={styles.cardWorkoutMore}>
+                +{item.workouts.length - 2} more
               </Text>
             )}
           </View>
-          
-          {/* Stats row */}
-          <View style={styles.cardStats}>
-            <Text style={styles.cardStat}>{item.workouts.length} exercises</Text>
-            <Text style={styles.cardStatDivider}>•</Text>
-            <Text style={styles.cardStat}>{item.totalDuration} min</Text>
-          </View>
-        </View>
-        <View style={styles.cardThumbnailFooter}>
-          <Text style={styles.cardThumbnailDate}>{item.completedAt}</Text>
         </View>
       </TouchableOpacity>
     );
