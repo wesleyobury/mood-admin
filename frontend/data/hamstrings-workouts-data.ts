@@ -357,6 +357,56 @@ export const hamstringsWorkoutDatabase: EquipmentWorkouts[] = [
               description: 'Heavy partial range builds strength at strongest position.'
             }
           ]
+        },
+        {
+          name: 'Barbell RDL Drop Series',
+          duration: '18–20 min',
+          description: 'Extended RDL sets using multiple rapid drops',
+          battlePlan: '3 rounds\n• 6 RDLs\n• Drop → 6\n• Drop → 6\nRest 150s',
+          imageUrl: '',
+          intensityReason: 'Drop series extends hamstring fatigue for hypertrophy',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Drops are immediate',
+              description: 'Reduce load ~20–25% without rest.'
+            },
+            {
+              icon: 'construct',
+              title: 'Hinge mechanics unchanged',
+              description: 'Same depth on all drops.'
+            },
+            {
+              icon: 'hand-left',
+              title: 'Straps allowed',
+              description: 'Hamstrings, not grip, should fail.'
+            }
+          ]
+        },
+        {
+          name: 'Barbell Lengthened-Pause RDL',
+          duration: '18–20 min',
+          description: 'Paused RDLs emphasizing stretched hamstring strength',
+          battlePlan: '4 rounds\n• 5–6 RDLs (2s pause)\nRest 150s',
+          imageUrl: '',
+          intensityReason: 'Paused stretches build strength in lengthened position',
+          moodTips: [
+            {
+              icon: 'timer',
+              title: 'Pause below knees',
+              description: 'Hold where hamstrings feel longest.'
+            },
+            {
+              icon: 'shield',
+              title: 'Stay tight in pause',
+              description: 'No relaxing into joints.'
+            },
+            {
+              icon: 'people',
+              title: 'Spotter recommended',
+              description: 'Heavy pauses fatigue quickly.'
+            }
+          ]
         }
       ]
     }
