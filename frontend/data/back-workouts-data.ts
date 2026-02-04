@@ -1666,6 +1666,56 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
               description: 'Upper chest pull height maximizes upper back engagement.'
             }
           ]
+        },
+        {
+          name: 'Pause Rows',
+          duration: '10–12 min',
+          description: 'Controlled rows emphasizing peak contraction and posture',
+          battlePlan: '3 rounds\n• 12 Rows (2s pause)\nRest 60–75s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/lmxixaaf_scsngr.webp',
+          intensityReason: 'Paused reps reinforce form and mind-muscle connection',
+          moodTips: [
+            {
+              icon: 'timer',
+              title: 'Pause at squeeze',
+              description: 'Hold 2 seconds at full contraction.'
+            },
+            {
+              icon: 'construct',
+              title: 'Chest stays glued',
+              description: 'Do not lift off pad to cheat.'
+            },
+            {
+              icon: 'flash',
+              title: 'Feel mid-back tighten',
+              description: 'Think "shoulder blades together" more than arms pulling.'
+            }
+          ]
+        },
+        {
+          name: 'Partial Row Burn',
+          duration: '10–12 min',
+          description: 'Short-range rows for endurance without form breakdown',
+          battlePlan: '3 rounds\n• 20 Partial Rows\nRest 60s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/aod60178_scswgr.jpg',
+          intensityReason: 'Partial range builds endurance while maintaining strict form',
+          moodTips: [
+            {
+              icon: 'construct',
+              title: 'Mid-to-top range only',
+              description: 'Work where you can stay strict.'
+            },
+            {
+              icon: 'timer',
+              title: 'Keep tension constant',
+              description: 'Don\'t let stack touch between reps.'
+            },
+            {
+              icon: 'flash',
+              title: 'Feel rhomboids working',
+              description: 'You should feel squeeze between shoulder blades, not low back.'
+            }
+          ]
         }
       ],
       intermediate: [
@@ -1708,6 +1758,56 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
               description: 'Constant tension maintains muscle activation throughout set.'
             }
           ]
+        },
+        {
+          name: 'Row Drop Set',
+          duration: '14–16 min',
+          description: 'Heavy rows extended using fast load reductions',
+          battlePlan: '3 rounds\n• 8 Rows\n• Drop → 8 reps\n• Drop → 8 reps\nRest 90s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/pm9titrm_scsrgr.webp',
+          intensityReason: 'Drop sets extend time under tension beyond failure',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Drops are immediate',
+              description: 'Change weight fast while staying seated.'
+            },
+            {
+              icon: 'construct',
+              title: 'Drop size stays clean',
+              description: '~25% reduction to keep path identical.'
+            },
+            {
+              icon: 'body',
+              title: 'Straps are fine here',
+              description: 'If grip fails early, strap up so lats get full load.'
+            }
+          ]
+        },
+        {
+          name: 'Slow Negative Rows',
+          duration: '14–16 min',
+          description: 'Time-under-tension rows using long eccentrics',
+          battlePlan: '4 rounds\n• 8 Rows (4s eccentric)\nRest 90s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_0b65e409-b210-4730-af62-16b022c37685/artifacts/1uyss7y4_csrr.webp',
+          intensityReason: 'Extended eccentrics maximize strength development',
+          moodTips: [
+            {
+              icon: 'timer',
+              title: 'Pull fast, lower slow',
+              description: '4-second eccentric each rep.'
+            },
+            {
+              icon: 'construct',
+              title: 'No stack touch',
+              description: 'Hover the weight for constant tension.'
+            },
+            {
+              icon: 'flash',
+              title: 'Peak form is elbows back',
+              description: 'Elbows travel past ribs with chest still pinned to pad.'
+            }
+          ]
         }
       ],
       advanced: [
@@ -1748,6 +1848,56 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
               icon: 'flash',
               title: 'Lock in hard squeeze during iso hold.',
               description: 'Maximum contraction during hold maximizes strength gains.'
+            }
+          ]
+        },
+        {
+          name: 'Iso Squeeze Rows',
+          duration: '16–18 min',
+          description: 'Heavy rows finished with long isometric contractions',
+          battlePlan: '4 rounds\n• 8 Rows + 10s Hold\nRest 120s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_0b65e409-b210-4730-af62-16b022c37685/artifacts/ty987c3z_download%20%2814%29.png',
+          intensityReason: 'Isometric holds build peak contraction strength',
+          moodTips: [
+            {
+              icon: 'timer',
+              title: 'Hold the last rep',
+              description: '10s hold at peak contraction.'
+            },
+            {
+              icon: 'construct',
+              title: 'No shrugging',
+              description: 'Keep shoulders down as elbows pull back.'
+            },
+            {
+              icon: 'flash',
+              title: 'Chase a "mid-back cramp"',
+              description: 'The goal is deep squeeze, not moving more weight.'
+            }
+          ]
+        },
+        {
+          name: 'Triple Drop Row',
+          duration: '18–20 min',
+          description: 'Extended drop set to drive maximum pulling fatigue',
+          battlePlan: '3 rounds\n• 6 Rows\n• Drop → 6\n• Drop → 6\n• Drop → 6\nRest 120s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_0b65e409-b210-4730-af62-16b022c37685/artifacts/1uyss7y4_csrr.webp',
+          intensityReason: 'Triple drops maximize muscle fatigue and pump',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Three drops, no rest',
+              description: 'Strip load quickly and keep reps moving.'
+            },
+            {
+              icon: 'construct',
+              title: 'Keep same elbow path',
+              description: 'Don\'t turn it into a shrug as weight falls.'
+            },
+            {
+              icon: 'body',
+              title: 'Straps are recommended',
+              description: 'Keep grip from limiting back overload.'
             }
           ]
         }
