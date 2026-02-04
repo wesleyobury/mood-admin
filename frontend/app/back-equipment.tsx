@@ -29,8 +29,8 @@ interface DifficultyLevel {
 }
 
 const equipmentOptions: EquipmentOption[] = [
-  { id: 'adjustable-bench', name: 'Adjustable bench', icon: 'trending-up-outline' },
   { id: 'barbell', name: 'Barbell', icon: 'remove' },
+  { id: 'dumbbells', name: 'Dumbbells', icon: 'fitness-outline' },
   { id: 'grip-variation-pull-up-bar', name: 'Grip variation pull up bar', icon: 'git-branch-outline' },
   { id: 'kettle-bells', name: 'Kettle bells', icon: 'cafe-outline' },
   { id: 'lat-pull-down-machine', name: 'Lat pull down machine', icon: 'arrow-down-circle-outline' },
