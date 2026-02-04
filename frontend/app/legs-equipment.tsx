@@ -274,7 +274,7 @@ export default function LegsEquipmentScreen() {
 
       // Map selected equipment to their respective muscle groups
       selectedEquipment.forEach(eq => {
-        if (['dumbbells-compound', 'squat-rack-compound', 'leg-press-compound', 'hack-squat-compound', 'cable-machine-compound', 'trap-bar'].includes(eq.id)) {
+        if (['dumbbells-compound', 'squat-rack-compound', 'leg-press-compound', 'hack-squat-compound', 'cable-machine-compound', 'trap-bar', 'pit-shark', 'smith-machine'].includes(eq.id)) {
           equipmentPerGroup.Compound.push(eq.name);
         }
         if (['glute-kick-machine', 'hip-abductor', 'hip-thruster', 'cable-machine'].includes(eq.id)) {
