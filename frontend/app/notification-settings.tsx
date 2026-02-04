@@ -13,10 +13,18 @@ import {
 import { Ionicons } from '@expo/vector-icons';
 import { useRouter } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { LinearGradient } from 'expo-linear-gradient';
-import { BlurView } from 'expo-blur';
 import { useAuth } from '../contexts/AuthContext';
 import notificationService, { NotificationSettings } from '../utils/notifications';
+
+// Convert 24h to 12h format
+const formatTime12h = (time24: string): string => {
+  if (!time24) return '';
+  const [hours, minutes] = time24.split(':');
+  const hour = parseInt(hours, 10);
+  const ampm = hour >= 12 ? 'PM' : 'AM';
+  const hour12 = hour % 12 || 12;
+  return `${hour12}:${minutes} ${ampm}`;
+};
 
 export default function NotificationSettingsScreen() {
   const router = useRouter();
@@ -26,11 +34,6 @@ export default function NotificationSettingsScreen() {
   const [isLoading, setIsLoading] = useState(true);
   const [isSaving, setIsSaving] = useState(false);
   const [settings, setSettings] = useState<NotificationSettings | null>(null);
-  
-  // Time picker states
-  const [showQuietHoursStart, setShowQuietHoursStart] = useState(false);
-  const [showQuietHoursEnd, setShowQuietHoursEnd] = useState(false);
-  const [showDigestTime, setShowDigestTime] = useState(false);
 
   useEffect(() => {
     if (token) {
@@ -57,7 +60,6 @@ export default function NotificationSettingsScreen() {
   const updateSetting = useCallback(async (key: keyof NotificationSettings, value: any) => {
     if (!settings) return;
     
-    // Optimistic update
     const newSettings = { ...settings, [key]: value };
     setSettings(newSettings);
     
@@ -65,7 +67,6 @@ export default function NotificationSettingsScreen() {
     try {
       const updated = await notificationService.updateSettings({ [key]: value });
       if (!updated) {
-        // Revert on failure
         setSettings(settings);
         Alert.alert('Error', 'Failed to save setting');
       }
@@ -77,11 +78,8 @@ export default function NotificationSettingsScreen() {
     }
   }, [settings]);
 
-  const renderSectionHeader = (title: string, icon: string) => (
-    <View style={styles.sectionHeader}>
-      <Ionicons name={icon as any} size={18} color="#FFD700" />
-      <Text style={styles.sectionTitle}>{title}</Text>
-    </View>
+  const renderSectionHeader = (title: string) => (
+    <Text style={styles.sectionTitle}>{title}</Text>
   );
 
   const renderToggle = (
@@ -98,8 +96,9 @@ export default function NotificationSettingsScreen() {
       <Switch
         value={settings?.[key] as boolean ?? false}
         onValueChange={(value) => updateSetting(key, value)}
-        trackColor={{ false: '#333', true: '#FFD700' }}
-        thumbColor={settings?.[key] ? '#fff' : '#888'}
+        trackColor={{ false: '#3a3a3a', true: '#3897f0' }}
+        thumbColor="#fff"
+        ios_backgroundColor="#3a3a3a"
         disabled={disabled || !settings}
       />
     </View>
@@ -140,20 +139,6 @@ export default function NotificationSettingsScreen() {
     );
   };
 
-  const renderTimeSelector = (
-    label: string,
-    value: string,
-    onPress: () => void
-  ) => (
-    <TouchableOpacity style={styles.timeSelector} onPress={onPress}>
-      <Text style={styles.settingLabel}>{label}</Text>
-      <View style={styles.timeValue}>
-        <Text style={styles.timeValueText}>{value}</Text>
-        <Ionicons name="chevron-forward" size={16} color="#888" />
-      </View>
-    </TouchableOpacity>
-  );
-
   if (isLoading) {
     return (
       <View style={[styles.container, styles.loadingContainer]}>
@@ -188,39 +173,37 @@ export default function NotificationSettingsScreen() {
         contentContainerStyle={styles.scrollContent}
         showsVerticalScrollIndicator={false}
       >
-        {/* Master Toggle */}
-        <View style={styles.masterToggleContainer}>
-          <LinearGradient
-            colors={['rgba(255, 215, 0, 0.1)', 'rgba(255, 215, 0, 0.05)']}
-            style={styles.masterToggleGradient}
-          >
-            <View style={styles.masterToggleContent}>
-              <View style={styles.masterToggleIcon}>
-                <Ionicons 
-                  name={masterEnabled ? "notifications" : "notifications-off"} 
-                  size={28} 
-                  color={masterEnabled ? "#FFD700" : "#666"} 
-                />
-              </View>
-              <View style={styles.masterToggleInfo}>
-                <Text style={styles.masterToggleLabel}>Push Notifications</Text>
-                <Text style={styles.masterToggleDescription}>
-                  {masterEnabled ? 'All notifications enabled' : 'All notifications paused'}
-                </Text>
-              </View>
-              <Switch
-                value={masterEnabled}
-                onValueChange={(value) => updateSetting('notifications_enabled', value)}
-                trackColor={{ false: '#333', true: '#FFD700' }}
-                thumbColor={masterEnabled ? '#fff' : '#888'}
-              />
-            </View>
-          </LinearGradient>
-        </View>
+        {/* Master Toggle - Profile button style */}
+        <TouchableOpacity 
+          style={styles.masterToggleContainer}
+          activeOpacity={0.8}
+          onPress={() => updateSetting('notifications_enabled', !masterEnabled)}
+        >
+          <View style={styles.masterToggleIcon}>
+            <Ionicons 
+              name={masterEnabled ? "notifications" : "notifications-off"} 
+              size={22} 
+              color="#FFD700"
+            />
+          </View>
+          <View style={styles.masterToggleInfo}>
+            <Text style={styles.masterToggleLabel}>Push Notifications</Text>
+            <Text style={styles.masterToggleDescription}>
+              {masterEnabled ? 'All notifications enabled' : 'All notifications paused'}
+            </Text>
+          </View>
+          <Switch
+            value={masterEnabled}
+            onValueChange={(value) => updateSetting('notifications_enabled', value)}
+            trackColor={{ false: '#3a3a3a', true: '#3897f0' }}
+            thumbColor="#fff"
+            ios_backgroundColor="#3a3a3a"
+          />
+        </TouchableOpacity>
 
         {/* Social Notifications */}
         <View style={[styles.section, !masterEnabled && styles.sectionDisabled]}>
-          {renderSectionHeader('Social', 'people-outline')}
+          {renderSectionHeader('Social')}
           
           {renderToggle(
             'Follows',
@@ -268,26 +251,19 @@ export default function NotificationSettingsScreen() {
 
         {/* Messages */}
         <View style={[styles.section, !masterEnabled && styles.sectionDisabled]}>
-          {renderSectionHeader('Messages', 'chatbubble-outline')}
+          {renderSectionHeader('Messages')}
           
           {renderToggle(
-            'Messages',
-            'New direct messages',
+            'Direct Messages',
+            'New messages from people you follow',
             'messages_enabled',
-            !masterEnabled
-          )}
-          
-          {renderToggle(
-            'Message Requests',
-            'New message requests',
-            'message_requests_enabled',
             !masterEnabled
           )}
         </View>
 
         {/* Workout & Content */}
         <View style={[styles.section, !masterEnabled && styles.sectionDisabled]}>
-          {renderSectionHeader('Workouts & Content', 'fitness-outline')}
+          {renderSectionHeader('Workouts & Content')}
           
           {renderToggle(
             'Workout Reminders',
@@ -313,7 +289,7 @@ export default function NotificationSettingsScreen() {
 
         {/* Activity Digest */}
         <View style={[styles.section, !masterEnabled && styles.sectionDisabled]}>
-          {renderSectionHeader('Activity Digest', 'newspaper-outline')}
+          {renderSectionHeader('Activity Digest')}
           
           {renderToggle(
             'Following Activity',
@@ -329,9 +305,42 @@ export default function NotificationSettingsScreen() {
           )}
         </View>
 
+        {/* Digest Time */}
+        {settings?.following_digest_enabled && masterEnabled && (
+          <View style={[styles.section, !masterEnabled && styles.sectionDisabled]}>
+            {renderSectionHeader('Digest Delivery')}
+            
+            <TouchableOpacity 
+              style={styles.timeSelector}
+              onPress={() => {
+                Alert.alert(
+                  'Set Digest Time',
+                  'Choose when to receive your daily digest',
+                  [
+                    { text: '6:00 PM', onPress: () => updateSetting('digest_time', '18:00') },
+                    { text: '7:00 PM', onPress: () => updateSetting('digest_time', '19:00') },
+                    { text: '8:00 PM', onPress: () => updateSetting('digest_time', '20:00') },
+                    { text: '9:00 AM', onPress: () => updateSetting('digest_time', '09:00') },
+                    { text: 'Cancel', style: 'cancel' },
+                  ]
+                );
+              }}
+            >
+              <View style={styles.timeSelectorInfo}>
+                <Text style={styles.settingLabel}>Delivery Time</Text>
+                <Text style={styles.settingDescription}>When to send your digest</Text>
+              </View>
+              <View style={styles.timeSelectorValue}>
+                <Text style={styles.timeText}>{formatTime12h(settings?.digest_time || '18:00')}</Text>
+                <Ionicons name="chevron-forward" size={16} color="#888" />
+              </View>
+            </TouchableOpacity>
+          </View>
+        )}
+
         {/* Quiet Hours */}
         <View style={[styles.section, !masterEnabled && styles.sectionDisabled]}>
-          {renderSectionHeader('Quiet Hours', 'moon-outline')}
+          {renderSectionHeader('Quiet Hours')}
           
           {renderToggle(
             'Enable Quiet Hours',
@@ -348,21 +357,20 @@ export default function NotificationSettingsScreen() {
                   <TouchableOpacity 
                     style={styles.quietHoursValue}
                     onPress={() => {
-                      // Simple time picker would go here
                       Alert.alert(
                         'Set Start Time',
-                        'Enter quiet hours start time (e.g., 22:00)',
+                        'When should quiet hours begin?',
                         [
+                          { text: '9:00 PM', onPress: () => updateSetting('quiet_hours_start', '21:00') },
                           { text: '10:00 PM', onPress: () => updateSetting('quiet_hours_start', '22:00') },
                           { text: '11:00 PM', onPress: () => updateSetting('quiet_hours_start', '23:00') },
-                          { text: '9:00 PM', onPress: () => updateSetting('quiet_hours_start', '21:00') },
                           { text: 'Cancel', style: 'cancel' },
                         ]
                       );
                     }}
                   >
                     <Text style={styles.quietHoursValueText}>
-                      {settings?.quiet_hours_start || '22:00'}
+                      {formatTime12h(settings?.quiet_hours_start || '22:00')}
                     </Text>
                     <Ionicons name="chevron-down" size={14} color="#888" />
                   </TouchableOpacity>
@@ -375,7 +383,7 @@ export default function NotificationSettingsScreen() {
                     onPress={() => {
                       Alert.alert(
                         'Set End Time',
-                        'Enter quiet hours end time (e.g., 08:00)',
+                        'When should quiet hours end?',
                         [
                           { text: '7:00 AM', onPress: () => updateSetting('quiet_hours_end', '07:00') },
                           { text: '8:00 AM', onPress: () => updateSetting('quiet_hours_end', '08:00') },
@@ -386,7 +394,7 @@ export default function NotificationSettingsScreen() {
                     }}
                   >
                     <Text style={styles.quietHoursValueText}>
-                      {settings?.quiet_hours_end || '08:00'}
+                      {formatTime12h(settings?.quiet_hours_end || '08:00')}
                     </Text>
                     <Ionicons name="chevron-down" size={14} color="#888" />
                   </TouchableOpacity>
@@ -399,39 +407,6 @@ export default function NotificationSettingsScreen() {
             </View>
           )}
         </View>
-
-        {/* Digest Time */}
-        {settings?.following_digest_enabled && masterEnabled && (
-          <View style={[styles.section, !masterEnabled && styles.sectionDisabled]}>
-            {renderSectionHeader('Digest Delivery', 'time-outline')}
-            
-            <TouchableOpacity 
-              style={styles.digestTimeSelector}
-              onPress={() => {
-                Alert.alert(
-                  'Set Digest Time',
-                  'Choose when to receive your daily digest',
-                  [
-                    { text: '6:00 PM', onPress: () => updateSetting('digest_time', '18:00') },
-                    { text: '7:00 PM', onPress: () => updateSetting('digest_time', '19:00') },
-                    { text: '8:00 PM', onPress: () => updateSetting('digest_time', '20:00') },
-                    { text: '9:00 AM', onPress: () => updateSetting('digest_time', '09:00') },
-                    { text: 'Cancel', style: 'cancel' },
-                  ]
-                );
-              }}
-            >
-              <View style={styles.digestTimeInfo}>
-                <Text style={styles.settingLabel}>Delivery Time</Text>
-                <Text style={styles.settingDescription}>When to send your digest</Text>
-              </View>
-              <View style={styles.digestTimeValue}>
-                <Text style={styles.digestTimeText}>{settings?.digest_time || '18:00'}</Text>
-                <Ionicons name="chevron-forward" size={16} color="#888" />
-              </View>
-            </TouchableOpacity>
-          </View>
-        )}
 
         <View style={styles.bottomSpacer} />
       </ScrollView>
@@ -485,26 +460,20 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
     paddingTop: 16,
   },
+  // Master toggle - profile button style
   masterToggleContainer: {
-    marginBottom: 24,
-    borderRadius: 16,
-    overflow: 'hidden',
-  },
-  masterToggleGradient: {
-    borderRadius: 16,
-    borderWidth: 1,
-    borderColor: 'rgba(255, 215, 0, 0.2)',
-  },
-  masterToggleContent: {
     flexDirection: 'row',
     alignItems: 'center',
-    padding: 16,
+    backgroundColor: '#1c1c1c',
+    borderRadius: 12,
+    padding: 14,
+    marginBottom: 24,
   },
   masterToggleIcon: {
-    width: 48,
-    height: 48,
-    borderRadius: 24,
-    backgroundColor: 'rgba(255, 215, 0, 0.1)',
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+    backgroundColor: 'rgba(255, 215, 0, 0.15)',
     justifyContent: 'center',
     alignItems: 'center',
     marginRight: 12,
@@ -513,7 +482,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   masterToggleLabel: {
-    fontSize: 17,
+    fontSize: 16,
     fontWeight: '600',
     color: '#fff',
     marginBottom: 2,
@@ -528,16 +497,11 @@ const styles = StyleSheet.create({
   sectionDisabled: {
     opacity: 0.5,
   },
-  sectionHeader: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginBottom: 12,
-  },
   sectionTitle: {
     fontSize: 14,
     fontWeight: '600',
-    color: '#FFD700',
-    marginLeft: 8,
+    color: '#fff',
+    marginBottom: 12,
     textTransform: 'uppercase',
     letterSpacing: 0.5,
   },
@@ -545,10 +509,9 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    backgroundColor: 'rgba(255, 255, 255, 0.05)',
-    borderRadius: 12,
-    padding: 14,
-    marginBottom: 8,
+    paddingVertical: 12,
+    borderBottomWidth: 1,
+    borderBottomColor: 'rgba(255, 255, 255, 0.05)',
   },
   settingRowDisabled: {
     opacity: 0.5,
@@ -564,7 +527,7 @@ const styles = StyleSheet.create({
     marginBottom: 2,
   },
   settingDescription: {
-    fontSize: 12,
+    fontSize: 13,
     color: '#888',
   },
   textDisabled: {
@@ -574,10 +537,7 @@ const styles = StyleSheet.create({
     marginLeft: 16,
   },
   frequencyContainer: {
-    backgroundColor: 'rgba(255, 255, 255, 0.05)',
-    borderRadius: 12,
-    padding: 14,
-    marginBottom: 8,
+    paddingVertical: 12,
   },
   frequencyButtons: {
     flexDirection: 'row',
@@ -589,13 +549,11 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
     paddingHorizontal: 12,
     borderRadius: 8,
-    backgroundColor: 'rgba(255, 255, 255, 0.05)',
+    backgroundColor: '#1c1c1c',
     alignItems: 'center',
   },
   frequencyButtonActive: {
-    backgroundColor: 'rgba(255, 215, 0, 0.2)',
-    borderWidth: 1,
-    borderColor: '#FFD700',
+    backgroundColor: '#3897f0',
   },
   frequencyButtonText: {
     fontSize: 13,
@@ -603,31 +561,30 @@ const styles = StyleSheet.create({
     color: '#888',
   },
   frequencyButtonTextActive: {
-    color: '#FFD700',
+    color: '#fff',
   },
   timeSelector: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    backgroundColor: 'rgba(255, 255, 255, 0.05)',
-    borderRadius: 12,
-    padding: 14,
-    marginBottom: 8,
+    paddingVertical: 12,
+    borderBottomWidth: 1,
+    borderBottomColor: 'rgba(255, 255, 255, 0.05)',
   },
-  timeValue: {
+  timeSelectorInfo: {
+    flex: 1,
+  },
+  timeSelectorValue: {
     flexDirection: 'row',
     alignItems: 'center',
   },
-  timeValueText: {
+  timeText: {
     fontSize: 15,
-    color: '#FFD700',
+    color: '#3897f0',
     marginRight: 4,
   },
   quietHoursConfig: {
-    backgroundColor: 'rgba(255, 255, 255, 0.03)',
-    borderRadius: 12,
-    padding: 14,
-    marginTop: 8,
+    paddingTop: 12,
   },
   quietHoursRow: {
     flexDirection: 'row',
@@ -647,13 +604,13 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    backgroundColor: 'rgba(255, 255, 255, 0.05)',
+    backgroundColor: '#1c1c1c',
     borderRadius: 8,
     padding: 12,
   },
   quietHoursValueText: {
-    fontSize: 16,
-    fontWeight: '600',
+    fontSize: 15,
+    fontWeight: '500',
     color: '#fff',
   },
   quietHoursNote: {
@@ -661,27 +618,6 @@ const styles = StyleSheet.create({
     color: '#666',
     marginTop: 12,
     fontStyle: 'italic',
-  },
-  digestTimeSelector: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    backgroundColor: 'rgba(255, 255, 255, 0.05)',
-    borderRadius: 12,
-    padding: 14,
-  },
-  digestTimeInfo: {
-    flex: 1,
-  },
-  digestTimeValue: {
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-  digestTimeText: {
-    fontSize: 15,
-    fontWeight: '500',
-    color: '#FFD700',
-    marginRight: 4,
   },
   bottomSpacer: {
     height: 40,
