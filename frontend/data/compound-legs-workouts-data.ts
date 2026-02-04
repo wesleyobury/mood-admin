@@ -235,7 +235,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '16–18 min',
           description: 'Front-loaded squats demanding core and quad strength',
           battlePlan: '4 rounds\n• 6–8 Front Squats\nRest 120s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-media-fix/artifacts/iq16b1nm_download.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-content/artifacts/x54zcr7d_db%20front%20squat.webp',
           intensityReason: 'Front load challenges core stability under heavy load',
           moodTips: [
             {
