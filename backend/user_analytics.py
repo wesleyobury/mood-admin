@@ -42,6 +42,8 @@ EVENT_TYPES = {
     "workout_abandoned": "workout",
     "workout_saved": "workout",
     "exercise_completed": "workout",
+    "try_workout_clicked": "workout",
+    "workout_session_completed": "workout",
     
     # Social Events
     "post_created": "social",
