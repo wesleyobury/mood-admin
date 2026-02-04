@@ -162,7 +162,7 @@ const WorkoutCard = React.memo(({
     </View>
   );
 
-  if (workouts.length === 0) {
+  if (shuffledWorkouts.length === 0) {
     return null;
   }
 
@@ -178,7 +178,7 @@ const WorkoutCard = React.memo(({
         {/* Preview Button */}
         <TouchableOpacity
           style={styles.previewButton}
-          onPress={() => onStartWorkout(workouts[currentWorkoutIndex], equipment, difficulty)}
+          onPress={() => onStartWorkout(shuffledWorkouts[currentWorkoutIndex], equipment, difficulty)}
           activeOpacity={0.8}
         >
           <Ionicons name="eye" size={14} color="#FFD700" />
@@ -190,7 +190,7 @@ const WorkoutCard = React.memo(({
       <View style={styles.workoutList}>
         <FlatList
           ref={flatListRef}
-          data={workouts}
+          data={shuffledWorkouts}
           renderItem={renderWorkout}
           horizontal
           pagingEnabled
@@ -202,7 +202,7 @@ const WorkoutCard = React.memo(({
             const slideSize = width - 48;
             const offset = event.nativeEvent.contentOffset.x;
             const index = Math.round(offset / slideSize);
-            const boundedIndex = Math.max(0, Math.min(index, workouts.length - 1));
+            const boundedIndex = Math.max(0, Math.min(index, shuffledWorkouts.length - 1));
             if (boundedIndex !== currentWorkoutIndex) {
               setCurrentWorkoutIndex(boundedIndex);
             }
@@ -211,14 +211,14 @@ const WorkoutCard = React.memo(({
             const slideSize = width - 48;
             const offset = event.nativeEvent.contentOffset.x;
             const index = Math.round(offset / slideSize);
-            const boundedIndex = Math.max(0, Math.min(index, workouts.length - 1));
+            const boundedIndex = Math.max(0, Math.min(index, shuffledWorkouts.length - 1));
             setCurrentWorkoutIndex(boundedIndex);
           }}
           onScrollEndDrag={(event) => {
             const slideSize = width - 48;
             const offset = event.nativeEvent.contentOffset.x;
             const index = Math.round(offset / slideSize);
-            const boundedIndex = Math.max(0, Math.min(index, workouts.length - 1));
+            const boundedIndex = Math.max(0, Math.min(index, shuffledWorkouts.length - 1));
             setCurrentWorkoutIndex(boundedIndex);
           }}
           initialScrollIndex={0}
