@@ -945,6 +945,31 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
               description: 'Bottom position primes quad contraction.'
             }
           ]
+        },
+        {
+          name: 'Reverse Hack Squat',
+          duration: '14–16 min',
+          description: 'Reverse-facing hack squat emphasizing glutes and quads',
+          battlePlan: '4 rounds\n• 8–10 Reverse Hack Squats\nRest 120s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-media-fix/artifacts/a9f6gtvn_rhs.jpg',
+          intensityReason: 'Reverse position increases glute and quad emphasis',
+          moodTips: [
+            {
+              icon: 'body',
+              title: 'Face the pad with chest forward',
+              description: 'Allows more natural hip hinge while keeping spine supported.'
+            },
+            {
+              icon: 'footsteps',
+              title: 'Push through full foot',
+              description: 'Mid-foot pressure balances quad and glute contribution.'
+            },
+            {
+              icon: 'timer',
+              title: 'Control the descent',
+              description: 'Slower lowering keeps hips and knees tracking clean.'
+            }
+          ]
         }
       ],
       advanced: [
