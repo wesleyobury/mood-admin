@@ -248,6 +248,9 @@ export default function AdminDashboard() {
   const [engagementChartPeriod, setEngagementChartPeriod] = useState<'day' | 'week' | 'month'>('day');
   const [engagementChartLoading, setEngagementChartLoading] = useState(false);
   
+  // Chart period for growth/mood charts
+  const [chartPeriod, setChartPeriod] = useState<'day' | 'week' | 'month'>('day');
+  
   // Completions by Mood widget state
   const [completionsByMoodData, setCompletionsByMoodData] = useState<ChartData | null>(null);
   const [completionsByMoodPeriod, setCompletionsByMoodPeriod] = useState<'day' | 'week' | 'month'>('day');
