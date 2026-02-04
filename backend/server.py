@@ -7599,6 +7599,147 @@ async def check_content_before_post(caption: str) -> dict:
     result = check_content(caption, strict=True)
     return result
 
+# ============================================
+# NOTIFICATIONS API ENDPOINTS (Phase 1)
+# ============================================
+
+class DeviceTokenRegister(BaseModel):
+    token: str
+    platform: str  # 'ios', 'android', 'web'
+    device_id: Optional[str] = None
+
+class NotificationSettingsUpdate(BaseModel):
+    notifications_enabled: Optional[bool] = None
+    likes_enabled: Optional[bool] = None
+    likes_from_following_only: Optional[bool] = None
+    comments_enabled: Optional[bool] = None
+    comments_from_following_only: Optional[bool] = None
+    messages_enabled: Optional[bool] = None
+    message_requests_enabled: Optional[bool] = None
+    follows_enabled: Optional[bool] = None
+    workout_reminders_enabled: Optional[bool] = None
+    featured_workouts_enabled: Optional[bool] = None
+    following_digest_enabled: Optional[bool] = None
+    following_digest_frequency: Optional[str] = None
+    featured_suggestions_enabled: Optional[bool] = None
+    quiet_hours_enabled: Optional[bool] = None
+    quiet_hours_start: Optional[str] = None
+    quiet_hours_end: Optional[str] = None
+    digest_time: Optional[str] = None
+    timezone: Optional[str] = None
+
+class MarkNotificationsRead(BaseModel):
+    notification_ids: List[str]
+
+@api_router.post("/notifications/device-token")
+async def register_device_token(
+    data: DeviceTokenRegister,
+    current_user_id: str = Depends(get_current_user)
+):
+    """Register a device push token"""
+    notification_service = get_notification_service(db)
+    result = await notification_service.register_device_token(
+        user_id=current_user_id,
+        token=data.token,
+        platform=data.platform,
+        device_id=data.device_id
+    )
+    return result
+
+@api_router.delete("/notifications/device-token")
+async def unregister_device_token(
+    token: str,
+    current_user_id: str = Depends(get_current_user)
+):
+    """Unregister a device push token"""
+    notification_service = get_notification_service(db)
+    success = await notification_service.unregister_device_token(current_user_id, token)
+    return {"success": success}
+
+@api_router.get("/notifications/settings")
+async def get_notification_settings(
+    current_user_id: str = Depends(get_current_user)
+):
+    """Get user's notification settings"""
+    notification_service = get_notification_service(db)
+    settings = await notification_service.get_user_settings(current_user_id)
+    return settings
+
+@api_router.put("/notifications/settings")
+async def update_notification_settings(
+    data: NotificationSettingsUpdate,
+    current_user_id: str = Depends(get_current_user)
+):
+    """Update user's notification settings"""
+    notification_service = get_notification_service(db)
+    settings = await notification_service.update_user_settings(
+        current_user_id,
+        data.dict(exclude_none=True)
+    )
+    return settings
+
+@api_router.get("/notifications")
+async def get_notifications(
+    limit: int = 50,
+    skip: int = 0,
+    unread_only: bool = False,
+    current_user_id: str = Depends(get_current_user)
+):
+    """Get user's notifications with pagination"""
+    notification_service = get_notification_service(db)
+    notifications = await notification_service.get_notifications(
+        user_id=current_user_id,
+        limit=limit,
+        skip=skip,
+        unread_only=unread_only
+    )
+    return {"notifications": notifications}
+
+@api_router.get("/notifications/unread-count")
+async def get_notifications_unread_count(
+    current_user_id: str = Depends(get_current_user)
+):
+    """Get count of unread notifications"""
+    notification_service = get_notification_service(db)
+    count = await notification_service.get_unread_count(current_user_id)
+    return {"unread_count": count}
+
+@api_router.post("/notifications/mark-read")
+async def mark_notifications_read(
+    data: MarkNotificationsRead,
+    current_user_id: str = Depends(get_current_user)
+):
+    """Mark specific notifications as read"""
+    notification_service = get_notification_service(db)
+    count = await notification_service.mark_as_read(current_user_id, data.notification_ids)
+    return {"marked_count": count}
+
+@api_router.post("/notifications/mark-all-read")
+async def mark_all_notifications_read(
+    current_user_id: str = Depends(get_current_user)
+):
+    """Mark all notifications as read"""
+    notification_service = get_notification_service(db)
+    count = await notification_service.mark_all_as_read(current_user_id)
+    return {"marked_count": count}
+
+@api_router.delete("/notifications/{notification_id}")
+async def delete_notification(
+    notification_id: str,
+    current_user_id: str = Depends(get_current_user)
+):
+    """Delete a notification"""
+    notification_service = get_notification_service(db)
+    success = await notification_service.delete_notification(current_user_id, notification_id)
+    if not success:
+        raise HTTPException(status_code=404, detail="Notification not found")
+    return {"success": True}
+
+@api_router.get("/notifications/copy-library")
+async def get_suggestion_copy_library():
+    """Get the copy library for featured suggestions (admin/debug)"""
+    return {"copy": SUGGESTION_COPY_LIBRARY}
+
 # Include router in main app
 app.include_router(api_router)
 
