@@ -112,6 +112,31 @@ export const calvesWorkoutDatabase: EquipmentWorkouts[] = [
               description: 'High-rep finisher extends training stimulus beyond failure.'
             }
           ]
+        },
+        {
+          name: 'Dumbbell Single-Leg Calf Raise',
+          duration: '10–12 min',
+          description: 'Unilateral raises increasing calf loading',
+          battlePlan: '4 rounds\n• 10 Raises per leg\nRest 75s',
+          imageUrl: '',
+          intensityReason: 'Single-leg work doubles effective load per calf',
+          moodTips: [
+            {
+              icon: 'body',
+              title: 'Non-working leg off floor',
+              description: 'One calf does all work.'
+            },
+            {
+              icon: 'timer',
+              title: 'Pause at lockout',
+              description: 'Peak contraction emphasis.'
+            },
+            {
+              icon: 'shield',
+              title: 'Control balance first',
+              description: 'Stability before weight.'
+            }
+          ]
         }
       ],
       advanced: [
