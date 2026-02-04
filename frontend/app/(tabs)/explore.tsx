@@ -13,6 +13,7 @@ import {
   TextInput,
   Alert,
   FlatList,
+  Dimensions,
 } from 'react-native';
 import { Image } from 'expo-image';
 import { LinearGradient } from 'expo-linear-gradient';
