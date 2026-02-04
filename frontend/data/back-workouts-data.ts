@@ -334,7 +334,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Controlled barbell rows emphasizing strict tempo',
           battlePlan: '3 rounds\n• 10 Bent-Over Rows (3s eccentric)\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_0b65e409-b210-4730-af62-16b022c37685/artifacts/x2wxwvpl_download%20%282%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_ba98ecac-d9ff-4da8-8b26-c72f04702bfb/artifacts/8imeatpq_bb%20row%202.png',
           intensityReason: 'Tempo work builds control and strength foundation',
           moodTips: [
             {
@@ -359,7 +359,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Barbell rows with pauses at contraction',
           battlePlan: '3 rounds\n• 8 Paused Bent-Over Rows\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/8q41tii0_download%20%281%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_ba98ecac-d9ff-4da8-8b26-c72f04702bfb/artifacts/eubpjqb9_bb%20row.png',
           intensityReason: 'Paused reps reinforce form and peak contraction',
           moodTips: [
             {
@@ -386,7 +386,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '16–18 min',
           description: 'Pendlay rows and RDLs balance power with hamstring load.',
           battlePlan: '4 rounds:\n• 8 Pendlay Row\nRest 75–90s after each set\n• 10 Romanian Deadlift\nRest 75–90s after each set',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/5s4czjs3_download%20%283%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_ba98ecac-d9ff-4da8-8b26-c72f04702bfb/artifacts/rh9264vy_pendlay%20row.jpg',
           intensityReason: 'Explosive pulls and slow RDLs strengthen full posterior.',
           moodTips: [
             {
@@ -451,7 +451,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '16–18 min',
           description: 'Rows finished with static bar holds',
           battlePlan: '4 rounds\n• 8 Rows\n• Finish with 10s hold\nRest 120s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/a5y4znby_download%20%282%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_ba98ecac-d9ff-4da8-8b26-c72f04702bfb/artifacts/eubpjqb9_bb%20row.png',
           intensityReason: 'Isometric finisher maximizes time under tension',
           moodTips: [
             {
@@ -518,7 +518,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '18–20 min',
           description: 'Heavy barbell rows with long controlled eccentrics',
           battlePlan: '4 rounds\n• 6 Rows (5s eccentric)\nRest 150s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_0b65e409-b210-4730-af62-16b022c37685/artifacts/x2wxwvpl_download%20%282%29.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_ba98ecac-d9ff-4da8-8b26-c72f04702bfb/artifacts/8imeatpq_bb%20row%202.png',
           intensityReason: 'Extended eccentrics maximize strength and hypertrophy',
           moodTips: [
             {
@@ -543,7 +543,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '20–22 min',
           description: 'Grip-width changes to extend heavy sets',
           battlePlan: '3 rounds\n• 6 Wide-Grip Rows\n• Immediately 6 Standard Rows\n• Immediately 6 Underhand Rows\nRest 150s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/hnesh89k_download.png',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_ba98ecac-d9ff-4da8-8b26-c72f04702bfb/artifacts/eubpjqb9_bb%20row.png',
           intensityReason: 'Mechanical drops maximize volume and muscle fatigue',
           moodTips: [
             {
