@@ -1120,6 +1120,56 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
               description: 'Dual muscle activation enhances strength and development.'
             }
           ]
+        },
+        {
+          name: 'Assisted Tempo Pulldown',
+          duration: '10–12 min',
+          description: 'Slow pulldowns building lat control and discipline',
+          battlePlan: '3 rounds\n• 12 Pulldowns (3s eccentric)\nRest 60–75s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_0b65e409-b210-4730-af62-16b022c37685/artifacts/diugpoq6_download%20%288%29.png',
+          intensityReason: 'Controlled tempo builds lat activation and mind-muscle connection',
+          moodTips: [
+            {
+              icon: 'timer',
+              title: 'Slow on the way up',
+              description: 'Lower for 3 seconds every rep.'
+            },
+            {
+              icon: 'construct',
+              title: 'Chest stays tall',
+              description: 'Slight lean back, no swinging.'
+            },
+            {
+              icon: 'flash',
+              title: 'Lats pull via elbows',
+              description: 'Think "elbows to pockets" to feel the lat line engage.'
+            }
+          ]
+        },
+        {
+          name: 'Bottom-Half Pulldowns',
+          duration: '10–12 min',
+          description: 'Short-range reps focused on peak lat contraction',
+          battlePlan: '3 rounds\n• 15 Partial Pulldowns\nRest 60s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/fkpr9mxh_lprg.jpg',
+          intensityReason: 'Partial range maximizes peak contraction time',
+          moodTips: [
+            {
+              icon: 'construct',
+              title: 'Work the squeeze zone',
+              description: 'Only move from chest level to mid-range.'
+            },
+            {
+              icon: 'timer',
+              title: 'Never relax at the top',
+              description: 'Keep the stack hovering for constant tension.'
+            },
+            {
+              icon: 'flash',
+              title: 'Feel lats, not biceps',
+              description: 'If arms burn first, lighten load and drive elbows down.'
+            }
+          ]
         }
       ],
       intermediate: [
@@ -1162,6 +1212,56 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
               description: 'Proper scapular position maintains optimal muscle activation.'
             }
           ]
+        },
+        {
+          name: 'Pulldown Drop Set',
+          duration: '14–16 min',
+          description: 'Rapid drops to extend sets past fatigue',
+          battlePlan: '3 rounds\n• 8 Pulldowns\n• Drop → 8 reps\n• Drop → 8 reps\nRest 90s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/vydcatjw_nglp.webp',
+          intensityReason: 'Drop sets extend time under tension beyond failure',
+          moodTips: [
+            {
+              icon: 'flash',
+              title: 'Pin changes are instant',
+              description: 'Drop immediately with no standing around.'
+            },
+            {
+              icon: 'construct',
+              title: 'Drop size matches control',
+              description: 'Use ~20–30% drops so reps stay clean.'
+            },
+            {
+              icon: 'body',
+              title: 'Straps are allowed',
+              description: 'If grip limits you, strap up so lats get overloaded.'
+            }
+          ]
+        },
+        {
+          name: 'Pulse Rep Pulldowns',
+          duration: '14–16 min',
+          description: 'Full reps followed by pulses in the contraction zone',
+          battlePlan: '3 rounds\n• 12 Pulldowns\n• Immediately 10 Pulse Reps\nRest 90s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_0b65e409-b210-4730-af62-16b022c37685/artifacts/j967e9c7_download%20%289%29.png',
+          intensityReason: 'Pulses extend peak contraction for maximum pump',
+          moodTips: [
+            {
+              icon: 'construct',
+              title: 'Pulse at the bottom',
+              description: 'Small pulses in the last third of ROM.'
+            },
+            {
+              icon: 'body',
+              title: 'Shoulders stay down',
+              description: 'No shrugging into traps during fatigue.'
+            },
+            {
+              icon: 'flash',
+              title: 'Feel the lat shorten',
+              description: 'You should feel a tight "cramp" under armpit at squeeze.'
+            }
+          ]
         }
       ],
       advanced: [
@@ -1202,6 +1302,56 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
               icon: 'timer',
               title: 'Each rep: take 3s to lower bar slowly.',
               description: 'Extended eccentric phase maximizes muscle development.'
+            }
+          ]
+        },
+        {
+          name: 'Long Eccentric Pulldowns',
+          duration: '16–18 min',
+          description: 'Full ROM pulldowns with extended 5s negatives',
+          battlePlan: '4 rounds\n• 6 Pulldowns (5s eccentric)\nRest 120s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_0b65e409-b210-4730-af62-16b022c37685/artifacts/diugpoq6_download%20%288%29.png',
+          intensityReason: 'Extended eccentrics maximize strength and hypertrophy',
+          moodTips: [
+            {
+              icon: 'timer',
+              title: 'Eccentric is the work',
+              description: 'Lower for 5 seconds every rep.'
+            },
+            {
+              icon: 'construct',
+              title: 'Reduce load if tempo breaks',
+              description: 'Form > weight at this difficulty.'
+            },
+            {
+              icon: 'body',
+              title: 'Straps to keep lats primary',
+              description: 'If forearms fail first, straps keep tension where it belongs.'
+            }
+          ]
+        },
+        {
+          name: 'Iso-Hold Drop Burn',
+          duration: '18–20 min',
+          description: 'Holds plus drops to build extreme lat fatigue',
+          battlePlan: '3 rounds\n• 8 Pulldowns + 10s Hold\n• Drop → 8 reps\nRest 120s',
+          imageUrl: 'https://customer-assets.emergentagent.com/job_0b65e409-b210-4730-af62-16b022c37685/artifacts/j967e9c7_download%20%289%29.png',
+          intensityReason: 'Combines isometric fatigue with mechanical drop sets',
+          moodTips: [
+            {
+              icon: 'timer',
+              title: 'Hold before you drop',
+              description: '8–10s hold at chest height on final rep.'
+            },
+            {
+              icon: 'flash',
+              title: 'Drop immediately after hold',
+              description: 'Strip ~20% and keep moving.'
+            },
+            {
+              icon: 'construct',
+              title: 'Peak form is zero swing',
+              description: 'Chest proud, elbows drive down, stack stays controlled.'
             }
           ]
         }
