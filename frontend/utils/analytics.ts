@@ -358,6 +358,25 @@ export const GuestAnalytics = {
     duration_minutes?: number;
   }) => trackGuestEvent('workout_completed', metadata),
 
+  // Try This Workout Events
+  tryWorkoutClicked: (metadata: {
+    workout_name: string;
+    equipment?: string;
+    difficulty?: string;
+    mood_category?: string;
+    source?: string;
+  }) => trackGuestEvent('try_workout_clicked', metadata),
+
+  // Workout Session Events
+  workoutSessionCompleted: (metadata: {
+    workout_name: string;
+    equipment?: string;
+    difficulty?: string;
+    mood_category?: string;
+    duration_seconds: number;
+    source?: string;
+  }) => trackGuestEvent('workout_session_completed', metadata),
+
   // Navigation Events
   screenViewed: (metadata: {
     screen_name: string;
