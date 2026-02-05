@@ -412,34 +412,33 @@ export default function AdminExerciseLibrary() {
         transparent={false}
         onRequestClose={() => setModalVisible(false)}
       >
-        <SafeAreaView style={styles.modalContainer}>
-          {/* Modal Header - Fixed at top, outside KeyboardAvoidingView */}
-          <View style={styles.modalHeader}>
-            <TouchableOpacity onPress={() => setModalVisible(false)}>
-              <Text style={styles.cancelText}>Cancel</Text>
-            </TouchableOpacity>
-            <Text style={styles.modalTitle}>
-              {editingExercise ? 'Edit Exercise' : 'Add Exercise'}
-            </Text>
-            <TouchableOpacity onPress={saveExercise} disabled={saving}>
-              {saving ? (
-                <ActivityIndicator size="small" color="#D4AF37" />
-              ) : (
-                <Text style={styles.saveText}>Save</Text>
-              )}
-            </TouchableOpacity>
-          </View>
+        <View style={styles.modalContainer}>
+          {/* Modal Header - Fixed at top */}
+          <SafeAreaView edges={['top']} style={styles.modalHeaderSafeArea}>
+            <View style={styles.modalHeader}>
+              <TouchableOpacity onPress={() => setModalVisible(false)} style={styles.modalHeaderButton}>
+                <Text style={styles.cancelText}>Cancel</Text>
+              </TouchableOpacity>
+              <Text style={styles.modalTitle}>
+                {editingExercise ? 'Edit Exercise' : 'Add Exercise'}
+              </Text>
+              <TouchableOpacity onPress={saveExercise} disabled={saving} style={styles.modalHeaderButton}>
+                {saving ? (
+                  <ActivityIndicator size="small" color="#D4AF37" />
+                ) : (
+                  <Text style={styles.saveText}>Save</Text>
+                )}
+              </TouchableOpacity>
+            </View>
+          </SafeAreaView>
 
-          <KeyboardAvoidingView 
-            behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-            style={{ flex: 1 }}
-            keyboardVerticalOffset={0}
+          <ScrollView 
+            style={styles.modalScroll} 
+            contentContainerStyle={styles.modalContent}
+            keyboardShouldPersistTaps="handled"
+            keyboardDismissMode="interactive"
+            automaticallyAdjustKeyboardInsets={true}
           >
-            <ScrollView 
-              style={styles.modalScroll} 
-              contentContainerStyle={styles.modalContent}
-              keyboardShouldPersistTaps="handled"
-            >
               {/* Video Upload Section */}
               <View style={styles.section}>
                 <Text style={styles.sectionTitle}>Video & Thumbnail</Text>
