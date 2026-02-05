@@ -11,15 +11,19 @@ import {
   Alert,
   Modal,
   Pressable,
+  Animated,
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { useRouter, useLocalSearchParams } from 'expo-router';
 import { useAuth } from '../contexts/AuthContext';
+import { useCart } from '../contexts/CartContext';
 import MediaCarousel from '../components/MediaCarousel';
 import ReportModal from '../components/ReportModal';
 import GuestPromptModal from '../components/GuestPromptModal';
 import CommentsBottomSheet from '../components/CommentsBottomSheet';
 import Constants from 'expo-constants';
+import { LinearGradient } from 'expo-linear-gradient';
+import { Analytics, GuestAnalytics } from '../utils/analytics';
 
 const API_URL = process.env.EXPO_PUBLIC_BACKEND_URL || Constants.expoConfig?.extra?.EXPO_PUBLIC_BACKEND_URL || '';
 
@@ -28,6 +32,22 @@ interface Author {
   username: string;
   name: string;
   avatar: string;
+}
+
+interface WorkoutExercise {
+  name: string;
+  equipment: string;
+  duration: string;
+  difficulty: string;
+  imageUrl?: string;
+  description?: string;
+}
+
+interface WorkoutData {
+  workouts: WorkoutExercise[];
+  total_duration: number;
+  completed_at: string;
+  mood_category?: string;
 }
 
 interface Post {
@@ -40,6 +60,7 @@ interface Post {
   is_liked: boolean;
   is_saved: boolean;
   created_at: string;
+  workout_data?: WorkoutData;
 }
 
 export default function PostDetail() {
