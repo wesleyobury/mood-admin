@@ -746,7 +746,7 @@ const styles = StyleSheet.create({
   // ============================================
   transparentContainer: {
     backgroundColor: 'rgba(0, 0, 0, 0.55)',
-    borderRadius: 16,
+    borderRadius: 0,
     overflow: 'hidden',
     justifyContent: 'space-between',
   },
