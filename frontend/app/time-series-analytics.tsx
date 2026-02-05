@@ -15,6 +15,7 @@ import { useAuth } from '../contexts/AuthContext';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import Constants from 'expo-constants';
 import { BarChart, LineChart } from 'react-native-chart-kit';
+import BackButton from '../components/BackButton';
 
 const API_URL = process.env.EXPO_PUBLIC_BACKEND_URL || Constants.expoConfig?.extra?.EXPO_PUBLIC_BACKEND_URL || '';
 const screenWidth = Dimensions.get('window').width;
@@ -254,9 +255,7 @@ export default function TimeSeriesAnalytics() {
     <View style={[styles.container, { paddingTop: insets.top }]}>
       {/* Header */}
       <View style={styles.header}>
-        <TouchableOpacity style={styles.backButton} onPress={() => router.back()}>
-          <Ionicons name="chevron-back" size={24} color="#FFD700" />
-        </TouchableOpacity>
+        <BackButton />
         <View style={styles.headerTextContainer}>
           <Text style={styles.headerTitle}>{metricInfo.title}</Text>
           <Text style={styles.headerSubtitle}>{metricInfo.description}</Text>
