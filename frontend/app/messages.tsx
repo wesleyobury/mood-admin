@@ -14,6 +14,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { useRouter, useFocusEffect } from 'expo-router';
 import Constants from 'expo-constants';
 import { useAuth } from '../contexts/AuthContext';
+import BackButton from '../components/BackButton';
 
 const API_URL = process.env.EXPO_PUBLIC_BACKEND_URL || Constants.expoConfig?.extra?.EXPO_PUBLIC_BACKEND_URL || '';
 
@@ -141,9 +142,7 @@ export default function Messages() {
     <View style={[styles.container, { paddingTop: insets.top }]}>
       {/* Header */}
       <View style={styles.header}>
-        <TouchableOpacity onPress={() => router.back()} style={styles.backButton}>
-          <Ionicons name="arrow-back" size={24} color="#fff" />
-        </TouchableOpacity>
+        <BackButton />
         <Text style={styles.headerTitle}>Messages</Text>
         <View style={styles.headerRight} />
       </View>
