@@ -249,10 +249,10 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 15,
     fontWeight: '500',
-    color: 'rgba(240, 235, 220, 0.9)',
+    color: '#FFFFFF',
     letterSpacing: 0.3,
   },
   textDisabled: {
-    color: '#444',
+    color: '#555',
   },
 });
