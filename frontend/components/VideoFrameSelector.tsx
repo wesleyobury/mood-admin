@@ -271,73 +271,59 @@ const VideoFrameSelector: React.FC<VideoFrameSelectorProps> = memo(({
       const translateX = imageTranslateX.value;
       const translateY = imageTranslateY.value;
       
-      // Calculate the crop region based on transform
-      // The crop box is centered in the preview
+      // Original image dimensions
       const imgWidth = imageSize.width;
       const imgHeight = imageSize.height;
       
-      // Calculate what portion of the original image is visible in the crop box
-      const visibleWidth = cropBoxWidth / scale;
-      const visibleHeight = cropBoxHeight / scale;
+      // Calculate what portion of the original image is visible in the crop window
+      // The crop window is CROP_WIDTH x CROP_HEIGHT on screen
+      // The displayed video has dimensions displayWidth x displayHeight, scaled by 'scale'
       
-      // Calculate the center offset due to translation
-      const centerOffsetX = -translateX / scale;
-      const centerOffsetY = -translateY / scale;
+      // Ratio between original image and displayed size
+      const imgToDisplayRatio = imgWidth / displayWidth;
       
-      // Map preview coordinates to image coordinates
-      const scaleToImage = imgWidth / PREVIEW_WIDTH;
+      // The crop window covers this area of the *scaled* display
+      // At scale=1, if displayWidth=350 and CROP_WIDTH=340, the crop covers 340/350 = 97% of width
+      // At scale=2, the video is 2x bigger, so crop covers half as much: 340/(350*2) = 48.5%
       
-      const cropWidth = visibleWidth * scaleToImage;
-      const cropHeight = visibleHeight * scaleToImage;
-      const cropX = (imgWidth - cropWidth) / 2 + (centerOffsetX * scaleToImage);
-      const cropY = (imgHeight - cropHeight) / 2 + (centerOffsetY * scaleToImage);
+      const cropWidthInOriginal = (CROP_WIDTH / scale) * imgToDisplayRatio;
+      const cropHeightInOriginal = (CROP_HEIGHT / scale) * imgToDisplayRatio;
       
-      // Ensure crop is within bounds
-      const finalCropX = Math.max(0, Math.min(cropX, imgWidth - cropWidth));
-      const finalCropY = Math.max(0, Math.min(cropY, imgHeight - cropHeight));
-      const finalCropWidth = Math.min(cropWidth, imgWidth - finalCropX);
-      const finalCropHeight = Math.min(cropHeight, imgHeight - finalCropY);
+      // Translate values are in screen coordinates, need to convert to original image coordinates
+      const translateXInOriginal = (translateX / scale) * imgToDisplayRatio;
+      const translateYInOriginal = (translateY / scale) * imgToDisplayRatio;
       
-      if (scale !== 1 || translateX !== 0 || translateY !== 0) {
-        // Apply crop
-        const result = await ImageManipulator.manipulateAsync(
-          sourceUri,
-          [
-            {
-              crop: {
-                originX: Math.round(finalCropX),
-                originY: Math.round(finalCropY),
-                width: Math.round(finalCropWidth),
-                height: Math.round(finalCropHeight),
-              },
+      // The crop is centered on the image, then offset by translation
+      // Negative translation = user moved image left, so crop should move right (positive originX)
+      const centerX = imgWidth / 2;
+      const centerY = imgHeight / 2;
+      
+      const cropX = centerX - (cropWidthInOriginal / 2) - translateXInOriginal;
+      const cropY = centerY - (cropHeightInOriginal / 2) - translateYInOriginal;
+      
+      // Clamp to valid bounds
+      const finalCropX = Math.max(0, Math.min(cropX, imgWidth - cropWidthInOriginal));
+      const finalCropY = Math.max(0, Math.min(cropY, imgHeight - cropHeightInOriginal));
+      const finalCropWidth = Math.min(cropWidthInOriginal, imgWidth - finalCropX);
+      const finalCropHeight = Math.min(cropHeightInOriginal, imgHeight - finalCropY);
+      
+      // Apply the crop
+      const result = await ImageManipulator.manipulateAsync(
+        sourceUri,
+        [
+          {
+            crop: {
+              originX: Math.round(finalCropX),
+              originY: Math.round(finalCropY),
+              width: Math.round(finalCropWidth),
+              height: Math.round(finalCropHeight),
             },
-            { resize: { width: 1080 } },
-          ],
-          { format: ImageManipulator.SaveFormat.JPEG, compress: 0.9 }
-        );
-        onFrameSelected(result.uri);
-      } else {
-        // No transform, just resize to 4:5 from center
-        const targetHeight = imgWidth / CROP_ASPECT_RATIO;
-        const cropY = Math.max(0, (imgHeight - targetHeight) / 2);
-        
-        const result = await ImageManipulator.manipulateAsync(
-          sourceUri,
-          [
-            {
-              crop: {
-                originX: 0,
-                originY: Math.round(cropY),
-                width: imgWidth,
-                height: Math.round(Math.min(targetHeight, imgHeight)),
-              },
-            },
-            { resize: { width: 1080 } },
-          ],
-          { format: ImageManipulator.SaveFormat.JPEG, compress: 0.9 }
-        );
-        onFrameSelected(result.uri);
-      }
+          },
+          { resize: { width: 1080 } },
+        ],
+        { format: ImageManipulator.SaveFormat.JPEG, compress: 0.9 }
+      );
+      onFrameSelected(result.uri);
     } catch (err) {
       console.error('Error processing cover:', err);
       onFrameSelected(allFrames[currentFrameIndex].uri);
