@@ -269,6 +269,11 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
+  loadingText: {
+    color: '#888',
+    fontSize: 14,
+    marginTop: 12,
+  },
   emptyContainer: {
     flex: 1,
     justifyContent: 'center',
@@ -280,6 +285,26 @@ const styles = StyleSheet.create({
     fontSize: 16,
     marginTop: 16,
     textAlign: 'center',
+  },
+  errorText: {
+    color: '#FF6B6B',
+    fontSize: 16,
+    marginTop: 16,
+    textAlign: 'center',
+  },
+  retryButton: {
+    marginTop: 20,
+    backgroundColor: 'rgba(255, 215, 0, 0.15)',
+    paddingHorizontal: 24,
+    paddingVertical: 10,
+    borderRadius: 20,
+    borderWidth: 1,
+    borderColor: '#FFD700',
+  },
+  retryButtonText: {
+    color: '#FFD700',
+    fontSize: 14,
+    fontWeight: '600',
   },
   listContent: {
     padding: 16,
