@@ -450,46 +450,69 @@ export default function AdminExerciseLibrary() {
               keyboardDismissMode="interactive"
               showsVerticalScrollIndicator={true}
             >
-              {/* Video Upload Section */}
-              <View style={styles.section}>
-                <Text style={styles.sectionTitle}>Video & Thumbnail</Text>
+              {/* Video Preview with Overlay - Shows how it will look */}
+              <View style={styles.previewSection}>
                 <TouchableOpacity 
-                  style={styles.uploadButton} 
+                  style={styles.videoPreviewContainer} 
                   onPress={pickVideo}
                   disabled={uploading}
+                  activeOpacity={0.8}
                 >
                   {uploading ? (
-                    <ActivityIndicator color="#D4AF37" />
+                    <View style={styles.uploadingOverlay}>
+                      <ActivityIndicator size="large" color="#D4AF37" />
+                      <Text style={styles.uploadingText}>Uploading video...</Text>
+                    </View>
                   ) : formData.thumbnail_url ? (
-                    <Image source={{ uri: formData.thumbnail_url }} style={styles.uploadPreview} />
+                    <Image source={{ uri: formData.thumbnail_url }} style={styles.videoThumbnail} />
                   ) : (
-                    <>
-                      <Ionicons name="cloud-upload-outline" size={40} color="#D4AF37" />
-                      <Text style={styles.uploadText}>Tap to upload video</Text>
-                    </>
+                    <View style={styles.placeholderContainer}>
+                      <Ionicons name="videocam-outline" size={48} color="rgba(255,255,255,0.3)" />
+                      <Text style={styles.placeholderText}>Tap to upload video</Text>
+                    </View>
+                  )}
+                  
+                  {/* Overlay text inputs on preview */}
+                  <View style={styles.overlayContent}>
+                    {/* Exercise name input overlayed at bottom */}
+                    <View style={styles.overlayGradient}>
+                      <TextInput
+                        style={styles.overlayNameInput}
+                        value={formData.name}
+                        onChangeText={(text) => setFormData(prev => ({ ...prev, name: text }))}
+                        placeholder="Exercise Name"
+                        placeholderTextColor="rgba(255,255,255,0.5)"
+                      />
+                      <TextInput
+                        style={styles.overlayEquipmentInput}
+                        value={formData.equipment}
+                        onChangeText={(text) => setFormData(prev => ({ ...prev, equipment: text }))}
+                        placeholder="Equipment (comma separated)"
+                        placeholderTextColor="rgba(255,255,255,0.4)"
+                      />
+                    </View>
+                  </View>
+                  
+                  {/* Upload indicator badge */}
+                  {!formData.video_url && !uploading && (
+                    <View style={styles.uploadBadge}>
+                      <Ionicons name="cloud-upload" size={14} color="#000" />
+                      <Text style={styles.uploadBadgeText}>Upload</Text>
+                    </View>
+                  )}
+                  
+                  {formData.video_url && (
+                    <View style={styles.uploadedBadge}>
+                      <Ionicons name="checkmark-circle" size={14} color="#000" />
+                      <Text style={styles.uploadBadgeText}>Uploaded</Text>
+                    </View>
                   )}
                 </TouchableOpacity>
-                {formData.video_url ? (
-                  <Text style={styles.uploadedUrl} numberOfLines={1}>
-                    ✓ Video uploaded
-                  </Text>
-                ) : null}
               </View>
 
-              {/* Basic Info */}
+              {/* Muscle Group Selection */}
               <View style={styles.section}>
-                <Text style={styles.sectionTitle}>Basic Information</Text>
-                
-                <Text style={styles.inputLabel}>Exercise Name *</Text>
-                <TextInput
-                  style={styles.input}
-                  value={formData.name}
-                  onChangeText={(text) => setFormData(prev => ({ ...prev, name: text }))}
-                  placeholder="e.g., Barbell Back Squat"
-                  placeholderTextColor="rgba(255,255,255,0.3)"
-                />
-
-                <Text style={styles.inputLabel}>Muscle Group</Text>
+                <Text style={styles.sectionTitle}>Muscle Group</Text>
                 <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.muscleGroupScroll}>
                   {MUSCLE_GROUPS.map((group) => (
                     <TouchableOpacity
@@ -509,17 +532,12 @@ export default function AdminExerciseLibrary() {
                     </TouchableOpacity>
                   ))}
                 </ScrollView>
+              </View>
 
-                <Text style={styles.inputLabel}>Equipment (comma separated)</Text>
-                <TextInput
-                  style={styles.input}
-                  value={formData.equipment}
-                  onChangeText={(text) => setFormData(prev => ({ ...prev, equipment: text }))}
-                  placeholder="e.g., Barbell, Squat Rack"
-                  placeholderTextColor="rgba(255,255,255,0.3)"
-                />
-
-                <Text style={styles.inputLabel}>Aliases (comma separated)</Text>
+              {/* Aliases */}
+              <View style={styles.section}>
+                <Text style={styles.sectionTitle}>Aliases</Text>
+                <Text style={styles.inputHint}>Alternative names for search (comma separated)</Text>
                 <TextInput
                   style={styles.input}
                   value={formData.aliases}
