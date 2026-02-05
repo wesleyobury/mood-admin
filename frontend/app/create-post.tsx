@@ -2119,7 +2119,7 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     marginVertical: 6,
     backgroundColor: '#000',
-    borderRadius: 14,
+    borderRadius: 0,
     overflow: 'hidden',
   },
   saveExplanation: {
