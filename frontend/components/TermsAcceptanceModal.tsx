@@ -7,7 +7,6 @@ import {
   TouchableOpacity,
   ScrollView,
   ActivityIndicator,
-  Linking,
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { useRouter } from 'expo-router';
@@ -44,9 +43,12 @@ export default function TermsAcceptanceModal({
     router.push('/terms-of-service');
   };
 
+  const openPrivacyPolicy = () => {
+    router.push('/privacy-policy');
+  };
+
   const openCommunityGuidelines = () => {
-    // Open the same terms page which contains community guidelines
-    router.push('/terms-of-service');
+    router.push('/community-guidelines');
   };
 
   return (
@@ -55,85 +57,153 @@ export default function TermsAcceptanceModal({
       animationType="fade"
       transparent={true}
       statusBarTranslucent
-      // Cannot be dismissed - no onRequestClose
     >
       <View style={styles.overlay}>
         <View style={styles.modalContainer}>
           {/* Header */}
           <View style={styles.header}>
-            <Ionicons name="shield-checkmark" size={40} color="#FFD700" />
-            <Text style={styles.title}>Terms of Service</Text>
+            <Text style={styles.title}>End User License Agreement</Text>
             <Text style={styles.subtitle}>Please review and accept to continue</Text>
+            <Text style={styles.lastUpdated}>Last Updated: February 2025</Text>
           </View>
 
           {/* Content */}
           <ScrollView style={styles.contentScroll} showsVerticalScrollIndicator={false}>
-            {/* Zero Tolerance Notice - CRITICAL FOR APP STORE */}
-            <View style={styles.zeroToleranceBox}>
-              <View style={styles.zeroToleranceHeader}>
-                <Ionicons name="shield-checkmark" size={24} color="#FFD700" />
-                <Text style={styles.zeroToleranceTitle}>Zero Tolerance Policy</Text>
-              </View>
-              <Text style={styles.zeroToleranceText}>
-                We have zero tolerance for objectionable content or abusive users.
+            
+            {/* License Grant */}
+            <View style={styles.eulaSection}>
+              <Text style={styles.eulaSectionTitle}>1. License Grant</Text>
+              <Text style={styles.eulaText}>
+                We grant you a limited, non-exclusive, non-transferable, revocable license to use the App for personal, non-commercial purposes in accordance with this Agreement.
               </Text>
-              <Text style={styles.zeroToleranceSubtext}>
-                Violations will result in immediate account termination and may be reported to authorities.
+              <Text style={styles.eulaText}>
+                We reserve the right to revoke this license at any time for violations of this Agreement or our Terms of Service.
               </Text>
             </View>
 
-            {/* Agreement Summary */}
-            <View style={styles.summarySection}>
-              <Text style={styles.sectionTitle}>By accepting, you agree to:</Text>
-              
-              <View style={styles.bulletPoint}>
-                <Ionicons name="checkmark-circle" size={18} color="#FFD700" />
-                <Text style={styles.bulletText}>
-                  Not post offensive, abusive, or inappropriate content
-                </Text>
+            {/* Restrictions */}
+            <View style={styles.eulaSection}>
+              <Text style={styles.eulaSectionTitle}>2. Restrictions</Text>
+              <Text style={styles.eulaText}>You may NOT:</Text>
+              <View style={styles.bulletList}>
+                <Text style={styles.bulletItem}>• Copy, modify, reverse engineer, decompile, or distribute the App</Text>
+                <Text style={styles.bulletItem}>• Circumvent security, moderation, or safety systems</Text>
+                <Text style={styles.bulletItem}>• Automate access, scrape content, or interfere with platform integrity</Text>
+                <Text style={styles.bulletItem}>• Use the App for unlawful, abusive, or harmful purposes</Text>
               </View>
-              
-              <View style={styles.bulletPoint}>
-                <Ionicons name="checkmark-circle" size={18} color="#FFD700" />
-                <Text style={styles.bulletText}>
-                  Not harass, bully, or threaten other users
-                </Text>
+            </View>
+
+            {/* Zero Tolerance */}
+            <View style={styles.eulaSection}>
+              <Text style={styles.eulaSectionTitle}>3. User-Generated Content & Zero Tolerance</Text>
+              <Text style={styles.eulaTextBold}>
+                The App includes user-generated content. We maintain zero tolerance for objectionable or abusive content.
+              </Text>
+              <Text style={styles.eulaText}>You agree that you will not upload, post, or engage with:</Text>
+              <View style={styles.bulletList}>
+                <Text style={styles.bulletItem}>• Pornographic or sexually explicit content</Text>
+                <Text style={styles.bulletItem}>• Harassment, hate speech, or threats</Text>
+                <Text style={styles.bulletItem}>• Content involving minors</Text>
+                <Text style={styles.bulletItem}>• Violent, illegal, or exploitative material</Text>
+                <Text style={styles.bulletItem}>• Attempts to evade moderation or enforcement</Text>
               </View>
-              
-              <View style={styles.bulletPoint}>
-                <Ionicons name="checkmark-circle" size={18} color="#FFD700" />
-                <Text style={styles.bulletText}>
-                  Not share sexually explicit or pornographic material
-                </Text>
+              <Text style={styles.eulaTextBold}>
+                Violations may result in immediate termination without notice.
+              </Text>
+            </View>
+
+            {/* Moderation */}
+            <View style={styles.eulaSection}>
+              <Text style={styles.eulaSectionTitle}>4. Moderation & Enforcement</Text>
+              <Text style={styles.eulaText}>We reserve the right to:</Text>
+              <View style={styles.bulletList}>
+                <Text style={styles.bulletItem}>• Monitor and review content</Text>
+                <Text style={styles.bulletItem}>• Remove content at our sole discretion</Text>
+                <Text style={styles.bulletItem}>• Suspend or terminate accounts</Text>
+                <Text style={styles.bulletItem}>• Report illegal activity to authorities</Text>
               </View>
-              
-              <View style={styles.bulletPoint}>
-                <Ionicons name="checkmark-circle" size={18} color="#FFD700" />
-                <Text style={styles.bulletText}>
-                  Not promote hate speech, violence, or illegal activities
-                </Text>
-              </View>
-              
-              <View style={styles.bulletPoint}>
-                <Ionicons name="checkmark-circle" size={18} color="#FFD700" />
-                <Text style={styles.bulletText}>
-                  Consult a healthcare professional before beginning any fitness program
-                </Text>
-              </View>
+              <Text style={styles.eulaText}>
+                You acknowledge that enforcement decisions are final.
+              </Text>
+            </View>
+
+            {/* Health Disclaimer */}
+            <View style={styles.eulaSection}>
+              <Text style={styles.eulaSectionTitle}>5. Health & Fitness Disclaimer</Text>
+              <Text style={styles.eulaText}>
+                The App provides general fitness information only and does NOT provide medical advice.
+              </Text>
+              <Text style={styles.eulaText}>
+                You assume all risks associated with physical activity. Consult a qualified healthcare professional before beginning any exercise program.
+              </Text>
+            </View>
+
+            {/* No Warranty */}
+            <View style={styles.eulaSection}>
+              <Text style={styles.eulaSectionTitle}>6. No Warranty</Text>
+              <Text style={styles.eulaTextCaps}>
+                THE APP IS PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT WARRANTIES OF ANY KIND.
+              </Text>
+            </View>
+
+            {/* Limitation of Liability */}
+            <View style={styles.eulaSection}>
+              <Text style={styles.eulaSectionTitle}>7. Limitation of Liability</Text>
+              <Text style={styles.eulaTextCaps}>
+                TO THE MAXIMUM EXTENT PERMITTED BY LAW, WE SHALL NOT BE LIABLE FOR ANY DAMAGES ARISING FROM YOUR USE OF THE APP, INCLUDING PERSONAL INJURY.
+              </Text>
+            </View>
+
+            {/* Termination */}
+            <View style={styles.eulaSection}>
+              <Text style={styles.eulaSectionTitle}>8. Termination</Text>
+              <Text style={styles.eulaText}>
+                This Agreement remains effective until terminated. We may terminate it at any time if you violate its terms. Upon termination, all rights granted to you cease immediately.
+              </Text>
+            </View>
+
+            {/* Apple Disclaimer */}
+            <View style={styles.eulaSection}>
+              <Text style={styles.eulaSectionTitle}>9. Apple Disclaimer</Text>
+              <Text style={styles.eulaText}>
+                This Agreement is between you and MOOD, not Apple. Apple is not responsible for the App or its content and has no obligation to provide support.
+              </Text>
+            </View>
+
+            {/* Governing Law */}
+            <View style={styles.eulaSection}>
+              <Text style={styles.eulaSectionTitle}>10. Governing Law</Text>
+              <Text style={styles.eulaText}>
+                This Agreement is governed by the laws of the United States and the State of Texas, without regard to conflict-of-law principles.
+              </Text>
+            </View>
+
+            {/* Entire Agreement */}
+            <View style={styles.eulaSection}>
+              <Text style={styles.eulaSectionTitle}>11. Entire Agreement</Text>
+              <Text style={styles.eulaText}>
+                This Agreement, together with the Terms of Service and Privacy Policy, constitutes the entire agreement between you and MOOD.
+              </Text>
             </View>
 
             {/* Links to Full Documents */}
             <View style={styles.linksSection}>
               <TouchableOpacity style={styles.linkButton} onPress={openTermsOfService}>
-                <Ionicons name="document-text-outline" size={18} color="#FFD700" />
+                <Ionicons name="document-text-outline" size={18} color="#fff" />
                 <Text style={styles.linkText}>Read Full Terms of Service</Text>
-                <Ionicons name="chevron-forward" size={16} color="#888" />
+                <Ionicons name="chevron-forward" size={16} color="#666" />
               </TouchableOpacity>
               
+              <TouchableOpacity style={styles.linkButton} onPress={openPrivacyPolicy}>
+                <Ionicons name="shield-checkmark-outline" size={18} color="#fff" />
+                <Text style={styles.linkText}>Privacy Policy</Text>
+                <Ionicons name="chevron-forward" size={16} color="#666" />
+              </TouchableOpacity>
+
               <TouchableOpacity style={styles.linkButton} onPress={openCommunityGuidelines}>
-                <Ionicons name="people-outline" size={18} color="#FFD700" />
+                <Ionicons name="people-outline" size={18} color="#fff" />
                 <Text style={styles.linkText}>Community Guidelines</Text>
-                <Ionicons name="chevron-forward" size={16} color="#888" />
+                <Ionicons name="chevron-forward" size={16} color="#666" />
               </TouchableOpacity>
             </View>
           </ScrollView>
@@ -152,7 +222,11 @@ export default function TermsAcceptanceModal({
               <Text style={styles.linkInline} onPress={openTermsOfService}>
                 Terms of Service
               </Text>
-              {' '}and{' '}
+              ,{' '}
+              <Text style={styles.linkInline} onPress={openPrivacyPolicy}>
+                Privacy Policy
+              </Text>
+              , and{' '}
               <Text style={styles.linkInline} onPress={openCommunityGuidelines}>
                 Community Guidelines
               </Text>
@@ -171,7 +245,7 @@ export default function TermsAcceptanceModal({
             {submitting ? (
               <ActivityIndicator color="#000" size="small" />
             ) : (
-              <Text style={styles.acceptButtonText}>Continue</Text>
+              <Text style={styles.acceptButtonText}>I Agree - Continue</Text>
             )}
           </TouchableOpacity>
 
@@ -188,7 +262,7 @@ export default function TermsAcceptanceModal({
 const styles = StyleSheet.create({
   overlay: {
     flex: 1,
-    backgroundColor: 'rgba(0, 0, 0, 0.9)',
+    backgroundColor: 'rgba(0, 0, 0, 0.95)',
     justifyContent: 'center',
     alignItems: 'center',
     padding: 20,
@@ -199,82 +273,73 @@ const styles = StyleSheet.create({
     padding: 24,
     width: '100%',
     maxWidth: 400,
-    maxHeight: '85%',
+    maxHeight: '90%',
     borderWidth: 1,
-    borderColor: 'rgba(255, 215, 0, 0.3)',
+    borderColor: 'rgba(255, 255, 255, 0.1)',
   },
   header: {
     alignItems: 'center',
-    marginBottom: 20,
+    marginBottom: 16,
   },
   title: {
-    fontSize: 24,
+    fontSize: 20,
     fontWeight: '700',
     color: '#fff',
-    marginTop: 12,
   },
   subtitle: {
-    fontSize: 14,
+    fontSize: 13,
     color: '#888',
     marginTop: 4,
   },
+  lastUpdated: {
+    fontSize: 11,
+    color: '#666',
+    marginTop: 4,
+  },
   contentScroll: {
-    maxHeight: 280,
+    maxHeight: 320,
   },
-  zeroToleranceBox: {
-    backgroundColor: 'rgba(255, 215, 0, 0.1)',
-    borderRadius: 12,
-    padding: 16,
-    marginBottom: 16,
-    borderWidth: 1,
-    borderColor: 'rgba(255, 215, 0, 0.3)',
-  },
-  zeroToleranceHeader: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 8,
-    marginBottom: 8,
-  },
-  zeroToleranceTitle: {
-    fontSize: 16,
-    fontWeight: '700',
-    color: '#FFD700',
-  },
-  zeroToleranceText: {
-    fontSize: 15,
-    fontWeight: '700',
-    color: '#FFD700',
-    textAlign: 'center',
-    marginBottom: 4,
-  },
-  zeroToleranceSubtext: {
-    fontSize: 12,
-    color: '#aaa',
-    textAlign: 'center',
-  },
-  summarySection: {
+  eulaSection: {
     marginBottom: 16,
   },
-  sectionTitle: {
+  eulaSectionTitle: {
     fontSize: 14,
     fontWeight: '600',
     color: '#fff',
-    marginBottom: 12,
+    marginBottom: 6,
   },
-  bulletPoint: {
-    flexDirection: 'row',
-    alignItems: 'flex-start',
-    marginBottom: 10,
-    gap: 10,
-  },
-  bulletText: {
-    flex: 1,
-    fontSize: 13,
-    color: '#ccc',
+  eulaText: {
+    fontSize: 12,
     lineHeight: 18,
+    color: '#999',
+    marginBottom: 4,
+  },
+  eulaTextBold: {
+    fontSize: 12,
+    lineHeight: 18,
+    color: '#ccc',
+    fontWeight: '600',
+    marginBottom: 4,
+  },
+  eulaTextCaps: {
+    fontSize: 11,
+    lineHeight: 16,
+    color: '#888',
+    marginBottom: 4,
+  },
+  bulletList: {
+    marginLeft: 4,
+    marginTop: 4,
+    marginBottom: 4,
+  },
+  bulletItem: {
+    fontSize: 12,
+    lineHeight: 20,
+    color: '#888',
   },
   linksSection: {
-    marginBottom: 16,
+    marginTop: 8,
+    marginBottom: 8,
   },
   linkButton: {
     flexDirection: 'row',
@@ -287,8 +352,8 @@ const styles = StyleSheet.create({
   },
   linkText: {
     flex: 1,
-    fontSize: 14,
-    color: '#fff',
+    fontSize: 13,
+    color: '#ccc',
   },
   checkboxContainer: {
     flexDirection: 'row',
@@ -302,37 +367,37 @@ const styles = StyleSheet.create({
     height: 24,
     borderRadius: 6,
     borderWidth: 2,
-    borderColor: '#888',
+    borderColor: '#666',
     justifyContent: 'center',
     alignItems: 'center',
     marginTop: 2,
   },
   checkboxChecked: {
-    backgroundColor: '#FFD700',
-    borderColor: '#FFD700',
+    backgroundColor: '#fff',
+    borderColor: '#fff',
   },
   checkboxLabel: {
     flex: 1,
-    fontSize: 13,
-    color: '#ccc',
-    lineHeight: 20,
+    fontSize: 12,
+    color: '#999',
+    lineHeight: 18,
   },
   linkInline: {
-    color: '#FFD700',
+    color: '#fff',
     textDecorationLine: 'underline',
   },
   acceptButton: {
-    backgroundColor: '#FFD700',
+    backgroundColor: '#fff',
     borderRadius: 12,
     padding: 16,
     alignItems: 'center',
   },
   acceptButtonDisabled: {
-    backgroundColor: '#444',
+    backgroundColor: '#333',
     opacity: 0.7,
   },
   acceptButtonText: {
-    fontSize: 16,
+    fontSize: 15,
     fontWeight: '700',
     color: '#000',
   },
