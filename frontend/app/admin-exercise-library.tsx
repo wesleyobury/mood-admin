@@ -19,6 +19,7 @@ import { useRouter } from 'expo-router';
 import * as ImagePicker from 'expo-image-picker';
 import Constants from 'expo-constants';
 import { useAuth } from '../contexts/AuthContext';
+import BackButton from '../components/BackButton';
 
 const API_URL = Constants.expoConfig?.extra?.EXPO_BACKEND_URL || 'https://fitness-ui-fix.preview.emergentagent.com';
 
