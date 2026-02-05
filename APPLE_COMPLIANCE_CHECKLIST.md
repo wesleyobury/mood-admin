@@ -52,11 +52,11 @@ This document provides a comprehensive checklist for Apple App Store compliance,
 
 **File:** `frontend/utils/notifications.ts` - `handleDeepLink()` method
 
-### 1.4 Timestamp/Timezone Handling ⚠️ NEEDS ENHANCEMENT
+### 1.4 Timestamp/Timezone Handling ✅ IMPLEMENTED
 | Requirement | Current Status | Action Needed |
 |-------------|----------------|---------------|
-| Store event_timestamp UTC | ✅ | Already using `datetime.now(timezone.utc)` |
-| Store user_timezone (IANA) | ⚠️ | Add `user_timezone` field to event tracking |
+| Store event_timestamp UTC | ✅ | Using `getUTCTimestamp()` |
+| Store user_timezone (IANA) | ✅ | Using `getUserTimezone()` via expo-localization |
 | Display in local time | ✅ | Frontend handles conversion |
 
 ---
