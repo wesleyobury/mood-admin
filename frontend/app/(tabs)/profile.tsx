@@ -1978,7 +1978,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    marginBottom: 8,
+    marginBottom: 6,
   },
   cardDateLabel: {
     color: 'rgba(255, 255, 255, 0.5)',
@@ -1994,36 +1994,27 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  cardMainStats: {
-    flexDirection: 'row',
-    alignItems: 'baseline',
-    marginBottom: 8,
-  },
-  cardDurationValue: {
-    fontSize: 36,
+  cardMoodLabel: {
+    fontSize: 24,
     fontWeight: '700',
     color: '#fff',
-    letterSpacing: -1,
+    letterSpacing: -0.5,
+    marginBottom: 10,
   },
-  cardDurationUnit: {
-    fontSize: 14,
-    fontWeight: '500',
-    color: 'rgba(255, 255, 255, 0.5)',
-    marginLeft: 4,
-  },
-  cardSecondaryStats: {
+  cardStatsRow: {
     flexDirection: 'row',
-    gap: 8,
+    gap: 6,
     marginBottom: 12,
+    flexWrap: 'nowrap',
   },
   cardStatPill: {
     flexDirection: 'row',
     alignItems: 'center',
     backgroundColor: 'rgba(255, 215, 0, 0.1)',
-    paddingHorizontal: 8,
+    paddingHorizontal: 7,
     paddingVertical: 4,
     borderRadius: 12,
-    gap: 4,
+    gap: 3,
   },
   cardStatPillText: {
     color: 'rgba(255, 255, 255, 0.7)',
@@ -2047,6 +2038,28 @@ const styles = StyleSheet.create({
     marginTop: 2,
   },
   // Legacy styles (kept for compatibility)
+  cardMainStats: {
+    flexDirection: 'row',
+    alignItems: 'baseline',
+    marginBottom: 8,
+  },
+  cardDurationValue: {
+    fontSize: 36,
+    fontWeight: '700',
+    color: '#fff',
+    letterSpacing: -1,
+  },
+  cardDurationUnit: {
+    fontSize: 14,
+    fontWeight: '500',
+    color: 'rgba(255, 255, 255, 0.5)',
+    marginLeft: 4,
+  },
+  cardSecondaryStats: {
+    flexDirection: 'row',
+    gap: 8,
+    marginBottom: 12,
+  },
   workoutTitlesContainer: {
     width: '100%',
     marginTop: 8,
