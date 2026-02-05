@@ -407,6 +407,32 @@ export default function PostDetail() {
           </TouchableOpacity>
         </View>
 
+        {/* Try this Workout Button - Show if post has workout data */}
+        {hasWorkoutData && (
+          <Animated.View style={[styles.tryWorkoutContainer, { transform: [{ scale: tryWorkoutAnim }] }]}>
+            <TouchableOpacity 
+              style={styles.tryWorkoutButton}
+              onPress={handleTryWorkout}
+              activeOpacity={0.85}
+            >
+              <LinearGradient
+                colors={['rgba(255, 215, 0, 0.15)', 'rgba(255, 215, 0, 0.08)']}
+                style={styles.tryWorkoutGradient}
+                start={{ x: 0, y: 0 }}
+                end={{ x: 1, y: 1 }}
+              >
+                <Ionicons name="barbell-outline" size={20} color="#FFD700" />
+                <Text style={styles.tryWorkoutText}>Try this workout</Text>
+                <View style={styles.workoutCountBadge}>
+                  <Text style={styles.workoutCountText}>
+                    {post.workout_data?.workouts.length} exercises
+                  </Text>
+                </View>
+              </LinearGradient>
+            </TouchableOpacity>
+          </Animated.View>
+        )}
+
         {/* Likes Count */}
         <Text style={styles.likesText}>
           {post.likes_count} {post.likes_count === 1 ? 'like' : 'likes'}
