@@ -585,7 +585,7 @@ export default function AdminExerciseLibrary() {
 
               <View style={{ height: 100 }} />
             </ScrollView>
-        </View>
+        </KeyboardAvoidingView>
       </Modal>
     </SafeAreaView>
   );
