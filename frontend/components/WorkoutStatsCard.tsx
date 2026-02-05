@@ -403,7 +403,6 @@ export default function WorkoutStatsCard({
             strokeDasharray={intensityRing.dashArray}
             strokeDashoffset={intensityRing.dashOffset}
             strokeLinecap="round"
-            transform={`scale(-1, 1) translate(-${RING_SIZE}, 0)`}
           />
           <Circle
             cx={RING_CENTER}
@@ -415,7 +414,6 @@ export default function WorkoutStatsCard({
             strokeDasharray={intensityRing.dashArray}
             strokeDashoffset={intensityRing.dashOffset}
             strokeLinecap="round"
-            transform={`scale(-1, 1) translate(-${RING_SIZE}, 0)`}
           />
         </G>
       </Svg>
