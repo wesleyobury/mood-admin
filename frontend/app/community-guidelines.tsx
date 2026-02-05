@@ -20,7 +20,7 @@ export default function CommunityGuidelinesScreen() {
       {/* Header */}
       <View style={styles.header}>
         <TouchableOpacity style={styles.backButton} onPress={() => router.back()}>
-          <Ionicons name="chevron-back" size={24} color="#FFD700" />
+          <Ionicons name="chevron-back" size={24} color="#fff" />
         </TouchableOpacity>
         <Text style={styles.headerTitle}>Community Guidelines</Text>
         <View style={styles.headerSpacer} />
@@ -34,10 +34,9 @@ export default function CommunityGuidelinesScreen() {
         <Text style={styles.lastUpdated}>Last Updated: February 2025</Text>
 
         {/* Welcome Message */}
-        <View style={styles.welcomeBox}>
-          <Ionicons name="people" size={32} color="#FFD700" />
-          <Text style={styles.welcomeTitle}>Welcome to the MOOD Community</Text>
-          <Text style={styles.welcomeText}>
+        <View style={styles.section}>
+          <Text style={styles.sectionTitle}>Welcome to the MOOD Community</Text>
+          <Text style={styles.paragraph}>
             We're building a supportive fitness community where everyone can share their journey, 
             celebrate progress, and motivate each other. These guidelines help keep MOOD a safe 
             and positive space for all members.
@@ -47,85 +46,79 @@ export default function CommunityGuidelinesScreen() {
         {/* Our Core Values */}
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>Our Core Values</Text>
-          <View style={styles.valueCard}>
-            <Ionicons name="heart" size={24} color="#FFD700" />
-            <View style={styles.valueContent}>
-              <Text style={styles.valueTitle}>Respect & Support</Text>
-              <Text style={styles.valueText}>
-                Treat every member with kindness. Celebrate others' progress regardless of fitness level.
-              </Text>
-            </View>
+          
+          <View style={styles.valueItem}>
+            <Text style={styles.valueTitle}>Respect & Support</Text>
+            <Text style={styles.valueText}>
+              Treat every member with kindness. Celebrate others' progress regardless of fitness level.
+            </Text>
           </View>
-          <View style={styles.valueCard}>
-            <Ionicons name="shield-checkmark" size={24} color="#FFD700" />
-            <View style={styles.valueContent}>
-              <Text style={styles.valueTitle}>Safety First</Text>
-              <Text style={styles.valueText}>
-                Exercise safely. Don't promote dangerous workouts or extreme behaviors.
-              </Text>
-            </View>
+          
+          <View style={styles.valueItem}>
+            <Text style={styles.valueTitle}>Safety First</Text>
+            <Text style={styles.valueText}>
+              Exercise safely. Don't promote dangerous workouts or extreme behaviors.
+            </Text>
           </View>
-          <View style={styles.valueCard}>
-            <Ionicons name="sparkles" size={24} color="#FFD700" />
-            <View style={styles.valueContent}>
-              <Text style={styles.valueTitle}>Authenticity</Text>
-              <Text style={styles.valueText}>
-                Be yourself. Share your real journey—both the wins and the challenges.
-              </Text>
-            </View>
+          
+          <View style={styles.valueItem}>
+            <Text style={styles.valueTitle}>Authenticity</Text>
+            <Text style={styles.valueText}>
+              Be yourself. Share your real journey—both the wins and the challenges.
+            </Text>
           </View>
         </View>
 
         {/* What's Encouraged */}
         <View style={styles.section}>
-          <Text style={styles.sectionTitle}>✅ What's Encouraged</Text>
+          <Text style={styles.sectionTitle}>What's Encouraged</Text>
           <View style={styles.bulletList}>
-            <Text style={styles.bulletItemGreen}>• Share your workout achievements and progress</Text>
-            <Text style={styles.bulletItemGreen}>• Post motivational content and fitness tips</Text>
-            <Text style={styles.bulletItemGreen}>• Support and encourage other community members</Text>
-            <Text style={styles.bulletItemGreen}>• Ask questions and share knowledge</Text>
-            <Text style={styles.bulletItemGreen}>• Celebrate milestones—big and small</Text>
-            <Text style={styles.bulletItemGreen}>• Give constructive feedback when asked</Text>
-            <Text style={styles.bulletItemGreen}>• Report content that violates these guidelines</Text>
+            <Text style={styles.bulletItem}>• Share your workout achievements and progress</Text>
+            <Text style={styles.bulletItem}>• Post motivational content and fitness tips</Text>
+            <Text style={styles.bulletItem}>• Support and encourage other community members</Text>
+            <Text style={styles.bulletItem}>• Ask questions and share knowledge</Text>
+            <Text style={styles.bulletItem}>• Celebrate milestones—big and small</Text>
+            <Text style={styles.bulletItem}>• Give constructive feedback when asked</Text>
+            <Text style={styles.bulletItem}>• Report content that violates these guidelines</Text>
           </View>
         </View>
 
         {/* What's Not Allowed */}
-        <View style={[styles.section, styles.warningSection]}>
-          <Text style={styles.sectionTitle}>🚫 What's Not Allowed</Text>
+        <View style={styles.section}>
+          <Text style={styles.sectionTitle}>What's Not Allowed</Text>
           
           <Text style={styles.subTitle}>Harassment & Hate</Text>
           <View style={styles.bulletList}>
-            <Text style={styles.bulletItemRed}>• Bullying, harassment, or intimidation</Text>
-            <Text style={styles.bulletItemRed}>• Hate speech targeting any group or individual</Text>
-            <Text style={styles.bulletItemRed}>• Threatening or violent language</Text>
-            <Text style={styles.bulletItemRed}>• Body shaming or negative comments about appearance</Text>
-            <Text style={styles.bulletItemRed}>• Discrimination of any kind</Text>
+            <Text style={styles.bulletItem}>• Bullying, harassment, or intimidation</Text>
+            <Text style={styles.bulletItem}>• Hate speech targeting any group or individual</Text>
+            <Text style={styles.bulletItem}>• Threatening or violent language</Text>
+            <Text style={styles.bulletItem}>• Body shaming or negative comments about appearance</Text>
+            <Text style={styles.bulletItem}>• Discrimination of any kind</Text>
           </View>
 
           <Text style={styles.subTitle}>Inappropriate Content</Text>
           <View style={styles.bulletList}>
-            <Text style={styles.bulletItemRed}>• Sexually explicit or suggestive content</Text>
-            <Text style={styles.bulletItemRed}>• Nudity (except appropriate fitness attire)</Text>
-            <Text style={styles.bulletItemRed}>• Violence or graphic content</Text>
-            <Text style={styles.bulletItemRed}>• Content promoting illegal activities</Text>
-            <Text style={styles.bulletItemRed}>• Drug or substance promotion</Text>
+            <Text style={styles.bulletItem}>• Sexually explicit or suggestive content</Text>
+            <Text style={styles.bulletItem}>• Nudity (except appropriate fitness attire)</Text>
+            <Text style={styles.bulletItem}>• Violence or graphic content</Text>
+            <Text style={styles.bulletItem}>• Content promoting illegal activities</Text>
+            <Text style={styles.bulletItem}>• Drug or substance promotion</Text>
           </View>
 
           <Text style={styles.subTitle}>Dangerous Behavior</Text>
           <View style={styles.bulletList}>
-            <Text style={styles.bulletItemRed}>• Promoting extreme dieting or eating disorders</Text>
-            <Text style={styles.bulletItemRed}>• Dangerous workout challenges</Text>
-            <Text style={styles.bulletItemRed}>• Unproven supplement promotion</Text>
-            <Text style={styles.bulletItemRed}>• Medical advice without credentials</Text>
+            <Text style={styles.bulletItem}>• Promoting extreme dieting or eating disorders</Text>
+            <Text style={styles.bulletItem}>• Dangerous workout challenges</Text>
+            <Text style={styles.bulletItem}>• Unproven supplement promotion</Text>
+            <Text style={styles.bulletItem}>• Medical advice without credentials</Text>
           </View>
 
           <Text style={styles.subTitle}>Spam & Deception</Text>
           <View style={styles.bulletList}>
-            <Text style={styles.bulletItemRed}>• Spam, scams, or deceptive content</Text>
-            <Text style={styles.bulletItemRed}>• Fake accounts or impersonation</Text>
-            <Text style={styles.bulletItemRed}>• Unauthorized commercial promotion</Text>
-            <Text style={styles.bulletItemRed}>• Misleading transformation photos</Text>
+            <Text style={styles.bulletItem}>• Spam, scams, or deceptive content</Text>
+            <Text style={styles.bulletItem}>• Fake accounts or impersonation</Text>
+            <Text style={styles.bulletItem}>• Unauthorized commercial promotion</Text>
+            <Text style={styles.bulletItem}>• Misleading transformation photos</Text>
           </View>
         </View>
 
@@ -175,7 +168,7 @@ export default function CommunityGuidelinesScreen() {
             <Text style={styles.bulletItem}>• Permanent account ban</Text>
             <Text style={styles.bulletItem}>• Reporting to law enforcement (for illegal content)</Text>
           </View>
-          <Text style={styles.warningText}>
+          <Text style={styles.paragraph}>
             Severe violations, especially those involving minors, illegal activity, 
             or threats of violence, will result in immediate permanent ban without warning.
           </Text>
@@ -188,9 +181,7 @@ export default function CommunityGuidelinesScreen() {
             If you believe your content was removed in error or your account was 
             suspended unfairly, you can appeal by contacting us at:
           </Text>
-          <View style={styles.contactBox}>
-            <Text style={styles.contactItem}>📧 support@moodfitnessapp.com</Text>
-          </View>
+          <Text style={styles.contactEmail}>support@moodfitnessapp.com</Text>
           <Text style={styles.paragraph}>
             Please include your username and a description of the issue. We'll review 
             your appeal within 7 business days.
@@ -198,11 +189,10 @@ export default function CommunityGuidelinesScreen() {
         </View>
 
         {/* Closing */}
-        <View style={styles.closingBox}>
-          <Ionicons name="fitness" size={28} color="#FFD700" />
-          <Text style={styles.closingText}>
+        <View style={styles.section}>
+          <Text style={styles.paragraph}>
             Together, we can build a community that inspires everyone to achieve 
-            their fitness goals. Thank you for being part of MOOD!
+            their fitness goals. Thank you for being part of MOOD.
           </Text>
         </View>
 
@@ -224,19 +214,19 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
     paddingVertical: 12,
     borderBottomWidth: 1,
-    borderBottomColor: 'rgba(255, 215, 0, 0.1)',
+    borderBottomColor: 'rgba(255, 255, 255, 0.1)',
   },
   backButton: {
     width: 40,
     height: 40,
     borderRadius: 20,
-    backgroundColor: 'rgba(255, 215, 0, 0.1)',
+    backgroundColor: 'rgba(255, 255, 255, 0.1)',
     justifyContent: 'center',
     alignItems: 'center',
   },
   headerTitle: {
     fontSize: 18,
-    fontWeight: '700',
+    fontWeight: '600',
     color: '#fff',
   },
   headerSpacer: {
@@ -250,84 +240,45 @@ const styles = StyleSheet.create({
   },
   lastUpdated: {
     fontSize: 12,
-    color: '#888',
-    marginBottom: 20,
-    textAlign: 'center',
-  },
-  welcomeBox: {
-    backgroundColor: 'rgba(255, 215, 0, 0.08)',
-    borderRadius: 16,
-    padding: 20,
-    alignItems: 'center',
+    color: '#666',
     marginBottom: 24,
-    borderWidth: 1,
-    borderColor: 'rgba(255, 215, 0, 0.2)',
-  },
-  welcomeTitle: {
-    fontSize: 20,
-    fontWeight: '700',
-    color: '#FFD700',
-    marginTop: 12,
-    marginBottom: 8,
-    textAlign: 'center',
-  },
-  welcomeText: {
-    fontSize: 14,
-    lineHeight: 22,
-    color: '#ccc',
     textAlign: 'center',
   },
   section: {
-    marginBottom: 24,
-  },
-  warningSection: {
-    backgroundColor: 'rgba(255, 59, 48, 0.08)',
-    borderRadius: 12,
-    padding: 16,
-    borderWidth: 1,
-    borderColor: 'rgba(255, 59, 48, 0.2)',
+    marginBottom: 28,
   },
   sectionTitle: {
-    fontSize: 18,
-    fontWeight: '700',
-    color: '#FFD700',
+    fontSize: 17,
+    fontWeight: '600',
+    color: '#fff',
     marginBottom: 12,
   },
   subTitle: {
     fontSize: 15,
     fontWeight: '600',
-    color: '#fff',
-    marginTop: 12,
+    color: '#ccc',
+    marginTop: 16,
     marginBottom: 8,
   },
   paragraph: {
     fontSize: 14,
     lineHeight: 22,
-    color: '#ccc',
+    color: '#999',
     marginBottom: 8,
   },
-  valueCard: {
-    flexDirection: 'row',
-    backgroundColor: 'rgba(255, 255, 255, 0.05)',
-    borderRadius: 12,
-    padding: 16,
-    marginBottom: 12,
-    alignItems: 'flex-start',
-    gap: 12,
-  },
-  valueContent: {
-    flex: 1,
+  valueItem: {
+    marginBottom: 16,
   },
   valueTitle: {
     fontSize: 15,
     fontWeight: '600',
-    color: '#fff',
+    color: '#ccc',
     marginBottom: 4,
   },
   valueText: {
-    fontSize: 13,
+    fontSize: 14,
     lineHeight: 20,
-    color: '#aaa',
+    color: '#888',
   },
   bulletList: {
     marginLeft: 4,
@@ -335,52 +286,12 @@ const styles = StyleSheet.create({
   bulletItem: {
     fontSize: 14,
     lineHeight: 26,
-    color: '#aaa',
+    color: '#888',
   },
-  bulletItemGreen: {
-    fontSize: 14,
-    lineHeight: 26,
-    color: '#4CD964',
-  },
-  bulletItemRed: {
-    fontSize: 14,
-    lineHeight: 26,
-    color: '#FF6B6B',
-  },
-  warningText: {
-    fontSize: 13,
-    lineHeight: 20,
-    color: '#FF3B30',
-    fontWeight: '600',
-    marginTop: 12,
-    fontStyle: 'italic',
-  },
-  contactBox: {
-    backgroundColor: 'rgba(255, 255, 255, 0.05)',
-    borderRadius: 12,
-    padding: 16,
-    marginVertical: 8,
-  },
-  contactItem: {
+  contactEmail: {
     fontSize: 14,
     color: '#fff',
-    textAlign: 'center',
-  },
-  closingBox: {
-    backgroundColor: 'rgba(255, 215, 0, 0.05)',
-    borderRadius: 16,
-    padding: 20,
-    alignItems: 'center',
-    marginTop: 8,
-    borderWidth: 1,
-    borderColor: 'rgba(255, 215, 0, 0.15)',
-  },
-  closingText: {
-    fontSize: 14,
-    lineHeight: 22,
-    color: '#ccc',
-    textAlign: 'center',
-    marginTop: 12,
+    marginVertical: 8,
   },
   bottomPadding: {
     height: 40,
