@@ -709,18 +709,8 @@ export default function CreatePost() {
         const instagramDeepLinked = await shareToInstagramStories(imageUri);
         
         if (!instagramDeepLinked) {
-          // Fall back to native share sheet if Instagram isn't installed or deep link failed
-          const canShare = await Sharing.isAvailableAsync();
-          
-          if (canShare) {
-            await Sharing.shareAsync(imageUri, {
-              mimeType: 'image/png',
-              dialogTitle: 'Share to Instagram Stories',
-              UTI: 'public.png',
-            });
-          } else {
-            showAlert('Sharing not available', 'Please save the image and share it manually to Instagram.');
-          }
+          // If Instagram isn't installed, show a message
+          showAlert('Instagram Not Found', 'Please install Instagram to share your achievement to Stories.');
         }
       }
     } catch (error) {
