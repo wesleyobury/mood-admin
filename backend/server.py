@@ -7005,9 +7005,9 @@ async def update_exercise(
     current_user_id: str = Depends(get_current_user)
 ):
     """Update an exercise (admin only)"""
-    # Check if user is admin
+    # Check if user is admin by username
     user = await db.users.find_one({"_id": ObjectId(current_user_id)})
-    if not user or not user.get("is_admin"):
+    if not user or (user.get("username", "").lower() != "officialmoodapp" and not user.get("is_admin")):
         raise HTTPException(status_code=403, detail="Admin access required")
     
     try:
@@ -7042,9 +7042,9 @@ async def delete_exercise(
     current_user_id: str = Depends(get_current_user)
 ):
     """Delete an exercise (admin only)"""
-    # Check if user is admin
+    # Check if user is admin by username
     user = await db.users.find_one({"_id": ObjectId(current_user_id)})
-    if not user or not user.get("is_admin"):
+    if not user or (user.get("username", "").lower() != "officialmoodapp" and not user.get("is_admin")):
         raise HTTPException(status_code=403, detail="Admin access required")
     
     try:
