@@ -419,31 +419,54 @@ export default function PostDetail() {
             
             {/* Try this Workout Button - Only on workout completion card (last slide) */}
             {isOnWorkoutCard && (
-              <Animated.View 
+              <Animated.View
                 style={[
-                  styles.tryWorkoutOverlay,
+                  styles.tryWorkoutButtonContainer,
                   {
-                    opacity: shimmerAnim.interpolate({
-                      inputRange: [0, 0.5, 1],
-                      outputRange: [1, 0.8, 1],
-                    }),
-                  }
+                    opacity: 1,
+                    transform: [
+                      { scale: 1 },
+                      { translateX: 0 },
+                    ],
+                  },
                 ]}
               >
                 <TouchableOpacity 
-                  style={styles.tryWorkoutBtn}
+                  style={styles.tryWorkoutButton}
                   onPress={handleTryWorkout}
                   activeOpacity={0.8}
                 >
-                  <LinearGradient
-                    colors={['rgba(255, 215, 0, 0.9)', 'rgba(255, 185, 0, 0.9)']}
-                    start={{ x: 0, y: 0 }}
-                    end={{ x: 1, y: 1 }}
-                    style={styles.tryWorkoutGradient}
+                  {/* Shimmer overlay */}
+                  <Animated.View
+                    style={[
+                      styles.shimmerOverlay,
+                      {
+                        transform: [
+                          {
+                            translateX: shimmerAnim.interpolate({
+                              inputRange: [0, 1],
+                              outputRange: [-150, 150],
+                            }),
+                          },
+                        ],
+                      },
+                    ]}
                   >
-                    <Ionicons name="barbell-outline" size={16} color="#000" />
-                    <Text style={styles.tryWorkoutText}>Try this workout</Text>
-                  </LinearGradient>
+                    <LinearGradient
+                      colors={[
+                        'transparent',
+                        'rgba(255, 215, 0, 0.15)',
+                        'rgba(255, 255, 255, 0.25)',
+                        'rgba(255, 215, 0, 0.15)',
+                        'transparent',
+                      ]}
+                      start={{ x: 0, y: 0.5 }}
+                      end={{ x: 1, y: 0.5 }}
+                      style={styles.shimmerGradient}
+                    />
+                  </Animated.View>
+                  <Ionicons name="chevron-forward" size={14} color="#FFD700" />
+                  <Text style={styles.tryWorkoutButtonText}>Try this workout</Text>
                 </TouchableOpacity>
               </Animated.View>
             )}
