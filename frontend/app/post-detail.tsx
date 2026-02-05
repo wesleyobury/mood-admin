@@ -76,7 +76,6 @@ export default function PostDetail() {
   const [showGuestPrompt, setShowGuestPrompt] = useState(false);
   const [guestAction, setGuestAction] = useState('');
   const [showComments, setShowComments] = useState(false);
-  const [tryWorkoutAnim] = useState(new Animated.Value(1));
   const [carouselIndex, setCarouselIndex] = useState(0);
   
   // Shimmer animation for try workout button
@@ -104,9 +103,6 @@ export default function PostDetail() {
 
   // Check if current user is the post author
   const isOwnPost = post && user && post.author.id === user.id;
-  
-  // Check if post has workout data
-  const hasWorkoutData = post?.workout_data && post.workout_data.workouts && post.workout_data.workouts.length > 0;
 
   useEffect(() => {
     if (params.postId && token) {
