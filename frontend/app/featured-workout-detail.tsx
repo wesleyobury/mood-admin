@@ -451,6 +451,7 @@ export default function FeaturedWorkoutDetail() {
       
       // First try to fetch from API (for new MongoDB IDs)
       try {
+        console.log('Attempting API fetch for workout ID:', workoutId);
         const response = await fetch(`${API_URL}/api/featured/workouts/batch`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
@@ -461,17 +462,19 @@ export default function FeaturedWorkoutDetail() {
         
         if (response.ok) {
           const data = await response.json();
-          console.log('API response data:', data.workouts?.length, 'workouts');
+          console.log('API response data:', JSON.stringify(data, null, 2).slice(0, 500));
           
           if (data.workouts && data.workouts.length > 0) {
             const apiWorkout = data.workouts[0];
+            console.log('API workout found:', apiWorkout.title, 'exercises:', apiWorkout.exercises?.length);
             const convertedWorkout = {
               mood: apiWorkout.mood,
               title: apiWorkout.title,
               duration: apiWorkout.duration || `${apiWorkout.durationMin || 30} min`,
-              image: apiWorkout.heroImageUrl || apiWorkout.exercises[0]?.imageUrl || '',
-              exercises: apiWorkout.exercises.map(convertApiExerciseToLocal),
+              image: apiWorkout.heroImageUrl || apiWorkout.exercises?.[0]?.imageUrl || '',
+              exercises: (apiWorkout.exercises || []).map(convertApiExerciseToLocal),
             };
+            console.log('Converted workout:', convertedWorkout.title, 'exercises:', convertedWorkout.exercises.length);
             setWorkoutData(convertedWorkout);
             setExercises(convertedWorkout.exercises);
             setLoading(false);
@@ -479,6 +482,8 @@ export default function FeaturedWorkoutDetail() {
           } else {
             console.log('No workouts returned from API for ID:', workoutId);
           }
+        } else {
+          console.log('API returned non-OK status:', response.status);
         }
       } catch (error) {
         console.log('API fetch failed, trying hardcoded data:', error);
