@@ -625,6 +625,23 @@ export default function Profile() {
     // Calculate estimated calories
     const estimatedCalories = Math.round(item.totalDuration * 8);
     
+    // Extract mood card name (first word of first workout or category)
+    const getMoodLabel = (): string => {
+      if (item.workouts.length > 0) {
+        const firstWorkout = item.workouts[0].workoutName?.toLowerCase() || '';
+        // Check for known mood categories
+        if (firstWorkout.includes('muscle') || firstWorkout.includes('gainer') || firstWorkout.includes('back') || firstWorkout.includes('chest') || firstWorkout.includes('arm')) return 'Muscle';
+        if (firstWorkout.includes('sweat') || firstWorkout.includes('cardio') || firstWorkout.includes('hiit') || firstWorkout.includes('burn')) return 'Sweat';
+        if (firstWorkout.includes('explosion') || firstWorkout.includes('power') || firstWorkout.includes('explosive')) return 'Explosion';
+        if (firstWorkout.includes('outdoor') || firstWorkout.includes('hill') || firstWorkout.includes('run') || firstWorkout.includes('outside')) return 'Outdoor';
+        if (firstWorkout.includes('calisthenics') || firstWorkout.includes('pull') || firstWorkout.includes('dip') || firstWorkout.includes('bodyweight')) return 'Calisthenics';
+        if (firstWorkout.includes('lazy') || firstWorkout.includes('stretch') || firstWorkout.includes('recovery') || firstWorkout.includes('easy')) return 'Lazy';
+      }
+      return 'Workout';
+    };
+    
+    const moodLabel = getMoodLabel();
+    
     return (
       <TouchableOpacity
         style={styles.cardThumbnail}
@@ -638,7 +655,7 @@ export default function Profile() {
         <View style={styles.cardAccentLine} />
         
         <View style={styles.cardThumbnailContent}>
-          {/* Header with date */}
+          {/* Header with date and trophy */}
           <View style={styles.cardHeaderRow}>
             <Text style={styles.cardDateLabel}>{item.completedAt}</Text>
             <View style={styles.cardTrophyBadge}>
@@ -646,17 +663,18 @@ export default function Profile() {
             </View>
           </View>
           
-          {/* Main stats */}
-          <View style={styles.cardMainStats}>
-            <Text style={styles.cardDurationValue}>{item.totalDuration}</Text>
-            <Text style={styles.cardDurationUnit}>min</Text>
-          </View>
+          {/* Mood label as hero text */}
+          <Text style={styles.cardMoodLabel}>{moodLabel}</Text>
           
-          {/* Secondary stats row */}
-          <View style={styles.cardSecondaryStats}>
+          {/* Stats row - duration, calories, exercises all together */}
+          <View style={styles.cardStatsRow}>
+            <View style={styles.cardStatPill}>
+              <Ionicons name="time-outline" size={11} color="#FFD700" />
+              <Text style={styles.cardStatPillText}>{item.totalDuration}m</Text>
+            </View>
             <View style={styles.cardStatPill}>
               <Ionicons name="flame-outline" size={11} color="#FFD700" />
-              <Text style={styles.cardStatPillText}>{estimatedCalories} cal</Text>
+              <Text style={styles.cardStatPillText}>{estimatedCalories}</Text>
             </View>
             <View style={styles.cardStatPill}>
               <Ionicons name="barbell-outline" size={11} color="#FFD700" />
