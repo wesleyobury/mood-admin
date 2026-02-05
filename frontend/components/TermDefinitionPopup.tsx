@@ -216,17 +216,25 @@ const styles = StyleSheet.create({
   },
   modalOverlay: {
     flex: 1,
-    backgroundColor: 'rgba(0, 0, 0, 0.8)',
+    backgroundColor: 'rgba(0, 0, 0, 0.85)',
+  },
+  modalBackdrop: {
+    ...StyleSheet.absoluteFillObject,
+  },
+  modalContainer: {
+    flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    padding: 24,
+    paddingHorizontal: 24,
+    paddingVertical: 60,
   },
   modalContent: {
     backgroundColor: '#1a1a1a',
     borderRadius: 20,
     padding: 24,
-    width: width - 48,
-    maxWidth: 400,
+    width: '100%',
+    maxWidth: 360,
+    maxHeight: height * 0.7,
     borderWidth: 2,
     borderColor: 'rgba(255, 215, 0, 0.3)',
     shadowColor: '#FFD700',
@@ -268,11 +276,14 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(255, 215, 0, 0.2)',
     marginBottom: 16,
   },
+  definitionScroll: {
+    maxHeight: height * 0.35,
+    marginBottom: 16,
+  },
   modalDefinition: {
     fontSize: 15,
     color: 'rgba(255, 255, 255, 0.9)',
     lineHeight: 24,
-    marginBottom: 20,
   },
   gotItButton: {
     backgroundColor: '#4a4a4a',
