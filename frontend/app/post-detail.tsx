@@ -287,22 +287,33 @@ export default function PostDetail() {
     // Clear cart and add all workouts from this post
     clearCart();
     
-    const moodCategory = post.workout_data.mood_category || 'Shared Workout';
+    const moodCategory = post.workout_data.mood_category || post.workout_data.moodCategory || 'Shared Workout';
     
-    post.workout_data.workouts.forEach((workout, index) => {
+    post.workout_data.workouts.forEach((workout: any, index: number) => {
+      // Map workout fields - backend uses workoutTitle/workoutName, also support name for fallback
+      const workoutName = workout.workoutTitle || workout.workoutName || workout.name || 'Exercise';
+      const workoutEquipment = workout.equipment || 'Bodyweight';
+      const workoutDuration = workout.duration || '10 min';
+      const workoutDifficulty = workout.difficulty || 'intermediate';
+      const workoutImage = workout.imageUrl || workout.image_url || '';
+      const workoutDescription = workout.description || workout.battlePlan || '';
+      const workoutMoodCategory = workout.moodCategory || moodCategory;
+      const workoutMoodTips = workout.moodTips || [];
+      const workoutIntensityReason = workout.intensityReason || `${workoutDifficulty} intensity workout`;
+      
       const cartItem: WorkoutItem = {
         id: `shared-${post.id}-${index}-${Date.now()}`,
-        name: workout.name,
-        equipment: workout.equipment || 'Bodyweight',
-        duration: workout.duration || '10 min',
-        difficulty: workout.difficulty || 'intermediate',
-        imageUrl: workout.imageUrl || '',
-        description: workout.description || '',
-        workoutType: moodCategory,
-        moodCard: moodCategory,
-        moodTips: [],
-        battlePlan: workout.description || '',
-        intensityReason: `${workout.difficulty || 'intermediate'} intensity workout`,
+        name: workoutName,
+        equipment: workoutEquipment,
+        duration: workoutDuration,
+        difficulty: workoutDifficulty,
+        imageUrl: workoutImage,
+        description: workoutDescription,
+        workoutType: workoutMoodCategory,
+        moodCard: workoutMoodCategory,
+        moodTips: workoutMoodTips,
+        battlePlan: workout.battlePlan || workoutDescription,
+        intensityReason: workoutIntensityReason,
       };
       addToCart(cartItem);
     });
