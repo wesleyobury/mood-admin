@@ -280,6 +280,10 @@ export default function PostDetail() {
     fetchPost();
   };
 
+  // Check if last slide is workout completion card (has workout_data and it's the last slide)
+  const isOnWorkoutCard = post?.workout_data?.workouts?.length > 0 && 
+    carouselIndex === (post?.media_urls?.length || 1) - 1;
+
   // Handle "Try this workout" button press
   const handleTryWorkout = () => {
     if (!post?.workout_data?.workouts) return;
