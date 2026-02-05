@@ -7,21 +7,29 @@ import {
   ActivityIndicator,
   Dimensions,
   Platform,
-  Animated,
   Image as RNImage,
+  PanResponder,
+  GestureResponderEvent,
+  PanResponderGestureState,
 } from 'react-native';
 import * as VideoThumbnails from 'expo-video-thumbnails';
 import { Ionicons } from '@expo/vector-icons';
 import { Video, ResizeMode, AVPlaybackStatus } from 'expo-av';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { LinearGradient } from 'expo-linear-gradient';
+import * as FileSystem from 'expo-file-system';
+import * as ImageManipulator from 'expo-image-manipulator';
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
 const FILMSTRIP_HEIGHT = 52;
 const FRAME_COUNT = 8;
-const TOTAL_FRAMES = 24;
+const TOTAL_FRAMES = 30; // More frames for better precision
 const FRAME_WIDTH = (SCREEN_WIDTH - 32) / FRAME_COUNT;
 const FILMSTRIP_WIDTH = SCREEN_WIDTH - 32;
+
+// Preview dimensions (4:5 aspect ratio like Instagram)
+const PREVIEW_WIDTH = SCREEN_WIDTH - 32;
+const PREVIEW_HEIGHT = PREVIEW_WIDTH * 1.25;
 
 interface VideoFrameSelectorProps {
   videoUri: string;
@@ -33,6 +41,12 @@ interface VideoFrameSelectorProps {
 interface Frame {
   uri: string;
   timestamp: number;
+}
+
+interface Transform {
+  scale: number;
+  translateX: number;
+  translateY: number;
 }
 
 const VideoFrameSelector: React.FC<VideoFrameSelectorProps> = memo(({
@@ -56,6 +70,73 @@ const VideoFrameSelector: React.FC<VideoFrameSelectorProps> = memo(({
   
   // Scrubber position for animation
   const [scrubberX, setScrubberX] = useState(0);
+  
+  // Position/zoom transform for cover
+  const [transform, setTransform] = useState<Transform>({
+    scale: 1,
+    translateX: 0,
+    translateY: 0,
+  });
+  
+  // Pan responder state
+  const lastTransform = useRef<Transform>({ scale: 1, translateX: 0, translateY: 0 });
+  const lastDistance = useRef<number>(0);
+
+  // Pan responder for drag and pinch-to-zoom
+  const panResponder = useRef(
+    PanResponder.create({
+      onStartShouldSetPanResponder: () => true,
+      onMoveShouldSetPanResponder: () => true,
+      
+      onPanResponderGrant: () => {
+        lastTransform.current = { ...transform };
+      },
+      
+      onPanResponderMove: (evt: GestureResponderEvent, gestureState: PanResponderGestureState) => {
+        const touches = evt.nativeEvent.touches;
+        
+        if (touches.length === 2) {
+          // Pinch to zoom
+          const touch1 = touches[0];
+          const touch2 = touches[1];
+          const distance = Math.sqrt(
+            Math.pow(touch2.pageX - touch1.pageX, 2) +
+            Math.pow(touch2.pageY - touch1.pageY, 2)
+          );
+          
+          if (lastDistance.current === 0) {
+            lastDistance.current = distance;
+          }
+          
+          const scaleChange = distance / lastDistance.current;
+          const newScale = Math.max(1, Math.min(3, lastTransform.current.scale * scaleChange));
+          
+          setTransform(prev => ({
+            ...prev,
+            scale: newScale,
+          }));
+        } else if (touches.length === 1) {
+          // Pan/drag
+          const maxTranslate = (transform.scale - 1) * 100;
+          const newTranslateX = Math.max(-maxTranslate, Math.min(maxTranslate, 
+            lastTransform.current.translateX + gestureState.dx));
+          const newTranslateY = Math.max(-maxTranslate, Math.min(maxTranslate, 
+            lastTransform.current.translateY + gestureState.dy));
+          
+          setTransform(prev => ({
+            ...prev,
+            translateX: newTranslateX,
+            translateY: newTranslateY,
+          }));
+        }
+      },
+      
+      onPanResponderRelease: () => {
+        lastDistance.current = 0;
+        lastTransform.current = { ...transform };
+      },
+    })
+  ).current;
 
   // Generate all frames when video loads
   useEffect(() => {
@@ -78,14 +159,14 @@ const VideoFrameSelector: React.FC<VideoFrameSelectorProps> = memo(({
       console.log(`Generating ${TOTAL_FRAMES} frames for video duration ${duration}ms`);
       
       for (let i = 0; i < TOTAL_FRAMES; i++) {
-        const timestamp = Math.floor(i * frameInterval);
+        // Use exact timestamp for each frame
+        const timestamp = Math.round(i * frameInterval);
         try {
           const { uri } = await VideoThumbnails.getThumbnailAsync(videoUri, {
             time: timestamp,
-            quality: 0.6,
+            quality: 0.8, // Higher quality for better cover
           });
           frames.push({ uri, timestamp });
-          console.log(`Generated frame ${i} at ${timestamp}ms`);
         } catch (e) {
           console.log(`Could not generate frame at ${timestamp}ms`);
           if (frames.length > 0) {
@@ -96,8 +177,17 @@ const VideoFrameSelector: React.FC<VideoFrameSelectorProps> = memo(({
 
       console.log(`Total frames generated: ${frames.length}`);
       setAllFrames(frames);
+      
+      // Set initial scrubber position to middle
+      if (frames.length > 0) {
+        const middleIndex = Math.floor(frames.length / 2);
+        setCurrentFrameIndex(middleIndex);
+        setScrubberX(FILMSTRIP_WIDTH / 2);
+        setPosition(frames[middleIndex].timestamp);
+      }
     } catch (err) {
       console.error('Error generating frames:', err);
+      setError('Failed to generate video frames');
     } finally {
       setIsLoadingFrames(false);
     }
@@ -110,7 +200,7 @@ const VideoFrameSelector: React.FC<VideoFrameSelectorProps> = memo(({
     }
   }, []);
 
-  // Handle touch on filmstrip
+  // Handle touch on filmstrip - snap to nearest frame
   const handleFilmstripTouch = (evt: any) => {
     const touchX = evt.nativeEvent.locationX;
     updatePositionFromTouch(touchX);
@@ -126,27 +216,91 @@ const VideoFrameSelector: React.FC<VideoFrameSelectorProps> = memo(({
     
     const clampedX = Math.max(0, Math.min(touchX, FILMSTRIP_WIDTH));
     const percentage = clampedX / FILMSTRIP_WIDTH;
-    const newPosition = Math.floor(percentage * duration);
     
-    // Find closest frame
-    const frameIndex = Math.min(
-      Math.floor(percentage * allFrames.length),
-      allFrames.length - 1
-    );
+    // Calculate exact frame index
+    const exactFrameIndex = percentage * (allFrames.length - 1);
+    const frameIndex = Math.round(exactFrameIndex); // Round to nearest frame
+    const clampedFrameIndex = Math.max(0, Math.min(frameIndex, allFrames.length - 1));
     
-    console.log(`Touch at ${clampedX}, percentage ${percentage}, frameIndex ${frameIndex}`);
+    // Calculate scrubber position to align with frame
+    const alignedX = (clampedFrameIndex / (allFrames.length - 1)) * FILMSTRIP_WIDTH;
     
-    setScrubberX(clampedX);
-    setPosition(newPosition);
-    setCurrentFrameIndex(frameIndex);
+    setScrubberX(alignedX);
+    setPosition(allFrames[clampedFrameIndex].timestamp);
+    setCurrentFrameIndex(clampedFrameIndex);
   };
 
-  const captureAndConfirm = () => {
-    if (allFrames.length > 0 && allFrames[currentFrameIndex]?.uri) {
-      console.log(`Selecting frame ${currentFrameIndex}: ${allFrames[currentFrameIndex].uri}`);
-      onFrameSelected(allFrames[currentFrameIndex].uri);
-    } else {
+  // Reset transform
+  const resetTransform = () => {
+    setTransform({ scale: 1, translateX: 0, translateY: 0 });
+    lastTransform.current = { scale: 1, translateX: 0, translateY: 0 };
+  };
+
+  // Capture and apply transform to create final cover
+  const captureAndConfirm = async () => {
+    if (allFrames.length === 0 || !allFrames[currentFrameIndex]?.uri) {
       setError('No frame available to select');
+      return;
+    }
+
+    setIsCapturing(true);
+    
+    try {
+      const sourceUri = allFrames[currentFrameIndex].uri;
+      console.log(`Processing frame ${currentFrameIndex} with transform:`, transform);
+      
+      // If transform is applied, crop/manipulate the image
+      if (transform.scale > 1 || transform.translateX !== 0 || transform.translateY !== 0) {
+        // Get image info
+        const imageInfo = await ImageManipulator.manipulateAsync(
+          sourceUri,
+          [],
+          { format: ImageManipulator.SaveFormat.JPEG }
+        );
+        
+        // Calculate crop region based on transform
+        // This creates a crop that matches what the user sees
+        const imageWidth = 1080; // Assume standard width
+        const imageHeight = 1350; // 4:5 aspect ratio
+        
+        const cropWidth = imageWidth / transform.scale;
+        const cropHeight = imageHeight / transform.scale;
+        
+        // Calculate origin based on translate (inverted because translate moves view, not crop)
+        const originX = (imageWidth - cropWidth) / 2 - (transform.translateX * (imageWidth / PREVIEW_WIDTH));
+        const originY = (imageHeight - cropHeight) / 2 - (transform.translateY * (imageHeight / PREVIEW_HEIGHT));
+        
+        const result = await ImageManipulator.manipulateAsync(
+          sourceUri,
+          [
+            {
+              crop: {
+                originX: Math.max(0, originX),
+                originY: Math.max(0, originY),
+                width: Math.min(cropWidth, imageWidth - originX),
+                height: Math.min(cropHeight, imageHeight - originY),
+              },
+            },
+            {
+              resize: { width: 1080 }, // Standard cover size
+            },
+          ],
+          { format: ImageManipulator.SaveFormat.JPEG, compress: 0.9 }
+        );
+        
+        console.log('Cover processed with crop:', result.uri);
+        onFrameSelected(result.uri);
+      } else {
+        // No transform, use frame directly
+        console.log('Using frame directly:', sourceUri);
+        onFrameSelected(sourceUri);
+      }
+    } catch (err) {
+      console.error('Error processing cover:', err);
+      // Fallback to original frame
+      onFrameSelected(allFrames[currentFrameIndex].uri);
+    } finally {
+      setIsCapturing(false);
     }
   };
 
@@ -160,8 +314,11 @@ const VideoFrameSelector: React.FC<VideoFrameSelectorProps> = memo(({
   // Get current preview URI
   const currentPreviewUri = allFrames[currentFrameIndex]?.uri || '';
   
-  // Get filmstrip frames (first 8 of the 24)
-  const filmstripFrames = allFrames.filter((_, i) => i % 3 === 0).slice(0, FRAME_COUNT);
+  // Get filmstrip frames (evenly distributed)
+  const filmstripFrames = allFrames.filter((_, i) => {
+    const step = Math.floor(allFrames.length / FRAME_COUNT);
+    return i % Math.max(1, step) === 0;
+  }).slice(0, FRAME_COUNT);
 
   if (Platform.OS === 'web') {
     return (
@@ -206,21 +363,39 @@ const VideoFrameSelector: React.FC<VideoFrameSelectorProps> = memo(({
         </TouchableOpacity>
       </View>
 
-      {/* Preview Frame */}
+      {/* Preview Frame with Pan/Zoom */}
       <View style={styles.previewSection}>
-        <View style={styles.previewContainer}>
+        <View style={styles.previewContainer} {...panResponder.panHandlers}>
           {isLoadingFrames ? (
             <View style={styles.previewLoading}>
               <ActivityIndicator size="large" color="#FFD700" />
               <Text style={styles.loadingText}>Preparing frames...</Text>
             </View>
           ) : currentPreviewUri ? (
-            <RNImage
-              key={`preview-frame-${currentFrameIndex}`}
-              source={{ uri: currentPreviewUri }}
-              style={styles.previewImage}
-              resizeMode="contain"
-            />
+            <View style={styles.imageWrapper}>
+              <RNImage
+                key={`preview-frame-${currentFrameIndex}`}
+                source={{ uri: currentPreviewUri }}
+                style={[
+                  styles.previewImage,
+                  {
+                    transform: [
+                      { scale: transform.scale },
+                      { translateX: transform.translateX },
+                      { translateY: transform.translateY },
+                    ],
+                  },
+                ]}
+                resizeMode="cover"
+              />
+              {/* Crop overlay guide */}
+              <View style={styles.cropOverlay}>
+                <View style={styles.cropCorner} />
+                <View style={[styles.cropCorner, styles.cropCornerTR]} />
+                <View style={[styles.cropCorner, styles.cropCornerBL]} />
+                <View style={[styles.cropCorner, styles.cropCornerBR]} />
+              </View>
+            </View>
           ) : (
             <View style={styles.previewLoading}>
               <Text style={styles.loadingText}>No preview available</Text>
@@ -228,17 +403,25 @@ const VideoFrameSelector: React.FC<VideoFrameSelectorProps> = memo(({
           )}
         </View>
 
+        {/* Transform controls */}
+        {!isLoadingFrames && currentPreviewUri && (
+          <View style={styles.transformControls}>
+            {transform.scale > 1 && (
+              <TouchableOpacity style={styles.resetButton} onPress={resetTransform}>
+                <Ionicons name="refresh" size={16} color="#FFD700" />
+                <Text style={styles.resetButtonText}>Reset</Text>
+              </TouchableOpacity>
+            )}
+            <Text style={styles.transformHint}>
+              {transform.scale > 1 ? `${Math.round(transform.scale * 100)}%` : 'Pinch to zoom • Drag to position'}
+            </Text>
+          </View>
+        )}
+
         {/* Time badge */}
         {!isLoadingFrames && (
           <View style={styles.timeBadge}>
             <Text style={styles.timeBadgeText}>{formatTime(position)}</Text>
-          </View>
-        )}
-        
-        {/* Debug info */}
-        {__DEV__ && (
-          <View style={styles.debugInfo}>
-            <Text style={styles.debugText}>Frame: {currentFrameIndex}/{allFrames.length}</Text>
           </View>
         )}
       </View>
@@ -256,7 +439,7 @@ const VideoFrameSelector: React.FC<VideoFrameSelectorProps> = memo(({
 
       {/* Filmstrip */}
       <View style={styles.filmstripSection}>
-        <Text style={styles.filmstripLabel}>Drag to select cover frame</Text>
+        <Text style={styles.filmstripLabel}>Drag to select frame</Text>
         
         <View 
           style={styles.filmstripContainer}
@@ -365,16 +548,83 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
   },
   previewContainer: {
-    width: '100%',
-    aspectRatio: 4 / 5,
-    maxHeight: SCREEN_WIDTH * 1.1,
+    width: PREVIEW_WIDTH,
+    height: PREVIEW_HEIGHT,
     backgroundColor: '#1a1a1a',
     borderRadius: 12,
+    overflow: 'hidden',
+  },
+  imageWrapper: {
+    width: '100%',
+    height: '100%',
     overflow: 'hidden',
   },
   previewImage: {
     width: '100%',
     height: '100%',
+  },
+  cropOverlay: {
+    ...StyleSheet.absoluteFillObject,
+    borderWidth: 1,
+    borderColor: 'rgba(255, 255, 255, 0.3)',
+    borderRadius: 12,
+  },
+  cropCorner: {
+    position: 'absolute',
+    top: 8,
+    left: 8,
+    width: 20,
+    height: 20,
+    borderLeftWidth: 2,
+    borderTopWidth: 2,
+    borderColor: '#FFD700',
+  },
+  cropCornerTR: {
+    left: undefined,
+    right: 8,
+    borderLeftWidth: 0,
+    borderRightWidth: 2,
+  },
+  cropCornerBL: {
+    top: undefined,
+    bottom: 8,
+    borderTopWidth: 0,
+    borderBottomWidth: 2,
+  },
+  cropCornerBR: {
+    top: undefined,
+    left: undefined,
+    right: 8,
+    bottom: 8,
+    borderLeftWidth: 0,
+    borderTopWidth: 0,
+    borderRightWidth: 2,
+    borderBottomWidth: 2,
+  },
+  transformControls: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginTop: 12,
+    gap: 12,
+  },
+  resetButton: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: 'rgba(255, 215, 0, 0.15)',
+    paddingHorizontal: 12,
+    paddingVertical: 6,
+    borderRadius: 16,
+    gap: 4,
+  },
+  resetButtonText: {
+    color: '#FFD700',
+    fontSize: 13,
+    fontWeight: '500',
+  },
+  transformHint: {
+    color: 'rgba(255, 255, 255, 0.5)',
+    fontSize: 12,
   },
   previewLoading: {
     flex: 1,
@@ -399,19 +649,6 @@ const styles = StyleSheet.create({
     color: '#fff',
     fontSize: 13,
     fontWeight: '600',
-  },
-  debugInfo: {
-    position: 'absolute',
-    bottom: 12,
-    left: 28,
-    backgroundColor: 'rgba(0, 0, 0, 0.7)',
-    paddingHorizontal: 10,
-    paddingVertical: 5,
-    borderRadius: 12,
-  },
-  debugText: {
-    color: '#FFD700',
-    fontSize: 11,
   },
   hiddenVideo: {
     width: 1,
