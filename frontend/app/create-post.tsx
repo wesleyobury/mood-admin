@@ -1595,7 +1595,7 @@ export default function CreatePost() {
               
               {/* Editable Stats Row */}
               <View style={styles.editableStatsHintRow}>
-                <Text style={styles.editableStatsHint}>Adjust minutes & calories </Text>
+                <Text style={styles.editableStatsHint}>Adjust values & targets </Text>
                 <Text style={styles.editableStatsOptional}>(optional)</Text>
               </View>
               <View style={styles.editableStatsRow}>
@@ -1625,6 +1625,32 @@ export default function CreatePost() {
                     maxLength={4}
                   />
                 </View>
+                <View style={styles.editableStat}>
+                  <Text style={styles.editableStatLabel}>Cal Goal</Text>
+                  <TextInput
+                    style={styles.editableStatInput}
+                    value={String(calorieTarget)}
+                    onChangeText={(text) => {
+                      const num = parseInt(text) || 500;
+                      setCalorieTarget(num);
+                    }}
+                    keyboardType="numeric"
+                    maxLength={4}
+                  />
+                </View>
+                <View style={styles.editableStat}>
+                  <Text style={styles.editableStatLabel}>Min Goal</Text>
+                  <TextInput
+                    style={styles.editableStatInput}
+                    value={String(minuteTarget)}
+                    onChangeText={(text) => {
+                      const num = parseInt(text) || 60;
+                      setMinuteTarget(num);
+                    }}
+                    keyboardType="numeric"
+                    maxLength={3}
+                  />
+                </View>
               </View>
               
               <View style={styles.statsCardWrapper} ref={statsCardRef} collapsable={false}>
@@ -1632,6 +1658,8 @@ export default function CreatePost() {
                   {...workoutStats} 
                   editedDuration={editedDuration}
                   editedCalories={editedCalories}
+                  calorieTarget={calorieTarget}
+                  minuteTarget={minuteTarget}
                 />
               </View>
               
@@ -1642,6 +1670,8 @@ export default function CreatePost() {
                   transparent={true}
                   editedDuration={editedDuration}
                   editedCalories={editedCalories}
+                  calorieTarget={calorieTarget}
+                  minuteTarget={minuteTarget}
                 />
               </View>
               
