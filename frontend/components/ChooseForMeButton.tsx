@@ -164,7 +164,7 @@ export default function ChooseForMeButton({
             <Ionicons 
               name="sparkles" 
               size={16} 
-              color={disabled ? '#444' : '#D4AF37'} 
+              color={disabled ? '#555' : '#FFD700'} 
             />
             <Text style={[styles.text, disabled && styles.textDisabled]}>
               Build for me
