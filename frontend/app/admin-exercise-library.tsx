@@ -724,6 +724,9 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#000',
   },
+  modalHeaderSafeArea: {
+    backgroundColor: '#000',
+  },
   modalHeader: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -732,6 +735,10 @@ const styles = StyleSheet.create({
     paddingVertical: 12,
     borderBottomWidth: 1,
     borderBottomColor: 'rgba(255,255,255,0.1)',
+    backgroundColor: '#000',
+  },
+  modalHeaderButton: {
+    minWidth: 60,
   },
   cancelText: {
     color: 'rgba(255,255,255,0.7)',
