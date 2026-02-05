@@ -202,6 +202,18 @@ export default function NotificationSettingsScreen() {
           />
         </TouchableOpacity>
 
+        {/* Open iOS Settings Button */}
+        {Platform.OS === 'ios' && (
+          <TouchableOpacity 
+            style={styles.openSettingsButton}
+            onPress={() => Linking.openSettings()}
+          >
+            <Ionicons name="settings-outline" size={18} color="#FFD700" />
+            <Text style={styles.openSettingsText}>Open iOS Notification Settings</Text>
+            <Ionicons name="open-outline" size={16} color="#888" />
+          </TouchableOpacity>
+        )}
+
         {/* Social Notifications */}
         <View style={[styles.section, !masterEnabled && styles.sectionDisabled]}>
           {renderSectionHeader('Social')}
