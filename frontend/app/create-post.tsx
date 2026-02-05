@@ -709,8 +709,18 @@ export default function CreatePost() {
         const instagramDeepLinked = await shareToInstagramStories(imageUri);
         
         if (!instagramDeepLinked) {
-          // If Instagram isn't installed, show a message
-          showAlert('Instagram Not Found', 'Please install Instagram to share your achievement to Stories.');
+          // Fall back to native share sheet if Instagram isn't installed (e.g., in Expo Go)
+          const canShare = await Sharing.isAvailableAsync();
+          
+          if (canShare) {
+            await Sharing.shareAsync(imageUri, {
+              mimeType: 'image/png',
+              dialogTitle: 'Share your workout achievement',
+              UTI: 'public.png',
+            });
+          } else {
+            showAlert('Sharing not available', 'Please save the image and share it manually to Instagram.');
+          }
         }
       }
     } catch (error) {
