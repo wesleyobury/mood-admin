@@ -8,8 +8,6 @@ import {
   Dimensions,
   Platform,
   Image,
-  Animated,
-  GestureResponderEvent,
 } from 'react-native';
 import * as VideoThumbnails from 'expo-video-thumbnails';
 import { Ionicons } from '@expo/vector-icons';
@@ -20,18 +18,15 @@ import {
   GestureHandlerRootView,
   GestureDetector,
   Gesture,
-  PanGestureHandler,
-  PinchGestureHandler,
-  PanGestureHandlerGestureEvent,
-  PinchGestureHandlerGestureEvent,
 } from 'react-native-gesture-handler';
-import ReanimatedModule, {
+import Animated, {
   useSharedValue,
   useAnimatedStyle,
   withSpring,
   withTiming,
   runOnJS,
 } from 'react-native-reanimated';
+import * as ImageManipulator from 'expo-image-manipulator';
 
 const { width: SCREEN_WIDTH } = Dimensions.get('window');
 const FILMSTRIP_HEIGHT = 56;
@@ -40,8 +35,12 @@ const TOTAL_FRAMES = 30;
 const FILMSTRIP_WIDTH = SCREEN_WIDTH - 32;
 const SCRUBBER_WIDTH = 4;
 
+// Full width preview to show entire video frame
 const PREVIEW_WIDTH = SCREEN_WIDTH - 32;
-const PREVIEW_HEIGHT = PREVIEW_WIDTH * 1.25;
+const PREVIEW_HEIGHT = PREVIEW_WIDTH * 1.78; // 9:16 aspect ratio for full phone video
+
+// Crop overlay dimensions (4:5 Instagram aspect ratio)
+const CROP_ASPECT_RATIO = 4 / 5;
 
 interface VideoFrameSelectorProps {
   videoUri: string;
@@ -68,17 +67,26 @@ const VideoFrameSelector: React.FC<VideoFrameSelectorProps> = memo(({
   const [error, setError] = useState<string | null>(null);
   const [isCapturing, setIsCapturing] = useState(false);
   const [currentFrameIndex, setCurrentFrameIndex] = useState(0);
+  const [imageSize, setImageSize] = useState({ width: 1080, height: 1920 });
 
   // Reanimated shared values for smooth gestures
   const scrubberX = useSharedValue(FILMSTRIP_WIDTH / 2);
+  
+  // Image transform - start zoomed out to show full frame
   const imageScale = useSharedValue(1);
   const imageTranslateX = useSharedValue(0);
   const imageTranslateY = useSharedValue(0);
   
-  // For pinch gesture
+  // Saved values for gesture continuity
   const savedScale = useSharedValue(1);
   const savedTranslateX = useSharedValue(0);
   const savedTranslateY = useSharedValue(0);
+  const focalX = useSharedValue(0);
+  const focalY = useSharedValue(0);
+
+  // Calculate crop box dimensions based on preview size
+  const cropBoxWidth = PREVIEW_WIDTH * 0.85;
+  const cropBoxHeight = cropBoxWidth / CROP_ASPECT_RATIO;
 
   // Update frame index from scrubber position
   const updateFrameFromScrubber = useCallback((x: number) => {
@@ -88,18 +96,14 @@ const VideoFrameSelector: React.FC<VideoFrameSelectorProps> = memo(({
     setCurrentFrameIndex(Math.max(0, Math.min(index, allFrames.length - 1)));
   }, [allFrames.length]);
 
-  // Scrubber pan gesture - using gesture handler for smooth response
+  // Scrubber pan gesture
   const scrubberGesture = Gesture.Pan()
-    .onStart(() => {
-      // Store starting position
-    })
     .onUpdate((event) => {
       const newX = Math.max(0, Math.min(event.x, FILMSTRIP_WIDTH));
       scrubberX.value = newX;
       runOnJS(updateFrameFromScrubber)(newX);
     })
     .onEnd(() => {
-      // Snap to nearest frame
       if (allFrames.length > 0) {
         const percentage = scrubberX.value / FILMSTRIP_WIDTH;
         const index = Math.round(percentage * (allFrames.length - 1));
@@ -116,53 +120,59 @@ const VideoFrameSelector: React.FC<VideoFrameSelectorProps> = memo(({
       runOnJS(updateFrameFromScrubber)(newX);
     });
 
-  // Combined filmstrip gesture
   const filmstripGesture = Gesture.Race(scrubberGesture, tapGesture);
 
-  // Image pinch-to-zoom gesture
+  // Image pinch-to-zoom gesture with focal point
   const pinchGesture = Gesture.Pinch()
-    .onStart(() => {
+    .onStart((event) => {
       savedScale.value = imageScale.value;
+      focalX.value = event.focalX;
+      focalY.value = event.focalY;
     })
     .onUpdate((event) => {
-      const newScale = Math.max(1, Math.min(savedScale.value * event.scale, 4));
+      // Allow zooming from 0.5x (see more) to 4x (zoom in)
+      const newScale = Math.max(0.5, Math.min(savedScale.value * event.scale, 4));
       imageScale.value = newScale;
     })
     .onEnd(() => {
-      if (imageScale.value < 1.1) {
-        imageScale.value = withSpring(1);
-        imageTranslateX.value = withSpring(0);
-        imageTranslateY.value = withSpring(0);
+      // If too zoomed out, snap back to minimum
+      if (imageScale.value < 0.5) {
+        imageScale.value = withSpring(0.5);
       }
     });
 
-  // Image pan gesture
+  // Image pan gesture - works at any zoom level
   const imagePanGesture = Gesture.Pan()
     .onStart(() => {
       savedTranslateX.value = imageTranslateX.value;
       savedTranslateY.value = imageTranslateY.value;
     })
     .onUpdate((event) => {
-      if (imageScale.value > 1) {
-        const maxTranslate = (imageScale.value - 1) * 80;
-        imageTranslateX.value = Math.max(-maxTranslate, Math.min(maxTranslate, 
-          savedTranslateX.value + event.translationX));
-        imageTranslateY.value = Math.max(-maxTranslate, Math.min(maxTranslate, 
-          savedTranslateY.value + event.translationY));
-      }
+      // Calculate max translation based on scale and image size
+      const scale = imageScale.value;
+      const maxTranslateX = Math.max(0, (PREVIEW_WIDTH * scale - cropBoxWidth) / 2);
+      const maxTranslateY = Math.max(0, (PREVIEW_HEIGHT * scale - cropBoxHeight) / 2);
+      
+      imageTranslateX.value = Math.max(-maxTranslateX, Math.min(maxTranslateX, 
+        savedTranslateX.value + event.translationX));
+      imageTranslateY.value = Math.max(-maxTranslateY, Math.min(maxTranslateY, 
+        savedTranslateY.value + event.translationY));
     })
     .onEnd(() => {
-      // Snap back if needed
-      const maxTranslate = (imageScale.value - 1) * 80;
-      if (Math.abs(imageTranslateX.value) > maxTranslate) {
-        imageTranslateX.value = withSpring(Math.sign(imageTranslateX.value) * maxTranslate);
+      // Clamp to bounds
+      const scale = imageScale.value;
+      const maxTranslateX = Math.max(0, (PREVIEW_WIDTH * scale - cropBoxWidth) / 2);
+      const maxTranslateY = Math.max(0, (PREVIEW_HEIGHT * scale - cropBoxHeight) / 2);
+      
+      if (Math.abs(imageTranslateX.value) > maxTranslateX) {
+        imageTranslateX.value = withSpring(Math.sign(imageTranslateX.value) * maxTranslateX);
       }
-      if (Math.abs(imageTranslateY.value) > maxTranslate) {
-        imageTranslateY.value = withSpring(Math.sign(imageTranslateY.value) * maxTranslate);
+      if (Math.abs(imageTranslateY.value) > maxTranslateY) {
+        imageTranslateY.value = withSpring(Math.sign(imageTranslateY.value) * maxTranslateY);
       }
     });
 
-  // Combined image gesture - pinch and pan together
+  // Combined gesture
   const imageGesture = Gesture.Simultaneous(pinchGesture, imagePanGesture);
 
   // Animated styles
@@ -201,9 +211,16 @@ const VideoFrameSelector: React.FC<VideoFrameSelectorProps> = memo(({
           const timestamp = Math.round(i * interval);
           const { uri } = await VideoThumbnails.getThumbnailAsync(videoUri, {
             time: timestamp,
-            quality: 0.7,
+            quality: 0.8,
           });
           frames.push({ uri, timestamp });
+          
+          // Get image dimensions from first frame
+          if (i === 0) {
+            Image.getSize(uri, (w, h) => {
+              setImageSize({ width: w, height: h });
+            }, () => {});
+          }
         } catch (e) {
           if (frames.length > 0) {
             frames.push({ ...frames[frames.length - 1] });
@@ -239,7 +256,82 @@ const VideoFrameSelector: React.FC<VideoFrameSelectorProps> = memo(({
   const handleDone = async () => {
     if (allFrames.length === 0 || !allFrames[currentFrameIndex]?.uri) return;
     setIsCapturing(true);
+    
     try {
+      const sourceUri = allFrames[currentFrameIndex].uri;
+      const scale = imageScale.value;
+      const translateX = imageTranslateX.value;
+      const translateY = imageTranslateY.value;
+      
+      // Calculate the crop region based on transform
+      // The crop box is centered in the preview
+      const imgWidth = imageSize.width;
+      const imgHeight = imageSize.height;
+      
+      // Calculate what portion of the original image is visible in the crop box
+      const visibleWidth = cropBoxWidth / scale;
+      const visibleHeight = cropBoxHeight / scale;
+      
+      // Calculate the center offset due to translation
+      const centerOffsetX = -translateX / scale;
+      const centerOffsetY = -translateY / scale;
+      
+      // Map preview coordinates to image coordinates
+      const scaleToImage = imgWidth / PREVIEW_WIDTH;
+      
+      const cropWidth = visibleWidth * scaleToImage;
+      const cropHeight = visibleHeight * scaleToImage;
+      const cropX = (imgWidth - cropWidth) / 2 + (centerOffsetX * scaleToImage);
+      const cropY = (imgHeight - cropHeight) / 2 + (centerOffsetY * scaleToImage);
+      
+      // Ensure crop is within bounds
+      const finalCropX = Math.max(0, Math.min(cropX, imgWidth - cropWidth));
+      const finalCropY = Math.max(0, Math.min(cropY, imgHeight - cropHeight));
+      const finalCropWidth = Math.min(cropWidth, imgWidth - finalCropX);
+      const finalCropHeight = Math.min(cropHeight, imgHeight - finalCropY);
+      
+      if (scale !== 1 || translateX !== 0 || translateY !== 0) {
+        // Apply crop
+        const result = await ImageManipulator.manipulateAsync(
+          sourceUri,
+          [
+            {
+              crop: {
+                originX: Math.round(finalCropX),
+                originY: Math.round(finalCropY),
+                width: Math.round(finalCropWidth),
+                height: Math.round(finalCropHeight),
+              },
+            },
+            { resize: { width: 1080 } },
+          ],
+          { format: ImageManipulator.SaveFormat.JPEG, compress: 0.9 }
+        );
+        onFrameSelected(result.uri);
+      } else {
+        // No transform, just resize to 4:5 from center
+        const targetHeight = imgWidth / CROP_ASPECT_RATIO;
+        const cropY = Math.max(0, (imgHeight - targetHeight) / 2);
+        
+        const result = await ImageManipulator.manipulateAsync(
+          sourceUri,
+          [
+            {
+              crop: {
+                originX: 0,
+                originY: Math.round(cropY),
+                width: imgWidth,
+                height: Math.round(Math.min(targetHeight, imgHeight)),
+              },
+            },
+            { resize: { width: 1080 } },
+          ],
+          { format: ImageManipulator.SaveFormat.JPEG, compress: 0.9 }
+        );
+        onFrameSelected(result.uri);
+      }
+    } catch (err) {
+      console.error('Error processing cover:', err);
       onFrameSelected(allFrames[currentFrameIndex].uri);
     } finally {
       setIsCapturing(false);
@@ -253,7 +345,6 @@ const VideoFrameSelector: React.FC<VideoFrameSelectorProps> = memo(({
 
   const currentFrame = allFrames[currentFrameIndex];
   const filmstripFrames = allFrames.filter((_, i) => i % Math.max(1, Math.floor(TOTAL_FRAMES / FRAME_COUNT)) === 0).slice(0, FRAME_COUNT);
-  const showResetButton = imageScale.value > 1.05;
 
   if (Platform.OS === 'web') {
     return (
@@ -294,47 +385,66 @@ const VideoFrameSelector: React.FC<VideoFrameSelectorProps> = memo(({
           </TouchableOpacity>
         </View>
 
-        {/* Preview */}
+        {/* Preview Area */}
         <View style={styles.previewSection}>
-          <GestureDetector gesture={imageGesture}>
-            <View style={styles.previewBox}>
-              {isLoadingFrames ? (
-                <View style={styles.centered}>
-                  <ActivityIndicator size="large" color="#FFD700" />
-                  <Text style={styles.loadingText}>Loading frames...</Text>
-                </View>
-              ) : currentFrame?.uri ? (
-                <ReanimatedModule.View style={[styles.imageContainer, imageAnimatedStyle]}>
-                  <Image source={{ uri: currentFrame.uri }} style={styles.previewImage} resizeMode="cover" />
-                </ReanimatedModule.View>
-              ) : (
-                <View style={styles.centered}>
-                  <Text style={styles.grayText}>No preview</Text>
-                </View>
-              )}
-              
-              {/* Crop corners */}
-              <View style={styles.cropGuide} pointerEvents="none">
-                <View style={[styles.corner, styles.tl]} />
-                <View style={[styles.corner, styles.tr]} />
-                <View style={[styles.corner, styles.bl]} />
-                <View style={[styles.corner, styles.br]} />
+          {/* Full frame container */}
+          <View style={styles.previewContainer}>
+            <GestureDetector gesture={imageGesture}>
+              <View style={styles.gestureArea}>
+                {isLoadingFrames ? (
+                  <View style={styles.centered}>
+                    <ActivityIndicator size="large" color="#FFD700" />
+                    <Text style={styles.loadingText}>Loading frames...</Text>
+                  </View>
+                ) : currentFrame?.uri ? (
+                  <Animated.View style={[styles.imageWrapper, imageAnimatedStyle]}>
+                    <Image 
+                      source={{ uri: currentFrame.uri }} 
+                      style={styles.fullImage} 
+                      resizeMode="contain"
+                    />
+                  </Animated.View>
+                ) : (
+                  <View style={styles.centered}>
+                    <Text style={styles.grayText}>No preview</Text>
+                  </View>
+                )}
               </View>
+            </GestureDetector>
+            
+            {/* Dark overlay with crop window cutout */}
+            <View style={styles.overlayContainer} pointerEvents="none">
+              {/* Top dark area */}
+              <View style={[styles.darkOverlay, { height: (PREVIEW_HEIGHT - cropBoxHeight) / 2 }]} />
+              
+              {/* Middle row with sides and crop window */}
+              <View style={styles.middleRow}>
+                <View style={[styles.darkOverlay, { width: (PREVIEW_WIDTH - cropBoxWidth) / 2 }]} />
+                <View style={[styles.cropWindow, { width: cropBoxWidth, height: cropBoxHeight }]}>
+                  {/* Corner indicators */}
+                  <View style={[styles.corner, styles.tl]} />
+                  <View style={[styles.corner, styles.tr]} />
+                  <View style={[styles.corner, styles.bl]} />
+                  <View style={[styles.corner, styles.br]} />
+                </View>
+                <View style={[styles.darkOverlay, { width: (PREVIEW_WIDTH - cropBoxWidth) / 2 }]} />
+              </View>
+              
+              {/* Bottom dark area */}
+              <View style={[styles.darkOverlay, { height: (PREVIEW_HEIGHT - cropBoxHeight) / 2 }]} />
             </View>
-          </GestureDetector>
-
-          {/* Hint */}
-          <View style={styles.hintRow}>
-            {showResetButton && (
-              <TouchableOpacity style={styles.resetBtn} onPress={resetTransform}>
-                <Ionicons name="refresh" size={14} color="#FFD700" />
-                <Text style={styles.resetText}>Reset</Text>
-              </TouchableOpacity>
-            )}
-            <Text style={styles.hintText}>Pinch to zoom • Drag to reposition</Text>
           </View>
 
-          {/* Time */}
+          {/* Controls */}
+          <View style={styles.controlsRow}>
+            <TouchableOpacity style={styles.resetBtn} onPress={resetTransform}>
+              <Ionicons name="refresh" size={16} color="#FFD700" />
+              <Text style={styles.resetText}>Reset</Text>
+            </TouchableOpacity>
+            <Text style={styles.hintText}>Pinch to zoom • Drag to position</Text>
+          </View>
+
+          {/* Time badge */}
           {currentFrame && (
             <View style={styles.timeBadge}>
               <Text style={styles.timeText}>{formatTime(currentFrame.timestamp)}</Text>
@@ -342,7 +452,7 @@ const VideoFrameSelector: React.FC<VideoFrameSelectorProps> = memo(({
           )}
         </View>
 
-        {/* Hidden video */}
+        {/* Hidden video for duration */}
         <Video
           ref={videoRef}
           source={{ uri: videoUri }}
@@ -375,12 +485,12 @@ const VideoFrameSelector: React.FC<VideoFrameSelectorProps> = memo(({
               
               {/* Scrubber */}
               {!isLoadingFrames && allFrames.length > 0 && (
-                <ReanimatedModule.View style={[styles.scrubber, scrubberAnimatedStyle]}>
+                <Animated.View style={[styles.scrubber, scrubberAnimatedStyle]}>
                   <LinearGradient colors={['#FFD700', '#FFA500']} style={styles.scrubberBar} />
                   <LinearGradient colors={['#FFD700', '#FFA500']} style={styles.scrubberKnob}>
                     <View style={styles.scrubberDot} />
                   </LinearGradient>
-                </ReanimatedModule.View>
+                </Animated.View>
               )}
             </View>
           </GestureDetector>
@@ -398,7 +508,7 @@ const VideoFrameSelector: React.FC<VideoFrameSelectorProps> = memo(({
           </View>
         )}
 
-        <Text style={styles.footer}>This will be your cover in the feed</Text>
+        <Text style={styles.footer}>Position your video within the crop area</Text>
       </View>
     </GestureHandlerRootView>
   );
@@ -406,47 +516,163 @@ const VideoFrameSelector: React.FC<VideoFrameSelectorProps> = memo(({
 
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: '#000' },
-  header: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', paddingHorizontal: 8, paddingVertical: 12, borderBottomWidth: 0.5, borderBottomColor: '#333' },
+  header: { 
+    flexDirection: 'row', 
+    justifyContent: 'space-between', 
+    alignItems: 'center', 
+    paddingHorizontal: 8, 
+    paddingVertical: 12, 
+    borderBottomWidth: 0.5, 
+    borderBottomColor: '#333' 
+  },
   headerBtn: { width: 60, height: 44, justifyContent: 'center', alignItems: 'center' },
   headerTitle: { fontSize: 17, fontWeight: '600', color: '#fff' },
   doneText: { fontSize: 16, fontWeight: '600', color: '#FFD700' },
   disabledText: { color: '#555' },
-  previewSection: { flex: 1, justifyContent: 'center', alignItems: 'center', paddingHorizontal: 16 },
-  previewBox: { width: PREVIEW_WIDTH, height: PREVIEW_HEIGHT, backgroundColor: '#111', borderRadius: 12, overflow: 'hidden' },
-  imageContainer: { width: '100%', height: '100%' },
-  previewImage: { width: '100%', height: '100%' },
-  cropGuide: { ...StyleSheet.absoluteFillObject, borderWidth: 1, borderColor: 'rgba(255,255,255,0.2)', borderRadius: 12 },
-  corner: { position: 'absolute', width: 20, height: 20, borderColor: '#FFD700' },
-  tl: { top: 8, left: 8, borderLeftWidth: 2, borderTopWidth: 2 },
-  tr: { top: 8, right: 8, borderRightWidth: 2, borderTopWidth: 2 },
-  bl: { bottom: 8, left: 8, borderLeftWidth: 2, borderBottomWidth: 2 },
-  br: { bottom: 8, right: 8, borderRightWidth: 2, borderBottomWidth: 2 },
-  hintRow: { flexDirection: 'row', alignItems: 'center', marginTop: 12, gap: 10 },
-  resetBtn: { flexDirection: 'row', alignItems: 'center', backgroundColor: 'rgba(255,215,0,0.15)', paddingHorizontal: 10, paddingVertical: 5, borderRadius: 12, gap: 4 },
-  resetText: { color: '#FFD700', fontSize: 12, fontWeight: '500' },
-  hintText: { color: 'rgba(255,255,255,0.4)', fontSize: 12 },
-  timeBadge: { position: 'absolute', top: 12, right: 28, backgroundColor: 'rgba(0,0,0,0.7)', paddingHorizontal: 10, paddingVertical: 5, borderRadius: 12 },
+  
+  previewSection: { 
+    flex: 1, 
+    justifyContent: 'center', 
+    alignItems: 'center',
+    paddingHorizontal: 16,
+  },
+  previewContainer: { 
+    width: PREVIEW_WIDTH, 
+    height: PREVIEW_HEIGHT, 
+    backgroundColor: '#0a0a0a',
+    borderRadius: 8,
+    overflow: 'hidden',
+  },
+  gestureArea: {
+    width: '100%',
+    height: '100%',
+  },
+  imageWrapper: { 
+    width: '100%', 
+    height: '100%',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  fullImage: { 
+    width: '100%', 
+    height: '100%',
+  },
+  
+  // Overlay system
+  overlayContainer: {
+    ...StyleSheet.absoluteFillObject,
+  },
+  darkOverlay: {
+    backgroundColor: 'rgba(0, 0, 0, 0.6)',
+  },
+  middleRow: {
+    flexDirection: 'row',
+  },
+  cropWindow: {
+    borderWidth: 1,
+    borderColor: 'rgba(255, 215, 0, 0.5)',
+    backgroundColor: 'transparent',
+  },
+  corner: { 
+    position: 'absolute', 
+    width: 24, 
+    height: 24, 
+    borderColor: '#FFD700' 
+  },
+  tl: { top: -1, left: -1, borderLeftWidth: 3, borderTopWidth: 3 },
+  tr: { top: -1, right: -1, borderRightWidth: 3, borderTopWidth: 3 },
+  bl: { bottom: -1, left: -1, borderLeftWidth: 3, borderBottomWidth: 3 },
+  br: { bottom: -1, right: -1, borderRightWidth: 3, borderBottomWidth: 3 },
+  
+  controlsRow: { 
+    flexDirection: 'row', 
+    alignItems: 'center', 
+    marginTop: 12, 
+    gap: 12 
+  },
+  resetBtn: { 
+    flexDirection: 'row', 
+    alignItems: 'center', 
+    backgroundColor: 'rgba(255,215,0,0.15)', 
+    paddingHorizontal: 12, 
+    paddingVertical: 6, 
+    borderRadius: 14, 
+    gap: 4 
+  },
+  resetText: { color: '#FFD700', fontSize: 13, fontWeight: '500' },
+  hintText: { color: 'rgba(255,255,255,0.5)', fontSize: 12 },
+  
+  timeBadge: { 
+    position: 'absolute', 
+    top: 20, 
+    right: 28, 
+    backgroundColor: 'rgba(0,0,0,0.7)', 
+    paddingHorizontal: 10, 
+    paddingVertical: 5, 
+    borderRadius: 12 
+  },
   timeText: { color: '#fff', fontSize: 13, fontWeight: '600' },
+  
   hiddenVideo: { width: 1, height: 1, position: 'absolute', opacity: 0 },
-  filmstripSection: { paddingHorizontal: 16, paddingTop: 16, paddingBottom: 8 },
-  filmstripLabel: { fontSize: 13, color: 'rgba(255,255,255,0.4)', textAlign: 'center', marginBottom: 12 },
+  
+  filmstripSection: { paddingHorizontal: 16, paddingTop: 12, paddingBottom: 8 },
+  filmstripLabel: { fontSize: 13, color: 'rgba(255,255,255,0.4)', textAlign: 'center', marginBottom: 10 },
   filmstripTouchArea: { height: FILMSTRIP_HEIGHT + 28, justifyContent: 'center' },
-  filmstrip: { flexDirection: 'row', height: FILMSTRIP_HEIGHT, borderRadius: 6, overflow: 'hidden', backgroundColor: '#1a1a1a' },
+  filmstrip: { 
+    flexDirection: 'row', 
+    height: FILMSTRIP_HEIGHT, 
+    borderRadius: 6, 
+    overflow: 'hidden', 
+    backgroundColor: '#1a1a1a' 
+  },
   filmstripLoading: { flex: 1, justifyContent: 'center', alignItems: 'center' },
   filmstripFrame: { flex: 1, height: FILMSTRIP_HEIGHT, backgroundColor: '#222' },
   filmstripImg: { width: '100%', height: '100%' },
-  scrubber: { position: 'absolute', top: 0, left: 0, height: FILMSTRIP_HEIGHT + 28, alignItems: 'center' },
+  
+  scrubber: { 
+    position: 'absolute', 
+    top: 0, 
+    left: 0, 
+    height: FILMSTRIP_HEIGHT + 28, 
+    alignItems: 'center' 
+  },
   scrubberBar: { width: SCRUBBER_WIDTH, height: FILMSTRIP_HEIGHT + 16, marginTop: 6, borderRadius: 2 },
-  scrubberKnob: { width: 20, height: 20, borderRadius: 10, justifyContent: 'center', alignItems: 'center', marginTop: -4 },
-  scrubberDot: { width: 6, height: 6, borderRadius: 3, backgroundColor: '#000' },
-  timeRow: { flexDirection: 'row', justifyContent: 'space-between', marginTop: 8 },
+  scrubberKnob: { 
+    width: 22, 
+    height: 22, 
+    borderRadius: 11, 
+    justifyContent: 'center', 
+    alignItems: 'center', 
+    marginTop: -4 
+  },
+  scrubberDot: { width: 8, height: 8, borderRadius: 4, backgroundColor: '#000' },
+  
+  timeRow: { flexDirection: 'row', justifyContent: 'space-between', marginTop: 6 },
   timeLabel: { fontSize: 11, color: '#555' },
+  
   centered: { flex: 1, justifyContent: 'center', alignItems: 'center' },
   loadingText: { marginTop: 12, color: '#666', fontSize: 14 },
   grayText: { color: '#888', fontSize: 14, textAlign: 'center' },
-  errorBar: { flexDirection: 'row', alignItems: 'center', justifyContent: 'center', backgroundColor: 'rgba(255,107,107,0.15)', paddingVertical: 8, marginHorizontal: 16, borderRadius: 8, gap: 6 },
+  
+  errorBar: { 
+    flexDirection: 'row', 
+    alignItems: 'center', 
+    justifyContent: 'center', 
+    backgroundColor: 'rgba(255,107,107,0.15)', 
+    paddingVertical: 8, 
+    marginHorizontal: 16, 
+    borderRadius: 8, 
+    gap: 6 
+  },
   errorText: { color: '#FF6B6B', fontSize: 12 },
-  footer: { fontSize: 12, color: 'rgba(255,255,255,0.3)', textAlign: 'center', paddingHorizontal: 32, paddingBottom: 16 },
+  
+  footer: { 
+    fontSize: 12, 
+    color: 'rgba(255,255,255,0.3)', 
+    textAlign: 'center', 
+    paddingHorizontal: 32, 
+    paddingBottom: 12 
+  },
 });
 
 export default VideoFrameSelector;
