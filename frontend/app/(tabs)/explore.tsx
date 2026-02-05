@@ -122,6 +122,9 @@ export default function Explore() {
   // Track screen time
   useScreenTime('Explore');
   
+  // Handle tab query parameter from navigation
+  const params = useLocalSearchParams<{ tab?: string }>();
+  
   const [posts, setPosts] = useState<Post[]>([]);
   const [refreshing, setRefreshing] = useState(false);
   const [loading, setLoading] = useState(true);
@@ -147,6 +150,13 @@ export default function Explore() {
   const PAGE_SIZE = 20;
   const [showGuestPrompt, setShowGuestPrompt] = useState(false);
   const [guestAction, setGuestAction] = useState('');
+  
+  // Handle tab navigation from query parameter
+  useEffect(() => {
+    if (params.tab === 'notifications' && !isGuest) {
+      setActiveTab('notifications');
+    }
+  }, [params.tab, isGuest]);
   
   // Post options menu state
   const [showPostMenu, setShowPostMenu] = useState(false);
