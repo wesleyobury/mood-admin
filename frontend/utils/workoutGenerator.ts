@@ -317,6 +317,114 @@ const muscleGroupDatabases: Record<string, EquipmentWorkouts[]> = {
   'Legs': [...quadsWorkoutDatabase, ...hamstringsWorkoutDatabase, ...glutesWorkoutDatabase, ...calvesWorkoutDatabase],
 };
 
+// Define primary vs ancillary muscle groups for ordering
+const PRIMARY_MUSCLE_GROUPS = ['Legs', 'Chest', 'Back', 'Shoulders', 'Quads', 'Hamstrings', 'Glutes', 'Calves'];
+const ANCILLARY_MUSCLE_GROUPS = ['Biceps', 'Triceps', 'Abs']; // Abs should always be last
+
+// Minimum exercise counts for primary muscle groups (intermediate/advanced)
+const MIN_EXERCISES_PRIMARY: Record<string, number> = {
+  'Legs': 4,
+  'Quads': 3,
+  'Hamstrings': 3,
+  'Glutes': 3,
+  'Calves': 2,
+  'Chest': 3,
+  'Back': 3,
+  'Shoulders': 3,
+};
+
+// Compound exercises for legs (must include at least 1 for legs)
+const LEG_COMPOUND_EXERCISES = [
+  'Barbell Back Squat',
+  'Front Squat',
+  'Leg Press',
+  'Romanian Deadlift',
+  'Deadlift',
+  'Bulgarian Split Squat',
+  'Lunges',
+  'Goblet Squat',
+  'Hack Squat',
+  'Sumo Deadlift',
+  'Barbell Hack Squat',
+  'Dumbbell Lunges',
+  'Walking Lunges',
+];
+
+// Get workouts from database with muscle group tagging
+function getWorkoutsForMuscleGroup(
+  muscleGroup: string,
+  intensity: IntensityLevel
+): { workout: Workout; equipment: string; muscleGroup: string }[] {
+  const database = muscleGroupDatabases[muscleGroup];
+  if (!database) return [];
+  
+  const workouts: { workout: Workout; equipment: string; muscleGroup: string }[] = [];
+  
+  for (const equipmentData of database) {
+    const intensityWorkouts = equipmentData.workouts[intensity] || [];
+    for (const workout of intensityWorkouts) {
+      workouts.push({
+        workout,
+        equipment: equipmentData.equipment,
+        muscleGroup: muscleGroup,
+      });
+    }
+  }
+  
+  return workouts;
+}
+
+// Select workouts for a specific muscle group with minimum count requirements
+function selectWorkoutsForMuscleGroup(
+  muscleGroup: string,
+  intensity: IntensityLevel,
+  minCount: number,
+  maxCount: number,
+  usedWorkoutNames: Set<string>,
+  requireCompound: boolean = false
+): { workout: Workout; equipment: string; muscleGroup: string }[] {
+  const availableWorkouts = getWorkoutsForMuscleGroup(muscleGroup, intensity);
+  const selected: { workout: Workout; equipment: string; muscleGroup: string }[] = [];
+  
+  // Shuffle for randomness
+  const shuffled = shuffleArray(availableWorkouts);
+  
+  // If we need a compound exercise for legs, find one first
+  if (requireCompound) {
+    const compoundWorkout = shuffled.find(
+      w => LEG_COMPOUND_EXERCISES.some(name => 
+        w.workout.name.toLowerCase().includes(name.toLowerCase()) ||
+        name.toLowerCase().includes(w.workout.name.toLowerCase())
+      ) && !usedWorkoutNames.has(w.workout.name)
+    );
+    if (compoundWorkout) {
+      selected.push(compoundWorkout);
+      usedWorkoutNames.add(compoundWorkout.workout.name);
+    }
+  }
+  
+  // Fill remaining slots
+  for (const item of shuffled) {
+    if (usedWorkoutNames.has(item.workout.name)) continue;
+    if (selected.length >= maxCount) break;
+    
+    selected.push(item);
+    usedWorkoutNames.add(item.workout.name);
+  }
+  
+  // Ensure minimum count (allow reuse if necessary)
+  if (selected.length < minCount) {
+    for (const item of shuffled) {
+      if (selected.length >= minCount) break;
+      if (!selected.some(s => s.workout.name === item.workout.name)) {
+        selected.push(item);
+      }
+    }
+  }
+  
+  return selected;
+}
+
 // Export for Muscle Gainer path (uses selected muscle groups only)
 export function generateMuscleGainerCarts(
   intensity: IntensityLevel,
@@ -329,19 +437,107 @@ export function generateMuscleGainerCarts(
     return [];
   }
 
-  // Build database from selected muscle groups only
-  let combinedDatabase: EquipmentWorkouts[] = [];
+  const carts: GeneratedCart[] = [];
+  const isBeginner = intensity === 'beginner';
   
-  for (const muscleGroup of selectedMuscleGroups) {
-    const database = muscleGroupDatabases[muscleGroup];
-    if (database) {
-      combinedDatabase = [...combinedDatabase, ...database];
+  // Generate 3 cart options
+  for (let cartIndex = 0; cartIndex < 3; cartIndex++) {
+    const usedWorkoutNames = new Set<string>();
+    const allWorkouts: { workout: Workout; equipment: string; muscleGroup: string }[] = [];
+    
+    // Separate muscle groups into primary and ancillary
+    const primaryGroups = selectedMuscleGroups.filter(g => PRIMARY_MUSCLE_GROUPS.includes(g));
+    const ancillaryGroups = selectedMuscleGroups.filter(g => ANCILLARY_MUSCLE_GROUPS.includes(g));
+    
+    // Sort ancillary groups to ensure Abs is last
+    ancillaryGroups.sort((a, b) => {
+      if (a === 'Abs') return 1;
+      if (b === 'Abs') return -1;
+      return 0;
+    });
+    
+    // Process primary muscle groups first
+    for (const muscleGroup of primaryGroups) {
+      // Determine exercise count for this muscle group
+      let minCount = isBeginner ? 2 : (MIN_EXERCISES_PRIMARY[muscleGroup] || 3);
+      let maxCount = isBeginner ? 3 : minCount + 1;
+      
+      // Check if this is a leg-related muscle group that needs a compound
+      const isLegGroup = ['Legs', 'Quads', 'Hamstrings', 'Glutes'].includes(muscleGroup);
+      const requireCompound = !isBeginner && isLegGroup;
+      
+      const groupWorkouts = selectWorkoutsForMuscleGroup(
+        muscleGroup,
+        intensity,
+        minCount,
+        maxCount,
+        usedWorkoutNames,
+        requireCompound
+      );
+      
+      allWorkouts.push(...groupWorkouts);
+    }
+    
+    // Process ancillary muscle groups (always at the end, abs last)
+    for (const muscleGroup of ancillaryGroups) {
+      const minCount = isBeginner ? 1 : 2;
+      const maxCount = isBeginner ? 2 : 3;
+      
+      const groupWorkouts = selectWorkoutsForMuscleGroup(
+        muscleGroup,
+        intensity,
+        minCount,
+        maxCount,
+        usedWorkoutNames,
+        false
+      );
+      
+      allWorkouts.push(...groupWorkouts);
+    }
+    
+    // Now sort the workouts to group by muscle group consecutively
+    // Primary groups first (in order selected), then ancillary (with abs last)
+    const sortedWorkouts = sortWorkoutsByMuscleGroup(allWorkouts, [...primaryGroups, ...ancillaryGroups]);
+    
+    // Convert to WorkoutItems
+    const workoutItems = sortedWorkouts.map(item =>
+      workoutToItem(item.workout, item.equipment, intensity, moodCard, `${workoutType} - ${item.muscleGroup}`)
+    );
+    
+    // Calculate total duration
+    const totalDuration = workoutItems.reduce(
+      (sum, item) => sum + parseDuration(item.duration),
+      0
+    );
+    
+    if (workoutItems.length > 0) {
+      carts.push({
+        id: `cart-${cartIndex + 1}-${Date.now()}`,
+        workouts: workoutItems,
+        totalDuration,
+        intensity,
+      });
     }
   }
+  
+  return carts;
+}
 
-  if (combinedDatabase.length === 0) {
-    return [];
-  }
-
-  return generateWorkoutCarts(intensity, moodCard, workoutType, combinedDatabase);
+// Sort workouts to group by muscle group consecutively
+function sortWorkoutsByMuscleGroup(
+  workouts: { workout: Workout; equipment: string; muscleGroup: string }[],
+  muscleGroupOrder: string[]
+): { workout: Workout; equipment: string; muscleGroup: string }[] {
+  // Create a map to track the order position of each muscle group
+  const orderMap = new Map<string, number>();
+  muscleGroupOrder.forEach((group, index) => {
+    orderMap.set(group, index);
+  });
+  
+  // Sort workouts by their muscle group's position in the order
+  return [...workouts].sort((a, b) => {
+    const orderA = orderMap.get(a.muscleGroup) ?? 999;
+    const orderB = orderMap.get(b.muscleGroup) ?? 999;
+    return orderA - orderB;
+  });
 }
