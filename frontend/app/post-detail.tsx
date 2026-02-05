@@ -21,6 +21,7 @@ import MediaCarousel from '../components/MediaCarousel';
 import ReportModal from '../components/ReportModal';
 import GuestPromptModal from '../components/GuestPromptModal';
 import CommentsBottomSheet from '../components/CommentsBottomSheet';
+import BackButton from '../components/BackButton';
 import Constants from 'expo-constants';
 import { LinearGradient } from 'expo-linear-gradient';
 import { Analytics, GuestAnalytics } from '../utils/analytics';
