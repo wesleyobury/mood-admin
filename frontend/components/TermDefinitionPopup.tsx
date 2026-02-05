@@ -103,34 +103,40 @@ export const TermDefinitionPopup: React.FC<TermDefinitionPopupProps> = ({ term, 
         transparent={true}
         visible={modalVisible}
         onRequestClose={() => setModalVisible(false)}
+        statusBarTranslucent={true}
       >
-        <Pressable 
-          style={styles.modalOverlay} 
-          onPress={() => setModalVisible(false)}
-        >
-          <Pressable style={styles.modalContent} onPress={(e) => e.stopPropagation()}>
-            <View style={styles.modalHeader}>
-              <View style={styles.iconContainer}>
-                <Ionicons name={definition.icon} size={24} color="#FFD700" />
+        <View style={styles.modalOverlay}>
+          <Pressable 
+            style={styles.modalBackdrop} 
+            onPress={() => setModalVisible(false)}
+          />
+          <View style={styles.modalContainer}>
+            <View style={styles.modalContent}>
+              <View style={styles.modalHeader}>
+                <View style={styles.iconContainer}>
+                  <Ionicons name={definition.icon} size={24} color="#FFD700" />
+                </View>
+                <Text style={styles.modalTitle}>{definition.title}</Text>
+                <TouchableOpacity 
+                  style={styles.closeButton}
+                  onPress={() => setModalVisible(false)}
+                >
+                  <Ionicons name="close" size={24} color="#ffffff" />
+                </TouchableOpacity>
               </View>
-              <Text style={styles.modalTitle}>{definition.title}</Text>
+              <View style={styles.divider} />
+              <ScrollView style={styles.definitionScroll} showsVerticalScrollIndicator={false}>
+                <Text style={styles.modalDefinition}>{definition.definition}</Text>
+              </ScrollView>
               <TouchableOpacity 
-                style={styles.closeButton}
+                style={styles.gotItButton}
                 onPress={() => setModalVisible(false)}
               >
-                <Ionicons name="close" size={24} color="#ffffff" />
+                <Text style={styles.gotItButtonText}>Got it!</Text>
               </TouchableOpacity>
             </View>
-            <View style={styles.divider} />
-            <Text style={styles.modalDefinition}>{definition.definition}</Text>
-            <TouchableOpacity 
-              style={styles.gotItButton}
-              onPress={() => setModalVisible(false)}
-            >
-              <Text style={styles.gotItButtonText}>Got it!</Text>
-            </TouchableOpacity>
-          </Pressable>
-        </Pressable>
+          </View>
+        </View>
       </Modal>
     </>
   );
