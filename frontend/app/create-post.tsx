@@ -87,6 +87,10 @@ export default function CreatePost() {
   const [editedDuration, setEditedDuration] = useState<number | undefined>(undefined);
   const [editedCalories, setEditedCalories] = useState<number | undefined>(undefined);
   
+  // Editable targets for donut rings
+  const [calorieTarget, setCalorieTarget] = useState(500);
+  const [minuteTarget, setMinuteTarget] = useState(60);
+  
   // Permission notice modal state
   const [showPermissionModal, setShowPermissionModal] = useState(false);
   const [permissionType, setPermissionType] = useState<'camera' | 'library'>('camera');
