@@ -243,9 +243,13 @@ export default function AdminExerciseLibrary() {
         mistakes: [formData.mistake1, formData.mistake2].filter(m => m.trim()),
       };
 
+      console.log('Saving exercise:', exerciseData);
+
       const url = editingExercise 
         ? `${API_URL}/api/exercises/${editingExercise._id}`
         : `${API_URL}/api/exercises`;
+      
+      console.log('Request URL:', url);
       
       const response = await fetch(url, {
         method: editingExercise ? 'PUT' : 'POST',
@@ -256,18 +260,20 @@ export default function AdminExerciseLibrary() {
         body: JSON.stringify(exerciseData),
       });
 
+      console.log('Response status:', response.status);
       const data = await response.json();
+      console.log('Response data:', data);
       
       if (data.success) {
         Alert.alert('Success', editingExercise ? 'Exercise updated!' : 'Exercise created!');
         setModalVisible(false);
         loadExercises(searchQuery);
       } else {
-        Alert.alert('Error', data.detail || 'Failed to save exercise');
+        Alert.alert('Error', data.detail || data.message || 'Failed to save exercise');
       }
     } catch (error) {
       console.error('Error saving exercise:', error);
-      Alert.alert('Error', 'Failed to save exercise');
+      Alert.alert('Error', 'Failed to save exercise. Check console for details.');
     } finally {
       setSaving(false);
     }
