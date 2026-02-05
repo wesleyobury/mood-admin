@@ -14,7 +14,7 @@ import sys
 import os
 
 # Configuration
-BACKEND_URL = "https://fitness-ui-fix.preview.emergentagent.com"
+BACKEND_URL = "https://bugbounty-dash.preview.emergentagent.com"
 API_BASE = f"{BACKEND_URL}/api"
 
 # Test credentials from review request

@@ -21,7 +21,7 @@ import Constants from 'expo-constants';
 import { useAuth } from '../contexts/AuthContext';
 import BackButton from '../components/BackButton';
 
-const API_URL = Constants.expoConfig?.extra?.EXPO_BACKEND_URL || 'https://fitness-ui-fix.preview.emergentagent.com';
+const API_URL = Constants.expoConfig?.extra?.EXPO_BACKEND_URL || 'https://bugbounty-dash.preview.emergentagent.com';
 
 interface Exercise {
   _id: string;

@@ -11,7 +11,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const API_URL = Constants.expoConfig?.extra?.EXPO_BACKEND_URL || 
   process.env.EXPO_PUBLIC_BACKEND_URL || 
-  'https://fitness-ui-fix.preview.emergentagent.com';
+  'https://bugbounty-dash.preview.emergentagent.com';
 
 // Configure notification handler
 Notifications.setNotificationHandler({
