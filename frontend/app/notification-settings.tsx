@@ -512,6 +512,23 @@ const styles = StyleSheet.create({
     fontSize: 13,
     color: '#888',
   },
+  openSettingsButton: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: 'rgba(255, 215, 0, 0.1)',
+    borderRadius: 10,
+    paddingVertical: 12,
+    paddingHorizontal: 16,
+    marginBottom: 24,
+    gap: 8,
+  },
+  openSettingsText: {
+    fontSize: 14,
+    fontWeight: '500',
+    color: '#FFD700',
+    flex: 1,
+  },
   section: {
     marginBottom: 24,
   },
