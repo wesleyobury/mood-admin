@@ -33,28 +33,48 @@ export default function TermsOfServiceScreen() {
       >
         <Text style={styles.lastUpdated}>Last Updated: February 2025</Text>
 
-        {/* Zero Tolerance Policy */}
+        {/* Zero Tolerance Policy - HARDENED VERSION */}
         <View style={styles.section}>
-          <Text style={styles.sectionTitle}>Zero Tolerance Policy</Text>
+          <Text style={styles.sectionTitle}>ZERO TOLERANCE FOR OBJECTIONABLE CONTENT</Text>
           <Text style={styles.importantText}>
-            WE HAVE ZERO TOLERANCE FOR OBJECTIONABLE CONTENT OR ABUSIVE USERS.
+            WE HAVE ABSOLUTELY ZERO TOLERANCE FOR OBJECTIONABLE CONTENT, ABUSIVE BEHAVIOR, OR ATTEMPTS TO EVADE MODERATION.
           </Text>
           <Text style={styles.paragraph}>
-            By using this app, you agree that you will NOT post, share, or engage in any of the following:
+            By using this app, you agree that you will NOT create, upload, share, engage with, promote, or attempt to bypass safeguards related to any of the following:
           </Text>
           <View style={styles.bulletList}>
-            <Text style={styles.bulletItem}>• Content that is offensive, abusive, or promotes violence</Text>
-            <Text style={styles.bulletItem}>• Harassment, bullying, or threatening behavior towards any user</Text>
-            <Text style={styles.bulletItem}>• Hate speech, discrimination, or content targeting any group</Text>
-            <Text style={styles.bulletItem}>• Sexually explicit or pornographic material</Text>
-            <Text style={styles.bulletItem}>• Content promoting illegal activities or substances</Text>
-            <Text style={styles.bulletItem}>• Spam, scams, or deceptive content</Text>
-            <Text style={styles.bulletItem}>• Content that infringes on others' rights or privacy</Text>
+            <Text style={styles.bulletItem}>• Offensive, abusive, threatening, or violent content or behavior</Text>
+            <Text style={styles.bulletItem}>• Harassment, bullying, intimidation, or stalking</Text>
+            <Text style={styles.bulletItem}>• Hate speech, discrimination, or content targeting protected groups</Text>
+            <Text style={styles.bulletItem}>• Sexually explicit, pornographic, or fetish content</Text>
+            <Text style={styles.bulletItem}>• Sexual solicitation or sexually suggestive behavior</Text>
+            <Text style={styles.bulletItem}>• Content involving minors in any sexualized or exploitative manner (reported immediately to authorities)</Text>
+            <Text style={styles.bulletItem}>• Illegal activities, substances, or instructions</Text>
+            <Text style={styles.bulletItem}>• Spam, scams, impersonation, or deceptive practices</Text>
+            <Text style={styles.bulletItem}>• Attempts to evade detection, moderation systems, filters, or enforcement actions</Text>
+          </View>
+          <Text style={styles.importantText}>
+            Violations may result in immediate and permanent account termination without notice.
+          </Text>
+        </View>
+
+        {/* Community Safety & Moderation - NEW SECTION */}
+        <View style={styles.section}>
+          <Text style={styles.sectionTitle}>Community Safety & Moderation (Apple Guideline 1.2 Compliance)</Text>
+          <Text style={styles.paragraph}>
+            This app includes user-generated content and social features. To protect users and comply with Apple App Store Guideline 1.2, we maintain a strict zero-tolerance policy for objectionable content and abusive behavior.
+          </Text>
+          <Text style={styles.paragraph}>
+            We provide the following safety mechanisms:
+          </Text>
+          <View style={styles.bulletList}>
+            <Text style={styles.bulletItem}>• Content filtering using automated systems and human moderation</Text>
+            <Text style={styles.bulletItem}>• In-app reporting tools allowing users to report offensive, abusive, or inappropriate content</Text>
+            <Text style={styles.bulletItem}>• User blocking tools allowing users to block other users from interacting with them</Text>
+            <Text style={styles.bulletItem}>• Administrative enforcement, including content removal and account suspension or termination</Text>
           </View>
           <Text style={styles.paragraph}>
-            Violation of this policy will result in immediate account suspension or permanent ban. 
-            We actively monitor content and investigate all reports. Severe violations may be reported 
-            to law enforcement authorities.
+            Reported content is reviewed as promptly as possible, typically within 24 hours.
           </Text>
         </View>
 
@@ -117,6 +137,14 @@ export default function TermsOfServiceScreen() {
             <Text style={styles.bulletItem}>• Accept responsibility for all activities under your account</Text>
             <Text style={styles.bulletItem}>• Notify us immediately of any unauthorized access</Text>
           </View>
+        </View>
+
+        {/* User Blocking - NEW SECTION */}
+        <View style={styles.section}>
+          <Text style={styles.sectionTitle}>User Blocking</Text>
+          <Text style={styles.paragraph}>
+            Users may block other users at any time using in-app controls. Blocking prevents further interaction, including viewing profiles, commenting, messaging, or engaging with content. Abuse of the blocking system or attempts to circumvent blocks constitutes a violation of these Terms.
+          </Text>
         </View>
 
         {/* User Content */}
@@ -186,6 +214,14 @@ export default function TermsOfServiceScreen() {
           <Text style={styles.paragraph}>
             We aim to review reported content within 24 hours and take appropriate action to maintain 
             a safe and positive community.
+          </Text>
+        </View>
+
+        {/* Enforcement Authority - NEW SECTION */}
+        <View style={styles.section}>
+          <Text style={styles.sectionTitle}>Enforcement Authority</Text>
+          <Text style={styles.paragraph}>
+            We reserve sole discretion to determine whether content or behavior violates these Terms. We are not obligated to provide warnings or appeals prior to enforcement actions, including suspension or termination.
           </Text>
         </View>
 
@@ -262,8 +298,12 @@ export default function TermsOfServiceScreen() {
           <Text style={styles.sectionTitle}>Contact Us</Text>
           <Text style={styles.paragraph}>
             If you have questions about these Terms of Service, please contact us through the app's 
-            support feature in settings or email us at support@moodfitnessapp.com.
+            support feature in settings.
           </Text>
+          <Text style={styles.paragraph}>
+            For safety, abuse, or objectionable content concerns, users may contact us directly at:
+          </Text>
+          <Text style={styles.contactText}>wesleyogsbury@gmail.com</Text>
         </View>
 
         <View style={styles.bottomPadding} />
@@ -344,6 +384,11 @@ const styles = StyleSheet.create({
     fontSize: 14,
     lineHeight: 24,
     color: '#888',
+  },
+  contactText: {
+    fontSize: 14,
+    color: '#fff',
+    marginTop: 4,
   },
   bottomPadding: {
     height: 40,
