@@ -300,7 +300,7 @@ export default function PostDetail() {
     const moodCategory = post.workout_data.mood_category || 'Shared Workout';
     
     post.workout_data.workouts.forEach((workout, index) => {
-      addToCart({
+      const cartItem: WorkoutItem = {
         id: `shared-${post.id}-${index}-${Date.now()}`,
         name: workout.name,
         equipment: workout.equipment || 'Bodyweight',
@@ -311,7 +311,10 @@ export default function PostDetail() {
         workoutType: moodCategory,
         moodCard: moodCategory,
         moodTips: [],
-      });
+        battlePlan: workout.description || '',
+        intensityReason: `${workout.difficulty || 'intermediate'} intensity workout`,
+      };
+      addToCart(cartItem);
     });
     
     // Track analytics
