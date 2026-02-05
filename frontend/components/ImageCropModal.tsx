@@ -121,7 +121,10 @@ export default function ImageCropModal({
   
   const panResponder = useMemo(() => PanResponder.create({
     onStartShouldSetPanResponder: () => true,
-    onMoveShouldSetPanResponder: () => true,
+    onMoveShouldSetPanResponder: (_, gestureState) => {
+      // Only respond to meaningful movement
+      return Math.abs(gestureState.dx) > 2 || Math.abs(gestureState.dy) > 2;
+    },
     onPanResponderTerminationRequest: () => false,
     
     onPanResponderGrant: (evt) => {
@@ -132,10 +135,11 @@ export default function ImageCropModal({
         lastDistance.current = getDistance(touches);
       }
       
-      // Store current position
+      // Store current position using flattenOffset pattern
+      pan.stopAnimation();
       panOffset.current = {
-        x: pan.x._value,
-        y: pan.y._value,
+        x: (pan.x as any)._value || 0,
+        y: (pan.y as any)._value || 0,
       };
     },
     
@@ -150,49 +154,77 @@ export default function ImageCropModal({
         if (lastDistance.current > 0) {
           const scaleDelta = distance / lastDistance.current;
           const newScale = Math.max(1, Math.min(4, scaleValue.current * scaleDelta));
+          
+          // Use setValue for immediate response
           scale.setValue(newScale);
+          
+          // Update lastDistance for continuous pinching
           lastDistance.current = distance;
+          scaleValue.current = newScale;
           
           // Adjust pan to keep image in bounds when zooming
           const clamped = clampPosition(panOffset.current.x, panOffset.current.y, newScale);
           pan.setValue(clamped);
-          panOffset.current = clamped;
+        } else {
+          lastDistance.current = distance;
         }
       } else if (!isZooming.current) {
-        // Single finger drag - always enabled
-        const newX = panOffset.current.x + gestureState.dx;
-        const newY = panOffset.current.y + gestureState.dy;
+        // Single finger drag - apply movement with damping for smoother feel
+        const dampingFactor = 0.95;
+        const newX = panOffset.current.x + gestureState.dx * dampingFactor;
+        const newY = panOffset.current.y + gestureState.dy * dampingFactor;
         
-        // Clamp to bounds
-        const clamped = clampPosition(newX, newY, scaleValue.current);
-        pan.setValue(clamped);
+        // Soft clamp - allow slight overscroll for rubber-band effect
+        const { overflowX, overflowY } = getBounds(scaleValue.current);
+        const softClampX = softClamp(newX, -overflowX, overflowX, 30);
+        const softClampY = softClamp(newY, -overflowY, overflowY, 30);
+        
+        pan.setValue({ x: softClampX, y: softClampY });
       }
     },
     
-    onPanResponderRelease: () => {
+    onPanResponderRelease: (_, gestureState) => {
       isZooming.current = false;
       lastDistance.current = 0;
       
       // Save final position
-      panOffset.current = {
-        x: pan.x._value,
-        y: pan.y._value,
-      };
+      const currentX = (pan.x as any)._value || 0;
+      const currentY = (pan.y as any)._value || 0;
       
-      // Snap back to bounds if needed
-      const clamped = clampPosition(panOffset.current.x, panOffset.current.y, scaleValue.current);
+      // Calculate velocity for deceleration
+      const velocityX = gestureState.vx * 100;
+      const velocityY = gestureState.vy * 100;
       
-      if (clamped.x !== panOffset.current.x || clamped.y !== panOffset.current.y) {
-        Animated.spring(pan, {
-          toValue: clamped,
-          useNativeDriver: false,
-          friction: 7,
-        }).start(() => {
-          panOffset.current = clamped;
-        });
-      }
+      // Project final position with velocity
+      const projectedX = currentX + velocityX;
+      const projectedY = currentY + velocityY;
+      
+      // Clamp to bounds
+      const clamped = clampPosition(projectedX, projectedY, scaleValue.current);
+      
+      // Animate to final position with spring physics
+      Animated.spring(pan, {
+        toValue: clamped,
+        useNativeDriver: false,
+        friction: 8,
+        tension: 50,
+        velocity: { x: gestureState.vx, y: gestureState.vy },
+      }).start(() => {
+        panOffset.current = clamped;
+      });
     },
   }), [baseImageWidth, baseImageHeight, cropBoxWidth, cropBoxHeight]);
+
+  // Soft clamp function for rubber-band effect
+  const softClamp = (value: number, min: number, max: number, resistance: number) => {
+    if (value < min) {
+      return min - (min - value) / (1 + Math.abs(min - value) / resistance);
+    }
+    if (value > max) {
+      return max + (value - max) / (1 + Math.abs(value - max) / resistance);
+    }
+    return value;
+  };
 
   const handleCrop = async () => {
     setIsProcessing(true);
