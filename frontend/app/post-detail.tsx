@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import {
   View,
   Text,
@@ -16,7 +16,7 @@ import {
 import { Ionicons } from '@expo/vector-icons';
 import { useRouter, useLocalSearchParams } from 'expo-router';
 import { useAuth } from '../contexts/AuthContext';
-import { useCart } from '../contexts/CartContext';
+import { useCart, WorkoutItem } from '../contexts/CartContext';
 import MediaCarousel from '../components/MediaCarousel';
 import ReportModal from '../components/ReportModal';
 import GuestPromptModal from '../components/GuestPromptModal';
