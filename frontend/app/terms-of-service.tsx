@@ -20,7 +20,7 @@ export default function TermsOfServiceScreen() {
       {/* Header */}
       <View style={styles.header}>
         <TouchableOpacity style={styles.backButton} onPress={() => router.back()}>
-          <Ionicons name="chevron-back" size={24} color="#FFD700" />
+          <Ionicons name="chevron-back" size={24} color="#fff" />
         </TouchableOpacity>
         <Text style={styles.headerTitle}>Terms of Service</Text>
         <View style={styles.headerSpacer} />
@@ -31,15 +31,12 @@ export default function TermsOfServiceScreen() {
         contentContainerStyle={styles.scrollContent}
         showsVerticalScrollIndicator={false}
       >
-        <Text style={styles.lastUpdated}>Last Updated: January 2025</Text>
+        <Text style={styles.lastUpdated}>Last Updated: February 2025</Text>
 
-        {/* Zero Tolerance Policy - CRITICAL FOR APP STORE */}
-        <View style={[styles.section, styles.zeroToleranceSection]}>
-          <View style={styles.warningHeader}>
-            <Ionicons name="shield-checkmark" size={24} color='#FFD700' />
-            <Text style={styles.zeroToleranceTitle}>Zero Tolerance Policy</Text>
-          </View>
-          <Text style={styles.zeroToleranceParagraph}>
+        {/* Zero Tolerance Policy */}
+        <View style={styles.section}>
+          <Text style={styles.sectionTitle}>Zero Tolerance Policy</Text>
+          <Text style={styles.importantText}>
             WE HAVE ZERO TOLERANCE FOR OBJECTIONABLE CONTENT OR ABUSIVE USERS.
           </Text>
           <Text style={styles.paragraph}>
@@ -54,7 +51,7 @@ export default function TermsOfServiceScreen() {
             <Text style={styles.bulletItem}>• Spam, scams, or deceptive content</Text>
             <Text style={styles.bulletItem}>• Content that infringes on others' rights or privacy</Text>
           </View>
-          <Text style={styles.zeroToleranceWarning}>
+          <Text style={styles.paragraph}>
             Violation of this policy will result in immediate account suspension or permanent ban. 
             We actively monitor content and investigate all reports. Severe violations may be reported 
             to law enforcement authorities.
@@ -70,13 +67,10 @@ export default function TermsOfServiceScreen() {
           </Text>
         </View>
 
-        {/* Health Disclaimer - IMPORTANT */}
-        <View style={[styles.section, styles.warningSection]}>
-          <View style={styles.warningHeader}>
-            <Ionicons name="fitness" size={24} color='#FFD700' />
-            <Text style={styles.warningSectionTitle}>Health & Fitness Disclaimer</Text>
-          </View>
-          <Text style={styles.warningParagraph}>
+        {/* Health Disclaimer */}
+        <View style={styles.section}>
+          <Text style={styles.sectionTitle}>Health & Fitness Disclaimer</Text>
+          <Text style={styles.importantText}>
             IMPORTANT: Users should consult a physician or other qualified healthcare professional 
             before beginning any fitness program, exercise routine, or dietary changes.
           </Text>
@@ -156,11 +150,8 @@ export default function TermsOfServiceScreen() {
         </View>
 
         {/* Explicit Content Prohibition */}
-        <View style={[styles.section, styles.zeroToleranceSection]}>
-          <View style={styles.warningHeader}>
-            <Ionicons name="ban" size={24} color="#FFD700" />
-            <Text style={styles.zeroToleranceTitle}>Prohibited Sexual Content</Text>
-          </View>
+        <View style={styles.section}>
+          <Text style={styles.sectionTitle}>Prohibited Sexual Content</Text>
           <Text style={styles.paragraph}>
             The following content is STRICTLY PROHIBITED and will result in immediate account termination:
           </Text>
@@ -174,7 +165,7 @@ export default function TermsOfServiceScreen() {
             <Text style={styles.bulletItem}>• Sexual harassment or unsolicited sexual messages</Text>
             <Text style={styles.bulletItem}>• Content promoting or glorifying non-consensual sexual activity</Text>
           </View>
-          <Text style={styles.zeroToleranceWarning}>
+          <Text style={styles.paragraph}>
             We use automated filtering and human moderation to detect and remove prohibited content. 
             Attempting to bypass our filters will result in permanent account suspension.
           </Text>
@@ -198,6 +189,24 @@ export default function TermsOfServiceScreen() {
           </Text>
         </View>
 
+        {/* Dynamic Content */}
+        <View style={styles.section}>
+          <Text style={styles.sectionTitle}>Dynamic Content & Features</Text>
+          <Text style={styles.paragraph}>
+            Our app includes features that provide dynamic, personalized content:
+          </Text>
+          <View style={styles.bulletList}>
+            <Text style={styles.bulletItem}>• "Choose for me" - Algorithmically selects workouts based on your preferences and history</Text>
+            <Text style={styles.bulletItem}>• Daily workout recommendations - Automatically generated suggestions</Text>
+            <Text style={styles.bulletItem}>• Featured workouts - Curated content that may change over time</Text>
+          </View>
+          <Text style={styles.paragraph}>
+            These features use algorithms to personalize your experience. Results are not guaranteed, 
+            and workout recommendations may vary. We reserve the right to modify, update, or remove 
+            features at any time.
+          </Text>
+        </View>
+
         {/* Intellectual Property */}
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>Intellectual Property</Text>
@@ -212,7 +221,7 @@ export default function TermsOfServiceScreen() {
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>Disclaimer of Warranties</Text>
           <Text style={styles.paragraph}>
-            THE APP IS PROVIDED 'AS IS' WITHOUT WARRANTIES OF ANY KIND. WE DO NOT GUARANTEE THAT 
+            THE APP IS PROVIDED "AS IS" WITHOUT WARRANTIES OF ANY KIND. WE DO NOT GUARANTEE THAT 
             THE APP WILL BE ERROR-FREE, SECURE, OR CONTINUOUSLY AVAILABLE. FITNESS RESULTS ARE 
             NOT GUARANTEED AND DEPEND ON INDIVIDUAL EFFORT AND CIRCUMSTANCES.
           </Text>
@@ -233,7 +242,8 @@ export default function TermsOfServiceScreen() {
           <Text style={styles.sectionTitle}>Termination</Text>
           <Text style={styles.paragraph}>
             We may terminate or suspend your account at any time for violations of these terms. 
-            You may also delete your account at any time through the app settings.
+            You may also delete your account at any time through the app settings. Upon account 
+            deletion, your posts, comments, and associated data will be permanently removed.
           </Text>
         </View>
 
@@ -252,7 +262,7 @@ export default function TermsOfServiceScreen() {
           <Text style={styles.sectionTitle}>Contact Us</Text>
           <Text style={styles.paragraph}>
             If you have questions about these Terms of Service, please contact us through the app's 
-            support feature in settings.
+            support feature in settings or email us at support@moodfitnessapp.com.
           </Text>
         </View>
 
@@ -274,19 +284,19 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
     paddingVertical: 12,
     borderBottomWidth: 1,
-    borderBottomColor: 'rgba(255, 215, 0, 0.1)',
+    borderBottomColor: 'rgba(255, 255, 255, 0.1)',
   },
   backButton: {
     width: 40,
     height: 40,
     borderRadius: 20,
-    backgroundColor: 'rgba(255, 215, 0, 0.1)',
+    backgroundColor: 'rgba(255, 255, 255, 0.1)',
     justifyContent: 'center',
     alignItems: 'center',
   },
   headerTitle: {
     fontSize: 18,
-    fontWeight: '700',
+    fontWeight: '600',
     color: '#fff',
   },
   headerSpacer: {
@@ -300,86 +310,40 @@ const styles = StyleSheet.create({
   },
   lastUpdated: {
     fontSize: 12,
-    color: '#888',
+    color: '#666',
     marginBottom: 24,
     textAlign: 'center',
   },
   section: {
-    marginBottom: 24,
-  },
-  warningSection: {
-    backgroundColor: 'rgba(255, 215, 0, 0.08)',
-    borderRadius: 12,
-    padding: 16,
-    borderWidth: 1,
-    borderColor: 'rgba(255, 215, 0, 0.25)',
-  },
-  zeroToleranceSection: {
-    backgroundColor: 'rgba(255, 215, 0, 0.08)',
-    borderRadius: 12,
-    padding: 16,
-    borderWidth: 1,
-    borderColor: 'rgba(255, 215, 0, 0.25)',
-  },
-  zeroToleranceTitle: {
-    fontSize: 18,
-    fontWeight: '700',
-    color: '#FFD700',
-  },
-  zeroToleranceParagraph: {
-    fontSize: 15,
-    lineHeight: 22,
-    color: '#FF3B30',
-    fontWeight: '700',
-    marginBottom: 12,
-    textAlign: 'center',
-  },
-  zeroToleranceWarning: {
-    fontSize: 13,
-    lineHeight: 20,
-    color: '#FF3B30',
-    fontWeight: '600',
-    marginTop: 12,
-    fontStyle: 'italic',
-  },
-  warningHeader: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginBottom: 12,
-    gap: 8,
-  },
-  warningSectionTitle: {
-    fontSize: 18,
-    fontWeight: '700',
-    color: '#FFD700',
-  },
-  warningParagraph: {
-    fontSize: 14,
-    lineHeight: 22,
-    color: '#ccc',
-    fontWeight: '600',
-    marginBottom: 12,
+    marginBottom: 28,
   },
   sectionTitle: {
-    fontSize: 18,
-    fontWeight: '700',
-    color: '#FFD700',
+    fontSize: 17,
+    fontWeight: '600',
+    color: '#fff',
     marginBottom: 12,
   },
   paragraph: {
     fontSize: 14,
     lineHeight: 22,
-    color: '#ccc',
+    color: '#999',
     marginBottom: 8,
   },
+  importantText: {
+    fontSize: 14,
+    lineHeight: 22,
+    color: '#ccc',
+    fontWeight: '600',
+    marginBottom: 12,
+  },
   bulletList: {
-    marginLeft: 8,
+    marginLeft: 4,
     marginTop: 4,
   },
   bulletItem: {
     fontSize: 14,
     lineHeight: 24,
-    color: '#aaa',
+    color: '#888',
   },
   bottomPadding: {
     height: 40,
