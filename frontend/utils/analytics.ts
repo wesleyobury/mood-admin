@@ -131,12 +131,22 @@ export const trackEvent = async (
 
 /**
  * Track guest user events (no authentication required)
+ * Apple Compliance: Includes event_timestamp_utc and user_timezone
  */
 export const trackGuestEvent = async (
   eventType: string,
-  metadata?: Record<string, any>
+  metadata?: Record<string, any>,
+  isEssential: boolean = false
 ): Promise<void> => {
   try {
+    // Check opt-out for non-essential analytics
+    if (!isEssential) {
+      const optedOut = await isAnalyticsOptedOut();
+      if (optedOut) {
+        return; // Skip non-essential tracking
+      }
+    }
+
     const deviceId = await getOrCreateDeviceId();
     
     const response = await fetch(`${API_URL}/api/analytics/track/guest`, {
@@ -147,6 +157,8 @@ export const trackGuestEvent = async (
       body: JSON.stringify({
         event_type: eventType,
         device_id: deviceId,
+        event_timestamp_utc: getUTCTimestamp(),
+        user_timezone: getUserTimezone(),
         metadata: { ...metadata, is_guest: true }
       })
     });
