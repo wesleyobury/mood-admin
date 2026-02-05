@@ -489,6 +489,10 @@ export default function PrivacyPolicyScreen() {
           <Text style={styles.contactText}>Email: privacy@moodfitnessapp.com</Text>
           <Text style={styles.contactText}>In-App: Settings - Help & Support - Privacy Inquiry</Text>
           <Text style={styles.paragraph}>
+            For safety, abuse, or objectionable content concerns, users may contact us directly at:
+          </Text>
+          <Text style={styles.contactText}>wesleyogsbury@gmail.com</Text>
+          <Text style={styles.paragraph}>
             We aim to respond to all privacy-related inquiries within 30 days.
           </Text>
         </View>
