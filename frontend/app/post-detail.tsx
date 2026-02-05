@@ -255,6 +255,54 @@ export default function PostDetail() {
     fetchPost();
   };
 
+  // Handle "Try this workout" button press
+  const handleTryWorkout = () => {
+    if (!post?.workout_data?.workouts) return;
+    
+    // Animate button press
+    Animated.sequence([
+      Animated.timing(tryWorkoutAnim, { toValue: 0.95, duration: 100, useNativeDriver: true }),
+      Animated.timing(tryWorkoutAnim, { toValue: 1, duration: 100, useNativeDriver: true }),
+    ]).start();
+    
+    // Clear cart and add all workouts from this post
+    clearCart();
+    
+    const moodCategory = post.workout_data.mood_category || 'Shared Workout';
+    
+    post.workout_data.workouts.forEach((workout, index) => {
+      addToCart({
+        id: `shared-${post.id}-${index}-${Date.now()}`,
+        name: workout.name,
+        equipment: workout.equipment || 'Bodyweight',
+        duration: workout.duration || '10 min',
+        difficulty: workout.difficulty || 'intermediate',
+        imageUrl: workout.imageUrl || '',
+        description: workout.description || '',
+        workoutType: moodCategory,
+        moodCard: moodCategory,
+        moodTips: [],
+      });
+    });
+    
+    // Track analytics
+    if (token) {
+      Analytics.tryWorkoutClicked(token, {
+        post_id: post.id,
+        workout_count: post.workout_data.workouts.length,
+        author_id: post.author.id,
+      });
+    } else {
+      GuestAnalytics.tryWorkoutClicked({
+        post_id: post.id,
+        workout_count: post.workout_data.workouts.length,
+      });
+    }
+    
+    // Navigate to cart
+    router.push('/cart');
+  };
+
   const handleUserPress = (userId: string) => {
     setShowComments(false);
     router.push(`/user-profile?userId=${userId}`);
