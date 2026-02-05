@@ -2296,7 +2296,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    marginBottom: 6,
+    marginBottom: 4,
   },
   achievementDateLabel: {
     color: 'rgba(255, 255, 255, 0.45)',
@@ -2312,6 +2312,33 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
+  achievementMoodLabel: {
+    fontSize: 18,
+    fontWeight: '700',
+    color: '#fff',
+    letterSpacing: -0.3,
+    marginBottom: 8,
+  },
+  achievementStatsRow: {
+    flexDirection: 'row',
+    gap: 5,
+    flexWrap: 'nowrap',
+  },
+  achievementStatPill: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: 'rgba(255, 215, 0, 0.1)',
+    paddingHorizontal: 5,
+    paddingVertical: 3,
+    borderRadius: 10,
+    gap: 2,
+  },
+  achievementStatPillText: {
+    color: 'rgba(255, 255, 255, 0.65)',
+    fontSize: 10,
+    fontWeight: '500',
+  },
+  // Legacy styles kept for compatibility
   achievementMainStats: {
     flexDirection: 'row',
     alignItems: 'baseline',
@@ -2334,20 +2361,6 @@ const styles = StyleSheet.create({
     gap: 6,
     marginBottom: 10,
   },
-  achievementStatPill: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    backgroundColor: 'rgba(255, 215, 0, 0.1)',
-    paddingHorizontal: 6,
-    paddingVertical: 3,
-    borderRadius: 10,
-    gap: 3,
-  },
-  achievementStatPillText: {
-    color: 'rgba(255, 255, 255, 0.65)',
-    fontSize: 10,
-    fontWeight: '500',
-  },
   achievementWorkoutPreview: {
     borderTopWidth: 1,
     borderTopColor: 'rgba(255, 255, 255, 0.06)',
@@ -2358,7 +2371,6 @@ const styles = StyleSheet.create({
     fontSize: 10,
     lineHeight: 14,
   },
-  // Legacy styles kept for compatibility
   savedAchievementIcon: {
     width: 48,
     height: 48,
