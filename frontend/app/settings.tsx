@@ -455,6 +455,24 @@ export default function Settings() {
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>Privacy & Safety</Text>
           
+          {/* Analytics Toggle - Apple Compliance */}
+          <View style={styles.settingsItemWithSwitch}>
+            <View style={styles.settingsItemLeft}>
+              <Ionicons name="analytics-outline" size={20} color="#FFD700" />
+              <View>
+                <Text style={styles.settingsItemText}>Usage Analytics</Text>
+                <Text style={styles.settingsItemSubtext}>Help improve MOOD with anonymous data</Text>
+              </View>
+            </View>
+            <Switch
+              value={analyticsEnabled}
+              onValueChange={handleAnalyticsToggle}
+              trackColor={{ false: '#3a3a3a', true: '#FFD700' }}
+              thumbColor="#fff"
+              ios_backgroundColor="#3a3a3a"
+            />
+          </View>
+          
           <TouchableOpacity 
             style={styles.settingsItem}
             onPress={() => router.push('/blocked-users')}
