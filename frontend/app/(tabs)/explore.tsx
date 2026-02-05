@@ -439,66 +439,9 @@ export default function Explore() {
     fetchNotifications();
   };
 
-  // Format time ago for notifications
+  // Format time ago for notifications - use shared utility
   const formatTimeAgo = (dateString: string) => {
-    try {
-      const date = new Date(dateString);
-      const now = new Date();
-      
-      // Check if date is valid
-      if (isNaN(date.getTime())) {
-        console.warn('Invalid date string:', dateString);
-        return 'recently';
-      }
-      
-      const diffMs = now.getTime() - date.getTime();
-      const seconds = Math.floor(diffMs / 1000);
-      const minutes = Math.floor(seconds / 60);
-      const hours = Math.floor(minutes / 60);
-      const days = Math.floor(hours / 24);
-      const weeks = Math.floor(days / 7);
-      
-      // Handle future dates (clock sync issues)
-      if (seconds < 0) {
-        return 'just now';
-      }
-      
-      // Under 1 minute
-      if (seconds < 60) {
-        return 'just now';
-      }
-      
-      // Under 1 hour - show minutes
-      if (minutes < 60) {
-        return `${minutes}m ago`;
-      }
-      
-      // Between 1-12 hours - show hours
-      if (hours < 12) {
-        return `${hours}h ago`;
-      }
-      
-      // Between 12-24 hours (13-24 hours = 1 day)
-      if (hours < 24) {
-        return '1d ago';
-      }
-      
-      // More than 24 hours - show days
-      if (days < 7) {
-        return `${days}d ago`;
-      }
-      
-      // Show weeks for older notifications
-      if (weeks < 4) {
-        return `${weeks}w ago`;
-      }
-      
-      // Show date for very old notifications
-      return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
-    } catch (error) {
-      console.error('Error formatting time:', error);
-      return 'recently';
-    }
+    return formatNotificationTime(dateString);
   };
 
   // Get notification icon based on type
