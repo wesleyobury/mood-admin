@@ -546,13 +546,20 @@ export function generateMuscleGainerCarts(
     
     // Process primary muscle groups first
     for (const muscleGroup of primaryGroups) {
+      // Special handling for "Legs" - use dedicated function
+      if (muscleGroup === 'Legs') {
+        const legWorkouts = selectLegWorkouts(intensity, usedWorkoutNames);
+        allWorkouts.push(...legWorkouts);
+        continue;
+      }
+      
       // Determine exercise count for this muscle group
       let minCount = isBeginner ? 2 : (MIN_EXERCISES_PRIMARY[muscleGroup] || 3);
       let maxCount = isBeginner ? 3 : minCount + 1;
       
-      // Check if this is a leg-related muscle group that needs a compound
-      const isLegGroup = ['Legs', 'Quads', 'Hamstrings', 'Glutes'].includes(muscleGroup);
-      const requireCompound = !isBeginner && isLegGroup;
+      // Check if this is a leg-related sub-group that needs a compound
+      const isLegSubGroup = ['Quads', 'Hamstrings', 'Glutes'].includes(muscleGroup);
+      const requireCompound = !isBeginner && isLegSubGroup;
       
       const groupWorkouts = selectWorkoutsForMuscleGroup(
         muscleGroup,
