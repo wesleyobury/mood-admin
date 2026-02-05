@@ -20,6 +20,7 @@ import { useAuth } from '../contexts/AuthContext';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import Constants from 'expo-constants';
 import { BarChart, LineChart } from 'react-native-chart-kit';
+import BackButton from '../components/BackButton';
 
 const API_URL = process.env.EXPO_PUBLIC_BACKEND_URL || Constants.expoConfig?.extra?.EXPO_PUBLIC_BACKEND_URL || '';
 const screenWidth = Dimensions.get('window').width;
