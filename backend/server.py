@@ -5032,6 +5032,19 @@ async def get_single_post(post_id: str, current_user_id: str = Depends(get_curre
             }
         },
         {
+            "$lookup": {
+                "from": "saved_posts",
+                "let": {"post_id": "$_id", "user_id": ObjectId(current_user_id)},
+                "pipeline": [
+                    {"$match": {"$expr": {"$and": [
+                        {"$eq": ["$post_id", "$$post_id"]},
+                        {"$eq": ["$user_id", "$$user_id"]}
+                    ]}}}
+                ],
+                "as": "user_save"
+            }
+        },
+        {
             "$project": {
                 "_id": 0,
                 "id": {"$toString": "$_id"},
@@ -5043,9 +5056,12 @@ async def get_single_post(post_id: str, current_user_id: str = Depends(get_curre
                 },
                 "caption": 1,
                 "media_urls": 1,
+                "cover_urls": 1,
                 "likes_count": {"$ifNull": ["$likes_count", 0]},
                 "comments_count": {"$ifNull": ["$comments_count", 0]},
                 "is_liked": {"$gt": [{"$size": "$user_like"}, 0]},
+                "is_saved": {"$gt": [{"$size": "$user_save"}, 0]},
+                "workout_data": 1,
                 "created_at": {"$toString": "$created_at"}
             }
         }
