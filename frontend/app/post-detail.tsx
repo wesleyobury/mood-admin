@@ -414,15 +414,50 @@ export default function PostDetail() {
 
         {/* Media (Images/Videos) */}
         {post.media_urls.length > 0 && (
-          <MediaCarousel 
-            media={post.media_urls.map(url => {
-              // If URL doesn't start with http/https, prepend backend URL
-              if (!url.startsWith('http')) {
-                return url.startsWith('/') ? `${API_URL}${url}` : `${API_URL}/api/uploads/${url}`;
-              }
-              return url;
-            })} 
-          />
+          <View style={styles.mediaWrapper}>
+            <MediaCarousel 
+              media={post.media_urls.map(url => {
+                // If URL doesn't start with http/https, prepend backend URL
+                if (!url.startsWith('http')) {
+                  return url.startsWith('/') ? `${API_URL}${url}` : `${API_URL}/api/uploads/${url}`;
+                }
+                return url;
+              })}
+              onIndexChange={setCarouselIndex}
+              coverUrls={post.cover_urls}
+            />
+            
+            {/* Try this Workout Button - Only on workout completion card (last slide) */}
+            {isOnWorkoutCard && (
+              <Animated.View 
+                style={[
+                  styles.tryWorkoutOverlay,
+                  {
+                    opacity: shimmerAnim.interpolate({
+                      inputRange: [0, 0.5, 1],
+                      outputRange: [1, 0.8, 1],
+                    }),
+                  }
+                ]}
+              >
+                <TouchableOpacity 
+                  style={styles.tryWorkoutBtn}
+                  onPress={handleTryWorkout}
+                  activeOpacity={0.8}
+                >
+                  <LinearGradient
+                    colors={['rgba(255, 215, 0, 0.9)', 'rgba(255, 185, 0, 0.9)']}
+                    start={{ x: 0, y: 0 }}
+                    end={{ x: 1, y: 1 }}
+                    style={styles.tryWorkoutGradient}
+                  >
+                    <Ionicons name="barbell-outline" size={16} color="#000" />
+                    <Text style={styles.tryWorkoutText}>Try this workout</Text>
+                  </LinearGradient>
+                </TouchableOpacity>
+              </Animated.View>
+            )}
+          </View>
         )}
 
         {/* Actions */}
