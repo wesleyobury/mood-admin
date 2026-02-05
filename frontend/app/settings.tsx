@@ -374,6 +374,20 @@ export default function Settings() {
             </View>
             <Ionicons name="chevron-forward" size={18} color='#666' />
           </TouchableOpacity>
+
+          <TouchableOpacity 
+            style={styles.settingsItem}
+            onPress={() => router.push('/community-guidelines')}
+          >
+            <View style={styles.settingsItemLeft}>
+              <Ionicons name="people-outline" size={20} color="#FFD700" />
+              <View>
+                <Text style={styles.settingsItemText}>Community Guidelines</Text>
+                <Text style={styles.settingsItemSubtext}>Rules for a positive community</Text>
+              </View>
+            </View>
+            <Ionicons name="chevron-forward" size={18} color='#666' />
+          </TouchableOpacity>
         </View>
 
         {/* Help & Support Section */}
