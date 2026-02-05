@@ -348,7 +348,25 @@ const LEG_COMPOUND_EXERCISES = [
   'Barbell Hack Squat',
   'Dumbbell Lunges',
   'Walking Lunges',
+  'Smith Machine Squat',
+  'Trap Bar Deadlift',
+  'Barbell Squat',
+  'Dumbbell Squat',
+  'Split Squat',
+  'Step Up',
+  'Zercher Squat',
 ];
+
+// Leg sub-groups for isolation exercises
+const LEG_ISOLATION_GROUPS = ['Quads', 'Hamstrings', 'Glutes', 'Calves'];
+
+// Check if a workout is a compound leg exercise
+function isCompoundLegExercise(workoutName: string): boolean {
+  return LEG_COMPOUND_EXERCISES.some(compound => 
+    workoutName.toLowerCase().includes(compound.toLowerCase()) ||
+    compound.toLowerCase().includes(workoutName.toLowerCase())
+  );
+}
 
 // Get workouts from database with muscle group tagging
 function getWorkoutsForMuscleGroup(
@@ -372,6 +390,76 @@ function getWorkoutsForMuscleGroup(
   }
   
   return workouts;
+}
+
+// Special function to select leg workouts with compound-first rule
+function selectLegWorkouts(
+  intensity: IntensityLevel,
+  usedWorkoutNames: Set<string>
+): { workout: Workout; equipment: string; muscleGroup: string }[] {
+  const isBeginner = intensity === 'beginner';
+  
+  // Get compound count and isolation count based on intensity
+  const compoundCount = 2;
+  const isolationCount = isBeginner ? 1 : 2; // Beginner: 2+1=3, Int/Adv: 2+2=4
+  
+  const selected: { workout: Workout; equipment: string; muscleGroup: string }[] = [];
+  
+  // Step 1: Get all leg workouts from all sub-groups
+  const allLegWorkouts: { workout: Workout; equipment: string; muscleGroup: string }[] = [];
+  for (const subGroup of LEG_ISOLATION_GROUPS) {
+    const subGroupWorkouts = getWorkoutsForMuscleGroup(subGroup, intensity);
+    allLegWorkouts.push(...subGroupWorkouts);
+  }
+  
+  // Shuffle for variety
+  const shuffledWorkouts = shuffleArray(allLegWorkouts);
+  
+  // Step 2: Select compound exercises first
+  const compoundWorkouts = shuffledWorkouts.filter(w => 
+    isCompoundLegExercise(w.workout.name) && !usedWorkoutNames.has(w.workout.name)
+  );
+  
+  for (const compound of compoundWorkouts) {
+    if (selected.length >= compoundCount) break;
+    selected.push(compound);
+    usedWorkoutNames.add(compound.workout.name);
+  }
+  
+  // Step 3: Select isolation exercises from different sub-groups (no duplicates from same group)
+  const usedSubGroups = new Set<string>();
+  const isolationWorkouts = shuffledWorkouts.filter(w => 
+    !isCompoundLegExercise(w.workout.name) && !usedWorkoutNames.has(w.workout.name)
+  );
+  
+  for (const isolation of isolationWorkouts) {
+    if (selected.length >= compoundCount + isolationCount) break;
+    
+    // Don't pick two exercises from the same sub-group
+    if (usedSubGroups.has(isolation.muscleGroup)) continue;
+    
+    selected.push(isolation);
+    usedWorkoutNames.add(isolation.workout.name);
+    usedSubGroups.add(isolation.muscleGroup);
+  }
+  
+  // If we still need more isolation exercises (unlikely but handle edge case)
+  // Allow same sub-group but different exercises
+  if (selected.length < compoundCount + isolationCount) {
+    for (const isolation of isolationWorkouts) {
+      if (selected.length >= compoundCount + isolationCount) break;
+      if (usedWorkoutNames.has(isolation.workout.name)) continue;
+      
+      selected.push(isolation);
+      usedWorkoutNames.add(isolation.workout.name);
+    }
+  }
+  
+  // Tag all selected as "Legs" for proper grouping
+  return selected.map(w => ({
+    ...w,
+    muscleGroup: 'Legs'
+  }));
 }
 
 // Select workouts for a specific muscle group with minimum count requirements
