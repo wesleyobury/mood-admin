@@ -412,12 +412,8 @@ export default function AdminExerciseLibrary() {
         transparent={false}
         onRequestClose={() => setModalVisible(false)}
       >
-        <KeyboardAvoidingView 
-          style={styles.modalContainer}
-          behavior={Platform.OS === 'ios' ? 'padding' : undefined}
-          keyboardVerticalOffset={0}
-        >
-          {/* Modal Header - Fixed at top */}
+        <View style={styles.modalContainer}>
+          {/* Modal Header - Fixed at top, outside KeyboardAvoidingView */}
           <SafeAreaView edges={['top']} style={styles.modalHeaderSafeArea}>
             <View style={styles.modalHeader}>
               <TouchableOpacity onPress={() => setModalVisible(false)} style={styles.modalHeaderButton}>
@@ -436,13 +432,19 @@ export default function AdminExerciseLibrary() {
             </View>
           </SafeAreaView>
 
-          <ScrollView 
-            style={styles.modalScroll} 
-            contentContainerStyle={styles.modalContent}
-            keyboardShouldPersistTaps="handled"
-            keyboardDismissMode="interactive"
-            showsVerticalScrollIndicator={true}
+          {/* Scrollable content with keyboard handling */}
+          <KeyboardAvoidingView 
+            style={{ flex: 1 }}
+            behavior={Platform.OS === 'ios' ? 'padding' : undefined}
+            keyboardVerticalOffset={0}
           >
+            <ScrollView 
+              style={styles.modalScroll} 
+              contentContainerStyle={styles.modalContent}
+              keyboardShouldPersistTaps="handled"
+              keyboardDismissMode="interactive"
+              showsVerticalScrollIndicator={true}
+            >
               {/* Video Upload Section */}
               <View style={styles.section}>
                 <Text style={styles.sectionTitle}>Video & Thumbnail</Text>
