@@ -379,10 +379,10 @@ const VideoFrameSelector: React.FC<VideoFrameSelectorProps> = memo(({
           </TouchableOpacity>
         </View>
 
-        {/* Preview Area */}
+        {/* Preview Area - Instagram-style: full video with fixed crop overlay */}
         <View style={styles.previewSection}>
-          {/* Full frame container */}
-          <View style={styles.previewContainer}>
+          {/* Container with overflow hidden to keep video within bounds */}
+          <View style={[styles.previewContainer, { height: PREVIEW_CONTAINER_HEIGHT }]}>
             <GestureDetector gesture={imageGesture}>
               <View style={styles.gestureArea}>
                 {isLoadingFrames ? (
@@ -395,7 +395,7 @@ const VideoFrameSelector: React.FC<VideoFrameSelectorProps> = memo(({
                     <Image 
                       source={{ uri: currentFrame.uri }} 
                       style={styles.fullImage} 
-                      resizeMode="contain"
+                      resizeMode="cover"
                     />
                   </Animated.View>
                 ) : (
@@ -406,26 +406,26 @@ const VideoFrameSelector: React.FC<VideoFrameSelectorProps> = memo(({
               </View>
             </GestureDetector>
             
-            {/* Dark overlay with crop window cutout */}
+            {/* Fixed crop window overlay - positioned in center */}
             <View style={styles.overlayContainer} pointerEvents="none">
               {/* Top dark area */}
-              <View style={[styles.darkOverlay, { height: (PREVIEW_HEIGHT - cropBoxHeight) / 2 }]} />
+              <View style={[styles.darkOverlay, { height: (PREVIEW_CONTAINER_HEIGHT - CROP_HEIGHT) / 2 }]} />
               
               {/* Middle row with sides and crop window */}
               <View style={styles.middleRow}>
-                <View style={[styles.darkOverlay, { width: (PREVIEW_WIDTH - cropBoxWidth) / 2 }]} />
-                <View style={[styles.cropWindow, { width: cropBoxWidth, height: cropBoxHeight }]}>
+                <View style={[styles.darkOverlay, { width: (SCREEN_WIDTH - 32 - CROP_WIDTH) / 2 }]} />
+                <View style={[styles.cropWindow, { width: CROP_WIDTH, height: CROP_HEIGHT }]}>
                   {/* Corner indicators */}
                   <View style={[styles.corner, styles.tl]} />
                   <View style={[styles.corner, styles.tr]} />
                   <View style={[styles.corner, styles.bl]} />
                   <View style={[styles.corner, styles.br]} />
                 </View>
-                <View style={[styles.darkOverlay, { width: (PREVIEW_WIDTH - cropBoxWidth) / 2 }]} />
+                <View style={[styles.darkOverlay, { width: (SCREEN_WIDTH - 32 - CROP_WIDTH) / 2 }]} />
               </View>
               
               {/* Bottom dark area */}
-              <View style={[styles.darkOverlay, { height: (PREVIEW_HEIGHT - cropBoxHeight) / 2 }]} />
+              <View style={[styles.darkOverlay, { height: (PREVIEW_CONTAINER_HEIGHT - CROP_HEIGHT) / 2 }]} />
             </View>
           </View>
 
