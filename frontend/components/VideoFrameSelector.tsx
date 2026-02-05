@@ -181,12 +181,14 @@ const VideoFrameSelector: React.FC<VideoFrameSelectorProps> = memo(({
   // Combined gesture
   const imageGesture = Gesture.Simultaneous(pinchGesture, imagePanGesture);
 
-  // Animated styles
+  // Animated styles - transform the image
   const scrubberAnimatedStyle = useAnimatedStyle(() => ({
     transform: [{ translateX: scrubberX.value - SCRUBBER_WIDTH / 2 }],
   }));
 
   const imageAnimatedStyle = useAnimatedStyle(() => ({
+    width: displayWidth,
+    height: displayHeight,
     transform: [
       { scale: imageScale.value },
       { translateX: imageTranslateX.value },
