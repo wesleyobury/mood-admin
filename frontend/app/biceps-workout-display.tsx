@@ -113,7 +113,7 @@ const BicepsWorkoutDisplayScreen = memo(function BicepsWorkoutDisplayScreen() {
     };
     addToCart(cartItem);
     if (token) {
-      Analytics.trackWorkoutAdded(workoutId, workout.name, equipment, difficulty);
+      Analytics.trackWorkoutAdded(token, workoutId, workout.name, equipment, difficulty);
     }
   };
 
