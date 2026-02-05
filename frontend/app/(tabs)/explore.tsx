@@ -422,7 +422,7 @@ export default function Explore() {
     if (token && !isGuest) {
       fetchUnreadCount();
       // Refresh count every 30 seconds
-      const interval = setInterval(fetchUnreadCount, 30000);
+      const interval = setInterval(fetchUnreadCount, 120000); // Every 2 minutes instead of 30 seconds
       return () => clearInterval(interval);
     }
   }, [token, isGuest]);
