@@ -767,7 +767,7 @@ export default function Profile() {
         <View style={styles.headerRightButtons}>
           <TouchableOpacity 
             style={styles.messagesButton}
-            onPress={() => router.push('/notifications-inbox')}
+            onPress={() => router.push('/(tabs)/explore?tab=notifications')}
           >
             <Ionicons name="notifications-outline" size={24} color="#fff" />
             {unreadNotifications > 0 && (
