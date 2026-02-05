@@ -31,7 +31,7 @@ This document provides a comprehensive checklist for Apple App Store compliance,
 |---------|--------|----------|
 | Settings screen | ✅ | `/app/notification-settings.tsx` |
 | Category controls | ✅ | Social, Messages, Workouts, Digest |
-| Link to iOS Settings | ⚠️ NEEDS ADDITION | See PR below |
+| Link to iOS Settings | ✅ | "Open iOS Notification Settings" button |
 | Quiet hours | ✅ | Configurable start/end times |
 
 **Categories Available:**
