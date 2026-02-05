@@ -343,8 +343,30 @@ export default function WorkoutsHome() {
   // Fetch remote-driven featured workouts
   const { workouts: remoteFeaturedWorkouts, loading: featuredLoading, refresh: refreshFeatured } = useFeaturedWorkouts();
   
-  // Transform to carousel format
-  const featuredWorkouts = remoteFeaturedWorkouts.map(transformWorkoutForCarousel);
+  // Randomize workouts once per session using a shuffle seed stored in state
+  const [shuffledWorkouts, setShuffledWorkouts] = useState<CarouselWorkout[]>([]);
+  
+  // Fisher-Yates shuffle for randomization
+  const shuffleArray = <T,>(array: T[]): T[] => {
+    const shuffled = [...array];
+    for (let i = shuffled.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    }
+    return shuffled;
+  };
+  
+  // Shuffle workouts when remote data changes - runs once per session/refresh
+  useEffect(() => {
+    if (remoteFeaturedWorkouts.length > 0) {
+      const transformed = remoteFeaturedWorkouts.map(transformWorkoutForCarousel);
+      const shuffled = shuffleArray(transformed);
+      setShuffledWorkouts(shuffled);
+    }
+  }, [remoteFeaturedWorkouts]);
+  
+  // Use shuffled workouts for the carousel
+  const featuredWorkouts = shuffledWorkouts;
   
   const [greeting, setGreeting] = useState('');
   const [userStats, setUserStats] = useState({ workouts: 0, minutes: 0, streak: 0 });
