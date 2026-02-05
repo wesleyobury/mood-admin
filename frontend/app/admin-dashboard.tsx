@@ -782,9 +782,7 @@ export default function AdminDashboard() {
     <View style={[styles.container, { paddingTop: insets.top }]}>
       {/* Header */}
       <View style={styles.header}>
-        <TouchableOpacity onPress={() => router.back()} style={styles.backButton}>
-          <Ionicons name="arrow-back" size={24} color="#FFD700" />
-        </TouchableOpacity>
+        <BackButton />
         <View style={styles.headerTitleContainer}>
           <Text style={styles.headerTitle}>Analytics Dashboard</Text>
           <Text style={styles.headerSubtitle}>Board-Ready Insights</Text>
