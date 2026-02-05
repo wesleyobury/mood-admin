@@ -247,21 +247,25 @@ export default function Profile() {
   useEffect(() => {
     if (token) {
       fetchUserProfile();
-      fetchUnreadCount();
+      // Only fetch notification count once on mount
       fetchUnreadNotifications();
     }
   }, [token]);
 
-  // Refetch profile data when screen comes into focus
+  // Refetch profile data when screen comes into focus (with debounce)
+  const lastFocusFetch = React.useRef(0);
   useFocusEffect(
     React.useCallback(() => {
       if (token) {
-        fetchUserProfile();
-        fetchUnreadCount();
-        fetchUnreadNotifications();
-        // Also refetch posts if on posts tab
-        if (activeTab === 'posts' && authUser?.id) {
-          fetchUserPosts();
+        const now = Date.now();
+        // Debounce: only fetch if last fetch was more than 5 seconds ago
+        if (now - lastFocusFetch.current > 5000) {
+          lastFocusFetch.current = now;
+          fetchUserProfile();
+          // Fetch posts only if on posts tab
+          if (activeTab === 'posts' && authUser?.id) {
+            fetchUserPosts();
+          }
         }
       }
     }, [token, activeTab, authUser?.id])
