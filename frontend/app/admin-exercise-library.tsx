@@ -317,9 +317,7 @@ export default function AdminExerciseLibrary() {
     <SafeAreaView style={styles.container} edges={['top']}>
       {/* Header */}
       <View style={styles.header}>
-        <TouchableOpacity onPress={() => router.back()} style={styles.backButton}>
-          <Ionicons name="arrow-back" size={24} color="#fff" />
-        </TouchableOpacity>
+        <BackButton />
         <Text style={styles.headerTitle}>Exercise Library</Text>
         <TouchableOpacity onPress={openAddModal} style={styles.addButton}>
           <Ionicons name="add" size={28} color="#D4AF37" />
