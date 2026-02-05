@@ -359,7 +359,7 @@ export default function AdminDashboard() {
     sendHeartbeat();
     
     // Set up interval
-    heartbeatRef.current = setInterval(sendHeartbeat, 30000);
+    heartbeatRef.current = setInterval(sendHeartbeat, 120000); // Every 2 minutes
     
     return () => {
       if (heartbeatRef.current) {
