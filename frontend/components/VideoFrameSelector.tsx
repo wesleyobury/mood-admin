@@ -502,7 +502,7 @@ const VideoFrameSelector: React.FC<VideoFrameSelectorProps> = memo(({
           </View>
         )}
 
-        <Text style={styles.footer}>Position your video within the crop area</Text>
+        <Text style={styles.footer}>Move and zoom the video to position it within the crop frame</Text>
       </View>
     </GestureHandlerRootView>
   );
