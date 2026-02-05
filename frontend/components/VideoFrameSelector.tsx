@@ -124,36 +124,38 @@ const VideoFrameSelector: React.FC<VideoFrameSelectorProps> = memo(({
 
   const filmstripGesture = Gesture.Race(scrubberGesture, tapGesture);
 
-  // Image pinch-to-zoom gesture with focal point
+  // Pinch-to-zoom gesture - allows zooming in/out on the full video
   const pinchGesture = Gesture.Pinch()
-    .onStart((event) => {
+    .onStart(() => {
       savedScale.value = imageScale.value;
-      focalX.value = event.focalX;
-      focalY.value = event.focalY;
     })
     .onUpdate((event) => {
-      // Allow zooming from 0.5x (see more) to 4x (zoom in)
+      // Allow zooming from 0.5x (see more of video) to 4x (zoom in detail)
       const newScale = Math.max(0.5, Math.min(savedScale.value * event.scale, 4));
       imageScale.value = newScale;
     })
     .onEnd(() => {
-      // If too zoomed out, snap back to minimum
+      // Clamp to reasonable bounds
       if (imageScale.value < 0.5) {
         imageScale.value = withSpring(0.5);
       }
     });
 
-  // Image pan gesture - works at any zoom level
+  // Pan gesture - drag the full video to position it within the crop window
   const imagePanGesture = Gesture.Pan()
     .onStart(() => {
       savedTranslateX.value = imageTranslateX.value;
       savedTranslateY.value = imageTranslateY.value;
     })
     .onUpdate((event) => {
-      // Calculate max translation based on scale and image size
+      // Calculate how much of the video extends beyond the crop window
       const scale = imageScale.value;
-      const maxTranslateX = Math.max(0, (PREVIEW_WIDTH * scale - cropBoxWidth) / 2);
-      const maxTranslateY = Math.max(0, (PREVIEW_HEIGHT * scale - cropBoxHeight) / 2);
+      const scaledWidth = displayWidth * scale;
+      const scaledHeight = displayHeight * scale;
+      
+      // Maximum pan distance - allow panning until the edge of video meets crop window edge
+      const maxTranslateX = Math.max(0, (scaledWidth - CROP_WIDTH) / 2);
+      const maxTranslateY = Math.max(0, (scaledHeight - CROP_HEIGHT) / 2);
       
       imageTranslateX.value = Math.max(-maxTranslateX, Math.min(maxTranslateX, 
         savedTranslateX.value + event.translationX));
@@ -161,10 +163,12 @@ const VideoFrameSelector: React.FC<VideoFrameSelectorProps> = memo(({
         savedTranslateY.value + event.translationY));
     })
     .onEnd(() => {
-      // Clamp to bounds
+      // Snap back if out of bounds
       const scale = imageScale.value;
-      const maxTranslateX = Math.max(0, (PREVIEW_WIDTH * scale - cropBoxWidth) / 2);
-      const maxTranslateY = Math.max(0, (PREVIEW_HEIGHT * scale - cropBoxHeight) / 2);
+      const scaledWidth = displayWidth * scale;
+      const scaledHeight = displayHeight * scale;
+      const maxTranslateX = Math.max(0, (scaledWidth - CROP_WIDTH) / 2);
+      const maxTranslateY = Math.max(0, (scaledHeight - CROP_HEIGHT) / 2);
       
       if (Math.abs(imageTranslateX.value) > maxTranslateX) {
         imageTranslateX.value = withSpring(Math.sign(imageTranslateX.value) * maxTranslateX);
