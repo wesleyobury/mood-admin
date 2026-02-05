@@ -16,6 +16,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useAuth } from '../contexts/AuthContext';
 import notificationService, { Notification } from '../utils/notifications';
+import { formatNotificationTime } from '../utils/notificationUtils';
 
 // Notification type icons
 const TYPE_ICONS: Record<string, { name: string; color: string }> = {
