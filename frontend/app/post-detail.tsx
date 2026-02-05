@@ -67,6 +67,7 @@ export default function PostDetail() {
   const router = useRouter();
   const params = useLocalSearchParams();
   const { token, user, isGuest } = useAuth();
+  const { addToCart, clearCart } = useCart();
   const [post, setPost] = useState<Post | null>(null);
   const [loading, setLoading] = useState(true);
   const [isDeleting, setIsDeleting] = useState(false);
@@ -75,9 +76,13 @@ export default function PostDetail() {
   const [showGuestPrompt, setShowGuestPrompt] = useState(false);
   const [guestAction, setGuestAction] = useState('');
   const [showComments, setShowComments] = useState(false);
+  const [tryWorkoutAnim] = useState(new Animated.Value(1));
 
   // Check if current user is the post author
   const isOwnPost = post && user && post.author.id === user.id;
+  
+  // Check if post has workout data
+  const hasWorkoutData = post?.workout_data && post.workout_data.workouts && post.workout_data.workouts.length > 0;
 
   useEffect(() => {
     if (params.postId && token) {
