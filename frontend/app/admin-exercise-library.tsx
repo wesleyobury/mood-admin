@@ -733,6 +733,7 @@ const styles = StyleSheet.create({
   },
   modalHeaderSafeArea: {
     backgroundColor: '#000',
+    paddingTop: Platform.OS === 'ios' ? 50 : 0,
   },
   modalHeader: {
     flexDirection: 'row',
