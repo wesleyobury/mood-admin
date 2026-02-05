@@ -21,6 +21,7 @@ import { useRouter, useFocusEffect } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import Constants from 'expo-constants';
 import * as VideoThumbnails from 'expo-video-thumbnails';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import WorkoutStatsCard from '../../components/WorkoutStatsCard';
 import VideoThumbnail from '../../components/VideoThumbnail';
 import { useAuth } from '../../contexts/AuthContext';
@@ -29,6 +30,11 @@ import FollowListModal from '../../components/FollowListModal';
 import { useScreenTime } from '../../hooks/useScreenTime';
 import { GridItemSkeleton, ProfileHeaderSkeleton } from '../../components/Skeleton';
 import GuestPromptModal from '../../components/GuestPromptModal';
+import { 
+  getLastNotificationViewTime, 
+  LAST_NOTIFICATION_VIEW_KEY,
+  NOTIFICATION_SESSION_KEY
+} from '../../utils/notificationUtils';
 
 // Prioritize process.env for development/preview environments
 const API_URL = process.env.EXPO_PUBLIC_BACKEND_URL || Constants.expoConfig?.extra?.EXPO_PUBLIC_BACKEND_URL || '';
