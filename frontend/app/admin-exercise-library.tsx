@@ -583,7 +583,7 @@ export default function AdminExerciseLibrary() {
                 />
               </View>
 
-              <View style={{ height: 100 }} />
+              <View style={{ height: 200 }} />
             </ScrollView>
         </KeyboardAvoidingView>
       </Modal>
