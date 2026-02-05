@@ -315,7 +315,7 @@ export default function WorkoutStatsCard({
           </LinearGradient>
         </Defs>
 
-        {/* Rotate entire group so 0 degrees is at 12 o'clock, counterclockwise */}
+        {/* Rotate entire group so 0 degrees is at 12 o'clock (top) */}
         <G rotation="-90" origin={`${RING_CENTER}, ${RING_CENTER}`}>
           {/* Background tracks */}
           <Circle
@@ -343,7 +343,7 @@ export default function WorkoutStatsCard({
             fill="none"
           />
           
-          {/* Progress rings with gradients - counterclockwise */}
+          {/* Progress rings with gradients - clockwise from 12 o'clock */}
           {/* Calories ring - outer - Dark Gold */}
           <Circle
             cx={RING_CENTER}
@@ -355,7 +355,6 @@ export default function WorkoutStatsCard({
             strokeDasharray={calorieRing.dashArray}
             strokeDashoffset={calorieRing.dashOffset}
             strokeLinecap="round"
-            transform={`scale(-1, 1) translate(-${RING_SIZE}, 0)`}
           />
           <Circle
             cx={RING_CENTER}
@@ -367,7 +366,6 @@ export default function WorkoutStatsCard({
             strokeDasharray={calorieRing.dashArray}
             strokeDashoffset={calorieRing.dashOffset}
             strokeLinecap="round"
-            transform={`scale(-1, 1) translate(-${RING_SIZE}, 0)`}
           />
           
           {/* Minutes ring - middle - Medium Gold */}
@@ -381,7 +379,6 @@ export default function WorkoutStatsCard({
             strokeDasharray={minuteRing.dashArray}
             strokeDashoffset={minuteRing.dashOffset}
             strokeLinecap="round"
-            transform={`scale(-1, 1) translate(-${RING_SIZE}, 0)`}
           />
           <Circle
             cx={RING_CENTER}
@@ -393,7 +390,6 @@ export default function WorkoutStatsCard({
             strokeDasharray={minuteRing.dashArray}
             strokeDashoffset={minuteRing.dashOffset}
             strokeLinecap="round"
-            transform={`scale(-1, 1) translate(-${RING_SIZE}, 0)`}
           />
           
           {/* Intensity ring - inner - Light Gold/Champagne */}
