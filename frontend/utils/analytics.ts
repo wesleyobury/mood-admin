@@ -244,6 +244,15 @@ export const Analytics = {
     reps?: number;
   }) => trackEvent(token, 'exercise_completed', metadata),
 
+  // Cart/Add workout events
+  trackWorkoutAdded: (token: string, workoutId: string, workoutName: string, equipment: string, difficulty: string) => 
+    trackEvent(token, 'workout_added_to_cart', {
+      workout_id: workoutId,
+      workout_name: workoutName,
+      equipment: equipment,
+      difficulty: difficulty,
+    }),
+
   // Social Events
   postCreated: (token: string, metadata: {
     has_media?: boolean;
