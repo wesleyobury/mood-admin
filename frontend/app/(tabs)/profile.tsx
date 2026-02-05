@@ -206,16 +206,37 @@ export default function Profile() {
     }
   };
 
-  // Fetch unread notification count
+  // Fetch unread notification count - using same logic as explore page
   const fetchUnreadNotifications = async () => {
     if (!token) return;
     try {
-      const response = await fetch(`${API_URL}/api/notifications/unread-count`, {
+      // Get session start time and last viewed time
+      const sessionStartStr = await AsyncStorage.getItem(NOTIFICATION_SESSION_KEY);
+      const lastViewedStr = await AsyncStorage.getItem(LAST_NOTIFICATION_VIEW_KEY);
+      
+      const sessionStartTime = sessionStartStr ? parseInt(sessionStartStr, 10) : Date.now();
+      const lastViewedTime = lastViewedStr ? parseInt(lastViewedStr, 10) : null;
+      
+      // Use the later of: session start time or last viewed time
+      const cutoffTime = lastViewedTime 
+        ? Math.max(lastViewedTime, sessionStartTime)
+        : sessionStartTime;
+      
+      const response = await fetch(`${API_URL}/api/notifications`, {
         headers: { 'Authorization': `Bearer ${token}` },
       });
+      
       if (response.ok) {
         const data = await response.json();
-        setUnreadNotifications(data.unread_count || 0);
+        const allNotifications = data.notifications || [];
+        
+        // Count notifications newer than cutoff time
+        const newCount = allNotifications.filter((n: any) => {
+          const notifTime = new Date(n.created_at).getTime();
+          return notifTime > cutoffTime;
+        }).length;
+        
+        setUnreadNotifications(newCount);
       }
     } catch (error) {
       console.error('Error fetching unread notifications:', error);
