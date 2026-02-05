@@ -301,6 +301,9 @@ export function AuthProvider({ children }: AuthProviderProps) {
         setToken(authToken);
         await AsyncStorage.setItem('auth_token', authToken);
         
+        // Reset notification session on registration
+        await resetNotificationSession();
+        
         // Clear guest mode if user was a guest
         const wasGuest = await AsyncStorage.getItem('is_guest');
         if (wasGuest === 'true') {
