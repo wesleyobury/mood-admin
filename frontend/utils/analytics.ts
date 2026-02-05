@@ -3,17 +3,63 @@
  * 
  * Makes it super easy to track user events throughout the app
  * Supports both authenticated users and guest users
+ * 
+ * Apple Compliance: All events include UTC timestamp and user timezone
+ * Users can opt-out of non-essential analytics via settings
  */
 
 import Constants from 'expo-constants';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Platform } from 'react-native';
+import * as Localization from 'expo-localization';
 
 // Prioritize process.env for development/preview environments
 const API_URL = process.env.EXPO_PUBLIC_BACKEND_URL || Constants.expoConfig?.extra?.EXPO_PUBLIC_BACKEND_URL || '';
 
-// Guest device ID key for AsyncStorage
+// Storage keys
 const GUEST_DEVICE_ID_KEY = 'guest_device_id';
+const ANALYTICS_OPT_OUT_KEY = '@mood_analytics_opt_out';
+
+/**
+ * Check if user has opted out of non-essential analytics
+ */
+export const isAnalyticsOptedOut = async (): Promise<boolean> => {
+  try {
+    const optOut = await AsyncStorage.getItem(ANALYTICS_OPT_OUT_KEY);
+    return optOut === 'true';
+  } catch {
+    return false;
+  }
+};
+
+/**
+ * Set analytics opt-out preference
+ */
+export const setAnalyticsOptOut = async (optOut: boolean): Promise<void> => {
+  try {
+    await AsyncStorage.setItem(ANALYTICS_OPT_OUT_KEY, optOut ? 'true' : 'false');
+  } catch (error) {
+    console.log('Error setting analytics opt-out:', error);
+  }
+};
+
+/**
+ * Get user's timezone in IANA format (e.g., 'America/New_York')
+ */
+export const getUserTimezone = (): string => {
+  try {
+    return Localization.timezone || Intl.DateTimeFormat().resolvedOptions().timeZone || 'UTC';
+  } catch {
+    return 'UTC';
+  }
+};
+
+/**
+ * Get current UTC timestamp in ISO format
+ */
+export const getUTCTimestamp = (): string => {
+  return new Date().toISOString();
+};
 
 /**
  * Get or create a unique device ID for guest tracking
