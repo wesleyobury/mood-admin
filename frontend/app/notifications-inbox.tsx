@@ -31,22 +31,9 @@ const TYPE_ICONS: Record<string, { name: string; color: string }> = {
   following_digest: { name: 'newspaper', color: '#10AC84' },
 };
 
-// Time formatting
+// Time formatting - use shared utility
 const formatTimeAgo = (dateString: string): string => {
-  const now = new Date();
-  const date = new Date(dateString);
-  const diffMs = now.getTime() - date.getTime();
-  const diffMins = Math.floor(diffMs / 60000);
-  const diffHours = Math.floor(diffMins / 60);
-  const diffDays = Math.floor(diffHours / 24);
-  const diffWeeks = Math.floor(diffDays / 7);
-
-  if (diffMins < 1) return 'now';
-  if (diffMins < 60) return `${diffMins}m`;
-  if (diffHours < 24) return `${diffHours}h`;
-  if (diffDays < 7) return `${diffDays}d`;
-  if (diffWeeks < 4) return `${diffWeeks}w`;
-  return date.toLocaleDateString();
+  return formatNotificationTime(dateString);
 };
 
 // Notification Item Component
