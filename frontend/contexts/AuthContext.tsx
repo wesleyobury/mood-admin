@@ -395,7 +395,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
     sendHeartbeat();
     
     // Set up interval - every 45 seconds
-    const heartbeatInterval = setInterval(sendHeartbeat, 45000);
+    const heartbeatInterval = setInterval(sendHeartbeat, 180000); // Every 3 minutes
     
     return () => {
       clearInterval(heartbeatInterval);
