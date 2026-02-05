@@ -346,11 +346,9 @@ export default function PostDetail() {
     return (
       <SafeAreaView style={styles.container}>
         <View style={styles.header}>
-          <TouchableOpacity onPress={() => router.back()}>
-            <Ionicons name="arrow-back" size={24} color="#FFD700" />
-          </TouchableOpacity>
+          <BackButton />
           <Text style={styles.headerTitle}>Post</Text>
-          <View style={{ width: 24 }} />
+          <View style={{ width: 40 }} />
         </View>
         <View style={styles.loadingContainer}>
           <ActivityIndicator size="large" color="#FFD700" />
@@ -363,11 +361,9 @@ export default function PostDetail() {
     return (
       <SafeAreaView style={styles.container}>
         <View style={styles.header}>
-          <TouchableOpacity onPress={() => router.back()}>
-            <Ionicons name="arrow-back" size={24} color="#FFD700" />
-          </TouchableOpacity>
+          <BackButton />
           <Text style={styles.headerTitle}>Post</Text>
-          <View style={{ width: 24 }} />
+          <View style={{ width: 40 }} />
         </View>
         <View style={styles.emptyContainer}>
           <Text style={styles.emptyText}>Post not found</Text>
@@ -379,9 +375,7 @@ export default function PostDetail() {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
-        <TouchableOpacity onPress={() => router.back()}>
-          <Ionicons name="arrow-back" size={24} color="#FFD700" />
-        </TouchableOpacity>
+        <BackButton />
         <Text style={styles.headerTitle}>Post</Text>
         {isOwnPost ? (
           <TouchableOpacity onPress={handleDeletePost} disabled={isDeleting}>
