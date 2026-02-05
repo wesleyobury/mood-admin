@@ -480,7 +480,8 @@ export function generateMuscleGainerCarts(
     
     // Process ancillary muscle groups (always at the end, abs last)
     for (const muscleGroup of ancillaryGroups) {
-      const minCount = isBeginner ? 1 : 2;
+      // Ancillary groups should always have at least 2 exercises
+      const minCount = 2;
       const maxCount = isBeginner ? 2 : 3;
       
       const groupWorkouts = selectWorkoutsForMuscleGroup(
