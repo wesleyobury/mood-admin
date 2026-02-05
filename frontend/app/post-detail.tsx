@@ -685,39 +685,38 @@ const styles = StyleSheet.create({
   actionButton: {
     padding: 4,
   },
-  tryWorkoutContainer: {
-    paddingHorizontal: 16,
-    paddingVertical: 12,
+  // Media wrapper for overlay positioning
+  mediaWrapper: {
+    position: 'relative',
   },
-  tryWorkoutButton: {
-    borderRadius: 12,
+  // Try workout overlay on carousel
+  tryWorkoutOverlay: {
+    position: 'absolute',
+    bottom: 16,
+    right: 16,
+    zIndex: 10,
+  },
+  tryWorkoutBtn: {
+    borderRadius: 20,
     overflow: 'hidden',
-    borderWidth: 1,
-    borderColor: 'rgba(255, 215, 0, 0.3)',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.3,
+    shadowRadius: 4,
+    elevation: 5,
   },
   tryWorkoutGradient: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    paddingVertical: 14,
-    paddingHorizontal: 20,
-    gap: 10,
+    paddingVertical: 10,
+    paddingHorizontal: 16,
+    gap: 6,
   },
   tryWorkoutText: {
-    fontSize: 15,
-    fontWeight: '600',
-    color: '#FFD700',
-  },
-  workoutCountBadge: {
-    backgroundColor: 'rgba(255, 215, 0, 0.2)',
-    paddingHorizontal: 8,
-    paddingVertical: 3,
-    borderRadius: 10,
-  },
-  workoutCountText: {
-    fontSize: 11,
-    color: '#FFD700',
-    fontWeight: '500',
+    fontSize: 13,
+    fontWeight: '700',
+    color: '#000',
   },
   likesText: {
     fontSize: 14,
