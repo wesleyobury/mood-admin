@@ -11,7 +11,7 @@ export const absWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '8–10 min',
           description: 'Simple crunch develops mind-muscle connection safely for beginner abs.\n ',
           battlePlan: '3 rounds\n• 12–15 Crunches\nRest 45s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/9ppti423_download%20%2811%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240871/mood_app/workout_images/9ppti423_download_11_.jpg',
           intensityReason: 'Intro movement builds baseline flexion ab strength',
           moodTips: [
             {
@@ -31,7 +31,7 @@ export const absWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '8–10 min',
           description: 'Teaches proper core bracing and builds strong foundational abdominal stability..\n ',
           battlePlan: '3 rounds\n• 3 × 20–30s Plank Holds\nRest 45s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/rptdlvng_download%20%2812%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240908/mood_app/workout_images/rptdlvng_download_12_.jpg',
           intensityReason: 'Static hold trains core for anti extension endurance',
           moodTips: [
             {
@@ -51,7 +51,7 @@ export const absWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '8–10 min',
           description: 'Fast-paced floor circuit to build beginner ab endurance.',
           battlePlan: '3 rounds\n• 15 Crunches\n• 12 Knee Tucks\n• 20 Alt Toe Taps\nRest 45s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_e2f05db7-8caa-482a-a292-b60f552836b8/artifacts/9b9bwjx3_Knee%20tuck%20crunch.webp',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240806/mood_app/workout_images/9b9bwjx3_Knee_tuck_crunch.jpg',
           intensityReason: 'Combines flexion + knee tuck without long levers',
           moodTips: [
             {
@@ -71,7 +71,7 @@ export const absWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '8–10 min',
           description: 'Simple but spicy crunch-based density workout.',
           battlePlan: '4 rounds\n• 20 Crunches\n• 15 Crunches\n• 10 Crunches\nRest 30–45s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_e2f05db7-8caa-482a-a292-b60f552836b8/artifacts/b2yevch7_crunch.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240807/mood_app/workout_images/b2yevch7_crunch.jpg',
           intensityReason: 'Short rest + fast reps increase metabolic ab demand',
           moodTips: [
             {
@@ -93,7 +93,7 @@ export const absWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Challenging bodyweight drill effectively targets the entire abdominal wall..\n ',
           battlePlan: '4 rounds\n• 10–12 V Ups\nRest 60–75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/cesyx69b_download%20%2815%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240878/mood_app/workout_images/cesyx69b_download_15_.jpg',
           intensityReason: 'Combines flexion of torso + legs for full ab load',
           moodTips: [
             {
@@ -113,7 +113,7 @@ export const absWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Builds rotational endurance and activates entire core musculature effectively..\n ',
           battlePlan: '3 rounds\n• 12 per side Bicycle Crunches\nRest 60s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/pvvftlsu_download%20%2816%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240903/mood_app/workout_images/pvvftlsu_download_16_.jpg',
           intensityReason: 'Alternating twist works obliques + midline control',
           moodTips: [
             {
@@ -133,7 +133,7 @@ export const absWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Fast circuit hitting upper, lower, and obliques.',
           battlePlan: '3 rounds\n• 12 V-Ups\n• 16 Oblique Crunches (8/side)\n• 30 Alt Toe Taps\nRest 60s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_e2f05db7-8caa-482a-a292-b60f552836b8/artifacts/cx3nv5hu_v%20up.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240808/mood_app/workout_images/cx3nv5hu_v_up.jpg',
           intensityReason: 'Adds long lever flexion + rotation under fatigue',
           moodTips: [
             {
@@ -153,7 +153,7 @@ export const absWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Minimal rest sit-up progression for ab stamina.',
           battlePlan: '3 rounds\n• 15 Sit-Ups\n• 12 Sit-Ups\n• 10 Sit-Ups\nRest 60s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_e2f05db7-8caa-482a-a292-b60f552836b8/artifacts/fvyi5mpl_sit%20up.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240810/mood_app/workout_images/fvyi5mpl_sit_up.jpg',
           intensityReason: 'High rep sit-ups push flexion endurance',
           moodTips: [
             {
@@ -175,7 +175,7 @@ export const absWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Very challenging hanging movement requiring strength and controlled execution..\n ',
           battlePlan: '3 rounds\n• 8–10 Hanging Leg Raises\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/n5wg8sb5_download%20%2817%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240898/mood_app/workout_images/n5wg8sb5_download_17_.jpg',
           intensityReason: 'Hanging position overloads abs through hip flexion',
           moodTips: [
             {
@@ -195,7 +195,7 @@ export const absWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Brutal hybrid workout testing both dynamic and static abdominal strength capacity..\n ',
           battlePlan: '3 rounds\n• 20s Hollow Hold\n• Immediately 8 Stiff Leg Pike Jumps\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_e2f05db7-8caa-482a-a292-b60f552836b8/artifacts/lel4saj0_Pike%20jump.jpg',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240813/mood_app/workout_images/lel4saj0_Pike_jump.jpg',
           intensityReason: 'Iso hold builds endurance, jumps build explosiveness',
           moodTips: [
             {
@@ -235,7 +235,7 @@ export const absWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Brutal pairing of eccentric strength and speed.',
           battlePlan: '3 rounds\n• 4–6 Dragon Flag Negatives\n• Immediately 12 V-Ups\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_e2f05db7-8caa-482a-a292-b60f552836b8/artifacts/rpa4a07t_dragon%20flag.webp',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240818/mood_app/workout_images/rpa4a07t_dragon_flag.jpg',
           intensityReason: 'Extreme lever length + explosive flexion',
           moodTips: [
             {
@@ -263,7 +263,7 @@ export const absWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '8–10 min',
           description: 'Lets true beginners practice safe core extension with wall support assistance..\n ',
           battlePlan: '3 rounds\n• 12–15 Wall Rollouts\nRest 60s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_sweat-weights-images/artifacts/gw2t6eg7_download%20%281%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241186/mood_app/workout_images/gw2t6eg7_download_1_.jpg',
           intensityReason: 'Wall stop reduces risk while building bracing control',
           moodTips: [
             {
@@ -283,7 +283,7 @@ export const absWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '8–10 min',
           description: 'Builds starter strength to prepare for full extensions.\n ',
           battlePlan: '3 rounds\n• 12–15 Short Rollouts\nRest 60s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_sweat-weights-images/artifacts/7i1n31ck_download.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241177/mood_app/workout_images/7i1n31ck_download.jpg',
           intensityReason: 'Controlled partial rep trains tension in safer range',
           moodTips: [
             {
@@ -303,7 +303,7 @@ export const absWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '8–10 min',
           description: 'Negative-only rollouts building anti-extension strength safely.',
           battlePlan: '3 rounds\n• 8–10 Eccentric Rollouts\nRest 60s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_ba98ecac-d9ff-4da8-8b26-c72f04702bfb/artifacts/kega9d81_ab%20wheel.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240732/mood_app/workout_images/kega9d81_ab_wheel.jpg',
           intensityReason: 'Eccentric focus builds strength without strain',
           moodTips: [
             {
@@ -325,7 +325,7 @@ export const absWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Long stretch motion challenges anterior abs strongly.\n ',
           battlePlan: '4 rounds\n• 8 Full Rollouts\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_sweat-weights-images/artifacts/gw2t6eg7_download%20%281%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241186/mood_app/workout_images/gw2t6eg7_download_1_.jpg',
           intensityReason: 'Full range engages deep abdominals with control',
           moodTips: [
             {
@@ -345,7 +345,7 @@ export const absWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Pair movement rollout and plank for total ab burn.\n ',
           battlePlan: '3 rounds\n• 8 Rollouts\n• 20s Plank Hold\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_sweat-weights-images/artifacts/7i1n31ck_download.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241177/mood_app/workout_images/7i1n31ck_download.jpg',
           intensityReason: 'Flexion with static hold strengthens ab endurance',
           moodTips: [
             {
@@ -365,7 +365,7 @@ export const absWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Staggered hand position increases anti-rotation demand.',
           battlePlan: '4 rounds\n• 8 per side Offset Rollouts\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_ba98ecac-d9ff-4da8-8b26-c72f04702bfb/artifacts/kega9d81_ab%20wheel.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240732/mood_app/workout_images/kega9d81_ab_wheel.jpg',
           intensityReason: 'Uneven hands engage obliques and challenge stability',
           moodTips: [
             {
@@ -387,7 +387,7 @@ export const absWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Requires elite bracing strength and anterior stability.\n ',
           battlePlan: '3 rounds\n• 5–6 Standing Rollouts\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_sweat-weights-images/artifacts/gw2t6eg7_download%20%281%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241186/mood_app/workout_images/gw2t6eg7_download_1_.jpg',
           intensityReason: 'Max difficulty rollout challenges core extension',
           moodTips: [
             {
@@ -407,7 +407,7 @@ export const absWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: '3s descend rollout punishes abs with strict tempo.\n ',
           battlePlan: '3 rounds\n• 6–8 Slow Eccentric Rollouts (3s down)\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_sweat-weights-images/artifacts/7i1n31ck_download.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241177/mood_app/workout_images/7i1n31ck_download.jpg',
           intensityReason: 'Slow lowering multiplies tension for maximal core',
           moodTips: [
             {
@@ -427,7 +427,7 @@ export const absWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Rollouts paused halfway to maximize core tension.',
           battlePlan: '3 rounds\n• 6–8 Paused Rollouts (2s mid-range)\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_sweat-weights-images/artifacts/gw2t6eg7_download%20%281%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241186/mood_app/workout_images/gw2t6eg7_download_1_.jpg',
           intensityReason: 'Mid-range pause maximizes ab tension at hardest point',
           moodTips: [
             {
@@ -455,7 +455,7 @@ export const absWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '8–10 min',
           description: 'Builds abdominal control using small guided resisted spinal flexion movement..\n ',
           battlePlan: '3 rounds\n• 12–15 Light Crunches\nRest 60s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_sweat-weights-images/artifacts/i706j2jh_abss.webp',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241187/mood_app/workout_images/i706j2jh_abss.jpg',
           intensityReason: 'Entry movement teaches crunch with resistance path',
           moodTips: [
             {
@@ -475,7 +475,7 @@ export const absWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '8–10 min',
           description: 'Isometric crunch teaches control and endurance reps.\n ',
           battlePlan: '3 rounds\n• 10 Crunches (2s hold)\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_sweat-weights-images/artifacts/9jii3lwp_abs.jpg',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241179/mood_app/workout_images/9jii3lwp_abs.jpg',
           intensityReason: 'Static top hold boosts power of ab contraction',
           moodTips: [
             {
@@ -495,7 +495,7 @@ export const absWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '8–10 min',
           description: 'Controlled crunch emphasizing lengthened ab tension.',
           battlePlan: '3 rounds\n• 10 Slow Eccentric Crunches (4s down)\nRest 60s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_ba98ecac-d9ff-4da8-8b26-c72f04702bfb/artifacts/g9c1g1gr_ab%20crunch%20machine.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240722/mood_app/workout_images/g9c1g1gr_ab_crunch_machine.jpg',
           intensityReason: 'Eccentric time builds control and strength',
           moodTips: [
             {
@@ -517,7 +517,7 @@ export const absWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Machine allows safe progressive overload to abs.\n ',
           battlePlan: '4 rounds\n• 8–10 Heavy Crunches\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_sweat-weights-images/artifacts/i706j2jh_abss.webp',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241187/mood_app/workout_images/i706j2jh_abss.jpg',
           intensityReason: 'Increased resistance thickens ab structure well',
           moodTips: [
             {
@@ -537,7 +537,7 @@ export const absWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Isolation combo burns abdominal wall comprehensively.\n ',
           battlePlan: '3 rounds\n• 8 Crunches\n• 10 Hanging Leg Raises\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_sweat-weights-images/artifacts/9jii3lwp_abs.jpg',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241179/mood_app/workout_images/9jii3lwp_abs.jpg',
           intensityReason: 'Superset works upper + lower abs in one session',
           moodTips: [
             {
@@ -557,7 +557,7 @@ export const absWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Partial-range crunch focused on peak contraction.',
           battlePlan: '4 rounds\n• 15 Top-Half Pulses\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_ba98ecac-d9ff-4da8-8b26-c72f04702bfb/artifacts/g9c1g1gr_ab%20crunch%20machine.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240722/mood_app/workout_images/g9c1g1gr_ab_crunch_machine.jpg',
           intensityReason: 'Constant tension in shortened position maximizes pump',
           moodTips: [
             {
@@ -579,7 +579,7 @@ export const absWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Extended time under tension breaks ab plateaus.\n ',
           battlePlan: '3 rounds\n• 10 Heavy Crunches\n• Drop → 8 reps\n• Drop → 8 reps\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_sweat-weights-images/artifacts/i706j2jh_abss.webp',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241187/mood_app/workout_images/i706j2jh_abss.jpg',
           intensityReason: 'Drop weight pushes contraction beyond fatigue point',
           moodTips: [
             {
@@ -599,7 +599,7 @@ export const absWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Extended tension exercise strengthens abs endurance.\n ',
           battlePlan: '3 rounds\n• 8 Crunches + 10s Hold\n• Immediately 15 Flutter Kicks\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_sweat-weights-images/artifacts/9jii3lwp_abs.jpg',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241179/mood_app/workout_images/9jii3lwp_abs.jpg',
           intensityReason: 'Holds plus kicks exhaust abs dynamically and isometric',
           moodTips: [
             {
@@ -619,7 +619,7 @@ export const absWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Progressive isometric holds layered with reps.',
           battlePlan: '4 rounds\n• 8 Crunches + Hold (5s/8s/10s/12s)\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_sweat-weights-images/artifacts/i706j2jh_abss.webp',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241187/mood_app/workout_images/i706j2jh_abss.jpg',
           intensityReason: 'Increasing hold duration compounds fatigue each round',
           moodTips: [
             {
@@ -647,7 +647,7 @@ export const absWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '8–10 min',
           description: 'Controlled movement isolates lower ab recruitment.\n ',
           battlePlan: '3 rounds\n• 10–12 Knee Raises\nRest 60s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/bvoxdf8z_download%20%2814%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240876/mood_app/workout_images/bvoxdf8z_download_14_.jpg',
           intensityReason: 'Basic raise builds lower abdominal lift strength',
           moodTips: [
             {
@@ -667,7 +667,7 @@ export const absWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '8–10 min',
           description: 'Lockout position burns abs for lower focus stability.\n ',
           battlePlan: '3 rounds\n• 15s Holds\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/e782pm7q_download%20%2813%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240881/mood_app/workout_images/e782pm7q_download_13_.jpg',
           intensityReason: 'Isometric hold increases abs\' endurance demands',
           moodTips: [
             {
@@ -687,7 +687,7 @@ export const absWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '8–10 min',
           description: 'Unilateral knee lifts improving control and reducing swing.',
           battlePlan: '3 rounds\n• 12 per side Alternating Knee Raises\nRest 60s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_ba98ecac-d9ff-4da8-8b26-c72f04702bfb/artifacts/azj4v9yc_cap%20chair%20alt%20knee%20riase.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240708/mood_app/workout_images/azj4v9yc_cap_chair_alt_knee_riase.jpg',
           intensityReason: 'One knee at a time reduces momentum for better activation',
           moodTips: [
             {
@@ -709,7 +709,7 @@ export const absWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Builds strength in lower abs with stable path control.\n ',
           battlePlan: '4 rounds\n• 8–10 Leg Raises\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_sweat-weights-images/artifacts/0ga9gll0_download%20%285%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241176/mood_app/workout_images/0ga9gll0_download_5_.jpg',
           intensityReason: 'Full ROM raise loads abs through longer range',
           moodTips: [
             {
@@ -729,7 +729,7 @@ export const absWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Hits lower abs and sides in one combined superset.\n ',
           battlePlan: '3 rounds\n• 8 per side Knee Raise Twist\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_sweat-weights-images/artifacts/gtb4564s_download%20%284%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241184/mood_app/workout_images/gtb4564s_download_4_.jpg',
           intensityReason: 'Twist adds oblique rotation into lower ab raises',
           moodTips: [
             {
@@ -749,7 +749,7 @@ export const absWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Partial straight-leg raises increasing lever length.',
           battlePlan: '4 rounds\n• 10 Extended-Knee Raises\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_ba98ecac-d9ff-4da8-8b26-c72f04702bfb/artifacts/9wb93wi2_cap%20chair%20leg%20raise.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240704/mood_app/workout_images/9wb93wi2_cap_chair_leg_raise.jpg',
           intensityReason: 'Stopping at 45° keeps abs loaded throughout',
           moodTips: [
             {
@@ -771,7 +771,7 @@ export const absWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Dumbbell held securely between feet amplifies difficulty and muscle activation..\n ',
           battlePlan: '3 rounds\n• 8–10 Weighted Leg Raises\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/9xx4tww6_Screenshot%202025-12-05%20at%206.17.40%E2%80%AFPM.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240872/mood_app/workout_images/9xx4tww6_Screenshot_2025-12-05_at_6_17_40_PM.jpg',
           intensityReason: 'Extra load maximizes ab contraction from raises',
           moodTips: [
             {
@@ -791,7 +791,7 @@ export const absWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Builds more strength with controlled negative reps.\n ',
           battlePlan: '3 rounds\n• 8–10 Leg Raises (3s eccentric)\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/pow4f7e4_download%20%2813%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240902/mood_app/workout_images/pow4f7e4_download_13_.jpg',
           intensityReason: 'Slow eccentric multiplies ab contraction stress',
           moodTips: [
             {
@@ -811,7 +811,7 @@ export const absWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Static compression hold demanding full core tension.',
           battlePlan: '4 rounds\n• Max L-Sit Hold\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/9xx4tww6_Screenshot%202025-12-05%20at%206.17.40%E2%80%AFPM.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240872/mood_app/workout_images/9xx4tww6_Screenshot_2025-12-05_at_6_17_40_PM.jpg',
           intensityReason: 'Legs parallel to floor demands maximum engagement',
           moodTips: [
             {
@@ -839,7 +839,7 @@ export const absWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '8–10 min',
           description: 'Learns lateral bending to build oblique connection.\n ',
           battlePlan: '3 rounds\n• 10 per side Side Bends\nRest 60s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_ba98ecac-d9ff-4da8-8b26-c72f04702bfb/artifacts/zqeon0lh_roman%20chair%20weighted%20side%20bend.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240754/mood_app/workout_images/zqeon0lh_roman_chair_weighted_side_bend.jpg',
           intensityReason: 'Basic side crunch trains obliques with safe control',
           moodTips: [
             {
@@ -859,7 +859,7 @@ export const absWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '8–10 min',
           description: 'Controlled entry drill targets upper ab connection.\n ',
           battlePlan: '3 rounds\n• 10–12 Supported Crunches\nRest 60s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_sweat-weights-images/artifacts/geuifix4_download%20%288%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241183/mood_app/workout_images/geuifix4_download_8_.jpg',
           intensityReason: 'Small crunch on bench works abs beginner safe',
           moodTips: [
             {
@@ -879,7 +879,7 @@ export const absWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '8–10 min',
           description: 'Static trunk hold resisting spinal extension.',
           battlePlan: '3 rounds\n• 20–30s Holds\nRest 60s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_sweat-weights-images/artifacts/9xys14l8_download%20%289%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241180/mood_app/workout_images/9xys14l8_download_9_.jpg',
           intensityReason: 'Core stabilizes spine in anti-extension position',
           moodTips: [
             {
@@ -901,7 +901,7 @@ export const absWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Builds oblique thickness with controlled weighted reps.\n ',
           battlePlan: '4 rounds\n• 8–10 per side Weighted Bends\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_ba98ecac-d9ff-4da8-8b26-c72f04702bfb/artifacts/zqeon0lh_roman%20chair%20weighted%20side%20bend.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240754/mood_app/workout_images/zqeon0lh_roman_chair_weighted_side_bend.jpg',
           intensityReason: 'Progression adds resistance for lateral growth',
           moodTips: [
             {
@@ -921,7 +921,7 @@ export const absWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Twisting sit up enhances rotational ab engagement.\n ',
           battlePlan: '3 rounds\n• 8 per side Twisting Sit Ups\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_sweat-weights-images/artifacts/geuifix4_download%20%288%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241183/mood_app/workout_images/geuifix4_download_8_.jpg',
           intensityReason: 'Rotating adds dynamic work for obliques strongly',
           moodTips: [
             {
@@ -941,7 +941,7 @@ export const absWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Controlled reach adding anti-rotation demand.',
           battlePlan: '4 rounds\n• 8 per side Alternating Reaches\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_ba98ecac-d9ff-4da8-8b26-c72f04702bfb/artifacts/o590xw8i_roman%20chari%20alt%20reach.jpg',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240738/mood_app/workout_images/o590xw8i_roman_chari_alt_reach.jpg',
           intensityReason: 'Opposite arm reach engages obliques with anti-rotation',
           moodTips: [
             {
@@ -963,7 +963,7 @@ export const absWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Progressive overload thickens abs via weighted and controlled sit ups.\n ',
           battlePlan: '3 rounds\n• 8–10 Weighted Sit Ups\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_sweat-weights-images/artifacts/9xys14l8_download%20%289%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241180/mood_app/workout_images/9xys14l8_download_9_.jpg',
           intensityReason: 'Added weight enhances muscular demand on abs',
           moodTips: [
             {
@@ -983,7 +983,7 @@ export const absWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Hold then release makes sit up much more demanding.\n ',
           battlePlan: '3 rounds\n• 8 Sit Ups (3s hold top)\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_sweat-weights-images/artifacts/geuifix4_download%20%288%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241183/mood_app/workout_images/geuifix4_download_8_.jpg',
           intensityReason: 'Iso contraction hold increases abs endurance',
           moodTips: [
             {
@@ -1003,7 +1003,7 @@ export const absWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Static hold resisting rotation under load.',
           battlePlan: '4 rounds\n• 20–30s per side Weighted Holds\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_sweat-weights-images/artifacts/9xys14l8_download%20%289%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241180/mood_app/workout_images/9xys14l8_download_9_.jpg',
           intensityReason: 'Offset load fires obliques under anti-rotation demand',
           moodTips: [
             {
@@ -1031,7 +1031,7 @@ export const absWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '8–10 min',
           description: 'Beginner crunch builds control with small resistance.\n ',
           battlePlan: '3 rounds\n• 12 MB Crunches\nRest 60s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-pics/artifacts/cu85n2we_download%20%281%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241373/mood_app/workout_images/cu85n2we_download_1_.jpg',
           intensityReason: 'Light ball adds gentle overload to crunch pattern',
           moodTips: [
             {
@@ -1051,7 +1051,7 @@ export const absWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '8–10 min',
           description: 'Dynamic twisting strengthens side core stability.\n ',
           battlePlan: '3 rounds\n• 10 per side Twists\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_ba98ecac-d9ff-4da8-8b26-c72f04702bfb/artifacts/8o6c10d2_med%20bal%20crunch%20twists.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240701/mood_app/workout_images/8o6c10d2_med_bal_crunch_twists.jpg',
           intensityReason: 'Rotation works obliques with ball resistance control',
           moodTips: [
             {
@@ -1071,7 +1071,7 @@ export const absWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '8–10 min',
           description: 'Dead bug variation adding anterior load.',
           battlePlan: '3 rounds\n• 10 per side MB Dead Bugs\nRest 60s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_ba98ecac-d9ff-4da8-8b26-c72f04702bfb/artifacts/sempfdbg_dead%20bug%20press.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240749/mood_app/workout_images/sempfdbg_dead_bug_press.jpg',
           intensityReason: 'Pressing ball upward increases core engagement',
           moodTips: [
             {
@@ -1093,7 +1093,7 @@ export const absWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Long lever increases core demand and stretch tension.\n ',
           battlePlan: '4 rounds\n• 8–10 MB Sit Ups\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_ba98ecac-d9ff-4da8-8b26-c72f04702bfb/artifacts/efsqbz6t_med%20ball%20overhead%20sit%20up.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240713/mood_app/workout_images/efsqbz6t_med_ball_overhead_sit_up.jpg',
           intensityReason: 'Lever arm extended overhead intensifies abs load',
           moodTips: [
             {
@@ -1113,7 +1113,7 @@ export const absWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Dynamic then static pairing builds full capacity.\n ',
           battlePlan: '3 rounds\n• 8 MB Slams\n• 25s Plank Hold\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-pics/artifacts/vv8j4fll_download.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241384/mood_app/workout_images/vv8j4fll_download.jpg',
           intensityReason: 'Explosive slam pairs with core static endurance',
           moodTips: [
             {
@@ -1133,7 +1133,7 @@ export const absWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Sit-up finishing with press to extend tension.',
           battlePlan: '4 rounds\n• 10 MB Sit-Up Press-Outs\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-pics/artifacts/cu85n2we_download%20%281%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241373/mood_app/workout_images/cu85n2we_download_1_.jpg',
           intensityReason: 'Pressing ball at top keeps abs active longer',
           moodTips: [
             {
@@ -1155,7 +1155,7 @@ export const absWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Heavy core load combining balance and twist with med ball.\n ',
           battlePlan: '3 rounds\n• 10 per side V Twists\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-pics/artifacts/cu85n2we_download%20%281%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241373/mood_app/workout_images/cu85n2we_download_1_.jpg',
           intensityReason: 'Rotational V sit fires obliques under high stress',
           moodTips: [
             {
@@ -1175,7 +1175,7 @@ export const absWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Brutal pairing challenges power and contraction.\n ',
           battlePlan: '3 rounds\n• 8 MB Slams\n• 10 MB Toe Touches\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-pics/artifacts/vv8j4fll_download.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241384/mood_app/workout_images/vv8j4fll_download.jpg',
           intensityReason: 'Targets entire abs with slam then toe reach combo',
           moodTips: [
             {
@@ -1195,7 +1195,7 @@ export const absWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Long-lever flutter kicks under overhead load.',
           battlePlan: '4 rounds\n• 20 Flutter Kicks (MB overhead)\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-pics/artifacts/cu85n2we_download%20%281%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241373/mood_app/workout_images/cu85n2we_download_1_.jpg',
           intensityReason: 'Arms locked overhead maximizes lever and core demand',
           moodTips: [
             {
@@ -1223,7 +1223,7 @@ export const absWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '8–10 min',
           description: 'Bodyweight baseline drill builds control and strength.\n ',
           battlePlan: '3 rounds\n• 10–12 Decline Sit Ups\nRest 60s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_sweat-weights-images/artifacts/lwwxsgl0_download%20%287%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241188/mood_app/workout_images/lwwxsgl0_download_7_.jpg',
           intensityReason: 'Decline angle increases core range and challenge',
           moodTips: [
             {
@@ -1243,7 +1243,7 @@ export const absWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '8–10 min',
           description: 'Works midline without excessive torso movement.\n ',
           battlePlan: '3 rounds\n• 12–15 Decline Crunches\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_sweat-weights-images/artifacts/azdoubte_download%20%286%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241181/mood_app/workout_images/azdoubte_download_6_.jpg',
           intensityReason: 'Short ROM targets abs intensely with safety and lower tension',
           moodTips: [
             {
@@ -1263,7 +1263,7 @@ export const absWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '8–10 min',
           description: 'Flat bench crunch focusing on controlled spinal flexion.',
           battlePlan: '3 rounds\n• 12–15 Flat Bench Crunches\nRest 60s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_ba98ecac-d9ff-4da8-8b26-c72f04702bfb/artifacts/h4s4mo34_flat%20bench%20crunch.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240726/mood_app/workout_images/h4s4mo34_flat_bench_crunch.jpg',
           intensityReason: 'Flat bench removes decline to reduce difficulty',
           moodTips: [
             {
@@ -1285,7 +1285,7 @@ export const absWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Strengthens core wall with consistent loaded work.\n ',
           battlePlan: '4 rounds\n• 8 Sit Ups w/ Plate\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_ba98ecac-d9ff-4da8-8b26-c72f04702bfb/artifacts/udgo880g_decline%20bench%20weighted%20sit%20up.webp',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240750/mood_app/workout_images/udgo880g_decline_bench_weighted_sit_up.jpg',
           intensityReason: 'Holding plate increases progressive overload stress',
           moodTips: [
             {
@@ -1305,7 +1305,7 @@ export const absWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Full abs trained with twist motion superset strategy.\n ',
           battlePlan: '3 rounds\n• 8 per side Twisting Sit Ups\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_sweat-weights-images/artifacts/azdoubte_download%20%286%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241181/mood_app/workout_images/azdoubte_download_6_.jpg',
           intensityReason: 'Rotational sit up engages obliques + rectus combo',
           moodTips: [
             {
@@ -1325,7 +1325,7 @@ export const absWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Long-lever sit-up increasing difficulty without weight.',
           battlePlan: '4 rounds\n• 10 Arms-Overhead Sit-Ups\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_ba98ecac-d9ff-4da8-8b26-c72f04702bfb/artifacts/redekabo_delcine%20bench%20reach%20sit%20up.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240742/mood_app/workout_images/redekabo_delcine_bench_reach_sit_up.jpg',
           intensityReason: 'Arms straight overhead increases lever and load',
           moodTips: [
             {
@@ -1347,7 +1347,7 @@ export const absWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Time under tension drill builds durability fully while adding strength.\n ',
           battlePlan: '3 rounds\n• 8 Combo Reps (half+full =1)\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_sweat-weights-images/artifacts/lwwxsgl0_download%20%287%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241188/mood_app/workout_images/lwwxsgl0_download_7_.jpg',
           intensityReason: 'Combo half+full doubles ab contraction under load',
           moodTips: [
             {
@@ -1367,7 +1367,7 @@ export const absWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Powerful finisher blends flexion and endurance set.\n ',
           battlePlan: '3 rounds\n• 8 Decline Sit Ups\n• Immediately 15 Flutter Kicks\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_sweat-weights-images/artifacts/azdoubte_download%20%286%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241181/mood_app/workout_images/azdoubte_download_6_.jpg',
           intensityReason: 'Sit ups paired with flutter kicks torch abs fully',
           moodTips: [
             {
@@ -1387,7 +1387,7 @@ export const absWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Weighted movement builds advanced ab strength capacity.\n ',
           battlePlan: '3 rounds\n• 8–10 Weighted Sit Ups\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_sweat-weights-images/artifacts/azdoubte_download%20%286%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241181/mood_app/workout_images/azdoubte_download_6_.jpg',
           intensityReason: 'Weight adds progressive ab load challenge',
           moodTips: [
             {
@@ -1407,7 +1407,7 @@ export const absWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Anti-rotation sit-ups using unbalanced loading.',
           battlePlan: '4 rounds\n• 8 per side Offset Sit-Ups\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_sweat-weights-images/artifacts/lwwxsgl0_download%20%287%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241188/mood_app/workout_images/lwwxsgl0_download_7_.jpg',
           intensityReason: 'Weight to one side forces core to resist twist',
           moodTips: [
             {
@@ -1435,7 +1435,7 @@ export const absWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '8–10 min',
           description: 'Assisted knee raises to learn hanging core control.',
           battlePlan: '3 rounds\n• 8–10 Supported Hanging Knee Raises\nRest 60s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_ba98ecac-d9ff-4da8-8b26-c72f04702bfb/artifacts/7v92z8q8_hanging%20knee%201.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240698/mood_app/workout_images/7v92z8q8_hanging_knee_1.jpg',
           intensityReason: 'Light support eliminates swing for proper form',
           moodTips: [
             {
@@ -1455,7 +1455,7 @@ export const absWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '8–10 min',
           description: 'Single-knee lifts to reduce load and improve control.',
           battlePlan: '3 rounds\n• 6 per side Alternating Assisted Knee Lifts\nRest 60s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_ba98ecac-d9ff-4da8-8b26-c72f04702bfb/artifacts/r3t36som_alt%20knee%20raise.jpg',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240740/mood_app/workout_images/r3t36som_alt_knee_raise.jpg',
           intensityReason: 'Alternating knees halves the lever demand',
           moodTips: [
             {
@@ -1475,7 +1475,7 @@ export const absWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '8–10 min',
           description: 'Brief knee raise holds to practice ab activation.',
           battlePlan: '3 rounds\n• 6 Knee Raises with 1s Hold\nRest 60s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_ba98ecac-d9ff-4da8-8b26-c72f04702bfb/artifacts/j8odgh5l_hanging%20knee%202.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240730/mood_app/workout_images/j8odgh5l_hanging_knee_2.jpg',
           intensityReason: 'Static top hold teaches proper contraction',
           moodTips: [
             {
@@ -1517,7 +1517,7 @@ export const absWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Combo reps extend time under tension in one set.',
           battlePlan: '3 rounds\n• 6 Straight-Leg Raises\n• Immediately 6 Knee Tucks\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_ba98ecac-d9ff-4da8-8b26-c72f04702bfb/artifacts/j8odgh5l_hanging%20knee%202.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240730/mood_app/workout_images/j8odgh5l_hanging_knee_2.jpg',
           intensityReason: 'Combo extends time under tension per set',
           moodTips: [
             {
@@ -1537,7 +1537,7 @@ export const absWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Controlled knee-to-chest raises with slow negatives.',
           battlePlan: '3 rounds\n• 10 Knee-to-Chest Raises (3s down)\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_ba98ecac-d9ff-4da8-8b26-c72f04702bfb/artifacts/7v92z8q8_hanging%20knee%201.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240698/mood_app/workout_images/7v92z8q8_hanging_knee_1.jpg',
           intensityReason: 'Slow eccentric builds strength through full range',
           moodTips: [
             {
@@ -1559,7 +1559,7 @@ export const absWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Loaded leg raises to overload lower ab strength.',
           battlePlan: '4 rounds\n• 8 Weighted Straight-Leg Raises\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_ba98ecac-d9ff-4da8-8b26-c72f04702bfb/artifacts/6ileh57d_weighted%20leg%20riase.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240697/mood_app/workout_images/6ileh57d_weighted_leg_riase.jpg',
           intensityReason: 'Added weight overloads lower ab strength',
           moodTips: [
             {
@@ -1579,7 +1579,7 @@ export const absWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Full-range toes-to-bar with extended eccentric.',
           battlePlan: '3 rounds\n• 6–8 Toes-to-Bar (3–4s eccentric)\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_ba98ecac-d9ff-4da8-8b26-c72f04702bfb/artifacts/m1p9379o_hanging%20toe%20touch.jpg',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240734/mood_app/workout_images/m1p9379o_hanging_toe_touch.jpg',
           intensityReason: 'Extended eccentric maximizes strength gains',
           moodTips: [
             {
@@ -1599,7 +1599,7 @@ export const absWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Dynamic front lever reps without full parallel holds.',
           battlePlan: '4 rounds\n• 4–6 Front Lever Reps (tuck, advanced tuck, or band-assisted)\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_ba98ecac-d9ff-4da8-8b26-c72f04702bfb/artifacts/0y6d4cli_front%20lever.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240691/mood_app/workout_images/0y6d4cli_front_lever.jpg',
           intensityReason: 'Dynamic lever reps build incredible core strength',
           moodTips: [
             {

@@ -12,7 +12,7 @@ export const explosivenessWeightsDatabase: EquipmentWorkouts[] = [
           duration: '8–10 min',
           description: 'Fast stand to brief float; quiet land; precise reset each rep.',
           battlePlan: '3 rounds\n• 5 × 3 Jump Deadlifts (light; floor or low blocks)\nRest 60–75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_muscle-mapper-2/artifacts/xefmav9j_Screenshot%202025-12-03%20at%204.15.36%E2%80%AFPM.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241175/mood_app/workout_images/xefmav9j_Screenshot_2025-12-03_at_4_15_36_PM.jpg',
           intensityReason: 'Light bar grooves hip snap and stacked brace for safe pop.',
           moodTips: [
             {
@@ -32,7 +32,7 @@ export const explosivenessWeightsDatabase: EquipmentWorkouts[] = [
           duration: '8–10 min',
           description: 'Sweep close to thighs; pop and shrug tall with arms long.',
           battlePlan: '3 rounds\n• 6 × 2 Clean Pulls (light–moderate)\nRest 60–75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_muscle-mapper-2/artifacts/9kehs3fb_Screenshot%202025-12-03%20at%204.15.03%E2%80%AFPM.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241134/mood_app/workout_images/9kehs3fb_Screenshot_2025-12-03_at_4_15_03_PM.jpg',
           intensityReason: 'Clean pull path hones triple extend and vertical bar speed.',
           moodTips: [
             {
@@ -52,7 +52,7 @@ export const explosivenessWeightsDatabase: EquipmentWorkouts[] = [
           duration: '8–10 min',
           description: 'Shallow dip to quick pop; soft stick; deliberate posture reset.',
           battlePlan: '3 rounds\n• 5 × 3 Jump Squats (empty bar to very light)\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_muscle-mapper-2/artifacts/uvdvgv3p_download%20%288%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241171/mood_app/workout_images/uvdvgv3p_download_8_.jpg',
           intensityReason: 'Very light load builds speed-strength and landing control.',
           moodTips: [
             {
@@ -72,7 +72,7 @@ export const explosivenessWeightsDatabase: EquipmentWorkouts[] = [
           duration: '8–10 min',
           description: 'Quick dip then punch; crisp stack overhead; smooth return.',
           battlePlan: '3 rounds\n• 5–6 Push Press (light–moderate)\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_muscle-mapper-2/artifacts/hsftvvu7_download%20%289%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241152/mood_app/workout_images/hsftvvu7_download_9_.jpg',
           intensityReason: 'Short dip-drive teaches leg power into rapid lockout.',
           moodTips: [
             {
@@ -94,7 +94,7 @@ export const explosivenessWeightsDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Hinge to hang, violent pop, high shrug; reset between reps.',
           battlePlan: '4 rounds\n• 4 × 2 Hang Clean Pulls (moderate)\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_muscle-mapper-2/artifacts/9kehs3fb_Screenshot%202025-12-03%20at%204.15.03%E2%80%AFPM.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241134/mood_app/workout_images/9kehs3fb_Screenshot_2025-12-03_at_4_15_03_PM.jpg',
           intensityReason: 'Above-knee start refines bar path, RFD, and tall finish.',
           moodTips: [
             {
@@ -114,7 +114,7 @@ export const explosivenessWeightsDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Two reps, brief rest, two reps; maintain equal jump height.',
           battlePlan: '4 rounds\n• Cluster: 2 + 2 Jump Shrugs (10–12s between)\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_muscle-mapper-2/artifacts/f8plc9vh_jsc.webp',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241142/mood_app/workout_images/f8plc9vh_jsc.jpg',
           intensityReason: 'Clusters keep peak speed while limiting fatigue buildup.',
           moodTips: [
             {
@@ -134,7 +134,7 @@ export const explosivenessWeightsDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Short dip, violent drive, crisp lockout, smooth rack return.',
           battlePlan: '4 rounds\n• 4–5 Push Press (light–moderate)\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_muscle-mapper-2/artifacts/1n6uft3o_pp.jpg',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241126/mood_app/workout_images/1n6uft3o_pp.jpg',
           intensityReason: 'Efficient dip-drive transfers leg force to fast press lock.',
           moodTips: [
             {
@@ -154,7 +154,7 @@ export const explosivenessWeightsDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Start at knee; snap tall; elbows high; bar path stays close.',
           battlePlan: '4 rounds\n• 4 × 2 High Pulls from blocks (moderate)\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_muscle-mapper-2/artifacts/g3m6pn8h_chp.jpg',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241144/mood_app/workout_images/g3m6pn8h_chp.jpg',
           intensityReason: 'Blocks reduce pull length to emphasize peak speed finish.',
           moodTips: [
             {
@@ -176,7 +176,7 @@ export const explosivenessWeightsDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Drive force on pulls, then pop height with soft, crisp sticks.',
           battlePlan: '5 rounds\n• 3 Clean Pulls (moderate–heavy)\n• 3 × 2 Back Rack Jump Squats (light)\nRest 120s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_muscle-mapper-2/artifacts/uvdvgv3p_download%20%288%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241171/mood_app/workout_images/uvdvgv3p_download_8_.jpg',
           intensityReason: 'Heavy pulls potentiate CNS; light jumps express speed.',
           moodTips: [
             {
@@ -196,7 +196,7 @@ export const explosivenessWeightsDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'From knee blocks; snap tall; elbows high outside; bar close.',
           battlePlan: '5 rounds\n• 3–4 Snatch High Pulls (from blocks)\nRest 120s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_muscle-mapper-2/artifacts/064hao7f_snatch.webp',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241123/mood_app/workout_images/064hao7f_snatch.jpg',
           intensityReason: 'Wide grip emphasizes speed, bar height, and quick elbows.',
           moodTips: [
             {
@@ -216,7 +216,7 @@ export const explosivenessWeightsDatabase: EquipmentWorkouts[] = [
           duration: '12–16 min',
           description: 'Dip-drive, punch under, firm stick; build across wave sets.',
           battlePlan: '5 rounds\n• Wave: 2-2-1 Push Jerks (build slightly per wave)\nRest 120–150s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_muscle-mapper-2/artifacts/1n6uft3o_pp.jpg',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241126/mood_app/workout_images/1n6uft3o_pp.jpg',
           intensityReason: 'Wave loading sustains velocity under rising neural demand.',
           moodTips: [
             {
@@ -236,7 +236,7 @@ export const explosivenessWeightsDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Two pulls, short rest, two pulls; crisp vertical extension.',
           battlePlan: '5 rounds\n• Cluster: 2 + 2 Clean Pulls (moderate–heavy)\nRest 120s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_muscle-mapper-2/artifacts/9kehs3fb_Screenshot%202025-12-03%20at%204.15.03%E2%80%AFPM.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241134/mood_app/workout_images/9kehs3fb_Screenshot_2025-12-03_at_4_15_03_PM.jpg',
           intensityReason: 'Cluster reps maintain bar speed at higher training loads.',
           moodTips: [
             {
@@ -265,7 +265,7 @@ export const explosivenessWeightsDatabase: EquipmentWorkouts[] = [
           duration: '8–10 min',
           description: 'Small dip to forceful drive; soft balanced split; one-second hold.',
           battlePlan: '3 rounds\n• 4 per side Split Jerk Pops\nRest 60–75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_muscle-mapper-2/artifacts/40bblhga_lmspj.jpg',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241128/mood_app/workout_images/40bblhga_lmspj.jpg',
           intensityReason: 'Angled path teaches leg drive and stable split catch safely.',
           moodTips: [
             {
@@ -285,7 +285,7 @@ export const explosivenessWeightsDatabase: EquipmentWorkouts[] = [
           duration: '8–10 min',
           description: 'Shallow squat pop; guide sleeve overhead along smooth arc.',
           battlePlan: '3 rounds\n• 6 × Squat Jump → Press\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_muscle-mapper-2/artifacts/mqbps9jp_lmsjp.jpg',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241158/mood_app/workout_images/mqbps9jp_lmsjp.jpg',
           intensityReason: 'Triple extend into press develops seamless force transfer.',
           moodTips: [
             {
@@ -305,7 +305,7 @@ export const explosivenessWeightsDatabase: EquipmentWorkouts[] = [
           duration: '8–10 min',
           description: 'Pivot feet, drive hips, release forward-up with tight control.',
           battlePlan: '3 rounds\n• 6 per side Rotational Tosses\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_muscle-mapper-2/artifacts/hdnoipr9_lmrot.jpg',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241150/mood_app/workout_images/hdnoipr9_lmrot.jpg',
           intensityReason: 'Hip-led rotation builds lateral power with controlled arc.',
           moodTips: [
             {
@@ -327,7 +327,7 @@ export const explosivenessWeightsDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Quick shallow dip, violent drive, clean angled lockout finish.',
           battlePlan: '4 rounds\n• 5–6 Push Press per side (alternate or sets)\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_muscle-mapper-2/artifacts/40bblhga_lmspj.jpg',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241128/mood_app/workout_images/40bblhga_lmspj.jpg',
           intensityReason: 'Dip-drive timing converts leg force to fast overhead speed.',
           moodTips: [
             {
@@ -347,7 +347,7 @@ export const explosivenessWeightsDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Load back hip; rotate through; punch sleeve up powerfully.',
           battlePlan: '4 rounds\n• 5 per side Rotation Punch\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_muscle-mapper-2/artifacts/p9g3x5md_ssrp.jpg',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241159/mood_app/workout_images/p9g3x5md_ssrp.jpg',
           intensityReason: 'Staggered base enhances hip-to-core transfer and speed.',
           moodTips: [
             {
@@ -367,7 +367,7 @@ export const explosivenessWeightsDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Hands low on sleeve; small pop; quiet stick; deliberate reset.',
           battlePlan: '4 rounds\n• 5 × 3 Hack Squat Jumps\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_muscle-mapper-2/artifacts/d0nqgx63_Screenshot%202025-12-03%20at%203.29.11%E2%80%AFPM.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241139/mood_app/workout_images/d0nqgx63_Screenshot_2025-12-03_at_3_29_11_PM.jpg',
           intensityReason: 'Supported angle reinforces vertical pop with safe landings.',
           moodTips: [
             {
@@ -389,7 +389,7 @@ export const explosivenessWeightsDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Dip-drive hard; guide sleeve high and far with full control.',
           battlePlan: '5 rounds\n• 4 Heaves (build load across rounds)\nRest 120s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_muscle-mapper-2/artifacts/7dpyywwj_download%20%287%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241130/mood_app/workout_images/7dpyywwj_download_7_.jpg',
           intensityReason: 'Heavy leg drive expresses long-arc power safely overhead.',
           moodTips: [
             {
@@ -409,7 +409,7 @@ export const explosivenessWeightsDatabase: EquipmentWorkouts[] = [
           duration: '12–16 min',
           description: 'Perform 3-2-1 per side; crisp catches and clean recoveries.',
           battlePlan: '4 rounds\n• Ladder per side: 3-2-1 Split Jerks\nRest 120s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_muscle-mapper-2/artifacts/g4orfvp8_lmsjl.jpg',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241145/mood_app/workout_images/g4orfvp8_lmsjl.jpg',
           intensityReason: 'Volume ladder sustains speed-strength under fatigue safely.',
           moodTips: [
             {
@@ -429,7 +429,7 @@ export const explosivenessWeightsDatabase: EquipmentWorkouts[] = [
           duration: '12–16 min',
           description: 'Hard landmine punch; then long skater bound with firm hold.',
           battlePlan: '4 rounds\n• 5 per side Rotation Punch\n• 3 per side Skater Bounds (stick 1–2s)\nRest 150s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_muscle-mapper-2/artifacts/wt0jrj94_lmrot.jpg',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241172/mood_app/workout_images/wt0jrj94_lmrot.jpg',
           intensityReason: 'Rotation power primes lateral projection and landing stick.',
           moodTips: [
             {
@@ -458,7 +458,7 @@ export const explosivenessWeightsDatabase: EquipmentWorkouts[] = [
           duration: '8–10 min',
           description: 'Small vertical pop; soft stick; reset tall posture each rep.',
           battlePlan: '3 rounds\n• 5 × 3 Jump Squats (light)\nRest 60–75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_muscle-mapper-2/artifacts/8ykwaghn_djs.jpg',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241133/mood_app/workout_images/8ykwaghn_djs.jpg',
           intensityReason: 'Light DBs add load while protecting landing and posture.',
           moodTips: [
             {
@@ -478,7 +478,7 @@ export const explosivenessWeightsDatabase: EquipmentWorkouts[] = [
           duration: '8–10 min',
           description: 'Quick dip, violent punch, smooth stacked lockout overhead.',
           battlePlan: '3 rounds\n• 5–6 Push Press\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_muscle-mapper-2/artifacts/uezm0ryg_dpp.jpg',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241170/mood_app/workout_images/uezm0ryg_dpp.jpg',
           intensityReason: 'Dip-drive coordination turns leg force into press speed.',
           moodTips: [
             {
@@ -498,7 +498,7 @@ export const explosivenessWeightsDatabase: EquipmentWorkouts[] = [
           duration: '8–10 min',
           description: 'Low-amplitude switches; aligned, quiet landings every time.',
           battlePlan: '3 rounds\n• 6 per side Split Jumps\nRest 60–75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_muscle-mapper-2/artifacts/kkyhp422_Screenshot%202025-12-03%20at%202.52.59%E2%80%AFPM.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241155/mood_app/workout_images/kkyhp422_Screenshot_2025-12-03_at_2_52_59_PM.jpg',
           intensityReason: 'Small load refines switching mechanics and stiffness safely.',
           moodTips: [
             {
@@ -520,7 +520,7 @@ export const explosivenessWeightsDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Zip bell close; punch through; alternate sides smoothly.',
           battlePlan: '4 rounds\n• 6 per side Alternating Snatch\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_muscle-mapper-2/artifacts/gp7crm2s_dbsn.webp',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241147/mood_app/workout_images/gp7crm2s_dbsn.jpg',
           intensityReason: 'Hip snap to overhead hones turnover speed and control.',
           moodTips: [
             {
@@ -540,7 +540,7 @@ export const explosivenessWeightsDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Fast clean to shoulders; short dip; explosive overhead finish.',
           battlePlan: '4 rounds\n• 5 Clean → Push Press\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_muscle-mapper-2/artifacts/rpv6ft1z_dbcpp.jpg',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241166/mood_app/workout_images/rpv6ft1z_dbcpp.jpg',
           intensityReason: 'Clean primes rack; push press expresses vertical power.',
           moodTips: [
             {
@@ -582,7 +582,7 @@ export const explosivenessWeightsDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Three reps, quick rest, three more; match jump heights.',
           battlePlan: '5 rounds\n• Cluster: 3 + 3 Jump Squats (10–12s between)\nRest 120s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_muscle-mapper-2/artifacts/9v6bw2wp_djs.jpg',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241136/mood_app/workout_images/9v6bw2wp_djs.jpg',
           intensityReason: 'Cluster density preserves peak speed under fatigue load.',
           moodTips: [
             {
@@ -602,7 +602,7 @@ export const explosivenessWeightsDatabase: EquipmentWorkouts[] = [
           duration: '12–16 min',
           description: 'Snatch sets then skater bounds with firm two-second stick.',
           battlePlan: '4 rounds\n• 6 per side DB Snatch\n• 3 per side Skater Bounds (stick 2s)\nRest 150s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_muscle-mapper-2/artifacts/0tqc60nw_dbsn.webp',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241124/mood_app/workout_images/0tqc60nw_dbsn.jpg',
           intensityReason: 'Overhead power potentiates lateral projection capacity.',
           moodTips: [
             {
@@ -622,7 +622,7 @@ export const explosivenessWeightsDatabase: EquipmentWorkouts[] = [
           duration: '12–16 min',
           description: 'Perform 3-2-1 per side; crisp clean then vertical push press.',
           battlePlan: '4 rounds\n• Ladder per side: 3-2-1 Clean + Push Press\nRest 150s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_muscle-mapper-2/artifacts/9tjq4bcw_dbcpp.jpg',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241135/mood_app/workout_images/9tjq4bcw_dbcpp.jpg',
           intensityReason: 'Ladder volume sustains speed-strength with rising density.',
           moodTips: [
             {
@@ -651,7 +651,7 @@ export const explosivenessWeightsDatabase: EquipmentWorkouts[] = [
           duration: '8–10 min',
           description: 'Snap hips; bell floats to chest; arms act as relaxed hooks.',
           battlePlan: '4 rounds\n• 12–15 Swings\nRest 60s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_muscle-mapper-2/artifacts/8ao6zx26_download%20%284%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241131/mood_app/workout_images/8ao6zx26_download_4_.jpg',
           intensityReason: 'Hinge rhythm trains hip extension speed and timing safely.',
           moodTips: [
             {
@@ -671,7 +671,7 @@ export const explosivenessWeightsDatabase: EquipmentWorkouts[] = [
           duration: '8–10 min',
           description: 'Hike-pass; pop to rack; soft catch; alternate sides smoothly.',
           battlePlan: '3 rounds\n• 5 per side Dead-Start Cleans\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_muscle-mapper-2/artifacts/fglieg8a_download%20%285%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241143/mood_app/workout_images/fglieg8a_download_5_.jpg',
           intensityReason: 'Full reset engrains path, timing, and quiet turnover.',
           moodTips: [
             {
@@ -691,7 +691,7 @@ export const explosivenessWeightsDatabase: EquipmentWorkouts[] = [
           duration: '8–10 min',
           description: 'Short dip; vertical punch; stacked finish; smooth controlled down.',
           battlePlan: '3 rounds\n• 6–8 per side Push Press\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_muscle-mapper-2/artifacts/rz71s1n8_download%20%286%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241168/mood_app/workout_images/rz71s1n8_download_6_.jpg',
           intensityReason: 'Leg drive channels force into fast overhead lockout safely.',
           moodTips: [
             {
@@ -713,7 +713,7 @@ export const explosivenessWeightsDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Sharp hip snaps each minute; crisp float to consistent chest.',
           battlePlan: 'EMOM 10 min\n• 12 Swings each minute',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_muscle-mapper-2/artifacts/bg7rgit4_download%20%284%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241138/mood_app/workout_images/bg7rgit4_download_4_.jpg',
           intensityReason: 'EMOM bursts sustain repeatable high-quality power output.',
           moodTips: [
             {
@@ -733,7 +733,7 @@ export const explosivenessWeightsDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Pop to rack; dip-drive; punch under; stable overhead stick.',
           battlePlan: '4 rounds\n• 4 per side Clean → Jerk\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_muscle-mapper-2/artifacts/gxkmxo9y_download%20%286%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241149/mood_app/workout_images/gxkmxo9y_download_6_.jpg',
           intensityReason: 'Clean primes rack; jerk expresses rapid vertical force.',
           moodTips: [
             {
@@ -753,7 +753,7 @@ export const explosivenessWeightsDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Execute 5-4-3 ladders per side with crisp overhead timing.',
           battlePlan: '3 waves\n• Per side: 5-4-3 Snatches (build slightly)\nRest 90s between waves',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_muscle-mapper-2/artifacts/k2feqqcx_download%20%285%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241154/mood_app/workout_images/k2feqqcx_download_5_.jpg',
           intensityReason: 'Wave loading hones speed, turnover, and endurance quality.',
           moodTips: [
             {
@@ -775,7 +775,7 @@ export const explosivenessWeightsDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Sets of 10–12; float to chest; ribs stacked; avoid overpull.',
           battlePlan: '5 rounds\n• 10–12 Heavy Swings\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_muscle-mapper-2/artifacts/bg7rgit4_download%20%284%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241138/mood_app/workout_images/bg7rgit4_download_4_.jpg',
           intensityReason: 'Heavier bell elevates output per rep with posture demand.',
           moodTips: [
             {
@@ -795,7 +795,7 @@ export const explosivenessWeightsDatabase: EquipmentWorkouts[] = [
           duration: '12–16 min',
           description: '3-2-1 per side; crisp rack; decisive dip-drive to lockout.',
           battlePlan: '4 rounds\n• Ladder per side: 3-2-1 Clean + Jerk\nRest 150s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_muscle-mapper-2/artifacts/gxkmxo9y_download%20%286%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241149/mood_app/workout_images/gxkmxo9y_download_6_.jpg',
           intensityReason: 'Ladder volume sustains speed-strength under compounding load.',
           moodTips: [
             {
@@ -815,7 +815,7 @@ export const explosivenessWeightsDatabase: EquipmentWorkouts[] = [
           duration: '12–16 min',
           description: 'Snatch sets then broad jumps with firm two-second stick.',
           battlePlan: '4 rounds\n• 8 per side Snatches\n• 3 Broad Jumps (stick 2s)\nRest 150s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_muscle-mapper-2/artifacts/k2feqqcx_download%20%285%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241154/mood_app/workout_images/k2feqqcx_download_5_.jpg',
           intensityReason: 'Overhead power primes horizontal projection mechanics well.',
           moodTips: [
             {
@@ -844,7 +844,7 @@ export const explosivenessWeightsDatabase: EquipmentWorkouts[] = [
           duration: '8–10 min',
           description: 'Small vertical jumps versus band; quiet, balanced soft sticks.',
           battlePlan: '3 rounds\n• 5 × 3 Banded Jump Squats\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_muscle-mapper-2/artifacts/e6go354m_download%20%282%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241141/mood_app/workout_images/e6go354m_download_2_.jpg',
           intensityReason: 'Band adds accommodating tension to sharpen peak speed top.',
           moodTips: [
             {
@@ -864,7 +864,7 @@ export const explosivenessWeightsDatabase: EquipmentWorkouts[] = [
           duration: '8–10 min',
           description: 'Short dip, violent drive, band-accelerated overhead finish.',
           battlePlan: '3 rounds\n• 6–8 Push Press (light band)\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_muscle-mapper-2/artifacts/t37zt3nq_download.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241169/mood_app/workout_images/t37zt3nq_download.jpg',
           intensityReason: 'Band over-speed finish sharpens timing and lockout speed.',
           moodTips: [
             {
@@ -884,7 +884,7 @@ export const explosivenessWeightsDatabase: EquipmentWorkouts[] = [
           duration: '8–10 min',
           description: 'Jump forward against band; stable stick; measured resets.',
           battlePlan: '3 rounds\n• 5–6 Banded Broad Jumps (stick 2s)\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_muscle-mapper-2/artifacts/j83mxy4p_download%20%281%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241153/mood_app/workout_images/j83mxy4p_download_1_.jpg',
           intensityReason: 'Elastic resistance builds horizontal power with control.',
           moodTips: [
             {
@@ -906,7 +906,7 @@ export const explosivenessWeightsDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Controlled sit to box; explode up; maintain crisp bar speed.',
           battlePlan: '6 rounds\n• 2 reps every 45s (speed focus)\nRest on timer',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_muscle-mapper-2/artifacts/2ts1slh6_cbs.jpg',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241127/mood_app/workout_images/2ts1slh6_cbs.jpg',
           intensityReason: 'Chains deload bottom, overload top to drive fast concentric.',
           moodTips: [
             {
@@ -926,7 +926,7 @@ export const explosivenessWeightsDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Fast submax pulls; smooth knees; tall snap finish posture.',
           battlePlan: '4 rounds\n• 3–4 reps (submax, fast)\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_muscle-mapper-2/artifacts/qgfmm7dj_Screenshot%202025-12-03%20at%202.41.04%E2%80%AFPM.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241162/mood_app/workout_images/qgfmm7dj_Screenshot_2025-12-03_at_2_41_04_PM.jpg',
           intensityReason: 'Band tension reinforces lockout speed and hip extension.',
           moodTips: [
             {
@@ -946,7 +946,7 @@ export const explosivenessWeightsDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Quick punch under band; balanced split; one-second hold.',
           battlePlan: '4 rounds\n• 4–5 Split Jerks\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_muscle-mapper-2/artifacts/rr22go80_download%20%283%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241167/mood_app/workout_images/rr22go80_download_3_.jpg',
           intensityReason: 'Elastic resistance demands rapid dip-drive and firm stick.',
           moodTips: [
             {
@@ -968,7 +968,7 @@ export const explosivenessWeightsDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Three reps, brief rest, three more; match jump height.',
           battlePlan: '5 rounds\n• Cluster: 3 + 3 Banded Jump Squats\nRest 120s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_muscle-mapper-2/artifacts/ltbmgctq_download%20%282%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241156/mood_app/workout_images/ltbmgctq_download_2_.jpg',
           intensityReason: 'Cluster density sustains speed under continuous tension.',
           moodTips: [
             {
@@ -988,7 +988,7 @@ export const explosivenessWeightsDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: '5-4-3 fast pulls; submax loads; tight bar path each rep.',
           battlePlan: '3 waves\n• 5-4-3 Deadlifts (fast concentric)\nRest 150s between waves',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_muscle-mapper-2/artifacts/8q3jz0r7_cdl.jpg',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241132/mood_app/workout_images/8q3jz0r7_cdl.jpg',
           intensityReason: 'Wave sets maintain bar speed with rising top-end load.',
           moodTips: [
             {
@@ -1008,7 +1008,7 @@ export const explosivenessWeightsDatabase: EquipmentWorkouts[] = [
           duration: '12–16 min',
           description: 'Three banded broads, then immediate twenty-meter sprint.',
           battlePlan: '4 rounds\n• 3 Banded Broad Jumps (stick 2s)\n• 20m Free Sprint\nRest 150s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_muscle-mapper-2/artifacts/raj5xpdf_download%20%281%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241164/mood_app/workout_images/raj5xpdf_download_1_.jpg',
           intensityReason: 'Elastic priming then free sprint expresses pure speed best.',
           moodTips: [
             {
@@ -1037,7 +1037,7 @@ export const explosivenessWeightsDatabase: EquipmentWorkouts[] = [
           duration: '8–10 min',
           description: 'Quick knee bend to pop and shrug; quiet mid-foot landing.',
           battlePlan: '3 rounds\n• 5 × 3 Jump Shrugs (light)\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_muscle-mapper-2/artifacts/dpe352d2_tbj.webp',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241140/mood_app/workout_images/dpe352d2_tbj.jpg',
           intensityReason: 'Neutral handles support safe vertical extension mechanics.',
           moodTips: [
             {
@@ -1057,7 +1057,7 @@ export const explosivenessWeightsDatabase: EquipmentWorkouts[] = [
           duration: '8–10 min',
           description: 'Fast stand; smooth controlled return; reset each repetition.',
           battlePlan: '3 rounds\n• 5 × 2 Speed Deadlifts (light–moderate)\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_muscle-mapper-2/artifacts/6q0q24is_tbss.webp',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241129/mood_app/workout_images/6q0q24is_tbss.jpg',
           intensityReason: 'Speed pulls teach crisp leg drive and clean hip finish.',
           moodTips: [
             {
@@ -1077,7 +1077,7 @@ export const explosivenessWeightsDatabase: EquipmentWorkouts[] = [
           duration: '8–10 min',
           description: 'Ten-meter loaded march; rack; immediate ten-meter sprint.',
           battlePlan: '3 rounds\n• 10m Trap Bar March (light)\n• 10m Free Sprint\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_muscle-mapper-2/artifacts/pljikuu6_Screenshot%202025-12-03%20at%204.35.36%E2%80%AFPM.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241161/mood_app/workout_images/pljikuu6_Screenshot_2025-12-03_at_4_35_36_PM.jpg',
           intensityReason: 'Posture and stiffness under load prepare acceleration.',
           moodTips: [
             {
@@ -1099,7 +1099,7 @@ export const explosivenessWeightsDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Small jump with load; soft stick; deliberate stance reset.',
           battlePlan: '4 rounds\n• 5 × 3 Trap Bar Jumps\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_muscle-mapper-2/artifacts/dpe352d2_tbj.webp',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241140/mood_app/workout_images/dpe352d2_tbj.jpg',
           intensityReason: 'Loaded jumps build speed-strength with aligned mechanics.',
           moodTips: [
             {
@@ -1119,7 +1119,7 @@ export const explosivenessWeightsDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Pop tall; elbows drive up; keep handle path tight and close.',
           battlePlan: '4 rounds\n• 4 × 2 High Pulls (moderate)\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_muscle-mapper-2/artifacts/gur5s8sa_tbhp.jpg',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241148/mood_app/workout_images/gur5s8sa_tbhp.jpg',
           intensityReason: 'Aggressive extension elevates handles with rapid speed.',
           moodTips: [
             {
@@ -1139,7 +1139,7 @@ export const explosivenessWeightsDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Fast deadlift; quick step to box jump; two-second stick.',
           battlePlan: '4 rounds\n• 3 Speed Deadlifts (moderate)\n• 3 Box Jumps (stick 2s)\nRest 120s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_muscle-mapper-2/artifacts/wwxk13a9_tbs.webp',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241174/mood_app/workout_images/wwxk13a9_tbs.jpg',
           intensityReason: 'Strength pull potentiates reactive vertical jump quality.',
           moodTips: [
             {
@@ -1161,7 +1161,7 @@ export const explosivenessWeightsDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: '3-2-1 across waves; crisp height; precise repeatable path.',
           battlePlan: '3 waves\n• 3-2-1 Jump Shrugs (build per wave)\nRest 150s between waves',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-media-fix/artifacts/z1pka0qd_tbhp.jpg',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241367/mood_app/workout_images/z1pka0qd_tbhp.jpg',
           intensityReason: 'Wave sets preserve speed at rising relative loading.',
           moodTips: [
             {
@@ -1181,7 +1181,7 @@ export const explosivenessWeightsDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Two reps, ten seconds rest, two reps; maintain speed.',
           battlePlan: '5 rounds\n• Cluster: 2 + 2 Trap Bar Jumps\nRest 120s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-media-fix/artifacts/ix4wpy1u_tbj.webp',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241348/mood_app/workout_images/ix4wpy1u_tbj.jpg',
           intensityReason: 'Cluster density challenges elastic output and timing clean.',
           moodTips: [
             {
@@ -1201,7 +1201,7 @@ export const explosivenessWeightsDatabase: EquipmentWorkouts[] = [
           duration: '12–16 min',
           description: 'Single fast pull; immediate twenty-meter relaxed sprint.',
           battlePlan: '5 rounds\n• 1 Fast Deadlift (moderate–heavy)\n• 20m Free Sprint\nRest 150s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-media-fix/artifacts/23unnykj_tbss.webp',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241320/mood_app/workout_images/23unnykj_tbss.jpg',
           intensityReason: 'Potentiation from pull enhances next short sprint speed.',
           moodTips: [
             {

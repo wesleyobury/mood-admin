@@ -12,7 +12,7 @@ export const cardioWorkoutsDatabase: EquipmentWorkouts[] = [
           duration: '20 min',
           description: 'Walk-jog intervals alternating between\n3.5-5.2 mph for beginner endurance.\n ',
           battlePlan: '• 5 min walk (3.5 mph)\n• 3 min jog (5 mph)\n• 2 min walk (3 mph)\n• 4 min jog (5.2 mph)\n• 3 min walk (3.5 mph)\n• 3 min jog (5 mph)',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-app-ui/artifacts/6512s28r_download.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240938/mood_app/workout_images/6512s28r_download.jpg',
           intensityReason: 'Perfect beginner introduction with walk-jog intervals.',
           moodTips: [
             {
@@ -32,7 +32,7 @@ export const cardioWorkoutsDatabase: EquipmentWorkouts[] = [
           duration: '20 min',
           description: 'Incline walking progression from 3% to 6%\ngrade for building leg strength safely.\n ',
           battlePlan: '• 3 min walk (3.5 mph)\n• 4 min incline walk (3.8 mph, 4% incline)\n• 2 min walk (3.5 mph)\n• 5 min incline walk (4 mph, 6% incline)\n• 3 min walk (3.5 mph)\n• 3 min incline walk (3.8 mph, 3% incline)',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-app-ui/artifacts/urpigixq_download%20%283%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240958/mood_app/workout_images/urpigixq_download_3_.jpg',
           intensityReason: 'Gentle incline progression builds leg strength safely.',
           moodTips: [
             {
@@ -54,7 +54,7 @@ export const cardioWorkoutsDatabase: EquipmentWorkouts[] = [
           duration: '25 min',
           description: 'Speed intervals from 5.5-7.5 mph with\nincline recovery walks. 3 rounds total.\n ',
           battlePlan: '• 3 min jog (5.5 mph)\n• 2 min run (6.5 mph)\n• 1 min fast run (7.5 mph)\n• 2 min walk (3.5 mph, incline 3%)\n• repeat 3x\n• finish with 3 min jog (5.5 mph)',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-app-ui/artifacts/6512s28r_download.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240938/mood_app/workout_images/6512s28r_download.jpg',
           intensityReason: 'Speed increases with recovery for intermediate fitness.',
           moodTips: [
             {
@@ -74,7 +74,7 @@ export const cardioWorkoutsDatabase: EquipmentWorkouts[] = [
           duration: '22 min',
           description: 'Incline running intervals at consistent\npace with varying elevation. 5 rounds total.\n ',
           battlePlan: '• 2 min run (6.0 mph, incline 1%)\n• 1 min run (6.0 mph, incline 5%)\n• 2 min walk (3.5 mph, incline 2%)\n• Repeat 5x\n• Finish with 3 min walk (3.0 mph)',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-app-ui/artifacts/urpigixq_download%20%283%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240958/mood_app/workout_images/urpigixq_download_3_.jpg',
           intensityReason: 'Running pace with inclines builds cardio and muscle.',
           moodTips: [
             {
@@ -96,7 +96,7 @@ export const cardioWorkoutsDatabase: EquipmentWorkouts[] = [
           duration: '28 min',
           description: 'Pyramid sprints from 30s to 1 min\nat 9+ mph with jog recoveries.\n ',
           battlePlan: '• 2 min jog (6.0 mph)\n• 30 sec sprint (9.0 mph)\n• 1 min jog\n• 45 sec sprint\n• 1 min jog\n• 1 min sprint\n• 2 min jog\n• repeat pyramid\n• finish with 5 min incline walk (4.0 mph, incline 8%)',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-app-ui/artifacts/6512s28r_download.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240938/mood_app/workout_images/6512s28r_download.jpg',
           intensityReason: 'High-intensity 9.0 mph sprints challenge max capacity.',
           moodTips: [
             {
@@ -116,7 +116,7 @@ export const cardioWorkoutsDatabase: EquipmentWorkouts[] = [
           duration: '35 min',
           description: 'Sustained tempo running with hill\nsprints and incline walks for recovery.\n ',
           battlePlan: '• 5 min warm-up (jog)\n• 10 min tempo run (7.0 mph, incline 2%)\n• 5 x 1 min hill sprints (8.0 mph, incline 6%, 1 min walk between)\n• 5 min cool-down',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-app-ui/artifacts/urpigixq_download%20%283%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240958/mood_app/workout_images/urpigixq_download_3_.jpg',
           intensityReason: 'Tempo runs plus hill sprints demand advanced fitness.',
           moodTips: [
             {
@@ -144,7 +144,7 @@ export const cardioWorkoutsDatabase: EquipmentWorkouts[] = [
           duration: '18 min',
           description: 'Resistance intervals from easy to moderate\nwith 4 rounds of progressive intensity.\n ',
           battlePlan: '• 3 min easy (resistance 3)\n• 2 min moderate (resistance 6)\n• 1 min fast (resistance 4)\n• repeat 4x\n• finish with 3 min easy (resistance 2)',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-app-ui/artifacts/ylgyqtdj_download%20%282%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240961/mood_app/workout_images/ylgyqtdj_download_2_.jpg',
           intensityReason: 'Low-impact with gentle resistance, ideal for cardio.',
           moodTips: [
             {
@@ -164,7 +164,7 @@ export const cardioWorkoutsDatabase: EquipmentWorkouts[] = [
           duration: '16 min',
           description: 'RPM variations from 50-70 with steady,\nfast, and moderate pace changes.\n ',
           battlePlan: '• 2 min steady (RPM 55)\n• 1 min fast (RPM 70)\n• 2 min moderate (RPM 60)\n• 1 min slow (RPM 50, resistance 5)\n• repeat 3x',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-app-ui/artifacts/0knopdsq_download%20%283%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240936/mood_app/workout_images/0knopdsq_download_3_.jpg',
           intensityReason: 'RPM variations teach rhythm and build endurance.',
           moodTips: [
             {
@@ -186,7 +186,7 @@ export const cardioWorkoutsDatabase: EquipmentWorkouts[] = [
           duration: '25 min',
           description: 'High resistance climbs alternating\nwith low resistance sprints at 80+ RPM.\n ',
           battlePlan: '• 2 min moderate (resistance 5)\n• 1 min climb (resistance 10)\n• 1 min sprint (resistance 4, RPM 80+)\n• repeat 5x\n• finish with 3 min easy',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-app-ui/artifacts/ylgyqtdj_download%20%282%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240961/mood_app/workout_images/ylgyqtdj_download_2_.jpg',
           intensityReason: 'Alternates climbs and sprints for strength and speed.',
           moodTips: [
             {
@@ -206,7 +206,7 @@ export const cardioWorkoutsDatabase: EquipmentWorkouts[] = [
           duration: '18 min',
           description: 'Forward and reverse elliptical intervals\nwith sprint finishes for muscle balance.\n ',
           battlePlan: '• 3 min forward (resistance 6)\n• 2 min reverse (resistance 4)\n• 1 min sprint (forward, resistance 5)\n• repeat 4x\n• finish with 2 min easy',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-app-ui/artifacts/0knopdsq_download%20%283%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240936/mood_app/workout_images/0knopdsq_download_3_.jpg',
           intensityReason: 'Direction changes engage muscles with cardio demand.',
           moodTips: [
             {
@@ -228,7 +228,7 @@ export const cardioWorkoutsDatabase: EquipmentWorkouts[] = [
           duration: '24 min',
           description: 'Tabata protocol with 20s max effort\nand 10s recovery. 3 complete cycles.\n ',
           battlePlan: '• 8 rounds: 20 sec max effort (resistance 8)\n• 10 sec easy (resistance 3)\n• 2 min recovery\n• repeat for 3 cycles',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-app-ui/artifacts/ylgyqtdj_download%20%282%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240961/mood_app/workout_images/ylgyqtdj_download_2_.jpg',
           intensityReason: 'Tabata protocol demands max effort and VO2 limits.',
           moodTips: [
             {
@@ -248,7 +248,7 @@ export const cardioWorkoutsDatabase: EquipmentWorkouts[] = [
           duration: '35 min',
           description: 'Long ride with varied intensities tests endurance.\n ',
           battlePlan: '• 5 min easy\n• 10 min moderate (resistance 6)\n• 5 min hard (resistance 8)\n• 5 min reverse (resistance 5)\n• 5 min fast (resistance 4, RPM 75+)\n• 5 min cool-down',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-app-ui/artifacts/0knopdsq_download%20%283%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240936/mood_app/workout_images/0knopdsq_download_3_.jpg',
           intensityReason: 'Long duration with varied intensities tests endurance.',
           moodTips: [
             {
@@ -276,7 +276,7 @@ export const cardioWorkoutsDatabase: EquipmentWorkouts[] = [
           duration: '12 min',
           description: 'Upper body intervals mixing easy, moderate,\nand fast paces with resistance changes.\n ',
           battlePlan: '• 2 min easy (resistance 2)\n• 1 min moderate (resistance 4)\n• 1 min fast (resistance 2)\n• repeat 3x\n• finish with 2 min easy',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-app-ui/artifacts/csr8mwa9_download%20%281%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240944/mood_app/workout_images/csr8mwa9_download_1_.jpg',
           intensityReason: 'Short intervals build upper body endurance gradually.',
           moodTips: [
             {
@@ -296,7 +296,7 @@ export const cardioWorkoutsDatabase: EquipmentWorkouts[] = [
           duration: '15 min',
           description: 'Upper body intervals with forward and\nreverse cycling patterns. 3 complete rounds.\n ',
           battlePlan: '• 1 min easy\n• 1 min moderate\n• 30 sec fast\n• 1 min easy\n• 1 min reverse\n• repeat 3x',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-app-ui/artifacts/2szzkktw_download.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240937/mood_app/workout_images/2szzkktw_download.jpg',
           intensityReason: 'Basic intervals with reverse motion for safe cardio.',
           moodTips: [
             {
@@ -318,7 +318,7 @@ export const cardioWorkoutsDatabase: EquipmentWorkouts[] = [
           duration: '18 min',
           description: 'Pyramid intensity progression from easy\nto hard and back down. 3 complete cycles.\n ',
           battlePlan: '• 1 min easy\n• 1 min moderate\n• 1 min hard\n• 1 min moderate\n• 1 min easy\n• repeat 3x',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-app-ui/artifacts/csr8mwa9_download%20%281%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240944/mood_app/workout_images/csr8mwa9_download_1_.jpg',
           intensityReason: 'Progressive pyramid challenges intermediate strength.',
           moodTips: [
             {
@@ -338,7 +338,7 @@ export const cardioWorkoutsDatabase: EquipmentWorkouts[] = [
           duration: '20 min',
           description: 'Alternating forward and reverse cycling\nwith sprint intervals. 4 complete rounds.\n ',
           battlePlan: '• 2 min forward (resistance 5)\n• 1 min reverse (resistance 3)\n• 1 min sprint (forward, resistance 4)\n• repeat 4x',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-app-ui/artifacts/2szzkktw_download.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240937/mood_app/workout_images/2szzkktw_download.jpg',
           intensityReason: 'Alternating directions engage muscles and cardio.',
           moodTips: [
             {
@@ -360,7 +360,7 @@ export const cardioWorkoutsDatabase: EquipmentWorkouts[] = [
           duration: '20 min',
           description: 'High-intensity arm cycling with 30s max\neffort and recovery periods. 10 rounds total.\n ',
           battlePlan: '• 30 sec max effort (resistance 8)\n• 1 min easy (resistance 3)\n• repeat 10x\n• finish with 5 min moderate',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-app-ui/artifacts/csr8mwa9_download%20%281%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240944/mood_app/workout_images/csr8mwa9_download_1_.jpg',
           intensityReason: 'High-intensity sprints demand max upper body power.',
           moodTips: [
             {
@@ -380,7 +380,7 @@ export const cardioWorkoutsDatabase: EquipmentWorkouts[] = [
           duration: '25 min',
           description: 'Extended endurance with sprint intervals\nand reverse cycling for complete training.\n ',
           battlePlan: '• 5 min moderate\n• 10 x 30 sec sprint (resistance 10) with 30 sec easy\n• 5 min reverse\n• 5 min cool-down',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-app-ui/artifacts/2szzkktw_download.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240937/mood_app/workout_images/2szzkktw_download.jpg',
           intensityReason: 'Extended power intervals test advanced endurance.',
           moodTips: [
             {
@@ -408,7 +408,7 @@ export const cardioWorkoutsDatabase: EquipmentWorkouts[] = [
           duration: '20 min',
           description: 'Easy to moderate resistance intervals\nwith 4 rounds of progressive intensity.\n ',
           battlePlan: '• 3 min easy (resistance 2)\n• 2 min moderate (resistance 5)\n• 1 min fast (resistance 3)\n• repeat 4x',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-app-ui/artifacts/fbe3z3jx_download%20%281%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240949/mood_app/workout_images/fbe3z3jx_download_1_.jpg',
           intensityReason: 'Gentle resistance builds leg strength and cardio base.',
           moodTips: [
             {
@@ -428,7 +428,7 @@ export const cardioWorkoutsDatabase: EquipmentWorkouts[] = [
           duration: '18 min',
           description: 'Cadence training from 60-90 RPM with\nsteady, fast, and moderate intervals.\n ',
           battlePlan: '• 2 min steady (70 RPM)\n• 1 min fast (90 RPM)\n• 2 min moderate (80 RPM)\n• 1 min slow (60 RPM, resistance 6)\n• repeat 3x',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-app-ui/artifacts/706vd22i_download%20%282%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240940/mood_app/workout_images/706vd22i_download_2_.jpg',
           intensityReason: 'RPM variations teach pedaling rhythm and intensity.',
           moodTips: [
             {
@@ -450,7 +450,7 @@ export const cardioWorkoutsDatabase: EquipmentWorkouts[] = [
           duration: '25 min',
           description: 'High resistance hill climbs alternating\nwith sprint intervals at 100+ RPM.\n ',
           battlePlan: '• 2 min moderate (resistance 6)\n• 1 min hill (resistance 10)\n• 1 min sprint (resistance 4, 100+ RPM)\n• repeat 5x',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-app-ui/artifacts/fbe3z3jx_download%20%281%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240949/mood_app/workout_images/fbe3z3jx_download_1_.jpg',
           intensityReason: 'Alternates hills and sprints for balanced training.',
           moodTips: [
             {
@@ -470,7 +470,7 @@ export const cardioWorkoutsDatabase: EquipmentWorkouts[] = [
           duration: '30 min',
           description: 'Pyramid intensity progression from easy\nto hard and back down. 3 complete rounds.\n ',
           battlePlan: '• 3 min easy\n• 2 min moderate\n• 1 min hard\n• 2 min moderate\n• 3 min easy\n• repeat 3x',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-app-ui/artifacts/706vd22i_download%20%282%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240940/mood_app/workout_images/706vd22i_download_2_.jpg',
           intensityReason: 'Progressive pyramids challenge sustained effort.',
           moodTips: [
             {
@@ -492,7 +492,7 @@ export const cardioWorkoutsDatabase: EquipmentWorkouts[] = [
           duration: '24 min',
           description: 'Tabata protocol with 20s max effort\nand 10s recovery. 3 complete cycles.\n ',
           battlePlan: '• 8 rounds: 20 sec max effort (resistance 8)\n• 10 sec easy (resistance 3)\n• 2 min recovery\n• repeat for 3 cycles',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-app-ui/artifacts/fbe3z3jx_download%20%281%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240949/mood_app/workout_images/fbe3z3jx_download_1_.jpg',
           intensityReason: 'Tabata pushes advanced cyclists to max power and VO2.',
           moodTips: [
             {
@@ -512,7 +512,7 @@ export const cardioWorkoutsDatabase: EquipmentWorkouts[] = [
           duration: '35 min',
           description: 'Long ride with challenges tests endurance and power.\n ',
           battlePlan: '• 5 min easy\n• 10 min moderate (resistance 7)\n• 5 min hard (resistance 10)\n• 5 min fast (resistance 5, RPM 80+)\n• 5 min reverse (resistance 6)\n• 5 min cool-down',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-app-ui/artifacts/706vd22i_download%20%282%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240940/mood_app/workout_images/706vd22i_download_2_.jpg',
           intensityReason: 'Extended workout with challenges tests endurance.',
           moodTips: [
             {
@@ -540,7 +540,7 @@ export const cardioWorkoutsDatabase: EquipmentWorkouts[] = [
           duration: '12 min',
           description: 'Easy intervals with 30s moderate\nand fast bursts. 4 complete rounds.\n ',
           battlePlan: '• 1 min easy\n• 30 sec moderate\n• 1 min easy\n• 30 sec fast\n• repeat 4x',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-app-ui/artifacts/foko2r38_download%20%282%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240950/mood_app/workout_images/foko2r38_download_2_.jpg',
           intensityReason: 'Short intervals introduce assault bike intensity safely.',
           moodTips: [
             {
@@ -560,7 +560,7 @@ export const cardioWorkoutsDatabase: EquipmentWorkouts[] = [
           duration: '15 min',
           description: 'Resistance progression with easy, moderate,\nand fast intervals. 3 complete cycles.\n ',
           battlePlan: '• 2 min easy\n• 1 min moderate (increase resistance)\n• 1 min fast\n• repeat 3x\n• finish with 2 min easy',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-app-ui/artifacts/eusce64e_download%20%283%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240948/mood_app/workout_images/eusce64e_download_3_.jpg',
           intensityReason: 'Gradual resistance helps beginners adapt to assault bike.',
           moodTips: [
             {
@@ -582,7 +582,7 @@ export const cardioWorkoutsDatabase: EquipmentWorkouts[] = [
           duration: '18 min',
           description: '20s sprint intervals with 40s recovery.\n10 rounds plus 5min moderate finish.\n ',
           battlePlan: '• 20 sec sprint\n• 40 sec easy\n• repeat 10x\n• 5 min moderate',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-app-ui/artifacts/foko2r38_download%20%282%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240950/mood_app/workout_images/foko2r38_download_2_.jpg',
           intensityReason: 'Classic 1:2 ratio challenges intermediate full-body power.',
           moodTips: [
             {
@@ -602,7 +602,7 @@ export const cardioWorkoutsDatabase: EquipmentWorkouts[] = [
           duration: '20 min',
           description: 'Progressive sprint ladder from 30s to 1min\nwith equal recovery periods between.\n ',
           battlePlan: '• 30 sec sprint\n• 1 min easy\n• 45 sec sprint\n• 1 min easy\n• 1 min sprint\n• 1 min easy\n• repeat sequence',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-app-ui/artifacts/eusce64e_download%20%283%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240948/mood_app/workout_images/eusce64e_download_3_.jpg',
           intensityReason: 'Progressive intervals challenge intermediate athletes.',
           moodTips: [
             {
@@ -624,7 +624,7 @@ export const cardioWorkoutsDatabase: EquipmentWorkouts[] = [
           duration: '16 min',
           description: 'Tabata protocol with 20s max effort\nand 10s rest. 2 complete cycles.\n ',
           battlePlan: '• 8 rounds: 20 sec max effort\n• 10 sec rest\n• 2 min easy\n• repeat for 2 cycles',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-app-ui/artifacts/foko2r38_download%20%282%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240950/mood_app/workout_images/foko2r38_download_2_.jpg',
           intensityReason: 'Tabata on assault bike demands max full-body power.',
           moodTips: [
             {
@@ -644,7 +644,7 @@ export const cardioWorkoutsDatabase: EquipmentWorkouts[] = [
           duration: '20 min',
           description: 'Every minute on the minute sprints\nwith variable recovery time.\n ',
           battlePlan: '• Every minute: 20 sec sprint\n• 40 sec moderate\n• repeat for 20 min',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-app-ui/artifacts/eusce64e_download%20%283%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240948/mood_app/workout_images/eusce64e_download_3_.jpg',
           intensityReason: 'Extended EMOM format tests advanced endurance.',
           moodTips: [
             {
@@ -672,7 +672,7 @@ export const cardioWorkoutsDatabase: EquipmentWorkouts[] = [
           duration: '12 min',
           description: 'Easy rowing intervals with 30s moderate\nand fast bursts. 4 complete rounds.\n ',
           battlePlan: '• 1 min easy\n• 30 sec moderate\n• 1 min easy\n• 30 sec fast\n• repeat 4x',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-app-ui/artifacts/sfylsueu_download%20copy%204.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240957/mood_app/workout_images/sfylsueu_download_copy_4.jpg',
           intensityReason: 'Short intervals ideal for beginners learning rowing technique.',
           moodTips: [
             {
@@ -692,7 +692,7 @@ export const cardioWorkoutsDatabase: EquipmentWorkouts[] = [
           duration: '15 min',
           description: 'Stroke rate variations from 20-28 SPM\nwith steady, fast, and slow phases.\n ',
           battlePlan: '• 2 min steady (22 SPM)\n• 1 min fast (28 SPM)\n• 2 min slow (20 SPM)\n• repeat 3x',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-app-ui/artifacts/ovxl084v_download%20%281%29%20copy%204.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240955/mood_app/workout_images/ovxl084v_download_1_copy_4.jpg',
           intensityReason: 'Varied stroke rates develop rhythm and cardio base.',
           moodTips: [
             {
@@ -714,7 +714,7 @@ export const cardioWorkoutsDatabase: EquipmentWorkouts[] = [
           duration: '20 min',
           description: 'Power intervals alternating hard, moderate,\nand recovery strokes. 4 complete rounds.\n ',
           battlePlan: '• 1 min hard (28 SPM)\n• 2 min moderate (24 SPM)\n• 1 min slow (20 SPM)\n• repeat 4x',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-app-ui/artifacts/sfylsueu_download%20copy%204.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240957/mood_app/workout_images/sfylsueu_download_copy_4.jpg',
           intensityReason: 'Alternates power strokes and recovery for strength.',
           moodTips: [
             {
@@ -734,7 +734,7 @@ export const cardioWorkoutsDatabase: EquipmentWorkouts[] = [
           duration: '25 min',
           description: 'Progressive pyramid from 1-3 minutes\neasy/hard pairs, then descending back.\n ',
           battlePlan: '• 1 min easy\n• 1 min hard\n• 2 min easy\n• 2 min hard\n• 3 min easy\n• 3 min hard\n• then back down',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-app-ui/artifacts/ovxl084v_download%20%281%29%20copy%204.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240955/mood_app/workout_images/ovxl084v_download_1_copy_4.jpg',
           intensityReason: 'Progressive intervals challenge intermediate rowers.',
           moodTips: [
             {
@@ -756,7 +756,7 @@ export const cardioWorkoutsDatabase: EquipmentWorkouts[] = [
           duration: '20 min',
           description: 'Sprint intervals at 32 SPM with moderate\nrecovery strokes. 10 complete rounds.\n ',
           battlePlan: '• 30 sec sprint (32 SPM)\n• 1 min moderate (24 SPM)\n• repeat 10x',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-app-ui/artifacts/sfylsueu_download%20copy%204.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240957/mood_app/workout_images/sfylsueu_download_copy_4.jpg',
           intensityReason: 'High-intensity 32 SPM sprints demand max power output.',
           moodTips: [
             {
@@ -776,7 +776,7 @@ export const cardioWorkoutsDatabase: EquipmentWorkouts[] = [
           duration: '30 min',
           description: 'Progressive endurance build from easy\nto fast pace with structured progression.\n ',
           battlePlan: '• 5 min easy\n• 10 min moderate\n• 5 min hard\n• 5 min fast\n• 5 min cool-down',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-app-ui/artifacts/ovxl084v_download%20%281%29%20copy%204.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240955/mood_app/workout_images/ovxl084v_download_1_copy_4.jpg',
           intensityReason: 'Extended duration builds elite-level endurance.',
           moodTips: [
             {
@@ -804,7 +804,7 @@ export const cardioWorkoutsDatabase: EquipmentWorkouts[] = [
           duration: '12 min',
           description: 'Easy stepping intervals with 30s moderate\nand fast bursts. 4 complete rounds.\n ',
           battlePlan: '• 1 min easy\n• 30 sec moderate\n• 1 min easy\n• 30 sec fast\n• repeat 4x',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-app-ui/artifacts/clikf991_download.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240943/mood_app/workout_images/clikf991_download.jpg',
           intensityReason: 'Gentle step intervals help beginners build leg strength.',
           moodTips: [
             {
@@ -846,7 +846,7 @@ export const cardioWorkoutsDatabase: EquipmentWorkouts[] = [
           duration: '20 min',
           description: 'Fast intervals with moderate recovery\nand side step challenges. 4 rounds total.\n ',
           battlePlan: '• 1 min fast\n• 2 min moderate\n• 1 min side step (face sideways)\n• repeat 4x',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-app-ui/artifacts/clikf991_download.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240943/mood_app/workout_images/clikf991_download.jpg',
           intensityReason: 'Mixed patterns challenge intermediate speed and coordination.',
           moodTips: [
             {
@@ -888,7 +888,7 @@ export const cardioWorkoutsDatabase: EquipmentWorkouts[] = [
           duration: '30 min',
           description: 'Advanced stepping with varied patterns. 5 rounds.\n ',
           battlePlan: '• 2 min fast\n• 1 min side step\n• 1 min double step\n• 2 min moderate\n• repeat 5x',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-app-ui/artifacts/clikf991_download.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240943/mood_app/workout_images/clikf991_download.jpg',
           intensityReason: 'High-speed stepping demands advanced coordination and power.',
           moodTips: [
             {
@@ -936,7 +936,7 @@ export const cardioWorkoutsDatabase: EquipmentWorkouts[] = [
           duration: '12 min',
           description: 'Easy skiing intervals with 30s moderate\nand fast bursts. 4 complete rounds.\n ',
           battlePlan: '• 1 min easy\n• 30 sec moderate\n• 1 min easy\n• 30 sec fast\n• repeat 4x',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-app-ui/artifacts/lv55gxbj_download.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240954/mood_app/workout_images/lv55gxbj_download.jpg',
           intensityReason: 'Short intervals help beginners learn ski machine technique.',
           moodTips: [
             {
@@ -956,7 +956,7 @@ export const cardioWorkoutsDatabase: EquipmentWorkouts[] = [
           duration: '15 min',
           description: 'Resistance variations from light to moderate\nwith steady, moderate, and slow phases.\n ',
           battlePlan: '• 2 min steady (resistance 3)\n• 1 min moderate (resistance 5)\n• 2 min slow (resistance 2)\n• repeat 3x',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-app-ui/artifacts/dsrwf4m8_ski1.jpg',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240946/mood_app/workout_images/dsrwf4m8_ski1.jpg',
           intensityReason: 'Varied resistance introduces beginners to ski motion gradually.',
           moodTips: [
             {
@@ -978,7 +978,7 @@ export const cardioWorkoutsDatabase: EquipmentWorkouts[] = [
           duration: '18 min',
           description: 'Skiing intervals alternating hard, moderate,\nand slow intensities. 4 complete rounds.\n ',
           battlePlan: '• 1 min hard\n• 2 min moderate\n• 1 min slow\n• repeat 4x',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-app-ui/artifacts/lv55gxbj_download.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240954/mood_app/workout_images/lv55gxbj_download.jpg',
           intensityReason: 'Intervals challenge intermediate full-body coordination.',
           moodTips: [
             {
@@ -998,7 +998,7 @@ export const cardioWorkoutsDatabase: EquipmentWorkouts[] = [
           duration: '20 min',
           description: 'Pyramid skiing building from 1-3 minutes\neasy/hard pairs with progressive intensity.\n ',
           battlePlan: '• 1 min easy\n• 1 min hard\n• 2 min easy\n• 2 min hard\n• 3 min easy\n• 3 min hard',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-app-ui/artifacts/dsrwf4m8_ski1.jpg',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240946/mood_app/workout_images/dsrwf4m8_ski1.jpg',
           intensityReason: 'Progressive time increases test intermediate endurance.',
           moodTips: [
             {
@@ -1020,7 +1020,7 @@ export const cardioWorkoutsDatabase: EquipmentWorkouts[] = [
           duration: '20 min',
           description: 'High-intensity ski sprints with moderate\nrecovery periods. 10 complete rounds.\n ',
           battlePlan: '• 30 sec sprint\n• 1 min moderate\n• repeat 10x',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-app-ui/artifacts/lv55gxbj_download.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240954/mood_app/workout_images/lv55gxbj_download.jpg',
           intensityReason: 'High-intensity sprints demand max power and coordination.',
           moodTips: [
             {
@@ -1040,7 +1040,7 @@ export const cardioWorkoutsDatabase: EquipmentWorkouts[] = [
           duration: '16 min',
           description: 'Tabata protocol with 20s max effort\nand 10s rest. 2 complete cycles.\n ',
           battlePlan: '• 8 rounds\n• 20 sec max effort\n• 10 sec rest\n• Rest for two minutes\n• Repeat for 2 cycles',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-app-ui/artifacts/dsrwf4m8_ski1.jpg',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240946/mood_app/workout_images/dsrwf4m8_ski1.jpg',
           intensityReason: 'Tabata intervals push advanced users to max anaerobic capacity.',
           moodTips: [
             {
@@ -1068,7 +1068,7 @@ export const cardioWorkoutsDatabase: EquipmentWorkouts[] = [
           duration: '12 min',
           description: 'Basic walk-jog intervals alternating\nbetween 2min walks and 1min jogs. 2 cycles.\n ',
           battlePlan: '• 2 min walk\n• 1 min jog\n• 2 min walk\n• 1 min jog\n• repeat 2x',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-app-ui/artifacts/ejtlm08e_download.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240947/mood_app/workout_images/ejtlm08e_download.jpg',
           intensityReason: 'Curve treadmill moderates pace, perfect for beginners.',
           moodTips: [
             {
@@ -1088,7 +1088,7 @@ export const cardioWorkoutsDatabase: EquipmentWorkouts[] = [
           duration: '15 min',
           description: 'Speed variation training with walking,\njogging, and fast walking. 4 rounds total.\n ',
           battlePlan: '• 1 min walk\n• 30 sec jog\n• 1 min walk\n• 30 sec fast walk\n• repeat 4x',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-app-ui/artifacts/z2xm78y9_download%20%281%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240962/mood_app/workout_images/z2xm78y9_download_1_.jpg',
           intensityReason: 'Variable pace helps beginners understand effort control.',
           moodTips: [
             {
@@ -1110,7 +1110,7 @@ export const cardioWorkoutsDatabase: EquipmentWorkouts[] = [
           duration: '18 min',
           description: 'Running intervals with recovery walks. 3 cycles.\n ',
           battlePlan: '• 1 min run\n• 2 min walk\n• 1 min fast run\n• 2 min walk\n• repeat 3x',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-app-ui/artifacts/ejtlm08e_download.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240947/mood_app/workout_images/ejtlm08e_download.jpg',
           intensityReason: 'Intervals on curve treadmill challenge intermediate runners.',
           moodTips: [
             {
@@ -1130,7 +1130,7 @@ export const cardioWorkoutsDatabase: EquipmentWorkouts[] = [
           duration: '20 min',
           description: 'Pyramid pace progression from walk to\nrun and back down. 3 complete cycles.\n ',
           battlePlan: '• 1 min walk\n• 1 min jog\n• 1 min run\n• 1 min jog\n• 1 min walk\n• repeat 3x',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-app-ui/artifacts/z2xm78y9_download%20%281%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240962/mood_app/workout_images/z2xm78y9_download_1_.jpg',
           intensityReason: 'Progressive pace pyramids develop intermediate pacing skills.',
           moodTips: [
             {
@@ -1152,7 +1152,7 @@ export const cardioWorkoutsDatabase: EquipmentWorkouts[] = [
           duration: '20 min',
           description: 'High-intensity sprint intervals with 20s\nall-out effort and 40s recovery. 15 rounds.\n ',
           battlePlan: '• 20 sec sprint\n• 40 sec walk\n• repeat 15x',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-app-ui/artifacts/ejtlm08e_download.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240947/mood_app/workout_images/ejtlm08e_download.jpg',
           intensityReason: 'High-intensity sprints demand maximum power and mechanics.',
           moodTips: [
             {
@@ -1172,7 +1172,7 @@ export const cardioWorkoutsDatabase: EquipmentWorkouts[] = [
           duration: '15 min',
           description: 'Every minute sprint challenge with 20s\nall-out effort and 40s jog recovery.\n ',
           battlePlan: '• Every minute: 20 sec sprint\n• 40 sec moderate jog\n• repeat for 15 min',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-app-ui/artifacts/z2xm78y9_download%20%281%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240962/mood_app/workout_images/z2xm78y9_download_1_.jpg',
           intensityReason: 'Sustained work tests advanced cardiovascular capacity.',
           moodTips: [
             {
@@ -1200,7 +1200,7 @@ export const cardioWorkoutsDatabase: EquipmentWorkouts[] = [
           duration: '10 min',
           description: 'Basic punch combinations with jab-cross\nand jab-cross-hook patterns. 5 rounds total.\n ',
           battlePlan: '• 30 sec jab-cross\n• 30 sec rest\n• 30 sec jab-cross-hook\n• 30 sec rest\n• repeat 5x',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-app-ui/artifacts/9djyqo5n_download%20copy%203.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240941/mood_app/workout_images/9djyqo5n_download_copy_3.jpg',
           intensityReason: 'Basic combinations help beginners learn proper punching form.',
           moodTips: [
             {
@@ -1220,7 +1220,7 @@ export const cardioWorkoutsDatabase: EquipmentWorkouts[] = [
           duration: '12 min',
           description: 'Light punching combined with footwork\nand movement around the bag. 4 rounds.\n ',
           battlePlan: '• 30 sec light punches\n• 30 sec footwork (move around bag)\n• 30 sec rest\n• repeat 4x',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-app-ui/artifacts/gbeea240_download%20%281%29%20copy%203.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240951/mood_app/workout_images/gbeea240_download_1_copy_3.jpg',
           intensityReason: 'Punching with movement introduces beginners to boxing cardio.',
           moodTips: [
             {
@@ -1242,7 +1242,7 @@ export const cardioWorkoutsDatabase: EquipmentWorkouts[] = [
           duration: '15 min',
           description: 'Complex combos with power punches. 4 rounds.\n ',
           battlePlan: '• 1 min combos (jab-cross-hook-uppercut)\n• 30 sec rest\n• 1 min power punches\n• 30 sec rest\n• repeat 4x',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-app-ui/artifacts/9djyqo5n_download%20copy%203.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240941/mood_app/workout_images/9djyqo5n_download_copy_3.jpg',
           intensityReason: 'Complex combinations challenge intermediate coordination.',
           moodTips: [
             {
@@ -1262,7 +1262,7 @@ export const cardioWorkoutsDatabase: EquipmentWorkouts[] = [
           duration: '16 min',
           description: 'Speed punching combined with defensive\nslips and ducks movements. 6 rounds total.\n ',
           battlePlan: '• 30 sec fast punches\n• 30 sec slips/ducks\n• 30 sec rest\n• repeat 6x',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-app-ui/artifacts/gbeea240_download%20%281%29%20copy%203.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240951/mood_app/workout_images/gbeea240_download_1_copy_3.jpg',
           intensityReason: 'Speed work with defense develops intermediate boxing skills.',
           moodTips: [
             {
@@ -1284,7 +1284,7 @@ export const cardioWorkoutsDatabase: EquipmentWorkouts[] = [
           duration: '20 min',
           description: 'High-intensity boxing with 45s max effort\ncombos and minimal rest. 15 rounds total.\n ',
           battlePlan: '• 45 sec max effort combos\n• 15 sec rest\n• repeat 15x',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-app-ui/artifacts/9djyqo5n_download%20copy%203.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240941/mood_app/workout_images/9djyqo5n_download_copy_3.jpg',
           intensityReason: 'High-intensity intervals demand max power and coordination.',
           moodTips: [
             {
@@ -1304,7 +1304,7 @@ export const cardioWorkoutsDatabase: EquipmentWorkouts[] = [
           duration: '20 min',
           description: 'Extended rounds with all-out effort and defense. 3 cycles.\n ',
           battlePlan: '• 2 min all-out\n• 1 min rest\n• 2 min footwork & defense\n• 1 min rest\n• repeat 3x',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-app-ui/artifacts/gbeea240_download%20%281%29%20copy%203.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240951/mood_app/workout_images/gbeea240_download_1_copy_3.jpg',
           intensityReason: 'Extended rounds test advanced cardiovascular endurance.',
           moodTips: [
             {
@@ -1332,7 +1332,7 @@ export const cardioWorkoutsDatabase: EquipmentWorkouts[] = [
           duration: '10 min',
           description: 'Basic climbing intervals with equal\nwork and rest periods. 5 rounds total.\n ',
           battlePlan: '• 1 min climb\n• 1 min rest\n• repeat 5x',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-app-ui/artifacts/6dix82sz_download.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240939/mood_app/workout_images/6dix82sz_download.jpg',
           intensityReason: 'Work-to-rest ratio helps beginners adapt to climbing motion.',
           moodTips: [
             {
@@ -1352,7 +1352,7 @@ export const cardioWorkoutsDatabase: EquipmentWorkouts[] = [
           duration: '12 min',
           description: 'Progressive pace climbing from slow\nto fast with recovery periods. 3 rounds.\n ',
           battlePlan: '• 30 sec slow\n• 30 sec moderate\n• 30 sec fast\n• 30 sec rest\n• repeat 3x',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-app-ui/artifacts/w3vrqrj0_download%20%281%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240960/mood_app/workout_images/w3vrqrj0_download_1_.jpg',
           intensityReason: 'Varied pace introduces different climbing intensities.',
           moodTips: [
             {
@@ -1374,7 +1374,7 @@ export const cardioWorkoutsDatabase: EquipmentWorkouts[] = [
           duration: '15 min',
           description: 'Sustained intervals challenge full-body endurance. 5 rounds.\n ',
           battlePlan: '• 1 min hard\n• 1 min moderate\n• 1 min slow\n• repeat 5x',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-app-ui/artifacts/6dix82sz_download.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240939/mood_app/workout_images/6dix82sz_download.jpg',
           intensityReason: 'Sustained intervals challenge intermediate full-body endurance.',
           moodTips: [
             {
@@ -1394,7 +1394,7 @@ export const cardioWorkoutsDatabase: EquipmentWorkouts[] = [
           duration: '18 min',
           description: 'Mixed pace climbing with fast, moderate,\nand slow intervals. 6 complete rounds.\n ',
           battlePlan: '• 30 sec fast\n• 1 min moderate\n• 30 sec slow\n• repeat 6x',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-app-ui/artifacts/w3vrqrj0_download%20%281%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240960/mood_app/workout_images/w3vrqrj0_download_1_.jpg',
           intensityReason: 'Variable intervals develop intermediate pacing skills.',
           moodTips: [
             {
@@ -1416,7 +1416,7 @@ export const cardioWorkoutsDatabase: EquipmentWorkouts[] = [
           duration: '20 min',
           description: 'High-intensity climbing sprints with 20s\nall-out effort and 40s recovery. 15 rounds.\n ',
           battlePlan: '• 20 sec sprint\n• 40 sec moderate\n• repeat 15x',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-app-ui/artifacts/6dix82sz_download.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240939/mood_app/workout_images/6dix82sz_download.jpg',
           intensityReason: 'High-intensity sprints demand max full-body power.',
           moodTips: [
             {
@@ -1436,7 +1436,7 @@ export const cardioWorkoutsDatabase: EquipmentWorkouts[] = [
           duration: '20 min',
           description: 'Hard climbing efforts alternating with\nmoderate recovery periods for endurance.\n ',
           battlePlan: '• 2 min hard\n• 1 min moderate\n• repeat 6x',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-app-ui/artifacts/w3vrqrj0_download%20%281%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240960/mood_app/workout_images/w3vrqrj0_download_1_.jpg',
           intensityReason: 'Extended climbing efforts build advanced endurance capacity.',
           moodTips: [
             {
@@ -1464,7 +1464,7 @@ export const cardioWorkoutsDatabase: EquipmentWorkouts[] = [
           duration: '10 min',
           description: 'Basic jump rope intervals with equal\nwork and rest periods. 10 rounds total.\n ',
           battlePlan: '• 30 sec jump\n• 30 sec rest\n• repeat 10x',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-app-ui/artifacts/vj88wh1r_download.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240959/mood_app/workout_images/vj88wh1r_download.jpg',
           intensityReason: 'Work-to-rest ratio helps beginners learn jumping technique.',
           moodTips: [
             {
@@ -1484,7 +1484,7 @@ export const cardioWorkoutsDatabase: EquipmentWorkouts[] = [
           duration: '12 min',
           description: 'Basic jumps alternating with step touch\nfootwork practice and rest periods.\n ',
           battlePlan: '• 30 sec basic jump\n• 30 sec step touch (no rope)\n• 30 sec basic jump\n• 30 sec rest\n• repeat 4x',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-app-ui/artifacts/j2nua1fe_download%20%281%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240952/mood_app/workout_images/j2nua1fe_download_1_.jpg',
           intensityReason: 'Alternates rope work and footwork to build coordination.',
           moodTips: [
             {
@@ -1506,7 +1506,7 @@ export const cardioWorkoutsDatabase: EquipmentWorkouts[] = [
           duration: '15 min',
           description: 'Combination jumping patterns with basic,\nalternate foot, and double bounce styles.\n ',
           battlePlan: '• 1 min basic jump\n• 30 sec alternate foot\n• 30 sec double bounce\n• 1 min rest\n• repeat 4x',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-app-ui/artifacts/vj88wh1r_download.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240959/mood_app/workout_images/vj88wh1r_download.jpg',
           intensityReason: 'Multiple jumping patterns challenge intermediate coordination.',
           moodTips: [
             {
@@ -1526,7 +1526,7 @@ export const cardioWorkoutsDatabase: EquipmentWorkouts[] = [
           duration: '18 min',
           description: 'High-intensity intervals with 45s fast\njumping and 15s recovery. 12 rounds total.\n ',
           battlePlan: '• 45 sec fast jump\n• 15 sec slow jump\n• repeat 12x',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-app-ui/artifacts/j2nua1fe_download%20%281%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240952/mood_app/workout_images/j2nua1fe_download_1_.jpg',
           intensityReason: 'Speed variations challenge intermediate jumpers.',
           moodTips: [
             {
@@ -1548,7 +1548,7 @@ export const cardioWorkoutsDatabase: EquipmentWorkouts[] = [
           duration: '20 min',
           description: 'Maximum speed HIIT intervals with 30s\nall-out effort and 10s rest. 20 rounds.\n ',
           battlePlan: '• 30 sec max speed\n• 10 sec rest\n• repeat 20x',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-app-ui/artifacts/vj88wh1r_download.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240959/mood_app/workout_images/vj88wh1r_download.jpg',
           intensityReason: 'Maximum speed intervals demand elite fitness and coordination.',
           moodTips: [
             {
@@ -1568,7 +1568,7 @@ export const cardioWorkoutsDatabase: EquipmentWorkouts[] = [
           duration: '18 min',
           description: 'Advanced techniques including cross-over,\ndouble under, and basic patterns. 6 rounds.\n ',
           battlePlan: '• 1 min cross-over\n• 1 min double under\n• 1 min basic jump\n• repeat 6x',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fitness-app-ui/artifacts/j2nua1fe_download%20%281%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240952/mood_app/workout_images/j2nua1fe_download_1_.jpg',
           intensityReason: 'Advanced jumping patterns demand elite coordination and timing.',
           moodTips: [
             {

@@ -11,7 +11,7 @@ export const calvesWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Simple standing lift for foundational calf development',
           battlePlan: '3 rounds\n• 15–20 Standing Calf Raises\nRest 60s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_85724e25-1f59-4628-b049-647d06432207/artifacts/ag6d909x_download%20%2828%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240640/mood_app/workout_images/ag6d909x_download_28_.jpg',
           intensityReason: 'Basic raise builds calf strength with controlled range',
           moodTips: [
             {
@@ -31,7 +31,7 @@ export const calvesWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Targets deeper calf muscle with stable seated form',
           battlePlan: '3 rounds\n• 12–15 Seated Calf Raises\nRest 60s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_85724e25-1f59-4628-b049-647d06432207/artifacts/1iqoqmt3_download%20%2829%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240633/mood_app/workout_images/1iqoqmt3_download_29_.jpg',
           intensityReason: 'Seated position isolates soleus muscle for growth',
           moodTips: [
             {
@@ -51,7 +51,7 @@ export const calvesWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '8–10 min',
           description: 'Assisted calf raises improving balance and control',
           battlePlan: '3 rounds\n• 15 Raises\nRest 60s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_96d95d8c-bd6e-49a5-a6af-694c8a8f5c04/artifacts/h32rmzt1_db%20calf%20raise.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240674/mood_app/workout_images/h32rmzt1_db_calf_raise.jpg',
           intensityReason: 'Supported position allows focus on calf activation',
           moodTips: [
             {
@@ -78,7 +78,7 @@ export const calvesWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Isolates each calf for balanced strength and size',
           battlePlan: '4 rounds\n• 10–12 per leg Single‑Leg Raises\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-media-fix/artifacts/comj9q78_download%20%284%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241341/mood_app/workout_images/comj9q78_download_4_.jpg',
           intensityReason: 'Unilateral raise increases load and balance demand',
           moodTips: [
             {
@@ -98,7 +98,7 @@ export const calvesWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Controlled tempo builds endurance and hypertrophy',
           battlePlan: '3 rounds\n• 10–12 Tempo Calf Raises\n• • Immediately 15 Bodyweight Calf Raises\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_85724e25-1f59-4628-b049-647d06432207/artifacts/1iqoqmt3_download%20%2829%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240633/mood_app/workout_images/1iqoqmt3_download_29_.jpg',
           intensityReason: 'Slow eccentric phase maximizes calf time under tension',
           moodTips: [
             {
@@ -118,7 +118,7 @@ export const calvesWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Unilateral raises increasing calf loading',
           battlePlan: '4 rounds\n• 10 Raises per leg\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_96d95d8c-bd6e-49a5-a6af-694c8a8f5c04/artifacts/h32rmzt1_db%20calf%20raise.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240674/mood_app/workout_images/h32rmzt1_db_calf_raise.jpg',
           intensityReason: 'Single-leg work doubles effective load per calf',
           moodTips: [
             {
@@ -145,7 +145,7 @@ export const calvesWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '16–18 min',
           description: 'Stripping load forces fibers to contract under fatigue',
           battlePlan: '3 rounds\n• 12 Heavy Calf Raises\n• Drop 15–20% → 10 reps\n• Drop 15–20% → 10 reps\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_85724e25-1f59-4628-b049-647d06432207/artifacts/ag6d909x_download%20%2828%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240640/mood_app/workout_images/ag6d909x_download_28_.jpg',
           intensityReason: 'Drop sets extend effort for intense calf overload',
           moodTips: [
             {
@@ -165,7 +165,7 @@ export const calvesWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '16–18 min',
           description: 'Combo reps with iso hold completely crushes calves',
           battlePlan: '3 rounds\n• 12–15 Calf Raises\n• Finish with 10s Iso Hold at top\n• Immediately 10 Stiff Leg Jumps\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_85724e25-1f59-4628-b049-647d06432207/artifacts/1iqoqmt3_download%20%2829%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240633/mood_app/workout_images/1iqoqmt3_download_29_.jpg',
           intensityReason: 'Static hold at peak contraction maximizes tension',
           moodTips: [
             {
@@ -185,7 +185,7 @@ export const calvesWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Descending ladder maximizing calf fatigue',
           battlePlan: '2–3 ladders\n• 20 → 15 → 10 Raises\nRest 120s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_96d95d8c-bd6e-49a5-a6af-694c8a8f5c04/artifacts/h32rmzt1_db%20calf%20raise.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240674/mood_app/workout_images/h32rmzt1_db_calf_raise.jpg',
           intensityReason: 'Ladder format accumulates high training volume',
           moodTips: [
             {
@@ -218,7 +218,7 @@ export const calvesWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Classic standing raise for overall calf development',
           battlePlan: '3 rounds\n• 15–20 Standing Calf Raises\nRest 60s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_85724e25-1f59-4628-b049-647d06432207/artifacts/vfevelz1_download%20%2824%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240650/mood_app/workout_images/vfevelz1_download_24_.jpg',
           intensityReason: 'Barbell load builds foundational calf strength',
           moodTips: [
             {
@@ -238,7 +238,7 @@ export const calvesWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Plate under toes enhances calf muscle activation',
           battlePlan: '3 rounds\n• 12–15 Elevated Calf Raises\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_85724e25-1f59-4628-b049-647d06432207/artifacts/xf7sknhj_download%20%2825%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240653/mood_app/workout_images/xf7sknhj_download_25_.jpg',
           intensityReason: 'Elevated toes increase stretch for deeper range',
           moodTips: [
             {
@@ -258,7 +258,7 @@ export const calvesWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '8–10 min',
           description: 'Standing calf raises building basic ankle strength',
           battlePlan: '3 rounds\n• 15 Standing Calf Raises\nRest 60s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_96d95d8c-bd6e-49a5-a6af-694c8a8f5c04/artifacts/tzc8onjz_bb%20calf%20raise.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240687/mood_app/workout_images/tzc8onjz_bb_calf_raise.jpg',
           intensityReason: 'Standing position maximizes gastrocnemius activation',
           moodTips: [
             {
@@ -285,7 +285,7 @@ export const calvesWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Builds strength and control through isometric hold',
           battlePlan: '4 rounds\n• 10–12 Pause Calf Raises\n• Immediately 15 Bodyweight Calf Raises\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_85724e25-1f59-4628-b049-647d06432207/artifacts/vfevelz1_download%20%2824%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240650/mood_app/workout_images/vfevelz1_download_24_.jpg',
           intensityReason: 'Pause at top maximizes peak contraction tension',
           moodTips: [
             {
@@ -305,7 +305,7 @@ export const calvesWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Controlled tempo builds endurance and hypertrophy',
           battlePlan: '3 rounds\n• 10–12 Tempo Calf Raises\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_85724e25-1f59-4628-b049-647d06432207/artifacts/xf7sknhj_download%20%2825%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240653/mood_app/workout_images/xf7sknhj_download_25_.jpg',
           intensityReason: 'Slow eccentric phase maximizes calf time under tension',
           moodTips: [
             {
@@ -325,7 +325,7 @@ export const calvesWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Slow eccentrics increasing calf time under tension',
           battlePlan: '4 rounds\n• 12 Calf Raises (3s eccentric)\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_96d95d8c-bd6e-49a5-a6af-694c8a8f5c04/artifacts/tzc8onjz_bb%20calf%20raise.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240687/mood_app/workout_images/tzc8onjz_bb_calf_raise.jpg',
           intensityReason: 'Tempo work maximizes muscle fiber recruitment',
           moodTips: [
             {
@@ -352,7 +352,7 @@ export const calvesWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '16–18 min',
           description: 'Stripping load forces fibers to contract under fatigue',
           battlePlan: '3 rounds\n• 12 Heavy Calf Raises\n• Drop 15–20% → 10 reps\n• Drop 15–20% → 10 reps\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_85724e25-1f59-4628-b049-647d06432207/artifacts/vfevelz1_download%20%2824%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240650/mood_app/workout_images/vfevelz1_download_24_.jpg',
           intensityReason: 'Drop sets extend effort for intense calf overload',
           moodTips: [
             {
@@ -372,7 +372,7 @@ export const calvesWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '16–18 min',
           description: 'Combo reps with iso hold completely crushes calves',
           battlePlan: '3 rounds\n• 12–15 Calf Raises\n• Finish with 10s Iso Hold at top\n• Immediately 10 Stiff Leg Jumps\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_85724e25-1f59-4628-b049-647d06432207/artifacts/xf7sknhj_download%20%2825%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240653/mood_app/workout_images/xf7sknhj_download_25_.jpg',
           intensityReason: 'Static hold at peak contraction maximizes tension',
           moodTips: [
             {
@@ -392,7 +392,7 @@ export const calvesWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Extended standing raises using fast load reductions',
           battlePlan: '3 rounds\n• 10 Heavy Raises\n• Drop → 12\n• Drop → 15\nRest 120s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_96d95d8c-bd6e-49a5-a6af-694c8a8f5c04/artifacts/tzc8onjz_bb%20calf%20raise.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240687/mood_app/workout_images/tzc8onjz_bb_calf_raise.jpg',
           intensityReason: 'Drop sets push calves to complete fatigue',
           moodTips: [
             {
@@ -425,7 +425,7 @@ export const calvesWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Basic press for foundational calf development',
           battlePlan: '3 rounds\n• 15–20 Calf Raises\nRest 60s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_85724e25-1f59-4628-b049-647d06432207/artifacts/jwime8o9_download%20%2830%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240644/mood_app/workout_images/jwime8o9_download_30_.jpg',
           intensityReason: 'Machine guidance builds calf strength safely',
           moodTips: [
             {
@@ -445,7 +445,7 @@ export const calvesWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Foot angle variation for balanced calf growth and stimulation',
           battlePlan: '3 rounds\n• 12–15 Toes Out Calf Raises\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_85724e25-1f59-4628-b049-647d06432207/artifacts/02ysdj6y_download%20%2831%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240632/mood_app/workout_images/02ysdj6y_download_31_.jpg',
           intensityReason: 'Toes out stance targets inner calf muscle fibers',
           moodTips: [
             {
@@ -465,7 +465,7 @@ export const calvesWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '8–10 min',
           description: 'Supported calf raises using leg press sled',
           battlePlan: '3 rounds\n• 15 Raises\nRest 60s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_96d95d8c-bd6e-49a5-a6af-694c8a8f5c04/artifacts/ccewdems_leg%20press%20calf%20raise.jpg',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240666/mood_app/workout_images/ccewdems_leg_press_calf_raise.jpg',
           intensityReason: 'Sled support allows focus on pure calf work',
           moodTips: [
             {
@@ -492,7 +492,7 @@ export const calvesWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Isolates each calf for balanced strength and size',
           battlePlan: '4 rounds\n• 10–12 per leg Single‑Leg Raises\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-media-fix/artifacts/kwq6qti7_Screenshot%202025-12-06%20at%209.20.46%E2%80%AFPM.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241351/mood_app/workout_images/kwq6qti7_Screenshot_2025-12-06_at_9_20_46_PM.jpg',
           intensityReason: 'Unilateral raise increases load and balance demand',
           moodTips: [
             {
@@ -512,7 +512,7 @@ export const calvesWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Builds strength and control through isometric hold',
           battlePlan: '3 rounds\n• 10–12 Pause Calf Raises\n• Immediately 15 Bodyweight Calf Raises\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_85724e25-1f59-4628-b049-647d06432207/artifacts/02ysdj6y_download%20%2831%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240632/mood_app/workout_images/02ysdj6y_download_31_.jpg',
           intensityReason: 'Pause at top maximizes peak contraction tension',
           moodTips: [
             {
@@ -532,7 +532,7 @@ export const calvesWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Paused calf raises emphasizing top-end contraction',
           battlePlan: '4 rounds\n• 12 Raises (2s pause)\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_96d95d8c-bd6e-49a5-a6af-694c8a8f5c04/artifacts/ccewdems_leg%20press%20calf%20raise.jpg',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240666/mood_app/workout_images/ccewdems_leg_press_calf_raise.jpg',
           intensityReason: 'Paused contractions strengthen shortened position',
           moodTips: [
             {
@@ -559,7 +559,7 @@ export const calvesWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '16–18 min',
           description: 'Stripping load forces fibers to contract under fatigue',
           battlePlan: '3 rounds\n• 12 Heavy Calf Raises\n• Drop 15–20% → 10 reps\n• Drop 15–20% → 10 reps\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_85724e25-1f59-4628-b049-647d06432207/artifacts/jwime8o9_download%20%2830%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240644/mood_app/workout_images/jwime8o9_download_30_.jpg',
           intensityReason: 'Drop sets extend effort for intense calf overload',
           moodTips: [
             {
@@ -579,7 +579,7 @@ export const calvesWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '16–18 min',
           description: 'Combo reps with iso hold completely crushes calves',
           battlePlan: '3 rounds\n• 12–15 Calf Raises\n• Finish with 10s Iso Hold at top\n• Immediately 10 Stiff Leg Jumps\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_85724e25-1f59-4628-b049-647d06432207/artifacts/02ysdj6y_download%20%2831%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240632/mood_app/workout_images/02ysdj6y_download_31_.jpg',
           intensityReason: 'Static hold at peak contraction maximizes tension',
           moodTips: [
             {
@@ -599,7 +599,7 @@ export const calvesWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Extended calf sets using rapid sled weight drops',
           battlePlan: '3 rounds\n• 10 Raises\n• Drop → 15\n• Drop → 20\nRest 120s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_96d95d8c-bd6e-49a5-a6af-694c8a8f5c04/artifacts/ccewdems_leg%20press%20calf%20raise.jpg',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240666/mood_app/workout_images/ccewdems_leg_press_calf_raise.jpg',
           intensityReason: 'Drop sets push calves to complete exhaustion',
           moodTips: [
             {
@@ -632,7 +632,7 @@ export const calvesWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Basic standing raise for foundational calf development',
           battlePlan: '3 rounds\n• 15–20 Standing Calf Raises\nRest 60s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-media-fix/artifacts/kh18cxcw_Screenshot%202025-12-06%20at%209.24.28%E2%80%AFPM.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241350/mood_app/workout_images/kh18cxcw_Screenshot_2025-12-06_at_9_24_28_PM.jpg',
           intensityReason: 'Machine guidance builds calf strength safely',
           moodTips: [
             {
@@ -652,7 +652,7 @@ export const calvesWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Targets deeper calf muscle with stable seated form',
           battlePlan: '3 rounds\n• 12–15 Seated Calf Raises\nRest 60s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_85724e25-1f59-4628-b049-647d06432207/artifacts/tp1piceg_download%20%2826%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240649/mood_app/workout_images/tp1piceg_download_26_.jpg',
           intensityReason: 'Seated position isolates soleus muscle for growth',
           moodTips: [
             {
@@ -672,7 +672,7 @@ export const calvesWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '8–10 min',
           description: 'Guided calf raises reinforcing full range control',
           battlePlan: '3 rounds\n• 15 Machine Raises\nRest 60s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_96d95d8c-bd6e-49a5-a6af-694c8a8f5c04/artifacts/elld3iw7_calf%20machine%20calf%20raise.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240671/mood_app/workout_images/elld3iw7_calf_machine_calf_raise.jpg',
           intensityReason: 'Machine guidance ensures proper calf activation',
           moodTips: [
             {
@@ -699,7 +699,7 @@ export const calvesWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Isolates each calf for balanced strength and size',
           battlePlan: '4 rounds\n• 10–12 per leg Single‑Leg Raises\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-media-fix/artifacts/97bkhdmm_Screenshot%202025-12-06%20at%209.25.30%E2%80%AFPM.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241326/mood_app/workout_images/97bkhdmm_Screenshot_2025-12-06_at_9_25_30_PM.jpg',
           intensityReason: 'Unilateral raise increases load and balance demand',
           moodTips: [
             {
@@ -719,7 +719,7 @@ export const calvesWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Builds strength and control through isometric hold',
           battlePlan: '3 rounds\n• 10–12 Pause Calf Raises\n• Immediately 15 Bodyweight Calf Raises\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_85724e25-1f59-4628-b049-647d06432207/artifacts/tp1piceg_download%20%2826%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240649/mood_app/workout_images/tp1piceg_download_26_.jpg',
           intensityReason: 'Pause at top maximizes peak contraction tension',
           moodTips: [
             {
@@ -739,7 +739,7 @@ export const calvesWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Paused raises reinforcing peak calf contraction',
           battlePlan: '4 rounds\n• 12 Raises (2s pause)\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_96d95d8c-bd6e-49a5-a6af-694c8a8f5c04/artifacts/elld3iw7_calf%20machine%20calf%20raise.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240671/mood_app/workout_images/elld3iw7_calf_machine_calf_raise.jpg',
           intensityReason: 'Paused contractions maximize peak tension',
           moodTips: [
             {
@@ -766,7 +766,7 @@ export const calvesWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '16–18 min',
           description: 'Stripping load forces fibers to contract under fatigue',
           battlePlan: '3 rounds\n• 12 Heavy Calf Raises\n• Drop 15–20% → 10 reps\n• Drop 15–20% → 10 reps\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_85724e25-1f59-4628-b049-647d06432207/artifacts/1jerzr2s_download%20%2827%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240635/mood_app/workout_images/1jerzr2s_download_27_.jpg',
           intensityReason: 'Drop sets extend effort for intense calf overload',
           moodTips: [
             {
@@ -786,7 +786,7 @@ export const calvesWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '16–18 min',
           description: 'Combo reps with iso hold completely crushes calves',
           battlePlan: '3 rounds\n• 12–15 Calf Raises\n• Finish with 10s Iso Hold at top\n• Immediately 10 Stiff Leg Jumps\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_85724e25-1f59-4628-b049-647d06432207/artifacts/tp1piceg_download%20%2826%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240649/mood_app/workout_images/tp1piceg_download_26_.jpg',
           intensityReason: 'Static hold at peak contraction maximizes tension',
           moodTips: [
             {
@@ -806,7 +806,7 @@ export const calvesWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'High-rep calf raises pushing muscular endurance',
           battlePlan: '3 rounds\n• 25–30 Raises\nRest 120s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_96d95d8c-bd6e-49a5-a6af-694c8a8f5c04/artifacts/elld3iw7_calf%20machine%20calf%20raise.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240671/mood_app/workout_images/elld3iw7_calf_machine_calf_raise.jpg',
           intensityReason: 'High-rep work maximizes calf endurance and pump',
           moodTips: [
             {

@@ -11,7 +11,7 @@ export const hamstringsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Teaches safe mechanics and stretch for hypertrophy',
           battlePlan: '3 rounds\n• 10–12 Dumbbell RDLs\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-media-fix/artifacts/d1gxk1c1_download%20%2818%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241342/mood_app/workout_images/d1gxk1c1_download_18_.jpg',
           intensityReason: 'Starter hinge builds hamstring stretch and control',
           moodTips: [
             {
@@ -31,7 +31,7 @@ export const hamstringsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Difficult lift, always start light and progress slowly',
           battlePlan: '3 rounds\n• 8–10 DB Good Mornings\nRest 75–90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-media-fix/artifacts/vgioydhr_dbgm.jpg',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241363/mood_app/workout_images/vgioydhr_dbgm.jpg',
           intensityReason: 'Upright hinge challenges hamstrings + posture',
           moodTips: [
             {
@@ -51,7 +51,7 @@ export const hamstringsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Single-side RDLs reinforcing hamstring control',
           battlePlan: '3 rounds\n• 10 RDLs per side\nRest 60s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_96d95d8c-bd6e-49a5-a6af-694c8a8f5c04/artifacts/e4tblt9j_download%20%2818%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240669/mood_app/workout_images/e4tblt9j_download_18_.jpg',
           intensityReason: 'Unilateral loading builds balanced hamstring strength',
           moodTips: [
             {
@@ -76,7 +76,7 @@ export const hamstringsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Floor walkouts emphasizing eccentric hamstring control',
           battlePlan: '3 rounds\n• 6–8 Walkouts\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_96d95d8c-bd6e-49a5-a6af-694c8a8f5c04/artifacts/wd5yzviz_db%20hamstring%20walkout.jpg',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240690/mood_app/workout_images/wd5yzviz_db_hamstring_walkout.jpg',
           intensityReason: 'Walkouts challenge hamstring control through full range',
           moodTips: [
             {
@@ -103,7 +103,7 @@ export const hamstringsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Single‑leg hinge balances strength across sides',
           battlePlan: '4 rounds\n• 8 per side Staggered RDLs\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-media-fix/artifacts/skovrpoc_image.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241360/mood_app/workout_images/skovrpoc_image.jpg',
           intensityReason: 'Split stance emphasizes deeper hamstring load',
           moodTips: [
             {
@@ -123,7 +123,7 @@ export const hamstringsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Elevation increases hypertrophy by extended ROM',
           battlePlan: '3 rounds\n• 8–10 Deficit DB RDLs\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-media-fix/artifacts/4qp237ff_download%20%283%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241322/mood_app/workout_images/4qp237ff_download_3_.jpg',
           intensityReason: 'Deficit stance adds longer hamstring stretch load',
           moodTips: [
             {
@@ -143,7 +143,7 @@ export const hamstringsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Rear-foot-light RDL emphasizing lead hamstring',
           battlePlan: '4 rounds\n• 8 RDLs per leg\nRest 120s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_96d95d8c-bd6e-49a5-a6af-694c8a8f5c04/artifacts/djo9uunp_db%20rdl%202.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240668/mood_app/workout_images/djo9uunp_db_rdl_2.jpg',
           intensityReason: 'Staggered stance isolates front leg hamstring',
           moodTips: [
             {
@@ -170,7 +170,7 @@ export const hamstringsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '16–18 min',
           description: 'Burns hamstrings with static stress and strict tempo',
           battlePlan: '4 rounds\n• 6–8 Paused DB RDLs\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-media-fix/artifacts/5v2oyit3_dbrdl.webp',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241323/mood_app/workout_images/5v2oyit3_dbrdl.jpg',
           intensityReason: 'Pausing mid‑shin removes momentum, builds control',
           moodTips: [
             {
@@ -190,7 +190,7 @@ export const hamstringsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '16–18 min',
           description: 'Complex set multiplies time under hamstring tension',
           battlePlan: '3 rounds\n• 8 Combo Reps (full + half = 1 rep)\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_85724e25-1f59-4628-b049-647d06432207/artifacts/vj5eokcy_download%20%2817%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240651/mood_app/workout_images/vj5eokcy_download_17_.jpg',
           intensityReason: 'Adds half reps between full reps for constant stress',
           moodTips: [
             {
@@ -268,7 +268,7 @@ export const hamstringsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Fundamental builder, strengthen hinge with light loads',
           battlePlan: '3 rounds\n• 10 Barbell RDLs\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_85724e25-1f59-4628-b049-647d06432207/artifacts/46ki5rsl_download%20%2815%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240638/mood_app/workout_images/46ki5rsl_download_15_.jpg',
           intensityReason: 'Basic hinge develops hamstrings under straight bar',
           moodTips: [
             {
@@ -288,7 +288,7 @@ export const hamstringsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Hard lift, best done light for controlled practice',
           battlePlan: '3 rounds\n• 8 Good Mornings\nRest 75–90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_85724e25-1f59-4628-b049-647d06432207/artifacts/vysbxwqg_download%20%2816%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240653/mood_app/workout_images/vysbxwqg_download_16_.jpg',
           intensityReason: 'Bar on back hinge is effective but very demanding',
           moodTips: [
             {
@@ -308,7 +308,7 @@ export const hamstringsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Light bar good mornings emphasizing hamstring stretch',
           battlePlan: '3 rounds\n• 12 Good Mornings\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_96d95d8c-bd6e-49a5-a6af-694c8a8f5c04/artifacts/9wufahvm_bb%20goodmorning.webp',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240665/mood_app/workout_images/9wufahvm_bb_goodmorning.jpg',
           intensityReason: 'Good mornings teach proper hip hinge mechanics',
           moodTips: [
             {
@@ -333,7 +333,7 @@ export const hamstringsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Isometric hinge holds reinforcing hamstring tension',
           battlePlan: '3 rounds\n• 20–30s Stiff-Leg Hold\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_96d95d8c-bd6e-49a5-a6af-694c8a8f5c04/artifacts/ry5w35jl_image.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240685/mood_app/workout_images/ry5w35jl_image.jpg',
           intensityReason: 'Isometric holds build hamstring endurance and control',
           moodTips: [
             {
@@ -360,7 +360,7 @@ export const hamstringsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Wide stance deadlift emphasizes inner hamstrings and glutes',
           battlePlan: '4 rounds\n• 8–10 Sumo Deadlifts\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_85724e25-1f59-4628-b049-647d06432207/artifacts/46ki5rsl_download%20%2815%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240638/mood_app/workout_images/46ki5rsl_download_15_.jpg',
           videoUrl: 'https://res.cloudinary.com/dfsygar5c/video/upload/v1770240483/mood_app/workout_videos/BB_sumo_deadlift.mov',
           intensityReason: 'Sumo stance recruits more inner thigh and glute drive',
           moodTips: [
@@ -381,7 +381,7 @@ export const hamstringsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Strict hold eliminates momentum, builds hamstring size',
           battlePlan: '4 rounds\n• 8 RDLs (2s pause at shin)\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_85724e25-1f59-4628-b049-647d06432207/artifacts/46ki5rsl_download%20%2815%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240638/mood_app/workout_images/46ki5rsl_download_15_.jpg',
           intensityReason: 'Mid‑hinge pause increases hamstring strength time',
           moodTips: [
             {
@@ -401,7 +401,7 @@ export const hamstringsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Creates extra tension through hamstring length ROM',
           battlePlan: '3 rounds\n• 6–8 Deficit Barbell RDLs\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-media-fix/artifacts/chdxu3vk_deficit%20rdl.jpg',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241340/mood_app/workout_images/chdxu3vk_deficit_rdl.jpg',
           intensityReason: 'Standing elevated extends hinge stretch fully',
           moodTips: [
             {
@@ -448,7 +448,7 @@ export const hamstringsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '16–18 min',
           description: 'Strict controlled pace maximizes hypertrophy stimulus',
           battlePlan: '4 rounds\n• 6 Tempo RDLs (3s eccentric)\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_85724e25-1f59-4628-b049-647d06432207/artifacts/46ki5rsl_download%20%2815%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240638/mood_app/workout_images/46ki5rsl_download_15_.jpg',
           intensityReason: '3s eccentric raises time under tension dramatically',
           moodTips: [
             {
@@ -468,7 +468,7 @@ export const hamstringsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '16–18 min',
           description: 'Hamstring fatigue plus power finish explosively',
           battlePlan: '3 rounds\n• 6 RDLs\n• 4 Rack Pulls heavy\nRest 120s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_85724e25-1f59-4628-b049-647d06432207/artifacts/joz0sngb_download%20%2814%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240642/mood_app/workout_images/joz0sngb_download_14_.jpg',
           intensityReason: 'Heavy rack pulls pair with RDL for full overload',
           moodTips: [
             {
@@ -546,7 +546,7 @@ export const hamstringsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Establish hinge mechanics for beginner lifters',
           battlePlan: '3 rounds\n• 12–15 Back Extensions\nRest 60s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_85724e25-1f59-4628-b049-647d06432207/artifacts/srezw23f_rc.webp',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240648/mood_app/workout_images/srezw23f_rc.jpg',
           intensityReason: 'Bodyweight hinge builds hamstring control safely',
           moodTips: [
             {
@@ -566,7 +566,7 @@ export const hamstringsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Strengthens core as hamstrings extend repeatedly',
           battlePlan: '3 rounds\n• 12 Good Morning Reps (bodyweight)\nRest 60s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_85724e25-1f59-4628-b049-647d06432207/artifacts/p2gogdp0_download%20%2820%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240647/mood_app/workout_images/p2gogdp0_download_20_.jpg',
           intensityReason: 'Torso hinge without load builds basic stability',
           moodTips: [
             {
@@ -586,7 +586,7 @@ export const hamstringsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Short-range extensions emphasizing hamstring stretch',
           battlePlan: '3 rounds\n• 12 Extensions\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_96d95d8c-bd6e-49a5-a6af-694c8a8f5c04/artifacts/qscgkw62_back%20ext.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240684/mood_app/workout_images/qscgkw62_back_ext.jpg',
           intensityReason: 'Hamstring-focused movement builds posterior chain control',
           moodTips: [
             {
@@ -611,7 +611,7 @@ export const hamstringsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Static hinge holds reinforcing hamstring endurance',
           battlePlan: '3 rounds\n• 20–30s Hold\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_96d95d8c-bd6e-49a5-a6af-694c8a8f5c04/artifacts/oixv12p3_rc%20back%20ext%203.webp',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240682/mood_app/workout_images/oixv12p3_rc_back_ext_3.jpg',
           intensityReason: 'Isometric holds build hamstring endurance',
           moodTips: [
             {
@@ -638,7 +638,7 @@ export const hamstringsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Resistance progression builds hypertrophy effectively',
           battlePlan: '4 rounds\n• 10 Weighted Back Extensions\nRest 75–90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_85724e25-1f59-4628-b049-647d06432207/artifacts/srezw23f_rc.webp',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240648/mood_app/workout_images/srezw23f_rc.jpg',
           intensityReason: 'Hug plate to overload hamstring hinge movement',
           moodTips: [
             {
@@ -658,7 +658,7 @@ export const hamstringsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Forces balance and greater range for each limb',
           battlePlan: '3 rounds\n• 8–10 per side\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-media-fix/artifacts/v9w417gg_slrcext.jpg',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241362/mood_app/workout_images/v9w417gg_slrcext.jpg',
           intensityReason: 'Single leg increases unilateral hamstring stress',
           moodTips: [
             {
@@ -705,7 +705,7 @@ export const hamstringsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '16–18 min',
           description: 'Eliminates swing, prolongs posterior chain tension',
           battlePlan: '3 rounds\n• 8 Paused Extensions\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_85724e25-1f59-4628-b049-647d06432207/artifacts/srezw23f_rc.webp',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240648/mood_app/workout_images/srezw23f_rc.jpg',
           intensityReason: 'Static hold at hinge builds hamstring isometric work',
           moodTips: [
             {
@@ -725,7 +725,7 @@ export const hamstringsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '16–18 min',
           description: 'Alternating range burns hamstrings under long tension',
           battlePlan: '3 rounds\n• 8 Alternating Half + Full Extensions\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_85724e25-1f59-4628-b049-647d06432207/artifacts/p2gogdp0_download%20%2820%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240647/mood_app/workout_images/p2gogdp0_download_20_.jpg',
           intensityReason: 'Half + full reps cycle extend muscle set time fully',
           moodTips: [
             {
@@ -803,7 +803,7 @@ export const hamstringsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Best beginner machine for full hamstring engagement',
           battlePlan: '3 rounds\n• 12–15 Seated Leg Curls\nRest 60s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_85724e25-1f59-4628-b049-647d06432207/artifacts/3vkyuj1o_download%20%2819%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240637/mood_app/workout_images/3vkyuj1o_download_19_.jpg',
           intensityReason: 'Isolated seat curl strengthens flexion carefully',
           moodTips: [
             {
@@ -823,7 +823,7 @@ export const hamstringsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Fixed setup ensures strict hypertrophy contraction',
           battlePlan: '3 rounds\n• 12–15 Lying Curls\nRest 60s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_85724e25-1f59-4628-b049-647d06432207/artifacts/o9f5gltv_Screenshot%202025-12-02%20at%2010.29.39%E2%80%AFPM.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240645/mood_app/workout_images/o9f5gltv_Screenshot_2025-12-02_at_10_29_39_PM.jpg',
           intensityReason: 'Lying pad curl isolates hamstring contraction',
           moodTips: [
             {
@@ -843,7 +843,7 @@ export const hamstringsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Controlled curls emphasizing eccentric tension',
           battlePlan: '3 rounds\n• 12–15 Curls\nRest 60s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_96d95d8c-bd6e-49a5-a6af-694c8a8f5c04/artifacts/pokwsf2m_leg%20curl.jpg',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240683/mood_app/workout_images/pokwsf2m_leg_curl.jpg',
           intensityReason: 'Slow eccentrics build hamstring strength and control',
           moodTips: [
             {
@@ -868,7 +868,7 @@ export const hamstringsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Standard curls finished with static contraction',
           battlePlan: '3 rounds\n• 10 Curls + 10s Hold\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_96d95d8c-bd6e-49a5-a6af-694c8a8f5c04/artifacts/jhs811y7_leg%20curl.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240677/mood_app/workout_images/jhs811y7_leg_curl.jpg',
           intensityReason: 'Isometric holds maximize hamstring activation',
           moodTips: [
             {
@@ -895,7 +895,7 @@ export const hamstringsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Increased weight overload boosts hypertrophy',
           battlePlan: '4 rounds\n• 8–10 Heavy Curls\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_85724e25-1f59-4628-b049-647d06432207/artifacts/3vkyuj1o_download%20%2819%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240637/mood_app/workout_images/3vkyuj1o_download_19_.jpg',
           intensityReason: 'Progressive loading builds hamstrings thickness',
           moodTips: [
             {
@@ -915,7 +915,7 @@ export const hamstringsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Pausing at top peaks hamstring contraction force',
           battlePlan: '3 rounds\n• 8–10 Pause Reps\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_85724e25-1f59-4628-b049-647d06432207/artifacts/o9f5gltv_Screenshot%202025-12-02%20at%2010.29.39%E2%80%AFPM.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240645/mood_app/workout_images/o9f5gltv_Screenshot_2025-12-02_at_10_29_39_PM.jpg',
           intensityReason: 'Isometric hold raises muscular control demand',
           moodTips: [
             {
@@ -987,7 +987,7 @@ export const hamstringsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '16–18 min',
           description: 'Hamstrings stay under work far beyond normal set',
           battlePlan: '3 rounds\n• 8 Heavy Curls\n• Drop 15–20% → 8 reps\n• Drop 15–20% → 8 reps\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_85724e25-1f59-4628-b049-647d06432207/artifacts/3vkyuj1o_download%20%2819%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240637/mood_app/workout_images/3vkyuj1o_download_19_.jpg',
           intensityReason: 'Drop weights prolong contraction by overload reps',
           moodTips: [
             {
@@ -1007,7 +1007,7 @@ export const hamstringsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '16–18 min',
           description: 'Endurance builder combining iso with normal reps',
           battlePlan: '3 rounds\n• 8–10 Leg Curls\nFinish 10s Iso Hold @ top\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_85724e25-1f59-4628-b049-647d06432207/artifacts/o9f5gltv_Screenshot%202025-12-02%20at%2010.29.39%E2%80%AFPM.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240645/mood_app/workout_images/o9f5gltv_Screenshot_2025-12-02_at_10_29_39_PM.jpg',
           intensityReason: 'Finish set with hold for longer contraction stress',
           moodTips: [
             {

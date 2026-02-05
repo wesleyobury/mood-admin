@@ -11,7 +11,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Rows for pulling power and rear flies for stability',
           battlePlan: '3 rounds\n• 10 Single-Arm Dumbbell Row (each side, supported on bench)\nRest 60s after each side\n• 10 Prone Rear Delt Fly (lying face down)\nRest 60s after each set',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_0b65e409-b210-4730-af62-16b022c37685/artifacts/q6jestgn_download.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240554/mood_app/workout_images/q6jestgn_download.jpg',
           intensityReason: 'Targets lats + rear delts with simple supported lifts',
           moodTips: [
             {
@@ -31,7 +31,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Rows with Y + T raises for posture and shoulder health',
           battlePlan: '3 rounds\n• 10 Single-Arm Row (each side)\n• 10 Incline Prone Y-Raise\n• 10 Incline Prone T-Raise\nRest 75s after sequence',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/928yql53_download%20%2822%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240869/mood_app/workout_images/928yql53_download_22_.jpg',
           intensityReason: 'Basic scapular + rear delt balance with angles',
           moodTips: [
             {
@@ -51,7 +51,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Bench-supported rows to learn clean pulling mechanics',
           battlePlan: '3 rounds\n• 10 Single-Arm DB Rows (each side)\nRest 60s per side',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_ba98ecac-d9ff-4da8-8b26-c72f04702bfb/artifacts/2ctzlc7l_SA%20db%20row.webp',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240692/mood_app/workout_images/2ctzlc7l_SA_db_row.jpg',
           intensityReason: 'Supported setup teaches proper mechanics',
           moodTips: [
             {
@@ -76,7 +76,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Prone rows emphasizing mid-back control',
           battlePlan: '3 rounds\n• 12 Chest-Supported DB Rows\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_ba98ecac-d9ff-4da8-8b26-c72f04702bfb/artifacts/rw2y880d_chest%20supported%20db%20row.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240748/mood_app/workout_images/rw2y880d_chest_supported_db_row.jpg',
           intensityReason: 'Chest support isolates mid-back muscles',
           moodTips: [
             {
@@ -103,7 +103,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Supported rows and flies promote strict contraction',
           battlePlan: '4 rounds\n• 8 Chest-Supported Dumbbell Row\nRest 75–90s\n• 10 Incline Prone Reverse Fly\nRest 75–90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_0b65e409-b210-4730-af62-16b022c37685/artifacts/q6jestgn_download.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240554/mood_app/workout_images/q6jestgn_download.jpg',
           intensityReason: 'Neutral spine from support isolates lats + traps',
           moodTips: [
             {
@@ -123,7 +123,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Rows, W-raises, and flys refine mid-back strength',
           battlePlan: '3 rounds\n• 8 Single-Arm Row (each side)\n• 8 Incline Prone W-Raise\n• 8 Incline Prone Reverse Fly\nRest 90s after sequence',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/k5agvaci_download%20%2823%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240895/mood_app/workout_images/k5agvaci_download_23_.jpg',
           intensityReason: 'W-raises + flys emphasize scapular control within a circuit',
           moodTips: [
             {
@@ -143,7 +143,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'One-arm rows with extended peak contraction',
           battlePlan: '4 rounds\n• 8 DB Rows (2s pause, each side)\nRest 75–90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_ba98ecac-d9ff-4da8-8b26-c72f04702bfb/artifacts/2ctzlc7l_SA%20db%20row.webp',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240692/mood_app/workout_images/2ctzlc7l_SA_db_row.jpg',
           intensityReason: 'Paused reps maximize peak contraction time',
           moodTips: [
             {
@@ -168,7 +168,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Heavy rows extended using fast weight drops',
           battlePlan: '3 rounds\n• 8 DB Rows\n• Drop → 8\n• Drop → 8\nRest 120s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_ba98ecac-d9ff-4da8-8b26-c72f04702bfb/artifacts/rw2y880d_chest%20supported%20db%20row.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240748/mood_app/workout_images/rw2y880d_chest_supported_db_row.jpg',
           intensityReason: 'Drop sets extend time under tension beyond failure',
           moodTips: [
             {
@@ -195,7 +195,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '16–18 min',
           description: 'Supported row, reverse fly, and single-arm grind',
           battlePlan: '4 rounds\n• 8 Chest-Supported Row\nRest 90s\n• 8 Incline Prone Reverse Fly\nRest 90s\n• 8 Single-Arm Row (each side)\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_0b65e409-b210-4730-af62-16b022c37685/artifacts/q6jestgn_download.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240554/mood_app/workout_images/q6jestgn_download.jpg',
           intensityReason: 'Multiple row/rear delt moves for depth of fatigue',
           moodTips: [
             {
@@ -215,7 +215,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '18–20 min',
           description: 'Rows plus Y/T raises for balanced shoulder growth',
           battlePlan: '4 rounds\n• 8 Chest-Supported Row\n• 8 Incline Prone Y-Raise\n• 8 Incline Prone T-Raise\nRest 90–120s after sequence',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_0b65e409-b210-4730-af62-16b022c37685/artifacts/e00z2xt6_download%20%281%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240549/mood_app/workout_images/e00z2xt6_download_1_.jpg',
           intensityReason: 'Multi-angle raises + row overload scapular support',
           moodTips: [
             {
@@ -235,7 +235,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '16–18 min',
           description: 'Heavy unilateral rows for maximal lat loading',
           battlePlan: '4 rounds\n• 6 Heavy DB Rows (each side)\nRest 120s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_ba98ecac-d9ff-4da8-8b26-c72f04702bfb/artifacts/2ctzlc7l_SA%20db%20row.webp',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240692/mood_app/workout_images/2ctzlc7l_SA_db_row.jpg',
           intensityReason: 'Heavy loads maximize strength development',
           moodTips: [
             {
@@ -260,7 +260,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '18–20 min',
           description: 'Extended drop sets to fully exhaust back',
           battlePlan: '3 rounds\n• 6 Rows\n• Drop → 6\n• Drop → 6\n• Drop → 6\nRest 150s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_ba98ecac-d9ff-4da8-8b26-c72f04702bfb/artifacts/rw2y880d_chest%20supported%20db%20row.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240748/mood_app/workout_images/rw2y880d_chest_supported_db_row.jpg',
           intensityReason: 'Triple drops maximize muscle fatigue and pump',
           moodTips: [
             {
@@ -293,7 +293,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Rows and deadlifts develop base power and muscle control.',
           battlePlan: '3 rounds:\n• 10 Barbell Bent-Over Row\nRest 60–75s after each set\n• 10 Barbell Deadlift\nRest 60–75s after each set',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_0b65e409-b210-4730-af62-16b022c37685/artifacts/x2wxwvpl_download%20%282%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240560/mood_app/workout_images/x2wxwvpl_download_2_.jpg',
           videoUrl: 'https://res.cloudinary.com/dfsygar5c/video/upload/v1770240452/mood_app/workout_videos/BB_deadlift.mov',
           intensityReason: 'Builds foundational back strength with compound lifts.',
           moodTips: [
@@ -314,7 +314,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Combines row grips and good mornings for total back work.',
           battlePlan: '3 rounds:\n• 10 Bent-Over Row\n• 10 Underhand Grip Row\n• 10 Barbell Good Morning\nRest 60–75s after completing the full sequence',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/8q41tii0_download%20%281%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240868/mood_app/workout_images/8q41tii0_download_1_.jpg',
           intensityReason: 'Varied grip rowing boosts muscular activation volume.',
           moodTips: [
             {
@@ -334,7 +334,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Controlled barbell rows emphasizing strict tempo',
           battlePlan: '3 rounds\n• 10 Bent-Over Rows (3s eccentric)\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_ba98ecac-d9ff-4da8-8b26-c72f04702bfb/artifacts/8imeatpq_bb%20row%202.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240699/mood_app/workout_images/8imeatpq_bb_row_2.jpg',
           intensityReason: 'Tempo work builds control and strength foundation',
           moodTips: [
             {
@@ -359,7 +359,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Barbell rows with pauses at contraction',
           battlePlan: '3 rounds\n• 8 Paused Bent-Over Rows\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_ba98ecac-d9ff-4da8-8b26-c72f04702bfb/artifacts/eubpjqb9_bb%20row.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240714/mood_app/workout_images/eubpjqb9_bb_row.jpg',
           intensityReason: 'Paused reps reinforce form and peak contraction',
           moodTips: [
             {
@@ -386,7 +386,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '16–18 min',
           description: 'Pendlay rows and RDLs balance power with hamstring load.',
           battlePlan: '4 rounds:\n• 8 Pendlay Row\nRest 75–90s after each set\n• 10 Romanian Deadlift\nRest 75–90s after each set',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_ba98ecac-d9ff-4da8-8b26-c72f04702bfb/artifacts/rh9264vy_pendlay%20row.jpg',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240743/mood_app/workout_images/rh9264vy_pendlay_row.jpg',
           intensityReason: 'Explosive pulls and slow RDLs strengthen full posterior.',
           moodTips: [
             {
@@ -406,7 +406,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '16–18 min',
           description: 'Multi-grip rows, shrugs, deads build traps and mid-back.',
           battlePlan: '3 rounds:\n• 8 Bent-Over Row\n• 8 Reverse-Grip Row\n• 8 Barbell Shrugs\n• 8 Deadlift\nRest 90s after finishing the full circuit',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/a5y4znby_download%20%282%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240874/mood_app/workout_images/a5y4znby_download_2_.jpg',
           intensityReason: 'Combo of rows, shrugs, and deads creates dense fatigue.',
           moodTips: [
             {
@@ -426,7 +426,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '16–18 min',
           description: 'Heavy rows extended using plate reductions',
           battlePlan: '3 rounds\n• 6 Rows\n• Drop → 6\n• Drop → 6\nRest 150s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/5s4czjs3_download%20%283%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240863/mood_app/workout_images/5s4czjs3_download_3_.jpg',
           intensityReason: 'Drop sets extend time under tension beyond failure',
           moodTips: [
             {
@@ -451,7 +451,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '16–18 min',
           description: 'Rows finished with static bar holds',
           battlePlan: '4 rounds\n• 8 Rows\n• Finish with 10s hold\nRest 120s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_ba98ecac-d9ff-4da8-8b26-c72f04702bfb/artifacts/eubpjqb9_bb%20row.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240714/mood_app/workout_images/eubpjqb9_bb_row.jpg',
           intensityReason: 'Isometric finisher maximizes time under tension',
           moodTips: [
             {
@@ -478,7 +478,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '20–22 min',
           description: 'Rows, deads, shrugs overload traps and spinal erectors.',
           battlePlan: '4 rounds:\n• 8 Barbell Bent-Over Row\nRest 90–120s after each set\n• 8 Barbell Deadlift\nRest 90–120s after each set\n• 8 Barbell Shrug\nRest 90–120s after each set',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_0b65e409-b210-4730-af62-16b022c37685/artifacts/x2wxwvpl_download%20%282%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240560/mood_app/workout_images/x2wxwvpl_download_2_.jpg',
           intensityReason: 'Higher volume heavy lifts establish raw size and mass.',
           moodTips: [
             {
@@ -498,7 +498,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '20–22 min',
           description: 'Row, high pull, and clean complex maximizes back output.',
           battlePlan: '4 rounds:\n• 8 Barbell Row\n• 8 Barbell High Pull\n• 8 Barbell Power Clean\nRest 90–120s after completing the full sequence',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/hnesh89k_download.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240892/mood_app/workout_images/hnesh89k_download.jpg',
           intensityReason: 'Explosive high pulls and cleans target power capacity.',
           moodTips: [
             {
@@ -518,7 +518,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '18–20 min',
           description: 'Heavy barbell rows with long controlled eccentrics',
           battlePlan: '4 rounds\n• 6 Rows (5s eccentric)\nRest 150s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_ba98ecac-d9ff-4da8-8b26-c72f04702bfb/artifacts/8imeatpq_bb%20row%202.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240699/mood_app/workout_images/8imeatpq_bb_row_2.jpg',
           intensityReason: 'Extended eccentrics maximize strength and hypertrophy',
           moodTips: [
             {
@@ -543,7 +543,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '20–22 min',
           description: 'Grip-width changes to extend heavy sets',
           battlePlan: '3 rounds\n• 6 Wide-Grip Rows\n• Immediately 6 Standard Rows\n• Immediately 6 Underhand Rows\nRest 150s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_ba98ecac-d9ff-4da8-8b26-c72f04702bfb/artifacts/eubpjqb9_bb%20row.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240714/mood_app/workout_images/eubpjqb9_bb_row.jpg',
           intensityReason: 'Mechanical drops maximize volume and muscle fatigue',
           moodTips: [
             {
@@ -576,7 +576,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Rows and deadlifts with kettlebells build back base',
           battlePlan: '3 rounds\n• 10 Single-Arm KB Row (each side)\nRest 60–75s after each set\n• 10 KB Deadlift\nRest 60–75s after each set',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_0b65e409-b210-4730-af62-16b022c37685/artifacts/s9jbh6k2_download%20%286%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240556/mood_app/workout_images/s9jbh6k2_download_6_.jpg',
           intensityReason: 'Simple pull + hinge strengthen grip and core and with modest intensity',
           moodTips: [
             {
@@ -596,7 +596,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–15 min',
           description: 'Grip and back strength with flow style movements',
           battlePlan: '3 rounds\n• 10 KB Single-Arm Row (each side)\n• 10 KB Suitcase Deadlift (each side)\n• 10 KB Swing\nRest 60–75s after sequence',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_0b65e409-b210-4730-af62-16b022c37685/artifacts/s1nbakqw_download%20%287%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240555/mood_app/workout_images/s1nbakqw_download_7_.jpg',
           intensityReason: 'Combines rows, deadlifts, swings for endurance',
           moodTips: [
             {
@@ -616,7 +616,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Single-arm rows emphasizing control and balance',
           battlePlan: '3 rounds\n• 10 KB Rows (each side)\nRest 60s per side',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_ba98ecac-d9ff-4da8-8b26-c72f04702bfb/artifacts/h1hdn33y_kb%20cs%20row.jpg',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240725/mood_app/workout_images/h1hdn33y_kb_cs_row.jpg',
           intensityReason: 'Supported setup builds foundation for heavier work',
           moodTips: [
             {
@@ -641,7 +641,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Offset rows building stability and back control',
           battlePlan: '3 rounds\n• 8 Suitcase KB Rows (each side)\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_ba98ecac-d9ff-4da8-8b26-c72f04702bfb/artifacts/9hjdvg6i_kb%20suitcase%20row.jpg',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240702/mood_app/workout_images/9hjdvg6i_kb_suitcase_row.jpg',
           intensityReason: 'Offset load builds core stability alongside back strength',
           moodTips: [
             {
@@ -668,7 +668,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '16–18 min',
           description: 'Double rows with suitcase pulls train grip/core',
           battlePlan: '4 rounds\n• 8 Double KB Row\nRest 75–90s after each set\n• 10 KB Suitcase Deadlift\nRest 75–90s after each set',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/e9kn8lqs_download%20%285%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240882/mood_app/workout_images/e9kn8lqs_download_5_.jpg',
           intensityReason: 'Heavier bilateral pulls build lats and posture within a circuit format',
           moodTips: [
             {
@@ -688,7 +688,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '16–18 min',
           description: 'Renegade, gorilla, high pulls for dense volume',
           battlePlan: '3 rounds\n• 8 Renegade Row (each side)\n• 8 Gorilla Row (each side)\n• 8 KB High Pull (each side)\nRest 90s after sequence',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_ba98ecac-d9ff-4da8-8b26-c72f04702bfb/artifacts/kc1es3oi_kb%20gorilla%20row.webp',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240731/mood_app/workout_images/kc1es3oi_kb_gorilla_row.jpg',
           intensityReason: 'Combo flow hits lats, core, and traps together',
           moodTips: [
             {
@@ -708,7 +708,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Bilateral rows for increased loading',
           battlePlan: '4 rounds\n• 8 Double KB Rows\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_ba98ecac-d9ff-4da8-8b26-c72f04702bfb/artifacts/9hjdvg6i_kb%20suitcase%20row.jpg',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240702/mood_app/workout_images/9hjdvg6i_kb_suitcase_row.jpg',
           intensityReason: 'Double bells increase loading capacity',
           moodTips: [
             {
@@ -733,7 +733,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Alternating rows with constant tension',
           battlePlan: '3 rounds\n• 10 Gorilla Rows (each side)\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_ba98ecac-d9ff-4da8-8b26-c72f04702bfb/artifacts/kc1es3oi_kb%20gorilla%20row.webp',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240731/mood_app/workout_images/kc1es3oi_kb_gorilla_row.jpg',
           intensityReason: 'Alternating pattern maintains constant tension',
           moodTips: [
             {
@@ -760,7 +760,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '18–20 min',
           description: 'Balanced rotational pulls and hip hinge strength',
           battlePlan: '4 rounds\n• 8 Single-Arm Row (each side)\nRest 90s after set\n• 8 KB Swing\nRest 90s after set\n• 8 KB Deadlift\nRest 90s after set',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_0b65e409-b210-4730-af62-16b022c37685/artifacts/s9jbh6k2_download%20%286%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240556/mood_app/workout_images/s9jbh6k2_download_6_.jpg',
           intensityReason: 'Loaded volume builds strength and conditioning',
           moodTips: [
             {
@@ -780,7 +780,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '20–22 min',
           description: 'Combo snatch, renegade, clean flow builds power',
           battlePlan: '4 rounds\n• 8 Renegade Row (alternating sides)\n• 8 KB Snatch (each side)\n• 8 KB Clean and Pull\nRest 90–120s after sequence',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/qcfdfm3u_download%20%284%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240904/mood_app/workout_images/qcfdfm3u_download_4_.jpg',
           intensityReason: 'Explosive circuit of pulls, cleans, and snatches',
           moodTips: [
             {
@@ -800,7 +800,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '16–18 min',
           description: 'Heavy bilateral rows for maximal overload',
           battlePlan: '4 rounds\n• 6 Double KB Rows\nRest 120s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_ba98ecac-d9ff-4da8-8b26-c72f04702bfb/artifacts/9hjdvg6i_kb%20suitcase%20row.jpg',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240702/mood_app/workout_images/9hjdvg6i_kb_suitcase_row.jpg',
           intensityReason: 'Heavy loads maximize strength development',
           moodTips: [
             {
@@ -825,7 +825,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '18–20 min',
           description: 'Extended triple-drop sets for deep fatigue',
           battlePlan: '3 rounds\n• 6 Rows\n• Drop → 6\n• Drop → 6\n• Drop → 6\nRest 150s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_ba98ecac-d9ff-4da8-8b26-c72f04702bfb/artifacts/h1hdn33y_kb%20cs%20row.jpg',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240725/mood_app/workout_images/h1hdn33y_kb_cs_row.jpg',
           intensityReason: 'Triple drops maximize muscle fatigue and pump',
           moodTips: [
             {
@@ -858,7 +858,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Bodyweight extensions paired with short static holds',
           battlePlan: '3 rounds\n• 12 Back Extensions\nRest 45–60s\n• 2 Roman Chair Holds (20s each)\nRest 60s after set',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_ba98ecac-d9ff-4da8-8b26-c72f04702bfb/artifacts/ck79gna3_back%20ext.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240712/mood_app/workout_images/ck79gna3_back_ext.jpg',
           intensityReason: 'Introduces endurance and stability to lower back',
           moodTips: [
             {
@@ -878,7 +878,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Extension, twist, and short hold combo for endurance',
           battlePlan: '3 rounds\n• 10 Back Extensions\n• 10 Side-to-Side Twists (at top of extension)\n• 1 Roman Chair Hold (30s)\nRest 60–75s after sequence',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_0b65e409-b210-4730-af62-16b022c37685/artifacts/uud5nxsk_download%20%2811%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240559/mood_app/workout_images/uud5nxsk_download_11_.jpg',
           intensityReason: 'Adds light rotation and isometrics for core demands',
           moodTips: [
             {
@@ -898,7 +898,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Slow tempo extensions emphasizing controlled spinal motion',
           battlePlan: '3 rounds\n• 10 Back Extensions (3s eccentric)\nRest 60s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_ba98ecac-d9ff-4da8-8b26-c72f04702bfb/artifacts/gafcn4c8_rc%20back%20ext%203.webp',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240723/mood_app/workout_images/gafcn4c8_rc_back_ext_3.jpg',
           intensityReason: 'Controlled tempo builds strength without excessive load',
           moodTips: [
             {
@@ -923,7 +923,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Short-range extensions to build endurance safely',
           battlePlan: '3 rounds\n• 20 Partial Back Extensions\nRest 60s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_ba98ecac-d9ff-4da8-8b26-c72f04702bfb/artifacts/ck79gna3_back%20ext.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240712/mood_app/workout_images/ck79gna3_back_ext.jpg',
           intensityReason: 'Partial range builds endurance without overextension',
           moodTips: [
             {
@@ -950,7 +950,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Weighted extensions and basic hyperextensions for mass',
           battlePlan: '4 rounds\n• 10 Weighted Back Extensions\nRest 75s after set\n• 10 Roman Chair Hyperextensions\nRest 75s after set',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_0b65e409-b210-4730-af62-16b022c37685/artifacts/8tyq8yxs_download%20%2810%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240546/mood_app/workout_images/8tyq8yxs_download_10_.jpg',
           intensityReason: 'External load strengthens spinal erectors safely',
           moodTips: [
             {
@@ -970,7 +970,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Blends extension, superman, side bends for variety',
           battlePlan: '3 rounds\n• 8 Back Extensions\n• 8 Alternating Superman (1 arm + opposite leg)\n• 8 Side Bends (each side)\nRest 90s after sequence',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_0b65e409-b210-4730-af62-16b022c37685/artifacts/uud5nxsk_download%20%2811%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240559/mood_app/workout_images/uud5nxsk_download_11_.jpg',
           intensityReason: 'Mix of dynamic posterior moves challenges control',
           moodTips: [
             {
@@ -990,7 +990,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Paused reps reinforce control and mid-range strength',
           battlePlan: '4 rounds\n• 8 Back Extensions (2s pause)\nRest 75–90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_ba98ecac-d9ff-4da8-8b26-c72f04702bfb/artifacts/gafcn4c8_rc%20back%20ext%203.webp',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240723/mood_app/workout_images/gafcn4c8_rc_back_ext_3.jpg',
           intensityReason: 'Paused reps eliminate momentum and build control',
           moodTips: [
             {
@@ -1015,7 +1015,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Mechanical fatigue using fast load reductions',
           battlePlan: '3 rounds\n• 8 Weighted Extensions\n• Drop → 8 reps\n• Drop → 8 reps\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_0b65e409-b210-4730-af62-16b022c37685/artifacts/uud5nxsk_download%20%2811%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240559/mood_app/workout_images/uud5nxsk_download_11_.jpg',
           intensityReason: 'Drop sets extend time under tension past failure',
           moodTips: [
             {
@@ -1042,7 +1042,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '16–18 min',
           description: 'Weighted extensions with twist patterns for obliques',
           battlePlan: '4 rounds\n• 10 Weighted Back Extensions\nRest 90s after set\n• 10 Roman Chair Hyperextensions\nRest 90s after set\n• 10 Roman Chair Twists\nRest 90s after set',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_0b65e409-b210-4730-af62-16b022c37685/artifacts/8tyq8yxs_download%20%2810%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240546/mood_app/workout_images/8tyq8yxs_download_10_.jpg',
           intensityReason: 'Adds load and rotation for advanced spinal strength',
           moodTips: [
             {
@@ -1062,7 +1062,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '18–20 min',
           description: 'Superman lifts plus holds improve stability capacity',
           battlePlan: '4 rounds\n• 8 Weighted Back Extensions\n• 8 Alternating Supermans\n• 1 Roman Chair Hold (20–30s)\nRest 90–120s after sequence',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_0b65e409-b210-4730-af62-16b022c37685/artifacts/uud5nxsk_download%20%2811%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240559/mood_app/workout_images/uud5nxsk_download_11_.jpg',
           intensityReason: 'Extended isometrics + dynamic raises build max control',
           moodTips: [
             {
@@ -1082,7 +1082,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '18–20 min',
           description: 'Overloaded eccentrics to build posterior strength',
           battlePlan: '4 rounds\n• 6 Weighted Extensions (4s eccentric)\nRest 120s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_ba98ecac-d9ff-4da8-8b26-c72f04702bfb/artifacts/3z6b1lhy_roman%20chair%20weighted%20ext.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240695/mood_app/workout_images/3z6b1lhy_roman_chair_weighted_ext.jpg',
           intensityReason: 'Extended eccentrics maximize strength development',
           moodTips: [
             {
@@ -1107,7 +1107,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '18–20 min',
           description: 'Dynamic reps finished with a long isometric hold',
           battlePlan: '3 rounds\n• 10 Weighted Extensions\n• Immediately 30s Roman Chair Hold\nRest 120s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_ba98ecac-d9ff-4da8-8b26-c72f04702bfb/artifacts/gafcn4c8_rc%20back%20ext%203.webp',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240723/mood_app/workout_images/gafcn4c8_rc_back_ext_3.jpg',
           intensityReason: 'Combines dynamic movement with isometric endurance',
           moodTips: [
             {
@@ -1140,7 +1140,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Simple neutral rowing pattern for beginners to build back thickness.',
           battlePlan: '3 rounds\n• 12 Neutral Grip T-Bar Row\nRest 60–75s after set',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_0b65e409-b210-4730-af62-16b022c37685/artifacts/figwdo7y_download%20%2817%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240550/mood_app/workout_images/figwdo7y_download_17_.jpg',
           intensityReason: 'Neutral grip builds confidence & lat line strength',
           moodTips: [
             {
@@ -1160,7 +1160,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Wide row variation for upper-back foundation',
           battlePlan: '3 rounds\n• 10 Wide Grip T-Bar Row\nRest 60–75s after set',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_0b65e409-b210-4730-af62-16b022c37685/artifacts/xdrugsxs_tr.jpg',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240561/mood_app/workout_images/xdrugsxs_tr.jpg',
           intensityReason: 'Wide grip shifts load to traps/rhomboids for posture',
           moodTips: [
             {
@@ -1180,7 +1180,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Controlled T-bar rows emphasizing slow negatives',
           battlePlan: '3 rounds\n• 12 Neutral Grip T-Bar Rows (3s eccentric)\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_ba98ecac-d9ff-4da8-8b26-c72f04702bfb/artifacts/zwx4bge7_t%20bar%20row%202.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240755/mood_app/workout_images/zwx4bge7_t_bar_row_2.jpg',
           intensityReason: 'Tempo work builds control and mind-muscle connection',
           moodTips: [
             {
@@ -1205,7 +1205,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Paused rows reinforcing contraction awareness',
           battlePlan: '3 rounds\n• 10 Wide Grip T-Bar Rows (2s pause)\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_ba98ecac-d9ff-4da8-8b26-c72f04702bfb/artifacts/64wlxchh_t%20bar%20row.webp',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240696/mood_app/workout_images/64wlxchh_t_bar_row.jpg',
           intensityReason: 'Paused reps reinforce peak contraction',
           moodTips: [
             {
@@ -1232,7 +1232,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Simple close grip with moderate-to-heavy focus',
           battlePlan: '4 rounds\n• 10 Close Grip T-Bar Row\nRest 75s after set',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_0b65e409-b210-4730-af62-16b022c37685/artifacts/figwdo7y_download%20%2817%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240550/mood_app/workout_images/figwdo7y_download_17_.jpg',
           intensityReason: 'Close grip overloads lats with higher load capacity',
           moodTips: [
             {
@@ -1252,7 +1252,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Time-under-tension row progression provides a challenging switchup',
           battlePlan: '4 rounds\n• 8 Neutral Grip Row (3–4s eccentric)\nRest 90s after set',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_0b65e409-b210-4730-af62-16b022c37685/artifacts/xdrugsxs_tr.jpg',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240561/mood_app/workout_images/xdrugsxs_tr.jpg',
           intensityReason: '3–4s eccentric tempo increases hypertrophy effect',
           moodTips: [
             {
@@ -1272,7 +1272,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Heavy rows extended with rapid load reductions',
           battlePlan: '3 rounds\n• 8 T-Bar Rows\n• Drop → 8 reps\n• Drop → 8 reps\nRest 120s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_ba98ecac-d9ff-4da8-8b26-c72f04702bfb/artifacts/zwx4bge7_t%20bar%20row%202.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240755/mood_app/workout_images/zwx4bge7_t_bar_row_2.jpg',
           intensityReason: 'Drop sets extend time under tension beyond failure',
           moodTips: [
             {
@@ -1297,7 +1297,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Standard rows finished with long isometric holds',
           battlePlan: '4 rounds\n• 8 T-Bar Rows\n• Finish with 10s hold\nRest 120s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_ba98ecac-d9ff-4da8-8b26-c72f04702bfb/artifacts/64wlxchh_t%20bar%20row.webp',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240696/mood_app/workout_images/64wlxchh_t_bar_row.jpg',
           intensityReason: 'Isometric finisher maximizes time under tension',
           moodTips: [
             {
@@ -1324,7 +1324,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Wide grip rows with static squeeze finish to bring muscles to full fatigue',
           battlePlan: '4 rounds\n• 8 Wide Grip T-Bar Row\nEnd each set with 10s static hold at full contraction\nRest 90–120s after set',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_0b65e409-b210-4730-af62-16b022c37685/artifacts/figwdo7y_download%20%2817%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240550/mood_app/workout_images/figwdo7y_download_17_.jpg',
           intensityReason: 'Isometric holds create intense contraction stress',
           moodTips: [
             {
@@ -1344,7 +1344,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '16–18 min',
           description: 'Wide-to-underhand superset with scap squeezes',
           battlePlan: '4 rounds\n• 8 Wide Grip Row\n• Immediately 8 Underhand Grip Row\n• Finish with 10 Back Squeezes (bodyweight, no load)\nRest 120s after full superset',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_0b65e409-b210-4730-af62-16b022c37685/artifacts/xdrugsxs_tr.jpg',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240561/mood_app/workout_images/xdrugsxs_tr.jpg',
           intensityReason: 'Pairing grips + post-set contractions maximizes fatigue',
           moodTips: [
             {
@@ -1364,7 +1364,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '16–18 min',
           description: 'Heavy T-bar rows with long controlled eccentrics',
           battlePlan: '4 rounds\n• 6 T-Bar Rows (4s eccentric)\nRest 120s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_ba98ecac-d9ff-4da8-8b26-c72f04702bfb/artifacts/zwx4bge7_t%20bar%20row%202.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240755/mood_app/workout_images/zwx4bge7_t_bar_row_2.jpg',
           intensityReason: 'Extended eccentrics maximize strength and hypertrophy',
           moodTips: [
             {
@@ -1389,7 +1389,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '18–20 min',
           description: 'Extended triple-drop sets for maximal fatigue',
           battlePlan: '3 rounds\n• 6 Rows\n• Drop → 6\n• Drop → 6\n• Drop → 6\nRest 150s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_ba98ecac-d9ff-4da8-8b26-c72f04702bfb/artifacts/64wlxchh_t%20bar%20row.webp',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240696/mood_app/workout_images/64wlxchh_t_bar_row.jpg',
           intensityReason: 'Triple drops maximize muscle fatigue and pump',
           moodTips: [
             {
@@ -1554,7 +1554,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Single movement to master seated row mechanics',
           battlePlan: '3 rounds\n• 12 Neutral Grip Cable Row\nRest 60–75s after set',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_ba98ecac-d9ff-4da8-8b26-c72f04702bfb/artifacts/9zff190v_scr.webp',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240705/mood_app/workout_images/9zff190v_scr.jpg',
           intensityReason: 'Neutral grip anchor builds confidence + control',
           moodTips: [
             {
@@ -1574,7 +1574,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Focuses on wide row control & back width for beginners',
           battlePlan: '3 rounds\n• 10 Wide Grip Cable Row\nRest 60–75s after set',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/gdb1l44p_wgr.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240889/mood_app/workout_images/gdb1l44p_wgr.jpg',
           intensityReason: 'Wide grip recruits upper back posture muscles',
           moodTips: [
             {
@@ -1594,7 +1594,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Neutral cable rows emphasizing smooth control',
           battlePlan: '3 rounds\n• 12 Neutral Grip Cable Rows (3s eccentric)\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_0b65e409-b210-4730-af62-16b022c37685/artifacts/7hcpy4r7_download%20%2812%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240544/mood_app/workout_images/7hcpy4r7_download_12_.jpg',
           intensityReason: 'Tempo work builds control and mind-muscle connection',
           moodTips: [
             {
@@ -1619,7 +1619,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Paused rows to reinforce contraction',
           battlePlan: '3 rounds\n• 10 Wide Grip Cable Rows (2s pause)\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_ba98ecac-d9ff-4da8-8b26-c72f04702bfb/artifacts/y3q3wbcv_seated%20cable%20row.jpg',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240751/mood_app/workout_images/y3q3wbcv_seated_cable_row.jpg',
           intensityReason: 'Paused reps reinforce peak contraction awareness',
           moodTips: [
             {
@@ -1646,7 +1646,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Control-focused row variation with palms up to target lower lats and scaps.',
           battlePlan: '4 rounds\n• 10 Underhand Grip Cable Row\nRest 75s after set',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/4jf014no_rgr.jpg',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240860/mood_app/workout_images/4jf014no_rgr.jpg',
           intensityReason: 'Underhand row shifts focus to lower lats & biceps',
           moodTips: [
             {
@@ -1666,7 +1666,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Single movement with emphasized negative control',
           battlePlan: '4 rounds\n• 8 Neutral Grip Cable Row (3–4s eccentric each rep)\nRest 90s after set',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_0b65e409-b210-4730-af62-16b022c37685/artifacts/83ut7zg6_download%20%2813%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240545/mood_app/workout_images/83ut7zg6_download_13_.jpg',
           intensityReason: 'Extended 3–4s eccentrics boost hypertrophy',
           moodTips: [
             {
@@ -1686,7 +1686,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Mechanical fatigue using quick pin drops',
           battlePlan: '3 rounds\n• 8 Cable Rows\n• Drop → 8 reps\n• Drop → 8 reps\nRest 120s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_ba98ecac-d9ff-4da8-8b26-c72f04702bfb/artifacts/9zff190v_scr.webp',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240705/mood_app/workout_images/9zff190v_scr.jpg',
           intensityReason: 'Drop sets extend time under tension beyond failure',
           moodTips: [
             {
@@ -1711,7 +1711,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Rows with extended static holds',
           battlePlan: '4 rounds\n• 8 Cable Rows\n• Finish with 12s hold\nRest 120s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_ba98ecac-d9ff-4da8-8b26-c72f04702bfb/artifacts/y3q3wbcv_seated%20cable%20row.jpg',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240751/mood_app/workout_images/y3q3wbcv_seated_cable_row.jpg',
           intensityReason: 'Isometric finisher maximizes time under tension',
           moodTips: [
             {
@@ -1738,7 +1738,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Rows with a final long hold at contraction to fully fatigue muscles.',
           battlePlan: '4 rounds\n• 8 Wide Grip Row\nEnd each set with 10s hold at contraction\nRest 90–120s after set',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_0b65e409-b210-4730-af62-16b022c37685/artifacts/7hcpy4r7_download%20%2812%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240544/mood_app/workout_images/7hcpy4r7_download_12_.jpg',
           intensityReason: 'Isometric finish after working sets increases time under tension',
           moodTips: [
             {
@@ -1758,7 +1758,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '16–18 min',
           description: 'Wide-to-underhand superset with post-set squeezes',
           battlePlan: '4 rounds\n• 8 Wide Grip Row (controlled)\n• Immediately 8 Underhand Grip Row\n• Finish with 10 Standing Back Squeezes (bodyweight scapular retractions, no load)\nRest 120s after full superset',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/gdb1l44p_wgr.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240889/mood_app/workout_images/gdb1l44p_wgr.jpg',
           intensityReason: 'Combo of two grips + contractions maximizes fatigue',
           moodTips: [
             {
@@ -1778,7 +1778,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '16–18 min',
           description: 'Cable rows using extended negative tempo',
           battlePlan: '4 rounds\n• 6 Cable Rows (5s eccentric)\nRest 120s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_ba98ecac-d9ff-4da8-8b26-c72f04702bfb/artifacts/y3q3wbcv_seated%20cable%20row.jpg',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240751/mood_app/workout_images/y3q3wbcv_seated_cable_row.jpg',
           intensityReason: 'Extended eccentrics maximize strength and hypertrophy',
           moodTips: [
             {
@@ -1803,7 +1803,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '18–20 min',
           description: 'Extended drop sets to fully exhaust lats',
           battlePlan: '3 rounds\n• 6 Rows\n• Drop → 6\n• Drop → 6\n• Drop → 6\nRest 150s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_ba98ecac-d9ff-4da8-8b26-c72f04702bfb/artifacts/9zff190v_scr.webp',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240705/mood_app/workout_images/9zff190v_scr.jpg',
           intensityReason: 'Triple drops maximize muscle fatigue and pump',
           moodTips: [
             {
@@ -1836,7 +1836,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Wide grip basis for learning lat engagement to build pull-up strength',
           battlePlan: '3 rounds\n• 10–12 Wide Grip Pulldown\nRest 60–75s after set',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_0b65e409-b210-4730-af62-16b022c37685/artifacts/diugpoq6_download%20%288%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240548/mood_app/workout_images/diugpoq6_download_8_.jpg',
           intensityReason: 'Wide grip teaches lat activation and form control',
           moodTips: [
             {
@@ -1856,7 +1856,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Easier grip variation supports early progression',
           battlePlan: '3 rounds\n• 10–12 Underhand Pulldown\nRest 60–75s after set',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/fkpr9mxh_lprg.jpg',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240885/mood_app/workout_images/fkpr9mxh_lprg.jpg',
           intensityReason: 'Underhand grip recruits arms to aid pulling work',
           moodTips: [
             {
@@ -1876,7 +1876,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Slow pulldowns building lat control and discipline',
           battlePlan: '3 rounds\n• 12 Pulldowns (3s eccentric)\nRest 60–75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_ba98ecac-d9ff-4da8-8b26-c72f04702bfb/artifacts/puai6ytk_lat%20pull.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240739/mood_app/workout_images/puai6ytk_lat_pull.jpg',
           intensityReason: 'Controlled tempo builds lat activation and mind-muscle connection',
           moodTips: [
             {
@@ -1901,7 +1901,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Short-range reps focused on peak lat contraction',
           battlePlan: '3 rounds\n• 15 Partial Pulldowns\nRest 60s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_ba98ecac-d9ff-4da8-8b26-c72f04702bfb/artifacts/3kbrum0a_lat%20pull%20down.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240694/mood_app/workout_images/3kbrum0a_lat_pull_down.jpg',
           intensityReason: 'Partial range maximizes peak contraction time',
           moodTips: [
             {
@@ -1928,7 +1928,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Stronger setup for progressive overload recruiting a wider variety of muscles',
           battlePlan: '4 rounds\n• 8–10 Neutral Grip Pulldown (moderate to heavy)\nRest 75–90s after set',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/vydcatjw_nglp.webp',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240912/mood_app/workout_images/vydcatjw_nglp.jpg',
           intensityReason: 'Neutral grip enables heavier lat loading safely',
           moodTips: [
             {
@@ -1948,7 +1948,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Controlled reps followed by static contraction',
           battlePlan: '3 rounds\n• 8–10 Pulldown (neutral or wide, consistent grip choice)\nEnd each set with 5s hold at bottom\nRest 90s after set',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_0b65e409-b210-4730-af62-16b022c37685/artifacts/j967e9c7_download%20%289%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240551/mood_app/workout_images/j967e9c7_download_9_.jpg',
           intensityReason: 'Isometric hold boosts tension and endurance',
           moodTips: [
             {
@@ -1968,7 +1968,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Rapid drops to extend sets past fatigue',
           battlePlan: '3 rounds\n• 8 Pulldowns\n• Drop → 8 reps\n• Drop → 8 reps\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_ba98ecac-d9ff-4da8-8b26-c72f04702bfb/artifacts/puai6ytk_lat%20pull.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240739/mood_app/workout_images/puai6ytk_lat_pull.jpg',
           intensityReason: 'Drop sets extend time under tension beyond failure',
           moodTips: [
             {
@@ -1993,7 +1993,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Full reps followed by pulses in the contraction zone',
           battlePlan: '3 rounds\n• 12 Pulldowns\n• Immediately 10 Pulse Reps\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_ba98ecac-d9ff-4da8-8b26-c72f04702bfb/artifacts/3kbrum0a_lat%20pull%20down.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240694/mood_app/workout_images/3kbrum0a_lat_pull_down.jpg',
           intensityReason: 'Pulses extend peak contraction for maximum pump',
           moodTips: [
             {
@@ -2020,7 +2020,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Mix of wide and close grips for full lat work and development',
           battlePlan: '4 rounds\n• 8 Wide Grip Pulldown\nRest 90s\n• 8 Close Grip Pulldown\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_0b65e409-b210-4730-af62-16b022c37685/artifacts/diugpoq6_download%20%288%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240548/mood_app/workout_images/diugpoq6_download_8_.jpg',
           intensityReason: 'Grip pairing develops width and back thickness',
           moodTips: [
             {
@@ -2040,7 +2040,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '16–18 min',
           description: 'Wide-to-underhand with controlled lowering for mastery of movement.',
           battlePlan: '4 rounds\n• 8 Wide Grip Pulldown\n• Immediately 8 Underhand Pulldown (3s eccentric each)\nRest 120s after superset',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_0b65e409-b210-4730-af62-16b022c37685/artifacts/j967e9c7_download%20%289%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240551/mood_app/workout_images/j967e9c7_download_9_.jpg',
           intensityReason: 'Superset + eccentrics maximize hypertrophy stress',
           moodTips: [
             {
@@ -2060,7 +2060,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '16–18 min',
           description: 'Full ROM pulldowns with extended 5s negatives',
           battlePlan: '4 rounds\n• 6 Pulldowns (5s eccentric)\nRest 120s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_ba98ecac-d9ff-4da8-8b26-c72f04702bfb/artifacts/puai6ytk_lat%20pull.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240739/mood_app/workout_images/puai6ytk_lat_pull.jpg',
           intensityReason: 'Extended eccentrics maximize strength and hypertrophy',
           moodTips: [
             {
@@ -2085,7 +2085,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '18–20 min',
           description: 'Holds plus drops to build extreme lat fatigue',
           battlePlan: '3 rounds\n• 8 Pulldowns + 10s Hold\n• Drop → 8 reps\nRest 120s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_ba98ecac-d9ff-4da8-8b26-c72f04702bfb/artifacts/3kbrum0a_lat%20pull%20down.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240694/mood_app/workout_images/3kbrum0a_lat_pull_down.jpg',
           intensityReason: 'Combines isometric fatigue with mechanical drop sets',
           moodTips: [
             {
@@ -2118,7 +2118,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Focuses on mastering the basic pull-up movement pattern',
           battlePlan: '3 rounds\n• 5 Pull-Ups (use band or assisted machine if needed)\nRest 60–75s after set',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_0b65e409-b210-4730-af62-16b022c37685/artifacts/zpcds83n_download%20%2815%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240562/mood_app/workout_images/zpcds83n_download_15_.jpg',
           intensityReason: 'Builds foundational pulling strength with necessary support',
           moodTips: [
             {
@@ -2158,7 +2158,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Assisted pull-ups reinforcing clean full-range mechanics',
           battlePlan: '3 rounds\n• 6 Assisted Pull-Ups\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_ba98ecac-d9ff-4da8-8b26-c72f04702bfb/artifacts/3aciwkyi_assisted%20pull%20ups.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240693/mood_app/workout_images/3aciwkyi_assisted_pull_ups.jpg',
           intensityReason: 'Full-range assistance builds proper movement patterns',
           moodTips: [
             {
@@ -2183,7 +2183,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Assisted pull-ups with controlled pauses at the top',
           battlePlan: '3 rounds\n• 5 Assisted Pull-Ups (1–2s top pause)\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_ba98ecac-d9ff-4da8-8b26-c72f04702bfb/artifacts/ntsbiqfh_assisted%20pull%20ups%201.webp',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240736/mood_app/workout_images/ntsbiqfh_assisted_pull_ups_1.jpg',
           intensityReason: 'Pauses at peak contraction build control and strength',
           moodTips: [
             {
@@ -2210,7 +2210,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Builds pulling power with a slightly easier grip variation',
           battlePlan: '4 rounds\n• 6 Chin-Ups\nRest 75–90s after set',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/fox3rjq4_chu.jpg',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240887/mood_app/workout_images/fox3rjq4_chu.jpg',
           intensityReason: 'Chin-ups engage biceps more, aiding overall pull strength',
           moodTips: [
             {
@@ -2275,7 +2275,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Full pull-ups finished with a static top hold',
           battlePlan: '3 rounds\n• 6 Pull-Ups\n• Finish with 10s chin-over-bar hold\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_ba98ecac-d9ff-4da8-8b26-c72f04702bfb/artifacts/ntsbiqfh_assisted%20pull%20ups%201.webp',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240736/mood_app/workout_images/ntsbiqfh_assisted_pull_ups_1.jpg',
           intensityReason: 'Isometric finisher extends time under tension',
           moodTips: [
             {
@@ -2302,7 +2302,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Two key pull-up variations for comprehensive back development',
           battlePlan: '4 rounds\n• 8 Wide Grip Pull-Ups\nRest 90s\n• 8 Neutral Grip Pull-Ups\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_0b65e409-b210-4730-af62-16b022c37685/artifacts/zpcds83n_download%20%2815%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240562/mood_app/workout_images/zpcds83n_download_15_.jpg',
           intensityReason: 'Targets outer lats and overall back width with varied grips',
           moodTips: [
             {
@@ -2322,7 +2322,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '16–18 min',
           description: 'Advanced pull-ups with deep range and controlled lowering',
           battlePlan: '4 rounds\n• 6 Chest-to-Bar Pull-Ups\n• 6 Negative Pull-Ups (3–5s lower)\nRest 90–120s after sequence',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/r3n8muv4_cbpu.webp',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240906/mood_app/workout_images/r3n8muv4_cbpu.jpg',
           intensityReason: 'Higher pull range and negatives build extreme strength',
           moodTips: [
             {
@@ -2342,7 +2342,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Loaded pull-ups to overload back strength',
           battlePlan: '4 rounds\n• 5 Weighted Pull-Ups\nRest 120s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_ba98ecac-d9ff-4da8-8b26-c72f04702bfb/artifacts/z868brwr_wighted%20pull%20up.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240752/mood_app/workout_images/z868brwr_wighted_pull_up.jpg',
           intensityReason: 'External load maximizes strength development',
           moodTips: [
             {
@@ -2392,7 +2392,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '16–18 min',
           description: 'Descending-rep ladder taken near strict failure',
           battlePlan: 'Ladder format\n• 8 Pull-Ups\n• 6 Pull-Ups\n• 4 Pull-Ups\n• 2 Pull-Ups\nRest 30–45s between rungs',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_ba98ecac-d9ff-4da8-8b26-c72f04702bfb/artifacts/iyoz9m2p_pull%20up.webp',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240729/mood_app/workout_images/iyoz9m2p_pull_up.jpg',
           intensityReason: 'Ladder format maximizes volume and fatigue',
           moodTips: [
             {
@@ -2417,7 +2417,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '18–20 min',
           description: 'Explosive pull-to-transition muscle-up practice',
           battlePlan: '4 rounds\n• 3–5 Muscle-Ups\n(strict, band-assisted, or low-kip)\nRest 120s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_ba98ecac-d9ff-4da8-8b26-c72f04702bfb/artifacts/bcw1iy96_Muscle%20ups.webp',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240710/mood_app/workout_images/bcw1iy96_Muscle_ups.jpg',
           intensityReason: 'Explosive pulling develops power and skill',
           moodTips: [
             {
@@ -2450,7 +2450,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Focuses on the neutral grip pull-up with support',
           battlePlan: '3 rounds\n• 5 Neutral Grip Pull-Ups (use band or assisted machine if needed)\nRest 60–75s after set',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_ba98ecac-d9ff-4da8-8b26-c72f04702bfb/artifacts/g4mpj66m_assisted%20neutral%20grip%20pullups.jpg',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240721/mood_app/workout_images/g4mpj66m_assisted_neutral_grip_pullups.jpg',
           intensityReason: 'Neutral grip is often easiest, building initial pulling strength',
           moodTips: [
             {
@@ -2470,7 +2470,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Builds pulling strength using an underhand grip with assistance',
           battlePlan: '3 rounds\n• 5 Chin-Ups (use band or assisted machine if needed)\nRest 75s after set',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/9ie9z8cd_chu.jpg',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240870/mood_app/workout_images/9ie9z8cd_chu.jpg',
           intensityReason: 'Chin-ups recruit biceps, making them slightly easier to learn',
           moodTips: [
             {
@@ -2515,7 +2515,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Assisted reps with slower lowering phase',
           battlePlan: '3 rounds\n• 5 Assisted Neutral Pull-Ups (3s eccentric)\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/9ie9z8cd_chu.jpg',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240870/mood_app/workout_images/9ie9z8cd_chu.jpg',
           intensityReason: 'Tempo work builds control and strength',
           moodTips: [
             {
@@ -2542,7 +2542,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Alternating grip for balanced strength development',
           battlePlan: '4 rounds\n• 6 Mixed Grip Pull-Ups (swap grip each set)\nRest 75–90s after set',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_0b65e409-b210-4730-af62-16b022c37685/artifacts/knkswnzw_download%20%284%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240552/mood_app/workout_images/knkswnzw_download_4_.jpg',
           intensityReason: 'Mixed grip helps overcome sticking points, building unilateral strength',
           moodTips: [
             {
@@ -2562,7 +2562,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Dynamic pull-up variation for core and back engagement',
           battlePlan: '3 rounds\n• 6 Commando Pull-Ups (chest to each side)\nRest 90s after set',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/v94peb1z_Screenshot%202025-12-05%20at%2011.08.43%E2%80%AFPM.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240909/mood_app/workout_images/v94peb1z_Screenshot_2025-12-05_at_11_08_43_PM.jpg',
           intensityReason: 'Commando pulls challenge stability and unilateral strength',
           moodTips: [
             {
@@ -2607,7 +2607,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Side-to-side pulls with controlled pauses',
           battlePlan: '3 rounds\n• 6 Commando Pull-Ups (with 1s pause each side)\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_ba98ecac-d9ff-4da8-8b26-c72f04702bfb/artifacts/haxbdjj0_commando%20pull.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240727/mood_app/workout_images/haxbdjj0_commando_pull.jpg',
           intensityReason: 'Pauses increase time under tension unilaterally',
           moodTips: [
             {
@@ -2634,7 +2634,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Targets both back width and overall pulling power',
           battlePlan: '4 rounds\n• 8 Wide Grip Pull-Ups\nRest 90s\n• 8 Neutral Grip Pull-Ups\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_0b65e409-b210-4730-af62-16b022c37685/artifacts/knkswnzw_download%20%284%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240552/mood_app/workout_images/knkswnzw_download_4_.jpg',
           intensityReason: 'Combines two primary grips for comprehensive back development',
           moodTips: [
             {
@@ -2654,7 +2654,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '16–18 min',
           description: 'Highly challenging pull-up variation for extreme strength',
           battlePlan: '4 rounds\n• 6 Archer Pull-Ups (each side)\nRest 90–120s after set',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/yk99v1xl_archpu.jpg',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240917/mood_app/workout_images/yk99v1xl_archpu.jpg',
           intensityReason: 'Unilateral strength builder, progressing towards one-arm pull-ups',
           moodTips: [
             {
@@ -2674,7 +2674,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Heavy neutral-grip pulls for lat thickness',
           battlePlan: '4 rounds\n• 5 Weighted Neutral Pull-Ups\nRest 120s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_ba98ecac-d9ff-4da8-8b26-c72f04702bfb/artifacts/f7ym9pmr_weighted%20neutral%20grip%20pull%20ups.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240717/mood_app/workout_images/f7ym9pmr_weighted_neutral_grip_pull_ups.jpg',
           intensityReason: 'Weighted work maximizes strength development',
           moodTips: [
             {
@@ -2699,7 +2699,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '16–18 min',
           description: 'Archer pull-ups with slow unilateral negatives',
           battlePlan: '3 rounds\n• 4 Archer Pull-Ups (slow eccentric each side)\nRest 120s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/yk99v1xl_archpu.jpg',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240917/mood_app/workout_images/yk99v1xl_archpu.jpg',
           intensityReason: 'Extended eccentrics maximize unilateral strength',
           moodTips: [
             {
@@ -2732,7 +2732,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Builds pulling strength with a natural elbow path',
           battlePlan: '3 rounds\n• 10–12 Neutral Grip Row\nRest 60–75s after set',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/lmxixaaf_scsngr.webp',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240896/mood_app/workout_images/lmxixaaf_scsngr.jpg',
           intensityReason: 'Neutral grip row teaches form with stable setup',
           moodTips: [
             {
@@ -2752,7 +2752,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Engages rhomboids and traps with safer alignment',
           battlePlan: '3 rounds\n• 10–12 Wide Grip Row\nRest 60–75s after set',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/aod60178_scswgr.jpg',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240875/mood_app/workout_images/aod60178_scswgr.jpg',
           intensityReason: 'Wide row variation builds posture and width with added support.',
           moodTips: [
             {
@@ -2772,7 +2772,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Controlled rows emphasizing peak contraction and posture',
           battlePlan: '3 rounds\n• 12 Rows (2s pause)\nRest 60–75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-content/artifacts/m556b5a2_scsr%201.jpg',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241290/mood_app/workout_images/m556b5a2_scsr_1.jpg',
           intensityReason: 'Paused reps reinforce form and mind-muscle connection',
           moodTips: [
             {
@@ -2797,7 +2797,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Short-range rows for endurance without form breakdown',
           battlePlan: '3 rounds\n• 20 Partial Rows\nRest 60s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-content/artifacts/511hj5j8_scsr.webp',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241275/mood_app/workout_images/511hj5j8_scsr.jpg',
           intensityReason: 'Partial range builds endurance while maintaining strict form',
           moodTips: [
             {
@@ -2824,7 +2824,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Stronger pull variation for controlled overload',
           battlePlan: '4 rounds\n• 8–10 Underhand Grip Row (moderate to heavy)\nRest 75s after set',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/pm9titrm_scsrgr.webp',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240901/mood_app/workout_images/pm9titrm_scsrgr.jpg',
           intensityReason: 'Underhand angle shifts load to lats and biceps',
           moodTips: [
             {
@@ -2844,7 +2844,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Focuses on lat control with longer lowering phase',
           battlePlan: '3 rounds\n• 8 Neutral Grip Row (3s eccentric each rep)\nRest 90s after set',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_0b65e409-b210-4730-af62-16b022c37685/artifacts/1uyss7y4_csrr.webp',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240542/mood_app/workout_images/1uyss7y4_csrr.jpg',
           intensityReason: '3s eccentric reps add high time under tension',
           moodTips: [
             {
@@ -2864,7 +2864,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Heavy rows extended using fast load reductions',
           battlePlan: '3 rounds\n• 8 Rows\n• Drop → 8 reps\n• Drop → 8 reps\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-content/artifacts/m556b5a2_scsr%201.jpg',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241290/mood_app/workout_images/m556b5a2_scsr_1.jpg',
           intensityReason: 'Drop sets extend time under tension beyond failure',
           moodTips: [
             {
@@ -2889,7 +2889,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Time-under-tension rows using long eccentrics',
           battlePlan: '4 rounds\n• 8 Rows (4s eccentric)\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-content/artifacts/511hj5j8_scsr.webp',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241275/mood_app/workout_images/511hj5j8_scsr.jpg',
           intensityReason: 'Extended eccentrics maximize strength development',
           moodTips: [
             {
@@ -2916,7 +2916,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Neutral rows + wide rows maximize pulling volume',
           battlePlan: '4 rounds\n• 8 Neutral Grip Row\nRest 90s\n• 8 Wide Grip Row\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_0b65e409-b210-4730-af62-16b022c37685/artifacts/ty987c3z_download%20%2814%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240557/mood_app/workout_images/ty987c3z_download_14_.jpg',
           intensityReason: 'Two grips stimulate width and thickness growth',
           moodTips: [
             {
@@ -2936,7 +2936,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '16–18 min',
           description: 'Neutral-to-underhand rows plus isometric finisher',
           battlePlan: '4 rounds\n• 8 Neutral Grip Row\n• Immediately 8 Underhand Grip Row\n• Finish with 10s Hold at peak contraction\nRest 120s after full sequence',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_0b65e409-b210-4730-af62-16b022c37685/artifacts/1uyss7y4_csrr.webp',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240542/mood_app/workout_images/1uyss7y4_csrr.jpg',
           intensityReason: 'Superset adds load, holds extend time under tension',
           moodTips: [
             {
@@ -2956,7 +2956,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '16–18 min',
           description: 'Heavy rows finished with long isometric contractions',
           battlePlan: '4 rounds\n• 8 Rows + 10s Hold\nRest 120s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-content/artifacts/m556b5a2_scsr%201.jpg',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241290/mood_app/workout_images/m556b5a2_scsr_1.jpg',
           intensityReason: 'Isometric holds build peak contraction strength',
           moodTips: [
             {
@@ -2981,7 +2981,7 @@ export const backWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '18–20 min',
           description: 'Extended drop set to drive maximum pulling fatigue',
           battlePlan: '3 rounds\n• 6 Rows\n• Drop → 6\n• Drop → 6\n• Drop → 6\nRest 120s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-content/artifacts/511hj5j8_scsr.webp',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241275/mood_app/workout_images/511hj5j8_scsr.jpg',
           intensityReason: 'Triple drops maximize muscle fatigue and pump',
           moodTips: [
             {

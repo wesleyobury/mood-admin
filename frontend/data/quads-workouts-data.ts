@@ -11,7 +11,7 @@ export const quadsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Front held bar guides posture as quads take full load',
           battlePlan: '3 rounds\n• 10–12 Light Barbell Sissy Squats\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-media-fix/artifacts/sjqdvile_bbss.jpg',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241358/mood_app/workout_images/sjqdvile_bbss.jpg',
           intensityReason: 'Teaches quad isolation through knee forward motion',
           moodTips: [
             {
@@ -31,7 +31,7 @@ export const quadsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Static hold reinforces posture and leg strength',
           battlePlan: '3 rounds\n• 6–8 Sissy Squats\n• Add 10s Hold each set\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-media-fix/artifacts/sjqdvile_bbss.jpg',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241358/mood_app/workout_images/sjqdvile_bbss.jpg',
           intensityReason: 'Iso hold at squat bottom builds quad endurance',
           moodTips: [
             {
@@ -53,7 +53,7 @@ export const quadsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Adds weight to sissy squat for deeper hypertrophy',
           battlePlan: '4 rounds\n• 8–10 Weighted Sissy Squats\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_85724e25-1f59-4628-b049-647d06432207/artifacts/3hob85xt_download%20%2822%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240636/mood_app/workout_images/3hob85xt_download_22_.jpg',
           intensityReason: 'Front bar load progression maximizes quad stress',
           moodTips: [
             {
@@ -73,7 +73,7 @@ export const quadsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'High tension squatting style grows endurance fast',
           battlePlan: '3 rounds\n• 8 Combo Reps (half + full = 1)\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-media-fix/artifacts/sjqdvile_bbss.jpg',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241358/mood_app/workout_images/sjqdvile_bbss.jpg',
           intensityReason: 'Half+full rep sequence lengthens quad activation',
           moodTips: [
             {
@@ -95,7 +95,7 @@ export const quadsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '16–18 min',
           description: 'Upright torso hack squat builds quads with tension',
           battlePlan: '4 rounds\n• 8–10 Hack Squats\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_85724e25-1f59-4628-b049-647d06432207/artifacts/3hob85xt_download%20%2822%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240636/mood_app/workout_images/3hob85xt_download_22_.jpg',
           intensityReason: 'Behind back hold redirects load heavily to quads',
           moodTips: [
             {
@@ -115,7 +115,7 @@ export const quadsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '16–18 min',
           description: 'Dual movement combo overloads quads with fatigue',
           battlePlan: '3 rounds\n• 6 Front Hold Sissy Squats\n• 6 Barbell Hack Squats\nRest 120s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-media-fix/artifacts/sjqdvile_bbss.jpg',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241358/mood_app/workout_images/sjqdvile_bbss.jpg',
           intensityReason: 'Pairing front and back styles crushes quad fibers',
           moodTips: [
             {
@@ -143,7 +143,7 @@ export const quadsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Perfect intro for building controlled quad strength',
           battlePlan: '3 rounds\n• 12–15 Leg Extensions\nRest 60s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_85724e25-1f59-4628-b049-647d06432207/artifacts/er89oli2_download%20%2823%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240641/mood_app/workout_images/er89oli2_download_23_.jpg',
           intensityReason: 'Isolates quads through safe guided flexion path',
           moodTips: [
             {
@@ -163,7 +163,7 @@ export const quadsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Builds mind muscle connection through iso tension',
           battlePlan: '3 rounds\n• 8–10 Iso Hold Extensions (3s hold)\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_85724e25-1f59-4628-b049-647d06432207/artifacts/6hwlna7o_quad%20ext.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240639/mood_app/workout_images/6hwlna7o_quad_ext.jpg',
           intensityReason: 'Holding peak strengthens quads safely under load',
           moodTips: [
             {
@@ -183,7 +183,7 @@ export const quadsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Smooth extensions building basic quad control',
           battlePlan: '3 rounds\n• 12–15 Leg Extensions\nRest 60–75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_96d95d8c-bd6e-49a5-a6af-694c8a8f5c04/artifacts/fnft7ru4_download%20%286%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240672/mood_app/workout_images/fnft7ru4_download_6_.jpg',
           intensityReason: 'Controlled movement builds foundational quad strength',
           moodTips: [
             {
@@ -210,7 +210,7 @@ export const quadsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Machine allows safe overload using strict form',
           battlePlan: '4 rounds\n• 8–10 Heavy Extensions\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_85724e25-1f59-4628-b049-647d06432207/artifacts/er89oli2_download%20%2823%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240641/mood_app/workout_images/er89oli2_download_23_.jpg',
           intensityReason: 'Progressive heavy loading maximizes quad growth',
           moodTips: [
             {
@@ -230,7 +230,7 @@ export const quadsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Longer muscle strain increases hypertrophy response',
           battlePlan: '3 rounds\n• 8–10 Total Combo Reps\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_85724e25-1f59-4628-b049-647d06432207/artifacts/6hwlna7o_quad%20ext.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240639/mood_app/workout_images/6hwlna7o_quad_ext.jpg',
           intensityReason: 'Half+full rep cycle expands quad time under load',
           moodTips: [
             {
@@ -250,7 +250,7 @@ export const quadsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Paused reps reinforcing peak quad contraction',
           battlePlan: '4 rounds\n• 10 Extensions (2s pause at top)\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_96d95d8c-bd6e-49a5-a6af-694c8a8f5c04/artifacts/fnft7ru4_download%20%286%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240672/mood_app/workout_images/fnft7ru4_download_6_.jpg',
           intensityReason: 'Paused contractions maximize quad activation',
           moodTips: [
             {
@@ -277,7 +277,7 @@ export const quadsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '16–18 min',
           description: 'Stripping load forces fibers to contract under fatigue',
           battlePlan: '3 rounds\n• 10 Heavy Extensions\n• Drop 15–20% → 8 reps\n• Drop 15–20% → 8 reps\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_85724e25-1f59-4628-b049-647d06432207/artifacts/er89oli2_download%20%2823%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240641/mood_app/workout_images/er89oli2_download_23_.jpg',
           intensityReason: 'Dropsets extend effort for intense quad overload',
           moodTips: [
             {
@@ -297,7 +297,7 @@ export const quadsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '16–18 min',
           description: 'Pairing holds with reps completely crushes quads',
           battlePlan: '3 rounds\n• 10s Iso Hold at Extension\n• Immediately 10–12 Full Reps\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_85724e25-1f59-4628-b049-647d06432207/artifacts/6hwlna7o_quad%20ext.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240639/mood_app/workout_images/6hwlna7o_quad_ext.jpg',
           intensityReason: 'Static hold plus reps maximizes quad endurance',
           moodTips: [
             {
@@ -317,7 +317,7 @@ export const quadsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '16–18 min',
           description: 'Extended quad isolation using fast weight drops',
           battlePlan: '3 rounds\n• 8 Heavy Extensions\n• Drop → 10\n• Drop → 10\nRest 120s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_96d95d8c-bd6e-49a5-a6af-694c8a8f5c04/artifacts/fnft7ru4_download%20%286%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240672/mood_app/workout_images/fnft7ru4_download_6_.jpg',
           intensityReason: 'Drop sets maximize quad fatigue and hypertrophy',
           moodTips: [
             {

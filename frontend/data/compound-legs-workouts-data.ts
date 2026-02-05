@@ -11,7 +11,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Simple squat variation teaches control and balance with front load support.',
           battlePlan: '3 rounds\n• 10-12 goblet squats\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-media-fix/artifacts/iq16b1nm_download.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241347/mood_app/workout_images/iq16b1nm_download.jpg',
           intensityReason: 'Front load squat builds posture and safe depth.',
           moodTips: [
             {
@@ -31,7 +31,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Dumbbell hinge builds strength safely for beginners with proper form.',
           battlePlan: '3 rounds\n• 8-10 dumbbell RDLs\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-media-fix/artifacts/5v2oyit3_dbrdl.webp',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241323/mood_app/workout_images/5v2oyit3_dbrdl.jpg',
           intensityReason: 'Hip hinge pattern develops hamstrings + glutes.',
           moodTips: [
             {
@@ -51,7 +51,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Box-guided goblet squats reinforce depth and control',
           battlePlan: '3 rounds\n• 10–12 Box Goblet Squats\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-content/artifacts/0t57iowy_db%20goblet%20squat.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241263/mood_app/workout_images/0t57iowy_db_goblet_squat.jpg',
           intensityReason: 'Box squat builds confidence and consistent depth',
           moodTips: [
             {
@@ -76,7 +76,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Assisted lunges reduce balance demand for beginners',
           battlePlan: '3 rounds\n• 8 per leg Reverse Lunges\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-content/artifacts/cnnnnm30_db%20reverse%20lunge.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241281/mood_app/workout_images/cnnnnm30_db_reverse_lunge.jpg',
           intensityReason: 'Support reduces balance stress while building strength',
           moodTips: [
             {
@@ -103,7 +103,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Advanced split squat builds quads and glute drive with elevated rear foot.',
           battlePlan: '4 rounds\n• 8-10 bulgarian split squats per leg\nRest 75-90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-media-fix/artifacts/mxfs858v_dbbss.jpg',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241353/mood_app/workout_images/mxfs858v_dbbss.jpg',
           intensityReason: 'Rear foot elevated squat raises ROM + intensity.',
           moodTips: [
             {
@@ -123,7 +123,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Trains quads, glutes, and groin through lateral range of motion.',
           battlePlan: '3 rounds\n• 8 per side Lateral Lunges\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-media-fix/artifacts/hiyqkn20_db%20lat%20lunge.jpg',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241344/mood_app/workout_images/hiyqkn20_db_lat_lunge.jpg',
           intensityReason: 'Side lunge develops stability and hip strength.',
           moodTips: [
             {
@@ -143,7 +143,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Elevated front foot increases quad loading and depth',
           battlePlan: '4 rounds\n• 8 per leg Split Squats\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-content/artifacts/rvwet9i1_db%20elevated%20split%20squat.jpg',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241295/mood_app/workout_images/rvwet9i1_db_elevated_split_squat.jpg',
           intensityReason: 'Front elevation deepens range of motion for quads',
           moodTips: [
             {
@@ -168,7 +168,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Squats extended using fast dumbbell weight drops',
           battlePlan: '3 rounds\n• 8 DB Squats\n• Drop → 8\n• Drop → 8\nRest 120s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-content/artifacts/p55uxvw3_db%20squat.jpg',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241293/mood_app/workout_images/p55uxvw3_db_squat.jpg',
           intensityReason: 'Drop sets extend time under tension for maximum pump',
           moodTips: [
             {
@@ -195,7 +195,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '16–18 min',
           description: 'Superset floods quads + hamstrings with volume for complete development.',
           battlePlan: '4 rounds\n• 8 DB Squats\n• 8 DB RDLs\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/elc9qz74_download%20%2813%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241391/mood_app/workout_images/elc9qz74_download_13_.jpg',
           intensityReason: 'Push pull pairing overloads full lower body range.',
           moodTips: [
             {
@@ -215,7 +215,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '16–18 min',
           description: 'Brutal high tension squat burns and builds depth strength.',
           battlePlan: '3 rounds\n• 10 Squats + 10s Hold + 6 Pulses\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-media-fix/artifacts/zkmq6vqh_download%20%281%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241368/mood_app/workout_images/zkmq6vqh_download_1_.jpg',
           intensityReason: 'Long isos with pulses maximize quad fatigue.',
           moodTips: [
             {
@@ -235,7 +235,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '16–18 min',
           description: 'Front-loaded squats demanding core and quad strength',
           battlePlan: '4 rounds\n• 6–8 Front Squats\nRest 120s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-content/artifacts/x54zcr7d_db%20front%20squat.webp',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241297/mood_app/workout_images/x54zcr7d_db_front_squat.jpg',
           intensityReason: 'Front load challenges core stability under heavy load',
           moodTips: [
             {
@@ -260,7 +260,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '16–18 min',
           description: 'High-fatigue unilateral squat finisher for quads',
           battlePlan: '3 rounds\n• 12–15 Bulgarian Split Squats per leg\nRest 120s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-media-fix/artifacts/mxfs858v_dbbss.jpg',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241353/mood_app/workout_images/mxfs858v_dbbss.jpg',
           intensityReason: 'High-rep unilateral work pushes quads to failure',
           moodTips: [
             {
@@ -293,7 +293,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Classic barbell squat lays foundation for leg strength and control.',
           battlePlan: '3 rounds\n• 8-10 back squats\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/gxoxkpbs_download%20%285%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241394/mood_app/workout_images/gxoxkpbs_download_5_.jpg',
           intensityReason: 'Foundational squat builds strength + control.',
           moodTips: [
             {
@@ -313,7 +313,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Reverse lunge reduces strain while building single leg strength.',
           battlePlan: '3 rounds\n• 8 per leg Reverse Lunges\nRest 75-90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/a96gl1sh_download%20%287%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241388/mood_app/workout_images/a96gl1sh_download_7_.jpg',
           videoUrl: 'https://res.cloudinary.com/dfsygar5c/video/upload/v1770240475/mood_app/workout_videos/BB_lunge.mov',
           intensityReason: 'Teaches single leg balance with less knee stress.',
           moodTips: [
@@ -334,7 +334,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Beginner hinge teaches depth and hamstring control with barbell.',
           battlePlan: '3 rounds\n• 8-10 rack rdls\nRest 75-90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-content/artifacts/5q9lqk7k_bb%20rdl.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241277/mood_app/workout_images/5q9lqk7k_bb_rdl.jpg',
           intensityReason: 'Barbell hinge pattern develops glutes + hams.',
           moodTips: [
             {
@@ -354,7 +354,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Box-guided squats reinforcing depth and control',
           battlePlan: '3 rounds\n• 8–10 Box Back Squats\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-content/artifacts/wwl8m04q_back%20squat.jpg',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241296/mood_app/workout_images/wwl8m04q_back_squat.jpg',
           intensityReason: 'Box squat builds consistent depth and confidence',
           moodTips: [
             {
@@ -379,7 +379,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Slow eccentric squats building confidence and control',
           battlePlan: '3 rounds\n• 8 Back Squats (3s eccentric)\nRest 120s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-content/artifacts/xfs748m6_bb%20back%20squat%202.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241299/mood_app/workout_images/xfs748m6_bb_back_squat_2.jpg',
           intensityReason: 'Tempo work increases time under tension',
           moodTips: [
             {
@@ -406,7 +406,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Front squat builds quads while demanding upright posture.',
           battlePlan: '4 rounds\n• 6-8 front squats\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-media-fix/artifacts/wag3ztrn_bbfs.jpg',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241365/mood_app/workout_images/wag3ztrn_bbfs.jpg',
           videoUrl: 'https://res.cloudinary.com/dfsygar5c/video/upload/v1770240478/mood_app/workout_videos/BB_front_squat.mov',
           intensityReason: 'Upright bar placement drives quad and core load.',
           moodTips: [
@@ -427,7 +427,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Advanced unilateral builder with deeper range and balance challenge.',
           battlePlan: '4 rounds\n• 8-10 bulgarians per side\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-media-fix/artifacts/8m6t0a7f_Screenshot%202025-12-06%20at%207.08.54%E2%80%AFPM.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241324/mood_app/workout_images/8m6t0a7f_Screenshot_2025-12-06_at_7_08_54_PM.jpg',
           intensityReason: 'Rear foot squat overloads quads and balance.',
           moodTips: [
             {
@@ -447,7 +447,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Longer range hinge boosts hamstring hypertrophy with elevated position.',
           battlePlan: '3 rounds\n• 8-10 deficit rdls\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-content/artifacts/5q9lqk7k_bb%20rdl.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241277/mood_app/workout_images/5q9lqk7k_bb_rdl.jpg',
           intensityReason: 'Standing on plates increases hamstring stretch.',
           moodTips: [
             {
@@ -467,7 +467,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Front-loaded squats increasing quad and core demand',
           battlePlan: '4 rounds\n• 6–8 Front Squats\nRest 150s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-media-fix/artifacts/wag3ztrn_bbfs.jpg',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241365/mood_app/workout_images/wag3ztrn_bbfs.jpg',
           intensityReason: 'Front load challenges core stability under load',
           moodTips: [
             {
@@ -492,7 +492,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '16–18 min',
           description: 'Squats extended with rapid plate reductions',
           battlePlan: '3 rounds\n• 6 Back Squats\n• Drop → 6\n• Drop → 6\nRest 180s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/gxoxkpbs_download%20%285%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241394/mood_app/workout_images/gxoxkpbs_download_5_.jpg',
           intensityReason: 'Drop sets extend time under tension for maximum pump',
           moodTips: [
             {
@@ -519,7 +519,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '16–18 min',
           description: 'Keeps muscles under control in deepest range with bottom pause.',
           battlePlan: '4 rounds\n• 6 Pause Back Squats\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/gxoxkpbs_download%20%285%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241394/mood_app/workout_images/gxoxkpbs_download_5_.jpg',
           intensityReason: 'Bottom pause builds strength and eliminates bounce.',
           moodTips: [
             {
@@ -539,7 +539,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '16–18 min',
           description: 'Combination of strength, balance, and conditioning challenge.',
           battlePlan: '3 rounds\n• 20 steps total Walking Lunges\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/a96gl1sh_download%20%287%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241388/mood_app/workout_images/a96gl1sh_download_7_.jpg',
           intensityReason: 'Continuous walking pattern overloads endurance.',
           moodTips: [
             {
@@ -559,7 +559,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '16–18 min',
           description: 'Hybrid superset crushes quads, glutes, and hamstrings together.',
           battlePlan: '4 rounds\n• 6 Back Squats\n• 6 Rack RDLs\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/cj6gx8ak_download%20%286%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241389/mood_app/workout_images/cj6gx8ak_download_6_.jpg',
           intensityReason: 'Pair squat + hinge for full lower body overload.',
           moodTips: [
             {
@@ -579,7 +579,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '18–20 min',
           description: 'Low-rep squats emphasizing maximal strength',
           battlePlan: '5 rounds\n• 3–5 Back Squats\nRest 180s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-content/artifacts/xfs748m6_bb%20back%20squat%202.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241299/mood_app/workout_images/xfs748m6_bb_back_squat_2.jpg',
           intensityReason: 'Heavy load builds maximal leg strength',
           moodTips: [
             {
@@ -604,7 +604,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '18–20 min',
           description: 'High-rep finisher driving full leg fatigue',
           battlePlan: '2–3 rounds\n• 15–20 Back Squats\nRest 180s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-content/artifacts/wwl8m04q_back%20squat.jpg',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241296/mood_app/workout_images/wwl8m04q_back_squat.jpg',
           intensityReason: 'High reps push legs to complete fatigue',
           moodTips: [
             {
@@ -637,7 +637,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Basic press builds safety, posture, and control with machine support.',
           battlePlan: '3 rounds\n• 10-12 neutral leg press\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/l1ouzm6t_download%20%281%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241398/mood_app/workout_images/l1ouzm6t_download_1_.jpg',
           intensityReason: 'Teaches full ROM with stable machine support.',
           moodTips: [
             {
@@ -657,7 +657,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Targets quads more directly in safe range of motion.',
           battlePlan: '3 rounds\n• 10-12 narrow stance press\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/nbzhkmy8_download%20%282%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241399/mood_app/workout_images/nbzhkmy8_download_2_.jpg',
           intensityReason: 'Close foot stance emphasizes quad activation.',
           moodTips: [
             {
@@ -677,7 +677,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Controlled leg press reps with pauses and static finish',
           battlePlan: '3 rounds\n• 10 Leg Press Reps (2s pause at bottom)\n• Immediately 20–30s Iso Hold (halfway up sled)\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-content/artifacts/8gup9yxv_leg%20press.jpg',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241279/mood_app/workout_images/8gup9yxv_leg_press.jpg',
           intensityReason: 'Pauses remove momentum and protect knees while iso holds extend time under tension',
           moodTips: [
             {
@@ -702,7 +702,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Controlled leg press emphasizing slow negatives',
           battlePlan: '3 rounds\n• 12 Leg Press (3s eccentric)\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-content/artifacts/2wjzuq6x_leg%20press%202.webp',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241269/mood_app/workout_images/2wjzuq6x_leg_press_2.jpg',
           intensityReason: 'Tempo work increases time under tension',
           moodTips: [
             {
@@ -729,7 +729,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Outside placement recruits posterior chain harder than narrow stance.',
           battlePlan: '4 rounds\n• 8-10 wide stance press\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/l1ouzm6t_download%20%281%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241398/mood_app/workout_images/l1ouzm6t_download_1_.jpg',
           intensityReason: 'Wider stance shifts target to glutes + hamstrings.',
           moodTips: [
             {
@@ -749,7 +749,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'One leg at a time reduces imbalances in strength development.',
           battlePlan: '4 rounds\n• 8 per leg Single Leg Press\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-media-fix/artifacts/pfq28xzl_Screenshot%202025-12-06%20at%207.18.57%E2%80%AFPM.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241354/mood_app/workout_images/pfq28xzl_Screenshot_2025-12-06_at_7_18_57_PM.jpg',
           intensityReason: 'Unilateral training balances quads + hamstrings.',
           moodTips: [
             {
@@ -769,7 +769,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Paused reps strengthening bottom-range leg drive',
           battlePlan: '4 rounds\n• 8–10 Leg Press (2s pause)\nRest 120s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/nbzhkmy8_download%20%282%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241399/mood_app/workout_images/nbzhkmy8_download_2_.jpg',
           intensityReason: 'Pauses eliminate momentum for greater muscle activation',
           moodTips: [
             {
@@ -794,7 +794,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Progressive drops extending quad fatigue',
           battlePlan: '3 rounds\n• 10 reps\n• Drop → 10\n• Drop → 10\nRest 150s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-content/artifacts/2wjzuq6x_leg%20press%202.webp',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241269/mood_app/workout_images/2wjzuq6x_leg_press_2.jpg',
           intensityReason: 'Drop sets extend time under tension for maximum pump',
           moodTips: [
             {
@@ -821,7 +821,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '16–18 min',
           description: 'Extends time under tension with progressive load reduction.',
           battlePlan: '3 rounds\n• 8 Heavy Press → Drop x2 (6–8 reps each)\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-content/artifacts/2wjzuq6x_leg%20press%202.webp',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241269/mood_app/workout_images/2wjzuq6x_leg_press_2.jpg',
           intensityReason: 'Strip weight quickly to overload muscle fatigue.',
           moodTips: [
             {
@@ -841,7 +841,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '16–18 min',
           description: 'Pausing forces muscles to do all the hard work without momentum.',
           battlePlan: '4 rounds\n• 8 Leg Press Reps (2s pause at bottom)\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-content/artifacts/8gup9yxv_leg%20press.jpg',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241279/mood_app/workout_images/8gup9yxv_leg_press.jpg',
           intensityReason: 'Mid rep pause kills momentum and builds tension.',
           moodTips: [
             {
@@ -861,7 +861,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '16–18 min',
           description: 'Max-strength leg pressing with heavy loads',
           battlePlan: '5 rounds\n• 5–6 Leg Press\nRest 150s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-content/artifacts/2wjzuq6x_leg%20press%202.webp',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241269/mood_app/workout_images/2wjzuq6x_leg_press_2.jpg',
           intensityReason: 'Heavy load builds maximal leg strength',
           moodTips: [
             {
@@ -886,7 +886,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '18–20 min',
           description: 'High-rep finisher driving complete quad exhaustion',
           battlePlan: '3 rounds\n• 20–25 Leg Press\nRest 150s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-content/artifacts/8gup9yxv_leg%20press.jpg',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241279/mood_app/workout_images/8gup9yxv_leg_press.jpg',
           intensityReason: 'High reps push quads to complete fatigue',
           moodTips: [
             {
@@ -919,7 +919,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Basic hack squat introduces form and confidence with machine guidance.',
           battlePlan: '3 rounds\n• 10-12 hack squats\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/k4t4lzbt_download.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241396/mood_app/workout_images/k4t4lzbt_download.jpg',
           intensityReason: 'Machine guidance builds squat mechanics safely.',
           moodTips: [
             {
@@ -1011,7 +1011,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Trains posterior chain through deeper ROM with wide stance.',
           battlePlan: '4 rounds\n• 8-10 wide hack squats\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/k4t4lzbt_download.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241396/mood_app/workout_images/k4t4lzbt_download.jpg',
           intensityReason: 'Wide stance targets glute and hamstring drive.',
           moodTips: [
             {
@@ -1031,7 +1031,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Doubles lower leg work without switching machines for efficiency.',
           battlePlan: '4 rounds\n• 8 Hack Squats\n• Immediately 12 Hack Calf Raises\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-media-fix/artifacts/igmrt7qu_hscr.jpg',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241345/mood_app/workout_images/igmrt7qu_hscr.jpg',
           intensityReason: 'Add calf emphasis within heavy squat structure.',
           moodTips: [
             {
@@ -1101,7 +1101,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Reverse-facing hack squat emphasizing glutes and quads',
           battlePlan: '4 rounds\n• 8–10 Reverse Hack Squats\nRest 120s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-media-fix/artifacts/a9f6gtvn_rhs.jpg',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241327/mood_app/workout_images/a9f6gtvn_rhs.jpg',
           intensityReason: 'Reverse position increases glute and quad emphasis',
           moodTips: [
             {
@@ -1128,7 +1128,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '16–18 min',
           description: 'Blends controlled pulses with full ROM squatting for hypertrophy.',
           battlePlan: '3 rounds\n• 6-8 hack squats (1 full + ½ rep = 1 rep)\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/k4t4lzbt_download.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241396/mood_app/workout_images/k4t4lzbt_download.jpg',
           intensityReason: 'Partial + full reps increase hypertrophy tension.',
           moodTips: [
             {
@@ -1148,7 +1148,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '16–18 min',
           description: 'Reverse stance hack builds posterior chain strength and development.',
           battlePlan: '4 rounds\n• 8-10 reverse hack squats\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-media-fix/artifacts/a9f6gtvn_rhs.jpg',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241327/mood_app/workout_images/a9f6gtvn_rhs.jpg',
           intensityReason: 'Facing pad emphasizes glutes and hamstrings.',
           moodTips: [
             {
@@ -1218,7 +1218,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '16–18 min',
           description: 'Heavy reverse hack squats for maximal leg loading',
           battlePlan: '4 rounds\n• 5–6 Reverse Hack Squats\nRest 150s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-media-fix/artifacts/a9f6gtvn_rhs.jpg',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241327/mood_app/workout_images/a9f6gtvn_rhs.jpg',
           intensityReason: 'Heavy reverse loading maximizes leg strength',
           moodTips: [
             {
@@ -1251,7 +1251,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Cable tension mimics goblet squat with safety and control.',
           battlePlan: '3 rounds\n• 10-12 cable squats\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-media-fix/artifacts/s4c1d5ao_download%20%283%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241357/mood_app/workout_images/s4c1d5ao_download_3_.jpg',
           intensityReason: 'Front loaded setup controls posture + squat form.',
           moodTips: [
             {
@@ -1271,7 +1271,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Crossover cable step engages quads + glutes together with unilateral work.',
           battlePlan: '3 rounds\n• 8 per side Step Throughs\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-media-fix/artifacts/yt6adjli_image.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241366/mood_app/workout_images/yt6adjli_image.jpg',
           intensityReason: 'Split stance improves single leg drive and balance.',
           moodTips: [
             {
@@ -1291,7 +1291,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Front-loaded squats using cable tension for stability',
           battlePlan: '3 rounds\n• 12 Cable Goblet Squats\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-content/artifacts/p1po1v7d_cable%20goblet%20squat.jpg',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241291/mood_app/workout_images/p1po1v7d_cable_goblet_squat.jpg',
           intensityReason: 'Cable tension provides constant load for control',
           moodTips: [
             {
@@ -1316,7 +1316,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Assisted reverse lunges reducing balance demands',
           battlePlan: '3 rounds\n• 8 Reverse Lunges per leg\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-content/artifacts/gqxv7zxa_cable%20reverse%20lunge.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241285/mood_app/workout_images/gqxv7zxa_cable_reverse_lunge.jpg',
           intensityReason: 'Cable assists balance while building leg strength',
           moodTips: [
             {
@@ -1343,7 +1343,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Cable variation keeps constant load on posterior chain throughout ROM.',
           battlePlan: '4 rounds\n• 8-10 cable rdls\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-content/artifacts/h8lj3keb_cable%20rdl2.jpg',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241286/mood_app/workout_images/h8lj3keb_cable_rdl2.jpg',
           intensityReason: 'Hip hinge move teaches tension through hamstrings.',
           moodTips: [
             {
@@ -1363,7 +1363,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Great hypertrophy builder with guided constant tension throughout movement.',
           battlePlan: '4 rounds\n• 8-10 cable split squats per leg\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-media-fix/artifacts/rnzpjsna_Screenshot%202025-12-06%20at%207.23.45%E2%80%AFPM.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241355/mood_app/workout_images/rnzpjsna_Screenshot_2025-12-06_at_7_23_45_PM.jpg',
           intensityReason: 'Unilateral squat keeps quads under stable load.',
           moodTips: [
             {
@@ -1383,7 +1383,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Squat-to-row pattern integrating legs and upper back',
           battlePlan: '4 rounds\n• 8 Squat to Rows\nRest 120s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-content/artifacts/p1po1v7d_cable%20goblet%20squat.jpg',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241291/mood_app/workout_images/p1po1v7d_cable_goblet_squat.jpg',
           intensityReason: 'Compound movement trains legs and back together',
           moodTips: [
             {
@@ -1408,7 +1408,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Hip hinge emphasizing hamstrings under constant tension',
           battlePlan: '4 rounds\n• 10 Cable RDLs\nRest 120s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-content/artifacts/h8lj3keb_cable%20rdl2.jpg',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241286/mood_app/workout_images/h8lj3keb_cable_rdl2.jpg',
           intensityReason: 'Constant cable tension maximizes hamstring engagement',
           moodTips: [
             {
@@ -1435,7 +1435,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '16–18 min',
           description: 'Replicates barbell front squat with cable constant tension loading.',
           battlePlan: '4 rounds\n• 6-8 heavy cable front squats\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-content/artifacts/p1po1v7d_cable%20goblet%20squat.jpg',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241291/mood_app/workout_images/p1po1v7d_cable_goblet_squat.jpg',
           intensityReason: 'Heavy stack front squat overloads safe quads.',
           moodTips: [
             {
@@ -1455,7 +1455,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '16–18 min',
           description: 'Superset blend targets both push + hinge chains with constant tension.',
           battlePlan: '4 rounds\n• 8 Cable Squats\n• 8 Cable RDLs\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-content/artifacts/h8lj3keb_cable%20rdl2.jpg',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241286/mood_app/workout_images/h8lj3keb_cable_rdl2.jpg',
           intensityReason: 'Combo pairing keeps full leg tension loading.',
           moodTips: [
             {
@@ -1475,7 +1475,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '18–20 min',
           description: 'Extended squats using rapid cable weight reductions',
           battlePlan: '3 rounds\n• 10 Cable Squats\n• Drop → 8\n• Drop → 8\nRest 150s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-content/artifacts/p1po1v7d_cable%20goblet%20squat.jpg',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241291/mood_app/workout_images/p1po1v7d_cable_goblet_squat.jpg',
           intensityReason: 'Drop sets extend time under constant cable tension',
           moodTips: [
             {
@@ -1500,7 +1500,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '18–20 min',
           description: 'Front-loaded split squats emphasizing unilateral strength',
           battlePlan: '4 rounds\n• 8 Split Squats per leg\nRest 150s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-media-fix/artifacts/rnzpjsna_Screenshot%202025-12-06%20at%207.23.45%E2%80%AFPM.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241355/mood_app/workout_images/rnzpjsna_Screenshot_2025-12-06_at_7_23_45_PM.jpg',
           intensityReason: 'Heavy unilateral work builds balanced leg strength',
           moodTips: [
             {
@@ -1533,7 +1533,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Full‑body squat/deadlift hybrid builds foundation',
           battlePlan: '3 rounds\n• 8–10 Deadlift‑Style Trap Bar Squats\nRest 75–90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/3cnpyyx1_tbss.webp',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241387/mood_app/workout_images/3cnpyyx1_tbss.jpg',
           intensityReason: 'Safest trap bar squat teaches form and posture',
           moodTips: [
             {
@@ -1553,7 +1553,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Neutral foot placement encourages steady control',
           battlePlan: '3 rounds\n• 8–10 Neutral Squats\nRest 75–90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/sbumk4mn_tbs.jpeg',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241403/mood_app/workout_images/sbumk4mn_tbs.jpg',
           intensityReason: 'Balanced stance builds quads and glutes evenly',
           moodTips: [
             {
@@ -1573,7 +1573,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Neutral-grip deadlifts reducing spinal stress',
           battlePlan: '3 rounds\n• 8–10 Trap Bar Deadlifts\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-content/artifacts/4iszp6ah_trap%20bar%20dl%202.webp',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241270/mood_app/workout_images/4iszp6ah_trap_bar_dl_2.jpg',
           intensityReason: 'Neutral grip reduces spinal loading',
           moodTips: [
             {
@@ -1598,7 +1598,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Controlled deadlifts emphasizing slow eccentrics',
           battlePlan: '3 rounds\n• 8 Trap Bar Deadlifts (3s eccentric)\nRest 120s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-content/artifacts/4pazduz4_trab%20bar%20dl.jpg',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241273/mood_app/workout_images/4pazduz4_trab_bar_dl.jpg',
           intensityReason: 'Tempo work increases time under tension',
           moodTips: [
             {
@@ -1625,7 +1625,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Builds hip strength and glute drive through stance',
           battlePlan: '4 rounds\n• 6–8 Wide Stance Squats\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-content/artifacts/4iszp6ah_trap%20bar%20dl%202.webp',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241270/mood_app/workout_images/4iszp6ah_trap_bar_dl_2.jpg',
           intensityReason: 'wider base targets hips and glutes with a stronger emphasis',
           moodTips: [
             {
@@ -1645,7 +1645,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Slow descent builds control and hypertrophy for greater muscle growth',
           battlePlan: '4 rounds\n• 6–8 Squats (3–4s eccentric)\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-visuals-1/artifacts/sbumk4mn_tbs.jpeg',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241403/mood_app/workout_images/sbumk4mn_tbs.jpg',
           intensityReason: 'Extended eccentrics increase muscle time under tension',
           moodTips: [
             {
@@ -1665,7 +1665,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Deadlifts extended using fast weight reductions',
           battlePlan: '3 rounds\n• 6 Deadlifts\n• Drop → 6\n• Drop → 6\nRest 150s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-content/artifacts/4iszp6ah_trap%20bar%20dl%202.webp',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241270/mood_app/workout_images/4iszp6ah_trap_bar_dl_2.jpg',
           intensityReason: 'Drop sets extend time under tension for maximum pump',
           moodTips: [
             {
@@ -1690,7 +1690,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Paused deadlifts strengthening bottom position',
           battlePlan: '4 rounds\n• 5–6 Deadlifts (2s pause)\nRest 150s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-content/artifacts/4pazduz4_trab%20bar%20dl.jpg',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241273/mood_app/workout_images/4pazduz4_trab_bar_dl.jpg',
           intensityReason: 'Pauses eliminate momentum for greater muscle activation',
           moodTips: [
             {
@@ -1717,7 +1717,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '16–18 min',
           description: 'Builds stability and power out of squat bottom',
           battlePlan: '4 rounds\n• 6 Paused Squats (2s)\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-content/artifacts/4iszp6ah_trap%20bar%20dl%202.webp',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241270/mood_app/workout_images/4iszp6ah_trap_bar_dl_2.jpg',
           intensityReason: '2s pause eliminates momentum, loads glutes/quads',
           moodTips: [
             {
@@ -1737,7 +1737,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '16–18 min',
           description: 'Doubles workload while keeping constant tension',
           battlePlan: '3 rounds\n• 6–8 1½ Rep Trap Bar Squats\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-content/artifacts/4pazduz4_trab%20bar%20dl.jpg',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241273/mood_app/workout_images/4pazduz4_trab_bar_dl.jpg',
           intensityReason: 'Half + full rep combo extends quad fatigue for greater challenge',
           moodTips: [
             {
@@ -1757,7 +1757,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '18–20 min',
           description: 'Max-load deadlifts emphasizing total leg power',
           battlePlan: '5 rounds\n• 3–5 Deadlifts\nRest 180s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-content/artifacts/4iszp6ah_trap%20bar%20dl%202.webp',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241270/mood_app/workout_images/4iszp6ah_trap_bar_dl_2.jpg',
           intensityReason: 'Heavy load builds maximal leg power',
           moodTips: [
             {
@@ -1782,7 +1782,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '18–20 min',
           description: 'High-rep finisher driving leg exhaustion',
           battlePlan: '3 rounds\n• 15 Deadlifts\nRest 180s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-content/artifacts/4pazduz4_trab%20bar%20dl.jpg',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241273/mood_app/workout_images/4pazduz4_trab_bar_dl.jpg',
           intensityReason: 'High reps push legs to complete fatigue',
           moodTips: [
             {
@@ -1840,7 +1840,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Slow eccentrics reinforcing squat control',
           battlePlan: '3 rounds\n• 10 Squats (3s eccentric)\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-content/artifacts/zbfap5ab_pit%20shark%20squat%203.webp',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241301/mood_app/workout_images/zbfap5ab_pit_shark_squat_3.jpg',
           intensityReason: 'Tempo work builds control and muscle engagement',
           moodTips: [
             {
@@ -1865,7 +1865,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Paused squats strengthening bottom position',
           battlePlan: '3 rounds\n• 8–10 Squats (2s pause)\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-content/artifacts/27jkyx8o_pit%20shark%20squat%202.webp',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241266/mood_app/workout_images/27jkyx8o_pit_shark_squat_2.jpg',
           intensityReason: 'Pauses eliminate momentum for greater activation',
           moodTips: [
             {
@@ -1890,7 +1890,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Elevated step-ups emphasizing unilateral leg drive',
           battlePlan: '3 rounds\n• 8 Step-Ups per leg\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-content/artifacts/hm30g4dw_pit%20shark%20step%20up.jpg',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241287/mood_app/workout_images/hm30g4dw_pit_shark_step_up.jpg',
           intensityReason: 'Unilateral work builds balanced leg strength',
           moodTips: [
             {
@@ -1942,7 +1942,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Hip hinge emphasizing hamstrings and glutes',
           battlePlan: '4 rounds\n• 8–10 RDLs\nRest 120s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-content/artifacts/bom80199_pit%20shark%20rdl.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241280/mood_app/workout_images/bom80199_pit_shark_rdl.jpg',
           intensityReason: 'RDL pattern develops posterior chain',
           moodTips: [
             {
@@ -1967,7 +1967,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Extended squat sets using fast load reductions',
           battlePlan: '3 rounds\n• 8 Squats\n• Drop → 8\n• Drop → 8\nRest 150s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-content/artifacts/zbfap5ab_pit%20shark%20squat%203.webp',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241301/mood_app/workout_images/zbfap5ab_pit_shark_squat_3.jpg',
           intensityReason: 'Drop sets extend time under tension',
           moodTips: [
             {
@@ -1992,7 +1992,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Light explosive squats developing leg power',
           battlePlan: '3 rounds\n• 6–8 Jump Squats\nRest 120s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_96d95d8c-bd6e-49a5-a6af-694c8a8f5c04/artifacts/ucxnrjme_pit%20shark%20jump%20squat.jpg',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240688/mood_app/workout_images/ucxnrjme_pit_shark_jump_squat.jpg',
           intensityReason: 'Explosive work builds power output',
           moodTips: [
             {
@@ -2044,7 +2044,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '18–20 min',
           description: 'Loaded hinges emphasizing posterior chain strength',
           battlePlan: '4 rounds\n• 6–8 RDLs\nRest 150s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-content/artifacts/bom80199_pit%20shark%20rdl.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241280/mood_app/workout_images/bom80199_pit_shark_rdl.jpg',
           intensityReason: 'Heavy RDLs maximize hamstring development',
           moodTips: [
             {
@@ -2069,7 +2069,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '18–20 min',
           description: 'Extended triple-drop squats for total exhaustion',
           battlePlan: '3 rounds\n• 6 Squats\n• Drop → 6\n• Drop → 6\n• Drop → 6\nRest 180s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-content/artifacts/27jkyx8o_pit%20shark%20squat%202.webp',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241266/mood_app/workout_images/27jkyx8o_pit_shark_squat_2.jpg',
           intensityReason: 'Triple drops maximize muscle fatigue',
           moodTips: [
             {
@@ -2094,7 +2094,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '18–20 min',
           description: 'Explosive jump squats performed under fatigue',
           battlePlan: '3 rounds\n• 8–10 Jump Squats\nRest 150s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_96d95d8c-bd6e-49a5-a6af-694c8a8f5c04/artifacts/ucxnrjme_pit%20shark%20jump%20squat.jpg',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240688/mood_app/workout_images/ucxnrjme_pit_shark_jump_squat.jpg',
           intensityReason: 'Explosive burnout builds power endurance',
           moodTips: [
             {
@@ -2127,7 +2127,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Guided squats reinforcing consistent movement path',
           battlePlan: '3 rounds\n• 10–12 Squats\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-content/artifacts/le4l1rje_smith%20squat%202.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241289/mood_app/workout_images/le4l1rje_smith_squat_2.jpg',
           intensityReason: 'Smith machine builds strength with guided bar path',
           moodTips: [
             {
@@ -2152,7 +2152,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Slow eccentrics building leg control',
           battlePlan: '3 rounds\n• 10 Squats (3s eccentric)\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-content/artifacts/ynnuugau_smith%20squat.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241300/mood_app/workout_images/ynnuugau_smith_squat.jpg',
           intensityReason: 'Tempo work increases muscle engagement',
           moodTips: [
             {
@@ -2177,7 +2177,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Guided lunges reducing balance demand',
           battlePlan: '3 rounds\n• 8 Lunges per leg\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-content/artifacts/15roxyzj_smith%20reverse%20lunge.jpg',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241264/mood_app/workout_images/15roxyzj_smith_reverse_lunge.jpg',
           intensityReason: 'Guided path allows focus on leg drive',
           moodTips: [
             {
@@ -2202,7 +2202,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Guided hip hinge emphasizing hamstring stretch',
           battlePlan: '3 rounds\n• 10 RDLs\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-content/artifacts/6vr69tt8_smith%20rdl.webp',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241278/mood_app/workout_images/6vr69tt8_smith_rdl.jpg',
           intensityReason: 'Guided RDL teaches hinge mechanics safely',
           moodTips: [
             {
@@ -2229,7 +2229,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Front-loaded squats emphasizing quads and core',
           battlePlan: '4 rounds\n• 6–8 Front Squats\nRest 120s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-content/artifacts/e8vt7ayl_smith%20front%20squat.webp',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241282/mood_app/workout_images/e8vt7ayl_smith_front_squat.jpg',
           intensityReason: 'Front load challenges core stability',
           moodTips: [
             {
@@ -2254,7 +2254,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Stationary split squats with guided bar path',
           battlePlan: '4 rounds\n• 8 Split Squats per leg\nRest 120s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-content/artifacts/28os8gvb_smith%20split.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241268/mood_app/workout_images/28os8gvb_smith_split.jpg',
           intensityReason: 'Unilateral work builds balanced strength',
           moodTips: [
             {
@@ -2279,7 +2279,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Extended squats using fast load reductions',
           battlePlan: '3 rounds\n• 8 Squats\n• Drop → 8\n• Drop → 8\nRest 150s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-content/artifacts/le4l1rje_smith%20squat%202.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241289/mood_app/workout_images/le4l1rje_smith_squat_2.jpg',
           intensityReason: 'Drop sets extend time under tension',
           moodTips: [
             {
@@ -2304,7 +2304,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Explosive squats using Smith track for safety',
           battlePlan: '4 rounds\n• 5–6 Jump Squats\nRest 120s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-content/artifacts/eefeuowu_smith%20jump%20squat.webp',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241283/mood_app/workout_images/eefeuowu_smith_jump_squat.jpg',
           intensityReason: 'Guided path allows explosive focus',
           moodTips: [
             {
@@ -2331,7 +2331,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '18–20 min',
           description: 'Heavy guided squats emphasizing maximal strength',
           battlePlan: '5 rounds\n• 3–5 Squats\nRest 180s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-content/artifacts/ynnuugau_smith%20squat.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241300/mood_app/workout_images/ynnuugau_smith_squat.jpg',
           intensityReason: 'Heavy loads build maximal strength',
           moodTips: [
             {
@@ -2356,7 +2356,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '16–18 min',
           description: 'Paused squats reinforcing bottom-end strength',
           battlePlan: '4 rounds\n• 5–6 Squats (2s pause)\nRest 150s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-content/artifacts/le4l1rje_smith%20squat%202.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241289/mood_app/workout_images/le4l1rje_smith_squat_2.jpg',
           intensityReason: 'Pauses build raw strength from weakest position',
           moodTips: [
             {
@@ -2381,7 +2381,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '18–20 min',
           description: 'Hinges extended with rapid load reductions',
           battlePlan: '3 rounds\n• 6 RDLs\n• Drop → 6\n• Drop → 6\nRest 150s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-content/artifacts/6vr69tt8_smith%20rdl.webp',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241278/mood_app/workout_images/6vr69tt8_smith_rdl.jpg',
           intensityReason: 'Drop sets maximize posterior chain fatigue',
           moodTips: [
             {
@@ -2406,7 +2406,7 @@ export const compoundLegsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '18–20 min',
           description: 'High-rep finisher for total leg fatigue',
           battlePlan: '3 rounds\n• 20 Squats\nRest 180s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_workout-content/artifacts/le4l1rje_smith%20squat%202.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241289/mood_app/workout_images/le4l1rje_smith_squat_2.jpg',
           intensityReason: 'High reps push legs to complete fatigue',
           moodTips: [
             {

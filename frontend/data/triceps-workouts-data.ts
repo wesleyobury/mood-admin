@@ -11,7 +11,7 @@ export const tricepsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Standard overhead extension workout emphasizing long-head triceps stretch.',
           battlePlan: 'Battle Plan — Standard Sets\n• 4×12 Seated DB Overhead Extensions — standard reps\nRest 60s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_e2f05db7-8caa-482a-a292-b60f552836b8/artifacts/4553zhn5_db%20overhead%20sc.jpg',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240802/mood_app/workout_images/4553zhn5_db_overhead_sc.jpg',
           intensityReason: 'Overhead position maximizes long-head triceps stretch',
           moodTips: [
             {
@@ -36,7 +36,7 @@ export const tricepsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Standard horizontal extension workout with stable positioning.',
           battlePlan: 'Battle Plan — Standard Sets\n• 4×12 DB Skullcrushers — standard reps\nRest 60s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_e2f05db7-8caa-482a-a292-b60f552836b8/artifacts/4yj3bfg1_lying%20db%20sc.webp',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240804/mood_app/workout_images/4yj3bfg1_lying_db_sc.jpg',
           intensityReason: 'Horizontal position provides stable triceps isolation',
           moodTips: [
             {
@@ -61,7 +61,7 @@ export const tricepsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Beginner-only isolation workout emphasizing peak contraction.',
           battlePlan: 'Battle Plan — Standard Sets\n• 4×15 DB Kickbacks — standard reps\nRest 60s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_e2f05db7-8caa-482a-a292-b60f552836b8/artifacts/lj8oy8ts_dumbell%20kickback.webp',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240814/mood_app/workout_images/lj8oy8ts_dumbell_kickback.jpg',
           intensityReason: 'Kickbacks emphasize peak triceps contraction',
           moodTips: [
             {
@@ -88,7 +88,7 @@ export const tricepsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Pause-rep overhead extension workout removing momentum.',
           battlePlan: 'Battle Plan — Pause Sets\n• 4×10 Overhead DB Extensions — pause reps (1s bottom)\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_inspiring-euler/artifacts/yyzj0dlo_download%20%281%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241099/mood_app/workout_images/yyzj0dlo_download_1_.jpg',
           intensityReason: 'Pauses in the stretch emphasize long-head load',
           moodTips: [
             {
@@ -113,7 +113,7 @@ export const tricepsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '15–17 min',
           description: 'Burnout-style skullcrusher workout extending time under tension.',
           battlePlan: 'Battle Plan — Burnout Sets\n• 4×15 Skullcrushers — burnout reps\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_inspiring-euler/artifacts/5cjqt0fg_download.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241082/mood_app/workout_images/5cjqt0fg_download.jpg',
           intensityReason: 'Extended reps build endurance and pump',
           moodTips: [
             {
@@ -138,7 +138,7 @@ export const tricepsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '15–17 min',
           description: 'Superset workout pairing long-head stretch with horizontal extension.',
           battlePlan: 'Battle Plan — Superset\n• 4×10 DB Overhead Extensions — standard reps\nsuperset with\n• 10 DB Skullcrushers\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_e2f05db7-8caa-482a-a292-b60f552836b8/artifacts/4553zhn5_db%20overhead%20sc.jpg',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240802/mood_app/workout_images/4553zhn5_db_overhead_sc.jpg',
           intensityReason: 'Two angles maximize triceps fiber recruitment',
           moodTips: [
             {
@@ -165,7 +165,7 @@ export const tricepsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '18–20 min',
           description: 'Standard heavy overhead extension workout for advanced loading.',
           battlePlan: 'Battle Plan — Standard Sets\n• 6×8 DB Overhead Extensions — standard reps\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_inspiring-euler/artifacts/yyzj0dlo_download%20%281%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241099/mood_app/workout_images/yyzj0dlo_download_1_.jpg',
           intensityReason: 'Heavy loads with strict form build maximum strength',
           moodTips: [
             {
@@ -190,7 +190,7 @@ export const tricepsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '18–20 min',
           description: 'Multi-drop overhead extension workout driving mechanical fatigue.',
           battlePlan: 'Battle Plan — Drop Cluster\n• Set 1: 10 reps\n• Set 2: drop set — 10 → drop ~20% → 8\n• Set 3: triple drop — 8 → drop ~15% → 6 → drop ~10% → 6\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_inspiring-euler/artifacts/5cjqt0fg_download.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241082/mood_app/workout_images/5cjqt0fg_download.jpg',
           intensityReason: 'Drop clusters extend time under tension past failure',
           moodTips: [
             {
@@ -215,7 +215,7 @@ export const tricepsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '18–20 min',
           description: 'Burnout + isometric skullcrusher workout emphasizing peak extension.',
           battlePlan: 'Battle Plan — Burnout + Isometric\n• 4×12 DB Skullcrushers — burnout reps\n• Final set: squeeze to finish — hold full elbow extension 12–15s\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_e2f05db7-8caa-482a-a292-b60f552836b8/artifacts/18sc3txx_flat%20db%20sc.jpg',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240801/mood_app/workout_images/18sc3txx_flat_db_sc.jpg',
           intensityReason: 'Burnout with iso hold completely exhausts triceps',
           moodTips: [
             {
@@ -248,7 +248,7 @@ export const tricepsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Foundational overhead KB workout introducing long-head loading.',
           battlePlan: 'Battle Plan — Standard Sets\n• 4×12 Seated KB Overhead Extensions — standard reps\nRest 60s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_inspiring-euler/artifacts/oei647bg_download%20%285%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241093/mood_app/workout_images/oei647bg_download_5_.jpg',
           intensityReason: 'Seated position isolates triceps for clean overhead extension',
           moodTips: [
             {
@@ -273,7 +273,7 @@ export const tricepsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Flat-angle triceps extension workout using floor support.',
           battlePlan: 'Battle Plan — Standard Sets\n• 4×12 KB Floor Skullcrushers — standard reps\nRest 60s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_e2f05db7-8caa-482a-a292-b60f552836b8/artifacts/knclvtk4_Flat%20kb%20sc.jpg',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240811/mood_app/workout_images/knclvtk4_Flat_kb_sc.jpg',
           intensityReason: 'Floor provides consistent depth control',
           moodTips: [
             {
@@ -298,7 +298,7 @@ export const tricepsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Inclined KB extension workout with squeeze-to-finish.',
           battlePlan: 'Battle Plan — Standard + Isometric Finish\n• 4×10 Incline KB Tricep Extensions — standard reps\n• Final set: squeeze to finish — hold lockout 10s\nRest 60s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_e2f05db7-8caa-482a-a292-b60f552836b8/artifacts/8346vntm_oh%20kb%20sc.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240805/mood_app/workout_images/8346vntm_oh_kb_sc.jpg',
           intensityReason: 'Incline angle with iso hold maximizes triceps contraction',
           moodTips: [
             {
@@ -325,7 +325,7 @@ export const tricepsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Pause-rep overhead KB workout removing momentum.',
           battlePlan: 'Battle Plan — Pause Sets\n• 4×10 KB Overhead Extensions — pause reps (1s bottom)\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_e2f05db7-8caa-482a-a292-b60f552836b8/artifacts/8346vntm_oh%20kb%20sc.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240805/mood_app/workout_images/8346vntm_oh_kb_sc.jpg',
           intensityReason: 'Pauses in the stretch maximize long-head load',
           moodTips: [
             {
@@ -350,7 +350,7 @@ export const tricepsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '15–17 min',
           description: 'Angle-shifted skullcrusher workout altering resistance curve.',
           battlePlan: 'Battle Plan — Standard Sets\n• 4×12 Incline KB Skullcrushers — standard reps\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_e2f05db7-8caa-482a-a292-b60f552836b8/artifacts/pyyiholy_incline%20kb%20sc.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240815/mood_app/workout_images/pyyiholy_incline_kb_sc.jpg',
           intensityReason: 'Incline angle changes resistance curve for varied stimulus',
           moodTips: [
             {
@@ -375,7 +375,7 @@ export const tricepsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '15–17 min',
           description: 'Burnout-style flat KB workout extending time under tension.',
           battlePlan: 'Battle Plan — Burnout Sets\n• 4×15 KB Floor Extensions — burnout reps\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_inspiring-euler/artifacts/uwwxoov7_download%20%284%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241097/mood_app/workout_images/uwwxoov7_download_4_.jpg',
           intensityReason: 'Extended reps build endurance and pump',
           moodTips: [
             {
@@ -402,7 +402,7 @@ export const tricepsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '18–20 min',
           description: 'Heavy overhead KB workout emphasizing strict extension.',
           battlePlan: 'Battle Plan — Standard Sets\n• 6×8 KB Overhead Extensions — standard reps\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_inspiring-euler/artifacts/oei647bg_download%20%285%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241093/mood_app/workout_images/oei647bg_download_5_.jpg',
           intensityReason: 'Heavy loads with strict form build maximum strength',
           moodTips: [
             {
@@ -427,7 +427,7 @@ export const tricepsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '18–20 min',
           description: 'Multi-drop incline KB workout driving mechanical fatigue.',
           battlePlan: 'Battle Plan — Drop Cluster\n• Set 1: 10 reps\n• Set 2: drop — 10 → lighter bell → 8\n• Set 3: triple drop — 8 → lighter → 6 → lighter → 6\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_e2f05db7-8caa-482a-a292-b60f552836b8/artifacts/8346vntm_oh%20kb%20sc.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240805/mood_app/workout_images/8346vntm_oh_kb_sc.jpg',
           intensityReason: 'KB drops extend time under tension past failure',
           moodTips: [
             {
@@ -452,7 +452,7 @@ export const tricepsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '18–20 min',
           description: 'Burnout + isometric KB workout emphasizing peak extension.',
           battlePlan: 'Battle Plan — Burnout + Isometric\n• 4×12 KB Extensions — burnout reps\n• Final set: squeeze to finish — hold full extension 12–15s\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_e2f05db7-8caa-482a-a292-b60f552836b8/artifacts/knclvtk4_Flat%20kb%20sc.jpg',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240811/mood_app/workout_images/knclvtk4_Flat_kb_sc.jpg',
           intensityReason: 'Burnout with iso hold completely exhausts triceps',
           moodTips: [
             {
@@ -510,7 +510,7 @@ export const tricepsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Standard compound triceps press using elbow-dominant grip.',
           battlePlan: 'Battle Plan — Standard Sets\n• 4×10 Close-Grip EZ Press — standard reps\nRest 60s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_1e4509cd-7b58-4b0c-b78f-c8a74434260e/artifacts/5hyynoy0_cg%20ez%20bar%20press.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240567/mood_app/workout_images/5hyynoy0_cg_ez_bar_press.jpg',
           intensityReason: 'Close grip transfers load to triceps for compound pressing',
           moodTips: [
             {
@@ -535,7 +535,7 @@ export const tricepsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Standard EZ extension workout with squeeze-to-finish.',
           battlePlan: 'Battle Plan — Standard + Isometric Finish\n• 4×10 EZ Extensions — standard reps\n• Final set: squeeze to finish — hold lockout 10s\nRest 60s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_1e4509cd-7b58-4b0c-b78f-c8a74434260e/artifacts/sbl2u1ih_ez%20bar%20sc.webp',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240585/mood_app/workout_images/sbl2u1ih_ez_bar_sc.jpg',
           intensityReason: 'Isometric finish maximizes triceps contraction',
           moodTips: [
             {
@@ -562,7 +562,7 @@ export const tricepsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Pause-rep EZ skullcrusher workout removing momentum.',
           battlePlan: 'Battle Plan — Pause Sets\n• 4×10 Skullcrushers — pause reps (1s bottom)\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_inspiring-euler/artifacts/pa8x192c_download%20%282%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241095/mood_app/workout_images/pa8x192c_download_2_.jpg',
           intensityReason: 'Pauses in the stretch maximize long-head load',
           moodTips: [
             {
@@ -587,7 +587,7 @@ export const tricepsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '15–17 min',
           description: 'Burnout-style EZ extension workout extending time under tension.',
           battlePlan: 'Battle Plan — Burnout Sets\n• 4×15 EZ Extensions — burnout reps\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_inspiring-euler/artifacts/ri9qkrqs_download%20%283%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241096/mood_app/workout_images/ri9qkrqs_download_3_.jpg',
           intensityReason: 'Extended reps build endurance and pump',
           moodTips: [
             {
@@ -639,7 +639,7 @@ export const tricepsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '18–20 min',
           description: 'Standard heavy EZ skullcrusher workout emphasizing strict form.',
           battlePlan: 'Battle Plan — Standard Sets\n• 6×8 EZ Skullcrushers\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_1e4509cd-7b58-4b0c-b78f-c8a74434260e/artifacts/sbl2u1ih_ez%20bar%20sc.webp',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240585/mood_app/workout_images/sbl2u1ih_ez_bar_sc.jpg',
           intensityReason: 'Heavy loads with strict form build maximum strength',
           moodTips: [
             {
@@ -664,7 +664,7 @@ export const tricepsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '18–20 min',
           description: 'Multi-drop EZ extension workout driving fatigue.',
           battlePlan: 'Battle Plan — Drop Cluster\n• Set 1: 10 reps\n• Set 2: drop — 10 → drop ~20% → 8\n• Set 3: triple drop — 8 → drop ~15% → 6 → drop ~10% → 6\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_1e4509cd-7b58-4b0c-b78f-c8a74434260e/artifacts/rqvfpdvu_ez%20bar%20sc%203.jpg',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240583/mood_app/workout_images/rqvfpdvu_ez_bar_sc_3.jpg',
           intensityReason: 'Drop clusters extend time under tension past failure',
           moodTips: [
             {
@@ -689,7 +689,7 @@ export const tricepsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '18–20 min',
           description: 'Burnout + isometric EZ extension workout.',
           battlePlan: 'Battle Plan — Burnout + Isometric\n• 4×12 EZ Extensions\n• Final set: squeeze to finish — hold lockout 12–15s\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_inspiring-euler/artifacts/pa8x192c_download%20%282%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241095/mood_app/workout_images/pa8x192c_download_2_.jpg',
           intensityReason: 'Burnout with iso hold completely exhausts triceps',
           moodTips: [
             {
@@ -722,7 +722,7 @@ export const tricepsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Foundational overhead cable workout emphasizing long-head stretch.',
           battlePlan: 'Battle Plan — Standard Sets\n• 4×12 Overhead Rope Extensions — standard reps\nRest 60s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/k3gdq2dy_download%20%281%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240894/mood_app/workout_images/k3gdq2dy_download_1_.jpg',
           intensityReason: 'Overhead cable position maximizes long-head stretch',
           moodTips: [
             {
@@ -747,7 +747,7 @@ export const tricepsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Standard cable pushdown workout introducing fixed-path elbow extension.',
           battlePlan: 'Battle Plan — Standard Sets\n• 4×12 Straight-Bar Pushdowns — standard reps\nRest 60s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_inspiring-euler/artifacts/lv1qz5u4_download.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241091/mood_app/workout_images/lv1qz5u4_download.jpg',
           intensityReason: 'Straight bar teaches strict downward extension',
           moodTips: [
             {
@@ -772,7 +772,7 @@ export const tricepsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Overhead cable workout with squeeze-to-finish at peak extension.',
           battlePlan: 'Battle Plan — Standard + Isometric Finish\n• 4×10 Overhead Cable Extensions (short bar) — standard reps\n• Final set: squeeze to finish — hold full extension overhead 10s\nRest 60s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_1e4509cd-7b58-4b0c-b78f-c8a74434260e/artifacts/44n90zpn_OH%20tri%20ext.jpg',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240563/mood_app/workout_images/44n90zpn_OH_tri_ext.jpg',
           intensityReason: 'Isometric finish maximizes triceps contraction',
           moodTips: [
             {
@@ -799,7 +799,7 @@ export const tricepsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Pause-rep overhead cable workout removing momentum.',
           battlePlan: 'Battle Plan — Pause Sets\n• 4×10 Overhead Rope Extensions — pause reps (1s in stretch)\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/k3gdq2dy_download%20%281%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240894/mood_app/workout_images/k3gdq2dy_download_1_.jpg',
           intensityReason: 'Pauses in the stretch maximize long-head load',
           moodTips: [
             {
@@ -824,7 +824,7 @@ export const tricepsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '15–17 min',
           description: 'Angle-adjusted cable workout changing resistance through ROM.',
           battlePlan: 'Battle Plan — Standard Sets\n• 4×12 High-to-Low Rope Extensions — standard reps\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_inspiring-euler/artifacts/lruescv6_download%20%281%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241089/mood_app/workout_images/lruescv6_download_1_.jpg',
           intensityReason: 'High pulley angle alters loading curve',
           moodTips: [
             {
@@ -849,7 +849,7 @@ export const tricepsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '15–17 min',
           description: 'Burnout-style cable workout maximizing time under tension.',
           battlePlan: 'Battle Plan — Burnout Sets\n• 4×15–20 Cable Extensions (straight bar) — burnout reps\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_inspiring-euler/artifacts/lv1qz5u4_download.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241091/mood_app/workout_images/lv1qz5u4_download.jpg',
           intensityReason: 'Cables provide constant tension for pump work',
           moodTips: [
             {
@@ -876,7 +876,7 @@ export const tricepsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '18–20 min',
           description: 'Heavy overhead cable workout emphasizing strict long-head loading.',
           battlePlan: 'Battle Plan — Standard Sets\n• 6×8 Overhead Cable Extensions (short bar) — standard reps\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/k3gdq2dy_download%20%281%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240894/mood_app/workout_images/k3gdq2dy_download_1_.jpg',
           intensityReason: 'Heavy loads with strict form build maximum strength',
           moodTips: [
             {
@@ -901,7 +901,7 @@ export const tricepsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '18–20 min',
           description: 'Multi-drop overhead cable workout driving mechanical fatigue.',
           battlePlan: 'Battle Plan — Drop Cluster\n• Set 1: 10 reps\n• Set 2: drop — 10 → drop ~20% → 8\n• Set 3: triple drop — 8 → drop ~15% → 6 → drop ~10% → 6\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_1e4509cd-7b58-4b0c-b78f-c8a74434260e/artifacts/44n90zpn_OH%20tri%20ext.jpg',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240563/mood_app/workout_images/44n90zpn_OH_tri_ext.jpg',
           intensityReason: 'Cable drops extend time under tension past failure',
           moodTips: [
             {
@@ -926,7 +926,7 @@ export const tricepsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '18–20 min',
           description: 'Burnout + isometric cable workout finishing in a shortened position.',
           battlePlan: 'Battle Plan — Burnout + Isometric\n• 4×12 Rope Pushdowns — burnout reps\n• Final set: squeeze to finish — hold full extension 12–15s\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_inspiring-euler/artifacts/lv1qz5u4_download.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241091/mood_app/workout_images/lv1qz5u4_download.jpg',
           intensityReason: 'Burnout with iso hold completely exhausts triceps',
           moodTips: [
             {
@@ -959,7 +959,7 @@ export const tricepsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Rope attachment builds triceps with simple tension',
           battlePlan: '3 rounds\n• 10–12 Rope Pushdowns\nRest 60–75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_inspiring-euler/artifacts/kn9gulrn_download%20%282%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241088/mood_app/workout_images/kn9gulrn_download_2_.jpg',
           intensityReason: 'Pushdowns teach elbow lockout form safely with traditional movements.',
           moodTips: [
             {
@@ -979,7 +979,7 @@ export const tricepsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '10–12 min',
           description: 'Cable overhead isolates stretch for stronger arms',
           battlePlan: '3 rounds\n• 10–12 Overhead Rope Extensions\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/k3gdq2dy_download%20%281%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240894/mood_app/workout_images/k3gdq2dy_download_1_.jpg',
           intensityReason: 'Overhead cable path increases long head tension',
           moodTips: [
             {
@@ -1001,7 +1001,7 @@ export const tricepsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Straight bar hits triceps with longer stretch angle',
           battlePlan: '4 rounds\n• 8–10 Overhead Bar Extensions\nRest 75–90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/fo2f287e_download%20%2821%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240887/mood_app/workout_images/fo2f287e_download_21_.jpg',
           intensityReason: 'Bar overhead creates continuous long head stress',
           moodTips: [
             {
@@ -1021,7 +1021,7 @@ export const tricepsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Slow eccentric rope reps increase hypertrophy load',
           battlePlan: '3 rounds\n• 8 Rope Overhead Extensions (3s eccentric)\nRest 75–90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/d111pjm2_download%20%282%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240880/mood_app/workout_images/d111pjm2_download_2_.jpg',
           intensityReason: 'Three second lowers extend constant cable time',
           moodTips: [
             {
@@ -1043,7 +1043,7 @@ export const tricepsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Superset strategy hits triceps with extra volume',
           battlePlan: '4 rounds\n• 8 Rope Overhead Extensions\n• 8 Bar Overhead Extensions\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_inspiring-euler/artifacts/kn9gulrn_download%20%282%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241088/mood_app/workout_images/kn9gulrn_download_2_.jpg',
           intensityReason: 'Two grips build variety across pushdown fibers',
           moodTips: [
             {
@@ -1063,7 +1063,7 @@ export const tricepsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '16–18 min',
           description: 'Overhead 21 style burns fibers through completion',
           battlePlan: '3 rounds\n• 7 Bottom Half Reps\n• 7 Top Half Reps\n• 7 Full Range Reps\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_1e4509cd-7b58-4b0c-b78f-c8a74434260e/artifacts/b4577jzi_cable%20oh%20ext.webp',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240572/mood_app/workout_images/b4577jzi_cable_oh_ext.jpg',
           intensityReason: 'Seven seven seven partials overload triceps range',
           moodTips: [
             {
@@ -1091,7 +1091,7 @@ export const tricepsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Standard pushdown workout building foundational triceps strength using a fixed handle.',
           battlePlan: 'Battle Plan — Standard Sets\n• 4×12 Tricep Pushdowns — standard reps\nRest 60s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_inspiring-euler/artifacts/ccill0t9_download%20%283%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241086/mood_app/workout_images/ccill0t9_download_3_.jpg',
           intensityReason: 'Fixed path helps build strict elbow extension form',
           moodTips: [
             {
@@ -1116,7 +1116,7 @@ export const tricepsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Eccentric-focused pushdown workout emphasizing control on a fixed path.',
           battlePlan: 'Battle Plan — Eccentric Sets\n• 4×10 Pushdowns — eccentric reps (3s return)\nRest 60s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_inspiring-euler/artifacts/yfoavc6k_download%20%282%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241098/mood_app/workout_images/yfoavc6k_download_2_.jpg',
           intensityReason: 'Slow eccentrics maximize triceps time under tension',
           moodTips: [
             {
@@ -1141,7 +1141,7 @@ export const tricepsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Standard pushdown workout with squeeze-to-finish at peak elbow extension.',
           battlePlan: 'Battle Plan — Standard + Isometric Finish\n• 4×10 Pushdowns — standard reps\n• Final set: squeeze to finish — hold full extension 10s\nRest 60s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_1e4509cd-7b58-4b0c-b78f-c8a74434260e/artifacts/7nj0ytab_tricep%20push%20down.jpg',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240568/mood_app/workout_images/7nj0ytab_tricep_push_down.jpg',
           intensityReason: 'Isometric finish maximizes triceps contraction',
           moodTips: [
             {
@@ -1168,7 +1168,7 @@ export const tricepsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Pause-rep pushdown workout removing momentum on a fixed track.',
           battlePlan: 'Battle Plan — Pause Sets\n• 4×10 Pushdowns — pause reps (1s at full extension)\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_inspiring-euler/artifacts/yfoavc6k_download%20%282%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241098/mood_app/workout_images/yfoavc6k_download_2_.jpg',
           intensityReason: 'Pauses eliminate rebound for pure elbow extension',
           moodTips: [
             {
@@ -1193,7 +1193,7 @@ export const tricepsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '15–17 min',
           description: 'Burnout-style pushdown workout extending time under tension.',
           battlePlan: 'Battle Plan — Burnout Sets\n• 4×15–20 Pushdowns — burnout reps\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_inspiring-euler/artifacts/ccill0t9_download%20%283%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241086/mood_app/workout_images/ccill0t9_download_3_.jpg',
           intensityReason: 'Extended reps build endurance and pump',
           moodTips: [
             {
@@ -1218,7 +1218,7 @@ export const tricepsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '15–17 min',
           description: 'High-density pushdown workout with shortened rest.',
           battlePlan: 'Battle Plan — Standard Sets\n• 6×10 Pushdowns — standard reps\nRest 45–60s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_1e4509cd-7b58-4b0c-b78f-c8a74434260e/artifacts/7nj0ytab_tricep%20push%20down.jpg',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240568/mood_app/workout_images/7nj0ytab_tricep_push_down.jpg',
           intensityReason: 'Short rest forces efficiency and stacks fatigue',
           moodTips: [
             {
@@ -1245,7 +1245,7 @@ export const tricepsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '18–20 min',
           description: 'Standard heavy pushdown workout emphasizing strict elbow control.',
           battlePlan: 'Battle Plan — Standard Sets\n• 6×8 Pushdowns — standard reps\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_inspiring-euler/artifacts/ccill0t9_download%20%283%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241086/mood_app/workout_images/ccill0t9_download_3_.jpg',
           intensityReason: 'Heavy loads with strict form build maximum strength',
           moodTips: [
             {
@@ -1270,7 +1270,7 @@ export const tricepsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '18–20 min',
           description: 'Multi-drop pushdown workout driving mechanical fatigue on a fixed handle.',
           battlePlan: 'Battle Plan — Drop Cluster\n• Set 1: 10 reps\n• Set 2: drop set — 10 → drop ~20% → 8\n• Set 3: triple drop — 8 → drop ~15% → 6 → drop ~10% → 6\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_1e4509cd-7b58-4b0c-b78f-c8a74434260e/artifacts/7nj0ytab_tricep%20push%20down.jpg',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240568/mood_app/workout_images/7nj0ytab_tricep_push_down.jpg',
           intensityReason: 'Drop clusters extend time under tension past failure',
           moodTips: [
             {
@@ -1295,7 +1295,7 @@ export const tricepsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '18–20 min',
           description: 'Burnout + isometric pushdown workout for maximal triceps fatigue.',
           battlePlan: 'Battle Plan — Burnout + Isometric\n• 4×12 Pushdowns — burnout reps\n• Final set: squeeze to finish — hold full extension 12–15s\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_inspiring-euler/artifacts/yfoavc6k_download%20%282%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241098/mood_app/workout_images/yfoavc6k_download_2_.jpg',
           intensityReason: 'Burnout with iso hold completely exhausts triceps',
           moodTips: [
             {
@@ -1328,7 +1328,7 @@ export const tricepsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Standard assisted dip workout emphasizing elbow extension.',
           battlePlan: 'Battle Plan — Standard Sets\n• 4×8–10 Assisted Dips\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_e2f05db7-8caa-482a-a292-b60f552836b8/artifacts/0i8kr3ow_assisted%20dips.jpg',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240800/mood_app/workout_images/0i8kr3ow_assisted_dips.jpg',
           intensityReason: 'Assistance allows proper form development',
           moodTips: [
             {
@@ -1353,7 +1353,7 @@ export const tricepsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Regression-based dip workout for controlled loading.',
           battlePlan: 'Battle Plan — Standard Sets\n• 4×12 Bench Dips\nRest 60s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_fit-outdoor-views/artifacts/pkwqrz0u_bdips.webp',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240900/mood_app/workout_images/pkwqrz0u_bdips.jpg',
           intensityReason: 'Bench position provides controlled bodyweight loading',
           moodTips: [
             {
@@ -1378,7 +1378,7 @@ export const tricepsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Standard dip workout with squeeze-to-finish.',
           battlePlan: 'Battle Plan — Standard + Isometric Finish\n• 4×8 Dips\n• Final set: squeeze to finish — hold top support 10s\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_inspiring-euler/artifacts/o9irqfer_download%20%284%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241092/mood_app/workout_images/o9irqfer_download_4_.jpg',
           intensityReason: 'Isometric hold maximizes triceps contraction',
           moodTips: [
             {
@@ -1405,7 +1405,7 @@ export const tricepsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Eccentric-focused dip workout increasing time under tension.',
           battlePlan: 'Battle Plan — Eccentric Sets\n• 4×8 Dips — 3s down\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_inspiring-euler/artifacts/74stkm4f_download%20%283%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241083/mood_app/workout_images/74stkm4f_download_3_.jpg',
           intensityReason: 'Slow eccentrics maximize triceps loading',
           moodTips: [
             {
@@ -1430,7 +1430,7 @@ export const tricepsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '15–17 min',
           description: 'Burnout-style dip workout extending fatigue.',
           battlePlan: 'Battle Plan — Burnout Sets\n• 4×AMRAP Dips\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_inspiring-euler/artifacts/o9irqfer_download%20%284%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241092/mood_app/workout_images/o9irqfer_download_4_.jpg',
           intensityReason: 'Extended reps build endurance and pump',
           moodTips: [
             {
@@ -1455,7 +1455,7 @@ export const tricepsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '15–17 min',
           description: 'Superset workout pairing bodyweight and machine isolation.',
           battlePlan: 'Battle Plan — Superset\n• 4×8 Dips\nsuperset with\n• 12 Pushdowns\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_e2f05db7-8caa-482a-a292-b60f552836b8/artifacts/d13967iu_reg%20dips.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240809/mood_app/workout_images/d13967iu_reg_dips.jpg',
           intensityReason: 'Compound + isolation maximizes triceps fatigue',
           moodTips: [
             {
@@ -1482,7 +1482,7 @@ export const tricepsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '18–20 min',
           description: 'Standard weighted dip workout for advanced loading.',
           battlePlan: 'Battle Plan — Standard Sets\n• 6×6 Weighted Dips\nRest 120s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_e2f05db7-8caa-482a-a292-b60f552836b8/artifacts/qfzwrr6j_weighted%20dips.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240816/mood_app/workout_images/qfzwrr6j_weighted_dips.jpg',
           intensityReason: 'Added weight builds serious pressing strength',
           moodTips: [
             {
@@ -1507,7 +1507,7 @@ export const tricepsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '18–20 min',
           description: 'Bodyweight drop workout using assistance changes.',
           battlePlan: 'Battle Plan — Drop Ladder\n• 3 rounds:\n  6 weighted → bodyweight AMRAP → assisted AMRAP\nRest 120s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_inspiring-euler/artifacts/74stkm4f_download%20%283%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241083/mood_app/workout_images/74stkm4f_download_3_.jpg',
           intensityReason: 'Progressive drops extend set past failure',
           moodTips: [
             {
@@ -1532,7 +1532,7 @@ export const tricepsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '18–20 min',
           description: 'Burnout + isometric dip workout.',
           battlePlan: 'Battle Plan — Burnout + Isometric\n• 4×AMRAP Dips\n• Final set: squeeze to finish — hold top 15s\nRest 120s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_inspiring-euler/artifacts/o9irqfer_download%20%284%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241092/mood_app/workout_images/o9irqfer_download_4_.jpg',
           intensityReason: 'Burnout with iso hold completely exhausts triceps',
           moodTips: [
             {
@@ -1565,7 +1565,7 @@ export const tricepsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Standard TRX extension workout introducing bodyweight triceps loading.',
           battlePlan: 'Battle Plan — Standard Sets\n• 4×10 TRX Tricep Extensions — standard reps\nRest 60s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_inspiring-euler/artifacts/8ci4ug40_trx_kneeling_tricep_extensions.jpg',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241084/mood_app/workout_images/8ci4ug40_trx_kneeling_tricep_extensions.jpg',
           intensityReason: 'Body angle controls resistance for progressive loading',
           moodTips: [
             {
@@ -1590,7 +1590,7 @@ export const tricepsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Regression-based TRX workout using a more upright body angle.',
           battlePlan: 'Battle Plan — Standard Sets\n• 4×12 TRX Extensions (more upright) — standard reps\nRest 60s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_inspiring-euler/artifacts/e9mzj704_download%20%284%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241087/mood_app/workout_images/e9mzj704_download_4_.jpg',
           intensityReason: 'Upright angle reduces load for form development',
           moodTips: [
             {
@@ -1615,7 +1615,7 @@ export const tricepsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '12–14 min',
           description: 'Standard TRX workout with squeeze-to-finish at full elbow extension.',
           battlePlan: 'Battle Plan — Standard + Isometric Finish\n• 4×8 TRX Extensions — standard reps\n• Final set: squeeze to finish — hold arms fully straight 10s\nRest 60s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_1e4509cd-7b58-4b0c-b78f-c8a74434260e/artifacts/4d87b909_trx%20ext.jpg',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240565/mood_app/workout_images/4d87b909_trx_ext.jpg',
           intensityReason: 'Isometric finish maximizes triceps contraction',
           moodTips: [
             {
@@ -1642,7 +1642,7 @@ export const tricepsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Eccentric-focused TRX workout increasing time under tension.',
           battlePlan: 'Battle Plan — Eccentric Sets\n• 4×8 TRX Extensions — eccentric reps (4s lower)\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_inspiring-euler/artifacts/e9mzj704_download%20%284%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241087/mood_app/workout_images/e9mzj704_download_4_.jpg',
           intensityReason: 'Slow eccentrics maximize muscle fiber recruitment',
           moodTips: [
             {
@@ -1667,7 +1667,7 @@ export const tricepsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '14–16 min',
           description: 'Pause-rep TRX workout eliminating momentum.',
           battlePlan: 'Battle Plan — Pause Sets\n• 4×8 TRX Extensions — pause reps (1s bottom)\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_inspiring-euler/artifacts/8ci4ug40_trx_kneeling_tricep_extensions.jpg',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241084/mood_app/workout_images/8ci4ug40_trx_kneeling_tricep_extensions.jpg',
           intensityReason: 'Pauses eliminate momentum for honest tension',
           moodTips: [
             {
@@ -1692,7 +1692,7 @@ export const tricepsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '15–17 min',
           description: 'Burnout-style TRX workout extending fatigue through volume.',
           battlePlan: 'Battle Plan — Burnout Sets\n• 4×AMRAP TRX Extensions — burnout reps\nRest 75s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_1e4509cd-7b58-4b0c-b78f-c8a74434260e/artifacts/4d87b909_trx%20ext.jpg',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240565/mood_app/workout_images/4d87b909_trx_ext.jpg',
           intensityReason: 'Extended reps build endurance and pump',
           moodTips: [
             {
@@ -1719,7 +1719,7 @@ export const tricepsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '18–20 min',
           description: 'Advanced TRX extension workout using feet elevation to increase load.',
           battlePlan: 'Battle Plan — Standard Sets\n• 6×6 TRX Extensions (feet elevated) — standard reps\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_1e4509cd-7b58-4b0c-b78f-c8a74434260e/artifacts/4x3zx4pl_trx%20ext%202.webp',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770240566/mood_app/workout_images/4x3zx4pl_trx_ext_2.jpg',
           intensityReason: 'Feet elevation dramatically increases bodyweight load',
           moodTips: [
             {
@@ -1744,7 +1744,7 @@ export const tricepsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '18–20 min',
           description: 'Angle-based drop workout using body position instead of weight.',
           battlePlan: 'Battle Plan — Drop Ladder\n• 3 rounds:\n  8 reps (feet elevated) → step forward → 8 reps → step forward → AMRAP\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_inspiring-euler/artifacts/e9mzj704_download%20%284%29.png',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241087/mood_app/workout_images/e9mzj704_download_4_.jpg',
           intensityReason: 'Angle changes extend set past failure without weight changes',
           moodTips: [
             {
@@ -1769,7 +1769,7 @@ export const tricepsWorkoutDatabase: EquipmentWorkouts[] = [
           duration: '18–20 min',
           description: 'Burnout + isometric TRX workout for maximal triceps fatigue.',
           battlePlan: 'Battle Plan — Burnout + Isometric\n• 4×AMRAP TRX Extensions — burnout reps\n• Final set: squeeze to finish — hold full extension 15s\nRest 90s',
-          imageUrl: 'https://customer-assets.emergentagent.com/job_inspiring-euler/artifacts/8ci4ug40_trx_kneeling_tricep_extensions.jpg',
+          imageUrl: 'https://res.cloudinary.com/dfsygar5c/image/upload/v1770241084/mood_app/workout_images/8ci4ug40_trx_kneeling_tricep_extensions.jpg',
           intensityReason: 'Burnout with iso hold completely exhausts triceps',
           moodTips: [
             {
