@@ -1467,6 +1467,23 @@ export default function CreatePost() {
               >
                 {savedAchievements.map((achievement, index) => {
                   const estimatedCalories = Math.round(achievement.totalDuration * 8);
+                  
+                  // Extract mood label from workout names
+                  const getMoodLabel = (): string => {
+                    if (achievement.workouts.length > 0) {
+                      const firstWorkout = achievement.workouts[0].workoutName?.toLowerCase() || '';
+                      if (firstWorkout.includes('muscle') || firstWorkout.includes('gainer') || firstWorkout.includes('back') || firstWorkout.includes('chest') || firstWorkout.includes('arm')) return 'Muscle';
+                      if (firstWorkout.includes('sweat') || firstWorkout.includes('cardio') || firstWorkout.includes('hiit') || firstWorkout.includes('burn')) return 'Sweat';
+                      if (firstWorkout.includes('explosion') || firstWorkout.includes('power') || firstWorkout.includes('explosive')) return 'Explosion';
+                      if (firstWorkout.includes('outdoor') || firstWorkout.includes('hill') || firstWorkout.includes('run') || firstWorkout.includes('outside')) return 'Outdoor';
+                      if (firstWorkout.includes('calisthenics') || firstWorkout.includes('pull') || firstWorkout.includes('dip') || firstWorkout.includes('bodyweight')) return 'Calisthenics';
+                      if (firstWorkout.includes('lazy') || firstWorkout.includes('stretch') || firstWorkout.includes('recovery') || firstWorkout.includes('easy')) return 'Lazy';
+                    }
+                    return 'Workout';
+                  };
+                  
+                  const moodLabel = getMoodLabel();
+                  
                   return (
                     <TouchableOpacity
                       key={achievement.id || index}
@@ -1486,14 +1503,15 @@ export default function CreatePost() {
                           </View>
                         </View>
                         
-                        {/* Main duration */}
-                        <View style={styles.achievementMainStats}>
-                          <Text style={styles.achievementDurationValue}>{achievement.totalDuration}</Text>
-                          <Text style={styles.achievementDurationUnit}>min</Text>
-                        </View>
+                        {/* Mood label as hero text */}
+                        <Text style={styles.achievementMoodLabel}>{moodLabel}</Text>
                         
-                        {/* Stats pills */}
-                        <View style={styles.achievementStatsPills}>
+                        {/* Stats row - duration, calories, exercises */}
+                        <View style={styles.achievementStatsRow}>
+                          <View style={styles.achievementStatPill}>
+                            <Ionicons name="time-outline" size={10} color="#FFD700" />
+                            <Text style={styles.achievementStatPillText}>{achievement.totalDuration}m</Text>
+                          </View>
                           <View style={styles.achievementStatPill}>
                             <Ionicons name="flame-outline" size={10} color="#FFD700" />
                             <Text style={styles.achievementStatPillText}>{estimatedCalories}</Text>
@@ -1502,14 +1520,6 @@ export default function CreatePost() {
                             <Ionicons name="barbell-outline" size={10} color="#FFD700" />
                             <Text style={styles.achievementStatPillText}>{achievement.workouts.length}</Text>
                           </View>
-                        </View>
-                        
-                        {/* Workout names */}
-                        <View style={styles.achievementWorkoutPreview}>
-                          <Text style={styles.achievementWorkoutName} numberOfLines={2}>
-                            {achievement.workouts.slice(0, 2).map((w: any) => w.workoutName).join(', ')}
-                            {achievement.workouts.length > 2 ? '...' : ''}
-                          </Text>
                         </View>
                       </View>
                     </TouchableOpacity>
