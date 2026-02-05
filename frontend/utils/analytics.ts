@@ -388,6 +388,21 @@ export const Analytics = {
     item_count: number;
   }) => trackEvent(token, 'cart_viewed', metadata),
 
+  // Choose For Me Events (Apple Compliance - required tracking)
+  chooseForMeUsed: (token: string, metadata: {
+    mood_category?: string;
+    selected_workout?: string;
+    available_options?: number;
+  }) => trackEvent(token, 'choose_for_me_used', metadata),
+
+  // Build For Me by Mood Events (Apple Compliance - required tracking)
+  buildForMeMoodUsed: (token: string, metadata: {
+    mood_category: string;
+    workout_count?: number;
+    equipment_selected?: string[];
+    difficulty?: string;
+  }) => trackEvent(token, 'build_for_me_mood_used', metadata),
+
   // Screen Time Tracking
   screenTimeSpent: (token: string, metadata: {
     screen_name: string;
