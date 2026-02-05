@@ -423,6 +423,9 @@ export default function PrivacyPolicyScreen() {
           <Text style={styles.paragraph}>
             We process content reports confidentially and will notify you if action is taken on your content.
           </Text>
+          <Text style={styles.paragraph}>
+            Attempts to evade moderation systems, create alternate accounts to bypass enforcement, or interfere with safety mechanisms may result in permanent account termination and device-level restrictions where permitted by law.
+          </Text>
         </View>
 
         {/* International Users */}
