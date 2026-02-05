@@ -106,12 +106,12 @@ This document provides a comprehensive checklist for Apple App Store compliance,
 | Block users | ✅ | `/blocked-users.tsx` |
 | Content filter | ✅ | `/content-filter.tsx` |
 
-### 3.2 Community Guidelines ⚠️ NEEDS ADDITION
+### 3.2 Community Guidelines ✅ IMPLEMENTED
 | Requirement | Status | Action |
 |-------------|--------|--------|
-| Community Guidelines page | ⚠️ | Create `/community-guidelines.tsx` |
-| Link in Settings | ⚠️ | Add to Legal section |
-| Clear rules for content | ⚠️ | Define acceptable use |
+| Community Guidelines page | ✅ | Created `/community-guidelines.tsx` |
+| Link in Settings | ✅ | Added to Legal section in Settings |
+| Clear rules for content | ✅ | Comprehensive guidelines with enforcement details |
 
 ### 3.3 Terms Coverage ✅ IMPLEMENTED
 | Requirement | Status | Location |
