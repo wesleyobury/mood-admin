@@ -28,19 +28,20 @@ import Animated, {
 } from 'react-native-reanimated';
 import * as ImageManipulator from 'expo-image-manipulator';
 
-const { width: SCREEN_WIDTH } = Dimensions.get('window');
+const { width: SCREEN_WIDTH, height: SCREEN_HEIGHT } = Dimensions.get('window');
 const FILMSTRIP_HEIGHT = 56;
 const FRAME_COUNT = 10;
 const TOTAL_FRAMES = 30;
 const FILMSTRIP_WIDTH = SCREEN_WIDTH - 32;
 const SCRUBBER_WIDTH = 4;
 
-// Full width preview to show entire video frame
-const PREVIEW_WIDTH = SCREEN_WIDTH - 32;
-const PREVIEW_HEIGHT = PREVIEW_WIDTH * 1.78; // 9:16 aspect ratio for full phone video
-
-// Crop overlay dimensions (4:5 Instagram aspect ratio)
+// Crop window dimensions (4:5 aspect ratio - Instagram style)
 const CROP_ASPECT_RATIO = 4 / 5;
+const CROP_WIDTH = SCREEN_WIDTH - 48; // Crop window width with padding
+const CROP_HEIGHT = CROP_WIDTH / CROP_ASPECT_RATIO; // 4:5 crop window
+
+// Preview container - large enough to show the full video with room for pan/zoom
+const PREVIEW_CONTAINER_HEIGHT = Math.min(SCREEN_HEIGHT * 0.55, 500);
 
 interface VideoFrameSelectorProps {
   videoUri: string;
