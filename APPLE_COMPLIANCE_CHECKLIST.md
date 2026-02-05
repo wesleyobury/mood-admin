@@ -282,14 +282,18 @@ This document provides a comprehensive checklist for Apple App Store compliance,
 ## 9. IMPLEMENTATION PRIORITY
 
 ### P0 - Critical (Must Fix Before Submission)
-1. ⚠️ Add Community Guidelines page
-2. ⚠️ Add analytics opt-out toggle
-3. ⚠️ Link to iOS Settings from notification settings
+1. ✅ Add Community Guidelines page - COMPLETED
+2. ✅ Add analytics opt-out toggle - COMPLETED
+3. ✅ Link to iOS Settings from notification settings - COMPLETED
+4. ✅ Update Terms of Service with hardened legal text - COMPLETED
+5. ✅ Update Privacy Policy with hardened legal text - COMPLETED
+6. ✅ Update EULA with hardened legal text - COMPLETED
 
 ### P1 - Important (Should Fix)
-1. ⚠️ Add `user_timezone` to analytics events
-2. ⚠️ Update Privacy Policy with new features
-3. ⚠️ Add "choose_for_me" event tracking
+1. ✅ Add `user_timezone` to analytics events - COMPLETED
+2. ✅ Add "choose_for_me" event tracking - COMPLETED  
+3. ✅ Add "build_for_me_mood" event tracking - COMPLETED
+4. ✅ Add "Last Updated" dates to legal docs - COMPLETED
 
 ### P2 - Nice to Have
 1. ⚠️ Add EULA addendum page (using Apple Standard is sufficient)
