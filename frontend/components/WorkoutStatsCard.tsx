@@ -21,22 +21,22 @@ const RING_STROKE_WIDTH = 4; // Ultra thin sleek rings
 const DEFAULT_CALORIE_TARGET = 500;
 const DEFAULT_MINUTE_TARGET = 60;
 
-// Colors - enhanced silver for visibility
+// Three shades of gold - high contrast from dark to light
 const COLORS = {
-  // Intensity - Gold gradient
-  intensityStart: '#FFD700',
-  intensityEnd: '#FFA500',
-  intensityGlow: '#FFE55C',
+  // Calories - Dark Gold/Bronze (outer ring)
+  caloriesStart: '#B8860B',    // Dark goldenrod
+  caloriesEnd: '#8B6914',      // Even darker
+  caloriesGlow: '#CD9B1D',     // Slight glow
   
-  // Calories - Bright Silver gradient  
-  caloriesStart: '#E8E8E8',
-  caloriesEnd: '#A8A8A8',
-  caloriesGlow: '#FFFFFF',
+  // Minutes - Medium Gold (middle ring)
+  minutesStart: '#FFD700',     // Classic gold
+  minutesEnd: '#DAA520',       // Goldenrod
+  minutesGlow: '#FFE44D',      // Brighter glow
   
-  // Minutes - Pure White gradient
-  minutesStart: '#FFFFFF',
-  minutesEnd: '#D0D0D0',
-  minutesGlow: '#FFFFFF',
+  // Intensity - Light Gold/Champagne (inner ring)
+  intensityStart: '#FFE5A0',   // Light gold/champagne
+  intensityEnd: '#FFD56B',     // Warm light gold
+  intensityGlow: '#FFF3C4',    // Bright champagne glow
   
   trackBg: 'rgba(255, 255, 255, 0.06)',
   trackBgTransparent: 'rgba(255, 255, 255, 0.1)',
@@ -271,15 +271,15 @@ export default function WorkoutStatsCard({
       <Svg width={RING_SIZE} height={RING_SIZE} viewBox={`0 0 ${RING_SIZE} ${RING_SIZE}`}>
         {/* Gradient definitions */}
         <Defs>
-          {/* Calories gradient - Silver with shine */}
+          {/* Calories gradient - Dark Gold/Bronze */}
           <LinearGradient id="caloriesGradient" x1="0%" y1="0%" x2="100%" y2="100%">
             <Stop offset="0%" stopColor={COLORS.caloriesGlow} stopOpacity="1" />
             <Stop offset="30%" stopColor={COLORS.caloriesStart} stopOpacity="1" />
             <Stop offset="70%" stopColor={COLORS.caloriesEnd} stopOpacity="1" />
-            <Stop offset="100%" stopColor={COLORS.caloriesStart} stopOpacity="1" />
+            <Stop offset="100%" stopColor={COLORS.caloriesGlow} stopOpacity="1" />
           </LinearGradient>
           
-          {/* Minutes gradient - White with shimmer */}
+          {/* Minutes gradient - Medium Gold */}
           <LinearGradient id="minutesGradient" x1="0%" y1="0%" x2="100%" y2="100%">
             <Stop offset="0%" stopColor={COLORS.minutesGlow} stopOpacity="1" />
             <Stop offset="40%" stopColor={COLORS.minutesStart} stopOpacity="1" />
@@ -287,7 +287,7 @@ export default function WorkoutStatsCard({
             <Stop offset="100%" stopColor={COLORS.minutesGlow} stopOpacity="1" />
           </LinearGradient>
           
-          {/* Intensity gradient - Gold with glow */}
+          {/* Intensity gradient - Light Gold/Champagne */}
           <LinearGradient id="intensityGradient" x1="0%" y1="0%" x2="100%" y2="100%">
             <Stop offset="0%" stopColor={COLORS.intensityGlow} stopOpacity="1" />
             <Stop offset="35%" stopColor={COLORS.intensityStart} stopOpacity="1" />
@@ -297,21 +297,21 @@ export default function WorkoutStatsCard({
           
           {/* Gloss overlay gradients */}
           <LinearGradient id="glossCalories" x1="0%" y1="0%" x2="0%" y2="100%">
-            <Stop offset="0%" stopColor="#FFFFFF" stopOpacity="0.5" />
+            <Stop offset="0%" stopColor="#FFFFFF" stopOpacity="0.3" />
+            <Stop offset="50%" stopColor="#FFFFFF" stopOpacity="0.05" />
+            <Stop offset="100%" stopColor="#FFFFFF" stopOpacity="0.2" />
+          </LinearGradient>
+          
+          <LinearGradient id="glossMinutes" x1="0%" y1="0%" x2="0%" y2="100%">
+            <Stop offset="0%" stopColor="#FFFFFF" stopOpacity="0.4" />
             <Stop offset="50%" stopColor="#FFFFFF" stopOpacity="0.1" />
             <Stop offset="100%" stopColor="#FFFFFF" stopOpacity="0.3" />
           </LinearGradient>
           
-          <LinearGradient id="glossMinutes" x1="0%" y1="0%" x2="0%" y2="100%">
-            <Stop offset="0%" stopColor="#FFFFFF" stopOpacity="0.6" />
+          <LinearGradient id="glossIntensity" x1="0%" y1="0%" x2="0%" y2="100%">
+            <Stop offset="0%" stopColor="#FFFFFF" stopOpacity="0.5" />
             <Stop offset="50%" stopColor="#FFFFFF" stopOpacity="0.15" />
             <Stop offset="100%" stopColor="#FFFFFF" stopOpacity="0.4" />
-          </LinearGradient>
-          
-          <LinearGradient id="glossIntensity" x1="0%" y1="0%" x2="0%" y2="100%">
-            <Stop offset="0%" stopColor="#FFFFFF" stopOpacity="0.4" />
-            <Stop offset="50%" stopColor="#FFD700" stopOpacity="0.1" />
-            <Stop offset="100%" stopColor="#FFFFFF" stopOpacity="0.3" />
           </LinearGradient>
         </Defs>
 
@@ -344,7 +344,7 @@ export default function WorkoutStatsCard({
           />
           
           {/* Progress rings with gradients - counterclockwise */}
-          {/* Calories ring - outer - Silver gradient */}
+          {/* Calories ring - outer - Dark Gold */}
           <Circle
             cx={RING_CENTER}
             cy={RING_CENTER}
@@ -357,7 +357,6 @@ export default function WorkoutStatsCard({
             strokeLinecap="round"
             transform={`scale(-1, 1) translate(-${RING_SIZE}, 0)`}
           />
-          {/* Calories gloss overlay */}
           <Circle
             cx={RING_CENTER}
             cy={RING_CENTER}
@@ -371,7 +370,7 @@ export default function WorkoutStatsCard({
             transform={`scale(-1, 1) translate(-${RING_SIZE}, 0)`}
           />
           
-          {/* Minutes ring - middle - White gradient */}
+          {/* Minutes ring - middle - Medium Gold */}
           <Circle
             cx={RING_CENTER}
             cy={RING_CENTER}
@@ -384,7 +383,6 @@ export default function WorkoutStatsCard({
             strokeLinecap="round"
             transform={`scale(-1, 1) translate(-${RING_SIZE}, 0)`}
           />
-          {/* Minutes gloss overlay */}
           <Circle
             cx={RING_CENTER}
             cy={RING_CENTER}
@@ -398,7 +396,7 @@ export default function WorkoutStatsCard({
             transform={`scale(-1, 1) translate(-${RING_SIZE}, 0)`}
           />
           
-          {/* Intensity ring - inner - Gold gradient */}
+          {/* Intensity ring - inner - Light Gold/Champagne */}
           <Circle
             cx={RING_CENTER}
             cy={RING_CENTER}
@@ -411,7 +409,6 @@ export default function WorkoutStatsCard({
             strokeLinecap="round"
             transform={`scale(-1, 1) translate(-${RING_SIZE}, 0)`}
           />
-          {/* Intensity gloss overlay */}
           <Circle
             cx={RING_CENTER}
             cy={RING_CENTER}
@@ -435,7 +432,7 @@ export default function WorkoutStatsCard({
   if (transparent) {
     return (
       <View style={[styles.transparentContainer, { width: CARD_WIDTH, height: CARD_HEIGHT }]}>
-        {/* Header */}
+        {/* Header - compact */}
         <View style={styles.transparentHeader}>
           <Text style={styles.transparentMoodCategory} numberOfLines={1}>
             {displayMoodCategory ? displayMoodCategory.toUpperCase() : 'WORKOUT COMPLETE'}
@@ -443,48 +440,51 @@ export default function WorkoutStatsCard({
           <Text style={styles.transparentSubtitle} numberOfLines={1}>{spacedMoodPhrase}</Text>
         </View>
 
-        {/* Main content: Rings on left, Data on right */}
-        <View style={styles.transparentMainContent}>
-          {/* Left side: Rings */}
-          <View style={styles.transparentRingSection}>
-            <View style={styles.transparentRingContainer}>
-              {renderRings(true)}
+        {/* Centered content area */}
+        <View style={styles.transparentCenteredContent}>
+          {/* Main content: Rings on left, Data on right */}
+          <View style={styles.transparentMainContent}>
+            {/* Left side: Rings */}
+            <View style={styles.transparentRingSection}>
+              <View style={styles.transparentRingContainer}>
+                {renderRings(true)}
+              </View>
+            </View>
+            
+            {/* Right side: Data stacked - smaller text */}
+            <View style={styles.transparentDataSection}>
+              <View style={styles.transparentDataRow}>
+                <View style={[styles.transparentDataDot, { backgroundColor: COLORS.caloriesStart }]} />
+                <Text style={styles.transparentDataValue}>{estimatedCalories}</Text>
+                <Text style={styles.transparentDataLabel}>cal</Text>
+              </View>
+              <View style={styles.transparentDataRow}>
+                <View style={[styles.transparentDataDot, { backgroundColor: COLORS.minutesStart }]} />
+                <Text style={styles.transparentDataValue}>{displayDuration}</Text>
+                <Text style={styles.transparentDataLabel}>min</Text>
+              </View>
+              <View style={styles.transparentDataRow}>
+                <View style={[styles.transparentDataDot, { backgroundColor: COLORS.intensityStart }]} />
+                <Text style={styles.transparentDataValue}>{Math.round(intensityValue * 100)}%</Text>
+                <Text style={styles.transparentDataLabel}>intensity</Text>
+              </View>
             </View>
           </View>
-          
-          {/* Right side: Data stacked */}
-          <View style={styles.transparentDataSection}>
-            <View style={styles.transparentDataRow}>
-              <View style={[styles.transparentDataDot, { backgroundColor: COLORS.caloriesStart }]} />
-              <Text style={styles.transparentDataValue}>{estimatedCalories}</Text>
-              <Text style={styles.transparentDataLabel}>cal</Text>
-            </View>
-            <View style={styles.transparentDataRow}>
-              <View style={[styles.transparentDataDot, { backgroundColor: COLORS.minutesStart }]} />
-              <Text style={styles.transparentDataValue}>{displayDuration}</Text>
-              <Text style={styles.transparentDataLabel}>min</Text>
-            </View>
-            <View style={styles.transparentDataRow}>
-              <View style={[styles.transparentDataDot, { backgroundColor: COLORS.intensityStart }]} />
-              <Text style={styles.transparentDataValue}>{Math.round(intensityValue * 100)}%</Text>
-              <Text style={styles.transparentDataLabel}>intensity</Text>
-            </View>
-          </View>
-        </View>
 
-        {/* Exercises List - below rings on left */}
-        <View style={styles.transparentExercisesSection}>
-          {workouts.slice(0, 4).map((workout, index) => (
-            <View key={index} style={styles.transparentExerciseRow}>
-              <View style={styles.transparentExerciseDot} />
-              <Text style={styles.transparentExerciseText} numberOfLines={1}>
-                {workout.workoutTitle || workout.workoutName}
-              </Text>
-            </View>
-          ))}
-          {workouts.length > 4 && (
-            <Text style={styles.transparentMoreExercises}>+{workouts.length - 4} more</Text>
-          )}
+          {/* Exercises List - below rings */}
+          <View style={styles.transparentExercisesSection}>
+            {workouts.slice(0, 4).map((workout, index) => (
+              <View key={index} style={styles.transparentExerciseRow}>
+                <View style={styles.transparentExerciseDot} />
+                <Text style={styles.transparentExerciseText} numberOfLines={1}>
+                  {workout.workoutTitle || workout.workoutName}
+                </Text>
+              </View>
+            ))}
+            {workouts.length > 4 && (
+              <Text style={styles.transparentMoreExercises}>+{workouts.length - 4} more</Text>
+            )}
+          </View>
         </View>
 
         {/* Footer */}
@@ -653,7 +653,7 @@ const styles = StyleSheet.create({
   centerCalorieValue: {
     fontSize: 24,
     fontWeight: '300',
-    color: '#E8E8E8',
+    color: COLORS.caloriesStart,
     letterSpacing: -1,
   },
   centerCalorieLabel: {
@@ -673,7 +673,7 @@ const styles = StyleSheet.create({
   intensityValue: {
     fontSize: 18,
     fontWeight: '400',
-    color: '#FFD700',
+    color: COLORS.intensityStart,
   },
   
   legendRow: {
@@ -745,33 +745,40 @@ const styles = StyleSheet.create({
   // TRANSPARENT/INSTAGRAM EXPORT STYLES
   // ============================================
   transparentContainer: {
-    backgroundColor: 'rgba(0, 0, 0, 0.65)',
+    backgroundColor: 'rgba(0, 0, 0, 0.55)',
     borderRadius: 16,
     overflow: 'hidden',
+    justifyContent: 'space-between',
   },
   transparentHeader: {
-    paddingTop: 20,
+    paddingTop: 16,
     paddingHorizontal: 20,
-    paddingBottom: 8,
+    paddingBottom: 4,
   },
   transparentMoodCategory: {
-    fontSize: 20,
+    fontSize: 18,
     fontWeight: '700',
     color: '#FFFFFF',
     letterSpacing: 0.5,
   },
   transparentSubtitle: {
-    fontSize: 9,
-    color: 'rgba(255, 255, 255, 0.6)',
+    fontSize: 8,
+    color: 'rgba(255, 255, 255, 0.5)',
     letterSpacing: 0.5,
-    marginTop: 4,
+    marginTop: 3,
+  },
+  
+  // Centered content wrapper
+  transparentCenteredContent: {
+    flex: 1,
+    justifyContent: 'center',
+    paddingVertical: 8,
   },
   
   // Main content: rings left, data right
   transparentMainContent: {
     flexDirection: 'row',
     paddingHorizontal: 16,
-    paddingVertical: 8,
     alignItems: 'center',
   },
   transparentRingSection: {
@@ -785,60 +792,59 @@ const styles = StyleSheet.create({
   },
   transparentDataSection: {
     flex: 1,
-    paddingLeft: 16,
+    paddingLeft: 12,
     justifyContent: 'center',
   },
   transparentDataRow: {
     flexDirection: 'row',
     alignItems: 'center',
-    paddingVertical: 6,
+    paddingVertical: 4,
   },
   transparentDataDot: {
-    width: 8,
-    height: 8,
-    borderRadius: 4,
-    marginRight: 10,
+    width: 6,
+    height: 6,
+    borderRadius: 3,
+    marginRight: 8,
   },
   transparentDataValue: {
-    fontSize: 22,
-    fontWeight: '400',
+    fontSize: 16,
+    fontWeight: '500',
     color: '#FFFFFF',
-    minWidth: 50,
+    minWidth: 40,
   },
   transparentDataLabel: {
-    fontSize: 11,
-    color: 'rgba(255, 255, 255, 0.6)',
-    marginLeft: 4,
+    fontSize: 10,
+    color: 'rgba(255, 255, 255, 0.5)',
+    marginLeft: 3,
   },
   
   // Exercises below rings
   transparentExercisesSection: {
     paddingHorizontal: 20,
-    paddingTop: 8,
-    flex: 1,
+    paddingTop: 10,
   },
   transparentExerciseRow: {
     flexDirection: 'row',
     alignItems: 'center',
-    paddingVertical: 5,
+    paddingVertical: 4,
   },
   transparentExerciseDot: {
-    width: 4,
-    height: 4,
-    borderRadius: 2,
+    width: 3,
+    height: 3,
+    borderRadius: 1.5,
     backgroundColor: '#FFD700',
-    marginRight: 10,
+    marginRight: 8,
   },
   transparentExerciseText: {
     flex: 1,
-    fontSize: 12,
-    color: 'rgba(255, 255, 255, 0.85)',
+    fontSize: 11,
+    color: 'rgba(255, 255, 255, 0.75)',
     fontWeight: '400',
   },
   transparentMoreExercises: {
-    fontSize: 10,
-    color: 'rgba(255, 255, 255, 0.6)',
-    marginTop: 4,
+    fontSize: 9,
+    color: 'rgba(255, 255, 255, 0.5)',
+    marginTop: 3,
     fontStyle: 'italic',
   },
   
@@ -847,7 +853,7 @@ const styles = StyleSheet.create({
     paddingVertical: 12,
   },
   transparentBrandText: {
-    fontSize: 11,
+    fontSize: 10,
     color: '#FFD700',
     fontWeight: '700',
     letterSpacing: 3,
