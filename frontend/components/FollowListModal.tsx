@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import {
   View,
   Text,
@@ -8,6 +8,7 @@ import {
   FlatList,
   Image,
   ActivityIndicator,
+  RefreshControl,
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { useRouter } from 'expo-router';
@@ -22,6 +23,8 @@ interface User {
   name: string;
   avatar: string;
   bio: string;
+  is_following?: boolean;
+  is_self?: boolean;
 }
 
 interface FollowListModalProps {
@@ -39,58 +42,98 @@ export default function FollowListModal({
 }: FollowListModalProps) {
   const [users, setUsers] = useState<User[]>([]);
   const [loading, setLoading] = useState(false);
-  const { token } = useAuth();
+  const [refreshing, setRefreshing] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const { token, user: currentUser } = useAuth();
   const router = useRouter();
 
+  // Reset and fetch when modal opens or type changes
   useEffect(() => {
     if (visible && userId) {
+      setUsers([]); // Reset users when opening
+      setError(null);
       fetchUsers();
     }
   }, [visible, userId, type]);
 
-  const fetchUsers = async () => {
-    if (!token) return;
+  const fetchUsers = useCallback(async () => {
+    if (!userId) {
+      console.log('No userId provided');
+      return;
+    }
 
     setLoading(true);
+    setError(null);
+    
     try {
       const endpoint = type === 'followers' 
         ? `${API_URL}/api/users/${userId}/followers`
         : `${API_URL}/api/users/${userId}/following`;
 
-      const response = await fetch(endpoint, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
+      console.log(`Fetching ${type} from:`, endpoint);
+
+      const headers: Record<string, string> = {
+        'Content-Type': 'application/json',
+      };
+      
+      if (token) {
+        headers['Authorization'] = `Bearer ${token}`;
+      }
+
+      const response = await fetch(endpoint, { headers });
+
+      console.log(`${type} response status:`, response.status);
 
       if (response.ok) {
         const data = await response.json();
-        // API returns { users: [...] }, not just the array
-        setUsers(data.users || data || []);
+        console.log(`${type} data received:`, data?.users?.length || 0, 'users');
+        
+        // API returns { users: [...] }
+        const userList = data.users || [];
+        setUsers(userList);
       } else {
-        console.error(`Failed to fetch ${type}:`, response.status);
+        const errorText = await response.text();
+        console.error(`Failed to fetch ${type}:`, response.status, errorText);
+        setError(`Failed to load ${type}`);
       }
-    } catch (error) {
-      console.error(`Error fetching ${type}:`, error);
+    } catch (err) {
+      console.error(`Error fetching ${type}:`, err);
+      setError(`Error loading ${type}`);
     } finally {
       setLoading(false);
+      setRefreshing(false);
     }
+  }, [userId, type, token]);
+
+  const onRefresh = () => {
+    setRefreshing(true);
+    fetchUsers();
   };
 
   const handleUserPress = (user: User) => {
     onClose();
-    router.push(`/user-profile?userId=${user.id}`);
+    // If it's the current user, go to profile tab
+    if (currentUser && user.id === currentUser.id) {
+      router.push('/(tabs)/profile');
+    } else {
+      router.push(`/user-profile?userId=${user.id}`);
+    }
   };
 
-  const getAvatarUri = (avatar: string | undefined | null) => {
-    if (!avatar) {
+  const getAvatarUri = (avatar: string | undefined | null): string | null => {
+    if (!avatar || avatar === '' || avatar === 'null' || avatar === 'undefined') {
       return null;
     }
-    if (avatar.startsWith('http')) {
+    // Already a full URL (Cloudinary, etc.)
+    if (avatar.startsWith('http://') || avatar.startsWith('https://')) {
       return avatar;
     }
-    // Handle relative URLs
-    return `${API_URL}${avatar}`;
+    // Handle relative URLs from our API
+    if (avatar.startsWith('/api/')) {
+      return `${API_URL}${avatar}`;
+    }
+    // Other relative paths
+    return `${API_URL}/${avatar.replace(/^\//, '')}`;
   };
 
   const renderUser = ({ item }: { item: User }) => {
@@ -100,17 +143,24 @@ export default function FollowListModal({
       <TouchableOpacity
         style={styles.userItem}
         onPress={() => handleUserPress(item)}
+        activeOpacity={0.7}
       >
         {avatarUri ? (
-          <Image source={{ uri: avatarUri }} style={styles.avatar} />
+          <Image 
+            source={{ uri: avatarUri }} 
+            style={styles.avatar}
+            defaultSource={require('../assets/images/icon.png')}
+          />
         ) : (
           <View style={[styles.avatar, styles.avatarPlaceholder]}>
             <Ionicons name="person" size={24} color="#666" />
           </View>
         )}
         <View style={styles.userInfo}>
-          <Text style={styles.username}>{item.username}</Text>
-          {item.name && <Text style={styles.name}>{item.name}</Text>}
+          <Text style={styles.username}>@{item.username}</Text>
+          {item.name && item.name !== item.username && (
+            <Text style={styles.name}>{item.name}</Text>
+          )}
         </View>
         <Ionicons name="chevron-forward" size={20} color="#666" />
       </TouchableOpacity>
@@ -137,9 +187,18 @@ export default function FollowListModal({
           </View>
 
           {/* List */}
-          {loading ? (
+          {loading && !refreshing ? (
             <View style={styles.loadingContainer}>
               <ActivityIndicator size="large" color="#FFD700" />
+              <Text style={styles.loadingText}>Loading {type}...</Text>
+            </View>
+          ) : error ? (
+            <View style={styles.emptyContainer}>
+              <Ionicons name="alert-circle-outline" size={48} color="#FF6B6B" />
+              <Text style={styles.errorText}>{error}</Text>
+              <TouchableOpacity style={styles.retryButton} onPress={fetchUsers}>
+                <Text style={styles.retryButtonText}>Retry</Text>
+              </TouchableOpacity>
             </View>
           ) : users.length === 0 ? (
             <View style={styles.emptyContainer}>
@@ -158,6 +217,13 @@ export default function FollowListModal({
               renderItem={renderUser}
               keyExtractor={(item) => item.id}
               contentContainerStyle={styles.listContent}
+              refreshControl={
+                <RefreshControl
+                  refreshing={refreshing}
+                  onRefresh={onRefresh}
+                  tintColor="#FFD700"
+                />
+              }
             />
           )}
         </View>
