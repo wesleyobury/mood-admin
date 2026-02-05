@@ -119,7 +119,11 @@ const AbsWorkoutDisplayScreen = memo(function AbsWorkoutDisplayScreen() {
     addToCart(cartItem);
     
     if (token) {
-      Analytics.trackWorkoutAdded(workoutId, workout.name, equipment, difficulty);
+      Analytics.workoutAddedToCart(token, {
+        workout_name: workout.name,
+        equipment: equipment,
+        mood_category: moodTitle,
+      });
     }
   };
 
