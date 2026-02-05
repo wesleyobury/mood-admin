@@ -412,7 +412,11 @@ export default function AdminExerciseLibrary() {
         transparent={false}
         onRequestClose={() => setModalVisible(false)}
       >
-        <View style={styles.modalContainer}>
+        <KeyboardAvoidingView 
+          style={styles.modalContainer}
+          behavior={Platform.OS === 'ios' ? 'padding' : undefined}
+          keyboardVerticalOffset={0}
+        >
           {/* Modal Header - Fixed at top */}
           <SafeAreaView edges={['top']} style={styles.modalHeaderSafeArea}>
             <View style={styles.modalHeader}>
@@ -437,7 +441,7 @@ export default function AdminExerciseLibrary() {
             contentContainerStyle={styles.modalContent}
             keyboardShouldPersistTaps="handled"
             keyboardDismissMode="interactive"
-            automaticallyAdjustKeyboardInsets={true}
+            showsVerticalScrollIndicator={true}
           >
               {/* Video Upload Section */}
               <View style={styles.section}>
