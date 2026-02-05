@@ -6,7 +6,6 @@ import {
   ScrollView,
   TouchableOpacity,
   SafeAreaView,
-  Linking,
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { useRouter } from 'expo-router';
@@ -16,16 +15,12 @@ export default function PrivacyPolicyScreen() {
   const router = useRouter();
   const insets = useSafeAreaInsets();
 
-  const openEmail = () => {
-    Linking.openURL('mailto:privacy@moodfitnessapp.com');
-  };
-
   return (
     <SafeAreaView style={[styles.container, { paddingTop: insets.top }]}>
       {/* Header */}
       <View style={styles.header}>
         <TouchableOpacity style={styles.backButton} onPress={() => router.back()}>
-          <Ionicons name="chevron-back" size={24} color="#FFD700" />
+          <Ionicons name="chevron-back" size={24} color="#fff" />
         </TouchableOpacity>
         <Text style={styles.headerTitle}>Privacy Policy</Text>
         <View style={styles.headerSpacer} />
@@ -36,14 +31,14 @@ export default function PrivacyPolicyScreen() {
         contentContainerStyle={styles.scrollContent}
         showsVerticalScrollIndicator={false}
       >
-        <Text style={styles.lastUpdated}>Last Updated: January 19, 2025</Text>
-        <Text style={styles.effectiveDate}>Effective Date: January 19, 2025</Text>
+        <Text style={styles.lastUpdated}>Last Updated: February 2025</Text>
+        <Text style={styles.effectiveDate}>Effective Date: February 2025</Text>
 
         {/* Introduction */}
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>1. Introduction</Text>
           <Text style={styles.paragraph}>
-            Welcome to MOOD ("we," "our," or 'us'). We are committed to protecting your privacy and ensuring 
+            Welcome to MOOD ("we," "our," or "us"). We are committed to protecting your privacy and ensuring 
             you understand how we collect, use, store, and safeguard your personal information. This Privacy 
             Policy explains our practices regarding data collection and usage in compliance with applicable 
             privacy laws, including the California Consumer Privacy Act (CCPA), General Data Protection 
@@ -61,13 +56,13 @@ export default function PrivacyPolicyScreen() {
           <Text style={styles.paragraph}>
             We are committed to the following privacy principles:
           </Text>
-          <View style={styles.highlightBox}>
-            <Text style={styles.highlightItem}>✓ We do NOT sell your personal data to third parties</Text>
-            <Text style={styles.highlightItem}>✓ We do NOT use your data for advertising purposes</Text>
-            <Text style={styles.highlightItem}>✓ We do NOT track you across other apps or websites</Text>
-            <Text style={styles.highlightItem}>✓ We do NOT share your data with data brokers</Text>
-            <Text style={styles.highlightItem}>✓ We do NOT use third-party advertising SDKs</Text>
-            <Text style={styles.highlightItem}>✓ We collect only what is necessary to provide our services</Text>
+          <View style={styles.bulletList}>
+            <Text style={styles.bulletItem}>• We do NOT sell your personal data to third parties</Text>
+            <Text style={styles.bulletItem}>• We do NOT use your data for advertising purposes</Text>
+            <Text style={styles.bulletItem}>• We do NOT track you across other apps or websites</Text>
+            <Text style={styles.bulletItem}>• We do NOT share your data with data brokers</Text>
+            <Text style={styles.bulletItem}>• We do NOT use third-party advertising SDKs</Text>
+            <Text style={styles.bulletItem}>• We collect only what is necessary to provide our services</Text>
           </View>
         </View>
 
@@ -80,17 +75,17 @@ export default function PrivacyPolicyScreen() {
             When you create an account, we collect:
           </Text>
           <View style={styles.bulletList}>
-            <Text style={styles.bulletItem}>• <Text style={styles.bold}>Email address</Text> - Used for account verification, login authentication, password recovery, and essential service communications</Text>
-            <Text style={styles.bulletItem}>• <Text style={styles.bold}>Username</Text> - Used for identification within the app and community features</Text>
-            <Text style={styles.bulletItem}>• <Text style={styles.bold}>Password</Text> - Securely encrypted using bcrypt hashing; we cannot see your password</Text>
-            <Text style={styles.bulletItem}>• <Text style={styles.bold}>Profile picture</Text> (optional) - Displayed on your profile and posts</Text>
-            <Text style={styles.bulletItem}>• <Text style={styles.bold}>Bio and display name</Text> (optional) - Information you choose to share publicly</Text>
+            <Text style={styles.bulletItem}>• Email address - Used for account verification, login authentication, password recovery, and essential service communications</Text>
+            <Text style={styles.bulletItem}>• Username - Used for identification within the app and community features</Text>
+            <Text style={styles.bulletItem}>• Password - Securely encrypted using bcrypt hashing; we cannot see your password</Text>
+            <Text style={styles.bulletItem}>• Profile picture (optional) - Displayed on your profile and posts</Text>
+            <Text style={styles.bulletItem}>• Bio and display name (optional) - Information you choose to share publicly</Text>
           </View>
           <Text style={styles.paragraph}>
-            <Text style={styles.bold}>Purpose:</Text> To create and manage your account, authenticate your identity, and enable community features.
+            Purpose: To create and manage your account, authenticate your identity, and enable community features.
           </Text>
           <Text style={styles.paragraph}>
-            <Text style={styles.bold}>Legal basis:</Text> Contract performance (providing our services) and legitimate interest (account security).
+            Legal basis: Contract performance (providing our services) and legitimate interest (account security).
           </Text>
 
           <Text style={styles.subTitle}>3.2 Guest User Data</Text>
@@ -98,15 +93,15 @@ export default function PrivacyPolicyScreen() {
             If you use our app without creating an account (as a guest), we collect:
           </Text>
           <View style={styles.bulletList}>
-            <Text style={styles.bulletItem}>• <Text style={styles.bold}>Device identifier</Text> - A randomly generated unique ID stored locally on your device to maintain session continuity</Text>
-            <Text style={styles.bulletItem}>• <Text style={styles.bold}>Usage analytics</Text> - Screen views, feature interactions, and workout selections (see Section 3.5)</Text>
-            <Text style={styles.bulletItem}>• <Text style={styles.bold}>Device type and OS version</Text> - For app compatibility and crash reporting</Text>
+            <Text style={styles.bulletItem}>• Device identifier - A randomly generated unique ID stored locally on your device to maintain session continuity</Text>
+            <Text style={styles.bulletItem}>• Usage analytics - Screen views, feature interactions, and workout selections (see Section 3.5)</Text>
+            <Text style={styles.bulletItem}>• Device type and OS version - For app compatibility and crash reporting</Text>
           </View>
           <Text style={styles.paragraph}>
-            <Text style={styles.bold}>Purpose:</Text> To provide app functionality, improve user experience, and enable seamless transition to a registered account.
+            Purpose: To provide app functionality, improve user experience, and enable seamless transition to a registered account.
           </Text>
           <Text style={styles.paragraph}>
-            <Text style={styles.bold}>Note:</Text> If you later create an account, your guest activity may be merged with your registered account to preserve your workout history and preferences.
+            Note: If you later create an account, your guest activity may be merged with your registered account to preserve your workout history and preferences.
           </Text>
 
           <Text style={styles.subTitle}>3.3 User-Generated Content (UGC)</Text>
@@ -114,17 +109,17 @@ export default function PrivacyPolicyScreen() {
             When you upload or create content, we collect and store:
           </Text>
           <View style={styles.bulletList}>
-            <Text style={styles.bulletItem}>• <Text style={styles.bold}>Photos and videos</Text> - Media files you upload for posts or profile pictures</Text>
-            <Text style={styles.bulletItem}>• <Text style={styles.bold}>Post captions and text</Text> - Written content accompanying your posts</Text>
-            <Text style={styles.bulletItem}>• <Text style={styles.bold}>Comments</Text> - Text you post on other users' content</Text>
-            <Text style={styles.bulletItem}>• <Text style={styles.bold}>Workout cards</Text> - Fitness content you create and share</Text>
-            <Text style={styles.bulletItem}>• <Text style={styles.bold}>Direct messages</Text> - Private conversations with other users</Text>
+            <Text style={styles.bulletItem}>• Photos and videos - Media files you upload for posts or profile pictures</Text>
+            <Text style={styles.bulletItem}>• Post captions and text - Written content accompanying your posts</Text>
+            <Text style={styles.bulletItem}>• Comments - Text you post on other users' content</Text>
+            <Text style={styles.bulletItem}>• Workout cards - Fitness content you create and share</Text>
+            <Text style={styles.bulletItem}>• Direct messages - Private conversations with other users</Text>
           </View>
           <Text style={styles.paragraph}>
-            <Text style={styles.bold}>Storage:</Text> Media files are securely stored using Cloudinary, a trusted third-party cloud media management service. Text content is stored in our MongoDB database.
+            Storage: Media files are securely stored using Cloudinary, a trusted third-party cloud media management service. Text content is stored in our MongoDB database.
           </Text>
           <Text style={styles.paragraph}>
-            <Text style={styles.bold}>Purpose:</Text> To enable community features, content sharing, and social interactions within the app.
+            Purpose: To enable community features, content sharing, and social interactions within the app.
           </Text>
 
           <Text style={styles.subTitle}>3.4 Workout & Fitness Data</Text>
@@ -139,9 +134,10 @@ export default function PrivacyPolicyScreen() {
             <Text style={styles.bulletItem}>• Mood and workout category selections</Text>
             <Text style={styles.bulletItem}>• Saved and bookmarked workouts</Text>
             <Text style={styles.bulletItem}>• Workout duration and time spent</Text>
+            <Text style={styles.bulletItem}>• "Choose for me" and randomization feature usage</Text>
           </View>
           <Text style={styles.paragraph}>
-            <Text style={styles.bold}>Purpose:</Text> To track your fitness progress, provide personalized workout recommendations, and improve our workout content.
+            Purpose: To track your fitness progress, provide personalized workout recommendations, and improve our workout content.
           </Text>
 
           <Text style={styles.subTitle}>3.5 Analytics & Usage Data</Text>
@@ -160,10 +156,10 @@ export default function PrivacyPolicyScreen() {
             <Text style={styles.bulletItem}>• Search queries within the app</Text>
           </View>
           <Text style={styles.paragraph}>
-            <Text style={styles.bold}>Purpose:</Text> To improve app performance, identify and fix bugs, understand feature popularity, and enhance user experience. Analytics are processed internally and not shared with third-party analytics services.
+            Purpose: To improve app performance, identify and fix bugs, understand feature popularity, and enhance user experience. Analytics are processed internally and not shared with third-party analytics services.
           </Text>
           <Text style={styles.paragraph}>
-            <Text style={styles.bold}>Important:</Text> This data is NOT used for advertising, tracking across other apps/websites, or building advertising profiles.
+            Important: This data is NOT used for advertising, tracking across other apps/websites, or building advertising profiles.
           </Text>
 
           <Text style={styles.subTitle}>3.6 Social & Community Data</Text>
@@ -185,11 +181,11 @@ export default function PrivacyPolicyScreen() {
             Our app may request the following device permissions:
           </Text>
           <View style={styles.bulletList}>
-            <Text style={styles.bulletItem}>• <Text style={styles.bold}>Camera</Text> - To record photos and videos for posts and profile pictures</Text>
-            <Text style={styles.bulletItem}>• <Text style={styles.bold}>Microphone</Text> - To record audio when creating videos</Text>
-            <Text style={styles.bulletItem}>• <Text style={styles.bold}>Photo Library (Read)</Text> - To select existing photos/videos for upload</Text>
-            <Text style={styles.bulletItem}>• <Text style={styles.bold}>Photo Library (Write)</Text> - To save content to your device</Text>
-            <Text style={styles.bulletItem}>• <Text style={styles.bold}>Push Notifications</Text> - To send you relevant updates (optional)</Text>
+            <Text style={styles.bulletItem}>• Camera - To record photos and videos for posts and profile pictures</Text>
+            <Text style={styles.bulletItem}>• Microphone - To record audio when creating videos</Text>
+            <Text style={styles.bulletItem}>• Photo Library (Read) - To select existing photos/videos for upload</Text>
+            <Text style={styles.bulletItem}>• Photo Library (Write) - To save content to your device</Text>
+            <Text style={styles.bulletItem}>• Push Notifications - To send you relevant updates (optional)</Text>
           </View>
           <Text style={styles.paragraph}>
             You can revoke these permissions at any time through your device settings. Revoking permissions may limit certain app functionality.
@@ -217,6 +213,7 @@ export default function PrivacyPolicyScreen() {
             <Text style={styles.bulletItem}>• Recommend workouts based on your preferences and history</Text>
             <Text style={styles.bulletItem}>• Track and display your fitness progress</Text>
             <Text style={styles.bulletItem}>• Customize content based on your selected difficulty level</Text>
+            <Text style={styles.bulletItem}>• Power "Choose for me" and daily workout recommendations</Text>
           </View>
 
           <Text style={styles.subTitle}>4.3 App Improvement</Text>
@@ -235,13 +232,13 @@ export default function PrivacyPolicyScreen() {
           </View>
 
           <Text style={styles.subTitle}>4.5 What We Do NOT Use Your Data For</Text>
-          <View style={styles.highlightBox}>
-            <Text style={styles.highlightItem}>✗ We do NOT use your data for targeted advertising</Text>
-            <Text style={styles.highlightItem}>✗ We do NOT track you across other apps or websites</Text>
-            <Text style={styles.highlightItem}>✗ We do NOT sell your data to third parties</Text>
-            <Text style={styles.highlightItem}>✗ We do NOT share your data with data brokers</Text>
-            <Text style={styles.highlightItem}>✗ We do NOT build advertising profiles about you</Text>
-            <Text style={styles.highlightItem}>✗ We do NOT use your data for political profiling</Text>
+          <View style={styles.bulletList}>
+            <Text style={styles.bulletItem}>• We do NOT use your data for targeted advertising</Text>
+            <Text style={styles.bulletItem}>• We do NOT track you across other apps or websites</Text>
+            <Text style={styles.bulletItem}>• We do NOT sell your data to third parties</Text>
+            <Text style={styles.bulletItem}>• We do NOT share your data with data brokers</Text>
+            <Text style={styles.bulletItem}>• We do NOT build advertising profiles about you</Text>
+            <Text style={styles.bulletItem}>• We do NOT use your data for political profiling</Text>
           </View>
         </View>
 
@@ -251,9 +248,9 @@ export default function PrivacyPolicyScreen() {
           
           <Text style={styles.subTitle}>5.1 Where We Store Your Data</Text>
           <View style={styles.bulletList}>
-            <Text style={styles.bulletItem}>• <Text style={styles.bold}>Account and activity data</Text> - Stored in MongoDB Atlas (cloud database with enterprise-grade security)</Text>
-            <Text style={styles.bulletItem}>• <Text style={styles.bold}>Media files (photos/videos)</Text> - Stored on Cloudinary's secure cloud infrastructure</Text>
-            <Text style={styles.bulletItem}>• <Text style={styles.bold}>Local device data</Text> - Session tokens and preferences stored securely on your device</Text>
+            <Text style={styles.bulletItem}>• Account and activity data - Stored in MongoDB Atlas (cloud database with enterprise-grade security)</Text>
+            <Text style={styles.bulletItem}>• Media files (photos/videos) - Stored on Cloudinary's secure cloud infrastructure</Text>
+            <Text style={styles.bulletItem}>• Local device data - Session tokens and preferences stored securely on your device</Text>
           </View>
 
           <Text style={styles.subTitle}>5.2 Security Measures</Text>
@@ -261,12 +258,12 @@ export default function PrivacyPolicyScreen() {
             We implement robust security measures to protect your data:
           </Text>
           <View style={styles.bulletList}>
-            <Text style={styles.bulletItem}>• <Text style={styles.bold}>Password encryption</Text> - All passwords are hashed using bcrypt with salt</Text>
-            <Text style={styles.bulletItem}>• <Text style={styles.bold}>Authentication tokens</Text> - Secured with JWT encryption and regular expiration</Text>
-            <Text style={styles.bulletItem}>• <Text style={styles.bold}>Data in transit</Text> - All communications use HTTPS/TLS encryption</Text>
-            <Text style={styles.bulletItem}>• <Text style={styles.bold}>Data at rest</Text> - Database encryption for stored data</Text>
-            <Text style={styles.bulletItem}>• <Text style={styles.bold}>Access controls</Text> - Strict access controls for our team members</Text>
-            <Text style={styles.bulletItem}>• <Text style={styles.bold}>Regular audits</Text> - Security practices reviewed regularly</Text>
+            <Text style={styles.bulletItem}>• Password encryption - All passwords are hashed using bcrypt with salt</Text>
+            <Text style={styles.bulletItem}>• Authentication tokens - Secured with JWT encryption and regular expiration</Text>
+            <Text style={styles.bulletItem}>• Data in transit - All communications use HTTPS/TLS encryption</Text>
+            <Text style={styles.bulletItem}>• Data at rest - Database encryption for stored data</Text>
+            <Text style={styles.bulletItem}>• Access controls - Strict access controls for our team members</Text>
+            <Text style={styles.bulletItem}>• Regular audits - Security practices reviewed regularly</Text>
           </View>
 
           <Text style={styles.subTitle}>5.3 Data Retention</Text>
@@ -274,11 +271,11 @@ export default function PrivacyPolicyScreen() {
             We retain your data as follows:
           </Text>
           <View style={styles.bulletList}>
-            <Text style={styles.bulletItem}>• <Text style={styles.bold}>Account data</Text> - Retained while your account is active and for 30 days after deletion request</Text>
-            <Text style={styles.bulletItem}>• <Text style={styles.bold}>User-generated content</Text> - Retained until you delete it or delete your account</Text>
-            <Text style={styles.bulletItem}>• <Text style={styles.bold}>Analytics data</Text> - Retained for up to 24 months for trend analysis, then anonymized or deleted</Text>
-            <Text style={styles.bulletItem}>• <Text style={styles.bold}>Guest user data</Text> - Retained for 12 months of inactivity, then deleted</Text>
-            <Text style={styles.bulletItem}>• <Text style={styles.bold}>Backup data</Text> - Retained for up to 90 days for disaster recovery</Text>
+            <Text style={styles.bulletItem}>• Account data - Retained while your account is active and for 30 days after deletion request</Text>
+            <Text style={styles.bulletItem}>• User-generated content - Retained until you delete it or delete your account</Text>
+            <Text style={styles.bulletItem}>• Analytics data - Retained for up to 24 months for trend analysis, then anonymized or deleted</Text>
+            <Text style={styles.bulletItem}>• Guest user data - Retained for 12 months of inactivity, then deleted</Text>
+            <Text style={styles.bulletItem}>• Backup data - Retained for up to 90 days for disaster recovery</Text>
           </View>
         </View>
 
@@ -291,21 +288,21 @@ export default function PrivacyPolicyScreen() {
             We share data with the following service providers who help operate our app:
           </Text>
           <View style={styles.bulletList}>
-            <Text style={styles.bulletItem}>• <Text style={styles.bold}>Cloudinary</Text> - Media storage and delivery (photos and videos you upload)</Text>
-            <Text style={styles.bulletItem}>• <Text style={styles.bold}>MongoDB Atlas</Text> - Database hosting and management</Text>
-            <Text style={styles.bulletItem}>• <Text style={styles.bold}>Expo/React Native</Text> - App development and push notification infrastructure</Text>
+            <Text style={styles.bulletItem}>• Cloudinary - Media storage and delivery (photos and videos you upload)</Text>
+            <Text style={styles.bulletItem}>• MongoDB Atlas - Database hosting and management</Text>
+            <Text style={styles.bulletItem}>• Expo/React Native - App development and push notification infrastructure</Text>
           </View>
           <Text style={styles.paragraph}>
             These providers are contractually obligated to protect your data and use it only for the services they provide to us.
           </Text>
 
           <Text style={styles.subTitle}>6.2 What We Do NOT Share</Text>
-          <View style={styles.highlightBox}>
-            <Text style={styles.highlightItem}>✗ We do NOT sell your personal information</Text>
-            <Text style={styles.highlightItem}>✗ We do NOT share data with advertisers</Text>
-            <Text style={styles.highlightItem}>✗ We do NOT share data with data brokers</Text>
-            <Text style={styles.highlightItem}>✗ We do NOT share data for cross-app tracking</Text>
-            <Text style={styles.highlightItem}>✗ We do NOT share data with social media platforms for advertising</Text>
+          <View style={styles.bulletList}>
+            <Text style={styles.bulletItem}>• We do NOT sell your personal information</Text>
+            <Text style={styles.bulletItem}>• We do NOT share data with advertisers</Text>
+            <Text style={styles.bulletItem}>• We do NOT share data with data brokers</Text>
+            <Text style={styles.bulletItem}>• We do NOT share data for cross-app tracking</Text>
+            <Text style={styles.bulletItem}>• We do NOT share data with social media platforms for advertising</Text>
           </View>
 
           <Text style={styles.subTitle}>6.3 Legal Requirements</Text>
@@ -398,13 +395,14 @@ export default function PrivacyPolicyScreen() {
           </Text>
           <View style={styles.bulletList}>
             <Text style={styles.bulletItem}>• Workout reminders and fitness goal updates</Text>
+            <Text style={styles.bulletItem}>• Daily workout recommendations</Text>
             <Text style={styles.bulletItem}>• Social interactions (new likes, comments, followers)</Text>
             <Text style={styles.bulletItem}>• Direct message notifications</Text>
             <Text style={styles.bulletItem}>• Important account and security alerts</Text>
             <Text style={styles.bulletItem}>• New features and app updates (occasional)</Text>
           </View>
           <Text style={styles.paragraph}>
-            You can disable notifications at any time through your device settings (Settings → Notifications → MOOD) 
+            You can disable notifications at any time through your device settings (Settings - Notifications - MOOD) 
             or within the app's notification preferences. Disabling notifications will not affect core app functionality.
           </Text>
         </View>
@@ -440,7 +438,7 @@ export default function PrivacyPolicyScreen() {
             your data is protected in accordance with this Privacy Policy regardless of where it is processed.
           </Text>
           <Text style={styles.paragraph}>
-            <Text style={styles.bold}>For EU/EEA users:</Text> We process your data based on: (1) your consent, 
+            For EU/EEA users: We process your data based on: (1) your consent, 
             (2) contract performance, (3) legal obligations, or (4) legitimate interests. You have additional 
             rights under GDPR including the right to lodge a complaint with your local data protection authority.
           </Text>
@@ -453,10 +451,10 @@ export default function PrivacyPolicyScreen() {
             California residents have additional rights under the California Consumer Privacy Act:
           </Text>
           <View style={styles.bulletList}>
-            <Text style={styles.bulletItem}>• <Text style={styles.bold}>Right to Know</Text> - Request what personal information we collect and how we use it</Text>
-            <Text style={styles.bulletItem}>• <Text style={styles.bold}>Right to Delete</Text> - Request deletion of your personal information</Text>
-            <Text style={styles.bulletItem}>• <Text style={styles.bold}>Right to Opt-Out</Text> - We do not sell personal information, so this right does not apply</Text>
-            <Text style={styles.bulletItem}>• <Text style={styles.bold}>Right to Non-Discrimination</Text> - We will not discriminate against you for exercising your rights</Text>
+            <Text style={styles.bulletItem}>• Right to Know - Request what personal information we collect and how we use it</Text>
+            <Text style={styles.bulletItem}>• Right to Delete - Request deletion of your personal information</Text>
+            <Text style={styles.bulletItem}>• Right to Opt-Out - We do not sell personal information, so this right does not apply</Text>
+            <Text style={styles.bulletItem}>• Right to Non-Discrimination - We will not discriminate against you for exercising your rights</Text>
           </View>
           <Text style={styles.paragraph}>
             To exercise these rights, contact us at privacy@moodfitnessapp.com or use the in-app privacy settings.
@@ -470,7 +468,7 @@ export default function PrivacyPolicyScreen() {
             We may update this Privacy Policy from time to time. When we make changes:
           </Text>
           <View style={styles.bulletList}>
-            <Text style={styles.bulletItem}>• We will update the 'Last Updated' date at the top of this policy</Text>
+            <Text style={styles.bulletItem}>• We will update the "Last Updated" date at the top of this policy</Text>
             <Text style={styles.bulletItem}>• For material changes, we will notify you via in-app notification or email</Text>
             <Text style={styles.bulletItem}>• Continued use of the app after changes constitutes acceptance of the updated policy</Text>
           </View>
@@ -485,10 +483,8 @@ export default function PrivacyPolicyScreen() {
           <Text style={styles.paragraph}>
             If you have any questions, concerns, or requests regarding this Privacy Policy or our data practices, please contact us:
           </Text>
-          <View style={styles.contactBox}>
-            <Text style={styles.contactItem}>📧 Email: privacy@moodfitnessapp.com</Text>
-            <Text style={styles.contactItem}>📱 In-App: Settings → Help & Support → Privacy Inquiry</Text>
-          </View>
+          <Text style={styles.contactText}>Email: privacy@moodfitnessapp.com</Text>
+          <Text style={styles.contactText}>In-App: Settings - Help & Support - Privacy Inquiry</Text>
           <Text style={styles.paragraph}>
             We aim to respond to all privacy-related inquiries within 30 days.
           </Text>
@@ -497,14 +493,14 @@ export default function PrivacyPolicyScreen() {
         {/* Summary */}
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>15. Privacy at a Glance</Text>
-          <View style={styles.summaryBox}>
-            <Text style={styles.summaryTitle}>Quick Summary</Text>
-            <Text style={styles.summaryItem}>📊 <Text style={styles.bold}>What we collect:</Text> Account info, fitness data, usage analytics, user-generated content</Text>
-            <Text style={styles.summaryItem}>🎯 <Text style={styles.bold}>Why:</Text> To provide fitness services, personalize your experience, and improve the app</Text>
-            <Text style={styles.summaryItem}>🔒 <Text style={styles.bold}>Security:</Text> Industry-standard encryption, secure cloud storage, regular audits</Text>
-            <Text style={styles.summaryItem}>🚫 <Text style={styles.bold}>We don't:</Text> Sell data, use ads, track across apps, share with data brokers</Text>
-            <Text style={styles.summaryItem}>✅ <Text style={styles.bold}>Your rights:</Text> Access, correct, delete your data; control notifications; export data</Text>
-            <Text style={styles.summaryItem}>👤 <Text style={styles.bold}>Guest users:</Text> We track usage to improve the app; data is deleted after 12 months of inactivity</Text>
+          <Text style={styles.summarySubtitle}>Quick Summary</Text>
+          <View style={styles.bulletList}>
+            <Text style={styles.bulletItem}>• What we collect: Account info, fitness data, usage analytics, user-generated content</Text>
+            <Text style={styles.bulletItem}>• Why: To provide fitness services, personalize your experience, and improve the app</Text>
+            <Text style={styles.bulletItem}>• Security: Industry-standard encryption, secure cloud storage, regular audits</Text>
+            <Text style={styles.bulletItem}>• We don't: Sell data, use ads, track across apps, share with data brokers</Text>
+            <Text style={styles.bulletItem}>• Your rights: Access, correct, delete your data; control notifications; export data</Text>
+            <Text style={styles.bulletItem}>• Guest users: We track usage to improve the app; data is deleted after 12 months of inactivity</Text>
           </View>
         </View>
 
@@ -526,19 +522,19 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
     paddingVertical: 12,
     borderBottomWidth: 1,
-    borderBottomColor: 'rgba(255, 215, 0, 0.1)',
+    borderBottomColor: 'rgba(255, 255, 255, 0.1)',
   },
   backButton: {
     width: 40,
     height: 40,
     borderRadius: 20,
-    backgroundColor: 'rgba(255, 215, 0, 0.1)',
+    backgroundColor: 'rgba(255, 255, 255, 0.1)',
     justifyContent: 'center',
     alignItems: 'center',
   },
   headerTitle: {
     fontSize: 18,
-    fontWeight: '700',
+    fontWeight: '600',
     color: '#fff',
   },
   headerSpacer: {
@@ -552,12 +548,12 @@ const styles = StyleSheet.create({
   },
   lastUpdated: {
     fontSize: 12,
-    color: '#888',
+    color: '#666',
     textAlign: 'center',
   },
   effectiveDate: {
     fontSize: 12,
-    color: '#888',
+    color: '#666',
     marginBottom: 24,
     textAlign: 'center',
   },
@@ -565,85 +561,45 @@ const styles = StyleSheet.create({
     marginBottom: 28,
   },
   sectionTitle: {
-    fontSize: 18,
-    fontWeight: '700',
-    color: '#FFD700',
+    fontSize: 17,
+    fontWeight: '600',
+    color: '#fff',
     marginBottom: 12,
   },
   subTitle: {
     fontSize: 15,
     fontWeight: '600',
-    color: '#fff',
+    color: '#ccc',
     marginTop: 16,
     marginBottom: 8,
   },
   paragraph: {
     fontSize: 14,
     lineHeight: 22,
-    color: '#ccc',
+    color: '#999',
     marginBottom: 8,
   },
-  bold: {
-    fontWeight: '600',
-    color: '#fff',
-  },
   bulletList: {
-    marginLeft: 8,
+    marginLeft: 4,
     marginTop: 4,
     marginBottom: 8,
   },
   bulletItem: {
     fontSize: 14,
     lineHeight: 24,
-    color: '#aaa',
-    marginBottom: 4,
+    color: '#888',
+    marginBottom: 2,
   },
-  highlightBox: {
-    backgroundColor: 'rgba(255, 215, 0, 0.1)',
-    borderRadius: 12,
-    padding: 16,
-    marginTop: 8,
-    marginBottom: 8,
-    borderWidth: 1,
-    borderColor: 'rgba(255, 215, 0, 0.2)',
-  },
-  highlightItem: {
+  contactText: {
     fontSize: 14,
-    lineHeight: 26,
-    color: '#FFD700',
-    fontWeight: '500',
-  },
-  contactBox: {
-    backgroundColor: 'rgba(255, 255, 255, 0.05)',
-    borderRadius: 12,
-    padding: 16,
-    marginTop: 8,
-    marginBottom: 8,
-  },
-  contactItem: {
-    fontSize: 14,
-    lineHeight: 28,
-    color: '#fff',
-  },
-  summaryBox: {
-    backgroundColor: 'rgba(255, 215, 0, 0.05)',
-    borderRadius: 12,
-    padding: 16,
-    marginTop: 8,
-    borderWidth: 1,
-    borderColor: 'rgba(255, 215, 0, 0.15)',
-  },
-  summaryTitle: {
-    fontSize: 16,
-    fontWeight: '700',
-    color: '#FFD700',
-    marginBottom: 12,
-  },
-  summaryItem: {
-    fontSize: 14,
-    lineHeight: 26,
     color: '#ccc',
     marginBottom: 4,
+  },
+  summarySubtitle: {
+    fontSize: 15,
+    fontWeight: '600',
+    color: '#ccc',
+    marginBottom: 12,
   },
   bottomPadding: {
     height: 40,
