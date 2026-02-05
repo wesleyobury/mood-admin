@@ -100,6 +100,7 @@ export default function PostDetail() {
 
       if (response.ok) {
         const data = await response.json();
+        console.log('Post detail fetched:', data.id, 'workout_data:', data.workout_data ? `${data.workout_data.workouts?.length || 0} exercises` : 'none');
         setPost(data);
       } else {
         console.error('Failed to fetch post:', response.status);
