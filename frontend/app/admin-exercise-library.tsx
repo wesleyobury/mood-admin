@@ -20,7 +20,7 @@ import * as ImagePicker from 'expo-image-picker';
 import Constants from 'expo-constants';
 import { useAuth } from '../contexts/AuthContext';
 
-const API_URL = Constants.expoConfig?.extra?.EXPO_BACKEND_URL || 'https://store-approval.preview.emergentagent.com';
+const API_URL = Constants.expoConfig?.extra?.EXPO_BACKEND_URL || 'https://fitness-ui-fix.preview.emergentagent.com';
 
 interface Exercise {
   _id: string;
