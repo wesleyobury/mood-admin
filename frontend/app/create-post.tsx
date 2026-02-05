@@ -32,6 +32,7 @@ import { Analytics } from '../utils/analytics';
 import ImageCropModal from '../components/ImageCropModal';
 import GuestPromptModal from '../components/GuestPromptModal';
 import VideoFrameSelector from '../components/VideoFrameSelector';
+import InstagramShareModal from '../components/InstagramShareModal';
 
 const API_URL = process.env.EXPO_PUBLIC_BACKEND_URL || Constants.expoConfig?.extra?.EXPO_PUBLIC_BACKEND_URL || '';
 const SCREEN_WIDTH = Dimensions.get('window').width;
