@@ -116,6 +116,7 @@ export default function CreatePost() {
   // Transparent card ref for Instagram export
   const transparentCardRef = useRef(null);
   const [isExportingToInstagram, setIsExportingToInstagram] = useState(false);
+  const [showInstagramShareModal, setShowInstagramShareModal] = useState(false);
   
   // Saved achievements state
   const [savedAchievements, setSavedAchievements] = useState<any[]>([]);
