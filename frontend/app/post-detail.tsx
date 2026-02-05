@@ -644,6 +644,40 @@ const styles = StyleSheet.create({
   actionButton: {
     padding: 4,
   },
+  tryWorkoutContainer: {
+    paddingHorizontal: 16,
+    paddingVertical: 12,
+  },
+  tryWorkoutButton: {
+    borderRadius: 12,
+    overflow: 'hidden',
+    borderWidth: 1,
+    borderColor: 'rgba(255, 215, 0, 0.3)',
+  },
+  tryWorkoutGradient: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingVertical: 14,
+    paddingHorizontal: 20,
+    gap: 10,
+  },
+  tryWorkoutText: {
+    fontSize: 15,
+    fontWeight: '600',
+    color: '#FFD700',
+  },
+  workoutCountBadge: {
+    backgroundColor: 'rgba(255, 215, 0, 0.2)',
+    paddingHorizontal: 8,
+    paddingVertical: 3,
+    borderRadius: 10,
+  },
+  workoutCountText: {
+    fontSize: 11,
+    color: '#FFD700',
+    fontWeight: '500',
+  },
   likesText: {
     fontSize: 14,
     fontWeight: '600',
