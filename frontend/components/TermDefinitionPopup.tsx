@@ -7,10 +7,12 @@ import {
   Modal,
   Pressable,
   Dimensions,
+  Platform,
+  ScrollView,
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
-const { width } = Dimensions.get('window');
+const { width, height } = Dimensions.get('window');
 
 // Term definitions
 export const TERM_DEFINITIONS: Record<string, { title: string; definition: string; icon: keyof typeof Ionicons.glyphMap }> = {
