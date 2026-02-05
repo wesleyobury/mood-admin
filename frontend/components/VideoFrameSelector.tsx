@@ -69,11 +69,18 @@ const VideoFrameSelector: React.FC<VideoFrameSelectorProps> = memo(({
   const [isCapturing, setIsCapturing] = useState(false);
   const [currentFrameIndex, setCurrentFrameIndex] = useState(0);
   const [imageSize, setImageSize] = useState({ width: 1080, height: 1920 });
+  
+  // Calculate the display dimensions for the full video frame
+  // Video fills width, height is proportional to maintain aspect ratio
+  const videoAspectRatio = imageSize.height / imageSize.width;
+  const displayWidth = SCREEN_WIDTH - 32; // Full width with padding
+  const displayHeight = displayWidth * videoAspectRatio; // Maintain video aspect ratio
 
   // Reanimated shared values for smooth gestures
   const scrubberX = useSharedValue(FILMSTRIP_WIDTH / 2);
   
-  // Image transform - start zoomed out to show full frame
+  // Image transform - start at scale where the video fits the crop window
+  // We want the video to be draggable/zoomable relative to the fixed crop window
   const imageScale = useSharedValue(1);
   const imageTranslateX = useSharedValue(0);
   const imageTranslateY = useSharedValue(0);
@@ -82,12 +89,6 @@ const VideoFrameSelector: React.FC<VideoFrameSelectorProps> = memo(({
   const savedScale = useSharedValue(1);
   const savedTranslateX = useSharedValue(0);
   const savedTranslateY = useSharedValue(0);
-  const focalX = useSharedValue(0);
-  const focalY = useSharedValue(0);
-
-  // Calculate crop box dimensions based on preview size
-  const cropBoxWidth = PREVIEW_WIDTH * 0.85;
-  const cropBoxHeight = cropBoxWidth / CROP_ASPECT_RATIO;
 
   // Update frame index from scrubber position
   const updateFrameFromScrubber = useCallback((x: number) => {
