@@ -1,33 +1,45 @@
 import React, { useEffect, useRef, useMemo } from 'react';
 import { View, Text, StyleSheet, Dimensions, Animated, Easing } from 'react-native';
-import Svg, { Circle, G } from 'react-native-svg';
-import { LinearGradient } from 'expo-linear-gradient';
+import Svg, { Circle, G, Defs, LinearGradient, Stop } from 'react-native-svg';
+import { LinearGradient as ExpoLinearGradient } from 'expo-linear-gradient';
 
 const { width } = Dimensions.get('window');
 const CARD_WIDTH = width * 0.88;
 const CARD_HEIGHT = CARD_WIDTH * 1.25;
 
-// Ring configuration
+// Ring configuration - ultra sleek
 const RING_SIZE = 130;
 const RING_CENTER = RING_SIZE / 2;
 
-// Ring radii (from outer to inner) - sleeker with thinner strokes
+// Ring radii (from outer to inner)
 const CALORIES_RING_RADIUS = 56;
-const MINUTES_RING_RADIUS = 44;
-const INTENSITY_RING_RADIUS = 32;
-const RING_STROKE_WIDTH = 6; // Sleeker, thinner rings
+const MINUTES_RING_RADIUS = 45;
+const INTENSITY_RING_RADIUS = 34;
+const RING_STROKE_WIDTH = 4; // Ultra thin sleek rings
 
 // Default targets
 const DEFAULT_CALORIE_TARGET = 500;
 const DEFAULT_MINUTE_TARGET = 60;
 
-// Colors
+// Colors - enhanced silver for visibility
 const COLORS = {
-  intensity: '#FFD700',    // Gold
-  calories: '#C0C0C0',     // Silver
-  minutes: '#FFFFFF',      // White
-  trackBg: 'rgba(255, 255, 255, 0.08)',
-  trackBgTransparent: 'rgba(255, 255, 255, 0.12)',
+  // Intensity - Gold gradient
+  intensityStart: '#FFD700',
+  intensityEnd: '#FFA500',
+  intensityGlow: '#FFE55C',
+  
+  // Calories - Bright Silver gradient  
+  caloriesStart: '#E8E8E8',
+  caloriesEnd: '#A8A8A8',
+  caloriesGlow: '#FFFFFF',
+  
+  // Minutes - Pure White gradient
+  minutesStart: '#FFFFFF',
+  minutesEnd: '#D0D0D0',
+  minutesGlow: '#FFFFFF',
+  
+  trackBg: 'rgba(255, 255, 255, 0.06)',
+  trackBgTransparent: 'rgba(255, 255, 255, 0.1)',
 };
 
 // Motivational phrases per mood category
@@ -248,7 +260,7 @@ export default function WorkoutStatsCard({
     ).start();
   }, []);
 
-  // Render the three concentric rings
+  // Render the three concentric rings with gradients and gloss
   const renderRings = (isTransparent: boolean = false) => {
     const calorieRing = getStrokeDasharray(calorieProgress, CALORIES_RING_RADIUS);
     const minuteRing = getStrokeDasharray(minuteProgress, MINUTES_RING_RADIUS);
@@ -257,6 +269,52 @@ export default function WorkoutStatsCard({
 
     return (
       <Svg width={RING_SIZE} height={RING_SIZE} viewBox={`0 0 ${RING_SIZE} ${RING_SIZE}`}>
+        {/* Gradient definitions */}
+        <Defs>
+          {/* Calories gradient - Silver with shine */}
+          <LinearGradient id="caloriesGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <Stop offset="0%" stopColor={COLORS.caloriesGlow} stopOpacity="1" />
+            <Stop offset="30%" stopColor={COLORS.caloriesStart} stopOpacity="1" />
+            <Stop offset="70%" stopColor={COLORS.caloriesEnd} stopOpacity="1" />
+            <Stop offset="100%" stopColor={COLORS.caloriesStart} stopOpacity="1" />
+          </LinearGradient>
+          
+          {/* Minutes gradient - White with shimmer */}
+          <LinearGradient id="minutesGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <Stop offset="0%" stopColor={COLORS.minutesGlow} stopOpacity="1" />
+            <Stop offset="40%" stopColor={COLORS.minutesStart} stopOpacity="1" />
+            <Stop offset="80%" stopColor={COLORS.minutesEnd} stopOpacity="1" />
+            <Stop offset="100%" stopColor={COLORS.minutesGlow} stopOpacity="1" />
+          </LinearGradient>
+          
+          {/* Intensity gradient - Gold with glow */}
+          <LinearGradient id="intensityGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <Stop offset="0%" stopColor={COLORS.intensityGlow} stopOpacity="1" />
+            <Stop offset="35%" stopColor={COLORS.intensityStart} stopOpacity="1" />
+            <Stop offset="70%" stopColor={COLORS.intensityEnd} stopOpacity="1" />
+            <Stop offset="100%" stopColor={COLORS.intensityGlow} stopOpacity="1" />
+          </LinearGradient>
+          
+          {/* Gloss overlay gradients */}
+          <LinearGradient id="glossCalories" x1="0%" y1="0%" x2="0%" y2="100%">
+            <Stop offset="0%" stopColor="#FFFFFF" stopOpacity="0.5" />
+            <Stop offset="50%" stopColor="#FFFFFF" stopOpacity="0.1" />
+            <Stop offset="100%" stopColor="#FFFFFF" stopOpacity="0.3" />
+          </LinearGradient>
+          
+          <LinearGradient id="glossMinutes" x1="0%" y1="0%" x2="0%" y2="100%">
+            <Stop offset="0%" stopColor="#FFFFFF" stopOpacity="0.6" />
+            <Stop offset="50%" stopColor="#FFFFFF" stopOpacity="0.15" />
+            <Stop offset="100%" stopColor="#FFFFFF" stopOpacity="0.4" />
+          </LinearGradient>
+          
+          <LinearGradient id="glossIntensity" x1="0%" y1="0%" x2="0%" y2="100%">
+            <Stop offset="0%" stopColor="#FFFFFF" stopOpacity="0.4" />
+            <Stop offset="50%" stopColor="#FFD700" stopOpacity="0.1" />
+            <Stop offset="100%" stopColor="#FFFFFF" stopOpacity="0.3" />
+          </LinearGradient>
+        </Defs>
+
         {/* Rotate entire group so 0 degrees is at 12 o'clock, counterclockwise */}
         <G rotation="-90" origin={`${RING_CENTER}, ${RING_CENTER}`}>
           {/* Background tracks */}
@@ -285,13 +343,13 @@ export default function WorkoutStatsCard({
             fill="none"
           />
           
-          {/* Progress rings - counterclockwise (scale -1 on X axis) */}
-          {/* Calories ring - outer - Silver */}
+          {/* Progress rings with gradients - counterclockwise */}
+          {/* Calories ring - outer - Silver gradient */}
           <Circle
             cx={RING_CENTER}
             cy={RING_CENTER}
             r={CALORIES_RING_RADIUS}
-            stroke={COLORS.calories}
+            stroke="url(#caloriesGradient)"
             strokeWidth={RING_STROKE_WIDTH}
             fill="none"
             strokeDasharray={calorieRing.dashArray}
@@ -299,12 +357,26 @@ export default function WorkoutStatsCard({
             strokeLinecap="round"
             transform={`scale(-1, 1) translate(-${RING_SIZE}, 0)`}
           />
-          {/* Minutes ring - middle - White */}
+          {/* Calories gloss overlay */}
+          <Circle
+            cx={RING_CENTER}
+            cy={RING_CENTER}
+            r={CALORIES_RING_RADIUS}
+            stroke="url(#glossCalories)"
+            strokeWidth={RING_STROKE_WIDTH * 0.5}
+            fill="none"
+            strokeDasharray={calorieRing.dashArray}
+            strokeDashoffset={calorieRing.dashOffset}
+            strokeLinecap="round"
+            transform={`scale(-1, 1) translate(-${RING_SIZE}, 0)`}
+          />
+          
+          {/* Minutes ring - middle - White gradient */}
           <Circle
             cx={RING_CENTER}
             cy={RING_CENTER}
             r={MINUTES_RING_RADIUS}
-            stroke={COLORS.minutes}
+            stroke="url(#minutesGradient)"
             strokeWidth={RING_STROKE_WIDTH}
             fill="none"
             strokeDasharray={minuteRing.dashArray}
@@ -312,13 +384,40 @@ export default function WorkoutStatsCard({
             strokeLinecap="round"
             transform={`scale(-1, 1) translate(-${RING_SIZE}, 0)`}
           />
-          {/* Intensity ring - inner - Gold */}
+          {/* Minutes gloss overlay */}
+          <Circle
+            cx={RING_CENTER}
+            cy={RING_CENTER}
+            r={MINUTES_RING_RADIUS}
+            stroke="url(#glossMinutes)"
+            strokeWidth={RING_STROKE_WIDTH * 0.4}
+            fill="none"
+            strokeDasharray={minuteRing.dashArray}
+            strokeDashoffset={minuteRing.dashOffset}
+            strokeLinecap="round"
+            transform={`scale(-1, 1) translate(-${RING_SIZE}, 0)`}
+          />
+          
+          {/* Intensity ring - inner - Gold gradient */}
           <Circle
             cx={RING_CENTER}
             cy={RING_CENTER}
             r={INTENSITY_RING_RADIUS}
-            stroke={COLORS.intensity}
+            stroke="url(#intensityGradient)"
             strokeWidth={RING_STROKE_WIDTH}
+            fill="none"
+            strokeDasharray={intensityRing.dashArray}
+            strokeDashoffset={intensityRing.dashOffset}
+            strokeLinecap="round"
+            transform={`scale(-1, 1) translate(-${RING_SIZE}, 0)`}
+          />
+          {/* Intensity gloss overlay */}
+          <Circle
+            cx={RING_CENTER}
+            cy={RING_CENTER}
+            r={INTENSITY_RING_RADIUS}
+            stroke="url(#glossIntensity)"
+            strokeWidth={RING_STROKE_WIDTH * 0.4}
             fill="none"
             strokeDasharray={intensityRing.dashArray}
             strokeDashoffset={intensityRing.dashOffset}
@@ -356,17 +455,17 @@ export default function WorkoutStatsCard({
           {/* Right side: Data stacked */}
           <View style={styles.transparentDataSection}>
             <View style={styles.transparentDataRow}>
-              <View style={[styles.transparentDataDot, { backgroundColor: COLORS.calories }]} />
+              <View style={[styles.transparentDataDot, { backgroundColor: COLORS.caloriesStart }]} />
               <Text style={styles.transparentDataValue}>{estimatedCalories}</Text>
               <Text style={styles.transparentDataLabel}>cal</Text>
             </View>
             <View style={styles.transparentDataRow}>
-              <View style={[styles.transparentDataDot, { backgroundColor: COLORS.minutes }]} />
+              <View style={[styles.transparentDataDot, { backgroundColor: COLORS.minutesStart }]} />
               <Text style={styles.transparentDataValue}>{displayDuration}</Text>
               <Text style={styles.transparentDataLabel}>min</Text>
             </View>
             <View style={styles.transparentDataRow}>
-              <View style={[styles.transparentDataDot, { backgroundColor: COLORS.intensity }]} />
+              <View style={[styles.transparentDataDot, { backgroundColor: COLORS.intensityStart }]} />
               <Text style={styles.transparentDataValue}>{Math.round(intensityValue * 100)}%</Text>
               <Text style={styles.transparentDataLabel}>intensity</Text>
             </View>
@@ -402,7 +501,7 @@ export default function WorkoutStatsCard({
   return (
     <Animated.View style={[styles.container, { width: CARD_WIDTH, height: CARD_HEIGHT, opacity: fadeAnim }]}>
       <View style={styles.innerContainer}>
-        <LinearGradient
+        <ExpoLinearGradient
           colors={['rgba(255, 215, 0, 0.05)', 'rgba(255, 215, 0, 0.01)', 'transparent']}
           style={styles.radialGradient}
           start={{ x: 0.5, y: 0 }}
@@ -441,15 +540,15 @@ export default function WorkoutStatsCard({
         {/* Legend */}
         <View style={styles.legendRow}>
           <View style={styles.legendItem}>
-            <View style={[styles.legendDot, { backgroundColor: COLORS.calories }]} />
+            <View style={[styles.legendDot, { backgroundColor: COLORS.caloriesStart }]} />
             <Text style={styles.legendText}>Cal</Text>
           </View>
           <View style={styles.legendItem}>
-            <View style={[styles.legendDot, { backgroundColor: COLORS.minutes }]} />
+            <View style={[styles.legendDot, { backgroundColor: COLORS.minutesStart }]} />
             <Text style={styles.legendText}>Min</Text>
           </View>
           <View style={styles.legendItem}>
-            <View style={[styles.legendDot, { backgroundColor: COLORS.intensity }]} />
+            <View style={[styles.legendDot, { backgroundColor: COLORS.intensityStart }]} />
             <Text style={styles.legendText}>Intensity</Text>
           </View>
         </View>
@@ -554,7 +653,7 @@ const styles = StyleSheet.create({
   centerCalorieValue: {
     fontSize: 24,
     fontWeight: '300',
-    color: COLORS.calories,
+    color: '#E8E8E8',
     letterSpacing: -1,
   },
   centerCalorieLabel: {
@@ -574,7 +673,7 @@ const styles = StyleSheet.create({
   intensityValue: {
     fontSize: 18,
     fontWeight: '400',
-    color: COLORS.intensity,
+    color: '#FFD700',
   },
   
   legendRow: {
