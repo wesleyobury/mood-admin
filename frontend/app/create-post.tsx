@@ -1556,19 +1556,12 @@ export default function CreatePost() {
                 <View style={styles.actionButtonsRow}>
                   {/* Instagram Share Button */}
                   <TouchableOpacity 
-                    onPress={handleShareToInstagram} 
-                    disabled={isExportingToInstagram}
+                    onPress={() => setShowInstagramShareModal(true)} 
                     style={styles.instagramButton}
                     activeOpacity={0.7}
                   >
-                    {isExportingToInstagram ? (
-                      <ActivityIndicator size="small" color="#fff" />
-                    ) : (
-                      <>
-                        <Ionicons name="logo-instagram" size={18} color="#fff" />
-                        <Text style={styles.instagramButtonText}>Stories</Text>
-                      </>
-                    )}
+                    <Ionicons name="logo-instagram" size={18} color="#fff" />
+                    <Text style={styles.instagramButtonText}>Stories</Text>
                   </TouchableOpacity>
                   
                   {/* Save Button */}
