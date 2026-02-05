@@ -77,6 +77,30 @@ export default function PostDetail() {
   const [guestAction, setGuestAction] = useState('');
   const [showComments, setShowComments] = useState(false);
   const [tryWorkoutAnim] = useState(new Animated.Value(1));
+  const [carouselIndex, setCarouselIndex] = useState(0);
+  
+  // Shimmer animation for try workout button
+  const shimmerAnim = useRef(new Animated.Value(0)).current;
+  
+  // Start continuous shimmer animation
+  useEffect(() => {
+    const shimmerLoop = Animated.loop(
+      Animated.sequence([
+        Animated.timing(shimmerAnim, {
+          toValue: 1,
+          duration: 3000,
+          useNativeDriver: true,
+        }),
+        Animated.timing(shimmerAnim, {
+          toValue: 0,
+          duration: 0,
+          useNativeDriver: true,
+        }),
+      ])
+    );
+    shimmerLoop.start();
+    return () => shimmerLoop.stop();
+  }, [shimmerAnim]);
 
   // Check if current user is the post author
   const isOwnPost = post && user && post.author.id === user.id;
