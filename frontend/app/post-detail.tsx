@@ -284,12 +284,6 @@ export default function PostDetail() {
   const handleTryWorkout = () => {
     if (!post?.workout_data?.workouts) return;
     
-    // Animate button press
-    Animated.sequence([
-      Animated.timing(tryWorkoutAnim, { toValue: 0.95, duration: 100, useNativeDriver: true }),
-      Animated.timing(tryWorkoutAnim, { toValue: 1, duration: 100, useNativeDriver: true }),
-    ]).start();
-    
     // Clear cart and add all workouts from this post
     clearCart();
     
