@@ -10,6 +10,7 @@ import {
 import { Ionicons } from '@expo/vector-icons';
 import { useRouter } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import BackButton from '../components/BackButton';
 
 export default function CommunityGuidelinesScreen() {
   const router = useRouter();
@@ -19,9 +20,7 @@ export default function CommunityGuidelinesScreen() {
     <SafeAreaView style={[styles.container, { paddingTop: insets.top }]}>
       {/* Header */}
       <View style={styles.header}>
-        <TouchableOpacity style={styles.backButton} onPress={() => router.back()}>
-          <Ionicons name="chevron-back" size={24} color="#fff" />
-        </TouchableOpacity>
+        <BackButton />
         <Text style={styles.headerTitle}>Community Guidelines</Text>
         <View style={styles.headerSpacer} />
       </View>
