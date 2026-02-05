@@ -531,8 +531,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
   },
   previewContainer: { 
-    width: PREVIEW_WIDTH, 
-    height: PREVIEW_HEIGHT, 
+    width: SCREEN_WIDTH - 32, 
     backgroundColor: '#0a0a0a',
     borderRadius: 8,
     overflow: 'hidden',
@@ -540,10 +539,10 @@ const styles = StyleSheet.create({
   gestureArea: {
     width: '100%',
     height: '100%',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   imageWrapper: { 
-    width: '100%', 
-    height: '100%',
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -561,10 +560,11 @@ const styles = StyleSheet.create({
   },
   middleRow: {
     flexDirection: 'row',
+    height: CROP_HEIGHT,
   },
   cropWindow: {
-    borderWidth: 1,
-    borderColor: 'rgba(255, 215, 0, 0.5)',
+    borderWidth: 2,
+    borderColor: 'rgba(255, 215, 0, 0.7)',
     backgroundColor: 'transparent',
   },
   corner: { 
