@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   View,
   Text,
@@ -13,12 +13,14 @@ import {
   TextInput,
   KeyboardAvoidingView,
   Platform,
+  Switch,
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { useRouter } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import Constants from 'expo-constants';
 import { useAuth } from '../contexts/AuthContext';
+import { isAnalyticsOptedOut, setAnalyticsOptOut } from '../utils/analytics';
 
 const API_URL = process.env.EXPO_PUBLIC_BACKEND_URL || Constants.expoConfig?.extra?.EXPO_PUBLIC_BACKEND_URL || '';
 const SUPPORT_EMAIL = 'wesleyogsbury@gmail.com';
@@ -37,6 +39,9 @@ export default function Settings() {
   const [isDeleting, setIsDeleting] = useState(false);
   const [showTerms, setShowTerms] = useState(false);
   
+  // Analytics opt-out state
+  const [analyticsEnabled, setAnalyticsEnabled] = useState(true);
+  
   // Credentials modal state
   const [showCredentialsModal, setShowCredentialsModal] = useState(false);
   const [currentPassword, setCurrentPassword] = useState('');
@@ -47,6 +52,21 @@ export default function Settings() {
   const [isUpdating, setIsUpdating] = useState(false);
   const [showCurrentPassword, setShowCurrentPassword] = useState(false);
   const [showNewPassword, setShowNewPassword] = useState(false);
+
+  // Load analytics opt-out preference on mount
+  useEffect(() => {
+    const loadAnalyticsPreference = async () => {
+      const optedOut = await isAnalyticsOptedOut();
+      setAnalyticsEnabled(!optedOut);
+    };
+    loadAnalyticsPreference();
+  }, []);
+
+  // Handle analytics toggle
+  const handleAnalyticsToggle = async (enabled: boolean) => {
+    setAnalyticsEnabled(enabled);
+    await setAnalyticsOptOut(!enabled);
+  };
 
   const handleUpdateCredentials = async () => {
     // Validation
