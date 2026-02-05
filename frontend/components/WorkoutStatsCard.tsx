@@ -8,18 +8,27 @@ const CARD_WIDTH = width * 0.88;
 const CARD_HEIGHT = CARD_WIDTH * 1.25;
 
 // Ring configuration
-const RING_SIZE = 140;
+const RING_SIZE = 130;
 const RING_CENTER = RING_SIZE / 2;
 
-// Ring radii (from outer to inner)
-const CALORIES_RING_RADIUS = 62;
-const MINUTES_RING_RADIUS = 48;
-const INTENSITY_RING_RADIUS = 34;
-const RING_STROKE_WIDTH = 10;
+// Ring radii (from outer to inner) - sleeker with thinner strokes
+const CALORIES_RING_RADIUS = 56;
+const MINUTES_RING_RADIUS = 44;
+const INTENSITY_RING_RADIUS = 32;
+const RING_STROKE_WIDTH = 6; // Sleeker, thinner rings
 
 // Default targets
 const DEFAULT_CALORIE_TARGET = 500;
 const DEFAULT_MINUTE_TARGET = 60;
+
+// Colors
+const COLORS = {
+  intensity: '#FFD700',    // Gold
+  calories: '#C0C0C0',     // Silver
+  minutes: '#FFFFFF',      // White
+  trackBg: 'rgba(255, 255, 255, 0.08)',
+  trackBgTransparent: 'rgba(255, 255, 255, 0.12)',
+};
 
 // Motivational phrases per mood category
 const MOOD_PHRASES: { [key: string]: string[] } = {
@@ -88,8 +97,7 @@ interface WorkoutStatsCardProps {
 
 // Calculate intensity percentage based on workout characteristics
 function calculateIntensity(workouts: any[], moodCategory: string, totalDuration: number): number {
-  // Base intensity from mood category
-  let baseIntensity = 0.55; // default mixed
+  let baseIntensity = 0.55;
   const lowerCategory = moodCategory.toLowerCase();
   
   for (const [keyword, value] of Object.entries(INTENSITY_PRESETS)) {
@@ -99,13 +107,9 @@ function calculateIntensity(workouts: any[], moodCategory: string, totalDuration
     }
   }
   
-  // Adjust based on workout count (more exercises = higher density)
   const exerciseBonus = Math.min(workouts.length * 0.02, 0.10);
-  
-  // Adjust based on duration (longer workouts at same intensity = slightly higher)
   const durationBonus = totalDuration > 45 ? 0.05 : totalDuration > 30 ? 0.03 : 0;
   
-  // Check for compound exercises (higher intensity)
   const compoundKeywords = ['squat', 'deadlift', 'press', 'row', 'lunge', 'clean', 'snatch'];
   const hasCompounds = workouts.some(w => 
     compoundKeywords.some(k => 
@@ -114,23 +118,20 @@ function calculateIntensity(workouts: any[], moodCategory: string, totalDuration
   );
   const compoundBonus = hasCompounds ? 0.05 : 0;
   
-  const finalIntensity = Math.min(baseIntensity + exerciseBonus + durationBonus + compoundBonus, 0.95);
-  return finalIntensity;
+  return Math.min(baseIntensity + exerciseBonus + durationBonus + compoundBonus, 0.95);
 }
 
-// Calculate ring progress (counterclockwise)
+// Calculate ring stroke dasharray for counterclockwise from 12 o'clock
 function getStrokeDasharray(progress: number, radius: number): { dashArray: string; dashOffset: number } {
   const circumference = 2 * Math.PI * radius;
-  const progressLength = circumference * Math.min(progress, 1);
-  // Counterclockwise: start from top, go left
+  const clampedProgress = Math.min(Math.max(progress, 0), 1);
+  const progressLength = circumference * clampedProgress;
+  
   return {
     dashArray: `${progressLength} ${circumference}`,
-    dashOffset: circumference * 0.25, // Start from top
+    dashOffset: 0,
   };
 }
-
-// Animated Circle component
-const AnimatedCircle = Animated.createAnimatedComponent(Circle);
 
 export default function WorkoutStatsCard({ 
   workouts, 
@@ -143,29 +144,22 @@ export default function WorkoutStatsCard({
   calorieTarget = DEFAULT_CALORIE_TARGET,
   minuteTarget = DEFAULT_MINUTE_TARGET,
 }: WorkoutStatsCardProps) {
-  // Animation values
   const fadeAnim = useRef(new Animated.Value(0)).current;
-  const ringAnim = useRef(new Animated.Value(0)).current;
   const pulseAnim = useRef(new Animated.Value(1)).current;
 
-  // Calculate values
   const displayDuration = editedDuration !== undefined ? editedDuration : totalDuration;
   const estimatedCalories = editedCalories !== undefined ? editedCalories : Math.round(totalDuration * 8);
   
-  // Progress percentages (capped at 100%)
+  // Progress percentages - cap at 100% if goal met
   const calorieProgress = Math.min(estimatedCalories / calorieTarget, 1);
   const minuteProgress = Math.min(displayDuration / minuteTarget, 1);
-  
-  // Calculate intensity
   const intensityValue = calculateIntensity(workouts, moodCategory, displayDuration);
 
-  // Get dominant mood category
   const getDominantMoodCategory = (): string => {
     const categoryCounts: { [key: string]: number } = {};
     workouts.forEach(workout => {
       const category = workout.moodCategory || moodCategory || 'Workout';
-      const normalizedCategory = category.toLowerCase();
-      categoryCounts[normalizedCategory] = (categoryCounts[normalizedCategory] || 0) + 1;
+      categoryCounts[category.toLowerCase()] = (categoryCounts[category.toLowerCase()] || 0) + 1;
     });
     
     let dominantCategory = moodCategory || 'Workout';
@@ -229,7 +223,6 @@ export default function WorkoutStatsCard({
   }, [moodPhrase]);
 
   useEffect(() => {
-    // Fade in animation
     Animated.timing(fadeAnim, {
       toValue: 1,
       duration: 600,
@@ -237,27 +230,17 @@ export default function WorkoutStatsCard({
       easing: Easing.out(Easing.cubic),
     }).start();
 
-    // Ring fill animation
-    Animated.timing(ringAnim, {
-      toValue: 1,
-      duration: 1200,
-      delay: 300,
-      useNativeDriver: false,
-      easing: Easing.out(Easing.cubic),
-    }).start();
-
-    // Pulse animation for center
     Animated.loop(
       Animated.sequence([
         Animated.timing(pulseAnim, {
-          toValue: 1.05,
-          duration: 2000,
+          toValue: 1.02,
+          duration: 2500,
           useNativeDriver: true,
           easing: Easing.inOut(Easing.sin),
         }),
         Animated.timing(pulseAnim, {
           toValue: 1,
-          duration: 2000,
+          duration: 2500,
           useNativeDriver: true,
           easing: Easing.inOut(Easing.sin),
         }),
@@ -265,51 +248,50 @@ export default function WorkoutStatsCard({
     ).start();
   }, []);
 
-  // Ring rendering
+  // Render the three concentric rings
   const renderRings = (isTransparent: boolean = false) => {
     const calorieRing = getStrokeDasharray(calorieProgress, CALORIES_RING_RADIUS);
     const minuteRing = getStrokeDasharray(minuteProgress, MINUTES_RING_RADIUS);
     const intensityRing = getStrokeDasharray(intensityValue, INTENSITY_RING_RADIUS);
+    const trackColor = isTransparent ? COLORS.trackBgTransparent : COLORS.trackBg;
 
     return (
       <Svg width={RING_SIZE} height={RING_SIZE} viewBox={`0 0 ${RING_SIZE} ${RING_SIZE}`}>
-        {/* Background rings (track) */}
+        {/* Rotate entire group so 0 degrees is at 12 o'clock, counterclockwise */}
         <G rotation="-90" origin={`${RING_CENTER}, ${RING_CENTER}`}>
-          {/* Calories track */}
+          {/* Background tracks */}
           <Circle
             cx={RING_CENTER}
             cy={RING_CENTER}
             r={CALORIES_RING_RADIUS}
-            stroke={isTransparent ? "rgba(255, 255, 255, 0.1)" : "rgba(255, 255, 255, 0.08)"}
+            stroke={trackColor}
             strokeWidth={RING_STROKE_WIDTH}
             fill="none"
           />
-          {/* Minutes track */}
           <Circle
             cx={RING_CENTER}
             cy={RING_CENTER}
             r={MINUTES_RING_RADIUS}
-            stroke={isTransparent ? "rgba(255, 255, 255, 0.1)" : "rgba(255, 255, 255, 0.08)"}
+            stroke={trackColor}
             strokeWidth={RING_STROKE_WIDTH}
             fill="none"
           />
-          {/* Intensity track */}
           <Circle
             cx={RING_CENTER}
             cy={RING_CENTER}
             r={INTENSITY_RING_RADIUS}
-            stroke={isTransparent ? "rgba(255, 255, 255, 0.1)" : "rgba(255, 255, 255, 0.08)"}
+            stroke={trackColor}
             strokeWidth={RING_STROKE_WIDTH}
             fill="none"
           />
           
-          {/* Progress rings (counterclockwise from top) */}
-          {/* Calories ring - outermost - gold/yellow */}
+          {/* Progress rings - counterclockwise (scale -1 on X axis) */}
+          {/* Calories ring - outer - Silver */}
           <Circle
             cx={RING_CENTER}
             cy={RING_CENTER}
             r={CALORIES_RING_RADIUS}
-            stroke="#FFD700"
+            stroke={COLORS.calories}
             strokeWidth={RING_STROKE_WIDTH}
             fill="none"
             strokeDasharray={calorieRing.dashArray}
@@ -317,12 +299,12 @@ export default function WorkoutStatsCard({
             strokeLinecap="round"
             transform={`scale(-1, 1) translate(-${RING_SIZE}, 0)`}
           />
-          {/* Minutes ring - middle - white */}
+          {/* Minutes ring - middle - White */}
           <Circle
             cx={RING_CENTER}
             cy={RING_CENTER}
             r={MINUTES_RING_RADIUS}
-            stroke="#FFFFFF"
+            stroke={COLORS.minutes}
             strokeWidth={RING_STROKE_WIDTH}
             fill="none"
             strokeDasharray={minuteRing.dashArray}
@@ -330,12 +312,12 @@ export default function WorkoutStatsCard({
             strokeLinecap="round"
             transform={`scale(-1, 1) translate(-${RING_SIZE}, 0)`}
           />
-          {/* Intensity ring - innermost - coral/orange */}
+          {/* Intensity ring - inner - Gold */}
           <Circle
             cx={RING_CENTER}
             cy={RING_CENTER}
             r={INTENSITY_RING_RADIUS}
-            stroke="#FF6B6B"
+            stroke={COLORS.intensity}
             strokeWidth={RING_STROKE_WIDTH}
             fill="none"
             strokeDasharray={intensityRing.dashArray}
@@ -348,47 +330,50 @@ export default function WorkoutStatsCard({
     );
   };
 
-  // Transparent version for Instagram Stories export
+  // ============================================
+  // TRANSPARENT VERSION (Instagram Stories Export)
+  // ============================================
   if (transparent) {
     return (
       <View style={[styles.transparentContainer, { width: CARD_WIDTH, height: CARD_HEIGHT }]}>
         {/* Header */}
         <View style={styles.transparentHeader}>
-          <View style={styles.transparentHeaderText}>
-            <Text style={styles.transparentLabel}>Ultra-minimal</Text>
-            <Text style={styles.transparentMoodCategory} numberOfLines={1}>
-              {displayMoodCategory ? displayMoodCategory.toUpperCase() : 'WORKOUT COMPLETE'}
-            </Text>
-            <Text style={styles.transparentSubtitle} numberOfLines={1}>{spacedMoodPhrase}</Text>
-          </View>
+          <Text style={styles.transparentMoodCategory} numberOfLines={1}>
+            {displayMoodCategory ? displayMoodCategory.toUpperCase() : 'WORKOUT COMPLETE'}
+          </Text>
+          <Text style={styles.transparentSubtitle} numberOfLines={1}>{spacedMoodPhrase}</Text>
         </View>
 
-        {/* Ring Section */}
-        <View style={styles.ringSection}>
-          {/* Duration text on left */}
-          <View style={styles.durationContainer}>
-            <Text style={styles.durationValue}>{displayDuration}</Text>
-            <Text style={styles.durationLabel}>min</Text>
-          </View>
-          
-          {/* Donut rings */}
-          <View style={styles.ringContainer}>
-            {renderRings(true)}
-            {/* Center content */}
-            <View style={styles.ringCenterContent}>
-              <Text style={styles.centerCalorieValue}>{estimatedCalories}</Text>
-              <Text style={styles.centerCalorieLabel}>calories</Text>
+        {/* Main content: Rings on left, Data on right */}
+        <View style={styles.transparentMainContent}>
+          {/* Left side: Rings */}
+          <View style={styles.transparentRingSection}>
+            <View style={styles.transparentRingContainer}>
+              {renderRings(true)}
             </View>
           </View>
           
-          {/* Intensity label on right */}
-          <View style={styles.intensityContainer}>
-            <Text style={styles.intensityLabel}>Intensity</Text>
-            <Text style={styles.intensityValue}>{Math.round(intensityValue * 100)}%</Text>
+          {/* Right side: Data stacked */}
+          <View style={styles.transparentDataSection}>
+            <View style={styles.transparentDataRow}>
+              <View style={[styles.transparentDataDot, { backgroundColor: COLORS.calories }]} />
+              <Text style={styles.transparentDataValue}>{estimatedCalories}</Text>
+              <Text style={styles.transparentDataLabel}>cal</Text>
+            </View>
+            <View style={styles.transparentDataRow}>
+              <View style={[styles.transparentDataDot, { backgroundColor: COLORS.minutes }]} />
+              <Text style={styles.transparentDataValue}>{displayDuration}</Text>
+              <Text style={styles.transparentDataLabel}>min</Text>
+            </View>
+            <View style={styles.transparentDataRow}>
+              <View style={[styles.transparentDataDot, { backgroundColor: COLORS.intensity }]} />
+              <Text style={styles.transparentDataValue}>{Math.round(intensityValue * 100)}%</Text>
+              <Text style={styles.transparentDataLabel}>intensity</Text>
+            </View>
           </View>
         </View>
 
-        {/* Exercises List */}
+        {/* Exercises List - below rings on left */}
         <View style={styles.transparentExercisesSection}>
           {workouts.slice(0, 4).map((workout, index) => (
             <View key={index} style={styles.transparentExerciseRow}>
@@ -411,13 +396,14 @@ export default function WorkoutStatsCard({
     );
   }
 
-  // Standard card version
+  // ============================================
+  // STANDARD CARD VERSION
+  // ============================================
   return (
     <Animated.View style={[styles.container, { width: CARD_WIDTH, height: CARD_HEIGHT, opacity: fadeAnim }]}>
       <View style={styles.innerContainer}>
-        {/* Subtle gradient */}
         <LinearGradient
-          colors={['rgba(255, 215, 0, 0.06)', 'rgba(255, 215, 0, 0.02)', 'transparent']}
+          colors={['rgba(255, 215, 0, 0.05)', 'rgba(255, 215, 0, 0.01)', 'transparent']}
           style={styles.radialGradient}
           start={{ x: 0.5, y: 0 }}
           end={{ x: 0.5, y: 0.5 }}
@@ -425,57 +411,50 @@ export default function WorkoutStatsCard({
 
         {/* Header */}
         <View style={styles.header}>
-          <View style={styles.headerText}>
-            <Text style={styles.labelText}>Ultra-minimal</Text>
-            <Text style={styles.moodCategory} numberOfLines={1} adjustsFontSizeToFit minimumFontScale={0.7}>
-              {displayMoodCategory ? displayMoodCategory.toUpperCase() : 'WORKOUT COMPLETE'}
-            </Text>
-            <Text style={styles.subtitle}>{spacedMoodPhrase}</Text>
-          </View>
+          <Text style={styles.moodCategory} numberOfLines={1} adjustsFontSizeToFit minimumFontScale={0.7}>
+            {displayMoodCategory ? displayMoodCategory.toUpperCase() : 'WORKOUT COMPLETE'}
+          </Text>
+          <Text style={styles.subtitle}>{spacedMoodPhrase}</Text>
         </View>
 
-        {/* Ring Section with duration and intensity */}
+        {/* Ring Section */}
         <View style={styles.ringSection}>
-          {/* Duration on left */}
           <View style={styles.durationContainer}>
             <Text style={styles.durationValue}>{displayDuration}</Text>
             <Text style={styles.durationLabel}>min</Text>
           </View>
           
-          {/* Donut rings */}
           <Animated.View style={[styles.ringContainer, { transform: [{ scale: pulseAnim }] }]}>
             {renderRings(false)}
-            {/* Center content */}
             <View style={styles.ringCenterContent}>
               <Text style={styles.centerCalorieValue}>{estimatedCalories}</Text>
-              <Text style={styles.centerCalorieLabel}>calories</Text>
+              <Text style={styles.centerCalorieLabel}>cal</Text>
             </View>
           </Animated.View>
           
-          {/* Intensity on right */}
           <View style={styles.intensityContainer}>
-            <Text style={styles.intensityLabel}>Intensity</Text>
             <Text style={styles.intensityValue}>{Math.round(intensityValue * 100)}%</Text>
+            <Text style={styles.intensityLabel}>intensity</Text>
           </View>
         </View>
 
-        {/* Ring legend */}
+        {/* Legend */}
         <View style={styles.legendRow}>
           <View style={styles.legendItem}>
-            <View style={[styles.legendDot, { backgroundColor: '#FFD700' }]} />
+            <View style={[styles.legendDot, { backgroundColor: COLORS.calories }]} />
             <Text style={styles.legendText}>Cal</Text>
           </View>
           <View style={styles.legendItem}>
-            <View style={[styles.legendDot, { backgroundColor: '#FFFFFF' }]} />
+            <View style={[styles.legendDot, { backgroundColor: COLORS.minutes }]} />
             <Text style={styles.legendText}>Min</Text>
           </View>
           <View style={styles.legendItem}>
-            <View style={[styles.legendDot, { backgroundColor: '#FF6B6B' }]} />
+            <View style={[styles.legendDot, { backgroundColor: COLORS.intensity }]} />
             <Text style={styles.legendText}>Intensity</Text>
           </View>
         </View>
 
-        {/* Exercises List */}
+        {/* Exercises */}
         <View style={styles.exercisesSection}>
           {workouts.slice(0, 4).map((workout, index) => (
             <View key={index} style={styles.exerciseRow}>
@@ -500,6 +479,9 @@ export default function WorkoutStatsCard({
 }
 
 const styles = StyleSheet.create({
+  // ============================================
+  // STANDARD CARD STYLES
+  // ============================================
   container: {
     borderRadius: 20,
     overflow: 'hidden',
@@ -520,16 +502,7 @@ const styles = StyleSheet.create({
   header: {
     paddingTop: 24,
     paddingHorizontal: 20,
-    paddingBottom: 4,
-  },
-  headerText: {
-    alignItems: 'flex-start',
-  },
-  labelText: {
-    fontSize: 11,
-    color: 'rgba(255, 255, 255, 0.4)',
-    letterSpacing: 1,
-    marginBottom: 4,
+    paddingBottom: 8,
   },
   moodCategory: {
     fontSize: 22,
@@ -545,7 +518,6 @@ const styles = StyleSheet.create({
     fontWeight: '400',
   },
   
-  // Ring Section
   ringSection: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -580,9 +552,9 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   centerCalorieValue: {
-    fontSize: 26,
+    fontSize: 24,
     fontWeight: '300',
-    color: '#FFD700',
+    color: COLORS.calories,
     letterSpacing: -1,
   },
   centerCalorieLabel: {
@@ -597,20 +569,19 @@ const styles = StyleSheet.create({
   intensityLabel: {
     fontSize: 9,
     color: 'rgba(255, 255, 255, 0.5)',
-    marginBottom: 4,
+    marginTop: 2,
   },
   intensityValue: {
-    fontSize: 16,
+    fontSize: 18,
     fontWeight: '400',
-    color: '#FF6B6B',
+    color: COLORS.intensity,
   },
   
-  // Legend
   legendRow: {
     flexDirection: 'row',
     justifyContent: 'center',
     gap: 16,
-    paddingVertical: 8,
+    paddingVertical: 6,
   },
   legendItem: {
     flexDirection: 'row',
@@ -627,7 +598,6 @@ const styles = StyleSheet.create({
     color: 'rgba(255, 255, 255, 0.4)',
   },
   
-  // Exercises
   exercisesSection: {
     flex: 1,
     paddingHorizontal: 20,
@@ -661,7 +631,6 @@ const styles = StyleSheet.create({
     fontStyle: 'italic',
   },
   
-  // Footer
   footer: {
     paddingHorizontal: 20,
     paddingVertical: 14,
@@ -673,82 +642,115 @@ const styles = StyleSheet.create({
     letterSpacing: 2,
   },
 
-  // ===============================================
-  // TRANSPARENT VERSION STYLES
-  // ===============================================
+  // ============================================
+  // TRANSPARENT/INSTAGRAM EXPORT STYLES
+  // ============================================
   transparentContainer: {
-    backgroundColor: 'rgba(0, 0, 0, 0.7)',
+    backgroundColor: 'rgba(0, 0, 0, 0.65)',
     borderRadius: 16,
     overflow: 'hidden',
   },
   transparentHeader: {
     paddingTop: 20,
     paddingHorizontal: 20,
-    paddingBottom: 4,
-  },
-  transparentHeaderText: {
-    alignItems: 'flex-start',
-  },
-  transparentLabel: {
-    fontSize: 11,
-    color: 'rgba(255, 255, 255, 0.6)',
-    letterSpacing: 1,
-    marginBottom: 4,
+    paddingBottom: 8,
   },
   transparentMoodCategory: {
-    fontSize: 22,
+    fontSize: 20,
     fontWeight: '700',
     color: '#FFFFFF',
     letterSpacing: 0.5,
-    textShadow: '0px 2px 6px rgba(0, 0, 0, 0.8)',
   },
   transparentSubtitle: {
-    fontSize: 10,
-    color: 'rgba(255, 255, 255, 0.7)',
+    fontSize: 9,
+    color: 'rgba(255, 255, 255, 0.6)',
     letterSpacing: 0.5,
-    marginTop: 6,
-    textShadow: '0px 1px 4px rgba(0, 0, 0, 0.8)',
+    marginTop: 4,
   },
-  transparentExercisesSection: {
+  
+  // Main content: rings left, data right
+  transparentMainContent: {
+    flexDirection: 'row',
+    paddingHorizontal: 16,
+    paddingVertical: 8,
+    alignItems: 'center',
+  },
+  transparentRingSection: {
+    flex: 0,
+  },
+  transparentRingContainer: {
+    width: RING_SIZE,
+    height: RING_SIZE,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  transparentDataSection: {
     flex: 1,
-    paddingHorizontal: 20,
-    paddingTop: 4,
+    paddingLeft: 16,
+    justifyContent: 'center',
   },
-  transparentExerciseRow: {
+  transparentDataRow: {
     flexDirection: 'row',
     alignItems: 'center',
     paddingVertical: 6,
   },
+  transparentDataDot: {
+    width: 8,
+    height: 8,
+    borderRadius: 4,
+    marginRight: 10,
+  },
+  transparentDataValue: {
+    fontSize: 22,
+    fontWeight: '400',
+    color: '#FFFFFF',
+    minWidth: 50,
+  },
+  transparentDataLabel: {
+    fontSize: 11,
+    color: 'rgba(255, 255, 255, 0.6)',
+    marginLeft: 4,
+  },
+  
+  // Exercises below rings
+  transparentExercisesSection: {
+    paddingHorizontal: 20,
+    paddingTop: 8,
+    flex: 1,
+  },
+  transparentExerciseRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingVertical: 5,
+  },
   transparentExerciseDot: {
-    width: 5,
-    height: 5,
-    borderRadius: 2.5,
+    width: 4,
+    height: 4,
+    borderRadius: 2,
     backgroundColor: '#FFD700',
     marginRight: 10,
   },
   transparentExerciseText: {
     flex: 1,
-    fontSize: 13,
-    color: '#FFFFFF',
+    fontSize: 12,
+    color: 'rgba(255, 255, 255, 0.85)',
     fontWeight: '400',
-    textShadow: '0px 1px 3px rgba(0, 0, 0, 0.8)',
   },
   transparentMoreExercises: {
-    fontSize: 11,
-    color: 'rgba(255, 255, 255, 0.8)',
-    textAlign: 'center',
-    marginTop: 6,
+    fontSize: 10,
+    color: 'rgba(255, 255, 255, 0.6)',
+    marginTop: 4,
     fontStyle: 'italic',
   },
+  
   transparentFooter: {
     paddingHorizontal: 20,
-    paddingVertical: 14,
+    paddingVertical: 12,
   },
   transparentBrandText: {
-    fontSize: 12,
+    fontSize: 11,
     color: '#FFD700',
     fontWeight: '700',
     letterSpacing: 3,
-    textShadow: '0px 1px 4px rgba(0, 0, 0, 0.8)',
   },
 });
