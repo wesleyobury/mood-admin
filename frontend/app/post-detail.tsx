@@ -702,34 +702,42 @@ const styles = StyleSheet.create({
   mediaWrapper: {
     position: 'relative',
   },
-  // Try workout overlay on carousel
-  tryWorkoutOverlay: {
+  // Try workout button container - positioned bottom right
+  tryWorkoutButtonContainer: {
     position: 'absolute',
-    bottom: 16,
-    right: 16,
-    zIndex: 10,
+    bottom: 12,
+    right: 12,
   },
-  tryWorkoutBtn: {
-    borderRadius: 20,
-    overflow: 'hidden',
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.3,
-    shadowRadius: 4,
-    elevation: 5,
-  },
-  tryWorkoutGradient: {
+  tryWorkoutButton: {
+    height: 32,
+    backgroundColor: '#1a1a1a',
+    borderRadius: 8,
+    paddingHorizontal: 12,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    paddingVertical: 10,
-    paddingHorizontal: 16,
     gap: 6,
+    borderWidth: 1,
+    borderColor: '#333',
+    overflow: 'hidden',
   },
-  tryWorkoutText: {
-    fontSize: 13,
-    fontWeight: '700',
-    color: '#000',
+  shimmerOverlay: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    width: '100%',
+    height: '100%',
+  },
+  shimmerGradient: {
+    width: 60,
+    height: '100%',
+  },
+  tryWorkoutButtonText: {
+    fontSize: 12,
+    fontWeight: '600',
+    color: '#ffffff',
   },
   likesText: {
     fontSize: 14,
