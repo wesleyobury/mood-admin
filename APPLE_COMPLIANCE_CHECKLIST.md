@@ -63,27 +63,11 @@ This document provides a comprehensive checklist for Apple App Store compliance,
 
 ## 2. ANALYTICS / EVENT TRACKING (First-Party)
 
-### 2.1 Event Storage Schema ⚠️ NEEDS UPDATE
-
-**Current Schema:**
-```json
-{
-  "user_id": "string",
-  "event_type": "string",
-  "event_category": "string",
-  "metadata": {},
-  "timestamp": "datetime (UTC)",
-  "session_id": "string"
-}
-```
-
-**Required Addition:**
-```json
-{
-  "event_timestamp_utc": "datetime",
-  "user_timezone": "string (IANA format, e.g., 'America/New_York')"
-}
-```
+### 2.1 Event Storage Schema ✅ IMPLEMENTED
+**Apple Compliance Update (February 2025):**
+- Added `event_timestamp_utc` (ISO format) to all tracking calls
+- Added `user_timezone` (IANA format, e.g., 'America/New_York') to all tracking calls
+- Implemented via `getUserTimezone()` and `getUTCTimestamp()` in `frontend/utils/analytics.ts`
 
 ### 2.2 Events Audit
 
@@ -93,17 +77,22 @@ This document provides a comprehensive checklist for Apple App Store compliance,
 | **Social Events** | post_created, post_liked, post_commented, user_followed, user_unfollowed | ✅ |
 | **Navigation** | screen_viewed, tab_switched, search_performed | ✅ |
 | **Notifications** | notification_clicked | ✅ |
-| **Choose-for-me** | choose_for_me_used | ⚠️ NEEDS ADDITION |
+| **Choose-for-me** | choose_for_me_used | ✅ ADDED |
 | **Cart Events** | workout_added_to_cart, cart_viewed | ✅ |
-| **Build-for-me by mood** | build_for_me_mood | ⚠️ NEEDS ADDITION |
+| **Build-for-me by mood** | build_for_me_mood_used | ✅ ADDED |
 
-### 2.3 Privacy Controls ⚠️ NEEDS ADDITION
+### 2.3 Privacy Controls ✅ IMPLEMENTED
 | Requirement | Status | Action |
 |-------------|--------|--------|
-| Opt-out of non-essential analytics | ⚠️ | Add analytics toggle to settings |
+| Opt-out of non-essential analytics | ✅ | Toggle added to Settings → Privacy & Safety |
 | No cross-app tracking | ✅ | Confirmed - no third-party SDKs |
 | No advertising | ✅ | Confirmed - no ads |
 | Data not sold | ✅ | Confirmed in Privacy Policy |
+
+**Implementation Details:**
+- `isAnalyticsOptedOut()` and `setAnalyticsOptOut()` functions in `frontend/utils/analytics.ts`
+- Toggle UI in `frontend/app/settings.tsx` under "Privacy & Safety" section
+- Non-essential analytics respect opt-out preference; essential tracking continues
 
 ---
 
