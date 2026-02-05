@@ -8,23 +8,20 @@ import {
   Dimensions,
   Platform,
   Image as RNImage,
+  Animated,
   PanResponder,
-  GestureResponderEvent,
-  PanResponderGestureState,
 } from 'react-native';
 import * as VideoThumbnails from 'expo-video-thumbnails';
 import { Ionicons } from '@expo/vector-icons';
 import { Video, ResizeMode, AVPlaybackStatus } from 'expo-av';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { LinearGradient } from 'expo-linear-gradient';
-import * as FileSystem from 'expo-file-system';
 import * as ImageManipulator from 'expo-image-manipulator';
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
 const FILMSTRIP_HEIGHT = 52;
-const FRAME_COUNT = 8;
-const TOTAL_FRAMES = 30; // More frames for better precision
-const FRAME_WIDTH = (SCREEN_WIDTH - 32) / FRAME_COUNT;
+const FRAME_COUNT = 10;
+const TOTAL_FRAMES = 40; // More frames for smoother scrubbing
 const FILMSTRIP_WIDTH = SCREEN_WIDTH - 32;
 
 // Preview dimensions (4:5 aspect ratio like Instagram)
@@ -43,12 +40,6 @@ interface Frame {
   timestamp: number;
 }
 
-interface Transform {
-  scale: number;
-  translateX: number;
-  translateY: number;
-}
-
 const VideoFrameSelector: React.FC<VideoFrameSelectorProps> = memo(({
   videoUri,
   onFrameSelected,
@@ -57,42 +48,43 @@ const VideoFrameSelector: React.FC<VideoFrameSelectorProps> = memo(({
 }) => {
   const insets = useSafeAreaInsets();
   const videoRef = useRef<Video>(null);
-  const [isVideoReady, setIsVideoReady] = useState(false);
   const [duration, setDuration] = useState(0);
-  const [position, setPosition] = useState(0);
   const [allFrames, setAllFrames] = useState<Frame[]>([]);
   const [isLoadingFrames, setIsLoadingFrames] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [isCapturing, setIsCapturing] = useState(false);
-  
-  // Current frame index for preview
   const [currentFrameIndex, setCurrentFrameIndex] = useState(0);
   
-  // Scrubber position for animation
-  const [scrubberX, setScrubberX] = useState(0);
+  // Animated values for smooth interactions
+  const scrubberPosition = useRef(new Animated.Value(FILMSTRIP_WIDTH / 2)).current;
+  const scale = useRef(new Animated.Value(1)).current;
+  const translateX = useRef(new Animated.Value(0)).current;
+  const translateY = useRef(new Animated.Value(0)).current;
   
-  // Position/zoom transform for cover
-  const [transform, setTransform] = useState<Transform>({
-    scale: 1,
-    translateX: 0,
-    translateY: 0,
-  });
-  
-  // Pan responder state
-  const lastTransform = useRef<Transform>({ scale: 1, translateX: 0, translateY: 0 });
-  const lastDistance = useRef<number>(0);
+  // Refs for gesture tracking
+  const baseScale = useRef(1);
+  const baseTranslateX = useRef(0);
+  const baseTranslateY = useRef(0);
+  const lastPinchDistance = useRef(0);
+  const isScrubbing = useRef(false);
 
-  // Pan responder for drag and pinch-to-zoom
-  const panResponder = useRef(
+  // Image pan/zoom responder - smoother with direct animated value updates
+  const imagePanResponder = useRef(
     PanResponder.create({
       onStartShouldSetPanResponder: () => true,
-      onMoveShouldSetPanResponder: () => true,
-      
-      onPanResponderGrant: () => {
-        lastTransform.current = { ...transform };
+      onMoveShouldSetPanResponder: (_, gestureState) => {
+        return Math.abs(gestureState.dx) > 2 || Math.abs(gestureState.dy) > 2;
       },
       
-      onPanResponderMove: (evt: GestureResponderEvent, gestureState: PanResponderGestureState) => {
+      onPanResponderGrant: () => {
+        // Store current values as base
+        baseScale.current = (scale as any)._value || 1;
+        baseTranslateX.current = (translateX as any)._value || 0;
+        baseTranslateY.current = (translateY as any)._value || 0;
+        lastPinchDistance.current = 0;
+      },
+      
+      onPanResponderMove: (evt, gestureState) => {
         const touches = evt.nativeEvent.touches;
         
         if (touches.length === 2) {
@@ -104,41 +96,92 @@ const VideoFrameSelector: React.FC<VideoFrameSelectorProps> = memo(({
             Math.pow(touch2.pageY - touch1.pageY, 2)
           );
           
-          if (lastDistance.current === 0) {
-            lastDistance.current = distance;
+          if (lastPinchDistance.current === 0) {
+            lastPinchDistance.current = distance;
+            return;
           }
           
-          const scaleChange = distance / lastDistance.current;
-          const newScale = Math.max(1, Math.min(3, lastTransform.current.scale * scaleChange));
+          const scaleChange = distance / lastPinchDistance.current;
+          const newScale = Math.max(1, Math.min(3, baseScale.current * scaleChange));
           
-          setTransform(prev => ({
-            ...prev,
-            scale: newScale,
-          }));
+          // Direct setValue for immediate response
+          scale.setValue(newScale);
+          
         } else if (touches.length === 1) {
-          // Pan/drag
-          const maxTranslate = (transform.scale - 1) * 100;
-          const newTranslateX = Math.max(-maxTranslate, Math.min(maxTranslate, 
-            lastTransform.current.translateX + gestureState.dx));
-          const newTranslateY = Math.max(-maxTranslate, Math.min(maxTranslate, 
-            lastTransform.current.translateY + gestureState.dy));
-          
-          setTransform(prev => ({
-            ...prev,
-            translateX: newTranslateX,
-            translateY: newTranslateY,
-          }));
+          // Pan/drag - only if zoomed in
+          const currentScale = (scale as any)._value || 1;
+          if (currentScale > 1) {
+            const maxTranslate = (currentScale - 1) * 80;
+            const newX = Math.max(-maxTranslate, Math.min(maxTranslate, 
+              baseTranslateX.current + gestureState.dx * 0.8));
+            const newY = Math.max(-maxTranslate, Math.min(maxTranslate, 
+              baseTranslateY.current + gestureState.dy * 0.8));
+            
+            translateX.setValue(newX);
+            translateY.setValue(newY);
+          }
         }
       },
       
       onPanResponderRelease: () => {
-        lastDistance.current = 0;
-        lastTransform.current = { ...transform };
+        lastPinchDistance.current = 0;
+        // Snap back if scale is too low
+        const currentScale = (scale as any)._value || 1;
+        if (currentScale < 1.1) {
+          Animated.parallel([
+            Animated.spring(scale, { toValue: 1, useNativeDriver: true, friction: 7 }),
+            Animated.spring(translateX, { toValue: 0, useNativeDriver: true, friction: 7 }),
+            Animated.spring(translateY, { toValue: 0, useNativeDriver: true, friction: 7 }),
+          ]).start();
+        }
       },
     })
   ).current;
 
-  // Generate all frames when video loads
+  // Scrubber pan responder - optimized for smooth scrubbing
+  const scrubberPanResponder = useRef(
+    PanResponder.create({
+      onStartShouldSetPanResponder: () => true,
+      onMoveShouldSetPanResponder: () => true,
+      
+      onPanResponderGrant: (evt) => {
+        isScrubbing.current = true;
+        const touchX = evt.nativeEvent.locationX;
+        updateFrameFromPosition(touchX);
+      },
+      
+      onPanResponderMove: (evt) => {
+        if (!isScrubbing.current) return;
+        const touchX = evt.nativeEvent.locationX;
+        updateFrameFromPosition(touchX);
+      },
+      
+      onPanResponderRelease: () => {
+        isScrubbing.current = false;
+      },
+    })
+  ).current;
+
+  // Update frame based on touch position - smooth interpolation
+  const updateFrameFromPosition = useCallback((touchX: number) => {
+    if (allFrames.length === 0 || duration === 0) return;
+    
+    const clampedX = Math.max(0, Math.min(touchX, FILMSTRIP_WIDTH));
+    const percentage = clampedX / FILMSTRIP_WIDTH;
+    const frameIndex = Math.round(percentage * (allFrames.length - 1));
+    const safeIndex = Math.max(0, Math.min(frameIndex, allFrames.length - 1));
+    
+    // Animate scrubber smoothly
+    Animated.timing(scrubberPosition, {
+      toValue: (safeIndex / (allFrames.length - 1)) * FILMSTRIP_WIDTH,
+      duration: 50,
+      useNativeDriver: true,
+    }).start();
+    
+    setCurrentFrameIndex(safeIndex);
+  }, [allFrames, duration, scrubberPosition]);
+
+  // Generate frames on mount
   useEffect(() => {
     if (duration > 0 && allFrames.length === 0) {
       generateAllFrames();
@@ -156,34 +199,42 @@ const VideoFrameSelector: React.FC<VideoFrameSelectorProps> = memo(({
       const frames: Frame[] = [];
       const frameInterval = duration / TOTAL_FRAMES;
       
-      console.log(`Generating ${TOTAL_FRAMES} frames for video duration ${duration}ms`);
-      
-      for (let i = 0; i < TOTAL_FRAMES; i++) {
-        // Use exact timestamp for each frame
-        const timestamp = Math.round(i * frameInterval);
-        try {
-          const { uri } = await VideoThumbnails.getThumbnailAsync(videoUri, {
-            time: timestamp,
-            quality: 0.8, // Higher quality for better cover
-          });
-          frames.push({ uri, timestamp });
-        } catch (e) {
-          console.log(`Could not generate frame at ${timestamp}ms`);
-          if (frames.length > 0) {
-            frames.push({ uri: frames[frames.length - 1].uri, timestamp });
-          }
+      // Generate frames in parallel batches for speed
+      const batchSize = 8;
+      for (let batch = 0; batch < Math.ceil(TOTAL_FRAMES / batchSize); batch++) {
+        const promises: Promise<void>[] = [];
+        
+        for (let i = 0; i < batchSize; i++) {
+          const frameIndex = batch * batchSize + i;
+          if (frameIndex >= TOTAL_FRAMES) break;
+          
+          const timestamp = Math.round(frameIndex * frameInterval);
+          promises.push(
+            VideoThumbnails.getThumbnailAsync(videoUri, {
+              time: timestamp,
+              quality: 0.7,
+            }).then(({ uri }) => {
+              frames[frameIndex] = { uri, timestamp };
+            }).catch(() => {
+              // Use previous frame as fallback
+              if (frameIndex > 0 && frames[frameIndex - 1]) {
+                frames[frameIndex] = { ...frames[frameIndex - 1], timestamp };
+              }
+            })
+          );
         }
+        
+        await Promise.all(promises);
       }
 
-      console.log(`Total frames generated: ${frames.length}`);
-      setAllFrames(frames);
+      // Filter out undefined entries
+      const validFrames = frames.filter(f => f && f.uri);
+      setAllFrames(validFrames);
       
-      // Set initial scrubber position to middle
-      if (frames.length > 0) {
-        const middleIndex = Math.floor(frames.length / 2);
+      if (validFrames.length > 0) {
+        const middleIndex = Math.floor(validFrames.length / 2);
         setCurrentFrameIndex(middleIndex);
-        setScrubberX(FILMSTRIP_WIDTH / 2);
-        setPosition(frames[middleIndex].timestamp);
+        scrubberPosition.setValue((middleIndex / (validFrames.length - 1)) * FILMSTRIP_WIDTH);
       }
     } catch (err) {
       console.error('Error generating frames:', err);
@@ -195,51 +246,24 @@ const VideoFrameSelector: React.FC<VideoFrameSelectorProps> = memo(({
 
   const handlePlaybackStatusUpdate = useCallback((status: AVPlaybackStatus) => {
     if (status.isLoaded && status.durationMillis) {
-      setIsVideoReady(true);
       setDuration(status.durationMillis);
     }
   }, []);
 
-  // Handle touch on filmstrip - snap to nearest frame
-  const handleFilmstripTouch = (evt: any) => {
-    const touchX = evt.nativeEvent.locationX;
-    updatePositionFromTouch(touchX);
-  };
+  const resetTransform = useCallback(() => {
+    Animated.parallel([
+      Animated.spring(scale, { toValue: 1, useNativeDriver: true, friction: 7 }),
+      Animated.spring(translateX, { toValue: 0, useNativeDriver: true, friction: 7 }),
+      Animated.spring(translateY, { toValue: 0, useNativeDriver: true, friction: 7 }),
+    ]).start();
+    baseScale.current = 1;
+    baseTranslateX.current = 0;
+    baseTranslateY.current = 0;
+  }, [scale, translateX, translateY]);
 
-  const handleFilmstripMove = (evt: any) => {
-    const touchX = evt.nativeEvent.locationX;
-    updatePositionFromTouch(touchX);
-  };
-
-  const updatePositionFromTouch = (touchX: number) => {
-    if (allFrames.length === 0 || duration === 0) return;
-    
-    const clampedX = Math.max(0, Math.min(touchX, FILMSTRIP_WIDTH));
-    const percentage = clampedX / FILMSTRIP_WIDTH;
-    
-    // Calculate exact frame index
-    const exactFrameIndex = percentage * (allFrames.length - 1);
-    const frameIndex = Math.round(exactFrameIndex); // Round to nearest frame
-    const clampedFrameIndex = Math.max(0, Math.min(frameIndex, allFrames.length - 1));
-    
-    // Calculate scrubber position to align with frame
-    const alignedX = (clampedFrameIndex / (allFrames.length - 1)) * FILMSTRIP_WIDTH;
-    
-    setScrubberX(alignedX);
-    setPosition(allFrames[clampedFrameIndex].timestamp);
-    setCurrentFrameIndex(clampedFrameIndex);
-  };
-
-  // Reset transform
-  const resetTransform = () => {
-    setTransform({ scale: 1, translateX: 0, translateY: 0 });
-    lastTransform.current = { scale: 1, translateX: 0, translateY: 0 };
-  };
-
-  // Capture and apply transform to create final cover
   const captureAndConfirm = async () => {
     if (allFrames.length === 0 || !allFrames[currentFrameIndex]?.uri) {
-      setError('No frame available to select');
+      setError('No frame available');
       return;
     }
 
@@ -247,57 +271,32 @@ const VideoFrameSelector: React.FC<VideoFrameSelectorProps> = memo(({
     
     try {
       const sourceUri = allFrames[currentFrameIndex].uri;
-      console.log(`Processing frame ${currentFrameIndex} with transform:`, transform);
+      const currentScale = (scale as any)._value || 1;
+      const currentTranslateX = (translateX as any)._value || 0;
+      const currentTranslateY = (translateY as any)._value || 0;
       
-      // If transform is applied, crop/manipulate the image
-      if (transform.scale > 1 || transform.translateX !== 0 || transform.translateY !== 0) {
-        // Get image info
-        const imageInfo = await ImageManipulator.manipulateAsync(
-          sourceUri,
-          [],
-          { format: ImageManipulator.SaveFormat.JPEG }
-        );
-        
-        // Calculate crop region based on transform
-        // This creates a crop that matches what the user sees
-        const imageWidth = 1080; // Assume standard width
-        const imageHeight = 1350; // 4:5 aspect ratio
-        
-        const cropWidth = imageWidth / transform.scale;
-        const cropHeight = imageHeight / transform.scale;
-        
-        // Calculate origin based on translate (inverted because translate moves view, not crop)
-        const originX = (imageWidth - cropWidth) / 2 - (transform.translateX * (imageWidth / PREVIEW_WIDTH));
-        const originY = (imageHeight - cropHeight) / 2 - (transform.translateY * (imageHeight / PREVIEW_HEIGHT));
+      if (currentScale > 1.05) {
+        // Apply crop based on transform
+        const cropWidth = 1080 / currentScale;
+        const cropHeight = 1350 / currentScale;
+        const originX = Math.max(0, (1080 - cropWidth) / 2 - currentTranslateX * 2);
+        const originY = Math.max(0, (1350 - cropHeight) / 2 - currentTranslateY * 2);
         
         const result = await ImageManipulator.manipulateAsync(
           sourceUri,
           [
-            {
-              crop: {
-                originX: Math.max(0, originX),
-                originY: Math.max(0, originY),
-                width: Math.min(cropWidth, imageWidth - originX),
-                height: Math.min(cropHeight, imageHeight - originY),
-              },
-            },
-            {
-              resize: { width: 1080 }, // Standard cover size
-            },
+            { crop: { originX, originY, width: cropWidth, height: cropHeight } },
+            { resize: { width: 1080 } },
           ],
           { format: ImageManipulator.SaveFormat.JPEG, compress: 0.9 }
         );
         
-        console.log('Cover processed with crop:', result.uri);
         onFrameSelected(result.uri);
       } else {
-        // No transform, use frame directly
-        console.log('Using frame directly:', sourceUri);
         onFrameSelected(sourceUri);
       }
     } catch (err) {
       console.error('Error processing cover:', err);
-      // Fallback to original frame
       onFrameSelected(allFrames[currentFrameIndex].uri);
     } finally {
       setIsCapturing(false);
@@ -311,13 +310,13 @@ const VideoFrameSelector: React.FC<VideoFrameSelectorProps> = memo(({
     return `${minutes}:${seconds.toString().padStart(2, '0')}`;
   };
 
-  // Get current preview URI
-  const currentPreviewUri = allFrames[currentFrameIndex]?.uri || '';
+  const currentFrame = allFrames[currentFrameIndex];
+  const currentScale = (scale as any)._value || 1;
   
-  // Get filmstrip frames (evenly distributed)
+  // Get evenly distributed filmstrip frames
   const filmstripFrames = allFrames.filter((_, i) => {
-    const step = Math.floor(allFrames.length / FRAME_COUNT);
-    return i % Math.max(1, step) === 0;
+    const step = Math.max(1, Math.floor(allFrames.length / FRAME_COUNT));
+    return i % step === 0;
   }).slice(0, FRAME_COUNT);
 
   if (Platform.OS === 'web') {
@@ -363,70 +362,69 @@ const VideoFrameSelector: React.FC<VideoFrameSelectorProps> = memo(({
         </TouchableOpacity>
       </View>
 
-      {/* Preview Frame with Pan/Zoom */}
+      {/* Preview with zoom/pan */}
       <View style={styles.previewSection}>
-        <View style={styles.previewContainer} {...panResponder.panHandlers}>
+        <View style={styles.previewContainer} {...imagePanResponder.panHandlers}>
           {isLoadingFrames ? (
             <View style={styles.previewLoading}>
               <ActivityIndicator size="large" color="#FFD700" />
-              <Text style={styles.loadingText}>Preparing frames...</Text>
+              <Text style={styles.loadingText}>Generating frames...</Text>
             </View>
-          ) : currentPreviewUri ? (
-            <View style={styles.imageWrapper}>
-              <RNImage
-                key={`preview-frame-${currentFrameIndex}`}
-                source={{ uri: currentPreviewUri }}
+          ) : currentFrame?.uri ? (
+            <Animated.View style={styles.imageWrapper}>
+              <Animated.Image
+                source={{ uri: currentFrame.uri }}
                 style={[
                   styles.previewImage,
                   {
                     transform: [
-                      { scale: transform.scale },
-                      { translateX: transform.translateX },
-                      { translateY: transform.translateY },
+                      { scale },
+                      { translateX },
+                      { translateY },
                     ],
                   },
                 ]}
                 resizeMode="cover"
               />
-              {/* Crop overlay guide */}
-              <View style={styles.cropOverlay}>
+              {/* Crop guides */}
+              <View style={styles.cropOverlay} pointerEvents="none">
                 <View style={styles.cropCorner} />
                 <View style={[styles.cropCorner, styles.cropCornerTR]} />
                 <View style={[styles.cropCorner, styles.cropCornerBL]} />
                 <View style={[styles.cropCorner, styles.cropCornerBR]} />
               </View>
-            </View>
+            </Animated.View>
           ) : (
             <View style={styles.previewLoading}>
-              <Text style={styles.loadingText}>No preview available</Text>
+              <Text style={styles.loadingText}>No preview</Text>
             </View>
           )}
         </View>
 
-        {/* Transform controls */}
-        {!isLoadingFrames && currentPreviewUri && (
-          <View style={styles.transformControls}>
-            {transform.scale > 1 && (
+        {/* Transform hint */}
+        {!isLoadingFrames && currentFrame?.uri && (
+          <View style={styles.hintRow}>
+            {currentScale > 1.05 && (
               <TouchableOpacity style={styles.resetButton} onPress={resetTransform}>
-                <Ionicons name="refresh" size={16} color="#FFD700" />
-                <Text style={styles.resetButtonText}>Reset</Text>
+                <Ionicons name="refresh" size={14} color="#FFD700" />
+                <Text style={styles.resetText}>Reset</Text>
               </TouchableOpacity>
             )}
-            <Text style={styles.transformHint}>
-              {transform.scale > 1 ? `${Math.round(transform.scale * 100)}%` : 'Pinch to zoom • Drag to position'}
+            <Text style={styles.hintText}>
+              {currentScale > 1.05 ? `${Math.round(currentScale * 100)}%` : 'Pinch to zoom • Drag to reposition'}
             </Text>
           </View>
         )}
 
         {/* Time badge */}
-        {!isLoadingFrames && (
+        {!isLoadingFrames && currentFrame && (
           <View style={styles.timeBadge}>
-            <Text style={styles.timeBadgeText}>{formatTime(position)}</Text>
+            <Text style={styles.timeBadgeText}>{formatTime(currentFrame.timestamp)}</Text>
           </View>
         )}
       </View>
 
-      {/* Hidden video for duration */}
+      {/* Hidden video for duration detection */}
       <Video
         ref={videoRef}
         source={{ uri: videoUri }}
@@ -437,17 +435,11 @@ const VideoFrameSelector: React.FC<VideoFrameSelectorProps> = memo(({
         onPlaybackStatusUpdate={handlePlaybackStatusUpdate}
       />
 
-      {/* Filmstrip */}
+      {/* Filmstrip scrubber */}
       <View style={styles.filmstripSection}>
-        <Text style={styles.filmstripLabel}>Drag to select frame</Text>
+        <Text style={styles.filmstripLabel}>Slide to select frame</Text>
         
-        <View 
-          style={styles.filmstripContainer}
-          onStartShouldSetResponder={() => true}
-          onMoveShouldSetResponder={() => true}
-          onResponderGrant={handleFilmstripTouch}
-          onResponderMove={handleFilmstripMove}
-        >
+        <View style={styles.filmstripContainer} {...scrubberPanResponder.panHandlers}>
           <View style={styles.filmstrip}>
             {isLoadingFrames ? (
               <View style={styles.filmstripLoading}>
@@ -455,55 +447,47 @@ const VideoFrameSelector: React.FC<VideoFrameSelectorProps> = memo(({
               </View>
             ) : (
               filmstripFrames.map((frame, index) => (
-                <View key={`filmstrip-${index}`} style={styles.filmstripFrame}>
-                  {frame.uri ? (
-                    <RNImage
-                      source={{ uri: frame.uri }}
-                      style={styles.filmstripFrameImage}
-                      resizeMode="cover"
-                    />
+                <View key={index} style={styles.filmstripFrame}>
+                  {frame?.uri ? (
+                    <RNImage source={{ uri: frame.uri }} style={styles.filmstripImage} />
                   ) : (
-                    <View style={styles.filmstripFramePlaceholder} />
+                    <View style={styles.filmstripPlaceholder} />
                   )}
                 </View>
               ))
             )}
           </View>
 
-          {/* Scrubber */}
+          {/* Animated scrubber */}
           {!isLoadingFrames && allFrames.length > 0 && (
-            <View style={[styles.scrubberContainer, { left: scrubberX - 1.5 }]}>
-              <LinearGradient
-                colors={['#FFD700', '#FF8C00']}
-                style={styles.scrubberLine}
-              />
-              <LinearGradient
-                colors={['#FFD700', '#FF8C00']}
-                style={styles.scrubberHandle}
-              >
-                <View style={styles.scrubberHandleInner} />
+            <Animated.View 
+              style={[
+                styles.scrubber,
+                { transform: [{ translateX: Animated.subtract(scrubberPosition, 1.5) }] }
+              ]}
+            >
+              <LinearGradient colors={['#FFD700', '#FF8C00']} style={styles.scrubberLine} />
+              <LinearGradient colors={['#FFD700', '#FF8C00']} style={styles.scrubberHandle}>
+                <View style={styles.scrubberDot} />
               </LinearGradient>
-            </View>
+            </Animated.View>
           )}
         </View>
 
-        <View style={styles.timeIndicators}>
-          <Text style={styles.timeIndicatorText}>0:00</Text>
-          <Text style={styles.timeIndicatorText}>{formatTime(duration)}</Text>
+        <View style={styles.timeRow}>
+          <Text style={styles.timeText}>0:00</Text>
+          <Text style={styles.timeText}>{formatTime(duration)}</Text>
         </View>
       </View>
 
-      {/* Error */}
       {error && (
         <View style={styles.errorBanner}>
-          <Ionicons name="warning-outline" size={16} color="#FF6B6B" />
+          <Ionicons name="warning-outline" size={14} color="#FF6B6B" />
           <Text style={styles.errorBannerText}>{error}</Text>
         </View>
       )}
 
-      <Text style={styles.hintText}>
-        This image will show as the cover in your feed
-      </Text>
+      <Text style={styles.footerHint}>This will be your cover photo in the feed</Text>
     </View>
   );
 });
@@ -520,7 +504,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 8,
     paddingVertical: 12,
     borderBottomWidth: StyleSheet.hairlineWidth,
-    borderBottomColor: 'rgba(255, 255, 255, 0.1)',
+    borderBottomColor: 'rgba(255,255,255,0.1)',
   },
   headerButton: {
     width: 60,
@@ -566,7 +550,7 @@ const styles = StyleSheet.create({
   cropOverlay: {
     ...StyleSheet.absoluteFillObject,
     borderWidth: 1,
-    borderColor: 'rgba(255, 255, 255, 0.3)',
+    borderColor: 'rgba(255,255,255,0.2)',
     borderRadius: 12,
   },
   cropCorner: {
@@ -601,29 +585,29 @@ const styles = StyleSheet.create({
     borderRightWidth: 2,
     borderBottomWidth: 2,
   },
-  transformControls: {
+  hintRow: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
     marginTop: 12,
-    gap: 12,
+    gap: 10,
   },
   resetButton: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: 'rgba(255, 215, 0, 0.15)',
-    paddingHorizontal: 12,
-    paddingVertical: 6,
-    borderRadius: 16,
+    backgroundColor: 'rgba(255,215,0,0.15)',
+    paddingHorizontal: 10,
+    paddingVertical: 5,
+    borderRadius: 14,
     gap: 4,
   },
-  resetButtonText: {
+  resetText: {
     color: '#FFD700',
-    fontSize: 13,
+    fontSize: 12,
     fontWeight: '500',
   },
-  transformHint: {
-    color: 'rgba(255, 255, 255, 0.5)',
+  hintText: {
+    color: 'rgba(255,255,255,0.4)',
     fontSize: 12,
   },
   previewLoading: {
@@ -633,14 +617,14 @@ const styles = StyleSheet.create({
   },
   loadingText: {
     marginTop: 12,
-    color: '#888',
+    color: '#666',
     fontSize: 14,
   },
   timeBadge: {
     position: 'absolute',
     top: 12,
     right: 28,
-    backgroundColor: 'rgba(0, 0, 0, 0.7)',
+    backgroundColor: 'rgba(0,0,0,0.7)',
     paddingHorizontal: 10,
     paddingVertical: 5,
     borderRadius: 12,
@@ -663,12 +647,12 @@ const styles = StyleSheet.create({
   },
   filmstripLabel: {
     fontSize: 13,
-    color: 'rgba(255, 255, 255, 0.5)',
+    color: 'rgba(255,255,255,0.4)',
     textAlign: 'center',
     marginBottom: 12,
   },
   filmstripContainer: {
-    height: FILMSTRIP_HEIGHT + 20,
+    height: FILMSTRIP_HEIGHT + 24,
     position: 'relative',
     justifyContent: 'center',
   },
@@ -685,28 +669,29 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   filmstripFrame: {
-    width: FRAME_WIDTH,
+    flex: 1,
     height: FILMSTRIP_HEIGHT,
   },
-  filmstripFrameImage: {
+  filmstripImage: {
     width: '100%',
     height: '100%',
   },
-  filmstripFramePlaceholder: {
+  filmstripPlaceholder: {
     width: '100%',
     height: '100%',
     backgroundColor: '#2a2a2a',
   },
-  scrubberContainer: {
+  scrubber: {
     position: 'absolute',
     top: 0,
-    height: FILMSTRIP_HEIGHT + 20,
+    left: 0,
+    height: FILMSTRIP_HEIGHT + 24,
     alignItems: 'center',
   },
   scrubberLine: {
     width: 3,
-    height: FILMSTRIP_HEIGHT + 10,
-    marginTop: 5,
+    height: FILMSTRIP_HEIGHT + 12,
+    marginTop: 6,
     borderRadius: 1.5,
   },
   scrubberHandle: {
@@ -717,20 +702,20 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginTop: -4,
   },
-  scrubberHandleInner: {
+  scrubberDot: {
     width: 6,
     height: 6,
     borderRadius: 3,
     backgroundColor: '#000',
   },
-  timeIndicators: {
+  timeRow: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     marginTop: 8,
   },
-  timeIndicatorText: {
+  timeText: {
     fontSize: 11,
-    color: '#666',
+    color: '#555',
   },
   errorContainer: {
     flex: 1,
@@ -747,20 +732,20 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: 'rgba(255, 107, 107, 0.15)',
-    paddingVertical: 10,
+    backgroundColor: 'rgba(255,107,107,0.15)',
+    paddingVertical: 8,
     paddingHorizontal: 16,
     marginHorizontal: 16,
     borderRadius: 8,
-    gap: 8,
+    gap: 6,
   },
   errorBannerText: {
     color: '#FF6B6B',
-    fontSize: 13,
-  },
-  hintText: {
     fontSize: 12,
-    color: 'rgba(255, 255, 255, 0.35)',
+  },
+  footerHint: {
+    fontSize: 12,
+    color: 'rgba(255,255,255,0.3)',
     textAlign: 'center',
     paddingHorizontal: 32,
     paddingBottom: 16,
