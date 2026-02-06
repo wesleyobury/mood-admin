@@ -213,13 +213,17 @@ export default function Explore() {
     fetchPosts();
   }, [token, activeTab, isGuest]);
 
-  // Scroll to top when this screen is focused
+  // Scroll to top when this screen is focused and refresh notification count
   useFocusEffect(
     React.useCallback(() => {
       if (scrollViewRef.current) {
         scrollViewRef.current.scrollTo({ y: 0, animated: false });
       }
-    }, [])
+      // Refresh notification count when screen gains focus
+      if (token && !isGuest) {
+        fetchUnreadCount();
+      }
+    }, [token, isGuest])
   );
 
   const fetchPosts = async (loadMore = false, retryCount = 0) => {
