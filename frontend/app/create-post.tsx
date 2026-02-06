@@ -252,11 +252,15 @@ export default function CreatePost() {
   };
 
   const selectSavedAchievement = (achievement: any) => {
+    console.log('📋 Selected saved achievement:', achievement.id);
+    console.log('📋 Achievement has workoutSnapshotId:', achievement.workoutSnapshotId);
+    
     setWorkoutStats({
       workouts: achievement.workouts,
       totalDuration: achievement.totalDuration,
       completedAt: achievement.completedAt,
       moodCategory: achievement.moodCategory,
+      workoutSnapshotId: achievement.workoutSnapshotId, // CRITICAL: Pass snapshot ID for "Try this workout"
     });
     setHasStatsCard(true);
     
