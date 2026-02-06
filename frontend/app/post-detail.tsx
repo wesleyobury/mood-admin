@@ -283,7 +283,12 @@ export default function PostDetail() {
 
   // Handle "Try this workout" button press
   const handleTryWorkout = () => {
-    if (!post?.workout_data?.workouts) return;
+    if (!post?.workout_data?.workouts) {
+      console.log('❌ No workout_data in post:', post);
+      return;
+    }
+    
+    console.log('🏋️ Try this workout - Full workout_data:', JSON.stringify(post.workout_data, null, 2));
     
     // Clear cart and add all workouts from this post
     clearCart();
@@ -291,16 +296,21 @@ export default function PostDetail() {
     const moodCategory = post.workout_data.mood_category || post.workout_data.moodCategory || 'Shared Workout';
     
     post.workout_data.workouts.forEach((workout: any, index: number) => {
+      console.log(`📝 Processing workout ${index}:`, JSON.stringify(workout, null, 2));
+      
       // Map workout fields - backend uses workoutTitle/workoutName, also support name for fallback
-      const workoutName = workout.workoutTitle || workout.workoutName || workout.name || 'Exercise';
+      const workoutName = workout.workoutTitle || workout.workoutName || workout.workout_title || workout.workout_name || workout.name || 'Exercise';
       const workoutEquipment = workout.equipment || 'Bodyweight';
       const workoutDuration = workout.duration || '10 min';
       const workoutDifficulty = workout.difficulty || 'intermediate';
       const workoutImage = workout.imageUrl || workout.image_url || '';
-      const workoutDescription = workout.description || workout.battlePlan || '';
-      const workoutMoodCategory = workout.moodCategory || moodCategory;
-      const workoutMoodTips = workout.moodTips || [];
-      const workoutIntensityReason = workout.intensityReason || `${workoutDifficulty} intensity workout`;
+      const workoutBattlePlan = workout.battlePlan || workout.battle_plan || '';
+      const workoutDescription = workout.description || workoutBattlePlan;
+      const workoutMoodCategory = workout.moodCategory || workout.mood_category || moodCategory;
+      const workoutMoodTips = workout.moodTips || workout.mood_tips || [];
+      const workoutIntensityReason = workout.intensityReason || workout.intensity_reason || `${workoutDifficulty} intensity workout`;
+      
+      console.log(`✅ Mapped workout - name: ${workoutName}, battlePlan: ${workoutBattlePlan ? 'YES' : 'NO'}, imageUrl: ${workoutImage ? 'YES' : 'NO'}`);
       
       const cartItem: WorkoutItem = {
         id: `shared-${post.id}-${index}-${Date.now()}`,
@@ -313,7 +323,7 @@ export default function PostDetail() {
         workoutType: workoutMoodCategory,
         moodCard: workoutMoodCategory,
         moodTips: workoutMoodTips,
-        battlePlan: workout.battlePlan || workoutDescription,
+        battlePlan: workoutBattlePlan || workoutDescription,
         intensityReason: workoutIntensityReason,
       };
       addToCart(cartItem);
