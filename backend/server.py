@@ -5056,7 +5056,8 @@ async def get_posts(current_user_id: str = Depends(get_current_user), limit: int
                     "workouts": raw_data.get("workouts", []),
                     "totalDuration": raw_data.get("totalDuration", 0),
                     "completedAt": raw_data.get("completedAt", ""),
-                    "moodCategory": raw_data.get("moodCategory")
+                    "moodCategory": raw_data.get("moodCategory"),
+                    "workout_snapshot_id": raw_data.get("workout_snapshot_id")
                 }
             except Exception as e:
                 print(f"Error parsing workout_data: {e}")
