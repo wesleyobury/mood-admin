@@ -4336,7 +4336,8 @@ async def get_user_posts(
                         workouts=[WorkoutExerciseData(**w) for w in raw_data.get("workouts", [])],
                         totalDuration=raw_data.get("totalDuration", 0),
                         completedAt=raw_data.get("completedAt", ""),
-                        moodCategory=raw_data.get("moodCategory")
+                        moodCategory=raw_data.get("moodCategory"),
+                        workout_snapshot_id=raw_data.get("workout_snapshot_id")
                     )
                 except Exception as e:
                     print(f"Error parsing workout_data: {e}")
@@ -4825,7 +4826,8 @@ async def get_following_posts(
                         workouts=[WorkoutExerciseData(**w) for w in raw_data.get("workouts", [])],
                         totalDuration=raw_data.get("totalDuration", 0),
                         completedAt=raw_data.get("completedAt", ""),
-                        moodCategory=raw_data.get("moodCategory")
+                        moodCategory=raw_data.get("moodCategory"),
+                        workout_snapshot_id=raw_data.get("workout_snapshot_id")
                     )
                 except Exception as e:
                     print(f"Error parsing workout_data: {e}")
