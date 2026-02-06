@@ -283,23 +283,74 @@ export default function PostDetail() {
     carouselIndex === (post?.media_urls?.length || 1) - 1;
 
   // Handle "Try this workout" button press
-  const handleTryWorkout = () => {
-    if (!post?.workout_data?.workouts) {
+  const handleTryWorkout = async () => {
+    if (!post?.workout_data) {
       console.log('❌ No workout_data in post:', post);
       return;
     }
     
-    console.log('🏋️ Try this workout - Full workout_data:', JSON.stringify(post.workout_data, null, 2));
+    console.log('🏋️ Try this workout - checking for snapshot_id');
+    console.log('workout_snapshot_id:', post.workout_data.workout_snapshot_id);
     
-    // Clear cart and add all workouts from this post
+    // Clear cart first
     clearCart();
     
+    // If we have a snapshot ID, fetch from the snapshot for accurate data
+    if (post.workout_data.workout_snapshot_id) {
+      try {
+        console.log('📸 Fetching workout snapshot:', post.workout_data.workout_snapshot_id);
+        const snapshotResponse = await fetch(`${API_URL}/api/workout-snapshots/${post.workout_data.workout_snapshot_id}`);
+        
+        if (snapshotResponse.ok) {
+          const snapshot = await snapshotResponse.json();
+          console.log('✅ Snapshot fetched:', JSON.stringify(snapshot, null, 2));
+          
+          const moodCategory = snapshot.mood_category || 'Shared Workout';
+          
+          snapshot.workouts.forEach((workout: any, index: number) => {
+            const cartItem: WorkoutItem = {
+              id: `snapshot-${snapshot.id}-${index}-${Date.now()}`,
+              name: workout.workoutTitle || workout.workoutName || 'Workout',
+              equipment: workout.equipment || 'Bodyweight',
+              duration: workout.duration || '10 min',
+              difficulty: workout.difficulty || 'intermediate',
+              imageUrl: workout.imageUrl || '',
+              description: workout.description || workout.battlePlan || '',
+              workoutType: workout.moodCategory || moodCategory,
+              moodCard: workout.moodCategory || moodCategory,
+              moodTips: workout.moodTips || [],
+              battlePlan: workout.battlePlan || workout.description || '',
+              intensityReason: workout.intensityReason || `${workout.difficulty || 'intermediate'} intensity workout`,
+            };
+            console.log('✅ Adding cart item from snapshot:', cartItem.name, 'battlePlan:', cartItem.battlePlan ? 'YES' : 'NO');
+            addToCart(cartItem);
+          });
+          
+          // Track analytics
+          if (token) {
+            Analytics.tryWorkoutClicked(token, {
+              post_id: post.id,
+              workout_count: snapshot.workouts.length,
+              author_id: post.author.id,
+              source: 'snapshot',
+            });
+          }
+          
+          router.push('/cart');
+          return;
+        } else {
+          console.log('⚠️ Snapshot fetch failed, falling back to workout_data');
+        }
+      } catch (error) {
+        console.error('❌ Error fetching snapshot:', error);
+      }
+    }
+    
+    // Fallback to using workout_data directly (for older posts without snapshots)
+    console.log('📋 Using workout_data directly (no snapshot)');
     const moodCategory = post.workout_data.mood_category || post.workout_data.moodCategory || 'Shared Workout';
     
     post.workout_data.workouts.forEach((workout: any, index: number) => {
-      console.log(`📝 Processing workout ${index}:`, JSON.stringify(workout, null, 2));
-      
-      // Map workout fields - backend uses workoutTitle/workoutName, also support name for fallback
       const workoutName = workout.workoutTitle || workout.workoutName || workout.workout_title || workout.workout_name || workout.name || 'Exercise';
       const workoutEquipment = workout.equipment || 'Bodyweight';
       const workoutDuration = workout.duration || '10 min';
@@ -311,7 +362,7 @@ export default function PostDetail() {
       const workoutMoodTips = workout.moodTips || workout.mood_tips || [];
       const workoutIntensityReason = workout.intensityReason || workout.intensity_reason || `${workoutDifficulty} intensity workout`;
       
-      console.log(`✅ Mapped workout - name: ${workoutName}, battlePlan: ${workoutBattlePlan ? 'YES' : 'NO'}, imageUrl: ${workoutImage ? 'YES' : 'NO'}`);
+      console.log(`📝 Fallback workout ${index}: ${workoutName}, battlePlan: ${workoutBattlePlan ? 'YES' : 'NO'}, imageUrl: ${workoutImage ? 'YES' : 'NO'}`);
       
       const cartItem: WorkoutItem = {
         id: `shared-${post.id}-${index}-${Date.now()}`,
@@ -336,6 +387,7 @@ export default function PostDetail() {
         post_id: post.id,
         workout_count: post.workout_data.workouts.length,
         author_id: post.author.id,
+        source: 'fallback',
       });
     } else {
       GuestAnalytics.tryWorkoutClicked({
