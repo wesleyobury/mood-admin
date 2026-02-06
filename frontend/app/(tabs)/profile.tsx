@@ -278,6 +278,8 @@ export default function Profile() {
             fetchUserPosts();
           }
         }
+        // Always refresh notification count on focus (it's a lightweight check)
+        fetchUnreadNotifications();
       }
     }, [token, activeTab, authUser?.id])
   );
