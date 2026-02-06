@@ -315,6 +315,7 @@ class WorkoutCardData(BaseModel):
     totalDuration: int
     completedAt: str
     moodCategory: Optional[str] = None
+    workout_snapshot_id: Optional[str] = None  # Persistent reference for "Try this workout"
 
 class PostCreate(BaseModel):
     workout_id: Optional[str] = None
