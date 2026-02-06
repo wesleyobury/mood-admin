@@ -971,6 +971,22 @@ export default function AdminDashboard() {
                 <Ionicons name="bar-chart-outline" size={14} color="#666" />
               </View>
             </TouchableOpacity>
+
+            {/* Deleted Users - Churn Tracking */}
+            <TouchableOpacity 
+              style={styles.metricCard}
+              onPress={() => setShowDeletedUsers(true)}
+            >
+              <View style={[styles.metricIcon, { backgroundColor: 'rgba(255, 87, 34, 0.15)' }]}>
+                <Ionicons name="person-remove" size={24} color="#FF5722" />
+              </View>
+              <Text style={styles.metricValue}>{deletedUsersCount}</Text>
+              <Text style={styles.metricLabel}>Churned</Text>
+              <View style={styles.metricFooter}>
+                <Text style={[styles.metricSubValue, { color: '#FF5722' }]}>Deleted accounts</Text>
+                <Ionicons name="chevron-forward" size={14} color="#666" />
+              </View>
+            </TouchableOpacity>
           </View>
         </View>
 
