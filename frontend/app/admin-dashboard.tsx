@@ -238,6 +238,11 @@ export default function AdminDashboard() {
   // Active users modal state
   const [showActiveUsers, setShowActiveUsers] = useState(false);
   
+  // Deleted users tracking state
+  const [deletedUsersCount, setDeletedUsersCount] = useState(0);
+  const [deletedUsers, setDeletedUsers] = useState<any[]>([]);
+  const [showDeletedUsers, setShowDeletedUsers] = useState(false);
+  
   // Session chart modal state
   const [showSessionChart, setShowSessionChart] = useState(false);
   
