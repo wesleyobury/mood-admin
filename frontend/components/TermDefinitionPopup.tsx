@@ -5,8 +5,9 @@ import {
   StyleSheet,
   TouchableOpacity,
   Dimensions,
+  Platform,
 } from 'react-native';
-import Popover, { PopoverPlacement } from 'react-native-popover-view';
+import Popover, { PopoverPlacement, PopoverMode } from 'react-native-popover-view';
 
 const { width: SCREEN_WIDTH } = Dimensions.get('window');
 
@@ -51,6 +52,7 @@ export const TermDefinitionPopup: React.FC<TermDefinitionPopupProps> = ({ term, 
         onPress={() => setVisible(true)} 
         activeOpacity={0.7}
         style={styles.termTouchable}
+        hitSlop={{ top: 8, bottom: 8, left: 4, right: 4 }}
       >
         {children || (
           <Text style={[styles.termLink, style]}>{term}</Text>
@@ -61,10 +63,12 @@ export const TermDefinitionPopup: React.FC<TermDefinitionPopupProps> = ({ term, 
         isVisible={visible}
         from={touchableRef}
         onRequestClose={() => setVisible(false)}
-        placement={PopoverPlacement.AUTO}
+        placement={PopoverPlacement.TOP}
         popoverStyle={styles.popover}
         backgroundStyle={styles.popoverBackground}
         arrowSize={{ width: 12, height: 8 }}
+        verticalOffset={Platform.OS === 'ios' ? -8 : 0}
+        mode={PopoverMode.RN_MODAL}
       >
         <View style={styles.popoverContent}>
           <Text style={styles.popoverTitle}>{term}</Text>
@@ -72,6 +76,7 @@ export const TermDefinitionPopup: React.FC<TermDefinitionPopupProps> = ({ term, 
           <TouchableOpacity 
             style={styles.popoverButton} 
             onPress={() => setVisible(false)}
+            activeOpacity={0.7}
           >
             <Text style={styles.popoverButtonText}>Got it</Text>
           </TouchableOpacity>
