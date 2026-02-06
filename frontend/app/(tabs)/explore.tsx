@@ -440,9 +440,7 @@ export default function Explore() {
     if (activeTab === 'notifications' && !isGuest) {
       // Immediately clear the badge count when viewing notifications
       setUnreadNotificationCount(0);
-      // Save the timestamp right away to prevent race conditions
-      AsyncStorage.setItem(LAST_NOTIFICATION_VIEW_KEY, Date.now().toString());
-      // Then fetch the actual notifications
+      // Then fetch the actual notifications (which will also save the seen IDs)
       fetchNotifications();
     }
   }, [activeTab, token]);
