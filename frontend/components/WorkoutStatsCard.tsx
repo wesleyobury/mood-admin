@@ -875,6 +875,24 @@ const styles = StyleSheet.create({
     marginLeft: 3,
   },
   
+  // Center content for rings (calorie inside)
+  transparentRingCenterContent: {
+    position: 'absolute',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  transparentCenterCalorieValue: {
+    fontSize: 20,
+    fontWeight: '500',
+    color: COLORS.caloriesStart,
+    letterSpacing: -0.5,
+  },
+  transparentCenterCalorieLabel: {
+    fontSize: 9,
+    color: 'rgba(255, 255, 255, 0.6)',
+    marginTop: 1,
+  },
+  
   // Exercises below rings
   transparentExercisesSection: {
     paddingHorizontal: 20,
