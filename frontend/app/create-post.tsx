@@ -150,6 +150,54 @@ export default function CreatePost() {
     }
   }, [isGuest]);
 
+  // Load saved user goals from AsyncStorage on mount
+  useEffect(() => {
+    const loadSavedGoals = async () => {
+      try {
+        const [savedCalorieTarget, savedMinuteTarget] = await Promise.all([
+          AsyncStorage.getItem(STORAGE_KEYS.CALORIE_TARGET),
+          AsyncStorage.getItem(STORAGE_KEYS.MINUTE_TARGET),
+        ]);
+        
+        if (savedCalorieTarget) {
+          const calTarget = parseInt(savedCalorieTarget, 10);
+          if (!isNaN(calTarget) && calTarget > 0) {
+            setCalorieTarget(calTarget);
+          }
+        }
+        
+        if (savedMinuteTarget) {
+          const minTarget = parseInt(savedMinuteTarget, 10);
+          if (!isNaN(minTarget) && minTarget > 0) {
+            setMinuteTarget(minTarget);
+          }
+        }
+      } catch (error) {
+        console.error('Error loading saved goals:', error);
+      }
+    };
+    
+    loadSavedGoals();
+  }, []);
+
+  // Save calorie target when it changes
+  useEffect(() => {
+    if (calorieTarget > 0) {
+      AsyncStorage.setItem(STORAGE_KEYS.CALORIE_TARGET, String(calorieTarget)).catch(
+        error => console.error('Error saving calorie target:', error)
+      );
+    }
+  }, [calorieTarget]);
+
+  // Save minute target when it changes
+  useEffect(() => {
+    if (minuteTarget > 0) {
+      AsyncStorage.setItem(STORAGE_KEYS.MINUTE_TARGET, String(minuteTarget)).catch(
+        error => console.error('Error saving minute target:', error)
+      );
+    }
+  }, [minuteTarget]);
+
   // Fetch saved achievements when no workoutStats is passed
   useEffect(() => {
     if (!params.workoutStats && token && !isGuest) {
