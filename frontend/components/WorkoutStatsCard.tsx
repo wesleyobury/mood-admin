@@ -105,6 +105,7 @@ interface WorkoutStatsCardProps {
   editedCalories?: number;
   calorieTarget?: number;
   minuteTarget?: number;
+  showRingPulse?: boolean; // Enable soft pulsing animation on rings for share screen
 }
 
 // Calculate intensity percentage based on workout characteristics
