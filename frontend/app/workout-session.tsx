@@ -117,7 +117,7 @@ export default function WorkoutSessionScreen() {
     }
   };
 
-  const handleFinishSession = () => {
+  const handleFinishSession = async () => {
     console.log('=== FINISH SESSION CALLED ===');
     
     // Prepare workout completion data with full details for replication
@@ -147,11 +147,42 @@ export default function WorkoutSessionScreen() {
     const firstWorkout = sessionWorkouts[0];
     const moodCategory = firstWorkout?.workoutType || firstWorkout?.moodCard || 'Workout';
 
+    // Create workout snapshot for persistent access (Try this workout feature)
+    let workoutSnapshotId: string | null = null;
+    if (token) {
+      try {
+        console.log('📸 Creating workout snapshot...');
+        const snapshotResponse = await fetch(`${API_URL}/api/workout-snapshots`, {
+          method: 'POST',
+          headers: {
+            'Authorization': `Bearer ${token}`,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            workouts: completedWorkouts,
+            total_duration: totalDuration,
+            mood_category: moodCategory,
+          }),
+        });
+        
+        if (snapshotResponse.ok) {
+          const snapshotData = await snapshotResponse.json();
+          workoutSnapshotId = snapshotData.id;
+          console.log('✅ Workout snapshot created:', workoutSnapshotId);
+        } else {
+          console.error('❌ Failed to create workout snapshot');
+        }
+      } catch (error) {
+        console.error('❌ Error creating workout snapshot:', error);
+      }
+    }
+
     const workoutStatsData = {
       workouts: completedWorkouts,
       totalDuration,
       completedAt,
       moodCategory,
+      workoutSnapshotId, // Include the snapshot ID
     };
 
     console.log('Workout stats data:', workoutStatsData);
