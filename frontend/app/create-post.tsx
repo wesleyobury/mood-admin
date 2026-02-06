@@ -621,11 +621,7 @@ export default function CreatePost() {
     console.log('handleSaveCard called');
     console.log('=== SAVING WORKOUT CARD WITH FULL DATA ===');
     console.log('workoutStats:', JSON.stringify(workoutStats, null, 2));
-    console.log('Current auth state:', { 
-      hasWorkoutStats: !!workoutStats, 
-      hasToken: !!token, 
-      isLoading,
-      tokenPreview: token ? `${token.substring(0, 20)}...` : 'null'});
+    console.log('Snapshot ID:', workoutStats?.workoutSnapshotId);
     
     if (isLoading) {
       showAlert('Please wait', 'Loading authentication...');
@@ -669,9 +665,10 @@ export default function CreatePost() {
         total_duration: workoutStats.totalDuration,
         completed_at: workoutStats.completedAt,
         mood_category: workoutStats.moodCategory,
+        workout_snapshot_id: workoutStats.workoutSnapshotId || null, // Persistent reference for "Try this workout"
       };
       
-      console.log('Card data to save:', JSON.stringify(cardData, null, 2));
+      console.log('Card data to save (including snapshot_id):', cardData.workout_snapshot_id);
       
       const response = await fetch(`${API_URL}/api/workout-cards`, {
         method: 'POST',
@@ -684,7 +681,7 @@ export default function CreatePost() {
 
       console.log('Save response status:', response.status);
       if (response.ok) {
-        console.log('✅ Card saved successfully! Showing button animation...');
+        console.log('✅ Card saved successfully with snapshot_id:', cardData.workout_snapshot_id);
         setCardSaved(true);
         showSaveAnimation();
       } else {
