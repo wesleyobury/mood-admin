@@ -3323,6 +3323,71 @@ const styles = StyleSheet.create({
     color: '#666',
     marginTop: 12,
   },
+  // Deleted users modal styles
+  deletedUserItem: {
+    flexDirection: 'row',
+    alignItems: 'flex-start',
+    padding: 16,
+    borderBottomWidth: 1,
+    borderBottomColor: '#222',
+  },
+  deletedUserAvatar: {
+    width: 48,
+    height: 48,
+    borderRadius: 24,
+    backgroundColor: 'rgba(255, 87, 34, 0.15)',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginRight: 12,
+  },
+  deletedUserInfo: {
+    flex: 1,
+  },
+  deletedUserName: {
+    fontSize: 16,
+    fontWeight: '600',
+    color: '#fff',
+  },
+  deletedUserEmail: {
+    fontSize: 13,
+    color: '#888',
+    marginTop: 2,
+  },
+  deletedUserStats: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: 8,
+    marginTop: 8,
+  },
+  deletedUserStat: {
+    fontSize: 12,
+    color: '#666',
+    backgroundColor: '#1a1a1a',
+    paddingHorizontal: 8,
+    paddingVertical: 4,
+    borderRadius: 4,
+  },
+  deletedUserDate: {
+    fontSize: 11,
+    color: '#FF5722',
+    marginTop: 8,
+  },
+  emptyDeletedUsers: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  emptyDeletedText: {
+    fontSize: 16,
+    fontWeight: '600',
+    color: '#4CAF50',
+    marginTop: 16,
+  },
+  emptyDeletedSubtext: {
+    fontSize: 13,
+    color: '#666',
+    marginTop: 4,
+  },
   // Session chart modal styles
   sessionChartSubtitle: {
     fontSize: 12,
