@@ -1925,6 +1925,7 @@ export default function CreatePost() {
               username={user?.username || 'User'}
               calorieTarget={calorieTarget}
               minuteTarget={minuteTarget}
+              transparent={true}
               showRingPulse={true}
             />
           }
