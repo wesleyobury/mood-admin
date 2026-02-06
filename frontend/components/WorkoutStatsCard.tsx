@@ -156,9 +156,11 @@ export default function WorkoutStatsCard({
   editedCalories,
   calorieTarget = DEFAULT_CALORIE_TARGET,
   minuteTarget = DEFAULT_MINUTE_TARGET,
+  showRingPulse = false,
 }: WorkoutStatsCardProps) {
   const fadeAnim = useRef(new Animated.Value(0)).current;
   const pulseAnim = useRef(new Animated.Value(1)).current;
+  const ringPulseAnim = useRef(new Animated.Value(1)).current; // Soft pulse for rings on share screen
 
   const displayDuration = editedDuration !== undefined ? editedDuration : totalDuration;
   const estimatedCalories = editedCalories !== undefined ? editedCalories : Math.round(totalDuration * 8);
