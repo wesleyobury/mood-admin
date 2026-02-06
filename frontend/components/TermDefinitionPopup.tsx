@@ -1,13 +1,12 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import {
   View,
   Text,
   StyleSheet,
   TouchableOpacity,
-  Modal,
   Dimensions,
-  Platform,
 } from 'react-native';
+import Popover, { PopoverPlacement } from 'react-native-popover-view';
 
 const { width: SCREEN_WIDTH } = Dimensions.get('window');
 
@@ -22,8 +21,8 @@ const TERM_DEFINITIONS: Record<string, string> = {
   Superset: 'Two exercises back-to-back with no rest.',
   Circuit: 'Series of exercises done one after another.',
   RPM: 'Revolutions Per Minute. 80-90 optimal, 100+ sprint.',
-  'Cluster Sets': 'Mini-sets with 10-30 sec rest between. Allows heavier loads with quality reps.',
-  Clusters: 'Mini-sets with 10-30 sec rest between. Allows heavier loads with quality reps.',
+  'Cluster Sets': 'Mini-sets with 10-30 sec rest between. Allows heavier loads.',
+  Clusters: 'Mini-sets with 10-30 sec rest between. Allows heavier loads.',
 };
 
 interface TermDefinitionPopupProps {
@@ -34,6 +33,7 @@ interface TermDefinitionPopupProps {
 
 export const TermDefinitionPopup: React.FC<TermDefinitionPopupProps> = ({ term, children, style }) => {
   const [visible, setVisible] = useState(false);
+  const touchableRef = useRef<TouchableOpacity>(null);
   
   // Normalize term for lookup
   const definition = TERM_DEFINITIONS[term] || 
@@ -46,57 +46,66 @@ export const TermDefinitionPopup: React.FC<TermDefinitionPopupProps> = ({ term, 
 
   return (
     <>
-      <TouchableOpacity onPress={() => setVisible(true)} activeOpacity={0.7}>
+      <TouchableOpacity 
+        ref={touchableRef}
+        onPress={() => setVisible(true)} 
+        activeOpacity={0.7}
+        style={styles.termTouchable}
+      >
         {children || (
           <Text style={[styles.termLink, style]}>{term}</Text>
         )}
       </TouchableOpacity>
 
-      <Modal
-        visible={visible}
-        transparent={true}
-        animationType="fade"
+      <Popover
+        isVisible={visible}
+        from={touchableRef}
         onRequestClose={() => setVisible(false)}
+        placement={PopoverPlacement.AUTO}
+        popoverStyle={styles.popover}
+        backgroundStyle={styles.popoverBackground}
+        arrowSize={{ width: 12, height: 8 }}
       >
-        <View style={styles.modalOverlay}>
+        <View style={styles.popoverContent}>
+          <Text style={styles.popoverTitle}>{term}</Text>
+          <Text style={styles.popoverText}>{definition}</Text>
           <TouchableOpacity 
-            style={styles.backdropTouchable} 
-            activeOpacity={1} 
+            style={styles.popoverButton} 
             onPress={() => setVisible(false)}
-          />
-          <View style={styles.modalContent}>
-            <Text style={styles.termTitle}>{term}</Text>
-            <Text style={styles.termDefinition}>{definition}</Text>
-            <TouchableOpacity 
-              style={styles.dismissButton} 
-              onPress={() => setVisible(false)}
-            >
-              <Text style={styles.dismissButtonText}>Got it</Text>
-            </TouchableOpacity>
-          </View>
+          >
+            <Text style={styles.popoverButtonText}>Got it</Text>
+          </TouchableOpacity>
         </View>
-      </Modal>
+      </Popover>
     </>
   );
 };
 
-// Helper to parse text and create clickable terms
+// Helper to parse text and create clickable terms - fixed inline rendering
 export const TextWithTermLinks: React.FC<{
   text: string;
   baseStyle?: object;
   linkStyle?: object;
 }> = ({ text, baseStyle, linkStyle }) => {
-  const termRegex = /\b(RPE|SPM|AMRAP|EMOM|HIIT|Tabata|Superset|Circuit|RPM|cluster\s*sets?|clusters?)\b/gi;
+  // Match terms but preserve surrounding text structure
+  const termPattern = /\b(RPE|SPM|AMRAP|EMOM|HIIT|Tabata|Superset|Circuit|RPM|[Cc]luster\s*[Ss]ets?|[Cc]lusters?)\b/g;
   
-  const parts: (string | { term: string; key: number })[] = [];
+  const elements: React.ReactNode[] = [];
   let lastIndex = 0;
   let match;
-  let keyCounter = 0;
+  let keyIndex = 0;
 
-  while ((match = termRegex.exec(text)) !== null) {
+  while ((match = termPattern.exec(text)) !== null) {
+    // Add text before the match
     if (match.index > lastIndex) {
-      parts.push(text.slice(lastIndex, match.index));
+      elements.push(
+        <Text key={`t-${keyIndex++}`} style={baseStyle}>
+          {text.slice(lastIndex, match.index)}
+        </Text>
+      );
     }
+    
+    // Normalize the term
     let normalizedTerm = match[1];
     if (['rpe', 'spm', 'amrap', 'emom', 'hiit', 'rpm'].includes(normalizedTerm.toLowerCase())) {
       normalizedTerm = normalizedTerm.toUpperCase();
@@ -105,89 +114,85 @@ export const TextWithTermLinks: React.FC<{
     } else {
       normalizedTerm = normalizedTerm.charAt(0).toUpperCase() + normalizedTerm.slice(1).toLowerCase();
     }
-    parts.push({ term: normalizedTerm, key: keyCounter++ });
+    
+    // Add the term link inline
+    elements.push(
+      <TermDefinitionPopup 
+        key={`p-${keyIndex++}`} 
+        term={normalizedTerm}
+        style={[styles.inlineTermLink, linkStyle]}
+      />
+    );
+    
     lastIndex = match.index + match[0].length;
   }
   
+  // Add remaining text
   if (lastIndex < text.length) {
-    parts.push(text.slice(lastIndex));
+    elements.push(
+      <Text key={`t-${keyIndex++}`} style={baseStyle}>
+        {text.slice(lastIndex)}
+      </Text>
+    );
   }
 
   return (
-    <Text style={baseStyle}>
-      {parts.map((part, index) => {
-        if (typeof part === 'string') {
-          return <Text key={`text-${index}`}>{part}</Text>;
-        }
-        return (
-          <TermDefinitionPopup key={`term-${part.key}`} term={part.term} style={linkStyle} />
-        );
-      })}
+    <Text style={[baseStyle, styles.textContainer]}>
+      {elements}
     </Text>
   );
 };
 
 const styles = StyleSheet.create({
+  termTouchable: {
+    // No extra styling to keep inline
+  },
   termLink: {
-    color: '#888',
+    color: '#FFD700',
     textDecorationLine: 'underline',
     fontWeight: '600',
   },
-  modalOverlay: {
-    flex: 1,
-    backgroundColor: 'rgba(0, 0, 0, 0.85)',
-    justifyContent: 'center',
-    alignItems: 'center',
+  inlineTermLink: {
+    color: '#FFD700',
+    textDecorationLine: 'underline',
+    fontWeight: '600',
   },
-  backdropTouchable: {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
+  textContainer: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
   },
-  modalContent: {
+  popover: {
     backgroundColor: '#2a2a2a',
-    borderRadius: 16,
-    padding: 28,
-    marginHorizontal: 40,
-    width: SCREEN_WIDTH - 80,
-    maxWidth: 320,
-    alignItems: 'center',
-    ...Platform.select({
-      ios: {
-        shadowColor: '#000',
-        shadowOffset: { width: 0, height: 4 },
-        shadowOpacity: 0.3,
-        shadowRadius: 8,
-      },
-      android: {
-        elevation: 8,
-      },
-    }),
+    borderRadius: 12,
+    padding: 0,
+    maxWidth: 280,
   },
-  termTitle: {
-    fontSize: 22,
+  popoverBackground: {
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+  },
+  popoverContent: {
+    padding: 16,
+  },
+  popoverTitle: {
+    fontSize: 18,
     fontWeight: '700',
+    color: '#FFD700',
+    marginBottom: 8,
+  },
+  popoverText: {
+    fontSize: 14,
     color: '#fff',
-    marginBottom: 12,
-    textAlign: 'center',
+    lineHeight: 20,
+    marginBottom: 16,
   },
-  termDefinition: {
-    fontSize: 16,
-    color: '#ccc',
-    lineHeight: 24,
-    textAlign: 'center',
-    marginBottom: 24,
-  },
-  dismissButton: {
+  popoverButton: {
     backgroundColor: '#444',
-    borderRadius: 10,
-    paddingVertical: 12,
-    paddingHorizontal: 40,
+    borderRadius: 8,
+    paddingVertical: 10,
+    alignItems: 'center',
   },
-  dismissButtonText: {
-    fontSize: 16,
+  popoverButtonText: {
+    fontSize: 14,
     fontWeight: '600',
     color: '#fff',
   },
