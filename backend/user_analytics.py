@@ -72,16 +72,18 @@ EVENT_TYPES = {
 }
 
 # Excluded user IDs for analytics (admin/test accounts)
+# Note: Removing admin accounts from exclusion so streaks work properly
+# Platform analytics will filter these out separately if needed
 EXCLUDED_USER_IDS = [
-    "695c956938cfc491f1b71940",  # officialmoodapp
+    # "695c956938cfc491f1b71940",  # officialmoodapp - allow tracking for streaks
     "695c9fa0e58a04344db951e5",  # OgeeezzburyTester
-    "693f94d29a560edaab674fd5",  # old officialmoodapp ID
+    # "693f94d29a560edaab674fd5",  # old officialmoodapp ID - allow tracking for streaks
 ]
 
 EXCLUDED_USERNAMES = [
-    "officialmoodapp",
+    # "officialmoodapp",  # Allow tracking for streaks
     "ogeeezzburytester",
-    "ogeeezzbury",
+    # "ogeeezzbury",  # Allow tracking for streaks
 ]
 
 
