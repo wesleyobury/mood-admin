@@ -261,7 +261,27 @@ export default function WorkoutStatsCard({
         }),
       ])
     ).start();
-  }, []);
+
+    // Soft ring pulse animation for share screen
+    if (showRingPulse) {
+      Animated.loop(
+        Animated.sequence([
+          Animated.timing(ringPulseAnim, {
+            toValue: 1.03,
+            duration: 1800,
+            useNativeDriver: true,
+            easing: Easing.inOut(Easing.sin),
+          }),
+          Animated.timing(ringPulseAnim, {
+            toValue: 1,
+            duration: 1800,
+            useNativeDriver: true,
+            easing: Easing.inOut(Easing.sin),
+          }),
+        ])
+      ).start();
+    }
+  }, [showRingPulse]);
 
   // Render the three concentric rings with gradients and gloss
   const renderRings = (isTransparent: boolean = false) => {
