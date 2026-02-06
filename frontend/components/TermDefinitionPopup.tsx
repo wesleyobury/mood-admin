@@ -1,98 +1,47 @@
-import React, { useRef, useState } from 'react';
-import {
-  View,
-  Text,
-  StyleSheet,
-  TouchableOpacity,
-  Dimensions,
-  Platform,
-} from 'react-native';
-import Popover, { PopoverPlacement, PopoverMode } from 'react-native-popover-view';
+import React from 'react';
+import { Text, StyleSheet } from 'react-native';
 
-const { width: SCREEN_WIDTH } = Dimensions.get('window');
-
-// Concise term definitions
+// Concise inline definitions for fitness terms
 const TERM_DEFINITIONS: Record<string, string> = {
-  RPE: 'Rate of Perceived Exertion (1-10). 5-6 is moderate, 7-8 is hard, 9-10 is max.',
-  SPM: 'Strokes Per Minute. 18-22 easy, 26-30 race pace, 30+ sprint.',
-  AMRAP: 'As Many Rounds As Possible in the given time.',
-  EMOM: 'Every Minute On the Minute. Start reps at each minute mark.',
-  HIIT: 'High Intensity Interval Training. Max effort bursts with rest.',
-  Tabata: '20 sec work, 10 sec rest × 8 rounds. Total 4 minutes.',
-  Superset: 'Two exercises back-to-back with no rest.',
-  Circuit: 'Series of exercises done one after another.',
-  RPM: 'Revolutions Per Minute. 80-90 optimal, 100+ sprint.',
-  'Cluster Sets': 'Mini-sets with 10-30 sec rest between. Allows heavier loads.',
-  Clusters: 'Mini-sets with 10-30 sec rest between. Allows heavier loads.',
+  RPE: 'effort 1-10',
+  SPM: 'strokes/min',
+  AMRAP: 'as many rounds as possible',
+  EMOM: 'every min on the min',
+  HIIT: 'high intensity intervals',
+  Tabata: '20s work/10s rest x8',
+  Superset: 'back-to-back exercises',
+  Circuit: 'exercises in sequence',
+  RPM: 'revolutions/min',
+  'Cluster Sets': 'mini-sets with brief rest',
+  Clusters: 'mini-sets with brief rest',
 };
 
-interface TermDefinitionPopupProps {
-  term: string;
-  children?: React.ReactNode;
-  style?: object;
-}
-
-export const TermDefinitionPopup: React.FC<TermDefinitionPopupProps> = ({ term, children, style }) => {
-  const [visible, setVisible] = useState(false);
-  const touchableRef = useRef<TouchableOpacity>(null);
+// Helper to get definition for a term (case-insensitive)
+const getDefinition = (term: string): string | null => {
+  // Direct match
+  if (TERM_DEFINITIONS[term]) return TERM_DEFINITIONS[term];
   
-  // Normalize term for lookup
-  const definition = TERM_DEFINITIONS[term] || 
-                     TERM_DEFINITIONS[term.toUpperCase()] || 
-                     TERM_DEFINITIONS[term.charAt(0).toUpperCase() + term.slice(1).toLowerCase()];
-
-  if (!definition) {
-    return <Text style={style}>{term}</Text>;
-  }
-
-  return (
-    <>
-      <TouchableOpacity 
-        ref={touchableRef}
-        onPress={() => setVisible(true)} 
-        activeOpacity={0.7}
-        style={styles.termTouchable}
-        hitSlop={{ top: 8, bottom: 8, left: 4, right: 4 }}
-      >
-        {children || (
-          <Text style={[styles.termLink, style]}>{term}</Text>
-        )}
-      </TouchableOpacity>
-
-      <Popover
-        isVisible={visible}
-        from={touchableRef}
-        onRequestClose={() => setVisible(false)}
-        placement={PopoverPlacement.TOP}
-        popoverStyle={styles.popover}
-        backgroundStyle={styles.popoverBackground}
-        arrowSize={{ width: 12, height: 8 }}
-        verticalOffset={Platform.OS === 'ios' ? -8 : 0}
-        mode={PopoverMode.RN_MODAL}
-      >
-        <View style={styles.popoverContent}>
-          <Text style={styles.popoverTitle}>{term}</Text>
-          <Text style={styles.popoverText}>{definition}</Text>
-          <TouchableOpacity 
-            style={styles.popoverButton} 
-            onPress={() => setVisible(false)}
-            activeOpacity={0.7}
-          >
-            <Text style={styles.popoverButtonText}>Got it</Text>
-          </TouchableOpacity>
-        </View>
-      </Popover>
-    </>
-  );
+  // Uppercase match (RPE, SPM, etc.)
+  if (TERM_DEFINITIONS[term.toUpperCase()]) return TERM_DEFINITIONS[term.toUpperCase()];
+  
+  // Title case match
+  const titleCase = term.charAt(0).toUpperCase() + term.slice(1).toLowerCase();
+  if (TERM_DEFINITIONS[titleCase]) return TERM_DEFINITIONS[titleCase];
+  
+  // Cluster variations
+  if (term.toLowerCase().includes('cluster')) return TERM_DEFINITIONS['Cluster Sets'];
+  
+  return null;
 };
 
-// Helper to parse text and create clickable terms - fixed inline rendering
+// Component that renders text with inline definitions for fitness terms
+// No popups - just adds (definition) after each term
 export const TextWithTermLinks: React.FC<{
   text: string;
   baseStyle?: object;
   linkStyle?: object;
-}> = ({ text, baseStyle, linkStyle }) => {
-  // Match terms but preserve surrounding text structure
+}> = ({ text, baseStyle }) => {
+  // Pattern to match fitness terms
   const termPattern = /\b(RPE|SPM|AMRAP|EMOM|HIIT|Tabata|Superset|Circuit|RPM|[Cc]luster\s*[Ss]ets?|[Cc]lusters?)\b/g;
   
   const elements: React.ReactNode[] = [];
@@ -110,24 +59,25 @@ export const TextWithTermLinks: React.FC<{
       );
     }
     
-    // Normalize the term
-    let normalizedTerm = match[1];
-    if (['rpe', 'spm', 'amrap', 'emom', 'hiit', 'rpm'].includes(normalizedTerm.toLowerCase())) {
-      normalizedTerm = normalizedTerm.toUpperCase();
-    } else if (normalizedTerm.toLowerCase().includes('cluster')) {
-      normalizedTerm = 'Cluster Sets';
-    } else {
-      normalizedTerm = normalizedTerm.charAt(0).toUpperCase() + normalizedTerm.slice(1).toLowerCase();
-    }
+    const term = match[1];
+    const definition = getDefinition(term);
     
-    // Add the term link inline
-    elements.push(
-      <TermDefinitionPopup 
-        key={`p-${keyIndex++}`} 
-        term={normalizedTerm}
-        style={[styles.inlineTermLink, linkStyle]}
-      />
-    );
+    if (definition) {
+      // Add term with inline definition in parentheses
+      elements.push(
+        <Text key={`term-${keyIndex++}`} style={baseStyle}>
+          <Text style={styles.term}>{term}</Text>
+          <Text style={styles.definition}> ({definition})</Text>
+        </Text>
+      );
+    } else {
+      // No definition found, just add the term as-is
+      elements.push(
+        <Text key={`term-${keyIndex++}`} style={baseStyle}>
+          {term}
+        </Text>
+      );
+    }
     
     lastIndex = match.index + match[0].length;
   }
@@ -141,65 +91,51 @@ export const TextWithTermLinks: React.FC<{
     );
   }
 
+  // If no terms found, just return the text as-is
+  if (elements.length === 0) {
+    return <Text style={baseStyle}>{text}</Text>;
+  }
+
   return (
-    <Text style={[baseStyle, styles.textContainer]}>
+    <Text style={baseStyle}>
       {elements}
     </Text>
   );
 };
 
+// Legacy export for backwards compatibility (now does nothing special)
+export const TermDefinitionPopup: React.FC<{
+  term: string;
+  children?: React.ReactNode;
+  style?: object;
+}> = ({ term, children, style }) => {
+  const definition = getDefinition(term);
+  
+  if (children) {
+    return <>{children}</>;
+  }
+  
+  if (definition) {
+    return (
+      <Text style={style}>
+        <Text style={styles.term}>{term}</Text>
+        <Text style={styles.definition}> ({definition})</Text>
+      </Text>
+    );
+  }
+  
+  return <Text style={style}>{term}</Text>;
+};
+
 const styles = StyleSheet.create({
-  termTouchable: {
-    // No extra styling to keep inline
-  },
-  termLink: {
+  term: {
     color: '#FFD700',
-    textDecorationLine: 'underline',
     fontWeight: '600',
   },
-  inlineTermLink: {
-    color: '#FFD700',
-    textDecorationLine: 'underline',
-    fontWeight: '600',
-  },
-  textContainer: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-  },
-  popover: {
-    backgroundColor: '#2a2a2a',
-    borderRadius: 12,
-    padding: 0,
-    maxWidth: 280,
-  },
-  popoverBackground: {
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
-  },
-  popoverContent: {
-    padding: 16,
-  },
-  popoverTitle: {
-    fontSize: 18,
-    fontWeight: '700',
-    color: '#FFD700',
-    marginBottom: 8,
-  },
-  popoverText: {
-    fontSize: 14,
-    color: '#fff',
-    lineHeight: 20,
-    marginBottom: 16,
-  },
-  popoverButton: {
-    backgroundColor: '#444',
-    borderRadius: 8,
-    paddingVertical: 10,
-    alignItems: 'center',
-  },
-  popoverButtonText: {
-    fontSize: 14,
-    fontWeight: '600',
-    color: '#fff',
+  definition: {
+    color: 'rgba(255, 255, 255, 0.7)',
+    fontStyle: 'italic',
+    fontSize: 12,
   },
 });
 
