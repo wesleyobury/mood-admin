@@ -206,21 +206,25 @@ export default function Profile() {
     }
   };
 
-  // Fetch unread notification count - using same logic as explore page
+  // Fetch unread notification count - using same ID-based logic as explore page
   const fetchUnreadNotifications = async () => {
     if (!token) return;
     try {
-      // Get session start time and last viewed time
-      const sessionStartStr = await AsyncStorage.getItem(NOTIFICATION_SESSION_KEY);
-      const lastViewedStr = await AsyncStorage.getItem(LAST_NOTIFICATION_VIEW_KEY);
+      // Get the list of notification IDs the user has already seen
+      const seenIdsStr = await AsyncStorage.getItem(LAST_NOTIFICATION_VIEW_KEY);
+      let seenIds: string[] = [];
       
-      const sessionStartTime = sessionStartStr ? parseInt(sessionStartStr, 10) : Date.now();
-      const lastViewedTime = lastViewedStr ? parseInt(lastViewedStr, 10) : null;
-      
-      // Use the later of: session start time or last viewed time
-      const cutoffTime = lastViewedTime 
-        ? Math.max(lastViewedTime, sessionStartTime)
-        : sessionStartTime;
+      try {
+        if (seenIdsStr) {
+          seenIds = JSON.parse(seenIdsStr);
+          // Handle legacy format (was timestamp, now array)
+          if (!Array.isArray(seenIds)) {
+            seenIds = [];
+          }
+        }
+      } catch {
+        seenIds = [];
+      }
       
       const response = await fetch(`${API_URL}/api/notifications`, {
         headers: { 'Authorization': `Bearer ${token}` },
@@ -230,13 +234,20 @@ export default function Profile() {
         const data = await response.json();
         const allNotifications = data.notifications || [];
         
-        // Count notifications newer than cutoff time
-        const newCount = allNotifications.filter((n: any) => {
-          const notifTime = new Date(n.created_at).getTime();
-          return notifTime > cutoffTime;
-        }).length;
+        // If no seen IDs exist, initialize them (fresh session)
+        if (seenIds.length === 0 && allNotifications.length > 0) {
+          const notificationIds = allNotifications.map((n: any) => n.id);
+          await AsyncStorage.setItem(LAST_NOTIFICATION_VIEW_KEY, JSON.stringify(notificationIds));
+          setUnreadNotifications(0);
+          return;
+        }
         
-        setUnreadNotifications(newCount);
+        // Count notifications whose IDs are NOT in the seen list
+        const unseenCount = allNotifications.filter(
+          (n: any) => !seenIds.includes(n.id)
+        ).length;
+        
+        setUnreadNotifications(unseenCount);
       }
     } catch (error) {
       console.error('Error fetching unread notifications:', error);
