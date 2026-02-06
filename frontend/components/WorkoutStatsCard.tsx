@@ -262,21 +262,21 @@ export default function WorkoutStatsCard({
       ])
     ).start();
 
-    // Soft ring pulse animation for share screen
+    // Soft ring pulse animation for share screen - MORE VISIBLE
     if (showRingPulse) {
       Animated.loop(
         Animated.sequence([
           Animated.timing(ringPulseAnim, {
-            toValue: 1.06,
-            duration: 1500,
+            toValue: 1.12,
+            duration: 1000,
             useNativeDriver: true,
-            easing: Easing.inOut(Easing.sin),
+            easing: Easing.inOut(Easing.ease),
           }),
           Animated.timing(ringPulseAnim, {
-            toValue: 1,
-            duration: 1500,
+            toValue: 0.95,
+            duration: 1000,
             useNativeDriver: true,
-            easing: Easing.inOut(Easing.sin),
+            easing: Easing.inOut(Easing.ease),
           }),
         ])
       ).start();
