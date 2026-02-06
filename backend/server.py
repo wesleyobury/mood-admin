@@ -5468,6 +5468,9 @@ async def save_workout_card(
     current_user_id: str = Depends(get_current_user)
 ):
     """Save a completed workout card for the user"""
+    logger.info(f"💾 Saving workout card for user {current_user_id}")
+    logger.info(f"💾 Card has workout_snapshot_id: {card_data.workout_snapshot_id}")
+    
     card_doc = {
         **card_data.dict(),
         "user_id": current_user_id,
@@ -5481,6 +5484,8 @@ async def save_workout_card(
         {"_id": ObjectId(current_user_id)},
         {"$inc": {"workouts_count": 1}}
     )
+    
+    logger.info(f"✅ Workout card saved: {result.inserted_id}")
     
     return {
         "message": "Workout card saved successfully",
