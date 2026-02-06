@@ -359,10 +359,16 @@ export default function Explore() {
       
       if (response.ok) {
         const data = await response.json();
-        setNotifications(data.notifications || []);
-        // Save the current timestamp as last viewed (use timestamp ms for reliable comparison)
-        await AsyncStorage.setItem(LAST_NOTIFICATION_VIEW_KEY, Date.now().toString());
-        // Clear unread count when viewing notifications
+        const allNotifications = data.notifications || [];
+        setNotifications(allNotifications);
+        
+        // Save all current notification IDs as "seen"
+        if (allNotifications.length > 0) {
+          const notificationIds = allNotifications.map((n: Notification) => n.id);
+          await AsyncStorage.setItem(LAST_NOTIFICATION_VIEW_KEY, JSON.stringify(notificationIds));
+        }
+        
+        // Clear unread count immediately when viewing
         setUnreadNotificationCount(0);
       }
     } catch (error) {
@@ -373,13 +379,26 @@ export default function Explore() {
     }
   };
 
-  // Fetch unread notification count (count notifications newer than last view)
+  // Fetch unread notification count (count notifications NOT in seen list)
   const fetchUnreadCount = async () => {
     if (!token || isGuest) return;
     
     try {
-      // Get the last time user viewed notifications (stored as timestamp ms)
-      const lastViewedStr = await AsyncStorage.getItem(LAST_NOTIFICATION_VIEW_KEY);
+      // Get the list of notification IDs the user has already seen
+      const seenIdsStr = await AsyncStorage.getItem(LAST_NOTIFICATION_VIEW_KEY);
+      let seenIds: string[] = [];
+      
+      try {
+        if (seenIdsStr) {
+          seenIds = JSON.parse(seenIdsStr);
+          // Handle legacy format (was timestamp, now array)
+          if (!Array.isArray(seenIds)) {
+            seenIds = [];
+          }
+        }
+      } catch {
+        seenIds = [];
+      }
       
       const response = await fetch(`${API_URL}/api/notifications`, {
         headers: {
@@ -391,25 +410,14 @@ export default function Explore() {
         const data = await response.json();
         const allNotifications = data.notifications || [];
         
-        // If user has never viewed notifications, count all as unread
-        if (!lastViewedStr) {
-          if (activeTab !== 'notifications') {
-            setUnreadNotificationCount(allNotifications.length);
-          }
-          return;
-        }
-        
-        const lastViewedTime = parseInt(lastViewedStr, 10);
-        
-        // Count notifications newer than last viewed time
-        const newCount = allNotifications.filter((n: Notification) => {
-          const notifTime = new Date(n.created_at).getTime();
-          return notifTime > lastViewedTime;
-        }).length;
+        // Count notifications whose IDs are NOT in the seen list
+        const unseenCount = allNotifications.filter(
+          (n: Notification) => !seenIds.includes(n.id)
+        ).length;
         
         // Only update if not currently viewing notifications
         if (activeTab !== 'notifications') {
-          setUnreadNotificationCount(newCount);
+          setUnreadNotificationCount(unseenCount);
         }
       }
     } catch (error) {
