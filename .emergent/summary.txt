@@ -1,232 +1,233 @@
 <analysis>
 
-**original_problem_statement**: The user initially requested a comprehensive Apple Compliance Audit to reduce App Store rejection risk, covering areas like legal documents, analytics, and push notifications. During the session, the user provided numerous iterative feedback and new feature requests, including:
-- A complete logical overhaul of the Build for Me muscle gainer feature with specific rules for exercise grouping, ordering, and counts.
-- Multiple redesigns of the workout achievement card to use a layered donut ring UI, with specific feedback on colors, layout, and style.
-- Enhancements to video and image editing, including cropping, zooming, and frame selection.
-- A series of bug reports related to analytics errors, broken navigation, UI glitches in the admin panel, and inconsistent UI elements.
+**original_problem_statement**: The user wants to continue development on a fitness application. The initial session focused on bug fixes and UI/UX enhancements. Key requests that emerged during the session include:
+- A complete redesign of the Your Stats screen to a premium, minimal, data-confident aesthetic.
+- Fixing an inaccurate day streak calculation, which was caused by the admin user being excluded from analytics.
+- Standardizing back buttons across the entire application using a reusable component.
+- Implementing a persistent data flow for the Try this workout feature by creating Workout Snapshots to solve issues with transient cart state when posting from saved achievement cards.
+- Adding a shimmer animation to the workout completion rings on the Share Your Achievement screen.
+- Fixing a recurring UI bug with a term definition popup, with the user specifically requesting the use of the  library for a robust solution.
+- Correcting the UI for the Instagram share export to include the calorie count inside the rings.
+- Fixing a bug where the notification count badge does not clear correctly after viewing notifications.
+- Persisting user-edited daily calorie and minute goals.
 
 **User's preferred language**: English
 
 **what currently exists?**
-The agent has made significant progress on multiple fronts.
-
-**Apple Compliance:**
-- The , , and  (EULA) were updated with extensive, user-provided legal text.
-- A  page was created and styled.
-- An analytics opt-out toggle was added to the settings page ().
-- Analytics events were updated in  to include the user's timezone.
-
-**Feature Implementation & UI/UX:**
-- The  file was heavily modified through multiple iterations to implement complex business logic for the Build for Me feature, including muscle group sorting, minimum exercise counts, and special rules for leg workouts.
-- The  was completely rewritten several times to create a sophisticated, layered donut-ring UI for displaying workout stats, based on detailed user feedback.
-- The  and  were enhanced to improve the smoothness and responsiveness of touch-to-zoom/crop gestures using  and .
-
-**Bug Fixes:**
-- Fixed a bug where adding an 'abs' workout crashed the app by correcting an analytics function call in .
-- Resolved a keyboard layout issue in the admin Add Exercise modal in  by replacing  with a more robust  solution.
-- Fixed an intermittent bug in the followers/following list by rewriting the state management and data fetching logic in .
-- Corrected the positioning of the RPE (Rate of Perceived Exertion) popup in .
-- Standardized the styling of all Build for Me buttons to have white text by modifying the central .
+The agent has implemented several major features and fixes. The Your Stats screen has been completely redesigned. The backend and frontend logic for day streak calculation has been fixed by including admin users in the calculation. A new Workout Snapshot architecture has been implemented on both the backend (new models and API endpoints in ) and frontend (, , ) to make the Try this workout feature more robust. Many, but not all, screens have been updated to use a standardized  component. An admin dashboard widget to track deleted users has been added. Multiple attempts were made to fix a term definition popup and a ring animation, with the latest user feedback providing very specific implementation instructions.
 
 **Last working item**:
-    - Last item agent was working: The user reported that the video editor, while improved, was still not ideal. It pre-crops the video to a 4:5 aspect ratio, and the user can only pan/zoom within that crop. The user wants the ability to pan/zoom the *full, original-sized video* and define the crop area from there, similar to Instagram's functionality. The agent acknowledged this and was about to start fixing it.
-    - Status: NOT STARTED
+    - Last item agent was working: The agent was simultaneously addressing three UI issues reported by the user:
+        1.  Implementing a shimmer animation for the workout rings.
+        2.  Fixing the Instagram export UI to show calorie counts inside the rings.
+        3.  Re-implementing the term definition popup using the  library to fix positioning and styling issues.
+        The very last action taken was installing  and overwriting  to begin the new implementation.
+    - Status: IN PROGRESS
     - Agent Testing Done: N
-    - Which testing method agent to use? Manual testing by user after implementation to verify the cropping and zooming experience is smooth and intuitive.
+    - Which testing method agent to use? manual testing by screenshot tool
     - User Testing Done: N
 
 **All Pending/In progress Issue list**:
-  - Issue 1: (P0) Video editor forces a pre-crop before allowing pan/zoom.
-  - Issue 2: (P1) The Try this workout button is missing on completion cards when viewed from a user's profile or from the notifications screen.
-  - Issue 3: (P2) The notifications screen accessed via the profile page needs to look and function identically to the one on the explore page.
-  - Issue 4: (P3) Newly created featured workouts from the admin dashboard result in a Workout not found error when clicked.
-  - Issue 5: (P4) Some workouts in the Sweat/Burn mood card path (e.g., Medicine Ball AMRAP, Dumbbell Complex) show generic thumbnails in the cart.
+  - Issue 1: (P0) The Term Definition Popup is not working correctly on Expo. It appears off-screen and has incorrect text formatting.
+  - Issue 2: (P1) The workout completion rings do not have the requested shimmer animation on the Share Your Achievement screen.
+  - Issue 3: (P2) The Try this workout flow, which now uses the new Workout Snapshot architecture, needs full user verification to confirm it correctly populates the cart from saved achievement cards.
+  - Issue 4: (P3) The Instagram share export for a workout completion card does not show the calorie count inside the rings as requested.
+  - Issue 5: (P4) The notification count badge on the explore/profile tabs does not always disappear after the user has viewed the notifications inbox.
+  - Issue 6: (P5) User's edited daily goals for minutes and calories are not saved persistently. The input fields for these goals also have poor UX (can't delete all numbers before entering new ones).
+  - Issue 7: (P6) Featured workout not found error when clicking on workouts created from the admin dashboard (carried over from previous forks).
   
   **Issues Detail**:
-  - **Issue 1: Video editor pre-crops video**
-     - Attempted fixes: The  component was rewritten multiple times to improve smoothness, but the core logic of how the video is displayed and manipulated is still incorrect.
-     - Next debug checklist:
-        - Modify .
-        - Remove the logic that forces a 4:5 aspect ratio on the video preview container.
-        - Allow the  component to display the full-size video.
-        - Adjust the pan/zoom gesture handler logic to operate on the full video dimensions, not the cropped view dimensions.
-     - Why fix this issue and what will be achieved with the fix? To provide a user experience for video cropping that is as intuitive and flexible as industry standards like Instagram, improving user satisfaction.
+  - **Issue 1: Term Definition Popup**
+     - Attempted fixes: Multiple attempts were made using React Native's built-in  with absolute positioning, which failed to position correctly on the user's Expo client. The agent was in the process of a new fix.
+     - Next debug checklist: 
+        1.  Implement the popup using the  library, as specifically requested by the user.
+        2.  Use the  prop to anchor the popover to the pressed word.
+        3.  Wrap the hyperlinked word (e.g., Tabata) in a  and pass its  to the popover component.
+        4.  Style the popover content with a charcoal gray background and white text.
+        5.  Style the linked text itself to be gold and ensure formatting (e.g., parentheses) is handled correctly.
+     - Why fix this issue and what will be achieved with the fix? This is a recurring UI bug that has frustrated the user. Fixing it will improve the in-app educational experience.
+     - Status: IN PROGRESS
+     - Is recurring issue? Y
+     - Should Test frontend/backend/both after fix? Frontend
+     - Blocked on other issue: None
+
+  - **Issue 2: Ring Shimmer Animation**
+     - Attempted fixes: The previous agent implemented a pulse animation using  and , which the user could not see and ultimately rejected.
+     - Next debug checklist: 
+        1.  Remove the old pulse animation logic from .
+        2.  Implement a shimmer effect. This could be done with a  moving across the rings or a similar technique.
+        3.  Ensure the shimmer animation is applied only on the main Share Your Achievement screen within , and NOT on the .
+     - Why fix this issue and what will be achieved with the fix? To add a requested visual polish to a key achievement screen.
      - Status: NOT STARTED
      - Is recurring issue? Y
      - Should Test frontend/backend/both after fix? Frontend
      - Blocked on other issue: None
 
-  - **Issue 2: Try this workout button missing**
-     - Attempted fixes: The button was successfully added to . However, this fix does not cover all contexts where a post is viewed.
-     - Next debug checklist:
-        - Investigate how posts are rendered when navigating from a user's profile grid ().
-        - Investigate how posts are rendered when navigating from a notification. It's likely these paths use a different component or a different configuration of .
-        - Ensure the  is available and the Try this workout button is rendered in those contexts as well.
-     - Why fix this issue and what will be achieved with this? To ensure consistent functionality and user experience, allowing users to start a workout from any post they see, which is a key engagement feature.
-     - Status: NOT STARTED
-     - Is recurring issue? N
-     - Should Test frontend/backend/both after fix? Frontend
-     - Blocked on other issue: None
-
- - **Issue 3: Inconsistent Notifications Screens**
-     - Attempted fixes: None. This is a newly reported issue.
-     - Next debug checklist:
-        - Compare the UI and implementation of the notifications screen accessed from the explore tab's header with the screen/modal accessed from .
-        - Unify the component and styling to ensure they are identical. This may involve creating a single reusable notification screen component if one doesn't already exist.
-     - Why fix this issue and what will be achieved with this? To provide a predictable and polished user experience, removing jarring inconsistencies in the UI.
-     - Status: NOT STARTED
-     - Is recurring issue? N
-     - Should Test frontend/backend/both after fix? Frontend
-     - Blocked on other issue: None
-
- - **Issue 4: Featured workout not found error**
-     - Attempted fixes: The agent correctly identified the likely cause is a mismatch between hardcoded IDs and MongoDB ObjectIds. It added logging to  for further debugging but did not resolve the issue.
-     - Next debug checklist:
-        - When a user clicks a featured workout, log the uid=0(root) gid=0(root) groups=0(root) being passed in the route params.
-        - In , log the full API response for .
-        - Verify the backend is correctly retrieving the workout by ObjectId.
-        - Verify the frontend is correctly handling the fetched data and not falling back to the hardcoded data.
-     - Why fix this issue and what will be achieved with this? This is a critical bug blocking a core admin feature. Fixing it will allow admins to create and promote new workouts effectively.
-     - Status: IN PROGRESS
+  - **Issue 3: Try this workout Data Flow**
+     - Attempted fixes: A full Workout Snapshot architecture was built. The backend now has endpoints to create and fetch snapshots. The frontend was updated to create a snapshot on workout completion and use the snapshot ID to populate the cart when Try this workout is pressed.
+     - Next debug checklist: 
+        1.  User needs to test the end-to-end flow: Complete a workout -> save the achievement card -> create a new post using the saved card -> publish -> go to the post and click Try this workout.
+        2.  Verify the cart is populated with the exact workouts, including correct images and battle plans, from the original session.
+        3.  Add logging at each step (snapshot creation, post creation, snapshot fetching) to trace the .
+     - Why fix this issue and what will be achieved with the fix? This is a critical user flow for engagement and workout sharing. The new architecture is a major change that needs validation.
+     - Status: USER VERIFICATION PENDING
      - Is recurring issue? Y
      - Should Test frontend/backend/both after fix? Both
      - Blocked on other issue: None
 
-  - **Issue 5: Generic thumbnails for Sweat/Burn workouts**
-     - Attempted fixes: The agent checked the data files (e.g., ) and confirmed the Cloudinary URLs were present, but did not find the root cause.
-     - Next debug checklist:
-        - Trace the data flow from  to the cart component ().
-        - When a Sweat/Burn workout is generated, log the  object that is added to the cart.
-        - Check the  property of the item in the cart to see if it's missing or incorrect.
-     - Why fix this issue and what will be achieved with this? Fixes a visual bug that makes the app look unpolished and could confuse users.
+  - **Issue 4: Instagram Export UI**
+     - Attempted fixes: None.
+     - Next debug checklist: 
+        1.  Locate the rendering logic for the transparent version of the  used in the .
+        2.  Modify the JSX and styling to position the total calorie count text in the center of the rings, similar to how it's displayed on the non-transparent card.
+     - Why fix this issue and what will be achieved with the fix? To ensure brand consistency and a polished look on social media shares.
      - Status: NOT STARTED
+     - Is recurring issue? N
+     - Should Test frontend/backend/both after fix? Frontend
+     - Blocked on other issue: None
+
+  - **Issue 5: Notification Badge**
+     - Attempted fixes: The agent changed the logic from comparing timestamps to using a list of seen notification IDs stored in .
+     - Next debug checklist: 
+        1.  User needs to confirm if the notification badge on the profile and explore tabs correctly clears after visiting the notifications inbox.
+     - Why fix this issue and what will be achieved with the fix? Fixes a minor but persistent UI annoyance for the user.
+     - Status: USER VERIFICATION PENDING
      - Is recurring issue? Y
      - Should Test frontend/backend/both after fix? Frontend
+     - Blocked on other issue: None
+
+  - **Issue 6: Persist User Goals**
+     - Attempted fixes: None.
+     - Next debug checklist: 
+        1.  Identify where the calorie/minute goals are edited in the UI.
+        2.  Use  to save these values on the device.
+        3.  On app load, read these values from  to populate the state.
+        4.  Improve the  components to allow the input to be empty temporarily while editing.
+     - Why fix this issue and what will be achieved with the fix? To improve user personalization and fix a frustrating input field UX.
+     - Status: NOT STARTED
+     - Is recurring issue? N
+     - Should Test frontend/backend/both after fix? Frontend
+     - Blocked on other issue: None
+
+  - **Issue 7: Featured workout not found error**
+     - Attempted fixes: None in this or the previous session.
+     - Next debug checklist:
+        - Trace the uid=0(root) gid=0(root) groups=0(root) being passed to the  page from the admin dashboard.
+        - Verify the backend API at  is being called correctly.
+     - Why fix this issue and what will be achieved with the fix? This is a critical bug blocking a core admin feature.
+     - Status: NOT STARTED
+     - Is recurring issue? Y
+     - Should Test frontend/backend/both after fix? Both
      - Blocked on other issue: None
 
 **In progress Task List**:
-  - Task 1: Complete the Apple Compliance Audit.
- Task Detail:
-  - Task 1: 
-     - Where to resume: Several items from the original user brief and the  are still pending. The agent should review the checklist and the user's initial message to identify and implement the remaining items, which include:
-        - **Push Notifications**: Implement correct permission timing (not on first launch), confirm deep links work.
-        - **Analytics**: Audit all events to ensure they include  (UTC) and . (Partially done). Implement a global privacy toggle for opting out of non-essential analytics. (Done).
-        - **UGC**: Define and implement the account deletion process.
-        - **Legal Docs**: Add a Last updated date to all legal documents. (Done).
-        - **App Store Connect**: Create the Nutrition Label mapping document.
-     - What will be achieved with this? The app will be significantly more compliant with Apple App Store guidelines, reducing the risk of rejection.
-     - Status: IN PROGRESS
-     - Should Test frontend/backend/both after fix? Both
-     - Blocked on something: None.
+- No separate in-progress tasks. The work is captured in the pending issues list.
 
 **Upcoming and Future Tasks**
-- **P1: Board-Ready Admin Dashboard Polish**: The user initially requested a review of the admin dashboard. This remains a potential future task.
-- **P2: Address Technical Debt**: Critical bugs from the previous fork (Muscle Gainer flow, progress bar, floating action bar) were not addressed and should be re-evaluated.
+- **Upcoming Tasks**:
+    - (P1) Complete the Apple Compliance Audit. Key remaining items from  are pending.
+- **Future Tasks**:
+    - (P2) Address technical debt and bugs from previous forks, specifically the Muscle Gainer flow and Floating Action Bar issues which have not been addressed.
 
 **Completed work in this session**
-- **Apple Compliance (Partial)**: Updated legal docs, added Community Guidelines page, and implemented an analytics opt-out toggle with timezone tracking.
-- **Feature: Build for Me Logic Overhaul**: Rewrote workout generation logic in  to sort exercises by muscle group, enforce minimum counts, and handle special rules for leg workouts.
-- **Feature: Achievement Card Redesign**: Completely redesigned  with a layered, animated donut-ring UI based on several rounds of iterative user feedback.
-- **Feature: Try this Workout on Posts**: Added the button to  for posts that contain workout data.
-- **UX Improvement: Media Editing**: Enhanced  and  for smoother pan/zoom gestures.
-- **Bug Fix**: Corrected analytics crash when adding 'abs' workouts in .
-- **Bug Fix**: Fixed keyboard hiding controls in the admin exercise library modal ().
-- **Bug Fix**: Resolved inconsistent state and data fetching in the followers/following modal ().
-- **UI Fix**: Standardized Build for Me button text color in .
+- **Workout Snapshot Architecture**: Implemented a new persistent data model for workouts.
+  - Backend: Created  Pydantic model and new API endpoints (, ) in .
+  - Frontend: Updated  to create a snapshot on completion, and  to use the snapshot ID to populate the cart.
+- **Stats Screen Redesign**: Completely overhauled  to match the user's premium, minimal, data-confident design specification.
+- **Streak Calculation Fix**: Diagnosed and fixed the streak bug by updating  to no longer exclude the admin user from event tracking and ensuring stats endpoints use the correct calculation.
+- **Back Button Standardization**: Replaced custom back button implementations with the reusable  component across numerous screens, including , , , and various workout flow/equipment screens.
+- **Admin Deleted User Widget**: Added a backend mechanism to track deleted accounts and a new widget/modal in  to display them.
+- **Carousel Randomization**: Implemented and then fixed a glitchy randomization feature for the featured workouts carousel on the home page ().
 
 **Earlier issues found/mentioned but not fixed**
-   - **Issue 1: Featured workout not found error**: As detailed in the Pending/In progress Issue list. The agent started debugging but did not resolve it.
-   - **Issue 2: Generic thumbnails for Sweat/Burn workouts**: As detailed in the Pending/In progress Issue list. The agent investigated but did not find the root cause.
+   - **Issue 1: Persist User Goals**
+     - As detailed in Pending Issues (Issue 6). Requested by user but not started.
+   - **Issue 2: Featured workout not found error**
+     - As detailed in Pending Issues (Issue 7). This is a carry-over from the initial handover and has not been addressed.
+   - **Issue 3: Generic thumbnails for Sweat/Burn workouts**
+     - This was a carry-over issue from the initial handover that was not addressed. It may have been implicitly fixed by the new Workout Snapshot architecture, but this is unconfirmed.
 
 **Known issue recurrence from previous fork**
-  - **Issue recurrence in previous fork**: Muscle Gainer Flow & Floating Action Bar issues.
-  - **Recurrence count**: 3 (pending from previous fork, not addressed in this one).
-  - **Status**: NOT STARTED
+  - **Issue recurrence in previous fork**: Try this workout data flow, Term Definition Popup, Ring Animation.
+  - **Recurrence count**: High (3+ times each for these issues within this session alone).
+  - **Status**: IN PROGRESS. These are the highest priority items for the next agent.
 
 **Code Architecture**
-
+handleTryWorkoutStepTextWithLinks
 
 **Key Technical Concepts**
-- **Advanced Gesture Handling**: Extensive use of  and  (with native driver) for smooth, performant pan/zoom interactions in  and .
-- **Complex UI with SVG**: Implementation of a custom, animated, multi-layered donut chart for the , likely using .
-- **Iterative Refinement**: The agent demonstrated the ability to handle multiple rounds of detailed, specific UI and logic feedback from the user, particularly for the achievement card and workout generator.
-- **Robust Modal Implementation**: Debugged and fixed common issues in React Native modals, including keyboard avoidance () and state/data management ().
-- **Algorithm Design**: Designed and implemented complex business logic in  to meet specific sorting, filtering, and selection criteria for workout creation.
+- **Persistent Data Snapshots**: Solved a transient state problem by creating a persistent  on the backend. When a user completes a workout, a snapshot of the cart is saved. The post/achievement card then stores a  instead of embedding the full (and potentially incomplete) workout data. This makes the Try this workout feature robust and independent of the original navigation state.
+- ****: A new library introduced to solve a recurring, platform-specific UI positioning bug with modals/popups. The agent was instructed to use this with a  anchor.
+- **React Native  API**: Used extensively (though with mixed success) to attempt pulse and shimmer animations via , , , and applying transforms for  and .
+- ** for Render Control**: Used to prevent a Fisher-Yates shuffle from re-running on every render of the home screen's featured carousel, fixing a flashing UI bug.
+- **Backend Analytics & User Segmentation**: Investigated and modified backend logic () that excluded certain user IDs from analytics, which was the root cause of the 0 day streak bug for the admin user.
 
 **key DB schema**
-  - No changes to the database schema were made in this session.
+  - **workout_snapshots**:  (NEW)
+  - **posts**: Now includes an optional  field.
+  - **workout_cards**: Now includes an optional  field.
+  - **deleted_users**:  (NEW)
 
 **changes in tech stack**
-  -  was added to the frontend dependencies.
+  - : Added to solve a recurring UI bug.
 
 **All files of reference**
-- : The file for the highest priority pending issue.
-- : Contains the complex logic for the Build for Me feature.
-- : Contains the heavily customized achievement card UI.
-- : The tracking document for the main ongoing task.
-
-**Areas that need refactoring**:
-- The navigation to and rendering of post details seems inconsistent across the app, leading to bugs like the missing Try this workout button. A single, unified component or route for viewing a post should be enforced.
-- The  still contains a large, hardcoded data object as a fallback, which is a source of confusion and bugs. This should be removed once the API fetching is proven to be reliable.
-
-**key api endpoints**
-- : Fetches a user's followers.
-- : Fetches the users someone is following.
-- : Fetches a specific featured workout.
-- : Fetches details for a single post.
+- : Contains the new Workout Snapshot endpoints and model changes.
+- : Central hub for creating posts and saving achievement cards, now uses .
+- : Contains the refactored  function that consumes snapshots.
+- : Origin point for creating Workout Snapshots.
+- : File to be fixed using .
+- : File where the shimmer animation needs to be implemented.
+- : The newly redesigned stats screen.
 
 **Critical Info for New Agent**
-1.  **Highest Priority**: Your first task is to fix the video editor. The user wants to pan/zoom the *entire* video frame before a crop is applied, not after. You will need to rework  to achieve this.
-2.  **Follow-up Bugs**: After the video editor, address the list of pending issues, starting with the missing Try this workout button in different contexts and the inconsistent notifications screen.
-3.  **Complex Logic**: Be aware that  and  contain very specific, user-driven logic and UI. Be careful when modifying them and refer to the user's past messages for context.
-4.  **Unresolved Issues**: Two issues were investigated but not solved: the featured workout not found error and generic thumbnails in the Sweat/Burn path. You will need to continue the debugging work started by the previous agent.
-5.  **Main Goal**: Do not lose sight of the overarching **Apple Compliance Audit**. Once the critical user-reported bugs are fixed, you should review  and continue implementing the remaining requirements.
+1.  **Follow User's Specific Instructions:** The user has provided very specific technical direction for the pending UI bugs. You **MUST** use  with a  anchor for the definition popup. Do not revert to using a basic .
+2.  **New Animation Request:** The pulse animation for the rings has been abandoned. The new requirement is a shimmer animation. Do not waste time trying to fix the pulse.
+3.  **Verify the Snapshot Architecture:** The  system is a major architectural change. Your first priority after fixing the immediate UI bugs should be to help the user perform a full end-to-end test to confirm it solves the Try this workout problem.
+4.  **Recurring Issues are High Priority:** The definition popup, ring animation, and Try this workout flow have been sources of user frustration. Solving them robustly is critical.
+5.  **Don't Forget Lingering Tasks:** The user's request to persist calorie/minute goals (from message #526) has not been started. Also, the Featured workout not found error from the original handover is still outstanding.
 
 **documents created in this job**
-- No new documents were created, but  was updated.
+- None.
 
 **Last 10 User Messages and any pending HUMAN messages** 
- - **User (last - Msg 402):** The video editor is good but it pre-crops the video. I want to pan/zoom the full video first, *then* set the crop. (Status: Not Started).
- - **User (Msg 400):** The video editor looks good, I can zoom and reposition now. (This was before the next message with the final feedback).
- - **User (Msg 399):** The Try this workout button is still missing on posts from my profile and from notifications. Also, the notifications screen from the profile looks different from the one on the explore page; they should be the same. (Status: Partially Addressed/Pending).
- - **User (Msg 394):** The video scroller and crop/zoom is still glitchy and not smooth. It should be like Instagram. (Status: Addressed, but new feedback received in Msg 402).
- - **User (Msg 355):** The Try this workout button should be on *all* completion cards after they are posted, everywhere in the app. (Status: Partially Addressed).
- - **User (Msg 338):** The zoom/crop on photos and videos is fidgety and the video scrubber is not smooth. (Status: Addressed).
- - **User (Msg 312):** My followers/following list is intermittent and user profile photos don't always show up. (Status: Completed).
- - **User (Msg 299):** Add video crop selection and allow resizing/repositioning for the cover photo frame. Fix frame selection accuracy. (Status: Partially Addressed/Pending).
- - **User (Msg 294):** Make sure all Build for Me buttons have white text. (Status: Completed).
- - **User (Msg 274):** The admin add new video screen bug persists on Expo. (Status: Completed).
+ - **#567:** Requested shimmer animation instead of pulse, calorie count inside Instagram export rings, and gave specific instructions () for fixing the off-screen definition popup. (Status: IN PROGRESS)
+ - **#526:** Reported pulse was on the wrong screen, requested persistence for user goals, and provided the detailed Workout Snapshot architecture to fix the Try workout button. (Status: Mostly implemented, verification pending)
+ - **#490:** Reported ring animation still not working, modal still off-screen, and reiterated the need to store a cart reference. (Status: Addressed with snapshot architecture, but UI bugs remain)
+ - **#464:** Reported inanimate rings, off-screen modal, stuck notification badge, and broken Try this workout flow. (Status: Partially addressed)
+ - **#412:** Reported no ring pulse, off-screen popup, and broken Try this workout flow. (Status: Addressed, but fixes were ineffective)
+ - **#328:** Requested tracking for deleted users and reported Try this workout was still broken. (Status: Addressed)
+ - **#289:** Reported hyperlinked text popup issue, no ring pulse, and stuck notification badge. (Status: Addressed, but fixes were ineffective/incomplete)
+ - **#255:** Requested more evident social stats and reported the recurring Try this workout bug with saved cards. (Status: Addressed)
+ - **#234:** Reported the ring pulse animation was not visible. (Status: Addressed, but fix was ineffective)
+ - **#171:** Requested a full redesign of the stats screen and reported the inaccurate day streak bug. (Status: COMPLETED)
 
 **Project Health Check:**
 - **Broken**:
-  - The featured workout flow for newly created workouts is broken.
-  - The video editor cropping experience does not meet user requirements.
+    - The Term Definition Popup is unusable on the user's Expo client.
+    - The Try this workout flow from posts created with saved achievement cards is not confirmed to be working.
 - **Mocked**:
-  - No mocked components. The app relies on live API calls.
+    - None.
 - **Technical Debt**:
-  - Inconsistent rendering of posts across different navigation paths.
-  - Old bugs from previous forks (Muscle Gainer flow, etc.) remain unaddressed.
+    - The  component has seen multiple failed attempts at animation, suggesting its complexity could be reduced or it needs refactoring.
+    - The notification count logic has been patched several times and may still be fragile.
+    - The back button standardization task, while mostly complete, may have missed some edge-case screens.
 
 **3rd Party Integrations**
-- ****: For handling push notifications.
-- ****: For running scheduled background jobs on the backend.
-- ****: For cloud-based media storage and delivery.
-- ****: Used for rendering the donut rings in the achievement card.
-- ** / **: Used for smooth pan/zoom gestures.
-- ****: Added to get user's timezone.
+-  (v1.1.2) - Newly added for UI popups.
 
 **Testing status**
   - Testing agent used after significant changes: NO
   - Troubleshoot agent used after agent stuck in loop: NO
   - Test files created: []
-  - Known regressions: The Try this workout button logic is incomplete. The video editor has been iterated on but still doesn't meet user expectations.
+  - Known regressions: None, but several features are in a  state after significant re-work.
 
 **Credentials to test flow:**
 - Admin user: 
 - Regular user: Any other user account.
 
 **What agent forgot to execute**
-The agent correctly prioritized the user's immediate feedback and bug reports. However, this meant that the original, larger task of the **Apple Compliance Audit** was only partially completed. The remaining items from that audit (e.g., push notification timing, UGC deletion policy) were not addressed and should be resumed after the current list of user-reported bugs is cleared.
+- **Persisting User Goals**: The request from message #526 to save edited calorie/minute goals and improve the input fields was never started.
+- **Original Pending Issues**: The agent never addressed the Featured workout not found error or the Generic thumbnails for Sweat/Burn workouts issue from the very first handover summary.
 
 </analysis>
