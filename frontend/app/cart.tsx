@@ -19,6 +19,7 @@ import { useRouter, useLocalSearchParams } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import Constants from 'expo-constants';
 import HomeButton from '../components/HomeButton';
+import BackButton from '../components/BackButton';
 import { useCart, WorkoutItem } from '../contexts/CartContext';
 import { useAuth } from '../contexts/AuthContext';
 import { Analytics } from '../utils/analytics';
@@ -497,12 +498,9 @@ export default function CartScreen() {
         <View style={styles.heroOverlay} />
         
         {/* Back Button */}
-        <TouchableOpacity 
-          style={[styles.headerBackButton, { top: insets.top + 10 }]}
-          onPress={handleGoBack}
-        >
-          <Ionicons name="arrow-back" size={24} color="#fff" />
-        </TouchableOpacity>
+        <View style={[styles.backButtonWrapper, { top: insets.top + 10 }]}>
+          <BackButton onPress={handleGoBack} />
+        </View>
 
         {/* Clear Button */}
         <TouchableOpacity 
