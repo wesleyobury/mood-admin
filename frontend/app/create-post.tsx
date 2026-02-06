@@ -1213,9 +1213,22 @@ export default function CreatePost() {
       };
       
       // Include workout data if present (for workout card replication feature)
+      // Ensure ALL workout details are included for "Try this workout" to work
       if (workoutStats) {
         postPayload.workout_data = {
-          workouts: workoutStats.workouts,
+          workouts: workoutStats.workouts.map((w: any) => ({
+            // Include all fields for proper workout replication
+            workoutTitle: w.workoutTitle || w.workout_title || w.workoutName || w.workout_name,
+            workoutName: w.workoutName || w.workout_name || w.workoutTitle || w.workout_title,
+            equipment: w.equipment,
+            duration: w.duration,
+            difficulty: w.difficulty,
+            battlePlan: w.battlePlan || w.battle_plan,
+            imageUrl: w.imageUrl || w.image_url,
+            description: w.description,
+            intensityReason: w.intensityReason || w.intensity_reason,
+            moodCategory: w.moodCategory || w.mood_category,
+          })),
           totalDuration: workoutStats.totalDuration,
           completedAt: workoutStats.completedAt,
           moodCategory: workoutStats.moodCategory,
