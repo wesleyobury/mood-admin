@@ -645,10 +645,21 @@ export default function CreatePost() {
       console.log('Saving card to API...');
       
       // Transform camelCase to snake_case for backend
+      // Include ALL workout data including battlePlan for "Try this workout" feature
       const cardData = {
-        workouts: workoutStats.workouts,
+        workouts: workoutStats.workouts.map((w: any) => ({
+          ...w,
+          // Ensure both camelCase and snake_case versions are saved
+          workout_title: w.workoutTitle || w.workout_title || w.workoutName || w.workout_name,
+          workout_name: w.workoutName || w.workout_name || w.workoutTitle || w.workout_title,
+          battle_plan: w.battlePlan || w.battle_plan,
+          image_url: w.imageUrl || w.image_url,
+          intensity_reason: w.intensityReason || w.intensity_reason,
+          mood_category: w.moodCategory || w.mood_category,
+        })),
         total_duration: workoutStats.totalDuration,
         completed_at: workoutStats.completedAt,
+        mood_category: workoutStats.moodCategory,
       };
       
       const response = await fetch(`${API_URL}/api/workout-cards`, {
