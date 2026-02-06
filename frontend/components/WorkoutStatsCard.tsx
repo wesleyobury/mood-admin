@@ -467,11 +467,11 @@ export default function WorkoutStatsCard({
         <View style={styles.transparentCenteredContent}>
           {/* Main content: Rings on left, Data on right */}
           <View style={styles.transparentMainContent}>
-            {/* Left side: Rings */}
+            {/* Left side: Rings with optional pulse animation */}
             <View style={styles.transparentRingSection}>
-              <View style={styles.transparentRingContainer}>
+              <Animated.View style={[styles.transparentRingContainer, showRingPulse && { transform: [{ scale: ringPulseAnim }] }]}>
                 {renderRings(true)}
-              </View>
+              </Animated.View>
             </View>
             
             {/* Right side: Data stacked - smaller text */}
