@@ -49,6 +49,7 @@ interface WorkoutData {
   total_duration: number;
   completed_at: string;
   mood_category?: string;
+  workout_snapshot_id?: string; // Persistent reference for "Try this workout"
 }
 
 interface Post {
