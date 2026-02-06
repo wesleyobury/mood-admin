@@ -5511,6 +5511,7 @@ async def get_workout_cards(
             "total_duration": card["total_duration"],
             "completed_at": card["completed_at"],
             "mood_category": card.get("mood_category"),
+            "workout_snapshot_id": card.get("workout_snapshot_id"),  # Include snapshot reference
             "created_at": card["created_at"].isoformat()
         })
     
