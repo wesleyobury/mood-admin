@@ -5405,6 +5405,62 @@ class WorkoutCardCreate(BaseModel):
     total_duration: int
     completed_at: str
     mood_category: Optional[str] = None
+    workout_snapshot_id: Optional[str] = None  # Link to persistent snapshot
+
+# Workout Snapshots - Persistent cart data for "Try this workout" feature
+class WorkoutSnapshotCreate(BaseModel):
+    workouts: List[Dict[str, Any]]
+    total_duration: int
+    mood_category: Optional[str] = None
+
+@api_router.post("/workout-snapshots")
+async def create_workout_snapshot(
+    snapshot_data: WorkoutSnapshotCreate,
+    current_user_id: str = Depends(get_current_user)
+):
+    """Create a persistent workout snapshot on workout completion"""
+    logger.info(f"📸 Creating workout snapshot for user {current_user_id}")
+    logger.info(f"📸 Snapshot data: {snapshot_data.dict()}")
+    
+    snapshot_doc = {
+        **snapshot_data.dict(),
+        "user_id": current_user_id,
+        "created_at": datetime.now(timezone.utc)
+    }
+    
+    result = await db.workout_snapshots.insert_one(snapshot_doc)
+    snapshot_id = str(result.inserted_id)
+    
+    logger.info(f"✅ Created workout snapshot: {snapshot_id}")
+    
+    return {
+        "id": snapshot_id,
+        "message": "Workout snapshot created successfully"
+    }
+
+@api_router.get("/workout-snapshots/{snapshot_id}")
+async def get_workout_snapshot(snapshot_id: str):
+    """Get a workout snapshot by ID - used for 'Try this workout' feature"""
+    logger.info(f"📸 Fetching workout snapshot: {snapshot_id}")
+    
+    try:
+        snapshot = await db.workout_snapshots.find_one({"_id": ObjectId(snapshot_id)})
+    except:
+        logger.error(f"❌ Invalid snapshot ID format: {snapshot_id}")
+        raise HTTPException(status_code=400, detail="Invalid snapshot ID")
+    
+    if not snapshot:
+        logger.error(f"❌ Workout snapshot not found: {snapshot_id}")
+        raise HTTPException(status_code=404, detail="Workout snapshot not found")
+    
+    return {
+        "id": str(snapshot["_id"]),
+        "workouts": snapshot["workouts"],
+        "total_duration": snapshot["total_duration"],
+        "mood_category": snapshot.get("mood_category"),
+        "user_id": snapshot["user_id"],
+        "created_at": snapshot["created_at"].isoformat()
+    }
 
 @api_router.post("/workout-cards")
 async def save_workout_card(
