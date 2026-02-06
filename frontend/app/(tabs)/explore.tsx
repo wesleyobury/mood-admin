@@ -430,6 +430,11 @@ export default function Explore() {
   // Fetch notifications when tab changes to notifications
   useEffect(() => {
     if (activeTab === 'notifications' && !isGuest) {
+      // Immediately clear the badge count when viewing notifications
+      setUnreadNotificationCount(0);
+      // Save the timestamp right away to prevent race conditions
+      AsyncStorage.setItem(LAST_NOTIFICATION_VIEW_KEY, Date.now().toString());
+      // Then fetch the actual notifications
       fetchNotifications();
     }
   }, [activeTab, token]);
