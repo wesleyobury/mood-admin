@@ -696,6 +696,17 @@ const styles = StyleSheet.create({
     height: RING_SIZE,
     alignItems: 'center',
     justifyContent: 'center',
+    overflow: 'hidden',
+  },
+  shimmerOverlay: {
+    position: 'absolute',
+    width: 50,
+    height: RING_SIZE,
+    zIndex: 10,
+  },
+  shimmerGradient: {
+    width: 50,
+    height: '100%',
   },
   ringCenterContent: {
     position: 'absolute',
