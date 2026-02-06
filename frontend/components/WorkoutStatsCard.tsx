@@ -469,7 +469,10 @@ export default function WorkoutStatsCard({
           <View style={styles.transparentMainContent}>
             {/* Left side: Rings with optional pulse animation */}
             <View style={styles.transparentRingSection}>
-              <Animated.View style={[styles.transparentRingContainer, showRingPulse && { transform: [{ scale: ringPulseAnim }] }]}>
+              <Animated.View style={[
+                styles.transparentRingContainer, 
+                showRingPulse ? { transform: [{ scale: ringPulseAnim }] } : undefined
+              ]}>
                 {renderRings(true)}
               </Animated.View>
             </View>
