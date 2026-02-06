@@ -161,8 +161,7 @@ export default function WorkoutStatsCard({
 }: WorkoutStatsCardProps) {
   const fadeAnim = useRef(new Animated.Value(0)).current;
   const pulseAnim = useRef(new Animated.Value(1)).current;
-  const ringPulseAnim = useRef(new Animated.Value(1)).current;
-  const ringGlowAnim = useRef(new Animated.Value(0.8)).current; // Opacity glow animation
+  const shimmerAnim = useRef(new Animated.Value(0)).current; // Shimmer position animation
 
   const displayDuration = editedDuration !== undefined ? editedDuration : totalDuration;
   const estimatedCalories = editedCalories !== undefined ? editedCalories : Math.round(totalDuration * 8);
