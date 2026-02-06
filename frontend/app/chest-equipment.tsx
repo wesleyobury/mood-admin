@@ -12,6 +12,7 @@ import { LinearGradient } from 'expo-linear-gradient';
 import { useRouter, useLocalSearchParams } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import HomeButton from '../components/HomeButton';
+import BackButton from '../components/BackButton';
 import { useAuth } from '../contexts/AuthContext';
 import { Analytics } from '../utils/analytics';
 
@@ -224,12 +225,7 @@ export default function ChestEquipmentScreen() {
     <SafeAreaView style={[styles.container, { paddingTop: insets.top }]}>
       {/* Header */}
       <View style={styles.header}>
-        <TouchableOpacity 
-          style={styles.backButton}
-          onPress={handleGoBack}
-        >
-          <Ionicons name="chevron-back" size={24} color='#FFD700' />
-        </TouchableOpacity>
+        <BackButton onPress={handleGoBack} />
         <View style={styles.headerTextContainer}>
           <Text style={styles.headerTitle}>Chest Equipment</Text>
           <Text style={styles.headerSubtitle}>{moodTitle}</Text>
