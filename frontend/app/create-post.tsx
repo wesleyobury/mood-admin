@@ -619,6 +619,8 @@ export default function CreatePost() {
 
   const handleSaveCard = async () => {
     console.log('handleSaveCard called');
+    console.log('=== SAVING WORKOUT CARD WITH FULL DATA ===');
+    console.log('workoutStats:', JSON.stringify(workoutStats, null, 2));
     console.log('Current auth state:', { 
       hasWorkoutStats: !!workoutStats, 
       hasToken: !!token, 
@@ -644,23 +646,32 @@ export default function CreatePost() {
     try {
       console.log('Saving card to API...');
       
-      // Transform camelCase to snake_case for backend
-      // Include ALL workout data including battlePlan for "Try this workout" feature
+      // Transform and ensure ALL workout data is saved for "Try this workout" feature
       const cardData = {
-        workouts: workoutStats.workouts.map((w: any) => ({
-          ...w,
-          // Ensure both camelCase and snake_case versions are saved
-          workout_title: w.workoutTitle || w.workout_title || w.workoutName || w.workout_name,
-          workout_name: w.workoutName || w.workout_name || w.workoutTitle || w.workout_title,
-          battle_plan: w.battlePlan || w.battle_plan,
-          image_url: w.imageUrl || w.image_url,
-          intensity_reason: w.intensityReason || w.intensity_reason,
-          mood_category: w.moodCategory || w.mood_category,
-        })),
+        workouts: workoutStats.workouts.map((w: any, idx: number) => {
+          console.log(`Processing workout ${idx}:`, JSON.stringify(w, null, 2));
+          return {
+            // Core fields
+            workoutTitle: w.workoutTitle || w.workout_title || w.workoutName || w.workout_name || 'Workout',
+            workoutName: w.workoutName || w.workout_name || w.workoutTitle || w.workout_title || 'Workout',
+            equipment: w.equipment || 'Bodyweight',
+            duration: w.duration || '10 min',
+            difficulty: w.difficulty || 'intermediate',
+            // Critical fields for workout replication
+            battlePlan: w.battlePlan || w.battle_plan || '',
+            imageUrl: w.imageUrl || w.image_url || '',
+            description: w.description || w.battlePlan || w.battle_plan || '',
+            intensityReason: w.intensityReason || w.intensity_reason || '',
+            moodCategory: w.moodCategory || w.mood_category || workoutStats.moodCategory || 'Workout',
+            moodTips: w.moodTips || w.mood_tips || [],
+          };
+        }),
         total_duration: workoutStats.totalDuration,
         completed_at: workoutStats.completedAt,
         mood_category: workoutStats.moodCategory,
       };
+      
+      console.log('Card data to save:', JSON.stringify(cardData, null, 2));
       
       const response = await fetch(`${API_URL}/api/workout-cards`, {
         method: 'POST',
