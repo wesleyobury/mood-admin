@@ -263,14 +263,14 @@ export default function WorkoutStatsCard({
       ])
     ).start();
 
-    // Shimmer animation for ring highlight effect
+    // Shimmer animation for ring highlight effect - SLOW sweep
     if (showRingPulse) {
       Animated.loop(
         Animated.timing(shimmerAnim, {
           toValue: 1,
-          duration: 2000,
+          duration: 3500, // Slower - 3.5 seconds for full sweep
           useNativeDriver: true,
-          easing: Easing.linear,
+          easing: Easing.inOut(Easing.ease),
         })
       ).start();
     }
