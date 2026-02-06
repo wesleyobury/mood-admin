@@ -1226,6 +1226,7 @@ export default function CreatePost() {
       // Include workout data if present (for workout card replication feature)
       // Ensure ALL workout details are included for "Try this workout" to work
       if (workoutStats) {
+        console.log('📋 Including workout_data in post, snapshot_id:', workoutStats.workoutSnapshotId);
         postPayload.workout_data = {
           workouts: workoutStats.workouts.map((w: any) => ({
             // Include all fields for proper workout replication
@@ -1243,6 +1244,7 @@ export default function CreatePost() {
           totalDuration: workoutStats.totalDuration,
           completedAt: workoutStats.completedAt,
           moodCategory: workoutStats.moodCategory,
+          workout_snapshot_id: workoutStats.workoutSnapshotId, // Persistent reference
         };
       }
 
