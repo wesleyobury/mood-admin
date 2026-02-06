@@ -622,31 +622,39 @@ export default function WorkoutsHome() {
     );
   }, [router, token, savedWorkoutIds, savingWorkoutIds]);
 
-  // Fetch user workout stats
-  useEffect(() => {
-    const fetchUserStats = async () => {
-      if (!token) return;
-      
-      try {
-        const response = await fetch(`${API_URL}/api/users/me/stats`, {
-          headers: { Authorization: `Bearer ${token}` },
-        });
-        
-        if (response.ok) {
-          const data = await response.json();
-          setUserStats({
-            workouts: data.workouts_completed || 0,
-            minutes: data.total_minutes || 0,
-            streak: data.current_streak || 0,
-          });
-        }
-      } catch (error) {
-        console.log('Error fetching user stats:', error);
-      }
-    };
+  // Fetch user workout stats on mount AND on focus
+  const fetchUserStats = useCallback(async () => {
+    if (!token) return;
     
-    fetchUserStats();
+    try {
+      const response = await fetch(`${API_URL}/api/users/me/stats`, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      
+      if (response.ok) {
+        const data = await response.json();
+        setUserStats({
+          workouts: data.workouts_completed || 0,
+          minutes: data.total_minutes || 0,
+          streak: data.current_streak || 0,
+        });
+      }
+    } catch (error) {
+      console.log('Error fetching user stats:', error);
+    }
   }, [token]);
+  
+  // Fetch stats on initial mount
+  useEffect(() => {
+    fetchUserStats();
+  }, [fetchUserStats]);
+  
+  // Refetch stats when screen comes into focus (to keep streak in sync)
+  useFocusEffect(
+    useCallback(() => {
+      fetchUserStats();
+    }, [fetchUserStats])
+  );
 
   const handleMoodSelect = (mood: MoodCard) => {
     console.log('Selected mood:', mood.title);
