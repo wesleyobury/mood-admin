@@ -2479,6 +2479,75 @@ export default function AdminDashboard() {
           ) : null}
         </View>
       </Modal>
+
+      {/* Deleted Users Modal */}
+      <Modal
+        visible={showDeletedUsers}
+        animationType="slide"
+        presentationStyle="pageSheet"
+        onRequestClose={() => setShowDeletedUsers(false)}
+      >
+        <View style={[styles.modalContainer, { paddingTop: insets.top }]}>
+          <View style={styles.modalHeader}>
+            <TouchableOpacity onPress={() => setShowDeletedUsers(false)} style={styles.modalClose}>
+              <Ionicons name="close" size={24} color="#fff" />
+            </TouchableOpacity>
+            <View style={styles.modalTitleContainer}>
+              <Ionicons name="person-remove" size={20} color="#FF5722" style={{ marginRight: 8 }} />
+              <Text style={styles.modalTitle}>Churned Users</Text>
+            </View>
+            <Text style={[styles.modalCount, { color: '#FF5722' }]}>{deletedUsersCount} total</Text>
+          </View>
+
+          <Text style={styles.activeUsersSubtitle}>
+            Users who deleted their accounts in the selected period
+          </Text>
+
+          {deletedUsers.length > 0 ? (
+            <FlatList
+              data={deletedUsers}
+              keyExtractor={(item) => item.id}
+              renderItem={({ item }) => (
+                <View style={styles.deletedUserItem}>
+                  <View style={styles.deletedUserAvatar}>
+                    <Ionicons name="person-outline" size={24} color='#666' />
+                  </View>
+                  <View style={styles.deletedUserInfo}>
+                    <Text style={styles.deletedUserName}>{item.username}</Text>
+                    <Text style={styles.deletedUserEmail}>{item.email}</Text>
+                    <View style={styles.deletedUserStats}>
+                      <Text style={styles.deletedUserStat}>
+                        {item.workouts_completed} workouts
+                      </Text>
+                      <Text style={styles.deletedUserStat}>
+                        {item.posts_count} posts
+                      </Text>
+                      <Text style={styles.deletedUserStat}>
+                        {item.followers_count} followers
+                      </Text>
+                    </View>
+                    <Text style={styles.deletedUserDate}>
+                      Deleted: {item.deleted_at ? new Date(item.deleted_at).toLocaleDateString('en-US', {
+                        month: 'short',
+                        day: 'numeric',
+                        year: 'numeric',
+                        hour: '2-digit',
+                        minute: '2-digit'
+                      }) : 'Unknown'}
+                    </Text>
+                  </View>
+                </View>
+              )}
+            />
+          ) : (
+            <View style={styles.emptyDeletedUsers}>
+              <Ionicons name="checkmark-circle-outline" size={48} color="#4CAF50" />
+              <Text style={styles.emptyDeletedText}>No churned users in this period</Text>
+              <Text style={styles.emptyDeletedSubtext}>All users are retained!</Text>
+            </View>
+          )}
+        </View>
+      </Modal>
     </View>
   );
 }
