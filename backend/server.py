@@ -3764,13 +3764,31 @@ async def accept_terms(current_user_id: str = Depends(get_current_user)):
 async def delete_user_account(current_user_id: str = Depends(get_current_user)):
     """Delete user account and all associated data"""
     try:
-        # Get user info for logging
+        # Get user info for logging and tracking
         user = await db.users.find_one({"_id": ObjectId(current_user_id)})
         if not user:
             raise HTTPException(status_code=404, detail="User not found")
         
         username = user.get("username", "unknown")
+        email = user.get("email", "unknown")
         logger.info(f"🗑️ Deleting account for user: {username} ({current_user_id})")
+        
+        # Track the deletion event for analytics BEFORE deleting anything
+        deletion_record = {
+            "user_id": current_user_id,
+            "username": username,
+            "email": email,
+            "deleted_at": datetime.now(timezone.utc),
+            "account_created_at": user.get("created_at"),
+            "workouts_completed": user.get("workouts_count", 0),
+            "posts_count": user.get("posts_count", 0),
+            "followers_count": user.get("followers_count", 0),
+            "following_count": user.get("following_count", 0),
+            "is_verified": user.get("is_verified", False),
+            "login_provider": user.get("login_provider", "email"),
+        }
+        await db.deleted_users.insert_one(deletion_record)
+        logger.info(f"📊 Tracked deletion for user: {username}")
         
         # Delete user's posts
         posts_result = await db.posts.delete_many({"author_id": current_user_id})
