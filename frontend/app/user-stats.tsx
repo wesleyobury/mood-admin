@@ -523,6 +523,44 @@ const styles = StyleSheet.create({
     borderTopWidth: StyleSheet.hairlineWidth,
     borderColor: 'rgba(255, 255, 255, 0.1)',
   },
+  socialLabel: {
+    fontSize: 11,
+    fontWeight: '600',
+    color: 'rgba(255, 255, 255, 0.4)',
+    letterSpacing: 1.5,
+    marginBottom: 16,
+  },
+  socialRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  socialItem: {
+    flex: 1,
+    alignItems: 'center',
+  },
+  socialValue: {
+    fontSize: 24,
+    fontWeight: '600',
+    color: '#fff',
+    marginBottom: 4,
+  },
+  socialItemLabel: {
+    fontSize: 12,
+    fontWeight: '400',
+    color: 'rgba(255, 255, 255, 0.4)',
+  },
+  socialDivider: {
+    width: StyleSheet.hairlineWidth,
+    height: 32,
+    backgroundColor: 'rgba(255, 255, 255, 0.15)',
+  },
+  socialHint: {
+    fontSize: 12,
+    fontWeight: '400',
+    color: '#FFD700',
+    marginTop: 12,
+    textAlign: 'center',
+  },
   socialText: {
     fontSize: 14,
     fontWeight: '400',
