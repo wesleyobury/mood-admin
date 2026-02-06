@@ -210,12 +210,7 @@ export default function BicepsEquipmentScreen() {
     <SafeAreaView style={[styles.container, { paddingTop: insets.top }]}>
       {/* Header */}
       <View style={styles.header}>
-        <TouchableOpacity 
-          style={styles.backButton}
-          onPress={handleGoBack}
-        >
-          <Ionicons name="chevron-back" size={24} color='#FFD700' />
-        </TouchableOpacity>
+        <BackButton onPress={handleGoBack} />
         <View style={styles.headerTextContainer}>
           <Text style={styles.headerTitle}>Biceps Equipment</Text>
           <Text style={styles.headerSubtitle}>{moodTitle}</Text>
