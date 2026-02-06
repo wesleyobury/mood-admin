@@ -540,36 +540,49 @@ export default function WorkoutStatsCard({
           </View>
           
           <Animated.View style={[styles.ringContainer, { transform: [{ scale: pulseAnim }] }]}>
-            {renderRings(false)}
-            {/* Shimmer overlay for rings when showRingPulse is true */}
-            {showRingPulse && (
-              <Animated.View 
-                style={[
-                  styles.shimmerOverlay,
-                  {
-                    transform: [{
-                      translateX: shimmerAnim.interpolate({
-                        inputRange: [0, 1],
-                        outputRange: [-RING_SIZE, RING_SIZE],
-                      })
-                    }]
-                  }
-                ]}
-                pointerEvents="none"
+            {/* Use MaskedView to apply shimmer ONLY to the ring shapes */}
+            {showRingPulse ? (
+              <MaskedView
+                style={styles.maskedRingContainer}
+                maskElement={
+                  <View style={styles.ringMask}>
+                    {renderRings(false)}
+                  </View>
+                }
               >
-                <ExpoLinearGradient
-                  colors={[
-                    'transparent',
-                    'rgba(255, 215, 0, 0.15)',
-                    'rgba(255, 255, 255, 0.35)',
-                    'rgba(255, 215, 0, 0.15)',
-                    'transparent',
+                {/* Base rings layer */}
+                {renderRings(false)}
+                {/* Shimmer layer - only visible through the ring mask */}
+                <Animated.View 
+                  style={[
+                    styles.ringShimmerLayer,
+                    {
+                      transform: [{
+                        translateX: shimmerAnim.interpolate({
+                          inputRange: [0, 1],
+                          outputRange: [-RING_SIZE * 1.5, RING_SIZE * 1.5],
+                        })
+                      }]
+                    }
                   ]}
-                  start={{ x: 0, y: 0.5 }}
-                  end={{ x: 1, y: 0.5 }}
-                  style={styles.shimmerGradient}
-                />
-              </Animated.View>
+                  pointerEvents="none"
+                >
+                  <ExpoLinearGradient
+                    colors={[
+                      'transparent',
+                      'rgba(255, 255, 255, 0.2)',
+                      'rgba(255, 255, 255, 0.6)',
+                      'rgba(255, 255, 255, 0.2)',
+                      'transparent',
+                    ]}
+                    start={{ x: 0, y: 0.5 }}
+                    end={{ x: 1, y: 0.5 }}
+                    style={styles.ringShimmerGradient}
+                  />
+                </Animated.View>
+              </MaskedView>
+            ) : (
+              renderRings(false)
             )}
             <View style={styles.ringCenterContent}>
               <Text style={styles.centerCalorieValue}>{estimatedCalories}</Text>
