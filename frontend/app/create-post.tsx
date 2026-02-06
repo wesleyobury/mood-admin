@@ -1689,6 +1689,7 @@ export default function CreatePost() {
                   editedCalories={editedCalories}
                   calorieTarget={calorieTarget}
                   minuteTarget={minuteTarget}
+                  showRingPulse={true}
                 />
               </View>
               
