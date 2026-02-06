@@ -547,6 +547,36 @@ export default function WorkoutStatsCard({
           
           <Animated.View style={[styles.ringContainer, { transform: [{ scale: pulseAnim }] }]}>
             {renderRings(false)}
+            {/* Shimmer overlay for rings when showRingPulse is true */}
+            {showRingPulse && (
+              <Animated.View 
+                style={[
+                  styles.shimmerOverlay,
+                  {
+                    transform: [{
+                      translateX: shimmerAnim.interpolate({
+                        inputRange: [0, 1],
+                        outputRange: [-RING_SIZE, RING_SIZE],
+                      })
+                    }]
+                  }
+                ]}
+                pointerEvents="none"
+              >
+                <ExpoLinearGradient
+                  colors={[
+                    'transparent',
+                    'rgba(255, 215, 0, 0.15)',
+                    'rgba(255, 255, 255, 0.35)',
+                    'rgba(255, 215, 0, 0.15)',
+                    'transparent',
+                  ]}
+                  start={{ x: 0, y: 0.5 }}
+                  end={{ x: 1, y: 0.5 }}
+                  style={styles.shimmerGradient}
+                />
+              </Animated.View>
+            )}
             <View style={styles.ringCenterContent}>
               <Text style={styles.centerCalorieValue}>{estimatedCalories}</Text>
               <Text style={styles.centerCalorieLabel}>cal</Text>
