@@ -263,42 +263,15 @@ export default function WorkoutStatsCard({
       ])
     ).start();
 
-    // Soft ring pulse animation for share screen - MORE VISIBLE
+    // Shimmer animation for ring highlight effect
     if (showRingPulse) {
-      // Scale animation
       Animated.loop(
-        Animated.sequence([
-          Animated.timing(ringPulseAnim, {
-            toValue: 1.15,
-            duration: 800,
-            useNativeDriver: true,
-            easing: Easing.inOut(Easing.ease),
-          }),
-          Animated.timing(ringPulseAnim, {
-            toValue: 0.92,
-            duration: 800,
-            useNativeDriver: true,
-            easing: Easing.inOut(Easing.ease),
-          }),
-        ])
-      ).start();
-      
-      // Opacity glow animation
-      Animated.loop(
-        Animated.sequence([
-          Animated.timing(ringGlowAnim, {
-            toValue: 1,
-            duration: 800,
-            useNativeDriver: true,
-            easing: Easing.inOut(Easing.ease),
-          }),
-          Animated.timing(ringGlowAnim, {
-            toValue: 0.7,
-            duration: 800,
-            useNativeDriver: true,
-            easing: Easing.inOut(Easing.ease),
-          }),
-        ])
+        Animated.timing(shimmerAnim, {
+          toValue: 1,
+          duration: 2000,
+          useNativeDriver: true,
+          easing: Easing.linear,
+        })
       ).start();
     }
   }, [showRingPulse]);
