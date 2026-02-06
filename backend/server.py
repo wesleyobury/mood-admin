@@ -2783,6 +2783,60 @@ async def export_users_csv(
     }
 
 
+@api_router.get("/analytics/admin/deleted-users")
+async def get_deleted_users(
+    current_user_id: str = Depends(get_current_user),
+    days: int = 30,
+    limit: int = 50
+):
+    """
+    Get list of users who deleted their accounts (for analytics).
+    Only admin can access this.
+    """
+    # Verify admin
+    admin_user = await db.users.find_one({"_id": ObjectId(current_user_id)})
+    if not admin_user or admin_user.get("username", "").lower() != "officialmoodapp":
+        raise HTTPException(status_code=403, detail="Admin access required")
+    
+    try:
+        # Get deleted users from the last N days
+        start_date = datetime.now(timezone.utc) - timedelta(days=days)
+        
+        deleted_users = await db.deleted_users.find({
+            "deleted_at": {"$gte": start_date}
+        }).sort("deleted_at", -1).limit(limit).to_list(length=limit)
+        
+        result = []
+        for user in deleted_users:
+            result.append({
+                "id": str(user.get("_id")),
+                "user_id": user.get("user_id"),
+                "username": user.get("username"),
+                "email": user.get("email"),
+                "deleted_at": user.get("deleted_at").isoformat() if user.get("deleted_at") else None,
+                "account_created_at": user.get("account_created_at").isoformat() if user.get("account_created_at") else None,
+                "workouts_completed": user.get("workouts_completed", 0),
+                "posts_count": user.get("posts_count", 0),
+                "followers_count": user.get("followers_count", 0),
+                "login_provider": user.get("login_provider", "email"),
+            })
+        
+        # Get total count for the period
+        total_count = await db.deleted_users.count_documents({
+            "deleted_at": {"$gte": start_date}
+        })
+        
+        return {
+            "deleted_users": result,
+            "total_count": total_count,
+            "period_days": days
+        }
+        
+    except Exception as e:
+        logger.error(f"Error fetching deleted users: {e}")
+        raise HTTPException(status_code=500, detail="Failed to fetch deleted users")
+
+
 @api_router.delete("/analytics/admin/users/{user_id}")
 async def soft_delete_user(
     user_id: str,
