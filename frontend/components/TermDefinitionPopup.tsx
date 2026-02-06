@@ -6,9 +6,10 @@ import {
   TouchableOpacity,
   Modal,
   Dimensions,
+  Platform,
 } from 'react-native';
 
-const { width: SCREEN_WIDTH, height: SCREEN_HEIGHT } = Dimensions.get('window');
+const { width: SCREEN_WIDTH } = Dimensions.get('window');
 
 // Concise term definitions
 const TERM_DEFINITIONS: Record<string, string> = {
@@ -56,28 +57,24 @@ export const TermDefinitionPopup: React.FC<TermDefinitionPopupProps> = ({ term, 
         transparent={true}
         animationType="fade"
         onRequestClose={() => setVisible(false)}
-        statusBarTranslucent={true}
       >
-        <TouchableOpacity 
-          style={styles.overlay} 
-          activeOpacity={1} 
-          onPress={() => setVisible(false)}
-        >
-          <View style={styles.centeredContainer}>
-            <TouchableOpacity activeOpacity={1} onPress={(e) => e.stopPropagation()}>
-              <View style={styles.modalCard}>
-                <Text style={styles.title}>{term}</Text>
-                <Text style={styles.definition}>{definition}</Text>
-                <TouchableOpacity 
-                  style={styles.closeButton} 
-                  onPress={() => setVisible(false)}
-                >
-                  <Text style={styles.closeButtonText}>Got it</Text>
-                </TouchableOpacity>
-              </View>
+        <View style={styles.modalOverlay}>
+          <TouchableOpacity 
+            style={styles.backdropTouchable} 
+            activeOpacity={1} 
+            onPress={() => setVisible(false)}
+          />
+          <View style={styles.modalContent}>
+            <Text style={styles.termTitle}>{term}</Text>
+            <Text style={styles.termDefinition}>{definition}</Text>
+            <TouchableOpacity 
+              style={styles.dismissButton} 
+              onPress={() => setVisible(false)}
+            >
+              <Text style={styles.dismissButtonText}>Got it</Text>
             </TouchableOpacity>
           </View>
-        </TouchableOpacity>
+        </View>
       </Modal>
     </>
   );
@@ -132,51 +129,67 @@ export const TextWithTermLinks: React.FC<{
 
 const styles = StyleSheet.create({
   termLink: {
-    color: '#FFD700',
+    color: '#888',
     textDecorationLine: 'underline',
     fontWeight: '600',
   },
-  overlay: {
+  modalOverlay: {
     flex: 1,
-    backgroundColor: 'rgba(0, 0, 0, 0.8)',
-  },
-  centeredContainer: {
-    flex: 1,
+    backgroundColor: 'rgba(0, 0, 0, 0.85)',
     justifyContent: 'center',
     alignItems: 'center',
-    paddingHorizontal: 40,
   },
-  modalCard: {
-    backgroundColor: '#1c1c1e',
+  backdropTouchable: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+  },
+  modalContent: {
+    backgroundColor: '#2a2a2a',
     borderRadius: 16,
-    padding: 24,
+    padding: 28,
+    marginHorizontal: 40,
     width: SCREEN_WIDTH - 80,
     maxWidth: 320,
+    alignItems: 'center',
+    ...Platform.select({
+      ios: {
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 4 },
+        shadowOpacity: 0.3,
+        shadowRadius: 8,
+      },
+      android: {
+        elevation: 8,
+      },
+    }),
   },
-  title: {
+  termTitle: {
     fontSize: 22,
     fontWeight: '700',
-    color: '#FFD700',
+    color: '#fff',
     marginBottom: 12,
     textAlign: 'center',
   },
-  definition: {
+  termDefinition: {
     fontSize: 16,
-    color: '#fff',
+    color: '#ccc',
     lineHeight: 24,
     textAlign: 'center',
-    marginBottom: 20,
+    marginBottom: 24,
   },
-  closeButton: {
-    backgroundColor: '#FFD700',
+  dismissButton: {
+    backgroundColor: '#444',
     borderRadius: 10,
     paddingVertical: 12,
-    alignItems: 'center',
+    paddingHorizontal: 40,
   },
-  closeButtonText: {
+  dismissButtonText: {
     fontSize: 16,
     fontWeight: '600',
-    color: '#000',
+    color: '#fff',
   },
 });
 
