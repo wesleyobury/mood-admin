@@ -12,6 +12,7 @@ import { LinearGradient } from 'expo-linear-gradient';
 import { useRouter, useLocalSearchParams } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import HomeButton from '../components/HomeButton';
+import BackButton from '../components/BackButton';
 import WorkoutCard from '../components/WorkoutCard';
 import { useCart, WorkoutItem } from '../contexts/CartContext';
 import { useAuth } from '../contexts/AuthContext';
@@ -200,9 +201,7 @@ const ChestWorkoutDisplayScreen = memo(function ChestWorkoutDisplayScreen() {
     return (
       <SafeAreaView style={[styles.container, { paddingTop: insets.top }]}>
         <View style={styles.header}>
-          <TouchableOpacity style={styles.backButton} onPress={handleGoBack}>
-            <Ionicons name="chevron-back" size={24} color="#FFD700" />
-          </TouchableOpacity>
+          <BackButton onPress={handleGoBack} />
           <View style={styles.headerTextContainer}>
             <Text style={styles.headerTitle}>Chest Workouts</Text>
             <Text style={styles.headerSubtitle}>{moodTitle}</Text>
@@ -223,9 +222,7 @@ const ChestWorkoutDisplayScreen = memo(function ChestWorkoutDisplayScreen() {
       <View style={{ position: 'absolute', top: 0, left: 0, right: 0, height: insets.top, backgroundColor: '#000000', zIndex: 100 }} />
       <SafeAreaView style={[styles.container, { paddingTop: insets.top }]}>
         <View style={styles.header}>
-          <TouchableOpacity style={styles.backButton} onPress={handleGoBack}>
-            <Ionicons name="chevron-back" size={24} color="#FFD700" />
-          </TouchableOpacity>
+          <BackButton onPress={handleGoBack} />
           <View style={styles.headerTextContainer}>
             <Text style={styles.headerTitle}>Your Workouts</Text>
             <Text style={styles.headerSubtitle}>{moodTitle}</Text>
