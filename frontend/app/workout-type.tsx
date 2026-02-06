@@ -15,6 +15,7 @@ import { useRouter, useLocalSearchParams } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import Constants from 'expo-constants';
 import HomeButton from '../components/HomeButton';
+import BackButton from '../components/BackButton';
 import ChooseForMeButton from '../components/ChooseForMeButton';
 import IntensitySelectionModal, { IntensityLevel } from '../components/IntensitySelectionModal';
 import GuestPromptModal from '../components/GuestPromptModal';
@@ -271,12 +272,7 @@ export default function WorkoutTypeScreen() {
     <SafeAreaView style={[styles.container, { paddingTop: insets.top }]}>
       {/* Header */}
       <View style={styles.header}>
-        <TouchableOpacity 
-          style={styles.backButton}
-          onPress={handleGoBack}
-        >
-          <Ionicons name="chevron-back" size={24} color='#FFD700' />
-        </TouchableOpacity>
+        <BackButton />
         <View style={styles.headerTextContainer}>
           <Text style={styles.headerTitle}>Workout Type</Text>
           <Text style={styles.headerSubtitle}>{moodTitle}</Text>
