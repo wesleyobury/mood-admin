@@ -5,13 +5,10 @@ import {
   StyleSheet,
   TouchableOpacity,
   Modal,
-  Pressable,
   Dimensions,
 } from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
-const { height: SCREEN_HEIGHT } = Dimensions.get('window');
+const { width: SCREEN_WIDTH, height: SCREEN_HEIGHT } = Dimensions.get('window');
 
 // Concise term definitions
 const TERM_DEFINITIONS: Record<string, string> = {
@@ -36,7 +33,6 @@ interface TermDefinitionPopupProps {
 
 export const TermDefinitionPopup: React.FC<TermDefinitionPopupProps> = ({ term, children, style }) => {
   const [visible, setVisible] = useState(false);
-  const insets = useSafeAreaInsets();
   
   // Normalize term for lookup
   const definition = TERM_DEFINITIONS[term] || 
@@ -58,33 +54,30 @@ export const TermDefinitionPopup: React.FC<TermDefinitionPopupProps> = ({ term, 
       <Modal
         visible={visible}
         transparent={true}
-        animationType="slide"
+        animationType="fade"
         onRequestClose={() => setVisible(false)}
+        statusBarTranslucent={true}
       >
-        <View style={styles.modalContainer}>
-          {/* Backdrop - tap to close */}
-          <Pressable style={styles.backdrop} onPress={() => setVisible(false)} />
-          
-          {/* Bottom Sheet */}
-          <View style={[styles.bottomSheet, { paddingBottom: insets.bottom + 20 }]}>
-            {/* Handle bar */}
-            <View style={styles.handleBar} />
-            
-            {/* Content */}
-            <View style={styles.content}>
-              <Text style={styles.title}>{term}</Text>
-              <Text style={styles.definition}>{definition}</Text>
-            </View>
-            
-            {/* Close button */}
-            <TouchableOpacity 
-              style={styles.closeButton} 
-              onPress={() => setVisible(false)}
-            >
-              <Text style={styles.closeButtonText}>Got it</Text>
+        <TouchableOpacity 
+          style={styles.overlay} 
+          activeOpacity={1} 
+          onPress={() => setVisible(false)}
+        >
+          <View style={styles.centeredContainer}>
+            <TouchableOpacity activeOpacity={1} onPress={(e) => e.stopPropagation()}>
+              <View style={styles.modalCard}>
+                <Text style={styles.title}>{term}</Text>
+                <Text style={styles.definition}>{definition}</Text>
+                <TouchableOpacity 
+                  style={styles.closeButton} 
+                  onPress={() => setVisible(false)}
+                >
+                  <Text style={styles.closeButtonText}>Got it</Text>
+                </TouchableOpacity>
+              </View>
             </TouchableOpacity>
           </View>
-        </View>
+        </TouchableOpacity>
       </Modal>
     </>
   );
@@ -143,47 +136,41 @@ const styles = StyleSheet.create({
     textDecorationLine: 'underline',
     fontWeight: '600',
   },
-  modalContainer: {
+  overlay: {
     flex: 1,
-    justifyContent: 'flex-end',
+    backgroundColor: 'rgba(0, 0, 0, 0.8)',
   },
-  backdrop: {
-    ...StyleSheet.absoluteFillObject,
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+  centeredContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingHorizontal: 40,
   },
-  bottomSheet: {
-    backgroundColor: '#1a1a1a',
-    borderTopLeftRadius: 20,
-    borderTopRightRadius: 20,
-    paddingTop: 12,
-    paddingHorizontal: 24,
-  },
-  handleBar: {
-    width: 40,
-    height: 4,
-    backgroundColor: '#444',
-    borderRadius: 2,
-    alignSelf: 'center',
-    marginBottom: 20,
-  },
-  content: {
-    marginBottom: 24,
+  modalCard: {
+    backgroundColor: '#1c1c1e',
+    borderRadius: 16,
+    padding: 24,
+    width: SCREEN_WIDTH - 80,
+    maxWidth: 320,
   },
   title: {
-    fontSize: 24,
+    fontSize: 22,
     fontWeight: '700',
     color: '#FFD700',
     marginBottom: 12,
+    textAlign: 'center',
   },
   definition: {
     fontSize: 16,
     color: '#fff',
     lineHeight: 24,
+    textAlign: 'center',
+    marginBottom: 20,
   },
   closeButton: {
     backgroundColor: '#FFD700',
-    borderRadius: 12,
-    paddingVertical: 14,
+    borderRadius: 10,
+    paddingVertical: 12,
     alignItems: 'center',
   },
   closeButtonText: {
