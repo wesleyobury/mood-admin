@@ -1,7 +1,8 @@
 import React, { useEffect, useRef, useMemo } from 'react';
 import { View, Text, StyleSheet, Dimensions, Animated, Easing } from 'react-native';
-import Svg, { Circle, G, Defs, LinearGradient, Stop } from 'react-native-svg';
+import Svg, { Circle, G, Defs, LinearGradient, Stop, Rect, ClipPath } from 'react-native-svg';
 import { LinearGradient as ExpoLinearGradient } from 'expo-linear-gradient';
+import MaskedView from '@react-native-masked-view/masked-view';
 
 const { width } = Dimensions.get('window');
 const CARD_WIDTH = width * 0.88;
