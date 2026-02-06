@@ -265,13 +265,30 @@ export default function UserStatsScreen() {
           </View>
         )}
 
-        {/* Social Engagement - De-emphasized */}
+        {/* Social Presence */}
         <View style={styles.socialSection}>
-          <Text style={styles.socialText}>
-            {socialStats?.posts_created || 0} posts shared
-            {(socialStats?.current_followers || 0) > 0 && ` · ${socialStats?.current_followers} followers`}
-            {(socialStats?.engagement_score || 0) > 0 && ` · ${socialStats?.engagement_score} engagement`}
-          </Text>
+          <Text style={styles.socialLabel}>COMMUNITY</Text>
+          <View style={styles.socialRow}>
+            <View style={styles.socialItem}>
+              <Text style={styles.socialValue}>{socialStats?.current_followers || 0}</Text>
+              <Text style={styles.socialItemLabel}>Followers</Text>
+            </View>
+            <View style={styles.socialDivider} />
+            <View style={styles.socialItem}>
+              <Text style={styles.socialValue}>{socialStats?.current_following || 0}</Text>
+              <Text style={styles.socialItemLabel}>Following</Text>
+            </View>
+            <View style={styles.socialDivider} />
+            <View style={styles.socialItem}>
+              <Text style={styles.socialValue}>{socialStats?.posts_created || 0}</Text>
+              <Text style={styles.socialItemLabel}>Posts</Text>
+            </View>
+          </View>
+          {(socialStats?.engagement_score || 0) > 0 && (
+            <Text style={styles.socialHint}>
+              {socialStats?.engagement_score} engagement score this period
+            </Text>
+          )}
         </View>
 
         {/* Activity Summary - Minimal */}
