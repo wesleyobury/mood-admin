@@ -6,7 +6,12 @@ import {
   TouchableOpacity,
   Modal,
   Pressable,
+  Dimensions,
 } from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
+
+const { height: SCREEN_HEIGHT } = Dimensions.get('window');
 
 // Concise term definitions
 const TERM_DEFINITIONS: Record<string, string> = {
@@ -19,8 +24,8 @@ const TERM_DEFINITIONS: Record<string, string> = {
   Superset: 'Two exercises back-to-back with no rest.',
   Circuit: 'Series of exercises done one after another.',
   RPM: 'Revolutions Per Minute. 80-90 optimal, 100+ sprint.',
-  'Cluster Sets': 'Mini-sets with 10-30 sec rest for heavier loads.',
-  Clusters: 'Mini-sets with 10-30 sec rest for heavier loads.',
+  'Cluster Sets': 'Mini-sets with 10-30 sec rest between. Allows heavier loads with quality reps.',
+  Clusters: 'Mini-sets with 10-30 sec rest between. Allows heavier loads with quality reps.',
 };
 
 interface TermDefinitionPopupProps {
@@ -31,10 +36,11 @@ interface TermDefinitionPopupProps {
 
 export const TermDefinitionPopup: React.FC<TermDefinitionPopupProps> = ({ term, children, style }) => {
   const [visible, setVisible] = useState(false);
+  const insets = useSafeAreaInsets();
   
   // Normalize term for lookup
-  const normalizedTerm = term.toUpperCase();
-  const definition = TERM_DEFINITIONS[term] || TERM_DEFINITIONS[normalizedTerm] || 
+  const definition = TERM_DEFINITIONS[term] || 
+                     TERM_DEFINITIONS[term.toUpperCase()] || 
                      TERM_DEFINITIONS[term.charAt(0).toUpperCase() + term.slice(1).toLowerCase()];
 
   if (!definition) {
@@ -52,16 +58,33 @@ export const TermDefinitionPopup: React.FC<TermDefinitionPopupProps> = ({ term, 
       <Modal
         visible={visible}
         transparent={true}
-        animationType="fade"
+        animationType="slide"
         onRequestClose={() => setVisible(false)}
       >
-        <Pressable style={styles.backdrop} onPress={() => setVisible(false)}>
-          <View style={styles.modal}>
-            <Text style={styles.title}>{term}</Text>
-            <Text style={styles.definition}>{definition}</Text>
-            <Text style={styles.hint}>Tap anywhere to close</Text>
+        <View style={styles.modalContainer}>
+          {/* Backdrop - tap to close */}
+          <Pressable style={styles.backdrop} onPress={() => setVisible(false)} />
+          
+          {/* Bottom Sheet */}
+          <View style={[styles.bottomSheet, { paddingBottom: insets.bottom + 20 }]}>
+            {/* Handle bar */}
+            <View style={styles.handleBar} />
+            
+            {/* Content */}
+            <View style={styles.content}>
+              <Text style={styles.title}>{term}</Text>
+              <Text style={styles.definition}>{definition}</Text>
+            </View>
+            
+            {/* Close button */}
+            <TouchableOpacity 
+              style={styles.closeButton} 
+              onPress={() => setVisible(false)}
+            >
+              <Text style={styles.closeButtonText}>Got it</Text>
+            </TouchableOpacity>
           </View>
-        </Pressable>
+        </View>
       </Modal>
     </>
   );
@@ -120,38 +143,53 @@ const styles = StyleSheet.create({
     textDecorationLine: 'underline',
     fontWeight: '600',
   },
-  backdrop: {
+  modalContainer: {
     flex: 1,
-    backgroundColor: 'rgba(0, 0, 0, 0.8)',
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: 32,
+    justifyContent: 'flex-end',
   },
-  modal: {
+  backdrop: {
+    ...StyleSheet.absoluteFillObject,
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+  },
+  bottomSheet: {
     backgroundColor: '#1a1a1a',
-    borderRadius: 16,
-    padding: 24,
-    maxWidth: 320,
-    width: '100%',
-    alignItems: 'center',
+    borderTopLeftRadius: 20,
+    borderTopRightRadius: 20,
+    paddingTop: 12,
+    paddingHorizontal: 24,
+  },
+  handleBar: {
+    width: 40,
+    height: 4,
+    backgroundColor: '#444',
+    borderRadius: 2,
+    alignSelf: 'center',
+    marginBottom: 20,
+  },
+  content: {
+    marginBottom: 24,
   },
   title: {
     fontSize: 24,
     fontWeight: '700',
     color: '#FFD700',
     marginBottom: 12,
-    textAlign: 'center',
   },
   definition: {
     fontSize: 16,
     color: '#fff',
     lineHeight: 24,
-    textAlign: 'center',
   },
-  hint: {
-    fontSize: 12,
-    color: '#666',
-    marginTop: 16,
+  closeButton: {
+    backgroundColor: '#FFD700',
+    borderRadius: 12,
+    paddingVertical: 14,
+    alignItems: 'center',
+  },
+  closeButtonText: {
+    fontSize: 16,
+    fontWeight: '600',
+    color: '#000',
   },
 });
 
