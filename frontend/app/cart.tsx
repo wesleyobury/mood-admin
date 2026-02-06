@@ -685,6 +685,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     zIndex: 10,
   },
+  backButtonWrapper: {
+    position: 'absolute',
+    left: 16,
+    zIndex: 10,
+  },
   headerClearButton: {
     position: 'absolute',
     right: 16,
