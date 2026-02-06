@@ -3431,9 +3431,16 @@ async def calculate_user_streak(user_id: str) -> int:
     yesterday = today - timedelta(days=1)
     
     # Check if user was active yesterday or today
+    # Include more event types to capture general app usage
+    activity_event_types = [
+        "workout_completed", "app_session_start", "app_opened",
+        "screen_viewed", "screen_entered", "tab_switched",
+        "post_created", "post_liked", "workout_started"
+    ]
+    
     recent_activity = await db.user_events.count_documents({
         "user_id": user_id,
-        "event_type": {"$in": ["workout_completed", "app_session_start", "app_opened"]},
+        "event_type": {"$in": activity_event_types},
         "timestamp": {"$gte": yesterday}
     })
     
@@ -3443,13 +3450,13 @@ async def calculate_user_streak(user_id: str) -> int:
     
     # Calculate actual streak
     current_streak = 0
-    for i in range(30):
+    for i in range(90):  # Look back up to 90 days
         day_start = today - timedelta(days=i)
         day_end = day_start + timedelta(days=1)
         
         day_activity = await db.user_events.count_documents({
             "user_id": user_id,
-            "event_type": {"$in": ["workout_completed", "app_session_start", "app_opened"]},
+            "event_type": {"$in": activity_event_types},
             "timestamp": {"$gte": day_start, "$lt": day_end}
         })
         
