@@ -267,14 +267,14 @@ export default function WorkoutStatsCard({
       Animated.loop(
         Animated.sequence([
           Animated.timing(ringPulseAnim, {
-            toValue: 1.03,
-            duration: 1800,
+            toValue: 1.06,
+            duration: 1500,
             useNativeDriver: true,
             easing: Easing.inOut(Easing.sin),
           }),
           Animated.timing(ringPulseAnim, {
             toValue: 1,
-            duration: 1800,
+            duration: 1500,
             useNativeDriver: true,
             easing: Easing.inOut(Easing.sin),
           }),
