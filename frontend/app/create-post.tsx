@@ -216,27 +216,32 @@ export default function CreatePost() {
       
       if (response.ok) {
         const data = await response.json();
+        console.log('📋 Fetched saved achievements:', data.length);
         // Transform to match WorkoutStats format, keeping ALL workout details
-        const transformed = data.map((card: any) => ({
-          id: card.id,
-          workouts: card.workouts.map((w: any) => ({
-            // Keep all original workout data for "Try this workout" replication
-            ...w,
-            workoutTitle: w.workout_title || w.workoutTitle || w.workout_name || w.workoutName,
-            workoutName: w.workout_name || w.workoutName || w.workout_title || w.workoutTitle,
-            equipment: w.equipment,
-            duration: w.duration,
-            difficulty: w.difficulty,
-            moodCategory: w.mood_category || w.moodCategory,
-            battlePlan: w.battle_plan || w.battlePlan,
-            imageUrl: w.image_url || w.imageUrl,
-            description: w.description,
-            intensityReason: w.intensity_reason || w.intensityReason,
-          })),
-          totalDuration: card.total_duration,
-          completedAt: card.completed_at,
-          moodCategory: card.mood_category,
-        }));
+        const transformed = data.map((card: any) => {
+          console.log(`📋 Card ${card.id} has workout_snapshot_id:`, card.workout_snapshot_id);
+          return {
+            id: card.id,
+            workouts: card.workouts.map((w: any) => ({
+              // Keep all original workout data for "Try this workout" replication
+              ...w,
+              workoutTitle: w.workout_title || w.workoutTitle || w.workout_name || w.workoutName,
+              workoutName: w.workout_name || w.workoutName || w.workout_title || w.workoutTitle,
+              equipment: w.equipment,
+              duration: w.duration,
+              difficulty: w.difficulty,
+              moodCategory: w.mood_category || w.moodCategory,
+              battlePlan: w.battle_plan || w.battlePlan,
+              imageUrl: w.image_url || w.imageUrl,
+              description: w.description,
+              intensityReason: w.intensity_reason || w.intensityReason,
+            })),
+            totalDuration: card.total_duration,
+            completedAt: card.completed_at,
+            moodCategory: card.mood_category,
+            workoutSnapshotId: card.workout_snapshot_id, // CRITICAL: Include snapshot ID for "Try this workout"
+          };
+        });
         setSavedAchievements(transformed);
       }
     } catch (error) {
