@@ -5332,6 +5332,7 @@ class WorkoutCardCreate(BaseModel):
     workouts: List[Dict[str, Any]]
     total_duration: int
     completed_at: str
+    mood_category: Optional[str] = None
 
 @api_router.post("/workout-cards")
 async def save_workout_card(
@@ -5376,6 +5377,7 @@ async def get_workout_cards(
             "workouts": card["workouts"],
             "total_duration": card["total_duration"],
             "completed_at": card["completed_at"],
+            "mood_category": card.get("mood_category"),
             "created_at": card["created_at"].isoformat()
         })
     
