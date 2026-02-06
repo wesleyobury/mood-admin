@@ -6,98 +6,60 @@ import {
   TouchableOpacity,
   Modal,
   Pressable,
-  Dimensions,
 } from 'react-native';
 
-const { width, height } = Dimensions.get('window');
-
 // Concise term definitions
-export const TERM_DEFINITIONS: Record<string, { title: string; definition: string }> = {
-  RPE: {
-    title: 'RPE',
-    definition: 'Rate of Perceived Exertion (1-10 scale). 5-6 is moderate, 7-8 is hard, 9-10 is max effort.',
-  },
-  SPM: {
-    title: 'SPM',
-    definition: 'Strokes Per Minute. 18-22 is easy pace, 26-30 is race pace, 30+ is sprint.',
-  },
-  AMRAP: {
-    title: 'AMRAP',
-    definition: 'As Many Rounds As Possible. Complete the circuit repeatedly until time expires.',
-  },
-  EMOM: {
-    title: 'EMOM',
-    definition: 'Every Minute On the Minute. Start the prescribed reps at the top of each minute.',
-  },
-  HIIT: {
-    title: 'HIIT',
-    definition: 'High Intensity Interval Training. Short bursts of max effort with rest periods.',
-  },
-  Tabata: {
-    title: 'Tabata',
-    definition: '20 seconds work, 10 seconds rest, repeated 8 times. Total: 4 minutes.',
-  },
-  Superset: {
-    title: 'Superset',
-    definition: 'Two exercises performed back-to-back with no rest between them.',
-  },
-  Circuit: {
-    title: 'Circuit',
-    definition: 'A series of exercises done one after another with minimal rest.',
-  },
-  RPM: {
-    title: 'RPM',
-    definition: 'Revolutions Per Minute. 80-90 is optimal, 100+ is sprint cadence.',
-  },
-  'Cluster Sets': {
-    title: 'Cluster Sets',
-    definition: 'Mini-sets with 10-30 second rest between. Allows heavier loads with quality reps.',
-  },
-  Clusters: {
-    title: 'Clusters',
-    definition: 'Mini-sets with 10-30 second rest between. Allows heavier loads with quality reps.',
-  },
+const TERM_DEFINITIONS: Record<string, string> = {
+  RPE: 'Rate of Perceived Exertion (1-10). 5-6 is moderate, 7-8 is hard, 9-10 is max.',
+  SPM: 'Strokes Per Minute. 18-22 easy, 26-30 race pace, 30+ sprint.',
+  AMRAP: 'As Many Rounds As Possible in the given time.',
+  EMOM: 'Every Minute On the Minute. Start reps at each minute mark.',
+  HIIT: 'High Intensity Interval Training. Max effort bursts with rest.',
+  Tabata: '20 sec work, 10 sec rest × 8 rounds. Total 4 minutes.',
+  Superset: 'Two exercises back-to-back with no rest.',
+  Circuit: 'Series of exercises done one after another.',
+  RPM: 'Revolutions Per Minute. 80-90 optimal, 100+ sprint.',
+  'Cluster Sets': 'Mini-sets with 10-30 sec rest for heavier loads.',
+  Clusters: 'Mini-sets with 10-30 sec rest for heavier loads.',
 };
 
-// All supported term types
-export type TermType = 'RPE' | 'SPM' | 'AMRAP' | 'EMOM' | 'HIIT' | 'Tabata' | 'Superset' | 'Circuit' | 'RPM' | 'Cluster Sets' | 'Clusters';
-
 interface TermDefinitionPopupProps {
-  term: TermType;
+  term: string;
   children?: React.ReactNode;
   style?: object;
 }
 
 export const TermDefinitionPopup: React.FC<TermDefinitionPopupProps> = ({ term, children, style }) => {
-  const [modalVisible, setModalVisible] = useState(false);
-  const definition = TERM_DEFINITIONS[term];
+  const [visible, setVisible] = useState(false);
+  
+  // Normalize term for lookup
+  const normalizedTerm = term.toUpperCase();
+  const definition = TERM_DEFINITIONS[term] || TERM_DEFINITIONS[normalizedTerm] || 
+                     TERM_DEFINITIONS[term.charAt(0).toUpperCase() + term.slice(1).toLowerCase()];
 
-  if (!definition) return <Text style={style}>{term}</Text>;
+  if (!definition) {
+    return <Text style={style}>{term}</Text>;
+  }
 
   return (
     <>
-      <TouchableOpacity onPress={() => setModalVisible(true)} activeOpacity={0.7}>
+      <TouchableOpacity onPress={() => setVisible(true)} activeOpacity={0.7}>
         {children || (
-          <Text style={[styles.termLink, style]}>
-            {term}
-          </Text>
+          <Text style={[styles.termLink, style]}>{term}</Text>
         )}
       </TouchableOpacity>
 
       <Modal
-        animationType="fade"
+        visible={visible}
         transparent={true}
-        visible={modalVisible}
-        onRequestClose={() => setModalVisible(false)}
-        statusBarTranslucent={true}
+        animationType="fade"
+        onRequestClose={() => setVisible(false)}
       >
-        <Pressable 
-          style={styles.overlay} 
-          onPress={() => setModalVisible(false)}
-        >
-          <View style={styles.contentContainer}>
-            <Text style={styles.termTitle}>{definition.title}</Text>
-            <Text style={styles.termDefinition}>{definition.definition}</Text>
+        <Pressable style={styles.backdrop} onPress={() => setVisible(false)}>
+          <View style={styles.modal}>
+            <Text style={styles.title}>{term}</Text>
+            <Text style={styles.definition}>{definition}</Text>
+            <Text style={styles.hint}>Tap anywhere to close</Text>
           </View>
         </Pressable>
       </Modal>
@@ -105,18 +67,15 @@ export const TermDefinitionPopup: React.FC<TermDefinitionPopupProps> = ({ term, 
   );
 };
 
-// Helper function to parse text and replace terms with clickable links
-interface ParsedTextProps {
+// Helper to parse text and create clickable terms
+export const TextWithTermLinks: React.FC<{
   text: string;
   baseStyle?: object;
   linkStyle?: object;
-}
-
-export const TextWithTermLinks: React.FC<ParsedTextProps> = ({ text, baseStyle, linkStyle }) => {
-  // Regex to match all supported fitness terms
-  const termRegex = /\b(RPE|SPM|AMRAP|EMOM|HIIT|Tabata|Superset|Circuit|RPM|cluster\s+sets?|clusters?)\b/gi;
+}> = ({ text, baseStyle, linkStyle }) => {
+  const termRegex = /\b(RPE|SPM|AMRAP|EMOM|HIIT|Tabata|Superset|Circuit|RPM|cluster\s*sets?|clusters?)\b/gi;
   
-  const parts: (string | { term: TermType; key: number })[] = [];
+  const parts: (string | { term: string; key: number })[] = [];
   let lastIndex = 0;
   let match;
   let keyCounter = 0;
@@ -129,11 +88,11 @@ export const TextWithTermLinks: React.FC<ParsedTextProps> = ({ text, baseStyle, 
     if (['rpe', 'spm', 'amrap', 'emom', 'hiit', 'rpm'].includes(normalizedTerm.toLowerCase())) {
       normalizedTerm = normalizedTerm.toUpperCase();
     } else if (normalizedTerm.toLowerCase().includes('cluster')) {
-      normalizedTerm = normalizedTerm.toLowerCase().includes('set') ? 'Cluster Sets' : 'Clusters';
+      normalizedTerm = 'Cluster Sets';
     } else {
       normalizedTerm = normalizedTerm.charAt(0).toUpperCase() + normalizedTerm.slice(1).toLowerCase();
     }
-    parts.push({ term: normalizedTerm as TermType, key: keyCounter++ });
+    parts.push({ term: normalizedTerm, key: keyCounter++ });
     lastIndex = match.index + match[0].length;
   }
   
@@ -148,11 +107,7 @@ export const TextWithTermLinks: React.FC<ParsedTextProps> = ({ text, baseStyle, 
           return <Text key={`text-${index}`}>{part}</Text>;
         }
         return (
-          <TermDefinitionPopup 
-            key={`term-${part.key}`} 
-            term={part.term}
-            style={[styles.termLink, linkStyle]}
-          />
+          <TermDefinitionPopup key={`term-${part.key}`} term={part.term} style={linkStyle} />
         );
       })}
     </Text>
@@ -165,31 +120,38 @@ const styles = StyleSheet.create({
     textDecorationLine: 'underline',
     fontWeight: '600',
   },
-  overlay: {
+  backdrop: {
     flex: 1,
-    backgroundColor: 'rgba(0, 0, 0, 0.85)',
+    backgroundColor: 'rgba(0, 0, 0, 0.8)',
     justifyContent: 'center',
     alignItems: 'center',
-    padding: 40,
+    padding: 32,
   },
-  contentContainer: {
+  modal: {
+    backgroundColor: '#1a1a1a',
+    borderRadius: 16,
+    padding: 24,
+    maxWidth: 320,
+    width: '100%',
     alignItems: 'center',
-    maxWidth: 300,
   },
-  termTitle: {
-    fontSize: 28,
+  title: {
+    fontSize: 24,
     fontWeight: '700',
     color: '#FFD700',
-    marginBottom: 16,
+    marginBottom: 12,
     textAlign: 'center',
-    letterSpacing: 1,
   },
-  termDefinition: {
-    fontSize: 17,
-    color: '#ffffff',
-    lineHeight: 26,
+  definition: {
+    fontSize: 16,
+    color: '#fff',
+    lineHeight: 24,
     textAlign: 'center',
-    fontWeight: '400',
+  },
+  hint: {
+    fontSize: 12,
+    color: '#666',
+    marginTop: 16,
   },
 });
 
