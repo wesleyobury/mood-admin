@@ -26,6 +26,7 @@ import * as FileSystem from 'expo-file-system';
 import { Video, ResizeMode } from 'expo-av';
 import { captureRef } from 'react-native-view-shot';
 import Constants from 'expo-constants';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import WorkoutStatsCard from '../components/WorkoutStatsCard';
 import { useAuth } from '../contexts/AuthContext';
 import { Analytics } from '../utils/analytics';
@@ -36,6 +37,12 @@ import InstagramShareModal from '../components/InstagramShareModal';
 
 const API_URL = process.env.EXPO_PUBLIC_BACKEND_URL || Constants.expoConfig?.extra?.EXPO_PUBLIC_BACKEND_URL || '';
 const SCREEN_WIDTH = Dimensions.get('window').width;
+
+// Storage keys for persisting user goals
+const STORAGE_KEYS = {
+  CALORIE_TARGET: '@mood_calorie_target',
+  MINUTE_TARGET: '@mood_minute_target',
+};
 
 // Helper to detect if a URI is a video
 const isVideoUri = (uri: string): boolean => {
