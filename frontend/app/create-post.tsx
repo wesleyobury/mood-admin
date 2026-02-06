@@ -1690,33 +1690,44 @@ export default function CreatePost() {
               {/* Editable Stats Row */}
               <View style={styles.editableStatsHintRow}>
                 <Text style={styles.editableStatsHint}>Adjust values & targets </Text>
-                <Text style={styles.editableStatsOptional}>(optional)</Text>
+                <Text style={styles.editableStatsOptional}>(optional, goals are saved)</Text>
               </View>
               <View style={styles.editableStatsRow}>
                 <View style={styles.editableStat}>
                   <Text style={styles.editableStatLabel}>Min</Text>
                   <TextInput
                     style={styles.editableStatInput}
-                    value={String(editedDuration !== undefined ? editedDuration : workoutStats.totalDuration)}
+                    value={editedDuration !== undefined ? String(editedDuration) : String(workoutStats.totalDuration)}
                     onChangeText={(text) => {
-                      const num = parseInt(text) || 0;
-                      setEditedDuration(num);
+                      // Allow empty input while editing
+                      if (text === '') {
+                        setEditedDuration(0);
+                      } else {
+                        const num = parseInt(text, 10);
+                        if (!isNaN(num)) setEditedDuration(num);
+                      }
                     }}
                     keyboardType="numeric"
                     maxLength={3}
+                    selectTextOnFocus
                   />
                 </View>
                 <View style={styles.editableStat}>
                   <Text style={styles.editableStatLabel}>Cal</Text>
                   <TextInput
                     style={styles.editableStatInput}
-                    value={String(editedCalories !== undefined ? editedCalories : Math.round(workoutStats.totalDuration * 8))}
+                    value={editedCalories !== undefined ? String(editedCalories) : String(Math.round(workoutStats.totalDuration * 8))}
                     onChangeText={(text) => {
-                      const num = parseInt(text) || 0;
-                      setEditedCalories(num);
+                      if (text === '') {
+                        setEditedCalories(0);
+                      } else {
+                        const num = parseInt(text, 10);
+                        if (!isNaN(num)) setEditedCalories(num);
+                      }
                     }}
                     keyboardType="numeric"
                     maxLength={4}
+                    selectTextOnFocus
                   />
                 </View>
                 <View style={styles.editableStat}>
@@ -1725,11 +1736,20 @@ export default function CreatePost() {
                     style={styles.editableStatInput}
                     value={String(calorieTarget)}
                     onChangeText={(text) => {
-                      const num = parseInt(text) || 500;
-                      setCalorieTarget(num);
+                      if (text === '') {
+                        setCalorieTarget(0);
+                      } else {
+                        const num = parseInt(text, 10);
+                        if (!isNaN(num)) setCalorieTarget(num);
+                      }
+                    }}
+                    onBlur={() => {
+                      // Restore default if user left it empty
+                      if (calorieTarget === 0) setCalorieTarget(500);
                     }}
                     keyboardType="numeric"
                     maxLength={4}
+                    selectTextOnFocus
                   />
                 </View>
                 <View style={styles.editableStat}>
@@ -1738,11 +1758,20 @@ export default function CreatePost() {
                     style={styles.editableStatInput}
                     value={String(minuteTarget)}
                     onChangeText={(text) => {
-                      const num = parseInt(text) || 60;
-                      setMinuteTarget(num);
+                      if (text === '') {
+                        setMinuteTarget(0);
+                      } else {
+                        const num = parseInt(text, 10);
+                        if (!isNaN(num)) setMinuteTarget(num);
+                      }
+                    }}
+                    onBlur={() => {
+                      // Restore default if user left it empty
+                      if (minuteTarget === 0) setMinuteTarget(60);
                     }}
                     keyboardType="numeric"
                     maxLength={3}
+                    selectTextOnFocus
                   />
                 </View>
               </View>
