@@ -703,16 +703,24 @@ const styles = StyleSheet.create({
     height: RING_SIZE,
     alignItems: 'center',
     justifyContent: 'center',
-    overflow: 'hidden',
   },
-  shimmerOverlay: {
-    position: 'absolute',
-    width: 50,
+  maskedRingContainer: {
+    width: RING_SIZE,
     height: RING_SIZE,
-    zIndex: 10,
   },
-  shimmerGradient: {
-    width: 50,
+  ringMask: {
+    width: RING_SIZE,
+    height: RING_SIZE,
+    backgroundColor: 'transparent',
+  },
+  ringShimmerLayer: {
+    position: 'absolute',
+    width: 60,
+    height: RING_SIZE,
+    left: (RING_SIZE - 60) / 2,
+  },
+  ringShimmerGradient: {
+    width: 60,
     height: '100%',
   },
   ringCenterContent: {
