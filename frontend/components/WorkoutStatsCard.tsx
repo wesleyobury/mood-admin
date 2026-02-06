@@ -460,26 +460,20 @@ export default function WorkoutStatsCard({
         <View style={styles.transparentCenteredContent}>
           {/* Main content: Rings on left, Data on right */}
           <View style={styles.transparentMainContent}>
-            {/* Left side: Rings with optional pulse animation */}
+            {/* Left side: Rings with calorie count INSIDE */}
             <View style={styles.transparentRingSection}>
-              <Animated.View style={[
-                styles.transparentRingContainer, 
-                showRingPulse ? { 
-                  transform: [{ scale: ringPulseAnim }],
-                  opacity: ringGlowAnim,
-                } : undefined
-              ]}>
+              <View style={styles.transparentRingContainer}>
                 {renderRings(true)}
-              </Animated.View>
+                {/* Calorie count centered inside rings */}
+                <View style={styles.transparentRingCenterContent}>
+                  <Text style={styles.transparentCenterCalorieValue}>{estimatedCalories}</Text>
+                  <Text style={styles.transparentCenterCalorieLabel}>cal</Text>
+                </View>
+              </View>
             </View>
             
-            {/* Right side: Data stacked - smaller text */}
+            {/* Right side: Data stacked - smaller text (without calories - now inside rings) */}
             <View style={styles.transparentDataSection}>
-              <View style={styles.transparentDataRow}>
-                <View style={[styles.transparentDataDot, { backgroundColor: COLORS.caloriesStart }]} />
-                <Text style={styles.transparentDataValue}>{estimatedCalories}</Text>
-                <Text style={styles.transparentDataLabel}>cal</Text>
-              </View>
               <View style={styles.transparentDataRow}>
                 <View style={[styles.transparentDataDot, { backgroundColor: COLORS.minutesStart }]} />
                 <Text style={styles.transparentDataValue}>{displayDuration}</Text>
