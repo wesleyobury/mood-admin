@@ -161,18 +161,26 @@ export default function CreatePost() {
       
       if (response.ok) {
         const data = await response.json();
-        // Transform to match WorkoutStats format
+        // Transform to match WorkoutStats format, keeping ALL workout details
         const transformed = data.map((card: any) => ({
           id: card.id,
           workouts: card.workouts.map((w: any) => ({
-            workoutTitle: w.workout_name || w.workoutName,
-            workoutName: w.workout_name || w.workoutName,
+            // Keep all original workout data for "Try this workout" replication
+            ...w,
+            workoutTitle: w.workout_title || w.workoutTitle || w.workout_name || w.workoutName,
+            workoutName: w.workout_name || w.workoutName || w.workout_title || w.workoutTitle,
             equipment: w.equipment,
             duration: w.duration,
             difficulty: w.difficulty,
+            moodCategory: w.mood_category || w.moodCategory,
+            battlePlan: w.battle_plan || w.battlePlan,
+            imageUrl: w.image_url || w.imageUrl,
+            description: w.description,
+            intensityReason: w.intensity_reason || w.intensityReason,
           })),
           totalDuration: card.total_duration,
           completedAt: card.completed_at,
+          moodCategory: card.mood_category,
         }));
         setSavedAchievements(transformed);
       }
@@ -188,6 +196,7 @@ export default function CreatePost() {
       workouts: achievement.workouts,
       totalDuration: achievement.totalDuration,
       completedAt: achievement.completedAt,
+      moodCategory: achievement.moodCategory,
     });
     setHasStatsCard(true);
     
