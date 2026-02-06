@@ -1971,7 +1971,6 @@ export default function CreatePost() {
               calorieTarget={calorieTarget}
               minuteTarget={minuteTarget}
               transparent={true}
-              showRingPulse={true}
             />
           }
           isExporting={isExportingToInstagram}
