@@ -492,6 +492,21 @@ export default function AdminDashboard() {
         console.log('Workout engagement chart fetch error:', ecError);
       }
       
+      // Fetch deleted users stats
+      try {
+        const deletedUsersRes = await fetch(
+          `${API_URL}/api/analytics/admin/deleted-users?days=${selectedPeriod}`,
+          { headers: { 'Authorization': `Bearer ${token}` } }
+        );
+        if (deletedUsersRes.ok) {
+          const deletedData = await deletedUsersRes.json();
+          setDeletedUsersCount(deletedData.total_count || 0);
+          setDeletedUsers(deletedData.deleted_users || []);
+        }
+      } catch (duError) {
+        console.log('Deleted users fetch error:', duError);
+      }
+      
     } catch (error) {
       console.error('Error fetching dashboard data:', error);
     } finally {
