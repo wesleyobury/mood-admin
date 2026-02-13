@@ -205,60 +205,10 @@ export default function Profile() {
     }
   };
 
-  // Fetch unread notification count - using same ID-based logic as explore page
-  const fetchUnreadNotifications = async () => {
-    if (!token) return;
-    try {
-      // Get the list of notification IDs the user has already seen
-      const seenIdsStr = await AsyncStorage.getItem(LAST_NOTIFICATION_VIEW_KEY);
-      let seenIds: string[] = [];
-      
-      try {
-        if (seenIdsStr) {
-          seenIds = JSON.parse(seenIdsStr);
-          // Handle legacy format (was timestamp, now array)
-          if (!Array.isArray(seenIds)) {
-            seenIds = [];
-          }
-        }
-      } catch {
-        seenIds = [];
-      }
-      
-      const response = await fetch(`${API_URL}/api/notifications`, {
-        headers: { 'Authorization': `Bearer ${token}` },
-      });
-      
-      if (response.ok) {
-        const data = await response.json();
-        const allNotifications = data.notifications || [];
-        
-        // If no seen IDs exist, initialize them (fresh session)
-        if (seenIds.length === 0 && allNotifications.length > 0) {
-          const notificationIds = allNotifications.map((n: any) => n.id);
-          await AsyncStorage.setItem(LAST_NOTIFICATION_VIEW_KEY, JSON.stringify(notificationIds));
-          setUnreadNotifications(0);
-          return;
-        }
-        
-        // Count notifications whose IDs are NOT in the seen list
-        const unseenCount = allNotifications.filter(
-          (n: any) => !seenIds.includes(n.id)
-        ).length;
-        
-        setUnreadNotifications(unseenCount);
-      }
-    } catch (error) {
-      console.error('Error fetching unread notifications:', error);
-    }
-  };
-
   // Load user profile when token is available
   useEffect(() => {
     if (token) {
       fetchUserProfile();
-      // Only fetch notification count once on mount
-      fetchUnreadNotifications();
     }
   }, [token]);
 
@@ -277,8 +227,6 @@ export default function Profile() {
             fetchUserPosts();
           }
         }
-        // Always refresh notification count on focus (it's a lightweight check)
-        fetchUnreadNotifications();
       }
     }, [token, activeTab, authUser?.id])
   );
