@@ -1284,39 +1284,45 @@ export default function CreatePost() {
         cover_urls: Object.keys(coverUrls).length > 0 ? coverUrls : null,
       };
       
-      // Include workout data if present (for workout card replication feature)
-      // Ensure ALL workout details are included for "Try this workout" to work
-      if (workoutStats) {
-        console.log('📋 Including workout_data in post, snapshot_id:', workoutStats.workoutSnapshotId);
-        console.log('📋 Raw workoutStats.workouts:', JSON.stringify(workoutStats.workouts, null, 2));
+      // =========================================================================
+      // ATTACHED WORKOUT - Send ONLY workout_snapshot_id, server hydrates the rest
+      // This ensures the canonical attached_workout is always complete and valid
+      // =========================================================================
+      if (workoutStats && workoutStats.workoutSnapshotId) {
+        console.log('📋 Including workout_snapshot_id in post:', workoutStats.workoutSnapshotId);
+        // ONLY send the snapshot ID - server will hydrate attached_workout
+        postPayload.workout_snapshot_id = workoutStats.workoutSnapshotId;
         
-        const mappedWorkouts = workoutStats.workouts.map((w: any, idx: number) => {
-          const mapped = {
-            // Include all fields for proper workout replication
+        // Legacy: Also include workout_data for backwards compatibility with display
+        postPayload.workout_data = {
+          workouts: workoutStats.workouts.map((w: any) => ({
             workoutTitle: w.workoutTitle || w.workout_title || w.workoutName || w.workout_name,
             workoutName: w.workoutName || w.workout_name || w.workoutTitle || w.workout_title,
             equipment: w.equipment,
             duration: w.duration,
             difficulty: w.difficulty,
-            battlePlan: w.battlePlan || w.battle_plan || '',
-            imageUrl: w.imageUrl || w.image_url || '',
-            description: w.description || '',
-            intensityReason: w.intensityReason || w.intensity_reason || '',
-            moodCategory: w.moodCategory || w.mood_category || '',
-          };
-          console.log(`📋 Workout ${idx} mapped - battlePlan: ${mapped.battlePlan ? 'YES' : 'NO'}, imageUrl: ${mapped.imageUrl ? 'YES' : 'NO'}`);
-          return mapped;
-        });
-        
-        postPayload.workout_data = {
-          workouts: mappedWorkouts,
+          })),
           totalDuration: workoutStats.totalDuration,
           completedAt: workoutStats.completedAt,
           moodCategory: workoutStats.moodCategory,
-          workout_snapshot_id: workoutStats.workoutSnapshotId, // Persistent reference
+          workout_snapshot_id: workoutStats.workoutSnapshotId,
         };
-        
-        console.log('📋 Final workout_data:', JSON.stringify(postPayload.workout_data, null, 2));
+      } else if (workoutStats) {
+        // No snapshot ID - this shouldn't happen for new workouts, but log it
+        console.warn('⚠️ No workout_snapshot_id available - "Try This Workout" will be unavailable for this post');
+        // Still include basic workout_data for display purposes
+        postPayload.workout_data = {
+          workouts: workoutStats.workouts.map((w: any) => ({
+            workoutTitle: w.workoutTitle || w.workout_title || w.workoutName || w.workout_name,
+            workoutName: w.workoutName || w.workout_name || w.workoutTitle || w.workout_title,
+            equipment: w.equipment,
+            duration: w.duration,
+            difficulty: w.difficulty,
+          })),
+          totalDuration: workoutStats.totalDuration,
+          completedAt: workoutStats.completedAt,
+          moodCategory: workoutStats.moodCategory,
+        };
       }
 
       const response = await fetch(`${API_URL}/api/posts`, {
