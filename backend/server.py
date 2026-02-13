@@ -5231,11 +5231,15 @@ async def get_posts(current_user_id: str = Depends(get_current_user), limit: int
             except Exception as e:
                 print(f"Error parsing workout_data: {e}")
         
+        # Get attached_workout (canonical workout payload for "Try This Workout")
+        attached_workout_data = post.get("attached_workout")
+        
         post_data = {
             "id": str(post["_id"]),
             "author": author_data.dict(),
             "workout": workout_data.dict() if workout_data else None,
             "workout_data": embedded_workout_data,
+            "attached_workout": attached_workout_data,  # NEW: Canonical workout for Try This Workout
             "caption": post["caption"],
             "media_urls": post.get("media_urls", []),
             "hashtags": post.get("hashtags", []),
