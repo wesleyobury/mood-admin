@@ -252,16 +252,28 @@ export default function CreatePost() {
   };
 
   const selectSavedAchievement = (achievement: any) => {
-    console.log('📋 Selected saved achievement:', achievement.id);
-    console.log('📋 Achievement has workoutSnapshotId:', achievement.workoutSnapshotId);
+    console.log('📋 SELECT_SAVED_ACHIEVEMENT_DEBUG', {
+      achievementId: achievement.id,
+      hasWorkoutSnapshotId: !!achievement.workoutSnapshotId,
+      workoutSnapshotId: achievement.workoutSnapshotId,
+      workoutsCount: achievement.workouts?.length,
+      rawAchievement: JSON.stringify(achievement).substring(0, 500),
+    });
     
-    setWorkoutStats({
+    const newWorkoutStats = {
       workouts: achievement.workouts,
       totalDuration: achievement.totalDuration,
       completedAt: achievement.completedAt,
       moodCategory: achievement.moodCategory,
       workoutSnapshotId: achievement.workoutSnapshotId, // CRITICAL: Pass snapshot ID for "Try this workout"
+    };
+    
+    console.log('📋 NEW_WORKOUT_STATS', {
+      hasWorkoutSnapshotId: !!newWorkoutStats.workoutSnapshotId,
+      workoutSnapshotId: newWorkoutStats.workoutSnapshotId,
     });
+    
+    setWorkoutStats(newWorkoutStats);
     setHasStatsCard(true);
     
     // Auto-generate caption
