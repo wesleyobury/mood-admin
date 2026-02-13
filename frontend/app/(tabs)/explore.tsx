@@ -160,6 +160,9 @@ export default function Explore() {
   // Handle tab query parameter from navigation
   const params = useLocalSearchParams<{ tab?: string }>();
   
+  // Get badge context for notification counts
+  const { unreadNotifications, markNotificationsAsRead, refreshBadges } = useBadges();
+  
   const [posts, setPosts] = useState<Post[]>([]);
   const [refreshing, setRefreshing] = useState(false);
   const [loading, setLoading] = useState(true);
