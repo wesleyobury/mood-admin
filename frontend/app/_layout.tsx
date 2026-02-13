@@ -76,12 +76,24 @@ function AppContent() {
   );
 }
 
+// Providers wrapper with auth context consumer for BadgeProvider
+function BadgeProviderWrapper({ children }: { children: React.ReactNode }) {
+  const { token, isGuest } = useAuth();
+  return (
+    <BadgeProvider token={token} isGuest={isGuest}>
+      {children}
+    </BadgeProvider>
+  );
+}
+
 // Providers wrapper
 function AppProviders({ children }: { children: React.ReactNode }) {
   return (
     <AuthProvider>
       <CartProvider>
-        {children}
+        <BadgeProviderWrapper>
+          {children}
+        </BadgeProviderWrapper>
       </CartProvider>
     </AuthProvider>
   );
