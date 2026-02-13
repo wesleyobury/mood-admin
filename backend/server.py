@@ -5318,6 +5318,7 @@ async def get_single_post(post_id: str, current_user_id: str = Depends(get_curre
                 "is_liked": {"$gt": [{"$size": "$user_like"}, 0]},
                 "is_saved": {"$gt": [{"$size": "$user_save"}, 0]},
                 "workout_data": 1,
+                "attached_workout": 1,  # NEW: Canonical workout for Try This Workout
                 "created_at": {"$toString": "$created_at"}
             }
         }
