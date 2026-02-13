@@ -8,6 +8,7 @@ import { StatusBar } from 'expo-status-bar';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { AuthProvider, useAuth } from '../contexts/AuthContext';
 import { CartProvider } from '../contexts/CartContext';
+import { BadgeProvider } from '../contexts/BadgeContext';
 import { Analytics } from '../utils/analytics';
 import FloatingCart from '../components/FloatingCart';
 import ErrorBoundary from '../components/ErrorBoundary';
