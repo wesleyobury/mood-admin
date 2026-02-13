@@ -180,7 +180,7 @@ export default function CommunityGuidelinesScreen() {
             If you believe your content was removed in error or your account was 
             suspended unfairly, you can appeal by contacting us at:
           </Text>
-          <Text style={styles.contactEmail}>support@moodfitnessapp.com</Text>
+          <Text style={styles.contactEmail}>wes@officialmoodapp.com</Text>
           <Text style={styles.paragraph}>
             Please include your username and a description of the issue. We'll review 
             your appeal within 7 business days.

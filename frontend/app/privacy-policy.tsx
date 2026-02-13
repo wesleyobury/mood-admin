@@ -365,7 +365,7 @@ export default function PrivacyPolicyScreen() {
           </Text>
           <View style={styles.bulletList}>
             <Text style={styles.bulletItem}>• Use the in-app settings and profile management features</Text>
-            <Text style={styles.bulletItem}>• Contact us at privacy@moodfitnessapp.com</Text>
+            <Text style={styles.bulletItem}>• Contact us at wes@officialmoodapp.com</Text>
             <Text style={styles.bulletItem}>• Submit a request through the app's Help & Support section</Text>
           </View>
           <Text style={styles.paragraph}>
@@ -382,7 +382,7 @@ export default function PrivacyPolicyScreen() {
           </Text>
           <Text style={styles.paragraph}>
             If you are a parent or guardian and believe your child has provided us with personal information, 
-            please contact us immediately at privacy@moodfitnessapp.com. We will take steps to delete such 
+            please contact us immediately at wes@officialmoodapp.com. We will take steps to delete such 
             information from our systems.
           </Text>
         </View>
@@ -460,7 +460,7 @@ export default function PrivacyPolicyScreen() {
             <Text style={styles.bulletItem}>• Right to Non-Discrimination - We will not discriminate against you for exercising your rights</Text>
           </View>
           <Text style={styles.paragraph}>
-            To exercise these rights, contact us at privacy@moodfitnessapp.com or use the in-app privacy settings.
+            To exercise these rights, contact us at wes@officialmoodapp.com or use the in-app privacy settings.
           </Text>
         </View>
 
@@ -486,7 +486,7 @@ export default function PrivacyPolicyScreen() {
           <Text style={styles.paragraph}>
             If you have any questions, concerns, or requests regarding this Privacy Policy or our data practices, please contact us:
           </Text>
-          <Text style={styles.contactText}>Email: privacy@moodfitnessapp.com</Text>
+          <Text style={styles.contactText}>Email: wes@officialmoodapp.com</Text>
           <Text style={styles.contactText}>In-App: Settings - Help & Support - Privacy Inquiry</Text>
           <Text style={styles.paragraph}>
             For safety, abuse, or objectionable content concerns, users may contact us directly at:
