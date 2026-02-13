@@ -96,7 +96,7 @@ export function BadgeProvider({ children, token, isGuest }: BadgeProviderProps) 
     }
     
     try {
-      const response = await fetch(`${API_URL}/api/messages/unread-count`, {
+      const response = await fetch(`${API_URL}/api/conversations/unread-count`, {
         headers: { 'Authorization': `Bearer ${token}` },
       });
       
