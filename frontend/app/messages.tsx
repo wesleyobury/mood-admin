@@ -14,6 +14,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { useRouter, useFocusEffect } from 'expo-router';
 import Constants from 'expo-constants';
 import { useAuth } from '../contexts/AuthContext';
+import { useBadges } from '../contexts/BadgeContext';
 import BackButton from '../components/BackButton';
 
 const API_URL = process.env.EXPO_PUBLIC_BACKEND_URL || Constants.expoConfig?.extra?.EXPO_PUBLIC_BACKEND_URL || '';
@@ -38,6 +39,15 @@ export default function Messages() {
   const insets = useSafeAreaInsets();
   const router = useRouter();
   const { token } = useAuth();
+  const { markMessagesAsRead, refreshBadges } = useBadges();
+
+  // Mark messages as read when the screen comes into focus
+  useFocusEffect(
+    useCallback(() => {
+      // Mark all messages as read when viewing DMs
+      markMessagesAsRead();
+    }, [markMessagesAsRead])
+  );
 
   const fetchConversations = async () => {
     if (!token) return;
