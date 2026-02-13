@@ -1325,6 +1325,15 @@ export default function CreatePost() {
         };
       }
 
+      // DEBUG: Log the payload before sending
+      console.log('🔍 CREATE_POST_PAYLOAD_DEBUG', {
+        source: workoutStats ? 'saved_achievement_post_later' : 'no_workout',
+        workout_snapshot_id: postPayload.workout_snapshot_id || null,
+        hasWorkoutSnapshotId: !!postPayload.workout_snapshot_id,
+        workoutStatsSnapshotId: workoutStats?.workoutSnapshotId || null,
+        hasAttachedWorkoutInPayload: !!postPayload.attached_workout,
+      });
+
       const response = await fetch(`${API_URL}/api/posts`, {
         method: 'POST',
         headers: {
@@ -1335,7 +1344,19 @@ export default function CreatePost() {
       });
 
       console.log('Post response status:', response.status);
-      if (response.ok) {
+      
+      // DEBUG: Log the response
+      const responseData = await response.json();
+      console.log('🔍 CREATE_POST_RESPONSE_DEBUG', {
+        status: response.status,
+        postId: responseData?.id,
+        hasAttached: !!responseData?.attached_workout,
+        exCount: responseData?.attached_workout?.exercises?.length || 0,
+        keys: responseData?.attached_workout ? Object.keys(responseData.attached_workout) : null,
+        error: responseData?.detail || responseData?.error || null,
+      });
+      
+      if (response.status === 200 || response.status === 201) {
         setUploadProgress(100);
         console.log('Post created successfully!');
         
