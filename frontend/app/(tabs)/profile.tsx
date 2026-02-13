@@ -662,15 +662,12 @@ export default function Profile() {
         }}
         activeOpacity={0.85}
       >
-        {/* Top accent line */}
-        <View style={styles.cardAccentLine} />
-        
         <View style={styles.cardThumbnailContent}>
-          {/* Header with date and trophy */}
+          {/* Header with date and checkmark */}
           <View style={styles.cardHeaderRow}>
             <Text style={styles.cardDateLabel}>{item.completedAt}</Text>
             <View style={styles.cardTrophyBadge}>
-              <Ionicons name="trophy" size={12} color="#0c0c0c" />
+              <Ionicons name="checkmark" size={14} color="#0c0c0c" />
             </View>
           </View>
           
