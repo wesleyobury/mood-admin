@@ -1030,17 +1030,31 @@ export default function Explore() {
               <Ionicons name={showSearch ? "close" : "search"} size={22} color="#fff" />
             </TouchableOpacity>
           )}
-          {/* Notifications button */}
+          {/* Notifications button with badge */}
           {!isGuest && (
             <TouchableOpacity 
               style={styles.headerIconButton}
-              onPress={() => setActiveTab('notifications')}
+              onPress={() => {
+                setActiveTab('notifications');
+                // Mark notifications as read when viewing the tab
+                markNotificationsAsRead();
+              }}
             >
-              <Ionicons 
-                name={activeTab === 'notifications' ? 'notifications' : 'notifications-outline'} 
-                size={22} 
-                color="#fff" 
-              />
+              <View style={styles.headerIconContainer}>
+                <Ionicons 
+                  name={activeTab === 'notifications' ? 'notifications' : 'notifications-outline'} 
+                  size={22} 
+                  color="#fff" 
+                />
+                {/* Notification badge on bell icon (only notifications, not messages) */}
+                {unreadNotifications > 0 && activeTab !== 'notifications' && (
+                  <View style={styles.headerNotificationBadge}>
+                    <Text style={styles.headerNotificationBadgeText}>
+                      {unreadNotifications > 99 ? '99+' : unreadNotifications}
+                    </Text>
+                  </View>
+                )}
+              </View>
             </TouchableOpacity>
           )}
           {/* Create post button */}
