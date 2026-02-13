@@ -540,14 +540,46 @@ export default function WorkoutGuidanceScreen() {
             year: 'numeric' 
           });
 
+          // Create workout snapshot for persistent access (Try this workout feature)
+          let workoutSnapshotId: string | null = null;
+          if (token) {
+            try {
+              console.log('📸 Creating workout snapshot for Try this workout feature...');
+              const snapshotResponse = await fetch(`${API_URL}/api/workout-snapshots`, {
+                method: 'POST',
+                headers: {
+                  'Authorization': `Bearer ${token}`,
+                  'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                  workouts: completedWorkouts,
+                  total_duration: totalDuration,
+                  mood_category: overallMoodCategory,
+                }),
+              });
+              
+              if (snapshotResponse.ok) {
+                const snapshotData = await snapshotResponse.json();
+                workoutSnapshotId = snapshotData.id;
+                console.log('✅ Workout snapshot created:', workoutSnapshotId);
+              } else {
+                console.error('❌ Failed to create workout snapshot:', await snapshotResponse.text());
+              }
+            } catch (error) {
+              console.error('❌ Error creating workout snapshot:', error);
+            }
+          }
+
           const workoutStatsData = {
             workouts: completedWorkouts,
             totalDuration,
             completedAt,
             moodCategory: overallMoodCategory, // Include top-level mood category
+            workoutSnapshotId, // Include snapshot ID for "Try this workout" feature
           };
 
           console.log('Workout stats prepared:', workoutStatsData);
+          console.log('📋 Snapshot ID:', workoutSnapshotId);
           
           // Track workout completion analytics
           if (token) {
