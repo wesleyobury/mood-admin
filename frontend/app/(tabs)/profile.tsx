@@ -364,12 +364,27 @@ export default function Profile() {
         // Transform snake_case to camelCase for frontend
         const transformedData = data.map((card: any) => ({
           id: card.id,
-          workouts: card.workouts,
+          workouts: card.workouts.map((w: any) => ({
+            workoutName: w.workoutName || w.workout_name || w.workoutTitle || w.workout_title,
+            workoutTitle: w.workoutTitle || w.workout_title || w.workoutName || w.workout_name,
+            equipment: w.equipment,
+            duration: w.duration,
+            difficulty: w.difficulty,
+            battlePlan: w.battlePlan || w.battle_plan,
+            imageUrl: w.imageUrl || w.image_url,
+            description: w.description,
+            intensityReason: w.intensityReason || w.intensity_reason,
+            moodCategory: w.moodCategory || w.mood_category,
+            moodTips: w.moodTips || w.mood_tips,
+          })),
           totalDuration: card.total_duration,
           completedAt: card.completed_at,
           created_at: card.created_at,
+          moodCategory: card.mood_category,
+          workoutSnapshotId: card.workout_snapshot_id, // CRITICAL: Include snapshot ID for "Try this workout"
         }));
         
+        console.log('Transformed cards with snapshot IDs:', transformedData.map((c: any) => ({ id: c.id, snapshotId: c.workoutSnapshotId })));
         setWorkoutCards(transformedData);
       } else {
         console.error('Failed to fetch workout cards:', response.status);
