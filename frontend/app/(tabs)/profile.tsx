@@ -82,13 +82,22 @@ interface WorkoutCard {
   id: string;
   workouts: {
     workoutName: string;
+    workoutTitle?: string;
     equipment: string;
     duration: string;
     difficulty: string;
+    battlePlan?: string;
+    imageUrl?: string;
+    description?: string;
+    intensityReason?: string;
+    moodCategory?: string;
+    moodTips?: any[];
   }[];
   totalDuration: number;
   completedAt: string;
   created_at: string;
+  moodCategory?: string;
+  workoutSnapshotId?: string;
 }
 
 interface SavedWorkout {
