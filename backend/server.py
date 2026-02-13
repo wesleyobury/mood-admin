@@ -317,13 +317,47 @@ class WorkoutCardData(BaseModel):
     moodCategory: Optional[str] = None
     workout_snapshot_id: Optional[str] = None  # Persistent reference for "Try this workout"
 
+# ============================================================================
+# ATTACHED WORKOUT - Canonical workout payload for "Try This Workout" feature
+# This is the ONLY source of truth for workout replication
+# ============================================================================
+
+class AttachedWorkoutExercise(BaseModel):
+    """Single exercise within an attached workout"""
+    exerciseId: str  # Unique identifier for the exercise
+    name: str
+    imageUrl: str  # REQUIRED - no fallbacks allowed
+    duration: str
+    equipment: str
+    difficulty: str
+    description: Optional[str] = None
+    battlePlan: str  # REQUIRED - the workout guidance text
+    intensityReason: Optional[str] = None
+    moodTips: Optional[List[dict]] = None
+
+class AttachedWorkout(BaseModel):
+    """
+    Fully-hydrated canonical workout payload.
+    This is embedded in posts and is the ONLY source for "Try This Workout".
+    No fallbacks, no partial data - if this is missing/invalid, workout is unavailable.
+    """
+    version: int = 1
+    title: str  # REQUIRED - overall workout title
+    totalDuration: int  # Total duration in minutes
+    moodCategory: str  # e.g., "Back", "Get Outside - Hill Workout"
+    completedAt: str  # When the workout was completed
+    exercises: List[AttachedWorkoutExercise]  # REQUIRED - at least one exercise
+
 class PostCreate(BaseModel):
     workout_id: Optional[str] = None
     caption: str
     media_urls: List[str] = []  # URLs to uploaded media files
     hashtags: List[str] = []
     cover_urls: Optional[dict] = None  # Map of media index to cover image URL
-    workout_data: Optional[WorkoutCardData] = None  # Embedded workout card data for replication
+    workout_data: Optional[WorkoutCardData] = None  # Legacy - kept for backwards compat
+    # New canonical workout attachment
+    workout_snapshot_id: Optional[str] = None  # Server will hydrate attached_workout from this
+    attached_workout: Optional[AttachedWorkout] = None  # Direct payload (alternative to snapshot_id)
 
 class CredentialsUpdate(BaseModel):
     current_password: str
