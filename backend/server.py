@@ -369,7 +369,8 @@ class PostResponse(BaseModel):
     id: str
     author: UserResponse
     workout: Optional[WorkoutResponse] = None
-    workout_data: Optional[WorkoutCardData] = None  # Embedded workout card data for replication
+    workout_data: Optional[WorkoutCardData] = None  # Legacy - kept for backwards compat
+    attached_workout: Optional[AttachedWorkout] = None  # Canonical workout payload for "Try This Workout"
     caption: str
     media_urls: List[str] = []
     hashtags: List[str] = []
