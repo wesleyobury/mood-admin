@@ -1213,20 +1213,28 @@ export default function Profile() {
                     style={styles.shareAchievementButton}
                     onPress={() => {
                       setModalVisible(false);
-                      // Navigate to create-post with workout stats
+                      // Navigate to create-post with workout stats INCLUDING snapshot ID
                       router.push({
                         pathname: '/create-post',
                         params: {
                           workoutStats: JSON.stringify({
-                            workouts: selectedCard.workouts.map(w => ({
-                              workoutTitle: w.workoutName,
-                              workoutName: w.workoutName,
+                            workouts: selectedCard.workouts.map((w: any) => ({
+                              workoutTitle: w.workoutTitle || w.workoutName || w.workout_title,
+                              workoutName: w.workoutName || w.workoutTitle || w.workout_name,
                               equipment: w.equipment,
                               duration: w.duration,
                               difficulty: w.difficulty,
+                              battlePlan: w.battlePlan || w.battle_plan,
+                              imageUrl: w.imageUrl || w.image_url,
+                              description: w.description,
+                              intensityReason: w.intensityReason || w.intensity_reason,
+                              moodCategory: w.moodCategory || w.mood_category,
+                              moodTips: w.moodTips || w.mood_tips,
                             })),
                             totalDuration: selectedCard.totalDuration,
                             completedAt: selectedCard.completedAt,
+                            moodCategory: selectedCard.moodCategory,
+                            workoutSnapshotId: selectedCard.workoutSnapshotId, // CRITICAL: Include snapshot ID for "Try this workout"
                           }),
                         },
                       });
