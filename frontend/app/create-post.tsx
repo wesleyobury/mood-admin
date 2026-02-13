@@ -1288,25 +1288,35 @@ export default function CreatePost() {
       // Ensure ALL workout details are included for "Try this workout" to work
       if (workoutStats) {
         console.log('📋 Including workout_data in post, snapshot_id:', workoutStats.workoutSnapshotId);
-        postPayload.workout_data = {
-          workouts: workoutStats.workouts.map((w: any) => ({
+        console.log('📋 Raw workoutStats.workouts:', JSON.stringify(workoutStats.workouts, null, 2));
+        
+        const mappedWorkouts = workoutStats.workouts.map((w: any, idx: number) => {
+          const mapped = {
             // Include all fields for proper workout replication
             workoutTitle: w.workoutTitle || w.workout_title || w.workoutName || w.workout_name,
             workoutName: w.workoutName || w.workout_name || w.workoutTitle || w.workout_title,
             equipment: w.equipment,
             duration: w.duration,
             difficulty: w.difficulty,
-            battlePlan: w.battlePlan || w.battle_plan,
-            imageUrl: w.imageUrl || w.image_url,
-            description: w.description,
-            intensityReason: w.intensityReason || w.intensity_reason,
-            moodCategory: w.moodCategory || w.mood_category,
-          })),
+            battlePlan: w.battlePlan || w.battle_plan || '',
+            imageUrl: w.imageUrl || w.image_url || '',
+            description: w.description || '',
+            intensityReason: w.intensityReason || w.intensity_reason || '',
+            moodCategory: w.moodCategory || w.mood_category || '',
+          };
+          console.log(`📋 Workout ${idx} mapped - battlePlan: ${mapped.battlePlan ? 'YES' : 'NO'}, imageUrl: ${mapped.imageUrl ? 'YES' : 'NO'}`);
+          return mapped;
+        });
+        
+        postPayload.workout_data = {
+          workouts: mappedWorkouts,
           totalDuration: workoutStats.totalDuration,
           completedAt: workoutStats.completedAt,
           moodCategory: workoutStats.moodCategory,
           workout_snapshot_id: workoutStats.workoutSnapshotId, // Persistent reference
         };
+        
+        console.log('📋 Final workout_data:', JSON.stringify(postPayload.workout_data, null, 2));
       }
 
       const response = await fetch(`${API_URL}/api/posts`, {
