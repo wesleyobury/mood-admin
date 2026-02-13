@@ -407,11 +407,11 @@ const styles = StyleSheet.create({
     borderRadius: 18,
   },
   ownMessageBubble: {
-    backgroundColor: '#1a3a1a',  // Dark green for your messages
+    backgroundColor: '#3a3a3a',  // Gray for your messages
     borderBottomRightRadius: 4,
   },
   otherMessageBubble: {
-    backgroundColor: '#2a2a3a',  // Dark blue-ish for their messages
+    backgroundColor: '#1a2a3a',  // Dark blue for their messages
     borderBottomLeftRadius: 4,
   },
   messageText: {
