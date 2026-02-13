@@ -24,6 +24,7 @@ import Constants from 'expo-constants';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useAuth } from '../../contexts/AuthContext';
 import { useCart, WorkoutItem } from '../../contexts/CartContext';
+import { useBadges } from '../../contexts/BadgeContext';
 import MediaCarousel from '../../components/MediaCarousel';
 import CommentsBottomSheet from '../../components/CommentsBottomSheet';
 import { Analytics, GuestAnalytics } from '../../utils/analytics';
@@ -31,7 +32,6 @@ import { useScreenTime } from '../../hooks/useScreenTime';
 import { PostSkeleton } from '../../components/Skeleton';
 import GuestPromptModal from '../../components/GuestPromptModal';
 import ReportModal from '../../components/ReportModal';
-import { useBadges } from './_layout';
 
 const API_URL = process.env.EXPO_PUBLIC_BACKEND_URL || Constants.expoConfig?.extra?.EXPO_PUBLIC_BACKEND_URL || '';
 import { 
