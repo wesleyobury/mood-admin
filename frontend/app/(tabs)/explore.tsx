@@ -462,42 +462,11 @@ export default function Explore() {
   };
 
   // Fetch unread count on mount and periodically
+  // Note: Badge initialization is now handled by BadgeContext
+  // This useEffect only handles the local explore screen state refresh
   useEffect(() => {
     if (token && !isGuest) {
-      // On first mount, check if we need to initialize seen notifications
-      const initializeSeenNotifications = async () => {
-        try {
-          const seenIdsStr = await AsyncStorage.getItem(LAST_NOTIFICATION_VIEW_KEY);
-          
-          // If no seen IDs exist (fresh login), fetch all notifications and mark them as seen
-          if (!seenIdsStr) {
-            console.log('🔔 Fresh session: Initializing seen notifications');
-            const response = await fetch(`${API_URL}/api/notifications`, {
-              headers: { 'Authorization': `Bearer ${token}` },
-            });
-            if (response.ok) {
-              const data = await response.json();
-              const allNotifications = data.notifications || [];
-              if (allNotifications.length > 0) {
-                const notificationIds = allNotifications.map((n: Notification) => n.id);
-                await AsyncStorage.setItem(LAST_NOTIFICATION_VIEW_KEY, JSON.stringify(notificationIds));
-                console.log(`🔔 Marked ${notificationIds.length} existing notifications as seen`);
-              }
-            }
-            setUnreadNotificationCount(0);
-          } else {
-            // Normal flow - count unseen notifications
-            fetchUnreadCount();
-          }
-        } catch (error) {
-          console.error('Error initializing seen notifications:', error);
-          fetchUnreadCount();
-        }
-      };
-      
-      initializeSeenNotifications();
-      
-      // Refresh count every 2 minutes
+      // Refresh count every 2 minutes (BadgeContext handles initialization)
       const interval = setInterval(fetchUnreadCount, 120000);
       return () => clearInterval(interval);
     }
