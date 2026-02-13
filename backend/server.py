@@ -4824,6 +4824,9 @@ async def create_post(post_data: PostCreate, current_user_id: str = Depends(get_
     # =========================================================================
     attached_workout = None
     
+    # DEBUG: Log incoming request data
+    logger.info(f"🔍 POST_CREATE_DEBUG: workout_snapshot_id={post_data.workout_snapshot_id}, has_attached_workout={post_data.attached_workout is not None}, has_workout_data={post_data.workout_data is not None}")
+    
     # Priority 1: If workout_snapshot_id is provided, hydrate from snapshot
     if post_data.workout_snapshot_id:
         logger.info(f"🏋️ Hydrating attached_workout from snapshot: {post_data.workout_snapshot_id}")
@@ -4833,7 +4836,7 @@ async def create_post(post_data: PostCreate, current_user_id: str = Depends(get_
                 logger.error(f"❌ Snapshot not found: {post_data.workout_snapshot_id}")
                 raise HTTPException(
                     status_code=400,
-                    detail=f"Workout snapshot not found: {post_data.workout_snapshot_id}. Cannot create post with workout."
+                    detail={"error": "snapshot_not_found", "workout_snapshot_id": post_data.workout_snapshot_id}
                 )
             
             # Normalize snapshot to attached_workout format
@@ -4846,10 +4849,10 @@ async def create_post(post_data: PostCreate, current_user_id: str = Depends(get_
                 logger.error(f"❌ Hydrated workout validation failed: {error}")
                 raise HTTPException(
                     status_code=400,
-                    detail=f"Workout data is incomplete: {error}. Please try a different workout."
+                    detail={"error": "invalid_attached_workout", "detail": error}
                 )
             
-            logger.info(f"✅ attached_workout validated successfully with {len(attached_workout.get('exercises', []))} exercises")
+            logger.info(f"✅ POST_CREATE_DEBUG: hydrated=true, exCount={len(attached_workout.get('exercises', []))}")
             
         except HTTPException:
             raise
@@ -4857,7 +4860,7 @@ async def create_post(post_data: PostCreate, current_user_id: str = Depends(get_
             logger.error(f"❌ Error hydrating workout from snapshot: {e}")
             raise HTTPException(
                 status_code=400,
-                detail=f"Failed to process workout data. Please try again."
+                detail={"error": "hydration_failed", "detail": str(e)}
             )
     
     # Priority 2: If attached_workout is provided directly, validate it
@@ -4870,10 +4873,12 @@ async def create_post(post_data: PostCreate, current_user_id: str = Depends(get_
             logger.error(f"❌ Provided attached_workout validation failed: {error}")
             raise HTTPException(
                 status_code=400,
-                detail=f"Workout data is incomplete: {error}"
+                detail={"error": "invalid_attached_workout", "detail": error}
             )
         
         logger.info(f"✅ Direct attached_workout validated with {len(attached_workout.get('exercises', []))} exercises")
+    else:
+        logger.info("📝 No workout_snapshot_id or attached_workout provided - creating post without workout")
     
     # Build the post document
     post_doc = {
