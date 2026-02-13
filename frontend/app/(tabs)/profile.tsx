@@ -179,9 +179,9 @@ export default function Profile() {
   const [refreshing, setRefreshing] = useState(false);
   const { token, user: authUser, updateUser, isGuest, exitGuestMode } = useAuth();
   const { addToCart } = useCart();
+  const { unreadMessages, refreshBadges } = useBadges();
 
   const [activeTab, setActiveTab] = useState<'posts' | 'saved' | 'cards'>('posts');
-  const [unreadMessages, setUnreadMessages] = useState(0);
   const router = useRouter();
 
   // Pull to refresh handler
@@ -190,26 +190,11 @@ export default function Profile() {
     await Promise.all([
       fetchUserProfile(),
       fetchUserPosts(),
-      fetchUnreadCount(),
     ]);
+    // Refresh badge counts from shared context
+    refreshBadges();
     setRefreshing(false);
-  }, [token, authUser?.id]);
-
-  // Fetch unread message count
-  const fetchUnreadCount = async () => {
-    if (!token) return;
-    try {
-      const response = await fetch(`${API_URL}/api/conversations/unread-count`, {
-        headers: { 'Authorization': `Bearer ${token}` },
-      });
-      if (response.ok) {
-        const data = await response.json();
-        setUnreadMessages(data.unread_count || 0);
-      }
-    } catch (error) {
-      console.error('Error fetching unread count:', error);
-    }
-  };
+  }, [token, authUser?.id, refreshBadges]);
 
   // Load user profile when token is available
   useEffect(() => {
