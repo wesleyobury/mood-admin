@@ -12,7 +12,7 @@ export { useBadges } from '../../contexts/BadgeContext';
 export default function TabLayout() {
   const { token } = useAuth();
   const previousTab = useRef<string>('index');
-  const { unreadNotifications, unreadMessages, refreshBadges } = useBadges();
+  const { unreadNotifications, unreadMessages, totalBadgeCount, refreshBadges } = useBadges();
 
   const trackTabSwitch = (toTab: string) => {
     if (token && previousTab.current !== toTab) {
@@ -27,9 +27,6 @@ export default function TabLayout() {
       previousTab.current = toTab;
     }
   };
-
-  // Combined badge count for Explore tab (notifications + messages)
-  const totalBadgeCount = unreadNotifications + unreadMessages;
 
   return (
     <Tabs
