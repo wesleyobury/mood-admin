@@ -4719,9 +4719,76 @@ async def upload_multiple_files(
 
 # Social Features - Posts
 
+def validate_attached_workout(workout: dict) -> tuple[bool, str]:
+    """
+    Validate that an attached_workout payload has all required fields.
+    Returns (is_valid, error_message)
+    """
+    if not workout:
+        return False, "attached_workout is required"
+    
+    # Required top-level fields
+    if not workout.get("title"):
+        return False, "attached_workout.title is required"
+    if not workout.get("moodCategory"):
+        return False, "attached_workout.moodCategory is required"
+    
+    exercises = workout.get("exercises", [])
+    if not exercises or len(exercises) == 0:
+        return False, "attached_workout.exercises must have at least one exercise"
+    
+    for i, ex in enumerate(exercises):
+        if not ex.get("exerciseId"):
+            return False, f"exercises[{i}].exerciseId is required"
+        if not ex.get("name"):
+            return False, f"exercises[{i}].name is required"
+        if not ex.get("imageUrl"):
+            return False, f"exercises[{i}].imageUrl is required - no generic images allowed"
+        if not ex.get("battlePlan"):
+            return False, f"exercises[{i}].battlePlan is required - workout guidance is mandatory"
+    
+    return True, ""
+
+def normalize_snapshot_to_attached_workout(snapshot: dict) -> dict:
+    """
+    Convert a workout snapshot from the database into the canonical attached_workout format.
+    """
+    workouts = snapshot.get("workouts", [])
+    
+    exercises = []
+    for i, w in enumerate(workouts):
+        exercise = {
+            "exerciseId": f"snapshot-{snapshot.get('_id', 'unknown')}-{i}",
+            "name": w.get("workoutTitle") or w.get("workoutName") or "Workout",
+            "imageUrl": w.get("imageUrl") or "",
+            "duration": w.get("duration") or "10 min",
+            "equipment": w.get("equipment") or "Bodyweight",
+            "difficulty": w.get("difficulty") or "intermediate",
+            "description": w.get("description") or "",
+            "battlePlan": w.get("battlePlan") or "",
+            "intensityReason": w.get("intensityReason") or "",
+            "moodTips": w.get("moodTips") or [],
+        }
+        exercises.append(exercise)
+    
+    # Use first workout's title or mood category as overall title
+    first_workout = workouts[0] if workouts else {}
+    title = first_workout.get("workoutTitle") or first_workout.get("workoutName") or snapshot.get("mood_category") or "Workout"
+    
+    attached_workout = {
+        "version": 1,
+        "title": title,
+        "totalDuration": snapshot.get("total_duration") or 0,
+        "moodCategory": snapshot.get("mood_category") or "Workout",
+        "completedAt": snapshot.get("created_at").strftime("%b %d, %Y") if hasattr(snapshot.get("created_at"), "strftime") else str(snapshot.get("created_at", "")),
+        "exercises": exercises,
+    }
+    
+    return attached_workout
+
 @api_router.post("/posts")
 async def create_post(post_data: PostCreate, current_user_id: str = Depends(get_current_user)):
-    """Create a new social media post with content filtering"""
+    """Create a new social media post with content filtering and workout hydration"""
     
     # Check if user has accepted terms
     await check_terms_accepted(current_user_id)
@@ -4751,15 +4818,81 @@ async def create_post(post_data: PostCreate, current_user_id: str = Depends(get_
             detail="This content violates our community guidelines."
         )
     
+    # =========================================================================
+    # ATTACHED WORKOUT HYDRATION - Server-side hydration from snapshot
+    # This is the ONLY way to get a valid attached_workout on a post
+    # =========================================================================
+    attached_workout = None
+    
+    # Priority 1: If workout_snapshot_id is provided, hydrate from snapshot
+    if post_data.workout_snapshot_id:
+        logger.info(f"🏋️ Hydrating attached_workout from snapshot: {post_data.workout_snapshot_id}")
+        try:
+            snapshot = await db.workout_snapshots.find_one({"_id": ObjectId(post_data.workout_snapshot_id)})
+            if not snapshot:
+                logger.error(f"❌ Snapshot not found: {post_data.workout_snapshot_id}")
+                raise HTTPException(
+                    status_code=400,
+                    detail=f"Workout snapshot not found: {post_data.workout_snapshot_id}. Cannot create post with workout."
+                )
+            
+            # Normalize snapshot to attached_workout format
+            attached_workout = normalize_snapshot_to_attached_workout(snapshot)
+            logger.info(f"✅ Normalized snapshot to attached_workout: {attached_workout.get('title')}")
+            
+            # Validate the hydrated workout
+            is_valid, error = validate_attached_workout(attached_workout)
+            if not is_valid:
+                logger.error(f"❌ Hydrated workout validation failed: {error}")
+                raise HTTPException(
+                    status_code=400,
+                    detail=f"Workout data is incomplete: {error}. Please try a different workout."
+                )
+            
+            logger.info(f"✅ attached_workout validated successfully with {len(attached_workout.get('exercises', []))} exercises")
+            
+        except HTTPException:
+            raise
+        except Exception as e:
+            logger.error(f"❌ Error hydrating workout from snapshot: {e}")
+            raise HTTPException(
+                status_code=400,
+                detail=f"Failed to process workout data. Please try again."
+            )
+    
+    # Priority 2: If attached_workout is provided directly, validate it
+    elif post_data.attached_workout:
+        logger.info("🏋️ Using directly provided attached_workout")
+        attached_workout = post_data.attached_workout.dict()
+        
+        is_valid, error = validate_attached_workout(attached_workout)
+        if not is_valid:
+            logger.error(f"❌ Provided attached_workout validation failed: {error}")
+            raise HTTPException(
+                status_code=400,
+                detail=f"Workout data is incomplete: {error}"
+            )
+        
+        logger.info(f"✅ Direct attached_workout validated with {len(attached_workout.get('exercises', []))} exercises")
+    
+    # Build the post document
     post_doc = {
-        **post_data.dict(),
+        "caption": post_data.caption,
+        "media_urls": post_data.media_urls,
+        "hashtags": post_data.hashtags,
+        "cover_urls": post_data.cover_urls,
         "author_id": ObjectId(current_user_id),
         "likes_count": 0,
         "comments_count": 0,
-        "created_at": datetime.now(timezone.utc)
+        "created_at": datetime.now(timezone.utc),
+        # Legacy field - kept for backwards compatibility with old posts
+        "workout_data": post_data.workout_data.dict() if post_data.workout_data else None,
+        # NEW: Canonical workout payload for "Try This Workout"
+        "attached_workout": attached_workout,
     }
     
     result = await db.posts.insert_one(post_doc)
+    logger.info(f"✅ Post created: {result.inserted_id}, has_attached_workout: {attached_workout is not None}")
     return {"message": "Post created successfully", "id": str(result.inserted_id)}
 
 @api_router.get("/posts/following")
