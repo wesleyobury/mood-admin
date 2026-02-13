@@ -30,15 +30,11 @@ import FollowListModal from '../../components/FollowListModal';
 import { useScreenTime } from '../../hooks/useScreenTime';
 import { GridItemSkeleton, ProfileHeaderSkeleton } from '../../components/Skeleton';
 import GuestPromptModal from '../../components/GuestPromptModal';
-import { 
-  getLastNotificationViewTime, 
-  LAST_NOTIFICATION_VIEW_KEY,
-  NOTIFICATION_SESSION_KEY
-} from '../../utils/notificationUtils';
 
 // Prioritize process.env for development/preview environments
 const API_URL = process.env.EXPO_PUBLIC_BACKEND_URL || Constants.expoConfig?.extra?.EXPO_PUBLIC_BACKEND_URL || '';
 const { width } = Dimensions.get('window');
+
 
 // External URLs for legal pages
 const EXTERNAL_URLS = {
