@@ -830,9 +830,20 @@ export default function Explore() {
   };
 
   // Handle replicating a workout from a post
+  // =========================================================================
+  // HANDLE REPLICATE WORKOUT - Uses ONLY attached_workout, NO FALLBACKS
+  // =========================================================================
   const handleReplicateWorkout = (post: Post) => {
-    if (!post.workout_data || !post.workout_data.workouts.length) {
-      Alert.alert('No Workout Data', 'This post does not have workout data to replicate.');
+    console.log('🏋️ Replicate workout - checking for attached_workout');
+    
+    // Check if we have attached_workout
+    if (!post.attached_workout) {
+      console.log('❌ No attached_workout on post - workout unavailable');
+      Alert.alert(
+        'Workout Unavailable',
+        'This workout is no longer available for replication. It may have been posted before this feature was available.',
+        [{ text: 'OK' }]
+      );
       return;
     }
 
@@ -843,46 +854,83 @@ export default function Explore() {
       return;
     }
 
-    // Clear existing cart and add all workouts from this post
+    const attachedWorkout = post.attached_workout;
+    console.log('✅ Found attached_workout:', attachedWorkout.title);
+    console.log('   Exercises:', attachedWorkout.exercises?.length || 0);
+    
+    // Validate the attached workout
+    if (!attachedWorkout.exercises || attachedWorkout.exercises.length === 0) {
+      console.log('❌ attached_workout has no exercises');
+      Alert.alert(
+        'Workout Unavailable',
+        'This workout has no exercises available.',
+        [{ text: 'OK' }]
+      );
+      return;
+    }
+    
+    // Validate each exercise has required fields
+    for (let i = 0; i < attachedWorkout.exercises.length; i++) {
+      const ex = attachedWorkout.exercises[i];
+      if (!ex.name || !ex.imageUrl || !ex.battlePlan) {
+        console.log(`❌ Exercise ${i} is missing required fields`);
+        Alert.alert(
+          'Workout Unavailable',
+          'This workout is incomplete and cannot be replicated.',
+          [{ text: 'OK' }]
+        );
+        return;
+      }
+    }
+
+    // Clear existing cart and add all workouts from attached_workout
     clearCart();
     
-    // Get the mood category for display
-    const rawMoodCategory = post.workout_data.moodCategory || post.workout_data.workouts[0]?.moodCategory || 'Workout';
-    const moodCardName = extractMoodCardName(rawMoodCategory);
+    const moodCategory = attachedWorkout.moodCategory || 'Workout';
+    const moodCardName = extractMoodCardName(moodCategory);
     
     let addedCount = 0;
-    post.workout_data.workouts.forEach((exercise, index) => {
-      // Get the workout type - preserve the full path if available
-      const exerciseMoodCategory = exercise.moodCategory || rawMoodCategory;
-      
-      // Convert the workout exercise data to CartItem format
+    attachedWorkout.exercises.forEach((exercise, index) => {
       const workoutItem: WorkoutItem = {
-        id: `replicated-${post.id}-${index}-${Date.now()}`,
-        name: exercise.workoutTitle || exercise.workoutName,
+        // Core identification
+        id: `attached-${exercise.exerciseId}-${Date.now()}-${index}`,
+        
+        // Display fields - ALL REQUIRED, no fallbacks
+        name: exercise.name,
+        imageUrl: exercise.imageUrl,
         duration: exercise.duration,
-        description: exercise.description || '',
-        battlePlan: exercise.battlePlan || '',
-        imageUrl: exercise.imageUrl || DEFAULT_WORKOUT_IMAGE,
-        intensityReason: exercise.intensityReason || '',
         equipment: exercise.equipment,
         difficulty: exercise.difficulty,
-        workoutType: exerciseMoodCategory, // Full path like "Sweat / Burn Fat - Cardio Based"
-        moodCard: moodCardName, // Display name like "Sweat / Burn Fat"
+        
+        // Content fields - REQUIRED
+        description: exercise.description || exercise.battlePlan,
+        battlePlan: exercise.battlePlan,
+        intensityReason: exercise.intensityReason || `${exercise.difficulty} intensity workout`,
+        
+        // Category fields
+        workoutType: moodCategory,
+        moodCard: moodCardName,
+        
+        // Tips
         moodTips: exercise.moodTips || [],
+        
+        // Source tracking
+        source: 'build_for_me',
       };
       
+      console.log(`✅ Adding cart item: ${workoutItem.name}`);
       addToCart(workoutItem);
       addedCount++;
     });
 
-    // Track analytics - "Try this workout" button clicked on Explore page
+    // Track analytics
     if (token) {
       Analytics.tryWorkoutClicked(token, {
-        workout_name: post.workout_data.workouts[0]?.workoutTitle || post.workout_data.workouts[0]?.workoutName || 'Unknown',
-        equipment: post.workout_data.workouts[0]?.equipment || '',
-        difficulty: post.workout_data.workouts[0]?.difficulty || '',
+        workout_name: attachedWorkout.exercises[0]?.name || 'Unknown',
+        equipment: attachedWorkout.exercises[0]?.equipment || '',
+        difficulty: attachedWorkout.exercises[0]?.difficulty || '',
         mood_category: moodCardName,
-        source: 'explore_completion_card',
+        source: 'explore_attached_workout',
       });
       
       Analytics.workoutReplicated(token, {
@@ -891,17 +939,10 @@ export default function Explore() {
         exercises_count: addedCount,
         mood_category: moodCardName,
       });
-    } else if (isGuest) {
-      GuestAnalytics.tryWorkoutClicked({
-        workout_name: post.workout_data.workouts[0]?.workoutTitle || post.workout_data.workouts[0]?.workoutName || 'Unknown',
-        equipment: post.workout_data.workouts[0]?.equipment || '',
-        difficulty: post.workout_data.workouts[0]?.difficulty || '',
-        mood_category: moodCardName,
-        source: 'explore_completion_card',
-      });
     }
 
     // Navigate directly to cart
+    console.log(`✅ Navigating to cart with ${addedCount} exercises`);
     router.push('/cart');
   };
 
