@@ -4,11 +4,11 @@ import Constants from 'expo-constants';
 
 const API_URL = process.env.EXPO_PUBLIC_BACKEND_URL || Constants.expoConfig?.extra?.EXPO_PUBLIC_BACKEND_URL || '';
 const LAST_NOTIFICATION_VIEW_KEY = 'last_notification_view_ids';
-const BADGE_INITIALIZED_KEY = 'badge_initialized_for_token';
 
 interface BadgeContextType {
   unreadNotifications: number;
   unreadMessages: number;
+  totalBadgeCount: number;
   setUnreadNotifications: (count: number) => void;
   setUnreadMessages: (count: number) => void;
   refreshBadges: () => void;
@@ -20,6 +20,7 @@ interface BadgeContextType {
 const BadgeContext = createContext<BadgeContextType>({
   unreadNotifications: 0,
   unreadMessages: 0,
+  totalBadgeCount: 0,
   setUnreadNotifications: () => {},
   setUnreadMessages: () => {},
   refreshBadges: () => {},
@@ -41,93 +42,31 @@ export function BadgeProvider({ children, token, isGuest }: BadgeProviderProps) 
   const [unreadMessages, setUnreadMessages] = useState(0);
   const [isInitialized, setIsInitialized] = useState(false);
   const initializingRef = useRef(false);
-  const lastTokenRef = useRef<string | null>(null);
 
-  // Initialize badge state for a new token/login
-  const initializeBadges = useCallback(async () => {
-    if (!token || isGuest || initializingRef.current) {
-      return;
-    }
-    
-    // Check if this is a new token (new login)
-    const isNewLogin = token !== lastTokenRef.current;
-    lastTokenRef.current = token;
-    
-    initializingRef.current = true;
-    
-    try {
-      // Check if we've already initialized for this token
-      const initKey = await AsyncStorage.getItem(BADGE_INITIALIZED_KEY);
-      const seenIdsStr = await AsyncStorage.getItem(LAST_NOTIFICATION_VIEW_KEY);
-      
-      // If this is a fresh login OR no seen IDs exist, initialize
-      if (isNewLogin || !seenIdsStr || initKey !== token) {
-        console.log('🔔 Badge init: Fresh login detected, marking all notifications as seen');
-        
-        const response = await fetch(`${API_URL}/api/notifications`, {
-          headers: { 'Authorization': `Bearer ${token}` },
-        });
-        
-        if (response.ok) {
-          const data = await response.json();
-          const allNotifications = data.notifications || [];
-          const notificationIds = allNotifications.map((n: any) => n.id);
-          
-          // Mark all current notifications as seen
-          await AsyncStorage.setItem(LAST_NOTIFICATION_VIEW_KEY, JSON.stringify(notificationIds));
-          await AsyncStorage.setItem(BADGE_INITIALIZED_KEY, token);
-          
-          console.log(`🔔 Badge init: Marked ${notificationIds.length} notifications as seen`);
-          setUnreadNotifications(0);
-        }
-      } else {
-        // Already initialized, just count unseen
-        console.log('🔔 Badge init: Already initialized, counting unseen');
-        await fetchUnreadNotificationsInternal(seenIdsStr);
-      }
-      
-      // Also fetch unread messages
-      await fetchUnreadMessagesInternal();
-      
-    } catch (error) {
-      console.error('Error initializing badges:', error);
-    } finally {
-      initializingRef.current = false;
-      setIsInitialized(true);
-    }
-  }, [token, isGuest]);
-
-  // Internal function to fetch unread notifications count
-  const fetchUnreadNotificationsInternal = async (seenIdsStr?: string | null) => {
+  // Fetch unread notifications - count those NOT in the seen list
+  const fetchUnreadNotifications = useCallback(async () => {
     if (!token || isGuest) {
       setUnreadNotifications(0);
       return;
     }
     
     try {
-      // Get seen IDs if not passed
-      if (seenIdsStr === undefined) {
-        seenIdsStr = await AsyncStorage.getItem(LAST_NOTIFICATION_VIEW_KEY);
-      }
-      
+      // Get seen IDs from storage
+      const seenIdsStr = await AsyncStorage.getItem(LAST_NOTIFICATION_VIEW_KEY);
       let seenIds: string[] = [];
+      
       try {
         if (seenIdsStr) {
-          seenIds = JSON.parse(seenIdsStr);
-          if (!Array.isArray(seenIds)) {
-            seenIds = [];
+          const parsed = JSON.parse(seenIdsStr);
+          if (Array.isArray(parsed)) {
+            seenIds = parsed;
           }
         }
       } catch {
         seenIds = [];
       }
       
-      // If no seen IDs exist yet, don't count (we're still initializing)
-      if (seenIds.length === 0) {
-        setUnreadNotifications(0);
-        return;
-      }
-      
+      // Fetch all notifications from server
       const response = await fetch(`${API_URL}/api/notifications`, {
         headers: { 'Authorization': `Bearer ${token}` },
       });
@@ -136,21 +75,31 @@ export function BadgeProvider({ children, token, isGuest }: BadgeProviderProps) 
         const data = await response.json();
         const allNotifications = data.notifications || [];
         
-        // Count notifications whose IDs are NOT in the seen list
-        const unseenCount = allNotifications.filter(
-          (n: any) => !seenIds.includes(n.id)
-        ).length;
+        // FIRST TIME EVER using the app - no seen IDs stored yet
+        // In this case, mark all current notifications as seen (baseline)
+        if (seenIds.length === 0 && allNotifications.length > 0) {
+          console.log('🔔 First time user: marking all notifications as baseline');
+          const notificationIds = allNotifications.map((n: any) => n.id);
+          await AsyncStorage.setItem(LAST_NOTIFICATION_VIEW_KEY, JSON.stringify(notificationIds));
+          setUnreadNotifications(0);
+          return;
+        }
         
-        console.log(`🔔 Badge count: ${unseenCount} unseen out of ${allNotifications.length} total`);
-        setUnreadNotifications(unseenCount);
+        // Count notifications that are NOT in the seen list (new notifications)
+        const unseenNotifications = allNotifications.filter(
+          (n: any) => !seenIds.includes(n.id)
+        );
+        
+        console.log(`🔔 Badge: ${unseenNotifications.length} unseen out of ${allNotifications.length} total (${seenIds.length} in seen list)`);
+        setUnreadNotifications(unseenNotifications.length);
       }
     } catch (error) {
       console.error('Error fetching unread notifications:', error);
     }
-  };
+  }, [token, isGuest]);
 
-  // Internal function to fetch unread messages count
-  const fetchUnreadMessagesInternal = async () => {
+  // Fetch unread message count from server
+  const fetchUnreadMessages = useCallback(async () => {
     if (!token || isGuest) {
       setUnreadMessages(0);
       return;
@@ -163,24 +112,32 @@ export function BadgeProvider({ children, token, isGuest }: BadgeProviderProps) 
       
       if (response.ok) {
         const data = await response.json();
-        setUnreadMessages(data.unread_count || 0);
+        const count = data.unread_count || 0;
+        console.log(`🔔 Messages: ${count} unread`);
+        setUnreadMessages(count);
       }
     } catch (error) {
       console.error('Error fetching unread messages:', error);
     }
-  };
+  }, [token, isGuest]);
 
-  // Public refresh function (only counts, doesn't re-initialize)
-  const refreshBadges = useCallback(() => {
-    if (!isInitialized && !initializingRef.current) {
-      initializeBadges();
-    } else if (isInitialized) {
-      fetchUnreadNotificationsInternal();
-      fetchUnreadMessagesInternal();
+  // Refresh both badge counts
+  const refreshBadges = useCallback(async () => {
+    if (initializingRef.current) return;
+    initializingRef.current = true;
+    
+    try {
+      await Promise.all([
+        fetchUnreadNotifications(),
+        fetchUnreadMessages()
+      ]);
+    } finally {
+      initializingRef.current = false;
+      setIsInitialized(true);
     }
-  }, [isInitialized, initializeBadges]);
+  }, [fetchUnreadNotifications, fetchUnreadMessages]);
 
-  // Mark notifications as read (clear notification badge)
+  // Mark notifications as read - update seen list with ALL current notification IDs
   const markNotificationsAsRead = useCallback(async () => {
     if (!token) return;
     
@@ -195,14 +152,14 @@ export function BadgeProvider({ children, token, isGuest }: BadgeProviderProps) 
         const notificationIds = allNotifications.map((n: any) => n.id);
         await AsyncStorage.setItem(LAST_NOTIFICATION_VIEW_KEY, JSON.stringify(notificationIds));
         setUnreadNotifications(0);
-        console.log('🔔 Marked all notifications as read');
+        console.log(`🔔 Marked ${notificationIds.length} notifications as read`);
       }
     } catch (error) {
       console.error('Error marking notifications as read:', error);
     }
   }, [token]);
 
-  // Mark messages as read (clear message badge)
+  // Mark messages as read
   const markMessagesAsRead = useCallback(() => {
     setUnreadMessages(0);
   }, []);
@@ -211,7 +168,7 @@ export function BadgeProvider({ children, token, isGuest }: BadgeProviderProps) 
   useEffect(() => {
     if (token && !isGuest) {
       setIsInitialized(false);
-      initializeBadges();
+      refreshBadges();
     } else {
       setUnreadNotifications(0);
       setUnreadMessages(0);
@@ -219,21 +176,25 @@ export function BadgeProvider({ children, token, isGuest }: BadgeProviderProps) 
     }
   }, [token, isGuest]);
 
-  // Periodic refresh (only if initialized)
+  // Periodic refresh every 2 minutes
   useEffect(() => {
-    if (!isInitialized || !token || isGuest) return;
+    if (!token || isGuest) return;
     
     const interval = setInterval(() => {
-      fetchUnreadNotificationsInternal();
-      fetchUnreadMessagesInternal();
-    }, 120000); // Every 2 minutes
+      fetchUnreadNotifications();
+      fetchUnreadMessages();
+    }, 120000);
     
     return () => clearInterval(interval);
-  }, [isInitialized, token, isGuest]);
+  }, [token, isGuest, fetchUnreadNotifications, fetchUnreadMessages]);
+
+  // Calculate total badge count (notifications + messages)
+  const totalBadgeCount = unreadNotifications + unreadMessages;
 
   const value: BadgeContextType = {
     unreadNotifications,
     unreadMessages,
+    totalBadgeCount,
     setUnreadNotifications,
     setUnreadMessages,
     refreshBadges,
