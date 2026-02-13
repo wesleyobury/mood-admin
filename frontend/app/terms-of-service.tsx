@@ -303,7 +303,7 @@ export default function TermsOfServiceScreen() {
           <Text style={styles.paragraph}>
             For safety, abuse, or objectionable content concerns, users may contact us directly at:
           </Text>
-          <Text style={styles.contactText}>wesleyogsbury@gmail.com</Text>
+          <Text style={styles.contactText}>wes@officialmoodapp.com</Text>
         </View>
 
         <View style={styles.bottomPadding} />
