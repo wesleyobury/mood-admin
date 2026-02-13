@@ -960,13 +960,6 @@ export default function Explore() {
                 size={22} 
                 color="#fff" 
               />
-              {unreadNotificationCount > 0 && activeTab !== 'notifications' && (
-                <View style={styles.headerNotificationBadge}>
-                  <Text style={styles.headerNotificationBadgeText}>
-                    {unreadNotificationCount > 99 ? '99+' : unreadNotificationCount}
-                  </Text>
-                </View>
-              )}
             </TouchableOpacity>
           )}
           {/* Create post button */}
