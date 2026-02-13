@@ -80,6 +80,33 @@ interface WorkoutCardData {
   moodCategory?: string;
 }
 
+// NEW: Canonical attached workout types
+interface AttachedWorkoutExercise {
+  exerciseId: string;
+  name: string;
+  imageUrl: string;
+  duration: string;
+  equipment: string;
+  difficulty: string;
+  description?: string;
+  battlePlan: string;
+  intensityReason?: string;
+  moodTips?: Array<{
+    icon: string;
+    title: string;
+    description: string;
+  }>;
+}
+
+interface AttachedWorkout {
+  version: number;
+  title: string;
+  totalDuration: number;
+  moodCategory: string;
+  completedAt: string;
+  exercises: AttachedWorkoutExercise[];
+}
+
 interface Post {
   id: string;
   author: Author;
@@ -92,7 +119,8 @@ interface Post {
   is_saved: boolean;
   created_at: string;
   workout?: any;
-  workout_data?: WorkoutCardData;
+  workout_data?: WorkoutCardData;  // Legacy - kept for display
+  attached_workout?: AttachedWorkout;  // NEW: Canonical workout for "Try This Workout"
   first_comment?: FirstComment | null;
 }
 
