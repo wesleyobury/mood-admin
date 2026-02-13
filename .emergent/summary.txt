@@ -1,233 +1,235 @@
 <analysis>
 
-**original_problem_statement**: The user wants to continue development on a fitness application. The initial session focused on bug fixes and UI/UX enhancements. Key requests that emerged during the session include:
-- A complete redesign of the Your Stats screen to a premium, minimal, data-confident aesthetic.
-- Fixing an inaccurate day streak calculation, which was caused by the admin user being excluded from analytics.
-- Standardizing back buttons across the entire application using a reusable component.
-- Implementing a persistent data flow for the Try this workout feature by creating Workout Snapshots to solve issues with transient cart state when posting from saved achievement cards.
-- Adding a shimmer animation to the workout completion rings on the Share Your Achievement screen.
-- Fixing a recurring UI bug with a term definition popup, with the user specifically requesting the use of the  library for a robust solution.
-- Correcting the UI for the Instagram share export to include the calorie count inside the rings.
-- Fixing a bug where the notification count badge does not clear correctly after viewing notifications.
-- Persisting user-edited daily calorie and minute goals.
+**original_problem_statement**: The user reported several issues and requested multiple UI/UX changes and a critical bug fix.
+
+**High-Priority Bug Fixes:**
+1.  **Try This Workout Flow (Recurring/Critical):** The main recurring problem was that completing a workout, saving the achievement card, and then posting it later from the profile resulted in a generic workout in the cart when using Try This Workout. The user provided a very specific, robust architectural solution to fix this permanently.
+2.  **Notification System Overhaul (New/Critical):**
+    *   The user reported the old notification badge system was broken and requested a complete overhaul.
+    *   The new system must aggregate notification and message counts.
+    *   The total count () should appear on the  tab icon in the bottom ribbon.
+    *   The notification-only count should appear on a bell icon in the  page header.
+    *   The message-only count should appear on the messages icon in the  page header.
+    *   Counts must update in real-time as items are viewed.
+    *   Notification timestamps were stuck on just now and the initial count on login was inaccurate.
+    *   The DM count was not being included in the total on the Explore tab.
+    *   The Profile DM badge required a pull-to-refresh to update.
+
+**UI/UX Requests:**
+1.  **Tab Bar UI:** Move the notification badge to the bottom tab bar and add a subtle glow effect to the active Workouts tab icon.
+2.  **Saved Card UI:**
+    *   Remove the gold accent line from saved achievement cards.
+    *   Replace the trophy icon with a checkmark icon.
+    *   Unify the card design between the  page and the  page.
+3.  **Chat UI:** Change chat bubble colors to differentiate between the sender and the recipient.
+4.  **Explore Page UI:** Highlight the bell icon in the header when the user is on the notifications tab.
+5.  **Icon Rendering:** All icons were appearing as broken squares in the web preview.
+6.  **Contact Email:** Update all instances of the old contact email to .
 
 **User's preferred language**: English
 
 **what currently exists?**
-The agent has implemented several major features and fixes. The Your Stats screen has been completely redesigned. The backend and frontend logic for day streak calculation has been fixed by including admin users in the calculation. A new Workout Snapshot architecture has been implemented on both the backend (new models and API endpoints in ) and frontend (, , ) to make the Try this workout feature more robust. Many, but not all, screens have been updated to use a standardized  component. An admin dashboard widget to track deleted users has been added. Multiple attempts were made to fix a term definition popup and a ring animation, with the latest user feedback providing very specific implementation instructions.
+The agent implemented a comprehensive, server-side fix for the Try This Workout flow as specified by the user. This involved adding a new  field to the  schema in the database, which is now hydrated by the backend when a post is created using a . The frontend was refactored to rely exclusively on this new field. The critical bug causing the  to be dropped when posting a saved card was located in  and fixed.
+
+The notification system was completely refactored into a new global  to manage notification and message counts across the app. This context is now used by the tab bar, the explore page header, and the profile page. A bug in the unread messages API endpoint path was also corrected.
+
+All requested UI changes were implemented: the saved card UI was updated, chat bubble colors were changed, and contact emails were replaced. The web preview icon rendering issue was fixed by modifying .
 
 **Last working item**:
-    - Last item agent was working: The agent was simultaneously addressing three UI issues reported by the user:
-        1.  Implementing a shimmer animation for the workout rings.
-        2.  Fixing the Instagram export UI to show calorie counts inside the rings.
-        3.  Re-implementing the term definition popup using the  library to fix positioning and styling issues.
-        The very last action taken was installing  and overwriting  to begin the new implementation.
+    - Last item agent was working: Fixing multiple bugs in the newly implemented notification badge system. The agent correctly identified that an incorrect API endpoint ( instead of ) was being called. It also refactored  to use the new shared , which should resolve the pull-to-refresh issue. Finally, it changed the chat bubble colors in .
     - Status: IN PROGRESS
     - Agent Testing Done: N
-    - Which testing method agent to use? manual testing by screenshot tool
+    - Which testing method agent to use? manual testing by screenshot tool. The agent needs to verify the following UI elements and flows:
+        1. Chat bubbles in  have different colors for sender and recipient.
+        2. Notification badges appear correctly on the Explore tab, Explore header, and Profile header.
+        3. The badge counts update correctly after viewing notifications and messages.
     - User Testing Done: N
 
 **All Pending/In progress Issue list**:
-  - Issue 1: (P0) The Term Definition Popup is not working correctly on Expo. It appears off-screen and has incorrect text formatting.
-  - Issue 2: (P1) The workout completion rings do not have the requested shimmer animation on the Share Your Achievement screen.
-  - Issue 3: (P2) The Try this workout flow, which now uses the new Workout Snapshot architecture, needs full user verification to confirm it correctly populates the cart from saved achievement cards.
-  - Issue 4: (P3) The Instagram share export for a workout completion card does not show the calorie count inside the rings as requested.
-  - Issue 5: (P4) The notification count badge on the explore/profile tabs does not always disappear after the user has viewed the notifications inbox.
-  - Issue 6: (P5) User's edited daily goals for minutes and calories are not saved persistently. The input fields for these goals also have poor UX (can't delete all numbers before entering new ones).
-  - Issue 7: (P6) Featured workout not found error when clicking on workouts created from the admin dashboard (carried over from previous forks).
-  
+  - Issue 1: (P0) Remaining Notification System Bugs
+  - Issue 2: (P1) Highlight Bell Icon in Explore Header
+  - Issue 3: (P2) Try this workout flow from saved achievement cards needs user verification
+  - Issue 4: (P3) Featured workout not found error on the admin dashboard
+
   **Issues Detail**:
-  - **Issue 1: Term Definition Popup**
-     - Attempted fixes: Multiple attempts were made using React Native's built-in  with absolute positioning, which failed to position correctly on the user's Expo client. The agent was in the process of a new fix.
-     - Next debug checklist: 
-        1.  Implement the popup using the  library, as specifically requested by the user.
-        2.  Use the  prop to anchor the popover to the pressed word.
-        3.  Wrap the hyperlinked word (e.g., Tabata) in a  and pass its  to the popover component.
-        4.  Style the popover content with a charcoal gray background and white text.
-        5.  Style the linked text itself to be gold and ensure formatting (e.g., parentheses) is handled correctly.
-     - Why fix this issue and what will be achieved with the fix? This is a recurring UI bug that has frustrated the user. Fixing it will improve the in-app educational experience.
+  - **Issue 1: Remaining Notification System Bugs**
+     - Attempted fixes: The agent created a global  and fixed an incorrect API endpoint for unread messages. It also refactored  to consume the new context.
+     - Next debug checklist:
+        1. In , ensure the  and  functions are correctly summing their results and updating the .
+        2. Verify that the  hooks in , , and  are correctly triggering re-fetches and clearing counts.
+        3. Investigate the  utility in  and the date format coming from the backend to fix the just now issue. The problem might be related to time zones or date parsing.
+        4. Add logic to the  to fetch counts immediately after login to ensure the initial count is accurate.
+     - Why fix this issue and what will be achieved with the fix? This is a core UX feature. Fixing it will provide users with accurate, real-time feedback on new activity, improving engagement.
      - Status: IN PROGRESS
      - Is recurring issue? Y
      - Should Test frontend/backend/both after fix? Frontend
      - Blocked on other issue: None
 
-  - **Issue 2: Ring Shimmer Animation**
-     - Attempted fixes: The previous agent implemented a pulse animation using  and , which the user could not see and ultimately rejected.
-     - Next debug checklist: 
-        1.  Remove the old pulse animation logic from .
-        2.  Implement a shimmer effect. This could be done with a  moving across the rings or a similar technique.
-        3.  Ensure the shimmer animation is applied only on the main Share Your Achievement screen within , and NOT on the .
-     - Why fix this issue and what will be achieved with the fix? To add a requested visual polish to a key achievement screen.
-     - Status: NOT STARTED
-     - Is recurring issue? Y
-     - Should Test frontend/backend/both after fix? Frontend
-     - Blocked on other issue: None
-
-  - **Issue 3: Try this workout Data Flow**
-     - Attempted fixes: A full Workout Snapshot architecture was built. The backend now has endpoints to create and fetch snapshots. The frontend was updated to create a snapshot on workout completion and use the snapshot ID to populate the cart when Try this workout is pressed.
-     - Next debug checklist: 
-        1.  User needs to test the end-to-end flow: Complete a workout -> save the achievement card -> create a new post using the saved card -> publish -> go to the post and click Try this workout.
-        2.  Verify the cart is populated with the exact workouts, including correct images and battle plans, from the original session.
-        3.  Add logging at each step (snapshot creation, post creation, snapshot fetching) to trace the .
-     - Why fix this issue and what will be achieved with the fix? This is a critical user flow for engagement and workout sharing. The new architecture is a major change that needs validation.
-     - Status: USER VERIFICATION PENDING
-     - Is recurring issue? Y
-     - Should Test frontend/backend/both after fix? Both
-     - Blocked on other issue: None
-
-  - **Issue 4: Instagram Export UI**
+  - **Issue 2: Highlight Bell Icon in Explore Header**
      - Attempted fixes: None.
-     - Next debug checklist: 
-        1.  Locate the rendering logic for the transparent version of the  used in the .
-        2.  Modify the JSX and styling to position the total calorie count text in the center of the rings, similar to how it's displayed on the non-transparent card.
-     - Why fix this issue and what will be achieved with the fix? To ensure brand consistency and a polished look on social media shares.
-     - Status: NOT STARTED
-     - Is recurring issue? N
-     - Should Test frontend/backend/both after fix? Frontend
-     - Blocked on other issue: None
-
-  - **Issue 5: Notification Badge**
-     - Attempted fixes: The agent changed the logic from comparing timestamps to using a list of seen notification IDs stored in .
-     - Next debug checklist: 
-        1.  User needs to confirm if the notification badge on the profile and explore tabs correctly clears after visiting the notifications inbox.
-     - Why fix this issue and what will be achieved with the fix? Fixes a minor but persistent UI annoyance for the user.
-     - Status: USER VERIFICATION PENDING
-     - Is recurring issue? Y
-     - Should Test frontend/backend/both after fix? Frontend
-     - Blocked on other issue: None
-
-  - **Issue 6: Persist User Goals**
-     - Attempted fixes: None.
-     - Next debug checklist: 
-        1.  Identify where the calorie/minute goals are edited in the UI.
-        2.  Use  to save these values on the device.
-        3.  On app load, read these values from  to populate the state.
-        4.  Improve the  components to allow the input to be empty temporarily while editing.
-     - Why fix this issue and what will be achieved with the fix? To improve user personalization and fix a frustrating input field UX.
-     - Status: NOT STARTED
-     - Is recurring issue? N
-     - Should Test frontend/backend/both after fix? Frontend
-     - Blocked on other issue: None
-
-  - **Issue 7: Featured workout not found error**
-     - Attempted fixes: None in this or the previous session.
      - Next debug checklist:
-        - Trace the uid=0(root) gid=0(root) groups=0(root) being passed to the  page from the admin dashboard.
-        - Verify the backend API at  is being called correctly.
-     - Why fix this issue and what will be achieved with the fix? This is a critical bug blocking a core admin feature.
+        1. In , manage a state variable to track the currently selected sub-tab (e.g., ).
+        2. When the user taps the Notifications button, set this state to 'notifications'.
+        3. Apply a conditional style to the bell  component based on this state (e.g., change its color or add a background).
+     - Why fix this issue and what will be achieved with the fix? Fulfills a direct user request for better UI feedback, improving usability on the Explore page.
+     - Status: NOT STARTED
+     - Is recurring issue? N
+     - Should Test frontend/backend/both after fix? Frontend
+     - Blocked on other issue: None
+
+  - **Issue 3: Try this workout flow from saved cards**
+     - Attempted fixes: A massive, multi-stage refactor was performed. The backend now hydrates an  field on post creation. The frontend was fixed in  to correctly pass the  when creating a post from a saved card.
+     - Next debug checklist:
+        1. User must perform the full end-to-end test: Complete a workout -> Save card -> Go to Profile -> Create post from saved card -> Go to new post -> Click Try this workout.
+        2. Verify the cart is populated with the correct exercises, images, and battle plan.
+        3. If it fails, check the browser console for the  and  logs to see where the data is being dropped.
+     - Why fix this issue and what will be achieved with the fix? This is a critical, recurring bug that breaks a core user engagement and content-sharing loop. Final verification is required.
+     - Status: USER VERIFICATION PENDING
+     - Is recurring issue? Y
+     - Should Test frontend/backend/both after fix? Frontend
+     - Blocked on other issue: None
+
+  - **Issue 4: Featured workout not found error**
+     - Attempted fixes: None in this session. This issue has been carried over.
+     - Next debug checklist:
+        1.  Trace the uid=0(root) gid=0(root) groups=0(root) being passed to the  page from the admin dashboard.
+        2.  Verify the backend API call to .
+        3.  Check the database to ensure workouts created via the admin dashboard exist and have the correct uid=0(root) gid=0(root) groups=0(root).
+     - Why fix this issue and what will be achieved with the fix? This is a critical bug blocking a core feature for the admin user.
      - Status: NOT STARTED
      - Is recurring issue? Y
      - Should Test frontend/backend/both after fix? Both
      - Blocked on other issue: None
 
 **In progress Task List**:
-- No separate in-progress tasks. The work is captured in the pending issues list.
+  - **Task 1: Complete Notification System Refactor**
+     - Where to resume:  and .
+     - What will be achieved with this? A fully functional, accurate, and real-time notification badge system as per the user's detailed requirements.
+     - Status: IN PROGRESS
+     - Should Test frontend/backend/both after fix? Frontend
+     - Blocked on something: None
 
 **Upcoming and Future Tasks**
 - **Upcoming Tasks**:
     - (P1) Complete the Apple Compliance Audit. Key remaining items from  are pending.
 - **Future Tasks**:
-    - (P2) Address technical debt and bugs from previous forks, specifically the Muscle Gainer flow and Floating Action Bar issues which have not been addressed.
+    - (P2) Address technical debt and bugs from previous forks, specifically the Muscle Gainer flow, Floating Action Bar, and Generic thumbnails for Sweat/Burn workouts.
 
 **Completed work in this session**
-- **Workout Snapshot Architecture**: Implemented a new persistent data model for workouts.
-  - Backend: Created  Pydantic model and new API endpoints (, ) in .
-  - Frontend: Updated  to create a snapshot on completion, and  to use the snapshot ID to populate the cart.
-- **Stats Screen Redesign**: Completely overhauled  to match the user's premium, minimal, data-confident design specification.
-- **Streak Calculation Fix**: Diagnosed and fixed the streak bug by updating  to no longer exclude the admin user from event tracking and ensuring stats endpoints use the correct calculation.
-- **Back Button Standardization**: Replaced custom back button implementations with the reusable  component across numerous screens, including , , , and various workout flow/equipment screens.
-- **Admin Deleted User Widget**: Added a backend mechanism to track deleted accounts and a new widget/modal in  to display them.
-- **Carousel Randomization**: Implemented and then fixed a glitchy randomization feature for the featured workouts carousel on the home page ().
+- **Try This Workout Overhaul**:
+    - Implemented server-side hydration of a new  field on the  model in .
+    - Fixed a critical bug in  that was dropping the  when creating a post from a saved card.
+- **Notification System Initial Refactor**:
+    - Created a global  in .
+    - Wrapped the app in the  in .
+    - Moved badge logic from  to the new context.
+- **UI/UX Updates**:
+    - **Saved Cards:** Updated styles and icons in  and .
+    - **Chat:** Updated message bubble colors in .
+    - **Tab Bar:** Added notification badge and glow effect to .
+- **Bug Fixes**:
+    - Fixed broken icon rendering on web by editing .
+    - Corrected the unread messages API endpoint in .
+- **Content Updates**:
+    - Replaced contact email address in , , and .
 
 **Earlier issues found/mentioned but not fixed**
-   - **Issue 1: Persist User Goals**
-     - As detailed in Pending Issues (Issue 6). Requested by user but not started.
-   - **Issue 2: Featured workout not found error**
-     - As detailed in Pending Issues (Issue 7). This is a carry-over from the initial handover and has not been addressed.
-   - **Issue 3: Generic thumbnails for Sweat/Burn workouts**
-     - This was a carry-over issue from the initial handover that was not addressed. It may have been implicitly fixed by the new Workout Snapshot architecture, but this is unconfirmed.
+   - **Issue 1: Featured workout not found error**: As detailed in Pending Issues (Issue 4). This has been carried over from a previous session and remains unaddressed.
+   - **Issue 2: Generic thumbnails for Sweat/Burn workouts**: This was a carry-over issue that was not addressed.
 
 **Known issue recurrence from previous fork**
-  - **Issue recurrence in previous fork**: Try this workout data flow, Term Definition Popup, Ring Animation.
-  - **Recurrence count**: High (3+ times each for these issues within this session alone).
-  - **Status**: IN PROGRESS. These are the highest priority items for the next agent.
+  - **Issue recurrence in previous fork**: Try this workout data flow, Notification Badge logic.
+  - **Recurrence count**: High. Both were worked on extensively and required multiple rounds of fixes.
+  - **Status**: IN PROGRESS for notifications, USER VERIFICATION PENDING for Try this workout.
 
 **Code Architecture**
-handleTryWorkoutStepTextWithLinks
+
 
 **Key Technical Concepts**
-- **Persistent Data Snapshots**: Solved a transient state problem by creating a persistent  on the backend. When a user completes a workout, a snapshot of the cart is saved. The post/achievement card then stores a  instead of embedding the full (and potentially incomplete) workout data. This makes the Try this workout feature robust and independent of the original navigation state.
-- ****: A new library introduced to solve a recurring, platform-specific UI positioning bug with modals/popups. The agent was instructed to use this with a  anchor.
-- **React Native  API**: Used extensively (though with mixed success) to attempt pulse and shimmer animations via , , , and applying transforms for  and .
-- ** for Render Control**: Used to prevent a Fisher-Yates shuffle from re-running on every render of the home screen's featured carousel, fixing a flashing UI bug.
-- **Backend Analytics & User Segmentation**: Investigated and modified backend logic () that excluded certain user IDs from analytics, which was the root cause of the 0 day streak bug for the admin user.
+- **Global State Management (React Context)**: A new  was created to provide a single source of truth for notification and message counts across the entire application, solving desynchronization issues.
+- **Server-Side Data Hydration**: A robust pattern was implemented where the frontend sends a reference ID (), and the backend is responsible for fetching, validating, and embedding the full, canonical  payload into the  document upon creation.
+- **End-to-End Debugging**: The agent and user worked together, using detailed frontend and backend logs to trace a data flow issue from a UI interaction in  all the way to the payload received by the backend  endpoint.
+- **Expo for Web Configuration**: The agent fixed a web-only UI bug (broken icons) by directly editing  to ensure the required icon font was loaded, demonstrating knowledge of platform-specific build artifacts.
+- **Pydantic Models**: Extensive use of Pydantic in  to define strict data schemas for API requests and the new  database field.
 
 **key DB schema**
-  - **workout_snapshots**:  (NEW)
-  - **posts**: Now includes an optional  field.
-  - **workout_cards**: Now includes an optional  field.
-  - **deleted_users**:  (NEW)
+  - **posts**: Now contains a new, potentially nullable field . This object holds the full, canonical data for a workout associated with a post, making the Try This Workout feature independent and reliable.
+  - **workout_cards**: This collection (for saved achievements) was confirmed to store .
+  - **workout_snapshots**: The primary source for hydrating the  field.
 
 **changes in tech stack**
-  - : Added to solve a recurring UI bug.
+- No changes in tech stack, but a significant architectural pattern change with the introduction of a global .
 
 **All files of reference**
-- : Contains the new Workout Snapshot endpoints and model changes.
-- : Central hub for creating posts and saving achievement cards, now uses .
-- : Contains the refactored  function that consumes snapshots.
-- : Origin point for creating Workout Snapshots.
-- : File to be fixed using .
-- : File where the shimmer animation needs to be implemented.
-- : The newly redesigned stats screen.
+- : The new source of truth for all notification badges.
+- : Contains the critical server-side hydration logic in .
+- : The source of the critical Try This Workout bug and its fix.
+- : The consumer of the new  data.
+- : The consumer of the  for the main tab bar.
+- : The location of the fix for the web icon rendering issue.
+
+**Areas that need refactoring**:
+- The notification logic is spread across  and  hooks in multiple files (, , ). While functional, this could be further encapsulated into a custom hook (e.g., ) for cleaner implementation in consuming components.
+
+**key api endpoints**
+- : Now contains complex server-side logic to hydrate  from a .
+-  & : Now returns the  field in the response.
+- : The correct endpoint for fetching the unread messages count.
+- : The endpoint used to create the persistent workout data.
 
 **Critical Info for New Agent**
-1.  **Follow User's Specific Instructions:** The user has provided very specific technical direction for the pending UI bugs. You **MUST** use  with a  anchor for the definition popup. Do not revert to using a basic .
-2.  **New Animation Request:** The pulse animation for the rings has been abandoned. The new requirement is a shimmer animation. Do not waste time trying to fix the pulse.
-3.  **Verify the Snapshot Architecture:** The  system is a major architectural change. Your first priority after fixing the immediate UI bugs should be to help the user perform a full end-to-end test to confirm it solves the Try this workout problem.
-4.  **Recurring Issues are High Priority:** The definition popup, ring animation, and Try this workout flow have been sources of user frustration. Solving them robustly is critical.
-5.  **Don't Forget Lingering Tasks:** The user's request to persist calorie/minute goals (from message #526) has not been started. Also, the Featured workout not found error from the original handover is still outstanding.
+1.  **Focus on Notifications First:** The highest priority is to fix the remaining bugs in the new notification system. The user is reporting inaccurate counts and timing issues. Start by investigating  and the  utility.
+2.  **Verify Try This Workout:** The never breaks again fix should now be working. You MUST guide the user to test the specific flow: **Save a new workout card -> Go to Profile -> Create a post from that saved card -> Use Try This Workout on the new post.** If it fails, the debug logs added in the last session are your best tool.
+3.  **Implement Bell Icon Highlight:** The user has repeatedly asked for the bell icon in the Explore header to be highlighted when on the notifications sub-view. This is a small but important UI fix that needs to be addressed.
+4.  **Don't Forget Old Bugs:** The Featured workout not found error on the admin dashboard has been ignored for too long. It is a critical issue for the admin user and should be prioritized after the notification system is stable.
+5.  **The  Pattern is Law:** All Try This Workout functionality MUST use the  field. Do not introduce any fallbacks to  as this was the source of the original problem and explicitly forbidden by the user.
 
 **documents created in this job**
-- None.
+- 
+- 
 
-**Last 10 User Messages and any pending HUMAN messages** 
- - **#567:** Requested shimmer animation instead of pulse, calorie count inside Instagram export rings, and gave specific instructions () for fixing the off-screen definition popup. (Status: IN PROGRESS)
- - **#526:** Reported pulse was on the wrong screen, requested persistence for user goals, and provided the detailed Workout Snapshot architecture to fix the Try workout button. (Status: Mostly implemented, verification pending)
- - **#490:** Reported ring animation still not working, modal still off-screen, and reiterated the need to store a cart reference. (Status: Addressed with snapshot architecture, but UI bugs remain)
- - **#464:** Reported inanimate rings, off-screen modal, stuck notification badge, and broken Try this workout flow. (Status: Partially addressed)
- - **#412:** Reported no ring pulse, off-screen popup, and broken Try this workout flow. (Status: Addressed, but fixes were ineffective)
- - **#328:** Requested tracking for deleted users and reported Try this workout was still broken. (Status: Addressed)
- - **#289:** Reported hyperlinked text popup issue, no ring pulse, and stuck notification badge. (Status: Addressed, but fixes were ineffective/incomplete)
- - **#255:** Requested more evident social stats and reported the recurring Try this workout bug with saved cards. (Status: Addressed)
- - **#234:** Reported the ring pulse animation was not visible. (Status: Addressed, but fix was ineffective)
- - **#171:** Requested a full redesign of the stats screen and reported the inaccurate day streak bug. (Status: COMPLETED)
+**Last 10 User Messages and any pending HUMAN messages**
+- **#503**: Reported DM count not on Explore tab badge, profile requires refresh for DM badge, requested different chat colors, bell icon highlight, and reported notification timestamps/initial counts are still wrong. (Status: IN PROGRESS)
+- **#450**: Provided detailed requirements for a complete notification system overhaul, including aggregated counts and specific badge locations. (Status: IN PROGRESS)
+- **#426**: Requested UI changes for saved workout cards: remove gold line, change icon to checkmark, and match layout across views. (Status: COMPLETED)
+- **#379**: Confirmed  was not being passed and provided logs. Also requested an email update. (Status: Addressed, led to bug fix)
+- **#339**: Provided critical debug logs showing  and reported the broken icon UI bug. (Status: Addressed, led to bug discovery)
+- **#312**: Reported workout unavailable error and provided a detailed debugging plan to trace the  data flow. (Status: Addressed)
+- **#213**: Reported Try This Workout was still broken and provided a comprehensive, prescriptive never breaks again architectural plan. (Status: Addressed)
+- **#182**: Asked for the saved-card posting code path after the agent's first fix attempt. (Status: Addressed)
+- **#86**: Reported that Try this workout was still broken and asked for the relevant code. (Status: Addressed)
+- **#5**: Reported initial notification badge bug and requested moving it to the tab bar. (Status: Addressed)
 
 **Project Health Check:**
 - **Broken**:
-    - The Term Definition Popup is unusable on the user's Expo client.
-    - The Try this workout flow from posts created with saved achievement cards is not confirmed to be working.
-- **Mocked**:
-    - None.
+    - The Featured workout not found flow from the admin dashboard.
+    - Core notification logic (timestamps, initial count accuracy, count aggregation).
+- **Mocked**: None.
 - **Technical Debt**:
-    - The  component has seen multiple failed attempts at animation, suggesting its complexity could be reduced or it needs refactoring.
-    - The notification count logic has been patched several times and may still be fragile.
-    - The back button standardization task, while mostly complete, may have missed some edge-case screens.
+    - There are 43 older  documents in the database that are missing the  field and will not work with the Try This Workout feature. A data migration script could backfill this, but for now, they are effectively broken.
 
 **3rd Party Integrations**
--  (v1.1.2) - Newly added for UI popups.
+- : Used for all icons in the app.
+- : Used for persisting user goals and other client-side data.
+- : Used for the shimmer animation on workout rings.
 
 **Testing status**
   - Testing agent used after significant changes: NO
   - Troubleshoot agent used after agent stuck in loop: NO
-  - Test files created: []
-  - Known regressions: None, but several features are in a  state after significant re-work.
+  - Test files created:
+    -  (used for backend verification)
+    -  (used for diagnostics)
+    - Other temporary diagnostic scripts.
+  - Known regressions: The notification system is currently in a partially broken state after a major refactor.
 
 **Credentials to test flow:**
 - Admin user: 
-- Regular user: Any other user account.
 
 **What agent forgot to execute**
-- **Persisting User Goals**: The request from message #526 to save edited calorie/minute goals and improve the input fields was never started.
-- **Original Pending Issues**: The agent never addressed the Featured workout not found error or the Generic thumbnails for Sweat/Burn workouts issue from the very first handover summary.
+- Highlighting the bell icon on the Explore page when the notifications tab is active.
+- Fixing the notification timestamp issue (just now).
+- Fixing the initial notification count accuracy on login.
+- Addressing the long-standing Featured workout not found bug from the admin panel.
+- Addressing the Generic thumbnails for Sweat/Burn workouts issue.
 
 </analysis>
