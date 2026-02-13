@@ -1006,8 +1006,7 @@ export default function Explore() {
               ]}
               onPress={() => {
                 setActiveTab('notifications');
-                // Mark notifications as read when viewing the tab
-                markNotificationsAsRead();
+                // fetchNotifications will handle marking as read
               }}
             >
               <View style={styles.headerIconContainer}>
