@@ -90,7 +90,15 @@ export function BadgeProvider({ children, token, isGuest }: BadgeProviderProps) 
           (n: any) => !seenIds.includes(n.id)
         );
         
-        console.log(`🔔 Badge: ${unseenNotifications.length} unseen out of ${allNotifications.length} total (${seenIds.length} in seen list)`);
+        // Log for debugging
+        if (unseenNotifications.length > 0) {
+          console.log(`🔔 NEW NOTIFICATIONS FOUND: ${unseenNotifications.length}`);
+          unseenNotifications.forEach((n: any) => {
+            console.log(`   - ID: ${n.id}, Type: ${n.type}`);
+          });
+        }
+        
+        console.log(`🔔 Badge: ${unseenNotifications.length} unseen, ${allNotifications.length} total, ${seenIds.length} seen`);
         setUnreadNotifications(unseenNotifications.length);
       }
     } catch (error) {
