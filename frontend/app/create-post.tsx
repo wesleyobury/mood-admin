@@ -1654,20 +1654,17 @@ export default function CreatePost() {
                       onPress={() => selectSavedAchievement(achievement)}
                       activeOpacity={0.85}
                     >
-                      {/* Top accent line */}
-                      <View style={styles.achievementAccentLine} />
-                      
                       <View style={styles.achievementCardContent}>
                         {/* Header row */}
                         <View style={styles.achievementHeaderRow}>
                           <Text style={styles.achievementDateLabel}>{achievement.completedAt}</Text>
                           <View style={styles.achievementTrophyBadge}>
-                            <Ionicons name="trophy" size={10} color="#0c0c0c" />
+                            <Ionicons name="checkmark" size={12} color="#0c0c0c" />
                           </View>
                         </View>
                         
                         {/* Mood label as hero text */}
-                        <Text style={styles.achievementMoodLabel}>{moodLabel}</Text>
+                        <Text style={styles.achievementMoodLabel} numberOfLines={2}>{moodLabel}</Text>
                         
                         {/* Stats row - duration, calories, exercises */}
                         <View style={styles.achievementStatsRow}>
@@ -1683,6 +1680,20 @@ export default function CreatePost() {
                             <Ionicons name="barbell-outline" size={10} color="#FFD700" />
                             <Text style={styles.achievementStatPillText}>{achievement.workouts.length}</Text>
                           </View>
+                        </View>
+                        
+                        {/* Workout preview list */}
+                        <View style={styles.achievementWorkoutPreview}>
+                          {achievement.workouts.slice(0, 2).map((workout: any, wIndex: number) => (
+                            <Text key={wIndex} style={styles.achievementWorkoutName} numberOfLines={1}>
+                              {workout.workoutName || workout.workoutTitle}
+                            </Text>
+                          ))}
+                          {achievement.workouts.length > 2 && (
+                            <Text style={styles.achievementWorkoutMore}>
+                              +{achievement.workouts.length - 2} more
+                            </Text>
+                          )}
                         </View>
                       </View>
                     </TouchableOpacity>
