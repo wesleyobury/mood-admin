@@ -316,12 +316,22 @@ export default function PostDetail() {
   const handleTryWorkout = () => {
     console.log('🏋️ Try this workout - checking for attached_workout');
     
+    // DEBUG: Log the post data for Try This Workout
+    console.log('🔍 TRY_WORKOUT_DEBUG', {
+      postId: post?.id,
+      hasAttachedWorkout: !!post?.attached_workout,
+      hasWorkoutData: !!post?.workout_data,
+      attachedWorkoutKeys: post?.attached_workout ? Object.keys(post.attached_workout) : null,
+      exerciseCount: post?.attached_workout?.exercises?.length || 0,
+    });
+    
     // Check if we have attached_workout
     if (!post?.attached_workout) {
       console.log('❌ No attached_workout on post - workout unavailable');
+      console.log('🔍 POST_DATA_DUMP:', JSON.stringify(post, null, 2));
       Alert.alert(
         'Workout Unavailable',
-        'This workout is no longer available for replication. It may have been posted before this feature was available.',
+        'REASON: missing_attached_workout\n\nThis workout is no longer available. It may have been posted before this feature was available.',
         [{ text: 'OK' }]
       );
       return;
@@ -336,7 +346,7 @@ export default function PostDetail() {
       console.log('❌ attached_workout has no exercises');
       Alert.alert(
         'Workout Unavailable',
-        'This workout has no exercises available.',
+        'REASON: attached_workout_no_exercises\n\nThis workout has no exercises available.',
         [{ text: 'OK' }]
       );
       return;
@@ -353,7 +363,7 @@ export default function PostDetail() {
         });
         Alert.alert(
           'Workout Unavailable',
-          'This workout is incomplete and cannot be replicated.',
+          `REASON: exercise_${i}_incomplete\n\nExercise is missing: ${!ex.name ? 'name, ' : ''}${!ex.imageUrl ? 'image, ' : ''}${!ex.battlePlan ? 'battlePlan' : ''}`,
           [{ text: 'OK' }]
         );
         return;
