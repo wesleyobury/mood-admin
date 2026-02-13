@@ -49,7 +49,34 @@ interface WorkoutData {
   total_duration: number;
   completed_at: string;
   mood_category?: string;
-  workout_snapshot_id?: string; // Persistent reference for "Try this workout"
+  workout_snapshot_id?: string; // Legacy - kept for backwards compatibility
+}
+
+// NEW: Canonical attached workout types
+interface AttachedWorkoutExercise {
+  exerciseId: string;
+  name: string;
+  imageUrl: string;
+  duration: string;
+  equipment: string;
+  difficulty: string;
+  description?: string;
+  battlePlan: string;
+  intensityReason?: string;
+  moodTips?: Array<{
+    icon: string;
+    title: string;
+    description: string;
+  }>;
+}
+
+interface AttachedWorkout {
+  version: number;
+  title: string;
+  totalDuration: number;
+  moodCategory: string;
+  completedAt: string;
+  exercises: AttachedWorkoutExercise[];
 }
 
 interface Post {
@@ -62,7 +89,8 @@ interface Post {
   is_liked: boolean;
   is_saved: boolean;
   created_at: string;
-  workout_data?: WorkoutData;
+  workout_data?: WorkoutData;  // Legacy - kept for display
+  attached_workout?: AttachedWorkout;  // NEW: Canonical workout for "Try This Workout"
 }
 
 export default function PostDetail() {
