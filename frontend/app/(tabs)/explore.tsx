@@ -1033,7 +1033,10 @@ export default function Explore() {
           {/* Notifications button with badge */}
           {!isGuest && (
             <TouchableOpacity 
-              style={styles.headerIconButton}
+              style={[
+                styles.headerIconButton,
+                activeTab === 'notifications' && styles.headerIconButtonActive
+              ]}
               onPress={() => {
                 setActiveTab('notifications');
                 // Mark notifications as read when viewing the tab
@@ -1044,7 +1047,7 @@ export default function Explore() {
                 <Ionicons 
                   name={activeTab === 'notifications' ? 'notifications' : 'notifications-outline'} 
                   size={22} 
-                  color="#fff" 
+                  color={activeTab === 'notifications' ? '#FFD700' : '#fff'} 
                 />
                 {/* Notification badge on bell icon (only notifications, not messages) */}
                 {unreadNotifications > 0 && activeTab !== 'notifications' && (
