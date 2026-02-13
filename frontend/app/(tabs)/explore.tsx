@@ -398,13 +398,11 @@ export default function Explore() {
         const allNotifications = data.notifications || [];
         setNotifications(allNotifications);
         
-        // Save all current notification IDs as "seen"
-        if (allNotifications.length > 0) {
-          const notificationIds = allNotifications.map((n: Notification) => n.id);
-          await AsyncStorage.setItem(LAST_NOTIFICATION_VIEW_KEY, JSON.stringify(notificationIds));
-        }
+        // Mark notifications as seen via BadgeContext (centralizes the logic)
+        // This happens when user actively views the notifications tab
+        markNotificationsAsRead();
         
-        // Clear unread count immediately when viewing
+        // Clear local unread count immediately when viewing
         setUnreadNotificationCount(0);
       }
     } catch (error) {
