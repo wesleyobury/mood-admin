@@ -17,7 +17,21 @@ export const LAST_NOTIFICATION_VIEW_KEY = '@mood_last_notification_view';
  */
 export const formatNotificationTime = (dateString: string): string => {
   try {
-    const date = new Date(dateString);
+    if (!dateString) {
+      return 'recently';
+    }
+    
+    // Parse the ISO date string - handle both with and without timezone
+    let date: Date;
+    
+    // If the string doesn't end with Z or +/- timezone, assume UTC
+    if (dateString.endsWith('Z') || /[+-]\d{2}:\d{2}$/.test(dateString)) {
+      date = new Date(dateString);
+    } else {
+      // Append Z to treat as UTC if no timezone specified
+      date = new Date(dateString + 'Z');
+    }
+    
     const now = new Date();
     
     // Check if date is valid
@@ -33,12 +47,16 @@ export const formatNotificationTime = (dateString: string): string => {
     const days = Math.floor(hours / 24);
     const weeks = Math.floor(days / 7);
     
-    // Handle future dates (clock sync issues)
-    if (seconds < 0) {
-      return 'just now';
+    // Handle future dates (clock sync issues) - allow up to 2 min drift
+    if (seconds < -120) {
+      // Significantly in the future - show actual time
+      return date.toLocaleTimeString('en-US', { 
+        hour: 'numeric', 
+        minute: '2-digit'
+      });
     }
     
-    // Under 1 minute
+    // Handle slight clock drift - treat as "just now"
     if (seconds < 60) {
       return 'just now';
     }
@@ -48,15 +66,16 @@ export const formatNotificationTime = (dateString: string): string => {
       return `${minutes}m ago`;
     }
     
-    // Within 30 minutes - show in increments of 10
+    // Within 30 minutes - show in increments of 5
     if (minutes < 30) {
-      const rounded = Math.floor(minutes / 10) * 10;
+      const rounded = Math.floor(minutes / 5) * 5;
       return `${rounded}m ago`;
     }
     
-    // Within 1 hour - show 30m or specific
+    // Within 1 hour - show in increments of 15
     if (minutes < 60) {
-      return minutes < 45 ? '30m ago' : '45m ago';
+      const rounded = Math.floor(minutes / 15) * 15;
+      return `${rounded}m ago`;
     }
     
     // Within 24 hours - show hours
