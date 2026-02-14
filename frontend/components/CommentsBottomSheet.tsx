@@ -397,8 +397,8 @@ export default function CommentsBottomSheet({ postId, authToken, onClose, onComm
             </TouchableOpacity>
           </View>
 
-          {/* View replies button */}
-          {!isReply && hasReplies && (
+          {/* View replies button - show for any comment with replies (including nested ones) */}
+          {canShowNestedReplies && hasReplies && (
             <TouchableOpacity 
               style={styles.viewRepliesButton}
               onPress={() => toggleReplies(comment.id)}
@@ -416,10 +416,10 @@ export default function CommentsBottomSheet({ postId, authToken, onClose, onComm
             </TouchableOpacity>
           )}
 
-          {/* Replies */}
-          {!isReply && isExpanded && replies.length > 0 && (
+          {/* Replies - render nested replies recursively */}
+          {canShowNestedReplies && isExpanded && replies.length > 0 && (
             <View style={styles.repliesContainer}>
-              {replies.map(reply => renderComment(reply, true))}
+              {replies.map(reply => renderComment(reply, true, depth + 1))}
             </View>
           )}
         </View>
