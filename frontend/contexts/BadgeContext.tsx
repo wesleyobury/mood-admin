@@ -174,6 +174,14 @@ export function BadgeProvider({ children, token, isGuest }: BadgeProviderProps) 
   }, [token, isGuest]);
 
   /**
+   * Mark messages as read (clears message badge locally)
+   * Note: The actual read status is managed by the conversation/message endpoints
+   */
+  const markMessagesAsRead = useCallback(() => {
+    setUnreadMessages(0);
+  }, []);
+
+  /**
    * Refresh all badges - calls server for authoritative counts
    */
   const refreshBadges = useCallback(async () => {
