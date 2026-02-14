@@ -8365,8 +8365,18 @@ async def mark_all_notifications_read(
 ):
     """Mark all notifications as read"""
     notification_service = get_notification_service(db)
+    
+    # Log before
+    before_count = await notification_service.get_unread_count(current_user_id)
+    logger.info(f"mark-all-read: User {current_user_id} has {before_count} unread before marking")
+    
     count = await notification_service.mark_all_as_read(current_user_id)
-    return {"marked_count": count}
+    
+    # Log after
+    after_count = await notification_service.get_unread_count(current_user_id)
+    logger.info(f"mark-all-read: Marked {count}, now {after_count} unread")
+    
+    return {"marked_count": count, "unread_after": after_count}
 
 @api_router.delete("/notifications/{notification_id}")
 async def delete_notification(
