@@ -5515,12 +5515,21 @@ async def create_comment(comment_data: CommentCreate, current_user_id: str = Dep
         raise HTTPException(status_code=404, detail="Post not found")
 
 @api_router.get("/posts/{post_id}/comments")
-async def get_post_comments(post_id: str, limit: int = 50):
-    """Get comments for a post"""
+async def get_post_comments(post_id: str, limit: int = 50, parent_id: Optional[str] = None):
+    """Get comments for a post, optionally filtered by parent (for replies)"""
     try:
+        # Build match condition
+        match_condition = {"post_id": post_id}
+        if parent_id:
+            # Get replies to a specific comment
+            match_condition["parent_comment_id"] = parent_id
+        else:
+            # Get top-level comments only (no parent)
+            match_condition["parent_comment_id"] = None
+        
         # Get comments with author information
         pipeline = [
-            {"$match": {"post_id": post_id}},
+            {"$match": match_condition},
             {"$sort": {"created_at": -1}},
             {"$limit": limit},
             {
@@ -5542,6 +5551,10 @@ async def get_post_comments(post_id: str, limit: int = 50):
                     "id": {"$toString": "$_id"},
                     "text": 1,
                     "created_at": 1,
+                    "parent_comment_id": 1,
+                    "mentioned_user_ids": {"$ifNull": ["$mentioned_user_ids", []]},
+                    "replies_count": {"$ifNull": ["$replies_count", 0]},
+                    "likes_count": {"$ifNull": ["$likes_count", 0]},
                     "author": {
                         "id": {"$toString": "$author._id"},
                         "username": "$author.username",
@@ -5560,6 +5573,86 @@ async def get_post_comments(post_id: str, limit: int = 50):
     except Exception as e:
         logger.error(f"Error fetching comments for post {post_id}: {str(e)}")
         raise HTTPException(status_code=404, detail="Post not found")
+
+@api_router.get("/comments/{comment_id}/replies")
+async def get_comment_replies(comment_id: str, limit: int = 20):
+    """Get replies to a specific comment"""
+    try:
+        pipeline = [
+            {"$match": {"parent_comment_id": comment_id}},
+            {"$sort": {"created_at": 1}},  # Oldest first for replies
+            {"$limit": limit},
+            {
+                "$addFields": {
+                    "author_id_obj": {"$toObjectId": "$author_id"}
+                }
+            },
+            {
+                "$lookup": {
+                    "from": "users",
+                    "localField": "author_id_obj",
+                    "foreignField": "_id",
+                    "as": "author"
+                }
+            },
+            {"$unwind": "$author"},
+            {
+                "$project": {
+                    "id": {"$toString": "$_id"},
+                    "text": 1,
+                    "created_at": 1,
+                    "parent_comment_id": 1,
+                    "mentioned_user_ids": {"$ifNull": ["$mentioned_user_ids", []]},
+                    "likes_count": {"$ifNull": ["$likes_count", 0]},
+                    "author": {
+                        "id": {"$toString": "$author._id"},
+                        "username": "$author.username",
+                        "avatar": {
+                            "$ifNull": ["$author.avatar_url", "$author.avatar"]
+                        }
+                    },
+                    "_id": 0
+                }
+            }
+        ]
+        
+        replies = await db.comments.aggregate(pipeline).to_list(length=limit)
+        return replies
+    except Exception as e:
+        logger.error(f"Error fetching replies for comment {comment_id}: {str(e)}")
+        raise HTTPException(status_code=404, detail="Comment not found")
+
+@api_router.get("/users/search/mention")
+async def search_users_for_mention(q: str, limit: int = 10, current_user_id: str = Depends(get_current_user)):
+    """Search users for @mention autocomplete"""
+    if not q or len(q) < 1:
+        return []
+    
+    try:
+        # Search by username (case-insensitive prefix match)
+        pipeline = [
+            {
+                "$match": {
+                    "username": {"$regex": f"^{re.escape(q)}", "$options": "i"}
+                }
+            },
+            {"$limit": limit},
+            {
+                "$project": {
+                    "id": {"$toString": "$_id"},
+                    "username": 1,
+                    "name": 1,
+                    "avatar": {"$ifNull": ["$avatar_url", "$avatar"]},
+                    "_id": 0
+                }
+            }
+        ]
+        
+        users = await db.users.aggregate(pipeline).to_list(length=limit)
+        return users
+    except Exception as e:
+        logger.error(f"Error searching users for mention: {str(e)}")
+        return []
 
 # Social Features - Follow System
 
