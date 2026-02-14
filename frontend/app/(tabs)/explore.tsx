@@ -245,24 +245,44 @@ export default function Explore() {
     fetchPosts();
   }, [token, activeTab, isGuest]);
 
-  // Scroll to top and reset to "For You" when this screen is focused
+  // Track last tab press time for double-tap to scroll to top
+  const lastExploreTabPress = useRef<number>(0);
+  const wasAlreadyFocused = useRef<boolean>(false);
+
+  // Handle focus - only refresh badge counts, don't scroll or reset tab
   useFocusEffect(
     React.useCallback(() => {
-      // Scroll to top
-      if (scrollViewRef.current) {
-        scrollViewRef.current.scrollTo({ y: 0, animated: true });
-      }
-      // Reset to "For You" tab when returning to Explore
-      if (activeTab !== 'forYou') {
-        setActiveTab('forYou');
-      }
       // Refresh notification count when screen gains focus
       if (token && !isGuest) {
         fetchUnreadCount();
         refreshBadges();
       }
-    }, [token, isGuest, activeTab, refreshBadges])
+      // Mark that we're now focused (for double-tap detection)
+      wasAlreadyFocused.current = true;
+      
+      return () => {
+        wasAlreadyFocused.current = false;
+      };
+    }, [token, isGuest, refreshBadges])
   );
+
+  // Double-tap handler for Explore tab (called from tab press listener)
+  const handleExploreTabDoubleTap = useCallback(() => {
+    const now = Date.now();
+    const timeSinceLastTap = now - lastExploreTabPress.current;
+    
+    if (timeSinceLastTap < 300 && wasAlreadyFocused.current) {
+      // Double tap detected - scroll to top and reset to forYou
+      if (scrollViewRef.current) {
+        scrollViewRef.current.scrollTo({ y: 0, animated: true });
+      }
+      if (activeTab !== 'forYou') {
+        setActiveTab('forYou');
+      }
+    }
+    
+    lastExploreTabPress.current = now;
+  }, [activeTab]);
 
   const fetchPosts = async (loadMore = false, retryCount = 0) => {
     if (loadMore && !hasMore) return;
