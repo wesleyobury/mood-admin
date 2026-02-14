@@ -7040,6 +7040,37 @@ async def get_all_exercises_admin(
         "limit": limit
     }
 
+@api_router.post("/admin/grant-access")
+async def grant_admin_access(
+    current_user_id: str = Depends(get_current_user)
+):
+    """
+    Grant admin access to the current user if they are the designated admin.
+    This is a one-time setup endpoint for the app owner.
+    """
+    # Get current user
+    user = await db.users.find_one({"_id": ObjectId(current_user_id)})
+    if not user:
+        raise HTTPException(status_code=404, detail="User not found")
+    
+    # Only allow the app owner (officialmoodapp) to grant themselves admin
+    if user.get("username", "").lower() != "officialmoodapp":
+        raise HTTPException(status_code=403, detail="Only the app owner can use this endpoint")
+    
+    # Check if already admin
+    if user.get("is_admin"):
+        return {"message": "User already has admin access", "is_admin": True}
+    
+    # Grant admin access
+    await db.users.update_one(
+        {"_id": ObjectId(current_user_id)},
+        {"$set": {"is_admin": True}}
+    )
+    
+    logger.info(f"Admin access granted to user {user.get('username')} ({current_user_id})")
+    
+    return {"message": "Admin access granted successfully", "is_admin": True}
+
 @api_router.post("/admin/exercises/upload-video")
 async def upload_exercise_video(
     file: UploadFile = File(...),
