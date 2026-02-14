@@ -410,7 +410,7 @@ export default function Explore() {
     });
   };
 
-  // Fetch notifications
+  // Fetch notifications for display only (no badge logic - that's in BadgeContext)
   const fetchNotifications = async () => {
     if (!token || isGuest) return;
     
@@ -426,13 +426,6 @@ export default function Explore() {
         const data = await response.json();
         const allNotifications = data.notifications || [];
         setNotifications(allNotifications);
-        
-        // Mark notifications as seen via BadgeContext (centralizes the logic)
-        // This happens when user actively views the notifications tab
-        markNotificationsAsRead();
-        
-        // Clear local unread count immediately when viewing
-        setUnreadNotificationCount(0);
       }
     } catch (error) {
       console.error('Error fetching notifications:', error);
@@ -441,63 +434,6 @@ export default function Explore() {
       setNotificationsRefreshing(false);
     }
   };
-
-  // Fetch unread notification count (count notifications NOT in seen list)
-  const fetchUnreadCount = async () => {
-    if (!token || isGuest) return;
-    
-    try {
-      // Get the list of notification IDs the user has already seen
-      const seenIdsStr = await AsyncStorage.getItem(LAST_NOTIFICATION_VIEW_KEY);
-      let seenIds: string[] = [];
-      
-      try {
-        if (seenIdsStr) {
-          seenIds = JSON.parse(seenIdsStr);
-          // Handle legacy format (was timestamp, now array)
-          if (!Array.isArray(seenIds)) {
-            seenIds = [];
-          }
-        }
-      } catch {
-        seenIds = [];
-      }
-      
-      const response = await fetch(`${API_URL}/api/notifications`, {
-        headers: {
-          'Authorization': `Bearer ${token}`,
-        },
-      });
-      
-      if (response.ok) {
-        const data = await response.json();
-        const allNotifications = data.notifications || [];
-        
-        // Count notifications whose IDs are NOT in the seen list
-        const unseenCount = allNotifications.filter(
-          (n: Notification) => !seenIds.includes(n.id)
-        ).length;
-        
-        // Only update if not currently viewing notifications
-        if (activeTab !== 'notifications') {
-          setUnreadNotificationCount(unseenCount);
-        }
-      }
-    } catch (error) {
-      console.error('Error fetching unread count:', error);
-    }
-  };
-
-  // Fetch unread count on mount and periodically
-  // Note: Badge initialization is now handled by BadgeContext
-  // This useEffect only handles the local explore screen state refresh
-  useEffect(() => {
-    if (token && !isGuest) {
-      // Refresh count every 2 minutes (BadgeContext handles initialization)
-      const interval = setInterval(fetchUnreadCount, 120000);
-      return () => clearInterval(interval);
-    }
-  }, [token, isGuest]);
 
   // Fetch notifications when tab changes to notifications
   // This calls markAllNotificationsRead on server to clear badge permanently
