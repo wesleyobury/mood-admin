@@ -31,6 +31,8 @@ class NotificationType(str, Enum):
     FOLLOW = "follow"
     MESSAGE = "message"
     MESSAGE_REQUEST = "message_request"
+    MENTION = "mention"  # @mention in a comment
+    REPLY = "reply"  # Reply to your comment
     
     # Engagement (Phase 3-4)
     WORKOUT_REMINDER = "workout_reminder"
