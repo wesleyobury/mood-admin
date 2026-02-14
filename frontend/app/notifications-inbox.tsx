@@ -217,6 +217,9 @@ export default function NotificationsInbox() {
         break;
       case 'comment':
       case 'like':
+      case 'mention':
+      case 'reply':
+        // For mentions and replies, navigate to the post
         if (entity_id) {
           router.push(`/post-detail?postId=${entity_id}`);
         }
