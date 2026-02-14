@@ -8347,6 +8347,7 @@ async def get_notifications_unread_count(
     """Get count of unread notifications"""
     notification_service = get_notification_service(db)
     count = await notification_service.get_unread_count(current_user_id)
+    print(f"🔔 UNREAD-COUNT API: User {current_user_id} has {count} unread notifications")
     logger.info(f"unread-count: User {current_user_id} has {count} unread notifications")
     return {"unread_count": count}
 
