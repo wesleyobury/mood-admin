@@ -73,6 +73,8 @@ DEEP_LINK_SCHEMES = {
     NotificationType.LIKE: "mood://notifications",  # Go to notifications tab
     NotificationType.COMMENT: "mood://notifications",  # Go to notifications tab
     NotificationType.FOLLOW: "mood://notifications",  # Go to notifications tab
+    NotificationType.MENTION: "mood://notifications",  # Go to notifications tab
+    NotificationType.REPLY: "mood://notifications",  # Go to notifications tab
     NotificationType.MESSAGE: "mood://chat/{entity_id}",
     NotificationType.FEATURED_WORKOUT: "mood://cart/{entity_id}",  # Go directly to cart
     NotificationType.WORKOUT_REMINDER: "mood://home",  # Go to home
