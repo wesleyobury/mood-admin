@@ -331,43 +331,57 @@ agent_communication:
   - agent: "testing"
     message: "🎉 CLOUDINARY MEDIA UPLOAD INTEGRATION TESTING COMPLETED - PERFECT RESULTS: Comprehensive testing of Cloudinary integration shows 100% success rate (5/5 tests passed). 🎯 ALL CLOUDINARY REQUIREMENTS VERIFIED: ✅ Health Check - API running and healthy (status: 'healthy', database: 'connected') ✅ Authentication - Successfully logged in with test account officialmoodapp/Matthew1999$ and obtained JWT token ✅ Single Image Upload - POST /api/upload working perfectly: returns Cloudinary URL (https://res.cloudinary.com/dfsygar5c/...), public_id contains 'mood_app', resource_type='image', permanent URLs with no expiration ✅ Avatar Upload - POST /api/users/me/avatar working perfectly: returns Cloudinary URL with transformation parameters for 400x400 crop, proper avatar handling ✅ Public Posts Endpoint - GET /api/posts/public working without authentication, returns array of 20 posts for guest mode access. 🔧 CLOUDINARY CONFIGURATION VERIFIED: All uploads return permanent Cloudinary URLs, proper public_id naming with mood_app prefix, correct resource types, avatar transformations applied correctly. Cloudinary integration is production-ready and fully functional for media uploads in the mood fitness app."
 ---
-## Latest Session Changes (Fork Session)
+## Latest Session Changes (Fork Session - @Mentions & Threaded Replies)
 
 ### Changes Made:
 
-#### 1. Video Editor Fix (P0)
-- **File**: `/app/frontend/components/VideoFrameSelector.tsx`
-- **Change**: Completely reworked the video frame selector to allow Instagram-style pan/zoom on the FULL video before cropping, instead of pre-cropping to 4:5 first
-- **Key Updates**:
-  - Video now displays at its full native aspect ratio
-  - Fixed crop overlay (4:5 ratio) is shown over the video
-  - User can pan/zoom the full video to position it within the crop window
-  - Crop calculation updated to properly map transform coordinates to original image coordinates
+#### 1. @Mentions Feature (COMPLETE)
+- **Backend**: `/app/backend/server.py`
+  - Fixed `re` module import (was missing, causing search to fail)
+  - Enhanced `/api/users/search/mention` endpoint to search by both username AND name
+  - Changed from prefix match to contains match for better UX
+  - Added logging for debugging
 
-#### 2. "Try this Workout" Button Fix (P1)
-- **File**: `/app/backend/server.py` - `get_single_post` endpoint
-- **Change**: Added `workout_data`, `cover_urls`, and `is_saved` to the single post API response
-- **Why**: The button was only showing on posts in the Explore feed (which included workout_data) but not when viewing a post from notifications or profile (which used the single post endpoint that was missing workout_data)
+- **Frontend**: `/app/frontend/components/CommentsBottomSheet.tsx`
+  - Component already implemented with full @mentions support:
+    - Typing `@` triggers user autocomplete dropdown
+    - Selecting a user inserts `@username` into comment
+    - Mentioned users are highlighted in gold color
+    - `mentioned_user_ids` sent to backend on comment creation
 
-#### 3. Notifications Screen Consistency (P2)
-- **Files**: 
-  - `/app/frontend/app/(tabs)/profile.tsx` - Changed notification button to navigate to explore with notifications tab
-  - `/app/frontend/app/(tabs)/explore.tsx` - Added query parameter handling to open notifications tab directly
-- **Change**: Profile notifications button now navigates to the same notifications view used in the Explore page (`/(tabs)/explore?tab=notifications`)
-- **Why**: This ensures both entry points show the exact same notifications interface, maintaining UI consistency
+#### 2. Threaded Replies Feature (COMPLETE)
+- **Backend**: Already implemented with:
+  - `parent_comment_id` field on Comment model
+  - `replies_count` tracking on parent comments
+  - `/api/comments/{comment_id}/replies` endpoint for fetching replies
+  - Reply notifications sent to parent comment author
 
-### Files Modified:
-1. `/app/frontend/components/VideoFrameSelector.tsx` - Major rework for Instagram-style video cropping
-2. `/app/backend/server.py` - Added workout_data to single post endpoint
-3. `/app/frontend/app/post-detail.tsx` - Added debug logging for workout_data
-4. `/app/frontend/app/(tabs)/profile.tsx` - Changed notifications navigation
-5. `/app/frontend/app/(tabs)/explore.tsx` - Added tab query parameter support
+- **Frontend**: `/app/frontend/components/CommentsBottomSheet.tsx`
+  - "Reply" button on each comment
+  - "View X replies" toggle button to expand/collapse replies
+  - Replies displayed with indented styling
+  - Reply indicator bar when composing a reply
+  - Auto-populates `@username` when replying
+
+### Backend Endpoints Verified:
+| Endpoint | Status | Description |
+|----------|--------|-------------|
+| `GET /api/users/search/mention?q=<query>` | ✅ Working | Returns users matching query |
+| `POST /api/comments` with `parent_comment_id` | ✅ Working | Creates reply to a comment |
+| `GET /api/comments/{id}/replies` | ✅ Working | Gets replies to a comment |
+| `GET /api/posts/{id}/comments` | ✅ Working | Returns comments with `replies_count` |
+
+### Files Modified This Session:
+1. `/app/backend/server.py` - Added `import re`, improved mention search endpoint
 
 ### Testing Status:
 - Backend restarted: ✅
 - Frontend restarted: ✅
-- Pending manual testing by user for:
-  - Video editor pan/zoom experience
-  - "Try this workout" button on posts from notifications/profile
-  - Notifications screen consistency between profile and explore
+- Backend API tests: ✅ All mention/reply endpoints working
+- Pending manual testing by user on mobile device for:
+  - @mention autocomplete while typing comments
+  - Posting comment with mentions
+  - Creating replies to comments
+  - Viewing threaded replies
+  - Mention notification delivery
 
