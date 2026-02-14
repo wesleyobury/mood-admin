@@ -329,8 +329,10 @@ class NotificationService:
             "delivered_push_at": None,
         }
         
+        logger.info(f"🔔 Inserting notification into DB: {self.db.name}")
         result = await self.db.notifications.insert_one(notification_doc)
         notification_id = str(result.inserted_id)
+        logger.info(f"🔔 Insert result acknowledged: {result.acknowledged}, id: {notification_id}")
         
         logger.info(f"🔔 Created notification {notification_type.value} for user {user_id[:8]}...")
         
