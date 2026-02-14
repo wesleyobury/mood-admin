@@ -5483,12 +5483,11 @@ async def create_comment(comment_data: CommentCreate, current_user_id: str = Dep
                 for mentioned_user_id in comment_data.mentioned_user_ids:
                     # Don't notify yourself
                     if mentioned_user_id != current_user_id:
-                        await notification_service.create_notification(
-                            user_id=mentioned_user_id,
-                            notification_type="mention",
-                            actor_id=current_user_id,
+                        await notification_service.trigger_mention_notification(
+                            mentioner_id=current_user_id,
+                            mentioned_user_id=mentioned_user_id,
                             post_id=comment_data.post_id,
-                            comment_text=comment_data.text[:100]
+                            comment_text=comment_data.text
                         )
             except Exception as e:
                 logger.error(f"Failed to send mention notifications: {e}")
@@ -5497,14 +5496,13 @@ async def create_comment(comment_data: CommentCreate, current_user_id: str = Dep
         if comment_data.parent_comment_id:
             try:
                 parent_comment = await db.comments.find_one({"_id": ObjectId(comment_data.parent_comment_id)})
-                if parent_comment and parent_comment.get("author_id") != current_user_id:
+                if parent_comment and str(parent_comment.get("author_id")) != current_user_id:
                     notification_service = get_notification_service(db)
-                    await notification_service.create_notification(
-                        user_id=parent_comment["author_id"],
-                        notification_type="reply",
-                        actor_id=current_user_id,
+                    await notification_service.trigger_reply_notification(
+                        replier_id=current_user_id,
+                        parent_comment_author_id=str(parent_comment["author_id"]),
                         post_id=comment_data.post_id,
-                        comment_text=comment_data.text[:100]
+                        reply_text=comment_data.text
                     )
             except Exception as e:
                 logger.error(f"Failed to send reply notification: {e}")
