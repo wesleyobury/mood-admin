@@ -5602,6 +5602,7 @@ async def get_comment_replies(comment_id: str, limit: int = 20):
                     "created_at": 1,
                     "parent_comment_id": 1,
                     "mentioned_user_ids": {"$ifNull": ["$mentioned_user_ids", []]},
+                    "replies_count": {"$ifNull": ["$replies_count", 0]},
                     "likes_count": {"$ifNull": ["$likes_count", 0]},
                     "author": {
                         "id": {"$toString": "$author._id"},
