@@ -447,6 +447,8 @@ export default function Explore() {
       case 'like': return 'heart';
       case 'comment': return 'chatbubble';
       case 'follow': return 'person-add';
+      case 'mention': return 'at';
+      case 'reply': return 'return-down-forward';
       default: return 'notifications';
     }
   };
@@ -457,6 +459,8 @@ export default function Explore() {
       case 'like': return '#FF4444';
       case 'comment': return '#4A90D9';
       case 'follow': return '#FFD700';
+      case 'mention': return '#9B59B6';
+      case 'reply': return '#4ECDC4';
       default: return '#888';
     }
   };
