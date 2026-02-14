@@ -248,7 +248,31 @@ export default function Explore() {
 
   // Track last tab press time for double-tap to scroll to top
   const lastExploreTabPress = useRef<number>(0);
-  const wasAlreadyFocused = useRef<boolean>(false);
+  const navigation = useNavigation();
+
+  // Listen for tab press events to detect double-tap
+  useEffect(() => {
+    const unsubscribe = navigation.addListener('tabPress', (e: any) => {
+      const now = Date.now();
+      const timeSinceLastTap = now - lastExploreTabPress.current;
+      
+      // Double tap detected (within 300ms)
+      if (timeSinceLastTap < 300) {
+        // Scroll to top
+        if (scrollViewRef.current) {
+          scrollViewRef.current.scrollTo({ y: 0, animated: true });
+        }
+        // Reset to "For You" tab if on a different tab
+        if (activeTab !== 'forYou') {
+          setActiveTab('forYou');
+        }
+      }
+      
+      lastExploreTabPress.current = now;
+    });
+
+    return unsubscribe;
+  }, [navigation, activeTab]);
 
   // Handle focus - only refresh badge counts, don't scroll or reset tab
   useFocusEffect(
@@ -258,32 +282,8 @@ export default function Explore() {
         fetchUnreadCount();
         refreshBadges();
       }
-      // Mark that we're now focused (for double-tap detection)
-      wasAlreadyFocused.current = true;
-      
-      return () => {
-        wasAlreadyFocused.current = false;
-      };
     }, [token, isGuest, refreshBadges])
   );
-
-  // Double-tap handler for Explore tab (called from tab press listener)
-  const handleExploreTabDoubleTap = useCallback(() => {
-    const now = Date.now();
-    const timeSinceLastTap = now - lastExploreTabPress.current;
-    
-    if (timeSinceLastTap < 300 && wasAlreadyFocused.current) {
-      // Double tap detected - scroll to top and reset to forYou
-      if (scrollViewRef.current) {
-        scrollViewRef.current.scrollTo({ y: 0, animated: true });
-      }
-      if (activeTab !== 'forYou') {
-        setActiveTab('forYou');
-      }
-    }
-    
-    lastExploreTabPress.current = now;
-  }, [activeTab]);
 
   const fetchPosts = async (loadMore = false, retryCount = 0) => {
     if (loadMore && !hasMore) return;
