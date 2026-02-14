@@ -272,15 +272,6 @@ export default function Explore() {
     return unsubscribe;
   }, [navigation, activeTab]);
 
-  // Handle focus - refresh badge counts from server
-  useFocusEffect(
-    React.useCallback(() => {
-      if (token && !isGuest) {
-        refreshBadges();
-      }
-    }, [token, isGuest, refreshBadges])
-  );
-
   const fetchPosts = async (loadMore = false, retryCount = 0) => {
     if (loadMore && !hasMore) return;
     if (loadMore) {
