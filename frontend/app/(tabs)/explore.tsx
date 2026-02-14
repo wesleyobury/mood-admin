@@ -249,19 +249,24 @@ export default function Explore() {
   const lastExploreTabPress = useRef<number>(0);
   const navigation = useNavigation();
 
-  // Listen for tab press events to detect double-tap
+  // Listen for tab press events
   useEffect(() => {
     const unsubscribe = navigation.addListener('tabPress', (e: any) => {
       const now = Date.now();
       const timeSinceLastTap = now - lastExploreTabPress.current;
       
-      // Double tap detected (within 300ms)
-      if (timeSinceLastTap < 300) {
-        // Scroll to top
+      // If on notifications tab, single tap goes back to forYou
+      if (activeTab === 'notifications') {
+        setActiveTab('forYou');
         if (scrollViewRef.current) {
           scrollViewRef.current.scrollTo({ y: 0, animated: true });
         }
-        // Reset to "For You" tab if on a different tab
+      }
+      // Double tap detected (within 300ms) - scroll to top
+      else if (timeSinceLastTap < 300) {
+        if (scrollViewRef.current) {
+          scrollViewRef.current.scrollTo({ y: 0, animated: true });
+        }
         if (activeTab !== 'forYou') {
           setActiveTab('forYou');
         }
@@ -273,12 +278,10 @@ export default function Explore() {
     return unsubscribe;
   }, [navigation, activeTab]);
 
-  // Handle focus - only refresh badge counts, don't scroll or reset tab
+  // Handle focus - refresh badge counts from server
   useFocusEffect(
     React.useCallback(() => {
-      // Refresh notification count when screen gains focus
       if (token && !isGuest) {
-        fetchUnreadCount();
         refreshBadges();
       }
     }, [token, isGuest, refreshBadges])
