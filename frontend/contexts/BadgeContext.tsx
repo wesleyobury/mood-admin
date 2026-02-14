@@ -21,6 +21,7 @@ interface BadgeContextType {
   isFetching: boolean;
   fetchUnreadCount: () => Promise<void>;
   markAllNotificationsRead: () => Promise<void>;
+  markMessagesAsRead: () => void;
   refreshBadges: () => Promise<void>;
 }
 
@@ -31,6 +32,7 @@ const BadgeContext = createContext<BadgeContextType>({
   isFetching: false,
   fetchUnreadCount: async () => {},
   markAllNotificationsRead: async () => {},
+  markMessagesAsRead: () => {},
   refreshBadges: async () => {},
 });
 
