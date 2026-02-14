@@ -500,14 +500,15 @@ export default function Explore() {
   }, [token, isGuest]);
 
   // Fetch notifications when tab changes to notifications
+  // This calls markAllNotificationsRead on server to clear badge permanently
   useEffect(() => {
-    if (activeTab === 'notifications' && !isGuest) {
-      // Immediately clear the badge count when viewing notifications
-      setUnreadNotificationCount(0);
-      // Then fetch the actual notifications (which will also save the seen IDs)
+    if (activeTab === 'notifications' && !isGuest && token) {
+      // Mark all as read on SERVER (authoritative)
+      markAllNotificationsRead();
+      // Then fetch notifications for display
       fetchNotifications();
     }
-  }, [activeTab, token]);
+  }, [activeTab, token, isGuest, markAllNotificationsRead]);
 
   const onRefreshNotifications = () => {
     setNotificationsRefreshing(true);
