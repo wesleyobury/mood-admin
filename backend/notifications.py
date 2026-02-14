@@ -699,6 +699,80 @@ class NotificationService:
             metadata={"sender_username": sender.get("username")}
         )
     
+    async def trigger_mention_notification(
+        self,
+        mentioner_id: str,
+        mentioned_user_id: str,
+        post_id: str,
+        comment_text: str
+    ) -> Optional[str]:
+        """Trigger notification when someone @mentions a user in a comment"""
+        # Don't notify yourself
+        if mentioner_id == mentioned_user_id:
+            return None
+        
+        mentioner = await self.db.users.find_one({"_id": ObjectId(mentioner_id)})
+        if not mentioner:
+            return None
+        
+        mentioner_name = mentioner.get("name") or mentioner.get("username", "Someone")
+        avatar = mentioner.get("avatar") or mentioner.get("avatar_url")
+        
+        # Truncate comment for body
+        truncated_comment = comment_text[:50] + "..." if len(comment_text) > 50 else comment_text
+        
+        return await self.create_notification(
+            user_id=mentioned_user_id,
+            notification_type=NotificationType.MENTION,
+            title="You were mentioned",
+            body=f'{mentioner_name} mentioned you: "{truncated_comment}"',
+            actor_id=mentioner_id,
+            entity_id=post_id,
+            entity_type="post",
+            image_url=avatar,
+            metadata={
+                "mentioner_username": mentioner.get("username"),
+                "comment_preview": truncated_comment
+            }
+        )
+    
+    async def trigger_reply_notification(
+        self,
+        replier_id: str,
+        parent_comment_author_id: str,
+        post_id: str,
+        reply_text: str
+    ) -> Optional[str]:
+        """Trigger notification when someone replies to a comment"""
+        # Don't notify yourself
+        if replier_id == parent_comment_author_id:
+            return None
+        
+        replier = await self.db.users.find_one({"_id": ObjectId(replier_id)})
+        if not replier:
+            return None
+        
+        replier_name = replier.get("name") or replier.get("username", "Someone")
+        avatar = replier.get("avatar") or replier.get("avatar_url")
+        
+        # Truncate reply for body
+        truncated_reply = reply_text[:50] + "..." if len(reply_text) > 50 else reply_text
+        
+        return await self.create_notification(
+            user_id=parent_comment_author_id,
+            notification_type=NotificationType.REPLY,
+            title="Reply to your comment",
+            body=f'{replier_name} replied: "{truncated_reply}"',
+            actor_id=replier_id,
+            entity_id=post_id,
+            entity_type="post",
+            image_url=avatar,
+            metadata={
+                "replier_username": replier.get("username"),
+                "reply_preview": truncated_reply
+            }
+        )
+    
     async def trigger_like_notification(
         self,
         liker_id: str,
