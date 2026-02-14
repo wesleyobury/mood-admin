@@ -4,6 +4,7 @@ import Constants from 'expo-constants';
 
 const API_URL = process.env.EXPO_PUBLIC_BACKEND_URL || Constants.expoConfig?.extra?.EXPO_PUBLIC_BACKEND_URL || '';
 const LAST_NOTIFICATION_VIEW_KEY = 'last_notification_view_ids';
+const NOTIFICATION_BASELINE_SET_KEY = 'notification_baseline_set';
 
 interface BadgeContextType {
   unreadNotifications: number;
@@ -51,10 +52,11 @@ export function BadgeProvider({ children, token, isGuest }: BadgeProviderProps) 
     }
     
     try {
-      // Get seen IDs from storage
+      // Check if we've ever set a baseline for this user
+      const baselineSet = await AsyncStorage.getItem(NOTIFICATION_BASELINE_SET_KEY);
       const seenIdsStr = await AsyncStorage.getItem(LAST_NOTIFICATION_VIEW_KEY);
-      let seenIds: string[] = [];
       
+      let seenIds: string[] = [];
       try {
         if (seenIdsStr) {
           const parsed = JSON.parse(seenIdsStr);
@@ -75,12 +77,13 @@ export function BadgeProvider({ children, token, isGuest }: BadgeProviderProps) 
         const data = await response.json();
         const allNotifications = data.notifications || [];
         
-        // FIRST TIME EVER using the app - no seen IDs stored yet
-        // In this case, mark all current notifications as seen (baseline)
-        if (seenIds.length === 0 && allNotifications.length > 0) {
-          console.log('🔔 First time user: marking all notifications as baseline');
+        // FIRST TIME EVER using the app - baseline has never been set
+        // Only do this ONCE per user (tracked by NOTIFICATION_BASELINE_SET_KEY)
+        if (!baselineSet && allNotifications.length > 0) {
+          console.log('🔔 First time setup: setting notification baseline');
           const notificationIds = allNotifications.map((n: any) => n.id);
           await AsyncStorage.setItem(LAST_NOTIFICATION_VIEW_KEY, JSON.stringify(notificationIds));
+          await AsyncStorage.setItem(NOTIFICATION_BASELINE_SET_KEY, 'true');
           setUnreadNotifications(0);
           return;
         }
@@ -91,14 +94,11 @@ export function BadgeProvider({ children, token, isGuest }: BadgeProviderProps) 
         );
         
         // Log for debugging
+        console.log(`🔔 Badge: ${unseenNotifications.length} new, ${allNotifications.length} total, ${seenIds.length} seen`);
         if (unseenNotifications.length > 0) {
-          console.log(`🔔 NEW NOTIFICATIONS FOUND: ${unseenNotifications.length}`);
-          unseenNotifications.forEach((n: any) => {
-            console.log(`   - ID: ${n.id}, Type: ${n.type}`);
-          });
+          console.log(`🔔 New notification IDs: ${unseenNotifications.map((n: any) => n.id.slice(-6)).join(', ')}`);
         }
         
-        console.log(`🔔 Badge: ${unseenNotifications.length} unseen, ${allNotifications.length} total, ${seenIds.length} seen`);
         setUnreadNotifications(unseenNotifications.length);
       }
     } catch (error) {
