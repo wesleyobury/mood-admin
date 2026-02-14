@@ -384,6 +384,8 @@ class PostResponse(BaseModel):
 class CommentCreate(BaseModel):
     post_id: str
     text: str
+    parent_comment_id: Optional[str] = None  # For reply threads
+    mentioned_user_ids: Optional[List[str]] = None  # Users mentioned with @
 
 class FollowResponse(BaseModel):
     follower: UserResponse
