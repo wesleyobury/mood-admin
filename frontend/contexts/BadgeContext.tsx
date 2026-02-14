@@ -228,6 +228,7 @@ export function BadgeProvider({ children, token, isGuest }: BadgeProviderProps) 
     isFetching,
     fetchUnreadCount,
     markAllNotificationsRead,
+    markMessagesAsRead,
     refreshBadges,
   };
 
