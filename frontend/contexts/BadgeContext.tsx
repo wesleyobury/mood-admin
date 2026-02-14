@@ -1,32 +1,36 @@
 import React, { createContext, useContext, useState, useCallback, useEffect, useRef } from 'react';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import Constants from 'expo-constants';
 
 const API_URL = process.env.EXPO_PUBLIC_BACKEND_URL || Constants.expoConfig?.extra?.EXPO_PUBLIC_BACKEND_URL || '';
-const LAST_NOTIFICATION_VIEW_TIME_KEY = 'last_notification_view_time';
+
+/**
+ * SERVER-AUTHORITATIVE BADGE CONTEXT
+ * 
+ * RULES:
+ * 1. Badge count ONLY comes from GET /api/notifications/unread-count
+ * 2. No local increment/decrement logic
+ * 3. No derived counts from arrays
+ * 4. markAllRead() calls server, then fetches fresh count
+ */
 
 interface BadgeContextType {
   unreadNotifications: number;
   unreadMessages: number;
   totalBadgeCount: number;
-  setUnreadNotifications: (count: number) => void;
-  setUnreadMessages: (count: number) => void;
-  refreshBadges: () => void;
-  markNotificationsAsRead: () => void;
-  markMessagesAsRead: () => void;
-  isInitialized: boolean;
+  isFetching: boolean;
+  fetchUnreadCount: () => Promise<void>;
+  markAllNotificationsRead: () => Promise<void>;
+  refreshBadges: () => Promise<void>;
 }
 
 const BadgeContext = createContext<BadgeContextType>({
   unreadNotifications: 0,
   unreadMessages: 0,
   totalBadgeCount: 0,
-  setUnreadNotifications: () => {},
-  setUnreadMessages: () => {},
-  refreshBadges: () => {},
-  markNotificationsAsRead: () => {},
-  markMessagesAsRead: () => {},
-  isInitialized: false,
+  isFetching: false,
+  fetchUnreadCount: async () => {},
+  markAllNotificationsRead: async () => {},
+  refreshBadges: async () => {},
 });
 
 export const useBadges = () => useContext(BadgeContext);
@@ -40,63 +44,45 @@ interface BadgeProviderProps {
 export function BadgeProvider({ children, token, isGuest }: BadgeProviderProps) {
   const [unreadNotifications, setUnreadNotifications] = useState(0);
   const [unreadMessages, setUnreadMessages] = useState(0);
-  const [isInitialized, setIsInitialized] = useState(false);
-  const initializingRef = useRef(false);
+  const [isFetching, setIsFetching] = useState(false);
+  
+  // Prevent duplicate fetches
+  const fetchingRef = useRef(false);
+  // Track if we've done initial fetch for this token
+  const initializedRef = useRef(false);
+  // Store token to detect changes
+  const tokenRef = useRef<string | null>(null);
 
-  // Fetch unread notifications - count those created AFTER last view time
-  const fetchUnreadNotifications = useCallback(async () => {
+  /**
+   * AUTHORITATIVE: Fetch unread notification count from server
+   * This is the ONLY way to set unreadNotifications
+   */
+  const fetchUnreadNotificationCount = useCallback(async () => {
     if (!token || isGuest) {
       setUnreadNotifications(0);
       return;
     }
     
     try {
-      // Get last view time from storage
-      const lastViewTimeStr = await AsyncStorage.getItem(LAST_NOTIFICATION_VIEW_TIME_KEY);
-      let lastViewTime: Date | null = null;
-      
-      if (lastViewTimeStr) {
-        lastViewTime = new Date(lastViewTimeStr);
-        // Validate the date
-        if (isNaN(lastViewTime.getTime())) {
-          lastViewTime = null;
-        }
-      }
-      
-      // Fetch all notifications from server
-      const response = await fetch(`${API_URL}/api/notifications`, {
+      const response = await fetch(`${API_URL}/api/notifications/unread-count`, {
         headers: { 'Authorization': `Bearer ${token}` },
       });
       
       if (response.ok) {
         const data = await response.json();
-        const allNotifications = data.notifications || [];
-        
-        // FIRST TIME EVER - no last view time set
-        // Set current time as baseline, show 0 unread
-        if (!lastViewTime) {
-          console.log('🔔 First time: setting notification baseline time');
-          await AsyncStorage.setItem(LAST_NOTIFICATION_VIEW_TIME_KEY, new Date().toISOString());
-          setUnreadNotifications(0);
-          return;
-        }
-        
-        // Count notifications created AFTER last view time
-        const unseenNotifications = allNotifications.filter((n: any) => {
-          const notifTime = new Date(n.created_at);
-          return notifTime > lastViewTime!;
-        });
-        
-        console.log(`🔔 Badge: ${unseenNotifications.length} new since ${lastViewTime.toISOString()}`);
-        setUnreadNotifications(unseenNotifications.length);
+        const count = data.unread_count || 0;
+        console.log(`🔔 Server unread count: ${count}`);
+        setUnreadNotifications(count);
       }
     } catch (error) {
-      console.error('Error fetching unread notifications:', error);
+      console.error('Error fetching unread notification count:', error);
     }
   }, [token, isGuest]);
 
-  // Fetch unread message count from server
-  const fetchUnreadMessages = useCallback(async () => {
+  /**
+   * Fetch unread message count from server
+   */
+  const fetchUnreadMessageCount = useCallback(async () => {
     if (!token || isGuest) {
       setUnreadMessages(0);
       return;
@@ -109,86 +95,110 @@ export function BadgeProvider({ children, token, isGuest }: BadgeProviderProps) 
       
       if (response.ok) {
         const data = await response.json();
-        const count = data.unread_count || 0;
-        setUnreadMessages(count);
+        setUnreadMessages(data.unread_count || 0);
       }
     } catch (error) {
-      console.error('Error fetching unread messages:', error);
+      console.error('Error fetching unread message count:', error);
     }
   }, [token, isGuest]);
 
-  // Refresh both badge counts
-  const refreshBadges = useCallback(async () => {
-    if (initializingRef.current) return;
-    initializingRef.current = true;
+  /**
+   * Fetch all badge counts from server
+   */
+  const fetchUnreadCount = useCallback(async () => {
+    if (fetchingRef.current) return;
+    fetchingRef.current = true;
+    setIsFetching(true);
     
     try {
       await Promise.all([
-        fetchUnreadNotifications(),
-        fetchUnreadMessages()
+        fetchUnreadNotificationCount(),
+        fetchUnreadMessageCount()
       ]);
     } finally {
-      initializingRef.current = false;
-      setIsInitialized(true);
+      fetchingRef.current = false;
+      setIsFetching(false);
     }
-  }, [fetchUnreadNotifications, fetchUnreadMessages]);
+  }, [fetchUnreadNotificationCount, fetchUnreadMessageCount]);
 
-  // Mark notifications as read - update last view time to NOW
-  const markNotificationsAsRead = useCallback(async () => {
-    if (!token) return;
+  /**
+   * Mark all notifications as read on server, then fetch fresh count
+   * This is the ONLY way to clear the notification badge
+   */
+  const markAllNotificationsRead = useCallback(async () => {
+    if (!token || isGuest) return;
     
     try {
-      const now = new Date().toISOString();
-      await AsyncStorage.setItem(LAST_NOTIFICATION_VIEW_TIME_KEY, now);
-      setUnreadNotifications(0);
-      console.log(`🔔 Marked notifications as read at ${now}`);
+      console.log('🔔 Marking all notifications as read on server...');
+      
+      const response = await fetch(`${API_URL}/api/notifications/mark-all-read`, {
+        method: 'POST',
+        headers: { 
+          'Authorization': `Bearer ${token}`,
+          'Content-Type': 'application/json'
+        },
+      });
+      
+      if (response.ok) {
+        console.log('🔔 Server confirmed all notifications read');
+        // Immediately set to 0 (server confirmed)
+        setUnreadNotifications(0);
+        // Also fetch fresh count to be absolutely sure
+        await fetchUnreadNotificationCount();
+      }
     } catch (error) {
       console.error('Error marking notifications as read:', error);
+      // On error, still fetch fresh count from server
+      await fetchUnreadNotificationCount();
     }
-  }, [token]);
+  }, [token, isGuest, fetchUnreadNotificationCount]);
 
-  // Mark messages as read
-  const markMessagesAsRead = useCallback(() => {
-    setUnreadMessages(0);
-  }, []);
+  /**
+   * Refresh all badges - calls server for authoritative counts
+   */
+  const refreshBadges = useCallback(async () => {
+    await fetchUnreadCount();
+  }, [fetchUnreadCount]);
 
-  // Initialize on mount and token change
+  // Initialize on token change
   useEffect(() => {
-    if (token && !isGuest) {
-      setIsInitialized(false);
-      refreshBadges();
-    } else {
+    // Detect token change
+    if (token !== tokenRef.current) {
+      tokenRef.current = token;
+      initializedRef.current = false;
+    }
+    
+    if (token && !isGuest && !initializedRef.current) {
+      initializedRef.current = true;
+      fetchUnreadCount();
+    } else if (!token || isGuest) {
       setUnreadNotifications(0);
       setUnreadMessages(0);
-      setIsInitialized(true);
     }
-  }, [token, isGuest]);
+  }, [token, isGuest, fetchUnreadCount]);
 
   // Periodic refresh every 2 minutes
   useEffect(() => {
     if (!token || isGuest) return;
     
     const interval = setInterval(() => {
-      fetchUnreadNotifications();
-      fetchUnreadMessages();
+      fetchUnreadCount();
     }, 120000);
     
     return () => clearInterval(interval);
-  }, [token, isGuest, fetchUnreadNotifications, fetchUnreadMessages]);
+  }, [token, isGuest, fetchUnreadCount]);
 
-  // Calculate total badge count (notifications + messages)
+  // Calculate total badge count
   const totalBadgeCount = unreadNotifications + unreadMessages;
 
   const value: BadgeContextType = {
     unreadNotifications,
     unreadMessages,
     totalBadgeCount,
-    setUnreadNotifications,
-    setUnreadMessages,
+    isFetching,
+    fetchUnreadCount,
+    markAllNotificationsRead,
     refreshBadges,
-    markNotificationsAsRead,
-    markMessagesAsRead,
-    isInitialized,
   };
 
   return (
