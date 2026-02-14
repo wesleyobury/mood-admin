@@ -25,6 +25,8 @@ const TYPE_ICONS: Record<string, { name: string; color: string }> = {
   like: { name: 'heart', color: '#FF6B6B' },
   message: { name: 'mail', color: '#45B7D1' },
   message_request: { name: 'mail-unread', color: '#9B59B6' },
+  mention: { name: 'at', color: '#9B59B6' },
+  reply: { name: 'return-down-forward', color: '#4ECDC4' },
   workout_reminder: { name: 'fitness', color: '#FF9F43' },
   featured_workout: { name: 'flash', color: '#FFD700' },
   featured_suggestion: { name: 'sparkles', color: '#FFD700' },
