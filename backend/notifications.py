@@ -282,6 +282,8 @@ class NotificationService:
             NotificationType.FOLLOW: "follows_enabled",
             NotificationType.MESSAGE: "messages_enabled",
             NotificationType.MESSAGE_REQUEST: "message_requests_enabled",
+            NotificationType.MENTION: "comments_enabled",  # Mentions use comments setting
+            NotificationType.REPLY: "comments_enabled",  # Replies use comments setting
             NotificationType.WORKOUT_REMINDER: "workout_reminders_enabled",
             NotificationType.FEATURED_WORKOUT: "featured_workouts_enabled",
             NotificationType.FEATURED_SUGGESTION: "featured_suggestions_enabled",
