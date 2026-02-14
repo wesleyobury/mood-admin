@@ -3,8 +3,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import Constants from 'expo-constants';
 
 const API_URL = process.env.EXPO_PUBLIC_BACKEND_URL || Constants.expoConfig?.extra?.EXPO_PUBLIC_BACKEND_URL || '';
-const LAST_NOTIFICATION_VIEW_KEY = 'last_notification_view_ids';
-const NOTIFICATION_BASELINE_SET_KEY = 'notification_baseline_set';
+const LAST_NOTIFICATION_VIEW_TIME_KEY = 'last_notification_view_time';
 
 interface BadgeContextType {
   unreadNotifications: number;
@@ -44,7 +43,7 @@ export function BadgeProvider({ children, token, isGuest }: BadgeProviderProps) 
   const [isInitialized, setIsInitialized] = useState(false);
   const initializingRef = useRef(false);
 
-  // Fetch unread notifications - count those NOT in the seen list
+  // Fetch unread notifications - count those created AFTER last view time
   const fetchUnreadNotifications = useCallback(async () => {
     if (!token || isGuest) {
       setUnreadNotifications(0);
@@ -52,20 +51,16 @@ export function BadgeProvider({ children, token, isGuest }: BadgeProviderProps) 
     }
     
     try {
-      // Check if we've ever set a baseline for this user
-      const baselineSet = await AsyncStorage.getItem(NOTIFICATION_BASELINE_SET_KEY);
-      const seenIdsStr = await AsyncStorage.getItem(LAST_NOTIFICATION_VIEW_KEY);
+      // Get last view time from storage
+      const lastViewTimeStr = await AsyncStorage.getItem(LAST_NOTIFICATION_VIEW_TIME_KEY);
+      let lastViewTime: Date | null = null;
       
-      let seenIds: string[] = [];
-      try {
-        if (seenIdsStr) {
-          const parsed = JSON.parse(seenIdsStr);
-          if (Array.isArray(parsed)) {
-            seenIds = parsed;
-          }
+      if (lastViewTimeStr) {
+        lastViewTime = new Date(lastViewTimeStr);
+        // Validate the date
+        if (isNaN(lastViewTime.getTime())) {
+          lastViewTime = null;
         }
-      } catch {
-        seenIds = [];
       }
       
       // Fetch all notifications from server
@@ -77,28 +72,22 @@ export function BadgeProvider({ children, token, isGuest }: BadgeProviderProps) 
         const data = await response.json();
         const allNotifications = data.notifications || [];
         
-        // FIRST TIME EVER using the app - baseline has never been set
-        // Only do this ONCE per user (tracked by NOTIFICATION_BASELINE_SET_KEY)
-        if (!baselineSet && allNotifications.length > 0) {
-          console.log('🔔 First time setup: setting notification baseline');
-          const notificationIds = allNotifications.map((n: any) => n.id);
-          await AsyncStorage.setItem(LAST_NOTIFICATION_VIEW_KEY, JSON.stringify(notificationIds));
-          await AsyncStorage.setItem(NOTIFICATION_BASELINE_SET_KEY, 'true');
+        // FIRST TIME EVER - no last view time set
+        // Set current time as baseline, show 0 unread
+        if (!lastViewTime) {
+          console.log('🔔 First time: setting notification baseline time');
+          await AsyncStorage.setItem(LAST_NOTIFICATION_VIEW_TIME_KEY, new Date().toISOString());
           setUnreadNotifications(0);
           return;
         }
         
-        // Count notifications that are NOT in the seen list (new notifications)
-        const unseenNotifications = allNotifications.filter(
-          (n: any) => !seenIds.includes(n.id)
-        );
+        // Count notifications created AFTER last view time
+        const unseenNotifications = allNotifications.filter((n: any) => {
+          const notifTime = new Date(n.created_at);
+          return notifTime > lastViewTime!;
+        });
         
-        // Log for debugging
-        console.log(`🔔 Badge: ${unseenNotifications.length} new, ${allNotifications.length} total, ${seenIds.length} seen`);
-        if (unseenNotifications.length > 0) {
-          console.log(`🔔 New notification IDs: ${unseenNotifications.map((n: any) => n.id.slice(-6)).join(', ')}`);
-        }
-        
+        console.log(`🔔 Badge: ${unseenNotifications.length} new since ${lastViewTime.toISOString()}`);
         setUnreadNotifications(unseenNotifications.length);
       }
     } catch (error) {
@@ -121,7 +110,6 @@ export function BadgeProvider({ children, token, isGuest }: BadgeProviderProps) 
       if (response.ok) {
         const data = await response.json();
         const count = data.unread_count || 0;
-        console.log(`🔔 Messages: ${count} unread`);
         setUnreadMessages(count);
       }
     } catch (error) {
@@ -145,23 +133,15 @@ export function BadgeProvider({ children, token, isGuest }: BadgeProviderProps) 
     }
   }, [fetchUnreadNotifications, fetchUnreadMessages]);
 
-  // Mark notifications as read - update seen list with ALL current notification IDs
+  // Mark notifications as read - update last view time to NOW
   const markNotificationsAsRead = useCallback(async () => {
     if (!token) return;
     
     try {
-      const response = await fetch(`${API_URL}/api/notifications`, {
-        headers: { 'Authorization': `Bearer ${token}` },
-      });
-      
-      if (response.ok) {
-        const data = await response.json();
-        const allNotifications = data.notifications || [];
-        const notificationIds = allNotifications.map((n: any) => n.id);
-        await AsyncStorage.setItem(LAST_NOTIFICATION_VIEW_KEY, JSON.stringify(notificationIds));
-        setUnreadNotifications(0);
-        console.log(`🔔 Marked ${notificationIds.length} notifications as read`);
-      }
+      const now = new Date().toISOString();
+      await AsyncStorage.setItem(LAST_NOTIFICATION_VIEW_TIME_KEY, now);
+      setUnreadNotifications(0);
+      console.log(`🔔 Marked notifications as read at ${now}`);
     } catch (error) {
       console.error('Error marking notifications as read:', error);
     }
