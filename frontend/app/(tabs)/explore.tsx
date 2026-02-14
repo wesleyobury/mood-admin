@@ -245,17 +245,23 @@ export default function Explore() {
     fetchPosts();
   }, [token, activeTab, isGuest]);
 
-  // Scroll to top when this screen is focused and refresh notification count
+  // Scroll to top and reset to "For You" when this screen is focused
   useFocusEffect(
     React.useCallback(() => {
+      // Scroll to top
       if (scrollViewRef.current) {
-        scrollViewRef.current.scrollTo({ y: 0, animated: false });
+        scrollViewRef.current.scrollTo({ y: 0, animated: true });
+      }
+      // Reset to "For You" tab when returning to Explore
+      if (activeTab !== 'forYou') {
+        setActiveTab('forYou');
       }
       // Refresh notification count when screen gains focus
       if (token && !isGuest) {
         fetchUnreadCount();
+        refreshBadges();
       }
-    }, [token, isGuest])
+    }, [token, isGuest, activeTab, refreshBadges])
   );
 
   const fetchPosts = async (loadMore = false, retryCount = 0) => {
