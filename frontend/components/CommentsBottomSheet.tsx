@@ -295,7 +295,31 @@ export default function CommentsBottomSheet({ postId, authToken, onClose, onComm
     return `${Math.floor(seconds / 604800)}w`;
   };
 
-  // Render text with highlighted @mentions
+  // Look up user by username and navigate to profile
+  const handleMentionPress = async (username: string) => {
+    // Remove @ symbol
+    const cleanUsername = username.replace('@', '');
+    
+    try {
+      // Search for the user
+      const response = await fetch(`${API_URL}/api/users/search/mention?q=${encodeURIComponent(cleanUsername)}&limit=1`, {
+        headers: {
+          'Authorization': `Bearer ${authToken}`,
+        },
+      });
+
+      if (response.ok) {
+        const users = await response.json();
+        if (users.length > 0 && users[0].username.toLowerCase() === cleanUsername.toLowerCase()) {
+          onUserPress && onUserPress(users[0].id);
+        }
+      }
+    } catch (error) {
+      console.error('[CommentsBottomSheet] Error looking up mentioned user:', error);
+    }
+  };
+
+  // Render text with highlighted and clickable @mentions
   const renderCommentText = (text: string) => {
     const parts = text.split(/(@\w+)/g);
     return (
@@ -303,7 +327,11 @@ export default function CommentsBottomSheet({ postId, authToken, onClose, onComm
         {parts.map((part, index) => {
           if (part.startsWith('@')) {
             return (
-              <Text key={index} style={styles.mentionText}>
+              <Text 
+                key={index} 
+                style={styles.mentionText}
+                onPress={() => handleMentionPress(part)}
+              >
                 {part}
               </Text>
             );
@@ -314,7 +342,7 @@ export default function CommentsBottomSheet({ postId, authToken, onClose, onComm
     );
   };
 
-  const renderComment = (comment: Comment, isReply: boolean = false) => {
+  const renderComment = (comment: Comment, isReply: boolean = false, depth: number = 0) => {
     const avatarUrl = comment.author?.avatar 
       ? (comment.author.avatar.startsWith('http') 
           ? comment.author.avatar 
@@ -325,6 +353,10 @@ export default function CommentsBottomSheet({ postId, authToken, onClose, onComm
     const isExpanded = expandedReplies.has(comment.id);
     const replies = repliesData[comment.id] || [];
     const isLoadingReplies = loadingReplies.has(comment.id);
+    
+    // Limit nesting depth to prevent infinite nesting UI issues
+    const maxDepth = 3;
+    const canShowNestedReplies = depth < maxDepth;
 
     return (
       <View key={comment.id} style={[styles.commentContainer, isReply && styles.replyContainer]}>
