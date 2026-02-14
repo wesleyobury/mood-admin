@@ -6674,43 +6674,9 @@ async def get_user_notifications(
         "has_more": len(notifications) > skip + limit
     }
 
-@api_router.get("/notifications/unread-count")
-async def get_unread_notifications_count(
-    current_user_id: str = Depends(get_current_user)
-):
-    """Get count of unread notifications (activities in last 24 hours)"""
-    twenty_four_hours_ago = datetime.now(timezone.utc) - timedelta(hours=24)
-    
-    # Get user's post IDs as ObjectIds
-    user_posts = await db.posts.find(
-        {"author_id": ObjectId(current_user_id)}
-    ).to_list(1000)
-    user_post_ids = [post["_id"] for post in user_posts]  # Keep as ObjectId
-    user_post_ids_str = [str(post["_id"]) for post in user_posts]  # String version for comments
-    
-    # Count likes in last 24 hours (post_likes uses ObjectId for post_id)
-    likes_count = await db.post_likes.count_documents({
-        "post_id": {"$in": user_post_ids},
-        "user_id": {"$ne": ObjectId(current_user_id)},
-        "created_at": {"$gte": twenty_four_hours_ago}
-    })
-    
-    # Count comments in last 24 hours (comments uses string for post_id)
-    comments_count = await db.comments.count_documents({
-        "post_id": {"$in": user_post_ids_str},
-        "author_id": {"$ne": current_user_id},
-        "created_at": {"$gte": twenty_four_hours_ago}
-    })
-    
-    # Count new followers in last 24 hours
-    follows_count = await db.follows.count_documents({
-        "following_id": ObjectId(current_user_id),
-        "created_at": {"$gte": twenty_four_hours_ago}
-    })
-    
-    total = likes_count + comments_count + follows_count
-    
-    return {"unread_count": total}
+# NOTE: The old /notifications/unread-count endpoint was removed.
+# Use the correct one defined later that uses the NotificationService.get_unread_count()
+# which properly tracks read_at status.
 
 # ============================================
 # CONTENT MODERATION ENDPOINTS
