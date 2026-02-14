@@ -231,8 +231,10 @@ export default function CommentsBottomSheet({ postId, authToken, onClose, onComm
         setMentionedUsers([]);
         
         if (replyingTo) {
-          // Refresh replies for parent comment
-          fetchReplies(replyingTo.id);
+          // Keep the replies expanded and refresh them
+          const parentId = replyingTo.id;
+          setExpandedReplies(prev => new Set(prev).add(parentId));
+          fetchReplies(parentId);
           setReplyingTo(null);
         }
         
