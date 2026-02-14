@@ -5629,11 +5629,15 @@ async def search_users_for_mention(q: str, limit: int = 10, current_user_id: str
         return []
     
     try:
-        # Search by username (case-insensitive prefix match)
+        # Search by username OR name (case-insensitive, contains match for better UX)
+        search_regex = {"$regex": re.escape(q), "$options": "i"}
         pipeline = [
             {
                 "$match": {
-                    "username": {"$regex": f"^{re.escape(q)}", "$options": "i"}
+                    "$or": [
+                        {"username": search_regex},
+                        {"name": search_regex}
+                    ]
                 }
             },
             {"$limit": limit},
@@ -5649,6 +5653,7 @@ async def search_users_for_mention(q: str, limit: int = 10, current_user_id: str
         ]
         
         users = await db.users.aggregate(pipeline).to_list(length=limit)
+        logger.info(f"[Mention Search] Query: '{q}', Found: {len(users)} users")
         return users
     except Exception as e:
         logger.error(f"Error searching users for mention: {str(e)}")
