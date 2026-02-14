@@ -166,12 +166,26 @@ export default function Chat() {
   };
 
   const formatTime = (dateString: string) => {
-    const date = new Date(dateString);
+    // Handle ISO date strings - append Z if no timezone specified to treat as UTC
+    let date: Date;
+    if (dateString.endsWith('Z') || /[+-]\d{2}:\d{2}$/.test(dateString)) {
+      date = new Date(dateString);
+    } else {
+      // Assume UTC if no timezone, then convert to local
+      date = new Date(dateString + 'Z');
+    }
     return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
   };
 
   const formatDate = (dateString: string) => {
-    const date = new Date(dateString);
+    // Handle ISO date strings - append Z if no timezone specified to treat as UTC
+    let date: Date;
+    if (dateString.endsWith('Z') || /[+-]\d{2}:\d{2}$/.test(dateString)) {
+      date = new Date(dateString);
+    } else {
+      date = new Date(dateString + 'Z');
+    }
+    
     const today = new Date();
     const yesterday = new Date(today);
     yesterday.setDate(yesterday.getDate() - 1);
