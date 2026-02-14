@@ -11,7 +11,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const API_URL = Constants.expoConfig?.extra?.EXPO_BACKEND_URL || 
   process.env.EXPO_PUBLIC_BACKEND_URL || 
-  'https://ui-refresh-161.preview.emergentagent.com';
+  'https://badgefix-2.preview.emergentagent.com';
 
 // Configure notification handler
 Notifications.setNotificationHandler({
