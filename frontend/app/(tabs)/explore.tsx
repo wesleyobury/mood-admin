@@ -161,8 +161,8 @@ export default function Explore() {
   // Handle tab query parameter from navigation
   const params = useLocalSearchParams<{ tab?: string }>();
   
-  // Get badge context for notification counts
-  const { unreadNotifications, markNotificationsAsRead, refreshBadges } = useBadges();
+  // Get badge context for notification counts - SERVER AUTHORITATIVE
+  const { unreadNotifications, markAllNotificationsRead, refreshBadges } = useBadges();
   
   const [posts, setPosts] = useState<Post[]>([]);
   const [refreshing, setRefreshing] = useState(false);
@@ -209,7 +209,6 @@ export default function Explore() {
   const [notifications, setNotifications] = useState<Notification[]>([]);
   const [notificationsLoading, setNotificationsLoading] = useState(false);
   const [notificationsRefreshing, setNotificationsRefreshing] = useState(false);
-  const [unreadNotificationCount, setUnreadNotificationCount] = useState(0);
 
   // Double tap to like functionality
   const lastTap = useRef<number>(0);
