@@ -459,7 +459,7 @@ export default function CommentsBottomSheet({ postId, authToken, onClose, onComm
             <Text style={styles.emptySubtext}>Be the first to comment!</Text>
           </View>
         ) : (
-          comments.map((comment) => renderComment(comment))
+          comments.map((comment) => renderComment(comment, false, 0))
         )}
       </ScrollView>
 
