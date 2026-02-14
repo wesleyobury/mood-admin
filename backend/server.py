@@ -5405,7 +5405,7 @@ async def like_post(post_id: str, current_user_id: str = Depends(get_current_use
 
 @api_router.post("/comments")
 async def create_comment(comment_data: CommentCreate, current_user_id: str = Depends(get_current_user)):
-    """Create a comment on a post with content filtering"""
+    """Create a comment on a post with content filtering, reply threads, and @mentions"""
     # Check if user has accepted terms
     await check_terms_accepted(current_user_id)
     
@@ -5436,13 +5436,27 @@ async def create_comment(comment_data: CommentCreate, current_user_id: str = Dep
                 detail="This content violates our community guidelines."
             )
         
+        # Build comment document
         comment_doc = {
-            **comment_data.dict(),
+            "post_id": comment_data.post_id,
+            "text": comment_data.text,
             "author_id": current_user_id,
-            "created_at": datetime.now(timezone.utc)
+            "created_at": datetime.now(timezone.utc),
+            "parent_comment_id": comment_data.parent_comment_id,  # None for top-level comments
+            "mentioned_user_ids": comment_data.mentioned_user_ids or [],
+            "replies_count": 0,
+            "likes_count": 0
         }
         
         result = await db.comments.insert_one(comment_doc)
+        comment_id = str(result.inserted_id)
+        
+        # If this is a reply, increment the parent comment's reply count
+        if comment_data.parent_comment_id:
+            await db.comments.update_one(
+                {"_id": ObjectId(comment_data.parent_comment_id)},
+                {"$inc": {"replies_count": 1}}
+            )
         
         # Update post comment count
         await db.posts.update_one(
@@ -5450,7 +5464,7 @@ async def create_comment(comment_data: CommentCreate, current_user_id: str = Dep
             {"$inc": {"comments_count": 1}}
         )
         
-        # Trigger comment notification
+        # Trigger comment notification to post author
         try:
             notification_service = get_notification_service(db)
             await notification_service.trigger_comment_notification(
@@ -5461,7 +5475,40 @@ async def create_comment(comment_data: CommentCreate, current_user_id: str = Dep
         except Exception as e:
             logger.error(f"Failed to send comment notification: {e}")
         
-        return {"message": "Comment created successfully", "id": str(result.inserted_id)}
+        # Trigger mention notifications to mentioned users
+        if comment_data.mentioned_user_ids:
+            try:
+                notification_service = get_notification_service(db)
+                for mentioned_user_id in comment_data.mentioned_user_ids:
+                    # Don't notify yourself
+                    if mentioned_user_id != current_user_id:
+                        await notification_service.create_notification(
+                            user_id=mentioned_user_id,
+                            notification_type="mention",
+                            actor_id=current_user_id,
+                            post_id=comment_data.post_id,
+                            comment_text=comment_data.text[:100]
+                        )
+            except Exception as e:
+                logger.error(f"Failed to send mention notifications: {e}")
+        
+        # If this is a reply, notify the parent comment author
+        if comment_data.parent_comment_id:
+            try:
+                parent_comment = await db.comments.find_one({"_id": ObjectId(comment_data.parent_comment_id)})
+                if parent_comment and parent_comment.get("author_id") != current_user_id:
+                    notification_service = get_notification_service(db)
+                    await notification_service.create_notification(
+                        user_id=parent_comment["author_id"],
+                        notification_type="reply",
+                        actor_id=current_user_id,
+                        post_id=comment_data.post_id,
+                        comment_text=comment_data.text[:100]
+                    )
+            except Exception as e:
+                logger.error(f"Failed to send reply notification: {e}")
+        
+        return {"message": "Comment created successfully", "id": comment_id}
     except HTTPException:
         raise
     except:
