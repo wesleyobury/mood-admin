@@ -5573,6 +5573,7 @@ async def get_post_comments(post_id: str, limit: int = 50, parent_id: Optional[s
                     "parent_comment_id": 1,
                     "mentioned_user_ids": {"$ifNull": ["$mentioned_user_ids", []]},
                     "replies_count": {"$ifNull": ["$replies_count", 0]},
+                    "total_thread_replies": {"$ifNull": ["$total_thread_replies", 0]},
                     "likes_count": {"$ifNull": ["$likes_count", 0]},
                     "author": {
                         "id": {"$toString": "$author._id"},
