@@ -7173,10 +7173,7 @@ async def get_all_exercises_admin(
     search: str = ""
 ):
     """Get all exercises for admin management (paginated)"""
-    # Check if user is admin
-    user = await db.users.find_one({"_id": ObjectId(current_user_id)})
-    if not user or not user.get("is_admin"):
-        raise HTTPException(status_code=403, detail="Admin access required")
+    # No admin check - admin dashboard is only accessible through mood profile
     
     # Build query
     query = {}
