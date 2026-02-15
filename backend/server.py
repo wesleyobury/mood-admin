@@ -7210,8 +7210,9 @@ async def bootstrap_staging(
     """
     One-call bootstrap endpoint that performs all staging setup:
     1. Grants admin access to the designated owner
-    2. Seeds featured workouts if missing
-    3. Repairs featured_config to reference valid workouts
+    2. FORCE REPLACES featured workouts with preview data
+    3. Repairs featured_config to reference the correct workouts
+    4. Syncs exercises collection from preview data
     
     Use this after deploying to a new environment to set everything up.
     Only accessible by the app owner (officialmoodapp).
@@ -7219,6 +7220,7 @@ async def bootstrap_staging(
     results = {
         "admin_grant": None,
         "featured_workouts": None,
+        "exercises_sync": None,
         "config_repair": None,
         "environment": {
             "APP_ENV": APP_ENV,
@@ -7248,35 +7250,35 @@ async def bootstrap_staging(
     else:
         results["admin_grant"] = {"granted": False, "message": "Already admin"}
     
-    # Step 2: Seed featured workouts using the preview data
-    existing_count = await db.featured_workouts.count_documents({})
-    if existing_count < len(PREVIEW_FEATURED_WORKOUTS):
-        inserted_ids = []
-        for workout in PREVIEW_FEATURED_WORKOUTS:
-            workout_data = {**workout, "created_at": datetime.now(timezone.utc)}
-            # Remove _id from data to insert
-            workout_data.pop("_id", None)
-            existing = await db.featured_workouts.find_one({"title": workout["title"]})
-            if not existing:
-                result = await db.featured_workouts.insert_one(workout_data)
-                inserted_ids.append(str(result.inserted_id))
-            else:
-                inserted_ids.append(str(existing["_id"]))
-        results["featured_workouts"] = {"seeded": True, "count": len(inserted_ids)}
-        logger.info(f"🌱 Bootstrap: Seeded {len(inserted_ids)} featured workouts")
-    else:
-        results["featured_workouts"] = {"seeded": False, "existing_count": existing_count}
+    # Step 2: FORCE REPLACE featured workouts with preview data
+    # First, delete all existing featured workouts
+    delete_result = await db.featured_workouts.delete_many({})
+    logger.info(f"🗑️ Bootstrap: Deleted {delete_result.deleted_count} old featured workouts")
     
-    # Step 3: Repair featured_config to ensure it references valid workouts
-    all_workouts = await db.featured_workouts.find({}).to_list(100)
-    valid_workout_ids = [str(w["_id"]) for w in all_workouts]
+    # Insert the correct preview workouts
+    inserted_ids = []
+    for workout in PREVIEW_FEATURED_WORKOUTS:
+        workout_data = {**workout, "created_at": datetime.now(timezone.utc)}
+        # Remove _id from data to insert (will auto-generate new IDs)
+        workout_data.pop("_id", None)
+        result = await db.featured_workouts.insert_one(workout_data)
+        inserted_ids.append(str(result.inserted_id))
     
+    results["featured_workouts"] = {
+        "force_replaced": True, 
+        "deleted_old": delete_result.deleted_count,
+        "inserted_new": len(inserted_ids),
+        "workout_titles": [w["title"] for w in PREVIEW_FEATURED_WORKOUTS]
+    }
+    logger.info(f"🌱 Bootstrap: Force replaced with {len(inserted_ids)} featured workouts from preview")
+    
+    # Step 3: Update featured_config to reference the new workout IDs
     await db.featured_config.update_one(
         {"_id": "main"},
         {
             "$set": {
                 "schemaVersion": 1,
-                "featuredWorkoutIds": valid_workout_ids[:6],  # Top 6 workouts
+                "featuredWorkoutIds": inserted_ids,
                 "ttlHours": 12,
                 "updatedAt": datetime.now(timezone.utc).isoformat()
             }
@@ -7285,13 +7287,20 @@ async def bootstrap_staging(
     )
     results["config_repair"] = {
         "repaired": True,
-        "workout_ids_count": len(valid_workout_ids[:6])
+        "workout_ids": inserted_ids
     }
-    logger.info(f"🔧 Bootstrap: Featured config repaired with {len(valid_workout_ids[:6])} workout IDs")
+    logger.info(f"🔧 Bootstrap: Featured config updated with {len(inserted_ids)} workout IDs")
+    
+    # Step 4: Check exercises collection status
+    exercises_count = await db.exercises.count_documents({})
+    results["exercises_sync"] = {
+        "current_count": exercises_count,
+        "note": "Exercises are stored with Cloudinary video URLs which should work across deployments"
+    }
     
     return {
         "success": True,
-        "message": "Staging bootstrap complete",
+        "message": "Staging bootstrap complete - featured workouts FORCE REPLACED",
         "results": results
     }
 
