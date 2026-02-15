@@ -409,8 +409,26 @@ export default function Explore() {
       
       if (response.ok) {
         const data = await response.json();
-        const allNotifications = data.notifications || [];
-        setNotifications(allNotifications);
+        const rawNotifications = data.notifications || [];
+        
+        // Map backend notification format to frontend format
+        const mappedNotifications = rawNotifications.map((n: any) => ({
+          id: n.id,
+          type: n.type,
+          user: {
+            id: n.actor?.id || '',
+            username: n.actor?.username || 'Unknown',
+            name: n.actor?.name || '',
+            avatar: n.actor?.avatar || null,
+          },
+          post_id: n.entity_type === 'post' ? n.entity_id : undefined,
+          post_preview: n.image_url || null,
+          comment_text: n.body,
+          created_at: n.created_at,
+          message: n.body || n.title || '',
+        }));
+        
+        setNotifications(mappedNotifications);
       }
     } catch (error) {
       console.error('Error fetching notifications:', error);
