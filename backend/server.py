@@ -7783,11 +7783,8 @@ async def update_featured_config(
 async def list_featured_workouts(
     current_user_id: str = Depends(get_current_user)
 ):
-    """List all featured workouts (admin only)"""
-    user = await db.users.find_one({"_id": ObjectId(current_user_id)})
-    is_admin = user and user.get("username", "").lower() == "officialmoodapp"
-    if not is_admin:
-        raise HTTPException(status_code=403, detail="Admin access required")
+    """List all featured workouts"""
+    # No admin check needed - admin dashboard only accessible through mood profile
     
     workouts = await db.featured_workouts.find().sort("created_at", -1).to_list(100)
     
